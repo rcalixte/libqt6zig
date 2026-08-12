@@ -36,16 +36,24 @@ pub const KParts__NavigationExtension = extern struct {
     pub const _is_KParts__NavigationExtension = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new KParts::NavigationExtension object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KParts::NavigationExtension object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: KParts__ReadOnlyPart `
+    /// ` _parent: KParts__ReadOnlyPart `
     ///
-    pub fn New(parent: anytype) KParts__NavigationExtension {
-        comptime _ = @TypeOf(parent)._is_KParts__ReadOnlyPart;
-        return .{ .ptr = qtc.KParts__NavigationExtension_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) KParts__NavigationExtension {
+        comptime _ = @TypeOf(_parent)._is_KParts__ReadOnlyPart;
+        return .{ .ptr = qtc.KParts__NavigationExtension_new(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -53,9 +61,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` self: KParts__NavigationExtension `
     ///
-    pub fn MetaObject(self: KParts__NavigationExtension) QMetaObject {
+    pub fn metaObject(self: KParts__NavigationExtension) QMetaObject {
         return .{ .ptr = qtc.KParts__NavigationExtension_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -67,13 +79,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KParts__NavigationExtension, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KParts__NavigationExtension, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KParts__NavigationExtension_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -83,9 +95,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` self: KParts__NavigationExtension `
     ///
-    pub fn SuperMetaObject(self: KParts__NavigationExtension) QMetaObject {
+    pub fn superMetaObject(self: KParts__NavigationExtension) QMetaObject {
         return .{ .ptr = qtc.KParts__NavigationExtension_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -93,10 +109,14 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KParts__NavigationExtension, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KParts__NavigationExtension, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KParts__NavigationExtension_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -106,13 +126,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` callback: *const fn (self: KParts__NavigationExtension, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KParts__NavigationExtension_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -122,10 +142,14 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KParts__NavigationExtension, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KParts__NavigationExtension, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KParts__NavigationExtension_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -137,9 +161,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KParts__NavigationExtension, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KParts__NavigationExtension, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KParts__NavigationExtension_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -149,13 +177,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` callback: *const fn (self: KParts__NavigationExtension, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KParts__NavigationExtension_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -169,9 +197,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KParts__NavigationExtension, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KParts__NavigationExtension, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KParts__NavigationExtension_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -181,25 +213,33 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KParts__NavigationExtension.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KParts__NavigationExtension.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `xOffset` instead
+    ///
+    pub const XOffset = xOffset;
+
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#xOffset)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KParts__NavigationExtension `
     ///
-    pub fn XOffset(self: KParts__NavigationExtension) i32 {
+    pub fn xOffset(self: KParts__NavigationExtension) i32 {
         return qtc.KParts__NavigationExtension_XOffset(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onXOffset` instead
+    ///
+    pub const OnXOffset = onXOffset;
+
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#xOffset)
     ///
     /// Allows for overriding the related default method
@@ -210,13 +250,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnXOffset(self: KParts__NavigationExtension, callback: *const fn () callconv(.c) i32) void {
+    pub fn onXOffset(self: KParts__NavigationExtension, callback: *const fn () callconv(.c) i32) void {
         qtc.KParts__NavigationExtension_OnXOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperXOffset` instead
+    /// ### DEPRECATED: Use `superXOffset` instead
     ///
-    pub const QBaseXOffset = SuperXOffset;
+    pub const SuperXOffset = superXOffset;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#xOffset)
     ///
@@ -226,9 +266,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` self: KParts__NavigationExtension `
     ///
-    pub fn SuperXOffset(self: KParts__NavigationExtension) i32 {
+    pub fn superXOffset(self: KParts__NavigationExtension) i32 {
         return qtc.KParts__NavigationExtension_SuperXOffset(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `yOffset` instead
+    ///
+    pub const YOffset = yOffset;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#yOffset)
     ///
@@ -236,9 +280,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` self: KParts__NavigationExtension `
     ///
-    pub fn YOffset(self: KParts__NavigationExtension) i32 {
+    pub fn yOffset(self: KParts__NavigationExtension) i32 {
         return qtc.KParts__NavigationExtension_YOffset(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onYOffset` instead
+    ///
+    pub const OnYOffset = onYOffset;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#yOffset)
     ///
@@ -250,13 +298,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnYOffset(self: KParts__NavigationExtension, callback: *const fn () callconv(.c) i32) void {
+    pub fn onYOffset(self: KParts__NavigationExtension, callback: *const fn () callconv(.c) i32) void {
         qtc.KParts__NavigationExtension_OnYOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperYOffset` instead
+    /// ### DEPRECATED: Use `superYOffset` instead
     ///
-    pub const QBaseYOffset = SuperYOffset;
+    pub const SuperYOffset = superYOffset;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#yOffset)
     ///
@@ -266,9 +314,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` self: KParts__NavigationExtension `
     ///
-    pub fn SuperYOffset(self: KParts__NavigationExtension) i32 {
+    pub fn superYOffset(self: KParts__NavigationExtension) i32 {
         return qtc.KParts__NavigationExtension_SuperYOffset(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveState` instead
+    ///
+    pub const SaveState = saveState;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#saveState)
     ///
@@ -278,11 +330,15 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` stream: QDataStream `
     ///
-    pub fn SaveState(self: KParts__NavigationExtension, stream: anytype) void {
+    pub fn saveState(self: KParts__NavigationExtension, stream: anytype) void {
         comptime _ = @TypeOf(stream)._is_QDataStream;
         qtc.KParts__NavigationExtension_SaveState(@ptrCast(self.ptr), @ptrCast(stream.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSaveState` instead
+    ///
+    pub const OnSaveState = onSaveState;
+
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#saveState)
     ///
     /// Allows for overriding the related default method
@@ -293,13 +349,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` callback: *const fn (self: KParts__NavigationExtension, stream: QDataStream) callconv(.c) void `
     ///
-    pub fn OnSaveState(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, QDataStream) callconv(.c) void) void {
+    pub fn onSaveState(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, QDataStream) callconv(.c) void) void {
         qtc.KParts__NavigationExtension_OnSaveState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSaveState` instead
+    /// ### DEPRECATED: Use `superSaveState` instead
     ///
-    pub const QBaseSaveState = SuperSaveState;
+    pub const SuperSaveState = superSaveState;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#saveState)
     ///
@@ -311,11 +367,15 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` stream: QDataStream `
     ///
-    pub fn SuperSaveState(self: KParts__NavigationExtension, stream: anytype) void {
+    pub fn superSaveState(self: KParts__NavigationExtension, stream: anytype) void {
         comptime _ = @TypeOf(stream)._is_QDataStream;
         qtc.KParts__NavigationExtension_SuperSaveState(@ptrCast(self.ptr), @ptrCast(stream.ptr));
     }
 
+    /// ### DEPRECATED: Use `restoreState` instead
+    ///
+    pub const RestoreState = restoreState;
+
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#restoreState)
     ///
     /// ## Parameter(s):
@@ -324,10 +384,14 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` stream: QDataStream `
     ///
-    pub fn RestoreState(self: KParts__NavigationExtension, stream: anytype) void {
+    pub fn restoreState(self: KParts__NavigationExtension, stream: anytype) void {
         comptime _ = @TypeOf(stream)._is_QDataStream;
         qtc.KParts__NavigationExtension_RestoreState(@ptrCast(self.ptr), @ptrCast(stream.ptr));
     }
+
+    /// ### DEPRECATED: Use `onRestoreState` instead
+    ///
+    pub const OnRestoreState = onRestoreState;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#restoreState)
     ///
@@ -339,13 +403,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` callback: *const fn (self: KParts__NavigationExtension, stream: QDataStream) callconv(.c) void `
     ///
-    pub fn OnRestoreState(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, QDataStream) callconv(.c) void) void {
+    pub fn onRestoreState(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, QDataStream) callconv(.c) void) void {
         qtc.KParts__NavigationExtension_OnRestoreState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperRestoreState` instead
+    /// ### DEPRECATED: Use `superRestoreState` instead
     ///
-    pub const QBaseRestoreState = SuperRestoreState;
+    pub const SuperRestoreState = superRestoreState;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#restoreState)
     ///
@@ -357,10 +421,14 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` stream: QDataStream `
     ///
-    pub fn SuperRestoreState(self: KParts__NavigationExtension, stream: anytype) void {
+    pub fn superRestoreState(self: KParts__NavigationExtension, stream: anytype) void {
         comptime _ = @TypeOf(stream)._is_QDataStream;
         qtc.KParts__NavigationExtension_SuperRestoreState(@ptrCast(self.ptr), @ptrCast(stream.ptr));
     }
+
+    /// ### DEPRECATED: Use `isURLDropHandlingEnabled` instead
+    ///
+    pub const IsURLDropHandlingEnabled = isURLDropHandlingEnabled;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#isURLDropHandlingEnabled)
     ///
@@ -368,9 +436,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` self: KParts__NavigationExtension `
     ///
-    pub fn IsURLDropHandlingEnabled(self: KParts__NavigationExtension) bool {
+    pub fn isURLDropHandlingEnabled(self: KParts__NavigationExtension) bool {
         return qtc.KParts__NavigationExtension_IsURLDropHandlingEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setURLDropHandlingEnabled` instead
+    ///
+    pub const SetURLDropHandlingEnabled = setURLDropHandlingEnabled;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#setURLDropHandlingEnabled)
     ///
@@ -380,9 +452,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetURLDropHandlingEnabled(self: KParts__NavigationExtension, enable: bool) void {
+    pub fn setURLDropHandlingEnabled(self: KParts__NavigationExtension, enable: bool) void {
         qtc.KParts__NavigationExtension_SetURLDropHandlingEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `isActionEnabled` instead
+    ///
+    pub const IsActionEnabled = isActionEnabled;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#isActionEnabled)
     ///
@@ -392,10 +468,14 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn IsActionEnabled(self: KParts__NavigationExtension, name: [:0]const u8) bool {
+    pub fn isActionEnabled(self: KParts__NavigationExtension, name: [:0]const u8) bool {
         const name_Cstring = name.ptr;
         return qtc.KParts__NavigationExtension_IsActionEnabled(@ptrCast(self.ptr), name_Cstring);
     }
+
+    /// ### DEPRECATED: Use `actionText` instead
+    ///
+    pub const ActionText = actionText;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#actionText)
     ///
@@ -407,14 +487,18 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn ActionText(self: KParts__NavigationExtension, allocator: std.mem.Allocator, name: [:0]const u8) []const u8 {
+    pub fn actionText(self: KParts__NavigationExtension, allocator: std.mem.Allocator, name: [:0]const u8) []const u8 {
         const name_Cstring = name.ptr;
         var _str = qtc.KParts__NavigationExtension_ActionText(@ptrCast(self.ptr), name_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KParts__NavigationExtension.ActionText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KParts__NavigationExtension.actionText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `actionSlotMap` instead
+    ///
+    pub const ActionSlotMap = actionSlotMap;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#actionSlotMap)
     ///
@@ -422,10 +506,10 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ActionSlotMap(allocator: std.mem.Allocator) ArrayMap_u8_u8 {
+    pub fn actionSlotMap(allocator: std.mem.Allocator) ArrayMap_u8_u8 {
         const _map: qtc.libqt_map = qtc.KParts__NavigationExtension_ActionSlotMap().?.*;
         var _ret: ArrayMap_u8_u8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KParts__NavigationExtension.ActionSlotMap: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KParts__NavigationExtension.actionSlotMap: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
@@ -441,15 +525,19 @@ pub const KParts__NavigationExtension = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("KParts__NavigationExtension.ActionSlotMap: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("KParts__NavigationExtension.actionSlotMap: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("KParts__NavigationExtension.ActionSlotMap: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("KParts__NavigationExtension.actionSlotMap: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
             _ret.putAssumeCapacity(_entry_slice, _value_slice);
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `childObject` instead
+    ///
+    pub const ChildObject = childObject;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#childObject)
     ///
@@ -457,10 +545,14 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn ChildObject(obj: anytype) KParts__NavigationExtension {
+    pub fn childObject(obj: anytype) KParts__NavigationExtension {
         comptime _ = @TypeOf(obj)._is_QObject;
         return .{ .ptr = qtc.KParts__NavigationExtension_ChildObject(@ptrCast(obj.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `pasteRequest` instead
+    ///
+    pub const PasteRequest = pasteRequest;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#pasteRequest)
     ///
@@ -468,9 +560,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` self: KParts__NavigationExtension `
     ///
-    pub fn PasteRequest(self: KParts__NavigationExtension) void {
+    pub fn pasteRequest(self: KParts__NavigationExtension) void {
         qtc.KParts__NavigationExtension_PasteRequest(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `enableAction` instead
+    ///
+    pub const EnableAction = enableAction;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#enableAction)
     ///
@@ -482,10 +578,14 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn EnableAction(self: KParts__NavigationExtension, name: [:0]const u8, enabled: bool) void {
+    pub fn enableAction(self: KParts__NavigationExtension, name: [:0]const u8, enabled: bool) void {
         const name_Cstring = name.ptr;
         qtc.KParts__NavigationExtension_EnableAction(@ptrCast(self.ptr), name_Cstring, enabled);
     }
+
+    /// ### DEPRECATED: Use `setActionText` instead
+    ///
+    pub const SetActionText = setActionText;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#setActionText)
     ///
@@ -497,7 +597,7 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetActionText(self: KParts__NavigationExtension, name: [:0]const u8, text: []const u8) void {
+    pub fn setActionText(self: KParts__NavigationExtension, name: [:0]const u8, text: []const u8) void {
         const name_Cstring = name.ptr;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -505,6 +605,10 @@ pub const KParts__NavigationExtension = extern struct {
         };
         qtc.KParts__NavigationExtension_SetActionText(@ptrCast(self.ptr), name_Cstring, text_str);
     }
+
+    /// ### DEPRECATED: Use `openUrlRequest` instead
+    ///
+    pub const OpenUrlRequest = openUrlRequest;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#openUrlRequest)
     ///
@@ -514,10 +618,14 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn OpenUrlRequest(self: KParts__NavigationExtension, url: anytype) void {
+    pub fn openUrlRequest(self: KParts__NavigationExtension, url: anytype) void {
         comptime _ = @TypeOf(url)._is_QUrl;
         qtc.KParts__NavigationExtension_OpenUrlRequest(@ptrCast(self.ptr), @ptrCast(url.ptr));
     }
+
+    /// ### DEPRECATED: Use `openUrlRequestDelayed` instead
+    ///
+    pub const OpenUrlRequestDelayed = openUrlRequestDelayed;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#openUrlRequestDelayed)
     ///
@@ -529,11 +637,15 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` arguments: KParts__OpenUrlArguments `
     ///
-    pub fn OpenUrlRequestDelayed(self: KParts__NavigationExtension, url: anytype, arguments: anytype) void {
+    pub fn openUrlRequestDelayed(self: KParts__NavigationExtension, url: anytype, arguments: anytype) void {
         comptime _ = @TypeOf(url)._is_QUrl;
         comptime _ = @TypeOf(arguments)._is_KParts__OpenUrlArguments;
         qtc.KParts__NavigationExtension_OpenUrlRequestDelayed(@ptrCast(self.ptr), @ptrCast(url.ptr), @ptrCast(arguments.ptr));
     }
+
+    /// ### DEPRECATED: Use `openUrlNotify` instead
+    ///
+    pub const OpenUrlNotify = openUrlNotify;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#openUrlNotify)
     ///
@@ -541,9 +653,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` self: KParts__NavigationExtension `
     ///
-    pub fn OpenUrlNotify(self: KParts__NavigationExtension) void {
+    pub fn openUrlNotify(self: KParts__NavigationExtension) void {
         qtc.KParts__NavigationExtension_OpenUrlNotify(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocationBarUrl` instead
+    ///
+    pub const SetLocationBarUrl = setLocationBarUrl;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#setLocationBarUrl)
     ///
@@ -553,13 +669,17 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` url: []const u8 `
     ///
-    pub fn SetLocationBarUrl(self: KParts__NavigationExtension, url: []const u8) void {
+    pub fn setLocationBarUrl(self: KParts__NavigationExtension, url: []const u8) void {
         const url_str = qtc.libqt_string{
             .len = url.len,
             .data = url.ptr,
         };
         qtc.KParts__NavigationExtension_SetLocationBarUrl(@ptrCast(self.ptr), url_str);
     }
+
+    /// ### DEPRECATED: Use `setIconUrl` instead
+    ///
+    pub const SetIconUrl = setIconUrl;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#setIconUrl)
     ///
@@ -569,10 +689,14 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn SetIconUrl(self: KParts__NavigationExtension, url: anytype) void {
+    pub fn setIconUrl(self: KParts__NavigationExtension, url: anytype) void {
         comptime _ = @TypeOf(url)._is_QUrl;
         qtc.KParts__NavigationExtension_SetIconUrl(@ptrCast(self.ptr), @ptrCast(url.ptr));
     }
+
+    /// ### DEPRECATED: Use `createNewWindow` instead
+    ///
+    pub const CreateNewWindow = createNewWindow;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#createNewWindow)
     ///
@@ -582,10 +706,14 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn CreateNewWindow(self: KParts__NavigationExtension, url: anytype) void {
+    pub fn createNewWindow(self: KParts__NavigationExtension, url: anytype) void {
         comptime _ = @TypeOf(url)._is_QUrl;
         qtc.KParts__NavigationExtension_CreateNewWindow(@ptrCast(self.ptr), @ptrCast(url.ptr));
     }
+
+    /// ### DEPRECATED: Use `loadingProgress` instead
+    ///
+    pub const LoadingProgress = loadingProgress;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#loadingProgress)
     ///
@@ -595,9 +723,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` percent: i32 `
     ///
-    pub fn LoadingProgress(self: KParts__NavigationExtension, percent: i32) void {
+    pub fn loadingProgress(self: KParts__NavigationExtension, percent: i32) void {
         qtc.KParts__NavigationExtension_LoadingProgress(@ptrCast(self.ptr), @bitCast(percent));
     }
+
+    /// ### DEPRECATED: Use `speedProgress` instead
+    ///
+    pub const SpeedProgress = speedProgress;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#speedProgress)
     ///
@@ -607,9 +739,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` bytesPerSecond: i32 `
     ///
-    pub fn SpeedProgress(self: KParts__NavigationExtension, bytesPerSecond: i32) void {
+    pub fn speedProgress(self: KParts__NavigationExtension, bytesPerSecond: i32) void {
         qtc.KParts__NavigationExtension_SpeedProgress(@ptrCast(self.ptr), @bitCast(bytesPerSecond));
     }
+
+    /// ### DEPRECATED: Use `infoMessage` instead
+    ///
+    pub const InfoMessage = infoMessage;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#infoMessage)
     ///
@@ -619,13 +755,17 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn InfoMessage(self: KParts__NavigationExtension, param1: []const u8) void {
+    pub fn infoMessage(self: KParts__NavigationExtension, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
         qtc.KParts__NavigationExtension_InfoMessage(@ptrCast(self.ptr), param1_str);
     }
+
+    /// ### DEPRECATED: Use `popupMenu` instead
+    ///
+    pub const PopupMenu = popupMenu;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#popupMenu)
     ///
@@ -637,11 +777,15 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` items: KFileItemList `
     ///
-    pub fn PopupMenu(self: KParts__NavigationExtension, global: anytype, items: anytype) void {
+    pub fn popupMenu(self: KParts__NavigationExtension, global: anytype, items: anytype) void {
         comptime _ = @TypeOf(global)._is_QPoint;
         comptime _ = @TypeOf(items)._is_KFileItemList;
         qtc.KParts__NavigationExtension_PopupMenu(@ptrCast(self.ptr), @ptrCast(global.ptr), @ptrCast(items.ptr));
     }
+
+    /// ### DEPRECATED: Use `popupMenu2` instead
+    ///
+    pub const PopupMenu2 = popupMenu2;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#popupMenu)
     ///
@@ -653,11 +797,15 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn PopupMenu2(self: KParts__NavigationExtension, global: anytype, url: anytype) void {
+    pub fn popupMenu2(self: KParts__NavigationExtension, global: anytype, url: anytype) void {
         comptime _ = @TypeOf(global)._is_QPoint;
         comptime _ = @TypeOf(url)._is_QUrl;
         qtc.KParts__NavigationExtension_PopupMenu2(@ptrCast(self.ptr), @ptrCast(global.ptr), @ptrCast(url.ptr));
     }
+
+    /// ### DEPRECATED: Use `selectionInfo` instead
+    ///
+    pub const SelectionInfo = selectionInfo;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#selectionInfo)
     ///
@@ -667,10 +815,14 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` items: KFileItemList `
     ///
-    pub fn SelectionInfo(self: KParts__NavigationExtension, items: anytype) void {
+    pub fn selectionInfo(self: KParts__NavigationExtension, items: anytype) void {
         comptime _ = @TypeOf(items)._is_KFileItemList;
         qtc.KParts__NavigationExtension_SelectionInfo(@ptrCast(self.ptr), @ptrCast(items.ptr));
     }
+
+    /// ### DEPRECATED: Use `mouseOverInfo` instead
+    ///
+    pub const MouseOverInfo = mouseOverInfo;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#mouseOverInfo)
     ///
@@ -680,10 +832,14 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` item: KFileItem `
     ///
-    pub fn MouseOverInfo(self: KParts__NavigationExtension, item: anytype) void {
+    pub fn mouseOverInfo(self: KParts__NavigationExtension, item: anytype) void {
         comptime _ = @TypeOf(item)._is_KFileItem;
         qtc.KParts__NavigationExtension_MouseOverInfo(@ptrCast(self.ptr), @ptrCast(item.ptr));
     }
+
+    /// ### DEPRECATED: Use `addWebSideBar` instead
+    ///
+    pub const AddWebSideBar = addWebSideBar;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#addWebSideBar)
     ///
@@ -695,7 +851,7 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn AddWebSideBar(self: KParts__NavigationExtension, url: anytype, name: []const u8) void {
+    pub fn addWebSideBar(self: KParts__NavigationExtension, url: anytype, name: []const u8) void {
         comptime _ = @TypeOf(url)._is_QUrl;
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -703,6 +859,10 @@ pub const KParts__NavigationExtension = extern struct {
         };
         qtc.KParts__NavigationExtension_AddWebSideBar(@ptrCast(self.ptr), @ptrCast(url.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `moveTopLevelWidget` instead
+    ///
+    pub const MoveTopLevelWidget = moveTopLevelWidget;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#moveTopLevelWidget)
     ///
@@ -714,9 +874,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` y: i32 `
     ///
-    pub fn MoveTopLevelWidget(self: KParts__NavigationExtension, x: i32, y: i32) void {
+    pub fn moveTopLevelWidget(self: KParts__NavigationExtension, x: i32, y: i32) void {
         qtc.KParts__NavigationExtension_MoveTopLevelWidget(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
     }
+
+    /// ### DEPRECATED: Use `resizeTopLevelWidget` instead
+    ///
+    pub const ResizeTopLevelWidget = resizeTopLevelWidget;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#resizeTopLevelWidget)
     ///
@@ -728,9 +892,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn ResizeTopLevelWidget(self: KParts__NavigationExtension, w: i32, h: i32) void {
+    pub fn resizeTopLevelWidget(self: KParts__NavigationExtension, w: i32, h: i32) void {
         qtc.KParts__NavigationExtension_ResizeTopLevelWidget(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `requestFocus` instead
+    ///
+    pub const RequestFocus = requestFocus;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#requestFocus)
     ///
@@ -740,10 +908,14 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` part: KParts__ReadOnlyPart `
     ///
-    pub fn RequestFocus(self: KParts__NavigationExtension, part: anytype) void {
+    pub fn requestFocus(self: KParts__NavigationExtension, part: anytype) void {
         comptime _ = @TypeOf(part)._is_KParts__ReadOnlyPart;
         qtc.KParts__NavigationExtension_RequestFocus(@ptrCast(self.ptr), @ptrCast(part.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPageSecurity` instead
+    ///
+    pub const SetPageSecurity = setPageSecurity;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#setPageSecurity)
     ///
@@ -753,9 +925,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` pageSecurity: i32 `
     ///
-    pub fn SetPageSecurity(self: KParts__NavigationExtension, pageSecurity: i32) void {
+    pub fn setPageSecurity(self: KParts__NavigationExtension, pageSecurity: i32) void {
         qtc.KParts__NavigationExtension_SetPageSecurity(@ptrCast(self.ptr), @bitCast(pageSecurity));
     }
+
+    /// ### DEPRECATED: Use `itemsRemoved` instead
+    ///
+    pub const ItemsRemoved = itemsRemoved;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#itemsRemoved)
     ///
@@ -765,10 +941,14 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` items: KFileItemList `
     ///
-    pub fn ItemsRemoved(self: KParts__NavigationExtension, items: anytype) void {
+    pub fn itemsRemoved(self: KParts__NavigationExtension, items: anytype) void {
         comptime _ = @TypeOf(items)._is_KFileItemList;
         qtc.KParts__NavigationExtension_ItemsRemoved(@ptrCast(self.ptr), @ptrCast(items.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -780,15 +960,19 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KParts__NavigationExtension.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KParts__NavigationExtension.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -802,15 +986,19 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KParts__NavigationExtension.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KParts__NavigationExtension.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `openUrlRequest2` instead
+    ///
+    pub const OpenUrlRequest2 = openUrlRequest2;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#openUrlRequest)
     ///
@@ -822,11 +1010,15 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` arguments: KParts__OpenUrlArguments `
     ///
-    pub fn OpenUrlRequest2(self: KParts__NavigationExtension, url: anytype, arguments: anytype) void {
+    pub fn openUrlRequest2(self: KParts__NavigationExtension, url: anytype, arguments: anytype) void {
         comptime _ = @TypeOf(url)._is_QUrl;
         comptime _ = @TypeOf(arguments)._is_KParts__OpenUrlArguments;
         qtc.KParts__NavigationExtension_OpenUrlRequest2(@ptrCast(self.ptr), @ptrCast(url.ptr), @ptrCast(arguments.ptr));
     }
+
+    /// ### DEPRECATED: Use `popupMenu3` instead
+    ///
+    pub const PopupMenu3 = popupMenu3;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#popupMenu)
     ///
@@ -840,12 +1032,16 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` arguments: KParts__OpenUrlArguments `
     ///
-    pub fn PopupMenu3(self: KParts__NavigationExtension, global: anytype, items: anytype, arguments: anytype) void {
+    pub fn popupMenu3(self: KParts__NavigationExtension, global: anytype, items: anytype, arguments: anytype) void {
         comptime _ = @TypeOf(global)._is_QPoint;
         comptime _ = @TypeOf(items)._is_KFileItemList;
         comptime _ = @TypeOf(arguments)._is_KParts__OpenUrlArguments;
         qtc.KParts__NavigationExtension_PopupMenu3(@ptrCast(self.ptr), @ptrCast(global.ptr), @ptrCast(items.ptr), @ptrCast(arguments.ptr));
     }
+
+    /// ### DEPRECATED: Use `popupMenu4` instead
+    ///
+    pub const PopupMenu4 = popupMenu4;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#popupMenu)
     ///
@@ -861,12 +1057,16 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` flags: flag of navigationextension_enums.PopupFlag `
     ///
-    pub fn PopupMenu4(self: KParts__NavigationExtension, global: anytype, items: anytype, arguments: anytype, flags: i32) void {
+    pub fn popupMenu4(self: KParts__NavigationExtension, global: anytype, items: anytype, arguments: anytype, flags: i32) void {
         comptime _ = @TypeOf(global)._is_QPoint;
         comptime _ = @TypeOf(items)._is_KFileItemList;
         comptime _ = @TypeOf(arguments)._is_KParts__OpenUrlArguments;
         qtc.KParts__NavigationExtension_PopupMenu4(@ptrCast(self.ptr), @ptrCast(global.ptr), @ptrCast(items.ptr), @ptrCast(arguments.ptr), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `popupMenu5` instead
+    ///
+    pub const PopupMenu5 = popupMenu5;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#popupMenu)
     ///
@@ -886,14 +1086,14 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` actionGroups: ArrayMap_constu8_SliceQAction `
     ///
-    pub fn PopupMenu5(self: KParts__NavigationExtension, allocator: std.mem.Allocator, global: anytype, items: anytype, arguments: anytype, flags: i32, actionGroups: ArrayMap_constu8_SliceQAction) void {
+    pub fn popupMenu5(self: KParts__NavigationExtension, allocator: std.mem.Allocator, global: anytype, items: anytype, arguments: anytype, flags: i32, actionGroups: ArrayMap_constu8_SliceQAction) void {
         comptime _ = @TypeOf(global)._is_QPoint;
         comptime _ = @TypeOf(items)._is_KFileItemList;
         comptime _ = @TypeOf(arguments)._is_KParts__OpenUrlArguments;
         const actionGroups_count = actionGroups.count();
-        const actionGroups_keys = allocator.alloc(qtc.libqt_string, actionGroups_count) catch @panic("KParts__NavigationExtension.PopupMenu5: Memory allocation failed");
+        const actionGroups_keys = allocator.alloc(qtc.libqt_string, actionGroups_count) catch @panic("KParts__NavigationExtension.popupMenu5: Memory allocation failed");
         defer allocator.free(actionGroups_keys);
-        const actionGroups_values = allocator.alloc(qtc.libqt_list, actionGroups_count) catch @panic("KParts__NavigationExtension.PopupMenu5: Memory allocation failed");
+        const actionGroups_values = allocator.alloc(qtc.libqt_list, actionGroups_count) catch @panic("KParts__NavigationExtension.popupMenu5: Memory allocation failed");
         defer allocator.free(actionGroups_values);
         var i: usize = 0;
         var actionGroups_it = actionGroups.iterator();
@@ -917,6 +1117,10 @@ pub const KParts__NavigationExtension = extern struct {
         qtc.KParts__NavigationExtension_PopupMenu5(@ptrCast(self.ptr), @ptrCast(global.ptr), @ptrCast(items.ptr), @ptrCast(arguments.ptr), @bitCast(flags), actionGroups_map);
     }
 
+    /// ### DEPRECATED: Use `popupMenu32` instead
+    ///
+    pub const PopupMenu32 = popupMenu32;
+
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#popupMenu)
     ///
     /// ## Parameter(s):
@@ -929,11 +1133,15 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` mode: u32 `
     ///
-    pub fn PopupMenu32(self: KParts__NavigationExtension, global: anytype, url: anytype, mode: u32) void {
+    pub fn popupMenu32(self: KParts__NavigationExtension, global: anytype, url: anytype, mode: u32) void {
         comptime _ = @TypeOf(global)._is_QPoint;
         comptime _ = @TypeOf(url)._is_QUrl;
         qtc.KParts__NavigationExtension_PopupMenu32(@ptrCast(self.ptr), @ptrCast(global.ptr), @ptrCast(url.ptr), mode);
     }
+
+    /// ### DEPRECATED: Use `popupMenu42` instead
+    ///
+    pub const PopupMenu42 = popupMenu42;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#popupMenu)
     ///
@@ -949,12 +1157,16 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` arguments: KParts__OpenUrlArguments `
     ///
-    pub fn PopupMenu42(self: KParts__NavigationExtension, global: anytype, url: anytype, mode: u32, arguments: anytype) void {
+    pub fn popupMenu42(self: KParts__NavigationExtension, global: anytype, url: anytype, mode: u32, arguments: anytype) void {
         comptime _ = @TypeOf(global)._is_QPoint;
         comptime _ = @TypeOf(url)._is_QUrl;
         comptime _ = @TypeOf(arguments)._is_KParts__OpenUrlArguments;
         qtc.KParts__NavigationExtension_PopupMenu42(@ptrCast(self.ptr), @ptrCast(global.ptr), @ptrCast(url.ptr), mode, @ptrCast(arguments.ptr));
     }
+
+    /// ### DEPRECATED: Use `popupMenu52` instead
+    ///
+    pub const PopupMenu52 = popupMenu52;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#popupMenu)
     ///
@@ -972,12 +1184,16 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` flags: flag of navigationextension_enums.PopupFlag `
     ///
-    pub fn PopupMenu52(self: KParts__NavigationExtension, global: anytype, url: anytype, mode: u32, arguments: anytype, flags: i32) void {
+    pub fn popupMenu52(self: KParts__NavigationExtension, global: anytype, url: anytype, mode: u32, arguments: anytype, flags: i32) void {
         comptime _ = @TypeOf(global)._is_QPoint;
         comptime _ = @TypeOf(url)._is_QUrl;
         comptime _ = @TypeOf(arguments)._is_KParts__OpenUrlArguments;
         qtc.KParts__NavigationExtension_PopupMenu52(@ptrCast(self.ptr), @ptrCast(global.ptr), @ptrCast(url.ptr), mode, @ptrCast(arguments.ptr), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `popupMenu6` instead
+    ///
+    pub const PopupMenu6 = popupMenu6;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#popupMenu)
     ///
@@ -999,14 +1215,14 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` actionGroups: ArrayMap_constu8_SliceQAction `
     ///
-    pub fn PopupMenu6(self: KParts__NavigationExtension, allocator: std.mem.Allocator, global: anytype, url: anytype, mode: u32, arguments: anytype, flags: i32, actionGroups: ArrayMap_constu8_SliceQAction) void {
+    pub fn popupMenu6(self: KParts__NavigationExtension, allocator: std.mem.Allocator, global: anytype, url: anytype, mode: u32, arguments: anytype, flags: i32, actionGroups: ArrayMap_constu8_SliceQAction) void {
         comptime _ = @TypeOf(global)._is_QPoint;
         comptime _ = @TypeOf(url)._is_QUrl;
         comptime _ = @TypeOf(arguments)._is_KParts__OpenUrlArguments;
         const actionGroups_count = actionGroups.count();
-        const actionGroups_keys = allocator.alloc(qtc.libqt_string, actionGroups_count) catch @panic("KParts__NavigationExtension.PopupMenu6: Memory allocation failed");
+        const actionGroups_keys = allocator.alloc(qtc.libqt_string, actionGroups_count) catch @panic("KParts__NavigationExtension.popupMenu6: Memory allocation failed");
         defer allocator.free(actionGroups_keys);
-        const actionGroups_values = allocator.alloc(qtc.libqt_list, actionGroups_count) catch @panic("KParts__NavigationExtension.PopupMenu6: Memory allocation failed");
+        const actionGroups_values = allocator.alloc(qtc.libqt_list, actionGroups_count) catch @panic("KParts__NavigationExtension.popupMenu6: Memory allocation failed");
         defer allocator.free(actionGroups_values);
         var i: usize = 0;
         var actionGroups_it = actionGroups.iterator();
@@ -1030,6 +1246,10 @@ pub const KParts__NavigationExtension = extern struct {
         qtc.KParts__NavigationExtension_PopupMenu6(@ptrCast(self.ptr), @ptrCast(global.ptr), @ptrCast(url.ptr), mode, @ptrCast(arguments.ptr), @bitCast(flags), actionGroups_map);
     }
 
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
@@ -1040,13 +1260,17 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KParts__NavigationExtension, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KParts__NavigationExtension, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KParts__NavigationExtension.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KParts__NavigationExtension.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -1058,13 +1282,17 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KParts__NavigationExtension, name: []const u8) void {
+    pub fn setObjectName(self: KParts__NavigationExtension, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -1074,9 +1302,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` self: KParts__NavigationExtension `
     ///
-    pub fn IsWidgetType(self: KParts__NavigationExtension) bool {
+    pub fn isWidgetType(self: KParts__NavigationExtension) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -1086,9 +1318,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` self: KParts__NavigationExtension `
     ///
-    pub fn IsWindowType(self: KParts__NavigationExtension) bool {
+    pub fn isWindowType(self: KParts__NavigationExtension) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -1098,9 +1334,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` self: KParts__NavigationExtension `
     ///
-    pub fn IsQuickItemType(self: KParts__NavigationExtension) bool {
+    pub fn isQuickItemType(self: KParts__NavigationExtension) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -1110,9 +1350,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` self: KParts__NavigationExtension `
     ///
-    pub fn SignalsBlocked(self: KParts__NavigationExtension) bool {
+    pub fn signalsBlocked(self: KParts__NavigationExtension) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -1124,9 +1368,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KParts__NavigationExtension, b: bool) bool {
+    pub fn blockSignals(self: KParts__NavigationExtension, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -1136,9 +1384,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` self: KParts__NavigationExtension `
     ///
-    pub fn Thread(self: KParts__NavigationExtension) QThread {
+    pub fn thread(self: KParts__NavigationExtension) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -1148,12 +1400,16 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` self: KParts__NavigationExtension `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KParts__NavigationExtension, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KParts__NavigationExtension, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -1165,9 +1421,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KParts__NavigationExtension, interval: i32) i32 {
+    pub fn startTimer(self: KParts__NavigationExtension, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -1179,9 +1439,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KParts__NavigationExtension, time: i64) i32 {
+    pub fn startTimer2(self: KParts__NavigationExtension, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -1193,9 +1457,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KParts__NavigationExtension, id: i32) void {
+    pub fn killTimer(self: KParts__NavigationExtension, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -1207,9 +1475,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KParts__NavigationExtension, id: i32) void {
+    pub fn killTimer2(self: KParts__NavigationExtension, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -1221,15 +1493,19 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KParts__NavigationExtension, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KParts__NavigationExtension, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KParts__NavigationExtension.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KParts__NavigationExtension.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -1239,12 +1515,16 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` self: KParts__NavigationExtension `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: KParts__NavigationExtension, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: KParts__NavigationExtension, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1256,10 +1536,14 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KParts__NavigationExtension, filterObj: anytype) void {
+    pub fn installEventFilter(self: KParts__NavigationExtension, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1271,10 +1555,14 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KParts__NavigationExtension, obj: anytype) void {
+    pub fn removeEventFilter(self: KParts__NavigationExtension, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -1282,7 +1570,7 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1290,13 +1578,17 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -1304,7 +1596,7 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1312,13 +1604,17 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -1328,18 +1624,22 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` self: KParts__NavigationExtension `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KParts__NavigationExtension, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KParts__NavigationExtension, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -1347,7 +1647,7 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1355,13 +1655,17 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -1369,7 +1673,7 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1377,13 +1681,17 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -1393,9 +1701,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` self: KParts__NavigationExtension `
     ///
-    pub fn Disconnect3(self: KParts__NavigationExtension) bool {
+    pub fn disconnect3(self: KParts__NavigationExtension) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1407,10 +1719,14 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KParts__NavigationExtension, receiver: anytype) bool {
+    pub fn disconnect4(self: KParts__NavigationExtension, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1420,10 +1736,14 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1433,9 +1753,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` self: KParts__NavigationExtension `
     ///
-    pub fn DumpObjectTree(self: KParts__NavigationExtension) void {
+    pub fn dumpObjectTree(self: KParts__NavigationExtension) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1445,9 +1769,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` self: KParts__NavigationExtension `
     ///
-    pub fn DumpObjectInfo(self: KParts__NavigationExtension) void {
+    pub fn dumpObjectInfo(self: KParts__NavigationExtension) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1461,11 +1789,15 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KParts__NavigationExtension, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KParts__NavigationExtension, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1477,10 +1809,14 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KParts__NavigationExtension, name: [:0]const u8) QVariant {
+    pub fn property(self: KParts__NavigationExtension, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1492,7 +1828,7 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KParts__NavigationExtension, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KParts__NavigationExtension, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1500,27 +1836,19 @@ pub const KParts__NavigationExtension = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KParts__NavigationExtension.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KParts__NavigationExtension.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KParts__NavigationExtension.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KParts__NavigationExtension.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__NavigationExtension `
-    ///
-    pub fn BindingStorage(self: KParts__NavigationExtension) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1530,9 +1858,29 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` self: KParts__NavigationExtension `
     ///
-    pub fn BindingStorage2(self: KParts__NavigationExtension) QBindingStorage {
+    pub fn bindingStorage(self: KParts__NavigationExtension) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KParts__NavigationExtension `
+    ///
+    pub fn bindingStorage2(self: KParts__NavigationExtension) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1542,9 +1890,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` self: KParts__NavigationExtension `
     ///
-    pub fn Destroyed(self: KParts__NavigationExtension) void {
+    pub fn destroyed(self: KParts__NavigationExtension) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1556,9 +1908,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` callback: *const fn (self: KParts__NavigationExtension) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension) callconv(.c) void) void {
+    pub fn onDestroyed(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1568,9 +1924,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` self: KParts__NavigationExtension `
     ///
-    pub fn Parent(self: KParts__NavigationExtension) QObject {
+    pub fn parent(self: KParts__NavigationExtension) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1582,10 +1942,14 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KParts__NavigationExtension, classname: [:0]const u8) bool {
+    pub fn inherits(self: KParts__NavigationExtension, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1595,9 +1959,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` self: KParts__NavigationExtension `
     ///
-    pub fn DeleteLater(self: KParts__NavigationExtension) void {
+    pub fn deleteLater(self: KParts__NavigationExtension) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1611,9 +1979,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KParts__NavigationExtension, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KParts__NavigationExtension, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1627,9 +1999,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KParts__NavigationExtension, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KParts__NavigationExtension, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1637,7 +2013,7 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1647,13 +2023,17 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1661,7 +2041,7 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1671,13 +2051,17 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1687,7 +2071,7 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` self: KParts__NavigationExtension `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1695,12 +2079,16 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KParts__NavigationExtension, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KParts__NavigationExtension, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1712,10 +2100,14 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KParts__NavigationExtension, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KParts__NavigationExtension, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1729,11 +2121,15 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KParts__NavigationExtension, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KParts__NavigationExtension, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1749,13 +2145,17 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KParts__NavigationExtension, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KParts__NavigationExtension, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1768,11 +2168,15 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KParts__NavigationExtension, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KParts__NavigationExtension, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1784,10 +2188,14 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KParts__NavigationExtension, param1: anytype) void {
+    pub fn destroyed1(self: KParts__NavigationExtension, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1799,9 +2207,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` callback: *const fn (self: KParts__NavigationExtension, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -1813,16 +2225,16 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` self: KParts__NavigationExtension `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: KParts__NavigationExtension, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KParts__NavigationExtension_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: KParts__NavigationExtension, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KParts__NavigationExtension_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -1834,12 +2246,16 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` self: KParts__NavigationExtension `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: KParts__NavigationExtension, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KParts__NavigationExtension_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: KParts__NavigationExtension, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KParts__NavigationExtension_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -1853,9 +2269,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` callback: *const fn (self: KParts__NavigationExtension, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, QEvent) callconv(.c) bool) void {
         qtc.KParts__NavigationExtension_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1869,17 +2289,17 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: KParts__NavigationExtension, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: KParts__NavigationExtension, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KParts__NavigationExtension_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KParts__NavigationExtension_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1893,13 +2313,17 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: KParts__NavigationExtension, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: KParts__NavigationExtension, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KParts__NavigationExtension_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KParts__NavigationExtension_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1913,9 +2337,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` callback: *const fn (self: KParts__NavigationExtension, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, QObject, QEvent) callconv(.c) bool) void {
         qtc.KParts__NavigationExtension_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -1927,16 +2355,16 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` self: KParts__NavigationExtension `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KParts__NavigationExtension, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KParts__NavigationExtension_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: KParts__NavigationExtension, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KParts__NavigationExtension_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1948,12 +2376,16 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` self: KParts__NavigationExtension `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KParts__NavigationExtension, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KParts__NavigationExtension_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: KParts__NavigationExtension, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KParts__NavigationExtension_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1967,9 +2399,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` callback: *const fn (self: KParts__NavigationExtension, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, QTimerEvent) callconv(.c) void) void {
         qtc.KParts__NavigationExtension_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -1981,16 +2417,16 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` self: KParts__NavigationExtension `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KParts__NavigationExtension, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KParts__NavigationExtension_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KParts__NavigationExtension, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KParts__NavigationExtension_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -2002,12 +2438,16 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` self: KParts__NavigationExtension `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KParts__NavigationExtension, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KParts__NavigationExtension_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KParts__NavigationExtension, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KParts__NavigationExtension_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -2021,9 +2461,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` callback: *const fn (self: KParts__NavigationExtension, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, QChildEvent) callconv(.c) void) void {
         qtc.KParts__NavigationExtension_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -2035,16 +2479,16 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` self: KParts__NavigationExtension `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KParts__NavigationExtension, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KParts__NavigationExtension_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KParts__NavigationExtension, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KParts__NavigationExtension_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -2056,12 +2500,16 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` self: KParts__NavigationExtension `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KParts__NavigationExtension, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KParts__NavigationExtension_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KParts__NavigationExtension, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KParts__NavigationExtension_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -2075,9 +2523,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` callback: *const fn (self: KParts__NavigationExtension, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, QEvent) callconv(.c) void) void {
         qtc.KParts__NavigationExtension_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -2091,14 +2543,14 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KParts__NavigationExtension, signal: anytype) void {
+    pub fn connectNotify(self: KParts__NavigationExtension, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KParts__NavigationExtension_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2112,11 +2564,15 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KParts__NavigationExtension, signal: anytype) void {
+    pub fn superConnectNotify(self: KParts__NavigationExtension, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KParts__NavigationExtension_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -2129,9 +2585,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` callback: *const fn (self: KParts__NavigationExtension, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, QMetaMethod) callconv(.c) void) void {
         qtc.KParts__NavigationExtension_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2145,14 +2605,14 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KParts__NavigationExtension, signal: anytype) void {
+    pub fn disconnectNotify(self: KParts__NavigationExtension, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KParts__NavigationExtension_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2166,10 +2626,14 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KParts__NavigationExtension, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KParts__NavigationExtension, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KParts__NavigationExtension_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2183,9 +2647,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` callback: *const fn (self: KParts__NavigationExtension, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, QMetaMethod) callconv(.c) void) void {
         qtc.KParts__NavigationExtension_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -2197,13 +2665,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` self: KParts__NavigationExtension `
     ///
-    pub fn Sender(self: KParts__NavigationExtension) QObject {
+    pub fn sender(self: KParts__NavigationExtension) QObject {
         return .{ .ptr = qtc.KParts__NavigationExtension_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -2215,9 +2683,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` self: KParts__NavigationExtension `
     ///
-    pub fn SuperSender(self: KParts__NavigationExtension) QObject {
+    pub fn superSender(self: KParts__NavigationExtension) QObject {
         return .{ .ptr = qtc.KParts__NavigationExtension_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -2231,9 +2703,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KParts__NavigationExtension, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KParts__NavigationExtension, callback: *const fn () callconv(.c) QObject) void {
         qtc.KParts__NavigationExtension_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2245,13 +2721,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` self: KParts__NavigationExtension `
     ///
-    pub fn SenderSignalIndex(self: KParts__NavigationExtension) i32 {
+    pub fn senderSignalIndex(self: KParts__NavigationExtension) i32 {
         return qtc.KParts__NavigationExtension_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2263,9 +2739,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` self: KParts__NavigationExtension `
     ///
-    pub fn SuperSenderSignalIndex(self: KParts__NavigationExtension) i32 {
+    pub fn superSenderSignalIndex(self: KParts__NavigationExtension) i32 {
         return qtc.KParts__NavigationExtension_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2279,9 +2759,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KParts__NavigationExtension, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KParts__NavigationExtension, callback: *const fn () callconv(.c) i32) void {
         qtc.KParts__NavigationExtension_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -2295,14 +2779,14 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KParts__NavigationExtension, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KParts__NavigationExtension, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KParts__NavigationExtension_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -2316,10 +2800,14 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KParts__NavigationExtension, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KParts__NavigationExtension, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KParts__NavigationExtension_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -2333,9 +2821,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` callback: *const fn (self: KParts__NavigationExtension, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, [*:0]const u8) callconv(.c) i32) void {
         qtc.KParts__NavigationExtension_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2349,14 +2841,14 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KParts__NavigationExtension, signal: anytype) bool {
+    pub fn isSignalConnected(self: KParts__NavigationExtension, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KParts__NavigationExtension_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2370,10 +2862,14 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KParts__NavigationExtension, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KParts__NavigationExtension, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KParts__NavigationExtension_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2387,9 +2883,13 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` callback: *const fn (self: KParts__NavigationExtension, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, QMetaMethod) callconv(.c) bool) void {
         qtc.KParts__NavigationExtension_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -2403,21 +2903,21 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` callback: *const fn (self: KParts__NavigationExtension, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KParts__NavigationExtension `
     ///
-    pub fn Delete(self: KParts__NavigationExtension) void {
+    pub fn delete(self: KParts__NavigationExtension) void {
         qtc.KParts__NavigationExtension_Delete(@ptrCast(self.ptr));
     }
 };

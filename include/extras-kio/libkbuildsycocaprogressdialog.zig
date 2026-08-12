@@ -62,15 +62,23 @@ pub const KBuildSycocaProgressDialog = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn MetaObject(self: KBuildSycocaProgressDialog) QMetaObject {
+    pub fn metaObject(self: KBuildSycocaProgressDialog) QMetaObject {
         return .{ .ptr = qtc.KBuildSycocaProgressDialog_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -78,10 +86,14 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KBuildSycocaProgressDialog, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KBuildSycocaProgressDialog, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KBuildSycocaProgressDialog_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -93,9 +105,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KBuildSycocaProgressDialog, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KBuildSycocaProgressDialog, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KBuildSycocaProgressDialog_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -105,25 +121,33 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KBuildSycocaProgressDialog.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KBuildSycocaProgressDialog.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `rebuildKSycoca` instead
+    ///
+    pub const RebuildKSycoca = rebuildKSycoca;
 
     /// ### [Upstream resources](https://api.kde.org/kbuildsycocaprogressdialog.html#rebuildKSycoca)
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn RebuildKSycoca(parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.KBuildSycocaProgressDialog_RebuildKSycoca(@ptrCast(parent.ptr));
+    pub fn rebuildKSycoca(_parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.KBuildSycocaProgressDialog_RebuildKSycoca(@ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -135,15 +159,19 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KBuildSycocaProgressDialog.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KBuildSycocaProgressDialog.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -157,15 +185,19 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KBuildSycocaProgressDialog.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KBuildSycocaProgressDialog.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setLabel` instead
+    ///
+    pub const SetLabel = setLabel;
 
     /// Inherited from QProgressDialog
     ///
@@ -177,10 +209,14 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` label: QLabel `
     ///
-    pub fn SetLabel(self: KBuildSycocaProgressDialog, label: anytype) void {
+    pub fn setLabel(self: KBuildSycocaProgressDialog, label: anytype) void {
         comptime _ = @TypeOf(label)._is_QLabel;
         qtc.QProgressDialog_SetLabel(@ptrCast(self.ptr), @ptrCast(label.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCancelButton` instead
+    ///
+    pub const SetCancelButton = setCancelButton;
 
     /// Inherited from QProgressDialog
     ///
@@ -192,10 +228,14 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` button: QPushButton `
     ///
-    pub fn SetCancelButton(self: KBuildSycocaProgressDialog, button: anytype) void {
+    pub fn setCancelButton(self: KBuildSycocaProgressDialog, button: anytype) void {
         comptime _ = @TypeOf(button)._is_QPushButton;
         qtc.QProgressDialog_SetCancelButton(@ptrCast(self.ptr), @ptrCast(button.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBar` instead
+    ///
+    pub const SetBar = setBar;
 
     /// Inherited from QProgressDialog
     ///
@@ -207,10 +247,14 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` bar: QProgressBar `
     ///
-    pub fn SetBar(self: KBuildSycocaProgressDialog, bar: anytype) void {
+    pub fn setBar(self: KBuildSycocaProgressDialog, bar: anytype) void {
         comptime _ = @TypeOf(bar)._is_QProgressBar;
         qtc.QProgressDialog_SetBar(@ptrCast(self.ptr), @ptrCast(bar.ptr));
     }
+
+    /// ### DEPRECATED: Use `wasCanceled` instead
+    ///
+    pub const WasCanceled = wasCanceled;
 
     /// Inherited from QProgressDialog
     ///
@@ -220,9 +264,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn WasCanceled(self: KBuildSycocaProgressDialog) bool {
+    pub fn wasCanceled(self: KBuildSycocaProgressDialog) bool {
         return qtc.QProgressDialog_WasCanceled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimum` instead
+    ///
+    pub const Minimum = minimum;
 
     /// Inherited from QProgressDialog
     ///
@@ -232,9 +280,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn Minimum(self: KBuildSycocaProgressDialog) i32 {
+    pub fn minimum(self: KBuildSycocaProgressDialog) i32 {
         return qtc.QProgressDialog_Minimum(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximum` instead
+    ///
+    pub const Maximum = maximum;
 
     /// Inherited from QProgressDialog
     ///
@@ -244,9 +296,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn Maximum(self: KBuildSycocaProgressDialog) i32 {
+    pub fn maximum(self: KBuildSycocaProgressDialog) i32 {
         return qtc.QProgressDialog_Maximum(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `value` instead
+    ///
+    pub const Value = value;
 
     /// Inherited from QProgressDialog
     ///
@@ -256,9 +312,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn Value(self: KBuildSycocaProgressDialog) i32 {
+    pub fn value(self: KBuildSycocaProgressDialog) i32 {
         return qtc.QProgressDialog_Value(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
 
     /// Inherited from QProgressDialog
     ///
@@ -268,9 +328,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn SizeHint(self: KBuildSycocaProgressDialog) QSize {
+    pub fn sizeHint(self: KBuildSycocaProgressDialog) QSize {
         return .{ .ptr = qtc.QProgressDialog_SizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `labelText` instead
+    ///
+    pub const LabelText = labelText;
 
     /// Inherited from QProgressDialog
     ///
@@ -282,13 +346,17 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LabelText(self: KBuildSycocaProgressDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn labelText(self: KBuildSycocaProgressDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QProgressDialog_LabelText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KBuildSycocaProgressDialog.LabelText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KBuildSycocaProgressDialog.labelText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `minimumDuration` instead
+    ///
+    pub const MinimumDuration = minimumDuration;
 
     /// Inherited from QProgressDialog
     ///
@@ -298,9 +366,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn MinimumDuration(self: KBuildSycocaProgressDialog) i32 {
+    pub fn minimumDuration(self: KBuildSycocaProgressDialog) i32 {
         return qtc.QProgressDialog_MinimumDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoReset` instead
+    ///
+    pub const SetAutoReset = setAutoReset;
 
     /// Inherited from QProgressDialog
     ///
@@ -310,11 +382,15 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    /// ` reset: bool `
+    /// ` _reset: bool `
     ///
-    pub fn SetAutoReset(self: KBuildSycocaProgressDialog, reset: bool) void {
-        qtc.QProgressDialog_SetAutoReset(@ptrCast(self.ptr), reset);
+    pub fn setAutoReset(self: KBuildSycocaProgressDialog, _reset: bool) void {
+        qtc.QProgressDialog_SetAutoReset(@ptrCast(self.ptr), _reset);
     }
+
+    /// ### DEPRECATED: Use `autoReset` instead
+    ///
+    pub const AutoReset = autoReset;
 
     /// Inherited from QProgressDialog
     ///
@@ -324,9 +400,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn AutoReset(self: KBuildSycocaProgressDialog) bool {
+    pub fn autoReset(self: KBuildSycocaProgressDialog) bool {
         return qtc.QProgressDialog_AutoReset(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoClose` instead
+    ///
+    pub const SetAutoClose = setAutoClose;
 
     /// Inherited from QProgressDialog
     ///
@@ -336,11 +416,15 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    /// ` close: bool `
+    /// ` _close: bool `
     ///
-    pub fn SetAutoClose(self: KBuildSycocaProgressDialog, close: bool) void {
-        qtc.QProgressDialog_SetAutoClose(@ptrCast(self.ptr), close);
+    pub fn setAutoClose(self: KBuildSycocaProgressDialog, _close: bool) void {
+        qtc.QProgressDialog_SetAutoClose(@ptrCast(self.ptr), _close);
     }
+
+    /// ### DEPRECATED: Use `autoClose` instead
+    ///
+    pub const AutoClose = autoClose;
 
     /// Inherited from QProgressDialog
     ///
@@ -350,9 +434,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn AutoClose(self: KBuildSycocaProgressDialog) bool {
+    pub fn autoClose(self: KBuildSycocaProgressDialog) bool {
         return qtc.QProgressDialog_AutoClose(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `cancel` instead
+    ///
+    pub const Cancel = cancel;
 
     /// Inherited from QProgressDialog
     ///
@@ -362,9 +450,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn Cancel(self: KBuildSycocaProgressDialog) void {
+    pub fn cancel(self: KBuildSycocaProgressDialog) void {
         qtc.QProgressDialog_Cancel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `reset` instead
+    ///
+    pub const Reset = reset;
 
     /// Inherited from QProgressDialog
     ///
@@ -374,9 +466,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn Reset(self: KBuildSycocaProgressDialog) void {
+    pub fn reset(self: KBuildSycocaProgressDialog) void {
         qtc.QProgressDialog_Reset(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximum` instead
+    ///
+    pub const SetMaximum = setMaximum;
 
     /// Inherited from QProgressDialog
     ///
@@ -386,11 +482,15 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    /// ` maximum: i32 `
+    /// ` _maximum: i32 `
     ///
-    pub fn SetMaximum(self: KBuildSycocaProgressDialog, maximum: i32) void {
-        qtc.QProgressDialog_SetMaximum(@ptrCast(self.ptr), @bitCast(maximum));
+    pub fn setMaximum(self: KBuildSycocaProgressDialog, _maximum: i32) void {
+        qtc.QProgressDialog_SetMaximum(@ptrCast(self.ptr), @bitCast(_maximum));
     }
+
+    /// ### DEPRECATED: Use `setMinimum` instead
+    ///
+    pub const SetMinimum = setMinimum;
 
     /// Inherited from QProgressDialog
     ///
@@ -400,11 +500,15 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    /// ` minimum: i32 `
+    /// ` _minimum: i32 `
     ///
-    pub fn SetMinimum(self: KBuildSycocaProgressDialog, minimum: i32) void {
-        qtc.QProgressDialog_SetMinimum(@ptrCast(self.ptr), @bitCast(minimum));
+    pub fn setMinimum(self: KBuildSycocaProgressDialog, _minimum: i32) void {
+        qtc.QProgressDialog_SetMinimum(@ptrCast(self.ptr), @bitCast(_minimum));
     }
+
+    /// ### DEPRECATED: Use `setRange` instead
+    ///
+    pub const SetRange = setRange;
 
     /// Inherited from QProgressDialog
     ///
@@ -414,13 +518,17 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    /// ` minimum: i32 `
+    /// ` _minimum: i32 `
     ///
-    /// ` maximum: i32 `
+    /// ` _maximum: i32 `
     ///
-    pub fn SetRange(self: KBuildSycocaProgressDialog, minimum: i32, maximum: i32) void {
-        qtc.QProgressDialog_SetRange(@ptrCast(self.ptr), @bitCast(minimum), @bitCast(maximum));
+    pub fn setRange(self: KBuildSycocaProgressDialog, _minimum: i32, _maximum: i32) void {
+        qtc.QProgressDialog_SetRange(@ptrCast(self.ptr), @bitCast(_minimum), @bitCast(_maximum));
     }
+
+    /// ### DEPRECATED: Use `setValue` instead
+    ///
+    pub const SetValue = setValue;
 
     /// Inherited from QProgressDialog
     ///
@@ -432,9 +540,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` progress: i32 `
     ///
-    pub fn SetValue(self: KBuildSycocaProgressDialog, progress: i32) void {
+    pub fn setValue(self: KBuildSycocaProgressDialog, progress: i32) void {
         qtc.QProgressDialog_SetValue(@ptrCast(self.ptr), @bitCast(progress));
     }
+
+    /// ### DEPRECATED: Use `setLabelText` instead
+    ///
+    pub const SetLabelText = setLabelText;
 
     /// Inherited from QProgressDialog
     ///
@@ -446,13 +558,17 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetLabelText(self: KBuildSycocaProgressDialog, text: []const u8) void {
+    pub fn setLabelText(self: KBuildSycocaProgressDialog, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QProgressDialog_SetLabelText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `setCancelButtonText` instead
+    ///
+    pub const SetCancelButtonText = setCancelButtonText;
 
     /// Inherited from QProgressDialog
     ///
@@ -464,13 +580,17 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetCancelButtonText(self: KBuildSycocaProgressDialog, text: []const u8) void {
+    pub fn setCancelButtonText(self: KBuildSycocaProgressDialog, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QProgressDialog_SetCancelButtonText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `setMinimumDuration` instead
+    ///
+    pub const SetMinimumDuration = setMinimumDuration;
 
     /// Inherited from QProgressDialog
     ///
@@ -482,9 +602,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` ms: i32 `
     ///
-    pub fn SetMinimumDuration(self: KBuildSycocaProgressDialog, ms: i32) void {
+    pub fn setMinimumDuration(self: KBuildSycocaProgressDialog, ms: i32) void {
         qtc.QProgressDialog_SetMinimumDuration(@ptrCast(self.ptr), @bitCast(ms));
     }
+
+    /// ### DEPRECATED: Use `canceled` instead
+    ///
+    pub const Canceled = canceled;
 
     /// Inherited from QProgressDialog
     ///
@@ -494,9 +618,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn Canceled(self: KBuildSycocaProgressDialog) void {
+    pub fn canceled(self: KBuildSycocaProgressDialog) void {
         qtc.QProgressDialog_Canceled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCanceled` instead
+    ///
+    pub const OnCanceled = onCanceled;
 
     /// Inherited from QProgressDialog
     ///
@@ -508,9 +636,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KBuildSycocaProgressDialog) callconv(.c) void `
     ///
-    pub fn OnCanceled(self: KBuildSycocaProgressDialog, callback: *const fn (KBuildSycocaProgressDialog) callconv(.c) void) void {
+    pub fn onCanceled(self: KBuildSycocaProgressDialog, callback: *const fn (KBuildSycocaProgressDialog) callconv(.c) void) void {
         qtc.QProgressDialog_Connect_Canceled(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `result` instead
+    ///
+    pub const Result = result;
 
     /// Inherited from QDialog
     ///
@@ -520,9 +652,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn Result(self: KBuildSycocaProgressDialog) i32 {
+    pub fn result(self: KBuildSycocaProgressDialog) i32 {
         return qtc.QDialog_Result(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QDialog
     ///
@@ -534,9 +670,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: KBuildSycocaProgressDialog, visible: bool) void {
+    pub fn setVisible(self: KBuildSycocaProgressDialog, visible: bool) void {
         qtc.QDialog_SetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QDialog
     ///
@@ -546,9 +686,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn MinimumSizeHint(self: KBuildSycocaProgressDialog) QSize {
+    pub fn minimumSizeHint(self: KBuildSycocaProgressDialog) QSize {
         return .{ .ptr = qtc.QDialog_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeGripEnabled` instead
+    ///
+    pub const SetSizeGripEnabled = setSizeGripEnabled;
 
     /// Inherited from QDialog
     ///
@@ -560,9 +704,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` sizeGripEnabled: bool `
     ///
-    pub fn SetSizeGripEnabled(self: KBuildSycocaProgressDialog, sizeGripEnabled: bool) void {
+    pub fn setSizeGripEnabled(self: KBuildSycocaProgressDialog, sizeGripEnabled: bool) void {
         qtc.QDialog_SetSizeGripEnabled(@ptrCast(self.ptr), sizeGripEnabled);
     }
+
+    /// ### DEPRECATED: Use `isSizeGripEnabled` instead
+    ///
+    pub const IsSizeGripEnabled = isSizeGripEnabled;
 
     /// Inherited from QDialog
     ///
@@ -572,9 +720,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn IsSizeGripEnabled(self: KBuildSycocaProgressDialog) bool {
+    pub fn isSizeGripEnabled(self: KBuildSycocaProgressDialog) bool {
         return qtc.QDialog_IsSizeGripEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setModal` instead
+    ///
+    pub const SetModal = setModal;
 
     /// Inherited from QDialog
     ///
@@ -586,9 +738,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` modal: bool `
     ///
-    pub fn SetModal(self: KBuildSycocaProgressDialog, modal: bool) void {
+    pub fn setModal(self: KBuildSycocaProgressDialog, modal: bool) void {
         qtc.QDialog_SetModal(@ptrCast(self.ptr), modal);
     }
+
+    /// ### DEPRECATED: Use `setResult` instead
+    ///
+    pub const SetResult = setResult;
 
     /// Inherited from QDialog
     ///
@@ -600,9 +756,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` r: i32 `
     ///
-    pub fn SetResult(self: KBuildSycocaProgressDialog, r: i32) void {
+    pub fn setResult(self: KBuildSycocaProgressDialog, r: i32) void {
         qtc.QDialog_SetResult(@ptrCast(self.ptr), @bitCast(r));
     }
+
+    /// ### DEPRECATED: Use `finished` instead
+    ///
+    pub const Finished = finished;
 
     /// Inherited from QDialog
     ///
@@ -612,11 +772,15 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    /// ` result: i32 `
+    /// ` _result: i32 `
     ///
-    pub fn Finished(self: KBuildSycocaProgressDialog, result: i32) void {
-        qtc.QDialog_Finished(@ptrCast(self.ptr), @bitCast(result));
+    pub fn finished(self: KBuildSycocaProgressDialog, _result: i32) void {
+        qtc.QDialog_Finished(@ptrCast(self.ptr), @bitCast(_result));
     }
+
+    /// ### DEPRECATED: Use `onFinished` instead
+    ///
+    pub const OnFinished = onFinished;
 
     /// Inherited from QDialog
     ///
@@ -628,10 +792,14 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KBuildSycocaProgressDialog, result: i32) callconv(.c) void `
     ///
-    pub fn OnFinished(self: KBuildSycocaProgressDialog, callback: *const fn (KBuildSycocaProgressDialog, i32) callconv(.c) void) void {
+    pub fn onFinished(self: KBuildSycocaProgressDialog, callback: *const fn (KBuildSycocaProgressDialog, i32) callconv(.c) void) void {
         qtc.QDialog_Connect_Finished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `accepted` instead
+    ///
+    pub const Accepted = accepted;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#accepted)
@@ -640,10 +808,14 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn Accepted(self: KBuildSycocaProgressDialog) void {
+    pub fn accepted(self: KBuildSycocaProgressDialog) void {
         qtc.QDialog_Accepted(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onAccepted` instead
+    ///
+    pub const OnAccepted = onAccepted;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#accepted)
@@ -654,9 +826,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KBuildSycocaProgressDialog) callconv(.c) void `
     ///
-    pub fn OnAccepted(self: KBuildSycocaProgressDialog, callback: *const fn (KBuildSycocaProgressDialog) callconv(.c) void) void {
+    pub fn onAccepted(self: KBuildSycocaProgressDialog, callback: *const fn (KBuildSycocaProgressDialog) callconv(.c) void) void {
         qtc.QDialog_Connect_Accepted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `rejected` instead
+    ///
+    pub const Rejected = rejected;
 
     /// Inherited from QDialog
     ///
@@ -666,9 +842,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn Rejected(self: KBuildSycocaProgressDialog) void {
+    pub fn rejected(self: KBuildSycocaProgressDialog) void {
         qtc.QDialog_Rejected(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onRejected` instead
+    ///
+    pub const OnRejected = onRejected;
 
     /// Inherited from QDialog
     ///
@@ -680,9 +860,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KBuildSycocaProgressDialog) callconv(.c) void `
     ///
-    pub fn OnRejected(self: KBuildSycocaProgressDialog, callback: *const fn (KBuildSycocaProgressDialog) callconv(.c) void) void {
+    pub fn onRejected(self: KBuildSycocaProgressDialog, callback: *const fn (KBuildSycocaProgressDialog) callconv(.c) void) void {
         qtc.QDialog_Connect_Rejected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `open` instead
+    ///
+    pub const Open = open;
 
     /// Inherited from QDialog
     ///
@@ -692,9 +876,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn Open(self: KBuildSycocaProgressDialog) void {
+    pub fn open(self: KBuildSycocaProgressDialog) void {
         qtc.QDialog_Open(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `exec` instead
+    ///
+    pub const Exec = exec;
 
     /// Inherited from QDialog
     ///
@@ -704,9 +892,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn Exec(self: KBuildSycocaProgressDialog) i32 {
+    pub fn exec(self: KBuildSycocaProgressDialog) i32 {
         return qtc.QDialog_Exec(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `done` instead
+    ///
+    pub const Done = done;
 
     /// Inherited from QDialog
     ///
@@ -718,9 +910,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn Done(self: KBuildSycocaProgressDialog, param1: i32) void {
+    pub fn done(self: KBuildSycocaProgressDialog, param1: i32) void {
         qtc.QDialog_Done(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `accept` instead
+    ///
+    pub const Accept = accept;
 
     /// Inherited from QDialog
     ///
@@ -730,9 +926,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn Accept(self: KBuildSycocaProgressDialog) void {
+    pub fn accept(self: KBuildSycocaProgressDialog) void {
         qtc.QDialog_Accept(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `reject` instead
+    ///
+    pub const Reject = reject;
 
     /// Inherited from QDialog
     ///
@@ -742,9 +942,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn Reject(self: KBuildSycocaProgressDialog) void {
+    pub fn reject(self: KBuildSycocaProgressDialog) void {
         qtc.QDialog_Reject(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -754,9 +958,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn DevType(self: KBuildSycocaProgressDialog) i32 {
+    pub fn devType(self: KBuildSycocaProgressDialog) i32 {
         return qtc.QWidget_DevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -766,9 +974,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn WinId(self: KBuildSycocaProgressDialog) usize {
+    pub fn winId(self: KBuildSycocaProgressDialog) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -778,9 +990,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn CreateWinId(self: KBuildSycocaProgressDialog) void {
+    pub fn createWinId(self: KBuildSycocaProgressDialog) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -790,9 +1006,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn InternalWinId(self: KBuildSycocaProgressDialog) usize {
+    pub fn internalWinId(self: KBuildSycocaProgressDialog) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -802,9 +1022,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn EffectiveWinId(self: KBuildSycocaProgressDialog) usize {
+    pub fn effectiveWinId(self: KBuildSycocaProgressDialog) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -814,9 +1038,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn Style(self: KBuildSycocaProgressDialog) QStyle {
+    pub fn style(self: KBuildSycocaProgressDialog) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -826,12 +1054,16 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: KBuildSycocaProgressDialog, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: KBuildSycocaProgressDialog, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -841,9 +1073,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn IsTopLevel(self: KBuildSycocaProgressDialog) bool {
+    pub fn isTopLevel(self: KBuildSycocaProgressDialog) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -853,9 +1089,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn IsWindow(self: KBuildSycocaProgressDialog) bool {
+    pub fn isWindow(self: KBuildSycocaProgressDialog) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -865,9 +1105,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn IsModal(self: KBuildSycocaProgressDialog) bool {
+    pub fn isModal(self: KBuildSycocaProgressDialog) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -881,9 +1125,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: KBuildSycocaProgressDialog) i32 {
+    pub fn windowModality(self: KBuildSycocaProgressDialog) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -893,11 +1141,15 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: KBuildSycocaProgressDialog, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: KBuildSycocaProgressDialog, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -907,9 +1159,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn IsEnabled(self: KBuildSycocaProgressDialog) bool {
+    pub fn isEnabled(self: KBuildSycocaProgressDialog) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -921,10 +1177,14 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: KBuildSycocaProgressDialog, param1: anytype) bool {
+    pub fn isEnabledTo(self: KBuildSycocaProgressDialog, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -936,9 +1196,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: KBuildSycocaProgressDialog, enabled: bool) void {
+    pub fn setEnabled(self: KBuildSycocaProgressDialog, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -950,9 +1214,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: KBuildSycocaProgressDialog, disabled: bool) void {
+    pub fn setDisabled(self: KBuildSycocaProgressDialog, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -964,9 +1232,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: KBuildSycocaProgressDialog, windowModified: bool) void {
+    pub fn setWindowModified(self: KBuildSycocaProgressDialog, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -976,9 +1248,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn FrameGeometry(self: KBuildSycocaProgressDialog) QRect {
+    pub fn frameGeometry(self: KBuildSycocaProgressDialog) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -988,9 +1264,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn Geometry(self: KBuildSycocaProgressDialog) QRect {
+    pub fn geometry(self: KBuildSycocaProgressDialog) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1000,9 +1280,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn NormalGeometry(self: KBuildSycocaProgressDialog) QRect {
+    pub fn normalGeometry(self: KBuildSycocaProgressDialog) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -1012,9 +1296,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn X(self: KBuildSycocaProgressDialog) i32 {
+    pub fn x(self: KBuildSycocaProgressDialog) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -1024,9 +1312,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn Y(self: KBuildSycocaProgressDialog) i32 {
+    pub fn y(self: KBuildSycocaProgressDialog) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -1036,9 +1328,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn Pos(self: KBuildSycocaProgressDialog) QPoint {
+    pub fn pos(self: KBuildSycocaProgressDialog) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -1048,9 +1344,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn FrameSize(self: KBuildSycocaProgressDialog) QSize {
+    pub fn frameSize(self: KBuildSycocaProgressDialog) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -1060,9 +1360,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn Size(self: KBuildSycocaProgressDialog) QSize {
+    pub fn size(self: KBuildSycocaProgressDialog) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -1072,9 +1376,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn Width(self: KBuildSycocaProgressDialog) i32 {
+    pub fn width(self: KBuildSycocaProgressDialog) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -1084,9 +1392,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn Height(self: KBuildSycocaProgressDialog) i32 {
+    pub fn height(self: KBuildSycocaProgressDialog) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -1096,9 +1408,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn Rect(self: KBuildSycocaProgressDialog) QRect {
+    pub fn rect(self: KBuildSycocaProgressDialog) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -1108,9 +1424,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn ChildrenRect(self: KBuildSycocaProgressDialog) QRect {
+    pub fn childrenRect(self: KBuildSycocaProgressDialog) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -1120,9 +1440,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn ChildrenRegion(self: KBuildSycocaProgressDialog) QRegion {
+    pub fn childrenRegion(self: KBuildSycocaProgressDialog) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1132,9 +1456,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn MinimumSize(self: KBuildSycocaProgressDialog) QSize {
+    pub fn minimumSize(self: KBuildSycocaProgressDialog) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1144,9 +1472,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn MaximumSize(self: KBuildSycocaProgressDialog) QSize {
+    pub fn maximumSize(self: KBuildSycocaProgressDialog) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1156,9 +1488,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn MinimumWidth(self: KBuildSycocaProgressDialog) i32 {
+    pub fn minimumWidth(self: KBuildSycocaProgressDialog) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1168,9 +1504,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn MinimumHeight(self: KBuildSycocaProgressDialog) i32 {
+    pub fn minimumHeight(self: KBuildSycocaProgressDialog) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1180,9 +1520,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn MaximumWidth(self: KBuildSycocaProgressDialog) i32 {
+    pub fn maximumWidth(self: KBuildSycocaProgressDialog) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1192,9 +1536,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn MaximumHeight(self: KBuildSycocaProgressDialog) i32 {
+    pub fn maximumHeight(self: KBuildSycocaProgressDialog) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1204,12 +1552,16 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: KBuildSycocaProgressDialog, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: KBuildSycocaProgressDialog, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1223,9 +1575,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: KBuildSycocaProgressDialog, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: KBuildSycocaProgressDialog, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1235,12 +1591,16 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: KBuildSycocaProgressDialog, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: KBuildSycocaProgressDialog, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1254,9 +1614,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: KBuildSycocaProgressDialog, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: KBuildSycocaProgressDialog, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1268,9 +1632,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: KBuildSycocaProgressDialog, minw: i32) void {
+    pub fn setMinimumWidth(self: KBuildSycocaProgressDialog, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1282,9 +1650,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: KBuildSycocaProgressDialog, minh: i32) void {
+    pub fn setMinimumHeight(self: KBuildSycocaProgressDialog, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1296,9 +1668,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: KBuildSycocaProgressDialog, maxw: i32) void {
+    pub fn setMaximumWidth(self: KBuildSycocaProgressDialog, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1310,9 +1686,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: KBuildSycocaProgressDialog, maxh: i32) void {
+    pub fn setMaximumHeight(self: KBuildSycocaProgressDialog, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1322,9 +1702,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn SizeIncrement(self: KBuildSycocaProgressDialog) QSize {
+    pub fn sizeIncrement(self: KBuildSycocaProgressDialog) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1334,12 +1718,16 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: KBuildSycocaProgressDialog, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: KBuildSycocaProgressDialog, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -1353,9 +1741,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: KBuildSycocaProgressDialog, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: KBuildSycocaProgressDialog, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -1365,9 +1757,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn BaseSize(self: KBuildSycocaProgressDialog) QSize {
+    pub fn baseSize(self: KBuildSycocaProgressDialog) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -1377,12 +1773,16 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: KBuildSycocaProgressDialog, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: KBuildSycocaProgressDialog, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -1396,9 +1796,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: KBuildSycocaProgressDialog, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: KBuildSycocaProgressDialog, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -1410,10 +1814,14 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: KBuildSycocaProgressDialog, fixedSize: anytype) void {
+    pub fn setFixedSize(self: KBuildSycocaProgressDialog, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -1427,9 +1835,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: KBuildSycocaProgressDialog, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: KBuildSycocaProgressDialog, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -1441,9 +1853,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: KBuildSycocaProgressDialog, w: i32) void {
+    pub fn setFixedWidth(self: KBuildSycocaProgressDialog, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -1455,9 +1871,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: KBuildSycocaProgressDialog, h: i32) void {
+    pub fn setFixedHeight(self: KBuildSycocaProgressDialog, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -1469,11 +1889,15 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: KBuildSycocaProgressDialog, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: KBuildSycocaProgressDialog, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -1484,11 +1908,15 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: KBuildSycocaProgressDialog, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: KBuildSycocaProgressDialog, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1499,11 +1927,15 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: KBuildSycocaProgressDialog, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: KBuildSycocaProgressDialog, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1514,11 +1946,15 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: KBuildSycocaProgressDialog, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: KBuildSycocaProgressDialog, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1529,11 +1965,15 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: KBuildSycocaProgressDialog, param1: anytype) QPointF {
+    pub fn mapToParent(self: KBuildSycocaProgressDialog, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1544,10 +1984,14 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: KBuildSycocaProgressDialog, param1: anytype) QPoint {
+    pub fn mapToParent2(self: KBuildSycocaProgressDialog, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -1559,10 +2003,14 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: KBuildSycocaProgressDialog, param1: anytype) QPointF {
+    pub fn mapFromParent(self: KBuildSycocaProgressDialog, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -1574,10 +2022,14 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: KBuildSycocaProgressDialog, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: KBuildSycocaProgressDialog, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -1591,12 +2043,16 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: KBuildSycocaProgressDialog, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: KBuildSycocaProgressDialog, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -1609,11 +2065,15 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: KBuildSycocaProgressDialog, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: KBuildSycocaProgressDialog, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -1627,11 +2087,15 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: KBuildSycocaProgressDialog, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: KBuildSycocaProgressDialog, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -1645,11 +2109,15 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: KBuildSycocaProgressDialog, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: KBuildSycocaProgressDialog, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -1659,9 +2127,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn Window(self: KBuildSycocaProgressDialog) QWidget {
+    pub fn window(self: KBuildSycocaProgressDialog) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -1671,9 +2143,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn NativeParentWidget(self: KBuildSycocaProgressDialog) QWidget {
+    pub fn nativeParentWidget(self: KBuildSycocaProgressDialog) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -1683,9 +2159,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn TopLevelWidget(self: KBuildSycocaProgressDialog) QWidget {
+    pub fn topLevelWidget(self: KBuildSycocaProgressDialog) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -1695,9 +2175,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn Palette(self: KBuildSycocaProgressDialog) QPalette {
+    pub fn palette(self: KBuildSycocaProgressDialog) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -1707,12 +2191,16 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: KBuildSycocaProgressDialog, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: KBuildSycocaProgressDialog, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1722,11 +2210,15 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: KBuildSycocaProgressDialog, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: KBuildSycocaProgressDialog, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1740,9 +2232,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: KBuildSycocaProgressDialog) i32 {
+    pub fn backgroundRole(self: KBuildSycocaProgressDialog) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1752,11 +2248,15 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: KBuildSycocaProgressDialog, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: KBuildSycocaProgressDialog, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1770,9 +2270,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: KBuildSycocaProgressDialog) i32 {
+    pub fn foregroundRole(self: KBuildSycocaProgressDialog) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -1782,9 +2286,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn Font(self: KBuildSycocaProgressDialog) QFont {
+    pub fn font(self: KBuildSycocaProgressDialog) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -1794,12 +2302,16 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: KBuildSycocaProgressDialog, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: KBuildSycocaProgressDialog, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -1809,9 +2321,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn FontMetrics(self: KBuildSycocaProgressDialog) QFontMetrics {
+    pub fn fontMetrics(self: KBuildSycocaProgressDialog) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -1821,9 +2337,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn FontInfo(self: KBuildSycocaProgressDialog) QFontInfo {
+    pub fn fontInfo(self: KBuildSycocaProgressDialog) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -1833,9 +2353,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn Cursor(self: KBuildSycocaProgressDialog) QCursor {
+    pub fn cursor(self: KBuildSycocaProgressDialog) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -1845,12 +2369,16 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: KBuildSycocaProgressDialog, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: KBuildSycocaProgressDialog, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -1860,9 +2388,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn UnsetCursor(self: KBuildSycocaProgressDialog) void {
+    pub fn unsetCursor(self: KBuildSycocaProgressDialog) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -1874,9 +2406,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: KBuildSycocaProgressDialog, enable: bool) void {
+    pub fn setMouseTracking(self: KBuildSycocaProgressDialog, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -1886,9 +2422,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn HasMouseTracking(self: KBuildSycocaProgressDialog) bool {
+    pub fn hasMouseTracking(self: KBuildSycocaProgressDialog) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -1898,9 +2438,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn UnderMouse(self: KBuildSycocaProgressDialog) bool {
+    pub fn underMouse(self: KBuildSycocaProgressDialog) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -1912,9 +2456,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: KBuildSycocaProgressDialog, enable: bool) void {
+    pub fn setTabletTracking(self: KBuildSycocaProgressDialog, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -1924,24 +2472,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn HasTabletTracking(self: KBuildSycocaProgressDialog) bool {
+    pub fn hasTabletTracking(self: KBuildSycocaProgressDialog) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBuildSycocaProgressDialog `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: KBuildSycocaProgressDialog, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -1951,12 +2488,35 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: KBuildSycocaProgressDialog, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: KBuildSycocaProgressDialog, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KBuildSycocaProgressDialog `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: KBuildSycocaProgressDialog, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -1966,9 +2526,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn Mask(self: KBuildSycocaProgressDialog) QRegion {
+    pub fn mask(self: KBuildSycocaProgressDialog) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -1978,9 +2542,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn ClearMask(self: KBuildSycocaProgressDialog) void {
+    pub fn clearMask(self: KBuildSycocaProgressDialog) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -1992,10 +2560,14 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: KBuildSycocaProgressDialog, target: anytype) void {
+    pub fn render(self: KBuildSycocaProgressDialog, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -2007,10 +2579,14 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: KBuildSycocaProgressDialog, painter: anytype) void {
+    pub fn render2(self: KBuildSycocaProgressDialog, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -2020,9 +2596,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn Grab(self: KBuildSycocaProgressDialog) QPixmap {
+    pub fn grab(self: KBuildSycocaProgressDialog) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2032,9 +2612,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn GraphicsEffect(self: KBuildSycocaProgressDialog) QGraphicsEffect {
+    pub fn graphicsEffect(self: KBuildSycocaProgressDialog) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2046,10 +2630,14 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: KBuildSycocaProgressDialog, effect: anytype) void {
+    pub fn setGraphicsEffect(self: KBuildSycocaProgressDialog, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2061,9 +2649,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: KBuildSycocaProgressDialog, typeVal: i32) void {
+    pub fn grabGesture(self: KBuildSycocaProgressDialog, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2075,9 +2667,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: KBuildSycocaProgressDialog, typeVal: i32) void {
+    pub fn ungrabGesture(self: KBuildSycocaProgressDialog, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2087,15 +2683,19 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: KBuildSycocaProgressDialog, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: KBuildSycocaProgressDialog, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2105,15 +2705,19 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: KBuildSycocaProgressDialog, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: KBuildSycocaProgressDialog, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2125,13 +2729,17 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: KBuildSycocaProgressDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: KBuildSycocaProgressDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KBuildSycocaProgressDialog.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KBuildSycocaProgressDialog.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2143,13 +2751,17 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: KBuildSycocaProgressDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: KBuildSycocaProgressDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KBuildSycocaProgressDialog.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KBuildSycocaProgressDialog.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2161,10 +2773,14 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: KBuildSycocaProgressDialog, icon: anytype) void {
+    pub fn setWindowIcon(self: KBuildSycocaProgressDialog, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2174,9 +2790,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn WindowIcon(self: KBuildSycocaProgressDialog) QIcon {
+    pub fn windowIcon(self: KBuildSycocaProgressDialog) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2186,15 +2806,19 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: KBuildSycocaProgressDialog, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: KBuildSycocaProgressDialog, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2206,13 +2830,17 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: KBuildSycocaProgressDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: KBuildSycocaProgressDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KBuildSycocaProgressDialog.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KBuildSycocaProgressDialog.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -2222,15 +2850,19 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: KBuildSycocaProgressDialog, windowRole: []const u8) void {
+    pub fn setWindowRole(self: KBuildSycocaProgressDialog, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -2242,13 +2874,17 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: KBuildSycocaProgressDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: KBuildSycocaProgressDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KBuildSycocaProgressDialog.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KBuildSycocaProgressDialog.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2260,13 +2896,17 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: KBuildSycocaProgressDialog, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: KBuildSycocaProgressDialog, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2278,13 +2918,17 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: KBuildSycocaProgressDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: KBuildSycocaProgressDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KBuildSycocaProgressDialog.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KBuildSycocaProgressDialog.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2296,9 +2940,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: KBuildSycocaProgressDialog, level: f64) void {
+    pub fn setWindowOpacity(self: KBuildSycocaProgressDialog, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2308,9 +2956,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn WindowOpacity(self: KBuildSycocaProgressDialog) f64 {
+    pub fn windowOpacity(self: KBuildSycocaProgressDialog) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -2320,9 +2972,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn IsWindowModified(self: KBuildSycocaProgressDialog) bool {
+    pub fn isWindowModified(self: KBuildSycocaProgressDialog) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -2332,15 +2988,19 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: KBuildSycocaProgressDialog, toolTip: []const u8) void {
+    pub fn setToolTip(self: KBuildSycocaProgressDialog, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -2352,13 +3012,17 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: KBuildSycocaProgressDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: KBuildSycocaProgressDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KBuildSycocaProgressDialog.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KBuildSycocaProgressDialog.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2370,9 +3034,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: KBuildSycocaProgressDialog, msec: i32) void {
+    pub fn setToolTipDuration(self: KBuildSycocaProgressDialog, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2382,9 +3050,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn ToolTipDuration(self: KBuildSycocaProgressDialog) i32 {
+    pub fn toolTipDuration(self: KBuildSycocaProgressDialog) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -2394,15 +3066,19 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: KBuildSycocaProgressDialog, statusTip: []const u8) void {
+    pub fn setStatusTip(self: KBuildSycocaProgressDialog, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -2414,13 +3090,17 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: KBuildSycocaProgressDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: KBuildSycocaProgressDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KBuildSycocaProgressDialog.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KBuildSycocaProgressDialog.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2430,15 +3110,19 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: KBuildSycocaProgressDialog, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: KBuildSycocaProgressDialog, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2450,13 +3134,17 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: KBuildSycocaProgressDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: KBuildSycocaProgressDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KBuildSycocaProgressDialog.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KBuildSycocaProgressDialog.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2468,13 +3156,17 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: KBuildSycocaProgressDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: KBuildSycocaProgressDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KBuildSycocaProgressDialog.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KBuildSycocaProgressDialog.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2486,13 +3178,17 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: KBuildSycocaProgressDialog, name: []const u8) void {
+    pub fn setAccessibleName(self: KBuildSycocaProgressDialog, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2504,13 +3200,17 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: KBuildSycocaProgressDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: KBuildSycocaProgressDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KBuildSycocaProgressDialog.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KBuildSycocaProgressDialog.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2522,13 +3222,17 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: KBuildSycocaProgressDialog, description: []const u8) void {
+    pub fn setAccessibleDescription(self: KBuildSycocaProgressDialog, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2540,9 +3244,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: KBuildSycocaProgressDialog, direction: i32) void {
+    pub fn setLayoutDirection(self: KBuildSycocaProgressDialog, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2556,9 +3264,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: KBuildSycocaProgressDialog) i32 {
+    pub fn layoutDirection(self: KBuildSycocaProgressDialog) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2568,9 +3280,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn UnsetLayoutDirection(self: KBuildSycocaProgressDialog) void {
+    pub fn unsetLayoutDirection(self: KBuildSycocaProgressDialog) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -2580,12 +3296,16 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: KBuildSycocaProgressDialog, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: KBuildSycocaProgressDialog, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -2595,9 +3315,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn Locale(self: KBuildSycocaProgressDialog) QLocale {
+    pub fn locale(self: KBuildSycocaProgressDialog) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -2607,9 +3331,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn UnsetLocale(self: KBuildSycocaProgressDialog) void {
+    pub fn unsetLocale(self: KBuildSycocaProgressDialog) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -2619,9 +3347,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn IsRightToLeft(self: KBuildSycocaProgressDialog) bool {
+    pub fn isRightToLeft(self: KBuildSycocaProgressDialog) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -2631,9 +3363,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn IsLeftToRight(self: KBuildSycocaProgressDialog) bool {
+    pub fn isLeftToRight(self: KBuildSycocaProgressDialog) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -2643,9 +3379,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn SetFocus(self: KBuildSycocaProgressDialog) void {
+    pub fn setFocus(self: KBuildSycocaProgressDialog) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -2655,9 +3395,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn IsActiveWindow(self: KBuildSycocaProgressDialog) bool {
+    pub fn isActiveWindow(self: KBuildSycocaProgressDialog) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -2667,9 +3411,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn ActivateWindow(self: KBuildSycocaProgressDialog) void {
+    pub fn activateWindow(self: KBuildSycocaProgressDialog) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -2679,9 +3427,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn ClearFocus(self: KBuildSycocaProgressDialog) void {
+    pub fn clearFocus(self: KBuildSycocaProgressDialog) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -2693,9 +3445,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: KBuildSycocaProgressDialog, reason: i32) void {
+    pub fn setFocus2(self: KBuildSycocaProgressDialog, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2709,9 +3465,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: KBuildSycocaProgressDialog) i32 {
+    pub fn focusPolicy(self: KBuildSycocaProgressDialog) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2723,9 +3483,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: KBuildSycocaProgressDialog, policy: i32) void {
+    pub fn setFocusPolicy(self: KBuildSycocaProgressDialog, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -2735,9 +3499,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn HasFocus(self: KBuildSycocaProgressDialog) bool {
+    pub fn hasFocus(self: KBuildSycocaProgressDialog) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -2749,11 +3517,15 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -2763,12 +3535,16 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: KBuildSycocaProgressDialog, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: KBuildSycocaProgressDialog, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -2778,9 +3554,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn FocusProxy(self: KBuildSycocaProgressDialog) QWidget {
+    pub fn focusProxy(self: KBuildSycocaProgressDialog) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2794,9 +3574,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: KBuildSycocaProgressDialog) i32 {
+    pub fn contextMenuPolicy(self: KBuildSycocaProgressDialog) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2808,9 +3592,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: KBuildSycocaProgressDialog, policy: i32) void {
+    pub fn setContextMenuPolicy(self: KBuildSycocaProgressDialog, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -2820,9 +3608,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn GrabMouse(self: KBuildSycocaProgressDialog) void {
+    pub fn grabMouse(self: KBuildSycocaProgressDialog) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -2834,10 +3626,14 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: KBuildSycocaProgressDialog, param1: anytype) void {
+    pub fn grabMouse2(self: KBuildSycocaProgressDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -2847,9 +3643,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn ReleaseMouse(self: KBuildSycocaProgressDialog) void {
+    pub fn releaseMouse(self: KBuildSycocaProgressDialog) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -2859,9 +3659,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn GrabKeyboard(self: KBuildSycocaProgressDialog) void {
+    pub fn grabKeyboard(self: KBuildSycocaProgressDialog) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -2871,9 +3675,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn ReleaseKeyboard(self: KBuildSycocaProgressDialog) void {
+    pub fn releaseKeyboard(self: KBuildSycocaProgressDialog) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -2885,10 +3693,14 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: KBuildSycocaProgressDialog, key: anytype) i32 {
+    pub fn grabShortcut(self: KBuildSycocaProgressDialog, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -2900,9 +3712,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: KBuildSycocaProgressDialog, id: i32) void {
+    pub fn releaseShortcut(self: KBuildSycocaProgressDialog, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2914,9 +3730,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: KBuildSycocaProgressDialog, id: i32) void {
+    pub fn setShortcutEnabled(self: KBuildSycocaProgressDialog, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -2928,25 +3748,37 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: KBuildSycocaProgressDialog, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: KBuildSycocaProgressDialog, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2956,9 +3788,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn UpdatesEnabled(self: KBuildSycocaProgressDialog) bool {
+    pub fn updatesEnabled(self: KBuildSycocaProgressDialog) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2970,9 +3806,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: KBuildSycocaProgressDialog, enable: bool) void {
+    pub fn setUpdatesEnabled(self: KBuildSycocaProgressDialog, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -2982,9 +3822,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn GraphicsProxyWidget(self: KBuildSycocaProgressDialog) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: KBuildSycocaProgressDialog) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -2994,9 +3838,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn Update(self: KBuildSycocaProgressDialog) void {
+    pub fn update(self: KBuildSycocaProgressDialog) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -3006,9 +3854,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn Repaint(self: KBuildSycocaProgressDialog) void {
+    pub fn repaint(self: KBuildSycocaProgressDialog) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -3018,17 +3870,21 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: KBuildSycocaProgressDialog, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: KBuildSycocaProgressDialog, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -3040,11 +3896,15 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: KBuildSycocaProgressDialog, param1: anytype) void {
+    pub fn update3(self: KBuildSycocaProgressDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -3055,10 +3915,14 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: KBuildSycocaProgressDialog, param1: anytype) void {
+    pub fn update4(self: KBuildSycocaProgressDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -3068,17 +3932,21 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: KBuildSycocaProgressDialog, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: KBuildSycocaProgressDialog, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -3090,10 +3958,14 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: KBuildSycocaProgressDialog, param1: anytype) void {
+    pub fn repaint3(self: KBuildSycocaProgressDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -3105,10 +3977,14 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: KBuildSycocaProgressDialog, param1: anytype) void {
+    pub fn repaint4(self: KBuildSycocaProgressDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -3120,9 +3996,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: KBuildSycocaProgressDialog, hidden: bool) void {
+    pub fn setHidden(self: KBuildSycocaProgressDialog, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -3132,9 +4012,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn Show(self: KBuildSycocaProgressDialog) void {
+    pub fn show(self: KBuildSycocaProgressDialog) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -3144,9 +4028,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn Hide(self: KBuildSycocaProgressDialog) void {
+    pub fn hide(self: KBuildSycocaProgressDialog) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3156,9 +4044,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn ShowMinimized(self: KBuildSycocaProgressDialog) void {
+    pub fn showMinimized(self: KBuildSycocaProgressDialog) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3168,9 +4060,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn ShowMaximized(self: KBuildSycocaProgressDialog) void {
+    pub fn showMaximized(self: KBuildSycocaProgressDialog) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3180,9 +4076,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn ShowFullScreen(self: KBuildSycocaProgressDialog) void {
+    pub fn showFullScreen(self: KBuildSycocaProgressDialog) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -3192,9 +4092,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn ShowNormal(self: KBuildSycocaProgressDialog) void {
+    pub fn showNormal(self: KBuildSycocaProgressDialog) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -3204,9 +4108,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn Close(self: KBuildSycocaProgressDialog) bool {
+    pub fn close(self: KBuildSycocaProgressDialog) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -3216,9 +4124,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn Raise(self: KBuildSycocaProgressDialog) void {
+    pub fn raise(self: KBuildSycocaProgressDialog) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -3228,9 +4140,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn Lower(self: KBuildSycocaProgressDialog) void {
+    pub fn lower(self: KBuildSycocaProgressDialog) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -3242,10 +4158,14 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: KBuildSycocaProgressDialog, param1: anytype) void {
+    pub fn stackUnder(self: KBuildSycocaProgressDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -3255,13 +4175,17 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: KBuildSycocaProgressDialog, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: KBuildSycocaProgressDialog, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -3273,10 +4197,14 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: KBuildSycocaProgressDialog, param1: anytype) void {
+    pub fn move2(self: KBuildSycocaProgressDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -3290,9 +4218,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: KBuildSycocaProgressDialog, w: i32, h: i32) void {
+    pub fn resize(self: KBuildSycocaProgressDialog, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -3304,10 +4236,14 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: KBuildSycocaProgressDialog, param1: anytype) void {
+    pub fn resize2(self: KBuildSycocaProgressDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3317,17 +4253,21 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: KBuildSycocaProgressDialog, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: KBuildSycocaProgressDialog, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -3337,12 +4277,16 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: KBuildSycocaProgressDialog, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: KBuildSycocaProgressDialog, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3354,13 +4298,17 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: KBuildSycocaProgressDialog, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: KBuildSycocaProgressDialog, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KBuildSycocaProgressDialog.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KBuildSycocaProgressDialog.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3370,15 +4318,19 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: KBuildSycocaProgressDialog, geometry: []u8) bool {
+    pub fn restoreGeometry(self: KBuildSycocaProgressDialog, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -3388,9 +4340,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn AdjustSize(self: KBuildSycocaProgressDialog) void {
+    pub fn adjustSize(self: KBuildSycocaProgressDialog) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -3400,9 +4356,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn IsVisible(self: KBuildSycocaProgressDialog) bool {
+    pub fn isVisible(self: KBuildSycocaProgressDialog) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -3414,10 +4374,14 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: KBuildSycocaProgressDialog, param1: anytype) bool {
+    pub fn isVisibleTo(self: KBuildSycocaProgressDialog, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -3427,9 +4391,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn IsHidden(self: KBuildSycocaProgressDialog) bool {
+    pub fn isHidden(self: KBuildSycocaProgressDialog) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3439,9 +4407,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn IsMinimized(self: KBuildSycocaProgressDialog) bool {
+    pub fn isMinimized(self: KBuildSycocaProgressDialog) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3451,9 +4423,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn IsMaximized(self: KBuildSycocaProgressDialog) bool {
+    pub fn isMaximized(self: KBuildSycocaProgressDialog) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3463,9 +4439,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn IsFullScreen(self: KBuildSycocaProgressDialog) bool {
+    pub fn isFullScreen(self: KBuildSycocaProgressDialog) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -3479,9 +4459,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: KBuildSycocaProgressDialog) i32 {
+    pub fn windowState(self: KBuildSycocaProgressDialog) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3493,9 +4477,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: KBuildSycocaProgressDialog, state: i32) void {
+    pub fn setWindowState(self: KBuildSycocaProgressDialog, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3507,9 +4495,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: KBuildSycocaProgressDialog, state: i32) void {
+    pub fn overrideWindowState(self: KBuildSycocaProgressDialog, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3519,9 +4511,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn SizePolicy(self: KBuildSycocaProgressDialog) QSizePolicy {
+    pub fn sizePolicy(self: KBuildSycocaProgressDialog) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3531,12 +4527,16 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: KBuildSycocaProgressDialog, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: KBuildSycocaProgressDialog, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -3550,9 +4550,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: KBuildSycocaProgressDialog, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: KBuildSycocaProgressDialog, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -3564,9 +4568,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: KBuildSycocaProgressDialog, param1: i32) i32 {
+    pub fn heightForWidth(self: KBuildSycocaProgressDialog, param1: i32) i32 {
         return qtc.QWidget_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -3576,9 +4584,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn HasHeightForWidth(self: KBuildSycocaProgressDialog) bool {
+    pub fn hasHeightForWidth(self: KBuildSycocaProgressDialog) bool {
         return qtc.QWidget_HasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -3588,9 +4600,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn VisibleRegion(self: KBuildSycocaProgressDialog) QRegion {
+    pub fn visibleRegion(self: KBuildSycocaProgressDialog) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3608,9 +4624,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: KBuildSycocaProgressDialog, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: KBuildSycocaProgressDialog, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -3622,10 +4642,14 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: KBuildSycocaProgressDialog, margins: anytype) void {
+    pub fn setContentsMargins2(self: KBuildSycocaProgressDialog, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3635,9 +4659,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn ContentsMargins(self: KBuildSycocaProgressDialog) QMargins {
+    pub fn contentsMargins(self: KBuildSycocaProgressDialog) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -3647,9 +4675,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn ContentsRect(self: KBuildSycocaProgressDialog) QRect {
+    pub fn contentsRect(self: KBuildSycocaProgressDialog) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -3659,9 +4691,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn Layout(self: KBuildSycocaProgressDialog) QLayout {
+    pub fn layout(self: KBuildSycocaProgressDialog) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -3671,12 +4707,16 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: KBuildSycocaProgressDialog, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: KBuildSycocaProgressDialog, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3686,24 +4726,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn UpdateGeometry(self: KBuildSycocaProgressDialog) void {
+    pub fn updateGeometry(self: KBuildSycocaProgressDialog) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBuildSycocaProgressDialog `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: KBuildSycocaProgressDialog, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -3713,14 +4742,37 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: KBuildSycocaProgressDialog, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KBuildSycocaProgressDialog `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: KBuildSycocaProgressDialog, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: KBuildSycocaProgressDialog, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -3734,9 +4786,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: KBuildSycocaProgressDialog, dx: i32, dy: i32) void {
+    pub fn scroll(self: KBuildSycocaProgressDialog, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -3752,10 +4808,14 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: KBuildSycocaProgressDialog, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: KBuildSycocaProgressDialog, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -3765,9 +4825,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn FocusWidget(self: KBuildSycocaProgressDialog) QWidget {
+    pub fn focusWidget(self: KBuildSycocaProgressDialog) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -3777,9 +4841,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn NextInFocusChain(self: KBuildSycocaProgressDialog) QWidget {
+    pub fn nextInFocusChain(self: KBuildSycocaProgressDialog) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -3789,9 +4857,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn PreviousInFocusChain(self: KBuildSycocaProgressDialog) QWidget {
+    pub fn previousInFocusChain(self: KBuildSycocaProgressDialog) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -3801,9 +4873,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn AcceptDrops(self: KBuildSycocaProgressDialog) bool {
+    pub fn acceptDrops(self: KBuildSycocaProgressDialog) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -3815,9 +4891,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: KBuildSycocaProgressDialog, on: bool) void {
+    pub fn setAcceptDrops(self: KBuildSycocaProgressDialog, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -3829,10 +4909,14 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: KBuildSycocaProgressDialog, action: anytype) void {
+    pub fn addAction(self: KBuildSycocaProgressDialog, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -3842,15 +4926,19 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: KBuildSycocaProgressDialog, actions: []QAction) void {
+    pub fn addActions(self: KBuildSycocaProgressDialog, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -3862,16 +4950,20 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: KBuildSycocaProgressDialog, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: KBuildSycocaProgressDialog, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -3885,11 +4977,15 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: KBuildSycocaProgressDialog, before: anytype, action: anytype) void {
+    pub fn insertAction(self: KBuildSycocaProgressDialog, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -3901,10 +4997,14 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: KBuildSycocaProgressDialog, action: anytype) void {
+    pub fn removeAction(self: KBuildSycocaProgressDialog, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -3916,15 +5016,19 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: KBuildSycocaProgressDialog, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: KBuildSycocaProgressDialog, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KBuildSycocaProgressDialog.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KBuildSycocaProgressDialog.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -3936,13 +5040,17 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: KBuildSycocaProgressDialog, text: []const u8) QAction {
+    pub fn addAction2(self: KBuildSycocaProgressDialog, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -3956,7 +5064,7 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: KBuildSycocaProgressDialog, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: KBuildSycocaProgressDialog, icon: anytype, text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -3965,6 +5073,10 @@ pub const KBuildSycocaProgressDialog = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -3977,7 +5089,7 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: KBuildSycocaProgressDialog, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: KBuildSycocaProgressDialog, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -3985,6 +5097,10 @@ pub const KBuildSycocaProgressDialog = extern struct {
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
 
     /// Inherited from QWidget
     ///
@@ -4000,7 +5116,7 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: KBuildSycocaProgressDialog, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: KBuildSycocaProgressDialog, icon: anytype, text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -4010,6 +5126,10 @@ pub const KBuildSycocaProgressDialog = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
@@ -4018,9 +5138,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn ParentWidget(self: KBuildSycocaProgressDialog) QWidget {
+    pub fn parentWidget(self: KBuildSycocaProgressDialog) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4032,9 +5156,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: KBuildSycocaProgressDialog, typeVal: i32) void {
+    pub fn setWindowFlags(self: KBuildSycocaProgressDialog, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4048,9 +5176,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: KBuildSycocaProgressDialog) i32 {
+    pub fn windowFlags(self: KBuildSycocaProgressDialog) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -4062,9 +5194,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: KBuildSycocaProgressDialog, param1: i32) void {
+    pub fn setWindowFlag(self: KBuildSycocaProgressDialog, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4076,9 +5212,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: KBuildSycocaProgressDialog, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: KBuildSycocaProgressDialog, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -4092,9 +5232,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: KBuildSycocaProgressDialog) i32 {
+    pub fn windowType(self: KBuildSycocaProgressDialog) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -4104,9 +5248,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -4116,13 +5264,17 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: KBuildSycocaProgressDialog, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: KBuildSycocaProgressDialog, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -4134,10 +5286,14 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: KBuildSycocaProgressDialog, p: anytype) QWidget {
+    pub fn childAt2(self: KBuildSycocaProgressDialog, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -4149,10 +5305,14 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: KBuildSycocaProgressDialog, p: anytype) QWidget {
+    pub fn childAt3(self: KBuildSycocaProgressDialog, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4164,9 +5324,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: KBuildSycocaProgressDialog, param1: i32) void {
+    pub fn setAttribute(self: KBuildSycocaProgressDialog, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4178,9 +5342,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: KBuildSycocaProgressDialog, param1: i32) bool {
+    pub fn testAttribute(self: KBuildSycocaProgressDialog, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -4190,9 +5358,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn PaintEngine(self: KBuildSycocaProgressDialog) QPaintEngine {
+    pub fn paintEngine(self: KBuildSycocaProgressDialog) QPaintEngine {
         return .{ .ptr = qtc.QWidget_PaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -4202,9 +5374,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn EnsurePolished(self: KBuildSycocaProgressDialog) void {
+    pub fn ensurePolished(self: KBuildSycocaProgressDialog) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -4216,10 +5392,14 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: KBuildSycocaProgressDialog, child: anytype) bool {
+    pub fn isAncestorOf(self: KBuildSycocaProgressDialog, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4229,9 +5409,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn AutoFillBackground(self: KBuildSycocaProgressDialog) bool {
+    pub fn autoFillBackground(self: KBuildSycocaProgressDialog) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4243,9 +5427,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: KBuildSycocaProgressDialog, enabled: bool) void {
+    pub fn setAutoFillBackground(self: KBuildSycocaProgressDialog, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -4255,9 +5443,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn BackingStore(self: KBuildSycocaProgressDialog) QBackingStore {
+    pub fn backingStore(self: KBuildSycocaProgressDialog) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -4267,9 +5459,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn WindowHandle(self: KBuildSycocaProgressDialog) QWindow {
+    pub fn windowHandle(self: KBuildSycocaProgressDialog) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -4279,9 +5475,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn Screen(self: KBuildSycocaProgressDialog) QScreen {
+    pub fn screen(self: KBuildSycocaProgressDialog) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -4291,12 +5491,16 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: KBuildSycocaProgressDialog, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: KBuildSycocaProgressDialog, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -4304,12 +5508,16 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4321,13 +5529,17 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: KBuildSycocaProgressDialog, title: []const u8) void {
+    pub fn windowTitleChanged(self: KBuildSycocaProgressDialog, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4339,9 +5551,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KBuildSycocaProgressDialog, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: KBuildSycocaProgressDialog, callback: *const fn (KBuildSycocaProgressDialog, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: KBuildSycocaProgressDialog, callback: *const fn (KBuildSycocaProgressDialog, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4353,10 +5569,14 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: KBuildSycocaProgressDialog, icon: anytype) void {
+    pub fn windowIconChanged(self: KBuildSycocaProgressDialog, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4368,9 +5588,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KBuildSycocaProgressDialog, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: KBuildSycocaProgressDialog, callback: *const fn (KBuildSycocaProgressDialog, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: KBuildSycocaProgressDialog, callback: *const fn (KBuildSycocaProgressDialog, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4382,13 +5606,17 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: KBuildSycocaProgressDialog, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: KBuildSycocaProgressDialog, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4400,9 +5628,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KBuildSycocaProgressDialog, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: KBuildSycocaProgressDialog, callback: *const fn (KBuildSycocaProgressDialog, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: KBuildSycocaProgressDialog, callback: *const fn (KBuildSycocaProgressDialog, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4412,12 +5644,16 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: KBuildSycocaProgressDialog, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: KBuildSycocaProgressDialog, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4429,9 +5665,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KBuildSycocaProgressDialog, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: KBuildSycocaProgressDialog, callback: *const fn (KBuildSycocaProgressDialog, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: KBuildSycocaProgressDialog, callback: *const fn (KBuildSycocaProgressDialog, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -4443,9 +5683,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: KBuildSycocaProgressDialog, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: KBuildSycocaProgressDialog, param1: i32) QVariant {
         return .{ .ptr = qtc.QWidget_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4459,9 +5703,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: KBuildSycocaProgressDialog) i32 {
+    pub fn inputMethodHints(self: KBuildSycocaProgressDialog) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4473,9 +5721,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: KBuildSycocaProgressDialog, hints: i32) void {
+    pub fn setInputMethodHints(self: KBuildSycocaProgressDialog, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -4489,11 +5741,15 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: KBuildSycocaProgressDialog, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: KBuildSycocaProgressDialog, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -4509,13 +5765,17 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: KBuildSycocaProgressDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: KBuildSycocaProgressDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -4532,12 +5792,16 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: KBuildSycocaProgressDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: KBuildSycocaProgressDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -4551,11 +5815,15 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: KBuildSycocaProgressDialog, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: KBuildSycocaProgressDialog, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -4571,12 +5839,16 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: KBuildSycocaProgressDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: KBuildSycocaProgressDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -4594,12 +5866,16 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: KBuildSycocaProgressDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: KBuildSycocaProgressDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -4611,10 +5887,14 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: KBuildSycocaProgressDialog, rectangle: anytype) QPixmap {
+    pub fn grab1(self: KBuildSycocaProgressDialog, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -4628,9 +5908,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: KBuildSycocaProgressDialog, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: KBuildSycocaProgressDialog, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -4644,10 +5928,14 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: KBuildSycocaProgressDialog, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: KBuildSycocaProgressDialog, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -4661,9 +5949,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: KBuildSycocaProgressDialog, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: KBuildSycocaProgressDialog, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -4677,9 +5969,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: KBuildSycocaProgressDialog, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: KBuildSycocaProgressDialog, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -4693,9 +5989,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: KBuildSycocaProgressDialog, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: KBuildSycocaProgressDialog, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -4709,25 +6009,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: KBuildSycocaProgressDialog, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: KBuildSycocaProgressDialog, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -4735,17 +6023,41 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -4757,13 +6069,17 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KBuildSycocaProgressDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KBuildSycocaProgressDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KBuildSycocaProgressDialog.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KBuildSycocaProgressDialog.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -4775,13 +6091,17 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KBuildSycocaProgressDialog, name: []const u8) void {
+    pub fn setObjectName(self: KBuildSycocaProgressDialog, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -4791,9 +6111,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn IsWidgetType(self: KBuildSycocaProgressDialog) bool {
+    pub fn isWidgetType(self: KBuildSycocaProgressDialog) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -4803,9 +6127,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn IsWindowType(self: KBuildSycocaProgressDialog) bool {
+    pub fn isWindowType(self: KBuildSycocaProgressDialog) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -4815,9 +6143,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn IsQuickItemType(self: KBuildSycocaProgressDialog) bool {
+    pub fn isQuickItemType(self: KBuildSycocaProgressDialog) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -4827,9 +6159,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn SignalsBlocked(self: KBuildSycocaProgressDialog) bool {
+    pub fn signalsBlocked(self: KBuildSycocaProgressDialog) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -4841,9 +6177,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KBuildSycocaProgressDialog, b: bool) bool {
+    pub fn blockSignals(self: KBuildSycocaProgressDialog, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -4853,9 +6193,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn Thread(self: KBuildSycocaProgressDialog) QThread {
+    pub fn thread(self: KBuildSycocaProgressDialog) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -4865,12 +6209,16 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KBuildSycocaProgressDialog, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KBuildSycocaProgressDialog, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -4882,9 +6230,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KBuildSycocaProgressDialog, interval: i32) i32 {
+    pub fn startTimer(self: KBuildSycocaProgressDialog, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -4896,9 +6248,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KBuildSycocaProgressDialog, time: i64) i32 {
+    pub fn startTimer2(self: KBuildSycocaProgressDialog, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -4910,9 +6266,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KBuildSycocaProgressDialog, id: i32) void {
+    pub fn killTimer(self: KBuildSycocaProgressDialog, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -4924,9 +6284,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KBuildSycocaProgressDialog, id: i32) void {
+    pub fn killTimer2(self: KBuildSycocaProgressDialog, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -4938,15 +6302,19 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KBuildSycocaProgressDialog, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KBuildSycocaProgressDialog, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KBuildSycocaProgressDialog.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KBuildSycocaProgressDialog.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4958,10 +6326,14 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KBuildSycocaProgressDialog, filterObj: anytype) void {
+    pub fn installEventFilter(self: KBuildSycocaProgressDialog, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4973,10 +6345,14 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KBuildSycocaProgressDialog, obj: anytype) void {
+    pub fn removeEventFilter(self: KBuildSycocaProgressDialog, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -4984,7 +6360,7 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4992,13 +6368,17 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -5006,7 +6386,7 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5014,13 +6394,17 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -5030,18 +6414,22 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KBuildSycocaProgressDialog, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KBuildSycocaProgressDialog, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -5049,7 +6437,7 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5057,13 +6445,17 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -5071,7 +6463,7 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5079,13 +6471,17 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -5095,9 +6491,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn Disconnect3(self: KBuildSycocaProgressDialog) bool {
+    pub fn disconnect3(self: KBuildSycocaProgressDialog) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -5109,10 +6509,14 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KBuildSycocaProgressDialog, receiver: anytype) bool {
+    pub fn disconnect4(self: KBuildSycocaProgressDialog, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -5122,10 +6526,14 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -5135,9 +6543,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn DumpObjectTree(self: KBuildSycocaProgressDialog) void {
+    pub fn dumpObjectTree(self: KBuildSycocaProgressDialog) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -5147,9 +6559,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn DumpObjectInfo(self: KBuildSycocaProgressDialog) void {
+    pub fn dumpObjectInfo(self: KBuildSycocaProgressDialog) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -5161,13 +6577,17 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QVariant `
+    /// ` _value: QVariant `
     ///
-    pub fn SetProperty(self: KBuildSycocaProgressDialog, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KBuildSycocaProgressDialog, name: [:0]const u8, _value: anytype) bool {
         const name_Cstring = name.ptr;
-        comptime _ = @TypeOf(value)._is_QVariant;
-        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
+        comptime _ = @TypeOf(_value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(_value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -5179,10 +6599,14 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KBuildSycocaProgressDialog, name: [:0]const u8) QVariant {
+    pub fn property(self: KBuildSycocaProgressDialog, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -5194,7 +6618,7 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KBuildSycocaProgressDialog, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KBuildSycocaProgressDialog, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -5202,27 +6626,19 @@ pub const KBuildSycocaProgressDialog = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KBuildSycocaProgressDialog.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KBuildSycocaProgressDialog.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KBuildSycocaProgressDialog.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KBuildSycocaProgressDialog.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBuildSycocaProgressDialog `
-    ///
-    pub fn BindingStorage(self: KBuildSycocaProgressDialog) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -5232,9 +6648,29 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn BindingStorage2(self: KBuildSycocaProgressDialog) QBindingStorage {
+    pub fn bindingStorage(self: KBuildSycocaProgressDialog) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KBuildSycocaProgressDialog `
+    ///
+    pub fn bindingStorage2(self: KBuildSycocaProgressDialog) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -5244,9 +6680,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn Destroyed(self: KBuildSycocaProgressDialog) void {
+    pub fn destroyed(self: KBuildSycocaProgressDialog) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -5258,9 +6698,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KBuildSycocaProgressDialog) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KBuildSycocaProgressDialog, callback: *const fn (KBuildSycocaProgressDialog) callconv(.c) void) void {
+    pub fn onDestroyed(self: KBuildSycocaProgressDialog, callback: *const fn (KBuildSycocaProgressDialog) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -5270,9 +6714,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn Parent(self: KBuildSycocaProgressDialog) QObject {
+    pub fn parent(self: KBuildSycocaProgressDialog) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -5284,10 +6732,14 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KBuildSycocaProgressDialog, classname: [:0]const u8) bool {
+    pub fn inherits(self: KBuildSycocaProgressDialog, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -5297,9 +6749,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn DeleteLater(self: KBuildSycocaProgressDialog) void {
+    pub fn deleteLater(self: KBuildSycocaProgressDialog) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -5313,9 +6769,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KBuildSycocaProgressDialog, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KBuildSycocaProgressDialog, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -5329,9 +6789,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KBuildSycocaProgressDialog, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KBuildSycocaProgressDialog, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -5339,7 +6803,7 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5349,13 +6813,17 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -5363,7 +6831,7 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5373,13 +6841,17 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -5389,7 +6861,7 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5397,12 +6869,16 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KBuildSycocaProgressDialog, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KBuildSycocaProgressDialog, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -5414,10 +6890,14 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KBuildSycocaProgressDialog, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KBuildSycocaProgressDialog, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -5431,11 +6911,15 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KBuildSycocaProgressDialog, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KBuildSycocaProgressDialog, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -5451,13 +6935,17 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KBuildSycocaProgressDialog, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KBuildSycocaProgressDialog, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -5470,11 +6958,15 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KBuildSycocaProgressDialog, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KBuildSycocaProgressDialog, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -5486,10 +6978,14 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KBuildSycocaProgressDialog, param1: anytype) void {
+    pub fn destroyed1(self: KBuildSycocaProgressDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -5501,9 +6997,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KBuildSycocaProgressDialog, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KBuildSycocaProgressDialog, callback: *const fn (KBuildSycocaProgressDialog, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KBuildSycocaProgressDialog, callback: *const fn (KBuildSycocaProgressDialog, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -5513,9 +7013,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn PaintingActive(self: KBuildSycocaProgressDialog) bool {
+    pub fn paintingActive(self: KBuildSycocaProgressDialog) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5525,9 +7029,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn WidthMM(self: KBuildSycocaProgressDialog) i32 {
+    pub fn widthMM(self: KBuildSycocaProgressDialog) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5537,9 +7045,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn HeightMM(self: KBuildSycocaProgressDialog) i32 {
+    pub fn heightMM(self: KBuildSycocaProgressDialog) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5549,9 +7061,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn LogicalDpiX(self: KBuildSycocaProgressDialog) i32 {
+    pub fn logicalDpiX(self: KBuildSycocaProgressDialog) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5561,9 +7077,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn LogicalDpiY(self: KBuildSycocaProgressDialog) i32 {
+    pub fn logicalDpiY(self: KBuildSycocaProgressDialog) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5573,9 +7093,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn PhysicalDpiX(self: KBuildSycocaProgressDialog) i32 {
+    pub fn physicalDpiX(self: KBuildSycocaProgressDialog) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5585,9 +7109,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn PhysicalDpiY(self: KBuildSycocaProgressDialog) i32 {
+    pub fn physicalDpiY(self: KBuildSycocaProgressDialog) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -5597,9 +7125,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn DevicePixelRatio(self: KBuildSycocaProgressDialog) f64 {
+    pub fn devicePixelRatio(self: KBuildSycocaProgressDialog) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5609,9 +7141,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn DevicePixelRatioF(self: KBuildSycocaProgressDialog) f64 {
+    pub fn devicePixelRatioF(self: KBuildSycocaProgressDialog) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -5621,9 +7157,13 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn ColorCount(self: KBuildSycocaProgressDialog) i32 {
+    pub fn colorCount(self: KBuildSycocaProgressDialog) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -5633,17 +7173,25 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` self: KBuildSycocaProgressDialog `
     ///
-    pub fn Depth(self: KBuildSycocaProgressDialog) i32 {
+    pub fn depth(self: KBuildSycocaProgressDialog) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5653,11 +7201,15 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    /// ` value: f64 `
+    /// ` _value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(metric: i32, _value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(_value));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -5671,7 +7223,7 @@ pub const KBuildSycocaProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KBuildSycocaProgressDialog, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KBuildSycocaProgressDialog, callback: *const fn (KBuildSycocaProgressDialog, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KBuildSycocaProgressDialog, callback: *const fn (KBuildSycocaProgressDialog, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 };

@@ -12,22 +12,34 @@ pub const QGeoSatelliteInfo = extern struct {
 
     pub const _is_QGeoSatelliteInfo = {};
 
-    /// New constructs a new QGeoSatelliteInfo object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QGeoSatelliteInfo {
+    pub const New = new;
+
+    /// Allocate a new QGeoSatelliteInfo object in C++ memory
+    ///
+    pub fn new() QGeoSatelliteInfo {
         return .{ .ptr = qtc.QGeoSatelliteInfo_new() };
     }
 
-    /// New2 constructs a new QGeoSatelliteInfo object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QGeoSatelliteInfo object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QGeoSatelliteInfo `
     ///
-    pub fn New2(other: anytype) QGeoSatelliteInfo {
+    pub fn new2(other: anytype) QGeoSatelliteInfo {
         comptime _ = @TypeOf(other)._is_QGeoSatelliteInfo;
         return .{ .ptr = qtc.QGeoSatelliteInfo_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfo.html#operator-eq)
     ///
@@ -37,10 +49,14 @@ pub const QGeoSatelliteInfo = extern struct {
     ///
     /// ` other: QGeoSatelliteInfo `
     ///
-    pub fn OperatorAssign(self: QGeoSatelliteInfo, other: anytype) void {
+    pub fn operatorAssign(self: QGeoSatelliteInfo, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QGeoSatelliteInfo;
         qtc.QGeoSatelliteInfo_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfo.html#swap)
     ///
@@ -50,10 +66,14 @@ pub const QGeoSatelliteInfo = extern struct {
     ///
     /// ` other: QGeoSatelliteInfo `
     ///
-    pub fn Swap(self: QGeoSatelliteInfo, other: anytype) void {
+    pub fn swap(self: QGeoSatelliteInfo, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QGeoSatelliteInfo;
         qtc.QGeoSatelliteInfo_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSatelliteSystem` instead
+    ///
+    pub const SetSatelliteSystem = setSatelliteSystem;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfo.html#setSatelliteSystem)
     ///
@@ -63,9 +83,13 @@ pub const QGeoSatelliteInfo = extern struct {
     ///
     /// ` system: qgeosatelliteinfo_enums.SatelliteSystem `
     ///
-    pub fn SetSatelliteSystem(self: QGeoSatelliteInfo, system: i32) void {
+    pub fn setSatelliteSystem(self: QGeoSatelliteInfo, system: i32) void {
         qtc.QGeoSatelliteInfo_SetSatelliteSystem(@ptrCast(self.ptr), @bitCast(system));
     }
+
+    /// ### DEPRECATED: Use `satelliteSystem` instead
+    ///
+    pub const SatelliteSystem = satelliteSystem;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfo.html#satelliteSystem)
     ///
@@ -77,9 +101,13 @@ pub const QGeoSatelliteInfo = extern struct {
     ///
     /// ` qgeosatelliteinfo_enums.SatelliteSystem `
     ///
-    pub fn SatelliteSystem(self: QGeoSatelliteInfo) i32 {
+    pub fn satelliteSystem(self: QGeoSatelliteInfo) i32 {
         return qtc.QGeoSatelliteInfo_SatelliteSystem(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSatelliteIdentifier` instead
+    ///
+    pub const SetSatelliteIdentifier = setSatelliteIdentifier;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfo.html#setSatelliteIdentifier)
     ///
@@ -89,9 +117,13 @@ pub const QGeoSatelliteInfo = extern struct {
     ///
     /// ` satId: i32 `
     ///
-    pub fn SetSatelliteIdentifier(self: QGeoSatelliteInfo, satId: i32) void {
+    pub fn setSatelliteIdentifier(self: QGeoSatelliteInfo, satId: i32) void {
         qtc.QGeoSatelliteInfo_SetSatelliteIdentifier(@ptrCast(self.ptr), @bitCast(satId));
     }
+
+    /// ### DEPRECATED: Use `satelliteIdentifier` instead
+    ///
+    pub const SatelliteIdentifier = satelliteIdentifier;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfo.html#satelliteIdentifier)
     ///
@@ -99,9 +131,13 @@ pub const QGeoSatelliteInfo = extern struct {
     ///
     /// ` self: QGeoSatelliteInfo `
     ///
-    pub fn SatelliteIdentifier(self: QGeoSatelliteInfo) i32 {
+    pub fn satelliteIdentifier(self: QGeoSatelliteInfo) i32 {
         return qtc.QGeoSatelliteInfo_SatelliteIdentifier(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSignalStrength` instead
+    ///
+    pub const SetSignalStrength = setSignalStrength;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfo.html#setSignalStrength)
     ///
@@ -109,11 +145,15 @@ pub const QGeoSatelliteInfo = extern struct {
     ///
     /// ` self: QGeoSatelliteInfo `
     ///
-    /// ` signalStrength: i32 `
+    /// ` _signalStrength: i32 `
     ///
-    pub fn SetSignalStrength(self: QGeoSatelliteInfo, signalStrength: i32) void {
-        qtc.QGeoSatelliteInfo_SetSignalStrength(@ptrCast(self.ptr), @bitCast(signalStrength));
+    pub fn setSignalStrength(self: QGeoSatelliteInfo, _signalStrength: i32) void {
+        qtc.QGeoSatelliteInfo_SetSignalStrength(@ptrCast(self.ptr), @bitCast(_signalStrength));
     }
+
+    /// ### DEPRECATED: Use `signalStrength` instead
+    ///
+    pub const SignalStrength = signalStrength;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfo.html#signalStrength)
     ///
@@ -121,9 +161,13 @@ pub const QGeoSatelliteInfo = extern struct {
     ///
     /// ` self: QGeoSatelliteInfo `
     ///
-    pub fn SignalStrength(self: QGeoSatelliteInfo) i32 {
+    pub fn signalStrength(self: QGeoSatelliteInfo) i32 {
         return qtc.QGeoSatelliteInfo_SignalStrength(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfo.html#setAttribute)
     ///
@@ -131,13 +175,17 @@ pub const QGeoSatelliteInfo = extern struct {
     ///
     /// ` self: QGeoSatelliteInfo `
     ///
-    /// ` attribute: qgeosatelliteinfo_enums.Attribute `
+    /// ` _attribute: qgeosatelliteinfo_enums.Attribute `
     ///
     /// ` value: f64 `
     ///
-    pub fn SetAttribute(self: QGeoSatelliteInfo, attribute: i32, value: f64) void {
-        qtc.QGeoSatelliteInfo_SetAttribute(@ptrCast(self.ptr), @bitCast(attribute), @bitCast(value));
+    pub fn setAttribute(self: QGeoSatelliteInfo, _attribute: i32, value: f64) void {
+        qtc.QGeoSatelliteInfo_SetAttribute(@ptrCast(self.ptr), @bitCast(_attribute), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `attribute` instead
+    ///
+    pub const Attribute = attribute;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfo.html#attribute)
     ///
@@ -145,11 +193,15 @@ pub const QGeoSatelliteInfo = extern struct {
     ///
     /// ` self: QGeoSatelliteInfo `
     ///
-    /// ` attribute: qgeosatelliteinfo_enums.Attribute `
+    /// ` _attribute: qgeosatelliteinfo_enums.Attribute `
     ///
-    pub fn Attribute(self: QGeoSatelliteInfo, attribute: i32) f64 {
-        return qtc.QGeoSatelliteInfo_Attribute(@ptrCast(self.ptr), @bitCast(attribute));
+    pub fn attribute(self: QGeoSatelliteInfo, _attribute: i32) f64 {
+        return qtc.QGeoSatelliteInfo_Attribute(@ptrCast(self.ptr), @bitCast(_attribute));
     }
+
+    /// ### DEPRECATED: Use `removeAttribute` instead
+    ///
+    pub const RemoveAttribute = removeAttribute;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfo.html#removeAttribute)
     ///
@@ -157,11 +209,15 @@ pub const QGeoSatelliteInfo = extern struct {
     ///
     /// ` self: QGeoSatelliteInfo `
     ///
-    /// ` attribute: qgeosatelliteinfo_enums.Attribute `
+    /// ` _attribute: qgeosatelliteinfo_enums.Attribute `
     ///
-    pub fn RemoveAttribute(self: QGeoSatelliteInfo, attribute: i32) void {
-        qtc.QGeoSatelliteInfo_RemoveAttribute(@ptrCast(self.ptr), @bitCast(attribute));
+    pub fn removeAttribute(self: QGeoSatelliteInfo, _attribute: i32) void {
+        qtc.QGeoSatelliteInfo_RemoveAttribute(@ptrCast(self.ptr), @bitCast(_attribute));
     }
+
+    /// ### DEPRECATED: Use `hasAttribute` instead
+    ///
+    pub const HasAttribute = hasAttribute;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfo.html#hasAttribute)
     ///
@@ -169,11 +225,15 @@ pub const QGeoSatelliteInfo = extern struct {
     ///
     /// ` self: QGeoSatelliteInfo `
     ///
-    /// ` attribute: qgeosatelliteinfo_enums.Attribute `
+    /// ` _attribute: qgeosatelliteinfo_enums.Attribute `
     ///
-    pub fn HasAttribute(self: QGeoSatelliteInfo, attribute: i32) bool {
-        return qtc.QGeoSatelliteInfo_HasAttribute(@ptrCast(self.ptr), @bitCast(attribute));
+    pub fn hasAttribute(self: QGeoSatelliteInfo, _attribute: i32) bool {
+        return qtc.QGeoSatelliteInfo_HasAttribute(@ptrCast(self.ptr), @bitCast(_attribute));
     }
+
+    /// ### DEPRECATED: Use `detach` instead
+    ///
+    pub const Detach = detach;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfo.html#detach)
     ///
@@ -181,23 +241,23 @@ pub const QGeoSatelliteInfo = extern struct {
     ///
     /// ` self: QGeoSatelliteInfo `
     ///
-    pub fn Detach(self: QGeoSatelliteInfo) void {
+    pub fn detach(self: QGeoSatelliteInfo) void {
         qtc.QGeoSatelliteInfo_Detach(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfo.html#dtor.QGeoSatelliteInfo)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QGeoSatelliteInfo `
     ///
-    pub fn Delete(self: QGeoSatelliteInfo) void {
+    pub fn delete(self: QGeoSatelliteInfo) void {
         qtc.QGeoSatelliteInfo_Delete(@ptrCast(self.ptr));
     }
 };

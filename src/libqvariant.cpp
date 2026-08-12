@@ -238,8 +238,8 @@ QVariant* QVariant_new43(int typeVal) {
     return new QVariant(static_cast<QVariant::Type>(typeVal));
 }
 
-QVariant* QVariant_new44(QMetaType* typeVal, const void* copyVal) {
-    return new QVariant(*typeVal, copyVal);
+QVariant* QVariant_new44(QMetaType* typeVal, const void* copy) {
+    return new QVariant(*typeVal, copy);
 }
 
 void QVariant_OperatorAssign(QVariant* self, const QVariant* other) {
@@ -613,8 +613,8 @@ double QVariant_ToReal1(const QVariant* self, bool* ok) {
     return static_cast<double>(self->toReal(ok));
 }
 
-QVariant* QVariant_FromMetaType2(QMetaType* typeVal, const void* copyVal) {
-    return new QVariant(QVariant::fromMetaType(*typeVal, copyVal));
+QVariant* QVariant_FromMetaType2(QMetaType* typeVal, const void* copy) {
+    return new QVariant(QVariant::fromMetaType(*typeVal, copy));
 }
 
 void QVariant_Delete(QVariant* self) {

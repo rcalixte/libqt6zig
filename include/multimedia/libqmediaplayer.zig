@@ -33,22 +33,34 @@ pub const QMediaPlayer = extern struct {
     pub const _is_QMediaPlayer = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QMediaPlayer object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QMediaPlayer {
+    pub const New = new;
+
+    /// Allocate a new QMediaPlayer object in C++ memory
+    ///
+    pub fn new() QMediaPlayer {
         return .{ .ptr = qtc.QMediaPlayer_new() };
     }
 
-    /// New2 constructs a new QMediaPlayer object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QMediaPlayer object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) QMediaPlayer {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QMediaPlayer_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) QMediaPlayer {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QMediaPlayer_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -56,9 +68,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    pub fn MetaObject(self: QMediaPlayer) QMetaObject {
+    pub fn metaObject(self: QMediaPlayer) QMetaObject {
         return .{ .ptr = qtc.QMediaPlayer_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -70,13 +86,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QMediaPlayer, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QMediaPlayer, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QMediaPlayer_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -86,9 +102,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    pub fn SuperMetaObject(self: QMediaPlayer) QMetaObject {
+    pub fn superMetaObject(self: QMediaPlayer) QMetaObject {
         return .{ .ptr = qtc.QMediaPlayer_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -96,10 +116,14 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QMediaPlayer, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QMediaPlayer, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QMediaPlayer_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -109,13 +133,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaPlayer, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QMediaPlayer, callback: *const fn (QMediaPlayer, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QMediaPlayer, callback: *const fn (QMediaPlayer, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QMediaPlayer_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -125,10 +149,14 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QMediaPlayer, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QMediaPlayer, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QMediaPlayer_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -140,9 +168,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QMediaPlayer, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QMediaPlayer, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QMediaPlayer_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -152,13 +184,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaPlayer, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QMediaPlayer, callback: *const fn (QMediaPlayer, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QMediaPlayer, callback: *const fn (QMediaPlayer, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QMediaPlayer_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -172,9 +204,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QMediaPlayer, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QMediaPlayer, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QMediaPlayer_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -184,14 +220,18 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMediaPlayer.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMediaPlayer.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `audioTracks` instead
+    ///
+    pub const AudioTracks = audioTracks;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#audioTracks)
     ///
@@ -201,15 +241,19 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AudioTracks(self: QMediaPlayer, allocator: std.mem.Allocator) []QMediaMetaData {
+    pub fn audioTracks(self: QMediaPlayer, allocator: std.mem.Allocator) []QMediaMetaData {
         const _arr: qtc.libqt_list = qtc.QMediaPlayer_AudioTracks(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QMediaMetaData, _arr.len) catch @panic("QMediaPlayer.AudioTracks: Memory allocation failed");
-        const _data: [*]QtC.QMediaMetaData = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QMediaMetaData, _arr.len) catch @panic("QMediaPlayer.audioTracks: Memory allocation failed");
+        const _data_val: [*]QtC.QMediaMetaData = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `videoTracks` instead
+    ///
+    pub const VideoTracks = videoTracks;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#videoTracks)
     ///
@@ -219,15 +263,19 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn VideoTracks(self: QMediaPlayer, allocator: std.mem.Allocator) []QMediaMetaData {
+    pub fn videoTracks(self: QMediaPlayer, allocator: std.mem.Allocator) []QMediaMetaData {
         const _arr: qtc.libqt_list = qtc.QMediaPlayer_VideoTracks(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QMediaMetaData, _arr.len) catch @panic("QMediaPlayer.VideoTracks: Memory allocation failed");
-        const _data: [*]QtC.QMediaMetaData = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QMediaMetaData, _arr.len) catch @panic("QMediaPlayer.videoTracks: Memory allocation failed");
+        const _data_val: [*]QtC.QMediaMetaData = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `subtitleTracks` instead
+    ///
+    pub const SubtitleTracks = subtitleTracks;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#subtitleTracks)
     ///
@@ -237,15 +285,19 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SubtitleTracks(self: QMediaPlayer, allocator: std.mem.Allocator) []QMediaMetaData {
+    pub fn subtitleTracks(self: QMediaPlayer, allocator: std.mem.Allocator) []QMediaMetaData {
         const _arr: qtc.libqt_list = qtc.QMediaPlayer_SubtitleTracks(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QMediaMetaData, _arr.len) catch @panic("QMediaPlayer.SubtitleTracks: Memory allocation failed");
-        const _data: [*]QtC.QMediaMetaData = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QMediaMetaData, _arr.len) catch @panic("QMediaPlayer.subtitleTracks: Memory allocation failed");
+        const _data_val: [*]QtC.QMediaMetaData = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `activeAudioTrack` instead
+    ///
+    pub const ActiveAudioTrack = activeAudioTrack;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#activeAudioTrack)
     ///
@@ -253,9 +305,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    pub fn ActiveAudioTrack(self: QMediaPlayer) i32 {
+    pub fn activeAudioTrack(self: QMediaPlayer) i32 {
         return qtc.QMediaPlayer_ActiveAudioTrack(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activeVideoTrack` instead
+    ///
+    pub const ActiveVideoTrack = activeVideoTrack;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#activeVideoTrack)
     ///
@@ -263,9 +319,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    pub fn ActiveVideoTrack(self: QMediaPlayer) i32 {
+    pub fn activeVideoTrack(self: QMediaPlayer) i32 {
         return qtc.QMediaPlayer_ActiveVideoTrack(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activeSubtitleTrack` instead
+    ///
+    pub const ActiveSubtitleTrack = activeSubtitleTrack;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#activeSubtitleTrack)
     ///
@@ -273,9 +333,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    pub fn ActiveSubtitleTrack(self: QMediaPlayer) i32 {
+    pub fn activeSubtitleTrack(self: QMediaPlayer) i32 {
         return qtc.QMediaPlayer_ActiveSubtitleTrack(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setActiveAudioTrack` instead
+    ///
+    pub const SetActiveAudioTrack = setActiveAudioTrack;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#setActiveAudioTrack)
     ///
@@ -285,9 +349,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn SetActiveAudioTrack(self: QMediaPlayer, index: i32) void {
+    pub fn setActiveAudioTrack(self: QMediaPlayer, index: i32) void {
         qtc.QMediaPlayer_SetActiveAudioTrack(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `setActiveVideoTrack` instead
+    ///
+    pub const SetActiveVideoTrack = setActiveVideoTrack;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#setActiveVideoTrack)
     ///
@@ -297,9 +365,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn SetActiveVideoTrack(self: QMediaPlayer, index: i32) void {
+    pub fn setActiveVideoTrack(self: QMediaPlayer, index: i32) void {
         qtc.QMediaPlayer_SetActiveVideoTrack(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `setActiveSubtitleTrack` instead
+    ///
+    pub const SetActiveSubtitleTrack = setActiveSubtitleTrack;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#setActiveSubtitleTrack)
     ///
@@ -309,9 +381,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn SetActiveSubtitleTrack(self: QMediaPlayer, index: i32) void {
+    pub fn setActiveSubtitleTrack(self: QMediaPlayer, index: i32) void {
         qtc.QMediaPlayer_SetActiveSubtitleTrack(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `setAudioBufferOutput` instead
+    ///
+    pub const SetAudioBufferOutput = setAudioBufferOutput;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#setAudioBufferOutput)
     ///
@@ -321,10 +397,14 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` output: QAudioBufferOutput `
     ///
-    pub fn SetAudioBufferOutput(self: QMediaPlayer, output: anytype) void {
+    pub fn setAudioBufferOutput(self: QMediaPlayer, output: anytype) void {
         comptime _ = @TypeOf(output)._is_QAudioBufferOutput;
         qtc.QMediaPlayer_SetAudioBufferOutput(@ptrCast(self.ptr), @ptrCast(output.ptr));
     }
+
+    /// ### DEPRECATED: Use `audioBufferOutput` instead
+    ///
+    pub const AudioBufferOutput = audioBufferOutput;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#audioBufferOutput)
     ///
@@ -332,9 +412,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    pub fn AudioBufferOutput(self: QMediaPlayer) QAudioBufferOutput {
+    pub fn audioBufferOutput(self: QMediaPlayer) QAudioBufferOutput {
         return .{ .ptr = qtc.QMediaPlayer_AudioBufferOutput(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAudioOutput` instead
+    ///
+    pub const SetAudioOutput = setAudioOutput;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#setAudioOutput)
     ///
@@ -344,10 +428,14 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` output: QAudioOutput `
     ///
-    pub fn SetAudioOutput(self: QMediaPlayer, output: anytype) void {
+    pub fn setAudioOutput(self: QMediaPlayer, output: anytype) void {
         comptime _ = @TypeOf(output)._is_QAudioOutput;
         qtc.QMediaPlayer_SetAudioOutput(@ptrCast(self.ptr), @ptrCast(output.ptr));
     }
+
+    /// ### DEPRECATED: Use `audioOutput` instead
+    ///
+    pub const AudioOutput = audioOutput;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#audioOutput)
     ///
@@ -355,9 +443,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    pub fn AudioOutput(self: QMediaPlayer) QAudioOutput {
+    pub fn audioOutput(self: QMediaPlayer) QAudioOutput {
         return .{ .ptr = qtc.QMediaPlayer_AudioOutput(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setVideoOutput` instead
+    ///
+    pub const SetVideoOutput = setVideoOutput;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#setVideoOutput)
     ///
@@ -365,12 +457,16 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    /// ` videoOutput: QObject `
+    /// ` _videoOutput: QObject `
     ///
-    pub fn SetVideoOutput(self: QMediaPlayer, videoOutput: anytype) void {
-        comptime _ = @TypeOf(videoOutput)._is_QObject;
-        qtc.QMediaPlayer_SetVideoOutput(@ptrCast(self.ptr), @ptrCast(videoOutput.ptr));
+    pub fn setVideoOutput(self: QMediaPlayer, _videoOutput: anytype) void {
+        comptime _ = @TypeOf(_videoOutput)._is_QObject;
+        qtc.QMediaPlayer_SetVideoOutput(@ptrCast(self.ptr), @ptrCast(_videoOutput.ptr));
     }
+
+    /// ### DEPRECATED: Use `videoOutput` instead
+    ///
+    pub const VideoOutput = videoOutput;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#videoOutput)
     ///
@@ -378,9 +474,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    pub fn VideoOutput(self: QMediaPlayer) QObject {
+    pub fn videoOutput(self: QMediaPlayer) QObject {
         return .{ .ptr = qtc.QMediaPlayer_VideoOutput(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setVideoSink` instead
+    ///
+    pub const SetVideoSink = setVideoSink;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#setVideoSink)
     ///
@@ -390,10 +490,14 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` sink: QVideoSink `
     ///
-    pub fn SetVideoSink(self: QMediaPlayer, sink: anytype) void {
+    pub fn setVideoSink(self: QMediaPlayer, sink: anytype) void {
         comptime _ = @TypeOf(sink)._is_QVideoSink;
         qtc.QMediaPlayer_SetVideoSink(@ptrCast(self.ptr), @ptrCast(sink.ptr));
     }
+
+    /// ### DEPRECATED: Use `videoSink` instead
+    ///
+    pub const VideoSink = videoSink;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#videoSink)
     ///
@@ -401,9 +505,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    pub fn VideoSink(self: QMediaPlayer) QVideoSink {
+    pub fn videoSink(self: QMediaPlayer) QVideoSink {
         return .{ .ptr = qtc.QMediaPlayer_VideoSink(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `source` instead
+    ///
+    pub const Source = source;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#source)
     ///
@@ -411,9 +519,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    pub fn Source(self: QMediaPlayer) QUrl {
+    pub fn source(self: QMediaPlayer) QUrl {
         return .{ .ptr = qtc.QMediaPlayer_Source(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `sourceDevice` instead
+    ///
+    pub const SourceDevice = sourceDevice;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#sourceDevice)
     ///
@@ -421,9 +533,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    pub fn SourceDevice(self: QMediaPlayer) QIODevice {
+    pub fn sourceDevice(self: QMediaPlayer) QIODevice {
         return .{ .ptr = qtc.QMediaPlayer_SourceDevice(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `playbackState` instead
+    ///
+    pub const PlaybackState = playbackState;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#playbackState)
     ///
@@ -435,9 +551,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` qmediaplayer_enums.PlaybackState `
     ///
-    pub fn PlaybackState(self: QMediaPlayer) i32 {
+    pub fn playbackState(self: QMediaPlayer) i32 {
         return qtc.QMediaPlayer_PlaybackState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `mediaStatus` instead
+    ///
+    pub const MediaStatus = mediaStatus;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#mediaStatus)
     ///
@@ -449,9 +569,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` qmediaplayer_enums.MediaStatus `
     ///
-    pub fn MediaStatus(self: QMediaPlayer) i32 {
+    pub fn mediaStatus(self: QMediaPlayer) i32 {
         return qtc.QMediaPlayer_MediaStatus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `duration` instead
+    ///
+    pub const Duration = duration;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#duration)
     ///
@@ -459,9 +583,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    pub fn Duration(self: QMediaPlayer) i64 {
+    pub fn duration(self: QMediaPlayer) i64 {
         return qtc.QMediaPlayer_Duration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `position` instead
+    ///
+    pub const Position = position;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#position)
     ///
@@ -469,9 +597,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    pub fn Position(self: QMediaPlayer) i64 {
+    pub fn position(self: QMediaPlayer) i64 {
         return qtc.QMediaPlayer_Position(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hasAudio` instead
+    ///
+    pub const HasAudio = hasAudio;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#hasAudio)
     ///
@@ -479,9 +611,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    pub fn HasAudio(self: QMediaPlayer) bool {
+    pub fn hasAudio(self: QMediaPlayer) bool {
         return qtc.QMediaPlayer_HasAudio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hasVideo` instead
+    ///
+    pub const HasVideo = hasVideo;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#hasVideo)
     ///
@@ -489,9 +625,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    pub fn HasVideo(self: QMediaPlayer) bool {
+    pub fn hasVideo(self: QMediaPlayer) bool {
         return qtc.QMediaPlayer_HasVideo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `bufferProgress` instead
+    ///
+    pub const BufferProgress = bufferProgress;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#bufferProgress)
     ///
@@ -499,9 +639,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    pub fn BufferProgress(self: QMediaPlayer) f32 {
+    pub fn bufferProgress(self: QMediaPlayer) f32 {
         return qtc.QMediaPlayer_BufferProgress(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `bufferedTimeRange` instead
+    ///
+    pub const BufferedTimeRange = bufferedTimeRange;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#bufferedTimeRange)
     ///
@@ -509,9 +653,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    pub fn BufferedTimeRange(self: QMediaPlayer) QMediaTimeRange {
+    pub fn bufferedTimeRange(self: QMediaPlayer) QMediaTimeRange {
         return .{ .ptr = qtc.QMediaPlayer_BufferedTimeRange(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isSeekable` instead
+    ///
+    pub const IsSeekable = isSeekable;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#isSeekable)
     ///
@@ -519,9 +667,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    pub fn IsSeekable(self: QMediaPlayer) bool {
+    pub fn isSeekable(self: QMediaPlayer) bool {
         return qtc.QMediaPlayer_IsSeekable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `playbackRate` instead
+    ///
+    pub const PlaybackRate = playbackRate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#playbackRate)
     ///
@@ -529,9 +681,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    pub fn PlaybackRate(self: QMediaPlayer) f64 {
+    pub fn playbackRate(self: QMediaPlayer) f64 {
         return qtc.QMediaPlayer_PlaybackRate(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isPlaying` instead
+    ///
+    pub const IsPlaying = isPlaying;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#isPlaying)
     ///
@@ -539,9 +695,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    pub fn IsPlaying(self: QMediaPlayer) bool {
+    pub fn isPlaying(self: QMediaPlayer) bool {
         return qtc.QMediaPlayer_IsPlaying(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `loops` instead
+    ///
+    pub const Loops = loops;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#loops)
     ///
@@ -549,9 +709,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    pub fn Loops(self: QMediaPlayer) i32 {
+    pub fn loops(self: QMediaPlayer) i32 {
         return qtc.QMediaPlayer_Loops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLoops` instead
+    ///
+    pub const SetLoops = setLoops;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#setLoops)
     ///
@@ -559,11 +723,17 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    /// ` loops: i32 `
+    /// ` _loops: i32 `
     ///
-    pub fn SetLoops(self: QMediaPlayer, loops: i32) void {
-        qtc.QMediaPlayer_SetLoops(@ptrCast(self.ptr), @bitCast(loops));
+    pub fn setLoops(self: QMediaPlayer, _loops: i32) void {
+        qtc.QMediaPlayer_SetLoops(@ptrCast(self.ptr), @bitCast(_loops));
     }
+
+    /// ### DEPRECATED: Use `error0` instead
+    ///
+    pub const Error = error0;
+
+    pub const @"error" = error0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#error)
     ///
@@ -575,9 +745,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` qmediaplayer_enums.Error `
     ///
-    pub fn Error(self: QMediaPlayer) i32 {
+    pub fn error0(self: QMediaPlayer) i32 {
         return qtc.QMediaPlayer_Error(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `errorString` instead
+    ///
+    pub const ErrorString = errorString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#errorString)
     ///
@@ -587,13 +761,17 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ErrorString(self: QMediaPlayer, allocator: std.mem.Allocator) []const u8 {
+    pub fn errorString(self: QMediaPlayer, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QMediaPlayer_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMediaPlayer.ErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMediaPlayer.errorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isAvailable` instead
+    ///
+    pub const IsAvailable = isAvailable;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#isAvailable)
     ///
@@ -601,9 +779,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    pub fn IsAvailable(self: QMediaPlayer) bool {
+    pub fn isAvailable(self: QMediaPlayer) bool {
         return qtc.QMediaPlayer_IsAvailable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `metaData` instead
+    ///
+    pub const MetaData = metaData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#metaData)
     ///
@@ -611,9 +793,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    pub fn MetaData(self: QMediaPlayer) QMediaMetaData {
+    pub fn metaData(self: QMediaPlayer) QMediaMetaData {
         return .{ .ptr = qtc.QMediaPlayer_MetaData(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `play` instead
+    ///
+    pub const Play = play;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#play)
     ///
@@ -621,9 +807,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    pub fn Play(self: QMediaPlayer) void {
+    pub fn play(self: QMediaPlayer) void {
         qtc.QMediaPlayer_Play(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pause` instead
+    ///
+    pub const Pause = pause;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#pause)
     ///
@@ -631,9 +821,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    pub fn Pause(self: QMediaPlayer) void {
+    pub fn pause(self: QMediaPlayer) void {
         qtc.QMediaPlayer_Pause(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stop` instead
+    ///
+    pub const Stop = stop;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#stop)
     ///
@@ -641,9 +835,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    pub fn Stop(self: QMediaPlayer) void {
+    pub fn stop(self: QMediaPlayer) void {
         qtc.QMediaPlayer_Stop(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPosition` instead
+    ///
+    pub const SetPosition = setPosition;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#setPosition)
     ///
@@ -651,11 +849,15 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    /// ` position: i64 `
+    /// ` _position: i64 `
     ///
-    pub fn SetPosition(self: QMediaPlayer, position: i64) void {
-        qtc.QMediaPlayer_SetPosition(@ptrCast(self.ptr), @bitCast(position));
+    pub fn setPosition(self: QMediaPlayer, _position: i64) void {
+        qtc.QMediaPlayer_SetPosition(@ptrCast(self.ptr), @bitCast(_position));
     }
+
+    /// ### DEPRECATED: Use `setPlaybackRate` instead
+    ///
+    pub const SetPlaybackRate = setPlaybackRate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#setPlaybackRate)
     ///
@@ -665,9 +867,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` rate: f64 `
     ///
-    pub fn SetPlaybackRate(self: QMediaPlayer, rate: f64) void {
+    pub fn setPlaybackRate(self: QMediaPlayer, rate: f64) void {
         qtc.QMediaPlayer_SetPlaybackRate(@ptrCast(self.ptr), @bitCast(rate));
     }
+
+    /// ### DEPRECATED: Use `setSource` instead
+    ///
+    pub const SetSource = setSource;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#setSource)
     ///
@@ -675,12 +881,16 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    /// ` source: QUrl `
+    /// ` _source: QUrl `
     ///
-    pub fn SetSource(self: QMediaPlayer, source: anytype) void {
-        comptime _ = @TypeOf(source)._is_QUrl;
-        qtc.QMediaPlayer_SetSource(@ptrCast(self.ptr), @ptrCast(source.ptr));
+    pub fn setSource(self: QMediaPlayer, _source: anytype) void {
+        comptime _ = @TypeOf(_source)._is_QUrl;
+        qtc.QMediaPlayer_SetSource(@ptrCast(self.ptr), @ptrCast(_source.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSourceDevice` instead
+    ///
+    pub const SetSourceDevice = setSourceDevice;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#setSourceDevice)
     ///
@@ -690,10 +900,14 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` device: QIODevice `
     ///
-    pub fn SetSourceDevice(self: QMediaPlayer, device: anytype) void {
+    pub fn setSourceDevice(self: QMediaPlayer, device: anytype) void {
         comptime _ = @TypeOf(device)._is_QIODevice;
         qtc.QMediaPlayer_SetSourceDevice(@ptrCast(self.ptr), @ptrCast(device.ptr));
     }
+
+    /// ### DEPRECATED: Use `sourceChanged` instead
+    ///
+    pub const SourceChanged = sourceChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#sourceChanged)
     ///
@@ -703,10 +917,14 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` media: QUrl `
     ///
-    pub fn SourceChanged(self: QMediaPlayer, media: anytype) void {
+    pub fn sourceChanged(self: QMediaPlayer, media: anytype) void {
         comptime _ = @TypeOf(media)._is_QUrl;
         qtc.QMediaPlayer_SourceChanged(@ptrCast(self.ptr), @ptrCast(media.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSourceChanged` instead
+    ///
+    pub const OnSourceChanged = onSourceChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#sourceChanged)
     ///
@@ -716,9 +934,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaPlayer, media: QUrl) callconv(.c) void `
     ///
-    pub fn OnSourceChanged(self: QMediaPlayer, callback: *const fn (QMediaPlayer, QUrl) callconv(.c) void) void {
+    pub fn onSourceChanged(self: QMediaPlayer, callback: *const fn (QMediaPlayer, QUrl) callconv(.c) void) void {
         qtc.QMediaPlayer_Connect_SourceChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `playbackStateChanged` instead
+    ///
+    pub const PlaybackStateChanged = playbackStateChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#playbackStateChanged)
     ///
@@ -728,9 +950,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` newState: qmediaplayer_enums.PlaybackState `
     ///
-    pub fn PlaybackStateChanged(self: QMediaPlayer, newState: i32) void {
+    pub fn playbackStateChanged(self: QMediaPlayer, newState: i32) void {
         qtc.QMediaPlayer_PlaybackStateChanged(@ptrCast(self.ptr), @bitCast(newState));
     }
+
+    /// ### DEPRECATED: Use `onPlaybackStateChanged` instead
+    ///
+    pub const OnPlaybackStateChanged = onPlaybackStateChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#playbackStateChanged)
     ///
@@ -740,9 +966,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaPlayer, newState: qmediaplayer_enums.PlaybackState) callconv(.c) void `
     ///
-    pub fn OnPlaybackStateChanged(self: QMediaPlayer, callback: *const fn (QMediaPlayer, i32) callconv(.c) void) void {
+    pub fn onPlaybackStateChanged(self: QMediaPlayer, callback: *const fn (QMediaPlayer, i32) callconv(.c) void) void {
         qtc.QMediaPlayer_Connect_PlaybackStateChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mediaStatusChanged` instead
+    ///
+    pub const MediaStatusChanged = mediaStatusChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#mediaStatusChanged)
     ///
@@ -752,9 +982,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` status: qmediaplayer_enums.MediaStatus `
     ///
-    pub fn MediaStatusChanged(self: QMediaPlayer, status: i32) void {
+    pub fn mediaStatusChanged(self: QMediaPlayer, status: i32) void {
         qtc.QMediaPlayer_MediaStatusChanged(@ptrCast(self.ptr), @bitCast(status));
     }
+
+    /// ### DEPRECATED: Use `onMediaStatusChanged` instead
+    ///
+    pub const OnMediaStatusChanged = onMediaStatusChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#mediaStatusChanged)
     ///
@@ -764,9 +998,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaPlayer, status: qmediaplayer_enums.MediaStatus) callconv(.c) void `
     ///
-    pub fn OnMediaStatusChanged(self: QMediaPlayer, callback: *const fn (QMediaPlayer, i32) callconv(.c) void) void {
+    pub fn onMediaStatusChanged(self: QMediaPlayer, callback: *const fn (QMediaPlayer, i32) callconv(.c) void) void {
         qtc.QMediaPlayer_Connect_MediaStatusChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `durationChanged` instead
+    ///
+    pub const DurationChanged = durationChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#durationChanged)
     ///
@@ -774,11 +1012,15 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    /// ` duration: i64 `
+    /// ` _duration: i64 `
     ///
-    pub fn DurationChanged(self: QMediaPlayer, duration: i64) void {
-        qtc.QMediaPlayer_DurationChanged(@ptrCast(self.ptr), @bitCast(duration));
+    pub fn durationChanged(self: QMediaPlayer, _duration: i64) void {
+        qtc.QMediaPlayer_DurationChanged(@ptrCast(self.ptr), @bitCast(_duration));
     }
+
+    /// ### DEPRECATED: Use `onDurationChanged` instead
+    ///
+    pub const OnDurationChanged = onDurationChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#durationChanged)
     ///
@@ -788,9 +1030,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaPlayer, duration: i64) callconv(.c) void `
     ///
-    pub fn OnDurationChanged(self: QMediaPlayer, callback: *const fn (QMediaPlayer, i64) callconv(.c) void) void {
+    pub fn onDurationChanged(self: QMediaPlayer, callback: *const fn (QMediaPlayer, i64) callconv(.c) void) void {
         qtc.QMediaPlayer_Connect_DurationChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `positionChanged` instead
+    ///
+    pub const PositionChanged = positionChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#positionChanged)
     ///
@@ -798,11 +1044,15 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    /// ` position: i64 `
+    /// ` _position: i64 `
     ///
-    pub fn PositionChanged(self: QMediaPlayer, position: i64) void {
-        qtc.QMediaPlayer_PositionChanged(@ptrCast(self.ptr), @bitCast(position));
+    pub fn positionChanged(self: QMediaPlayer, _position: i64) void {
+        qtc.QMediaPlayer_PositionChanged(@ptrCast(self.ptr), @bitCast(_position));
     }
+
+    /// ### DEPRECATED: Use `onPositionChanged` instead
+    ///
+    pub const OnPositionChanged = onPositionChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#positionChanged)
     ///
@@ -812,9 +1062,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaPlayer, position: i64) callconv(.c) void `
     ///
-    pub fn OnPositionChanged(self: QMediaPlayer, callback: *const fn (QMediaPlayer, i64) callconv(.c) void) void {
+    pub fn onPositionChanged(self: QMediaPlayer, callback: *const fn (QMediaPlayer, i64) callconv(.c) void) void {
         qtc.QMediaPlayer_Connect_PositionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasAudioChanged` instead
+    ///
+    pub const HasAudioChanged = hasAudioChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#hasAudioChanged)
     ///
@@ -824,9 +1078,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` available: bool `
     ///
-    pub fn HasAudioChanged(self: QMediaPlayer, available: bool) void {
+    pub fn hasAudioChanged(self: QMediaPlayer, available: bool) void {
         qtc.QMediaPlayer_HasAudioChanged(@ptrCast(self.ptr), available);
     }
+
+    /// ### DEPRECATED: Use `onHasAudioChanged` instead
+    ///
+    pub const OnHasAudioChanged = onHasAudioChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#hasAudioChanged)
     ///
@@ -836,9 +1094,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaPlayer, available: bool) callconv(.c) void `
     ///
-    pub fn OnHasAudioChanged(self: QMediaPlayer, callback: *const fn (QMediaPlayer, bool) callconv(.c) void) void {
+    pub fn onHasAudioChanged(self: QMediaPlayer, callback: *const fn (QMediaPlayer, bool) callconv(.c) void) void {
         qtc.QMediaPlayer_Connect_HasAudioChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasVideoChanged` instead
+    ///
+    pub const HasVideoChanged = hasVideoChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#hasVideoChanged)
     ///
@@ -848,9 +1110,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` videoAvailable: bool `
     ///
-    pub fn HasVideoChanged(self: QMediaPlayer, videoAvailable: bool) void {
+    pub fn hasVideoChanged(self: QMediaPlayer, videoAvailable: bool) void {
         qtc.QMediaPlayer_HasVideoChanged(@ptrCast(self.ptr), videoAvailable);
     }
+
+    /// ### DEPRECATED: Use `onHasVideoChanged` instead
+    ///
+    pub const OnHasVideoChanged = onHasVideoChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#hasVideoChanged)
     ///
@@ -860,9 +1126,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaPlayer, videoAvailable: bool) callconv(.c) void `
     ///
-    pub fn OnHasVideoChanged(self: QMediaPlayer, callback: *const fn (QMediaPlayer, bool) callconv(.c) void) void {
+    pub fn onHasVideoChanged(self: QMediaPlayer, callback: *const fn (QMediaPlayer, bool) callconv(.c) void) void {
         qtc.QMediaPlayer_Connect_HasVideoChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `bufferProgressChanged` instead
+    ///
+    pub const BufferProgressChanged = bufferProgressChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#bufferProgressChanged)
     ///
@@ -872,9 +1142,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` progress: f32 `
     ///
-    pub fn BufferProgressChanged(self: QMediaPlayer, progress: f32) void {
+    pub fn bufferProgressChanged(self: QMediaPlayer, progress: f32) void {
         qtc.QMediaPlayer_BufferProgressChanged(@ptrCast(self.ptr), @bitCast(progress));
     }
+
+    /// ### DEPRECATED: Use `onBufferProgressChanged` instead
+    ///
+    pub const OnBufferProgressChanged = onBufferProgressChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#bufferProgressChanged)
     ///
@@ -884,9 +1158,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaPlayer, progress: f32) callconv(.c) void `
     ///
-    pub fn OnBufferProgressChanged(self: QMediaPlayer, callback: *const fn (QMediaPlayer, f32) callconv(.c) void) void {
+    pub fn onBufferProgressChanged(self: QMediaPlayer, callback: *const fn (QMediaPlayer, f32) callconv(.c) void) void {
         qtc.QMediaPlayer_Connect_BufferProgressChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `seekableChanged` instead
+    ///
+    pub const SeekableChanged = seekableChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#seekableChanged)
     ///
@@ -896,9 +1174,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` seekable: bool `
     ///
-    pub fn SeekableChanged(self: QMediaPlayer, seekable: bool) void {
+    pub fn seekableChanged(self: QMediaPlayer, seekable: bool) void {
         qtc.QMediaPlayer_SeekableChanged(@ptrCast(self.ptr), seekable);
     }
+
+    /// ### DEPRECATED: Use `onSeekableChanged` instead
+    ///
+    pub const OnSeekableChanged = onSeekableChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#seekableChanged)
     ///
@@ -908,9 +1190,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaPlayer, seekable: bool) callconv(.c) void `
     ///
-    pub fn OnSeekableChanged(self: QMediaPlayer, callback: *const fn (QMediaPlayer, bool) callconv(.c) void) void {
+    pub fn onSeekableChanged(self: QMediaPlayer, callback: *const fn (QMediaPlayer, bool) callconv(.c) void) void {
         qtc.QMediaPlayer_Connect_SeekableChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `playingChanged` instead
+    ///
+    pub const PlayingChanged = playingChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#playingChanged)
     ///
@@ -920,9 +1206,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` playing: bool `
     ///
-    pub fn PlayingChanged(self: QMediaPlayer, playing: bool) void {
+    pub fn playingChanged(self: QMediaPlayer, playing: bool) void {
         qtc.QMediaPlayer_PlayingChanged(@ptrCast(self.ptr), playing);
     }
+
+    /// ### DEPRECATED: Use `onPlayingChanged` instead
+    ///
+    pub const OnPlayingChanged = onPlayingChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#playingChanged)
     ///
@@ -932,9 +1222,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaPlayer, playing: bool) callconv(.c) void `
     ///
-    pub fn OnPlayingChanged(self: QMediaPlayer, callback: *const fn (QMediaPlayer, bool) callconv(.c) void) void {
+    pub fn onPlayingChanged(self: QMediaPlayer, callback: *const fn (QMediaPlayer, bool) callconv(.c) void) void {
         qtc.QMediaPlayer_Connect_PlayingChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `playbackRateChanged` instead
+    ///
+    pub const PlaybackRateChanged = playbackRateChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#playbackRateChanged)
     ///
@@ -944,9 +1238,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` rate: f64 `
     ///
-    pub fn PlaybackRateChanged(self: QMediaPlayer, rate: f64) void {
+    pub fn playbackRateChanged(self: QMediaPlayer, rate: f64) void {
         qtc.QMediaPlayer_PlaybackRateChanged(@ptrCast(self.ptr), @bitCast(rate));
     }
+
+    /// ### DEPRECATED: Use `onPlaybackRateChanged` instead
+    ///
+    pub const OnPlaybackRateChanged = onPlaybackRateChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#playbackRateChanged)
     ///
@@ -956,20 +1254,28 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaPlayer, rate: f64) callconv(.c) void `
     ///
-    pub fn OnPlaybackRateChanged(self: QMediaPlayer, callback: *const fn (QMediaPlayer, f64) callconv(.c) void) void {
+    pub fn onPlaybackRateChanged(self: QMediaPlayer, callback: *const fn (QMediaPlayer, f64) callconv(.c) void) void {
         qtc.QMediaPlayer_Connect_PlaybackRateChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `loopsChanged` instead
+    ///
+    pub const LoopsChanged = loopsChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#loopsChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QMediaPlayer `
     ///
-    pub fn LoopsChanged(self: QMediaPlayer) void {
+    pub fn loopsChanged(self: QMediaPlayer) void {
         qtc.QMediaPlayer_LoopsChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onLoopsChanged` instead
+    ///
+    pub const OnLoopsChanged = onLoopsChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#loopsChanged)
     ///
     /// ## Parameters:
@@ -978,20 +1284,28 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaPlayer) callconv(.c) void `
     ///
-    pub fn OnLoopsChanged(self: QMediaPlayer, callback: *const fn (QMediaPlayer) callconv(.c) void) void {
+    pub fn onLoopsChanged(self: QMediaPlayer, callback: *const fn (QMediaPlayer) callconv(.c) void) void {
         qtc.QMediaPlayer_Connect_LoopsChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `metaDataChanged` instead
+    ///
+    pub const MetaDataChanged = metaDataChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#metaDataChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QMediaPlayer `
     ///
-    pub fn MetaDataChanged(self: QMediaPlayer) void {
+    pub fn metaDataChanged(self: QMediaPlayer) void {
         qtc.QMediaPlayer_MetaDataChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onMetaDataChanged` instead
+    ///
+    pub const OnMetaDataChanged = onMetaDataChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#metaDataChanged)
     ///
     /// ## Parameters:
@@ -1000,20 +1314,28 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaPlayer) callconv(.c) void `
     ///
-    pub fn OnMetaDataChanged(self: QMediaPlayer, callback: *const fn (QMediaPlayer) callconv(.c) void) void {
+    pub fn onMetaDataChanged(self: QMediaPlayer, callback: *const fn (QMediaPlayer) callconv(.c) void) void {
         qtc.QMediaPlayer_Connect_MetaDataChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `videoOutputChanged` instead
+    ///
+    pub const VideoOutputChanged = videoOutputChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#videoOutputChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QMediaPlayer `
     ///
-    pub fn VideoOutputChanged(self: QMediaPlayer) void {
+    pub fn videoOutputChanged(self: QMediaPlayer) void {
         qtc.QMediaPlayer_VideoOutputChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onVideoOutputChanged` instead
+    ///
+    pub const OnVideoOutputChanged = onVideoOutputChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#videoOutputChanged)
     ///
     /// ## Parameters:
@@ -1022,20 +1344,28 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaPlayer) callconv(.c) void `
     ///
-    pub fn OnVideoOutputChanged(self: QMediaPlayer, callback: *const fn (QMediaPlayer) callconv(.c) void) void {
+    pub fn onVideoOutputChanged(self: QMediaPlayer, callback: *const fn (QMediaPlayer) callconv(.c) void) void {
         qtc.QMediaPlayer_Connect_VideoOutputChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `audioOutputChanged` instead
+    ///
+    pub const AudioOutputChanged = audioOutputChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#audioOutputChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QMediaPlayer `
     ///
-    pub fn AudioOutputChanged(self: QMediaPlayer) void {
+    pub fn audioOutputChanged(self: QMediaPlayer) void {
         qtc.QMediaPlayer_AudioOutputChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onAudioOutputChanged` instead
+    ///
+    pub const OnAudioOutputChanged = onAudioOutputChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#audioOutputChanged)
     ///
     /// ## Parameters:
@@ -1044,20 +1374,28 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaPlayer) callconv(.c) void `
     ///
-    pub fn OnAudioOutputChanged(self: QMediaPlayer, callback: *const fn (QMediaPlayer) callconv(.c) void) void {
+    pub fn onAudioOutputChanged(self: QMediaPlayer, callback: *const fn (QMediaPlayer) callconv(.c) void) void {
         qtc.QMediaPlayer_Connect_AudioOutputChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `audioBufferOutputChanged` instead
+    ///
+    pub const AudioBufferOutputChanged = audioBufferOutputChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#audioBufferOutputChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QMediaPlayer `
     ///
-    pub fn AudioBufferOutputChanged(self: QMediaPlayer) void {
+    pub fn audioBufferOutputChanged(self: QMediaPlayer) void {
         qtc.QMediaPlayer_AudioBufferOutputChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onAudioBufferOutputChanged` instead
+    ///
+    pub const OnAudioBufferOutputChanged = onAudioBufferOutputChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#audioBufferOutputChanged)
     ///
     /// ## Parameters:
@@ -1066,20 +1404,28 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaPlayer) callconv(.c) void `
     ///
-    pub fn OnAudioBufferOutputChanged(self: QMediaPlayer, callback: *const fn (QMediaPlayer) callconv(.c) void) void {
+    pub fn onAudioBufferOutputChanged(self: QMediaPlayer, callback: *const fn (QMediaPlayer) callconv(.c) void) void {
         qtc.QMediaPlayer_Connect_AudioBufferOutputChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `tracksChanged` instead
+    ///
+    pub const TracksChanged = tracksChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#tracksChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QMediaPlayer `
     ///
-    pub fn TracksChanged(self: QMediaPlayer) void {
+    pub fn tracksChanged(self: QMediaPlayer) void {
         qtc.QMediaPlayer_TracksChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onTracksChanged` instead
+    ///
+    pub const OnTracksChanged = onTracksChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#tracksChanged)
     ///
     /// ## Parameters:
@@ -1088,20 +1434,28 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaPlayer) callconv(.c) void `
     ///
-    pub fn OnTracksChanged(self: QMediaPlayer, callback: *const fn (QMediaPlayer) callconv(.c) void) void {
+    pub fn onTracksChanged(self: QMediaPlayer, callback: *const fn (QMediaPlayer) callconv(.c) void) void {
         qtc.QMediaPlayer_Connect_TracksChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `activeTracksChanged` instead
+    ///
+    pub const ActiveTracksChanged = activeTracksChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#activeTracksChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QMediaPlayer `
     ///
-    pub fn ActiveTracksChanged(self: QMediaPlayer) void {
+    pub fn activeTracksChanged(self: QMediaPlayer) void {
         qtc.QMediaPlayer_ActiveTracksChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onActiveTracksChanged` instead
+    ///
+    pub const OnActiveTracksChanged = onActiveTracksChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#activeTracksChanged)
     ///
     /// ## Parameters:
@@ -1110,9 +1464,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaPlayer) callconv(.c) void `
     ///
-    pub fn OnActiveTracksChanged(self: QMediaPlayer, callback: *const fn (QMediaPlayer) callconv(.c) void) void {
+    pub fn onActiveTracksChanged(self: QMediaPlayer, callback: *const fn (QMediaPlayer) callconv(.c) void) void {
         qtc.QMediaPlayer_Connect_ActiveTracksChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `errorChanged` instead
+    ///
+    pub const ErrorChanged = errorChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#errorChanged)
     ///
@@ -1120,9 +1478,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    pub fn ErrorChanged(self: QMediaPlayer) void {
+    pub fn errorChanged(self: QMediaPlayer) void {
         qtc.QMediaPlayer_ErrorChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onErrorChanged` instead
+    ///
+    pub const OnErrorChanged = onErrorChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#errorChanged)
     ///
@@ -1132,9 +1494,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaPlayer) callconv(.c) void `
     ///
-    pub fn OnErrorChanged(self: QMediaPlayer, callback: *const fn (QMediaPlayer) callconv(.c) void) void {
+    pub fn onErrorChanged(self: QMediaPlayer, callback: *const fn (QMediaPlayer) callconv(.c) void) void {
         qtc.QMediaPlayer_Connect_ErrorChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `errorOccurred` instead
+    ///
+    pub const ErrorOccurred = errorOccurred;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#errorOccurred)
     ///
@@ -1144,15 +1510,19 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` errorVal: qmediaplayer_enums.Error `
     ///
-    /// ` errorString: []const u8 `
+    /// ` _errorString: []const u8 `
     ///
-    pub fn ErrorOccurred(self: QMediaPlayer, errorVal: i32, errorString: []const u8) void {
+    pub fn errorOccurred(self: QMediaPlayer, errorVal: i32, _errorString: []const u8) void {
         const errorString_str = qtc.libqt_string{
-            .len = errorString.len,
-            .data = errorString.ptr,
+            .len = _errorString.len,
+            .data = _errorString.ptr,
         };
         qtc.QMediaPlayer_ErrorOccurred(@ptrCast(self.ptr), @bitCast(errorVal), errorString_str);
     }
+
+    /// ### DEPRECATED: Use `onErrorOccurred` instead
+    ///
+    pub const OnErrorOccurred = onErrorOccurred;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#errorOccurred)
     ///
@@ -1162,9 +1532,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaPlayer, errorVal: qmediaplayer_enums.Error, errorString: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnErrorOccurred(self: QMediaPlayer, callback: *const fn (QMediaPlayer, i32, [*:0]const u8) callconv(.c) void) void {
+    pub fn onErrorOccurred(self: QMediaPlayer, callback: *const fn (QMediaPlayer, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.QMediaPlayer_Connect_ErrorOccurred(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1176,15 +1550,19 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMediaPlayer.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMediaPlayer.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1198,15 +1576,19 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMediaPlayer.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMediaPlayer.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setSourceDevice2` instead
+    ///
+    pub const SetSourceDevice2 = setSourceDevice2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#setSourceDevice)
     ///
@@ -1218,11 +1600,15 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` sourceUrl: QUrl `
     ///
-    pub fn SetSourceDevice2(self: QMediaPlayer, device: anytype, sourceUrl: anytype) void {
+    pub fn setSourceDevice2(self: QMediaPlayer, device: anytype, sourceUrl: anytype) void {
         comptime _ = @TypeOf(device)._is_QIODevice;
         comptime _ = @TypeOf(sourceUrl)._is_QUrl;
         qtc.QMediaPlayer_SetSourceDevice2(@ptrCast(self.ptr), @ptrCast(device.ptr), @ptrCast(sourceUrl.ptr));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -1234,13 +1620,17 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QMediaPlayer, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QMediaPlayer, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMediaPlayer.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMediaPlayer.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -1252,13 +1642,17 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QMediaPlayer, name: []const u8) void {
+    pub fn setObjectName(self: QMediaPlayer, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -1268,9 +1662,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    pub fn IsWidgetType(self: QMediaPlayer) bool {
+    pub fn isWidgetType(self: QMediaPlayer) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -1280,9 +1678,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    pub fn IsWindowType(self: QMediaPlayer) bool {
+    pub fn isWindowType(self: QMediaPlayer) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -1292,9 +1694,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    pub fn IsQuickItemType(self: QMediaPlayer) bool {
+    pub fn isQuickItemType(self: QMediaPlayer) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -1304,9 +1710,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    pub fn SignalsBlocked(self: QMediaPlayer) bool {
+    pub fn signalsBlocked(self: QMediaPlayer) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -1318,9 +1728,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QMediaPlayer, b: bool) bool {
+    pub fn blockSignals(self: QMediaPlayer, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -1330,9 +1744,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    pub fn Thread(self: QMediaPlayer) QThread {
+    pub fn thread(self: QMediaPlayer) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -1342,12 +1760,16 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QMediaPlayer, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QMediaPlayer, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -1359,9 +1781,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QMediaPlayer, interval: i32) i32 {
+    pub fn startTimer(self: QMediaPlayer, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -1373,9 +1799,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QMediaPlayer, time: i64) i32 {
+    pub fn startTimer2(self: QMediaPlayer, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -1387,9 +1817,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QMediaPlayer, id: i32) void {
+    pub fn killTimer(self: QMediaPlayer, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -1401,9 +1835,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QMediaPlayer, id: i32) void {
+    pub fn killTimer2(self: QMediaPlayer, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -1415,15 +1853,19 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QMediaPlayer, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QMediaPlayer, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QMediaPlayer.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QMediaPlayer.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -1433,12 +1875,16 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QMediaPlayer, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QMediaPlayer, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1450,10 +1896,14 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QMediaPlayer, filterObj: anytype) void {
+    pub fn installEventFilter(self: QMediaPlayer, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1465,10 +1915,14 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QMediaPlayer, obj: anytype) void {
+    pub fn removeEventFilter(self: QMediaPlayer, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -1476,7 +1930,7 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1484,13 +1938,17 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -1498,7 +1956,7 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1506,13 +1964,17 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -1522,18 +1984,22 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QMediaPlayer, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QMediaPlayer, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -1541,7 +2007,7 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1549,13 +2015,17 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -1563,7 +2033,7 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1571,13 +2041,17 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -1587,9 +2061,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    pub fn Disconnect3(self: QMediaPlayer) bool {
+    pub fn disconnect3(self: QMediaPlayer) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1601,10 +2079,14 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QMediaPlayer, receiver: anytype) bool {
+    pub fn disconnect4(self: QMediaPlayer, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1614,10 +2096,14 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1627,9 +2113,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    pub fn DumpObjectTree(self: QMediaPlayer) void {
+    pub fn dumpObjectTree(self: QMediaPlayer) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1639,9 +2129,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    pub fn DumpObjectInfo(self: QMediaPlayer) void {
+    pub fn dumpObjectInfo(self: QMediaPlayer) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1655,11 +2149,15 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QMediaPlayer, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QMediaPlayer, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1671,10 +2169,14 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QMediaPlayer, name: [:0]const u8) QVariant {
+    pub fn property(self: QMediaPlayer, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1686,7 +2188,7 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QMediaPlayer, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QMediaPlayer, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1694,27 +2196,19 @@ pub const QMediaPlayer = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QMediaPlayer.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QMediaPlayer.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QMediaPlayer.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QMediaPlayer.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QMediaPlayer `
-    ///
-    pub fn BindingStorage(self: QMediaPlayer) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1724,9 +2218,29 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    pub fn BindingStorage2(self: QMediaPlayer) QBindingStorage {
+    pub fn bindingStorage(self: QMediaPlayer) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QMediaPlayer `
+    ///
+    pub fn bindingStorage2(self: QMediaPlayer) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1736,9 +2250,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    pub fn Destroyed(self: QMediaPlayer) void {
+    pub fn destroyed(self: QMediaPlayer) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1750,9 +2268,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaPlayer) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QMediaPlayer, callback: *const fn (QMediaPlayer) callconv(.c) void) void {
+    pub fn onDestroyed(self: QMediaPlayer, callback: *const fn (QMediaPlayer) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1762,9 +2284,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    pub fn Parent(self: QMediaPlayer) QObject {
+    pub fn parent(self: QMediaPlayer) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1776,10 +2302,14 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QMediaPlayer, classname: [:0]const u8) bool {
+    pub fn inherits(self: QMediaPlayer, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1789,9 +2319,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    pub fn DeleteLater(self: QMediaPlayer) void {
+    pub fn deleteLater(self: QMediaPlayer) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1805,9 +2339,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QMediaPlayer, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QMediaPlayer, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1821,9 +2359,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QMediaPlayer, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QMediaPlayer, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1831,7 +2373,7 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1841,13 +2383,17 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1855,7 +2401,7 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1865,13 +2411,17 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1881,7 +2431,7 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1889,12 +2439,16 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QMediaPlayer, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QMediaPlayer, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1906,10 +2460,14 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QMediaPlayer, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QMediaPlayer, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1923,11 +2481,15 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QMediaPlayer, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QMediaPlayer, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1943,13 +2505,17 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QMediaPlayer, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QMediaPlayer, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1962,11 +2528,15 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QMediaPlayer, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QMediaPlayer, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1978,10 +2548,14 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QMediaPlayer, param1: anytype) void {
+    pub fn destroyed1(self: QMediaPlayer, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1993,9 +2567,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaPlayer, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QMediaPlayer, callback: *const fn (QMediaPlayer, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QMediaPlayer, callback: *const fn (QMediaPlayer, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -2007,16 +2585,16 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QMediaPlayer, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QMediaPlayer_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QMediaPlayer, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QMediaPlayer_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -2028,12 +2606,16 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QMediaPlayer, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QMediaPlayer_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QMediaPlayer, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QMediaPlayer_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -2047,9 +2629,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaPlayer, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QMediaPlayer, callback: *const fn (QMediaPlayer, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QMediaPlayer, callback: *const fn (QMediaPlayer, QEvent) callconv(.c) bool) void {
         qtc.QMediaPlayer_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -2063,17 +2649,17 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QMediaPlayer, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QMediaPlayer, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QMediaPlayer_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QMediaPlayer_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2087,13 +2673,17 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QMediaPlayer, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QMediaPlayer, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QMediaPlayer_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QMediaPlayer_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2107,9 +2697,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaPlayer, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QMediaPlayer, callback: *const fn (QMediaPlayer, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QMediaPlayer, callback: *const fn (QMediaPlayer, QObject, QEvent) callconv(.c) bool) void {
         qtc.QMediaPlayer_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -2121,16 +2715,16 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QMediaPlayer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QMediaPlayer_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QMediaPlayer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QMediaPlayer_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -2142,12 +2736,16 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QMediaPlayer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QMediaPlayer_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QMediaPlayer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QMediaPlayer_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -2161,9 +2759,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaPlayer, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QMediaPlayer, callback: *const fn (QMediaPlayer, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QMediaPlayer, callback: *const fn (QMediaPlayer, QTimerEvent) callconv(.c) void) void {
         qtc.QMediaPlayer_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -2175,16 +2777,16 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QMediaPlayer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QMediaPlayer_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QMediaPlayer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QMediaPlayer_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -2196,12 +2798,16 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QMediaPlayer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QMediaPlayer_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QMediaPlayer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QMediaPlayer_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -2215,9 +2821,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaPlayer, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QMediaPlayer, callback: *const fn (QMediaPlayer, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QMediaPlayer, callback: *const fn (QMediaPlayer, QChildEvent) callconv(.c) void) void {
         qtc.QMediaPlayer_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -2229,16 +2839,16 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QMediaPlayer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QMediaPlayer_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QMediaPlayer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QMediaPlayer_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -2250,12 +2860,16 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QMediaPlayer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QMediaPlayer_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QMediaPlayer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QMediaPlayer_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -2269,9 +2883,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaPlayer, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QMediaPlayer, callback: *const fn (QMediaPlayer, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QMediaPlayer, callback: *const fn (QMediaPlayer, QEvent) callconv(.c) void) void {
         qtc.QMediaPlayer_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -2285,14 +2903,14 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QMediaPlayer, signal: anytype) void {
+    pub fn connectNotify(self: QMediaPlayer, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QMediaPlayer_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2306,11 +2924,15 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QMediaPlayer, signal: anytype) void {
+    pub fn superConnectNotify(self: QMediaPlayer, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QMediaPlayer_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -2323,9 +2945,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaPlayer, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QMediaPlayer, callback: *const fn (QMediaPlayer, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QMediaPlayer, callback: *const fn (QMediaPlayer, QMetaMethod) callconv(.c) void) void {
         qtc.QMediaPlayer_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2339,14 +2965,14 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QMediaPlayer, signal: anytype) void {
+    pub fn disconnectNotify(self: QMediaPlayer, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QMediaPlayer_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2360,10 +2986,14 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QMediaPlayer, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QMediaPlayer, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QMediaPlayer_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2377,9 +3007,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaPlayer, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QMediaPlayer, callback: *const fn (QMediaPlayer, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QMediaPlayer, callback: *const fn (QMediaPlayer, QMetaMethod) callconv(.c) void) void {
         qtc.QMediaPlayer_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -2391,13 +3025,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    pub fn Sender(self: QMediaPlayer) QObject {
+    pub fn sender(self: QMediaPlayer) QObject {
         return .{ .ptr = qtc.QMediaPlayer_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -2409,9 +3043,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    pub fn SuperSender(self: QMediaPlayer) QObject {
+    pub fn superSender(self: QMediaPlayer) QObject {
         return .{ .ptr = qtc.QMediaPlayer_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -2425,9 +3063,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QMediaPlayer, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QMediaPlayer, callback: *const fn () callconv(.c) QObject) void {
         qtc.QMediaPlayer_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2439,13 +3081,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    pub fn SenderSignalIndex(self: QMediaPlayer) i32 {
+    pub fn senderSignalIndex(self: QMediaPlayer) i32 {
         return qtc.QMediaPlayer_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2457,9 +3099,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` self: QMediaPlayer `
     ///
-    pub fn SuperSenderSignalIndex(self: QMediaPlayer) i32 {
+    pub fn superSenderSignalIndex(self: QMediaPlayer) i32 {
         return qtc.QMediaPlayer_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2473,9 +3119,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QMediaPlayer, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QMediaPlayer, callback: *const fn () callconv(.c) i32) void {
         qtc.QMediaPlayer_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -2489,14 +3139,14 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QMediaPlayer, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QMediaPlayer, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QMediaPlayer_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -2510,10 +3160,14 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QMediaPlayer, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QMediaPlayer, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QMediaPlayer_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -2527,9 +3181,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaPlayer, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QMediaPlayer, callback: *const fn (QMediaPlayer, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QMediaPlayer, callback: *const fn (QMediaPlayer, [*:0]const u8) callconv(.c) i32) void {
         qtc.QMediaPlayer_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2543,14 +3201,14 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QMediaPlayer, signal: anytype) bool {
+    pub fn isSignalConnected(self: QMediaPlayer, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QMediaPlayer_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2564,10 +3222,14 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QMediaPlayer, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QMediaPlayer, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QMediaPlayer_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2581,9 +3243,13 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaPlayer, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QMediaPlayer, callback: *const fn (QMediaPlayer, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QMediaPlayer, callback: *const fn (QMediaPlayer, QMetaMethod) callconv(.c) bool) void {
         qtc.QMediaPlayer_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -2597,23 +3263,23 @@ pub const QMediaPlayer = extern struct {
     ///
     /// ` callback: *const fn (self: QMediaPlayer, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QMediaPlayer, callback: *const fn (QMediaPlayer, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QMediaPlayer, callback: *const fn (QMediaPlayer, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#dtor.QMediaPlayer)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QMediaPlayer `
     ///
-    pub fn Delete(self: QMediaPlayer) void {
+    pub fn delete(self: QMediaPlayer) void {
         qtc.QMediaPlayer_Delete(@ptrCast(self.ptr));
     }
 };

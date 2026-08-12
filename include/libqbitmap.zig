@@ -31,24 +31,36 @@ pub const QBitmap = extern struct {
     pub const _is_QPixmap = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new QBitmap object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QBitmap {
+    pub const New = new;
+
+    /// Allocate a new QBitmap object in C++ memory
+    ///
+    pub fn new() QBitmap {
         return .{ .ptr = qtc.QBitmap_new() };
     }
 
-    /// New2 constructs a new QBitmap object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QBitmap object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QPixmap `
     ///
-    pub fn New2(param1: anytype) QBitmap {
+    pub fn new2(param1: anytype) QBitmap {
         comptime _ = @TypeOf(param1)._is_QPixmap;
         return .{ .ptr = qtc.QBitmap_new2(@ptrCast(param1.ptr)) };
     }
 
-    /// New3 constructs a new QBitmap object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QBitmap object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -56,28 +68,36 @@ pub const QBitmap = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn New3(w: i32, h: i32) QBitmap {
+    pub fn new3(w: i32, h: i32) QBitmap {
         return .{ .ptr = qtc.QBitmap_new3(@bitCast(w), @bitCast(h)) };
     }
 
-    /// New4 constructs a new QBitmap object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QBitmap object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QSize `
     ///
-    pub fn New4(param1: anytype) QBitmap {
+    pub fn new4(param1: anytype) QBitmap {
         comptime _ = @TypeOf(param1)._is_QSize;
         return .{ .ptr = qtc.QBitmap_new4(@ptrCast(param1.ptr)) };
     }
 
-    /// New5 constructs a new QBitmap object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new QBitmap object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` fileName: []const u8 `
     ///
-    pub fn New5(fileName: []const u8) QBitmap {
+    pub fn new5(fileName: []const u8) QBitmap {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
@@ -85,18 +105,26 @@ pub const QBitmap = extern struct {
         return .{ .ptr = qtc.QBitmap_new5(fileName_str) };
     }
 
-    /// New6 constructs a new QBitmap object.
+    /// ### DEPRECATED: Use `new6` instead
+    ///
+    pub const New6 = new6;
+
+    /// Allocate a new QBitmap object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QBitmap `
     ///
-    pub fn New6(param1: anytype) QBitmap {
+    pub fn new6(param1: anytype) QBitmap {
         comptime _ = @TypeOf(param1)._is_QBitmap;
         return .{ .ptr = qtc.QBitmap_new6(@ptrCast(param1.ptr)) };
     }
 
-    /// New7 constructs a new QBitmap object.
+    /// ### DEPRECATED: Use `new7` instead
+    ///
+    pub const New7 = new7;
+
+    /// Allocate a new QBitmap object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -104,7 +132,7 @@ pub const QBitmap = extern struct {
     ///
     /// ` format: [:0]const u8 `
     ///
-    pub fn New7(fileName: []const u8, format: [:0]const u8) QBitmap {
+    pub fn new7(fileName: []const u8, format: [:0]const u8) QBitmap {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
@@ -112,6 +140,10 @@ pub const QBitmap = extern struct {
         const format_Cstring = format.ptr;
         return .{ .ptr = qtc.QBitmap_new7(fileName_str, format_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitmap.html#operator-eq)
     ///
@@ -121,10 +153,14 @@ pub const QBitmap = extern struct {
     ///
     /// ` param1: QPixmap `
     ///
-    pub fn OperatorAssign(self: QBitmap, param1: anytype) void {
+    pub fn operatorAssign(self: QBitmap, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPixmap;
         qtc.QBitmap_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitmap.html#swap)
     ///
@@ -134,10 +170,14 @@ pub const QBitmap = extern struct {
     ///
     /// ` other: QBitmap `
     ///
-    pub fn Swap(self: QBitmap, other: anytype) void {
+    pub fn swap(self: QBitmap, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QBitmap;
         qtc.QBitmap_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `toQVariant` instead
+    ///
+    pub const ToQVariant = toQVariant;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitmap.html#operator)
     ///
@@ -145,9 +185,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` self: QBitmap `
     ///
-    pub fn ToQVariant(self: QBitmap) QVariant {
+    pub fn toQVariant(self: QBitmap) QVariant {
         return .{ .ptr = qtc.QBitmap_ToQVariant(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitmap.html#clear)
     ///
@@ -155,9 +199,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` self: QBitmap `
     ///
-    pub fn Clear(self: QBitmap) void {
+    pub fn clear(self: QBitmap) void {
         qtc.QBitmap_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `fromImage` instead
+    ///
+    pub const FromImage = fromImage;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitmap.html#fromImage)
     ///
@@ -165,23 +213,31 @@ pub const QBitmap = extern struct {
     ///
     /// ` image: QImage `
     ///
-    pub fn FromImage(image: anytype) QBitmap {
+    pub fn fromImage(image: anytype) QBitmap {
         comptime _ = @TypeOf(image)._is_QImage;
         return .{ .ptr = qtc.QBitmap_FromImage(@ptrCast(image.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fromData` instead
+    ///
+    pub const FromData = fromData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitmap.html#fromData)
     ///
     /// ## Parameter(s):
     ///
-    /// ` size: QSize `
+    /// ` _size: QSize `
     ///
     /// ` bits: *const u8 `
     ///
-    pub fn FromData(size: anytype, bits: *const u8) QBitmap {
-        comptime _ = @TypeOf(size)._is_QSize;
-        return .{ .ptr = qtc.QBitmap_FromData(@ptrCast(size.ptr), @ptrCast(bits)) };
+    pub fn fromData(_size: anytype, bits: *const u8) QBitmap {
+        comptime _ = @TypeOf(_size)._is_QSize;
+        return .{ .ptr = qtc.QBitmap_FromData(@ptrCast(_size.ptr), @ptrCast(bits)) };
     }
+
+    /// ### DEPRECATED: Use `fromPixmap` instead
+    ///
+    pub const FromPixmap = fromPixmap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitmap.html#fromPixmap)
     ///
@@ -189,10 +245,14 @@ pub const QBitmap = extern struct {
     ///
     /// ` pixmap: QPixmap `
     ///
-    pub fn FromPixmap(pixmap: anytype) QBitmap {
+    pub fn fromPixmap(pixmap: anytype) QBitmap {
         comptime _ = @TypeOf(pixmap)._is_QPixmap;
         return .{ .ptr = qtc.QBitmap_FromPixmap(@ptrCast(pixmap.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `transformed` instead
+    ///
+    pub const Transformed = transformed;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitmap.html#transformed)
     ///
@@ -202,10 +262,14 @@ pub const QBitmap = extern struct {
     ///
     /// ` matrix: QTransform `
     ///
-    pub fn Transformed(self: QBitmap, matrix: anytype) QBitmap {
+    pub fn transformed(self: QBitmap, matrix: anytype) QBitmap {
         comptime _ = @TypeOf(matrix)._is_QTransform;
         return .{ .ptr = qtc.QBitmap_Transformed(@ptrCast(self.ptr), @ptrCast(matrix.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign2` instead
+    ///
+    pub const OperatorAssign2 = operatorAssign2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitmap.html#operator-eq)
     ///
@@ -215,10 +279,14 @@ pub const QBitmap = extern struct {
     ///
     /// ` param1: QBitmap `
     ///
-    pub fn OperatorAssign2(self: QBitmap, param1: anytype) void {
+    pub fn operatorAssign2(self: QBitmap, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QBitmap;
         qtc.QBitmap_OperatorAssign2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `fromImage2` instead
+    ///
+    pub const FromImage2 = fromImage2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitmap.html#fromImage)
     ///
@@ -228,25 +296,33 @@ pub const QBitmap = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.ImageConversionFlag `
     ///
-    pub fn FromImage2(image: anytype, flags: i32) QBitmap {
+    pub fn fromImage2(image: anytype, flags: i32) QBitmap {
         comptime _ = @TypeOf(image)._is_QImage;
         return .{ .ptr = qtc.QBitmap_FromImage2(@ptrCast(image.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `fromData3` instead
+    ///
+    pub const FromData3 = fromData3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitmap.html#fromData)
     ///
     /// ## Parameter(s):
     ///
-    /// ` size: QSize `
+    /// ` _size: QSize `
     ///
     /// ` bits: *const u8 `
     ///
     /// ` monoFormat: qimage_enums.Format `
     ///
-    pub fn FromData3(size: anytype, bits: *const u8, monoFormat: i32) QBitmap {
-        comptime _ = @TypeOf(size)._is_QSize;
-        return .{ .ptr = qtc.QBitmap_FromData3(@ptrCast(size.ptr), @ptrCast(bits), @bitCast(monoFormat)) };
+    pub fn fromData3(_size: anytype, bits: *const u8, monoFormat: i32) QBitmap {
+        comptime _ = @TypeOf(_size)._is_QSize;
+        return .{ .ptr = qtc.QBitmap_FromData3(@ptrCast(_size.ptr), @ptrCast(bits), @bitCast(monoFormat)) };
     }
+
+    /// ### DEPRECATED: Use `isNull` instead
+    ///
+    pub const IsNull = isNull;
 
     /// Inherited from QPixmap
     ///
@@ -256,9 +332,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` self: QBitmap `
     ///
-    pub fn IsNull(self: QBitmap) bool {
+    pub fn isNull(self: QBitmap) bool {
         return qtc.QPixmap_IsNull(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QPixmap
     ///
@@ -268,9 +348,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` self: QBitmap `
     ///
-    pub fn Width(self: QBitmap) i32 {
+    pub fn width(self: QBitmap) i32 {
         return qtc.QPixmap_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QPixmap
     ///
@@ -280,9 +364,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` self: QBitmap `
     ///
-    pub fn Height(self: QBitmap) i32 {
+    pub fn height(self: QBitmap) i32 {
         return qtc.QPixmap_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QPixmap
     ///
@@ -292,9 +380,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` self: QBitmap `
     ///
-    pub fn Size(self: QBitmap) QSize {
+    pub fn size(self: QBitmap) QSize {
         return .{ .ptr = qtc.QPixmap_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QPixmap
     ///
@@ -304,9 +396,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` self: QBitmap `
     ///
-    pub fn Rect(self: QBitmap) QRect {
+    pub fn rect(self: QBitmap) QRect {
         return .{ .ptr = qtc.QPixmap_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPixmap
     ///
@@ -316,17 +412,25 @@ pub const QBitmap = extern struct {
     ///
     /// ` self: QBitmap `
     ///
-    pub fn Depth(self: QBitmap) i32 {
+    pub fn depth(self: QBitmap) i32 {
         return qtc.QPixmap_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `defaultDepth` instead
+    ///
+    pub const DefaultDepth = defaultDepth;
 
     /// Inherited from QPixmap
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#defaultDepth)
     ///
-    pub fn DefaultDepth() i32 {
+    pub fn defaultDepth() i32 {
         return qtc.QPixmap_DefaultDepth();
     }
+
+    /// ### DEPRECATED: Use `fill` instead
+    ///
+    pub const Fill = fill;
 
     /// Inherited from QPixmap
     ///
@@ -336,9 +440,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` self: QBitmap `
     ///
-    pub fn Fill(self: QBitmap) void {
+    pub fn fill(self: QBitmap) void {
         qtc.QPixmap_Fill(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QPixmap
     ///
@@ -348,9 +456,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` self: QBitmap `
     ///
-    pub fn Mask(self: QBitmap) QBitmap {
+    pub fn mask(self: QBitmap) QBitmap {
         return .{ .ptr = qtc.QPixmap_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setMask` instead
+    ///
+    pub const SetMask = setMask;
 
     /// Inherited from QPixmap
     ///
@@ -360,12 +472,16 @@ pub const QBitmap = extern struct {
     ///
     /// ` self: QBitmap `
     ///
-    /// ` mask: QBitmap `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask(self: QBitmap, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QPixmap_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: QBitmap, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QPixmap_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPixmap
     ///
@@ -375,9 +491,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` self: QBitmap `
     ///
-    pub fn DevicePixelRatio(self: QBitmap) f64 {
+    pub fn devicePixelRatio(self: QBitmap) f64 {
         return qtc.QPixmap_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDevicePixelRatio` instead
+    ///
+    pub const SetDevicePixelRatio = setDevicePixelRatio;
 
     /// Inherited from QPixmap
     ///
@@ -389,9 +509,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` scaleFactor: f64 `
     ///
-    pub fn SetDevicePixelRatio(self: QBitmap, scaleFactor: f64) void {
+    pub fn setDevicePixelRatio(self: QBitmap, scaleFactor: f64) void {
         qtc.QPixmap_SetDevicePixelRatio(@ptrCast(self.ptr), @bitCast(scaleFactor));
     }
+
+    /// ### DEPRECATED: Use `deviceIndependentSize` instead
+    ///
+    pub const DeviceIndependentSize = deviceIndependentSize;
 
     /// Inherited from QPixmap
     ///
@@ -401,9 +525,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` self: QBitmap `
     ///
-    pub fn DeviceIndependentSize(self: QBitmap) QSizeF {
+    pub fn deviceIndependentSize(self: QBitmap) QSizeF {
         return .{ .ptr = qtc.QPixmap_DeviceIndependentSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `hasAlpha` instead
+    ///
+    pub const HasAlpha = hasAlpha;
 
     /// Inherited from QPixmap
     ///
@@ -413,9 +541,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` self: QBitmap `
     ///
-    pub fn HasAlpha(self: QBitmap) bool {
+    pub fn hasAlpha(self: QBitmap) bool {
         return qtc.QPixmap_HasAlpha(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hasAlphaChannel` instead
+    ///
+    pub const HasAlphaChannel = hasAlphaChannel;
 
     /// Inherited from QPixmap
     ///
@@ -425,9 +557,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` self: QBitmap `
     ///
-    pub fn HasAlphaChannel(self: QBitmap) bool {
+    pub fn hasAlphaChannel(self: QBitmap) bool {
         return qtc.QPixmap_HasAlphaChannel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createHeuristicMask` instead
+    ///
+    pub const CreateHeuristicMask = createHeuristicMask;
 
     /// Inherited from QPixmap
     ///
@@ -437,9 +573,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` self: QBitmap `
     ///
-    pub fn CreateHeuristicMask(self: QBitmap) QBitmap {
+    pub fn createHeuristicMask(self: QBitmap) QBitmap {
         return .{ .ptr = qtc.QPixmap_CreateHeuristicMask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `createMaskFromColor` instead
+    ///
+    pub const CreateMaskFromColor = createMaskFromColor;
 
     /// Inherited from QPixmap
     ///
@@ -451,10 +591,14 @@ pub const QBitmap = extern struct {
     ///
     /// ` maskColor: QColor `
     ///
-    pub fn CreateMaskFromColor(self: QBitmap, maskColor: anytype) QBitmap {
+    pub fn createMaskFromColor(self: QBitmap, maskColor: anytype) QBitmap {
         comptime _ = @TypeOf(maskColor)._is_QColor;
         return .{ .ptr = qtc.QPixmap_CreateMaskFromColor(@ptrCast(self.ptr), @ptrCast(maskColor.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `scaled` instead
+    ///
+    pub const Scaled = scaled;
 
     /// Inherited from QPixmap
     ///
@@ -468,9 +612,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Scaled(self: QBitmap, w: i32, h: i32) QPixmap {
+    pub fn scaled(self: QBitmap, w: i32, h: i32) QPixmap {
         return .{ .ptr = qtc.QPixmap_Scaled(@ptrCast(self.ptr), @bitCast(w), @bitCast(h)) };
     }
+
+    /// ### DEPRECATED: Use `scaled2` instead
+    ///
+    pub const Scaled2 = scaled2;
 
     /// Inherited from QPixmap
     ///
@@ -482,10 +630,14 @@ pub const QBitmap = extern struct {
     ///
     /// ` s: QSize `
     ///
-    pub fn Scaled2(self: QBitmap, s: anytype) QPixmap {
+    pub fn scaled2(self: QBitmap, s: anytype) QPixmap {
         comptime _ = @TypeOf(s)._is_QSize;
         return .{ .ptr = qtc.QPixmap_Scaled2(@ptrCast(self.ptr), @ptrCast(s.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `scaledToWidth` instead
+    ///
+    pub const ScaledToWidth = scaledToWidth;
 
     /// Inherited from QPixmap
     ///
@@ -497,9 +649,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn ScaledToWidth(self: QBitmap, w: i32) QPixmap {
+    pub fn scaledToWidth(self: QBitmap, w: i32) QPixmap {
         return .{ .ptr = qtc.QPixmap_ScaledToWidth(@ptrCast(self.ptr), @bitCast(w)) };
     }
+
+    /// ### DEPRECATED: Use `scaledToHeight` instead
+    ///
+    pub const ScaledToHeight = scaledToHeight;
 
     /// Inherited from QPixmap
     ///
@@ -511,9 +667,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn ScaledToHeight(self: QBitmap, h: i32) QPixmap {
+    pub fn scaledToHeight(self: QBitmap, h: i32) QPixmap {
         return .{ .ptr = qtc.QPixmap_ScaledToHeight(@ptrCast(self.ptr), @bitCast(h)) };
     }
+
+    /// ### DEPRECATED: Use `trueMatrix` instead
+    ///
+    pub const TrueMatrix = trueMatrix;
 
     /// Inherited from QPixmap
     ///
@@ -527,10 +687,14 @@ pub const QBitmap = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn TrueMatrix(m: anytype, w: i32, h: i32) QTransform {
+    pub fn trueMatrix(m: anytype, w: i32, h: i32) QTransform {
         comptime _ = @TypeOf(m)._is_QTransform;
         return .{ .ptr = qtc.QPixmap_TrueMatrix(@ptrCast(m.ptr), @bitCast(w), @bitCast(h)) };
     }
+
+    /// ### DEPRECATED: Use `toImage` instead
+    ///
+    pub const ToImage = toImage;
 
     /// Inherited from QPixmap
     ///
@@ -540,9 +704,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` self: QBitmap `
     ///
-    pub fn ToImage(self: QBitmap) QImage {
+    pub fn toImage(self: QBitmap) QImage {
         return .{ .ptr = qtc.QPixmap_ToImage(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fromImageReader` instead
+    ///
+    pub const FromImageReader = fromImageReader;
 
     /// Inherited from QPixmap
     ///
@@ -552,10 +720,14 @@ pub const QBitmap = extern struct {
     ///
     /// ` imageReader: QImageReader `
     ///
-    pub fn FromImageReader(imageReader: anytype) QPixmap {
+    pub fn fromImageReader(imageReader: anytype) QPixmap {
         comptime _ = @TypeOf(imageReader)._is_QImageReader;
         return .{ .ptr = qtc.QPixmap_FromImageReader(@ptrCast(imageReader.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `load` instead
+    ///
+    pub const Load = load;
 
     /// Inherited from QPixmap
     ///
@@ -567,13 +739,17 @@ pub const QBitmap = extern struct {
     ///
     /// ` fileName: []const u8 `
     ///
-    pub fn Load(self: QBitmap, fileName: []const u8) bool {
+    pub fn load(self: QBitmap, fileName: []const u8) bool {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
         return qtc.QPixmap_Load(@ptrCast(self.ptr), fileName_str);
     }
+
+    /// ### DEPRECATED: Use `loadFromData` instead
+    ///
+    pub const LoadFromData = loadFromData;
 
     /// Inherited from QPixmap
     ///
@@ -587,9 +763,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` len: u32 `
     ///
-    pub fn LoadFromData(self: QBitmap, buf: *const u8, len: u32) bool {
+    pub fn loadFromData(self: QBitmap, buf: *const u8, len: u32) bool {
         return qtc.QPixmap_LoadFromData(@ptrCast(self.ptr), @ptrCast(buf), @bitCast(len));
     }
+
+    /// ### DEPRECATED: Use `loadFromData2` instead
+    ///
+    pub const LoadFromData2 = loadFromData2;
 
     /// Inherited from QPixmap
     ///
@@ -601,13 +781,17 @@ pub const QBitmap = extern struct {
     ///
     /// ` data: []u8 `
     ///
-    pub fn LoadFromData2(self: QBitmap, data: []u8) bool {
+    pub fn loadFromData2(self: QBitmap, data: []u8) bool {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
         return qtc.QPixmap_LoadFromData2(@ptrCast(self.ptr), data_str);
     }
+
+    /// ### DEPRECATED: Use `save` instead
+    ///
+    pub const Save = save;
 
     /// Inherited from QPixmap
     ///
@@ -619,13 +803,17 @@ pub const QBitmap = extern struct {
     ///
     /// ` fileName: []const u8 `
     ///
-    pub fn Save(self: QBitmap, fileName: []const u8) bool {
+    pub fn save(self: QBitmap, fileName: []const u8) bool {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
         return qtc.QPixmap_Save(@ptrCast(self.ptr), fileName_str);
     }
+
+    /// ### DEPRECATED: Use `save2` instead
+    ///
+    pub const Save2 = save2;
 
     /// Inherited from QPixmap
     ///
@@ -637,10 +825,14 @@ pub const QBitmap = extern struct {
     ///
     /// ` device: QIODevice `
     ///
-    pub fn Save2(self: QBitmap, device: anytype) bool {
+    pub fn save2(self: QBitmap, device: anytype) bool {
         comptime _ = @TypeOf(device)._is_QIODevice;
         return qtc.QPixmap_Save2(@ptrCast(self.ptr), @ptrCast(device.ptr));
     }
+
+    /// ### DEPRECATED: Use `convertFromImage` instead
+    ///
+    pub const ConvertFromImage = convertFromImage;
 
     /// Inherited from QPixmap
     ///
@@ -652,11 +844,15 @@ pub const QBitmap = extern struct {
     ///
     /// ` img: QImage `
     ///
-    pub fn ConvertFromImage(self: QBitmap, img: anytype) bool {
+    pub fn convertFromImage(self: QBitmap, img: anytype) bool {
         comptime _ = @TypeOf(img)._is_QImage;
         return qtc.QPixmap_ConvertFromImage(@ptrCast(self.ptr), @ptrCast(img.ptr));
     }
 
+    /// ### DEPRECATED: Use `copy` instead
+    ///
+    pub const Copy = copy;
+
     /// Inherited from QPixmap
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#copy)
@@ -669,13 +865,17 @@ pub const QBitmap = extern struct {
     ///
     /// ` y: i32 `
     ///
-    /// ` width: i32 `
+    /// ` _width: i32 `
     ///
-    /// ` height: i32 `
+    /// ` _height: i32 `
     ///
-    pub fn Copy(self: QBitmap, x: i32, y: i32, width: i32, height: i32) QPixmap {
-        return .{ .ptr = qtc.QPixmap_Copy(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(width), @bitCast(height)) };
+    pub fn copy(self: QBitmap, x: i32, y: i32, _width: i32, _height: i32) QPixmap {
+        return .{ .ptr = qtc.QPixmap_Copy(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(_width), @bitCast(_height)) };
     }
+
+    /// ### DEPRECATED: Use `copy2` instead
+    ///
+    pub const Copy2 = copy2;
 
     /// Inherited from QPixmap
     ///
@@ -685,10 +885,14 @@ pub const QBitmap = extern struct {
     ///
     /// ` self: QBitmap `
     ///
-    pub fn Copy2(self: QBitmap) QPixmap {
+    pub fn copy2(self: QBitmap) QPixmap {
         return .{ .ptr = qtc.QPixmap_Copy2(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
+
     /// Inherited from QPixmap
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#scroll)
@@ -705,13 +909,17 @@ pub const QBitmap = extern struct {
     ///
     /// ` y: i32 `
     ///
-    /// ` width: i32 `
+    /// ` _width: i32 `
     ///
-    /// ` height: i32 `
+    /// ` _height: i32 `
     ///
-    pub fn Scroll(self: QBitmap, dx: i32, dy: i32, x: i32, y: i32, width: i32, height: i32) void {
-        qtc.QPixmap_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @bitCast(x), @bitCast(y), @bitCast(width), @bitCast(height));
+    pub fn scroll(self: QBitmap, dx: i32, dy: i32, x: i32, y: i32, _width: i32, _height: i32) void {
+        qtc.QPixmap_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @bitCast(x), @bitCast(y), @bitCast(_width), @bitCast(_height));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QPixmap
     ///
@@ -725,12 +933,16 @@ pub const QBitmap = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
-    pub fn Scroll2(self: QBitmap, dx: i32, dy: i32, rect: anytype) void {
-        comptime _ = @TypeOf(rect)._is_QRect;
-        qtc.QPixmap_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(rect.ptr));
+    pub fn scroll2(self: QBitmap, dx: i32, dy: i32, _rect: anytype) void {
+        comptime _ = @TypeOf(_rect)._is_QRect;
+        qtc.QPixmap_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(_rect.ptr));
     }
+
+    /// ### DEPRECATED: Use `cacheKey` instead
+    ///
+    pub const CacheKey = cacheKey;
 
     /// Inherited from QPixmap
     ///
@@ -740,9 +952,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` self: QBitmap `
     ///
-    pub fn CacheKey(self: QBitmap) i64 {
+    pub fn cacheKey(self: QBitmap) i64 {
         return qtc.QPixmap_CacheKey(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDetached` instead
+    ///
+    pub const IsDetached = isDetached;
 
     /// Inherited from QPixmap
     ///
@@ -752,9 +968,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` self: QBitmap `
     ///
-    pub fn IsDetached(self: QBitmap) bool {
+    pub fn isDetached(self: QBitmap) bool {
         return qtc.QPixmap_IsDetached(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `detach` instead
+    ///
+    pub const Detach = detach;
 
     /// Inherited from QPixmap
     ///
@@ -764,9 +984,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` self: QBitmap `
     ///
-    pub fn Detach(self: QBitmap) void {
+    pub fn detach(self: QBitmap) void {
         qtc.QPixmap_Detach(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQBitmap` instead
+    ///
+    pub const IsQBitmap = isQBitmap;
 
     /// Inherited from QPixmap
     ///
@@ -776,9 +1000,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` self: QBitmap `
     ///
-    pub fn IsQBitmap(self: QBitmap) bool {
+    pub fn isQBitmap(self: QBitmap) bool {
         return qtc.QPixmap_IsQBitmap(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNot` instead
+    ///
+    pub const OperatorNot = operatorNot;
 
     /// Inherited from QPixmap
     ///
@@ -788,9 +1016,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` self: QBitmap `
     ///
-    pub fn OperatorNot(self: QBitmap) bool {
+    pub fn operatorNot(self: QBitmap) bool {
         return qtc.QPixmap_OperatorNot(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `fill1` instead
+    ///
+    pub const Fill1 = fill1;
 
     /// Inherited from QPixmap
     ///
@@ -802,10 +1034,14 @@ pub const QBitmap = extern struct {
     ///
     /// ` fillColor: QColor `
     ///
-    pub fn Fill1(self: QBitmap, fillColor: anytype) void {
+    pub fn fill1(self: QBitmap, fillColor: anytype) void {
         comptime _ = @TypeOf(fillColor)._is_QColor;
         qtc.QPixmap_Fill1(@ptrCast(self.ptr), @ptrCast(fillColor.ptr));
     }
+
+    /// ### DEPRECATED: Use `createHeuristicMask1` instead
+    ///
+    pub const CreateHeuristicMask1 = createHeuristicMask1;
 
     /// Inherited from QPixmap
     ///
@@ -817,9 +1053,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` clipTight: bool `
     ///
-    pub fn CreateHeuristicMask1(self: QBitmap, clipTight: bool) QBitmap {
+    pub fn createHeuristicMask1(self: QBitmap, clipTight: bool) QBitmap {
         return .{ .ptr = qtc.QPixmap_CreateHeuristicMask1(@ptrCast(self.ptr), clipTight) };
     }
+
+    /// ### DEPRECATED: Use `createMaskFromColor2` instead
+    ///
+    pub const CreateMaskFromColor2 = createMaskFromColor2;
 
     /// Inherited from QPixmap
     ///
@@ -833,11 +1073,15 @@ pub const QBitmap = extern struct {
     ///
     /// ` mode: qnamespace_enums.MaskMode `
     ///
-    pub fn CreateMaskFromColor2(self: QBitmap, maskColor: anytype, mode: i32) QBitmap {
+    pub fn createMaskFromColor2(self: QBitmap, maskColor: anytype, mode: i32) QBitmap {
         comptime _ = @TypeOf(maskColor)._is_QColor;
         return .{ .ptr = qtc.QPixmap_CreateMaskFromColor2(@ptrCast(self.ptr), @ptrCast(maskColor.ptr), @bitCast(mode)) };
     }
 
+    /// ### DEPRECATED: Use `scaled3` instead
+    ///
+    pub const Scaled3 = scaled3;
+
     /// Inherited from QPixmap
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#scaled)
@@ -852,9 +1096,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` aspectMode: qnamespace_enums.AspectRatioMode `
     ///
-    pub fn Scaled3(self: QBitmap, w: i32, h: i32, aspectMode: i32) QPixmap {
+    pub fn scaled3(self: QBitmap, w: i32, h: i32, aspectMode: i32) QPixmap {
         return .{ .ptr = qtc.QPixmap_Scaled3(@ptrCast(self.ptr), @bitCast(w), @bitCast(h), @bitCast(aspectMode)) };
     }
+
+    /// ### DEPRECATED: Use `scaled4` instead
+    ///
+    pub const Scaled4 = scaled4;
 
     /// Inherited from QPixmap
     ///
@@ -872,9 +1120,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` mode: qnamespace_enums.TransformationMode `
     ///
-    pub fn Scaled4(self: QBitmap, w: i32, h: i32, aspectMode: i32, mode: i32) QPixmap {
+    pub fn scaled4(self: QBitmap, w: i32, h: i32, aspectMode: i32, mode: i32) QPixmap {
         return .{ .ptr = qtc.QPixmap_Scaled4(@ptrCast(self.ptr), @bitCast(w), @bitCast(h), @bitCast(aspectMode), @bitCast(mode)) };
     }
+
+    /// ### DEPRECATED: Use `scaled22` instead
+    ///
+    pub const Scaled22 = scaled22;
 
     /// Inherited from QPixmap
     ///
@@ -888,11 +1140,15 @@ pub const QBitmap = extern struct {
     ///
     /// ` aspectMode: qnamespace_enums.AspectRatioMode `
     ///
-    pub fn Scaled22(self: QBitmap, s: anytype, aspectMode: i32) QPixmap {
+    pub fn scaled22(self: QBitmap, s: anytype, aspectMode: i32) QPixmap {
         comptime _ = @TypeOf(s)._is_QSize;
         return .{ .ptr = qtc.QPixmap_Scaled22(@ptrCast(self.ptr), @ptrCast(s.ptr), @bitCast(aspectMode)) };
     }
 
+    /// ### DEPRECATED: Use `scaled32` instead
+    ///
+    pub const Scaled32 = scaled32;
+
     /// Inherited from QPixmap
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#scaled)
@@ -907,10 +1163,14 @@ pub const QBitmap = extern struct {
     ///
     /// ` mode: qnamespace_enums.TransformationMode `
     ///
-    pub fn Scaled32(self: QBitmap, s: anytype, aspectMode: i32, mode: i32) QPixmap {
+    pub fn scaled32(self: QBitmap, s: anytype, aspectMode: i32, mode: i32) QPixmap {
         comptime _ = @TypeOf(s)._is_QSize;
         return .{ .ptr = qtc.QPixmap_Scaled32(@ptrCast(self.ptr), @ptrCast(s.ptr), @bitCast(aspectMode), @bitCast(mode)) };
     }
+
+    /// ### DEPRECATED: Use `scaledToWidth2` instead
+    ///
+    pub const ScaledToWidth2 = scaledToWidth2;
 
     /// Inherited from QPixmap
     ///
@@ -924,9 +1184,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` mode: qnamespace_enums.TransformationMode `
     ///
-    pub fn ScaledToWidth2(self: QBitmap, w: i32, mode: i32) QPixmap {
+    pub fn scaledToWidth2(self: QBitmap, w: i32, mode: i32) QPixmap {
         return .{ .ptr = qtc.QPixmap_ScaledToWidth2(@ptrCast(self.ptr), @bitCast(w), @bitCast(mode)) };
     }
+
+    /// ### DEPRECATED: Use `scaledToHeight2` instead
+    ///
+    pub const ScaledToHeight2 = scaledToHeight2;
 
     /// Inherited from QPixmap
     ///
@@ -940,9 +1204,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` mode: qnamespace_enums.TransformationMode `
     ///
-    pub fn ScaledToHeight2(self: QBitmap, h: i32, mode: i32) QPixmap {
+    pub fn scaledToHeight2(self: QBitmap, h: i32, mode: i32) QPixmap {
         return .{ .ptr = qtc.QPixmap_ScaledToHeight2(@ptrCast(self.ptr), @bitCast(h), @bitCast(mode)) };
     }
+
+    /// ### DEPRECATED: Use `transformed2` instead
+    ///
+    pub const Transformed2 = transformed2;
 
     /// Inherited from QPixmap
     ///
@@ -956,10 +1224,14 @@ pub const QBitmap = extern struct {
     ///
     /// ` mode: qnamespace_enums.TransformationMode `
     ///
-    pub fn Transformed2(self: QBitmap, param1: anytype, mode: i32) QPixmap {
+    pub fn transformed2(self: QBitmap, param1: anytype, mode: i32) QPixmap {
         comptime _ = @TypeOf(param1)._is_QTransform;
         return .{ .ptr = qtc.QPixmap_Transformed2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(mode)) };
     }
+
+    /// ### DEPRECATED: Use `fromImageReader2` instead
+    ///
+    pub const FromImageReader2 = fromImageReader2;
 
     /// Inherited from QPixmap
     ///
@@ -971,10 +1243,14 @@ pub const QBitmap = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.ImageConversionFlag `
     ///
-    pub fn FromImageReader2(imageReader: anytype, flags: i32) QPixmap {
+    pub fn fromImageReader2(imageReader: anytype, flags: i32) QPixmap {
         comptime _ = @TypeOf(imageReader)._is_QImageReader;
         return .{ .ptr = qtc.QPixmap_FromImageReader2(@ptrCast(imageReader.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `load2` instead
+    ///
+    pub const Load2 = load2;
 
     /// Inherited from QPixmap
     ///
@@ -988,7 +1264,7 @@ pub const QBitmap = extern struct {
     ///
     /// ` format: [:0]const u8 `
     ///
-    pub fn Load2(self: QBitmap, fileName: []const u8, format: [:0]const u8) bool {
+    pub fn load2(self: QBitmap, fileName: []const u8, format: [:0]const u8) bool {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
@@ -997,6 +1273,10 @@ pub const QBitmap = extern struct {
         return qtc.QPixmap_Load2(@ptrCast(self.ptr), fileName_str, format_Cstring);
     }
 
+    /// ### DEPRECATED: Use `load3` instead
+    ///
+    pub const Load3 = load3;
+
     /// Inherited from QPixmap
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#load)
@@ -1011,7 +1291,7 @@ pub const QBitmap = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.ImageConversionFlag `
     ///
-    pub fn Load3(self: QBitmap, fileName: []const u8, format: [:0]const u8, flags: i32) bool {
+    pub fn load3(self: QBitmap, fileName: []const u8, format: [:0]const u8, flags: i32) bool {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
@@ -1020,6 +1300,10 @@ pub const QBitmap = extern struct {
         return qtc.QPixmap_Load3(@ptrCast(self.ptr), fileName_str, format_Cstring, @bitCast(flags));
     }
 
+    /// ### DEPRECATED: Use `loadFromData3` instead
+    ///
+    pub const LoadFromData3 = loadFromData3;
+
     /// Inherited from QPixmap
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#loadFromData)
@@ -1034,10 +1318,14 @@ pub const QBitmap = extern struct {
     ///
     /// ` format: [:0]const u8 `
     ///
-    pub fn LoadFromData3(self: QBitmap, buf: *const u8, len: u32, format: [:0]const u8) bool {
+    pub fn loadFromData3(self: QBitmap, buf: *const u8, len: u32, format: [:0]const u8) bool {
         const format_Cstring = format.ptr;
         return qtc.QPixmap_LoadFromData3(@ptrCast(self.ptr), @ptrCast(buf), @bitCast(len), format_Cstring);
     }
+
+    /// ### DEPRECATED: Use `loadFromData4` instead
+    ///
+    pub const LoadFromData4 = loadFromData4;
 
     /// Inherited from QPixmap
     ///
@@ -1055,10 +1343,14 @@ pub const QBitmap = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.ImageConversionFlag `
     ///
-    pub fn LoadFromData4(self: QBitmap, buf: *const u8, len: u32, format: [:0]const u8, flags: i32) bool {
+    pub fn loadFromData4(self: QBitmap, buf: *const u8, len: u32, format: [:0]const u8, flags: i32) bool {
         const format_Cstring = format.ptr;
         return qtc.QPixmap_LoadFromData4(@ptrCast(self.ptr), @ptrCast(buf), @bitCast(len), format_Cstring, @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `loadFromData22` instead
+    ///
+    pub const LoadFromData22 = loadFromData22;
 
     /// Inherited from QPixmap
     ///
@@ -1072,7 +1364,7 @@ pub const QBitmap = extern struct {
     ///
     /// ` format: [:0]const u8 `
     ///
-    pub fn LoadFromData22(self: QBitmap, data: []u8, format: [:0]const u8) bool {
+    pub fn loadFromData22(self: QBitmap, data: []u8, format: [:0]const u8) bool {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -1081,6 +1373,10 @@ pub const QBitmap = extern struct {
         return qtc.QPixmap_LoadFromData22(@ptrCast(self.ptr), data_str, format_Cstring);
     }
 
+    /// ### DEPRECATED: Use `loadFromData32` instead
+    ///
+    pub const LoadFromData32 = loadFromData32;
+
     /// Inherited from QPixmap
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#loadFromData)
@@ -1095,7 +1391,7 @@ pub const QBitmap = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.ImageConversionFlag `
     ///
-    pub fn LoadFromData32(self: QBitmap, data: []u8, format: [:0]const u8, flags: i32) bool {
+    pub fn loadFromData32(self: QBitmap, data: []u8, format: [:0]const u8, flags: i32) bool {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -1104,6 +1400,10 @@ pub const QBitmap = extern struct {
         return qtc.QPixmap_LoadFromData32(@ptrCast(self.ptr), data_str, format_Cstring, @bitCast(flags));
     }
 
+    /// ### DEPRECATED: Use `save22` instead
+    ///
+    pub const Save22 = save22;
+
     /// Inherited from QPixmap
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#save)
@@ -1116,7 +1416,7 @@ pub const QBitmap = extern struct {
     ///
     /// ` format: [:0]const u8 `
     ///
-    pub fn Save22(self: QBitmap, fileName: []const u8, format: [:0]const u8) bool {
+    pub fn save22(self: QBitmap, fileName: []const u8, format: [:0]const u8) bool {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
@@ -1125,6 +1425,10 @@ pub const QBitmap = extern struct {
         return qtc.QPixmap_Save22(@ptrCast(self.ptr), fileName_str, format_Cstring);
     }
 
+    /// ### DEPRECATED: Use `save3` instead
+    ///
+    pub const Save3 = save3;
+
     /// Inherited from QPixmap
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#save)
@@ -1139,7 +1443,7 @@ pub const QBitmap = extern struct {
     ///
     /// ` quality: i32 `
     ///
-    pub fn Save3(self: QBitmap, fileName: []const u8, format: [:0]const u8, quality: i32) bool {
+    pub fn save3(self: QBitmap, fileName: []const u8, format: [:0]const u8, quality: i32) bool {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
@@ -1147,6 +1451,10 @@ pub const QBitmap = extern struct {
         const format_Cstring = format.ptr;
         return qtc.QPixmap_Save3(@ptrCast(self.ptr), fileName_str, format_Cstring, @bitCast(quality));
     }
+
+    /// ### DEPRECATED: Use `save23` instead
+    ///
+    pub const Save23 = save23;
 
     /// Inherited from QPixmap
     ///
@@ -1160,11 +1468,15 @@ pub const QBitmap = extern struct {
     ///
     /// ` format: [:0]const u8 `
     ///
-    pub fn Save23(self: QBitmap, device: anytype, format: [:0]const u8) bool {
+    pub fn save23(self: QBitmap, device: anytype, format: [:0]const u8) bool {
         comptime _ = @TypeOf(device)._is_QIODevice;
         const format_Cstring = format.ptr;
         return qtc.QPixmap_Save23(@ptrCast(self.ptr), @ptrCast(device.ptr), format_Cstring);
     }
+
+    /// ### DEPRECATED: Use `save32` instead
+    ///
+    pub const Save32 = save32;
 
     /// Inherited from QPixmap
     ///
@@ -1180,11 +1492,15 @@ pub const QBitmap = extern struct {
     ///
     /// ` quality: i32 `
     ///
-    pub fn Save32(self: QBitmap, device: anytype, format: [:0]const u8, quality: i32) bool {
+    pub fn save32(self: QBitmap, device: anytype, format: [:0]const u8, quality: i32) bool {
         comptime _ = @TypeOf(device)._is_QIODevice;
         const format_Cstring = format.ptr;
         return qtc.QPixmap_Save32(@ptrCast(self.ptr), @ptrCast(device.ptr), format_Cstring, @bitCast(quality));
     }
+
+    /// ### DEPRECATED: Use `convertFromImage2` instead
+    ///
+    pub const ConvertFromImage2 = convertFromImage2;
 
     /// Inherited from QPixmap
     ///
@@ -1198,10 +1514,14 @@ pub const QBitmap = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.ImageConversionFlag `
     ///
-    pub fn ConvertFromImage2(self: QBitmap, img: anytype, flags: i32) bool {
+    pub fn convertFromImage2(self: QBitmap, img: anytype, flags: i32) bool {
         comptime _ = @TypeOf(img)._is_QImage;
         return qtc.QPixmap_ConvertFromImage2(@ptrCast(self.ptr), @ptrCast(img.ptr), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `copy1` instead
+    ///
+    pub const Copy1 = copy1;
 
     /// Inherited from QPixmap
     ///
@@ -1211,12 +1531,16 @@ pub const QBitmap = extern struct {
     ///
     /// ` self: QBitmap `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
-    pub fn Copy1(self: QBitmap, rect: anytype) QPixmap {
-        comptime _ = @TypeOf(rect)._is_QRect;
-        return .{ .ptr = qtc.QPixmap_Copy1(@ptrCast(self.ptr), @ptrCast(rect.ptr)) };
+    pub fn copy1(self: QBitmap, _rect: anytype) QPixmap {
+        comptime _ = @TypeOf(_rect)._is_QRect;
+        return .{ .ptr = qtc.QPixmap_Copy1(@ptrCast(self.ptr), @ptrCast(_rect.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `scroll7` instead
+    ///
+    pub const Scroll7 = scroll7;
 
     /// Inherited from QPixmap
     ///
@@ -1234,16 +1558,20 @@ pub const QBitmap = extern struct {
     ///
     /// ` y: i32 `
     ///
-    /// ` width: i32 `
+    /// ` _width: i32 `
     ///
-    /// ` height: i32 `
+    /// ` _height: i32 `
     ///
     /// ` exposed: QRegion `
     ///
-    pub fn Scroll7(self: QBitmap, dx: i32, dy: i32, x: i32, y: i32, width: i32, height: i32, exposed: anytype) void {
+    pub fn scroll7(self: QBitmap, dx: i32, dy: i32, x: i32, y: i32, _width: i32, _height: i32, exposed: anytype) void {
         comptime _ = @TypeOf(exposed)._is_QRegion;
-        qtc.QPixmap_Scroll7(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @bitCast(x), @bitCast(y), @bitCast(width), @bitCast(height), @ptrCast(exposed.ptr));
+        qtc.QPixmap_Scroll7(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @bitCast(x), @bitCast(y), @bitCast(_width), @bitCast(_height), @ptrCast(exposed.ptr));
     }
+
+    /// ### DEPRECATED: Use `scroll4` instead
+    ///
+    pub const Scroll4 = scroll4;
 
     /// Inherited from QPixmap
     ///
@@ -1257,15 +1585,19 @@ pub const QBitmap = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
     /// ` exposed: QRegion `
     ///
-    pub fn Scroll4(self: QBitmap, dx: i32, dy: i32, rect: anytype, exposed: anytype) void {
-        comptime _ = @TypeOf(rect)._is_QRect;
+    pub fn scroll4(self: QBitmap, dx: i32, dy: i32, _rect: anytype, exposed: anytype) void {
+        comptime _ = @TypeOf(_rect)._is_QRect;
         comptime _ = @TypeOf(exposed)._is_QRegion;
-        qtc.QPixmap_Scroll4(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(rect.ptr), @ptrCast(exposed.ptr));
+        qtc.QPixmap_Scroll4(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(_rect.ptr), @ptrCast(exposed.ptr));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -1275,9 +1607,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` self: QBitmap `
     ///
-    pub fn PaintingActive(self: QBitmap) bool {
+    pub fn paintingActive(self: QBitmap) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -1287,9 +1623,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` self: QBitmap `
     ///
-    pub fn WidthMM(self: QBitmap) i32 {
+    pub fn widthMM(self: QBitmap) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -1299,9 +1639,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` self: QBitmap `
     ///
-    pub fn HeightMM(self: QBitmap) i32 {
+    pub fn heightMM(self: QBitmap) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -1311,9 +1655,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` self: QBitmap `
     ///
-    pub fn LogicalDpiX(self: QBitmap) i32 {
+    pub fn logicalDpiX(self: QBitmap) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -1323,9 +1671,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` self: QBitmap `
     ///
-    pub fn LogicalDpiY(self: QBitmap) i32 {
+    pub fn logicalDpiY(self: QBitmap) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -1335,9 +1687,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` self: QBitmap `
     ///
-    pub fn PhysicalDpiX(self: QBitmap) i32 {
+    pub fn physicalDpiX(self: QBitmap) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -1347,9 +1703,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` self: QBitmap `
     ///
-    pub fn PhysicalDpiY(self: QBitmap) i32 {
+    pub fn physicalDpiY(self: QBitmap) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -1359,9 +1719,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` self: QBitmap `
     ///
-    pub fn DevicePixelRatioF(self: QBitmap) f64 {
+    pub fn devicePixelRatioF(self: QBitmap) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -1371,17 +1735,25 @@ pub const QBitmap = extern struct {
     ///
     /// ` self: QBitmap `
     ///
-    pub fn ColorCount(self: QBitmap) i32 {
+    pub fn colorCount(self: QBitmap) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -1389,13 +1761,17 @@ pub const QBitmap = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QPixmap
     ///
@@ -1407,13 +1783,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` self: QBitmap `
     ///
-    pub fn DevType(self: QBitmap) i32 {
+    pub fn devType(self: QBitmap) i32 {
         return qtc.QBitmap_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QPixmap
     ///
@@ -1425,9 +1801,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` self: QBitmap `
     ///
-    pub fn SuperDevType(self: QBitmap) i32 {
+    pub fn superDevType(self: QBitmap) i32 {
         return qtc.QBitmap_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QPixmap
     ///
@@ -1441,9 +1821,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: QBitmap, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QBitmap, callback: *const fn () callconv(.c) i32) void {
         qtc.QBitmap_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QPixmap
     ///
@@ -1455,13 +1839,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` self: QBitmap `
     ///
-    pub fn PaintEngine(self: QBitmap) QPaintEngine {
+    pub fn paintEngine(self: QBitmap) QPaintEngine {
         return .{ .ptr = qtc.QBitmap_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QPixmap
     ///
@@ -1473,9 +1857,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` self: QBitmap `
     ///
-    pub fn SuperPaintEngine(self: QBitmap) QPaintEngine {
+    pub fn superPaintEngine(self: QBitmap) QPaintEngine {
         return .{ .ptr = qtc.QBitmap_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QPixmap
     ///
@@ -1489,9 +1877,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: QBitmap, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QBitmap, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.QBitmap_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QPixmap
     ///
@@ -1505,13 +1897,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: QBitmap, param1: i32) i32 {
+    pub fn metric(self: QBitmap, param1: i32) i32 {
         return qtc.QBitmap_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QPixmap
     ///
@@ -1525,9 +1917,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: QBitmap, param1: i32) i32 {
+    pub fn superMetric(self: QBitmap, param1: i32) i32 {
         return qtc.QBitmap_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QPixmap
     ///
@@ -1541,9 +1937,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` callback: *const fn (self: QBitmap, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: QBitmap, callback: *const fn (QBitmap, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: QBitmap, callback: *const fn (QBitmap, i32) callconv(.c) i32) void {
         qtc.QBitmap_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QPaintDevice
     ///
@@ -1557,14 +1957,14 @@ pub const QBitmap = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: QBitmap, painter: anytype) void {
+    pub fn initPainter(self: QBitmap, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QBitmap_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QPaintDevice
     ///
@@ -1578,10 +1978,14 @@ pub const QBitmap = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: QBitmap, painter: anytype) void {
+    pub fn superInitPainter(self: QBitmap, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QBitmap_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QPaintDevice
     ///
@@ -1595,9 +1999,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` callback: *const fn (self: QBitmap, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: QBitmap, callback: *const fn (QBitmap, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: QBitmap, callback: *const fn (QBitmap, QPainter) callconv(.c) void) void {
         qtc.QBitmap_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QPaintDevice
     ///
@@ -1611,14 +2019,14 @@ pub const QBitmap = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: QBitmap, offset: anytype) QPaintDevice {
+    pub fn redirected(self: QBitmap, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.QBitmap_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QPaintDevice
     ///
@@ -1632,10 +2040,14 @@ pub const QBitmap = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: QBitmap, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: QBitmap, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.QBitmap_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QPaintDevice
     ///
@@ -1649,9 +2061,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` callback: *const fn (self: QBitmap, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: QBitmap, callback: *const fn (QBitmap, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: QBitmap, callback: *const fn (QBitmap, QPoint) callconv(.c) QPaintDevice) void {
         qtc.QBitmap_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QPaintDevice
     ///
@@ -1663,13 +2079,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` self: QBitmap `
     ///
-    pub fn SharedPainter(self: QBitmap) QPainter {
+    pub fn sharedPainter(self: QBitmap) QPainter {
         return .{ .ptr = qtc.QBitmap_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QPaintDevice
     ///
@@ -1681,9 +2097,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` self: QBitmap `
     ///
-    pub fn SuperSharedPainter(self: QBitmap) QPainter {
+    pub fn superSharedPainter(self: QBitmap) QPainter {
         return .{ .ptr = qtc.QBitmap_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QPaintDevice
     ///
@@ -1697,9 +2117,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: QBitmap, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QBitmap, callback: *const fn () callconv(.c) QPainter) void {
         qtc.QBitmap_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `fromImageInPlace` instead
+    ///
+    pub const FromImageInPlace = fromImageInPlace;
 
     /// Inherited from QPixmap
     ///
@@ -1713,14 +2137,14 @@ pub const QBitmap = extern struct {
     ///
     /// ` image: QImage `
     ///
-    pub fn FromImageInPlace(self: QBitmap, image: anytype) QPixmap {
+    pub fn fromImageInPlace(self: QBitmap, image: anytype) QPixmap {
         comptime _ = @TypeOf(image)._is_QImage;
         return .{ .ptr = qtc.QBitmap_FromImageInPlace(@ptrCast(self.ptr), @ptrCast(image.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperFromImageInPlace` instead
+    /// ### DEPRECATED: Use `superFromImageInPlace` instead
     ///
-    pub const QBaseFromImageInPlace = SuperFromImageInPlace;
+    pub const SuperFromImageInPlace = superFromImageInPlace;
 
     /// Inherited from QPixmap
     ///
@@ -1734,10 +2158,14 @@ pub const QBitmap = extern struct {
     ///
     /// ` image: QImage `
     ///
-    pub fn SuperFromImageInPlace(self: QBitmap, image: anytype) QPixmap {
+    pub fn superFromImageInPlace(self: QBitmap, image: anytype) QPixmap {
         comptime _ = @TypeOf(image)._is_QImage;
         return .{ .ptr = qtc.QBitmap_SuperFromImageInPlace(@ptrCast(self.ptr), @ptrCast(image.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onFromImageInPlace` instead
+    ///
+    pub const OnFromImageInPlace = onFromImageInPlace;
 
     /// Inherited from QPixmap
     ///
@@ -1753,9 +2181,13 @@ pub const QBitmap = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnFromImageInPlace(self: QBitmap, callback: *const fn (QBitmap, QImage) callconv(.c) QPixmap) void {
+    pub fn onFromImageInPlace(self: QBitmap, callback: *const fn (QBitmap, QImage) callconv(.c) QPixmap) void {
         qtc.QBitmap_OnFromImageInPlace(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -1771,13 +2203,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: QBitmap, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: QBitmap, metricA: i32, metricB: i32) f64 {
         return qtc.QBitmap_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -1793,9 +2225,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: QBitmap, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: QBitmap, metricA: i32, metricB: i32) f64 {
         return qtc.QBitmap_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -1809,23 +2245,23 @@ pub const QBitmap = extern struct {
     ///
     /// ` callback: *const fn (self: QBitmap, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: QBitmap, callback: *const fn (QBitmap, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: QBitmap, callback: *const fn (QBitmap, i32, i32) callconv(.c) f64) void {
         qtc.QBitmap_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitmap.html#dtor.QBitmap)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QBitmap `
     ///
-    pub fn Delete(self: QBitmap) void {
+    pub fn delete(self: QBitmap) void {
         qtc.QBitmap_Delete(@ptrCast(self.ptr));
     }
 };

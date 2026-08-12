@@ -18,6 +18,10 @@ pub const QDesignerLanguageExtension = extern struct {
 
     pub const _is_QDesignerLanguageExtension = {};
 
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlanguageextension.html#name)
     ///
     /// ## Parameter(s):
@@ -26,13 +30,17 @@ pub const QDesignerLanguageExtension = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: QDesignerLanguageExtension, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: QDesignerLanguageExtension, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerLanguageExtension_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerLanguageExtension.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerLanguageExtension.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `createFormWindowSettingsDialog` instead
+    ///
+    pub const CreateFormWindowSettingsDialog = createFormWindowSettingsDialog;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlanguageextension.html#createFormWindowSettingsDialog)
     ///
@@ -44,11 +52,15 @@ pub const QDesignerLanguageExtension = extern struct {
     ///
     /// ` parentWidget: QWidget `
     ///
-    pub fn CreateFormWindowSettingsDialog(self: QDesignerLanguageExtension, formWindow: anytype, parentWidget: anytype) QDialog {
+    pub fn createFormWindowSettingsDialog(self: QDesignerLanguageExtension, formWindow: anytype, parentWidget: anytype) QDialog {
         comptime _ = @TypeOf(formWindow)._is_QDesignerFormWindowInterface;
         comptime _ = @TypeOf(parentWidget)._is_QWidget;
         return .{ .ptr = qtc.QDesignerLanguageExtension_CreateFormWindowSettingsDialog(@ptrCast(self.ptr), @ptrCast(formWindow.ptr), @ptrCast(parentWidget.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `createResourceBrowser` instead
+    ///
+    pub const CreateResourceBrowser = createResourceBrowser;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlanguageextension.html#createResourceBrowser)
     ///
@@ -58,10 +70,14 @@ pub const QDesignerLanguageExtension = extern struct {
     ///
     /// ` parentWidget: QWidget `
     ///
-    pub fn CreateResourceBrowser(self: QDesignerLanguageExtension, parentWidget: anytype) QDesignerResourceBrowserInterface {
+    pub fn createResourceBrowser(self: QDesignerLanguageExtension, parentWidget: anytype) QDesignerResourceBrowserInterface {
         comptime _ = @TypeOf(parentWidget)._is_QWidget;
         return .{ .ptr = qtc.QDesignerLanguageExtension_CreateResourceBrowser(@ptrCast(self.ptr), @ptrCast(parentWidget.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `createPromotionDialog` instead
+    ///
+    pub const CreatePromotionDialog = createPromotionDialog;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlanguageextension.html#createPromotionDialog)
     ///
@@ -73,11 +89,15 @@ pub const QDesignerLanguageExtension = extern struct {
     ///
     /// ` parentWidget: QWidget `
     ///
-    pub fn CreatePromotionDialog(self: QDesignerLanguageExtension, formEditor: anytype, parentWidget: anytype) QDialog {
+    pub fn createPromotionDialog(self: QDesignerLanguageExtension, formEditor: anytype, parentWidget: anytype) QDialog {
         comptime _ = @TypeOf(formEditor)._is_QDesignerFormEditorInterface;
         comptime _ = @TypeOf(parentWidget)._is_QWidget;
         return .{ .ptr = qtc.QDesignerLanguageExtension_CreatePromotionDialog(@ptrCast(self.ptr), @ptrCast(formEditor.ptr), @ptrCast(parentWidget.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isLanguageResource` instead
+    ///
+    pub const IsLanguageResource = isLanguageResource;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlanguageextension.html#isLanguageResource)
     ///
@@ -87,13 +107,17 @@ pub const QDesignerLanguageExtension = extern struct {
     ///
     /// ` path: []const u8 `
     ///
-    pub fn IsLanguageResource(self: QDesignerLanguageExtension, path: []const u8) bool {
+    pub fn isLanguageResource(self: QDesignerLanguageExtension, path: []const u8) bool {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
         return qtc.QDesignerLanguageExtension_IsLanguageResource(@ptrCast(self.ptr), path_str);
     }
+
+    /// ### DEPRECATED: Use `classNameOf` instead
+    ///
+    pub const ClassNameOf = classNameOf;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlanguageextension.html#classNameOf)
     ///
@@ -105,14 +129,18 @@ pub const QDesignerLanguageExtension = extern struct {
     ///
     /// ` object: QObject `
     ///
-    pub fn ClassNameOf(self: QDesignerLanguageExtension, allocator: std.mem.Allocator, object: anytype) []const u8 {
+    pub fn classNameOf(self: QDesignerLanguageExtension, allocator: std.mem.Allocator, object: anytype) []const u8 {
         comptime _ = @TypeOf(object)._is_QObject;
         var _str = qtc.QDesignerLanguageExtension_ClassNameOf(@ptrCast(self.ptr), @ptrCast(object.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerLanguageExtension.ClassNameOf: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerLanguageExtension.classNameOf: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `signalMatchesSlot` instead
+    ///
+    pub const SignalMatchesSlot = signalMatchesSlot;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlanguageextension.html#signalMatchesSlot)
     ///
@@ -124,7 +152,7 @@ pub const QDesignerLanguageExtension = extern struct {
     ///
     /// ` slot: []const u8 `
     ///
-    pub fn SignalMatchesSlot(self: QDesignerLanguageExtension, signal: []const u8, slot: []const u8) bool {
+    pub fn signalMatchesSlot(self: QDesignerLanguageExtension, signal: []const u8, slot: []const u8) bool {
         const signal_str = qtc.libqt_string{
             .len = signal.len,
             .data = signal.ptr,
@@ -136,6 +164,10 @@ pub const QDesignerLanguageExtension = extern struct {
         return qtc.QDesignerLanguageExtension_SignalMatchesSlot(@ptrCast(self.ptr), signal_str, slot_str);
     }
 
+    /// ### DEPRECATED: Use `widgetBoxContents` instead
+    ///
+    pub const WidgetBoxContents = widgetBoxContents;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlanguageextension.html#widgetBoxContents)
     ///
     /// ## Parameter(s):
@@ -144,13 +176,17 @@ pub const QDesignerLanguageExtension = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WidgetBoxContents(self: QDesignerLanguageExtension, allocator: std.mem.Allocator) []const u8 {
+    pub fn widgetBoxContents(self: QDesignerLanguageExtension, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerLanguageExtension_WidgetBoxContents(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerLanguageExtension.WidgetBoxContents: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerLanguageExtension.widgetBoxContents: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `uiExtension` instead
+    ///
+    pub const UiExtension = uiExtension;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlanguageextension.html#uiExtension)
     ///
@@ -160,27 +196,27 @@ pub const QDesignerLanguageExtension = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn UiExtension(self: QDesignerLanguageExtension, allocator: std.mem.Allocator) []const u8 {
+    pub fn uiExtension(self: QDesignerLanguageExtension, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerLanguageExtension_UiExtension(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerLanguageExtension.UiExtension: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerLanguageExtension.uiExtension: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlanguageextension.html#dtor.QDesignerLanguageExtension)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDesignerLanguageExtension `
     ///
-    pub fn Delete(self: QDesignerLanguageExtension) void {
+    pub fn delete(self: QDesignerLanguageExtension) void {
         qtc.QDesignerLanguageExtension_Delete(@ptrCast(self.ptr));
     }
 };

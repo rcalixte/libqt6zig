@@ -29,22 +29,34 @@ pub const QNetworkDiskCache = extern struct {
     pub const _is_QAbstractNetworkCache = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QNetworkDiskCache object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QNetworkDiskCache {
+    pub const New = new;
+
+    /// Allocate a new QNetworkDiskCache object in C++ memory
+    ///
+    pub fn new() QNetworkDiskCache {
         return .{ .ptr = qtc.QNetworkDiskCache_new() };
     }
 
-    /// New2 constructs a new QNetworkDiskCache object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QNetworkDiskCache object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) QNetworkDiskCache {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QNetworkDiskCache_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) QNetworkDiskCache {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QNetworkDiskCache_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -52,9 +64,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` self: QNetworkDiskCache `
     ///
-    pub fn MetaObject(self: QNetworkDiskCache) QMetaObject {
+    pub fn metaObject(self: QNetworkDiskCache) QMetaObject {
         return .{ .ptr = qtc.QNetworkDiskCache_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -66,13 +82,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QNetworkDiskCache, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QNetworkDiskCache, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QNetworkDiskCache_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -82,9 +98,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` self: QNetworkDiskCache `
     ///
-    pub fn SuperMetaObject(self: QNetworkDiskCache) QMetaObject {
+    pub fn superMetaObject(self: QNetworkDiskCache) QMetaObject {
         return .{ .ptr = qtc.QNetworkDiskCache_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -92,10 +112,14 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QNetworkDiskCache, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QNetworkDiskCache, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QNetworkDiskCache_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -105,13 +129,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` callback: *const fn (self: QNetworkDiskCache, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QNetworkDiskCache, callback: *const fn (QNetworkDiskCache, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QNetworkDiskCache, callback: *const fn (QNetworkDiskCache, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QNetworkDiskCache_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -121,10 +145,14 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QNetworkDiskCache, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QNetworkDiskCache, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QNetworkDiskCache_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -136,9 +164,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QNetworkDiskCache, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QNetworkDiskCache, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QNetworkDiskCache_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -148,13 +180,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` callback: *const fn (self: QNetworkDiskCache, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QNetworkDiskCache, callback: *const fn (QNetworkDiskCache, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QNetworkDiskCache, callback: *const fn (QNetworkDiskCache, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QNetworkDiskCache_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -168,9 +200,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QNetworkDiskCache, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QNetworkDiskCache, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QNetworkDiskCache_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -180,14 +216,18 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QNetworkDiskCache.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QNetworkDiskCache.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `cacheDirectory` instead
+    ///
+    pub const CacheDirectory = cacheDirectory;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#cacheDirectory)
     ///
@@ -197,13 +237,17 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CacheDirectory(self: QNetworkDiskCache, allocator: std.mem.Allocator) []const u8 {
+    pub fn cacheDirectory(self: QNetworkDiskCache, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QNetworkDiskCache_CacheDirectory(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QNetworkDiskCache.CacheDirectory: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QNetworkDiskCache.cacheDirectory: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setCacheDirectory` instead
+    ///
+    pub const SetCacheDirectory = setCacheDirectory;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#setCacheDirectory)
     ///
@@ -213,7 +257,7 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` cacheDir: []const u8 `
     ///
-    pub fn SetCacheDirectory(self: QNetworkDiskCache, cacheDir: []const u8) void {
+    pub fn setCacheDirectory(self: QNetworkDiskCache, cacheDir: []const u8) void {
         const cacheDir_str = qtc.libqt_string{
             .len = cacheDir.len,
             .data = cacheDir.ptr,
@@ -221,15 +265,23 @@ pub const QNetworkDiskCache = extern struct {
         qtc.QNetworkDiskCache_SetCacheDirectory(@ptrCast(self.ptr), cacheDir_str);
     }
 
+    /// ### DEPRECATED: Use `maximumCacheSize` instead
+    ///
+    pub const MaximumCacheSize = maximumCacheSize;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#maximumCacheSize)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QNetworkDiskCache `
     ///
-    pub fn MaximumCacheSize(self: QNetworkDiskCache) i64 {
+    pub fn maximumCacheSize(self: QNetworkDiskCache) i64 {
         return qtc.QNetworkDiskCache_MaximumCacheSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumCacheSize` instead
+    ///
+    pub const SetMaximumCacheSize = setMaximumCacheSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#setMaximumCacheSize)
     ///
@@ -239,9 +291,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` size: i64 `
     ///
-    pub fn SetMaximumCacheSize(self: QNetworkDiskCache, size: i64) void {
+    pub fn setMaximumCacheSize(self: QNetworkDiskCache, size: i64) void {
         qtc.QNetworkDiskCache_SetMaximumCacheSize(@ptrCast(self.ptr), @bitCast(size));
     }
+
+    /// ### DEPRECATED: Use `cacheSize` instead
+    ///
+    pub const CacheSize = cacheSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#cacheSize)
     ///
@@ -249,9 +305,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` self: QNetworkDiskCache `
     ///
-    pub fn CacheSize(self: QNetworkDiskCache) i64 {
+    pub fn cacheSize(self: QNetworkDiskCache) i64 {
         return qtc.QNetworkDiskCache_CacheSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCacheSize` instead
+    ///
+    pub const OnCacheSize = onCacheSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#cacheSize)
     ///
@@ -263,13 +323,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i64 `
     ///
-    pub fn OnCacheSize(self: QNetworkDiskCache, callback: *const fn () callconv(.c) i64) void {
+    pub fn onCacheSize(self: QNetworkDiskCache, callback: *const fn () callconv(.c) i64) void {
         qtc.QNetworkDiskCache_OnCacheSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperCacheSize` instead
+    /// ### DEPRECATED: Use `superCacheSize` instead
     ///
-    pub const QBaseCacheSize = SuperCacheSize;
+    pub const SuperCacheSize = superCacheSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#cacheSize)
     ///
@@ -279,9 +339,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` self: QNetworkDiskCache `
     ///
-    pub fn SuperCacheSize(self: QNetworkDiskCache) i64 {
+    pub fn superCacheSize(self: QNetworkDiskCache) i64 {
         return qtc.QNetworkDiskCache_SuperCacheSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `metaData` instead
+    ///
+    pub const MetaData = metaData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#metaData)
     ///
@@ -291,10 +355,14 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn MetaData(self: QNetworkDiskCache, url: anytype) QNetworkCacheMetaData {
+    pub fn metaData(self: QNetworkDiskCache, url: anytype) QNetworkCacheMetaData {
         comptime _ = @TypeOf(url)._is_QUrl;
         return .{ .ptr = qtc.QNetworkDiskCache_MetaData(@ptrCast(self.ptr), @ptrCast(url.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaData` instead
+    ///
+    pub const OnMetaData = onMetaData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#metaData)
     ///
@@ -308,13 +376,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMetaData(self: QNetworkDiskCache, callback: *const fn (QNetworkDiskCache, QUrl) callconv(.c) QNetworkCacheMetaData) void {
+    pub fn onMetaData(self: QNetworkDiskCache, callback: *const fn (QNetworkDiskCache, QUrl) callconv(.c) QNetworkCacheMetaData) void {
         qtc.QNetworkDiskCache_OnMetaData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaData` instead
+    /// ### DEPRECATED: Use `superMetaData` instead
     ///
-    pub const QBaseMetaData = SuperMetaData;
+    pub const SuperMetaData = superMetaData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#metaData)
     ///
@@ -326,10 +394,14 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn SuperMetaData(self: QNetworkDiskCache, url: anytype) QNetworkCacheMetaData {
+    pub fn superMetaData(self: QNetworkDiskCache, url: anytype) QNetworkCacheMetaData {
         comptime _ = @TypeOf(url)._is_QUrl;
         return .{ .ptr = qtc.QNetworkDiskCache_SuperMetaData(@ptrCast(self.ptr), @ptrCast(url.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `updateMetaData` instead
+    ///
+    pub const UpdateMetaData = updateMetaData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#updateMetaData)
     ///
@@ -337,12 +409,16 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` self: QNetworkDiskCache `
     ///
-    /// ` metaData: QNetworkCacheMetaData `
+    /// ` _metaData: QNetworkCacheMetaData `
     ///
-    pub fn UpdateMetaData(self: QNetworkDiskCache, metaData: anytype) void {
-        comptime _ = @TypeOf(metaData)._is_QNetworkCacheMetaData;
-        qtc.QNetworkDiskCache_UpdateMetaData(@ptrCast(self.ptr), @ptrCast(metaData.ptr));
+    pub fn updateMetaData(self: QNetworkDiskCache, _metaData: anytype) void {
+        comptime _ = @TypeOf(_metaData)._is_QNetworkCacheMetaData;
+        qtc.QNetworkDiskCache_UpdateMetaData(@ptrCast(self.ptr), @ptrCast(_metaData.ptr));
     }
+
+    /// ### DEPRECATED: Use `onUpdateMetaData` instead
+    ///
+    pub const OnUpdateMetaData = onUpdateMetaData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#updateMetaData)
     ///
@@ -354,13 +430,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` callback: *const fn (self: QNetworkDiskCache, metaData: QNetworkCacheMetaData) callconv(.c) void `
     ///
-    pub fn OnUpdateMetaData(self: QNetworkDiskCache, callback: *const fn (QNetworkDiskCache, QNetworkCacheMetaData) callconv(.c) void) void {
+    pub fn onUpdateMetaData(self: QNetworkDiskCache, callback: *const fn (QNetworkDiskCache, QNetworkCacheMetaData) callconv(.c) void) void {
         qtc.QNetworkDiskCache_OnUpdateMetaData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMetaData` instead
+    /// ### DEPRECATED: Use `superUpdateMetaData` instead
     ///
-    pub const QBaseUpdateMetaData = SuperUpdateMetaData;
+    pub const SuperUpdateMetaData = superUpdateMetaData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#updateMetaData)
     ///
@@ -370,12 +446,16 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` self: QNetworkDiskCache `
     ///
-    /// ` metaData: QNetworkCacheMetaData `
+    /// ` _metaData: QNetworkCacheMetaData `
     ///
-    pub fn SuperUpdateMetaData(self: QNetworkDiskCache, metaData: anytype) void {
-        comptime _ = @TypeOf(metaData)._is_QNetworkCacheMetaData;
-        qtc.QNetworkDiskCache_SuperUpdateMetaData(@ptrCast(self.ptr), @ptrCast(metaData.ptr));
+    pub fn superUpdateMetaData(self: QNetworkDiskCache, _metaData: anytype) void {
+        comptime _ = @TypeOf(_metaData)._is_QNetworkCacheMetaData;
+        qtc.QNetworkDiskCache_SuperUpdateMetaData(@ptrCast(self.ptr), @ptrCast(_metaData.ptr));
     }
+
+    /// ### DEPRECATED: Use `data` instead
+    ///
+    pub const Data = data;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#data)
     ///
@@ -385,10 +465,14 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn Data(self: QNetworkDiskCache, url: anytype) QIODevice {
+    pub fn data(self: QNetworkDiskCache, url: anytype) QIODevice {
         comptime _ = @TypeOf(url)._is_QUrl;
         return .{ .ptr = qtc.QNetworkDiskCache_Data(@ptrCast(self.ptr), @ptrCast(url.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onData` instead
+    ///
+    pub const OnData = onData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#data)
     ///
@@ -400,13 +484,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` callback: *const fn (self: QNetworkDiskCache, url: QUrl) callconv(.c) QIODevice `
     ///
-    pub fn OnData(self: QNetworkDiskCache, callback: *const fn (QNetworkDiskCache, QUrl) callconv(.c) QIODevice) void {
+    pub fn onData(self: QNetworkDiskCache, callback: *const fn (QNetworkDiskCache, QUrl) callconv(.c) QIODevice) void {
         qtc.QNetworkDiskCache_OnData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperData` instead
+    /// ### DEPRECATED: Use `superData` instead
     ///
-    pub const QBaseData = SuperData;
+    pub const SuperData = superData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#data)
     ///
@@ -418,10 +502,14 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn SuperData(self: QNetworkDiskCache, url: anytype) QIODevice {
+    pub fn superData(self: QNetworkDiskCache, url: anytype) QIODevice {
         comptime _ = @TypeOf(url)._is_QUrl;
         return .{ .ptr = qtc.QNetworkDiskCache_SuperData(@ptrCast(self.ptr), @ptrCast(url.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `remove` instead
+    ///
+    pub const Remove = remove;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#remove)
     ///
@@ -431,10 +519,14 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn Remove(self: QNetworkDiskCache, url: anytype) bool {
+    pub fn remove(self: QNetworkDiskCache, url: anytype) bool {
         comptime _ = @TypeOf(url)._is_QUrl;
         return qtc.QNetworkDiskCache_Remove(@ptrCast(self.ptr), @ptrCast(url.ptr));
     }
+
+    /// ### DEPRECATED: Use `onRemove` instead
+    ///
+    pub const OnRemove = onRemove;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#remove)
     ///
@@ -446,13 +538,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` callback: *const fn (self: QNetworkDiskCache, url: QUrl) callconv(.c) bool `
     ///
-    pub fn OnRemove(self: QNetworkDiskCache, callback: *const fn (QNetworkDiskCache, QUrl) callconv(.c) bool) void {
+    pub fn onRemove(self: QNetworkDiskCache, callback: *const fn (QNetworkDiskCache, QUrl) callconv(.c) bool) void {
         qtc.QNetworkDiskCache_OnRemove(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperRemove` instead
+    /// ### DEPRECATED: Use `superRemove` instead
     ///
-    pub const QBaseRemove = SuperRemove;
+    pub const SuperRemove = superRemove;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#remove)
     ///
@@ -464,10 +556,14 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn SuperRemove(self: QNetworkDiskCache, url: anytype) bool {
+    pub fn superRemove(self: QNetworkDiskCache, url: anytype) bool {
         comptime _ = @TypeOf(url)._is_QUrl;
         return qtc.QNetworkDiskCache_SuperRemove(@ptrCast(self.ptr), @ptrCast(url.ptr));
     }
+
+    /// ### DEPRECATED: Use `prepare` instead
+    ///
+    pub const Prepare = prepare;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#prepare)
     ///
@@ -475,12 +571,16 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` self: QNetworkDiskCache `
     ///
-    /// ` metaData: QNetworkCacheMetaData `
+    /// ` _metaData: QNetworkCacheMetaData `
     ///
-    pub fn Prepare(self: QNetworkDiskCache, metaData: anytype) QIODevice {
-        comptime _ = @TypeOf(metaData)._is_QNetworkCacheMetaData;
-        return .{ .ptr = qtc.QNetworkDiskCache_Prepare(@ptrCast(self.ptr), @ptrCast(metaData.ptr)) };
+    pub fn prepare(self: QNetworkDiskCache, _metaData: anytype) QIODevice {
+        comptime _ = @TypeOf(_metaData)._is_QNetworkCacheMetaData;
+        return .{ .ptr = qtc.QNetworkDiskCache_Prepare(@ptrCast(self.ptr), @ptrCast(_metaData.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPrepare` instead
+    ///
+    pub const OnPrepare = onPrepare;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#prepare)
     ///
@@ -492,13 +592,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` callback: *const fn (self: QNetworkDiskCache, metaData: QNetworkCacheMetaData) callconv(.c) QIODevice `
     ///
-    pub fn OnPrepare(self: QNetworkDiskCache, callback: *const fn (QNetworkDiskCache, QNetworkCacheMetaData) callconv(.c) QIODevice) void {
+    pub fn onPrepare(self: QNetworkDiskCache, callback: *const fn (QNetworkDiskCache, QNetworkCacheMetaData) callconv(.c) QIODevice) void {
         qtc.QNetworkDiskCache_OnPrepare(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperPrepare` instead
+    /// ### DEPRECATED: Use `superPrepare` instead
     ///
-    pub const QBasePrepare = SuperPrepare;
+    pub const SuperPrepare = superPrepare;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#prepare)
     ///
@@ -508,12 +608,16 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` self: QNetworkDiskCache `
     ///
-    /// ` metaData: QNetworkCacheMetaData `
+    /// ` _metaData: QNetworkCacheMetaData `
     ///
-    pub fn SuperPrepare(self: QNetworkDiskCache, metaData: anytype) QIODevice {
-        comptime _ = @TypeOf(metaData)._is_QNetworkCacheMetaData;
-        return .{ .ptr = qtc.QNetworkDiskCache_SuperPrepare(@ptrCast(self.ptr), @ptrCast(metaData.ptr)) };
+    pub fn superPrepare(self: QNetworkDiskCache, _metaData: anytype) QIODevice {
+        comptime _ = @TypeOf(_metaData)._is_QNetworkCacheMetaData;
+        return .{ .ptr = qtc.QNetworkDiskCache_SuperPrepare(@ptrCast(self.ptr), @ptrCast(_metaData.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `insert` instead
+    ///
+    pub const Insert = insert;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#insert)
     ///
@@ -523,10 +627,14 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` device: QIODevice `
     ///
-    pub fn Insert(self: QNetworkDiskCache, device: anytype) void {
+    pub fn insert(self: QNetworkDiskCache, device: anytype) void {
         comptime _ = @TypeOf(device)._is_QIODevice;
         qtc.QNetworkDiskCache_Insert(@ptrCast(self.ptr), @ptrCast(device.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInsert` instead
+    ///
+    pub const OnInsert = onInsert;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#insert)
     ///
@@ -538,13 +646,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` callback: *const fn (self: QNetworkDiskCache, device: QIODevice) callconv(.c) void `
     ///
-    pub fn OnInsert(self: QNetworkDiskCache, callback: *const fn (QNetworkDiskCache, QIODevice) callconv(.c) void) void {
+    pub fn onInsert(self: QNetworkDiskCache, callback: *const fn (QNetworkDiskCache, QIODevice) callconv(.c) void) void {
         qtc.QNetworkDiskCache_OnInsert(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperInsert` instead
+    /// ### DEPRECATED: Use `superInsert` instead
     ///
-    pub const QBaseInsert = SuperInsert;
+    pub const SuperInsert = superInsert;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#insert)
     ///
@@ -556,10 +664,14 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` device: QIODevice `
     ///
-    pub fn SuperInsert(self: QNetworkDiskCache, device: anytype) void {
+    pub fn superInsert(self: QNetworkDiskCache, device: anytype) void {
         comptime _ = @TypeOf(device)._is_QIODevice;
         qtc.QNetworkDiskCache_SuperInsert(@ptrCast(self.ptr), @ptrCast(device.ptr));
     }
+
+    /// ### DEPRECATED: Use `fileMetaData` instead
+    ///
+    pub const FileMetaData = fileMetaData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#fileMetaData)
     ///
@@ -569,7 +681,7 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` fileName: []const u8 `
     ///
-    pub fn FileMetaData(self: QNetworkDiskCache, fileName: []const u8) QNetworkCacheMetaData {
+    pub fn fileMetaData(self: QNetworkDiskCache, fileName: []const u8) QNetworkCacheMetaData {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
@@ -577,15 +689,23 @@ pub const QNetworkDiskCache = extern struct {
         return .{ .ptr = qtc.QNetworkDiskCache_FileMetaData(@ptrCast(self.ptr), fileName_str) };
     }
 
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#clear)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QNetworkDiskCache `
     ///
-    pub fn Clear(self: QNetworkDiskCache) void {
+    pub fn clear(self: QNetworkDiskCache) void {
         qtc.QNetworkDiskCache_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onClear` instead
+    ///
+    pub const OnClear = onClear;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#clear)
     ///
@@ -597,13 +717,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnClear(self: QNetworkDiskCache, callback: *const fn () callconv(.c) void) void {
+    pub fn onClear(self: QNetworkDiskCache, callback: *const fn () callconv(.c) void) void {
         qtc.QNetworkDiskCache_OnClear(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperClear` instead
+    /// ### DEPRECATED: Use `superClear` instead
     ///
-    pub const QBaseClear = SuperClear;
+    pub const SuperClear = superClear;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#clear)
     ///
@@ -613,9 +733,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` self: QNetworkDiskCache `
     ///
-    pub fn SuperClear(self: QNetworkDiskCache) void {
+    pub fn superClear(self: QNetworkDiskCache) void {
         qtc.QNetworkDiskCache_SuperClear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `expire` instead
+    ///
+    pub const Expire = expire;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#expire)
     ///
@@ -623,9 +747,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` self: QNetworkDiskCache `
     ///
-    pub fn Expire(self: QNetworkDiskCache) i64 {
+    pub fn expire(self: QNetworkDiskCache) i64 {
         return qtc.QNetworkDiskCache_Expire(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onExpire` instead
+    ///
+    pub const OnExpire = onExpire;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#expire)
     ///
@@ -637,13 +765,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i64 `
     ///
-    pub fn OnExpire(self: QNetworkDiskCache, callback: *const fn () callconv(.c) i64) void {
+    pub fn onExpire(self: QNetworkDiskCache, callback: *const fn () callconv(.c) i64) void {
         qtc.QNetworkDiskCache_OnExpire(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperExpire` instead
+    /// ### DEPRECATED: Use `superExpire` instead
     ///
-    pub const QBaseExpire = SuperExpire;
+    pub const SuperExpire = superExpire;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#expire)
     ///
@@ -653,9 +781,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` self: QNetworkDiskCache `
     ///
-    pub fn SuperExpire(self: QNetworkDiskCache) i64 {
+    pub fn superExpire(self: QNetworkDiskCache) i64 {
         return qtc.QNetworkDiskCache_SuperExpire(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -667,15 +799,19 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QNetworkDiskCache.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QNetworkDiskCache.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -689,15 +825,19 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QNetworkDiskCache.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QNetworkDiskCache.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -709,13 +849,17 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QNetworkDiskCache, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QNetworkDiskCache, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QNetworkDiskCache.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QNetworkDiskCache.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -727,13 +871,17 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QNetworkDiskCache, name: []const u8) void {
+    pub fn setObjectName(self: QNetworkDiskCache, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -743,9 +891,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` self: QNetworkDiskCache `
     ///
-    pub fn IsWidgetType(self: QNetworkDiskCache) bool {
+    pub fn isWidgetType(self: QNetworkDiskCache) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -755,9 +907,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` self: QNetworkDiskCache `
     ///
-    pub fn IsWindowType(self: QNetworkDiskCache) bool {
+    pub fn isWindowType(self: QNetworkDiskCache) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -767,9 +923,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` self: QNetworkDiskCache `
     ///
-    pub fn IsQuickItemType(self: QNetworkDiskCache) bool {
+    pub fn isQuickItemType(self: QNetworkDiskCache) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -779,9 +939,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` self: QNetworkDiskCache `
     ///
-    pub fn SignalsBlocked(self: QNetworkDiskCache) bool {
+    pub fn signalsBlocked(self: QNetworkDiskCache) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -793,9 +957,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QNetworkDiskCache, b: bool) bool {
+    pub fn blockSignals(self: QNetworkDiskCache, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -805,9 +973,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` self: QNetworkDiskCache `
     ///
-    pub fn Thread(self: QNetworkDiskCache) QThread {
+    pub fn thread(self: QNetworkDiskCache) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -817,12 +989,16 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` self: QNetworkDiskCache `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QNetworkDiskCache, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QNetworkDiskCache, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -834,9 +1010,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QNetworkDiskCache, interval: i32) i32 {
+    pub fn startTimer(self: QNetworkDiskCache, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -848,9 +1028,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QNetworkDiskCache, time: i64) i32 {
+    pub fn startTimer2(self: QNetworkDiskCache, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -862,9 +1046,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QNetworkDiskCache, id: i32) void {
+    pub fn killTimer(self: QNetworkDiskCache, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -876,9 +1064,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QNetworkDiskCache, id: i32) void {
+    pub fn killTimer2(self: QNetworkDiskCache, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -890,15 +1082,19 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QNetworkDiskCache, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QNetworkDiskCache, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QNetworkDiskCache.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QNetworkDiskCache.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -908,12 +1104,16 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` self: QNetworkDiskCache `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QNetworkDiskCache, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QNetworkDiskCache, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -925,10 +1125,14 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QNetworkDiskCache, filterObj: anytype) void {
+    pub fn installEventFilter(self: QNetworkDiskCache, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -940,10 +1144,14 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QNetworkDiskCache, obj: anytype) void {
+    pub fn removeEventFilter(self: QNetworkDiskCache, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -951,7 +1159,7 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -959,13 +1167,17 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -973,7 +1185,7 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -981,13 +1193,17 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -997,18 +1213,22 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` self: QNetworkDiskCache `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QNetworkDiskCache, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QNetworkDiskCache, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -1016,7 +1236,7 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1024,13 +1244,17 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -1038,7 +1262,7 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1046,13 +1270,17 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -1062,9 +1290,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` self: QNetworkDiskCache `
     ///
-    pub fn Disconnect3(self: QNetworkDiskCache) bool {
+    pub fn disconnect3(self: QNetworkDiskCache) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1076,10 +1308,14 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QNetworkDiskCache, receiver: anytype) bool {
+    pub fn disconnect4(self: QNetworkDiskCache, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1089,10 +1325,14 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1102,9 +1342,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` self: QNetworkDiskCache `
     ///
-    pub fn DumpObjectTree(self: QNetworkDiskCache) void {
+    pub fn dumpObjectTree(self: QNetworkDiskCache) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1114,9 +1358,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` self: QNetworkDiskCache `
     ///
-    pub fn DumpObjectInfo(self: QNetworkDiskCache) void {
+    pub fn dumpObjectInfo(self: QNetworkDiskCache) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1130,11 +1378,15 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QNetworkDiskCache, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QNetworkDiskCache, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1146,10 +1398,14 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QNetworkDiskCache, name: [:0]const u8) QVariant {
+    pub fn property(self: QNetworkDiskCache, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1161,7 +1417,7 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QNetworkDiskCache, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QNetworkDiskCache, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1169,27 +1425,19 @@ pub const QNetworkDiskCache = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QNetworkDiskCache.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QNetworkDiskCache.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QNetworkDiskCache.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QNetworkDiskCache.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QNetworkDiskCache `
-    ///
-    pub fn BindingStorage(self: QNetworkDiskCache) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1199,9 +1447,29 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` self: QNetworkDiskCache `
     ///
-    pub fn BindingStorage2(self: QNetworkDiskCache) QBindingStorage {
+    pub fn bindingStorage(self: QNetworkDiskCache) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QNetworkDiskCache `
+    ///
+    pub fn bindingStorage2(self: QNetworkDiskCache) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1211,9 +1479,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` self: QNetworkDiskCache `
     ///
-    pub fn Destroyed(self: QNetworkDiskCache) void {
+    pub fn destroyed(self: QNetworkDiskCache) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1225,9 +1497,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` callback: *const fn (self: QNetworkDiskCache) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QNetworkDiskCache, callback: *const fn (QNetworkDiskCache) callconv(.c) void) void {
+    pub fn onDestroyed(self: QNetworkDiskCache, callback: *const fn (QNetworkDiskCache) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1237,9 +1513,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` self: QNetworkDiskCache `
     ///
-    pub fn Parent(self: QNetworkDiskCache) QObject {
+    pub fn parent(self: QNetworkDiskCache) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1251,10 +1531,14 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QNetworkDiskCache, classname: [:0]const u8) bool {
+    pub fn inherits(self: QNetworkDiskCache, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1264,9 +1548,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` self: QNetworkDiskCache `
     ///
-    pub fn DeleteLater(self: QNetworkDiskCache) void {
+    pub fn deleteLater(self: QNetworkDiskCache) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1280,9 +1568,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QNetworkDiskCache, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QNetworkDiskCache, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1296,9 +1588,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QNetworkDiskCache, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QNetworkDiskCache, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1306,7 +1602,7 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1316,13 +1612,17 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1330,7 +1630,7 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1340,13 +1640,17 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1356,7 +1660,7 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` self: QNetworkDiskCache `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1364,12 +1668,16 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QNetworkDiskCache, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QNetworkDiskCache, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1381,10 +1689,14 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QNetworkDiskCache, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QNetworkDiskCache, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1398,11 +1710,15 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QNetworkDiskCache, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QNetworkDiskCache, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1418,13 +1734,17 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QNetworkDiskCache, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QNetworkDiskCache, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1437,11 +1757,15 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QNetworkDiskCache, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QNetworkDiskCache, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1453,10 +1777,14 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QNetworkDiskCache, param1: anytype) void {
+    pub fn destroyed1(self: QNetworkDiskCache, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1468,9 +1796,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` callback: *const fn (self: QNetworkDiskCache, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QNetworkDiskCache, callback: *const fn (QNetworkDiskCache, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QNetworkDiskCache, callback: *const fn (QNetworkDiskCache, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -1482,16 +1814,16 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` self: QNetworkDiskCache `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QNetworkDiskCache, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QNetworkDiskCache_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QNetworkDiskCache, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QNetworkDiskCache_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -1503,12 +1835,16 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` self: QNetworkDiskCache `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QNetworkDiskCache, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QNetworkDiskCache_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QNetworkDiskCache, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QNetworkDiskCache_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -1522,9 +1858,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` callback: *const fn (self: QNetworkDiskCache, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QNetworkDiskCache, callback: *const fn (QNetworkDiskCache, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QNetworkDiskCache, callback: *const fn (QNetworkDiskCache, QEvent) callconv(.c) bool) void {
         qtc.QNetworkDiskCache_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1538,17 +1878,17 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QNetworkDiskCache, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QNetworkDiskCache, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QNetworkDiskCache_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QNetworkDiskCache_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1562,13 +1902,17 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QNetworkDiskCache, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QNetworkDiskCache, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QNetworkDiskCache_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QNetworkDiskCache_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1582,9 +1926,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` callback: *const fn (self: QNetworkDiskCache, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QNetworkDiskCache, callback: *const fn (QNetworkDiskCache, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QNetworkDiskCache, callback: *const fn (QNetworkDiskCache, QObject, QEvent) callconv(.c) bool) void {
         qtc.QNetworkDiskCache_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -1596,16 +1944,16 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` self: QNetworkDiskCache `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QNetworkDiskCache, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QNetworkDiskCache_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QNetworkDiskCache, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QNetworkDiskCache_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1617,12 +1965,16 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` self: QNetworkDiskCache `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QNetworkDiskCache, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QNetworkDiskCache_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QNetworkDiskCache, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QNetworkDiskCache_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1636,9 +1988,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` callback: *const fn (self: QNetworkDiskCache, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QNetworkDiskCache, callback: *const fn (QNetworkDiskCache, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QNetworkDiskCache, callback: *const fn (QNetworkDiskCache, QTimerEvent) callconv(.c) void) void {
         qtc.QNetworkDiskCache_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -1650,16 +2006,16 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` self: QNetworkDiskCache `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QNetworkDiskCache, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QNetworkDiskCache_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QNetworkDiskCache, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QNetworkDiskCache_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1671,12 +2027,16 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` self: QNetworkDiskCache `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QNetworkDiskCache, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QNetworkDiskCache_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QNetworkDiskCache, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QNetworkDiskCache_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1690,9 +2050,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` callback: *const fn (self: QNetworkDiskCache, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QNetworkDiskCache, callback: *const fn (QNetworkDiskCache, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QNetworkDiskCache, callback: *const fn (QNetworkDiskCache, QChildEvent) callconv(.c) void) void {
         qtc.QNetworkDiskCache_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -1704,16 +2068,16 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` self: QNetworkDiskCache `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QNetworkDiskCache, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QNetworkDiskCache_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QNetworkDiskCache, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QNetworkDiskCache_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1725,12 +2089,16 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` self: QNetworkDiskCache `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QNetworkDiskCache, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QNetworkDiskCache_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QNetworkDiskCache, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QNetworkDiskCache_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1744,9 +2112,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` callback: *const fn (self: QNetworkDiskCache, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QNetworkDiskCache, callback: *const fn (QNetworkDiskCache, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QNetworkDiskCache, callback: *const fn (QNetworkDiskCache, QEvent) callconv(.c) void) void {
         qtc.QNetworkDiskCache_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -1760,14 +2132,14 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QNetworkDiskCache, signal: anytype) void {
+    pub fn connectNotify(self: QNetworkDiskCache, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QNetworkDiskCache_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1781,11 +2153,15 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QNetworkDiskCache, signal: anytype) void {
+    pub fn superConnectNotify(self: QNetworkDiskCache, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QNetworkDiskCache_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1798,9 +2174,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` callback: *const fn (self: QNetworkDiskCache, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QNetworkDiskCache, callback: *const fn (QNetworkDiskCache, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QNetworkDiskCache, callback: *const fn (QNetworkDiskCache, QMetaMethod) callconv(.c) void) void {
         qtc.QNetworkDiskCache_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1814,14 +2194,14 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QNetworkDiskCache, signal: anytype) void {
+    pub fn disconnectNotify(self: QNetworkDiskCache, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QNetworkDiskCache_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1835,10 +2215,14 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QNetworkDiskCache, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QNetworkDiskCache, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QNetworkDiskCache_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1852,9 +2236,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` callback: *const fn (self: QNetworkDiskCache, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QNetworkDiskCache, callback: *const fn (QNetworkDiskCache, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QNetworkDiskCache, callback: *const fn (QNetworkDiskCache, QMetaMethod) callconv(.c) void) void {
         qtc.QNetworkDiskCache_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -1866,13 +2254,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` self: QNetworkDiskCache `
     ///
-    pub fn Sender(self: QNetworkDiskCache) QObject {
+    pub fn sender(self: QNetworkDiskCache) QObject {
         return .{ .ptr = qtc.QNetworkDiskCache_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -1884,9 +2272,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` self: QNetworkDiskCache `
     ///
-    pub fn SuperSender(self: QNetworkDiskCache) QObject {
+    pub fn superSender(self: QNetworkDiskCache) QObject {
         return .{ .ptr = qtc.QNetworkDiskCache_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -1900,9 +2292,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QNetworkDiskCache, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QNetworkDiskCache, callback: *const fn () callconv(.c) QObject) void {
         qtc.QNetworkDiskCache_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1914,13 +2310,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` self: QNetworkDiskCache `
     ///
-    pub fn SenderSignalIndex(self: QNetworkDiskCache) i32 {
+    pub fn senderSignalIndex(self: QNetworkDiskCache) i32 {
         return qtc.QNetworkDiskCache_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1932,9 +2328,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` self: QNetworkDiskCache `
     ///
-    pub fn SuperSenderSignalIndex(self: QNetworkDiskCache) i32 {
+    pub fn superSenderSignalIndex(self: QNetworkDiskCache) i32 {
         return qtc.QNetworkDiskCache_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1948,9 +2348,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QNetworkDiskCache, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QNetworkDiskCache, callback: *const fn () callconv(.c) i32) void {
         qtc.QNetworkDiskCache_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -1964,14 +2368,14 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QNetworkDiskCache, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QNetworkDiskCache, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QNetworkDiskCache_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -1985,10 +2389,14 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QNetworkDiskCache, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QNetworkDiskCache, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QNetworkDiskCache_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -2002,9 +2410,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` callback: *const fn (self: QNetworkDiskCache, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QNetworkDiskCache, callback: *const fn (QNetworkDiskCache, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QNetworkDiskCache, callback: *const fn (QNetworkDiskCache, [*:0]const u8) callconv(.c) i32) void {
         qtc.QNetworkDiskCache_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2018,14 +2430,14 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QNetworkDiskCache, signal: anytype) bool {
+    pub fn isSignalConnected(self: QNetworkDiskCache, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QNetworkDiskCache_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2039,10 +2451,14 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QNetworkDiskCache, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QNetworkDiskCache, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QNetworkDiskCache_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2056,9 +2472,13 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` callback: *const fn (self: QNetworkDiskCache, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QNetworkDiskCache, callback: *const fn (QNetworkDiskCache, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QNetworkDiskCache, callback: *const fn (QNetworkDiskCache, QMetaMethod) callconv(.c) bool) void {
         qtc.QNetworkDiskCache_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -2072,23 +2492,23 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` callback: *const fn (self: QNetworkDiskCache, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QNetworkDiskCache, callback: *const fn (QNetworkDiskCache, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QNetworkDiskCache, callback: *const fn (QNetworkDiskCache, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#dtor.QNetworkDiskCache)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QNetworkDiskCache `
     ///
-    pub fn Delete(self: QNetworkDiskCache) void {
+    pub fn delete(self: QNetworkDiskCache) void {
         qtc.QNetworkDiskCache_Delete(@ptrCast(self.ptr));
     }
 };

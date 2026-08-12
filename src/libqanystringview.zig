@@ -4,6 +4,10 @@ const qnamespace_enums = @import("libqnamespace.zig").enums;
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html)
 pub const QAnyStringView = extern struct {
+    /// ### DEPRECATED: Use `compare` instead
+    ///
+    pub const Compare = compare;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#compare)
     ///
     /// ## Parameter(s):
@@ -12,7 +16,7 @@ pub const QAnyStringView = extern struct {
     ///
     /// ` rhs: []const u8 `
     ///
-    pub fn Compare(lhs: []const u8, rhs: []const u8) i32 {
+    pub fn compare(lhs: []const u8, rhs: []const u8) i32 {
         const lhs_str = qtc.libqt_string{
             .len = lhs.len,
             .data = lhs.ptr,
@@ -24,6 +28,10 @@ pub const QAnyStringView = extern struct {
         return qtc.QAnyStringView_Compare(lhs_str, rhs_str);
     }
 
+    /// ### DEPRECATED: Use `equal` instead
+    ///
+    pub const Equal = equal;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#equal)
     ///
     /// ## Parameter(s):
@@ -32,7 +40,7 @@ pub const QAnyStringView = extern struct {
     ///
     /// ` rhs: []const u8 `
     ///
-    pub fn Equal(lhs: []const u8, rhs: []const u8) bool {
+    pub fn equal(lhs: []const u8, rhs: []const u8) bool {
         const lhs_str = qtc.libqt_string{
             .len = lhs.len,
             .data = lhs.ptr,
@@ -44,6 +52,10 @@ pub const QAnyStringView = extern struct {
         return qtc.QAnyStringView_Equal(lhs_str, rhs_str);
     }
 
+    /// ### DEPRECATED: Use `compare3` instead
+    ///
+    pub const Compare3 = compare3;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#compare)
     ///
     /// ## Parameter(s):
@@ -54,7 +66,7 @@ pub const QAnyStringView = extern struct {
     ///
     /// ` cs: qnamespace_enums.CaseSensitivity `
     ///
-    pub fn Compare3(lhs: []const u8, rhs: []const u8, cs: i32) i32 {
+    pub fn compare3(lhs: []const u8, rhs: []const u8, cs: i32) i32 {
         const lhs_str = qtc.libqt_string{
             .len = lhs.len,
             .data = lhs.ptr,

@@ -33,19 +33,27 @@ pub const QTemporaryFile = extern struct {
     pub const _is_QObject = {};
     pub const _is_QIODeviceBase = {};
 
-    /// New constructs a new QTemporaryFile object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QTemporaryFile {
+    pub const New = new;
+
+    /// Allocate a new QTemporaryFile object in C++ memory
+    ///
+    pub fn new() QTemporaryFile {
         return .{ .ptr = qtc.QTemporaryFile_new() };
     }
 
-    /// New2 constructs a new QTemporaryFile object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QTemporaryFile object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` templateName: []const u8 `
     ///
-    pub fn New2(templateName: []const u8) QTemporaryFile {
+    pub fn new2(templateName: []const u8) QTemporaryFile {
         const templateName_str = qtc.libqt_string{
             .len = templateName.len,
             .data = templateName.ptr,
@@ -53,33 +61,45 @@ pub const QTemporaryFile = extern struct {
         return .{ .ptr = qtc.QTemporaryFile_new2(templateName_str) };
     }
 
-    /// New3 constructs a new QTemporaryFile object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QTemporaryFile object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New3(parent: anytype) QTemporaryFile {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QTemporaryFile_new3(@ptrCast(parent.ptr)) };
+    pub fn new3(_parent: anytype) QTemporaryFile {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QTemporaryFile_new3(@ptrCast(_parent.ptr)) };
     }
 
-    /// New4 constructs a new QTemporaryFile object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QTemporaryFile object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` templateName: []const u8 `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New4(templateName: []const u8, parent: anytype) QTemporaryFile {
+    pub fn new4(templateName: []const u8, _parent: anytype) QTemporaryFile {
         const templateName_str = qtc.libqt_string{
             .len = templateName.len,
             .data = templateName.ptr,
         };
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QTemporaryFile_new4(templateName_str, @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QTemporaryFile_new4(templateName_str, @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -87,9 +107,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn MetaObject(self: QTemporaryFile) QMetaObject {
+    pub fn metaObject(self: QTemporaryFile) QMetaObject {
         return .{ .ptr = qtc.QTemporaryFile_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -101,13 +125,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QTemporaryFile, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QTemporaryFile, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QTemporaryFile_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -117,9 +141,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn SuperMetaObject(self: QTemporaryFile) QMetaObject {
+    pub fn superMetaObject(self: QTemporaryFile) QMetaObject {
         return .{ .ptr = qtc.QTemporaryFile_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -127,10 +155,14 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QTemporaryFile, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QTemporaryFile, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QTemporaryFile_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -140,13 +172,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` callback: *const fn (self: QTemporaryFile, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QTemporaryFile, callback: *const fn (QTemporaryFile, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QTemporaryFile, callback: *const fn (QTemporaryFile, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QTemporaryFile_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -156,10 +188,14 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QTemporaryFile, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QTemporaryFile, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QTemporaryFile_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -171,9 +207,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QTemporaryFile, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QTemporaryFile, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QTemporaryFile_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -183,13 +223,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` callback: *const fn (self: QTemporaryFile, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QTemporaryFile, callback: *const fn (QTemporaryFile, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QTemporaryFile, callback: *const fn (QTemporaryFile, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QTemporaryFile_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -203,9 +243,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QTemporaryFile, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QTemporaryFile, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QTemporaryFile_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -215,14 +259,18 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTemporaryFile.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTemporaryFile.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `autoRemove` instead
+    ///
+    pub const AutoRemove = autoRemove;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtemporaryfile.html#autoRemove)
     ///
@@ -230,9 +278,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn AutoRemove(self: QTemporaryFile) bool {
+    pub fn autoRemove(self: QTemporaryFile) bool {
         return qtc.QTemporaryFile_AutoRemove(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoRemove` instead
+    ///
+    pub const SetAutoRemove = setAutoRemove;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtemporaryfile.html#setAutoRemove)
     ///
@@ -242,9 +294,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetAutoRemove(self: QTemporaryFile, b: bool) void {
+    pub fn setAutoRemove(self: QTemporaryFile, b: bool) void {
         qtc.QTemporaryFile_SetAutoRemove(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `open` instead
+    ///
+    pub const Open = open;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtemporaryfile.html#open)
     ///
@@ -252,9 +308,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn Open(self: QTemporaryFile) bool {
+    pub fn open(self: QTemporaryFile) bool {
         return qtc.QTemporaryFile_Open(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `fileName` instead
+    ///
+    pub const FileName = fileName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtemporaryfile.html#fileName)
     ///
@@ -264,13 +324,17 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FileName(self: QTemporaryFile, allocator: std.mem.Allocator) []const u8 {
+    pub fn fileName(self: QTemporaryFile, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTemporaryFile_FileName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTemporaryFile.FileName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTemporaryFile.fileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onFileName` instead
+    ///
+    pub const OnFileName = onFileName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtemporaryfile.html#fileName)
     ///
@@ -282,13 +346,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnFileName(self: QTemporaryFile, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onFileName(self: QTemporaryFile, callback: *const fn () callconv(.c) [*:0]const u8) void {
         qtc.QTemporaryFile_OnFileName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperFileName` instead
+    /// ### DEPRECATED: Use `superFileName` instead
     ///
-    pub const QBaseFileName = SuperFileName;
+    pub const SuperFileName = superFileName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtemporaryfile.html#fileName)
     ///
@@ -300,13 +364,17 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperFileName(self: QTemporaryFile, allocator: std.mem.Allocator) []const u8 {
+    pub fn superFileName(self: QTemporaryFile, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTemporaryFile_SuperFileName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTemporaryFile.FileName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTemporaryFile.fileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `fileTemplate` instead
+    ///
+    pub const FileTemplate = fileTemplate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtemporaryfile.html#fileTemplate)
     ///
@@ -316,13 +384,17 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FileTemplate(self: QTemporaryFile, allocator: std.mem.Allocator) []const u8 {
+    pub fn fileTemplate(self: QTemporaryFile, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTemporaryFile_FileTemplate(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTemporaryFile.FileTemplate: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTemporaryFile.fileTemplate: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setFileTemplate` instead
+    ///
+    pub const SetFileTemplate = setFileTemplate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtemporaryfile.html#setFileTemplate)
     ///
@@ -332,13 +404,17 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetFileTemplate(self: QTemporaryFile, name: []const u8) void {
+    pub fn setFileTemplate(self: QTemporaryFile, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QTemporaryFile_SetFileTemplate(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `rename` instead
+    ///
+    pub const Rename = rename;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtemporaryfile.html#rename)
     ///
@@ -348,7 +424,7 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` newName: []const u8 `
     ///
-    pub fn Rename(self: QTemporaryFile, newName: []const u8) bool {
+    pub fn rename(self: QTemporaryFile, newName: []const u8) bool {
         const newName_str = qtc.libqt_string{
             .len = newName.len,
             .data = newName.ptr,
@@ -356,19 +432,27 @@ pub const QTemporaryFile = extern struct {
         return qtc.QTemporaryFile_Rename(@ptrCast(self.ptr), newName_str);
     }
 
+    /// ### DEPRECATED: Use `createNativeFile` instead
+    ///
+    pub const CreateNativeFile = createNativeFile;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtemporaryfile.html#createNativeFile)
     ///
     /// ## Parameter(s):
     ///
-    /// ` fileName: []const u8 `
+    /// ` _fileName: []const u8 `
     ///
-    pub fn CreateNativeFile(fileName: []const u8) QTemporaryFile {
+    pub fn createNativeFile(_fileName: []const u8) QTemporaryFile {
         const fileName_str = qtc.libqt_string{
-            .len = fileName.len,
-            .data = fileName.ptr,
+            .len = _fileName.len,
+            .data = _fileName.ptr,
         };
         return .{ .ptr = qtc.QTemporaryFile_CreateNativeFile(fileName_str) };
     }
+
+    /// ### DEPRECATED: Use `createNativeFile2` instead
+    ///
+    pub const CreateNativeFile2 = createNativeFile2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtemporaryfile.html#createNativeFile)
     ///
@@ -376,10 +460,14 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` file: QFile `
     ///
-    pub fn CreateNativeFile2(file: anytype) QTemporaryFile {
+    pub fn createNativeFile2(file: anytype) QTemporaryFile {
         comptime _ = @TypeOf(file)._is_QFile;
         return .{ .ptr = qtc.QTemporaryFile_CreateNativeFile2(@ptrCast(file.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `open2` instead
+    ///
+    pub const Open2 = open2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtemporaryfile.html#open)
     ///
@@ -389,9 +477,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` flags: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn Open2(self: QTemporaryFile, flags: i32) bool {
+    pub fn open2(self: QTemporaryFile, flags: i32) bool {
         return qtc.QTemporaryFile_Open2(@ptrCast(self.ptr), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `onOpen2` instead
+    ///
+    pub const OnOpen2 = onOpen2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtemporaryfile.html#open)
     ///
@@ -403,13 +495,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` callback: *const fn (self: QTemporaryFile, flags: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool `
     ///
-    pub fn OnOpen2(self: QTemporaryFile, callback: *const fn (QTemporaryFile, i32) callconv(.c) bool) void {
+    pub fn onOpen2(self: QTemporaryFile, callback: *const fn (QTemporaryFile, i32) callconv(.c) bool) void {
         qtc.QTemporaryFile_OnOpen2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperOpen2` instead
+    /// ### DEPRECATED: Use `superOpen2` instead
     ///
-    pub const QBaseOpen2 = SuperOpen2;
+    pub const SuperOpen2 = superOpen2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtemporaryfile.html#open)
     ///
@@ -421,9 +513,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` flags: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn SuperOpen2(self: QTemporaryFile, flags: i32) bool {
+    pub fn superOpen2(self: QTemporaryFile, flags: i32) bool {
         return qtc.QTemporaryFile_SuperOpen2(@ptrCast(self.ptr), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -435,15 +531,19 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTemporaryFile.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTemporaryFile.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -457,15 +557,19 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTemporaryFile.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTemporaryFile.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setFileName` instead
+    ///
+    pub const SetFileName = setFileName;
 
     /// Inherited from QFile
     ///
@@ -477,13 +581,17 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetFileName(self: QTemporaryFile, name: []const u8) void {
+    pub fn setFileName(self: QTemporaryFile, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QFile_SetFileName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `encodeName` instead
+    ///
+    pub const EncodeName = encodeName;
 
     /// Inherited from QFile
     ///
@@ -493,19 +601,23 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` fileName: []const u8 `
+    /// ` _fileName: []const u8 `
     ///
-    pub fn EncodeName(allocator: std.mem.Allocator, fileName: []const u8) []u8 {
+    pub fn encodeName(allocator: std.mem.Allocator, _fileName: []const u8) []u8 {
         const fileName_str = qtc.libqt_string{
-            .len = fileName.len,
-            .data = fileName.ptr,
+            .len = _fileName.len,
+            .data = _fileName.ptr,
         };
         var _bytearray: qtc.libqt_string = qtc.QFile_EncodeName(fileName_str);
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QTemporaryFile.EncodeName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QTemporaryFile.encodeName: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `decodeName` instead
+    ///
+    pub const DecodeName = decodeName;
 
     /// Inherited from QFile
     ///
@@ -517,17 +629,21 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` localFileName: []u8 `
     ///
-    pub fn DecodeName(allocator: std.mem.Allocator, localFileName: []u8) []const u8 {
+    pub fn decodeName(allocator: std.mem.Allocator, localFileName: []u8) []const u8 {
         const localFileName_str = qtc.libqt_string{
             .len = localFileName.len,
             .data = localFileName.ptr,
         };
         var _str = qtc.QFile_DecodeName(localFileName_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTemporaryFile.DecodeName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTemporaryFile.decodeName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `decodeName2` instead
+    ///
+    pub const DecodeName2 = decodeName2;
 
     /// Inherited from QFile
     ///
@@ -539,14 +655,18 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` localFileName: [:0]const u8 `
     ///
-    pub fn DecodeName2(allocator: std.mem.Allocator, localFileName: [:0]const u8) []const u8 {
+    pub fn decodeName2(allocator: std.mem.Allocator, localFileName: [:0]const u8) []const u8 {
         const localFileName_Cstring = localFileName.ptr;
         var _str = qtc.QFile_DecodeName2(localFileName_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTemporaryFile.DecodeName2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTemporaryFile.decodeName2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `exists` instead
+    ///
+    pub const Exists = exists;
 
     /// Inherited from QFile
     ///
@@ -556,9 +676,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn Exists(self: QTemporaryFile) bool {
+    pub fn exists(self: QTemporaryFile) bool {
         return qtc.QFile_Exists(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `exists2` instead
+    ///
+    pub const Exists2 = exists2;
 
     /// Inherited from QFile
     ///
@@ -566,16 +690,20 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` fileName: []const u8 `
+    /// ` _fileName: []const u8 `
     ///
-    pub fn Exists2(fileName: []const u8) bool {
+    pub fn exists2(_fileName: []const u8) bool {
         const fileName_str = qtc.libqt_string{
-            .len = fileName.len,
-            .data = fileName.ptr,
+            .len = _fileName.len,
+            .data = _fileName.ptr,
         };
         return qtc.QFile_Exists2(fileName_str);
     }
 
+    /// ### DEPRECATED: Use `symLinkTarget` instead
+    ///
+    pub const SymLinkTarget = symLinkTarget;
+
     /// Inherited from QFile
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#symLinkTarget)
@@ -586,13 +714,17 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SymLinkTarget(self: QTemporaryFile, allocator: std.mem.Allocator) []const u8 {
+    pub fn symLinkTarget(self: QTemporaryFile, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QFile_SymLinkTarget(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTemporaryFile.SymLinkTarget: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTemporaryFile.symLinkTarget: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `symLinkTarget2` instead
+    ///
+    pub const SymLinkTarget2 = symLinkTarget2;
 
     /// Inherited from QFile
     ///
@@ -602,19 +734,23 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` fileName: []const u8 `
+    /// ` _fileName: []const u8 `
     ///
-    pub fn SymLinkTarget2(allocator: std.mem.Allocator, fileName: []const u8) []const u8 {
+    pub fn symLinkTarget2(allocator: std.mem.Allocator, _fileName: []const u8) []const u8 {
         const fileName_str = qtc.libqt_string{
-            .len = fileName.len,
-            .data = fileName.ptr,
+            .len = _fileName.len,
+            .data = _fileName.ptr,
         };
         var _str = qtc.QFile_SymLinkTarget2(fileName_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTemporaryFile.SymLinkTarget2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTemporaryFile.symLinkTarget2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `remove` instead
+    ///
+    pub const Remove = remove;
 
     /// Inherited from QFile
     ///
@@ -624,9 +760,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn Remove(self: QTemporaryFile) bool {
+    pub fn remove(self: QTemporaryFile) bool {
         return qtc.QFile_Remove(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `remove2` instead
+    ///
+    pub const Remove2 = remove2;
 
     /// Inherited from QFile
     ///
@@ -634,16 +774,20 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` fileName: []const u8 `
+    /// ` _fileName: []const u8 `
     ///
-    pub fn Remove2(fileName: []const u8) bool {
+    pub fn remove2(_fileName: []const u8) bool {
         const fileName_str = qtc.libqt_string{
-            .len = fileName.len,
-            .data = fileName.ptr,
+            .len = _fileName.len,
+            .data = _fileName.ptr,
         };
         return qtc.QFile_Remove2(fileName_str);
     }
 
+    /// ### DEPRECATED: Use `moveToTrash` instead
+    ///
+    pub const MoveToTrash = moveToTrash;
+
     /// Inherited from QFile
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#moveToTrash)
@@ -652,9 +796,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn MoveToTrash(self: QTemporaryFile) bool {
+    pub fn moveToTrash(self: QTemporaryFile) bool {
         return qtc.QFile_MoveToTrash(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `moveToTrash2` instead
+    ///
+    pub const MoveToTrash2 = moveToTrash2;
 
     /// Inherited from QFile
     ///
@@ -662,15 +810,19 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` fileName: []const u8 `
+    /// ` _fileName: []const u8 `
     ///
-    pub fn MoveToTrash2(fileName: []const u8) bool {
+    pub fn moveToTrash2(_fileName: []const u8) bool {
         const fileName_str = qtc.libqt_string{
-            .len = fileName.len,
-            .data = fileName.ptr,
+            .len = _fileName.len,
+            .data = _fileName.ptr,
         };
         return qtc.QFile_MoveToTrash2(fileName_str);
     }
+
+    /// ### DEPRECATED: Use `rename2` instead
+    ///
+    pub const Rename2 = rename2;
 
     /// Inherited from QFile
     ///
@@ -682,7 +834,7 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` newName: []const u8 `
     ///
-    pub fn Rename2(oldName: []const u8, newName: []const u8) bool {
+    pub fn rename2(oldName: []const u8, newName: []const u8) bool {
         const oldName_str = qtc.libqt_string{
             .len = oldName.len,
             .data = oldName.ptr,
@@ -694,6 +846,10 @@ pub const QTemporaryFile = extern struct {
         return qtc.QFile_Rename2(oldName_str, newName_str);
     }
 
+    /// ### DEPRECATED: Use `link` instead
+    ///
+    pub const Link = link;
+
     /// Inherited from QFile
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#link)
@@ -704,7 +860,7 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` newName: []const u8 `
     ///
-    pub fn Link(self: QTemporaryFile, newName: []const u8) bool {
+    pub fn link(self: QTemporaryFile, newName: []const u8) bool {
         const newName_str = qtc.libqt_string{
             .len = newName.len,
             .data = newName.ptr,
@@ -712,20 +868,24 @@ pub const QTemporaryFile = extern struct {
         return qtc.QFile_Link(@ptrCast(self.ptr), newName_str);
     }
 
+    /// ### DEPRECATED: Use `link2` instead
+    ///
+    pub const Link2 = link2;
+
     /// Inherited from QFile
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#link)
     ///
     /// ## Parameter(s):
     ///
-    /// ` fileName: []const u8 `
+    /// ` _fileName: []const u8 `
     ///
     /// ` newName: []const u8 `
     ///
-    pub fn Link2(fileName: []const u8, newName: []const u8) bool {
+    pub fn link2(_fileName: []const u8, newName: []const u8) bool {
         const fileName_str = qtc.libqt_string{
-            .len = fileName.len,
-            .data = fileName.ptr,
+            .len = _fileName.len,
+            .data = _fileName.ptr,
         };
         const newName_str = qtc.libqt_string{
             .len = newName.len,
@@ -734,6 +894,10 @@ pub const QTemporaryFile = extern struct {
         return qtc.QFile_Link2(fileName_str, newName_str);
     }
 
+    /// ### DEPRECATED: Use `copy` instead
+    ///
+    pub const Copy = copy;
+
     /// Inherited from QFile
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#copy)
@@ -744,7 +908,7 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` newName: []const u8 `
     ///
-    pub fn Copy(self: QTemporaryFile, newName: []const u8) bool {
+    pub fn copy(self: QTemporaryFile, newName: []const u8) bool {
         const newName_str = qtc.libqt_string{
             .len = newName.len,
             .data = newName.ptr,
@@ -752,20 +916,24 @@ pub const QTemporaryFile = extern struct {
         return qtc.QFile_Copy(@ptrCast(self.ptr), newName_str);
     }
 
+    /// ### DEPRECATED: Use `copy2` instead
+    ///
+    pub const Copy2 = copy2;
+
     /// Inherited from QFile
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#copy)
     ///
     /// ## Parameter(s):
     ///
-    /// ` fileName: []const u8 `
+    /// ` _fileName: []const u8 `
     ///
     /// ` newName: []const u8 `
     ///
-    pub fn Copy2(fileName: []const u8, newName: []const u8) bool {
+    pub fn copy2(_fileName: []const u8, newName: []const u8) bool {
         const fileName_str = qtc.libqt_string{
-            .len = fileName.len,
-            .data = fileName.ptr,
+            .len = _fileName.len,
+            .data = _fileName.ptr,
         };
         const newName_str = qtc.libqt_string{
             .len = newName.len,
@@ -773,6 +941,10 @@ pub const QTemporaryFile = extern struct {
         };
         return qtc.QFile_Copy2(fileName_str, newName_str);
     }
+
+    /// ### DEPRECATED: Use `open4` instead
+    ///
+    pub const Open4 = open4;
 
     /// Inherited from QFile
     ///
@@ -786,9 +958,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` ioFlags: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn Open4(self: QTemporaryFile, fd: i32, ioFlags: i32) bool {
+    pub fn open4(self: QTemporaryFile, fd: i32, ioFlags: i32) bool {
         return qtc.QFile_Open4(@ptrCast(self.ptr), @bitCast(fd), @bitCast(ioFlags));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QFile
     ///
@@ -800,13 +976,17 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` sz: i64 `
     ///
-    pub fn Resize2(filename: []const u8, sz: i64) bool {
+    pub fn resize2(filename: []const u8, sz: i64) bool {
         const filename_str = qtc.libqt_string{
             .len = filename.len,
             .data = filename.ptr,
         };
         return qtc.QFile_Resize2(filename_str, @bitCast(sz));
     }
+
+    /// ### DEPRECATED: Use `permissions2` instead
+    ///
+    pub const Permissions2 = permissions2;
 
     /// Inherited from QFile
     ///
@@ -820,13 +1000,17 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` flag of qfiledevice_enums.Permission `
     ///
-    pub fn Permissions2(filename: []const u8) i32 {
+    pub fn permissions2(filename: []const u8) i32 {
         const filename_str = qtc.libqt_string{
             .len = filename.len,
             .data = filename.ptr,
         };
         return qtc.QFile_Permissions2(filename_str);
     }
+
+    /// ### DEPRECATED: Use `setPermissions2` instead
+    ///
+    pub const SetPermissions2 = setPermissions2;
 
     /// Inherited from QFile
     ///
@@ -838,13 +1022,17 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` permissionSpec: flag of qfiledevice_enums.Permission `
     ///
-    pub fn SetPermissions2(filename: []const u8, permissionSpec: i32) bool {
+    pub fn setPermissions2(filename: []const u8, permissionSpec: i32) bool {
         const filename_str = qtc.libqt_string{
             .len = filename.len,
             .data = filename.ptr,
         };
         return qtc.QFile_SetPermissions2(filename_str, @bitCast(permissionSpec));
     }
+
+    /// ### DEPRECATED: Use `open33` instead
+    ///
+    pub const Open33 = open33;
 
     /// Inherited from QFile
     ///
@@ -860,9 +1048,15 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` handleFlags: flag of qfiledevice_enums.FileHandleFlag `
     ///
-    pub fn Open33(self: QTemporaryFile, fd: i32, ioFlags: i32, handleFlags: i32) bool {
+    pub fn open33(self: QTemporaryFile, fd: i32, ioFlags: i32, handleFlags: i32) bool {
         return qtc.QFile_Open33(@ptrCast(self.ptr), @bitCast(fd), @bitCast(ioFlags), @bitCast(handleFlags));
     }
+
+    /// ### DEPRECATED: Use `error0` instead
+    ///
+    pub const Error = error0;
+
+    pub const @"error" = error0;
 
     /// Inherited from QFileDevice
     ///
@@ -876,9 +1070,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` qfiledevice_enums.FileError `
     ///
-    pub fn Error(self: QTemporaryFile) i32 {
+    pub fn error0(self: QTemporaryFile) i32 {
         return qtc.QFileDevice_Error(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetError` instead
+    ///
+    pub const UnsetError = unsetError;
 
     /// Inherited from QFileDevice
     ///
@@ -888,9 +1086,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn UnsetError(self: QTemporaryFile) void {
+    pub fn unsetError(self: QTemporaryFile) void {
         qtc.QFileDevice_UnsetError(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `handle` instead
+    ///
+    pub const Handle = handle;
 
     /// Inherited from QFileDevice
     ///
@@ -900,9 +1102,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn Handle(self: QTemporaryFile) i32 {
+    pub fn handle(self: QTemporaryFile) i32 {
         return qtc.QFileDevice_Handle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `flush` instead
+    ///
+    pub const Flush = flush;
 
     /// Inherited from QFileDevice
     ///
@@ -912,9 +1118,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn Flush(self: QTemporaryFile) bool {
+    pub fn flush(self: QTemporaryFile) bool {
         return qtc.QFileDevice_Flush(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `map` instead
+    ///
+    pub const Map = map;
 
     /// Inherited from QFileDevice
     ///
@@ -926,11 +1136,15 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` offset: i64 `
     ///
-    /// ` size: i64 `
+    /// ` _size: i64 `
     ///
-    pub fn Map(self: QTemporaryFile, offset: i64, size: i64) ?*u8 {
-        return @ptrCast(qtc.QFileDevice_Map(@ptrCast(self.ptr), @bitCast(offset), @bitCast(size)));
+    pub fn map(self: QTemporaryFile, offset: i64, _size: i64) ?*u8 {
+        return @ptrCast(qtc.QFileDevice_Map(@ptrCast(self.ptr), @bitCast(offset), @bitCast(_size)));
     }
+
+    /// ### DEPRECATED: Use `unmap` instead
+    ///
+    pub const Unmap = unmap;
 
     /// Inherited from QFileDevice
     ///
@@ -942,9 +1156,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` address: *u8 `
     ///
-    pub fn Unmap(self: QTemporaryFile, address: *u8) bool {
+    pub fn unmap(self: QTemporaryFile, address: *u8) bool {
         return qtc.QFileDevice_Unmap(@ptrCast(self.ptr), @ptrCast(address));
     }
+
+    /// ### DEPRECATED: Use `fileTime` instead
+    ///
+    pub const FileTime = fileTime;
 
     /// Inherited from QFileDevice
     ///
@@ -956,9 +1174,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` time: qfiledevice_enums.FileTime `
     ///
-    pub fn FileTime(self: QTemporaryFile, time: i32) QDateTime {
+    pub fn fileTime(self: QTemporaryFile, time: i32) QDateTime {
         return .{ .ptr = qtc.QFileDevice_FileTime(@ptrCast(self.ptr), @bitCast(time)) };
     }
+
+    /// ### DEPRECATED: Use `setFileTime` instead
+    ///
+    pub const SetFileTime = setFileTime;
 
     /// Inherited from QFileDevice
     ///
@@ -970,12 +1192,16 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` newDate: QDateTime `
     ///
-    /// ` fileTime: qfiledevice_enums.FileTime `
+    /// ` _fileTime: qfiledevice_enums.FileTime `
     ///
-    pub fn SetFileTime(self: QTemporaryFile, newDate: anytype, fileTime: i32) bool {
+    pub fn setFileTime(self: QTemporaryFile, newDate: anytype, _fileTime: i32) bool {
         comptime _ = @TypeOf(newDate)._is_QDateTime;
-        return qtc.QFileDevice_SetFileTime(@ptrCast(self.ptr), @ptrCast(newDate.ptr), @bitCast(fileTime));
+        return qtc.QFileDevice_SetFileTime(@ptrCast(self.ptr), @ptrCast(newDate.ptr), @bitCast(_fileTime));
     }
+
+    /// ### DEPRECATED: Use `map3` instead
+    ///
+    pub const Map3 = map3;
 
     /// Inherited from QFileDevice
     ///
@@ -987,13 +1213,17 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` offset: i64 `
     ///
-    /// ` size: i64 `
+    /// ` _size: i64 `
     ///
     /// ` flags: flag of qfiledevice_enums.MemoryMapFlag `
     ///
-    pub fn Map3(self: QTemporaryFile, offset: i64, size: i64, flags: i32) ?*u8 {
-        return @ptrCast(qtc.QFileDevice_Map3(@ptrCast(self.ptr), @bitCast(offset), @bitCast(size), @bitCast(flags)));
+    pub fn map3(self: QTemporaryFile, offset: i64, _size: i64, flags: i32) ?*u8 {
+        return @ptrCast(qtc.QFileDevice_Map3(@ptrCast(self.ptr), @bitCast(offset), @bitCast(_size), @bitCast(flags)));
     }
+
+    /// ### DEPRECATED: Use `openMode` instead
+    ///
+    pub const OpenMode = openMode;
 
     /// Inherited from QIODevice
     ///
@@ -1007,9 +1237,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn OpenMode(self: QTemporaryFile) i32 {
+    pub fn openMode(self: QTemporaryFile) i32 {
         return qtc.QIODevice_OpenMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTextModeEnabled` instead
+    ///
+    pub const SetTextModeEnabled = setTextModeEnabled;
 
     /// Inherited from QIODevice
     ///
@@ -1021,9 +1255,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetTextModeEnabled(self: QTemporaryFile, enabled: bool) void {
+    pub fn setTextModeEnabled(self: QTemporaryFile, enabled: bool) void {
         qtc.QIODevice_SetTextModeEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `isTextModeEnabled` instead
+    ///
+    pub const IsTextModeEnabled = isTextModeEnabled;
 
     /// Inherited from QIODevice
     ///
@@ -1033,9 +1271,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn IsTextModeEnabled(self: QTemporaryFile) bool {
+    pub fn isTextModeEnabled(self: QTemporaryFile) bool {
         return qtc.QIODevice_IsTextModeEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isOpen` instead
+    ///
+    pub const IsOpen = isOpen;
 
     /// Inherited from QIODevice
     ///
@@ -1045,9 +1287,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn IsOpen(self: QTemporaryFile) bool {
+    pub fn isOpen(self: QTemporaryFile) bool {
         return qtc.QIODevice_IsOpen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isReadable` instead
+    ///
+    pub const IsReadable = isReadable;
 
     /// Inherited from QIODevice
     ///
@@ -1057,9 +1303,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn IsReadable(self: QTemporaryFile) bool {
+    pub fn isReadable(self: QTemporaryFile) bool {
         return qtc.QIODevice_IsReadable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWritable` instead
+    ///
+    pub const IsWritable = isWritable;
 
     /// Inherited from QIODevice
     ///
@@ -1069,9 +1319,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn IsWritable(self: QTemporaryFile) bool {
+    pub fn isWritable(self: QTemporaryFile) bool {
         return qtc.QIODevice_IsWritable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `readChannelCount` instead
+    ///
+    pub const ReadChannelCount = readChannelCount;
 
     /// Inherited from QIODevice
     ///
@@ -1081,9 +1335,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn ReadChannelCount(self: QTemporaryFile) i32 {
+    pub fn readChannelCount(self: QTemporaryFile) i32 {
         return qtc.QIODevice_ReadChannelCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `writeChannelCount` instead
+    ///
+    pub const WriteChannelCount = writeChannelCount;
 
     /// Inherited from QIODevice
     ///
@@ -1093,9 +1351,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn WriteChannelCount(self: QTemporaryFile) i32 {
+    pub fn writeChannelCount(self: QTemporaryFile) i32 {
         return qtc.QIODevice_WriteChannelCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `currentReadChannel` instead
+    ///
+    pub const CurrentReadChannel = currentReadChannel;
 
     /// Inherited from QIODevice
     ///
@@ -1105,9 +1367,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn CurrentReadChannel(self: QTemporaryFile) i32 {
+    pub fn currentReadChannel(self: QTemporaryFile) i32 {
         return qtc.QIODevice_CurrentReadChannel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCurrentReadChannel` instead
+    ///
+    pub const SetCurrentReadChannel = setCurrentReadChannel;
 
     /// Inherited from QIODevice
     ///
@@ -1119,9 +1385,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` channel: i32 `
     ///
-    pub fn SetCurrentReadChannel(self: QTemporaryFile, channel: i32) void {
+    pub fn setCurrentReadChannel(self: QTemporaryFile, channel: i32) void {
         qtc.QIODevice_SetCurrentReadChannel(@ptrCast(self.ptr), @bitCast(channel));
     }
+
+    /// ### DEPRECATED: Use `currentWriteChannel` instead
+    ///
+    pub const CurrentWriteChannel = currentWriteChannel;
 
     /// Inherited from QIODevice
     ///
@@ -1131,9 +1401,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn CurrentWriteChannel(self: QTemporaryFile) i32 {
+    pub fn currentWriteChannel(self: QTemporaryFile) i32 {
         return qtc.QIODevice_CurrentWriteChannel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCurrentWriteChannel` instead
+    ///
+    pub const SetCurrentWriteChannel = setCurrentWriteChannel;
 
     /// Inherited from QIODevice
     ///
@@ -1145,9 +1419,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` channel: i32 `
     ///
-    pub fn SetCurrentWriteChannel(self: QTemporaryFile, channel: i32) void {
+    pub fn setCurrentWriteChannel(self: QTemporaryFile, channel: i32) void {
         qtc.QIODevice_SetCurrentWriteChannel(@ptrCast(self.ptr), @bitCast(channel));
     }
+
+    /// ### DEPRECATED: Use `read` instead
+    ///
+    pub const Read = read;
 
     /// Inherited from QIODevice
     ///
@@ -1161,10 +1439,14 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn Read(self: QTemporaryFile, data: [:0]u8, maxlen: i64) i64 {
+    pub fn read(self: QTemporaryFile, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.QIODevice_Read(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
+
+    /// ### DEPRECATED: Use `read2` instead
+    ///
+    pub const Read2 = read2;
 
     /// Inherited from QIODevice
     ///
@@ -1178,13 +1460,17 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn Read2(self: QTemporaryFile, allocator: std.mem.Allocator, maxlen: i64) []u8 {
+    pub fn read2(self: QTemporaryFile, allocator: std.mem.Allocator, maxlen: i64) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QIODevice_Read2(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QTemporaryFile.Read2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QTemporaryFile.read2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `readAll` instead
+    ///
+    pub const ReadAll = readAll;
 
     /// Inherited from QIODevice
     ///
@@ -1196,13 +1482,17 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadAll(self: QTemporaryFile, allocator: std.mem.Allocator) []u8 {
+    pub fn readAll(self: QTemporaryFile, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadAll(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QTemporaryFile.ReadAll: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QTemporaryFile.readAll: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `readLine` instead
+    ///
+    pub const ReadLine = readLine;
 
     /// Inherited from QIODevice
     ///
@@ -1216,10 +1506,14 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn ReadLine(self: QTemporaryFile, data: [:0]u8, maxlen: i64) i64 {
+    pub fn readLine(self: QTemporaryFile, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.QIODevice_ReadLine(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
+
+    /// ### DEPRECATED: Use `readLine2` instead
+    ///
+    pub const ReadLine2 = readLine2;
 
     /// Inherited from QIODevice
     ///
@@ -1231,13 +1525,17 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadLine2(self: QTemporaryFile, allocator: std.mem.Allocator) []u8 {
+    pub fn readLine2(self: QTemporaryFile, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine2(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QTemporaryFile.ReadLine2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QTemporaryFile.readLine2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `startTransaction` instead
+    ///
+    pub const StartTransaction = startTransaction;
 
     /// Inherited from QIODevice
     ///
@@ -1247,9 +1545,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn StartTransaction(self: QTemporaryFile) void {
+    pub fn startTransaction(self: QTemporaryFile) void {
         qtc.QIODevice_StartTransaction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `commitTransaction` instead
+    ///
+    pub const CommitTransaction = commitTransaction;
 
     /// Inherited from QIODevice
     ///
@@ -1259,9 +1561,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn CommitTransaction(self: QTemporaryFile) void {
+    pub fn commitTransaction(self: QTemporaryFile) void {
         qtc.QIODevice_CommitTransaction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rollbackTransaction` instead
+    ///
+    pub const RollbackTransaction = rollbackTransaction;
 
     /// Inherited from QIODevice
     ///
@@ -1271,9 +1577,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn RollbackTransaction(self: QTemporaryFile) void {
+    pub fn rollbackTransaction(self: QTemporaryFile) void {
         qtc.QIODevice_RollbackTransaction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTransactionStarted` instead
+    ///
+    pub const IsTransactionStarted = isTransactionStarted;
 
     /// Inherited from QIODevice
     ///
@@ -1283,9 +1593,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn IsTransactionStarted(self: QTemporaryFile) bool {
+    pub fn isTransactionStarted(self: QTemporaryFile) bool {
         return qtc.QIODevice_IsTransactionStarted(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `write` instead
+    ///
+    pub const Write = write;
 
     /// Inherited from QIODevice
     ///
@@ -1299,10 +1613,14 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` len: i64 `
     ///
-    pub fn Write(self: QTemporaryFile, data: [:0]const u8, len: i64) i64 {
+    pub fn write(self: QTemporaryFile, data: [:0]const u8, len: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.QIODevice_Write(@ptrCast(self.ptr), data_Cstring, @bitCast(len));
     }
+
+    /// ### DEPRECATED: Use `write2` instead
+    ///
+    pub const Write2 = write2;
 
     /// Inherited from QIODevice
     ///
@@ -1314,10 +1632,14 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` data: [:0]const u8 `
     ///
-    pub fn Write2(self: QTemporaryFile, data: [:0]const u8) i64 {
+    pub fn write2(self: QTemporaryFile, data: [:0]const u8) i64 {
         const data_Cstring = data.ptr;
         return qtc.QIODevice_Write2(@ptrCast(self.ptr), data_Cstring);
     }
+
+    /// ### DEPRECATED: Use `write3` instead
+    ///
+    pub const Write3 = write3;
 
     /// Inherited from QIODevice
     ///
@@ -1329,13 +1651,17 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` data: []u8 `
     ///
-    pub fn Write3(self: QTemporaryFile, data: []u8) i64 {
+    pub fn write3(self: QTemporaryFile, data: []u8) i64 {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
         return qtc.QIODevice_Write3(@ptrCast(self.ptr), data_str);
     }
+
+    /// ### DEPRECATED: Use `peek` instead
+    ///
+    pub const Peek = peek;
 
     /// Inherited from QIODevice
     ///
@@ -1349,10 +1675,14 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn Peek(self: QTemporaryFile, data: [:0]u8, maxlen: i64) i64 {
+    pub fn peek(self: QTemporaryFile, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.QIODevice_Peek(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
+
+    /// ### DEPRECATED: Use `peek2` instead
+    ///
+    pub const Peek2 = peek2;
 
     /// Inherited from QIODevice
     ///
@@ -1366,13 +1696,17 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn Peek2(self: QTemporaryFile, allocator: std.mem.Allocator, maxlen: i64) []u8 {
+    pub fn peek2(self: QTemporaryFile, allocator: std.mem.Allocator, maxlen: i64) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QIODevice_Peek2(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QTemporaryFile.Peek2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QTemporaryFile.peek2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `skip` instead
+    ///
+    pub const Skip = skip;
 
     /// Inherited from QIODevice
     ///
@@ -1384,9 +1718,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` maxSize: i64 `
     ///
-    pub fn Skip(self: QTemporaryFile, maxSize: i64) i64 {
+    pub fn skip(self: QTemporaryFile, maxSize: i64) i64 {
         return qtc.QIODevice_Skip(@ptrCast(self.ptr), @bitCast(maxSize));
     }
+
+    /// ### DEPRECATED: Use `ungetChar` instead
+    ///
+    pub const UngetChar = ungetChar;
 
     /// Inherited from QIODevice
     ///
@@ -1398,9 +1736,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` c: u8 `
     ///
-    pub fn UngetChar(self: QTemporaryFile, c: u8) void {
+    pub fn ungetChar(self: QTemporaryFile, c: u8) void {
         qtc.QIODevice_UngetChar(@ptrCast(self.ptr), @bitCast(c));
     }
+
+    /// ### DEPRECATED: Use `putChar` instead
+    ///
+    pub const PutChar = putChar;
 
     /// Inherited from QIODevice
     ///
@@ -1412,9 +1754,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` c: u8 `
     ///
-    pub fn PutChar(self: QTemporaryFile, c: u8) bool {
+    pub fn putChar(self: QTemporaryFile, c: u8) bool {
         return qtc.QIODevice_PutChar(@ptrCast(self.ptr), @bitCast(c));
     }
+
+    /// ### DEPRECATED: Use `getChar` instead
+    ///
+    pub const GetChar = getChar;
 
     /// Inherited from QIODevice
     ///
@@ -1426,10 +1772,14 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` c: [:0]u8 `
     ///
-    pub fn GetChar(self: QTemporaryFile, c: [:0]u8) bool {
+    pub fn getChar(self: QTemporaryFile, c: [:0]u8) bool {
         const c_Cstring = c.ptr;
         return qtc.QIODevice_GetChar(@ptrCast(self.ptr), c_Cstring);
     }
+
+    /// ### DEPRECATED: Use `errorString` instead
+    ///
+    pub const ErrorString = errorString;
 
     /// Inherited from QIODevice
     ///
@@ -1441,13 +1791,17 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ErrorString(self: QTemporaryFile, allocator: std.mem.Allocator) []const u8 {
+    pub fn errorString(self: QTemporaryFile, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QIODevice_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTemporaryFile.ErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTemporaryFile.errorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `readyRead` instead
+    ///
+    pub const ReadyRead = readyRead;
 
     /// Inherited from QIODevice
     ///
@@ -1457,9 +1811,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn ReadyRead(self: QTemporaryFile) void {
+    pub fn readyRead(self: QTemporaryFile) void {
         qtc.QIODevice_ReadyRead(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onReadyRead` instead
+    ///
+    pub const OnReadyRead = onReadyRead;
 
     /// Inherited from QIODevice
     ///
@@ -1471,9 +1829,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` callback: *const fn (self: QTemporaryFile) callconv(.c) void `
     ///
-    pub fn OnReadyRead(self: QTemporaryFile, callback: *const fn (QTemporaryFile) callconv(.c) void) void {
+    pub fn onReadyRead(self: QTemporaryFile, callback: *const fn (QTemporaryFile) callconv(.c) void) void {
         qtc.QIODevice_Connect_ReadyRead(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `channelReadyRead` instead
+    ///
+    pub const ChannelReadyRead = channelReadyRead;
 
     /// Inherited from QIODevice
     ///
@@ -1485,9 +1847,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` channel: i32 `
     ///
-    pub fn ChannelReadyRead(self: QTemporaryFile, channel: i32) void {
+    pub fn channelReadyRead(self: QTemporaryFile, channel: i32) void {
         qtc.QIODevice_ChannelReadyRead(@ptrCast(self.ptr), @bitCast(channel));
     }
+
+    /// ### DEPRECATED: Use `onChannelReadyRead` instead
+    ///
+    pub const OnChannelReadyRead = onChannelReadyRead;
 
     /// Inherited from QIODevice
     ///
@@ -1499,9 +1865,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` callback: *const fn (self: QTemporaryFile, channel: i32) callconv(.c) void `
     ///
-    pub fn OnChannelReadyRead(self: QTemporaryFile, callback: *const fn (QTemporaryFile, i32) callconv(.c) void) void {
+    pub fn onChannelReadyRead(self: QTemporaryFile, callback: *const fn (QTemporaryFile, i32) callconv(.c) void) void {
         qtc.QIODevice_Connect_ChannelReadyRead(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `bytesWritten` instead
+    ///
+    pub const BytesWritten = bytesWritten;
 
     /// Inherited from QIODevice
     ///
@@ -1513,9 +1883,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` bytes: i64 `
     ///
-    pub fn BytesWritten(self: QTemporaryFile, bytes: i64) void {
+    pub fn bytesWritten(self: QTemporaryFile, bytes: i64) void {
         qtc.QIODevice_BytesWritten(@ptrCast(self.ptr), @bitCast(bytes));
     }
+
+    /// ### DEPRECATED: Use `onBytesWritten` instead
+    ///
+    pub const OnBytesWritten = onBytesWritten;
 
     /// Inherited from QIODevice
     ///
@@ -1527,9 +1901,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` callback: *const fn (self: QTemporaryFile, bytes: i64) callconv(.c) void `
     ///
-    pub fn OnBytesWritten(self: QTemporaryFile, callback: *const fn (QTemporaryFile, i64) callconv(.c) void) void {
+    pub fn onBytesWritten(self: QTemporaryFile, callback: *const fn (QTemporaryFile, i64) callconv(.c) void) void {
         qtc.QIODevice_Connect_BytesWritten(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `channelBytesWritten` instead
+    ///
+    pub const ChannelBytesWritten = channelBytesWritten;
 
     /// Inherited from QIODevice
     ///
@@ -1543,9 +1921,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` bytes: i64 `
     ///
-    pub fn ChannelBytesWritten(self: QTemporaryFile, channel: i32, bytes: i64) void {
+    pub fn channelBytesWritten(self: QTemporaryFile, channel: i32, bytes: i64) void {
         qtc.QIODevice_ChannelBytesWritten(@ptrCast(self.ptr), @bitCast(channel), @bitCast(bytes));
     }
+
+    /// ### DEPRECATED: Use `onChannelBytesWritten` instead
+    ///
+    pub const OnChannelBytesWritten = onChannelBytesWritten;
 
     /// Inherited from QIODevice
     ///
@@ -1557,10 +1939,14 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` callback: *const fn (self: QTemporaryFile, channel: i32, bytes: i64) callconv(.c) void `
     ///
-    pub fn OnChannelBytesWritten(self: QTemporaryFile, callback: *const fn (QTemporaryFile, i32, i64) callconv(.c) void) void {
+    pub fn onChannelBytesWritten(self: QTemporaryFile, callback: *const fn (QTemporaryFile, i32, i64) callconv(.c) void) void {
         qtc.QIODevice_Connect_ChannelBytesWritten(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `aboutToClose` instead
+    ///
+    pub const AboutToClose = aboutToClose;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#aboutToClose)
@@ -1569,10 +1955,14 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn AboutToClose(self: QTemporaryFile) void {
+    pub fn aboutToClose(self: QTemporaryFile) void {
         qtc.QIODevice_AboutToClose(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onAboutToClose` instead
+    ///
+    pub const OnAboutToClose = onAboutToClose;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#aboutToClose)
@@ -1583,9 +1973,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` callback: *const fn (self: QTemporaryFile) callconv(.c) void `
     ///
-    pub fn OnAboutToClose(self: QTemporaryFile, callback: *const fn (QTemporaryFile) callconv(.c) void) void {
+    pub fn onAboutToClose(self: QTemporaryFile, callback: *const fn (QTemporaryFile) callconv(.c) void) void {
         qtc.QIODevice_Connect_AboutToClose(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `readChannelFinished` instead
+    ///
+    pub const ReadChannelFinished = readChannelFinished;
 
     /// Inherited from QIODevice
     ///
@@ -1595,9 +1989,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn ReadChannelFinished(self: QTemporaryFile) void {
+    pub fn readChannelFinished(self: QTemporaryFile) void {
         qtc.QIODevice_ReadChannelFinished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onReadChannelFinished` instead
+    ///
+    pub const OnReadChannelFinished = onReadChannelFinished;
 
     /// Inherited from QIODevice
     ///
@@ -1609,9 +2007,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` callback: *const fn (self: QTemporaryFile) callconv(.c) void `
     ///
-    pub fn OnReadChannelFinished(self: QTemporaryFile, callback: *const fn (QTemporaryFile) callconv(.c) void) void {
+    pub fn onReadChannelFinished(self: QTemporaryFile, callback: *const fn (QTemporaryFile) callconv(.c) void) void {
         qtc.QIODevice_Connect_ReadChannelFinished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `readLine1` instead
+    ///
+    pub const ReadLine1 = readLine1;
 
     /// Inherited from QIODevice
     ///
@@ -1625,13 +2027,17 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn ReadLine1(self: QTemporaryFile, allocator: std.mem.Allocator, maxlen: i64) []u8 {
+    pub fn readLine1(self: QTemporaryFile, allocator: std.mem.Allocator, maxlen: i64) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine1(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QTemporaryFile.ReadLine1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QTemporaryFile.readLine1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -1643,13 +2049,17 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QTemporaryFile, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QTemporaryFile, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTemporaryFile.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTemporaryFile.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -1661,13 +2071,17 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QTemporaryFile, name: []const u8) void {
+    pub fn setObjectName(self: QTemporaryFile, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -1677,9 +2091,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn IsWidgetType(self: QTemporaryFile) bool {
+    pub fn isWidgetType(self: QTemporaryFile) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -1689,9 +2107,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn IsWindowType(self: QTemporaryFile) bool {
+    pub fn isWindowType(self: QTemporaryFile) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -1701,9 +2123,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn IsQuickItemType(self: QTemporaryFile) bool {
+    pub fn isQuickItemType(self: QTemporaryFile) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -1713,9 +2139,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn SignalsBlocked(self: QTemporaryFile) bool {
+    pub fn signalsBlocked(self: QTemporaryFile) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -1727,9 +2157,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QTemporaryFile, b: bool) bool {
+    pub fn blockSignals(self: QTemporaryFile, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -1739,9 +2173,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn Thread(self: QTemporaryFile) QThread {
+    pub fn thread(self: QTemporaryFile) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -1751,12 +2189,16 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QTemporaryFile, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QTemporaryFile, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -1768,9 +2210,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QTemporaryFile, interval: i32) i32 {
+    pub fn startTimer(self: QTemporaryFile, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -1782,9 +2228,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QTemporaryFile, time: i64) i32 {
+    pub fn startTimer2(self: QTemporaryFile, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -1796,9 +2246,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QTemporaryFile, id: i32) void {
+    pub fn killTimer(self: QTemporaryFile, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -1810,9 +2264,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QTemporaryFile, id: i32) void {
+    pub fn killTimer2(self: QTemporaryFile, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -1824,15 +2282,19 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QTemporaryFile, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QTemporaryFile, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QTemporaryFile.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QTemporaryFile.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -1842,12 +2304,16 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QTemporaryFile, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QTemporaryFile, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1859,10 +2325,14 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QTemporaryFile, filterObj: anytype) void {
+    pub fn installEventFilter(self: QTemporaryFile, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1874,10 +2344,14 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QTemporaryFile, obj: anytype) void {
+    pub fn removeEventFilter(self: QTemporaryFile, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -1885,7 +2359,7 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1893,13 +2367,17 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -1907,7 +2385,7 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1915,13 +2393,17 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -1931,18 +2413,22 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QTemporaryFile, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QTemporaryFile, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -1950,7 +2436,7 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1958,13 +2444,17 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -1972,7 +2462,7 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1980,13 +2470,17 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -1996,9 +2490,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn Disconnect3(self: QTemporaryFile) bool {
+    pub fn disconnect3(self: QTemporaryFile) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -2010,10 +2508,14 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QTemporaryFile, receiver: anytype) bool {
+    pub fn disconnect4(self: QTemporaryFile, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -2023,10 +2525,14 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -2036,9 +2542,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn DumpObjectTree(self: QTemporaryFile) void {
+    pub fn dumpObjectTree(self: QTemporaryFile) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -2048,9 +2558,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn DumpObjectInfo(self: QTemporaryFile) void {
+    pub fn dumpObjectInfo(self: QTemporaryFile) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -2064,11 +2578,15 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QTemporaryFile, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QTemporaryFile, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -2080,10 +2598,14 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QTemporaryFile, name: [:0]const u8) QVariant {
+    pub fn property(self: QTemporaryFile, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -2095,7 +2617,7 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QTemporaryFile, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QTemporaryFile, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -2103,27 +2625,19 @@ pub const QTemporaryFile = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QTemporaryFile.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QTemporaryFile.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QTemporaryFile.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QTemporaryFile.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTemporaryFile `
-    ///
-    pub fn BindingStorage(self: QTemporaryFile) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -2133,9 +2647,29 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn BindingStorage2(self: QTemporaryFile) QBindingStorage {
+    pub fn bindingStorage(self: QTemporaryFile) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QTemporaryFile `
+    ///
+    pub fn bindingStorage2(self: QTemporaryFile) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -2145,9 +2679,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn Destroyed(self: QTemporaryFile) void {
+    pub fn destroyed(self: QTemporaryFile) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -2159,9 +2697,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` callback: *const fn (self: QTemporaryFile) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QTemporaryFile, callback: *const fn (QTemporaryFile) callconv(.c) void) void {
+    pub fn onDestroyed(self: QTemporaryFile, callback: *const fn (QTemporaryFile) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -2171,9 +2713,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn Parent(self: QTemporaryFile) QObject {
+    pub fn parent(self: QTemporaryFile) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -2185,10 +2731,14 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QTemporaryFile, classname: [:0]const u8) bool {
+    pub fn inherits(self: QTemporaryFile, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -2198,9 +2748,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn DeleteLater(self: QTemporaryFile) void {
+    pub fn deleteLater(self: QTemporaryFile) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -2214,9 +2768,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QTemporaryFile, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QTemporaryFile, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -2230,9 +2788,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QTemporaryFile, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QTemporaryFile, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -2240,7 +2802,7 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2250,13 +2812,17 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -2264,7 +2830,7 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2274,13 +2840,17 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -2290,7 +2860,7 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2298,12 +2868,16 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QTemporaryFile, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QTemporaryFile, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -2315,10 +2889,14 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QTemporaryFile, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QTemporaryFile, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -2332,11 +2910,15 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QTemporaryFile, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QTemporaryFile, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -2352,13 +2934,17 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QTemporaryFile, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QTemporaryFile, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -2371,11 +2957,15 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QTemporaryFile, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QTemporaryFile, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -2387,10 +2977,14 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QTemporaryFile, param1: anytype) void {
+    pub fn destroyed1(self: QTemporaryFile, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -2402,9 +2996,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` callback: *const fn (self: QTemporaryFile, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QTemporaryFile, callback: *const fn (QTemporaryFile, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QTemporaryFile, callback: *const fn (QTemporaryFile, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QFile
     ///
@@ -2416,13 +3014,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn Size(self: QTemporaryFile) i64 {
+    pub fn size(self: QTemporaryFile) i64 {
         return qtc.QTemporaryFile_Size(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSize` instead
+    /// ### DEPRECATED: Use `superSize` instead
     ///
-    pub const QBaseSize = SuperSize;
+    pub const SuperSize = superSize;
 
     /// Inherited from QFile
     ///
@@ -2434,9 +3032,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn SuperSize(self: QTemporaryFile) i64 {
+    pub fn superSize(self: QTemporaryFile) i64 {
         return qtc.QTemporaryFile_SuperSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSize` instead
+    ///
+    pub const OnSize = onSize;
 
     /// Inherited from QFile
     ///
@@ -2450,9 +3052,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i64 `
     ///
-    pub fn OnSize(self: QTemporaryFile, callback: *const fn () callconv(.c) i64) void {
+    pub fn onSize(self: QTemporaryFile, callback: *const fn () callconv(.c) i64) void {
         qtc.QTemporaryFile_OnSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QFile
     ///
@@ -2466,13 +3072,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` sz: i64 `
     ///
-    pub fn Resize(self: QTemporaryFile, sz: i64) bool {
+    pub fn resize(self: QTemporaryFile, sz: i64) bool {
         return qtc.QTemporaryFile_Resize(@ptrCast(self.ptr), @bitCast(sz));
     }
 
-    /// ### DEPRECATED: Use `SuperResize` instead
+    /// ### DEPRECATED: Use `superResize` instead
     ///
-    pub const QBaseResize = SuperResize;
+    pub const SuperResize = superResize;
 
     /// Inherited from QFile
     ///
@@ -2486,9 +3092,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` sz: i64 `
     ///
-    pub fn SuperResize(self: QTemporaryFile, sz: i64) bool {
+    pub fn superResize(self: QTemporaryFile, sz: i64) bool {
         return qtc.QTemporaryFile_SuperResize(@ptrCast(self.ptr), @bitCast(sz));
     }
+
+    /// ### DEPRECATED: Use `onResize` instead
+    ///
+    pub const OnResize = onResize;
 
     /// Inherited from QFile
     ///
@@ -2502,9 +3112,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` callback: *const fn (self: QTemporaryFile, sz: i64) callconv(.c) bool `
     ///
-    pub fn OnResize(self: QTemporaryFile, callback: *const fn (QTemporaryFile, i64) callconv(.c) bool) void {
+    pub fn onResize(self: QTemporaryFile, callback: *const fn (QTemporaryFile, i64) callconv(.c) bool) void {
         qtc.QTemporaryFile_OnResize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `permissions` instead
+    ///
+    pub const Permissions = permissions;
 
     /// Inherited from QFile
     ///
@@ -2520,13 +3134,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` flag of qfiledevice_enums.Permission `
     ///
-    pub fn Permissions(self: QTemporaryFile) i32 {
+    pub fn permissions(self: QTemporaryFile) i32 {
         return qtc.QTemporaryFile_Permissions(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPermissions` instead
+    /// ### DEPRECATED: Use `superPermissions` instead
     ///
-    pub const QBasePermissions = SuperPermissions;
+    pub const SuperPermissions = superPermissions;
 
     /// Inherited from QFile
     ///
@@ -2542,9 +3156,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` flag of qfiledevice_enums.Permission `
     ///
-    pub fn SuperPermissions(self: QTemporaryFile) i32 {
+    pub fn superPermissions(self: QTemporaryFile) i32 {
         return qtc.QTemporaryFile_SuperPermissions(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPermissions` instead
+    ///
+    pub const OnPermissions = onPermissions;
 
     /// Inherited from QFile
     ///
@@ -2558,9 +3176,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnPermissions(self: QTemporaryFile, callback: *const fn () callconv(.c) i32) void {
+    pub fn onPermissions(self: QTemporaryFile, callback: *const fn () callconv(.c) i32) void {
         qtc.QTemporaryFile_OnPermissions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setPermissions` instead
+    ///
+    pub const SetPermissions = setPermissions;
 
     /// Inherited from QFile
     ///
@@ -2574,13 +3196,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` permissionSpec: flag of qfiledevice_enums.Permission `
     ///
-    pub fn SetPermissions(self: QTemporaryFile, permissionSpec: i32) bool {
+    pub fn setPermissions(self: QTemporaryFile, permissionSpec: i32) bool {
         return qtc.QTemporaryFile_SetPermissions(@ptrCast(self.ptr), @bitCast(permissionSpec));
     }
 
-    /// ### DEPRECATED: Use `SuperSetPermissions` instead
+    /// ### DEPRECATED: Use `superSetPermissions` instead
     ///
-    pub const QBaseSetPermissions = SuperSetPermissions;
+    pub const SuperSetPermissions = superSetPermissions;
 
     /// Inherited from QFile
     ///
@@ -2594,9 +3216,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` permissionSpec: flag of qfiledevice_enums.Permission `
     ///
-    pub fn SuperSetPermissions(self: QTemporaryFile, permissionSpec: i32) bool {
+    pub fn superSetPermissions(self: QTemporaryFile, permissionSpec: i32) bool {
         return qtc.QTemporaryFile_SuperSetPermissions(@ptrCast(self.ptr), @bitCast(permissionSpec));
     }
+
+    /// ### DEPRECATED: Use `onSetPermissions` instead
+    ///
+    pub const OnSetPermissions = onSetPermissions;
 
     /// Inherited from QFile
     ///
@@ -2610,9 +3236,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` callback: *const fn (self: QTemporaryFile, permissionSpec: flag of qfiledevice_enums.Permission) callconv(.c) bool `
     ///
-    pub fn OnSetPermissions(self: QTemporaryFile, callback: *const fn (QTemporaryFile, i32) callconv(.c) bool) void {
+    pub fn onSetPermissions(self: QTemporaryFile, callback: *const fn (QTemporaryFile, i32) callconv(.c) bool) void {
         qtc.QTemporaryFile_OnSetPermissions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QFileDevice
     ///
@@ -2624,13 +3254,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn Close(self: QTemporaryFile) void {
+    pub fn close(self: QTemporaryFile) void {
         qtc.QTemporaryFile_Close(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperClose` instead
+    /// ### DEPRECATED: Use `superClose` instead
     ///
-    pub const QBaseClose = SuperClose;
+    pub const SuperClose = superClose;
 
     /// Inherited from QFileDevice
     ///
@@ -2642,9 +3272,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn SuperClose(self: QTemporaryFile) void {
+    pub fn superClose(self: QTemporaryFile) void {
         qtc.QTemporaryFile_SuperClose(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onClose` instead
+    ///
+    pub const OnClose = onClose;
 
     /// Inherited from QFileDevice
     ///
@@ -2658,9 +3292,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnClose(self: QTemporaryFile, callback: *const fn () callconv(.c) void) void {
+    pub fn onClose(self: QTemporaryFile, callback: *const fn () callconv(.c) void) void {
         qtc.QTemporaryFile_OnClose(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSequential` instead
+    ///
+    pub const IsSequential = isSequential;
 
     /// Inherited from QFileDevice
     ///
@@ -2672,13 +3310,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn IsSequential(self: QTemporaryFile) bool {
+    pub fn isSequential(self: QTemporaryFile) bool {
         return qtc.QTemporaryFile_IsSequential(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSequential` instead
+    /// ### DEPRECATED: Use `superIsSequential` instead
     ///
-    pub const QBaseIsSequential = SuperIsSequential;
+    pub const SuperIsSequential = superIsSequential;
 
     /// Inherited from QFileDevice
     ///
@@ -2690,9 +3328,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn SuperIsSequential(self: QTemporaryFile) bool {
+    pub fn superIsSequential(self: QTemporaryFile) bool {
         return qtc.QTemporaryFile_SuperIsSequential(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSequential` instead
+    ///
+    pub const OnIsSequential = onIsSequential;
 
     /// Inherited from QFileDevice
     ///
@@ -2706,9 +3348,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnIsSequential(self: QTemporaryFile, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsSequential(self: QTemporaryFile, callback: *const fn () callconv(.c) bool) void {
         qtc.QTemporaryFile_OnIsSequential(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QFileDevice
     ///
@@ -2720,13 +3366,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn Pos(self: QTemporaryFile) i64 {
+    pub fn pos(self: QTemporaryFile) i64 {
         return qtc.QTemporaryFile_Pos(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPos` instead
+    /// ### DEPRECATED: Use `superPos` instead
     ///
-    pub const QBasePos = SuperPos;
+    pub const SuperPos = superPos;
 
     /// Inherited from QFileDevice
     ///
@@ -2738,9 +3384,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn SuperPos(self: QTemporaryFile) i64 {
+    pub fn superPos(self: QTemporaryFile) i64 {
         return qtc.QTemporaryFile_SuperPos(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPos` instead
+    ///
+    pub const OnPos = onPos;
 
     /// Inherited from QFileDevice
     ///
@@ -2754,9 +3404,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i64 `
     ///
-    pub fn OnPos(self: QTemporaryFile, callback: *const fn () callconv(.c) i64) void {
+    pub fn onPos(self: QTemporaryFile, callback: *const fn () callconv(.c) i64) void {
         qtc.QTemporaryFile_OnPos(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `seek` instead
+    ///
+    pub const Seek = seek;
 
     /// Inherited from QFileDevice
     ///
@@ -2770,13 +3424,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` offset: i64 `
     ///
-    pub fn Seek(self: QTemporaryFile, offset: i64) bool {
+    pub fn seek(self: QTemporaryFile, offset: i64) bool {
         return qtc.QTemporaryFile_Seek(@ptrCast(self.ptr), @bitCast(offset));
     }
 
-    /// ### DEPRECATED: Use `SuperSeek` instead
+    /// ### DEPRECATED: Use `superSeek` instead
     ///
-    pub const QBaseSeek = SuperSeek;
+    pub const SuperSeek = superSeek;
 
     /// Inherited from QFileDevice
     ///
@@ -2790,9 +3444,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` offset: i64 `
     ///
-    pub fn SuperSeek(self: QTemporaryFile, offset: i64) bool {
+    pub fn superSeek(self: QTemporaryFile, offset: i64) bool {
         return qtc.QTemporaryFile_SuperSeek(@ptrCast(self.ptr), @bitCast(offset));
     }
+
+    /// ### DEPRECATED: Use `onSeek` instead
+    ///
+    pub const OnSeek = onSeek;
 
     /// Inherited from QFileDevice
     ///
@@ -2806,9 +3464,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` callback: *const fn (self: QTemporaryFile, offset: i64) callconv(.c) bool `
     ///
-    pub fn OnSeek(self: QTemporaryFile, callback: *const fn (QTemporaryFile, i64) callconv(.c) bool) void {
+    pub fn onSeek(self: QTemporaryFile, callback: *const fn (QTemporaryFile, i64) callconv(.c) bool) void {
         qtc.QTemporaryFile_OnSeek(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `atEnd` instead
+    ///
+    pub const AtEnd = atEnd;
 
     /// Inherited from QFileDevice
     ///
@@ -2820,13 +3482,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn AtEnd(self: QTemporaryFile) bool {
+    pub fn atEnd(self: QTemporaryFile) bool {
         return qtc.QTemporaryFile_AtEnd(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperAtEnd` instead
+    /// ### DEPRECATED: Use `superAtEnd` instead
     ///
-    pub const QBaseAtEnd = SuperAtEnd;
+    pub const SuperAtEnd = superAtEnd;
 
     /// Inherited from QFileDevice
     ///
@@ -2838,9 +3500,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn SuperAtEnd(self: QTemporaryFile) bool {
+    pub fn superAtEnd(self: QTemporaryFile) bool {
         return qtc.QTemporaryFile_SuperAtEnd(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onAtEnd` instead
+    ///
+    pub const OnAtEnd = onAtEnd;
 
     /// Inherited from QFileDevice
     ///
@@ -2854,9 +3520,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnAtEnd(self: QTemporaryFile, callback: *const fn () callconv(.c) bool) void {
+    pub fn onAtEnd(self: QTemporaryFile, callback: *const fn () callconv(.c) bool) void {
         qtc.QTemporaryFile_OnAtEnd(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `readData` instead
+    ///
+    pub const ReadData = readData;
 
     /// Inherited from QFileDevice
     ///
@@ -2872,14 +3542,14 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn ReadData(self: QTemporaryFile, data: [:0]u8, maxlen: i64) i64 {
+    pub fn readData(self: QTemporaryFile, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.QTemporaryFile_ReadData(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
 
-    /// ### DEPRECATED: Use `SuperReadData` instead
+    /// ### DEPRECATED: Use `superReadData` instead
     ///
-    pub const QBaseReadData = SuperReadData;
+    pub const SuperReadData = superReadData;
 
     /// Inherited from QFileDevice
     ///
@@ -2895,10 +3565,14 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn SuperReadData(self: QTemporaryFile, data: [:0]u8, maxlen: i64) i64 {
+    pub fn superReadData(self: QTemporaryFile, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.QTemporaryFile_SuperReadData(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
+
+    /// ### DEPRECATED: Use `onReadData` instead
+    ///
+    pub const OnReadData = onReadData;
 
     /// Inherited from QFileDevice
     ///
@@ -2912,9 +3586,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` callback: *const fn (self: QTemporaryFile, data: qtc.libqt_string, maxlen: i64) callconv(.c) i64 `
     ///
-    pub fn OnReadData(self: QTemporaryFile, callback: *const fn (QTemporaryFile, qtc.libqt_string, i64) callconv(.c) i64) void {
+    pub fn onReadData(self: QTemporaryFile, callback: *const fn (QTemporaryFile, qtc.libqt_string, i64) callconv(.c) i64) void {
         qtc.QTemporaryFile_OnReadData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `writeData` instead
+    ///
+    pub const WriteData = writeData;
 
     /// Inherited from QFileDevice
     ///
@@ -2930,14 +3608,14 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` len: i64 `
     ///
-    pub fn WriteData(self: QTemporaryFile, data: [:0]const u8, len: i64) i64 {
+    pub fn writeData(self: QTemporaryFile, data: [:0]const u8, len: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.QTemporaryFile_WriteData(@ptrCast(self.ptr), data_Cstring, @bitCast(len));
     }
 
-    /// ### DEPRECATED: Use `SuperWriteData` instead
+    /// ### DEPRECATED: Use `superWriteData` instead
     ///
-    pub const QBaseWriteData = SuperWriteData;
+    pub const SuperWriteData = superWriteData;
 
     /// Inherited from QFileDevice
     ///
@@ -2953,10 +3631,14 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` len: i64 `
     ///
-    pub fn SuperWriteData(self: QTemporaryFile, data: [:0]const u8, len: i64) i64 {
+    pub fn superWriteData(self: QTemporaryFile, data: [:0]const u8, len: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.QTemporaryFile_SuperWriteData(@ptrCast(self.ptr), data_Cstring, @bitCast(len));
     }
+
+    /// ### DEPRECATED: Use `onWriteData` instead
+    ///
+    pub const OnWriteData = onWriteData;
 
     /// Inherited from QFileDevice
     ///
@@ -2970,9 +3652,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` callback: *const fn (self: QTemporaryFile, data: [*:0]const u8, len: i64) callconv(.c) i64 `
     ///
-    pub fn OnWriteData(self: QTemporaryFile, callback: *const fn (QTemporaryFile, [*:0]const u8, i64) callconv(.c) i64) void {
+    pub fn onWriteData(self: QTemporaryFile, callback: *const fn (QTemporaryFile, [*:0]const u8, i64) callconv(.c) i64) void {
         qtc.QTemporaryFile_OnWriteData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `readLineData` instead
+    ///
+    pub const ReadLineData = readLineData;
 
     /// Inherited from QFileDevice
     ///
@@ -2988,14 +3674,14 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn ReadLineData(self: QTemporaryFile, data: [:0]u8, maxlen: i64) i64 {
+    pub fn readLineData(self: QTemporaryFile, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.QTemporaryFile_ReadLineData(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
 
-    /// ### DEPRECATED: Use `SuperReadLineData` instead
+    /// ### DEPRECATED: Use `superReadLineData` instead
     ///
-    pub const QBaseReadLineData = SuperReadLineData;
+    pub const SuperReadLineData = superReadLineData;
 
     /// Inherited from QFileDevice
     ///
@@ -3011,10 +3697,14 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn SuperReadLineData(self: QTemporaryFile, data: [:0]u8, maxlen: i64) i64 {
+    pub fn superReadLineData(self: QTemporaryFile, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.QTemporaryFile_SuperReadLineData(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
+
+    /// ### DEPRECATED: Use `onReadLineData` instead
+    ///
+    pub const OnReadLineData = onReadLineData;
 
     /// Inherited from QFileDevice
     ///
@@ -3028,10 +3718,14 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` callback: *const fn (self: QTemporaryFile, data: qtc.libqt_string, maxlen: i64) callconv(.c) i64 `
     ///
-    pub fn OnReadLineData(self: QTemporaryFile, callback: *const fn (QTemporaryFile, qtc.libqt_string, i64) callconv(.c) i64) void {
+    pub fn onReadLineData(self: QTemporaryFile, callback: *const fn (QTemporaryFile, qtc.libqt_string, i64) callconv(.c) i64) void {
         qtc.QTemporaryFile_OnReadLineData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `reset` instead
+    ///
+    pub const Reset = reset;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#reset)
@@ -3042,13 +3736,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn Reset(self: QTemporaryFile) bool {
+    pub fn reset(self: QTemporaryFile) bool {
         return qtc.QTemporaryFile_Reset(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperReset` instead
+    /// ### DEPRECATED: Use `superReset` instead
     ///
-    pub const QBaseReset = SuperReset;
+    pub const SuperReset = superReset;
 
     /// Inherited from QIODevice
     ///
@@ -3060,10 +3754,14 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn SuperReset(self: QTemporaryFile) bool {
+    pub fn superReset(self: QTemporaryFile) bool {
         return qtc.QTemporaryFile_SuperReset(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onReset` instead
+    ///
+    pub const OnReset = onReset;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#reset)
@@ -3076,10 +3774,14 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnReset(self: QTemporaryFile, callback: *const fn () callconv(.c) bool) void {
+    pub fn onReset(self: QTemporaryFile, callback: *const fn () callconv(.c) bool) void {
         qtc.QTemporaryFile_OnReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `bytesAvailable` instead
+    ///
+    pub const BytesAvailable = bytesAvailable;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesAvailable)
@@ -3090,13 +3792,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn BytesAvailable(self: QTemporaryFile) i64 {
+    pub fn bytesAvailable(self: QTemporaryFile) i64 {
         return qtc.QTemporaryFile_BytesAvailable(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperBytesAvailable` instead
+    /// ### DEPRECATED: Use `superBytesAvailable` instead
     ///
-    pub const QBaseBytesAvailable = SuperBytesAvailable;
+    pub const SuperBytesAvailable = superBytesAvailable;
 
     /// Inherited from QIODevice
     ///
@@ -3108,10 +3810,14 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn SuperBytesAvailable(self: QTemporaryFile) i64 {
+    pub fn superBytesAvailable(self: QTemporaryFile) i64 {
         return qtc.QTemporaryFile_SuperBytesAvailable(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onBytesAvailable` instead
+    ///
+    pub const OnBytesAvailable = onBytesAvailable;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesAvailable)
@@ -3124,9 +3830,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i64 `
     ///
-    pub fn OnBytesAvailable(self: QTemporaryFile, callback: *const fn () callconv(.c) i64) void {
+    pub fn onBytesAvailable(self: QTemporaryFile, callback: *const fn () callconv(.c) i64) void {
         qtc.QTemporaryFile_OnBytesAvailable(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `bytesToWrite` instead
+    ///
+    pub const BytesToWrite = bytesToWrite;
 
     /// Inherited from QIODevice
     ///
@@ -3138,13 +3848,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn BytesToWrite(self: QTemporaryFile) i64 {
+    pub fn bytesToWrite(self: QTemporaryFile) i64 {
         return qtc.QTemporaryFile_BytesToWrite(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperBytesToWrite` instead
+    /// ### DEPRECATED: Use `superBytesToWrite` instead
     ///
-    pub const QBaseBytesToWrite = SuperBytesToWrite;
+    pub const SuperBytesToWrite = superBytesToWrite;
 
     /// Inherited from QIODevice
     ///
@@ -3156,9 +3866,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn SuperBytesToWrite(self: QTemporaryFile) i64 {
+    pub fn superBytesToWrite(self: QTemporaryFile) i64 {
         return qtc.QTemporaryFile_SuperBytesToWrite(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onBytesToWrite` instead
+    ///
+    pub const OnBytesToWrite = onBytesToWrite;
 
     /// Inherited from QIODevice
     ///
@@ -3172,9 +3886,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i64 `
     ///
-    pub fn OnBytesToWrite(self: QTemporaryFile, callback: *const fn () callconv(.c) i64) void {
+    pub fn onBytesToWrite(self: QTemporaryFile, callback: *const fn () callconv(.c) i64) void {
         qtc.QTemporaryFile_OnBytesToWrite(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `canReadLine` instead
+    ///
+    pub const CanReadLine = canReadLine;
 
     /// Inherited from QIODevice
     ///
@@ -3186,13 +3904,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn CanReadLine(self: QTemporaryFile) bool {
+    pub fn canReadLine(self: QTemporaryFile) bool {
         return qtc.QTemporaryFile_CanReadLine(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCanReadLine` instead
+    /// ### DEPRECATED: Use `superCanReadLine` instead
     ///
-    pub const QBaseCanReadLine = SuperCanReadLine;
+    pub const SuperCanReadLine = superCanReadLine;
 
     /// Inherited from QIODevice
     ///
@@ -3204,9 +3922,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn SuperCanReadLine(self: QTemporaryFile) bool {
+    pub fn superCanReadLine(self: QTemporaryFile) bool {
         return qtc.QTemporaryFile_SuperCanReadLine(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCanReadLine` instead
+    ///
+    pub const OnCanReadLine = onCanReadLine;
 
     /// Inherited from QIODevice
     ///
@@ -3220,10 +3942,14 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnCanReadLine(self: QTemporaryFile, callback: *const fn () callconv(.c) bool) void {
+    pub fn onCanReadLine(self: QTemporaryFile, callback: *const fn () callconv(.c) bool) void {
         qtc.QTemporaryFile_OnCanReadLine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `waitForReadyRead` instead
+    ///
+    pub const WaitForReadyRead = waitForReadyRead;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#waitForReadyRead)
@@ -3236,13 +3962,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` msecs: i32 `
     ///
-    pub fn WaitForReadyRead(self: QTemporaryFile, msecs: i32) bool {
+    pub fn waitForReadyRead(self: QTemporaryFile, msecs: i32) bool {
         return qtc.QTemporaryFile_WaitForReadyRead(@ptrCast(self.ptr), @bitCast(msecs));
     }
 
-    /// ### DEPRECATED: Use `SuperWaitForReadyRead` instead
+    /// ### DEPRECATED: Use `superWaitForReadyRead` instead
     ///
-    pub const QBaseWaitForReadyRead = SuperWaitForReadyRead;
+    pub const SuperWaitForReadyRead = superWaitForReadyRead;
 
     /// Inherited from QIODevice
     ///
@@ -3256,10 +3982,14 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` msecs: i32 `
     ///
-    pub fn SuperWaitForReadyRead(self: QTemporaryFile, msecs: i32) bool {
+    pub fn superWaitForReadyRead(self: QTemporaryFile, msecs: i32) bool {
         return qtc.QTemporaryFile_SuperWaitForReadyRead(@ptrCast(self.ptr), @bitCast(msecs));
     }
 
+    /// ### DEPRECATED: Use `onWaitForReadyRead` instead
+    ///
+    pub const OnWaitForReadyRead = onWaitForReadyRead;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#waitForReadyRead)
@@ -3272,9 +4002,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` callback: *const fn (self: QTemporaryFile, msecs: i32) callconv(.c) bool `
     ///
-    pub fn OnWaitForReadyRead(self: QTemporaryFile, callback: *const fn (QTemporaryFile, i32) callconv(.c) bool) void {
+    pub fn onWaitForReadyRead(self: QTemporaryFile, callback: *const fn (QTemporaryFile, i32) callconv(.c) bool) void {
         qtc.QTemporaryFile_OnWaitForReadyRead(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `waitForBytesWritten` instead
+    ///
+    pub const WaitForBytesWritten = waitForBytesWritten;
 
     /// Inherited from QIODevice
     ///
@@ -3288,13 +4022,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` msecs: i32 `
     ///
-    pub fn WaitForBytesWritten(self: QTemporaryFile, msecs: i32) bool {
+    pub fn waitForBytesWritten(self: QTemporaryFile, msecs: i32) bool {
         return qtc.QTemporaryFile_WaitForBytesWritten(@ptrCast(self.ptr), @bitCast(msecs));
     }
 
-    /// ### DEPRECATED: Use `SuperWaitForBytesWritten` instead
+    /// ### DEPRECATED: Use `superWaitForBytesWritten` instead
     ///
-    pub const QBaseWaitForBytesWritten = SuperWaitForBytesWritten;
+    pub const SuperWaitForBytesWritten = superWaitForBytesWritten;
 
     /// Inherited from QIODevice
     ///
@@ -3308,9 +4042,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` msecs: i32 `
     ///
-    pub fn SuperWaitForBytesWritten(self: QTemporaryFile, msecs: i32) bool {
+    pub fn superWaitForBytesWritten(self: QTemporaryFile, msecs: i32) bool {
         return qtc.QTemporaryFile_SuperWaitForBytesWritten(@ptrCast(self.ptr), @bitCast(msecs));
     }
+
+    /// ### DEPRECATED: Use `onWaitForBytesWritten` instead
+    ///
+    pub const OnWaitForBytesWritten = onWaitForBytesWritten;
 
     /// Inherited from QIODevice
     ///
@@ -3324,9 +4062,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` callback: *const fn (self: QTemporaryFile, msecs: i32) callconv(.c) bool `
     ///
-    pub fn OnWaitForBytesWritten(self: QTemporaryFile, callback: *const fn (QTemporaryFile, i32) callconv(.c) bool) void {
+    pub fn onWaitForBytesWritten(self: QTemporaryFile, callback: *const fn (QTemporaryFile, i32) callconv(.c) bool) void {
         qtc.QTemporaryFile_OnWaitForBytesWritten(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `skipData` instead
+    ///
+    pub const SkipData = skipData;
 
     /// Inherited from QIODevice
     ///
@@ -3340,13 +4082,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` maxSize: i64 `
     ///
-    pub fn SkipData(self: QTemporaryFile, maxSize: i64) i64 {
+    pub fn skipData(self: QTemporaryFile, maxSize: i64) i64 {
         return qtc.QTemporaryFile_SkipData(@ptrCast(self.ptr), @bitCast(maxSize));
     }
 
-    /// ### DEPRECATED: Use `SuperSkipData` instead
+    /// ### DEPRECATED: Use `superSkipData` instead
     ///
-    pub const QBaseSkipData = SuperSkipData;
+    pub const SuperSkipData = superSkipData;
 
     /// Inherited from QIODevice
     ///
@@ -3360,9 +4102,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` maxSize: i64 `
     ///
-    pub fn SuperSkipData(self: QTemporaryFile, maxSize: i64) i64 {
+    pub fn superSkipData(self: QTemporaryFile, maxSize: i64) i64 {
         return qtc.QTemporaryFile_SuperSkipData(@ptrCast(self.ptr), @bitCast(maxSize));
     }
+
+    /// ### DEPRECATED: Use `onSkipData` instead
+    ///
+    pub const OnSkipData = onSkipData;
 
     /// Inherited from QIODevice
     ///
@@ -3376,9 +4122,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` callback: *const fn (self: QTemporaryFile, maxSize: i64) callconv(.c) i64 `
     ///
-    pub fn OnSkipData(self: QTemporaryFile, callback: *const fn (QTemporaryFile, i64) callconv(.c) i64) void {
+    pub fn onSkipData(self: QTemporaryFile, callback: *const fn (QTemporaryFile, i64) callconv(.c) i64) void {
         qtc.QTemporaryFile_OnSkipData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -3390,16 +4140,16 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QTemporaryFile, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QTemporaryFile_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QTemporaryFile, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QTemporaryFile_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -3411,12 +4161,16 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QTemporaryFile, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QTemporaryFile_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QTemporaryFile, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QTemporaryFile_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -3430,9 +4184,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` callback: *const fn (self: QTemporaryFile, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QTemporaryFile, callback: *const fn (QTemporaryFile, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QTemporaryFile, callback: *const fn (QTemporaryFile, QEvent) callconv(.c) bool) void {
         qtc.QTemporaryFile_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -3446,17 +4204,17 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QTemporaryFile, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QTemporaryFile, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QTemporaryFile_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QTemporaryFile_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -3470,13 +4228,17 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QTemporaryFile, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QTemporaryFile, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QTemporaryFile_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QTemporaryFile_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -3490,9 +4252,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` callback: *const fn (self: QTemporaryFile, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QTemporaryFile, callback: *const fn (QTemporaryFile, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QTemporaryFile, callback: *const fn (QTemporaryFile, QObject, QEvent) callconv(.c) bool) void {
         qtc.QTemporaryFile_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -3504,16 +4270,16 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QTemporaryFile, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QTemporaryFile_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QTemporaryFile, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QTemporaryFile_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -3525,12 +4291,16 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QTemporaryFile, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QTemporaryFile_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QTemporaryFile, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QTemporaryFile_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -3544,9 +4314,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` callback: *const fn (self: QTemporaryFile, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QTemporaryFile, callback: *const fn (QTemporaryFile, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QTemporaryFile, callback: *const fn (QTemporaryFile, QTimerEvent) callconv(.c) void) void {
         qtc.QTemporaryFile_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -3558,16 +4332,16 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QTemporaryFile, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QTemporaryFile_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QTemporaryFile, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QTemporaryFile_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -3579,12 +4353,16 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QTemporaryFile, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QTemporaryFile_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QTemporaryFile, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QTemporaryFile_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -3598,9 +4376,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` callback: *const fn (self: QTemporaryFile, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QTemporaryFile, callback: *const fn (QTemporaryFile, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QTemporaryFile, callback: *const fn (QTemporaryFile, QChildEvent) callconv(.c) void) void {
         qtc.QTemporaryFile_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -3612,16 +4394,16 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QTemporaryFile, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QTemporaryFile_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QTemporaryFile, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QTemporaryFile_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -3633,12 +4415,16 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QTemporaryFile, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QTemporaryFile_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QTemporaryFile, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QTemporaryFile_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -3652,9 +4438,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` callback: *const fn (self: QTemporaryFile, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QTemporaryFile, callback: *const fn (QTemporaryFile, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QTemporaryFile, callback: *const fn (QTemporaryFile, QEvent) callconv(.c) void) void {
         qtc.QTemporaryFile_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -3668,14 +4458,14 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QTemporaryFile, signal: anytype) void {
+    pub fn connectNotify(self: QTemporaryFile, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QTemporaryFile_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3689,11 +4479,15 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QTemporaryFile, signal: anytype) void {
+    pub fn superConnectNotify(self: QTemporaryFile, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QTemporaryFile_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -3706,9 +4500,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` callback: *const fn (self: QTemporaryFile, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QTemporaryFile, callback: *const fn (QTemporaryFile, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QTemporaryFile, callback: *const fn (QTemporaryFile, QMetaMethod) callconv(.c) void) void {
         qtc.QTemporaryFile_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3722,14 +4520,14 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QTemporaryFile, signal: anytype) void {
+    pub fn disconnectNotify(self: QTemporaryFile, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QTemporaryFile_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3743,10 +4541,14 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QTemporaryFile, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QTemporaryFile, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QTemporaryFile_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3760,9 +4562,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` callback: *const fn (self: QTemporaryFile, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QTemporaryFile, callback: *const fn (QTemporaryFile, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QTemporaryFile, callback: *const fn (QTemporaryFile, QMetaMethod) callconv(.c) void) void {
         qtc.QTemporaryFile_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setOpenMode` instead
+    ///
+    pub const SetOpenMode = setOpenMode;
 
     /// Inherited from QIODevice
     ///
@@ -3774,15 +4580,15 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    /// ` openMode: flag of qiodevicebase_enums.OpenModeFlag `
+    /// ` _openMode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn SetOpenMode(self: QTemporaryFile, openMode: i32) void {
-        qtc.QTemporaryFile_SetOpenMode(@ptrCast(self.ptr), @bitCast(openMode));
+    pub fn setOpenMode(self: QTemporaryFile, _openMode: i32) void {
+        qtc.QTemporaryFile_SetOpenMode(@ptrCast(self.ptr), @bitCast(_openMode));
     }
 
-    /// ### DEPRECATED: Use `SuperSetOpenMode` instead
+    /// ### DEPRECATED: Use `superSetOpenMode` instead
     ///
-    pub const QBaseSetOpenMode = SuperSetOpenMode;
+    pub const SuperSetOpenMode = superSetOpenMode;
 
     /// Inherited from QIODevice
     ///
@@ -3794,11 +4600,15 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    /// ` openMode: flag of qiodevicebase_enums.OpenModeFlag `
+    /// ` _openMode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn SuperSetOpenMode(self: QTemporaryFile, openMode: i32) void {
-        qtc.QTemporaryFile_SuperSetOpenMode(@ptrCast(self.ptr), @bitCast(openMode));
+    pub fn superSetOpenMode(self: QTemporaryFile, _openMode: i32) void {
+        qtc.QTemporaryFile_SuperSetOpenMode(@ptrCast(self.ptr), @bitCast(_openMode));
     }
+
+    /// ### DEPRECATED: Use `onSetOpenMode` instead
+    ///
+    pub const OnSetOpenMode = onSetOpenMode;
 
     /// Inherited from QIODevice
     ///
@@ -3812,9 +4622,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` callback: *const fn (self: QTemporaryFile, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) void `
     ///
-    pub fn OnSetOpenMode(self: QTemporaryFile, callback: *const fn (QTemporaryFile, i32) callconv(.c) void) void {
+    pub fn onSetOpenMode(self: QTemporaryFile, callback: *const fn (QTemporaryFile, i32) callconv(.c) void) void {
         qtc.QTemporaryFile_OnSetOpenMode(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setErrorString` instead
+    ///
+    pub const SetErrorString = setErrorString;
 
     /// Inherited from QIODevice
     ///
@@ -3826,19 +4640,19 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    /// ` errorString: []const u8 `
+    /// ` _errorString: []const u8 `
     ///
-    pub fn SetErrorString(self: QTemporaryFile, errorString: []const u8) void {
+    pub fn setErrorString(self: QTemporaryFile, _errorString: []const u8) void {
         const errorString_str = qtc.libqt_string{
-            .len = errorString.len,
-            .data = errorString.ptr,
+            .len = _errorString.len,
+            .data = _errorString.ptr,
         };
         qtc.QTemporaryFile_SetErrorString(@ptrCast(self.ptr), errorString_str);
     }
 
-    /// ### DEPRECATED: Use `SuperSetErrorString` instead
+    /// ### DEPRECATED: Use `superSetErrorString` instead
     ///
-    pub const QBaseSetErrorString = SuperSetErrorString;
+    pub const SuperSetErrorString = superSetErrorString;
 
     /// Inherited from QIODevice
     ///
@@ -3850,15 +4664,19 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    /// ` errorString: []const u8 `
+    /// ` _errorString: []const u8 `
     ///
-    pub fn SuperSetErrorString(self: QTemporaryFile, errorString: []const u8) void {
+    pub fn superSetErrorString(self: QTemporaryFile, _errorString: []const u8) void {
         const errorString_str = qtc.libqt_string{
-            .len = errorString.len,
-            .data = errorString.ptr,
+            .len = _errorString.len,
+            .data = _errorString.ptr,
         };
         qtc.QTemporaryFile_SuperSetErrorString(@ptrCast(self.ptr), errorString_str);
     }
+
+    /// ### DEPRECATED: Use `onSetErrorString` instead
+    ///
+    pub const OnSetErrorString = onSetErrorString;
 
     /// Inherited from QIODevice
     ///
@@ -3872,9 +4690,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` callback: *const fn (self: QTemporaryFile, errorString: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetErrorString(self: QTemporaryFile, callback: *const fn (QTemporaryFile, [*:0]const u8) callconv(.c) void) void {
+    pub fn onSetErrorString(self: QTemporaryFile, callback: *const fn (QTemporaryFile, [*:0]const u8) callconv(.c) void) void {
         qtc.QTemporaryFile_OnSetErrorString(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -3886,13 +4708,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn Sender(self: QTemporaryFile) QObject {
+    pub fn sender(self: QTemporaryFile) QObject {
         return .{ .ptr = qtc.QTemporaryFile_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -3904,9 +4726,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn SuperSender(self: QTemporaryFile) QObject {
+    pub fn superSender(self: QTemporaryFile) QObject {
         return .{ .ptr = qtc.QTemporaryFile_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -3920,9 +4746,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QTemporaryFile, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QTemporaryFile, callback: *const fn () callconv(.c) QObject) void {
         qtc.QTemporaryFile_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -3934,13 +4764,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn SenderSignalIndex(self: QTemporaryFile) i32 {
+    pub fn senderSignalIndex(self: QTemporaryFile) i32 {
         return qtc.QTemporaryFile_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -3952,9 +4782,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn SuperSenderSignalIndex(self: QTemporaryFile) i32 {
+    pub fn superSenderSignalIndex(self: QTemporaryFile) i32 {
         return qtc.QTemporaryFile_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -3968,9 +4802,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QTemporaryFile, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QTemporaryFile, callback: *const fn () callconv(.c) i32) void {
         qtc.QTemporaryFile_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -3984,14 +4822,14 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QTemporaryFile, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QTemporaryFile, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QTemporaryFile_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -4005,10 +4843,14 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QTemporaryFile, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QTemporaryFile, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QTemporaryFile_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -4022,9 +4864,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` callback: *const fn (self: QTemporaryFile, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QTemporaryFile, callback: *const fn (QTemporaryFile, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QTemporaryFile, callback: *const fn (QTemporaryFile, [*:0]const u8) callconv(.c) i32) void {
         qtc.QTemporaryFile_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -4038,14 +4884,14 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QTemporaryFile, signal: anytype) bool {
+    pub fn isSignalConnected(self: QTemporaryFile, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QTemporaryFile_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -4059,10 +4905,14 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QTemporaryFile, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QTemporaryFile, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QTemporaryFile_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -4076,9 +4926,13 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` callback: *const fn (self: QTemporaryFile, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QTemporaryFile, callback: *const fn (QTemporaryFile, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QTemporaryFile, callback: *const fn (QTemporaryFile, QMetaMethod) callconv(.c) bool) void {
         qtc.QTemporaryFile_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -4092,23 +4946,23 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` callback: *const fn (self: QTemporaryFile, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QTemporaryFile, callback: *const fn (QTemporaryFile, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QTemporaryFile, callback: *const fn (QTemporaryFile, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtemporaryfile.html#dtor.QTemporaryFile)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QTemporaryFile `
     ///
-    pub fn Delete(self: QTemporaryFile) void {
+    pub fn delete(self: QTemporaryFile) void {
         qtc.QTemporaryFile_Delete(@ptrCast(self.ptr));
     }
 };

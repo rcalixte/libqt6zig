@@ -28,22 +28,34 @@ pub const QVXYModelMapper = extern struct {
     pub const _is_QXYModelMapper = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QVXYModelMapper object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QVXYModelMapper {
+    pub const New = new;
+
+    /// Allocate a new QVXYModelMapper object in C++ memory
+    ///
+    pub fn new() QVXYModelMapper {
         return .{ .ptr = qtc.QVXYModelMapper_new() };
     }
 
-    /// New2 constructs a new QVXYModelMapper object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QVXYModelMapper object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) QVXYModelMapper {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QVXYModelMapper_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) QVXYModelMapper {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QVXYModelMapper_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -51,9 +63,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    pub fn MetaObject(self: QVXYModelMapper) QMetaObject {
+    pub fn metaObject(self: QVXYModelMapper) QMetaObject {
         return .{ .ptr = qtc.QVXYModelMapper_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -65,13 +81,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QVXYModelMapper, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QVXYModelMapper, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QVXYModelMapper_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -81,9 +97,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    pub fn SuperMetaObject(self: QVXYModelMapper) QMetaObject {
+    pub fn superMetaObject(self: QVXYModelMapper) QMetaObject {
         return .{ .ptr = qtc.QVXYModelMapper_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -91,10 +111,14 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QVXYModelMapper, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QVXYModelMapper, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QVXYModelMapper_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -104,13 +128,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVXYModelMapper, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QVXYModelMapper_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -120,10 +144,14 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QVXYModelMapper, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QVXYModelMapper, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QVXYModelMapper_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -135,9 +163,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QVXYModelMapper, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QVXYModelMapper, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QVXYModelMapper_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -147,13 +179,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVXYModelMapper, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QVXYModelMapper_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -167,9 +199,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QVXYModelMapper, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QVXYModelMapper, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QVXYModelMapper_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -179,14 +215,18 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QVXYModelMapper.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QVXYModelMapper.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `model` instead
+    ///
+    pub const Model = model;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvxymodelmapper-qtcharts.html#model)
     ///
@@ -194,9 +234,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    pub fn Model(self: QVXYModelMapper) QAbstractItemModel {
+    pub fn model(self: QVXYModelMapper) QAbstractItemModel {
         return .{ .ptr = qtc.QVXYModelMapper_Model(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setModel` instead
+    ///
+    pub const SetModel = setModel;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvxymodelmapper-qtcharts.html#setModel)
     ///
@@ -204,12 +248,16 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    /// ` model: QAbstractItemModel `
+    /// ` _model: QAbstractItemModel `
     ///
-    pub fn SetModel(self: QVXYModelMapper, model: anytype) void {
-        comptime _ = @TypeOf(model)._is_QAbstractItemModel;
-        qtc.QVXYModelMapper_SetModel(@ptrCast(self.ptr), @ptrCast(model.ptr));
+    pub fn setModel(self: QVXYModelMapper, _model: anytype) void {
+        comptime _ = @TypeOf(_model)._is_QAbstractItemModel;
+        qtc.QVXYModelMapper_SetModel(@ptrCast(self.ptr), @ptrCast(_model.ptr));
     }
+
+    /// ### DEPRECATED: Use `series` instead
+    ///
+    pub const Series = series;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvxymodelmapper-qtcharts.html#series)
     ///
@@ -217,9 +265,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    pub fn Series(self: QVXYModelMapper) QXYSeries {
+    pub fn series(self: QVXYModelMapper) QXYSeries {
         return .{ .ptr = qtc.QVXYModelMapper_Series(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSeries` instead
+    ///
+    pub const SetSeries = setSeries;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvxymodelmapper-qtcharts.html#setSeries)
     ///
@@ -227,12 +279,16 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    /// ` series: QXYSeries `
+    /// ` _series: QXYSeries `
     ///
-    pub fn SetSeries(self: QVXYModelMapper, series: anytype) void {
-        comptime _ = @TypeOf(series)._is_QXYSeries;
-        qtc.QVXYModelMapper_SetSeries(@ptrCast(self.ptr), @ptrCast(series.ptr));
+    pub fn setSeries(self: QVXYModelMapper, _series: anytype) void {
+        comptime _ = @TypeOf(_series)._is_QXYSeries;
+        qtc.QVXYModelMapper_SetSeries(@ptrCast(self.ptr), @ptrCast(_series.ptr));
     }
+
+    /// ### DEPRECATED: Use `xColumn` instead
+    ///
+    pub const XColumn = xColumn;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvxymodelmapper-qtcharts.html#xColumn)
     ///
@@ -240,9 +296,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    pub fn XColumn(self: QVXYModelMapper) i32 {
+    pub fn xColumn(self: QVXYModelMapper) i32 {
         return qtc.QVXYModelMapper_XColumn(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setXColumn` instead
+    ///
+    pub const SetXColumn = setXColumn;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvxymodelmapper-qtcharts.html#setXColumn)
     ///
@@ -250,11 +310,15 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    /// ` xColumn: i32 `
+    /// ` _xColumn: i32 `
     ///
-    pub fn SetXColumn(self: QVXYModelMapper, xColumn: i32) void {
-        qtc.QVXYModelMapper_SetXColumn(@ptrCast(self.ptr), @bitCast(xColumn));
+    pub fn setXColumn(self: QVXYModelMapper, _xColumn: i32) void {
+        qtc.QVXYModelMapper_SetXColumn(@ptrCast(self.ptr), @bitCast(_xColumn));
     }
+
+    /// ### DEPRECATED: Use `yColumn` instead
+    ///
+    pub const YColumn = yColumn;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvxymodelmapper-qtcharts.html#yColumn)
     ///
@@ -262,9 +326,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    pub fn YColumn(self: QVXYModelMapper) i32 {
+    pub fn yColumn(self: QVXYModelMapper) i32 {
         return qtc.QVXYModelMapper_YColumn(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setYColumn` instead
+    ///
+    pub const SetYColumn = setYColumn;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvxymodelmapper-qtcharts.html#setYColumn)
     ///
@@ -272,11 +340,15 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    /// ` yColumn: i32 `
+    /// ` _yColumn: i32 `
     ///
-    pub fn SetYColumn(self: QVXYModelMapper, yColumn: i32) void {
-        qtc.QVXYModelMapper_SetYColumn(@ptrCast(self.ptr), @bitCast(yColumn));
+    pub fn setYColumn(self: QVXYModelMapper, _yColumn: i32) void {
+        qtc.QVXYModelMapper_SetYColumn(@ptrCast(self.ptr), @bitCast(_yColumn));
     }
+
+    /// ### DEPRECATED: Use `firstRow` instead
+    ///
+    pub const FirstRow = firstRow;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvxymodelmapper-qtcharts.html#firstRow)
     ///
@@ -284,9 +356,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    pub fn FirstRow(self: QVXYModelMapper) i32 {
+    pub fn firstRow(self: QVXYModelMapper) i32 {
         return qtc.QVXYModelMapper_FirstRow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFirstRow` instead
+    ///
+    pub const SetFirstRow = setFirstRow;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvxymodelmapper-qtcharts.html#setFirstRow)
     ///
@@ -294,11 +370,15 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    /// ` firstRow: i32 `
+    /// ` _firstRow: i32 `
     ///
-    pub fn SetFirstRow(self: QVXYModelMapper, firstRow: i32) void {
-        qtc.QVXYModelMapper_SetFirstRow(@ptrCast(self.ptr), @bitCast(firstRow));
+    pub fn setFirstRow(self: QVXYModelMapper, _firstRow: i32) void {
+        qtc.QVXYModelMapper_SetFirstRow(@ptrCast(self.ptr), @bitCast(_firstRow));
     }
+
+    /// ### DEPRECATED: Use `rowCount` instead
+    ///
+    pub const RowCount = rowCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvxymodelmapper-qtcharts.html#rowCount)
     ///
@@ -306,9 +386,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    pub fn RowCount(self: QVXYModelMapper) i32 {
+    pub fn rowCount(self: QVXYModelMapper) i32 {
         return qtc.QVXYModelMapper_RowCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setRowCount` instead
+    ///
+    pub const SetRowCount = setRowCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvxymodelmapper-qtcharts.html#setRowCount)
     ///
@@ -316,11 +400,15 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    /// ` rowCount: i32 `
+    /// ` _rowCount: i32 `
     ///
-    pub fn SetRowCount(self: QVXYModelMapper, rowCount: i32) void {
-        qtc.QVXYModelMapper_SetRowCount(@ptrCast(self.ptr), @bitCast(rowCount));
+    pub fn setRowCount(self: QVXYModelMapper, _rowCount: i32) void {
+        qtc.QVXYModelMapper_SetRowCount(@ptrCast(self.ptr), @bitCast(_rowCount));
     }
+
+    /// ### DEPRECATED: Use `seriesReplaced` instead
+    ///
+    pub const SeriesReplaced = seriesReplaced;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvxymodelmapper-qtcharts.html#seriesReplaced)
     ///
@@ -328,10 +416,14 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    pub fn SeriesReplaced(self: QVXYModelMapper) void {
+    pub fn seriesReplaced(self: QVXYModelMapper) void {
         qtc.QVXYModelMapper_SeriesReplaced(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSeriesReplaced` instead
+    ///
+    pub const OnSeriesReplaced = onSeriesReplaced;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvxymodelmapper-qtcharts.html#seriesReplaced)
     ///
     /// ## Parameters:
@@ -340,20 +432,28 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVXYModelMapper) callconv(.c) void `
     ///
-    pub fn OnSeriesReplaced(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper) callconv(.c) void) void {
+    pub fn onSeriesReplaced(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper) callconv(.c) void) void {
         qtc.QVXYModelMapper_Connect_SeriesReplaced(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `modelReplaced` instead
+    ///
+    pub const ModelReplaced = modelReplaced;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvxymodelmapper-qtcharts.html#modelReplaced)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QVXYModelMapper `
     ///
-    pub fn ModelReplaced(self: QVXYModelMapper) void {
+    pub fn modelReplaced(self: QVXYModelMapper) void {
         qtc.QVXYModelMapper_ModelReplaced(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onModelReplaced` instead
+    ///
+    pub const OnModelReplaced = onModelReplaced;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvxymodelmapper-qtcharts.html#modelReplaced)
     ///
     /// ## Parameters:
@@ -362,20 +462,28 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVXYModelMapper) callconv(.c) void `
     ///
-    pub fn OnModelReplaced(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper) callconv(.c) void) void {
+    pub fn onModelReplaced(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper) callconv(.c) void) void {
         qtc.QVXYModelMapper_Connect_ModelReplaced(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `xColumnChanged` instead
+    ///
+    pub const XColumnChanged = xColumnChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvxymodelmapper-qtcharts.html#xColumnChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QVXYModelMapper `
     ///
-    pub fn XColumnChanged(self: QVXYModelMapper) void {
+    pub fn xColumnChanged(self: QVXYModelMapper) void {
         qtc.QVXYModelMapper_XColumnChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onXColumnChanged` instead
+    ///
+    pub const OnXColumnChanged = onXColumnChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvxymodelmapper-qtcharts.html#xColumnChanged)
     ///
     /// ## Parameters:
@@ -384,20 +492,28 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVXYModelMapper) callconv(.c) void `
     ///
-    pub fn OnXColumnChanged(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper) callconv(.c) void) void {
+    pub fn onXColumnChanged(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper) callconv(.c) void) void {
         qtc.QVXYModelMapper_Connect_XColumnChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `yColumnChanged` instead
+    ///
+    pub const YColumnChanged = yColumnChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvxymodelmapper-qtcharts.html#yColumnChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QVXYModelMapper `
     ///
-    pub fn YColumnChanged(self: QVXYModelMapper) void {
+    pub fn yColumnChanged(self: QVXYModelMapper) void {
         qtc.QVXYModelMapper_YColumnChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onYColumnChanged` instead
+    ///
+    pub const OnYColumnChanged = onYColumnChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvxymodelmapper-qtcharts.html#yColumnChanged)
     ///
     /// ## Parameters:
@@ -406,20 +522,28 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVXYModelMapper) callconv(.c) void `
     ///
-    pub fn OnYColumnChanged(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper) callconv(.c) void) void {
+    pub fn onYColumnChanged(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper) callconv(.c) void) void {
         qtc.QVXYModelMapper_Connect_YColumnChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `firstRowChanged` instead
+    ///
+    pub const FirstRowChanged = firstRowChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvxymodelmapper-qtcharts.html#firstRowChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QVXYModelMapper `
     ///
-    pub fn FirstRowChanged(self: QVXYModelMapper) void {
+    pub fn firstRowChanged(self: QVXYModelMapper) void {
         qtc.QVXYModelMapper_FirstRowChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFirstRowChanged` instead
+    ///
+    pub const OnFirstRowChanged = onFirstRowChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvxymodelmapper-qtcharts.html#firstRowChanged)
     ///
     /// ## Parameters:
@@ -428,9 +552,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVXYModelMapper) callconv(.c) void `
     ///
-    pub fn OnFirstRowChanged(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper) callconv(.c) void) void {
+    pub fn onFirstRowChanged(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper) callconv(.c) void) void {
         qtc.QVXYModelMapper_Connect_FirstRowChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `rowCountChanged` instead
+    ///
+    pub const RowCountChanged = rowCountChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvxymodelmapper-qtcharts.html#rowCountChanged)
     ///
@@ -438,9 +566,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    pub fn RowCountChanged(self: QVXYModelMapper) void {
+    pub fn rowCountChanged(self: QVXYModelMapper) void {
         qtc.QVXYModelMapper_RowCountChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onRowCountChanged` instead
+    ///
+    pub const OnRowCountChanged = onRowCountChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvxymodelmapper-qtcharts.html#rowCountChanged)
     ///
@@ -450,9 +582,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVXYModelMapper) callconv(.c) void `
     ///
-    pub fn OnRowCountChanged(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper) callconv(.c) void) void {
+    pub fn onRowCountChanged(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper) callconv(.c) void) void {
         qtc.QVXYModelMapper_Connect_RowCountChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -464,15 +600,19 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QVXYModelMapper.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QVXYModelMapper.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -486,15 +626,19 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QVXYModelMapper.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QVXYModelMapper.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -506,13 +650,17 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QVXYModelMapper, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QVXYModelMapper, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QVXYModelMapper.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QVXYModelMapper.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -524,13 +672,17 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QVXYModelMapper, name: []const u8) void {
+    pub fn setObjectName(self: QVXYModelMapper, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -540,9 +692,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    pub fn IsWidgetType(self: QVXYModelMapper) bool {
+    pub fn isWidgetType(self: QVXYModelMapper) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -552,9 +708,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    pub fn IsWindowType(self: QVXYModelMapper) bool {
+    pub fn isWindowType(self: QVXYModelMapper) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -564,9 +724,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    pub fn IsQuickItemType(self: QVXYModelMapper) bool {
+    pub fn isQuickItemType(self: QVXYModelMapper) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -576,9 +740,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    pub fn SignalsBlocked(self: QVXYModelMapper) bool {
+    pub fn signalsBlocked(self: QVXYModelMapper) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -590,9 +758,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QVXYModelMapper, b: bool) bool {
+    pub fn blockSignals(self: QVXYModelMapper, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -602,9 +774,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    pub fn Thread(self: QVXYModelMapper) QThread {
+    pub fn thread(self: QVXYModelMapper) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -614,12 +790,16 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QVXYModelMapper, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QVXYModelMapper, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -631,9 +811,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QVXYModelMapper, interval: i32) i32 {
+    pub fn startTimer(self: QVXYModelMapper, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -645,9 +829,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QVXYModelMapper, time: i64) i32 {
+    pub fn startTimer2(self: QVXYModelMapper, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -659,9 +847,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QVXYModelMapper, id: i32) void {
+    pub fn killTimer(self: QVXYModelMapper, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -673,9 +865,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QVXYModelMapper, id: i32) void {
+    pub fn killTimer2(self: QVXYModelMapper, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -687,15 +883,19 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QVXYModelMapper, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QVXYModelMapper, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QVXYModelMapper.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QVXYModelMapper.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -705,12 +905,16 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QVXYModelMapper, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QVXYModelMapper, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -722,10 +926,14 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QVXYModelMapper, filterObj: anytype) void {
+    pub fn installEventFilter(self: QVXYModelMapper, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -737,10 +945,14 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QVXYModelMapper, obj: anytype) void {
+    pub fn removeEventFilter(self: QVXYModelMapper, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -748,7 +960,7 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -756,13 +968,17 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -770,7 +986,7 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -778,13 +994,17 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -794,18 +1014,22 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QVXYModelMapper, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QVXYModelMapper, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -813,7 +1037,7 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -821,13 +1045,17 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -835,7 +1063,7 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -843,13 +1071,17 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -859,9 +1091,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    pub fn Disconnect3(self: QVXYModelMapper) bool {
+    pub fn disconnect3(self: QVXYModelMapper) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -873,10 +1109,14 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QVXYModelMapper, receiver: anytype) bool {
+    pub fn disconnect4(self: QVXYModelMapper, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -886,10 +1126,14 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -899,9 +1143,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    pub fn DumpObjectTree(self: QVXYModelMapper) void {
+    pub fn dumpObjectTree(self: QVXYModelMapper) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -911,9 +1159,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    pub fn DumpObjectInfo(self: QVXYModelMapper) void {
+    pub fn dumpObjectInfo(self: QVXYModelMapper) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -927,11 +1179,15 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QVXYModelMapper, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QVXYModelMapper, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -943,10 +1199,14 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QVXYModelMapper, name: [:0]const u8) QVariant {
+    pub fn property(self: QVXYModelMapper, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -958,7 +1218,7 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QVXYModelMapper, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QVXYModelMapper, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -966,27 +1226,19 @@ pub const QVXYModelMapper = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QVXYModelMapper.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QVXYModelMapper.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QVXYModelMapper.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QVXYModelMapper.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QVXYModelMapper `
-    ///
-    pub fn BindingStorage(self: QVXYModelMapper) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -996,9 +1248,29 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    pub fn BindingStorage2(self: QVXYModelMapper) QBindingStorage {
+    pub fn bindingStorage(self: QVXYModelMapper) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QVXYModelMapper `
+    ///
+    pub fn bindingStorage2(self: QVXYModelMapper) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1008,9 +1280,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    pub fn Destroyed(self: QVXYModelMapper) void {
+    pub fn destroyed(self: QVXYModelMapper) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1022,9 +1298,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVXYModelMapper) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper) callconv(.c) void) void {
+    pub fn onDestroyed(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1034,9 +1314,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    pub fn Parent(self: QVXYModelMapper) QObject {
+    pub fn parent(self: QVXYModelMapper) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1048,10 +1332,14 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QVXYModelMapper, classname: [:0]const u8) bool {
+    pub fn inherits(self: QVXYModelMapper, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1061,9 +1349,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    pub fn DeleteLater(self: QVXYModelMapper) void {
+    pub fn deleteLater(self: QVXYModelMapper) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1077,9 +1369,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QVXYModelMapper, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QVXYModelMapper, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1093,9 +1389,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QVXYModelMapper, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QVXYModelMapper, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1103,7 +1403,7 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1113,13 +1413,17 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1127,7 +1431,7 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1137,13 +1441,17 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1153,7 +1461,7 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1161,12 +1469,16 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QVXYModelMapper, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QVXYModelMapper, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1178,10 +1490,14 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QVXYModelMapper, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QVXYModelMapper, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1195,11 +1511,15 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QVXYModelMapper, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QVXYModelMapper, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1215,13 +1535,17 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QVXYModelMapper, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QVXYModelMapper, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1234,11 +1558,15 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QVXYModelMapper, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QVXYModelMapper, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1250,10 +1578,14 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QVXYModelMapper, param1: anytype) void {
+    pub fn destroyed1(self: QVXYModelMapper, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1265,9 +1597,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVXYModelMapper, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -1279,16 +1615,16 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QVXYModelMapper, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QVXYModelMapper_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QVXYModelMapper, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QVXYModelMapper_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -1300,12 +1636,16 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QVXYModelMapper, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QVXYModelMapper_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QVXYModelMapper, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QVXYModelMapper_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -1319,9 +1659,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVXYModelMapper, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper, QEvent) callconv(.c) bool) void {
         qtc.QVXYModelMapper_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1335,17 +1679,17 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QVXYModelMapper, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QVXYModelMapper, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QVXYModelMapper_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QVXYModelMapper_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1359,13 +1703,17 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QVXYModelMapper, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QVXYModelMapper, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QVXYModelMapper_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QVXYModelMapper_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1379,9 +1727,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVXYModelMapper, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper, QObject, QEvent) callconv(.c) bool) void {
         qtc.QVXYModelMapper_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -1393,16 +1745,16 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QVXYModelMapper, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QVXYModelMapper_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QVXYModelMapper, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QVXYModelMapper_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1414,12 +1766,16 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QVXYModelMapper, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QVXYModelMapper_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QVXYModelMapper, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QVXYModelMapper_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1433,9 +1789,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVXYModelMapper, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper, QTimerEvent) callconv(.c) void) void {
         qtc.QVXYModelMapper_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -1447,16 +1807,16 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QVXYModelMapper, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QVXYModelMapper_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QVXYModelMapper, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QVXYModelMapper_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1468,12 +1828,16 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QVXYModelMapper, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QVXYModelMapper_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QVXYModelMapper, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QVXYModelMapper_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1487,9 +1851,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVXYModelMapper, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper, QChildEvent) callconv(.c) void) void {
         qtc.QVXYModelMapper_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -1501,16 +1869,16 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QVXYModelMapper, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QVXYModelMapper_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QVXYModelMapper, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QVXYModelMapper_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1522,12 +1890,16 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QVXYModelMapper, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QVXYModelMapper_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QVXYModelMapper, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QVXYModelMapper_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1541,9 +1913,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVXYModelMapper, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper, QEvent) callconv(.c) void) void {
         qtc.QVXYModelMapper_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -1557,14 +1933,14 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QVXYModelMapper, signal: anytype) void {
+    pub fn connectNotify(self: QVXYModelMapper, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QVXYModelMapper_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1578,11 +1954,15 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QVXYModelMapper, signal: anytype) void {
+    pub fn superConnectNotify(self: QVXYModelMapper, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QVXYModelMapper_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1595,9 +1975,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVXYModelMapper, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper, QMetaMethod) callconv(.c) void) void {
         qtc.QVXYModelMapper_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1611,14 +1995,14 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QVXYModelMapper, signal: anytype) void {
+    pub fn disconnectNotify(self: QVXYModelMapper, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QVXYModelMapper_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1632,10 +2016,14 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QVXYModelMapper, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QVXYModelMapper, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QVXYModelMapper_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1649,9 +2037,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVXYModelMapper, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper, QMetaMethod) callconv(.c) void) void {
         qtc.QVXYModelMapper_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `first` instead
+    ///
+    pub const First = first;
 
     /// Inherited from QXYModelMapper
     ///
@@ -1663,13 +2055,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    pub fn First(self: QVXYModelMapper) i32 {
+    pub fn first(self: QVXYModelMapper) i32 {
         return qtc.QVXYModelMapper_First(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFirst` instead
+    /// ### DEPRECATED: Use `superFirst` instead
     ///
-    pub const QBaseFirst = SuperFirst;
+    pub const SuperFirst = superFirst;
 
     /// Inherited from QXYModelMapper
     ///
@@ -1681,9 +2073,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    pub fn SuperFirst(self: QVXYModelMapper) i32 {
+    pub fn superFirst(self: QVXYModelMapper) i32 {
         return qtc.QVXYModelMapper_SuperFirst(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFirst` instead
+    ///
+    pub const OnFirst = onFirst;
 
     /// Inherited from QXYModelMapper
     ///
@@ -1697,9 +2093,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnFirst(self: QVXYModelMapper, callback: *const fn () callconv(.c) i32) void {
+    pub fn onFirst(self: QVXYModelMapper, callback: *const fn () callconv(.c) i32) void {
         qtc.QVXYModelMapper_OnFirst(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setFirst` instead
+    ///
+    pub const SetFirst = setFirst;
 
     /// Inherited from QXYModelMapper
     ///
@@ -1711,15 +2111,15 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    /// ` first: i32 `
+    /// ` _first: i32 `
     ///
-    pub fn SetFirst(self: QVXYModelMapper, first: i32) void {
-        qtc.QVXYModelMapper_SetFirst(@ptrCast(self.ptr), @bitCast(first));
+    pub fn setFirst(self: QVXYModelMapper, _first: i32) void {
+        qtc.QVXYModelMapper_SetFirst(@ptrCast(self.ptr), @bitCast(_first));
     }
 
-    /// ### DEPRECATED: Use `SuperSetFirst` instead
+    /// ### DEPRECATED: Use `superSetFirst` instead
     ///
-    pub const QBaseSetFirst = SuperSetFirst;
+    pub const SuperSetFirst = superSetFirst;
 
     /// Inherited from QXYModelMapper
     ///
@@ -1731,11 +2131,15 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    /// ` first: i32 `
+    /// ` _first: i32 `
     ///
-    pub fn SuperSetFirst(self: QVXYModelMapper, first: i32) void {
-        qtc.QVXYModelMapper_SuperSetFirst(@ptrCast(self.ptr), @bitCast(first));
+    pub fn superSetFirst(self: QVXYModelMapper, _first: i32) void {
+        qtc.QVXYModelMapper_SuperSetFirst(@ptrCast(self.ptr), @bitCast(_first));
     }
+
+    /// ### DEPRECATED: Use `onSetFirst` instead
+    ///
+    pub const OnSetFirst = onSetFirst;
 
     /// Inherited from QXYModelMapper
     ///
@@ -1749,9 +2153,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVXYModelMapper, first: i32) callconv(.c) void `
     ///
-    pub fn OnSetFirst(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper, i32) callconv(.c) void) void {
+    pub fn onSetFirst(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper, i32) callconv(.c) void) void {
         qtc.QVXYModelMapper_OnSetFirst(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `count` instead
+    ///
+    pub const Count = count;
 
     /// Inherited from QXYModelMapper
     ///
@@ -1763,13 +2171,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    pub fn Count(self: QVXYModelMapper) i32 {
+    pub fn count(self: QVXYModelMapper) i32 {
         return qtc.QVXYModelMapper_Count(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCount` instead
+    /// ### DEPRECATED: Use `superCount` instead
     ///
-    pub const QBaseCount = SuperCount;
+    pub const SuperCount = superCount;
 
     /// Inherited from QXYModelMapper
     ///
@@ -1781,9 +2189,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    pub fn SuperCount(self: QVXYModelMapper) i32 {
+    pub fn superCount(self: QVXYModelMapper) i32 {
         return qtc.QVXYModelMapper_SuperCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCount` instead
+    ///
+    pub const OnCount = onCount;
 
     /// Inherited from QXYModelMapper
     ///
@@ -1797,9 +2209,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnCount(self: QVXYModelMapper, callback: *const fn () callconv(.c) i32) void {
+    pub fn onCount(self: QVXYModelMapper, callback: *const fn () callconv(.c) i32) void {
         qtc.QVXYModelMapper_OnCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setCount` instead
+    ///
+    pub const SetCount = setCount;
 
     /// Inherited from QXYModelMapper
     ///
@@ -1811,15 +2227,15 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    /// ` count: i32 `
+    /// ` _count: i32 `
     ///
-    pub fn SetCount(self: QVXYModelMapper, count: i32) void {
-        qtc.QVXYModelMapper_SetCount(@ptrCast(self.ptr), @bitCast(count));
+    pub fn setCount(self: QVXYModelMapper, _count: i32) void {
+        qtc.QVXYModelMapper_SetCount(@ptrCast(self.ptr), @bitCast(_count));
     }
 
-    /// ### DEPRECATED: Use `SuperSetCount` instead
+    /// ### DEPRECATED: Use `superSetCount` instead
     ///
-    pub const QBaseSetCount = SuperSetCount;
+    pub const SuperSetCount = superSetCount;
 
     /// Inherited from QXYModelMapper
     ///
@@ -1831,11 +2247,15 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    /// ` count: i32 `
+    /// ` _count: i32 `
     ///
-    pub fn SuperSetCount(self: QVXYModelMapper, count: i32) void {
-        qtc.QVXYModelMapper_SuperSetCount(@ptrCast(self.ptr), @bitCast(count));
+    pub fn superSetCount(self: QVXYModelMapper, _count: i32) void {
+        qtc.QVXYModelMapper_SuperSetCount(@ptrCast(self.ptr), @bitCast(_count));
     }
+
+    /// ### DEPRECATED: Use `onSetCount` instead
+    ///
+    pub const OnSetCount = onSetCount;
 
     /// Inherited from QXYModelMapper
     ///
@@ -1849,9 +2269,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVXYModelMapper, count: i32) callconv(.c) void `
     ///
-    pub fn OnSetCount(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper, i32) callconv(.c) void) void {
+    pub fn onSetCount(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper, i32) callconv(.c) void) void {
         qtc.QVXYModelMapper_OnSetCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `orientation` instead
+    ///
+    pub const Orientation = orientation;
 
     /// Inherited from QXYModelMapper
     ///
@@ -1867,13 +2291,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` qnamespace_enums.Orientation `
     ///
-    pub fn Orientation(self: QVXYModelMapper) i32 {
+    pub fn orientation(self: QVXYModelMapper) i32 {
         return qtc.QVXYModelMapper_Orientation(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperOrientation` instead
+    /// ### DEPRECATED: Use `superOrientation` instead
     ///
-    pub const QBaseOrientation = SuperOrientation;
+    pub const SuperOrientation = superOrientation;
 
     /// Inherited from QXYModelMapper
     ///
@@ -1889,9 +2313,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` qnamespace_enums.Orientation `
     ///
-    pub fn SuperOrientation(self: QVXYModelMapper) i32 {
+    pub fn superOrientation(self: QVXYModelMapper) i32 {
         return qtc.QVXYModelMapper_SuperOrientation(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onOrientation` instead
+    ///
+    pub const OnOrientation = onOrientation;
 
     /// Inherited from QXYModelMapper
     ///
@@ -1905,9 +2333,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnOrientation(self: QVXYModelMapper, callback: *const fn () callconv(.c) i32) void {
+    pub fn onOrientation(self: QVXYModelMapper, callback: *const fn () callconv(.c) i32) void {
         qtc.QVXYModelMapper_OnOrientation(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setOrientation` instead
+    ///
+    pub const SetOrientation = setOrientation;
 
     /// Inherited from QXYModelMapper
     ///
@@ -1919,15 +2351,15 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    /// ` orientation: qnamespace_enums.Orientation `
+    /// ` _orientation: qnamespace_enums.Orientation `
     ///
-    pub fn SetOrientation(self: QVXYModelMapper, orientation: i32) void {
-        qtc.QVXYModelMapper_SetOrientation(@ptrCast(self.ptr), @bitCast(orientation));
+    pub fn setOrientation(self: QVXYModelMapper, _orientation: i32) void {
+        qtc.QVXYModelMapper_SetOrientation(@ptrCast(self.ptr), @bitCast(_orientation));
     }
 
-    /// ### DEPRECATED: Use `SuperSetOrientation` instead
+    /// ### DEPRECATED: Use `superSetOrientation` instead
     ///
-    pub const QBaseSetOrientation = SuperSetOrientation;
+    pub const SuperSetOrientation = superSetOrientation;
 
     /// Inherited from QXYModelMapper
     ///
@@ -1939,11 +2371,15 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    /// ` orientation: qnamespace_enums.Orientation `
+    /// ` _orientation: qnamespace_enums.Orientation `
     ///
-    pub fn SuperSetOrientation(self: QVXYModelMapper, orientation: i32) void {
-        qtc.QVXYModelMapper_SuperSetOrientation(@ptrCast(self.ptr), @bitCast(orientation));
+    pub fn superSetOrientation(self: QVXYModelMapper, _orientation: i32) void {
+        qtc.QVXYModelMapper_SuperSetOrientation(@ptrCast(self.ptr), @bitCast(_orientation));
     }
+
+    /// ### DEPRECATED: Use `onSetOrientation` instead
+    ///
+    pub const OnSetOrientation = onSetOrientation;
 
     /// Inherited from QXYModelMapper
     ///
@@ -1957,9 +2393,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVXYModelMapper, orientation: qnamespace_enums.Orientation) callconv(.c) void `
     ///
-    pub fn OnSetOrientation(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper, i32) callconv(.c) void) void {
+    pub fn onSetOrientation(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper, i32) callconv(.c) void) void {
         qtc.QVXYModelMapper_OnSetOrientation(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `xSection` instead
+    ///
+    pub const XSection = xSection;
 
     /// Inherited from QXYModelMapper
     ///
@@ -1971,13 +2411,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    pub fn XSection(self: QVXYModelMapper) i32 {
+    pub fn xSection(self: QVXYModelMapper) i32 {
         return qtc.QVXYModelMapper_XSection(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperXSection` instead
+    /// ### DEPRECATED: Use `superXSection` instead
     ///
-    pub const QBaseXSection = SuperXSection;
+    pub const SuperXSection = superXSection;
 
     /// Inherited from QXYModelMapper
     ///
@@ -1989,9 +2429,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    pub fn SuperXSection(self: QVXYModelMapper) i32 {
+    pub fn superXSection(self: QVXYModelMapper) i32 {
         return qtc.QVXYModelMapper_SuperXSection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onXSection` instead
+    ///
+    pub const OnXSection = onXSection;
 
     /// Inherited from QXYModelMapper
     ///
@@ -2005,9 +2449,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnXSection(self: QVXYModelMapper, callback: *const fn () callconv(.c) i32) void {
+    pub fn onXSection(self: QVXYModelMapper, callback: *const fn () callconv(.c) i32) void {
         qtc.QVXYModelMapper_OnXSection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setXSection` instead
+    ///
+    pub const SetXSection = setXSection;
 
     /// Inherited from QXYModelMapper
     ///
@@ -2019,15 +2467,15 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    /// ` xSection: i32 `
+    /// ` _xSection: i32 `
     ///
-    pub fn SetXSection(self: QVXYModelMapper, xSection: i32) void {
-        qtc.QVXYModelMapper_SetXSection(@ptrCast(self.ptr), @bitCast(xSection));
+    pub fn setXSection(self: QVXYModelMapper, _xSection: i32) void {
+        qtc.QVXYModelMapper_SetXSection(@ptrCast(self.ptr), @bitCast(_xSection));
     }
 
-    /// ### DEPRECATED: Use `SuperSetXSection` instead
+    /// ### DEPRECATED: Use `superSetXSection` instead
     ///
-    pub const QBaseSetXSection = SuperSetXSection;
+    pub const SuperSetXSection = superSetXSection;
 
     /// Inherited from QXYModelMapper
     ///
@@ -2039,11 +2487,15 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    /// ` xSection: i32 `
+    /// ` _xSection: i32 `
     ///
-    pub fn SuperSetXSection(self: QVXYModelMapper, xSection: i32) void {
-        qtc.QVXYModelMapper_SuperSetXSection(@ptrCast(self.ptr), @bitCast(xSection));
+    pub fn superSetXSection(self: QVXYModelMapper, _xSection: i32) void {
+        qtc.QVXYModelMapper_SuperSetXSection(@ptrCast(self.ptr), @bitCast(_xSection));
     }
+
+    /// ### DEPRECATED: Use `onSetXSection` instead
+    ///
+    pub const OnSetXSection = onSetXSection;
 
     /// Inherited from QXYModelMapper
     ///
@@ -2057,9 +2509,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVXYModelMapper, xSection: i32) callconv(.c) void `
     ///
-    pub fn OnSetXSection(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper, i32) callconv(.c) void) void {
+    pub fn onSetXSection(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper, i32) callconv(.c) void) void {
         qtc.QVXYModelMapper_OnSetXSection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `ySection` instead
+    ///
+    pub const YSection = ySection;
 
     /// Inherited from QXYModelMapper
     ///
@@ -2071,13 +2527,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    pub fn YSection(self: QVXYModelMapper) i32 {
+    pub fn ySection(self: QVXYModelMapper) i32 {
         return qtc.QVXYModelMapper_YSection(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperYSection` instead
+    /// ### DEPRECATED: Use `superYSection` instead
     ///
-    pub const QBaseYSection = SuperYSection;
+    pub const SuperYSection = superYSection;
 
     /// Inherited from QXYModelMapper
     ///
@@ -2089,9 +2545,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    pub fn SuperYSection(self: QVXYModelMapper) i32 {
+    pub fn superYSection(self: QVXYModelMapper) i32 {
         return qtc.QVXYModelMapper_SuperYSection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onYSection` instead
+    ///
+    pub const OnYSection = onYSection;
 
     /// Inherited from QXYModelMapper
     ///
@@ -2105,9 +2565,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnYSection(self: QVXYModelMapper, callback: *const fn () callconv(.c) i32) void {
+    pub fn onYSection(self: QVXYModelMapper, callback: *const fn () callconv(.c) i32) void {
         qtc.QVXYModelMapper_OnYSection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setYSection` instead
+    ///
+    pub const SetYSection = setYSection;
 
     /// Inherited from QXYModelMapper
     ///
@@ -2119,15 +2583,15 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    /// ` ySection: i32 `
+    /// ` _ySection: i32 `
     ///
-    pub fn SetYSection(self: QVXYModelMapper, ySection: i32) void {
-        qtc.QVXYModelMapper_SetYSection(@ptrCast(self.ptr), @bitCast(ySection));
+    pub fn setYSection(self: QVXYModelMapper, _ySection: i32) void {
+        qtc.QVXYModelMapper_SetYSection(@ptrCast(self.ptr), @bitCast(_ySection));
     }
 
-    /// ### DEPRECATED: Use `SuperSetYSection` instead
+    /// ### DEPRECATED: Use `superSetYSection` instead
     ///
-    pub const QBaseSetYSection = SuperSetYSection;
+    pub const SuperSetYSection = superSetYSection;
 
     /// Inherited from QXYModelMapper
     ///
@@ -2139,11 +2603,15 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    /// ` ySection: i32 `
+    /// ` _ySection: i32 `
     ///
-    pub fn SuperSetYSection(self: QVXYModelMapper, ySection: i32) void {
-        qtc.QVXYModelMapper_SuperSetYSection(@ptrCast(self.ptr), @bitCast(ySection));
+    pub fn superSetYSection(self: QVXYModelMapper, _ySection: i32) void {
+        qtc.QVXYModelMapper_SuperSetYSection(@ptrCast(self.ptr), @bitCast(_ySection));
     }
+
+    /// ### DEPRECATED: Use `onSetYSection` instead
+    ///
+    pub const OnSetYSection = onSetYSection;
 
     /// Inherited from QXYModelMapper
     ///
@@ -2157,9 +2625,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVXYModelMapper, ySection: i32) callconv(.c) void `
     ///
-    pub fn OnSetYSection(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper, i32) callconv(.c) void) void {
+    pub fn onSetYSection(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper, i32) callconv(.c) void) void {
         qtc.QVXYModelMapper_OnSetYSection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -2171,13 +2643,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    pub fn Sender(self: QVXYModelMapper) QObject {
+    pub fn sender(self: QVXYModelMapper) QObject {
         return .{ .ptr = qtc.QVXYModelMapper_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -2189,9 +2661,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    pub fn SuperSender(self: QVXYModelMapper) QObject {
+    pub fn superSender(self: QVXYModelMapper) QObject {
         return .{ .ptr = qtc.QVXYModelMapper_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -2205,9 +2681,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QVXYModelMapper, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QVXYModelMapper, callback: *const fn () callconv(.c) QObject) void {
         qtc.QVXYModelMapper_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2219,13 +2699,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    pub fn SenderSignalIndex(self: QVXYModelMapper) i32 {
+    pub fn senderSignalIndex(self: QVXYModelMapper) i32 {
         return qtc.QVXYModelMapper_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2237,9 +2717,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` self: QVXYModelMapper `
     ///
-    pub fn SuperSenderSignalIndex(self: QVXYModelMapper) i32 {
+    pub fn superSenderSignalIndex(self: QVXYModelMapper) i32 {
         return qtc.QVXYModelMapper_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2253,9 +2737,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QVXYModelMapper, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QVXYModelMapper, callback: *const fn () callconv(.c) i32) void {
         qtc.QVXYModelMapper_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -2269,14 +2757,14 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QVXYModelMapper, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QVXYModelMapper, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QVXYModelMapper_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -2290,10 +2778,14 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QVXYModelMapper, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QVXYModelMapper, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QVXYModelMapper_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -2307,9 +2799,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVXYModelMapper, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper, [*:0]const u8) callconv(.c) i32) void {
         qtc.QVXYModelMapper_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2323,14 +2819,14 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QVXYModelMapper, signal: anytype) bool {
+    pub fn isSignalConnected(self: QVXYModelMapper, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QVXYModelMapper_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2344,10 +2840,14 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QVXYModelMapper, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QVXYModelMapper, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QVXYModelMapper_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2361,9 +2861,13 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVXYModelMapper, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper, QMetaMethod) callconv(.c) bool) void {
         qtc.QVXYModelMapper_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -2377,23 +2881,23 @@ pub const QVXYModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVXYModelMapper, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QVXYModelMapper, callback: *const fn (QVXYModelMapper, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvxymodelmapper-qtcharts.html#dtor.QVXYModelMapper)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QVXYModelMapper `
     ///
-    pub fn Delete(self: QVXYModelMapper) void {
+    pub fn delete(self: QVXYModelMapper) void {
         qtc.QVXYModelMapper_Delete(@ptrCast(self.ptr));
     }
 };

@@ -13,29 +13,41 @@ pub const QNativeIpcKey = extern struct {
 
     pub const _is_QNativeIpcKey = {};
 
-    /// New constructs a new QNativeIpcKey object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QNativeIpcKey {
+    pub const New = new;
+
+    /// Allocate a new QNativeIpcKey object in C++ memory
+    ///
+    pub fn new() QNativeIpcKey {
         return .{ .ptr = qtc.QNativeIpcKey_new() };
     }
 
-    /// New2 constructs a new QNativeIpcKey object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QNativeIpcKey object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` typeVal: qtipccommon_enums.Type `
     ///
-    pub fn New2(typeVal: u16) QNativeIpcKey {
+    pub fn new2(typeVal: u16) QNativeIpcKey {
         return .{ .ptr = qtc.QNativeIpcKey_new2(@bitCast(typeVal)) };
     }
 
-    /// New3 constructs a new QNativeIpcKey object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QNativeIpcKey object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` k: []const u8 `
     ///
-    pub fn New3(k: []const u8) QNativeIpcKey {
+    pub fn new3(k: []const u8) QNativeIpcKey {
         const k_str = qtc.libqt_string{
             .len = k.len,
             .data = k.ptr,
@@ -43,18 +55,26 @@ pub const QNativeIpcKey = extern struct {
         return .{ .ptr = qtc.QNativeIpcKey_new3(k_str) };
     }
 
-    /// New4 constructs a new QNativeIpcKey object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QNativeIpcKey object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QNativeIpcKey `
     ///
-    pub fn New4(other: anytype) QNativeIpcKey {
+    pub fn new4(other: anytype) QNativeIpcKey {
         comptime _ = @TypeOf(other)._is_QNativeIpcKey;
         return .{ .ptr = qtc.QNativeIpcKey_new4(@ptrCast(other.ptr)) };
     }
 
-    /// New5 constructs a new QNativeIpcKey object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new QNativeIpcKey object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -62,7 +82,7 @@ pub const QNativeIpcKey = extern struct {
     ///
     /// ` typeVal: qtipccommon_enums.Type `
     ///
-    pub fn New5(k: []const u8, typeVal: u16) QNativeIpcKey {
+    pub fn new5(k: []const u8, typeVal: u16) QNativeIpcKey {
         const k_str = qtc.libqt_string{
             .len = k.len,
             .data = k.ptr,
@@ -70,15 +90,23 @@ pub const QNativeIpcKey = extern struct {
         return .{ .ptr = qtc.QNativeIpcKey_new5(k_str, @bitCast(typeVal)) };
     }
 
+    /// ### DEPRECATED: Use `legacyDefaultTypeForOs` instead
+    ///
+    pub const LegacyDefaultTypeForOs = legacyDefaultTypeForOs;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnativeipckey.html#legacyDefaultTypeForOs)
     ///
     /// ## Returns:
     ///
     /// ` qtipccommon_enums.Type `
     ///
-    pub fn LegacyDefaultTypeForOs() u16 {
+    pub fn legacyDefaultTypeForOs() u16 {
         return qtc.QNativeIpcKey_LegacyDefaultTypeForOs();
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnativeipckey.html#operator-eq)
     ///
@@ -88,10 +116,14 @@ pub const QNativeIpcKey = extern struct {
     ///
     /// ` other: QNativeIpcKey `
     ///
-    pub fn OperatorAssign(self: QNativeIpcKey, other: anytype) void {
+    pub fn operatorAssign(self: QNativeIpcKey, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QNativeIpcKey;
         qtc.QNativeIpcKey_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnativeipckey.html#swap)
     ///
@@ -101,10 +133,14 @@ pub const QNativeIpcKey = extern struct {
     ///
     /// ` other: QNativeIpcKey `
     ///
-    pub fn Swap(self: QNativeIpcKey, other: anytype) void {
+    pub fn swap(self: QNativeIpcKey, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QNativeIpcKey;
         qtc.QNativeIpcKey_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEmpty` instead
+    ///
+    pub const IsEmpty = isEmpty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnativeipckey.html#isEmpty)
     ///
@@ -112,9 +148,13 @@ pub const QNativeIpcKey = extern struct {
     ///
     /// ` self: QNativeIpcKey `
     ///
-    pub fn IsEmpty(self: QNativeIpcKey) bool {
+    pub fn isEmpty(self: QNativeIpcKey) bool {
         return qtc.QNativeIpcKey_IsEmpty(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnativeipckey.html#isValid)
     ///
@@ -122,9 +162,15 @@ pub const QNativeIpcKey = extern struct {
     ///
     /// ` self: QNativeIpcKey `
     ///
-    pub fn IsValid(self: QNativeIpcKey) bool {
+    pub fn isValid(self: QNativeIpcKey) bool {
         return qtc.QNativeIpcKey_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnativeipckey.html#type)
     ///
@@ -136,9 +182,13 @@ pub const QNativeIpcKey = extern struct {
     ///
     /// ` qtipccommon_enums.Type `
     ///
-    pub fn Type(self: QNativeIpcKey) u16 {
+    pub fn type0(self: QNativeIpcKey) u16 {
         return qtc.QNativeIpcKey_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setType` instead
+    ///
+    pub const SetType = setType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnativeipckey.html#setType)
     ///
@@ -148,9 +198,13 @@ pub const QNativeIpcKey = extern struct {
     ///
     /// ` typeVal: qtipccommon_enums.Type `
     ///
-    pub fn SetType(self: QNativeIpcKey, typeVal: u16) void {
+    pub fn setType(self: QNativeIpcKey, typeVal: u16) void {
         qtc.QNativeIpcKey_SetType(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `nativeKey` instead
+    ///
+    pub const NativeKey = nativeKey;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnativeipckey.html#nativeKey)
     ///
@@ -160,13 +214,17 @@ pub const QNativeIpcKey = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NativeKey(self: QNativeIpcKey, allocator: std.mem.Allocator) []const u8 {
+    pub fn nativeKey(self: QNativeIpcKey, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QNativeIpcKey_NativeKey(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QNativeIpcKey.NativeKey: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QNativeIpcKey.nativeKey: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setNativeKey` instead
+    ///
+    pub const SetNativeKey = setNativeKey;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnativeipckey.html#setNativeKey)
     ///
@@ -176,13 +234,17 @@ pub const QNativeIpcKey = extern struct {
     ///
     /// ` newKey: []const u8 `
     ///
-    pub fn SetNativeKey(self: QNativeIpcKey, newKey: []const u8) void {
+    pub fn setNativeKey(self: QNativeIpcKey, newKey: []const u8) void {
         const newKey_str = qtc.libqt_string{
             .len = newKey.len,
             .data = newKey.ptr,
         };
         qtc.QNativeIpcKey_SetNativeKey(@ptrCast(self.ptr), newKey_str);
     }
+
+    /// ### DEPRECATED: Use `toString` instead
+    ///
+    pub const ToString = toString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnativeipckey.html#toString)
     ///
@@ -192,13 +254,17 @@ pub const QNativeIpcKey = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToString(self: QNativeIpcKey, allocator: std.mem.Allocator) []const u8 {
+    pub fn toString(self: QNativeIpcKey, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QNativeIpcKey_ToString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QNativeIpcKey.ToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QNativeIpcKey.toString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `fromString` instead
+    ///
+    pub const FromString = fromString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnativeipckey.html#fromString)
     ///
@@ -206,7 +272,7 @@ pub const QNativeIpcKey = extern struct {
     ///
     /// ` string: []const u8 `
     ///
-    pub fn FromString(string: []const u8) QNativeIpcKey {
+    pub fn fromString(string: []const u8) QNativeIpcKey {
         const string_str = qtc.libqt_string{
             .len = string.len,
             .data = string.ptr,
@@ -214,19 +280,19 @@ pub const QNativeIpcKey = extern struct {
         return .{ .ptr = qtc.QNativeIpcKey_FromString(string_str) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnativeipckey.html#dtor.QNativeIpcKey)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QNativeIpcKey `
     ///
-    pub fn Delete(self: QNativeIpcKey) void {
+    pub fn delete(self: QNativeIpcKey) void {
         qtc.QNativeIpcKey_Delete(@ptrCast(self.ptr));
     }
 };

@@ -13,6 +13,10 @@ pub const QItemEditorCreatorBase = extern struct {
 
     pub const _is_QItemEditorCreatorBase = {};
 
+    /// ### DEPRECATED: Use `createWidget` instead
+    ///
+    pub const CreateWidget = createWidget;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemeditorcreatorbase.html#createWidget)
     ///
     /// ## Parameter(s):
@@ -21,10 +25,14 @@ pub const QItemEditorCreatorBase = extern struct {
     ///
     /// ` parent: QWidget `
     ///
-    pub fn CreateWidget(self: QItemEditorCreatorBase, parent: anytype) QWidget {
+    pub fn createWidget(self: QItemEditorCreatorBase, parent: anytype) QWidget {
         comptime _ = @TypeOf(parent)._is_QWidget;
         return .{ .ptr = qtc.QItemEditorCreatorBase_CreateWidget(@ptrCast(self.ptr), @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `valuePropertyName` instead
+    ///
+    pub const ValuePropertyName = valuePropertyName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemeditorcreatorbase.html#valuePropertyName)
     ///
@@ -34,13 +42,17 @@ pub const QItemEditorCreatorBase = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ValuePropertyName(self: QItemEditorCreatorBase, allocator: std.mem.Allocator) []u8 {
+    pub fn valuePropertyName(self: QItemEditorCreatorBase, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QItemEditorCreatorBase_ValuePropertyName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QItemEditorCreatorBase.ValuePropertyName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QItemEditorCreatorBase.valuePropertyName: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemeditorcreatorbase.html#operator-eq)
     ///
@@ -50,24 +62,24 @@ pub const QItemEditorCreatorBase = extern struct {
     ///
     /// ` param1: QItemEditorCreatorBase `
     ///
-    pub fn OperatorAssign(self: QItemEditorCreatorBase, param1: anytype) void {
+    pub fn operatorAssign(self: QItemEditorCreatorBase, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QItemEditorCreatorBase;
         qtc.QItemEditorCreatorBase_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemeditorcreatorbase.html#dtor.QItemEditorCreatorBase)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QItemEditorCreatorBase `
     ///
-    pub fn Delete(self: QItemEditorCreatorBase) void {
+    pub fn delete(self: QItemEditorCreatorBase) void {
         qtc.QItemEditorCreatorBase_Delete(@ptrCast(self.ptr));
     }
 };
@@ -82,22 +94,34 @@ pub const QItemEditorFactory = extern struct {
 
     pub const _is_QItemEditorFactory = {};
 
-    /// New constructs a new QItemEditorFactory object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QItemEditorFactory {
+    pub const New = new;
+
+    /// Allocate a new QItemEditorFactory object in C++ memory
+    ///
+    pub fn new() QItemEditorFactory {
         return .{ .ptr = qtc.QItemEditorFactory_new() };
     }
 
-    /// New2 constructs a new QItemEditorFactory object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QItemEditorFactory object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QItemEditorFactory `
     ///
-    pub fn New2(param1: anytype) QItemEditorFactory {
+    pub fn new2(param1: anytype) QItemEditorFactory {
         comptime _ = @TypeOf(param1)._is_QItemEditorFactory;
         return .{ .ptr = qtc.QItemEditorFactory_new2(@ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `createEditor` instead
+    ///
+    pub const CreateEditor = createEditor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemeditorfactory.html#createEditor)
     ///
@@ -109,10 +133,14 @@ pub const QItemEditorFactory = extern struct {
     ///
     /// ` parent: QWidget `
     ///
-    pub fn CreateEditor(self: QItemEditorFactory, userType: i32, parent: anytype) QWidget {
+    pub fn createEditor(self: QItemEditorFactory, userType: i32, parent: anytype) QWidget {
         comptime _ = @TypeOf(parent)._is_QWidget;
         return .{ .ptr = qtc.QItemEditorFactory_CreateEditor(@ptrCast(self.ptr), @bitCast(userType), @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onCreateEditor` instead
+    ///
+    pub const OnCreateEditor = onCreateEditor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemeditorfactory.html#createEditor)
     ///
@@ -124,13 +152,13 @@ pub const QItemEditorFactory = extern struct {
     ///
     /// ` callback: *const fn (self: QItemEditorFactory, userType: i32, parent: QWidget) callconv(.c) QWidget `
     ///
-    pub fn OnCreateEditor(self: QItemEditorFactory, callback: *const fn (QItemEditorFactory, i32, QWidget) callconv(.c) QWidget) void {
+    pub fn onCreateEditor(self: QItemEditorFactory, callback: *const fn (QItemEditorFactory, i32, QWidget) callconv(.c) QWidget) void {
         qtc.QItemEditorFactory_OnCreateEditor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperCreateEditor` instead
+    /// ### DEPRECATED: Use `superCreateEditor` instead
     ///
-    pub const QBaseCreateEditor = SuperCreateEditor;
+    pub const SuperCreateEditor = superCreateEditor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemeditorfactory.html#createEditor)
     ///
@@ -144,10 +172,14 @@ pub const QItemEditorFactory = extern struct {
     ///
     /// ` parent: QWidget `
     ///
-    pub fn SuperCreateEditor(self: QItemEditorFactory, userType: i32, parent: anytype) QWidget {
+    pub fn superCreateEditor(self: QItemEditorFactory, userType: i32, parent: anytype) QWidget {
         comptime _ = @TypeOf(parent)._is_QWidget;
         return .{ .ptr = qtc.QItemEditorFactory_SuperCreateEditor(@ptrCast(self.ptr), @bitCast(userType), @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `valuePropertyName` instead
+    ///
+    pub const ValuePropertyName = valuePropertyName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemeditorfactory.html#valuePropertyName)
     ///
@@ -159,13 +191,17 @@ pub const QItemEditorFactory = extern struct {
     ///
     /// ` userType: i32 `
     ///
-    pub fn ValuePropertyName(self: QItemEditorFactory, allocator: std.mem.Allocator, userType: i32) []u8 {
+    pub fn valuePropertyName(self: QItemEditorFactory, allocator: std.mem.Allocator, userType: i32) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QItemEditorFactory_ValuePropertyName(@ptrCast(self.ptr), @bitCast(userType));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QItemEditorFactory.ValuePropertyName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QItemEditorFactory.valuePropertyName: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onValuePropertyName` instead
+    ///
+    pub const OnValuePropertyName = onValuePropertyName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemeditorfactory.html#valuePropertyName)
     ///
@@ -177,13 +213,13 @@ pub const QItemEditorFactory = extern struct {
     ///
     /// ` callback: *const fn (self: QItemEditorFactory, userType: i32) callconv(.c) qtc.libqt_string `
     ///
-    pub fn OnValuePropertyName(self: QItemEditorFactory, callback: *const fn (QItemEditorFactory, i32) callconv(.c) qtc.libqt_string) void {
+    pub fn onValuePropertyName(self: QItemEditorFactory, callback: *const fn (QItemEditorFactory, i32) callconv(.c) qtc.libqt_string) void {
         qtc.QItemEditorFactory_OnValuePropertyName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperValuePropertyName` instead
+    /// ### DEPRECATED: Use `superValuePropertyName` instead
     ///
-    pub const QBaseValuePropertyName = SuperValuePropertyName;
+    pub const SuperValuePropertyName = superValuePropertyName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemeditorfactory.html#valuePropertyName)
     ///
@@ -197,13 +233,17 @@ pub const QItemEditorFactory = extern struct {
     ///
     /// ` userType: i32 `
     ///
-    pub fn SuperValuePropertyName(self: QItemEditorFactory, allocator: std.mem.Allocator, userType: i32) []u8 {
+    pub fn superValuePropertyName(self: QItemEditorFactory, allocator: std.mem.Allocator, userType: i32) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QItemEditorFactory_SuperValuePropertyName(@ptrCast(self.ptr), @bitCast(userType));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QItemEditorFactory.ValuePropertyName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QItemEditorFactory.valuePropertyName: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `registerEditor` instead
+    ///
+    pub const RegisterEditor = registerEditor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemeditorfactory.html#registerEditor)
     ///
@@ -215,16 +255,24 @@ pub const QItemEditorFactory = extern struct {
     ///
     /// ` creator: QItemEditorCreatorBase `
     ///
-    pub fn RegisterEditor(self: QItemEditorFactory, userType: i32, creator: anytype) void {
+    pub fn registerEditor(self: QItemEditorFactory, userType: i32, creator: anytype) void {
         comptime _ = @TypeOf(creator)._is_QItemEditorCreatorBase;
         qtc.QItemEditorFactory_RegisterEditor(@ptrCast(self.ptr), @bitCast(userType), @ptrCast(creator.ptr));
     }
 
+    /// ### DEPRECATED: Use `defaultFactory` instead
+    ///
+    pub const DefaultFactory = defaultFactory;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemeditorfactory.html#defaultFactory)
     ///
-    pub fn DefaultFactory() QItemEditorFactory {
+    pub fn defaultFactory() QItemEditorFactory {
         return .{ .ptr = qtc.QItemEditorFactory_DefaultFactory() };
     }
+
+    /// ### DEPRECATED: Use `setDefaultFactory` instead
+    ///
+    pub const SetDefaultFactory = setDefaultFactory;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemeditorfactory.html#setDefaultFactory)
     ///
@@ -232,24 +280,24 @@ pub const QItemEditorFactory = extern struct {
     ///
     /// ` factory: QItemEditorFactory `
     ///
-    pub fn SetDefaultFactory(factory: anytype) void {
+    pub fn setDefaultFactory(factory: anytype) void {
         comptime _ = @TypeOf(factory)._is_QItemEditorFactory;
         qtc.QItemEditorFactory_SetDefaultFactory(@ptrCast(factory.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemeditorfactory.html#dtor.QItemEditorFactory)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QItemEditorFactory `
     ///
-    pub fn Delete(self: QItemEditorFactory) void {
+    pub fn delete(self: QItemEditorFactory) void {
         qtc.QItemEditorFactory_Delete(@ptrCast(self.ptr));
     }
 };

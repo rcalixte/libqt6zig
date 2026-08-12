@@ -25,22 +25,34 @@ pub const QMaskGenerator = extern struct {
     pub const _is_QMaskGenerator = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QMaskGenerator object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QMaskGenerator {
+    pub const New = new;
+
+    /// Allocate a new QMaskGenerator object in C++ memory
+    ///
+    pub fn new() QMaskGenerator {
         return .{ .ptr = qtc.QMaskGenerator_new() };
     }
 
-    /// New2 constructs a new QMaskGenerator object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QMaskGenerator object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) QMaskGenerator {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QMaskGenerator_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) QMaskGenerator {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QMaskGenerator_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `seed` instead
+    ///
+    pub const Seed = seed;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmaskgenerator.html#seed)
     ///
@@ -48,9 +60,13 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` self: QMaskGenerator `
     ///
-    pub fn Seed(self: QMaskGenerator) bool {
+    pub fn seed(self: QMaskGenerator) bool {
         return qtc.QMaskGenerator_Seed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSeed` instead
+    ///
+    pub const OnSeed = onSeed;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmaskgenerator.html#seed)
     ///
@@ -62,13 +78,13 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnSeed(self: QMaskGenerator, callback: *const fn () callconv(.c) bool) void {
+    pub fn onSeed(self: QMaskGenerator, callback: *const fn () callconv(.c) bool) void {
         qtc.QMaskGenerator_OnSeed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSeed` instead
+    /// ### DEPRECATED: Use `superSeed` instead
     ///
-    pub const QBaseSeed = SuperSeed;
+    pub const SuperSeed = superSeed;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmaskgenerator.html#seed)
     ///
@@ -78,9 +94,13 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` self: QMaskGenerator `
     ///
-    pub fn SuperSeed(self: QMaskGenerator) bool {
+    pub fn superSeed(self: QMaskGenerator) bool {
         return qtc.QMaskGenerator_SuperSeed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `nextMask` instead
+    ///
+    pub const NextMask = nextMask;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmaskgenerator.html#nextMask)
     ///
@@ -88,9 +108,13 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` self: QMaskGenerator `
     ///
-    pub fn NextMask(self: QMaskGenerator) u32 {
+    pub fn nextMask(self: QMaskGenerator) u32 {
         return qtc.QMaskGenerator_NextMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onNextMask` instead
+    ///
+    pub const OnNextMask = onNextMask;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmaskgenerator.html#nextMask)
     ///
@@ -102,13 +126,13 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) u32 `
     ///
-    pub fn OnNextMask(self: QMaskGenerator, callback: *const fn () callconv(.c) u32) void {
+    pub fn onNextMask(self: QMaskGenerator, callback: *const fn () callconv(.c) u32) void {
         qtc.QMaskGenerator_OnNextMask(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperNextMask` instead
+    /// ### DEPRECATED: Use `superNextMask` instead
     ///
-    pub const QBaseNextMask = SuperNextMask;
+    pub const SuperNextMask = superNextMask;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmaskgenerator.html#nextMask)
     ///
@@ -118,9 +142,13 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` self: QMaskGenerator `
     ///
-    pub fn SuperNextMask(self: QMaskGenerator) u32 {
+    pub fn superNextMask(self: QMaskGenerator) u32 {
         return qtc.QMaskGenerator_SuperNextMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// Inherited from QObject
     ///
@@ -132,14 +160,18 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMaskGenerator.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMaskGenerator.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -151,13 +183,17 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QMaskGenerator, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QMaskGenerator, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMaskGenerator.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMaskGenerator.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -169,13 +205,17 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QMaskGenerator, name: []const u8) void {
+    pub fn setObjectName(self: QMaskGenerator, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -185,9 +225,13 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` self: QMaskGenerator `
     ///
-    pub fn IsWidgetType(self: QMaskGenerator) bool {
+    pub fn isWidgetType(self: QMaskGenerator) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -197,9 +241,13 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` self: QMaskGenerator `
     ///
-    pub fn IsWindowType(self: QMaskGenerator) bool {
+    pub fn isWindowType(self: QMaskGenerator) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -209,9 +257,13 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` self: QMaskGenerator `
     ///
-    pub fn IsQuickItemType(self: QMaskGenerator) bool {
+    pub fn isQuickItemType(self: QMaskGenerator) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -221,9 +273,13 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` self: QMaskGenerator `
     ///
-    pub fn SignalsBlocked(self: QMaskGenerator) bool {
+    pub fn signalsBlocked(self: QMaskGenerator) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -235,9 +291,13 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QMaskGenerator, b: bool) bool {
+    pub fn blockSignals(self: QMaskGenerator, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -247,9 +307,13 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` self: QMaskGenerator `
     ///
-    pub fn Thread(self: QMaskGenerator) QThread {
+    pub fn thread(self: QMaskGenerator) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -259,12 +323,16 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` self: QMaskGenerator `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QMaskGenerator, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QMaskGenerator, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -276,9 +344,13 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QMaskGenerator, interval: i32) i32 {
+    pub fn startTimer(self: QMaskGenerator, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -290,9 +362,13 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QMaskGenerator, time: i64) i32 {
+    pub fn startTimer2(self: QMaskGenerator, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -304,9 +380,13 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QMaskGenerator, id: i32) void {
+    pub fn killTimer(self: QMaskGenerator, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -318,9 +398,13 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QMaskGenerator, id: i32) void {
+    pub fn killTimer2(self: QMaskGenerator, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -332,15 +416,19 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QMaskGenerator, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QMaskGenerator, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QMaskGenerator.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QMaskGenerator.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -350,12 +438,16 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` self: QMaskGenerator `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QMaskGenerator, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QMaskGenerator, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -367,10 +459,14 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QMaskGenerator, filterObj: anytype) void {
+    pub fn installEventFilter(self: QMaskGenerator, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -382,10 +478,14 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QMaskGenerator, obj: anytype) void {
+    pub fn removeEventFilter(self: QMaskGenerator, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -393,7 +493,7 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -401,13 +501,17 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -415,7 +519,7 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -423,13 +527,17 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -439,18 +547,22 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` self: QMaskGenerator `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QMaskGenerator, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QMaskGenerator, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -458,7 +570,7 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -466,13 +578,17 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -480,7 +596,7 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -488,13 +604,17 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -504,9 +624,13 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` self: QMaskGenerator `
     ///
-    pub fn Disconnect3(self: QMaskGenerator) bool {
+    pub fn disconnect3(self: QMaskGenerator) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -518,10 +642,14 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QMaskGenerator, receiver: anytype) bool {
+    pub fn disconnect4(self: QMaskGenerator, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -531,10 +659,14 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -544,9 +676,13 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` self: QMaskGenerator `
     ///
-    pub fn DumpObjectTree(self: QMaskGenerator) void {
+    pub fn dumpObjectTree(self: QMaskGenerator) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -556,9 +692,13 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` self: QMaskGenerator `
     ///
-    pub fn DumpObjectInfo(self: QMaskGenerator) void {
+    pub fn dumpObjectInfo(self: QMaskGenerator) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -572,11 +712,15 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QMaskGenerator, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QMaskGenerator, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -588,10 +732,14 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QMaskGenerator, name: [:0]const u8) QVariant {
+    pub fn property(self: QMaskGenerator, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -603,7 +751,7 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QMaskGenerator, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QMaskGenerator, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -611,27 +759,19 @@ pub const QMaskGenerator = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QMaskGenerator.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QMaskGenerator.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QMaskGenerator.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QMaskGenerator.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QMaskGenerator `
-    ///
-    pub fn BindingStorage(self: QMaskGenerator) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -641,9 +781,29 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` self: QMaskGenerator `
     ///
-    pub fn BindingStorage2(self: QMaskGenerator) QBindingStorage {
+    pub fn bindingStorage(self: QMaskGenerator) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QMaskGenerator `
+    ///
+    pub fn bindingStorage2(self: QMaskGenerator) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -653,9 +813,13 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` self: QMaskGenerator `
     ///
-    pub fn Destroyed(self: QMaskGenerator) void {
+    pub fn destroyed(self: QMaskGenerator) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -667,9 +831,13 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` callback: *const fn (self: QMaskGenerator) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QMaskGenerator, callback: *const fn (QMaskGenerator) callconv(.c) void) void {
+    pub fn onDestroyed(self: QMaskGenerator, callback: *const fn (QMaskGenerator) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -679,9 +847,13 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` self: QMaskGenerator `
     ///
-    pub fn Parent(self: QMaskGenerator) QObject {
+    pub fn parent(self: QMaskGenerator) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -693,10 +865,14 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QMaskGenerator, classname: [:0]const u8) bool {
+    pub fn inherits(self: QMaskGenerator, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -706,9 +882,13 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` self: QMaskGenerator `
     ///
-    pub fn DeleteLater(self: QMaskGenerator) void {
+    pub fn deleteLater(self: QMaskGenerator) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// Inherited from QObject
     ///
@@ -722,15 +902,19 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMaskGenerator.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMaskGenerator.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// Inherited from QObject
     ///
@@ -746,15 +930,19 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMaskGenerator.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMaskGenerator.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -768,9 +956,13 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QMaskGenerator, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QMaskGenerator, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -784,9 +976,13 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QMaskGenerator, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QMaskGenerator, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -794,7 +990,7 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -804,13 +1000,17 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -818,7 +1018,7 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -828,13 +1028,17 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -844,7 +1048,7 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` self: QMaskGenerator `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -852,12 +1056,16 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QMaskGenerator, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QMaskGenerator, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -869,10 +1077,14 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QMaskGenerator, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QMaskGenerator, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -886,11 +1098,15 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QMaskGenerator, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QMaskGenerator, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -906,13 +1122,17 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QMaskGenerator, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QMaskGenerator, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -925,11 +1145,15 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QMaskGenerator, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QMaskGenerator, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -941,10 +1165,14 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QMaskGenerator, param1: anytype) void {
+    pub fn destroyed1(self: QMaskGenerator, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -956,9 +1184,13 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` callback: *const fn (self: QMaskGenerator, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QMaskGenerator, callback: *const fn (QMaskGenerator, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QMaskGenerator, callback: *const fn (QMaskGenerator, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// Inherited from QObject
     ///
@@ -970,13 +1202,13 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` self: QMaskGenerator `
     ///
-    pub fn MetaObject(self: QMaskGenerator) QMetaObject {
+    pub fn metaObject(self: QMaskGenerator) QMetaObject {
         return .{ .ptr = qtc.QMaskGenerator_MetaObject(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// Inherited from QObject
     ///
@@ -988,9 +1220,13 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` self: QMaskGenerator `
     ///
-    pub fn SuperMetaObject(self: QMaskGenerator) QMetaObject {
+    pub fn superMetaObject(self: QMaskGenerator) QMetaObject {
         return .{ .ptr = qtc.QMaskGenerator_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// Inherited from QObject
     ///
@@ -1004,9 +1240,13 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QMaskGenerator, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QMaskGenerator, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QMaskGenerator_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// Inherited from QObject
     ///
@@ -1020,14 +1260,14 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QMaskGenerator, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QMaskGenerator, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QMaskGenerator_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Inherited from QObject
     ///
@@ -1041,10 +1281,14 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QMaskGenerator, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QMaskGenerator, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QMaskGenerator_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Inherited from QObject
     ///
@@ -1058,9 +1302,13 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` callback: *const fn (self: QMaskGenerator, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QMaskGenerator, callback: *const fn (QMaskGenerator, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QMaskGenerator, callback: *const fn (QMaskGenerator, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QMaskGenerator_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// Inherited from QObject
     ///
@@ -1078,13 +1326,13 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QMaskGenerator, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QMaskGenerator, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QMaskGenerator_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Inherited from QObject
     ///
@@ -1102,9 +1350,13 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QMaskGenerator, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QMaskGenerator, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QMaskGenerator_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Inherited from QObject
     ///
@@ -1118,9 +1370,13 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` callback: *const fn (self: QMaskGenerator, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QMaskGenerator, callback: *const fn (QMaskGenerator, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QMaskGenerator, callback: *const fn (QMaskGenerator, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QMaskGenerator_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -1132,16 +1388,16 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` self: QMaskGenerator `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QMaskGenerator, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QMaskGenerator_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QMaskGenerator, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QMaskGenerator_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -1153,12 +1409,16 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` self: QMaskGenerator `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QMaskGenerator, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QMaskGenerator_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QMaskGenerator, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QMaskGenerator_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -1172,9 +1432,13 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` callback: *const fn (self: QMaskGenerator, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QMaskGenerator, callback: *const fn (QMaskGenerator, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QMaskGenerator, callback: *const fn (QMaskGenerator, QEvent) callconv(.c) bool) void {
         qtc.QMaskGenerator_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1188,17 +1452,17 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QMaskGenerator, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QMaskGenerator, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QMaskGenerator_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QMaskGenerator_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1212,13 +1476,17 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QMaskGenerator, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QMaskGenerator, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QMaskGenerator_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QMaskGenerator_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1232,9 +1500,13 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` callback: *const fn (self: QMaskGenerator, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QMaskGenerator, callback: *const fn (QMaskGenerator, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QMaskGenerator, callback: *const fn (QMaskGenerator, QObject, QEvent) callconv(.c) bool) void {
         qtc.QMaskGenerator_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -1246,16 +1518,16 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` self: QMaskGenerator `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QMaskGenerator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QMaskGenerator_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QMaskGenerator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QMaskGenerator_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1267,12 +1539,16 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` self: QMaskGenerator `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QMaskGenerator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QMaskGenerator_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QMaskGenerator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QMaskGenerator_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1286,9 +1562,13 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` callback: *const fn (self: QMaskGenerator, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QMaskGenerator, callback: *const fn (QMaskGenerator, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QMaskGenerator, callback: *const fn (QMaskGenerator, QTimerEvent) callconv(.c) void) void {
         qtc.QMaskGenerator_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -1300,16 +1580,16 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` self: QMaskGenerator `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QMaskGenerator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QMaskGenerator_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QMaskGenerator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QMaskGenerator_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1321,12 +1601,16 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` self: QMaskGenerator `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QMaskGenerator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QMaskGenerator_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QMaskGenerator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QMaskGenerator_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1340,9 +1624,13 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` callback: *const fn (self: QMaskGenerator, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QMaskGenerator, callback: *const fn (QMaskGenerator, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QMaskGenerator, callback: *const fn (QMaskGenerator, QChildEvent) callconv(.c) void) void {
         qtc.QMaskGenerator_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -1354,16 +1642,16 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` self: QMaskGenerator `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QMaskGenerator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QMaskGenerator_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QMaskGenerator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QMaskGenerator_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1375,12 +1663,16 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` self: QMaskGenerator `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QMaskGenerator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QMaskGenerator_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QMaskGenerator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QMaskGenerator_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1394,9 +1686,13 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` callback: *const fn (self: QMaskGenerator, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QMaskGenerator, callback: *const fn (QMaskGenerator, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QMaskGenerator, callback: *const fn (QMaskGenerator, QEvent) callconv(.c) void) void {
         qtc.QMaskGenerator_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -1410,14 +1706,14 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QMaskGenerator, signal: anytype) void {
+    pub fn connectNotify(self: QMaskGenerator, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QMaskGenerator_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1431,11 +1727,15 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QMaskGenerator, signal: anytype) void {
+    pub fn superConnectNotify(self: QMaskGenerator, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QMaskGenerator_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1448,9 +1748,13 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` callback: *const fn (self: QMaskGenerator, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QMaskGenerator, callback: *const fn (QMaskGenerator, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QMaskGenerator, callback: *const fn (QMaskGenerator, QMetaMethod) callconv(.c) void) void {
         qtc.QMaskGenerator_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1464,14 +1768,14 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QMaskGenerator, signal: anytype) void {
+    pub fn disconnectNotify(self: QMaskGenerator, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QMaskGenerator_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1485,10 +1789,14 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QMaskGenerator, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QMaskGenerator, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QMaskGenerator_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1502,9 +1810,13 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` callback: *const fn (self: QMaskGenerator, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QMaskGenerator, callback: *const fn (QMaskGenerator, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QMaskGenerator, callback: *const fn (QMaskGenerator, QMetaMethod) callconv(.c) void) void {
         qtc.QMaskGenerator_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -1516,13 +1828,13 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` self: QMaskGenerator `
     ///
-    pub fn Sender(self: QMaskGenerator) QObject {
+    pub fn sender(self: QMaskGenerator) QObject {
         return .{ .ptr = qtc.QMaskGenerator_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -1534,9 +1846,13 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` self: QMaskGenerator `
     ///
-    pub fn SuperSender(self: QMaskGenerator) QObject {
+    pub fn superSender(self: QMaskGenerator) QObject {
         return .{ .ptr = qtc.QMaskGenerator_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -1550,9 +1866,13 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QMaskGenerator, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QMaskGenerator, callback: *const fn () callconv(.c) QObject) void {
         qtc.QMaskGenerator_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1564,13 +1884,13 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` self: QMaskGenerator `
     ///
-    pub fn SenderSignalIndex(self: QMaskGenerator) i32 {
+    pub fn senderSignalIndex(self: QMaskGenerator) i32 {
         return qtc.QMaskGenerator_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1582,9 +1902,13 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` self: QMaskGenerator `
     ///
-    pub fn SuperSenderSignalIndex(self: QMaskGenerator) i32 {
+    pub fn superSenderSignalIndex(self: QMaskGenerator) i32 {
         return qtc.QMaskGenerator_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1598,9 +1922,13 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QMaskGenerator, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QMaskGenerator, callback: *const fn () callconv(.c) i32) void {
         qtc.QMaskGenerator_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -1614,14 +1942,14 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QMaskGenerator, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QMaskGenerator, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QMaskGenerator_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -1635,10 +1963,14 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QMaskGenerator, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QMaskGenerator, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QMaskGenerator_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -1652,9 +1984,13 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` callback: *const fn (self: QMaskGenerator, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QMaskGenerator, callback: *const fn (QMaskGenerator, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QMaskGenerator, callback: *const fn (QMaskGenerator, [*:0]const u8) callconv(.c) i32) void {
         qtc.QMaskGenerator_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1668,14 +2004,14 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QMaskGenerator, signal: anytype) bool {
+    pub fn isSignalConnected(self: QMaskGenerator, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QMaskGenerator_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1689,10 +2025,14 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QMaskGenerator, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QMaskGenerator, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QMaskGenerator_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1706,9 +2046,13 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` callback: *const fn (self: QMaskGenerator, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QMaskGenerator, callback: *const fn (QMaskGenerator, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QMaskGenerator, callback: *const fn (QMaskGenerator, QMetaMethod) callconv(.c) bool) void {
         qtc.QMaskGenerator_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -1722,23 +2066,23 @@ pub const QMaskGenerator = extern struct {
     ///
     /// ` callback: *const fn (self: QMaskGenerator, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QMaskGenerator, callback: *const fn (QMaskGenerator, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QMaskGenerator, callback: *const fn (QMaskGenerator, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmaskgenerator.html#dtor.QMaskGenerator)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QMaskGenerator `
     ///
-    pub fn Delete(self: QMaskGenerator) void {
+    pub fn delete(self: QMaskGenerator) void {
         qtc.QMaskGenerator_Delete(@ptrCast(self.ptr));
     }
 };

@@ -14,11 +14,19 @@ pub const QWaitCondition = extern struct {
 
     pub const _is_QWaitCondition = {};
 
-    /// New constructs a new QWaitCondition object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QWaitCondition {
+    pub const New = new;
+
+    /// Allocate a new QWaitCondition object in C++ memory
+    ///
+    pub fn new() QWaitCondition {
         return .{ .ptr = qtc.QWaitCondition_new() };
     }
+
+    /// ### DEPRECATED: Use `wait` instead
+    ///
+    pub const Wait = wait;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwaitcondition.html#wait)
     ///
@@ -28,11 +36,15 @@ pub const QWaitCondition = extern struct {
     ///
     /// ` lockedMutex: QMutex `
     ///
-    pub fn Wait(self: QWaitCondition, lockedMutex: anytype) bool {
+    pub fn wait(self: QWaitCondition, lockedMutex: anytype) bool {
         comptime _ = @TypeOf(lockedMutex)._is_QMutex;
         return qtc.QWaitCondition_Wait(@ptrCast(self.ptr), @ptrCast(lockedMutex.ptr));
     }
 
+    /// ### DEPRECATED: Use `wait2` instead
+    ///
+    pub const Wait2 = wait2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwaitcondition.html#wait)
     ///
     /// ## Parameter(s):
@@ -43,10 +55,14 @@ pub const QWaitCondition = extern struct {
     ///
     /// ` time: usize `
     ///
-    pub fn Wait2(self: QWaitCondition, lockedMutex: anytype, time: usize) bool {
+    pub fn wait2(self: QWaitCondition, lockedMutex: anytype, time: usize) bool {
         comptime _ = @TypeOf(lockedMutex)._is_QMutex;
         return qtc.QWaitCondition_Wait2(@ptrCast(self.ptr), @ptrCast(lockedMutex.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `wait3` instead
+    ///
+    pub const Wait3 = wait3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwaitcondition.html#wait)
     ///
@@ -56,10 +72,14 @@ pub const QWaitCondition = extern struct {
     ///
     /// ` lockedReadWriteLock: QReadWriteLock `
     ///
-    pub fn Wait3(self: QWaitCondition, lockedReadWriteLock: anytype) bool {
+    pub fn wait3(self: QWaitCondition, lockedReadWriteLock: anytype) bool {
         comptime _ = @TypeOf(lockedReadWriteLock)._is_QReadWriteLock;
         return qtc.QWaitCondition_Wait3(@ptrCast(self.ptr), @ptrCast(lockedReadWriteLock.ptr));
     }
+
+    /// ### DEPRECATED: Use `wait4` instead
+    ///
+    pub const Wait4 = wait4;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwaitcondition.html#wait)
     ///
@@ -71,10 +91,14 @@ pub const QWaitCondition = extern struct {
     ///
     /// ` time: usize `
     ///
-    pub fn Wait4(self: QWaitCondition, lockedReadWriteLock: anytype, time: usize) bool {
+    pub fn wait4(self: QWaitCondition, lockedReadWriteLock: anytype, time: usize) bool {
         comptime _ = @TypeOf(lockedReadWriteLock)._is_QReadWriteLock;
         return qtc.QWaitCondition_Wait4(@ptrCast(self.ptr), @ptrCast(lockedReadWriteLock.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `wakeOne` instead
+    ///
+    pub const WakeOne = wakeOne;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwaitcondition.html#wakeOne)
     ///
@@ -82,9 +106,13 @@ pub const QWaitCondition = extern struct {
     ///
     /// ` self: QWaitCondition `
     ///
-    pub fn WakeOne(self: QWaitCondition) void {
+    pub fn wakeOne(self: QWaitCondition) void {
         qtc.QWaitCondition_WakeOne(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `wakeAll` instead
+    ///
+    pub const WakeAll = wakeAll;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwaitcondition.html#wakeAll)
     ///
@@ -92,9 +120,13 @@ pub const QWaitCondition = extern struct {
     ///
     /// ` self: QWaitCondition `
     ///
-    pub fn WakeAll(self: QWaitCondition) void {
+    pub fn wakeAll(self: QWaitCondition) void {
         qtc.QWaitCondition_WakeAll(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `notifyOne` instead
+    ///
+    pub const NotifyOne = notifyOne;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwaitcondition.html#notify_one)
     ///
@@ -102,9 +134,13 @@ pub const QWaitCondition = extern struct {
     ///
     /// ` self: QWaitCondition `
     ///
-    pub fn NotifyOne(self: QWaitCondition) void {
+    pub fn notifyOne(self: QWaitCondition) void {
         qtc.QWaitCondition_NotifyOne(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `notifyAll` instead
+    ///
+    pub const NotifyAll = notifyAll;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwaitcondition.html#notify_all)
     ///
@@ -112,9 +148,13 @@ pub const QWaitCondition = extern struct {
     ///
     /// ` self: QWaitCondition `
     ///
-    pub fn NotifyAll(self: QWaitCondition) void {
+    pub fn notifyAll(self: QWaitCondition) void {
         qtc.QWaitCondition_NotifyAll(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `wait22` instead
+    ///
+    pub const Wait22 = wait22;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwaitcondition.html#wait)
     ///
@@ -126,11 +166,15 @@ pub const QWaitCondition = extern struct {
     ///
     /// ` deadline: QDeadlineTimer `
     ///
-    pub fn Wait22(self: QWaitCondition, lockedMutex: anytype, deadline: anytype) bool {
+    pub fn wait22(self: QWaitCondition, lockedMutex: anytype, deadline: anytype) bool {
         comptime _ = @TypeOf(lockedMutex)._is_QMutex;
         comptime _ = @TypeOf(deadline)._is_QDeadlineTimer;
         return qtc.QWaitCondition_Wait22(@ptrCast(self.ptr), @ptrCast(lockedMutex.ptr), @ptrCast(deadline.ptr));
     }
+
+    /// ### DEPRECATED: Use `wait23` instead
+    ///
+    pub const Wait23 = wait23;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwaitcondition.html#wait)
     ///
@@ -142,25 +186,25 @@ pub const QWaitCondition = extern struct {
     ///
     /// ` deadline: QDeadlineTimer `
     ///
-    pub fn Wait23(self: QWaitCondition, lockedReadWriteLock: anytype, deadline: anytype) bool {
+    pub fn wait23(self: QWaitCondition, lockedReadWriteLock: anytype, deadline: anytype) bool {
         comptime _ = @TypeOf(lockedReadWriteLock)._is_QReadWriteLock;
         comptime _ = @TypeOf(deadline)._is_QDeadlineTimer;
         return qtc.QWaitCondition_Wait23(@ptrCast(self.ptr), @ptrCast(lockedReadWriteLock.ptr), @ptrCast(deadline.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwaitcondition.html#dtor.QWaitCondition)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QWaitCondition `
     ///
-    pub fn Delete(self: QWaitCondition) void {
+    pub fn delete(self: QWaitCondition) void {
         qtc.QWaitCondition_Delete(@ptrCast(self.ptr));
     }
 };

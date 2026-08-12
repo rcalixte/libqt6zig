@@ -13,22 +13,34 @@ pub const KParts__OpenUrlArguments = extern struct {
 
     pub const _is_KParts__OpenUrlArguments = {};
 
-    /// New constructs a new KParts::OpenUrlArguments object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() KParts__OpenUrlArguments {
+    pub const New = new;
+
+    /// Allocate a new KParts::OpenUrlArguments object in C++ memory
+    ///
+    pub fn new() KParts__OpenUrlArguments {
         return .{ .ptr = qtc.KParts__OpenUrlArguments_new() };
     }
 
-    /// New2 constructs a new KParts::OpenUrlArguments object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KParts::OpenUrlArguments object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: KParts__OpenUrlArguments `
     ///
-    pub fn New2(other: anytype) KParts__OpenUrlArguments {
+    pub fn new2(other: anytype) KParts__OpenUrlArguments {
         comptime _ = @TypeOf(other)._is_KParts__OpenUrlArguments;
         return .{ .ptr = qtc.KParts__OpenUrlArguments_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-openurlarguments.html#operator-eq)
     ///
@@ -38,10 +50,14 @@ pub const KParts__OpenUrlArguments = extern struct {
     ///
     /// ` other: KParts__OpenUrlArguments `
     ///
-    pub fn OperatorAssign(self: KParts__OpenUrlArguments, other: anytype) void {
+    pub fn operatorAssign(self: KParts__OpenUrlArguments, other: anytype) void {
         comptime _ = @TypeOf(other)._is_KParts__OpenUrlArguments;
         qtc.KParts__OpenUrlArguments_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `reload` instead
+    ///
+    pub const Reload = reload;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-openurlarguments.html#reload)
     ///
@@ -49,9 +65,13 @@ pub const KParts__OpenUrlArguments = extern struct {
     ///
     /// ` self: KParts__OpenUrlArguments `
     ///
-    pub fn Reload(self: KParts__OpenUrlArguments) bool {
+    pub fn reload(self: KParts__OpenUrlArguments) bool {
         return qtc.KParts__OpenUrlArguments_Reload(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setReload` instead
+    ///
+    pub const SetReload = setReload;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-openurlarguments.html#setReload)
     ///
@@ -61,9 +81,13 @@ pub const KParts__OpenUrlArguments = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetReload(self: KParts__OpenUrlArguments, b: bool) void {
+    pub fn setReload(self: KParts__OpenUrlArguments, b: bool) void {
         qtc.KParts__OpenUrlArguments_SetReload(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `xOffset` instead
+    ///
+    pub const XOffset = xOffset;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-openurlarguments.html#xOffset)
     ///
@@ -71,9 +95,13 @@ pub const KParts__OpenUrlArguments = extern struct {
     ///
     /// ` self: KParts__OpenUrlArguments `
     ///
-    pub fn XOffset(self: KParts__OpenUrlArguments) i32 {
+    pub fn xOffset(self: KParts__OpenUrlArguments) i32 {
         return qtc.KParts__OpenUrlArguments_XOffset(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setXOffset` instead
+    ///
+    pub const SetXOffset = setXOffset;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-openurlarguments.html#setXOffset)
     ///
@@ -83,9 +111,13 @@ pub const KParts__OpenUrlArguments = extern struct {
     ///
     /// ` x: i32 `
     ///
-    pub fn SetXOffset(self: KParts__OpenUrlArguments, x: i32) void {
+    pub fn setXOffset(self: KParts__OpenUrlArguments, x: i32) void {
         qtc.KParts__OpenUrlArguments_SetXOffset(@ptrCast(self.ptr), @bitCast(x));
     }
+
+    /// ### DEPRECATED: Use `yOffset` instead
+    ///
+    pub const YOffset = yOffset;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-openurlarguments.html#yOffset)
     ///
@@ -93,9 +125,13 @@ pub const KParts__OpenUrlArguments = extern struct {
     ///
     /// ` self: KParts__OpenUrlArguments `
     ///
-    pub fn YOffset(self: KParts__OpenUrlArguments) i32 {
+    pub fn yOffset(self: KParts__OpenUrlArguments) i32 {
         return qtc.KParts__OpenUrlArguments_YOffset(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setYOffset` instead
+    ///
+    pub const SetYOffset = setYOffset;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-openurlarguments.html#setYOffset)
     ///
@@ -105,9 +141,13 @@ pub const KParts__OpenUrlArguments = extern struct {
     ///
     /// ` y: i32 `
     ///
-    pub fn SetYOffset(self: KParts__OpenUrlArguments, y: i32) void {
+    pub fn setYOffset(self: KParts__OpenUrlArguments, y: i32) void {
         qtc.KParts__OpenUrlArguments_SetYOffset(@ptrCast(self.ptr), @bitCast(y));
     }
+
+    /// ### DEPRECATED: Use `mimeType` instead
+    ///
+    pub const MimeType = mimeType;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-openurlarguments.html#mimeType)
     ///
@@ -117,13 +157,17 @@ pub const KParts__OpenUrlArguments = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MimeType(self: KParts__OpenUrlArguments, allocator: std.mem.Allocator) []const u8 {
+    pub fn mimeType(self: KParts__OpenUrlArguments, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KParts__OpenUrlArguments_MimeType(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KParts__OpenUrlArguments.MimeType: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KParts__OpenUrlArguments.mimeType: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setMimeType` instead
+    ///
+    pub const SetMimeType = setMimeType;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-openurlarguments.html#setMimeType)
     ///
@@ -133,7 +177,7 @@ pub const KParts__OpenUrlArguments = extern struct {
     ///
     /// ` mime: []const u8 `
     ///
-    pub fn SetMimeType(self: KParts__OpenUrlArguments, mime: []const u8) void {
+    pub fn setMimeType(self: KParts__OpenUrlArguments, mime: []const u8) void {
         const mime_str = qtc.libqt_string{
             .len = mime.len,
             .data = mime.ptr,
@@ -141,15 +185,23 @@ pub const KParts__OpenUrlArguments = extern struct {
         qtc.KParts__OpenUrlArguments_SetMimeType(@ptrCast(self.ptr), mime_str);
     }
 
+    /// ### DEPRECATED: Use `actionRequestedByUser` instead
+    ///
+    pub const ActionRequestedByUser = actionRequestedByUser;
+
     /// ### [Upstream resources](https://api.kde.org/kparts-openurlarguments.html#actionRequestedByUser)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KParts__OpenUrlArguments `
     ///
-    pub fn ActionRequestedByUser(self: KParts__OpenUrlArguments) bool {
+    pub fn actionRequestedByUser(self: KParts__OpenUrlArguments) bool {
         return qtc.KParts__OpenUrlArguments_ActionRequestedByUser(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setActionRequestedByUser` instead
+    ///
+    pub const SetActionRequestedByUser = setActionRequestedByUser;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-openurlarguments.html#setActionRequestedByUser)
     ///
@@ -159,10 +211,14 @@ pub const KParts__OpenUrlArguments = extern struct {
     ///
     /// ` userRequested: bool `
     ///
-    pub fn SetActionRequestedByUser(self: KParts__OpenUrlArguments, userRequested: bool) void {
+    pub fn setActionRequestedByUser(self: KParts__OpenUrlArguments, userRequested: bool) void {
         qtc.KParts__OpenUrlArguments_SetActionRequestedByUser(@ptrCast(self.ptr), userRequested);
     }
 
+    /// ### DEPRECATED: Use `metaData` instead
+    ///
+    pub const MetaData = metaData;
+
     /// ### [Upstream resources](https://api.kde.org/kparts-openurlarguments.html#metaData)
     ///
     /// ## Parameter(s):
@@ -171,10 +227,10 @@ pub const KParts__OpenUrlArguments = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MetaData(self: KParts__OpenUrlArguments, allocator: std.mem.Allocator) ArrayMap_constu8_constu8 {
+    pub fn metaData(self: KParts__OpenUrlArguments, allocator: std.mem.Allocator) ArrayMap_constu8_constu8 {
         const _map: qtc.libqt_map = qtc.KParts__OpenUrlArguments_MetaData(@ptrCast(self.ptr));
         var _ret: ArrayMap_constu8_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KParts__OpenUrlArguments.MetaData: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KParts__OpenUrlArguments.metaData: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
@@ -190,15 +246,19 @@ pub const KParts__OpenUrlArguments = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("KParts__OpenUrlArguments.MetaData: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("KParts__OpenUrlArguments.metaData: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("KParts__OpenUrlArguments.MetaData: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("KParts__OpenUrlArguments.metaData: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
             _ret.putAssumeCapacity(_entry_slice, _value_slice);
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `metaData2` instead
+    ///
+    pub const MetaData2 = metaData2;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-openurlarguments.html#metaData)
     ///
@@ -208,10 +268,10 @@ pub const KParts__OpenUrlArguments = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MetaData2(self: KParts__OpenUrlArguments, allocator: std.mem.Allocator) ArrayMap_constu8_constu8 {
+    pub fn metaData2(self: KParts__OpenUrlArguments, allocator: std.mem.Allocator) ArrayMap_constu8_constu8 {
         const _map: qtc.libqt_map = qtc.KParts__OpenUrlArguments_MetaData2(@ptrCast(self.ptr));
         var _ret: ArrayMap_constu8_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KParts__OpenUrlArguments.MetaData2: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KParts__OpenUrlArguments.metaData2: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
@@ -227,27 +287,27 @@ pub const KParts__OpenUrlArguments = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("KParts__OpenUrlArguments.MetaData2: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("KParts__OpenUrlArguments.metaData2: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("KParts__OpenUrlArguments.MetaData2: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("KParts__OpenUrlArguments.metaData2: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
             _ret.putAssumeCapacity(_entry_slice, _value_slice);
         }
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KParts__OpenUrlArguments `
     ///
-    pub fn Delete(self: KParts__OpenUrlArguments) void {
+    pub fn delete(self: KParts__OpenUrlArguments) void {
         qtc.KParts__OpenUrlArguments_Delete(@ptrCast(self.ptr));
     }
 };

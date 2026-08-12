@@ -11,45 +11,64 @@ pub const QHashSeed = extern struct {
 
     pub const _is_QHashSeed = {};
 
-    /// New constructs a new QHashSeed object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QHashSeed object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QHashSeed `
     ///
-    pub fn New(other: anytype) QHashSeed {
+    pub fn new(other: anytype) QHashSeed {
         comptime _ = @TypeOf(other)._is_QHashSeed;
         return .{ .ptr = qtc.QHashSeed_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new QHashSeed object and invalidates the source QHashSeed object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QHashSeed object and invalidate the source QHashSeed object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QHashSeed `
     ///
-    pub fn New2(other: anytype) QHashSeed {
+    pub fn new2(other: anytype) QHashSeed {
         comptime _ = @TypeOf(other)._is_QHashSeed;
         return .{ .ptr = qtc.QHashSeed_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QHashSeed object.
+    /// ### DEPRECATED: Use `new3` instead
     ///
-    pub fn New3() QHashSeed {
+    pub const New3 = new3;
+
+    /// Allocate a new QHashSeed object in C++ memory
+    ///
+    pub fn new3() QHashSeed {
         return .{ .ptr = qtc.QHashSeed_new3() };
     }
 
-    /// New4 constructs a new QHashSeed object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QHashSeed object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` d: usize `
     ///
-    pub fn New4(d: usize) QHashSeed {
+    pub fn new4(d: usize) QHashSeed {
         return .{ .ptr = qtc.QHashSeed_new4(@bitCast(d)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -57,11 +76,14 @@ pub const QHashSeed = extern struct {
     ///
     /// ` other: QHashSeed `
     ///
-    pub fn CopyAssign(self: QHashSeed, other: QHashSeed) void {
+    pub fn copyAssign(self: QHashSeed, other: QHashSeed) void {
         qtc.QHashSeed_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -69,9 +91,13 @@ pub const QHashSeed = extern struct {
     ///
     /// ` other: QHashSeed `
     ///
-    pub fn MoveAssign(self: QHashSeed, other: QHashSeed) void {
+    pub fn moveAssign(self: QHashSeed, other: QHashSeed) void {
         qtc.QHashSeed_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `toUnsignedLong` instead
+    ///
+    pub const ToUnsignedLong = toUnsignedLong;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhashseed.html#operator)
     ///
@@ -79,41 +105,53 @@ pub const QHashSeed = extern struct {
     ///
     /// ` self: QHashSeed `
     ///
-    pub fn ToUnsignedLong(self: QHashSeed) usize {
+    pub fn toUnsignedLong(self: QHashSeed) usize {
         return qtc.QHashSeed_ToUnsignedLong(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `globalSeed` instead
+    ///
+    pub const GlobalSeed = globalSeed;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhashseed.html#globalSeed)
     ///
-    pub fn GlobalSeed() QHashSeed {
+    pub fn globalSeed() QHashSeed {
         return .{ .ptr = qtc.QHashSeed_GlobalSeed() };
     }
 
+    /// ### DEPRECATED: Use `setDeterministicGlobalSeed` instead
+    ///
+    pub const SetDeterministicGlobalSeed = setDeterministicGlobalSeed;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhashseed.html#setDeterministicGlobalSeed)
     ///
-    pub fn SetDeterministicGlobalSeed() void {
+    pub fn setDeterministicGlobalSeed() void {
         qtc.QHashSeed_SetDeterministicGlobalSeed();
     }
 
+    /// ### DEPRECATED: Use `resetRandomGlobalSeed` instead
+    ///
+    pub const ResetRandomGlobalSeed = resetRandomGlobalSeed;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhashseed.html#resetRandomGlobalSeed)
     ///
-    pub fn ResetRandomGlobalSeed() void {
+    pub fn resetRandomGlobalSeed() void {
         qtc.QHashSeed_ResetRandomGlobalSeed();
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhashseed.html#dtor.QHashSeed)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QHashSeed `
     ///
-    pub fn Delete(self: QHashSeed) void {
+    pub fn delete(self: QHashSeed) void {
         qtc.QHashSeed_Delete(@ptrCast(self.ptr));
     }
 };

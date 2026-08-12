@@ -12,72 +12,92 @@ pub const KProcessList__KProcessInfo = extern struct {
 
     pub const _is_KProcessList__KProcessInfo = {};
 
-    /// New constructs a new KProcessList::KProcessInfo object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() KProcessList__KProcessInfo {
+    pub const New = new;
+
+    /// Allocate a new KProcessList::KProcessInfo object in C++ memory
+    ///
+    pub fn new() KProcessList__KProcessInfo {
         return .{ .ptr = qtc.KProcessList__KProcessInfo_new() };
     }
 
-    /// New2 constructs a new KProcessList::KProcessInfo object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KProcessList::KProcessInfo object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` pid: i64 `
+    /// ` _pid: i64 `
     ///
-    /// ` command: []const u8 `
+    /// ` _command: []const u8 `
     ///
-    /// ` user: []const u8 `
+    /// ` _user: []const u8 `
     ///
-    pub fn New2(pid: i64, command: []const u8, user: []const u8) KProcessList__KProcessInfo {
+    pub fn new2(_pid: i64, _command: []const u8, _user: []const u8) KProcessList__KProcessInfo {
         const command_str = qtc.libqt_string{
-            .len = command.len,
-            .data = command.ptr,
+            .len = _command.len,
+            .data = _command.ptr,
         };
         const user_str = qtc.libqt_string{
-            .len = user.len,
-            .data = user.ptr,
+            .len = _user.len,
+            .data = _user.ptr,
         };
-        return .{ .ptr = qtc.KProcessList__KProcessInfo_new2(@bitCast(pid), command_str, user_str) };
+        return .{ .ptr = qtc.KProcessList__KProcessInfo_new2(@bitCast(_pid), command_str, user_str) };
     }
 
-    /// New3 constructs a new KProcessList::KProcessInfo object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new KProcessList::KProcessInfo object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` pid: i64 `
+    /// ` _pid: i64 `
     ///
-    /// ` command: []const u8 `
+    /// ` _command: []const u8 `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    /// ` user: []const u8 `
+    /// ` _user: []const u8 `
     ///
-    pub fn New3(pid: i64, command: []const u8, name: []const u8, user: []const u8) KProcessList__KProcessInfo {
+    pub fn new3(_pid: i64, _command: []const u8, _name: []const u8, _user: []const u8) KProcessList__KProcessInfo {
         const command_str = qtc.libqt_string{
-            .len = command.len,
-            .data = command.ptr,
+            .len = _command.len,
+            .data = _command.ptr,
         };
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         const user_str = qtc.libqt_string{
-            .len = user.len,
-            .data = user.ptr,
+            .len = _user.len,
+            .data = _user.ptr,
         };
-        return .{ .ptr = qtc.KProcessList__KProcessInfo_new3(@bitCast(pid), command_str, name_str, user_str) };
+        return .{ .ptr = qtc.KProcessList__KProcessInfo_new3(@bitCast(_pid), command_str, name_str, user_str) };
     }
 
-    /// New4 constructs a new KProcessList::KProcessInfo object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new KProcessList::KProcessInfo object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: KProcessList__KProcessInfo `
     ///
-    pub fn New4(other: anytype) KProcessList__KProcessInfo {
+    pub fn new4(other: anytype) KProcessList__KProcessInfo {
         comptime _ = @TypeOf(other)._is_KProcessList__KProcessInfo;
         return .{ .ptr = qtc.KProcessList__KProcessInfo_new4(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://api.kde.org/kprocesslist-kprocessinfo.html#operator-eq)
     ///
@@ -87,10 +107,14 @@ pub const KProcessList__KProcessInfo = extern struct {
     ///
     /// ` other: KProcessList__KProcessInfo `
     ///
-    pub fn OperatorAssign(self: KProcessList__KProcessInfo, other: anytype) void {
+    pub fn operatorAssign(self: KProcessList__KProcessInfo, other: anytype) void {
         comptime _ = @TypeOf(other)._is_KProcessList__KProcessInfo;
         qtc.KProcessList__KProcessInfo_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://api.kde.org/kprocesslist-kprocessinfo.html#isValid)
     ///
@@ -98,9 +122,13 @@ pub const KProcessList__KProcessInfo = extern struct {
     ///
     /// ` self: KProcessList__KProcessInfo `
     ///
-    pub fn IsValid(self: KProcessList__KProcessInfo) bool {
+    pub fn isValid(self: KProcessList__KProcessInfo) bool {
         return qtc.KProcessList__KProcessInfo_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pid` instead
+    ///
+    pub const Pid = pid;
 
     /// ### [Upstream resources](https://api.kde.org/kprocesslist-kprocessinfo.html#pid)
     ///
@@ -108,9 +136,13 @@ pub const KProcessList__KProcessInfo = extern struct {
     ///
     /// ` self: KProcessList__KProcessInfo `
     ///
-    pub fn Pid(self: KProcessList__KProcessInfo) i64 {
+    pub fn pid(self: KProcessList__KProcessInfo) i64 {
         return qtc.KProcessList__KProcessInfo_Pid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// ### [Upstream resources](https://api.kde.org/kprocesslist-kprocessinfo.html#name)
     ///
@@ -120,13 +152,17 @@ pub const KProcessList__KProcessInfo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: KProcessList__KProcessInfo, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: KProcessList__KProcessInfo, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KProcessList__KProcessInfo_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KProcessList__KProcessInfo.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KProcessList__KProcessInfo.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `user` instead
+    ///
+    pub const User = user;
 
     /// ### [Upstream resources](https://api.kde.org/kprocesslist-kprocessinfo.html#user)
     ///
@@ -136,13 +172,17 @@ pub const KProcessList__KProcessInfo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn User(self: KProcessList__KProcessInfo, allocator: std.mem.Allocator) []const u8 {
+    pub fn user(self: KProcessList__KProcessInfo, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KProcessList__KProcessInfo_User(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KProcessList__KProcessInfo.User: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KProcessList__KProcessInfo.user: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `command` instead
+    ///
+    pub const Command = command;
 
     /// ### [Upstream resources](https://api.kde.org/kprocesslist-kprocessinfo.html#command)
     ///
@@ -152,25 +192,25 @@ pub const KProcessList__KProcessInfo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Command(self: KProcessList__KProcessInfo, allocator: std.mem.Allocator) []const u8 {
+    pub fn command(self: KProcessList__KProcessInfo, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KProcessList__KProcessInfo_Command(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KProcessList__KProcessInfo.Command: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KProcessList__KProcessInfo.command: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KProcessList__KProcessInfo `
     ///
-    pub fn Delete(self: KProcessList__KProcessInfo) void {
+    pub fn delete(self: KProcessList__KProcessInfo) void {
         qtc.KProcessList__KProcessInfo_Delete(@ptrCast(self.ptr));
     }
 };
@@ -185,29 +225,37 @@ pub const KProcessList = extern struct {
 
     pub const _is_KProcessList = {};
 
+    /// ### DEPRECATED: Use `processInfoList` instead
+    ///
+    pub const ProcessInfoList = processInfoList;
+
     /// ### [Upstream resources](https://api.kde.org/kprocesslist.html#processInfoList)
     ///
     /// ## Parameter(s):
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ProcessInfoList(allocator: std.mem.Allocator) []KProcessList__KProcessInfo {
+    pub fn processInfoList(allocator: std.mem.Allocator) []KProcessList__KProcessInfo {
         const _arr: qtc.libqt_list = qtc.KProcessList_ProcessInfoList();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KProcessList__KProcessInfo, _arr.len) catch @panic("KProcessList.ProcessInfoList: Memory allocation failed");
-        const _data: [*]QtC.KProcessList__KProcessInfo = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(KProcessList__KProcessInfo, _arr.len) catch @panic("KProcessList.processInfoList: Memory allocation failed");
+        const _data_val: [*]QtC.KProcessList__KProcessInfo = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `processInfo` instead
+    ///
+    pub const ProcessInfo = processInfo;
 
     /// ### [Upstream resources](https://api.kde.org/kprocesslist.html#processInfo)
     ///
     /// ## Parameter(s):
     ///
-    /// ` pid: i64 `
+    /// ` _pid: i64 `
     ///
-    pub fn ProcessInfo(pid: i64) KProcessList__KProcessInfo {
-        return .{ .ptr = qtc.KProcessList_ProcessInfo(@bitCast(pid)) };
+    pub fn processInfo(_pid: i64) KProcessList__KProcessInfo {
+        return .{ .ptr = qtc.KProcessList_ProcessInfo(@bitCast(_pid)) };
     }
 };

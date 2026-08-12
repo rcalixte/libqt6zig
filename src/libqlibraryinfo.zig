@@ -14,29 +14,40 @@ pub const QLibraryInfo = extern struct {
 
     pub const _is_QLibraryInfo = {};
 
-    /// New constructs a new QLibraryInfo object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QLibraryInfo object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QLibraryInfo `
     ///
-    pub fn New(other: anytype) QLibraryInfo {
+    pub fn new(other: anytype) QLibraryInfo {
         comptime _ = @TypeOf(other)._is_QLibraryInfo;
         return .{ .ptr = qtc.QLibraryInfo_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new QLibraryInfo object and invalidates the source QLibraryInfo object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QLibraryInfo object and invalidate the source QLibraryInfo object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QLibraryInfo `
     ///
-    pub fn New2(other: anytype) QLibraryInfo {
+    pub fn new2(other: anytype) QLibraryInfo {
         comptime _ = @TypeOf(other)._is_QLibraryInfo;
         return .{ .ptr = qtc.QLibraryInfo_new2(@ptrCast(other.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -44,11 +55,14 @@ pub const QLibraryInfo = extern struct {
     ///
     /// ` other: QLibraryInfo `
     ///
-    pub fn CopyAssign(self: QLibraryInfo, other: QLibraryInfo) void {
+    pub fn copyAssign(self: QLibraryInfo, other: QLibraryInfo) void {
         qtc.QLibraryInfo_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -56,34 +70,54 @@ pub const QLibraryInfo = extern struct {
     ///
     /// ` other: QLibraryInfo `
     ///
-    pub fn MoveAssign(self: QLibraryInfo, other: QLibraryInfo) void {
+    pub fn moveAssign(self: QLibraryInfo, other: QLibraryInfo) void {
         qtc.QLibraryInfo_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
+    /// ### DEPRECATED: Use `build` instead
+    ///
+    pub const Build = build;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlibraryinfo.html#build)
     ///
-    pub fn Build() [:0]const u8 {
+    pub fn build() [:0]const u8 {
         const _ret = qtc.QLibraryInfo_Build();
         return std.mem.span(_ret);
     }
 
+    /// ### DEPRECATED: Use `isDebugBuild` instead
+    ///
+    pub const IsDebugBuild = isDebugBuild;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlibraryinfo.html#isDebugBuild)
     ///
-    pub fn IsDebugBuild() bool {
+    pub fn isDebugBuild() bool {
         return qtc.QLibraryInfo_IsDebugBuild();
     }
 
+    /// ### DEPRECATED: Use `isSharedBuild` instead
+    ///
+    pub const IsSharedBuild = isSharedBuild;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlibraryinfo.html#isSharedBuild)
     ///
-    pub fn IsSharedBuild() bool {
+    pub fn isSharedBuild() bool {
         return qtc.QLibraryInfo_IsSharedBuild();
     }
 
+    /// ### DEPRECATED: Use `version` instead
+    ///
+    pub const Version = version;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlibraryinfo.html#version)
     ///
-    pub fn Version() QVersionNumber {
+    pub fn version() QVersionNumber {
         return .{ .ptr = qtc.QLibraryInfo_Version() };
     }
+
+    /// ### DEPRECATED: Use `path` instead
+    ///
+    pub const Path = path;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlibraryinfo.html#path)
     ///
@@ -93,13 +127,17 @@ pub const QLibraryInfo = extern struct {
     ///
     /// ` p: qlibraryinfo_enums.LibraryPath `
     ///
-    pub fn Path(allocator: std.mem.Allocator, p: i32) []const u8 {
+    pub fn path(allocator: std.mem.Allocator, p: i32) []const u8 {
         var _str = qtc.QLibraryInfo_Path(@bitCast(p));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QLibraryInfo.Path: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QLibraryInfo.path: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `paths` instead
+    ///
+    pub const Paths = paths;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlibraryinfo.html#paths)
     ///
@@ -109,7 +147,7 @@ pub const QLibraryInfo = extern struct {
     ///
     /// ` p: qlibraryinfo_enums.LibraryPath `
     ///
-    pub fn Paths(allocator: std.mem.Allocator, p: i32) []const []const u8 {
+    pub fn paths(allocator: std.mem.Allocator, p: i32) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QLibraryInfo_Paths(@bitCast(p));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -117,15 +155,19 @@ pub const QLibraryInfo = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QLibraryInfo.Paths: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QLibraryInfo.paths: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QLibraryInfo.Paths: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QLibraryInfo.paths: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `location` instead
+    ///
+    pub const Location = location;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlibraryinfo.html#location)
     ///
@@ -133,15 +175,19 @@ pub const QLibraryInfo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` location: qlibraryinfo_enums.LibraryPath `
+    /// ` _location: qlibraryinfo_enums.LibraryPath `
     ///
-    pub fn Location(allocator: std.mem.Allocator, location: i32) []const u8 {
-        var _str = qtc.QLibraryInfo_Location(@bitCast(location));
+    pub fn location(allocator: std.mem.Allocator, _location: i32) []const u8 {
+        var _str = qtc.QLibraryInfo_Location(@bitCast(_location));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QLibraryInfo.Location: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QLibraryInfo.location: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `platformPluginArguments` instead
+    ///
+    pub const PlatformPluginArguments = platformPluginArguments;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlibraryinfo.html#platformPluginArguments)
     ///
@@ -151,7 +197,7 @@ pub const QLibraryInfo = extern struct {
     ///
     /// ` platformName: []const u8 `
     ///
-    pub fn PlatformPluginArguments(allocator: std.mem.Allocator, platformName: []const u8) []const []const u8 {
+    pub fn platformPluginArguments(allocator: std.mem.Allocator, platformName: []const u8) []const []const u8 {
         const platformName_str = qtc.libqt_string{
             .len = platformName.len,
             .data = platformName.ptr,
@@ -163,29 +209,29 @@ pub const QLibraryInfo = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QLibraryInfo.PlatformPluginArguments: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QLibraryInfo.platformPluginArguments: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QLibraryInfo.PlatformPluginArguments: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QLibraryInfo.platformPluginArguments: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlibraryinfo.html#dtor.QLibraryInfo)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QLibraryInfo `
     ///
-    pub fn Delete(self: QLibraryInfo) void {
+    pub fn delete(self: QLibraryInfo) void {
         qtc.QLibraryInfo_Delete(@ptrCast(self.ptr));
     }
 };

@@ -87,36 +87,52 @@ pub const KListWidgetSearchLine = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new KListWidgetSearchLine object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KListWidgetSearchLine object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) KListWidgetSearchLine {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KListWidgetSearchLine_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) KListWidgetSearchLine {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KListWidgetSearchLine_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new KListWidgetSearchLine object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() KListWidgetSearchLine {
+    pub const New2 = new2;
+
+    /// Allocate a new KListWidgetSearchLine object in C++ memory
+    ///
+    pub fn new2() KListWidgetSearchLine {
         return .{ .ptr = qtc.KListWidgetSearchLine_new2() };
     }
 
-    /// New3 constructs a new KListWidgetSearchLine object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new KListWidgetSearchLine object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    /// ` listWidget: QListWidget `
+    /// ` _listWidget: QListWidget `
     ///
-    pub fn New3(parent: anytype, listWidget: anytype) KListWidgetSearchLine {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        comptime _ = @TypeOf(listWidget)._is_QListWidget;
-        return .{ .ptr = qtc.KListWidgetSearchLine_new3(@ptrCast(parent.ptr), @ptrCast(listWidget.ptr)) };
+    pub fn new3(_parent: anytype, _listWidget: anytype) KListWidgetSearchLine {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        comptime _ = @TypeOf(_listWidget)._is_QListWidget;
+        return .{ .ptr = qtc.KListWidgetSearchLine_new3(@ptrCast(_parent.ptr), @ptrCast(_listWidget.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -124,9 +140,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn MetaObject(self: KListWidgetSearchLine) QMetaObject {
+    pub fn metaObject(self: KListWidgetSearchLine) QMetaObject {
         return .{ .ptr = qtc.KListWidgetSearchLine_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -138,13 +158,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KListWidgetSearchLine, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KListWidgetSearchLine, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KListWidgetSearchLine_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -154,9 +174,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn SuperMetaObject(self: KListWidgetSearchLine) QMetaObject {
+    pub fn superMetaObject(self: KListWidgetSearchLine) QMetaObject {
         return .{ .ptr = qtc.KListWidgetSearchLine_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -164,10 +188,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KListWidgetSearchLine, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KListWidgetSearchLine, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KListWidgetSearchLine_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -177,13 +205,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KListWidgetSearchLine_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -193,10 +221,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KListWidgetSearchLine, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KListWidgetSearchLine, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KListWidgetSearchLine_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -208,9 +240,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KListWidgetSearchLine, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KListWidgetSearchLine, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KListWidgetSearchLine_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -220,13 +256,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KListWidgetSearchLine_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -240,9 +276,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KListWidgetSearchLine, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KListWidgetSearchLine, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KListWidgetSearchLine_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -252,14 +292,18 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `caseSensitive` instead
+    ///
+    pub const CaseSensitive = caseSensitive;
 
     /// ### [Upstream resources](https://api.kde.org/klistwidgetsearchline.html#caseSensitive)
     ///
@@ -271,9 +315,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` qnamespace_enums.CaseSensitivity `
     ///
-    pub fn CaseSensitive(self: KListWidgetSearchLine) i32 {
+    pub fn caseSensitive(self: KListWidgetSearchLine) i32 {
         return qtc.KListWidgetSearchLine_CaseSensitive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `listWidget` instead
+    ///
+    pub const ListWidget = listWidget;
 
     /// ### [Upstream resources](https://api.kde.org/klistwidgetsearchline.html#listWidget)
     ///
@@ -281,9 +329,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn ListWidget(self: KListWidgetSearchLine) QListWidget {
+    pub fn listWidget(self: KListWidgetSearchLine) QListWidget {
         return .{ .ptr = qtc.KListWidgetSearchLine_ListWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `updateSearch` instead
+    ///
+    pub const UpdateSearch = updateSearch;
 
     /// ### [Upstream resources](https://api.kde.org/klistwidgetsearchline.html#updateSearch)
     ///
@@ -293,13 +345,17 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` s: []const u8 `
     ///
-    pub fn UpdateSearch(self: KListWidgetSearchLine, s: []const u8) void {
+    pub fn updateSearch(self: KListWidgetSearchLine, s: []const u8) void {
         const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
         };
         qtc.KListWidgetSearchLine_UpdateSearch(@ptrCast(self.ptr), s_str);
     }
+
+    /// ### DEPRECATED: Use `onUpdateSearch` instead
+    ///
+    pub const OnUpdateSearch = onUpdateSearch;
 
     /// ### [Upstream resources](https://api.kde.org/klistwidgetsearchline.html#updateSearch)
     ///
@@ -311,13 +367,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, s: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnUpdateSearch(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, [*:0]const u8) callconv(.c) void) void {
+    pub fn onUpdateSearch(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, [*:0]const u8) callconv(.c) void) void {
         qtc.KListWidgetSearchLine_OnUpdateSearch(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateSearch` instead
+    /// ### DEPRECATED: Use `superUpdateSearch` instead
     ///
-    pub const QBaseUpdateSearch = SuperUpdateSearch;
+    pub const SuperUpdateSearch = superUpdateSearch;
 
     /// ### [Upstream resources](https://api.kde.org/klistwidgetsearchline.html#updateSearch)
     ///
@@ -329,13 +385,17 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` s: []const u8 `
     ///
-    pub fn SuperUpdateSearch(self: KListWidgetSearchLine, s: []const u8) void {
+    pub fn superUpdateSearch(self: KListWidgetSearchLine, s: []const u8) void {
         const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
         };
         qtc.KListWidgetSearchLine_SuperUpdateSearch(@ptrCast(self.ptr), s_str);
     }
+
+    /// ### DEPRECATED: Use `setCaseSensitivity` instead
+    ///
+    pub const SetCaseSensitivity = setCaseSensitivity;
 
     /// ### [Upstream resources](https://api.kde.org/klistwidgetsearchline.html#setCaseSensitivity)
     ///
@@ -345,9 +405,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` cs: qnamespace_enums.CaseSensitivity `
     ///
-    pub fn SetCaseSensitivity(self: KListWidgetSearchLine, cs: i32) void {
+    pub fn setCaseSensitivity(self: KListWidgetSearchLine, cs: i32) void {
         qtc.KListWidgetSearchLine_SetCaseSensitivity(@ptrCast(self.ptr), @bitCast(cs));
     }
+
+    /// ### DEPRECATED: Use `setListWidget` instead
+    ///
+    pub const SetListWidget = setListWidget;
 
     /// ### [Upstream resources](https://api.kde.org/klistwidgetsearchline.html#setListWidget)
     ///
@@ -357,10 +421,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` lv: QListWidget `
     ///
-    pub fn SetListWidget(self: KListWidgetSearchLine, lv: anytype) void {
+    pub fn setListWidget(self: KListWidgetSearchLine, lv: anytype) void {
         comptime _ = @TypeOf(lv)._is_QListWidget;
         qtc.KListWidgetSearchLine_SetListWidget(@ptrCast(self.ptr), @ptrCast(lv.ptr));
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// ### [Upstream resources](https://api.kde.org/klistwidgetsearchline.html#clear)
     ///
@@ -368,9 +436,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn Clear(self: KListWidgetSearchLine) void {
+    pub fn clear(self: KListWidgetSearchLine) void {
         qtc.KListWidgetSearchLine_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `itemMatches` instead
+    ///
+    pub const ItemMatches = itemMatches;
 
     /// ### [Upstream resources](https://api.kde.org/klistwidgetsearchline.html#itemMatches)
     ///
@@ -382,7 +454,7 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` s: []const u8 `
     ///
-    pub fn ItemMatches(self: KListWidgetSearchLine, item: anytype, s: []const u8) bool {
+    pub fn itemMatches(self: KListWidgetSearchLine, item: anytype, s: []const u8) bool {
         comptime _ = @TypeOf(item)._is_QListWidgetItem;
         const s_str = qtc.libqt_string{
             .len = s.len,
@@ -390,6 +462,10 @@ pub const KListWidgetSearchLine = extern struct {
         };
         return qtc.KListWidgetSearchLine_ItemMatches(@ptrCast(self.ptr), @ptrCast(item.ptr), s_str);
     }
+
+    /// ### DEPRECATED: Use `onItemMatches` instead
+    ///
+    pub const OnItemMatches = onItemMatches;
 
     /// ### [Upstream resources](https://api.kde.org/klistwidgetsearchline.html#itemMatches)
     ///
@@ -401,13 +477,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, item: QListWidgetItem, s: [*:0]const u8) callconv(.c) bool `
     ///
-    pub fn OnItemMatches(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QListWidgetItem, [*:0]const u8) callconv(.c) bool) void {
+    pub fn onItemMatches(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QListWidgetItem, [*:0]const u8) callconv(.c) bool) void {
         qtc.KListWidgetSearchLine_OnItemMatches(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperItemMatches` instead
+    /// ### DEPRECATED: Use `superItemMatches` instead
     ///
-    pub const QBaseItemMatches = SuperItemMatches;
+    pub const SuperItemMatches = superItemMatches;
 
     /// ### [Upstream resources](https://api.kde.org/klistwidgetsearchline.html#itemMatches)
     ///
@@ -421,7 +497,7 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` s: []const u8 `
     ///
-    pub fn SuperItemMatches(self: KListWidgetSearchLine, item: anytype, s: []const u8) bool {
+    pub fn superItemMatches(self: KListWidgetSearchLine, item: anytype, s: []const u8) bool {
         comptime _ = @TypeOf(item)._is_QListWidgetItem;
         const s_str = qtc.libqt_string{
             .len = s.len,
@@ -430,18 +506,26 @@ pub const KListWidgetSearchLine = extern struct {
         return qtc.KListWidgetSearchLine_SuperItemMatches(@ptrCast(self.ptr), @ptrCast(item.ptr), s_str);
     }
 
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
+
     /// ### [Upstream resources](https://api.kde.org/klistwidgetsearchline.html#event)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: KListWidgetSearchLine, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KListWidgetSearchLine_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: KListWidgetSearchLine, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KListWidgetSearchLine_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// ### [Upstream resources](https://api.kde.org/klistwidgetsearchline.html#event)
     ///
@@ -453,13 +537,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QEvent) callconv(.c) bool) void {
         qtc.KListWidgetSearchLine_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// ### [Upstream resources](https://api.kde.org/klistwidgetsearchline.html#event)
     ///
@@ -469,12 +553,16 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: KListWidgetSearchLine, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KListWidgetSearchLine_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: KListWidgetSearchLine, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KListWidgetSearchLine_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -486,15 +574,19 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -508,15 +600,19 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `text` instead
+    ///
+    pub const Text = text;
 
     /// Inherited from QLineEdit
     ///
@@ -528,13 +624,17 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
+    pub fn text(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QLineEdit_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `displayText` instead
+    ///
+    pub const DisplayText = displayText;
 
     /// Inherited from QLineEdit
     ///
@@ -546,13 +646,17 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DisplayText(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
+    pub fn displayText(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QLineEdit_DisplayText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.DisplayText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.displayText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `placeholderText` instead
+    ///
+    pub const PlaceholderText = placeholderText;
 
     /// Inherited from QLineEdit
     ///
@@ -564,13 +668,17 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PlaceholderText(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
+    pub fn placeholderText(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QLineEdit_PlaceholderText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.PlaceholderText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.placeholderText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setPlaceholderText` instead
+    ///
+    pub const SetPlaceholderText = setPlaceholderText;
 
     /// Inherited from QLineEdit
     ///
@@ -580,15 +688,19 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` placeholderText: []const u8 `
+    /// ` _placeholderText: []const u8 `
     ///
-    pub fn SetPlaceholderText(self: KListWidgetSearchLine, placeholderText: []const u8) void {
+    pub fn setPlaceholderText(self: KListWidgetSearchLine, _placeholderText: []const u8) void {
         const placeholderText_str = qtc.libqt_string{
-            .len = placeholderText.len,
-            .data = placeholderText.ptr,
+            .len = _placeholderText.len,
+            .data = _placeholderText.ptr,
         };
         qtc.QLineEdit_SetPlaceholderText(@ptrCast(self.ptr), placeholderText_str);
     }
+
+    /// ### DEPRECATED: Use `maxLength` instead
+    ///
+    pub const MaxLength = maxLength;
 
     /// Inherited from QLineEdit
     ///
@@ -598,9 +710,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn MaxLength(self: KListWidgetSearchLine) i32 {
+    pub fn maxLength(self: KListWidgetSearchLine) i32 {
         return qtc.QLineEdit_MaxLength(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaxLength` instead
+    ///
+    pub const SetMaxLength = setMaxLength;
 
     /// Inherited from QLineEdit
     ///
@@ -610,11 +726,15 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` maxLength: i32 `
+    /// ` _maxLength: i32 `
     ///
-    pub fn SetMaxLength(self: KListWidgetSearchLine, maxLength: i32) void {
-        qtc.QLineEdit_SetMaxLength(@ptrCast(self.ptr), @bitCast(maxLength));
+    pub fn setMaxLength(self: KListWidgetSearchLine, _maxLength: i32) void {
+        qtc.QLineEdit_SetMaxLength(@ptrCast(self.ptr), @bitCast(_maxLength));
     }
+
+    /// ### DEPRECATED: Use `setFrame` instead
+    ///
+    pub const SetFrame = setFrame;
 
     /// Inherited from QLineEdit
     ///
@@ -626,9 +746,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` frame: bool `
     ///
-    pub fn SetFrame(self: KListWidgetSearchLine, frame: bool) void {
+    pub fn setFrame(self: KListWidgetSearchLine, frame: bool) void {
         qtc.QLineEdit_SetFrame(@ptrCast(self.ptr), frame);
     }
+
+    /// ### DEPRECATED: Use `hasFrame` instead
+    ///
+    pub const HasFrame = hasFrame;
 
     /// Inherited from QLineEdit
     ///
@@ -638,9 +762,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn HasFrame(self: KListWidgetSearchLine) bool {
+    pub fn hasFrame(self: KListWidgetSearchLine) bool {
         return qtc.QLineEdit_HasFrame(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setClearButtonEnabled` instead
+    ///
+    pub const SetClearButtonEnabled = setClearButtonEnabled;
 
     /// Inherited from QLineEdit
     ///
@@ -652,9 +780,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetClearButtonEnabled(self: KListWidgetSearchLine, enable: bool) void {
+    pub fn setClearButtonEnabled(self: KListWidgetSearchLine, enable: bool) void {
         qtc.QLineEdit_SetClearButtonEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `isClearButtonEnabled` instead
+    ///
+    pub const IsClearButtonEnabled = isClearButtonEnabled;
 
     /// Inherited from QLineEdit
     ///
@@ -664,9 +796,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn IsClearButtonEnabled(self: KListWidgetSearchLine) bool {
+    pub fn isClearButtonEnabled(self: KListWidgetSearchLine) bool {
         return qtc.QLineEdit_IsClearButtonEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `echoMode` instead
+    ///
+    pub const EchoMode = echoMode;
 
     /// Inherited from QLineEdit
     ///
@@ -680,9 +816,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` qlineedit_enums.EchoMode `
     ///
-    pub fn EchoMode(self: KListWidgetSearchLine) i32 {
+    pub fn echoMode(self: KListWidgetSearchLine) i32 {
         return qtc.QLineEdit_EchoMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEchoMode` instead
+    ///
+    pub const SetEchoMode = setEchoMode;
 
     /// Inherited from QLineEdit
     ///
@@ -692,11 +832,15 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` echoMode: qlineedit_enums.EchoMode `
+    /// ` _echoMode: qlineedit_enums.EchoMode `
     ///
-    pub fn SetEchoMode(self: KListWidgetSearchLine, echoMode: i32) void {
-        qtc.QLineEdit_SetEchoMode(@ptrCast(self.ptr), @bitCast(echoMode));
+    pub fn setEchoMode(self: KListWidgetSearchLine, _echoMode: i32) void {
+        qtc.QLineEdit_SetEchoMode(@ptrCast(self.ptr), @bitCast(_echoMode));
     }
+
+    /// ### DEPRECATED: Use `isReadOnly` instead
+    ///
+    pub const IsReadOnly = isReadOnly;
 
     /// Inherited from QLineEdit
     ///
@@ -706,9 +850,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn IsReadOnly(self: KListWidgetSearchLine) bool {
+    pub fn isReadOnly(self: KListWidgetSearchLine) bool {
         return qtc.QLineEdit_IsReadOnly(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setReadOnly` instead
+    ///
+    pub const SetReadOnly = setReadOnly;
 
     /// Inherited from QLineEdit
     ///
@@ -720,9 +868,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` readOnly: bool `
     ///
-    pub fn SetReadOnly(self: KListWidgetSearchLine, readOnly: bool) void {
+    pub fn setReadOnly(self: KListWidgetSearchLine, readOnly: bool) void {
         qtc.QLineEdit_SetReadOnly(@ptrCast(self.ptr), readOnly);
     }
+
+    /// ### DEPRECATED: Use `setValidator` instead
+    ///
+    pub const SetValidator = setValidator;
 
     /// Inherited from QLineEdit
     ///
@@ -732,12 +884,16 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` validator: QValidator `
+    /// ` _validator: QValidator `
     ///
-    pub fn SetValidator(self: KListWidgetSearchLine, validator: anytype) void {
-        comptime _ = @TypeOf(validator)._is_QValidator;
-        qtc.QLineEdit_SetValidator(@ptrCast(self.ptr), @ptrCast(validator.ptr));
+    pub fn setValidator(self: KListWidgetSearchLine, _validator: anytype) void {
+        comptime _ = @TypeOf(_validator)._is_QValidator;
+        qtc.QLineEdit_SetValidator(@ptrCast(self.ptr), @ptrCast(_validator.ptr));
     }
+
+    /// ### DEPRECATED: Use `validator` instead
+    ///
+    pub const Validator = validator;
 
     /// Inherited from QLineEdit
     ///
@@ -747,9 +903,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn Validator(self: KListWidgetSearchLine) QValidator {
+    pub fn validator(self: KListWidgetSearchLine) QValidator {
         return .{ .ptr = qtc.QLineEdit_Validator(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCompleter` instead
+    ///
+    pub const SetCompleter = setCompleter;
 
     /// Inherited from QLineEdit
     ///
@@ -759,12 +919,16 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` completer: QCompleter `
+    /// ` _completer: QCompleter `
     ///
-    pub fn SetCompleter(self: KListWidgetSearchLine, completer: anytype) void {
-        comptime _ = @TypeOf(completer)._is_QCompleter;
-        qtc.QLineEdit_SetCompleter(@ptrCast(self.ptr), @ptrCast(completer.ptr));
+    pub fn setCompleter(self: KListWidgetSearchLine, _completer: anytype) void {
+        comptime _ = @TypeOf(_completer)._is_QCompleter;
+        qtc.QLineEdit_SetCompleter(@ptrCast(self.ptr), @ptrCast(_completer.ptr));
     }
+
+    /// ### DEPRECATED: Use `completer` instead
+    ///
+    pub const Completer = completer;
 
     /// Inherited from QLineEdit
     ///
@@ -774,9 +938,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn Completer(self: KListWidgetSearchLine) QCompleter {
+    pub fn completer(self: KListWidgetSearchLine) QCompleter {
         return .{ .ptr = qtc.QLineEdit_Completer(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursorPosition` instead
+    ///
+    pub const CursorPosition = cursorPosition;
 
     /// Inherited from QLineEdit
     ///
@@ -786,9 +954,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn CursorPosition(self: KListWidgetSearchLine) i32 {
+    pub fn cursorPosition(self: KListWidgetSearchLine) i32 {
         return qtc.QLineEdit_CursorPosition(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCursorPosition` instead
+    ///
+    pub const SetCursorPosition = setCursorPosition;
 
     /// Inherited from QLineEdit
     ///
@@ -798,11 +970,15 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` cursorPosition: i32 `
+    /// ` _cursorPosition: i32 `
     ///
-    pub fn SetCursorPosition(self: KListWidgetSearchLine, cursorPosition: i32) void {
-        qtc.QLineEdit_SetCursorPosition(@ptrCast(self.ptr), @bitCast(cursorPosition));
+    pub fn setCursorPosition(self: KListWidgetSearchLine, _cursorPosition: i32) void {
+        qtc.QLineEdit_SetCursorPosition(@ptrCast(self.ptr), @bitCast(_cursorPosition));
     }
+
+    /// ### DEPRECATED: Use `cursorPositionAt` instead
+    ///
+    pub const CursorPositionAt = cursorPositionAt;
 
     /// Inherited from QLineEdit
     ///
@@ -812,12 +988,16 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CursorPositionAt(self: KListWidgetSearchLine, pos: anytype) i32 {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        return qtc.QLineEdit_CursorPositionAt(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn cursorPositionAt(self: KListWidgetSearchLine, _pos: anytype) i32 {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        return qtc.QLineEdit_CursorPositionAt(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAlignment` instead
+    ///
+    pub const SetAlignment = setAlignment;
 
     /// Inherited from QLineEdit
     ///
@@ -829,9 +1009,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` flag: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn SetAlignment(self: KListWidgetSearchLine, flag: i32) void {
+    pub fn setAlignment(self: KListWidgetSearchLine, flag: i32) void {
         qtc.QLineEdit_SetAlignment(@ptrCast(self.ptr), @bitCast(flag));
     }
+
+    /// ### DEPRECATED: Use `alignment` instead
+    ///
+    pub const Alignment = alignment;
 
     /// Inherited from QLineEdit
     ///
@@ -845,9 +1029,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn Alignment(self: KListWidgetSearchLine) i32 {
+    pub fn alignment(self: KListWidgetSearchLine) i32 {
         return qtc.QLineEdit_Alignment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `cursorForward` instead
+    ///
+    pub const CursorForward = cursorForward;
 
     /// Inherited from QLineEdit
     ///
@@ -859,9 +1047,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` mark: bool `
     ///
-    pub fn CursorForward(self: KListWidgetSearchLine, mark: bool) void {
+    pub fn cursorForward(self: KListWidgetSearchLine, mark: bool) void {
         qtc.QLineEdit_CursorForward(@ptrCast(self.ptr), mark);
     }
+
+    /// ### DEPRECATED: Use `cursorBackward` instead
+    ///
+    pub const CursorBackward = cursorBackward;
 
     /// Inherited from QLineEdit
     ///
@@ -873,9 +1065,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` mark: bool `
     ///
-    pub fn CursorBackward(self: KListWidgetSearchLine, mark: bool) void {
+    pub fn cursorBackward(self: KListWidgetSearchLine, mark: bool) void {
         qtc.QLineEdit_CursorBackward(@ptrCast(self.ptr), mark);
     }
+
+    /// ### DEPRECATED: Use `cursorWordForward` instead
+    ///
+    pub const CursorWordForward = cursorWordForward;
 
     /// Inherited from QLineEdit
     ///
@@ -887,9 +1083,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` mark: bool `
     ///
-    pub fn CursorWordForward(self: KListWidgetSearchLine, mark: bool) void {
+    pub fn cursorWordForward(self: KListWidgetSearchLine, mark: bool) void {
         qtc.QLineEdit_CursorWordForward(@ptrCast(self.ptr), mark);
     }
+
+    /// ### DEPRECATED: Use `cursorWordBackward` instead
+    ///
+    pub const CursorWordBackward = cursorWordBackward;
 
     /// Inherited from QLineEdit
     ///
@@ -901,9 +1101,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` mark: bool `
     ///
-    pub fn CursorWordBackward(self: KListWidgetSearchLine, mark: bool) void {
+    pub fn cursorWordBackward(self: KListWidgetSearchLine, mark: bool) void {
         qtc.QLineEdit_CursorWordBackward(@ptrCast(self.ptr), mark);
     }
+
+    /// ### DEPRECATED: Use `backspace` instead
+    ///
+    pub const Backspace = backspace;
 
     /// Inherited from QLineEdit
     ///
@@ -913,9 +1117,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn Backspace(self: KListWidgetSearchLine) void {
+    pub fn backspace(self: KListWidgetSearchLine) void {
         qtc.QLineEdit_Backspace(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `del` instead
+    ///
+    pub const Del = del;
 
     /// Inherited from QLineEdit
     ///
@@ -925,9 +1133,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn Del(self: KListWidgetSearchLine) void {
+    pub fn del(self: KListWidgetSearchLine) void {
         qtc.QLineEdit_Del(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `home` instead
+    ///
+    pub const Home = home;
 
     /// Inherited from QLineEdit
     ///
@@ -939,9 +1151,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` mark: bool `
     ///
-    pub fn Home(self: KListWidgetSearchLine, mark: bool) void {
+    pub fn home(self: KListWidgetSearchLine, mark: bool) void {
         qtc.QLineEdit_Home(@ptrCast(self.ptr), mark);
     }
+
+    /// ### DEPRECATED: Use `end` instead
+    ///
+    pub const End = end;
 
     /// Inherited from QLineEdit
     ///
@@ -953,9 +1169,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` mark: bool `
     ///
-    pub fn End(self: KListWidgetSearchLine, mark: bool) void {
+    pub fn end(self: KListWidgetSearchLine, mark: bool) void {
         qtc.QLineEdit_End(@ptrCast(self.ptr), mark);
     }
+
+    /// ### DEPRECATED: Use `isModified` instead
+    ///
+    pub const IsModified = isModified;
 
     /// Inherited from QLineEdit
     ///
@@ -965,9 +1185,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn IsModified(self: KListWidgetSearchLine) bool {
+    pub fn isModified(self: KListWidgetSearchLine) bool {
         return qtc.QLineEdit_IsModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setModified` instead
+    ///
+    pub const SetModified = setModified;
 
     /// Inherited from QLineEdit
     ///
@@ -979,9 +1203,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` modified: bool `
     ///
-    pub fn SetModified(self: KListWidgetSearchLine, modified: bool) void {
+    pub fn setModified(self: KListWidgetSearchLine, modified: bool) void {
         qtc.QLineEdit_SetModified(@ptrCast(self.ptr), modified);
     }
+
+    /// ### DEPRECATED: Use `setSelection` instead
+    ///
+    pub const SetSelection = setSelection;
 
     /// Inherited from QLineEdit
     ///
@@ -995,9 +1223,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param2: i32 `
     ///
-    pub fn SetSelection(self: KListWidgetSearchLine, param1: i32, param2: i32) void {
+    pub fn setSelection(self: KListWidgetSearchLine, param1: i32, param2: i32) void {
         qtc.QLineEdit_SetSelection(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2));
     }
+
+    /// ### DEPRECATED: Use `hasSelectedText` instead
+    ///
+    pub const HasSelectedText = hasSelectedText;
 
     /// Inherited from QLineEdit
     ///
@@ -1007,9 +1239,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn HasSelectedText(self: KListWidgetSearchLine) bool {
+    pub fn hasSelectedText(self: KListWidgetSearchLine) bool {
         return qtc.QLineEdit_HasSelectedText(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `selectedText` instead
+    ///
+    pub const SelectedText = selectedText;
 
     /// Inherited from QLineEdit
     ///
@@ -1021,13 +1257,17 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SelectedText(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
+    pub fn selectedText(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QLineEdit_SelectedText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.SelectedText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.selectedText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `selectionStart` instead
+    ///
+    pub const SelectionStart = selectionStart;
 
     /// Inherited from QLineEdit
     ///
@@ -1037,9 +1277,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn SelectionStart(self: KListWidgetSearchLine) i32 {
+    pub fn selectionStart(self: KListWidgetSearchLine) i32 {
         return qtc.QLineEdit_SelectionStart(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `selectionEnd` instead
+    ///
+    pub const SelectionEnd = selectionEnd;
 
     /// Inherited from QLineEdit
     ///
@@ -1049,9 +1293,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn SelectionEnd(self: KListWidgetSearchLine) i32 {
+    pub fn selectionEnd(self: KListWidgetSearchLine) i32 {
         return qtc.QLineEdit_SelectionEnd(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `selectionLength` instead
+    ///
+    pub const SelectionLength = selectionLength;
 
     /// Inherited from QLineEdit
     ///
@@ -1061,9 +1309,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn SelectionLength(self: KListWidgetSearchLine) i32 {
+    pub fn selectionLength(self: KListWidgetSearchLine) i32 {
         return qtc.QLineEdit_SelectionLength(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isUndoAvailable` instead
+    ///
+    pub const IsUndoAvailable = isUndoAvailable;
 
     /// Inherited from QLineEdit
     ///
@@ -1073,9 +1325,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn IsUndoAvailable(self: KListWidgetSearchLine) bool {
+    pub fn isUndoAvailable(self: KListWidgetSearchLine) bool {
         return qtc.QLineEdit_IsUndoAvailable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRedoAvailable` instead
+    ///
+    pub const IsRedoAvailable = isRedoAvailable;
 
     /// Inherited from QLineEdit
     ///
@@ -1085,9 +1341,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn IsRedoAvailable(self: KListWidgetSearchLine) bool {
+    pub fn isRedoAvailable(self: KListWidgetSearchLine) bool {
         return qtc.QLineEdit_IsRedoAvailable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDragEnabled` instead
+    ///
+    pub const SetDragEnabled = setDragEnabled;
 
     /// Inherited from QLineEdit
     ///
@@ -1099,9 +1359,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetDragEnabled(self: KListWidgetSearchLine, b: bool) void {
+    pub fn setDragEnabled(self: KListWidgetSearchLine, b: bool) void {
         qtc.QLineEdit_SetDragEnabled(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `dragEnabled` instead
+    ///
+    pub const DragEnabled = dragEnabled;
 
     /// Inherited from QLineEdit
     ///
@@ -1111,9 +1375,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn DragEnabled(self: KListWidgetSearchLine) bool {
+    pub fn dragEnabled(self: KListWidgetSearchLine) bool {
         return qtc.QLineEdit_DragEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCursorMoveStyle` instead
+    ///
+    pub const SetCursorMoveStyle = setCursorMoveStyle;
 
     /// Inherited from QLineEdit
     ///
@@ -1123,11 +1391,15 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` style: qnamespace_enums.CursorMoveStyle `
+    /// ` _style: qnamespace_enums.CursorMoveStyle `
     ///
-    pub fn SetCursorMoveStyle(self: KListWidgetSearchLine, style: i32) void {
-        qtc.QLineEdit_SetCursorMoveStyle(@ptrCast(self.ptr), @bitCast(style));
+    pub fn setCursorMoveStyle(self: KListWidgetSearchLine, _style: i32) void {
+        qtc.QLineEdit_SetCursorMoveStyle(@ptrCast(self.ptr), @bitCast(_style));
     }
+
+    /// ### DEPRECATED: Use `cursorMoveStyle` instead
+    ///
+    pub const CursorMoveStyle = cursorMoveStyle;
 
     /// Inherited from QLineEdit
     ///
@@ -1141,9 +1413,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` qnamespace_enums.CursorMoveStyle `
     ///
-    pub fn CursorMoveStyle(self: KListWidgetSearchLine) i32 {
+    pub fn cursorMoveStyle(self: KListWidgetSearchLine) i32 {
         return qtc.QLineEdit_CursorMoveStyle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `inputMask` instead
+    ///
+    pub const InputMask = inputMask;
 
     /// Inherited from QLineEdit
     ///
@@ -1155,13 +1431,17 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn InputMask(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
+    pub fn inputMask(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QLineEdit_InputMask(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.InputMask: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.inputMask: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setInputMask` instead
+    ///
+    pub const SetInputMask = setInputMask;
 
     /// Inherited from QLineEdit
     ///
@@ -1171,15 +1451,19 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` inputMask: []const u8 `
+    /// ` _inputMask: []const u8 `
     ///
-    pub fn SetInputMask(self: KListWidgetSearchLine, inputMask: []const u8) void {
+    pub fn setInputMask(self: KListWidgetSearchLine, _inputMask: []const u8) void {
         const inputMask_str = qtc.libqt_string{
-            .len = inputMask.len,
-            .data = inputMask.ptr,
+            .len = _inputMask.len,
+            .data = _inputMask.ptr,
         };
         qtc.QLineEdit_SetInputMask(@ptrCast(self.ptr), inputMask_str);
     }
+
+    /// ### DEPRECATED: Use `hasAcceptableInput` instead
+    ///
+    pub const HasAcceptableInput = hasAcceptableInput;
 
     /// Inherited from QLineEdit
     ///
@@ -1189,9 +1473,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn HasAcceptableInput(self: KListWidgetSearchLine) bool {
+    pub fn hasAcceptableInput(self: KListWidgetSearchLine) bool {
         return qtc.QLineEdit_HasAcceptableInput(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTextMargins` instead
+    ///
+    pub const SetTextMargins = setTextMargins;
 
     /// Inherited from QLineEdit
     ///
@@ -1209,9 +1497,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetTextMargins(self: KListWidgetSearchLine, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setTextMargins(self: KListWidgetSearchLine, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QLineEdit_SetTextMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setTextMargins2` instead
+    ///
+    pub const SetTextMargins2 = setTextMargins2;
 
     /// Inherited from QLineEdit
     ///
@@ -1223,10 +1515,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetTextMargins2(self: KListWidgetSearchLine, margins: anytype) void {
+    pub fn setTextMargins2(self: KListWidgetSearchLine, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QLineEdit_SetTextMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `textMargins` instead
+    ///
+    pub const TextMargins = textMargins;
 
     /// Inherited from QLineEdit
     ///
@@ -1236,9 +1532,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn TextMargins(self: KListWidgetSearchLine) QMargins {
+    pub fn textMargins(self: KListWidgetSearchLine) QMargins {
         return .{ .ptr = qtc.QLineEdit_TextMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QLineEdit
     ///
@@ -1252,10 +1552,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` position: qlineedit_enums.ActionPosition `
     ///
-    pub fn AddAction(self: KListWidgetSearchLine, action: anytype, position: i32) void {
+    pub fn addAction(self: KListWidgetSearchLine, action: anytype, position: i32) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QLineEdit_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr), @bitCast(position));
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QLineEdit
     ///
@@ -1269,10 +1573,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` position: qlineedit_enums.ActionPosition `
     ///
-    pub fn AddAction2(self: KListWidgetSearchLine, icon: anytype, position: i32) QAction {
+    pub fn addAction2(self: KListWidgetSearchLine, icon: anytype, position: i32) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         return .{ .ptr = qtc.QLineEdit_AddAction2(@ptrCast(self.ptr), @ptrCast(icon.ptr), @bitCast(position)) };
     }
+
+    /// ### DEPRECATED: Use `setText` instead
+    ///
+    pub const SetText = setText;
 
     /// Inherited from QLineEdit
     ///
@@ -1282,15 +1590,19 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn SetText(self: KListWidgetSearchLine, text: []const u8) void {
+    pub fn setText(self: KListWidgetSearchLine, _text: []const u8) void {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         qtc.QLineEdit_SetText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `selectAll` instead
+    ///
+    pub const SelectAll = selectAll;
 
     /// Inherited from QLineEdit
     ///
@@ -1300,9 +1612,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn SelectAll(self: KListWidgetSearchLine) void {
+    pub fn selectAll(self: KListWidgetSearchLine) void {
         qtc.QLineEdit_SelectAll(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `undo` instead
+    ///
+    pub const Undo = undo;
 
     /// Inherited from QLineEdit
     ///
@@ -1312,9 +1628,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn Undo(self: KListWidgetSearchLine) void {
+    pub fn undo(self: KListWidgetSearchLine) void {
         qtc.QLineEdit_Undo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `redo` instead
+    ///
+    pub const Redo = redo;
 
     /// Inherited from QLineEdit
     ///
@@ -1324,9 +1644,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn Redo(self: KListWidgetSearchLine) void {
+    pub fn redo(self: KListWidgetSearchLine) void {
         qtc.QLineEdit_Redo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `cut` instead
+    ///
+    pub const Cut = cut;
 
     /// Inherited from QLineEdit
     ///
@@ -1336,9 +1660,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn Cut(self: KListWidgetSearchLine) void {
+    pub fn cut(self: KListWidgetSearchLine) void {
         qtc.QLineEdit_Cut(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `copy` instead
+    ///
+    pub const Copy = copy;
 
     /// Inherited from QLineEdit
     ///
@@ -1348,9 +1676,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn Copy(self: KListWidgetSearchLine) void {
+    pub fn copy(self: KListWidgetSearchLine) void {
         qtc.QLineEdit_Copy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `paste` instead
+    ///
+    pub const Paste = paste;
 
     /// Inherited from QLineEdit
     ///
@@ -1360,9 +1692,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn Paste(self: KListWidgetSearchLine) void {
+    pub fn paste(self: KListWidgetSearchLine) void {
         qtc.QLineEdit_Paste(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `deselect` instead
+    ///
+    pub const Deselect = deselect;
 
     /// Inherited from QLineEdit
     ///
@@ -1372,9 +1708,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn Deselect(self: KListWidgetSearchLine) void {
+    pub fn deselect(self: KListWidgetSearchLine) void {
         qtc.QLineEdit_Deselect(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `insert` instead
+    ///
+    pub const Insert = insert;
 
     /// Inherited from QLineEdit
     ///
@@ -1386,13 +1726,17 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn Insert(self: KListWidgetSearchLine, param1: []const u8) void {
+    pub fn insert(self: KListWidgetSearchLine, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
         qtc.QLineEdit_Insert(@ptrCast(self.ptr), param1_str);
     }
+
+    /// ### DEPRECATED: Use `createStandardContextMenu` instead
+    ///
+    pub const CreateStandardContextMenu = createStandardContextMenu;
 
     /// Inherited from QLineEdit
     ///
@@ -1402,9 +1746,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn CreateStandardContextMenu(self: KListWidgetSearchLine) QMenu {
+    pub fn createStandardContextMenu(self: KListWidgetSearchLine) QMenu {
         return .{ .ptr = qtc.QLineEdit_CreateStandardContextMenu(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `textChanged` instead
+    ///
+    pub const TextChanged = textChanged;
 
     /// Inherited from QLineEdit
     ///
@@ -1416,7 +1764,7 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn TextChanged(self: KListWidgetSearchLine, param1: []const u8) void {
+    pub fn textChanged(self: KListWidgetSearchLine, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -1424,6 +1772,10 @@ pub const KListWidgetSearchLine = extern struct {
         qtc.QLineEdit_TextChanged(@ptrCast(self.ptr), param1_str);
     }
 
+    /// ### DEPRECATED: Use `onTextChanged` instead
+    ///
+    pub const OnTextChanged = onTextChanged;
+
     /// Inherited from QLineEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineedit.html#textChanged)
@@ -1434,9 +1786,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, param1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnTextChanged(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, [*:0]const u8) callconv(.c) void) void {
+    pub fn onTextChanged(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, [*:0]const u8) callconv(.c) void) void {
         qtc.QLineEdit_Connect_TextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `textEdited` instead
+    ///
+    pub const TextEdited = textEdited;
 
     /// Inherited from QLineEdit
     ///
@@ -1448,13 +1804,17 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn TextEdited(self: KListWidgetSearchLine, param1: []const u8) void {
+    pub fn textEdited(self: KListWidgetSearchLine, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
         qtc.QLineEdit_TextEdited(@ptrCast(self.ptr), param1_str);
     }
+
+    /// ### DEPRECATED: Use `onTextEdited` instead
+    ///
+    pub const OnTextEdited = onTextEdited;
 
     /// Inherited from QLineEdit
     ///
@@ -1466,9 +1826,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, param1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnTextEdited(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, [*:0]const u8) callconv(.c) void) void {
+    pub fn onTextEdited(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, [*:0]const u8) callconv(.c) void) void {
         qtc.QLineEdit_Connect_TextEdited(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `cursorPositionChanged` instead
+    ///
+    pub const CursorPositionChanged = cursorPositionChanged;
 
     /// Inherited from QLineEdit
     ///
@@ -1482,9 +1846,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param2: i32 `
     ///
-    pub fn CursorPositionChanged(self: KListWidgetSearchLine, param1: i32, param2: i32) void {
+    pub fn cursorPositionChanged(self: KListWidgetSearchLine, param1: i32, param2: i32) void {
         qtc.QLineEdit_CursorPositionChanged(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2));
     }
+
+    /// ### DEPRECATED: Use `onCursorPositionChanged` instead
+    ///
+    pub const OnCursorPositionChanged = onCursorPositionChanged;
 
     /// Inherited from QLineEdit
     ///
@@ -1496,10 +1864,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, param1: i32, param2: i32) callconv(.c) void `
     ///
-    pub fn OnCursorPositionChanged(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, i32, i32) callconv(.c) void) void {
+    pub fn onCursorPositionChanged(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, i32, i32) callconv(.c) void) void {
         qtc.QLineEdit_Connect_CursorPositionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `returnPressed` instead
+    ///
+    pub const ReturnPressed = returnPressed;
+
     /// Inherited from QLineEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineedit.html#returnPressed)
@@ -1508,10 +1880,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn ReturnPressed(self: KListWidgetSearchLine) void {
+    pub fn returnPressed(self: KListWidgetSearchLine) void {
         qtc.QLineEdit_ReturnPressed(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onReturnPressed` instead
+    ///
+    pub const OnReturnPressed = onReturnPressed;
+
     /// Inherited from QLineEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineedit.html#returnPressed)
@@ -1522,10 +1898,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine) callconv(.c) void `
     ///
-    pub fn OnReturnPressed(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine) callconv(.c) void) void {
+    pub fn onReturnPressed(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine) callconv(.c) void) void {
         qtc.QLineEdit_Connect_ReturnPressed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `editingFinished` instead
+    ///
+    pub const EditingFinished = editingFinished;
+
     /// Inherited from QLineEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineedit.html#editingFinished)
@@ -1534,10 +1914,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn EditingFinished(self: KListWidgetSearchLine) void {
+    pub fn editingFinished(self: KListWidgetSearchLine) void {
         qtc.QLineEdit_EditingFinished(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onEditingFinished` instead
+    ///
+    pub const OnEditingFinished = onEditingFinished;
+
     /// Inherited from QLineEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineedit.html#editingFinished)
@@ -1548,10 +1932,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine) callconv(.c) void `
     ///
-    pub fn OnEditingFinished(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine) callconv(.c) void) void {
+    pub fn onEditingFinished(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine) callconv(.c) void) void {
         qtc.QLineEdit_Connect_EditingFinished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `selectionChanged` instead
+    ///
+    pub const SelectionChanged = selectionChanged;
+
     /// Inherited from QLineEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineedit.html#selectionChanged)
@@ -1560,10 +1948,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn SelectionChanged(self: KListWidgetSearchLine) void {
+    pub fn selectionChanged(self: KListWidgetSearchLine) void {
         qtc.QLineEdit_SelectionChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSelectionChanged` instead
+    ///
+    pub const OnSelectionChanged = onSelectionChanged;
+
     /// Inherited from QLineEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineedit.html#selectionChanged)
@@ -1574,9 +1966,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine) callconv(.c) void `
     ///
-    pub fn OnSelectionChanged(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine) callconv(.c) void) void {
+    pub fn onSelectionChanged(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine) callconv(.c) void) void {
         qtc.QLineEdit_Connect_SelectionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputRejected` instead
+    ///
+    pub const InputRejected = inputRejected;
 
     /// Inherited from QLineEdit
     ///
@@ -1586,9 +1982,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn InputRejected(self: KListWidgetSearchLine) void {
+    pub fn inputRejected(self: KListWidgetSearchLine) void {
         qtc.QLineEdit_InputRejected(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputRejected` instead
+    ///
+    pub const OnInputRejected = onInputRejected;
 
     /// Inherited from QLineEdit
     ///
@@ -1600,9 +2000,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine) callconv(.c) void `
     ///
-    pub fn OnInputRejected(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine) callconv(.c) void) void {
+    pub fn onInputRejected(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine) callconv(.c) void) void {
         qtc.QLineEdit_Connect_InputRejected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery2` instead
+    ///
+    pub const InputMethodQuery2 = inputMethodQuery2;
 
     /// Inherited from QLineEdit
     ///
@@ -1612,14 +2016,18 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` property: qnamespace_enums.InputMethodQuery `
+    /// ` _property: qnamespace_enums.InputMethodQuery `
     ///
     /// ` argument: QVariant `
     ///
-    pub fn InputMethodQuery2(self: KListWidgetSearchLine, property: i32, argument: anytype) QVariant {
+    pub fn inputMethodQuery2(self: KListWidgetSearchLine, _property: i32, argument: anytype) QVariant {
         comptime _ = @TypeOf(argument)._is_QVariant;
-        return .{ .ptr = qtc.QLineEdit_InputMethodQuery2(@ptrCast(self.ptr), @bitCast(property), @ptrCast(argument.ptr)) };
+        return .{ .ptr = qtc.QLineEdit_InputMethodQuery2(@ptrCast(self.ptr), @bitCast(_property), @ptrCast(argument.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursorForward2` instead
+    ///
+    pub const CursorForward2 = cursorForward2;
 
     /// Inherited from QLineEdit
     ///
@@ -1633,9 +2041,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` steps: i32 `
     ///
-    pub fn CursorForward2(self: KListWidgetSearchLine, mark: bool, steps: i32) void {
+    pub fn cursorForward2(self: KListWidgetSearchLine, mark: bool, steps: i32) void {
         qtc.QLineEdit_CursorForward2(@ptrCast(self.ptr), mark, @bitCast(steps));
     }
+
+    /// ### DEPRECATED: Use `cursorBackward2` instead
+    ///
+    pub const CursorBackward2 = cursorBackward2;
 
     /// Inherited from QLineEdit
     ///
@@ -1649,9 +2061,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` steps: i32 `
     ///
-    pub fn CursorBackward2(self: KListWidgetSearchLine, mark: bool, steps: i32) void {
+    pub fn cursorBackward2(self: KListWidgetSearchLine, mark: bool, steps: i32) void {
         qtc.QLineEdit_CursorBackward2(@ptrCast(self.ptr), mark, @bitCast(steps));
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -1661,9 +2077,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn WinId(self: KListWidgetSearchLine) usize {
+    pub fn winId(self: KListWidgetSearchLine) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -1673,9 +2093,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn CreateWinId(self: KListWidgetSearchLine) void {
+    pub fn createWinId(self: KListWidgetSearchLine) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -1685,9 +2109,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn InternalWinId(self: KListWidgetSearchLine) usize {
+    pub fn internalWinId(self: KListWidgetSearchLine) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -1697,9 +2125,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn EffectiveWinId(self: KListWidgetSearchLine) usize {
+    pub fn effectiveWinId(self: KListWidgetSearchLine) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -1709,9 +2141,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn Style(self: KListWidgetSearchLine) QStyle {
+    pub fn style(self: KListWidgetSearchLine) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -1721,12 +2157,16 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: KListWidgetSearchLine, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: KListWidgetSearchLine, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -1736,9 +2176,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn IsTopLevel(self: KListWidgetSearchLine) bool {
+    pub fn isTopLevel(self: KListWidgetSearchLine) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -1748,9 +2192,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn IsWindow(self: KListWidgetSearchLine) bool {
+    pub fn isWindow(self: KListWidgetSearchLine) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -1760,9 +2208,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn IsModal(self: KListWidgetSearchLine) bool {
+    pub fn isModal(self: KListWidgetSearchLine) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -1776,9 +2228,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: KListWidgetSearchLine) i32 {
+    pub fn windowModality(self: KListWidgetSearchLine) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -1788,11 +2244,15 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: KListWidgetSearchLine, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: KListWidgetSearchLine, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1802,9 +2262,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn IsEnabled(self: KListWidgetSearchLine) bool {
+    pub fn isEnabled(self: KListWidgetSearchLine) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -1816,10 +2280,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: KListWidgetSearchLine, param1: anytype) bool {
+    pub fn isEnabledTo(self: KListWidgetSearchLine, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1831,9 +2299,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: KListWidgetSearchLine, enabled: bool) void {
+    pub fn setEnabled(self: KListWidgetSearchLine, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -1845,9 +2317,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: KListWidgetSearchLine, disabled: bool) void {
+    pub fn setDisabled(self: KListWidgetSearchLine, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -1859,9 +2335,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: KListWidgetSearchLine, windowModified: bool) void {
+    pub fn setWindowModified(self: KListWidgetSearchLine, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1871,9 +2351,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn FrameGeometry(self: KListWidgetSearchLine) QRect {
+    pub fn frameGeometry(self: KListWidgetSearchLine) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -1883,9 +2367,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn Geometry(self: KListWidgetSearchLine) QRect {
+    pub fn geometry(self: KListWidgetSearchLine) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1895,9 +2383,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn NormalGeometry(self: KListWidgetSearchLine) QRect {
+    pub fn normalGeometry(self: KListWidgetSearchLine) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -1907,9 +2399,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn X(self: KListWidgetSearchLine) i32 {
+    pub fn x(self: KListWidgetSearchLine) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -1919,9 +2415,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn Y(self: KListWidgetSearchLine) i32 {
+    pub fn y(self: KListWidgetSearchLine) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -1931,9 +2431,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn Pos(self: KListWidgetSearchLine) QPoint {
+    pub fn pos(self: KListWidgetSearchLine) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -1943,9 +2447,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn FrameSize(self: KListWidgetSearchLine) QSize {
+    pub fn frameSize(self: KListWidgetSearchLine) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -1955,9 +2463,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn Size(self: KListWidgetSearchLine) QSize {
+    pub fn size(self: KListWidgetSearchLine) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -1967,9 +2479,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn Width(self: KListWidgetSearchLine) i32 {
+    pub fn width(self: KListWidgetSearchLine) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -1979,9 +2495,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn Height(self: KListWidgetSearchLine) i32 {
+    pub fn height(self: KListWidgetSearchLine) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -1991,9 +2511,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn Rect(self: KListWidgetSearchLine) QRect {
+    pub fn rect(self: KListWidgetSearchLine) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -2003,9 +2527,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn ChildrenRect(self: KListWidgetSearchLine) QRect {
+    pub fn childrenRect(self: KListWidgetSearchLine) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -2015,9 +2543,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn ChildrenRegion(self: KListWidgetSearchLine) QRegion {
+    pub fn childrenRegion(self: KListWidgetSearchLine) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -2027,9 +2559,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn MinimumSize(self: KListWidgetSearchLine) QSize {
+    pub fn minimumSize(self: KListWidgetSearchLine) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -2039,9 +2575,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn MaximumSize(self: KListWidgetSearchLine) QSize {
+    pub fn maximumSize(self: KListWidgetSearchLine) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2051,9 +2591,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn MinimumWidth(self: KListWidgetSearchLine) i32 {
+    pub fn minimumWidth(self: KListWidgetSearchLine) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2063,9 +2607,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn MinimumHeight(self: KListWidgetSearchLine) i32 {
+    pub fn minimumHeight(self: KListWidgetSearchLine) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2075,9 +2623,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn MaximumWidth(self: KListWidgetSearchLine) i32 {
+    pub fn maximumWidth(self: KListWidgetSearchLine) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2087,9 +2639,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn MaximumHeight(self: KListWidgetSearchLine) i32 {
+    pub fn maximumHeight(self: KListWidgetSearchLine) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -2099,12 +2655,16 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: KListWidgetSearchLine, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: KListWidgetSearchLine, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -2118,9 +2678,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: KListWidgetSearchLine, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: KListWidgetSearchLine, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -2130,12 +2694,16 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: KListWidgetSearchLine, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: KListWidgetSearchLine, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -2149,9 +2717,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: KListWidgetSearchLine, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: KListWidgetSearchLine, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2163,9 +2735,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: KListWidgetSearchLine, minw: i32) void {
+    pub fn setMinimumWidth(self: KListWidgetSearchLine, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2177,9 +2753,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: KListWidgetSearchLine, minh: i32) void {
+    pub fn setMinimumHeight(self: KListWidgetSearchLine, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2191,9 +2771,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: KListWidgetSearchLine, maxw: i32) void {
+    pub fn setMaximumWidth(self: KListWidgetSearchLine, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2205,9 +2789,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: KListWidgetSearchLine, maxh: i32) void {
+    pub fn setMaximumHeight(self: KListWidgetSearchLine, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -2217,9 +2805,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn SizeIncrement(self: KListWidgetSearchLine) QSize {
+    pub fn sizeIncrement(self: KListWidgetSearchLine) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -2229,12 +2821,16 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: KListWidgetSearchLine, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: KListWidgetSearchLine, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -2248,9 +2844,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: KListWidgetSearchLine, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: KListWidgetSearchLine, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -2260,9 +2860,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn BaseSize(self: KListWidgetSearchLine) QSize {
+    pub fn baseSize(self: KListWidgetSearchLine) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -2272,12 +2876,16 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: KListWidgetSearchLine, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: KListWidgetSearchLine, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -2291,9 +2899,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: KListWidgetSearchLine, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: KListWidgetSearchLine, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -2305,10 +2917,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: KListWidgetSearchLine, fixedSize: anytype) void {
+    pub fn setFixedSize(self: KListWidgetSearchLine, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -2322,9 +2938,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: KListWidgetSearchLine, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: KListWidgetSearchLine, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -2336,9 +2956,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: KListWidgetSearchLine, w: i32) void {
+    pub fn setFixedWidth(self: KListWidgetSearchLine, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -2350,9 +2974,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: KListWidgetSearchLine, h: i32) void {
+    pub fn setFixedHeight(self: KListWidgetSearchLine, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -2364,11 +2992,15 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: KListWidgetSearchLine, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: KListWidgetSearchLine, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -2379,11 +3011,15 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: KListWidgetSearchLine, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: KListWidgetSearchLine, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -2394,11 +3030,15 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: KListWidgetSearchLine, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: KListWidgetSearchLine, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -2409,11 +3049,15 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: KListWidgetSearchLine, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: KListWidgetSearchLine, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -2424,11 +3068,15 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: KListWidgetSearchLine, param1: anytype) QPointF {
+    pub fn mapToParent(self: KListWidgetSearchLine, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -2439,10 +3087,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: KListWidgetSearchLine, param1: anytype) QPoint {
+    pub fn mapToParent2(self: KListWidgetSearchLine, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -2454,10 +3106,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: KListWidgetSearchLine, param1: anytype) QPointF {
+    pub fn mapFromParent(self: KListWidgetSearchLine, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -2469,10 +3125,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: KListWidgetSearchLine, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: KListWidgetSearchLine, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -2486,12 +3146,16 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: KListWidgetSearchLine, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: KListWidgetSearchLine, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -2504,11 +3168,15 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: KListWidgetSearchLine, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: KListWidgetSearchLine, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -2522,11 +3190,15 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: KListWidgetSearchLine, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: KListWidgetSearchLine, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -2540,11 +3212,15 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: KListWidgetSearchLine, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: KListWidgetSearchLine, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -2554,9 +3230,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn Window(self: KListWidgetSearchLine) QWidget {
+    pub fn window(self: KListWidgetSearchLine) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -2566,9 +3246,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn NativeParentWidget(self: KListWidgetSearchLine) QWidget {
+    pub fn nativeParentWidget(self: KListWidgetSearchLine) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -2578,9 +3262,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn TopLevelWidget(self: KListWidgetSearchLine) QWidget {
+    pub fn topLevelWidget(self: KListWidgetSearchLine) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -2590,9 +3278,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn Palette(self: KListWidgetSearchLine) QPalette {
+    pub fn palette(self: KListWidgetSearchLine) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -2602,12 +3294,16 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: KListWidgetSearchLine, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: KListWidgetSearchLine, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2617,11 +3313,15 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: KListWidgetSearchLine, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: KListWidgetSearchLine, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2635,9 +3335,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: KListWidgetSearchLine) i32 {
+    pub fn backgroundRole(self: KListWidgetSearchLine) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2647,11 +3351,15 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: KListWidgetSearchLine, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: KListWidgetSearchLine, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2665,9 +3373,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: KListWidgetSearchLine) i32 {
+    pub fn foregroundRole(self: KListWidgetSearchLine) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -2677,9 +3389,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn Font(self: KListWidgetSearchLine) QFont {
+    pub fn font(self: KListWidgetSearchLine) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -2689,12 +3405,16 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: KListWidgetSearchLine, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: KListWidgetSearchLine, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -2704,9 +3424,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn FontMetrics(self: KListWidgetSearchLine) QFontMetrics {
+    pub fn fontMetrics(self: KListWidgetSearchLine) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -2716,9 +3440,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn FontInfo(self: KListWidgetSearchLine) QFontInfo {
+    pub fn fontInfo(self: KListWidgetSearchLine) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -2728,9 +3456,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn Cursor(self: KListWidgetSearchLine) QCursor {
+    pub fn cursor(self: KListWidgetSearchLine) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -2740,12 +3472,16 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: KListWidgetSearchLine, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: KListWidgetSearchLine, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -2755,9 +3491,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn UnsetCursor(self: KListWidgetSearchLine) void {
+    pub fn unsetCursor(self: KListWidgetSearchLine) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -2769,9 +3509,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: KListWidgetSearchLine, enable: bool) void {
+    pub fn setMouseTracking(self: KListWidgetSearchLine, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -2781,9 +3525,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn HasMouseTracking(self: KListWidgetSearchLine) bool {
+    pub fn hasMouseTracking(self: KListWidgetSearchLine) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -2793,9 +3541,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn UnderMouse(self: KListWidgetSearchLine) bool {
+    pub fn underMouse(self: KListWidgetSearchLine) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2807,9 +3559,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: KListWidgetSearchLine, enable: bool) void {
+    pub fn setTabletTracking(self: KListWidgetSearchLine, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2819,24 +3575,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn HasTabletTracking(self: KListWidgetSearchLine) bool {
+    pub fn hasTabletTracking(self: KListWidgetSearchLine) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KListWidgetSearchLine `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: KListWidgetSearchLine, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -2846,12 +3591,35 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: KListWidgetSearchLine, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: KListWidgetSearchLine, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KListWidgetSearchLine `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: KListWidgetSearchLine, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -2861,9 +3629,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn Mask(self: KListWidgetSearchLine) QRegion {
+    pub fn mask(self: KListWidgetSearchLine) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -2873,9 +3645,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn ClearMask(self: KListWidgetSearchLine) void {
+    pub fn clearMask(self: KListWidgetSearchLine) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -2887,10 +3663,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: KListWidgetSearchLine, target: anytype) void {
+    pub fn render(self: KListWidgetSearchLine, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -2902,10 +3682,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: KListWidgetSearchLine, painter: anytype) void {
+    pub fn render2(self: KListWidgetSearchLine, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -2915,9 +3699,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn Grab(self: KListWidgetSearchLine) QPixmap {
+    pub fn grab(self: KListWidgetSearchLine) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2927,9 +3715,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn GraphicsEffect(self: KListWidgetSearchLine) QGraphicsEffect {
+    pub fn graphicsEffect(self: KListWidgetSearchLine) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2941,10 +3733,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: KListWidgetSearchLine, effect: anytype) void {
+    pub fn setGraphicsEffect(self: KListWidgetSearchLine, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2956,9 +3752,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: KListWidgetSearchLine, typeVal: i32) void {
+    pub fn grabGesture(self: KListWidgetSearchLine, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2970,9 +3770,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: KListWidgetSearchLine, typeVal: i32) void {
+    pub fn ungrabGesture(self: KListWidgetSearchLine, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2982,15 +3786,19 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: KListWidgetSearchLine, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: KListWidgetSearchLine, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -3000,15 +3808,19 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: KListWidgetSearchLine, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: KListWidgetSearchLine, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -3020,13 +3832,17 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -3038,13 +3854,17 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -3056,10 +3876,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: KListWidgetSearchLine, icon: anytype) void {
+    pub fn setWindowIcon(self: KListWidgetSearchLine, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -3069,9 +3893,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn WindowIcon(self: KListWidgetSearchLine) QIcon {
+    pub fn windowIcon(self: KListWidgetSearchLine) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -3081,15 +3909,19 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: KListWidgetSearchLine, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: KListWidgetSearchLine, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -3101,13 +3933,17 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -3117,15 +3953,19 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: KListWidgetSearchLine, windowRole: []const u8) void {
+    pub fn setWindowRole(self: KListWidgetSearchLine, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -3137,13 +3977,17 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -3155,13 +3999,17 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: KListWidgetSearchLine, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: KListWidgetSearchLine, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -3173,13 +4021,17 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -3191,9 +4043,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: KListWidgetSearchLine, level: f64) void {
+    pub fn setWindowOpacity(self: KListWidgetSearchLine, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -3203,9 +4059,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn WindowOpacity(self: KListWidgetSearchLine) f64 {
+    pub fn windowOpacity(self: KListWidgetSearchLine) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -3215,9 +4075,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn IsWindowModified(self: KListWidgetSearchLine) bool {
+    pub fn isWindowModified(self: KListWidgetSearchLine) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -3227,15 +4091,19 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: KListWidgetSearchLine, toolTip: []const u8) void {
+    pub fn setToolTip(self: KListWidgetSearchLine, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -3247,13 +4115,17 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -3265,9 +4137,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: KListWidgetSearchLine, msec: i32) void {
+    pub fn setToolTipDuration(self: KListWidgetSearchLine, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -3277,9 +4153,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn ToolTipDuration(self: KListWidgetSearchLine) i32 {
+    pub fn toolTipDuration(self: KListWidgetSearchLine) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -3289,15 +4169,19 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: KListWidgetSearchLine, statusTip: []const u8) void {
+    pub fn setStatusTip(self: KListWidgetSearchLine, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -3309,13 +4193,17 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -3325,15 +4213,19 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: KListWidgetSearchLine, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: KListWidgetSearchLine, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -3345,13 +4237,17 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -3363,13 +4259,17 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -3381,13 +4281,17 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: KListWidgetSearchLine, name: []const u8) void {
+    pub fn setAccessibleName(self: KListWidgetSearchLine, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -3399,13 +4303,17 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -3417,13 +4325,17 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: KListWidgetSearchLine, description: []const u8) void {
+    pub fn setAccessibleDescription(self: KListWidgetSearchLine, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3435,9 +4347,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: KListWidgetSearchLine, direction: i32) void {
+    pub fn setLayoutDirection(self: KListWidgetSearchLine, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3451,9 +4367,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: KListWidgetSearchLine) i32 {
+    pub fn layoutDirection(self: KListWidgetSearchLine) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3463,9 +4383,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn UnsetLayoutDirection(self: KListWidgetSearchLine) void {
+    pub fn unsetLayoutDirection(self: KListWidgetSearchLine) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -3475,12 +4399,16 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: KListWidgetSearchLine, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: KListWidgetSearchLine, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -3490,9 +4418,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn Locale(self: KListWidgetSearchLine) QLocale {
+    pub fn locale(self: KListWidgetSearchLine) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -3502,9 +4434,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn UnsetLocale(self: KListWidgetSearchLine) void {
+    pub fn unsetLocale(self: KListWidgetSearchLine) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -3514,9 +4450,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn IsRightToLeft(self: KListWidgetSearchLine) bool {
+    pub fn isRightToLeft(self: KListWidgetSearchLine) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -3526,9 +4466,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn IsLeftToRight(self: KListWidgetSearchLine) bool {
+    pub fn isLeftToRight(self: KListWidgetSearchLine) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -3538,9 +4482,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn SetFocus(self: KListWidgetSearchLine) void {
+    pub fn setFocus(self: KListWidgetSearchLine) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -3550,9 +4498,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn IsActiveWindow(self: KListWidgetSearchLine) bool {
+    pub fn isActiveWindow(self: KListWidgetSearchLine) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -3562,9 +4514,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn ActivateWindow(self: KListWidgetSearchLine) void {
+    pub fn activateWindow(self: KListWidgetSearchLine) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -3574,9 +4530,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn ClearFocus(self: KListWidgetSearchLine) void {
+    pub fn clearFocus(self: KListWidgetSearchLine) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -3588,9 +4548,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: KListWidgetSearchLine, reason: i32) void {
+    pub fn setFocus2(self: KListWidgetSearchLine, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3604,9 +4568,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: KListWidgetSearchLine) i32 {
+    pub fn focusPolicy(self: KListWidgetSearchLine) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3618,9 +4586,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: KListWidgetSearchLine, policy: i32) void {
+    pub fn setFocusPolicy(self: KListWidgetSearchLine, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -3630,9 +4602,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn HasFocus(self: KListWidgetSearchLine) bool {
+    pub fn hasFocus(self: KListWidgetSearchLine) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -3644,11 +4620,15 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -3658,12 +4638,16 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: KListWidgetSearchLine, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: KListWidgetSearchLine, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -3673,9 +4657,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn FocusProxy(self: KListWidgetSearchLine) QWidget {
+    pub fn focusProxy(self: KListWidgetSearchLine) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3689,9 +4677,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: KListWidgetSearchLine) i32 {
+    pub fn contextMenuPolicy(self: KListWidgetSearchLine) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3703,9 +4695,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: KListWidgetSearchLine, policy: i32) void {
+    pub fn setContextMenuPolicy(self: KListWidgetSearchLine, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -3715,9 +4711,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn GrabMouse(self: KListWidgetSearchLine) void {
+    pub fn grabMouse(self: KListWidgetSearchLine) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -3729,10 +4729,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: KListWidgetSearchLine, param1: anytype) void {
+    pub fn grabMouse2(self: KListWidgetSearchLine, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -3742,9 +4746,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn ReleaseMouse(self: KListWidgetSearchLine) void {
+    pub fn releaseMouse(self: KListWidgetSearchLine) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -3754,9 +4762,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn GrabKeyboard(self: KListWidgetSearchLine) void {
+    pub fn grabKeyboard(self: KListWidgetSearchLine) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -3766,9 +4778,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn ReleaseKeyboard(self: KListWidgetSearchLine) void {
+    pub fn releaseKeyboard(self: KListWidgetSearchLine) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3780,10 +4796,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: KListWidgetSearchLine, key: anytype) i32 {
+    pub fn grabShortcut(self: KListWidgetSearchLine, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3795,9 +4815,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: KListWidgetSearchLine, id: i32) void {
+    pub fn releaseShortcut(self: KListWidgetSearchLine, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3809,9 +4833,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: KListWidgetSearchLine, id: i32) void {
+    pub fn setShortcutEnabled(self: KListWidgetSearchLine, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -3823,25 +4851,37 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: KListWidgetSearchLine, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: KListWidgetSearchLine, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3851,9 +4891,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn UpdatesEnabled(self: KListWidgetSearchLine) bool {
+    pub fn updatesEnabled(self: KListWidgetSearchLine) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3865,9 +4909,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: KListWidgetSearchLine, enable: bool) void {
+    pub fn setUpdatesEnabled(self: KListWidgetSearchLine, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -3877,9 +4925,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn GraphicsProxyWidget(self: KListWidgetSearchLine) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: KListWidgetSearchLine) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -3889,9 +4941,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn Update(self: KListWidgetSearchLine) void {
+    pub fn update(self: KListWidgetSearchLine) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -3901,9 +4957,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn Repaint(self: KListWidgetSearchLine) void {
+    pub fn repaint(self: KListWidgetSearchLine) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -3913,17 +4973,21 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: KListWidgetSearchLine, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: KListWidgetSearchLine, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -3935,11 +4999,15 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: KListWidgetSearchLine, param1: anytype) void {
+    pub fn update3(self: KListWidgetSearchLine, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -3950,10 +5018,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: KListWidgetSearchLine, param1: anytype) void {
+    pub fn update4(self: KListWidgetSearchLine, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -3963,17 +5035,21 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: KListWidgetSearchLine, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: KListWidgetSearchLine, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -3985,10 +5061,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: KListWidgetSearchLine, param1: anytype) void {
+    pub fn repaint3(self: KListWidgetSearchLine, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -4000,10 +5080,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: KListWidgetSearchLine, param1: anytype) void {
+    pub fn repaint4(self: KListWidgetSearchLine, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -4015,9 +5099,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: KListWidgetSearchLine, hidden: bool) void {
+    pub fn setHidden(self: KListWidgetSearchLine, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -4027,9 +5115,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn Show(self: KListWidgetSearchLine) void {
+    pub fn show(self: KListWidgetSearchLine) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -4039,9 +5131,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn Hide(self: KListWidgetSearchLine) void {
+    pub fn hide(self: KListWidgetSearchLine) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -4051,9 +5147,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn ShowMinimized(self: KListWidgetSearchLine) void {
+    pub fn showMinimized(self: KListWidgetSearchLine) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -4063,9 +5163,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn ShowMaximized(self: KListWidgetSearchLine) void {
+    pub fn showMaximized(self: KListWidgetSearchLine) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -4075,9 +5179,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn ShowFullScreen(self: KListWidgetSearchLine) void {
+    pub fn showFullScreen(self: KListWidgetSearchLine) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -4087,9 +5195,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn ShowNormal(self: KListWidgetSearchLine) void {
+    pub fn showNormal(self: KListWidgetSearchLine) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -4099,9 +5211,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn Close(self: KListWidgetSearchLine) bool {
+    pub fn close(self: KListWidgetSearchLine) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -4111,9 +5227,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn Raise(self: KListWidgetSearchLine) void {
+    pub fn raise(self: KListWidgetSearchLine) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -4123,9 +5243,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn Lower(self: KListWidgetSearchLine) void {
+    pub fn lower(self: KListWidgetSearchLine) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -4137,10 +5261,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: KListWidgetSearchLine, param1: anytype) void {
+    pub fn stackUnder(self: KListWidgetSearchLine, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -4150,13 +5278,17 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: KListWidgetSearchLine, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: KListWidgetSearchLine, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -4168,10 +5300,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: KListWidgetSearchLine, param1: anytype) void {
+    pub fn move2(self: KListWidgetSearchLine, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -4185,9 +5321,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: KListWidgetSearchLine, w: i32, h: i32) void {
+    pub fn resize(self: KListWidgetSearchLine, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -4199,10 +5339,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: KListWidgetSearchLine, param1: anytype) void {
+    pub fn resize2(self: KListWidgetSearchLine, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4212,17 +5356,21 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: KListWidgetSearchLine, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: KListWidgetSearchLine, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -4232,12 +5380,16 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: KListWidgetSearchLine, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: KListWidgetSearchLine, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4249,13 +5401,17 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KListWidgetSearchLine.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KListWidgetSearchLine.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4265,15 +5421,19 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: KListWidgetSearchLine, geometry: []u8) bool {
+    pub fn restoreGeometry(self: KListWidgetSearchLine, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -4283,9 +5443,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn AdjustSize(self: KListWidgetSearchLine) void {
+    pub fn adjustSize(self: KListWidgetSearchLine) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -4295,9 +5459,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn IsVisible(self: KListWidgetSearchLine) bool {
+    pub fn isVisible(self: KListWidgetSearchLine) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -4309,10 +5477,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: KListWidgetSearchLine, param1: anytype) bool {
+    pub fn isVisibleTo(self: KListWidgetSearchLine, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -4322,9 +5494,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn IsHidden(self: KListWidgetSearchLine) bool {
+    pub fn isHidden(self: KListWidgetSearchLine) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -4334,9 +5510,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn IsMinimized(self: KListWidgetSearchLine) bool {
+    pub fn isMinimized(self: KListWidgetSearchLine) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -4346,9 +5526,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn IsMaximized(self: KListWidgetSearchLine) bool {
+    pub fn isMaximized(self: KListWidgetSearchLine) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -4358,9 +5542,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn IsFullScreen(self: KListWidgetSearchLine) bool {
+    pub fn isFullScreen(self: KListWidgetSearchLine) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -4374,9 +5562,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: KListWidgetSearchLine) i32 {
+    pub fn windowState(self: KListWidgetSearchLine) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -4388,9 +5580,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: KListWidgetSearchLine, state: i32) void {
+    pub fn setWindowState(self: KListWidgetSearchLine, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -4402,9 +5598,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: KListWidgetSearchLine, state: i32) void {
+    pub fn overrideWindowState(self: KListWidgetSearchLine, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -4414,9 +5614,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn SizePolicy(self: KListWidgetSearchLine) QSizePolicy {
+    pub fn sizePolicy(self: KListWidgetSearchLine) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -4426,12 +5630,16 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: KListWidgetSearchLine, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: KListWidgetSearchLine, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -4445,9 +5653,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: KListWidgetSearchLine, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: KListWidgetSearchLine, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -4457,9 +5669,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn VisibleRegion(self: KListWidgetSearchLine) QRegion {
+    pub fn visibleRegion(self: KListWidgetSearchLine) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -4477,9 +5693,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: KListWidgetSearchLine, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: KListWidgetSearchLine, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -4491,10 +5711,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: KListWidgetSearchLine, margins: anytype) void {
+    pub fn setContentsMargins2(self: KListWidgetSearchLine, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -4504,9 +5728,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn ContentsMargins(self: KListWidgetSearchLine) QMargins {
+    pub fn contentsMargins(self: KListWidgetSearchLine) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -4516,9 +5744,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn ContentsRect(self: KListWidgetSearchLine) QRect {
+    pub fn contentsRect(self: KListWidgetSearchLine) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -4528,9 +5760,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn Layout(self: KListWidgetSearchLine) QLayout {
+    pub fn layout(self: KListWidgetSearchLine) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -4540,12 +5776,16 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: KListWidgetSearchLine, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: KListWidgetSearchLine, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4555,24 +5795,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn UpdateGeometry(self: KListWidgetSearchLine) void {
+    pub fn updateGeometry(self: KListWidgetSearchLine) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KListWidgetSearchLine `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: KListWidgetSearchLine, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -4582,14 +5811,37 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: KListWidgetSearchLine, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KListWidgetSearchLine `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: KListWidgetSearchLine, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: KListWidgetSearchLine, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -4603,9 +5855,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: KListWidgetSearchLine, dx: i32, dy: i32) void {
+    pub fn scroll(self: KListWidgetSearchLine, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -4621,10 +5877,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: KListWidgetSearchLine, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: KListWidgetSearchLine, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -4634,9 +5894,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn FocusWidget(self: KListWidgetSearchLine) QWidget {
+    pub fn focusWidget(self: KListWidgetSearchLine) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -4646,9 +5910,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn NextInFocusChain(self: KListWidgetSearchLine) QWidget {
+    pub fn nextInFocusChain(self: KListWidgetSearchLine) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -4658,9 +5926,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn PreviousInFocusChain(self: KListWidgetSearchLine) QWidget {
+    pub fn previousInFocusChain(self: KListWidgetSearchLine) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -4670,9 +5942,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn AcceptDrops(self: KListWidgetSearchLine) bool {
+    pub fn acceptDrops(self: KListWidgetSearchLine) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -4684,9 +5960,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: KListWidgetSearchLine, on: bool) void {
+    pub fn setAcceptDrops(self: KListWidgetSearchLine, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -4696,15 +5976,19 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: KListWidgetSearchLine, actions: []QAction) void {
+    pub fn addActions(self: KListWidgetSearchLine, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -4716,16 +6000,20 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: KListWidgetSearchLine, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: KListWidgetSearchLine, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -4739,11 +6027,15 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: KListWidgetSearchLine, before: anytype, action: anytype) void {
+    pub fn insertAction(self: KListWidgetSearchLine, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -4755,10 +6047,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: KListWidgetSearchLine, action: anytype) void {
+    pub fn removeAction(self: KListWidgetSearchLine, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -4770,15 +6066,19 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KListWidgetSearchLine.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KListWidgetSearchLine.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -4790,16 +6090,20 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn AddAction3(self: KListWidgetSearchLine, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: KListWidgetSearchLine, icon: anytype, _text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
 
     /// Inherited from QWidget
     ///
@@ -4809,19 +6113,23 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: KListWidgetSearchLine, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: KListWidgetSearchLine, _text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -4832,19 +6140,23 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: KListWidgetSearchLine, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: KListWidgetSearchLine, icon: anytype, _text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
 
     /// Inherited from QWidget
     ///
@@ -4854,9 +6166,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn ParentWidget(self: KListWidgetSearchLine) QWidget {
+    pub fn parentWidget(self: KListWidgetSearchLine) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4868,9 +6184,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: KListWidgetSearchLine, typeVal: i32) void {
+    pub fn setWindowFlags(self: KListWidgetSearchLine, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4884,9 +6204,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: KListWidgetSearchLine) i32 {
+    pub fn windowFlags(self: KListWidgetSearchLine) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -4898,9 +6222,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: KListWidgetSearchLine, param1: i32) void {
+    pub fn setWindowFlag(self: KListWidgetSearchLine, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4912,9 +6240,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: KListWidgetSearchLine, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: KListWidgetSearchLine, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -4928,9 +6260,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: KListWidgetSearchLine) i32 {
+    pub fn windowType(self: KListWidgetSearchLine) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -4940,9 +6276,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -4952,13 +6292,17 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: KListWidgetSearchLine, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: KListWidgetSearchLine, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -4970,10 +6314,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: KListWidgetSearchLine, p: anytype) QWidget {
+    pub fn childAt2(self: KListWidgetSearchLine, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -4985,10 +6333,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: KListWidgetSearchLine, p: anytype) QWidget {
+    pub fn childAt3(self: KListWidgetSearchLine, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -5000,9 +6352,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: KListWidgetSearchLine, param1: i32) void {
+    pub fn setAttribute(self: KListWidgetSearchLine, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -5014,9 +6370,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: KListWidgetSearchLine, param1: i32) bool {
+    pub fn testAttribute(self: KListWidgetSearchLine, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -5026,9 +6386,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn EnsurePolished(self: KListWidgetSearchLine) void {
+    pub fn ensurePolished(self: KListWidgetSearchLine) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -5040,10 +6404,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: KListWidgetSearchLine, child: anytype) bool {
+    pub fn isAncestorOf(self: KListWidgetSearchLine, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -5053,9 +6421,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn AutoFillBackground(self: KListWidgetSearchLine) bool {
+    pub fn autoFillBackground(self: KListWidgetSearchLine) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -5067,9 +6439,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: KListWidgetSearchLine, enabled: bool) void {
+    pub fn setAutoFillBackground(self: KListWidgetSearchLine, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -5079,9 +6455,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn BackingStore(self: KListWidgetSearchLine) QBackingStore {
+    pub fn backingStore(self: KListWidgetSearchLine) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -5091,9 +6471,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn WindowHandle(self: KListWidgetSearchLine) QWindow {
+    pub fn windowHandle(self: KListWidgetSearchLine) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -5103,9 +6487,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn Screen(self: KListWidgetSearchLine) QScreen {
+    pub fn screen(self: KListWidgetSearchLine) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -5115,12 +6503,16 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: KListWidgetSearchLine, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: KListWidgetSearchLine, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -5128,12 +6520,16 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -5145,13 +6541,17 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: KListWidgetSearchLine, title: []const u8) void {
+    pub fn windowTitleChanged(self: KListWidgetSearchLine, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -5163,9 +6563,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -5177,10 +6581,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: KListWidgetSearchLine, icon: anytype) void {
+    pub fn windowIconChanged(self: KListWidgetSearchLine, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -5192,9 +6600,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -5206,13 +6618,17 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: KListWidgetSearchLine, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: KListWidgetSearchLine, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -5224,9 +6640,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -5236,12 +6656,16 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: KListWidgetSearchLine, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: KListWidgetSearchLine, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -5253,9 +6677,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -5269,9 +6697,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: KListWidgetSearchLine) i32 {
+    pub fn inputMethodHints(self: KListWidgetSearchLine) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -5283,9 +6715,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: KListWidgetSearchLine, hints: i32) void {
+    pub fn setInputMethodHints(self: KListWidgetSearchLine, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -5299,11 +6735,15 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: KListWidgetSearchLine, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: KListWidgetSearchLine, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -5319,13 +6759,17 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: KListWidgetSearchLine, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: KListWidgetSearchLine, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -5342,12 +6786,16 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: KListWidgetSearchLine, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: KListWidgetSearchLine, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -5361,11 +6809,15 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: KListWidgetSearchLine, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: KListWidgetSearchLine, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -5381,12 +6833,16 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: KListWidgetSearchLine, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: KListWidgetSearchLine, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -5404,12 +6860,16 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: KListWidgetSearchLine, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: KListWidgetSearchLine, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -5421,10 +6881,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: KListWidgetSearchLine, rectangle: anytype) QPixmap {
+    pub fn grab1(self: KListWidgetSearchLine, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -5438,9 +6902,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: KListWidgetSearchLine, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: KListWidgetSearchLine, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -5454,10 +6922,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: KListWidgetSearchLine, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: KListWidgetSearchLine, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -5471,9 +6943,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: KListWidgetSearchLine, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: KListWidgetSearchLine, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -5487,9 +6963,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: KListWidgetSearchLine, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: KListWidgetSearchLine, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -5503,9 +6983,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: KListWidgetSearchLine, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: KListWidgetSearchLine, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -5519,25 +7003,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: KListWidgetSearchLine, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: KListWidgetSearchLine, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -5545,17 +7017,41 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -5567,13 +7063,17 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -5585,13 +7085,17 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KListWidgetSearchLine, name: []const u8) void {
+    pub fn setObjectName(self: KListWidgetSearchLine, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -5601,9 +7105,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn IsWidgetType(self: KListWidgetSearchLine) bool {
+    pub fn isWidgetType(self: KListWidgetSearchLine) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -5613,9 +7121,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn IsWindowType(self: KListWidgetSearchLine) bool {
+    pub fn isWindowType(self: KListWidgetSearchLine) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -5625,9 +7137,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn IsQuickItemType(self: KListWidgetSearchLine) bool {
+    pub fn isQuickItemType(self: KListWidgetSearchLine) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -5637,9 +7153,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn SignalsBlocked(self: KListWidgetSearchLine) bool {
+    pub fn signalsBlocked(self: KListWidgetSearchLine) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -5651,9 +7171,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KListWidgetSearchLine, b: bool) bool {
+    pub fn blockSignals(self: KListWidgetSearchLine, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -5663,9 +7187,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn Thread(self: KListWidgetSearchLine) QThread {
+    pub fn thread(self: KListWidgetSearchLine) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -5675,12 +7203,16 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KListWidgetSearchLine, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KListWidgetSearchLine, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -5692,9 +7224,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KListWidgetSearchLine, interval: i32) i32 {
+    pub fn startTimer(self: KListWidgetSearchLine, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -5706,9 +7242,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KListWidgetSearchLine, time: i64) i32 {
+    pub fn startTimer2(self: KListWidgetSearchLine, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -5720,9 +7260,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KListWidgetSearchLine, id: i32) void {
+    pub fn killTimer(self: KListWidgetSearchLine, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -5734,9 +7278,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KListWidgetSearchLine, id: i32) void {
+    pub fn killTimer2(self: KListWidgetSearchLine, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -5748,15 +7296,19 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KListWidgetSearchLine.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KListWidgetSearchLine.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5768,10 +7320,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KListWidgetSearchLine, filterObj: anytype) void {
+    pub fn installEventFilter(self: KListWidgetSearchLine, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5783,10 +7339,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KListWidgetSearchLine, obj: anytype) void {
+    pub fn removeEventFilter(self: KListWidgetSearchLine, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -5794,7 +7354,7 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5802,13 +7362,17 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -5816,7 +7380,7 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5824,13 +7388,17 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -5840,18 +7408,22 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KListWidgetSearchLine, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KListWidgetSearchLine, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -5859,7 +7431,7 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5867,13 +7439,17 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -5881,7 +7457,7 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5889,13 +7465,17 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -5905,9 +7485,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn Disconnect3(self: KListWidgetSearchLine) bool {
+    pub fn disconnect3(self: KListWidgetSearchLine) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -5919,10 +7503,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KListWidgetSearchLine, receiver: anytype) bool {
+    pub fn disconnect4(self: KListWidgetSearchLine, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -5932,10 +7520,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -5945,9 +7537,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn DumpObjectTree(self: KListWidgetSearchLine) void {
+    pub fn dumpObjectTree(self: KListWidgetSearchLine) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -5957,9 +7553,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn DumpObjectInfo(self: KListWidgetSearchLine) void {
+    pub fn dumpObjectInfo(self: KListWidgetSearchLine) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -5973,11 +7573,15 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KListWidgetSearchLine, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KListWidgetSearchLine, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -5989,10 +7593,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KListWidgetSearchLine, name: [:0]const u8) QVariant {
+    pub fn property(self: KListWidgetSearchLine, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -6004,7 +7612,7 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KListWidgetSearchLine, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KListWidgetSearchLine, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -6012,27 +7620,19 @@ pub const KListWidgetSearchLine = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KListWidgetSearchLine.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KListWidgetSearchLine.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KListWidgetSearchLine.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KListWidgetSearchLine.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KListWidgetSearchLine `
-    ///
-    pub fn BindingStorage(self: KListWidgetSearchLine) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -6042,9 +7642,29 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn BindingStorage2(self: KListWidgetSearchLine) QBindingStorage {
+    pub fn bindingStorage(self: KListWidgetSearchLine) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KListWidgetSearchLine `
+    ///
+    pub fn bindingStorage2(self: KListWidgetSearchLine) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -6054,9 +7674,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn Destroyed(self: KListWidgetSearchLine) void {
+    pub fn destroyed(self: KListWidgetSearchLine) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -6068,9 +7692,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine) callconv(.c) void) void {
+    pub fn onDestroyed(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -6080,9 +7708,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn Parent(self: KListWidgetSearchLine) QObject {
+    pub fn parent(self: KListWidgetSearchLine) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -6094,10 +7726,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KListWidgetSearchLine, classname: [:0]const u8) bool {
+    pub fn inherits(self: KListWidgetSearchLine, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -6107,9 +7743,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn DeleteLater(self: KListWidgetSearchLine) void {
+    pub fn deleteLater(self: KListWidgetSearchLine) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -6123,9 +7763,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KListWidgetSearchLine, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KListWidgetSearchLine, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -6139,9 +7783,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KListWidgetSearchLine, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KListWidgetSearchLine, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -6149,7 +7797,7 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6159,13 +7807,17 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -6173,7 +7825,7 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -6183,13 +7835,17 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -6199,7 +7855,7 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6207,12 +7863,16 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KListWidgetSearchLine, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KListWidgetSearchLine, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -6224,10 +7884,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KListWidgetSearchLine, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KListWidgetSearchLine, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -6241,11 +7905,15 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KListWidgetSearchLine, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KListWidgetSearchLine, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -6261,13 +7929,17 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KListWidgetSearchLine, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KListWidgetSearchLine, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -6280,11 +7952,15 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KListWidgetSearchLine, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KListWidgetSearchLine, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -6296,10 +7972,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KListWidgetSearchLine, param1: anytype) void {
+    pub fn destroyed1(self: KListWidgetSearchLine, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -6311,9 +7991,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -6323,9 +8007,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn PaintingActive(self: KListWidgetSearchLine) bool {
+    pub fn paintingActive(self: KListWidgetSearchLine) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -6335,9 +8023,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn WidthMM(self: KListWidgetSearchLine) i32 {
+    pub fn widthMM(self: KListWidgetSearchLine) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -6347,9 +8039,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn HeightMM(self: KListWidgetSearchLine) i32 {
+    pub fn heightMM(self: KListWidgetSearchLine) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -6359,9 +8055,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn LogicalDpiX(self: KListWidgetSearchLine) i32 {
+    pub fn logicalDpiX(self: KListWidgetSearchLine) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -6371,9 +8071,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn LogicalDpiY(self: KListWidgetSearchLine) i32 {
+    pub fn logicalDpiY(self: KListWidgetSearchLine) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -6383,9 +8087,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn PhysicalDpiX(self: KListWidgetSearchLine) i32 {
+    pub fn physicalDpiX(self: KListWidgetSearchLine) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -6395,9 +8103,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn PhysicalDpiY(self: KListWidgetSearchLine) i32 {
+    pub fn physicalDpiY(self: KListWidgetSearchLine) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -6407,9 +8119,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn DevicePixelRatio(self: KListWidgetSearchLine) f64 {
+    pub fn devicePixelRatio(self: KListWidgetSearchLine) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -6419,9 +8135,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn DevicePixelRatioF(self: KListWidgetSearchLine) f64 {
+    pub fn devicePixelRatioF(self: KListWidgetSearchLine) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -6431,9 +8151,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn ColorCount(self: KListWidgetSearchLine) i32 {
+    pub fn colorCount(self: KListWidgetSearchLine) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -6443,17 +8167,25 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn Depth(self: KListWidgetSearchLine) i32 {
+    pub fn depth(self: KListWidgetSearchLine) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -6461,13 +8193,17 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
 
     /// Inherited from QLineEdit
     ///
@@ -6479,13 +8215,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn SizeHint(self: KListWidgetSearchLine) QSize {
+    pub fn sizeHint(self: KListWidgetSearchLine) QSize {
         return .{ .ptr = qtc.KListWidgetSearchLine_SizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// Inherited from QLineEdit
     ///
@@ -6497,9 +8233,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn SuperSizeHint(self: KListWidgetSearchLine) QSize {
+    pub fn superSizeHint(self: KListWidgetSearchLine) QSize {
         return .{ .ptr = qtc.KListWidgetSearchLine_SuperSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
 
     /// Inherited from QLineEdit
     ///
@@ -6515,9 +8255,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: KListWidgetSearchLine, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KListWidgetSearchLine, callback: *const fn () callconv(.c) QSize) void {
         qtc.KListWidgetSearchLine_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QLineEdit
     ///
@@ -6529,13 +8273,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn MinimumSizeHint(self: KListWidgetSearchLine) QSize {
+    pub fn minimumSizeHint(self: KListWidgetSearchLine) QSize {
         return .{ .ptr = qtc.KListWidgetSearchLine_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QLineEdit
     ///
@@ -6547,9 +8291,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn SuperMinimumSizeHint(self: KListWidgetSearchLine) QSize {
+    pub fn superMinimumSizeHint(self: KListWidgetSearchLine) QSize {
         return .{ .ptr = qtc.KListWidgetSearchLine_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QLineEdit
     ///
@@ -6565,9 +8313,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: KListWidgetSearchLine, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KListWidgetSearchLine, callback: *const fn () callconv(.c) QSize) void {
         qtc.KListWidgetSearchLine_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -6581,14 +8333,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: KListWidgetSearchLine, param1: anytype) void {
+    pub fn mousePressEvent(self: KListWidgetSearchLine, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QMouseEvent;
         qtc.KListWidgetSearchLine_MousePressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -6602,11 +8354,15 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: KListWidgetSearchLine, param1: anytype) void {
+    pub fn superMousePressEvent(self: KListWidgetSearchLine, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QMouseEvent;
         qtc.KListWidgetSearchLine_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
+
     /// Inherited from QLineEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineedit.html#mousePressEvent)
@@ -6619,9 +8375,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, param1: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QMouseEvent) callconv(.c) void) void {
         qtc.KListWidgetSearchLine_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -6635,14 +8395,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: KListWidgetSearchLine, param1: anytype) void {
+    pub fn mouseMoveEvent(self: KListWidgetSearchLine, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QMouseEvent;
         qtc.KListWidgetSearchLine_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -6656,11 +8416,15 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: KListWidgetSearchLine, param1: anytype) void {
+    pub fn superMouseMoveEvent(self: KListWidgetSearchLine, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QMouseEvent;
         qtc.KListWidgetSearchLine_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
+
     /// Inherited from QLineEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineedit.html#mouseMoveEvent)
@@ -6673,9 +8437,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, param1: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QMouseEvent) callconv(.c) void) void {
         qtc.KListWidgetSearchLine_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -6689,14 +8457,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: KListWidgetSearchLine, param1: anytype) void {
+    pub fn mouseReleaseEvent(self: KListWidgetSearchLine, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QMouseEvent;
         qtc.KListWidgetSearchLine_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -6710,11 +8478,15 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: KListWidgetSearchLine, param1: anytype) void {
+    pub fn superMouseReleaseEvent(self: KListWidgetSearchLine, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QMouseEvent;
         qtc.KListWidgetSearchLine_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
+
     /// Inherited from QLineEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineedit.html#mouseReleaseEvent)
@@ -6727,9 +8499,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, param1: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QMouseEvent) callconv(.c) void) void {
         qtc.KListWidgetSearchLine_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -6743,14 +8519,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: KListWidgetSearchLine, param1: anytype) void {
+    pub fn mouseDoubleClickEvent(self: KListWidgetSearchLine, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QMouseEvent;
         qtc.KListWidgetSearchLine_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -6764,10 +8540,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: KListWidgetSearchLine, param1: anytype) void {
+    pub fn superMouseDoubleClickEvent(self: KListWidgetSearchLine, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QMouseEvent;
         qtc.KListWidgetSearchLine_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -6781,9 +8561,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, param1: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QMouseEvent) callconv(.c) void) void {
         qtc.KListWidgetSearchLine_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -6797,14 +8581,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: KListWidgetSearchLine, param1: anytype) void {
+    pub fn keyPressEvent(self: KListWidgetSearchLine, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QKeyEvent;
         qtc.KListWidgetSearchLine_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -6818,11 +8602,15 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: KListWidgetSearchLine, param1: anytype) void {
+    pub fn superKeyPressEvent(self: KListWidgetSearchLine, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QKeyEvent;
         qtc.KListWidgetSearchLine_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
+
     /// Inherited from QLineEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineedit.html#keyPressEvent)
@@ -6835,9 +8623,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, param1: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QKeyEvent) callconv(.c) void) void {
         qtc.KListWidgetSearchLine_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -6851,14 +8643,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: KListWidgetSearchLine, param1: anytype) void {
+    pub fn keyReleaseEvent(self: KListWidgetSearchLine, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QKeyEvent;
         qtc.KListWidgetSearchLine_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -6872,10 +8664,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: KListWidgetSearchLine, param1: anytype) void {
+    pub fn superKeyReleaseEvent(self: KListWidgetSearchLine, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QKeyEvent;
         qtc.KListWidgetSearchLine_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -6889,9 +8685,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, param1: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QKeyEvent) callconv(.c) void) void {
         qtc.KListWidgetSearchLine_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -6905,14 +8705,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: KListWidgetSearchLine, param1: anytype) void {
+    pub fn focusInEvent(self: KListWidgetSearchLine, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QFocusEvent;
         qtc.KListWidgetSearchLine_FocusInEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -6926,11 +8726,15 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: KListWidgetSearchLine, param1: anytype) void {
+    pub fn superFocusInEvent(self: KListWidgetSearchLine, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QFocusEvent;
         qtc.KListWidgetSearchLine_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
+
     /// Inherited from QLineEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineedit.html#focusInEvent)
@@ -6943,9 +8747,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, param1: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QFocusEvent) callconv(.c) void) void {
         qtc.KListWidgetSearchLine_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -6959,14 +8767,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: KListWidgetSearchLine, param1: anytype) void {
+    pub fn focusOutEvent(self: KListWidgetSearchLine, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QFocusEvent;
         qtc.KListWidgetSearchLine_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -6980,10 +8788,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: KListWidgetSearchLine, param1: anytype) void {
+    pub fn superFocusOutEvent(self: KListWidgetSearchLine, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QFocusEvent;
         qtc.KListWidgetSearchLine_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -6997,9 +8809,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, param1: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QFocusEvent) callconv(.c) void) void {
         qtc.KListWidgetSearchLine_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -7013,14 +8829,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: QPaintEvent `
     ///
-    pub fn PaintEvent(self: KListWidgetSearchLine, param1: anytype) void {
+    pub fn paintEvent(self: KListWidgetSearchLine, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPaintEvent;
         qtc.KListWidgetSearchLine_PaintEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -7034,10 +8850,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: KListWidgetSearchLine, param1: anytype) void {
+    pub fn superPaintEvent(self: KListWidgetSearchLine, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPaintEvent;
         qtc.KListWidgetSearchLine_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -7051,9 +8871,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, param1: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QPaintEvent) callconv(.c) void) void {
         qtc.KListWidgetSearchLine_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -7067,14 +8891,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: KListWidgetSearchLine, param1: anytype) void {
+    pub fn dragEnterEvent(self: KListWidgetSearchLine, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QDragEnterEvent;
         qtc.KListWidgetSearchLine_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -7088,10 +8912,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: KListWidgetSearchLine, param1: anytype) void {
+    pub fn superDragEnterEvent(self: KListWidgetSearchLine, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QDragEnterEvent;
         qtc.KListWidgetSearchLine_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -7105,9 +8933,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, param1: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QDragEnterEvent) callconv(.c) void) void {
         qtc.KListWidgetSearchLine_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -7121,14 +8953,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` e: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: KListWidgetSearchLine, e: anytype) void {
+    pub fn dragMoveEvent(self: KListWidgetSearchLine, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QDragMoveEvent;
         qtc.KListWidgetSearchLine_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -7142,10 +8974,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` e: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: KListWidgetSearchLine, e: anytype) void {
+    pub fn superDragMoveEvent(self: KListWidgetSearchLine, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QDragMoveEvent;
         qtc.KListWidgetSearchLine_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -7159,9 +8995,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, e: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QDragMoveEvent) callconv(.c) void) void {
         qtc.KListWidgetSearchLine_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -7175,14 +9015,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` e: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: KListWidgetSearchLine, e: anytype) void {
+    pub fn dragLeaveEvent(self: KListWidgetSearchLine, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QDragLeaveEvent;
         qtc.KListWidgetSearchLine_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -7196,10 +9036,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` e: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: KListWidgetSearchLine, e: anytype) void {
+    pub fn superDragLeaveEvent(self: KListWidgetSearchLine, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QDragLeaveEvent;
         qtc.KListWidgetSearchLine_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -7213,9 +9057,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, e: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QDragLeaveEvent) callconv(.c) void) void {
         qtc.KListWidgetSearchLine_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -7229,14 +9077,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: QDropEvent `
     ///
-    pub fn DropEvent(self: KListWidgetSearchLine, param1: anytype) void {
+    pub fn dropEvent(self: KListWidgetSearchLine, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QDropEvent;
         qtc.KListWidgetSearchLine_DropEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -7250,10 +9098,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: KListWidgetSearchLine, param1: anytype) void {
+    pub fn superDropEvent(self: KListWidgetSearchLine, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QDropEvent;
         qtc.KListWidgetSearchLine_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -7267,9 +9119,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, param1: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QDropEvent) callconv(.c) void) void {
         qtc.KListWidgetSearchLine_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -7283,14 +9139,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: KListWidgetSearchLine, param1: anytype) void {
+    pub fn changeEvent(self: KListWidgetSearchLine, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.KListWidgetSearchLine_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -7304,10 +9160,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: KListWidgetSearchLine, param1: anytype) void {
+    pub fn superChangeEvent(self: KListWidgetSearchLine, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.KListWidgetSearchLine_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -7321,9 +9181,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QEvent) callconv(.c) void) void {
         qtc.KListWidgetSearchLine_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -7337,14 +9201,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: KListWidgetSearchLine, param1: anytype) void {
+    pub fn contextMenuEvent(self: KListWidgetSearchLine, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
         qtc.KListWidgetSearchLine_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -7358,10 +9222,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: KListWidgetSearchLine, param1: anytype) void {
+    pub fn superContextMenuEvent(self: KListWidgetSearchLine, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
         qtc.KListWidgetSearchLine_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -7375,9 +9243,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, param1: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QContextMenuEvent) callconv(.c) void) void {
         qtc.KListWidgetSearchLine_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -7391,14 +9263,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: KListWidgetSearchLine, param1: anytype) void {
+    pub fn inputMethodEvent(self: KListWidgetSearchLine, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KListWidgetSearchLine_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -7412,10 +9284,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: KListWidgetSearchLine, param1: anytype) void {
+    pub fn superInputMethodEvent(self: KListWidgetSearchLine, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KListWidgetSearchLine_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -7429,9 +9305,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QInputMethodEvent) callconv(.c) void) void {
         qtc.KListWidgetSearchLine_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initStyleOption` instead
+    ///
+    pub const InitStyleOption = initStyleOption;
 
     /// Inherited from QLineEdit
     ///
@@ -7445,14 +9325,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` option: QStyleOptionFrame `
     ///
-    pub fn InitStyleOption(self: KListWidgetSearchLine, option: anytype) void {
+    pub fn initStyleOption(self: KListWidgetSearchLine, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionFrame;
         qtc.KListWidgetSearchLine_InitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitStyleOption` instead
+    /// ### DEPRECATED: Use `superInitStyleOption` instead
     ///
-    pub const QBaseInitStyleOption = SuperInitStyleOption;
+    pub const SuperInitStyleOption = superInitStyleOption;
 
     /// Inherited from QLineEdit
     ///
@@ -7466,10 +9346,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` option: QStyleOptionFrame `
     ///
-    pub fn SuperInitStyleOption(self: KListWidgetSearchLine, option: anytype) void {
+    pub fn superInitStyleOption(self: KListWidgetSearchLine, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionFrame;
         qtc.KListWidgetSearchLine_SuperInitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitStyleOption` instead
+    ///
+    pub const OnInitStyleOption = onInitStyleOption;
 
     /// Inherited from QLineEdit
     ///
@@ -7483,9 +9367,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, option: QStyleOptionFrame) callconv(.c) void `
     ///
-    pub fn OnInitStyleOption(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QStyleOptionFrame) callconv(.c) void) void {
+    pub fn onInitStyleOption(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QStyleOptionFrame) callconv(.c) void) void {
         qtc.KListWidgetSearchLine_OnInitStyleOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QLineEdit
     ///
@@ -7499,13 +9387,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: KListWidgetSearchLine, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: KListWidgetSearchLine, param1: i32) QVariant {
         return .{ .ptr = qtc.KListWidgetSearchLine_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QLineEdit
     ///
@@ -7519,9 +9407,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: KListWidgetSearchLine, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: KListWidgetSearchLine, param1: i32) QVariant {
         return .{ .ptr = qtc.KListWidgetSearchLine_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QLineEdit
     ///
@@ -7537,9 +9429,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, i32) callconv(.c) QVariant) void {
         qtc.KListWidgetSearchLine_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -7553,14 +9449,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KListWidgetSearchLine, param1: anytype) void {
+    pub fn timerEvent(self: KListWidgetSearchLine, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QTimerEvent;
         qtc.KListWidgetSearchLine_TimerEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -7574,10 +9470,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KListWidgetSearchLine, param1: anytype) void {
+    pub fn superTimerEvent(self: KListWidgetSearchLine, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QTimerEvent;
         qtc.KListWidgetSearchLine_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -7591,9 +9491,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, param1: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QTimerEvent) callconv(.c) void) void {
         qtc.KListWidgetSearchLine_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -7605,13 +9509,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn DevType(self: KListWidgetSearchLine) i32 {
+    pub fn devType(self: KListWidgetSearchLine) i32 {
         return qtc.KListWidgetSearchLine_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -7623,9 +9527,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn SuperDevType(self: KListWidgetSearchLine) i32 {
+    pub fn superDevType(self: KListWidgetSearchLine) i32 {
         return qtc.KListWidgetSearchLine_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -7639,9 +9547,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: KListWidgetSearchLine, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KListWidgetSearchLine, callback: *const fn () callconv(.c) i32) void {
         qtc.KListWidgetSearchLine_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -7655,13 +9567,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: KListWidgetSearchLine, visible: bool) void {
+    pub fn setVisible(self: KListWidgetSearchLine, visible: bool) void {
         qtc.KListWidgetSearchLine_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -7675,9 +9587,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: KListWidgetSearchLine, visible: bool) void {
+    pub fn superSetVisible(self: KListWidgetSearchLine, visible: bool) void {
         qtc.KListWidgetSearchLine_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -7691,9 +9607,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, bool) callconv(.c) void) void {
         qtc.KListWidgetSearchLine_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7707,13 +9627,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: KListWidgetSearchLine, param1: i32) i32 {
+    pub fn heightForWidth(self: KListWidgetSearchLine, param1: i32) i32 {
         return qtc.KListWidgetSearchLine_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7727,9 +9647,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: KListWidgetSearchLine, param1: i32) i32 {
+    pub fn superHeightForWidth(self: KListWidgetSearchLine, param1: i32) i32 {
         return qtc.KListWidgetSearchLine_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7743,9 +9667,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, i32) callconv(.c) i32) void {
         qtc.KListWidgetSearchLine_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7757,13 +9685,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn HasHeightForWidth(self: KListWidgetSearchLine) bool {
+    pub fn hasHeightForWidth(self: KListWidgetSearchLine) bool {
         return qtc.KListWidgetSearchLine_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7775,9 +9703,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn SuperHasHeightForWidth(self: KListWidgetSearchLine) bool {
+    pub fn superHasHeightForWidth(self: KListWidgetSearchLine) bool {
         return qtc.KListWidgetSearchLine_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7791,9 +9723,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: KListWidgetSearchLine, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KListWidgetSearchLine, callback: *const fn () callconv(.c) bool) void {
         qtc.KListWidgetSearchLine_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -7805,13 +9741,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn PaintEngine(self: KListWidgetSearchLine) QPaintEngine {
+    pub fn paintEngine(self: KListWidgetSearchLine) QPaintEngine {
         return .{ .ptr = qtc.KListWidgetSearchLine_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -7823,9 +9759,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn SuperPaintEngine(self: KListWidgetSearchLine) QPaintEngine {
+    pub fn superPaintEngine(self: KListWidgetSearchLine) QPaintEngine {
         return .{ .ptr = qtc.KListWidgetSearchLine_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -7839,9 +9779,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: KListWidgetSearchLine, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KListWidgetSearchLine, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.KListWidgetSearchLine_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -7853,16 +9797,16 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: KListWidgetSearchLine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.KListWidgetSearchLine_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn wheelEvent(self: KListWidgetSearchLine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.KListWidgetSearchLine_WheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -7874,12 +9818,16 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: KListWidgetSearchLine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.KListWidgetSearchLine_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superWheelEvent(self: KListWidgetSearchLine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.KListWidgetSearchLine_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -7893,9 +9841,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QWheelEvent) callconv(.c) void) void {
         qtc.KListWidgetSearchLine_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7907,16 +9859,16 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: KListWidgetSearchLine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KListWidgetSearchLine_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: KListWidgetSearchLine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KListWidgetSearchLine_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7928,12 +9880,16 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: KListWidgetSearchLine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KListWidgetSearchLine_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: KListWidgetSearchLine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KListWidgetSearchLine_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7947,9 +9903,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QEnterEvent) callconv(.c) void) void {
         qtc.KListWidgetSearchLine_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7961,16 +9921,16 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: KListWidgetSearchLine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KListWidgetSearchLine_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: KListWidgetSearchLine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KListWidgetSearchLine_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7982,12 +9942,16 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: KListWidgetSearchLine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KListWidgetSearchLine_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: KListWidgetSearchLine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KListWidgetSearchLine_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8001,9 +9965,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QEvent) callconv(.c) void) void {
         qtc.KListWidgetSearchLine_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8015,16 +9983,16 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: KListWidgetSearchLine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KListWidgetSearchLine_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: KListWidgetSearchLine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KListWidgetSearchLine_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8036,12 +10004,16 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: KListWidgetSearchLine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KListWidgetSearchLine_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: KListWidgetSearchLine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KListWidgetSearchLine_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8055,9 +10027,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QMoveEvent) callconv(.c) void) void {
         qtc.KListWidgetSearchLine_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -8069,16 +10045,16 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: KListWidgetSearchLine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.KListWidgetSearchLine_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn resizeEvent(self: KListWidgetSearchLine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.KListWidgetSearchLine_ResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -8090,12 +10066,16 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: KListWidgetSearchLine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.KListWidgetSearchLine_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superResizeEvent(self: KListWidgetSearchLine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.KListWidgetSearchLine_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -8109,9 +10089,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QResizeEvent) callconv(.c) void) void {
         qtc.KListWidgetSearchLine_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -8123,16 +10107,16 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: KListWidgetSearchLine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.KListWidgetSearchLine_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: KListWidgetSearchLine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.KListWidgetSearchLine_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -8144,12 +10128,16 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: KListWidgetSearchLine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.KListWidgetSearchLine_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: KListWidgetSearchLine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.KListWidgetSearchLine_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -8163,9 +10151,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QCloseEvent) callconv(.c) void) void {
         qtc.KListWidgetSearchLine_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -8177,16 +10169,16 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: KListWidgetSearchLine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KListWidgetSearchLine_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: KListWidgetSearchLine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KListWidgetSearchLine_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -8198,12 +10190,16 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: KListWidgetSearchLine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KListWidgetSearchLine_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: KListWidgetSearchLine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KListWidgetSearchLine_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -8217,9 +10213,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QTabletEvent) callconv(.c) void) void {
         qtc.KListWidgetSearchLine_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -8231,16 +10231,16 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: KListWidgetSearchLine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KListWidgetSearchLine_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: KListWidgetSearchLine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KListWidgetSearchLine_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -8252,12 +10252,16 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: KListWidgetSearchLine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KListWidgetSearchLine_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: KListWidgetSearchLine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KListWidgetSearchLine_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -8271,9 +10275,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QActionEvent) callconv(.c) void) void {
         qtc.KListWidgetSearchLine_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QWidget
     ///
@@ -8285,16 +10293,16 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn ShowEvent(self: KListWidgetSearchLine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.KListWidgetSearchLine_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn showEvent(self: KListWidgetSearchLine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.KListWidgetSearchLine_ShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -8306,12 +10314,16 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: KListWidgetSearchLine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.KListWidgetSearchLine_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superShowEvent(self: KListWidgetSearchLine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.KListWidgetSearchLine_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -8325,9 +10337,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QShowEvent) callconv(.c) void) void {
         qtc.KListWidgetSearchLine_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -8339,16 +10355,16 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: KListWidgetSearchLine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KListWidgetSearchLine_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: KListWidgetSearchLine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KListWidgetSearchLine_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -8360,12 +10376,16 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: KListWidgetSearchLine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KListWidgetSearchLine_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: KListWidgetSearchLine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KListWidgetSearchLine_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -8379,9 +10399,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QHideEvent) callconv(.c) void) void {
         qtc.KListWidgetSearchLine_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -8399,7 +10423,7 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: KListWidgetSearchLine, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: KListWidgetSearchLine, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -8407,9 +10431,9 @@ pub const KListWidgetSearchLine = extern struct {
         return qtc.KListWidgetSearchLine_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -8427,13 +10451,17 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: KListWidgetSearchLine, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: KListWidgetSearchLine, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.KListWidgetSearchLine_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -8447,9 +10475,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KListWidgetSearchLine_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -8463,13 +10495,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: KListWidgetSearchLine, param1: i32) i32 {
+    pub fn metric(self: KListWidgetSearchLine, param1: i32) i32 {
         return qtc.KListWidgetSearchLine_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -8483,9 +10515,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: KListWidgetSearchLine, param1: i32) i32 {
+    pub fn superMetric(self: KListWidgetSearchLine, param1: i32) i32 {
         return qtc.KListWidgetSearchLine_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -8499,9 +10535,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, i32) callconv(.c) i32) void {
         qtc.KListWidgetSearchLine_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -8515,14 +10555,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: KListWidgetSearchLine, painter: anytype) void {
+    pub fn initPainter(self: KListWidgetSearchLine, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KListWidgetSearchLine_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -8536,10 +10576,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: KListWidgetSearchLine, painter: anytype) void {
+    pub fn superInitPainter(self: KListWidgetSearchLine, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KListWidgetSearchLine_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -8553,9 +10597,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QPainter) callconv(.c) void) void {
         qtc.KListWidgetSearchLine_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -8569,14 +10617,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: KListWidgetSearchLine, offset: anytype) QPaintDevice {
+    pub fn redirected(self: KListWidgetSearchLine, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KListWidgetSearchLine_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -8590,10 +10638,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: KListWidgetSearchLine, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: KListWidgetSearchLine, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KListWidgetSearchLine_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -8607,9 +10659,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QPoint) callconv(.c) QPaintDevice) void {
         qtc.KListWidgetSearchLine_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -8621,13 +10677,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn SharedPainter(self: KListWidgetSearchLine) QPainter {
+    pub fn sharedPainter(self: KListWidgetSearchLine) QPainter {
         return .{ .ptr = qtc.KListWidgetSearchLine_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -8639,9 +10695,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn SuperSharedPainter(self: KListWidgetSearchLine) QPainter {
+    pub fn superSharedPainter(self: KListWidgetSearchLine) QPainter {
         return .{ .ptr = qtc.KListWidgetSearchLine_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -8655,9 +10715,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: KListWidgetSearchLine, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KListWidgetSearchLine, callback: *const fn () callconv(.c) QPainter) void {
         qtc.KListWidgetSearchLine_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8671,13 +10735,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: KListWidgetSearchLine, next: bool) bool {
+    pub fn focusNextPrevChild(self: KListWidgetSearchLine, next: bool) bool {
         return qtc.KListWidgetSearchLine_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8691,9 +10755,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: KListWidgetSearchLine, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: KListWidgetSearchLine, next: bool) bool {
         return qtc.KListWidgetSearchLine_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8707,9 +10775,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, bool) callconv(.c) bool) void {
         qtc.KListWidgetSearchLine_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -8723,17 +10795,17 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: KListWidgetSearchLine, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: KListWidgetSearchLine, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KListWidgetSearchLine_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KListWidgetSearchLine_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -8747,13 +10819,17 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: KListWidgetSearchLine, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: KListWidgetSearchLine, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KListWidgetSearchLine_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KListWidgetSearchLine_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -8767,9 +10843,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QObject, QEvent) callconv(.c) bool) void {
         qtc.KListWidgetSearchLine_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -8781,16 +10861,16 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KListWidgetSearchLine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KListWidgetSearchLine_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KListWidgetSearchLine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KListWidgetSearchLine_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -8802,12 +10882,16 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KListWidgetSearchLine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KListWidgetSearchLine_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KListWidgetSearchLine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KListWidgetSearchLine_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -8821,9 +10905,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QChildEvent) callconv(.c) void) void {
         qtc.KListWidgetSearchLine_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -8835,16 +10923,16 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KListWidgetSearchLine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KListWidgetSearchLine_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KListWidgetSearchLine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KListWidgetSearchLine_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8856,12 +10944,16 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KListWidgetSearchLine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KListWidgetSearchLine_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KListWidgetSearchLine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KListWidgetSearchLine_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8875,9 +10967,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QEvent) callconv(.c) void) void {
         qtc.KListWidgetSearchLine_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -8891,14 +10987,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KListWidgetSearchLine, signal: anytype) void {
+    pub fn connectNotify(self: KListWidgetSearchLine, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KListWidgetSearchLine_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8912,11 +11008,15 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KListWidgetSearchLine, signal: anytype) void {
+    pub fn superConnectNotify(self: KListWidgetSearchLine, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KListWidgetSearchLine_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -8929,9 +11029,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QMetaMethod) callconv(.c) void) void {
         qtc.KListWidgetSearchLine_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8945,14 +11049,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KListWidgetSearchLine, signal: anytype) void {
+    pub fn disconnectNotify(self: KListWidgetSearchLine, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KListWidgetSearchLine_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8966,10 +11070,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KListWidgetSearchLine, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KListWidgetSearchLine, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KListWidgetSearchLine_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8983,9 +11091,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QMetaMethod) callconv(.c) void) void {
         qtc.KListWidgetSearchLine_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `cursorRect` instead
+    ///
+    pub const CursorRect = cursorRect;
 
     /// Inherited from QLineEdit
     ///
@@ -8997,13 +11109,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn CursorRect(self: KListWidgetSearchLine) QRect {
+    pub fn cursorRect(self: KListWidgetSearchLine) QRect {
         return .{ .ptr = qtc.KListWidgetSearchLine_CursorRect(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperCursorRect` instead
+    /// ### DEPRECATED: Use `superCursorRect` instead
     ///
-    pub const QBaseCursorRect = SuperCursorRect;
+    pub const SuperCursorRect = superCursorRect;
 
     /// Inherited from QLineEdit
     ///
@@ -9015,9 +11127,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn SuperCursorRect(self: KListWidgetSearchLine) QRect {
+    pub fn superCursorRect(self: KListWidgetSearchLine) QRect {
         return .{ .ptr = qtc.KListWidgetSearchLine_SuperCursorRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onCursorRect` instead
+    ///
+    pub const OnCursorRect = onCursorRect;
 
     /// Inherited from QLineEdit
     ///
@@ -9033,10 +11149,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnCursorRect(self: KListWidgetSearchLine, callback: *const fn () callconv(.c) QRect) void {
+    pub fn onCursorRect(self: KListWidgetSearchLine, callback: *const fn () callconv(.c) QRect) void {
         qtc.KListWidgetSearchLine_OnCursorRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -9047,13 +11167,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn UpdateMicroFocus(self: KListWidgetSearchLine) void {
+    pub fn updateMicroFocus(self: KListWidgetSearchLine) void {
         qtc.KListWidgetSearchLine_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -9065,10 +11185,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn SuperUpdateMicroFocus(self: KListWidgetSearchLine) void {
+    pub fn superUpdateMicroFocus(self: KListWidgetSearchLine) void {
         qtc.KListWidgetSearchLine_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -9081,10 +11205,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: KListWidgetSearchLine, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: KListWidgetSearchLine, callback: *const fn () callconv(.c) void) void {
         qtc.KListWidgetSearchLine_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -9095,13 +11223,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn Create(self: KListWidgetSearchLine) void {
+    pub fn create(self: KListWidgetSearchLine) void {
         qtc.KListWidgetSearchLine_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -9113,10 +11241,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn SuperCreate(self: KListWidgetSearchLine) void {
+    pub fn superCreate(self: KListWidgetSearchLine) void {
         qtc.KListWidgetSearchLine_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -9129,9 +11261,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: KListWidgetSearchLine, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: KListWidgetSearchLine, callback: *const fn () callconv(.c) void) void {
         qtc.KListWidgetSearchLine_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -9143,13 +11279,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn Destroy(self: KListWidgetSearchLine) void {
+    pub fn destroy(self: KListWidgetSearchLine) void {
         qtc.KListWidgetSearchLine_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -9161,9 +11297,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn SuperDestroy(self: KListWidgetSearchLine) void {
+    pub fn superDestroy(self: KListWidgetSearchLine) void {
         qtc.KListWidgetSearchLine_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -9177,10 +11317,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: KListWidgetSearchLine, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: KListWidgetSearchLine, callback: *const fn () callconv(.c) void) void {
         qtc.KListWidgetSearchLine_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -9191,13 +11335,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn FocusNextChild(self: KListWidgetSearchLine) bool {
+    pub fn focusNextChild(self: KListWidgetSearchLine) bool {
         return qtc.KListWidgetSearchLine_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -9209,10 +11353,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn SuperFocusNextChild(self: KListWidgetSearchLine) bool {
+    pub fn superFocusNextChild(self: KListWidgetSearchLine) bool {
         return qtc.KListWidgetSearchLine_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -9225,9 +11373,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: KListWidgetSearchLine, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: KListWidgetSearchLine, callback: *const fn () callconv(.c) bool) void {
         qtc.KListWidgetSearchLine_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -9239,13 +11391,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn FocusPreviousChild(self: KListWidgetSearchLine) bool {
+    pub fn focusPreviousChild(self: KListWidgetSearchLine) bool {
         return qtc.KListWidgetSearchLine_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -9257,9 +11409,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn SuperFocusPreviousChild(self: KListWidgetSearchLine) bool {
+    pub fn superFocusPreviousChild(self: KListWidgetSearchLine) bool {
         return qtc.KListWidgetSearchLine_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -9273,9 +11429,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: KListWidgetSearchLine, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: KListWidgetSearchLine, callback: *const fn () callconv(.c) bool) void {
         qtc.KListWidgetSearchLine_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -9287,13 +11447,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn Sender(self: KListWidgetSearchLine) QObject {
+    pub fn sender(self: KListWidgetSearchLine) QObject {
         return .{ .ptr = qtc.KListWidgetSearchLine_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -9305,9 +11465,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn SuperSender(self: KListWidgetSearchLine) QObject {
+    pub fn superSender(self: KListWidgetSearchLine) QObject {
         return .{ .ptr = qtc.KListWidgetSearchLine_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -9321,9 +11485,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KListWidgetSearchLine, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KListWidgetSearchLine, callback: *const fn () callconv(.c) QObject) void {
         qtc.KListWidgetSearchLine_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -9335,13 +11503,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn SenderSignalIndex(self: KListWidgetSearchLine) i32 {
+    pub fn senderSignalIndex(self: KListWidgetSearchLine) i32 {
         return qtc.KListWidgetSearchLine_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -9353,9 +11521,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn SuperSenderSignalIndex(self: KListWidgetSearchLine) i32 {
+    pub fn superSenderSignalIndex(self: KListWidgetSearchLine) i32 {
         return qtc.KListWidgetSearchLine_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -9369,9 +11541,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KListWidgetSearchLine, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KListWidgetSearchLine, callback: *const fn () callconv(.c) i32) void {
         qtc.KListWidgetSearchLine_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -9385,14 +11561,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KListWidgetSearchLine, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KListWidgetSearchLine, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KListWidgetSearchLine_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -9406,10 +11582,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KListWidgetSearchLine, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KListWidgetSearchLine, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KListWidgetSearchLine_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -9423,9 +11603,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, [*:0]const u8) callconv(.c) i32) void {
         qtc.KListWidgetSearchLine_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -9439,14 +11623,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KListWidgetSearchLine, signal: anytype) bool {
+    pub fn isSignalConnected(self: KListWidgetSearchLine, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KListWidgetSearchLine_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -9460,10 +11644,14 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KListWidgetSearchLine, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KListWidgetSearchLine, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KListWidgetSearchLine_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -9477,9 +11665,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, QMetaMethod) callconv(.c) bool) void {
         qtc.KListWidgetSearchLine_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9495,13 +11687,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: KListWidgetSearchLine, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: KListWidgetSearchLine, metricA: i32, metricB: i32) f64 {
         return qtc.KListWidgetSearchLine_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9517,9 +11709,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: KListWidgetSearchLine, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: KListWidgetSearchLine, metricA: i32, metricB: i32) f64 {
         return qtc.KListWidgetSearchLine_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9533,9 +11729,13 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, i32, i32) callconv(.c) f64) void {
         qtc.KListWidgetSearchLine_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -9549,23 +11749,23 @@ pub const KListWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn (self: KListWidgetSearchLine, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KListWidgetSearchLine, callback: *const fn (KListWidgetSearchLine, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/klistwidgetsearchline.html#dtor.KListWidgetSearchLine)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KListWidgetSearchLine `
     ///
-    pub fn Delete(self: KListWidgetSearchLine) void {
+    pub fn delete(self: KListWidgetSearchLine) void {
         qtc.KListWidgetSearchLine_Delete(@ptrCast(self.ptr));
     }
 };

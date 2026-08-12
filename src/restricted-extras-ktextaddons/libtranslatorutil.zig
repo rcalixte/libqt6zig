@@ -15,35 +15,50 @@ pub const TextTranslator__TranslatorUtil = extern struct {
 
     pub const _is_TextTranslator__TranslatorUtil = {};
 
-    /// New constructs a new TextTranslator::TranslatorUtil object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new TextTranslator::TranslatorUtil object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: TextTranslator__TranslatorUtil `
     ///
-    pub fn New(other: anytype) TextTranslator__TranslatorUtil {
+    pub fn new(other: anytype) TextTranslator__TranslatorUtil {
         comptime _ = @TypeOf(other)._is_TextTranslator__TranslatorUtil;
         return .{ .ptr = qtc.TextTranslator__TranslatorUtil_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new TextTranslator::TranslatorUtil object and invalidates the source TextTranslator::TranslatorUtil object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new TextTranslator::TranslatorUtil object and invalidate the source TextTranslator::TranslatorUtil object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: TextTranslator__TranslatorUtil `
     ///
-    pub fn New2(other: anytype) TextTranslator__TranslatorUtil {
+    pub fn new2(other: anytype) TextTranslator__TranslatorUtil {
         comptime _ = @TypeOf(other)._is_TextTranslator__TranslatorUtil;
         return .{ .ptr = qtc.TextTranslator__TranslatorUtil_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new TextTranslator::TranslatorUtil object.
+    /// ### DEPRECATED: Use `new3` instead
     ///
-    pub fn New3() TextTranslator__TranslatorUtil {
+    pub const New3 = new3;
+
+    /// Allocate a new TextTranslator::TranslatorUtil object in C++ memory
+    ///
+    pub fn new3() TextTranslator__TranslatorUtil {
         return .{ .ptr = qtc.TextTranslator__TranslatorUtil_new3() };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -51,11 +66,14 @@ pub const TextTranslator__TranslatorUtil = extern struct {
     ///
     /// ` other: TextTranslator__TranslatorUtil `
     ///
-    pub fn CopyAssign(self: TextTranslator__TranslatorUtil, other: TextTranslator__TranslatorUtil) void {
+    pub fn copyAssign(self: TextTranslator__TranslatorUtil, other: TextTranslator__TranslatorUtil) void {
         qtc.TextTranslator__TranslatorUtil_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -63,9 +81,13 @@ pub const TextTranslator__TranslatorUtil = extern struct {
     ///
     /// ` other: TextTranslator__TranslatorUtil `
     ///
-    pub fn MoveAssign(self: TextTranslator__TranslatorUtil, other: TextTranslator__TranslatorUtil) void {
+    pub fn moveAssign(self: TextTranslator__TranslatorUtil, other: TextTranslator__TranslatorUtil) void {
         qtc.TextTranslator__TranslatorUtil_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `addItemToFromComboBox` instead
+    ///
+    pub const AddItemToFromComboBox = addItemToFromComboBox;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorUtil.html)
     ///
@@ -75,15 +97,15 @@ pub const TextTranslator__TranslatorUtil = extern struct {
     ///
     /// ` combo: QComboBox `
     ///
-    /// ` languageCode: []const u8 `
+    /// ` _languageCode: []const u8 `
     ///
     /// ` translatedStr: []const u8 `
     ///
-    pub fn AddItemToFromComboBox(self: TextTranslator__TranslatorUtil, combo: anytype, languageCode: []const u8, translatedStr: []const u8) void {
+    pub fn addItemToFromComboBox(self: TextTranslator__TranslatorUtil, combo: anytype, _languageCode: []const u8, translatedStr: []const u8) void {
         comptime _ = @TypeOf(combo)._is_QComboBox;
         const languageCode_str = qtc.libqt_string{
-            .len = languageCode.len,
-            .data = languageCode.ptr,
+            .len = _languageCode.len,
+            .data = _languageCode.ptr,
         };
         const translatedStr_str = qtc.libqt_string{
             .len = translatedStr.len,
@@ -91,6 +113,10 @@ pub const TextTranslator__TranslatorUtil = extern struct {
         };
         qtc.TextTranslator__TranslatorUtil_AddItemToFromComboBox(@ptrCast(self.ptr), @ptrCast(combo.ptr), languageCode_str, translatedStr_str);
     }
+
+    /// ### DEPRECATED: Use `translatedLanguages` instead
+    ///
+    pub const TranslatedLanguages = translatedLanguages;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorUtil.html)
     ///
@@ -102,10 +128,10 @@ pub const TextTranslator__TranslatorUtil = extern struct {
     ///
     /// ` ArrayMap_i32_constu8 (key: translatorutil_enums.Language) `
     ///
-    pub fn TranslatedLanguages(allocator: std.mem.Allocator) ArrayMap_i32_constu8 {
+    pub fn translatedLanguages(allocator: std.mem.Allocator) ArrayMap_i32_constu8 {
         const _map: qtc.libqt_map = qtc.TextTranslator__TranslatorUtil_TranslatedLanguages();
         var _ret: ArrayMap_i32_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("TextTranslator__TranslatorUtil.TranslatedLanguages: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("TextTranslator__TranslatorUtil.translatedLanguages: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -120,12 +146,16 @@ pub const TextTranslator__TranslatorUtil = extern struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("TextTranslator__TranslatorUtil.TranslatedLanguages: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("TextTranslator__TranslatorUtil.translatedLanguages: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
             _ret.putAssumeCapacity(_key, _value_slice);
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `loadEngine` instead
+    ///
+    pub const LoadEngine = loadEngine;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorUtil.html)
     ///
@@ -133,13 +163,17 @@ pub const TextTranslator__TranslatorUtil = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LoadEngine(allocator: std.mem.Allocator) []const u8 {
+    pub fn loadEngine(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextTranslator__TranslatorUtil_LoadEngine();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorUtil.LoadEngine: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorUtil.loadEngine: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `saveEngineSettings` instead
+    ///
+    pub const SaveEngineSettings = saveEngineSettings;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorUtil.html)
     ///
@@ -147,7 +181,7 @@ pub const TextTranslator__TranslatorUtil = extern struct {
     ///
     /// ` engineName: []const u8 `
     ///
-    pub fn SaveEngineSettings(engineName: []const u8) void {
+    pub fn saveEngineSettings(engineName: []const u8) void {
         const engineName_str = qtc.libqt_string{
             .len = engineName.len,
             .data = engineName.ptr,
@@ -155,19 +189,27 @@ pub const TextTranslator__TranslatorUtil = extern struct {
         qtc.TextTranslator__TranslatorUtil_SaveEngineSettings(engineName_str);
     }
 
+    /// ### DEPRECATED: Use `groupTranslateName` instead
+    ///
+    pub const GroupTranslateName = groupTranslateName;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorUtil.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GroupTranslateName(allocator: std.mem.Allocator) []const u8 {
+    pub fn groupTranslateName(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextTranslator__TranslatorUtil_GroupTranslateName();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorUtil.GroupTranslateName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorUtil.groupTranslateName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `engineTranslateName` instead
+    ///
+    pub const EngineTranslateName = engineTranslateName;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorUtil.html)
     ///
@@ -175,13 +217,17 @@ pub const TextTranslator__TranslatorUtil = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn EngineTranslateName(allocator: std.mem.Allocator) []const u8 {
+    pub fn engineTranslateName(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextTranslator__TranslatorUtil_EngineTranslateName();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorUtil.EngineTranslateName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorUtil.engineTranslateName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `defaultEngineName` instead
+    ///
+    pub const DefaultEngineName = defaultEngineName;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorUtil.html)
     ///
@@ -189,13 +235,17 @@ pub const TextTranslator__TranslatorUtil = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DefaultEngineName(allocator: std.mem.Allocator) []const u8 {
+    pub fn defaultEngineName(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextTranslator__TranslatorUtil_DefaultEngineName();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorUtil.DefaultEngineName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorUtil.defaultEngineName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `translatedLanguage` instead
+    ///
+    pub const TranslatedLanguage = translatedLanguage;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorUtil.html)
     ///
@@ -205,13 +255,17 @@ pub const TextTranslator__TranslatorUtil = extern struct {
     ///
     /// ` lang: translatorutil_enums.Language `
     ///
-    pub fn TranslatedLanguage(allocator: std.mem.Allocator, lang: i32) []const u8 {
+    pub fn translatedLanguage(allocator: std.mem.Allocator, lang: i32) []const u8 {
         var _str = qtc.TextTranslator__TranslatorUtil_TranslatedLanguage(@bitCast(lang));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorUtil.TranslatedLanguage: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorUtil.translatedLanguage: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `languageCode` instead
+    ///
+    pub const LanguageCode = languageCode;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorUtil.html)
     ///
@@ -221,13 +275,17 @@ pub const TextTranslator__TranslatorUtil = extern struct {
     ///
     /// ` lang: translatorutil_enums.Language `
     ///
-    pub fn LanguageCode(allocator: std.mem.Allocator, lang: i32) []const u8 {
+    pub fn languageCode(allocator: std.mem.Allocator, lang: i32) []const u8 {
         var _str = qtc.TextTranslator__TranslatorUtil_LanguageCode(@bitCast(lang));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorUtil.LanguageCode: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorUtil.languageCode: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `searchI18nFromLanguage` instead
+    ///
+    pub const SearchI18nFromLanguage = searchI18nFromLanguage;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorUtil.html)
     ///
@@ -237,17 +295,21 @@ pub const TextTranslator__TranslatorUtil = extern struct {
     ///
     /// ` langCode: []const u8 `
     ///
-    pub fn SearchI18nFromLanguage(allocator: std.mem.Allocator, langCode: []const u8) []const u8 {
+    pub fn searchI18nFromLanguage(allocator: std.mem.Allocator, langCode: []const u8) []const u8 {
         const langCode_str = qtc.libqt_string{
             .len = langCode.len,
             .data = langCode.ptr,
         };
         var _str = qtc.TextTranslator__TranslatorUtil_SearchI18nFromLanguage(langCode_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorUtil.SearchI18nFromLanguage: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorUtil.searchI18nFromLanguage: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `stringToLanguage` instead
+    ///
+    pub const StringToLanguage = stringToLanguage;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorUtil.html)
     ///
@@ -259,7 +321,7 @@ pub const TextTranslator__TranslatorUtil = extern struct {
     ///
     /// ` translatorutil_enums.Language `
     ///
-    pub fn StringToLanguage(str: []const u8) i32 {
+    pub fn stringToLanguage(str: []const u8) i32 {
         const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
@@ -267,19 +329,19 @@ pub const TextTranslator__TranslatorUtil = extern struct {
         return qtc.TextTranslator__TranslatorUtil_StringToLanguage(str_str);
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorUtil.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: TextTranslator__TranslatorUtil `
     ///
-    pub fn Delete(self: TextTranslator__TranslatorUtil) void {
+    pub fn delete(self: TextTranslator__TranslatorUtil) void {
         qtc.TextTranslator__TranslatorUtil_Delete(@ptrCast(self.ptr));
     }
 };
@@ -292,23 +354,35 @@ pub const TextTranslator__TranslatorUtil__TranslatorSettings = extern struct {
 
     pub const _is_TextTranslator__TranslatorUtil__TranslatorSettings = {};
 
-    /// New constructs a new TextTranslator::TranslatorUtil::TranslatorSettings object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() TextTranslator__TranslatorUtil__TranslatorSettings {
+    pub const New = new;
+
+    /// Allocate a new TextTranslator::TranslatorUtil::TranslatorSettings object in C++ memory
+    ///
+    pub fn new() TextTranslator__TranslatorUtil__TranslatorSettings {
         return .{ .ptr = qtc.TextTranslator__TranslatorUtil__TranslatorSettings_new() };
     }
 
-    /// New2 constructs a new TextTranslator::TranslatorUtil::TranslatorSettings object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new TextTranslator::TranslatorUtil::TranslatorSettings object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: TextTranslator__TranslatorUtil__TranslatorSettings `
     ///
-    pub fn New2(param1: anytype) TextTranslator__TranslatorUtil__TranslatorSettings {
+    pub fn new2(param1: anytype) TextTranslator__TranslatorUtil__TranslatorSettings {
         comptime _ = @TypeOf(param1)._is_TextTranslator__TranslatorUtil__TranslatorSettings;
         return .{ .ptr = qtc.TextTranslator__TranslatorUtil__TranslatorSettings_new2(@ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `engine` instead
+    ///
+    pub const Engine = engine;
+
     ///
     /// ## Parameter(s):
     ///
@@ -316,29 +390,37 @@ pub const TextTranslator__TranslatorUtil__TranslatorSettings = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Engine(self: TextTranslator__TranslatorUtil__TranslatorSettings, allocator: std.mem.Allocator) []const u8 {
+    pub fn engine(self: TextTranslator__TranslatorUtil__TranslatorSettings, allocator: std.mem.Allocator) []const u8 {
         var engine_str = qtc.TextTranslator__TranslatorUtil__TranslatorSettings_Engine(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&engine_str);
-        const engine_ret = allocator.alloc(u8, engine_str.len) catch @panic("TextTranslator__TranslatorUtil__TranslatorSettings.Engine: Memory allocation failed");
+        const engine_ret = allocator.alloc(u8, engine_str.len) catch @panic("TextTranslator__TranslatorUtil__TranslatorSettings.engine: Memory allocation failed");
         @memcpy(engine_ret, engine_str.data[0..engine_str.len]);
         return engine_ret;
     }
 
+    /// ### DEPRECATED: Use `setEngine` instead
+    ///
+    pub const SetEngine = setEngine;
+
     ///
     /// ## Parameter(s):
     ///
     /// ` self: TextTranslator__TranslatorUtil__TranslatorSettings `
     ///
-    /// ` engine: []const u8 `
+    /// ` _engine: []const u8 `
     ///
-    pub fn SetEngine(self: TextTranslator__TranslatorUtil__TranslatorSettings, engine: []const u8) void {
+    pub fn setEngine(self: TextTranslator__TranslatorUtil__TranslatorSettings, _engine: []const u8) void {
         const engine_str = qtc.libqt_string{
-            .len = engine.len,
-            .data = engine.ptr,
+            .len = _engine.len,
+            .data = _engine.ptr,
         };
         qtc.TextTranslator__TranslatorUtil__TranslatorSettings_SetEngine(@ptrCast(self.ptr), engine_str);
     }
 
+    /// ### DEPRECATED: Use `from` instead
+    ///
+    pub const From = from;
+
     ///
     /// ## Parameter(s):
     ///
@@ -346,28 +428,36 @@ pub const TextTranslator__TranslatorUtil__TranslatorSettings = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn From(self: TextTranslator__TranslatorUtil__TranslatorSettings, allocator: std.mem.Allocator) []const u8 {
+    pub fn from(self: TextTranslator__TranslatorUtil__TranslatorSettings, allocator: std.mem.Allocator) []const u8 {
         var from_str = qtc.TextTranslator__TranslatorUtil__TranslatorSettings_From(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&from_str);
-        const from_ret = allocator.alloc(u8, from_str.len) catch @panic("TextTranslator__TranslatorUtil__TranslatorSettings.From: Memory allocation failed");
+        const from_ret = allocator.alloc(u8, from_str.len) catch @panic("TextTranslator__TranslatorUtil__TranslatorSettings.from: Memory allocation failed");
         @memcpy(from_ret, from_str.data[0..from_str.len]);
         return from_ret;
     }
 
+    /// ### DEPRECATED: Use `setFrom` instead
+    ///
+    pub const SetFrom = setFrom;
+
     ///
     /// ## Parameter(s):
     ///
     /// ` self: TextTranslator__TranslatorUtil__TranslatorSettings `
     ///
-    /// ` from: []const u8 `
+    /// ` _from: []const u8 `
     ///
-    pub fn SetFrom(self: TextTranslator__TranslatorUtil__TranslatorSettings, from: []const u8) void {
+    pub fn setFrom(self: TextTranslator__TranslatorUtil__TranslatorSettings, _from: []const u8) void {
         const from_str = qtc.libqt_string{
-            .len = from.len,
-            .data = from.ptr,
+            .len = _from.len,
+            .data = _from.ptr,
         };
         qtc.TextTranslator__TranslatorUtil__TranslatorSettings_SetFrom(@ptrCast(self.ptr), from_str);
     }
+
+    /// ### DEPRECATED: Use `to` instead
+    ///
+    pub const To = to;
 
     ///
     /// ## Parameter(s):
@@ -376,28 +466,36 @@ pub const TextTranslator__TranslatorUtil__TranslatorSettings = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn To(self: TextTranslator__TranslatorUtil__TranslatorSettings, allocator: std.mem.Allocator) []const u8 {
+    pub fn to(self: TextTranslator__TranslatorUtil__TranslatorSettings, allocator: std.mem.Allocator) []const u8 {
         var to_str = qtc.TextTranslator__TranslatorUtil__TranslatorSettings_To(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&to_str);
-        const to_ret = allocator.alloc(u8, to_str.len) catch @panic("TextTranslator__TranslatorUtil__TranslatorSettings.To: Memory allocation failed");
+        const to_ret = allocator.alloc(u8, to_str.len) catch @panic("TextTranslator__TranslatorUtil__TranslatorSettings.to: Memory allocation failed");
         @memcpy(to_ret, to_str.data[0..to_str.len]);
         return to_ret;
     }
+
+    /// ### DEPRECATED: Use `setTo` instead
+    ///
+    pub const SetTo = setTo;
 
     ///
     /// ## Parameter(s):
     ///
     /// ` self: TextTranslator__TranslatorUtil__TranslatorSettings `
     ///
-    /// ` to: []const u8 `
+    /// ` _to: []const u8 `
     ///
-    pub fn SetTo(self: TextTranslator__TranslatorUtil__TranslatorSettings, to: []const u8) void {
+    pub fn setTo(self: TextTranslator__TranslatorUtil__TranslatorSettings, _to: []const u8) void {
         const to_str = qtc.libqt_string{
-            .len = to.len,
-            .data = to.ptr,
+            .len = _to.len,
+            .data = _to.ptr,
         };
         qtc.TextTranslator__TranslatorUtil__TranslatorSettings_SetTo(@ptrCast(self.ptr), to_str);
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     ///
     /// ## Parameter(s):
@@ -406,22 +504,22 @@ pub const TextTranslator__TranslatorUtil__TranslatorSettings = extern struct {
     ///
     /// ` param1: TextTranslator__TranslatorUtil__TranslatorSettings `
     ///
-    pub fn OperatorAssign(self: TextTranslator__TranslatorUtil__TranslatorSettings, param1: anytype) void {
+    pub fn operatorAssign(self: TextTranslator__TranslatorUtil__TranslatorSettings, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_TextTranslator__TranslatorUtil__TranslatorSettings;
         qtc.TextTranslator__TranslatorUtil__TranslatorSettings_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: TextTranslator__TranslatorUtil__TranslatorSettings `
     ///
-    pub fn Delete(self: TextTranslator__TranslatorUtil__TranslatorSettings) void {
+    pub fn delete(self: TextTranslator__TranslatorUtil__TranslatorSettings) void {
         qtc.TextTranslator__TranslatorUtil__TranslatorSettings_Delete(@ptrCast(self.ptr));
     }
 };

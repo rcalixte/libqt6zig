@@ -12,11 +12,19 @@ pub const KPasswdServerClient = extern struct {
 
     pub const _is_KPasswdServerClient = {};
 
-    /// New constructs a new KPasswdServerClient object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() KPasswdServerClient {
+    pub const New = new;
+
+    /// Allocate a new KPasswdServerClient object in C++ memory
+    ///
+    pub fn new() KPasswdServerClient {
         return .{ .ptr = qtc.KPasswdServerClient_new() };
     }
+
+    /// ### DEPRECATED: Use `checkAuthInfo` instead
+    ///
+    pub const CheckAuthInfo = checkAuthInfo;
 
     /// ### [Upstream resources](https://api.kde.org/kpasswdserverclient.html#checkAuthInfo)
     ///
@@ -30,10 +38,14 @@ pub const KPasswdServerClient = extern struct {
     ///
     /// ` usertime: isize `
     ///
-    pub fn CheckAuthInfo(self: KPasswdServerClient, info: anytype, windowId: isize, usertime: isize) bool {
+    pub fn checkAuthInfo(self: KPasswdServerClient, info: anytype, windowId: isize, usertime: isize) bool {
         comptime _ = @TypeOf(info)._is_KIO__AuthInfo;
         return qtc.KPasswdServerClient_CheckAuthInfo(@ptrCast(self.ptr), @ptrCast(info.ptr), @bitCast(windowId), @bitCast(usertime));
     }
+
+    /// ### DEPRECATED: Use `queryAuthInfo` instead
+    ///
+    pub const QueryAuthInfo = queryAuthInfo;
 
     /// ### [Upstream resources](https://api.kde.org/kpasswdserverclient.html#queryAuthInfo)
     ///
@@ -49,7 +61,7 @@ pub const KPasswdServerClient = extern struct {
     ///
     /// ` usertime: isize `
     ///
-    pub fn QueryAuthInfo(self: KPasswdServerClient, info: anytype, errorMsg: []const u8, windowId: isize, usertime: isize) i32 {
+    pub fn queryAuthInfo(self: KPasswdServerClient, info: anytype, errorMsg: []const u8, windowId: isize, usertime: isize) i32 {
         comptime _ = @TypeOf(info)._is_KIO__AuthInfo;
         const errorMsg_str = qtc.libqt_string{
             .len = errorMsg.len,
@@ -57,6 +69,10 @@ pub const KPasswdServerClient = extern struct {
         };
         return qtc.KPasswdServerClient_QueryAuthInfo(@ptrCast(self.ptr), @ptrCast(info.ptr), errorMsg_str, @bitCast(windowId), @bitCast(usertime));
     }
+
+    /// ### DEPRECATED: Use `addAuthInfo` instead
+    ///
+    pub const AddAuthInfo = addAuthInfo;
 
     /// ### [Upstream resources](https://api.kde.org/kpasswdserverclient.html#addAuthInfo)
     ///
@@ -68,10 +84,14 @@ pub const KPasswdServerClient = extern struct {
     ///
     /// ` windowId: isize `
     ///
-    pub fn AddAuthInfo(self: KPasswdServerClient, info: anytype, windowId: isize) void {
+    pub fn addAuthInfo(self: KPasswdServerClient, info: anytype, windowId: isize) void {
         comptime _ = @TypeOf(info)._is_KIO__AuthInfo;
         qtc.KPasswdServerClient_AddAuthInfo(@ptrCast(self.ptr), @ptrCast(info.ptr), @bitCast(windowId));
     }
+
+    /// ### DEPRECATED: Use `removeAuthInfo` instead
+    ///
+    pub const RemoveAuthInfo = removeAuthInfo;
 
     /// ### [Upstream resources](https://api.kde.org/kpasswdserverclient.html#removeAuthInfo)
     ///
@@ -85,7 +105,7 @@ pub const KPasswdServerClient = extern struct {
     ///
     /// ` user: []const u8 `
     ///
-    pub fn RemoveAuthInfo(self: KPasswdServerClient, host: []const u8, protocol: []const u8, user: []const u8) void {
+    pub fn removeAuthInfo(self: KPasswdServerClient, host: []const u8, protocol: []const u8, user: []const u8) void {
         const host_str = qtc.libqt_string{
             .len = host.len,
             .data = host.ptr,
@@ -101,19 +121,19 @@ pub const KPasswdServerClient = extern struct {
         qtc.KPasswdServerClient_RemoveAuthInfo(@ptrCast(self.ptr), host_str, protocol_str, user_str);
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kpasswdserverclient.html#dtor.KPasswdServerClient)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KPasswdServerClient `
     ///
-    pub fn Delete(self: KPasswdServerClient) void {
+    pub fn delete(self: KPasswdServerClient) void {
         qtc.KPasswdServerClient_Delete(@ptrCast(self.ptr));
     }
 };

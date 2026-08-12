@@ -19,34 +19,50 @@ pub const QOpenGLPaintDevice = extern struct {
     pub const _is_QOpenGLPaintDevice = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new QOpenGLPaintDevice object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QOpenGLPaintDevice {
+    pub const New = new;
+
+    /// Allocate a new QOpenGLPaintDevice object in C++ memory
+    ///
+    pub fn new() QOpenGLPaintDevice {
         return .{ .ptr = qtc.QOpenGLPaintDevice_new() };
     }
 
-    /// New2 constructs a new QOpenGLPaintDevice object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QOpenGLPaintDevice object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` size: QSize `
+    /// ` _size: QSize `
     ///
-    pub fn New2(size: anytype) QOpenGLPaintDevice {
-        comptime _ = @TypeOf(size)._is_QSize;
-        return .{ .ptr = qtc.QOpenGLPaintDevice_new2(@ptrCast(size.ptr)) };
+    pub fn new2(_size: anytype) QOpenGLPaintDevice {
+        comptime _ = @TypeOf(_size)._is_QSize;
+        return .{ .ptr = qtc.QOpenGLPaintDevice_new2(@ptrCast(_size.ptr)) };
     }
 
-    /// New3 constructs a new QOpenGLPaintDevice object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QOpenGLPaintDevice object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` width: i32 `
+    /// ` _width: i32 `
     ///
-    /// ` height: i32 `
+    /// ` _height: i32 `
     ///
-    pub fn New3(width: i32, height: i32) QOpenGLPaintDevice {
-        return .{ .ptr = qtc.QOpenGLPaintDevice_new3(@bitCast(width), @bitCast(height)) };
+    pub fn new3(_width: i32, _height: i32) QOpenGLPaintDevice {
+        return .{ .ptr = qtc.QOpenGLPaintDevice_new3(@bitCast(_width), @bitCast(_height)) };
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#devType)
     ///
@@ -54,9 +70,13 @@ pub const QOpenGLPaintDevice = extern struct {
     ///
     /// ` self: QOpenGLPaintDevice `
     ///
-    pub fn DevType(self: QOpenGLPaintDevice) i32 {
+    pub fn devType(self: QOpenGLPaintDevice) i32 {
         return qtc.QOpenGLPaintDevice_DevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#devType)
     ///
@@ -68,13 +88,13 @@ pub const QOpenGLPaintDevice = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: QOpenGLPaintDevice, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QOpenGLPaintDevice, callback: *const fn () callconv(.c) i32) void {
         qtc.QOpenGLPaintDevice_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#devType)
     ///
@@ -84,9 +104,13 @@ pub const QOpenGLPaintDevice = extern struct {
     ///
     /// ` self: QOpenGLPaintDevice `
     ///
-    pub fn SuperDevType(self: QOpenGLPaintDevice) i32 {
+    pub fn superDevType(self: QOpenGLPaintDevice) i32 {
         return qtc.QOpenGLPaintDevice_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#paintEngine)
     ///
@@ -94,9 +118,13 @@ pub const QOpenGLPaintDevice = extern struct {
     ///
     /// ` self: QOpenGLPaintDevice `
     ///
-    pub fn PaintEngine(self: QOpenGLPaintDevice) QPaintEngine {
+    pub fn paintEngine(self: QOpenGLPaintDevice) QPaintEngine {
         return .{ .ptr = qtc.QOpenGLPaintDevice_PaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#paintEngine)
     ///
@@ -108,13 +136,13 @@ pub const QOpenGLPaintDevice = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: QOpenGLPaintDevice, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QOpenGLPaintDevice, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.QOpenGLPaintDevice_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#paintEngine)
     ///
@@ -124,9 +152,13 @@ pub const QOpenGLPaintDevice = extern struct {
     ///
     /// ` self: QOpenGLPaintDevice `
     ///
-    pub fn SuperPaintEngine(self: QOpenGLPaintDevice) QPaintEngine {
+    pub fn superPaintEngine(self: QOpenGLPaintDevice) QPaintEngine {
         return .{ .ptr = qtc.QOpenGLPaintDevice_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `context` instead
+    ///
+    pub const Context = context;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#context)
     ///
@@ -134,9 +166,13 @@ pub const QOpenGLPaintDevice = extern struct {
     ///
     /// ` self: QOpenGLPaintDevice `
     ///
-    pub fn Context(self: QOpenGLPaintDevice) QOpenGLContext {
+    pub fn context(self: QOpenGLPaintDevice) QOpenGLContext {
         return .{ .ptr = qtc.QOpenGLPaintDevice_Context(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#size)
     ///
@@ -144,9 +180,13 @@ pub const QOpenGLPaintDevice = extern struct {
     ///
     /// ` self: QOpenGLPaintDevice `
     ///
-    pub fn Size(self: QOpenGLPaintDevice) QSize {
+    pub fn size(self: QOpenGLPaintDevice) QSize {
         return .{ .ptr = qtc.QOpenGLPaintDevice_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSize` instead
+    ///
+    pub const SetSize = setSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#setSize)
     ///
@@ -154,12 +194,16 @@ pub const QOpenGLPaintDevice = extern struct {
     ///
     /// ` self: QOpenGLPaintDevice `
     ///
-    /// ` size: QSize `
+    /// ` _size: QSize `
     ///
-    pub fn SetSize(self: QOpenGLPaintDevice, size: anytype) void {
-        comptime _ = @TypeOf(size)._is_QSize;
-        qtc.QOpenGLPaintDevice_SetSize(@ptrCast(self.ptr), @ptrCast(size.ptr));
+    pub fn setSize(self: QOpenGLPaintDevice, _size: anytype) void {
+        comptime _ = @TypeOf(_size)._is_QSize;
+        qtc.QOpenGLPaintDevice_SetSize(@ptrCast(self.ptr), @ptrCast(_size.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDevicePixelRatio` instead
+    ///
+    pub const SetDevicePixelRatio = setDevicePixelRatio;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#setDevicePixelRatio)
     ///
@@ -167,11 +211,15 @@ pub const QOpenGLPaintDevice = extern struct {
     ///
     /// ` self: QOpenGLPaintDevice `
     ///
-    /// ` devicePixelRatio: f64 `
+    /// ` _devicePixelRatio: f64 `
     ///
-    pub fn SetDevicePixelRatio(self: QOpenGLPaintDevice, devicePixelRatio: f64) void {
-        qtc.QOpenGLPaintDevice_SetDevicePixelRatio(@ptrCast(self.ptr), @bitCast(devicePixelRatio));
+    pub fn setDevicePixelRatio(self: QOpenGLPaintDevice, _devicePixelRatio: f64) void {
+        qtc.QOpenGLPaintDevice_SetDevicePixelRatio(@ptrCast(self.ptr), @bitCast(_devicePixelRatio));
     }
+
+    /// ### DEPRECATED: Use `dotsPerMeterX` instead
+    ///
+    pub const DotsPerMeterX = dotsPerMeterX;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#dotsPerMeterX)
     ///
@@ -179,9 +227,13 @@ pub const QOpenGLPaintDevice = extern struct {
     ///
     /// ` self: QOpenGLPaintDevice `
     ///
-    pub fn DotsPerMeterX(self: QOpenGLPaintDevice) f64 {
+    pub fn dotsPerMeterX(self: QOpenGLPaintDevice) f64 {
         return qtc.QOpenGLPaintDevice_DotsPerMeterX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dotsPerMeterY` instead
+    ///
+    pub const DotsPerMeterY = dotsPerMeterY;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#dotsPerMeterY)
     ///
@@ -189,9 +241,13 @@ pub const QOpenGLPaintDevice = extern struct {
     ///
     /// ` self: QOpenGLPaintDevice `
     ///
-    pub fn DotsPerMeterY(self: QOpenGLPaintDevice) f64 {
+    pub fn dotsPerMeterY(self: QOpenGLPaintDevice) f64 {
         return qtc.QOpenGLPaintDevice_DotsPerMeterY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDotsPerMeterX` instead
+    ///
+    pub const SetDotsPerMeterX = setDotsPerMeterX;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#setDotsPerMeterX)
     ///
@@ -199,11 +255,15 @@ pub const QOpenGLPaintDevice = extern struct {
     ///
     /// ` self: QOpenGLPaintDevice `
     ///
-    /// ` dotsPerMeterX: f64 `
+    /// ` _dotsPerMeterX: f64 `
     ///
-    pub fn SetDotsPerMeterX(self: QOpenGLPaintDevice, dotsPerMeterX: f64) void {
-        qtc.QOpenGLPaintDevice_SetDotsPerMeterX(@ptrCast(self.ptr), @bitCast(dotsPerMeterX));
+    pub fn setDotsPerMeterX(self: QOpenGLPaintDevice, _dotsPerMeterX: f64) void {
+        qtc.QOpenGLPaintDevice_SetDotsPerMeterX(@ptrCast(self.ptr), @bitCast(_dotsPerMeterX));
     }
+
+    /// ### DEPRECATED: Use `setDotsPerMeterY` instead
+    ///
+    pub const SetDotsPerMeterY = setDotsPerMeterY;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#setDotsPerMeterY)
     ///
@@ -211,11 +271,15 @@ pub const QOpenGLPaintDevice = extern struct {
     ///
     /// ` self: QOpenGLPaintDevice `
     ///
-    /// ` dotsPerMeterY: f64 `
+    /// ` _dotsPerMeterY: f64 `
     ///
-    pub fn SetDotsPerMeterY(self: QOpenGLPaintDevice, dotsPerMeterY: f64) void {
-        qtc.QOpenGLPaintDevice_SetDotsPerMeterY(@ptrCast(self.ptr), @bitCast(dotsPerMeterY));
+    pub fn setDotsPerMeterY(self: QOpenGLPaintDevice, _dotsPerMeterY: f64) void {
+        qtc.QOpenGLPaintDevice_SetDotsPerMeterY(@ptrCast(self.ptr), @bitCast(_dotsPerMeterY));
     }
+
+    /// ### DEPRECATED: Use `setPaintFlipped` instead
+    ///
+    pub const SetPaintFlipped = setPaintFlipped;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#setPaintFlipped)
     ///
@@ -225,9 +289,13 @@ pub const QOpenGLPaintDevice = extern struct {
     ///
     /// ` flipped: bool `
     ///
-    pub fn SetPaintFlipped(self: QOpenGLPaintDevice, flipped: bool) void {
+    pub fn setPaintFlipped(self: QOpenGLPaintDevice, flipped: bool) void {
         qtc.QOpenGLPaintDevice_SetPaintFlipped(@ptrCast(self.ptr), flipped);
     }
+
+    /// ### DEPRECATED: Use `paintFlipped` instead
+    ///
+    pub const PaintFlipped = paintFlipped;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#paintFlipped)
     ///
@@ -235,9 +303,13 @@ pub const QOpenGLPaintDevice = extern struct {
     ///
     /// ` self: QOpenGLPaintDevice `
     ///
-    pub fn PaintFlipped(self: QOpenGLPaintDevice) bool {
+    pub fn paintFlipped(self: QOpenGLPaintDevice) bool {
         return qtc.QOpenGLPaintDevice_PaintFlipped(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `ensureActiveTarget` instead
+    ///
+    pub const EnsureActiveTarget = ensureActiveTarget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#ensureActiveTarget)
     ///
@@ -245,9 +317,13 @@ pub const QOpenGLPaintDevice = extern struct {
     ///
     /// ` self: QOpenGLPaintDevice `
     ///
-    pub fn EnsureActiveTarget(self: QOpenGLPaintDevice) void {
+    pub fn ensureActiveTarget(self: QOpenGLPaintDevice) void {
         qtc.QOpenGLPaintDevice_EnsureActiveTarget(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnsureActiveTarget` instead
+    ///
+    pub const OnEnsureActiveTarget = onEnsureActiveTarget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#ensureActiveTarget)
     ///
@@ -259,13 +335,13 @@ pub const QOpenGLPaintDevice = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEnsureActiveTarget(self: QOpenGLPaintDevice, callback: *const fn () callconv(.c) void) void {
+    pub fn onEnsureActiveTarget(self: QOpenGLPaintDevice, callback: *const fn () callconv(.c) void) void {
         qtc.QOpenGLPaintDevice_OnEnsureActiveTarget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEnsureActiveTarget` instead
+    /// ### DEPRECATED: Use `superEnsureActiveTarget` instead
     ///
-    pub const QBaseEnsureActiveTarget = SuperEnsureActiveTarget;
+    pub const SuperEnsureActiveTarget = superEnsureActiveTarget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#ensureActiveTarget)
     ///
@@ -275,9 +351,13 @@ pub const QOpenGLPaintDevice = extern struct {
     ///
     /// ` self: QOpenGLPaintDevice `
     ///
-    pub fn SuperEnsureActiveTarget(self: QOpenGLPaintDevice) void {
+    pub fn superEnsureActiveTarget(self: QOpenGLPaintDevice) void {
         qtc.QOpenGLPaintDevice_SuperEnsureActiveTarget(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#metric)
     ///
@@ -285,11 +365,15 @@ pub const QOpenGLPaintDevice = extern struct {
     ///
     /// ` self: QOpenGLPaintDevice `
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: QOpenGLPaintDevice, metric: i32) i32 {
-        return qtc.QOpenGLPaintDevice_Metric(@ptrCast(self.ptr), @bitCast(metric));
+    pub fn metric(self: QOpenGLPaintDevice, _metric: i32) i32 {
+        return qtc.QOpenGLPaintDevice_Metric(@ptrCast(self.ptr), @bitCast(_metric));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#metric)
     ///
@@ -301,13 +385,13 @@ pub const QOpenGLPaintDevice = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLPaintDevice, metric: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: QOpenGLPaintDevice, callback: *const fn (QOpenGLPaintDevice, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: QOpenGLPaintDevice, callback: *const fn (QOpenGLPaintDevice, i32) callconv(.c) i32) void {
         qtc.QOpenGLPaintDevice_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#metric)
     ///
@@ -317,11 +401,15 @@ pub const QOpenGLPaintDevice = extern struct {
     ///
     /// ` self: QOpenGLPaintDevice `
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: QOpenGLPaintDevice, metric: i32) i32 {
-        return qtc.QOpenGLPaintDevice_SuperMetric(@ptrCast(self.ptr), @bitCast(metric));
+    pub fn superMetric(self: QOpenGLPaintDevice, _metric: i32) i32 {
+        return qtc.QOpenGLPaintDevice_SuperMetric(@ptrCast(self.ptr), @bitCast(_metric));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -331,9 +419,13 @@ pub const QOpenGLPaintDevice = extern struct {
     ///
     /// ` self: QOpenGLPaintDevice `
     ///
-    pub fn PaintingActive(self: QOpenGLPaintDevice) bool {
+    pub fn paintingActive(self: QOpenGLPaintDevice) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QPaintDevice
     ///
@@ -343,9 +435,13 @@ pub const QOpenGLPaintDevice = extern struct {
     ///
     /// ` self: QOpenGLPaintDevice `
     ///
-    pub fn Width(self: QOpenGLPaintDevice) i32 {
+    pub fn width(self: QOpenGLPaintDevice) i32 {
         return qtc.QPaintDevice_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QPaintDevice
     ///
@@ -355,9 +451,13 @@ pub const QOpenGLPaintDevice = extern struct {
     ///
     /// ` self: QOpenGLPaintDevice `
     ///
-    pub fn Height(self: QOpenGLPaintDevice) i32 {
+    pub fn height(self: QOpenGLPaintDevice) i32 {
         return qtc.QPaintDevice_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -367,9 +467,13 @@ pub const QOpenGLPaintDevice = extern struct {
     ///
     /// ` self: QOpenGLPaintDevice `
     ///
-    pub fn WidthMM(self: QOpenGLPaintDevice) i32 {
+    pub fn widthMM(self: QOpenGLPaintDevice) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -379,9 +483,13 @@ pub const QOpenGLPaintDevice = extern struct {
     ///
     /// ` self: QOpenGLPaintDevice `
     ///
-    pub fn HeightMM(self: QOpenGLPaintDevice) i32 {
+    pub fn heightMM(self: QOpenGLPaintDevice) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -391,9 +499,13 @@ pub const QOpenGLPaintDevice = extern struct {
     ///
     /// ` self: QOpenGLPaintDevice `
     ///
-    pub fn LogicalDpiX(self: QOpenGLPaintDevice) i32 {
+    pub fn logicalDpiX(self: QOpenGLPaintDevice) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -403,9 +515,13 @@ pub const QOpenGLPaintDevice = extern struct {
     ///
     /// ` self: QOpenGLPaintDevice `
     ///
-    pub fn LogicalDpiY(self: QOpenGLPaintDevice) i32 {
+    pub fn logicalDpiY(self: QOpenGLPaintDevice) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -415,9 +531,13 @@ pub const QOpenGLPaintDevice = extern struct {
     ///
     /// ` self: QOpenGLPaintDevice `
     ///
-    pub fn PhysicalDpiX(self: QOpenGLPaintDevice) i32 {
+    pub fn physicalDpiX(self: QOpenGLPaintDevice) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -427,9 +547,13 @@ pub const QOpenGLPaintDevice = extern struct {
     ///
     /// ` self: QOpenGLPaintDevice `
     ///
-    pub fn PhysicalDpiY(self: QOpenGLPaintDevice) i32 {
+    pub fn physicalDpiY(self: QOpenGLPaintDevice) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -439,9 +563,13 @@ pub const QOpenGLPaintDevice = extern struct {
     ///
     /// ` self: QOpenGLPaintDevice `
     ///
-    pub fn DevicePixelRatio(self: QOpenGLPaintDevice) f64 {
+    pub fn devicePixelRatio(self: QOpenGLPaintDevice) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -451,9 +579,13 @@ pub const QOpenGLPaintDevice = extern struct {
     ///
     /// ` self: QOpenGLPaintDevice `
     ///
-    pub fn DevicePixelRatioF(self: QOpenGLPaintDevice) f64 {
+    pub fn devicePixelRatioF(self: QOpenGLPaintDevice) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -463,9 +595,13 @@ pub const QOpenGLPaintDevice = extern struct {
     ///
     /// ` self: QOpenGLPaintDevice `
     ///
-    pub fn ColorCount(self: QOpenGLPaintDevice) i32 {
+    pub fn colorCount(self: QOpenGLPaintDevice) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -475,17 +611,25 @@ pub const QOpenGLPaintDevice = extern struct {
     ///
     /// ` self: QOpenGLPaintDevice `
     ///
-    pub fn Depth(self: QOpenGLPaintDevice) i32 {
+    pub fn depth(self: QOpenGLPaintDevice) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -493,13 +637,17 @@ pub const QOpenGLPaintDevice = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QPaintDevice
     ///
@@ -513,14 +661,14 @@ pub const QOpenGLPaintDevice = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: QOpenGLPaintDevice, painter: anytype) void {
+    pub fn initPainter(self: QOpenGLPaintDevice, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QOpenGLPaintDevice_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QPaintDevice
     ///
@@ -534,10 +682,14 @@ pub const QOpenGLPaintDevice = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: QOpenGLPaintDevice, painter: anytype) void {
+    pub fn superInitPainter(self: QOpenGLPaintDevice, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QOpenGLPaintDevice_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QPaintDevice
     ///
@@ -551,9 +703,13 @@ pub const QOpenGLPaintDevice = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLPaintDevice, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: QOpenGLPaintDevice, callback: *const fn (QOpenGLPaintDevice, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: QOpenGLPaintDevice, callback: *const fn (QOpenGLPaintDevice, QPainter) callconv(.c) void) void {
         qtc.QOpenGLPaintDevice_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QPaintDevice
     ///
@@ -567,14 +723,14 @@ pub const QOpenGLPaintDevice = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: QOpenGLPaintDevice, offset: anytype) QPaintDevice {
+    pub fn redirected(self: QOpenGLPaintDevice, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.QOpenGLPaintDevice_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QPaintDevice
     ///
@@ -588,10 +744,14 @@ pub const QOpenGLPaintDevice = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: QOpenGLPaintDevice, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: QOpenGLPaintDevice, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.QOpenGLPaintDevice_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QPaintDevice
     ///
@@ -605,9 +765,13 @@ pub const QOpenGLPaintDevice = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLPaintDevice, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: QOpenGLPaintDevice, callback: *const fn (QOpenGLPaintDevice, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: QOpenGLPaintDevice, callback: *const fn (QOpenGLPaintDevice, QPoint) callconv(.c) QPaintDevice) void {
         qtc.QOpenGLPaintDevice_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QPaintDevice
     ///
@@ -619,13 +783,13 @@ pub const QOpenGLPaintDevice = extern struct {
     ///
     /// ` self: QOpenGLPaintDevice `
     ///
-    pub fn SharedPainter(self: QOpenGLPaintDevice) QPainter {
+    pub fn sharedPainter(self: QOpenGLPaintDevice) QPainter {
         return .{ .ptr = qtc.QOpenGLPaintDevice_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QPaintDevice
     ///
@@ -637,9 +801,13 @@ pub const QOpenGLPaintDevice = extern struct {
     ///
     /// ` self: QOpenGLPaintDevice `
     ///
-    pub fn SuperSharedPainter(self: QOpenGLPaintDevice) QPainter {
+    pub fn superSharedPainter(self: QOpenGLPaintDevice) QPainter {
         return .{ .ptr = qtc.QOpenGLPaintDevice_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QPaintDevice
     ///
@@ -653,9 +821,13 @@ pub const QOpenGLPaintDevice = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: QOpenGLPaintDevice, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QOpenGLPaintDevice, callback: *const fn () callconv(.c) QPainter) void {
         qtc.QOpenGLPaintDevice_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -671,13 +843,13 @@ pub const QOpenGLPaintDevice = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: QOpenGLPaintDevice, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: QOpenGLPaintDevice, metricA: i32, metricB: i32) f64 {
         return qtc.QOpenGLPaintDevice_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -693,9 +865,13 @@ pub const QOpenGLPaintDevice = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: QOpenGLPaintDevice, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: QOpenGLPaintDevice, metricA: i32, metricB: i32) f64 {
         return qtc.QOpenGLPaintDevice_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -709,23 +885,23 @@ pub const QOpenGLPaintDevice = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLPaintDevice, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: QOpenGLPaintDevice, callback: *const fn (QOpenGLPaintDevice, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: QOpenGLPaintDevice, callback: *const fn (QOpenGLPaintDevice, i32, i32) callconv(.c) f64) void {
         qtc.QOpenGLPaintDevice_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#dtor.QOpenGLPaintDevice)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QOpenGLPaintDevice `
     ///
-    pub fn Delete(self: QOpenGLPaintDevice) void {
+    pub fn delete(self: QOpenGLPaintDevice) void {
         qtc.QOpenGLPaintDevice_Delete(@ptrCast(self.ptr));
     }
 };

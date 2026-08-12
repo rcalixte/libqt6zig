@@ -11,22 +11,34 @@ pub const QOpenGLPixelTransferOptions = extern struct {
 
     pub const _is_QOpenGLPixelTransferOptions = {};
 
-    /// New constructs a new QOpenGLPixelTransferOptions object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QOpenGLPixelTransferOptions {
+    pub const New = new;
+
+    /// Allocate a new QOpenGLPixelTransferOptions object in C++ memory
+    ///
+    pub fn new() QOpenGLPixelTransferOptions {
         return .{ .ptr = qtc.QOpenGLPixelTransferOptions_new() };
     }
 
-    /// New2 constructs a new QOpenGLPixelTransferOptions object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QOpenGLPixelTransferOptions object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QOpenGLPixelTransferOptions `
     ///
-    pub fn New2(param1: anytype) QOpenGLPixelTransferOptions {
+    pub fn new2(param1: anytype) QOpenGLPixelTransferOptions {
         comptime _ = @TypeOf(param1)._is_QOpenGLPixelTransferOptions;
         return .{ .ptr = qtc.QOpenGLPixelTransferOptions_new2(@ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpixeltransferoptions.html#operator-eq)
     ///
@@ -36,10 +48,14 @@ pub const QOpenGLPixelTransferOptions = extern struct {
     ///
     /// ` param1: QOpenGLPixelTransferOptions `
     ///
-    pub fn OperatorAssign(self: QOpenGLPixelTransferOptions, param1: anytype) void {
+    pub fn operatorAssign(self: QOpenGLPixelTransferOptions, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QOpenGLPixelTransferOptions;
         qtc.QOpenGLPixelTransferOptions_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpixeltransferoptions.html#swap)
     ///
@@ -49,10 +65,14 @@ pub const QOpenGLPixelTransferOptions = extern struct {
     ///
     /// ` other: QOpenGLPixelTransferOptions `
     ///
-    pub fn Swap(self: QOpenGLPixelTransferOptions, other: anytype) void {
+    pub fn swap(self: QOpenGLPixelTransferOptions, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QOpenGLPixelTransferOptions;
         qtc.QOpenGLPixelTransferOptions_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAlignment` instead
+    ///
+    pub const SetAlignment = setAlignment;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpixeltransferoptions.html#setAlignment)
     ///
@@ -60,11 +80,15 @@ pub const QOpenGLPixelTransferOptions = extern struct {
     ///
     /// ` self: QOpenGLPixelTransferOptions `
     ///
-    /// ` alignment: i32 `
+    /// ` _alignment: i32 `
     ///
-    pub fn SetAlignment(self: QOpenGLPixelTransferOptions, alignment: i32) void {
-        qtc.QOpenGLPixelTransferOptions_SetAlignment(@ptrCast(self.ptr), @bitCast(alignment));
+    pub fn setAlignment(self: QOpenGLPixelTransferOptions, _alignment: i32) void {
+        qtc.QOpenGLPixelTransferOptions_SetAlignment(@ptrCast(self.ptr), @bitCast(_alignment));
     }
+
+    /// ### DEPRECATED: Use `alignment` instead
+    ///
+    pub const Alignment = alignment;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpixeltransferoptions.html#alignment)
     ///
@@ -72,9 +96,13 @@ pub const QOpenGLPixelTransferOptions = extern struct {
     ///
     /// ` self: QOpenGLPixelTransferOptions `
     ///
-    pub fn Alignment(self: QOpenGLPixelTransferOptions) i32 {
+    pub fn alignment(self: QOpenGLPixelTransferOptions) i32 {
         return qtc.QOpenGLPixelTransferOptions_Alignment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSkipImages` instead
+    ///
+    pub const SetSkipImages = setSkipImages;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpixeltransferoptions.html#setSkipImages)
     ///
@@ -82,11 +110,15 @@ pub const QOpenGLPixelTransferOptions = extern struct {
     ///
     /// ` self: QOpenGLPixelTransferOptions `
     ///
-    /// ` skipImages: i32 `
+    /// ` _skipImages: i32 `
     ///
-    pub fn SetSkipImages(self: QOpenGLPixelTransferOptions, skipImages: i32) void {
-        qtc.QOpenGLPixelTransferOptions_SetSkipImages(@ptrCast(self.ptr), @bitCast(skipImages));
+    pub fn setSkipImages(self: QOpenGLPixelTransferOptions, _skipImages: i32) void {
+        qtc.QOpenGLPixelTransferOptions_SetSkipImages(@ptrCast(self.ptr), @bitCast(_skipImages));
     }
+
+    /// ### DEPRECATED: Use `skipImages` instead
+    ///
+    pub const SkipImages = skipImages;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpixeltransferoptions.html#skipImages)
     ///
@@ -94,9 +126,13 @@ pub const QOpenGLPixelTransferOptions = extern struct {
     ///
     /// ` self: QOpenGLPixelTransferOptions `
     ///
-    pub fn SkipImages(self: QOpenGLPixelTransferOptions) i32 {
+    pub fn skipImages(self: QOpenGLPixelTransferOptions) i32 {
         return qtc.QOpenGLPixelTransferOptions_SkipImages(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSkipRows` instead
+    ///
+    pub const SetSkipRows = setSkipRows;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpixeltransferoptions.html#setSkipRows)
     ///
@@ -104,11 +140,15 @@ pub const QOpenGLPixelTransferOptions = extern struct {
     ///
     /// ` self: QOpenGLPixelTransferOptions `
     ///
-    /// ` skipRows: i32 `
+    /// ` _skipRows: i32 `
     ///
-    pub fn SetSkipRows(self: QOpenGLPixelTransferOptions, skipRows: i32) void {
-        qtc.QOpenGLPixelTransferOptions_SetSkipRows(@ptrCast(self.ptr), @bitCast(skipRows));
+    pub fn setSkipRows(self: QOpenGLPixelTransferOptions, _skipRows: i32) void {
+        qtc.QOpenGLPixelTransferOptions_SetSkipRows(@ptrCast(self.ptr), @bitCast(_skipRows));
     }
+
+    /// ### DEPRECATED: Use `skipRows` instead
+    ///
+    pub const SkipRows = skipRows;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpixeltransferoptions.html#skipRows)
     ///
@@ -116,9 +156,13 @@ pub const QOpenGLPixelTransferOptions = extern struct {
     ///
     /// ` self: QOpenGLPixelTransferOptions `
     ///
-    pub fn SkipRows(self: QOpenGLPixelTransferOptions) i32 {
+    pub fn skipRows(self: QOpenGLPixelTransferOptions) i32 {
         return qtc.QOpenGLPixelTransferOptions_SkipRows(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSkipPixels` instead
+    ///
+    pub const SetSkipPixels = setSkipPixels;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpixeltransferoptions.html#setSkipPixels)
     ///
@@ -126,11 +170,15 @@ pub const QOpenGLPixelTransferOptions = extern struct {
     ///
     /// ` self: QOpenGLPixelTransferOptions `
     ///
-    /// ` skipPixels: i32 `
+    /// ` _skipPixels: i32 `
     ///
-    pub fn SetSkipPixels(self: QOpenGLPixelTransferOptions, skipPixels: i32) void {
-        qtc.QOpenGLPixelTransferOptions_SetSkipPixels(@ptrCast(self.ptr), @bitCast(skipPixels));
+    pub fn setSkipPixels(self: QOpenGLPixelTransferOptions, _skipPixels: i32) void {
+        qtc.QOpenGLPixelTransferOptions_SetSkipPixels(@ptrCast(self.ptr), @bitCast(_skipPixels));
     }
+
+    /// ### DEPRECATED: Use `skipPixels` instead
+    ///
+    pub const SkipPixels = skipPixels;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpixeltransferoptions.html#skipPixels)
     ///
@@ -138,9 +186,13 @@ pub const QOpenGLPixelTransferOptions = extern struct {
     ///
     /// ` self: QOpenGLPixelTransferOptions `
     ///
-    pub fn SkipPixels(self: QOpenGLPixelTransferOptions) i32 {
+    pub fn skipPixels(self: QOpenGLPixelTransferOptions) i32 {
         return qtc.QOpenGLPixelTransferOptions_SkipPixels(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setImageHeight` instead
+    ///
+    pub const SetImageHeight = setImageHeight;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpixeltransferoptions.html#setImageHeight)
     ///
@@ -148,11 +200,15 @@ pub const QOpenGLPixelTransferOptions = extern struct {
     ///
     /// ` self: QOpenGLPixelTransferOptions `
     ///
-    /// ` imageHeight: i32 `
+    /// ` _imageHeight: i32 `
     ///
-    pub fn SetImageHeight(self: QOpenGLPixelTransferOptions, imageHeight: i32) void {
-        qtc.QOpenGLPixelTransferOptions_SetImageHeight(@ptrCast(self.ptr), @bitCast(imageHeight));
+    pub fn setImageHeight(self: QOpenGLPixelTransferOptions, _imageHeight: i32) void {
+        qtc.QOpenGLPixelTransferOptions_SetImageHeight(@ptrCast(self.ptr), @bitCast(_imageHeight));
     }
+
+    /// ### DEPRECATED: Use `imageHeight` instead
+    ///
+    pub const ImageHeight = imageHeight;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpixeltransferoptions.html#imageHeight)
     ///
@@ -160,9 +216,13 @@ pub const QOpenGLPixelTransferOptions = extern struct {
     ///
     /// ` self: QOpenGLPixelTransferOptions `
     ///
-    pub fn ImageHeight(self: QOpenGLPixelTransferOptions) i32 {
+    pub fn imageHeight(self: QOpenGLPixelTransferOptions) i32 {
         return qtc.QOpenGLPixelTransferOptions_ImageHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setRowLength` instead
+    ///
+    pub const SetRowLength = setRowLength;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpixeltransferoptions.html#setRowLength)
     ///
@@ -170,11 +230,15 @@ pub const QOpenGLPixelTransferOptions = extern struct {
     ///
     /// ` self: QOpenGLPixelTransferOptions `
     ///
-    /// ` rowLength: i32 `
+    /// ` _rowLength: i32 `
     ///
-    pub fn SetRowLength(self: QOpenGLPixelTransferOptions, rowLength: i32) void {
-        qtc.QOpenGLPixelTransferOptions_SetRowLength(@ptrCast(self.ptr), @bitCast(rowLength));
+    pub fn setRowLength(self: QOpenGLPixelTransferOptions, _rowLength: i32) void {
+        qtc.QOpenGLPixelTransferOptions_SetRowLength(@ptrCast(self.ptr), @bitCast(_rowLength));
     }
+
+    /// ### DEPRECATED: Use `rowLength` instead
+    ///
+    pub const RowLength = rowLength;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpixeltransferoptions.html#rowLength)
     ///
@@ -182,9 +246,13 @@ pub const QOpenGLPixelTransferOptions = extern struct {
     ///
     /// ` self: QOpenGLPixelTransferOptions `
     ///
-    pub fn RowLength(self: QOpenGLPixelTransferOptions) i32 {
+    pub fn rowLength(self: QOpenGLPixelTransferOptions) i32 {
         return qtc.QOpenGLPixelTransferOptions_RowLength(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLeastSignificantByteFirst` instead
+    ///
+    pub const SetLeastSignificantByteFirst = setLeastSignificantByteFirst;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpixeltransferoptions.html#setLeastSignificantByteFirst)
     ///
@@ -194,9 +262,13 @@ pub const QOpenGLPixelTransferOptions = extern struct {
     ///
     /// ` lsbFirst: bool `
     ///
-    pub fn SetLeastSignificantByteFirst(self: QOpenGLPixelTransferOptions, lsbFirst: bool) void {
+    pub fn setLeastSignificantByteFirst(self: QOpenGLPixelTransferOptions, lsbFirst: bool) void {
         qtc.QOpenGLPixelTransferOptions_SetLeastSignificantByteFirst(@ptrCast(self.ptr), lsbFirst);
     }
+
+    /// ### DEPRECATED: Use `isLeastSignificantBitFirst` instead
+    ///
+    pub const IsLeastSignificantBitFirst = isLeastSignificantBitFirst;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpixeltransferoptions.html#isLeastSignificantBitFirst)
     ///
@@ -204,9 +276,13 @@ pub const QOpenGLPixelTransferOptions = extern struct {
     ///
     /// ` self: QOpenGLPixelTransferOptions `
     ///
-    pub fn IsLeastSignificantBitFirst(self: QOpenGLPixelTransferOptions) bool {
+    pub fn isLeastSignificantBitFirst(self: QOpenGLPixelTransferOptions) bool {
         return qtc.QOpenGLPixelTransferOptions_IsLeastSignificantBitFirst(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSwapBytesEnabled` instead
+    ///
+    pub const SetSwapBytesEnabled = setSwapBytesEnabled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpixeltransferoptions.html#setSwapBytesEnabled)
     ///
@@ -216,9 +292,13 @@ pub const QOpenGLPixelTransferOptions = extern struct {
     ///
     /// ` swapBytes: bool `
     ///
-    pub fn SetSwapBytesEnabled(self: QOpenGLPixelTransferOptions, swapBytes: bool) void {
+    pub fn setSwapBytesEnabled(self: QOpenGLPixelTransferOptions, swapBytes: bool) void {
         qtc.QOpenGLPixelTransferOptions_SetSwapBytesEnabled(@ptrCast(self.ptr), swapBytes);
     }
+
+    /// ### DEPRECATED: Use `isSwapBytesEnabled` instead
+    ///
+    pub const IsSwapBytesEnabled = isSwapBytesEnabled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpixeltransferoptions.html#isSwapBytesEnabled)
     ///
@@ -226,23 +306,23 @@ pub const QOpenGLPixelTransferOptions = extern struct {
     ///
     /// ` self: QOpenGLPixelTransferOptions `
     ///
-    pub fn IsSwapBytesEnabled(self: QOpenGLPixelTransferOptions) bool {
+    pub fn isSwapBytesEnabled(self: QOpenGLPixelTransferOptions) bool {
         return qtc.QOpenGLPixelTransferOptions_IsSwapBytesEnabled(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpixeltransferoptions.html#dtor.QOpenGLPixelTransferOptions)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QOpenGLPixelTransferOptions `
     ///
-    pub fn Delete(self: QOpenGLPixelTransferOptions) void {
+    pub fn delete(self: QOpenGLPixelTransferOptions) void {
         qtc.QOpenGLPixelTransferOptions_Delete(@ptrCast(self.ptr));
     }
 };

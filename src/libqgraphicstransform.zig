@@ -27,22 +27,34 @@ pub const QGraphicsTransform = extern struct {
     pub const _is_QGraphicsTransform = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QGraphicsTransform object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QGraphicsTransform {
+    pub const New = new;
+
+    /// Allocate a new QGraphicsTransform object in C++ memory
+    ///
+    pub fn new() QGraphicsTransform {
         return .{ .ptr = qtc.QGraphicsTransform_new() };
     }
 
-    /// New2 constructs a new QGraphicsTransform object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QGraphicsTransform object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) QGraphicsTransform {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QGraphicsTransform_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) QGraphicsTransform {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QGraphicsTransform_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -50,9 +62,13 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` self: QGraphicsTransform `
     ///
-    pub fn MetaObject(self: QGraphicsTransform) QMetaObject {
+    pub fn metaObject(self: QGraphicsTransform) QMetaObject {
         return .{ .ptr = qtc.QGraphicsTransform_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -64,13 +80,13 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QGraphicsTransform, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QGraphicsTransform, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QGraphicsTransform_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -80,9 +96,13 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` self: QGraphicsTransform `
     ///
-    pub fn SuperMetaObject(self: QGraphicsTransform) QMetaObject {
+    pub fn superMetaObject(self: QGraphicsTransform) QMetaObject {
         return .{ .ptr = qtc.QGraphicsTransform_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -90,10 +110,14 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QGraphicsTransform, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QGraphicsTransform, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QGraphicsTransform_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -103,13 +127,13 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsTransform, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QGraphicsTransform, callback: *const fn (QGraphicsTransform, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QGraphicsTransform, callback: *const fn (QGraphicsTransform, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QGraphicsTransform_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -119,10 +143,14 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QGraphicsTransform, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QGraphicsTransform, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QGraphicsTransform_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -134,9 +162,13 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QGraphicsTransform, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QGraphicsTransform, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QGraphicsTransform_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -146,13 +178,13 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsTransform, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QGraphicsTransform, callback: *const fn (QGraphicsTransform, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QGraphicsTransform, callback: *const fn (QGraphicsTransform, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QGraphicsTransform_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -166,9 +198,13 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QGraphicsTransform, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QGraphicsTransform, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QGraphicsTransform_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -178,14 +214,18 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsTransform.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsTransform.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `applyTo` instead
+    ///
+    pub const ApplyTo = applyTo;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstransform.html#applyTo)
     ///
@@ -195,10 +235,14 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` matrix: QMatrix4x4 `
     ///
-    pub fn ApplyTo(self: QGraphicsTransform, matrix: anytype) void {
+    pub fn applyTo(self: QGraphicsTransform, matrix: anytype) void {
         comptime _ = @TypeOf(matrix)._is_QMatrix4x4;
         qtc.QGraphicsTransform_ApplyTo(@ptrCast(self.ptr), @ptrCast(matrix.ptr));
     }
+
+    /// ### DEPRECATED: Use `onApplyTo` instead
+    ///
+    pub const OnApplyTo = onApplyTo;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstransform.html#applyTo)
     ///
@@ -210,13 +254,13 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsTransform, matrix: QMatrix4x4) callconv(.c) void `
     ///
-    pub fn OnApplyTo(self: QGraphicsTransform, callback: *const fn (QGraphicsTransform, QMatrix4x4) callconv(.c) void) void {
+    pub fn onApplyTo(self: QGraphicsTransform, callback: *const fn (QGraphicsTransform, QMatrix4x4) callconv(.c) void) void {
         qtc.QGraphicsTransform_OnApplyTo(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperApplyTo` instead
+    /// ### DEPRECATED: Use `superApplyTo` instead
     ///
-    pub const QBaseApplyTo = SuperApplyTo;
+    pub const SuperApplyTo = superApplyTo;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstransform.html#applyTo)
     ///
@@ -228,10 +272,14 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` matrix: QMatrix4x4 `
     ///
-    pub fn SuperApplyTo(self: QGraphicsTransform, matrix: anytype) void {
+    pub fn superApplyTo(self: QGraphicsTransform, matrix: anytype) void {
         comptime _ = @TypeOf(matrix)._is_QMatrix4x4;
         qtc.QGraphicsTransform_SuperApplyTo(@ptrCast(self.ptr), @ptrCast(matrix.ptr));
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstransform.html#update)
     ///
@@ -239,9 +287,13 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` self: QGraphicsTransform `
     ///
-    pub fn Update(self: QGraphicsTransform) void {
+    pub fn update(self: QGraphicsTransform) void {
         qtc.QGraphicsTransform_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onUpdate` instead
+    ///
+    pub const OnUpdate = onUpdate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstransform.html#update)
     ///
@@ -253,13 +305,13 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdate(self: QGraphicsTransform, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdate(self: QGraphicsTransform, callback: *const fn () callconv(.c) void) void {
         qtc.QGraphicsTransform_OnUpdate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdate` instead
+    /// ### DEPRECATED: Use `superUpdate` instead
     ///
-    pub const QBaseUpdate = SuperUpdate;
+    pub const SuperUpdate = superUpdate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstransform.html#update)
     ///
@@ -269,9 +321,13 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` self: QGraphicsTransform `
     ///
-    pub fn SuperUpdate(self: QGraphicsTransform) void {
+    pub fn superUpdate(self: QGraphicsTransform) void {
         qtc.QGraphicsTransform_SuperUpdate(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -283,15 +339,19 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsTransform.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsTransform.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -305,15 +365,19 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsTransform.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsTransform.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -325,13 +389,17 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QGraphicsTransform, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QGraphicsTransform, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsTransform.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsTransform.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -343,13 +411,17 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QGraphicsTransform, name: []const u8) void {
+    pub fn setObjectName(self: QGraphicsTransform, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -359,9 +431,13 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` self: QGraphicsTransform `
     ///
-    pub fn IsWidgetType(self: QGraphicsTransform) bool {
+    pub fn isWidgetType(self: QGraphicsTransform) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -371,9 +447,13 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` self: QGraphicsTransform `
     ///
-    pub fn IsWindowType(self: QGraphicsTransform) bool {
+    pub fn isWindowType(self: QGraphicsTransform) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -383,9 +463,13 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` self: QGraphicsTransform `
     ///
-    pub fn IsQuickItemType(self: QGraphicsTransform) bool {
+    pub fn isQuickItemType(self: QGraphicsTransform) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -395,9 +479,13 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` self: QGraphicsTransform `
     ///
-    pub fn SignalsBlocked(self: QGraphicsTransform) bool {
+    pub fn signalsBlocked(self: QGraphicsTransform) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -409,9 +497,13 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QGraphicsTransform, b: bool) bool {
+    pub fn blockSignals(self: QGraphicsTransform, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -421,9 +513,13 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` self: QGraphicsTransform `
     ///
-    pub fn Thread(self: QGraphicsTransform) QThread {
+    pub fn thread(self: QGraphicsTransform) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -433,12 +529,16 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` self: QGraphicsTransform `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QGraphicsTransform, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QGraphicsTransform, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -450,9 +550,13 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QGraphicsTransform, interval: i32) i32 {
+    pub fn startTimer(self: QGraphicsTransform, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -464,9 +568,13 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QGraphicsTransform, time: i64) i32 {
+    pub fn startTimer2(self: QGraphicsTransform, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -478,9 +586,13 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QGraphicsTransform, id: i32) void {
+    pub fn killTimer(self: QGraphicsTransform, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -492,9 +604,13 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QGraphicsTransform, id: i32) void {
+    pub fn killTimer2(self: QGraphicsTransform, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -506,15 +622,19 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QGraphicsTransform, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QGraphicsTransform, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QGraphicsTransform.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QGraphicsTransform.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -524,12 +644,16 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` self: QGraphicsTransform `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QGraphicsTransform, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QGraphicsTransform, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -541,10 +665,14 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QGraphicsTransform, filterObj: anytype) void {
+    pub fn installEventFilter(self: QGraphicsTransform, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -556,10 +684,14 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QGraphicsTransform, obj: anytype) void {
+    pub fn removeEventFilter(self: QGraphicsTransform, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -567,7 +699,7 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -575,13 +707,17 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -589,7 +725,7 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -597,13 +733,17 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -613,18 +753,22 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` self: QGraphicsTransform `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QGraphicsTransform, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QGraphicsTransform, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -632,7 +776,7 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -640,13 +784,17 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -654,7 +802,7 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -662,13 +810,17 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -678,9 +830,13 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` self: QGraphicsTransform `
     ///
-    pub fn Disconnect3(self: QGraphicsTransform) bool {
+    pub fn disconnect3(self: QGraphicsTransform) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -692,10 +848,14 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QGraphicsTransform, receiver: anytype) bool {
+    pub fn disconnect4(self: QGraphicsTransform, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -705,10 +865,14 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -718,9 +882,13 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` self: QGraphicsTransform `
     ///
-    pub fn DumpObjectTree(self: QGraphicsTransform) void {
+    pub fn dumpObjectTree(self: QGraphicsTransform) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -730,9 +898,13 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` self: QGraphicsTransform `
     ///
-    pub fn DumpObjectInfo(self: QGraphicsTransform) void {
+    pub fn dumpObjectInfo(self: QGraphicsTransform) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -746,11 +918,15 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QGraphicsTransform, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QGraphicsTransform, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -762,10 +938,14 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QGraphicsTransform, name: [:0]const u8) QVariant {
+    pub fn property(self: QGraphicsTransform, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -777,7 +957,7 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QGraphicsTransform, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QGraphicsTransform, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -785,27 +965,19 @@ pub const QGraphicsTransform = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QGraphicsTransform.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QGraphicsTransform.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QGraphicsTransform.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QGraphicsTransform.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsTransform `
-    ///
-    pub fn BindingStorage(self: QGraphicsTransform) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -815,9 +987,29 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` self: QGraphicsTransform `
     ///
-    pub fn BindingStorage2(self: QGraphicsTransform) QBindingStorage {
+    pub fn bindingStorage(self: QGraphicsTransform) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGraphicsTransform `
+    ///
+    pub fn bindingStorage2(self: QGraphicsTransform) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -827,9 +1019,13 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` self: QGraphicsTransform `
     ///
-    pub fn Destroyed(self: QGraphicsTransform) void {
+    pub fn destroyed(self: QGraphicsTransform) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -841,9 +1037,13 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsTransform) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QGraphicsTransform, callback: *const fn (QGraphicsTransform) callconv(.c) void) void {
+    pub fn onDestroyed(self: QGraphicsTransform, callback: *const fn (QGraphicsTransform) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -853,9 +1053,13 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` self: QGraphicsTransform `
     ///
-    pub fn Parent(self: QGraphicsTransform) QObject {
+    pub fn parent(self: QGraphicsTransform) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -867,10 +1071,14 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QGraphicsTransform, classname: [:0]const u8) bool {
+    pub fn inherits(self: QGraphicsTransform, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -880,9 +1088,13 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` self: QGraphicsTransform `
     ///
-    pub fn DeleteLater(self: QGraphicsTransform) void {
+    pub fn deleteLater(self: QGraphicsTransform) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -896,9 +1108,13 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QGraphicsTransform, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QGraphicsTransform, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -912,9 +1128,13 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QGraphicsTransform, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QGraphicsTransform, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -922,7 +1142,7 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -932,13 +1152,17 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -946,7 +1170,7 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -956,13 +1180,17 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -972,7 +1200,7 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` self: QGraphicsTransform `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -980,12 +1208,16 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QGraphicsTransform, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QGraphicsTransform, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -997,10 +1229,14 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QGraphicsTransform, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QGraphicsTransform, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1014,11 +1250,15 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QGraphicsTransform, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QGraphicsTransform, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1034,13 +1274,17 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QGraphicsTransform, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QGraphicsTransform, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1053,11 +1297,15 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QGraphicsTransform, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QGraphicsTransform, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1069,10 +1317,14 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QGraphicsTransform, param1: anytype) void {
+    pub fn destroyed1(self: QGraphicsTransform, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1084,9 +1336,13 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsTransform, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QGraphicsTransform, callback: *const fn (QGraphicsTransform, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QGraphicsTransform, callback: *const fn (QGraphicsTransform, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -1098,16 +1354,16 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` self: QGraphicsTransform `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QGraphicsTransform, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QGraphicsTransform_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QGraphicsTransform, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QGraphicsTransform_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -1119,12 +1375,16 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` self: QGraphicsTransform `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QGraphicsTransform, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QGraphicsTransform_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QGraphicsTransform, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QGraphicsTransform_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -1138,9 +1398,13 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsTransform, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QGraphicsTransform, callback: *const fn (QGraphicsTransform, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QGraphicsTransform, callback: *const fn (QGraphicsTransform, QEvent) callconv(.c) bool) void {
         qtc.QGraphicsTransform_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1154,17 +1418,17 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QGraphicsTransform, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QGraphicsTransform, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QGraphicsTransform_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QGraphicsTransform_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1178,13 +1442,17 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QGraphicsTransform, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QGraphicsTransform, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QGraphicsTransform_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QGraphicsTransform_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1198,9 +1466,13 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsTransform, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QGraphicsTransform, callback: *const fn (QGraphicsTransform, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QGraphicsTransform, callback: *const fn (QGraphicsTransform, QObject, QEvent) callconv(.c) bool) void {
         qtc.QGraphicsTransform_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -1212,16 +1484,16 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` self: QGraphicsTransform `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QGraphicsTransform, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QGraphicsTransform_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QGraphicsTransform, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QGraphicsTransform_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1233,12 +1505,16 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` self: QGraphicsTransform `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QGraphicsTransform, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QGraphicsTransform_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QGraphicsTransform, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QGraphicsTransform_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1252,9 +1528,13 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsTransform, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QGraphicsTransform, callback: *const fn (QGraphicsTransform, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QGraphicsTransform, callback: *const fn (QGraphicsTransform, QTimerEvent) callconv(.c) void) void {
         qtc.QGraphicsTransform_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -1266,16 +1546,16 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` self: QGraphicsTransform `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QGraphicsTransform, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QGraphicsTransform_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QGraphicsTransform, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QGraphicsTransform_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1287,12 +1567,16 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` self: QGraphicsTransform `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QGraphicsTransform, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QGraphicsTransform_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QGraphicsTransform, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QGraphicsTransform_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1306,9 +1590,13 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsTransform, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QGraphicsTransform, callback: *const fn (QGraphicsTransform, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QGraphicsTransform, callback: *const fn (QGraphicsTransform, QChildEvent) callconv(.c) void) void {
         qtc.QGraphicsTransform_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -1320,16 +1608,16 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` self: QGraphicsTransform `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QGraphicsTransform, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QGraphicsTransform_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QGraphicsTransform, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QGraphicsTransform_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1341,12 +1629,16 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` self: QGraphicsTransform `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QGraphicsTransform, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QGraphicsTransform_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QGraphicsTransform, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QGraphicsTransform_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1360,9 +1652,13 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsTransform, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QGraphicsTransform, callback: *const fn (QGraphicsTransform, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QGraphicsTransform, callback: *const fn (QGraphicsTransform, QEvent) callconv(.c) void) void {
         qtc.QGraphicsTransform_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -1376,14 +1672,14 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QGraphicsTransform, signal: anytype) void {
+    pub fn connectNotify(self: QGraphicsTransform, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QGraphicsTransform_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1397,11 +1693,15 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QGraphicsTransform, signal: anytype) void {
+    pub fn superConnectNotify(self: QGraphicsTransform, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QGraphicsTransform_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1414,9 +1714,13 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsTransform, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QGraphicsTransform, callback: *const fn (QGraphicsTransform, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QGraphicsTransform, callback: *const fn (QGraphicsTransform, QMetaMethod) callconv(.c) void) void {
         qtc.QGraphicsTransform_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1430,14 +1734,14 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QGraphicsTransform, signal: anytype) void {
+    pub fn disconnectNotify(self: QGraphicsTransform, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QGraphicsTransform_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1451,10 +1755,14 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QGraphicsTransform, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QGraphicsTransform, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QGraphicsTransform_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1468,9 +1776,13 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsTransform, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QGraphicsTransform, callback: *const fn (QGraphicsTransform, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QGraphicsTransform, callback: *const fn (QGraphicsTransform, QMetaMethod) callconv(.c) void) void {
         qtc.QGraphicsTransform_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -1482,13 +1794,13 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` self: QGraphicsTransform `
     ///
-    pub fn Sender(self: QGraphicsTransform) QObject {
+    pub fn sender(self: QGraphicsTransform) QObject {
         return .{ .ptr = qtc.QGraphicsTransform_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -1500,9 +1812,13 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` self: QGraphicsTransform `
     ///
-    pub fn SuperSender(self: QGraphicsTransform) QObject {
+    pub fn superSender(self: QGraphicsTransform) QObject {
         return .{ .ptr = qtc.QGraphicsTransform_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -1516,9 +1832,13 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QGraphicsTransform, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QGraphicsTransform, callback: *const fn () callconv(.c) QObject) void {
         qtc.QGraphicsTransform_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1530,13 +1850,13 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` self: QGraphicsTransform `
     ///
-    pub fn SenderSignalIndex(self: QGraphicsTransform) i32 {
+    pub fn senderSignalIndex(self: QGraphicsTransform) i32 {
         return qtc.QGraphicsTransform_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1548,9 +1868,13 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` self: QGraphicsTransform `
     ///
-    pub fn SuperSenderSignalIndex(self: QGraphicsTransform) i32 {
+    pub fn superSenderSignalIndex(self: QGraphicsTransform) i32 {
         return qtc.QGraphicsTransform_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1564,9 +1888,13 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QGraphicsTransform, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QGraphicsTransform, callback: *const fn () callconv(.c) i32) void {
         qtc.QGraphicsTransform_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -1580,14 +1908,14 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QGraphicsTransform, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QGraphicsTransform, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QGraphicsTransform_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -1601,10 +1929,14 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QGraphicsTransform, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QGraphicsTransform, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QGraphicsTransform_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -1618,9 +1950,13 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsTransform, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QGraphicsTransform, callback: *const fn (QGraphicsTransform, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QGraphicsTransform, callback: *const fn (QGraphicsTransform, [*:0]const u8) callconv(.c) i32) void {
         qtc.QGraphicsTransform_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1634,14 +1970,14 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QGraphicsTransform, signal: anytype) bool {
+    pub fn isSignalConnected(self: QGraphicsTransform, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QGraphicsTransform_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1655,10 +1991,14 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QGraphicsTransform, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QGraphicsTransform, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QGraphicsTransform_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1672,9 +2012,13 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsTransform, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QGraphicsTransform, callback: *const fn (QGraphicsTransform, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QGraphicsTransform, callback: *const fn (QGraphicsTransform, QMetaMethod) callconv(.c) bool) void {
         qtc.QGraphicsTransform_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -1688,23 +2032,23 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsTransform, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QGraphicsTransform, callback: *const fn (QGraphicsTransform, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QGraphicsTransform, callback: *const fn (QGraphicsTransform, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstransform.html#dtor.QGraphicsTransform)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QGraphicsTransform `
     ///
-    pub fn Delete(self: QGraphicsTransform) void {
+    pub fn delete(self: QGraphicsTransform) void {
         qtc.QGraphicsTransform_Delete(@ptrCast(self.ptr));
     }
 };
@@ -1721,22 +2065,34 @@ pub const QGraphicsScale = extern struct {
     pub const _is_QGraphicsTransform = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QGraphicsScale object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QGraphicsScale {
+    pub const New = new;
+
+    /// Allocate a new QGraphicsScale object in C++ memory
+    ///
+    pub fn new() QGraphicsScale {
         return .{ .ptr = qtc.QGraphicsScale_new() };
     }
 
-    /// New2 constructs a new QGraphicsScale object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QGraphicsScale object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) QGraphicsScale {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QGraphicsScale_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) QGraphicsScale {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QGraphicsScale_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -1744,9 +2100,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` self: QGraphicsScale `
     ///
-    pub fn MetaObject(self: QGraphicsScale) QMetaObject {
+    pub fn metaObject(self: QGraphicsScale) QMetaObject {
         return .{ .ptr = qtc.QGraphicsScale_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -1758,13 +2118,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QGraphicsScale, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QGraphicsScale, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QGraphicsScale_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -1774,9 +2134,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` self: QGraphicsScale `
     ///
-    pub fn SuperMetaObject(self: QGraphicsScale) QMetaObject {
+    pub fn superMetaObject(self: QGraphicsScale) QMetaObject {
         return .{ .ptr = qtc.QGraphicsScale_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -1784,10 +2148,14 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QGraphicsScale, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QGraphicsScale, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QGraphicsScale_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -1797,13 +2165,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsScale, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QGraphicsScale, callback: *const fn (QGraphicsScale, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QGraphicsScale, callback: *const fn (QGraphicsScale, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QGraphicsScale_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -1813,10 +2181,14 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QGraphicsScale, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QGraphicsScale, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QGraphicsScale_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -1828,9 +2200,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QGraphicsScale, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QGraphicsScale, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QGraphicsScale_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -1840,13 +2216,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsScale, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QGraphicsScale, callback: *const fn (QGraphicsScale, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QGraphicsScale, callback: *const fn (QGraphicsScale, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QGraphicsScale_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -1860,9 +2236,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QGraphicsScale, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QGraphicsScale, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QGraphicsScale_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1872,14 +2252,18 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsScale.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsScale.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `origin` instead
+    ///
+    pub const Origin = origin;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscale.html#origin)
     ///
@@ -1887,9 +2271,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` self: QGraphicsScale `
     ///
-    pub fn Origin(self: QGraphicsScale) QVector3D {
+    pub fn origin(self: QGraphicsScale) QVector3D {
         return .{ .ptr = qtc.QGraphicsScale_Origin(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setOrigin` instead
+    ///
+    pub const SetOrigin = setOrigin;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscale.html#setOrigin)
     ///
@@ -1899,10 +2287,14 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` point: QVector3D `
     ///
-    pub fn SetOrigin(self: QGraphicsScale, point: anytype) void {
+    pub fn setOrigin(self: QGraphicsScale, point: anytype) void {
         comptime _ = @TypeOf(point)._is_QVector3D;
         qtc.QGraphicsScale_SetOrigin(@ptrCast(self.ptr), @ptrCast(point.ptr));
     }
+
+    /// ### DEPRECATED: Use `xScale` instead
+    ///
+    pub const XScale = xScale;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscale.html#xScale)
     ///
@@ -1910,9 +2302,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` self: QGraphicsScale `
     ///
-    pub fn XScale(self: QGraphicsScale) f64 {
+    pub fn xScale(self: QGraphicsScale) f64 {
         return qtc.QGraphicsScale_XScale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setXScale` instead
+    ///
+    pub const SetXScale = setXScale;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscale.html#setXScale)
     ///
@@ -1920,11 +2316,15 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` self: QGraphicsScale `
     ///
-    /// ` xScale: f64 `
+    /// ` _xScale: f64 `
     ///
-    pub fn SetXScale(self: QGraphicsScale, xScale: f64) void {
-        qtc.QGraphicsScale_SetXScale(@ptrCast(self.ptr), @bitCast(xScale));
+    pub fn setXScale(self: QGraphicsScale, _xScale: f64) void {
+        qtc.QGraphicsScale_SetXScale(@ptrCast(self.ptr), @bitCast(_xScale));
     }
+
+    /// ### DEPRECATED: Use `yScale` instead
+    ///
+    pub const YScale = yScale;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscale.html#yScale)
     ///
@@ -1932,9 +2332,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` self: QGraphicsScale `
     ///
-    pub fn YScale(self: QGraphicsScale) f64 {
+    pub fn yScale(self: QGraphicsScale) f64 {
         return qtc.QGraphicsScale_YScale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setYScale` instead
+    ///
+    pub const SetYScale = setYScale;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscale.html#setYScale)
     ///
@@ -1942,11 +2346,15 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` self: QGraphicsScale `
     ///
-    /// ` yScale: f64 `
+    /// ` _yScale: f64 `
     ///
-    pub fn SetYScale(self: QGraphicsScale, yScale: f64) void {
-        qtc.QGraphicsScale_SetYScale(@ptrCast(self.ptr), @bitCast(yScale));
+    pub fn setYScale(self: QGraphicsScale, _yScale: f64) void {
+        qtc.QGraphicsScale_SetYScale(@ptrCast(self.ptr), @bitCast(_yScale));
     }
+
+    /// ### DEPRECATED: Use `zScale` instead
+    ///
+    pub const ZScale = zScale;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscale.html#zScale)
     ///
@@ -1954,9 +2362,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` self: QGraphicsScale `
     ///
-    pub fn ZScale(self: QGraphicsScale) f64 {
+    pub fn zScale(self: QGraphicsScale) f64 {
         return qtc.QGraphicsScale_ZScale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setZScale` instead
+    ///
+    pub const SetZScale = setZScale;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscale.html#setZScale)
     ///
@@ -1964,11 +2376,15 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` self: QGraphicsScale `
     ///
-    /// ` zScale: f64 `
+    /// ` _zScale: f64 `
     ///
-    pub fn SetZScale(self: QGraphicsScale, zScale: f64) void {
-        qtc.QGraphicsScale_SetZScale(@ptrCast(self.ptr), @bitCast(zScale));
+    pub fn setZScale(self: QGraphicsScale, _zScale: f64) void {
+        qtc.QGraphicsScale_SetZScale(@ptrCast(self.ptr), @bitCast(_zScale));
     }
+
+    /// ### DEPRECATED: Use `applyTo` instead
+    ///
+    pub const ApplyTo = applyTo;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscale.html#applyTo)
     ///
@@ -1978,10 +2394,14 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` matrix: QMatrix4x4 `
     ///
-    pub fn ApplyTo(self: QGraphicsScale, matrix: anytype) void {
+    pub fn applyTo(self: QGraphicsScale, matrix: anytype) void {
         comptime _ = @TypeOf(matrix)._is_QMatrix4x4;
         qtc.QGraphicsScale_ApplyTo(@ptrCast(self.ptr), @ptrCast(matrix.ptr));
     }
+
+    /// ### DEPRECATED: Use `onApplyTo` instead
+    ///
+    pub const OnApplyTo = onApplyTo;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscale.html#applyTo)
     ///
@@ -1993,13 +2413,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsScale, matrix: QMatrix4x4) callconv(.c) void `
     ///
-    pub fn OnApplyTo(self: QGraphicsScale, callback: *const fn (QGraphicsScale, QMatrix4x4) callconv(.c) void) void {
+    pub fn onApplyTo(self: QGraphicsScale, callback: *const fn (QGraphicsScale, QMatrix4x4) callconv(.c) void) void {
         qtc.QGraphicsScale_OnApplyTo(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperApplyTo` instead
+    /// ### DEPRECATED: Use `superApplyTo` instead
     ///
-    pub const QBaseApplyTo = SuperApplyTo;
+    pub const SuperApplyTo = superApplyTo;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscale.html#applyTo)
     ///
@@ -2011,21 +2431,29 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` matrix: QMatrix4x4 `
     ///
-    pub fn SuperApplyTo(self: QGraphicsScale, matrix: anytype) void {
+    pub fn superApplyTo(self: QGraphicsScale, matrix: anytype) void {
         comptime _ = @TypeOf(matrix)._is_QMatrix4x4;
         qtc.QGraphicsScale_SuperApplyTo(@ptrCast(self.ptr), @ptrCast(matrix.ptr));
     }
 
+    /// ### DEPRECATED: Use `originChanged` instead
+    ///
+    pub const OriginChanged = originChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscale.html#originChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QGraphicsScale `
     ///
-    pub fn OriginChanged(self: QGraphicsScale) void {
+    pub fn originChanged(self: QGraphicsScale) void {
         qtc.QGraphicsScale_OriginChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onOriginChanged` instead
+    ///
+    pub const OnOriginChanged = onOriginChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscale.html#originChanged)
     ///
     /// ## Parameters:
@@ -2034,20 +2462,28 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsScale) callconv(.c) void `
     ///
-    pub fn OnOriginChanged(self: QGraphicsScale, callback: *const fn (QGraphicsScale) callconv(.c) void) void {
+    pub fn onOriginChanged(self: QGraphicsScale, callback: *const fn (QGraphicsScale) callconv(.c) void) void {
         qtc.QGraphicsScale_Connect_OriginChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `xScaleChanged` instead
+    ///
+    pub const XScaleChanged = xScaleChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscale.html#xScaleChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QGraphicsScale `
     ///
-    pub fn XScaleChanged(self: QGraphicsScale) void {
+    pub fn xScaleChanged(self: QGraphicsScale) void {
         qtc.QGraphicsScale_XScaleChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onXScaleChanged` instead
+    ///
+    pub const OnXScaleChanged = onXScaleChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscale.html#xScaleChanged)
     ///
     /// ## Parameters:
@@ -2056,20 +2492,28 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsScale) callconv(.c) void `
     ///
-    pub fn OnXScaleChanged(self: QGraphicsScale, callback: *const fn (QGraphicsScale) callconv(.c) void) void {
+    pub fn onXScaleChanged(self: QGraphicsScale, callback: *const fn (QGraphicsScale) callconv(.c) void) void {
         qtc.QGraphicsScale_Connect_XScaleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `yScaleChanged` instead
+    ///
+    pub const YScaleChanged = yScaleChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscale.html#yScaleChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QGraphicsScale `
     ///
-    pub fn YScaleChanged(self: QGraphicsScale) void {
+    pub fn yScaleChanged(self: QGraphicsScale) void {
         qtc.QGraphicsScale_YScaleChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onYScaleChanged` instead
+    ///
+    pub const OnYScaleChanged = onYScaleChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscale.html#yScaleChanged)
     ///
     /// ## Parameters:
@@ -2078,20 +2522,28 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsScale) callconv(.c) void `
     ///
-    pub fn OnYScaleChanged(self: QGraphicsScale, callback: *const fn (QGraphicsScale) callconv(.c) void) void {
+    pub fn onYScaleChanged(self: QGraphicsScale, callback: *const fn (QGraphicsScale) callconv(.c) void) void {
         qtc.QGraphicsScale_Connect_YScaleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `zScaleChanged` instead
+    ///
+    pub const ZScaleChanged = zScaleChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscale.html#zScaleChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QGraphicsScale `
     ///
-    pub fn ZScaleChanged(self: QGraphicsScale) void {
+    pub fn zScaleChanged(self: QGraphicsScale) void {
         qtc.QGraphicsScale_ZScaleChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onZScaleChanged` instead
+    ///
+    pub const OnZScaleChanged = onZScaleChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscale.html#zScaleChanged)
     ///
     /// ## Parameters:
@@ -2100,9 +2552,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsScale) callconv(.c) void `
     ///
-    pub fn OnZScaleChanged(self: QGraphicsScale, callback: *const fn (QGraphicsScale) callconv(.c) void) void {
+    pub fn onZScaleChanged(self: QGraphicsScale, callback: *const fn (QGraphicsScale) callconv(.c) void) void {
         qtc.QGraphicsScale_Connect_ZScaleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `scaleChanged` instead
+    ///
+    pub const ScaleChanged = scaleChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscale.html#scaleChanged)
     ///
@@ -2110,9 +2566,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` self: QGraphicsScale `
     ///
-    pub fn ScaleChanged(self: QGraphicsScale) void {
+    pub fn scaleChanged(self: QGraphicsScale) void {
         qtc.QGraphicsScale_ScaleChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onScaleChanged` instead
+    ///
+    pub const OnScaleChanged = onScaleChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscale.html#scaleChanged)
     ///
@@ -2122,9 +2582,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsScale) callconv(.c) void `
     ///
-    pub fn OnScaleChanged(self: QGraphicsScale, callback: *const fn (QGraphicsScale) callconv(.c) void) void {
+    pub fn onScaleChanged(self: QGraphicsScale, callback: *const fn (QGraphicsScale) callconv(.c) void) void {
         qtc.QGraphicsScale_Connect_ScaleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -2136,15 +2600,19 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsScale.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsScale.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -2158,15 +2626,19 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsScale.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsScale.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -2178,13 +2650,17 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QGraphicsScale, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QGraphicsScale, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsScale.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsScale.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -2196,13 +2672,17 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QGraphicsScale, name: []const u8) void {
+    pub fn setObjectName(self: QGraphicsScale, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -2212,9 +2692,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` self: QGraphicsScale `
     ///
-    pub fn IsWidgetType(self: QGraphicsScale) bool {
+    pub fn isWidgetType(self: QGraphicsScale) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -2224,9 +2708,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` self: QGraphicsScale `
     ///
-    pub fn IsWindowType(self: QGraphicsScale) bool {
+    pub fn isWindowType(self: QGraphicsScale) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -2236,9 +2724,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` self: QGraphicsScale `
     ///
-    pub fn IsQuickItemType(self: QGraphicsScale) bool {
+    pub fn isQuickItemType(self: QGraphicsScale) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -2248,9 +2740,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` self: QGraphicsScale `
     ///
-    pub fn SignalsBlocked(self: QGraphicsScale) bool {
+    pub fn signalsBlocked(self: QGraphicsScale) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -2262,9 +2758,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QGraphicsScale, b: bool) bool {
+    pub fn blockSignals(self: QGraphicsScale, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -2274,9 +2774,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` self: QGraphicsScale `
     ///
-    pub fn Thread(self: QGraphicsScale) QThread {
+    pub fn thread(self: QGraphicsScale) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -2286,12 +2790,16 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` self: QGraphicsScale `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QGraphicsScale, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QGraphicsScale, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -2303,9 +2811,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QGraphicsScale, interval: i32) i32 {
+    pub fn startTimer(self: QGraphicsScale, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -2317,9 +2829,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QGraphicsScale, time: i64) i32 {
+    pub fn startTimer2(self: QGraphicsScale, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -2331,9 +2847,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QGraphicsScale, id: i32) void {
+    pub fn killTimer(self: QGraphicsScale, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -2345,9 +2865,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QGraphicsScale, id: i32) void {
+    pub fn killTimer2(self: QGraphicsScale, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -2359,15 +2883,19 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QGraphicsScale, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QGraphicsScale, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QGraphicsScale.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QGraphicsScale.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -2377,12 +2905,16 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` self: QGraphicsScale `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QGraphicsScale, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QGraphicsScale, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2394,10 +2926,14 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QGraphicsScale, filterObj: anytype) void {
+    pub fn installEventFilter(self: QGraphicsScale, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2409,10 +2945,14 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QGraphicsScale, obj: anytype) void {
+    pub fn removeEventFilter(self: QGraphicsScale, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -2420,7 +2960,7 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2428,13 +2968,17 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -2442,7 +2986,7 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2450,13 +2994,17 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -2466,18 +3014,22 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` self: QGraphicsScale `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QGraphicsScale, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QGraphicsScale, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -2485,7 +3037,7 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2493,13 +3045,17 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -2507,7 +3063,7 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2515,13 +3071,17 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -2531,9 +3091,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` self: QGraphicsScale `
     ///
-    pub fn Disconnect3(self: QGraphicsScale) bool {
+    pub fn disconnect3(self: QGraphicsScale) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -2545,10 +3109,14 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QGraphicsScale, receiver: anytype) bool {
+    pub fn disconnect4(self: QGraphicsScale, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -2558,10 +3126,14 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -2571,9 +3143,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` self: QGraphicsScale `
     ///
-    pub fn DumpObjectTree(self: QGraphicsScale) void {
+    pub fn dumpObjectTree(self: QGraphicsScale) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -2583,9 +3159,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` self: QGraphicsScale `
     ///
-    pub fn DumpObjectInfo(self: QGraphicsScale) void {
+    pub fn dumpObjectInfo(self: QGraphicsScale) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -2599,11 +3179,15 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QGraphicsScale, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QGraphicsScale, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -2615,10 +3199,14 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QGraphicsScale, name: [:0]const u8) QVariant {
+    pub fn property(self: QGraphicsScale, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -2630,7 +3218,7 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QGraphicsScale, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QGraphicsScale, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -2638,27 +3226,19 @@ pub const QGraphicsScale = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QGraphicsScale.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QGraphicsScale.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QGraphicsScale.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QGraphicsScale.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsScale `
-    ///
-    pub fn BindingStorage(self: QGraphicsScale) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -2668,9 +3248,29 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` self: QGraphicsScale `
     ///
-    pub fn BindingStorage2(self: QGraphicsScale) QBindingStorage {
+    pub fn bindingStorage(self: QGraphicsScale) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGraphicsScale `
+    ///
+    pub fn bindingStorage2(self: QGraphicsScale) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -2680,9 +3280,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` self: QGraphicsScale `
     ///
-    pub fn Destroyed(self: QGraphicsScale) void {
+    pub fn destroyed(self: QGraphicsScale) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -2694,9 +3298,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsScale) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QGraphicsScale, callback: *const fn (QGraphicsScale) callconv(.c) void) void {
+    pub fn onDestroyed(self: QGraphicsScale, callback: *const fn (QGraphicsScale) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -2706,9 +3314,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` self: QGraphicsScale `
     ///
-    pub fn Parent(self: QGraphicsScale) QObject {
+    pub fn parent(self: QGraphicsScale) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -2720,10 +3332,14 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QGraphicsScale, classname: [:0]const u8) bool {
+    pub fn inherits(self: QGraphicsScale, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -2733,9 +3349,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` self: QGraphicsScale `
     ///
-    pub fn DeleteLater(self: QGraphicsScale) void {
+    pub fn deleteLater(self: QGraphicsScale) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -2749,9 +3369,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QGraphicsScale, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QGraphicsScale, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -2765,9 +3389,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QGraphicsScale, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QGraphicsScale, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -2775,7 +3403,7 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2785,13 +3413,17 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -2799,7 +3431,7 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2809,13 +3441,17 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -2825,7 +3461,7 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` self: QGraphicsScale `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2833,12 +3469,16 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QGraphicsScale, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QGraphicsScale, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -2850,10 +3490,14 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QGraphicsScale, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QGraphicsScale, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -2867,11 +3511,15 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QGraphicsScale, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QGraphicsScale, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -2887,13 +3535,17 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QGraphicsScale, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QGraphicsScale, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -2906,11 +3558,15 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QGraphicsScale, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QGraphicsScale, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -2922,10 +3578,14 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QGraphicsScale, param1: anytype) void {
+    pub fn destroyed1(self: QGraphicsScale, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -2937,9 +3597,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsScale, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QGraphicsScale, callback: *const fn (QGraphicsScale, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QGraphicsScale, callback: *const fn (QGraphicsScale, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -2951,16 +3615,16 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` self: QGraphicsScale `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QGraphicsScale, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QGraphicsScale_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QGraphicsScale, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QGraphicsScale_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -2972,12 +3636,16 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` self: QGraphicsScale `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QGraphicsScale, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QGraphicsScale_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QGraphicsScale, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QGraphicsScale_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -2991,9 +3659,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsScale, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QGraphicsScale, callback: *const fn (QGraphicsScale, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QGraphicsScale, callback: *const fn (QGraphicsScale, QEvent) callconv(.c) bool) void {
         qtc.QGraphicsScale_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -3007,17 +3679,17 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QGraphicsScale, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QGraphicsScale, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QGraphicsScale_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QGraphicsScale_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -3031,13 +3703,17 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QGraphicsScale, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QGraphicsScale, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QGraphicsScale_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QGraphicsScale_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -3051,9 +3727,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsScale, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QGraphicsScale, callback: *const fn (QGraphicsScale, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QGraphicsScale, callback: *const fn (QGraphicsScale, QObject, QEvent) callconv(.c) bool) void {
         qtc.QGraphicsScale_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -3065,16 +3745,16 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` self: QGraphicsScale `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QGraphicsScale, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QGraphicsScale_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QGraphicsScale, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QGraphicsScale_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -3086,12 +3766,16 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` self: QGraphicsScale `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QGraphicsScale, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QGraphicsScale_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QGraphicsScale, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QGraphicsScale_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -3105,9 +3789,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsScale, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QGraphicsScale, callback: *const fn (QGraphicsScale, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QGraphicsScale, callback: *const fn (QGraphicsScale, QTimerEvent) callconv(.c) void) void {
         qtc.QGraphicsScale_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -3119,16 +3807,16 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` self: QGraphicsScale `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QGraphicsScale, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QGraphicsScale_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QGraphicsScale, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QGraphicsScale_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -3140,12 +3828,16 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` self: QGraphicsScale `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QGraphicsScale, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QGraphicsScale_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QGraphicsScale, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QGraphicsScale_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -3159,9 +3851,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsScale, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QGraphicsScale, callback: *const fn (QGraphicsScale, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QGraphicsScale, callback: *const fn (QGraphicsScale, QChildEvent) callconv(.c) void) void {
         qtc.QGraphicsScale_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -3173,16 +3869,16 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` self: QGraphicsScale `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QGraphicsScale, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QGraphicsScale_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QGraphicsScale, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QGraphicsScale_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -3194,12 +3890,16 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` self: QGraphicsScale `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QGraphicsScale, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QGraphicsScale_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QGraphicsScale, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QGraphicsScale_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -3213,9 +3913,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsScale, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QGraphicsScale, callback: *const fn (QGraphicsScale, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QGraphicsScale, callback: *const fn (QGraphicsScale, QEvent) callconv(.c) void) void {
         qtc.QGraphicsScale_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -3229,14 +3933,14 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QGraphicsScale, signal: anytype) void {
+    pub fn connectNotify(self: QGraphicsScale, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QGraphicsScale_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3250,11 +3954,15 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QGraphicsScale, signal: anytype) void {
+    pub fn superConnectNotify(self: QGraphicsScale, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QGraphicsScale_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -3267,9 +3975,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsScale, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QGraphicsScale, callback: *const fn (QGraphicsScale, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QGraphicsScale, callback: *const fn (QGraphicsScale, QMetaMethod) callconv(.c) void) void {
         qtc.QGraphicsScale_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3283,14 +3995,14 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QGraphicsScale, signal: anytype) void {
+    pub fn disconnectNotify(self: QGraphicsScale, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QGraphicsScale_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3304,10 +4016,14 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QGraphicsScale, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QGraphicsScale, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QGraphicsScale_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3321,9 +4037,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsScale, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QGraphicsScale, callback: *const fn (QGraphicsScale, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QGraphicsScale, callback: *const fn (QGraphicsScale, QMetaMethod) callconv(.c) void) void {
         qtc.QGraphicsScale_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QGraphicsTransform
     ///
@@ -3335,13 +4055,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` self: QGraphicsScale `
     ///
-    pub fn Update(self: QGraphicsScale) void {
+    pub fn update(self: QGraphicsScale) void {
         qtc.QGraphicsScale_Update(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdate` instead
+    /// ### DEPRECATED: Use `superUpdate` instead
     ///
-    pub const QBaseUpdate = SuperUpdate;
+    pub const SuperUpdate = superUpdate;
 
     /// Inherited from QGraphicsTransform
     ///
@@ -3353,9 +4073,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` self: QGraphicsScale `
     ///
-    pub fn SuperUpdate(self: QGraphicsScale) void {
+    pub fn superUpdate(self: QGraphicsScale) void {
         qtc.QGraphicsScale_SuperUpdate(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onUpdate` instead
+    ///
+    pub const OnUpdate = onUpdate;
 
     /// Inherited from QGraphicsTransform
     ///
@@ -3369,9 +4093,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdate(self: QGraphicsScale, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdate(self: QGraphicsScale, callback: *const fn () callconv(.c) void) void {
         qtc.QGraphicsScale_OnUpdate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -3383,13 +4111,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` self: QGraphicsScale `
     ///
-    pub fn Sender(self: QGraphicsScale) QObject {
+    pub fn sender(self: QGraphicsScale) QObject {
         return .{ .ptr = qtc.QGraphicsScale_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -3401,9 +4129,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` self: QGraphicsScale `
     ///
-    pub fn SuperSender(self: QGraphicsScale) QObject {
+    pub fn superSender(self: QGraphicsScale) QObject {
         return .{ .ptr = qtc.QGraphicsScale_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -3417,9 +4149,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QGraphicsScale, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QGraphicsScale, callback: *const fn () callconv(.c) QObject) void {
         qtc.QGraphicsScale_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -3431,13 +4167,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` self: QGraphicsScale `
     ///
-    pub fn SenderSignalIndex(self: QGraphicsScale) i32 {
+    pub fn senderSignalIndex(self: QGraphicsScale) i32 {
         return qtc.QGraphicsScale_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -3449,9 +4185,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` self: QGraphicsScale `
     ///
-    pub fn SuperSenderSignalIndex(self: QGraphicsScale) i32 {
+    pub fn superSenderSignalIndex(self: QGraphicsScale) i32 {
         return qtc.QGraphicsScale_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -3465,9 +4205,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QGraphicsScale, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QGraphicsScale, callback: *const fn () callconv(.c) i32) void {
         qtc.QGraphicsScale_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -3481,14 +4225,14 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QGraphicsScale, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QGraphicsScale, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QGraphicsScale_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -3502,10 +4246,14 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QGraphicsScale, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QGraphicsScale, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QGraphicsScale_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -3519,9 +4267,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsScale, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QGraphicsScale, callback: *const fn (QGraphicsScale, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QGraphicsScale, callback: *const fn (QGraphicsScale, [*:0]const u8) callconv(.c) i32) void {
         qtc.QGraphicsScale_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -3535,14 +4287,14 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QGraphicsScale, signal: anytype) bool {
+    pub fn isSignalConnected(self: QGraphicsScale, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QGraphicsScale_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -3556,10 +4308,14 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QGraphicsScale, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QGraphicsScale, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QGraphicsScale_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -3573,9 +4329,13 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsScale, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QGraphicsScale, callback: *const fn (QGraphicsScale, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QGraphicsScale, callback: *const fn (QGraphicsScale, QMetaMethod) callconv(.c) bool) void {
         qtc.QGraphicsScale_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -3589,23 +4349,23 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsScale, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QGraphicsScale, callback: *const fn (QGraphicsScale, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QGraphicsScale, callback: *const fn (QGraphicsScale, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscale.html#dtor.QGraphicsScale)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QGraphicsScale `
     ///
-    pub fn Delete(self: QGraphicsScale) void {
+    pub fn delete(self: QGraphicsScale) void {
         qtc.QGraphicsScale_Delete(@ptrCast(self.ptr));
     }
 };
@@ -3622,22 +4382,34 @@ pub const QGraphicsRotation = extern struct {
     pub const _is_QGraphicsTransform = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QGraphicsRotation object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QGraphicsRotation {
+    pub const New = new;
+
+    /// Allocate a new QGraphicsRotation object in C++ memory
+    ///
+    pub fn new() QGraphicsRotation {
         return .{ .ptr = qtc.QGraphicsRotation_new() };
     }
 
-    /// New2 constructs a new QGraphicsRotation object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QGraphicsRotation object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) QGraphicsRotation {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QGraphicsRotation_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) QGraphicsRotation {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QGraphicsRotation_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -3645,9 +4417,13 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` self: QGraphicsRotation `
     ///
-    pub fn MetaObject(self: QGraphicsRotation) QMetaObject {
+    pub fn metaObject(self: QGraphicsRotation) QMetaObject {
         return .{ .ptr = qtc.QGraphicsRotation_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -3659,13 +4435,13 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QGraphicsRotation, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QGraphicsRotation, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QGraphicsRotation_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -3675,9 +4451,13 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` self: QGraphicsRotation `
     ///
-    pub fn SuperMetaObject(self: QGraphicsRotation) QMetaObject {
+    pub fn superMetaObject(self: QGraphicsRotation) QMetaObject {
         return .{ .ptr = qtc.QGraphicsRotation_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -3685,10 +4465,14 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QGraphicsRotation, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QGraphicsRotation, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QGraphicsRotation_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -3698,13 +4482,13 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsRotation, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QGraphicsRotation, callback: *const fn (QGraphicsRotation, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QGraphicsRotation, callback: *const fn (QGraphicsRotation, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QGraphicsRotation_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -3714,10 +4498,14 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QGraphicsRotation, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QGraphicsRotation, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QGraphicsRotation_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -3729,9 +4517,13 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QGraphicsRotation, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QGraphicsRotation, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QGraphicsRotation_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -3741,13 +4533,13 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsRotation, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QGraphicsRotation, callback: *const fn (QGraphicsRotation, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QGraphicsRotation, callback: *const fn (QGraphicsRotation, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QGraphicsRotation_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -3761,9 +4553,13 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QGraphicsRotation, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QGraphicsRotation, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QGraphicsRotation_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -3773,14 +4569,18 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsRotation.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsRotation.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `origin` instead
+    ///
+    pub const Origin = origin;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsrotation.html#origin)
     ///
@@ -3788,9 +4588,13 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` self: QGraphicsRotation `
     ///
-    pub fn Origin(self: QGraphicsRotation) QVector3D {
+    pub fn origin(self: QGraphicsRotation) QVector3D {
         return .{ .ptr = qtc.QGraphicsRotation_Origin(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setOrigin` instead
+    ///
+    pub const SetOrigin = setOrigin;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsrotation.html#setOrigin)
     ///
@@ -3800,10 +4604,14 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` point: QVector3D `
     ///
-    pub fn SetOrigin(self: QGraphicsRotation, point: anytype) void {
+    pub fn setOrigin(self: QGraphicsRotation, point: anytype) void {
         comptime _ = @TypeOf(point)._is_QVector3D;
         qtc.QGraphicsRotation_SetOrigin(@ptrCast(self.ptr), @ptrCast(point.ptr));
     }
+
+    /// ### DEPRECATED: Use `angle` instead
+    ///
+    pub const Angle = angle;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsrotation.html#angle)
     ///
@@ -3811,9 +4619,13 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` self: QGraphicsRotation `
     ///
-    pub fn Angle(self: QGraphicsRotation) f64 {
+    pub fn angle(self: QGraphicsRotation) f64 {
         return qtc.QGraphicsRotation_Angle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAngle` instead
+    ///
+    pub const SetAngle = setAngle;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsrotation.html#setAngle)
     ///
@@ -3821,11 +4633,15 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` self: QGraphicsRotation `
     ///
-    /// ` angle: f64 `
+    /// ` _angle: f64 `
     ///
-    pub fn SetAngle(self: QGraphicsRotation, angle: f64) void {
-        qtc.QGraphicsRotation_SetAngle(@ptrCast(self.ptr), @bitCast(angle));
+    pub fn setAngle(self: QGraphicsRotation, _angle: f64) void {
+        qtc.QGraphicsRotation_SetAngle(@ptrCast(self.ptr), @bitCast(_angle));
     }
+
+    /// ### DEPRECATED: Use `axis` instead
+    ///
+    pub const Axis = axis;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsrotation.html#axis)
     ///
@@ -3833,22 +4649,13 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` self: QGraphicsRotation `
     ///
-    pub fn Axis(self: QGraphicsRotation) QVector3D {
+    pub fn axis(self: QGraphicsRotation) QVector3D {
         return .{ .ptr = qtc.QGraphicsRotation_Axis(@ptrCast(self.ptr)) };
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsrotation.html#setAxis)
+    /// ### DEPRECATED: Use `setAxis` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsRotation `
-    ///
-    /// ` axis: QVector3D `
-    ///
-    pub fn SetAxis(self: QGraphicsRotation, axis: anytype) void {
-        comptime _ = @TypeOf(axis)._is_QVector3D;
-        qtc.QGraphicsRotation_SetAxis(@ptrCast(self.ptr), @ptrCast(axis.ptr));
-    }
+    pub const SetAxis = setAxis;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsrotation.html#setAxis)
     ///
@@ -3856,11 +4663,32 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` self: QGraphicsRotation `
     ///
-    /// ` axis: qnamespace_enums.Axis `
+    /// ` _axis: QVector3D `
     ///
-    pub fn SetAxis2(self: QGraphicsRotation, axis: i32) void {
-        qtc.QGraphicsRotation_SetAxis2(@ptrCast(self.ptr), @bitCast(axis));
+    pub fn setAxis(self: QGraphicsRotation, _axis: anytype) void {
+        comptime _ = @TypeOf(_axis)._is_QVector3D;
+        qtc.QGraphicsRotation_SetAxis(@ptrCast(self.ptr), @ptrCast(_axis.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAxis2` instead
+    ///
+    pub const SetAxis2 = setAxis2;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsrotation.html#setAxis)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGraphicsRotation `
+    ///
+    /// ` _axis: qnamespace_enums.Axis `
+    ///
+    pub fn setAxis2(self: QGraphicsRotation, _axis: i32) void {
+        qtc.QGraphicsRotation_SetAxis2(@ptrCast(self.ptr), @bitCast(_axis));
+    }
+
+    /// ### DEPRECATED: Use `applyTo` instead
+    ///
+    pub const ApplyTo = applyTo;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsrotation.html#applyTo)
     ///
@@ -3870,10 +4698,14 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` matrix: QMatrix4x4 `
     ///
-    pub fn ApplyTo(self: QGraphicsRotation, matrix: anytype) void {
+    pub fn applyTo(self: QGraphicsRotation, matrix: anytype) void {
         comptime _ = @TypeOf(matrix)._is_QMatrix4x4;
         qtc.QGraphicsRotation_ApplyTo(@ptrCast(self.ptr), @ptrCast(matrix.ptr));
     }
+
+    /// ### DEPRECATED: Use `onApplyTo` instead
+    ///
+    pub const OnApplyTo = onApplyTo;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsrotation.html#applyTo)
     ///
@@ -3885,13 +4717,13 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsRotation, matrix: QMatrix4x4) callconv(.c) void `
     ///
-    pub fn OnApplyTo(self: QGraphicsRotation, callback: *const fn (QGraphicsRotation, QMatrix4x4) callconv(.c) void) void {
+    pub fn onApplyTo(self: QGraphicsRotation, callback: *const fn (QGraphicsRotation, QMatrix4x4) callconv(.c) void) void {
         qtc.QGraphicsRotation_OnApplyTo(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperApplyTo` instead
+    /// ### DEPRECATED: Use `superApplyTo` instead
     ///
-    pub const QBaseApplyTo = SuperApplyTo;
+    pub const SuperApplyTo = superApplyTo;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsrotation.html#applyTo)
     ///
@@ -3903,21 +4735,29 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` matrix: QMatrix4x4 `
     ///
-    pub fn SuperApplyTo(self: QGraphicsRotation, matrix: anytype) void {
+    pub fn superApplyTo(self: QGraphicsRotation, matrix: anytype) void {
         comptime _ = @TypeOf(matrix)._is_QMatrix4x4;
         qtc.QGraphicsRotation_SuperApplyTo(@ptrCast(self.ptr), @ptrCast(matrix.ptr));
     }
 
+    /// ### DEPRECATED: Use `originChanged` instead
+    ///
+    pub const OriginChanged = originChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsrotation.html#originChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QGraphicsRotation `
     ///
-    pub fn OriginChanged(self: QGraphicsRotation) void {
+    pub fn originChanged(self: QGraphicsRotation) void {
         qtc.QGraphicsRotation_OriginChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onOriginChanged` instead
+    ///
+    pub const OnOriginChanged = onOriginChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsrotation.html#originChanged)
     ///
     /// ## Parameters:
@@ -3926,20 +4766,28 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsRotation) callconv(.c) void `
     ///
-    pub fn OnOriginChanged(self: QGraphicsRotation, callback: *const fn (QGraphicsRotation) callconv(.c) void) void {
+    pub fn onOriginChanged(self: QGraphicsRotation, callback: *const fn (QGraphicsRotation) callconv(.c) void) void {
         qtc.QGraphicsRotation_Connect_OriginChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `angleChanged` instead
+    ///
+    pub const AngleChanged = angleChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsrotation.html#angleChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QGraphicsRotation `
     ///
-    pub fn AngleChanged(self: QGraphicsRotation) void {
+    pub fn angleChanged(self: QGraphicsRotation) void {
         qtc.QGraphicsRotation_AngleChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onAngleChanged` instead
+    ///
+    pub const OnAngleChanged = onAngleChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsrotation.html#angleChanged)
     ///
     /// ## Parameters:
@@ -3948,9 +4796,13 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsRotation) callconv(.c) void `
     ///
-    pub fn OnAngleChanged(self: QGraphicsRotation, callback: *const fn (QGraphicsRotation) callconv(.c) void) void {
+    pub fn onAngleChanged(self: QGraphicsRotation, callback: *const fn (QGraphicsRotation) callconv(.c) void) void {
         qtc.QGraphicsRotation_Connect_AngleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `axisChanged` instead
+    ///
+    pub const AxisChanged = axisChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsrotation.html#axisChanged)
     ///
@@ -3958,9 +4810,13 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` self: QGraphicsRotation `
     ///
-    pub fn AxisChanged(self: QGraphicsRotation) void {
+    pub fn axisChanged(self: QGraphicsRotation) void {
         qtc.QGraphicsRotation_AxisChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onAxisChanged` instead
+    ///
+    pub const OnAxisChanged = onAxisChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsrotation.html#axisChanged)
     ///
@@ -3970,9 +4826,13 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsRotation) callconv(.c) void `
     ///
-    pub fn OnAxisChanged(self: QGraphicsRotation, callback: *const fn (QGraphicsRotation) callconv(.c) void) void {
+    pub fn onAxisChanged(self: QGraphicsRotation, callback: *const fn (QGraphicsRotation) callconv(.c) void) void {
         qtc.QGraphicsRotation_Connect_AxisChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -3984,15 +4844,19 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsRotation.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsRotation.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -4006,15 +4870,19 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsRotation.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsRotation.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -4026,13 +4894,17 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QGraphicsRotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QGraphicsRotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsRotation.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsRotation.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -4044,13 +4916,17 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QGraphicsRotation, name: []const u8) void {
+    pub fn setObjectName(self: QGraphicsRotation, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -4060,9 +4936,13 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` self: QGraphicsRotation `
     ///
-    pub fn IsWidgetType(self: QGraphicsRotation) bool {
+    pub fn isWidgetType(self: QGraphicsRotation) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -4072,9 +4952,13 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` self: QGraphicsRotation `
     ///
-    pub fn IsWindowType(self: QGraphicsRotation) bool {
+    pub fn isWindowType(self: QGraphicsRotation) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -4084,9 +4968,13 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` self: QGraphicsRotation `
     ///
-    pub fn IsQuickItemType(self: QGraphicsRotation) bool {
+    pub fn isQuickItemType(self: QGraphicsRotation) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -4096,9 +4984,13 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` self: QGraphicsRotation `
     ///
-    pub fn SignalsBlocked(self: QGraphicsRotation) bool {
+    pub fn signalsBlocked(self: QGraphicsRotation) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -4110,9 +5002,13 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QGraphicsRotation, b: bool) bool {
+    pub fn blockSignals(self: QGraphicsRotation, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -4122,9 +5018,13 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` self: QGraphicsRotation `
     ///
-    pub fn Thread(self: QGraphicsRotation) QThread {
+    pub fn thread(self: QGraphicsRotation) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -4134,12 +5034,16 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` self: QGraphicsRotation `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QGraphicsRotation, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QGraphicsRotation, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -4151,9 +5055,13 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QGraphicsRotation, interval: i32) i32 {
+    pub fn startTimer(self: QGraphicsRotation, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -4165,9 +5073,13 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QGraphicsRotation, time: i64) i32 {
+    pub fn startTimer2(self: QGraphicsRotation, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -4179,9 +5091,13 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QGraphicsRotation, id: i32) void {
+    pub fn killTimer(self: QGraphicsRotation, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -4193,9 +5109,13 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QGraphicsRotation, id: i32) void {
+    pub fn killTimer2(self: QGraphicsRotation, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -4207,15 +5127,19 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QGraphicsRotation, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QGraphicsRotation, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QGraphicsRotation.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QGraphicsRotation.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -4225,12 +5149,16 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` self: QGraphicsRotation `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QGraphicsRotation, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QGraphicsRotation, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4242,10 +5170,14 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QGraphicsRotation, filterObj: anytype) void {
+    pub fn installEventFilter(self: QGraphicsRotation, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4257,10 +5189,14 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QGraphicsRotation, obj: anytype) void {
+    pub fn removeEventFilter(self: QGraphicsRotation, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -4268,7 +5204,7 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4276,13 +5212,17 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -4290,7 +5230,7 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -4298,13 +5238,17 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -4314,18 +5258,22 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` self: QGraphicsRotation `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QGraphicsRotation, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QGraphicsRotation, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -4333,7 +5281,7 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4341,13 +5289,17 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -4355,7 +5307,7 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -4363,13 +5315,17 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -4379,9 +5335,13 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` self: QGraphicsRotation `
     ///
-    pub fn Disconnect3(self: QGraphicsRotation) bool {
+    pub fn disconnect3(self: QGraphicsRotation) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -4393,10 +5353,14 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QGraphicsRotation, receiver: anytype) bool {
+    pub fn disconnect4(self: QGraphicsRotation, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -4406,10 +5370,14 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -4419,9 +5387,13 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` self: QGraphicsRotation `
     ///
-    pub fn DumpObjectTree(self: QGraphicsRotation) void {
+    pub fn dumpObjectTree(self: QGraphicsRotation) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -4431,9 +5403,13 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` self: QGraphicsRotation `
     ///
-    pub fn DumpObjectInfo(self: QGraphicsRotation) void {
+    pub fn dumpObjectInfo(self: QGraphicsRotation) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -4447,11 +5423,15 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QGraphicsRotation, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QGraphicsRotation, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -4463,10 +5443,14 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QGraphicsRotation, name: [:0]const u8) QVariant {
+    pub fn property(self: QGraphicsRotation, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -4478,7 +5462,7 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QGraphicsRotation, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QGraphicsRotation, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -4486,27 +5470,19 @@ pub const QGraphicsRotation = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QGraphicsRotation.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QGraphicsRotation.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QGraphicsRotation.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QGraphicsRotation.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsRotation `
-    ///
-    pub fn BindingStorage(self: QGraphicsRotation) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -4516,9 +5492,29 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` self: QGraphicsRotation `
     ///
-    pub fn BindingStorage2(self: QGraphicsRotation) QBindingStorage {
+    pub fn bindingStorage(self: QGraphicsRotation) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGraphicsRotation `
+    ///
+    pub fn bindingStorage2(self: QGraphicsRotation) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -4528,9 +5524,13 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` self: QGraphicsRotation `
     ///
-    pub fn Destroyed(self: QGraphicsRotation) void {
+    pub fn destroyed(self: QGraphicsRotation) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -4542,9 +5542,13 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsRotation) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QGraphicsRotation, callback: *const fn (QGraphicsRotation) callconv(.c) void) void {
+    pub fn onDestroyed(self: QGraphicsRotation, callback: *const fn (QGraphicsRotation) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -4554,9 +5558,13 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` self: QGraphicsRotation `
     ///
-    pub fn Parent(self: QGraphicsRotation) QObject {
+    pub fn parent(self: QGraphicsRotation) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -4568,10 +5576,14 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QGraphicsRotation, classname: [:0]const u8) bool {
+    pub fn inherits(self: QGraphicsRotation, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -4581,9 +5593,13 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` self: QGraphicsRotation `
     ///
-    pub fn DeleteLater(self: QGraphicsRotation) void {
+    pub fn deleteLater(self: QGraphicsRotation) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -4597,9 +5613,13 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QGraphicsRotation, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QGraphicsRotation, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -4613,9 +5633,13 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QGraphicsRotation, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QGraphicsRotation, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -4623,7 +5647,7 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4633,13 +5657,17 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -4647,7 +5675,7 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -4657,13 +5685,17 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -4673,7 +5705,7 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` self: QGraphicsRotation `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4681,12 +5713,16 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QGraphicsRotation, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QGraphicsRotation, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -4698,10 +5734,14 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QGraphicsRotation, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QGraphicsRotation, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -4715,11 +5755,15 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QGraphicsRotation, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QGraphicsRotation, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -4735,13 +5779,17 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QGraphicsRotation, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QGraphicsRotation, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -4754,11 +5802,15 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QGraphicsRotation, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QGraphicsRotation, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -4770,10 +5822,14 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QGraphicsRotation, param1: anytype) void {
+    pub fn destroyed1(self: QGraphicsRotation, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -4785,9 +5841,13 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsRotation, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QGraphicsRotation, callback: *const fn (QGraphicsRotation, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QGraphicsRotation, callback: *const fn (QGraphicsRotation, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -4799,16 +5859,16 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` self: QGraphicsRotation `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QGraphicsRotation, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QGraphicsRotation_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QGraphicsRotation, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QGraphicsRotation_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -4820,12 +5880,16 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` self: QGraphicsRotation `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QGraphicsRotation, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QGraphicsRotation_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QGraphicsRotation, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QGraphicsRotation_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -4839,9 +5903,13 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsRotation, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QGraphicsRotation, callback: *const fn (QGraphicsRotation, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QGraphicsRotation, callback: *const fn (QGraphicsRotation, QEvent) callconv(.c) bool) void {
         qtc.QGraphicsRotation_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -4855,17 +5923,17 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QGraphicsRotation, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QGraphicsRotation, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QGraphicsRotation_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QGraphicsRotation_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4879,13 +5947,17 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QGraphicsRotation, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QGraphicsRotation, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QGraphicsRotation_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QGraphicsRotation_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4899,9 +5971,13 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsRotation, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QGraphicsRotation, callback: *const fn (QGraphicsRotation, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QGraphicsRotation, callback: *const fn (QGraphicsRotation, QObject, QEvent) callconv(.c) bool) void {
         qtc.QGraphicsRotation_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -4913,16 +5989,16 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` self: QGraphicsRotation `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QGraphicsRotation, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QGraphicsRotation_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QGraphicsRotation, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QGraphicsRotation_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -4934,12 +6010,16 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` self: QGraphicsRotation `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QGraphicsRotation, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QGraphicsRotation_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QGraphicsRotation, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QGraphicsRotation_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -4953,9 +6033,13 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsRotation, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QGraphicsRotation, callback: *const fn (QGraphicsRotation, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QGraphicsRotation, callback: *const fn (QGraphicsRotation, QTimerEvent) callconv(.c) void) void {
         qtc.QGraphicsRotation_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -4967,16 +6051,16 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` self: QGraphicsRotation `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QGraphicsRotation, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QGraphicsRotation_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QGraphicsRotation, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QGraphicsRotation_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -4988,12 +6072,16 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` self: QGraphicsRotation `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QGraphicsRotation, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QGraphicsRotation_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QGraphicsRotation, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QGraphicsRotation_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -5007,9 +6095,13 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsRotation, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QGraphicsRotation, callback: *const fn (QGraphicsRotation, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QGraphicsRotation, callback: *const fn (QGraphicsRotation, QChildEvent) callconv(.c) void) void {
         qtc.QGraphicsRotation_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -5021,16 +6113,16 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` self: QGraphicsRotation `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QGraphicsRotation, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QGraphicsRotation_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QGraphicsRotation, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QGraphicsRotation_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -5042,12 +6134,16 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` self: QGraphicsRotation `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QGraphicsRotation, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QGraphicsRotation_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QGraphicsRotation, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QGraphicsRotation_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -5061,9 +6157,13 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsRotation, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QGraphicsRotation, callback: *const fn (QGraphicsRotation, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QGraphicsRotation, callback: *const fn (QGraphicsRotation, QEvent) callconv(.c) void) void {
         qtc.QGraphicsRotation_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -5077,14 +6177,14 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QGraphicsRotation, signal: anytype) void {
+    pub fn connectNotify(self: QGraphicsRotation, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QGraphicsRotation_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -5098,11 +6198,15 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QGraphicsRotation, signal: anytype) void {
+    pub fn superConnectNotify(self: QGraphicsRotation, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QGraphicsRotation_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -5115,9 +6219,13 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsRotation, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QGraphicsRotation, callback: *const fn (QGraphicsRotation, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QGraphicsRotation, callback: *const fn (QGraphicsRotation, QMetaMethod) callconv(.c) void) void {
         qtc.QGraphicsRotation_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -5131,14 +6239,14 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QGraphicsRotation, signal: anytype) void {
+    pub fn disconnectNotify(self: QGraphicsRotation, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QGraphicsRotation_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -5152,10 +6260,14 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QGraphicsRotation, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QGraphicsRotation, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QGraphicsRotation_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -5169,9 +6281,13 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsRotation, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QGraphicsRotation, callback: *const fn (QGraphicsRotation, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QGraphicsRotation, callback: *const fn (QGraphicsRotation, QMetaMethod) callconv(.c) void) void {
         qtc.QGraphicsRotation_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QGraphicsTransform
     ///
@@ -5183,13 +6299,13 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` self: QGraphicsRotation `
     ///
-    pub fn Update(self: QGraphicsRotation) void {
+    pub fn update(self: QGraphicsRotation) void {
         qtc.QGraphicsRotation_Update(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdate` instead
+    /// ### DEPRECATED: Use `superUpdate` instead
     ///
-    pub const QBaseUpdate = SuperUpdate;
+    pub const SuperUpdate = superUpdate;
 
     /// Inherited from QGraphicsTransform
     ///
@@ -5201,9 +6317,13 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` self: QGraphicsRotation `
     ///
-    pub fn SuperUpdate(self: QGraphicsRotation) void {
+    pub fn superUpdate(self: QGraphicsRotation) void {
         qtc.QGraphicsRotation_SuperUpdate(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onUpdate` instead
+    ///
+    pub const OnUpdate = onUpdate;
 
     /// Inherited from QGraphicsTransform
     ///
@@ -5217,9 +6337,13 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdate(self: QGraphicsRotation, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdate(self: QGraphicsRotation, callback: *const fn () callconv(.c) void) void {
         qtc.QGraphicsRotation_OnUpdate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -5231,13 +6355,13 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` self: QGraphicsRotation `
     ///
-    pub fn Sender(self: QGraphicsRotation) QObject {
+    pub fn sender(self: QGraphicsRotation) QObject {
         return .{ .ptr = qtc.QGraphicsRotation_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -5249,9 +6373,13 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` self: QGraphicsRotation `
     ///
-    pub fn SuperSender(self: QGraphicsRotation) QObject {
+    pub fn superSender(self: QGraphicsRotation) QObject {
         return .{ .ptr = qtc.QGraphicsRotation_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -5265,9 +6393,13 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QGraphicsRotation, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QGraphicsRotation, callback: *const fn () callconv(.c) QObject) void {
         qtc.QGraphicsRotation_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -5279,13 +6411,13 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` self: QGraphicsRotation `
     ///
-    pub fn SenderSignalIndex(self: QGraphicsRotation) i32 {
+    pub fn senderSignalIndex(self: QGraphicsRotation) i32 {
         return qtc.QGraphicsRotation_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -5297,9 +6429,13 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` self: QGraphicsRotation `
     ///
-    pub fn SuperSenderSignalIndex(self: QGraphicsRotation) i32 {
+    pub fn superSenderSignalIndex(self: QGraphicsRotation) i32 {
         return qtc.QGraphicsRotation_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -5313,9 +6449,13 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QGraphicsRotation, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QGraphicsRotation, callback: *const fn () callconv(.c) i32) void {
         qtc.QGraphicsRotation_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -5329,14 +6469,14 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QGraphicsRotation, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QGraphicsRotation, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QGraphicsRotation_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -5350,10 +6490,14 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QGraphicsRotation, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QGraphicsRotation, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QGraphicsRotation_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -5367,9 +6511,13 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsRotation, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QGraphicsRotation, callback: *const fn (QGraphicsRotation, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QGraphicsRotation, callback: *const fn (QGraphicsRotation, [*:0]const u8) callconv(.c) i32) void {
         qtc.QGraphicsRotation_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -5383,14 +6531,14 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QGraphicsRotation, signal: anytype) bool {
+    pub fn isSignalConnected(self: QGraphicsRotation, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QGraphicsRotation_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -5404,10 +6552,14 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QGraphicsRotation, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QGraphicsRotation, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QGraphicsRotation_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -5421,9 +6573,13 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsRotation, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QGraphicsRotation, callback: *const fn (QGraphicsRotation, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QGraphicsRotation, callback: *const fn (QGraphicsRotation, QMetaMethod) callconv(.c) bool) void {
         qtc.QGraphicsRotation_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -5437,23 +6593,23 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsRotation, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QGraphicsRotation, callback: *const fn (QGraphicsRotation, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QGraphicsRotation, callback: *const fn (QGraphicsRotation, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsrotation.html#dtor.QGraphicsRotation)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QGraphicsRotation `
     ///
-    pub fn Delete(self: QGraphicsRotation) void {
+    pub fn delete(self: QGraphicsRotation) void {
         qtc.QGraphicsRotation_Delete(@ptrCast(self.ptr));
     }
 };

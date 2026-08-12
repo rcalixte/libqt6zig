@@ -13,11 +13,19 @@ pub const QBasicTimer = extern struct {
 
     pub const _is_QBasicTimer = {};
 
-    /// New constructs a new QBasicTimer object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QBasicTimer {
+    pub const New = new;
+
+    /// Allocate a new QBasicTimer object in C++ memory
+    ///
+    pub fn new() QBasicTimer {
         return .{ .ptr = qtc.QBasicTimer_new() };
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbasictimer.html#swap)
     ///
@@ -27,10 +35,14 @@ pub const QBasicTimer = extern struct {
     ///
     /// ` other: QBasicTimer `
     ///
-    pub fn Swap(self: QBasicTimer, other: anytype) void {
+    pub fn swap(self: QBasicTimer, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QBasicTimer;
         qtc.QBasicTimer_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActive` instead
+    ///
+    pub const IsActive = isActive;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbasictimer.html#isActive)
     ///
@@ -38,9 +50,13 @@ pub const QBasicTimer = extern struct {
     ///
     /// ` self: QBasicTimer `
     ///
-    pub fn IsActive(self: QBasicTimer) bool {
+    pub fn isActive(self: QBasicTimer) bool {
         return qtc.QBasicTimer_IsActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `timerId` instead
+    ///
+    pub const TimerId = timerId;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbasictimer.html#timerId)
     ///
@@ -48,9 +64,13 @@ pub const QBasicTimer = extern struct {
     ///
     /// ` self: QBasicTimer `
     ///
-    pub fn TimerId(self: QBasicTimer) i32 {
+    pub fn timerId(self: QBasicTimer) i32 {
         return qtc.QBasicTimer_TimerId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `id` instead
+    ///
+    pub const Id = id;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbasictimer.html#id)
     ///
@@ -62,9 +82,13 @@ pub const QBasicTimer = extern struct {
     ///
     /// ` qnamespace_enums.TimerId `
     ///
-    pub fn Id(self: QBasicTimer) i32 {
+    pub fn id(self: QBasicTimer) i32 {
         return qtc.QBasicTimer_Id(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `start` instead
+    ///
+    pub const Start = start;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbasictimer.html#start)
     ///
@@ -76,11 +100,15 @@ pub const QBasicTimer = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn Start(self: QBasicTimer, msec: i32, obj: anytype) void {
+    pub fn start(self: QBasicTimer, msec: i32, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QBasicTimer_Start(@ptrCast(self.ptr), @bitCast(msec), @ptrCast(obj.ptr));
     }
 
+    /// ### DEPRECATED: Use `start2` instead
+    ///
+    pub const Start2 = start2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbasictimer.html#start)
     ///
     /// ## Parameter(s):
@@ -93,10 +121,14 @@ pub const QBasicTimer = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn Start2(self: QBasicTimer, msec: i32, timerType: i32, obj: anytype) void {
+    pub fn start2(self: QBasicTimer, msec: i32, timerType: i32, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QBasicTimer_Start2(@ptrCast(self.ptr), @bitCast(msec), @bitCast(timerType), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `start3` instead
+    ///
+    pub const Start3 = start3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbasictimer.html#start)
     ///
@@ -108,10 +140,14 @@ pub const QBasicTimer = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn Start3(self: QBasicTimer, duration: i64, obj: anytype) void {
+    pub fn start3(self: QBasicTimer, duration: i64, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QBasicTimer_Start3(@ptrCast(self.ptr), @bitCast(duration), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `start4` instead
+    ///
+    pub const Start4 = start4;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbasictimer.html#start)
     ///
@@ -125,10 +161,14 @@ pub const QBasicTimer = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn Start4(self: QBasicTimer, duration: i64, timerType: i32, obj: anytype) void {
+    pub fn start4(self: QBasicTimer, duration: i64, timerType: i32, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QBasicTimer_Start4(@ptrCast(self.ptr), @bitCast(duration), @bitCast(timerType), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `stop` instead
+    ///
+    pub const Stop = stop;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbasictimer.html#stop)
     ///
@@ -136,23 +176,23 @@ pub const QBasicTimer = extern struct {
     ///
     /// ` self: QBasicTimer `
     ///
-    pub fn Stop(self: QBasicTimer) void {
+    pub fn stop(self: QBasicTimer) void {
         qtc.QBasicTimer_Stop(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbasictimer.html#dtor.QBasicTimer)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QBasicTimer `
     ///
-    pub fn Delete(self: QBasicTimer) void {
+    pub fn delete(self: QBasicTimer) void {
         qtc.QBasicTimer_Delete(@ptrCast(self.ptr));
     }
 };

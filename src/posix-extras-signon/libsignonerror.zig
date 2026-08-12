@@ -12,48 +12,68 @@ pub const SignOn__Error = extern struct {
 
     pub const _is_SignOn__Error = {};
 
-    /// New constructs a new SignOn::Error object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() SignOn__Error {
+    pub const New = new;
+
+    /// Allocate a new SignOn::Error object in C++ memory
+    ///
+    pub fn new() SignOn__Error {
         return .{ .ptr = qtc.SignOn__Error_new() };
     }
 
-    /// New2 constructs a new SignOn::Error object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new SignOn::Error object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` src: SignOn__Error `
     ///
-    pub fn New2(src: anytype) SignOn__Error {
+    pub fn new2(src: anytype) SignOn__Error {
         comptime _ = @TypeOf(src)._is_SignOn__Error;
         return .{ .ptr = qtc.SignOn__Error_new2(@ptrCast(src.ptr)) };
     }
 
-    /// New3 constructs a new SignOn::Error object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new SignOn::Error object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` typeVal: i32 `
     ///
-    pub fn New3(typeVal: i32) SignOn__Error {
+    pub fn new3(typeVal: i32) SignOn__Error {
         return .{ .ptr = qtc.SignOn__Error_new3(@bitCast(typeVal)) };
     }
 
-    /// New4 constructs a new SignOn::Error object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new SignOn::Error object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` typeVal: i32 `
     ///
-    /// ` message: []const u8 `
+    /// ` _message: []const u8 `
     ///
-    pub fn New4(typeVal: i32, message: []const u8) SignOn__Error {
+    pub fn new4(typeVal: i32, _message: []const u8) SignOn__Error {
         const message_str = qtc.libqt_string{
-            .len = message.len,
-            .data = message.ptr,
+            .len = _message.len,
+            .data = _message.ptr,
         };
         return .{ .ptr = qtc.SignOn__Error_new4(@bitCast(typeVal), message_str) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Error.html)
     ///
@@ -63,10 +83,14 @@ pub const SignOn__Error = extern struct {
     ///
     /// ` src: SignOn__Error `
     ///
-    pub fn OperatorAssign(self: SignOn__Error, src: anytype) void {
+    pub fn operatorAssign(self: SignOn__Error, src: anytype) void {
         comptime _ = @TypeOf(src)._is_SignOn__Error;
         qtc.SignOn__Error_OperatorAssign(@ptrCast(self.ptr), @ptrCast(src.ptr));
     }
+
+    /// ### DEPRECATED: Use `setType` instead
+    ///
+    pub const SetType = setType;
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Error.html)
     ///
@@ -76,9 +100,13 @@ pub const SignOn__Error = extern struct {
     ///
     /// ` typeVal: i32 `
     ///
-    pub fn SetType(self: SignOn__Error, typeVal: i32) void {
+    pub fn setType(self: SignOn__Error, typeVal: i32) void {
         qtc.SignOn__Error_SetType(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setMessage` instead
+    ///
+    pub const SetMessage = setMessage;
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Error.html)
     ///
@@ -86,25 +114,35 @@ pub const SignOn__Error = extern struct {
     ///
     /// ` self: SignOn__Error `
     ///
-    /// ` message: []const u8 `
+    /// ` _message: []const u8 `
     ///
-    pub fn SetMessage(self: SignOn__Error, message: []const u8) void {
+    pub fn setMessage(self: SignOn__Error, _message: []const u8) void {
         const message_str = qtc.libqt_string{
-            .len = message.len,
-            .data = message.ptr,
+            .len = _message.len,
+            .data = _message.ptr,
         };
         qtc.SignOn__Error_SetMessage(@ptrCast(self.ptr), message_str);
     }
 
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
+
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Error.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: SignOn__Error `
     ///
-    pub fn Type(self: SignOn__Error) i32 {
+    pub fn type0(self: SignOn__Error) i32 {
         return qtc.SignOn__Error_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `message` instead
+    ///
+    pub const Message = message;
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Error.html)
     ///
@@ -114,27 +152,27 @@ pub const SignOn__Error = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Message(self: SignOn__Error, allocator: std.mem.Allocator) []const u8 {
+    pub fn message(self: SignOn__Error, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.SignOn__Error_Message(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("SignOn__Error.Message: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("SignOn__Error.message: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Error.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: SignOn__Error `
     ///
-    pub fn Delete(self: SignOn__Error) void {
+    pub fn delete(self: SignOn__Error) void {
         qtc.SignOn__Error_Delete(@ptrCast(self.ptr));
     }
 };

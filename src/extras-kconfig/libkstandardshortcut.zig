@@ -14,6 +14,10 @@ pub const KStandardShortcut = extern struct {
 
     pub const _is_KStandardShortcut = {};
 
+    /// ### DEPRECATED: Use `shortcut` instead
+    ///
+    pub const Shortcut = shortcut;
+
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#shortcut)
     ///
     /// ## Parameter(s):
@@ -22,15 +26,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` id: kstandardshortcut_enums.StandardShortcut `
     ///
-    pub fn Shortcut(allocator: std.mem.Allocator, id: i32) []QKeySequence {
+    pub fn shortcut(allocator: std.mem.Allocator, id: i32) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_Shortcut(@bitCast(id));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.Shortcut: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.shortcut: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#name)
     ///
@@ -40,13 +48,17 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` id: kstandardshortcut_enums.StandardShortcut `
     ///
-    pub fn Name(allocator: std.mem.Allocator, id: i32) []const u8 {
+    pub fn name(allocator: std.mem.Allocator, id: i32) []const u8 {
         var _str = qtc.KStandardShortcut_Name(@bitCast(id));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KStandardShortcut.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KStandardShortcut.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `label` instead
+    ///
+    pub const Label = label;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#label)
     ///
@@ -56,13 +68,17 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` id: kstandardshortcut_enums.StandardShortcut `
     ///
-    pub fn Label(allocator: std.mem.Allocator, id: i32) []const u8 {
+    pub fn label(allocator: std.mem.Allocator, id: i32) []const u8 {
         var _str = qtc.KStandardShortcut_Label(@bitCast(id));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KStandardShortcut.Label: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KStandardShortcut.label: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#whatsThis)
     ///
@@ -72,13 +88,17 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` id: kstandardshortcut_enums.StandardShortcut `
     ///
-    pub fn WhatsThis(allocator: std.mem.Allocator, id: i32) []const u8 {
+    pub fn whatsThis(allocator: std.mem.Allocator, id: i32) []const u8 {
         var _str = qtc.KStandardShortcut_WhatsThis(@bitCast(id));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KStandardShortcut.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KStandardShortcut.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#find)
     ///
@@ -90,28 +110,36 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` kstandardshortcut_enums.StandardShortcut `
     ///
-    pub fn Find(keySeq: anytype) i32 {
+    pub fn find(keySeq: anytype) i32 {
         comptime _ = @TypeOf(keySeq)._is_QKeySequence;
         return qtc.KStandardShortcut_Find(@ptrCast(keySeq.ptr));
     }
+
+    /// ### DEPRECATED: Use `findByName` instead
+    ///
+    pub const FindByName = findByName;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#findByName)
     ///
     /// ## Parameter(s):
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
     /// ## Returns:
     ///
     /// ` kstandardshortcut_enums.StandardShortcut `
     ///
-    pub fn FindByName(name: []const u8) i32 {
+    pub fn findByName(_name: []const u8) i32 {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         return qtc.KStandardShortcut_FindByName(name_str);
     }
+
+    /// ### DEPRECATED: Use `hardcodedDefaultShortcut` instead
+    ///
+    pub const HardcodedDefaultShortcut = hardcodedDefaultShortcut;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#hardcodedDefaultShortcut)
     ///
@@ -121,15 +149,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` id: kstandardshortcut_enums.StandardShortcut `
     ///
-    pub fn HardcodedDefaultShortcut(allocator: std.mem.Allocator, id: i32) []QKeySequence {
+    pub fn hardcodedDefaultShortcut(allocator: std.mem.Allocator, id: i32) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_HardcodedDefaultShortcut(@bitCast(id));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.HardcodedDefaultShortcut: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.hardcodedDefaultShortcut: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `saveShortcut` instead
+    ///
+    pub const SaveShortcut = saveShortcut;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#saveShortcut)
     ///
@@ -139,13 +171,17 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` newShortcut: []QKeySequence `
     ///
-    pub fn SaveShortcut(id: i32, newShortcut: []QKeySequence) void {
+    pub fn saveShortcut(id: i32, newShortcut: []QKeySequence) void {
         const newShortcut_list = qtc.libqt_list{
             .len = newShortcut.len,
             .data = @ptrCast(newShortcut.ptr),
         };
         qtc.KStandardShortcut_SaveShortcut(@bitCast(id), newShortcut_list);
     }
+
+    /// ### DEPRECATED: Use `category` instead
+    ///
+    pub const Category = category;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#category)
     ///
@@ -157,9 +193,13 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` kstandardshortcut_enums.Category `
     ///
-    pub fn Category(id: i32) i32 {
+    pub fn category(id: i32) i32 {
         return qtc.KStandardShortcut_Category(@bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `open` instead
+    ///
+    pub const Open = open;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#open)
     ///
@@ -167,15 +207,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Open(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn open(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_Open();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.Open: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.open: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `openNew` instead
+    ///
+    pub const OpenNew = openNew;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#openNew)
     ///
@@ -183,15 +227,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn OpenNew(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn openNew(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_OpenNew();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.OpenNew: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.openNew: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#close)
     ///
@@ -199,15 +247,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Close(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn close(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_Close();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.Close: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.close: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `save` instead
+    ///
+    pub const Save = save;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#save)
     ///
@@ -215,15 +267,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Save(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn save(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_Save();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.Save: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.save: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `print` instead
+    ///
+    pub const Print = print;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#print)
     ///
@@ -231,15 +287,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Print(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn print(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_Print();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.Print: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.print: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `quit` instead
+    ///
+    pub const Quit = quit;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#quit)
     ///
@@ -247,15 +307,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Quit(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn quit(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_Quit();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.Quit: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.quit: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `undo` instead
+    ///
+    pub const Undo = undo;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#undo)
     ///
@@ -263,15 +327,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Undo(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn undo(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_Undo();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.Undo: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.undo: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `redo` instead
+    ///
+    pub const Redo = redo;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#redo)
     ///
@@ -279,15 +347,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Redo(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn redo(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_Redo();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.Redo: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.redo: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `cut` instead
+    ///
+    pub const Cut = cut;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#cut)
     ///
@@ -295,15 +367,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Cut(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn cut(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_Cut();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.Cut: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.cut: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `copy` instead
+    ///
+    pub const Copy = copy;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#copy)
     ///
@@ -311,15 +387,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Copy(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn copy(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_Copy();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.Copy: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.copy: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `paste` instead
+    ///
+    pub const Paste = paste;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#paste)
     ///
@@ -327,15 +407,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Paste(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn paste(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_Paste();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.Paste: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.paste: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `pasteSelection` instead
+    ///
+    pub const PasteSelection = pasteSelection;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#pasteSelection)
     ///
@@ -343,15 +427,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PasteSelection(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn pasteSelection(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_PasteSelection();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.PasteSelection: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.pasteSelection: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `selectAll` instead
+    ///
+    pub const SelectAll = selectAll;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#selectAll)
     ///
@@ -359,15 +447,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SelectAll(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn selectAll(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_SelectAll();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.SelectAll: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.selectAll: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `deleteWordBack` instead
+    ///
+    pub const DeleteWordBack = deleteWordBack;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#deleteWordBack)
     ///
@@ -375,15 +467,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DeleteWordBack(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn deleteWordBack(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_DeleteWordBack();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.DeleteWordBack: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.deleteWordBack: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `deleteWordForward` instead
+    ///
+    pub const DeleteWordForward = deleteWordForward;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#deleteWordForward)
     ///
@@ -391,15 +487,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DeleteWordForward(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn deleteWordForward(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_DeleteWordForward();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.DeleteWordForward: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.deleteWordForward: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `find2` instead
+    ///
+    pub const Find2 = find2;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#find)
     ///
@@ -407,15 +507,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Find2(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn find2(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_Find2();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.Find2: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.find2: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `findNext` instead
+    ///
+    pub const FindNext = findNext;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#findNext)
     ///
@@ -423,15 +527,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FindNext(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn findNext(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_FindNext();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.FindNext: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.findNext: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `findPrev` instead
+    ///
+    pub const FindPrev = findPrev;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#findPrev)
     ///
@@ -439,15 +547,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FindPrev(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn findPrev(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_FindPrev();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.FindPrev: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.findPrev: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `replace` instead
+    ///
+    pub const Replace = replace;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#replace)
     ///
@@ -455,15 +567,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Replace(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn replace(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_Replace();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.Replace: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.replace: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `zoomIn` instead
+    ///
+    pub const ZoomIn = zoomIn;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#zoomIn)
     ///
@@ -471,15 +587,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ZoomIn(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn zoomIn(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_ZoomIn();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.ZoomIn: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.zoomIn: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `zoomOut` instead
+    ///
+    pub const ZoomOut = zoomOut;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#zoomOut)
     ///
@@ -487,15 +607,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ZoomOut(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn zoomOut(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_ZoomOut();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.ZoomOut: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.zoomOut: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `home` instead
+    ///
+    pub const Home = home;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#home)
     ///
@@ -503,15 +627,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Home(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn home(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_Home();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.Home: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.home: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `begin` instead
+    ///
+    pub const Begin = begin;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#begin)
     ///
@@ -519,15 +647,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Begin(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn begin(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_Begin();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.Begin: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.begin: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `end` instead
+    ///
+    pub const End = end;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#end)
     ///
@@ -535,15 +667,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn End(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn end(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_End();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.End: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.end: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `beginningOfLine` instead
+    ///
+    pub const BeginningOfLine = beginningOfLine;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#beginningOfLine)
     ///
@@ -551,15 +687,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn BeginningOfLine(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn beginningOfLine(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_BeginningOfLine();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.BeginningOfLine: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.beginningOfLine: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `endOfLine` instead
+    ///
+    pub const EndOfLine = endOfLine;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#endOfLine)
     ///
@@ -567,15 +707,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn EndOfLine(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn endOfLine(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_EndOfLine();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.EndOfLine: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.endOfLine: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `prior` instead
+    ///
+    pub const Prior = prior;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#prior)
     ///
@@ -583,15 +727,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Prior(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn prior(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_Prior();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.Prior: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.prior: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `next` instead
+    ///
+    pub const Next = next;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#next)
     ///
@@ -599,15 +747,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Next(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn next(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_Next();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.Next: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.next: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `gotoLine` instead
+    ///
+    pub const GotoLine = gotoLine;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#gotoLine)
     ///
@@ -615,15 +767,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GotoLine(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn gotoLine(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_GotoLine();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.GotoLine: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.gotoLine: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addBookmark` instead
+    ///
+    pub const AddBookmark = addBookmark;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#addBookmark)
     ///
@@ -631,15 +787,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AddBookmark(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn addBookmark(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_AddBookmark();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.AddBookmark: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.addBookmark: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tabNext` instead
+    ///
+    pub const TabNext = tabNext;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#tabNext)
     ///
@@ -647,15 +807,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TabNext(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn tabNext(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_TabNext();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.TabNext: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.tabNext: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tabPrev` instead
+    ///
+    pub const TabPrev = tabPrev;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#tabPrev)
     ///
@@ -663,15 +827,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TabPrev(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn tabPrev(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_TabPrev();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.TabPrev: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.tabPrev: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `fullScreen` instead
+    ///
+    pub const FullScreen = fullScreen;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#fullScreen)
     ///
@@ -679,15 +847,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FullScreen(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn fullScreen(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_FullScreen();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.FullScreen: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.fullScreen: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `help` instead
+    ///
+    pub const Help = help;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#help)
     ///
@@ -695,15 +867,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Help(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn help(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_Help();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.Help: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.help: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `completion` instead
+    ///
+    pub const Completion = completion;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#completion)
     ///
@@ -711,15 +887,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Completion(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn completion(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_Completion();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.Completion: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.completion: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `prevCompletion` instead
+    ///
+    pub const PrevCompletion = prevCompletion;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#prevCompletion)
     ///
@@ -727,15 +907,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PrevCompletion(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn prevCompletion(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_PrevCompletion();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.PrevCompletion: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.prevCompletion: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `nextCompletion` instead
+    ///
+    pub const NextCompletion = nextCompletion;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#nextCompletion)
     ///
@@ -743,15 +927,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NextCompletion(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn nextCompletion(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_NextCompletion();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.NextCompletion: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.nextCompletion: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `substringCompletion` instead
+    ///
+    pub const SubstringCompletion = substringCompletion;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#substringCompletion)
     ///
@@ -759,15 +947,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SubstringCompletion(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn substringCompletion(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_SubstringCompletion();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.SubstringCompletion: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.substringCompletion: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `rotateUp` instead
+    ///
+    pub const RotateUp = rotateUp;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#rotateUp)
     ///
@@ -775,15 +967,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn RotateUp(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn rotateUp(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_RotateUp();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.RotateUp: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.rotateUp: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `rotateDown` instead
+    ///
+    pub const RotateDown = rotateDown;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#rotateDown)
     ///
@@ -791,15 +987,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn RotateDown(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn rotateDown(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_RotateDown();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.RotateDown: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.rotateDown: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `whatsThis2` instead
+    ///
+    pub const WhatsThis2 = whatsThis2;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#whatsThis)
     ///
@@ -807,15 +1007,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis2(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn whatsThis2(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_WhatsThis2();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.WhatsThis2: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.whatsThis2: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `reload` instead
+    ///
+    pub const Reload = reload;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#reload)
     ///
@@ -823,15 +1027,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Reload(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn reload(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_Reload();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.Reload: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.reload: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `up` instead
+    ///
+    pub const Up = up;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#up)
     ///
@@ -839,15 +1047,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Up(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn up(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_Up();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.Up: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.up: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `back` instead
+    ///
+    pub const Back = back;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#back)
     ///
@@ -855,15 +1067,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Back(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn back(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_Back();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.Back: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.back: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `forward` instead
+    ///
+    pub const Forward = forward;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#forward)
     ///
@@ -871,15 +1087,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Forward(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn forward(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_Forward();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.Forward: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.forward: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `backwardWord` instead
+    ///
+    pub const BackwardWord = backwardWord;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#backwardWord)
     ///
@@ -887,15 +1107,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn BackwardWord(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn backwardWord(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_BackwardWord();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.BackwardWord: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.backwardWord: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `forwardWord` instead
+    ///
+    pub const ForwardWord = forwardWord;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#forwardWord)
     ///
@@ -903,15 +1127,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ForwardWord(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn forwardWord(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_ForwardWord();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.ForwardWord: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.forwardWord: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `showMenubar` instead
+    ///
+    pub const ShowMenubar = showMenubar;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#showMenubar)
     ///
@@ -919,15 +1147,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ShowMenubar(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn showMenubar(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_ShowMenubar();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.ShowMenubar: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.showMenubar: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `deleteFile` instead
+    ///
+    pub const DeleteFile = deleteFile;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#deleteFile)
     ///
@@ -935,15 +1167,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DeleteFile(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn deleteFile(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_DeleteFile();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.DeleteFile: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.deleteFile: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `renameFile` instead
+    ///
+    pub const RenameFile = renameFile;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#renameFile)
     ///
@@ -951,15 +1187,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn RenameFile(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn renameFile(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_RenameFile();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.RenameFile: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.renameFile: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `createFolder` instead
+    ///
+    pub const CreateFolder = createFolder;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#createFolder)
     ///
@@ -967,15 +1207,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CreateFolder(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn createFolder(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_CreateFolder();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.CreateFolder: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.createFolder: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `moveToTrash` instead
+    ///
+    pub const MoveToTrash = moveToTrash;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#moveToTrash)
     ///
@@ -983,15 +1227,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MoveToTrash(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn moveToTrash(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_MoveToTrash();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.MoveToTrash: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.moveToTrash: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `preferences` instead
+    ///
+    pub const Preferences = preferences;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#preferences)
     ///
@@ -999,15 +1247,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Preferences(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn preferences(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_Preferences();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.Preferences: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.preferences: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `showHideHiddenFiles` instead
+    ///
+    pub const ShowHideHiddenFiles = showHideHiddenFiles;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#showHideHiddenFiles)
     ///
@@ -1015,15 +1267,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ShowHideHiddenFiles(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn showHideHiddenFiles(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_ShowHideHiddenFiles();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.ShowHideHiddenFiles: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.showHideHiddenFiles: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `openMainMenu` instead
+    ///
+    pub const OpenMainMenu = openMainMenu;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#openMainMenu)
     ///
@@ -1031,15 +1287,19 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn OpenMainMenu(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn openMainMenu(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_OpenMainMenu();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.OpenMainMenu: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.openMainMenu: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `openContextMenu` instead
+    ///
+    pub const OpenContextMenu = openContextMenu;
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#openContextMenu)
     ///
@@ -1047,13 +1307,13 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn OpenContextMenu(allocator: std.mem.Allocator) []QKeySequence {
+    pub fn openContextMenu(allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KStandardShortcut_OpenContextMenu();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.OpenContextMenu: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KStandardShortcut.openContextMenu: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 };

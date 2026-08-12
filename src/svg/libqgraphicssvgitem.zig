@@ -54,19 +54,27 @@ pub const QGraphicsSvgItem = extern struct {
     pub const _is_QObject = {};
     pub const _is_QGraphicsItem = {};
 
-    /// New constructs a new QGraphicsSvgItem object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QGraphicsSvgItem {
+    pub const New = new;
+
+    /// Allocate a new QGraphicsSvgItem object in C++ memory
+    ///
+    pub fn new() QGraphicsSvgItem {
         return .{ .ptr = qtc.QGraphicsSvgItem_new() };
     }
 
-    /// New2 constructs a new QGraphicsSvgItem object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QGraphicsSvgItem object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` fileName: []const u8 `
     ///
-    pub fn New2(fileName: []const u8) QGraphicsSvgItem {
+    pub fn new2(fileName: []const u8) QGraphicsSvgItem {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
@@ -74,33 +82,45 @@ pub const QGraphicsSvgItem = extern struct {
         return .{ .ptr = qtc.QGraphicsSvgItem_new2(fileName_str) };
     }
 
-    /// New3 constructs a new QGraphicsSvgItem object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QGraphicsSvgItem object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parentItem: QGraphicsItem `
+    /// ` _parentItem: QGraphicsItem `
     ///
-    pub fn New3(parentItem: anytype) QGraphicsSvgItem {
-        comptime _ = @TypeOf(parentItem)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsSvgItem_new3(@ptrCast(parentItem.ptr)) };
+    pub fn new3(_parentItem: anytype) QGraphicsSvgItem {
+        comptime _ = @TypeOf(_parentItem)._is_QGraphicsItem;
+        return .{ .ptr = qtc.QGraphicsSvgItem_new3(@ptrCast(_parentItem.ptr)) };
     }
 
-    /// New4 constructs a new QGraphicsSvgItem object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QGraphicsSvgItem object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` fileName: []const u8 `
     ///
-    /// ` parentItem: QGraphicsItem `
+    /// ` _parentItem: QGraphicsItem `
     ///
-    pub fn New4(fileName: []const u8, parentItem: anytype) QGraphicsSvgItem {
+    pub fn new4(fileName: []const u8, _parentItem: anytype) QGraphicsSvgItem {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
-        comptime _ = @TypeOf(parentItem)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsSvgItem_new4(fileName_str, @ptrCast(parentItem.ptr)) };
+        comptime _ = @TypeOf(_parentItem)._is_QGraphicsItem;
+        return .{ .ptr = qtc.QGraphicsSvgItem_new4(fileName_str, @ptrCast(_parentItem.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -108,9 +128,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn MetaObject(self: QGraphicsSvgItem) QMetaObject {
+    pub fn metaObject(self: QGraphicsSvgItem) QMetaObject {
         return .{ .ptr = qtc.QGraphicsSvgItem_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -122,13 +146,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QGraphicsSvgItem, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QGraphicsSvgItem, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QGraphicsSvgItem_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -138,9 +162,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn SuperMetaObject(self: QGraphicsSvgItem) QMetaObject {
+    pub fn superMetaObject(self: QGraphicsSvgItem) QMetaObject {
         return .{ .ptr = qtc.QGraphicsSvgItem_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -148,10 +176,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QGraphicsSvgItem, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QGraphicsSvgItem, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QGraphicsSvgItem_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -161,13 +193,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QGraphicsSvgItem_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -177,10 +209,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QGraphicsSvgItem, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QGraphicsSvgItem, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QGraphicsSvgItem_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -192,9 +228,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QGraphicsSvgItem, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QGraphicsSvgItem, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QGraphicsSvgItem_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -204,13 +244,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QGraphicsSvgItem_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -224,9 +264,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QGraphicsSvgItem, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QGraphicsSvgItem, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QGraphicsSvgItem_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -236,14 +280,18 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsSvgItem.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsSvgItem.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setSharedRenderer` instead
+    ///
+    pub const SetSharedRenderer = setSharedRenderer;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicssvgitem.html#setSharedRenderer)
     ///
@@ -251,12 +299,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` renderer: QSvgRenderer `
+    /// ` _renderer: QSvgRenderer `
     ///
-    pub fn SetSharedRenderer(self: QGraphicsSvgItem, renderer: anytype) void {
-        comptime _ = @TypeOf(renderer)._is_QSvgRenderer;
-        qtc.QGraphicsSvgItem_SetSharedRenderer(@ptrCast(self.ptr), @ptrCast(renderer.ptr));
+    pub fn setSharedRenderer(self: QGraphicsSvgItem, _renderer: anytype) void {
+        comptime _ = @TypeOf(_renderer)._is_QSvgRenderer;
+        qtc.QGraphicsSvgItem_SetSharedRenderer(@ptrCast(self.ptr), @ptrCast(_renderer.ptr));
     }
+
+    /// ### DEPRECATED: Use `renderer` instead
+    ///
+    pub const Renderer = renderer;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicssvgitem.html#renderer)
     ///
@@ -264,9 +316,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn Renderer(self: QGraphicsSvgItem) QSvgRenderer {
+    pub fn renderer(self: QGraphicsSvgItem) QSvgRenderer {
         return .{ .ptr = qtc.QGraphicsSvgItem_Renderer(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setElementId` instead
+    ///
+    pub const SetElementId = setElementId;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicssvgitem.html#setElementId)
     ///
@@ -276,13 +332,17 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` id: []const u8 `
     ///
-    pub fn SetElementId(self: QGraphicsSvgItem, id: []const u8) void {
+    pub fn setElementId(self: QGraphicsSvgItem, id: []const u8) void {
         const id_str = qtc.libqt_string{
             .len = id.len,
             .data = id.ptr,
         };
         qtc.QGraphicsSvgItem_SetElementId(@ptrCast(self.ptr), id_str);
     }
+
+    /// ### DEPRECATED: Use `elementId` instead
+    ///
+    pub const ElementId = elementId;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicssvgitem.html#elementId)
     ///
@@ -292,13 +352,17 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ElementId(self: QGraphicsSvgItem, allocator: std.mem.Allocator) []const u8 {
+    pub fn elementId(self: QGraphicsSvgItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGraphicsSvgItem_ElementId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsSvgItem.ElementId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsSvgItem.elementId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setCachingEnabled` instead
+    ///
+    pub const SetCachingEnabled = setCachingEnabled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicssvgitem.html#setCachingEnabled)
     ///
@@ -308,9 +372,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` cachingEnabled: bool `
     ///
-    pub fn SetCachingEnabled(self: QGraphicsSvgItem, cachingEnabled: bool) void {
+    pub fn setCachingEnabled(self: QGraphicsSvgItem, cachingEnabled: bool) void {
         qtc.QGraphicsSvgItem_SetCachingEnabled(@ptrCast(self.ptr), cachingEnabled);
     }
+
+    /// ### DEPRECATED: Use `isCachingEnabled` instead
+    ///
+    pub const IsCachingEnabled = isCachingEnabled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicssvgitem.html#isCachingEnabled)
     ///
@@ -318,9 +386,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn IsCachingEnabled(self: QGraphicsSvgItem) bool {
+    pub fn isCachingEnabled(self: QGraphicsSvgItem) bool {
         return qtc.QGraphicsSvgItem_IsCachingEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumCacheSize` instead
+    ///
+    pub const SetMaximumCacheSize = setMaximumCacheSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicssvgitem.html#setMaximumCacheSize)
     ///
@@ -330,10 +402,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` size: QSize `
     ///
-    pub fn SetMaximumCacheSize(self: QGraphicsSvgItem, size: anytype) void {
+    pub fn setMaximumCacheSize(self: QGraphicsSvgItem, size: anytype) void {
         comptime _ = @TypeOf(size)._is_QSize;
         qtc.QGraphicsSvgItem_SetMaximumCacheSize(@ptrCast(self.ptr), @ptrCast(size.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumCacheSize` instead
+    ///
+    pub const MaximumCacheSize = maximumCacheSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicssvgitem.html#maximumCacheSize)
     ///
@@ -341,9 +417,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn MaximumCacheSize(self: QGraphicsSvgItem) QSize {
+    pub fn maximumCacheSize(self: QGraphicsSvgItem) QSize {
         return .{ .ptr = qtc.QGraphicsSvgItem_MaximumCacheSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `boundingRect` instead
+    ///
+    pub const BoundingRect = boundingRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicssvgitem.html#boundingRect)
     ///
@@ -351,9 +431,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn BoundingRect(self: QGraphicsSvgItem) QRectF {
+    pub fn boundingRect(self: QGraphicsSvgItem) QRectF {
         return .{ .ptr = qtc.QGraphicsSvgItem_BoundingRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onBoundingRect` instead
+    ///
+    pub const OnBoundingRect = onBoundingRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicssvgitem.html#boundingRect)
     ///
@@ -367,13 +451,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnBoundingRect(self: QGraphicsSvgItem, callback: *const fn () callconv(.c) QRectF) void {
+    pub fn onBoundingRect(self: QGraphicsSvgItem, callback: *const fn () callconv(.c) QRectF) void {
         qtc.QGraphicsSvgItem_OnBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperBoundingRect` instead
+    /// ### DEPRECATED: Use `superBoundingRect` instead
     ///
-    pub const QBaseBoundingRect = SuperBoundingRect;
+    pub const SuperBoundingRect = superBoundingRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicssvgitem.html#boundingRect)
     ///
@@ -383,9 +467,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn SuperBoundingRect(self: QGraphicsSvgItem) QRectF {
+    pub fn superBoundingRect(self: QGraphicsSvgItem) QRectF {
         return .{ .ptr = qtc.QGraphicsSvgItem_SuperBoundingRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `paint` instead
+    ///
+    pub const Paint = paint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicssvgitem.html#paint)
     ///
@@ -399,12 +487,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn Paint(self: QGraphicsSvgItem, painter: anytype, option: anytype, widget: anytype) void {
+    pub fn paint(self: QGraphicsSvgItem, painter: anytype, option: anytype, widget: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(option)._is_QStyleOptionGraphicsItem;
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QGraphicsSvgItem_Paint(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(option.ptr), @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaint` instead
+    ///
+    pub const OnPaint = onPaint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicssvgitem.html#paint)
     ///
@@ -416,13 +508,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem, painter: QPainter, option: QStyleOptionGraphicsItem, widget: QWidget) callconv(.c) void `
     ///
-    pub fn OnPaint(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QPainter, QStyleOptionGraphicsItem, QWidget) callconv(.c) void) void {
+    pub fn onPaint(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QPainter, QStyleOptionGraphicsItem, QWidget) callconv(.c) void) void {
         qtc.QGraphicsSvgItem_OnPaint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperPaint` instead
+    /// ### DEPRECATED: Use `superPaint` instead
     ///
-    pub const QBasePaint = SuperPaint;
+    pub const SuperPaint = superPaint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicssvgitem.html#paint)
     ///
@@ -438,12 +530,18 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn SuperPaint(self: QGraphicsSvgItem, painter: anytype, option: anytype, widget: anytype) void {
+    pub fn superPaint(self: QGraphicsSvgItem, painter: anytype, option: anytype, widget: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(option)._is_QStyleOptionGraphicsItem;
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QGraphicsSvgItem_SuperPaint(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(option.ptr), @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicssvgitem.html#type)
     ///
@@ -451,9 +549,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn Type(self: QGraphicsSvgItem) i32 {
+    pub fn type0(self: QGraphicsSvgItem) i32 {
         return qtc.QGraphicsSvgItem_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onType` instead
+    ///
+    pub const OnType = onType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicssvgitem.html#type)
     ///
@@ -465,13 +567,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnType(self: QGraphicsSvgItem, callback: *const fn () callconv(.c) i32) void {
+    pub fn onType(self: QGraphicsSvgItem, callback: *const fn () callconv(.c) i32) void {
         qtc.QGraphicsSvgItem_OnType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperType` instead
+    /// ### DEPRECATED: Use `superType` instead
     ///
-    pub const QBaseType = SuperType;
+    pub const SuperType = superType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicssvgitem.html#type)
     ///
@@ -481,9 +583,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn SuperType(self: QGraphicsSvgItem) i32 {
+    pub fn superType(self: QGraphicsSvgItem) i32 {
         return qtc.QGraphicsSvgItem_SuperType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -495,15 +601,19 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsSvgItem.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsSvgItem.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -517,15 +627,19 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsSvgItem.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsSvgItem.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QGraphicsObject
     ///
@@ -537,9 +651,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: QGraphicsSvgItem, typeVal: i32) void {
+    pub fn grabGesture(self: QGraphicsSvgItem, typeVal: i32) void {
         qtc.QGraphicsObject_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QGraphicsObject
     ///
@@ -551,10 +669,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: QGraphicsSvgItem, typeVal: i32) void {
+    pub fn ungrabGesture(self: QGraphicsSvgItem, typeVal: i32) void {
         qtc.QGraphicsObject_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
+    /// ### DEPRECATED: Use `parentChanged` instead
+    ///
+    pub const ParentChanged = parentChanged;
+
     /// Inherited from QGraphicsObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#parentChanged)
@@ -563,10 +685,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn ParentChanged(self: QGraphicsSvgItem) void {
+    pub fn parentChanged(self: QGraphicsSvgItem) void {
         qtc.QGraphicsObject_ParentChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onParentChanged` instead
+    ///
+    pub const OnParentChanged = onParentChanged;
+
     /// Inherited from QGraphicsObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#parentChanged)
@@ -577,10 +703,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem) callconv(.c) void `
     ///
-    pub fn OnParentChanged(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem) callconv(.c) void) void {
+    pub fn onParentChanged(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem) callconv(.c) void) void {
         qtc.QGraphicsObject_Connect_ParentChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `opacityChanged` instead
+    ///
+    pub const OpacityChanged = opacityChanged;
+
     /// Inherited from QGraphicsObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#opacityChanged)
@@ -589,10 +719,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn OpacityChanged(self: QGraphicsSvgItem) void {
+    pub fn opacityChanged(self: QGraphicsSvgItem) void {
         qtc.QGraphicsObject_OpacityChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onOpacityChanged` instead
+    ///
+    pub const OnOpacityChanged = onOpacityChanged;
+
     /// Inherited from QGraphicsObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#opacityChanged)
@@ -603,10 +737,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem) callconv(.c) void `
     ///
-    pub fn OnOpacityChanged(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem) callconv(.c) void) void {
+    pub fn onOpacityChanged(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem) callconv(.c) void) void {
         qtc.QGraphicsObject_Connect_OpacityChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `visibleChanged` instead
+    ///
+    pub const VisibleChanged = visibleChanged;
+
     /// Inherited from QGraphicsObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#visibleChanged)
@@ -615,10 +753,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn VisibleChanged(self: QGraphicsSvgItem) void {
+    pub fn visibleChanged(self: QGraphicsSvgItem) void {
         qtc.QGraphicsObject_VisibleChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onVisibleChanged` instead
+    ///
+    pub const OnVisibleChanged = onVisibleChanged;
+
     /// Inherited from QGraphicsObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#visibleChanged)
@@ -629,10 +771,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem) callconv(.c) void `
     ///
-    pub fn OnVisibleChanged(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem) callconv(.c) void) void {
+    pub fn onVisibleChanged(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem) callconv(.c) void) void {
         qtc.QGraphicsObject_Connect_VisibleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `enabledChanged` instead
+    ///
+    pub const EnabledChanged = enabledChanged;
+
     /// Inherited from QGraphicsObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#enabledChanged)
@@ -641,10 +787,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn EnabledChanged(self: QGraphicsSvgItem) void {
+    pub fn enabledChanged(self: QGraphicsSvgItem) void {
         qtc.QGraphicsObject_EnabledChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onEnabledChanged` instead
+    ///
+    pub const OnEnabledChanged = onEnabledChanged;
+
     /// Inherited from QGraphicsObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#enabledChanged)
@@ -655,10 +805,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem) callconv(.c) void `
     ///
-    pub fn OnEnabledChanged(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem) callconv(.c) void) void {
+    pub fn onEnabledChanged(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem) callconv(.c) void) void {
         qtc.QGraphicsObject_Connect_EnabledChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `xChanged` instead
+    ///
+    pub const XChanged = xChanged;
+
     /// Inherited from QGraphicsObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#xChanged)
@@ -667,10 +821,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn XChanged(self: QGraphicsSvgItem) void {
+    pub fn xChanged(self: QGraphicsSvgItem) void {
         qtc.QGraphicsObject_XChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onXChanged` instead
+    ///
+    pub const OnXChanged = onXChanged;
+
     /// Inherited from QGraphicsObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#xChanged)
@@ -681,10 +839,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem) callconv(.c) void `
     ///
-    pub fn OnXChanged(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem) callconv(.c) void) void {
+    pub fn onXChanged(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem) callconv(.c) void) void {
         qtc.QGraphicsObject_Connect_XChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `yChanged` instead
+    ///
+    pub const YChanged = yChanged;
+
     /// Inherited from QGraphicsObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#yChanged)
@@ -693,10 +855,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn YChanged(self: QGraphicsSvgItem) void {
+    pub fn yChanged(self: QGraphicsSvgItem) void {
         qtc.QGraphicsObject_YChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onYChanged` instead
+    ///
+    pub const OnYChanged = onYChanged;
+
     /// Inherited from QGraphicsObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#yChanged)
@@ -707,10 +873,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem) callconv(.c) void `
     ///
-    pub fn OnYChanged(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem) callconv(.c) void) void {
+    pub fn onYChanged(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem) callconv(.c) void) void {
         qtc.QGraphicsObject_Connect_YChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `zChanged` instead
+    ///
+    pub const ZChanged = zChanged;
+
     /// Inherited from QGraphicsObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#zChanged)
@@ -719,10 +889,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn ZChanged(self: QGraphicsSvgItem) void {
+    pub fn zChanged(self: QGraphicsSvgItem) void {
         qtc.QGraphicsObject_ZChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onZChanged` instead
+    ///
+    pub const OnZChanged = onZChanged;
+
     /// Inherited from QGraphicsObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#zChanged)
@@ -733,10 +907,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem) callconv(.c) void `
     ///
-    pub fn OnZChanged(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem) callconv(.c) void) void {
+    pub fn onZChanged(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem) callconv(.c) void) void {
         qtc.QGraphicsObject_Connect_ZChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `rotationChanged` instead
+    ///
+    pub const RotationChanged = rotationChanged;
+
     /// Inherited from QGraphicsObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#rotationChanged)
@@ -745,10 +923,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn RotationChanged(self: QGraphicsSvgItem) void {
+    pub fn rotationChanged(self: QGraphicsSvgItem) void {
         qtc.QGraphicsObject_RotationChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onRotationChanged` instead
+    ///
+    pub const OnRotationChanged = onRotationChanged;
+
     /// Inherited from QGraphicsObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#rotationChanged)
@@ -759,10 +941,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem) callconv(.c) void `
     ///
-    pub fn OnRotationChanged(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem) callconv(.c) void) void {
+    pub fn onRotationChanged(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem) callconv(.c) void) void {
         qtc.QGraphicsObject_Connect_RotationChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `scaleChanged` instead
+    ///
+    pub const ScaleChanged = scaleChanged;
+
     /// Inherited from QGraphicsObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#scaleChanged)
@@ -771,10 +957,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn ScaleChanged(self: QGraphicsSvgItem) void {
+    pub fn scaleChanged(self: QGraphicsSvgItem) void {
         qtc.QGraphicsObject_ScaleChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onScaleChanged` instead
+    ///
+    pub const OnScaleChanged = onScaleChanged;
+
     /// Inherited from QGraphicsObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#scaleChanged)
@@ -785,10 +975,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem) callconv(.c) void `
     ///
-    pub fn OnScaleChanged(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem) callconv(.c) void) void {
+    pub fn onScaleChanged(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem) callconv(.c) void) void {
         qtc.QGraphicsObject_Connect_ScaleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `childrenChanged` instead
+    ///
+    pub const ChildrenChanged = childrenChanged;
+
     /// Inherited from QGraphicsObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#childrenChanged)
@@ -797,10 +991,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn ChildrenChanged(self: QGraphicsSvgItem) void {
+    pub fn childrenChanged(self: QGraphicsSvgItem) void {
         qtc.QGraphicsObject_ChildrenChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onChildrenChanged` instead
+    ///
+    pub const OnChildrenChanged = onChildrenChanged;
+
     /// Inherited from QGraphicsObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#childrenChanged)
@@ -811,10 +1009,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem) callconv(.c) void `
     ///
-    pub fn OnChildrenChanged(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem) callconv(.c) void) void {
+    pub fn onChildrenChanged(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem) callconv(.c) void) void {
         qtc.QGraphicsObject_Connect_ChildrenChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `widthChanged` instead
+    ///
+    pub const WidthChanged = widthChanged;
+
     /// Inherited from QGraphicsObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#widthChanged)
@@ -823,10 +1025,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn WidthChanged(self: QGraphicsSvgItem) void {
+    pub fn widthChanged(self: QGraphicsSvgItem) void {
         qtc.QGraphicsObject_WidthChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onWidthChanged` instead
+    ///
+    pub const OnWidthChanged = onWidthChanged;
+
     /// Inherited from QGraphicsObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#widthChanged)
@@ -837,9 +1043,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem) callconv(.c) void `
     ///
-    pub fn OnWidthChanged(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem) callconv(.c) void) void {
+    pub fn onWidthChanged(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem) callconv(.c) void) void {
         qtc.QGraphicsObject_Connect_WidthChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightChanged` instead
+    ///
+    pub const HeightChanged = heightChanged;
 
     /// Inherited from QGraphicsObject
     ///
@@ -849,9 +1059,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn HeightChanged(self: QGraphicsSvgItem) void {
+    pub fn heightChanged(self: QGraphicsSvgItem) void {
         qtc.QGraphicsObject_HeightChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHeightChanged` instead
+    ///
+    pub const OnHeightChanged = onHeightChanged;
 
     /// Inherited from QGraphicsObject
     ///
@@ -863,9 +1077,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem) callconv(.c) void `
     ///
-    pub fn OnHeightChanged(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem) callconv(.c) void) void {
+    pub fn onHeightChanged(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem) callconv(.c) void) void {
         qtc.QGraphicsObject_Connect_HeightChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QGraphicsObject
     ///
@@ -877,11 +1095,15 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    /// ` flags: flag of qnamespace_enums.GestureFlag `
+    /// ` _flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: QGraphicsSvgItem, typeVal: i32, flags: i32) void {
-        qtc.QGraphicsObject_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
+    pub fn grabGesture2(self: QGraphicsSvgItem, typeVal: i32, _flags: i32) void {
+        qtc.QGraphicsObject_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(_flags));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -893,13 +1115,17 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QGraphicsSvgItem, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QGraphicsSvgItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsSvgItem.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsSvgItem.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -911,13 +1137,17 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QGraphicsSvgItem, name: []const u8) void {
+    pub fn setObjectName(self: QGraphicsSvgItem, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -927,9 +1157,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn IsWidgetType(self: QGraphicsSvgItem) bool {
+    pub fn isWidgetType(self: QGraphicsSvgItem) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -939,9 +1173,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn IsWindowType(self: QGraphicsSvgItem) bool {
+    pub fn isWindowType(self: QGraphicsSvgItem) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -951,9 +1189,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn IsQuickItemType(self: QGraphicsSvgItem) bool {
+    pub fn isQuickItemType(self: QGraphicsSvgItem) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -963,9 +1205,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn SignalsBlocked(self: QGraphicsSvgItem) bool {
+    pub fn signalsBlocked(self: QGraphicsSvgItem) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -977,9 +1223,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QGraphicsSvgItem, b: bool) bool {
+    pub fn blockSignals(self: QGraphicsSvgItem, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -989,9 +1239,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn Thread(self: QGraphicsSvgItem) QThread {
+    pub fn thread(self: QGraphicsSvgItem) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -1001,12 +1255,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QGraphicsSvgItem, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QGraphicsSvgItem, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -1018,9 +1276,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QGraphicsSvgItem, interval: i32) i32 {
+    pub fn startTimer(self: QGraphicsSvgItem, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -1032,9 +1294,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QGraphicsSvgItem, time: i64) i32 {
+    pub fn startTimer2(self: QGraphicsSvgItem, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -1046,9 +1312,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QGraphicsSvgItem, id: i32) void {
+    pub fn killTimer(self: QGraphicsSvgItem, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -1060,9 +1330,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QGraphicsSvgItem, id: i32) void {
+    pub fn killTimer2(self: QGraphicsSvgItem, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -1074,15 +1348,19 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QGraphicsSvgItem, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QGraphicsSvgItem, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QGraphicsSvgItem.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QGraphicsSvgItem.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -1092,12 +1370,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QGraphicsSvgItem, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QGraphicsSvgItem, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1109,10 +1391,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QGraphicsSvgItem, filterObj: anytype) void {
+    pub fn installEventFilter(self: QGraphicsSvgItem, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1124,10 +1410,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QGraphicsSvgItem, obj: anytype) void {
+    pub fn removeEventFilter(self: QGraphicsSvgItem, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -1135,7 +1425,7 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1143,13 +1433,17 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -1157,7 +1451,7 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1165,13 +1459,17 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -1181,18 +1479,22 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QGraphicsSvgItem, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QGraphicsSvgItem, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -1200,7 +1502,7 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1208,13 +1510,17 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -1222,7 +1528,7 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1230,13 +1536,17 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -1246,9 +1556,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn Disconnect3(self: QGraphicsSvgItem) bool {
+    pub fn disconnect3(self: QGraphicsSvgItem) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1260,10 +1574,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QGraphicsSvgItem, receiver: anytype) bool {
+    pub fn disconnect4(self: QGraphicsSvgItem, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1273,10 +1591,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1286,9 +1608,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn DumpObjectTree(self: QGraphicsSvgItem) void {
+    pub fn dumpObjectTree(self: QGraphicsSvgItem) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1298,9 +1624,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn DumpObjectInfo(self: QGraphicsSvgItem) void {
+    pub fn dumpObjectInfo(self: QGraphicsSvgItem) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1314,11 +1644,15 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QGraphicsSvgItem, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QGraphicsSvgItem, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1330,10 +1664,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QGraphicsSvgItem, name: [:0]const u8) QVariant {
+    pub fn property(self: QGraphicsSvgItem, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1345,7 +1683,7 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QGraphicsSvgItem, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QGraphicsSvgItem, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1353,27 +1691,19 @@ pub const QGraphicsSvgItem = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QGraphicsSvgItem.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QGraphicsSvgItem.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QGraphicsSvgItem.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QGraphicsSvgItem.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsSvgItem `
-    ///
-    pub fn BindingStorage(self: QGraphicsSvgItem) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1383,9 +1713,29 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn BindingStorage2(self: QGraphicsSvgItem) QBindingStorage {
+    pub fn bindingStorage(self: QGraphicsSvgItem) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGraphicsSvgItem `
+    ///
+    pub fn bindingStorage2(self: QGraphicsSvgItem) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1395,9 +1745,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn Destroyed(self: QGraphicsSvgItem) void {
+    pub fn destroyed(self: QGraphicsSvgItem) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1409,9 +1763,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem) callconv(.c) void) void {
+    pub fn onDestroyed(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1421,9 +1779,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn Parent(self: QGraphicsSvgItem) QObject {
+    pub fn parent(self: QGraphicsSvgItem) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1435,10 +1797,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QGraphicsSvgItem, classname: [:0]const u8) bool {
+    pub fn inherits(self: QGraphicsSvgItem, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1448,9 +1814,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn DeleteLater(self: QGraphicsSvgItem) void {
+    pub fn deleteLater(self: QGraphicsSvgItem) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1464,9 +1834,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QGraphicsSvgItem, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QGraphicsSvgItem, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1480,9 +1854,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QGraphicsSvgItem, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QGraphicsSvgItem, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1490,7 +1868,7 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1500,13 +1878,17 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1514,7 +1896,7 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1524,13 +1906,17 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1540,7 +1926,7 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1548,12 +1934,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QGraphicsSvgItem, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QGraphicsSvgItem, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1565,10 +1955,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QGraphicsSvgItem, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QGraphicsSvgItem, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1582,11 +1976,15 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QGraphicsSvgItem, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QGraphicsSvgItem, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1602,13 +2000,17 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QGraphicsSvgItem, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QGraphicsSvgItem, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1621,11 +2023,15 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QGraphicsSvgItem, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QGraphicsSvgItem, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1637,10 +2043,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QGraphicsSvgItem, param1: anytype) void {
+    pub fn destroyed1(self: QGraphicsSvgItem, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1652,9 +2062,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `scene` instead
+    ///
+    pub const Scene = scene;
 
     /// Inherited from QGraphicsItem
     ///
@@ -1664,9 +2078,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn Scene(self: QGraphicsSvgItem) QGraphicsScene {
+    pub fn scene(self: QGraphicsSvgItem) QGraphicsScene {
         return .{ .ptr = qtc.QGraphicsItem_Scene(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `parentItem` instead
+    ///
+    pub const ParentItem = parentItem;
 
     /// Inherited from QGraphicsItem
     ///
@@ -1676,9 +2094,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn ParentItem(self: QGraphicsSvgItem) QGraphicsItem {
+    pub fn parentItem(self: QGraphicsSvgItem) QGraphicsItem {
         return .{ .ptr = qtc.QGraphicsItem_ParentItem(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelItem` instead
+    ///
+    pub const TopLevelItem = topLevelItem;
 
     /// Inherited from QGraphicsItem
     ///
@@ -1688,9 +2110,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn TopLevelItem(self: QGraphicsSvgItem) QGraphicsItem {
+    pub fn topLevelItem(self: QGraphicsSvgItem) QGraphicsItem {
         return .{ .ptr = qtc.QGraphicsItem_TopLevelItem(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `parentObject` instead
+    ///
+    pub const ParentObject = parentObject;
 
     /// Inherited from QGraphicsItem
     ///
@@ -1700,9 +2126,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn ParentObject(self: QGraphicsSvgItem) QGraphicsObject {
+    pub fn parentObject(self: QGraphicsSvgItem) QGraphicsObject {
         return .{ .ptr = qtc.QGraphicsItem_ParentObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
 
     /// Inherited from QGraphicsItem
     ///
@@ -1712,9 +2142,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn ParentWidget(self: QGraphicsSvgItem) QGraphicsWidget {
+    pub fn parentWidget(self: QGraphicsSvgItem) QGraphicsWidget {
         return .{ .ptr = qtc.QGraphicsItem_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QGraphicsItem
     ///
@@ -1724,9 +2158,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn TopLevelWidget(self: QGraphicsSvgItem) QGraphicsWidget {
+    pub fn topLevelWidget(self: QGraphicsSvgItem) QGraphicsWidget {
         return .{ .ptr = qtc.QGraphicsItem_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QGraphicsItem
     ///
@@ -1736,9 +2174,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn Window(self: QGraphicsSvgItem) QGraphicsWidget {
+    pub fn window(self: QGraphicsSvgItem) QGraphicsWidget {
         return .{ .ptr = qtc.QGraphicsItem_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `panel` instead
+    ///
+    pub const Panel = panel;
 
     /// Inherited from QGraphicsItem
     ///
@@ -1748,9 +2190,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn Panel(self: QGraphicsSvgItem) QGraphicsItem {
+    pub fn panel(self: QGraphicsSvgItem) QGraphicsItem {
         return .{ .ptr = qtc.QGraphicsItem_Panel(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setParentItem` instead
+    ///
+    pub const SetParentItem = setParentItem;
 
     /// Inherited from QGraphicsItem
     ///
@@ -1760,12 +2206,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` parent: QGraphicsItem `
+    /// ` _parent: QGraphicsItem `
     ///
-    pub fn SetParentItem(self: QGraphicsSvgItem, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QGraphicsItem;
-        qtc.QGraphicsItem_SetParentItem(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParentItem(self: QGraphicsSvgItem, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QGraphicsItem;
+        qtc.QGraphicsItem_SetParentItem(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `childItems` instead
+    ///
+    pub const ChildItems = childItems;
 
     /// Inherited from QGraphicsItem
     ///
@@ -1777,15 +2227,19 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ChildItems(self: QGraphicsSvgItem, allocator: std.mem.Allocator) []QGraphicsItem {
+    pub fn childItems(self: QGraphicsSvgItem, allocator: std.mem.Allocator) []QGraphicsItem {
         const _arr: qtc.libqt_list = qtc.QGraphicsItem_ChildItems(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("QGraphicsSvgItem.ChildItems: Memory allocation failed");
-        const _data: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("QGraphicsSvgItem.childItems: Memory allocation failed");
+        const _data_val: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isWidget` instead
+    ///
+    pub const IsWidget = isWidget;
 
     /// Inherited from QGraphicsItem
     ///
@@ -1795,9 +2249,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn IsWidget(self: QGraphicsSvgItem) bool {
+    pub fn isWidget(self: QGraphicsSvgItem) bool {
         return qtc.QGraphicsItem_IsWidget(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QGraphicsItem
     ///
@@ -1807,9 +2265,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn IsWindow(self: QGraphicsSvgItem) bool {
+    pub fn isWindow(self: QGraphicsSvgItem) bool {
         return qtc.QGraphicsItem_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isPanel` instead
+    ///
+    pub const IsPanel = isPanel;
 
     /// Inherited from QGraphicsItem
     ///
@@ -1819,21 +2281,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn IsPanel(self: QGraphicsSvgItem) bool {
+    pub fn isPanel(self: QGraphicsSvgItem) bool {
         return qtc.QGraphicsItem_IsPanel(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QGraphicsItem
+    /// ### DEPRECATED: Use `toGraphicsObject` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#toGraphicsObject)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsSvgItem `
-    ///
-    pub fn ToGraphicsObject(self: QGraphicsSvgItem) QGraphicsObject {
-        return .{ .ptr = qtc.QGraphicsItem_ToGraphicsObject(@ptrCast(self.ptr)) };
-    }
+    pub const ToGraphicsObject = toGraphicsObject;
 
     /// Inherited from QGraphicsItem
     ///
@@ -1843,9 +2297,29 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn ToGraphicsObject2(self: QGraphicsSvgItem) QGraphicsObject {
+    pub fn toGraphicsObject(self: QGraphicsSvgItem) QGraphicsObject {
+        return .{ .ptr = qtc.QGraphicsItem_ToGraphicsObject(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `toGraphicsObject2` instead
+    ///
+    pub const ToGraphicsObject2 = toGraphicsObject2;
+
+    /// Inherited from QGraphicsItem
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#toGraphicsObject)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGraphicsSvgItem `
+    ///
+    pub fn toGraphicsObject2(self: QGraphicsSvgItem) QGraphicsObject {
         return .{ .ptr = qtc.QGraphicsItem_ToGraphicsObject2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `group` instead
+    ///
+    pub const Group = group;
 
     /// Inherited from QGraphicsItem
     ///
@@ -1855,9 +2329,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn Group(self: QGraphicsSvgItem) QGraphicsItemGroup {
+    pub fn group(self: QGraphicsSvgItem) QGraphicsItemGroup {
         return .{ .ptr = qtc.QGraphicsItem_Group(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGroup` instead
+    ///
+    pub const SetGroup = setGroup;
 
     /// Inherited from QGraphicsItem
     ///
@@ -1867,12 +2345,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` group: QGraphicsItemGroup `
+    /// ` _group: QGraphicsItemGroup `
     ///
-    pub fn SetGroup(self: QGraphicsSvgItem, group: anytype) void {
-        comptime _ = @TypeOf(group)._is_QGraphicsItemGroup;
-        qtc.QGraphicsItem_SetGroup(@ptrCast(self.ptr), @ptrCast(group.ptr));
+    pub fn setGroup(self: QGraphicsSvgItem, _group: anytype) void {
+        comptime _ = @TypeOf(_group)._is_QGraphicsItemGroup;
+        qtc.QGraphicsItem_SetGroup(@ptrCast(self.ptr), @ptrCast(_group.ptr));
     }
+
+    /// ### DEPRECATED: Use `flags` instead
+    ///
+    pub const Flags = flags;
 
     /// Inherited from QGraphicsItem
     ///
@@ -1886,9 +2368,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` flag of qgraphicsitem_enums.GraphicsItemFlag `
     ///
-    pub fn Flags(self: QGraphicsSvgItem) i32 {
+    pub fn flags(self: QGraphicsSvgItem) i32 {
         return qtc.QGraphicsItem_Flags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFlag` instead
+    ///
+    pub const SetFlag = setFlag;
 
     /// Inherited from QGraphicsItem
     ///
@@ -1900,9 +2386,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` flag: qgraphicsitem_enums.GraphicsItemFlag `
     ///
-    pub fn SetFlag(self: QGraphicsSvgItem, flag: i32) void {
+    pub fn setFlag(self: QGraphicsSvgItem, flag: i32) void {
         qtc.QGraphicsItem_SetFlag(@ptrCast(self.ptr), @bitCast(flag));
     }
+
+    /// ### DEPRECATED: Use `setFlags` instead
+    ///
+    pub const SetFlags = setFlags;
 
     /// Inherited from QGraphicsItem
     ///
@@ -1912,11 +2402,15 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` flags: flag of qgraphicsitem_enums.GraphicsItemFlag `
+    /// ` _flags: flag of qgraphicsitem_enums.GraphicsItemFlag `
     ///
-    pub fn SetFlags(self: QGraphicsSvgItem, flags: i32) void {
-        qtc.QGraphicsItem_SetFlags(@ptrCast(self.ptr), @bitCast(flags));
+    pub fn setFlags(self: QGraphicsSvgItem, _flags: i32) void {
+        qtc.QGraphicsItem_SetFlags(@ptrCast(self.ptr), @bitCast(_flags));
     }
+
+    /// ### DEPRECATED: Use `cacheMode` instead
+    ///
+    pub const CacheMode = cacheMode;
 
     /// Inherited from QGraphicsItem
     ///
@@ -1930,9 +2424,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` qgraphicsitem_enums.CacheMode `
     ///
-    pub fn CacheMode(self: QGraphicsSvgItem) i32 {
+    pub fn cacheMode(self: QGraphicsSvgItem) i32 {
         return qtc.QGraphicsItem_CacheMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCacheMode` instead
+    ///
+    pub const SetCacheMode = setCacheMode;
 
     /// Inherited from QGraphicsItem
     ///
@@ -1944,9 +2442,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` mode: qgraphicsitem_enums.CacheMode `
     ///
-    pub fn SetCacheMode(self: QGraphicsSvgItem, mode: i32) void {
+    pub fn setCacheMode(self: QGraphicsSvgItem, mode: i32) void {
         qtc.QGraphicsItem_SetCacheMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `panelModality` instead
+    ///
+    pub const PanelModality = panelModality;
 
     /// Inherited from QGraphicsItem
     ///
@@ -1960,9 +2462,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` qgraphicsitem_enums.PanelModality `
     ///
-    pub fn PanelModality(self: QGraphicsSvgItem) i32 {
+    pub fn panelModality(self: QGraphicsSvgItem) i32 {
         return qtc.QGraphicsItem_PanelModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPanelModality` instead
+    ///
+    pub const SetPanelModality = setPanelModality;
 
     /// Inherited from QGraphicsItem
     ///
@@ -1972,11 +2478,15 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` panelModality: qgraphicsitem_enums.PanelModality `
+    /// ` _panelModality: qgraphicsitem_enums.PanelModality `
     ///
-    pub fn SetPanelModality(self: QGraphicsSvgItem, panelModality: i32) void {
-        qtc.QGraphicsItem_SetPanelModality(@ptrCast(self.ptr), @bitCast(panelModality));
+    pub fn setPanelModality(self: QGraphicsSvgItem, _panelModality: i32) void {
+        qtc.QGraphicsItem_SetPanelModality(@ptrCast(self.ptr), @bitCast(_panelModality));
     }
+
+    /// ### DEPRECATED: Use `isBlockedByModalPanel` instead
+    ///
+    pub const IsBlockedByModalPanel = isBlockedByModalPanel;
 
     /// Inherited from QGraphicsItem
     ///
@@ -1986,9 +2496,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn IsBlockedByModalPanel(self: QGraphicsSvgItem) bool {
+    pub fn isBlockedByModalPanel(self: QGraphicsSvgItem) bool {
         return qtc.QGraphicsItem_IsBlockedByModalPanel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2000,13 +2514,17 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: QGraphicsSvgItem, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: QGraphicsSvgItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGraphicsItem_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsSvgItem.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsSvgItem.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2016,15 +2534,19 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: QGraphicsSvgItem, toolTip: []const u8) void {
+    pub fn setToolTip(self: QGraphicsSvgItem, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QGraphicsItem_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2034,9 +2556,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn Cursor(self: QGraphicsSvgItem) QCursor {
+    pub fn cursor(self: QGraphicsSvgItem) QCursor {
         return .{ .ptr = qtc.QGraphicsItem_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2046,12 +2572,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: QGraphicsSvgItem, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QGraphicsItem_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: QGraphicsSvgItem, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QGraphicsItem_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `hasCursor` instead
+    ///
+    pub const HasCursor = hasCursor;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2061,9 +2591,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn HasCursor(self: QGraphicsSvgItem) bool {
+    pub fn hasCursor(self: QGraphicsSvgItem) bool {
         return qtc.QGraphicsItem_HasCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2073,9 +2607,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn UnsetCursor(self: QGraphicsSvgItem) void {
+    pub fn unsetCursor(self: QGraphicsSvgItem) void {
         qtc.QGraphicsItem_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2085,9 +2623,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn IsVisible(self: QGraphicsSvgItem) bool {
+    pub fn isVisible(self: QGraphicsSvgItem) bool {
         return qtc.QGraphicsItem_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2097,12 +2639,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` parent: QGraphicsItem `
+    /// ` _parent: QGraphicsItem `
     ///
-    pub fn IsVisibleTo(self: QGraphicsSvgItem, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QGraphicsItem;
-        return qtc.QGraphicsItem_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn isVisibleTo(self: QGraphicsSvgItem, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QGraphicsItem;
+        return qtc.QGraphicsItem_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2114,9 +2660,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: QGraphicsSvgItem, visible: bool) void {
+    pub fn setVisible(self: QGraphicsSvgItem, visible: bool) void {
         qtc.QGraphicsItem_SetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2126,9 +2676,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn Hide(self: QGraphicsSvgItem) void {
+    pub fn hide(self: QGraphicsSvgItem) void {
         qtc.QGraphicsItem_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2138,9 +2692,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn Show(self: QGraphicsSvgItem) void {
+    pub fn show(self: QGraphicsSvgItem) void {
         qtc.QGraphicsItem_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2150,9 +2708,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn IsEnabled(self: QGraphicsSvgItem) bool {
+    pub fn isEnabled(self: QGraphicsSvgItem) bool {
         return qtc.QGraphicsItem_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2164,9 +2726,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: QGraphicsSvgItem, enabled: bool) void {
+    pub fn setEnabled(self: QGraphicsSvgItem, enabled: bool) void {
         qtc.QGraphicsItem_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `isSelected` instead
+    ///
+    pub const IsSelected = isSelected;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2176,9 +2742,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn IsSelected(self: QGraphicsSvgItem) bool {
+    pub fn isSelected(self: QGraphicsSvgItem) bool {
         return qtc.QGraphicsItem_IsSelected(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSelected` instead
+    ///
+    pub const SetSelected = setSelected;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2190,9 +2760,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` selected: bool `
     ///
-    pub fn SetSelected(self: QGraphicsSvgItem, selected: bool) void {
+    pub fn setSelected(self: QGraphicsSvgItem, selected: bool) void {
         qtc.QGraphicsItem_SetSelected(@ptrCast(self.ptr), selected);
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2202,9 +2776,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn AcceptDrops(self: QGraphicsSvgItem) bool {
+    pub fn acceptDrops(self: QGraphicsSvgItem) bool {
         return qtc.QGraphicsItem_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2216,9 +2794,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: QGraphicsSvgItem, on: bool) void {
+    pub fn setAcceptDrops(self: QGraphicsSvgItem, on: bool) void {
         qtc.QGraphicsItem_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `opacity` instead
+    ///
+    pub const Opacity = opacity;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2228,9 +2810,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn Opacity(self: QGraphicsSvgItem) f64 {
+    pub fn opacity(self: QGraphicsSvgItem) f64 {
         return qtc.QGraphicsItem_Opacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveOpacity` instead
+    ///
+    pub const EffectiveOpacity = effectiveOpacity;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2240,9 +2826,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn EffectiveOpacity(self: QGraphicsSvgItem) f64 {
+    pub fn effectiveOpacity(self: QGraphicsSvgItem) f64 {
         return qtc.QGraphicsItem_EffectiveOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setOpacity` instead
+    ///
+    pub const SetOpacity = setOpacity;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2252,11 +2842,15 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` opacity: f64 `
+    /// ` _opacity: f64 `
     ///
-    pub fn SetOpacity(self: QGraphicsSvgItem, opacity: f64) void {
-        qtc.QGraphicsItem_SetOpacity(@ptrCast(self.ptr), @bitCast(opacity));
+    pub fn setOpacity(self: QGraphicsSvgItem, _opacity: f64) void {
+        qtc.QGraphicsItem_SetOpacity(@ptrCast(self.ptr), @bitCast(_opacity));
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2266,9 +2860,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn GraphicsEffect(self: QGraphicsSvgItem) QGraphicsEffect {
+    pub fn graphicsEffect(self: QGraphicsSvgItem) QGraphicsEffect {
         return .{ .ptr = qtc.QGraphicsItem_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2280,10 +2878,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: QGraphicsSvgItem, effect: anytype) void {
+    pub fn setGraphicsEffect(self: QGraphicsSvgItem, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QGraphicsItem_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `acceptedMouseButtons` instead
+    ///
+    pub const AcceptedMouseButtons = acceptedMouseButtons;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2297,9 +2899,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` flag of qnamespace_enums.MouseButton `
     ///
-    pub fn AcceptedMouseButtons(self: QGraphicsSvgItem) i32 {
+    pub fn acceptedMouseButtons(self: QGraphicsSvgItem) i32 {
         return qtc.QGraphicsItem_AcceptedMouseButtons(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptedMouseButtons` instead
+    ///
+    pub const SetAcceptedMouseButtons = setAcceptedMouseButtons;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2311,9 +2917,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` buttons: flag of qnamespace_enums.MouseButton `
     ///
-    pub fn SetAcceptedMouseButtons(self: QGraphicsSvgItem, buttons: i32) void {
+    pub fn setAcceptedMouseButtons(self: QGraphicsSvgItem, buttons: i32) void {
         qtc.QGraphicsItem_SetAcceptedMouseButtons(@ptrCast(self.ptr), @bitCast(buttons));
     }
+
+    /// ### DEPRECATED: Use `acceptHoverEvents` instead
+    ///
+    pub const AcceptHoverEvents = acceptHoverEvents;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2323,9 +2933,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn AcceptHoverEvents(self: QGraphicsSvgItem) bool {
+    pub fn acceptHoverEvents(self: QGraphicsSvgItem) bool {
         return qtc.QGraphicsItem_AcceptHoverEvents(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptHoverEvents` instead
+    ///
+    pub const SetAcceptHoverEvents = setAcceptHoverEvents;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2337,9 +2951,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAcceptHoverEvents(self: QGraphicsSvgItem, enabled: bool) void {
+    pub fn setAcceptHoverEvents(self: QGraphicsSvgItem, enabled: bool) void {
         qtc.QGraphicsItem_SetAcceptHoverEvents(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `acceptTouchEvents` instead
+    ///
+    pub const AcceptTouchEvents = acceptTouchEvents;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2349,9 +2967,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn AcceptTouchEvents(self: QGraphicsSvgItem) bool {
+    pub fn acceptTouchEvents(self: QGraphicsSvgItem) bool {
         return qtc.QGraphicsItem_AcceptTouchEvents(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptTouchEvents` instead
+    ///
+    pub const SetAcceptTouchEvents = setAcceptTouchEvents;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2363,9 +2985,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAcceptTouchEvents(self: QGraphicsSvgItem, enabled: bool) void {
+    pub fn setAcceptTouchEvents(self: QGraphicsSvgItem, enabled: bool) void {
         qtc.QGraphicsItem_SetAcceptTouchEvents(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `filtersChildEvents` instead
+    ///
+    pub const FiltersChildEvents = filtersChildEvents;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2375,9 +3001,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn FiltersChildEvents(self: QGraphicsSvgItem) bool {
+    pub fn filtersChildEvents(self: QGraphicsSvgItem) bool {
         return qtc.QGraphicsItem_FiltersChildEvents(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFiltersChildEvents` instead
+    ///
+    pub const SetFiltersChildEvents = setFiltersChildEvents;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2389,9 +3019,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetFiltersChildEvents(self: QGraphicsSvgItem, enabled: bool) void {
+    pub fn setFiltersChildEvents(self: QGraphicsSvgItem, enabled: bool) void {
         qtc.QGraphicsItem_SetFiltersChildEvents(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `handlesChildEvents` instead
+    ///
+    pub const HandlesChildEvents = handlesChildEvents;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2401,9 +3035,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn HandlesChildEvents(self: QGraphicsSvgItem) bool {
+    pub fn handlesChildEvents(self: QGraphicsSvgItem) bool {
         return qtc.QGraphicsItem_HandlesChildEvents(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHandlesChildEvents` instead
+    ///
+    pub const SetHandlesChildEvents = setHandlesChildEvents;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2415,9 +3053,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetHandlesChildEvents(self: QGraphicsSvgItem, enabled: bool) void {
+    pub fn setHandlesChildEvents(self: QGraphicsSvgItem, enabled: bool) void {
         qtc.QGraphicsItem_SetHandlesChildEvents(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `isActive` instead
+    ///
+    pub const IsActive = isActive;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2427,9 +3069,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn IsActive(self: QGraphicsSvgItem) bool {
+    pub fn isActive(self: QGraphicsSvgItem) bool {
         return qtc.QGraphicsItem_IsActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setActive` instead
+    ///
+    pub const SetActive = setActive;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2441,9 +3087,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` active: bool `
     ///
-    pub fn SetActive(self: QGraphicsSvgItem, active: bool) void {
+    pub fn setActive(self: QGraphicsSvgItem, active: bool) void {
         qtc.QGraphicsItem_SetActive(@ptrCast(self.ptr), active);
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2453,9 +3103,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn HasFocus(self: QGraphicsSvgItem) bool {
+    pub fn hasFocus(self: QGraphicsSvgItem) bool {
         return qtc.QGraphicsItem_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2465,9 +3119,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn SetFocus(self: QGraphicsSvgItem) void {
+    pub fn setFocus(self: QGraphicsSvgItem) void {
         qtc.QGraphicsItem_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2477,9 +3135,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn ClearFocus(self: QGraphicsSvgItem) void {
+    pub fn clearFocus(self: QGraphicsSvgItem) void {
         qtc.QGraphicsItem_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2489,9 +3151,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn FocusProxy(self: QGraphicsSvgItem) QGraphicsItem {
+    pub fn focusProxy(self: QGraphicsSvgItem) QGraphicsItem {
         return .{ .ptr = qtc.QGraphicsItem_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2503,10 +3169,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` item: QGraphicsItem `
     ///
-    pub fn SetFocusProxy(self: QGraphicsSvgItem, item: anytype) void {
+    pub fn setFocusProxy(self: QGraphicsSvgItem, item: anytype) void {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
         qtc.QGraphicsItem_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(item.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusItem` instead
+    ///
+    pub const FocusItem = focusItem;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2516,9 +3186,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn FocusItem(self: QGraphicsSvgItem) QGraphicsItem {
+    pub fn focusItem(self: QGraphicsSvgItem) QGraphicsItem {
         return .{ .ptr = qtc.QGraphicsItem_FocusItem(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `focusScopeItem` instead
+    ///
+    pub const FocusScopeItem = focusScopeItem;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2528,9 +3202,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn FocusScopeItem(self: QGraphicsSvgItem) QGraphicsItem {
+    pub fn focusScopeItem(self: QGraphicsSvgItem) QGraphicsItem {
         return .{ .ptr = qtc.QGraphicsItem_FocusScopeItem(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2540,9 +3218,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn GrabMouse(self: QGraphicsSvgItem) void {
+    pub fn grabMouse(self: QGraphicsSvgItem) void {
         qtc.QGraphicsItem_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `ungrabMouse` instead
+    ///
+    pub const UngrabMouse = ungrabMouse;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2552,9 +3234,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn UngrabMouse(self: QGraphicsSvgItem) void {
+    pub fn ungrabMouse(self: QGraphicsSvgItem) void {
         qtc.QGraphicsItem_UngrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2564,9 +3250,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn GrabKeyboard(self: QGraphicsSvgItem) void {
+    pub fn grabKeyboard(self: QGraphicsSvgItem) void {
         qtc.QGraphicsItem_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `ungrabKeyboard` instead
+    ///
+    pub const UngrabKeyboard = ungrabKeyboard;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2576,9 +3266,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn UngrabKeyboard(self: QGraphicsSvgItem) void {
+    pub fn ungrabKeyboard(self: QGraphicsSvgItem) void {
         qtc.QGraphicsItem_UngrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2588,9 +3282,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn Pos(self: QGraphicsSvgItem) QPointF {
+    pub fn pos(self: QGraphicsSvgItem) QPointF {
         return .{ .ptr = qtc.QGraphicsItem_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2600,9 +3298,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn X(self: QGraphicsSvgItem) f64 {
+    pub fn x(self: QGraphicsSvgItem) f64 {
         return qtc.QGraphicsItem_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setX` instead
+    ///
+    pub const SetX = setX;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2612,11 +3314,15 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` x: f64 `
+    /// ` _x: f64 `
     ///
-    pub fn SetX(self: QGraphicsSvgItem, x: f64) void {
-        qtc.QGraphicsItem_SetX(@ptrCast(self.ptr), @bitCast(x));
+    pub fn setX(self: QGraphicsSvgItem, _x: f64) void {
+        qtc.QGraphicsItem_SetX(@ptrCast(self.ptr), @bitCast(_x));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2626,9 +3332,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn Y(self: QGraphicsSvgItem) f64 {
+    pub fn y(self: QGraphicsSvgItem) f64 {
         return qtc.QGraphicsItem_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setY` instead
+    ///
+    pub const SetY = setY;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2638,11 +3348,15 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` y: f64 `
+    /// ` _y: f64 `
     ///
-    pub fn SetY(self: QGraphicsSvgItem, y: f64) void {
-        qtc.QGraphicsItem_SetY(@ptrCast(self.ptr), @bitCast(y));
+    pub fn setY(self: QGraphicsSvgItem, _y: f64) void {
+        qtc.QGraphicsItem_SetY(@ptrCast(self.ptr), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `scenePos` instead
+    ///
+    pub const ScenePos = scenePos;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2652,24 +3366,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn ScenePos(self: QGraphicsSvgItem) QPointF {
+    pub fn scenePos(self: QGraphicsSvgItem) QPointF {
         return .{ .ptr = qtc.QGraphicsItem_ScenePos(@ptrCast(self.ptr)) };
     }
 
-    /// Inherited from QGraphicsItem
+    /// ### DEPRECATED: Use `setPos` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setPos)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsSvgItem `
-    ///
-    /// ` pos: QPointF `
-    ///
-    pub fn SetPos(self: QGraphicsSvgItem, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPointF;
-        qtc.QGraphicsItem_SetPos(@ptrCast(self.ptr), @ptrCast(pos.ptr));
-    }
+    pub const SetPos = setPos;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2679,13 +3382,36 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` x: f64 `
+    /// ` _pos: QPointF `
     ///
-    /// ` y: f64 `
-    ///
-    pub fn SetPos2(self: QGraphicsSvgItem, x: f64, y: f64) void {
-        qtc.QGraphicsItem_SetPos2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn setPos(self: QGraphicsSvgItem, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPointF;
+        qtc.QGraphicsItem_SetPos(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPos2` instead
+    ///
+    pub const SetPos2 = setPos2;
+
+    /// Inherited from QGraphicsItem
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setPos)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGraphicsSvgItem `
+    ///
+    /// ` _x: f64 `
+    ///
+    /// ` _y: f64 `
+    ///
+    pub fn setPos2(self: QGraphicsSvgItem, _x: f64, _y: f64) void {
+        qtc.QGraphicsItem_SetPos2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
+    }
+
+    /// ### DEPRECATED: Use `moveBy` instead
+    ///
+    pub const MoveBy = moveBy;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2699,21 +3425,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` dy: f64 `
     ///
-    pub fn MoveBy(self: QGraphicsSvgItem, dx: f64, dy: f64) void {
+    pub fn moveBy(self: QGraphicsSvgItem, dx: f64, dy: f64) void {
         qtc.QGraphicsItem_MoveBy(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
-    /// Inherited from QGraphicsItem
+    /// ### DEPRECATED: Use `ensureVisible` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsSvgItem `
-    ///
-    pub fn EnsureVisible(self: QGraphicsSvgItem) void {
-        qtc.QGraphicsItem_EnsureVisible(@ptrCast(self.ptr));
-    }
+    pub const EnsureVisible = ensureVisible;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2723,17 +3441,37 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` x: f64 `
+    pub fn ensureVisible(self: QGraphicsSvgItem) void {
+        qtc.QGraphicsItem_EnsureVisible(@ptrCast(self.ptr));
+    }
+
+    /// ### DEPRECATED: Use `ensureVisible2` instead
     ///
-    /// ` y: f64 `
+    pub const EnsureVisible2 = ensureVisible2;
+
+    /// Inherited from QGraphicsItem
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGraphicsSvgItem `
+    ///
+    /// ` _x: f64 `
+    ///
+    /// ` _y: f64 `
     ///
     /// ` w: f64 `
     ///
     /// ` h: f64 `
     ///
-    pub fn EnsureVisible2(self: QGraphicsSvgItem, x: f64, y: f64, w: f64, h: f64) void {
-        qtc.QGraphicsItem_EnsureVisible2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn ensureVisible2(self: QGraphicsSvgItem, _x: f64, _y: f64, w: f64, h: f64) void {
+        qtc.QGraphicsItem_EnsureVisible2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `transform` instead
+    ///
+    pub const Transform = transform;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2743,9 +3481,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn Transform(self: QGraphicsSvgItem) QTransform {
+    pub fn transform(self: QGraphicsSvgItem) QTransform {
         return .{ .ptr = qtc.QGraphicsItem_Transform(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `sceneTransform` instead
+    ///
+    pub const SceneTransform = sceneTransform;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2755,9 +3497,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn SceneTransform(self: QGraphicsSvgItem) QTransform {
+    pub fn sceneTransform(self: QGraphicsSvgItem) QTransform {
         return .{ .ptr = qtc.QGraphicsItem_SceneTransform(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `deviceTransform` instead
+    ///
+    pub const DeviceTransform = deviceTransform;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2769,10 +3515,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` viewportTransform: QTransform `
     ///
-    pub fn DeviceTransform(self: QGraphicsSvgItem, viewportTransform: anytype) QTransform {
+    pub fn deviceTransform(self: QGraphicsSvgItem, viewportTransform: anytype) QTransform {
         comptime _ = @TypeOf(viewportTransform)._is_QTransform;
         return .{ .ptr = qtc.QGraphicsItem_DeviceTransform(@ptrCast(self.ptr), @ptrCast(viewportTransform.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `itemTransform` instead
+    ///
+    pub const ItemTransform = itemTransform;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2784,10 +3534,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` other: QGraphicsItem `
     ///
-    pub fn ItemTransform(self: QGraphicsSvgItem, other: anytype) QTransform {
+    pub fn itemTransform(self: QGraphicsSvgItem, other: anytype) QTransform {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
         return .{ .ptr = qtc.QGraphicsItem_ItemTransform(@ptrCast(self.ptr), @ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setTransform` instead
+    ///
+    pub const SetTransform = setTransform;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2799,10 +3553,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` matrix: QTransform `
     ///
-    pub fn SetTransform(self: QGraphicsSvgItem, matrix: anytype) void {
+    pub fn setTransform(self: QGraphicsSvgItem, matrix: anytype) void {
         comptime _ = @TypeOf(matrix)._is_QTransform;
         qtc.QGraphicsItem_SetTransform(@ptrCast(self.ptr), @ptrCast(matrix.ptr));
     }
+
+    /// ### DEPRECATED: Use `resetTransform` instead
+    ///
+    pub const ResetTransform = resetTransform;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2812,9 +3570,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn ResetTransform(self: QGraphicsSvgItem) void {
+    pub fn resetTransform(self: QGraphicsSvgItem) void {
         qtc.QGraphicsItem_ResetTransform(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setRotation` instead
+    ///
+    pub const SetRotation = setRotation;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2826,9 +3588,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` angle: f64 `
     ///
-    pub fn SetRotation(self: QGraphicsSvgItem, angle: f64) void {
+    pub fn setRotation(self: QGraphicsSvgItem, angle: f64) void {
         qtc.QGraphicsItem_SetRotation(@ptrCast(self.ptr), @bitCast(angle));
     }
+
+    /// ### DEPRECATED: Use `rotation` instead
+    ///
+    pub const Rotation = rotation;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2838,9 +3604,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn Rotation(self: QGraphicsSvgItem) f64 {
+    pub fn rotation(self: QGraphicsSvgItem) f64 {
         return qtc.QGraphicsItem_Rotation(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setScale` instead
+    ///
+    pub const SetScale = setScale;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2850,11 +3620,15 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` scale: f64 `
+    /// ` _scale: f64 `
     ///
-    pub fn SetScale(self: QGraphicsSvgItem, scale: f64) void {
-        qtc.QGraphicsItem_SetScale(@ptrCast(self.ptr), @bitCast(scale));
+    pub fn setScale(self: QGraphicsSvgItem, _scale: f64) void {
+        qtc.QGraphicsItem_SetScale(@ptrCast(self.ptr), @bitCast(_scale));
     }
+
+    /// ### DEPRECATED: Use `scale` instead
+    ///
+    pub const Scale = scale;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2864,9 +3638,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn Scale(self: QGraphicsSvgItem) f64 {
+    pub fn scale(self: QGraphicsSvgItem) f64 {
         return qtc.QGraphicsItem_Scale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `transformations` instead
+    ///
+    pub const Transformations = transformations;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2878,15 +3656,19 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Transformations(self: QGraphicsSvgItem, allocator: std.mem.Allocator) []QGraphicsTransform {
+    pub fn transformations(self: QGraphicsSvgItem, allocator: std.mem.Allocator) []QGraphicsTransform {
         const _arr: qtc.libqt_list = qtc.QGraphicsItem_Transformations(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGraphicsTransform, _arr.len) catch @panic("QGraphicsSvgItem.Transformations: Memory allocation failed");
-        const _data: [*]QtC.QGraphicsTransform = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QGraphicsTransform, _arr.len) catch @panic("QGraphicsSvgItem.transformations: Memory allocation failed");
+        const _data_val: [*]QtC.QGraphicsTransform = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setTransformations` instead
+    ///
+    pub const SetTransformations = setTransformations;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2896,15 +3678,19 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` transformations: []QGraphicsTransform `
+    /// ` _transformations: []QGraphicsTransform `
     ///
-    pub fn SetTransformations(self: QGraphicsSvgItem, transformations: []QGraphicsTransform) void {
+    pub fn setTransformations(self: QGraphicsSvgItem, _transformations: []QGraphicsTransform) void {
         const transformations_list = qtc.libqt_list{
-            .len = transformations.len,
-            .data = @ptrCast(transformations.ptr),
+            .len = _transformations.len,
+            .data = @ptrCast(_transformations.ptr),
         };
         qtc.QGraphicsItem_SetTransformations(@ptrCast(self.ptr), transformations_list);
     }
+
+    /// ### DEPRECATED: Use `transformOriginPoint` instead
+    ///
+    pub const TransformOriginPoint = transformOriginPoint;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2914,9 +3700,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn TransformOriginPoint(self: QGraphicsSvgItem) QPointF {
+    pub fn transformOriginPoint(self: QGraphicsSvgItem) QPointF {
         return .{ .ptr = qtc.QGraphicsItem_TransformOriginPoint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setTransformOriginPoint` instead
+    ///
+    pub const SetTransformOriginPoint = setTransformOriginPoint;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2928,10 +3718,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` origin: QPointF `
     ///
-    pub fn SetTransformOriginPoint(self: QGraphicsSvgItem, origin: anytype) void {
+    pub fn setTransformOriginPoint(self: QGraphicsSvgItem, origin: anytype) void {
         comptime _ = @TypeOf(origin)._is_QPointF;
         qtc.QGraphicsItem_SetTransformOriginPoint(@ptrCast(self.ptr), @ptrCast(origin.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTransformOriginPoint2` instead
+    ///
+    pub const SetTransformOriginPoint2 = setTransformOriginPoint2;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2945,9 +3739,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` ay: f64 `
     ///
-    pub fn SetTransformOriginPoint2(self: QGraphicsSvgItem, ax: f64, ay: f64) void {
+    pub fn setTransformOriginPoint2(self: QGraphicsSvgItem, ax: f64, ay: f64) void {
         qtc.QGraphicsItem_SetTransformOriginPoint2(@ptrCast(self.ptr), @bitCast(ax), @bitCast(ay));
     }
+
+    /// ### DEPRECATED: Use `zValue` instead
+    ///
+    pub const ZValue = zValue;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2957,9 +3755,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn ZValue(self: QGraphicsSvgItem) f64 {
+    pub fn zValue(self: QGraphicsSvgItem) f64 {
         return qtc.QGraphicsItem_ZValue(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setZValue` instead
+    ///
+    pub const SetZValue = setZValue;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2971,9 +3773,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` z: f64 `
     ///
-    pub fn SetZValue(self: QGraphicsSvgItem, z: f64) void {
+    pub fn setZValue(self: QGraphicsSvgItem, z: f64) void {
         qtc.QGraphicsItem_SetZValue(@ptrCast(self.ptr), @bitCast(z));
     }
+
+    /// ### DEPRECATED: Use `stackBefore` instead
+    ///
+    pub const StackBefore = stackBefore;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2985,10 +3791,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` sibling: QGraphicsItem `
     ///
-    pub fn StackBefore(self: QGraphicsSvgItem, sibling: anytype) void {
+    pub fn stackBefore(self: QGraphicsSvgItem, sibling: anytype) void {
         comptime _ = @TypeOf(sibling)._is_QGraphicsItem;
         qtc.QGraphicsItem_StackBefore(@ptrCast(self.ptr), @ptrCast(sibling.ptr));
     }
+
+    /// ### DEPRECATED: Use `childrenBoundingRect` instead
+    ///
+    pub const ChildrenBoundingRect = childrenBoundingRect;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2998,9 +3808,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn ChildrenBoundingRect(self: QGraphicsSvgItem) QRectF {
+    pub fn childrenBoundingRect(self: QGraphicsSvgItem) QRectF {
         return .{ .ptr = qtc.QGraphicsItem_ChildrenBoundingRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `sceneBoundingRect` instead
+    ///
+    pub const SceneBoundingRect = sceneBoundingRect;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3010,9 +3824,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn SceneBoundingRect(self: QGraphicsSvgItem) QRectF {
+    pub fn sceneBoundingRect(self: QGraphicsSvgItem) QRectF {
         return .{ .ptr = qtc.QGraphicsItem_SceneBoundingRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isClipped` instead
+    ///
+    pub const IsClipped = isClipped;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3022,9 +3840,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn IsClipped(self: QGraphicsSvgItem) bool {
+    pub fn isClipped(self: QGraphicsSvgItem) bool {
         return qtc.QGraphicsItem_IsClipped(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clipPath` instead
+    ///
+    pub const ClipPath = clipPath;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3034,9 +3856,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn ClipPath(self: QGraphicsSvgItem) QPainterPath {
+    pub fn clipPath(self: QGraphicsSvgItem) QPainterPath {
         return .{ .ptr = qtc.QGraphicsItem_ClipPath(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `collidingItems` instead
+    ///
+    pub const CollidingItems = collidingItems;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3048,27 +3874,19 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CollidingItems(self: QGraphicsSvgItem, allocator: std.mem.Allocator) []QGraphicsItem {
+    pub fn collidingItems(self: QGraphicsSvgItem, allocator: std.mem.Allocator) []QGraphicsItem {
         const _arr: qtc.libqt_list = qtc.QGraphicsItem_CollidingItems(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("QGraphicsSvgItem.CollidingItems: Memory allocation failed");
-        const _data: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("QGraphicsSvgItem.collidingItems: Memory allocation failed");
+        const _data_val: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
-    /// Inherited from QGraphicsItem
+    /// ### DEPRECATED: Use `isObscured` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isObscured)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsSvgItem `
-    ///
-    pub fn IsObscured(self: QGraphicsSvgItem) bool {
-        return qtc.QGraphicsItem_IsObscured(@ptrCast(self.ptr));
-    }
+    pub const IsObscured = isObscured;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3078,17 +3896,37 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` x: f64 `
+    pub fn isObscured(self: QGraphicsSvgItem) bool {
+        return qtc.QGraphicsItem_IsObscured(@ptrCast(self.ptr));
+    }
+
+    /// ### DEPRECATED: Use `isObscured2` instead
     ///
-    /// ` y: f64 `
+    pub const IsObscured2 = isObscured2;
+
+    /// Inherited from QGraphicsItem
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isObscured)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGraphicsSvgItem `
+    ///
+    /// ` _x: f64 `
+    ///
+    /// ` _y: f64 `
     ///
     /// ` w: f64 `
     ///
     /// ` h: f64 `
     ///
-    pub fn IsObscured2(self: QGraphicsSvgItem, x: f64, y: f64, w: f64, h: f64) bool {
-        return qtc.QGraphicsItem_IsObscured2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn isObscured2(self: QGraphicsSvgItem, _x: f64, _y: f64, w: f64, h: f64) bool {
+        return qtc.QGraphicsItem_IsObscured2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `boundingRegion` instead
+    ///
+    pub const BoundingRegion = boundingRegion;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3100,10 +3938,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` itemToDeviceTransform: QTransform `
     ///
-    pub fn BoundingRegion(self: QGraphicsSvgItem, itemToDeviceTransform: anytype) QRegion {
+    pub fn boundingRegion(self: QGraphicsSvgItem, itemToDeviceTransform: anytype) QRegion {
         comptime _ = @TypeOf(itemToDeviceTransform)._is_QTransform;
         return .{ .ptr = qtc.QGraphicsItem_BoundingRegion(@ptrCast(self.ptr), @ptrCast(itemToDeviceTransform.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `boundingRegionGranularity` instead
+    ///
+    pub const BoundingRegionGranularity = boundingRegionGranularity;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3113,9 +3955,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn BoundingRegionGranularity(self: QGraphicsSvgItem) f64 {
+    pub fn boundingRegionGranularity(self: QGraphicsSvgItem) f64 {
         return qtc.QGraphicsItem_BoundingRegionGranularity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBoundingRegionGranularity` instead
+    ///
+    pub const SetBoundingRegionGranularity = setBoundingRegionGranularity;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3127,21 +3973,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` granularity: f64 `
     ///
-    pub fn SetBoundingRegionGranularity(self: QGraphicsSvgItem, granularity: f64) void {
+    pub fn setBoundingRegionGranularity(self: QGraphicsSvgItem, granularity: f64) void {
         qtc.QGraphicsItem_SetBoundingRegionGranularity(@ptrCast(self.ptr), @bitCast(granularity));
     }
 
-    /// Inherited from QGraphicsItem
+    /// ### DEPRECATED: Use `update` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#update)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsSvgItem `
-    ///
-    pub fn Update(self: QGraphicsSvgItem) void {
-        qtc.QGraphicsItem_Update(@ptrCast(self.ptr));
-    }
+    pub const Update = update;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3151,17 +3989,37 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` x: f64 `
+    pub fn update(self: QGraphicsSvgItem) void {
+        qtc.QGraphicsItem_Update(@ptrCast(self.ptr));
+    }
+
+    /// ### DEPRECATED: Use `update2` instead
     ///
-    /// ` y: f64 `
+    pub const Update2 = update2;
+
+    /// Inherited from QGraphicsItem
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#update)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGraphicsSvgItem `
+    ///
+    /// ` _x: f64 `
+    ///
+    /// ` _y: f64 `
     ///
     /// ` width: f64 `
     ///
     /// ` height: f64 `
     ///
-    pub fn Update2(self: QGraphicsSvgItem, x: f64, y: f64, width: f64, height: f64) void {
-        qtc.QGraphicsItem_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(width), @bitCast(height));
+    pub fn update2(self: QGraphicsSvgItem, _x: f64, _y: f64, width: f64, height: f64) void {
+        qtc.QGraphicsItem_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(width), @bitCast(height));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3175,9 +4033,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` dy: f64 `
     ///
-    pub fn Scroll(self: QGraphicsSvgItem, dx: f64, dy: f64) void {
+    pub fn scroll(self: QGraphicsSvgItem, dx: f64, dy: f64) void {
         qtc.QGraphicsItem_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `mapToItem` instead
+    ///
+    pub const MapToItem = mapToItem;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3191,12 +4053,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` point: QPointF `
     ///
-    pub fn MapToItem(self: QGraphicsSvgItem, item: anytype, point: anytype) QPointF {
+    pub fn mapToItem(self: QGraphicsSvgItem, item: anytype, point: anytype) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
         comptime _ = @TypeOf(point)._is_QPointF;
         return .{ .ptr = qtc.QGraphicsItem_MapToItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(point.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent)
@@ -3207,10 +4073,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` point: QPointF `
     ///
-    pub fn MapToParent(self: QGraphicsSvgItem, point: anytype) QPointF {
+    pub fn mapToParent(self: QGraphicsSvgItem, point: anytype) QPointF {
         comptime _ = @TypeOf(point)._is_QPointF;
         return .{ .ptr = qtc.QGraphicsItem_MapToParent(@ptrCast(self.ptr), @ptrCast(point.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapToScene` instead
+    ///
+    pub const MapToScene = mapToScene;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3222,10 +4092,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` point: QPointF `
     ///
-    pub fn MapToScene(self: QGraphicsSvgItem, point: anytype) QPointF {
+    pub fn mapToScene(self: QGraphicsSvgItem, point: anytype) QPointF {
         comptime _ = @TypeOf(point)._is_QPointF;
         return .{ .ptr = qtc.QGraphicsItem_MapToScene(@ptrCast(self.ptr), @ptrCast(point.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapRectToItem` instead
+    ///
+    pub const MapRectToItem = mapRectToItem;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3239,12 +4113,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` rect: QRectF `
     ///
-    pub fn MapRectToItem(self: QGraphicsSvgItem, item: anytype, rect: anytype) QRectF {
+    pub fn mapRectToItem(self: QGraphicsSvgItem, item: anytype, rect: anytype) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
         comptime _ = @TypeOf(rect)._is_QRectF;
         return .{ .ptr = qtc.QGraphicsItem_MapRectToItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(rect.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapRectToParent` instead
+    ///
+    pub const MapRectToParent = mapRectToParent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectToParent)
@@ -3255,10 +4133,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` rect: QRectF `
     ///
-    pub fn MapRectToParent(self: QGraphicsSvgItem, rect: anytype) QRectF {
+    pub fn mapRectToParent(self: QGraphicsSvgItem, rect: anytype) QRectF {
         comptime _ = @TypeOf(rect)._is_QRectF;
         return .{ .ptr = qtc.QGraphicsItem_MapRectToParent(@ptrCast(self.ptr), @ptrCast(rect.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapRectToScene` instead
+    ///
+    pub const MapRectToScene = mapRectToScene;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3270,10 +4152,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` rect: QRectF `
     ///
-    pub fn MapRectToScene(self: QGraphicsSvgItem, rect: anytype) QRectF {
+    pub fn mapRectToScene(self: QGraphicsSvgItem, rect: anytype) QRectF {
         comptime _ = @TypeOf(rect)._is_QRectF;
         return .{ .ptr = qtc.QGraphicsItem_MapRectToScene(@ptrCast(self.ptr), @ptrCast(rect.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapToItem4` instead
+    ///
+    pub const MapToItem4 = mapToItem4;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3287,11 +4173,15 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` path: QPainterPath `
     ///
-    pub fn MapToItem4(self: QGraphicsSvgItem, item: anytype, path: anytype) QPainterPath {
+    pub fn mapToItem4(self: QGraphicsSvgItem, item: anytype, path: anytype) QPainterPath {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
         comptime _ = @TypeOf(path)._is_QPainterPath;
         return .{ .ptr = qtc.QGraphicsItem_MapToItem4(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(path.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapToParent4` instead
+    ///
+    pub const MapToParent4 = mapToParent4;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3303,10 +4193,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` path: QPainterPath `
     ///
-    pub fn MapToParent4(self: QGraphicsSvgItem, path: anytype) QPainterPath {
+    pub fn mapToParent4(self: QGraphicsSvgItem, path: anytype) QPainterPath {
         comptime _ = @TypeOf(path)._is_QPainterPath;
         return .{ .ptr = qtc.QGraphicsItem_MapToParent4(@ptrCast(self.ptr), @ptrCast(path.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapToScene4` instead
+    ///
+    pub const MapToScene4 = mapToScene4;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3318,10 +4212,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` path: QPainterPath `
     ///
-    pub fn MapToScene4(self: QGraphicsSvgItem, path: anytype) QPainterPath {
+    pub fn mapToScene4(self: QGraphicsSvgItem, path: anytype) QPainterPath {
         comptime _ = @TypeOf(path)._is_QPainterPath;
         return .{ .ptr = qtc.QGraphicsItem_MapToScene4(@ptrCast(self.ptr), @ptrCast(path.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromItem` instead
+    ///
+    pub const MapFromItem = mapFromItem;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3335,11 +4233,15 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` point: QPointF `
     ///
-    pub fn MapFromItem(self: QGraphicsSvgItem, item: anytype, point: anytype) QPointF {
+    pub fn mapFromItem(self: QGraphicsSvgItem, item: anytype, point: anytype) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
         comptime _ = @TypeOf(point)._is_QPointF;
         return .{ .ptr = qtc.QGraphicsItem_MapFromItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(point.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3351,10 +4253,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` point: QPointF `
     ///
-    pub fn MapFromParent(self: QGraphicsSvgItem, point: anytype) QPointF {
+    pub fn mapFromParent(self: QGraphicsSvgItem, point: anytype) QPointF {
         comptime _ = @TypeOf(point)._is_QPointF;
         return .{ .ptr = qtc.QGraphicsItem_MapFromParent(@ptrCast(self.ptr), @ptrCast(point.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromScene` instead
+    ///
+    pub const MapFromScene = mapFromScene;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3366,10 +4272,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` point: QPointF `
     ///
-    pub fn MapFromScene(self: QGraphicsSvgItem, point: anytype) QPointF {
+    pub fn mapFromScene(self: QGraphicsSvgItem, point: anytype) QPointF {
         comptime _ = @TypeOf(point)._is_QPointF;
         return .{ .ptr = qtc.QGraphicsItem_MapFromScene(@ptrCast(self.ptr), @ptrCast(point.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapRectFromItem` instead
+    ///
+    pub const MapRectFromItem = mapRectFromItem;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3383,11 +4293,15 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` rect: QRectF `
     ///
-    pub fn MapRectFromItem(self: QGraphicsSvgItem, item: anytype, rect: anytype) QRectF {
+    pub fn mapRectFromItem(self: QGraphicsSvgItem, item: anytype, rect: anytype) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
         comptime _ = @TypeOf(rect)._is_QRectF;
         return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(rect.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapRectFromParent` instead
+    ///
+    pub const MapRectFromParent = mapRectFromParent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3399,10 +4313,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` rect: QRectF `
     ///
-    pub fn MapRectFromParent(self: QGraphicsSvgItem, rect: anytype) QRectF {
+    pub fn mapRectFromParent(self: QGraphicsSvgItem, rect: anytype) QRectF {
         comptime _ = @TypeOf(rect)._is_QRectF;
         return .{ .ptr = qtc.QGraphicsItem_MapRectFromParent(@ptrCast(self.ptr), @ptrCast(rect.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapRectFromScene` instead
+    ///
+    pub const MapRectFromScene = mapRectFromScene;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3414,10 +4332,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` rect: QRectF `
     ///
-    pub fn MapRectFromScene(self: QGraphicsSvgItem, rect: anytype) QRectF {
+    pub fn mapRectFromScene(self: QGraphicsSvgItem, rect: anytype) QRectF {
         comptime _ = @TypeOf(rect)._is_QRectF;
         return .{ .ptr = qtc.QGraphicsItem_MapRectFromScene(@ptrCast(self.ptr), @ptrCast(rect.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromItem4` instead
+    ///
+    pub const MapFromItem4 = mapFromItem4;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3431,11 +4353,15 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` path: QPainterPath `
     ///
-    pub fn MapFromItem4(self: QGraphicsSvgItem, item: anytype, path: anytype) QPainterPath {
+    pub fn mapFromItem4(self: QGraphicsSvgItem, item: anytype, path: anytype) QPainterPath {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
         comptime _ = @TypeOf(path)._is_QPainterPath;
         return .{ .ptr = qtc.QGraphicsItem_MapFromItem4(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(path.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent4` instead
+    ///
+    pub const MapFromParent4 = mapFromParent4;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3447,10 +4373,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` path: QPainterPath `
     ///
-    pub fn MapFromParent4(self: QGraphicsSvgItem, path: anytype) QPainterPath {
+    pub fn mapFromParent4(self: QGraphicsSvgItem, path: anytype) QPainterPath {
         comptime _ = @TypeOf(path)._is_QPainterPath;
         return .{ .ptr = qtc.QGraphicsItem_MapFromParent4(@ptrCast(self.ptr), @ptrCast(path.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromScene4` instead
+    ///
+    pub const MapFromScene4 = mapFromScene4;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3462,10 +4392,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` path: QPainterPath `
     ///
-    pub fn MapFromScene4(self: QGraphicsSvgItem, path: anytype) QPainterPath {
+    pub fn mapFromScene4(self: QGraphicsSvgItem, path: anytype) QPainterPath {
         comptime _ = @TypeOf(path)._is_QPainterPath;
         return .{ .ptr = qtc.QGraphicsItem_MapFromScene4(@ptrCast(self.ptr), @ptrCast(path.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapToItem5` instead
+    ///
+    pub const MapToItem5 = mapToItem5;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3477,14 +4411,18 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` item: QGraphicsItem `
     ///
-    /// ` x: f64 `
+    /// ` _x: f64 `
     ///
-    /// ` y: f64 `
+    /// ` _y: f64 `
     ///
-    pub fn MapToItem5(self: QGraphicsSvgItem, item: anytype, x: f64, y: f64) QPointF {
+    pub fn mapToItem5(self: QGraphicsSvgItem, item: anytype, _x: f64, _y: f64) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapToItem5(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(x), @bitCast(y)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapToItem5(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `mapToParent5` instead
+    ///
+    pub const MapToParent5 = mapToParent5;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3494,13 +4432,17 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` x: f64 `
+    /// ` _x: f64 `
     ///
-    /// ` y: f64 `
+    /// ` _y: f64 `
     ///
-    pub fn MapToParent5(self: QGraphicsSvgItem, x: f64, y: f64) QPointF {
-        return .{ .ptr = qtc.QGraphicsItem_MapToParent5(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn mapToParent5(self: QGraphicsSvgItem, _x: f64, _y: f64) QPointF {
+        return .{ .ptr = qtc.QGraphicsItem_MapToParent5(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `mapToScene5` instead
+    ///
+    pub const MapToScene5 = mapToScene5;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3510,13 +4452,17 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` x: f64 `
+    /// ` _x: f64 `
     ///
-    /// ` y: f64 `
+    /// ` _y: f64 `
     ///
-    pub fn MapToScene5(self: QGraphicsSvgItem, x: f64, y: f64) QPointF {
-        return .{ .ptr = qtc.QGraphicsItem_MapToScene5(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn mapToScene5(self: QGraphicsSvgItem, _x: f64, _y: f64) QPointF {
+        return .{ .ptr = qtc.QGraphicsItem_MapToScene5(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `mapRectToItem2` instead
+    ///
+    pub const MapRectToItem2 = mapRectToItem2;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3528,18 +4474,22 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` item: QGraphicsItem `
     ///
-    /// ` x: f64 `
+    /// ` _x: f64 `
     ///
-    /// ` y: f64 `
+    /// ` _y: f64 `
     ///
     /// ` w: f64 `
     ///
     /// ` h: f64 `
     ///
-    pub fn MapRectToItem2(self: QGraphicsSvgItem, item: anytype, x: f64, y: f64, w: f64, h: f64) QRectF {
+    pub fn mapRectToItem2(self: QGraphicsSvgItem, item: anytype, _x: f64, _y: f64, w: f64, h: f64) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
     }
+
+    /// ### DEPRECATED: Use `mapRectToParent2` instead
+    ///
+    pub const MapRectToParent2 = mapRectToParent2;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3549,17 +4499,21 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` x: f64 `
+    /// ` _x: f64 `
     ///
-    /// ` y: f64 `
+    /// ` _y: f64 `
     ///
     /// ` w: f64 `
     ///
     /// ` h: f64 `
     ///
-    pub fn MapRectToParent2(self: QGraphicsSvgItem, x: f64, y: f64, w: f64, h: f64) QRectF {
-        return .{ .ptr = qtc.QGraphicsItem_MapRectToParent2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h)) };
+    pub fn mapRectToParent2(self: QGraphicsSvgItem, _x: f64, _y: f64, w: f64, h: f64) QRectF {
+        return .{ .ptr = qtc.QGraphicsItem_MapRectToParent2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
     }
+
+    /// ### DEPRECATED: Use `mapRectToScene2` instead
+    ///
+    pub const MapRectToScene2 = mapRectToScene2;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3569,17 +4523,21 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` x: f64 `
+    /// ` _x: f64 `
     ///
-    /// ` y: f64 `
+    /// ` _y: f64 `
     ///
     /// ` w: f64 `
     ///
     /// ` h: f64 `
     ///
-    pub fn MapRectToScene2(self: QGraphicsSvgItem, x: f64, y: f64, w: f64, h: f64) QRectF {
-        return .{ .ptr = qtc.QGraphicsItem_MapRectToScene2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h)) };
+    pub fn mapRectToScene2(self: QGraphicsSvgItem, _x: f64, _y: f64, w: f64, h: f64) QRectF {
+        return .{ .ptr = qtc.QGraphicsItem_MapRectToScene2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromItem5` instead
+    ///
+    pub const MapFromItem5 = mapFromItem5;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3591,14 +4549,18 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` item: QGraphicsItem `
     ///
-    /// ` x: f64 `
+    /// ` _x: f64 `
     ///
-    /// ` y: f64 `
+    /// ` _y: f64 `
     ///
-    pub fn MapFromItem5(self: QGraphicsSvgItem, item: anytype, x: f64, y: f64) QPointF {
+    pub fn mapFromItem5(self: QGraphicsSvgItem, item: anytype, _x: f64, _y: f64) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapFromItem5(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(x), @bitCast(y)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapFromItem5(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent5` instead
+    ///
+    pub const MapFromParent5 = mapFromParent5;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3608,13 +4570,17 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` x: f64 `
+    /// ` _x: f64 `
     ///
-    /// ` y: f64 `
+    /// ` _y: f64 `
     ///
-    pub fn MapFromParent5(self: QGraphicsSvgItem, x: f64, y: f64) QPointF {
-        return .{ .ptr = qtc.QGraphicsItem_MapFromParent5(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn mapFromParent5(self: QGraphicsSvgItem, _x: f64, _y: f64) QPointF {
+        return .{ .ptr = qtc.QGraphicsItem_MapFromParent5(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromScene5` instead
+    ///
+    pub const MapFromScene5 = mapFromScene5;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3624,13 +4590,17 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` x: f64 `
+    /// ` _x: f64 `
     ///
-    /// ` y: f64 `
+    /// ` _y: f64 `
     ///
-    pub fn MapFromScene5(self: QGraphicsSvgItem, x: f64, y: f64) QPointF {
-        return .{ .ptr = qtc.QGraphicsItem_MapFromScene5(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn mapFromScene5(self: QGraphicsSvgItem, _x: f64, _y: f64) QPointF {
+        return .{ .ptr = qtc.QGraphicsItem_MapFromScene5(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `mapRectFromItem2` instead
+    ///
+    pub const MapRectFromItem2 = mapRectFromItem2;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3642,18 +4612,22 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` item: QGraphicsItem `
     ///
-    /// ` x: f64 `
+    /// ` _x: f64 `
     ///
-    /// ` y: f64 `
+    /// ` _y: f64 `
     ///
     /// ` w: f64 `
     ///
     /// ` h: f64 `
     ///
-    pub fn MapRectFromItem2(self: QGraphicsSvgItem, item: anytype, x: f64, y: f64, w: f64, h: f64) QRectF {
+    pub fn mapRectFromItem2(self: QGraphicsSvgItem, item: anytype, _x: f64, _y: f64, w: f64, h: f64) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
     }
+
+    /// ### DEPRECATED: Use `mapRectFromParent2` instead
+    ///
+    pub const MapRectFromParent2 = mapRectFromParent2;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3663,17 +4637,21 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` x: f64 `
+    /// ` _x: f64 `
     ///
-    /// ` y: f64 `
+    /// ` _y: f64 `
     ///
     /// ` w: f64 `
     ///
     /// ` h: f64 `
     ///
-    pub fn MapRectFromParent2(self: QGraphicsSvgItem, x: f64, y: f64, w: f64, h: f64) QRectF {
-        return .{ .ptr = qtc.QGraphicsItem_MapRectFromParent2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h)) };
+    pub fn mapRectFromParent2(self: QGraphicsSvgItem, _x: f64, _y: f64, w: f64, h: f64) QRectF {
+        return .{ .ptr = qtc.QGraphicsItem_MapRectFromParent2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
     }
+
+    /// ### DEPRECATED: Use `mapRectFromScene2` instead
+    ///
+    pub const MapRectFromScene2 = mapRectFromScene2;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3683,17 +4661,21 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` x: f64 `
+    /// ` _x: f64 `
     ///
-    /// ` y: f64 `
+    /// ` _y: f64 `
     ///
     /// ` w: f64 `
     ///
     /// ` h: f64 `
     ///
-    pub fn MapRectFromScene2(self: QGraphicsSvgItem, x: f64, y: f64, w: f64, h: f64) QRectF {
-        return .{ .ptr = qtc.QGraphicsItem_MapRectFromScene2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h)) };
+    pub fn mapRectFromScene2(self: QGraphicsSvgItem, _x: f64, _y: f64, w: f64, h: f64) QRectF {
+        return .{ .ptr = qtc.QGraphicsItem_MapRectFromScene2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3705,10 +4687,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` child: QGraphicsItem `
     ///
-    pub fn IsAncestorOf(self: QGraphicsSvgItem, child: anytype) bool {
+    pub fn isAncestorOf(self: QGraphicsSvgItem, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QGraphicsItem;
         return qtc.QGraphicsItem_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `commonAncestorItem` instead
+    ///
+    pub const CommonAncestorItem = commonAncestorItem;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3720,10 +4706,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` other: QGraphicsItem `
     ///
-    pub fn CommonAncestorItem(self: QGraphicsSvgItem, other: anytype) QGraphicsItem {
+    pub fn commonAncestorItem(self: QGraphicsSvgItem, other: anytype) QGraphicsItem {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
         return .{ .ptr = qtc.QGraphicsItem_CommonAncestorItem(@ptrCast(self.ptr), @ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isUnderMouse` instead
+    ///
+    pub const IsUnderMouse = isUnderMouse;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3733,9 +4723,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn IsUnderMouse(self: QGraphicsSvgItem) bool {
+    pub fn isUnderMouse(self: QGraphicsSvgItem) bool {
         return qtc.QGraphicsItem_IsUnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `data` instead
+    ///
+    pub const Data = data;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3747,9 +4741,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` key: i32 `
     ///
-    pub fn Data(self: QGraphicsSvgItem, key: i32) QVariant {
+    pub fn data(self: QGraphicsSvgItem, key: i32) QVariant {
         return .{ .ptr = qtc.QGraphicsItem_Data(@ptrCast(self.ptr), @bitCast(key)) };
     }
+
+    /// ### DEPRECATED: Use `setData` instead
+    ///
+    pub const SetData = setData;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3763,10 +4761,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetData(self: QGraphicsSvgItem, key: i32, value: anytype) void {
+    pub fn setData(self: QGraphicsSvgItem, key: i32, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QVariant;
         qtc.QGraphicsItem_SetData(@ptrCast(self.ptr), @bitCast(key), @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3780,9 +4782,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: QGraphicsSvgItem) i32 {
+    pub fn inputMethodHints(self: QGraphicsSvgItem) i32 {
         return qtc.QGraphicsItem_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3794,9 +4800,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: QGraphicsSvgItem, hints: i32) void {
+    pub fn setInputMethodHints(self: QGraphicsSvgItem, hints: i32) void {
         qtc.QGraphicsItem_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `installSceneEventFilter` instead
+    ///
+    pub const InstallSceneEventFilter = installSceneEventFilter;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3808,10 +4818,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` filterItem: QGraphicsItem `
     ///
-    pub fn InstallSceneEventFilter(self: QGraphicsSvgItem, filterItem: anytype) void {
+    pub fn installSceneEventFilter(self: QGraphicsSvgItem, filterItem: anytype) void {
         comptime _ = @TypeOf(filterItem)._is_QGraphicsItem;
         qtc.QGraphicsItem_InstallSceneEventFilter(@ptrCast(self.ptr), @ptrCast(filterItem.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeSceneEventFilter` instead
+    ///
+    pub const RemoveSceneEventFilter = removeSceneEventFilter;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3823,10 +4837,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` filterItem: QGraphicsItem `
     ///
-    pub fn RemoveSceneEventFilter(self: QGraphicsSvgItem, filterItem: anytype) void {
+    pub fn removeSceneEventFilter(self: QGraphicsSvgItem, filterItem: anytype) void {
         comptime _ = @TypeOf(filterItem)._is_QGraphicsItem;
         qtc.QGraphicsItem_RemoveSceneEventFilter(@ptrCast(self.ptr), @ptrCast(filterItem.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFlag2` instead
+    ///
+    pub const SetFlag2 = setFlag2;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3840,9 +4858,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetFlag2(self: QGraphicsSvgItem, flag: i32, enabled: bool) void {
+    pub fn setFlag2(self: QGraphicsSvgItem, flag: i32, enabled: bool) void {
         qtc.QGraphicsItem_SetFlag2(@ptrCast(self.ptr), @bitCast(flag), enabled);
     }
+
+    /// ### DEPRECATED: Use `setCacheMode2` instead
+    ///
+    pub const SetCacheMode2 = setCacheMode2;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3856,10 +4878,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` cacheSize: QSize `
     ///
-    pub fn SetCacheMode2(self: QGraphicsSvgItem, mode: i32, cacheSize: anytype) void {
+    pub fn setCacheMode2(self: QGraphicsSvgItem, mode: i32, cacheSize: anytype) void {
         comptime _ = @TypeOf(cacheSize)._is_QSize;
         qtc.QGraphicsItem_SetCacheMode2(@ptrCast(self.ptr), @bitCast(mode), @ptrCast(cacheSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `isBlockedByModalPanel1` instead
+    ///
+    pub const IsBlockedByModalPanel1 = isBlockedByModalPanel1;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3871,9 +4897,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` blockingPanel: *QGraphicsItem.ptr `
     ///
-    pub fn IsBlockedByModalPanel1(self: QGraphicsSvgItem, blockingPanel: *?*anyopaque) bool {
+    pub fn isBlockedByModalPanel1(self: QGraphicsSvgItem, blockingPanel: *?*anyopaque) bool {
         return qtc.QGraphicsItem_IsBlockedByModalPanel1(@ptrCast(self.ptr), @ptrCast(blockingPanel));
     }
+
+    /// ### DEPRECATED: Use `setFocus1` instead
+    ///
+    pub const SetFocus1 = setFocus1;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3885,9 +4915,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` focusReason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus1(self: QGraphicsSvgItem, focusReason: i32) void {
+    pub fn setFocus1(self: QGraphicsSvgItem, focusReason: i32) void {
         qtc.QGraphicsItem_SetFocus1(@ptrCast(self.ptr), @bitCast(focusReason));
     }
+
+    /// ### DEPRECATED: Use `ensureVisible1` instead
+    ///
+    pub const EnsureVisible1 = ensureVisible1;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3899,11 +4933,15 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` rect: QRectF `
     ///
-    pub fn EnsureVisible1(self: QGraphicsSvgItem, rect: anytype) void {
+    pub fn ensureVisible1(self: QGraphicsSvgItem, rect: anytype) void {
         comptime _ = @TypeOf(rect)._is_QRectF;
         qtc.QGraphicsItem_EnsureVisible1(@ptrCast(self.ptr), @ptrCast(rect.ptr));
     }
 
+    /// ### DEPRECATED: Use `ensureVisible22` instead
+    ///
+    pub const EnsureVisible22 = ensureVisible22;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
@@ -3916,11 +4954,15 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` xmargin: i32 `
     ///
-    pub fn EnsureVisible22(self: QGraphicsSvgItem, rect: anytype, xmargin: i32) void {
+    pub fn ensureVisible22(self: QGraphicsSvgItem, rect: anytype, xmargin: i32) void {
         comptime _ = @TypeOf(rect)._is_QRectF;
         qtc.QGraphicsItem_EnsureVisible22(@ptrCast(self.ptr), @ptrCast(rect.ptr), @bitCast(xmargin));
     }
 
+    /// ### DEPRECATED: Use `ensureVisible3` instead
+    ///
+    pub const EnsureVisible3 = ensureVisible3;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
@@ -3935,10 +4977,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` ymargin: i32 `
     ///
-    pub fn EnsureVisible3(self: QGraphicsSvgItem, rect: anytype, xmargin: i32, ymargin: i32) void {
+    pub fn ensureVisible3(self: QGraphicsSvgItem, rect: anytype, xmargin: i32, ymargin: i32) void {
         comptime _ = @TypeOf(rect)._is_QRectF;
         qtc.QGraphicsItem_EnsureVisible3(@ptrCast(self.ptr), @ptrCast(rect.ptr), @bitCast(xmargin), @bitCast(ymargin));
     }
+
+    /// ### DEPRECATED: Use `ensureVisible5` instead
+    ///
+    pub const EnsureVisible5 = ensureVisible5;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3948,9 +4994,9 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` x: f64 `
+    /// ` _x: f64 `
     ///
-    /// ` y: f64 `
+    /// ` _y: f64 `
     ///
     /// ` w: f64 `
     ///
@@ -3958,9 +5004,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` xmargin: i32 `
     ///
-    pub fn EnsureVisible5(self: QGraphicsSvgItem, x: f64, y: f64, w: f64, h: f64, xmargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible5(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(xmargin));
+    pub fn ensureVisible5(self: QGraphicsSvgItem, _x: f64, _y: f64, w: f64, h: f64, xmargin: i32) void {
+        qtc.QGraphicsItem_EnsureVisible5(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h), @bitCast(xmargin));
     }
+
+    /// ### DEPRECATED: Use `ensureVisible6` instead
+    ///
+    pub const EnsureVisible6 = ensureVisible6;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3970,9 +5020,9 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` x: f64 `
+    /// ` _x: f64 `
     ///
-    /// ` y: f64 `
+    /// ` _y: f64 `
     ///
     /// ` w: f64 `
     ///
@@ -3982,9 +5032,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` ymargin: i32 `
     ///
-    pub fn EnsureVisible6(self: QGraphicsSvgItem, x: f64, y: f64, w: f64, h: f64, xmargin: i32, ymargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible6(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(xmargin), @bitCast(ymargin));
+    pub fn ensureVisible6(self: QGraphicsSvgItem, _x: f64, _y: f64, w: f64, h: f64, xmargin: i32, ymargin: i32) void {
+        qtc.QGraphicsItem_EnsureVisible6(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h), @bitCast(xmargin), @bitCast(ymargin));
     }
+
+    /// ### DEPRECATED: Use `itemTransform2` instead
+    ///
+    pub const ItemTransform2 = itemTransform2;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3998,10 +5052,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` ok: *bool `
     ///
-    pub fn ItemTransform2(self: QGraphicsSvgItem, other: anytype, ok: *bool) QTransform {
+    pub fn itemTransform2(self: QGraphicsSvgItem, other: anytype, ok: *bool) QTransform {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
         return .{ .ptr = qtc.QGraphicsItem_ItemTransform2(@ptrCast(self.ptr), @ptrCast(other.ptr), @ptrCast(ok)) };
     }
+
+    /// ### DEPRECATED: Use `setTransform2` instead
+    ///
+    pub const SetTransform2 = setTransform2;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4015,10 +5073,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` combine: bool `
     ///
-    pub fn SetTransform2(self: QGraphicsSvgItem, matrix: anytype, combine: bool) void {
+    pub fn setTransform2(self: QGraphicsSvgItem, matrix: anytype, combine: bool) void {
         comptime _ = @TypeOf(matrix)._is_QTransform;
         qtc.QGraphicsItem_SetTransform2(@ptrCast(self.ptr), @ptrCast(matrix.ptr), combine);
     }
+
+    /// ### DEPRECATED: Use `collidingItems1` instead
+    ///
+    pub const CollidingItems1 = collidingItems1;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4032,15 +5094,19 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
-    pub fn CollidingItems1(self: QGraphicsSvgItem, allocator: std.mem.Allocator, mode: i32) []QGraphicsItem {
+    pub fn collidingItems1(self: QGraphicsSvgItem, allocator: std.mem.Allocator, mode: i32) []QGraphicsItem {
         const _arr: qtc.libqt_list = qtc.QGraphicsItem_CollidingItems1(@ptrCast(self.ptr), @bitCast(mode));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("QGraphicsSvgItem.CollidingItems1: Memory allocation failed");
-        const _data: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("QGraphicsSvgItem.collidingItems1: Memory allocation failed");
+        const _data_val: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isObscured1` instead
+    ///
+    pub const IsObscured1 = isObscured1;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4052,10 +5118,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` rect: QRectF `
     ///
-    pub fn IsObscured1(self: QGraphicsSvgItem, rect: anytype) bool {
+    pub fn isObscured1(self: QGraphicsSvgItem, rect: anytype) bool {
         comptime _ = @TypeOf(rect)._is_QRectF;
         return qtc.QGraphicsItem_IsObscured1(@ptrCast(self.ptr), @ptrCast(rect.ptr));
     }
+
+    /// ### DEPRECATED: Use `update1` instead
+    ///
+    pub const Update1 = update1;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4067,10 +5137,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` rect: QRectF `
     ///
-    pub fn Update1(self: QGraphicsSvgItem, rect: anytype) void {
+    pub fn update1(self: QGraphicsSvgItem, rect: anytype) void {
         comptime _ = @TypeOf(rect)._is_QRectF;
         qtc.QGraphicsItem_Update1(@ptrCast(self.ptr), @ptrCast(rect.ptr));
     }
+
+    /// ### DEPRECATED: Use `scroll3` instead
+    ///
+    pub const Scroll3 = scroll3;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4086,10 +5160,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` rect: QRectF `
     ///
-    pub fn Scroll3(self: QGraphicsSvgItem, dx: f64, dy: f64, rect: anytype) void {
+    pub fn scroll3(self: QGraphicsSvgItem, dx: f64, dy: f64, rect: anytype) void {
         comptime _ = @TypeOf(rect)._is_QRectF;
         qtc.QGraphicsItem_Scroll3(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(rect.ptr));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QGraphicsObject
     ///
@@ -4103,14 +5181,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` ev: QEvent `
     ///
-    pub fn Event(self: QGraphicsSvgItem, ev: anytype) bool {
+    pub fn event(self: QGraphicsSvgItem, ev: anytype) bool {
         comptime _ = @TypeOf(ev)._is_QEvent;
         return qtc.QGraphicsSvgItem_Event(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QGraphicsObject
     ///
@@ -4124,10 +5202,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` ev: QEvent `
     ///
-    pub fn SuperEvent(self: QGraphicsSvgItem, ev: anytype) bool {
+    pub fn superEvent(self: QGraphicsSvgItem, ev: anytype) bool {
         comptime _ = @TypeOf(ev)._is_QEvent;
         return qtc.QGraphicsSvgItem_SuperEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QGraphicsObject
     ///
@@ -4141,9 +5223,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem, ev: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QEvent) callconv(.c) bool) void {
         qtc.QGraphicsSvgItem_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -4157,17 +5243,17 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QGraphicsSvgItem, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QGraphicsSvgItem, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QGraphicsSvgItem_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QGraphicsSvgItem_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4181,13 +5267,17 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QGraphicsSvgItem, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QGraphicsSvgItem, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QGraphicsSvgItem_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QGraphicsSvgItem_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4201,9 +5291,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QObject, QEvent) callconv(.c) bool) void {
         qtc.QGraphicsSvgItem_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -4215,16 +5309,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QGraphicsSvgItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QGraphicsSvgItem_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QGraphicsSvgItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QGraphicsSvgItem_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -4236,12 +5330,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QGraphicsSvgItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QGraphicsSvgItem_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QGraphicsSvgItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QGraphicsSvgItem_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -4255,9 +5353,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QTimerEvent) callconv(.c) void) void {
         qtc.QGraphicsSvgItem_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -4269,16 +5371,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QGraphicsSvgItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QGraphicsSvgItem_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QGraphicsSvgItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QGraphicsSvgItem_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -4290,12 +5392,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QGraphicsSvgItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QGraphicsSvgItem_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QGraphicsSvgItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QGraphicsSvgItem_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -4309,9 +5415,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QChildEvent) callconv(.c) void) void {
         qtc.QGraphicsSvgItem_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -4323,16 +5433,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QGraphicsSvgItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QGraphicsSvgItem_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QGraphicsSvgItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QGraphicsSvgItem_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -4344,12 +5454,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QGraphicsSvgItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QGraphicsSvgItem_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QGraphicsSvgItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QGraphicsSvgItem_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -4363,9 +5477,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QEvent) callconv(.c) void) void {
         qtc.QGraphicsSvgItem_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -4379,14 +5497,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QGraphicsSvgItem, signal: anytype) void {
+    pub fn connectNotify(self: QGraphicsSvgItem, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QGraphicsSvgItem_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -4400,11 +5518,15 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QGraphicsSvgItem, signal: anytype) void {
+    pub fn superConnectNotify(self: QGraphicsSvgItem, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QGraphicsSvgItem_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -4417,9 +5539,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QMetaMethod) callconv(.c) void) void {
         qtc.QGraphicsSvgItem_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -4433,14 +5559,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QGraphicsSvgItem, signal: anytype) void {
+    pub fn disconnectNotify(self: QGraphicsSvgItem, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QGraphicsSvgItem_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -4454,10 +5580,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QGraphicsSvgItem, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QGraphicsSvgItem, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QGraphicsSvgItem_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -4471,9 +5601,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QMetaMethod) callconv(.c) void) void {
         qtc.QGraphicsSvgItem_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `advance` instead
+    ///
+    pub const Advance = advance;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4487,13 +5621,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` phase: i32 `
     ///
-    pub fn Advance(self: QGraphicsSvgItem, phase: i32) void {
+    pub fn advance(self: QGraphicsSvgItem, phase: i32) void {
         qtc.QGraphicsSvgItem_Advance(@ptrCast(self.ptr), @bitCast(phase));
     }
 
-    /// ### DEPRECATED: Use `SuperAdvance` instead
+    /// ### DEPRECATED: Use `superAdvance` instead
     ///
-    pub const QBaseAdvance = SuperAdvance;
+    pub const SuperAdvance = superAdvance;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4507,9 +5641,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` phase: i32 `
     ///
-    pub fn SuperAdvance(self: QGraphicsSvgItem, phase: i32) void {
+    pub fn superAdvance(self: QGraphicsSvgItem, phase: i32) void {
         qtc.QGraphicsSvgItem_SuperAdvance(@ptrCast(self.ptr), @bitCast(phase));
     }
+
+    /// ### DEPRECATED: Use `onAdvance` instead
+    ///
+    pub const OnAdvance = onAdvance;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4523,9 +5661,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem, phase: i32) callconv(.c) void `
     ///
-    pub fn OnAdvance(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, i32) callconv(.c) void) void {
+    pub fn onAdvance(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, i32) callconv(.c) void) void {
         qtc.QGraphicsSvgItem_OnAdvance(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `shape` instead
+    ///
+    pub const Shape = shape;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4537,13 +5679,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn Shape(self: QGraphicsSvgItem) QPainterPath {
+    pub fn shape(self: QGraphicsSvgItem) QPainterPath {
         return .{ .ptr = qtc.QGraphicsSvgItem_Shape(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperShape` instead
+    /// ### DEPRECATED: Use `superShape` instead
     ///
-    pub const QBaseShape = SuperShape;
+    pub const SuperShape = superShape;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4555,9 +5697,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn SuperShape(self: QGraphicsSvgItem) QPainterPath {
+    pub fn superShape(self: QGraphicsSvgItem) QPainterPath {
         return .{ .ptr = qtc.QGraphicsSvgItem_SuperShape(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onShape` instead
+    ///
+    pub const OnShape = onShape;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4573,9 +5719,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnShape(self: QGraphicsSvgItem, callback: *const fn () callconv(.c) QPainterPath) void {
+    pub fn onShape(self: QGraphicsSvgItem, callback: *const fn () callconv(.c) QPainterPath) void {
         qtc.QGraphicsSvgItem_OnShape(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contains` instead
+    ///
+    pub const Contains = contains;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4589,14 +5739,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` point: QPointF `
     ///
-    pub fn Contains(self: QGraphicsSvgItem, point: anytype) bool {
+    pub fn contains(self: QGraphicsSvgItem, point: anytype) bool {
         comptime _ = @TypeOf(point)._is_QPointF;
         return qtc.QGraphicsSvgItem_Contains(@ptrCast(self.ptr), @ptrCast(point.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContains` instead
+    /// ### DEPRECATED: Use `superContains` instead
     ///
-    pub const QBaseContains = SuperContains;
+    pub const SuperContains = superContains;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4610,10 +5760,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` point: QPointF `
     ///
-    pub fn SuperContains(self: QGraphicsSvgItem, point: anytype) bool {
+    pub fn superContains(self: QGraphicsSvgItem, point: anytype) bool {
         comptime _ = @TypeOf(point)._is_QPointF;
         return qtc.QGraphicsSvgItem_SuperContains(@ptrCast(self.ptr), @ptrCast(point.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContains` instead
+    ///
+    pub const OnContains = onContains;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4627,9 +5781,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem, point: QPointF) callconv(.c) bool `
     ///
-    pub fn OnContains(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QPointF) callconv(.c) bool) void {
+    pub fn onContains(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QPointF) callconv(.c) bool) void {
         qtc.QGraphicsSvgItem_OnContains(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `collidesWithItem` instead
+    ///
+    pub const CollidesWithItem = collidesWithItem;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4645,14 +5803,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
-    pub fn CollidesWithItem(self: QGraphicsSvgItem, other: anytype, mode: i32) bool {
+    pub fn collidesWithItem(self: QGraphicsSvgItem, other: anytype, mode: i32) bool {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
         return qtc.QGraphicsSvgItem_CollidesWithItem(@ptrCast(self.ptr), @ptrCast(other.ptr), @bitCast(mode));
     }
 
-    /// ### DEPRECATED: Use `SuperCollidesWithItem` instead
+    /// ### DEPRECATED: Use `superCollidesWithItem` instead
     ///
-    pub const QBaseCollidesWithItem = SuperCollidesWithItem;
+    pub const SuperCollidesWithItem = superCollidesWithItem;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4668,10 +5826,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
-    pub fn SuperCollidesWithItem(self: QGraphicsSvgItem, other: anytype, mode: i32) bool {
+    pub fn superCollidesWithItem(self: QGraphicsSvgItem, other: anytype, mode: i32) bool {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
         return qtc.QGraphicsSvgItem_SuperCollidesWithItem(@ptrCast(self.ptr), @ptrCast(other.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `onCollidesWithItem` instead
+    ///
+    pub const OnCollidesWithItem = onCollidesWithItem;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4685,9 +5847,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem, other: QGraphicsItem, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool `
     ///
-    pub fn OnCollidesWithItem(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QGraphicsItem, i32) callconv(.c) bool) void {
+    pub fn onCollidesWithItem(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QGraphicsItem, i32) callconv(.c) bool) void {
         qtc.QGraphicsSvgItem_OnCollidesWithItem(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `collidesWithPath` instead
+    ///
+    pub const CollidesWithPath = collidesWithPath;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4703,14 +5869,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
-    pub fn CollidesWithPath(self: QGraphicsSvgItem, path: anytype, mode: i32) bool {
+    pub fn collidesWithPath(self: QGraphicsSvgItem, path: anytype, mode: i32) bool {
         comptime _ = @TypeOf(path)._is_QPainterPath;
         return qtc.QGraphicsSvgItem_CollidesWithPath(@ptrCast(self.ptr), @ptrCast(path.ptr), @bitCast(mode));
     }
 
-    /// ### DEPRECATED: Use `SuperCollidesWithPath` instead
+    /// ### DEPRECATED: Use `superCollidesWithPath` instead
     ///
-    pub const QBaseCollidesWithPath = SuperCollidesWithPath;
+    pub const SuperCollidesWithPath = superCollidesWithPath;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4726,10 +5892,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
-    pub fn SuperCollidesWithPath(self: QGraphicsSvgItem, path: anytype, mode: i32) bool {
+    pub fn superCollidesWithPath(self: QGraphicsSvgItem, path: anytype, mode: i32) bool {
         comptime _ = @TypeOf(path)._is_QPainterPath;
         return qtc.QGraphicsSvgItem_SuperCollidesWithPath(@ptrCast(self.ptr), @ptrCast(path.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `onCollidesWithPath` instead
+    ///
+    pub const OnCollidesWithPath = onCollidesWithPath;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4743,9 +5913,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem, path: QPainterPath, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool `
     ///
-    pub fn OnCollidesWithPath(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QPainterPath, i32) callconv(.c) bool) void {
+    pub fn onCollidesWithPath(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QPainterPath, i32) callconv(.c) bool) void {
         qtc.QGraphicsSvgItem_OnCollidesWithPath(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isObscuredBy` instead
+    ///
+    pub const IsObscuredBy = isObscuredBy;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4759,14 +5933,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` item: QGraphicsItem `
     ///
-    pub fn IsObscuredBy(self: QGraphicsSvgItem, item: anytype) bool {
+    pub fn isObscuredBy(self: QGraphicsSvgItem, item: anytype) bool {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
         return qtc.QGraphicsSvgItem_IsObscuredBy(@ptrCast(self.ptr), @ptrCast(item.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsObscuredBy` instead
+    /// ### DEPRECATED: Use `superIsObscuredBy` instead
     ///
-    pub const QBaseIsObscuredBy = SuperIsObscuredBy;
+    pub const SuperIsObscuredBy = superIsObscuredBy;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4780,10 +5954,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` item: QGraphicsItem `
     ///
-    pub fn SuperIsObscuredBy(self: QGraphicsSvgItem, item: anytype) bool {
+    pub fn superIsObscuredBy(self: QGraphicsSvgItem, item: anytype) bool {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
         return qtc.QGraphicsSvgItem_SuperIsObscuredBy(@ptrCast(self.ptr), @ptrCast(item.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsObscuredBy` instead
+    ///
+    pub const OnIsObscuredBy = onIsObscuredBy;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4797,9 +5975,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem, item: QGraphicsItem) callconv(.c) bool `
     ///
-    pub fn OnIsObscuredBy(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QGraphicsItem) callconv(.c) bool) void {
+    pub fn onIsObscuredBy(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QGraphicsItem) callconv(.c) bool) void {
         qtc.QGraphicsSvgItem_OnIsObscuredBy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `opaqueArea` instead
+    ///
+    pub const OpaqueArea = opaqueArea;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4811,13 +5993,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn OpaqueArea(self: QGraphicsSvgItem) QPainterPath {
+    pub fn opaqueArea(self: QGraphicsSvgItem) QPainterPath {
         return .{ .ptr = qtc.QGraphicsSvgItem_OpaqueArea(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperOpaqueArea` instead
+    /// ### DEPRECATED: Use `superOpaqueArea` instead
     ///
-    pub const QBaseOpaqueArea = SuperOpaqueArea;
+    pub const SuperOpaqueArea = superOpaqueArea;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4829,9 +6011,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn SuperOpaqueArea(self: QGraphicsSvgItem) QPainterPath {
+    pub fn superOpaqueArea(self: QGraphicsSvgItem) QPainterPath {
         return .{ .ptr = qtc.QGraphicsSvgItem_SuperOpaqueArea(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onOpaqueArea` instead
+    ///
+    pub const OnOpaqueArea = onOpaqueArea;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4847,9 +6033,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnOpaqueArea(self: QGraphicsSvgItem, callback: *const fn () callconv(.c) QPainterPath) void {
+    pub fn onOpaqueArea(self: QGraphicsSvgItem, callback: *const fn () callconv(.c) QPainterPath) void {
         qtc.QGraphicsSvgItem_OnOpaqueArea(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sceneEventFilter` instead
+    ///
+    pub const SceneEventFilter = sceneEventFilter;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4863,17 +6053,17 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` watched: QGraphicsItem `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SceneEventFilter(self: QGraphicsSvgItem, watched: anytype, event: anytype) bool {
+    pub fn sceneEventFilter(self: QGraphicsSvgItem, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QGraphicsItem;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QGraphicsSvgItem_SceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QGraphicsSvgItem_SceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSceneEventFilter` instead
+    /// ### DEPRECATED: Use `superSceneEventFilter` instead
     ///
-    pub const QBaseSceneEventFilter = SuperSceneEventFilter;
+    pub const SuperSceneEventFilter = superSceneEventFilter;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4887,13 +6077,17 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` watched: QGraphicsItem `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperSceneEventFilter(self: QGraphicsSvgItem, watched: anytype, event: anytype) bool {
+    pub fn superSceneEventFilter(self: QGraphicsSvgItem, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QGraphicsItem;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QGraphicsSvgItem_SuperSceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QGraphicsSvgItem_SuperSceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSceneEventFilter` instead
+    ///
+    pub const OnSceneEventFilter = onSceneEventFilter;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4907,9 +6101,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem, watched: QGraphicsItem, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnSceneEventFilter(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QGraphicsItem, QEvent) callconv(.c) bool) void {
+    pub fn onSceneEventFilter(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QGraphicsItem, QEvent) callconv(.c) bool) void {
         qtc.QGraphicsSvgItem_OnSceneEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sceneEvent` instead
+    ///
+    pub const SceneEvent = sceneEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4921,16 +6119,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SceneEvent(self: QGraphicsSvgItem, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QGraphicsSvgItem_SceneEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn sceneEvent(self: QGraphicsSvgItem, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QGraphicsSvgItem_SceneEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSceneEvent` instead
+    /// ### DEPRECATED: Use `superSceneEvent` instead
     ///
-    pub const QBaseSceneEvent = SuperSceneEvent;
+    pub const SuperSceneEvent = superSceneEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4942,12 +6140,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperSceneEvent(self: QGraphicsSvgItem, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QGraphicsSvgItem_SuperSceneEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superSceneEvent(self: QGraphicsSvgItem, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QGraphicsSvgItem_SuperSceneEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSceneEvent` instead
+    ///
+    pub const OnSceneEvent = onSceneEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4961,9 +6163,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnSceneEvent(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QEvent) callconv(.c) bool) void {
+    pub fn onSceneEvent(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QEvent) callconv(.c) bool) void {
         qtc.QGraphicsSvgItem_OnSceneEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4975,16 +6181,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` event: QGraphicsSceneContextMenuEvent `
+    /// ` _event: QGraphicsSceneContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: QGraphicsSvgItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QGraphicsSceneContextMenuEvent;
-        qtc.QGraphicsSvgItem_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn contextMenuEvent(self: QGraphicsSvgItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QGraphicsSceneContextMenuEvent;
+        qtc.QGraphicsSvgItem_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4996,12 +6202,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` event: QGraphicsSceneContextMenuEvent `
+    /// ` _event: QGraphicsSceneContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: QGraphicsSvgItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QGraphicsSceneContextMenuEvent;
-        qtc.QGraphicsSvgItem_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superContextMenuEvent(self: QGraphicsSvgItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QGraphicsSceneContextMenuEvent;
+        qtc.QGraphicsSvgItem_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5015,10 +6225,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem, event: QGraphicsSceneContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QGraphicsSceneContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QGraphicsSceneContextMenuEvent) callconv(.c) void) void {
         qtc.QGraphicsSvgItem_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#dragEnterEvent)
@@ -5029,16 +6243,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` event: QGraphicsSceneDragDropEvent `
+    /// ` _event: QGraphicsSceneDragDropEvent `
     ///
-    pub fn DragEnterEvent(self: QGraphicsSvgItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QGraphicsSceneDragDropEvent;
-        qtc.QGraphicsSvgItem_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: QGraphicsSvgItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QGraphicsSceneDragDropEvent;
+        qtc.QGraphicsSvgItem_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5050,12 +6264,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` event: QGraphicsSceneDragDropEvent `
+    /// ` _event: QGraphicsSceneDragDropEvent `
     ///
-    pub fn SuperDragEnterEvent(self: QGraphicsSvgItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QGraphicsSceneDragDropEvent;
-        qtc.QGraphicsSvgItem_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: QGraphicsSvgItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QGraphicsSceneDragDropEvent;
+        qtc.QGraphicsSvgItem_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5069,10 +6287,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem, event: QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QGraphicsSceneDragDropEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QGraphicsSceneDragDropEvent) callconv(.c) void) void {
         qtc.QGraphicsSvgItem_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#dragLeaveEvent)
@@ -5083,16 +6305,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` event: QGraphicsSceneDragDropEvent `
+    /// ` _event: QGraphicsSceneDragDropEvent `
     ///
-    pub fn DragLeaveEvent(self: QGraphicsSvgItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QGraphicsSceneDragDropEvent;
-        qtc.QGraphicsSvgItem_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: QGraphicsSvgItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QGraphicsSceneDragDropEvent;
+        qtc.QGraphicsSvgItem_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5104,12 +6326,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` event: QGraphicsSceneDragDropEvent `
+    /// ` _event: QGraphicsSceneDragDropEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: QGraphicsSvgItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QGraphicsSceneDragDropEvent;
-        qtc.QGraphicsSvgItem_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: QGraphicsSvgItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QGraphicsSceneDragDropEvent;
+        qtc.QGraphicsSvgItem_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5123,10 +6349,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem, event: QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QGraphicsSceneDragDropEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QGraphicsSceneDragDropEvent) callconv(.c) void) void {
         qtc.QGraphicsSvgItem_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#dragMoveEvent)
@@ -5137,16 +6367,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` event: QGraphicsSceneDragDropEvent `
+    /// ` _event: QGraphicsSceneDragDropEvent `
     ///
-    pub fn DragMoveEvent(self: QGraphicsSvgItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QGraphicsSceneDragDropEvent;
-        qtc.QGraphicsSvgItem_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: QGraphicsSvgItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QGraphicsSceneDragDropEvent;
+        qtc.QGraphicsSvgItem_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5158,12 +6388,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` event: QGraphicsSceneDragDropEvent `
+    /// ` _event: QGraphicsSceneDragDropEvent `
     ///
-    pub fn SuperDragMoveEvent(self: QGraphicsSvgItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QGraphicsSceneDragDropEvent;
-        qtc.QGraphicsSvgItem_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: QGraphicsSvgItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QGraphicsSceneDragDropEvent;
+        qtc.QGraphicsSvgItem_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5177,10 +6411,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem, event: QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QGraphicsSceneDragDropEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QGraphicsSceneDragDropEvent) callconv(.c) void) void {
         qtc.QGraphicsSvgItem_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#dropEvent)
@@ -5191,16 +6429,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` event: QGraphicsSceneDragDropEvent `
+    /// ` _event: QGraphicsSceneDragDropEvent `
     ///
-    pub fn DropEvent(self: QGraphicsSvgItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QGraphicsSceneDragDropEvent;
-        qtc.QGraphicsSvgItem_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: QGraphicsSvgItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QGraphicsSceneDragDropEvent;
+        qtc.QGraphicsSvgItem_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5212,12 +6450,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` event: QGraphicsSceneDragDropEvent `
+    /// ` _event: QGraphicsSceneDragDropEvent `
     ///
-    pub fn SuperDropEvent(self: QGraphicsSvgItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QGraphicsSceneDragDropEvent;
-        qtc.QGraphicsSvgItem_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: QGraphicsSvgItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QGraphicsSceneDragDropEvent;
+        qtc.QGraphicsSvgItem_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5231,10 +6473,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem, event: QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QGraphicsSceneDragDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QGraphicsSceneDragDropEvent) callconv(.c) void) void {
         qtc.QGraphicsSvgItem_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#focusInEvent)
@@ -5245,16 +6491,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: QGraphicsSvgItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QGraphicsSvgItem_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusInEvent(self: QGraphicsSvgItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QGraphicsSvgItem_FocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5266,12 +6512,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: QGraphicsSvgItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QGraphicsSvgItem_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusInEvent(self: QGraphicsSvgItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QGraphicsSvgItem_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5285,10 +6535,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QFocusEvent) callconv(.c) void) void {
         qtc.QGraphicsSvgItem_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#focusOutEvent)
@@ -5299,16 +6553,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: QGraphicsSvgItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QGraphicsSvgItem_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusOutEvent(self: QGraphicsSvgItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QGraphicsSvgItem_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5320,12 +6574,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: QGraphicsSvgItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QGraphicsSvgItem_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusOutEvent(self: QGraphicsSvgItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QGraphicsSvgItem_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5339,10 +6597,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QFocusEvent) callconv(.c) void) void {
         qtc.QGraphicsSvgItem_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `hoverEnterEvent` instead
+    ///
+    pub const HoverEnterEvent = hoverEnterEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#hoverEnterEvent)
@@ -5353,16 +6615,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` event: QGraphicsSceneHoverEvent `
+    /// ` _event: QGraphicsSceneHoverEvent `
     ///
-    pub fn HoverEnterEvent(self: QGraphicsSvgItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QGraphicsSceneHoverEvent;
-        qtc.QGraphicsSvgItem_HoverEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hoverEnterEvent(self: QGraphicsSvgItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QGraphicsSceneHoverEvent;
+        qtc.QGraphicsSvgItem_HoverEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHoverEnterEvent` instead
+    /// ### DEPRECATED: Use `superHoverEnterEvent` instead
     ///
-    pub const QBaseHoverEnterEvent = SuperHoverEnterEvent;
+    pub const SuperHoverEnterEvent = superHoverEnterEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5374,12 +6636,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` event: QGraphicsSceneHoverEvent `
+    /// ` _event: QGraphicsSceneHoverEvent `
     ///
-    pub fn SuperHoverEnterEvent(self: QGraphicsSvgItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QGraphicsSceneHoverEvent;
-        qtc.QGraphicsSvgItem_SuperHoverEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHoverEnterEvent(self: QGraphicsSvgItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QGraphicsSceneHoverEvent;
+        qtc.QGraphicsSvgItem_SuperHoverEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHoverEnterEvent` instead
+    ///
+    pub const OnHoverEnterEvent = onHoverEnterEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5393,10 +6659,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem, event: QGraphicsSceneHoverEvent) callconv(.c) void `
     ///
-    pub fn OnHoverEnterEvent(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QGraphicsSceneHoverEvent) callconv(.c) void) void {
+    pub fn onHoverEnterEvent(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QGraphicsSceneHoverEvent) callconv(.c) void) void {
         qtc.QGraphicsSvgItem_OnHoverEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `hoverMoveEvent` instead
+    ///
+    pub const HoverMoveEvent = hoverMoveEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#hoverMoveEvent)
@@ -5407,16 +6677,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` event: QGraphicsSceneHoverEvent `
+    /// ` _event: QGraphicsSceneHoverEvent `
     ///
-    pub fn HoverMoveEvent(self: QGraphicsSvgItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QGraphicsSceneHoverEvent;
-        qtc.QGraphicsSvgItem_HoverMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hoverMoveEvent(self: QGraphicsSvgItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QGraphicsSceneHoverEvent;
+        qtc.QGraphicsSvgItem_HoverMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHoverMoveEvent` instead
+    /// ### DEPRECATED: Use `superHoverMoveEvent` instead
     ///
-    pub const QBaseHoverMoveEvent = SuperHoverMoveEvent;
+    pub const SuperHoverMoveEvent = superHoverMoveEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5428,12 +6698,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` event: QGraphicsSceneHoverEvent `
+    /// ` _event: QGraphicsSceneHoverEvent `
     ///
-    pub fn SuperHoverMoveEvent(self: QGraphicsSvgItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QGraphicsSceneHoverEvent;
-        qtc.QGraphicsSvgItem_SuperHoverMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHoverMoveEvent(self: QGraphicsSvgItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QGraphicsSceneHoverEvent;
+        qtc.QGraphicsSvgItem_SuperHoverMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHoverMoveEvent` instead
+    ///
+    pub const OnHoverMoveEvent = onHoverMoveEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5447,10 +6721,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem, event: QGraphicsSceneHoverEvent) callconv(.c) void `
     ///
-    pub fn OnHoverMoveEvent(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QGraphicsSceneHoverEvent) callconv(.c) void) void {
+    pub fn onHoverMoveEvent(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QGraphicsSceneHoverEvent) callconv(.c) void) void {
         qtc.QGraphicsSvgItem_OnHoverMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `hoverLeaveEvent` instead
+    ///
+    pub const HoverLeaveEvent = hoverLeaveEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#hoverLeaveEvent)
@@ -5461,16 +6739,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` event: QGraphicsSceneHoverEvent `
+    /// ` _event: QGraphicsSceneHoverEvent `
     ///
-    pub fn HoverLeaveEvent(self: QGraphicsSvgItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QGraphicsSceneHoverEvent;
-        qtc.QGraphicsSvgItem_HoverLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hoverLeaveEvent(self: QGraphicsSvgItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QGraphicsSceneHoverEvent;
+        qtc.QGraphicsSvgItem_HoverLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHoverLeaveEvent` instead
+    /// ### DEPRECATED: Use `superHoverLeaveEvent` instead
     ///
-    pub const QBaseHoverLeaveEvent = SuperHoverLeaveEvent;
+    pub const SuperHoverLeaveEvent = superHoverLeaveEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5482,12 +6760,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` event: QGraphicsSceneHoverEvent `
+    /// ` _event: QGraphicsSceneHoverEvent `
     ///
-    pub fn SuperHoverLeaveEvent(self: QGraphicsSvgItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QGraphicsSceneHoverEvent;
-        qtc.QGraphicsSvgItem_SuperHoverLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHoverLeaveEvent(self: QGraphicsSvgItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QGraphicsSceneHoverEvent;
+        qtc.QGraphicsSvgItem_SuperHoverLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHoverLeaveEvent` instead
+    ///
+    pub const OnHoverLeaveEvent = onHoverLeaveEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5501,10 +6783,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem, event: QGraphicsSceneHoverEvent) callconv(.c) void `
     ///
-    pub fn OnHoverLeaveEvent(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QGraphicsSceneHoverEvent) callconv(.c) void) void {
+    pub fn onHoverLeaveEvent(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QGraphicsSceneHoverEvent) callconv(.c) void) void {
         qtc.QGraphicsSvgItem_OnHoverLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#keyPressEvent)
@@ -5515,16 +6801,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: QGraphicsSvgItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QGraphicsSvgItem_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyPressEvent(self: QGraphicsSvgItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QGraphicsSvgItem_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5536,12 +6822,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: QGraphicsSvgItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QGraphicsSvgItem_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyPressEvent(self: QGraphicsSvgItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QGraphicsSvgItem_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5555,10 +6845,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QKeyEvent) callconv(.c) void) void {
         qtc.QGraphicsSvgItem_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#keyReleaseEvent)
@@ -5569,16 +6863,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: QGraphicsSvgItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QGraphicsSvgItem_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyReleaseEvent(self: QGraphicsSvgItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QGraphicsSvgItem_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5590,12 +6884,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: QGraphicsSvgItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QGraphicsSvgItem_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyReleaseEvent(self: QGraphicsSvgItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QGraphicsSvgItem_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5609,10 +6907,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QKeyEvent) callconv(.c) void) void {
         qtc.QGraphicsSvgItem_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mousePressEvent)
@@ -5623,16 +6925,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` event: QGraphicsSceneMouseEvent `
+    /// ` _event: QGraphicsSceneMouseEvent `
     ///
-    pub fn MousePressEvent(self: QGraphicsSvgItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QGraphicsSceneMouseEvent;
-        qtc.QGraphicsSvgItem_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mousePressEvent(self: QGraphicsSvgItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QGraphicsSceneMouseEvent;
+        qtc.QGraphicsSvgItem_MousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5644,12 +6946,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` event: QGraphicsSceneMouseEvent `
+    /// ` _event: QGraphicsSceneMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: QGraphicsSvgItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QGraphicsSceneMouseEvent;
-        qtc.QGraphicsSvgItem_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMousePressEvent(self: QGraphicsSvgItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QGraphicsSceneMouseEvent;
+        qtc.QGraphicsSvgItem_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5663,10 +6969,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem, event: QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QGraphicsSceneMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QGraphicsSceneMouseEvent) callconv(.c) void) void {
         qtc.QGraphicsSvgItem_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseMoveEvent)
@@ -5677,16 +6987,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` event: QGraphicsSceneMouseEvent `
+    /// ` _event: QGraphicsSceneMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: QGraphicsSvgItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QGraphicsSceneMouseEvent;
-        qtc.QGraphicsSvgItem_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseMoveEvent(self: QGraphicsSvgItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QGraphicsSceneMouseEvent;
+        qtc.QGraphicsSvgItem_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5698,12 +7008,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` event: QGraphicsSceneMouseEvent `
+    /// ` _event: QGraphicsSceneMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: QGraphicsSvgItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QGraphicsSceneMouseEvent;
-        qtc.QGraphicsSvgItem_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseMoveEvent(self: QGraphicsSvgItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QGraphicsSceneMouseEvent;
+        qtc.QGraphicsSvgItem_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5717,10 +7031,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem, event: QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QGraphicsSceneMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QGraphicsSceneMouseEvent) callconv(.c) void) void {
         qtc.QGraphicsSvgItem_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseReleaseEvent)
@@ -5731,16 +7049,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` event: QGraphicsSceneMouseEvent `
+    /// ` _event: QGraphicsSceneMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: QGraphicsSvgItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QGraphicsSceneMouseEvent;
-        qtc.QGraphicsSvgItem_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseReleaseEvent(self: QGraphicsSvgItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QGraphicsSceneMouseEvent;
+        qtc.QGraphicsSvgItem_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5752,12 +7070,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` event: QGraphicsSceneMouseEvent `
+    /// ` _event: QGraphicsSceneMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: QGraphicsSvgItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QGraphicsSceneMouseEvent;
-        qtc.QGraphicsSvgItem_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseReleaseEvent(self: QGraphicsSvgItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QGraphicsSceneMouseEvent;
+        qtc.QGraphicsSvgItem_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5771,10 +7093,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem, event: QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QGraphicsSceneMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QGraphicsSceneMouseEvent) callconv(.c) void) void {
         qtc.QGraphicsSvgItem_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseDoubleClickEvent)
@@ -5785,16 +7111,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` event: QGraphicsSceneMouseEvent `
+    /// ` _event: QGraphicsSceneMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: QGraphicsSvgItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QGraphicsSceneMouseEvent;
-        qtc.QGraphicsSvgItem_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: QGraphicsSvgItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QGraphicsSceneMouseEvent;
+        qtc.QGraphicsSvgItem_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5806,12 +7132,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` event: QGraphicsSceneMouseEvent `
+    /// ` _event: QGraphicsSceneMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: QGraphicsSvgItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QGraphicsSceneMouseEvent;
-        qtc.QGraphicsSvgItem_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: QGraphicsSvgItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QGraphicsSceneMouseEvent;
+        qtc.QGraphicsSvgItem_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5825,9 +7155,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem, event: QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QGraphicsSceneMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QGraphicsSceneMouseEvent) callconv(.c) void) void {
         qtc.QGraphicsSvgItem_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5839,16 +7173,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` event: QGraphicsSceneWheelEvent `
+    /// ` _event: QGraphicsSceneWheelEvent `
     ///
-    pub fn WheelEvent(self: QGraphicsSvgItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QGraphicsSceneWheelEvent;
-        qtc.QGraphicsSvgItem_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn wheelEvent(self: QGraphicsSvgItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QGraphicsSceneWheelEvent;
+        qtc.QGraphicsSvgItem_WheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5860,12 +7194,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` event: QGraphicsSceneWheelEvent `
+    /// ` _event: QGraphicsSceneWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: QGraphicsSvgItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QGraphicsSceneWheelEvent;
-        qtc.QGraphicsSvgItem_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superWheelEvent(self: QGraphicsSvgItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QGraphicsSceneWheelEvent;
+        qtc.QGraphicsSvgItem_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5879,9 +7217,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem, event: QGraphicsSceneWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QGraphicsSceneWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QGraphicsSceneWheelEvent) callconv(.c) void) void {
         qtc.QGraphicsSvgItem_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5893,16 +7235,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` event: QInputMethodEvent `
+    /// ` _event: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: QGraphicsSvgItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QInputMethodEvent;
-        qtc.QGraphicsSvgItem_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn inputMethodEvent(self: QGraphicsSvgItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QInputMethodEvent;
+        qtc.QGraphicsSvgItem_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5914,12 +7256,16 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` event: QInputMethodEvent `
+    /// ` _event: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: QGraphicsSvgItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QInputMethodEvent;
-        qtc.QGraphicsSvgItem_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superInputMethodEvent(self: QGraphicsSvgItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QInputMethodEvent;
+        qtc.QGraphicsSvgItem_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5933,9 +7279,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem, event: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QInputMethodEvent) callconv(.c) void) void {
         qtc.QGraphicsSvgItem_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5949,13 +7299,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: QGraphicsSvgItem, query: i32) QVariant {
+    pub fn inputMethodQuery(self: QGraphicsSvgItem, query: i32) QVariant {
         return .{ .ptr = qtc.QGraphicsSvgItem_InputMethodQuery(@ptrCast(self.ptr), @bitCast(query)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5969,9 +7319,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: QGraphicsSvgItem, query: i32) QVariant {
+    pub fn superInputMethodQuery(self: QGraphicsSvgItem, query: i32) QVariant {
         return .{ .ptr = qtc.QGraphicsSvgItem_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(query)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5987,9 +7341,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, i32) callconv(.c) QVariant) void {
         qtc.QGraphicsSvgItem_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `itemChange` instead
+    ///
+    pub const ItemChange = itemChange;
 
     /// Inherited from QGraphicsItem
     ///
@@ -6005,14 +7363,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn ItemChange(self: QGraphicsSvgItem, change: i32, value: anytype) QVariant {
+    pub fn itemChange(self: QGraphicsSvgItem, change: i32, value: anytype) QVariant {
         comptime _ = @TypeOf(value)._is_QVariant;
         return .{ .ptr = qtc.QGraphicsSvgItem_ItemChange(@ptrCast(self.ptr), @bitCast(change), @ptrCast(value.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperItemChange` instead
+    /// ### DEPRECATED: Use `superItemChange` instead
     ///
-    pub const QBaseItemChange = SuperItemChange;
+    pub const SuperItemChange = superItemChange;
 
     /// Inherited from QGraphicsItem
     ///
@@ -6028,10 +7386,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SuperItemChange(self: QGraphicsSvgItem, change: i32, value: anytype) QVariant {
+    pub fn superItemChange(self: QGraphicsSvgItem, change: i32, value: anytype) QVariant {
         comptime _ = @TypeOf(value)._is_QVariant;
         return .{ .ptr = qtc.QGraphicsSvgItem_SuperItemChange(@ptrCast(self.ptr), @bitCast(change), @ptrCast(value.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onItemChange` instead
+    ///
+    pub const OnItemChange = onItemChange;
 
     /// Inherited from QGraphicsItem
     ///
@@ -6047,9 +7409,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnItemChange(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, i32, QVariant) callconv(.c) QVariant) void {
+    pub fn onItemChange(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, i32, QVariant) callconv(.c) QVariant) void {
         qtc.QGraphicsSvgItem_OnItemChange(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `supportsExtension` instead
+    ///
+    pub const SupportsExtension = supportsExtension;
 
     /// Inherited from QGraphicsItem
     ///
@@ -6061,15 +7427,15 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` extension: qgraphicsitem_enums.Extension `
+    /// ` _extension: qgraphicsitem_enums.Extension `
     ///
-    pub fn SupportsExtension(self: QGraphicsSvgItem, extension: i32) bool {
-        return qtc.QGraphicsSvgItem_SupportsExtension(@ptrCast(self.ptr), @bitCast(extension));
+    pub fn supportsExtension(self: QGraphicsSvgItem, _extension: i32) bool {
+        return qtc.QGraphicsSvgItem_SupportsExtension(@ptrCast(self.ptr), @bitCast(_extension));
     }
 
-    /// ### DEPRECATED: Use `SuperSupportsExtension` instead
+    /// ### DEPRECATED: Use `superSupportsExtension` instead
     ///
-    pub const QBaseSupportsExtension = SuperSupportsExtension;
+    pub const SuperSupportsExtension = superSupportsExtension;
 
     /// Inherited from QGraphicsItem
     ///
@@ -6081,11 +7447,15 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` extension: qgraphicsitem_enums.Extension `
+    /// ` _extension: qgraphicsitem_enums.Extension `
     ///
-    pub fn SuperSupportsExtension(self: QGraphicsSvgItem, extension: i32) bool {
-        return qtc.QGraphicsSvgItem_SuperSupportsExtension(@ptrCast(self.ptr), @bitCast(extension));
+    pub fn superSupportsExtension(self: QGraphicsSvgItem, _extension: i32) bool {
+        return qtc.QGraphicsSvgItem_SuperSupportsExtension(@ptrCast(self.ptr), @bitCast(_extension));
     }
+
+    /// ### DEPRECATED: Use `onSupportsExtension` instead
+    ///
+    pub const OnSupportsExtension = onSupportsExtension;
 
     /// Inherited from QGraphicsItem
     ///
@@ -6099,9 +7469,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem, extension: qgraphicsitem_enums.Extension) callconv(.c) bool `
     ///
-    pub fn OnSupportsExtension(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, i32) callconv(.c) bool) void {
+    pub fn onSupportsExtension(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, i32) callconv(.c) bool) void {
         qtc.QGraphicsSvgItem_OnSupportsExtension(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setExtension` instead
+    ///
+    pub const SetExtension = setExtension;
 
     /// Inherited from QGraphicsItem
     ///
@@ -6113,18 +7487,18 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` extension: qgraphicsitem_enums.Extension `
+    /// ` _extension: qgraphicsitem_enums.Extension `
     ///
     /// ` variant: QVariant `
     ///
-    pub fn SetExtension(self: QGraphicsSvgItem, extension: i32, variant: anytype) void {
+    pub fn setExtension(self: QGraphicsSvgItem, _extension: i32, variant: anytype) void {
         comptime _ = @TypeOf(variant)._is_QVariant;
-        qtc.QGraphicsSvgItem_SetExtension(@ptrCast(self.ptr), @bitCast(extension), @ptrCast(variant.ptr));
+        qtc.QGraphicsSvgItem_SetExtension(@ptrCast(self.ptr), @bitCast(_extension), @ptrCast(variant.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetExtension` instead
+    /// ### DEPRECATED: Use `superSetExtension` instead
     ///
-    pub const QBaseSetExtension = SuperSetExtension;
+    pub const SuperSetExtension = superSetExtension;
 
     /// Inherited from QGraphicsItem
     ///
@@ -6136,14 +7510,18 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` extension: qgraphicsitem_enums.Extension `
+    /// ` _extension: qgraphicsitem_enums.Extension `
     ///
     /// ` variant: QVariant `
     ///
-    pub fn SuperSetExtension(self: QGraphicsSvgItem, extension: i32, variant: anytype) void {
+    pub fn superSetExtension(self: QGraphicsSvgItem, _extension: i32, variant: anytype) void {
         comptime _ = @TypeOf(variant)._is_QVariant;
-        qtc.QGraphicsSvgItem_SuperSetExtension(@ptrCast(self.ptr), @bitCast(extension), @ptrCast(variant.ptr));
+        qtc.QGraphicsSvgItem_SuperSetExtension(@ptrCast(self.ptr), @bitCast(_extension), @ptrCast(variant.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetExtension` instead
+    ///
+    pub const OnSetExtension = onSetExtension;
 
     /// Inherited from QGraphicsItem
     ///
@@ -6157,9 +7535,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem, extension: qgraphicsitem_enums.Extension, variant: QVariant) callconv(.c) void `
     ///
-    pub fn OnSetExtension(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, i32, QVariant) callconv(.c) void) void {
+    pub fn onSetExtension(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, i32, QVariant) callconv(.c) void) void {
         qtc.QGraphicsSvgItem_OnSetExtension(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `extension` instead
+    ///
+    pub const Extension = extension;
 
     /// Inherited from QGraphicsItem
     ///
@@ -6173,14 +7555,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` variant: QVariant `
     ///
-    pub fn Extension(self: QGraphicsSvgItem, variant: anytype) QVariant {
+    pub fn extension(self: QGraphicsSvgItem, variant: anytype) QVariant {
         comptime _ = @TypeOf(variant)._is_QVariant;
         return .{ .ptr = qtc.QGraphicsSvgItem_Extension(@ptrCast(self.ptr), @ptrCast(variant.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperExtension` instead
+    /// ### DEPRECATED: Use `superExtension` instead
     ///
-    pub const QBaseExtension = SuperExtension;
+    pub const SuperExtension = superExtension;
 
     /// Inherited from QGraphicsItem
     ///
@@ -6194,10 +7576,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` variant: QVariant `
     ///
-    pub fn SuperExtension(self: QGraphicsSvgItem, variant: anytype) QVariant {
+    pub fn superExtension(self: QGraphicsSvgItem, variant: anytype) QVariant {
         comptime _ = @TypeOf(variant)._is_QVariant;
         return .{ .ptr = qtc.QGraphicsSvgItem_SuperExtension(@ptrCast(self.ptr), @ptrCast(variant.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onExtension` instead
+    ///
+    pub const OnExtension = onExtension;
 
     /// Inherited from QGraphicsItem
     ///
@@ -6213,9 +7599,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnExtension(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QVariant) callconv(.c) QVariant) void {
+    pub fn onExtension(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QVariant) callconv(.c) QVariant) void {
         qtc.QGraphicsSvgItem_OnExtension(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
 
     /// Inherited from QGraphicsObject
     ///
@@ -6227,13 +7617,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn UpdateMicroFocus(self: QGraphicsSvgItem) void {
+    pub fn updateMicroFocus(self: QGraphicsSvgItem) void {
         qtc.QGraphicsSvgItem_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QGraphicsObject
     ///
@@ -6245,9 +7635,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn SuperUpdateMicroFocus(self: QGraphicsSvgItem) void {
+    pub fn superUpdateMicroFocus(self: QGraphicsSvgItem) void {
         qtc.QGraphicsSvgItem_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
 
     /// Inherited from QGraphicsObject
     ///
@@ -6261,9 +7655,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: QGraphicsSvgItem, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: QGraphicsSvgItem, callback: *const fn () callconv(.c) void) void {
         qtc.QGraphicsSvgItem_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -6275,13 +7673,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn Sender(self: QGraphicsSvgItem) QObject {
+    pub fn sender(self: QGraphicsSvgItem) QObject {
         return .{ .ptr = qtc.QGraphicsSvgItem_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -6293,9 +7691,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn SuperSender(self: QGraphicsSvgItem) QObject {
+    pub fn superSender(self: QGraphicsSvgItem) QObject {
         return .{ .ptr = qtc.QGraphicsSvgItem_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -6309,9 +7711,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QGraphicsSvgItem, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QGraphicsSvgItem, callback: *const fn () callconv(.c) QObject) void {
         qtc.QGraphicsSvgItem_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -6323,13 +7729,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn SenderSignalIndex(self: QGraphicsSvgItem) i32 {
+    pub fn senderSignalIndex(self: QGraphicsSvgItem) i32 {
         return qtc.QGraphicsSvgItem_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -6341,9 +7747,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn SuperSenderSignalIndex(self: QGraphicsSvgItem) i32 {
+    pub fn superSenderSignalIndex(self: QGraphicsSvgItem) i32 {
         return qtc.QGraphicsSvgItem_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -6357,9 +7767,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QGraphicsSvgItem, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QGraphicsSvgItem, callback: *const fn () callconv(.c) i32) void {
         qtc.QGraphicsSvgItem_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -6373,14 +7787,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QGraphicsSvgItem, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QGraphicsSvgItem, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QGraphicsSvgItem_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -6394,10 +7808,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QGraphicsSvgItem, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QGraphicsSvgItem, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QGraphicsSvgItem_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -6411,9 +7829,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, [*:0]const u8) callconv(.c) i32) void {
         qtc.QGraphicsSvgItem_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -6427,14 +7849,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QGraphicsSvgItem, signal: anytype) bool {
+    pub fn isSignalConnected(self: QGraphicsSvgItem, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QGraphicsSvgItem_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -6448,10 +7870,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QGraphicsSvgItem, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QGraphicsSvgItem, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QGraphicsSvgItem_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -6465,10 +7891,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QMetaMethod) callconv(.c) bool) void {
         qtc.QGraphicsSvgItem_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `addToIndex` instead
+    ///
+    pub const AddToIndex = addToIndex;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#addToIndex)
@@ -6479,13 +7909,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn AddToIndex(self: QGraphicsSvgItem) void {
+    pub fn addToIndex(self: QGraphicsSvgItem) void {
         qtc.QGraphicsSvgItem_AddToIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperAddToIndex` instead
+    /// ### DEPRECATED: Use `superAddToIndex` instead
     ///
-    pub const QBaseAddToIndex = SuperAddToIndex;
+    pub const SuperAddToIndex = superAddToIndex;
 
     /// Inherited from QGraphicsItem
     ///
@@ -6497,10 +7927,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn SuperAddToIndex(self: QGraphicsSvgItem) void {
+    pub fn superAddToIndex(self: QGraphicsSvgItem) void {
         qtc.QGraphicsSvgItem_SuperAddToIndex(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onAddToIndex` instead
+    ///
+    pub const OnAddToIndex = onAddToIndex;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#addToIndex)
@@ -6513,10 +7947,14 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnAddToIndex(self: QGraphicsSvgItem, callback: *const fn () callconv(.c) void) void {
+    pub fn onAddToIndex(self: QGraphicsSvgItem, callback: *const fn () callconv(.c) void) void {
         qtc.QGraphicsSvgItem_OnAddToIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `removeFromIndex` instead
+    ///
+    pub const RemoveFromIndex = removeFromIndex;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#removeFromIndex)
@@ -6527,13 +7965,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn RemoveFromIndex(self: QGraphicsSvgItem) void {
+    pub fn removeFromIndex(self: QGraphicsSvgItem) void {
         qtc.QGraphicsSvgItem_RemoveFromIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperRemoveFromIndex` instead
+    /// ### DEPRECATED: Use `superRemoveFromIndex` instead
     ///
-    pub const QBaseRemoveFromIndex = SuperRemoveFromIndex;
+    pub const SuperRemoveFromIndex = superRemoveFromIndex;
 
     /// Inherited from QGraphicsItem
     ///
@@ -6545,9 +7983,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn SuperRemoveFromIndex(self: QGraphicsSvgItem) void {
+    pub fn superRemoveFromIndex(self: QGraphicsSvgItem) void {
         qtc.QGraphicsSvgItem_SuperRemoveFromIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onRemoveFromIndex` instead
+    ///
+    pub const OnRemoveFromIndex = onRemoveFromIndex;
 
     /// Inherited from QGraphicsItem
     ///
@@ -6561,9 +8003,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnRemoveFromIndex(self: QGraphicsSvgItem, callback: *const fn () callconv(.c) void) void {
+    pub fn onRemoveFromIndex(self: QGraphicsSvgItem, callback: *const fn () callconv(.c) void) void {
         qtc.QGraphicsSvgItem_OnRemoveFromIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `prepareGeometryChange` instead
+    ///
+    pub const PrepareGeometryChange = prepareGeometryChange;
 
     /// Inherited from QGraphicsItem
     ///
@@ -6575,13 +8021,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn PrepareGeometryChange(self: QGraphicsSvgItem) void {
+    pub fn prepareGeometryChange(self: QGraphicsSvgItem) void {
         qtc.QGraphicsSvgItem_PrepareGeometryChange(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPrepareGeometryChange` instead
+    /// ### DEPRECATED: Use `superPrepareGeometryChange` instead
     ///
-    pub const QBasePrepareGeometryChange = SuperPrepareGeometryChange;
+    pub const SuperPrepareGeometryChange = superPrepareGeometryChange;
 
     /// Inherited from QGraphicsItem
     ///
@@ -6593,9 +8039,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn SuperPrepareGeometryChange(self: QGraphicsSvgItem) void {
+    pub fn superPrepareGeometryChange(self: QGraphicsSvgItem) void {
         qtc.QGraphicsSvgItem_SuperPrepareGeometryChange(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPrepareGeometryChange` instead
+    ///
+    pub const OnPrepareGeometryChange = onPrepareGeometryChange;
 
     /// Inherited from QGraphicsItem
     ///
@@ -6609,9 +8059,13 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnPrepareGeometryChange(self: QGraphicsSvgItem, callback: *const fn () callconv(.c) void) void {
+    pub fn onPrepareGeometryChange(self: QGraphicsSvgItem, callback: *const fn () callconv(.c) void) void {
         qtc.QGraphicsSvgItem_OnPrepareGeometryChange(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -6625,23 +8079,23 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSvgItem, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicssvgitem.html#dtor.QGraphicsSvgItem)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    pub fn Delete(self: QGraphicsSvgItem) void {
+    pub fn delete(self: QGraphicsSvgItem) void {
         qtc.QGraphicsSvgItem_Delete(@ptrCast(self.ptr));
     }
 };

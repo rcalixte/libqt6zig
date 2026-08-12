@@ -12,6 +12,10 @@ pub const KMimeTypeEditor = extern struct {
 
     pub const _is_KMimeTypeEditor = {};
 
+    /// ### DEPRECATED: Use `editMimeType` instead
+    ///
+    pub const EditMimeType = editMimeType;
+
     /// ### [Upstream resources](https://api.kde.org/kmimetypeeditor.html#editMimeType)
     ///
     /// ## Parameter(s):
@@ -20,7 +24,7 @@ pub const KMimeTypeEditor = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn EditMimeType(mimeType: []const u8, widget: anytype) void {
+    pub fn editMimeType(mimeType: []const u8, widget: anytype) void {
         const mimeType_str = qtc.libqt_string{
             .len = mimeType.len,
             .data = mimeType.ptr,

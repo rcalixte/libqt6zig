@@ -28,30 +28,42 @@ pub const KFilePreviewGenerator = extern struct {
     pub const _is_KFilePreviewGenerator = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new KFilePreviewGenerator object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KFilePreviewGenerator object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QAbstractItemView `
+    /// ` _parent: QAbstractItemView `
     ///
-    pub fn New(parent: anytype) KFilePreviewGenerator {
-        comptime _ = @TypeOf(parent)._is_QAbstractItemView;
-        return .{ .ptr = qtc.KFilePreviewGenerator_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) KFilePreviewGenerator {
+        comptime _ = @TypeOf(_parent)._is_QAbstractItemView;
+        return .{ .ptr = qtc.KFilePreviewGenerator_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new KFilePreviewGenerator object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KFilePreviewGenerator object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: KAbstractViewAdapter `
+    /// ` _parent: KAbstractViewAdapter `
     ///
     /// ` model: QAbstractProxyModel `
     ///
-    pub fn New2(parent: anytype, model: anytype) KFilePreviewGenerator {
-        comptime _ = @TypeOf(parent)._is_KAbstractViewAdapter;
+    pub fn new2(_parent: anytype, model: anytype) KFilePreviewGenerator {
+        comptime _ = @TypeOf(_parent)._is_KAbstractViewAdapter;
         comptime _ = @TypeOf(model)._is_QAbstractProxyModel;
-        return .{ .ptr = qtc.KFilePreviewGenerator_new2(@ptrCast(parent.ptr), @ptrCast(model.ptr)) };
+        return .{ .ptr = qtc.KFilePreviewGenerator_new2(@ptrCast(_parent.ptr), @ptrCast(model.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -59,9 +71,13 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` self: KFilePreviewGenerator `
     ///
-    pub fn MetaObject(self: KFilePreviewGenerator) QMetaObject {
+    pub fn metaObject(self: KFilePreviewGenerator) QMetaObject {
         return .{ .ptr = qtc.KFilePreviewGenerator_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -73,13 +89,13 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KFilePreviewGenerator, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KFilePreviewGenerator, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KFilePreviewGenerator_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -89,9 +105,13 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` self: KFilePreviewGenerator `
     ///
-    pub fn SuperMetaObject(self: KFilePreviewGenerator) QMetaObject {
+    pub fn superMetaObject(self: KFilePreviewGenerator) QMetaObject {
         return .{ .ptr = qtc.KFilePreviewGenerator_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -99,10 +119,14 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KFilePreviewGenerator, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KFilePreviewGenerator, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KFilePreviewGenerator_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -112,13 +136,13 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePreviewGenerator, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KFilePreviewGenerator, callback: *const fn (KFilePreviewGenerator, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KFilePreviewGenerator, callback: *const fn (KFilePreviewGenerator, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KFilePreviewGenerator_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -128,10 +152,14 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KFilePreviewGenerator, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KFilePreviewGenerator, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KFilePreviewGenerator_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -143,9 +171,13 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KFilePreviewGenerator, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KFilePreviewGenerator, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KFilePreviewGenerator_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -155,13 +187,13 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePreviewGenerator, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KFilePreviewGenerator, callback: *const fn (KFilePreviewGenerator, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KFilePreviewGenerator, callback: *const fn (KFilePreviewGenerator, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KFilePreviewGenerator_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -175,9 +207,13 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KFilePreviewGenerator, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KFilePreviewGenerator, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KFilePreviewGenerator_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -187,14 +223,18 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFilePreviewGenerator.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFilePreviewGenerator.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setPreviewShown` instead
+    ///
+    pub const SetPreviewShown = setPreviewShown;
 
     /// ### [Upstream resources](https://api.kde.org/kfilepreviewgenerator.html#setPreviewShown)
     ///
@@ -204,9 +244,13 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` show: bool `
     ///
-    pub fn SetPreviewShown(self: KFilePreviewGenerator, show: bool) void {
+    pub fn setPreviewShown(self: KFilePreviewGenerator, show: bool) void {
         qtc.KFilePreviewGenerator_SetPreviewShown(@ptrCast(self.ptr), show);
     }
+
+    /// ### DEPRECATED: Use `isPreviewShown` instead
+    ///
+    pub const IsPreviewShown = isPreviewShown;
 
     /// ### [Upstream resources](https://api.kde.org/kfilepreviewgenerator.html#isPreviewShown)
     ///
@@ -214,9 +258,13 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` self: KFilePreviewGenerator `
     ///
-    pub fn IsPreviewShown(self: KFilePreviewGenerator) bool {
+    pub fn isPreviewShown(self: KFilePreviewGenerator) bool {
         return qtc.KFilePreviewGenerator_IsPreviewShown(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabledPlugins` instead
+    ///
+    pub const SetEnabledPlugins = setEnabledPlugins;
 
     /// ### [Upstream resources](https://api.kde.org/kfilepreviewgenerator.html#setEnabledPlugins)
     ///
@@ -228,13 +276,13 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` list: []const []const u8 `
     ///
-    pub fn SetEnabledPlugins(self: KFilePreviewGenerator, allocator: std.mem.Allocator, list: []const []const u8) void {
-        const list_arr = allocator.alloc(qtc.libqt_string, list.len) catch @panic("KFilePreviewGenerator.SetEnabledPlugins: Memory allocation failed");
+    pub fn setEnabledPlugins(self: KFilePreviewGenerator, allocator: std.mem.Allocator, list: []const []const u8) void {
+        const list_arr = allocator.alloc(qtc.libqt_string, list.len) catch @panic("KFilePreviewGenerator.setEnabledPlugins: Memory allocation failed");
         defer allocator.free(list_arr);
-        for (list, 0..list.len) |item, i|
+        for (list, 0..list.len) |str_item, i|
             list_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const list_list = qtc.libqt_list{
             .len = list.len,
@@ -242,6 +290,10 @@ pub const KFilePreviewGenerator = extern struct {
         };
         qtc.KFilePreviewGenerator_SetEnabledPlugins(@ptrCast(self.ptr), list_list);
     }
+
+    /// ### DEPRECATED: Use `enabledPlugins` instead
+    ///
+    pub const EnabledPlugins = enabledPlugins;
 
     /// ### [Upstream resources](https://api.kde.org/kfilepreviewgenerator.html#enabledPlugins)
     ///
@@ -251,7 +303,7 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn EnabledPlugins(self: KFilePreviewGenerator, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn enabledPlugins(self: KFilePreviewGenerator, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KFilePreviewGenerator_EnabledPlugins(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -259,15 +311,19 @@ pub const KFilePreviewGenerator = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KFilePreviewGenerator.EnabledPlugins: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KFilePreviewGenerator.enabledPlugins: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KFilePreviewGenerator.EnabledPlugins: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KFilePreviewGenerator.enabledPlugins: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `updateIcons` instead
+    ///
+    pub const UpdateIcons = updateIcons;
 
     /// ### [Upstream resources](https://api.kde.org/kfilepreviewgenerator.html#updateIcons)
     ///
@@ -275,9 +331,13 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` self: KFilePreviewGenerator `
     ///
-    pub fn UpdateIcons(self: KFilePreviewGenerator) void {
+    pub fn updateIcons(self: KFilePreviewGenerator) void {
         qtc.KFilePreviewGenerator_UpdateIcons(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `cancelPreviews` instead
+    ///
+    pub const CancelPreviews = cancelPreviews;
 
     /// ### [Upstream resources](https://api.kde.org/kfilepreviewgenerator.html#cancelPreviews)
     ///
@@ -285,9 +345,13 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` self: KFilePreviewGenerator `
     ///
-    pub fn CancelPreviews(self: KFilePreviewGenerator) void {
+    pub fn cancelPreviews(self: KFilePreviewGenerator) void {
         qtc.KFilePreviewGenerator_CancelPreviews(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -299,15 +363,19 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFilePreviewGenerator.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFilePreviewGenerator.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -321,15 +389,19 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFilePreviewGenerator.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFilePreviewGenerator.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -341,13 +413,17 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KFilePreviewGenerator, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KFilePreviewGenerator, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFilePreviewGenerator.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFilePreviewGenerator.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -359,13 +435,17 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KFilePreviewGenerator, name: []const u8) void {
+    pub fn setObjectName(self: KFilePreviewGenerator, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -375,9 +455,13 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` self: KFilePreviewGenerator `
     ///
-    pub fn IsWidgetType(self: KFilePreviewGenerator) bool {
+    pub fn isWidgetType(self: KFilePreviewGenerator) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -387,9 +471,13 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` self: KFilePreviewGenerator `
     ///
-    pub fn IsWindowType(self: KFilePreviewGenerator) bool {
+    pub fn isWindowType(self: KFilePreviewGenerator) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -399,9 +487,13 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` self: KFilePreviewGenerator `
     ///
-    pub fn IsQuickItemType(self: KFilePreviewGenerator) bool {
+    pub fn isQuickItemType(self: KFilePreviewGenerator) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -411,9 +503,13 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` self: KFilePreviewGenerator `
     ///
-    pub fn SignalsBlocked(self: KFilePreviewGenerator) bool {
+    pub fn signalsBlocked(self: KFilePreviewGenerator) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -425,9 +521,13 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KFilePreviewGenerator, b: bool) bool {
+    pub fn blockSignals(self: KFilePreviewGenerator, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -437,9 +537,13 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` self: KFilePreviewGenerator `
     ///
-    pub fn Thread(self: KFilePreviewGenerator) QThread {
+    pub fn thread(self: KFilePreviewGenerator) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -449,12 +553,16 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` self: KFilePreviewGenerator `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KFilePreviewGenerator, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KFilePreviewGenerator, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -466,9 +574,13 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KFilePreviewGenerator, interval: i32) i32 {
+    pub fn startTimer(self: KFilePreviewGenerator, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -480,9 +592,13 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KFilePreviewGenerator, time: i64) i32 {
+    pub fn startTimer2(self: KFilePreviewGenerator, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -494,9 +610,13 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KFilePreviewGenerator, id: i32) void {
+    pub fn killTimer(self: KFilePreviewGenerator, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -508,9 +628,13 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KFilePreviewGenerator, id: i32) void {
+    pub fn killTimer2(self: KFilePreviewGenerator, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -522,15 +646,19 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KFilePreviewGenerator, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KFilePreviewGenerator, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KFilePreviewGenerator.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KFilePreviewGenerator.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -540,12 +668,16 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` self: KFilePreviewGenerator `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: KFilePreviewGenerator, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: KFilePreviewGenerator, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -557,10 +689,14 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KFilePreviewGenerator, filterObj: anytype) void {
+    pub fn installEventFilter(self: KFilePreviewGenerator, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -572,10 +708,14 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KFilePreviewGenerator, obj: anytype) void {
+    pub fn removeEventFilter(self: KFilePreviewGenerator, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -583,7 +723,7 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -591,13 +731,17 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -605,7 +749,7 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -613,13 +757,17 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -629,18 +777,22 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` self: KFilePreviewGenerator `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KFilePreviewGenerator, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KFilePreviewGenerator, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -648,7 +800,7 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -656,13 +808,17 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -670,7 +826,7 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -678,13 +834,17 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -694,9 +854,13 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` self: KFilePreviewGenerator `
     ///
-    pub fn Disconnect3(self: KFilePreviewGenerator) bool {
+    pub fn disconnect3(self: KFilePreviewGenerator) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -708,10 +872,14 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KFilePreviewGenerator, receiver: anytype) bool {
+    pub fn disconnect4(self: KFilePreviewGenerator, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -721,10 +889,14 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -734,9 +906,13 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` self: KFilePreviewGenerator `
     ///
-    pub fn DumpObjectTree(self: KFilePreviewGenerator) void {
+    pub fn dumpObjectTree(self: KFilePreviewGenerator) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -746,9 +922,13 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` self: KFilePreviewGenerator `
     ///
-    pub fn DumpObjectInfo(self: KFilePreviewGenerator) void {
+    pub fn dumpObjectInfo(self: KFilePreviewGenerator) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -762,11 +942,15 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KFilePreviewGenerator, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KFilePreviewGenerator, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -778,10 +962,14 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KFilePreviewGenerator, name: [:0]const u8) QVariant {
+    pub fn property(self: KFilePreviewGenerator, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -793,7 +981,7 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KFilePreviewGenerator, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KFilePreviewGenerator, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -801,27 +989,19 @@ pub const KFilePreviewGenerator = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KFilePreviewGenerator.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KFilePreviewGenerator.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KFilePreviewGenerator.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KFilePreviewGenerator.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilePreviewGenerator `
-    ///
-    pub fn BindingStorage(self: KFilePreviewGenerator) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -831,9 +1011,29 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` self: KFilePreviewGenerator `
     ///
-    pub fn BindingStorage2(self: KFilePreviewGenerator) QBindingStorage {
+    pub fn bindingStorage(self: KFilePreviewGenerator) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KFilePreviewGenerator `
+    ///
+    pub fn bindingStorage2(self: KFilePreviewGenerator) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -843,9 +1043,13 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` self: KFilePreviewGenerator `
     ///
-    pub fn Destroyed(self: KFilePreviewGenerator) void {
+    pub fn destroyed(self: KFilePreviewGenerator) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -857,9 +1061,13 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePreviewGenerator) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KFilePreviewGenerator, callback: *const fn (KFilePreviewGenerator) callconv(.c) void) void {
+    pub fn onDestroyed(self: KFilePreviewGenerator, callback: *const fn (KFilePreviewGenerator) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -869,9 +1077,13 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` self: KFilePreviewGenerator `
     ///
-    pub fn Parent(self: KFilePreviewGenerator) QObject {
+    pub fn parent(self: KFilePreviewGenerator) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -883,10 +1095,14 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KFilePreviewGenerator, classname: [:0]const u8) bool {
+    pub fn inherits(self: KFilePreviewGenerator, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -896,9 +1112,13 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` self: KFilePreviewGenerator `
     ///
-    pub fn DeleteLater(self: KFilePreviewGenerator) void {
+    pub fn deleteLater(self: KFilePreviewGenerator) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -912,9 +1132,13 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KFilePreviewGenerator, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KFilePreviewGenerator, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -928,9 +1152,13 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KFilePreviewGenerator, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KFilePreviewGenerator, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -938,7 +1166,7 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -948,13 +1176,17 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -962,7 +1194,7 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -972,13 +1204,17 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -988,7 +1224,7 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` self: KFilePreviewGenerator `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -996,12 +1232,16 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KFilePreviewGenerator, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KFilePreviewGenerator, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1013,10 +1253,14 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KFilePreviewGenerator, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KFilePreviewGenerator, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1030,11 +1274,15 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KFilePreviewGenerator, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KFilePreviewGenerator, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1050,13 +1298,17 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KFilePreviewGenerator, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KFilePreviewGenerator, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1069,11 +1321,15 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KFilePreviewGenerator, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KFilePreviewGenerator, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1085,10 +1341,14 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KFilePreviewGenerator, param1: anytype) void {
+    pub fn destroyed1(self: KFilePreviewGenerator, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1100,9 +1360,13 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePreviewGenerator, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KFilePreviewGenerator, callback: *const fn (KFilePreviewGenerator, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KFilePreviewGenerator, callback: *const fn (KFilePreviewGenerator, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -1114,16 +1378,16 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` self: KFilePreviewGenerator `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: KFilePreviewGenerator, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KFilePreviewGenerator_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: KFilePreviewGenerator, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KFilePreviewGenerator_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -1135,12 +1399,16 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` self: KFilePreviewGenerator `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: KFilePreviewGenerator, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KFilePreviewGenerator_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: KFilePreviewGenerator, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KFilePreviewGenerator_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -1154,9 +1422,13 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePreviewGenerator, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KFilePreviewGenerator, callback: *const fn (KFilePreviewGenerator, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KFilePreviewGenerator, callback: *const fn (KFilePreviewGenerator, QEvent) callconv(.c) bool) void {
         qtc.KFilePreviewGenerator_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1170,17 +1442,17 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: KFilePreviewGenerator, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: KFilePreviewGenerator, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KFilePreviewGenerator_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KFilePreviewGenerator_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1194,13 +1466,17 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: KFilePreviewGenerator, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: KFilePreviewGenerator, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KFilePreviewGenerator_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KFilePreviewGenerator_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1214,9 +1490,13 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePreviewGenerator, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KFilePreviewGenerator, callback: *const fn (KFilePreviewGenerator, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KFilePreviewGenerator, callback: *const fn (KFilePreviewGenerator, QObject, QEvent) callconv(.c) bool) void {
         qtc.KFilePreviewGenerator_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -1228,16 +1508,16 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` self: KFilePreviewGenerator `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KFilePreviewGenerator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KFilePreviewGenerator_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: KFilePreviewGenerator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KFilePreviewGenerator_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1249,12 +1529,16 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` self: KFilePreviewGenerator `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KFilePreviewGenerator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KFilePreviewGenerator_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: KFilePreviewGenerator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KFilePreviewGenerator_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1268,9 +1552,13 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePreviewGenerator, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KFilePreviewGenerator, callback: *const fn (KFilePreviewGenerator, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KFilePreviewGenerator, callback: *const fn (KFilePreviewGenerator, QTimerEvent) callconv(.c) void) void {
         qtc.KFilePreviewGenerator_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -1282,16 +1570,16 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` self: KFilePreviewGenerator `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KFilePreviewGenerator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KFilePreviewGenerator_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KFilePreviewGenerator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KFilePreviewGenerator_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1303,12 +1591,16 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` self: KFilePreviewGenerator `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KFilePreviewGenerator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KFilePreviewGenerator_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KFilePreviewGenerator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KFilePreviewGenerator_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1322,9 +1614,13 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePreviewGenerator, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KFilePreviewGenerator, callback: *const fn (KFilePreviewGenerator, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KFilePreviewGenerator, callback: *const fn (KFilePreviewGenerator, QChildEvent) callconv(.c) void) void {
         qtc.KFilePreviewGenerator_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -1336,16 +1632,16 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` self: KFilePreviewGenerator `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KFilePreviewGenerator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KFilePreviewGenerator_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KFilePreviewGenerator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KFilePreviewGenerator_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1357,12 +1653,16 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` self: KFilePreviewGenerator `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KFilePreviewGenerator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KFilePreviewGenerator_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KFilePreviewGenerator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KFilePreviewGenerator_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1376,9 +1676,13 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePreviewGenerator, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KFilePreviewGenerator, callback: *const fn (KFilePreviewGenerator, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KFilePreviewGenerator, callback: *const fn (KFilePreviewGenerator, QEvent) callconv(.c) void) void {
         qtc.KFilePreviewGenerator_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -1392,14 +1696,14 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KFilePreviewGenerator, signal: anytype) void {
+    pub fn connectNotify(self: KFilePreviewGenerator, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KFilePreviewGenerator_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1413,11 +1717,15 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KFilePreviewGenerator, signal: anytype) void {
+    pub fn superConnectNotify(self: KFilePreviewGenerator, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KFilePreviewGenerator_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1430,9 +1738,13 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePreviewGenerator, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KFilePreviewGenerator, callback: *const fn (KFilePreviewGenerator, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KFilePreviewGenerator, callback: *const fn (KFilePreviewGenerator, QMetaMethod) callconv(.c) void) void {
         qtc.KFilePreviewGenerator_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1446,14 +1758,14 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KFilePreviewGenerator, signal: anytype) void {
+    pub fn disconnectNotify(self: KFilePreviewGenerator, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KFilePreviewGenerator_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1467,10 +1779,14 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KFilePreviewGenerator, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KFilePreviewGenerator, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KFilePreviewGenerator_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1484,9 +1800,13 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePreviewGenerator, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KFilePreviewGenerator, callback: *const fn (KFilePreviewGenerator, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KFilePreviewGenerator, callback: *const fn (KFilePreviewGenerator, QMetaMethod) callconv(.c) void) void {
         qtc.KFilePreviewGenerator_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -1498,13 +1818,13 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` self: KFilePreviewGenerator `
     ///
-    pub fn Sender(self: KFilePreviewGenerator) QObject {
+    pub fn sender(self: KFilePreviewGenerator) QObject {
         return .{ .ptr = qtc.KFilePreviewGenerator_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -1516,9 +1836,13 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` self: KFilePreviewGenerator `
     ///
-    pub fn SuperSender(self: KFilePreviewGenerator) QObject {
+    pub fn superSender(self: KFilePreviewGenerator) QObject {
         return .{ .ptr = qtc.KFilePreviewGenerator_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -1532,9 +1856,13 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KFilePreviewGenerator, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KFilePreviewGenerator, callback: *const fn () callconv(.c) QObject) void {
         qtc.KFilePreviewGenerator_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1546,13 +1874,13 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` self: KFilePreviewGenerator `
     ///
-    pub fn SenderSignalIndex(self: KFilePreviewGenerator) i32 {
+    pub fn senderSignalIndex(self: KFilePreviewGenerator) i32 {
         return qtc.KFilePreviewGenerator_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1564,9 +1892,13 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` self: KFilePreviewGenerator `
     ///
-    pub fn SuperSenderSignalIndex(self: KFilePreviewGenerator) i32 {
+    pub fn superSenderSignalIndex(self: KFilePreviewGenerator) i32 {
         return qtc.KFilePreviewGenerator_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1580,9 +1912,13 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KFilePreviewGenerator, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KFilePreviewGenerator, callback: *const fn () callconv(.c) i32) void {
         qtc.KFilePreviewGenerator_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -1596,14 +1932,14 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KFilePreviewGenerator, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KFilePreviewGenerator, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KFilePreviewGenerator_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -1617,10 +1953,14 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KFilePreviewGenerator, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KFilePreviewGenerator, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KFilePreviewGenerator_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -1634,9 +1974,13 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePreviewGenerator, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KFilePreviewGenerator, callback: *const fn (KFilePreviewGenerator, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KFilePreviewGenerator, callback: *const fn (KFilePreviewGenerator, [*:0]const u8) callconv(.c) i32) void {
         qtc.KFilePreviewGenerator_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1650,14 +1994,14 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KFilePreviewGenerator, signal: anytype) bool {
+    pub fn isSignalConnected(self: KFilePreviewGenerator, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KFilePreviewGenerator_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1671,10 +2015,14 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KFilePreviewGenerator, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KFilePreviewGenerator, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KFilePreviewGenerator_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1688,9 +2036,13 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePreviewGenerator, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KFilePreviewGenerator, callback: *const fn (KFilePreviewGenerator, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KFilePreviewGenerator, callback: *const fn (KFilePreviewGenerator, QMetaMethod) callconv(.c) bool) void {
         qtc.KFilePreviewGenerator_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -1704,23 +2056,23 @@ pub const KFilePreviewGenerator = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePreviewGenerator, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KFilePreviewGenerator, callback: *const fn (KFilePreviewGenerator, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KFilePreviewGenerator, callback: *const fn (KFilePreviewGenerator, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kfilepreviewgenerator.html#dtor.KFilePreviewGenerator)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KFilePreviewGenerator `
     ///
-    pub fn Delete(self: KFilePreviewGenerator) void {
+    pub fn delete(self: KFilePreviewGenerator) void {
         qtc.KFilePreviewGenerator_Delete(@ptrCast(self.ptr));
     }
 };

@@ -3,6 +3,10 @@ const qtc = @import("qt6c");
 
 /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-wildcardmatcher.html)
 pub const KSyntaxHighlighting__WildcardMatcher = extern struct {
+    /// ### DEPRECATED: Use `exactMatch` instead
+    ///
+    pub const ExactMatch = exactMatch;
+
     /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-wildcardmatcher.html#exactMatch)
     ///
     /// ## Parameter(s):
@@ -11,7 +15,7 @@ pub const KSyntaxHighlighting__WildcardMatcher = extern struct {
     ///
     /// ` wildcard: []const u8 `
     ///
-    pub fn ExactMatch(candidate: []const u8, wildcard: []const u8) bool {
+    pub fn exactMatch(candidate: []const u8, wildcard: []const u8) bool {
         const candidate_str = qtc.libqt_string{
             .len = candidate.len,
             .data = candidate.ptr,

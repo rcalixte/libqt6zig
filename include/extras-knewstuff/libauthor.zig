@@ -13,22 +13,34 @@ pub const KNSCore__Author = extern struct {
 
     pub const _is_KNSCore__Author = {};
 
-    /// New constructs a new KNSCore::Author object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() KNSCore__Author {
+    pub const New = new;
+
+    /// Allocate a new KNSCore::Author object in C++ memory
+    ///
+    pub fn new() KNSCore__Author {
         return .{ .ptr = qtc.KNSCore__Author_new() };
     }
 
-    /// New2 constructs a new KNSCore::Author object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KNSCore::Author object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: KNSCore__Author `
     ///
-    pub fn New2(other: anytype) KNSCore__Author {
+    pub fn new2(other: anytype) KNSCore__Author {
         comptime _ = @TypeOf(other)._is_KNSCore__Author;
         return .{ .ptr = qtc.KNSCore__Author_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-author.html#operator-eq)
     ///
@@ -38,10 +50,14 @@ pub const KNSCore__Author = extern struct {
     ///
     /// ` other: KNSCore__Author `
     ///
-    pub fn OperatorAssign(self: KNSCore__Author, other: anytype) void {
+    pub fn operatorAssign(self: KNSCore__Author, other: anytype) void {
         comptime _ = @TypeOf(other)._is_KNSCore__Author;
         qtc.KNSCore__Author_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `setId` instead
+    ///
+    pub const SetId = setId;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-author.html#setId)
     ///
@@ -49,15 +65,19 @@ pub const KNSCore__Author = extern struct {
     ///
     /// ` self: KNSCore__Author `
     ///
-    /// ` id: []const u8 `
+    /// ` _id: []const u8 `
     ///
-    pub fn SetId(self: KNSCore__Author, id: []const u8) void {
+    pub fn setId(self: KNSCore__Author, _id: []const u8) void {
         const id_str = qtc.libqt_string{
-            .len = id.len,
-            .data = id.ptr,
+            .len = _id.len,
+            .data = _id.ptr,
         };
         qtc.KNSCore__Author_SetId(@ptrCast(self.ptr), id_str);
     }
+
+    /// ### DEPRECATED: Use `id` instead
+    ///
+    pub const Id = id;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-author.html#id)
     ///
@@ -67,13 +87,17 @@ pub const KNSCore__Author = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Id(self: KNSCore__Author, allocator: std.mem.Allocator) []const u8 {
+    pub fn id(self: KNSCore__Author, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KNSCore__Author_Id(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNSCore__Author.Id: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNSCore__Author.id: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setName` instead
+    ///
+    pub const SetName = setName;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-author.html#setName)
     ///
@@ -81,15 +105,19 @@ pub const KNSCore__Author = extern struct {
     ///
     /// ` self: KNSCore__Author `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn SetName(self: KNSCore__Author, name: []const u8) void {
+    pub fn setName(self: KNSCore__Author, _name: []const u8) void {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         qtc.KNSCore__Author_SetName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-author.html#name)
     ///
@@ -99,13 +127,17 @@ pub const KNSCore__Author = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: KNSCore__Author, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: KNSCore__Author, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KNSCore__Author_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNSCore__Author.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNSCore__Author.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setEmail` instead
+    ///
+    pub const SetEmail = setEmail;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-author.html#setEmail)
     ///
@@ -113,15 +145,19 @@ pub const KNSCore__Author = extern struct {
     ///
     /// ` self: KNSCore__Author `
     ///
-    /// ` email: []const u8 `
+    /// ` _email: []const u8 `
     ///
-    pub fn SetEmail(self: KNSCore__Author, email: []const u8) void {
+    pub fn setEmail(self: KNSCore__Author, _email: []const u8) void {
         const email_str = qtc.libqt_string{
-            .len = email.len,
-            .data = email.ptr,
+            .len = _email.len,
+            .data = _email.ptr,
         };
         qtc.KNSCore__Author_SetEmail(@ptrCast(self.ptr), email_str);
     }
+
+    /// ### DEPRECATED: Use `email` instead
+    ///
+    pub const Email = email;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-author.html#email)
     ///
@@ -131,13 +167,17 @@ pub const KNSCore__Author = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Email(self: KNSCore__Author, allocator: std.mem.Allocator) []const u8 {
+    pub fn email(self: KNSCore__Author, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KNSCore__Author_Email(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNSCore__Author.Email: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNSCore__Author.email: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setJabber` instead
+    ///
+    pub const SetJabber = setJabber;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-author.html#setJabber)
     ///
@@ -145,15 +185,19 @@ pub const KNSCore__Author = extern struct {
     ///
     /// ` self: KNSCore__Author `
     ///
-    /// ` jabber: []const u8 `
+    /// ` _jabber: []const u8 `
     ///
-    pub fn SetJabber(self: KNSCore__Author, jabber: []const u8) void {
+    pub fn setJabber(self: KNSCore__Author, _jabber: []const u8) void {
         const jabber_str = qtc.libqt_string{
-            .len = jabber.len,
-            .data = jabber.ptr,
+            .len = _jabber.len,
+            .data = _jabber.ptr,
         };
         qtc.KNSCore__Author_SetJabber(@ptrCast(self.ptr), jabber_str);
     }
+
+    /// ### DEPRECATED: Use `jabber` instead
+    ///
+    pub const Jabber = jabber;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-author.html#jabber)
     ///
@@ -163,13 +207,17 @@ pub const KNSCore__Author = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Jabber(self: KNSCore__Author, allocator: std.mem.Allocator) []const u8 {
+    pub fn jabber(self: KNSCore__Author, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KNSCore__Author_Jabber(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNSCore__Author.Jabber: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNSCore__Author.jabber: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setHomepage` instead
+    ///
+    pub const SetHomepage = setHomepage;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-author.html#setHomepage)
     ///
@@ -177,15 +225,19 @@ pub const KNSCore__Author = extern struct {
     ///
     /// ` self: KNSCore__Author `
     ///
-    /// ` homepage: []const u8 `
+    /// ` _homepage: []const u8 `
     ///
-    pub fn SetHomepage(self: KNSCore__Author, homepage: []const u8) void {
+    pub fn setHomepage(self: KNSCore__Author, _homepage: []const u8) void {
         const homepage_str = qtc.libqt_string{
-            .len = homepage.len,
-            .data = homepage.ptr,
+            .len = _homepage.len,
+            .data = _homepage.ptr,
         };
         qtc.KNSCore__Author_SetHomepage(@ptrCast(self.ptr), homepage_str);
     }
+
+    /// ### DEPRECATED: Use `homepage` instead
+    ///
+    pub const Homepage = homepage;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-author.html#homepage)
     ///
@@ -195,13 +247,17 @@ pub const KNSCore__Author = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Homepage(self: KNSCore__Author, allocator: std.mem.Allocator) []const u8 {
+    pub fn homepage(self: KNSCore__Author, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KNSCore__Author_Homepage(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNSCore__Author.Homepage: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNSCore__Author.homepage: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setProfilepage` instead
+    ///
+    pub const SetProfilepage = setProfilepage;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-author.html#setProfilepage)
     ///
@@ -209,15 +265,19 @@ pub const KNSCore__Author = extern struct {
     ///
     /// ` self: KNSCore__Author `
     ///
-    /// ` profilepage: []const u8 `
+    /// ` _profilepage: []const u8 `
     ///
-    pub fn SetProfilepage(self: KNSCore__Author, profilepage: []const u8) void {
+    pub fn setProfilepage(self: KNSCore__Author, _profilepage: []const u8) void {
         const profilepage_str = qtc.libqt_string{
-            .len = profilepage.len,
-            .data = profilepage.ptr,
+            .len = _profilepage.len,
+            .data = _profilepage.ptr,
         };
         qtc.KNSCore__Author_SetProfilepage(@ptrCast(self.ptr), profilepage_str);
     }
+
+    /// ### DEPRECATED: Use `profilepage` instead
+    ///
+    pub const Profilepage = profilepage;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-author.html#profilepage)
     ///
@@ -227,13 +287,17 @@ pub const KNSCore__Author = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Profilepage(self: KNSCore__Author, allocator: std.mem.Allocator) []const u8 {
+    pub fn profilepage(self: KNSCore__Author, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KNSCore__Author_Profilepage(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNSCore__Author.Profilepage: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNSCore__Author.profilepage: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAvatarUrl` instead
+    ///
+    pub const SetAvatarUrl = setAvatarUrl;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-author.html#setAvatarUrl)
     ///
@@ -241,12 +305,16 @@ pub const KNSCore__Author = extern struct {
     ///
     /// ` self: KNSCore__Author `
     ///
-    /// ` avatarUrl: QUrl `
+    /// ` _avatarUrl: QUrl `
     ///
-    pub fn SetAvatarUrl(self: KNSCore__Author, avatarUrl: anytype) void {
-        comptime _ = @TypeOf(avatarUrl)._is_QUrl;
-        qtc.KNSCore__Author_SetAvatarUrl(@ptrCast(self.ptr), @ptrCast(avatarUrl.ptr));
+    pub fn setAvatarUrl(self: KNSCore__Author, _avatarUrl: anytype) void {
+        comptime _ = @TypeOf(_avatarUrl)._is_QUrl;
+        qtc.KNSCore__Author_SetAvatarUrl(@ptrCast(self.ptr), @ptrCast(_avatarUrl.ptr));
     }
+
+    /// ### DEPRECATED: Use `avatarUrl` instead
+    ///
+    pub const AvatarUrl = avatarUrl;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-author.html#avatarUrl)
     ///
@@ -254,9 +322,13 @@ pub const KNSCore__Author = extern struct {
     ///
     /// ` self: KNSCore__Author `
     ///
-    pub fn AvatarUrl(self: KNSCore__Author) QUrl {
+    pub fn avatarUrl(self: KNSCore__Author) QUrl {
         return .{ .ptr = qtc.KNSCore__Author_AvatarUrl(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `description` instead
+    ///
+    pub const Description = description;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-author.html#description)
     ///
@@ -266,13 +338,17 @@ pub const KNSCore__Author = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Description(self: KNSCore__Author, allocator: std.mem.Allocator) []const u8 {
+    pub fn description(self: KNSCore__Author, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KNSCore__Author_Description(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNSCore__Author.Description: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNSCore__Author.description: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setDescription` instead
+    ///
+    pub const SetDescription = setDescription;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-author.html#setDescription)
     ///
@@ -280,27 +356,27 @@ pub const KNSCore__Author = extern struct {
     ///
     /// ` self: KNSCore__Author `
     ///
-    /// ` description: []const u8 `
+    /// ` _description: []const u8 `
     ///
-    pub fn SetDescription(self: KNSCore__Author, description: []const u8) void {
+    pub fn setDescription(self: KNSCore__Author, _description: []const u8) void {
         const description_str = qtc.libqt_string{
-            .len = description.len,
-            .data = description.ptr,
+            .len = _description.len,
+            .data = _description.ptr,
         };
         qtc.KNSCore__Author_SetDescription(@ptrCast(self.ptr), description_str);
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KNSCore__Author `
     ///
-    pub fn Delete(self: KNSCore__Author) void {
+    pub fn delete(self: KNSCore__Author) void {
         qtc.KNSCore__Author_Delete(@ptrCast(self.ptr));
     }
 };

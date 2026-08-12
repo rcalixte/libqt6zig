@@ -42,10 +42,10 @@ class VirtualKMacroExpanderBase final : public KMacroExpanderBase {
     inline void setKMacroExpanderBase_ExpandEscapedMacro_IsBase(bool value) const { kmacroexpanderbase_expandescapedmacro_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
-    virtual int expandPlainMacro(const QString& str, int pos, QList<QString>& retVal) override {
+    virtual int expandPlainMacro(const QString& str, int pos, QList<QString>& ret) override {
         if (kmacroexpanderbase_expandplainmacro_isbase) {
             kmacroexpanderbase_expandplainmacro_isbase = false;
-            return KMacroExpanderBase::expandPlainMacro(str, pos, retVal);
+            return KMacroExpanderBase::expandPlainMacro(str, pos, ret);
         }
         auto expandplainmacro_cb = kmacroexpanderbase_expandplainmacro_callback;
         if (expandplainmacro_cb) {
@@ -58,33 +58,33 @@ class VirtualKMacroExpanderBase final : public KMacroExpanderBase {
             ((char*)str_str)[str_str_len] = '\0';
             const char* cbval1 = str_str;
             int cbval2 = pos;
-            QList<QString>& retVal_ret = retVal;
+            QList<QString>& ret_ret = ret;
             // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
-            const char** retVal_arr = static_cast<const char**>(malloc(sizeof(const char*) * (retVal_ret.size() + 1)));
-            for (qsizetype i = 0; i < retVal_ret.size(); ++i) {
-                QByteArray retVal_b = retVal_ret[i].toUtf8();
-                auto retVal_str_len = retVal_b.length();
-                char* retVal_str = static_cast<char*>(malloc(retVal_str_len + 1));
-                memcpy(retVal_str, retVal_b.data(), retVal_str_len);
-                retVal_str[retVal_str_len] = '\0';
-                retVal_arr[i] = retVal_str;
+            const char** ret_arr = static_cast<const char**>(malloc(sizeof(const char*) * (ret_ret.size() + 1)));
+            for (qsizetype i = 0; i < ret_ret.size(); ++i) {
+                QByteArray ret_b = ret_ret[i].toUtf8();
+                auto ret_str_len = ret_b.length();
+                char* ret_str = static_cast<char*>(malloc(ret_str_len + 1));
+                memcpy(ret_str, ret_b.data(), ret_str_len);
+                ret_str[ret_str_len] = '\0';
+                ret_arr[i] = ret_str;
             }
             // Append sentinel null terminator to the list
-            retVal_arr[retVal_ret.size()] = nullptr;
-            const char** cbval3 = retVal_arr;
+            ret_arr[ret_ret.size()] = nullptr;
+            const char** cbval3 = ret_arr;
             int callback_ret = expandplainmacro_cb(this, cbval1, cbval2, cbval3);
             libqt_free(str_str);
-            libqt_free(retVal_arr);
+            libqt_free(ret_arr);
             return static_cast<int>(callback_ret);
         }
-        return KMacroExpanderBase::expandPlainMacro(str, pos, retVal);
+        return KMacroExpanderBase::expandPlainMacro(str, pos, ret);
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual int expandEscapedMacro(const QString& str, int pos, QList<QString>& retVal) override {
+    virtual int expandEscapedMacro(const QString& str, int pos, QList<QString>& ret) override {
         if (kmacroexpanderbase_expandescapedmacro_isbase) {
             kmacroexpanderbase_expandescapedmacro_isbase = false;
-            return KMacroExpanderBase::expandEscapedMacro(str, pos, retVal);
+            return KMacroExpanderBase::expandEscapedMacro(str, pos, ret);
         }
         auto expandescapedmacro_cb = kmacroexpanderbase_expandescapedmacro_callback;
         if (expandescapedmacro_cb) {
@@ -97,33 +97,33 @@ class VirtualKMacroExpanderBase final : public KMacroExpanderBase {
             ((char*)str_str)[str_str_len] = '\0';
             const char* cbval1 = str_str;
             int cbval2 = pos;
-            QList<QString>& retVal_ret = retVal;
+            QList<QString>& ret_ret = ret;
             // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
-            const char** retVal_arr = static_cast<const char**>(malloc(sizeof(const char*) * (retVal_ret.size() + 1)));
-            for (qsizetype i = 0; i < retVal_ret.size(); ++i) {
-                QByteArray retVal_b = retVal_ret[i].toUtf8();
-                auto retVal_str_len = retVal_b.length();
-                char* retVal_str = static_cast<char*>(malloc(retVal_str_len + 1));
-                memcpy(retVal_str, retVal_b.data(), retVal_str_len);
-                retVal_str[retVal_str_len] = '\0';
-                retVal_arr[i] = retVal_str;
+            const char** ret_arr = static_cast<const char**>(malloc(sizeof(const char*) * (ret_ret.size() + 1)));
+            for (qsizetype i = 0; i < ret_ret.size(); ++i) {
+                QByteArray ret_b = ret_ret[i].toUtf8();
+                auto ret_str_len = ret_b.length();
+                char* ret_str = static_cast<char*>(malloc(ret_str_len + 1));
+                memcpy(ret_str, ret_b.data(), ret_str_len);
+                ret_str[ret_str_len] = '\0';
+                ret_arr[i] = ret_str;
             }
             // Append sentinel null terminator to the list
-            retVal_arr[retVal_ret.size()] = nullptr;
-            const char** cbval3 = retVal_arr;
+            ret_arr[ret_ret.size()] = nullptr;
+            const char** cbval3 = ret_arr;
             int callback_ret = expandescapedmacro_cb(this, cbval1, cbval2, cbval3);
             libqt_free(str_str);
-            libqt_free(retVal_arr);
+            libqt_free(ret_arr);
             return static_cast<int>(callback_ret);
         }
-        return KMacroExpanderBase::expandEscapedMacro(str, pos, retVal);
+        return KMacroExpanderBase::expandEscapedMacro(str, pos, ret);
     }
 
     // Friend functions
-    friend int KMacroExpanderBase_ExpandPlainMacro(KMacroExpanderBase* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal);
-    friend int KMacroExpanderBase_SuperExpandPlainMacro(KMacroExpanderBase* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal);
-    friend int KMacroExpanderBase_ExpandEscapedMacro(KMacroExpanderBase* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal);
-    friend int KMacroExpanderBase_SuperExpandEscapedMacro(KMacroExpanderBase* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal);
+    friend int KMacroExpanderBase_ExpandPlainMacro(KMacroExpanderBase* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ ret);
+    friend int KMacroExpanderBase_SuperExpandPlainMacro(KMacroExpanderBase* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ ret);
+    friend int KMacroExpanderBase_ExpandEscapedMacro(KMacroExpanderBase* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ ret);
+    friend int KMacroExpanderBase_SuperExpandEscapedMacro(KMacroExpanderBase* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ ret);
 };
 
 // This class is a subclass of KWordMacroExpander so that we can call protected methods
@@ -164,10 +164,10 @@ class VirtualKWordMacroExpander : public KWordMacroExpander {
     inline void setKWordMacroExpander_ExpandMacro_IsBase(bool value) const { kwordmacroexpander_expandmacro_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
-    virtual int expandPlainMacro(const QString& str, int pos, QList<QString>& retVal) override {
+    virtual int expandPlainMacro(const QString& str, int pos, QList<QString>& ret) override {
         if (kwordmacroexpander_expandplainmacro_isbase) {
             kwordmacroexpander_expandplainmacro_isbase = false;
-            return KWordMacroExpander::expandPlainMacro(str, pos, retVal);
+            return KWordMacroExpander::expandPlainMacro(str, pos, ret);
         }
         auto expandplainmacro_cb = kwordmacroexpander_expandplainmacro_callback;
         if (expandplainmacro_cb) {
@@ -180,33 +180,33 @@ class VirtualKWordMacroExpander : public KWordMacroExpander {
             ((char*)str_str)[str_str_len] = '\0';
             const char* cbval1 = str_str;
             int cbval2 = pos;
-            QList<QString>& retVal_ret = retVal;
+            QList<QString>& ret_ret = ret;
             // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
-            const char** retVal_arr = static_cast<const char**>(malloc(sizeof(const char*) * (retVal_ret.size() + 1)));
-            for (qsizetype i = 0; i < retVal_ret.size(); ++i) {
-                QByteArray retVal_b = retVal_ret[i].toUtf8();
-                auto retVal_str_len = retVal_b.length();
-                char* retVal_str = static_cast<char*>(malloc(retVal_str_len + 1));
-                memcpy(retVal_str, retVal_b.data(), retVal_str_len);
-                retVal_str[retVal_str_len] = '\0';
-                retVal_arr[i] = retVal_str;
+            const char** ret_arr = static_cast<const char**>(malloc(sizeof(const char*) * (ret_ret.size() + 1)));
+            for (qsizetype i = 0; i < ret_ret.size(); ++i) {
+                QByteArray ret_b = ret_ret[i].toUtf8();
+                auto ret_str_len = ret_b.length();
+                char* ret_str = static_cast<char*>(malloc(ret_str_len + 1));
+                memcpy(ret_str, ret_b.data(), ret_str_len);
+                ret_str[ret_str_len] = '\0';
+                ret_arr[i] = ret_str;
             }
             // Append sentinel null terminator to the list
-            retVal_arr[retVal_ret.size()] = nullptr;
-            const char** cbval3 = retVal_arr;
+            ret_arr[ret_ret.size()] = nullptr;
+            const char** cbval3 = ret_arr;
             int callback_ret = expandplainmacro_cb(this, cbval1, cbval2, cbval3);
             libqt_free(str_str);
-            libqt_free(retVal_arr);
+            libqt_free(ret_arr);
             return static_cast<int>(callback_ret);
         }
-        return KWordMacroExpander::expandPlainMacro(str, pos, retVal);
+        return KWordMacroExpander::expandPlainMacro(str, pos, ret);
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual int expandEscapedMacro(const QString& str, int pos, QList<QString>& retVal) override {
+    virtual int expandEscapedMacro(const QString& str, int pos, QList<QString>& ret) override {
         if (kwordmacroexpander_expandescapedmacro_isbase) {
             kwordmacroexpander_expandescapedmacro_isbase = false;
-            return KWordMacroExpander::expandEscapedMacro(str, pos, retVal);
+            return KWordMacroExpander::expandEscapedMacro(str, pos, ret);
         }
         auto expandescapedmacro_cb = kwordmacroexpander_expandescapedmacro_callback;
         if (expandescapedmacro_cb) {
@@ -219,30 +219,30 @@ class VirtualKWordMacroExpander : public KWordMacroExpander {
             ((char*)str_str)[str_str_len] = '\0';
             const char* cbval1 = str_str;
             int cbval2 = pos;
-            QList<QString>& retVal_ret = retVal;
+            QList<QString>& ret_ret = ret;
             // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
-            const char** retVal_arr = static_cast<const char**>(malloc(sizeof(const char*) * (retVal_ret.size() + 1)));
-            for (qsizetype i = 0; i < retVal_ret.size(); ++i) {
-                QByteArray retVal_b = retVal_ret[i].toUtf8();
-                auto retVal_str_len = retVal_b.length();
-                char* retVal_str = static_cast<char*>(malloc(retVal_str_len + 1));
-                memcpy(retVal_str, retVal_b.data(), retVal_str_len);
-                retVal_str[retVal_str_len] = '\0';
-                retVal_arr[i] = retVal_str;
+            const char** ret_arr = static_cast<const char**>(malloc(sizeof(const char*) * (ret_ret.size() + 1)));
+            for (qsizetype i = 0; i < ret_ret.size(); ++i) {
+                QByteArray ret_b = ret_ret[i].toUtf8();
+                auto ret_str_len = ret_b.length();
+                char* ret_str = static_cast<char*>(malloc(ret_str_len + 1));
+                memcpy(ret_str, ret_b.data(), ret_str_len);
+                ret_str[ret_str_len] = '\0';
+                ret_arr[i] = ret_str;
             }
             // Append sentinel null terminator to the list
-            retVal_arr[retVal_ret.size()] = nullptr;
-            const char** cbval3 = retVal_arr;
+            ret_arr[ret_ret.size()] = nullptr;
+            const char** cbval3 = ret_arr;
             int callback_ret = expandescapedmacro_cb(this, cbval1, cbval2, cbval3);
             libqt_free(str_str);
-            libqt_free(retVal_arr);
+            libqt_free(ret_arr);
             return static_cast<int>(callback_ret);
         }
-        return KWordMacroExpander::expandEscapedMacro(str, pos, retVal);
+        return KWordMacroExpander::expandEscapedMacro(str, pos, ret);
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual bool expandMacro(const QString& str, QList<QString>& retVal) override {
+    virtual bool expandMacro(const QString& str, QList<QString>& ret) override {
         auto expandmacro_cb = kwordmacroexpander_expandmacro_callback;
         if (expandmacro_cb) {
             const auto str_ret = str;
@@ -253,35 +253,35 @@ class VirtualKWordMacroExpander : public KWordMacroExpander {
             memcpy((void*)str_str, str_b.data(), str_str_len);
             ((char*)str_str)[str_str_len] = '\0';
             const char* cbval1 = str_str;
-            QList<QString>& retVal_ret = retVal;
+            QList<QString>& ret_ret = ret;
             // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
-            const char** retVal_arr = static_cast<const char**>(malloc(sizeof(const char*) * (retVal_ret.size() + 1)));
-            for (qsizetype i = 0; i < retVal_ret.size(); ++i) {
-                QByteArray retVal_b = retVal_ret[i].toUtf8();
-                auto retVal_str_len = retVal_b.length();
-                char* retVal_str = static_cast<char*>(malloc(retVal_str_len + 1));
-                memcpy(retVal_str, retVal_b.data(), retVal_str_len);
-                retVal_str[retVal_str_len] = '\0';
-                retVal_arr[i] = retVal_str;
+            const char** ret_arr = static_cast<const char**>(malloc(sizeof(const char*) * (ret_ret.size() + 1)));
+            for (qsizetype i = 0; i < ret_ret.size(); ++i) {
+                QByteArray ret_b = ret_ret[i].toUtf8();
+                auto ret_str_len = ret_b.length();
+                char* ret_str = static_cast<char*>(malloc(ret_str_len + 1));
+                memcpy(ret_str, ret_b.data(), ret_str_len);
+                ret_str[ret_str_len] = '\0';
+                ret_arr[i] = ret_str;
             }
             // Append sentinel null terminator to the list
-            retVal_arr[retVal_ret.size()] = nullptr;
-            const char** cbval2 = retVal_arr;
+            ret_arr[ret_ret.size()] = nullptr;
+            const char** cbval2 = ret_arr;
             bool callback_ret = expandmacro_cb(this, cbval1, cbval2);
             libqt_free(str_str);
-            libqt_free(retVal_arr);
+            libqt_free(ret_arr);
             return callback_ret;
         }
         return {};
     }
 
     // Friend functions
-    friend int KWordMacroExpander_ExpandPlainMacro(KWordMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal);
-    friend int KWordMacroExpander_SuperExpandPlainMacro(KWordMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal);
-    friend int KWordMacroExpander_ExpandEscapedMacro(KWordMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal);
-    friend int KWordMacroExpander_SuperExpandEscapedMacro(KWordMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal);
-    friend bool KWordMacroExpander_ExpandMacro(KWordMacroExpander* self, const libqt_string str, libqt_list /* of libqt_string */ retVal);
-    friend bool KWordMacroExpander_SuperExpandMacro(KWordMacroExpander* self, const libqt_string str, libqt_list /* of libqt_string */ retVal);
+    friend int KWordMacroExpander_ExpandPlainMacro(KWordMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ ret);
+    friend int KWordMacroExpander_SuperExpandPlainMacro(KWordMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ ret);
+    friend int KWordMacroExpander_ExpandEscapedMacro(KWordMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ ret);
+    friend int KWordMacroExpander_SuperExpandEscapedMacro(KWordMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ ret);
+    friend bool KWordMacroExpander_ExpandMacro(KWordMacroExpander* self, const libqt_string str, libqt_list /* of libqt_string */ ret);
+    friend bool KWordMacroExpander_SuperExpandMacro(KWordMacroExpander* self, const libqt_string str, libqt_list /* of libqt_string */ ret);
 };
 
 // This class is a subclass of KCharMacroExpander so that we can call protected methods
@@ -322,10 +322,10 @@ class VirtualKCharMacroExpander : public KCharMacroExpander {
     inline void setKCharMacroExpander_ExpandMacro_IsBase(bool value) const { kcharmacroexpander_expandmacro_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
-    virtual int expandPlainMacro(const QString& str, int pos, QList<QString>& retVal) override {
+    virtual int expandPlainMacro(const QString& str, int pos, QList<QString>& ret) override {
         if (kcharmacroexpander_expandplainmacro_isbase) {
             kcharmacroexpander_expandplainmacro_isbase = false;
-            return KCharMacroExpander::expandPlainMacro(str, pos, retVal);
+            return KCharMacroExpander::expandPlainMacro(str, pos, ret);
         }
         auto expandplainmacro_cb = kcharmacroexpander_expandplainmacro_callback;
         if (expandplainmacro_cb) {
@@ -338,33 +338,33 @@ class VirtualKCharMacroExpander : public KCharMacroExpander {
             ((char*)str_str)[str_str_len] = '\0';
             const char* cbval1 = str_str;
             int cbval2 = pos;
-            QList<QString>& retVal_ret = retVal;
+            QList<QString>& ret_ret = ret;
             // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
-            const char** retVal_arr = static_cast<const char**>(malloc(sizeof(const char*) * (retVal_ret.size() + 1)));
-            for (qsizetype i = 0; i < retVal_ret.size(); ++i) {
-                QByteArray retVal_b = retVal_ret[i].toUtf8();
-                auto retVal_str_len = retVal_b.length();
-                char* retVal_str = static_cast<char*>(malloc(retVal_str_len + 1));
-                memcpy(retVal_str, retVal_b.data(), retVal_str_len);
-                retVal_str[retVal_str_len] = '\0';
-                retVal_arr[i] = retVal_str;
+            const char** ret_arr = static_cast<const char**>(malloc(sizeof(const char*) * (ret_ret.size() + 1)));
+            for (qsizetype i = 0; i < ret_ret.size(); ++i) {
+                QByteArray ret_b = ret_ret[i].toUtf8();
+                auto ret_str_len = ret_b.length();
+                char* ret_str = static_cast<char*>(malloc(ret_str_len + 1));
+                memcpy(ret_str, ret_b.data(), ret_str_len);
+                ret_str[ret_str_len] = '\0';
+                ret_arr[i] = ret_str;
             }
             // Append sentinel null terminator to the list
-            retVal_arr[retVal_ret.size()] = nullptr;
-            const char** cbval3 = retVal_arr;
+            ret_arr[ret_ret.size()] = nullptr;
+            const char** cbval3 = ret_arr;
             int callback_ret = expandplainmacro_cb(this, cbval1, cbval2, cbval3);
             libqt_free(str_str);
-            libqt_free(retVal_arr);
+            libqt_free(ret_arr);
             return static_cast<int>(callback_ret);
         }
-        return KCharMacroExpander::expandPlainMacro(str, pos, retVal);
+        return KCharMacroExpander::expandPlainMacro(str, pos, ret);
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual int expandEscapedMacro(const QString& str, int pos, QList<QString>& retVal) override {
+    virtual int expandEscapedMacro(const QString& str, int pos, QList<QString>& ret) override {
         if (kcharmacroexpander_expandescapedmacro_isbase) {
             kcharmacroexpander_expandescapedmacro_isbase = false;
-            return KCharMacroExpander::expandEscapedMacro(str, pos, retVal);
+            return KCharMacroExpander::expandEscapedMacro(str, pos, ret);
         }
         auto expandescapedmacro_cb = kcharmacroexpander_expandescapedmacro_callback;
         if (expandescapedmacro_cb) {
@@ -377,61 +377,61 @@ class VirtualKCharMacroExpander : public KCharMacroExpander {
             ((char*)str_str)[str_str_len] = '\0';
             const char* cbval1 = str_str;
             int cbval2 = pos;
-            QList<QString>& retVal_ret = retVal;
+            QList<QString>& ret_ret = ret;
             // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
-            const char** retVal_arr = static_cast<const char**>(malloc(sizeof(const char*) * (retVal_ret.size() + 1)));
-            for (qsizetype i = 0; i < retVal_ret.size(); ++i) {
-                QByteArray retVal_b = retVal_ret[i].toUtf8();
-                auto retVal_str_len = retVal_b.length();
-                char* retVal_str = static_cast<char*>(malloc(retVal_str_len + 1));
-                memcpy(retVal_str, retVal_b.data(), retVal_str_len);
-                retVal_str[retVal_str_len] = '\0';
-                retVal_arr[i] = retVal_str;
+            const char** ret_arr = static_cast<const char**>(malloc(sizeof(const char*) * (ret_ret.size() + 1)));
+            for (qsizetype i = 0; i < ret_ret.size(); ++i) {
+                QByteArray ret_b = ret_ret[i].toUtf8();
+                auto ret_str_len = ret_b.length();
+                char* ret_str = static_cast<char*>(malloc(ret_str_len + 1));
+                memcpy(ret_str, ret_b.data(), ret_str_len);
+                ret_str[ret_str_len] = '\0';
+                ret_arr[i] = ret_str;
             }
             // Append sentinel null terminator to the list
-            retVal_arr[retVal_ret.size()] = nullptr;
-            const char** cbval3 = retVal_arr;
+            ret_arr[ret_ret.size()] = nullptr;
+            const char** cbval3 = ret_arr;
             int callback_ret = expandescapedmacro_cb(this, cbval1, cbval2, cbval3);
             libqt_free(str_str);
-            libqt_free(retVal_arr);
+            libqt_free(ret_arr);
             return static_cast<int>(callback_ret);
         }
-        return KCharMacroExpander::expandEscapedMacro(str, pos, retVal);
+        return KCharMacroExpander::expandEscapedMacro(str, pos, ret);
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual bool expandMacro(QChar chr, QList<QString>& retVal) override {
+    virtual bool expandMacro(QChar chr, QList<QString>& ret) override {
         auto expandmacro_cb = kcharmacroexpander_expandmacro_callback;
         if (expandmacro_cb) {
             QChar* cbval1 = new QChar(chr);
-            QList<QString>& retVal_ret = retVal;
+            QList<QString>& ret_ret = ret;
             // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
-            const char** retVal_arr = static_cast<const char**>(malloc(sizeof(const char*) * (retVal_ret.size() + 1)));
-            for (qsizetype i = 0; i < retVal_ret.size(); ++i) {
-                QByteArray retVal_b = retVal_ret[i].toUtf8();
-                auto retVal_str_len = retVal_b.length();
-                char* retVal_str = static_cast<char*>(malloc(retVal_str_len + 1));
-                memcpy(retVal_str, retVal_b.data(), retVal_str_len);
-                retVal_str[retVal_str_len] = '\0';
-                retVal_arr[i] = retVal_str;
+            const char** ret_arr = static_cast<const char**>(malloc(sizeof(const char*) * (ret_ret.size() + 1)));
+            for (qsizetype i = 0; i < ret_ret.size(); ++i) {
+                QByteArray ret_b = ret_ret[i].toUtf8();
+                auto ret_str_len = ret_b.length();
+                char* ret_str = static_cast<char*>(malloc(ret_str_len + 1));
+                memcpy(ret_str, ret_b.data(), ret_str_len);
+                ret_str[ret_str_len] = '\0';
+                ret_arr[i] = ret_str;
             }
             // Append sentinel null terminator to the list
-            retVal_arr[retVal_ret.size()] = nullptr;
-            const char** cbval2 = retVal_arr;
+            ret_arr[ret_ret.size()] = nullptr;
+            const char** cbval2 = ret_arr;
             bool callback_ret = expandmacro_cb(this, cbval1, cbval2);
-            libqt_free(retVal_arr);
+            libqt_free(ret_arr);
             return callback_ret;
         }
         return {};
     }
 
     // Friend functions
-    friend int KCharMacroExpander_ExpandPlainMacro(KCharMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal);
-    friend int KCharMacroExpander_SuperExpandPlainMacro(KCharMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal);
-    friend int KCharMacroExpander_ExpandEscapedMacro(KCharMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal);
-    friend int KCharMacroExpander_SuperExpandEscapedMacro(KCharMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal);
-    friend bool KCharMacroExpander_ExpandMacro(KCharMacroExpander* self, QChar* chr, libqt_list /* of libqt_string */ retVal);
-    friend bool KCharMacroExpander_SuperExpandMacro(KCharMacroExpander* self, QChar* chr, libqt_list /* of libqt_string */ retVal);
+    friend int KCharMacroExpander_ExpandPlainMacro(KCharMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ ret);
+    friend int KCharMacroExpander_SuperExpandPlainMacro(KCharMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ ret);
+    friend int KCharMacroExpander_ExpandEscapedMacro(KCharMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ ret);
+    friend int KCharMacroExpander_SuperExpandEscapedMacro(KCharMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ ret);
+    friend bool KCharMacroExpander_ExpandMacro(KCharMacroExpander* self, QChar* chr, libqt_list /* of libqt_string */ ret);
+    friend bool KCharMacroExpander_SuperExpandMacro(KCharMacroExpander* self, QChar* chr, libqt_list /* of libqt_string */ ret);
 };
 
 #endif

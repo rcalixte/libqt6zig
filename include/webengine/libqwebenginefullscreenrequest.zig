@@ -12,16 +12,24 @@ pub const QWebEngineFullScreenRequest = extern struct {
 
     pub const _is_QWebEngineFullScreenRequest = {};
 
-    /// New constructs a new QWebEngineFullScreenRequest object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QWebEngineFullScreenRequest object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QWebEngineFullScreenRequest `
     ///
-    pub fn New(other: anytype) QWebEngineFullScreenRequest {
+    pub fn new(other: anytype) QWebEngineFullScreenRequest {
         comptime _ = @TypeOf(other)._is_QWebEngineFullScreenRequest;
         return .{ .ptr = qtc.QWebEngineFullScreenRequest_new(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginefullscreenrequest.html#operator-eq)
     ///
@@ -31,10 +39,14 @@ pub const QWebEngineFullScreenRequest = extern struct {
     ///
     /// ` other: QWebEngineFullScreenRequest `
     ///
-    pub fn OperatorAssign(self: QWebEngineFullScreenRequest, other: anytype) void {
+    pub fn operatorAssign(self: QWebEngineFullScreenRequest, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QWebEngineFullScreenRequest;
         qtc.QWebEngineFullScreenRequest_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `reject` instead
+    ///
+    pub const Reject = reject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginefullscreenrequest.html#reject)
     ///
@@ -42,9 +54,13 @@ pub const QWebEngineFullScreenRequest = extern struct {
     ///
     /// ` self: QWebEngineFullScreenRequest `
     ///
-    pub fn Reject(self: QWebEngineFullScreenRequest) void {
+    pub fn reject(self: QWebEngineFullScreenRequest) void {
         qtc.QWebEngineFullScreenRequest_Reject(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `accept` instead
+    ///
+    pub const Accept = accept;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginefullscreenrequest.html#accept)
     ///
@@ -52,9 +68,13 @@ pub const QWebEngineFullScreenRequest = extern struct {
     ///
     /// ` self: QWebEngineFullScreenRequest `
     ///
-    pub fn Accept(self: QWebEngineFullScreenRequest) void {
+    pub fn accept(self: QWebEngineFullScreenRequest) void {
         qtc.QWebEngineFullScreenRequest_Accept(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toggleOn` instead
+    ///
+    pub const ToggleOn = toggleOn;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginefullscreenrequest.html#toggleOn)
     ///
@@ -62,9 +82,13 @@ pub const QWebEngineFullScreenRequest = extern struct {
     ///
     /// ` self: QWebEngineFullScreenRequest `
     ///
-    pub fn ToggleOn(self: QWebEngineFullScreenRequest) bool {
+    pub fn toggleOn(self: QWebEngineFullScreenRequest) bool {
         return qtc.QWebEngineFullScreenRequest_ToggleOn(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `origin` instead
+    ///
+    pub const Origin = origin;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginefullscreenrequest.html#origin)
     ///
@@ -72,23 +96,23 @@ pub const QWebEngineFullScreenRequest = extern struct {
     ///
     /// ` self: QWebEngineFullScreenRequest `
     ///
-    pub fn Origin(self: QWebEngineFullScreenRequest) QUrl {
+    pub fn origin(self: QWebEngineFullScreenRequest) QUrl {
         return .{ .ptr = qtc.QWebEngineFullScreenRequest_Origin(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginefullscreenrequest.html#dtor.QWebEngineFullScreenRequest)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QWebEngineFullScreenRequest `
     ///
-    pub fn Delete(self: QWebEngineFullScreenRequest) void {
+    pub fn delete(self: QWebEngineFullScreenRequest) void {
         qtc.QWebEngineFullScreenRequest_Delete(@ptrCast(self.ptr));
     }
 };

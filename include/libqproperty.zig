@@ -14,25 +14,29 @@ pub const QScopedPropertyUpdateGroup = extern struct {
 
     pub const _is_QScopedPropertyUpdateGroup = {};
 
-    /// New constructs a new QScopedPropertyUpdateGroup object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QScopedPropertyUpdateGroup {
+    pub const New = new;
+
+    /// Allocate a new QScopedPropertyUpdateGroup object in C++ memory
+    ///
+    pub fn new() QScopedPropertyUpdateGroup {
         return .{ .ptr = qtc.QScopedPropertyUpdateGroup_new() };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscopedpropertyupdategroup.html#dtor.QScopedPropertyUpdateGroup)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QScopedPropertyUpdateGroup `
     ///
-    pub fn Delete(self: QScopedPropertyUpdateGroup) void {
+    pub fn delete(self: QScopedPropertyUpdateGroup) void {
         qtc.QScopedPropertyUpdateGroup_Delete(@ptrCast(self.ptr));
     }
 };
@@ -47,46 +51,65 @@ pub const QPropertyBindingSourceLocation = extern struct {
 
     pub const _is_QPropertyBindingSourceLocation = {};
 
-    /// New constructs a new QPropertyBindingSourceLocation object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QPropertyBindingSourceLocation {
+    pub const New = new;
+
+    /// Allocate a new QPropertyBindingSourceLocation object in C++ memory
+    ///
+    pub fn new() QPropertyBindingSourceLocation {
         return .{ .ptr = qtc.QPropertyBindingSourceLocation_new() };
     }
 
-    /// New2 constructs a new QPropertyBindingSourceLocation object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QPropertyBindingSourceLocation object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QPropertyBindingSourceLocation `
     ///
-    pub fn New2(other: anytype) QPropertyBindingSourceLocation {
+    pub fn new2(other: anytype) QPropertyBindingSourceLocation {
         comptime _ = @TypeOf(other)._is_QPropertyBindingSourceLocation;
         return .{ .ptr = qtc.QPropertyBindingSourceLocation_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QPropertyBindingSourceLocation object and invalidates the source QPropertyBindingSourceLocation object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QPropertyBindingSourceLocation object and invalidate the source QPropertyBindingSourceLocation object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QPropertyBindingSourceLocation `
     ///
-    pub fn New3(other: anytype) QPropertyBindingSourceLocation {
+    pub fn new3(other: anytype) QPropertyBindingSourceLocation {
         comptime _ = @TypeOf(other)._is_QPropertyBindingSourceLocation;
         return .{ .ptr = qtc.QPropertyBindingSourceLocation_new3(@ptrCast(other.ptr)) };
     }
 
-    /// New4 constructs a new QPropertyBindingSourceLocation object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QPropertyBindingSourceLocation object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QPropertyBindingSourceLocation `
     ///
-    pub fn New4(param1: anytype) QPropertyBindingSourceLocation {
+    pub fn new4(param1: anytype) QPropertyBindingSourceLocation {
         comptime _ = @TypeOf(param1)._is_QPropertyBindingSourceLocation;
         return .{ .ptr = qtc.QPropertyBindingSourceLocation_new4(@ptrCast(param1.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -94,11 +117,14 @@ pub const QPropertyBindingSourceLocation = extern struct {
     ///
     /// ` other: QPropertyBindingSourceLocation `
     ///
-    pub fn CopyAssign(self: QPropertyBindingSourceLocation, other: QPropertyBindingSourceLocation) void {
+    pub fn copyAssign(self: QPropertyBindingSourceLocation, other: QPropertyBindingSourceLocation) void {
         qtc.QPropertyBindingSourceLocation_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -106,9 +132,13 @@ pub const QPropertyBindingSourceLocation = extern struct {
     ///
     /// ` other: QPropertyBindingSourceLocation `
     ///
-    pub fn MoveAssign(self: QPropertyBindingSourceLocation, other: QPropertyBindingSourceLocation) void {
+    pub fn moveAssign(self: QPropertyBindingSourceLocation, other: QPropertyBindingSourceLocation) void {
         qtc.QPropertyBindingSourceLocation_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `fileName` instead
+    ///
+    pub const FileName = fileName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpropertybindingsourcelocation.html#fileName-var)
     ///
@@ -116,23 +146,31 @@ pub const QPropertyBindingSourceLocation = extern struct {
     ///
     /// ` self: QPropertyBindingSourceLocation `
     ///
-    pub fn FileName(self: QPropertyBindingSourceLocation) [:0]const u8 {
+    pub fn fileName(self: QPropertyBindingSourceLocation) [:0]const u8 {
         const fileName_ret = qtc.QPropertyBindingSourceLocation_FileName(@ptrCast(self.ptr));
         return std.mem.span(fileName_ret);
     }
 
+    /// ### DEPRECATED: Use `setFileName` instead
+    ///
+    pub const SetFileName = setFileName;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpropertybindingsourcelocation.html#fileName-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QPropertyBindingSourceLocation `
     ///
-    /// ` fileName: [:0]const u8 `
+    /// ` _fileName: [:0]const u8 `
     ///
-    pub fn SetFileName(self: QPropertyBindingSourceLocation, fileName: [:0]const u8) void {
-        const fileName_Cstring = fileName.ptr;
+    pub fn setFileName(self: QPropertyBindingSourceLocation, _fileName: [:0]const u8) void {
+        const fileName_Cstring = _fileName.ptr;
         qtc.QPropertyBindingSourceLocation_SetFileName(@ptrCast(self.ptr), fileName_Cstring);
     }
+
+    /// ### DEPRECATED: Use `functionName` instead
+    ///
+    pub const FunctionName = functionName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpropertybindingsourcelocation.html#functionName-var)
     ///
@@ -140,45 +178,61 @@ pub const QPropertyBindingSourceLocation = extern struct {
     ///
     /// ` self: QPropertyBindingSourceLocation `
     ///
-    pub fn FunctionName(self: QPropertyBindingSourceLocation) [:0]const u8 {
+    pub fn functionName(self: QPropertyBindingSourceLocation) [:0]const u8 {
         const functionName_ret = qtc.QPropertyBindingSourceLocation_FunctionName(@ptrCast(self.ptr));
         return std.mem.span(functionName_ret);
     }
 
+    /// ### DEPRECATED: Use `setFunctionName` instead
+    ///
+    pub const SetFunctionName = setFunctionName;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpropertybindingsourcelocation.html#functionName-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QPropertyBindingSourceLocation `
     ///
-    /// ` functionName: [:0]const u8 `
+    /// ` _functionName: [:0]const u8 `
     ///
-    pub fn SetFunctionName(self: QPropertyBindingSourceLocation, functionName: [:0]const u8) void {
-        const functionName_Cstring = functionName.ptr;
+    pub fn setFunctionName(self: QPropertyBindingSourceLocation, _functionName: [:0]const u8) void {
+        const functionName_Cstring = _functionName.ptr;
         qtc.QPropertyBindingSourceLocation_SetFunctionName(@ptrCast(self.ptr), functionName_Cstring);
     }
 
+    /// ### DEPRECATED: Use `line` instead
+    ///
+    pub const Line = line;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpropertybindingsourcelocation.html#line-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QPropertyBindingSourceLocation `
     ///
-    pub fn Line(self: QPropertyBindingSourceLocation) u32 {
+    pub fn line(self: QPropertyBindingSourceLocation) u32 {
         return qtc.QPropertyBindingSourceLocation_Line(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setLine` instead
+    ///
+    pub const SetLine = setLine;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpropertybindingsourcelocation.html#line-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QPropertyBindingSourceLocation `
     ///
-    /// ` line: u32 `
+    /// ` _line: u32 `
     ///
-    pub fn SetLine(self: QPropertyBindingSourceLocation, line: u32) void {
-        qtc.QPropertyBindingSourceLocation_SetLine(@ptrCast(self.ptr), @bitCast(line));
+    pub fn setLine(self: QPropertyBindingSourceLocation, _line: u32) void {
+        qtc.QPropertyBindingSourceLocation_SetLine(@ptrCast(self.ptr), @bitCast(_line));
     }
+
+    /// ### DEPRECATED: Use `column` instead
+    ///
+    pub const Column = column;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpropertybindingsourcelocation.html#column-var)
     ///
@@ -186,35 +240,39 @@ pub const QPropertyBindingSourceLocation = extern struct {
     ///
     /// ` self: QPropertyBindingSourceLocation `
     ///
-    pub fn Column(self: QPropertyBindingSourceLocation) u32 {
+    pub fn column(self: QPropertyBindingSourceLocation) u32 {
         return qtc.QPropertyBindingSourceLocation_Column(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setColumn` instead
+    ///
+    pub const SetColumn = setColumn;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpropertybindingsourcelocation.html#column-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QPropertyBindingSourceLocation `
     ///
-    /// ` column: u32 `
+    /// ` _column: u32 `
     ///
-    pub fn SetColumn(self: QPropertyBindingSourceLocation, column: u32) void {
-        qtc.QPropertyBindingSourceLocation_SetColumn(@ptrCast(self.ptr), @bitCast(column));
+    pub fn setColumn(self: QPropertyBindingSourceLocation, _column: u32) void {
+        qtc.QPropertyBindingSourceLocation_SetColumn(@ptrCast(self.ptr), @bitCast(_column));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpropertybindingsourcelocation.html#dtor.QPropertyBindingSourceLocation)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QPropertyBindingSourceLocation `
     ///
-    pub fn Delete(self: QPropertyBindingSourceLocation) void {
+    pub fn delete(self: QPropertyBindingSourceLocation) void {
         qtc.QPropertyBindingSourceLocation_Delete(@ptrCast(self.ptr));
     }
 };
@@ -229,48 +287,68 @@ pub const QPropertyBindingError = extern struct {
 
     pub const _is_QPropertyBindingError = {};
 
-    /// New constructs a new QPropertyBindingError object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QPropertyBindingError {
+    pub const New = new;
+
+    /// Allocate a new QPropertyBindingError object in C++ memory
+    ///
+    pub fn new() QPropertyBindingError {
         return .{ .ptr = qtc.QPropertyBindingError_new() };
     }
 
-    /// New2 constructs a new QPropertyBindingError object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QPropertyBindingError object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` typeVal: qproperty_enums.Type `
     ///
-    pub fn New2(typeVal: i32) QPropertyBindingError {
+    pub fn new2(typeVal: i32) QPropertyBindingError {
         return .{ .ptr = qtc.QPropertyBindingError_new2(@bitCast(typeVal)) };
     }
 
-    /// New3 constructs a new QPropertyBindingError object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QPropertyBindingError object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QPropertyBindingError `
     ///
-    pub fn New3(other: anytype) QPropertyBindingError {
+    pub fn new3(other: anytype) QPropertyBindingError {
         comptime _ = @TypeOf(other)._is_QPropertyBindingError;
         return .{ .ptr = qtc.QPropertyBindingError_new3(@ptrCast(other.ptr)) };
     }
 
-    /// New4 constructs a new QPropertyBindingError object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QPropertyBindingError object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` typeVal: qproperty_enums.Type `
     ///
-    /// ` description: []const u8 `
+    /// ` _description: []const u8 `
     ///
-    pub fn New4(typeVal: i32, description: []const u8) QPropertyBindingError {
+    pub fn new4(typeVal: i32, _description: []const u8) QPropertyBindingError {
         const description_str = qtc.libqt_string{
-            .len = description.len,
-            .data = description.ptr,
+            .len = _description.len,
+            .data = _description.ptr,
         };
         return .{ .ptr = qtc.QPropertyBindingError_new4(@bitCast(typeVal), description_str) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpropertybindingerror.html#operator-eq)
     ///
@@ -280,10 +358,14 @@ pub const QPropertyBindingError = extern struct {
     ///
     /// ` other: QPropertyBindingError `
     ///
-    pub fn OperatorAssign(self: QPropertyBindingError, other: anytype) void {
+    pub fn operatorAssign(self: QPropertyBindingError, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QPropertyBindingError;
         qtc.QPropertyBindingError_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `hasError` instead
+    ///
+    pub const HasError = hasError;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpropertybindingerror.html#hasError)
     ///
@@ -291,9 +373,15 @@ pub const QPropertyBindingError = extern struct {
     ///
     /// ` self: QPropertyBindingError `
     ///
-    pub fn HasError(self: QPropertyBindingError) bool {
+    pub fn hasError(self: QPropertyBindingError) bool {
         return qtc.QPropertyBindingError_HasError(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpropertybindingerror.html#type)
     ///
@@ -305,9 +393,13 @@ pub const QPropertyBindingError = extern struct {
     ///
     /// ` qproperty_enums.Type `
     ///
-    pub fn Type(self: QPropertyBindingError) i32 {
+    pub fn type0(self: QPropertyBindingError) i32 {
         return qtc.QPropertyBindingError_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `description` instead
+    ///
+    pub const Description = description;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpropertybindingerror.html#description)
     ///
@@ -317,27 +409,27 @@ pub const QPropertyBindingError = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Description(self: QPropertyBindingError, allocator: std.mem.Allocator) []const u8 {
+    pub fn description(self: QPropertyBindingError, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QPropertyBindingError_Description(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPropertyBindingError.Description: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPropertyBindingError.description: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpropertybindingerror.html#dtor.QPropertyBindingError)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QPropertyBindingError `
     ///
-    pub fn Delete(self: QPropertyBindingError) void {
+    pub fn delete(self: QPropertyBindingError) void {
         qtc.QPropertyBindingError_Delete(@ptrCast(self.ptr));
     }
 };
@@ -352,22 +444,34 @@ pub const QUntypedPropertyBinding = extern struct {
 
     pub const _is_QUntypedPropertyBinding = {};
 
-    /// New constructs a new QUntypedPropertyBinding object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QUntypedPropertyBinding {
+    pub const New = new;
+
+    /// Allocate a new QUntypedPropertyBinding object in C++ memory
+    ///
+    pub fn new() QUntypedPropertyBinding {
         return .{ .ptr = qtc.QUntypedPropertyBinding_new() };
     }
 
-    /// New2 constructs a new QUntypedPropertyBinding object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QUntypedPropertyBinding object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QUntypedPropertyBinding `
     ///
-    pub fn New2(other: anytype) QUntypedPropertyBinding {
+    pub fn new2(other: anytype) QUntypedPropertyBinding {
         comptime _ = @TypeOf(other)._is_QUntypedPropertyBinding;
         return .{ .ptr = qtc.QUntypedPropertyBinding_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/quntypedpropertybinding.html#operator-eq)
     ///
@@ -377,10 +481,14 @@ pub const QUntypedPropertyBinding = extern struct {
     ///
     /// ` other: QUntypedPropertyBinding `
     ///
-    pub fn OperatorAssign(self: QUntypedPropertyBinding, other: anytype) void {
+    pub fn operatorAssign(self: QUntypedPropertyBinding, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QUntypedPropertyBinding;
         qtc.QUntypedPropertyBinding_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `isNull` instead
+    ///
+    pub const IsNull = isNull;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/quntypedpropertybinding.html#isNull)
     ///
@@ -388,9 +496,15 @@ pub const QUntypedPropertyBinding = extern struct {
     ///
     /// ` self: QUntypedPropertyBinding `
     ///
-    pub fn IsNull(self: QUntypedPropertyBinding) bool {
+    pub fn isNull(self: QUntypedPropertyBinding) bool {
         return qtc.QUntypedPropertyBinding_IsNull(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `error0` instead
+    ///
+    pub const Error = error0;
+
+    pub const @"error" = error0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/quntypedpropertybinding.html#error)
     ///
@@ -398,9 +512,13 @@ pub const QUntypedPropertyBinding = extern struct {
     ///
     /// ` self: QUntypedPropertyBinding `
     ///
-    pub fn Error(self: QUntypedPropertyBinding) QPropertyBindingError {
+    pub fn error0(self: QUntypedPropertyBinding) QPropertyBindingError {
         return .{ .ptr = qtc.QUntypedPropertyBinding_Error(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `valueMetaType` instead
+    ///
+    pub const ValueMetaType = valueMetaType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/quntypedpropertybinding.html#valueMetaType)
     ///
@@ -408,23 +526,23 @@ pub const QUntypedPropertyBinding = extern struct {
     ///
     /// ` self: QUntypedPropertyBinding `
     ///
-    pub fn ValueMetaType(self: QUntypedPropertyBinding) QMetaType {
+    pub fn valueMetaType(self: QUntypedPropertyBinding) QMetaType {
         return .{ .ptr = qtc.QUntypedPropertyBinding_ValueMetaType(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/quntypedpropertybinding.html#dtor.QUntypedPropertyBinding)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QUntypedPropertyBinding `
     ///
-    pub fn Delete(self: QUntypedPropertyBinding) void {
+    pub fn delete(self: QUntypedPropertyBinding) void {
         qtc.QUntypedPropertyBinding_Delete(@ptrCast(self.ptr));
     }
 };
@@ -439,36 +557,44 @@ pub const QPropertyObserverBase = extern struct {
 
     pub const _is_QPropertyObserverBase = {};
 
-    /// New constructs a new QPropertyObserverBase object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QPropertyObserverBase {
+    pub const New = new;
+
+    /// Allocate a new QPropertyObserverBase object in C++ memory
+    ///
+    pub fn new() QPropertyObserverBase {
         return .{ .ptr = qtc.QPropertyObserverBase_new() };
     }
 
-    /// New2 constructs a new QPropertyObserverBase object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QPropertyObserverBase object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QPropertyObserverBase `
     ///
-    pub fn New2(param1: anytype) QPropertyObserverBase {
+    pub fn new2(param1: anytype) QPropertyObserverBase {
         comptime _ = @TypeOf(param1)._is_QPropertyObserverBase;
         return .{ .ptr = qtc.QPropertyObserverBase_new2(@ptrCast(param1.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpropertyobserverbase.html#dtor.QPropertyObserverBase)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QPropertyObserverBase `
     ///
-    pub fn Delete(self: QPropertyObserverBase) void {
+    pub fn delete(self: QPropertyObserverBase) void {
         qtc.QPropertyObserverBase_Delete(@ptrCast(self.ptr));
     }
 };
@@ -484,25 +610,29 @@ pub const QPropertyObserver = extern struct {
     pub const _is_QPropertyObserver = {};
     pub const _is_QPropertyObserverBase = {};
 
-    /// New constructs a new QPropertyObserver object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QPropertyObserver {
+    pub const New = new;
+
+    /// Allocate a new QPropertyObserver object in C++ memory
+    ///
+    pub fn new() QPropertyObserver {
         return .{ .ptr = qtc.QPropertyObserver_new() };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpropertyobserver.html#dtor.QPropertyObserver)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QPropertyObserver `
     ///
-    pub fn Delete(self: QPropertyObserver) void {
+    pub fn delete(self: QPropertyObserver) void {
         qtc.QPropertyObserver_Delete(@ptrCast(self.ptr));
     }
 };
@@ -519,25 +649,29 @@ pub const QPropertyNotifier = extern struct {
     pub const _is_QPropertyObserver = {};
     pub const _is_QPropertyObserverBase = {};
 
-    /// New constructs a new QPropertyNotifier object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QPropertyNotifier {
+    pub const New = new;
+
+    /// Allocate a new QPropertyNotifier object in C++ memory
+    ///
+    pub fn new() QPropertyNotifier {
         return .{ .ptr = qtc.QPropertyNotifier_new() };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpropertynotifier.html#dtor.QPropertyNotifier)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QPropertyNotifier `
     ///
-    pub fn Delete(self: QPropertyNotifier) void {
+    pub fn delete(self: QPropertyNotifier) void {
         qtc.QPropertyNotifier_Delete(@ptrCast(self.ptr));
     }
 };
@@ -552,46 +686,65 @@ pub const QUntypedBindable = extern struct {
 
     pub const _is_QUntypedBindable = {};
 
-    /// New constructs a new QUntypedBindable object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QUntypedBindable {
+    pub const New = new;
+
+    /// Allocate a new QUntypedBindable object in C++ memory
+    ///
+    pub fn new() QUntypedBindable {
         return .{ .ptr = qtc.QUntypedBindable_new() };
     }
 
-    /// New2 constructs a new QUntypedBindable object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QUntypedBindable object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QUntypedBindable `
     ///
-    pub fn New2(other: anytype) QUntypedBindable {
+    pub fn new2(other: anytype) QUntypedBindable {
         comptime _ = @TypeOf(other)._is_QUntypedBindable;
         return .{ .ptr = qtc.QUntypedBindable_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QUntypedBindable object and invalidates the source QUntypedBindable object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QUntypedBindable object and invalidate the source QUntypedBindable object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QUntypedBindable `
     ///
-    pub fn New3(other: anytype) QUntypedBindable {
+    pub fn new3(other: anytype) QUntypedBindable {
         comptime _ = @TypeOf(other)._is_QUntypedBindable;
         return .{ .ptr = qtc.QUntypedBindable_new3(@ptrCast(other.ptr)) };
     }
 
-    /// New4 constructs a new QUntypedBindable object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QUntypedBindable object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QUntypedBindable `
     ///
-    pub fn New4(param1: anytype) QUntypedBindable {
+    pub fn new4(param1: anytype) QUntypedBindable {
         comptime _ = @TypeOf(param1)._is_QUntypedBindable;
         return .{ .ptr = qtc.QUntypedBindable_new4(@ptrCast(param1.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -599,11 +752,14 @@ pub const QUntypedBindable = extern struct {
     ///
     /// ` other: QUntypedBindable `
     ///
-    pub fn CopyAssign(self: QUntypedBindable, other: QUntypedBindable) void {
+    pub fn copyAssign(self: QUntypedBindable, other: QUntypedBindable) void {
         qtc.QUntypedBindable_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -611,9 +767,13 @@ pub const QUntypedBindable = extern struct {
     ///
     /// ` other: QUntypedBindable `
     ///
-    pub fn MoveAssign(self: QUntypedBindable, other: QUntypedBindable) void {
+    pub fn moveAssign(self: QUntypedBindable, other: QUntypedBindable) void {
         qtc.QUntypedBindable_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/quntypedbindable.html#isValid)
     ///
@@ -621,9 +781,13 @@ pub const QUntypedBindable = extern struct {
     ///
     /// ` self: QUntypedBindable `
     ///
-    pub fn IsValid(self: QUntypedBindable) bool {
+    pub fn isValid(self: QUntypedBindable) bool {
         return qtc.QUntypedBindable_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isBindable` instead
+    ///
+    pub const IsBindable = isBindable;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/quntypedbindable.html#isBindable)
     ///
@@ -631,9 +795,13 @@ pub const QUntypedBindable = extern struct {
     ///
     /// ` self: QUntypedBindable `
     ///
-    pub fn IsBindable(self: QUntypedBindable) bool {
+    pub fn isBindable(self: QUntypedBindable) bool {
         return qtc.QUntypedBindable_IsBindable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isReadOnly` instead
+    ///
+    pub const IsReadOnly = isReadOnly;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/quntypedbindable.html#isReadOnly)
     ///
@@ -641,9 +809,13 @@ pub const QUntypedBindable = extern struct {
     ///
     /// ` self: QUntypedBindable `
     ///
-    pub fn IsReadOnly(self: QUntypedBindable) bool {
+    pub fn isReadOnly(self: QUntypedBindable) bool {
         return qtc.QUntypedBindable_IsReadOnly(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `makeBinding` instead
+    ///
+    pub const MakeBinding = makeBinding;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/quntypedbindable.html#makeBinding)
     ///
@@ -651,9 +823,13 @@ pub const QUntypedBindable = extern struct {
     ///
     /// ` self: QUntypedBindable `
     ///
-    pub fn MakeBinding(self: QUntypedBindable) QUntypedPropertyBinding {
+    pub fn makeBinding(self: QUntypedBindable) QUntypedPropertyBinding {
         return .{ .ptr = qtc.QUntypedBindable_MakeBinding(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `takeBinding` instead
+    ///
+    pub const TakeBinding = takeBinding;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/quntypedbindable.html#takeBinding)
     ///
@@ -661,9 +837,13 @@ pub const QUntypedBindable = extern struct {
     ///
     /// ` self: QUntypedBindable `
     ///
-    pub fn TakeBinding(self: QUntypedBindable) QUntypedPropertyBinding {
+    pub fn takeBinding(self: QUntypedBindable) QUntypedPropertyBinding {
         return .{ .ptr = qtc.QUntypedBindable_TakeBinding(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `observe` instead
+    ///
+    pub const Observe = observe;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/quntypedbindable.html#observe)
     ///
@@ -673,10 +853,14 @@ pub const QUntypedBindable = extern struct {
     ///
     /// ` observer: QPropertyObserver `
     ///
-    pub fn Observe(self: QUntypedBindable, observer: anytype) void {
+    pub fn observe(self: QUntypedBindable, observer: anytype) void {
         comptime _ = @TypeOf(observer)._is_QPropertyObserver;
         qtc.QUntypedBindable_Observe(@ptrCast(self.ptr), @ptrCast(observer.ptr));
     }
+
+    /// ### DEPRECATED: Use `binding` instead
+    ///
+    pub const Binding = binding;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/quntypedbindable.html#binding)
     ///
@@ -684,9 +868,13 @@ pub const QUntypedBindable = extern struct {
     ///
     /// ` self: QUntypedBindable `
     ///
-    pub fn Binding(self: QUntypedBindable) QUntypedPropertyBinding {
+    pub fn binding(self: QUntypedBindable) QUntypedPropertyBinding {
         return .{ .ptr = qtc.QUntypedBindable_Binding(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBinding` instead
+    ///
+    pub const SetBinding = setBinding;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/quntypedbindable.html#setBinding)
     ///
@@ -694,12 +882,16 @@ pub const QUntypedBindable = extern struct {
     ///
     /// ` self: QUntypedBindable `
     ///
-    /// ` binding: QUntypedPropertyBinding `
+    /// ` _binding: QUntypedPropertyBinding `
     ///
-    pub fn SetBinding(self: QUntypedBindable, binding: anytype) bool {
-        comptime _ = @TypeOf(binding)._is_QUntypedPropertyBinding;
-        return qtc.QUntypedBindable_SetBinding(@ptrCast(self.ptr), @ptrCast(binding.ptr));
+    pub fn setBinding(self: QUntypedBindable, _binding: anytype) bool {
+        comptime _ = @TypeOf(_binding)._is_QUntypedPropertyBinding;
+        return qtc.QUntypedBindable_SetBinding(@ptrCast(self.ptr), @ptrCast(_binding.ptr));
     }
+
+    /// ### DEPRECATED: Use `hasBinding` instead
+    ///
+    pub const HasBinding = hasBinding;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/quntypedbindable.html#hasBinding)
     ///
@@ -707,9 +899,13 @@ pub const QUntypedBindable = extern struct {
     ///
     /// ` self: QUntypedBindable `
     ///
-    pub fn HasBinding(self: QUntypedBindable) bool {
+    pub fn hasBinding(self: QUntypedBindable) bool {
         return qtc.QUntypedBindable_HasBinding(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `metaType` instead
+    ///
+    pub const MetaType = metaType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/quntypedbindable.html#metaType)
     ///
@@ -717,9 +913,13 @@ pub const QUntypedBindable = extern struct {
     ///
     /// ` self: QUntypedBindable `
     ///
-    pub fn MetaType(self: QUntypedBindable) QMetaType {
+    pub fn metaType(self: QUntypedBindable) QMetaType {
         return .{ .ptr = qtc.QUntypedBindable_MetaType(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `makeBinding1` instead
+    ///
+    pub const MakeBinding1 = makeBinding1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/quntypedbindable.html#makeBinding)
     ///
@@ -729,24 +929,24 @@ pub const QUntypedBindable = extern struct {
     ///
     /// ` location: QPropertyBindingSourceLocation `
     ///
-    pub fn MakeBinding1(self: QUntypedBindable, location: anytype) QUntypedPropertyBinding {
+    pub fn makeBinding1(self: QUntypedBindable, location: anytype) QUntypedPropertyBinding {
         comptime _ = @TypeOf(location)._is_QPropertyBindingSourceLocation;
         return .{ .ptr = qtc.QUntypedBindable_MakeBinding1(@ptrCast(self.ptr), @ptrCast(location.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/quntypedbindable.html#dtor.QUntypedBindable)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QUntypedBindable `
     ///
-    pub fn Delete(self: QUntypedBindable) void {
+    pub fn delete(self: QUntypedBindable) void {
         qtc.QUntypedBindable_Delete(@ptrCast(self.ptr));
     }
 };

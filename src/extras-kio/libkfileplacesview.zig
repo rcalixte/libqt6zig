@@ -99,22 +99,34 @@ pub const KFilePlacesView = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new KFilePlacesView object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KFilePlacesView object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) KFilePlacesView {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KFilePlacesView_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) KFilePlacesView {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KFilePlacesView_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new KFilePlacesView object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() KFilePlacesView {
+    pub const New2 = new2;
+
+    /// Allocate a new KFilePlacesView object in C++ memory
+    ///
+    pub fn new2() KFilePlacesView {
         return .{ .ptr = qtc.KFilePlacesView_new2() };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -122,9 +134,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn MetaObject(self: KFilePlacesView) QMetaObject {
+    pub fn metaObject(self: KFilePlacesView) QMetaObject {
         return .{ .ptr = qtc.KFilePlacesView_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -136,13 +152,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KFilePlacesView, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KFilePlacesView, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KFilePlacesView_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -152,9 +168,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn SuperMetaObject(self: KFilePlacesView) QMetaObject {
+    pub fn superMetaObject(self: KFilePlacesView) QMetaObject {
         return .{ .ptr = qtc.KFilePlacesView_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -162,10 +182,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KFilePlacesView, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KFilePlacesView, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KFilePlacesView_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -175,13 +199,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KFilePlacesView, callback: *const fn (KFilePlacesView, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KFilePlacesView, callback: *const fn (KFilePlacesView, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KFilePlacesView_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -191,10 +215,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KFilePlacesView, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KFilePlacesView, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KFilePlacesView_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -206,9 +234,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KFilePlacesView, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KFilePlacesView, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KFilePlacesView_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -218,13 +250,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KFilePlacesView, callback: *const fn (KFilePlacesView, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KFilePlacesView, callback: *const fn (KFilePlacesView, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KFilePlacesView_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -238,9 +270,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KFilePlacesView, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KFilePlacesView, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KFilePlacesView_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -250,14 +286,18 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFilePlacesView.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFilePlacesView.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `allPlacesShown` instead
+    ///
+    pub const AllPlacesShown = allPlacesShown;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#allPlacesShown)
     ///
@@ -265,9 +305,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn AllPlacesShown(self: KFilePlacesView) bool {
+    pub fn allPlacesShown(self: KFilePlacesView) bool {
         return qtc.KFilePlacesView_AllPlacesShown(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDropOnPlaceEnabled` instead
+    ///
+    pub const SetDropOnPlaceEnabled = setDropOnPlaceEnabled;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#setDropOnPlaceEnabled)
     ///
@@ -277,9 +321,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetDropOnPlaceEnabled(self: KFilePlacesView, enabled: bool) void {
+    pub fn setDropOnPlaceEnabled(self: KFilePlacesView, enabled: bool) void {
         qtc.KFilePlacesView_SetDropOnPlaceEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `isDropOnPlaceEnabled` instead
+    ///
+    pub const IsDropOnPlaceEnabled = isDropOnPlaceEnabled;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#isDropOnPlaceEnabled)
     ///
@@ -287,9 +335,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn IsDropOnPlaceEnabled(self: KFilePlacesView) bool {
+    pub fn isDropOnPlaceEnabled(self: KFilePlacesView) bool {
         return qtc.KFilePlacesView_IsDropOnPlaceEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDragAutoActivationDelay` instead
+    ///
+    pub const SetDragAutoActivationDelay = setDragAutoActivationDelay;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#setDragAutoActivationDelay)
     ///
@@ -299,9 +351,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` delay: i32 `
     ///
-    pub fn SetDragAutoActivationDelay(self: KFilePlacesView, delay: i32) void {
+    pub fn setDragAutoActivationDelay(self: KFilePlacesView, delay: i32) void {
         qtc.KFilePlacesView_SetDragAutoActivationDelay(@ptrCast(self.ptr), @bitCast(delay));
     }
+
+    /// ### DEPRECATED: Use `dragAutoActivationDelay` instead
+    ///
+    pub const DragAutoActivationDelay = dragAutoActivationDelay;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#dragAutoActivationDelay)
     ///
@@ -309,9 +365,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn DragAutoActivationDelay(self: KFilePlacesView) i32 {
+    pub fn dragAutoActivationDelay(self: KFilePlacesView) i32 {
         return qtc.KFilePlacesView_DragAutoActivationDelay(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoResizeItemsEnabled` instead
+    ///
+    pub const SetAutoResizeItemsEnabled = setAutoResizeItemsEnabled;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#setAutoResizeItemsEnabled)
     ///
@@ -321,9 +381,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoResizeItemsEnabled(self: KFilePlacesView, enabled: bool) void {
+    pub fn setAutoResizeItemsEnabled(self: KFilePlacesView, enabled: bool) void {
         qtc.KFilePlacesView_SetAutoResizeItemsEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `isAutoResizeItemsEnabled` instead
+    ///
+    pub const IsAutoResizeItemsEnabled = isAutoResizeItemsEnabled;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#isAutoResizeItemsEnabled)
     ///
@@ -331,9 +395,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn IsAutoResizeItemsEnabled(self: KFilePlacesView) bool {
+    pub fn isAutoResizeItemsEnabled(self: KFilePlacesView) bool {
         return qtc.KFilePlacesView_IsAutoResizeItemsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTeardownFunction` instead
+    ///
+    pub const SetTeardownFunction = setTeardownFunction;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#setTeardownFunction)
     ///
@@ -343,9 +411,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` teardownFunc: *const fn (funcparam1: QModelIndex) callconv(.c) void `
     ///
-    pub fn SetTeardownFunction(self: KFilePlacesView, teardownFunc: *const fn (QModelIndex) callconv(.c) void) void {
+    pub fn setTeardownFunction(self: KFilePlacesView, teardownFunc: *const fn (QModelIndex) callconv(.c) void) void {
         qtc.KFilePlacesView_SetTeardownFunction(@ptrCast(self.ptr), @bitCast(@intFromPtr(teardownFunc)));
     }
+
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#sizeHint)
     ///
@@ -353,9 +425,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn SizeHint(self: KFilePlacesView) QSize {
+    pub fn sizeHint(self: KFilePlacesView) QSize {
         return .{ .ptr = qtc.KFilePlacesView_SizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#sizeHint)
     ///
@@ -369,13 +445,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: KFilePlacesView, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KFilePlacesView, callback: *const fn () callconv(.c) QSize) void {
         qtc.KFilePlacesView_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#sizeHint)
     ///
@@ -385,9 +461,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn SuperSizeHint(self: KFilePlacesView) QSize {
+    pub fn superSizeHint(self: KFilePlacesView) QSize {
         return .{ .ptr = qtc.KFilePlacesView_SuperSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setUrl` instead
+    ///
+    pub const SetUrl = setUrl;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#setUrl)
     ///
@@ -397,10 +477,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn SetUrl(self: KFilePlacesView, url: anytype) void {
+    pub fn setUrl(self: KFilePlacesView, url: anytype) void {
         comptime _ = @TypeOf(url)._is_QUrl;
         qtc.KFilePlacesView_SetUrl(@ptrCast(self.ptr), @ptrCast(url.ptr));
     }
+
+    /// ### DEPRECATED: Use `setShowAll` instead
+    ///
+    pub const SetShowAll = setShowAll;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#setShowAll)
     ///
@@ -410,9 +494,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` showAll: bool `
     ///
-    pub fn SetShowAll(self: KFilePlacesView, showAll: bool) void {
+    pub fn setShowAll(self: KFilePlacesView, showAll: bool) void {
         qtc.KFilePlacesView_SetShowAll(@ptrCast(self.ptr), showAll);
     }
+
+    /// ### DEPRECATED: Use `setModel` instead
+    ///
+    pub const SetModel = setModel;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#setModel)
     ///
@@ -420,12 +508,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` model: QAbstractItemModel `
+    /// ` _model: QAbstractItemModel `
     ///
-    pub fn SetModel(self: KFilePlacesView, model: anytype) void {
-        comptime _ = @TypeOf(model)._is_QAbstractItemModel;
-        qtc.KFilePlacesView_SetModel(@ptrCast(self.ptr), @ptrCast(model.ptr));
+    pub fn setModel(self: KFilePlacesView, _model: anytype) void {
+        comptime _ = @TypeOf(_model)._is_QAbstractItemModel;
+        qtc.KFilePlacesView_SetModel(@ptrCast(self.ptr), @ptrCast(_model.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetModel` instead
+    ///
+    pub const OnSetModel = onSetModel;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#setModel)
     ///
@@ -437,13 +529,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, model: QAbstractItemModel) callconv(.c) void `
     ///
-    pub fn OnSetModel(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QAbstractItemModel) callconv(.c) void) void {
+    pub fn onSetModel(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QAbstractItemModel) callconv(.c) void) void {
         qtc.KFilePlacesView_OnSetModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetModel` instead
+    /// ### DEPRECATED: Use `superSetModel` instead
     ///
-    pub const QBaseSetModel = SuperSetModel;
+    pub const SuperSetModel = superSetModel;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#setModel)
     ///
@@ -453,12 +545,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` model: QAbstractItemModel `
+    /// ` _model: QAbstractItemModel `
     ///
-    pub fn SuperSetModel(self: KFilePlacesView, model: anytype) void {
-        comptime _ = @TypeOf(model)._is_QAbstractItemModel;
-        qtc.KFilePlacesView_SuperSetModel(@ptrCast(self.ptr), @ptrCast(model.ptr));
+    pub fn superSetModel(self: KFilePlacesView, _model: anytype) void {
+        comptime _ = @TypeOf(_model)._is_QAbstractItemModel;
+        qtc.KFilePlacesView_SuperSetModel(@ptrCast(self.ptr), @ptrCast(_model.ptr));
     }
+
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#keyPressEvent)
     ///
@@ -466,12 +562,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: KFilePlacesView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KFilePlacesView_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyPressEvent(self: KFilePlacesView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KFilePlacesView_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#keyPressEvent)
     ///
@@ -483,13 +583,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QKeyEvent) callconv(.c) void) void {
         qtc.KFilePlacesView_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#keyPressEvent)
     ///
@@ -499,12 +599,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: KFilePlacesView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KFilePlacesView_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyPressEvent(self: KFilePlacesView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KFilePlacesView_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#contextMenuEvent)
     ///
@@ -512,12 +616,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: KFilePlacesView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.KFilePlacesView_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn contextMenuEvent(self: KFilePlacesView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.KFilePlacesView_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#contextMenuEvent)
     ///
@@ -529,13 +637,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, event: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QContextMenuEvent) callconv(.c) void) void {
         qtc.KFilePlacesView_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#contextMenuEvent)
     ///
@@ -545,12 +653,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: KFilePlacesView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.KFilePlacesView_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superContextMenuEvent(self: KFilePlacesView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.KFilePlacesView_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#resizeEvent)
     ///
@@ -558,12 +670,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: KFilePlacesView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.KFilePlacesView_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn resizeEvent(self: KFilePlacesView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.KFilePlacesView_ResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#resizeEvent)
     ///
@@ -575,13 +691,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QResizeEvent) callconv(.c) void) void {
         qtc.KFilePlacesView_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#resizeEvent)
     ///
@@ -591,12 +707,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: KFilePlacesView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.KFilePlacesView_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superResizeEvent(self: KFilePlacesView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.KFilePlacesView_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#showEvent)
     ///
@@ -604,12 +724,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn ShowEvent(self: KFilePlacesView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.KFilePlacesView_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn showEvent(self: KFilePlacesView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.KFilePlacesView_ShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#showEvent)
     ///
@@ -621,13 +745,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QShowEvent) callconv(.c) void) void {
         qtc.KFilePlacesView_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#showEvent)
     ///
@@ -637,12 +761,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: KFilePlacesView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.KFilePlacesView_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superShowEvent(self: KFilePlacesView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.KFilePlacesView_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#hideEvent)
     ///
@@ -650,12 +778,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: KFilePlacesView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KFilePlacesView_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: KFilePlacesView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KFilePlacesView_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#hideEvent)
     ///
@@ -667,13 +799,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QHideEvent) callconv(.c) void) void {
         qtc.KFilePlacesView_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#hideEvent)
     ///
@@ -683,12 +815,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: KFilePlacesView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KFilePlacesView_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: KFilePlacesView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KFilePlacesView_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#dragEnterEvent)
     ///
@@ -696,12 +832,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: KFilePlacesView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KFilePlacesView_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: KFilePlacesView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KFilePlacesView_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#dragEnterEvent)
     ///
@@ -713,13 +853,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QDragEnterEvent) callconv(.c) void) void {
         qtc.KFilePlacesView_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#dragEnterEvent)
     ///
@@ -729,12 +869,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: KFilePlacesView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KFilePlacesView_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: KFilePlacesView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KFilePlacesView_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#dragLeaveEvent)
     ///
@@ -742,12 +886,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: KFilePlacesView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KFilePlacesView_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: KFilePlacesView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KFilePlacesView_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#dragLeaveEvent)
     ///
@@ -759,13 +907,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QDragLeaveEvent) callconv(.c) void) void {
         qtc.KFilePlacesView_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#dragLeaveEvent)
     ///
@@ -775,12 +923,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: KFilePlacesView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KFilePlacesView_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: KFilePlacesView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KFilePlacesView_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#dragMoveEvent)
     ///
@@ -788,12 +940,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: KFilePlacesView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KFilePlacesView_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: KFilePlacesView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KFilePlacesView_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#dragMoveEvent)
     ///
@@ -805,13 +961,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QDragMoveEvent) callconv(.c) void) void {
         qtc.KFilePlacesView_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#dragMoveEvent)
     ///
@@ -821,12 +977,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: KFilePlacesView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KFilePlacesView_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: KFilePlacesView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KFilePlacesView_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#dropEvent)
     ///
@@ -834,12 +994,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: KFilePlacesView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KFilePlacesView_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: KFilePlacesView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KFilePlacesView_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#dropEvent)
     ///
@@ -851,13 +1015,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QDropEvent) callconv(.c) void) void {
         qtc.KFilePlacesView_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#dropEvent)
     ///
@@ -867,12 +1031,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: KFilePlacesView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KFilePlacesView_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: KFilePlacesView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KFilePlacesView_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#paintEvent)
     ///
@@ -880,12 +1048,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn PaintEvent(self: KFilePlacesView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.KFilePlacesView_PaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn paintEvent(self: KFilePlacesView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.KFilePlacesView_PaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#paintEvent)
     ///
@@ -897,13 +1069,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, event: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QPaintEvent) callconv(.c) void) void {
         qtc.KFilePlacesView_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#paintEvent)
     ///
@@ -913,12 +1085,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: KFilePlacesView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.KFilePlacesView_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superPaintEvent(self: KFilePlacesView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.KFilePlacesView_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `startDrag` instead
+    ///
+    pub const StartDrag = startDrag;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#startDrag)
     ///
@@ -928,9 +1104,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` supportedActions: flag of qnamespace_enums.DropAction `
     ///
-    pub fn StartDrag(self: KFilePlacesView, supportedActions: i32) void {
+    pub fn startDrag(self: KFilePlacesView, supportedActions: i32) void {
         qtc.KFilePlacesView_StartDrag(@ptrCast(self.ptr), @bitCast(supportedActions));
     }
+
+    /// ### DEPRECATED: Use `onStartDrag` instead
+    ///
+    pub const OnStartDrag = onStartDrag;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#startDrag)
     ///
@@ -942,13 +1122,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, supportedActions: flag of qnamespace_enums.DropAction) callconv(.c) void `
     ///
-    pub fn OnStartDrag(self: KFilePlacesView, callback: *const fn (KFilePlacesView, i32) callconv(.c) void) void {
+    pub fn onStartDrag(self: KFilePlacesView, callback: *const fn (KFilePlacesView, i32) callconv(.c) void) void {
         qtc.KFilePlacesView_OnStartDrag(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperStartDrag` instead
+    /// ### DEPRECATED: Use `superStartDrag` instead
     ///
-    pub const QBaseStartDrag = SuperStartDrag;
+    pub const SuperStartDrag = superStartDrag;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#startDrag)
     ///
@@ -960,9 +1140,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` supportedActions: flag of qnamespace_enums.DropAction `
     ///
-    pub fn SuperStartDrag(self: KFilePlacesView, supportedActions: i32) void {
+    pub fn superStartDrag(self: KFilePlacesView, supportedActions: i32) void {
         qtc.KFilePlacesView_SuperStartDrag(@ptrCast(self.ptr), @bitCast(supportedActions));
     }
+
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#mousePressEvent)
     ///
@@ -970,12 +1154,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: KFilePlacesView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KFilePlacesView_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mousePressEvent(self: KFilePlacesView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KFilePlacesView_MousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#mousePressEvent)
     ///
@@ -987,13 +1175,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QMouseEvent) callconv(.c) void) void {
         qtc.KFilePlacesView_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#mousePressEvent)
     ///
@@ -1003,12 +1191,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: KFilePlacesView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KFilePlacesView_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMousePressEvent(self: KFilePlacesView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KFilePlacesView_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `rowsInserted` instead
+    ///
+    pub const RowsInserted = rowsInserted;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#rowsInserted)
     ///
@@ -1016,16 +1208,20 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` start: i32 `
     ///
     /// ` end: i32 `
     ///
-    pub fn RowsInserted(self: KFilePlacesView, parent: anytype, start: i32, end: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.KFilePlacesView_RowsInserted(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(start), @bitCast(end));
+    pub fn rowsInserted(self: KFilePlacesView, _parent: anytype, start: i32, end: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.KFilePlacesView_RowsInserted(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(start), @bitCast(end));
     }
+
+    /// ### DEPRECATED: Use `onRowsInserted` instead
+    ///
+    pub const OnRowsInserted = onRowsInserted;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#rowsInserted)
     ///
@@ -1037,13 +1233,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, parent: QModelIndex, start: i32, end: i32) callconv(.c) void `
     ///
-    pub fn OnRowsInserted(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onRowsInserted(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.KFilePlacesView_OnRowsInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperRowsInserted` instead
+    /// ### DEPRECATED: Use `superRowsInserted` instead
     ///
-    pub const QBaseRowsInserted = SuperRowsInserted;
+    pub const SuperRowsInserted = superRowsInserted;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#rowsInserted)
     ///
@@ -1053,16 +1249,20 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` start: i32 `
     ///
     /// ` end: i32 `
     ///
-    pub fn SuperRowsInserted(self: KFilePlacesView, parent: anytype, start: i32, end: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.KFilePlacesView_SuperRowsInserted(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(start), @bitCast(end));
+    pub fn superRowsInserted(self: KFilePlacesView, _parent: anytype, start: i32, end: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.KFilePlacesView_SuperRowsInserted(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(start), @bitCast(end));
     }
+
+    /// ### DEPRECATED: Use `dataChanged` instead
+    ///
+    pub const DataChanged = dataChanged;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#dataChanged)
     ///
@@ -1076,7 +1276,7 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` roles: []i32 `
     ///
-    pub fn DataChanged(self: KFilePlacesView, topLeft: anytype, bottomRight: anytype, roles: []i32) void {
+    pub fn dataChanged(self: KFilePlacesView, topLeft: anytype, bottomRight: anytype, roles: []i32) void {
         comptime _ = @TypeOf(topLeft)._is_QModelIndex;
         comptime _ = @TypeOf(bottomRight)._is_QModelIndex;
         const roles_list = qtc.libqt_list{
@@ -1085,6 +1285,10 @@ pub const KFilePlacesView = extern struct {
         };
         qtc.KFilePlacesView_DataChanged(@ptrCast(self.ptr), @ptrCast(topLeft.ptr), @ptrCast(bottomRight.ptr), roles_list);
     }
+
+    /// ### DEPRECATED: Use `onDataChanged` instead
+    ///
+    pub const OnDataChanged = onDataChanged;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#dataChanged)
     ///
@@ -1096,13 +1300,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, topLeft: QModelIndex, bottomRight: QModelIndex, roles: qtc.libqt_list ([]i32)) callconv(.c) void `
     ///
-    pub fn OnDataChanged(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QModelIndex, QModelIndex, qtc.libqt_list) callconv(.c) void) void {
+    pub fn onDataChanged(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QModelIndex, QModelIndex, qtc.libqt_list) callconv(.c) void) void {
         qtc.KFilePlacesView_OnDataChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDataChanged` instead
+    /// ### DEPRECATED: Use `superDataChanged` instead
     ///
-    pub const QBaseDataChanged = SuperDataChanged;
+    pub const SuperDataChanged = superDataChanged;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#dataChanged)
     ///
@@ -1118,7 +1322,7 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` roles: []i32 `
     ///
-    pub fn SuperDataChanged(self: KFilePlacesView, topLeft: anytype, bottomRight: anytype, roles: []i32) void {
+    pub fn superDataChanged(self: KFilePlacesView, topLeft: anytype, bottomRight: anytype, roles: []i32) void {
         comptime _ = @TypeOf(topLeft)._is_QModelIndex;
         comptime _ = @TypeOf(bottomRight)._is_QModelIndex;
         const roles_list = qtc.libqt_list{
@@ -1128,6 +1332,10 @@ pub const KFilePlacesView = extern struct {
         qtc.KFilePlacesView_SuperDataChanged(@ptrCast(self.ptr), @ptrCast(topLeft.ptr), @ptrCast(bottomRight.ptr), roles_list);
     }
 
+    /// ### DEPRECATED: Use `placeActivated` instead
+    ///
+    pub const PlaceActivated = placeActivated;
+
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#placeActivated)
     ///
     /// ## Parameter(s):
@@ -1136,11 +1344,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn PlaceActivated(self: KFilePlacesView, url: anytype) void {
+    pub fn placeActivated(self: KFilePlacesView, url: anytype) void {
         comptime _ = @TypeOf(url)._is_QUrl;
         qtc.KFilePlacesView_PlaceActivated(@ptrCast(self.ptr), @ptrCast(url.ptr));
     }
 
+    /// ### DEPRECATED: Use `onPlaceActivated` instead
+    ///
+    pub const OnPlaceActivated = onPlaceActivated;
+
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#placeActivated)
     ///
     /// ## Parameters:
@@ -1149,9 +1361,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, url: QUrl) callconv(.c) void `
     ///
-    pub fn OnPlaceActivated(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QUrl) callconv(.c) void) void {
+    pub fn onPlaceActivated(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QUrl) callconv(.c) void) void {
         qtc.KFilePlacesView_Connect_PlaceActivated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabRequested` instead
+    ///
+    pub const TabRequested = tabRequested;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#tabRequested)
     ///
@@ -1161,11 +1377,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn TabRequested(self: KFilePlacesView, url: anytype) void {
+    pub fn tabRequested(self: KFilePlacesView, url: anytype) void {
         comptime _ = @TypeOf(url)._is_QUrl;
         qtc.KFilePlacesView_TabRequested(@ptrCast(self.ptr), @ptrCast(url.ptr));
     }
 
+    /// ### DEPRECATED: Use `onTabRequested` instead
+    ///
+    pub const OnTabRequested = onTabRequested;
+
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#tabRequested)
     ///
     /// ## Parameters:
@@ -1174,9 +1394,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, url: QUrl) callconv(.c) void `
     ///
-    pub fn OnTabRequested(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QUrl) callconv(.c) void) void {
+    pub fn onTabRequested(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QUrl) callconv(.c) void) void {
         qtc.KFilePlacesView_Connect_TabRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `activeTabRequested` instead
+    ///
+    pub const ActiveTabRequested = activeTabRequested;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#activeTabRequested)
     ///
@@ -1186,11 +1410,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn ActiveTabRequested(self: KFilePlacesView, url: anytype) void {
+    pub fn activeTabRequested(self: KFilePlacesView, url: anytype) void {
         comptime _ = @TypeOf(url)._is_QUrl;
         qtc.KFilePlacesView_ActiveTabRequested(@ptrCast(self.ptr), @ptrCast(url.ptr));
     }
 
+    /// ### DEPRECATED: Use `onActiveTabRequested` instead
+    ///
+    pub const OnActiveTabRequested = onActiveTabRequested;
+
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#activeTabRequested)
     ///
     /// ## Parameters:
@@ -1199,9 +1427,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, url: QUrl) callconv(.c) void `
     ///
-    pub fn OnActiveTabRequested(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QUrl) callconv(.c) void) void {
+    pub fn onActiveTabRequested(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QUrl) callconv(.c) void) void {
         qtc.KFilePlacesView_Connect_ActiveTabRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `newWindowRequested` instead
+    ///
+    pub const NewWindowRequested = newWindowRequested;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#newWindowRequested)
     ///
@@ -1211,10 +1443,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn NewWindowRequested(self: KFilePlacesView, url: anytype) void {
+    pub fn newWindowRequested(self: KFilePlacesView, url: anytype) void {
         comptime _ = @TypeOf(url)._is_QUrl;
         qtc.KFilePlacesView_NewWindowRequested(@ptrCast(self.ptr), @ptrCast(url.ptr));
     }
+
+    /// ### DEPRECATED: Use `onNewWindowRequested` instead
+    ///
+    pub const OnNewWindowRequested = onNewWindowRequested;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#newWindowRequested)
     ///
@@ -1224,9 +1460,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, url: QUrl) callconv(.c) void `
     ///
-    pub fn OnNewWindowRequested(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QUrl) callconv(.c) void) void {
+    pub fn onNewWindowRequested(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QUrl) callconv(.c) void) void {
         qtc.KFilePlacesView_Connect_NewWindowRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuAboutToShow` instead
+    ///
+    pub const ContextMenuAboutToShow = contextMenuAboutToShow;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#contextMenuAboutToShow)
     ///
@@ -1238,11 +1478,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` menu: QMenu `
     ///
-    pub fn ContextMenuAboutToShow(self: KFilePlacesView, index: anytype, menu: anytype) void {
+    pub fn contextMenuAboutToShow(self: KFilePlacesView, index: anytype, menu: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         comptime _ = @TypeOf(menu)._is_QMenu;
         qtc.KFilePlacesView_ContextMenuAboutToShow(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(menu.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuAboutToShow` instead
+    ///
+    pub const OnContextMenuAboutToShow = onContextMenuAboutToShow;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#contextMenuAboutToShow)
     ///
@@ -1252,9 +1496,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, index: QModelIndex, menu: QMenu) callconv(.c) void `
     ///
-    pub fn OnContextMenuAboutToShow(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QModelIndex, QMenu) callconv(.c) void) void {
+    pub fn onContextMenuAboutToShow(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QModelIndex, QMenu) callconv(.c) void) void {
         qtc.KFilePlacesView_Connect_ContextMenuAboutToShow(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `allPlacesShownChanged` instead
+    ///
+    pub const AllPlacesShownChanged = allPlacesShownChanged;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#allPlacesShownChanged)
     ///
@@ -1262,11 +1510,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` allPlacesShown: bool `
+    /// ` _allPlacesShown: bool `
     ///
-    pub fn AllPlacesShownChanged(self: KFilePlacesView, allPlacesShown: bool) void {
-        qtc.KFilePlacesView_AllPlacesShownChanged(@ptrCast(self.ptr), allPlacesShown);
+    pub fn allPlacesShownChanged(self: KFilePlacesView, _allPlacesShown: bool) void {
+        qtc.KFilePlacesView_AllPlacesShownChanged(@ptrCast(self.ptr), _allPlacesShown);
     }
+
+    /// ### DEPRECATED: Use `onAllPlacesShownChanged` instead
+    ///
+    pub const OnAllPlacesShownChanged = onAllPlacesShownChanged;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#allPlacesShownChanged)
     ///
@@ -1276,9 +1528,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, allPlacesShown: bool) callconv(.c) void `
     ///
-    pub fn OnAllPlacesShownChanged(self: KFilePlacesView, callback: *const fn (KFilePlacesView, bool) callconv(.c) void) void {
+    pub fn onAllPlacesShownChanged(self: KFilePlacesView, callback: *const fn (KFilePlacesView, bool) callconv(.c) void) void {
         qtc.KFilePlacesView_Connect_AllPlacesShownChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `urlChanged` instead
+    ///
+    pub const UrlChanged = urlChanged;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#urlChanged)
     ///
@@ -1288,10 +1544,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn UrlChanged(self: KFilePlacesView, url: anytype) void {
+    pub fn urlChanged(self: KFilePlacesView, url: anytype) void {
         comptime _ = @TypeOf(url)._is_QUrl;
         qtc.KFilePlacesView_UrlChanged(@ptrCast(self.ptr), @ptrCast(url.ptr));
     }
+
+    /// ### DEPRECATED: Use `onUrlChanged` instead
+    ///
+    pub const OnUrlChanged = onUrlChanged;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#urlChanged)
     ///
@@ -1301,9 +1561,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, url: QUrl) callconv(.c) void `
     ///
-    pub fn OnUrlChanged(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QUrl) callconv(.c) void) void {
+    pub fn onUrlChanged(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QUrl) callconv(.c) void) void {
         qtc.KFilePlacesView_Connect_UrlChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `urlsDropped` instead
+    ///
+    pub const UrlsDropped = urlsDropped;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#urlsDropped)
     ///
@@ -1313,16 +1577,20 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` dest: QUrl `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn UrlsDropped(self: KFilePlacesView, dest: anytype, event: anytype, parent: anytype) void {
+    pub fn urlsDropped(self: KFilePlacesView, dest: anytype, _event: anytype, _parent: anytype) void {
         comptime _ = @TypeOf(dest)._is_QUrl;
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.KFilePlacesView_UrlsDropped(@ptrCast(self.ptr), @ptrCast(dest.ptr), @ptrCast(event.ptr), @ptrCast(parent.ptr));
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.KFilePlacesView_UrlsDropped(@ptrCast(self.ptr), @ptrCast(dest.ptr), @ptrCast(_event.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `onUrlsDropped` instead
+    ///
+    pub const OnUrlsDropped = onUrlsDropped;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#urlsDropped)
     ///
@@ -1332,9 +1600,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, dest: QUrl, event: QDropEvent, parent: QWidget) callconv(.c) void `
     ///
-    pub fn OnUrlsDropped(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QUrl, QDropEvent, QWidget) callconv(.c) void) void {
+    pub fn onUrlsDropped(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QUrl, QDropEvent, QWidget) callconv(.c) void) void {
         qtc.KFilePlacesView_Connect_UrlsDropped(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1346,15 +1618,19 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFilePlacesView.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFilePlacesView.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1368,15 +1644,19 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFilePlacesView.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFilePlacesView.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setMovement` instead
+    ///
+    pub const SetMovement = setMovement;
 
     /// Inherited from QListView
     ///
@@ -1386,11 +1666,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` movement: qlistview_enums.Movement `
+    /// ` _movement: qlistview_enums.Movement `
     ///
-    pub fn SetMovement(self: KFilePlacesView, movement: i32) void {
-        qtc.QListView_SetMovement(@ptrCast(self.ptr), @bitCast(movement));
+    pub fn setMovement(self: KFilePlacesView, _movement: i32) void {
+        qtc.QListView_SetMovement(@ptrCast(self.ptr), @bitCast(_movement));
     }
+
+    /// ### DEPRECATED: Use `movement` instead
+    ///
+    pub const Movement = movement;
 
     /// Inherited from QListView
     ///
@@ -1404,9 +1688,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` qlistview_enums.Movement `
     ///
-    pub fn Movement(self: KFilePlacesView) i32 {
+    pub fn movement(self: KFilePlacesView) i32 {
         return qtc.QListView_Movement(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFlow` instead
+    ///
+    pub const SetFlow = setFlow;
 
     /// Inherited from QListView
     ///
@@ -1416,11 +1704,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` flow: qlistview_enums.Flow `
+    /// ` _flow: qlistview_enums.Flow `
     ///
-    pub fn SetFlow(self: KFilePlacesView, flow: i32) void {
-        qtc.QListView_SetFlow(@ptrCast(self.ptr), @bitCast(flow));
+    pub fn setFlow(self: KFilePlacesView, _flow: i32) void {
+        qtc.QListView_SetFlow(@ptrCast(self.ptr), @bitCast(_flow));
     }
+
+    /// ### DEPRECATED: Use `flow` instead
+    ///
+    pub const Flow = flow;
 
     /// Inherited from QListView
     ///
@@ -1434,9 +1726,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` qlistview_enums.Flow `
     ///
-    pub fn Flow(self: KFilePlacesView) i32 {
+    pub fn flow(self: KFilePlacesView) i32 {
         return qtc.QListView_Flow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWrapping` instead
+    ///
+    pub const SetWrapping = setWrapping;
 
     /// Inherited from QListView
     ///
@@ -1448,9 +1744,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetWrapping(self: KFilePlacesView, enable: bool) void {
+    pub fn setWrapping(self: KFilePlacesView, enable: bool) void {
         qtc.QListView_SetWrapping(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `isWrapping` instead
+    ///
+    pub const IsWrapping = isWrapping;
 
     /// Inherited from QListView
     ///
@@ -1460,9 +1760,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn IsWrapping(self: KFilePlacesView) bool {
+    pub fn isWrapping(self: KFilePlacesView) bool {
         return qtc.QListView_IsWrapping(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setResizeMode` instead
+    ///
+    pub const SetResizeMode = setResizeMode;
 
     /// Inherited from QListView
     ///
@@ -1474,9 +1778,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` mode: qlistview_enums.ResizeMode `
     ///
-    pub fn SetResizeMode(self: KFilePlacesView, mode: i32) void {
+    pub fn setResizeMode(self: KFilePlacesView, mode: i32) void {
         qtc.QListView_SetResizeMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `resizeMode` instead
+    ///
+    pub const ResizeMode = resizeMode;
 
     /// Inherited from QListView
     ///
@@ -1490,9 +1798,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` qlistview_enums.ResizeMode `
     ///
-    pub fn ResizeMode(self: KFilePlacesView) i32 {
+    pub fn resizeMode(self: KFilePlacesView) i32 {
         return qtc.QListView_ResizeMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLayoutMode` instead
+    ///
+    pub const SetLayoutMode = setLayoutMode;
 
     /// Inherited from QListView
     ///
@@ -1504,9 +1816,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` mode: qlistview_enums.LayoutMode `
     ///
-    pub fn SetLayoutMode(self: KFilePlacesView, mode: i32) void {
+    pub fn setLayoutMode(self: KFilePlacesView, mode: i32) void {
         qtc.QListView_SetLayoutMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `layoutMode` instead
+    ///
+    pub const LayoutMode = layoutMode;
 
     /// Inherited from QListView
     ///
@@ -1520,9 +1836,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` qlistview_enums.LayoutMode `
     ///
-    pub fn LayoutMode(self: KFilePlacesView) i32 {
+    pub fn layoutMode(self: KFilePlacesView) i32 {
         return qtc.QListView_LayoutMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSpacing` instead
+    ///
+    pub const SetSpacing = setSpacing;
 
     /// Inherited from QListView
     ///
@@ -1534,9 +1854,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` space: i32 `
     ///
-    pub fn SetSpacing(self: KFilePlacesView, space: i32) void {
+    pub fn setSpacing(self: KFilePlacesView, space: i32) void {
         qtc.QListView_SetSpacing(@ptrCast(self.ptr), @bitCast(space));
     }
+
+    /// ### DEPRECATED: Use `spacing` instead
+    ///
+    pub const Spacing = spacing;
 
     /// Inherited from QListView
     ///
@@ -1546,9 +1870,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn Spacing(self: KFilePlacesView) i32 {
+    pub fn spacing(self: KFilePlacesView) i32 {
         return qtc.QListView_Spacing(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBatchSize` instead
+    ///
+    pub const SetBatchSize = setBatchSize;
 
     /// Inherited from QListView
     ///
@@ -1558,11 +1886,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` batchSize: i32 `
+    /// ` _batchSize: i32 `
     ///
-    pub fn SetBatchSize(self: KFilePlacesView, batchSize: i32) void {
-        qtc.QListView_SetBatchSize(@ptrCast(self.ptr), @bitCast(batchSize));
+    pub fn setBatchSize(self: KFilePlacesView, _batchSize: i32) void {
+        qtc.QListView_SetBatchSize(@ptrCast(self.ptr), @bitCast(_batchSize));
     }
+
+    /// ### DEPRECATED: Use `batchSize` instead
+    ///
+    pub const BatchSize = batchSize;
 
     /// Inherited from QListView
     ///
@@ -1572,9 +1904,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn BatchSize(self: KFilePlacesView) i32 {
+    pub fn batchSize(self: KFilePlacesView) i32 {
         return qtc.QListView_BatchSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGridSize` instead
+    ///
+    pub const SetGridSize = setGridSize;
 
     /// Inherited from QListView
     ///
@@ -1584,12 +1920,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` size: QSize `
+    /// ` _size: QSize `
     ///
-    pub fn SetGridSize(self: KFilePlacesView, size: anytype) void {
-        comptime _ = @TypeOf(size)._is_QSize;
-        qtc.QListView_SetGridSize(@ptrCast(self.ptr), @ptrCast(size.ptr));
+    pub fn setGridSize(self: KFilePlacesView, _size: anytype) void {
+        comptime _ = @TypeOf(_size)._is_QSize;
+        qtc.QListView_SetGridSize(@ptrCast(self.ptr), @ptrCast(_size.ptr));
     }
+
+    /// ### DEPRECATED: Use `gridSize` instead
+    ///
+    pub const GridSize = gridSize;
 
     /// Inherited from QListView
     ///
@@ -1599,9 +1939,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn GridSize(self: KFilePlacesView) QSize {
+    pub fn gridSize(self: KFilePlacesView) QSize {
         return .{ .ptr = qtc.QListView_GridSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setViewMode` instead
+    ///
+    pub const SetViewMode = setViewMode;
 
     /// Inherited from QListView
     ///
@@ -1613,9 +1957,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` mode: qlistview_enums.ViewMode `
     ///
-    pub fn SetViewMode(self: KFilePlacesView, mode: i32) void {
+    pub fn setViewMode(self: KFilePlacesView, mode: i32) void {
         qtc.QListView_SetViewMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `viewMode` instead
+    ///
+    pub const ViewMode = viewMode;
 
     /// Inherited from QListView
     ///
@@ -1629,9 +1977,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` qlistview_enums.ViewMode `
     ///
-    pub fn ViewMode(self: KFilePlacesView) i32 {
+    pub fn viewMode(self: KFilePlacesView) i32 {
         return qtc.QListView_ViewMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearPropertyFlags` instead
+    ///
+    pub const ClearPropertyFlags = clearPropertyFlags;
 
     /// Inherited from QListView
     ///
@@ -1641,9 +1993,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn ClearPropertyFlags(self: KFilePlacesView) void {
+    pub fn clearPropertyFlags(self: KFilePlacesView) void {
         qtc.QListView_ClearPropertyFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRowHidden` instead
+    ///
+    pub const IsRowHidden = isRowHidden;
 
     /// Inherited from QListView
     ///
@@ -1655,9 +2011,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` row: i32 `
     ///
-    pub fn IsRowHidden(self: KFilePlacesView, row: i32) bool {
+    pub fn isRowHidden(self: KFilePlacesView, row: i32) bool {
         return qtc.QListView_IsRowHidden(@ptrCast(self.ptr), @bitCast(row));
     }
+
+    /// ### DEPRECATED: Use `setRowHidden` instead
+    ///
+    pub const SetRowHidden = setRowHidden;
 
     /// Inherited from QListView
     ///
@@ -1669,11 +2029,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` row: i32 `
     ///
-    /// ` hide: bool `
+    /// ` _hide: bool `
     ///
-    pub fn SetRowHidden(self: KFilePlacesView, row: i32, hide: bool) void {
-        qtc.QListView_SetRowHidden(@ptrCast(self.ptr), @bitCast(row), hide);
+    pub fn setRowHidden(self: KFilePlacesView, row: i32, _hide: bool) void {
+        qtc.QListView_SetRowHidden(@ptrCast(self.ptr), @bitCast(row), _hide);
     }
+
+    /// ### DEPRECATED: Use `setModelColumn` instead
+    ///
+    pub const SetModelColumn = setModelColumn;
 
     /// Inherited from QListView
     ///
@@ -1685,9 +2049,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn SetModelColumn(self: KFilePlacesView, column: i32) void {
+    pub fn setModelColumn(self: KFilePlacesView, column: i32) void {
         qtc.QListView_SetModelColumn(@ptrCast(self.ptr), @bitCast(column));
     }
+
+    /// ### DEPRECATED: Use `modelColumn` instead
+    ///
+    pub const ModelColumn = modelColumn;
 
     /// Inherited from QListView
     ///
@@ -1697,9 +2065,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn ModelColumn(self: KFilePlacesView) i32 {
+    pub fn modelColumn(self: KFilePlacesView) i32 {
         return qtc.QListView_ModelColumn(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUniformItemSizes` instead
+    ///
+    pub const SetUniformItemSizes = setUniformItemSizes;
 
     /// Inherited from QListView
     ///
@@ -1711,9 +2083,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUniformItemSizes(self: KFilePlacesView, enable: bool) void {
+    pub fn setUniformItemSizes(self: KFilePlacesView, enable: bool) void {
         qtc.QListView_SetUniformItemSizes(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `uniformItemSizes` instead
+    ///
+    pub const UniformItemSizes = uniformItemSizes;
 
     /// Inherited from QListView
     ///
@@ -1723,9 +2099,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn UniformItemSizes(self: KFilePlacesView) bool {
+    pub fn uniformItemSizes(self: KFilePlacesView) bool {
         return qtc.QListView_UniformItemSizes(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWordWrap` instead
+    ///
+    pub const SetWordWrap = setWordWrap;
 
     /// Inherited from QListView
     ///
@@ -1737,9 +2117,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWordWrap(self: KFilePlacesView, on: bool) void {
+    pub fn setWordWrap(self: KFilePlacesView, on: bool) void {
         qtc.QListView_SetWordWrap(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `wordWrap` instead
+    ///
+    pub const WordWrap = wordWrap;
 
     /// Inherited from QListView
     ///
@@ -1749,9 +2133,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn WordWrap(self: KFilePlacesView) bool {
+    pub fn wordWrap(self: KFilePlacesView) bool {
         return qtc.QListView_WordWrap(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSelectionRectVisible` instead
+    ///
+    pub const SetSelectionRectVisible = setSelectionRectVisible;
 
     /// Inherited from QListView
     ///
@@ -1761,11 +2149,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` show: bool `
+    /// ` _show: bool `
     ///
-    pub fn SetSelectionRectVisible(self: KFilePlacesView, show: bool) void {
-        qtc.QListView_SetSelectionRectVisible(@ptrCast(self.ptr), show);
+    pub fn setSelectionRectVisible(self: KFilePlacesView, _show: bool) void {
+        qtc.QListView_SetSelectionRectVisible(@ptrCast(self.ptr), _show);
     }
+
+    /// ### DEPRECATED: Use `isSelectionRectVisible` instead
+    ///
+    pub const IsSelectionRectVisible = isSelectionRectVisible;
 
     /// Inherited from QListView
     ///
@@ -1775,9 +2167,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn IsSelectionRectVisible(self: KFilePlacesView) bool {
+    pub fn isSelectionRectVisible(self: KFilePlacesView) bool {
         return qtc.QListView_IsSelectionRectVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setItemAlignment` instead
+    ///
+    pub const SetItemAlignment = setItemAlignment;
 
     /// Inherited from QListView
     ///
@@ -1789,9 +2185,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn SetItemAlignment(self: KFilePlacesView, alignment: i32) void {
+    pub fn setItemAlignment(self: KFilePlacesView, alignment: i32) void {
         qtc.QListView_SetItemAlignment(@ptrCast(self.ptr), @bitCast(alignment));
     }
+
+    /// ### DEPRECATED: Use `itemAlignment` instead
+    ///
+    pub const ItemAlignment = itemAlignment;
 
     /// Inherited from QListView
     ///
@@ -1805,9 +2205,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn ItemAlignment(self: KFilePlacesView) i32 {
+    pub fn itemAlignment(self: KFilePlacesView) i32 {
         return qtc.QListView_ItemAlignment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `indexesMoved` instead
+    ///
+    pub const IndexesMoved = indexesMoved;
 
     /// Inherited from QListView
     ///
@@ -1819,13 +2223,17 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` indexes: []QModelIndex `
     ///
-    pub fn IndexesMoved(self: KFilePlacesView, indexes: []QModelIndex) void {
+    pub fn indexesMoved(self: KFilePlacesView, indexes: []QModelIndex) void {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
         qtc.QListView_IndexesMoved(@ptrCast(self.ptr), indexes_list);
     }
+
+    /// ### DEPRECATED: Use `onIndexesMoved` instead
+    ///
+    pub const OnIndexesMoved = onIndexesMoved;
 
     /// Inherited from QListView
     ///
@@ -1837,9 +2245,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, indexes: qtc.libqt_list ([]QModelIndex)) callconv(.c) void `
     ///
-    pub fn OnIndexesMoved(self: KFilePlacesView, callback: *const fn (KFilePlacesView, qtc.libqt_list) callconv(.c) void) void {
+    pub fn onIndexesMoved(self: KFilePlacesView, callback: *const fn (KFilePlacesView, qtc.libqt_list) callconv(.c) void) void {
         qtc.QListView_Connect_IndexesMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `model` instead
+    ///
+    pub const Model = model;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1849,9 +2261,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn Model(self: KFilePlacesView) QAbstractItemModel {
+    pub fn model(self: KFilePlacesView) QAbstractItemModel {
         return .{ .ptr = qtc.QAbstractItemView_Model(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `selectionModel` instead
+    ///
+    pub const SelectionModel = selectionModel;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1861,9 +2277,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn SelectionModel(self: KFilePlacesView) QItemSelectionModel {
+    pub fn selectionModel(self: KFilePlacesView) QItemSelectionModel {
         return .{ .ptr = qtc.QAbstractItemView_SelectionModel(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setItemDelegate` instead
+    ///
+    pub const SetItemDelegate = setItemDelegate;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1875,10 +2295,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` delegate: QAbstractItemDelegate `
     ///
-    pub fn SetItemDelegate(self: KFilePlacesView, delegate: anytype) void {
+    pub fn setItemDelegate(self: KFilePlacesView, delegate: anytype) void {
         comptime _ = @TypeOf(delegate)._is_QAbstractItemDelegate;
         qtc.QAbstractItemView_SetItemDelegate(@ptrCast(self.ptr), @ptrCast(delegate.ptr));
     }
+
+    /// ### DEPRECATED: Use `itemDelegate` instead
+    ///
+    pub const ItemDelegate = itemDelegate;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1888,9 +2312,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn ItemDelegate(self: KFilePlacesView) QAbstractItemDelegate {
+    pub fn itemDelegate(self: KFilePlacesView) QAbstractItemDelegate {
         return .{ .ptr = qtc.QAbstractItemView_ItemDelegate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSelectionMode` instead
+    ///
+    pub const SetSelectionMode = setSelectionMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1902,9 +2330,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` mode: qabstractitemview_enums.SelectionMode `
     ///
-    pub fn SetSelectionMode(self: KFilePlacesView, mode: i32) void {
+    pub fn setSelectionMode(self: KFilePlacesView, mode: i32) void {
         qtc.QAbstractItemView_SetSelectionMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `selectionMode` instead
+    ///
+    pub const SelectionMode = selectionMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1918,9 +2350,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` qabstractitemview_enums.SelectionMode `
     ///
-    pub fn SelectionMode(self: KFilePlacesView) i32 {
+    pub fn selectionMode(self: KFilePlacesView) i32 {
         return qtc.QAbstractItemView_SelectionMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSelectionBehavior` instead
+    ///
+    pub const SetSelectionBehavior = setSelectionBehavior;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1932,9 +2368,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` behavior: qabstractitemview_enums.SelectionBehavior `
     ///
-    pub fn SetSelectionBehavior(self: KFilePlacesView, behavior: i32) void {
+    pub fn setSelectionBehavior(self: KFilePlacesView, behavior: i32) void {
         qtc.QAbstractItemView_SetSelectionBehavior(@ptrCast(self.ptr), @bitCast(behavior));
     }
+
+    /// ### DEPRECATED: Use `selectionBehavior` instead
+    ///
+    pub const SelectionBehavior = selectionBehavior;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1948,9 +2388,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` qabstractitemview_enums.SelectionBehavior `
     ///
-    pub fn SelectionBehavior(self: KFilePlacesView) i32 {
+    pub fn selectionBehavior(self: KFilePlacesView) i32 {
         return qtc.QAbstractItemView_SelectionBehavior(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `currentIndex` instead
+    ///
+    pub const CurrentIndex = currentIndex;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1960,9 +2404,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn CurrentIndex(self: KFilePlacesView) QModelIndex {
+    pub fn currentIndex(self: KFilePlacesView) QModelIndex {
         return .{ .ptr = qtc.QAbstractItemView_CurrentIndex(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `rootIndex` instead
+    ///
+    pub const RootIndex = rootIndex;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1972,9 +2420,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn RootIndex(self: KFilePlacesView) QModelIndex {
+    pub fn rootIndex(self: KFilePlacesView) QModelIndex {
         return .{ .ptr = qtc.QAbstractItemView_RootIndex(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setEditTriggers` instead
+    ///
+    pub const SetEditTriggers = setEditTriggers;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1986,9 +2438,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` triggers: flag of qabstractitemview_enums.EditTrigger `
     ///
-    pub fn SetEditTriggers(self: KFilePlacesView, triggers: i32) void {
+    pub fn setEditTriggers(self: KFilePlacesView, triggers: i32) void {
         qtc.QAbstractItemView_SetEditTriggers(@ptrCast(self.ptr), @bitCast(triggers));
     }
+
+    /// ### DEPRECATED: Use `editTriggers` instead
+    ///
+    pub const EditTriggers = editTriggers;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2002,9 +2458,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` flag of qabstractitemview_enums.EditTrigger `
     ///
-    pub fn EditTriggers(self: KFilePlacesView) i32 {
+    pub fn editTriggers(self: KFilePlacesView) i32 {
         return qtc.QAbstractItemView_EditTriggers(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setVerticalScrollMode` instead
+    ///
+    pub const SetVerticalScrollMode = setVerticalScrollMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2016,9 +2476,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` mode: qabstractitemview_enums.ScrollMode `
     ///
-    pub fn SetVerticalScrollMode(self: KFilePlacesView, mode: i32) void {
+    pub fn setVerticalScrollMode(self: KFilePlacesView, mode: i32) void {
         qtc.QAbstractItemView_SetVerticalScrollMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `verticalScrollMode` instead
+    ///
+    pub const VerticalScrollMode = verticalScrollMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2032,9 +2496,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` qabstractitemview_enums.ScrollMode `
     ///
-    pub fn VerticalScrollMode(self: KFilePlacesView) i32 {
+    pub fn verticalScrollMode(self: KFilePlacesView) i32 {
         return qtc.QAbstractItemView_VerticalScrollMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `resetVerticalScrollMode` instead
+    ///
+    pub const ResetVerticalScrollMode = resetVerticalScrollMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2044,9 +2512,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn ResetVerticalScrollMode(self: KFilePlacesView) void {
+    pub fn resetVerticalScrollMode(self: KFilePlacesView) void {
         qtc.QAbstractItemView_ResetVerticalScrollMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHorizontalScrollMode` instead
+    ///
+    pub const SetHorizontalScrollMode = setHorizontalScrollMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2058,9 +2530,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` mode: qabstractitemview_enums.ScrollMode `
     ///
-    pub fn SetHorizontalScrollMode(self: KFilePlacesView, mode: i32) void {
+    pub fn setHorizontalScrollMode(self: KFilePlacesView, mode: i32) void {
         qtc.QAbstractItemView_SetHorizontalScrollMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `horizontalScrollMode` instead
+    ///
+    pub const HorizontalScrollMode = horizontalScrollMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2074,9 +2550,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` qabstractitemview_enums.ScrollMode `
     ///
-    pub fn HorizontalScrollMode(self: KFilePlacesView) i32 {
+    pub fn horizontalScrollMode(self: KFilePlacesView) i32 {
         return qtc.QAbstractItemView_HorizontalScrollMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `resetHorizontalScrollMode` instead
+    ///
+    pub const ResetHorizontalScrollMode = resetHorizontalScrollMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2086,9 +2566,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn ResetHorizontalScrollMode(self: KFilePlacesView) void {
+    pub fn resetHorizontalScrollMode(self: KFilePlacesView) void {
         qtc.QAbstractItemView_ResetHorizontalScrollMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoScroll` instead
+    ///
+    pub const SetAutoScroll = setAutoScroll;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2100,9 +2584,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetAutoScroll(self: KFilePlacesView, enable: bool) void {
+    pub fn setAutoScroll(self: KFilePlacesView, enable: bool) void {
         qtc.QAbstractItemView_SetAutoScroll(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasAutoScroll` instead
+    ///
+    pub const HasAutoScroll = hasAutoScroll;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2112,9 +2600,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn HasAutoScroll(self: KFilePlacesView) bool {
+    pub fn hasAutoScroll(self: KFilePlacesView) bool {
         return qtc.QAbstractItemView_HasAutoScroll(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoScrollMargin` instead
+    ///
+    pub const SetAutoScrollMargin = setAutoScrollMargin;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2126,9 +2618,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` margin: i32 `
     ///
-    pub fn SetAutoScrollMargin(self: KFilePlacesView, margin: i32) void {
+    pub fn setAutoScrollMargin(self: KFilePlacesView, margin: i32) void {
         qtc.QAbstractItemView_SetAutoScrollMargin(@ptrCast(self.ptr), @bitCast(margin));
     }
+
+    /// ### DEPRECATED: Use `autoScrollMargin` instead
+    ///
+    pub const AutoScrollMargin = autoScrollMargin;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2138,9 +2634,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn AutoScrollMargin(self: KFilePlacesView) i32 {
+    pub fn autoScrollMargin(self: KFilePlacesView) i32 {
         return qtc.QAbstractItemView_AutoScrollMargin(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabKeyNavigation` instead
+    ///
+    pub const SetTabKeyNavigation = setTabKeyNavigation;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2152,9 +2652,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabKeyNavigation(self: KFilePlacesView, enable: bool) void {
+    pub fn setTabKeyNavigation(self: KFilePlacesView, enable: bool) void {
         qtc.QAbstractItemView_SetTabKeyNavigation(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `tabKeyNavigation` instead
+    ///
+    pub const TabKeyNavigation = tabKeyNavigation;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2164,9 +2668,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn TabKeyNavigation(self: KFilePlacesView) bool {
+    pub fn tabKeyNavigation(self: KFilePlacesView) bool {
         return qtc.QAbstractItemView_TabKeyNavigation(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDropIndicatorShown` instead
+    ///
+    pub const SetDropIndicatorShown = setDropIndicatorShown;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2178,9 +2686,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetDropIndicatorShown(self: KFilePlacesView, enable: bool) void {
+    pub fn setDropIndicatorShown(self: KFilePlacesView, enable: bool) void {
         qtc.QAbstractItemView_SetDropIndicatorShown(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `showDropIndicator` instead
+    ///
+    pub const ShowDropIndicator = showDropIndicator;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2190,9 +2702,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn ShowDropIndicator(self: KFilePlacesView) bool {
+    pub fn showDropIndicator(self: KFilePlacesView) bool {
         return qtc.QAbstractItemView_ShowDropIndicator(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDragEnabled` instead
+    ///
+    pub const SetDragEnabled = setDragEnabled;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2204,9 +2720,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetDragEnabled(self: KFilePlacesView, enable: bool) void {
+    pub fn setDragEnabled(self: KFilePlacesView, enable: bool) void {
         qtc.QAbstractItemView_SetDragEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `dragEnabled` instead
+    ///
+    pub const DragEnabled = dragEnabled;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2216,9 +2736,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn DragEnabled(self: KFilePlacesView) bool {
+    pub fn dragEnabled(self: KFilePlacesView) bool {
         return qtc.QAbstractItemView_DragEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDragDropOverwriteMode` instead
+    ///
+    pub const SetDragDropOverwriteMode = setDragDropOverwriteMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2230,9 +2754,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` overwrite: bool `
     ///
-    pub fn SetDragDropOverwriteMode(self: KFilePlacesView, overwrite: bool) void {
+    pub fn setDragDropOverwriteMode(self: KFilePlacesView, overwrite: bool) void {
         qtc.QAbstractItemView_SetDragDropOverwriteMode(@ptrCast(self.ptr), overwrite);
     }
+
+    /// ### DEPRECATED: Use `dragDropOverwriteMode` instead
+    ///
+    pub const DragDropOverwriteMode = dragDropOverwriteMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2242,9 +2770,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn DragDropOverwriteMode(self: KFilePlacesView) bool {
+    pub fn dragDropOverwriteMode(self: KFilePlacesView) bool {
         return qtc.QAbstractItemView_DragDropOverwriteMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDragDropMode` instead
+    ///
+    pub const SetDragDropMode = setDragDropMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2256,9 +2788,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` behavior: qabstractitemview_enums.DragDropMode `
     ///
-    pub fn SetDragDropMode(self: KFilePlacesView, behavior: i32) void {
+    pub fn setDragDropMode(self: KFilePlacesView, behavior: i32) void {
         qtc.QAbstractItemView_SetDragDropMode(@ptrCast(self.ptr), @bitCast(behavior));
     }
+
+    /// ### DEPRECATED: Use `dragDropMode` instead
+    ///
+    pub const DragDropMode = dragDropMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2272,9 +2808,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` qabstractitemview_enums.DragDropMode `
     ///
-    pub fn DragDropMode(self: KFilePlacesView) i32 {
+    pub fn dragDropMode(self: KFilePlacesView) i32 {
         return qtc.QAbstractItemView_DragDropMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDefaultDropAction` instead
+    ///
+    pub const SetDefaultDropAction = setDefaultDropAction;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2286,9 +2826,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` dropAction: qnamespace_enums.DropAction `
     ///
-    pub fn SetDefaultDropAction(self: KFilePlacesView, dropAction: i32) void {
+    pub fn setDefaultDropAction(self: KFilePlacesView, dropAction: i32) void {
         qtc.QAbstractItemView_SetDefaultDropAction(@ptrCast(self.ptr), @bitCast(dropAction));
     }
+
+    /// ### DEPRECATED: Use `defaultDropAction` instead
+    ///
+    pub const DefaultDropAction = defaultDropAction;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2302,9 +2846,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` qnamespace_enums.DropAction `
     ///
-    pub fn DefaultDropAction(self: KFilePlacesView) i32 {
+    pub fn defaultDropAction(self: KFilePlacesView) i32 {
         return qtc.QAbstractItemView_DefaultDropAction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAlternatingRowColors` instead
+    ///
+    pub const SetAlternatingRowColors = setAlternatingRowColors;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2316,9 +2864,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetAlternatingRowColors(self: KFilePlacesView, enable: bool) void {
+    pub fn setAlternatingRowColors(self: KFilePlacesView, enable: bool) void {
         qtc.QAbstractItemView_SetAlternatingRowColors(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `alternatingRowColors` instead
+    ///
+    pub const AlternatingRowColors = alternatingRowColors;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2328,9 +2880,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn AlternatingRowColors(self: KFilePlacesView) bool {
+    pub fn alternatingRowColors(self: KFilePlacesView) bool {
         return qtc.QAbstractItemView_AlternatingRowColors(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setIconSize` instead
+    ///
+    pub const SetIconSize = setIconSize;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2340,12 +2896,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` size: QSize `
+    /// ` _size: QSize `
     ///
-    pub fn SetIconSize(self: KFilePlacesView, size: anytype) void {
-        comptime _ = @TypeOf(size)._is_QSize;
-        qtc.QAbstractItemView_SetIconSize(@ptrCast(self.ptr), @ptrCast(size.ptr));
+    pub fn setIconSize(self: KFilePlacesView, _size: anytype) void {
+        comptime _ = @TypeOf(_size)._is_QSize;
+        qtc.QAbstractItemView_SetIconSize(@ptrCast(self.ptr), @ptrCast(_size.ptr));
     }
+
+    /// ### DEPRECATED: Use `iconSize` instead
+    ///
+    pub const IconSize = iconSize;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2355,9 +2915,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn IconSize(self: KFilePlacesView) QSize {
+    pub fn iconSize(self: KFilePlacesView) QSize {
         return .{ .ptr = qtc.QAbstractItemView_IconSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setTextElideMode` instead
+    ///
+    pub const SetTextElideMode = setTextElideMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2369,9 +2933,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` mode: qnamespace_enums.TextElideMode `
     ///
-    pub fn SetTextElideMode(self: KFilePlacesView, mode: i32) void {
+    pub fn setTextElideMode(self: KFilePlacesView, mode: i32) void {
         qtc.QAbstractItemView_SetTextElideMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `textElideMode` instead
+    ///
+    pub const TextElideMode = textElideMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2385,9 +2953,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` qnamespace_enums.TextElideMode `
     ///
-    pub fn TextElideMode(self: KFilePlacesView) i32 {
+    pub fn textElideMode(self: KFilePlacesView) i32 {
         return qtc.QAbstractItemView_TextElideMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `sizeHintForIndex` instead
+    ///
+    pub const SizeHintForIndex = sizeHintForIndex;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2399,10 +2971,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SizeHintForIndex(self: KFilePlacesView, index: anytype) QSize {
+    pub fn sizeHintForIndex(self: KFilePlacesView, index: anytype) QSize {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.QAbstractItemView_SizeHintForIndex(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `openPersistentEditor` instead
+    ///
+    pub const OpenPersistentEditor = openPersistentEditor;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2414,10 +2990,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn OpenPersistentEditor(self: KFilePlacesView, index: anytype) void {
+    pub fn openPersistentEditor(self: KFilePlacesView, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QAbstractItemView_OpenPersistentEditor(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `closePersistentEditor` instead
+    ///
+    pub const ClosePersistentEditor = closePersistentEditor;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2429,10 +3009,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn ClosePersistentEditor(self: KFilePlacesView, index: anytype) void {
+    pub fn closePersistentEditor(self: KFilePlacesView, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QAbstractItemView_ClosePersistentEditor(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `isPersistentEditorOpen` instead
+    ///
+    pub const IsPersistentEditorOpen = isPersistentEditorOpen;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2444,10 +3028,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn IsPersistentEditorOpen(self: KFilePlacesView, index: anytype) bool {
+    pub fn isPersistentEditorOpen(self: KFilePlacesView, index: anytype) bool {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return qtc.QAbstractItemView_IsPersistentEditorOpen(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `setIndexWidget` instead
+    ///
+    pub const SetIndexWidget = setIndexWidget;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2461,11 +3049,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn SetIndexWidget(self: KFilePlacesView, index: anytype, widget: anytype) void {
+    pub fn setIndexWidget(self: KFilePlacesView, index: anytype, widget: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QAbstractItemView_SetIndexWidget(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `indexWidget` instead
+    ///
+    pub const IndexWidget = indexWidget;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2477,10 +3069,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn IndexWidget(self: KFilePlacesView, index: anytype) QWidget {
+    pub fn indexWidget(self: KFilePlacesView, index: anytype) QWidget {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.QAbstractItemView_IndexWidget(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setItemDelegateForRow` instead
+    ///
+    pub const SetItemDelegateForRow = setItemDelegateForRow;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2494,10 +3090,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` delegate: QAbstractItemDelegate `
     ///
-    pub fn SetItemDelegateForRow(self: KFilePlacesView, row: i32, delegate: anytype) void {
+    pub fn setItemDelegateForRow(self: KFilePlacesView, row: i32, delegate: anytype) void {
         comptime _ = @TypeOf(delegate)._is_QAbstractItemDelegate;
         qtc.QAbstractItemView_SetItemDelegateForRow(@ptrCast(self.ptr), @bitCast(row), @ptrCast(delegate.ptr));
     }
+
+    /// ### DEPRECATED: Use `itemDelegateForRow` instead
+    ///
+    pub const ItemDelegateForRow = itemDelegateForRow;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2509,9 +3109,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` row: i32 `
     ///
-    pub fn ItemDelegateForRow(self: KFilePlacesView, row: i32) QAbstractItemDelegate {
+    pub fn itemDelegateForRow(self: KFilePlacesView, row: i32) QAbstractItemDelegate {
         return .{ .ptr = qtc.QAbstractItemView_ItemDelegateForRow(@ptrCast(self.ptr), @bitCast(row)) };
     }
+
+    /// ### DEPRECATED: Use `setItemDelegateForColumn` instead
+    ///
+    pub const SetItemDelegateForColumn = setItemDelegateForColumn;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2525,10 +3129,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` delegate: QAbstractItemDelegate `
     ///
-    pub fn SetItemDelegateForColumn(self: KFilePlacesView, column: i32, delegate: anytype) void {
+    pub fn setItemDelegateForColumn(self: KFilePlacesView, column: i32, delegate: anytype) void {
         comptime _ = @TypeOf(delegate)._is_QAbstractItemDelegate;
         qtc.QAbstractItemView_SetItemDelegateForColumn(@ptrCast(self.ptr), @bitCast(column), @ptrCast(delegate.ptr));
     }
+
+    /// ### DEPRECATED: Use `itemDelegateForColumn` instead
+    ///
+    pub const ItemDelegateForColumn = itemDelegateForColumn;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2540,9 +3148,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn ItemDelegateForColumn(self: KFilePlacesView, column: i32) QAbstractItemDelegate {
+    pub fn itemDelegateForColumn(self: KFilePlacesView, column: i32) QAbstractItemDelegate {
         return .{ .ptr = qtc.QAbstractItemView_ItemDelegateForColumn(@ptrCast(self.ptr), @bitCast(column)) };
     }
+
+    /// ### DEPRECATED: Use `itemDelegate2` instead
+    ///
+    pub const ItemDelegate2 = itemDelegate2;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2554,10 +3166,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn ItemDelegate2(self: KFilePlacesView, index: anytype) QAbstractItemDelegate {
+    pub fn itemDelegate2(self: KFilePlacesView, index: anytype) QAbstractItemDelegate {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.QAbstractItemView_ItemDelegate2(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `edit` instead
+    ///
+    pub const Edit = edit;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2569,10 +3185,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn Edit(self: KFilePlacesView, index: anytype) void {
+    pub fn edit(self: KFilePlacesView, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QAbstractItemView_Edit(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearSelection` instead
+    ///
+    pub const ClearSelection = clearSelection;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2582,9 +3202,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn ClearSelection(self: KFilePlacesView) void {
+    pub fn clearSelection(self: KFilePlacesView) void {
         qtc.QAbstractItemView_ClearSelection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCurrentIndex` instead
+    ///
+    pub const SetCurrentIndex = setCurrentIndex;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2596,10 +3220,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SetCurrentIndex(self: KFilePlacesView, index: anytype) void {
+    pub fn setCurrentIndex(self: KFilePlacesView, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QAbstractItemView_SetCurrentIndex(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `scrollToTop` instead
+    ///
+    pub const ScrollToTop = scrollToTop;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2609,9 +3237,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn ScrollToTop(self: KFilePlacesView) void {
+    pub fn scrollToTop(self: KFilePlacesView) void {
         qtc.QAbstractItemView_ScrollToTop(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `scrollToBottom` instead
+    ///
+    pub const ScrollToBottom = scrollToBottom;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2621,9 +3253,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn ScrollToBottom(self: KFilePlacesView) void {
+    pub fn scrollToBottom(self: KFilePlacesView) void {
         qtc.QAbstractItemView_ScrollToBottom(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2635,11 +3271,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn Update(self: KFilePlacesView, index: anytype) void {
+    pub fn update(self: KFilePlacesView, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QAbstractItemView_Update(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
+    /// ### DEPRECATED: Use `pressed` instead
+    ///
+    pub const Pressed = pressed;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#pressed)
@@ -2650,11 +3290,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn Pressed(self: KFilePlacesView, index: anytype) void {
+    pub fn pressed(self: KFilePlacesView, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QAbstractItemView_Pressed(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
+    /// ### DEPRECATED: Use `onPressed` instead
+    ///
+    pub const OnPressed = onPressed;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#pressed)
@@ -2665,9 +3309,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnPressed(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QModelIndex) callconv(.c) void) void {
+    pub fn onPressed(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QModelIndex) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Pressed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `clicked` instead
+    ///
+    pub const Clicked = clicked;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2679,11 +3327,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn Clicked(self: KFilePlacesView, index: anytype) void {
+    pub fn clicked(self: KFilePlacesView, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QAbstractItemView_Clicked(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
+    /// ### DEPRECATED: Use `onClicked` instead
+    ///
+    pub const OnClicked = onClicked;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#clicked)
@@ -2694,9 +3346,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnClicked(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QModelIndex) callconv(.c) void) void {
+    pub fn onClicked(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QModelIndex) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Clicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `doubleClicked` instead
+    ///
+    pub const DoubleClicked = doubleClicked;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2708,11 +3364,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn DoubleClicked(self: KFilePlacesView, index: anytype) void {
+    pub fn doubleClicked(self: KFilePlacesView, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QAbstractItemView_DoubleClicked(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
+    /// ### DEPRECATED: Use `onDoubleClicked` instead
+    ///
+    pub const OnDoubleClicked = onDoubleClicked;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doubleClicked)
@@ -2723,9 +3383,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnDoubleClicked(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QModelIndex) callconv(.c) void) void {
+    pub fn onDoubleClicked(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QModelIndex) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_DoubleClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `activated` instead
+    ///
+    pub const Activated = activated;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2737,11 +3401,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn Activated(self: KFilePlacesView, index: anytype) void {
+    pub fn activated(self: KFilePlacesView, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QAbstractItemView_Activated(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
+    /// ### DEPRECATED: Use `onActivated` instead
+    ///
+    pub const OnActivated = onActivated;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#activated)
@@ -2752,9 +3420,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnActivated(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QModelIndex) callconv(.c) void) void {
+    pub fn onActivated(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QModelIndex) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Activated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `entered` instead
+    ///
+    pub const Entered = entered;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2766,10 +3438,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn Entered(self: KFilePlacesView, index: anytype) void {
+    pub fn entered(self: KFilePlacesView, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QAbstractItemView_Entered(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEntered` instead
+    ///
+    pub const OnEntered = onEntered;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2781,9 +3457,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnEntered(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QModelIndex) callconv(.c) void) void {
+    pub fn onEntered(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QModelIndex) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Entered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `viewportEntered` instead
+    ///
+    pub const ViewportEntered = viewportEntered;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2793,9 +3473,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn ViewportEntered(self: KFilePlacesView) void {
+    pub fn viewportEntered(self: KFilePlacesView) void {
         qtc.QAbstractItemView_ViewportEntered(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onViewportEntered` instead
+    ///
+    pub const OnViewportEntered = onViewportEntered;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2807,9 +3491,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView) callconv(.c) void `
     ///
-    pub fn OnViewportEntered(self: KFilePlacesView, callback: *const fn (KFilePlacesView) callconv(.c) void) void {
+    pub fn onViewportEntered(self: KFilePlacesView, callback: *const fn (KFilePlacesView) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_ViewportEntered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `iconSizeChanged` instead
+    ///
+    pub const IconSizeChanged = iconSizeChanged;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2819,12 +3507,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` size: QSize `
+    /// ` _size: QSize `
     ///
-    pub fn IconSizeChanged(self: KFilePlacesView, size: anytype) void {
-        comptime _ = @TypeOf(size)._is_QSize;
-        qtc.QAbstractItemView_IconSizeChanged(@ptrCast(self.ptr), @ptrCast(size.ptr));
+    pub fn iconSizeChanged(self: KFilePlacesView, _size: anytype) void {
+        comptime _ = @TypeOf(_size)._is_QSize;
+        qtc.QAbstractItemView_IconSizeChanged(@ptrCast(self.ptr), @ptrCast(_size.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIconSizeChanged` instead
+    ///
+    pub const OnIconSizeChanged = onIconSizeChanged;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2836,9 +3528,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, size: QSize) callconv(.c) void `
     ///
-    pub fn OnIconSizeChanged(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QSize) callconv(.c) void) void {
+    pub fn onIconSizeChanged(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QSize) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_IconSizeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `verticalScrollBarPolicy` instead
+    ///
+    pub const VerticalScrollBarPolicy = verticalScrollBarPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2852,9 +3548,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn VerticalScrollBarPolicy(self: KFilePlacesView) i32 {
+    pub fn verticalScrollBarPolicy(self: KFilePlacesView) i32 {
         return qtc.QAbstractScrollArea_VerticalScrollBarPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setVerticalScrollBarPolicy` instead
+    ///
+    pub const SetVerticalScrollBarPolicy = setVerticalScrollBarPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2864,11 +3564,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` verticalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
+    /// ` _verticalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn SetVerticalScrollBarPolicy(self: KFilePlacesView, verticalScrollBarPolicy: i32) void {
-        qtc.QAbstractScrollArea_SetVerticalScrollBarPolicy(@ptrCast(self.ptr), @bitCast(verticalScrollBarPolicy));
+    pub fn setVerticalScrollBarPolicy(self: KFilePlacesView, _verticalScrollBarPolicy: i32) void {
+        qtc.QAbstractScrollArea_SetVerticalScrollBarPolicy(@ptrCast(self.ptr), @bitCast(_verticalScrollBarPolicy));
     }
+
+    /// ### DEPRECATED: Use `verticalScrollBar` instead
+    ///
+    pub const VerticalScrollBar = verticalScrollBar;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2878,9 +3582,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn VerticalScrollBar(self: KFilePlacesView) QScrollBar {
+    pub fn verticalScrollBar(self: KFilePlacesView) QScrollBar {
         return .{ .ptr = qtc.QAbstractScrollArea_VerticalScrollBar(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setVerticalScrollBar` instead
+    ///
+    pub const SetVerticalScrollBar = setVerticalScrollBar;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2892,10 +3600,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` scrollbar: QScrollBar `
     ///
-    pub fn SetVerticalScrollBar(self: KFilePlacesView, scrollbar: anytype) void {
+    pub fn setVerticalScrollBar(self: KFilePlacesView, scrollbar: anytype) void {
         comptime _ = @TypeOf(scrollbar)._is_QScrollBar;
         qtc.QAbstractScrollArea_SetVerticalScrollBar(@ptrCast(self.ptr), @ptrCast(scrollbar.ptr));
     }
+
+    /// ### DEPRECATED: Use `horizontalScrollBarPolicy` instead
+    ///
+    pub const HorizontalScrollBarPolicy = horizontalScrollBarPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2909,9 +3621,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn HorizontalScrollBarPolicy(self: KFilePlacesView) i32 {
+    pub fn horizontalScrollBarPolicy(self: KFilePlacesView) i32 {
         return qtc.QAbstractScrollArea_HorizontalScrollBarPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHorizontalScrollBarPolicy` instead
+    ///
+    pub const SetHorizontalScrollBarPolicy = setHorizontalScrollBarPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2921,11 +3637,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` horizontalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
+    /// ` _horizontalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn SetHorizontalScrollBarPolicy(self: KFilePlacesView, horizontalScrollBarPolicy: i32) void {
-        qtc.QAbstractScrollArea_SetHorizontalScrollBarPolicy(@ptrCast(self.ptr), @bitCast(horizontalScrollBarPolicy));
+    pub fn setHorizontalScrollBarPolicy(self: KFilePlacesView, _horizontalScrollBarPolicy: i32) void {
+        qtc.QAbstractScrollArea_SetHorizontalScrollBarPolicy(@ptrCast(self.ptr), @bitCast(_horizontalScrollBarPolicy));
     }
+
+    /// ### DEPRECATED: Use `horizontalScrollBar` instead
+    ///
+    pub const HorizontalScrollBar = horizontalScrollBar;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2935,9 +3655,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn HorizontalScrollBar(self: KFilePlacesView) QScrollBar {
+    pub fn horizontalScrollBar(self: KFilePlacesView) QScrollBar {
         return .{ .ptr = qtc.QAbstractScrollArea_HorizontalScrollBar(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setHorizontalScrollBar` instead
+    ///
+    pub const SetHorizontalScrollBar = setHorizontalScrollBar;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2949,10 +3673,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` scrollbar: QScrollBar `
     ///
-    pub fn SetHorizontalScrollBar(self: KFilePlacesView, scrollbar: anytype) void {
+    pub fn setHorizontalScrollBar(self: KFilePlacesView, scrollbar: anytype) void {
         comptime _ = @TypeOf(scrollbar)._is_QScrollBar;
         qtc.QAbstractScrollArea_SetHorizontalScrollBar(@ptrCast(self.ptr), @ptrCast(scrollbar.ptr));
     }
+
+    /// ### DEPRECATED: Use `cornerWidget` instead
+    ///
+    pub const CornerWidget = cornerWidget;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2962,9 +3690,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn CornerWidget(self: KFilePlacesView) QWidget {
+    pub fn cornerWidget(self: KFilePlacesView) QWidget {
         return .{ .ptr = qtc.QAbstractScrollArea_CornerWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCornerWidget` instead
+    ///
+    pub const SetCornerWidget = setCornerWidget;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2976,10 +3708,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn SetCornerWidget(self: KFilePlacesView, widget: anytype) void {
+    pub fn setCornerWidget(self: KFilePlacesView, widget: anytype) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QAbstractScrollArea_SetCornerWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `addScrollBarWidget` instead
+    ///
+    pub const AddScrollBarWidget = addScrollBarWidget;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2993,10 +3729,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn AddScrollBarWidget(self: KFilePlacesView, widget: anytype, alignment: i32) void {
+    pub fn addScrollBarWidget(self: KFilePlacesView, widget: anytype, alignment: i32) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QAbstractScrollArea_AddScrollBarWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr), @bitCast(alignment));
     }
+
+    /// ### DEPRECATED: Use `scrollBarWidgets` instead
+    ///
+    pub const ScrollBarWidgets = scrollBarWidgets;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3010,15 +3750,19 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn ScrollBarWidgets(self: KFilePlacesView, allocator: std.mem.Allocator, alignment: i32) []QWidget {
+    pub fn scrollBarWidgets(self: KFilePlacesView, allocator: std.mem.Allocator, alignment: i32) []QWidget {
         const _arr: qtc.libqt_list = qtc.QAbstractScrollArea_ScrollBarWidgets(@ptrCast(self.ptr), @bitCast(alignment));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("KFilePlacesView.ScrollBarWidgets: Memory allocation failed");
-        const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("KFilePlacesView.scrollBarWidgets: Memory allocation failed");
+        const _data_val: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `viewport` instead
+    ///
+    pub const Viewport = viewport;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3028,9 +3772,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn Viewport(self: KFilePlacesView) QWidget {
+    pub fn viewport(self: KFilePlacesView) QWidget {
         return .{ .ptr = qtc.QAbstractScrollArea_Viewport(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setViewport` instead
+    ///
+    pub const SetViewport = setViewport;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3042,10 +3790,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn SetViewport(self: KFilePlacesView, widget: anytype) void {
+    pub fn setViewport(self: KFilePlacesView, widget: anytype) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QAbstractScrollArea_SetViewport(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumViewportSize` instead
+    ///
+    pub const MaximumViewportSize = maximumViewportSize;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3055,9 +3807,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn MaximumViewportSize(self: KFilePlacesView) QSize {
+    pub fn maximumViewportSize(self: KFilePlacesView) QSize {
         return .{ .ptr = qtc.QAbstractScrollArea_MaximumViewportSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `sizeAdjustPolicy` instead
+    ///
+    pub const SizeAdjustPolicy = sizeAdjustPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3071,9 +3827,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` qabstractscrollarea_enums.SizeAdjustPolicy `
     ///
-    pub fn SizeAdjustPolicy(self: KFilePlacesView) i32 {
+    pub fn sizeAdjustPolicy(self: KFilePlacesView) i32 {
         return qtc.QAbstractScrollArea_SizeAdjustPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeAdjustPolicy` instead
+    ///
+    pub const SetSizeAdjustPolicy = setSizeAdjustPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3085,9 +3845,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` policy: qabstractscrollarea_enums.SizeAdjustPolicy `
     ///
-    pub fn SetSizeAdjustPolicy(self: KFilePlacesView, policy: i32) void {
+    pub fn setSizeAdjustPolicy(self: KFilePlacesView, policy: i32) void {
         qtc.QAbstractScrollArea_SetSizeAdjustPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `frameStyle` instead
+    ///
+    pub const FrameStyle = frameStyle;
 
     /// Inherited from QFrame
     ///
@@ -3097,9 +3861,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn FrameStyle(self: KFilePlacesView) i32 {
+    pub fn frameStyle(self: KFilePlacesView) i32 {
         return qtc.QFrame_FrameStyle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFrameStyle` instead
+    ///
+    pub const SetFrameStyle = setFrameStyle;
 
     /// Inherited from QFrame
     ///
@@ -3109,11 +3877,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` frameStyle: i32 `
+    /// ` _frameStyle: i32 `
     ///
-    pub fn SetFrameStyle(self: KFilePlacesView, frameStyle: i32) void {
-        qtc.QFrame_SetFrameStyle(@ptrCast(self.ptr), @bitCast(frameStyle));
+    pub fn setFrameStyle(self: KFilePlacesView, _frameStyle: i32) void {
+        qtc.QFrame_SetFrameStyle(@ptrCast(self.ptr), @bitCast(_frameStyle));
     }
+
+    /// ### DEPRECATED: Use `frameWidth` instead
+    ///
+    pub const FrameWidth = frameWidth;
 
     /// Inherited from QFrame
     ///
@@ -3123,9 +3895,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn FrameWidth(self: KFilePlacesView) i32 {
+    pub fn frameWidth(self: KFilePlacesView) i32 {
         return qtc.QFrame_FrameWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `frameShape` instead
+    ///
+    pub const FrameShape = frameShape;
 
     /// Inherited from QFrame
     ///
@@ -3139,9 +3915,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` qframe_enums.Shape `
     ///
-    pub fn FrameShape(self: KFilePlacesView) i32 {
+    pub fn frameShape(self: KFilePlacesView) i32 {
         return qtc.QFrame_FrameShape(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFrameShape` instead
+    ///
+    pub const SetFrameShape = setFrameShape;
 
     /// Inherited from QFrame
     ///
@@ -3151,11 +3931,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` frameShape: qframe_enums.Shape `
+    /// ` _frameShape: qframe_enums.Shape `
     ///
-    pub fn SetFrameShape(self: KFilePlacesView, frameShape: i32) void {
-        qtc.QFrame_SetFrameShape(@ptrCast(self.ptr), @bitCast(frameShape));
+    pub fn setFrameShape(self: KFilePlacesView, _frameShape: i32) void {
+        qtc.QFrame_SetFrameShape(@ptrCast(self.ptr), @bitCast(_frameShape));
     }
+
+    /// ### DEPRECATED: Use `frameShadow` instead
+    ///
+    pub const FrameShadow = frameShadow;
 
     /// Inherited from QFrame
     ///
@@ -3169,9 +3953,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` qframe_enums.Shadow `
     ///
-    pub fn FrameShadow(self: KFilePlacesView) i32 {
+    pub fn frameShadow(self: KFilePlacesView) i32 {
         return qtc.QFrame_FrameShadow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFrameShadow` instead
+    ///
+    pub const SetFrameShadow = setFrameShadow;
 
     /// Inherited from QFrame
     ///
@@ -3181,11 +3969,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` frameShadow: qframe_enums.Shadow `
+    /// ` _frameShadow: qframe_enums.Shadow `
     ///
-    pub fn SetFrameShadow(self: KFilePlacesView, frameShadow: i32) void {
-        qtc.QFrame_SetFrameShadow(@ptrCast(self.ptr), @bitCast(frameShadow));
+    pub fn setFrameShadow(self: KFilePlacesView, _frameShadow: i32) void {
+        qtc.QFrame_SetFrameShadow(@ptrCast(self.ptr), @bitCast(_frameShadow));
     }
+
+    /// ### DEPRECATED: Use `lineWidth` instead
+    ///
+    pub const LineWidth = lineWidth;
 
     /// Inherited from QFrame
     ///
@@ -3195,9 +3987,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn LineWidth(self: KFilePlacesView) i32 {
+    pub fn lineWidth(self: KFilePlacesView) i32 {
         return qtc.QFrame_LineWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLineWidth` instead
+    ///
+    pub const SetLineWidth = setLineWidth;
 
     /// Inherited from QFrame
     ///
@@ -3207,11 +4003,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` lineWidth: i32 `
+    /// ` _lineWidth: i32 `
     ///
-    pub fn SetLineWidth(self: KFilePlacesView, lineWidth: i32) void {
-        qtc.QFrame_SetLineWidth(@ptrCast(self.ptr), @bitCast(lineWidth));
+    pub fn setLineWidth(self: KFilePlacesView, _lineWidth: i32) void {
+        qtc.QFrame_SetLineWidth(@ptrCast(self.ptr), @bitCast(_lineWidth));
     }
+
+    /// ### DEPRECATED: Use `midLineWidth` instead
+    ///
+    pub const MidLineWidth = midLineWidth;
 
     /// Inherited from QFrame
     ///
@@ -3221,9 +4021,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn MidLineWidth(self: KFilePlacesView) i32 {
+    pub fn midLineWidth(self: KFilePlacesView) i32 {
         return qtc.QFrame_MidLineWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMidLineWidth` instead
+    ///
+    pub const SetMidLineWidth = setMidLineWidth;
 
     /// Inherited from QFrame
     ///
@@ -3233,11 +4037,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` midLineWidth: i32 `
+    /// ` _midLineWidth: i32 `
     ///
-    pub fn SetMidLineWidth(self: KFilePlacesView, midLineWidth: i32) void {
-        qtc.QFrame_SetMidLineWidth(@ptrCast(self.ptr), @bitCast(midLineWidth));
+    pub fn setMidLineWidth(self: KFilePlacesView, _midLineWidth: i32) void {
+        qtc.QFrame_SetMidLineWidth(@ptrCast(self.ptr), @bitCast(_midLineWidth));
     }
+
+    /// ### DEPRECATED: Use `frameRect` instead
+    ///
+    pub const FrameRect = frameRect;
 
     /// Inherited from QFrame
     ///
@@ -3247,9 +4055,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn FrameRect(self: KFilePlacesView) QRect {
+    pub fn frameRect(self: KFilePlacesView) QRect {
         return .{ .ptr = qtc.QFrame_FrameRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFrameRect` instead
+    ///
+    pub const SetFrameRect = setFrameRect;
 
     /// Inherited from QFrame
     ///
@@ -3259,12 +4071,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` frameRect: QRect `
+    /// ` _frameRect: QRect `
     ///
-    pub fn SetFrameRect(self: KFilePlacesView, frameRect: anytype) void {
-        comptime _ = @TypeOf(frameRect)._is_QRect;
-        qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(frameRect.ptr));
+    pub fn setFrameRect(self: KFilePlacesView, _frameRect: anytype) void {
+        comptime _ = @TypeOf(_frameRect)._is_QRect;
+        qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(_frameRect.ptr));
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -3274,9 +4090,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn WinId(self: KFilePlacesView) usize {
+    pub fn winId(self: KFilePlacesView) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -3286,9 +4106,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn CreateWinId(self: KFilePlacesView) void {
+    pub fn createWinId(self: KFilePlacesView) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -3298,9 +4122,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn InternalWinId(self: KFilePlacesView) usize {
+    pub fn internalWinId(self: KFilePlacesView) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -3310,9 +4138,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn EffectiveWinId(self: KFilePlacesView) usize {
+    pub fn effectiveWinId(self: KFilePlacesView) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -3322,9 +4154,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn Style(self: KFilePlacesView) QStyle {
+    pub fn style(self: KFilePlacesView) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -3334,12 +4170,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: KFilePlacesView, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: KFilePlacesView, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -3349,9 +4189,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn IsTopLevel(self: KFilePlacesView) bool {
+    pub fn isTopLevel(self: KFilePlacesView) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -3361,9 +4205,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn IsWindow(self: KFilePlacesView) bool {
+    pub fn isWindow(self: KFilePlacesView) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -3373,9 +4221,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn IsModal(self: KFilePlacesView) bool {
+    pub fn isModal(self: KFilePlacesView) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -3389,9 +4241,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: KFilePlacesView) i32 {
+    pub fn windowModality(self: KFilePlacesView) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -3401,11 +4257,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: KFilePlacesView, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: KFilePlacesView, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3415,9 +4275,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn IsEnabled(self: KFilePlacesView) bool {
+    pub fn isEnabled(self: KFilePlacesView) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -3429,10 +4293,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: KFilePlacesView, param1: anytype) bool {
+    pub fn isEnabledTo(self: KFilePlacesView, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3444,9 +4312,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: KFilePlacesView, enabled: bool) void {
+    pub fn setEnabled(self: KFilePlacesView, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -3458,9 +4330,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: KFilePlacesView, disabled: bool) void {
+    pub fn setDisabled(self: KFilePlacesView, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -3472,9 +4348,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: KFilePlacesView, windowModified: bool) void {
+    pub fn setWindowModified(self: KFilePlacesView, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3484,9 +4364,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn FrameGeometry(self: KFilePlacesView) QRect {
+    pub fn frameGeometry(self: KFilePlacesView) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -3496,9 +4380,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn Geometry(self: KFilePlacesView) QRect {
+    pub fn geometry(self: KFilePlacesView) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3508,9 +4396,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn NormalGeometry(self: KFilePlacesView) QRect {
+    pub fn normalGeometry(self: KFilePlacesView) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -3520,9 +4412,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn X(self: KFilePlacesView) i32 {
+    pub fn x(self: KFilePlacesView) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -3532,9 +4428,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn Y(self: KFilePlacesView) i32 {
+    pub fn y(self: KFilePlacesView) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -3544,9 +4444,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn Pos(self: KFilePlacesView) QPoint {
+    pub fn pos(self: KFilePlacesView) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -3556,9 +4460,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn FrameSize(self: KFilePlacesView) QSize {
+    pub fn frameSize(self: KFilePlacesView) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -3568,9 +4476,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn Size(self: KFilePlacesView) QSize {
+    pub fn size(self: KFilePlacesView) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -3580,9 +4492,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn Width(self: KFilePlacesView) i32 {
+    pub fn width(self: KFilePlacesView) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -3592,9 +4508,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn Height(self: KFilePlacesView) i32 {
+    pub fn height(self: KFilePlacesView) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -3604,9 +4524,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn Rect(self: KFilePlacesView) QRect {
+    pub fn rect(self: KFilePlacesView) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -3616,9 +4540,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn ChildrenRect(self: KFilePlacesView) QRect {
+    pub fn childrenRect(self: KFilePlacesView) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -3628,9 +4556,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn ChildrenRegion(self: KFilePlacesView) QRegion {
+    pub fn childrenRegion(self: KFilePlacesView) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -3640,9 +4572,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn MinimumSize(self: KFilePlacesView) QSize {
+    pub fn minimumSize(self: KFilePlacesView) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -3652,9 +4588,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn MaximumSize(self: KFilePlacesView) QSize {
+    pub fn maximumSize(self: KFilePlacesView) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -3664,9 +4604,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn MinimumWidth(self: KFilePlacesView) i32 {
+    pub fn minimumWidth(self: KFilePlacesView) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -3676,9 +4620,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn MinimumHeight(self: KFilePlacesView) i32 {
+    pub fn minimumHeight(self: KFilePlacesView) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -3688,9 +4636,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn MaximumWidth(self: KFilePlacesView) i32 {
+    pub fn maximumWidth(self: KFilePlacesView) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -3700,9 +4652,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn MaximumHeight(self: KFilePlacesView) i32 {
+    pub fn maximumHeight(self: KFilePlacesView) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -3712,12 +4668,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: KFilePlacesView, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: KFilePlacesView, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -3731,9 +4691,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: KFilePlacesView, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: KFilePlacesView, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -3743,12 +4707,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: KFilePlacesView, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: KFilePlacesView, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -3762,9 +4730,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: KFilePlacesView, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: KFilePlacesView, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -3776,9 +4748,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: KFilePlacesView, minw: i32) void {
+    pub fn setMinimumWidth(self: KFilePlacesView, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -3790,9 +4766,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: KFilePlacesView, minh: i32) void {
+    pub fn setMinimumHeight(self: KFilePlacesView, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -3804,9 +4784,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: KFilePlacesView, maxw: i32) void {
+    pub fn setMaximumWidth(self: KFilePlacesView, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -3818,9 +4802,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: KFilePlacesView, maxh: i32) void {
+    pub fn setMaximumHeight(self: KFilePlacesView, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -3830,9 +4818,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn SizeIncrement(self: KFilePlacesView) QSize {
+    pub fn sizeIncrement(self: KFilePlacesView) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -3842,12 +4834,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: KFilePlacesView, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: KFilePlacesView, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -3861,9 +4857,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: KFilePlacesView, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: KFilePlacesView, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -3873,9 +4873,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn BaseSize(self: KFilePlacesView) QSize {
+    pub fn baseSize(self: KFilePlacesView) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -3885,12 +4889,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: KFilePlacesView, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: KFilePlacesView, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -3904,9 +4912,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: KFilePlacesView, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: KFilePlacesView, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -3918,10 +4930,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: KFilePlacesView, fixedSize: anytype) void {
+    pub fn setFixedSize(self: KFilePlacesView, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -3935,9 +4951,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: KFilePlacesView, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: KFilePlacesView, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -3949,9 +4969,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: KFilePlacesView, w: i32) void {
+    pub fn setFixedWidth(self: KFilePlacesView, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -3963,9 +4987,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: KFilePlacesView, h: i32) void {
+    pub fn setFixedHeight(self: KFilePlacesView, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -3977,11 +5005,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: KFilePlacesView, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: KFilePlacesView, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -3992,11 +5024,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: KFilePlacesView, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: KFilePlacesView, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -4007,11 +5043,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: KFilePlacesView, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: KFilePlacesView, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -4022,11 +5062,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: KFilePlacesView, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: KFilePlacesView, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -4037,11 +5081,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: KFilePlacesView, param1: anytype) QPointF {
+    pub fn mapToParent(self: KFilePlacesView, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -4052,10 +5100,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: KFilePlacesView, param1: anytype) QPoint {
+    pub fn mapToParent2(self: KFilePlacesView, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -4067,10 +5119,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: KFilePlacesView, param1: anytype) QPointF {
+    pub fn mapFromParent(self: KFilePlacesView, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -4082,10 +5138,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: KFilePlacesView, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: KFilePlacesView, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -4099,12 +5159,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: KFilePlacesView, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: KFilePlacesView, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -4117,11 +5181,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: KFilePlacesView, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: KFilePlacesView, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -4135,11 +5203,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: KFilePlacesView, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: KFilePlacesView, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -4153,11 +5225,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: KFilePlacesView, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: KFilePlacesView, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -4167,9 +5243,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn Window(self: KFilePlacesView) QWidget {
+    pub fn window(self: KFilePlacesView) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -4179,9 +5259,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn NativeParentWidget(self: KFilePlacesView) QWidget {
+    pub fn nativeParentWidget(self: KFilePlacesView) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -4191,9 +5275,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn TopLevelWidget(self: KFilePlacesView) QWidget {
+    pub fn topLevelWidget(self: KFilePlacesView) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -4203,9 +5291,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn Palette(self: KFilePlacesView) QPalette {
+    pub fn palette(self: KFilePlacesView) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -4215,12 +5307,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: KFilePlacesView, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: KFilePlacesView, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -4230,11 +5326,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: KFilePlacesView, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: KFilePlacesView, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -4248,9 +5348,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: KFilePlacesView) i32 {
+    pub fn backgroundRole(self: KFilePlacesView) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -4260,11 +5364,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: KFilePlacesView, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: KFilePlacesView, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -4278,9 +5386,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: KFilePlacesView) i32 {
+    pub fn foregroundRole(self: KFilePlacesView) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -4290,9 +5402,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn Font(self: KFilePlacesView) QFont {
+    pub fn font(self: KFilePlacesView) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -4302,12 +5418,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: KFilePlacesView, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: KFilePlacesView, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -4317,9 +5437,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn FontMetrics(self: KFilePlacesView) QFontMetrics {
+    pub fn fontMetrics(self: KFilePlacesView) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -4329,9 +5453,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn FontInfo(self: KFilePlacesView) QFontInfo {
+    pub fn fontInfo(self: KFilePlacesView) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -4341,9 +5469,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn Cursor(self: KFilePlacesView) QCursor {
+    pub fn cursor(self: KFilePlacesView) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -4353,12 +5485,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: KFilePlacesView, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: KFilePlacesView, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -4368,9 +5504,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn UnsetCursor(self: KFilePlacesView) void {
+    pub fn unsetCursor(self: KFilePlacesView) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -4382,9 +5522,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: KFilePlacesView, enable: bool) void {
+    pub fn setMouseTracking(self: KFilePlacesView, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -4394,9 +5538,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn HasMouseTracking(self: KFilePlacesView) bool {
+    pub fn hasMouseTracking(self: KFilePlacesView) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -4406,9 +5554,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn UnderMouse(self: KFilePlacesView) bool {
+    pub fn underMouse(self: KFilePlacesView) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -4420,9 +5572,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: KFilePlacesView, enable: bool) void {
+    pub fn setTabletTracking(self: KFilePlacesView, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -4432,24 +5588,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn HasTabletTracking(self: KFilePlacesView) bool {
+    pub fn hasTabletTracking(self: KFilePlacesView) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilePlacesView `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: KFilePlacesView, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -4459,12 +5604,35 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: KFilePlacesView, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: KFilePlacesView, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KFilePlacesView `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: KFilePlacesView, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -4474,9 +5642,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn Mask(self: KFilePlacesView) QRegion {
+    pub fn mask(self: KFilePlacesView) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -4486,9 +5658,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn ClearMask(self: KFilePlacesView) void {
+    pub fn clearMask(self: KFilePlacesView) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -4500,10 +5676,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: KFilePlacesView, target: anytype) void {
+    pub fn render(self: KFilePlacesView, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -4515,10 +5695,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: KFilePlacesView, painter: anytype) void {
+    pub fn render2(self: KFilePlacesView, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -4528,9 +5712,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn Grab(self: KFilePlacesView) QPixmap {
+    pub fn grab(self: KFilePlacesView) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -4540,9 +5728,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn GraphicsEffect(self: KFilePlacesView) QGraphicsEffect {
+    pub fn graphicsEffect(self: KFilePlacesView) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -4554,10 +5746,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: KFilePlacesView, effect: anytype) void {
+    pub fn setGraphicsEffect(self: KFilePlacesView, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -4569,9 +5765,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: KFilePlacesView, typeVal: i32) void {
+    pub fn grabGesture(self: KFilePlacesView, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -4583,9 +5783,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: KFilePlacesView, typeVal: i32) void {
+    pub fn ungrabGesture(self: KFilePlacesView, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -4595,15 +5799,19 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: KFilePlacesView, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: KFilePlacesView, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -4613,15 +5821,19 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: KFilePlacesView, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: KFilePlacesView, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -4633,13 +5845,17 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: KFilePlacesView, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: KFilePlacesView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFilePlacesView.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFilePlacesView.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -4651,13 +5867,17 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: KFilePlacesView, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: KFilePlacesView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFilePlacesView.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFilePlacesView.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -4669,10 +5889,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: KFilePlacesView, icon: anytype) void {
+    pub fn setWindowIcon(self: KFilePlacesView, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -4682,9 +5906,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn WindowIcon(self: KFilePlacesView) QIcon {
+    pub fn windowIcon(self: KFilePlacesView) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -4694,15 +5922,19 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: KFilePlacesView, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: KFilePlacesView, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -4714,13 +5946,17 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: KFilePlacesView, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: KFilePlacesView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFilePlacesView.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFilePlacesView.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -4730,15 +5966,19 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: KFilePlacesView, windowRole: []const u8) void {
+    pub fn setWindowRole(self: KFilePlacesView, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -4750,13 +5990,17 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: KFilePlacesView, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: KFilePlacesView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFilePlacesView.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFilePlacesView.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -4768,13 +6012,17 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: KFilePlacesView, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: KFilePlacesView, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -4786,13 +6034,17 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: KFilePlacesView, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: KFilePlacesView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFilePlacesView.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFilePlacesView.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -4804,9 +6056,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: KFilePlacesView, level: f64) void {
+    pub fn setWindowOpacity(self: KFilePlacesView, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -4816,9 +6072,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn WindowOpacity(self: KFilePlacesView) f64 {
+    pub fn windowOpacity(self: KFilePlacesView) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -4828,9 +6088,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn IsWindowModified(self: KFilePlacesView) bool {
+    pub fn isWindowModified(self: KFilePlacesView) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -4840,15 +6104,19 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: KFilePlacesView, toolTip: []const u8) void {
+    pub fn setToolTip(self: KFilePlacesView, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -4860,13 +6128,17 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: KFilePlacesView, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: KFilePlacesView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFilePlacesView.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFilePlacesView.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -4878,9 +6150,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: KFilePlacesView, msec: i32) void {
+    pub fn setToolTipDuration(self: KFilePlacesView, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -4890,9 +6166,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn ToolTipDuration(self: KFilePlacesView) i32 {
+    pub fn toolTipDuration(self: KFilePlacesView) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -4902,15 +6182,19 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: KFilePlacesView, statusTip: []const u8) void {
+    pub fn setStatusTip(self: KFilePlacesView, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -4922,13 +6206,17 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: KFilePlacesView, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: KFilePlacesView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFilePlacesView.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFilePlacesView.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -4938,15 +6226,19 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: KFilePlacesView, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: KFilePlacesView, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -4958,13 +6250,17 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: KFilePlacesView, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: KFilePlacesView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFilePlacesView.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFilePlacesView.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -4976,13 +6272,17 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: KFilePlacesView, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: KFilePlacesView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFilePlacesView.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFilePlacesView.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -4994,13 +6294,17 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: KFilePlacesView, name: []const u8) void {
+    pub fn setAccessibleName(self: KFilePlacesView, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -5012,13 +6316,17 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: KFilePlacesView, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: KFilePlacesView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFilePlacesView.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFilePlacesView.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -5030,13 +6338,17 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: KFilePlacesView, description: []const u8) void {
+    pub fn setAccessibleDescription(self: KFilePlacesView, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -5048,9 +6360,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: KFilePlacesView, direction: i32) void {
+    pub fn setLayoutDirection(self: KFilePlacesView, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -5064,9 +6380,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: KFilePlacesView) i32 {
+    pub fn layoutDirection(self: KFilePlacesView) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -5076,9 +6396,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn UnsetLayoutDirection(self: KFilePlacesView) void {
+    pub fn unsetLayoutDirection(self: KFilePlacesView) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -5088,12 +6412,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: KFilePlacesView, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: KFilePlacesView, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -5103,9 +6431,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn Locale(self: KFilePlacesView) QLocale {
+    pub fn locale(self: KFilePlacesView) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -5115,9 +6447,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn UnsetLocale(self: KFilePlacesView) void {
+    pub fn unsetLocale(self: KFilePlacesView) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -5127,9 +6463,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn IsRightToLeft(self: KFilePlacesView) bool {
+    pub fn isRightToLeft(self: KFilePlacesView) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -5139,9 +6479,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn IsLeftToRight(self: KFilePlacesView) bool {
+    pub fn isLeftToRight(self: KFilePlacesView) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -5151,9 +6495,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn SetFocus(self: KFilePlacesView) void {
+    pub fn setFocus(self: KFilePlacesView) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -5163,9 +6511,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn IsActiveWindow(self: KFilePlacesView) bool {
+    pub fn isActiveWindow(self: KFilePlacesView) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -5175,9 +6527,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn ActivateWindow(self: KFilePlacesView) void {
+    pub fn activateWindow(self: KFilePlacesView) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -5187,9 +6543,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn ClearFocus(self: KFilePlacesView) void {
+    pub fn clearFocus(self: KFilePlacesView) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -5201,9 +6561,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: KFilePlacesView, reason: i32) void {
+    pub fn setFocus2(self: KFilePlacesView, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -5217,9 +6581,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: KFilePlacesView) i32 {
+    pub fn focusPolicy(self: KFilePlacesView) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -5231,9 +6599,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: KFilePlacesView, policy: i32) void {
+    pub fn setFocusPolicy(self: KFilePlacesView, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -5243,9 +6615,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn HasFocus(self: KFilePlacesView) bool {
+    pub fn hasFocus(self: KFilePlacesView) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -5257,11 +6633,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -5271,12 +6651,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: KFilePlacesView, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: KFilePlacesView, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -5286,9 +6670,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn FocusProxy(self: KFilePlacesView) QWidget {
+    pub fn focusProxy(self: KFilePlacesView) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -5302,9 +6690,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: KFilePlacesView) i32 {
+    pub fn contextMenuPolicy(self: KFilePlacesView) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -5316,9 +6708,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: KFilePlacesView, policy: i32) void {
+    pub fn setContextMenuPolicy(self: KFilePlacesView, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -5328,9 +6724,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn GrabMouse(self: KFilePlacesView) void {
+    pub fn grabMouse(self: KFilePlacesView) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -5342,10 +6742,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: KFilePlacesView, param1: anytype) void {
+    pub fn grabMouse2(self: KFilePlacesView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -5355,9 +6759,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn ReleaseMouse(self: KFilePlacesView) void {
+    pub fn releaseMouse(self: KFilePlacesView) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -5367,9 +6775,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn GrabKeyboard(self: KFilePlacesView) void {
+    pub fn grabKeyboard(self: KFilePlacesView) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -5379,9 +6791,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn ReleaseKeyboard(self: KFilePlacesView) void {
+    pub fn releaseKeyboard(self: KFilePlacesView) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -5393,10 +6809,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: KFilePlacesView, key: anytype) i32 {
+    pub fn grabShortcut(self: KFilePlacesView, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -5408,9 +6828,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: KFilePlacesView, id: i32) void {
+    pub fn releaseShortcut(self: KFilePlacesView, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -5422,9 +6846,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: KFilePlacesView, id: i32) void {
+    pub fn setShortcutEnabled(self: KFilePlacesView, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -5436,25 +6864,37 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: KFilePlacesView, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: KFilePlacesView, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -5464,9 +6904,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn UpdatesEnabled(self: KFilePlacesView) bool {
+    pub fn updatesEnabled(self: KFilePlacesView) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -5478,9 +6922,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: KFilePlacesView, enable: bool) void {
+    pub fn setUpdatesEnabled(self: KFilePlacesView, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -5490,9 +6938,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn GraphicsProxyWidget(self: KFilePlacesView) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: KFilePlacesView) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -5502,9 +6954,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn Repaint(self: KFilePlacesView) void {
+    pub fn repaint(self: KFilePlacesView) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -5514,17 +6970,21 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: KFilePlacesView, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: KFilePlacesView, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -5536,11 +6996,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: KFilePlacesView, param1: anytype) void {
+    pub fn update3(self: KFilePlacesView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -5551,10 +7015,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: KFilePlacesView, param1: anytype) void {
+    pub fn update4(self: KFilePlacesView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -5564,17 +7032,21 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: KFilePlacesView, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: KFilePlacesView, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -5586,10 +7058,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: KFilePlacesView, param1: anytype) void {
+    pub fn repaint3(self: KFilePlacesView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -5601,10 +7077,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: KFilePlacesView, param1: anytype) void {
+    pub fn repaint4(self: KFilePlacesView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -5616,9 +7096,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: KFilePlacesView, hidden: bool) void {
+    pub fn setHidden(self: KFilePlacesView, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -5628,9 +7112,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn Show(self: KFilePlacesView) void {
+    pub fn show(self: KFilePlacesView) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -5640,9 +7128,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn Hide(self: KFilePlacesView) void {
+    pub fn hide(self: KFilePlacesView) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -5652,9 +7144,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn ShowMinimized(self: KFilePlacesView) void {
+    pub fn showMinimized(self: KFilePlacesView) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -5664,9 +7160,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn ShowMaximized(self: KFilePlacesView) void {
+    pub fn showMaximized(self: KFilePlacesView) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -5676,9 +7176,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn ShowFullScreen(self: KFilePlacesView) void {
+    pub fn showFullScreen(self: KFilePlacesView) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -5688,9 +7192,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn ShowNormal(self: KFilePlacesView) void {
+    pub fn showNormal(self: KFilePlacesView) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -5700,9 +7208,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn Close(self: KFilePlacesView) bool {
+    pub fn close(self: KFilePlacesView) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -5712,9 +7224,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn Raise(self: KFilePlacesView) void {
+    pub fn raise(self: KFilePlacesView) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -5724,9 +7240,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn Lower(self: KFilePlacesView) void {
+    pub fn lower(self: KFilePlacesView) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -5738,10 +7258,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: KFilePlacesView, param1: anytype) void {
+    pub fn stackUnder(self: KFilePlacesView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -5751,13 +7275,17 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: KFilePlacesView, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: KFilePlacesView, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -5769,10 +7297,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: KFilePlacesView, param1: anytype) void {
+    pub fn move2(self: KFilePlacesView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -5786,9 +7318,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: KFilePlacesView, w: i32, h: i32) void {
+    pub fn resize(self: KFilePlacesView, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -5800,10 +7336,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: KFilePlacesView, param1: anytype) void {
+    pub fn resize2(self: KFilePlacesView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -5813,17 +7353,21 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: KFilePlacesView, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: KFilePlacesView, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -5833,12 +7377,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: KFilePlacesView, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: KFilePlacesView, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -5850,13 +7398,17 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: KFilePlacesView, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: KFilePlacesView, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KFilePlacesView.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KFilePlacesView.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -5866,15 +7418,19 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: KFilePlacesView, geometry: []u8) bool {
+    pub fn restoreGeometry(self: KFilePlacesView, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -5884,9 +7440,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn AdjustSize(self: KFilePlacesView) void {
+    pub fn adjustSize(self: KFilePlacesView) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -5896,9 +7456,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn IsVisible(self: KFilePlacesView) bool {
+    pub fn isVisible(self: KFilePlacesView) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -5910,10 +7474,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: KFilePlacesView, param1: anytype) bool {
+    pub fn isVisibleTo(self: KFilePlacesView, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -5923,9 +7491,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn IsHidden(self: KFilePlacesView) bool {
+    pub fn isHidden(self: KFilePlacesView) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -5935,9 +7507,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn IsMinimized(self: KFilePlacesView) bool {
+    pub fn isMinimized(self: KFilePlacesView) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -5947,9 +7523,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn IsMaximized(self: KFilePlacesView) bool {
+    pub fn isMaximized(self: KFilePlacesView) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -5959,9 +7539,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn IsFullScreen(self: KFilePlacesView) bool {
+    pub fn isFullScreen(self: KFilePlacesView) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -5975,9 +7559,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: KFilePlacesView) i32 {
+    pub fn windowState(self: KFilePlacesView) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -5987,11 +7575,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` state: flag of qnamespace_enums.WindowState `
+    /// ` _state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: KFilePlacesView, state: i32) void {
-        qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
+    pub fn setWindowState(self: KFilePlacesView, _state: i32) void {
+        qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(_state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -6001,11 +7593,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` state: flag of qnamespace_enums.WindowState `
+    /// ` _state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: KFilePlacesView, state: i32) void {
-        qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
+    pub fn overrideWindowState(self: KFilePlacesView, _state: i32) void {
+        qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(_state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -6015,9 +7611,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn SizePolicy(self: KFilePlacesView) QSizePolicy {
+    pub fn sizePolicy(self: KFilePlacesView) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -6027,12 +7627,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: KFilePlacesView, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: KFilePlacesView, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -6046,9 +7650,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: KFilePlacesView, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: KFilePlacesView, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -6058,9 +7666,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn VisibleRegion(self: KFilePlacesView) QRegion {
+    pub fn visibleRegion(self: KFilePlacesView) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -6078,9 +7690,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: KFilePlacesView, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: KFilePlacesView, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -6092,10 +7708,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: KFilePlacesView, margins: anytype) void {
+    pub fn setContentsMargins2(self: KFilePlacesView, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -6105,9 +7725,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn ContentsMargins(self: KFilePlacesView) QMargins {
+    pub fn contentsMargins(self: KFilePlacesView) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -6117,9 +7741,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn ContentsRect(self: KFilePlacesView) QRect {
+    pub fn contentsRect(self: KFilePlacesView) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -6129,9 +7757,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn Layout(self: KFilePlacesView) QLayout {
+    pub fn layout(self: KFilePlacesView) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -6141,12 +7773,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: KFilePlacesView, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: KFilePlacesView, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -6156,24 +7792,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn UpdateGeometry(self: KFilePlacesView) void {
+    pub fn updateGeometry(self: KFilePlacesView) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilePlacesView `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: KFilePlacesView, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -6183,14 +7808,37 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: KFilePlacesView, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KFilePlacesView `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: KFilePlacesView, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: KFilePlacesView, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -6204,9 +7852,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: KFilePlacesView, dx: i32, dy: i32) void {
+    pub fn scroll(self: KFilePlacesView, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -6222,10 +7874,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: KFilePlacesView, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: KFilePlacesView, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -6235,9 +7891,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn FocusWidget(self: KFilePlacesView) QWidget {
+    pub fn focusWidget(self: KFilePlacesView) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -6247,9 +7907,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn NextInFocusChain(self: KFilePlacesView) QWidget {
+    pub fn nextInFocusChain(self: KFilePlacesView) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -6259,9 +7923,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn PreviousInFocusChain(self: KFilePlacesView) QWidget {
+    pub fn previousInFocusChain(self: KFilePlacesView) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -6271,9 +7939,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn AcceptDrops(self: KFilePlacesView) bool {
+    pub fn acceptDrops(self: KFilePlacesView) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -6285,9 +7957,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: KFilePlacesView, on: bool) void {
+    pub fn setAcceptDrops(self: KFilePlacesView, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -6299,10 +7975,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: KFilePlacesView, action: anytype) void {
+    pub fn addAction(self: KFilePlacesView, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -6312,15 +7992,19 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: KFilePlacesView, actions: []QAction) void {
+    pub fn addActions(self: KFilePlacesView, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -6332,16 +8016,20 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: KFilePlacesView, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: KFilePlacesView, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -6355,11 +8043,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: KFilePlacesView, before: anytype, action: anytype) void {
+    pub fn insertAction(self: KFilePlacesView, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -6371,10 +8063,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: KFilePlacesView, action: anytype) void {
+    pub fn removeAction(self: KFilePlacesView, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -6386,15 +8082,19 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: KFilePlacesView, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: KFilePlacesView, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KFilePlacesView.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KFilePlacesView.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -6406,13 +8106,17 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: KFilePlacesView, text: []const u8) QAction {
+    pub fn addAction2(self: KFilePlacesView, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -6426,7 +8130,7 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: KFilePlacesView, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: KFilePlacesView, icon: anytype, text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -6435,6 +8139,10 @@ pub const KFilePlacesView = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -6447,7 +8155,7 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: KFilePlacesView, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: KFilePlacesView, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -6455,6 +8163,10 @@ pub const KFilePlacesView = extern struct {
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
 
     /// Inherited from QWidget
     ///
@@ -6470,7 +8182,7 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: KFilePlacesView, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: KFilePlacesView, icon: anytype, text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -6480,6 +8192,10 @@ pub const KFilePlacesView = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
@@ -6488,9 +8204,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn ParentWidget(self: KFilePlacesView) QWidget {
+    pub fn parentWidget(self: KFilePlacesView) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -6502,9 +8222,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: KFilePlacesView, typeVal: i32) void {
+    pub fn setWindowFlags(self: KFilePlacesView, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -6518,9 +8242,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: KFilePlacesView) i32 {
+    pub fn windowFlags(self: KFilePlacesView) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -6532,9 +8260,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: KFilePlacesView, param1: i32) void {
+    pub fn setWindowFlag(self: KFilePlacesView, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -6546,9 +8278,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: KFilePlacesView, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: KFilePlacesView, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -6562,9 +8298,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: KFilePlacesView) i32 {
+    pub fn windowType(self: KFilePlacesView) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -6574,9 +8314,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -6586,13 +8330,17 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: KFilePlacesView, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: KFilePlacesView, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -6604,10 +8352,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: KFilePlacesView, p: anytype) QWidget {
+    pub fn childAt2(self: KFilePlacesView, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -6619,10 +8371,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: KFilePlacesView, p: anytype) QWidget {
+    pub fn childAt3(self: KFilePlacesView, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -6634,9 +8390,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: KFilePlacesView, param1: i32) void {
+    pub fn setAttribute(self: KFilePlacesView, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -6648,9 +8408,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: KFilePlacesView, param1: i32) bool {
+    pub fn testAttribute(self: KFilePlacesView, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -6660,9 +8424,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn EnsurePolished(self: KFilePlacesView) void {
+    pub fn ensurePolished(self: KFilePlacesView) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -6674,10 +8442,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: KFilePlacesView, child: anytype) bool {
+    pub fn isAncestorOf(self: KFilePlacesView, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -6687,9 +8459,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn AutoFillBackground(self: KFilePlacesView) bool {
+    pub fn autoFillBackground(self: KFilePlacesView) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -6701,9 +8477,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: KFilePlacesView, enabled: bool) void {
+    pub fn setAutoFillBackground(self: KFilePlacesView, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -6713,9 +8493,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn BackingStore(self: KFilePlacesView) QBackingStore {
+    pub fn backingStore(self: KFilePlacesView) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -6725,9 +8509,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn WindowHandle(self: KFilePlacesView) QWindow {
+    pub fn windowHandle(self: KFilePlacesView) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -6737,9 +8525,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn Screen(self: KFilePlacesView) QScreen {
+    pub fn screen(self: KFilePlacesView) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -6749,12 +8541,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: KFilePlacesView, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: KFilePlacesView, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -6762,12 +8558,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -6779,13 +8579,17 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: KFilePlacesView, title: []const u8) void {
+    pub fn windowTitleChanged(self: KFilePlacesView, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -6797,9 +8601,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: KFilePlacesView, callback: *const fn (KFilePlacesView, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: KFilePlacesView, callback: *const fn (KFilePlacesView, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -6811,10 +8619,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: KFilePlacesView, icon: anytype) void {
+    pub fn windowIconChanged(self: KFilePlacesView, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -6826,9 +8638,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -6840,13 +8656,17 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: KFilePlacesView, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: KFilePlacesView, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -6858,9 +8678,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: KFilePlacesView, callback: *const fn (KFilePlacesView, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: KFilePlacesView, callback: *const fn (KFilePlacesView, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -6870,12 +8694,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: KFilePlacesView, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: KFilePlacesView, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -6887,9 +8715,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -6903,9 +8735,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: KFilePlacesView) i32 {
+    pub fn inputMethodHints(self: KFilePlacesView) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -6917,9 +8753,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: KFilePlacesView, hints: i32) void {
+    pub fn setInputMethodHints(self: KFilePlacesView, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -6933,11 +8773,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: KFilePlacesView, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: KFilePlacesView, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -6953,13 +8797,17 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: KFilePlacesView, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: KFilePlacesView, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -6976,12 +8824,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: KFilePlacesView, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: KFilePlacesView, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -6995,11 +8847,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: KFilePlacesView, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: KFilePlacesView, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -7015,12 +8871,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: KFilePlacesView, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: KFilePlacesView, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -7038,12 +8898,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: KFilePlacesView, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: KFilePlacesView, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -7055,10 +8919,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: KFilePlacesView, rectangle: anytype) QPixmap {
+    pub fn grab1(self: KFilePlacesView, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -7072,9 +8940,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: KFilePlacesView, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: KFilePlacesView, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -7088,10 +8960,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: KFilePlacesView, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: KFilePlacesView, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -7105,9 +8981,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: KFilePlacesView, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: KFilePlacesView, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -7121,9 +9001,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: KFilePlacesView, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: KFilePlacesView, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -7137,9 +9021,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: KFilePlacesView, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: KFilePlacesView, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -7153,25 +9041,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: KFilePlacesView, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: KFilePlacesView, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -7179,17 +9055,41 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -7201,13 +9101,17 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KFilePlacesView, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KFilePlacesView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFilePlacesView.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFilePlacesView.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -7219,13 +9123,17 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KFilePlacesView, name: []const u8) void {
+    pub fn setObjectName(self: KFilePlacesView, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -7235,9 +9143,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn IsWidgetType(self: KFilePlacesView) bool {
+    pub fn isWidgetType(self: KFilePlacesView) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -7247,9 +9159,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn IsWindowType(self: KFilePlacesView) bool {
+    pub fn isWindowType(self: KFilePlacesView) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -7259,9 +9175,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn IsQuickItemType(self: KFilePlacesView) bool {
+    pub fn isQuickItemType(self: KFilePlacesView) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -7271,9 +9191,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn SignalsBlocked(self: KFilePlacesView) bool {
+    pub fn signalsBlocked(self: KFilePlacesView) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -7285,9 +9209,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KFilePlacesView, b: bool) bool {
+    pub fn blockSignals(self: KFilePlacesView, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -7297,9 +9225,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn Thread(self: KFilePlacesView) QThread {
+    pub fn thread(self: KFilePlacesView) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -7309,12 +9241,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KFilePlacesView, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KFilePlacesView, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -7326,9 +9262,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KFilePlacesView, interval: i32) i32 {
+    pub fn startTimer(self: KFilePlacesView, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -7340,9 +9280,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KFilePlacesView, time: i64) i32 {
+    pub fn startTimer2(self: KFilePlacesView, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -7354,9 +9298,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KFilePlacesView, id: i32) void {
+    pub fn killTimer(self: KFilePlacesView, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -7368,9 +9316,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KFilePlacesView, id: i32) void {
+    pub fn killTimer2(self: KFilePlacesView, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -7382,15 +9334,19 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KFilePlacesView, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KFilePlacesView, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KFilePlacesView.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KFilePlacesView.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -7402,10 +9358,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KFilePlacesView, filterObj: anytype) void {
+    pub fn installEventFilter(self: KFilePlacesView, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -7417,10 +9377,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KFilePlacesView, obj: anytype) void {
+    pub fn removeEventFilter(self: KFilePlacesView, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -7428,7 +9392,7 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -7436,13 +9400,17 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -7450,7 +9418,7 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -7458,13 +9426,17 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -7474,18 +9446,22 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KFilePlacesView, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KFilePlacesView, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -7493,7 +9469,7 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -7501,13 +9477,17 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -7515,7 +9495,7 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -7523,13 +9503,17 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -7539,9 +9523,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn Disconnect3(self: KFilePlacesView) bool {
+    pub fn disconnect3(self: KFilePlacesView) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -7553,10 +9541,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KFilePlacesView, receiver: anytype) bool {
+    pub fn disconnect4(self: KFilePlacesView, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -7566,10 +9558,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -7579,9 +9575,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn DumpObjectTree(self: KFilePlacesView) void {
+    pub fn dumpObjectTree(self: KFilePlacesView) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -7591,9 +9591,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn DumpObjectInfo(self: KFilePlacesView) void {
+    pub fn dumpObjectInfo(self: KFilePlacesView) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -7607,11 +9611,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KFilePlacesView, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KFilePlacesView, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -7623,10 +9631,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KFilePlacesView, name: [:0]const u8) QVariant {
+    pub fn property(self: KFilePlacesView, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -7638,7 +9650,7 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KFilePlacesView, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KFilePlacesView, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -7646,27 +9658,19 @@ pub const KFilePlacesView = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KFilePlacesView.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KFilePlacesView.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KFilePlacesView.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KFilePlacesView.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilePlacesView `
-    ///
-    pub fn BindingStorage(self: KFilePlacesView) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -7676,9 +9680,29 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn BindingStorage2(self: KFilePlacesView) QBindingStorage {
+    pub fn bindingStorage(self: KFilePlacesView) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KFilePlacesView `
+    ///
+    pub fn bindingStorage2(self: KFilePlacesView) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -7688,9 +9712,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn Destroyed(self: KFilePlacesView) void {
+    pub fn destroyed(self: KFilePlacesView) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -7702,9 +9730,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KFilePlacesView, callback: *const fn (KFilePlacesView) callconv(.c) void) void {
+    pub fn onDestroyed(self: KFilePlacesView, callback: *const fn (KFilePlacesView) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -7714,9 +9746,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn Parent(self: KFilePlacesView) QObject {
+    pub fn parent(self: KFilePlacesView) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -7728,10 +9764,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KFilePlacesView, classname: [:0]const u8) bool {
+    pub fn inherits(self: KFilePlacesView, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -7741,9 +9781,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn DeleteLater(self: KFilePlacesView) void {
+    pub fn deleteLater(self: KFilePlacesView) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -7757,9 +9801,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KFilePlacesView, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KFilePlacesView, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -7773,9 +9821,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KFilePlacesView, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KFilePlacesView, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -7783,7 +9835,7 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -7793,13 +9845,17 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -7807,7 +9863,7 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -7817,13 +9873,17 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -7833,7 +9893,7 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -7841,12 +9901,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KFilePlacesView, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KFilePlacesView, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -7858,10 +9922,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KFilePlacesView, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KFilePlacesView, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -7875,11 +9943,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KFilePlacesView, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KFilePlacesView, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -7895,13 +9967,17 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KFilePlacesView, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KFilePlacesView, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -7914,11 +9990,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KFilePlacesView, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KFilePlacesView, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -7930,10 +10010,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KFilePlacesView, param1: anytype) void {
+    pub fn destroyed1(self: KFilePlacesView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -7945,9 +10029,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -7957,9 +10045,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn PaintingActive(self: KFilePlacesView) bool {
+    pub fn paintingActive(self: KFilePlacesView) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -7969,9 +10061,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn WidthMM(self: KFilePlacesView) i32 {
+    pub fn widthMM(self: KFilePlacesView) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -7981,9 +10077,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn HeightMM(self: KFilePlacesView) i32 {
+    pub fn heightMM(self: KFilePlacesView) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -7993,9 +10093,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn LogicalDpiX(self: KFilePlacesView) i32 {
+    pub fn logicalDpiX(self: KFilePlacesView) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -8005,9 +10109,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn LogicalDpiY(self: KFilePlacesView) i32 {
+    pub fn logicalDpiY(self: KFilePlacesView) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -8017,9 +10125,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn PhysicalDpiX(self: KFilePlacesView) i32 {
+    pub fn physicalDpiX(self: KFilePlacesView) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -8029,9 +10141,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn PhysicalDpiY(self: KFilePlacesView) i32 {
+    pub fn physicalDpiY(self: KFilePlacesView) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -8041,9 +10157,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn DevicePixelRatio(self: KFilePlacesView) f64 {
+    pub fn devicePixelRatio(self: KFilePlacesView) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8053,9 +10173,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn DevicePixelRatioF(self: KFilePlacesView) f64 {
+    pub fn devicePixelRatioF(self: KFilePlacesView) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -8065,9 +10189,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn ColorCount(self: KFilePlacesView) i32 {
+    pub fn colorCount(self: KFilePlacesView) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -8077,17 +10205,25 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn Depth(self: KFilePlacesView) i32 {
+    pub fn depth(self: KFilePlacesView) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8095,13 +10231,17 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `visualRect` instead
+    ///
+    pub const VisualRect = visualRect;
 
     /// Inherited from QListView
     ///
@@ -8115,14 +10255,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn VisualRect(self: KFilePlacesView, index: anytype) QRect {
+    pub fn visualRect(self: KFilePlacesView, index: anytype) QRect {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.KFilePlacesView_VisualRect(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperVisualRect` instead
+    /// ### DEPRECATED: Use `superVisualRect` instead
     ///
-    pub const QBaseVisualRect = SuperVisualRect;
+    pub const SuperVisualRect = superVisualRect;
 
     /// Inherited from QListView
     ///
@@ -8136,10 +10276,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SuperVisualRect(self: KFilePlacesView, index: anytype) QRect {
+    pub fn superVisualRect(self: KFilePlacesView, index: anytype) QRect {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.KFilePlacesView_SuperVisualRect(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onVisualRect` instead
+    ///
+    pub const OnVisualRect = onVisualRect;
 
     /// Inherited from QListView
     ///
@@ -8155,9 +10299,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnVisualRect(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QModelIndex) callconv(.c) QRect) void {
+    pub fn onVisualRect(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QModelIndex) callconv(.c) QRect) void {
         qtc.KFilePlacesView_OnVisualRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `scrollTo` instead
+    ///
+    pub const ScrollTo = scrollTo;
 
     /// Inherited from QListView
     ///
@@ -8173,14 +10321,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` hint: qabstractitemview_enums.ScrollHint `
     ///
-    pub fn ScrollTo(self: KFilePlacesView, index: anytype, hint: i32) void {
+    pub fn scrollTo(self: KFilePlacesView, index: anytype, hint: i32) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.KFilePlacesView_ScrollTo(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(hint));
     }
 
-    /// ### DEPRECATED: Use `SuperScrollTo` instead
+    /// ### DEPRECATED: Use `superScrollTo` instead
     ///
-    pub const QBaseScrollTo = SuperScrollTo;
+    pub const SuperScrollTo = superScrollTo;
 
     /// Inherited from QListView
     ///
@@ -8196,10 +10344,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` hint: qabstractitemview_enums.ScrollHint `
     ///
-    pub fn SuperScrollTo(self: KFilePlacesView, index: anytype, hint: i32) void {
+    pub fn superScrollTo(self: KFilePlacesView, index: anytype, hint: i32) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.KFilePlacesView_SuperScrollTo(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(hint));
     }
+
+    /// ### DEPRECATED: Use `onScrollTo` instead
+    ///
+    pub const OnScrollTo = onScrollTo;
 
     /// Inherited from QListView
     ///
@@ -8213,9 +10365,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, index: QModelIndex, hint: qabstractitemview_enums.ScrollHint) callconv(.c) void `
     ///
-    pub fn OnScrollTo(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QModelIndex, i32) callconv(.c) void) void {
+    pub fn onScrollTo(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QModelIndex, i32) callconv(.c) void) void {
         qtc.KFilePlacesView_OnScrollTo(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `indexAt` instead
+    ///
+    pub const IndexAt = indexAt;
 
     /// Inherited from QListView
     ///
@@ -8229,14 +10385,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn IndexAt(self: KFilePlacesView, p: anytype) QModelIndex {
+    pub fn indexAt(self: KFilePlacesView, p: anytype) QModelIndex {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.KFilePlacesView_IndexAt(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperIndexAt` instead
+    /// ### DEPRECATED: Use `superIndexAt` instead
     ///
-    pub const QBaseIndexAt = SuperIndexAt;
+    pub const SuperIndexAt = superIndexAt;
 
     /// Inherited from QListView
     ///
@@ -8250,10 +10406,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn SuperIndexAt(self: KFilePlacesView, p: anytype) QModelIndex {
+    pub fn superIndexAt(self: KFilePlacesView, p: anytype) QModelIndex {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.KFilePlacesView_SuperIndexAt(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onIndexAt` instead
+    ///
+    pub const OnIndexAt = onIndexAt;
 
     /// Inherited from QListView
     ///
@@ -8269,10 +10429,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnIndexAt(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QPoint) callconv(.c) QModelIndex) void {
+    pub fn onIndexAt(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QPoint) callconv(.c) QModelIndex) void {
         qtc.KFilePlacesView_OnIndexAt(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `doItemsLayout` instead
+    ///
+    pub const DoItemsLayout = doItemsLayout;
+
     /// Inherited from QListView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#doItemsLayout)
@@ -8283,13 +10447,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn DoItemsLayout(self: KFilePlacesView) void {
+    pub fn doItemsLayout(self: KFilePlacesView) void {
         qtc.KFilePlacesView_DoItemsLayout(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDoItemsLayout` instead
+    /// ### DEPRECATED: Use `superDoItemsLayout` instead
     ///
-    pub const QBaseDoItemsLayout = SuperDoItemsLayout;
+    pub const SuperDoItemsLayout = superDoItemsLayout;
 
     /// Inherited from QListView
     ///
@@ -8301,9 +10465,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn SuperDoItemsLayout(self: KFilePlacesView) void {
+    pub fn superDoItemsLayout(self: KFilePlacesView) void {
         qtc.KFilePlacesView_SuperDoItemsLayout(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDoItemsLayout` instead
+    ///
+    pub const OnDoItemsLayout = onDoItemsLayout;
 
     /// Inherited from QListView
     ///
@@ -8317,9 +10485,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDoItemsLayout(self: KFilePlacesView, callback: *const fn () callconv(.c) void) void {
+    pub fn onDoItemsLayout(self: KFilePlacesView, callback: *const fn () callconv(.c) void) void {
         qtc.KFilePlacesView_OnDoItemsLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `reset` instead
+    ///
+    pub const Reset = reset;
 
     /// Inherited from QListView
     ///
@@ -8331,13 +10503,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn Reset(self: KFilePlacesView) void {
+    pub fn reset(self: KFilePlacesView) void {
         qtc.KFilePlacesView_Reset(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperReset` instead
+    /// ### DEPRECATED: Use `superReset` instead
     ///
-    pub const QBaseReset = SuperReset;
+    pub const SuperReset = superReset;
 
     /// Inherited from QListView
     ///
@@ -8349,9 +10521,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn SuperReset(self: KFilePlacesView) void {
+    pub fn superReset(self: KFilePlacesView) void {
         qtc.KFilePlacesView_SuperReset(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onReset` instead
+    ///
+    pub const OnReset = onReset;
 
     /// Inherited from QListView
     ///
@@ -8365,9 +10541,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnReset(self: KFilePlacesView, callback: *const fn () callconv(.c) void) void {
+    pub fn onReset(self: KFilePlacesView, callback: *const fn () callconv(.c) void) void {
         qtc.KFilePlacesView_OnReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setRootIndex` instead
+    ///
+    pub const SetRootIndex = setRootIndex;
 
     /// Inherited from QListView
     ///
@@ -8381,14 +10561,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SetRootIndex(self: KFilePlacesView, index: anytype) void {
+    pub fn setRootIndex(self: KFilePlacesView, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.KFilePlacesView_SetRootIndex(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetRootIndex` instead
+    /// ### DEPRECATED: Use `superSetRootIndex` instead
     ///
-    pub const QBaseSetRootIndex = SuperSetRootIndex;
+    pub const SuperSetRootIndex = superSetRootIndex;
 
     /// Inherited from QListView
     ///
@@ -8402,10 +10582,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SuperSetRootIndex(self: KFilePlacesView, index: anytype) void {
+    pub fn superSetRootIndex(self: KFilePlacesView, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.KFilePlacesView_SuperSetRootIndex(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetRootIndex` instead
+    ///
+    pub const OnSetRootIndex = onSetRootIndex;
 
     /// Inherited from QListView
     ///
@@ -8419,9 +10603,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnSetRootIndex(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QModelIndex) callconv(.c) void) void {
+    pub fn onSetRootIndex(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QModelIndex) callconv(.c) void) void {
         qtc.KFilePlacesView_OnSetRootIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QListView
     ///
@@ -8435,14 +10623,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn Event(self: KFilePlacesView, e: anytype) bool {
+    pub fn event(self: KFilePlacesView, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.KFilePlacesView_Event(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QListView
     ///
@@ -8456,10 +10644,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn SuperEvent(self: KFilePlacesView, e: anytype) bool {
+    pub fn superEvent(self: KFilePlacesView, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.KFilePlacesView_SuperEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QListView
     ///
@@ -8473,9 +10665,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, e: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QEvent) callconv(.c) bool) void {
         qtc.KFilePlacesView_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `scrollContentsBy` instead
+    ///
+    pub const ScrollContentsBy = scrollContentsBy;
 
     /// Inherited from QListView
     ///
@@ -8491,13 +10687,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn ScrollContentsBy(self: KFilePlacesView, dx: i32, dy: i32) void {
+    pub fn scrollContentsBy(self: KFilePlacesView, dx: i32, dy: i32) void {
         qtc.KFilePlacesView_ScrollContentsBy(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
-    /// ### DEPRECATED: Use `SuperScrollContentsBy` instead
+    /// ### DEPRECATED: Use `superScrollContentsBy` instead
     ///
-    pub const QBaseScrollContentsBy = SuperScrollContentsBy;
+    pub const SuperScrollContentsBy = superScrollContentsBy;
 
     /// Inherited from QListView
     ///
@@ -8513,9 +10709,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn SuperScrollContentsBy(self: KFilePlacesView, dx: i32, dy: i32) void {
+    pub fn superScrollContentsBy(self: KFilePlacesView, dx: i32, dy: i32) void {
         qtc.KFilePlacesView_SuperScrollContentsBy(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `onScrollContentsBy` instead
+    ///
+    pub const OnScrollContentsBy = onScrollContentsBy;
 
     /// Inherited from QListView
     ///
@@ -8529,9 +10729,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, dx: i32, dy: i32) callconv(.c) void `
     ///
-    pub fn OnScrollContentsBy(self: KFilePlacesView, callback: *const fn (KFilePlacesView, i32, i32) callconv(.c) void) void {
+    pub fn onScrollContentsBy(self: KFilePlacesView, callback: *const fn (KFilePlacesView, i32, i32) callconv(.c) void) void {
         qtc.KFilePlacesView_OnScrollContentsBy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `rowsAboutToBeRemoved` instead
+    ///
+    pub const RowsAboutToBeRemoved = rowsAboutToBeRemoved;
 
     /// Inherited from QListView
     ///
@@ -8543,20 +10747,20 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` start: i32 `
     ///
     /// ` end: i32 `
     ///
-    pub fn RowsAboutToBeRemoved(self: KFilePlacesView, parent: anytype, start: i32, end: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.KFilePlacesView_RowsAboutToBeRemoved(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(start), @bitCast(end));
+    pub fn rowsAboutToBeRemoved(self: KFilePlacesView, _parent: anytype, start: i32, end: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.KFilePlacesView_RowsAboutToBeRemoved(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(start), @bitCast(end));
     }
 
-    /// ### DEPRECATED: Use `SuperRowsAboutToBeRemoved` instead
+    /// ### DEPRECATED: Use `superRowsAboutToBeRemoved` instead
     ///
-    pub const QBaseRowsAboutToBeRemoved = SuperRowsAboutToBeRemoved;
+    pub const SuperRowsAboutToBeRemoved = superRowsAboutToBeRemoved;
 
     /// Inherited from QListView
     ///
@@ -8568,16 +10772,20 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` start: i32 `
     ///
     /// ` end: i32 `
     ///
-    pub fn SuperRowsAboutToBeRemoved(self: KFilePlacesView, parent: anytype, start: i32, end: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.KFilePlacesView_SuperRowsAboutToBeRemoved(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(start), @bitCast(end));
+    pub fn superRowsAboutToBeRemoved(self: KFilePlacesView, _parent: anytype, start: i32, end: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.KFilePlacesView_SuperRowsAboutToBeRemoved(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(start), @bitCast(end));
     }
+
+    /// ### DEPRECATED: Use `onRowsAboutToBeRemoved` instead
+    ///
+    pub const OnRowsAboutToBeRemoved = onRowsAboutToBeRemoved;
 
     /// Inherited from QListView
     ///
@@ -8591,9 +10799,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, parent: QModelIndex, start: i32, end: i32) callconv(.c) void `
     ///
-    pub fn OnRowsAboutToBeRemoved(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onRowsAboutToBeRemoved(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.KFilePlacesView_OnRowsAboutToBeRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
 
     /// Inherited from QListView
     ///
@@ -8607,14 +10819,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: KFilePlacesView, e: anytype) void {
+    pub fn mouseMoveEvent(self: KFilePlacesView, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.KFilePlacesView_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QListView
     ///
@@ -8628,11 +10840,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: KFilePlacesView, e: anytype) void {
+    pub fn superMouseMoveEvent(self: KFilePlacesView, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.KFilePlacesView_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
+
     /// Inherited from QListView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#mouseMoveEvent)
@@ -8645,9 +10861,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, e: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QMouseEvent) callconv(.c) void) void {
         qtc.KFilePlacesView_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
 
     /// Inherited from QListView
     ///
@@ -8661,14 +10881,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: KFilePlacesView, e: anytype) void {
+    pub fn mouseReleaseEvent(self: KFilePlacesView, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.KFilePlacesView_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QListView
     ///
@@ -8682,10 +10902,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: KFilePlacesView, e: anytype) void {
+    pub fn superMouseReleaseEvent(self: KFilePlacesView, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.KFilePlacesView_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from QListView
     ///
@@ -8699,9 +10923,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, e: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QMouseEvent) callconv(.c) void) void {
         qtc.KFilePlacesView_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QListView
     ///
@@ -8715,14 +10943,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` e: QWheelEvent `
     ///
-    pub fn WheelEvent(self: KFilePlacesView, e: anytype) void {
+    pub fn wheelEvent(self: KFilePlacesView, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QWheelEvent;
         qtc.KFilePlacesView_WheelEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QListView
     ///
@@ -8736,10 +10964,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` e: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: KFilePlacesView, e: anytype) void {
+    pub fn superWheelEvent(self: KFilePlacesView, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QWheelEvent;
         qtc.KFilePlacesView_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QListView
     ///
@@ -8753,9 +10985,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, e: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QWheelEvent) callconv(.c) void) void {
         qtc.KFilePlacesView_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QListView
     ///
@@ -8769,14 +11005,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` e: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KFilePlacesView, e: anytype) void {
+    pub fn timerEvent(self: KFilePlacesView, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QTimerEvent;
         qtc.KFilePlacesView_TimerEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QListView
     ///
@@ -8790,10 +11026,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` e: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KFilePlacesView, e: anytype) void {
+    pub fn superTimerEvent(self: KFilePlacesView, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QTimerEvent;
         qtc.KFilePlacesView_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QListView
     ///
@@ -8807,9 +11047,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, e: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QTimerEvent) callconv(.c) void) void {
         qtc.KFilePlacesView_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initViewItemOption` instead
+    ///
+    pub const InitViewItemOption = initViewItemOption;
 
     /// Inherited from QListView
     ///
@@ -8823,14 +11067,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` option: QStyleOptionViewItem `
     ///
-    pub fn InitViewItemOption(self: KFilePlacesView, option: anytype) void {
+    pub fn initViewItemOption(self: KFilePlacesView, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         qtc.KFilePlacesView_InitViewItemOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitViewItemOption` instead
+    /// ### DEPRECATED: Use `superInitViewItemOption` instead
     ///
-    pub const QBaseInitViewItemOption = SuperInitViewItemOption;
+    pub const SuperInitViewItemOption = superInitViewItemOption;
 
     /// Inherited from QListView
     ///
@@ -8844,10 +11088,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` option: QStyleOptionViewItem `
     ///
-    pub fn SuperInitViewItemOption(self: KFilePlacesView, option: anytype) void {
+    pub fn superInitViewItemOption(self: KFilePlacesView, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         qtc.KFilePlacesView_SuperInitViewItemOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitViewItemOption` instead
+    ///
+    pub const OnInitViewItemOption = onInitViewItemOption;
 
     /// Inherited from QListView
     ///
@@ -8861,10 +11109,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, option: QStyleOptionViewItem) callconv(.c) void `
     ///
-    pub fn OnInitViewItemOption(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QStyleOptionViewItem) callconv(.c) void) void {
+    pub fn onInitViewItemOption(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QStyleOptionViewItem) callconv(.c) void) void {
         qtc.KFilePlacesView_OnInitViewItemOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `horizontalOffset` instead
+    ///
+    pub const HorizontalOffset = horizontalOffset;
+
     /// Inherited from QListView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#horizontalOffset)
@@ -8875,13 +11127,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn HorizontalOffset(self: KFilePlacesView) i32 {
+    pub fn horizontalOffset(self: KFilePlacesView) i32 {
         return qtc.KFilePlacesView_HorizontalOffset(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHorizontalOffset` instead
+    /// ### DEPRECATED: Use `superHorizontalOffset` instead
     ///
-    pub const QBaseHorizontalOffset = SuperHorizontalOffset;
+    pub const SuperHorizontalOffset = superHorizontalOffset;
 
     /// Inherited from QListView
     ///
@@ -8893,10 +11145,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn SuperHorizontalOffset(self: KFilePlacesView) i32 {
+    pub fn superHorizontalOffset(self: KFilePlacesView) i32 {
         return qtc.KFilePlacesView_SuperHorizontalOffset(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onHorizontalOffset` instead
+    ///
+    pub const OnHorizontalOffset = onHorizontalOffset;
+
     /// Inherited from QListView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#horizontalOffset)
@@ -8909,9 +11165,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnHorizontalOffset(self: KFilePlacesView, callback: *const fn () callconv(.c) i32) void {
+    pub fn onHorizontalOffset(self: KFilePlacesView, callback: *const fn () callconv(.c) i32) void {
         qtc.KFilePlacesView_OnHorizontalOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `verticalOffset` instead
+    ///
+    pub const VerticalOffset = verticalOffset;
 
     /// Inherited from QListView
     ///
@@ -8923,13 +11183,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn VerticalOffset(self: KFilePlacesView) i32 {
+    pub fn verticalOffset(self: KFilePlacesView) i32 {
         return qtc.KFilePlacesView_VerticalOffset(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperVerticalOffset` instead
+    /// ### DEPRECATED: Use `superVerticalOffset` instead
     ///
-    pub const QBaseVerticalOffset = SuperVerticalOffset;
+    pub const SuperVerticalOffset = superVerticalOffset;
 
     /// Inherited from QListView
     ///
@@ -8941,9 +11201,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn SuperVerticalOffset(self: KFilePlacesView) i32 {
+    pub fn superVerticalOffset(self: KFilePlacesView) i32 {
         return qtc.KFilePlacesView_SuperVerticalOffset(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onVerticalOffset` instead
+    ///
+    pub const OnVerticalOffset = onVerticalOffset;
 
     /// Inherited from QListView
     ///
@@ -8957,9 +11221,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnVerticalOffset(self: KFilePlacesView, callback: *const fn () callconv(.c) i32) void {
+    pub fn onVerticalOffset(self: KFilePlacesView, callback: *const fn () callconv(.c) i32) void {
         qtc.KFilePlacesView_OnVerticalOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveCursor` instead
+    ///
+    pub const MoveCursor = moveCursor;
 
     /// Inherited from QListView
     ///
@@ -8975,13 +11243,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn MoveCursor(self: KFilePlacesView, cursorAction: i32, modifiers: i32) QModelIndex {
+    pub fn moveCursor(self: KFilePlacesView, cursorAction: i32, modifiers: i32) QModelIndex {
         return .{ .ptr = qtc.KFilePlacesView_MoveCursor(@ptrCast(self.ptr), @bitCast(cursorAction), @bitCast(modifiers)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMoveCursor` instead
+    /// ### DEPRECATED: Use `superMoveCursor` instead
     ///
-    pub const QBaseMoveCursor = SuperMoveCursor;
+    pub const SuperMoveCursor = superMoveCursor;
 
     /// Inherited from QListView
     ///
@@ -8997,9 +11265,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn SuperMoveCursor(self: KFilePlacesView, cursorAction: i32, modifiers: i32) QModelIndex {
+    pub fn superMoveCursor(self: KFilePlacesView, cursorAction: i32, modifiers: i32) QModelIndex {
         return .{ .ptr = qtc.KFilePlacesView_SuperMoveCursor(@ptrCast(self.ptr), @bitCast(cursorAction), @bitCast(modifiers)) };
     }
+
+    /// ### DEPRECATED: Use `onMoveCursor` instead
+    ///
+    pub const OnMoveCursor = onMoveCursor;
 
     /// Inherited from QListView
     ///
@@ -9015,9 +11287,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMoveCursor(self: KFilePlacesView, callback: *const fn (KFilePlacesView, i32, i32) callconv(.c) QModelIndex) void {
+    pub fn onMoveCursor(self: KFilePlacesView, callback: *const fn (KFilePlacesView, i32, i32) callconv(.c) QModelIndex) void {
         qtc.KFilePlacesView_OnMoveCursor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setSelection` instead
+    ///
+    pub const SetSelection = setSelection;
 
     /// Inherited from QListView
     ///
@@ -9029,18 +11305,18 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
     /// ` command: flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn SetSelection(self: KFilePlacesView, rect: anytype, command: i32) void {
-        comptime _ = @TypeOf(rect)._is_QRect;
-        qtc.KFilePlacesView_SetSelection(@ptrCast(self.ptr), @ptrCast(rect.ptr), @bitCast(command));
+    pub fn setSelection(self: KFilePlacesView, _rect: anytype, command: i32) void {
+        comptime _ = @TypeOf(_rect)._is_QRect;
+        qtc.KFilePlacesView_SetSelection(@ptrCast(self.ptr), @ptrCast(_rect.ptr), @bitCast(command));
     }
 
-    /// ### DEPRECATED: Use `SuperSetSelection` instead
+    /// ### DEPRECATED: Use `superSetSelection` instead
     ///
-    pub const QBaseSetSelection = SuperSetSelection;
+    pub const SuperSetSelection = superSetSelection;
 
     /// Inherited from QListView
     ///
@@ -9052,14 +11328,18 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
     /// ` command: flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn SuperSetSelection(self: KFilePlacesView, rect: anytype, command: i32) void {
-        comptime _ = @TypeOf(rect)._is_QRect;
-        qtc.KFilePlacesView_SuperSetSelection(@ptrCast(self.ptr), @ptrCast(rect.ptr), @bitCast(command));
+    pub fn superSetSelection(self: KFilePlacesView, _rect: anytype, command: i32) void {
+        comptime _ = @TypeOf(_rect)._is_QRect;
+        qtc.KFilePlacesView_SuperSetSelection(@ptrCast(self.ptr), @ptrCast(_rect.ptr), @bitCast(command));
     }
+
+    /// ### DEPRECATED: Use `onSetSelection` instead
+    ///
+    pub const OnSetSelection = onSetSelection;
 
     /// Inherited from QListView
     ///
@@ -9073,9 +11353,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, rect: QRect, command: flag of qitemselectionmodel_enums.SelectionFlag) callconv(.c) void `
     ///
-    pub fn OnSetSelection(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QRect, i32) callconv(.c) void) void {
+    pub fn onSetSelection(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QRect, i32) callconv(.c) void) void {
         qtc.KFilePlacesView_OnSetSelection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `visualRegionForSelection` instead
+    ///
+    pub const VisualRegionForSelection = visualRegionForSelection;
 
     /// Inherited from QListView
     ///
@@ -9089,14 +11373,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` selection: QItemSelection `
     ///
-    pub fn VisualRegionForSelection(self: KFilePlacesView, selection: anytype) QRegion {
+    pub fn visualRegionForSelection(self: KFilePlacesView, selection: anytype) QRegion {
         comptime _ = @TypeOf(selection)._is_QItemSelection;
         return .{ .ptr = qtc.KFilePlacesView_VisualRegionForSelection(@ptrCast(self.ptr), @ptrCast(selection.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperVisualRegionForSelection` instead
+    /// ### DEPRECATED: Use `superVisualRegionForSelection` instead
     ///
-    pub const QBaseVisualRegionForSelection = SuperVisualRegionForSelection;
+    pub const SuperVisualRegionForSelection = superVisualRegionForSelection;
 
     /// Inherited from QListView
     ///
@@ -9110,10 +11394,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` selection: QItemSelection `
     ///
-    pub fn SuperVisualRegionForSelection(self: KFilePlacesView, selection: anytype) QRegion {
+    pub fn superVisualRegionForSelection(self: KFilePlacesView, selection: anytype) QRegion {
         comptime _ = @TypeOf(selection)._is_QItemSelection;
         return .{ .ptr = qtc.KFilePlacesView_SuperVisualRegionForSelection(@ptrCast(self.ptr), @ptrCast(selection.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onVisualRegionForSelection` instead
+    ///
+    pub const OnVisualRegionForSelection = onVisualRegionForSelection;
 
     /// Inherited from QListView
     ///
@@ -9129,9 +11417,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnVisualRegionForSelection(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QItemSelection) callconv(.c) QRegion) void {
+    pub fn onVisualRegionForSelection(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QItemSelection) callconv(.c) QRegion) void {
         qtc.KFilePlacesView_OnVisualRegionForSelection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `selectedIndexes` instead
+    ///
+    pub const SelectedIndexes = selectedIndexes;
 
     /// Inherited from QListView
     ///
@@ -9145,19 +11437,19 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SelectedIndexes(self: KFilePlacesView, allocator: std.mem.Allocator) []QModelIndex {
+    pub fn selectedIndexes(self: KFilePlacesView, allocator: std.mem.Allocator) []QModelIndex {
         const _arr: qtc.libqt_list = qtc.KFilePlacesView_SelectedIndexes(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("KFilePlacesView.SelectedIndexes: Memory allocation failed");
-        const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("KFilePlacesView.selectedIndexes: Memory allocation failed");
+        const _data_val: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `SuperSelectedIndexes` instead
+    /// ### DEPRECATED: Use `superSelectedIndexes` instead
     ///
-    pub const QBaseSelectedIndexes = SuperSelectedIndexes;
+    pub const SuperSelectedIndexes = superSelectedIndexes;
 
     /// Inherited from QListView
     ///
@@ -9171,15 +11463,19 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperSelectedIndexes(self: KFilePlacesView, allocator: std.mem.Allocator) []QModelIndex {
+    pub fn superSelectedIndexes(self: KFilePlacesView, allocator: std.mem.Allocator) []QModelIndex {
         const _arr: qtc.libqt_list = qtc.KFilePlacesView_SuperSelectedIndexes(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("KFilePlacesView.SelectedIndexes: Memory allocation failed");
-        const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("KFilePlacesView.selectedIndexes: Memory allocation failed");
+        const _data_val: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onSelectedIndexes` instead
+    ///
+    pub const OnSelectedIndexes = onSelectedIndexes;
 
     /// Inherited from QListView
     ///
@@ -9199,9 +11495,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` C ABI representation of []QModelIndex `
     ///
-    pub fn OnSelectedIndexes(self: KFilePlacesView, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+    pub fn onSelectedIndexes(self: KFilePlacesView, callback: *const fn () callconv(.c) qtc.libqt_list) void {
         qtc.KFilePlacesView_OnSelectedIndexes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `updateGeometries` instead
+    ///
+    pub const UpdateGeometries = updateGeometries;
 
     /// Inherited from QListView
     ///
@@ -9213,13 +11513,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn UpdateGeometries(self: KFilePlacesView) void {
+    pub fn updateGeometries(self: KFilePlacesView) void {
         qtc.KFilePlacesView_UpdateGeometries(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateGeometries` instead
+    /// ### DEPRECATED: Use `superUpdateGeometries` instead
     ///
-    pub const QBaseUpdateGeometries = SuperUpdateGeometries;
+    pub const SuperUpdateGeometries = superUpdateGeometries;
 
     /// Inherited from QListView
     ///
@@ -9231,9 +11531,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn SuperUpdateGeometries(self: KFilePlacesView) void {
+    pub fn superUpdateGeometries(self: KFilePlacesView) void {
         qtc.KFilePlacesView_SuperUpdateGeometries(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onUpdateGeometries` instead
+    ///
+    pub const OnUpdateGeometries = onUpdateGeometries;
 
     /// Inherited from QListView
     ///
@@ -9247,9 +11551,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateGeometries(self: KFilePlacesView, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateGeometries(self: KFilePlacesView, callback: *const fn () callconv(.c) void) void {
         qtc.KFilePlacesView_OnUpdateGeometries(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isIndexHidden` instead
+    ///
+    pub const IsIndexHidden = isIndexHidden;
 
     /// Inherited from QListView
     ///
@@ -9263,14 +11571,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn IsIndexHidden(self: KFilePlacesView, index: anytype) bool {
+    pub fn isIndexHidden(self: KFilePlacesView, index: anytype) bool {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return qtc.KFilePlacesView_IsIndexHidden(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsIndexHidden` instead
+    /// ### DEPRECATED: Use `superIsIndexHidden` instead
     ///
-    pub const QBaseIsIndexHidden = SuperIsIndexHidden;
+    pub const SuperIsIndexHidden = superIsIndexHidden;
 
     /// Inherited from QListView
     ///
@@ -9284,10 +11592,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SuperIsIndexHidden(self: KFilePlacesView, index: anytype) bool {
+    pub fn superIsIndexHidden(self: KFilePlacesView, index: anytype) bool {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return qtc.KFilePlacesView_SuperIsIndexHidden(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsIndexHidden` instead
+    ///
+    pub const OnIsIndexHidden = onIsIndexHidden;
 
     /// Inherited from QListView
     ///
@@ -9301,9 +11613,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, index: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnIsIndexHidden(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QModelIndex) callconv(.c) bool) void {
+    pub fn onIsIndexHidden(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QModelIndex) callconv(.c) bool) void {
         qtc.KFilePlacesView_OnIsIndexHidden(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `selectionChanged` instead
+    ///
+    pub const SelectionChanged = selectionChanged;
 
     /// Inherited from QListView
     ///
@@ -9319,15 +11635,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` deselected: QItemSelection `
     ///
-    pub fn SelectionChanged(self: KFilePlacesView, selected: anytype, deselected: anytype) void {
+    pub fn selectionChanged(self: KFilePlacesView, selected: anytype, deselected: anytype) void {
         comptime _ = @TypeOf(selected)._is_QItemSelection;
         comptime _ = @TypeOf(deselected)._is_QItemSelection;
         qtc.KFilePlacesView_SelectionChanged(@ptrCast(self.ptr), @ptrCast(selected.ptr), @ptrCast(deselected.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSelectionChanged` instead
+    /// ### DEPRECATED: Use `superSelectionChanged` instead
     ///
-    pub const QBaseSelectionChanged = SuperSelectionChanged;
+    pub const SuperSelectionChanged = superSelectionChanged;
 
     /// Inherited from QListView
     ///
@@ -9343,11 +11659,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` deselected: QItemSelection `
     ///
-    pub fn SuperSelectionChanged(self: KFilePlacesView, selected: anytype, deselected: anytype) void {
+    pub fn superSelectionChanged(self: KFilePlacesView, selected: anytype, deselected: anytype) void {
         comptime _ = @TypeOf(selected)._is_QItemSelection;
         comptime _ = @TypeOf(deselected)._is_QItemSelection;
         qtc.KFilePlacesView_SuperSelectionChanged(@ptrCast(self.ptr), @ptrCast(selected.ptr), @ptrCast(deselected.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSelectionChanged` instead
+    ///
+    pub const OnSelectionChanged = onSelectionChanged;
 
     /// Inherited from QListView
     ///
@@ -9361,9 +11681,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, selected: QItemSelection, deselected: QItemSelection) callconv(.c) void `
     ///
-    pub fn OnSelectionChanged(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QItemSelection, QItemSelection) callconv(.c) void) void {
+    pub fn onSelectionChanged(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QItemSelection, QItemSelection) callconv(.c) void) void {
         qtc.KFilePlacesView_OnSelectionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `currentChanged` instead
+    ///
+    pub const CurrentChanged = currentChanged;
 
     /// Inherited from QListView
     ///
@@ -9379,15 +11703,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` previous: QModelIndex `
     ///
-    pub fn CurrentChanged(self: KFilePlacesView, current: anytype, previous: anytype) void {
+    pub fn currentChanged(self: KFilePlacesView, current: anytype, previous: anytype) void {
         comptime _ = @TypeOf(current)._is_QModelIndex;
         comptime _ = @TypeOf(previous)._is_QModelIndex;
         qtc.KFilePlacesView_CurrentChanged(@ptrCast(self.ptr), @ptrCast(current.ptr), @ptrCast(previous.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCurrentChanged` instead
+    /// ### DEPRECATED: Use `superCurrentChanged` instead
     ///
-    pub const QBaseCurrentChanged = SuperCurrentChanged;
+    pub const SuperCurrentChanged = superCurrentChanged;
 
     /// Inherited from QListView
     ///
@@ -9403,11 +11727,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` previous: QModelIndex `
     ///
-    pub fn SuperCurrentChanged(self: KFilePlacesView, current: anytype, previous: anytype) void {
+    pub fn superCurrentChanged(self: KFilePlacesView, current: anytype, previous: anytype) void {
         comptime _ = @TypeOf(current)._is_QModelIndex;
         comptime _ = @TypeOf(previous)._is_QModelIndex;
         qtc.KFilePlacesView_SuperCurrentChanged(@ptrCast(self.ptr), @ptrCast(current.ptr), @ptrCast(previous.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCurrentChanged` instead
+    ///
+    pub const OnCurrentChanged = onCurrentChanged;
 
     /// Inherited from QListView
     ///
@@ -9421,9 +11749,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, current: QModelIndex, previous: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnCurrentChanged(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QModelIndex, QModelIndex) callconv(.c) void) void {
+    pub fn onCurrentChanged(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QModelIndex, QModelIndex) callconv(.c) void) void {
         qtc.KFilePlacesView_OnCurrentChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `viewportSizeHint` instead
+    ///
+    pub const ViewportSizeHint = viewportSizeHint;
 
     /// Inherited from QListView
     ///
@@ -9435,13 +11767,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn ViewportSizeHint(self: KFilePlacesView) QSize {
+    pub fn viewportSizeHint(self: KFilePlacesView) QSize {
         return .{ .ptr = qtc.KFilePlacesView_ViewportSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperViewportSizeHint` instead
+    /// ### DEPRECATED: Use `superViewportSizeHint` instead
     ///
-    pub const QBaseViewportSizeHint = SuperViewportSizeHint;
+    pub const SuperViewportSizeHint = superViewportSizeHint;
 
     /// Inherited from QListView
     ///
@@ -9453,9 +11785,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn SuperViewportSizeHint(self: KFilePlacesView) QSize {
+    pub fn superViewportSizeHint(self: KFilePlacesView) QSize {
         return .{ .ptr = qtc.KFilePlacesView_SuperViewportSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onViewportSizeHint` instead
+    ///
+    pub const OnViewportSizeHint = onViewportSizeHint;
 
     /// Inherited from QListView
     ///
@@ -9471,9 +11807,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnViewportSizeHint(self: KFilePlacesView, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onViewportSizeHint(self: KFilePlacesView, callback: *const fn () callconv(.c) QSize) void {
         qtc.KFilePlacesView_OnViewportSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setSelectionModel` instead
+    ///
+    pub const SetSelectionModel = setSelectionModel;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9485,16 +11825,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` selectionModel: QItemSelectionModel `
+    /// ` _selectionModel: QItemSelectionModel `
     ///
-    pub fn SetSelectionModel(self: KFilePlacesView, selectionModel: anytype) void {
-        comptime _ = @TypeOf(selectionModel)._is_QItemSelectionModel;
-        qtc.KFilePlacesView_SetSelectionModel(@ptrCast(self.ptr), @ptrCast(selectionModel.ptr));
+    pub fn setSelectionModel(self: KFilePlacesView, _selectionModel: anytype) void {
+        comptime _ = @TypeOf(_selectionModel)._is_QItemSelectionModel;
+        qtc.KFilePlacesView_SetSelectionModel(@ptrCast(self.ptr), @ptrCast(_selectionModel.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetSelectionModel` instead
+    /// ### DEPRECATED: Use `superSetSelectionModel` instead
     ///
-    pub const QBaseSetSelectionModel = SuperSetSelectionModel;
+    pub const SuperSetSelectionModel = superSetSelectionModel;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9506,12 +11846,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` selectionModel: QItemSelectionModel `
+    /// ` _selectionModel: QItemSelectionModel `
     ///
-    pub fn SuperSetSelectionModel(self: KFilePlacesView, selectionModel: anytype) void {
-        comptime _ = @TypeOf(selectionModel)._is_QItemSelectionModel;
-        qtc.KFilePlacesView_SuperSetSelectionModel(@ptrCast(self.ptr), @ptrCast(selectionModel.ptr));
+    pub fn superSetSelectionModel(self: KFilePlacesView, _selectionModel: anytype) void {
+        comptime _ = @TypeOf(_selectionModel)._is_QItemSelectionModel;
+        qtc.KFilePlacesView_SuperSetSelectionModel(@ptrCast(self.ptr), @ptrCast(_selectionModel.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetSelectionModel` instead
+    ///
+    pub const OnSetSelectionModel = onSetSelectionModel;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9525,9 +11869,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, selectionModel: QItemSelectionModel) callconv(.c) void `
     ///
-    pub fn OnSetSelectionModel(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QItemSelectionModel) callconv(.c) void) void {
+    pub fn onSetSelectionModel(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QItemSelectionModel) callconv(.c) void) void {
         qtc.KFilePlacesView_OnSetSelectionModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyboardSearch` instead
+    ///
+    pub const KeyboardSearch = keyboardSearch;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9541,7 +11889,7 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` search: []const u8 `
     ///
-    pub fn KeyboardSearch(self: KFilePlacesView, search: []const u8) void {
+    pub fn keyboardSearch(self: KFilePlacesView, search: []const u8) void {
         const search_str = qtc.libqt_string{
             .len = search.len,
             .data = search.ptr,
@@ -9549,9 +11897,9 @@ pub const KFilePlacesView = extern struct {
         qtc.KFilePlacesView_KeyboardSearch(@ptrCast(self.ptr), search_str);
     }
 
-    /// ### DEPRECATED: Use `SuperKeyboardSearch` instead
+    /// ### DEPRECATED: Use `superKeyboardSearch` instead
     ///
-    pub const QBaseKeyboardSearch = SuperKeyboardSearch;
+    pub const SuperKeyboardSearch = superKeyboardSearch;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9565,13 +11913,17 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` search: []const u8 `
     ///
-    pub fn SuperKeyboardSearch(self: KFilePlacesView, search: []const u8) void {
+    pub fn superKeyboardSearch(self: KFilePlacesView, search: []const u8) void {
         const search_str = qtc.libqt_string{
             .len = search.len,
             .data = search.ptr,
         };
         qtc.KFilePlacesView_SuperKeyboardSearch(@ptrCast(self.ptr), search_str);
     }
+
+    /// ### DEPRECATED: Use `onKeyboardSearch` instead
+    ///
+    pub const OnKeyboardSearch = onKeyboardSearch;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9585,9 +11937,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, search: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnKeyboardSearch(self: KFilePlacesView, callback: *const fn (KFilePlacesView, [*:0]const u8) callconv(.c) void) void {
+    pub fn onKeyboardSearch(self: KFilePlacesView, callback: *const fn (KFilePlacesView, [*:0]const u8) callconv(.c) void) void {
         qtc.KFilePlacesView_OnKeyboardSearch(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sizeHintForRow` instead
+    ///
+    pub const SizeHintForRow = sizeHintForRow;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9601,13 +11957,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` row: i32 `
     ///
-    pub fn SizeHintForRow(self: KFilePlacesView, row: i32) i32 {
+    pub fn sizeHintForRow(self: KFilePlacesView, row: i32) i32 {
         return qtc.KFilePlacesView_SizeHintForRow(@ptrCast(self.ptr), @bitCast(row));
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHintForRow` instead
+    /// ### DEPRECATED: Use `superSizeHintForRow` instead
     ///
-    pub const QBaseSizeHintForRow = SuperSizeHintForRow;
+    pub const SuperSizeHintForRow = superSizeHintForRow;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9621,9 +11977,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` row: i32 `
     ///
-    pub fn SuperSizeHintForRow(self: KFilePlacesView, row: i32) i32 {
+    pub fn superSizeHintForRow(self: KFilePlacesView, row: i32) i32 {
         return qtc.KFilePlacesView_SuperSizeHintForRow(@ptrCast(self.ptr), @bitCast(row));
     }
+
+    /// ### DEPRECATED: Use `onSizeHintForRow` instead
+    ///
+    pub const OnSizeHintForRow = onSizeHintForRow;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9637,9 +11997,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, row: i32) callconv(.c) i32 `
     ///
-    pub fn OnSizeHintForRow(self: KFilePlacesView, callback: *const fn (KFilePlacesView, i32) callconv(.c) i32) void {
+    pub fn onSizeHintForRow(self: KFilePlacesView, callback: *const fn (KFilePlacesView, i32) callconv(.c) i32) void {
         qtc.KFilePlacesView_OnSizeHintForRow(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sizeHintForColumn` instead
+    ///
+    pub const SizeHintForColumn = sizeHintForColumn;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9653,13 +12017,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn SizeHintForColumn(self: KFilePlacesView, column: i32) i32 {
+    pub fn sizeHintForColumn(self: KFilePlacesView, column: i32) i32 {
         return qtc.KFilePlacesView_SizeHintForColumn(@ptrCast(self.ptr), @bitCast(column));
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHintForColumn` instead
+    /// ### DEPRECATED: Use `superSizeHintForColumn` instead
     ///
-    pub const QBaseSizeHintForColumn = SuperSizeHintForColumn;
+    pub const SuperSizeHintForColumn = superSizeHintForColumn;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9673,9 +12037,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn SuperSizeHintForColumn(self: KFilePlacesView, column: i32) i32 {
+    pub fn superSizeHintForColumn(self: KFilePlacesView, column: i32) i32 {
         return qtc.KFilePlacesView_SuperSizeHintForColumn(@ptrCast(self.ptr), @bitCast(column));
     }
+
+    /// ### DEPRECATED: Use `onSizeHintForColumn` instead
+    ///
+    pub const OnSizeHintForColumn = onSizeHintForColumn;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9689,9 +12057,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, column: i32) callconv(.c) i32 `
     ///
-    pub fn OnSizeHintForColumn(self: KFilePlacesView, callback: *const fn (KFilePlacesView, i32) callconv(.c) i32) void {
+    pub fn onSizeHintForColumn(self: KFilePlacesView, callback: *const fn (KFilePlacesView, i32) callconv(.c) i32) void {
         qtc.KFilePlacesView_OnSizeHintForColumn(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `itemDelegateForIndex` instead
+    ///
+    pub const ItemDelegateForIndex = itemDelegateForIndex;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9705,14 +12077,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn ItemDelegateForIndex(self: KFilePlacesView, index: anytype) QAbstractItemDelegate {
+    pub fn itemDelegateForIndex(self: KFilePlacesView, index: anytype) QAbstractItemDelegate {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.KFilePlacesView_ItemDelegateForIndex(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperItemDelegateForIndex` instead
+    /// ### DEPRECATED: Use `superItemDelegateForIndex` instead
     ///
-    pub const QBaseItemDelegateForIndex = SuperItemDelegateForIndex;
+    pub const SuperItemDelegateForIndex = superItemDelegateForIndex;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9726,10 +12098,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SuperItemDelegateForIndex(self: KFilePlacesView, index: anytype) QAbstractItemDelegate {
+    pub fn superItemDelegateForIndex(self: KFilePlacesView, index: anytype) QAbstractItemDelegate {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.KFilePlacesView_SuperItemDelegateForIndex(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onItemDelegateForIndex` instead
+    ///
+    pub const OnItemDelegateForIndex = onItemDelegateForIndex;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9743,9 +12119,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, index: QModelIndex) callconv(.c) QAbstractItemDelegate `
     ///
-    pub fn OnItemDelegateForIndex(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QModelIndex) callconv(.c) QAbstractItemDelegate) void {
+    pub fn onItemDelegateForIndex(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QModelIndex) callconv(.c) QAbstractItemDelegate) void {
         qtc.KFilePlacesView_OnItemDelegateForIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9759,13 +12139,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: KFilePlacesView, query: i32) QVariant {
+    pub fn inputMethodQuery(self: KFilePlacesView, query: i32) QVariant {
         return .{ .ptr = qtc.KFilePlacesView_InputMethodQuery(@ptrCast(self.ptr), @bitCast(query)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9779,9 +12159,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: KFilePlacesView, query: i32) QVariant {
+    pub fn superInputMethodQuery(self: KFilePlacesView, query: i32) QVariant {
         return .{ .ptr = qtc.KFilePlacesView_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(query)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9797,10 +12181,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: KFilePlacesView, callback: *const fn (KFilePlacesView, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: KFilePlacesView, callback: *const fn (KFilePlacesView, i32) callconv(.c) QVariant) void {
         qtc.KFilePlacesView_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `selectAll` instead
+    ///
+    pub const SelectAll = selectAll;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectAll)
@@ -9811,13 +12199,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn SelectAll(self: KFilePlacesView) void {
+    pub fn selectAll(self: KFilePlacesView) void {
         qtc.KFilePlacesView_SelectAll(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSelectAll` instead
+    /// ### DEPRECATED: Use `superSelectAll` instead
     ///
-    pub const QBaseSelectAll = SuperSelectAll;
+    pub const SuperSelectAll = superSelectAll;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9829,10 +12217,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn SuperSelectAll(self: KFilePlacesView) void {
+    pub fn superSelectAll(self: KFilePlacesView) void {
         qtc.KFilePlacesView_SuperSelectAll(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSelectAll` instead
+    ///
+    pub const OnSelectAll = onSelectAll;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectAll)
@@ -9845,10 +12237,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnSelectAll(self: KFilePlacesView, callback: *const fn () callconv(.c) void) void {
+    pub fn onSelectAll(self: KFilePlacesView, callback: *const fn () callconv(.c) void) void {
         qtc.KFilePlacesView_OnSelectAll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateEditorData` instead
+    ///
+    pub const UpdateEditorData = updateEditorData;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorData)
@@ -9859,13 +12255,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn UpdateEditorData(self: KFilePlacesView) void {
+    pub fn updateEditorData(self: KFilePlacesView) void {
         qtc.KFilePlacesView_UpdateEditorData(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateEditorData` instead
+    /// ### DEPRECATED: Use `superUpdateEditorData` instead
     ///
-    pub const QBaseUpdateEditorData = SuperUpdateEditorData;
+    pub const SuperUpdateEditorData = superUpdateEditorData;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9877,10 +12273,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn SuperUpdateEditorData(self: KFilePlacesView) void {
+    pub fn superUpdateEditorData(self: KFilePlacesView) void {
         qtc.KFilePlacesView_SuperUpdateEditorData(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateEditorData` instead
+    ///
+    pub const OnUpdateEditorData = onUpdateEditorData;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorData)
@@ -9893,9 +12293,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateEditorData(self: KFilePlacesView, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateEditorData(self: KFilePlacesView, callback: *const fn () callconv(.c) void) void {
         qtc.KFilePlacesView_OnUpdateEditorData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `updateEditorGeometries` instead
+    ///
+    pub const UpdateEditorGeometries = updateEditorGeometries;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9907,13 +12311,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn UpdateEditorGeometries(self: KFilePlacesView) void {
+    pub fn updateEditorGeometries(self: KFilePlacesView) void {
         qtc.KFilePlacesView_UpdateEditorGeometries(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateEditorGeometries` instead
+    /// ### DEPRECATED: Use `superUpdateEditorGeometries` instead
     ///
-    pub const QBaseUpdateEditorGeometries = SuperUpdateEditorGeometries;
+    pub const SuperUpdateEditorGeometries = superUpdateEditorGeometries;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9925,9 +12329,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn SuperUpdateEditorGeometries(self: KFilePlacesView) void {
+    pub fn superUpdateEditorGeometries(self: KFilePlacesView) void {
         qtc.KFilePlacesView_SuperUpdateEditorGeometries(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onUpdateEditorGeometries` instead
+    ///
+    pub const OnUpdateEditorGeometries = onUpdateEditorGeometries;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9941,10 +12349,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateEditorGeometries(self: KFilePlacesView, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateEditorGeometries(self: KFilePlacesView, callback: *const fn () callconv(.c) void) void {
         qtc.KFilePlacesView_OnUpdateEditorGeometries(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `verticalScrollbarAction` instead
+    ///
+    pub const VerticalScrollbarAction = verticalScrollbarAction;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarAction)
@@ -9957,13 +12369,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` action: i32 `
     ///
-    pub fn VerticalScrollbarAction(self: KFilePlacesView, action: i32) void {
+    pub fn verticalScrollbarAction(self: KFilePlacesView, action: i32) void {
         qtc.KFilePlacesView_VerticalScrollbarAction(@ptrCast(self.ptr), @bitCast(action));
     }
 
-    /// ### DEPRECATED: Use `SuperVerticalScrollbarAction` instead
+    /// ### DEPRECATED: Use `superVerticalScrollbarAction` instead
     ///
-    pub const QBaseVerticalScrollbarAction = SuperVerticalScrollbarAction;
+    pub const SuperVerticalScrollbarAction = superVerticalScrollbarAction;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9977,10 +12389,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` action: i32 `
     ///
-    pub fn SuperVerticalScrollbarAction(self: KFilePlacesView, action: i32) void {
+    pub fn superVerticalScrollbarAction(self: KFilePlacesView, action: i32) void {
         qtc.KFilePlacesView_SuperVerticalScrollbarAction(@ptrCast(self.ptr), @bitCast(action));
     }
 
+    /// ### DEPRECATED: Use `onVerticalScrollbarAction` instead
+    ///
+    pub const OnVerticalScrollbarAction = onVerticalScrollbarAction;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarAction)
@@ -9993,9 +12409,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, action: i32) callconv(.c) void `
     ///
-    pub fn OnVerticalScrollbarAction(self: KFilePlacesView, callback: *const fn (KFilePlacesView, i32) callconv(.c) void) void {
+    pub fn onVerticalScrollbarAction(self: KFilePlacesView, callback: *const fn (KFilePlacesView, i32) callconv(.c) void) void {
         qtc.KFilePlacesView_OnVerticalScrollbarAction(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `horizontalScrollbarAction` instead
+    ///
+    pub const HorizontalScrollbarAction = horizontalScrollbarAction;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10009,13 +12429,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` action: i32 `
     ///
-    pub fn HorizontalScrollbarAction(self: KFilePlacesView, action: i32) void {
+    pub fn horizontalScrollbarAction(self: KFilePlacesView, action: i32) void {
         qtc.KFilePlacesView_HorizontalScrollbarAction(@ptrCast(self.ptr), @bitCast(action));
     }
 
-    /// ### DEPRECATED: Use `SuperHorizontalScrollbarAction` instead
+    /// ### DEPRECATED: Use `superHorizontalScrollbarAction` instead
     ///
-    pub const QBaseHorizontalScrollbarAction = SuperHorizontalScrollbarAction;
+    pub const SuperHorizontalScrollbarAction = superHorizontalScrollbarAction;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10029,9 +12449,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` action: i32 `
     ///
-    pub fn SuperHorizontalScrollbarAction(self: KFilePlacesView, action: i32) void {
+    pub fn superHorizontalScrollbarAction(self: KFilePlacesView, action: i32) void {
         qtc.KFilePlacesView_SuperHorizontalScrollbarAction(@ptrCast(self.ptr), @bitCast(action));
     }
+
+    /// ### DEPRECATED: Use `onHorizontalScrollbarAction` instead
+    ///
+    pub const OnHorizontalScrollbarAction = onHorizontalScrollbarAction;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10045,10 +12469,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, action: i32) callconv(.c) void `
     ///
-    pub fn OnHorizontalScrollbarAction(self: KFilePlacesView, callback: *const fn (KFilePlacesView, i32) callconv(.c) void) void {
+    pub fn onHorizontalScrollbarAction(self: KFilePlacesView, callback: *const fn (KFilePlacesView, i32) callconv(.c) void) void {
         qtc.KFilePlacesView_OnHorizontalScrollbarAction(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `verticalScrollbarValueChanged` instead
+    ///
+    pub const VerticalScrollbarValueChanged = verticalScrollbarValueChanged;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarValueChanged)
@@ -10061,13 +12489,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` value: i32 `
     ///
-    pub fn VerticalScrollbarValueChanged(self: KFilePlacesView, value: i32) void {
+    pub fn verticalScrollbarValueChanged(self: KFilePlacesView, value: i32) void {
         qtc.KFilePlacesView_VerticalScrollbarValueChanged(@ptrCast(self.ptr), @bitCast(value));
     }
 
-    /// ### DEPRECATED: Use `SuperVerticalScrollbarValueChanged` instead
+    /// ### DEPRECATED: Use `superVerticalScrollbarValueChanged` instead
     ///
-    pub const QBaseVerticalScrollbarValueChanged = SuperVerticalScrollbarValueChanged;
+    pub const SuperVerticalScrollbarValueChanged = superVerticalScrollbarValueChanged;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10081,9 +12509,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` value: i32 `
     ///
-    pub fn SuperVerticalScrollbarValueChanged(self: KFilePlacesView, value: i32) void {
+    pub fn superVerticalScrollbarValueChanged(self: KFilePlacesView, value: i32) void {
         qtc.KFilePlacesView_SuperVerticalScrollbarValueChanged(@ptrCast(self.ptr), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `onVerticalScrollbarValueChanged` instead
+    ///
+    pub const OnVerticalScrollbarValueChanged = onVerticalScrollbarValueChanged;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10097,9 +12529,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, value: i32) callconv(.c) void `
     ///
-    pub fn OnVerticalScrollbarValueChanged(self: KFilePlacesView, callback: *const fn (KFilePlacesView, i32) callconv(.c) void) void {
+    pub fn onVerticalScrollbarValueChanged(self: KFilePlacesView, callback: *const fn (KFilePlacesView, i32) callconv(.c) void) void {
         qtc.KFilePlacesView_OnVerticalScrollbarValueChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `horizontalScrollbarValueChanged` instead
+    ///
+    pub const HorizontalScrollbarValueChanged = horizontalScrollbarValueChanged;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10113,13 +12549,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` value: i32 `
     ///
-    pub fn HorizontalScrollbarValueChanged(self: KFilePlacesView, value: i32) void {
+    pub fn horizontalScrollbarValueChanged(self: KFilePlacesView, value: i32) void {
         qtc.KFilePlacesView_HorizontalScrollbarValueChanged(@ptrCast(self.ptr), @bitCast(value));
     }
 
-    /// ### DEPRECATED: Use `SuperHorizontalScrollbarValueChanged` instead
+    /// ### DEPRECATED: Use `superHorizontalScrollbarValueChanged` instead
     ///
-    pub const QBaseHorizontalScrollbarValueChanged = SuperHorizontalScrollbarValueChanged;
+    pub const SuperHorizontalScrollbarValueChanged = superHorizontalScrollbarValueChanged;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10133,9 +12569,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` value: i32 `
     ///
-    pub fn SuperHorizontalScrollbarValueChanged(self: KFilePlacesView, value: i32) void {
+    pub fn superHorizontalScrollbarValueChanged(self: KFilePlacesView, value: i32) void {
         qtc.KFilePlacesView_SuperHorizontalScrollbarValueChanged(@ptrCast(self.ptr), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `onHorizontalScrollbarValueChanged` instead
+    ///
+    pub const OnHorizontalScrollbarValueChanged = onHorizontalScrollbarValueChanged;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10149,9 +12589,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, value: i32) callconv(.c) void `
     ///
-    pub fn OnHorizontalScrollbarValueChanged(self: KFilePlacesView, callback: *const fn (KFilePlacesView, i32) callconv(.c) void) void {
+    pub fn onHorizontalScrollbarValueChanged(self: KFilePlacesView, callback: *const fn (KFilePlacesView, i32) callconv(.c) void) void {
         qtc.KFilePlacesView_OnHorizontalScrollbarValueChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEditor` instead
+    ///
+    pub const CloseEditor = closeEditor;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10167,14 +12611,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` hint: qabstractitemdelegate_enums.EndEditHint `
     ///
-    pub fn CloseEditor(self: KFilePlacesView, editor: anytype, hint: i32) void {
+    pub fn closeEditor(self: KFilePlacesView, editor: anytype, hint: i32) void {
         comptime _ = @TypeOf(editor)._is_QWidget;
         qtc.KFilePlacesView_CloseEditor(@ptrCast(self.ptr), @ptrCast(editor.ptr), @bitCast(hint));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEditor` instead
+    /// ### DEPRECATED: Use `superCloseEditor` instead
     ///
-    pub const QBaseCloseEditor = SuperCloseEditor;
+    pub const SuperCloseEditor = superCloseEditor;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10190,10 +12634,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` hint: qabstractitemdelegate_enums.EndEditHint `
     ///
-    pub fn SuperCloseEditor(self: KFilePlacesView, editor: anytype, hint: i32) void {
+    pub fn superCloseEditor(self: KFilePlacesView, editor: anytype, hint: i32) void {
         comptime _ = @TypeOf(editor)._is_QWidget;
         qtc.KFilePlacesView_SuperCloseEditor(@ptrCast(self.ptr), @ptrCast(editor.ptr), @bitCast(hint));
     }
+
+    /// ### DEPRECATED: Use `onCloseEditor` instead
+    ///
+    pub const OnCloseEditor = onCloseEditor;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10207,9 +12655,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, editor: QWidget, hint: qabstractitemdelegate_enums.EndEditHint) callconv(.c) void `
     ///
-    pub fn OnCloseEditor(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QWidget, i32) callconv(.c) void) void {
+    pub fn onCloseEditor(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QWidget, i32) callconv(.c) void) void {
         qtc.KFilePlacesView_OnCloseEditor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `commitData` instead
+    ///
+    pub const CommitData = commitData;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10223,14 +12675,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` editor: QWidget `
     ///
-    pub fn CommitData(self: KFilePlacesView, editor: anytype) void {
+    pub fn commitData(self: KFilePlacesView, editor: anytype) void {
         comptime _ = @TypeOf(editor)._is_QWidget;
         qtc.KFilePlacesView_CommitData(@ptrCast(self.ptr), @ptrCast(editor.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCommitData` instead
+    /// ### DEPRECATED: Use `superCommitData` instead
     ///
-    pub const QBaseCommitData = SuperCommitData;
+    pub const SuperCommitData = superCommitData;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10244,10 +12696,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` editor: QWidget `
     ///
-    pub fn SuperCommitData(self: KFilePlacesView, editor: anytype) void {
+    pub fn superCommitData(self: KFilePlacesView, editor: anytype) void {
         comptime _ = @TypeOf(editor)._is_QWidget;
         qtc.KFilePlacesView_SuperCommitData(@ptrCast(self.ptr), @ptrCast(editor.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCommitData` instead
+    ///
+    pub const OnCommitData = onCommitData;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10261,9 +12717,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, editor: QWidget) callconv(.c) void `
     ///
-    pub fn OnCommitData(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QWidget) callconv(.c) void) void {
+    pub fn onCommitData(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QWidget) callconv(.c) void) void {
         qtc.KFilePlacesView_OnCommitData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `editorDestroyed` instead
+    ///
+    pub const EditorDestroyed = editorDestroyed;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10277,14 +12737,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` editor: QObject `
     ///
-    pub fn EditorDestroyed(self: KFilePlacesView, editor: anytype) void {
+    pub fn editorDestroyed(self: KFilePlacesView, editor: anytype) void {
         comptime _ = @TypeOf(editor)._is_QObject;
         qtc.KFilePlacesView_EditorDestroyed(@ptrCast(self.ptr), @ptrCast(editor.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEditorDestroyed` instead
+    /// ### DEPRECATED: Use `superEditorDestroyed` instead
     ///
-    pub const QBaseEditorDestroyed = SuperEditorDestroyed;
+    pub const SuperEditorDestroyed = superEditorDestroyed;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10298,10 +12758,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` editor: QObject `
     ///
-    pub fn SuperEditorDestroyed(self: KFilePlacesView, editor: anytype) void {
+    pub fn superEditorDestroyed(self: KFilePlacesView, editor: anytype) void {
         comptime _ = @TypeOf(editor)._is_QObject;
         qtc.KFilePlacesView_SuperEditorDestroyed(@ptrCast(self.ptr), @ptrCast(editor.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEditorDestroyed` instead
+    ///
+    pub const OnEditorDestroyed = onEditorDestroyed;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10315,9 +12779,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, editor: QObject) callconv(.c) void `
     ///
-    pub fn OnEditorDestroyed(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QObject) callconv(.c) void) void {
+    pub fn onEditorDestroyed(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QObject) callconv(.c) void) void {
         qtc.KFilePlacesView_OnEditorDestroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `edit2` instead
+    ///
+    pub const Edit2 = edit2;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10333,17 +12801,17 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` trigger: qabstractitemview_enums.EditTrigger `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Edit2(self: KFilePlacesView, index: anytype, trigger: i32, event: anytype) bool {
+    pub fn edit2(self: KFilePlacesView, index: anytype, trigger: i32, _event: anytype) bool {
         comptime _ = @TypeOf(index)._is_QModelIndex;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KFilePlacesView_Edit2(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(trigger), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KFilePlacesView_Edit2(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(trigger), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEdit2` instead
+    /// ### DEPRECATED: Use `superEdit2` instead
     ///
-    pub const QBaseEdit2 = SuperEdit2;
+    pub const SuperEdit2 = superEdit2;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10359,13 +12827,17 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` trigger: qabstractitemview_enums.EditTrigger `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEdit2(self: KFilePlacesView, index: anytype, trigger: i32, event: anytype) bool {
+    pub fn superEdit2(self: KFilePlacesView, index: anytype, trigger: i32, _event: anytype) bool {
         comptime _ = @TypeOf(index)._is_QModelIndex;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KFilePlacesView_SuperEdit2(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(trigger), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KFilePlacesView_SuperEdit2(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(trigger), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEdit2` instead
+    ///
+    pub const OnEdit2 = onEdit2;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10379,9 +12851,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, index: QModelIndex, trigger: qabstractitemview_enums.EditTrigger, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEdit2(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QModelIndex, i32, QEvent) callconv(.c) bool) void {
+    pub fn onEdit2(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QModelIndex, i32, QEvent) callconv(.c) bool) void {
         qtc.KFilePlacesView_OnEdit2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `selectionCommand` instead
+    ///
+    pub const SelectionCommand = selectionCommand;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10395,21 +12871,21 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
     /// ## Returns:
     ///
     /// ` flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn SelectionCommand(self: KFilePlacesView, index: anytype, event: anytype) i32 {
+    pub fn selectionCommand(self: KFilePlacesView, index: anytype, _event: anytype) i32 {
         comptime _ = @TypeOf(index)._is_QModelIndex;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KFilePlacesView_SelectionCommand(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KFilePlacesView_SelectionCommand(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSelectionCommand` instead
+    /// ### DEPRECATED: Use `superSelectionCommand` instead
     ///
-    pub const QBaseSelectionCommand = SuperSelectionCommand;
+    pub const SuperSelectionCommand = superSelectionCommand;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10423,17 +12899,21 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
     /// ## Returns:
     ///
     /// ` flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn SuperSelectionCommand(self: KFilePlacesView, index: anytype, event: anytype) i32 {
+    pub fn superSelectionCommand(self: KFilePlacesView, index: anytype, _event: anytype) i32 {
         comptime _ = @TypeOf(index)._is_QModelIndex;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KFilePlacesView_SuperSelectionCommand(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KFilePlacesView_SuperSelectionCommand(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSelectionCommand` instead
+    ///
+    pub const OnSelectionCommand = onSelectionCommand;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10447,9 +12927,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, index: QModelIndex, event: QEvent) callconv(.c) i32 `
     ///
-    pub fn OnSelectionCommand(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QModelIndex, QEvent) callconv(.c) i32) void {
+    pub fn onSelectionCommand(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QModelIndex, QEvent) callconv(.c) i32) void {
         qtc.KFilePlacesView_OnSelectionCommand(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10463,13 +12947,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: KFilePlacesView, next: bool) bool {
+    pub fn focusNextPrevChild(self: KFilePlacesView, next: bool) bool {
         return qtc.KFilePlacesView_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10483,9 +12967,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: KFilePlacesView, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: KFilePlacesView, next: bool) bool {
         return qtc.KFilePlacesView_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10499,9 +12987,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: KFilePlacesView, callback: *const fn (KFilePlacesView, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: KFilePlacesView, callback: *const fn (KFilePlacesView, bool) callconv(.c) bool) void {
         qtc.KFilePlacesView_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `viewportEvent` instead
+    ///
+    pub const ViewportEvent = viewportEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10513,16 +13005,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn ViewportEvent(self: KFilePlacesView, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KFilePlacesView_ViewportEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn viewportEvent(self: KFilePlacesView, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KFilePlacesView_ViewportEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperViewportEvent` instead
+    /// ### DEPRECATED: Use `superViewportEvent` instead
     ///
-    pub const QBaseViewportEvent = SuperViewportEvent;
+    pub const SuperViewportEvent = superViewportEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10534,12 +13026,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperViewportEvent(self: KFilePlacesView, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KFilePlacesView_SuperViewportEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superViewportEvent(self: KFilePlacesView, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KFilePlacesView_SuperViewportEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onViewportEvent` instead
+    ///
+    pub const OnViewportEvent = onViewportEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10553,9 +13049,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnViewportEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QEvent) callconv(.c) bool) void {
+    pub fn onViewportEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QEvent) callconv(.c) bool) void {
         qtc.KFilePlacesView_OnViewportEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10567,16 +13067,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: KFilePlacesView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KFilePlacesView_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: KFilePlacesView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KFilePlacesView_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10588,12 +13088,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: KFilePlacesView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KFilePlacesView_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: KFilePlacesView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KFilePlacesView_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10607,10 +13111,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QMouseEvent) callconv(.c) void) void {
         qtc.KFilePlacesView_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusInEvent)
@@ -10621,16 +13129,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: KFilePlacesView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KFilePlacesView_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusInEvent(self: KFilePlacesView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KFilePlacesView_FocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10642,12 +13150,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: KFilePlacesView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KFilePlacesView_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusInEvent(self: KFilePlacesView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KFilePlacesView_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10661,10 +13173,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QFocusEvent) callconv(.c) void) void {
         qtc.KFilePlacesView_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusOutEvent)
@@ -10675,16 +13191,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: KFilePlacesView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KFilePlacesView_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusOutEvent(self: KFilePlacesView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KFilePlacesView_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10696,12 +13212,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: KFilePlacesView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KFilePlacesView_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusOutEvent(self: KFilePlacesView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KFilePlacesView_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10715,9 +13235,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QFocusEvent) callconv(.c) void) void {
         qtc.KFilePlacesView_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10729,16 +13253,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` event: QInputMethodEvent `
+    /// ` _event: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: KFilePlacesView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QInputMethodEvent;
-        qtc.KFilePlacesView_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn inputMethodEvent(self: KFilePlacesView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QInputMethodEvent;
+        qtc.KFilePlacesView_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10750,12 +13274,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` event: QInputMethodEvent `
+    /// ` _event: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: KFilePlacesView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QInputMethodEvent;
-        qtc.KFilePlacesView_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superInputMethodEvent(self: KFilePlacesView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QInputMethodEvent;
+        qtc.KFilePlacesView_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10769,9 +13297,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, event: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QInputMethodEvent) callconv(.c) void) void {
         qtc.KFilePlacesView_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10785,17 +13317,17 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` object: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: KFilePlacesView, object: anytype, event: anytype) bool {
+    pub fn eventFilter(self: KFilePlacesView, object: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(object)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KFilePlacesView_EventFilter(@ptrCast(self.ptr), @ptrCast(object.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KFilePlacesView_EventFilter(@ptrCast(self.ptr), @ptrCast(object.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10809,13 +13341,17 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` object: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: KFilePlacesView, object: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: KFilePlacesView, object: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(object)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KFilePlacesView_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(object.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KFilePlacesView_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(object.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10829,9 +13365,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, object: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QObject, QEvent) callconv(.c) bool) void {
         qtc.KFilePlacesView_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -10843,13 +13383,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn MinimumSizeHint(self: KFilePlacesView) QSize {
+    pub fn minimumSizeHint(self: KFilePlacesView) QSize {
         return .{ .ptr = qtc.KFilePlacesView_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -10861,9 +13401,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn SuperMinimumSizeHint(self: KFilePlacesView) QSize {
+    pub fn superMinimumSizeHint(self: KFilePlacesView) QSize {
         return .{ .ptr = qtc.KFilePlacesView_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -10879,9 +13423,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: KFilePlacesView, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KFilePlacesView, callback: *const fn () callconv(.c) QSize) void {
         qtc.KFilePlacesView_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setupViewport` instead
+    ///
+    pub const SetupViewport = setupViewport;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -10893,16 +13441,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` viewport: QWidget `
+    /// ` _viewport: QWidget `
     ///
-    pub fn SetupViewport(self: KFilePlacesView, viewport: anytype) void {
-        comptime _ = @TypeOf(viewport)._is_QWidget;
-        qtc.KFilePlacesView_SetupViewport(@ptrCast(self.ptr), @ptrCast(viewport.ptr));
+    pub fn setupViewport(self: KFilePlacesView, _viewport: anytype) void {
+        comptime _ = @TypeOf(_viewport)._is_QWidget;
+        qtc.KFilePlacesView_SetupViewport(@ptrCast(self.ptr), @ptrCast(_viewport.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetupViewport` instead
+    /// ### DEPRECATED: Use `superSetupViewport` instead
     ///
-    pub const QBaseSetupViewport = SuperSetupViewport;
+    pub const SuperSetupViewport = superSetupViewport;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -10914,12 +13462,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` viewport: QWidget `
+    /// ` _viewport: QWidget `
     ///
-    pub fn SuperSetupViewport(self: KFilePlacesView, viewport: anytype) void {
-        comptime _ = @TypeOf(viewport)._is_QWidget;
-        qtc.KFilePlacesView_SuperSetupViewport(@ptrCast(self.ptr), @ptrCast(viewport.ptr));
+    pub fn superSetupViewport(self: KFilePlacesView, _viewport: anytype) void {
+        comptime _ = @TypeOf(_viewport)._is_QWidget;
+        qtc.KFilePlacesView_SuperSetupViewport(@ptrCast(self.ptr), @ptrCast(_viewport.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetupViewport` instead
+    ///
+    pub const OnSetupViewport = onSetupViewport;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -10933,9 +13485,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, viewport: QWidget) callconv(.c) void `
     ///
-    pub fn OnSetupViewport(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QWidget) callconv(.c) void) void {
+    pub fn onSetupViewport(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QWidget) callconv(.c) void) void {
         qtc.KFilePlacesView_OnSetupViewport(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QFrame
     ///
@@ -10949,14 +13505,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: KFilePlacesView, param1: anytype) void {
+    pub fn changeEvent(self: KFilePlacesView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.KFilePlacesView_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QFrame
     ///
@@ -10970,10 +13526,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: KFilePlacesView, param1: anytype) void {
+    pub fn superChangeEvent(self: KFilePlacesView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.KFilePlacesView_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QFrame
     ///
@@ -10987,9 +13547,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QEvent) callconv(.c) void) void {
         qtc.KFilePlacesView_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initStyleOption` instead
+    ///
+    pub const InitStyleOption = initStyleOption;
 
     /// Inherited from QFrame
     ///
@@ -11003,14 +13567,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` option: QStyleOptionFrame `
     ///
-    pub fn InitStyleOption(self: KFilePlacesView, option: anytype) void {
+    pub fn initStyleOption(self: KFilePlacesView, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionFrame;
         qtc.KFilePlacesView_InitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitStyleOption` instead
+    /// ### DEPRECATED: Use `superInitStyleOption` instead
     ///
-    pub const QBaseInitStyleOption = SuperInitStyleOption;
+    pub const SuperInitStyleOption = superInitStyleOption;
 
     /// Inherited from QFrame
     ///
@@ -11024,10 +13588,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` option: QStyleOptionFrame `
     ///
-    pub fn SuperInitStyleOption(self: KFilePlacesView, option: anytype) void {
+    pub fn superInitStyleOption(self: KFilePlacesView, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionFrame;
         qtc.KFilePlacesView_SuperInitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitStyleOption` instead
+    ///
+    pub const OnInitStyleOption = onInitStyleOption;
 
     /// Inherited from QFrame
     ///
@@ -11041,9 +13609,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, option: QStyleOptionFrame) callconv(.c) void `
     ///
-    pub fn OnInitStyleOption(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QStyleOptionFrame) callconv(.c) void) void {
+    pub fn onInitStyleOption(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QStyleOptionFrame) callconv(.c) void) void {
         qtc.KFilePlacesView_OnInitStyleOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -11055,13 +13627,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn DevType(self: KFilePlacesView) i32 {
+    pub fn devType(self: KFilePlacesView) i32 {
         return qtc.KFilePlacesView_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -11073,9 +13645,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn SuperDevType(self: KFilePlacesView) i32 {
+    pub fn superDevType(self: KFilePlacesView) i32 {
         return qtc.KFilePlacesView_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -11089,9 +13665,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: KFilePlacesView, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KFilePlacesView, callback: *const fn () callconv(.c) i32) void {
         qtc.KFilePlacesView_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -11105,13 +13685,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: KFilePlacesView, visible: bool) void {
+    pub fn setVisible(self: KFilePlacesView, visible: bool) void {
         qtc.KFilePlacesView_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -11125,9 +13705,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: KFilePlacesView, visible: bool) void {
+    pub fn superSetVisible(self: KFilePlacesView, visible: bool) void {
         qtc.KFilePlacesView_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -11141,9 +13725,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: KFilePlacesView, callback: *const fn (KFilePlacesView, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: KFilePlacesView, callback: *const fn (KFilePlacesView, bool) callconv(.c) void) void {
         qtc.KFilePlacesView_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -11157,13 +13745,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: KFilePlacesView, param1: i32) i32 {
+    pub fn heightForWidth(self: KFilePlacesView, param1: i32) i32 {
         return qtc.KFilePlacesView_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -11177,9 +13765,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: KFilePlacesView, param1: i32) i32 {
+    pub fn superHeightForWidth(self: KFilePlacesView, param1: i32) i32 {
         return qtc.KFilePlacesView_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -11193,9 +13785,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: KFilePlacesView, callback: *const fn (KFilePlacesView, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: KFilePlacesView, callback: *const fn (KFilePlacesView, i32) callconv(.c) i32) void {
         qtc.KFilePlacesView_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -11207,13 +13803,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn HasHeightForWidth(self: KFilePlacesView) bool {
+    pub fn hasHeightForWidth(self: KFilePlacesView) bool {
         return qtc.KFilePlacesView_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -11225,9 +13821,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn SuperHasHeightForWidth(self: KFilePlacesView) bool {
+    pub fn superHasHeightForWidth(self: KFilePlacesView) bool {
         return qtc.KFilePlacesView_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -11241,9 +13841,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: KFilePlacesView, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KFilePlacesView, callback: *const fn () callconv(.c) bool) void {
         qtc.KFilePlacesView_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -11255,13 +13859,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn PaintEngine(self: KFilePlacesView) QPaintEngine {
+    pub fn paintEngine(self: KFilePlacesView) QPaintEngine {
         return .{ .ptr = qtc.KFilePlacesView_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -11273,9 +13877,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn SuperPaintEngine(self: KFilePlacesView) QPaintEngine {
+    pub fn superPaintEngine(self: KFilePlacesView) QPaintEngine {
         return .{ .ptr = qtc.KFilePlacesView_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -11289,9 +13897,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: KFilePlacesView, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KFilePlacesView, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.KFilePlacesView_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -11303,16 +13915,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: KFilePlacesView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KFilePlacesView_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyReleaseEvent(self: KFilePlacesView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KFilePlacesView_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -11324,12 +13936,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: KFilePlacesView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KFilePlacesView_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyReleaseEvent(self: KFilePlacesView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KFilePlacesView_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -11343,9 +13959,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QKeyEvent) callconv(.c) void) void {
         qtc.KFilePlacesView_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -11357,16 +13977,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: KFilePlacesView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KFilePlacesView_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: KFilePlacesView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KFilePlacesView_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -11378,12 +13998,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: KFilePlacesView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KFilePlacesView_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: KFilePlacesView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KFilePlacesView_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -11397,9 +14021,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QEnterEvent) callconv(.c) void) void {
         qtc.KFilePlacesView_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -11411,16 +14039,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: KFilePlacesView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KFilePlacesView_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: KFilePlacesView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KFilePlacesView_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -11432,12 +14060,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: KFilePlacesView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KFilePlacesView_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: KFilePlacesView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KFilePlacesView_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -11451,9 +14083,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QEvent) callconv(.c) void) void {
         qtc.KFilePlacesView_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -11465,16 +14101,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: KFilePlacesView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KFilePlacesView_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: KFilePlacesView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KFilePlacesView_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -11486,12 +14122,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: KFilePlacesView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KFilePlacesView_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: KFilePlacesView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KFilePlacesView_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -11505,9 +14145,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QMoveEvent) callconv(.c) void) void {
         qtc.KFilePlacesView_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -11519,16 +14163,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: KFilePlacesView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.KFilePlacesView_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: KFilePlacesView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.KFilePlacesView_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -11540,12 +14184,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: KFilePlacesView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.KFilePlacesView_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: KFilePlacesView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.KFilePlacesView_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -11559,9 +14207,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QCloseEvent) callconv(.c) void) void {
         qtc.KFilePlacesView_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -11573,16 +14225,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: KFilePlacesView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KFilePlacesView_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: KFilePlacesView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KFilePlacesView_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -11594,12 +14246,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: KFilePlacesView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KFilePlacesView_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: KFilePlacesView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KFilePlacesView_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -11613,9 +14269,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QTabletEvent) callconv(.c) void) void {
         qtc.KFilePlacesView_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -11627,16 +14287,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: KFilePlacesView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KFilePlacesView_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: KFilePlacesView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KFilePlacesView_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -11648,12 +14308,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: KFilePlacesView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KFilePlacesView_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: KFilePlacesView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KFilePlacesView_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -11667,9 +14331,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QActionEvent) callconv(.c) void) void {
         qtc.KFilePlacesView_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -11687,7 +14355,7 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: KFilePlacesView, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: KFilePlacesView, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -11695,9 +14363,9 @@ pub const KFilePlacesView = extern struct {
         return qtc.KFilePlacesView_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -11715,13 +14383,17 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: KFilePlacesView, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: KFilePlacesView, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.KFilePlacesView_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -11735,9 +14407,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KFilePlacesView_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -11751,13 +14427,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: KFilePlacesView, param1: i32) i32 {
+    pub fn metric(self: KFilePlacesView, param1: i32) i32 {
         return qtc.KFilePlacesView_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -11771,9 +14447,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: KFilePlacesView, param1: i32) i32 {
+    pub fn superMetric(self: KFilePlacesView, param1: i32) i32 {
         return qtc.KFilePlacesView_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -11787,9 +14467,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: KFilePlacesView, callback: *const fn (KFilePlacesView, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: KFilePlacesView, callback: *const fn (KFilePlacesView, i32) callconv(.c) i32) void {
         qtc.KFilePlacesView_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -11803,14 +14487,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: KFilePlacesView, painter: anytype) void {
+    pub fn initPainter(self: KFilePlacesView, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KFilePlacesView_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -11824,10 +14508,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: KFilePlacesView, painter: anytype) void {
+    pub fn superInitPainter(self: KFilePlacesView, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KFilePlacesView_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -11841,9 +14529,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QPainter) callconv(.c) void) void {
         qtc.KFilePlacesView_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -11857,14 +14549,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: KFilePlacesView, offset: anytype) QPaintDevice {
+    pub fn redirected(self: KFilePlacesView, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KFilePlacesView_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -11878,10 +14570,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: KFilePlacesView, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: KFilePlacesView, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KFilePlacesView_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -11895,9 +14591,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QPoint) callconv(.c) QPaintDevice) void {
         qtc.KFilePlacesView_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -11909,13 +14609,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn SharedPainter(self: KFilePlacesView) QPainter {
+    pub fn sharedPainter(self: KFilePlacesView) QPainter {
         return .{ .ptr = qtc.KFilePlacesView_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -11927,9 +14627,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn SuperSharedPainter(self: KFilePlacesView) QPainter {
+    pub fn superSharedPainter(self: KFilePlacesView) QPainter {
         return .{ .ptr = qtc.KFilePlacesView_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -11943,9 +14647,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: KFilePlacesView, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KFilePlacesView, callback: *const fn () callconv(.c) QPainter) void {
         qtc.KFilePlacesView_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -11957,16 +14665,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KFilePlacesView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KFilePlacesView_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KFilePlacesView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KFilePlacesView_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -11978,12 +14686,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KFilePlacesView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KFilePlacesView_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KFilePlacesView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KFilePlacesView_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -11997,9 +14709,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QChildEvent) callconv(.c) void) void {
         qtc.KFilePlacesView_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -12011,16 +14727,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KFilePlacesView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KFilePlacesView_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KFilePlacesView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KFilePlacesView_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -12032,12 +14748,16 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KFilePlacesView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KFilePlacesView_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KFilePlacesView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KFilePlacesView_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -12051,9 +14771,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QEvent) callconv(.c) void) void {
         qtc.KFilePlacesView_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -12067,14 +14791,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KFilePlacesView, signal: anytype) void {
+    pub fn connectNotify(self: KFilePlacesView, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KFilePlacesView_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -12088,11 +14812,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KFilePlacesView, signal: anytype) void {
+    pub fn superConnectNotify(self: KFilePlacesView, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KFilePlacesView_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -12105,9 +14833,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QMetaMethod) callconv(.c) void) void {
         qtc.KFilePlacesView_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -12121,14 +14853,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KFilePlacesView, signal: anytype) void {
+    pub fn disconnectNotify(self: KFilePlacesView, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KFilePlacesView_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -12142,10 +14874,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KFilePlacesView, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KFilePlacesView, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KFilePlacesView_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -12159,9 +14895,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QMetaMethod) callconv(.c) void) void {
         qtc.KFilePlacesView_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeContents` instead
+    ///
+    pub const ResizeContents = resizeContents;
 
     /// Inherited from QListView
     ///
@@ -12173,17 +14913,17 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` width: i32 `
+    /// ` _width: i32 `
     ///
-    /// ` height: i32 `
+    /// ` _height: i32 `
     ///
-    pub fn ResizeContents(self: KFilePlacesView, width: i32, height: i32) void {
-        qtc.KFilePlacesView_ResizeContents(@ptrCast(self.ptr), @bitCast(width), @bitCast(height));
+    pub fn resizeContents(self: KFilePlacesView, _width: i32, _height: i32) void {
+        qtc.KFilePlacesView_ResizeContents(@ptrCast(self.ptr), @bitCast(_width), @bitCast(_height));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeContents` instead
+    /// ### DEPRECATED: Use `superResizeContents` instead
     ///
-    pub const QBaseResizeContents = SuperResizeContents;
+    pub const SuperResizeContents = superResizeContents;
 
     /// Inherited from QListView
     ///
@@ -12195,13 +14935,17 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` width: i32 `
+    /// ` _width: i32 `
     ///
-    /// ` height: i32 `
+    /// ` _height: i32 `
     ///
-    pub fn SuperResizeContents(self: KFilePlacesView, width: i32, height: i32) void {
-        qtc.KFilePlacesView_SuperResizeContents(@ptrCast(self.ptr), @bitCast(width), @bitCast(height));
+    pub fn superResizeContents(self: KFilePlacesView, _width: i32, _height: i32) void {
+        qtc.KFilePlacesView_SuperResizeContents(@ptrCast(self.ptr), @bitCast(_width), @bitCast(_height));
     }
+
+    /// ### DEPRECATED: Use `onResizeContents` instead
+    ///
+    pub const OnResizeContents = onResizeContents;
 
     /// Inherited from QListView
     ///
@@ -12215,9 +14959,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, width: i32, height: i32) callconv(.c) void `
     ///
-    pub fn OnResizeContents(self: KFilePlacesView, callback: *const fn (KFilePlacesView, i32, i32) callconv(.c) void) void {
+    pub fn onResizeContents(self: KFilePlacesView, callback: *const fn (KFilePlacesView, i32, i32) callconv(.c) void) void {
         qtc.KFilePlacesView_OnResizeContents(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contentsSize` instead
+    ///
+    pub const ContentsSize = contentsSize;
 
     /// Inherited from QListView
     ///
@@ -12229,13 +14977,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn ContentsSize(self: KFilePlacesView) QSize {
+    pub fn contentsSize(self: KFilePlacesView) QSize {
         return .{ .ptr = qtc.KFilePlacesView_ContentsSize(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperContentsSize` instead
+    /// ### DEPRECATED: Use `superContentsSize` instead
     ///
-    pub const QBaseContentsSize = SuperContentsSize;
+    pub const SuperContentsSize = superContentsSize;
 
     /// Inherited from QListView
     ///
@@ -12247,9 +14995,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn SuperContentsSize(self: KFilePlacesView) QSize {
+    pub fn superContentsSize(self: KFilePlacesView) QSize {
         return .{ .ptr = qtc.KFilePlacesView_SuperContentsSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onContentsSize` instead
+    ///
+    pub const OnContentsSize = onContentsSize;
 
     /// Inherited from QListView
     ///
@@ -12265,9 +15017,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnContentsSize(self: KFilePlacesView, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onContentsSize(self: KFilePlacesView, callback: *const fn () callconv(.c) QSize) void {
         qtc.KFilePlacesView_OnContentsSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `rectForIndex` instead
+    ///
+    pub const RectForIndex = rectForIndex;
 
     /// Inherited from QListView
     ///
@@ -12281,14 +15037,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn RectForIndex(self: KFilePlacesView, index: anytype) QRect {
+    pub fn rectForIndex(self: KFilePlacesView, index: anytype) QRect {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.KFilePlacesView_RectForIndex(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRectForIndex` instead
+    /// ### DEPRECATED: Use `superRectForIndex` instead
     ///
-    pub const QBaseRectForIndex = SuperRectForIndex;
+    pub const SuperRectForIndex = superRectForIndex;
 
     /// Inherited from QListView
     ///
@@ -12302,10 +15058,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SuperRectForIndex(self: KFilePlacesView, index: anytype) QRect {
+    pub fn superRectForIndex(self: KFilePlacesView, index: anytype) QRect {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.KFilePlacesView_SuperRectForIndex(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRectForIndex` instead
+    ///
+    pub const OnRectForIndex = onRectForIndex;
 
     /// Inherited from QListView
     ///
@@ -12321,9 +15081,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnRectForIndex(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QModelIndex) callconv(.c) QRect) void {
+    pub fn onRectForIndex(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QModelIndex) callconv(.c) QRect) void {
         qtc.KFilePlacesView_OnRectForIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setPositionForIndex` instead
+    ///
+    pub const SetPositionForIndex = setPositionForIndex;
 
     /// Inherited from QListView
     ///
@@ -12339,15 +15103,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SetPositionForIndex(self: KFilePlacesView, position: anytype, index: anytype) void {
+    pub fn setPositionForIndex(self: KFilePlacesView, position: anytype, index: anytype) void {
         comptime _ = @TypeOf(position)._is_QPoint;
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.KFilePlacesView_SetPositionForIndex(@ptrCast(self.ptr), @ptrCast(position.ptr), @ptrCast(index.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetPositionForIndex` instead
+    /// ### DEPRECATED: Use `superSetPositionForIndex` instead
     ///
-    pub const QBaseSetPositionForIndex = SuperSetPositionForIndex;
+    pub const SuperSetPositionForIndex = superSetPositionForIndex;
 
     /// Inherited from QListView
     ///
@@ -12363,11 +15127,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SuperSetPositionForIndex(self: KFilePlacesView, position: anytype, index: anytype) void {
+    pub fn superSetPositionForIndex(self: KFilePlacesView, position: anytype, index: anytype) void {
         comptime _ = @TypeOf(position)._is_QPoint;
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.KFilePlacesView_SuperSetPositionForIndex(@ptrCast(self.ptr), @ptrCast(position.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetPositionForIndex` instead
+    ///
+    pub const OnSetPositionForIndex = onSetPositionForIndex;
 
     /// Inherited from QListView
     ///
@@ -12381,9 +15149,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, position: QPoint, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnSetPositionForIndex(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QPoint, QModelIndex) callconv(.c) void) void {
+    pub fn onSetPositionForIndex(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QPoint, QModelIndex) callconv(.c) void) void {
         qtc.KFilePlacesView_OnSetPositionForIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `state` instead
+    ///
+    pub const State = state;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12399,13 +15171,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` qabstractitemview_enums.State `
     ///
-    pub fn State(self: KFilePlacesView) i32 {
+    pub fn state(self: KFilePlacesView) i32 {
         return qtc.KFilePlacesView_State(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperState` instead
+    /// ### DEPRECATED: Use `superState` instead
     ///
-    pub const QBaseState = SuperState;
+    pub const SuperState = superState;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12421,9 +15193,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` qabstractitemview_enums.State `
     ///
-    pub fn SuperState(self: KFilePlacesView) i32 {
+    pub fn superState(self: KFilePlacesView) i32 {
         return qtc.KFilePlacesView_SuperState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onState` instead
+    ///
+    pub const OnState = onState;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12437,9 +15213,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnState(self: KFilePlacesView, callback: *const fn () callconv(.c) i32) void {
+    pub fn onState(self: KFilePlacesView, callback: *const fn () callconv(.c) i32) void {
         qtc.KFilePlacesView_OnState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setState` instead
+    ///
+    pub const SetState = setState;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12451,15 +15231,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` state: qabstractitemview_enums.State `
+    /// ` _state: qabstractitemview_enums.State `
     ///
-    pub fn SetState(self: KFilePlacesView, state: i32) void {
-        qtc.KFilePlacesView_SetState(@ptrCast(self.ptr), @bitCast(state));
+    pub fn setState(self: KFilePlacesView, _state: i32) void {
+        qtc.KFilePlacesView_SetState(@ptrCast(self.ptr), @bitCast(_state));
     }
 
-    /// ### DEPRECATED: Use `SuperSetState` instead
+    /// ### DEPRECATED: Use `superSetState` instead
     ///
-    pub const QBaseSetState = SuperSetState;
+    pub const SuperSetState = superSetState;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12471,11 +15251,15 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    /// ` state: qabstractitemview_enums.State `
+    /// ` _state: qabstractitemview_enums.State `
     ///
-    pub fn SuperSetState(self: KFilePlacesView, state: i32) void {
-        qtc.KFilePlacesView_SuperSetState(@ptrCast(self.ptr), @bitCast(state));
+    pub fn superSetState(self: KFilePlacesView, _state: i32) void {
+        qtc.KFilePlacesView_SuperSetState(@ptrCast(self.ptr), @bitCast(_state));
     }
+
+    /// ### DEPRECATED: Use `onSetState` instead
+    ///
+    pub const OnSetState = onSetState;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12489,10 +15273,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, state: qabstractitemview_enums.State) callconv(.c) void `
     ///
-    pub fn OnSetState(self: KFilePlacesView, callback: *const fn (KFilePlacesView, i32) callconv(.c) void) void {
+    pub fn onSetState(self: KFilePlacesView, callback: *const fn (KFilePlacesView, i32) callconv(.c) void) void {
         qtc.KFilePlacesView_OnSetState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `scheduleDelayedItemsLayout` instead
+    ///
+    pub const ScheduleDelayedItemsLayout = scheduleDelayedItemsLayout;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
@@ -12503,13 +15291,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn ScheduleDelayedItemsLayout(self: KFilePlacesView) void {
+    pub fn scheduleDelayedItemsLayout(self: KFilePlacesView) void {
         qtc.KFilePlacesView_ScheduleDelayedItemsLayout(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperScheduleDelayedItemsLayout` instead
+    /// ### DEPRECATED: Use `superScheduleDelayedItemsLayout` instead
     ///
-    pub const QBaseScheduleDelayedItemsLayout = SuperScheduleDelayedItemsLayout;
+    pub const SuperScheduleDelayedItemsLayout = superScheduleDelayedItemsLayout;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12521,9 +15309,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn SuperScheduleDelayedItemsLayout(self: KFilePlacesView) void {
+    pub fn superScheduleDelayedItemsLayout(self: KFilePlacesView) void {
         qtc.KFilePlacesView_SuperScheduleDelayedItemsLayout(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onScheduleDelayedItemsLayout` instead
+    ///
+    pub const OnScheduleDelayedItemsLayout = onScheduleDelayedItemsLayout;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12537,9 +15329,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnScheduleDelayedItemsLayout(self: KFilePlacesView, callback: *const fn () callconv(.c) void) void {
+    pub fn onScheduleDelayedItemsLayout(self: KFilePlacesView, callback: *const fn () callconv(.c) void) void {
         qtc.KFilePlacesView_OnScheduleDelayedItemsLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `executeDelayedItemsLayout` instead
+    ///
+    pub const ExecuteDelayedItemsLayout = executeDelayedItemsLayout;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12551,13 +15347,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn ExecuteDelayedItemsLayout(self: KFilePlacesView) void {
+    pub fn executeDelayedItemsLayout(self: KFilePlacesView) void {
         qtc.KFilePlacesView_ExecuteDelayedItemsLayout(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperExecuteDelayedItemsLayout` instead
+    /// ### DEPRECATED: Use `superExecuteDelayedItemsLayout` instead
     ///
-    pub const QBaseExecuteDelayedItemsLayout = SuperExecuteDelayedItemsLayout;
+    pub const SuperExecuteDelayedItemsLayout = superExecuteDelayedItemsLayout;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12569,9 +15365,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn SuperExecuteDelayedItemsLayout(self: KFilePlacesView) void {
+    pub fn superExecuteDelayedItemsLayout(self: KFilePlacesView) void {
         qtc.KFilePlacesView_SuperExecuteDelayedItemsLayout(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onExecuteDelayedItemsLayout` instead
+    ///
+    pub const OnExecuteDelayedItemsLayout = onExecuteDelayedItemsLayout;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12585,9 +15385,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnExecuteDelayedItemsLayout(self: KFilePlacesView, callback: *const fn () callconv(.c) void) void {
+    pub fn onExecuteDelayedItemsLayout(self: KFilePlacesView, callback: *const fn () callconv(.c) void) void {
         qtc.KFilePlacesView_OnExecuteDelayedItemsLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setDirtyRegion` instead
+    ///
+    pub const SetDirtyRegion = setDirtyRegion;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12601,14 +15405,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` region: QRegion `
     ///
-    pub fn SetDirtyRegion(self: KFilePlacesView, region: anytype) void {
+    pub fn setDirtyRegion(self: KFilePlacesView, region: anytype) void {
         comptime _ = @TypeOf(region)._is_QRegion;
         qtc.KFilePlacesView_SetDirtyRegion(@ptrCast(self.ptr), @ptrCast(region.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetDirtyRegion` instead
+    /// ### DEPRECATED: Use `superSetDirtyRegion` instead
     ///
-    pub const QBaseSetDirtyRegion = SuperSetDirtyRegion;
+    pub const SuperSetDirtyRegion = superSetDirtyRegion;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12622,10 +15426,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` region: QRegion `
     ///
-    pub fn SuperSetDirtyRegion(self: KFilePlacesView, region: anytype) void {
+    pub fn superSetDirtyRegion(self: KFilePlacesView, region: anytype) void {
         comptime _ = @TypeOf(region)._is_QRegion;
         qtc.KFilePlacesView_SuperSetDirtyRegion(@ptrCast(self.ptr), @ptrCast(region.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetDirtyRegion` instead
+    ///
+    pub const OnSetDirtyRegion = onSetDirtyRegion;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12639,9 +15447,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, region: QRegion) callconv(.c) void `
     ///
-    pub fn OnSetDirtyRegion(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QRegion) callconv(.c) void) void {
+    pub fn onSetDirtyRegion(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QRegion) callconv(.c) void) void {
         qtc.KFilePlacesView_OnSetDirtyRegion(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `scrollDirtyRegion` instead
+    ///
+    pub const ScrollDirtyRegion = scrollDirtyRegion;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12657,13 +15469,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn ScrollDirtyRegion(self: KFilePlacesView, dx: i32, dy: i32) void {
+    pub fn scrollDirtyRegion(self: KFilePlacesView, dx: i32, dy: i32) void {
         qtc.KFilePlacesView_ScrollDirtyRegion(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
-    /// ### DEPRECATED: Use `SuperScrollDirtyRegion` instead
+    /// ### DEPRECATED: Use `superScrollDirtyRegion` instead
     ///
-    pub const QBaseScrollDirtyRegion = SuperScrollDirtyRegion;
+    pub const SuperScrollDirtyRegion = superScrollDirtyRegion;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12679,9 +15491,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn SuperScrollDirtyRegion(self: KFilePlacesView, dx: i32, dy: i32) void {
+    pub fn superScrollDirtyRegion(self: KFilePlacesView, dx: i32, dy: i32) void {
         qtc.KFilePlacesView_SuperScrollDirtyRegion(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `onScrollDirtyRegion` instead
+    ///
+    pub const OnScrollDirtyRegion = onScrollDirtyRegion;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12695,9 +15511,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, dx: i32, dy: i32) callconv(.c) void `
     ///
-    pub fn OnScrollDirtyRegion(self: KFilePlacesView, callback: *const fn (KFilePlacesView, i32, i32) callconv(.c) void) void {
+    pub fn onScrollDirtyRegion(self: KFilePlacesView, callback: *const fn (KFilePlacesView, i32, i32) callconv(.c) void) void {
         qtc.KFilePlacesView_OnScrollDirtyRegion(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dirtyRegionOffset` instead
+    ///
+    pub const DirtyRegionOffset = dirtyRegionOffset;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12709,13 +15529,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn DirtyRegionOffset(self: KFilePlacesView) QPoint {
+    pub fn dirtyRegionOffset(self: KFilePlacesView) QPoint {
         return .{ .ptr = qtc.KFilePlacesView_DirtyRegionOffset(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperDirtyRegionOffset` instead
+    /// ### DEPRECATED: Use `superDirtyRegionOffset` instead
     ///
-    pub const QBaseDirtyRegionOffset = SuperDirtyRegionOffset;
+    pub const SuperDirtyRegionOffset = superDirtyRegionOffset;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12727,9 +15547,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn SuperDirtyRegionOffset(self: KFilePlacesView) QPoint {
+    pub fn superDirtyRegionOffset(self: KFilePlacesView) QPoint {
         return .{ .ptr = qtc.KFilePlacesView_SuperDirtyRegionOffset(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onDirtyRegionOffset` instead
+    ///
+    pub const OnDirtyRegionOffset = onDirtyRegionOffset;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12745,10 +15569,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnDirtyRegionOffset(self: KFilePlacesView, callback: *const fn () callconv(.c) QPoint) void {
+    pub fn onDirtyRegionOffset(self: KFilePlacesView, callback: *const fn () callconv(.c) QPoint) void {
         qtc.KFilePlacesView_OnDirtyRegionOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `startAutoScroll` instead
+    ///
+    pub const StartAutoScroll = startAutoScroll;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
@@ -12759,13 +15587,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn StartAutoScroll(self: KFilePlacesView) void {
+    pub fn startAutoScroll(self: KFilePlacesView) void {
         qtc.KFilePlacesView_StartAutoScroll(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperStartAutoScroll` instead
+    /// ### DEPRECATED: Use `superStartAutoScroll` instead
     ///
-    pub const QBaseStartAutoScroll = SuperStartAutoScroll;
+    pub const SuperStartAutoScroll = superStartAutoScroll;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12777,10 +15605,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn SuperStartAutoScroll(self: KFilePlacesView) void {
+    pub fn superStartAutoScroll(self: KFilePlacesView) void {
         qtc.KFilePlacesView_SuperStartAutoScroll(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onStartAutoScroll` instead
+    ///
+    pub const OnStartAutoScroll = onStartAutoScroll;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
@@ -12793,10 +15625,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnStartAutoScroll(self: KFilePlacesView, callback: *const fn () callconv(.c) void) void {
+    pub fn onStartAutoScroll(self: KFilePlacesView, callback: *const fn () callconv(.c) void) void {
         qtc.KFilePlacesView_OnStartAutoScroll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `stopAutoScroll` instead
+    ///
+    pub const StopAutoScroll = stopAutoScroll;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
@@ -12807,13 +15643,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn StopAutoScroll(self: KFilePlacesView) void {
+    pub fn stopAutoScroll(self: KFilePlacesView) void {
         qtc.KFilePlacesView_StopAutoScroll(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperStopAutoScroll` instead
+    /// ### DEPRECATED: Use `superStopAutoScroll` instead
     ///
-    pub const QBaseStopAutoScroll = SuperStopAutoScroll;
+    pub const SuperStopAutoScroll = superStopAutoScroll;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12825,10 +15661,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn SuperStopAutoScroll(self: KFilePlacesView) void {
+    pub fn superStopAutoScroll(self: KFilePlacesView) void {
         qtc.KFilePlacesView_SuperStopAutoScroll(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onStopAutoScroll` instead
+    ///
+    pub const OnStopAutoScroll = onStopAutoScroll;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
@@ -12841,9 +15681,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnStopAutoScroll(self: KFilePlacesView, callback: *const fn () callconv(.c) void) void {
+    pub fn onStopAutoScroll(self: KFilePlacesView, callback: *const fn () callconv(.c) void) void {
         qtc.KFilePlacesView_OnStopAutoScroll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `doAutoScroll` instead
+    ///
+    pub const DoAutoScroll = doAutoScroll;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12855,13 +15699,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn DoAutoScroll(self: KFilePlacesView) void {
+    pub fn doAutoScroll(self: KFilePlacesView) void {
         qtc.KFilePlacesView_DoAutoScroll(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDoAutoScroll` instead
+    /// ### DEPRECATED: Use `superDoAutoScroll` instead
     ///
-    pub const QBaseDoAutoScroll = SuperDoAutoScroll;
+    pub const SuperDoAutoScroll = superDoAutoScroll;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12873,9 +15717,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn SuperDoAutoScroll(self: KFilePlacesView) void {
+    pub fn superDoAutoScroll(self: KFilePlacesView) void {
         qtc.KFilePlacesView_SuperDoAutoScroll(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDoAutoScroll` instead
+    ///
+    pub const OnDoAutoScroll = onDoAutoScroll;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12889,9 +15737,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDoAutoScroll(self: KFilePlacesView, callback: *const fn () callconv(.c) void) void {
+    pub fn onDoAutoScroll(self: KFilePlacesView, callback: *const fn () callconv(.c) void) void {
         qtc.KFilePlacesView_OnDoAutoScroll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropIndicatorPosition` instead
+    ///
+    pub const DropIndicatorPosition = dropIndicatorPosition;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12907,13 +15759,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` qabstractitemview_enums.DropIndicatorPosition `
     ///
-    pub fn DropIndicatorPosition(self: KFilePlacesView) i32 {
+    pub fn dropIndicatorPosition(self: KFilePlacesView) i32 {
         return qtc.KFilePlacesView_DropIndicatorPosition(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropIndicatorPosition` instead
+    /// ### DEPRECATED: Use `superDropIndicatorPosition` instead
     ///
-    pub const QBaseDropIndicatorPosition = SuperDropIndicatorPosition;
+    pub const SuperDropIndicatorPosition = superDropIndicatorPosition;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12929,9 +15781,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` qabstractitemview_enums.DropIndicatorPosition `
     ///
-    pub fn SuperDropIndicatorPosition(self: KFilePlacesView) i32 {
+    pub fn superDropIndicatorPosition(self: KFilePlacesView) i32 {
         return qtc.KFilePlacesView_SuperDropIndicatorPosition(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropIndicatorPosition` instead
+    ///
+    pub const OnDropIndicatorPosition = onDropIndicatorPosition;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12945,9 +15801,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDropIndicatorPosition(self: KFilePlacesView, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDropIndicatorPosition(self: KFilePlacesView, callback: *const fn () callconv(.c) i32) void {
         qtc.KFilePlacesView_OnDropIndicatorPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setViewportMargins` instead
+    ///
+    pub const SetViewportMargins = setViewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -12967,13 +15827,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetViewportMargins(self: KFilePlacesView, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setViewportMargins(self: KFilePlacesView, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.KFilePlacesView_SetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
-    /// ### DEPRECATED: Use `SuperSetViewportMargins` instead
+    /// ### DEPRECATED: Use `superSetViewportMargins` instead
     ///
-    pub const QBaseSetViewportMargins = SuperSetViewportMargins;
+    pub const SuperSetViewportMargins = superSetViewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -12993,9 +15853,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SuperSetViewportMargins(self: KFilePlacesView, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn superSetViewportMargins(self: KFilePlacesView, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.KFilePlacesView_SuperSetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `onSetViewportMargins` instead
+    ///
+    pub const OnSetViewportMargins = onSetViewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -13009,9 +15873,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, left: i32, top: i32, right: i32, bottom: i32) callconv(.c) void `
     ///
-    pub fn OnSetViewportMargins(self: KFilePlacesView, callback: *const fn (KFilePlacesView, i32, i32, i32, i32) callconv(.c) void) void {
+    pub fn onSetViewportMargins(self: KFilePlacesView, callback: *const fn (KFilePlacesView, i32, i32, i32, i32) callconv(.c) void) void {
         qtc.KFilePlacesView_OnSetViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `viewportMargins` instead
+    ///
+    pub const ViewportMargins = viewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -13023,13 +15891,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn ViewportMargins(self: KFilePlacesView) QMargins {
+    pub fn viewportMargins(self: KFilePlacesView) QMargins {
         return .{ .ptr = qtc.KFilePlacesView_ViewportMargins(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperViewportMargins` instead
+    /// ### DEPRECATED: Use `superViewportMargins` instead
     ///
-    pub const QBaseViewportMargins = SuperViewportMargins;
+    pub const SuperViewportMargins = superViewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -13041,9 +15909,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn SuperViewportMargins(self: KFilePlacesView) QMargins {
+    pub fn superViewportMargins(self: KFilePlacesView) QMargins {
         return .{ .ptr = qtc.KFilePlacesView_SuperViewportMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onViewportMargins` instead
+    ///
+    pub const OnViewportMargins = onViewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -13059,9 +15931,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnViewportMargins(self: KFilePlacesView, callback: *const fn () callconv(.c) QMargins) void {
+    pub fn onViewportMargins(self: KFilePlacesView, callback: *const fn () callconv(.c) QMargins) void {
         qtc.KFilePlacesView_OnViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `drawFrame` instead
+    ///
+    pub const DrawFrame = drawFrame;
 
     /// Inherited from QFrame
     ///
@@ -13075,14 +15951,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` param1: QPainter `
     ///
-    pub fn DrawFrame(self: KFilePlacesView, param1: anytype) void {
+    pub fn drawFrame(self: KFilePlacesView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPainter;
         qtc.KFilePlacesView_DrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawFrame` instead
+    /// ### DEPRECATED: Use `superDrawFrame` instead
     ///
-    pub const QBaseDrawFrame = SuperDrawFrame;
+    pub const SuperDrawFrame = superDrawFrame;
 
     /// Inherited from QFrame
     ///
@@ -13096,10 +15972,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` param1: QPainter `
     ///
-    pub fn SuperDrawFrame(self: KFilePlacesView, param1: anytype) void {
+    pub fn superDrawFrame(self: KFilePlacesView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPainter;
         qtc.KFilePlacesView_SuperDrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDrawFrame` instead
+    ///
+    pub const OnDrawFrame = onDrawFrame;
 
     /// Inherited from QFrame
     ///
@@ -13113,10 +15993,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, param1: QPainter) callconv(.c) void `
     ///
-    pub fn OnDrawFrame(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QPainter) callconv(.c) void) void {
+    pub fn onDrawFrame(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QPainter) callconv(.c) void) void {
         qtc.KFilePlacesView_OnDrawFrame(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -13127,13 +16011,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn UpdateMicroFocus(self: KFilePlacesView) void {
+    pub fn updateMicroFocus(self: KFilePlacesView) void {
         qtc.KFilePlacesView_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -13145,10 +16029,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn SuperUpdateMicroFocus(self: KFilePlacesView) void {
+    pub fn superUpdateMicroFocus(self: KFilePlacesView) void {
         qtc.KFilePlacesView_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -13161,10 +16049,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: KFilePlacesView, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: KFilePlacesView, callback: *const fn () callconv(.c) void) void {
         qtc.KFilePlacesView_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -13175,13 +16067,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn Create(self: KFilePlacesView) void {
+    pub fn create(self: KFilePlacesView) void {
         qtc.KFilePlacesView_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -13193,10 +16085,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn SuperCreate(self: KFilePlacesView) void {
+    pub fn superCreate(self: KFilePlacesView) void {
         qtc.KFilePlacesView_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -13209,9 +16105,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: KFilePlacesView, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: KFilePlacesView, callback: *const fn () callconv(.c) void) void {
         qtc.KFilePlacesView_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -13223,13 +16123,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn Destroy(self: KFilePlacesView) void {
+    pub fn destroy(self: KFilePlacesView) void {
         qtc.KFilePlacesView_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -13241,9 +16141,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn SuperDestroy(self: KFilePlacesView) void {
+    pub fn superDestroy(self: KFilePlacesView) void {
         qtc.KFilePlacesView_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -13257,10 +16161,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: KFilePlacesView, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: KFilePlacesView, callback: *const fn () callconv(.c) void) void {
         qtc.KFilePlacesView_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -13271,13 +16179,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn FocusNextChild(self: KFilePlacesView) bool {
+    pub fn focusNextChild(self: KFilePlacesView) bool {
         return qtc.KFilePlacesView_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -13289,10 +16197,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn SuperFocusNextChild(self: KFilePlacesView) bool {
+    pub fn superFocusNextChild(self: KFilePlacesView) bool {
         return qtc.KFilePlacesView_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -13305,9 +16217,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: KFilePlacesView, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: KFilePlacesView, callback: *const fn () callconv(.c) bool) void {
         qtc.KFilePlacesView_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -13319,13 +16235,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn FocusPreviousChild(self: KFilePlacesView) bool {
+    pub fn focusPreviousChild(self: KFilePlacesView) bool {
         return qtc.KFilePlacesView_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -13337,9 +16253,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn SuperFocusPreviousChild(self: KFilePlacesView) bool {
+    pub fn superFocusPreviousChild(self: KFilePlacesView) bool {
         return qtc.KFilePlacesView_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -13353,9 +16273,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: KFilePlacesView, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: KFilePlacesView, callback: *const fn () callconv(.c) bool) void {
         qtc.KFilePlacesView_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -13367,13 +16291,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn Sender(self: KFilePlacesView) QObject {
+    pub fn sender(self: KFilePlacesView) QObject {
         return .{ .ptr = qtc.KFilePlacesView_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -13385,9 +16309,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn SuperSender(self: KFilePlacesView) QObject {
+    pub fn superSender(self: KFilePlacesView) QObject {
         return .{ .ptr = qtc.KFilePlacesView_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -13401,9 +16329,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KFilePlacesView, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KFilePlacesView, callback: *const fn () callconv(.c) QObject) void {
         qtc.KFilePlacesView_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -13415,13 +16347,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn SenderSignalIndex(self: KFilePlacesView) i32 {
+    pub fn senderSignalIndex(self: KFilePlacesView) i32 {
         return qtc.KFilePlacesView_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -13433,9 +16365,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn SuperSenderSignalIndex(self: KFilePlacesView) i32 {
+    pub fn superSenderSignalIndex(self: KFilePlacesView) i32 {
         return qtc.KFilePlacesView_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -13449,9 +16385,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KFilePlacesView, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KFilePlacesView, callback: *const fn () callconv(.c) i32) void {
         qtc.KFilePlacesView_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -13465,14 +16405,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KFilePlacesView, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KFilePlacesView, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KFilePlacesView_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -13486,10 +16426,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KFilePlacesView, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KFilePlacesView, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KFilePlacesView_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -13503,9 +16447,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KFilePlacesView, callback: *const fn (KFilePlacesView, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KFilePlacesView, callback: *const fn (KFilePlacesView, [*:0]const u8) callconv(.c) i32) void {
         qtc.KFilePlacesView_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -13519,14 +16467,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KFilePlacesView, signal: anytype) bool {
+    pub fn isSignalConnected(self: KFilePlacesView, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KFilePlacesView_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -13540,10 +16488,14 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KFilePlacesView, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KFilePlacesView, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KFilePlacesView_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -13557,9 +16509,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KFilePlacesView, callback: *const fn (KFilePlacesView, QMetaMethod) callconv(.c) bool) void {
         qtc.KFilePlacesView_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -13575,13 +16531,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: KFilePlacesView, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: KFilePlacesView, metricA: i32, metricB: i32) f64 {
         return qtc.KFilePlacesView_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -13597,9 +16553,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: KFilePlacesView, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: KFilePlacesView, metricA: i32, metricB: i32) f64 {
         return qtc.KFilePlacesView_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -13613,9 +16573,13 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: KFilePlacesView, callback: *const fn (KFilePlacesView, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: KFilePlacesView, callback: *const fn (KFilePlacesView, i32, i32) callconv(.c) f64) void {
         qtc.KFilePlacesView_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -13629,23 +16593,23 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` callback: *const fn (self: KFilePlacesView, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KFilePlacesView, callback: *const fn (KFilePlacesView, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KFilePlacesView, callback: *const fn (KFilePlacesView, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kfileplacesview.html#dtor.KFilePlacesView)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KFilePlacesView `
     ///
-    pub fn Delete(self: KFilePlacesView) void {
+    pub fn delete(self: KFilePlacesView) void {
         qtc.KFilePlacesView_Delete(@ptrCast(self.ptr));
     }
 };

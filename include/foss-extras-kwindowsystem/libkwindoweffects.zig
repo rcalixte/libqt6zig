@@ -14,15 +14,23 @@ pub const KWindowEffects = extern struct {
 
     pub const _is_KWindowEffects = {};
 
+    /// ### DEPRECATED: Use `isEffectAvailable` instead
+    ///
+    pub const IsEffectAvailable = isEffectAvailable;
+
     /// ### [Upstream resources](https://api.kde.org/kwindoweffects.html#isEffectAvailable)
     ///
     /// ## Parameter(s):
     ///
     /// ` effect: kwindoweffects_enums.Effect `
     ///
-    pub fn IsEffectAvailable(effect: i32) bool {
+    pub fn isEffectAvailable(effect: i32) bool {
         return qtc.KWindowEffects_IsEffectAvailable(@bitCast(effect));
     }
+
+    /// ### DEPRECATED: Use `enableBlurBehind` instead
+    ///
+    pub const EnableBlurBehind = enableBlurBehind;
 
     /// ### [Upstream resources](https://api.kde.org/kwindoweffects.html#enableBlurBehind)
     ///
@@ -34,11 +42,15 @@ pub const KWindowEffects = extern struct {
     ///
     /// ` region: QRegion `
     ///
-    pub fn EnableBlurBehind(window: anytype, enable: bool, region: anytype) void {
+    pub fn enableBlurBehind(window: anytype, enable: bool, region: anytype) void {
         comptime _ = @TypeOf(window)._is_QWindow;
         comptime _ = @TypeOf(region)._is_QRegion;
         qtc.KWindowEffects_EnableBlurBehind(@ptrCast(window.ptr), enable, @ptrCast(region.ptr));
     }
+
+    /// ### DEPRECATED: Use `enableBackgroundContrast` instead
+    ///
+    pub const EnableBackgroundContrast = enableBackgroundContrast;
 
     /// ### [Upstream resources](https://api.kde.org/kwindoweffects.html#enableBackgroundContrast)
     ///
@@ -56,11 +68,15 @@ pub const KWindowEffects = extern struct {
     ///
     /// ` region: QRegion `
     ///
-    pub fn EnableBackgroundContrast(window: anytype, enable: bool, contrast: f64, intensity: f64, saturation: f64, region: anytype) void {
+    pub fn enableBackgroundContrast(window: anytype, enable: bool, contrast: f64, intensity: f64, saturation: f64, region: anytype) void {
         comptime _ = @TypeOf(window)._is_QWindow;
         comptime _ = @TypeOf(region)._is_QRegion;
         qtc.KWindowEffects_EnableBackgroundContrast(@ptrCast(window.ptr), enable, @bitCast(contrast), @bitCast(intensity), @bitCast(saturation), @ptrCast(region.ptr));
     }
+
+    /// ### DEPRECATED: Use `slideWindow` instead
+    ///
+    pub const SlideWindow = slideWindow;
 
     /// ### [Upstream resources](https://api.kde.org/kwindoweffects.html#slideWindow)
     ///
@@ -72,7 +88,7 @@ pub const KWindowEffects = extern struct {
     ///
     /// ` offset: i32 `
     ///
-    pub fn SlideWindow(window: anytype, location: i32, offset: i32) void {
+    pub fn slideWindow(window: anytype, location: i32, offset: i32) void {
         comptime _ = @TypeOf(window)._is_QWindow;
         qtc.KWindowEffects_SlideWindow(@ptrCast(window.ptr), @bitCast(location), @bitCast(offset));
     }

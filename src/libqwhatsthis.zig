@@ -15,29 +15,40 @@ pub const QWhatsThis = extern struct {
 
     pub const _is_QWhatsThis = {};
 
-    /// New constructs a new QWhatsThis object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QWhatsThis object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QWhatsThis `
     ///
-    pub fn New(other: anytype) QWhatsThis {
+    pub fn new(other: anytype) QWhatsThis {
         comptime _ = @TypeOf(other)._is_QWhatsThis;
         return .{ .ptr = qtc.QWhatsThis_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new QWhatsThis object and invalidates the source QWhatsThis object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QWhatsThis object and invalidate the source QWhatsThis object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QWhatsThis `
     ///
-    pub fn New2(other: anytype) QWhatsThis {
+    pub fn new2(other: anytype) QWhatsThis {
         comptime _ = @TypeOf(other)._is_QWhatsThis;
         return .{ .ptr = qtc.QWhatsThis_new2(@ptrCast(other.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -45,11 +56,14 @@ pub const QWhatsThis = extern struct {
     ///
     /// ` other: QWhatsThis `
     ///
-    pub fn CopyAssign(self: QWhatsThis, other: QWhatsThis) void {
+    pub fn copyAssign(self: QWhatsThis, other: QWhatsThis) void {
         qtc.QWhatsThis_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -57,27 +71,43 @@ pub const QWhatsThis = extern struct {
     ///
     /// ` other: QWhatsThis `
     ///
-    pub fn MoveAssign(self: QWhatsThis, other: QWhatsThis) void {
+    pub fn moveAssign(self: QWhatsThis, other: QWhatsThis) void {
         qtc.QWhatsThis_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
+    /// ### DEPRECATED: Use `enterWhatsThisMode` instead
+    ///
+    pub const EnterWhatsThisMode = enterWhatsThisMode;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwhatsthis.html#enterWhatsThisMode)
     ///
-    pub fn EnterWhatsThisMode() void {
+    pub fn enterWhatsThisMode() void {
         qtc.QWhatsThis_EnterWhatsThisMode();
     }
 
+    /// ### DEPRECATED: Use `inWhatsThisMode` instead
+    ///
+    pub const InWhatsThisMode = inWhatsThisMode;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwhatsthis.html#inWhatsThisMode)
     ///
-    pub fn InWhatsThisMode() bool {
+    pub fn inWhatsThisMode() bool {
         return qtc.QWhatsThis_InWhatsThisMode();
     }
 
+    /// ### DEPRECATED: Use `leaveWhatsThisMode` instead
+    ///
+    pub const LeaveWhatsThisMode = leaveWhatsThisMode;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwhatsthis.html#leaveWhatsThisMode)
     ///
-    pub fn LeaveWhatsThisMode() void {
+    pub fn leaveWhatsThisMode() void {
         qtc.QWhatsThis_LeaveWhatsThisMode();
     }
+
+    /// ### DEPRECATED: Use `showText` instead
+    ///
+    pub const ShowText = showText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwhatsthis.html#showText)
     ///
@@ -87,7 +117,7 @@ pub const QWhatsThis = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn ShowText(pos: anytype, text: []const u8) void {
+    pub fn showText(pos: anytype, text: []const u8) void {
         comptime _ = @TypeOf(pos)._is_QPoint;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -96,17 +126,29 @@ pub const QWhatsThis = extern struct {
         qtc.QWhatsThis_ShowText(@ptrCast(pos.ptr), text_str);
     }
 
+    /// ### DEPRECATED: Use `hideText` instead
+    ///
+    pub const HideText = hideText;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwhatsthis.html#hideText)
     ///
-    pub fn HideText() void {
+    pub fn hideText() void {
         qtc.QWhatsThis_HideText();
     }
 
+    /// ### DEPRECATED: Use `createAction` instead
+    ///
+    pub const CreateAction = createAction;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwhatsthis.html#createAction)
     ///
-    pub fn CreateAction() QAction {
+    pub fn createAction() QAction {
         return .{ .ptr = qtc.QWhatsThis_CreateAction() };
     }
+
+    /// ### DEPRECATED: Use `showText3` instead
+    ///
+    pub const ShowText3 = showText3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwhatsthis.html#showText)
     ///
@@ -118,7 +160,7 @@ pub const QWhatsThis = extern struct {
     ///
     /// ` w: QWidget `
     ///
-    pub fn ShowText3(pos: anytype, text: []const u8, w: anytype) void {
+    pub fn showText3(pos: anytype, text: []const u8, w: anytype) void {
         comptime _ = @TypeOf(pos)._is_QPoint;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -128,30 +170,34 @@ pub const QWhatsThis = extern struct {
         qtc.QWhatsThis_ShowText3(@ptrCast(pos.ptr), text_str, @ptrCast(w.ptr));
     }
 
+    /// ### DEPRECATED: Use `createAction1` instead
+    ///
+    pub const CreateAction1 = createAction1;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwhatsthis.html#createAction)
     ///
     /// ## Parameter(s):
     ///
     /// ` parent: QObject `
     ///
-    pub fn CreateAction1(parent: anytype) QAction {
+    pub fn createAction1(parent: anytype) QAction {
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.QWhatsThis_CreateAction1(@ptrCast(parent.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwhatsthis.html#dtor.QWhatsThis)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QWhatsThis `
     ///
-    pub fn Delete(self: QWhatsThis) void {
+    pub fn delete(self: QWhatsThis) void {
         qtc.QWhatsThis_Delete(@ptrCast(self.ptr));
     }
 };

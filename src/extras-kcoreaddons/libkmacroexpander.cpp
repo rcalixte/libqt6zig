@@ -38,54 +38,54 @@ QChar* KMacroExpanderBase_EscapeChar(const KMacroExpanderBase* self) {
     return new QChar(self->escapeChar());
 }
 
-int KMacroExpanderBase_ExpandPlainMacro(KMacroExpanderBase* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal) {
+int KMacroExpanderBase_ExpandPlainMacro(KMacroExpanderBase* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ ret) {
     QString str_QString = QString::fromUtf8(str.data, str.len);
-    QList<QString> retVal_QList;
-    retVal_QList.reserve(retVal.len);
-    libqt_string* retVal_arr = static_cast<libqt_string*>(retVal.data);
-    for (size_t i = 0; i < retVal.len; ++i) {
-        QString retVal_arr_i_QString = QString::fromUtf8(retVal_arr[i].data, retVal_arr[i].len);
-        retVal_QList.push_back(retVal_arr_i_QString);
+    QList<QString> ret_QList;
+    ret_QList.reserve(ret.len);
+    libqt_string* ret_arr = static_cast<libqt_string*>(ret.data);
+    for (size_t i = 0; i < ret.len; ++i) {
+        QString ret_arr_i_QString = QString::fromUtf8(ret_arr[i].data, ret_arr[i].len);
+        ret_QList.push_back(ret_arr_i_QString);
     }
     auto* vkmacroexpanderbase = dynamic_cast<VirtualKMacroExpanderBase*>(self);
     if (vkmacroexpanderbase && vkmacroexpanderbase->isVirtualKMacroExpanderBase) {
-        return vkmacroexpanderbase->expandPlainMacro(str_QString, static_cast<int>(pos), retVal_QList);
+        return vkmacroexpanderbase->expandPlainMacro(str_QString, static_cast<int>(pos), ret_QList);
     }
     return {};
 }
 
-int KMacroExpanderBase_ExpandEscapedMacro(KMacroExpanderBase* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal) {
+int KMacroExpanderBase_ExpandEscapedMacro(KMacroExpanderBase* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ ret) {
     QString str_QString = QString::fromUtf8(str.data, str.len);
-    QList<QString> retVal_QList;
-    retVal_QList.reserve(retVal.len);
-    libqt_string* retVal_arr = static_cast<libqt_string*>(retVal.data);
-    for (size_t i = 0; i < retVal.len; ++i) {
-        QString retVal_arr_i_QString = QString::fromUtf8(retVal_arr[i].data, retVal_arr[i].len);
-        retVal_QList.push_back(retVal_arr_i_QString);
+    QList<QString> ret_QList;
+    ret_QList.reserve(ret.len);
+    libqt_string* ret_arr = static_cast<libqt_string*>(ret.data);
+    for (size_t i = 0; i < ret.len; ++i) {
+        QString ret_arr_i_QString = QString::fromUtf8(ret_arr[i].data, ret_arr[i].len);
+        ret_QList.push_back(ret_arr_i_QString);
     }
     auto* vkmacroexpanderbase = dynamic_cast<VirtualKMacroExpanderBase*>(self);
     if (vkmacroexpanderbase && vkmacroexpanderbase->isVirtualKMacroExpanderBase) {
-        return vkmacroexpanderbase->expandEscapedMacro(str_QString, static_cast<int>(pos), retVal_QList);
+        return vkmacroexpanderbase->expandEscapedMacro(str_QString, static_cast<int>(pos), ret_QList);
     }
     return {};
 }
 
 // Base class handler implementation
-int KMacroExpanderBase_SuperExpandPlainMacro(KMacroExpanderBase* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal) {
+int KMacroExpanderBase_SuperExpandPlainMacro(KMacroExpanderBase* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ ret) {
     auto* vkmacroexpanderbase = dynamic_cast<VirtualKMacroExpanderBase*>(self);
     QString str_QString = QString::fromUtf8(str.data, str.len);
-    QList<QString> retVal_QList;
-    retVal_QList.reserve(retVal.len);
-    libqt_string* retVal_arr = static_cast<libqt_string*>(retVal.data);
-    for (size_t i = 0; i < retVal.len; ++i) {
-        QString retVal_arr_i_QString = QString::fromUtf8(retVal_arr[i].data, retVal_arr[i].len);
-        retVal_QList.push_back(retVal_arr_i_QString);
+    QList<QString> ret_QList;
+    ret_QList.reserve(ret.len);
+    libqt_string* ret_arr = static_cast<libqt_string*>(ret.data);
+    for (size_t i = 0; i < ret.len; ++i) {
+        QString ret_arr_i_QString = QString::fromUtf8(ret_arr[i].data, ret_arr[i].len);
+        ret_QList.push_back(ret_arr_i_QString);
     }
     if (vkmacroexpanderbase && vkmacroexpanderbase->isVirtualKMacroExpanderBase) {
         vkmacroexpanderbase->setKMacroExpanderBase_ExpandPlainMacro_IsBase(true);
-        return vkmacroexpanderbase->expandPlainMacro(str_QString, static_cast<int>(pos), retVal_QList);
+        return vkmacroexpanderbase->expandPlainMacro(str_QString, static_cast<int>(pos), ret_QList);
     } else {
-        return ((VirtualKMacroExpanderBase*)self)->expandPlainMacro(str_QString, static_cast<int>(pos), retVal_QList);
+        return ((VirtualKMacroExpanderBase*)self)->expandPlainMacro(str_QString, static_cast<int>(pos), ret_QList);
     }
 }
 
@@ -98,21 +98,21 @@ void KMacroExpanderBase_OnExpandPlainMacro(KMacroExpanderBase* self, intptr_t sl
 }
 
 // Base class handler implementation
-int KMacroExpanderBase_SuperExpandEscapedMacro(KMacroExpanderBase* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal) {
+int KMacroExpanderBase_SuperExpandEscapedMacro(KMacroExpanderBase* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ ret) {
     auto* vkmacroexpanderbase = dynamic_cast<VirtualKMacroExpanderBase*>(self);
     QString str_QString = QString::fromUtf8(str.data, str.len);
-    QList<QString> retVal_QList;
-    retVal_QList.reserve(retVal.len);
-    libqt_string* retVal_arr = static_cast<libqt_string*>(retVal.data);
-    for (size_t i = 0; i < retVal.len; ++i) {
-        QString retVal_arr_i_QString = QString::fromUtf8(retVal_arr[i].data, retVal_arr[i].len);
-        retVal_QList.push_back(retVal_arr_i_QString);
+    QList<QString> ret_QList;
+    ret_QList.reserve(ret.len);
+    libqt_string* ret_arr = static_cast<libqt_string*>(ret.data);
+    for (size_t i = 0; i < ret.len; ++i) {
+        QString ret_arr_i_QString = QString::fromUtf8(ret_arr[i].data, ret_arr[i].len);
+        ret_QList.push_back(ret_arr_i_QString);
     }
     if (vkmacroexpanderbase && vkmacroexpanderbase->isVirtualKMacroExpanderBase) {
         vkmacroexpanderbase->setKMacroExpanderBase_ExpandEscapedMacro_IsBase(true);
-        return vkmacroexpanderbase->expandEscapedMacro(str_QString, static_cast<int>(pos), retVal_QList);
+        return vkmacroexpanderbase->expandEscapedMacro(str_QString, static_cast<int>(pos), ret_QList);
     } else {
-        return ((VirtualKMacroExpanderBase*)self)->expandEscapedMacro(str_QString, static_cast<int>(pos), retVal_QList);
+        return ((VirtualKMacroExpanderBase*)self)->expandEscapedMacro(str_QString, static_cast<int>(pos), ret_QList);
     }
 }
 
@@ -136,70 +136,70 @@ KWordMacroExpander* KWordMacroExpander_new2(QChar* c) {
     return new VirtualKWordMacroExpander(*c);
 }
 
-int KWordMacroExpander_ExpandPlainMacro(KWordMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal) {
+int KWordMacroExpander_ExpandPlainMacro(KWordMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ ret) {
     QString str_QString = QString::fromUtf8(str.data, str.len);
-    QList<QString> retVal_QList;
-    retVal_QList.reserve(retVal.len);
-    libqt_string* retVal_arr = static_cast<libqt_string*>(retVal.data);
-    for (size_t i = 0; i < retVal.len; ++i) {
-        QString retVal_arr_i_QString = QString::fromUtf8(retVal_arr[i].data, retVal_arr[i].len);
-        retVal_QList.push_back(retVal_arr_i_QString);
+    QList<QString> ret_QList;
+    ret_QList.reserve(ret.len);
+    libqt_string* ret_arr = static_cast<libqt_string*>(ret.data);
+    for (size_t i = 0; i < ret.len; ++i) {
+        QString ret_arr_i_QString = QString::fromUtf8(ret_arr[i].data, ret_arr[i].len);
+        ret_QList.push_back(ret_arr_i_QString);
     }
     auto* vkwordmacroexpander = dynamic_cast<VirtualKWordMacroExpander*>(self);
     if (vkwordmacroexpander && vkwordmacroexpander->isVirtualKWordMacroExpander) {
-        return vkwordmacroexpander->expandPlainMacro(str_QString, static_cast<int>(pos), retVal_QList);
+        return vkwordmacroexpander->expandPlainMacro(str_QString, static_cast<int>(pos), ret_QList);
     }
     return {};
 }
 
-int KWordMacroExpander_ExpandEscapedMacro(KWordMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal) {
+int KWordMacroExpander_ExpandEscapedMacro(KWordMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ ret) {
     QString str_QString = QString::fromUtf8(str.data, str.len);
-    QList<QString> retVal_QList;
-    retVal_QList.reserve(retVal.len);
-    libqt_string* retVal_arr = static_cast<libqt_string*>(retVal.data);
-    for (size_t i = 0; i < retVal.len; ++i) {
-        QString retVal_arr_i_QString = QString::fromUtf8(retVal_arr[i].data, retVal_arr[i].len);
-        retVal_QList.push_back(retVal_arr_i_QString);
+    QList<QString> ret_QList;
+    ret_QList.reserve(ret.len);
+    libqt_string* ret_arr = static_cast<libqt_string*>(ret.data);
+    for (size_t i = 0; i < ret.len; ++i) {
+        QString ret_arr_i_QString = QString::fromUtf8(ret_arr[i].data, ret_arr[i].len);
+        ret_QList.push_back(ret_arr_i_QString);
     }
     auto* vkwordmacroexpander = dynamic_cast<VirtualKWordMacroExpander*>(self);
     if (vkwordmacroexpander && vkwordmacroexpander->isVirtualKWordMacroExpander) {
-        return vkwordmacroexpander->expandEscapedMacro(str_QString, static_cast<int>(pos), retVal_QList);
+        return vkwordmacroexpander->expandEscapedMacro(str_QString, static_cast<int>(pos), ret_QList);
     }
     return {};
 }
 
-bool KWordMacroExpander_ExpandMacro(KWordMacroExpander* self, const libqt_string str, libqt_list /* of libqt_string */ retVal) {
+bool KWordMacroExpander_ExpandMacro(KWordMacroExpander* self, const libqt_string str, libqt_list /* of libqt_string */ ret) {
     QString str_QString = QString::fromUtf8(str.data, str.len);
-    QList<QString> retVal_QList;
-    retVal_QList.reserve(retVal.len);
-    libqt_string* retVal_arr = static_cast<libqt_string*>(retVal.data);
-    for (size_t i = 0; i < retVal.len; ++i) {
-        QString retVal_arr_i_QString = QString::fromUtf8(retVal_arr[i].data, retVal_arr[i].len);
-        retVal_QList.push_back(retVal_arr_i_QString);
+    QList<QString> ret_QList;
+    ret_QList.reserve(ret.len);
+    libqt_string* ret_arr = static_cast<libqt_string*>(ret.data);
+    for (size_t i = 0; i < ret.len; ++i) {
+        QString ret_arr_i_QString = QString::fromUtf8(ret_arr[i].data, ret_arr[i].len);
+        ret_QList.push_back(ret_arr_i_QString);
     }
     auto* vkwordmacroexpander = dynamic_cast<VirtualKWordMacroExpander*>(self);
     if (vkwordmacroexpander && vkwordmacroexpander->isVirtualKWordMacroExpander) {
-        return vkwordmacroexpander->expandMacro(str_QString, retVal_QList);
+        return vkwordmacroexpander->expandMacro(str_QString, ret_QList);
     }
     return {};
 }
 
 // Base class handler implementation
-int KWordMacroExpander_SuperExpandPlainMacro(KWordMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal) {
+int KWordMacroExpander_SuperExpandPlainMacro(KWordMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ ret) {
     auto* vkwordmacroexpander = dynamic_cast<VirtualKWordMacroExpander*>(self);
     QString str_QString = QString::fromUtf8(str.data, str.len);
-    QList<QString> retVal_QList;
-    retVal_QList.reserve(retVal.len);
-    libqt_string* retVal_arr = static_cast<libqt_string*>(retVal.data);
-    for (size_t i = 0; i < retVal.len; ++i) {
-        QString retVal_arr_i_QString = QString::fromUtf8(retVal_arr[i].data, retVal_arr[i].len);
-        retVal_QList.push_back(retVal_arr_i_QString);
+    QList<QString> ret_QList;
+    ret_QList.reserve(ret.len);
+    libqt_string* ret_arr = static_cast<libqt_string*>(ret.data);
+    for (size_t i = 0; i < ret.len; ++i) {
+        QString ret_arr_i_QString = QString::fromUtf8(ret_arr[i].data, ret_arr[i].len);
+        ret_QList.push_back(ret_arr_i_QString);
     }
     if (vkwordmacroexpander && vkwordmacroexpander->isVirtualKWordMacroExpander) {
         vkwordmacroexpander->setKWordMacroExpander_ExpandPlainMacro_IsBase(true);
-        return vkwordmacroexpander->expandPlainMacro(str_QString, static_cast<int>(pos), retVal_QList);
+        return vkwordmacroexpander->expandPlainMacro(str_QString, static_cast<int>(pos), ret_QList);
     } else {
-        return ((VirtualKWordMacroExpander*)self)->expandPlainMacro(str_QString, static_cast<int>(pos), retVal_QList);
+        return ((VirtualKWordMacroExpander*)self)->expandPlainMacro(str_QString, static_cast<int>(pos), ret_QList);
     }
 }
 
@@ -212,21 +212,21 @@ void KWordMacroExpander_OnExpandPlainMacro(KWordMacroExpander* self, intptr_t sl
 }
 
 // Base class handler implementation
-int KWordMacroExpander_SuperExpandEscapedMacro(KWordMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal) {
+int KWordMacroExpander_SuperExpandEscapedMacro(KWordMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ ret) {
     auto* vkwordmacroexpander = dynamic_cast<VirtualKWordMacroExpander*>(self);
     QString str_QString = QString::fromUtf8(str.data, str.len);
-    QList<QString> retVal_QList;
-    retVal_QList.reserve(retVal.len);
-    libqt_string* retVal_arr = static_cast<libqt_string*>(retVal.data);
-    for (size_t i = 0; i < retVal.len; ++i) {
-        QString retVal_arr_i_QString = QString::fromUtf8(retVal_arr[i].data, retVal_arr[i].len);
-        retVal_QList.push_back(retVal_arr_i_QString);
+    QList<QString> ret_QList;
+    ret_QList.reserve(ret.len);
+    libqt_string* ret_arr = static_cast<libqt_string*>(ret.data);
+    for (size_t i = 0; i < ret.len; ++i) {
+        QString ret_arr_i_QString = QString::fromUtf8(ret_arr[i].data, ret_arr[i].len);
+        ret_QList.push_back(ret_arr_i_QString);
     }
     if (vkwordmacroexpander && vkwordmacroexpander->isVirtualKWordMacroExpander) {
         vkwordmacroexpander->setKWordMacroExpander_ExpandEscapedMacro_IsBase(true);
-        return vkwordmacroexpander->expandEscapedMacro(str_QString, static_cast<int>(pos), retVal_QList);
+        return vkwordmacroexpander->expandEscapedMacro(str_QString, static_cast<int>(pos), ret_QList);
     } else {
-        return ((VirtualKWordMacroExpander*)self)->expandEscapedMacro(str_QString, static_cast<int>(pos), retVal_QList);
+        return ((VirtualKWordMacroExpander*)self)->expandEscapedMacro(str_QString, static_cast<int>(pos), ret_QList);
     }
 }
 
@@ -239,21 +239,21 @@ void KWordMacroExpander_OnExpandEscapedMacro(KWordMacroExpander* self, intptr_t 
 }
 
 // Base class handler implementation
-bool KWordMacroExpander_SuperExpandMacro(KWordMacroExpander* self, const libqt_string str, libqt_list /* of libqt_string */ retVal) {
+bool KWordMacroExpander_SuperExpandMacro(KWordMacroExpander* self, const libqt_string str, libqt_list /* of libqt_string */ ret) {
     auto* vkwordmacroexpander = dynamic_cast<VirtualKWordMacroExpander*>(self);
     QString str_QString = QString::fromUtf8(str.data, str.len);
-    QList<QString> retVal_QList;
-    retVal_QList.reserve(retVal.len);
-    libqt_string* retVal_arr = static_cast<libqt_string*>(retVal.data);
-    for (size_t i = 0; i < retVal.len; ++i) {
-        QString retVal_arr_i_QString = QString::fromUtf8(retVal_arr[i].data, retVal_arr[i].len);
-        retVal_QList.push_back(retVal_arr_i_QString);
+    QList<QString> ret_QList;
+    ret_QList.reserve(ret.len);
+    libqt_string* ret_arr = static_cast<libqt_string*>(ret.data);
+    for (size_t i = 0; i < ret.len; ++i) {
+        QString ret_arr_i_QString = QString::fromUtf8(ret_arr[i].data, ret_arr[i].len);
+        ret_QList.push_back(ret_arr_i_QString);
     }
     if (vkwordmacroexpander && vkwordmacroexpander->isVirtualKWordMacroExpander) {
         vkwordmacroexpander->setKWordMacroExpander_ExpandMacro_IsBase(true);
-        return vkwordmacroexpander->expandMacro(str_QString, retVal_QList);
+        return vkwordmacroexpander->expandMacro(str_QString, ret_QList);
     } else {
-        return ((VirtualKWordMacroExpander*)self)->expandMacro(str_QString, retVal_QList);
+        return ((VirtualKWordMacroExpander*)self)->expandMacro(str_QString, ret_QList);
     }
 }
 
@@ -277,69 +277,69 @@ KCharMacroExpander* KCharMacroExpander_new2(QChar* c) {
     return new VirtualKCharMacroExpander(*c);
 }
 
-int KCharMacroExpander_ExpandPlainMacro(KCharMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal) {
+int KCharMacroExpander_ExpandPlainMacro(KCharMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ ret) {
     QString str_QString = QString::fromUtf8(str.data, str.len);
-    QList<QString> retVal_QList;
-    retVal_QList.reserve(retVal.len);
-    libqt_string* retVal_arr = static_cast<libqt_string*>(retVal.data);
-    for (size_t i = 0; i < retVal.len; ++i) {
-        QString retVal_arr_i_QString = QString::fromUtf8(retVal_arr[i].data, retVal_arr[i].len);
-        retVal_QList.push_back(retVal_arr_i_QString);
+    QList<QString> ret_QList;
+    ret_QList.reserve(ret.len);
+    libqt_string* ret_arr = static_cast<libqt_string*>(ret.data);
+    for (size_t i = 0; i < ret.len; ++i) {
+        QString ret_arr_i_QString = QString::fromUtf8(ret_arr[i].data, ret_arr[i].len);
+        ret_QList.push_back(ret_arr_i_QString);
     }
     auto* vkcharmacroexpander = dynamic_cast<VirtualKCharMacroExpander*>(self);
     if (vkcharmacroexpander && vkcharmacroexpander->isVirtualKCharMacroExpander) {
-        return vkcharmacroexpander->expandPlainMacro(str_QString, static_cast<int>(pos), retVal_QList);
+        return vkcharmacroexpander->expandPlainMacro(str_QString, static_cast<int>(pos), ret_QList);
     }
     return {};
 }
 
-int KCharMacroExpander_ExpandEscapedMacro(KCharMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal) {
+int KCharMacroExpander_ExpandEscapedMacro(KCharMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ ret) {
     QString str_QString = QString::fromUtf8(str.data, str.len);
-    QList<QString> retVal_QList;
-    retVal_QList.reserve(retVal.len);
-    libqt_string* retVal_arr = static_cast<libqt_string*>(retVal.data);
-    for (size_t i = 0; i < retVal.len; ++i) {
-        QString retVal_arr_i_QString = QString::fromUtf8(retVal_arr[i].data, retVal_arr[i].len);
-        retVal_QList.push_back(retVal_arr_i_QString);
+    QList<QString> ret_QList;
+    ret_QList.reserve(ret.len);
+    libqt_string* ret_arr = static_cast<libqt_string*>(ret.data);
+    for (size_t i = 0; i < ret.len; ++i) {
+        QString ret_arr_i_QString = QString::fromUtf8(ret_arr[i].data, ret_arr[i].len);
+        ret_QList.push_back(ret_arr_i_QString);
     }
     auto* vkcharmacroexpander = dynamic_cast<VirtualKCharMacroExpander*>(self);
     if (vkcharmacroexpander && vkcharmacroexpander->isVirtualKCharMacroExpander) {
-        return vkcharmacroexpander->expandEscapedMacro(str_QString, static_cast<int>(pos), retVal_QList);
+        return vkcharmacroexpander->expandEscapedMacro(str_QString, static_cast<int>(pos), ret_QList);
     }
     return {};
 }
 
-bool KCharMacroExpander_ExpandMacro(KCharMacroExpander* self, QChar* chr, libqt_list /* of libqt_string */ retVal) {
-    QList<QString> retVal_QList;
-    retVal_QList.reserve(retVal.len);
-    libqt_string* retVal_arr = static_cast<libqt_string*>(retVal.data);
-    for (size_t i = 0; i < retVal.len; ++i) {
-        QString retVal_arr_i_QString = QString::fromUtf8(retVal_arr[i].data, retVal_arr[i].len);
-        retVal_QList.push_back(retVal_arr_i_QString);
+bool KCharMacroExpander_ExpandMacro(KCharMacroExpander* self, QChar* chr, libqt_list /* of libqt_string */ ret) {
+    QList<QString> ret_QList;
+    ret_QList.reserve(ret.len);
+    libqt_string* ret_arr = static_cast<libqt_string*>(ret.data);
+    for (size_t i = 0; i < ret.len; ++i) {
+        QString ret_arr_i_QString = QString::fromUtf8(ret_arr[i].data, ret_arr[i].len);
+        ret_QList.push_back(ret_arr_i_QString);
     }
     auto* vkcharmacroexpander = dynamic_cast<VirtualKCharMacroExpander*>(self);
     if (vkcharmacroexpander && vkcharmacroexpander->isVirtualKCharMacroExpander) {
-        return vkcharmacroexpander->expandMacro(*chr, retVal_QList);
+        return vkcharmacroexpander->expandMacro(*chr, ret_QList);
     }
     return {};
 }
 
 // Base class handler implementation
-int KCharMacroExpander_SuperExpandPlainMacro(KCharMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal) {
+int KCharMacroExpander_SuperExpandPlainMacro(KCharMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ ret) {
     auto* vkcharmacroexpander = dynamic_cast<VirtualKCharMacroExpander*>(self);
     QString str_QString = QString::fromUtf8(str.data, str.len);
-    QList<QString> retVal_QList;
-    retVal_QList.reserve(retVal.len);
-    libqt_string* retVal_arr = static_cast<libqt_string*>(retVal.data);
-    for (size_t i = 0; i < retVal.len; ++i) {
-        QString retVal_arr_i_QString = QString::fromUtf8(retVal_arr[i].data, retVal_arr[i].len);
-        retVal_QList.push_back(retVal_arr_i_QString);
+    QList<QString> ret_QList;
+    ret_QList.reserve(ret.len);
+    libqt_string* ret_arr = static_cast<libqt_string*>(ret.data);
+    for (size_t i = 0; i < ret.len; ++i) {
+        QString ret_arr_i_QString = QString::fromUtf8(ret_arr[i].data, ret_arr[i].len);
+        ret_QList.push_back(ret_arr_i_QString);
     }
     if (vkcharmacroexpander && vkcharmacroexpander->isVirtualKCharMacroExpander) {
         vkcharmacroexpander->setKCharMacroExpander_ExpandPlainMacro_IsBase(true);
-        return vkcharmacroexpander->expandPlainMacro(str_QString, static_cast<int>(pos), retVal_QList);
+        return vkcharmacroexpander->expandPlainMacro(str_QString, static_cast<int>(pos), ret_QList);
     } else {
-        return ((VirtualKCharMacroExpander*)self)->expandPlainMacro(str_QString, static_cast<int>(pos), retVal_QList);
+        return ((VirtualKCharMacroExpander*)self)->expandPlainMacro(str_QString, static_cast<int>(pos), ret_QList);
     }
 }
 
@@ -352,21 +352,21 @@ void KCharMacroExpander_OnExpandPlainMacro(KCharMacroExpander* self, intptr_t sl
 }
 
 // Base class handler implementation
-int KCharMacroExpander_SuperExpandEscapedMacro(KCharMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal) {
+int KCharMacroExpander_SuperExpandEscapedMacro(KCharMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ ret) {
     auto* vkcharmacroexpander = dynamic_cast<VirtualKCharMacroExpander*>(self);
     QString str_QString = QString::fromUtf8(str.data, str.len);
-    QList<QString> retVal_QList;
-    retVal_QList.reserve(retVal.len);
-    libqt_string* retVal_arr = static_cast<libqt_string*>(retVal.data);
-    for (size_t i = 0; i < retVal.len; ++i) {
-        QString retVal_arr_i_QString = QString::fromUtf8(retVal_arr[i].data, retVal_arr[i].len);
-        retVal_QList.push_back(retVal_arr_i_QString);
+    QList<QString> ret_QList;
+    ret_QList.reserve(ret.len);
+    libqt_string* ret_arr = static_cast<libqt_string*>(ret.data);
+    for (size_t i = 0; i < ret.len; ++i) {
+        QString ret_arr_i_QString = QString::fromUtf8(ret_arr[i].data, ret_arr[i].len);
+        ret_QList.push_back(ret_arr_i_QString);
     }
     if (vkcharmacroexpander && vkcharmacroexpander->isVirtualKCharMacroExpander) {
         vkcharmacroexpander->setKCharMacroExpander_ExpandEscapedMacro_IsBase(true);
-        return vkcharmacroexpander->expandEscapedMacro(str_QString, static_cast<int>(pos), retVal_QList);
+        return vkcharmacroexpander->expandEscapedMacro(str_QString, static_cast<int>(pos), ret_QList);
     } else {
-        return ((VirtualKCharMacroExpander*)self)->expandEscapedMacro(str_QString, static_cast<int>(pos), retVal_QList);
+        return ((VirtualKCharMacroExpander*)self)->expandEscapedMacro(str_QString, static_cast<int>(pos), ret_QList);
     }
 }
 
@@ -379,20 +379,20 @@ void KCharMacroExpander_OnExpandEscapedMacro(KCharMacroExpander* self, intptr_t 
 }
 
 // Base class handler implementation
-bool KCharMacroExpander_SuperExpandMacro(KCharMacroExpander* self, QChar* chr, libqt_list /* of libqt_string */ retVal) {
+bool KCharMacroExpander_SuperExpandMacro(KCharMacroExpander* self, QChar* chr, libqt_list /* of libqt_string */ ret) {
     auto* vkcharmacroexpander = dynamic_cast<VirtualKCharMacroExpander*>(self);
-    QList<QString> retVal_QList;
-    retVal_QList.reserve(retVal.len);
-    libqt_string* retVal_arr = static_cast<libqt_string*>(retVal.data);
-    for (size_t i = 0; i < retVal.len; ++i) {
-        QString retVal_arr_i_QString = QString::fromUtf8(retVal_arr[i].data, retVal_arr[i].len);
-        retVal_QList.push_back(retVal_arr_i_QString);
+    QList<QString> ret_QList;
+    ret_QList.reserve(ret.len);
+    libqt_string* ret_arr = static_cast<libqt_string*>(ret.data);
+    for (size_t i = 0; i < ret.len; ++i) {
+        QString ret_arr_i_QString = QString::fromUtf8(ret_arr[i].data, ret_arr[i].len);
+        ret_QList.push_back(ret_arr_i_QString);
     }
     if (vkcharmacroexpander && vkcharmacroexpander->isVirtualKCharMacroExpander) {
         vkcharmacroexpander->setKCharMacroExpander_ExpandMacro_IsBase(true);
-        return vkcharmacroexpander->expandMacro(*chr, retVal_QList);
+        return vkcharmacroexpander->expandMacro(*chr, ret_QList);
     } else {
-        return ((VirtualKCharMacroExpander*)self)->expandMacro(*chr, retVal_QList);
+        return ((VirtualKCharMacroExpander*)self)->expandMacro(*chr, ret_QList);
     }
 }
 

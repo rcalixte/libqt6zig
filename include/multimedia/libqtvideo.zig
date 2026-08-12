@@ -14,15 +14,23 @@ pub const QtVideo = extern struct {
 
     pub const _is_QtVideo = {};
 
+    /// ### DEPRECATED: Use `getEnumMetaObject` instead
+    ///
+    pub const GetEnumMetaObject = getEnumMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtvideo.html#qt_getEnumMetaObject)
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: qtvideo_enums.Rotation `
     ///
-    pub fn GetEnumMetaObject(param1: i32) QMetaObject {
+    pub fn getEnumMetaObject(param1: i32) QMetaObject {
         return .{ .ptr = qtc.QtVideo_GetEnumMetaObject(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `getEnumName` instead
+    ///
+    pub const GetEnumName = getEnumName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtvideo.html#qt_getEnumName)
     ///
@@ -30,7 +38,7 @@ pub const QtVideo = extern struct {
     ///
     /// ` param1: qtvideo_enums.Rotation `
     ///
-    pub fn GetEnumName(param1: i32) [:0]const u8 {
+    pub fn getEnumName(param1: i32) [:0]const u8 {
         const _ret = qtc.QtVideo_GetEnumName(@bitCast(param1));
         return std.mem.span(_ret);
     }

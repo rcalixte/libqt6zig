@@ -100,17 +100,25 @@ pub const KUrlComboBox = extern struct {
     pub const _is_QPaintDevice = {};
     pub const _is_KCompletionBase = {};
 
-    /// New constructs a new KUrlComboBox object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KUrlComboBox object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` mode: kurlcombobox_enums.Mode `
     ///
-    pub fn New(mode: i32) KUrlComboBox {
+    pub fn new(mode: i32) KUrlComboBox {
         return .{ .ptr = qtc.KUrlComboBox_new(@bitCast(mode)) };
     }
 
-    /// New2 constructs a new KUrlComboBox object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KUrlComboBox object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -118,24 +126,32 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` rw: bool `
     ///
-    pub fn New2(mode: i32, rw: bool) KUrlComboBox {
+    pub fn new2(mode: i32, rw: bool) KUrlComboBox {
         return .{ .ptr = qtc.KUrlComboBox_new2(@bitCast(mode), rw) };
     }
 
-    /// New3 constructs a new KUrlComboBox object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new KUrlComboBox object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` mode: kurlcombobox_enums.Mode `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New3(mode: i32, parent: anytype) KUrlComboBox {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KUrlComboBox_new3(@bitCast(mode), @ptrCast(parent.ptr)) };
+    pub fn new3(mode: i32, _parent: anytype) KUrlComboBox {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KUrlComboBox_new3(@bitCast(mode), @ptrCast(_parent.ptr)) };
     }
 
-    /// New4 constructs a new KUrlComboBox object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new KUrlComboBox object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -143,12 +159,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` rw: bool `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New4(mode: i32, rw: bool, parent: anytype) KUrlComboBox {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KUrlComboBox_new4(@bitCast(mode), rw, @ptrCast(parent.ptr)) };
+    pub fn new4(mode: i32, rw: bool, _parent: anytype) KUrlComboBox {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KUrlComboBox_new4(@bitCast(mode), rw, @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -156,9 +176,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn MetaObject(self: KUrlComboBox) QMetaObject {
+    pub fn metaObject(self: KUrlComboBox) QMetaObject {
         return .{ .ptr = qtc.KUrlComboBox_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -170,13 +194,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KUrlComboBox, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KUrlComboBox, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KUrlComboBox_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -186,9 +210,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn SuperMetaObject(self: KUrlComboBox) QMetaObject {
+    pub fn superMetaObject(self: KUrlComboBox) QMetaObject {
         return .{ .ptr = qtc.KUrlComboBox_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -196,10 +224,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KUrlComboBox, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KUrlComboBox, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KUrlComboBox_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -209,13 +241,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KUrlComboBox, callback: *const fn (KUrlComboBox, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KUrlComboBox, callback: *const fn (KUrlComboBox, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KUrlComboBox_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -225,10 +257,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KUrlComboBox, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KUrlComboBox, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KUrlComboBox_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -240,9 +276,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KUrlComboBox, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KUrlComboBox, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KUrlComboBox_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -252,13 +292,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KUrlComboBox, callback: *const fn (KUrlComboBox, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KUrlComboBox, callback: *const fn (KUrlComboBox, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KUrlComboBox_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -272,9 +312,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KUrlComboBox, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KUrlComboBox, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KUrlComboBox_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -284,14 +328,18 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboBox.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboBox.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setUrl` instead
+    ///
+    pub const SetUrl = setUrl;
 
     /// ### [Upstream resources](https://api.kde.org/kurlcombobox.html#setUrl)
     ///
@@ -301,10 +349,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn SetUrl(self: KUrlComboBox, url: anytype) void {
+    pub fn setUrl(self: KUrlComboBox, url: anytype) void {
         comptime _ = @TypeOf(url)._is_QUrl;
         qtc.KUrlComboBox_SetUrl(@ptrCast(self.ptr), @ptrCast(url.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUrls` instead
+    ///
+    pub const SetUrls = setUrls;
 
     /// ### [Upstream resources](https://api.kde.org/kurlcombobox.html#setUrls)
     ///
@@ -314,23 +366,27 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` urls: []const []const u8 `
+    /// ` _urls: []const []const u8 `
     ///
-    pub fn SetUrls(self: KUrlComboBox, allocator: std.mem.Allocator, urls: []const []const u8) void {
-        const urls_arr = allocator.alloc(qtc.libqt_string, urls.len) catch @panic("KUrlComboBox.SetUrls: Memory allocation failed");
+    pub fn setUrls(self: KUrlComboBox, allocator: std.mem.Allocator, _urls: []const []const u8) void {
+        const urls_arr = allocator.alloc(qtc.libqt_string, _urls.len) catch @panic("KUrlComboBox.setUrls: Memory allocation failed");
         defer allocator.free(urls_arr);
-        for (urls, 0..urls.len) |item, i|
+        for (_urls, 0.._urls.len) |str_item, i|
             urls_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const urls_list = qtc.libqt_list{
-            .len = urls.len,
+            .len = _urls.len,
             .data = urls_arr.ptr,
         };
         qtc.KUrlComboBox_SetUrls(@ptrCast(self.ptr), urls_list);
     }
 
+    /// ### DEPRECATED: Use `setUrls2` instead
+    ///
+    pub const SetUrls2 = setUrls2;
+
     /// ### [Upstream resources](https://api.kde.org/kurlcombobox.html#setUrls)
     ///
     /// ## Parameter(s):
@@ -339,24 +395,28 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` urls: []const []const u8 `
+    /// ` _urls: []const []const u8 `
     ///
     /// ` remove: kurlcombobox_enums.OverLoadResolving `
     ///
-    pub fn SetUrls2(self: KUrlComboBox, allocator: std.mem.Allocator, urls: []const []const u8, remove: i32) void {
-        const urls_arr = allocator.alloc(qtc.libqt_string, urls.len) catch @panic("KUrlComboBox.SetUrls2: Memory allocation failed");
+    pub fn setUrls2(self: KUrlComboBox, allocator: std.mem.Allocator, _urls: []const []const u8, remove: i32) void {
+        const urls_arr = allocator.alloc(qtc.libqt_string, _urls.len) catch @panic("KUrlComboBox.setUrls2: Memory allocation failed");
         defer allocator.free(urls_arr);
-        for (urls, 0..urls.len) |item, i|
+        for (_urls, 0.._urls.len) |str_item, i|
             urls_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const urls_list = qtc.libqt_list{
-            .len = urls.len,
+            .len = _urls.len,
             .data = urls_arr.ptr,
         };
         qtc.KUrlComboBox_SetUrls2(@ptrCast(self.ptr), urls_list, @bitCast(remove));
     }
+
+    /// ### DEPRECATED: Use `urls` instead
+    ///
+    pub const Urls = urls;
 
     /// ### [Upstream resources](https://api.kde.org/kurlcombobox.html#urls)
     ///
@@ -366,7 +426,7 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Urls(self: KUrlComboBox, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn urls(self: KUrlComboBox, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KUrlComboBox_Urls(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -374,15 +434,19 @@ pub const KUrlComboBox = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUrlComboBox.Urls: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUrlComboBox.urls: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KUrlComboBox.Urls: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KUrlComboBox.urls: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setMaxItems` instead
+    ///
+    pub const SetMaxItems = setMaxItems;
 
     /// ### [Upstream resources](https://api.kde.org/kurlcombobox.html#setMaxItems)
     ///
@@ -390,11 +454,15 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` maxItems: i32 `
+    /// ` _maxItems: i32 `
     ///
-    pub fn SetMaxItems(self: KUrlComboBox, maxItems: i32) void {
-        qtc.KUrlComboBox_SetMaxItems(@ptrCast(self.ptr), @bitCast(maxItems));
+    pub fn setMaxItems(self: KUrlComboBox, _maxItems: i32) void {
+        qtc.KUrlComboBox_SetMaxItems(@ptrCast(self.ptr), @bitCast(_maxItems));
     }
+
+    /// ### DEPRECATED: Use `maxItems` instead
+    ///
+    pub const MaxItems = maxItems;
 
     /// ### [Upstream resources](https://api.kde.org/kurlcombobox.html#maxItems)
     ///
@@ -402,9 +470,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn MaxItems(self: KUrlComboBox) i32 {
+    pub fn maxItems(self: KUrlComboBox) i32 {
         return qtc.KUrlComboBox_MaxItems(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `addDefaultUrl` instead
+    ///
+    pub const AddDefaultUrl = addDefaultUrl;
 
     /// ### [Upstream resources](https://api.kde.org/kurlcombobox.html#addDefaultUrl)
     ///
@@ -414,10 +486,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn AddDefaultUrl(self: KUrlComboBox, url: anytype) void {
+    pub fn addDefaultUrl(self: KUrlComboBox, url: anytype) void {
         comptime _ = @TypeOf(url)._is_QUrl;
         qtc.KUrlComboBox_AddDefaultUrl(@ptrCast(self.ptr), @ptrCast(url.ptr));
     }
+
+    /// ### DEPRECATED: Use `addDefaultUrl2` instead
+    ///
+    pub const AddDefaultUrl2 = addDefaultUrl2;
 
     /// ### [Upstream resources](https://api.kde.org/kurlcombobox.html#addDefaultUrl)
     ///
@@ -429,11 +505,15 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn AddDefaultUrl2(self: KUrlComboBox, url: anytype, icon: anytype) void {
+    pub fn addDefaultUrl2(self: KUrlComboBox, url: anytype, icon: anytype) void {
         comptime _ = @TypeOf(url)._is_QUrl;
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.KUrlComboBox_AddDefaultUrl2(@ptrCast(self.ptr), @ptrCast(url.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDefaults` instead
+    ///
+    pub const SetDefaults = setDefaults;
 
     /// ### [Upstream resources](https://api.kde.org/kurlcombobox.html#setDefaults)
     ///
@@ -441,9 +521,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn SetDefaults(self: KUrlComboBox) void {
+    pub fn setDefaults(self: KUrlComboBox) void {
         qtc.KUrlComboBox_SetDefaults(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeUrl` instead
+    ///
+    pub const RemoveUrl = removeUrl;
 
     /// ### [Upstream resources](https://api.kde.org/kurlcombobox.html#removeUrl)
     ///
@@ -453,10 +537,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn RemoveUrl(self: KUrlComboBox, url: anytype) void {
+    pub fn removeUrl(self: KUrlComboBox, url: anytype) void {
         comptime _ = @TypeOf(url)._is_QUrl;
         qtc.KUrlComboBox_RemoveUrl(@ptrCast(self.ptr), @ptrCast(url.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCompletionObject` instead
+    ///
+    pub const SetCompletionObject = setCompletionObject;
 
     /// ### [Upstream resources](https://api.kde.org/kurlcombobox.html#setCompletionObject)
     ///
@@ -464,14 +552,18 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` compObj: KCompletion `
+    /// ` _compObj: KCompletion `
     ///
     /// ` hsig: bool `
     ///
-    pub fn SetCompletionObject(self: KUrlComboBox, compObj: anytype, hsig: bool) void {
-        comptime _ = @TypeOf(compObj)._is_KCompletion;
-        qtc.KUrlComboBox_SetCompletionObject(@ptrCast(self.ptr), @ptrCast(compObj.ptr), hsig);
+    pub fn setCompletionObject(self: KUrlComboBox, _compObj: anytype, hsig: bool) void {
+        comptime _ = @TypeOf(_compObj)._is_KCompletion;
+        qtc.KUrlComboBox_SetCompletionObject(@ptrCast(self.ptr), @ptrCast(_compObj.ptr), hsig);
     }
+
+    /// ### DEPRECATED: Use `onSetCompletionObject` instead
+    ///
+    pub const OnSetCompletionObject = onSetCompletionObject;
 
     /// ### [Upstream resources](https://api.kde.org/kurlcombobox.html#setCompletionObject)
     ///
@@ -483,13 +575,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, compObj: KCompletion, hsig: bool) callconv(.c) void `
     ///
-    pub fn OnSetCompletionObject(self: KUrlComboBox, callback: *const fn (KUrlComboBox, KCompletion, bool) callconv(.c) void) void {
+    pub fn onSetCompletionObject(self: KUrlComboBox, callback: *const fn (KUrlComboBox, KCompletion, bool) callconv(.c) void) void {
         qtc.KUrlComboBox_OnSetCompletionObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetCompletionObject` instead
+    /// ### DEPRECATED: Use `superSetCompletionObject` instead
     ///
-    pub const QBaseSetCompletionObject = SuperSetCompletionObject;
+    pub const SuperSetCompletionObject = superSetCompletionObject;
 
     /// ### [Upstream resources](https://api.kde.org/kurlcombobox.html#setCompletionObject)
     ///
@@ -499,14 +591,18 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` compObj: KCompletion `
+    /// ` _compObj: KCompletion `
     ///
     /// ` hsig: bool `
     ///
-    pub fn SuperSetCompletionObject(self: KUrlComboBox, compObj: anytype, hsig: bool) void {
-        comptime _ = @TypeOf(compObj)._is_KCompletion;
-        qtc.KUrlComboBox_SuperSetCompletionObject(@ptrCast(self.ptr), @ptrCast(compObj.ptr), hsig);
+    pub fn superSetCompletionObject(self: KUrlComboBox, _compObj: anytype, hsig: bool) void {
+        comptime _ = @TypeOf(_compObj)._is_KCompletion;
+        qtc.KUrlComboBox_SuperSetCompletionObject(@ptrCast(self.ptr), @ptrCast(_compObj.ptr), hsig);
     }
+
+    /// ### DEPRECATED: Use `urlActivated` instead
+    ///
+    pub const UrlActivated = urlActivated;
 
     /// ### [Upstream resources](https://api.kde.org/kurlcombobox.html#urlActivated)
     ///
@@ -516,10 +612,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn UrlActivated(self: KUrlComboBox, url: anytype) void {
+    pub fn urlActivated(self: KUrlComboBox, url: anytype) void {
         comptime _ = @TypeOf(url)._is_QUrl;
         qtc.KUrlComboBox_UrlActivated(@ptrCast(self.ptr), @ptrCast(url.ptr));
     }
+
+    /// ### DEPRECATED: Use `onUrlActivated` instead
+    ///
+    pub const OnUrlActivated = onUrlActivated;
 
     /// ### [Upstream resources](https://api.kde.org/kurlcombobox.html#urlActivated)
     ///
@@ -529,22 +629,30 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, url: QUrl) callconv(.c) void `
     ///
-    pub fn OnUrlActivated(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QUrl) callconv(.c) void) void {
+    pub fn onUrlActivated(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QUrl) callconv(.c) void) void {
         qtc.KUrlComboBox_Connect_UrlActivated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
+
     /// ### [Upstream resources](https://api.kde.org/kurlcombobox.html#mousePressEvent)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: KUrlComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KUrlComboBox_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mousePressEvent(self: KUrlComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KUrlComboBox_MousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kurlcombobox.html#mousePressEvent)
     ///
@@ -556,13 +664,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QMouseEvent) callconv(.c) void) void {
         qtc.KUrlComboBox_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kurlcombobox.html#mousePressEvent)
     ///
@@ -572,12 +680,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: KUrlComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KUrlComboBox_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMousePressEvent(self: KUrlComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KUrlComboBox_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kurlcombobox.html#mouseMoveEvent)
     ///
@@ -585,12 +697,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: KUrlComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KUrlComboBox_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseMoveEvent(self: KUrlComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KUrlComboBox_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kurlcombobox.html#mouseMoveEvent)
     ///
@@ -602,13 +718,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QMouseEvent) callconv(.c) void) void {
         qtc.KUrlComboBox_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kurlcombobox.html#mouseMoveEvent)
     ///
@@ -618,12 +734,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: KUrlComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KUrlComboBox_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseMoveEvent(self: KUrlComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KUrlComboBox_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -635,15 +755,19 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboBox.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboBox.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -657,15 +781,19 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboBox.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboBox.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addDefaultUrl22` instead
+    ///
+    pub const AddDefaultUrl22 = addDefaultUrl22;
 
     /// ### [Upstream resources](https://api.kde.org/kurlcombobox.html#addDefaultUrl)
     ///
@@ -677,7 +805,7 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddDefaultUrl22(self: KUrlComboBox, url: anytype, text: []const u8) void {
+    pub fn addDefaultUrl22(self: KUrlComboBox, url: anytype, text: []const u8) void {
         comptime _ = @TypeOf(url)._is_QUrl;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -685,6 +813,10 @@ pub const KUrlComboBox = extern struct {
         };
         qtc.KUrlComboBox_AddDefaultUrl22(@ptrCast(self.ptr), @ptrCast(url.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `addDefaultUrl3` instead
+    ///
+    pub const AddDefaultUrl3 = addDefaultUrl3;
 
     /// ### [Upstream resources](https://api.kde.org/kurlcombobox.html#addDefaultUrl)
     ///
@@ -698,7 +830,7 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddDefaultUrl3(self: KUrlComboBox, url: anytype, icon: anytype, text: []const u8) void {
+    pub fn addDefaultUrl3(self: KUrlComboBox, url: anytype, icon: anytype, text: []const u8) void {
         comptime _ = @TypeOf(url)._is_QUrl;
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
@@ -707,6 +839,10 @@ pub const KUrlComboBox = extern struct {
         };
         qtc.KUrlComboBox_AddDefaultUrl3(@ptrCast(self.ptr), @ptrCast(url.ptr), @ptrCast(icon.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `removeUrl2` instead
+    ///
+    pub const RemoveUrl2 = removeUrl2;
 
     /// ### [Upstream resources](https://api.kde.org/kurlcombobox.html#removeUrl)
     ///
@@ -718,10 +854,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` checkDefaultURLs: bool `
     ///
-    pub fn RemoveUrl2(self: KUrlComboBox, url: anytype, checkDefaultURLs: bool) void {
+    pub fn removeUrl2(self: KUrlComboBox, url: anytype, checkDefaultURLs: bool) void {
         comptime _ = @TypeOf(url)._is_QUrl;
         qtc.KUrlComboBox_RemoveUrl2(@ptrCast(self.ptr), @ptrCast(url.ptr), checkDefaultURLs);
     }
+
+    /// ### DEPRECATED: Use `setEditUrl` instead
+    ///
+    pub const SetEditUrl = setEditUrl;
 
     /// Inherited from KComboBox
     ///
@@ -733,10 +873,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn SetEditUrl(self: KUrlComboBox, url: anytype) void {
+    pub fn setEditUrl(self: KUrlComboBox, url: anytype) void {
         comptime _ = @TypeOf(url)._is_QUrl;
         qtc.KComboBox_SetEditUrl(@ptrCast(self.ptr), @ptrCast(url.ptr));
     }
+
+    /// ### DEPRECATED: Use `addUrl` instead
+    ///
+    pub const AddUrl = addUrl;
 
     /// Inherited from KComboBox
     ///
@@ -748,10 +892,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn AddUrl(self: KUrlComboBox, url: anytype) void {
+    pub fn addUrl(self: KUrlComboBox, url: anytype) void {
         comptime _ = @TypeOf(url)._is_QUrl;
         qtc.KComboBox_AddUrl(@ptrCast(self.ptr), @ptrCast(url.ptr));
     }
+
+    /// ### DEPRECATED: Use `addUrl2` instead
+    ///
+    pub const AddUrl2 = addUrl2;
 
     /// Inherited from KComboBox
     ///
@@ -765,12 +913,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn AddUrl2(self: KUrlComboBox, icon: anytype, url: anytype) void {
+    pub fn addUrl2(self: KUrlComboBox, icon: anytype, url: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         comptime _ = @TypeOf(url)._is_QUrl;
         qtc.KComboBox_AddUrl2(@ptrCast(self.ptr), @ptrCast(icon.ptr), @ptrCast(url.ptr));
     }
 
+    /// ### DEPRECATED: Use `insertUrl` instead
+    ///
+    pub const InsertUrl = insertUrl;
+
     /// Inherited from KComboBox
     ///
     /// ### [Upstream resources](https://api.kde.org/kcombobox.html#insertUrl)
@@ -783,10 +935,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn InsertUrl(self: KUrlComboBox, index: i32, url: anytype) void {
+    pub fn insertUrl(self: KUrlComboBox, index: i32, url: anytype) void {
         comptime _ = @TypeOf(url)._is_QUrl;
         qtc.KComboBox_InsertUrl(@ptrCast(self.ptr), @bitCast(index), @ptrCast(url.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertUrl2` instead
+    ///
+    pub const InsertUrl2 = insertUrl2;
 
     /// Inherited from KComboBox
     ///
@@ -802,12 +958,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn InsertUrl2(self: KUrlComboBox, index: i32, icon: anytype, url: anytype) void {
+    pub fn insertUrl2(self: KUrlComboBox, index: i32, icon: anytype, url: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         comptime _ = @TypeOf(url)._is_QUrl;
         qtc.KComboBox_InsertUrl2(@ptrCast(self.ptr), @bitCast(index), @ptrCast(icon.ptr), @ptrCast(url.ptr));
     }
 
+    /// ### DEPRECATED: Use `changeUrl` instead
+    ///
+    pub const ChangeUrl = changeUrl;
+
     /// Inherited from KComboBox
     ///
     /// ### [Upstream resources](https://api.kde.org/kcombobox.html#changeUrl)
@@ -820,10 +980,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn ChangeUrl(self: KUrlComboBox, index: i32, url: anytype) void {
+    pub fn changeUrl(self: KUrlComboBox, index: i32, url: anytype) void {
         comptime _ = @TypeOf(url)._is_QUrl;
         qtc.KComboBox_ChangeUrl(@ptrCast(self.ptr), @bitCast(index), @ptrCast(url.ptr));
     }
+
+    /// ### DEPRECATED: Use `changeUrl2` instead
+    ///
+    pub const ChangeUrl2 = changeUrl2;
 
     /// Inherited from KComboBox
     ///
@@ -839,11 +1003,15 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn ChangeUrl2(self: KUrlComboBox, index: i32, icon: anytype, url: anytype) void {
+    pub fn changeUrl2(self: KUrlComboBox, index: i32, icon: anytype, url: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         comptime _ = @TypeOf(url)._is_QUrl;
         qtc.KComboBox_ChangeUrl2(@ptrCast(self.ptr), @bitCast(index), @ptrCast(icon.ptr), @ptrCast(url.ptr));
     }
+
+    /// ### DEPRECATED: Use `cursorPosition` instead
+    ///
+    pub const CursorPosition = cursorPosition;
 
     /// Inherited from KComboBox
     ///
@@ -853,9 +1021,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn CursorPosition(self: KUrlComboBox) i32 {
+    pub fn cursorPosition(self: KUrlComboBox) i32 {
         return qtc.KComboBox_CursorPosition(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoCompletion` instead
+    ///
+    pub const AutoCompletion = autoCompletion;
 
     /// Inherited from KComboBox
     ///
@@ -865,9 +1037,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn AutoCompletion(self: KUrlComboBox) bool {
+    pub fn autoCompletion(self: KUrlComboBox) bool {
         return qtc.KComboBox_AutoCompletion(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `urlDropsEnabled` instead
+    ///
+    pub const UrlDropsEnabled = urlDropsEnabled;
 
     /// Inherited from KComboBox
     ///
@@ -877,9 +1053,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn UrlDropsEnabled(self: KUrlComboBox) bool {
+    pub fn urlDropsEnabled(self: KUrlComboBox) bool {
         return qtc.KComboBox_UrlDropsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `contains` instead
+    ///
+    pub const Contains = contains;
 
     /// Inherited from KComboBox
     ///
@@ -891,13 +1071,17 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn Contains(self: KUrlComboBox, text: []const u8) bool {
+    pub fn contains(self: KUrlComboBox, text: []const u8) bool {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return qtc.KComboBox_Contains(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `setTrapReturnKey` instead
+    ///
+    pub const SetTrapReturnKey = setTrapReturnKey;
 
     /// Inherited from KComboBox
     ///
@@ -909,9 +1093,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` trap: bool `
     ///
-    pub fn SetTrapReturnKey(self: KUrlComboBox, trap: bool) void {
+    pub fn setTrapReturnKey(self: KUrlComboBox, trap: bool) void {
         qtc.KComboBox_SetTrapReturnKey(@ptrCast(self.ptr), trap);
     }
+
+    /// ### DEPRECATED: Use `trapReturnKey` instead
+    ///
+    pub const TrapReturnKey = trapReturnKey;
 
     /// Inherited from KComboBox
     ///
@@ -921,9 +1109,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn TrapReturnKey(self: KUrlComboBox) bool {
+    pub fn trapReturnKey(self: KUrlComboBox) bool {
         return qtc.KComboBox_TrapReturnKey(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `completionBox` instead
+    ///
+    pub const CompletionBox = completionBox;
 
     /// Inherited from KComboBox
     ///
@@ -933,9 +1125,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn CompletionBox(self: KUrlComboBox) KCompletionBox {
+    pub fn completionBox(self: KUrlComboBox) KCompletionBox {
         return .{ .ptr = qtc.KComboBox_CompletionBox(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setEditable` instead
+    ///
+    pub const SetEditable = setEditable;
 
     /// Inherited from KComboBox
     ///
@@ -947,9 +1143,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` editable: bool `
     ///
-    pub fn SetEditable(self: KUrlComboBox, editable: bool) void {
+    pub fn setEditable(self: KUrlComboBox, editable: bool) void {
         qtc.KComboBox_SetEditable(@ptrCast(self.ptr), editable);
     }
+
+    /// ### DEPRECATED: Use `contextMenu` instead
+    ///
+    pub const ContextMenu = contextMenu;
 
     /// Inherited from KComboBox
     ///
@@ -959,9 +1159,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn ContextMenu(self: KUrlComboBox) QMenu {
+    pub fn contextMenu(self: KUrlComboBox) QMenu {
         return .{ .ptr = qtc.KComboBox_ContextMenu(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `returnPressed` instead
+    ///
+    pub const ReturnPressed = returnPressed;
 
     /// Inherited from KComboBox
     ///
@@ -973,13 +1177,17 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn ReturnPressed(self: KUrlComboBox, text: []const u8) void {
+    pub fn returnPressed(self: KUrlComboBox, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.KComboBox_ReturnPressed(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `onReturnPressed` instead
+    ///
+    pub const OnReturnPressed = onReturnPressed;
 
     /// Inherited from KComboBox
     ///
@@ -991,9 +1199,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, text: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnReturnPressed(self: KUrlComboBox, callback: *const fn (KUrlComboBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onReturnPressed(self: KUrlComboBox, callback: *const fn (KUrlComboBox, [*:0]const u8) callconv(.c) void) void {
         qtc.KComboBox_Connect_ReturnPressed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `completion` instead
+    ///
+    pub const Completion = completion;
 
     /// Inherited from KComboBox
     ///
@@ -1005,7 +1217,7 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn Completion(self: KUrlComboBox, param1: []const u8) void {
+    pub fn completion(self: KUrlComboBox, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -1013,6 +1225,10 @@ pub const KUrlComboBox = extern struct {
         qtc.KComboBox_Completion(@ptrCast(self.ptr), param1_str);
     }
 
+    /// ### DEPRECATED: Use `onCompletion` instead
+    ///
+    pub const OnCompletion = onCompletion;
+
     /// Inherited from KComboBox
     ///
     /// ### [Upstream resources](https://api.kde.org/kcombobox.html#completion)
@@ -1023,9 +1239,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, param1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnCompletion(self: KUrlComboBox, callback: *const fn (KUrlComboBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onCompletion(self: KUrlComboBox, callback: *const fn (KUrlComboBox, [*:0]const u8) callconv(.c) void) void {
         qtc.KComboBox_Connect_Completion(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `substringCompletion` instead
+    ///
+    pub const SubstringCompletion = substringCompletion;
 
     /// Inherited from KComboBox
     ///
@@ -1037,13 +1257,17 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn SubstringCompletion(self: KUrlComboBox, param1: []const u8) void {
+    pub fn substringCompletion(self: KUrlComboBox, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
         qtc.KComboBox_SubstringCompletion(@ptrCast(self.ptr), param1_str);
     }
+
+    /// ### DEPRECATED: Use `onSubstringCompletion` instead
+    ///
+    pub const OnSubstringCompletion = onSubstringCompletion;
 
     /// Inherited from KComboBox
     ///
@@ -1055,9 +1279,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, param1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSubstringCompletion(self: KUrlComboBox, callback: *const fn (KUrlComboBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onSubstringCompletion(self: KUrlComboBox, callback: *const fn (KUrlComboBox, [*:0]const u8) callconv(.c) void) void {
         qtc.KComboBox_Connect_SubstringCompletion(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `textRotation` instead
+    ///
+    pub const TextRotation = textRotation;
 
     /// Inherited from KComboBox
     ///
@@ -1069,9 +1297,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param1: kcompletionbase_enums.KeyBindingType `
     ///
-    pub fn TextRotation(self: KUrlComboBox, param1: i32) void {
+    pub fn textRotation(self: KUrlComboBox, param1: i32) void {
         qtc.KComboBox_TextRotation(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onTextRotation` instead
+    ///
+    pub const OnTextRotation = onTextRotation;
 
     /// Inherited from KComboBox
     ///
@@ -1083,9 +1315,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, param1: kcompletionbase_enums.KeyBindingType) callconv(.c) void `
     ///
-    pub fn OnTextRotation(self: KUrlComboBox, callback: *const fn (KUrlComboBox, i32) callconv(.c) void) void {
+    pub fn onTextRotation(self: KUrlComboBox, callback: *const fn (KUrlComboBox, i32) callconv(.c) void) void {
         qtc.KComboBox_Connect_TextRotation(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `completionModeChanged` instead
+    ///
+    pub const CompletionModeChanged = completionModeChanged;
 
     /// Inherited from KComboBox
     ///
@@ -1097,9 +1333,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param1: kcompletion_enums.CompletionMode `
     ///
-    pub fn CompletionModeChanged(self: KUrlComboBox, param1: i32) void {
+    pub fn completionModeChanged(self: KUrlComboBox, param1: i32) void {
         qtc.KComboBox_CompletionModeChanged(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onCompletionModeChanged` instead
+    ///
+    pub const OnCompletionModeChanged = onCompletionModeChanged;
 
     /// Inherited from KComboBox
     ///
@@ -1111,9 +1351,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, param1: kcompletion_enums.CompletionMode) callconv(.c) void `
     ///
-    pub fn OnCompletionModeChanged(self: KUrlComboBox, callback: *const fn (KUrlComboBox, i32) callconv(.c) void) void {
+    pub fn onCompletionModeChanged(self: KUrlComboBox, callback: *const fn (KUrlComboBox, i32) callconv(.c) void) void {
         qtc.KComboBox_Connect_CompletionModeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `aboutToShowContextMenu` instead
+    ///
+    pub const AboutToShowContextMenu = aboutToShowContextMenu;
 
     /// Inherited from KComboBox
     ///
@@ -1123,12 +1367,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` contextMenu: QMenu `
+    /// ` _contextMenu: QMenu `
     ///
-    pub fn AboutToShowContextMenu(self: KUrlComboBox, contextMenu: anytype) void {
-        comptime _ = @TypeOf(contextMenu)._is_QMenu;
-        qtc.KComboBox_AboutToShowContextMenu(@ptrCast(self.ptr), @ptrCast(contextMenu.ptr));
+    pub fn aboutToShowContextMenu(self: KUrlComboBox, _contextMenu: anytype) void {
+        comptime _ = @TypeOf(_contextMenu)._is_QMenu;
+        qtc.KComboBox_AboutToShowContextMenu(@ptrCast(self.ptr), @ptrCast(_contextMenu.ptr));
     }
+
+    /// ### DEPRECATED: Use `onAboutToShowContextMenu` instead
+    ///
+    pub const OnAboutToShowContextMenu = onAboutToShowContextMenu;
 
     /// Inherited from KComboBox
     ///
@@ -1140,9 +1388,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, contextMenu: QMenu) callconv(.c) void `
     ///
-    pub fn OnAboutToShowContextMenu(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QMenu) callconv(.c) void) void {
+    pub fn onAboutToShowContextMenu(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QMenu) callconv(.c) void) void {
         qtc.KComboBox_Connect_AboutToShowContextMenu(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `rotateText` instead
+    ///
+    pub const RotateText = rotateText;
 
     /// Inherited from KComboBox
     ///
@@ -1154,9 +1406,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` typeVal: kcompletionbase_enums.KeyBindingType `
     ///
-    pub fn RotateText(self: KUrlComboBox, typeVal: i32) void {
+    pub fn rotateText(self: KUrlComboBox, typeVal: i32) void {
         qtc.KComboBox_RotateText(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setCurrentItem` instead
+    ///
+    pub const SetCurrentItem = setCurrentItem;
 
     /// Inherited from KComboBox
     ///
@@ -1168,13 +1424,17 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` item: []const u8 `
     ///
-    pub fn SetCurrentItem(self: KUrlComboBox, item: []const u8) void {
+    pub fn setCurrentItem(self: KUrlComboBox, item: []const u8) void {
         const item_str = qtc.libqt_string{
             .len = item.len,
             .data = item.ptr,
         };
         qtc.KComboBox_SetCurrentItem(@ptrCast(self.ptr), item_str);
     }
+
+    /// ### DEPRECATED: Use `completionBox1` instead
+    ///
+    pub const CompletionBox1 = completionBox1;
 
     /// Inherited from KComboBox
     ///
@@ -1184,11 +1444,15 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` create: bool `
+    /// ` _create: bool `
     ///
-    pub fn CompletionBox1(self: KUrlComboBox, create: bool) KCompletionBox {
-        return .{ .ptr = qtc.KComboBox_CompletionBox1(@ptrCast(self.ptr), create) };
+    pub fn completionBox1(self: KUrlComboBox, _create: bool) KCompletionBox {
+        return .{ .ptr = qtc.KComboBox_CompletionBox1(@ptrCast(self.ptr), _create) };
     }
+
+    /// ### DEPRECATED: Use `setCurrentItem2` instead
+    ///
+    pub const SetCurrentItem2 = setCurrentItem2;
 
     /// Inherited from KComboBox
     ///
@@ -1202,13 +1466,17 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` insert: bool `
     ///
-    pub fn SetCurrentItem2(self: KUrlComboBox, item: []const u8, insert: bool) void {
+    pub fn setCurrentItem2(self: KUrlComboBox, item: []const u8, insert: bool) void {
         const item_str = qtc.libqt_string{
             .len = item.len,
             .data = item.ptr,
         };
         qtc.KComboBox_SetCurrentItem2(@ptrCast(self.ptr), item_str, insert);
     }
+
+    /// ### DEPRECATED: Use `setCurrentItem3` instead
+    ///
+    pub const SetCurrentItem3 = setCurrentItem3;
 
     /// Inherited from KComboBox
     ///
@@ -1224,13 +1492,17 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn SetCurrentItem3(self: KUrlComboBox, item: []const u8, insert: bool, index: i32) void {
+    pub fn setCurrentItem3(self: KUrlComboBox, item: []const u8, insert: bool, index: i32) void {
         const item_str = qtc.libqt_string{
             .len = item.len,
             .data = item.ptr,
         };
         qtc.KComboBox_SetCurrentItem3(@ptrCast(self.ptr), item_str, insert, @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `maxVisibleItems` instead
+    ///
+    pub const MaxVisibleItems = maxVisibleItems;
 
     /// Inherited from QComboBox
     ///
@@ -1240,9 +1512,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn MaxVisibleItems(self: KUrlComboBox) i32 {
+    pub fn maxVisibleItems(self: KUrlComboBox) i32 {
         return qtc.QComboBox_MaxVisibleItems(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaxVisibleItems` instead
+    ///
+    pub const SetMaxVisibleItems = setMaxVisibleItems;
 
     /// Inherited from QComboBox
     ///
@@ -1252,11 +1528,15 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` maxItems: i32 `
+    /// ` _maxItems: i32 `
     ///
-    pub fn SetMaxVisibleItems(self: KUrlComboBox, maxItems: i32) void {
-        qtc.QComboBox_SetMaxVisibleItems(@ptrCast(self.ptr), @bitCast(maxItems));
+    pub fn setMaxVisibleItems(self: KUrlComboBox, _maxItems: i32) void {
+        qtc.QComboBox_SetMaxVisibleItems(@ptrCast(self.ptr), @bitCast(_maxItems));
     }
+
+    /// ### DEPRECATED: Use `count` instead
+    ///
+    pub const Count = count;
 
     /// Inherited from QComboBox
     ///
@@ -1266,9 +1546,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn Count(self: KUrlComboBox) i32 {
+    pub fn count(self: KUrlComboBox) i32 {
         return qtc.QComboBox_Count(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaxCount` instead
+    ///
+    pub const SetMaxCount = setMaxCount;
 
     /// Inherited from QComboBox
     ///
@@ -1280,9 +1564,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` max: i32 `
     ///
-    pub fn SetMaxCount(self: KUrlComboBox, max: i32) void {
+    pub fn setMaxCount(self: KUrlComboBox, max: i32) void {
         qtc.QComboBox_SetMaxCount(@ptrCast(self.ptr), @bitCast(max));
     }
+
+    /// ### DEPRECATED: Use `maxCount` instead
+    ///
+    pub const MaxCount = maxCount;
 
     /// Inherited from QComboBox
     ///
@@ -1292,9 +1580,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn MaxCount(self: KUrlComboBox) i32 {
+    pub fn maxCount(self: KUrlComboBox) i32 {
         return qtc.QComboBox_MaxCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `duplicatesEnabled` instead
+    ///
+    pub const DuplicatesEnabled = duplicatesEnabled;
 
     /// Inherited from QComboBox
     ///
@@ -1304,9 +1596,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn DuplicatesEnabled(self: KUrlComboBox) bool {
+    pub fn duplicatesEnabled(self: KUrlComboBox) bool {
         return qtc.QComboBox_DuplicatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDuplicatesEnabled` instead
+    ///
+    pub const SetDuplicatesEnabled = setDuplicatesEnabled;
 
     /// Inherited from QComboBox
     ///
@@ -1318,9 +1614,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetDuplicatesEnabled(self: KUrlComboBox, enable: bool) void {
+    pub fn setDuplicatesEnabled(self: KUrlComboBox, enable: bool) void {
         qtc.QComboBox_SetDuplicatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `setFrame` instead
+    ///
+    pub const SetFrame = setFrame;
 
     /// Inherited from QComboBox
     ///
@@ -1332,9 +1632,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` frame: bool `
     ///
-    pub fn SetFrame(self: KUrlComboBox, frame: bool) void {
+    pub fn setFrame(self: KUrlComboBox, frame: bool) void {
         qtc.QComboBox_SetFrame(@ptrCast(self.ptr), frame);
     }
+
+    /// ### DEPRECATED: Use `hasFrame` instead
+    ///
+    pub const HasFrame = hasFrame;
 
     /// Inherited from QComboBox
     ///
@@ -1344,9 +1648,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn HasFrame(self: KUrlComboBox) bool {
+    pub fn hasFrame(self: KUrlComboBox) bool {
         return qtc.QComboBox_HasFrame(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `findText` instead
+    ///
+    pub const FindText = findText;
 
     /// Inherited from QComboBox
     ///
@@ -1358,13 +1666,17 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn FindText(self: KUrlComboBox, text: []const u8) i32 {
+    pub fn findText(self: KUrlComboBox, text: []const u8) i32 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return qtc.QComboBox_FindText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `findData` instead
+    ///
+    pub const FindData = findData;
 
     /// Inherited from QComboBox
     ///
@@ -1376,10 +1688,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` data: QVariant `
     ///
-    pub fn FindData(self: KUrlComboBox, data: anytype) i32 {
+    pub fn findData(self: KUrlComboBox, data: anytype) i32 {
         comptime _ = @TypeOf(data)._is_QVariant;
         return qtc.QComboBox_FindData(@ptrCast(self.ptr), @ptrCast(data.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertPolicy` instead
+    ///
+    pub const InsertPolicy = insertPolicy;
 
     /// Inherited from QComboBox
     ///
@@ -1393,9 +1709,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` qcombobox_enums.InsertPolicy `
     ///
-    pub fn InsertPolicy(self: KUrlComboBox) i32 {
+    pub fn insertPolicy(self: KUrlComboBox) i32 {
         return qtc.QComboBox_InsertPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInsertPolicy` instead
+    ///
+    pub const SetInsertPolicy = setInsertPolicy;
 
     /// Inherited from QComboBox
     ///
@@ -1407,9 +1727,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` policy: qcombobox_enums.InsertPolicy `
     ///
-    pub fn SetInsertPolicy(self: KUrlComboBox, policy: i32) void {
+    pub fn setInsertPolicy(self: KUrlComboBox, policy: i32) void {
         qtc.QComboBox_SetInsertPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `sizeAdjustPolicy` instead
+    ///
+    pub const SizeAdjustPolicy = sizeAdjustPolicy;
 
     /// Inherited from QComboBox
     ///
@@ -1423,9 +1747,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` qcombobox_enums.SizeAdjustPolicy `
     ///
-    pub fn SizeAdjustPolicy(self: KUrlComboBox) i32 {
+    pub fn sizeAdjustPolicy(self: KUrlComboBox) i32 {
         return qtc.QComboBox_SizeAdjustPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeAdjustPolicy` instead
+    ///
+    pub const SetSizeAdjustPolicy = setSizeAdjustPolicy;
 
     /// Inherited from QComboBox
     ///
@@ -1437,9 +1765,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` policy: qcombobox_enums.SizeAdjustPolicy `
     ///
-    pub fn SetSizeAdjustPolicy(self: KUrlComboBox, policy: i32) void {
+    pub fn setSizeAdjustPolicy(self: KUrlComboBox, policy: i32) void {
         qtc.QComboBox_SetSizeAdjustPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `minimumContentsLength` instead
+    ///
+    pub const MinimumContentsLength = minimumContentsLength;
 
     /// Inherited from QComboBox
     ///
@@ -1449,9 +1781,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn MinimumContentsLength(self: KUrlComboBox) i32 {
+    pub fn minimumContentsLength(self: KUrlComboBox) i32 {
         return qtc.QComboBox_MinimumContentsLength(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumContentsLength` instead
+    ///
+    pub const SetMinimumContentsLength = setMinimumContentsLength;
 
     /// Inherited from QComboBox
     ///
@@ -1463,9 +1799,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` characters: i32 `
     ///
-    pub fn SetMinimumContentsLength(self: KUrlComboBox, characters: i32) void {
+    pub fn setMinimumContentsLength(self: KUrlComboBox, characters: i32) void {
         qtc.QComboBox_SetMinimumContentsLength(@ptrCast(self.ptr), @bitCast(characters));
     }
+
+    /// ### DEPRECATED: Use `iconSize` instead
+    ///
+    pub const IconSize = iconSize;
 
     /// Inherited from QComboBox
     ///
@@ -1475,9 +1815,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn IconSize(self: KUrlComboBox) QSize {
+    pub fn iconSize(self: KUrlComboBox) QSize {
         return .{ .ptr = qtc.QComboBox_IconSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setIconSize` instead
+    ///
+    pub const SetIconSize = setIconSize;
 
     /// Inherited from QComboBox
     ///
@@ -1487,12 +1831,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` size: QSize `
+    /// ` _size: QSize `
     ///
-    pub fn SetIconSize(self: KUrlComboBox, size: anytype) void {
-        comptime _ = @TypeOf(size)._is_QSize;
-        qtc.QComboBox_SetIconSize(@ptrCast(self.ptr), @ptrCast(size.ptr));
+    pub fn setIconSize(self: KUrlComboBox, _size: anytype) void {
+        comptime _ = @TypeOf(_size)._is_QSize;
+        qtc.QComboBox_SetIconSize(@ptrCast(self.ptr), @ptrCast(_size.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPlaceholderText` instead
+    ///
+    pub const SetPlaceholderText = setPlaceholderText;
 
     /// Inherited from QComboBox
     ///
@@ -1502,15 +1850,19 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` placeholderText: []const u8 `
+    /// ` _placeholderText: []const u8 `
     ///
-    pub fn SetPlaceholderText(self: KUrlComboBox, placeholderText: []const u8) void {
+    pub fn setPlaceholderText(self: KUrlComboBox, _placeholderText: []const u8) void {
         const placeholderText_str = qtc.libqt_string{
-            .len = placeholderText.len,
-            .data = placeholderText.ptr,
+            .len = _placeholderText.len,
+            .data = _placeholderText.ptr,
         };
         qtc.QComboBox_SetPlaceholderText(@ptrCast(self.ptr), placeholderText_str);
     }
+
+    /// ### DEPRECATED: Use `placeholderText` instead
+    ///
+    pub const PlaceholderText = placeholderText;
 
     /// Inherited from QComboBox
     ///
@@ -1522,13 +1874,17 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PlaceholderText(self: KUrlComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn placeholderText(self: KUrlComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QComboBox_PlaceholderText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboBox.PlaceholderText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboBox.placeholderText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isEditable` instead
+    ///
+    pub const IsEditable = isEditable;
 
     /// Inherited from QComboBox
     ///
@@ -1538,9 +1894,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn IsEditable(self: KUrlComboBox) bool {
+    pub fn isEditable(self: KUrlComboBox) bool {
         return qtc.QComboBox_IsEditable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lineEdit` instead
+    ///
+    pub const LineEdit = lineEdit;
 
     /// Inherited from QComboBox
     ///
@@ -1550,9 +1910,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn LineEdit(self: KUrlComboBox) QLineEdit {
+    pub fn lineEdit(self: KUrlComboBox) QLineEdit {
         return .{ .ptr = qtc.QComboBox_LineEdit(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setValidator` instead
+    ///
+    pub const SetValidator = setValidator;
 
     /// Inherited from QComboBox
     ///
@@ -1564,10 +1928,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` v: QValidator `
     ///
-    pub fn SetValidator(self: KUrlComboBox, v: anytype) void {
+    pub fn setValidator(self: KUrlComboBox, v: anytype) void {
         comptime _ = @TypeOf(v)._is_QValidator;
         qtc.QComboBox_SetValidator(@ptrCast(self.ptr), @ptrCast(v.ptr));
     }
+
+    /// ### DEPRECATED: Use `validator` instead
+    ///
+    pub const Validator = validator;
 
     /// Inherited from QComboBox
     ///
@@ -1577,9 +1945,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn Validator(self: KUrlComboBox) QValidator {
+    pub fn validator(self: KUrlComboBox) QValidator {
         return .{ .ptr = qtc.QComboBox_Validator(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCompleter` instead
+    ///
+    pub const SetCompleter = setCompleter;
 
     /// Inherited from QComboBox
     ///
@@ -1591,10 +1963,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` c: QCompleter `
     ///
-    pub fn SetCompleter(self: KUrlComboBox, c: anytype) void {
+    pub fn setCompleter(self: KUrlComboBox, c: anytype) void {
         comptime _ = @TypeOf(c)._is_QCompleter;
         qtc.QComboBox_SetCompleter(@ptrCast(self.ptr), @ptrCast(c.ptr));
     }
+
+    /// ### DEPRECATED: Use `completer` instead
+    ///
+    pub const Completer = completer;
 
     /// Inherited from QComboBox
     ///
@@ -1604,9 +1980,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn Completer(self: KUrlComboBox) QCompleter {
+    pub fn completer(self: KUrlComboBox) QCompleter {
         return .{ .ptr = qtc.QComboBox_Completer(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `itemDelegate` instead
+    ///
+    pub const ItemDelegate = itemDelegate;
 
     /// Inherited from QComboBox
     ///
@@ -1616,9 +1996,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn ItemDelegate(self: KUrlComboBox) QAbstractItemDelegate {
+    pub fn itemDelegate(self: KUrlComboBox) QAbstractItemDelegate {
         return .{ .ptr = qtc.QComboBox_ItemDelegate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setItemDelegate` instead
+    ///
+    pub const SetItemDelegate = setItemDelegate;
 
     /// Inherited from QComboBox
     ///
@@ -1628,12 +2012,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` delegate: QAbstractItemDelegate `
+    /// ` _delegate: QAbstractItemDelegate `
     ///
-    pub fn SetItemDelegate(self: KUrlComboBox, delegate: anytype) void {
-        comptime _ = @TypeOf(delegate)._is_QAbstractItemDelegate;
-        qtc.QComboBox_SetItemDelegate(@ptrCast(self.ptr), @ptrCast(delegate.ptr));
+    pub fn setItemDelegate(self: KUrlComboBox, _delegate: anytype) void {
+        comptime _ = @TypeOf(_delegate)._is_QAbstractItemDelegate;
+        qtc.QComboBox_SetItemDelegate(@ptrCast(self.ptr), @ptrCast(_delegate.ptr));
     }
+
+    /// ### DEPRECATED: Use `model` instead
+    ///
+    pub const Model = model;
 
     /// Inherited from QComboBox
     ///
@@ -1643,9 +2031,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn Model(self: KUrlComboBox) QAbstractItemModel {
+    pub fn model(self: KUrlComboBox) QAbstractItemModel {
         return .{ .ptr = qtc.QComboBox_Model(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `rootModelIndex` instead
+    ///
+    pub const RootModelIndex = rootModelIndex;
 
     /// Inherited from QComboBox
     ///
@@ -1655,9 +2047,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn RootModelIndex(self: KUrlComboBox) QModelIndex {
+    pub fn rootModelIndex(self: KUrlComboBox) QModelIndex {
         return .{ .ptr = qtc.QComboBox_RootModelIndex(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setRootModelIndex` instead
+    ///
+    pub const SetRootModelIndex = setRootModelIndex;
 
     /// Inherited from QComboBox
     ///
@@ -1669,10 +2065,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SetRootModelIndex(self: KUrlComboBox, index: anytype) void {
+    pub fn setRootModelIndex(self: KUrlComboBox, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QComboBox_SetRootModelIndex(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `modelColumn` instead
+    ///
+    pub const ModelColumn = modelColumn;
 
     /// Inherited from QComboBox
     ///
@@ -1682,9 +2082,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn ModelColumn(self: KUrlComboBox) i32 {
+    pub fn modelColumn(self: KUrlComboBox) i32 {
         return qtc.QComboBox_ModelColumn(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setModelColumn` instead
+    ///
+    pub const SetModelColumn = setModelColumn;
 
     /// Inherited from QComboBox
     ///
@@ -1696,9 +2100,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` visibleColumn: i32 `
     ///
-    pub fn SetModelColumn(self: KUrlComboBox, visibleColumn: i32) void {
+    pub fn setModelColumn(self: KUrlComboBox, visibleColumn: i32) void {
         qtc.QComboBox_SetModelColumn(@ptrCast(self.ptr), @bitCast(visibleColumn));
     }
+
+    /// ### DEPRECATED: Use `currentIndex` instead
+    ///
+    pub const CurrentIndex = currentIndex;
 
     /// Inherited from QComboBox
     ///
@@ -1708,9 +2116,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn CurrentIndex(self: KUrlComboBox) i32 {
+    pub fn currentIndex(self: KUrlComboBox) i32 {
         return qtc.QComboBox_CurrentIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `currentText` instead
+    ///
+    pub const CurrentText = currentText;
 
     /// Inherited from QComboBox
     ///
@@ -1722,13 +2134,17 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CurrentText(self: KUrlComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn currentText(self: KUrlComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QComboBox_CurrentText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboBox.CurrentText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboBox.currentText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `currentData` instead
+    ///
+    pub const CurrentData = currentData;
 
     /// Inherited from QComboBox
     ///
@@ -1738,9 +2154,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn CurrentData(self: KUrlComboBox) QVariant {
+    pub fn currentData(self: KUrlComboBox) QVariant {
         return .{ .ptr = qtc.QComboBox_CurrentData(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `itemText` instead
+    ///
+    pub const ItemText = itemText;
 
     /// Inherited from QComboBox
     ///
@@ -1754,13 +2174,17 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn ItemText(self: KUrlComboBox, allocator: std.mem.Allocator, index: i32) []const u8 {
+    pub fn itemText(self: KUrlComboBox, allocator: std.mem.Allocator, index: i32) []const u8 {
         var _str = qtc.QComboBox_ItemText(@ptrCast(self.ptr), @bitCast(index));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboBox.ItemText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboBox.itemText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `itemIcon` instead
+    ///
+    pub const ItemIcon = itemIcon;
 
     /// Inherited from QComboBox
     ///
@@ -1772,9 +2196,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn ItemIcon(self: KUrlComboBox, index: i32) QIcon {
+    pub fn itemIcon(self: KUrlComboBox, index: i32) QIcon {
         return .{ .ptr = qtc.QComboBox_ItemIcon(@ptrCast(self.ptr), @bitCast(index)) };
     }
+
+    /// ### DEPRECATED: Use `itemData` instead
+    ///
+    pub const ItemData = itemData;
 
     /// Inherited from QComboBox
     ///
@@ -1786,9 +2214,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn ItemData(self: KUrlComboBox, index: i32) QVariant {
+    pub fn itemData(self: KUrlComboBox, index: i32) QVariant {
         return .{ .ptr = qtc.QComboBox_ItemData(@ptrCast(self.ptr), @bitCast(index)) };
     }
+
+    /// ### DEPRECATED: Use `addItem` instead
+    ///
+    pub const AddItem = addItem;
 
     /// Inherited from QComboBox
     ///
@@ -1800,13 +2232,17 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddItem(self: KUrlComboBox, text: []const u8) void {
+    pub fn addItem(self: KUrlComboBox, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QComboBox_AddItem(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `addItem2` instead
+    ///
+    pub const AddItem2 = addItem2;
 
     /// Inherited from QComboBox
     ///
@@ -1820,7 +2256,7 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddItem2(self: KUrlComboBox, icon: anytype, text: []const u8) void {
+    pub fn addItem2(self: KUrlComboBox, icon: anytype, text: []const u8) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -1828,6 +2264,10 @@ pub const KUrlComboBox = extern struct {
         };
         qtc.QComboBox_AddItem2(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `addItems` instead
+    ///
+    pub const AddItems = addItems;
 
     /// Inherited from QComboBox
     ///
@@ -1841,13 +2281,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` texts: []const []const u8 `
     ///
-    pub fn AddItems(self: KUrlComboBox, allocator: std.mem.Allocator, texts: []const []const u8) void {
-        const texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("KUrlComboBox.AddItems: Memory allocation failed");
+    pub fn addItems(self: KUrlComboBox, allocator: std.mem.Allocator, texts: []const []const u8) void {
+        const texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("KUrlComboBox.addItems: Memory allocation failed");
         defer allocator.free(texts_arr);
-        for (texts, 0..texts.len) |item, i|
+        for (texts, 0..texts.len) |str_item, i|
             texts_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const texts_list = qtc.libqt_list{
             .len = texts.len,
@@ -1855,6 +2295,10 @@ pub const KUrlComboBox = extern struct {
         };
         qtc.QComboBox_AddItems(@ptrCast(self.ptr), texts_list);
     }
+
+    /// ### DEPRECATED: Use `insertItem` instead
+    ///
+    pub const InsertItem = insertItem;
 
     /// Inherited from QComboBox
     ///
@@ -1868,13 +2312,17 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn InsertItem(self: KUrlComboBox, index: i32, text: []const u8) void {
+    pub fn insertItem(self: KUrlComboBox, index: i32, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QComboBox_InsertItem(@ptrCast(self.ptr), @bitCast(index), text_str);
     }
+
+    /// ### DEPRECATED: Use `insertItem2` instead
+    ///
+    pub const InsertItem2 = insertItem2;
 
     /// Inherited from QComboBox
     ///
@@ -1890,7 +2338,7 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn InsertItem2(self: KUrlComboBox, index: i32, icon: anytype, text: []const u8) void {
+    pub fn insertItem2(self: KUrlComboBox, index: i32, icon: anytype, text: []const u8) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -1898,6 +2346,10 @@ pub const KUrlComboBox = extern struct {
         };
         qtc.QComboBox_InsertItem2(@ptrCast(self.ptr), @bitCast(index), @ptrCast(icon.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `insertItems` instead
+    ///
+    pub const InsertItems = insertItems;
 
     /// Inherited from QComboBox
     ///
@@ -1913,13 +2365,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` texts: []const []const u8 `
     ///
-    pub fn InsertItems(self: KUrlComboBox, allocator: std.mem.Allocator, index: i32, texts: []const []const u8) void {
-        const texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("KUrlComboBox.InsertItems: Memory allocation failed");
+    pub fn insertItems(self: KUrlComboBox, allocator: std.mem.Allocator, index: i32, texts: []const []const u8) void {
+        const texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("KUrlComboBox.insertItems: Memory allocation failed");
         defer allocator.free(texts_arr);
-        for (texts, 0..texts.len) |item, i|
+        for (texts, 0..texts.len) |str_item, i|
             texts_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const texts_list = qtc.libqt_list{
             .len = texts.len,
@@ -1927,6 +2379,10 @@ pub const KUrlComboBox = extern struct {
         };
         qtc.QComboBox_InsertItems(@ptrCast(self.ptr), @bitCast(index), texts_list);
     }
+
+    /// ### DEPRECATED: Use `insertSeparator` instead
+    ///
+    pub const InsertSeparator = insertSeparator;
 
     /// Inherited from QComboBox
     ///
@@ -1938,9 +2394,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn InsertSeparator(self: KUrlComboBox, index: i32) void {
+    pub fn insertSeparator(self: KUrlComboBox, index: i32) void {
         qtc.QComboBox_InsertSeparator(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `removeItem` instead
+    ///
+    pub const RemoveItem = removeItem;
 
     /// Inherited from QComboBox
     ///
@@ -1952,9 +2412,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn RemoveItem(self: KUrlComboBox, index: i32) void {
+    pub fn removeItem(self: KUrlComboBox, index: i32) void {
         qtc.QComboBox_RemoveItem(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `setItemText` instead
+    ///
+    pub const SetItemText = setItemText;
 
     /// Inherited from QComboBox
     ///
@@ -1968,13 +2432,17 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetItemText(self: KUrlComboBox, index: i32, text: []const u8) void {
+    pub fn setItemText(self: KUrlComboBox, index: i32, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QComboBox_SetItemText(@ptrCast(self.ptr), @bitCast(index), text_str);
     }
+
+    /// ### DEPRECATED: Use `setItemIcon` instead
+    ///
+    pub const SetItemIcon = setItemIcon;
 
     /// Inherited from QComboBox
     ///
@@ -1988,10 +2456,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetItemIcon(self: KUrlComboBox, index: i32, icon: anytype) void {
+    pub fn setItemIcon(self: KUrlComboBox, index: i32, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QComboBox_SetItemIcon(@ptrCast(self.ptr), @bitCast(index), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `setItemData` instead
+    ///
+    pub const SetItemData = setItemData;
 
     /// Inherited from QComboBox
     ///
@@ -2005,10 +2477,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetItemData(self: KUrlComboBox, index: i32, value: anytype) void {
+    pub fn setItemData(self: KUrlComboBox, index: i32, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QVariant;
         qtc.QComboBox_SetItemData(@ptrCast(self.ptr), @bitCast(index), @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `view` instead
+    ///
+    pub const View = view;
 
     /// Inherited from QComboBox
     ///
@@ -2018,9 +2494,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn View(self: KUrlComboBox) QAbstractItemView {
+    pub fn view(self: KUrlComboBox) QAbstractItemView {
         return .{ .ptr = qtc.QComboBox_View(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setView` instead
+    ///
+    pub const SetView = setView;
 
     /// Inherited from QComboBox
     ///
@@ -2032,10 +2512,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` itemView: QAbstractItemView `
     ///
-    pub fn SetView(self: KUrlComboBox, itemView: anytype) void {
+    pub fn setView(self: KUrlComboBox, itemView: anytype) void {
         comptime _ = @TypeOf(itemView)._is_QAbstractItemView;
         qtc.QComboBox_SetView(@ptrCast(self.ptr), @ptrCast(itemView.ptr));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery2` instead
+    ///
+    pub const InputMethodQuery2 = inputMethodQuery2;
 
     /// Inherited from QComboBox
     ///
@@ -2049,10 +2533,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` argument: QVariant `
     ///
-    pub fn InputMethodQuery2(self: KUrlComboBox, query: i32, argument: anytype) QVariant {
+    pub fn inputMethodQuery2(self: KUrlComboBox, query: i32, argument: anytype) QVariant {
         comptime _ = @TypeOf(argument)._is_QVariant;
         return .{ .ptr = qtc.QComboBox_InputMethodQuery2(@ptrCast(self.ptr), @bitCast(query), @ptrCast(argument.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// Inherited from QComboBox
     ///
@@ -2062,9 +2550,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn Clear(self: KUrlComboBox) void {
+    pub fn clear(self: KUrlComboBox) void {
         qtc.QComboBox_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearEditText` instead
+    ///
+    pub const ClearEditText = clearEditText;
 
     /// Inherited from QComboBox
     ///
@@ -2074,9 +2566,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn ClearEditText(self: KUrlComboBox) void {
+    pub fn clearEditText(self: KUrlComboBox) void {
         qtc.QComboBox_ClearEditText(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEditText` instead
+    ///
+    pub const SetEditText = setEditText;
 
     /// Inherited from QComboBox
     ///
@@ -2088,13 +2584,17 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetEditText(self: KUrlComboBox, text: []const u8) void {
+    pub fn setEditText(self: KUrlComboBox, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QComboBox_SetEditText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `setCurrentIndex` instead
+    ///
+    pub const SetCurrentIndex = setCurrentIndex;
 
     /// Inherited from QComboBox
     ///
@@ -2106,9 +2606,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn SetCurrentIndex(self: KUrlComboBox, index: i32) void {
+    pub fn setCurrentIndex(self: KUrlComboBox, index: i32) void {
         qtc.QComboBox_SetCurrentIndex(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `setCurrentText` instead
+    ///
+    pub const SetCurrentText = setCurrentText;
 
     /// Inherited from QComboBox
     ///
@@ -2120,7 +2624,7 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetCurrentText(self: KUrlComboBox, text: []const u8) void {
+    pub fn setCurrentText(self: KUrlComboBox, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -2128,6 +2632,10 @@ pub const KUrlComboBox = extern struct {
         qtc.QComboBox_SetCurrentText(@ptrCast(self.ptr), text_str);
     }
 
+    /// ### DEPRECATED: Use `editTextChanged` instead
+    ///
+    pub const EditTextChanged = editTextChanged;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#editTextChanged)
@@ -2138,7 +2646,7 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn EditTextChanged(self: KUrlComboBox, param1: []const u8) void {
+    pub fn editTextChanged(self: KUrlComboBox, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -2146,6 +2654,10 @@ pub const KUrlComboBox = extern struct {
         qtc.QComboBox_EditTextChanged(@ptrCast(self.ptr), param1_str);
     }
 
+    /// ### DEPRECATED: Use `onEditTextChanged` instead
+    ///
+    pub const OnEditTextChanged = onEditTextChanged;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#editTextChanged)
@@ -2156,9 +2668,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, param1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnEditTextChanged(self: KUrlComboBox, callback: *const fn (KUrlComboBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onEditTextChanged(self: KUrlComboBox, callback: *const fn (KUrlComboBox, [*:0]const u8) callconv(.c) void) void {
         qtc.QComboBox_Connect_EditTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `activated` instead
+    ///
+    pub const Activated = activated;
 
     /// Inherited from QComboBox
     ///
@@ -2170,9 +2686,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn Activated(self: KUrlComboBox, index: i32) void {
+    pub fn activated(self: KUrlComboBox, index: i32) void {
         qtc.QComboBox_Activated(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `onActivated` instead
+    ///
+    pub const OnActivated = onActivated;
 
     /// Inherited from QComboBox
     ///
@@ -2184,9 +2704,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, index: i32) callconv(.c) void `
     ///
-    pub fn OnActivated(self: KUrlComboBox, callback: *const fn (KUrlComboBox, i32) callconv(.c) void) void {
+    pub fn onActivated(self: KUrlComboBox, callback: *const fn (KUrlComboBox, i32) callconv(.c) void) void {
         qtc.QComboBox_Connect_Activated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `textActivated` instead
+    ///
+    pub const TextActivated = textActivated;
 
     /// Inherited from QComboBox
     ///
@@ -2198,7 +2722,7 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn TextActivated(self: KUrlComboBox, param1: []const u8) void {
+    pub fn textActivated(self: KUrlComboBox, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -2206,6 +2730,10 @@ pub const KUrlComboBox = extern struct {
         qtc.QComboBox_TextActivated(@ptrCast(self.ptr), param1_str);
     }
 
+    /// ### DEPRECATED: Use `onTextActivated` instead
+    ///
+    pub const OnTextActivated = onTextActivated;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#textActivated)
@@ -2216,9 +2744,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, param1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnTextActivated(self: KUrlComboBox, callback: *const fn (KUrlComboBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onTextActivated(self: KUrlComboBox, callback: *const fn (KUrlComboBox, [*:0]const u8) callconv(.c) void) void {
         qtc.QComboBox_Connect_TextActivated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `highlighted` instead
+    ///
+    pub const Highlighted = highlighted;
 
     /// Inherited from QComboBox
     ///
@@ -2230,9 +2762,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn Highlighted(self: KUrlComboBox, index: i32) void {
+    pub fn highlighted(self: KUrlComboBox, index: i32) void {
         qtc.QComboBox_Highlighted(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `onHighlighted` instead
+    ///
+    pub const OnHighlighted = onHighlighted;
 
     /// Inherited from QComboBox
     ///
@@ -2244,9 +2780,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, index: i32) callconv(.c) void `
     ///
-    pub fn OnHighlighted(self: KUrlComboBox, callback: *const fn (KUrlComboBox, i32) callconv(.c) void) void {
+    pub fn onHighlighted(self: KUrlComboBox, callback: *const fn (KUrlComboBox, i32) callconv(.c) void) void {
         qtc.QComboBox_Connect_Highlighted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `textHighlighted` instead
+    ///
+    pub const TextHighlighted = textHighlighted;
 
     /// Inherited from QComboBox
     ///
@@ -2258,7 +2798,7 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn TextHighlighted(self: KUrlComboBox, param1: []const u8) void {
+    pub fn textHighlighted(self: KUrlComboBox, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -2266,6 +2806,10 @@ pub const KUrlComboBox = extern struct {
         qtc.QComboBox_TextHighlighted(@ptrCast(self.ptr), param1_str);
     }
 
+    /// ### DEPRECATED: Use `onTextHighlighted` instead
+    ///
+    pub const OnTextHighlighted = onTextHighlighted;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#textHighlighted)
@@ -2276,9 +2820,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, param1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnTextHighlighted(self: KUrlComboBox, callback: *const fn (KUrlComboBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onTextHighlighted(self: KUrlComboBox, callback: *const fn (KUrlComboBox, [*:0]const u8) callconv(.c) void) void {
         qtc.QComboBox_Connect_TextHighlighted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `currentIndexChanged` instead
+    ///
+    pub const CurrentIndexChanged = currentIndexChanged;
 
     /// Inherited from QComboBox
     ///
@@ -2290,9 +2838,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn CurrentIndexChanged(self: KUrlComboBox, index: i32) void {
+    pub fn currentIndexChanged(self: KUrlComboBox, index: i32) void {
         qtc.QComboBox_CurrentIndexChanged(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `onCurrentIndexChanged` instead
+    ///
+    pub const OnCurrentIndexChanged = onCurrentIndexChanged;
 
     /// Inherited from QComboBox
     ///
@@ -2304,9 +2856,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, index: i32) callconv(.c) void `
     ///
-    pub fn OnCurrentIndexChanged(self: KUrlComboBox, callback: *const fn (KUrlComboBox, i32) callconv(.c) void) void {
+    pub fn onCurrentIndexChanged(self: KUrlComboBox, callback: *const fn (KUrlComboBox, i32) callconv(.c) void) void {
         qtc.QComboBox_Connect_CurrentIndexChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `currentTextChanged` instead
+    ///
+    pub const CurrentTextChanged = currentTextChanged;
 
     /// Inherited from QComboBox
     ///
@@ -2318,13 +2874,17 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn CurrentTextChanged(self: KUrlComboBox, param1: []const u8) void {
+    pub fn currentTextChanged(self: KUrlComboBox, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
         qtc.QComboBox_CurrentTextChanged(@ptrCast(self.ptr), param1_str);
     }
+
+    /// ### DEPRECATED: Use `onCurrentTextChanged` instead
+    ///
+    pub const OnCurrentTextChanged = onCurrentTextChanged;
 
     /// Inherited from QComboBox
     ///
@@ -2336,9 +2896,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, param1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnCurrentTextChanged(self: KUrlComboBox, callback: *const fn (KUrlComboBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onCurrentTextChanged(self: KUrlComboBox, callback: *const fn (KUrlComboBox, [*:0]const u8) callconv(.c) void) void {
         qtc.QComboBox_Connect_CurrentTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `findText2` instead
+    ///
+    pub const FindText2 = findText2;
 
     /// Inherited from QComboBox
     ///
@@ -2352,13 +2916,17 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.MatchFlag `
     ///
-    pub fn FindText2(self: KUrlComboBox, text: []const u8, flags: i32) i32 {
+    pub fn findText2(self: KUrlComboBox, text: []const u8, flags: i32) i32 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return qtc.QComboBox_FindText2(@ptrCast(self.ptr), text_str, @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `findData2` instead
+    ///
+    pub const FindData2 = findData2;
 
     /// Inherited from QComboBox
     ///
@@ -2372,10 +2940,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn FindData2(self: KUrlComboBox, data: anytype, role: i32) i32 {
+    pub fn findData2(self: KUrlComboBox, data: anytype, role: i32) i32 {
         comptime _ = @TypeOf(data)._is_QVariant;
         return qtc.QComboBox_FindData2(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(role));
     }
+
+    /// ### DEPRECATED: Use `findData3` instead
+    ///
+    pub const FindData3 = findData3;
 
     /// Inherited from QComboBox
     ///
@@ -2391,10 +2963,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.MatchFlag `
     ///
-    pub fn FindData3(self: KUrlComboBox, data: anytype, role: i32, flags: i32) i32 {
+    pub fn findData3(self: KUrlComboBox, data: anytype, role: i32, flags: i32) i32 {
         comptime _ = @TypeOf(data)._is_QVariant;
         return qtc.QComboBox_FindData3(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(role), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `currentData1` instead
+    ///
+    pub const CurrentData1 = currentData1;
 
     /// Inherited from QComboBox
     ///
@@ -2406,9 +2982,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn CurrentData1(self: KUrlComboBox, role: i32) QVariant {
+    pub fn currentData1(self: KUrlComboBox, role: i32) QVariant {
         return .{ .ptr = qtc.QComboBox_CurrentData1(@ptrCast(self.ptr), @bitCast(role)) };
     }
+
+    /// ### DEPRECATED: Use `itemData2` instead
+    ///
+    pub const ItemData2 = itemData2;
 
     /// Inherited from QComboBox
     ///
@@ -2422,9 +3002,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn ItemData2(self: KUrlComboBox, index: i32, role: i32) QVariant {
+    pub fn itemData2(self: KUrlComboBox, index: i32, role: i32) QVariant {
         return .{ .ptr = qtc.QComboBox_ItemData2(@ptrCast(self.ptr), @bitCast(index), @bitCast(role)) };
     }
+
+    /// ### DEPRECATED: Use `addItem22` instead
+    ///
+    pub const AddItem22 = addItem22;
 
     /// Inherited from QComboBox
     ///
@@ -2438,7 +3022,7 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` userData: QVariant `
     ///
-    pub fn AddItem22(self: KUrlComboBox, text: []const u8, userData: anytype) void {
+    pub fn addItem22(self: KUrlComboBox, text: []const u8, userData: anytype) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -2446,6 +3030,10 @@ pub const KUrlComboBox = extern struct {
         comptime _ = @TypeOf(userData)._is_QVariant;
         qtc.QComboBox_AddItem22(@ptrCast(self.ptr), text_str, @ptrCast(userData.ptr));
     }
+
+    /// ### DEPRECATED: Use `addItem3` instead
+    ///
+    pub const AddItem3 = addItem3;
 
     /// Inherited from QComboBox
     ///
@@ -2461,7 +3049,7 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` userData: QVariant `
     ///
-    pub fn AddItem3(self: KUrlComboBox, icon: anytype, text: []const u8, userData: anytype) void {
+    pub fn addItem3(self: KUrlComboBox, icon: anytype, text: []const u8, userData: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -2471,6 +3059,10 @@ pub const KUrlComboBox = extern struct {
         qtc.QComboBox_AddItem3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(userData.ptr));
     }
 
+    /// ### DEPRECATED: Use `insertItem3` instead
+    ///
+    pub const InsertItem3 = insertItem3;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#insertItem)
@@ -2485,7 +3077,7 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` userData: QVariant `
     ///
-    pub fn InsertItem3(self: KUrlComboBox, index: i32, text: []const u8, userData: anytype) void {
+    pub fn insertItem3(self: KUrlComboBox, index: i32, text: []const u8, userData: anytype) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -2493,6 +3085,10 @@ pub const KUrlComboBox = extern struct {
         comptime _ = @TypeOf(userData)._is_QVariant;
         qtc.QComboBox_InsertItem3(@ptrCast(self.ptr), @bitCast(index), text_str, @ptrCast(userData.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertItem4` instead
+    ///
+    pub const InsertItem4 = insertItem4;
 
     /// Inherited from QComboBox
     ///
@@ -2510,7 +3106,7 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` userData: QVariant `
     ///
-    pub fn InsertItem4(self: KUrlComboBox, index: i32, icon: anytype, text: []const u8, userData: anytype) void {
+    pub fn insertItem4(self: KUrlComboBox, index: i32, icon: anytype, text: []const u8, userData: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -2519,6 +3115,10 @@ pub const KUrlComboBox = extern struct {
         comptime _ = @TypeOf(userData)._is_QVariant;
         qtc.QComboBox_InsertItem4(@ptrCast(self.ptr), @bitCast(index), @ptrCast(icon.ptr), text_str, @ptrCast(userData.ptr));
     }
+
+    /// ### DEPRECATED: Use `setItemData3` instead
+    ///
+    pub const SetItemData3 = setItemData3;
 
     /// Inherited from QComboBox
     ///
@@ -2534,10 +3134,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn SetItemData3(self: KUrlComboBox, index: i32, value: anytype, role: i32) void {
+    pub fn setItemData3(self: KUrlComboBox, index: i32, value: anytype, role: i32) void {
         comptime _ = @TypeOf(value)._is_QVariant;
         qtc.QComboBox_SetItemData3(@ptrCast(self.ptr), @bitCast(index), @ptrCast(value.ptr), @bitCast(role));
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -2547,9 +3151,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn WinId(self: KUrlComboBox) usize {
+    pub fn winId(self: KUrlComboBox) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -2559,9 +3167,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn CreateWinId(self: KUrlComboBox) void {
+    pub fn createWinId(self: KUrlComboBox) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -2571,9 +3183,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn InternalWinId(self: KUrlComboBox) usize {
+    pub fn internalWinId(self: KUrlComboBox) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -2583,9 +3199,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn EffectiveWinId(self: KUrlComboBox) usize {
+    pub fn effectiveWinId(self: KUrlComboBox) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -2595,9 +3215,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn Style(self: KUrlComboBox) QStyle {
+    pub fn style(self: KUrlComboBox) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -2607,12 +3231,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: KUrlComboBox, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: KUrlComboBox, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -2622,9 +3250,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn IsTopLevel(self: KUrlComboBox) bool {
+    pub fn isTopLevel(self: KUrlComboBox) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -2634,9 +3266,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn IsWindow(self: KUrlComboBox) bool {
+    pub fn isWindow(self: KUrlComboBox) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -2646,9 +3282,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn IsModal(self: KUrlComboBox) bool {
+    pub fn isModal(self: KUrlComboBox) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -2662,9 +3302,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: KUrlComboBox) i32 {
+    pub fn windowModality(self: KUrlComboBox) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -2674,11 +3318,15 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: KUrlComboBox, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: KUrlComboBox, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2688,9 +3336,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn IsEnabled(self: KUrlComboBox) bool {
+    pub fn isEnabled(self: KUrlComboBox) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -2702,10 +3354,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: KUrlComboBox, param1: anytype) bool {
+    pub fn isEnabledTo(self: KUrlComboBox, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2717,9 +3373,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: KUrlComboBox, enabled: bool) void {
+    pub fn setEnabled(self: KUrlComboBox, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -2731,9 +3391,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: KUrlComboBox, disabled: bool) void {
+    pub fn setDisabled(self: KUrlComboBox, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -2745,9 +3409,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: KUrlComboBox, windowModified: bool) void {
+    pub fn setWindowModified(self: KUrlComboBox, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -2757,9 +3425,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn FrameGeometry(self: KUrlComboBox) QRect {
+    pub fn frameGeometry(self: KUrlComboBox) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -2769,9 +3441,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn Geometry(self: KUrlComboBox) QRect {
+    pub fn geometry(self: KUrlComboBox) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -2781,9 +3457,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn NormalGeometry(self: KUrlComboBox) QRect {
+    pub fn normalGeometry(self: KUrlComboBox) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -2793,9 +3473,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn X(self: KUrlComboBox) i32 {
+    pub fn x(self: KUrlComboBox) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -2805,9 +3489,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn Y(self: KUrlComboBox) i32 {
+    pub fn y(self: KUrlComboBox) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -2817,9 +3505,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn Pos(self: KUrlComboBox) QPoint {
+    pub fn pos(self: KUrlComboBox) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -2829,9 +3521,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn FrameSize(self: KUrlComboBox) QSize {
+    pub fn frameSize(self: KUrlComboBox) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -2841,9 +3537,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn Size(self: KUrlComboBox) QSize {
+    pub fn size(self: KUrlComboBox) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -2853,9 +3553,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn Width(self: KUrlComboBox) i32 {
+    pub fn width(self: KUrlComboBox) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -2865,9 +3569,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn Height(self: KUrlComboBox) i32 {
+    pub fn height(self: KUrlComboBox) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -2877,9 +3585,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn Rect(self: KUrlComboBox) QRect {
+    pub fn rect(self: KUrlComboBox) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -2889,9 +3601,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn ChildrenRect(self: KUrlComboBox) QRect {
+    pub fn childrenRect(self: KUrlComboBox) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -2901,9 +3617,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn ChildrenRegion(self: KUrlComboBox) QRegion {
+    pub fn childrenRegion(self: KUrlComboBox) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -2913,9 +3633,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn MinimumSize(self: KUrlComboBox) QSize {
+    pub fn minimumSize(self: KUrlComboBox) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -2925,9 +3649,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn MaximumSize(self: KUrlComboBox) QSize {
+    pub fn maximumSize(self: KUrlComboBox) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2937,9 +3665,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn MinimumWidth(self: KUrlComboBox) i32 {
+    pub fn minimumWidth(self: KUrlComboBox) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2949,9 +3681,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn MinimumHeight(self: KUrlComboBox) i32 {
+    pub fn minimumHeight(self: KUrlComboBox) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2961,9 +3697,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn MaximumWidth(self: KUrlComboBox) i32 {
+    pub fn maximumWidth(self: KUrlComboBox) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2973,9 +3713,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn MaximumHeight(self: KUrlComboBox) i32 {
+    pub fn maximumHeight(self: KUrlComboBox) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -2985,12 +3729,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: KUrlComboBox, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: KUrlComboBox, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -3004,9 +3752,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: KUrlComboBox, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: KUrlComboBox, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -3016,12 +3768,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: KUrlComboBox, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: KUrlComboBox, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -3035,9 +3791,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: KUrlComboBox, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: KUrlComboBox, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -3049,9 +3809,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: KUrlComboBox, minw: i32) void {
+    pub fn setMinimumWidth(self: KUrlComboBox, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -3063,9 +3827,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: KUrlComboBox, minh: i32) void {
+    pub fn setMinimumHeight(self: KUrlComboBox, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -3077,9 +3845,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: KUrlComboBox, maxw: i32) void {
+    pub fn setMaximumWidth(self: KUrlComboBox, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -3091,9 +3863,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: KUrlComboBox, maxh: i32) void {
+    pub fn setMaximumHeight(self: KUrlComboBox, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -3103,9 +3879,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn SizeIncrement(self: KUrlComboBox) QSize {
+    pub fn sizeIncrement(self: KUrlComboBox) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -3115,12 +3895,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: KUrlComboBox, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: KUrlComboBox, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -3134,9 +3918,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: KUrlComboBox, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: KUrlComboBox, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -3146,9 +3934,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn BaseSize(self: KUrlComboBox) QSize {
+    pub fn baseSize(self: KUrlComboBox) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -3158,12 +3950,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: KUrlComboBox, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: KUrlComboBox, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -3177,9 +3973,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: KUrlComboBox, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: KUrlComboBox, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -3191,10 +3991,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: KUrlComboBox, fixedSize: anytype) void {
+    pub fn setFixedSize(self: KUrlComboBox, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -3208,9 +4012,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: KUrlComboBox, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: KUrlComboBox, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -3222,9 +4030,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: KUrlComboBox, w: i32) void {
+    pub fn setFixedWidth(self: KUrlComboBox, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -3236,9 +4048,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: KUrlComboBox, h: i32) void {
+    pub fn setFixedHeight(self: KUrlComboBox, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -3250,11 +4066,15 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: KUrlComboBox, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: KUrlComboBox, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -3265,11 +4085,15 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: KUrlComboBox, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: KUrlComboBox, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -3280,11 +4104,15 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: KUrlComboBox, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: KUrlComboBox, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -3295,11 +4123,15 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: KUrlComboBox, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: KUrlComboBox, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -3310,11 +4142,15 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: KUrlComboBox, param1: anytype) QPointF {
+    pub fn mapToParent(self: KUrlComboBox, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -3325,10 +4161,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: KUrlComboBox, param1: anytype) QPoint {
+    pub fn mapToParent2(self: KUrlComboBox, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -3340,10 +4180,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: KUrlComboBox, param1: anytype) QPointF {
+    pub fn mapFromParent(self: KUrlComboBox, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -3355,10 +4199,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: KUrlComboBox, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: KUrlComboBox, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -3372,12 +4220,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: KUrlComboBox, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: KUrlComboBox, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -3390,11 +4242,15 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: KUrlComboBox, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: KUrlComboBox, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -3408,11 +4264,15 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: KUrlComboBox, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: KUrlComboBox, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -3426,11 +4286,15 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: KUrlComboBox, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: KUrlComboBox, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -3440,9 +4304,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn Window(self: KUrlComboBox) QWidget {
+    pub fn window(self: KUrlComboBox) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -3452,9 +4320,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn NativeParentWidget(self: KUrlComboBox) QWidget {
+    pub fn nativeParentWidget(self: KUrlComboBox) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -3464,9 +4336,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn TopLevelWidget(self: KUrlComboBox) QWidget {
+    pub fn topLevelWidget(self: KUrlComboBox) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -3476,9 +4352,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn Palette(self: KUrlComboBox) QPalette {
+    pub fn palette(self: KUrlComboBox) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -3488,12 +4368,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: KUrlComboBox, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: KUrlComboBox, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -3503,11 +4387,15 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: KUrlComboBox, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: KUrlComboBox, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -3521,9 +4409,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: KUrlComboBox) i32 {
+    pub fn backgroundRole(self: KUrlComboBox) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -3533,11 +4425,15 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: KUrlComboBox, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: KUrlComboBox, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -3551,9 +4447,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: KUrlComboBox) i32 {
+    pub fn foregroundRole(self: KUrlComboBox) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -3563,9 +4463,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn Font(self: KUrlComboBox) QFont {
+    pub fn font(self: KUrlComboBox) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -3575,12 +4479,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: KUrlComboBox, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: KUrlComboBox, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -3590,9 +4498,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn FontMetrics(self: KUrlComboBox) QFontMetrics {
+    pub fn fontMetrics(self: KUrlComboBox) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -3602,9 +4514,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn FontInfo(self: KUrlComboBox) QFontInfo {
+    pub fn fontInfo(self: KUrlComboBox) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -3614,9 +4530,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn Cursor(self: KUrlComboBox) QCursor {
+    pub fn cursor(self: KUrlComboBox) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -3626,12 +4546,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: KUrlComboBox, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: KUrlComboBox, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -3641,9 +4565,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn UnsetCursor(self: KUrlComboBox) void {
+    pub fn unsetCursor(self: KUrlComboBox) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -3655,9 +4583,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: KUrlComboBox, enable: bool) void {
+    pub fn setMouseTracking(self: KUrlComboBox, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -3667,9 +4599,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn HasMouseTracking(self: KUrlComboBox) bool {
+    pub fn hasMouseTracking(self: KUrlComboBox) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -3679,9 +4615,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn UnderMouse(self: KUrlComboBox) bool {
+    pub fn underMouse(self: KUrlComboBox) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -3693,9 +4633,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: KUrlComboBox, enable: bool) void {
+    pub fn setTabletTracking(self: KUrlComboBox, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -3705,24 +4649,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn HasTabletTracking(self: KUrlComboBox) bool {
+    pub fn hasTabletTracking(self: KUrlComboBox) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlComboBox `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: KUrlComboBox, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -3732,12 +4665,35 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: KUrlComboBox, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: KUrlComboBox, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KUrlComboBox `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: KUrlComboBox, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -3747,9 +4703,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn Mask(self: KUrlComboBox) QRegion {
+    pub fn mask(self: KUrlComboBox) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -3759,9 +4719,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn ClearMask(self: KUrlComboBox) void {
+    pub fn clearMask(self: KUrlComboBox) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -3773,10 +4737,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: KUrlComboBox, target: anytype) void {
+    pub fn render(self: KUrlComboBox, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -3788,10 +4756,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: KUrlComboBox, painter: anytype) void {
+    pub fn render2(self: KUrlComboBox, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -3801,9 +4773,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn Grab(self: KUrlComboBox) QPixmap {
+    pub fn grab(self: KUrlComboBox) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -3813,9 +4789,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn GraphicsEffect(self: KUrlComboBox) QGraphicsEffect {
+    pub fn graphicsEffect(self: KUrlComboBox) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -3827,10 +4807,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: KUrlComboBox, effect: anytype) void {
+    pub fn setGraphicsEffect(self: KUrlComboBox, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -3842,9 +4826,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: KUrlComboBox, typeVal: i32) void {
+    pub fn grabGesture(self: KUrlComboBox, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -3856,9 +4844,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: KUrlComboBox, typeVal: i32) void {
+    pub fn ungrabGesture(self: KUrlComboBox, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -3868,15 +4860,19 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: KUrlComboBox, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: KUrlComboBox, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -3886,15 +4882,19 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: KUrlComboBox, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: KUrlComboBox, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -3906,13 +4906,17 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: KUrlComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: KUrlComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboBox.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboBox.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -3924,13 +4928,17 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: KUrlComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: KUrlComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboBox.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboBox.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -3942,10 +4950,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: KUrlComboBox, icon: anytype) void {
+    pub fn setWindowIcon(self: KUrlComboBox, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -3955,9 +4967,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn WindowIcon(self: KUrlComboBox) QIcon {
+    pub fn windowIcon(self: KUrlComboBox) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -3967,15 +4983,19 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: KUrlComboBox, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: KUrlComboBox, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -3987,13 +5007,17 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: KUrlComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: KUrlComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboBox.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboBox.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -4003,15 +5027,19 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: KUrlComboBox, windowRole: []const u8) void {
+    pub fn setWindowRole(self: KUrlComboBox, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -4023,13 +5051,17 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: KUrlComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: KUrlComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboBox.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboBox.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -4041,13 +5073,17 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: KUrlComboBox, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: KUrlComboBox, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -4059,13 +5095,17 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: KUrlComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: KUrlComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboBox.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboBox.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -4077,9 +5117,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: KUrlComboBox, level: f64) void {
+    pub fn setWindowOpacity(self: KUrlComboBox, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -4089,9 +5133,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn WindowOpacity(self: KUrlComboBox) f64 {
+    pub fn windowOpacity(self: KUrlComboBox) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -4101,9 +5149,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn IsWindowModified(self: KUrlComboBox) bool {
+    pub fn isWindowModified(self: KUrlComboBox) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -4113,15 +5165,19 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: KUrlComboBox, toolTip: []const u8) void {
+    pub fn setToolTip(self: KUrlComboBox, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -4133,13 +5189,17 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: KUrlComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: KUrlComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboBox.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboBox.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -4151,9 +5211,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: KUrlComboBox, msec: i32) void {
+    pub fn setToolTipDuration(self: KUrlComboBox, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -4163,9 +5227,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn ToolTipDuration(self: KUrlComboBox) i32 {
+    pub fn toolTipDuration(self: KUrlComboBox) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -4175,15 +5243,19 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: KUrlComboBox, statusTip: []const u8) void {
+    pub fn setStatusTip(self: KUrlComboBox, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -4195,13 +5267,17 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: KUrlComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: KUrlComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboBox.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboBox.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -4211,15 +5287,19 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: KUrlComboBox, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: KUrlComboBox, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -4231,13 +5311,17 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: KUrlComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: KUrlComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboBox.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboBox.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -4249,13 +5333,17 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: KUrlComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: KUrlComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboBox.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboBox.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -4267,13 +5355,17 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: KUrlComboBox, name: []const u8) void {
+    pub fn setAccessibleName(self: KUrlComboBox, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -4285,13 +5377,17 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: KUrlComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: KUrlComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboBox.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboBox.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -4303,13 +5399,17 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: KUrlComboBox, description: []const u8) void {
+    pub fn setAccessibleDescription(self: KUrlComboBox, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -4321,9 +5421,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: KUrlComboBox, direction: i32) void {
+    pub fn setLayoutDirection(self: KUrlComboBox, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -4337,9 +5441,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: KUrlComboBox) i32 {
+    pub fn layoutDirection(self: KUrlComboBox) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -4349,9 +5457,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn UnsetLayoutDirection(self: KUrlComboBox) void {
+    pub fn unsetLayoutDirection(self: KUrlComboBox) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -4361,12 +5473,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: KUrlComboBox, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: KUrlComboBox, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -4376,9 +5492,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn Locale(self: KUrlComboBox) QLocale {
+    pub fn locale(self: KUrlComboBox) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -4388,9 +5508,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn UnsetLocale(self: KUrlComboBox) void {
+    pub fn unsetLocale(self: KUrlComboBox) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -4400,9 +5524,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn IsRightToLeft(self: KUrlComboBox) bool {
+    pub fn isRightToLeft(self: KUrlComboBox) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -4412,9 +5540,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn IsLeftToRight(self: KUrlComboBox) bool {
+    pub fn isLeftToRight(self: KUrlComboBox) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -4424,9 +5556,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn SetFocus(self: KUrlComboBox) void {
+    pub fn setFocus(self: KUrlComboBox) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -4436,9 +5572,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn IsActiveWindow(self: KUrlComboBox) bool {
+    pub fn isActiveWindow(self: KUrlComboBox) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -4448,9 +5588,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn ActivateWindow(self: KUrlComboBox) void {
+    pub fn activateWindow(self: KUrlComboBox) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -4460,9 +5604,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn ClearFocus(self: KUrlComboBox) void {
+    pub fn clearFocus(self: KUrlComboBox) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -4474,9 +5622,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: KUrlComboBox, reason: i32) void {
+    pub fn setFocus2(self: KUrlComboBox, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -4490,9 +5642,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: KUrlComboBox) i32 {
+    pub fn focusPolicy(self: KUrlComboBox) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -4504,9 +5660,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: KUrlComboBox, policy: i32) void {
+    pub fn setFocusPolicy(self: KUrlComboBox, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -4516,9 +5676,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn HasFocus(self: KUrlComboBox) bool {
+    pub fn hasFocus(self: KUrlComboBox) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -4530,11 +5694,15 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -4544,12 +5712,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: KUrlComboBox, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: KUrlComboBox, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -4559,9 +5731,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn FocusProxy(self: KUrlComboBox) QWidget {
+    pub fn focusProxy(self: KUrlComboBox) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -4575,9 +5751,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: KUrlComboBox) i32 {
+    pub fn contextMenuPolicy(self: KUrlComboBox) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -4589,9 +5769,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: KUrlComboBox, policy: i32) void {
+    pub fn setContextMenuPolicy(self: KUrlComboBox, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -4601,9 +5785,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn GrabMouse(self: KUrlComboBox) void {
+    pub fn grabMouse(self: KUrlComboBox) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -4615,10 +5803,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: KUrlComboBox, param1: anytype) void {
+    pub fn grabMouse2(self: KUrlComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -4628,9 +5820,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn ReleaseMouse(self: KUrlComboBox) void {
+    pub fn releaseMouse(self: KUrlComboBox) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -4640,9 +5836,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn GrabKeyboard(self: KUrlComboBox) void {
+    pub fn grabKeyboard(self: KUrlComboBox) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -4652,9 +5852,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn ReleaseKeyboard(self: KUrlComboBox) void {
+    pub fn releaseKeyboard(self: KUrlComboBox) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -4666,10 +5870,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: KUrlComboBox, key: anytype) i32 {
+    pub fn grabShortcut(self: KUrlComboBox, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -4681,9 +5889,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: KUrlComboBox, id: i32) void {
+    pub fn releaseShortcut(self: KUrlComboBox, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -4695,9 +5907,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: KUrlComboBox, id: i32) void {
+    pub fn setShortcutEnabled(self: KUrlComboBox, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -4709,25 +5925,37 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: KUrlComboBox, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: KUrlComboBox, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -4737,9 +5965,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn UpdatesEnabled(self: KUrlComboBox) bool {
+    pub fn updatesEnabled(self: KUrlComboBox) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -4751,9 +5983,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: KUrlComboBox, enable: bool) void {
+    pub fn setUpdatesEnabled(self: KUrlComboBox, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -4763,9 +5999,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn GraphicsProxyWidget(self: KUrlComboBox) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: KUrlComboBox) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -4775,9 +6015,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn Update(self: KUrlComboBox) void {
+    pub fn update(self: KUrlComboBox) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -4787,9 +6031,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn Repaint(self: KUrlComboBox) void {
+    pub fn repaint(self: KUrlComboBox) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -4799,17 +6047,21 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: KUrlComboBox, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: KUrlComboBox, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -4821,11 +6073,15 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: KUrlComboBox, param1: anytype) void {
+    pub fn update3(self: KUrlComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -4836,10 +6092,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: KUrlComboBox, param1: anytype) void {
+    pub fn update4(self: KUrlComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -4849,17 +6109,21 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: KUrlComboBox, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: KUrlComboBox, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -4871,10 +6135,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: KUrlComboBox, param1: anytype) void {
+    pub fn repaint3(self: KUrlComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -4886,10 +6154,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: KUrlComboBox, param1: anytype) void {
+    pub fn repaint4(self: KUrlComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -4901,9 +6173,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: KUrlComboBox, hidden: bool) void {
+    pub fn setHidden(self: KUrlComboBox, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -4913,9 +6189,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn Show(self: KUrlComboBox) void {
+    pub fn show(self: KUrlComboBox) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -4925,9 +6205,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn Hide(self: KUrlComboBox) void {
+    pub fn hide(self: KUrlComboBox) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -4937,9 +6221,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn ShowMinimized(self: KUrlComboBox) void {
+    pub fn showMinimized(self: KUrlComboBox) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -4949,9 +6237,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn ShowMaximized(self: KUrlComboBox) void {
+    pub fn showMaximized(self: KUrlComboBox) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -4961,9 +6253,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn ShowFullScreen(self: KUrlComboBox) void {
+    pub fn showFullScreen(self: KUrlComboBox) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -4973,9 +6269,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn ShowNormal(self: KUrlComboBox) void {
+    pub fn showNormal(self: KUrlComboBox) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -4985,9 +6285,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn Close(self: KUrlComboBox) bool {
+    pub fn close(self: KUrlComboBox) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -4997,9 +6301,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn Raise(self: KUrlComboBox) void {
+    pub fn raise(self: KUrlComboBox) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -5009,9 +6317,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn Lower(self: KUrlComboBox) void {
+    pub fn lower(self: KUrlComboBox) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -5023,10 +6335,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: KUrlComboBox, param1: anytype) void {
+    pub fn stackUnder(self: KUrlComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -5036,13 +6352,17 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: KUrlComboBox, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: KUrlComboBox, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -5054,10 +6374,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: KUrlComboBox, param1: anytype) void {
+    pub fn move2(self: KUrlComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -5071,9 +6395,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: KUrlComboBox, w: i32, h: i32) void {
+    pub fn resize(self: KUrlComboBox, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -5085,10 +6413,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: KUrlComboBox, param1: anytype) void {
+    pub fn resize2(self: KUrlComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -5098,17 +6430,21 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: KUrlComboBox, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: KUrlComboBox, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -5118,12 +6454,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: KUrlComboBox, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: KUrlComboBox, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -5135,13 +6475,17 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: KUrlComboBox, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: KUrlComboBox, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KUrlComboBox.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KUrlComboBox.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -5151,15 +6495,19 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: KUrlComboBox, geometry: []u8) bool {
+    pub fn restoreGeometry(self: KUrlComboBox, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -5169,9 +6517,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn AdjustSize(self: KUrlComboBox) void {
+    pub fn adjustSize(self: KUrlComboBox) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -5181,9 +6533,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn IsVisible(self: KUrlComboBox) bool {
+    pub fn isVisible(self: KUrlComboBox) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -5195,10 +6551,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: KUrlComboBox, param1: anytype) bool {
+    pub fn isVisibleTo(self: KUrlComboBox, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -5208,9 +6568,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn IsHidden(self: KUrlComboBox) bool {
+    pub fn isHidden(self: KUrlComboBox) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -5220,9 +6584,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn IsMinimized(self: KUrlComboBox) bool {
+    pub fn isMinimized(self: KUrlComboBox) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -5232,9 +6600,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn IsMaximized(self: KUrlComboBox) bool {
+    pub fn isMaximized(self: KUrlComboBox) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -5244,9 +6616,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn IsFullScreen(self: KUrlComboBox) bool {
+    pub fn isFullScreen(self: KUrlComboBox) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -5260,9 +6636,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: KUrlComboBox) i32 {
+    pub fn windowState(self: KUrlComboBox) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -5274,9 +6654,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: KUrlComboBox, state: i32) void {
+    pub fn setWindowState(self: KUrlComboBox, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -5288,9 +6672,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: KUrlComboBox, state: i32) void {
+    pub fn overrideWindowState(self: KUrlComboBox, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -5300,9 +6688,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn SizePolicy(self: KUrlComboBox) QSizePolicy {
+    pub fn sizePolicy(self: KUrlComboBox) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -5312,12 +6704,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: KUrlComboBox, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: KUrlComboBox, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -5331,9 +6727,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: KUrlComboBox, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: KUrlComboBox, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -5343,9 +6743,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn VisibleRegion(self: KUrlComboBox) QRegion {
+    pub fn visibleRegion(self: KUrlComboBox) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -5363,9 +6767,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: KUrlComboBox, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: KUrlComboBox, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -5377,10 +6785,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: KUrlComboBox, margins: anytype) void {
+    pub fn setContentsMargins2(self: KUrlComboBox, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -5390,9 +6802,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn ContentsMargins(self: KUrlComboBox) QMargins {
+    pub fn contentsMargins(self: KUrlComboBox) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -5402,9 +6818,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn ContentsRect(self: KUrlComboBox) QRect {
+    pub fn contentsRect(self: KUrlComboBox) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -5414,9 +6834,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn Layout(self: KUrlComboBox) QLayout {
+    pub fn layout(self: KUrlComboBox) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -5426,12 +6850,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: KUrlComboBox, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: KUrlComboBox, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -5441,24 +6869,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn UpdateGeometry(self: KUrlComboBox) void {
+    pub fn updateGeometry(self: KUrlComboBox) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlComboBox `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: KUrlComboBox, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -5468,14 +6885,37 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: KUrlComboBox, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KUrlComboBox `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: KUrlComboBox, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: KUrlComboBox, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -5489,9 +6929,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: KUrlComboBox, dx: i32, dy: i32) void {
+    pub fn scroll(self: KUrlComboBox, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -5507,10 +6951,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: KUrlComboBox, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: KUrlComboBox, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -5520,9 +6968,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn FocusWidget(self: KUrlComboBox) QWidget {
+    pub fn focusWidget(self: KUrlComboBox) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -5532,9 +6984,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn NextInFocusChain(self: KUrlComboBox) QWidget {
+    pub fn nextInFocusChain(self: KUrlComboBox) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -5544,9 +7000,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn PreviousInFocusChain(self: KUrlComboBox) QWidget {
+    pub fn previousInFocusChain(self: KUrlComboBox) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -5556,9 +7016,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn AcceptDrops(self: KUrlComboBox) bool {
+    pub fn acceptDrops(self: KUrlComboBox) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -5570,9 +7034,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: KUrlComboBox, on: bool) void {
+    pub fn setAcceptDrops(self: KUrlComboBox, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -5584,10 +7052,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: KUrlComboBox, action: anytype) void {
+    pub fn addAction(self: KUrlComboBox, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -5597,15 +7069,19 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: KUrlComboBox, actions: []QAction) void {
+    pub fn addActions(self: KUrlComboBox, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -5617,16 +7093,20 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: KUrlComboBox, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: KUrlComboBox, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -5640,11 +7120,15 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: KUrlComboBox, before: anytype, action: anytype) void {
+    pub fn insertAction(self: KUrlComboBox, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -5656,10 +7140,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: KUrlComboBox, action: anytype) void {
+    pub fn removeAction(self: KUrlComboBox, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -5671,15 +7159,19 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: KUrlComboBox, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: KUrlComboBox, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KUrlComboBox.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KUrlComboBox.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -5691,13 +7183,17 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: KUrlComboBox, text: []const u8) QAction {
+    pub fn addAction2(self: KUrlComboBox, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -5711,7 +7207,7 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: KUrlComboBox, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: KUrlComboBox, icon: anytype, text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -5720,6 +7216,10 @@ pub const KUrlComboBox = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -5732,7 +7232,7 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: KUrlComboBox, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: KUrlComboBox, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -5740,6 +7240,10 @@ pub const KUrlComboBox = extern struct {
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
 
     /// Inherited from QWidget
     ///
@@ -5755,7 +7259,7 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: KUrlComboBox, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: KUrlComboBox, icon: anytype, text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -5765,6 +7269,10 @@ pub const KUrlComboBox = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
@@ -5773,9 +7281,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn ParentWidget(self: KUrlComboBox) QWidget {
+    pub fn parentWidget(self: KUrlComboBox) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -5787,9 +7299,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: KUrlComboBox, typeVal: i32) void {
+    pub fn setWindowFlags(self: KUrlComboBox, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -5803,9 +7319,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: KUrlComboBox) i32 {
+    pub fn windowFlags(self: KUrlComboBox) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -5817,9 +7337,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: KUrlComboBox, param1: i32) void {
+    pub fn setWindowFlag(self: KUrlComboBox, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -5831,9 +7355,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: KUrlComboBox, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: KUrlComboBox, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -5847,9 +7375,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: KUrlComboBox) i32 {
+    pub fn windowType(self: KUrlComboBox) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -5859,9 +7391,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -5871,13 +7407,17 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: KUrlComboBox, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: KUrlComboBox, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -5889,10 +7429,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: KUrlComboBox, p: anytype) QWidget {
+    pub fn childAt2(self: KUrlComboBox, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -5904,10 +7448,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: KUrlComboBox, p: anytype) QWidget {
+    pub fn childAt3(self: KUrlComboBox, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -5919,9 +7467,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: KUrlComboBox, param1: i32) void {
+    pub fn setAttribute(self: KUrlComboBox, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -5933,9 +7485,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: KUrlComboBox, param1: i32) bool {
+    pub fn testAttribute(self: KUrlComboBox, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -5945,9 +7501,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn EnsurePolished(self: KUrlComboBox) void {
+    pub fn ensurePolished(self: KUrlComboBox) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -5959,10 +7519,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: KUrlComboBox, child: anytype) bool {
+    pub fn isAncestorOf(self: KUrlComboBox, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -5972,9 +7536,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn AutoFillBackground(self: KUrlComboBox) bool {
+    pub fn autoFillBackground(self: KUrlComboBox) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -5986,9 +7554,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: KUrlComboBox, enabled: bool) void {
+    pub fn setAutoFillBackground(self: KUrlComboBox, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -5998,9 +7570,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn BackingStore(self: KUrlComboBox) QBackingStore {
+    pub fn backingStore(self: KUrlComboBox) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -6010,9 +7586,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn WindowHandle(self: KUrlComboBox) QWindow {
+    pub fn windowHandle(self: KUrlComboBox) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -6022,9 +7602,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn Screen(self: KUrlComboBox) QScreen {
+    pub fn screen(self: KUrlComboBox) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -6034,12 +7618,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: KUrlComboBox, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: KUrlComboBox, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -6047,12 +7635,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -6064,13 +7656,17 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: KUrlComboBox, title: []const u8) void {
+    pub fn windowTitleChanged(self: KUrlComboBox, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -6082,9 +7678,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: KUrlComboBox, callback: *const fn (KUrlComboBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: KUrlComboBox, callback: *const fn (KUrlComboBox, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -6096,10 +7696,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: KUrlComboBox, icon: anytype) void {
+    pub fn windowIconChanged(self: KUrlComboBox, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -6111,9 +7715,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -6125,13 +7733,17 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: KUrlComboBox, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: KUrlComboBox, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -6143,9 +7755,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: KUrlComboBox, callback: *const fn (KUrlComboBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: KUrlComboBox, callback: *const fn (KUrlComboBox, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -6155,12 +7771,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: KUrlComboBox, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: KUrlComboBox, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -6172,9 +7792,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -6188,9 +7812,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: KUrlComboBox) i32 {
+    pub fn inputMethodHints(self: KUrlComboBox) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -6202,9 +7830,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: KUrlComboBox, hints: i32) void {
+    pub fn setInputMethodHints(self: KUrlComboBox, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -6218,11 +7850,15 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: KUrlComboBox, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: KUrlComboBox, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -6238,13 +7874,17 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: KUrlComboBox, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: KUrlComboBox, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -6261,12 +7901,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: KUrlComboBox, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: KUrlComboBox, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -6280,11 +7924,15 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: KUrlComboBox, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: KUrlComboBox, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -6300,12 +7948,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: KUrlComboBox, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: KUrlComboBox, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -6323,12 +7975,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: KUrlComboBox, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: KUrlComboBox, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -6340,10 +7996,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: KUrlComboBox, rectangle: anytype) QPixmap {
+    pub fn grab1(self: KUrlComboBox, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -6357,9 +8017,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: KUrlComboBox, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: KUrlComboBox, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -6373,10 +8037,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: KUrlComboBox, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: KUrlComboBox, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -6390,9 +8058,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: KUrlComboBox, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: KUrlComboBox, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -6406,9 +8078,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: KUrlComboBox, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: KUrlComboBox, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -6422,9 +8098,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: KUrlComboBox, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: KUrlComboBox, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -6438,25 +8118,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: KUrlComboBox, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: KUrlComboBox, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -6464,17 +8132,41 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -6486,13 +8178,17 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KUrlComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KUrlComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboBox.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboBox.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -6504,13 +8200,17 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KUrlComboBox, name: []const u8) void {
+    pub fn setObjectName(self: KUrlComboBox, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -6520,9 +8220,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn IsWidgetType(self: KUrlComboBox) bool {
+    pub fn isWidgetType(self: KUrlComboBox) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -6532,9 +8236,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn IsWindowType(self: KUrlComboBox) bool {
+    pub fn isWindowType(self: KUrlComboBox) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -6544,9 +8252,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn IsQuickItemType(self: KUrlComboBox) bool {
+    pub fn isQuickItemType(self: KUrlComboBox) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -6556,9 +8268,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn SignalsBlocked(self: KUrlComboBox) bool {
+    pub fn signalsBlocked(self: KUrlComboBox) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -6570,9 +8286,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KUrlComboBox, b: bool) bool {
+    pub fn blockSignals(self: KUrlComboBox, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -6582,9 +8302,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn Thread(self: KUrlComboBox) QThread {
+    pub fn thread(self: KUrlComboBox) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -6594,12 +8318,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KUrlComboBox, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KUrlComboBox, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -6611,9 +8339,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KUrlComboBox, interval: i32) i32 {
+    pub fn startTimer(self: KUrlComboBox, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -6625,9 +8357,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KUrlComboBox, time: i64) i32 {
+    pub fn startTimer2(self: KUrlComboBox, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -6639,9 +8375,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KUrlComboBox, id: i32) void {
+    pub fn killTimer(self: KUrlComboBox, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -6653,9 +8393,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KUrlComboBox, id: i32) void {
+    pub fn killTimer2(self: KUrlComboBox, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -6667,15 +8411,19 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KUrlComboBox, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KUrlComboBox, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KUrlComboBox.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KUrlComboBox.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -6687,10 +8435,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KUrlComboBox, filterObj: anytype) void {
+    pub fn installEventFilter(self: KUrlComboBox, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -6702,10 +8454,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KUrlComboBox, obj: anytype) void {
+    pub fn removeEventFilter(self: KUrlComboBox, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -6713,7 +8469,7 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6721,13 +8477,17 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -6735,7 +8495,7 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -6743,13 +8503,17 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -6759,18 +8523,22 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KUrlComboBox, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KUrlComboBox, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -6778,7 +8546,7 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6786,13 +8554,17 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -6800,7 +8572,7 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -6808,13 +8580,17 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -6824,9 +8600,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn Disconnect3(self: KUrlComboBox) bool {
+    pub fn disconnect3(self: KUrlComboBox) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -6838,10 +8618,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KUrlComboBox, receiver: anytype) bool {
+    pub fn disconnect4(self: KUrlComboBox, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -6851,10 +8635,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -6864,9 +8652,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn DumpObjectTree(self: KUrlComboBox) void {
+    pub fn dumpObjectTree(self: KUrlComboBox) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -6876,9 +8668,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn DumpObjectInfo(self: KUrlComboBox) void {
+    pub fn dumpObjectInfo(self: KUrlComboBox) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -6892,11 +8688,15 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KUrlComboBox, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KUrlComboBox, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -6908,10 +8708,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KUrlComboBox, name: [:0]const u8) QVariant {
+    pub fn property(self: KUrlComboBox, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -6923,7 +8727,7 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KUrlComboBox, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KUrlComboBox, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -6931,27 +8735,19 @@ pub const KUrlComboBox = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KUrlComboBox.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KUrlComboBox.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KUrlComboBox.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KUrlComboBox.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlComboBox `
-    ///
-    pub fn BindingStorage(self: KUrlComboBox) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -6961,9 +8757,29 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn BindingStorage2(self: KUrlComboBox) QBindingStorage {
+    pub fn bindingStorage(self: KUrlComboBox) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KUrlComboBox `
+    ///
+    pub fn bindingStorage2(self: KUrlComboBox) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -6973,9 +8789,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn Destroyed(self: KUrlComboBox) void {
+    pub fn destroyed(self: KUrlComboBox) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -6987,9 +8807,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KUrlComboBox, callback: *const fn (KUrlComboBox) callconv(.c) void) void {
+    pub fn onDestroyed(self: KUrlComboBox, callback: *const fn (KUrlComboBox) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -6999,9 +8823,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn Parent(self: KUrlComboBox) QObject {
+    pub fn parent(self: KUrlComboBox) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -7013,10 +8841,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KUrlComboBox, classname: [:0]const u8) bool {
+    pub fn inherits(self: KUrlComboBox, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -7026,9 +8858,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn DeleteLater(self: KUrlComboBox) void {
+    pub fn deleteLater(self: KUrlComboBox) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -7042,9 +8878,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KUrlComboBox, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KUrlComboBox, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -7058,9 +8898,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KUrlComboBox, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KUrlComboBox, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -7068,7 +8912,7 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -7078,13 +8922,17 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -7092,7 +8940,7 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -7102,13 +8950,17 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -7118,7 +8970,7 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -7126,12 +8978,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KUrlComboBox, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KUrlComboBox, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -7143,10 +8999,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KUrlComboBox, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KUrlComboBox, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -7160,11 +9020,15 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KUrlComboBox, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KUrlComboBox, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -7180,13 +9044,17 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KUrlComboBox, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KUrlComboBox, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -7199,11 +9067,15 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KUrlComboBox, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KUrlComboBox, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -7215,10 +9087,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KUrlComboBox, param1: anytype) void {
+    pub fn destroyed1(self: KUrlComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -7230,9 +9106,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -7242,9 +9122,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn PaintingActive(self: KUrlComboBox) bool {
+    pub fn paintingActive(self: KUrlComboBox) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -7254,9 +9138,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn WidthMM(self: KUrlComboBox) i32 {
+    pub fn widthMM(self: KUrlComboBox) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -7266,9 +9154,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn HeightMM(self: KUrlComboBox) i32 {
+    pub fn heightMM(self: KUrlComboBox) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -7278,9 +9170,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn LogicalDpiX(self: KUrlComboBox) i32 {
+    pub fn logicalDpiX(self: KUrlComboBox) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -7290,9 +9186,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn LogicalDpiY(self: KUrlComboBox) i32 {
+    pub fn logicalDpiY(self: KUrlComboBox) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -7302,9 +9202,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn PhysicalDpiX(self: KUrlComboBox) i32 {
+    pub fn physicalDpiX(self: KUrlComboBox) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -7314,9 +9218,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn PhysicalDpiY(self: KUrlComboBox) i32 {
+    pub fn physicalDpiY(self: KUrlComboBox) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -7326,9 +9234,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn DevicePixelRatio(self: KUrlComboBox) f64 {
+    pub fn devicePixelRatio(self: KUrlComboBox) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -7338,9 +9250,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn DevicePixelRatioF(self: KUrlComboBox) f64 {
+    pub fn devicePixelRatioF(self: KUrlComboBox) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -7350,9 +9266,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn ColorCount(self: KUrlComboBox) i32 {
+    pub fn colorCount(self: KUrlComboBox) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -7362,17 +9282,25 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn Depth(self: KUrlComboBox) i32 {
+    pub fn depth(self: KUrlComboBox) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -7380,13 +9308,17 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `completionObject` instead
+    ///
+    pub const CompletionObject = completionObject;
 
     /// Inherited from KCompletionBase
     ///
@@ -7396,9 +9328,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn CompletionObject(self: KUrlComboBox) KCompletion {
+    pub fn completionObject(self: KUrlComboBox) KCompletion {
         return .{ .ptr = qtc.KCompletionBase_CompletionObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isCompletionObjectAutoDeleted` instead
+    ///
+    pub const IsCompletionObjectAutoDeleted = isCompletionObjectAutoDeleted;
 
     /// Inherited from KCompletionBase
     ///
@@ -7408,9 +9344,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn IsCompletionObjectAutoDeleted(self: KUrlComboBox) bool {
+    pub fn isCompletionObjectAutoDeleted(self: KUrlComboBox) bool {
         return qtc.KCompletionBase_IsCompletionObjectAutoDeleted(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoDeleteCompletionObject` instead
+    ///
+    pub const SetAutoDeleteCompletionObject = setAutoDeleteCompletionObject;
 
     /// Inherited from KCompletionBase
     ///
@@ -7422,9 +9362,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` autoDelete: bool `
     ///
-    pub fn SetAutoDeleteCompletionObject(self: KUrlComboBox, autoDelete: bool) void {
+    pub fn setAutoDeleteCompletionObject(self: KUrlComboBox, autoDelete: bool) void {
         qtc.KCompletionBase_SetAutoDeleteCompletionObject(@ptrCast(self.ptr), autoDelete);
     }
+
+    /// ### DEPRECATED: Use `setEnableSignals` instead
+    ///
+    pub const SetEnableSignals = setEnableSignals;
 
     /// Inherited from KCompletionBase
     ///
@@ -7436,9 +9380,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetEnableSignals(self: KUrlComboBox, enable: bool) void {
+    pub fn setEnableSignals(self: KUrlComboBox, enable: bool) void {
         qtc.KCompletionBase_SetEnableSignals(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `handleSignals` instead
+    ///
+    pub const HandleSignals = handleSignals;
 
     /// Inherited from KCompletionBase
     ///
@@ -7448,9 +9396,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn HandleSignals(self: KUrlComboBox) bool {
+    pub fn handleSignals(self: KUrlComboBox) bool {
         return qtc.KCompletionBase_HandleSignals(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `emitSignals` instead
+    ///
+    pub const EmitSignals = emitSignals;
 
     /// Inherited from KCompletionBase
     ///
@@ -7460,9 +9412,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn EmitSignals(self: KUrlComboBox) bool {
+    pub fn emitSignals(self: KUrlComboBox) bool {
         return qtc.KCompletionBase_EmitSignals(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEmitSignals` instead
+    ///
+    pub const SetEmitSignals = setEmitSignals;
 
     /// Inherited from KCompletionBase
     ///
@@ -7474,9 +9430,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` emitRotationSignals: bool `
     ///
-    pub fn SetEmitSignals(self: KUrlComboBox, emitRotationSignals: bool) void {
+    pub fn setEmitSignals(self: KUrlComboBox, emitRotationSignals: bool) void {
         qtc.KCompletionBase_SetEmitSignals(@ptrCast(self.ptr), emitRotationSignals);
     }
+
+    /// ### DEPRECATED: Use `completionMode` instead
+    ///
+    pub const CompletionMode = completionMode;
 
     /// Inherited from KCompletionBase
     ///
@@ -7490,9 +9450,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` kcompletion_enums.CompletionMode `
     ///
-    pub fn CompletionMode(self: KUrlComboBox) i32 {
+    pub fn completionMode(self: KUrlComboBox) i32 {
         return qtc.KCompletionBase_CompletionMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setKeyBinding` instead
+    ///
+    pub const SetKeyBinding = setKeyBinding;
 
     /// Inherited from KCompletionBase
     ///
@@ -7506,13 +9470,17 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` key: []QKeySequence `
     ///
-    pub fn SetKeyBinding(self: KUrlComboBox, item: i32, key: []QKeySequence) bool {
+    pub fn setKeyBinding(self: KUrlComboBox, item: i32, key: []QKeySequence) bool {
         const key_list = qtc.libqt_list{
             .len = key.len,
             .data = @ptrCast(key.ptr),
         };
         return qtc.KCompletionBase_SetKeyBinding(@ptrCast(self.ptr), @bitCast(item), key_list);
     }
+
+    /// ### DEPRECATED: Use `keyBinding` instead
+    ///
+    pub const KeyBinding = keyBinding;
 
     /// Inherited from KCompletionBase
     ///
@@ -7526,15 +9494,19 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` item: kcompletionbase_enums.KeyBindingType `
     ///
-    pub fn KeyBinding(self: KUrlComboBox, allocator: std.mem.Allocator, item: i32) []QKeySequence {
+    pub fn keyBinding(self: KUrlComboBox, allocator: std.mem.Allocator, item: i32) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KCompletionBase_KeyBinding(@ptrCast(self.ptr), @bitCast(item));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KUrlComboBox.KeyBinding: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KUrlComboBox.keyBinding: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `useGlobalKeyBindings` instead
+    ///
+    pub const UseGlobalKeyBindings = useGlobalKeyBindings;
 
     /// Inherited from KCompletionBase
     ///
@@ -7544,9 +9516,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn UseGlobalKeyBindings(self: KUrlComboBox) void {
+    pub fn useGlobalKeyBindings(self: KUrlComboBox) void {
         qtc.KCompletionBase_UseGlobalKeyBindings(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `compObj` instead
+    ///
+    pub const CompObj = compObj;
 
     /// Inherited from KCompletionBase
     ///
@@ -7556,9 +9532,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn CompObj(self: KUrlComboBox) KCompletion {
+    pub fn compObj(self: KUrlComboBox) KCompletion {
         return .{ .ptr = qtc.KCompletionBase_CompObj(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `completionObject1` instead
+    ///
+    pub const CompletionObject1 = completionObject1;
 
     /// Inherited from KCompletionBase
     ///
@@ -7568,11 +9548,15 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` handleSignals: bool `
+    /// ` _handleSignals: bool `
     ///
-    pub fn CompletionObject1(self: KUrlComboBox, handleSignals: bool) KCompletion {
-        return .{ .ptr = qtc.KCompletionBase_CompletionObject1(@ptrCast(self.ptr), handleSignals) };
+    pub fn completionObject1(self: KUrlComboBox, _handleSignals: bool) KCompletion {
+        return .{ .ptr = qtc.KCompletionBase_CompletionObject1(@ptrCast(self.ptr), _handleSignals) };
     }
+
+    /// ### DEPRECATED: Use `setAutoCompletion` instead
+    ///
+    pub const SetAutoCompletion = setAutoCompletion;
 
     /// Inherited from KComboBox
     ///
@@ -7586,13 +9570,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` autocomplete: bool `
     ///
-    pub fn SetAutoCompletion(self: KUrlComboBox, autocomplete: bool) void {
+    pub fn setAutoCompletion(self: KUrlComboBox, autocomplete: bool) void {
         qtc.KUrlComboBox_SetAutoCompletion(@ptrCast(self.ptr), autocomplete);
     }
 
-    /// ### DEPRECATED: Use `SuperSetAutoCompletion` instead
+    /// ### DEPRECATED: Use `superSetAutoCompletion` instead
     ///
-    pub const QBaseSetAutoCompletion = SuperSetAutoCompletion;
+    pub const SuperSetAutoCompletion = superSetAutoCompletion;
 
     /// Inherited from KComboBox
     ///
@@ -7606,9 +9590,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` autocomplete: bool `
     ///
-    pub fn SuperSetAutoCompletion(self: KUrlComboBox, autocomplete: bool) void {
+    pub fn superSetAutoCompletion(self: KUrlComboBox, autocomplete: bool) void {
         qtc.KUrlComboBox_SuperSetAutoCompletion(@ptrCast(self.ptr), autocomplete);
     }
+
+    /// ### DEPRECATED: Use `onSetAutoCompletion` instead
+    ///
+    pub const OnSetAutoCompletion = onSetAutoCompletion;
 
     /// Inherited from KComboBox
     ///
@@ -7622,9 +9610,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, autocomplete: bool) callconv(.c) void `
     ///
-    pub fn OnSetAutoCompletion(self: KUrlComboBox, callback: *const fn (KUrlComboBox, bool) callconv(.c) void) void {
+    pub fn onSetAutoCompletion(self: KUrlComboBox, callback: *const fn (KUrlComboBox, bool) callconv(.c) void) void {
         qtc.KUrlComboBox_OnSetAutoCompletion(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setLineEdit` instead
+    ///
+    pub const SetLineEdit = setLineEdit;
 
     /// Inherited from KComboBox
     ///
@@ -7636,16 +9628,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` lineEdit: QLineEdit `
+    /// ` _lineEdit: QLineEdit `
     ///
-    pub fn SetLineEdit(self: KUrlComboBox, lineEdit: anytype) void {
-        comptime _ = @TypeOf(lineEdit)._is_QLineEdit;
-        qtc.KUrlComboBox_SetLineEdit(@ptrCast(self.ptr), @ptrCast(lineEdit.ptr));
+    pub fn setLineEdit(self: KUrlComboBox, _lineEdit: anytype) void {
+        comptime _ = @TypeOf(_lineEdit)._is_QLineEdit;
+        qtc.KUrlComboBox_SetLineEdit(@ptrCast(self.ptr), @ptrCast(_lineEdit.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetLineEdit` instead
+    /// ### DEPRECATED: Use `superSetLineEdit` instead
     ///
-    pub const QBaseSetLineEdit = SuperSetLineEdit;
+    pub const SuperSetLineEdit = superSetLineEdit;
 
     /// Inherited from KComboBox
     ///
@@ -7657,12 +9649,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` lineEdit: QLineEdit `
+    /// ` _lineEdit: QLineEdit `
     ///
-    pub fn SuperSetLineEdit(self: KUrlComboBox, lineEdit: anytype) void {
-        comptime _ = @TypeOf(lineEdit)._is_QLineEdit;
-        qtc.KUrlComboBox_SuperSetLineEdit(@ptrCast(self.ptr), @ptrCast(lineEdit.ptr));
+    pub fn superSetLineEdit(self: KUrlComboBox, _lineEdit: anytype) void {
+        comptime _ = @TypeOf(_lineEdit)._is_QLineEdit;
+        qtc.KUrlComboBox_SuperSetLineEdit(@ptrCast(self.ptr), @ptrCast(_lineEdit.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetLineEdit` instead
+    ///
+    pub const OnSetLineEdit = onSetLineEdit;
 
     /// Inherited from KComboBox
     ///
@@ -7676,9 +9672,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, lineEdit: QLineEdit) callconv(.c) void `
     ///
-    pub fn OnSetLineEdit(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QLineEdit) callconv(.c) void) void {
+    pub fn onSetLineEdit(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QLineEdit) callconv(.c) void) void {
         qtc.KUrlComboBox_OnSetLineEdit(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from KComboBox
     ///
@@ -7690,13 +9690,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn MinimumSizeHint(self: KUrlComboBox) QSize {
+    pub fn minimumSizeHint(self: KUrlComboBox) QSize {
         return .{ .ptr = qtc.KUrlComboBox_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from KComboBox
     ///
@@ -7708,9 +9708,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn SuperMinimumSizeHint(self: KUrlComboBox) QSize {
+    pub fn superMinimumSizeHint(self: KUrlComboBox) QSize {
         return .{ .ptr = qtc.KUrlComboBox_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from KComboBox
     ///
@@ -7726,9 +9730,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: KUrlComboBox, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KUrlComboBox, callback: *const fn () callconv(.c) QSize) void {
         qtc.KUrlComboBox_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setCompletedText` instead
+    ///
+    pub const SetCompletedText = setCompletedText;
 
     /// Inherited from KComboBox
     ///
@@ -7742,7 +9750,7 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` completedText: []const u8 `
     ///
-    pub fn SetCompletedText(self: KUrlComboBox, completedText: []const u8) void {
+    pub fn setCompletedText(self: KUrlComboBox, completedText: []const u8) void {
         const completedText_str = qtc.libqt_string{
             .len = completedText.len,
             .data = completedText.ptr,
@@ -7750,9 +9758,9 @@ pub const KUrlComboBox = extern struct {
         qtc.KUrlComboBox_SetCompletedText(@ptrCast(self.ptr), completedText_str);
     }
 
-    /// ### DEPRECATED: Use `SuperSetCompletedText` instead
+    /// ### DEPRECATED: Use `superSetCompletedText` instead
     ///
-    pub const QBaseSetCompletedText = SuperSetCompletedText;
+    pub const SuperSetCompletedText = superSetCompletedText;
 
     /// Inherited from KComboBox
     ///
@@ -7766,13 +9774,17 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` completedText: []const u8 `
     ///
-    pub fn SuperSetCompletedText(self: KUrlComboBox, completedText: []const u8) void {
+    pub fn superSetCompletedText(self: KUrlComboBox, completedText: []const u8) void {
         const completedText_str = qtc.libqt_string{
             .len = completedText.len,
             .data = completedText.ptr,
         };
         qtc.KUrlComboBox_SuperSetCompletedText(@ptrCast(self.ptr), completedText_str);
     }
+
+    /// ### DEPRECATED: Use `onSetCompletedText` instead
+    ///
+    pub const OnSetCompletedText = onSetCompletedText;
 
     /// Inherited from KComboBox
     ///
@@ -7786,9 +9798,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, completedText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetCompletedText(self: KUrlComboBox, callback: *const fn (KUrlComboBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onSetCompletedText(self: KUrlComboBox, callback: *const fn (KUrlComboBox, [*:0]const u8) callconv(.c) void) void {
         qtc.KUrlComboBox_OnSetCompletedText(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setCompletedItems` instead
+    ///
+    pub const SetCompletedItems = setCompletedItems;
 
     /// Inherited from KComboBox
     ///
@@ -7806,13 +9822,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` autoSuggest: bool `
     ///
-    pub fn SetCompletedItems(self: KUrlComboBox, allocator: std.mem.Allocator, items: []const []const u8, autoSuggest: bool) void {
-        const items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("KUrlComboBox.SetCompletedItems: Memory allocation failed");
+    pub fn setCompletedItems(self: KUrlComboBox, allocator: std.mem.Allocator, items: []const []const u8, autoSuggest: bool) void {
+        const items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("KUrlComboBox.setCompletedItems: Memory allocation failed");
         defer allocator.free(items_arr);
-        for (items, 0..items.len) |item, i|
+        for (items, 0..items.len) |str_item, i|
             items_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const items_list = qtc.libqt_list{
             .len = items.len,
@@ -7821,9 +9837,9 @@ pub const KUrlComboBox = extern struct {
         qtc.KUrlComboBox_SetCompletedItems(@ptrCast(self.ptr), items_list, autoSuggest);
     }
 
-    /// ### DEPRECATED: Use `SuperSetCompletedItems` instead
+    /// ### DEPRECATED: Use `superSetCompletedItems` instead
     ///
-    pub const QBaseSetCompletedItems = SuperSetCompletedItems;
+    pub const SuperSetCompletedItems = superSetCompletedItems;
 
     /// Inherited from KComboBox
     ///
@@ -7841,13 +9857,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` autoSuggest: bool `
     ///
-    pub fn SuperSetCompletedItems(self: KUrlComboBox, allocator: std.mem.Allocator, items: []const []const u8, autoSuggest: bool) void {
-        const items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("KUrlComboBox.SetCompletedItems: Memory allocation failed");
+    pub fn superSetCompletedItems(self: KUrlComboBox, allocator: std.mem.Allocator, items: []const []const u8, autoSuggest: bool) void {
+        const items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("KUrlComboBox.setCompletedItems: Memory allocation failed");
         defer allocator.free(items_arr);
-        for (items, 0..items.len) |item, i|
+        for (items, 0..items.len) |str_item, i|
             items_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const items_list = qtc.libqt_list{
             .len = items.len,
@@ -7855,6 +9871,10 @@ pub const KUrlComboBox = extern struct {
         };
         qtc.KUrlComboBox_SuperSetCompletedItems(@ptrCast(self.ptr), items_list, autoSuggest);
     }
+
+    /// ### DEPRECATED: Use `onSetCompletedItems` instead
+    ///
+    pub const OnSetCompletedItems = onSetCompletedItems;
 
     /// Inherited from KComboBox
     ///
@@ -7868,9 +9888,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, items: ?[*:null]?[*:0]const u8, autoSuggest: bool) callconv(.c) void `
     ///
-    pub fn OnSetCompletedItems(self: KUrlComboBox, callback: *const fn (KUrlComboBox, ?[*:null]?[*:0]const u8, bool) callconv(.c) void) void {
+    pub fn onSetCompletedItems(self: KUrlComboBox, callback: *const fn (KUrlComboBox, ?[*:null]?[*:0]const u8, bool) callconv(.c) void) void {
         qtc.KUrlComboBox_OnSetCompletedItems(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `makeCompletion` instead
+    ///
+    pub const MakeCompletion = makeCompletion;
 
     /// Inherited from KComboBox
     ///
@@ -7884,7 +9908,7 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn MakeCompletion(self: KUrlComboBox, param1: []const u8) void {
+    pub fn makeCompletion(self: KUrlComboBox, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -7892,9 +9916,9 @@ pub const KUrlComboBox = extern struct {
         qtc.KUrlComboBox_MakeCompletion(@ptrCast(self.ptr), param1_str);
     }
 
-    /// ### DEPRECATED: Use `SuperMakeCompletion` instead
+    /// ### DEPRECATED: Use `superMakeCompletion` instead
     ///
-    pub const QBaseMakeCompletion = SuperMakeCompletion;
+    pub const SuperMakeCompletion = superMakeCompletion;
 
     /// Inherited from KComboBox
     ///
@@ -7908,13 +9932,17 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn SuperMakeCompletion(self: KUrlComboBox, param1: []const u8) void {
+    pub fn superMakeCompletion(self: KUrlComboBox, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
         qtc.KUrlComboBox_SuperMakeCompletion(@ptrCast(self.ptr), param1_str);
     }
+
+    /// ### DEPRECATED: Use `onMakeCompletion` instead
+    ///
+    pub const OnMakeCompletion = onMakeCompletion;
 
     /// Inherited from KComboBox
     ///
@@ -7928,9 +9956,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, param1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnMakeCompletion(self: KUrlComboBox, callback: *const fn (KUrlComboBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onMakeCompletion(self: KUrlComboBox, callback: *const fn (KUrlComboBox, [*:0]const u8) callconv(.c) void) void {
         qtc.KUrlComboBox_OnMakeCompletion(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setModel` instead
+    ///
+    pub const SetModel = setModel;
 
     /// Inherited from QComboBox
     ///
@@ -7942,16 +9974,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` model: QAbstractItemModel `
+    /// ` _model: QAbstractItemModel `
     ///
-    pub fn SetModel(self: KUrlComboBox, model: anytype) void {
-        comptime _ = @TypeOf(model)._is_QAbstractItemModel;
-        qtc.KUrlComboBox_SetModel(@ptrCast(self.ptr), @ptrCast(model.ptr));
+    pub fn setModel(self: KUrlComboBox, _model: anytype) void {
+        comptime _ = @TypeOf(_model)._is_QAbstractItemModel;
+        qtc.KUrlComboBox_SetModel(@ptrCast(self.ptr), @ptrCast(_model.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetModel` instead
+    /// ### DEPRECATED: Use `superSetModel` instead
     ///
-    pub const QBaseSetModel = SuperSetModel;
+    pub const SuperSetModel = superSetModel;
 
     /// Inherited from QComboBox
     ///
@@ -7963,12 +9995,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` model: QAbstractItemModel `
+    /// ` _model: QAbstractItemModel `
     ///
-    pub fn SuperSetModel(self: KUrlComboBox, model: anytype) void {
-        comptime _ = @TypeOf(model)._is_QAbstractItemModel;
-        qtc.KUrlComboBox_SuperSetModel(@ptrCast(self.ptr), @ptrCast(model.ptr));
+    pub fn superSetModel(self: KUrlComboBox, _model: anytype) void {
+        comptime _ = @TypeOf(_model)._is_QAbstractItemModel;
+        qtc.KUrlComboBox_SuperSetModel(@ptrCast(self.ptr), @ptrCast(_model.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetModel` instead
+    ///
+    pub const OnSetModel = onSetModel;
 
     /// Inherited from QComboBox
     ///
@@ -7982,9 +10018,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, model: QAbstractItemModel) callconv(.c) void `
     ///
-    pub fn OnSetModel(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QAbstractItemModel) callconv(.c) void) void {
+    pub fn onSetModel(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QAbstractItemModel) callconv(.c) void) void {
         qtc.KUrlComboBox_OnSetModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
 
     /// Inherited from QComboBox
     ///
@@ -7996,13 +10036,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn SizeHint(self: KUrlComboBox) QSize {
+    pub fn sizeHint(self: KUrlComboBox) QSize {
         return .{ .ptr = qtc.KUrlComboBox_SizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// Inherited from QComboBox
     ///
@@ -8014,9 +10054,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn SuperSizeHint(self: KUrlComboBox) QSize {
+    pub fn superSizeHint(self: KUrlComboBox) QSize {
         return .{ .ptr = qtc.KUrlComboBox_SuperSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
 
     /// Inherited from QComboBox
     ///
@@ -8032,10 +10076,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: KUrlComboBox, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KUrlComboBox, callback: *const fn () callconv(.c) QSize) void {
         qtc.KUrlComboBox_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `showPopup` instead
+    ///
+    pub const ShowPopup = showPopup;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#showPopup)
@@ -8046,13 +10094,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn ShowPopup(self: KUrlComboBox) void {
+    pub fn showPopup(self: KUrlComboBox) void {
         qtc.KUrlComboBox_ShowPopup(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowPopup` instead
+    /// ### DEPRECATED: Use `superShowPopup` instead
     ///
-    pub const QBaseShowPopup = SuperShowPopup;
+    pub const SuperShowPopup = superShowPopup;
 
     /// Inherited from QComboBox
     ///
@@ -8064,10 +10112,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn SuperShowPopup(self: KUrlComboBox) void {
+    pub fn superShowPopup(self: KUrlComboBox) void {
         qtc.KUrlComboBox_SuperShowPopup(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onShowPopup` instead
+    ///
+    pub const OnShowPopup = onShowPopup;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#showPopup)
@@ -8080,9 +10132,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnShowPopup(self: KUrlComboBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onShowPopup(self: KUrlComboBox, callback: *const fn () callconv(.c) void) void {
         qtc.KUrlComboBox_OnShowPopup(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hidePopup` instead
+    ///
+    pub const HidePopup = hidePopup;
 
     /// Inherited from QComboBox
     ///
@@ -8094,13 +10150,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn HidePopup(self: KUrlComboBox) void {
+    pub fn hidePopup(self: KUrlComboBox) void {
         qtc.KUrlComboBox_HidePopup(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHidePopup` instead
+    /// ### DEPRECATED: Use `superHidePopup` instead
     ///
-    pub const QBaseHidePopup = SuperHidePopup;
+    pub const SuperHidePopup = superHidePopup;
 
     /// Inherited from QComboBox
     ///
@@ -8112,9 +10168,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn SuperHidePopup(self: KUrlComboBox) void {
+    pub fn superHidePopup(self: KUrlComboBox) void {
         qtc.KUrlComboBox_SuperHidePopup(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHidePopup` instead
+    ///
+    pub const OnHidePopup = onHidePopup;
 
     /// Inherited from QComboBox
     ///
@@ -8128,9 +10188,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnHidePopup(self: KUrlComboBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onHidePopup(self: KUrlComboBox, callback: *const fn () callconv(.c) void) void {
         qtc.KUrlComboBox_OnHidePopup(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QComboBox
     ///
@@ -8142,16 +10206,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: KUrlComboBox, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KUrlComboBox_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: KUrlComboBox, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KUrlComboBox_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QComboBox
     ///
@@ -8163,12 +10227,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: KUrlComboBox, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KUrlComboBox_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: KUrlComboBox, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KUrlComboBox_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QComboBox
     ///
@@ -8182,9 +10250,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QEvent) callconv(.c) bool) void {
         qtc.KUrlComboBox_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QComboBox
     ///
@@ -8198,13 +10270,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: KUrlComboBox, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: KUrlComboBox, param1: i32) QVariant {
         return .{ .ptr = qtc.KUrlComboBox_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QComboBox
     ///
@@ -8218,9 +10290,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: KUrlComboBox, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: KUrlComboBox, param1: i32) QVariant {
         return .{ .ptr = qtc.KUrlComboBox_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QComboBox
     ///
@@ -8236,9 +10312,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: KUrlComboBox, callback: *const fn (KUrlComboBox, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: KUrlComboBox, callback: *const fn (KUrlComboBox, i32) callconv(.c) QVariant) void {
         qtc.KUrlComboBox_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
 
     /// Inherited from QComboBox
     ///
@@ -8252,14 +10332,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` e: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: KUrlComboBox, e: anytype) void {
+    pub fn focusInEvent(self: KUrlComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QFocusEvent;
         qtc.KUrlComboBox_FocusInEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QComboBox
     ///
@@ -8273,11 +10353,15 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` e: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: KUrlComboBox, e: anytype) void {
+    pub fn superFocusInEvent(self: KUrlComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QFocusEvent;
         qtc.KUrlComboBox_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#focusInEvent)
@@ -8290,9 +10374,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, e: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QFocusEvent) callconv(.c) void) void {
         qtc.KUrlComboBox_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
 
     /// Inherited from QComboBox
     ///
@@ -8306,14 +10394,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` e: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: KUrlComboBox, e: anytype) void {
+    pub fn focusOutEvent(self: KUrlComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QFocusEvent;
         qtc.KUrlComboBox_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QComboBox
     ///
@@ -8327,10 +10415,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` e: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: KUrlComboBox, e: anytype) void {
+    pub fn superFocusOutEvent(self: KUrlComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QFocusEvent;
         qtc.KUrlComboBox_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QComboBox
     ///
@@ -8344,9 +10436,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, e: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QFocusEvent) callconv(.c) void) void {
         qtc.KUrlComboBox_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QComboBox
     ///
@@ -8360,14 +10456,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn ChangeEvent(self: KUrlComboBox, e: anytype) void {
+    pub fn changeEvent(self: KUrlComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QEvent;
         qtc.KUrlComboBox_ChangeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QComboBox
     ///
@@ -8381,10 +10477,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn SuperChangeEvent(self: KUrlComboBox, e: anytype) void {
+    pub fn superChangeEvent(self: KUrlComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QEvent;
         qtc.KUrlComboBox_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QComboBox
     ///
@@ -8398,9 +10498,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, e: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QEvent) callconv(.c) void) void {
         qtc.KUrlComboBox_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// Inherited from QComboBox
     ///
@@ -8414,14 +10518,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` e: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: KUrlComboBox, e: anytype) void {
+    pub fn resizeEvent(self: KUrlComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QResizeEvent;
         qtc.KUrlComboBox_ResizeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// Inherited from QComboBox
     ///
@@ -8435,10 +10539,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` e: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: KUrlComboBox, e: anytype) void {
+    pub fn superResizeEvent(self: KUrlComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QResizeEvent;
         qtc.KUrlComboBox_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// Inherited from QComboBox
     ///
@@ -8452,9 +10560,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, e: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QResizeEvent) callconv(.c) void) void {
         qtc.KUrlComboBox_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// Inherited from QComboBox
     ///
@@ -8468,14 +10580,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` e: QPaintEvent `
     ///
-    pub fn PaintEvent(self: KUrlComboBox, e: anytype) void {
+    pub fn paintEvent(self: KUrlComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QPaintEvent;
         qtc.KUrlComboBox_PaintEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// Inherited from QComboBox
     ///
@@ -8489,10 +10601,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` e: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: KUrlComboBox, e: anytype) void {
+    pub fn superPaintEvent(self: KUrlComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QPaintEvent;
         qtc.KUrlComboBox_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// Inherited from QComboBox
     ///
@@ -8506,9 +10622,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, e: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QPaintEvent) callconv(.c) void) void {
         qtc.KUrlComboBox_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QComboBox
     ///
@@ -8522,14 +10642,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` e: QShowEvent `
     ///
-    pub fn ShowEvent(self: KUrlComboBox, e: anytype) void {
+    pub fn showEvent(self: KUrlComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QShowEvent;
         qtc.KUrlComboBox_ShowEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QComboBox
     ///
@@ -8543,10 +10663,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` e: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: KUrlComboBox, e: anytype) void {
+    pub fn superShowEvent(self: KUrlComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QShowEvent;
         qtc.KUrlComboBox_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QComboBox
     ///
@@ -8560,9 +10684,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, e: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QShowEvent) callconv(.c) void) void {
         qtc.KUrlComboBox_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QComboBox
     ///
@@ -8576,14 +10704,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` e: QHideEvent `
     ///
-    pub fn HideEvent(self: KUrlComboBox, e: anytype) void {
+    pub fn hideEvent(self: KUrlComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QHideEvent;
         qtc.KUrlComboBox_HideEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QComboBox
     ///
@@ -8597,10 +10725,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` e: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: KUrlComboBox, e: anytype) void {
+    pub fn superHideEvent(self: KUrlComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QHideEvent;
         qtc.KUrlComboBox_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QComboBox
     ///
@@ -8614,9 +10746,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, e: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QHideEvent) callconv(.c) void) void {
         qtc.KUrlComboBox_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
 
     /// Inherited from QComboBox
     ///
@@ -8630,14 +10766,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: KUrlComboBox, e: anytype) void {
+    pub fn mouseReleaseEvent(self: KUrlComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.KUrlComboBox_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QComboBox
     ///
@@ -8651,10 +10787,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: KUrlComboBox, e: anytype) void {
+    pub fn superMouseReleaseEvent(self: KUrlComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.KUrlComboBox_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from QComboBox
     ///
@@ -8668,9 +10808,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, e: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QMouseEvent) callconv(.c) void) void {
         qtc.KUrlComboBox_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
 
     /// Inherited from QComboBox
     ///
@@ -8684,14 +10828,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: KUrlComboBox, e: anytype) void {
+    pub fn keyPressEvent(self: KUrlComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.KUrlComboBox_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QComboBox
     ///
@@ -8705,11 +10849,15 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: KUrlComboBox, e: anytype) void {
+    pub fn superKeyPressEvent(self: KUrlComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.KUrlComboBox_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#keyPressEvent)
@@ -8722,9 +10870,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, e: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QKeyEvent) callconv(.c) void) void {
         qtc.KUrlComboBox_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
 
     /// Inherited from QComboBox
     ///
@@ -8738,14 +10890,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: KUrlComboBox, e: anytype) void {
+    pub fn keyReleaseEvent(self: KUrlComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.KUrlComboBox_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QComboBox
     ///
@@ -8759,10 +10911,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: KUrlComboBox, e: anytype) void {
+    pub fn superKeyReleaseEvent(self: KUrlComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.KUrlComboBox_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QComboBox
     ///
@@ -8776,9 +10932,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, e: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QKeyEvent) callconv(.c) void) void {
         qtc.KUrlComboBox_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QComboBox
     ///
@@ -8792,14 +10952,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` e: QWheelEvent `
     ///
-    pub fn WheelEvent(self: KUrlComboBox, e: anytype) void {
+    pub fn wheelEvent(self: KUrlComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QWheelEvent;
         qtc.KUrlComboBox_WheelEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QComboBox
     ///
@@ -8813,10 +10973,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` e: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: KUrlComboBox, e: anytype) void {
+    pub fn superWheelEvent(self: KUrlComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QWheelEvent;
         qtc.KUrlComboBox_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QComboBox
     ///
@@ -8830,9 +10994,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, e: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QWheelEvent) callconv(.c) void) void {
         qtc.KUrlComboBox_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QComboBox
     ///
@@ -8846,14 +11014,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` e: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: KUrlComboBox, e: anytype) void {
+    pub fn contextMenuEvent(self: KUrlComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QContextMenuEvent;
         qtc.KUrlComboBox_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QComboBox
     ///
@@ -8867,10 +11035,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` e: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: KUrlComboBox, e: anytype) void {
+    pub fn superContextMenuEvent(self: KUrlComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QContextMenuEvent;
         qtc.KUrlComboBox_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QComboBox
     ///
@@ -8884,9 +11056,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, e: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QContextMenuEvent) callconv(.c) void) void {
         qtc.KUrlComboBox_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QComboBox
     ///
@@ -8900,14 +11076,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: KUrlComboBox, param1: anytype) void {
+    pub fn inputMethodEvent(self: KUrlComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KUrlComboBox_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QComboBox
     ///
@@ -8921,10 +11097,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: KUrlComboBox, param1: anytype) void {
+    pub fn superInputMethodEvent(self: KUrlComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KUrlComboBox_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QComboBox
     ///
@@ -8938,9 +11118,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QInputMethodEvent) callconv(.c) void) void {
         qtc.KUrlComboBox_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initStyleOption` instead
+    ///
+    pub const InitStyleOption = initStyleOption;
 
     /// Inherited from QComboBox
     ///
@@ -8954,14 +11138,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` option: QStyleOptionComboBox `
     ///
-    pub fn InitStyleOption(self: KUrlComboBox, option: anytype) void {
+    pub fn initStyleOption(self: KUrlComboBox, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionComboBox;
         qtc.KUrlComboBox_InitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitStyleOption` instead
+    /// ### DEPRECATED: Use `superInitStyleOption` instead
     ///
-    pub const QBaseInitStyleOption = SuperInitStyleOption;
+    pub const SuperInitStyleOption = superInitStyleOption;
 
     /// Inherited from QComboBox
     ///
@@ -8975,10 +11159,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` option: QStyleOptionComboBox `
     ///
-    pub fn SuperInitStyleOption(self: KUrlComboBox, option: anytype) void {
+    pub fn superInitStyleOption(self: KUrlComboBox, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionComboBox;
         qtc.KUrlComboBox_SuperInitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitStyleOption` instead
+    ///
+    pub const OnInitStyleOption = onInitStyleOption;
 
     /// Inherited from QComboBox
     ///
@@ -8992,9 +11180,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, option: QStyleOptionComboBox) callconv(.c) void `
     ///
-    pub fn OnInitStyleOption(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QStyleOptionComboBox) callconv(.c) void) void {
+    pub fn onInitStyleOption(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QStyleOptionComboBox) callconv(.c) void) void {
         qtc.KUrlComboBox_OnInitStyleOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -9006,13 +11198,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn DevType(self: KUrlComboBox) i32 {
+    pub fn devType(self: KUrlComboBox) i32 {
         return qtc.KUrlComboBox_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -9024,9 +11216,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn SuperDevType(self: KUrlComboBox) i32 {
+    pub fn superDevType(self: KUrlComboBox) i32 {
         return qtc.KUrlComboBox_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -9040,9 +11236,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: KUrlComboBox, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KUrlComboBox, callback: *const fn () callconv(.c) i32) void {
         qtc.KUrlComboBox_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -9056,13 +11256,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: KUrlComboBox, visible: bool) void {
+    pub fn setVisible(self: KUrlComboBox, visible: bool) void {
         qtc.KUrlComboBox_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -9076,9 +11276,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: KUrlComboBox, visible: bool) void {
+    pub fn superSetVisible(self: KUrlComboBox, visible: bool) void {
         qtc.KUrlComboBox_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -9092,9 +11296,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: KUrlComboBox, callback: *const fn (KUrlComboBox, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: KUrlComboBox, callback: *const fn (KUrlComboBox, bool) callconv(.c) void) void {
         qtc.KUrlComboBox_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -9108,13 +11316,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: KUrlComboBox, param1: i32) i32 {
+    pub fn heightForWidth(self: KUrlComboBox, param1: i32) i32 {
         return qtc.KUrlComboBox_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -9128,9 +11336,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: KUrlComboBox, param1: i32) i32 {
+    pub fn superHeightForWidth(self: KUrlComboBox, param1: i32) i32 {
         return qtc.KUrlComboBox_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -9144,9 +11356,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: KUrlComboBox, callback: *const fn (KUrlComboBox, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: KUrlComboBox, callback: *const fn (KUrlComboBox, i32) callconv(.c) i32) void {
         qtc.KUrlComboBox_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -9158,13 +11374,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn HasHeightForWidth(self: KUrlComboBox) bool {
+    pub fn hasHeightForWidth(self: KUrlComboBox) bool {
         return qtc.KUrlComboBox_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -9176,9 +11392,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn SuperHasHeightForWidth(self: KUrlComboBox) bool {
+    pub fn superHasHeightForWidth(self: KUrlComboBox) bool {
         return qtc.KUrlComboBox_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -9192,9 +11412,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: KUrlComboBox, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KUrlComboBox, callback: *const fn () callconv(.c) bool) void {
         qtc.KUrlComboBox_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -9206,13 +11430,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn PaintEngine(self: KUrlComboBox) QPaintEngine {
+    pub fn paintEngine(self: KUrlComboBox) QPaintEngine {
         return .{ .ptr = qtc.KUrlComboBox_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -9224,9 +11448,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn SuperPaintEngine(self: KUrlComboBox) QPaintEngine {
+    pub fn superPaintEngine(self: KUrlComboBox) QPaintEngine {
         return .{ .ptr = qtc.KUrlComboBox_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -9240,9 +11468,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: KUrlComboBox, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KUrlComboBox, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.KUrlComboBox_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -9254,16 +11486,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: KUrlComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KUrlComboBox_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: KUrlComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KUrlComboBox_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -9275,12 +11507,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: KUrlComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KUrlComboBox_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: KUrlComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KUrlComboBox_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -9294,9 +11530,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QMouseEvent) callconv(.c) void) void {
         qtc.KUrlComboBox_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -9308,16 +11548,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: KUrlComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KUrlComboBox_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: KUrlComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KUrlComboBox_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -9329,12 +11569,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: KUrlComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KUrlComboBox_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: KUrlComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KUrlComboBox_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -9348,9 +11592,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QEnterEvent) callconv(.c) void) void {
         qtc.KUrlComboBox_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9362,16 +11610,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: KUrlComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KUrlComboBox_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: KUrlComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KUrlComboBox_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9383,12 +11631,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: KUrlComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KUrlComboBox_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: KUrlComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KUrlComboBox_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9402,9 +11654,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QEvent) callconv(.c) void) void {
         qtc.KUrlComboBox_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9416,16 +11672,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: KUrlComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KUrlComboBox_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: KUrlComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KUrlComboBox_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9437,12 +11693,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: KUrlComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KUrlComboBox_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: KUrlComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KUrlComboBox_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9456,9 +11716,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QMoveEvent) callconv(.c) void) void {
         qtc.KUrlComboBox_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -9470,16 +11734,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: KUrlComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.KUrlComboBox_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: KUrlComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.KUrlComboBox_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -9491,12 +11755,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: KUrlComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.KUrlComboBox_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: KUrlComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.KUrlComboBox_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -9510,9 +11778,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QCloseEvent) callconv(.c) void) void {
         qtc.KUrlComboBox_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -9524,16 +11796,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: KUrlComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KUrlComboBox_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: KUrlComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KUrlComboBox_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -9545,12 +11817,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: KUrlComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KUrlComboBox_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: KUrlComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KUrlComboBox_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -9564,9 +11840,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QTabletEvent) callconv(.c) void) void {
         qtc.KUrlComboBox_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -9578,16 +11858,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: KUrlComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KUrlComboBox_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: KUrlComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KUrlComboBox_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -9599,12 +11879,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: KUrlComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KUrlComboBox_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: KUrlComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KUrlComboBox_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -9618,9 +11902,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QActionEvent) callconv(.c) void) void {
         qtc.KUrlComboBox_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -9632,16 +11920,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: KUrlComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KUrlComboBox_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: KUrlComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KUrlComboBox_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -9653,12 +11941,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: KUrlComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KUrlComboBox_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: KUrlComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KUrlComboBox_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -9672,9 +11964,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QDragEnterEvent) callconv(.c) void) void {
         qtc.KUrlComboBox_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9686,16 +11982,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: KUrlComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KUrlComboBox_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: KUrlComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KUrlComboBox_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9707,12 +12003,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: KUrlComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KUrlComboBox_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: KUrlComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KUrlComboBox_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9726,9 +12026,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QDragMoveEvent) callconv(.c) void) void {
         qtc.KUrlComboBox_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9740,16 +12044,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: KUrlComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KUrlComboBox_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: KUrlComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KUrlComboBox_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9761,12 +12065,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: KUrlComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KUrlComboBox_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: KUrlComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KUrlComboBox_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9780,9 +12088,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QDragLeaveEvent) callconv(.c) void) void {
         qtc.KUrlComboBox_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QWidget
     ///
@@ -9794,16 +12106,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: KUrlComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KUrlComboBox_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: KUrlComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KUrlComboBox_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -9815,12 +12127,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: KUrlComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KUrlComboBox_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: KUrlComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KUrlComboBox_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -9834,9 +12150,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QDropEvent) callconv(.c) void) void {
         qtc.KUrlComboBox_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -9854,7 +12174,7 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: KUrlComboBox, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: KUrlComboBox, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -9862,9 +12182,9 @@ pub const KUrlComboBox = extern struct {
         return qtc.KUrlComboBox_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -9882,13 +12202,17 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: KUrlComboBox, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: KUrlComboBox, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.KUrlComboBox_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -9902,9 +12226,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KUrlComboBox_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -9918,13 +12246,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: KUrlComboBox, param1: i32) i32 {
+    pub fn metric(self: KUrlComboBox, param1: i32) i32 {
         return qtc.KUrlComboBox_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -9938,9 +12266,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: KUrlComboBox, param1: i32) i32 {
+    pub fn superMetric(self: KUrlComboBox, param1: i32) i32 {
         return qtc.KUrlComboBox_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -9954,9 +12286,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: KUrlComboBox, callback: *const fn (KUrlComboBox, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: KUrlComboBox, callback: *const fn (KUrlComboBox, i32) callconv(.c) i32) void {
         qtc.KUrlComboBox_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -9970,14 +12306,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: KUrlComboBox, painter: anytype) void {
+    pub fn initPainter(self: KUrlComboBox, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KUrlComboBox_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -9991,10 +12327,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: KUrlComboBox, painter: anytype) void {
+    pub fn superInitPainter(self: KUrlComboBox, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KUrlComboBox_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -10008,9 +12348,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QPainter) callconv(.c) void) void {
         qtc.KUrlComboBox_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -10024,14 +12368,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: KUrlComboBox, offset: anytype) QPaintDevice {
+    pub fn redirected(self: KUrlComboBox, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KUrlComboBox_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -10045,10 +12389,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: KUrlComboBox, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: KUrlComboBox, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KUrlComboBox_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -10062,9 +12410,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QPoint) callconv(.c) QPaintDevice) void {
         qtc.KUrlComboBox_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -10076,13 +12428,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn SharedPainter(self: KUrlComboBox) QPainter {
+    pub fn sharedPainter(self: KUrlComboBox) QPainter {
         return .{ .ptr = qtc.KUrlComboBox_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -10094,9 +12446,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn SuperSharedPainter(self: KUrlComboBox) QPainter {
+    pub fn superSharedPainter(self: KUrlComboBox) QPainter {
         return .{ .ptr = qtc.KUrlComboBox_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -10110,9 +12466,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: KUrlComboBox, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KUrlComboBox, callback: *const fn () callconv(.c) QPainter) void {
         qtc.KUrlComboBox_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -10126,13 +12486,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: KUrlComboBox, next: bool) bool {
+    pub fn focusNextPrevChild(self: KUrlComboBox, next: bool) bool {
         return qtc.KUrlComboBox_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -10146,9 +12506,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: KUrlComboBox, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: KUrlComboBox, next: bool) bool {
         return qtc.KUrlComboBox_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -10162,9 +12526,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: KUrlComboBox, callback: *const fn (KUrlComboBox, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: KUrlComboBox, callback: *const fn (KUrlComboBox, bool) callconv(.c) bool) void {
         qtc.KUrlComboBox_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -10178,17 +12546,17 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: KUrlComboBox, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: KUrlComboBox, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KUrlComboBox_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KUrlComboBox_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -10202,13 +12570,17 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: KUrlComboBox, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: KUrlComboBox, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KUrlComboBox_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KUrlComboBox_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -10222,9 +12594,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QObject, QEvent) callconv(.c) bool) void {
         qtc.KUrlComboBox_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -10236,16 +12612,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KUrlComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KUrlComboBox_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: KUrlComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KUrlComboBox_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -10257,12 +12633,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KUrlComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KUrlComboBox_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: KUrlComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KUrlComboBox_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -10276,9 +12656,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QTimerEvent) callconv(.c) void) void {
         qtc.KUrlComboBox_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -10290,16 +12674,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KUrlComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KUrlComboBox_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KUrlComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KUrlComboBox_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -10311,12 +12695,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KUrlComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KUrlComboBox_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KUrlComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KUrlComboBox_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -10330,9 +12718,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QChildEvent) callconv(.c) void) void {
         qtc.KUrlComboBox_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -10344,16 +12736,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KUrlComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KUrlComboBox_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KUrlComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KUrlComboBox_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -10365,12 +12757,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KUrlComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KUrlComboBox_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KUrlComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KUrlComboBox_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -10384,9 +12780,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QEvent) callconv(.c) void) void {
         qtc.KUrlComboBox_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -10400,14 +12800,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KUrlComboBox, signal: anytype) void {
+    pub fn connectNotify(self: KUrlComboBox, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KUrlComboBox_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -10421,11 +12821,15 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KUrlComboBox, signal: anytype) void {
+    pub fn superConnectNotify(self: KUrlComboBox, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KUrlComboBox_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -10438,9 +12842,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QMetaMethod) callconv(.c) void) void {
         qtc.KUrlComboBox_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -10454,14 +12862,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KUrlComboBox, signal: anytype) void {
+    pub fn disconnectNotify(self: KUrlComboBox, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KUrlComboBox_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -10475,10 +12883,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KUrlComboBox, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KUrlComboBox, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KUrlComboBox_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -10492,9 +12904,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QMetaMethod) callconv(.c) void) void {
         qtc.KUrlComboBox_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setHandleSignals` instead
+    ///
+    pub const SetHandleSignals = setHandleSignals;
 
     /// Inherited from KCompletionBase
     ///
@@ -10508,13 +12924,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` handle: bool `
     ///
-    pub fn SetHandleSignals(self: KUrlComboBox, handle: bool) void {
+    pub fn setHandleSignals(self: KUrlComboBox, handle: bool) void {
         qtc.KUrlComboBox_SetHandleSignals(@ptrCast(self.ptr), handle);
     }
 
-    /// ### DEPRECATED: Use `SuperSetHandleSignals` instead
+    /// ### DEPRECATED: Use `superSetHandleSignals` instead
     ///
-    pub const QBaseSetHandleSignals = SuperSetHandleSignals;
+    pub const SuperSetHandleSignals = superSetHandleSignals;
 
     /// Inherited from KCompletionBase
     ///
@@ -10528,9 +12944,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` handle: bool `
     ///
-    pub fn SuperSetHandleSignals(self: KUrlComboBox, handle: bool) void {
+    pub fn superSetHandleSignals(self: KUrlComboBox, handle: bool) void {
         qtc.KUrlComboBox_SuperSetHandleSignals(@ptrCast(self.ptr), handle);
     }
+
+    /// ### DEPRECATED: Use `onSetHandleSignals` instead
+    ///
+    pub const OnSetHandleSignals = onSetHandleSignals;
 
     /// Inherited from KCompletionBase
     ///
@@ -10544,9 +12964,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, handle: bool) callconv(.c) void `
     ///
-    pub fn OnSetHandleSignals(self: KUrlComboBox, callback: *const fn (KUrlComboBox, bool) callconv(.c) void) void {
+    pub fn onSetHandleSignals(self: KUrlComboBox, callback: *const fn (KUrlComboBox, bool) callconv(.c) void) void {
         qtc.KUrlComboBox_OnSetHandleSignals(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setCompletionMode` instead
+    ///
+    pub const SetCompletionMode = setCompletionMode;
 
     /// Inherited from KCompletionBase
     ///
@@ -10560,13 +12984,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` mode: kcompletion_enums.CompletionMode `
     ///
-    pub fn SetCompletionMode(self: KUrlComboBox, mode: i32) void {
+    pub fn setCompletionMode(self: KUrlComboBox, mode: i32) void {
         qtc.KUrlComboBox_SetCompletionMode(@ptrCast(self.ptr), @bitCast(mode));
     }
 
-    /// ### DEPRECATED: Use `SuperSetCompletionMode` instead
+    /// ### DEPRECATED: Use `superSetCompletionMode` instead
     ///
-    pub const QBaseSetCompletionMode = SuperSetCompletionMode;
+    pub const SuperSetCompletionMode = superSetCompletionMode;
 
     /// Inherited from KCompletionBase
     ///
@@ -10580,9 +13004,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` mode: kcompletion_enums.CompletionMode `
     ///
-    pub fn SuperSetCompletionMode(self: KUrlComboBox, mode: i32) void {
+    pub fn superSetCompletionMode(self: KUrlComboBox, mode: i32) void {
         qtc.KUrlComboBox_SuperSetCompletionMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `onSetCompletionMode` instead
+    ///
+    pub const OnSetCompletionMode = onSetCompletionMode;
 
     /// Inherited from KCompletionBase
     ///
@@ -10596,9 +13024,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, mode: kcompletion_enums.CompletionMode) callconv(.c) void `
     ///
-    pub fn OnSetCompletionMode(self: KUrlComboBox, callback: *const fn (KUrlComboBox, i32) callconv(.c) void) void {
+    pub fn onSetCompletionMode(self: KUrlComboBox, callback: *const fn (KUrlComboBox, i32) callconv(.c) void) void {
         qtc.KUrlComboBox_OnSetCompletionMode(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `virtualHook` instead
+    ///
+    pub const VirtualHook = virtualHook;
 
     /// Inherited from KCompletionBase
     ///
@@ -10614,13 +13046,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` data: ?*anyopaque `
     ///
-    pub fn VirtualHook(self: KUrlComboBox, id: i32, data: ?*anyopaque) void {
+    pub fn virtualHook(self: KUrlComboBox, id: i32, data: ?*anyopaque) void {
         qtc.KUrlComboBox_VirtualHook(@ptrCast(self.ptr), @bitCast(id), @ptrCast(data));
     }
 
-    /// ### DEPRECATED: Use `SuperVirtualHook` instead
+    /// ### DEPRECATED: Use `superVirtualHook` instead
     ///
-    pub const QBaseVirtualHook = SuperVirtualHook;
+    pub const SuperVirtualHook = superVirtualHook;
 
     /// Inherited from KCompletionBase
     ///
@@ -10636,9 +13068,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` data: ?*anyopaque `
     ///
-    pub fn SuperVirtualHook(self: KUrlComboBox, id: i32, data: ?*anyopaque) void {
+    pub fn superVirtualHook(self: KUrlComboBox, id: i32, data: ?*anyopaque) void {
         qtc.KUrlComboBox_SuperVirtualHook(@ptrCast(self.ptr), @bitCast(id), @ptrCast(data));
     }
+
+    /// ### DEPRECATED: Use `onVirtualHook` instead
+    ///
+    pub const OnVirtualHook = onVirtualHook;
 
     /// Inherited from KCompletionBase
     ///
@@ -10652,10 +13088,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, id: i32, data: ?*anyopaque) callconv(.c) void `
     ///
-    pub fn OnVirtualHook(self: KUrlComboBox, callback: *const fn (KUrlComboBox, i32, ?*anyopaque) callconv(.c) void) void {
+    pub fn onVirtualHook(self: KUrlComboBox, callback: *const fn (KUrlComboBox, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.KUrlComboBox_OnVirtualHook(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -10666,13 +13106,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn UpdateMicroFocus(self: KUrlComboBox) void {
+    pub fn updateMicroFocus(self: KUrlComboBox) void {
         qtc.KUrlComboBox_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -10684,10 +13124,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn SuperUpdateMicroFocus(self: KUrlComboBox) void {
+    pub fn superUpdateMicroFocus(self: KUrlComboBox) void {
         qtc.KUrlComboBox_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -10700,10 +13144,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: KUrlComboBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: KUrlComboBox, callback: *const fn () callconv(.c) void) void {
         qtc.KUrlComboBox_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -10714,13 +13162,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn Create(self: KUrlComboBox) void {
+    pub fn create(self: KUrlComboBox) void {
         qtc.KUrlComboBox_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -10732,10 +13180,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn SuperCreate(self: KUrlComboBox) void {
+    pub fn superCreate(self: KUrlComboBox) void {
         qtc.KUrlComboBox_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -10748,9 +13200,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: KUrlComboBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: KUrlComboBox, callback: *const fn () callconv(.c) void) void {
         qtc.KUrlComboBox_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -10762,13 +13218,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn Destroy(self: KUrlComboBox) void {
+    pub fn destroy(self: KUrlComboBox) void {
         qtc.KUrlComboBox_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -10780,9 +13236,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn SuperDestroy(self: KUrlComboBox) void {
+    pub fn superDestroy(self: KUrlComboBox) void {
         qtc.KUrlComboBox_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -10796,10 +13256,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: KUrlComboBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: KUrlComboBox, callback: *const fn () callconv(.c) void) void {
         qtc.KUrlComboBox_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -10810,13 +13274,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn FocusNextChild(self: KUrlComboBox) bool {
+    pub fn focusNextChild(self: KUrlComboBox) bool {
         return qtc.KUrlComboBox_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -10828,10 +13292,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn SuperFocusNextChild(self: KUrlComboBox) bool {
+    pub fn superFocusNextChild(self: KUrlComboBox) bool {
         return qtc.KUrlComboBox_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -10844,9 +13312,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: KUrlComboBox, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: KUrlComboBox, callback: *const fn () callconv(.c) bool) void {
         qtc.KUrlComboBox_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -10858,13 +13330,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn FocusPreviousChild(self: KUrlComboBox) bool {
+    pub fn focusPreviousChild(self: KUrlComboBox) bool {
         return qtc.KUrlComboBox_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -10876,9 +13348,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn SuperFocusPreviousChild(self: KUrlComboBox) bool {
+    pub fn superFocusPreviousChild(self: KUrlComboBox) bool {
         return qtc.KUrlComboBox_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -10892,9 +13368,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: KUrlComboBox, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: KUrlComboBox, callback: *const fn () callconv(.c) bool) void {
         qtc.KUrlComboBox_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -10906,13 +13386,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn Sender(self: KUrlComboBox) QObject {
+    pub fn sender(self: KUrlComboBox) QObject {
         return .{ .ptr = qtc.KUrlComboBox_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -10924,9 +13404,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn SuperSender(self: KUrlComboBox) QObject {
+    pub fn superSender(self: KUrlComboBox) QObject {
         return .{ .ptr = qtc.KUrlComboBox_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -10940,9 +13424,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KUrlComboBox, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KUrlComboBox, callback: *const fn () callconv(.c) QObject) void {
         qtc.KUrlComboBox_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -10954,13 +13442,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn SenderSignalIndex(self: KUrlComboBox) i32 {
+    pub fn senderSignalIndex(self: KUrlComboBox) i32 {
         return qtc.KUrlComboBox_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -10972,9 +13460,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn SuperSenderSignalIndex(self: KUrlComboBox) i32 {
+    pub fn superSenderSignalIndex(self: KUrlComboBox) i32 {
         return qtc.KUrlComboBox_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -10988,9 +13480,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KUrlComboBox, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KUrlComboBox, callback: *const fn () callconv(.c) i32) void {
         qtc.KUrlComboBox_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -11004,14 +13500,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KUrlComboBox, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KUrlComboBox, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KUrlComboBox_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -11025,10 +13521,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KUrlComboBox, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KUrlComboBox, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KUrlComboBox_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -11042,9 +13542,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KUrlComboBox, callback: *const fn (KUrlComboBox, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KUrlComboBox, callback: *const fn (KUrlComboBox, [*:0]const u8) callconv(.c) i32) void {
         qtc.KUrlComboBox_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -11058,14 +13562,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KUrlComboBox, signal: anytype) bool {
+    pub fn isSignalConnected(self: KUrlComboBox, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KUrlComboBox_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -11079,10 +13583,14 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KUrlComboBox, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KUrlComboBox, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KUrlComboBox_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -11096,9 +13604,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KUrlComboBox, callback: *const fn (KUrlComboBox, QMetaMethod) callconv(.c) bool) void {
         qtc.KUrlComboBox_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -11114,13 +13626,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: KUrlComboBox, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: KUrlComboBox, metricA: i32, metricB: i32) f64 {
         return qtc.KUrlComboBox_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -11136,9 +13648,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: KUrlComboBox, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: KUrlComboBox, metricA: i32, metricB: i32) f64 {
         return qtc.KUrlComboBox_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -11152,9 +13668,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: KUrlComboBox, callback: *const fn (KUrlComboBox, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: KUrlComboBox, callback: *const fn (KUrlComboBox, i32, i32) callconv(.c) f64) void {
         qtc.KUrlComboBox_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyBindingMap` instead
+    ///
+    pub const KeyBindingMap = keyBindingMap;
 
     /// Inherited from KCompletionBase
     ///
@@ -11172,10 +13692,10 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` ArrayMap_i32_SliceQKeySequence (key: kcompletionbase_enums.KeyBindingType) `
     ///
-    pub fn KeyBindingMap(self: KUrlComboBox, allocator: std.mem.Allocator) ArrayMap_i32_SliceQKeySequence {
+    pub fn keyBindingMap(self: KUrlComboBox, allocator: std.mem.Allocator) ArrayMap_i32_SliceQKeySequence {
         const _map: qtc.libqt_map = qtc.KUrlComboBox_KeyBindingMap(@ptrCast(self.ptr));
         var _ret: ArrayMap_i32_SliceQKeySequence = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KUrlComboBox.KeyBindingMap: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KUrlComboBox.keyBindingMap: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -11190,18 +13710,18 @@ pub const KUrlComboBox = extern struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            const _value_slice = allocator.alloc(QKeySequence, _value.len) catch @panic("KUrlComboBox.KeyBindingMap: Memory allocation failed");
+            const _value_slice = allocator.alloc(QKeySequence, _value.len) catch @panic("KUrlComboBox.keyBindingMap: Memory allocation failed");
             const _value_data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_value.data));
-            for (0.._value.len) |ii|
-                _value_slice[ii] = .{ .ptr = _value_data[ii] };
+            for (0.._value.len) |j|
+                _value_slice[j] = .{ .ptr = _value_data[j] };
             _ret.putAssumeCapacity(_key, _value_slice);
         }
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `SuperKeyBindingMap` instead
+    /// ### DEPRECATED: Use `superKeyBindingMap` instead
     ///
-    pub const QBaseKeyBindingMap = SuperKeyBindingMap;
+    pub const SuperKeyBindingMap = superKeyBindingMap;
 
     /// Inherited from KCompletionBase
     ///
@@ -11219,10 +13739,10 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` ArrayMap_i32_SliceQKeySequence (key: kcompletionbase_enums.KeyBindingType) `
     ///
-    pub fn SuperKeyBindingMap(self: KUrlComboBox, allocator: std.mem.Allocator) ArrayMap_i32_SliceQKeySequence {
+    pub fn superKeyBindingMap(self: KUrlComboBox, allocator: std.mem.Allocator) ArrayMap_i32_SliceQKeySequence {
         const _map: qtc.libqt_map = qtc.KUrlComboBox_SuperKeyBindingMap(@ptrCast(self.ptr));
         var _ret: ArrayMap_i32_SliceQKeySequence = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KUrlComboBox.KeyBindingMap: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KUrlComboBox.keyBindingMap: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -11237,14 +13757,18 @@ pub const KUrlComboBox = extern struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            const _value_slice = allocator.alloc(QKeySequence, _value.len) catch @panic("KUrlComboBox.KeyBindingMap: Memory allocation failed");
+            const _value_slice = allocator.alloc(QKeySequence, _value.len) catch @panic("KUrlComboBox.keyBindingMap: Memory allocation failed");
             const _value_data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_value.data));
-            for (0.._value.len) |ii|
-                _value_slice[ii] = .{ .ptr = _value_data[ii] };
+            for (0.._value.len) |j|
+                _value_slice[j] = .{ .ptr = _value_data[j] };
             _ret.putAssumeCapacity(_key, _value_slice);
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onKeyBindingMap` instead
+    ///
+    pub const OnKeyBindingMap = onKeyBindingMap;
 
     /// Inherited from KCompletionBase
     ///
@@ -11262,9 +13786,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` C ABI representation of ArrayMap_i32_SliceQKeySequence `
     ///
-    pub fn OnKeyBindingMap(self: KUrlComboBox, callback: *const fn () callconv(.c) qtc.libqt_map) void {
+    pub fn onKeyBindingMap(self: KUrlComboBox, callback: *const fn () callconv(.c) qtc.libqt_map) void {
         qtc.KUrlComboBox_OnKeyBindingMap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setKeyBindingMap` instead
+    ///
+    pub const SetKeyBindingMap = setKeyBindingMap;
 
     /// Inherited from KCompletionBase
     ///
@@ -11278,16 +13806,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` keyBindingMap: ArrayMap_i32_SliceQKeySequence (key: kcompletionbase_enums.KeyBindingType) `
+    /// ` _keyBindingMap: ArrayMap_i32_SliceQKeySequence (key: kcompletionbase_enums.KeyBindingType) `
     ///
-    pub fn SetKeyBindingMap(self: KUrlComboBox, allocator: std.mem.Allocator, keyBindingMap: ArrayMap_i32_SliceQKeySequence) void {
-        const keyBindingMap_count = keyBindingMap.count();
-        const keyBindingMap_keys = allocator.alloc(i32, keyBindingMap_count) catch @panic("KUrlComboBox.SetKeyBindingMap: Memory allocation failed");
+    pub fn setKeyBindingMap(self: KUrlComboBox, allocator: std.mem.Allocator, _keyBindingMap: ArrayMap_i32_SliceQKeySequence) void {
+        const keyBindingMap_count = _keyBindingMap.count();
+        const keyBindingMap_keys = allocator.alloc(i32, keyBindingMap_count) catch @panic("KUrlComboBox.setKeyBindingMap: Memory allocation failed");
         defer allocator.free(keyBindingMap_keys);
-        const keyBindingMap_values = allocator.alloc(qtc.libqt_list, keyBindingMap_count) catch @panic("KUrlComboBox.SetKeyBindingMap: Memory allocation failed");
+        const keyBindingMap_values = allocator.alloc(qtc.libqt_list, keyBindingMap_count) catch @panic("KUrlComboBox.setKeyBindingMap: Memory allocation failed");
         defer allocator.free(keyBindingMap_values);
         var i: usize = 0;
-        var keyBindingMap_it = keyBindingMap.iterator();
+        var keyBindingMap_it = _keyBindingMap.iterator();
         while (keyBindingMap_it.next()) |it_entry| : (i += 1) {
             const keyBindingMap_key = it_entry.key_ptr.*;
             keyBindingMap_keys[i] = @bitCast(keyBindingMap_key);
@@ -11305,9 +13833,9 @@ pub const KUrlComboBox = extern struct {
         qtc.KUrlComboBox_SetKeyBindingMap(@ptrCast(self.ptr), keyBindingMap_map);
     }
 
-    /// ### DEPRECATED: Use `SuperSetKeyBindingMap` instead
+    /// ### DEPRECATED: Use `superSetKeyBindingMap` instead
     ///
-    pub const QBaseSetKeyBindingMap = SuperSetKeyBindingMap;
+    pub const SuperSetKeyBindingMap = superSetKeyBindingMap;
 
     /// Inherited from KCompletionBase
     ///
@@ -11321,16 +13849,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` keyBindingMap: ArrayMap_i32_SliceQKeySequence (key: kcompletionbase_enums.KeyBindingType) `
+    /// ` _keyBindingMap: ArrayMap_i32_SliceQKeySequence (key: kcompletionbase_enums.KeyBindingType) `
     ///
-    pub fn SuperSetKeyBindingMap(self: KUrlComboBox, allocator: std.mem.Allocator, keyBindingMap: ArrayMap_i32_SliceQKeySequence) void {
-        const keyBindingMap_count = keyBindingMap.count();
-        const keyBindingMap_keys = allocator.alloc(i32, keyBindingMap_count) catch @panic("KUrlComboBox.SetKeyBindingMap: Memory allocation failed");
+    pub fn superSetKeyBindingMap(self: KUrlComboBox, allocator: std.mem.Allocator, _keyBindingMap: ArrayMap_i32_SliceQKeySequence) void {
+        const keyBindingMap_count = _keyBindingMap.count();
+        const keyBindingMap_keys = allocator.alloc(i32, keyBindingMap_count) catch @panic("KUrlComboBox.setKeyBindingMap: Memory allocation failed");
         defer allocator.free(keyBindingMap_keys);
-        const keyBindingMap_values = allocator.alloc(qtc.libqt_list, keyBindingMap_count) catch @panic("KUrlComboBox.SetKeyBindingMap: Memory allocation failed");
+        const keyBindingMap_values = allocator.alloc(qtc.libqt_list, keyBindingMap_count) catch @panic("KUrlComboBox.setKeyBindingMap: Memory allocation failed");
         defer allocator.free(keyBindingMap_values);
         var i: usize = 0;
-        var keyBindingMap_it = keyBindingMap.iterator();
+        var keyBindingMap_it = _keyBindingMap.iterator();
         while (keyBindingMap_it.next()) |it_entry| : (i += 1) {
             const keyBindingMap_key = it_entry.key_ptr.*;
             keyBindingMap_keys[i] = @bitCast(keyBindingMap_key);
@@ -11348,6 +13876,10 @@ pub const KUrlComboBox = extern struct {
         qtc.KUrlComboBox_SuperSetKeyBindingMap(@ptrCast(self.ptr), keyBindingMap_map);
     }
 
+    /// ### DEPRECATED: Use `onSetKeyBindingMap` instead
+    ///
+    pub const OnSetKeyBindingMap = onSetKeyBindingMap;
+
     /// Inherited from KCompletionBase
     ///
     /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#setKeyBindingMap)
@@ -11360,9 +13892,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, keyBindingMap: qtc.libqt_map (ArrayMap_i32_SliceQKeySequence)) callconv(.c) void `
     ///
-    pub fn OnSetKeyBindingMap(self: KUrlComboBox, callback: *const fn (KUrlComboBox, qtc.libqt_map) callconv(.c) void) void {
+    pub fn onSetKeyBindingMap(self: KUrlComboBox, callback: *const fn (KUrlComboBox, qtc.libqt_map) callconv(.c) void) void {
         qtc.KUrlComboBox_OnSetKeyBindingMap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setDelegate` instead
+    ///
+    pub const SetDelegate = setDelegate;
 
     /// Inherited from KCompletionBase
     ///
@@ -11374,16 +13910,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` delegate: KCompletionBase `
+    /// ` _delegate: KCompletionBase `
     ///
-    pub fn SetDelegate(self: KUrlComboBox, delegate: anytype) void {
-        comptime _ = @TypeOf(delegate)._is_KCompletionBase;
-        qtc.KUrlComboBox_SetDelegate(@ptrCast(self.ptr), @ptrCast(delegate.ptr));
+    pub fn setDelegate(self: KUrlComboBox, _delegate: anytype) void {
+        comptime _ = @TypeOf(_delegate)._is_KCompletionBase;
+        qtc.KUrlComboBox_SetDelegate(@ptrCast(self.ptr), @ptrCast(_delegate.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetDelegate` instead
+    /// ### DEPRECATED: Use `superSetDelegate` instead
     ///
-    pub const QBaseSetDelegate = SuperSetDelegate;
+    pub const SuperSetDelegate = superSetDelegate;
 
     /// Inherited from KCompletionBase
     ///
@@ -11395,12 +13931,16 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    /// ` delegate: KCompletionBase `
+    /// ` _delegate: KCompletionBase `
     ///
-    pub fn SuperSetDelegate(self: KUrlComboBox, delegate: anytype) void {
-        comptime _ = @TypeOf(delegate)._is_KCompletionBase;
-        qtc.KUrlComboBox_SuperSetDelegate(@ptrCast(self.ptr), @ptrCast(delegate.ptr));
+    pub fn superSetDelegate(self: KUrlComboBox, _delegate: anytype) void {
+        comptime _ = @TypeOf(_delegate)._is_KCompletionBase;
+        qtc.KUrlComboBox_SuperSetDelegate(@ptrCast(self.ptr), @ptrCast(_delegate.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetDelegate` instead
+    ///
+    pub const OnSetDelegate = onSetDelegate;
 
     /// Inherited from KCompletionBase
     ///
@@ -11414,9 +13954,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, delegate: KCompletionBase) callconv(.c) void `
     ///
-    pub fn OnSetDelegate(self: KUrlComboBox, callback: *const fn (KUrlComboBox, KCompletionBase) callconv(.c) void) void {
+    pub fn onSetDelegate(self: KUrlComboBox, callback: *const fn (KUrlComboBox, KCompletionBase) callconv(.c) void) void {
         qtc.KUrlComboBox_OnSetDelegate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `delegate` instead
+    ///
+    pub const Delegate = delegate;
 
     /// Inherited from KCompletionBase
     ///
@@ -11428,13 +13972,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn Delegate(self: KUrlComboBox) KCompletionBase {
+    pub fn delegate(self: KUrlComboBox) KCompletionBase {
         return .{ .ptr = qtc.KUrlComboBox_Delegate(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperDelegate` instead
+    /// ### DEPRECATED: Use `superDelegate` instead
     ///
-    pub const QBaseDelegate = SuperDelegate;
+    pub const SuperDelegate = superDelegate;
 
     /// Inherited from KCompletionBase
     ///
@@ -11446,9 +13990,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn SuperDelegate(self: KUrlComboBox) KCompletionBase {
+    pub fn superDelegate(self: KUrlComboBox) KCompletionBase {
         return .{ .ptr = qtc.KUrlComboBox_SuperDelegate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onDelegate` instead
+    ///
+    pub const OnDelegate = onDelegate;
 
     /// Inherited from KCompletionBase
     ///
@@ -11462,9 +14010,13 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) KCompletionBase `
     ///
-    pub fn OnDelegate(self: KUrlComboBox, callback: *const fn () callconv(.c) KCompletionBase) void {
+    pub fn onDelegate(self: KUrlComboBox, callback: *const fn () callconv(.c) KCompletionBase) void {
         qtc.KUrlComboBox_OnDelegate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -11478,23 +14030,23 @@ pub const KUrlComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlComboBox, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KUrlComboBox, callback: *const fn (KUrlComboBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KUrlComboBox, callback: *const fn (KUrlComboBox, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kurlcombobox.html#dtor.KUrlComboBox)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KUrlComboBox `
     ///
-    pub fn Delete(self: KUrlComboBox) void {
+    pub fn delete(self: KUrlComboBox) void {
         qtc.KUrlComboBox_Delete(@ptrCast(self.ptr));
     }
 };

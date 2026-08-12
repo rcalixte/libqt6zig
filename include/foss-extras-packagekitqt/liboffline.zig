@@ -25,15 +25,23 @@ pub const PackageKit__Offline = extern struct {
     pub const _is_PackageKit__Offline = {};
     pub const _is_QObject = {};
 
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: PackageKit__Offline `
     ///
-    pub fn MetaObject(self: PackageKit__Offline) QMetaObject {
+    pub fn metaObject(self: PackageKit__Offline) QMetaObject {
         return .{ .ptr = qtc.PackageKit__Offline_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -41,10 +49,14 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: PackageKit__Offline, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: PackageKit__Offline, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.PackageKit__Offline_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -56,9 +68,13 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: PackageKit__Offline, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: PackageKit__Offline, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.PackageKit__Offline_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -68,14 +84,18 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("PackageKit__Offline.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("PackageKit__Offline.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `preparedUpgrade` instead
+    ///
+    pub const PreparedUpgrade = preparedUpgrade;
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
@@ -85,10 +105,10 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PreparedUpgrade(self: PackageKit__Offline, allocator: std.mem.Allocator) ArrayMap_constu8_QVariant {
+    pub fn preparedUpgrade(self: PackageKit__Offline, allocator: std.mem.Allocator) ArrayMap_constu8_QVariant {
         const _map: qtc.libqt_map = qtc.PackageKit__Offline_PreparedUpgrade(@ptrCast(self.ptr));
         var _ret: ArrayMap_constu8_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("PackageKit__Offline.PreparedUpgrade: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("PackageKit__Offline.preparedUpgrade: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {
@@ -102,13 +122,17 @@ pub const PackageKit__Offline = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("PackageKit__Offline.PreparedUpgrade: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("PackageKit__Offline.preparedUpgrade: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
             _ret.putAssumeCapacity(_entry_slice, .{ .ptr = @ptrCast(_value) });
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `triggerAction` instead
+    ///
+    pub const TriggerAction = triggerAction;
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
@@ -120,49 +144,55 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` offline_enums.Action `
     ///
-    pub fn TriggerAction(self: PackageKit__Offline) i32 {
+    pub fn triggerAction(self: PackageKit__Offline) i32 {
         return qtc.PackageKit__Offline_TriggerAction(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `updatePrepared` instead
+    ///
+    pub const UpdatePrepared = updatePrepared;
+
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: PackageKit__Offline `
     ///
-    pub fn UpdatePrepared(self: PackageKit__Offline) bool {
+    pub fn updatePrepared(self: PackageKit__Offline) bool {
         return qtc.PackageKit__Offline_UpdatePrepared(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `updateTriggered` instead
+    ///
+    pub const UpdateTriggered = updateTriggered;
+
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: PackageKit__Offline `
     ///
-    pub fn UpdateTriggered(self: PackageKit__Offline) bool {
+    pub fn updateTriggered(self: PackageKit__Offline) bool {
         return qtc.PackageKit__Offline_UpdateTriggered(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `upgradePrepared` instead
+    ///
+    pub const UpgradePrepared = upgradePrepared;
+
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: PackageKit__Offline `
     ///
-    pub fn UpgradePrepared(self: PackageKit__Offline) bool {
+    pub fn upgradePrepared(self: PackageKit__Offline) bool {
         return qtc.PackageKit__Offline_UpgradePrepared(@ptrCast(self.ptr));
     }
 
-    /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
+    /// ### DEPRECATED: Use `upgradeTriggered` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: PackageKit__Offline `
-    ///
-    pub fn UpgradeTriggered(self: PackageKit__Offline) bool {
-        return qtc.PackageKit__Offline_UpgradeTriggered(@ptrCast(self.ptr));
-    }
+    pub const UpgradeTriggered = upgradeTriggered;
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
@@ -170,9 +200,27 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` self: PackageKit__Offline `
     ///
-    pub fn GetPrepared(self: PackageKit__Offline) void {
+    pub fn upgradeTriggered(self: PackageKit__Offline) bool {
+        return qtc.PackageKit__Offline_UpgradeTriggered(@ptrCast(self.ptr));
+    }
+
+    /// ### DEPRECATED: Use `getPrepared` instead
+    ///
+    pub const GetPrepared = getPrepared;
+
+    /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: PackageKit__Offline `
+    ///
+    pub fn getPrepared(self: PackageKit__Offline) void {
         qtc.PackageKit__Offline_GetPrepared(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `preparedUpdates` instead
+    ///
+    pub const PreparedUpdates = preparedUpdates;
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
@@ -184,13 +232,13 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` updates: []const []const u8 `
     ///
-    pub fn PreparedUpdates(self: PackageKit__Offline, allocator: std.mem.Allocator, updates: []const []const u8) void {
-        const updates_arr = allocator.alloc(qtc.libqt_string, updates.len) catch @panic("PackageKit__Offline.PreparedUpdates: Memory allocation failed");
+    pub fn preparedUpdates(self: PackageKit__Offline, allocator: std.mem.Allocator, updates: []const []const u8) void {
+        const updates_arr = allocator.alloc(qtc.libqt_string, updates.len) catch @panic("PackageKit__Offline.preparedUpdates: Memory allocation failed");
         defer allocator.free(updates_arr);
-        for (updates, 0..updates.len) |item, i|
+        for (updates, 0..updates.len) |str_item, i|
             updates_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const updates_list = qtc.libqt_list{
             .len = updates.len,
@@ -198,6 +246,10 @@ pub const PackageKit__Offline = extern struct {
         };
         qtc.PackageKit__Offline_PreparedUpdates(@ptrCast(self.ptr), updates_list);
     }
+
+    /// ### DEPRECATED: Use `onPreparedUpdates` instead
+    ///
+    pub const OnPreparedUpdates = onPreparedUpdates;
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
@@ -207,9 +259,13 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` callback: *const fn (self: PackageKit__Offline, updates: ?[*:null]?[*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnPreparedUpdates(self: PackageKit__Offline, callback: *const fn (PackageKit__Offline, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
+    pub fn onPreparedUpdates(self: PackageKit__Offline, callback: *const fn (PackageKit__Offline, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
         qtc.PackageKit__Offline_Connect_PreparedUpdates(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changed` instead
+    ///
+    pub const Changed = changed;
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
@@ -217,9 +273,13 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` self: PackageKit__Offline `
     ///
-    pub fn Changed(self: PackageKit__Offline) void {
+    pub fn changed(self: PackageKit__Offline) void {
         qtc.PackageKit__Offline_Changed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChanged` instead
+    ///
+    pub const OnChanged = onChanged;
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
@@ -229,9 +289,13 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` callback: *const fn (self: PackageKit__Offline) callconv(.c) void `
     ///
-    pub fn OnChanged(self: PackageKit__Offline, callback: *const fn (PackageKit__Offline) callconv(.c) void) void {
+    pub fn onChanged(self: PackageKit__Offline, callback: *const fn (PackageKit__Offline) callconv(.c) void) void {
         qtc.PackageKit__Offline_Connect_Changed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -243,15 +307,19 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("PackageKit__Offline.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("PackageKit__Offline.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -265,15 +333,19 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("PackageKit__Offline.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("PackageKit__Offline.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -283,12 +355,16 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` self: PackageKit__Offline `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: PackageKit__Offline, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QObject_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: PackageKit__Offline, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QObject_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -300,13 +376,17 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: PackageKit__Offline, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: PackageKit__Offline, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -318,13 +398,17 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: PackageKit__Offline, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: PackageKit__Offline, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("PackageKit__Offline.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("PackageKit__Offline.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -336,13 +420,17 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: PackageKit__Offline, name: []const u8) void {
+    pub fn setObjectName(self: PackageKit__Offline, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -352,9 +440,13 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` self: PackageKit__Offline `
     ///
-    pub fn IsWidgetType(self: PackageKit__Offline) bool {
+    pub fn isWidgetType(self: PackageKit__Offline) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -364,9 +456,13 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` self: PackageKit__Offline `
     ///
-    pub fn IsWindowType(self: PackageKit__Offline) bool {
+    pub fn isWindowType(self: PackageKit__Offline) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -376,9 +472,13 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` self: PackageKit__Offline `
     ///
-    pub fn IsQuickItemType(self: PackageKit__Offline) bool {
+    pub fn isQuickItemType(self: PackageKit__Offline) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -388,9 +488,13 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` self: PackageKit__Offline `
     ///
-    pub fn SignalsBlocked(self: PackageKit__Offline) bool {
+    pub fn signalsBlocked(self: PackageKit__Offline) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -402,9 +506,13 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: PackageKit__Offline, b: bool) bool {
+    pub fn blockSignals(self: PackageKit__Offline, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -414,9 +522,13 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` self: PackageKit__Offline `
     ///
-    pub fn Thread(self: PackageKit__Offline) QThread {
+    pub fn thread(self: PackageKit__Offline) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -426,12 +538,16 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` self: PackageKit__Offline `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: PackageKit__Offline, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: PackageKit__Offline, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -443,9 +559,13 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: PackageKit__Offline, interval: i32) i32 {
+    pub fn startTimer(self: PackageKit__Offline, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -457,9 +577,13 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: PackageKit__Offline, time: i64) i32 {
+    pub fn startTimer2(self: PackageKit__Offline, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -471,9 +595,13 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: PackageKit__Offline, id: i32) void {
+    pub fn killTimer(self: PackageKit__Offline, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -485,9 +613,13 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: PackageKit__Offline, id: i32) void {
+    pub fn killTimer2(self: PackageKit__Offline, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -499,15 +631,19 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: PackageKit__Offline, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: PackageKit__Offline, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("PackageKit__Offline.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("PackageKit__Offline.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -517,12 +653,16 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` self: PackageKit__Offline `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: PackageKit__Offline, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: PackageKit__Offline, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -534,10 +674,14 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: PackageKit__Offline, filterObj: anytype) void {
+    pub fn installEventFilter(self: PackageKit__Offline, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -549,10 +693,14 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: PackageKit__Offline, obj: anytype) void {
+    pub fn removeEventFilter(self: PackageKit__Offline, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -560,7 +708,7 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -568,13 +716,17 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -582,7 +734,7 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -590,13 +742,17 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -606,18 +762,22 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` self: PackageKit__Offline `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: PackageKit__Offline, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: PackageKit__Offline, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -625,7 +785,7 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -633,13 +793,17 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -647,7 +811,7 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -655,13 +819,17 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -671,9 +839,13 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` self: PackageKit__Offline `
     ///
-    pub fn Disconnect3(self: PackageKit__Offline) bool {
+    pub fn disconnect3(self: PackageKit__Offline) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -685,10 +857,14 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: PackageKit__Offline, receiver: anytype) bool {
+    pub fn disconnect4(self: PackageKit__Offline, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -698,10 +874,14 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -711,9 +891,13 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` self: PackageKit__Offline `
     ///
-    pub fn DumpObjectTree(self: PackageKit__Offline) void {
+    pub fn dumpObjectTree(self: PackageKit__Offline) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -723,9 +907,13 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` self: PackageKit__Offline `
     ///
-    pub fn DumpObjectInfo(self: PackageKit__Offline) void {
+    pub fn dumpObjectInfo(self: PackageKit__Offline) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -739,11 +927,15 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: PackageKit__Offline, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: PackageKit__Offline, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -755,10 +947,14 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: PackageKit__Offline, name: [:0]const u8) QVariant {
+    pub fn property(self: PackageKit__Offline, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -770,7 +966,7 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: PackageKit__Offline, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: PackageKit__Offline, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -778,27 +974,19 @@ pub const PackageKit__Offline = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("PackageKit__Offline.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("PackageKit__Offline.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("PackageKit__Offline.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("PackageKit__Offline.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: PackageKit__Offline `
-    ///
-    pub fn BindingStorage(self: PackageKit__Offline) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -808,9 +996,29 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` self: PackageKit__Offline `
     ///
-    pub fn BindingStorage2(self: PackageKit__Offline) QBindingStorage {
+    pub fn bindingStorage(self: PackageKit__Offline) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: PackageKit__Offline `
+    ///
+    pub fn bindingStorage2(self: PackageKit__Offline) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -820,9 +1028,13 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` self: PackageKit__Offline `
     ///
-    pub fn Destroyed(self: PackageKit__Offline) void {
+    pub fn destroyed(self: PackageKit__Offline) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -834,9 +1046,13 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` callback: *const fn (self: PackageKit__Offline) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: PackageKit__Offline, callback: *const fn (PackageKit__Offline) callconv(.c) void) void {
+    pub fn onDestroyed(self: PackageKit__Offline, callback: *const fn (PackageKit__Offline) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -846,9 +1062,13 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` self: PackageKit__Offline `
     ///
-    pub fn Parent(self: PackageKit__Offline) QObject {
+    pub fn parent(self: PackageKit__Offline) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -860,10 +1080,14 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: PackageKit__Offline, classname: [:0]const u8) bool {
+    pub fn inherits(self: PackageKit__Offline, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -873,9 +1097,13 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` self: PackageKit__Offline `
     ///
-    pub fn DeleteLater(self: PackageKit__Offline) void {
+    pub fn deleteLater(self: PackageKit__Offline) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -889,9 +1117,13 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: PackageKit__Offline, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: PackageKit__Offline, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -905,9 +1137,13 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: PackageKit__Offline, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: PackageKit__Offline, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -915,7 +1151,7 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -925,13 +1161,17 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -939,7 +1179,7 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -949,13 +1189,17 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -965,7 +1209,7 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` self: PackageKit__Offline `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -973,12 +1217,16 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: PackageKit__Offline, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: PackageKit__Offline, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -990,10 +1238,14 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: PackageKit__Offline, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: PackageKit__Offline, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1007,11 +1259,15 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: PackageKit__Offline, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: PackageKit__Offline, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1027,13 +1283,17 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: PackageKit__Offline, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: PackageKit__Offline, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1046,11 +1306,15 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: PackageKit__Offline, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: PackageKit__Offline, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1062,10 +1326,14 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: PackageKit__Offline, param1: anytype) void {
+    pub fn destroyed1(self: PackageKit__Offline, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1077,9 +1345,13 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` callback: *const fn (self: PackageKit__Offline, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: PackageKit__Offline, callback: *const fn (PackageKit__Offline, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: PackageKit__Offline, callback: *const fn (PackageKit__Offline, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -1093,23 +1365,23 @@ pub const PackageKit__Offline = extern struct {
     ///
     /// ` callback: *const fn (self: PackageKit__Offline, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: PackageKit__Offline, callback: *const fn (PackageKit__Offline, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: PackageKit__Offline, callback: *const fn (PackageKit__Offline, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: PackageKit__Offline `
     ///
-    pub fn Delete(self: PackageKit__Offline) void {
+    pub fn delete(self: PackageKit__Offline) void {
         qtc.PackageKit__Offline_Delete(@ptrCast(self.ptr));
     }
 };

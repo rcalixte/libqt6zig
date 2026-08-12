@@ -27,89 +27,117 @@ pub const QCandlestickSet = extern struct {
     pub const _is_QCandlestickSet = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QCandlestickSet object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QCandlestickSet {
+    pub const New = new;
+
+    /// Allocate a new QCandlestickSet object in C++ memory
+    ///
+    pub fn new() QCandlestickSet {
         return .{ .ptr = qtc.QCandlestickSet_new() };
     }
 
-    /// New2 constructs a new QCandlestickSet object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QCandlestickSet object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` open: f64 `
+    /// ` _open: f64 `
     ///
-    /// ` high: f64 `
+    /// ` _high: f64 `
     ///
-    /// ` low: f64 `
+    /// ` _low: f64 `
     ///
-    /// ` close: f64 `
+    /// ` _close: f64 `
     ///
-    pub fn New2(open: f64, high: f64, low: f64, close: f64) QCandlestickSet {
-        return .{ .ptr = qtc.QCandlestickSet_new2(@bitCast(open), @bitCast(high), @bitCast(low), @bitCast(close)) };
+    pub fn new2(_open: f64, _high: f64, _low: f64, _close: f64) QCandlestickSet {
+        return .{ .ptr = qtc.QCandlestickSet_new2(@bitCast(_open), @bitCast(_high), @bitCast(_low), @bitCast(_close)) };
     }
 
-    /// New3 constructs a new QCandlestickSet object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QCandlestickSet object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` timestamp: f64 `
+    /// ` _timestamp: f64 `
     ///
-    pub fn New3(timestamp: f64) QCandlestickSet {
-        return .{ .ptr = qtc.QCandlestickSet_new3(@bitCast(timestamp)) };
+    pub fn new3(_timestamp: f64) QCandlestickSet {
+        return .{ .ptr = qtc.QCandlestickSet_new3(@bitCast(_timestamp)) };
     }
 
-    /// New4 constructs a new QCandlestickSet object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QCandlestickSet object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` timestamp: f64 `
+    /// ` _timestamp: f64 `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New4(timestamp: f64, parent: anytype) QCandlestickSet {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QCandlestickSet_new4(@bitCast(timestamp), @ptrCast(parent.ptr)) };
+    pub fn new4(_timestamp: f64, _parent: anytype) QCandlestickSet {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QCandlestickSet_new4(@bitCast(_timestamp), @ptrCast(_parent.ptr)) };
     }
 
-    /// New5 constructs a new QCandlestickSet object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new QCandlestickSet object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` open: f64 `
+    /// ` _open: f64 `
     ///
-    /// ` high: f64 `
+    /// ` _high: f64 `
     ///
-    /// ` low: f64 `
+    /// ` _low: f64 `
     ///
-    /// ` close: f64 `
+    /// ` _close: f64 `
     ///
-    /// ` timestamp: f64 `
+    /// ` _timestamp: f64 `
     ///
-    pub fn New5(open: f64, high: f64, low: f64, close: f64, timestamp: f64) QCandlestickSet {
-        return .{ .ptr = qtc.QCandlestickSet_new5(@bitCast(open), @bitCast(high), @bitCast(low), @bitCast(close), @bitCast(timestamp)) };
+    pub fn new5(_open: f64, _high: f64, _low: f64, _close: f64, _timestamp: f64) QCandlestickSet {
+        return .{ .ptr = qtc.QCandlestickSet_new5(@bitCast(_open), @bitCast(_high), @bitCast(_low), @bitCast(_close), @bitCast(_timestamp)) };
     }
 
-    /// New6 constructs a new QCandlestickSet object.
+    /// ### DEPRECATED: Use `new6` instead
+    ///
+    pub const New6 = new6;
+
+    /// Allocate a new QCandlestickSet object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` open: f64 `
+    /// ` _open: f64 `
     ///
-    /// ` high: f64 `
+    /// ` _high: f64 `
     ///
-    /// ` low: f64 `
+    /// ` _low: f64 `
     ///
-    /// ` close: f64 `
+    /// ` _close: f64 `
     ///
-    /// ` timestamp: f64 `
+    /// ` _timestamp: f64 `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New6(open: f64, high: f64, low: f64, close: f64, timestamp: f64, parent: anytype) QCandlestickSet {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QCandlestickSet_new6(@bitCast(open), @bitCast(high), @bitCast(low), @bitCast(close), @bitCast(timestamp), @ptrCast(parent.ptr)) };
+    pub fn new6(_open: f64, _high: f64, _low: f64, _close: f64, _timestamp: f64, _parent: anytype) QCandlestickSet {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QCandlestickSet_new6(@bitCast(_open), @bitCast(_high), @bitCast(_low), @bitCast(_close), @bitCast(_timestamp), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -117,9 +145,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` self: QCandlestickSet `
     ///
-    pub fn MetaObject(self: QCandlestickSet) QMetaObject {
+    pub fn metaObject(self: QCandlestickSet) QMetaObject {
         return .{ .ptr = qtc.QCandlestickSet_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -131,13 +163,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QCandlestickSet, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QCandlestickSet, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QCandlestickSet_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -147,9 +179,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` self: QCandlestickSet `
     ///
-    pub fn SuperMetaObject(self: QCandlestickSet) QMetaObject {
+    pub fn superMetaObject(self: QCandlestickSet) QMetaObject {
         return .{ .ptr = qtc.QCandlestickSet_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -157,10 +193,14 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QCandlestickSet, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QCandlestickSet, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QCandlestickSet_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -170,13 +210,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` callback: *const fn (self: QCandlestickSet, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QCandlestickSet, callback: *const fn (QCandlestickSet, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QCandlestickSet, callback: *const fn (QCandlestickSet, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QCandlestickSet_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -186,10 +226,14 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QCandlestickSet, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QCandlestickSet, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QCandlestickSet_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -201,9 +245,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QCandlestickSet, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QCandlestickSet, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QCandlestickSet_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -213,13 +261,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` callback: *const fn (self: QCandlestickSet, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QCandlestickSet, callback: *const fn (QCandlestickSet, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QCandlestickSet, callback: *const fn (QCandlestickSet, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QCandlestickSet_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -233,9 +281,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QCandlestickSet, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QCandlestickSet, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QCandlestickSet_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -245,14 +297,18 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCandlestickSet.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCandlestickSet.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setTimestamp` instead
+    ///
+    pub const SetTimestamp = setTimestamp;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#setTimestamp)
     ///
@@ -260,11 +316,15 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` self: QCandlestickSet `
     ///
-    /// ` timestamp: f64 `
+    /// ` _timestamp: f64 `
     ///
-    pub fn SetTimestamp(self: QCandlestickSet, timestamp: f64) void {
-        qtc.QCandlestickSet_SetTimestamp(@ptrCast(self.ptr), @bitCast(timestamp));
+    pub fn setTimestamp(self: QCandlestickSet, _timestamp: f64) void {
+        qtc.QCandlestickSet_SetTimestamp(@ptrCast(self.ptr), @bitCast(_timestamp));
     }
+
+    /// ### DEPRECATED: Use `timestamp` instead
+    ///
+    pub const Timestamp = timestamp;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#timestamp)
     ///
@@ -272,9 +332,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` self: QCandlestickSet `
     ///
-    pub fn Timestamp(self: QCandlestickSet) f64 {
+    pub fn timestamp(self: QCandlestickSet) f64 {
         return qtc.QCandlestickSet_Timestamp(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setOpen` instead
+    ///
+    pub const SetOpen = setOpen;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#setOpen)
     ///
@@ -282,11 +346,15 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` self: QCandlestickSet `
     ///
-    /// ` open: f64 `
+    /// ` _open: f64 `
     ///
-    pub fn SetOpen(self: QCandlestickSet, open: f64) void {
-        qtc.QCandlestickSet_SetOpen(@ptrCast(self.ptr), @bitCast(open));
+    pub fn setOpen(self: QCandlestickSet, _open: f64) void {
+        qtc.QCandlestickSet_SetOpen(@ptrCast(self.ptr), @bitCast(_open));
     }
+
+    /// ### DEPRECATED: Use `open` instead
+    ///
+    pub const Open = open;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#open)
     ///
@@ -294,9 +362,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` self: QCandlestickSet `
     ///
-    pub fn Open(self: QCandlestickSet) f64 {
+    pub fn open(self: QCandlestickSet) f64 {
         return qtc.QCandlestickSet_Open(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHigh` instead
+    ///
+    pub const SetHigh = setHigh;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#setHigh)
     ///
@@ -304,11 +376,15 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` self: QCandlestickSet `
     ///
-    /// ` high: f64 `
+    /// ` _high: f64 `
     ///
-    pub fn SetHigh(self: QCandlestickSet, high: f64) void {
-        qtc.QCandlestickSet_SetHigh(@ptrCast(self.ptr), @bitCast(high));
+    pub fn setHigh(self: QCandlestickSet, _high: f64) void {
+        qtc.QCandlestickSet_SetHigh(@ptrCast(self.ptr), @bitCast(_high));
     }
+
+    /// ### DEPRECATED: Use `high` instead
+    ///
+    pub const High = high;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#high)
     ///
@@ -316,9 +392,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` self: QCandlestickSet `
     ///
-    pub fn High(self: QCandlestickSet) f64 {
+    pub fn high(self: QCandlestickSet) f64 {
         return qtc.QCandlestickSet_High(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLow` instead
+    ///
+    pub const SetLow = setLow;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#setLow)
     ///
@@ -326,11 +406,15 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` self: QCandlestickSet `
     ///
-    /// ` low: f64 `
+    /// ` _low: f64 `
     ///
-    pub fn SetLow(self: QCandlestickSet, low: f64) void {
-        qtc.QCandlestickSet_SetLow(@ptrCast(self.ptr), @bitCast(low));
+    pub fn setLow(self: QCandlestickSet, _low: f64) void {
+        qtc.QCandlestickSet_SetLow(@ptrCast(self.ptr), @bitCast(_low));
     }
+
+    /// ### DEPRECATED: Use `low` instead
+    ///
+    pub const Low = low;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#low)
     ///
@@ -338,9 +422,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` self: QCandlestickSet `
     ///
-    pub fn Low(self: QCandlestickSet) f64 {
+    pub fn low(self: QCandlestickSet) f64 {
         return qtc.QCandlestickSet_Low(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setClose` instead
+    ///
+    pub const SetClose = setClose;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#setClose)
     ///
@@ -348,11 +436,15 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` self: QCandlestickSet `
     ///
-    /// ` close: f64 `
+    /// ` _close: f64 `
     ///
-    pub fn SetClose(self: QCandlestickSet, close: f64) void {
-        qtc.QCandlestickSet_SetClose(@ptrCast(self.ptr), @bitCast(close));
+    pub fn setClose(self: QCandlestickSet, _close: f64) void {
+        qtc.QCandlestickSet_SetClose(@ptrCast(self.ptr), @bitCast(_close));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#close)
     ///
@@ -360,9 +452,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` self: QCandlestickSet `
     ///
-    pub fn Close(self: QCandlestickSet) f64 {
+    pub fn close(self: QCandlestickSet) f64 {
         return qtc.QCandlestickSet_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBrush` instead
+    ///
+    pub const SetBrush = setBrush;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#setBrush)
     ///
@@ -370,12 +466,16 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` self: QCandlestickSet `
     ///
-    /// ` brush: QBrush `
+    /// ` _brush: QBrush `
     ///
-    pub fn SetBrush(self: QCandlestickSet, brush: anytype) void {
-        comptime _ = @TypeOf(brush)._is_QBrush;
-        qtc.QCandlestickSet_SetBrush(@ptrCast(self.ptr), @ptrCast(brush.ptr));
+    pub fn setBrush(self: QCandlestickSet, _brush: anytype) void {
+        comptime _ = @TypeOf(_brush)._is_QBrush;
+        qtc.QCandlestickSet_SetBrush(@ptrCast(self.ptr), @ptrCast(_brush.ptr));
     }
+
+    /// ### DEPRECATED: Use `brush` instead
+    ///
+    pub const Brush = brush;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#brush)
     ///
@@ -383,9 +483,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` self: QCandlestickSet `
     ///
-    pub fn Brush(self: QCandlestickSet) QBrush {
+    pub fn brush(self: QCandlestickSet) QBrush {
         return .{ .ptr = qtc.QCandlestickSet_Brush(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPen` instead
+    ///
+    pub const SetPen = setPen;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#setPen)
     ///
@@ -393,12 +497,16 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` self: QCandlestickSet `
     ///
-    /// ` pen: QPen `
+    /// ` _pen: QPen `
     ///
-    pub fn SetPen(self: QCandlestickSet, pen: anytype) void {
-        comptime _ = @TypeOf(pen)._is_QPen;
-        qtc.QCandlestickSet_SetPen(@ptrCast(self.ptr), @ptrCast(pen.ptr));
+    pub fn setPen(self: QCandlestickSet, _pen: anytype) void {
+        comptime _ = @TypeOf(_pen)._is_QPen;
+        qtc.QCandlestickSet_SetPen(@ptrCast(self.ptr), @ptrCast(_pen.ptr));
     }
+
+    /// ### DEPRECATED: Use `pen` instead
+    ///
+    pub const Pen = pen;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#pen)
     ///
@@ -406,9 +514,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` self: QCandlestickSet `
     ///
-    pub fn Pen(self: QCandlestickSet) QPen {
+    pub fn pen(self: QCandlestickSet) QPen {
         return .{ .ptr = qtc.QCandlestickSet_Pen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clicked` instead
+    ///
+    pub const Clicked = clicked;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#clicked)
     ///
@@ -416,9 +528,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` self: QCandlestickSet `
     ///
-    pub fn Clicked(self: QCandlestickSet) void {
+    pub fn clicked(self: QCandlestickSet) void {
         qtc.QCandlestickSet_Clicked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onClicked` instead
+    ///
+    pub const OnClicked = onClicked;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#clicked)
     ///
@@ -428,9 +544,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` callback: *const fn (self: QCandlestickSet) callconv(.c) void `
     ///
-    pub fn OnClicked(self: QCandlestickSet, callback: *const fn (QCandlestickSet) callconv(.c) void) void {
+    pub fn onClicked(self: QCandlestickSet, callback: *const fn (QCandlestickSet) callconv(.c) void) void {
         qtc.QCandlestickSet_Connect_Clicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hovered` instead
+    ///
+    pub const Hovered = hovered;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#hovered)
     ///
@@ -440,9 +560,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` status: bool `
     ///
-    pub fn Hovered(self: QCandlestickSet, status: bool) void {
+    pub fn hovered(self: QCandlestickSet, status: bool) void {
         qtc.QCandlestickSet_Hovered(@ptrCast(self.ptr), status);
     }
+
+    /// ### DEPRECATED: Use `onHovered` instead
+    ///
+    pub const OnHovered = onHovered;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#hovered)
     ///
@@ -452,20 +576,28 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` callback: *const fn (self: QCandlestickSet, status: bool) callconv(.c) void `
     ///
-    pub fn OnHovered(self: QCandlestickSet, callback: *const fn (QCandlestickSet, bool) callconv(.c) void) void {
+    pub fn onHovered(self: QCandlestickSet, callback: *const fn (QCandlestickSet, bool) callconv(.c) void) void {
         qtc.QCandlestickSet_Connect_Hovered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `pressed` instead
+    ///
+    pub const Pressed = pressed;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#pressed)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QCandlestickSet `
     ///
-    pub fn Pressed(self: QCandlestickSet) void {
+    pub fn pressed(self: QCandlestickSet) void {
         qtc.QCandlestickSet_Pressed(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onPressed` instead
+    ///
+    pub const OnPressed = onPressed;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#pressed)
     ///
     /// ## Parameters:
@@ -474,20 +606,28 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` callback: *const fn (self: QCandlestickSet) callconv(.c) void `
     ///
-    pub fn OnPressed(self: QCandlestickSet, callback: *const fn (QCandlestickSet) callconv(.c) void) void {
+    pub fn onPressed(self: QCandlestickSet, callback: *const fn (QCandlestickSet) callconv(.c) void) void {
         qtc.QCandlestickSet_Connect_Pressed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `released` instead
+    ///
+    pub const Released = released;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#released)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QCandlestickSet `
     ///
-    pub fn Released(self: QCandlestickSet) void {
+    pub fn released(self: QCandlestickSet) void {
         qtc.QCandlestickSet_Released(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onReleased` instead
+    ///
+    pub const OnReleased = onReleased;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#released)
     ///
     /// ## Parameters:
@@ -496,20 +636,28 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` callback: *const fn (self: QCandlestickSet) callconv(.c) void `
     ///
-    pub fn OnReleased(self: QCandlestickSet, callback: *const fn (QCandlestickSet) callconv(.c) void) void {
+    pub fn onReleased(self: QCandlestickSet, callback: *const fn (QCandlestickSet) callconv(.c) void) void {
         qtc.QCandlestickSet_Connect_Released(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `doubleClicked` instead
+    ///
+    pub const DoubleClicked = doubleClicked;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#doubleClicked)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QCandlestickSet `
     ///
-    pub fn DoubleClicked(self: QCandlestickSet) void {
+    pub fn doubleClicked(self: QCandlestickSet) void {
         qtc.QCandlestickSet_DoubleClicked(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onDoubleClicked` instead
+    ///
+    pub const OnDoubleClicked = onDoubleClicked;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#doubleClicked)
     ///
     /// ## Parameters:
@@ -518,20 +666,28 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` callback: *const fn (self: QCandlestickSet) callconv(.c) void `
     ///
-    pub fn OnDoubleClicked(self: QCandlestickSet, callback: *const fn (QCandlestickSet) callconv(.c) void) void {
+    pub fn onDoubleClicked(self: QCandlestickSet, callback: *const fn (QCandlestickSet) callconv(.c) void) void {
         qtc.QCandlestickSet_Connect_DoubleClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `timestampChanged` instead
+    ///
+    pub const TimestampChanged = timestampChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#timestampChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QCandlestickSet `
     ///
-    pub fn TimestampChanged(self: QCandlestickSet) void {
+    pub fn timestampChanged(self: QCandlestickSet) void {
         qtc.QCandlestickSet_TimestampChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onTimestampChanged` instead
+    ///
+    pub const OnTimestampChanged = onTimestampChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#timestampChanged)
     ///
     /// ## Parameters:
@@ -540,20 +696,28 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` callback: *const fn (self: QCandlestickSet) callconv(.c) void `
     ///
-    pub fn OnTimestampChanged(self: QCandlestickSet, callback: *const fn (QCandlestickSet) callconv(.c) void) void {
+    pub fn onTimestampChanged(self: QCandlestickSet, callback: *const fn (QCandlestickSet) callconv(.c) void) void {
         qtc.QCandlestickSet_Connect_TimestampChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `openChanged` instead
+    ///
+    pub const OpenChanged = openChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#openChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QCandlestickSet `
     ///
-    pub fn OpenChanged(self: QCandlestickSet) void {
+    pub fn openChanged(self: QCandlestickSet) void {
         qtc.QCandlestickSet_OpenChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onOpenChanged` instead
+    ///
+    pub const OnOpenChanged = onOpenChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#openChanged)
     ///
     /// ## Parameters:
@@ -562,20 +726,28 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` callback: *const fn (self: QCandlestickSet) callconv(.c) void `
     ///
-    pub fn OnOpenChanged(self: QCandlestickSet, callback: *const fn (QCandlestickSet) callconv(.c) void) void {
+    pub fn onOpenChanged(self: QCandlestickSet, callback: *const fn (QCandlestickSet) callconv(.c) void) void {
         qtc.QCandlestickSet_Connect_OpenChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `highChanged` instead
+    ///
+    pub const HighChanged = highChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#highChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QCandlestickSet `
     ///
-    pub fn HighChanged(self: QCandlestickSet) void {
+    pub fn highChanged(self: QCandlestickSet) void {
         qtc.QCandlestickSet_HighChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onHighChanged` instead
+    ///
+    pub const OnHighChanged = onHighChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#highChanged)
     ///
     /// ## Parameters:
@@ -584,20 +756,28 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` callback: *const fn (self: QCandlestickSet) callconv(.c) void `
     ///
-    pub fn OnHighChanged(self: QCandlestickSet, callback: *const fn (QCandlestickSet) callconv(.c) void) void {
+    pub fn onHighChanged(self: QCandlestickSet, callback: *const fn (QCandlestickSet) callconv(.c) void) void {
         qtc.QCandlestickSet_Connect_HighChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `lowChanged` instead
+    ///
+    pub const LowChanged = lowChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#lowChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QCandlestickSet `
     ///
-    pub fn LowChanged(self: QCandlestickSet) void {
+    pub fn lowChanged(self: QCandlestickSet) void {
         qtc.QCandlestickSet_LowChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onLowChanged` instead
+    ///
+    pub const OnLowChanged = onLowChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#lowChanged)
     ///
     /// ## Parameters:
@@ -606,20 +786,28 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` callback: *const fn (self: QCandlestickSet) callconv(.c) void `
     ///
-    pub fn OnLowChanged(self: QCandlestickSet, callback: *const fn (QCandlestickSet) callconv(.c) void) void {
+    pub fn onLowChanged(self: QCandlestickSet, callback: *const fn (QCandlestickSet) callconv(.c) void) void {
         qtc.QCandlestickSet_Connect_LowChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `closeChanged` instead
+    ///
+    pub const CloseChanged = closeChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#closeChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QCandlestickSet `
     ///
-    pub fn CloseChanged(self: QCandlestickSet) void {
+    pub fn closeChanged(self: QCandlestickSet) void {
         qtc.QCandlestickSet_CloseChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCloseChanged` instead
+    ///
+    pub const OnCloseChanged = onCloseChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#closeChanged)
     ///
     /// ## Parameters:
@@ -628,20 +816,28 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` callback: *const fn (self: QCandlestickSet) callconv(.c) void `
     ///
-    pub fn OnCloseChanged(self: QCandlestickSet, callback: *const fn (QCandlestickSet) callconv(.c) void) void {
+    pub fn onCloseChanged(self: QCandlestickSet, callback: *const fn (QCandlestickSet) callconv(.c) void) void {
         qtc.QCandlestickSet_Connect_CloseChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `brushChanged` instead
+    ///
+    pub const BrushChanged = brushChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#brushChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QCandlestickSet `
     ///
-    pub fn BrushChanged(self: QCandlestickSet) void {
+    pub fn brushChanged(self: QCandlestickSet) void {
         qtc.QCandlestickSet_BrushChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onBrushChanged` instead
+    ///
+    pub const OnBrushChanged = onBrushChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#brushChanged)
     ///
     /// ## Parameters:
@@ -650,9 +846,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` callback: *const fn (self: QCandlestickSet) callconv(.c) void `
     ///
-    pub fn OnBrushChanged(self: QCandlestickSet, callback: *const fn (QCandlestickSet) callconv(.c) void) void {
+    pub fn onBrushChanged(self: QCandlestickSet, callback: *const fn (QCandlestickSet) callconv(.c) void) void {
         qtc.QCandlestickSet_Connect_BrushChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `penChanged` instead
+    ///
+    pub const PenChanged = penChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#penChanged)
     ///
@@ -660,9 +860,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` self: QCandlestickSet `
     ///
-    pub fn PenChanged(self: QCandlestickSet) void {
+    pub fn penChanged(self: QCandlestickSet) void {
         qtc.QCandlestickSet_PenChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPenChanged` instead
+    ///
+    pub const OnPenChanged = onPenChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#penChanged)
     ///
@@ -672,9 +876,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` callback: *const fn (self: QCandlestickSet) callconv(.c) void `
     ///
-    pub fn OnPenChanged(self: QCandlestickSet, callback: *const fn (QCandlestickSet) callconv(.c) void) void {
+    pub fn onPenChanged(self: QCandlestickSet, callback: *const fn (QCandlestickSet) callconv(.c) void) void {
         qtc.QCandlestickSet_Connect_PenChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -686,15 +894,19 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCandlestickSet.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCandlestickSet.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -708,15 +920,19 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCandlestickSet.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCandlestickSet.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -728,13 +944,17 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QCandlestickSet, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QCandlestickSet, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCandlestickSet.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCandlestickSet.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -746,13 +966,17 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QCandlestickSet, name: []const u8) void {
+    pub fn setObjectName(self: QCandlestickSet, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -762,9 +986,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` self: QCandlestickSet `
     ///
-    pub fn IsWidgetType(self: QCandlestickSet) bool {
+    pub fn isWidgetType(self: QCandlestickSet) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -774,9 +1002,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` self: QCandlestickSet `
     ///
-    pub fn IsWindowType(self: QCandlestickSet) bool {
+    pub fn isWindowType(self: QCandlestickSet) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -786,9 +1018,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` self: QCandlestickSet `
     ///
-    pub fn IsQuickItemType(self: QCandlestickSet) bool {
+    pub fn isQuickItemType(self: QCandlestickSet) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -798,9 +1034,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` self: QCandlestickSet `
     ///
-    pub fn SignalsBlocked(self: QCandlestickSet) bool {
+    pub fn signalsBlocked(self: QCandlestickSet) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -812,9 +1052,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QCandlestickSet, b: bool) bool {
+    pub fn blockSignals(self: QCandlestickSet, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -824,9 +1068,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` self: QCandlestickSet `
     ///
-    pub fn Thread(self: QCandlestickSet) QThread {
+    pub fn thread(self: QCandlestickSet) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -836,12 +1084,16 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` self: QCandlestickSet `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QCandlestickSet, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QCandlestickSet, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -853,9 +1105,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QCandlestickSet, interval: i32) i32 {
+    pub fn startTimer(self: QCandlestickSet, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -867,9 +1123,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QCandlestickSet, time: i64) i32 {
+    pub fn startTimer2(self: QCandlestickSet, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -881,9 +1141,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QCandlestickSet, id: i32) void {
+    pub fn killTimer(self: QCandlestickSet, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -895,9 +1159,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QCandlestickSet, id: i32) void {
+    pub fn killTimer2(self: QCandlestickSet, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -909,15 +1177,19 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QCandlestickSet, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QCandlestickSet, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QCandlestickSet.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QCandlestickSet.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -927,12 +1199,16 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` self: QCandlestickSet `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QCandlestickSet, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QCandlestickSet, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -944,10 +1220,14 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QCandlestickSet, filterObj: anytype) void {
+    pub fn installEventFilter(self: QCandlestickSet, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -959,10 +1239,14 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QCandlestickSet, obj: anytype) void {
+    pub fn removeEventFilter(self: QCandlestickSet, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -970,7 +1254,7 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -978,13 +1262,17 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -992,7 +1280,7 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1000,13 +1288,17 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -1016,18 +1308,22 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` self: QCandlestickSet `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QCandlestickSet, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QCandlestickSet, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -1035,7 +1331,7 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1043,13 +1339,17 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -1057,7 +1357,7 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1065,13 +1365,17 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -1081,9 +1385,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` self: QCandlestickSet `
     ///
-    pub fn Disconnect3(self: QCandlestickSet) bool {
+    pub fn disconnect3(self: QCandlestickSet) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1095,10 +1403,14 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QCandlestickSet, receiver: anytype) bool {
+    pub fn disconnect4(self: QCandlestickSet, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1108,10 +1420,14 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1121,9 +1437,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` self: QCandlestickSet `
     ///
-    pub fn DumpObjectTree(self: QCandlestickSet) void {
+    pub fn dumpObjectTree(self: QCandlestickSet) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1133,9 +1453,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` self: QCandlestickSet `
     ///
-    pub fn DumpObjectInfo(self: QCandlestickSet) void {
+    pub fn dumpObjectInfo(self: QCandlestickSet) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1149,11 +1473,15 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QCandlestickSet, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QCandlestickSet, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1165,10 +1493,14 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QCandlestickSet, name: [:0]const u8) QVariant {
+    pub fn property(self: QCandlestickSet, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1180,7 +1512,7 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QCandlestickSet, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QCandlestickSet, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1188,27 +1520,19 @@ pub const QCandlestickSet = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCandlestickSet.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCandlestickSet.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCandlestickSet.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QCandlestickSet.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCandlestickSet `
-    ///
-    pub fn BindingStorage(self: QCandlestickSet) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1218,9 +1542,29 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` self: QCandlestickSet `
     ///
-    pub fn BindingStorage2(self: QCandlestickSet) QBindingStorage {
+    pub fn bindingStorage(self: QCandlestickSet) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QCandlestickSet `
+    ///
+    pub fn bindingStorage2(self: QCandlestickSet) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1230,9 +1574,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` self: QCandlestickSet `
     ///
-    pub fn Destroyed(self: QCandlestickSet) void {
+    pub fn destroyed(self: QCandlestickSet) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1244,9 +1592,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` callback: *const fn (self: QCandlestickSet) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QCandlestickSet, callback: *const fn (QCandlestickSet) callconv(.c) void) void {
+    pub fn onDestroyed(self: QCandlestickSet, callback: *const fn (QCandlestickSet) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1256,9 +1608,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` self: QCandlestickSet `
     ///
-    pub fn Parent(self: QCandlestickSet) QObject {
+    pub fn parent(self: QCandlestickSet) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1270,10 +1626,14 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QCandlestickSet, classname: [:0]const u8) bool {
+    pub fn inherits(self: QCandlestickSet, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1283,9 +1643,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` self: QCandlestickSet `
     ///
-    pub fn DeleteLater(self: QCandlestickSet) void {
+    pub fn deleteLater(self: QCandlestickSet) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1299,9 +1663,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QCandlestickSet, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QCandlestickSet, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1315,9 +1683,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QCandlestickSet, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QCandlestickSet, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1325,7 +1697,7 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1335,13 +1707,17 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1349,7 +1725,7 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1359,13 +1735,17 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1375,7 +1755,7 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` self: QCandlestickSet `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1383,12 +1763,16 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QCandlestickSet, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QCandlestickSet, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1400,10 +1784,14 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QCandlestickSet, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QCandlestickSet, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1417,11 +1805,15 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QCandlestickSet, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QCandlestickSet, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1437,13 +1829,17 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QCandlestickSet, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QCandlestickSet, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1456,11 +1852,15 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QCandlestickSet, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QCandlestickSet, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1472,10 +1872,14 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QCandlestickSet, param1: anytype) void {
+    pub fn destroyed1(self: QCandlestickSet, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1487,9 +1891,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` callback: *const fn (self: QCandlestickSet, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QCandlestickSet, callback: *const fn (QCandlestickSet, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QCandlestickSet, callback: *const fn (QCandlestickSet, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -1501,16 +1909,16 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` self: QCandlestickSet `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QCandlestickSet, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QCandlestickSet_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QCandlestickSet, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QCandlestickSet_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -1522,12 +1930,16 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` self: QCandlestickSet `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QCandlestickSet, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QCandlestickSet_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QCandlestickSet, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QCandlestickSet_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -1541,9 +1953,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` callback: *const fn (self: QCandlestickSet, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QCandlestickSet, callback: *const fn (QCandlestickSet, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QCandlestickSet, callback: *const fn (QCandlestickSet, QEvent) callconv(.c) bool) void {
         qtc.QCandlestickSet_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1557,17 +1973,17 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QCandlestickSet, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QCandlestickSet, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QCandlestickSet_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QCandlestickSet_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1581,13 +1997,17 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QCandlestickSet, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QCandlestickSet, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QCandlestickSet_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QCandlestickSet_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1601,9 +2021,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` callback: *const fn (self: QCandlestickSet, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QCandlestickSet, callback: *const fn (QCandlestickSet, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QCandlestickSet, callback: *const fn (QCandlestickSet, QObject, QEvent) callconv(.c) bool) void {
         qtc.QCandlestickSet_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -1615,16 +2039,16 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` self: QCandlestickSet `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QCandlestickSet, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QCandlestickSet_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QCandlestickSet, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QCandlestickSet_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1636,12 +2060,16 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` self: QCandlestickSet `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QCandlestickSet, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QCandlestickSet_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QCandlestickSet, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QCandlestickSet_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1655,9 +2083,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` callback: *const fn (self: QCandlestickSet, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QCandlestickSet, callback: *const fn (QCandlestickSet, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QCandlestickSet, callback: *const fn (QCandlestickSet, QTimerEvent) callconv(.c) void) void {
         qtc.QCandlestickSet_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -1669,16 +2101,16 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` self: QCandlestickSet `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QCandlestickSet, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QCandlestickSet_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QCandlestickSet, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QCandlestickSet_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1690,12 +2122,16 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` self: QCandlestickSet `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QCandlestickSet, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QCandlestickSet_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QCandlestickSet, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QCandlestickSet_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1709,9 +2145,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` callback: *const fn (self: QCandlestickSet, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QCandlestickSet, callback: *const fn (QCandlestickSet, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QCandlestickSet, callback: *const fn (QCandlestickSet, QChildEvent) callconv(.c) void) void {
         qtc.QCandlestickSet_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -1723,16 +2163,16 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` self: QCandlestickSet `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QCandlestickSet, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QCandlestickSet_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QCandlestickSet, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QCandlestickSet_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1744,12 +2184,16 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` self: QCandlestickSet `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QCandlestickSet, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QCandlestickSet_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QCandlestickSet, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QCandlestickSet_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1763,9 +2207,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` callback: *const fn (self: QCandlestickSet, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QCandlestickSet, callback: *const fn (QCandlestickSet, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QCandlestickSet, callback: *const fn (QCandlestickSet, QEvent) callconv(.c) void) void {
         qtc.QCandlestickSet_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -1779,14 +2227,14 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QCandlestickSet, signal: anytype) void {
+    pub fn connectNotify(self: QCandlestickSet, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QCandlestickSet_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1800,11 +2248,15 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QCandlestickSet, signal: anytype) void {
+    pub fn superConnectNotify(self: QCandlestickSet, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QCandlestickSet_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1817,9 +2269,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` callback: *const fn (self: QCandlestickSet, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QCandlestickSet, callback: *const fn (QCandlestickSet, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QCandlestickSet, callback: *const fn (QCandlestickSet, QMetaMethod) callconv(.c) void) void {
         qtc.QCandlestickSet_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1833,14 +2289,14 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QCandlestickSet, signal: anytype) void {
+    pub fn disconnectNotify(self: QCandlestickSet, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QCandlestickSet_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1854,10 +2310,14 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QCandlestickSet, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QCandlestickSet, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QCandlestickSet_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1871,9 +2331,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` callback: *const fn (self: QCandlestickSet, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QCandlestickSet, callback: *const fn (QCandlestickSet, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QCandlestickSet, callback: *const fn (QCandlestickSet, QMetaMethod) callconv(.c) void) void {
         qtc.QCandlestickSet_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -1885,13 +2349,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` self: QCandlestickSet `
     ///
-    pub fn Sender(self: QCandlestickSet) QObject {
+    pub fn sender(self: QCandlestickSet) QObject {
         return .{ .ptr = qtc.QCandlestickSet_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -1903,9 +2367,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` self: QCandlestickSet `
     ///
-    pub fn SuperSender(self: QCandlestickSet) QObject {
+    pub fn superSender(self: QCandlestickSet) QObject {
         return .{ .ptr = qtc.QCandlestickSet_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -1919,9 +2387,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QCandlestickSet, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QCandlestickSet, callback: *const fn () callconv(.c) QObject) void {
         qtc.QCandlestickSet_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1933,13 +2405,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` self: QCandlestickSet `
     ///
-    pub fn SenderSignalIndex(self: QCandlestickSet) i32 {
+    pub fn senderSignalIndex(self: QCandlestickSet) i32 {
         return qtc.QCandlestickSet_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1951,9 +2423,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` self: QCandlestickSet `
     ///
-    pub fn SuperSenderSignalIndex(self: QCandlestickSet) i32 {
+    pub fn superSenderSignalIndex(self: QCandlestickSet) i32 {
         return qtc.QCandlestickSet_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1967,9 +2443,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QCandlestickSet, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QCandlestickSet, callback: *const fn () callconv(.c) i32) void {
         qtc.QCandlestickSet_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -1983,14 +2463,14 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QCandlestickSet, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QCandlestickSet, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QCandlestickSet_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -2004,10 +2484,14 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QCandlestickSet, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QCandlestickSet, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QCandlestickSet_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -2021,9 +2505,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` callback: *const fn (self: QCandlestickSet, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QCandlestickSet, callback: *const fn (QCandlestickSet, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QCandlestickSet, callback: *const fn (QCandlestickSet, [*:0]const u8) callconv(.c) i32) void {
         qtc.QCandlestickSet_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2037,14 +2525,14 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QCandlestickSet, signal: anytype) bool {
+    pub fn isSignalConnected(self: QCandlestickSet, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QCandlestickSet_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2058,10 +2546,14 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QCandlestickSet, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QCandlestickSet, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QCandlestickSet_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2075,9 +2567,13 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` callback: *const fn (self: QCandlestickSet, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QCandlestickSet, callback: *const fn (QCandlestickSet, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QCandlestickSet, callback: *const fn (QCandlestickSet, QMetaMethod) callconv(.c) bool) void {
         qtc.QCandlestickSet_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -2091,23 +2587,23 @@ pub const QCandlestickSet = extern struct {
     ///
     /// ` callback: *const fn (self: QCandlestickSet, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QCandlestickSet, callback: *const fn (QCandlestickSet, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QCandlestickSet, callback: *const fn (QCandlestickSet, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#dtor.QCandlestickSet)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QCandlestickSet `
     ///
-    pub fn Delete(self: QCandlestickSet) void {
+    pub fn delete(self: QCandlestickSet) void {
         qtc.QCandlestickSet_Delete(@ptrCast(self.ptr));
     }
 };

@@ -11,18 +11,25 @@ pub const QIODeviceBase = extern struct {
 
     pub const _is_QIODeviceBase = {};
 
-    /// New constructs a new QIODeviceBase object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QIODeviceBase object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QIODeviceBase `
     ///
-    pub fn New(other: anytype) QIODeviceBase {
+    pub fn new(other: anytype) QIODeviceBase {
         comptime _ = @TypeOf(other)._is_QIODeviceBase;
         return .{ .ptr = qtc.QIODeviceBase_new(@ptrCast(other.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -30,7 +37,7 @@ pub const QIODeviceBase = extern struct {
     ///
     /// ` other: QIODeviceBase `
     ///
-    pub fn CopyAssign(self: QIODeviceBase, other: QIODeviceBase) void {
+    pub fn copyAssign(self: QIODeviceBase, other: QIODeviceBase) void {
         qtc.QIODeviceBase_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 };

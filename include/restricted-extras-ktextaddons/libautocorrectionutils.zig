@@ -11,35 +11,50 @@ pub const TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes = exter
 
     pub const _is_TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes = {};
 
-    /// New constructs a new TextAutoCorrectionCore::AutoCorrectionUtils::TypographicQuotes object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes {
+    pub const New = new;
+
+    /// Allocate a new TextAutoCorrectionCore::AutoCorrectionUtils::TypographicQuotes object in C++ memory
+    ///
+    pub fn new() TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes {
         return .{ .ptr = qtc.TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes_new() };
     }
 
-    /// New2 constructs a new TextAutoCorrectionCore::AutoCorrectionUtils::TypographicQuotes object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new TextAutoCorrectionCore::AutoCorrectionUtils::TypographicQuotes object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes `
     ///
-    pub fn New2(other: anytype) TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes {
+    pub fn new2(other: anytype) TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes {
         comptime _ = @TypeOf(other)._is_TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes;
         return .{ .ptr = qtc.TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new TextAutoCorrectionCore::AutoCorrectionUtils::TypographicQuotes object and invalidates the source TextAutoCorrectionCore::AutoCorrectionUtils::TypographicQuotes object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new TextAutoCorrectionCore::AutoCorrectionUtils::TypographicQuotes object and invalidate the source TextAutoCorrectionCore::AutoCorrectionUtils::TypographicQuotes object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes `
     ///
-    pub fn New3(other: anytype) TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes {
+    pub fn new3(other: anytype) TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes {
         comptime _ = @TypeOf(other)._is_TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes;
         return .{ .ptr = qtc.TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes_new3(@ptrCast(other.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -47,11 +62,14 @@ pub const TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes = exter
     ///
     /// ` other: TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes `
     ///
-    pub fn CopyAssign(self: TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes, other: TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes) void {
+    pub fn copyAssign(self: TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes, other: TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes) void {
         qtc.TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -59,51 +77,71 @@ pub const TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes = exter
     ///
     /// ` other: TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes `
     ///
-    pub fn MoveAssign(self: TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes, other: TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes) void {
+    pub fn moveAssign(self: TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes, other: TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes) void {
         qtc.TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
+    /// ### DEPRECATED: Use `begin` instead
+    ///
+    pub const Begin = begin;
+
     ///
     /// ## Parameter(s):
     ///
     /// ` self: TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes `
     ///
-    pub fn Begin(self: TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes) QChar {
+    pub fn begin(self: TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes) QChar {
         return .{ .ptr = qtc.TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes_Begin(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setBegin` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes `
-    ///
-    /// ` begin: QChar `
-    ///
-    pub fn SetBegin(self: TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes, begin: anytype) void {
-        comptime _ = @TypeOf(begin)._is_QChar;
-        qtc.TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes_SetBegin(@ptrCast(self.ptr), @ptrCast(begin.ptr));
-    }
+    pub const SetBegin = setBegin;
 
     ///
     /// ## Parameter(s):
     ///
     /// ` self: TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes `
     ///
-    pub fn End(self: TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes) QChar {
+    /// ` _begin: QChar `
+    ///
+    pub fn setBegin(self: TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes, _begin: anytype) void {
+        comptime _ = @TypeOf(_begin)._is_QChar;
+        qtc.TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes_SetBegin(@ptrCast(self.ptr), @ptrCast(_begin.ptr));
+    }
+
+    /// ### DEPRECATED: Use `end` instead
+    ///
+    pub const End = end;
+
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes `
+    ///
+    pub fn end(self: TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes) QChar {
         return .{ .ptr = qtc.TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes_End(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setEnd` instead
+    ///
+    pub const SetEnd = setEnd;
+
     ///
     /// ## Parameter(s):
     ///
     /// ` self: TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes `
     ///
-    /// ` end: QChar `
+    /// ` _end: QChar `
     ///
-    pub fn SetEnd(self: TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes, end: anytype) void {
-        comptime _ = @TypeOf(end)._is_QChar;
-        qtc.TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes_SetEnd(@ptrCast(self.ptr), @ptrCast(end.ptr));
+    pub fn setEnd(self: TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes, _end: anytype) void {
+        comptime _ = @TypeOf(_end)._is_QChar;
+        qtc.TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes_SetEnd(@ptrCast(self.ptr), @ptrCast(_end.ptr));
     }
+
+    /// ### DEPRECATED: Use `toString` instead
+    ///
+    pub const ToString = toString;
 
     ///
     /// ## Parameter(s):
@@ -112,29 +150,37 @@ pub const TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes = exter
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToString(self: TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes, allocator: std.mem.Allocator) []const u8 {
+    pub fn toString(self: TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes_ToString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes.ToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes.toString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isEmpty` instead
+    ///
+    pub const IsEmpty = isEmpty;
 
     ///
     /// ## Parameter(s):
     ///
     /// ` self: TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes `
     ///
-    pub fn IsEmpty(self: TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes) bool {
+    pub fn isEmpty(self: TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes) bool {
         return qtc.TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes_IsEmpty(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `fromString` instead
+    ///
+    pub const FromString = fromString;
 
     ///
     /// ## Parameter(s):
     ///
     /// ` str: []const u8 `
     ///
-    pub fn FromString(str: []const u8) TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes {
+    pub fn fromString(str: []const u8) TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes {
         const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
@@ -142,40 +188,56 @@ pub const TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes = exter
         return .{ .ptr = qtc.TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes_FromString(str_str) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes `
     ///
-    pub fn Delete(self: TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes) void {
+    pub fn delete(self: TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes) void {
         qtc.TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes_Delete(@ptrCast(self.ptr));
     }
 };
 
 /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionUtils.html)
 pub const TextAutoCorrectionCore__AutoCorrectionUtils = extern struct {
+    /// ### DEPRECATED: Use `typographicDefaultSingleQuotes` instead
+    ///
+    pub const TypographicDefaultSingleQuotes = typographicDefaultSingleQuotes;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionUtils.html)
     ///
-    pub fn TypographicDefaultSingleQuotes() TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes {
+    pub fn typographicDefaultSingleQuotes() TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes {
         return .{ .ptr = qtc.TextAutoCorrectionCore__AutoCorrectionUtils_TypographicDefaultSingleQuotes() };
     }
 
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionUtils.html)
+    /// ### DEPRECATED: Use `typographicDefaultDoubleQuotes` instead
     ///
-    pub fn TypographicDefaultDoubleQuotes() TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes {
-        return .{ .ptr = qtc.TextAutoCorrectionCore__AutoCorrectionUtils_TypographicDefaultDoubleQuotes() };
-    }
+    pub const TypographicDefaultDoubleQuotes = typographicDefaultDoubleQuotes;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionUtils.html)
     ///
-    pub fn TypographicDefaultFrenchQuotes() TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes {
+    pub fn typographicDefaultDoubleQuotes() TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes {
+        return .{ .ptr = qtc.TextAutoCorrectionCore__AutoCorrectionUtils_TypographicDefaultDoubleQuotes() };
+    }
+
+    /// ### DEPRECATED: Use `typographicDefaultFrenchQuotes` instead
+    ///
+    pub const TypographicDefaultFrenchQuotes = typographicDefaultFrenchQuotes;
+
+    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionUtils.html)
+    ///
+    pub fn typographicDefaultFrenchQuotes() TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes {
         return .{ .ptr = qtc.TextAutoCorrectionCore__AutoCorrectionUtils_TypographicDefaultFrenchQuotes() };
     }
+
+    /// ### DEPRECATED: Use `libreofficeFile` instead
+    ///
+    pub const LibreofficeFile = libreofficeFile;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionUtils.html)
     ///
@@ -185,17 +247,21 @@ pub const TextAutoCorrectionCore__AutoCorrectionUtils = extern struct {
     ///
     /// ` lang: []const u8 `
     ///
-    pub fn LibreofficeFile(allocator: std.mem.Allocator, lang: []const u8) []const u8 {
+    pub fn libreofficeFile(allocator: std.mem.Allocator, lang: []const u8) []const u8 {
         const lang_str = qtc.libqt_string{
             .len = lang.len,
             .data = lang.ptr,
         };
         var _str = qtc.TextAutoCorrectionCore__AutoCorrectionUtils_LibreofficeFile(lang_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionUtils.LibreofficeFile: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionUtils.libreofficeFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `libreOfficeAutoCorrectionPath` instead
+    ///
+    pub const LibreOfficeAutoCorrectionPath = libreOfficeAutoCorrectionPath;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionUtils.html)
     ///
@@ -203,7 +269,7 @@ pub const TextAutoCorrectionCore__AutoCorrectionUtils = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LibreOfficeAutoCorrectionPath(allocator: std.mem.Allocator) []const []const u8 {
+    pub fn libreOfficeAutoCorrectionPath(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.TextAutoCorrectionCore__AutoCorrectionUtils_LibreOfficeAutoCorrectionPath();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -211,15 +277,19 @@ pub const TextAutoCorrectionCore__AutoCorrectionUtils = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionUtils.LibreOfficeAutoCorrectionPath: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionUtils.libreOfficeAutoCorrectionPath: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionUtils.LibreOfficeAutoCorrectionPath: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionUtils.libreOfficeAutoCorrectionPath: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `searchAutoCorrectLibreOfficeFiles` instead
+    ///
+    pub const SearchAutoCorrectLibreOfficeFiles = searchAutoCorrectLibreOfficeFiles;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionUtils.html)
     ///
@@ -227,7 +297,7 @@ pub const TextAutoCorrectionCore__AutoCorrectionUtils = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SearchAutoCorrectLibreOfficeFiles(allocator: std.mem.Allocator) []const []const u8 {
+    pub fn searchAutoCorrectLibreOfficeFiles(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.TextAutoCorrectionCore__AutoCorrectionUtils_SearchAutoCorrectLibreOfficeFiles();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -235,15 +305,19 @@ pub const TextAutoCorrectionCore__AutoCorrectionUtils = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionUtils.SearchAutoCorrectLibreOfficeFiles: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionUtils.searchAutoCorrectLibreOfficeFiles: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionUtils.SearchAutoCorrectLibreOfficeFiles: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionUtils.searchAutoCorrectLibreOfficeFiles: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `autoCorrectLibreOfficeLanguageToString` instead
+    ///
+    pub const AutoCorrectLibreOfficeLanguageToString = autoCorrectLibreOfficeLanguageToString;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionUtils.html)
     ///
@@ -253,13 +327,13 @@ pub const TextAutoCorrectionCore__AutoCorrectionUtils = extern struct {
     ///
     /// ` langs: []const []const u8 `
     ///
-    pub fn AutoCorrectLibreOfficeLanguageToString(allocator: std.mem.Allocator, langs: []const []const u8) []const []const u8 {
-        const langs_arr = allocator.alloc(qtc.libqt_string, langs.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionUtils.AutoCorrectLibreOfficeLanguageToString: Memory allocation failed");
+    pub fn autoCorrectLibreOfficeLanguageToString(allocator: std.mem.Allocator, langs: []const []const u8) []const []const u8 {
+        const langs_arr = allocator.alloc(qtc.libqt_string, langs.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionUtils.autoCorrectLibreOfficeLanguageToString: Memory allocation failed");
         defer allocator.free(langs_arr);
-        for (langs, 0..langs.len) |item, i|
+        for (langs, 0..langs.len) |str_item, i|
             langs_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const langs_list = qtc.libqt_list{
             .len = langs.len,
@@ -272,15 +346,19 @@ pub const TextAutoCorrectionCore__AutoCorrectionUtils = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionUtils.AutoCorrectLibreOfficeLanguageToString: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionUtils.autoCorrectLibreOfficeLanguageToString: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionUtils.AutoCorrectLibreOfficeLanguageToString: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionUtils.autoCorrectLibreOfficeLanguageToString: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `libreOfficeWritableLocalAutoCorrectionPath` instead
+    ///
+    pub const LibreOfficeWritableLocalAutoCorrectionPath = libreOfficeWritableLocalAutoCorrectionPath;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionUtils.html)
     ///
@@ -288,13 +366,17 @@ pub const TextAutoCorrectionCore__AutoCorrectionUtils = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LibreOfficeWritableLocalAutoCorrectionPath(allocator: std.mem.Allocator) []const u8 {
+    pub fn libreOfficeWritableLocalAutoCorrectionPath(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextAutoCorrectionCore__AutoCorrectionUtils_LibreOfficeWritableLocalAutoCorrectionPath();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionUtils.LibreOfficeWritableLocalAutoCorrectionPath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionUtils.libreOfficeWritableLocalAutoCorrectionPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `containsAutoCorrectionFile` instead
+    ///
+    pub const ContainsAutoCorrectionFile = containsAutoCorrectionFile;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionUtils.html)
     ///
@@ -308,7 +390,7 @@ pub const TextAutoCorrectionCore__AutoCorrectionUtils = extern struct {
     ///
     /// ` customWritablePath: []const u8 `
     ///
-    pub fn ContainsAutoCorrectionFile(allocator: std.mem.Allocator, lang: []const u8, customSystemPath: []const u8, customWritablePath: []const u8) []const u8 {
+    pub fn containsAutoCorrectionFile(allocator: std.mem.Allocator, lang: []const u8, customSystemPath: []const u8, customWritablePath: []const u8) []const u8 {
         const lang_str = qtc.libqt_string{
             .len = lang.len,
             .data = lang.ptr,
@@ -323,10 +405,14 @@ pub const TextAutoCorrectionCore__AutoCorrectionUtils = extern struct {
         };
         var _str = qtc.TextAutoCorrectionCore__AutoCorrectionUtils_ContainsAutoCorrectionFile(lang_str, customSystemPath_str, customWritablePath_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionUtils.ContainsAutoCorrectionFile: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionUtils.containsAutoCorrectionFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `libreOfficeSystemPath` instead
+    ///
+    pub const LibreOfficeSystemPath = libreOfficeSystemPath;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionUtils.html)
     ///
@@ -334,13 +420,17 @@ pub const TextAutoCorrectionCore__AutoCorrectionUtils = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LibreOfficeSystemPath(allocator: std.mem.Allocator) []const u8 {
+    pub fn libreOfficeSystemPath(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextAutoCorrectionCore__AutoCorrectionUtils_LibreOfficeSystemPath();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionUtils.LibreOfficeSystemPath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionUtils.libreOfficeSystemPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `libreOfficeLocalPath` instead
+    ///
+    pub const LibreOfficeLocalPath = libreOfficeLocalPath;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionUtils.html)
     ///
@@ -348,13 +438,17 @@ pub const TextAutoCorrectionCore__AutoCorrectionUtils = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LibreOfficeLocalPath(allocator: std.mem.Allocator) []const u8 {
+    pub fn libreOfficeLocalPath(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextAutoCorrectionCore__AutoCorrectionUtils_LibreOfficeLocalPath();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionUtils.LibreOfficeLocalPath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionUtils.libreOfficeLocalPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `wordsFromSentence` instead
+    ///
+    pub const WordsFromSentence = wordsFromSentence;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionUtils.html)
     ///
@@ -364,7 +458,7 @@ pub const TextAutoCorrectionCore__AutoCorrectionUtils = extern struct {
     ///
     /// ` string: []const u8 `
     ///
-    pub fn WordsFromSentence(allocator: std.mem.Allocator, string: []const u8) []const []const u8 {
+    pub fn wordsFromSentence(allocator: std.mem.Allocator, string: []const u8) []const []const u8 {
         const string_str = qtc.libqt_string{
             .len = string.len,
             .data = string.ptr,
@@ -376,11 +470,11 @@ pub const TextAutoCorrectionCore__AutoCorrectionUtils = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionUtils.WordsFromSentence: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionUtils.wordsFromSentence: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionUtils.WordsFromSentence: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionUtils.wordsFromSentence: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;

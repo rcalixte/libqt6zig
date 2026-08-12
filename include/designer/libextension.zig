@@ -12,6 +12,10 @@ pub const QAbstractExtensionFactory = extern struct {
 
     pub const _is_QAbstractExtensionFactory = {};
 
+    /// ### DEPRECATED: Use `extension` instead
+    ///
+    pub const Extension = extension;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractextensionfactory.html#extension)
     ///
     /// ## Parameter(s):
@@ -22,7 +26,7 @@ pub const QAbstractExtensionFactory = extern struct {
     ///
     /// ` iid: []const u8 `
     ///
-    pub fn Extension(self: QAbstractExtensionFactory, object: anytype, iid: []const u8) QObject {
+    pub fn extension(self: QAbstractExtensionFactory, object: anytype, iid: []const u8) QObject {
         comptime _ = @TypeOf(object)._is_QObject;
         const iid_str = qtc.libqt_string{
             .len = iid.len,
@@ -30,6 +34,10 @@ pub const QAbstractExtensionFactory = extern struct {
         };
         return .{ .ptr = qtc.QAbstractExtensionFactory_Extension(@ptrCast(self.ptr), @ptrCast(object.ptr), iid_str) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractextensionfactory.html#operator-eq)
     ///
@@ -39,24 +47,24 @@ pub const QAbstractExtensionFactory = extern struct {
     ///
     /// ` param1: QAbstractExtensionFactory `
     ///
-    pub fn OperatorAssign(self: QAbstractExtensionFactory, param1: anytype) void {
+    pub fn operatorAssign(self: QAbstractExtensionFactory, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QAbstractExtensionFactory;
         qtc.QAbstractExtensionFactory_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractextensionfactory.html#dtor.QAbstractExtensionFactory)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QAbstractExtensionFactory `
     ///
-    pub fn Delete(self: QAbstractExtensionFactory) void {
+    pub fn delete(self: QAbstractExtensionFactory) void {
         qtc.QAbstractExtensionFactory_Delete(@ptrCast(self.ptr));
     }
 };
@@ -71,6 +79,10 @@ pub const QAbstractExtensionManager = extern struct {
 
     pub const _is_QAbstractExtensionManager = {};
 
+    /// ### DEPRECATED: Use `registerExtensions` instead
+    ///
+    pub const RegisterExtensions = registerExtensions;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractextensionmanager.html#registerExtensions)
     ///
     /// ## Parameter(s):
@@ -81,7 +93,7 @@ pub const QAbstractExtensionManager = extern struct {
     ///
     /// ` iid: []const u8 `
     ///
-    pub fn RegisterExtensions(self: QAbstractExtensionManager, factory: anytype, iid: []const u8) void {
+    pub fn registerExtensions(self: QAbstractExtensionManager, factory: anytype, iid: []const u8) void {
         comptime _ = @TypeOf(factory)._is_QAbstractExtensionFactory;
         const iid_str = qtc.libqt_string{
             .len = iid.len,
@@ -89,6 +101,10 @@ pub const QAbstractExtensionManager = extern struct {
         };
         qtc.QAbstractExtensionManager_RegisterExtensions(@ptrCast(self.ptr), @ptrCast(factory.ptr), iid_str);
     }
+
+    /// ### DEPRECATED: Use `unregisterExtensions` instead
+    ///
+    pub const UnregisterExtensions = unregisterExtensions;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractextensionmanager.html#unregisterExtensions)
     ///
@@ -100,7 +116,7 @@ pub const QAbstractExtensionManager = extern struct {
     ///
     /// ` iid: []const u8 `
     ///
-    pub fn UnregisterExtensions(self: QAbstractExtensionManager, factory: anytype, iid: []const u8) void {
+    pub fn unregisterExtensions(self: QAbstractExtensionManager, factory: anytype, iid: []const u8) void {
         comptime _ = @TypeOf(factory)._is_QAbstractExtensionFactory;
         const iid_str = qtc.libqt_string{
             .len = iid.len,
@@ -108,6 +124,10 @@ pub const QAbstractExtensionManager = extern struct {
         };
         qtc.QAbstractExtensionManager_UnregisterExtensions(@ptrCast(self.ptr), @ptrCast(factory.ptr), iid_str);
     }
+
+    /// ### DEPRECATED: Use `extension` instead
+    ///
+    pub const Extension = extension;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractextensionmanager.html#extension)
     ///
@@ -119,7 +139,7 @@ pub const QAbstractExtensionManager = extern struct {
     ///
     /// ` iid: []const u8 `
     ///
-    pub fn Extension(self: QAbstractExtensionManager, object: anytype, iid: []const u8) QObject {
+    pub fn extension(self: QAbstractExtensionManager, object: anytype, iid: []const u8) QObject {
         comptime _ = @TypeOf(object)._is_QObject;
         const iid_str = qtc.libqt_string{
             .len = iid.len,
@@ -127,6 +147,10 @@ pub const QAbstractExtensionManager = extern struct {
         };
         return .{ .ptr = qtc.QAbstractExtensionManager_Extension(@ptrCast(self.ptr), @ptrCast(object.ptr), iid_str) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractextensionmanager.html#operator-eq)
     ///
@@ -136,24 +160,24 @@ pub const QAbstractExtensionManager = extern struct {
     ///
     /// ` param1: QAbstractExtensionManager `
     ///
-    pub fn OperatorAssign(self: QAbstractExtensionManager, param1: anytype) void {
+    pub fn operatorAssign(self: QAbstractExtensionManager, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QAbstractExtensionManager;
         qtc.QAbstractExtensionManager_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractextensionmanager.html#dtor.QAbstractExtensionManager)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QAbstractExtensionManager `
     ///
-    pub fn Delete(self: QAbstractExtensionManager) void {
+    pub fn delete(self: QAbstractExtensionManager) void {
         qtc.QAbstractExtensionManager_Delete(@ptrCast(self.ptr));
     }
 };

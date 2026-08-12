@@ -14,6 +14,10 @@ pub const KJobWidgets = extern struct {
 
     pub const _is_KJobWidgets = {};
 
+    /// ### DEPRECATED: Use `setWindow` instead
+    ///
+    pub const SetWindow = setWindow;
+
     /// ### [Upstream resources](https://api.kde.org/kjobwidgets.html#setWindow)
     ///
     /// ## Parameter(s):
@@ -22,11 +26,15 @@ pub const KJobWidgets = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn SetWindow(job: anytype, widget: anytype) void {
+    pub fn setWindow(job: anytype, widget: anytype) void {
         comptime _ = @TypeOf(job)._is_QObject;
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.KJobWidgets_SetWindow(@ptrCast(job.ptr), @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowHandle` instead
+    ///
+    pub const SetWindowHandle = setWindowHandle;
 
     /// ### [Upstream resources](https://api.kde.org/kjobwidgets.html#setWindowHandle)
     ///
@@ -34,13 +42,17 @@ pub const KJobWidgets = extern struct {
     ///
     /// ` job: QObject `
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn SetWindowHandle(job: anytype, window: anytype) void {
+    pub fn setWindowHandle(job: anytype, _window: anytype) void {
         comptime _ = @TypeOf(job)._is_QObject;
-        comptime _ = @TypeOf(window)._is_QWindow;
-        qtc.KJobWidgets_SetWindowHandle(@ptrCast(job.ptr), @ptrCast(window.ptr));
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        qtc.KJobWidgets_SetWindowHandle(@ptrCast(job.ptr), @ptrCast(_window.ptr));
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// ### [Upstream resources](https://api.kde.org/kjobwidgets.html#window)
     ///
@@ -48,10 +60,14 @@ pub const KJobWidgets = extern struct {
     ///
     /// ` job: QObject `
     ///
-    pub fn Window(job: anytype) QWidget {
+    pub fn window(job: anytype) QWidget {
         comptime _ = @TypeOf(job)._is_QObject;
         return .{ .ptr = qtc.KJobWidgets_Window(@ptrCast(job.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// ### [Upstream resources](https://api.kde.org/kjobwidgets.html#windowHandle)
     ///
@@ -59,10 +75,14 @@ pub const KJobWidgets = extern struct {
     ///
     /// ` job: QObject `
     ///
-    pub fn WindowHandle(job: anytype) QWindow {
+    pub fn windowHandle(job: anytype) QWindow {
         comptime _ = @TypeOf(job)._is_QObject;
         return .{ .ptr = qtc.KJobWidgets_WindowHandle(@ptrCast(job.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `updateUserTimestamp` instead
+    ///
+    pub const UpdateUserTimestamp = updateUserTimestamp;
 
     /// ### [Upstream resources](https://api.kde.org/kjobwidgets.html#updateUserTimestamp)
     ///
@@ -72,10 +92,14 @@ pub const KJobWidgets = extern struct {
     ///
     /// ` time: usize `
     ///
-    pub fn UpdateUserTimestamp(job: anytype, time: usize) void {
+    pub fn updateUserTimestamp(job: anytype, time: usize) void {
         comptime _ = @TypeOf(job)._is_QObject;
         qtc.KJobWidgets_UpdateUserTimestamp(@ptrCast(job.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `userTimestamp` instead
+    ///
+    pub const UserTimestamp = userTimestamp;
 
     /// ### [Upstream resources](https://api.kde.org/kjobwidgets.html#userTimestamp)
     ///
@@ -83,7 +107,7 @@ pub const KJobWidgets = extern struct {
     ///
     /// ` job: QObject `
     ///
-    pub fn UserTimestamp(job: anytype) usize {
+    pub fn userTimestamp(job: anytype) usize {
         comptime _ = @TypeOf(job)._is_QObject;
         return qtc.KJobWidgets_UserTimestamp(@ptrCast(job.ptr));
     }

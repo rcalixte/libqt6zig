@@ -38,40 +38,52 @@ pub const QWebSocketServer = extern struct {
     pub const _is_QWebSocketServer = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QWebSocketServer object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QWebSocketServer object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` serverName: []const u8 `
+    /// ` _serverName: []const u8 `
     ///
-    /// ` secureMode: qwebsocketserver_enums.SslMode `
+    /// ` _secureMode: qwebsocketserver_enums.SslMode `
     ///
-    pub fn New(serverName: []const u8, secureMode: i32) QWebSocketServer {
+    pub fn new(_serverName: []const u8, _secureMode: i32) QWebSocketServer {
         const serverName_str = qtc.libqt_string{
-            .len = serverName.len,
-            .data = serverName.ptr,
+            .len = _serverName.len,
+            .data = _serverName.ptr,
         };
-        return .{ .ptr = qtc.QWebSocketServer_new(serverName_str, @bitCast(secureMode)) };
+        return .{ .ptr = qtc.QWebSocketServer_new(serverName_str, @bitCast(_secureMode)) };
     }
 
-    /// New2 constructs a new QWebSocketServer object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QWebSocketServer object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` serverName: []const u8 `
+    /// ` _serverName: []const u8 `
     ///
-    /// ` secureMode: qwebsocketserver_enums.SslMode `
+    /// ` _secureMode: qwebsocketserver_enums.SslMode `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(serverName: []const u8, secureMode: i32, parent: anytype) QWebSocketServer {
+    pub fn new2(_serverName: []const u8, _secureMode: i32, _parent: anytype) QWebSocketServer {
         const serverName_str = qtc.libqt_string{
-            .len = serverName.len,
-            .data = serverName.ptr,
+            .len = _serverName.len,
+            .data = _serverName.ptr,
         };
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QWebSocketServer_new2(serverName_str, @bitCast(secureMode), @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QWebSocketServer_new2(serverName_str, @bitCast(_secureMode), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -79,9 +91,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    pub fn MetaObject(self: QWebSocketServer) QMetaObject {
+    pub fn metaObject(self: QWebSocketServer) QMetaObject {
         return .{ .ptr = qtc.QWebSocketServer_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -93,13 +109,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QWebSocketServer, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QWebSocketServer, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QWebSocketServer_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -109,9 +125,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    pub fn SuperMetaObject(self: QWebSocketServer) QMetaObject {
+    pub fn superMetaObject(self: QWebSocketServer) QMetaObject {
         return .{ .ptr = qtc.QWebSocketServer_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -119,10 +139,14 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QWebSocketServer, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QWebSocketServer, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QWebSocketServer_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -132,13 +156,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` callback: *const fn (self: QWebSocketServer, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QWebSocketServer, callback: *const fn (QWebSocketServer, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QWebSocketServer, callback: *const fn (QWebSocketServer, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QWebSocketServer_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -148,10 +172,14 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QWebSocketServer, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QWebSocketServer, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QWebSocketServer_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -163,9 +191,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QWebSocketServer, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QWebSocketServer, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QWebSocketServer_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -175,13 +207,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` callback: *const fn (self: QWebSocketServer, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QWebSocketServer, callback: *const fn (QWebSocketServer, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QWebSocketServer, callback: *const fn (QWebSocketServer, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QWebSocketServer_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -195,9 +227,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QWebSocketServer, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QWebSocketServer, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QWebSocketServer_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -207,14 +243,18 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebSocketServer.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebSocketServer.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `listen` instead
+    ///
+    pub const Listen = listen;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#listen)
     ///
@@ -222,9 +262,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    pub fn Listen(self: QWebSocketServer) bool {
+    pub fn listen(self: QWebSocketServer) bool {
         return qtc.QWebSocketServer_Listen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#close)
     ///
@@ -232,9 +276,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    pub fn Close(self: QWebSocketServer) void {
+    pub fn close(self: QWebSocketServer) void {
         qtc.QWebSocketServer_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isListening` instead
+    ///
+    pub const IsListening = isListening;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#isListening)
     ///
@@ -242,9 +290,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    pub fn IsListening(self: QWebSocketServer) bool {
+    pub fn isListening(self: QWebSocketServer) bool {
         return qtc.QWebSocketServer_IsListening(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaxPendingConnections` instead
+    ///
+    pub const SetMaxPendingConnections = setMaxPendingConnections;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#setMaxPendingConnections)
     ///
@@ -254,9 +306,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` numConnections: i32 `
     ///
-    pub fn SetMaxPendingConnections(self: QWebSocketServer, numConnections: i32) void {
+    pub fn setMaxPendingConnections(self: QWebSocketServer, numConnections: i32) void {
         qtc.QWebSocketServer_SetMaxPendingConnections(@ptrCast(self.ptr), @bitCast(numConnections));
     }
+
+    /// ### DEPRECATED: Use `maxPendingConnections` instead
+    ///
+    pub const MaxPendingConnections = maxPendingConnections;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#maxPendingConnections)
     ///
@@ -264,9 +320,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    pub fn MaxPendingConnections(self: QWebSocketServer) i32 {
+    pub fn maxPendingConnections(self: QWebSocketServer) i32 {
         return qtc.QWebSocketServer_MaxPendingConnections(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHandshakeTimeout` instead
+    ///
+    pub const SetHandshakeTimeout = setHandshakeTimeout;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#setHandshakeTimeout)
     ///
@@ -276,9 +336,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` msec: i64 of milliseconds `
     ///
-    pub fn SetHandshakeTimeout(self: QWebSocketServer, msec: i64) void {
+    pub fn setHandshakeTimeout(self: QWebSocketServer, msec: i64) void {
         qtc.QWebSocketServer_SetHandshakeTimeout(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `handshakeTimeout` instead
+    ///
+    pub const HandshakeTimeout = handshakeTimeout;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#handshakeTimeout)
     ///
@@ -290,9 +354,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` i64 of milliseconds `
     ///
-    pub fn HandshakeTimeout(self: QWebSocketServer) i64 {
+    pub fn handshakeTimeout(self: QWebSocketServer) i64 {
         return qtc.QWebSocketServer_HandshakeTimeout(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHandshakeTimeout2` instead
+    ///
+    pub const SetHandshakeTimeout2 = setHandshakeTimeout2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#setHandshakeTimeout)
     ///
@@ -302,9 +370,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetHandshakeTimeout2(self: QWebSocketServer, msec: i32) void {
+    pub fn setHandshakeTimeout2(self: QWebSocketServer, msec: i32) void {
         qtc.QWebSocketServer_SetHandshakeTimeout2(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `handshakeTimeoutMS` instead
+    ///
+    pub const HandshakeTimeoutMS = handshakeTimeoutMS;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#handshakeTimeoutMS)
     ///
@@ -312,9 +384,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    pub fn HandshakeTimeoutMS(self: QWebSocketServer) i32 {
+    pub fn handshakeTimeoutMS(self: QWebSocketServer) i32 {
         return qtc.QWebSocketServer_HandshakeTimeoutMS(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `serverPort` instead
+    ///
+    pub const ServerPort = serverPort;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#serverPort)
     ///
@@ -322,9 +398,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    pub fn ServerPort(self: QWebSocketServer) u16 {
+    pub fn serverPort(self: QWebSocketServer) u16 {
         return qtc.QWebSocketServer_ServerPort(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `serverAddress` instead
+    ///
+    pub const ServerAddress = serverAddress;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#serverAddress)
     ///
@@ -332,9 +412,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    pub fn ServerAddress(self: QWebSocketServer) QHostAddress {
+    pub fn serverAddress(self: QWebSocketServer) QHostAddress {
         return .{ .ptr = qtc.QWebSocketServer_ServerAddress(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `serverUrl` instead
+    ///
+    pub const ServerUrl = serverUrl;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#serverUrl)
     ///
@@ -342,9 +426,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    pub fn ServerUrl(self: QWebSocketServer) QUrl {
+    pub fn serverUrl(self: QWebSocketServer) QUrl {
         return .{ .ptr = qtc.QWebSocketServer_ServerUrl(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `secureMode` instead
+    ///
+    pub const SecureMode = secureMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#secureMode)
     ///
@@ -356,9 +444,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` qwebsocketserver_enums.SslMode `
     ///
-    pub fn SecureMode(self: QWebSocketServer) i32 {
+    pub fn secureMode(self: QWebSocketServer) i32 {
         return qtc.QWebSocketServer_SecureMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSocketDescriptor` instead
+    ///
+    pub const SetSocketDescriptor = setSocketDescriptor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#setSocketDescriptor)
     ///
@@ -366,11 +458,15 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    /// ` socketDescriptor: isize `
+    /// ` _socketDescriptor: isize `
     ///
-    pub fn SetSocketDescriptor(self: QWebSocketServer, socketDescriptor: isize) bool {
-        return qtc.QWebSocketServer_SetSocketDescriptor(@ptrCast(self.ptr), @bitCast(socketDescriptor));
+    pub fn setSocketDescriptor(self: QWebSocketServer, _socketDescriptor: isize) bool {
+        return qtc.QWebSocketServer_SetSocketDescriptor(@ptrCast(self.ptr), @bitCast(_socketDescriptor));
     }
+
+    /// ### DEPRECATED: Use `socketDescriptor` instead
+    ///
+    pub const SocketDescriptor = socketDescriptor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#socketDescriptor)
     ///
@@ -378,9 +474,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    pub fn SocketDescriptor(self: QWebSocketServer) isize {
+    pub fn socketDescriptor(self: QWebSocketServer) isize {
         return qtc.QWebSocketServer_SocketDescriptor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setNativeDescriptor` instead
+    ///
+    pub const SetNativeDescriptor = setNativeDescriptor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#setNativeDescriptor)
     ///
@@ -390,9 +490,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` descriptor: isize `
     ///
-    pub fn SetNativeDescriptor(self: QWebSocketServer, descriptor: isize) bool {
+    pub fn setNativeDescriptor(self: QWebSocketServer, descriptor: isize) bool {
         return qtc.QWebSocketServer_SetNativeDescriptor(@ptrCast(self.ptr), @bitCast(descriptor));
     }
+
+    /// ### DEPRECATED: Use `nativeDescriptor` instead
+    ///
+    pub const NativeDescriptor = nativeDescriptor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#nativeDescriptor)
     ///
@@ -400,9 +504,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    pub fn NativeDescriptor(self: QWebSocketServer) isize {
+    pub fn nativeDescriptor(self: QWebSocketServer) isize {
         return qtc.QWebSocketServer_NativeDescriptor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hasPendingConnections` instead
+    ///
+    pub const HasPendingConnections = hasPendingConnections;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#hasPendingConnections)
     ///
@@ -410,9 +518,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    pub fn HasPendingConnections(self: QWebSocketServer) bool {
+    pub fn hasPendingConnections(self: QWebSocketServer) bool {
         return qtc.QWebSocketServer_HasPendingConnections(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `nextPendingConnection` instead
+    ///
+    pub const NextPendingConnection = nextPendingConnection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#nextPendingConnection)
     ///
@@ -420,9 +532,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    pub fn NextPendingConnection(self: QWebSocketServer) QWebSocket {
+    pub fn nextPendingConnection(self: QWebSocketServer) QWebSocket {
         return .{ .ptr = qtc.QWebSocketServer_NextPendingConnection(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onNextPendingConnection` instead
+    ///
+    pub const OnNextPendingConnection = onNextPendingConnection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#nextPendingConnection)
     ///
@@ -434,13 +550,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QWebSocket `
     ///
-    pub fn OnNextPendingConnection(self: QWebSocketServer, callback: *const fn () callconv(.c) QWebSocket) void {
+    pub fn onNextPendingConnection(self: QWebSocketServer, callback: *const fn () callconv(.c) QWebSocket) void {
         qtc.QWebSocketServer_OnNextPendingConnection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperNextPendingConnection` instead
+    /// ### DEPRECATED: Use `superNextPendingConnection` instead
     ///
-    pub const QBaseNextPendingConnection = SuperNextPendingConnection;
+    pub const SuperNextPendingConnection = superNextPendingConnection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#nextPendingConnection)
     ///
@@ -450,9 +566,15 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    pub fn SuperNextPendingConnection(self: QWebSocketServer) QWebSocket {
+    pub fn superNextPendingConnection(self: QWebSocketServer) QWebSocket {
         return .{ .ptr = qtc.QWebSocketServer_SuperNextPendingConnection(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `error0` instead
+    ///
+    pub const Error = error0;
+
+    pub const @"error" = error0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#error)
     ///
@@ -464,9 +586,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` qwebsocketprotocol_enums.CloseCode `
     ///
-    pub fn Error(self: QWebSocketServer) i32 {
+    pub fn error0(self: QWebSocketServer) i32 {
         return qtc.QWebSocketServer_Error(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `errorString` instead
+    ///
+    pub const ErrorString = errorString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#errorString)
     ///
@@ -476,13 +602,17 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ErrorString(self: QWebSocketServer, allocator: std.mem.Allocator) []const u8 {
+    pub fn errorString(self: QWebSocketServer, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWebSocketServer_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebSocketServer.ErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebSocketServer.errorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `pauseAccepting` instead
+    ///
+    pub const PauseAccepting = pauseAccepting;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#pauseAccepting)
     ///
@@ -490,9 +620,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    pub fn PauseAccepting(self: QWebSocketServer) void {
+    pub fn pauseAccepting(self: QWebSocketServer) void {
         qtc.QWebSocketServer_PauseAccepting(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `resumeAccepting` instead
+    ///
+    pub const ResumeAccepting = resumeAccepting;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#resumeAccepting)
     ///
@@ -500,9 +634,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    pub fn ResumeAccepting(self: QWebSocketServer) void {
+    pub fn resumeAccepting(self: QWebSocketServer) void {
         qtc.QWebSocketServer_ResumeAccepting(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setServerName` instead
+    ///
+    pub const SetServerName = setServerName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#setServerName)
     ///
@@ -510,15 +648,19 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    /// ` serverName: []const u8 `
+    /// ` _serverName: []const u8 `
     ///
-    pub fn SetServerName(self: QWebSocketServer, serverName: []const u8) void {
+    pub fn setServerName(self: QWebSocketServer, _serverName: []const u8) void {
         const serverName_str = qtc.libqt_string{
-            .len = serverName.len,
-            .data = serverName.ptr,
+            .len = _serverName.len,
+            .data = _serverName.ptr,
         };
         qtc.QWebSocketServer_SetServerName(@ptrCast(self.ptr), serverName_str);
     }
+
+    /// ### DEPRECATED: Use `serverName` instead
+    ///
+    pub const ServerName = serverName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#serverName)
     ///
@@ -528,13 +670,17 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ServerName(self: QWebSocketServer, allocator: std.mem.Allocator) []const u8 {
+    pub fn serverName(self: QWebSocketServer, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWebSocketServer_ServerName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebSocketServer.ServerName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebSocketServer.serverName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setSupportedSubprotocols` instead
+    ///
+    pub const SetSupportedSubprotocols = setSupportedSubprotocols;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#setSupportedSubprotocols)
     ///
@@ -546,13 +692,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` protocols: []const []const u8 `
     ///
-    pub fn SetSupportedSubprotocols(self: QWebSocketServer, allocator: std.mem.Allocator, protocols: []const []const u8) void {
-        const protocols_arr = allocator.alloc(qtc.libqt_string, protocols.len) catch @panic("QWebSocketServer.SetSupportedSubprotocols: Memory allocation failed");
+    pub fn setSupportedSubprotocols(self: QWebSocketServer, allocator: std.mem.Allocator, protocols: []const []const u8) void {
+        const protocols_arr = allocator.alloc(qtc.libqt_string, protocols.len) catch @panic("QWebSocketServer.setSupportedSubprotocols: Memory allocation failed");
         defer allocator.free(protocols_arr);
-        for (protocols, 0..protocols.len) |item, i|
+        for (protocols, 0..protocols.len) |str_item, i|
             protocols_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const protocols_list = qtc.libqt_list{
             .len = protocols.len,
@@ -560,6 +706,10 @@ pub const QWebSocketServer = extern struct {
         };
         qtc.QWebSocketServer_SetSupportedSubprotocols(@ptrCast(self.ptr), protocols_list);
     }
+
+    /// ### DEPRECATED: Use `supportedSubprotocols` instead
+    ///
+    pub const SupportedSubprotocols = supportedSubprotocols;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#supportedSubprotocols)
     ///
@@ -569,7 +719,7 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SupportedSubprotocols(self: QWebSocketServer, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn supportedSubprotocols(self: QWebSocketServer, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QWebSocketServer_SupportedSubprotocols(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -577,15 +727,19 @@ pub const QWebSocketServer = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QWebSocketServer.SupportedSubprotocols: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QWebSocketServer.supportedSubprotocols: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QWebSocketServer.SupportedSubprotocols: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QWebSocketServer.supportedSubprotocols: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setProxy` instead
+    ///
+    pub const SetProxy = setProxy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#setProxy)
     ///
@@ -595,10 +749,14 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` networkProxy: QNetworkProxy `
     ///
-    pub fn SetProxy(self: QWebSocketServer, networkProxy: anytype) void {
+    pub fn setProxy(self: QWebSocketServer, networkProxy: anytype) void {
         comptime _ = @TypeOf(networkProxy)._is_QNetworkProxy;
         qtc.QWebSocketServer_SetProxy(@ptrCast(self.ptr), @ptrCast(networkProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `proxy` instead
+    ///
+    pub const Proxy = proxy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#proxy)
     ///
@@ -606,9 +764,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    pub fn Proxy(self: QWebSocketServer) QNetworkProxy {
+    pub fn proxy(self: QWebSocketServer) QNetworkProxy {
         return .{ .ptr = qtc.QWebSocketServer_Proxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSslConfiguration` instead
+    ///
+    pub const SetSslConfiguration = setSslConfiguration;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#setSslConfiguration)
     ///
@@ -616,12 +778,16 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    /// ` sslConfiguration: QSslConfiguration `
+    /// ` _sslConfiguration: QSslConfiguration `
     ///
-    pub fn SetSslConfiguration(self: QWebSocketServer, sslConfiguration: anytype) void {
-        comptime _ = @TypeOf(sslConfiguration)._is_QSslConfiguration;
-        qtc.QWebSocketServer_SetSslConfiguration(@ptrCast(self.ptr), @ptrCast(sslConfiguration.ptr));
+    pub fn setSslConfiguration(self: QWebSocketServer, _sslConfiguration: anytype) void {
+        comptime _ = @TypeOf(_sslConfiguration)._is_QSslConfiguration;
+        qtc.QWebSocketServer_SetSslConfiguration(@ptrCast(self.ptr), @ptrCast(_sslConfiguration.ptr));
     }
+
+    /// ### DEPRECATED: Use `sslConfiguration` instead
+    ///
+    pub const SslConfiguration = sslConfiguration;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#sslConfiguration)
     ///
@@ -629,9 +795,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    pub fn SslConfiguration(self: QWebSocketServer) QSslConfiguration {
+    pub fn sslConfiguration(self: QWebSocketServer) QSslConfiguration {
         return .{ .ptr = qtc.QWebSocketServer_SslConfiguration(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `supportedVersions` instead
+    ///
+    pub const SupportedVersions = supportedVersions;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#supportedVersions)
     ///
@@ -645,14 +815,18 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` []qwebsocketprotocol_enums.Version `
     ///
-    pub fn SupportedVersions(self: QWebSocketServer, allocator: std.mem.Allocator) []i32 {
+    pub fn supportedVersions(self: QWebSocketServer, allocator: std.mem.Allocator) []i32 {
         const _arr: qtc.libqt_list = qtc.QWebSocketServer_SupportedVersions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QWebSocketServer.SupportedVersions: Memory allocation failed");
-        const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QWebSocketServer.supportedVersions: Memory allocation failed");
+        const _data_val: [*]i32 = @ptrCast(@alignCast(_arr.data));
+        @memcpy(_ret, _data_val[0.._arr.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `handleConnection` instead
+    ///
+    pub const HandleConnection = handleConnection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#handleConnection)
     ///
@@ -662,10 +836,14 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` socket: QTcpSocket `
     ///
-    pub fn HandleConnection(self: QWebSocketServer, socket: anytype) void {
+    pub fn handleConnection(self: QWebSocketServer, socket: anytype) void {
         comptime _ = @TypeOf(socket)._is_QTcpSocket;
         qtc.QWebSocketServer_HandleConnection(@ptrCast(self.ptr), @ptrCast(socket.ptr));
     }
+
+    /// ### DEPRECATED: Use `acceptError` instead
+    ///
+    pub const AcceptError = acceptError;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#acceptError)
     ///
@@ -675,9 +853,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` socketError: qabstractsocket_enums.SocketError `
     ///
-    pub fn AcceptError(self: QWebSocketServer, socketError: i32) void {
+    pub fn acceptError(self: QWebSocketServer, socketError: i32) void {
         qtc.QWebSocketServer_AcceptError(@ptrCast(self.ptr), @bitCast(socketError));
     }
+
+    /// ### DEPRECATED: Use `onAcceptError` instead
+    ///
+    pub const OnAcceptError = onAcceptError;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#acceptError)
     ///
@@ -687,9 +869,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` callback: *const fn (self: QWebSocketServer, socketError: qabstractsocket_enums.SocketError) callconv(.c) void `
     ///
-    pub fn OnAcceptError(self: QWebSocketServer, callback: *const fn (QWebSocketServer, i32) callconv(.c) void) void {
+    pub fn onAcceptError(self: QWebSocketServer, callback: *const fn (QWebSocketServer, i32) callconv(.c) void) void {
         qtc.QWebSocketServer_Connect_AcceptError(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `serverError` instead
+    ///
+    pub const ServerError = serverError;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#serverError)
     ///
@@ -699,9 +885,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` closeCode: qwebsocketprotocol_enums.CloseCode `
     ///
-    pub fn ServerError(self: QWebSocketServer, closeCode: i32) void {
+    pub fn serverError(self: QWebSocketServer, closeCode: i32) void {
         qtc.QWebSocketServer_ServerError(@ptrCast(self.ptr), @bitCast(closeCode));
     }
+
+    /// ### DEPRECATED: Use `onServerError` instead
+    ///
+    pub const OnServerError = onServerError;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#serverError)
     ///
@@ -711,9 +901,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` callback: *const fn (self: QWebSocketServer, closeCode: qwebsocketprotocol_enums.CloseCode) callconv(.c) void `
     ///
-    pub fn OnServerError(self: QWebSocketServer, callback: *const fn (QWebSocketServer, i32) callconv(.c) void) void {
+    pub fn onServerError(self: QWebSocketServer, callback: *const fn (QWebSocketServer, i32) callconv(.c) void) void {
         qtc.QWebSocketServer_Connect_ServerError(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `originAuthenticationRequired` instead
+    ///
+    pub const OriginAuthenticationRequired = originAuthenticationRequired;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#originAuthenticationRequired)
     ///
@@ -723,10 +917,14 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` pAuthenticator: QWebSocketCorsAuthenticator `
     ///
-    pub fn OriginAuthenticationRequired(self: QWebSocketServer, pAuthenticator: anytype) void {
+    pub fn originAuthenticationRequired(self: QWebSocketServer, pAuthenticator: anytype) void {
         comptime _ = @TypeOf(pAuthenticator)._is_QWebSocketCorsAuthenticator;
         qtc.QWebSocketServer_OriginAuthenticationRequired(@ptrCast(self.ptr), @ptrCast(pAuthenticator.ptr));
     }
+
+    /// ### DEPRECATED: Use `onOriginAuthenticationRequired` instead
+    ///
+    pub const OnOriginAuthenticationRequired = onOriginAuthenticationRequired;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#originAuthenticationRequired)
     ///
@@ -736,9 +934,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` callback: *const fn (self: QWebSocketServer, pAuthenticator: QWebSocketCorsAuthenticator) callconv(.c) void `
     ///
-    pub fn OnOriginAuthenticationRequired(self: QWebSocketServer, callback: *const fn (QWebSocketServer, QWebSocketCorsAuthenticator) callconv(.c) void) void {
+    pub fn onOriginAuthenticationRequired(self: QWebSocketServer, callback: *const fn (QWebSocketServer, QWebSocketCorsAuthenticator) callconv(.c) void) void {
         qtc.QWebSocketServer_Connect_OriginAuthenticationRequired(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `newConnection` instead
+    ///
+    pub const NewConnection = newConnection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#newConnection)
     ///
@@ -746,9 +948,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    pub fn NewConnection(self: QWebSocketServer) void {
+    pub fn newConnection(self: QWebSocketServer) void {
         qtc.QWebSocketServer_NewConnection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onNewConnection` instead
+    ///
+    pub const OnNewConnection = onNewConnection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#newConnection)
     ///
@@ -758,9 +964,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` callback: *const fn (self: QWebSocketServer) callconv(.c) void `
     ///
-    pub fn OnNewConnection(self: QWebSocketServer, callback: *const fn (QWebSocketServer) callconv(.c) void) void {
+    pub fn onNewConnection(self: QWebSocketServer, callback: *const fn (QWebSocketServer) callconv(.c) void) void {
         qtc.QWebSocketServer_Connect_NewConnection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `peerVerifyError` instead
+    ///
+    pub const PeerVerifyError = peerVerifyError;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#peerVerifyError)
     ///
@@ -770,10 +980,14 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` errorVal: QSslError `
     ///
-    pub fn PeerVerifyError(self: QWebSocketServer, errorVal: anytype) void {
+    pub fn peerVerifyError(self: QWebSocketServer, errorVal: anytype) void {
         comptime _ = @TypeOf(errorVal)._is_QSslError;
         qtc.QWebSocketServer_PeerVerifyError(@ptrCast(self.ptr), @ptrCast(errorVal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPeerVerifyError` instead
+    ///
+    pub const OnPeerVerifyError = onPeerVerifyError;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#peerVerifyError)
     ///
@@ -783,9 +997,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` callback: *const fn (self: QWebSocketServer, errorVal: QSslError) callconv(.c) void `
     ///
-    pub fn OnPeerVerifyError(self: QWebSocketServer, callback: *const fn (QWebSocketServer, QSslError) callconv(.c) void) void {
+    pub fn onPeerVerifyError(self: QWebSocketServer, callback: *const fn (QWebSocketServer, QSslError) callconv(.c) void) void {
         qtc.QWebSocketServer_Connect_PeerVerifyError(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sslErrors` instead
+    ///
+    pub const SslErrors = sslErrors;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#sslErrors)
     ///
@@ -795,13 +1013,17 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` errors: []QSslError `
     ///
-    pub fn SslErrors(self: QWebSocketServer, errors: []QSslError) void {
+    pub fn sslErrors(self: QWebSocketServer, errors: []QSslError) void {
         const errors_list = qtc.libqt_list{
             .len = errors.len,
             .data = @ptrCast(errors.ptr),
         };
         qtc.QWebSocketServer_SslErrors(@ptrCast(self.ptr), errors_list);
     }
+
+    /// ### DEPRECATED: Use `onSslErrors` instead
+    ///
+    pub const OnSslErrors = onSslErrors;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#sslErrors)
     ///
@@ -811,9 +1033,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` callback: *const fn (self: QWebSocketServer, errors: qtc.libqt_list ([]QSslError)) callconv(.c) void `
     ///
-    pub fn OnSslErrors(self: QWebSocketServer, callback: *const fn (QWebSocketServer, qtc.libqt_list) callconv(.c) void) void {
+    pub fn onSslErrors(self: QWebSocketServer, callback: *const fn (QWebSocketServer, qtc.libqt_list) callconv(.c) void) void {
         qtc.QWebSocketServer_Connect_SslErrors(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `preSharedKeyAuthenticationRequired` instead
+    ///
+    pub const PreSharedKeyAuthenticationRequired = preSharedKeyAuthenticationRequired;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#preSharedKeyAuthenticationRequired)
     ///
@@ -823,10 +1049,14 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` authenticator: QSslPreSharedKeyAuthenticator `
     ///
-    pub fn PreSharedKeyAuthenticationRequired(self: QWebSocketServer, authenticator: anytype) void {
+    pub fn preSharedKeyAuthenticationRequired(self: QWebSocketServer, authenticator: anytype) void {
         comptime _ = @TypeOf(authenticator)._is_QSslPreSharedKeyAuthenticator;
         qtc.QWebSocketServer_PreSharedKeyAuthenticationRequired(@ptrCast(self.ptr), @ptrCast(authenticator.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPreSharedKeyAuthenticationRequired` instead
+    ///
+    pub const OnPreSharedKeyAuthenticationRequired = onPreSharedKeyAuthenticationRequired;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#preSharedKeyAuthenticationRequired)
     ///
@@ -836,9 +1066,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` callback: *const fn (self: QWebSocketServer, authenticator: QSslPreSharedKeyAuthenticator) callconv(.c) void `
     ///
-    pub fn OnPreSharedKeyAuthenticationRequired(self: QWebSocketServer, callback: *const fn (QWebSocketServer, QSslPreSharedKeyAuthenticator) callconv(.c) void) void {
+    pub fn onPreSharedKeyAuthenticationRequired(self: QWebSocketServer, callback: *const fn (QWebSocketServer, QSslPreSharedKeyAuthenticator) callconv(.c) void) void {
         qtc.QWebSocketServer_Connect_PreSharedKeyAuthenticationRequired(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `alertSent` instead
+    ///
+    pub const AlertSent = alertSent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#alertSent)
     ///
@@ -852,7 +1086,7 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn AlertSent(self: QWebSocketServer, level: i32, typeVal: i32, description: []const u8) void {
+    pub fn alertSent(self: QWebSocketServer, level: i32, typeVal: i32, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
@@ -860,6 +1094,10 @@ pub const QWebSocketServer = extern struct {
         qtc.QWebSocketServer_AlertSent(@ptrCast(self.ptr), @bitCast(level), @bitCast(typeVal), description_str);
     }
 
+    /// ### DEPRECATED: Use `onAlertSent` instead
+    ///
+    pub const OnAlertSent = onAlertSent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#alertSent)
     ///
     /// ## Parameters:
@@ -868,9 +1106,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` callback: *const fn (self: QWebSocketServer, level: qssl_enums.AlertLevel, typeVal: qssl_enums.AlertType, description: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnAlertSent(self: QWebSocketServer, callback: *const fn (QWebSocketServer, i32, i32, [*:0]const u8) callconv(.c) void) void {
+    pub fn onAlertSent(self: QWebSocketServer, callback: *const fn (QWebSocketServer, i32, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.QWebSocketServer_Connect_AlertSent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `alertReceived` instead
+    ///
+    pub const AlertReceived = alertReceived;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#alertReceived)
     ///
@@ -884,13 +1126,17 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn AlertReceived(self: QWebSocketServer, level: i32, typeVal: i32, description: []const u8) void {
+    pub fn alertReceived(self: QWebSocketServer, level: i32, typeVal: i32, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWebSocketServer_AlertReceived(@ptrCast(self.ptr), @bitCast(level), @bitCast(typeVal), description_str);
     }
+
+    /// ### DEPRECATED: Use `onAlertReceived` instead
+    ///
+    pub const OnAlertReceived = onAlertReceived;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#alertReceived)
     ///
@@ -900,9 +1146,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` callback: *const fn (self: QWebSocketServer, level: qssl_enums.AlertLevel, typeVal: qssl_enums.AlertType, description: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnAlertReceived(self: QWebSocketServer, callback: *const fn (QWebSocketServer, i32, i32, [*:0]const u8) callconv(.c) void) void {
+    pub fn onAlertReceived(self: QWebSocketServer, callback: *const fn (QWebSocketServer, i32, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.QWebSocketServer_Connect_AlertReceived(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `handshakeInterruptedOnError` instead
+    ///
+    pub const HandshakeInterruptedOnError = handshakeInterruptedOnError;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#handshakeInterruptedOnError)
     ///
@@ -912,10 +1162,14 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` errorVal: QSslError `
     ///
-    pub fn HandshakeInterruptedOnError(self: QWebSocketServer, errorVal: anytype) void {
+    pub fn handshakeInterruptedOnError(self: QWebSocketServer, errorVal: anytype) void {
         comptime _ = @TypeOf(errorVal)._is_QSslError;
         qtc.QWebSocketServer_HandshakeInterruptedOnError(@ptrCast(self.ptr), @ptrCast(errorVal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHandshakeInterruptedOnError` instead
+    ///
+    pub const OnHandshakeInterruptedOnError = onHandshakeInterruptedOnError;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#handshakeInterruptedOnError)
     ///
@@ -925,9 +1179,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` callback: *const fn (self: QWebSocketServer, errorVal: QSslError) callconv(.c) void `
     ///
-    pub fn OnHandshakeInterruptedOnError(self: QWebSocketServer, callback: *const fn (QWebSocketServer, QSslError) callconv(.c) void) void {
+    pub fn onHandshakeInterruptedOnError(self: QWebSocketServer, callback: *const fn (QWebSocketServer, QSslError) callconv(.c) void) void {
         qtc.QWebSocketServer_Connect_HandshakeInterruptedOnError(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closed` instead
+    ///
+    pub const Closed = closed;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#closed)
     ///
@@ -935,9 +1193,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    pub fn Closed(self: QWebSocketServer) void {
+    pub fn closed(self: QWebSocketServer) void {
         qtc.QWebSocketServer_Closed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onClosed` instead
+    ///
+    pub const OnClosed = onClosed;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#closed)
     ///
@@ -947,9 +1209,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` callback: *const fn (self: QWebSocketServer) callconv(.c) void `
     ///
-    pub fn OnClosed(self: QWebSocketServer, callback: *const fn (QWebSocketServer) callconv(.c) void) void {
+    pub fn onClosed(self: QWebSocketServer, callback: *const fn (QWebSocketServer) callconv(.c) void) void {
         qtc.QWebSocketServer_Connect_Closed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -961,15 +1227,19 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebSocketServer.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebSocketServer.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -983,15 +1253,19 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebSocketServer.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebSocketServer.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `listen1` instead
+    ///
+    pub const Listen1 = listen1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#listen)
     ///
@@ -1001,10 +1275,14 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` address: QHostAddress `
     ///
-    pub fn Listen1(self: QWebSocketServer, address: anytype) bool {
+    pub fn listen1(self: QWebSocketServer, address: anytype) bool {
         comptime _ = @TypeOf(address)._is_QHostAddress;
         return qtc.QWebSocketServer_Listen1(@ptrCast(self.ptr), @ptrCast(address.ptr));
     }
+
+    /// ### DEPRECATED: Use `listen2` instead
+    ///
+    pub const Listen2 = listen2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#listen)
     ///
@@ -1016,10 +1294,14 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` port: u16 `
     ///
-    pub fn Listen2(self: QWebSocketServer, address: anytype, port: u16) bool {
+    pub fn listen2(self: QWebSocketServer, address: anytype, port: u16) bool {
         comptime _ = @TypeOf(address)._is_QHostAddress;
         return qtc.QWebSocketServer_Listen2(@ptrCast(self.ptr), @ptrCast(address.ptr), @bitCast(port));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -1031,13 +1313,17 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QWebSocketServer, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QWebSocketServer, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebSocketServer.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebSocketServer.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -1049,13 +1335,17 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QWebSocketServer, name: []const u8) void {
+    pub fn setObjectName(self: QWebSocketServer, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -1065,9 +1355,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    pub fn IsWidgetType(self: QWebSocketServer) bool {
+    pub fn isWidgetType(self: QWebSocketServer) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -1077,9 +1371,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    pub fn IsWindowType(self: QWebSocketServer) bool {
+    pub fn isWindowType(self: QWebSocketServer) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -1089,9 +1387,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    pub fn IsQuickItemType(self: QWebSocketServer) bool {
+    pub fn isQuickItemType(self: QWebSocketServer) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -1101,9 +1403,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    pub fn SignalsBlocked(self: QWebSocketServer) bool {
+    pub fn signalsBlocked(self: QWebSocketServer) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -1115,9 +1421,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QWebSocketServer, b: bool) bool {
+    pub fn blockSignals(self: QWebSocketServer, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -1127,9 +1437,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    pub fn Thread(self: QWebSocketServer) QThread {
+    pub fn thread(self: QWebSocketServer) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -1139,12 +1453,16 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QWebSocketServer, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QWebSocketServer, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -1156,9 +1474,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QWebSocketServer, interval: i32) i32 {
+    pub fn startTimer(self: QWebSocketServer, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -1170,9 +1492,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QWebSocketServer, time: i64) i32 {
+    pub fn startTimer2(self: QWebSocketServer, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -1184,9 +1510,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QWebSocketServer, id: i32) void {
+    pub fn killTimer(self: QWebSocketServer, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -1198,9 +1528,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QWebSocketServer, id: i32) void {
+    pub fn killTimer2(self: QWebSocketServer, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -1212,15 +1546,19 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QWebSocketServer, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QWebSocketServer, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QWebSocketServer.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QWebSocketServer.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -1230,12 +1568,16 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QWebSocketServer, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QWebSocketServer, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1247,10 +1589,14 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QWebSocketServer, filterObj: anytype) void {
+    pub fn installEventFilter(self: QWebSocketServer, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1262,10 +1608,14 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QWebSocketServer, obj: anytype) void {
+    pub fn removeEventFilter(self: QWebSocketServer, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -1273,7 +1623,7 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1281,13 +1631,17 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -1295,7 +1649,7 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1303,13 +1657,17 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -1319,18 +1677,22 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QWebSocketServer, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QWebSocketServer, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -1338,7 +1700,7 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1346,13 +1708,17 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -1360,7 +1726,7 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1368,13 +1734,17 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -1384,9 +1754,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    pub fn Disconnect3(self: QWebSocketServer) bool {
+    pub fn disconnect3(self: QWebSocketServer) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1398,10 +1772,14 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QWebSocketServer, receiver: anytype) bool {
+    pub fn disconnect4(self: QWebSocketServer, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1411,10 +1789,14 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1424,9 +1806,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    pub fn DumpObjectTree(self: QWebSocketServer) void {
+    pub fn dumpObjectTree(self: QWebSocketServer) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1436,9 +1822,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    pub fn DumpObjectInfo(self: QWebSocketServer) void {
+    pub fn dumpObjectInfo(self: QWebSocketServer) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1452,11 +1842,15 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QWebSocketServer, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QWebSocketServer, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1468,10 +1862,14 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QWebSocketServer, name: [:0]const u8) QVariant {
+    pub fn property(self: QWebSocketServer, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1483,7 +1881,7 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QWebSocketServer, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QWebSocketServer, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1491,27 +1889,19 @@ pub const QWebSocketServer = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QWebSocketServer.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QWebSocketServer.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QWebSocketServer.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QWebSocketServer.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QWebSocketServer `
-    ///
-    pub fn BindingStorage(self: QWebSocketServer) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1521,9 +1911,29 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    pub fn BindingStorage2(self: QWebSocketServer) QBindingStorage {
+    pub fn bindingStorage(self: QWebSocketServer) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QWebSocketServer `
+    ///
+    pub fn bindingStorage2(self: QWebSocketServer) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1533,9 +1943,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    pub fn Destroyed(self: QWebSocketServer) void {
+    pub fn destroyed(self: QWebSocketServer) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1547,9 +1961,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` callback: *const fn (self: QWebSocketServer) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QWebSocketServer, callback: *const fn (QWebSocketServer) callconv(.c) void) void {
+    pub fn onDestroyed(self: QWebSocketServer, callback: *const fn (QWebSocketServer) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1559,9 +1977,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    pub fn Parent(self: QWebSocketServer) QObject {
+    pub fn parent(self: QWebSocketServer) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1573,10 +1995,14 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QWebSocketServer, classname: [:0]const u8) bool {
+    pub fn inherits(self: QWebSocketServer, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1586,9 +2012,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    pub fn DeleteLater(self: QWebSocketServer) void {
+    pub fn deleteLater(self: QWebSocketServer) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1602,9 +2032,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QWebSocketServer, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QWebSocketServer, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1618,9 +2052,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QWebSocketServer, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QWebSocketServer, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1628,7 +2066,7 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1638,13 +2076,17 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1652,7 +2094,7 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1662,13 +2104,17 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1678,7 +2124,7 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1686,12 +2132,16 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QWebSocketServer, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QWebSocketServer, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1703,10 +2153,14 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QWebSocketServer, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QWebSocketServer, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1720,11 +2174,15 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QWebSocketServer, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QWebSocketServer, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1740,13 +2198,17 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QWebSocketServer, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QWebSocketServer, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1759,11 +2221,15 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QWebSocketServer, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QWebSocketServer, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1775,10 +2241,14 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QWebSocketServer, param1: anytype) void {
+    pub fn destroyed1(self: QWebSocketServer, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1790,9 +2260,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` callback: *const fn (self: QWebSocketServer, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QWebSocketServer, callback: *const fn (QWebSocketServer, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QWebSocketServer, callback: *const fn (QWebSocketServer, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -1804,16 +2278,16 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QWebSocketServer, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QWebSocketServer_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QWebSocketServer, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QWebSocketServer_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -1825,12 +2299,16 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QWebSocketServer, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QWebSocketServer_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QWebSocketServer, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QWebSocketServer_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -1844,9 +2322,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` callback: *const fn (self: QWebSocketServer, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QWebSocketServer, callback: *const fn (QWebSocketServer, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QWebSocketServer, callback: *const fn (QWebSocketServer, QEvent) callconv(.c) bool) void {
         qtc.QWebSocketServer_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1860,17 +2342,17 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QWebSocketServer, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QWebSocketServer, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QWebSocketServer_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QWebSocketServer_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1884,13 +2366,17 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QWebSocketServer, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QWebSocketServer, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QWebSocketServer_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QWebSocketServer_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1904,9 +2390,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` callback: *const fn (self: QWebSocketServer, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QWebSocketServer, callback: *const fn (QWebSocketServer, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QWebSocketServer, callback: *const fn (QWebSocketServer, QObject, QEvent) callconv(.c) bool) void {
         qtc.QWebSocketServer_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -1918,16 +2408,16 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QWebSocketServer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QWebSocketServer_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QWebSocketServer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QWebSocketServer_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1939,12 +2429,16 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QWebSocketServer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QWebSocketServer_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QWebSocketServer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QWebSocketServer_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1958,9 +2452,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` callback: *const fn (self: QWebSocketServer, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QWebSocketServer, callback: *const fn (QWebSocketServer, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QWebSocketServer, callback: *const fn (QWebSocketServer, QTimerEvent) callconv(.c) void) void {
         qtc.QWebSocketServer_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -1972,16 +2470,16 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QWebSocketServer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QWebSocketServer_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QWebSocketServer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QWebSocketServer_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1993,12 +2491,16 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QWebSocketServer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QWebSocketServer_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QWebSocketServer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QWebSocketServer_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -2012,9 +2514,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` callback: *const fn (self: QWebSocketServer, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QWebSocketServer, callback: *const fn (QWebSocketServer, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QWebSocketServer, callback: *const fn (QWebSocketServer, QChildEvent) callconv(.c) void) void {
         qtc.QWebSocketServer_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -2026,16 +2532,16 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QWebSocketServer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QWebSocketServer_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QWebSocketServer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QWebSocketServer_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -2047,12 +2553,16 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QWebSocketServer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QWebSocketServer_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QWebSocketServer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QWebSocketServer_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -2066,9 +2576,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` callback: *const fn (self: QWebSocketServer, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QWebSocketServer, callback: *const fn (QWebSocketServer, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QWebSocketServer, callback: *const fn (QWebSocketServer, QEvent) callconv(.c) void) void {
         qtc.QWebSocketServer_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -2082,14 +2596,14 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QWebSocketServer, signal: anytype) void {
+    pub fn connectNotify(self: QWebSocketServer, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QWebSocketServer_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2103,11 +2617,15 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QWebSocketServer, signal: anytype) void {
+    pub fn superConnectNotify(self: QWebSocketServer, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QWebSocketServer_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -2120,9 +2638,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` callback: *const fn (self: QWebSocketServer, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QWebSocketServer, callback: *const fn (QWebSocketServer, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QWebSocketServer, callback: *const fn (QWebSocketServer, QMetaMethod) callconv(.c) void) void {
         qtc.QWebSocketServer_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2136,14 +2658,14 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QWebSocketServer, signal: anytype) void {
+    pub fn disconnectNotify(self: QWebSocketServer, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QWebSocketServer_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2157,10 +2679,14 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QWebSocketServer, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QWebSocketServer, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QWebSocketServer_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2174,9 +2700,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` callback: *const fn (self: QWebSocketServer, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QWebSocketServer, callback: *const fn (QWebSocketServer, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QWebSocketServer, callback: *const fn (QWebSocketServer, QMetaMethod) callconv(.c) void) void {
         qtc.QWebSocketServer_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -2188,13 +2718,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    pub fn Sender(self: QWebSocketServer) QObject {
+    pub fn sender(self: QWebSocketServer) QObject {
         return .{ .ptr = qtc.QWebSocketServer_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -2206,9 +2736,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    pub fn SuperSender(self: QWebSocketServer) QObject {
+    pub fn superSender(self: QWebSocketServer) QObject {
         return .{ .ptr = qtc.QWebSocketServer_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -2222,9 +2756,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QWebSocketServer, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QWebSocketServer, callback: *const fn () callconv(.c) QObject) void {
         qtc.QWebSocketServer_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2236,13 +2774,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    pub fn SenderSignalIndex(self: QWebSocketServer) i32 {
+    pub fn senderSignalIndex(self: QWebSocketServer) i32 {
         return qtc.QWebSocketServer_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2254,9 +2792,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` self: QWebSocketServer `
     ///
-    pub fn SuperSenderSignalIndex(self: QWebSocketServer) i32 {
+    pub fn superSenderSignalIndex(self: QWebSocketServer) i32 {
         return qtc.QWebSocketServer_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2270,9 +2812,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QWebSocketServer, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QWebSocketServer, callback: *const fn () callconv(.c) i32) void {
         qtc.QWebSocketServer_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -2286,14 +2832,14 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QWebSocketServer, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QWebSocketServer, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QWebSocketServer_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -2307,10 +2853,14 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QWebSocketServer, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QWebSocketServer, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QWebSocketServer_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -2324,9 +2874,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` callback: *const fn (self: QWebSocketServer, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QWebSocketServer, callback: *const fn (QWebSocketServer, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QWebSocketServer, callback: *const fn (QWebSocketServer, [*:0]const u8) callconv(.c) i32) void {
         qtc.QWebSocketServer_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2340,14 +2894,14 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QWebSocketServer, signal: anytype) bool {
+    pub fn isSignalConnected(self: QWebSocketServer, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QWebSocketServer_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2361,10 +2915,14 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QWebSocketServer, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QWebSocketServer, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QWebSocketServer_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2378,9 +2936,13 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` callback: *const fn (self: QWebSocketServer, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QWebSocketServer, callback: *const fn (QWebSocketServer, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QWebSocketServer, callback: *const fn (QWebSocketServer, QMetaMethod) callconv(.c) bool) void {
         qtc.QWebSocketServer_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -2394,23 +2956,23 @@ pub const QWebSocketServer = extern struct {
     ///
     /// ` callback: *const fn (self: QWebSocketServer, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QWebSocketServer, callback: *const fn (QWebSocketServer, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QWebSocketServer, callback: *const fn (QWebSocketServer, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketserver.html#dtor.QWebSocketServer)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QWebSocketServer `
     ///
-    pub fn Delete(self: QWebSocketServer) void {
+    pub fn delete(self: QWebSocketServer) void {
         qtc.QWebSocketServer_Delete(@ptrCast(self.ptr));
     }
 };

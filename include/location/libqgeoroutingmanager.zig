@@ -31,15 +31,23 @@ pub const QGeoRoutingManager = extern struct {
     pub const _is_QGeoRoutingManager = {};
     pub const _is_QObject = {};
 
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QGeoRoutingManager `
     ///
-    pub fn MetaObject(self: QGeoRoutingManager) QMetaObject {
+    pub fn metaObject(self: QGeoRoutingManager) QMetaObject {
         return .{ .ptr = qtc.QGeoRoutingManager_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -47,10 +55,14 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QGeoRoutingManager, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QGeoRoutingManager, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QGeoRoutingManager_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -62,9 +74,13 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QGeoRoutingManager, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QGeoRoutingManager, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QGeoRoutingManager_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -74,14 +90,18 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoRoutingManager.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoRoutingManager.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `managerName` instead
+    ///
+    pub const ManagerName = managerName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanager.html#managerName)
     ///
@@ -91,13 +111,17 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ManagerName(self: QGeoRoutingManager, allocator: std.mem.Allocator) []const u8 {
+    pub fn managerName(self: QGeoRoutingManager, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGeoRoutingManager_ManagerName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoRoutingManager.ManagerName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoRoutingManager.managerName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `managerVersion` instead
+    ///
+    pub const ManagerVersion = managerVersion;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanager.html#managerVersion)
     ///
@@ -105,9 +129,13 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` self: QGeoRoutingManager `
     ///
-    pub fn ManagerVersion(self: QGeoRoutingManager) i32 {
+    pub fn managerVersion(self: QGeoRoutingManager) i32 {
         return qtc.QGeoRoutingManager_ManagerVersion(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `calculateRoute` instead
+    ///
+    pub const CalculateRoute = calculateRoute;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanager.html#calculateRoute)
     ///
@@ -117,10 +145,14 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` request: QGeoRouteRequest `
     ///
-    pub fn CalculateRoute(self: QGeoRoutingManager, request: anytype) QGeoRouteReply {
+    pub fn calculateRoute(self: QGeoRoutingManager, request: anytype) QGeoRouteReply {
         comptime _ = @TypeOf(request)._is_QGeoRouteRequest;
         return .{ .ptr = qtc.QGeoRoutingManager_CalculateRoute(@ptrCast(self.ptr), @ptrCast(request.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `updateRoute` instead
+    ///
+    pub const UpdateRoute = updateRoute;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanager.html#updateRoute)
     ///
@@ -132,11 +164,15 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` position: QGeoCoordinate `
     ///
-    pub fn UpdateRoute(self: QGeoRoutingManager, route: anytype, position: anytype) QGeoRouteReply {
+    pub fn updateRoute(self: QGeoRoutingManager, route: anytype, position: anytype) QGeoRouteReply {
         comptime _ = @TypeOf(route)._is_QGeoRoute;
         comptime _ = @TypeOf(position)._is_QGeoCoordinate;
         return .{ .ptr = qtc.QGeoRoutingManager_UpdateRoute(@ptrCast(self.ptr), @ptrCast(route.ptr), @ptrCast(position.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `supportedTravelModes` instead
+    ///
+    pub const SupportedTravelModes = supportedTravelModes;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanager.html#supportedTravelModes)
     ///
@@ -148,9 +184,13 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` flag of qgeorouterequest_enums.TravelMode `
     ///
-    pub fn SupportedTravelModes(self: QGeoRoutingManager) i32 {
+    pub fn supportedTravelModes(self: QGeoRoutingManager) i32 {
         return qtc.QGeoRoutingManager_SupportedTravelModes(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `supportedFeatureTypes` instead
+    ///
+    pub const SupportedFeatureTypes = supportedFeatureTypes;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanager.html#supportedFeatureTypes)
     ///
@@ -162,9 +202,13 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` flag of qgeorouterequest_enums.FeatureType `
     ///
-    pub fn SupportedFeatureTypes(self: QGeoRoutingManager) i32 {
+    pub fn supportedFeatureTypes(self: QGeoRoutingManager) i32 {
         return qtc.QGeoRoutingManager_SupportedFeatureTypes(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `supportedFeatureWeights` instead
+    ///
+    pub const SupportedFeatureWeights = supportedFeatureWeights;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanager.html#supportedFeatureWeights)
     ///
@@ -176,9 +220,13 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` flag of qgeorouterequest_enums.FeatureWeight `
     ///
-    pub fn SupportedFeatureWeights(self: QGeoRoutingManager) i32 {
+    pub fn supportedFeatureWeights(self: QGeoRoutingManager) i32 {
         return qtc.QGeoRoutingManager_SupportedFeatureWeights(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `supportedRouteOptimizations` instead
+    ///
+    pub const SupportedRouteOptimizations = supportedRouteOptimizations;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanager.html#supportedRouteOptimizations)
     ///
@@ -190,9 +238,13 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` flag of qgeorouterequest_enums.RouteOptimization `
     ///
-    pub fn SupportedRouteOptimizations(self: QGeoRoutingManager) i32 {
+    pub fn supportedRouteOptimizations(self: QGeoRoutingManager) i32 {
         return qtc.QGeoRoutingManager_SupportedRouteOptimizations(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `supportedSegmentDetails` instead
+    ///
+    pub const SupportedSegmentDetails = supportedSegmentDetails;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanager.html#supportedSegmentDetails)
     ///
@@ -204,9 +256,13 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` flag of qgeorouterequest_enums.SegmentDetail `
     ///
-    pub fn SupportedSegmentDetails(self: QGeoRoutingManager) i32 {
+    pub fn supportedSegmentDetails(self: QGeoRoutingManager) i32 {
         return qtc.QGeoRoutingManager_SupportedSegmentDetails(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `supportedManeuverDetails` instead
+    ///
+    pub const SupportedManeuverDetails = supportedManeuverDetails;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanager.html#supportedManeuverDetails)
     ///
@@ -218,9 +274,13 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` flag of qgeorouterequest_enums.ManeuverDetail `
     ///
-    pub fn SupportedManeuverDetails(self: QGeoRoutingManager) i32 {
+    pub fn supportedManeuverDetails(self: QGeoRoutingManager) i32 {
         return qtc.QGeoRoutingManager_SupportedManeuverDetails(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanager.html#setLocale)
     ///
@@ -228,12 +288,16 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` self: QGeoRoutingManager `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: QGeoRoutingManager, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QGeoRoutingManager_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: QGeoRoutingManager, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QGeoRoutingManager_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanager.html#locale)
     ///
@@ -241,9 +305,13 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` self: QGeoRoutingManager `
     ///
-    pub fn Locale(self: QGeoRoutingManager) QLocale {
+    pub fn locale(self: QGeoRoutingManager) QLocale {
         return .{ .ptr = qtc.QGeoRoutingManager_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setMeasurementSystem` instead
+    ///
+    pub const SetMeasurementSystem = setMeasurementSystem;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanager.html#setMeasurementSystem)
     ///
@@ -253,9 +321,13 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` system: qlocale_enums.MeasurementSystem `
     ///
-    pub fn SetMeasurementSystem(self: QGeoRoutingManager, system: i32) void {
+    pub fn setMeasurementSystem(self: QGeoRoutingManager, system: i32) void {
         qtc.QGeoRoutingManager_SetMeasurementSystem(@ptrCast(self.ptr), @bitCast(system));
     }
+
+    /// ### DEPRECATED: Use `measurementSystem` instead
+    ///
+    pub const MeasurementSystem = measurementSystem;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanager.html#measurementSystem)
     ///
@@ -267,9 +339,13 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` qlocale_enums.MeasurementSystem `
     ///
-    pub fn MeasurementSystem(self: QGeoRoutingManager) i32 {
+    pub fn measurementSystem(self: QGeoRoutingManager) i32 {
         return qtc.QGeoRoutingManager_MeasurementSystem(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `finished` instead
+    ///
+    pub const Finished = finished;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanager.html#finished)
     ///
@@ -279,10 +355,14 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` reply: QGeoRouteReply `
     ///
-    pub fn Finished(self: QGeoRoutingManager, reply: anytype) void {
+    pub fn finished(self: QGeoRoutingManager, reply: anytype) void {
         comptime _ = @TypeOf(reply)._is_QGeoRouteReply;
         qtc.QGeoRoutingManager_Finished(@ptrCast(self.ptr), @ptrCast(reply.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFinished` instead
+    ///
+    pub const OnFinished = onFinished;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanager.html#finished)
     ///
@@ -292,9 +372,13 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` callback: *const fn (self: QGeoRoutingManager, reply: QGeoRouteReply) callconv(.c) void `
     ///
-    pub fn OnFinished(self: QGeoRoutingManager, callback: *const fn (QGeoRoutingManager, QGeoRouteReply) callconv(.c) void) void {
+    pub fn onFinished(self: QGeoRoutingManager, callback: *const fn (QGeoRoutingManager, QGeoRouteReply) callconv(.c) void) void {
         qtc.QGeoRoutingManager_Connect_Finished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `errorOccurred` instead
+    ///
+    pub const ErrorOccurred = errorOccurred;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanager.html#errorOccurred)
     ///
@@ -306,10 +390,14 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` errorVal: qgeoroutereply_enums.Error `
     ///
-    pub fn ErrorOccurred(self: QGeoRoutingManager, reply: anytype, errorVal: i32) void {
+    pub fn errorOccurred(self: QGeoRoutingManager, reply: anytype, errorVal: i32) void {
         comptime _ = @TypeOf(reply)._is_QGeoRouteReply;
         qtc.QGeoRoutingManager_ErrorOccurred(@ptrCast(self.ptr), @ptrCast(reply.ptr), @bitCast(errorVal));
     }
+
+    /// ### DEPRECATED: Use `onErrorOccurred` instead
+    ///
+    pub const OnErrorOccurred = onErrorOccurred;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanager.html#errorOccurred)
     ///
@@ -319,9 +407,13 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` callback: *const fn (self: QGeoRoutingManager, reply: QGeoRouteReply, errorVal: qgeoroutereply_enums.Error) callconv(.c) void `
     ///
-    pub fn OnErrorOccurred(self: QGeoRoutingManager, callback: *const fn (QGeoRoutingManager, QGeoRouteReply, i32) callconv(.c) void) void {
+    pub fn onErrorOccurred(self: QGeoRoutingManager, callback: *const fn (QGeoRoutingManager, QGeoRouteReply, i32) callconv(.c) void) void {
         qtc.QGeoRoutingManager_Connect_ErrorOccurred(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -333,15 +425,19 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoRoutingManager.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoRoutingManager.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -355,15 +451,19 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoRoutingManager.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoRoutingManager.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `errorOccurred3` instead
+    ///
+    pub const ErrorOccurred3 = errorOccurred3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanager.html#errorOccurred)
     ///
@@ -377,7 +477,7 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` errorString: []const u8 `
     ///
-    pub fn ErrorOccurred3(self: QGeoRoutingManager, reply: anytype, errorVal: i32, errorString: []const u8) void {
+    pub fn errorOccurred3(self: QGeoRoutingManager, reply: anytype, errorVal: i32, errorString: []const u8) void {
         comptime _ = @TypeOf(reply)._is_QGeoRouteReply;
         const errorString_str = qtc.libqt_string{
             .len = errorString.len,
@@ -385,6 +485,10 @@ pub const QGeoRoutingManager = extern struct {
         };
         qtc.QGeoRoutingManager_ErrorOccurred3(@ptrCast(self.ptr), @ptrCast(reply.ptr), @bitCast(errorVal), errorString_str);
     }
+
+    /// ### DEPRECATED: Use `onErrorOccurred3` instead
+    ///
+    pub const OnErrorOccurred3 = onErrorOccurred3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanager.html#errorOccurred)
     ///
@@ -394,9 +498,13 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` callback: *const fn (self: QGeoRoutingManager, reply: QGeoRouteReply, errorVal: qgeoroutereply_enums.Error, errorString: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnErrorOccurred3(self: QGeoRoutingManager, callback: *const fn (QGeoRoutingManager, QGeoRouteReply, i32, [*:0]const u8) callconv(.c) void) void {
+    pub fn onErrorOccurred3(self: QGeoRoutingManager, callback: *const fn (QGeoRoutingManager, QGeoRouteReply, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.QGeoRoutingManager_Connect_ErrorOccurred3(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -406,12 +514,16 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` self: QGeoRoutingManager `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QGeoRoutingManager, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QObject_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QGeoRoutingManager, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QObject_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -423,13 +535,17 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QGeoRoutingManager, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QGeoRoutingManager, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -441,13 +557,17 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QGeoRoutingManager, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QGeoRoutingManager, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoRoutingManager.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoRoutingManager.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -459,13 +579,17 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QGeoRoutingManager, name: []const u8) void {
+    pub fn setObjectName(self: QGeoRoutingManager, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -475,9 +599,13 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` self: QGeoRoutingManager `
     ///
-    pub fn IsWidgetType(self: QGeoRoutingManager) bool {
+    pub fn isWidgetType(self: QGeoRoutingManager) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -487,9 +615,13 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` self: QGeoRoutingManager `
     ///
-    pub fn IsWindowType(self: QGeoRoutingManager) bool {
+    pub fn isWindowType(self: QGeoRoutingManager) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -499,9 +631,13 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` self: QGeoRoutingManager `
     ///
-    pub fn IsQuickItemType(self: QGeoRoutingManager) bool {
+    pub fn isQuickItemType(self: QGeoRoutingManager) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -511,9 +647,13 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` self: QGeoRoutingManager `
     ///
-    pub fn SignalsBlocked(self: QGeoRoutingManager) bool {
+    pub fn signalsBlocked(self: QGeoRoutingManager) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -525,9 +665,13 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QGeoRoutingManager, b: bool) bool {
+    pub fn blockSignals(self: QGeoRoutingManager, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -537,9 +681,13 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` self: QGeoRoutingManager `
     ///
-    pub fn Thread(self: QGeoRoutingManager) QThread {
+    pub fn thread(self: QGeoRoutingManager) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -549,12 +697,16 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` self: QGeoRoutingManager `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QGeoRoutingManager, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QGeoRoutingManager, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -566,9 +718,13 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QGeoRoutingManager, interval: i32) i32 {
+    pub fn startTimer(self: QGeoRoutingManager, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -580,9 +736,13 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QGeoRoutingManager, time: i64) i32 {
+    pub fn startTimer2(self: QGeoRoutingManager, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -594,9 +754,13 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QGeoRoutingManager, id: i32) void {
+    pub fn killTimer(self: QGeoRoutingManager, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -608,9 +772,13 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QGeoRoutingManager, id: i32) void {
+    pub fn killTimer2(self: QGeoRoutingManager, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -622,15 +790,19 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QGeoRoutingManager, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QGeoRoutingManager, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QGeoRoutingManager.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QGeoRoutingManager.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -640,12 +812,16 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` self: QGeoRoutingManager `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QGeoRoutingManager, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QGeoRoutingManager, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -657,10 +833,14 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QGeoRoutingManager, filterObj: anytype) void {
+    pub fn installEventFilter(self: QGeoRoutingManager, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -672,10 +852,14 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QGeoRoutingManager, obj: anytype) void {
+    pub fn removeEventFilter(self: QGeoRoutingManager, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -683,7 +867,7 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -691,13 +875,17 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -705,7 +893,7 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -713,13 +901,17 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -729,18 +921,22 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` self: QGeoRoutingManager `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QGeoRoutingManager, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QGeoRoutingManager, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -748,7 +944,7 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -756,13 +952,17 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -770,7 +970,7 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -778,13 +978,17 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -794,9 +998,13 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` self: QGeoRoutingManager `
     ///
-    pub fn Disconnect3(self: QGeoRoutingManager) bool {
+    pub fn disconnect3(self: QGeoRoutingManager) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -808,10 +1016,14 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QGeoRoutingManager, receiver: anytype) bool {
+    pub fn disconnect4(self: QGeoRoutingManager, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -821,10 +1033,14 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -834,9 +1050,13 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` self: QGeoRoutingManager `
     ///
-    pub fn DumpObjectTree(self: QGeoRoutingManager) void {
+    pub fn dumpObjectTree(self: QGeoRoutingManager) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -846,9 +1066,13 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` self: QGeoRoutingManager `
     ///
-    pub fn DumpObjectInfo(self: QGeoRoutingManager) void {
+    pub fn dumpObjectInfo(self: QGeoRoutingManager) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -862,11 +1086,15 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QGeoRoutingManager, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QGeoRoutingManager, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -878,10 +1106,14 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QGeoRoutingManager, name: [:0]const u8) QVariant {
+    pub fn property(self: QGeoRoutingManager, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -893,7 +1125,7 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QGeoRoutingManager, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QGeoRoutingManager, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -901,27 +1133,19 @@ pub const QGeoRoutingManager = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QGeoRoutingManager.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QGeoRoutingManager.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QGeoRoutingManager.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QGeoRoutingManager.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoRoutingManager `
-    ///
-    pub fn BindingStorage(self: QGeoRoutingManager) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -931,9 +1155,29 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` self: QGeoRoutingManager `
     ///
-    pub fn BindingStorage2(self: QGeoRoutingManager) QBindingStorage {
+    pub fn bindingStorage(self: QGeoRoutingManager) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGeoRoutingManager `
+    ///
+    pub fn bindingStorage2(self: QGeoRoutingManager) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -943,9 +1187,13 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` self: QGeoRoutingManager `
     ///
-    pub fn Destroyed(self: QGeoRoutingManager) void {
+    pub fn destroyed(self: QGeoRoutingManager) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -957,9 +1205,13 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` callback: *const fn (self: QGeoRoutingManager) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QGeoRoutingManager, callback: *const fn (QGeoRoutingManager) callconv(.c) void) void {
+    pub fn onDestroyed(self: QGeoRoutingManager, callback: *const fn (QGeoRoutingManager) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -969,9 +1221,13 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` self: QGeoRoutingManager `
     ///
-    pub fn Parent(self: QGeoRoutingManager) QObject {
+    pub fn parent(self: QGeoRoutingManager) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -983,10 +1239,14 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QGeoRoutingManager, classname: [:0]const u8) bool {
+    pub fn inherits(self: QGeoRoutingManager, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -996,9 +1256,13 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` self: QGeoRoutingManager `
     ///
-    pub fn DeleteLater(self: QGeoRoutingManager) void {
+    pub fn deleteLater(self: QGeoRoutingManager) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1012,9 +1276,13 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QGeoRoutingManager, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QGeoRoutingManager, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1028,9 +1296,13 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QGeoRoutingManager, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QGeoRoutingManager, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1038,7 +1310,7 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1048,13 +1320,17 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1062,7 +1338,7 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1072,13 +1348,17 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1088,7 +1368,7 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` self: QGeoRoutingManager `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1096,12 +1376,16 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QGeoRoutingManager, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QGeoRoutingManager, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1113,10 +1397,14 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QGeoRoutingManager, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QGeoRoutingManager, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1130,11 +1418,15 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QGeoRoutingManager, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QGeoRoutingManager, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1150,13 +1442,17 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QGeoRoutingManager, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QGeoRoutingManager, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1169,11 +1465,15 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QGeoRoutingManager, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QGeoRoutingManager, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1185,10 +1485,14 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QGeoRoutingManager, param1: anytype) void {
+    pub fn destroyed1(self: QGeoRoutingManager, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1200,9 +1504,13 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` callback: *const fn (self: QGeoRoutingManager, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QGeoRoutingManager, callback: *const fn (QGeoRoutingManager, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QGeoRoutingManager, callback: *const fn (QGeoRoutingManager, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -1216,23 +1524,23 @@ pub const QGeoRoutingManager = extern struct {
     ///
     /// ` callback: *const fn (self: QGeoRoutingManager, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QGeoRoutingManager, callback: *const fn (QGeoRoutingManager, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QGeoRoutingManager, callback: *const fn (QGeoRoutingManager, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanager.html#dtor.QGeoRoutingManager)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QGeoRoutingManager `
     ///
-    pub fn Delete(self: QGeoRoutingManager) void {
+    pub fn delete(self: QGeoRoutingManager) void {
         qtc.QGeoRoutingManager_Delete(@ptrCast(self.ptr));
     }
 };

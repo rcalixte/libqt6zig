@@ -26,22 +26,34 @@ pub const Sonnet__Settings = extern struct {
     pub const _is_Sonnet__Settings = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new Sonnet::Settings object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() Sonnet__Settings {
+    pub const New = new;
+
+    /// Allocate a new Sonnet::Settings object in C++ memory
+    ///
+    pub fn new() Sonnet__Settings {
         return .{ .ptr = qtc.Sonnet__Settings_new() };
     }
 
-    /// New2 constructs a new Sonnet::Settings object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new Sonnet::Settings object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) Sonnet__Settings {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.Sonnet__Settings_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) Sonnet__Settings {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.Sonnet__Settings_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -49,9 +61,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` self: Sonnet__Settings `
     ///
-    pub fn MetaObject(self: Sonnet__Settings) QMetaObject {
+    pub fn metaObject(self: Sonnet__Settings) QMetaObject {
         return .{ .ptr = qtc.Sonnet__Settings_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -63,13 +79,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: Sonnet__Settings, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: Sonnet__Settings, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.Sonnet__Settings_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -79,9 +95,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` self: Sonnet__Settings `
     ///
-    pub fn SuperMetaObject(self: Sonnet__Settings) QMetaObject {
+    pub fn superMetaObject(self: Sonnet__Settings) QMetaObject {
         return .{ .ptr = qtc.Sonnet__Settings_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -89,10 +109,14 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: Sonnet__Settings, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: Sonnet__Settings, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.Sonnet__Settings_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -102,13 +126,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__Settings, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: Sonnet__Settings, callback: *const fn (Sonnet__Settings, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: Sonnet__Settings, callback: *const fn (Sonnet__Settings, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.Sonnet__Settings_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -118,10 +142,14 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: Sonnet__Settings, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: Sonnet__Settings, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.Sonnet__Settings_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -133,9 +161,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: Sonnet__Settings, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: Sonnet__Settings, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.Sonnet__Settings_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -145,13 +177,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__Settings, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: Sonnet__Settings, callback: *const fn (Sonnet__Settings, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: Sonnet__Settings, callback: *const fn (Sonnet__Settings, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.Sonnet__Settings_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -165,9 +197,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: Sonnet__Settings, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: Sonnet__Settings, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.Sonnet__Settings_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -177,14 +213,18 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__Settings.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__Settings.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setDefaultLanguage` instead
+    ///
+    pub const SetDefaultLanguage = setDefaultLanguage;
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-settings.html#setDefaultLanguage)
     ///
@@ -194,13 +234,17 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` lang: []const u8 `
     ///
-    pub fn SetDefaultLanguage(self: Sonnet__Settings, lang: []const u8) void {
+    pub fn setDefaultLanguage(self: Sonnet__Settings, lang: []const u8) void {
         const lang_str = qtc.libqt_string{
             .len = lang.len,
             .data = lang.ptr,
         };
         qtc.Sonnet__Settings_SetDefaultLanguage(@ptrCast(self.ptr), lang_str);
     }
+
+    /// ### DEPRECATED: Use `defaultLanguage` instead
+    ///
+    pub const DefaultLanguage = defaultLanguage;
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-settings.html#defaultLanguage)
     ///
@@ -210,13 +254,17 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DefaultLanguage(self: Sonnet__Settings, allocator: std.mem.Allocator) []const u8 {
+    pub fn defaultLanguage(self: Sonnet__Settings, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Sonnet__Settings_DefaultLanguage(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__Settings.DefaultLanguage: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__Settings.defaultLanguage: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setPreferredLanguages` instead
+    ///
+    pub const SetPreferredLanguages = setPreferredLanguages;
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-settings.html#setPreferredLanguages)
     ///
@@ -228,13 +276,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` lang: []const []const u8 `
     ///
-    pub fn SetPreferredLanguages(self: Sonnet__Settings, allocator: std.mem.Allocator, lang: []const []const u8) void {
-        const lang_arr = allocator.alloc(qtc.libqt_string, lang.len) catch @panic("Sonnet__Settings.SetPreferredLanguages: Memory allocation failed");
+    pub fn setPreferredLanguages(self: Sonnet__Settings, allocator: std.mem.Allocator, lang: []const []const u8) void {
+        const lang_arr = allocator.alloc(qtc.libqt_string, lang.len) catch @panic("Sonnet__Settings.setPreferredLanguages: Memory allocation failed");
         defer allocator.free(lang_arr);
-        for (lang, 0..lang.len) |item, i|
+        for (lang, 0..lang.len) |str_item, i|
             lang_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const lang_list = qtc.libqt_list{
             .len = lang.len,
@@ -242,6 +290,10 @@ pub const Sonnet__Settings = extern struct {
         };
         qtc.Sonnet__Settings_SetPreferredLanguages(@ptrCast(self.ptr), lang_list);
     }
+
+    /// ### DEPRECATED: Use `preferredLanguages` instead
+    ///
+    pub const PreferredLanguages = preferredLanguages;
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-settings.html#preferredLanguages)
     ///
@@ -251,7 +303,7 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PreferredLanguages(self: Sonnet__Settings, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn preferredLanguages(self: Sonnet__Settings, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.Sonnet__Settings_PreferredLanguages(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -259,15 +311,19 @@ pub const Sonnet__Settings = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("Sonnet__Settings.PreferredLanguages: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("Sonnet__Settings.preferredLanguages: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("Sonnet__Settings.PreferredLanguages: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("Sonnet__Settings.preferredLanguages: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setDefaultClient` instead
+    ///
+    pub const SetDefaultClient = setDefaultClient;
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-settings.html#setDefaultClient)
     ///
@@ -277,13 +333,17 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` client: []const u8 `
     ///
-    pub fn SetDefaultClient(self: Sonnet__Settings, client: []const u8) void {
+    pub fn setDefaultClient(self: Sonnet__Settings, client: []const u8) void {
         const client_str = qtc.libqt_string{
             .len = client.len,
             .data = client.ptr,
         };
         qtc.Sonnet__Settings_SetDefaultClient(@ptrCast(self.ptr), client_str);
     }
+
+    /// ### DEPRECATED: Use `defaultClient` instead
+    ///
+    pub const DefaultClient = defaultClient;
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-settings.html#defaultClient)
     ///
@@ -293,13 +353,17 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DefaultClient(self: Sonnet__Settings, allocator: std.mem.Allocator) []const u8 {
+    pub fn defaultClient(self: Sonnet__Settings, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Sonnet__Settings_DefaultClient(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__Settings.DefaultClient: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__Settings.defaultClient: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setSkipUppercase` instead
+    ///
+    pub const SetSkipUppercase = setSkipUppercase;
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-settings.html#setSkipUppercase)
     ///
@@ -307,11 +371,15 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` self: Sonnet__Settings `
     ///
-    /// ` skipUppercase: bool `
+    /// ` _skipUppercase: bool `
     ///
-    pub fn SetSkipUppercase(self: Sonnet__Settings, skipUppercase: bool) void {
-        qtc.Sonnet__Settings_SetSkipUppercase(@ptrCast(self.ptr), skipUppercase);
+    pub fn setSkipUppercase(self: Sonnet__Settings, _skipUppercase: bool) void {
+        qtc.Sonnet__Settings_SetSkipUppercase(@ptrCast(self.ptr), _skipUppercase);
     }
+
+    /// ### DEPRECATED: Use `skipUppercase` instead
+    ///
+    pub const SkipUppercase = skipUppercase;
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-settings.html#skipUppercase)
     ///
@@ -319,9 +387,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` self: Sonnet__Settings `
     ///
-    pub fn SkipUppercase(self: Sonnet__Settings) bool {
+    pub fn skipUppercase(self: Sonnet__Settings) bool {
         return qtc.Sonnet__Settings_SkipUppercase(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutodetectLanguage` instead
+    ///
+    pub const SetAutodetectLanguage = setAutodetectLanguage;
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-settings.html#setAutodetectLanguage)
     ///
@@ -329,11 +401,15 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` self: Sonnet__Settings `
     ///
-    /// ` autodetectLanguage: bool `
+    /// ` _autodetectLanguage: bool `
     ///
-    pub fn SetAutodetectLanguage(self: Sonnet__Settings, autodetectLanguage: bool) void {
-        qtc.Sonnet__Settings_SetAutodetectLanguage(@ptrCast(self.ptr), autodetectLanguage);
+    pub fn setAutodetectLanguage(self: Sonnet__Settings, _autodetectLanguage: bool) void {
+        qtc.Sonnet__Settings_SetAutodetectLanguage(@ptrCast(self.ptr), _autodetectLanguage);
     }
+
+    /// ### DEPRECATED: Use `autodetectLanguage` instead
+    ///
+    pub const AutodetectLanguage = autodetectLanguage;
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-settings.html#autodetectLanguage)
     ///
@@ -341,9 +417,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` self: Sonnet__Settings `
     ///
-    pub fn AutodetectLanguage(self: Sonnet__Settings) bool {
+    pub fn autodetectLanguage(self: Sonnet__Settings) bool {
         return qtc.Sonnet__Settings_AutodetectLanguage(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSkipRunTogether` instead
+    ///
+    pub const SetSkipRunTogether = setSkipRunTogether;
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-settings.html#setSkipRunTogether)
     ///
@@ -351,11 +431,15 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` self: Sonnet__Settings `
     ///
-    /// ` skipRunTogether: bool `
+    /// ` _skipRunTogether: bool `
     ///
-    pub fn SetSkipRunTogether(self: Sonnet__Settings, skipRunTogether: bool) void {
-        qtc.Sonnet__Settings_SetSkipRunTogether(@ptrCast(self.ptr), skipRunTogether);
+    pub fn setSkipRunTogether(self: Sonnet__Settings, _skipRunTogether: bool) void {
+        qtc.Sonnet__Settings_SetSkipRunTogether(@ptrCast(self.ptr), _skipRunTogether);
     }
+
+    /// ### DEPRECATED: Use `skipRunTogether` instead
+    ///
+    pub const SkipRunTogether = skipRunTogether;
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-settings.html#skipRunTogether)
     ///
@@ -363,9 +447,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` self: Sonnet__Settings `
     ///
-    pub fn SkipRunTogether(self: Sonnet__Settings) bool {
+    pub fn skipRunTogether(self: Sonnet__Settings) bool {
         return qtc.Sonnet__Settings_SkipRunTogether(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundCheckerEnabled` instead
+    ///
+    pub const SetBackgroundCheckerEnabled = setBackgroundCheckerEnabled;
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-settings.html#setBackgroundCheckerEnabled)
     ///
@@ -373,11 +461,15 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` self: Sonnet__Settings `
     ///
-    /// ` backgroundCheckerEnabled: bool `
+    /// ` _backgroundCheckerEnabled: bool `
     ///
-    pub fn SetBackgroundCheckerEnabled(self: Sonnet__Settings, backgroundCheckerEnabled: bool) void {
-        qtc.Sonnet__Settings_SetBackgroundCheckerEnabled(@ptrCast(self.ptr), backgroundCheckerEnabled);
+    pub fn setBackgroundCheckerEnabled(self: Sonnet__Settings, _backgroundCheckerEnabled: bool) void {
+        qtc.Sonnet__Settings_SetBackgroundCheckerEnabled(@ptrCast(self.ptr), _backgroundCheckerEnabled);
     }
+
+    /// ### DEPRECATED: Use `backgroundCheckerEnabled` instead
+    ///
+    pub const BackgroundCheckerEnabled = backgroundCheckerEnabled;
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-settings.html#backgroundCheckerEnabled)
     ///
@@ -385,9 +477,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` self: Sonnet__Settings `
     ///
-    pub fn BackgroundCheckerEnabled(self: Sonnet__Settings) bool {
+    pub fn backgroundCheckerEnabled(self: Sonnet__Settings) bool {
         return qtc.Sonnet__Settings_BackgroundCheckerEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCheckerEnabledByDefault` instead
+    ///
+    pub const SetCheckerEnabledByDefault = setCheckerEnabledByDefault;
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-settings.html#setCheckerEnabledByDefault)
     ///
@@ -395,11 +491,15 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` self: Sonnet__Settings `
     ///
-    /// ` checkerEnabledByDefault: bool `
+    /// ` _checkerEnabledByDefault: bool `
     ///
-    pub fn SetCheckerEnabledByDefault(self: Sonnet__Settings, checkerEnabledByDefault: bool) void {
-        qtc.Sonnet__Settings_SetCheckerEnabledByDefault(@ptrCast(self.ptr), checkerEnabledByDefault);
+    pub fn setCheckerEnabledByDefault(self: Sonnet__Settings, _checkerEnabledByDefault: bool) void {
+        qtc.Sonnet__Settings_SetCheckerEnabledByDefault(@ptrCast(self.ptr), _checkerEnabledByDefault);
     }
+
+    /// ### DEPRECATED: Use `checkerEnabledByDefault` instead
+    ///
+    pub const CheckerEnabledByDefault = checkerEnabledByDefault;
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-settings.html#checkerEnabledByDefault)
     ///
@@ -407,9 +507,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` self: Sonnet__Settings `
     ///
-    pub fn CheckerEnabledByDefault(self: Sonnet__Settings) bool {
+    pub fn checkerEnabledByDefault(self: Sonnet__Settings) bool {
         return qtc.Sonnet__Settings_CheckerEnabledByDefault(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCurrentIgnoreList` instead
+    ///
+    pub const SetCurrentIgnoreList = setCurrentIgnoreList;
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-settings.html#setCurrentIgnoreList)
     ///
@@ -421,13 +525,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` ignores: []const []const u8 `
     ///
-    pub fn SetCurrentIgnoreList(self: Sonnet__Settings, allocator: std.mem.Allocator, ignores: []const []const u8) void {
-        const ignores_arr = allocator.alloc(qtc.libqt_string, ignores.len) catch @panic("Sonnet__Settings.SetCurrentIgnoreList: Memory allocation failed");
+    pub fn setCurrentIgnoreList(self: Sonnet__Settings, allocator: std.mem.Allocator, ignores: []const []const u8) void {
+        const ignores_arr = allocator.alloc(qtc.libqt_string, ignores.len) catch @panic("Sonnet__Settings.setCurrentIgnoreList: Memory allocation failed");
         defer allocator.free(ignores_arr);
-        for (ignores, 0..ignores.len) |item, i|
+        for (ignores, 0..ignores.len) |str_item, i|
             ignores_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const ignores_list = qtc.libqt_list{
             .len = ignores.len,
@@ -435,6 +539,10 @@ pub const Sonnet__Settings = extern struct {
         };
         qtc.Sonnet__Settings_SetCurrentIgnoreList(@ptrCast(self.ptr), ignores_list);
     }
+
+    /// ### DEPRECATED: Use `currentIgnoreList` instead
+    ///
+    pub const CurrentIgnoreList = currentIgnoreList;
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-settings.html#currentIgnoreList)
     ///
@@ -444,7 +552,7 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CurrentIgnoreList(self: Sonnet__Settings, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn currentIgnoreList(self: Sonnet__Settings, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.Sonnet__Settings_CurrentIgnoreList(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -452,15 +560,19 @@ pub const Sonnet__Settings = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("Sonnet__Settings.CurrentIgnoreList: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("Sonnet__Settings.currentIgnoreList: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("Sonnet__Settings.CurrentIgnoreList: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("Sonnet__Settings.currentIgnoreList: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `clients` instead
+    ///
+    pub const Clients = clients;
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-settings.html#clients)
     ///
@@ -470,7 +582,7 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Clients(self: Sonnet__Settings, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn clients(self: Sonnet__Settings, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.Sonnet__Settings_Clients(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -478,15 +590,19 @@ pub const Sonnet__Settings = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("Sonnet__Settings.Clients: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("Sonnet__Settings.clients: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("Sonnet__Settings.Clients: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("Sonnet__Settings.clients: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `modified` instead
+    ///
+    pub const Modified = modified;
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-settings.html#modified)
     ///
@@ -494,9 +610,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` self: Sonnet__Settings `
     ///
-    pub fn Modified(self: Sonnet__Settings) bool {
+    pub fn modified(self: Sonnet__Settings) bool {
         return qtc.Sonnet__Settings_Modified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dictionaryModel` instead
+    ///
+    pub const DictionaryModel = dictionaryModel;
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-settings.html#dictionaryModel)
     ///
@@ -504,9 +624,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` self: Sonnet__Settings `
     ///
-    pub fn DictionaryModel(self: Sonnet__Settings) QAbstractListModel {
+    pub fn dictionaryModel(self: Sonnet__Settings) QAbstractListModel {
         return .{ .ptr = qtc.Sonnet__Settings_DictionaryModel(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `save` instead
+    ///
+    pub const Save = save;
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-settings.html#save)
     ///
@@ -514,9 +638,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` self: Sonnet__Settings `
     ///
-    pub fn Save(self: Sonnet__Settings) void {
+    pub fn save(self: Sonnet__Settings) void {
         qtc.Sonnet__Settings_Save(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `defaultIgnoreList` instead
+    ///
+    pub const DefaultIgnoreList = defaultIgnoreList;
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-settings.html#defaultIgnoreList)
     ///
@@ -524,7 +652,7 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DefaultIgnoreList(allocator: std.mem.Allocator) []const []const u8 {
+    pub fn defaultIgnoreList(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.Sonnet__Settings_DefaultIgnoreList();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -532,45 +660,69 @@ pub const Sonnet__Settings = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("Sonnet__Settings.DefaultIgnoreList: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("Sonnet__Settings.defaultIgnoreList: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("Sonnet__Settings.DefaultIgnoreList: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("Sonnet__Settings.defaultIgnoreList: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `defaultSkipUppercase` instead
+    ///
+    pub const DefaultSkipUppercase = defaultSkipUppercase;
+
     /// ### [Upstream resources](https://api.kde.org/sonnet-settings.html#defaultSkipUppercase)
     ///
-    pub fn DefaultSkipUppercase() bool {
+    pub fn defaultSkipUppercase() bool {
         return qtc.Sonnet__Settings_DefaultSkipUppercase();
     }
 
+    /// ### DEPRECATED: Use `defaultAutodetectLanguage` instead
+    ///
+    pub const DefaultAutodetectLanguage = defaultAutodetectLanguage;
+
     /// ### [Upstream resources](https://api.kde.org/sonnet-settings.html#defaultAutodetectLanguage)
     ///
-    pub fn DefaultAutodetectLanguage() bool {
+    pub fn defaultAutodetectLanguage() bool {
         return qtc.Sonnet__Settings_DefaultAutodetectLanguage();
     }
 
+    /// ### DEPRECATED: Use `defaultBackgroundCheckerEnabled` instead
+    ///
+    pub const DefaultBackgroundCheckerEnabled = defaultBackgroundCheckerEnabled;
+
     /// ### [Upstream resources](https://api.kde.org/sonnet-settings.html#defaultBackgroundCheckerEnabled)
     ///
-    pub fn DefaultBackgroundCheckerEnabled() bool {
+    pub fn defaultBackgroundCheckerEnabled() bool {
         return qtc.Sonnet__Settings_DefaultBackgroundCheckerEnabled();
     }
 
+    /// ### DEPRECATED: Use `defaultCheckerEnabledByDefault` instead
+    ///
+    pub const DefaultCheckerEnabledByDefault = defaultCheckerEnabledByDefault;
+
     /// ### [Upstream resources](https://api.kde.org/sonnet-settings.html#defaultCheckerEnabledByDefault)
     ///
-    pub fn DefaultCheckerEnabledByDefault() bool {
+    pub fn defaultCheckerEnabledByDefault() bool {
         return qtc.Sonnet__Settings_DefaultCheckerEnabledByDefault();
     }
 
+    /// ### DEPRECATED: Use `defauktSkipRunTogether` instead
+    ///
+    pub const DefauktSkipRunTogether = defauktSkipRunTogether;
+
     /// ### [Upstream resources](https://api.kde.org/sonnet-settings.html#defauktSkipRunTogether)
     ///
-    pub fn DefauktSkipRunTogether() bool {
+    pub fn defauktSkipRunTogether() bool {
         return qtc.Sonnet__Settings_DefauktSkipRunTogether();
     }
+
+    /// ### DEPRECATED: Use `defaultDefaultLanguage` instead
+    ///
+    pub const DefaultDefaultLanguage = defaultDefaultLanguage;
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-settings.html#defaultDefaultLanguage)
     ///
@@ -578,13 +730,17 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DefaultDefaultLanguage(allocator: std.mem.Allocator) []const u8 {
+    pub fn defaultDefaultLanguage(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Sonnet__Settings_DefaultDefaultLanguage();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__Settings.DefaultDefaultLanguage: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__Settings.defaultDefaultLanguage: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `defaultPreferredLanguages` instead
+    ///
+    pub const DefaultPreferredLanguages = defaultPreferredLanguages;
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-settings.html#defaultPreferredLanguages)
     ///
@@ -592,7 +748,7 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DefaultPreferredLanguages(allocator: std.mem.Allocator) []const []const u8 {
+    pub fn defaultPreferredLanguages(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.Sonnet__Settings_DefaultPreferredLanguages();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -600,26 +756,34 @@ pub const Sonnet__Settings = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("Sonnet__Settings.DefaultPreferredLanguages: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("Sonnet__Settings.defaultPreferredLanguages: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("Sonnet__Settings.DefaultPreferredLanguages: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("Sonnet__Settings.defaultPreferredLanguages: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `skipUppercaseChanged` instead
+    ///
+    pub const SkipUppercaseChanged = skipUppercaseChanged;
+
     /// ### [Upstream resources](https://api.kde.org/sonnet-settings.html#skipUppercaseChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Sonnet__Settings `
     ///
-    pub fn SkipUppercaseChanged(self: Sonnet__Settings) void {
+    pub fn skipUppercaseChanged(self: Sonnet__Settings) void {
         qtc.Sonnet__Settings_SkipUppercaseChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSkipUppercaseChanged` instead
+    ///
+    pub const OnSkipUppercaseChanged = onSkipUppercaseChanged;
+
     /// ### [Upstream resources](https://api.kde.org/sonnet-settings.html#skipUppercaseChanged)
     ///
     /// ## Parameters:
@@ -628,20 +792,28 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__Settings) callconv(.c) void `
     ///
-    pub fn OnSkipUppercaseChanged(self: Sonnet__Settings, callback: *const fn (Sonnet__Settings) callconv(.c) void) void {
+    pub fn onSkipUppercaseChanged(self: Sonnet__Settings, callback: *const fn (Sonnet__Settings) callconv(.c) void) void {
         qtc.Sonnet__Settings_Connect_SkipUppercaseChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `autodetectLanguageChanged` instead
+    ///
+    pub const AutodetectLanguageChanged = autodetectLanguageChanged;
+
     /// ### [Upstream resources](https://api.kde.org/sonnet-settings.html#autodetectLanguageChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Sonnet__Settings `
     ///
-    pub fn AutodetectLanguageChanged(self: Sonnet__Settings) void {
+    pub fn autodetectLanguageChanged(self: Sonnet__Settings) void {
         qtc.Sonnet__Settings_AutodetectLanguageChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onAutodetectLanguageChanged` instead
+    ///
+    pub const OnAutodetectLanguageChanged = onAutodetectLanguageChanged;
+
     /// ### [Upstream resources](https://api.kde.org/sonnet-settings.html#autodetectLanguageChanged)
     ///
     /// ## Parameters:
@@ -650,20 +822,28 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__Settings) callconv(.c) void `
     ///
-    pub fn OnAutodetectLanguageChanged(self: Sonnet__Settings, callback: *const fn (Sonnet__Settings) callconv(.c) void) void {
+    pub fn onAutodetectLanguageChanged(self: Sonnet__Settings, callback: *const fn (Sonnet__Settings) callconv(.c) void) void {
         qtc.Sonnet__Settings_Connect_AutodetectLanguageChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `backgroundCheckerEnabledChanged` instead
+    ///
+    pub const BackgroundCheckerEnabledChanged = backgroundCheckerEnabledChanged;
+
     /// ### [Upstream resources](https://api.kde.org/sonnet-settings.html#backgroundCheckerEnabledChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Sonnet__Settings `
     ///
-    pub fn BackgroundCheckerEnabledChanged(self: Sonnet__Settings) void {
+    pub fn backgroundCheckerEnabledChanged(self: Sonnet__Settings) void {
         qtc.Sonnet__Settings_BackgroundCheckerEnabledChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onBackgroundCheckerEnabledChanged` instead
+    ///
+    pub const OnBackgroundCheckerEnabledChanged = onBackgroundCheckerEnabledChanged;
+
     /// ### [Upstream resources](https://api.kde.org/sonnet-settings.html#backgroundCheckerEnabledChanged)
     ///
     /// ## Parameters:
@@ -672,20 +852,28 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__Settings) callconv(.c) void `
     ///
-    pub fn OnBackgroundCheckerEnabledChanged(self: Sonnet__Settings, callback: *const fn (Sonnet__Settings) callconv(.c) void) void {
+    pub fn onBackgroundCheckerEnabledChanged(self: Sonnet__Settings, callback: *const fn (Sonnet__Settings) callconv(.c) void) void {
         qtc.Sonnet__Settings_Connect_BackgroundCheckerEnabledChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `defaultClientChanged` instead
+    ///
+    pub const DefaultClientChanged = defaultClientChanged;
+
     /// ### [Upstream resources](https://api.kde.org/sonnet-settings.html#defaultClientChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Sonnet__Settings `
     ///
-    pub fn DefaultClientChanged(self: Sonnet__Settings) void {
+    pub fn defaultClientChanged(self: Sonnet__Settings) void {
         qtc.Sonnet__Settings_DefaultClientChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onDefaultClientChanged` instead
+    ///
+    pub const OnDefaultClientChanged = onDefaultClientChanged;
+
     /// ### [Upstream resources](https://api.kde.org/sonnet-settings.html#defaultClientChanged)
     ///
     /// ## Parameters:
@@ -694,20 +882,28 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__Settings) callconv(.c) void `
     ///
-    pub fn OnDefaultClientChanged(self: Sonnet__Settings, callback: *const fn (Sonnet__Settings) callconv(.c) void) void {
+    pub fn onDefaultClientChanged(self: Sonnet__Settings, callback: *const fn (Sonnet__Settings) callconv(.c) void) void {
         qtc.Sonnet__Settings_Connect_DefaultClientChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `defaultLanguageChanged` instead
+    ///
+    pub const DefaultLanguageChanged = defaultLanguageChanged;
+
     /// ### [Upstream resources](https://api.kde.org/sonnet-settings.html#defaultLanguageChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Sonnet__Settings `
     ///
-    pub fn DefaultLanguageChanged(self: Sonnet__Settings) void {
+    pub fn defaultLanguageChanged(self: Sonnet__Settings) void {
         qtc.Sonnet__Settings_DefaultLanguageChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onDefaultLanguageChanged` instead
+    ///
+    pub const OnDefaultLanguageChanged = onDefaultLanguageChanged;
+
     /// ### [Upstream resources](https://api.kde.org/sonnet-settings.html#defaultLanguageChanged)
     ///
     /// ## Parameters:
@@ -716,20 +912,28 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__Settings) callconv(.c) void `
     ///
-    pub fn OnDefaultLanguageChanged(self: Sonnet__Settings, callback: *const fn (Sonnet__Settings) callconv(.c) void) void {
+    pub fn onDefaultLanguageChanged(self: Sonnet__Settings, callback: *const fn (Sonnet__Settings) callconv(.c) void) void {
         qtc.Sonnet__Settings_Connect_DefaultLanguageChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `preferredLanguagesChanged` instead
+    ///
+    pub const PreferredLanguagesChanged = preferredLanguagesChanged;
+
     /// ### [Upstream resources](https://api.kde.org/sonnet-settings.html#preferredLanguagesChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Sonnet__Settings `
     ///
-    pub fn PreferredLanguagesChanged(self: Sonnet__Settings) void {
+    pub fn preferredLanguagesChanged(self: Sonnet__Settings) void {
         qtc.Sonnet__Settings_PreferredLanguagesChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onPreferredLanguagesChanged` instead
+    ///
+    pub const OnPreferredLanguagesChanged = onPreferredLanguagesChanged;
+
     /// ### [Upstream resources](https://api.kde.org/sonnet-settings.html#preferredLanguagesChanged)
     ///
     /// ## Parameters:
@@ -738,20 +942,28 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__Settings) callconv(.c) void `
     ///
-    pub fn OnPreferredLanguagesChanged(self: Sonnet__Settings, callback: *const fn (Sonnet__Settings) callconv(.c) void) void {
+    pub fn onPreferredLanguagesChanged(self: Sonnet__Settings, callback: *const fn (Sonnet__Settings) callconv(.c) void) void {
         qtc.Sonnet__Settings_Connect_PreferredLanguagesChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `skipRunTogetherChanged` instead
+    ///
+    pub const SkipRunTogetherChanged = skipRunTogetherChanged;
+
     /// ### [Upstream resources](https://api.kde.org/sonnet-settings.html#skipRunTogetherChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Sonnet__Settings `
     ///
-    pub fn SkipRunTogetherChanged(self: Sonnet__Settings) void {
+    pub fn skipRunTogetherChanged(self: Sonnet__Settings) void {
         qtc.Sonnet__Settings_SkipRunTogetherChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSkipRunTogetherChanged` instead
+    ///
+    pub const OnSkipRunTogetherChanged = onSkipRunTogetherChanged;
+
     /// ### [Upstream resources](https://api.kde.org/sonnet-settings.html#skipRunTogetherChanged)
     ///
     /// ## Parameters:
@@ -760,20 +972,28 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__Settings) callconv(.c) void `
     ///
-    pub fn OnSkipRunTogetherChanged(self: Sonnet__Settings, callback: *const fn (Sonnet__Settings) callconv(.c) void) void {
+    pub fn onSkipRunTogetherChanged(self: Sonnet__Settings, callback: *const fn (Sonnet__Settings) callconv(.c) void) void {
         qtc.Sonnet__Settings_Connect_SkipRunTogetherChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `checkerEnabledByDefaultChanged` instead
+    ///
+    pub const CheckerEnabledByDefaultChanged = checkerEnabledByDefaultChanged;
+
     /// ### [Upstream resources](https://api.kde.org/sonnet-settings.html#checkerEnabledByDefaultChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Sonnet__Settings `
     ///
-    pub fn CheckerEnabledByDefaultChanged(self: Sonnet__Settings) void {
+    pub fn checkerEnabledByDefaultChanged(self: Sonnet__Settings) void {
         qtc.Sonnet__Settings_CheckerEnabledByDefaultChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCheckerEnabledByDefaultChanged` instead
+    ///
+    pub const OnCheckerEnabledByDefaultChanged = onCheckerEnabledByDefaultChanged;
+
     /// ### [Upstream resources](https://api.kde.org/sonnet-settings.html#checkerEnabledByDefaultChanged)
     ///
     /// ## Parameters:
@@ -782,20 +1002,28 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__Settings) callconv(.c) void `
     ///
-    pub fn OnCheckerEnabledByDefaultChanged(self: Sonnet__Settings, callback: *const fn (Sonnet__Settings) callconv(.c) void) void {
+    pub fn onCheckerEnabledByDefaultChanged(self: Sonnet__Settings, callback: *const fn (Sonnet__Settings) callconv(.c) void) void {
         qtc.Sonnet__Settings_Connect_CheckerEnabledByDefaultChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `currentIgnoreListChanged` instead
+    ///
+    pub const CurrentIgnoreListChanged = currentIgnoreListChanged;
+
     /// ### [Upstream resources](https://api.kde.org/sonnet-settings.html#currentIgnoreListChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Sonnet__Settings `
     ///
-    pub fn CurrentIgnoreListChanged(self: Sonnet__Settings) void {
+    pub fn currentIgnoreListChanged(self: Sonnet__Settings) void {
         qtc.Sonnet__Settings_CurrentIgnoreListChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCurrentIgnoreListChanged` instead
+    ///
+    pub const OnCurrentIgnoreListChanged = onCurrentIgnoreListChanged;
+
     /// ### [Upstream resources](https://api.kde.org/sonnet-settings.html#currentIgnoreListChanged)
     ///
     /// ## Parameters:
@@ -804,9 +1032,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__Settings) callconv(.c) void `
     ///
-    pub fn OnCurrentIgnoreListChanged(self: Sonnet__Settings, callback: *const fn (Sonnet__Settings) callconv(.c) void) void {
+    pub fn onCurrentIgnoreListChanged(self: Sonnet__Settings, callback: *const fn (Sonnet__Settings) callconv(.c) void) void {
         qtc.Sonnet__Settings_Connect_CurrentIgnoreListChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `modifiedChanged` instead
+    ///
+    pub const ModifiedChanged = modifiedChanged;
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-settings.html#modifiedChanged)
     ///
@@ -814,9 +1046,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` self: Sonnet__Settings `
     ///
-    pub fn ModifiedChanged(self: Sonnet__Settings) void {
+    pub fn modifiedChanged(self: Sonnet__Settings) void {
         qtc.Sonnet__Settings_ModifiedChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onModifiedChanged` instead
+    ///
+    pub const OnModifiedChanged = onModifiedChanged;
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-settings.html#modifiedChanged)
     ///
@@ -826,9 +1062,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__Settings) callconv(.c) void `
     ///
-    pub fn OnModifiedChanged(self: Sonnet__Settings, callback: *const fn (Sonnet__Settings) callconv(.c) void) void {
+    pub fn onModifiedChanged(self: Sonnet__Settings, callback: *const fn (Sonnet__Settings) callconv(.c) void) void {
         qtc.Sonnet__Settings_Connect_ModifiedChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -840,15 +1080,19 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__Settings.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__Settings.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -862,15 +1106,19 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__Settings.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__Settings.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -882,13 +1130,17 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: Sonnet__Settings, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: Sonnet__Settings, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__Settings.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__Settings.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -900,13 +1152,17 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: Sonnet__Settings, name: []const u8) void {
+    pub fn setObjectName(self: Sonnet__Settings, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -916,9 +1172,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` self: Sonnet__Settings `
     ///
-    pub fn IsWidgetType(self: Sonnet__Settings) bool {
+    pub fn isWidgetType(self: Sonnet__Settings) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -928,9 +1188,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` self: Sonnet__Settings `
     ///
-    pub fn IsWindowType(self: Sonnet__Settings) bool {
+    pub fn isWindowType(self: Sonnet__Settings) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -940,9 +1204,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` self: Sonnet__Settings `
     ///
-    pub fn IsQuickItemType(self: Sonnet__Settings) bool {
+    pub fn isQuickItemType(self: Sonnet__Settings) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -952,9 +1220,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` self: Sonnet__Settings `
     ///
-    pub fn SignalsBlocked(self: Sonnet__Settings) bool {
+    pub fn signalsBlocked(self: Sonnet__Settings) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -966,9 +1238,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: Sonnet__Settings, b: bool) bool {
+    pub fn blockSignals(self: Sonnet__Settings, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -978,9 +1254,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` self: Sonnet__Settings `
     ///
-    pub fn Thread(self: Sonnet__Settings) QThread {
+    pub fn thread(self: Sonnet__Settings) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -990,12 +1270,16 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` self: Sonnet__Settings `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: Sonnet__Settings, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: Sonnet__Settings, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -1007,9 +1291,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: Sonnet__Settings, interval: i32) i32 {
+    pub fn startTimer(self: Sonnet__Settings, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -1021,9 +1309,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: Sonnet__Settings, time: i64) i32 {
+    pub fn startTimer2(self: Sonnet__Settings, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -1035,9 +1327,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: Sonnet__Settings, id: i32) void {
+    pub fn killTimer(self: Sonnet__Settings, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -1049,9 +1345,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: Sonnet__Settings, id: i32) void {
+    pub fn killTimer2(self: Sonnet__Settings, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -1063,15 +1363,19 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: Sonnet__Settings, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: Sonnet__Settings, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("Sonnet__Settings.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("Sonnet__Settings.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -1081,12 +1385,16 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` self: Sonnet__Settings `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: Sonnet__Settings, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: Sonnet__Settings, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1098,10 +1406,14 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: Sonnet__Settings, filterObj: anytype) void {
+    pub fn installEventFilter(self: Sonnet__Settings, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1113,10 +1425,14 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: Sonnet__Settings, obj: anytype) void {
+    pub fn removeEventFilter(self: Sonnet__Settings, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -1124,7 +1440,7 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1132,13 +1448,17 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -1146,7 +1466,7 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1154,13 +1474,17 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -1170,18 +1494,22 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` self: Sonnet__Settings `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: Sonnet__Settings, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: Sonnet__Settings, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -1189,7 +1517,7 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1197,13 +1525,17 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -1211,7 +1543,7 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1219,13 +1551,17 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -1235,9 +1571,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` self: Sonnet__Settings `
     ///
-    pub fn Disconnect3(self: Sonnet__Settings) bool {
+    pub fn disconnect3(self: Sonnet__Settings) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1249,10 +1589,14 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: Sonnet__Settings, receiver: anytype) bool {
+    pub fn disconnect4(self: Sonnet__Settings, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1262,10 +1606,14 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1275,9 +1623,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` self: Sonnet__Settings `
     ///
-    pub fn DumpObjectTree(self: Sonnet__Settings) void {
+    pub fn dumpObjectTree(self: Sonnet__Settings) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1287,9 +1639,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` self: Sonnet__Settings `
     ///
-    pub fn DumpObjectInfo(self: Sonnet__Settings) void {
+    pub fn dumpObjectInfo(self: Sonnet__Settings) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1303,11 +1659,15 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: Sonnet__Settings, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: Sonnet__Settings, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1319,10 +1679,14 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: Sonnet__Settings, name: [:0]const u8) QVariant {
+    pub fn property(self: Sonnet__Settings, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1334,7 +1698,7 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: Sonnet__Settings, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: Sonnet__Settings, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1342,27 +1706,19 @@ pub const Sonnet__Settings = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("Sonnet__Settings.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("Sonnet__Settings.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("Sonnet__Settings.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("Sonnet__Settings.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Sonnet__Settings `
-    ///
-    pub fn BindingStorage(self: Sonnet__Settings) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1372,9 +1728,29 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` self: Sonnet__Settings `
     ///
-    pub fn BindingStorage2(self: Sonnet__Settings) QBindingStorage {
+    pub fn bindingStorage(self: Sonnet__Settings) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Sonnet__Settings `
+    ///
+    pub fn bindingStorage2(self: Sonnet__Settings) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1384,9 +1760,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` self: Sonnet__Settings `
     ///
-    pub fn Destroyed(self: Sonnet__Settings) void {
+    pub fn destroyed(self: Sonnet__Settings) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1398,9 +1778,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__Settings) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: Sonnet__Settings, callback: *const fn (Sonnet__Settings) callconv(.c) void) void {
+    pub fn onDestroyed(self: Sonnet__Settings, callback: *const fn (Sonnet__Settings) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1410,9 +1794,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` self: Sonnet__Settings `
     ///
-    pub fn Parent(self: Sonnet__Settings) QObject {
+    pub fn parent(self: Sonnet__Settings) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1424,10 +1812,14 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: Sonnet__Settings, classname: [:0]const u8) bool {
+    pub fn inherits(self: Sonnet__Settings, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1437,9 +1829,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` self: Sonnet__Settings `
     ///
-    pub fn DeleteLater(self: Sonnet__Settings) void {
+    pub fn deleteLater(self: Sonnet__Settings) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1453,9 +1849,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: Sonnet__Settings, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: Sonnet__Settings, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1469,9 +1869,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: Sonnet__Settings, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: Sonnet__Settings, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1479,7 +1883,7 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1489,13 +1893,17 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1503,7 +1911,7 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1513,13 +1921,17 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1529,7 +1941,7 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` self: Sonnet__Settings `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1537,12 +1949,16 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: Sonnet__Settings, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: Sonnet__Settings, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1554,10 +1970,14 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: Sonnet__Settings, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: Sonnet__Settings, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1571,11 +1991,15 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: Sonnet__Settings, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: Sonnet__Settings, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1591,13 +2015,17 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: Sonnet__Settings, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: Sonnet__Settings, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1610,11 +2038,15 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: Sonnet__Settings, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: Sonnet__Settings, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1626,10 +2058,14 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: Sonnet__Settings, param1: anytype) void {
+    pub fn destroyed1(self: Sonnet__Settings, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1641,9 +2077,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__Settings, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: Sonnet__Settings, callback: *const fn (Sonnet__Settings, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: Sonnet__Settings, callback: *const fn (Sonnet__Settings, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -1655,16 +2095,16 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` self: Sonnet__Settings `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: Sonnet__Settings, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.Sonnet__Settings_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: Sonnet__Settings, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.Sonnet__Settings_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -1676,12 +2116,16 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` self: Sonnet__Settings `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: Sonnet__Settings, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.Sonnet__Settings_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: Sonnet__Settings, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.Sonnet__Settings_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -1695,9 +2139,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__Settings, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: Sonnet__Settings, callback: *const fn (Sonnet__Settings, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: Sonnet__Settings, callback: *const fn (Sonnet__Settings, QEvent) callconv(.c) bool) void {
         qtc.Sonnet__Settings_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1711,17 +2159,17 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: Sonnet__Settings, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: Sonnet__Settings, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.Sonnet__Settings_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.Sonnet__Settings_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1735,13 +2183,17 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: Sonnet__Settings, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: Sonnet__Settings, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.Sonnet__Settings_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.Sonnet__Settings_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1755,9 +2207,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__Settings, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: Sonnet__Settings, callback: *const fn (Sonnet__Settings, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: Sonnet__Settings, callback: *const fn (Sonnet__Settings, QObject, QEvent) callconv(.c) bool) void {
         qtc.Sonnet__Settings_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -1769,16 +2225,16 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` self: Sonnet__Settings `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: Sonnet__Settings, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.Sonnet__Settings_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: Sonnet__Settings, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.Sonnet__Settings_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1790,12 +2246,16 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` self: Sonnet__Settings `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: Sonnet__Settings, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.Sonnet__Settings_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: Sonnet__Settings, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.Sonnet__Settings_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1809,9 +2269,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__Settings, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: Sonnet__Settings, callback: *const fn (Sonnet__Settings, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: Sonnet__Settings, callback: *const fn (Sonnet__Settings, QTimerEvent) callconv(.c) void) void {
         qtc.Sonnet__Settings_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -1823,16 +2287,16 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` self: Sonnet__Settings `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: Sonnet__Settings, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.Sonnet__Settings_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: Sonnet__Settings, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.Sonnet__Settings_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1844,12 +2308,16 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` self: Sonnet__Settings `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: Sonnet__Settings, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.Sonnet__Settings_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: Sonnet__Settings, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.Sonnet__Settings_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1863,9 +2331,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__Settings, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: Sonnet__Settings, callback: *const fn (Sonnet__Settings, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: Sonnet__Settings, callback: *const fn (Sonnet__Settings, QChildEvent) callconv(.c) void) void {
         qtc.Sonnet__Settings_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -1877,16 +2349,16 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` self: Sonnet__Settings `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: Sonnet__Settings, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.Sonnet__Settings_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: Sonnet__Settings, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.Sonnet__Settings_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1898,12 +2370,16 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` self: Sonnet__Settings `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: Sonnet__Settings, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.Sonnet__Settings_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: Sonnet__Settings, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.Sonnet__Settings_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1917,9 +2393,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__Settings, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: Sonnet__Settings, callback: *const fn (Sonnet__Settings, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: Sonnet__Settings, callback: *const fn (Sonnet__Settings, QEvent) callconv(.c) void) void {
         qtc.Sonnet__Settings_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -1933,14 +2413,14 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: Sonnet__Settings, signal: anytype) void {
+    pub fn connectNotify(self: Sonnet__Settings, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.Sonnet__Settings_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1954,11 +2434,15 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: Sonnet__Settings, signal: anytype) void {
+    pub fn superConnectNotify(self: Sonnet__Settings, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.Sonnet__Settings_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1971,9 +2455,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__Settings, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: Sonnet__Settings, callback: *const fn (Sonnet__Settings, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: Sonnet__Settings, callback: *const fn (Sonnet__Settings, QMetaMethod) callconv(.c) void) void {
         qtc.Sonnet__Settings_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1987,14 +2475,14 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: Sonnet__Settings, signal: anytype) void {
+    pub fn disconnectNotify(self: Sonnet__Settings, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.Sonnet__Settings_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2008,10 +2496,14 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: Sonnet__Settings, signal: anytype) void {
+    pub fn superDisconnectNotify(self: Sonnet__Settings, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.Sonnet__Settings_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2025,9 +2517,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__Settings, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: Sonnet__Settings, callback: *const fn (Sonnet__Settings, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: Sonnet__Settings, callback: *const fn (Sonnet__Settings, QMetaMethod) callconv(.c) void) void {
         qtc.Sonnet__Settings_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -2039,13 +2535,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` self: Sonnet__Settings `
     ///
-    pub fn Sender(self: Sonnet__Settings) QObject {
+    pub fn sender(self: Sonnet__Settings) QObject {
         return .{ .ptr = qtc.Sonnet__Settings_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -2057,9 +2553,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` self: Sonnet__Settings `
     ///
-    pub fn SuperSender(self: Sonnet__Settings) QObject {
+    pub fn superSender(self: Sonnet__Settings) QObject {
         return .{ .ptr = qtc.Sonnet__Settings_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -2073,9 +2573,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: Sonnet__Settings, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: Sonnet__Settings, callback: *const fn () callconv(.c) QObject) void {
         qtc.Sonnet__Settings_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2087,13 +2591,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` self: Sonnet__Settings `
     ///
-    pub fn SenderSignalIndex(self: Sonnet__Settings) i32 {
+    pub fn senderSignalIndex(self: Sonnet__Settings) i32 {
         return qtc.Sonnet__Settings_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2105,9 +2609,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` self: Sonnet__Settings `
     ///
-    pub fn SuperSenderSignalIndex(self: Sonnet__Settings) i32 {
+    pub fn superSenderSignalIndex(self: Sonnet__Settings) i32 {
         return qtc.Sonnet__Settings_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2121,9 +2629,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: Sonnet__Settings, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: Sonnet__Settings, callback: *const fn () callconv(.c) i32) void {
         qtc.Sonnet__Settings_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -2137,14 +2649,14 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: Sonnet__Settings, signal: [:0]const u8) i32 {
+    pub fn receivers(self: Sonnet__Settings, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.Sonnet__Settings_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -2158,10 +2670,14 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: Sonnet__Settings, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: Sonnet__Settings, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.Sonnet__Settings_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -2175,9 +2691,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__Settings, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: Sonnet__Settings, callback: *const fn (Sonnet__Settings, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: Sonnet__Settings, callback: *const fn (Sonnet__Settings, [*:0]const u8) callconv(.c) i32) void {
         qtc.Sonnet__Settings_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2191,14 +2711,14 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: Sonnet__Settings, signal: anytype) bool {
+    pub fn isSignalConnected(self: Sonnet__Settings, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.Sonnet__Settings_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2212,10 +2732,14 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: Sonnet__Settings, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: Sonnet__Settings, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.Sonnet__Settings_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2229,9 +2753,13 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__Settings, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: Sonnet__Settings, callback: *const fn (Sonnet__Settings, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: Sonnet__Settings, callback: *const fn (Sonnet__Settings, QMetaMethod) callconv(.c) bool) void {
         qtc.Sonnet__Settings_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -2245,21 +2773,21 @@ pub const Sonnet__Settings = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__Settings, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: Sonnet__Settings, callback: *const fn (Sonnet__Settings, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: Sonnet__Settings, callback: *const fn (Sonnet__Settings, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Sonnet__Settings `
     ///
-    pub fn Delete(self: Sonnet__Settings) void {
+    pub fn delete(self: Sonnet__Settings) void {
         qtc.Sonnet__Settings_Delete(@ptrCast(self.ptr));
     }
 };

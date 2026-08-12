@@ -82,53 +82,73 @@ pub const QCheckBox = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new QCheckBox object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QCheckBox object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) QCheckBox {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QCheckBox_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) QCheckBox {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QCheckBox_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new QCheckBox object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() QCheckBox {
+    pub const New2 = new2;
+
+    /// Allocate a new QCheckBox object in C++ memory
+    ///
+    pub fn new2() QCheckBox {
         return .{ .ptr = qtc.QCheckBox_new2() };
     }
 
-    /// New3 constructs a new QCheckBox object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QCheckBox object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn New3(text: []const u8) QCheckBox {
+    pub fn new3(_text: []const u8) QCheckBox {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         return .{ .ptr = qtc.QCheckBox_new3(text_str) };
     }
 
-    /// New4 constructs a new QCheckBox object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QCheckBox object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New4(text: []const u8, parent: anytype) QCheckBox {
+    pub fn new4(_text: []const u8, _parent: anytype) QCheckBox {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QCheckBox_new4(text_str, @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QCheckBox_new4(text_str, @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -136,9 +156,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn MetaObject(self: QCheckBox) QMetaObject {
+    pub fn metaObject(self: QCheckBox) QMetaObject {
         return .{ .ptr = qtc.QCheckBox_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -150,13 +174,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QCheckBox, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QCheckBox, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QCheckBox_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -166,9 +190,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn SuperMetaObject(self: QCheckBox) QMetaObject {
+    pub fn superMetaObject(self: QCheckBox) QMetaObject {
         return .{ .ptr = qtc.QCheckBox_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -176,10 +204,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QCheckBox, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QCheckBox, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QCheckBox_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -189,13 +221,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QCheckBox, callback: *const fn (QCheckBox, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QCheckBox, callback: *const fn (QCheckBox, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QCheckBox_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -205,10 +237,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QCheckBox, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QCheckBox, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QCheckBox_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -220,9 +256,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QCheckBox, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QCheckBox, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QCheckBox_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -232,13 +272,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QCheckBox, callback: *const fn (QCheckBox, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QCheckBox, callback: *const fn (QCheckBox, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QCheckBox_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -252,9 +292,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QCheckBox, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QCheckBox, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QCheckBox_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -264,25 +308,33 @@ pub const QCheckBox = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCheckBox.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCheckBox.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcheckbox.html#sizeHint)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn SizeHint(self: QCheckBox) QSize {
+    pub fn sizeHint(self: QCheckBox) QSize {
         return .{ .ptr = qtc.QCheckBox_SizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcheckbox.html#sizeHint)
     ///
     /// Allows for overriding the related default method
@@ -295,13 +347,13 @@ pub const QCheckBox = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: QCheckBox, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QCheckBox, callback: *const fn () callconv(.c) QSize) void {
         qtc.QCheckBox_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcheckbox.html#sizeHint)
     ///
@@ -311,9 +363,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn SuperSizeHint(self: QCheckBox) QSize {
+    pub fn superSizeHint(self: QCheckBox) QSize {
         return .{ .ptr = qtc.QCheckBox_SuperSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcheckbox.html#minimumSizeHint)
     ///
@@ -321,9 +377,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn MinimumSizeHint(self: QCheckBox) QSize {
+    pub fn minimumSizeHint(self: QCheckBox) QSize {
         return .{ .ptr = qtc.QCheckBox_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcheckbox.html#minimumSizeHint)
     ///
@@ -337,13 +397,13 @@ pub const QCheckBox = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: QCheckBox, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: QCheckBox, callback: *const fn () callconv(.c) QSize) void {
         qtc.QCheckBox_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcheckbox.html#minimumSizeHint)
     ///
@@ -353,9 +413,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn SuperMinimumSizeHint(self: QCheckBox) QSize {
+    pub fn superMinimumSizeHint(self: QCheckBox) QSize {
         return .{ .ptr = qtc.QCheckBox_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setTristate` instead
+    ///
+    pub const SetTristate = setTristate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcheckbox.html#setTristate)
     ///
@@ -363,9 +427,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn SetTristate(self: QCheckBox) void {
+    pub fn setTristate(self: QCheckBox) void {
         qtc.QCheckBox_SetTristate(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTristate` instead
+    ///
+    pub const IsTristate = isTristate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcheckbox.html#isTristate)
     ///
@@ -373,9 +441,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn IsTristate(self: QCheckBox) bool {
+    pub fn isTristate(self: QCheckBox) bool {
         return qtc.QCheckBox_IsTristate(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `checkState` instead
+    ///
+    pub const CheckState = checkState;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcheckbox.html#checkState)
     ///
@@ -387,9 +459,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` qnamespace_enums.CheckState `
     ///
-    pub fn CheckState(self: QCheckBox) i32 {
+    pub fn checkState(self: QCheckBox) i32 {
         return qtc.QCheckBox_CheckState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCheckState` instead
+    ///
+    pub const SetCheckState = setCheckState;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcheckbox.html#setCheckState)
     ///
@@ -399,9 +475,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` state: qnamespace_enums.CheckState `
     ///
-    pub fn SetCheckState(self: QCheckBox, state: i32) void {
+    pub fn setCheckState(self: QCheckBox, state: i32) void {
         qtc.QCheckBox_SetCheckState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `stateChanged` instead
+    ///
+    pub const StateChanged = stateChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcheckbox.html#stateChanged)
     ///
@@ -411,9 +491,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn StateChanged(self: QCheckBox, param1: i32) void {
+    pub fn stateChanged(self: QCheckBox, param1: i32) void {
         qtc.QCheckBox_StateChanged(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onStateChanged` instead
+    ///
+    pub const OnStateChanged = onStateChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcheckbox.html#stateChanged)
     ///
@@ -423,9 +507,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, param1: i32) callconv(.c) void `
     ///
-    pub fn OnStateChanged(self: QCheckBox, callback: *const fn (QCheckBox, i32) callconv(.c) void) void {
+    pub fn onStateChanged(self: QCheckBox, callback: *const fn (QCheckBox, i32) callconv(.c) void) void {
         qtc.QCheckBox_Connect_StateChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `checkStateChanged` instead
+    ///
+    pub const CheckStateChanged = checkStateChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcheckbox.html#checkStateChanged)
     ///
@@ -435,9 +523,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` param1: qnamespace_enums.CheckState `
     ///
-    pub fn CheckStateChanged(self: QCheckBox, param1: i32) void {
+    pub fn checkStateChanged(self: QCheckBox, param1: i32) void {
         qtc.QCheckBox_CheckStateChanged(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onCheckStateChanged` instead
+    ///
+    pub const OnCheckStateChanged = onCheckStateChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcheckbox.html#checkStateChanged)
     ///
@@ -447,9 +539,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, param1: qnamespace_enums.CheckState) callconv(.c) void `
     ///
-    pub fn OnCheckStateChanged(self: QCheckBox, callback: *const fn (QCheckBox, i32) callconv(.c) void) void {
+    pub fn onCheckStateChanged(self: QCheckBox, callback: *const fn (QCheckBox, i32) callconv(.c) void) void {
         qtc.QCheckBox_Connect_CheckStateChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcheckbox.html#event)
     ///
@@ -459,10 +555,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn Event(self: QCheckBox, e: anytype) bool {
+    pub fn event(self: QCheckBox, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.QCheckBox_Event(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcheckbox.html#event)
     ///
@@ -474,13 +574,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, e: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QCheckBox, callback: *const fn (QCheckBox, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QCheckBox, callback: *const fn (QCheckBox, QEvent) callconv(.c) bool) void {
         qtc.QCheckBox_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcheckbox.html#event)
     ///
@@ -492,10 +592,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn SuperEvent(self: QCheckBox, e: anytype) bool {
+    pub fn superEvent(self: QCheckBox, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.QCheckBox_SuperEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `hitButton` instead
+    ///
+    pub const HitButton = hitButton;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcheckbox.html#hitButton)
     ///
@@ -503,12 +607,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn HitButton(self: QCheckBox, pos: anytype) bool {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        return qtc.QCheckBox_HitButton(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn hitButton(self: QCheckBox, _pos: anytype) bool {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        return qtc.QCheckBox_HitButton(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHitButton` instead
+    ///
+    pub const OnHitButton = onHitButton;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcheckbox.html#hitButton)
     ///
@@ -520,13 +628,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, pos: QPoint) callconv(.c) bool `
     ///
-    pub fn OnHitButton(self: QCheckBox, callback: *const fn (QCheckBox, QPoint) callconv(.c) bool) void {
+    pub fn onHitButton(self: QCheckBox, callback: *const fn (QCheckBox, QPoint) callconv(.c) bool) void {
         qtc.QCheckBox_OnHitButton(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperHitButton` instead
+    /// ### DEPRECATED: Use `superHitButton` instead
     ///
-    pub const QBaseHitButton = SuperHitButton;
+    pub const SuperHitButton = superHitButton;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcheckbox.html#hitButton)
     ///
@@ -536,12 +644,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn SuperHitButton(self: QCheckBox, pos: anytype) bool {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        return qtc.QCheckBox_SuperHitButton(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn superHitButton(self: QCheckBox, _pos: anytype) bool {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        return qtc.QCheckBox_SuperHitButton(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `checkStateSet` instead
+    ///
+    pub const CheckStateSet = checkStateSet;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcheckbox.html#checkStateSet)
     ///
@@ -549,10 +661,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn CheckStateSet(self: QCheckBox) void {
+    pub fn checkStateSet(self: QCheckBox) void {
         qtc.QCheckBox_CheckStateSet(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCheckStateSet` instead
+    ///
+    pub const OnCheckStateSet = onCheckStateSet;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcheckbox.html#checkStateSet)
     ///
     /// Allows for overriding the related default method
@@ -563,13 +679,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCheckStateSet(self: QCheckBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onCheckStateSet(self: QCheckBox, callback: *const fn () callconv(.c) void) void {
         qtc.QCheckBox_OnCheckStateSet(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperCheckStateSet` instead
+    /// ### DEPRECATED: Use `superCheckStateSet` instead
     ///
-    pub const QBaseCheckStateSet = SuperCheckStateSet;
+    pub const SuperCheckStateSet = superCheckStateSet;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcheckbox.html#checkStateSet)
     ///
@@ -579,9 +695,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn SuperCheckStateSet(self: QCheckBox) void {
+    pub fn superCheckStateSet(self: QCheckBox) void {
         qtc.QCheckBox_SuperCheckStateSet(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `nextCheckState` instead
+    ///
+    pub const NextCheckState = nextCheckState;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcheckbox.html#nextCheckState)
     ///
@@ -589,9 +709,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn NextCheckState(self: QCheckBox) void {
+    pub fn nextCheckState(self: QCheckBox) void {
         qtc.QCheckBox_NextCheckState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onNextCheckState` instead
+    ///
+    pub const OnNextCheckState = onNextCheckState;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcheckbox.html#nextCheckState)
     ///
@@ -603,13 +727,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnNextCheckState(self: QCheckBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onNextCheckState(self: QCheckBox, callback: *const fn () callconv(.c) void) void {
         qtc.QCheckBox_OnNextCheckState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperNextCheckState` instead
+    /// ### DEPRECATED: Use `superNextCheckState` instead
     ///
-    pub const QBaseNextCheckState = SuperNextCheckState;
+    pub const SuperNextCheckState = superNextCheckState;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcheckbox.html#nextCheckState)
     ///
@@ -619,9 +743,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn SuperNextCheckState(self: QCheckBox) void {
+    pub fn superNextCheckState(self: QCheckBox) void {
         qtc.QCheckBox_SuperNextCheckState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcheckbox.html#paintEvent)
     ///
@@ -631,10 +759,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` param1: QPaintEvent `
     ///
-    pub fn PaintEvent(self: QCheckBox, param1: anytype) void {
+    pub fn paintEvent(self: QCheckBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPaintEvent;
         qtc.QCheckBox_PaintEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcheckbox.html#paintEvent)
     ///
@@ -646,13 +778,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, param1: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: QCheckBox, callback: *const fn (QCheckBox, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: QCheckBox, callback: *const fn (QCheckBox, QPaintEvent) callconv(.c) void) void {
         qtc.QCheckBox_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcheckbox.html#paintEvent)
     ///
@@ -664,10 +796,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` param1: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: QCheckBox, param1: anytype) void {
+    pub fn superPaintEvent(self: QCheckBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPaintEvent;
         qtc.QCheckBox_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcheckbox.html#mouseMoveEvent)
     ///
@@ -677,10 +813,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` param1: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: QCheckBox, param1: anytype) void {
+    pub fn mouseMoveEvent(self: QCheckBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QMouseEvent;
         qtc.QCheckBox_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcheckbox.html#mouseMoveEvent)
     ///
@@ -692,13 +832,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, param1: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: QCheckBox, callback: *const fn (QCheckBox, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: QCheckBox, callback: *const fn (QCheckBox, QMouseEvent) callconv(.c) void) void {
         qtc.QCheckBox_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcheckbox.html#mouseMoveEvent)
     ///
@@ -710,10 +850,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` param1: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: QCheckBox, param1: anytype) void {
+    pub fn superMouseMoveEvent(self: QCheckBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QMouseEvent;
         qtc.QCheckBox_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `initStyleOption` instead
+    ///
+    pub const InitStyleOption = initStyleOption;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcheckbox.html#initStyleOption)
     ///
@@ -723,10 +867,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` option: QStyleOptionButton `
     ///
-    pub fn InitStyleOption(self: QCheckBox, option: anytype) void {
+    pub fn initStyleOption(self: QCheckBox, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionButton;
         qtc.QCheckBox_InitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitStyleOption` instead
+    ///
+    pub const OnInitStyleOption = onInitStyleOption;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcheckbox.html#initStyleOption)
     ///
@@ -738,13 +886,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, option: QStyleOptionButton) callconv(.c) void `
     ///
-    pub fn OnInitStyleOption(self: QCheckBox, callback: *const fn (QCheckBox, QStyleOptionButton) callconv(.c) void) void {
+    pub fn onInitStyleOption(self: QCheckBox, callback: *const fn (QCheckBox, QStyleOptionButton) callconv(.c) void) void {
         qtc.QCheckBox_OnInitStyleOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperInitStyleOption` instead
+    /// ### DEPRECATED: Use `superInitStyleOption` instead
     ///
-    pub const QBaseInitStyleOption = SuperInitStyleOption;
+    pub const SuperInitStyleOption = superInitStyleOption;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcheckbox.html#initStyleOption)
     ///
@@ -756,10 +904,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` option: QStyleOptionButton `
     ///
-    pub fn SuperInitStyleOption(self: QCheckBox, option: anytype) void {
+    pub fn superInitStyleOption(self: QCheckBox, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionButton;
         qtc.QCheckBox_SuperInitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -771,15 +923,19 @@ pub const QCheckBox = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCheckBox.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCheckBox.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -793,15 +949,19 @@ pub const QCheckBox = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCheckBox.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCheckBox.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setTristate1` instead
+    ///
+    pub const SetTristate1 = setTristate1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcheckbox.html#setTristate)
     ///
@@ -809,11 +969,15 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` y: bool `
+    /// ` _y: bool `
     ///
-    pub fn SetTristate1(self: QCheckBox, y: bool) void {
-        qtc.QCheckBox_SetTristate1(@ptrCast(self.ptr), y);
+    pub fn setTristate1(self: QCheckBox, _y: bool) void {
+        qtc.QCheckBox_SetTristate1(@ptrCast(self.ptr), _y);
     }
+
+    /// ### DEPRECATED: Use `setText` instead
+    ///
+    pub const SetText = setText;
 
     /// Inherited from QAbstractButton
     ///
@@ -823,15 +987,19 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn SetText(self: QCheckBox, text: []const u8) void {
+    pub fn setText(self: QCheckBox, _text: []const u8) void {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         qtc.QAbstractButton_SetText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `text` instead
+    ///
+    pub const Text = text;
 
     /// Inherited from QAbstractButton
     ///
@@ -843,13 +1011,17 @@ pub const QCheckBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: QCheckBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn text(self: QCheckBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAbstractButton_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCheckBox.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCheckBox.text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setIcon` instead
+    ///
+    pub const SetIcon = setIcon;
 
     /// Inherited from QAbstractButton
     ///
@@ -859,12 +1031,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
-    pub fn SetIcon(self: QCheckBox, icon: anytype) void {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        qtc.QAbstractButton_SetIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
+    pub fn setIcon(self: QCheckBox, _icon: anytype) void {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        qtc.QAbstractButton_SetIcon(@ptrCast(self.ptr), @ptrCast(_icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `icon` instead
+    ///
+    pub const Icon = icon;
 
     /// Inherited from QAbstractButton
     ///
@@ -874,9 +1050,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn Icon(self: QCheckBox) QIcon {
+    pub fn icon(self: QCheckBox) QIcon {
         return .{ .ptr = qtc.QAbstractButton_Icon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `iconSize` instead
+    ///
+    pub const IconSize = iconSize;
 
     /// Inherited from QAbstractButton
     ///
@@ -886,9 +1066,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn IconSize(self: QCheckBox) QSize {
+    pub fn iconSize(self: QCheckBox) QSize {
         return .{ .ptr = qtc.QAbstractButton_IconSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setShortcut` instead
+    ///
+    pub const SetShortcut = setShortcut;
 
     /// Inherited from QAbstractButton
     ///
@@ -900,10 +1084,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn SetShortcut(self: QCheckBox, key: anytype) void {
+    pub fn setShortcut(self: QCheckBox, key: anytype) void {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         qtc.QAbstractButton_SetShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `shortcut` instead
+    ///
+    pub const Shortcut = shortcut;
 
     /// Inherited from QAbstractButton
     ///
@@ -913,9 +1101,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn Shortcut(self: QCheckBox) QKeySequence {
+    pub fn shortcut(self: QCheckBox) QKeySequence {
         return .{ .ptr = qtc.QAbstractButton_Shortcut(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCheckable` instead
+    ///
+    pub const SetCheckable = setCheckable;
 
     /// Inherited from QAbstractButton
     ///
@@ -927,9 +1119,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` checkable: bool `
     ///
-    pub fn SetCheckable(self: QCheckBox, checkable: bool) void {
+    pub fn setCheckable(self: QCheckBox, checkable: bool) void {
         qtc.QAbstractButton_SetCheckable(@ptrCast(self.ptr), checkable);
     }
+
+    /// ### DEPRECATED: Use `isCheckable` instead
+    ///
+    pub const IsCheckable = isCheckable;
 
     /// Inherited from QAbstractButton
     ///
@@ -939,9 +1135,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn IsCheckable(self: QCheckBox) bool {
+    pub fn isCheckable(self: QCheckBox) bool {
         return qtc.QAbstractButton_IsCheckable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isChecked` instead
+    ///
+    pub const IsChecked = isChecked;
 
     /// Inherited from QAbstractButton
     ///
@@ -951,9 +1151,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn IsChecked(self: QCheckBox) bool {
+    pub fn isChecked(self: QCheckBox) bool {
         return qtc.QAbstractButton_IsChecked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDown` instead
+    ///
+    pub const SetDown = setDown;
 
     /// Inherited from QAbstractButton
     ///
@@ -965,9 +1169,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` down: bool `
     ///
-    pub fn SetDown(self: QCheckBox, down: bool) void {
+    pub fn setDown(self: QCheckBox, down: bool) void {
         qtc.QAbstractButton_SetDown(@ptrCast(self.ptr), down);
     }
+
+    /// ### DEPRECATED: Use `isDown` instead
+    ///
+    pub const IsDown = isDown;
 
     /// Inherited from QAbstractButton
     ///
@@ -977,9 +1185,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn IsDown(self: QCheckBox) bool {
+    pub fn isDown(self: QCheckBox) bool {
         return qtc.QAbstractButton_IsDown(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoRepeat` instead
+    ///
+    pub const SetAutoRepeat = setAutoRepeat;
 
     /// Inherited from QAbstractButton
     ///
@@ -989,11 +1201,15 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` autoRepeat: bool `
+    /// ` _autoRepeat: bool `
     ///
-    pub fn SetAutoRepeat(self: QCheckBox, autoRepeat: bool) void {
-        qtc.QAbstractButton_SetAutoRepeat(@ptrCast(self.ptr), autoRepeat);
+    pub fn setAutoRepeat(self: QCheckBox, _autoRepeat: bool) void {
+        qtc.QAbstractButton_SetAutoRepeat(@ptrCast(self.ptr), _autoRepeat);
     }
+
+    /// ### DEPRECATED: Use `autoRepeat` instead
+    ///
+    pub const AutoRepeat = autoRepeat;
 
     /// Inherited from QAbstractButton
     ///
@@ -1003,9 +1219,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn AutoRepeat(self: QCheckBox) bool {
+    pub fn autoRepeat(self: QCheckBox) bool {
         return qtc.QAbstractButton_AutoRepeat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoRepeatDelay` instead
+    ///
+    pub const SetAutoRepeatDelay = setAutoRepeatDelay;
 
     /// Inherited from QAbstractButton
     ///
@@ -1015,11 +1235,15 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` autoRepeatDelay: i32 `
+    /// ` _autoRepeatDelay: i32 `
     ///
-    pub fn SetAutoRepeatDelay(self: QCheckBox, autoRepeatDelay: i32) void {
-        qtc.QAbstractButton_SetAutoRepeatDelay(@ptrCast(self.ptr), @bitCast(autoRepeatDelay));
+    pub fn setAutoRepeatDelay(self: QCheckBox, _autoRepeatDelay: i32) void {
+        qtc.QAbstractButton_SetAutoRepeatDelay(@ptrCast(self.ptr), @bitCast(_autoRepeatDelay));
     }
+
+    /// ### DEPRECATED: Use `autoRepeatDelay` instead
+    ///
+    pub const AutoRepeatDelay = autoRepeatDelay;
 
     /// Inherited from QAbstractButton
     ///
@@ -1029,9 +1253,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn AutoRepeatDelay(self: QCheckBox) i32 {
+    pub fn autoRepeatDelay(self: QCheckBox) i32 {
         return qtc.QAbstractButton_AutoRepeatDelay(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoRepeatInterval` instead
+    ///
+    pub const SetAutoRepeatInterval = setAutoRepeatInterval;
 
     /// Inherited from QAbstractButton
     ///
@@ -1041,11 +1269,15 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` autoRepeatInterval: i32 `
+    /// ` _autoRepeatInterval: i32 `
     ///
-    pub fn SetAutoRepeatInterval(self: QCheckBox, autoRepeatInterval: i32) void {
-        qtc.QAbstractButton_SetAutoRepeatInterval(@ptrCast(self.ptr), @bitCast(autoRepeatInterval));
+    pub fn setAutoRepeatInterval(self: QCheckBox, _autoRepeatInterval: i32) void {
+        qtc.QAbstractButton_SetAutoRepeatInterval(@ptrCast(self.ptr), @bitCast(_autoRepeatInterval));
     }
+
+    /// ### DEPRECATED: Use `autoRepeatInterval` instead
+    ///
+    pub const AutoRepeatInterval = autoRepeatInterval;
 
     /// Inherited from QAbstractButton
     ///
@@ -1055,9 +1287,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn AutoRepeatInterval(self: QCheckBox) i32 {
+    pub fn autoRepeatInterval(self: QCheckBox) i32 {
         return qtc.QAbstractButton_AutoRepeatInterval(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoExclusive` instead
+    ///
+    pub const SetAutoExclusive = setAutoExclusive;
 
     /// Inherited from QAbstractButton
     ///
@@ -1067,11 +1303,15 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` autoExclusive: bool `
+    /// ` _autoExclusive: bool `
     ///
-    pub fn SetAutoExclusive(self: QCheckBox, autoExclusive: bool) void {
-        qtc.QAbstractButton_SetAutoExclusive(@ptrCast(self.ptr), autoExclusive);
+    pub fn setAutoExclusive(self: QCheckBox, _autoExclusive: bool) void {
+        qtc.QAbstractButton_SetAutoExclusive(@ptrCast(self.ptr), _autoExclusive);
     }
+
+    /// ### DEPRECATED: Use `autoExclusive` instead
+    ///
+    pub const AutoExclusive = autoExclusive;
 
     /// Inherited from QAbstractButton
     ///
@@ -1081,9 +1321,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn AutoExclusive(self: QCheckBox) bool {
+    pub fn autoExclusive(self: QCheckBox) bool {
         return qtc.QAbstractButton_AutoExclusive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `group` instead
+    ///
+    pub const Group = group;
 
     /// Inherited from QAbstractButton
     ///
@@ -1093,9 +1337,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn Group(self: QCheckBox) QButtonGroup {
+    pub fn group(self: QCheckBox) QButtonGroup {
         return .{ .ptr = qtc.QAbstractButton_Group(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setIconSize` instead
+    ///
+    pub const SetIconSize = setIconSize;
 
     /// Inherited from QAbstractButton
     ///
@@ -1105,12 +1353,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` size: QSize `
+    /// ` _size: QSize `
     ///
-    pub fn SetIconSize(self: QCheckBox, size: anytype) void {
-        comptime _ = @TypeOf(size)._is_QSize;
-        qtc.QAbstractButton_SetIconSize(@ptrCast(self.ptr), @ptrCast(size.ptr));
+    pub fn setIconSize(self: QCheckBox, _size: anytype) void {
+        comptime _ = @TypeOf(_size)._is_QSize;
+        qtc.QAbstractButton_SetIconSize(@ptrCast(self.ptr), @ptrCast(_size.ptr));
     }
+
+    /// ### DEPRECATED: Use `animateClick` instead
+    ///
+    pub const AnimateClick = animateClick;
 
     /// Inherited from QAbstractButton
     ///
@@ -1120,9 +1372,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn AnimateClick(self: QCheckBox) void {
+    pub fn animateClick(self: QCheckBox) void {
         qtc.QAbstractButton_AnimateClick(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `click` instead
+    ///
+    pub const Click = click;
 
     /// Inherited from QAbstractButton
     ///
@@ -1132,9 +1388,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn Click(self: QCheckBox) void {
+    pub fn click(self: QCheckBox) void {
         qtc.QAbstractButton_Click(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toggle` instead
+    ///
+    pub const Toggle = toggle;
 
     /// Inherited from QAbstractButton
     ///
@@ -1144,9 +1404,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn Toggle(self: QCheckBox) void {
+    pub fn toggle(self: QCheckBox) void {
         qtc.QAbstractButton_Toggle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setChecked` instead
+    ///
+    pub const SetChecked = setChecked;
 
     /// Inherited from QAbstractButton
     ///
@@ -1158,10 +1422,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` checked: bool `
     ///
-    pub fn SetChecked(self: QCheckBox, checked: bool) void {
+    pub fn setChecked(self: QCheckBox, checked: bool) void {
         qtc.QAbstractButton_SetChecked(@ptrCast(self.ptr), checked);
     }
 
+    /// ### DEPRECATED: Use `pressed` instead
+    ///
+    pub const Pressed = pressed;
+
     /// Inherited from QAbstractButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbutton.html#pressed)
@@ -1170,10 +1438,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn Pressed(self: QCheckBox) void {
+    pub fn pressed(self: QCheckBox) void {
         qtc.QAbstractButton_Pressed(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onPressed` instead
+    ///
+    pub const OnPressed = onPressed;
+
     /// Inherited from QAbstractButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbutton.html#pressed)
@@ -1184,10 +1456,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox) callconv(.c) void `
     ///
-    pub fn OnPressed(self: QCheckBox, callback: *const fn (QCheckBox) callconv(.c) void) void {
+    pub fn onPressed(self: QCheckBox, callback: *const fn (QCheckBox) callconv(.c) void) void {
         qtc.QAbstractButton_Connect_Pressed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `released` instead
+    ///
+    pub const Released = released;
+
     /// Inherited from QAbstractButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbutton.html#released)
@@ -1196,10 +1472,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn Released(self: QCheckBox) void {
+    pub fn released(self: QCheckBox) void {
         qtc.QAbstractButton_Released(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onReleased` instead
+    ///
+    pub const OnReleased = onReleased;
+
     /// Inherited from QAbstractButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbutton.html#released)
@@ -1210,9 +1490,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox) callconv(.c) void `
     ///
-    pub fn OnReleased(self: QCheckBox, callback: *const fn (QCheckBox) callconv(.c) void) void {
+    pub fn onReleased(self: QCheckBox, callback: *const fn (QCheckBox) callconv(.c) void) void {
         qtc.QAbstractButton_Connect_Released(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `clicked` instead
+    ///
+    pub const Clicked = clicked;
 
     /// Inherited from QAbstractButton
     ///
@@ -1222,9 +1506,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn Clicked(self: QCheckBox) void {
+    pub fn clicked(self: QCheckBox) void {
         qtc.QAbstractButton_Clicked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onClicked` instead
+    ///
+    pub const OnClicked = onClicked;
 
     /// Inherited from QAbstractButton
     ///
@@ -1236,10 +1524,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox) callconv(.c) void `
     ///
-    pub fn OnClicked(self: QCheckBox, callback: *const fn (QCheckBox) callconv(.c) void) void {
+    pub fn onClicked(self: QCheckBox, callback: *const fn (QCheckBox) callconv(.c) void) void {
         qtc.QAbstractButton_Connect_Clicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `toggled` instead
+    ///
+    pub const Toggled = toggled;
+
     /// Inherited from QAbstractButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbutton.html#toggled)
@@ -1250,10 +1542,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` checked: bool `
     ///
-    pub fn Toggled(self: QCheckBox, checked: bool) void {
+    pub fn toggled(self: QCheckBox, checked: bool) void {
         qtc.QAbstractButton_Toggled(@ptrCast(self.ptr), checked);
     }
 
+    /// ### DEPRECATED: Use `onToggled` instead
+    ///
+    pub const OnToggled = onToggled;
+
     /// Inherited from QAbstractButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbutton.html#toggled)
@@ -1264,9 +1560,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, checked: bool) callconv(.c) void `
     ///
-    pub fn OnToggled(self: QCheckBox, callback: *const fn (QCheckBox, bool) callconv(.c) void) void {
+    pub fn onToggled(self: QCheckBox, callback: *const fn (QCheckBox, bool) callconv(.c) void) void {
         qtc.QAbstractButton_Connect_Toggled(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `clicked1` instead
+    ///
+    pub const Clicked1 = clicked1;
 
     /// Inherited from QAbstractButton
     ///
@@ -1278,9 +1578,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` checked: bool `
     ///
-    pub fn Clicked1(self: QCheckBox, checked: bool) void {
+    pub fn clicked1(self: QCheckBox, checked: bool) void {
         qtc.QAbstractButton_Clicked1(@ptrCast(self.ptr), checked);
     }
+
+    /// ### DEPRECATED: Use `onClicked1` instead
+    ///
+    pub const OnClicked1 = onClicked1;
 
     /// Inherited from QAbstractButton
     ///
@@ -1292,9 +1596,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, checked: bool) callconv(.c) void `
     ///
-    pub fn OnClicked1(self: QCheckBox, callback: *const fn (QCheckBox, bool) callconv(.c) void) void {
+    pub fn onClicked1(self: QCheckBox, callback: *const fn (QCheckBox, bool) callconv(.c) void) void {
         qtc.QAbstractButton_Connect_Clicked1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -1304,9 +1612,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn WinId(self: QCheckBox) usize {
+    pub fn winId(self: QCheckBox) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -1316,9 +1628,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn CreateWinId(self: QCheckBox) void {
+    pub fn createWinId(self: QCheckBox) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -1328,9 +1644,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn InternalWinId(self: QCheckBox) usize {
+    pub fn internalWinId(self: QCheckBox) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -1340,9 +1660,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn EffectiveWinId(self: QCheckBox) usize {
+    pub fn effectiveWinId(self: QCheckBox) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -1352,9 +1676,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn Style(self: QCheckBox) QStyle {
+    pub fn style(self: QCheckBox) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -1364,12 +1692,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: QCheckBox, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: QCheckBox, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -1379,9 +1711,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn IsTopLevel(self: QCheckBox) bool {
+    pub fn isTopLevel(self: QCheckBox) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -1391,9 +1727,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn IsWindow(self: QCheckBox) bool {
+    pub fn isWindow(self: QCheckBox) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -1403,9 +1743,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn IsModal(self: QCheckBox) bool {
+    pub fn isModal(self: QCheckBox) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -1419,9 +1763,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: QCheckBox) i32 {
+    pub fn windowModality(self: QCheckBox) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -1431,11 +1779,15 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: QCheckBox, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: QCheckBox, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1445,9 +1797,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn IsEnabled(self: QCheckBox) bool {
+    pub fn isEnabled(self: QCheckBox) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -1459,10 +1815,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: QCheckBox, param1: anytype) bool {
+    pub fn isEnabledTo(self: QCheckBox, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1474,9 +1834,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: QCheckBox, enabled: bool) void {
+    pub fn setEnabled(self: QCheckBox, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -1488,9 +1852,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: QCheckBox, disabled: bool) void {
+    pub fn setDisabled(self: QCheckBox, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -1502,9 +1870,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: QCheckBox, windowModified: bool) void {
+    pub fn setWindowModified(self: QCheckBox, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1514,9 +1886,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn FrameGeometry(self: QCheckBox) QRect {
+    pub fn frameGeometry(self: QCheckBox) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -1526,9 +1902,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn Geometry(self: QCheckBox) QRect {
+    pub fn geometry(self: QCheckBox) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1538,9 +1918,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn NormalGeometry(self: QCheckBox) QRect {
+    pub fn normalGeometry(self: QCheckBox) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -1550,9 +1934,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn X(self: QCheckBox) i32 {
+    pub fn x(self: QCheckBox) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -1562,9 +1950,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn Y(self: QCheckBox) i32 {
+    pub fn y(self: QCheckBox) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -1574,9 +1966,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn Pos(self: QCheckBox) QPoint {
+    pub fn pos(self: QCheckBox) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -1586,9 +1982,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn FrameSize(self: QCheckBox) QSize {
+    pub fn frameSize(self: QCheckBox) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -1598,9 +1998,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn Size(self: QCheckBox) QSize {
+    pub fn size(self: QCheckBox) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -1610,9 +2014,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn Width(self: QCheckBox) i32 {
+    pub fn width(self: QCheckBox) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -1622,9 +2030,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn Height(self: QCheckBox) i32 {
+    pub fn height(self: QCheckBox) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -1634,9 +2046,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn Rect(self: QCheckBox) QRect {
+    pub fn rect(self: QCheckBox) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -1646,9 +2062,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn ChildrenRect(self: QCheckBox) QRect {
+    pub fn childrenRect(self: QCheckBox) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -1658,9 +2078,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn ChildrenRegion(self: QCheckBox) QRegion {
+    pub fn childrenRegion(self: QCheckBox) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1670,9 +2094,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn MinimumSize(self: QCheckBox) QSize {
+    pub fn minimumSize(self: QCheckBox) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1682,9 +2110,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn MaximumSize(self: QCheckBox) QSize {
+    pub fn maximumSize(self: QCheckBox) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1694,9 +2126,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn MinimumWidth(self: QCheckBox) i32 {
+    pub fn minimumWidth(self: QCheckBox) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1706,9 +2142,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn MinimumHeight(self: QCheckBox) i32 {
+    pub fn minimumHeight(self: QCheckBox) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1718,9 +2158,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn MaximumWidth(self: QCheckBox) i32 {
+    pub fn maximumWidth(self: QCheckBox) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1730,9 +2174,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn MaximumHeight(self: QCheckBox) i32 {
+    pub fn maximumHeight(self: QCheckBox) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1742,12 +2190,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: QCheckBox, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: QCheckBox, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1761,9 +2213,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: QCheckBox, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: QCheckBox, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1773,12 +2229,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: QCheckBox, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: QCheckBox, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1792,9 +2252,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: QCheckBox, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: QCheckBox, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1806,9 +2270,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: QCheckBox, minw: i32) void {
+    pub fn setMinimumWidth(self: QCheckBox, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1820,9 +2288,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: QCheckBox, minh: i32) void {
+    pub fn setMinimumHeight(self: QCheckBox, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1834,9 +2306,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: QCheckBox, maxw: i32) void {
+    pub fn setMaximumWidth(self: QCheckBox, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1848,9 +2324,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: QCheckBox, maxh: i32) void {
+    pub fn setMaximumHeight(self: QCheckBox, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1860,9 +2340,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn SizeIncrement(self: QCheckBox) QSize {
+    pub fn sizeIncrement(self: QCheckBox) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1872,12 +2356,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: QCheckBox, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: QCheckBox, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -1891,9 +2379,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: QCheckBox, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: QCheckBox, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -1903,9 +2395,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn BaseSize(self: QCheckBox) QSize {
+    pub fn baseSize(self: QCheckBox) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -1915,12 +2411,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: QCheckBox, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: QCheckBox, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -1934,9 +2434,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: QCheckBox, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: QCheckBox, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -1948,10 +2452,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: QCheckBox, fixedSize: anytype) void {
+    pub fn setFixedSize(self: QCheckBox, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -1965,9 +2473,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: QCheckBox, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: QCheckBox, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -1979,9 +2491,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: QCheckBox, w: i32) void {
+    pub fn setFixedWidth(self: QCheckBox, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -1993,9 +2509,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: QCheckBox, h: i32) void {
+    pub fn setFixedHeight(self: QCheckBox, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -2007,11 +2527,15 @@ pub const QCheckBox = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: QCheckBox, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: QCheckBox, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -2022,11 +2546,15 @@ pub const QCheckBox = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: QCheckBox, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: QCheckBox, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -2037,11 +2565,15 @@ pub const QCheckBox = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: QCheckBox, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: QCheckBox, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -2052,11 +2584,15 @@ pub const QCheckBox = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: QCheckBox, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: QCheckBox, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -2067,11 +2603,15 @@ pub const QCheckBox = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: QCheckBox, param1: anytype) QPointF {
+    pub fn mapToParent(self: QCheckBox, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -2082,10 +2622,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: QCheckBox, param1: anytype) QPoint {
+    pub fn mapToParent2(self: QCheckBox, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -2097,10 +2641,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: QCheckBox, param1: anytype) QPointF {
+    pub fn mapFromParent(self: QCheckBox, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -2112,10 +2660,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: QCheckBox, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: QCheckBox, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -2129,12 +2681,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: QCheckBox, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: QCheckBox, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -2147,11 +2703,15 @@ pub const QCheckBox = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: QCheckBox, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: QCheckBox, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -2165,11 +2725,15 @@ pub const QCheckBox = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: QCheckBox, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: QCheckBox, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -2183,11 +2747,15 @@ pub const QCheckBox = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: QCheckBox, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: QCheckBox, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -2197,9 +2765,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn Window(self: QCheckBox) QWidget {
+    pub fn window(self: QCheckBox) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -2209,9 +2781,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn NativeParentWidget(self: QCheckBox) QWidget {
+    pub fn nativeParentWidget(self: QCheckBox) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -2221,9 +2797,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn TopLevelWidget(self: QCheckBox) QWidget {
+    pub fn topLevelWidget(self: QCheckBox) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -2233,9 +2813,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn Palette(self: QCheckBox) QPalette {
+    pub fn palette(self: QCheckBox) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -2245,12 +2829,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: QCheckBox, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: QCheckBox, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2260,11 +2848,15 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: QCheckBox, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: QCheckBox, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2278,9 +2870,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: QCheckBox) i32 {
+    pub fn backgroundRole(self: QCheckBox) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2290,11 +2886,15 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: QCheckBox, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: QCheckBox, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2308,9 +2908,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: QCheckBox) i32 {
+    pub fn foregroundRole(self: QCheckBox) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -2320,9 +2924,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn Font(self: QCheckBox) QFont {
+    pub fn font(self: QCheckBox) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -2332,12 +2940,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: QCheckBox, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: QCheckBox, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -2347,9 +2959,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn FontMetrics(self: QCheckBox) QFontMetrics {
+    pub fn fontMetrics(self: QCheckBox) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -2359,9 +2975,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn FontInfo(self: QCheckBox) QFontInfo {
+    pub fn fontInfo(self: QCheckBox) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -2371,9 +2991,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn Cursor(self: QCheckBox) QCursor {
+    pub fn cursor(self: QCheckBox) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -2383,12 +3007,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: QCheckBox, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: QCheckBox, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -2398,9 +3026,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn UnsetCursor(self: QCheckBox) void {
+    pub fn unsetCursor(self: QCheckBox) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -2412,9 +3044,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: QCheckBox, enable: bool) void {
+    pub fn setMouseTracking(self: QCheckBox, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -2424,9 +3060,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn HasMouseTracking(self: QCheckBox) bool {
+    pub fn hasMouseTracking(self: QCheckBox) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -2436,9 +3076,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn UnderMouse(self: QCheckBox) bool {
+    pub fn underMouse(self: QCheckBox) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2450,9 +3094,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: QCheckBox, enable: bool) void {
+    pub fn setTabletTracking(self: QCheckBox, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2462,24 +3110,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn HasTabletTracking(self: QCheckBox) bool {
+    pub fn hasTabletTracking(self: QCheckBox) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCheckBox `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: QCheckBox, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -2489,12 +3126,35 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: QCheckBox, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: QCheckBox, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QCheckBox `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: QCheckBox, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -2504,9 +3164,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn Mask(self: QCheckBox) QRegion {
+    pub fn mask(self: QCheckBox) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -2516,9 +3180,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn ClearMask(self: QCheckBox) void {
+    pub fn clearMask(self: QCheckBox) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -2530,10 +3198,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: QCheckBox, target: anytype) void {
+    pub fn render(self: QCheckBox, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -2545,10 +3217,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: QCheckBox, painter: anytype) void {
+    pub fn render2(self: QCheckBox, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -2558,9 +3234,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn Grab(self: QCheckBox) QPixmap {
+    pub fn grab(self: QCheckBox) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2570,9 +3250,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn GraphicsEffect(self: QCheckBox) QGraphicsEffect {
+    pub fn graphicsEffect(self: QCheckBox) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2584,10 +3268,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: QCheckBox, effect: anytype) void {
+    pub fn setGraphicsEffect(self: QCheckBox, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2599,9 +3287,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: QCheckBox, typeVal: i32) void {
+    pub fn grabGesture(self: QCheckBox, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2613,9 +3305,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: QCheckBox, typeVal: i32) void {
+    pub fn ungrabGesture(self: QCheckBox, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2625,15 +3321,19 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: QCheckBox, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: QCheckBox, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2643,15 +3343,19 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: QCheckBox, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: QCheckBox, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2663,13 +3367,17 @@ pub const QCheckBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: QCheckBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: QCheckBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCheckBox.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCheckBox.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2681,13 +3389,17 @@ pub const QCheckBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: QCheckBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: QCheckBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCheckBox.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCheckBox.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2697,12 +3409,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: QCheckBox, icon: anytype) void {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
+    pub fn setWindowIcon(self: QCheckBox, _icon: anytype) void {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(_icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2712,9 +3428,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn WindowIcon(self: QCheckBox) QIcon {
+    pub fn windowIcon(self: QCheckBox) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2724,15 +3444,19 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: QCheckBox, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: QCheckBox, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2744,13 +3468,17 @@ pub const QCheckBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: QCheckBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: QCheckBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCheckBox.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCheckBox.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -2760,15 +3488,19 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: QCheckBox, windowRole: []const u8) void {
+    pub fn setWindowRole(self: QCheckBox, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -2780,13 +3512,17 @@ pub const QCheckBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: QCheckBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: QCheckBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCheckBox.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCheckBox.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2798,13 +3534,17 @@ pub const QCheckBox = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: QCheckBox, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: QCheckBox, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2816,13 +3556,17 @@ pub const QCheckBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: QCheckBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: QCheckBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCheckBox.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCheckBox.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2834,9 +3578,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: QCheckBox, level: f64) void {
+    pub fn setWindowOpacity(self: QCheckBox, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2846,9 +3594,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn WindowOpacity(self: QCheckBox) f64 {
+    pub fn windowOpacity(self: QCheckBox) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -2858,9 +3610,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn IsWindowModified(self: QCheckBox) bool {
+    pub fn isWindowModified(self: QCheckBox) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -2870,15 +3626,19 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: QCheckBox, toolTip: []const u8) void {
+    pub fn setToolTip(self: QCheckBox, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -2890,13 +3650,17 @@ pub const QCheckBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: QCheckBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: QCheckBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCheckBox.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCheckBox.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2908,9 +3672,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: QCheckBox, msec: i32) void {
+    pub fn setToolTipDuration(self: QCheckBox, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2920,9 +3688,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn ToolTipDuration(self: QCheckBox) i32 {
+    pub fn toolTipDuration(self: QCheckBox) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -2932,15 +3704,19 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: QCheckBox, statusTip: []const u8) void {
+    pub fn setStatusTip(self: QCheckBox, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -2952,13 +3728,17 @@ pub const QCheckBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: QCheckBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: QCheckBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCheckBox.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCheckBox.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2968,15 +3748,19 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: QCheckBox, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: QCheckBox, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2988,13 +3772,17 @@ pub const QCheckBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: QCheckBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: QCheckBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCheckBox.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCheckBox.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -3006,13 +3794,17 @@ pub const QCheckBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: QCheckBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: QCheckBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCheckBox.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCheckBox.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -3024,13 +3816,17 @@ pub const QCheckBox = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: QCheckBox, name: []const u8) void {
+    pub fn setAccessibleName(self: QCheckBox, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -3042,13 +3838,17 @@ pub const QCheckBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: QCheckBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: QCheckBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCheckBox.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCheckBox.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -3060,13 +3860,17 @@ pub const QCheckBox = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: QCheckBox, description: []const u8) void {
+    pub fn setAccessibleDescription(self: QCheckBox, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3078,9 +3882,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: QCheckBox, direction: i32) void {
+    pub fn setLayoutDirection(self: QCheckBox, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3094,9 +3902,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: QCheckBox) i32 {
+    pub fn layoutDirection(self: QCheckBox) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3106,9 +3918,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn UnsetLayoutDirection(self: QCheckBox) void {
+    pub fn unsetLayoutDirection(self: QCheckBox) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -3118,12 +3934,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: QCheckBox, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: QCheckBox, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -3133,9 +3953,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn Locale(self: QCheckBox) QLocale {
+    pub fn locale(self: QCheckBox) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -3145,9 +3969,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn UnsetLocale(self: QCheckBox) void {
+    pub fn unsetLocale(self: QCheckBox) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -3157,9 +3985,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn IsRightToLeft(self: QCheckBox) bool {
+    pub fn isRightToLeft(self: QCheckBox) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -3169,9 +4001,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn IsLeftToRight(self: QCheckBox) bool {
+    pub fn isLeftToRight(self: QCheckBox) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -3181,9 +4017,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn SetFocus(self: QCheckBox) void {
+    pub fn setFocus(self: QCheckBox) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -3193,9 +4033,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn IsActiveWindow(self: QCheckBox) bool {
+    pub fn isActiveWindow(self: QCheckBox) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -3205,9 +4049,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn ActivateWindow(self: QCheckBox) void {
+    pub fn activateWindow(self: QCheckBox) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -3217,9 +4065,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn ClearFocus(self: QCheckBox) void {
+    pub fn clearFocus(self: QCheckBox) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -3231,9 +4083,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: QCheckBox, reason: i32) void {
+    pub fn setFocus2(self: QCheckBox, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3247,9 +4103,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: QCheckBox) i32 {
+    pub fn focusPolicy(self: QCheckBox) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3261,9 +4121,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: QCheckBox, policy: i32) void {
+    pub fn setFocusPolicy(self: QCheckBox, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -3273,9 +4137,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn HasFocus(self: QCheckBox) bool {
+    pub fn hasFocus(self: QCheckBox) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -3287,11 +4155,15 @@ pub const QCheckBox = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -3301,12 +4173,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: QCheckBox, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: QCheckBox, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -3316,9 +4192,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn FocusProxy(self: QCheckBox) QWidget {
+    pub fn focusProxy(self: QCheckBox) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3332,9 +4212,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: QCheckBox) i32 {
+    pub fn contextMenuPolicy(self: QCheckBox) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3346,9 +4230,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: QCheckBox, policy: i32) void {
+    pub fn setContextMenuPolicy(self: QCheckBox, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -3358,9 +4246,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn GrabMouse(self: QCheckBox) void {
+    pub fn grabMouse(self: QCheckBox) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -3372,10 +4264,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: QCheckBox, param1: anytype) void {
+    pub fn grabMouse2(self: QCheckBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -3385,9 +4281,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn ReleaseMouse(self: QCheckBox) void {
+    pub fn releaseMouse(self: QCheckBox) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -3397,9 +4297,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn GrabKeyboard(self: QCheckBox) void {
+    pub fn grabKeyboard(self: QCheckBox) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -3409,9 +4313,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn ReleaseKeyboard(self: QCheckBox) void {
+    pub fn releaseKeyboard(self: QCheckBox) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3423,10 +4331,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: QCheckBox, key: anytype) i32 {
+    pub fn grabShortcut(self: QCheckBox, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3438,9 +4350,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: QCheckBox, id: i32) void {
+    pub fn releaseShortcut(self: QCheckBox, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3452,9 +4368,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: QCheckBox, id: i32) void {
+    pub fn setShortcutEnabled(self: QCheckBox, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -3466,25 +4386,37 @@ pub const QCheckBox = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: QCheckBox, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: QCheckBox, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3494,9 +4426,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn UpdatesEnabled(self: QCheckBox) bool {
+    pub fn updatesEnabled(self: QCheckBox) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3508,9 +4444,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: QCheckBox, enable: bool) void {
+    pub fn setUpdatesEnabled(self: QCheckBox, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -3520,9 +4460,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn GraphicsProxyWidget(self: QCheckBox) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: QCheckBox) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -3532,9 +4476,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn Update(self: QCheckBox) void {
+    pub fn update(self: QCheckBox) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -3544,9 +4492,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn Repaint(self: QCheckBox) void {
+    pub fn repaint(self: QCheckBox) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -3556,17 +4508,21 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: QCheckBox, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: QCheckBox, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -3578,11 +4534,15 @@ pub const QCheckBox = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: QCheckBox, param1: anytype) void {
+    pub fn update3(self: QCheckBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -3593,10 +4553,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: QCheckBox, param1: anytype) void {
+    pub fn update4(self: QCheckBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -3606,17 +4570,21 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: QCheckBox, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: QCheckBox, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -3628,10 +4596,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: QCheckBox, param1: anytype) void {
+    pub fn repaint3(self: QCheckBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -3643,10 +4615,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: QCheckBox, param1: anytype) void {
+    pub fn repaint4(self: QCheckBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -3658,9 +4634,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: QCheckBox, hidden: bool) void {
+    pub fn setHidden(self: QCheckBox, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -3670,9 +4650,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn Show(self: QCheckBox) void {
+    pub fn show(self: QCheckBox) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -3682,9 +4666,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn Hide(self: QCheckBox) void {
+    pub fn hide(self: QCheckBox) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3694,9 +4682,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn ShowMinimized(self: QCheckBox) void {
+    pub fn showMinimized(self: QCheckBox) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3706,9 +4698,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn ShowMaximized(self: QCheckBox) void {
+    pub fn showMaximized(self: QCheckBox) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3718,9 +4714,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn ShowFullScreen(self: QCheckBox) void {
+    pub fn showFullScreen(self: QCheckBox) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -3730,9 +4730,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn ShowNormal(self: QCheckBox) void {
+    pub fn showNormal(self: QCheckBox) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -3742,9 +4746,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn Close(self: QCheckBox) bool {
+    pub fn close(self: QCheckBox) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -3754,9 +4762,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn Raise(self: QCheckBox) void {
+    pub fn raise(self: QCheckBox) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -3766,9 +4778,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn Lower(self: QCheckBox) void {
+    pub fn lower(self: QCheckBox) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -3780,10 +4796,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: QCheckBox, param1: anytype) void {
+    pub fn stackUnder(self: QCheckBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -3793,13 +4813,17 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: QCheckBox, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: QCheckBox, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -3811,10 +4835,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: QCheckBox, param1: anytype) void {
+    pub fn move2(self: QCheckBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -3828,9 +4856,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: QCheckBox, w: i32, h: i32) void {
+    pub fn resize(self: QCheckBox, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -3842,10 +4874,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: QCheckBox, param1: anytype) void {
+    pub fn resize2(self: QCheckBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3855,17 +4891,21 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: QCheckBox, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: QCheckBox, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -3875,12 +4915,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: QCheckBox, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: QCheckBox, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3892,13 +4936,17 @@ pub const QCheckBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: QCheckBox, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: QCheckBox, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QCheckBox.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QCheckBox.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3908,15 +4956,19 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: QCheckBox, geometry: []u8) bool {
+    pub fn restoreGeometry(self: QCheckBox, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -3926,9 +4978,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn AdjustSize(self: QCheckBox) void {
+    pub fn adjustSize(self: QCheckBox) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -3938,9 +4994,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn IsVisible(self: QCheckBox) bool {
+    pub fn isVisible(self: QCheckBox) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -3952,10 +5012,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: QCheckBox, param1: anytype) bool {
+    pub fn isVisibleTo(self: QCheckBox, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -3965,9 +5029,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn IsHidden(self: QCheckBox) bool {
+    pub fn isHidden(self: QCheckBox) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3977,9 +5045,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn IsMinimized(self: QCheckBox) bool {
+    pub fn isMinimized(self: QCheckBox) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3989,9 +5061,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn IsMaximized(self: QCheckBox) bool {
+    pub fn isMaximized(self: QCheckBox) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -4001,9 +5077,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn IsFullScreen(self: QCheckBox) bool {
+    pub fn isFullScreen(self: QCheckBox) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -4017,9 +5097,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: QCheckBox) i32 {
+    pub fn windowState(self: QCheckBox) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -4031,9 +5115,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: QCheckBox, state: i32) void {
+    pub fn setWindowState(self: QCheckBox, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -4045,9 +5133,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: QCheckBox, state: i32) void {
+    pub fn overrideWindowState(self: QCheckBox, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -4057,9 +5149,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn SizePolicy(self: QCheckBox) QSizePolicy {
+    pub fn sizePolicy(self: QCheckBox) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -4069,12 +5165,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: QCheckBox, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: QCheckBox, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -4088,9 +5188,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: QCheckBox, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: QCheckBox, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -4100,9 +5204,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn VisibleRegion(self: QCheckBox) QRegion {
+    pub fn visibleRegion(self: QCheckBox) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -4120,9 +5228,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: QCheckBox, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: QCheckBox, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -4134,10 +5246,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: QCheckBox, margins: anytype) void {
+    pub fn setContentsMargins2(self: QCheckBox, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -4147,9 +5263,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn ContentsMargins(self: QCheckBox) QMargins {
+    pub fn contentsMargins(self: QCheckBox) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -4159,9 +5279,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn ContentsRect(self: QCheckBox) QRect {
+    pub fn contentsRect(self: QCheckBox) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -4171,9 +5295,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn Layout(self: QCheckBox) QLayout {
+    pub fn layout(self: QCheckBox) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -4183,12 +5311,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: QCheckBox, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: QCheckBox, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4198,24 +5330,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn UpdateGeometry(self: QCheckBox) void {
+    pub fn updateGeometry(self: QCheckBox) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCheckBox `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: QCheckBox, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -4225,14 +5346,37 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: QCheckBox, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QCheckBox `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: QCheckBox, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: QCheckBox, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -4246,9 +5390,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: QCheckBox, dx: i32, dy: i32) void {
+    pub fn scroll(self: QCheckBox, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -4264,10 +5412,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: QCheckBox, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: QCheckBox, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -4277,9 +5429,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn FocusWidget(self: QCheckBox) QWidget {
+    pub fn focusWidget(self: QCheckBox) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -4289,9 +5445,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn NextInFocusChain(self: QCheckBox) QWidget {
+    pub fn nextInFocusChain(self: QCheckBox) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -4301,9 +5461,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn PreviousInFocusChain(self: QCheckBox) QWidget {
+    pub fn previousInFocusChain(self: QCheckBox) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -4313,9 +5477,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn AcceptDrops(self: QCheckBox) bool {
+    pub fn acceptDrops(self: QCheckBox) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -4327,9 +5495,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: QCheckBox, on: bool) void {
+    pub fn setAcceptDrops(self: QCheckBox, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -4341,10 +5513,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: QCheckBox, action: anytype) void {
+    pub fn addAction(self: QCheckBox, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -4354,15 +5530,19 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: QCheckBox, actions: []QAction) void {
+    pub fn addActions(self: QCheckBox, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -4374,16 +5554,20 @@ pub const QCheckBox = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: QCheckBox, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: QCheckBox, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -4397,11 +5581,15 @@ pub const QCheckBox = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: QCheckBox, before: anytype, action: anytype) void {
+    pub fn insertAction(self: QCheckBox, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -4413,10 +5601,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: QCheckBox, action: anytype) void {
+    pub fn removeAction(self: QCheckBox, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -4428,15 +5620,19 @@ pub const QCheckBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: QCheckBox, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: QCheckBox, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QCheckBox.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QCheckBox.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -4446,36 +5642,19 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn AddAction2(self: QCheckBox, text: []const u8) QAction {
+    pub fn addAction2(self: QCheckBox, _text: []const u8) QAction {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `addAction3` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCheckBox `
-    ///
-    /// ` icon: QIcon `
-    ///
-    /// ` text: []const u8 `
-    ///
-    pub fn AddAction3(self: QCheckBox, icon: anytype, text: []const u8) QAction {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
-        };
-        return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
-    }
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -4485,18 +5664,22 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` text: []const u8 `
+    /// ` _icon: QIcon `
     ///
-    /// ` shortcut: QKeySequence `
+    /// ` _text: []const u8 `
     ///
-    pub fn AddAction4(self: QCheckBox, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction3(self: QCheckBox, _icon: anytype, _text: []const u8) QAction {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
-        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
-        return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
+        return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(_icon.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
 
     /// Inherited from QWidget
     ///
@@ -4506,21 +5689,50 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` icon: QIcon `
+    /// ` _text: []const u8 `
     ///
-    /// ` text: []const u8 `
+    /// ` _shortcut: QKeySequence `
     ///
-    /// ` shortcut: QKeySequence `
-    ///
-    pub fn AddAction5(self: QCheckBox, icon: anytype, text: []const u8, shortcut: anytype) QAction {
-        comptime _ = @TypeOf(icon)._is_QIcon;
+    pub fn addAction4(self: QCheckBox, _text: []const u8, _shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
-        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
-        return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
+        comptime _ = @TypeOf(_shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(_shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QCheckBox `
+    ///
+    /// ` _icon: QIcon `
+    ///
+    /// ` _text: []const u8 `
+    ///
+    /// ` _shortcut: QKeySequence `
+    ///
+    pub fn addAction5(self: QCheckBox, _icon: anytype, _text: []const u8, _shortcut: anytype) QAction {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        const text_str = qtc.libqt_string{
+            .len = _text.len,
+            .data = _text.ptr,
+        };
+        comptime _ = @TypeOf(_shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(_icon.ptr), text_str, @ptrCast(_shortcut.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
 
     /// Inherited from QWidget
     ///
@@ -4530,9 +5742,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn ParentWidget(self: QCheckBox) QWidget {
+    pub fn parentWidget(self: QCheckBox) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4544,9 +5760,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: QCheckBox, typeVal: i32) void {
+    pub fn setWindowFlags(self: QCheckBox, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4560,9 +5780,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: QCheckBox) i32 {
+    pub fn windowFlags(self: QCheckBox) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -4574,9 +5798,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: QCheckBox, param1: i32) void {
+    pub fn setWindowFlag(self: QCheckBox, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4588,9 +5816,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: QCheckBox, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: QCheckBox, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -4604,9 +5836,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: QCheckBox) i32 {
+    pub fn windowType(self: QCheckBox) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -4616,9 +5852,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -4628,13 +5868,17 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: QCheckBox, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: QCheckBox, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -4646,10 +5890,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: QCheckBox, p: anytype) QWidget {
+    pub fn childAt2(self: QCheckBox, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -4661,10 +5909,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: QCheckBox, p: anytype) QWidget {
+    pub fn childAt3(self: QCheckBox, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4676,9 +5928,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: QCheckBox, param1: i32) void {
+    pub fn setAttribute(self: QCheckBox, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4690,9 +5946,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: QCheckBox, param1: i32) bool {
+    pub fn testAttribute(self: QCheckBox, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -4702,9 +5962,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn EnsurePolished(self: QCheckBox) void {
+    pub fn ensurePolished(self: QCheckBox) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -4716,10 +5980,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: QCheckBox, child: anytype) bool {
+    pub fn isAncestorOf(self: QCheckBox, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4729,9 +5997,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn AutoFillBackground(self: QCheckBox) bool {
+    pub fn autoFillBackground(self: QCheckBox) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4743,9 +6015,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: QCheckBox, enabled: bool) void {
+    pub fn setAutoFillBackground(self: QCheckBox, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -4755,9 +6031,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn BackingStore(self: QCheckBox) QBackingStore {
+    pub fn backingStore(self: QCheckBox) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -4767,9 +6047,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn WindowHandle(self: QCheckBox) QWindow {
+    pub fn windowHandle(self: QCheckBox) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -4779,9 +6063,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn Screen(self: QCheckBox) QScreen {
+    pub fn screen(self: QCheckBox) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -4791,12 +6079,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: QCheckBox, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: QCheckBox, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -4804,12 +6096,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4821,13 +6117,17 @@ pub const QCheckBox = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: QCheckBox, title: []const u8) void {
+    pub fn windowTitleChanged(self: QCheckBox, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4839,9 +6139,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: QCheckBox, callback: *const fn (QCheckBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: QCheckBox, callback: *const fn (QCheckBox, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4851,12 +6155,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: QCheckBox, icon: anytype) void {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
+    pub fn windowIconChanged(self: QCheckBox, _icon: anytype) void {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(_icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4868,9 +6176,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: QCheckBox, callback: *const fn (QCheckBox, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: QCheckBox, callback: *const fn (QCheckBox, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4882,13 +6194,17 @@ pub const QCheckBox = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: QCheckBox, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: QCheckBox, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4900,9 +6216,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: QCheckBox, callback: *const fn (QCheckBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: QCheckBox, callback: *const fn (QCheckBox, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4912,12 +6232,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: QCheckBox, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: QCheckBox, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4929,9 +6253,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: QCheckBox, callback: *const fn (QCheckBox, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: QCheckBox, callback: *const fn (QCheckBox, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4945,9 +6273,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: QCheckBox) i32 {
+    pub fn inputMethodHints(self: QCheckBox) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4959,9 +6291,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: QCheckBox, hints: i32) void {
+    pub fn setInputMethodHints(self: QCheckBox, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -4975,11 +6311,15 @@ pub const QCheckBox = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: QCheckBox, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: QCheckBox, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -4995,13 +6335,17 @@ pub const QCheckBox = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: QCheckBox, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: QCheckBox, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -5018,12 +6362,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: QCheckBox, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: QCheckBox, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -5037,11 +6385,15 @@ pub const QCheckBox = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: QCheckBox, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: QCheckBox, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -5057,12 +6409,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: QCheckBox, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: QCheckBox, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -5080,12 +6436,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: QCheckBox, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: QCheckBox, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -5097,10 +6457,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: QCheckBox, rectangle: anytype) QPixmap {
+    pub fn grab1(self: QCheckBox, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -5114,9 +6478,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: QCheckBox, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: QCheckBox, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -5130,10 +6498,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: QCheckBox, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: QCheckBox, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -5147,9 +6519,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: QCheckBox, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: QCheckBox, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -5163,9 +6539,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: QCheckBox, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: QCheckBox, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -5179,9 +6559,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: QCheckBox, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: QCheckBox, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -5195,25 +6579,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: QCheckBox, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: QCheckBox, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -5221,17 +6593,41 @@ pub const QCheckBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -5243,13 +6639,17 @@ pub const QCheckBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QCheckBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QCheckBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCheckBox.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCheckBox.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -5261,13 +6661,17 @@ pub const QCheckBox = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QCheckBox, name: []const u8) void {
+    pub fn setObjectName(self: QCheckBox, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -5277,9 +6681,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn IsWidgetType(self: QCheckBox) bool {
+    pub fn isWidgetType(self: QCheckBox) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -5289,9 +6697,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn IsWindowType(self: QCheckBox) bool {
+    pub fn isWindowType(self: QCheckBox) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -5301,9 +6713,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn IsQuickItemType(self: QCheckBox) bool {
+    pub fn isQuickItemType(self: QCheckBox) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -5313,9 +6729,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn SignalsBlocked(self: QCheckBox) bool {
+    pub fn signalsBlocked(self: QCheckBox) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -5327,9 +6747,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QCheckBox, b: bool) bool {
+    pub fn blockSignals(self: QCheckBox, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -5339,9 +6763,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn Thread(self: QCheckBox) QThread {
+    pub fn thread(self: QCheckBox) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -5351,12 +6779,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QCheckBox, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QCheckBox, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -5368,9 +6800,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QCheckBox, interval: i32) i32 {
+    pub fn startTimer(self: QCheckBox, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -5382,9 +6818,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QCheckBox, time: i64) i32 {
+    pub fn startTimer2(self: QCheckBox, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -5396,9 +6836,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QCheckBox, id: i32) void {
+    pub fn killTimer(self: QCheckBox, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -5410,9 +6854,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QCheckBox, id: i32) void {
+    pub fn killTimer2(self: QCheckBox, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -5424,15 +6872,19 @@ pub const QCheckBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QCheckBox, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QCheckBox, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QCheckBox.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QCheckBox.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5444,10 +6896,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QCheckBox, filterObj: anytype) void {
+    pub fn installEventFilter(self: QCheckBox, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5459,10 +6915,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QCheckBox, obj: anytype) void {
+    pub fn removeEventFilter(self: QCheckBox, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -5470,7 +6930,7 @@ pub const QCheckBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5478,13 +6938,17 @@ pub const QCheckBox = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -5492,7 +6956,7 @@ pub const QCheckBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5500,13 +6964,17 @@ pub const QCheckBox = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -5516,18 +6984,22 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QCheckBox, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QCheckBox, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -5535,7 +7007,7 @@ pub const QCheckBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5543,13 +7015,17 @@ pub const QCheckBox = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -5557,7 +7033,7 @@ pub const QCheckBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5565,13 +7041,17 @@ pub const QCheckBox = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -5581,9 +7061,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn Disconnect3(self: QCheckBox) bool {
+    pub fn disconnect3(self: QCheckBox) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -5595,10 +7079,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QCheckBox, receiver: anytype) bool {
+    pub fn disconnect4(self: QCheckBox, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -5608,10 +7096,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -5621,9 +7113,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn DumpObjectTree(self: QCheckBox) void {
+    pub fn dumpObjectTree(self: QCheckBox) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -5633,9 +7129,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn DumpObjectInfo(self: QCheckBox) void {
+    pub fn dumpObjectInfo(self: QCheckBox) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -5649,11 +7149,15 @@ pub const QCheckBox = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QCheckBox, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QCheckBox, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -5665,10 +7169,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QCheckBox, name: [:0]const u8) QVariant {
+    pub fn property(self: QCheckBox, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -5680,7 +7188,7 @@ pub const QCheckBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QCheckBox, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QCheckBox, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -5688,27 +7196,19 @@ pub const QCheckBox = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCheckBox.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCheckBox.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCheckBox.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QCheckBox.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCheckBox `
-    ///
-    pub fn BindingStorage(self: QCheckBox) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -5718,9 +7218,29 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn BindingStorage2(self: QCheckBox) QBindingStorage {
+    pub fn bindingStorage(self: QCheckBox) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QCheckBox `
+    ///
+    pub fn bindingStorage2(self: QCheckBox) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -5730,9 +7250,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn Destroyed(self: QCheckBox) void {
+    pub fn destroyed(self: QCheckBox) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -5744,9 +7268,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QCheckBox, callback: *const fn (QCheckBox) callconv(.c) void) void {
+    pub fn onDestroyed(self: QCheckBox, callback: *const fn (QCheckBox) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -5756,9 +7284,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn Parent(self: QCheckBox) QObject {
+    pub fn parent(self: QCheckBox) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -5770,10 +7302,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QCheckBox, classname: [:0]const u8) bool {
+    pub fn inherits(self: QCheckBox, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -5783,9 +7319,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn DeleteLater(self: QCheckBox) void {
+    pub fn deleteLater(self: QCheckBox) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -5799,9 +7339,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QCheckBox, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QCheckBox, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -5815,9 +7359,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QCheckBox, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QCheckBox, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -5825,7 +7373,7 @@ pub const QCheckBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5835,13 +7383,17 @@ pub const QCheckBox = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -5849,7 +7401,7 @@ pub const QCheckBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5859,13 +7411,17 @@ pub const QCheckBox = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -5875,7 +7431,7 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5883,12 +7439,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QCheckBox, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QCheckBox, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -5900,10 +7460,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QCheckBox, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QCheckBox, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -5917,11 +7481,15 @@ pub const QCheckBox = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QCheckBox, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QCheckBox, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -5937,13 +7505,17 @@ pub const QCheckBox = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QCheckBox, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QCheckBox, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -5956,11 +7528,15 @@ pub const QCheckBox = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QCheckBox, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QCheckBox, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -5972,10 +7548,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QCheckBox, param1: anytype) void {
+    pub fn destroyed1(self: QCheckBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -5987,9 +7567,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QCheckBox, callback: *const fn (QCheckBox, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QCheckBox, callback: *const fn (QCheckBox, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -5999,9 +7583,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn PaintingActive(self: QCheckBox) bool {
+    pub fn paintingActive(self: QCheckBox) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -6011,9 +7599,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn WidthMM(self: QCheckBox) i32 {
+    pub fn widthMM(self: QCheckBox) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -6023,9 +7615,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn HeightMM(self: QCheckBox) i32 {
+    pub fn heightMM(self: QCheckBox) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -6035,9 +7631,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn LogicalDpiX(self: QCheckBox) i32 {
+    pub fn logicalDpiX(self: QCheckBox) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -6047,9 +7647,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn LogicalDpiY(self: QCheckBox) i32 {
+    pub fn logicalDpiY(self: QCheckBox) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -6059,9 +7663,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn PhysicalDpiX(self: QCheckBox) i32 {
+    pub fn physicalDpiX(self: QCheckBox) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -6071,9 +7679,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn PhysicalDpiY(self: QCheckBox) i32 {
+    pub fn physicalDpiY(self: QCheckBox) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -6083,9 +7695,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn DevicePixelRatio(self: QCheckBox) f64 {
+    pub fn devicePixelRatio(self: QCheckBox) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -6095,9 +7711,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn DevicePixelRatioF(self: QCheckBox) f64 {
+    pub fn devicePixelRatioF(self: QCheckBox) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -6107,9 +7727,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn ColorCount(self: QCheckBox) i32 {
+    pub fn colorCount(self: QCheckBox) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -6119,17 +7743,25 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn Depth(self: QCheckBox) i32 {
+    pub fn depth(self: QCheckBox) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -6137,13 +7769,17 @@ pub const QCheckBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6157,14 +7793,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: QCheckBox, e: anytype) void {
+    pub fn keyPressEvent(self: QCheckBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.QCheckBox_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6178,11 +7814,15 @@ pub const QCheckBox = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: QCheckBox, e: anytype) void {
+    pub fn superKeyPressEvent(self: QCheckBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.QCheckBox_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
+
     /// Inherited from QAbstractButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbutton.html#keyPressEvent)
@@ -6195,9 +7835,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, e: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: QCheckBox, callback: *const fn (QCheckBox, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: QCheckBox, callback: *const fn (QCheckBox, QKeyEvent) callconv(.c) void) void {
         qtc.QCheckBox_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6211,14 +7855,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: QCheckBox, e: anytype) void {
+    pub fn keyReleaseEvent(self: QCheckBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.QCheckBox_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6232,10 +7876,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: QCheckBox, e: anytype) void {
+    pub fn superKeyReleaseEvent(self: QCheckBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.QCheckBox_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6249,9 +7897,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, e: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: QCheckBox, callback: *const fn (QCheckBox, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: QCheckBox, callback: *const fn (QCheckBox, QKeyEvent) callconv(.c) void) void {
         qtc.QCheckBox_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6265,14 +7917,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: QCheckBox, e: anytype) void {
+    pub fn mousePressEvent(self: QCheckBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.QCheckBox_MousePressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6286,11 +7938,15 @@ pub const QCheckBox = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: QCheckBox, e: anytype) void {
+    pub fn superMousePressEvent(self: QCheckBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.QCheckBox_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
+
     /// Inherited from QAbstractButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbutton.html#mousePressEvent)
@@ -6303,9 +7959,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, e: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: QCheckBox, callback: *const fn (QCheckBox, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: QCheckBox, callback: *const fn (QCheckBox, QMouseEvent) callconv(.c) void) void {
         qtc.QCheckBox_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6319,14 +7979,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: QCheckBox, e: anytype) void {
+    pub fn mouseReleaseEvent(self: QCheckBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.QCheckBox_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6340,10 +8000,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: QCheckBox, e: anytype) void {
+    pub fn superMouseReleaseEvent(self: QCheckBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.QCheckBox_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6357,9 +8021,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, e: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: QCheckBox, callback: *const fn (QCheckBox, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: QCheckBox, callback: *const fn (QCheckBox, QMouseEvent) callconv(.c) void) void {
         qtc.QCheckBox_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6373,14 +8041,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` e: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: QCheckBox, e: anytype) void {
+    pub fn focusInEvent(self: QCheckBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QFocusEvent;
         qtc.QCheckBox_FocusInEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6394,11 +8062,15 @@ pub const QCheckBox = extern struct {
     ///
     /// ` e: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: QCheckBox, e: anytype) void {
+    pub fn superFocusInEvent(self: QCheckBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QFocusEvent;
         qtc.QCheckBox_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
+
     /// Inherited from QAbstractButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbutton.html#focusInEvent)
@@ -6411,9 +8083,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, e: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: QCheckBox, callback: *const fn (QCheckBox, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: QCheckBox, callback: *const fn (QCheckBox, QFocusEvent) callconv(.c) void) void {
         qtc.QCheckBox_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6427,14 +8103,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` e: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: QCheckBox, e: anytype) void {
+    pub fn focusOutEvent(self: QCheckBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QFocusEvent;
         qtc.QCheckBox_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6448,10 +8124,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` e: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: QCheckBox, e: anytype) void {
+    pub fn superFocusOutEvent(self: QCheckBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QFocusEvent;
         qtc.QCheckBox_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6465,9 +8145,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, e: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: QCheckBox, callback: *const fn (QCheckBox, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: QCheckBox, callback: *const fn (QCheckBox, QFocusEvent) callconv(.c) void) void {
         qtc.QCheckBox_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6481,14 +8165,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn ChangeEvent(self: QCheckBox, e: anytype) void {
+    pub fn changeEvent(self: QCheckBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QEvent;
         qtc.QCheckBox_ChangeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6502,10 +8186,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn SuperChangeEvent(self: QCheckBox, e: anytype) void {
+    pub fn superChangeEvent(self: QCheckBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QEvent;
         qtc.QCheckBox_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6519,9 +8207,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, e: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: QCheckBox, callback: *const fn (QCheckBox, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: QCheckBox, callback: *const fn (QCheckBox, QEvent) callconv(.c) void) void {
         qtc.QCheckBox_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6535,14 +8227,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` e: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QCheckBox, e: anytype) void {
+    pub fn timerEvent(self: QCheckBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QTimerEvent;
         qtc.QCheckBox_TimerEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6556,10 +8248,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` e: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QCheckBox, e: anytype) void {
+    pub fn superTimerEvent(self: QCheckBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QTimerEvent;
         qtc.QCheckBox_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6573,9 +8269,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, e: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QCheckBox, callback: *const fn (QCheckBox, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QCheckBox, callback: *const fn (QCheckBox, QTimerEvent) callconv(.c) void) void {
         qtc.QCheckBox_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -6587,13 +8287,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn DevType(self: QCheckBox) i32 {
+    pub fn devType(self: QCheckBox) i32 {
         return qtc.QCheckBox_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -6605,9 +8305,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn SuperDevType(self: QCheckBox) i32 {
+    pub fn superDevType(self: QCheckBox) i32 {
         return qtc.QCheckBox_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -6621,9 +8325,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: QCheckBox, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QCheckBox, callback: *const fn () callconv(.c) i32) void {
         qtc.QCheckBox_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -6637,13 +8345,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: QCheckBox, visible: bool) void {
+    pub fn setVisible(self: QCheckBox, visible: bool) void {
         qtc.QCheckBox_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -6657,9 +8365,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: QCheckBox, visible: bool) void {
+    pub fn superSetVisible(self: QCheckBox, visible: bool) void {
         qtc.QCheckBox_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -6673,9 +8385,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: QCheckBox, callback: *const fn (QCheckBox, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: QCheckBox, callback: *const fn (QCheckBox, bool) callconv(.c) void) void {
         qtc.QCheckBox_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6689,13 +8405,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: QCheckBox, param1: i32) i32 {
+    pub fn heightForWidth(self: QCheckBox, param1: i32) i32 {
         return qtc.QCheckBox_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6709,9 +8425,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: QCheckBox, param1: i32) i32 {
+    pub fn superHeightForWidth(self: QCheckBox, param1: i32) i32 {
         return qtc.QCheckBox_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6725,9 +8445,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: QCheckBox, callback: *const fn (QCheckBox, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: QCheckBox, callback: *const fn (QCheckBox, i32) callconv(.c) i32) void {
         qtc.QCheckBox_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6739,13 +8463,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn HasHeightForWidth(self: QCheckBox) bool {
+    pub fn hasHeightForWidth(self: QCheckBox) bool {
         return qtc.QCheckBox_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6757,9 +8481,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn SuperHasHeightForWidth(self: QCheckBox) bool {
+    pub fn superHasHeightForWidth(self: QCheckBox) bool {
         return qtc.QCheckBox_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6773,9 +8501,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: QCheckBox, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QCheckBox, callback: *const fn () callconv(.c) bool) void {
         qtc.QCheckBox_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6787,13 +8519,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn PaintEngine(self: QCheckBox) QPaintEngine {
+    pub fn paintEngine(self: QCheckBox) QPaintEngine {
         return .{ .ptr = qtc.QCheckBox_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6805,9 +8537,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn SuperPaintEngine(self: QCheckBox) QPaintEngine {
+    pub fn superPaintEngine(self: QCheckBox) QPaintEngine {
         return .{ .ptr = qtc.QCheckBox_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6821,9 +8557,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: QCheckBox, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QCheckBox, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.QCheckBox_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -6835,16 +8575,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: QCheckBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QCheckBox_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: QCheckBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QCheckBox_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -6856,12 +8596,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: QCheckBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QCheckBox_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: QCheckBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QCheckBox_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -6875,9 +8619,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: QCheckBox, callback: *const fn (QCheckBox, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: QCheckBox, callback: *const fn (QCheckBox, QMouseEvent) callconv(.c) void) void {
         qtc.QCheckBox_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6889,16 +8637,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: QCheckBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.QCheckBox_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn wheelEvent(self: QCheckBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.QCheckBox_WheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6910,12 +8658,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: QCheckBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.QCheckBox_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superWheelEvent(self: QCheckBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.QCheckBox_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6929,9 +8681,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: QCheckBox, callback: *const fn (QCheckBox, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: QCheckBox, callback: *const fn (QCheckBox, QWheelEvent) callconv(.c) void) void {
         qtc.QCheckBox_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6943,16 +8699,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: QCheckBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.QCheckBox_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: QCheckBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.QCheckBox_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6964,12 +8720,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: QCheckBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.QCheckBox_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: QCheckBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.QCheckBox_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6983,9 +8743,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: QCheckBox, callback: *const fn (QCheckBox, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: QCheckBox, callback: *const fn (QCheckBox, QEnterEvent) callconv(.c) void) void {
         qtc.QCheckBox_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6997,16 +8761,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: QCheckBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QCheckBox_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: QCheckBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QCheckBox_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7018,12 +8782,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: QCheckBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QCheckBox_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: QCheckBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QCheckBox_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7037,9 +8805,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: QCheckBox, callback: *const fn (QCheckBox, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: QCheckBox, callback: *const fn (QCheckBox, QEvent) callconv(.c) void) void {
         qtc.QCheckBox_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7051,16 +8823,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: QCheckBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.QCheckBox_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: QCheckBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.QCheckBox_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7072,12 +8844,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: QCheckBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.QCheckBox_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: QCheckBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.QCheckBox_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7091,9 +8867,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: QCheckBox, callback: *const fn (QCheckBox, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: QCheckBox, callback: *const fn (QCheckBox, QMoveEvent) callconv(.c) void) void {
         qtc.QCheckBox_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7105,16 +8885,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: QCheckBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.QCheckBox_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn resizeEvent(self: QCheckBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.QCheckBox_ResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7126,12 +8906,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: QCheckBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.QCheckBox_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superResizeEvent(self: QCheckBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.QCheckBox_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7145,9 +8929,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: QCheckBox, callback: *const fn (QCheckBox, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: QCheckBox, callback: *const fn (QCheckBox, QResizeEvent) callconv(.c) void) void {
         qtc.QCheckBox_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7159,16 +8947,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: QCheckBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.QCheckBox_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: QCheckBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.QCheckBox_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -7180,12 +8968,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: QCheckBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.QCheckBox_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: QCheckBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.QCheckBox_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -7199,9 +8991,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: QCheckBox, callback: *const fn (QCheckBox, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: QCheckBox, callback: *const fn (QCheckBox, QCloseEvent) callconv(.c) void) void {
         qtc.QCheckBox_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -7213,16 +9009,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: QCheckBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.QCheckBox_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn contextMenuEvent(self: QCheckBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.QCheckBox_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -7234,12 +9030,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: QCheckBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.QCheckBox_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superContextMenuEvent(self: QCheckBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.QCheckBox_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -7253,9 +9053,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, event: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: QCheckBox, callback: *const fn (QCheckBox, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: QCheckBox, callback: *const fn (QCheckBox, QContextMenuEvent) callconv(.c) void) void {
         qtc.QCheckBox_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7267,16 +9071,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: QCheckBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.QCheckBox_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: QCheckBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.QCheckBox_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7288,12 +9092,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: QCheckBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.QCheckBox_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: QCheckBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.QCheckBox_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7307,9 +9115,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: QCheckBox, callback: *const fn (QCheckBox, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: QCheckBox, callback: *const fn (QCheckBox, QTabletEvent) callconv(.c) void) void {
         qtc.QCheckBox_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7321,16 +9133,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: QCheckBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.QCheckBox_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: QCheckBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.QCheckBox_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7342,12 +9154,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: QCheckBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.QCheckBox_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: QCheckBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.QCheckBox_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7361,9 +9177,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: QCheckBox, callback: *const fn (QCheckBox, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: QCheckBox, callback: *const fn (QCheckBox, QActionEvent) callconv(.c) void) void {
         qtc.QCheckBox_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7375,16 +9195,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: QCheckBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.QCheckBox_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: QCheckBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.QCheckBox_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7396,12 +9216,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: QCheckBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.QCheckBox_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: QCheckBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.QCheckBox_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7415,9 +9239,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: QCheckBox, callback: *const fn (QCheckBox, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: QCheckBox, callback: *const fn (QCheckBox, QDragEnterEvent) callconv(.c) void) void {
         qtc.QCheckBox_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7429,16 +9257,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: QCheckBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.QCheckBox_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: QCheckBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.QCheckBox_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7450,12 +9278,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: QCheckBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.QCheckBox_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: QCheckBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.QCheckBox_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7469,9 +9301,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: QCheckBox, callback: *const fn (QCheckBox, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: QCheckBox, callback: *const fn (QCheckBox, QDragMoveEvent) callconv(.c) void) void {
         qtc.QCheckBox_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7483,16 +9319,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: QCheckBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.QCheckBox_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: QCheckBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.QCheckBox_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7504,12 +9340,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: QCheckBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.QCheckBox_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: QCheckBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.QCheckBox_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7523,9 +9363,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: QCheckBox, callback: *const fn (QCheckBox, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: QCheckBox, callback: *const fn (QCheckBox, QDragLeaveEvent) callconv(.c) void) void {
         qtc.QCheckBox_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7537,16 +9381,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: QCheckBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.QCheckBox_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: QCheckBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.QCheckBox_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7558,12 +9402,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: QCheckBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.QCheckBox_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: QCheckBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.QCheckBox_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7577,9 +9425,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: QCheckBox, callback: *const fn (QCheckBox, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: QCheckBox, callback: *const fn (QCheckBox, QDropEvent) callconv(.c) void) void {
         qtc.QCheckBox_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QWidget
     ///
@@ -7591,16 +9443,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn ShowEvent(self: QCheckBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.QCheckBox_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn showEvent(self: QCheckBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.QCheckBox_ShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -7612,12 +9464,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: QCheckBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.QCheckBox_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superShowEvent(self: QCheckBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.QCheckBox_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -7631,9 +9487,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: QCheckBox, callback: *const fn (QCheckBox, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: QCheckBox, callback: *const fn (QCheckBox, QShowEvent) callconv(.c) void) void {
         qtc.QCheckBox_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7645,16 +9505,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: QCheckBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.QCheckBox_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: QCheckBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.QCheckBox_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7666,12 +9526,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: QCheckBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.QCheckBox_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: QCheckBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.QCheckBox_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7685,9 +9549,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: QCheckBox, callback: *const fn (QCheckBox, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: QCheckBox, callback: *const fn (QCheckBox, QHideEvent) callconv(.c) void) void {
         qtc.QCheckBox_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7705,7 +9573,7 @@ pub const QCheckBox = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: QCheckBox, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: QCheckBox, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -7713,9 +9581,9 @@ pub const QCheckBox = extern struct {
         return qtc.QCheckBox_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7733,13 +9601,17 @@ pub const QCheckBox = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: QCheckBox, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: QCheckBox, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.QCheckBox_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7753,9 +9625,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: QCheckBox, callback: *const fn (QCheckBox, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: QCheckBox, callback: *const fn (QCheckBox, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QCheckBox_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -7769,13 +9645,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: QCheckBox, param1: i32) i32 {
+    pub fn metric(self: QCheckBox, param1: i32) i32 {
         return qtc.QCheckBox_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -7789,9 +9665,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: QCheckBox, param1: i32) i32 {
+    pub fn superMetric(self: QCheckBox, param1: i32) i32 {
         return qtc.QCheckBox_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -7805,9 +9685,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: QCheckBox, callback: *const fn (QCheckBox, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: QCheckBox, callback: *const fn (QCheckBox, i32) callconv(.c) i32) void {
         qtc.QCheckBox_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -7821,14 +9705,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: QCheckBox, painter: anytype) void {
+    pub fn initPainter(self: QCheckBox, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QCheckBox_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7842,10 +9726,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: QCheckBox, painter: anytype) void {
+    pub fn superInitPainter(self: QCheckBox, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QCheckBox_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7859,9 +9747,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: QCheckBox, callback: *const fn (QCheckBox, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: QCheckBox, callback: *const fn (QCheckBox, QPainter) callconv(.c) void) void {
         qtc.QCheckBox_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -7875,14 +9767,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: QCheckBox, offset: anytype) QPaintDevice {
+    pub fn redirected(self: QCheckBox, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.QCheckBox_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7896,10 +9788,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: QCheckBox, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: QCheckBox, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.QCheckBox_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7913,9 +9809,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: QCheckBox, callback: *const fn (QCheckBox, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: QCheckBox, callback: *const fn (QCheckBox, QPoint) callconv(.c) QPaintDevice) void {
         qtc.QCheckBox_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7927,13 +9827,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn SharedPainter(self: QCheckBox) QPainter {
+    pub fn sharedPainter(self: QCheckBox) QPainter {
         return .{ .ptr = qtc.QCheckBox_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7945,9 +9845,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn SuperSharedPainter(self: QCheckBox) QPainter {
+    pub fn superSharedPainter(self: QCheckBox) QPainter {
         return .{ .ptr = qtc.QCheckBox_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7961,9 +9865,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: QCheckBox, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QCheckBox, callback: *const fn () callconv(.c) QPainter) void {
         qtc.QCheckBox_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7977,14 +9885,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: QCheckBox, param1: anytype) void {
+    pub fn inputMethodEvent(self: QCheckBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.QCheckBox_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7998,10 +9906,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: QCheckBox, param1: anytype) void {
+    pub fn superInputMethodEvent(self: QCheckBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.QCheckBox_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -8015,9 +9927,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: QCheckBox, callback: *const fn (QCheckBox, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: QCheckBox, callback: *const fn (QCheckBox, QInputMethodEvent) callconv(.c) void) void {
         qtc.QCheckBox_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -8031,13 +9947,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: QCheckBox, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: QCheckBox, param1: i32) QVariant {
         return .{ .ptr = qtc.QCheckBox_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -8051,9 +9967,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: QCheckBox, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: QCheckBox, param1: i32) QVariant {
         return .{ .ptr = qtc.QCheckBox_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -8069,9 +9989,13 @@ pub const QCheckBox = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: QCheckBox, callback: *const fn (QCheckBox, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: QCheckBox, callback: *const fn (QCheckBox, i32) callconv(.c) QVariant) void {
         qtc.QCheckBox_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8085,13 +10009,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: QCheckBox, next: bool) bool {
+    pub fn focusNextPrevChild(self: QCheckBox, next: bool) bool {
         return qtc.QCheckBox_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8105,9 +10029,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: QCheckBox, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: QCheckBox, next: bool) bool {
         return qtc.QCheckBox_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8121,9 +10049,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: QCheckBox, callback: *const fn (QCheckBox, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: QCheckBox, callback: *const fn (QCheckBox, bool) callconv(.c) bool) void {
         qtc.QCheckBox_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -8137,17 +10069,17 @@ pub const QCheckBox = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QCheckBox, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QCheckBox, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QCheckBox_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QCheckBox_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -8161,13 +10093,17 @@ pub const QCheckBox = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QCheckBox, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QCheckBox, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QCheckBox_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QCheckBox_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -8181,9 +10117,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QCheckBox, callback: *const fn (QCheckBox, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QCheckBox, callback: *const fn (QCheckBox, QObject, QEvent) callconv(.c) bool) void {
         qtc.QCheckBox_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -8195,16 +10135,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QCheckBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QCheckBox_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QCheckBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QCheckBox_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -8216,12 +10156,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QCheckBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QCheckBox_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QCheckBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QCheckBox_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -8235,9 +10179,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QCheckBox, callback: *const fn (QCheckBox, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QCheckBox, callback: *const fn (QCheckBox, QChildEvent) callconv(.c) void) void {
         qtc.QCheckBox_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -8249,16 +10197,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QCheckBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QCheckBox_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QCheckBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QCheckBox_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8270,12 +10218,16 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QCheckBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QCheckBox_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QCheckBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QCheckBox_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8289,9 +10241,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QCheckBox, callback: *const fn (QCheckBox, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QCheckBox, callback: *const fn (QCheckBox, QEvent) callconv(.c) void) void {
         qtc.QCheckBox_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -8305,14 +10261,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QCheckBox, signal: anytype) void {
+    pub fn connectNotify(self: QCheckBox, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QCheckBox_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8326,11 +10282,15 @@ pub const QCheckBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QCheckBox, signal: anytype) void {
+    pub fn superConnectNotify(self: QCheckBox, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QCheckBox_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -8343,9 +10303,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QCheckBox, callback: *const fn (QCheckBox, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QCheckBox, callback: *const fn (QCheckBox, QMetaMethod) callconv(.c) void) void {
         qtc.QCheckBox_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8359,14 +10323,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QCheckBox, signal: anytype) void {
+    pub fn disconnectNotify(self: QCheckBox, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QCheckBox_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8380,10 +10344,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QCheckBox, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QCheckBox, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QCheckBox_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8397,10 +10365,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QCheckBox, callback: *const fn (QCheckBox, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QCheckBox, callback: *const fn (QCheckBox, QMetaMethod) callconv(.c) void) void {
         qtc.QCheckBox_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8411,13 +10383,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn UpdateMicroFocus(self: QCheckBox) void {
+    pub fn updateMicroFocus(self: QCheckBox) void {
         qtc.QCheckBox_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -8429,10 +10401,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn SuperUpdateMicroFocus(self: QCheckBox) void {
+    pub fn superUpdateMicroFocus(self: QCheckBox) void {
         qtc.QCheckBox_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8445,10 +10421,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: QCheckBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: QCheckBox, callback: *const fn () callconv(.c) void) void {
         qtc.QCheckBox_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8459,13 +10439,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn Create(self: QCheckBox) void {
+    pub fn create(self: QCheckBox) void {
         qtc.QCheckBox_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -8477,10 +10457,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn SuperCreate(self: QCheckBox) void {
+    pub fn superCreate(self: QCheckBox) void {
         qtc.QCheckBox_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8493,9 +10477,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: QCheckBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: QCheckBox, callback: *const fn () callconv(.c) void) void {
         qtc.QCheckBox_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -8507,13 +10495,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn Destroy(self: QCheckBox) void {
+    pub fn destroy(self: QCheckBox) void {
         qtc.QCheckBox_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8525,9 +10513,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn SuperDestroy(self: QCheckBox) void {
+    pub fn superDestroy(self: QCheckBox) void {
         qtc.QCheckBox_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8541,10 +10533,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: QCheckBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: QCheckBox, callback: *const fn () callconv(.c) void) void {
         qtc.QCheckBox_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8555,13 +10551,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn FocusNextChild(self: QCheckBox) bool {
+    pub fn focusNextChild(self: QCheckBox) bool {
         return qtc.QCheckBox_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -8573,10 +10569,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn SuperFocusNextChild(self: QCheckBox) bool {
+    pub fn superFocusNextChild(self: QCheckBox) bool {
         return qtc.QCheckBox_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8589,9 +10589,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: QCheckBox, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: QCheckBox, callback: *const fn () callconv(.c) bool) void {
         qtc.QCheckBox_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8603,13 +10607,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn FocusPreviousChild(self: QCheckBox) bool {
+    pub fn focusPreviousChild(self: QCheckBox) bool {
         return qtc.QCheckBox_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8621,9 +10625,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn SuperFocusPreviousChild(self: QCheckBox) bool {
+    pub fn superFocusPreviousChild(self: QCheckBox) bool {
         return qtc.QCheckBox_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8637,9 +10645,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: QCheckBox, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: QCheckBox, callback: *const fn () callconv(.c) bool) void {
         qtc.QCheckBox_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -8651,13 +10663,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn Sender(self: QCheckBox) QObject {
+    pub fn sender(self: QCheckBox) QObject {
         return .{ .ptr = qtc.QCheckBox_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -8669,9 +10681,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn SuperSender(self: QCheckBox) QObject {
+    pub fn superSender(self: QCheckBox) QObject {
         return .{ .ptr = qtc.QCheckBox_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -8685,9 +10701,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QCheckBox, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QCheckBox, callback: *const fn () callconv(.c) QObject) void {
         qtc.QCheckBox_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8699,13 +10719,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn SenderSignalIndex(self: QCheckBox) i32 {
+    pub fn senderSignalIndex(self: QCheckBox) i32 {
         return qtc.QCheckBox_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8717,9 +10737,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn SuperSenderSignalIndex(self: QCheckBox) i32 {
+    pub fn superSenderSignalIndex(self: QCheckBox) i32 {
         return qtc.QCheckBox_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8733,9 +10757,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QCheckBox, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QCheckBox, callback: *const fn () callconv(.c) i32) void {
         qtc.QCheckBox_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -8749,14 +10777,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QCheckBox, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QCheckBox, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QCheckBox_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -8770,10 +10798,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QCheckBox, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QCheckBox, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QCheckBox_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -8787,9 +10819,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QCheckBox, callback: *const fn (QCheckBox, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QCheckBox, callback: *const fn (QCheckBox, [*:0]const u8) callconv(.c) i32) void {
         qtc.QCheckBox_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8803,14 +10839,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QCheckBox, signal: anytype) bool {
+    pub fn isSignalConnected(self: QCheckBox, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QCheckBox_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8824,10 +10860,14 @@ pub const QCheckBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QCheckBox, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QCheckBox, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QCheckBox_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8841,9 +10881,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QCheckBox, callback: *const fn (QCheckBox, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QCheckBox, callback: *const fn (QCheckBox, QMetaMethod) callconv(.c) bool) void {
         qtc.QCheckBox_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8859,13 +10903,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: QCheckBox, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: QCheckBox, metricA: i32, metricB: i32) f64 {
         return qtc.QCheckBox_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8881,9 +10925,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: QCheckBox, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: QCheckBox, metricA: i32, metricB: i32) f64 {
         return qtc.QCheckBox_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8897,9 +10945,13 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: QCheckBox, callback: *const fn (QCheckBox, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: QCheckBox, callback: *const fn (QCheckBox, i32, i32) callconv(.c) f64) void {
         qtc.QCheckBox_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -8913,23 +10965,23 @@ pub const QCheckBox = extern struct {
     ///
     /// ` callback: *const fn (self: QCheckBox, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QCheckBox, callback: *const fn (QCheckBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QCheckBox, callback: *const fn (QCheckBox, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcheckbox.html#dtor.QCheckBox)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QCheckBox `
     ///
-    pub fn Delete(self: QCheckBox) void {
+    pub fn delete(self: QCheckBox) void {
         qtc.QCheckBox_Delete(@ptrCast(self.ptr));
     }
 };

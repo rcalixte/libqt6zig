@@ -26,15 +26,23 @@ pub const Solid__StorageAccess = extern struct {
     pub const _is_Solid__DeviceInterface = {};
     pub const _is_QObject = {};
 
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Solid__StorageAccess `
     ///
-    pub fn MetaObject(self: Solid__StorageAccess) QMetaObject {
+    pub fn metaObject(self: Solid__StorageAccess) QMetaObject {
         return .{ .ptr = qtc.Solid__StorageAccess_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -42,10 +50,14 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: Solid__StorageAccess, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: Solid__StorageAccess, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.Solid__StorageAccess_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -57,9 +69,13 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: Solid__StorageAccess, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: Solid__StorageAccess, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.Solid__StorageAccess_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -69,14 +85,18 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__StorageAccess.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__StorageAccess.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `deviceInterfaceType` instead
+    ///
+    pub const DeviceInterfaceType = deviceInterfaceType;
 
     /// ### [Upstream resources](https://api.kde.org/solid-storageaccess.html#deviceInterfaceType)
     ///
@@ -84,9 +104,13 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` deviceinterface_enums.Type `
     ///
-    pub fn DeviceInterfaceType() i32 {
+    pub fn deviceInterfaceType() i32 {
         return qtc.Solid__StorageAccess_DeviceInterfaceType();
     }
+
+    /// ### DEPRECATED: Use `isAccessible` instead
+    ///
+    pub const IsAccessible = isAccessible;
 
     /// ### [Upstream resources](https://api.kde.org/solid-storageaccess.html#isAccessible)
     ///
@@ -94,9 +118,13 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` self: Solid__StorageAccess `
     ///
-    pub fn IsAccessible(self: Solid__StorageAccess) bool {
+    pub fn isAccessible(self: Solid__StorageAccess) bool {
         return qtc.Solid__StorageAccess_IsAccessible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `filePath` instead
+    ///
+    pub const FilePath = filePath;
 
     /// ### [Upstream resources](https://api.kde.org/solid-storageaccess.html#filePath)
     ///
@@ -106,13 +134,17 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FilePath(self: Solid__StorageAccess, allocator: std.mem.Allocator) []const u8 {
+    pub fn filePath(self: Solid__StorageAccess, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Solid__StorageAccess_FilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__StorageAccess.FilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__StorageAccess.filePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isIgnored` instead
+    ///
+    pub const IsIgnored = isIgnored;
 
     /// ### [Upstream resources](https://api.kde.org/solid-storageaccess.html#isIgnored)
     ///
@@ -120,9 +152,13 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` self: Solid__StorageAccess `
     ///
-    pub fn IsIgnored(self: Solid__StorageAccess) bool {
+    pub fn isIgnored(self: Solid__StorageAccess) bool {
         return qtc.Solid__StorageAccess_IsIgnored(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEncrypted` instead
+    ///
+    pub const IsEncrypted = isEncrypted;
 
     /// ### [Upstream resources](https://api.kde.org/solid-storageaccess.html#isEncrypted)
     ///
@@ -130,9 +166,13 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` self: Solid__StorageAccess `
     ///
-    pub fn IsEncrypted(self: Solid__StorageAccess) bool {
+    pub fn isEncrypted(self: Solid__StorageAccess) bool {
         return qtc.Solid__StorageAccess_IsEncrypted(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setup` instead
+    ///
+    pub const Setup = setup;
 
     /// ### [Upstream resources](https://api.kde.org/solid-storageaccess.html#setup)
     ///
@@ -140,9 +180,13 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` self: Solid__StorageAccess `
     ///
-    pub fn Setup(self: Solid__StorageAccess) bool {
+    pub fn setup(self: Solid__StorageAccess) bool {
         return qtc.Solid__StorageAccess_Setup(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `teardown` instead
+    ///
+    pub const Teardown = teardown;
 
     /// ### [Upstream resources](https://api.kde.org/solid-storageaccess.html#teardown)
     ///
@@ -150,9 +194,13 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` self: Solid__StorageAccess `
     ///
-    pub fn Teardown(self: Solid__StorageAccess) bool {
+    pub fn teardown(self: Solid__StorageAccess) bool {
         return qtc.Solid__StorageAccess_Teardown(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `canCheck` instead
+    ///
+    pub const CanCheck = canCheck;
 
     /// ### [Upstream resources](https://api.kde.org/solid-storageaccess.html#canCheck)
     ///
@@ -160,9 +208,13 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` self: Solid__StorageAccess `
     ///
-    pub fn CanCheck(self: Solid__StorageAccess) bool {
+    pub fn canCheck(self: Solid__StorageAccess) bool {
         return qtc.Solid__StorageAccess_CanCheck(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `check` instead
+    ///
+    pub const Check = check;
 
     /// ### [Upstream resources](https://api.kde.org/solid-storageaccess.html#check)
     ///
@@ -170,9 +222,13 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` self: Solid__StorageAccess `
     ///
-    pub fn Check(self: Solid__StorageAccess) bool {
+    pub fn check(self: Solid__StorageAccess) bool {
         return qtc.Solid__StorageAccess_Check(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `canRepair` instead
+    ///
+    pub const CanRepair = canRepair;
 
     /// ### [Upstream resources](https://api.kde.org/solid-storageaccess.html#canRepair)
     ///
@@ -180,9 +236,13 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` self: Solid__StorageAccess `
     ///
-    pub fn CanRepair(self: Solid__StorageAccess) bool {
+    pub fn canRepair(self: Solid__StorageAccess) bool {
         return qtc.Solid__StorageAccess_CanRepair(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repair` instead
+    ///
+    pub const Repair = repair;
 
     /// ### [Upstream resources](https://api.kde.org/solid-storageaccess.html#repair)
     ///
@@ -190,9 +250,13 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` self: Solid__StorageAccess `
     ///
-    pub fn Repair(self: Solid__StorageAccess) bool {
+    pub fn repair(self: Solid__StorageAccess) bool {
         return qtc.Solid__StorageAccess_Repair(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `accessibilityChanged` instead
+    ///
+    pub const AccessibilityChanged = accessibilityChanged;
 
     /// ### [Upstream resources](https://api.kde.org/solid-storageaccess.html#accessibilityChanged)
     ///
@@ -204,13 +268,17 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` udi: []const u8 `
     ///
-    pub fn AccessibilityChanged(self: Solid__StorageAccess, accessible: bool, udi: []const u8) void {
+    pub fn accessibilityChanged(self: Solid__StorageAccess, accessible: bool, udi: []const u8) void {
         const udi_str = qtc.libqt_string{
             .len = udi.len,
             .data = udi.ptr,
         };
         qtc.Solid__StorageAccess_AccessibilityChanged(@ptrCast(self.ptr), accessible, udi_str);
     }
+
+    /// ### DEPRECATED: Use `onAccessibilityChanged` instead
+    ///
+    pub const OnAccessibilityChanged = onAccessibilityChanged;
 
     /// ### [Upstream resources](https://api.kde.org/solid-storageaccess.html#accessibilityChanged)
     ///
@@ -220,9 +288,13 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` callback: *const fn (self: Solid__StorageAccess, accessible: bool, udi: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnAccessibilityChanged(self: Solid__StorageAccess, callback: *const fn (Solid__StorageAccess, bool, [*:0]const u8) callconv(.c) void) void {
+    pub fn onAccessibilityChanged(self: Solid__StorageAccess, callback: *const fn (Solid__StorageAccess, bool, [*:0]const u8) callconv(.c) void) void {
         qtc.Solid__StorageAccess_Connect_AccessibilityChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setupDone` instead
+    ///
+    pub const SetupDone = setupDone;
 
     /// ### [Upstream resources](https://api.kde.org/solid-storageaccess.html#setupDone)
     ///
@@ -236,7 +308,7 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` udi: []const u8 `
     ///
-    pub fn SetupDone(self: Solid__StorageAccess, errorVal: i32, errorData: anytype, udi: []const u8) void {
+    pub fn setupDone(self: Solid__StorageAccess, errorVal: i32, errorData: anytype, udi: []const u8) void {
         comptime _ = @TypeOf(errorData)._is_QVariant;
         const udi_str = qtc.libqt_string{
             .len = udi.len,
@@ -245,6 +317,10 @@ pub const Solid__StorageAccess = extern struct {
         qtc.Solid__StorageAccess_SetupDone(@ptrCast(self.ptr), @bitCast(errorVal), @ptrCast(errorData.ptr), udi_str);
     }
 
+    /// ### DEPRECATED: Use `onSetupDone` instead
+    ///
+    pub const OnSetupDone = onSetupDone;
+
     /// ### [Upstream resources](https://api.kde.org/solid-storageaccess.html#setupDone)
     ///
     /// ## Parameters:
@@ -253,9 +329,13 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` callback: *const fn (self: Solid__StorageAccess, errorVal: solidnamespace_enums.ErrorType, errorData: QVariant, udi: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetupDone(self: Solid__StorageAccess, callback: *const fn (Solid__StorageAccess, i32, QVariant, [*:0]const u8) callconv(.c) void) void {
+    pub fn onSetupDone(self: Solid__StorageAccess, callback: *const fn (Solid__StorageAccess, i32, QVariant, [*:0]const u8) callconv(.c) void) void {
         qtc.Solid__StorageAccess_Connect_SetupDone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `teardownDone` instead
+    ///
+    pub const TeardownDone = teardownDone;
 
     /// ### [Upstream resources](https://api.kde.org/solid-storageaccess.html#teardownDone)
     ///
@@ -269,7 +349,7 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` udi: []const u8 `
     ///
-    pub fn TeardownDone(self: Solid__StorageAccess, errorVal: i32, errorData: anytype, udi: []const u8) void {
+    pub fn teardownDone(self: Solid__StorageAccess, errorVal: i32, errorData: anytype, udi: []const u8) void {
         comptime _ = @TypeOf(errorData)._is_QVariant;
         const udi_str = qtc.libqt_string{
             .len = udi.len,
@@ -278,6 +358,10 @@ pub const Solid__StorageAccess = extern struct {
         qtc.Solid__StorageAccess_TeardownDone(@ptrCast(self.ptr), @bitCast(errorVal), @ptrCast(errorData.ptr), udi_str);
     }
 
+    /// ### DEPRECATED: Use `onTeardownDone` instead
+    ///
+    pub const OnTeardownDone = onTeardownDone;
+
     /// ### [Upstream resources](https://api.kde.org/solid-storageaccess.html#teardownDone)
     ///
     /// ## Parameters:
@@ -286,9 +370,13 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` callback: *const fn (self: Solid__StorageAccess, errorVal: solidnamespace_enums.ErrorType, errorData: QVariant, udi: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnTeardownDone(self: Solid__StorageAccess, callback: *const fn (Solid__StorageAccess, i32, QVariant, [*:0]const u8) callconv(.c) void) void {
+    pub fn onTeardownDone(self: Solid__StorageAccess, callback: *const fn (Solid__StorageAccess, i32, QVariant, [*:0]const u8) callconv(.c) void) void {
         qtc.Solid__StorageAccess_Connect_TeardownDone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setupRequested` instead
+    ///
+    pub const SetupRequested = setupRequested;
 
     /// ### [Upstream resources](https://api.kde.org/solid-storageaccess.html#setupRequested)
     ///
@@ -298,7 +386,7 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` udi: []const u8 `
     ///
-    pub fn SetupRequested(self: Solid__StorageAccess, udi: []const u8) void {
+    pub fn setupRequested(self: Solid__StorageAccess, udi: []const u8) void {
         const udi_str = qtc.libqt_string{
             .len = udi.len,
             .data = udi.ptr,
@@ -306,6 +394,10 @@ pub const Solid__StorageAccess = extern struct {
         qtc.Solid__StorageAccess_SetupRequested(@ptrCast(self.ptr), udi_str);
     }
 
+    /// ### DEPRECATED: Use `onSetupRequested` instead
+    ///
+    pub const OnSetupRequested = onSetupRequested;
+
     /// ### [Upstream resources](https://api.kde.org/solid-storageaccess.html#setupRequested)
     ///
     /// ## Parameters:
@@ -314,9 +406,13 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` callback: *const fn (self: Solid__StorageAccess, udi: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetupRequested(self: Solid__StorageAccess, callback: *const fn (Solid__StorageAccess, [*:0]const u8) callconv(.c) void) void {
+    pub fn onSetupRequested(self: Solid__StorageAccess, callback: *const fn (Solid__StorageAccess, [*:0]const u8) callconv(.c) void) void {
         qtc.Solid__StorageAccess_Connect_SetupRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `teardownRequested` instead
+    ///
+    pub const TeardownRequested = teardownRequested;
 
     /// ### [Upstream resources](https://api.kde.org/solid-storageaccess.html#teardownRequested)
     ///
@@ -326,7 +422,7 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` udi: []const u8 `
     ///
-    pub fn TeardownRequested(self: Solid__StorageAccess, udi: []const u8) void {
+    pub fn teardownRequested(self: Solid__StorageAccess, udi: []const u8) void {
         const udi_str = qtc.libqt_string{
             .len = udi.len,
             .data = udi.ptr,
@@ -334,6 +430,10 @@ pub const Solid__StorageAccess = extern struct {
         qtc.Solid__StorageAccess_TeardownRequested(@ptrCast(self.ptr), udi_str);
     }
 
+    /// ### DEPRECATED: Use `onTeardownRequested` instead
+    ///
+    pub const OnTeardownRequested = onTeardownRequested;
+
     /// ### [Upstream resources](https://api.kde.org/solid-storageaccess.html#teardownRequested)
     ///
     /// ## Parameters:
@@ -342,9 +442,13 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` callback: *const fn (self: Solid__StorageAccess, udi: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnTeardownRequested(self: Solid__StorageAccess, callback: *const fn (Solid__StorageAccess, [*:0]const u8) callconv(.c) void) void {
+    pub fn onTeardownRequested(self: Solid__StorageAccess, callback: *const fn (Solid__StorageAccess, [*:0]const u8) callconv(.c) void) void {
         qtc.Solid__StorageAccess_Connect_TeardownRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `checkRequested` instead
+    ///
+    pub const CheckRequested = checkRequested;
 
     /// ### [Upstream resources](https://api.kde.org/solid-storageaccess.html#checkRequested)
     ///
@@ -354,13 +458,17 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` udi: []const u8 `
     ///
-    pub fn CheckRequested(self: Solid__StorageAccess, udi: []const u8) void {
+    pub fn checkRequested(self: Solid__StorageAccess, udi: []const u8) void {
         const udi_str = qtc.libqt_string{
             .len = udi.len,
             .data = udi.ptr,
         };
         qtc.Solid__StorageAccess_CheckRequested(@ptrCast(self.ptr), udi_str);
     }
+
+    /// ### DEPRECATED: Use `onCheckRequested` instead
+    ///
+    pub const OnCheckRequested = onCheckRequested;
 
     /// ### [Upstream resources](https://api.kde.org/solid-storageaccess.html#checkRequested)
     ///
@@ -370,9 +478,13 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` callback: *const fn (self: Solid__StorageAccess, udi: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnCheckRequested(self: Solid__StorageAccess, callback: *const fn (Solid__StorageAccess, [*:0]const u8) callconv(.c) void) void {
+    pub fn onCheckRequested(self: Solid__StorageAccess, callback: *const fn (Solid__StorageAccess, [*:0]const u8) callconv(.c) void) void {
         qtc.Solid__StorageAccess_Connect_CheckRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `checkDone` instead
+    ///
+    pub const CheckDone = checkDone;
 
     /// ### [Upstream resources](https://api.kde.org/solid-storageaccess.html#checkDone)
     ///
@@ -386,7 +498,7 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` udi: []const u8 `
     ///
-    pub fn CheckDone(self: Solid__StorageAccess, errorVal: i32, errorData: anytype, udi: []const u8) void {
+    pub fn checkDone(self: Solid__StorageAccess, errorVal: i32, errorData: anytype, udi: []const u8) void {
         comptime _ = @TypeOf(errorData)._is_QVariant;
         const udi_str = qtc.libqt_string{
             .len = udi.len,
@@ -395,6 +507,10 @@ pub const Solid__StorageAccess = extern struct {
         qtc.Solid__StorageAccess_CheckDone(@ptrCast(self.ptr), @bitCast(errorVal), @ptrCast(errorData.ptr), udi_str);
     }
 
+    /// ### DEPRECATED: Use `onCheckDone` instead
+    ///
+    pub const OnCheckDone = onCheckDone;
+
     /// ### [Upstream resources](https://api.kde.org/solid-storageaccess.html#checkDone)
     ///
     /// ## Parameters:
@@ -403,9 +519,13 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` callback: *const fn (self: Solid__StorageAccess, errorVal: solidnamespace_enums.ErrorType, errorData: QVariant, udi: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnCheckDone(self: Solid__StorageAccess, callback: *const fn (Solid__StorageAccess, i32, QVariant, [*:0]const u8) callconv(.c) void) void {
+    pub fn onCheckDone(self: Solid__StorageAccess, callback: *const fn (Solid__StorageAccess, i32, QVariant, [*:0]const u8) callconv(.c) void) void {
         qtc.Solid__StorageAccess_Connect_CheckDone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `repairRequested` instead
+    ///
+    pub const RepairRequested = repairRequested;
 
     /// ### [Upstream resources](https://api.kde.org/solid-storageaccess.html#repairRequested)
     ///
@@ -415,13 +535,17 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` udi: []const u8 `
     ///
-    pub fn RepairRequested(self: Solid__StorageAccess, udi: []const u8) void {
+    pub fn repairRequested(self: Solid__StorageAccess, udi: []const u8) void {
         const udi_str = qtc.libqt_string{
             .len = udi.len,
             .data = udi.ptr,
         };
         qtc.Solid__StorageAccess_RepairRequested(@ptrCast(self.ptr), udi_str);
     }
+
+    /// ### DEPRECATED: Use `onRepairRequested` instead
+    ///
+    pub const OnRepairRequested = onRepairRequested;
 
     /// ### [Upstream resources](https://api.kde.org/solid-storageaccess.html#repairRequested)
     ///
@@ -431,9 +555,13 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` callback: *const fn (self: Solid__StorageAccess, udi: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnRepairRequested(self: Solid__StorageAccess, callback: *const fn (Solid__StorageAccess, [*:0]const u8) callconv(.c) void) void {
+    pub fn onRepairRequested(self: Solid__StorageAccess, callback: *const fn (Solid__StorageAccess, [*:0]const u8) callconv(.c) void) void {
         qtc.Solid__StorageAccess_Connect_RepairRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `repairDone` instead
+    ///
+    pub const RepairDone = repairDone;
 
     /// ### [Upstream resources](https://api.kde.org/solid-storageaccess.html#repairDone)
     ///
@@ -447,7 +575,7 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` udi: []const u8 `
     ///
-    pub fn RepairDone(self: Solid__StorageAccess, errorVal: i32, errorData: anytype, udi: []const u8) void {
+    pub fn repairDone(self: Solid__StorageAccess, errorVal: i32, errorData: anytype, udi: []const u8) void {
         comptime _ = @TypeOf(errorData)._is_QVariant;
         const udi_str = qtc.libqt_string{
             .len = udi.len,
@@ -455,6 +583,10 @@ pub const Solid__StorageAccess = extern struct {
         };
         qtc.Solid__StorageAccess_RepairDone(@ptrCast(self.ptr), @bitCast(errorVal), @ptrCast(errorData.ptr), udi_str);
     }
+
+    /// ### DEPRECATED: Use `onRepairDone` instead
+    ///
+    pub const OnRepairDone = onRepairDone;
 
     /// ### [Upstream resources](https://api.kde.org/solid-storageaccess.html#repairDone)
     ///
@@ -464,9 +596,13 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` callback: *const fn (self: Solid__StorageAccess, errorVal: solidnamespace_enums.ErrorType, errorData: QVariant, udi: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnRepairDone(self: Solid__StorageAccess, callback: *const fn (Solid__StorageAccess, i32, QVariant, [*:0]const u8) callconv(.c) void) void {
+    pub fn onRepairDone(self: Solid__StorageAccess, callback: *const fn (Solid__StorageAccess, i32, QVariant, [*:0]const u8) callconv(.c) void) void {
         qtc.Solid__StorageAccess_Connect_RepairDone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -478,15 +614,19 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__StorageAccess.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__StorageAccess.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -500,15 +640,19 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__StorageAccess.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__StorageAccess.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// Inherited from Solid::DeviceInterface
     ///
@@ -518,9 +662,13 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` self: Solid__StorageAccess `
     ///
-    pub fn IsValid(self: Solid__StorageAccess) bool {
+    pub fn isValid(self: Solid__StorageAccess) bool {
         return qtc.Solid__DeviceInterface_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `typeToString` instead
+    ///
+    pub const TypeToString = typeToString;
 
     /// Inherited from Solid::DeviceInterface
     ///
@@ -532,13 +680,17 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` typeVal: deviceinterface_enums.Type `
     ///
-    pub fn TypeToString(allocator: std.mem.Allocator, typeVal: i32) []const u8 {
+    pub fn typeToString(allocator: std.mem.Allocator, typeVal: i32) []const u8 {
         var _str = qtc.Solid__DeviceInterface_TypeToString(@bitCast(typeVal));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__StorageAccess.TypeToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__StorageAccess.typeToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `stringToType` instead
+    ///
+    pub const StringToType = stringToType;
 
     /// Inherited from Solid::DeviceInterface
     ///
@@ -552,13 +704,17 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` deviceinterface_enums.Type `
     ///
-    pub fn StringToType(typeVal: []const u8) i32 {
+    pub fn stringToType(typeVal: []const u8) i32 {
         const typeVal_str = qtc.libqt_string{
             .len = typeVal.len,
             .data = typeVal.ptr,
         };
         return qtc.Solid__DeviceInterface_StringToType(typeVal_str);
     }
+
+    /// ### DEPRECATED: Use `typeDescription` instead
+    ///
+    pub const TypeDescription = typeDescription;
 
     /// Inherited from Solid::DeviceInterface
     ///
@@ -570,13 +726,17 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` typeVal: deviceinterface_enums.Type `
     ///
-    pub fn TypeDescription(allocator: std.mem.Allocator, typeVal: i32) []const u8 {
+    pub fn typeDescription(allocator: std.mem.Allocator, typeVal: i32) []const u8 {
         var _str = qtc.Solid__DeviceInterface_TypeDescription(@bitCast(typeVal));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__StorageAccess.TypeDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__StorageAccess.typeDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -586,12 +746,16 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` self: Solid__StorageAccess `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: Solid__StorageAccess, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QObject_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: Solid__StorageAccess, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QObject_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -603,13 +767,17 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: Solid__StorageAccess, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: Solid__StorageAccess, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -621,13 +789,17 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: Solid__StorageAccess, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: Solid__StorageAccess, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__StorageAccess.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__StorageAccess.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -639,13 +811,17 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: Solid__StorageAccess, name: []const u8) void {
+    pub fn setObjectName(self: Solid__StorageAccess, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -655,9 +831,13 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` self: Solid__StorageAccess `
     ///
-    pub fn IsWidgetType(self: Solid__StorageAccess) bool {
+    pub fn isWidgetType(self: Solid__StorageAccess) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -667,9 +847,13 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` self: Solid__StorageAccess `
     ///
-    pub fn IsWindowType(self: Solid__StorageAccess) bool {
+    pub fn isWindowType(self: Solid__StorageAccess) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -679,9 +863,13 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` self: Solid__StorageAccess `
     ///
-    pub fn IsQuickItemType(self: Solid__StorageAccess) bool {
+    pub fn isQuickItemType(self: Solid__StorageAccess) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -691,9 +879,13 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` self: Solid__StorageAccess `
     ///
-    pub fn SignalsBlocked(self: Solid__StorageAccess) bool {
+    pub fn signalsBlocked(self: Solid__StorageAccess) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -705,9 +897,13 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: Solid__StorageAccess, b: bool) bool {
+    pub fn blockSignals(self: Solid__StorageAccess, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -717,9 +913,13 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` self: Solid__StorageAccess `
     ///
-    pub fn Thread(self: Solid__StorageAccess) QThread {
+    pub fn thread(self: Solid__StorageAccess) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -729,12 +929,16 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` self: Solid__StorageAccess `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: Solid__StorageAccess, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: Solid__StorageAccess, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -746,9 +950,13 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: Solid__StorageAccess, interval: i32) i32 {
+    pub fn startTimer(self: Solid__StorageAccess, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -760,9 +968,13 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: Solid__StorageAccess, time: i64) i32 {
+    pub fn startTimer2(self: Solid__StorageAccess, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -774,9 +986,13 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: Solid__StorageAccess, id: i32) void {
+    pub fn killTimer(self: Solid__StorageAccess, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -788,9 +1004,13 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: Solid__StorageAccess, id: i32) void {
+    pub fn killTimer2(self: Solid__StorageAccess, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -802,15 +1022,19 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: Solid__StorageAccess, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: Solid__StorageAccess, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("Solid__StorageAccess.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("Solid__StorageAccess.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -820,12 +1044,16 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` self: Solid__StorageAccess `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: Solid__StorageAccess, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: Solid__StorageAccess, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -837,10 +1065,14 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: Solid__StorageAccess, filterObj: anytype) void {
+    pub fn installEventFilter(self: Solid__StorageAccess, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -852,10 +1084,14 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: Solid__StorageAccess, obj: anytype) void {
+    pub fn removeEventFilter(self: Solid__StorageAccess, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -863,7 +1099,7 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -871,13 +1107,17 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -885,7 +1125,7 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -893,13 +1133,17 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -909,18 +1153,22 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` self: Solid__StorageAccess `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: Solid__StorageAccess, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: Solid__StorageAccess, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -928,7 +1176,7 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -936,13 +1184,17 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -950,7 +1202,7 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -958,13 +1210,17 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -974,9 +1230,13 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` self: Solid__StorageAccess `
     ///
-    pub fn Disconnect3(self: Solid__StorageAccess) bool {
+    pub fn disconnect3(self: Solid__StorageAccess) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -988,10 +1248,14 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: Solid__StorageAccess, receiver: anytype) bool {
+    pub fn disconnect4(self: Solid__StorageAccess, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1001,10 +1265,14 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1014,9 +1282,13 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` self: Solid__StorageAccess `
     ///
-    pub fn DumpObjectTree(self: Solid__StorageAccess) void {
+    pub fn dumpObjectTree(self: Solid__StorageAccess) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1026,9 +1298,13 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` self: Solid__StorageAccess `
     ///
-    pub fn DumpObjectInfo(self: Solid__StorageAccess) void {
+    pub fn dumpObjectInfo(self: Solid__StorageAccess) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1042,11 +1318,15 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: Solid__StorageAccess, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: Solid__StorageAccess, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1058,10 +1338,14 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: Solid__StorageAccess, name: [:0]const u8) QVariant {
+    pub fn property(self: Solid__StorageAccess, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1073,7 +1357,7 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: Solid__StorageAccess, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: Solid__StorageAccess, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1081,27 +1365,19 @@ pub const Solid__StorageAccess = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("Solid__StorageAccess.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("Solid__StorageAccess.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("Solid__StorageAccess.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("Solid__StorageAccess.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Solid__StorageAccess `
-    ///
-    pub fn BindingStorage(self: Solid__StorageAccess) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1111,9 +1387,29 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` self: Solid__StorageAccess `
     ///
-    pub fn BindingStorage2(self: Solid__StorageAccess) QBindingStorage {
+    pub fn bindingStorage(self: Solid__StorageAccess) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Solid__StorageAccess `
+    ///
+    pub fn bindingStorage2(self: Solid__StorageAccess) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1123,9 +1419,13 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` self: Solid__StorageAccess `
     ///
-    pub fn Destroyed(self: Solid__StorageAccess) void {
+    pub fn destroyed(self: Solid__StorageAccess) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1137,9 +1437,13 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` callback: *const fn (self: Solid__StorageAccess) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: Solid__StorageAccess, callback: *const fn (Solid__StorageAccess) callconv(.c) void) void {
+    pub fn onDestroyed(self: Solid__StorageAccess, callback: *const fn (Solid__StorageAccess) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1149,9 +1453,13 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` self: Solid__StorageAccess `
     ///
-    pub fn Parent(self: Solid__StorageAccess) QObject {
+    pub fn parent(self: Solid__StorageAccess) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1163,10 +1471,14 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: Solid__StorageAccess, classname: [:0]const u8) bool {
+    pub fn inherits(self: Solid__StorageAccess, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1176,9 +1488,13 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` self: Solid__StorageAccess `
     ///
-    pub fn DeleteLater(self: Solid__StorageAccess) void {
+    pub fn deleteLater(self: Solid__StorageAccess) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1192,9 +1508,13 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: Solid__StorageAccess, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: Solid__StorageAccess, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1208,9 +1528,13 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: Solid__StorageAccess, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: Solid__StorageAccess, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1218,7 +1542,7 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1228,13 +1552,17 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1242,7 +1570,7 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1252,13 +1580,17 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1268,7 +1600,7 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` self: Solid__StorageAccess `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1276,12 +1608,16 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: Solid__StorageAccess, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: Solid__StorageAccess, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1293,10 +1629,14 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: Solid__StorageAccess, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: Solid__StorageAccess, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1310,11 +1650,15 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: Solid__StorageAccess, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: Solid__StorageAccess, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1330,13 +1674,17 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: Solid__StorageAccess, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: Solid__StorageAccess, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1349,11 +1697,15 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: Solid__StorageAccess, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: Solid__StorageAccess, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1365,10 +1717,14 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: Solid__StorageAccess, param1: anytype) void {
+    pub fn destroyed1(self: Solid__StorageAccess, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1380,9 +1736,13 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` callback: *const fn (self: Solid__StorageAccess, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: Solid__StorageAccess, callback: *const fn (Solid__StorageAccess, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: Solid__StorageAccess, callback: *const fn (Solid__StorageAccess, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -1396,21 +1756,21 @@ pub const Solid__StorageAccess = extern struct {
     ///
     /// ` callback: *const fn (self: Solid__StorageAccess, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: Solid__StorageAccess, callback: *const fn (Solid__StorageAccess, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: Solid__StorageAccess, callback: *const fn (Solid__StorageAccess, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Solid__StorageAccess `
     ///
-    pub fn Delete(self: Solid__StorageAccess) void {
+    pub fn delete(self: Solid__StorageAccess) void {
         qtc.Solid__StorageAccess_Delete(@ptrCast(self.ptr));
     }
 };

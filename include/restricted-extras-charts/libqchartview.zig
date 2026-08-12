@@ -98,47 +98,67 @@ pub const QChartView = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new QChartView object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QChartView object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) QChartView {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QChartView_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) QChartView {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QChartView_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new QChartView object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() QChartView {
+    pub const New2 = new2;
+
+    /// Allocate a new QChartView object in C++ memory
+    ///
+    pub fn new2() QChartView {
         return .{ .ptr = qtc.QChartView_new2() };
     }
 
-    /// New3 constructs a new QChartView object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QChartView object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` chart: QChart `
+    /// ` _chart: QChart `
     ///
-    pub fn New3(chart: anytype) QChartView {
-        comptime _ = @TypeOf(chart)._is_QChart;
-        return .{ .ptr = qtc.QChartView_new3(@ptrCast(chart.ptr)) };
+    pub fn new3(_chart: anytype) QChartView {
+        comptime _ = @TypeOf(_chart)._is_QChart;
+        return .{ .ptr = qtc.QChartView_new3(@ptrCast(_chart.ptr)) };
     }
 
-    /// New4 constructs a new QChartView object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QChartView object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` chart: QChart `
+    /// ` _chart: QChart `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New4(chart: anytype, parent: anytype) QChartView {
-        comptime _ = @TypeOf(chart)._is_QChart;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QChartView_new4(@ptrCast(chart.ptr), @ptrCast(parent.ptr)) };
+    pub fn new4(_chart: anytype, _parent: anytype) QChartView {
+        comptime _ = @TypeOf(_chart)._is_QChart;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QChartView_new4(@ptrCast(_chart.ptr), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -146,9 +166,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn MetaObject(self: QChartView) QMetaObject {
+    pub fn metaObject(self: QChartView) QMetaObject {
         return .{ .ptr = qtc.QChartView_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -160,13 +184,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QChartView, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QChartView, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QChartView_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -176,9 +200,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn SuperMetaObject(self: QChartView) QMetaObject {
+    pub fn superMetaObject(self: QChartView) QMetaObject {
         return .{ .ptr = qtc.QChartView_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -186,10 +214,14 @@ pub const QChartView = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QChartView, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QChartView, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QChartView_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -199,13 +231,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QChartView, callback: *const fn (QChartView, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QChartView, callback: *const fn (QChartView, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QChartView_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -215,10 +247,14 @@ pub const QChartView = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QChartView, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QChartView, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QChartView_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -230,9 +266,13 @@ pub const QChartView = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QChartView, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QChartView, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QChartView_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -242,13 +282,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QChartView, callback: *const fn (QChartView, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QChartView, callback: *const fn (QChartView, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QChartView_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -262,9 +302,13 @@ pub const QChartView = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QChartView, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QChartView, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QChartView_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -274,14 +318,18 @@ pub const QChartView = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QChartView.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QChartView.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setRubberBand` instead
+    ///
+    pub const SetRubberBand = setRubberBand;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qchartview-qtcharts.html#setRubberBand)
     ///
@@ -291,9 +339,13 @@ pub const QChartView = extern struct {
     ///
     /// ` rubberBands: *const flag of qchartview_enums.RubberBand `
     ///
-    pub fn SetRubberBand(self: QChartView, rubberBands: *const i32) void {
+    pub fn setRubberBand(self: QChartView, rubberBands: *const i32) void {
         qtc.QChartView_SetRubberBand(@ptrCast(self.ptr), @ptrCast(rubberBands));
     }
+
+    /// ### DEPRECATED: Use `rubberBand` instead
+    ///
+    pub const RubberBand = rubberBand;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qchartview-qtcharts.html#rubberBand)
     ///
@@ -305,9 +357,13 @@ pub const QChartView = extern struct {
     ///
     /// ` flag of qchartview_enums.RubberBand `
     ///
-    pub fn RubberBand(self: QChartView) i32 {
+    pub fn rubberBand(self: QChartView) i32 {
         return qtc.QChartView_RubberBand(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `chart` instead
+    ///
+    pub const Chart = chart;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qchartview-qtcharts.html#chart)
     ///
@@ -315,9 +371,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn Chart(self: QChartView) QChart {
+    pub fn chart(self: QChartView) QChart {
         return .{ .ptr = qtc.QChartView_Chart(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setChart` instead
+    ///
+    pub const SetChart = setChart;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qchartview-qtcharts.html#setChart)
     ///
@@ -325,12 +385,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` chart: QChart `
+    /// ` _chart: QChart `
     ///
-    pub fn SetChart(self: QChartView, chart: anytype) void {
-        comptime _ = @TypeOf(chart)._is_QChart;
-        qtc.QChartView_SetChart(@ptrCast(self.ptr), @ptrCast(chart.ptr));
+    pub fn setChart(self: QChartView, _chart: anytype) void {
+        comptime _ = @TypeOf(_chart)._is_QChart;
+        qtc.QChartView_SetChart(@ptrCast(self.ptr), @ptrCast(_chart.ptr));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qchartview-qtcharts.html#resizeEvent)
     ///
@@ -338,12 +402,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.QChartView_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn resizeEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.QChartView_ResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qchartview-qtcharts.html#resizeEvent)
     ///
@@ -355,13 +423,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: QChartView, callback: *const fn (QChartView, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: QChartView, callback: *const fn (QChartView, QResizeEvent) callconv(.c) void) void {
         qtc.QChartView_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qchartview-qtcharts.html#resizeEvent)
     ///
@@ -371,12 +439,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.QChartView_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superResizeEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.QChartView_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qchartview-qtcharts.html#mousePressEvent)
     ///
@@ -384,12 +456,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QChartView_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mousePressEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QChartView_MousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qchartview-qtcharts.html#mousePressEvent)
     ///
@@ -401,13 +477,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: QChartView, callback: *const fn (QChartView, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: QChartView, callback: *const fn (QChartView, QMouseEvent) callconv(.c) void) void {
         qtc.QChartView_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qchartview-qtcharts.html#mousePressEvent)
     ///
@@ -417,12 +493,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QChartView_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMousePressEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QChartView_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qchartview-qtcharts.html#mouseMoveEvent)
     ///
@@ -430,12 +510,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QChartView_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseMoveEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QChartView_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qchartview-qtcharts.html#mouseMoveEvent)
     ///
@@ -447,13 +531,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: QChartView, callback: *const fn (QChartView, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: QChartView, callback: *const fn (QChartView, QMouseEvent) callconv(.c) void) void {
         qtc.QChartView_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qchartview-qtcharts.html#mouseMoveEvent)
     ///
@@ -463,12 +547,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QChartView_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseMoveEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QChartView_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qchartview-qtcharts.html#mouseReleaseEvent)
     ///
@@ -476,12 +564,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QChartView_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseReleaseEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QChartView_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qchartview-qtcharts.html#mouseReleaseEvent)
     ///
@@ -493,13 +585,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: QChartView, callback: *const fn (QChartView, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: QChartView, callback: *const fn (QChartView, QMouseEvent) callconv(.c) void) void {
         qtc.QChartView_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qchartview-qtcharts.html#mouseReleaseEvent)
     ///
@@ -509,12 +601,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QChartView_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseReleaseEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QChartView_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -526,15 +622,19 @@ pub const QChartView = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QChartView.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QChartView.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -548,15 +648,19 @@ pub const QChartView = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QChartView.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QChartView.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `renderHints` instead
+    ///
+    pub const RenderHints = renderHints;
 
     /// Inherited from QGraphicsView
     ///
@@ -570,9 +674,13 @@ pub const QChartView = extern struct {
     ///
     /// ` flag of qpainter_enums.RenderHint `
     ///
-    pub fn RenderHints(self: QChartView) i32 {
+    pub fn renderHints(self: QChartView) i32 {
         return qtc.QGraphicsView_RenderHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setRenderHint` instead
+    ///
+    pub const SetRenderHint = setRenderHint;
 
     /// Inherited from QGraphicsView
     ///
@@ -584,9 +692,13 @@ pub const QChartView = extern struct {
     ///
     /// ` hint: qpainter_enums.RenderHint `
     ///
-    pub fn SetRenderHint(self: QChartView, hint: i32) void {
+    pub fn setRenderHint(self: QChartView, hint: i32) void {
         qtc.QGraphicsView_SetRenderHint(@ptrCast(self.ptr), @bitCast(hint));
     }
+
+    /// ### DEPRECATED: Use `setRenderHints` instead
+    ///
+    pub const SetRenderHints = setRenderHints;
 
     /// Inherited from QGraphicsView
     ///
@@ -598,9 +710,13 @@ pub const QChartView = extern struct {
     ///
     /// ` hints: flag of qpainter_enums.RenderHint `
     ///
-    pub fn SetRenderHints(self: QChartView, hints: i32) void {
+    pub fn setRenderHints(self: QChartView, hints: i32) void {
         qtc.QGraphicsView_SetRenderHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `alignment` instead
+    ///
+    pub const Alignment = alignment;
 
     /// Inherited from QGraphicsView
     ///
@@ -614,9 +730,13 @@ pub const QChartView = extern struct {
     ///
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn Alignment(self: QChartView) i32 {
+    pub fn alignment(self: QChartView) i32 {
         return qtc.QGraphicsView_Alignment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAlignment` instead
+    ///
+    pub const SetAlignment = setAlignment;
 
     /// Inherited from QGraphicsView
     ///
@@ -626,11 +746,15 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
+    /// ` _alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn SetAlignment(self: QChartView, alignment: i32) void {
-        qtc.QGraphicsView_SetAlignment(@ptrCast(self.ptr), @bitCast(alignment));
+    pub fn setAlignment(self: QChartView, _alignment: i32) void {
+        qtc.QGraphicsView_SetAlignment(@ptrCast(self.ptr), @bitCast(_alignment));
     }
+
+    /// ### DEPRECATED: Use `transformationAnchor` instead
+    ///
+    pub const TransformationAnchor = transformationAnchor;
 
     /// Inherited from QGraphicsView
     ///
@@ -644,9 +768,13 @@ pub const QChartView = extern struct {
     ///
     /// ` qgraphicsview_enums.ViewportAnchor `
     ///
-    pub fn TransformationAnchor(self: QChartView) i32 {
+    pub fn transformationAnchor(self: QChartView) i32 {
         return qtc.QGraphicsView_TransformationAnchor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTransformationAnchor` instead
+    ///
+    pub const SetTransformationAnchor = setTransformationAnchor;
 
     /// Inherited from QGraphicsView
     ///
@@ -658,9 +786,13 @@ pub const QChartView = extern struct {
     ///
     /// ` anchor: qgraphicsview_enums.ViewportAnchor `
     ///
-    pub fn SetTransformationAnchor(self: QChartView, anchor: i32) void {
+    pub fn setTransformationAnchor(self: QChartView, anchor: i32) void {
         qtc.QGraphicsView_SetTransformationAnchor(@ptrCast(self.ptr), @bitCast(anchor));
     }
+
+    /// ### DEPRECATED: Use `resizeAnchor` instead
+    ///
+    pub const ResizeAnchor = resizeAnchor;
 
     /// Inherited from QGraphicsView
     ///
@@ -674,9 +806,13 @@ pub const QChartView = extern struct {
     ///
     /// ` qgraphicsview_enums.ViewportAnchor `
     ///
-    pub fn ResizeAnchor(self: QChartView) i32 {
+    pub fn resizeAnchor(self: QChartView) i32 {
         return qtc.QGraphicsView_ResizeAnchor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setResizeAnchor` instead
+    ///
+    pub const SetResizeAnchor = setResizeAnchor;
 
     /// Inherited from QGraphicsView
     ///
@@ -688,9 +824,13 @@ pub const QChartView = extern struct {
     ///
     /// ` anchor: qgraphicsview_enums.ViewportAnchor `
     ///
-    pub fn SetResizeAnchor(self: QChartView, anchor: i32) void {
+    pub fn setResizeAnchor(self: QChartView, anchor: i32) void {
         qtc.QGraphicsView_SetResizeAnchor(@ptrCast(self.ptr), @bitCast(anchor));
     }
+
+    /// ### DEPRECATED: Use `viewportUpdateMode` instead
+    ///
+    pub const ViewportUpdateMode = viewportUpdateMode;
 
     /// Inherited from QGraphicsView
     ///
@@ -704,9 +844,13 @@ pub const QChartView = extern struct {
     ///
     /// ` qgraphicsview_enums.ViewportUpdateMode `
     ///
-    pub fn ViewportUpdateMode(self: QChartView) i32 {
+    pub fn viewportUpdateMode(self: QChartView) i32 {
         return qtc.QGraphicsView_ViewportUpdateMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setViewportUpdateMode` instead
+    ///
+    pub const SetViewportUpdateMode = setViewportUpdateMode;
 
     /// Inherited from QGraphicsView
     ///
@@ -718,9 +862,13 @@ pub const QChartView = extern struct {
     ///
     /// ` mode: qgraphicsview_enums.ViewportUpdateMode `
     ///
-    pub fn SetViewportUpdateMode(self: QChartView, mode: i32) void {
+    pub fn setViewportUpdateMode(self: QChartView, mode: i32) void {
         qtc.QGraphicsView_SetViewportUpdateMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `optimizationFlags` instead
+    ///
+    pub const OptimizationFlags = optimizationFlags;
 
     /// Inherited from QGraphicsView
     ///
@@ -734,9 +882,13 @@ pub const QChartView = extern struct {
     ///
     /// ` flag of qgraphicsview_enums.OptimizationFlag `
     ///
-    pub fn OptimizationFlags(self: QChartView) i32 {
+    pub fn optimizationFlags(self: QChartView) i32 {
         return qtc.QGraphicsView_OptimizationFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setOptimizationFlag` instead
+    ///
+    pub const SetOptimizationFlag = setOptimizationFlag;
 
     /// Inherited from QGraphicsView
     ///
@@ -748,9 +900,13 @@ pub const QChartView = extern struct {
     ///
     /// ` flag: qgraphicsview_enums.OptimizationFlag `
     ///
-    pub fn SetOptimizationFlag(self: QChartView, flag: i32) void {
+    pub fn setOptimizationFlag(self: QChartView, flag: i32) void {
         qtc.QGraphicsView_SetOptimizationFlag(@ptrCast(self.ptr), @bitCast(flag));
     }
+
+    /// ### DEPRECATED: Use `setOptimizationFlags` instead
+    ///
+    pub const SetOptimizationFlags = setOptimizationFlags;
 
     /// Inherited from QGraphicsView
     ///
@@ -762,9 +918,13 @@ pub const QChartView = extern struct {
     ///
     /// ` flags: flag of qgraphicsview_enums.OptimizationFlag `
     ///
-    pub fn SetOptimizationFlags(self: QChartView, flags: i32) void {
+    pub fn setOptimizationFlags(self: QChartView, flags: i32) void {
         qtc.QGraphicsView_SetOptimizationFlags(@ptrCast(self.ptr), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `dragMode` instead
+    ///
+    pub const DragMode = dragMode;
 
     /// Inherited from QGraphicsView
     ///
@@ -778,9 +938,13 @@ pub const QChartView = extern struct {
     ///
     /// ` qgraphicsview_enums.DragMode `
     ///
-    pub fn DragMode(self: QChartView) i32 {
+    pub fn dragMode(self: QChartView) i32 {
         return qtc.QGraphicsView_DragMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDragMode` instead
+    ///
+    pub const SetDragMode = setDragMode;
 
     /// Inherited from QGraphicsView
     ///
@@ -792,9 +956,13 @@ pub const QChartView = extern struct {
     ///
     /// ` mode: qgraphicsview_enums.DragMode `
     ///
-    pub fn SetDragMode(self: QChartView, mode: i32) void {
+    pub fn setDragMode(self: QChartView, mode: i32) void {
         qtc.QGraphicsView_SetDragMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `rubberBandSelectionMode` instead
+    ///
+    pub const RubberBandSelectionMode = rubberBandSelectionMode;
 
     /// Inherited from QGraphicsView
     ///
@@ -808,9 +976,13 @@ pub const QChartView = extern struct {
     ///
     /// ` qnamespace_enums.ItemSelectionMode `
     ///
-    pub fn RubberBandSelectionMode(self: QChartView) i32 {
+    pub fn rubberBandSelectionMode(self: QChartView) i32 {
         return qtc.QGraphicsView_RubberBandSelectionMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setRubberBandSelectionMode` instead
+    ///
+    pub const SetRubberBandSelectionMode = setRubberBandSelectionMode;
 
     /// Inherited from QGraphicsView
     ///
@@ -822,9 +994,13 @@ pub const QChartView = extern struct {
     ///
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
-    pub fn SetRubberBandSelectionMode(self: QChartView, mode: i32) void {
+    pub fn setRubberBandSelectionMode(self: QChartView, mode: i32) void {
         qtc.QGraphicsView_SetRubberBandSelectionMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `rubberBandRect` instead
+    ///
+    pub const RubberBandRect = rubberBandRect;
 
     /// Inherited from QGraphicsView
     ///
@@ -834,9 +1010,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn RubberBandRect(self: QChartView) QRect {
+    pub fn rubberBandRect(self: QChartView) QRect {
         return .{ .ptr = qtc.QGraphicsView_RubberBandRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cacheMode` instead
+    ///
+    pub const CacheMode = cacheMode;
 
     /// Inherited from QGraphicsView
     ///
@@ -850,9 +1030,13 @@ pub const QChartView = extern struct {
     ///
     /// ` flag of qgraphicsview_enums.CacheModeFlag `
     ///
-    pub fn CacheMode(self: QChartView) i32 {
+    pub fn cacheMode(self: QChartView) i32 {
         return qtc.QGraphicsView_CacheMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCacheMode` instead
+    ///
+    pub const SetCacheMode = setCacheMode;
 
     /// Inherited from QGraphicsView
     ///
@@ -864,9 +1048,13 @@ pub const QChartView = extern struct {
     ///
     /// ` mode: flag of qgraphicsview_enums.CacheModeFlag `
     ///
-    pub fn SetCacheMode(self: QChartView, mode: i32) void {
+    pub fn setCacheMode(self: QChartView, mode: i32) void {
         qtc.QGraphicsView_SetCacheMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `resetCachedContent` instead
+    ///
+    pub const ResetCachedContent = resetCachedContent;
 
     /// Inherited from QGraphicsView
     ///
@@ -876,9 +1064,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn ResetCachedContent(self: QChartView) void {
+    pub fn resetCachedContent(self: QChartView) void {
         qtc.QGraphicsView_ResetCachedContent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isInteractive` instead
+    ///
+    pub const IsInteractive = isInteractive;
 
     /// Inherited from QGraphicsView
     ///
@@ -888,9 +1080,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn IsInteractive(self: QChartView) bool {
+    pub fn isInteractive(self: QChartView) bool {
         return qtc.QGraphicsView_IsInteractive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInteractive` instead
+    ///
+    pub const SetInteractive = setInteractive;
 
     /// Inherited from QGraphicsView
     ///
@@ -902,9 +1098,13 @@ pub const QChartView = extern struct {
     ///
     /// ` allowed: bool `
     ///
-    pub fn SetInteractive(self: QChartView, allowed: bool) void {
+    pub fn setInteractive(self: QChartView, allowed: bool) void {
         qtc.QGraphicsView_SetInteractive(@ptrCast(self.ptr), allowed);
     }
+
+    /// ### DEPRECATED: Use `scene` instead
+    ///
+    pub const Scene = scene;
 
     /// Inherited from QGraphicsView
     ///
@@ -914,9 +1114,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn Scene(self: QChartView) QGraphicsScene {
+    pub fn scene(self: QChartView) QGraphicsScene {
         return .{ .ptr = qtc.QGraphicsView_Scene(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScene` instead
+    ///
+    pub const SetScene = setScene;
 
     /// Inherited from QGraphicsView
     ///
@@ -926,12 +1130,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` scene: QGraphicsScene `
+    /// ` _scene: QGraphicsScene `
     ///
-    pub fn SetScene(self: QChartView, scene: anytype) void {
-        comptime _ = @TypeOf(scene)._is_QGraphicsScene;
-        qtc.QGraphicsView_SetScene(@ptrCast(self.ptr), @ptrCast(scene.ptr));
+    pub fn setScene(self: QChartView, _scene: anytype) void {
+        comptime _ = @TypeOf(_scene)._is_QGraphicsScene;
+        qtc.QGraphicsView_SetScene(@ptrCast(self.ptr), @ptrCast(_scene.ptr));
     }
+
+    /// ### DEPRECATED: Use `sceneRect` instead
+    ///
+    pub const SceneRect = sceneRect;
 
     /// Inherited from QGraphicsView
     ///
@@ -941,24 +1149,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn SceneRect(self: QChartView) QRectF {
+    pub fn sceneRect(self: QChartView) QRectF {
         return .{ .ptr = qtc.QGraphicsView_SceneRect(@ptrCast(self.ptr)) };
     }
 
-    /// Inherited from QGraphicsView
+    /// ### DEPRECATED: Use `setSceneRect` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsview.html#setSceneRect)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QChartView `
-    ///
-    /// ` rect: QRectF `
-    ///
-    pub fn SetSceneRect(self: QChartView, rect: anytype) void {
-        comptime _ = @TypeOf(rect)._is_QRectF;
-        qtc.QGraphicsView_SetSceneRect(@ptrCast(self.ptr), @ptrCast(rect.ptr));
-    }
+    pub const SetSceneRect = setSceneRect;
 
     /// Inherited from QGraphicsView
     ///
@@ -968,17 +1165,40 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` x: f64 `
+    /// ` _rect: QRectF `
     ///
-    /// ` y: f64 `
+    pub fn setSceneRect(self: QChartView, _rect: anytype) void {
+        comptime _ = @TypeOf(_rect)._is_QRectF;
+        qtc.QGraphicsView_SetSceneRect(@ptrCast(self.ptr), @ptrCast(_rect.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setSceneRect2` instead
+    ///
+    pub const SetSceneRect2 = setSceneRect2;
+
+    /// Inherited from QGraphicsView
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsview.html#setSceneRect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QChartView `
+    ///
+    /// ` _x: f64 `
+    ///
+    /// ` _y: f64 `
     ///
     /// ` w: f64 `
     ///
     /// ` h: f64 `
     ///
-    pub fn SetSceneRect2(self: QChartView, x: f64, y: f64, w: f64, h: f64) void {
-        qtc.QGraphicsView_SetSceneRect2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setSceneRect2(self: QChartView, _x: f64, _y: f64, w: f64, h: f64) void {
+        qtc.QGraphicsView_SetSceneRect2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `transform` instead
+    ///
+    pub const Transform = transform;
 
     /// Inherited from QGraphicsView
     ///
@@ -988,9 +1208,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn Transform(self: QChartView) QTransform {
+    pub fn transform(self: QChartView) QTransform {
         return .{ .ptr = qtc.QGraphicsView_Transform(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `viewportTransform` instead
+    ///
+    pub const ViewportTransform = viewportTransform;
 
     /// Inherited from QGraphicsView
     ///
@@ -1000,9 +1224,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn ViewportTransform(self: QChartView) QTransform {
+    pub fn viewportTransform(self: QChartView) QTransform {
         return .{ .ptr = qtc.QGraphicsView_ViewportTransform(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isTransformed` instead
+    ///
+    pub const IsTransformed = isTransformed;
 
     /// Inherited from QGraphicsView
     ///
@@ -1012,9 +1240,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn IsTransformed(self: QChartView) bool {
+    pub fn isTransformed(self: QChartView) bool {
         return qtc.QGraphicsView_IsTransformed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTransform` instead
+    ///
+    pub const SetTransform = setTransform;
 
     /// Inherited from QGraphicsView
     ///
@@ -1026,10 +1258,14 @@ pub const QChartView = extern struct {
     ///
     /// ` matrix: QTransform `
     ///
-    pub fn SetTransform(self: QChartView, matrix: anytype) void {
+    pub fn setTransform(self: QChartView, matrix: anytype) void {
         comptime _ = @TypeOf(matrix)._is_QTransform;
         qtc.QGraphicsView_SetTransform(@ptrCast(self.ptr), @ptrCast(matrix.ptr));
     }
+
+    /// ### DEPRECATED: Use `resetTransform` instead
+    ///
+    pub const ResetTransform = resetTransform;
 
     /// Inherited from QGraphicsView
     ///
@@ -1039,9 +1275,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn ResetTransform(self: QChartView) void {
+    pub fn resetTransform(self: QChartView) void {
         qtc.QGraphicsView_ResetTransform(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rotate` instead
+    ///
+    pub const Rotate = rotate;
 
     /// Inherited from QGraphicsView
     ///
@@ -1053,9 +1293,13 @@ pub const QChartView = extern struct {
     ///
     /// ` angle: f64 `
     ///
-    pub fn Rotate(self: QChartView, angle: f64) void {
+    pub fn rotate(self: QChartView, angle: f64) void {
         qtc.QGraphicsView_Rotate(@ptrCast(self.ptr), @bitCast(angle));
     }
+
+    /// ### DEPRECATED: Use `scale` instead
+    ///
+    pub const Scale = scale;
 
     /// Inherited from QGraphicsView
     ///
@@ -1069,9 +1313,13 @@ pub const QChartView = extern struct {
     ///
     /// ` sy: f64 `
     ///
-    pub fn Scale(self: QChartView, sx: f64, sy: f64) void {
+    pub fn scale(self: QChartView, sx: f64, sy: f64) void {
         qtc.QGraphicsView_Scale(@ptrCast(self.ptr), @bitCast(sx), @bitCast(sy));
     }
+
+    /// ### DEPRECATED: Use `shear` instead
+    ///
+    pub const Shear = shear;
 
     /// Inherited from QGraphicsView
     ///
@@ -1085,9 +1333,13 @@ pub const QChartView = extern struct {
     ///
     /// ` sv: f64 `
     ///
-    pub fn Shear(self: QChartView, sh: f64, sv: f64) void {
+    pub fn shear(self: QChartView, sh: f64, sv: f64) void {
         qtc.QGraphicsView_Shear(@ptrCast(self.ptr), @bitCast(sh), @bitCast(sv));
     }
+
+    /// ### DEPRECATED: Use `translate` instead
+    ///
+    pub const Translate = translate;
 
     /// Inherited from QGraphicsView
     ///
@@ -1101,24 +1353,13 @@ pub const QChartView = extern struct {
     ///
     /// ` dy: f64 `
     ///
-    pub fn Translate(self: QChartView, dx: f64, dy: f64) void {
+    pub fn translate(self: QChartView, dx: f64, dy: f64) void {
         qtc.QGraphicsView_Translate(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
-    /// Inherited from QGraphicsView
+    /// ### DEPRECATED: Use `centerOn` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsview.html#centerOn)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QChartView `
-    ///
-    /// ` pos: QPointF `
-    ///
-    pub fn CenterOn(self: QChartView, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPointF;
-        qtc.QGraphicsView_CenterOn(@ptrCast(self.ptr), @ptrCast(pos.ptr));
-    }
+    pub const CenterOn = centerOn;
 
     /// Inherited from QGraphicsView
     ///
@@ -1128,13 +1369,36 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` x: f64 `
+    /// ` _pos: QPointF `
     ///
-    /// ` y: f64 `
-    ///
-    pub fn CenterOn2(self: QChartView, x: f64, y: f64) void {
-        qtc.QGraphicsView_CenterOn2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn centerOn(self: QChartView, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPointF;
+        qtc.QGraphicsView_CenterOn(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `centerOn2` instead
+    ///
+    pub const CenterOn2 = centerOn2;
+
+    /// Inherited from QGraphicsView
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsview.html#centerOn)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QChartView `
+    ///
+    /// ` _x: f64 `
+    ///
+    /// ` _y: f64 `
+    ///
+    pub fn centerOn2(self: QChartView, _x: f64, _y: f64) void {
+        qtc.QGraphicsView_CenterOn2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
+    }
+
+    /// ### DEPRECATED: Use `centerOn3` instead
+    ///
+    pub const CenterOn3 = centerOn3;
 
     /// Inherited from QGraphicsView
     ///
@@ -1146,25 +1410,14 @@ pub const QChartView = extern struct {
     ///
     /// ` item: QGraphicsItem `
     ///
-    pub fn CenterOn3(self: QChartView, item: anytype) void {
+    pub fn centerOn3(self: QChartView, item: anytype) void {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
         qtc.QGraphicsView_CenterOn3(@ptrCast(self.ptr), @ptrCast(item.ptr));
     }
 
-    /// Inherited from QGraphicsView
+    /// ### DEPRECATED: Use `ensureVisible` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsview.html#ensureVisible)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QChartView `
-    ///
-    /// ` rect: QRectF `
-    ///
-    pub fn EnsureVisible(self: QChartView, rect: anytype) void {
-        comptime _ = @TypeOf(rect)._is_QRectF;
-        qtc.QGraphicsView_EnsureVisible(@ptrCast(self.ptr), @ptrCast(rect.ptr));
-    }
+    pub const EnsureVisible = ensureVisible;
 
     /// Inherited from QGraphicsView
     ///
@@ -1174,17 +1427,40 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` x: f64 `
+    /// ` _rect: QRectF `
     ///
-    /// ` y: f64 `
+    pub fn ensureVisible(self: QChartView, _rect: anytype) void {
+        comptime _ = @TypeOf(_rect)._is_QRectF;
+        qtc.QGraphicsView_EnsureVisible(@ptrCast(self.ptr), @ptrCast(_rect.ptr));
+    }
+
+    /// ### DEPRECATED: Use `ensureVisible2` instead
+    ///
+    pub const EnsureVisible2 = ensureVisible2;
+
+    /// Inherited from QGraphicsView
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsview.html#ensureVisible)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QChartView `
+    ///
+    /// ` _x: f64 `
+    ///
+    /// ` _y: f64 `
     ///
     /// ` w: f64 `
     ///
     /// ` h: f64 `
     ///
-    pub fn EnsureVisible2(self: QChartView, x: f64, y: f64, w: f64, h: f64) void {
-        qtc.QGraphicsView_EnsureVisible2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn ensureVisible2(self: QChartView, _x: f64, _y: f64, w: f64, h: f64) void {
+        qtc.QGraphicsView_EnsureVisible2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `ensureVisible3` instead
+    ///
+    pub const EnsureVisible3 = ensureVisible3;
 
     /// Inherited from QGraphicsView
     ///
@@ -1196,25 +1472,14 @@ pub const QChartView = extern struct {
     ///
     /// ` item: QGraphicsItem `
     ///
-    pub fn EnsureVisible3(self: QChartView, item: anytype) void {
+    pub fn ensureVisible3(self: QChartView, item: anytype) void {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
         qtc.QGraphicsView_EnsureVisible3(@ptrCast(self.ptr), @ptrCast(item.ptr));
     }
 
-    /// Inherited from QGraphicsView
+    /// ### DEPRECATED: Use `fitInView` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsview.html#fitInView)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QChartView `
-    ///
-    /// ` rect: QRectF `
-    ///
-    pub fn FitInView(self: QChartView, rect: anytype) void {
-        comptime _ = @TypeOf(rect)._is_QRectF;
-        qtc.QGraphicsView_FitInView(@ptrCast(self.ptr), @ptrCast(rect.ptr));
-    }
+    pub const FitInView = fitInView;
 
     /// Inherited from QGraphicsView
     ///
@@ -1224,17 +1489,40 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` x: f64 `
+    /// ` _rect: QRectF `
     ///
-    /// ` y: f64 `
+    pub fn fitInView(self: QChartView, _rect: anytype) void {
+        comptime _ = @TypeOf(_rect)._is_QRectF;
+        qtc.QGraphicsView_FitInView(@ptrCast(self.ptr), @ptrCast(_rect.ptr));
+    }
+
+    /// ### DEPRECATED: Use `fitInView2` instead
+    ///
+    pub const FitInView2 = fitInView2;
+
+    /// Inherited from QGraphicsView
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsview.html#fitInView)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QChartView `
+    ///
+    /// ` _x: f64 `
+    ///
+    /// ` _y: f64 `
     ///
     /// ` w: f64 `
     ///
     /// ` h: f64 `
     ///
-    pub fn FitInView2(self: QChartView, x: f64, y: f64, w: f64, h: f64) void {
-        qtc.QGraphicsView_FitInView2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn fitInView2(self: QChartView, _x: f64, _y: f64, w: f64, h: f64) void {
+        qtc.QGraphicsView_FitInView2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `fitInView3` instead
+    ///
+    pub const FitInView3 = fitInView3;
 
     /// Inherited from QGraphicsView
     ///
@@ -1246,10 +1534,14 @@ pub const QChartView = extern struct {
     ///
     /// ` item: QGraphicsItem `
     ///
-    pub fn FitInView3(self: QChartView, item: anytype) void {
+    pub fn fitInView3(self: QChartView, item: anytype) void {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
         qtc.QGraphicsView_FitInView3(@ptrCast(self.ptr), @ptrCast(item.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QGraphicsView
     ///
@@ -1261,11 +1553,15 @@ pub const QChartView = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render(self: QChartView, painter: anytype) void {
+    pub fn render(self: QChartView, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QGraphicsView_Render(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
+    /// ### DEPRECATED: Use `items` instead
+    ///
+    pub const Items = items;
+
     /// Inherited from QGraphicsView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsview.html#items)
@@ -1276,15 +1572,19 @@ pub const QChartView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Items(self: QChartView, allocator: std.mem.Allocator) []QGraphicsItem {
+    pub fn items(self: QChartView, allocator: std.mem.Allocator) []QGraphicsItem {
         const _arr: qtc.libqt_list = qtc.QGraphicsView_Items(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("QChartView.Items: Memory allocation failed");
-        const _data: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("QChartView.items: Memory allocation failed");
+        const _data_val: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `items2` instead
+    ///
+    pub const Items2 = items2;
 
     /// Inherited from QGraphicsView
     ///
@@ -1296,18 +1596,22 @@ pub const QChartView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn Items2(self: QChartView, allocator: std.mem.Allocator, pos: anytype) []QGraphicsItem {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        const _arr: qtc.libqt_list = qtc.QGraphicsView_Items2(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn items2(self: QChartView, allocator: std.mem.Allocator, _pos: anytype) []QGraphicsItem {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        const _arr: qtc.libqt_list = qtc.QGraphicsView_Items2(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("QChartView.Items2: Memory allocation failed");
-        const _data: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("QChartView.items2: Memory allocation failed");
+        const _data_val: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `items3` instead
+    ///
+    pub const Items3 = items3;
 
     /// Inherited from QGraphicsView
     ///
@@ -1319,19 +1623,23 @@ pub const QChartView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Items3(self: QChartView, allocator: std.mem.Allocator, x: i32, y: i32) []QGraphicsItem {
-        const _arr: qtc.libqt_list = qtc.QGraphicsView_Items3(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn items3(self: QChartView, allocator: std.mem.Allocator, _x: i32, _y: i32) []QGraphicsItem {
+        const _arr: qtc.libqt_list = qtc.QGraphicsView_Items3(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("QChartView.Items3: Memory allocation failed");
-        const _data: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("QChartView.items3: Memory allocation failed");
+        const _data_val: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `items4` instead
+    ///
+    pub const Items4 = items4;
 
     /// Inherited from QGraphicsView
     ///
@@ -1343,18 +1651,22 @@ pub const QChartView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
-    pub fn Items4(self: QChartView, allocator: std.mem.Allocator, rect: anytype) []QGraphicsItem {
-        comptime _ = @TypeOf(rect)._is_QRect;
-        const _arr: qtc.libqt_list = qtc.QGraphicsView_Items4(@ptrCast(self.ptr), @ptrCast(rect.ptr));
+    pub fn items4(self: QChartView, allocator: std.mem.Allocator, _rect: anytype) []QGraphicsItem {
+        comptime _ = @TypeOf(_rect)._is_QRect;
+        const _arr: qtc.libqt_list = qtc.QGraphicsView_Items4(@ptrCast(self.ptr), @ptrCast(_rect.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("QChartView.Items4: Memory allocation failed");
-        const _data: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("QChartView.items4: Memory allocation failed");
+        const _data_val: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `items5` instead
+    ///
+    pub const Items5 = items5;
 
     /// Inherited from QGraphicsView
     ///
@@ -1366,23 +1678,27 @@ pub const QChartView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Items5(self: QChartView, allocator: std.mem.Allocator, x: i32, y: i32, w: i32, h: i32) []QGraphicsItem {
-        const _arr: qtc.libqt_list = qtc.QGraphicsView_Items5(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn items5(self: QChartView, allocator: std.mem.Allocator, _x: i32, _y: i32, w: i32, h: i32) []QGraphicsItem {
+        const _arr: qtc.libqt_list = qtc.QGraphicsView_Items5(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("QChartView.Items5: Memory allocation failed");
-        const _data: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("QChartView.items5: Memory allocation failed");
+        const _data_val: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `items7` instead
+    ///
+    pub const Items7 = items7;
 
     /// Inherited from QGraphicsView
     ///
@@ -1396,31 +1712,20 @@ pub const QChartView = extern struct {
     ///
     /// ` path: QPainterPath `
     ///
-    pub fn Items7(self: QChartView, allocator: std.mem.Allocator, path: anytype) []QGraphicsItem {
+    pub fn items7(self: QChartView, allocator: std.mem.Allocator, path: anytype) []QGraphicsItem {
         comptime _ = @TypeOf(path)._is_QPainterPath;
         const _arr: qtc.libqt_list = qtc.QGraphicsView_Items7(@ptrCast(self.ptr), @ptrCast(path.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("QChartView.Items7: Memory allocation failed");
-        const _data: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("QChartView.items7: Memory allocation failed");
+        const _data_val: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
-    /// Inherited from QGraphicsView
+    /// ### DEPRECATED: Use `itemAt` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsview.html#itemAt)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QChartView `
-    ///
-    /// ` pos: QPoint `
-    ///
-    pub fn ItemAt(self: QChartView, pos: anytype) QGraphicsItem {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        return .{ .ptr = qtc.QGraphicsView_ItemAt(@ptrCast(self.ptr), @ptrCast(pos.ptr)) };
-    }
+    pub const ItemAt = itemAt;
 
     /// Inherited from QGraphicsView
     ///
@@ -1430,13 +1735,36 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` x: i32 `
+    /// ` _pos: QPoint `
     ///
-    /// ` y: i32 `
-    ///
-    pub fn ItemAt2(self: QChartView, x: i32, y: i32) QGraphicsItem {
-        return .{ .ptr = qtc.QGraphicsView_ItemAt2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn itemAt(self: QChartView, _pos: anytype) QGraphicsItem {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        return .{ .ptr = qtc.QGraphicsView_ItemAt(@ptrCast(self.ptr), @ptrCast(_pos.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `itemAt2` instead
+    ///
+    pub const ItemAt2 = itemAt2;
+
+    /// Inherited from QGraphicsView
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsview.html#itemAt)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QChartView `
+    ///
+    /// ` _x: i32 `
+    ///
+    /// ` _y: i32 `
+    ///
+    pub fn itemAt2(self: QChartView, _x: i32, _y: i32) QGraphicsItem {
+        return .{ .ptr = qtc.QGraphicsView_ItemAt2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
+    }
+
+    /// ### DEPRECATED: Use `mapToScene` instead
+    ///
+    pub const MapToScene = mapToScene;
 
     /// Inherited from QGraphicsView
     ///
@@ -1448,10 +1776,14 @@ pub const QChartView = extern struct {
     ///
     /// ` point: QPoint `
     ///
-    pub fn MapToScene(self: QChartView, point: anytype) QPointF {
+    pub fn mapToScene(self: QChartView, point: anytype) QPointF {
         comptime _ = @TypeOf(point)._is_QPoint;
         return .{ .ptr = qtc.QGraphicsView_MapToScene(@ptrCast(self.ptr), @ptrCast(point.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapToScene4` instead
+    ///
+    pub const MapToScene4 = mapToScene4;
 
     /// Inherited from QGraphicsView
     ///
@@ -1463,10 +1795,14 @@ pub const QChartView = extern struct {
     ///
     /// ` path: QPainterPath `
     ///
-    pub fn MapToScene4(self: QChartView, path: anytype) QPainterPath {
+    pub fn mapToScene4(self: QChartView, path: anytype) QPainterPath {
         comptime _ = @TypeOf(path)._is_QPainterPath;
         return .{ .ptr = qtc.QGraphicsView_MapToScene4(@ptrCast(self.ptr), @ptrCast(path.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromScene` instead
+    ///
+    pub const MapFromScene = mapFromScene;
 
     /// Inherited from QGraphicsView
     ///
@@ -1478,10 +1814,14 @@ pub const QChartView = extern struct {
     ///
     /// ` point: QPointF `
     ///
-    pub fn MapFromScene(self: QChartView, point: anytype) QPoint {
+    pub fn mapFromScene(self: QChartView, point: anytype) QPoint {
         comptime _ = @TypeOf(point)._is_QPointF;
         return .{ .ptr = qtc.QGraphicsView_MapFromScene(@ptrCast(self.ptr), @ptrCast(point.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromScene4` instead
+    ///
+    pub const MapFromScene4 = mapFromScene4;
 
     /// Inherited from QGraphicsView
     ///
@@ -1493,10 +1833,14 @@ pub const QChartView = extern struct {
     ///
     /// ` path: QPainterPath `
     ///
-    pub fn MapFromScene4(self: QChartView, path: anytype) QPainterPath {
+    pub fn mapFromScene4(self: QChartView, path: anytype) QPainterPath {
         comptime _ = @TypeOf(path)._is_QPainterPath;
         return .{ .ptr = qtc.QGraphicsView_MapFromScene4(@ptrCast(self.ptr), @ptrCast(path.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapToScene5` instead
+    ///
+    pub const MapToScene5 = mapToScene5;
 
     /// Inherited from QGraphicsView
     ///
@@ -1506,13 +1850,17 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn MapToScene5(self: QChartView, x: i32, y: i32) QPointF {
-        return .{ .ptr = qtc.QGraphicsView_MapToScene5(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn mapToScene5(self: QChartView, _x: i32, _y: i32) QPointF {
+        return .{ .ptr = qtc.QGraphicsView_MapToScene5(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromScene5` instead
+    ///
+    pub const MapFromScene5 = mapFromScene5;
 
     /// Inherited from QGraphicsView
     ///
@@ -1522,13 +1870,17 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` x: f64 `
+    /// ` _x: f64 `
     ///
-    /// ` y: f64 `
+    /// ` _y: f64 `
     ///
-    pub fn MapFromScene5(self: QChartView, x: f64, y: f64) QPoint {
-        return .{ .ptr = qtc.QGraphicsView_MapFromScene5(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn mapFromScene5(self: QChartView, _x: f64, _y: f64) QPoint {
+        return .{ .ptr = qtc.QGraphicsView_MapFromScene5(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `backgroundBrush` instead
+    ///
+    pub const BackgroundBrush = backgroundBrush;
 
     /// Inherited from QGraphicsView
     ///
@@ -1538,9 +1890,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn BackgroundBrush(self: QChartView) QBrush {
+    pub fn backgroundBrush(self: QChartView) QBrush {
         return .{ .ptr = qtc.QGraphicsView_BackgroundBrush(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBackgroundBrush` instead
+    ///
+    pub const SetBackgroundBrush = setBackgroundBrush;
 
     /// Inherited from QGraphicsView
     ///
@@ -1552,10 +1908,14 @@ pub const QChartView = extern struct {
     ///
     /// ` brush: QBrush `
     ///
-    pub fn SetBackgroundBrush(self: QChartView, brush: anytype) void {
+    pub fn setBackgroundBrush(self: QChartView, brush: anytype) void {
         comptime _ = @TypeOf(brush)._is_QBrush;
         qtc.QGraphicsView_SetBackgroundBrush(@ptrCast(self.ptr), @ptrCast(brush.ptr));
     }
+
+    /// ### DEPRECATED: Use `foregroundBrush` instead
+    ///
+    pub const ForegroundBrush = foregroundBrush;
 
     /// Inherited from QGraphicsView
     ///
@@ -1565,9 +1925,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn ForegroundBrush(self: QChartView) QBrush {
+    pub fn foregroundBrush(self: QChartView) QBrush {
         return .{ .ptr = qtc.QGraphicsView_ForegroundBrush(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setForegroundBrush` instead
+    ///
+    pub const SetForegroundBrush = setForegroundBrush;
 
     /// Inherited from QGraphicsView
     ///
@@ -1579,10 +1943,14 @@ pub const QChartView = extern struct {
     ///
     /// ` brush: QBrush `
     ///
-    pub fn SetForegroundBrush(self: QChartView, brush: anytype) void {
+    pub fn setForegroundBrush(self: QChartView, brush: anytype) void {
         comptime _ = @TypeOf(brush)._is_QBrush;
         qtc.QGraphicsView_SetForegroundBrush(@ptrCast(self.ptr), @ptrCast(brush.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateScene` instead
+    ///
+    pub const UpdateScene = updateScene;
 
     /// Inherited from QGraphicsView
     ///
@@ -1594,13 +1962,17 @@ pub const QChartView = extern struct {
     ///
     /// ` rects: []QRectF `
     ///
-    pub fn UpdateScene(self: QChartView, rects: []QRectF) void {
+    pub fn updateScene(self: QChartView, rects: []QRectF) void {
         const rects_list = qtc.libqt_list{
             .len = rects.len,
             .data = @ptrCast(rects.ptr),
         };
         qtc.QGraphicsView_UpdateScene(@ptrCast(self.ptr), rects_list);
     }
+
+    /// ### DEPRECATED: Use `invalidateScene` instead
+    ///
+    pub const InvalidateScene = invalidateScene;
 
     /// Inherited from QGraphicsView
     ///
@@ -1610,9 +1982,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn InvalidateScene(self: QChartView) void {
+    pub fn invalidateScene(self: QChartView) void {
         qtc.QGraphicsView_InvalidateScene(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateSceneRect` instead
+    ///
+    pub const UpdateSceneRect = updateSceneRect;
 
     /// Inherited from QGraphicsView
     ///
@@ -1622,12 +1998,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` rect: QRectF `
+    /// ` _rect: QRectF `
     ///
-    pub fn UpdateSceneRect(self: QChartView, rect: anytype) void {
-        comptime _ = @TypeOf(rect)._is_QRectF;
-        qtc.QGraphicsView_UpdateSceneRect(@ptrCast(self.ptr), @ptrCast(rect.ptr));
+    pub fn updateSceneRect(self: QChartView, _rect: anytype) void {
+        comptime _ = @TypeOf(_rect)._is_QRectF;
+        qtc.QGraphicsView_UpdateSceneRect(@ptrCast(self.ptr), @ptrCast(_rect.ptr));
     }
+
+    /// ### DEPRECATED: Use `rubberBandChanged` instead
+    ///
+    pub const RubberBandChanged = rubberBandChanged;
 
     /// Inherited from QGraphicsView
     ///
@@ -1643,12 +2023,16 @@ pub const QChartView = extern struct {
     ///
     /// ` toScenePoint: QPointF `
     ///
-    pub fn RubberBandChanged(self: QChartView, viewportRect: anytype, fromScenePoint: anytype, toScenePoint: anytype) void {
+    pub fn rubberBandChanged(self: QChartView, viewportRect: anytype, fromScenePoint: anytype, toScenePoint: anytype) void {
         comptime _ = @TypeOf(viewportRect)._is_QRect;
         comptime _ = @TypeOf(fromScenePoint)._is_QPointF;
         comptime _ = @TypeOf(toScenePoint)._is_QPointF;
         qtc.QGraphicsView_RubberBandChanged(@ptrCast(self.ptr), @ptrCast(viewportRect.ptr), @ptrCast(fromScenePoint.ptr), @ptrCast(toScenePoint.ptr));
     }
+
+    /// ### DEPRECATED: Use `onRubberBandChanged` instead
+    ///
+    pub const OnRubberBandChanged = onRubberBandChanged;
 
     /// Inherited from QGraphicsView
     ///
@@ -1660,9 +2044,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, viewportRect: QRect, fromScenePoint: QPointF, toScenePoint: QPointF) callconv(.c) void `
     ///
-    pub fn OnRubberBandChanged(self: QChartView, callback: *const fn (QChartView, QRect, QPointF, QPointF) callconv(.c) void) void {
+    pub fn onRubberBandChanged(self: QChartView, callback: *const fn (QChartView, QRect, QPointF, QPointF) callconv(.c) void) void {
         qtc.QGraphicsView_Connect_RubberBandChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setRenderHint2` instead
+    ///
+    pub const SetRenderHint2 = setRenderHint2;
 
     /// Inherited from QGraphicsView
     ///
@@ -1676,9 +2064,13 @@ pub const QChartView = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetRenderHint2(self: QChartView, hint: i32, enabled: bool) void {
+    pub fn setRenderHint2(self: QChartView, hint: i32, enabled: bool) void {
         qtc.QGraphicsView_SetRenderHint2(@ptrCast(self.ptr), @bitCast(hint), enabled);
     }
+
+    /// ### DEPRECATED: Use `setOptimizationFlag2` instead
+    ///
+    pub const SetOptimizationFlag2 = setOptimizationFlag2;
 
     /// Inherited from QGraphicsView
     ///
@@ -1692,9 +2084,13 @@ pub const QChartView = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetOptimizationFlag2(self: QChartView, flag: i32, enabled: bool) void {
+    pub fn setOptimizationFlag2(self: QChartView, flag: i32, enabled: bool) void {
         qtc.QGraphicsView_SetOptimizationFlag2(@ptrCast(self.ptr), @bitCast(flag), enabled);
     }
+
+    /// ### DEPRECATED: Use `setTransform2` instead
+    ///
+    pub const SetTransform2 = setTransform2;
 
     /// Inherited from QGraphicsView
     ///
@@ -1708,27 +2104,14 @@ pub const QChartView = extern struct {
     ///
     /// ` combine: bool `
     ///
-    pub fn SetTransform2(self: QChartView, matrix: anytype, combine: bool) void {
+    pub fn setTransform2(self: QChartView, matrix: anytype, combine: bool) void {
         comptime _ = @TypeOf(matrix)._is_QTransform;
         qtc.QGraphicsView_SetTransform2(@ptrCast(self.ptr), @ptrCast(matrix.ptr), combine);
     }
 
-    /// Inherited from QGraphicsView
+    /// ### DEPRECATED: Use `ensureVisible22` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsview.html#ensureVisible)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QChartView `
-    ///
-    /// ` rect: QRectF `
-    ///
-    /// ` xmargin: i32 `
-    ///
-    pub fn EnsureVisible22(self: QChartView, rect: anytype, xmargin: i32) void {
-        comptime _ = @TypeOf(rect)._is_QRectF;
-        qtc.QGraphicsView_EnsureVisible22(@ptrCast(self.ptr), @ptrCast(rect.ptr), @bitCast(xmargin));
-    }
+    pub const EnsureVisible22 = ensureVisible22;
 
     /// Inherited from QGraphicsView
     ///
@@ -1738,16 +2121,41 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` rect: QRectF `
+    /// ` _rect: QRectF `
+    ///
+    /// ` xmargin: i32 `
+    ///
+    pub fn ensureVisible22(self: QChartView, _rect: anytype, xmargin: i32) void {
+        comptime _ = @TypeOf(_rect)._is_QRectF;
+        qtc.QGraphicsView_EnsureVisible22(@ptrCast(self.ptr), @ptrCast(_rect.ptr), @bitCast(xmargin));
+    }
+
+    /// ### DEPRECATED: Use `ensureVisible32` instead
+    ///
+    pub const EnsureVisible32 = ensureVisible32;
+
+    /// Inherited from QGraphicsView
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsview.html#ensureVisible)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QChartView `
+    ///
+    /// ` _rect: QRectF `
     ///
     /// ` xmargin: i32 `
     ///
     /// ` ymargin: i32 `
     ///
-    pub fn EnsureVisible32(self: QChartView, rect: anytype, xmargin: i32, ymargin: i32) void {
-        comptime _ = @TypeOf(rect)._is_QRectF;
-        qtc.QGraphicsView_EnsureVisible32(@ptrCast(self.ptr), @ptrCast(rect.ptr), @bitCast(xmargin), @bitCast(ymargin));
+    pub fn ensureVisible32(self: QChartView, _rect: anytype, xmargin: i32, ymargin: i32) void {
+        comptime _ = @TypeOf(_rect)._is_QRectF;
+        qtc.QGraphicsView_EnsureVisible32(@ptrCast(self.ptr), @ptrCast(_rect.ptr), @bitCast(xmargin), @bitCast(ymargin));
     }
+
+    /// ### DEPRECATED: Use `ensureVisible5` instead
+    ///
+    pub const EnsureVisible5 = ensureVisible5;
 
     /// Inherited from QGraphicsView
     ///
@@ -1757,9 +2165,9 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` x: f64 `
+    /// ` _x: f64 `
     ///
-    /// ` y: f64 `
+    /// ` _y: f64 `
     ///
     /// ` w: f64 `
     ///
@@ -1767,9 +2175,13 @@ pub const QChartView = extern struct {
     ///
     /// ` xmargin: i32 `
     ///
-    pub fn EnsureVisible5(self: QChartView, x: f64, y: f64, w: f64, h: f64, xmargin: i32) void {
-        qtc.QGraphicsView_EnsureVisible5(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(xmargin));
+    pub fn ensureVisible5(self: QChartView, _x: f64, _y: f64, w: f64, h: f64, xmargin: i32) void {
+        qtc.QGraphicsView_EnsureVisible5(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h), @bitCast(xmargin));
     }
+
+    /// ### DEPRECATED: Use `ensureVisible6` instead
+    ///
+    pub const EnsureVisible6 = ensureVisible6;
 
     /// Inherited from QGraphicsView
     ///
@@ -1779,9 +2191,9 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` x: f64 `
+    /// ` _x: f64 `
     ///
-    /// ` y: f64 `
+    /// ` _y: f64 `
     ///
     /// ` w: f64 `
     ///
@@ -1791,9 +2203,13 @@ pub const QChartView = extern struct {
     ///
     /// ` ymargin: i32 `
     ///
-    pub fn EnsureVisible6(self: QChartView, x: f64, y: f64, w: f64, h: f64, xmargin: i32, ymargin: i32) void {
-        qtc.QGraphicsView_EnsureVisible6(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(xmargin), @bitCast(ymargin));
+    pub fn ensureVisible6(self: QChartView, _x: f64, _y: f64, w: f64, h: f64, xmargin: i32, ymargin: i32) void {
+        qtc.QGraphicsView_EnsureVisible6(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h), @bitCast(xmargin), @bitCast(ymargin));
     }
+
+    /// ### DEPRECATED: Use `ensureVisible23` instead
+    ///
+    pub const EnsureVisible23 = ensureVisible23;
 
     /// Inherited from QGraphicsView
     ///
@@ -1807,11 +2223,15 @@ pub const QChartView = extern struct {
     ///
     /// ` xmargin: i32 `
     ///
-    pub fn EnsureVisible23(self: QChartView, item: anytype, xmargin: i32) void {
+    pub fn ensureVisible23(self: QChartView, item: anytype, xmargin: i32) void {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
         qtc.QGraphicsView_EnsureVisible23(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(xmargin));
     }
 
+    /// ### DEPRECATED: Use `ensureVisible33` instead
+    ///
+    pub const EnsureVisible33 = ensureVisible33;
+
     /// Inherited from QGraphicsView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsview.html#ensureVisible)
@@ -1826,27 +2246,14 @@ pub const QChartView = extern struct {
     ///
     /// ` ymargin: i32 `
     ///
-    pub fn EnsureVisible33(self: QChartView, item: anytype, xmargin: i32, ymargin: i32) void {
+    pub fn ensureVisible33(self: QChartView, item: anytype, xmargin: i32, ymargin: i32) void {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
         qtc.QGraphicsView_EnsureVisible33(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(xmargin), @bitCast(ymargin));
     }
 
-    /// Inherited from QGraphicsView
+    /// ### DEPRECATED: Use `fitInView22` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsview.html#fitInView)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QChartView `
-    ///
-    /// ` rect: QRectF `
-    ///
-    /// ` aspectRadioMode: qnamespace_enums.AspectRatioMode `
-    ///
-    pub fn FitInView22(self: QChartView, rect: anytype, aspectRadioMode: i32) void {
-        comptime _ = @TypeOf(rect)._is_QRectF;
-        qtc.QGraphicsView_FitInView22(@ptrCast(self.ptr), @ptrCast(rect.ptr), @bitCast(aspectRadioMode));
-    }
+    pub const FitInView22 = fitInView22;
 
     /// Inherited from QGraphicsView
     ///
@@ -1856,9 +2263,30 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` x: f64 `
+    /// ` _rect: QRectF `
     ///
-    /// ` y: f64 `
+    /// ` aspectRadioMode: qnamespace_enums.AspectRatioMode `
+    ///
+    pub fn fitInView22(self: QChartView, _rect: anytype, aspectRadioMode: i32) void {
+        comptime _ = @TypeOf(_rect)._is_QRectF;
+        qtc.QGraphicsView_FitInView22(@ptrCast(self.ptr), @ptrCast(_rect.ptr), @bitCast(aspectRadioMode));
+    }
+
+    /// ### DEPRECATED: Use `fitInView5` instead
+    ///
+    pub const FitInView5 = fitInView5;
+
+    /// Inherited from QGraphicsView
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsview.html#fitInView)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QChartView `
+    ///
+    /// ` _x: f64 `
+    ///
+    /// ` _y: f64 `
     ///
     /// ` w: f64 `
     ///
@@ -1866,9 +2294,13 @@ pub const QChartView = extern struct {
     ///
     /// ` aspectRadioMode: qnamespace_enums.AspectRatioMode `
     ///
-    pub fn FitInView5(self: QChartView, x: f64, y: f64, w: f64, h: f64, aspectRadioMode: i32) void {
-        qtc.QGraphicsView_FitInView5(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(aspectRadioMode));
+    pub fn fitInView5(self: QChartView, _x: f64, _y: f64, w: f64, h: f64, aspectRadioMode: i32) void {
+        qtc.QGraphicsView_FitInView5(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h), @bitCast(aspectRadioMode));
     }
+
+    /// ### DEPRECATED: Use `fitInView23` instead
+    ///
+    pub const FitInView23 = fitInView23;
 
     /// Inherited from QGraphicsView
     ///
@@ -1882,10 +2314,14 @@ pub const QChartView = extern struct {
     ///
     /// ` aspectRadioMode: qnamespace_enums.AspectRatioMode `
     ///
-    pub fn FitInView23(self: QChartView, item: anytype, aspectRadioMode: i32) void {
+    pub fn fitInView23(self: QChartView, item: anytype, aspectRadioMode: i32) void {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
         qtc.QGraphicsView_FitInView23(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(aspectRadioMode));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QGraphicsView
     ///
@@ -1899,11 +2335,15 @@ pub const QChartView = extern struct {
     ///
     /// ` target: QRectF `
     ///
-    pub fn Render2(self: QChartView, painter: anytype, target: anytype) void {
+    pub fn render2(self: QChartView, painter: anytype, target: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(target)._is_QRectF;
         qtc.QGraphicsView_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QGraphicsView
     ///
@@ -1919,12 +2359,16 @@ pub const QChartView = extern struct {
     ///
     /// ` source: QRect `
     ///
-    pub fn Render3(self: QChartView, painter: anytype, target: anytype, source: anytype) void {
+    pub fn render3(self: QChartView, painter: anytype, target: anytype, source: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(target)._is_QRectF;
         comptime _ = @TypeOf(source)._is_QRect;
         qtc.QGraphicsView_Render3(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(target.ptr), @ptrCast(source.ptr));
     }
+
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
 
     /// Inherited from QGraphicsView
     ///
@@ -1942,37 +2386,16 @@ pub const QChartView = extern struct {
     ///
     /// ` aspectRatioMode: qnamespace_enums.AspectRatioMode `
     ///
-    pub fn Render4(self: QChartView, painter: anytype, target: anytype, source: anytype, aspectRatioMode: i32) void {
+    pub fn render4(self: QChartView, painter: anytype, target: anytype, source: anytype, aspectRatioMode: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(target)._is_QRectF;
         comptime _ = @TypeOf(source)._is_QRect;
         qtc.QGraphicsView_Render4(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(target.ptr), @ptrCast(source.ptr), @bitCast(aspectRatioMode));
     }
 
-    /// Inherited from QGraphicsView
+    /// ### DEPRECATED: Use `items22` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsview.html#items)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QChartView `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` rect: QRect `
-    ///
-    /// ` mode: qnamespace_enums.ItemSelectionMode `
-    ///
-    pub fn Items22(self: QChartView, allocator: std.mem.Allocator, rect: anytype, mode: i32) []QGraphicsItem {
-        comptime _ = @TypeOf(rect)._is_QRect;
-        const _arr: qtc.libqt_list = qtc.QGraphicsView_Items22(@ptrCast(self.ptr), @ptrCast(rect.ptr), @bitCast(mode));
-        defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("QChartView.Items22: Memory allocation failed");
-        const _data: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
-        return _ret;
-    }
+    pub const Items22 = items22;
 
     /// Inherited from QGraphicsView
     ///
@@ -1984,9 +2407,38 @@ pub const QChartView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` x: i32 `
+    /// ` _rect: QRect `
     ///
-    /// ` y: i32 `
+    /// ` mode: qnamespace_enums.ItemSelectionMode `
+    ///
+    pub fn items22(self: QChartView, allocator: std.mem.Allocator, _rect: anytype, mode: i32) []QGraphicsItem {
+        comptime _ = @TypeOf(_rect)._is_QRect;
+        const _arr: qtc.libqt_list = qtc.QGraphicsView_Items22(@ptrCast(self.ptr), @ptrCast(_rect.ptr), @bitCast(mode));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("QChartView.items22: Memory allocation failed");
+        const _data_val: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
+        return _ret;
+    }
+
+    /// ### DEPRECATED: Use `items52` instead
+    ///
+    pub const Items52 = items52;
+
+    /// Inherited from QGraphicsView
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsview.html#items)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QChartView `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` _x: i32 `
+    ///
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
@@ -1994,15 +2446,19 @@ pub const QChartView = extern struct {
     ///
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
-    pub fn Items52(self: QChartView, allocator: std.mem.Allocator, x: i32, y: i32, w: i32, h: i32, mode: i32) []QGraphicsItem {
-        const _arr: qtc.libqt_list = qtc.QGraphicsView_Items52(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(mode));
+    pub fn items52(self: QChartView, allocator: std.mem.Allocator, _x: i32, _y: i32, w: i32, h: i32, mode: i32) []QGraphicsItem {
+        const _arr: qtc.libqt_list = qtc.QGraphicsView_Items52(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h), @bitCast(mode));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("QChartView.Items52: Memory allocation failed");
-        const _data: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("QChartView.items52: Memory allocation failed");
+        const _data_val: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `items24` instead
+    ///
+    pub const Items24 = items24;
 
     /// Inherited from QGraphicsView
     ///
@@ -2018,31 +2474,20 @@ pub const QChartView = extern struct {
     ///
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
-    pub fn Items24(self: QChartView, allocator: std.mem.Allocator, path: anytype, mode: i32) []QGraphicsItem {
+    pub fn items24(self: QChartView, allocator: std.mem.Allocator, path: anytype, mode: i32) []QGraphicsItem {
         comptime _ = @TypeOf(path)._is_QPainterPath;
         const _arr: qtc.libqt_list = qtc.QGraphicsView_Items24(@ptrCast(self.ptr), @ptrCast(path.ptr), @bitCast(mode));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("QChartView.Items24: Memory allocation failed");
-        const _data: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("QChartView.items24: Memory allocation failed");
+        const _data_val: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
-    /// Inherited from QGraphicsView
+    /// ### DEPRECATED: Use `invalidateScene1` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsview.html#invalidateScene)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QChartView `
-    ///
-    /// ` rect: QRectF `
-    ///
-    pub fn InvalidateScene1(self: QChartView, rect: anytype) void {
-        comptime _ = @TypeOf(rect)._is_QRectF;
-        qtc.QGraphicsView_InvalidateScene1(@ptrCast(self.ptr), @ptrCast(rect.ptr));
-    }
+    pub const InvalidateScene1 = invalidateScene1;
 
     /// Inherited from QGraphicsView
     ///
@@ -2052,14 +2497,37 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` rect: QRectF `
+    /// ` _rect: QRectF `
+    ///
+    pub fn invalidateScene1(self: QChartView, _rect: anytype) void {
+        comptime _ = @TypeOf(_rect)._is_QRectF;
+        qtc.QGraphicsView_InvalidateScene1(@ptrCast(self.ptr), @ptrCast(_rect.ptr));
+    }
+
+    /// ### DEPRECATED: Use `invalidateScene2` instead
+    ///
+    pub const InvalidateScene2 = invalidateScene2;
+
+    /// Inherited from QGraphicsView
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsview.html#invalidateScene)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QChartView `
+    ///
+    /// ` _rect: QRectF `
     ///
     /// ` layers: flag of qgraphicsscene_enums.SceneLayer `
     ///
-    pub fn InvalidateScene2(self: QChartView, rect: anytype, layers: i32) void {
-        comptime _ = @TypeOf(rect)._is_QRectF;
-        qtc.QGraphicsView_InvalidateScene2(@ptrCast(self.ptr), @ptrCast(rect.ptr), @bitCast(layers));
+    pub fn invalidateScene2(self: QChartView, _rect: anytype, layers: i32) void {
+        comptime _ = @TypeOf(_rect)._is_QRectF;
+        qtc.QGraphicsView_InvalidateScene2(@ptrCast(self.ptr), @ptrCast(_rect.ptr), @bitCast(layers));
     }
+
+    /// ### DEPRECATED: Use `verticalScrollBarPolicy` instead
+    ///
+    pub const VerticalScrollBarPolicy = verticalScrollBarPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2073,9 +2541,13 @@ pub const QChartView = extern struct {
     ///
     /// ` qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn VerticalScrollBarPolicy(self: QChartView) i32 {
+    pub fn verticalScrollBarPolicy(self: QChartView) i32 {
         return qtc.QAbstractScrollArea_VerticalScrollBarPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setVerticalScrollBarPolicy` instead
+    ///
+    pub const SetVerticalScrollBarPolicy = setVerticalScrollBarPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2085,11 +2557,15 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` verticalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
+    /// ` _verticalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn SetVerticalScrollBarPolicy(self: QChartView, verticalScrollBarPolicy: i32) void {
-        qtc.QAbstractScrollArea_SetVerticalScrollBarPolicy(@ptrCast(self.ptr), @bitCast(verticalScrollBarPolicy));
+    pub fn setVerticalScrollBarPolicy(self: QChartView, _verticalScrollBarPolicy: i32) void {
+        qtc.QAbstractScrollArea_SetVerticalScrollBarPolicy(@ptrCast(self.ptr), @bitCast(_verticalScrollBarPolicy));
     }
+
+    /// ### DEPRECATED: Use `verticalScrollBar` instead
+    ///
+    pub const VerticalScrollBar = verticalScrollBar;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2099,9 +2575,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn VerticalScrollBar(self: QChartView) QScrollBar {
+    pub fn verticalScrollBar(self: QChartView) QScrollBar {
         return .{ .ptr = qtc.QAbstractScrollArea_VerticalScrollBar(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setVerticalScrollBar` instead
+    ///
+    pub const SetVerticalScrollBar = setVerticalScrollBar;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2113,10 +2593,14 @@ pub const QChartView = extern struct {
     ///
     /// ` scrollbar: QScrollBar `
     ///
-    pub fn SetVerticalScrollBar(self: QChartView, scrollbar: anytype) void {
+    pub fn setVerticalScrollBar(self: QChartView, scrollbar: anytype) void {
         comptime _ = @TypeOf(scrollbar)._is_QScrollBar;
         qtc.QAbstractScrollArea_SetVerticalScrollBar(@ptrCast(self.ptr), @ptrCast(scrollbar.ptr));
     }
+
+    /// ### DEPRECATED: Use `horizontalScrollBarPolicy` instead
+    ///
+    pub const HorizontalScrollBarPolicy = horizontalScrollBarPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2130,9 +2614,13 @@ pub const QChartView = extern struct {
     ///
     /// ` qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn HorizontalScrollBarPolicy(self: QChartView) i32 {
+    pub fn horizontalScrollBarPolicy(self: QChartView) i32 {
         return qtc.QAbstractScrollArea_HorizontalScrollBarPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHorizontalScrollBarPolicy` instead
+    ///
+    pub const SetHorizontalScrollBarPolicy = setHorizontalScrollBarPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2142,11 +2630,15 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` horizontalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
+    /// ` _horizontalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn SetHorizontalScrollBarPolicy(self: QChartView, horizontalScrollBarPolicy: i32) void {
-        qtc.QAbstractScrollArea_SetHorizontalScrollBarPolicy(@ptrCast(self.ptr), @bitCast(horizontalScrollBarPolicy));
+    pub fn setHorizontalScrollBarPolicy(self: QChartView, _horizontalScrollBarPolicy: i32) void {
+        qtc.QAbstractScrollArea_SetHorizontalScrollBarPolicy(@ptrCast(self.ptr), @bitCast(_horizontalScrollBarPolicy));
     }
+
+    /// ### DEPRECATED: Use `horizontalScrollBar` instead
+    ///
+    pub const HorizontalScrollBar = horizontalScrollBar;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2156,9 +2648,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn HorizontalScrollBar(self: QChartView) QScrollBar {
+    pub fn horizontalScrollBar(self: QChartView) QScrollBar {
         return .{ .ptr = qtc.QAbstractScrollArea_HorizontalScrollBar(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setHorizontalScrollBar` instead
+    ///
+    pub const SetHorizontalScrollBar = setHorizontalScrollBar;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2170,10 +2666,14 @@ pub const QChartView = extern struct {
     ///
     /// ` scrollbar: QScrollBar `
     ///
-    pub fn SetHorizontalScrollBar(self: QChartView, scrollbar: anytype) void {
+    pub fn setHorizontalScrollBar(self: QChartView, scrollbar: anytype) void {
         comptime _ = @TypeOf(scrollbar)._is_QScrollBar;
         qtc.QAbstractScrollArea_SetHorizontalScrollBar(@ptrCast(self.ptr), @ptrCast(scrollbar.ptr));
     }
+
+    /// ### DEPRECATED: Use `cornerWidget` instead
+    ///
+    pub const CornerWidget = cornerWidget;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2183,9 +2683,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn CornerWidget(self: QChartView) QWidget {
+    pub fn cornerWidget(self: QChartView) QWidget {
         return .{ .ptr = qtc.QAbstractScrollArea_CornerWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCornerWidget` instead
+    ///
+    pub const SetCornerWidget = setCornerWidget;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2197,10 +2701,14 @@ pub const QChartView = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn SetCornerWidget(self: QChartView, widget: anytype) void {
+    pub fn setCornerWidget(self: QChartView, widget: anytype) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QAbstractScrollArea_SetCornerWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `addScrollBarWidget` instead
+    ///
+    pub const AddScrollBarWidget = addScrollBarWidget;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2212,12 +2720,16 @@ pub const QChartView = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
+    /// ` _alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn AddScrollBarWidget(self: QChartView, widget: anytype, alignment: i32) void {
+    pub fn addScrollBarWidget(self: QChartView, widget: anytype, _alignment: i32) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
-        qtc.QAbstractScrollArea_AddScrollBarWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr), @bitCast(alignment));
+        qtc.QAbstractScrollArea_AddScrollBarWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr), @bitCast(_alignment));
     }
+
+    /// ### DEPRECATED: Use `scrollBarWidgets` instead
+    ///
+    pub const ScrollBarWidgets = scrollBarWidgets;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2229,17 +2741,21 @@ pub const QChartView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
+    /// ` _alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn ScrollBarWidgets(self: QChartView, allocator: std.mem.Allocator, alignment: i32) []QWidget {
-        const _arr: qtc.libqt_list = qtc.QAbstractScrollArea_ScrollBarWidgets(@ptrCast(self.ptr), @bitCast(alignment));
+    pub fn scrollBarWidgets(self: QChartView, allocator: std.mem.Allocator, _alignment: i32) []QWidget {
+        const _arr: qtc.libqt_list = qtc.QAbstractScrollArea_ScrollBarWidgets(@ptrCast(self.ptr), @bitCast(_alignment));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("QChartView.ScrollBarWidgets: Memory allocation failed");
-        const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("QChartView.scrollBarWidgets: Memory allocation failed");
+        const _data_val: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `viewport` instead
+    ///
+    pub const Viewport = viewport;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2249,9 +2765,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn Viewport(self: QChartView) QWidget {
+    pub fn viewport(self: QChartView) QWidget {
         return .{ .ptr = qtc.QAbstractScrollArea_Viewport(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setViewport` instead
+    ///
+    pub const SetViewport = setViewport;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2263,10 +2783,14 @@ pub const QChartView = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn SetViewport(self: QChartView, widget: anytype) void {
+    pub fn setViewport(self: QChartView, widget: anytype) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QAbstractScrollArea_SetViewport(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumViewportSize` instead
+    ///
+    pub const MaximumViewportSize = maximumViewportSize;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2276,9 +2800,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn MaximumViewportSize(self: QChartView) QSize {
+    pub fn maximumViewportSize(self: QChartView) QSize {
         return .{ .ptr = qtc.QAbstractScrollArea_MaximumViewportSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `sizeAdjustPolicy` instead
+    ///
+    pub const SizeAdjustPolicy = sizeAdjustPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2292,9 +2820,13 @@ pub const QChartView = extern struct {
     ///
     /// ` qabstractscrollarea_enums.SizeAdjustPolicy `
     ///
-    pub fn SizeAdjustPolicy(self: QChartView) i32 {
+    pub fn sizeAdjustPolicy(self: QChartView) i32 {
         return qtc.QAbstractScrollArea_SizeAdjustPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeAdjustPolicy` instead
+    ///
+    pub const SetSizeAdjustPolicy = setSizeAdjustPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2306,9 +2838,13 @@ pub const QChartView = extern struct {
     ///
     /// ` policy: qabstractscrollarea_enums.SizeAdjustPolicy `
     ///
-    pub fn SetSizeAdjustPolicy(self: QChartView, policy: i32) void {
+    pub fn setSizeAdjustPolicy(self: QChartView, policy: i32) void {
         qtc.QAbstractScrollArea_SetSizeAdjustPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `frameStyle` instead
+    ///
+    pub const FrameStyle = frameStyle;
 
     /// Inherited from QFrame
     ///
@@ -2318,9 +2854,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn FrameStyle(self: QChartView) i32 {
+    pub fn frameStyle(self: QChartView) i32 {
         return qtc.QFrame_FrameStyle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFrameStyle` instead
+    ///
+    pub const SetFrameStyle = setFrameStyle;
 
     /// Inherited from QFrame
     ///
@@ -2330,11 +2870,15 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` frameStyle: i32 `
+    /// ` _frameStyle: i32 `
     ///
-    pub fn SetFrameStyle(self: QChartView, frameStyle: i32) void {
-        qtc.QFrame_SetFrameStyle(@ptrCast(self.ptr), @bitCast(frameStyle));
+    pub fn setFrameStyle(self: QChartView, _frameStyle: i32) void {
+        qtc.QFrame_SetFrameStyle(@ptrCast(self.ptr), @bitCast(_frameStyle));
     }
+
+    /// ### DEPRECATED: Use `frameWidth` instead
+    ///
+    pub const FrameWidth = frameWidth;
 
     /// Inherited from QFrame
     ///
@@ -2344,9 +2888,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn FrameWidth(self: QChartView) i32 {
+    pub fn frameWidth(self: QChartView) i32 {
         return qtc.QFrame_FrameWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `frameShape` instead
+    ///
+    pub const FrameShape = frameShape;
 
     /// Inherited from QFrame
     ///
@@ -2360,9 +2908,13 @@ pub const QChartView = extern struct {
     ///
     /// ` qframe_enums.Shape `
     ///
-    pub fn FrameShape(self: QChartView) i32 {
+    pub fn frameShape(self: QChartView) i32 {
         return qtc.QFrame_FrameShape(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFrameShape` instead
+    ///
+    pub const SetFrameShape = setFrameShape;
 
     /// Inherited from QFrame
     ///
@@ -2372,11 +2924,15 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` frameShape: qframe_enums.Shape `
+    /// ` _frameShape: qframe_enums.Shape `
     ///
-    pub fn SetFrameShape(self: QChartView, frameShape: i32) void {
-        qtc.QFrame_SetFrameShape(@ptrCast(self.ptr), @bitCast(frameShape));
+    pub fn setFrameShape(self: QChartView, _frameShape: i32) void {
+        qtc.QFrame_SetFrameShape(@ptrCast(self.ptr), @bitCast(_frameShape));
     }
+
+    /// ### DEPRECATED: Use `frameShadow` instead
+    ///
+    pub const FrameShadow = frameShadow;
 
     /// Inherited from QFrame
     ///
@@ -2390,9 +2946,13 @@ pub const QChartView = extern struct {
     ///
     /// ` qframe_enums.Shadow `
     ///
-    pub fn FrameShadow(self: QChartView) i32 {
+    pub fn frameShadow(self: QChartView) i32 {
         return qtc.QFrame_FrameShadow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFrameShadow` instead
+    ///
+    pub const SetFrameShadow = setFrameShadow;
 
     /// Inherited from QFrame
     ///
@@ -2402,11 +2962,15 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` frameShadow: qframe_enums.Shadow `
+    /// ` _frameShadow: qframe_enums.Shadow `
     ///
-    pub fn SetFrameShadow(self: QChartView, frameShadow: i32) void {
-        qtc.QFrame_SetFrameShadow(@ptrCast(self.ptr), @bitCast(frameShadow));
+    pub fn setFrameShadow(self: QChartView, _frameShadow: i32) void {
+        qtc.QFrame_SetFrameShadow(@ptrCast(self.ptr), @bitCast(_frameShadow));
     }
+
+    /// ### DEPRECATED: Use `lineWidth` instead
+    ///
+    pub const LineWidth = lineWidth;
 
     /// Inherited from QFrame
     ///
@@ -2416,9 +2980,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn LineWidth(self: QChartView) i32 {
+    pub fn lineWidth(self: QChartView) i32 {
         return qtc.QFrame_LineWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLineWidth` instead
+    ///
+    pub const SetLineWidth = setLineWidth;
 
     /// Inherited from QFrame
     ///
@@ -2428,11 +2996,15 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` lineWidth: i32 `
+    /// ` _lineWidth: i32 `
     ///
-    pub fn SetLineWidth(self: QChartView, lineWidth: i32) void {
-        qtc.QFrame_SetLineWidth(@ptrCast(self.ptr), @bitCast(lineWidth));
+    pub fn setLineWidth(self: QChartView, _lineWidth: i32) void {
+        qtc.QFrame_SetLineWidth(@ptrCast(self.ptr), @bitCast(_lineWidth));
     }
+
+    /// ### DEPRECATED: Use `midLineWidth` instead
+    ///
+    pub const MidLineWidth = midLineWidth;
 
     /// Inherited from QFrame
     ///
@@ -2442,9 +3014,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn MidLineWidth(self: QChartView) i32 {
+    pub fn midLineWidth(self: QChartView) i32 {
         return qtc.QFrame_MidLineWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMidLineWidth` instead
+    ///
+    pub const SetMidLineWidth = setMidLineWidth;
 
     /// Inherited from QFrame
     ///
@@ -2454,11 +3030,15 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` midLineWidth: i32 `
+    /// ` _midLineWidth: i32 `
     ///
-    pub fn SetMidLineWidth(self: QChartView, midLineWidth: i32) void {
-        qtc.QFrame_SetMidLineWidth(@ptrCast(self.ptr), @bitCast(midLineWidth));
+    pub fn setMidLineWidth(self: QChartView, _midLineWidth: i32) void {
+        qtc.QFrame_SetMidLineWidth(@ptrCast(self.ptr), @bitCast(_midLineWidth));
     }
+
+    /// ### DEPRECATED: Use `frameRect` instead
+    ///
+    pub const FrameRect = frameRect;
 
     /// Inherited from QFrame
     ///
@@ -2468,9 +3048,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn FrameRect(self: QChartView) QRect {
+    pub fn frameRect(self: QChartView) QRect {
         return .{ .ptr = qtc.QFrame_FrameRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFrameRect` instead
+    ///
+    pub const SetFrameRect = setFrameRect;
 
     /// Inherited from QFrame
     ///
@@ -2480,12 +3064,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` frameRect: QRect `
+    /// ` _frameRect: QRect `
     ///
-    pub fn SetFrameRect(self: QChartView, frameRect: anytype) void {
-        comptime _ = @TypeOf(frameRect)._is_QRect;
-        qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(frameRect.ptr));
+    pub fn setFrameRect(self: QChartView, _frameRect: anytype) void {
+        comptime _ = @TypeOf(_frameRect)._is_QRect;
+        qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(_frameRect.ptr));
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -2495,9 +3083,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn WinId(self: QChartView) usize {
+    pub fn winId(self: QChartView) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -2507,9 +3099,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn CreateWinId(self: QChartView) void {
+    pub fn createWinId(self: QChartView) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -2519,9 +3115,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn InternalWinId(self: QChartView) usize {
+    pub fn internalWinId(self: QChartView) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -2531,9 +3131,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn EffectiveWinId(self: QChartView) usize {
+    pub fn effectiveWinId(self: QChartView) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -2543,9 +3147,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn Style(self: QChartView) QStyle {
+    pub fn style(self: QChartView) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -2555,12 +3163,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: QChartView, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: QChartView, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -2570,9 +3182,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn IsTopLevel(self: QChartView) bool {
+    pub fn isTopLevel(self: QChartView) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -2582,9 +3198,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn IsWindow(self: QChartView) bool {
+    pub fn isWindow(self: QChartView) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -2594,9 +3214,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn IsModal(self: QChartView) bool {
+    pub fn isModal(self: QChartView) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -2610,9 +3234,13 @@ pub const QChartView = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: QChartView) i32 {
+    pub fn windowModality(self: QChartView) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -2622,11 +3250,15 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: QChartView, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: QChartView, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2636,9 +3268,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn IsEnabled(self: QChartView) bool {
+    pub fn isEnabled(self: QChartView) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -2650,10 +3286,14 @@ pub const QChartView = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: QChartView, param1: anytype) bool {
+    pub fn isEnabledTo(self: QChartView, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2665,9 +3305,13 @@ pub const QChartView = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: QChartView, enabled: bool) void {
+    pub fn setEnabled(self: QChartView, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -2679,9 +3323,13 @@ pub const QChartView = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: QChartView, disabled: bool) void {
+    pub fn setDisabled(self: QChartView, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -2693,9 +3341,13 @@ pub const QChartView = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: QChartView, windowModified: bool) void {
+    pub fn setWindowModified(self: QChartView, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -2705,9 +3357,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn FrameGeometry(self: QChartView) QRect {
+    pub fn frameGeometry(self: QChartView) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -2717,9 +3373,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn Geometry(self: QChartView) QRect {
+    pub fn geometry(self: QChartView) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -2729,9 +3389,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn NormalGeometry(self: QChartView) QRect {
+    pub fn normalGeometry(self: QChartView) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -2741,9 +3405,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn X(self: QChartView) i32 {
+    pub fn x(self: QChartView) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -2753,9 +3421,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn Y(self: QChartView) i32 {
+    pub fn y(self: QChartView) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -2765,9 +3437,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn Pos(self: QChartView) QPoint {
+    pub fn pos(self: QChartView) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -2777,9 +3453,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn FrameSize(self: QChartView) QSize {
+    pub fn frameSize(self: QChartView) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -2789,9 +3469,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn Size(self: QChartView) QSize {
+    pub fn size(self: QChartView) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -2801,9 +3485,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn Width(self: QChartView) i32 {
+    pub fn width(self: QChartView) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -2813,9 +3501,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn Height(self: QChartView) i32 {
+    pub fn height(self: QChartView) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -2825,9 +3517,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn Rect(self: QChartView) QRect {
+    pub fn rect(self: QChartView) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -2837,9 +3533,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn ChildrenRect(self: QChartView) QRect {
+    pub fn childrenRect(self: QChartView) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -2849,9 +3549,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn ChildrenRegion(self: QChartView) QRegion {
+    pub fn childrenRegion(self: QChartView) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -2861,9 +3565,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn MinimumSize(self: QChartView) QSize {
+    pub fn minimumSize(self: QChartView) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -2873,9 +3581,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn MaximumSize(self: QChartView) QSize {
+    pub fn maximumSize(self: QChartView) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2885,9 +3597,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn MinimumWidth(self: QChartView) i32 {
+    pub fn minimumWidth(self: QChartView) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2897,9 +3613,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn MinimumHeight(self: QChartView) i32 {
+    pub fn minimumHeight(self: QChartView) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2909,9 +3629,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn MaximumWidth(self: QChartView) i32 {
+    pub fn maximumWidth(self: QChartView) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2921,9 +3645,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn MaximumHeight(self: QChartView) i32 {
+    pub fn maximumHeight(self: QChartView) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -2933,12 +3661,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: QChartView, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: QChartView, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -2952,9 +3684,13 @@ pub const QChartView = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: QChartView, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: QChartView, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -2964,12 +3700,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: QChartView, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: QChartView, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -2983,9 +3723,13 @@ pub const QChartView = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: QChartView, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: QChartView, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2997,9 +3741,13 @@ pub const QChartView = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: QChartView, minw: i32) void {
+    pub fn setMinimumWidth(self: QChartView, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -3011,9 +3759,13 @@ pub const QChartView = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: QChartView, minh: i32) void {
+    pub fn setMinimumHeight(self: QChartView, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -3025,9 +3777,13 @@ pub const QChartView = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: QChartView, maxw: i32) void {
+    pub fn setMaximumWidth(self: QChartView, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -3039,9 +3795,13 @@ pub const QChartView = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: QChartView, maxh: i32) void {
+    pub fn setMaximumHeight(self: QChartView, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -3051,9 +3811,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn SizeIncrement(self: QChartView) QSize {
+    pub fn sizeIncrement(self: QChartView) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -3063,12 +3827,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: QChartView, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: QChartView, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -3082,9 +3850,13 @@ pub const QChartView = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: QChartView, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: QChartView, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -3094,9 +3866,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn BaseSize(self: QChartView) QSize {
+    pub fn baseSize(self: QChartView) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -3106,12 +3882,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: QChartView, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: QChartView, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -3125,9 +3905,13 @@ pub const QChartView = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: QChartView, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: QChartView, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -3139,10 +3923,14 @@ pub const QChartView = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: QChartView, fixedSize: anytype) void {
+    pub fn setFixedSize(self: QChartView, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -3156,9 +3944,13 @@ pub const QChartView = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: QChartView, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: QChartView, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -3170,9 +3962,13 @@ pub const QChartView = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: QChartView, w: i32) void {
+    pub fn setFixedWidth(self: QChartView, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -3184,9 +3980,13 @@ pub const QChartView = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: QChartView, h: i32) void {
+    pub fn setFixedHeight(self: QChartView, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -3198,11 +3998,15 @@ pub const QChartView = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: QChartView, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: QChartView, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -3213,11 +4017,15 @@ pub const QChartView = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: QChartView, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: QChartView, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -3228,11 +4036,15 @@ pub const QChartView = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: QChartView, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: QChartView, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -3243,11 +4055,15 @@ pub const QChartView = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: QChartView, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: QChartView, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -3258,11 +4074,15 @@ pub const QChartView = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: QChartView, param1: anytype) QPointF {
+    pub fn mapToParent(self: QChartView, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -3273,10 +4093,14 @@ pub const QChartView = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: QChartView, param1: anytype) QPoint {
+    pub fn mapToParent2(self: QChartView, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -3288,10 +4112,14 @@ pub const QChartView = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: QChartView, param1: anytype) QPointF {
+    pub fn mapFromParent(self: QChartView, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -3303,10 +4131,14 @@ pub const QChartView = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: QChartView, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: QChartView, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -3320,12 +4152,16 @@ pub const QChartView = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: QChartView, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: QChartView, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -3338,11 +4174,15 @@ pub const QChartView = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: QChartView, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: QChartView, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -3356,11 +4196,15 @@ pub const QChartView = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: QChartView, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: QChartView, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -3374,11 +4218,15 @@ pub const QChartView = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: QChartView, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: QChartView, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -3388,9 +4236,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn Window(self: QChartView) QWidget {
+    pub fn window(self: QChartView) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -3400,9 +4252,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn NativeParentWidget(self: QChartView) QWidget {
+    pub fn nativeParentWidget(self: QChartView) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -3412,9 +4268,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn TopLevelWidget(self: QChartView) QWidget {
+    pub fn topLevelWidget(self: QChartView) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -3424,9 +4284,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn Palette(self: QChartView) QPalette {
+    pub fn palette(self: QChartView) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -3436,12 +4300,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: QChartView, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: QChartView, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -3451,11 +4319,15 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: QChartView, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: QChartView, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -3469,9 +4341,13 @@ pub const QChartView = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: QChartView) i32 {
+    pub fn backgroundRole(self: QChartView) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -3481,11 +4357,15 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: QChartView, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: QChartView, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -3499,9 +4379,13 @@ pub const QChartView = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: QChartView) i32 {
+    pub fn foregroundRole(self: QChartView) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -3511,9 +4395,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn Font(self: QChartView) QFont {
+    pub fn font(self: QChartView) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -3523,12 +4411,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: QChartView, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: QChartView, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -3538,9 +4430,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn FontMetrics(self: QChartView) QFontMetrics {
+    pub fn fontMetrics(self: QChartView) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -3550,9 +4446,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn FontInfo(self: QChartView) QFontInfo {
+    pub fn fontInfo(self: QChartView) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -3562,9 +4462,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn Cursor(self: QChartView) QCursor {
+    pub fn cursor(self: QChartView) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -3574,12 +4478,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: QChartView, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: QChartView, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -3589,9 +4497,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn UnsetCursor(self: QChartView) void {
+    pub fn unsetCursor(self: QChartView) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -3603,9 +4515,13 @@ pub const QChartView = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: QChartView, enable: bool) void {
+    pub fn setMouseTracking(self: QChartView, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -3615,9 +4531,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn HasMouseTracking(self: QChartView) bool {
+    pub fn hasMouseTracking(self: QChartView) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -3627,9 +4547,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn UnderMouse(self: QChartView) bool {
+    pub fn underMouse(self: QChartView) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -3641,9 +4565,13 @@ pub const QChartView = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: QChartView, enable: bool) void {
+    pub fn setTabletTracking(self: QChartView, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -3653,24 +4581,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn HasTabletTracking(self: QChartView) bool {
+    pub fn hasTabletTracking(self: QChartView) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QChartView `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: QChartView, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -3680,12 +4597,35 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: QChartView, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: QChartView, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QChartView `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: QChartView, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -3695,9 +4635,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn Mask(self: QChartView) QRegion {
+    pub fn mask(self: QChartView) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -3707,9 +4651,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn ClearMask(self: QChartView) void {
+    pub fn clearMask(self: QChartView) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -3719,9 +4667,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn Grab(self: QChartView) QPixmap {
+    pub fn grab(self: QChartView) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -3731,9 +4683,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn GraphicsEffect(self: QChartView) QGraphicsEffect {
+    pub fn graphicsEffect(self: QChartView) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -3745,10 +4701,14 @@ pub const QChartView = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: QChartView, effect: anytype) void {
+    pub fn setGraphicsEffect(self: QChartView, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -3760,9 +4720,13 @@ pub const QChartView = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: QChartView, typeVal: i32) void {
+    pub fn grabGesture(self: QChartView, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -3774,9 +4738,13 @@ pub const QChartView = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: QChartView, typeVal: i32) void {
+    pub fn ungrabGesture(self: QChartView, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -3786,15 +4754,19 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: QChartView, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: QChartView, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -3804,15 +4776,19 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: QChartView, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: QChartView, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -3824,13 +4800,17 @@ pub const QChartView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: QChartView, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: QChartView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QChartView.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QChartView.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -3842,13 +4822,17 @@ pub const QChartView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: QChartView, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: QChartView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QChartView.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QChartView.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -3860,10 +4844,14 @@ pub const QChartView = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: QChartView, icon: anytype) void {
+    pub fn setWindowIcon(self: QChartView, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -3873,9 +4861,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn WindowIcon(self: QChartView) QIcon {
+    pub fn windowIcon(self: QChartView) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -3885,15 +4877,19 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: QChartView, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: QChartView, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -3905,13 +4901,17 @@ pub const QChartView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: QChartView, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: QChartView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QChartView.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QChartView.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -3921,15 +4921,19 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: QChartView, windowRole: []const u8) void {
+    pub fn setWindowRole(self: QChartView, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -3941,13 +4945,17 @@ pub const QChartView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: QChartView, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: QChartView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QChartView.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QChartView.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -3959,13 +4967,17 @@ pub const QChartView = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: QChartView, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: QChartView, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -3977,13 +4989,17 @@ pub const QChartView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: QChartView, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: QChartView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QChartView.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QChartView.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -3995,9 +5011,13 @@ pub const QChartView = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: QChartView, level: f64) void {
+    pub fn setWindowOpacity(self: QChartView, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -4007,9 +5027,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn WindowOpacity(self: QChartView) f64 {
+    pub fn windowOpacity(self: QChartView) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -4019,9 +5043,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn IsWindowModified(self: QChartView) bool {
+    pub fn isWindowModified(self: QChartView) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -4031,15 +5059,19 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: QChartView, toolTip: []const u8) void {
+    pub fn setToolTip(self: QChartView, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -4051,13 +5083,17 @@ pub const QChartView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: QChartView, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: QChartView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QChartView.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QChartView.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -4069,9 +5105,13 @@ pub const QChartView = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: QChartView, msec: i32) void {
+    pub fn setToolTipDuration(self: QChartView, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -4081,9 +5121,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn ToolTipDuration(self: QChartView) i32 {
+    pub fn toolTipDuration(self: QChartView) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -4093,15 +5137,19 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: QChartView, statusTip: []const u8) void {
+    pub fn setStatusTip(self: QChartView, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -4113,13 +5161,17 @@ pub const QChartView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: QChartView, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: QChartView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QChartView.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QChartView.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -4129,15 +5181,19 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: QChartView, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: QChartView, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -4149,13 +5205,17 @@ pub const QChartView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: QChartView, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: QChartView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QChartView.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QChartView.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -4167,13 +5227,17 @@ pub const QChartView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: QChartView, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: QChartView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QChartView.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QChartView.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -4185,13 +5249,17 @@ pub const QChartView = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: QChartView, name: []const u8) void {
+    pub fn setAccessibleName(self: QChartView, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -4203,13 +5271,17 @@ pub const QChartView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: QChartView, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: QChartView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QChartView.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QChartView.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -4221,13 +5293,17 @@ pub const QChartView = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: QChartView, description: []const u8) void {
+    pub fn setAccessibleDescription(self: QChartView, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -4239,9 +5315,13 @@ pub const QChartView = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: QChartView, direction: i32) void {
+    pub fn setLayoutDirection(self: QChartView, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -4255,9 +5335,13 @@ pub const QChartView = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: QChartView) i32 {
+    pub fn layoutDirection(self: QChartView) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -4267,9 +5351,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn UnsetLayoutDirection(self: QChartView) void {
+    pub fn unsetLayoutDirection(self: QChartView) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -4279,12 +5367,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: QChartView, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: QChartView, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -4294,9 +5386,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn Locale(self: QChartView) QLocale {
+    pub fn locale(self: QChartView) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -4306,9 +5402,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn UnsetLocale(self: QChartView) void {
+    pub fn unsetLocale(self: QChartView) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -4318,9 +5418,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn IsRightToLeft(self: QChartView) bool {
+    pub fn isRightToLeft(self: QChartView) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -4330,9 +5434,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn IsLeftToRight(self: QChartView) bool {
+    pub fn isLeftToRight(self: QChartView) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -4342,9 +5450,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn SetFocus(self: QChartView) void {
+    pub fn setFocus(self: QChartView) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -4354,9 +5466,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn IsActiveWindow(self: QChartView) bool {
+    pub fn isActiveWindow(self: QChartView) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -4366,9 +5482,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn ActivateWindow(self: QChartView) void {
+    pub fn activateWindow(self: QChartView) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -4378,9 +5498,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn ClearFocus(self: QChartView) void {
+    pub fn clearFocus(self: QChartView) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -4392,9 +5516,13 @@ pub const QChartView = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: QChartView, reason: i32) void {
+    pub fn setFocus2(self: QChartView, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -4408,9 +5536,13 @@ pub const QChartView = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: QChartView) i32 {
+    pub fn focusPolicy(self: QChartView) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -4422,9 +5554,13 @@ pub const QChartView = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: QChartView, policy: i32) void {
+    pub fn setFocusPolicy(self: QChartView, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -4434,9 +5570,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn HasFocus(self: QChartView) bool {
+    pub fn hasFocus(self: QChartView) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -4448,11 +5588,15 @@ pub const QChartView = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -4462,12 +5606,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: QChartView, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: QChartView, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -4477,9 +5625,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn FocusProxy(self: QChartView) QWidget {
+    pub fn focusProxy(self: QChartView) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -4493,9 +5645,13 @@ pub const QChartView = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: QChartView) i32 {
+    pub fn contextMenuPolicy(self: QChartView) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -4507,9 +5663,13 @@ pub const QChartView = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: QChartView, policy: i32) void {
+    pub fn setContextMenuPolicy(self: QChartView, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -4519,9 +5679,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn GrabMouse(self: QChartView) void {
+    pub fn grabMouse(self: QChartView) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -4533,10 +5697,14 @@ pub const QChartView = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: QChartView, param1: anytype) void {
+    pub fn grabMouse2(self: QChartView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -4546,9 +5714,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn ReleaseMouse(self: QChartView) void {
+    pub fn releaseMouse(self: QChartView) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -4558,9 +5730,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn GrabKeyboard(self: QChartView) void {
+    pub fn grabKeyboard(self: QChartView) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -4570,9 +5746,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn ReleaseKeyboard(self: QChartView) void {
+    pub fn releaseKeyboard(self: QChartView) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -4584,10 +5764,14 @@ pub const QChartView = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: QChartView, key: anytype) i32 {
+    pub fn grabShortcut(self: QChartView, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -4599,9 +5783,13 @@ pub const QChartView = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: QChartView, id: i32) void {
+    pub fn releaseShortcut(self: QChartView, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -4613,9 +5801,13 @@ pub const QChartView = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: QChartView, id: i32) void {
+    pub fn setShortcutEnabled(self: QChartView, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -4627,25 +5819,37 @@ pub const QChartView = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: QChartView, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: QChartView, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -4655,9 +5859,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn UpdatesEnabled(self: QChartView) bool {
+    pub fn updatesEnabled(self: QChartView) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -4669,9 +5877,13 @@ pub const QChartView = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: QChartView, enable: bool) void {
+    pub fn setUpdatesEnabled(self: QChartView, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -4681,9 +5893,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn GraphicsProxyWidget(self: QChartView) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: QChartView) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -4693,9 +5909,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn Update(self: QChartView) void {
+    pub fn update(self: QChartView) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -4705,9 +5925,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn Repaint(self: QChartView) void {
+    pub fn repaint(self: QChartView) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -4717,17 +5941,21 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: QChartView, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: QChartView, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -4739,11 +5967,15 @@ pub const QChartView = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: QChartView, param1: anytype) void {
+    pub fn update3(self: QChartView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -4754,10 +5986,14 @@ pub const QChartView = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: QChartView, param1: anytype) void {
+    pub fn update4(self: QChartView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -4767,17 +6003,21 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: QChartView, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: QChartView, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -4789,10 +6029,14 @@ pub const QChartView = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: QChartView, param1: anytype) void {
+    pub fn repaint3(self: QChartView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -4804,10 +6048,14 @@ pub const QChartView = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: QChartView, param1: anytype) void {
+    pub fn repaint4(self: QChartView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -4819,9 +6067,13 @@ pub const QChartView = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: QChartView, hidden: bool) void {
+    pub fn setHidden(self: QChartView, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -4831,9 +6083,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn Show(self: QChartView) void {
+    pub fn show(self: QChartView) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -4843,9 +6099,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn Hide(self: QChartView) void {
+    pub fn hide(self: QChartView) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -4855,9 +6115,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn ShowMinimized(self: QChartView) void {
+    pub fn showMinimized(self: QChartView) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -4867,9 +6131,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn ShowMaximized(self: QChartView) void {
+    pub fn showMaximized(self: QChartView) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -4879,9 +6147,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn ShowFullScreen(self: QChartView) void {
+    pub fn showFullScreen(self: QChartView) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -4891,9 +6163,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn ShowNormal(self: QChartView) void {
+    pub fn showNormal(self: QChartView) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -4903,9 +6179,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn Close(self: QChartView) bool {
+    pub fn close(self: QChartView) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -4915,9 +6195,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn Raise(self: QChartView) void {
+    pub fn raise(self: QChartView) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -4927,9 +6211,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn Lower(self: QChartView) void {
+    pub fn lower(self: QChartView) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -4941,10 +6229,14 @@ pub const QChartView = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: QChartView, param1: anytype) void {
+    pub fn stackUnder(self: QChartView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -4954,13 +6246,17 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: QChartView, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: QChartView, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -4972,10 +6268,14 @@ pub const QChartView = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: QChartView, param1: anytype) void {
+    pub fn move2(self: QChartView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -4989,9 +6289,13 @@ pub const QChartView = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: QChartView, w: i32, h: i32) void {
+    pub fn resize(self: QChartView, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -5003,10 +6307,14 @@ pub const QChartView = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: QChartView, param1: anytype) void {
+    pub fn resize2(self: QChartView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -5016,17 +6324,21 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: QChartView, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: QChartView, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -5036,12 +6348,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: QChartView, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: QChartView, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -5053,13 +6369,17 @@ pub const QChartView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: QChartView, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: QChartView, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QChartView.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QChartView.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -5069,15 +6389,19 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: QChartView, geometry: []u8) bool {
+    pub fn restoreGeometry(self: QChartView, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -5087,9 +6411,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn AdjustSize(self: QChartView) void {
+    pub fn adjustSize(self: QChartView) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -5099,9 +6427,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn IsVisible(self: QChartView) bool {
+    pub fn isVisible(self: QChartView) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -5113,10 +6445,14 @@ pub const QChartView = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: QChartView, param1: anytype) bool {
+    pub fn isVisibleTo(self: QChartView, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -5126,9 +6462,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn IsHidden(self: QChartView) bool {
+    pub fn isHidden(self: QChartView) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -5138,9 +6478,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn IsMinimized(self: QChartView) bool {
+    pub fn isMinimized(self: QChartView) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -5150,9 +6494,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn IsMaximized(self: QChartView) bool {
+    pub fn isMaximized(self: QChartView) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -5162,9 +6510,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn IsFullScreen(self: QChartView) bool {
+    pub fn isFullScreen(self: QChartView) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -5178,9 +6530,13 @@ pub const QChartView = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: QChartView) i32 {
+    pub fn windowState(self: QChartView) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -5192,9 +6548,13 @@ pub const QChartView = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: QChartView, state: i32) void {
+    pub fn setWindowState(self: QChartView, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -5206,9 +6566,13 @@ pub const QChartView = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: QChartView, state: i32) void {
+    pub fn overrideWindowState(self: QChartView, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -5218,9 +6582,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn SizePolicy(self: QChartView) QSizePolicy {
+    pub fn sizePolicy(self: QChartView) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -5230,12 +6598,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: QChartView, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: QChartView, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -5249,9 +6621,13 @@ pub const QChartView = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: QChartView, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: QChartView, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -5261,9 +6637,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn VisibleRegion(self: QChartView) QRegion {
+    pub fn visibleRegion(self: QChartView) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -5281,9 +6661,13 @@ pub const QChartView = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: QChartView, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: QChartView, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -5295,10 +6679,14 @@ pub const QChartView = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: QChartView, margins: anytype) void {
+    pub fn setContentsMargins2(self: QChartView, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -5308,9 +6696,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn ContentsMargins(self: QChartView) QMargins {
+    pub fn contentsMargins(self: QChartView) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -5320,9 +6712,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn ContentsRect(self: QChartView) QRect {
+    pub fn contentsRect(self: QChartView) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -5332,9 +6728,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn Layout(self: QChartView) QLayout {
+    pub fn layout(self: QChartView) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -5344,12 +6744,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: QChartView, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: QChartView, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -5359,24 +6763,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn UpdateGeometry(self: QChartView) void {
+    pub fn updateGeometry(self: QChartView) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QChartView `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: QChartView, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -5386,14 +6779,37 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: QChartView, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QChartView `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: QChartView, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: QChartView, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -5407,9 +6823,13 @@ pub const QChartView = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: QChartView, dx: i32, dy: i32) void {
+    pub fn scroll(self: QChartView, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -5425,10 +6845,14 @@ pub const QChartView = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: QChartView, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: QChartView, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -5438,9 +6862,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn FocusWidget(self: QChartView) QWidget {
+    pub fn focusWidget(self: QChartView) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -5450,9 +6878,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn NextInFocusChain(self: QChartView) QWidget {
+    pub fn nextInFocusChain(self: QChartView) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -5462,9 +6894,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn PreviousInFocusChain(self: QChartView) QWidget {
+    pub fn previousInFocusChain(self: QChartView) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -5474,9 +6910,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn AcceptDrops(self: QChartView) bool {
+    pub fn acceptDrops(self: QChartView) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -5488,9 +6928,13 @@ pub const QChartView = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: QChartView, on: bool) void {
+    pub fn setAcceptDrops(self: QChartView, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -5502,10 +6946,14 @@ pub const QChartView = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: QChartView, action: anytype) void {
+    pub fn addAction(self: QChartView, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -5515,15 +6963,19 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: QChartView, actions: []QAction) void {
+    pub fn addActions(self: QChartView, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -5535,16 +6987,20 @@ pub const QChartView = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: QChartView, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: QChartView, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -5558,11 +7014,15 @@ pub const QChartView = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: QChartView, before: anytype, action: anytype) void {
+    pub fn insertAction(self: QChartView, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -5574,10 +7034,14 @@ pub const QChartView = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: QChartView, action: anytype) void {
+    pub fn removeAction(self: QChartView, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -5589,15 +7053,19 @@ pub const QChartView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: QChartView, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: QChartView, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QChartView.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QChartView.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -5609,13 +7077,17 @@ pub const QChartView = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: QChartView, text: []const u8) QAction {
+    pub fn addAction2(self: QChartView, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -5629,7 +7101,7 @@ pub const QChartView = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: QChartView, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: QChartView, icon: anytype, text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -5638,6 +7110,10 @@ pub const QChartView = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -5650,7 +7126,7 @@ pub const QChartView = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: QChartView, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: QChartView, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -5658,6 +7134,10 @@ pub const QChartView = extern struct {
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
 
     /// Inherited from QWidget
     ///
@@ -5673,7 +7153,7 @@ pub const QChartView = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: QChartView, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: QChartView, icon: anytype, text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -5683,6 +7163,10 @@ pub const QChartView = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
@@ -5691,9 +7175,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn ParentWidget(self: QChartView) QWidget {
+    pub fn parentWidget(self: QChartView) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -5705,9 +7193,13 @@ pub const QChartView = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: QChartView, typeVal: i32) void {
+    pub fn setWindowFlags(self: QChartView, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -5721,9 +7213,13 @@ pub const QChartView = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: QChartView) i32 {
+    pub fn windowFlags(self: QChartView) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -5735,9 +7231,13 @@ pub const QChartView = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: QChartView, param1: i32) void {
+    pub fn setWindowFlag(self: QChartView, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -5749,9 +7249,13 @@ pub const QChartView = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: QChartView, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: QChartView, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -5765,9 +7269,13 @@ pub const QChartView = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: QChartView) i32 {
+    pub fn windowType(self: QChartView) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -5777,9 +7285,13 @@ pub const QChartView = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -5789,13 +7301,17 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: QChartView, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: QChartView, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -5807,10 +7323,14 @@ pub const QChartView = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: QChartView, p: anytype) QWidget {
+    pub fn childAt2(self: QChartView, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -5822,10 +7342,14 @@ pub const QChartView = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: QChartView, p: anytype) QWidget {
+    pub fn childAt3(self: QChartView, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -5837,9 +7361,13 @@ pub const QChartView = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: QChartView, param1: i32) void {
+    pub fn setAttribute(self: QChartView, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -5851,9 +7379,13 @@ pub const QChartView = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: QChartView, param1: i32) bool {
+    pub fn testAttribute(self: QChartView, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -5863,9 +7395,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn EnsurePolished(self: QChartView) void {
+    pub fn ensurePolished(self: QChartView) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -5877,10 +7413,14 @@ pub const QChartView = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: QChartView, child: anytype) bool {
+    pub fn isAncestorOf(self: QChartView, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -5890,9 +7430,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn AutoFillBackground(self: QChartView) bool {
+    pub fn autoFillBackground(self: QChartView) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -5904,9 +7448,13 @@ pub const QChartView = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: QChartView, enabled: bool) void {
+    pub fn setAutoFillBackground(self: QChartView, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -5916,9 +7464,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn BackingStore(self: QChartView) QBackingStore {
+    pub fn backingStore(self: QChartView) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -5928,9 +7480,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn WindowHandle(self: QChartView) QWindow {
+    pub fn windowHandle(self: QChartView) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -5940,9 +7496,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn Screen(self: QChartView) QScreen {
+    pub fn screen(self: QChartView) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -5952,12 +7512,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: QChartView, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: QChartView, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -5965,12 +7529,16 @@ pub const QChartView = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -5982,13 +7550,17 @@ pub const QChartView = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: QChartView, title: []const u8) void {
+    pub fn windowTitleChanged(self: QChartView, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -6000,9 +7572,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: QChartView, callback: *const fn (QChartView, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: QChartView, callback: *const fn (QChartView, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -6014,10 +7590,14 @@ pub const QChartView = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: QChartView, icon: anytype) void {
+    pub fn windowIconChanged(self: QChartView, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -6029,9 +7609,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: QChartView, callback: *const fn (QChartView, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: QChartView, callback: *const fn (QChartView, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -6043,13 +7627,17 @@ pub const QChartView = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: QChartView, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: QChartView, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -6061,9 +7649,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: QChartView, callback: *const fn (QChartView, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: QChartView, callback: *const fn (QChartView, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -6073,12 +7665,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: QChartView, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: QChartView, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -6090,9 +7686,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: QChartView, callback: *const fn (QChartView, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: QChartView, callback: *const fn (QChartView, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -6106,9 +7706,13 @@ pub const QChartView = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: QChartView) i32 {
+    pub fn inputMethodHints(self: QChartView) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -6120,9 +7724,13 @@ pub const QChartView = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: QChartView, hints: i32) void {
+    pub fn setInputMethodHints(self: QChartView, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -6136,11 +7744,15 @@ pub const QChartView = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: QChartView, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: QChartView, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -6154,11 +7766,15 @@ pub const QChartView = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: QChartView, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: QChartView, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -6174,12 +7790,16 @@ pub const QChartView = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: QChartView, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: QChartView, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -6197,12 +7817,16 @@ pub const QChartView = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: QChartView, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: QChartView, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -6214,10 +7838,14 @@ pub const QChartView = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: QChartView, rectangle: anytype) QPixmap {
+    pub fn grab1(self: QChartView, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -6231,9 +7859,13 @@ pub const QChartView = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: QChartView, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: QChartView, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -6247,10 +7879,14 @@ pub const QChartView = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: QChartView, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: QChartView, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -6264,9 +7900,13 @@ pub const QChartView = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: QChartView, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: QChartView, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -6280,9 +7920,13 @@ pub const QChartView = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: QChartView, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: QChartView, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -6296,9 +7940,13 @@ pub const QChartView = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: QChartView, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: QChartView, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -6312,25 +7960,13 @@ pub const QChartView = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: QChartView, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: QChartView, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -6338,17 +7974,41 @@ pub const QChartView = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -6360,13 +8020,17 @@ pub const QChartView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QChartView, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QChartView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QChartView.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QChartView.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -6378,13 +8042,17 @@ pub const QChartView = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QChartView, name: []const u8) void {
+    pub fn setObjectName(self: QChartView, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -6394,9 +8062,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn IsWidgetType(self: QChartView) bool {
+    pub fn isWidgetType(self: QChartView) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -6406,9 +8078,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn IsWindowType(self: QChartView) bool {
+    pub fn isWindowType(self: QChartView) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -6418,9 +8094,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn IsQuickItemType(self: QChartView) bool {
+    pub fn isQuickItemType(self: QChartView) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -6430,9 +8110,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn SignalsBlocked(self: QChartView) bool {
+    pub fn signalsBlocked(self: QChartView) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -6444,9 +8128,13 @@ pub const QChartView = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QChartView, b: bool) bool {
+    pub fn blockSignals(self: QChartView, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -6456,9 +8144,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn Thread(self: QChartView) QThread {
+    pub fn thread(self: QChartView) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -6468,12 +8160,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QChartView, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QChartView, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -6485,9 +8181,13 @@ pub const QChartView = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QChartView, interval: i32) i32 {
+    pub fn startTimer(self: QChartView, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -6499,9 +8199,13 @@ pub const QChartView = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QChartView, time: i64) i32 {
+    pub fn startTimer2(self: QChartView, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -6513,9 +8217,13 @@ pub const QChartView = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QChartView, id: i32) void {
+    pub fn killTimer(self: QChartView, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -6527,9 +8235,13 @@ pub const QChartView = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QChartView, id: i32) void {
+    pub fn killTimer2(self: QChartView, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -6541,15 +8253,19 @@ pub const QChartView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QChartView, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QChartView, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QChartView.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QChartView.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -6561,10 +8277,14 @@ pub const QChartView = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QChartView, filterObj: anytype) void {
+    pub fn installEventFilter(self: QChartView, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -6576,10 +8296,14 @@ pub const QChartView = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QChartView, obj: anytype) void {
+    pub fn removeEventFilter(self: QChartView, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -6587,7 +8311,7 @@ pub const QChartView = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6595,13 +8319,17 @@ pub const QChartView = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -6609,7 +8337,7 @@ pub const QChartView = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -6617,13 +8345,17 @@ pub const QChartView = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -6633,18 +8365,22 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QChartView, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QChartView, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -6652,7 +8388,7 @@ pub const QChartView = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6660,13 +8396,17 @@ pub const QChartView = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -6674,7 +8414,7 @@ pub const QChartView = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -6682,13 +8422,17 @@ pub const QChartView = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -6698,9 +8442,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn Disconnect3(self: QChartView) bool {
+    pub fn disconnect3(self: QChartView) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -6712,10 +8460,14 @@ pub const QChartView = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QChartView, receiver: anytype) bool {
+    pub fn disconnect4(self: QChartView, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -6725,10 +8477,14 @@ pub const QChartView = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -6738,9 +8494,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn DumpObjectTree(self: QChartView) void {
+    pub fn dumpObjectTree(self: QChartView) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -6750,9 +8510,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn DumpObjectInfo(self: QChartView) void {
+    pub fn dumpObjectInfo(self: QChartView) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -6766,11 +8530,15 @@ pub const QChartView = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QChartView, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QChartView, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -6782,10 +8550,14 @@ pub const QChartView = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QChartView, name: [:0]const u8) QVariant {
+    pub fn property(self: QChartView, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -6797,7 +8569,7 @@ pub const QChartView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QChartView, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QChartView, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -6805,27 +8577,19 @@ pub const QChartView = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QChartView.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QChartView.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QChartView.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QChartView.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QChartView `
-    ///
-    pub fn BindingStorage(self: QChartView) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -6835,9 +8599,29 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn BindingStorage2(self: QChartView) QBindingStorage {
+    pub fn bindingStorage(self: QChartView) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QChartView `
+    ///
+    pub fn bindingStorage2(self: QChartView) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -6847,9 +8631,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn Destroyed(self: QChartView) void {
+    pub fn destroyed(self: QChartView) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -6861,9 +8649,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QChartView, callback: *const fn (QChartView) callconv(.c) void) void {
+    pub fn onDestroyed(self: QChartView, callback: *const fn (QChartView) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -6873,9 +8665,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn Parent(self: QChartView) QObject {
+    pub fn parent(self: QChartView) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -6887,10 +8683,14 @@ pub const QChartView = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QChartView, classname: [:0]const u8) bool {
+    pub fn inherits(self: QChartView, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -6900,9 +8700,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn DeleteLater(self: QChartView) void {
+    pub fn deleteLater(self: QChartView) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -6916,9 +8720,13 @@ pub const QChartView = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QChartView, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QChartView, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -6932,9 +8740,13 @@ pub const QChartView = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QChartView, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QChartView, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -6942,7 +8754,7 @@ pub const QChartView = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6952,13 +8764,17 @@ pub const QChartView = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -6966,7 +8782,7 @@ pub const QChartView = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -6976,13 +8792,17 @@ pub const QChartView = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -6992,7 +8812,7 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -7000,12 +8820,16 @@ pub const QChartView = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QChartView, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QChartView, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -7017,10 +8841,14 @@ pub const QChartView = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QChartView, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QChartView, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -7034,11 +8862,15 @@ pub const QChartView = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QChartView, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QChartView, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -7054,13 +8886,17 @@ pub const QChartView = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QChartView, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QChartView, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -7073,11 +8909,15 @@ pub const QChartView = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QChartView, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QChartView, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -7089,10 +8929,14 @@ pub const QChartView = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QChartView, param1: anytype) void {
+    pub fn destroyed1(self: QChartView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -7104,9 +8948,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QChartView, callback: *const fn (QChartView, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QChartView, callback: *const fn (QChartView, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -7116,9 +8964,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn PaintingActive(self: QChartView) bool {
+    pub fn paintingActive(self: QChartView) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -7128,9 +8980,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn WidthMM(self: QChartView) i32 {
+    pub fn widthMM(self: QChartView) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -7140,9 +8996,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn HeightMM(self: QChartView) i32 {
+    pub fn heightMM(self: QChartView) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -7152,9 +9012,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn LogicalDpiX(self: QChartView) i32 {
+    pub fn logicalDpiX(self: QChartView) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -7164,9 +9028,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn LogicalDpiY(self: QChartView) i32 {
+    pub fn logicalDpiY(self: QChartView) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -7176,9 +9044,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn PhysicalDpiX(self: QChartView) i32 {
+    pub fn physicalDpiX(self: QChartView) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -7188,9 +9060,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn PhysicalDpiY(self: QChartView) i32 {
+    pub fn physicalDpiY(self: QChartView) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -7200,9 +9076,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn DevicePixelRatio(self: QChartView) f64 {
+    pub fn devicePixelRatio(self: QChartView) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -7212,9 +9092,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn DevicePixelRatioF(self: QChartView) f64 {
+    pub fn devicePixelRatioF(self: QChartView) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -7224,9 +9108,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn ColorCount(self: QChartView) i32 {
+    pub fn colorCount(self: QChartView) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -7236,17 +9124,25 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn Depth(self: QChartView) i32 {
+    pub fn depth(self: QChartView) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -7254,13 +9150,17 @@ pub const QChartView = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
 
     /// Inherited from QGraphicsView
     ///
@@ -7272,13 +9172,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn SizeHint(self: QChartView) QSize {
+    pub fn sizeHint(self: QChartView) QSize {
         return .{ .ptr = qtc.QChartView_SizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// Inherited from QGraphicsView
     ///
@@ -7290,9 +9190,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn SuperSizeHint(self: QChartView) QSize {
+    pub fn superSizeHint(self: QChartView) QSize {
         return .{ .ptr = qtc.QChartView_SuperSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
 
     /// Inherited from QGraphicsView
     ///
@@ -7308,9 +9212,13 @@ pub const QChartView = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: QChartView, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QChartView, callback: *const fn () callconv(.c) QSize) void {
         qtc.QChartView_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QGraphicsView
     ///
@@ -7324,13 +9232,13 @@ pub const QChartView = extern struct {
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: QChartView, query: i32) QVariant {
+    pub fn inputMethodQuery(self: QChartView, query: i32) QVariant {
         return .{ .ptr = qtc.QChartView_InputMethodQuery(@ptrCast(self.ptr), @bitCast(query)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QGraphicsView
     ///
@@ -7344,9 +9252,13 @@ pub const QChartView = extern struct {
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: QChartView, query: i32) QVariant {
+    pub fn superInputMethodQuery(self: QChartView, query: i32) QVariant {
         return .{ .ptr = qtc.QChartView_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(query)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QGraphicsView
     ///
@@ -7362,9 +9274,13 @@ pub const QChartView = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: QChartView, callback: *const fn (QChartView, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: QChartView, callback: *const fn (QChartView, i32) callconv(.c) QVariant) void {
         qtc.QChartView_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setupViewport` instead
+    ///
+    pub const SetupViewport = setupViewport;
 
     /// Inherited from QGraphicsView
     ///
@@ -7378,14 +9294,14 @@ pub const QChartView = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn SetupViewport(self: QChartView, widget: anytype) void {
+    pub fn setupViewport(self: QChartView, widget: anytype) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QChartView_SetupViewport(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetupViewport` instead
+    /// ### DEPRECATED: Use `superSetupViewport` instead
     ///
-    pub const QBaseSetupViewport = SuperSetupViewport;
+    pub const SuperSetupViewport = superSetupViewport;
 
     /// Inherited from QGraphicsView
     ///
@@ -7399,10 +9315,14 @@ pub const QChartView = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn SuperSetupViewport(self: QChartView, widget: anytype) void {
+    pub fn superSetupViewport(self: QChartView, widget: anytype) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QChartView_SuperSetupViewport(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetupViewport` instead
+    ///
+    pub const OnSetupViewport = onSetupViewport;
 
     /// Inherited from QGraphicsView
     ///
@@ -7416,10 +9336,14 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, widget: QWidget) callconv(.c) void `
     ///
-    pub fn OnSetupViewport(self: QChartView, callback: *const fn (QChartView, QWidget) callconv(.c) void) void {
+    pub fn onSetupViewport(self: QChartView, callback: *const fn (QChartView, QWidget) callconv(.c) void) void {
         qtc.QChartView_OnSetupViewport(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
+
     /// Inherited from QGraphicsView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsview.html#event)
@@ -7430,16 +9354,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QChartView, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QChartView_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QChartView, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QChartView_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QGraphicsView
     ///
@@ -7451,12 +9375,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QChartView, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QChartView_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QChartView, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QChartView_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QGraphicsView
     ///
@@ -7470,10 +9398,14 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QChartView, callback: *const fn (QChartView, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QChartView, callback: *const fn (QChartView, QEvent) callconv(.c) bool) void {
         qtc.QChartView_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `viewportEvent` instead
+    ///
+    pub const ViewportEvent = viewportEvent;
+
     /// Inherited from QGraphicsView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsview.html#viewportEvent)
@@ -7484,16 +9416,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn ViewportEvent(self: QChartView, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QChartView_ViewportEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn viewportEvent(self: QChartView, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QChartView_ViewportEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperViewportEvent` instead
+    /// ### DEPRECATED: Use `superViewportEvent` instead
     ///
-    pub const QBaseViewportEvent = SuperViewportEvent;
+    pub const SuperViewportEvent = superViewportEvent;
 
     /// Inherited from QGraphicsView
     ///
@@ -7505,12 +9437,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperViewportEvent(self: QChartView, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QChartView_SuperViewportEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superViewportEvent(self: QChartView, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QChartView_SuperViewportEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onViewportEvent` instead
+    ///
+    pub const OnViewportEvent = onViewportEvent;
 
     /// Inherited from QGraphicsView
     ///
@@ -7524,9 +9460,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnViewportEvent(self: QChartView, callback: *const fn (QChartView, QEvent) callconv(.c) bool) void {
+    pub fn onViewportEvent(self: QChartView, callback: *const fn (QChartView, QEvent) callconv(.c) bool) void {
         qtc.QChartView_OnViewportEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QGraphicsView
     ///
@@ -7538,16 +9478,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.QChartView_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn contextMenuEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.QChartView_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QGraphicsView
     ///
@@ -7559,12 +9499,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.QChartView_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superContextMenuEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.QChartView_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QGraphicsView
     ///
@@ -7578,9 +9522,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, event: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: QChartView, callback: *const fn (QChartView, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: QChartView, callback: *const fn (QChartView, QContextMenuEvent) callconv(.c) void) void {
         qtc.QChartView_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QGraphicsView
     ///
@@ -7592,16 +9540,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.QChartView_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.QChartView_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QGraphicsView
     ///
@@ -7613,12 +9561,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.QChartView_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.QChartView_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QGraphicsView
     ///
@@ -7632,9 +9584,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: QChartView, callback: *const fn (QChartView, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: QChartView, callback: *const fn (QChartView, QDragEnterEvent) callconv(.c) void) void {
         qtc.QChartView_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QGraphicsView
     ///
@@ -7646,16 +9602,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.QChartView_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.QChartView_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QGraphicsView
     ///
@@ -7667,12 +9623,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.QChartView_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.QChartView_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QGraphicsView
     ///
@@ -7686,9 +9646,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: QChartView, callback: *const fn (QChartView, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: QChartView, callback: *const fn (QChartView, QDragLeaveEvent) callconv(.c) void) void {
         qtc.QChartView_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QGraphicsView
     ///
@@ -7700,16 +9664,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.QChartView_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.QChartView_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QGraphicsView
     ///
@@ -7721,12 +9685,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.QChartView_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.QChartView_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QGraphicsView
     ///
@@ -7740,9 +9708,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: QChartView, callback: *const fn (QChartView, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: QChartView, callback: *const fn (QChartView, QDragMoveEvent) callconv(.c) void) void {
         qtc.QChartView_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QGraphicsView
     ///
@@ -7754,16 +9726,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.QChartView_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.QChartView_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QGraphicsView
     ///
@@ -7775,12 +9747,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.QChartView_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.QChartView_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QGraphicsView
     ///
@@ -7794,9 +9770,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: QChartView, callback: *const fn (QChartView, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: QChartView, callback: *const fn (QChartView, QDropEvent) callconv(.c) void) void {
         qtc.QChartView_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
 
     /// Inherited from QGraphicsView
     ///
@@ -7808,16 +9788,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QChartView_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusInEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QChartView_FocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QGraphicsView
     ///
@@ -7829,12 +9809,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QChartView_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusInEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QChartView_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
 
     /// Inherited from QGraphicsView
     ///
@@ -7848,9 +9832,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: QChartView, callback: *const fn (QChartView, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: QChartView, callback: *const fn (QChartView, QFocusEvent) callconv(.c) void) void {
         qtc.QChartView_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QGraphicsView
     ///
@@ -7864,13 +9852,13 @@ pub const QChartView = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: QChartView, next: bool) bool {
+    pub fn focusNextPrevChild(self: QChartView, next: bool) bool {
         return qtc.QChartView_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QGraphicsView
     ///
@@ -7884,9 +9872,13 @@ pub const QChartView = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: QChartView, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: QChartView, next: bool) bool {
         return qtc.QChartView_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QGraphicsView
     ///
@@ -7900,9 +9892,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: QChartView, callback: *const fn (QChartView, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: QChartView, callback: *const fn (QChartView, bool) callconv(.c) bool) void {
         qtc.QChartView_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
 
     /// Inherited from QGraphicsView
     ///
@@ -7914,16 +9910,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QChartView_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusOutEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QChartView_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QGraphicsView
     ///
@@ -7935,12 +9931,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QChartView_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusOutEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QChartView_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QGraphicsView
     ///
@@ -7954,10 +9954,14 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: QChartView, callback: *const fn (QChartView, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: QChartView, callback: *const fn (QChartView, QFocusEvent) callconv(.c) void) void {
         qtc.QChartView_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
+
     /// Inherited from QGraphicsView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsview.html#keyPressEvent)
@@ -7968,16 +9972,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QChartView_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyPressEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QChartView_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QGraphicsView
     ///
@@ -7989,12 +9993,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QChartView_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyPressEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QChartView_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// Inherited from QGraphicsView
     ///
@@ -8008,10 +10016,14 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: QChartView, callback: *const fn (QChartView, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: QChartView, callback: *const fn (QChartView, QKeyEvent) callconv(.c) void) void {
         qtc.QChartView_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
+
     /// Inherited from QGraphicsView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsview.html#keyReleaseEvent)
@@ -8022,16 +10034,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QChartView_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyReleaseEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QChartView_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QGraphicsView
     ///
@@ -8043,12 +10055,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QChartView_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyReleaseEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QChartView_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QGraphicsView
     ///
@@ -8062,9 +10078,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: QChartView, callback: *const fn (QChartView, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: QChartView, callback: *const fn (QChartView, QKeyEvent) callconv(.c) void) void {
         qtc.QChartView_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
 
     /// Inherited from QGraphicsView
     ///
@@ -8076,16 +10096,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QChartView_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QChartView_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QGraphicsView
     ///
@@ -8097,12 +10117,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QChartView_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QChartView_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QGraphicsView
     ///
@@ -8116,9 +10140,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: QChartView, callback: *const fn (QChartView, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: QChartView, callback: *const fn (QChartView, QMouseEvent) callconv(.c) void) void {
         qtc.QChartView_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QGraphicsView
     ///
@@ -8130,16 +10158,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.QChartView_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn wheelEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.QChartView_WheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QGraphicsView
     ///
@@ -8151,12 +10179,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.QChartView_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superWheelEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.QChartView_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QGraphicsView
     ///
@@ -8170,9 +10202,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: QChartView, callback: *const fn (QChartView, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: QChartView, callback: *const fn (QChartView, QWheelEvent) callconv(.c) void) void {
         qtc.QChartView_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// Inherited from QGraphicsView
     ///
@@ -8184,16 +10220,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn PaintEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.QChartView_PaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn paintEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.QChartView_PaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// Inherited from QGraphicsView
     ///
@@ -8205,12 +10241,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.QChartView_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superPaintEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.QChartView_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// Inherited from QGraphicsView
     ///
@@ -8224,9 +10264,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, event: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: QChartView, callback: *const fn (QChartView, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: QChartView, callback: *const fn (QChartView, QPaintEvent) callconv(.c) void) void {
         qtc.QChartView_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `scrollContentsBy` instead
+    ///
+    pub const ScrollContentsBy = scrollContentsBy;
 
     /// Inherited from QGraphicsView
     ///
@@ -8242,13 +10286,13 @@ pub const QChartView = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn ScrollContentsBy(self: QChartView, dx: i32, dy: i32) void {
+    pub fn scrollContentsBy(self: QChartView, dx: i32, dy: i32) void {
         qtc.QChartView_ScrollContentsBy(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
-    /// ### DEPRECATED: Use `SuperScrollContentsBy` instead
+    /// ### DEPRECATED: Use `superScrollContentsBy` instead
     ///
-    pub const QBaseScrollContentsBy = SuperScrollContentsBy;
+    pub const SuperScrollContentsBy = superScrollContentsBy;
 
     /// Inherited from QGraphicsView
     ///
@@ -8264,9 +10308,13 @@ pub const QChartView = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn SuperScrollContentsBy(self: QChartView, dx: i32, dy: i32) void {
+    pub fn superScrollContentsBy(self: QChartView, dx: i32, dy: i32) void {
         qtc.QChartView_SuperScrollContentsBy(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `onScrollContentsBy` instead
+    ///
+    pub const OnScrollContentsBy = onScrollContentsBy;
 
     /// Inherited from QGraphicsView
     ///
@@ -8280,9 +10328,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, dx: i32, dy: i32) callconv(.c) void `
     ///
-    pub fn OnScrollContentsBy(self: QChartView, callback: *const fn (QChartView, i32, i32) callconv(.c) void) void {
+    pub fn onScrollContentsBy(self: QChartView, callback: *const fn (QChartView, i32, i32) callconv(.c) void) void {
         qtc.QChartView_OnScrollContentsBy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QGraphicsView
     ///
@@ -8294,16 +10346,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn ShowEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.QChartView_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn showEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.QChartView_ShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QGraphicsView
     ///
@@ -8315,12 +10367,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.QChartView_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superShowEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.QChartView_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QGraphicsView
     ///
@@ -8334,9 +10390,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: QChartView, callback: *const fn (QChartView, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: QChartView, callback: *const fn (QChartView, QShowEvent) callconv(.c) void) void {
         qtc.QChartView_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QGraphicsView
     ///
@@ -8348,16 +10408,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QInputMethodEvent `
+    /// ` _event: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QInputMethodEvent;
-        qtc.QChartView_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn inputMethodEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QInputMethodEvent;
+        qtc.QChartView_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QGraphicsView
     ///
@@ -8369,12 +10429,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QInputMethodEvent `
+    /// ` _event: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QInputMethodEvent;
-        qtc.QChartView_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superInputMethodEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QInputMethodEvent;
+        qtc.QChartView_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QGraphicsView
     ///
@@ -8388,10 +10452,14 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, event: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: QChartView, callback: *const fn (QChartView, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: QChartView, callback: *const fn (QChartView, QInputMethodEvent) callconv(.c) void) void {
         qtc.QChartView_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `drawBackground` instead
+    ///
+    pub const DrawBackground = drawBackground;
+
     /// Inherited from QGraphicsView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsview.html#drawBackground)
@@ -8404,17 +10472,17 @@ pub const QChartView = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    /// ` rect: QRectF `
+    /// ` _rect: QRectF `
     ///
-    pub fn DrawBackground(self: QChartView, painter: anytype, rect: anytype) void {
+    pub fn drawBackground(self: QChartView, painter: anytype, _rect: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
-        comptime _ = @TypeOf(rect)._is_QRectF;
-        qtc.QChartView_DrawBackground(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(rect.ptr));
+        comptime _ = @TypeOf(_rect)._is_QRectF;
+        qtc.QChartView_DrawBackground(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(_rect.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawBackground` instead
+    /// ### DEPRECATED: Use `superDrawBackground` instead
     ///
-    pub const QBaseDrawBackground = SuperDrawBackground;
+    pub const SuperDrawBackground = superDrawBackground;
 
     /// Inherited from QGraphicsView
     ///
@@ -8428,13 +10496,17 @@ pub const QChartView = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    /// ` rect: QRectF `
+    /// ` _rect: QRectF `
     ///
-    pub fn SuperDrawBackground(self: QChartView, painter: anytype, rect: anytype) void {
+    pub fn superDrawBackground(self: QChartView, painter: anytype, _rect: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
-        comptime _ = @TypeOf(rect)._is_QRectF;
-        qtc.QChartView_SuperDrawBackground(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(rect.ptr));
+        comptime _ = @TypeOf(_rect)._is_QRectF;
+        qtc.QChartView_SuperDrawBackground(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(_rect.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDrawBackground` instead
+    ///
+    pub const OnDrawBackground = onDrawBackground;
 
     /// Inherited from QGraphicsView
     ///
@@ -8448,10 +10520,14 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, painter: QPainter, rect: QRectF) callconv(.c) void `
     ///
-    pub fn OnDrawBackground(self: QChartView, callback: *const fn (QChartView, QPainter, QRectF) callconv(.c) void) void {
+    pub fn onDrawBackground(self: QChartView, callback: *const fn (QChartView, QPainter, QRectF) callconv(.c) void) void {
         qtc.QChartView_OnDrawBackground(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `drawForeground` instead
+    ///
+    pub const DrawForeground = drawForeground;
+
     /// Inherited from QGraphicsView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsview.html#drawForeground)
@@ -8464,17 +10540,17 @@ pub const QChartView = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    /// ` rect: QRectF `
+    /// ` _rect: QRectF `
     ///
-    pub fn DrawForeground(self: QChartView, painter: anytype, rect: anytype) void {
+    pub fn drawForeground(self: QChartView, painter: anytype, _rect: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
-        comptime _ = @TypeOf(rect)._is_QRectF;
-        qtc.QChartView_DrawForeground(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(rect.ptr));
+        comptime _ = @TypeOf(_rect)._is_QRectF;
+        qtc.QChartView_DrawForeground(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(_rect.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawForeground` instead
+    /// ### DEPRECATED: Use `superDrawForeground` instead
     ///
-    pub const QBaseDrawForeground = SuperDrawForeground;
+    pub const SuperDrawForeground = superDrawForeground;
 
     /// Inherited from QGraphicsView
     ///
@@ -8488,13 +10564,17 @@ pub const QChartView = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    /// ` rect: QRectF `
+    /// ` _rect: QRectF `
     ///
-    pub fn SuperDrawForeground(self: QChartView, painter: anytype, rect: anytype) void {
+    pub fn superDrawForeground(self: QChartView, painter: anytype, _rect: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
-        comptime _ = @TypeOf(rect)._is_QRectF;
-        qtc.QChartView_SuperDrawForeground(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(rect.ptr));
+        comptime _ = @TypeOf(_rect)._is_QRectF;
+        qtc.QChartView_SuperDrawForeground(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(_rect.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDrawForeground` instead
+    ///
+    pub const OnDrawForeground = onDrawForeground;
 
     /// Inherited from QGraphicsView
     ///
@@ -8508,9 +10588,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, painter: QPainter, rect: QRectF) callconv(.c) void `
     ///
-    pub fn OnDrawForeground(self: QChartView, callback: *const fn (QChartView, QPainter, QRectF) callconv(.c) void) void {
+    pub fn onDrawForeground(self: QChartView, callback: *const fn (QChartView, QPainter, QRectF) callconv(.c) void) void {
         qtc.QChartView_OnDrawForeground(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `drawItems` instead
+    ///
+    pub const DrawItems = drawItems;
 
     /// Inherited from QGraphicsView
     ///
@@ -8526,19 +10610,19 @@ pub const QChartView = extern struct {
     ///
     /// ` numItems: i32 `
     ///
-    /// ` items: *QGraphicsItem.ptr `
+    /// ` _items: *QGraphicsItem.ptr `
     ///
     /// ` options: QStyleOptionGraphicsItem `
     ///
-    pub fn DrawItems(self: QChartView, painter: anytype, numItems: i32, items: *?*anyopaque, options: anytype) void {
+    pub fn drawItems(self: QChartView, painter: anytype, numItems: i32, _items: *?*anyopaque, options: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(options)._is_QStyleOptionGraphicsItem;
-        qtc.QChartView_DrawItems(@ptrCast(self.ptr), @ptrCast(painter.ptr), @bitCast(numItems), @ptrCast(items), @ptrCast(options.ptr));
+        qtc.QChartView_DrawItems(@ptrCast(self.ptr), @ptrCast(painter.ptr), @bitCast(numItems), @ptrCast(_items), @ptrCast(options.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawItems` instead
+    /// ### DEPRECATED: Use `superDrawItems` instead
     ///
-    pub const QBaseDrawItems = SuperDrawItems;
+    pub const SuperDrawItems = superDrawItems;
 
     /// Inherited from QGraphicsView
     ///
@@ -8554,15 +10638,19 @@ pub const QChartView = extern struct {
     ///
     /// ` numItems: i32 `
     ///
-    /// ` items: *QGraphicsItem.ptr `
+    /// ` _items: *QGraphicsItem.ptr `
     ///
     /// ` options: QStyleOptionGraphicsItem `
     ///
-    pub fn SuperDrawItems(self: QChartView, painter: anytype, numItems: i32, items: *?*anyopaque, options: anytype) void {
+    pub fn superDrawItems(self: QChartView, painter: anytype, numItems: i32, _items: *?*anyopaque, options: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(options)._is_QStyleOptionGraphicsItem;
-        qtc.QChartView_SuperDrawItems(@ptrCast(self.ptr), @ptrCast(painter.ptr), @bitCast(numItems), @ptrCast(items), @ptrCast(options.ptr));
+        qtc.QChartView_SuperDrawItems(@ptrCast(self.ptr), @ptrCast(painter.ptr), @bitCast(numItems), @ptrCast(_items), @ptrCast(options.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDrawItems` instead
+    ///
+    pub const OnDrawItems = onDrawItems;
 
     /// Inherited from QGraphicsView
     ///
@@ -8576,9 +10664,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, painter: QPainter, numItems: i32, items: *QGraphicsItem.ptr, options: QStyleOptionGraphicsItem) callconv(.c) void `
     ///
-    pub fn OnDrawItems(self: QChartView, callback: *const fn (QChartView, QPainter, i32, *?*anyopaque, QStyleOptionGraphicsItem) callconv(.c) void) void {
+    pub fn onDrawItems(self: QChartView, callback: *const fn (QChartView, QPainter, i32, *?*anyopaque, QStyleOptionGraphicsItem) callconv(.c) void) void {
         qtc.QChartView_OnDrawItems(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8590,13 +10682,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn MinimumSizeHint(self: QChartView) QSize {
+    pub fn minimumSizeHint(self: QChartView) QSize {
         return .{ .ptr = qtc.QChartView_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8608,9 +10700,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn SuperMinimumSizeHint(self: QChartView) QSize {
+    pub fn superMinimumSizeHint(self: QChartView) QSize {
         return .{ .ptr = qtc.QChartView_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8626,9 +10722,13 @@ pub const QChartView = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: QChartView, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: QChartView, callback: *const fn () callconv(.c) QSize) void {
         qtc.QChartView_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8644,15 +10744,15 @@ pub const QChartView = extern struct {
     ///
     /// ` param2: QEvent `
     ///
-    pub fn EventFilter(self: QChartView, param1: anytype, param2: anytype) bool {
+    pub fn eventFilter(self: QChartView, param1: anytype, param2: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QObject;
         comptime _ = @TypeOf(param2)._is_QEvent;
         return qtc.QChartView_EventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8668,11 +10768,15 @@ pub const QChartView = extern struct {
     ///
     /// ` param2: QEvent `
     ///
-    pub fn SuperEventFilter(self: QChartView, param1: anytype, param2: anytype) bool {
+    pub fn superEventFilter(self: QChartView, param1: anytype, param2: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QObject;
         comptime _ = @TypeOf(param2)._is_QEvent;
         return qtc.QChartView_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8686,9 +10790,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, param1: QObject, param2: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QChartView, callback: *const fn (QChartView, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QChartView, callback: *const fn (QChartView, QObject, QEvent) callconv(.c) bool) void {
         qtc.QChartView_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `viewportSizeHint` instead
+    ///
+    pub const ViewportSizeHint = viewportSizeHint;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8700,13 +10808,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn ViewportSizeHint(self: QChartView) QSize {
+    pub fn viewportSizeHint(self: QChartView) QSize {
         return .{ .ptr = qtc.QChartView_ViewportSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperViewportSizeHint` instead
+    /// ### DEPRECATED: Use `superViewportSizeHint` instead
     ///
-    pub const QBaseViewportSizeHint = SuperViewportSizeHint;
+    pub const SuperViewportSizeHint = superViewportSizeHint;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8718,9 +10826,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn SuperViewportSizeHint(self: QChartView) QSize {
+    pub fn superViewportSizeHint(self: QChartView) QSize {
         return .{ .ptr = qtc.QChartView_SuperViewportSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onViewportSizeHint` instead
+    ///
+    pub const OnViewportSizeHint = onViewportSizeHint;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8736,9 +10848,13 @@ pub const QChartView = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnViewportSizeHint(self: QChartView, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onViewportSizeHint(self: QChartView, callback: *const fn () callconv(.c) QSize) void {
         qtc.QChartView_OnViewportSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QFrame
     ///
@@ -8752,14 +10868,14 @@ pub const QChartView = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: QChartView, param1: anytype) void {
+    pub fn changeEvent(self: QChartView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.QChartView_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QFrame
     ///
@@ -8773,10 +10889,14 @@ pub const QChartView = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: QChartView, param1: anytype) void {
+    pub fn superChangeEvent(self: QChartView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.QChartView_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QFrame
     ///
@@ -8790,9 +10910,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: QChartView, callback: *const fn (QChartView, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: QChartView, callback: *const fn (QChartView, QEvent) callconv(.c) void) void {
         qtc.QChartView_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initStyleOption` instead
+    ///
+    pub const InitStyleOption = initStyleOption;
 
     /// Inherited from QFrame
     ///
@@ -8806,14 +10930,14 @@ pub const QChartView = extern struct {
     ///
     /// ` option: QStyleOptionFrame `
     ///
-    pub fn InitStyleOption(self: QChartView, option: anytype) void {
+    pub fn initStyleOption(self: QChartView, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionFrame;
         qtc.QChartView_InitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitStyleOption` instead
+    /// ### DEPRECATED: Use `superInitStyleOption` instead
     ///
-    pub const QBaseInitStyleOption = SuperInitStyleOption;
+    pub const SuperInitStyleOption = superInitStyleOption;
 
     /// Inherited from QFrame
     ///
@@ -8827,10 +10951,14 @@ pub const QChartView = extern struct {
     ///
     /// ` option: QStyleOptionFrame `
     ///
-    pub fn SuperInitStyleOption(self: QChartView, option: anytype) void {
+    pub fn superInitStyleOption(self: QChartView, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionFrame;
         qtc.QChartView_SuperInitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitStyleOption` instead
+    ///
+    pub const OnInitStyleOption = onInitStyleOption;
 
     /// Inherited from QFrame
     ///
@@ -8844,9 +10972,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, option: QStyleOptionFrame) callconv(.c) void `
     ///
-    pub fn OnInitStyleOption(self: QChartView, callback: *const fn (QChartView, QStyleOptionFrame) callconv(.c) void) void {
+    pub fn onInitStyleOption(self: QChartView, callback: *const fn (QChartView, QStyleOptionFrame) callconv(.c) void) void {
         qtc.QChartView_OnInitStyleOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -8858,13 +10990,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn DevType(self: QChartView) i32 {
+    pub fn devType(self: QChartView) i32 {
         return qtc.QChartView_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -8876,9 +11008,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn SuperDevType(self: QChartView) i32 {
+    pub fn superDevType(self: QChartView) i32 {
         return qtc.QChartView_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -8892,9 +11028,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: QChartView, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QChartView, callback: *const fn () callconv(.c) i32) void {
         qtc.QChartView_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -8908,13 +11048,13 @@ pub const QChartView = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: QChartView, visible: bool) void {
+    pub fn setVisible(self: QChartView, visible: bool) void {
         qtc.QChartView_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -8928,9 +11068,13 @@ pub const QChartView = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: QChartView, visible: bool) void {
+    pub fn superSetVisible(self: QChartView, visible: bool) void {
         qtc.QChartView_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -8944,9 +11088,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: QChartView, callback: *const fn (QChartView, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: QChartView, callback: *const fn (QChartView, bool) callconv(.c) void) void {
         qtc.QChartView_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -8960,13 +11108,13 @@ pub const QChartView = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: QChartView, param1: i32) i32 {
+    pub fn heightForWidth(self: QChartView, param1: i32) i32 {
         return qtc.QChartView_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -8980,9 +11128,13 @@ pub const QChartView = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: QChartView, param1: i32) i32 {
+    pub fn superHeightForWidth(self: QChartView, param1: i32) i32 {
         return qtc.QChartView_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -8996,9 +11148,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: QChartView, callback: *const fn (QChartView, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: QChartView, callback: *const fn (QChartView, i32) callconv(.c) i32) void {
         qtc.QChartView_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -9010,13 +11166,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn HasHeightForWidth(self: QChartView) bool {
+    pub fn hasHeightForWidth(self: QChartView) bool {
         return qtc.QChartView_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -9028,9 +11184,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn SuperHasHeightForWidth(self: QChartView) bool {
+    pub fn superHasHeightForWidth(self: QChartView) bool {
         return qtc.QChartView_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -9044,9 +11204,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: QChartView, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QChartView, callback: *const fn () callconv(.c) bool) void {
         qtc.QChartView_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -9058,13 +11222,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn PaintEngine(self: QChartView) QPaintEngine {
+    pub fn paintEngine(self: QChartView) QPaintEngine {
         return .{ .ptr = qtc.QChartView_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -9076,9 +11240,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn SuperPaintEngine(self: QChartView) QPaintEngine {
+    pub fn superPaintEngine(self: QChartView) QPaintEngine {
         return .{ .ptr = qtc.QChartView_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -9092,9 +11260,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: QChartView, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QChartView, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.QChartView_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -9106,16 +11278,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.QChartView_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.QChartView_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -9127,12 +11299,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.QChartView_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.QChartView_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -9146,9 +11322,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: QChartView, callback: *const fn (QChartView, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: QChartView, callback: *const fn (QChartView, QEnterEvent) callconv(.c) void) void {
         qtc.QChartView_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9160,16 +11340,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QChartView_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QChartView_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9181,12 +11361,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QChartView_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QChartView_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9200,9 +11384,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: QChartView, callback: *const fn (QChartView, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: QChartView, callback: *const fn (QChartView, QEvent) callconv(.c) void) void {
         qtc.QChartView_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9214,16 +11402,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.QChartView_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.QChartView_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9235,12 +11423,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.QChartView_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.QChartView_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9254,9 +11446,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: QChartView, callback: *const fn (QChartView, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: QChartView, callback: *const fn (QChartView, QMoveEvent) callconv(.c) void) void {
         qtc.QChartView_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -9268,16 +11464,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.QChartView_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.QChartView_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -9289,12 +11485,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.QChartView_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.QChartView_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -9308,9 +11508,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: QChartView, callback: *const fn (QChartView, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: QChartView, callback: *const fn (QChartView, QCloseEvent) callconv(.c) void) void {
         qtc.QChartView_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -9322,16 +11526,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.QChartView_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.QChartView_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -9343,12 +11547,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.QChartView_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.QChartView_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -9362,9 +11570,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: QChartView, callback: *const fn (QChartView, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: QChartView, callback: *const fn (QChartView, QTabletEvent) callconv(.c) void) void {
         qtc.QChartView_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -9376,16 +11588,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.QChartView_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.QChartView_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -9397,12 +11609,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.QChartView_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.QChartView_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -9416,9 +11632,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: QChartView, callback: *const fn (QChartView, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: QChartView, callback: *const fn (QChartView, QActionEvent) callconv(.c) void) void {
         qtc.QChartView_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -9430,16 +11650,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.QChartView_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.QChartView_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -9451,12 +11671,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.QChartView_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.QChartView_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -9470,9 +11694,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: QChartView, callback: *const fn (QChartView, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: QChartView, callback: *const fn (QChartView, QHideEvent) callconv(.c) void) void {
         qtc.QChartView_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -9490,7 +11718,7 @@ pub const QChartView = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: QChartView, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: QChartView, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -9498,9 +11726,9 @@ pub const QChartView = extern struct {
         return qtc.QChartView_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -9518,13 +11746,17 @@ pub const QChartView = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: QChartView, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: QChartView, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.QChartView_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -9538,9 +11770,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: QChartView, callback: *const fn (QChartView, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: QChartView, callback: *const fn (QChartView, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QChartView_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -9554,13 +11790,13 @@ pub const QChartView = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: QChartView, param1: i32) i32 {
+    pub fn metric(self: QChartView, param1: i32) i32 {
         return qtc.QChartView_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -9574,9 +11810,13 @@ pub const QChartView = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: QChartView, param1: i32) i32 {
+    pub fn superMetric(self: QChartView, param1: i32) i32 {
         return qtc.QChartView_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -9590,9 +11830,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: QChartView, callback: *const fn (QChartView, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: QChartView, callback: *const fn (QChartView, i32) callconv(.c) i32) void {
         qtc.QChartView_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -9606,14 +11850,14 @@ pub const QChartView = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: QChartView, painter: anytype) void {
+    pub fn initPainter(self: QChartView, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QChartView_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -9627,10 +11871,14 @@ pub const QChartView = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: QChartView, painter: anytype) void {
+    pub fn superInitPainter(self: QChartView, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QChartView_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -9644,9 +11892,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: QChartView, callback: *const fn (QChartView, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: QChartView, callback: *const fn (QChartView, QPainter) callconv(.c) void) void {
         qtc.QChartView_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -9660,14 +11912,14 @@ pub const QChartView = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: QChartView, offset: anytype) QPaintDevice {
+    pub fn redirected(self: QChartView, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.QChartView_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -9681,10 +11933,14 @@ pub const QChartView = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: QChartView, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: QChartView, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.QChartView_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -9698,9 +11954,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: QChartView, callback: *const fn (QChartView, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: QChartView, callback: *const fn (QChartView, QPoint) callconv(.c) QPaintDevice) void {
         qtc.QChartView_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -9712,13 +11972,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn SharedPainter(self: QChartView) QPainter {
+    pub fn sharedPainter(self: QChartView) QPainter {
         return .{ .ptr = qtc.QChartView_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -9730,9 +11990,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn SuperSharedPainter(self: QChartView) QPainter {
+    pub fn superSharedPainter(self: QChartView) QPainter {
         return .{ .ptr = qtc.QChartView_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -9746,9 +12010,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: QChartView, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QChartView, callback: *const fn () callconv(.c) QPainter) void {
         qtc.QChartView_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -9760,16 +12028,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QChartView_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QChartView_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -9781,12 +12049,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QChartView_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QChartView_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -9800,9 +12072,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QChartView, callback: *const fn (QChartView, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QChartView, callback: *const fn (QChartView, QTimerEvent) callconv(.c) void) void {
         qtc.QChartView_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -9814,16 +12090,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QChartView_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QChartView_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -9835,12 +12111,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QChartView_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QChartView_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -9854,9 +12134,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QChartView, callback: *const fn (QChartView, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QChartView, callback: *const fn (QChartView, QChildEvent) callconv(.c) void) void {
         qtc.QChartView_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -9868,16 +12152,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QChartView_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QChartView_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -9889,12 +12173,16 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QChartView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QChartView_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QChartView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QChartView_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -9908,9 +12196,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QChartView, callback: *const fn (QChartView, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QChartView, callback: *const fn (QChartView, QEvent) callconv(.c) void) void {
         qtc.QChartView_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -9924,14 +12216,14 @@ pub const QChartView = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QChartView, signal: anytype) void {
+    pub fn connectNotify(self: QChartView, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QChartView_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -9945,11 +12237,15 @@ pub const QChartView = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QChartView, signal: anytype) void {
+    pub fn superConnectNotify(self: QChartView, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QChartView_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -9962,9 +12258,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QChartView, callback: *const fn (QChartView, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QChartView, callback: *const fn (QChartView, QMetaMethod) callconv(.c) void) void {
         qtc.QChartView_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -9978,14 +12278,14 @@ pub const QChartView = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QChartView, signal: anytype) void {
+    pub fn disconnectNotify(self: QChartView, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QChartView_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -9999,10 +12299,14 @@ pub const QChartView = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QChartView, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QChartView, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QChartView_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -10016,9 +12320,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QChartView, callback: *const fn (QChartView, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QChartView, callback: *const fn (QChartView, QMetaMethod) callconv(.c) void) void {
         qtc.QChartView_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setViewportMargins` instead
+    ///
+    pub const SetViewportMargins = setViewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -10038,13 +12346,13 @@ pub const QChartView = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetViewportMargins(self: QChartView, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setViewportMargins(self: QChartView, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QChartView_SetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
-    /// ### DEPRECATED: Use `SuperSetViewportMargins` instead
+    /// ### DEPRECATED: Use `superSetViewportMargins` instead
     ///
-    pub const QBaseSetViewportMargins = SuperSetViewportMargins;
+    pub const SuperSetViewportMargins = superSetViewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -10064,9 +12372,13 @@ pub const QChartView = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SuperSetViewportMargins(self: QChartView, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn superSetViewportMargins(self: QChartView, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QChartView_SuperSetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `onSetViewportMargins` instead
+    ///
+    pub const OnSetViewportMargins = onSetViewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -10080,9 +12392,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, left: i32, top: i32, right: i32, bottom: i32) callconv(.c) void `
     ///
-    pub fn OnSetViewportMargins(self: QChartView, callback: *const fn (QChartView, i32, i32, i32, i32) callconv(.c) void) void {
+    pub fn onSetViewportMargins(self: QChartView, callback: *const fn (QChartView, i32, i32, i32, i32) callconv(.c) void) void {
         qtc.QChartView_OnSetViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `viewportMargins` instead
+    ///
+    pub const ViewportMargins = viewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -10094,13 +12410,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn ViewportMargins(self: QChartView) QMargins {
+    pub fn viewportMargins(self: QChartView) QMargins {
         return .{ .ptr = qtc.QChartView_ViewportMargins(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperViewportMargins` instead
+    /// ### DEPRECATED: Use `superViewportMargins` instead
     ///
-    pub const QBaseViewportMargins = SuperViewportMargins;
+    pub const SuperViewportMargins = superViewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -10112,9 +12428,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn SuperViewportMargins(self: QChartView) QMargins {
+    pub fn superViewportMargins(self: QChartView) QMargins {
         return .{ .ptr = qtc.QChartView_SuperViewportMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onViewportMargins` instead
+    ///
+    pub const OnViewportMargins = onViewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -10130,9 +12450,13 @@ pub const QChartView = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnViewportMargins(self: QChartView, callback: *const fn () callconv(.c) QMargins) void {
+    pub fn onViewportMargins(self: QChartView, callback: *const fn () callconv(.c) QMargins) void {
         qtc.QChartView_OnViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `drawFrame` instead
+    ///
+    pub const DrawFrame = drawFrame;
 
     /// Inherited from QFrame
     ///
@@ -10146,14 +12470,14 @@ pub const QChartView = extern struct {
     ///
     /// ` param1: QPainter `
     ///
-    pub fn DrawFrame(self: QChartView, param1: anytype) void {
+    pub fn drawFrame(self: QChartView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPainter;
         qtc.QChartView_DrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawFrame` instead
+    /// ### DEPRECATED: Use `superDrawFrame` instead
     ///
-    pub const QBaseDrawFrame = SuperDrawFrame;
+    pub const SuperDrawFrame = superDrawFrame;
 
     /// Inherited from QFrame
     ///
@@ -10167,10 +12491,14 @@ pub const QChartView = extern struct {
     ///
     /// ` param1: QPainter `
     ///
-    pub fn SuperDrawFrame(self: QChartView, param1: anytype) void {
+    pub fn superDrawFrame(self: QChartView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPainter;
         qtc.QChartView_SuperDrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDrawFrame` instead
+    ///
+    pub const OnDrawFrame = onDrawFrame;
 
     /// Inherited from QFrame
     ///
@@ -10184,10 +12512,14 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, param1: QPainter) callconv(.c) void `
     ///
-    pub fn OnDrawFrame(self: QChartView, callback: *const fn (QChartView, QPainter) callconv(.c) void) void {
+    pub fn onDrawFrame(self: QChartView, callback: *const fn (QChartView, QPainter) callconv(.c) void) void {
         qtc.QChartView_OnDrawFrame(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -10198,13 +12530,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn UpdateMicroFocus(self: QChartView) void {
+    pub fn updateMicroFocus(self: QChartView) void {
         qtc.QChartView_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -10216,10 +12548,14 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn SuperUpdateMicroFocus(self: QChartView) void {
+    pub fn superUpdateMicroFocus(self: QChartView) void {
         qtc.QChartView_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -10232,10 +12568,14 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: QChartView, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: QChartView, callback: *const fn () callconv(.c) void) void {
         qtc.QChartView_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -10246,13 +12586,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn Create(self: QChartView) void {
+    pub fn create(self: QChartView) void {
         qtc.QChartView_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -10264,10 +12604,14 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn SuperCreate(self: QChartView) void {
+    pub fn superCreate(self: QChartView) void {
         qtc.QChartView_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -10280,9 +12624,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: QChartView, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: QChartView, callback: *const fn () callconv(.c) void) void {
         qtc.QChartView_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -10294,13 +12642,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn Destroy(self: QChartView) void {
+    pub fn destroy(self: QChartView) void {
         qtc.QChartView_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -10312,9 +12660,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn SuperDestroy(self: QChartView) void {
+    pub fn superDestroy(self: QChartView) void {
         qtc.QChartView_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -10328,10 +12680,14 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: QChartView, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: QChartView, callback: *const fn () callconv(.c) void) void {
         qtc.QChartView_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -10342,13 +12698,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn FocusNextChild(self: QChartView) bool {
+    pub fn focusNextChild(self: QChartView) bool {
         return qtc.QChartView_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -10360,10 +12716,14 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn SuperFocusNextChild(self: QChartView) bool {
+    pub fn superFocusNextChild(self: QChartView) bool {
         return qtc.QChartView_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -10376,9 +12736,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: QChartView, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: QChartView, callback: *const fn () callconv(.c) bool) void {
         qtc.QChartView_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -10390,13 +12754,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn FocusPreviousChild(self: QChartView) bool {
+    pub fn focusPreviousChild(self: QChartView) bool {
         return qtc.QChartView_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -10408,9 +12772,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn SuperFocusPreviousChild(self: QChartView) bool {
+    pub fn superFocusPreviousChild(self: QChartView) bool {
         return qtc.QChartView_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -10424,9 +12792,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: QChartView, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: QChartView, callback: *const fn () callconv(.c) bool) void {
         qtc.QChartView_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -10438,13 +12810,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn Sender(self: QChartView) QObject {
+    pub fn sender(self: QChartView) QObject {
         return .{ .ptr = qtc.QChartView_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -10456,9 +12828,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn SuperSender(self: QChartView) QObject {
+    pub fn superSender(self: QChartView) QObject {
         return .{ .ptr = qtc.QChartView_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -10472,9 +12848,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QChartView, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QChartView, callback: *const fn () callconv(.c) QObject) void {
         qtc.QChartView_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -10486,13 +12866,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn SenderSignalIndex(self: QChartView) i32 {
+    pub fn senderSignalIndex(self: QChartView) i32 {
         return qtc.QChartView_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -10504,9 +12884,13 @@ pub const QChartView = extern struct {
     ///
     /// ` self: QChartView `
     ///
-    pub fn SuperSenderSignalIndex(self: QChartView) i32 {
+    pub fn superSenderSignalIndex(self: QChartView) i32 {
         return qtc.QChartView_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -10520,9 +12904,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QChartView, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QChartView, callback: *const fn () callconv(.c) i32) void {
         qtc.QChartView_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -10536,14 +12924,14 @@ pub const QChartView = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QChartView, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QChartView, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QChartView_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -10557,10 +12945,14 @@ pub const QChartView = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QChartView, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QChartView, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QChartView_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -10574,9 +12966,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QChartView, callback: *const fn (QChartView, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QChartView, callback: *const fn (QChartView, [*:0]const u8) callconv(.c) i32) void {
         qtc.QChartView_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -10590,14 +12986,14 @@ pub const QChartView = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QChartView, signal: anytype) bool {
+    pub fn isSignalConnected(self: QChartView, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QChartView_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -10611,10 +13007,14 @@ pub const QChartView = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QChartView, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QChartView, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QChartView_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -10628,9 +13028,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QChartView, callback: *const fn (QChartView, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QChartView, callback: *const fn (QChartView, QMetaMethod) callconv(.c) bool) void {
         qtc.QChartView_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -10646,13 +13050,13 @@ pub const QChartView = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: QChartView, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: QChartView, metricA: i32, metricB: i32) f64 {
         return qtc.QChartView_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -10668,9 +13072,13 @@ pub const QChartView = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: QChartView, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: QChartView, metricA: i32, metricB: i32) f64 {
         return qtc.QChartView_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -10684,9 +13092,13 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: QChartView, callback: *const fn (QChartView, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: QChartView, callback: *const fn (QChartView, i32, i32) callconv(.c) f64) void {
         qtc.QChartView_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -10700,23 +13112,23 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn (self: QChartView, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QChartView, callback: *const fn (QChartView, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QChartView, callback: *const fn (QChartView, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qchartview-qtcharts.html#dtor.QChartView)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QChartView `
     ///
-    pub fn Delete(self: QChartView) void {
+    pub fn delete(self: QChartView) void {
         qtc.QChartView_Delete(@ptrCast(self.ptr));
     }
 };

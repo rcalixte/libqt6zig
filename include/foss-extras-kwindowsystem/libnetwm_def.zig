@@ -14,57 +14,80 @@ pub const NETPoint = extern struct {
 
     pub const _is_NETPoint = {};
 
-    /// New constructs a new NETPoint object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new NETPoint object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: NETPoint `
     ///
-    pub fn New(other: anytype) NETPoint {
+    pub fn new(other: anytype) NETPoint {
         comptime _ = @TypeOf(other)._is_NETPoint;
         return .{ .ptr = qtc.NETPoint_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new NETPoint object and invalidates the source NETPoint object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new NETPoint object and invalidate the source NETPoint object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: NETPoint `
     ///
-    pub fn New2(other: anytype) NETPoint {
+    pub fn new2(other: anytype) NETPoint {
         comptime _ = @TypeOf(other)._is_NETPoint;
         return .{ .ptr = qtc.NETPoint_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new NETPoint object.
+    /// ### DEPRECATED: Use `new3` instead
     ///
-    pub fn New3() NETPoint {
+    pub const New3 = new3;
+
+    /// Allocate a new NETPoint object in C++ memory
+    ///
+    pub fn new3() NETPoint {
         return .{ .ptr = qtc.NETPoint_new3() };
     }
 
-    /// New4 constructs a new NETPoint object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new NETPoint object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` p: QPoint `
     ///
-    pub fn New4(p: anytype) NETPoint {
+    pub fn new4(p: anytype) NETPoint {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.NETPoint_new4(@ptrCast(p.ptr)) };
     }
 
-    /// New5 constructs a new NETPoint object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new NETPoint object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: NETPoint `
     ///
-    pub fn New5(param1: anytype) NETPoint {
+    pub fn new5(param1: anytype) NETPoint {
         comptime _ = @TypeOf(param1)._is_NETPoint;
         return .{ .ptr = qtc.NETPoint_new5(@ptrCast(param1.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -72,11 +95,14 @@ pub const NETPoint = extern struct {
     ///
     /// ` other: NETPoint `
     ///
-    pub fn CopyAssign(self: NETPoint, other: NETPoint) void {
+    pub fn copyAssign(self: NETPoint, other: NETPoint) void {
         qtc.NETPoint_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -84,9 +110,13 @@ pub const NETPoint = extern struct {
     ///
     /// ` other: NETPoint `
     ///
-    pub fn MoveAssign(self: NETPoint, other: NETPoint) void {
+    pub fn moveAssign(self: NETPoint, other: NETPoint) void {
         qtc.NETPoint_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `toPoint` instead
+    ///
+    pub const ToPoint = toPoint;
 
     /// ### [Upstream resources](https://api.kde.org/netpoint.html#toPoint)
     ///
@@ -94,31 +124,43 @@ pub const NETPoint = extern struct {
     ///
     /// ` self: NETPoint `
     ///
-    pub fn ToPoint(self: NETPoint) QPoint {
+    pub fn toPoint(self: NETPoint) QPoint {
         return .{ .ptr = qtc.NETPoint_ToPoint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
+
     /// ### [Upstream resources](https://api.kde.org/netpoint.html#x-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: NETPoint `
     ///
-    pub fn X(self: NETPoint) i32 {
+    pub fn x(self: NETPoint) i32 {
         return qtc.NETPoint_X(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setX` instead
+    ///
+    pub const SetX = setX;
+
     /// ### [Upstream resources](https://api.kde.org/netpoint.html#x-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: NETPoint `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    pub fn SetX(self: NETPoint, x: i32) void {
-        qtc.NETPoint_SetX(@ptrCast(self.ptr), @bitCast(x));
+    pub fn setX(self: NETPoint, _x: i32) void {
+        qtc.NETPoint_SetX(@ptrCast(self.ptr), @bitCast(_x));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// ### [Upstream resources](https://api.kde.org/netpoint.html#y-var)
     ///
@@ -126,35 +168,39 @@ pub const NETPoint = extern struct {
     ///
     /// ` self: NETPoint `
     ///
-    pub fn Y(self: NETPoint) i32 {
+    pub fn y(self: NETPoint) i32 {
         return qtc.NETPoint_Y(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setY` instead
+    ///
+    pub const SetY = setY;
+
     /// ### [Upstream resources](https://api.kde.org/netpoint.html#y-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: NETPoint `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn SetY(self: NETPoint, y: i32) void {
-        qtc.NETPoint_SetY(@ptrCast(self.ptr), @bitCast(y));
+    pub fn setY(self: NETPoint, _y: i32) void {
+        qtc.NETPoint_SetY(@ptrCast(self.ptr), @bitCast(_y));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/netpoint.html#dtor.NETPoint)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: NETPoint `
     ///
-    pub fn Delete(self: NETPoint) void {
+    pub fn delete(self: NETPoint) void {
         qtc.NETPoint_Delete(@ptrCast(self.ptr));
     }
 };
@@ -169,57 +215,80 @@ pub const NETSize = extern struct {
 
     pub const _is_NETSize = {};
 
-    /// New constructs a new NETSize object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new NETSize object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: NETSize `
     ///
-    pub fn New(other: anytype) NETSize {
+    pub fn new(other: anytype) NETSize {
         comptime _ = @TypeOf(other)._is_NETSize;
         return .{ .ptr = qtc.NETSize_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new NETSize object and invalidates the source NETSize object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new NETSize object and invalidate the source NETSize object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: NETSize `
     ///
-    pub fn New2(other: anytype) NETSize {
+    pub fn new2(other: anytype) NETSize {
         comptime _ = @TypeOf(other)._is_NETSize;
         return .{ .ptr = qtc.NETSize_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new NETSize object.
+    /// ### DEPRECATED: Use `new3` instead
     ///
-    pub fn New3() NETSize {
+    pub const New3 = new3;
+
+    /// Allocate a new NETSize object in C++ memory
+    ///
+    pub fn new3() NETSize {
         return .{ .ptr = qtc.NETSize_new3() };
     }
 
-    /// New4 constructs a new NETSize object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new NETSize object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` size: QSize `
     ///
-    pub fn New4(size: anytype) NETSize {
+    pub fn new4(size: anytype) NETSize {
         comptime _ = @TypeOf(size)._is_QSize;
         return .{ .ptr = qtc.NETSize_new4(@ptrCast(size.ptr)) };
     }
 
-    /// New5 constructs a new NETSize object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new NETSize object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: NETSize `
     ///
-    pub fn New5(param1: anytype) NETSize {
+    pub fn new5(param1: anytype) NETSize {
         comptime _ = @TypeOf(param1)._is_NETSize;
         return .{ .ptr = qtc.NETSize_new5(@ptrCast(param1.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -227,11 +296,14 @@ pub const NETSize = extern struct {
     ///
     /// ` other: NETSize `
     ///
-    pub fn CopyAssign(self: NETSize, other: NETSize) void {
+    pub fn copyAssign(self: NETSize, other: NETSize) void {
         qtc.NETSize_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -239,9 +311,13 @@ pub const NETSize = extern struct {
     ///
     /// ` other: NETSize `
     ///
-    pub fn MoveAssign(self: NETSize, other: NETSize) void {
+    pub fn moveAssign(self: NETSize, other: NETSize) void {
         qtc.NETSize_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `toSize` instead
+    ///
+    pub const ToSize = toSize;
 
     /// ### [Upstream resources](https://api.kde.org/netsize.html#toSize)
     ///
@@ -249,31 +325,43 @@ pub const NETSize = extern struct {
     ///
     /// ` self: NETSize `
     ///
-    pub fn ToSize(self: NETSize) QSize {
+    pub fn toSize(self: NETSize) QSize {
         return .{ .ptr = qtc.NETSize_ToSize(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
+
     /// ### [Upstream resources](https://api.kde.org/netsize.html#width-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: NETSize `
     ///
-    pub fn Width(self: NETSize) i32 {
+    pub fn width(self: NETSize) i32 {
         return qtc.NETSize_Width(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setWidth` instead
+    ///
+    pub const SetWidth = setWidth;
+
     /// ### [Upstream resources](https://api.kde.org/netsize.html#width-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: NETSize `
     ///
-    /// ` width: i32 `
+    /// ` _width: i32 `
     ///
-    pub fn SetWidth(self: NETSize, width: i32) void {
-        qtc.NETSize_SetWidth(@ptrCast(self.ptr), @bitCast(width));
+    pub fn setWidth(self: NETSize, _width: i32) void {
+        qtc.NETSize_SetWidth(@ptrCast(self.ptr), @bitCast(_width));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// ### [Upstream resources](https://api.kde.org/netsize.html#height-var)
     ///
@@ -281,35 +369,39 @@ pub const NETSize = extern struct {
     ///
     /// ` self: NETSize `
     ///
-    pub fn Height(self: NETSize) i32 {
+    pub fn height(self: NETSize) i32 {
         return qtc.NETSize_Height(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setHeight` instead
+    ///
+    pub const SetHeight = setHeight;
+
     /// ### [Upstream resources](https://api.kde.org/netsize.html#height-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: NETSize `
     ///
-    /// ` height: i32 `
+    /// ` _height: i32 `
     ///
-    pub fn SetHeight(self: NETSize, height: i32) void {
-        qtc.NETSize_SetHeight(@ptrCast(self.ptr), @bitCast(height));
+    pub fn setHeight(self: NETSize, _height: i32) void {
+        qtc.NETSize_SetHeight(@ptrCast(self.ptr), @bitCast(_height));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/netsize.html#dtor.NETSize)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: NETSize `
     ///
-    pub fn Delete(self: NETSize) void {
+    pub fn delete(self: NETSize) void {
         qtc.NETSize_Delete(@ptrCast(self.ptr));
     }
 };
@@ -324,46 +416,65 @@ pub const NETRect = extern struct {
 
     pub const _is_NETRect = {};
 
-    /// New constructs a new NETRect object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new NETRect object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: NETRect `
     ///
-    pub fn New(other: anytype) NETRect {
+    pub fn new(other: anytype) NETRect {
         comptime _ = @TypeOf(other)._is_NETRect;
         return .{ .ptr = qtc.NETRect_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new NETRect object and invalidates the source NETRect object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new NETRect object and invalidate the source NETRect object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: NETRect `
     ///
-    pub fn New2(other: anytype) NETRect {
+    pub fn new2(other: anytype) NETRect {
         comptime _ = @TypeOf(other)._is_NETRect;
         return .{ .ptr = qtc.NETRect_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new NETRect object.
+    /// ### DEPRECATED: Use `new3` instead
     ///
-    pub fn New3() NETRect {
+    pub const New3 = new3;
+
+    /// Allocate a new NETRect object in C++ memory
+    ///
+    pub fn new3() NETRect {
         return .{ .ptr = qtc.NETRect_new3() };
     }
 
-    /// New4 constructs a new NETRect object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new NETRect object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` rect: QRect `
     ///
-    pub fn New4(rect: anytype) NETRect {
+    pub fn new4(rect: anytype) NETRect {
         comptime _ = @TypeOf(rect)._is_QRect;
         return .{ .ptr = qtc.NETRect_new4(@ptrCast(rect.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -371,11 +482,14 @@ pub const NETRect = extern struct {
     ///
     /// ` other: NETRect `
     ///
-    pub fn CopyAssign(self: NETRect, other: NETRect) void {
+    pub fn copyAssign(self: NETRect, other: NETRect) void {
         qtc.NETRect_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -383,9 +497,13 @@ pub const NETRect = extern struct {
     ///
     /// ` other: NETRect `
     ///
-    pub fn MoveAssign(self: NETRect, other: NETRect) void {
+    pub fn moveAssign(self: NETRect, other: NETRect) void {
         qtc.NETRect_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `toRect` instead
+    ///
+    pub const ToRect = toRect;
 
     /// ### [Upstream resources](https://api.kde.org/netrect.html#toRect)
     ///
@@ -393,32 +511,44 @@ pub const NETRect = extern struct {
     ///
     /// ` self: NETRect `
     ///
-    pub fn ToRect(self: NETRect) QRect {
+    pub fn toRect(self: NETRect) QRect {
         return .{ .ptr = qtc.NETRect_ToRect(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
+
     /// ### [Upstream resources](https://api.kde.org/netrect.html#pos-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: NETRect `
     ///
-    pub fn Pos(self: NETRect) NETPoint {
+    pub fn pos(self: NETRect) NETPoint {
         return .{ .ptr = qtc.NETRect_Pos(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setPos` instead
+    ///
+    pub const SetPos = setPos;
+
     /// ### [Upstream resources](https://api.kde.org/netrect.html#pos-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: NETRect `
     ///
-    /// ` pos: NETPoint `
+    /// ` _pos: NETPoint `
     ///
-    pub fn SetPos(self: NETRect, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_NETPoint;
-        qtc.NETRect_SetPos(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn setPos(self: NETRect, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_NETPoint;
+        qtc.NETRect_SetPos(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// ### [Upstream resources](https://api.kde.org/netrect.html#size-var)
     ///
@@ -426,36 +556,40 @@ pub const NETRect = extern struct {
     ///
     /// ` self: NETRect `
     ///
-    pub fn Size(self: NETRect) NETSize {
+    pub fn size(self: NETRect) NETSize {
         return .{ .ptr = qtc.NETRect_Size(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setSize` instead
+    ///
+    pub const SetSize = setSize;
+
     /// ### [Upstream resources](https://api.kde.org/netrect.html#size-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: NETRect `
     ///
-    /// ` size: NETSize `
+    /// ` _size: NETSize `
     ///
-    pub fn SetSize(self: NETRect, size: anytype) void {
-        comptime _ = @TypeOf(size)._is_NETSize;
-        qtc.NETRect_SetSize(@ptrCast(self.ptr), @ptrCast(size.ptr));
+    pub fn setSize(self: NETRect, _size: anytype) void {
+        comptime _ = @TypeOf(_size)._is_NETSize;
+        qtc.NETRect_SetSize(@ptrCast(self.ptr), @ptrCast(_size.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/netrect.html#dtor.NETRect)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: NETRect `
     ///
-    pub fn Delete(self: NETRect) void {
+    pub fn delete(self: NETRect) void {
         qtc.NETRect_Delete(@ptrCast(self.ptr));
     }
 };
@@ -470,35 +604,50 @@ pub const NETIcon = extern struct {
 
     pub const _is_NETIcon = {};
 
-    /// New constructs a new NETIcon object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new NETIcon object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: NETIcon `
     ///
-    pub fn New(other: anytype) NETIcon {
+    pub fn new(other: anytype) NETIcon {
         comptime _ = @TypeOf(other)._is_NETIcon;
         return .{ .ptr = qtc.NETIcon_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new NETIcon object and invalidates the source NETIcon object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new NETIcon object and invalidate the source NETIcon object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: NETIcon `
     ///
-    pub fn New2(other: anytype) NETIcon {
+    pub fn new2(other: anytype) NETIcon {
         comptime _ = @TypeOf(other)._is_NETIcon;
         return .{ .ptr = qtc.NETIcon_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new NETIcon object.
+    /// ### DEPRECATED: Use `new3` instead
     ///
-    pub fn New3() NETIcon {
+    pub const New3 = new3;
+
+    /// Allocate a new NETIcon object in C++ memory
+    ///
+    pub fn new3() NETIcon {
         return .{ .ptr = qtc.NETIcon_new3() };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -506,11 +655,14 @@ pub const NETIcon = extern struct {
     ///
     /// ` other: NETIcon `
     ///
-    pub fn CopyAssign(self: NETIcon, other: NETIcon) void {
+    pub fn copyAssign(self: NETIcon, other: NETIcon) void {
         qtc.NETIcon_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -518,32 +670,44 @@ pub const NETIcon = extern struct {
     ///
     /// ` other: NETIcon `
     ///
-    pub fn MoveAssign(self: NETIcon, other: NETIcon) void {
+    pub fn moveAssign(self: NETIcon, other: NETIcon) void {
         qtc.NETIcon_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
+
     /// ### [Upstream resources](https://api.kde.org/neticon.html#size-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: NETIcon `
     ///
-    pub fn Size(self: NETIcon) NETSize {
+    pub fn size(self: NETIcon) NETSize {
         return .{ .ptr = qtc.NETIcon_Size(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setSize` instead
+    ///
+    pub const SetSize = setSize;
+
     /// ### [Upstream resources](https://api.kde.org/neticon.html#size-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: NETIcon `
     ///
-    /// ` size: NETSize `
+    /// ` _size: NETSize `
     ///
-    pub fn SetSize(self: NETIcon, size: anytype) void {
-        comptime _ = @TypeOf(size)._is_NETSize;
-        qtc.NETIcon_SetSize(@ptrCast(self.ptr), @ptrCast(size.ptr));
+    pub fn setSize(self: NETIcon, _size: anytype) void {
+        comptime _ = @TypeOf(_size)._is_NETSize;
+        qtc.NETIcon_SetSize(@ptrCast(self.ptr), @ptrCast(_size.ptr));
     }
+
+    /// ### DEPRECATED: Use `data` instead
+    ///
+    pub const Data = data;
 
     /// ### [Upstream resources](https://api.kde.org/neticon.html#data-var)
     ///
@@ -551,35 +715,39 @@ pub const NETIcon = extern struct {
     ///
     /// ` self: NETIcon `
     ///
-    pub fn Data(self: NETIcon) ?*u8 {
+    pub fn data(self: NETIcon) ?*u8 {
         return @ptrCast(qtc.NETIcon_Data(@ptrCast(self.ptr)));
     }
 
+    /// ### DEPRECATED: Use `setData` instead
+    ///
+    pub const SetData = setData;
+
     /// ### [Upstream resources](https://api.kde.org/neticon.html#data-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: NETIcon `
     ///
-    /// ` data: *u8 `
+    /// ` _data: *u8 `
     ///
-    pub fn SetData(self: NETIcon, data: *u8) void {
-        qtc.NETIcon_SetData(@ptrCast(self.ptr), @ptrCast(data));
+    pub fn setData(self: NETIcon, _data: *u8) void {
+        qtc.NETIcon_SetData(@ptrCast(self.ptr), @ptrCast(_data));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/neticon.html#dtor.NETIcon)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: NETIcon `
     ///
-    pub fn Delete(self: NETIcon) void {
+    pub fn delete(self: NETIcon) void {
         qtc.NETIcon_Delete(@ptrCast(self.ptr));
     }
 };
@@ -594,35 +762,50 @@ pub const NETExtendedStrut = extern struct {
 
     pub const _is_NETExtendedStrut = {};
 
-    /// New constructs a new NETExtendedStrut object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new NETExtendedStrut object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: NETExtendedStrut `
     ///
-    pub fn New(other: anytype) NETExtendedStrut {
+    pub fn new(other: anytype) NETExtendedStrut {
         comptime _ = @TypeOf(other)._is_NETExtendedStrut;
         return .{ .ptr = qtc.NETExtendedStrut_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new NETExtendedStrut object and invalidates the source NETExtendedStrut object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new NETExtendedStrut object and invalidate the source NETExtendedStrut object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: NETExtendedStrut `
     ///
-    pub fn New2(other: anytype) NETExtendedStrut {
+    pub fn new2(other: anytype) NETExtendedStrut {
         comptime _ = @TypeOf(other)._is_NETExtendedStrut;
         return .{ .ptr = qtc.NETExtendedStrut_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new NETExtendedStrut object.
+    /// ### DEPRECATED: Use `new3` instead
     ///
-    pub fn New3() NETExtendedStrut {
+    pub const New3 = new3;
+
+    /// Allocate a new NETExtendedStrut object in C++ memory
+    ///
+    pub fn new3() NETExtendedStrut {
         return .{ .ptr = qtc.NETExtendedStrut_new3() };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -630,11 +813,14 @@ pub const NETExtendedStrut = extern struct {
     ///
     /// ` other: NETExtendedStrut `
     ///
-    pub fn CopyAssign(self: NETExtendedStrut, other: NETExtendedStrut) void {
+    pub fn copyAssign(self: NETExtendedStrut, other: NETExtendedStrut) void {
         qtc.NETExtendedStrut_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -642,31 +828,43 @@ pub const NETExtendedStrut = extern struct {
     ///
     /// ` other: NETExtendedStrut `
     ///
-    pub fn MoveAssign(self: NETExtendedStrut, other: NETExtendedStrut) void {
+    pub fn moveAssign(self: NETExtendedStrut, other: NETExtendedStrut) void {
         qtc.NETExtendedStrut_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
+    /// ### DEPRECATED: Use `leftWidth` instead
+    ///
+    pub const LeftWidth = leftWidth;
+
     /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#left_width-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: NETExtendedStrut `
     ///
-    pub fn LeftWidth(self: NETExtendedStrut) i32 {
+    pub fn leftWidth(self: NETExtendedStrut) i32 {
         return qtc.NETExtendedStrut_LeftWidth(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setLeftWidth` instead
+    ///
+    pub const SetLeftWidth = setLeftWidth;
+
     /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#left_width-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: NETExtendedStrut `
     ///
-    /// ` left_width: i32 `
+    /// ` _left_width: i32 `
     ///
-    pub fn SetLeftWidth(self: NETExtendedStrut, left_width: i32) void {
-        qtc.NETExtendedStrut_SetLeftWidth(@ptrCast(self.ptr), @bitCast(left_width));
+    pub fn setLeftWidth(self: NETExtendedStrut, _left_width: i32) void {
+        qtc.NETExtendedStrut_SetLeftWidth(@ptrCast(self.ptr), @bitCast(_left_width));
     }
+
+    /// ### DEPRECATED: Use `leftStart` instead
+    ///
+    pub const LeftStart = leftStart;
 
     /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#left_start-var)
     ///
@@ -674,21 +872,29 @@ pub const NETExtendedStrut = extern struct {
     ///
     /// ` self: NETExtendedStrut `
     ///
-    pub fn LeftStart(self: NETExtendedStrut) i32 {
+    pub fn leftStart(self: NETExtendedStrut) i32 {
         return qtc.NETExtendedStrut_LeftStart(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setLeftStart` instead
+    ///
+    pub const SetLeftStart = setLeftStart;
+
     /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#left_start-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: NETExtendedStrut `
     ///
-    /// ` left_start: i32 `
+    /// ` _left_start: i32 `
     ///
-    pub fn SetLeftStart(self: NETExtendedStrut, left_start: i32) void {
-        qtc.NETExtendedStrut_SetLeftStart(@ptrCast(self.ptr), @bitCast(left_start));
+    pub fn setLeftStart(self: NETExtendedStrut, _left_start: i32) void {
+        qtc.NETExtendedStrut_SetLeftStart(@ptrCast(self.ptr), @bitCast(_left_start));
     }
+
+    /// ### DEPRECATED: Use `leftEnd` instead
+    ///
+    pub const LeftEnd = leftEnd;
 
     /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#left_end-var)
     ///
@@ -696,21 +902,29 @@ pub const NETExtendedStrut = extern struct {
     ///
     /// ` self: NETExtendedStrut `
     ///
-    pub fn LeftEnd(self: NETExtendedStrut) i32 {
+    pub fn leftEnd(self: NETExtendedStrut) i32 {
         return qtc.NETExtendedStrut_LeftEnd(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setLeftEnd` instead
+    ///
+    pub const SetLeftEnd = setLeftEnd;
+
     /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#left_end-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: NETExtendedStrut `
     ///
-    /// ` left_end: i32 `
+    /// ` _left_end: i32 `
     ///
-    pub fn SetLeftEnd(self: NETExtendedStrut, left_end: i32) void {
-        qtc.NETExtendedStrut_SetLeftEnd(@ptrCast(self.ptr), @bitCast(left_end));
+    pub fn setLeftEnd(self: NETExtendedStrut, _left_end: i32) void {
+        qtc.NETExtendedStrut_SetLeftEnd(@ptrCast(self.ptr), @bitCast(_left_end));
     }
+
+    /// ### DEPRECATED: Use `rightWidth` instead
+    ///
+    pub const RightWidth = rightWidth;
 
     /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#right_width-var)
     ///
@@ -718,21 +932,29 @@ pub const NETExtendedStrut = extern struct {
     ///
     /// ` self: NETExtendedStrut `
     ///
-    pub fn RightWidth(self: NETExtendedStrut) i32 {
+    pub fn rightWidth(self: NETExtendedStrut) i32 {
         return qtc.NETExtendedStrut_RightWidth(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setRightWidth` instead
+    ///
+    pub const SetRightWidth = setRightWidth;
+
     /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#right_width-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: NETExtendedStrut `
     ///
-    /// ` right_width: i32 `
+    /// ` _right_width: i32 `
     ///
-    pub fn SetRightWidth(self: NETExtendedStrut, right_width: i32) void {
-        qtc.NETExtendedStrut_SetRightWidth(@ptrCast(self.ptr), @bitCast(right_width));
+    pub fn setRightWidth(self: NETExtendedStrut, _right_width: i32) void {
+        qtc.NETExtendedStrut_SetRightWidth(@ptrCast(self.ptr), @bitCast(_right_width));
     }
+
+    /// ### DEPRECATED: Use `rightStart` instead
+    ///
+    pub const RightStart = rightStart;
 
     /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#right_start-var)
     ///
@@ -740,21 +962,29 @@ pub const NETExtendedStrut = extern struct {
     ///
     /// ` self: NETExtendedStrut `
     ///
-    pub fn RightStart(self: NETExtendedStrut) i32 {
+    pub fn rightStart(self: NETExtendedStrut) i32 {
         return qtc.NETExtendedStrut_RightStart(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setRightStart` instead
+    ///
+    pub const SetRightStart = setRightStart;
+
     /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#right_start-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: NETExtendedStrut `
     ///
-    /// ` right_start: i32 `
+    /// ` _right_start: i32 `
     ///
-    pub fn SetRightStart(self: NETExtendedStrut, right_start: i32) void {
-        qtc.NETExtendedStrut_SetRightStart(@ptrCast(self.ptr), @bitCast(right_start));
+    pub fn setRightStart(self: NETExtendedStrut, _right_start: i32) void {
+        qtc.NETExtendedStrut_SetRightStart(@ptrCast(self.ptr), @bitCast(_right_start));
     }
+
+    /// ### DEPRECATED: Use `rightEnd` instead
+    ///
+    pub const RightEnd = rightEnd;
 
     /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#right_end-var)
     ///
@@ -762,21 +992,29 @@ pub const NETExtendedStrut = extern struct {
     ///
     /// ` self: NETExtendedStrut `
     ///
-    pub fn RightEnd(self: NETExtendedStrut) i32 {
+    pub fn rightEnd(self: NETExtendedStrut) i32 {
         return qtc.NETExtendedStrut_RightEnd(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setRightEnd` instead
+    ///
+    pub const SetRightEnd = setRightEnd;
+
     /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#right_end-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: NETExtendedStrut `
     ///
-    /// ` right_end: i32 `
+    /// ` _right_end: i32 `
     ///
-    pub fn SetRightEnd(self: NETExtendedStrut, right_end: i32) void {
-        qtc.NETExtendedStrut_SetRightEnd(@ptrCast(self.ptr), @bitCast(right_end));
+    pub fn setRightEnd(self: NETExtendedStrut, _right_end: i32) void {
+        qtc.NETExtendedStrut_SetRightEnd(@ptrCast(self.ptr), @bitCast(_right_end));
     }
+
+    /// ### DEPRECATED: Use `topWidth` instead
+    ///
+    pub const TopWidth = topWidth;
 
     /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#top_width-var)
     ///
@@ -784,21 +1022,29 @@ pub const NETExtendedStrut = extern struct {
     ///
     /// ` self: NETExtendedStrut `
     ///
-    pub fn TopWidth(self: NETExtendedStrut) i32 {
+    pub fn topWidth(self: NETExtendedStrut) i32 {
         return qtc.NETExtendedStrut_TopWidth(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setTopWidth` instead
+    ///
+    pub const SetTopWidth = setTopWidth;
+
     /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#top_width-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: NETExtendedStrut `
     ///
-    /// ` top_width: i32 `
+    /// ` _top_width: i32 `
     ///
-    pub fn SetTopWidth(self: NETExtendedStrut, top_width: i32) void {
-        qtc.NETExtendedStrut_SetTopWidth(@ptrCast(self.ptr), @bitCast(top_width));
+    pub fn setTopWidth(self: NETExtendedStrut, _top_width: i32) void {
+        qtc.NETExtendedStrut_SetTopWidth(@ptrCast(self.ptr), @bitCast(_top_width));
     }
+
+    /// ### DEPRECATED: Use `topStart` instead
+    ///
+    pub const TopStart = topStart;
 
     /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#top_start-var)
     ///
@@ -806,21 +1052,29 @@ pub const NETExtendedStrut = extern struct {
     ///
     /// ` self: NETExtendedStrut `
     ///
-    pub fn TopStart(self: NETExtendedStrut) i32 {
+    pub fn topStart(self: NETExtendedStrut) i32 {
         return qtc.NETExtendedStrut_TopStart(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setTopStart` instead
+    ///
+    pub const SetTopStart = setTopStart;
+
     /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#top_start-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: NETExtendedStrut `
     ///
-    /// ` top_start: i32 `
+    /// ` _top_start: i32 `
     ///
-    pub fn SetTopStart(self: NETExtendedStrut, top_start: i32) void {
-        qtc.NETExtendedStrut_SetTopStart(@ptrCast(self.ptr), @bitCast(top_start));
+    pub fn setTopStart(self: NETExtendedStrut, _top_start: i32) void {
+        qtc.NETExtendedStrut_SetTopStart(@ptrCast(self.ptr), @bitCast(_top_start));
     }
+
+    /// ### DEPRECATED: Use `topEnd` instead
+    ///
+    pub const TopEnd = topEnd;
 
     /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#top_end-var)
     ///
@@ -828,21 +1082,29 @@ pub const NETExtendedStrut = extern struct {
     ///
     /// ` self: NETExtendedStrut `
     ///
-    pub fn TopEnd(self: NETExtendedStrut) i32 {
+    pub fn topEnd(self: NETExtendedStrut) i32 {
         return qtc.NETExtendedStrut_TopEnd(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setTopEnd` instead
+    ///
+    pub const SetTopEnd = setTopEnd;
+
     /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#top_end-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: NETExtendedStrut `
     ///
-    /// ` top_end: i32 `
+    /// ` _top_end: i32 `
     ///
-    pub fn SetTopEnd(self: NETExtendedStrut, top_end: i32) void {
-        qtc.NETExtendedStrut_SetTopEnd(@ptrCast(self.ptr), @bitCast(top_end));
+    pub fn setTopEnd(self: NETExtendedStrut, _top_end: i32) void {
+        qtc.NETExtendedStrut_SetTopEnd(@ptrCast(self.ptr), @bitCast(_top_end));
     }
+
+    /// ### DEPRECATED: Use `bottomWidth` instead
+    ///
+    pub const BottomWidth = bottomWidth;
 
     /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#bottom_width-var)
     ///
@@ -850,21 +1112,29 @@ pub const NETExtendedStrut = extern struct {
     ///
     /// ` self: NETExtendedStrut `
     ///
-    pub fn BottomWidth(self: NETExtendedStrut) i32 {
+    pub fn bottomWidth(self: NETExtendedStrut) i32 {
         return qtc.NETExtendedStrut_BottomWidth(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setBottomWidth` instead
+    ///
+    pub const SetBottomWidth = setBottomWidth;
+
     /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#bottom_width-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: NETExtendedStrut `
     ///
-    /// ` bottom_width: i32 `
+    /// ` _bottom_width: i32 `
     ///
-    pub fn SetBottomWidth(self: NETExtendedStrut, bottom_width: i32) void {
-        qtc.NETExtendedStrut_SetBottomWidth(@ptrCast(self.ptr), @bitCast(bottom_width));
+    pub fn setBottomWidth(self: NETExtendedStrut, _bottom_width: i32) void {
+        qtc.NETExtendedStrut_SetBottomWidth(@ptrCast(self.ptr), @bitCast(_bottom_width));
     }
+
+    /// ### DEPRECATED: Use `bottomStart` instead
+    ///
+    pub const BottomStart = bottomStart;
 
     /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#bottom_start-var)
     ///
@@ -872,21 +1142,29 @@ pub const NETExtendedStrut = extern struct {
     ///
     /// ` self: NETExtendedStrut `
     ///
-    pub fn BottomStart(self: NETExtendedStrut) i32 {
+    pub fn bottomStart(self: NETExtendedStrut) i32 {
         return qtc.NETExtendedStrut_BottomStart(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setBottomStart` instead
+    ///
+    pub const SetBottomStart = setBottomStart;
+
     /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#bottom_start-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: NETExtendedStrut `
     ///
-    /// ` bottom_start: i32 `
+    /// ` _bottom_start: i32 `
     ///
-    pub fn SetBottomStart(self: NETExtendedStrut, bottom_start: i32) void {
-        qtc.NETExtendedStrut_SetBottomStart(@ptrCast(self.ptr), @bitCast(bottom_start));
+    pub fn setBottomStart(self: NETExtendedStrut, _bottom_start: i32) void {
+        qtc.NETExtendedStrut_SetBottomStart(@ptrCast(self.ptr), @bitCast(_bottom_start));
     }
+
+    /// ### DEPRECATED: Use `bottomEnd` instead
+    ///
+    pub const BottomEnd = bottomEnd;
 
     /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#bottom_end-var)
     ///
@@ -894,35 +1172,39 @@ pub const NETExtendedStrut = extern struct {
     ///
     /// ` self: NETExtendedStrut `
     ///
-    pub fn BottomEnd(self: NETExtendedStrut) i32 {
+    pub fn bottomEnd(self: NETExtendedStrut) i32 {
         return qtc.NETExtendedStrut_BottomEnd(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setBottomEnd` instead
+    ///
+    pub const SetBottomEnd = setBottomEnd;
+
     /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#bottom_end-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: NETExtendedStrut `
     ///
-    /// ` bottom_end: i32 `
+    /// ` _bottom_end: i32 `
     ///
-    pub fn SetBottomEnd(self: NETExtendedStrut, bottom_end: i32) void {
-        qtc.NETExtendedStrut_SetBottomEnd(@ptrCast(self.ptr), @bitCast(bottom_end));
+    pub fn setBottomEnd(self: NETExtendedStrut, _bottom_end: i32) void {
+        qtc.NETExtendedStrut_SetBottomEnd(@ptrCast(self.ptr), @bitCast(_bottom_end));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#dtor.NETExtendedStrut)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: NETExtendedStrut `
     ///
-    pub fn Delete(self: NETExtendedStrut) void {
+    pub fn delete(self: NETExtendedStrut) void {
         qtc.NETExtendedStrut_Delete(@ptrCast(self.ptr));
     }
 };
@@ -937,35 +1219,50 @@ pub const NETStrut = extern struct {
 
     pub const _is_NETStrut = {};
 
-    /// New constructs a new NETStrut object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new NETStrut object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: NETStrut `
     ///
-    pub fn New(other: anytype) NETStrut {
+    pub fn new(other: anytype) NETStrut {
         comptime _ = @TypeOf(other)._is_NETStrut;
         return .{ .ptr = qtc.NETStrut_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new NETStrut object and invalidates the source NETStrut object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new NETStrut object and invalidate the source NETStrut object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: NETStrut `
     ///
-    pub fn New2(other: anytype) NETStrut {
+    pub fn new2(other: anytype) NETStrut {
         comptime _ = @TypeOf(other)._is_NETStrut;
         return .{ .ptr = qtc.NETStrut_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new NETStrut object.
+    /// ### DEPRECATED: Use `new3` instead
     ///
-    pub fn New3() NETStrut {
+    pub const New3 = new3;
+
+    /// Allocate a new NETStrut object in C++ memory
+    ///
+    pub fn new3() NETStrut {
         return .{ .ptr = qtc.NETStrut_new3() };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -973,11 +1270,14 @@ pub const NETStrut = extern struct {
     ///
     /// ` other: NETStrut `
     ///
-    pub fn CopyAssign(self: NETStrut, other: NETStrut) void {
+    pub fn copyAssign(self: NETStrut, other: NETStrut) void {
         qtc.NETStrut_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -985,31 +1285,43 @@ pub const NETStrut = extern struct {
     ///
     /// ` other: NETStrut `
     ///
-    pub fn MoveAssign(self: NETStrut, other: NETStrut) void {
+    pub fn moveAssign(self: NETStrut, other: NETStrut) void {
         qtc.NETStrut_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
+    /// ### DEPRECATED: Use `left` instead
+    ///
+    pub const Left = left;
+
     /// ### [Upstream resources](https://api.kde.org/netstrut.html#left-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: NETStrut `
     ///
-    pub fn Left(self: NETStrut) i32 {
+    pub fn left(self: NETStrut) i32 {
         return qtc.NETStrut_Left(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setLeft` instead
+    ///
+    pub const SetLeft = setLeft;
+
     /// ### [Upstream resources](https://api.kde.org/netstrut.html#left-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: NETStrut `
     ///
-    /// ` left: i32 `
+    /// ` _left: i32 `
     ///
-    pub fn SetLeft(self: NETStrut, left: i32) void {
-        qtc.NETStrut_SetLeft(@ptrCast(self.ptr), @bitCast(left));
+    pub fn setLeft(self: NETStrut, _left: i32) void {
+        qtc.NETStrut_SetLeft(@ptrCast(self.ptr), @bitCast(_left));
     }
+
+    /// ### DEPRECATED: Use `right` instead
+    ///
+    pub const Right = right;
 
     /// ### [Upstream resources](https://api.kde.org/netstrut.html#right-var)
     ///
@@ -1017,21 +1329,29 @@ pub const NETStrut = extern struct {
     ///
     /// ` self: NETStrut `
     ///
-    pub fn Right(self: NETStrut) i32 {
+    pub fn right(self: NETStrut) i32 {
         return qtc.NETStrut_Right(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setRight` instead
+    ///
+    pub const SetRight = setRight;
+
     /// ### [Upstream resources](https://api.kde.org/netstrut.html#right-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: NETStrut `
     ///
-    /// ` right: i32 `
+    /// ` _right: i32 `
     ///
-    pub fn SetRight(self: NETStrut, right: i32) void {
-        qtc.NETStrut_SetRight(@ptrCast(self.ptr), @bitCast(right));
+    pub fn setRight(self: NETStrut, _right: i32) void {
+        qtc.NETStrut_SetRight(@ptrCast(self.ptr), @bitCast(_right));
     }
+
+    /// ### DEPRECATED: Use `top` instead
+    ///
+    pub const Top = top;
 
     /// ### [Upstream resources](https://api.kde.org/netstrut.html#top-var)
     ///
@@ -1039,21 +1359,29 @@ pub const NETStrut = extern struct {
     ///
     /// ` self: NETStrut `
     ///
-    pub fn Top(self: NETStrut) i32 {
+    pub fn top(self: NETStrut) i32 {
         return qtc.NETStrut_Top(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setTop` instead
+    ///
+    pub const SetTop = setTop;
+
     /// ### [Upstream resources](https://api.kde.org/netstrut.html#top-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: NETStrut `
     ///
-    /// ` top: i32 `
+    /// ` _top: i32 `
     ///
-    pub fn SetTop(self: NETStrut, top: i32) void {
-        qtc.NETStrut_SetTop(@ptrCast(self.ptr), @bitCast(top));
+    pub fn setTop(self: NETStrut, _top: i32) void {
+        qtc.NETStrut_SetTop(@ptrCast(self.ptr), @bitCast(_top));
     }
+
+    /// ### DEPRECATED: Use `bottom` instead
+    ///
+    pub const Bottom = bottom;
 
     /// ### [Upstream resources](https://api.kde.org/netstrut.html#bottom-var)
     ///
@@ -1061,35 +1389,39 @@ pub const NETStrut = extern struct {
     ///
     /// ` self: NETStrut `
     ///
-    pub fn Bottom(self: NETStrut) i32 {
+    pub fn bottom(self: NETStrut) i32 {
         return qtc.NETStrut_Bottom(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setBottom` instead
+    ///
+    pub const SetBottom = setBottom;
+
     /// ### [Upstream resources](https://api.kde.org/netstrut.html#bottom-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: NETStrut `
     ///
-    /// ` bottom: i32 `
+    /// ` _bottom: i32 `
     ///
-    pub fn SetBottom(self: NETStrut, bottom: i32) void {
-        qtc.NETStrut_SetBottom(@ptrCast(self.ptr), @bitCast(bottom));
+    pub fn setBottom(self: NETStrut, _bottom: i32) void {
+        qtc.NETStrut_SetBottom(@ptrCast(self.ptr), @bitCast(_bottom));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/netstrut.html#dtor.NETStrut)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: NETStrut `
     ///
-    pub fn Delete(self: NETStrut) void {
+    pub fn delete(self: NETStrut) void {
         qtc.NETStrut_Delete(@ptrCast(self.ptr));
     }
 };
@@ -1104,35 +1436,50 @@ pub const NETFullscreenMonitors = extern struct {
 
     pub const _is_NETFullscreenMonitors = {};
 
-    /// New constructs a new NETFullscreenMonitors object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new NETFullscreenMonitors object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: NETFullscreenMonitors `
     ///
-    pub fn New(other: anytype) NETFullscreenMonitors {
+    pub fn new(other: anytype) NETFullscreenMonitors {
         comptime _ = @TypeOf(other)._is_NETFullscreenMonitors;
         return .{ .ptr = qtc.NETFullscreenMonitors_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new NETFullscreenMonitors object and invalidates the source NETFullscreenMonitors object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new NETFullscreenMonitors object and invalidate the source NETFullscreenMonitors object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: NETFullscreenMonitors `
     ///
-    pub fn New2(other: anytype) NETFullscreenMonitors {
+    pub fn new2(other: anytype) NETFullscreenMonitors {
         comptime _ = @TypeOf(other)._is_NETFullscreenMonitors;
         return .{ .ptr = qtc.NETFullscreenMonitors_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new NETFullscreenMonitors object.
+    /// ### DEPRECATED: Use `new3` instead
     ///
-    pub fn New3() NETFullscreenMonitors {
+    pub const New3 = new3;
+
+    /// Allocate a new NETFullscreenMonitors object in C++ memory
+    ///
+    pub fn new3() NETFullscreenMonitors {
         return .{ .ptr = qtc.NETFullscreenMonitors_new3() };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -1140,11 +1487,14 @@ pub const NETFullscreenMonitors = extern struct {
     ///
     /// ` other: NETFullscreenMonitors `
     ///
-    pub fn CopyAssign(self: NETFullscreenMonitors, other: NETFullscreenMonitors) void {
+    pub fn copyAssign(self: NETFullscreenMonitors, other: NETFullscreenMonitors) void {
         qtc.NETFullscreenMonitors_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -1152,31 +1502,43 @@ pub const NETFullscreenMonitors = extern struct {
     ///
     /// ` other: NETFullscreenMonitors `
     ///
-    pub fn MoveAssign(self: NETFullscreenMonitors, other: NETFullscreenMonitors) void {
+    pub fn moveAssign(self: NETFullscreenMonitors, other: NETFullscreenMonitors) void {
         qtc.NETFullscreenMonitors_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
+    /// ### DEPRECATED: Use `top` instead
+    ///
+    pub const Top = top;
+
     /// ### [Upstream resources](https://api.kde.org/netfullscreenmonitors.html#top-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: NETFullscreenMonitors `
     ///
-    pub fn Top(self: NETFullscreenMonitors) i32 {
+    pub fn top(self: NETFullscreenMonitors) i32 {
         return qtc.NETFullscreenMonitors_Top(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setTop` instead
+    ///
+    pub const SetTop = setTop;
+
     /// ### [Upstream resources](https://api.kde.org/netfullscreenmonitors.html#top-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: NETFullscreenMonitors `
     ///
-    /// ` top: i32 `
+    /// ` _top: i32 `
     ///
-    pub fn SetTop(self: NETFullscreenMonitors, top: i32) void {
-        qtc.NETFullscreenMonitors_SetTop(@ptrCast(self.ptr), @bitCast(top));
+    pub fn setTop(self: NETFullscreenMonitors, _top: i32) void {
+        qtc.NETFullscreenMonitors_SetTop(@ptrCast(self.ptr), @bitCast(_top));
     }
+
+    /// ### DEPRECATED: Use `bottom` instead
+    ///
+    pub const Bottom = bottom;
 
     /// ### [Upstream resources](https://api.kde.org/netfullscreenmonitors.html#bottom-var)
     ///
@@ -1184,21 +1546,29 @@ pub const NETFullscreenMonitors = extern struct {
     ///
     /// ` self: NETFullscreenMonitors `
     ///
-    pub fn Bottom(self: NETFullscreenMonitors) i32 {
+    pub fn bottom(self: NETFullscreenMonitors) i32 {
         return qtc.NETFullscreenMonitors_Bottom(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setBottom` instead
+    ///
+    pub const SetBottom = setBottom;
+
     /// ### [Upstream resources](https://api.kde.org/netfullscreenmonitors.html#bottom-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: NETFullscreenMonitors `
     ///
-    /// ` bottom: i32 `
+    /// ` _bottom: i32 `
     ///
-    pub fn SetBottom(self: NETFullscreenMonitors, bottom: i32) void {
-        qtc.NETFullscreenMonitors_SetBottom(@ptrCast(self.ptr), @bitCast(bottom));
+    pub fn setBottom(self: NETFullscreenMonitors, _bottom: i32) void {
+        qtc.NETFullscreenMonitors_SetBottom(@ptrCast(self.ptr), @bitCast(_bottom));
     }
+
+    /// ### DEPRECATED: Use `left` instead
+    ///
+    pub const Left = left;
 
     /// ### [Upstream resources](https://api.kde.org/netfullscreenmonitors.html#left-var)
     ///
@@ -1206,21 +1576,29 @@ pub const NETFullscreenMonitors = extern struct {
     ///
     /// ` self: NETFullscreenMonitors `
     ///
-    pub fn Left(self: NETFullscreenMonitors) i32 {
+    pub fn left(self: NETFullscreenMonitors) i32 {
         return qtc.NETFullscreenMonitors_Left(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setLeft` instead
+    ///
+    pub const SetLeft = setLeft;
+
     /// ### [Upstream resources](https://api.kde.org/netfullscreenmonitors.html#left-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: NETFullscreenMonitors `
     ///
-    /// ` left: i32 `
+    /// ` _left: i32 `
     ///
-    pub fn SetLeft(self: NETFullscreenMonitors, left: i32) void {
-        qtc.NETFullscreenMonitors_SetLeft(@ptrCast(self.ptr), @bitCast(left));
+    pub fn setLeft(self: NETFullscreenMonitors, _left: i32) void {
+        qtc.NETFullscreenMonitors_SetLeft(@ptrCast(self.ptr), @bitCast(_left));
     }
+
+    /// ### DEPRECATED: Use `right` instead
+    ///
+    pub const Right = right;
 
     /// ### [Upstream resources](https://api.kde.org/netfullscreenmonitors.html#right-var)
     ///
@@ -1228,21 +1606,29 @@ pub const NETFullscreenMonitors = extern struct {
     ///
     /// ` self: NETFullscreenMonitors `
     ///
-    pub fn Right(self: NETFullscreenMonitors) i32 {
+    pub fn right(self: NETFullscreenMonitors) i32 {
         return qtc.NETFullscreenMonitors_Right(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setRight` instead
+    ///
+    pub const SetRight = setRight;
+
     /// ### [Upstream resources](https://api.kde.org/netfullscreenmonitors.html#right-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: NETFullscreenMonitors `
     ///
-    /// ` right: i32 `
+    /// ` _right: i32 `
     ///
-    pub fn SetRight(self: NETFullscreenMonitors, right: i32) void {
-        qtc.NETFullscreenMonitors_SetRight(@ptrCast(self.ptr), @bitCast(right));
+    pub fn setRight(self: NETFullscreenMonitors, _right: i32) void {
+        qtc.NETFullscreenMonitors_SetRight(@ptrCast(self.ptr), @bitCast(_right));
     }
+
+    /// ### DEPRECATED: Use `isSet` instead
+    ///
+    pub const IsSet = isSet;
 
     /// ### [Upstream resources](https://api.kde.org/netfullscreenmonitors.html#isSet)
     ///
@@ -1250,23 +1636,23 @@ pub const NETFullscreenMonitors = extern struct {
     ///
     /// ` self: NETFullscreenMonitors `
     ///
-    pub fn IsSet(self: NETFullscreenMonitors) bool {
+    pub fn isSet(self: NETFullscreenMonitors) bool {
         return qtc.NETFullscreenMonitors_IsSet(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/netfullscreenmonitors.html#dtor.NETFullscreenMonitors)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: NETFullscreenMonitors `
     ///
-    pub fn Delete(self: NETFullscreenMonitors) void {
+    pub fn delete(self: NETFullscreenMonitors) void {
         qtc.NETFullscreenMonitors_Delete(@ptrCast(self.ptr));
     }
 };
@@ -1281,29 +1667,40 @@ pub const NET = extern struct {
 
     pub const _is_NET = {};
 
-    /// New constructs a new NET object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new NET object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: NET `
     ///
-    pub fn New(other: anytype) NET {
+    pub fn new(other: anytype) NET {
         comptime _ = @TypeOf(other)._is_NET;
         return .{ .ptr = qtc.NET_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new NET object and invalidates the source NET object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new NET object and invalidate the source NET object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: NET `
     ///
-    pub fn New2(other: anytype) NET {
+    pub fn new2(other: anytype) NET {
         comptime _ = @TypeOf(other)._is_NET;
         return .{ .ptr = qtc.NET_new2(@ptrCast(other.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -1311,11 +1708,14 @@ pub const NET = extern struct {
     ///
     /// ` other: NET `
     ///
-    pub fn CopyAssign(self: NET, other: NET) void {
+    pub fn copyAssign(self: NET, other: NET) void {
         qtc.NET_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -1323,9 +1723,13 @@ pub const NET = extern struct {
     ///
     /// ` other: NET `
     ///
-    pub fn MoveAssign(self: NET, other: NET) void {
+    pub fn moveAssign(self: NET, other: NET) void {
         qtc.NET_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `timestampCompare` instead
+    ///
+    pub const TimestampCompare = timestampCompare;
 
     /// ### [Upstream resources](https://api.kde.org/net.html#timestampCompare)
     ///
@@ -1335,9 +1739,13 @@ pub const NET = extern struct {
     ///
     /// ` time2: usize `
     ///
-    pub fn TimestampCompare(time1: usize, time2: usize) i32 {
+    pub fn timestampCompare(time1: usize, time2: usize) i32 {
         return qtc.NET_TimestampCompare(@bitCast(time1), @bitCast(time2));
     }
+
+    /// ### DEPRECATED: Use `timestampDiff` instead
+    ///
+    pub const TimestampDiff = timestampDiff;
 
     /// ### [Upstream resources](https://api.kde.org/net.html#timestampDiff)
     ///
@@ -1347,23 +1755,23 @@ pub const NET = extern struct {
     ///
     /// ` time2: usize `
     ///
-    pub fn TimestampDiff(time1: usize, time2: usize) i32 {
+    pub fn timestampDiff(time1: usize, time2: usize) i32 {
         return qtc.NET_TimestampDiff(@bitCast(time1), @bitCast(time2));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/net.html#dtor.NET)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: NET `
     ///
-    pub fn Delete(self: NET) void {
+    pub fn delete(self: NET) void {
         qtc.NET_Delete(@ptrCast(self.ptr));
     }
 };

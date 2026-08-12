@@ -31,30 +31,42 @@ pub const KXMLGUIFactory = extern struct {
     pub const _is_KXMLGUIFactory = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new KXMLGUIFactory object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KXMLGUIFactory object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` builder: KXMLGUIBuilder `
     ///
-    pub fn New(builder: anytype) KXMLGUIFactory {
+    pub fn new(builder: anytype) KXMLGUIFactory {
         comptime _ = @TypeOf(builder)._is_KXMLGUIBuilder;
         return .{ .ptr = qtc.KXMLGUIFactory_new(@ptrCast(builder.ptr)) };
     }
 
-    /// New2 constructs a new KXMLGUIFactory object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KXMLGUIFactory object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` builder: KXMLGUIBuilder `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(builder: anytype, parent: anytype) KXMLGUIFactory {
+    pub fn new2(builder: anytype, _parent: anytype) KXMLGUIFactory {
         comptime _ = @TypeOf(builder)._is_KXMLGUIBuilder;
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.KXMLGUIFactory_new2(@ptrCast(builder.ptr), @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.KXMLGUIFactory_new2(@ptrCast(builder.ptr), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -62,9 +74,13 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` self: KXMLGUIFactory `
     ///
-    pub fn MetaObject(self: KXMLGUIFactory) QMetaObject {
+    pub fn metaObject(self: KXMLGUIFactory) QMetaObject {
         return .{ .ptr = qtc.KXMLGUIFactory_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -76,13 +92,13 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KXMLGUIFactory, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KXMLGUIFactory, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KXMLGUIFactory_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -92,9 +108,13 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` self: KXMLGUIFactory `
     ///
-    pub fn SuperMetaObject(self: KXMLGUIFactory) QMetaObject {
+    pub fn superMetaObject(self: KXMLGUIFactory) QMetaObject {
         return .{ .ptr = qtc.KXMLGUIFactory_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -102,10 +122,14 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KXMLGUIFactory, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KXMLGUIFactory, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KXMLGUIFactory_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -115,13 +139,13 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` callback: *const fn (self: KXMLGUIFactory, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KXMLGUIFactory, callback: *const fn (KXMLGUIFactory, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KXMLGUIFactory, callback: *const fn (KXMLGUIFactory, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KXMLGUIFactory_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -131,10 +155,14 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KXMLGUIFactory, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KXMLGUIFactory, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KXMLGUIFactory_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -146,9 +174,13 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KXMLGUIFactory, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KXMLGUIFactory, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KXMLGUIFactory_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -158,13 +190,13 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` callback: *const fn (self: KXMLGUIFactory, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KXMLGUIFactory, callback: *const fn (KXMLGUIFactory, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KXMLGUIFactory, callback: *const fn (KXMLGUIFactory, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KXMLGUIFactory_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -178,9 +210,13 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KXMLGUIFactory, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KXMLGUIFactory, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KXMLGUIFactory_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -190,14 +226,18 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXMLGUIFactory.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXMLGUIFactory.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `readConfigFile` instead
+    ///
+    pub const ReadConfigFile = readConfigFile;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguifactory.html#readConfigFile)
     ///
@@ -207,17 +247,21 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` filename: []const u8 `
     ///
-    pub fn ReadConfigFile(allocator: std.mem.Allocator, filename: []const u8) []const u8 {
+    pub fn readConfigFile(allocator: std.mem.Allocator, filename: []const u8) []const u8 {
         const filename_str = qtc.libqt_string{
             .len = filename.len,
             .data = filename.ptr,
         };
         var _str = qtc.KXMLGUIFactory_ReadConfigFile(filename_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXMLGUIFactory.ReadConfigFile: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXMLGUIFactory.readConfigFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `saveConfigFile` instead
+    ///
+    pub const SaveConfigFile = saveConfigFile;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguifactory.html#saveConfigFile)
     ///
@@ -227,7 +271,7 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` filename: []const u8 `
     ///
-    pub fn SaveConfigFile(doc: anytype, filename: []const u8) bool {
+    pub fn saveConfigFile(doc: anytype, filename: []const u8) bool {
         comptime _ = @TypeOf(doc)._is_QDomDocument;
         const filename_str = qtc.libqt_string{
             .len = filename.len,
@@ -236,16 +280,24 @@ pub const KXMLGUIFactory = extern struct {
         return qtc.KXMLGUIFactory_SaveConfigFile(@ptrCast(doc.ptr), filename_str);
     }
 
+    /// ### DEPRECATED: Use `actionPropertiesElement` instead
+    ///
+    pub const ActionPropertiesElement = actionPropertiesElement;
+
     /// ### [Upstream resources](https://api.kde.org/kxmlguifactory.html#actionPropertiesElement)
     ///
     /// ## Parameter(s):
     ///
     /// ` doc: QDomDocument `
     ///
-    pub fn ActionPropertiesElement(doc: anytype) QDomElement {
+    pub fn actionPropertiesElement(doc: anytype) QDomElement {
         comptime _ = @TypeOf(doc)._is_QDomDocument;
         return .{ .ptr = qtc.KXMLGUIFactory_ActionPropertiesElement(@ptrCast(doc.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `findActionByName` instead
+    ///
+    pub const FindActionByName = findActionByName;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguifactory.html#findActionByName)
     ///
@@ -257,7 +309,7 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` create: bool `
     ///
-    pub fn FindActionByName(elem: anytype, sName: []const u8, create: bool) QDomElement {
+    pub fn findActionByName(elem: anytype, sName: []const u8, create: bool) QDomElement {
         comptime _ = @TypeOf(elem)._is_QDomElement;
         const sName_str = qtc.libqt_string{
             .len = sName.len,
@@ -265,6 +317,10 @@ pub const KXMLGUIFactory = extern struct {
         };
         return .{ .ptr = qtc.KXMLGUIFactory_FindActionByName(@ptrCast(elem.ptr), sName_str, create) };
     }
+
+    /// ### DEPRECATED: Use `addClient` instead
+    ///
+    pub const AddClient = addClient;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguifactory.html#addClient)
     ///
@@ -274,10 +330,14 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` client: KXMLGUIClient `
     ///
-    pub fn AddClient(self: KXMLGUIFactory, client: anytype) void {
+    pub fn addClient(self: KXMLGUIFactory, client: anytype) void {
         comptime _ = @TypeOf(client)._is_KXMLGUIClient;
         qtc.KXMLGUIFactory_AddClient(@ptrCast(self.ptr), @ptrCast(client.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeClient` instead
+    ///
+    pub const RemoveClient = removeClient;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguifactory.html#removeClient)
     ///
@@ -287,10 +347,14 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` client: KXMLGUIClient `
     ///
-    pub fn RemoveClient(self: KXMLGUIFactory, client: anytype) void {
+    pub fn removeClient(self: KXMLGUIFactory, client: anytype) void {
         comptime _ = @TypeOf(client)._is_KXMLGUIClient;
         qtc.KXMLGUIFactory_RemoveClient(@ptrCast(self.ptr), @ptrCast(client.ptr));
     }
+
+    /// ### DEPRECATED: Use `plugActionList` instead
+    ///
+    pub const PlugActionList = plugActionList;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguifactory.html#plugActionList)
     ///
@@ -304,7 +368,7 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` actionList: []QAction `
     ///
-    pub fn PlugActionList(self: KXMLGUIFactory, client: anytype, name: []const u8, actionList: []QAction) void {
+    pub fn plugActionList(self: KXMLGUIFactory, client: anytype, name: []const u8, actionList: []QAction) void {
         comptime _ = @TypeOf(client)._is_KXMLGUIClient;
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -317,6 +381,10 @@ pub const KXMLGUIFactory = extern struct {
         qtc.KXMLGUIFactory_PlugActionList(@ptrCast(self.ptr), @ptrCast(client.ptr), name_str, actionList_list);
     }
 
+    /// ### DEPRECATED: Use `unplugActionList` instead
+    ///
+    pub const UnplugActionList = unplugActionList;
+
     /// ### [Upstream resources](https://api.kde.org/kxmlguifactory.html#unplugActionList)
     ///
     /// ## Parameter(s):
@@ -327,7 +395,7 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn UnplugActionList(self: KXMLGUIFactory, client: anytype, name: []const u8) void {
+    pub fn unplugActionList(self: KXMLGUIFactory, client: anytype, name: []const u8) void {
         comptime _ = @TypeOf(client)._is_KXMLGUIClient;
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -335,6 +403,10 @@ pub const KXMLGUIFactory = extern struct {
         };
         qtc.KXMLGUIFactory_UnplugActionList(@ptrCast(self.ptr), @ptrCast(client.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `clients` instead
+    ///
+    pub const Clients = clients;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguifactory.html#clients)
     ///
@@ -344,15 +416,19 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Clients(self: KXMLGUIFactory, allocator: std.mem.Allocator) []KXMLGUIClient {
+    pub fn clients(self: KXMLGUIFactory, allocator: std.mem.Allocator) []KXMLGUIClient {
         const _arr: qtc.libqt_list = qtc.KXMLGUIFactory_Clients(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KXMLGUIClient, _arr.len) catch @panic("KXMLGUIFactory.Clients: Memory allocation failed");
-        const _data: [*]QtC.KXMLGUIClient = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(KXMLGUIClient, _arr.len) catch @panic("KXMLGUIFactory.clients: Memory allocation failed");
+        const _data_val: [*]QtC.KXMLGUIClient = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `container` instead
+    ///
+    pub const Container = container;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguifactory.html#container)
     ///
@@ -364,7 +440,7 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` client: KXMLGUIClient `
     ///
-    pub fn Container(self: KXMLGUIFactory, containerName: []const u8, client: anytype) QWidget {
+    pub fn container(self: KXMLGUIFactory, containerName: []const u8, client: anytype) QWidget {
         const containerName_str = qtc.libqt_string{
             .len = containerName.len,
             .data = containerName.ptr,
@@ -372,6 +448,10 @@ pub const KXMLGUIFactory = extern struct {
         comptime _ = @TypeOf(client)._is_KXMLGUIClient;
         return .{ .ptr = qtc.KXMLGUIFactory_Container(@ptrCast(self.ptr), containerName_str, @ptrCast(client.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `containers` instead
+    ///
+    pub const Containers = containers;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguifactory.html#containers)
     ///
@@ -383,19 +463,23 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` tagName: []const u8 `
     ///
-    pub fn Containers(self: KXMLGUIFactory, allocator: std.mem.Allocator, tagName: []const u8) []QWidget {
+    pub fn containers(self: KXMLGUIFactory, allocator: std.mem.Allocator, tagName: []const u8) []QWidget {
         const tagName_str = qtc.libqt_string{
             .len = tagName.len,
             .data = tagName.ptr,
         };
         const _arr: qtc.libqt_list = qtc.KXMLGUIFactory_Containers(@ptrCast(self.ptr), tagName_str);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("KXMLGUIFactory.Containers: Memory allocation failed");
-        const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("KXMLGUIFactory.containers: Memory allocation failed");
+        const _data_val: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `reset` instead
+    ///
+    pub const Reset = reset;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguifactory.html#reset)
     ///
@@ -403,9 +487,13 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` self: KXMLGUIFactory `
     ///
-    pub fn Reset(self: KXMLGUIFactory) void {
+    pub fn reset(self: KXMLGUIFactory) void {
         qtc.KXMLGUIFactory_Reset(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `resetContainer` instead
+    ///
+    pub const ResetContainer = resetContainer;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguifactory.html#resetContainer)
     ///
@@ -415,7 +503,7 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` containerName: []const u8 `
     ///
-    pub fn ResetContainer(self: KXMLGUIFactory, containerName: []const u8) void {
+    pub fn resetContainer(self: KXMLGUIFactory, containerName: []const u8) void {
         const containerName_str = qtc.libqt_string{
             .len = containerName.len,
             .data = containerName.ptr,
@@ -423,15 +511,23 @@ pub const KXMLGUIFactory = extern struct {
         qtc.KXMLGUIFactory_ResetContainer(@ptrCast(self.ptr), containerName_str);
     }
 
+    /// ### DEPRECATED: Use `refreshActionProperties` instead
+    ///
+    pub const RefreshActionProperties = refreshActionProperties;
+
     /// ### [Upstream resources](https://api.kde.org/kxmlguifactory.html#refreshActionProperties)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KXMLGUIFactory `
     ///
-    pub fn RefreshActionProperties(self: KXMLGUIFactory) void {
+    pub fn refreshActionProperties(self: KXMLGUIFactory) void {
         qtc.KXMLGUIFactory_RefreshActionProperties(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showConfigureShortcutsDialog` instead
+    ///
+    pub const ShowConfigureShortcutsDialog = showConfigureShortcutsDialog;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguifactory.html#showConfigureShortcutsDialog)
     ///
@@ -439,9 +535,13 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` self: KXMLGUIFactory `
     ///
-    pub fn ShowConfigureShortcutsDialog(self: KXMLGUIFactory) void {
+    pub fn showConfigureShortcutsDialog(self: KXMLGUIFactory) void {
         qtc.KXMLGUIFactory_ShowConfigureShortcutsDialog(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `changeShortcutScheme` instead
+    ///
+    pub const ChangeShortcutScheme = changeShortcutScheme;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguifactory.html#changeShortcutScheme)
     ///
@@ -451,7 +551,7 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` scheme: []const u8 `
     ///
-    pub fn ChangeShortcutScheme(self: KXMLGUIFactory, scheme: []const u8) void {
+    pub fn changeShortcutScheme(self: KXMLGUIFactory, scheme: []const u8) void {
         const scheme_str = qtc.libqt_string{
             .len = scheme.len,
             .data = scheme.ptr,
@@ -459,6 +559,10 @@ pub const KXMLGUIFactory = extern struct {
         qtc.KXMLGUIFactory_ChangeShortcutScheme(@ptrCast(self.ptr), scheme_str);
     }
 
+    /// ### DEPRECATED: Use `clientAdded` instead
+    ///
+    pub const ClientAdded = clientAdded;
+
     /// ### [Upstream resources](https://api.kde.org/kxmlguifactory.html#clientAdded)
     ///
     /// ## Parameter(s):
@@ -467,11 +571,15 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` client: KXMLGUIClient `
     ///
-    pub fn ClientAdded(self: KXMLGUIFactory, client: anytype) void {
+    pub fn clientAdded(self: KXMLGUIFactory, client: anytype) void {
         comptime _ = @TypeOf(client)._is_KXMLGUIClient;
         qtc.KXMLGUIFactory_ClientAdded(@ptrCast(self.ptr), @ptrCast(client.ptr));
     }
 
+    /// ### DEPRECATED: Use `onClientAdded` instead
+    ///
+    pub const OnClientAdded = onClientAdded;
+
     /// ### [Upstream resources](https://api.kde.org/kxmlguifactory.html#clientAdded)
     ///
     /// ## Parameters:
@@ -480,9 +588,13 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` callback: *const fn (self: KXMLGUIFactory, client: KXMLGUIClient) callconv(.c) void `
     ///
-    pub fn OnClientAdded(self: KXMLGUIFactory, callback: *const fn (KXMLGUIFactory, KXMLGUIClient) callconv(.c) void) void {
+    pub fn onClientAdded(self: KXMLGUIFactory, callback: *const fn (KXMLGUIFactory, KXMLGUIClient) callconv(.c) void) void {
         qtc.KXMLGUIFactory_Connect_ClientAdded(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `clientRemoved` instead
+    ///
+    pub const ClientRemoved = clientRemoved;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguifactory.html#clientRemoved)
     ///
@@ -492,10 +604,14 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` client: KXMLGUIClient `
     ///
-    pub fn ClientRemoved(self: KXMLGUIFactory, client: anytype) void {
+    pub fn clientRemoved(self: KXMLGUIFactory, client: anytype) void {
         comptime _ = @TypeOf(client)._is_KXMLGUIClient;
         qtc.KXMLGUIFactory_ClientRemoved(@ptrCast(self.ptr), @ptrCast(client.ptr));
     }
+
+    /// ### DEPRECATED: Use `onClientRemoved` instead
+    ///
+    pub const OnClientRemoved = onClientRemoved;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguifactory.html#clientRemoved)
     ///
@@ -505,9 +621,13 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` callback: *const fn (self: KXMLGUIFactory, client: KXMLGUIClient) callconv(.c) void `
     ///
-    pub fn OnClientRemoved(self: KXMLGUIFactory, callback: *const fn (KXMLGUIFactory, KXMLGUIClient) callconv(.c) void) void {
+    pub fn onClientRemoved(self: KXMLGUIFactory, callback: *const fn (KXMLGUIFactory, KXMLGUIClient) callconv(.c) void) void {
         qtc.KXMLGUIFactory_Connect_ClientRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `makingChanges` instead
+    ///
+    pub const MakingChanges = makingChanges;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguifactory.html#makingChanges)
     ///
@@ -517,9 +637,13 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` param1: bool `
     ///
-    pub fn MakingChanges(self: KXMLGUIFactory, param1: bool) void {
+    pub fn makingChanges(self: KXMLGUIFactory, param1: bool) void {
         qtc.KXMLGUIFactory_MakingChanges(@ptrCast(self.ptr), param1);
     }
+
+    /// ### DEPRECATED: Use `onMakingChanges` instead
+    ///
+    pub const OnMakingChanges = onMakingChanges;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguifactory.html#makingChanges)
     ///
@@ -529,9 +653,13 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` callback: *const fn (self: KXMLGUIFactory, param1: bool) callconv(.c) void `
     ///
-    pub fn OnMakingChanges(self: KXMLGUIFactory, callback: *const fn (KXMLGUIFactory, bool) callconv(.c) void) void {
+    pub fn onMakingChanges(self: KXMLGUIFactory, callback: *const fn (KXMLGUIFactory, bool) callconv(.c) void) void {
         qtc.KXMLGUIFactory_Connect_MakingChanges(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `shortcutsSaved` instead
+    ///
+    pub const ShortcutsSaved = shortcutsSaved;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguifactory.html#shortcutsSaved)
     ///
@@ -539,9 +667,13 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` self: KXMLGUIFactory `
     ///
-    pub fn ShortcutsSaved(self: KXMLGUIFactory) void {
+    pub fn shortcutsSaved(self: KXMLGUIFactory) void {
         qtc.KXMLGUIFactory_ShortcutsSaved(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShortcutsSaved` instead
+    ///
+    pub const OnShortcutsSaved = onShortcutsSaved;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguifactory.html#shortcutsSaved)
     ///
@@ -551,9 +683,13 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` callback: *const fn (self: KXMLGUIFactory) callconv(.c) void `
     ///
-    pub fn OnShortcutsSaved(self: KXMLGUIFactory, callback: *const fn (KXMLGUIFactory) callconv(.c) void) void {
+    pub fn onShortcutsSaved(self: KXMLGUIFactory, callback: *const fn (KXMLGUIFactory) callconv(.c) void) void {
         qtc.KXMLGUIFactory_Connect_ShortcutsSaved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -565,15 +701,19 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXMLGUIFactory.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXMLGUIFactory.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -587,15 +727,19 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXMLGUIFactory.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXMLGUIFactory.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `readConfigFile2` instead
+    ///
+    pub const ReadConfigFile2 = readConfigFile2;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguifactory.html#readConfigFile)
     ///
@@ -607,7 +751,7 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` componentName: []const u8 `
     ///
-    pub fn ReadConfigFile2(allocator: std.mem.Allocator, filename: []const u8, componentName: []const u8) []const u8 {
+    pub fn readConfigFile2(allocator: std.mem.Allocator, filename: []const u8, componentName: []const u8) []const u8 {
         const filename_str = qtc.libqt_string{
             .len = filename.len,
             .data = filename.ptr,
@@ -618,10 +762,14 @@ pub const KXMLGUIFactory = extern struct {
         };
         var _str = qtc.KXMLGUIFactory_ReadConfigFile2(filename_str, componentName_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXMLGUIFactory.ReadConfigFile2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXMLGUIFactory.readConfigFile2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `saveConfigFile3` instead
+    ///
+    pub const SaveConfigFile3 = saveConfigFile3;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguifactory.html#saveConfigFile)
     ///
@@ -633,7 +781,7 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` componentName: []const u8 `
     ///
-    pub fn SaveConfigFile3(doc: anytype, filename: []const u8, componentName: []const u8) bool {
+    pub fn saveConfigFile3(doc: anytype, filename: []const u8, componentName: []const u8) bool {
         comptime _ = @TypeOf(doc)._is_QDomDocument;
         const filename_str = qtc.libqt_string{
             .len = filename.len,
@@ -645,6 +793,10 @@ pub const KXMLGUIFactory = extern struct {
         };
         return qtc.KXMLGUIFactory_SaveConfigFile3(@ptrCast(doc.ptr), filename_str, componentName_str);
     }
+
+    /// ### DEPRECATED: Use `container3` instead
+    ///
+    pub const Container3 = container3;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguifactory.html#container)
     ///
@@ -658,7 +810,7 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` useTagName: bool `
     ///
-    pub fn Container3(self: KXMLGUIFactory, containerName: []const u8, client: anytype, useTagName: bool) QWidget {
+    pub fn container3(self: KXMLGUIFactory, containerName: []const u8, client: anytype, useTagName: bool) QWidget {
         const containerName_str = qtc.libqt_string{
             .len = containerName.len,
             .data = containerName.ptr,
@@ -666,6 +818,10 @@ pub const KXMLGUIFactory = extern struct {
         comptime _ = @TypeOf(client)._is_KXMLGUIClient;
         return .{ .ptr = qtc.KXMLGUIFactory_Container3(@ptrCast(self.ptr), containerName_str, @ptrCast(client.ptr), useTagName) };
     }
+
+    /// ### DEPRECATED: Use `resetContainer2` instead
+    ///
+    pub const ResetContainer2 = resetContainer2;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguifactory.html#resetContainer)
     ///
@@ -677,13 +833,17 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` useTagName: bool `
     ///
-    pub fn ResetContainer2(self: KXMLGUIFactory, containerName: []const u8, useTagName: bool) void {
+    pub fn resetContainer2(self: KXMLGUIFactory, containerName: []const u8, useTagName: bool) void {
         const containerName_str = qtc.libqt_string{
             .len = containerName.len,
             .data = containerName.ptr,
         };
         qtc.KXMLGUIFactory_ResetContainer2(@ptrCast(self.ptr), containerName_str, useTagName);
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -695,13 +855,17 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KXMLGUIFactory, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KXMLGUIFactory, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXMLGUIFactory.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXMLGUIFactory.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -713,13 +877,17 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KXMLGUIFactory, name: []const u8) void {
+    pub fn setObjectName(self: KXMLGUIFactory, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -729,9 +897,13 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` self: KXMLGUIFactory `
     ///
-    pub fn IsWidgetType(self: KXMLGUIFactory) bool {
+    pub fn isWidgetType(self: KXMLGUIFactory) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -741,9 +913,13 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` self: KXMLGUIFactory `
     ///
-    pub fn IsWindowType(self: KXMLGUIFactory) bool {
+    pub fn isWindowType(self: KXMLGUIFactory) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -753,9 +929,13 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` self: KXMLGUIFactory `
     ///
-    pub fn IsQuickItemType(self: KXMLGUIFactory) bool {
+    pub fn isQuickItemType(self: KXMLGUIFactory) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -765,9 +945,13 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` self: KXMLGUIFactory `
     ///
-    pub fn SignalsBlocked(self: KXMLGUIFactory) bool {
+    pub fn signalsBlocked(self: KXMLGUIFactory) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -779,9 +963,13 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KXMLGUIFactory, b: bool) bool {
+    pub fn blockSignals(self: KXMLGUIFactory, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -791,9 +979,13 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` self: KXMLGUIFactory `
     ///
-    pub fn Thread(self: KXMLGUIFactory) QThread {
+    pub fn thread(self: KXMLGUIFactory) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -803,12 +995,16 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` self: KXMLGUIFactory `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KXMLGUIFactory, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KXMLGUIFactory, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -820,9 +1016,13 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KXMLGUIFactory, interval: i32) i32 {
+    pub fn startTimer(self: KXMLGUIFactory, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -834,9 +1034,13 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KXMLGUIFactory, time: i64) i32 {
+    pub fn startTimer2(self: KXMLGUIFactory, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -848,9 +1052,13 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KXMLGUIFactory, id: i32) void {
+    pub fn killTimer(self: KXMLGUIFactory, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -862,9 +1070,13 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KXMLGUIFactory, id: i32) void {
+    pub fn killTimer2(self: KXMLGUIFactory, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -876,15 +1088,19 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KXMLGUIFactory, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KXMLGUIFactory, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KXMLGUIFactory.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KXMLGUIFactory.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -894,12 +1110,16 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` self: KXMLGUIFactory `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: KXMLGUIFactory, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: KXMLGUIFactory, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -911,10 +1131,14 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KXMLGUIFactory, filterObj: anytype) void {
+    pub fn installEventFilter(self: KXMLGUIFactory, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -926,10 +1150,14 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KXMLGUIFactory, obj: anytype) void {
+    pub fn removeEventFilter(self: KXMLGUIFactory, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -937,7 +1165,7 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -945,13 +1173,17 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -959,7 +1191,7 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -967,13 +1199,17 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -983,18 +1219,22 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` self: KXMLGUIFactory `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KXMLGUIFactory, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KXMLGUIFactory, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -1002,7 +1242,7 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1010,13 +1250,17 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -1024,7 +1268,7 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1032,13 +1276,17 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -1048,9 +1296,13 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` self: KXMLGUIFactory `
     ///
-    pub fn Disconnect3(self: KXMLGUIFactory) bool {
+    pub fn disconnect3(self: KXMLGUIFactory) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1062,10 +1314,14 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KXMLGUIFactory, receiver: anytype) bool {
+    pub fn disconnect4(self: KXMLGUIFactory, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1075,10 +1331,14 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1088,9 +1348,13 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` self: KXMLGUIFactory `
     ///
-    pub fn DumpObjectTree(self: KXMLGUIFactory) void {
+    pub fn dumpObjectTree(self: KXMLGUIFactory) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1100,9 +1364,13 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` self: KXMLGUIFactory `
     ///
-    pub fn DumpObjectInfo(self: KXMLGUIFactory) void {
+    pub fn dumpObjectInfo(self: KXMLGUIFactory) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1116,11 +1384,15 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KXMLGUIFactory, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KXMLGUIFactory, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1132,10 +1404,14 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KXMLGUIFactory, name: [:0]const u8) QVariant {
+    pub fn property(self: KXMLGUIFactory, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1147,7 +1423,7 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KXMLGUIFactory, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KXMLGUIFactory, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1155,27 +1431,19 @@ pub const KXMLGUIFactory = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KXMLGUIFactory.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KXMLGUIFactory.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KXMLGUIFactory.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KXMLGUIFactory.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KXMLGUIFactory `
-    ///
-    pub fn BindingStorage(self: KXMLGUIFactory) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1185,9 +1453,29 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` self: KXMLGUIFactory `
     ///
-    pub fn BindingStorage2(self: KXMLGUIFactory) QBindingStorage {
+    pub fn bindingStorage(self: KXMLGUIFactory) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KXMLGUIFactory `
+    ///
+    pub fn bindingStorage2(self: KXMLGUIFactory) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1197,9 +1485,13 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` self: KXMLGUIFactory `
     ///
-    pub fn Destroyed(self: KXMLGUIFactory) void {
+    pub fn destroyed(self: KXMLGUIFactory) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1211,9 +1503,13 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` callback: *const fn (self: KXMLGUIFactory) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KXMLGUIFactory, callback: *const fn (KXMLGUIFactory) callconv(.c) void) void {
+    pub fn onDestroyed(self: KXMLGUIFactory, callback: *const fn (KXMLGUIFactory) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1223,9 +1519,13 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` self: KXMLGUIFactory `
     ///
-    pub fn Parent(self: KXMLGUIFactory) QObject {
+    pub fn parent(self: KXMLGUIFactory) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1237,10 +1537,14 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KXMLGUIFactory, classname: [:0]const u8) bool {
+    pub fn inherits(self: KXMLGUIFactory, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1250,9 +1554,13 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` self: KXMLGUIFactory `
     ///
-    pub fn DeleteLater(self: KXMLGUIFactory) void {
+    pub fn deleteLater(self: KXMLGUIFactory) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1266,9 +1574,13 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KXMLGUIFactory, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KXMLGUIFactory, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1282,9 +1594,13 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KXMLGUIFactory, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KXMLGUIFactory, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1292,7 +1608,7 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1302,13 +1618,17 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1316,7 +1636,7 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1326,13 +1646,17 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1342,7 +1666,7 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` self: KXMLGUIFactory `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1350,12 +1674,16 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KXMLGUIFactory, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KXMLGUIFactory, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1367,10 +1695,14 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KXMLGUIFactory, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KXMLGUIFactory, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1384,11 +1716,15 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KXMLGUIFactory, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KXMLGUIFactory, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1404,13 +1740,17 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KXMLGUIFactory, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KXMLGUIFactory, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1423,11 +1763,15 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KXMLGUIFactory, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KXMLGUIFactory, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1439,10 +1783,14 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KXMLGUIFactory, param1: anytype) void {
+    pub fn destroyed1(self: KXMLGUIFactory, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1454,9 +1802,13 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` callback: *const fn (self: KXMLGUIFactory, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KXMLGUIFactory, callback: *const fn (KXMLGUIFactory, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KXMLGUIFactory, callback: *const fn (KXMLGUIFactory, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -1468,16 +1820,16 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` self: KXMLGUIFactory `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: KXMLGUIFactory, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KXMLGUIFactory_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: KXMLGUIFactory, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KXMLGUIFactory_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -1489,12 +1841,16 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` self: KXMLGUIFactory `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: KXMLGUIFactory, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KXMLGUIFactory_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: KXMLGUIFactory, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KXMLGUIFactory_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -1508,9 +1864,13 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` callback: *const fn (self: KXMLGUIFactory, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KXMLGUIFactory, callback: *const fn (KXMLGUIFactory, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KXMLGUIFactory, callback: *const fn (KXMLGUIFactory, QEvent) callconv(.c) bool) void {
         qtc.KXMLGUIFactory_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1524,17 +1884,17 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: KXMLGUIFactory, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: KXMLGUIFactory, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KXMLGUIFactory_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KXMLGUIFactory_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1548,13 +1908,17 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: KXMLGUIFactory, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: KXMLGUIFactory, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KXMLGUIFactory_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KXMLGUIFactory_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1568,9 +1932,13 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` callback: *const fn (self: KXMLGUIFactory, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KXMLGUIFactory, callback: *const fn (KXMLGUIFactory, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KXMLGUIFactory, callback: *const fn (KXMLGUIFactory, QObject, QEvent) callconv(.c) bool) void {
         qtc.KXMLGUIFactory_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -1582,16 +1950,16 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` self: KXMLGUIFactory `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KXMLGUIFactory, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KXMLGUIFactory_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: KXMLGUIFactory, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KXMLGUIFactory_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1603,12 +1971,16 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` self: KXMLGUIFactory `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KXMLGUIFactory, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KXMLGUIFactory_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: KXMLGUIFactory, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KXMLGUIFactory_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1622,9 +1994,13 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` callback: *const fn (self: KXMLGUIFactory, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KXMLGUIFactory, callback: *const fn (KXMLGUIFactory, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KXMLGUIFactory, callback: *const fn (KXMLGUIFactory, QTimerEvent) callconv(.c) void) void {
         qtc.KXMLGUIFactory_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -1636,16 +2012,16 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` self: KXMLGUIFactory `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KXMLGUIFactory, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KXMLGUIFactory_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KXMLGUIFactory, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KXMLGUIFactory_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1657,12 +2033,16 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` self: KXMLGUIFactory `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KXMLGUIFactory, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KXMLGUIFactory_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KXMLGUIFactory, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KXMLGUIFactory_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1676,9 +2056,13 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` callback: *const fn (self: KXMLGUIFactory, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KXMLGUIFactory, callback: *const fn (KXMLGUIFactory, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KXMLGUIFactory, callback: *const fn (KXMLGUIFactory, QChildEvent) callconv(.c) void) void {
         qtc.KXMLGUIFactory_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -1690,16 +2074,16 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` self: KXMLGUIFactory `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KXMLGUIFactory, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KXMLGUIFactory_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KXMLGUIFactory, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KXMLGUIFactory_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1711,12 +2095,16 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` self: KXMLGUIFactory `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KXMLGUIFactory, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KXMLGUIFactory_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KXMLGUIFactory, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KXMLGUIFactory_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1730,9 +2118,13 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` callback: *const fn (self: KXMLGUIFactory, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KXMLGUIFactory, callback: *const fn (KXMLGUIFactory, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KXMLGUIFactory, callback: *const fn (KXMLGUIFactory, QEvent) callconv(.c) void) void {
         qtc.KXMLGUIFactory_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -1746,14 +2138,14 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KXMLGUIFactory, signal: anytype) void {
+    pub fn connectNotify(self: KXMLGUIFactory, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KXMLGUIFactory_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1767,11 +2159,15 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KXMLGUIFactory, signal: anytype) void {
+    pub fn superConnectNotify(self: KXMLGUIFactory, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KXMLGUIFactory_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1784,9 +2180,13 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` callback: *const fn (self: KXMLGUIFactory, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KXMLGUIFactory, callback: *const fn (KXMLGUIFactory, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KXMLGUIFactory, callback: *const fn (KXMLGUIFactory, QMetaMethod) callconv(.c) void) void {
         qtc.KXMLGUIFactory_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1800,14 +2200,14 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KXMLGUIFactory, signal: anytype) void {
+    pub fn disconnectNotify(self: KXMLGUIFactory, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KXMLGUIFactory_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1821,10 +2221,14 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KXMLGUIFactory, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KXMLGUIFactory, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KXMLGUIFactory_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1838,9 +2242,13 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` callback: *const fn (self: KXMLGUIFactory, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KXMLGUIFactory, callback: *const fn (KXMLGUIFactory, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KXMLGUIFactory, callback: *const fn (KXMLGUIFactory, QMetaMethod) callconv(.c) void) void {
         qtc.KXMLGUIFactory_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -1852,13 +2260,13 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` self: KXMLGUIFactory `
     ///
-    pub fn Sender(self: KXMLGUIFactory) QObject {
+    pub fn sender(self: KXMLGUIFactory) QObject {
         return .{ .ptr = qtc.KXMLGUIFactory_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -1870,9 +2278,13 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` self: KXMLGUIFactory `
     ///
-    pub fn SuperSender(self: KXMLGUIFactory) QObject {
+    pub fn superSender(self: KXMLGUIFactory) QObject {
         return .{ .ptr = qtc.KXMLGUIFactory_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -1886,9 +2298,13 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KXMLGUIFactory, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KXMLGUIFactory, callback: *const fn () callconv(.c) QObject) void {
         qtc.KXMLGUIFactory_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1900,13 +2316,13 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` self: KXMLGUIFactory `
     ///
-    pub fn SenderSignalIndex(self: KXMLGUIFactory) i32 {
+    pub fn senderSignalIndex(self: KXMLGUIFactory) i32 {
         return qtc.KXMLGUIFactory_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1918,9 +2334,13 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` self: KXMLGUIFactory `
     ///
-    pub fn SuperSenderSignalIndex(self: KXMLGUIFactory) i32 {
+    pub fn superSenderSignalIndex(self: KXMLGUIFactory) i32 {
         return qtc.KXMLGUIFactory_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1934,9 +2354,13 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KXMLGUIFactory, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KXMLGUIFactory, callback: *const fn () callconv(.c) i32) void {
         qtc.KXMLGUIFactory_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -1950,14 +2374,14 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KXMLGUIFactory, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KXMLGUIFactory, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KXMLGUIFactory_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -1971,10 +2395,14 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KXMLGUIFactory, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KXMLGUIFactory, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KXMLGUIFactory_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -1988,9 +2416,13 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` callback: *const fn (self: KXMLGUIFactory, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KXMLGUIFactory, callback: *const fn (KXMLGUIFactory, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KXMLGUIFactory, callback: *const fn (KXMLGUIFactory, [*:0]const u8) callconv(.c) i32) void {
         qtc.KXMLGUIFactory_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2004,14 +2436,14 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KXMLGUIFactory, signal: anytype) bool {
+    pub fn isSignalConnected(self: KXMLGUIFactory, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KXMLGUIFactory_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2025,10 +2457,14 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KXMLGUIFactory, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KXMLGUIFactory, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KXMLGUIFactory_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2042,9 +2478,13 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` callback: *const fn (self: KXMLGUIFactory, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KXMLGUIFactory, callback: *const fn (KXMLGUIFactory, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KXMLGUIFactory, callback: *const fn (KXMLGUIFactory, QMetaMethod) callconv(.c) bool) void {
         qtc.KXMLGUIFactory_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -2058,23 +2498,23 @@ pub const KXMLGUIFactory = extern struct {
     ///
     /// ` callback: *const fn (self: KXMLGUIFactory, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KXMLGUIFactory, callback: *const fn (KXMLGUIFactory, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KXMLGUIFactory, callback: *const fn (KXMLGUIFactory, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguifactory.html#dtor.KXMLGUIFactory)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KXMLGUIFactory `
     ///
-    pub fn Delete(self: KXMLGUIFactory) void {
+    pub fn delete(self: KXMLGUIFactory) void {
         qtc.KXMLGUIFactory_Delete(@ptrCast(self.ptr));
     }
 };

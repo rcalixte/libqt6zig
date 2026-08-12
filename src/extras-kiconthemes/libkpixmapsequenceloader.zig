@@ -12,6 +12,10 @@ pub const KPixmapSequenceLoader = extern struct {
 
     pub const _is_KPixmapSequenceLoader = {};
 
+    /// ### DEPRECATED: Use `load` instead
+    ///
+    pub const Load = load;
+
     /// ### [Upstream resources](https://api.kde.org/kpixmapsequenceloader.html#load)
     ///
     /// ## Parameter(s):
@@ -20,7 +24,7 @@ pub const KPixmapSequenceLoader = extern struct {
     ///
     /// ` size: i32 `
     ///
-    pub fn Load(iconName: []const u8, size: i32) KPixmapSequence {
+    pub fn load(iconName: []const u8, size: i32) KPixmapSequence {
         const iconName_str = qtc.libqt_string{
             .len = iconName.len,
             .data = iconName.ptr,

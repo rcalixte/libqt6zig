@@ -14,32 +14,48 @@ pub const QSurfaceFormat = extern struct {
 
     pub const _is_QSurfaceFormat = {};
 
-    /// New constructs a new QSurfaceFormat object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QSurfaceFormat {
+    pub const New = new;
+
+    /// Allocate a new QSurfaceFormat object in C++ memory
+    ///
+    pub fn new() QSurfaceFormat {
         return .{ .ptr = qtc.QSurfaceFormat_new() };
     }
 
-    /// New2 constructs a new QSurfaceFormat object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QSurfaceFormat object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` options: flag of qsurfaceformat_enums.FormatOption `
+    /// ` _options: flag of qsurfaceformat_enums.FormatOption `
     ///
-    pub fn New2(options: i32) QSurfaceFormat {
-        return .{ .ptr = qtc.QSurfaceFormat_new2(@bitCast(options)) };
+    pub fn new2(_options: i32) QSurfaceFormat {
+        return .{ .ptr = qtc.QSurfaceFormat_new2(@bitCast(_options)) };
     }
 
-    /// New3 constructs a new QSurfaceFormat object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QSurfaceFormat object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QSurfaceFormat `
     ///
-    pub fn New3(other: anytype) QSurfaceFormat {
+    pub fn new3(other: anytype) QSurfaceFormat {
         comptime _ = @TypeOf(other)._is_QSurfaceFormat;
         return .{ .ptr = qtc.QSurfaceFormat_new3(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#operator-eq)
     ///
@@ -49,10 +65,14 @@ pub const QSurfaceFormat = extern struct {
     ///
     /// ` other: QSurfaceFormat `
     ///
-    pub fn OperatorAssign(self: QSurfaceFormat, other: anytype) void {
+    pub fn operatorAssign(self: QSurfaceFormat, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QSurfaceFormat;
         qtc.QSurfaceFormat_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDepthBufferSize` instead
+    ///
+    pub const SetDepthBufferSize = setDepthBufferSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setDepthBufferSize)
     ///
@@ -62,9 +82,13 @@ pub const QSurfaceFormat = extern struct {
     ///
     /// ` size: i32 `
     ///
-    pub fn SetDepthBufferSize(self: QSurfaceFormat, size: i32) void {
+    pub fn setDepthBufferSize(self: QSurfaceFormat, size: i32) void {
         qtc.QSurfaceFormat_SetDepthBufferSize(@ptrCast(self.ptr), @bitCast(size));
     }
+
+    /// ### DEPRECATED: Use `depthBufferSize` instead
+    ///
+    pub const DepthBufferSize = depthBufferSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#depthBufferSize)
     ///
@@ -72,9 +96,13 @@ pub const QSurfaceFormat = extern struct {
     ///
     /// ` self: QSurfaceFormat `
     ///
-    pub fn DepthBufferSize(self: QSurfaceFormat) i32 {
+    pub fn depthBufferSize(self: QSurfaceFormat) i32 {
         return qtc.QSurfaceFormat_DepthBufferSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStencilBufferSize` instead
+    ///
+    pub const SetStencilBufferSize = setStencilBufferSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setStencilBufferSize)
     ///
@@ -84,9 +112,13 @@ pub const QSurfaceFormat = extern struct {
     ///
     /// ` size: i32 `
     ///
-    pub fn SetStencilBufferSize(self: QSurfaceFormat, size: i32) void {
+    pub fn setStencilBufferSize(self: QSurfaceFormat, size: i32) void {
         qtc.QSurfaceFormat_SetStencilBufferSize(@ptrCast(self.ptr), @bitCast(size));
     }
+
+    /// ### DEPRECATED: Use `stencilBufferSize` instead
+    ///
+    pub const StencilBufferSize = stencilBufferSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#stencilBufferSize)
     ///
@@ -94,9 +126,13 @@ pub const QSurfaceFormat = extern struct {
     ///
     /// ` self: QSurfaceFormat `
     ///
-    pub fn StencilBufferSize(self: QSurfaceFormat) i32 {
+    pub fn stencilBufferSize(self: QSurfaceFormat) i32 {
         return qtc.QSurfaceFormat_StencilBufferSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setRedBufferSize` instead
+    ///
+    pub const SetRedBufferSize = setRedBufferSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setRedBufferSize)
     ///
@@ -106,9 +142,13 @@ pub const QSurfaceFormat = extern struct {
     ///
     /// ` size: i32 `
     ///
-    pub fn SetRedBufferSize(self: QSurfaceFormat, size: i32) void {
+    pub fn setRedBufferSize(self: QSurfaceFormat, size: i32) void {
         qtc.QSurfaceFormat_SetRedBufferSize(@ptrCast(self.ptr), @bitCast(size));
     }
+
+    /// ### DEPRECATED: Use `redBufferSize` instead
+    ///
+    pub const RedBufferSize = redBufferSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#redBufferSize)
     ///
@@ -116,9 +156,13 @@ pub const QSurfaceFormat = extern struct {
     ///
     /// ` self: QSurfaceFormat `
     ///
-    pub fn RedBufferSize(self: QSurfaceFormat) i32 {
+    pub fn redBufferSize(self: QSurfaceFormat) i32 {
         return qtc.QSurfaceFormat_RedBufferSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGreenBufferSize` instead
+    ///
+    pub const SetGreenBufferSize = setGreenBufferSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setGreenBufferSize)
     ///
@@ -128,9 +172,13 @@ pub const QSurfaceFormat = extern struct {
     ///
     /// ` size: i32 `
     ///
-    pub fn SetGreenBufferSize(self: QSurfaceFormat, size: i32) void {
+    pub fn setGreenBufferSize(self: QSurfaceFormat, size: i32) void {
         qtc.QSurfaceFormat_SetGreenBufferSize(@ptrCast(self.ptr), @bitCast(size));
     }
+
+    /// ### DEPRECATED: Use `greenBufferSize` instead
+    ///
+    pub const GreenBufferSize = greenBufferSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#greenBufferSize)
     ///
@@ -138,9 +186,13 @@ pub const QSurfaceFormat = extern struct {
     ///
     /// ` self: QSurfaceFormat `
     ///
-    pub fn GreenBufferSize(self: QSurfaceFormat) i32 {
+    pub fn greenBufferSize(self: QSurfaceFormat) i32 {
         return qtc.QSurfaceFormat_GreenBufferSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBlueBufferSize` instead
+    ///
+    pub const SetBlueBufferSize = setBlueBufferSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setBlueBufferSize)
     ///
@@ -150,9 +202,13 @@ pub const QSurfaceFormat = extern struct {
     ///
     /// ` size: i32 `
     ///
-    pub fn SetBlueBufferSize(self: QSurfaceFormat, size: i32) void {
+    pub fn setBlueBufferSize(self: QSurfaceFormat, size: i32) void {
         qtc.QSurfaceFormat_SetBlueBufferSize(@ptrCast(self.ptr), @bitCast(size));
     }
+
+    /// ### DEPRECATED: Use `blueBufferSize` instead
+    ///
+    pub const BlueBufferSize = blueBufferSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#blueBufferSize)
     ///
@@ -160,9 +216,13 @@ pub const QSurfaceFormat = extern struct {
     ///
     /// ` self: QSurfaceFormat `
     ///
-    pub fn BlueBufferSize(self: QSurfaceFormat) i32 {
+    pub fn blueBufferSize(self: QSurfaceFormat) i32 {
         return qtc.QSurfaceFormat_BlueBufferSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAlphaBufferSize` instead
+    ///
+    pub const SetAlphaBufferSize = setAlphaBufferSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setAlphaBufferSize)
     ///
@@ -172,9 +232,13 @@ pub const QSurfaceFormat = extern struct {
     ///
     /// ` size: i32 `
     ///
-    pub fn SetAlphaBufferSize(self: QSurfaceFormat, size: i32) void {
+    pub fn setAlphaBufferSize(self: QSurfaceFormat, size: i32) void {
         qtc.QSurfaceFormat_SetAlphaBufferSize(@ptrCast(self.ptr), @bitCast(size));
     }
+
+    /// ### DEPRECATED: Use `alphaBufferSize` instead
+    ///
+    pub const AlphaBufferSize = alphaBufferSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#alphaBufferSize)
     ///
@@ -182,9 +246,13 @@ pub const QSurfaceFormat = extern struct {
     ///
     /// ` self: QSurfaceFormat `
     ///
-    pub fn AlphaBufferSize(self: QSurfaceFormat) i32 {
+    pub fn alphaBufferSize(self: QSurfaceFormat) i32 {
         return qtc.QSurfaceFormat_AlphaBufferSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSamples` instead
+    ///
+    pub const SetSamples = setSamples;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setSamples)
     ///
@@ -194,9 +262,13 @@ pub const QSurfaceFormat = extern struct {
     ///
     /// ` numSamples: i32 `
     ///
-    pub fn SetSamples(self: QSurfaceFormat, numSamples: i32) void {
+    pub fn setSamples(self: QSurfaceFormat, numSamples: i32) void {
         qtc.QSurfaceFormat_SetSamples(@ptrCast(self.ptr), @bitCast(numSamples));
     }
+
+    /// ### DEPRECATED: Use `samples` instead
+    ///
+    pub const Samples = samples;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#samples)
     ///
@@ -204,9 +276,13 @@ pub const QSurfaceFormat = extern struct {
     ///
     /// ` self: QSurfaceFormat `
     ///
-    pub fn Samples(self: QSurfaceFormat) i32 {
+    pub fn samples(self: QSurfaceFormat) i32 {
         return qtc.QSurfaceFormat_Samples(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSwapBehavior` instead
+    ///
+    pub const SetSwapBehavior = setSwapBehavior;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setSwapBehavior)
     ///
@@ -216,9 +292,13 @@ pub const QSurfaceFormat = extern struct {
     ///
     /// ` behavior: qsurfaceformat_enums.SwapBehavior `
     ///
-    pub fn SetSwapBehavior(self: QSurfaceFormat, behavior: i32) void {
+    pub fn setSwapBehavior(self: QSurfaceFormat, behavior: i32) void {
         qtc.QSurfaceFormat_SetSwapBehavior(@ptrCast(self.ptr), @bitCast(behavior));
     }
+
+    /// ### DEPRECATED: Use `swapBehavior` instead
+    ///
+    pub const SwapBehavior = swapBehavior;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#swapBehavior)
     ///
@@ -230,9 +310,13 @@ pub const QSurfaceFormat = extern struct {
     ///
     /// ` qsurfaceformat_enums.SwapBehavior `
     ///
-    pub fn SwapBehavior(self: QSurfaceFormat) i32 {
+    pub fn swapBehavior(self: QSurfaceFormat) i32 {
         return qtc.QSurfaceFormat_SwapBehavior(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hasAlpha` instead
+    ///
+    pub const HasAlpha = hasAlpha;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#hasAlpha)
     ///
@@ -240,9 +324,13 @@ pub const QSurfaceFormat = extern struct {
     ///
     /// ` self: QSurfaceFormat `
     ///
-    pub fn HasAlpha(self: QSurfaceFormat) bool {
+    pub fn hasAlpha(self: QSurfaceFormat) bool {
         return qtc.QSurfaceFormat_HasAlpha(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProfile` instead
+    ///
+    pub const SetProfile = setProfile;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setProfile)
     ///
@@ -250,11 +338,15 @@ pub const QSurfaceFormat = extern struct {
     ///
     /// ` self: QSurfaceFormat `
     ///
-    /// ` profile: qsurfaceformat_enums.OpenGLContextProfile `
+    /// ` _profile: qsurfaceformat_enums.OpenGLContextProfile `
     ///
-    pub fn SetProfile(self: QSurfaceFormat, profile: i32) void {
-        qtc.QSurfaceFormat_SetProfile(@ptrCast(self.ptr), @bitCast(profile));
+    pub fn setProfile(self: QSurfaceFormat, _profile: i32) void {
+        qtc.QSurfaceFormat_SetProfile(@ptrCast(self.ptr), @bitCast(_profile));
     }
+
+    /// ### DEPRECATED: Use `profile` instead
+    ///
+    pub const Profile = profile;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#profile)
     ///
@@ -266,9 +358,13 @@ pub const QSurfaceFormat = extern struct {
     ///
     /// ` qsurfaceformat_enums.OpenGLContextProfile `
     ///
-    pub fn Profile(self: QSurfaceFormat) i32 {
+    pub fn profile(self: QSurfaceFormat) i32 {
         return qtc.QSurfaceFormat_Profile(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setRenderableType` instead
+    ///
+    pub const SetRenderableType = setRenderableType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setRenderableType)
     ///
@@ -278,9 +374,13 @@ pub const QSurfaceFormat = extern struct {
     ///
     /// ` typeVal: qsurfaceformat_enums.RenderableType `
     ///
-    pub fn SetRenderableType(self: QSurfaceFormat, typeVal: i32) void {
+    pub fn setRenderableType(self: QSurfaceFormat, typeVal: i32) void {
         qtc.QSurfaceFormat_SetRenderableType(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `renderableType` instead
+    ///
+    pub const RenderableType = renderableType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#renderableType)
     ///
@@ -292,9 +392,13 @@ pub const QSurfaceFormat = extern struct {
     ///
     /// ` qsurfaceformat_enums.RenderableType `
     ///
-    pub fn RenderableType(self: QSurfaceFormat) i32 {
+    pub fn renderableType(self: QSurfaceFormat) i32 {
         return qtc.QSurfaceFormat_RenderableType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMajorVersion` instead
+    ///
+    pub const SetMajorVersion = setMajorVersion;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setMajorVersion)
     ///
@@ -302,11 +406,15 @@ pub const QSurfaceFormat = extern struct {
     ///
     /// ` self: QSurfaceFormat `
     ///
-    /// ` majorVersion: i32 `
+    /// ` _majorVersion: i32 `
     ///
-    pub fn SetMajorVersion(self: QSurfaceFormat, majorVersion: i32) void {
-        qtc.QSurfaceFormat_SetMajorVersion(@ptrCast(self.ptr), @bitCast(majorVersion));
+    pub fn setMajorVersion(self: QSurfaceFormat, _majorVersion: i32) void {
+        qtc.QSurfaceFormat_SetMajorVersion(@ptrCast(self.ptr), @bitCast(_majorVersion));
     }
+
+    /// ### DEPRECATED: Use `majorVersion` instead
+    ///
+    pub const MajorVersion = majorVersion;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#majorVersion)
     ///
@@ -314,9 +422,13 @@ pub const QSurfaceFormat = extern struct {
     ///
     /// ` self: QSurfaceFormat `
     ///
-    pub fn MajorVersion(self: QSurfaceFormat) i32 {
+    pub fn majorVersion(self: QSurfaceFormat) i32 {
         return qtc.QSurfaceFormat_MajorVersion(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinorVersion` instead
+    ///
+    pub const SetMinorVersion = setMinorVersion;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setMinorVersion)
     ///
@@ -324,11 +436,15 @@ pub const QSurfaceFormat = extern struct {
     ///
     /// ` self: QSurfaceFormat `
     ///
-    /// ` minorVersion: i32 `
+    /// ` _minorVersion: i32 `
     ///
-    pub fn SetMinorVersion(self: QSurfaceFormat, minorVersion: i32) void {
-        qtc.QSurfaceFormat_SetMinorVersion(@ptrCast(self.ptr), @bitCast(minorVersion));
+    pub fn setMinorVersion(self: QSurfaceFormat, _minorVersion: i32) void {
+        qtc.QSurfaceFormat_SetMinorVersion(@ptrCast(self.ptr), @bitCast(_minorVersion));
     }
+
+    /// ### DEPRECATED: Use `minorVersion` instead
+    ///
+    pub const MinorVersion = minorVersion;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#minorVersion)
     ///
@@ -336,9 +452,13 @@ pub const QSurfaceFormat = extern struct {
     ///
     /// ` self: QSurfaceFormat `
     ///
-    pub fn MinorVersion(self: QSurfaceFormat) i32 {
+    pub fn minorVersion(self: QSurfaceFormat) i32 {
         return qtc.QSurfaceFormat_MinorVersion(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `version` instead
+    ///
+    pub const Version = version;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#version)
     ///
@@ -346,13 +466,17 @@ pub const QSurfaceFormat = extern struct {
     ///
     /// ` self: QSurfaceFormat `
     ///
-    pub fn Version(self: QSurfaceFormat) Struct_i32_i32 {
+    pub fn version(self: QSurfaceFormat) Struct_i32_i32 {
         const _pair = qtc.QSurfaceFormat_Version(@ptrCast(self.ptr));
         return .{
             .first = @bitCast(_pair.first),
             .second = @bitCast(_pair.second),
         };
     }
+
+    /// ### DEPRECATED: Use `setVersion` instead
+    ///
+    pub const SetVersion = setVersion;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setVersion)
     ///
@@ -364,9 +488,13 @@ pub const QSurfaceFormat = extern struct {
     ///
     /// ` minor: i32 `
     ///
-    pub fn SetVersion(self: QSurfaceFormat, major: i32, minor: i32) void {
+    pub fn setVersion(self: QSurfaceFormat, major: i32, minor: i32) void {
         qtc.QSurfaceFormat_SetVersion(@ptrCast(self.ptr), @bitCast(major), @bitCast(minor));
     }
+
+    /// ### DEPRECATED: Use `stereo` instead
+    ///
+    pub const Stereo = stereo;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#stereo)
     ///
@@ -374,9 +502,13 @@ pub const QSurfaceFormat = extern struct {
     ///
     /// ` self: QSurfaceFormat `
     ///
-    pub fn Stereo(self: QSurfaceFormat) bool {
+    pub fn stereo(self: QSurfaceFormat) bool {
         return qtc.QSurfaceFormat_Stereo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStereo` instead
+    ///
+    pub const SetStereo = setStereo;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setStereo)
     ///
@@ -386,9 +518,13 @@ pub const QSurfaceFormat = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetStereo(self: QSurfaceFormat, enable: bool) void {
+    pub fn setStereo(self: QSurfaceFormat, enable: bool) void {
         qtc.QSurfaceFormat_SetStereo(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `setOptions` instead
+    ///
+    pub const SetOptions = setOptions;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setOptions)
     ///
@@ -396,11 +532,15 @@ pub const QSurfaceFormat = extern struct {
     ///
     /// ` self: QSurfaceFormat `
     ///
-    /// ` options: flag of qsurfaceformat_enums.FormatOption `
+    /// ` _options: flag of qsurfaceformat_enums.FormatOption `
     ///
-    pub fn SetOptions(self: QSurfaceFormat, options: i32) void {
-        qtc.QSurfaceFormat_SetOptions(@ptrCast(self.ptr), @bitCast(options));
+    pub fn setOptions(self: QSurfaceFormat, _options: i32) void {
+        qtc.QSurfaceFormat_SetOptions(@ptrCast(self.ptr), @bitCast(_options));
     }
+
+    /// ### DEPRECATED: Use `setOption` instead
+    ///
+    pub const SetOption = setOption;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setOption)
     ///
@@ -410,9 +550,13 @@ pub const QSurfaceFormat = extern struct {
     ///
     /// ` option: qsurfaceformat_enums.FormatOption `
     ///
-    pub fn SetOption(self: QSurfaceFormat, option: i32) void {
+    pub fn setOption(self: QSurfaceFormat, option: i32) void {
         qtc.QSurfaceFormat_SetOption(@ptrCast(self.ptr), @bitCast(option));
     }
+
+    /// ### DEPRECATED: Use `testOption` instead
+    ///
+    pub const TestOption = testOption;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#testOption)
     ///
@@ -422,9 +566,13 @@ pub const QSurfaceFormat = extern struct {
     ///
     /// ` option: qsurfaceformat_enums.FormatOption `
     ///
-    pub fn TestOption(self: QSurfaceFormat, option: i32) bool {
+    pub fn testOption(self: QSurfaceFormat, option: i32) bool {
         return qtc.QSurfaceFormat_TestOption(@ptrCast(self.ptr), @bitCast(option));
     }
+
+    /// ### DEPRECATED: Use `options` instead
+    ///
+    pub const Options = options;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#options)
     ///
@@ -436,9 +584,13 @@ pub const QSurfaceFormat = extern struct {
     ///
     /// ` flag of qsurfaceformat_enums.FormatOption `
     ///
-    pub fn Options(self: QSurfaceFormat) i32 {
+    pub fn options(self: QSurfaceFormat) i32 {
         return qtc.QSurfaceFormat_Options(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `swapInterval` instead
+    ///
+    pub const SwapInterval = swapInterval;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#swapInterval)
     ///
@@ -446,9 +598,13 @@ pub const QSurfaceFormat = extern struct {
     ///
     /// ` self: QSurfaceFormat `
     ///
-    pub fn SwapInterval(self: QSurfaceFormat) i32 {
+    pub fn swapInterval(self: QSurfaceFormat) i32 {
         return qtc.QSurfaceFormat_SwapInterval(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSwapInterval` instead
+    ///
+    pub const SetSwapInterval = setSwapInterval;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setSwapInterval)
     ///
@@ -458,9 +614,13 @@ pub const QSurfaceFormat = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn SetSwapInterval(self: QSurfaceFormat, interval: i32) void {
+    pub fn setSwapInterval(self: QSurfaceFormat, interval: i32) void {
         qtc.QSurfaceFormat_SetSwapInterval(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `colorSpace` instead
+    ///
+    pub const ColorSpace = colorSpace;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#colorSpace)
     ///
@@ -468,22 +628,13 @@ pub const QSurfaceFormat = extern struct {
     ///
     /// ` self: QSurfaceFormat `
     ///
-    pub fn ColorSpace(self: QSurfaceFormat) QColorSpace {
+    pub fn colorSpace(self: QSurfaceFormat) QColorSpace {
         return .{ .ptr = qtc.QSurfaceFormat_ColorSpace(@ptrCast(self.ptr)) };
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setColorSpace)
+    /// ### DEPRECATED: Use `setColorSpace` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSurfaceFormat `
-    ///
-    /// ` colorSpace: QColorSpace `
-    ///
-    pub fn SetColorSpace(self: QSurfaceFormat, colorSpace: anytype) void {
-        comptime _ = @TypeOf(colorSpace)._is_QColorSpace;
-        qtc.QSurfaceFormat_SetColorSpace(@ptrCast(self.ptr), @ptrCast(colorSpace.ptr));
-    }
+    pub const SetColorSpace = setColorSpace;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setColorSpace)
     ///
@@ -491,11 +642,32 @@ pub const QSurfaceFormat = extern struct {
     ///
     /// ` self: QSurfaceFormat `
     ///
-    /// ` colorSpace: qsurfaceformat_enums.ColorSpace `
+    /// ` _colorSpace: QColorSpace `
     ///
-    pub fn SetColorSpace2(self: QSurfaceFormat, colorSpace: i32) void {
-        qtc.QSurfaceFormat_SetColorSpace2(@ptrCast(self.ptr), @bitCast(colorSpace));
+    pub fn setColorSpace(self: QSurfaceFormat, _colorSpace: anytype) void {
+        comptime _ = @TypeOf(_colorSpace)._is_QColorSpace;
+        qtc.QSurfaceFormat_SetColorSpace(@ptrCast(self.ptr), @ptrCast(_colorSpace.ptr));
     }
+
+    /// ### DEPRECATED: Use `setColorSpace2` instead
+    ///
+    pub const SetColorSpace2 = setColorSpace2;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setColorSpace)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QSurfaceFormat `
+    ///
+    /// ` _colorSpace: qsurfaceformat_enums.ColorSpace `
+    ///
+    pub fn setColorSpace2(self: QSurfaceFormat, _colorSpace: i32) void {
+        qtc.QSurfaceFormat_SetColorSpace2(@ptrCast(self.ptr), @bitCast(_colorSpace));
+    }
+
+    /// ### DEPRECATED: Use `setDefaultFormat` instead
+    ///
+    pub const SetDefaultFormat = setDefaultFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setDefaultFormat)
     ///
@@ -503,16 +675,24 @@ pub const QSurfaceFormat = extern struct {
     ///
     /// ` format: QSurfaceFormat `
     ///
-    pub fn SetDefaultFormat(format: anytype) void {
+    pub fn setDefaultFormat(format: anytype) void {
         comptime _ = @TypeOf(format)._is_QSurfaceFormat;
         qtc.QSurfaceFormat_SetDefaultFormat(@ptrCast(format.ptr));
     }
 
+    /// ### DEPRECATED: Use `defaultFormat` instead
+    ///
+    pub const DefaultFormat = defaultFormat;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#defaultFormat)
     ///
-    pub fn DefaultFormat() QSurfaceFormat {
+    pub fn defaultFormat() QSurfaceFormat {
         return .{ .ptr = qtc.QSurfaceFormat_DefaultFormat() };
     }
+
+    /// ### DEPRECATED: Use `setOption2` instead
+    ///
+    pub const SetOption2 = setOption2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setOption)
     ///
@@ -524,23 +704,23 @@ pub const QSurfaceFormat = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetOption2(self: QSurfaceFormat, option: i32, on: bool) void {
+    pub fn setOption2(self: QSurfaceFormat, option: i32, on: bool) void {
         qtc.QSurfaceFormat_SetOption2(@ptrCast(self.ptr), @bitCast(option), on);
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#dtor.QSurfaceFormat)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QSurfaceFormat `
     ///
-    pub fn Delete(self: QSurfaceFormat) void {
+    pub fn delete(self: QSurfaceFormat) void {
         qtc.QSurfaceFormat_Delete(@ptrCast(self.ptr));
     }
 };

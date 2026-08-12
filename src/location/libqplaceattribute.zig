@@ -12,22 +12,34 @@ pub const QPlaceAttribute = extern struct {
 
     pub const _is_QPlaceAttribute = {};
 
-    /// New constructs a new QPlaceAttribute object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QPlaceAttribute {
+    pub const New = new;
+
+    /// Allocate a new QPlaceAttribute object in C++ memory
+    ///
+    pub fn new() QPlaceAttribute {
         return .{ .ptr = qtc.QPlaceAttribute_new() };
     }
 
-    /// New2 constructs a new QPlaceAttribute object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QPlaceAttribute object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QPlaceAttribute `
     ///
-    pub fn New2(other: anytype) QPlaceAttribute {
+    pub fn new2(other: anytype) QPlaceAttribute {
         comptime _ = @TypeOf(other)._is_QPlaceAttribute;
         return .{ .ptr = qtc.QPlaceAttribute_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceattribute.html#operator-eq)
     ///
@@ -37,10 +49,14 @@ pub const QPlaceAttribute = extern struct {
     ///
     /// ` other: QPlaceAttribute `
     ///
-    pub fn OperatorAssign(self: QPlaceAttribute, other: anytype) void {
+    pub fn operatorAssign(self: QPlaceAttribute, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QPlaceAttribute;
         qtc.QPlaceAttribute_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceattribute.html#swap)
     ///
@@ -50,10 +66,14 @@ pub const QPlaceAttribute = extern struct {
     ///
     /// ` other: QPlaceAttribute `
     ///
-    pub fn Swap(self: QPlaceAttribute, other: anytype) void {
+    pub fn swap(self: QPlaceAttribute, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QPlaceAttribute;
         qtc.QPlaceAttribute_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `label` instead
+    ///
+    pub const Label = label;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceattribute.html#label)
     ///
@@ -63,13 +83,17 @@ pub const QPlaceAttribute = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Label(self: QPlaceAttribute, allocator: std.mem.Allocator) []const u8 {
+    pub fn label(self: QPlaceAttribute, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QPlaceAttribute_Label(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceAttribute.Label: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceAttribute.label: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setLabel` instead
+    ///
+    pub const SetLabel = setLabel;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceattribute.html#setLabel)
     ///
@@ -77,15 +101,19 @@ pub const QPlaceAttribute = extern struct {
     ///
     /// ` self: QPlaceAttribute `
     ///
-    /// ` label: []const u8 `
+    /// ` _label: []const u8 `
     ///
-    pub fn SetLabel(self: QPlaceAttribute, label: []const u8) void {
+    pub fn setLabel(self: QPlaceAttribute, _label: []const u8) void {
         const label_str = qtc.libqt_string{
-            .len = label.len,
-            .data = label.ptr,
+            .len = _label.len,
+            .data = _label.ptr,
         };
         qtc.QPlaceAttribute_SetLabel(@ptrCast(self.ptr), label_str);
     }
+
+    /// ### DEPRECATED: Use `text` instead
+    ///
+    pub const Text = text;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceattribute.html#text)
     ///
@@ -95,13 +123,17 @@ pub const QPlaceAttribute = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: QPlaceAttribute, allocator: std.mem.Allocator) []const u8 {
+    pub fn text(self: QPlaceAttribute, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QPlaceAttribute_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceAttribute.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceAttribute.text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setText` instead
+    ///
+    pub const SetText = setText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceattribute.html#setText)
     ///
@@ -109,15 +141,19 @@ pub const QPlaceAttribute = extern struct {
     ///
     /// ` self: QPlaceAttribute `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn SetText(self: QPlaceAttribute, text: []const u8) void {
+    pub fn setText(self: QPlaceAttribute, _text: []const u8) void {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         qtc.QPlaceAttribute_SetText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `isEmpty` instead
+    ///
+    pub const IsEmpty = isEmpty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceattribute.html#isEmpty)
     ///
@@ -125,23 +161,23 @@ pub const QPlaceAttribute = extern struct {
     ///
     /// ` self: QPlaceAttribute `
     ///
-    pub fn IsEmpty(self: QPlaceAttribute) bool {
+    pub fn isEmpty(self: QPlaceAttribute) bool {
         return qtc.QPlaceAttribute_IsEmpty(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceattribute.html#dtor.QPlaceAttribute)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QPlaceAttribute `
     ///
-    pub fn Delete(self: QPlaceAttribute) void {
+    pub fn delete(self: QPlaceAttribute) void {
         qtc.QPlaceAttribute_Delete(@ptrCast(self.ptr));
     }
 };

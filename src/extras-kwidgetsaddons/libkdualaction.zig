@@ -33,39 +33,51 @@ pub const KDualAction = extern struct {
     pub const _is_QAction = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new KDualAction object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KDualAction object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New(parent: anytype) KDualAction {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.KDualAction_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) KDualAction {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.KDualAction_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new KDualAction object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KDualAction object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` inactiveText: []const u8 `
+    /// ` _inactiveText: []const u8 `
     ///
-    /// ` activeText: []const u8 `
+    /// ` _activeText: []const u8 `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(inactiveText: []const u8, activeText: []const u8, parent: anytype) KDualAction {
+    pub fn new2(_inactiveText: []const u8, _activeText: []const u8, _parent: anytype) KDualAction {
         const inactiveText_str = qtc.libqt_string{
-            .len = inactiveText.len,
-            .data = inactiveText.ptr,
+            .len = _inactiveText.len,
+            .data = _inactiveText.ptr,
         };
         const activeText_str = qtc.libqt_string{
-            .len = activeText.len,
-            .data = activeText.ptr,
+            .len = _activeText.len,
+            .data = _activeText.ptr,
         };
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.KDualAction_new2(inactiveText_str, activeText_str, @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.KDualAction_new2(inactiveText_str, activeText_str, @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -73,9 +85,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    pub fn MetaObject(self: KDualAction) QMetaObject {
+    pub fn metaObject(self: KDualAction) QMetaObject {
         return .{ .ptr = qtc.KDualAction_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -87,13 +103,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KDualAction, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KDualAction, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KDualAction_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -103,9 +119,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    pub fn SuperMetaObject(self: KDualAction) QMetaObject {
+    pub fn superMetaObject(self: KDualAction) QMetaObject {
         return .{ .ptr = qtc.KDualAction_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -113,10 +133,14 @@ pub const KDualAction = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KDualAction, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KDualAction, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KDualAction_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -126,13 +150,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` callback: *const fn (self: KDualAction, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KDualAction, callback: *const fn (KDualAction, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KDualAction, callback: *const fn (KDualAction, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KDualAction_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -142,10 +166,14 @@ pub const KDualAction = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KDualAction, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KDualAction, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KDualAction_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -157,9 +185,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KDualAction, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KDualAction, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KDualAction_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -169,13 +201,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` callback: *const fn (self: KDualAction, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KDualAction, callback: *const fn (KDualAction, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KDualAction, callback: *const fn (KDualAction, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KDualAction_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -189,9 +221,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KDualAction, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KDualAction, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KDualAction_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -201,14 +237,18 @@ pub const KDualAction = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDualAction.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDualAction.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setActiveGuiItem` instead
+    ///
+    pub const SetActiveGuiItem = setActiveGuiItem;
 
     /// ### [Upstream resources](https://api.kde.org/kdualaction.html#setActiveGuiItem)
     ///
@@ -216,12 +256,16 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    /// ` activeGuiItem: KGuiItem `
+    /// ` _activeGuiItem: KGuiItem `
     ///
-    pub fn SetActiveGuiItem(self: KDualAction, activeGuiItem: anytype) void {
-        comptime _ = @TypeOf(activeGuiItem)._is_KGuiItem;
-        qtc.KDualAction_SetActiveGuiItem(@ptrCast(self.ptr), @ptrCast(activeGuiItem.ptr));
+    pub fn setActiveGuiItem(self: KDualAction, _activeGuiItem: anytype) void {
+        comptime _ = @TypeOf(_activeGuiItem)._is_KGuiItem;
+        qtc.KDualAction_SetActiveGuiItem(@ptrCast(self.ptr), @ptrCast(_activeGuiItem.ptr));
     }
+
+    /// ### DEPRECATED: Use `activeGuiItem` instead
+    ///
+    pub const ActiveGuiItem = activeGuiItem;
 
     /// ### [Upstream resources](https://api.kde.org/kdualaction.html#activeGuiItem)
     ///
@@ -229,9 +273,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    pub fn ActiveGuiItem(self: KDualAction) KGuiItem {
+    pub fn activeGuiItem(self: KDualAction) KGuiItem {
         return .{ .ptr = qtc.KDualAction_ActiveGuiItem(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setInactiveGuiItem` instead
+    ///
+    pub const SetInactiveGuiItem = setInactiveGuiItem;
 
     /// ### [Upstream resources](https://api.kde.org/kdualaction.html#setInactiveGuiItem)
     ///
@@ -239,12 +287,16 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    /// ` inactiveGuiItem: KGuiItem `
+    /// ` _inactiveGuiItem: KGuiItem `
     ///
-    pub fn SetInactiveGuiItem(self: KDualAction, inactiveGuiItem: anytype) void {
-        comptime _ = @TypeOf(inactiveGuiItem)._is_KGuiItem;
-        qtc.KDualAction_SetInactiveGuiItem(@ptrCast(self.ptr), @ptrCast(inactiveGuiItem.ptr));
+    pub fn setInactiveGuiItem(self: KDualAction, _inactiveGuiItem: anytype) void {
+        comptime _ = @TypeOf(_inactiveGuiItem)._is_KGuiItem;
+        qtc.KDualAction_SetInactiveGuiItem(@ptrCast(self.ptr), @ptrCast(_inactiveGuiItem.ptr));
     }
+
+    /// ### DEPRECATED: Use `inactiveGuiItem` instead
+    ///
+    pub const InactiveGuiItem = inactiveGuiItem;
 
     /// ### [Upstream resources](https://api.kde.org/kdualaction.html#inactiveGuiItem)
     ///
@@ -252,9 +304,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    pub fn InactiveGuiItem(self: KDualAction) KGuiItem {
+    pub fn inactiveGuiItem(self: KDualAction) KGuiItem {
         return .{ .ptr = qtc.KDualAction_InactiveGuiItem(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setActiveIcon` instead
+    ///
+    pub const SetActiveIcon = setActiveIcon;
 
     /// ### [Upstream resources](https://api.kde.org/kdualaction.html#setActiveIcon)
     ///
@@ -262,12 +318,16 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    /// ` activeIcon: QIcon `
+    /// ` _activeIcon: QIcon `
     ///
-    pub fn SetActiveIcon(self: KDualAction, activeIcon: anytype) void {
-        comptime _ = @TypeOf(activeIcon)._is_QIcon;
-        qtc.KDualAction_SetActiveIcon(@ptrCast(self.ptr), @ptrCast(activeIcon.ptr));
+    pub fn setActiveIcon(self: KDualAction, _activeIcon: anytype) void {
+        comptime _ = @TypeOf(_activeIcon)._is_QIcon;
+        qtc.KDualAction_SetActiveIcon(@ptrCast(self.ptr), @ptrCast(_activeIcon.ptr));
     }
+
+    /// ### DEPRECATED: Use `activeIcon` instead
+    ///
+    pub const ActiveIcon = activeIcon;
 
     /// ### [Upstream resources](https://api.kde.org/kdualaction.html#activeIcon)
     ///
@@ -275,9 +335,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    pub fn ActiveIcon(self: KDualAction) QIcon {
+    pub fn activeIcon(self: KDualAction) QIcon {
         return .{ .ptr = qtc.KDualAction_ActiveIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setInactiveIcon` instead
+    ///
+    pub const SetInactiveIcon = setInactiveIcon;
 
     /// ### [Upstream resources](https://api.kde.org/kdualaction.html#setInactiveIcon)
     ///
@@ -285,12 +349,16 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    /// ` inactiveIcon: QIcon `
+    /// ` _inactiveIcon: QIcon `
     ///
-    pub fn SetInactiveIcon(self: KDualAction, inactiveIcon: anytype) void {
-        comptime _ = @TypeOf(inactiveIcon)._is_QIcon;
-        qtc.KDualAction_SetInactiveIcon(@ptrCast(self.ptr), @ptrCast(inactiveIcon.ptr));
+    pub fn setInactiveIcon(self: KDualAction, _inactiveIcon: anytype) void {
+        comptime _ = @TypeOf(_inactiveIcon)._is_QIcon;
+        qtc.KDualAction_SetInactiveIcon(@ptrCast(self.ptr), @ptrCast(_inactiveIcon.ptr));
     }
+
+    /// ### DEPRECATED: Use `inactiveIcon` instead
+    ///
+    pub const InactiveIcon = inactiveIcon;
 
     /// ### [Upstream resources](https://api.kde.org/kdualaction.html#inactiveIcon)
     ///
@@ -298,9 +366,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    pub fn InactiveIcon(self: KDualAction) QIcon {
+    pub fn inactiveIcon(self: KDualAction) QIcon {
         return .{ .ptr = qtc.KDualAction_InactiveIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setActiveText` instead
+    ///
+    pub const SetActiveText = setActiveText;
 
     /// ### [Upstream resources](https://api.kde.org/kdualaction.html#setActiveText)
     ///
@@ -308,15 +380,19 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    /// ` activeText: []const u8 `
+    /// ` _activeText: []const u8 `
     ///
-    pub fn SetActiveText(self: KDualAction, activeText: []const u8) void {
+    pub fn setActiveText(self: KDualAction, _activeText: []const u8) void {
         const activeText_str = qtc.libqt_string{
-            .len = activeText.len,
-            .data = activeText.ptr,
+            .len = _activeText.len,
+            .data = _activeText.ptr,
         };
         qtc.KDualAction_SetActiveText(@ptrCast(self.ptr), activeText_str);
     }
+
+    /// ### DEPRECATED: Use `activeText` instead
+    ///
+    pub const ActiveText = activeText;
 
     /// ### [Upstream resources](https://api.kde.org/kdualaction.html#activeText)
     ///
@@ -326,13 +402,17 @@ pub const KDualAction = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ActiveText(self: KDualAction, allocator: std.mem.Allocator) []const u8 {
+    pub fn activeText(self: KDualAction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KDualAction_ActiveText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDualAction.ActiveText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDualAction.activeText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setInactiveText` instead
+    ///
+    pub const SetInactiveText = setInactiveText;
 
     /// ### [Upstream resources](https://api.kde.org/kdualaction.html#setInactiveText)
     ///
@@ -340,15 +420,19 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    /// ` inactiveText: []const u8 `
+    /// ` _inactiveText: []const u8 `
     ///
-    pub fn SetInactiveText(self: KDualAction, inactiveText: []const u8) void {
+    pub fn setInactiveText(self: KDualAction, _inactiveText: []const u8) void {
         const inactiveText_str = qtc.libqt_string{
-            .len = inactiveText.len,
-            .data = inactiveText.ptr,
+            .len = _inactiveText.len,
+            .data = _inactiveText.ptr,
         };
         qtc.KDualAction_SetInactiveText(@ptrCast(self.ptr), inactiveText_str);
     }
+
+    /// ### DEPRECATED: Use `inactiveText` instead
+    ///
+    pub const InactiveText = inactiveText;
 
     /// ### [Upstream resources](https://api.kde.org/kdualaction.html#inactiveText)
     ///
@@ -358,13 +442,17 @@ pub const KDualAction = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn InactiveText(self: KDualAction, allocator: std.mem.Allocator) []const u8 {
+    pub fn inactiveText(self: KDualAction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KDualAction_InactiveText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDualAction.InactiveText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDualAction.inactiveText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setActiveToolTip` instead
+    ///
+    pub const SetActiveToolTip = setActiveToolTip;
 
     /// ### [Upstream resources](https://api.kde.org/kdualaction.html#setActiveToolTip)
     ///
@@ -372,15 +460,19 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    /// ` activeToolTip: []const u8 `
+    /// ` _activeToolTip: []const u8 `
     ///
-    pub fn SetActiveToolTip(self: KDualAction, activeToolTip: []const u8) void {
+    pub fn setActiveToolTip(self: KDualAction, _activeToolTip: []const u8) void {
         const activeToolTip_str = qtc.libqt_string{
-            .len = activeToolTip.len,
-            .data = activeToolTip.ptr,
+            .len = _activeToolTip.len,
+            .data = _activeToolTip.ptr,
         };
         qtc.KDualAction_SetActiveToolTip(@ptrCast(self.ptr), activeToolTip_str);
     }
+
+    /// ### DEPRECATED: Use `activeToolTip` instead
+    ///
+    pub const ActiveToolTip = activeToolTip;
 
     /// ### [Upstream resources](https://api.kde.org/kdualaction.html#activeToolTip)
     ///
@@ -390,13 +482,17 @@ pub const KDualAction = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ActiveToolTip(self: KDualAction, allocator: std.mem.Allocator) []const u8 {
+    pub fn activeToolTip(self: KDualAction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KDualAction_ActiveToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDualAction.ActiveToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDualAction.activeToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setInactiveToolTip` instead
+    ///
+    pub const SetInactiveToolTip = setInactiveToolTip;
 
     /// ### [Upstream resources](https://api.kde.org/kdualaction.html#setInactiveToolTip)
     ///
@@ -404,15 +500,19 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    /// ` inactiveToolTip: []const u8 `
+    /// ` _inactiveToolTip: []const u8 `
     ///
-    pub fn SetInactiveToolTip(self: KDualAction, inactiveToolTip: []const u8) void {
+    pub fn setInactiveToolTip(self: KDualAction, _inactiveToolTip: []const u8) void {
         const inactiveToolTip_str = qtc.libqt_string{
-            .len = inactiveToolTip.len,
-            .data = inactiveToolTip.ptr,
+            .len = _inactiveToolTip.len,
+            .data = _inactiveToolTip.ptr,
         };
         qtc.KDualAction_SetInactiveToolTip(@ptrCast(self.ptr), inactiveToolTip_str);
     }
+
+    /// ### DEPRECATED: Use `inactiveToolTip` instead
+    ///
+    pub const InactiveToolTip = inactiveToolTip;
 
     /// ### [Upstream resources](https://api.kde.org/kdualaction.html#inactiveToolTip)
     ///
@@ -422,13 +522,17 @@ pub const KDualAction = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn InactiveToolTip(self: KDualAction, allocator: std.mem.Allocator) []const u8 {
+    pub fn inactiveToolTip(self: KDualAction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KDualAction_InactiveToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDualAction.InactiveToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDualAction.inactiveToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setIconForStates` instead
+    ///
+    pub const SetIconForStates = setIconForStates;
 
     /// ### [Upstream resources](https://api.kde.org/kdualaction.html#setIconForStates)
     ///
@@ -436,12 +540,16 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
-    pub fn SetIconForStates(self: KDualAction, icon: anytype) void {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        qtc.KDualAction_SetIconForStates(@ptrCast(self.ptr), @ptrCast(icon.ptr));
+    pub fn setIconForStates(self: KDualAction, _icon: anytype) void {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        qtc.KDualAction_SetIconForStates(@ptrCast(self.ptr), @ptrCast(_icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActive` instead
+    ///
+    pub const IsActive = isActive;
 
     /// ### [Upstream resources](https://api.kde.org/kdualaction.html#isActive)
     ///
@@ -449,9 +557,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    pub fn IsActive(self: KDualAction) bool {
+    pub fn isActive(self: KDualAction) bool {
         return qtc.KDualAction_IsActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoToggle` instead
+    ///
+    pub const SetAutoToggle = setAutoToggle;
 
     /// ### [Upstream resources](https://api.kde.org/kdualaction.html#setAutoToggle)
     ///
@@ -459,11 +571,15 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    /// ` autoToggle: bool `
+    /// ` _autoToggle: bool `
     ///
-    pub fn SetAutoToggle(self: KDualAction, autoToggle: bool) void {
-        qtc.KDualAction_SetAutoToggle(@ptrCast(self.ptr), autoToggle);
+    pub fn setAutoToggle(self: KDualAction, _autoToggle: bool) void {
+        qtc.KDualAction_SetAutoToggle(@ptrCast(self.ptr), _autoToggle);
     }
+
+    /// ### DEPRECATED: Use `autoToggle` instead
+    ///
+    pub const AutoToggle = autoToggle;
 
     /// ### [Upstream resources](https://api.kde.org/kdualaction.html#autoToggle)
     ///
@@ -471,9 +587,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    pub fn AutoToggle(self: KDualAction) bool {
+    pub fn autoToggle(self: KDualAction) bool {
         return qtc.KDualAction_AutoToggle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setActive` instead
+    ///
+    pub const SetActive = setActive;
 
     /// ### [Upstream resources](https://api.kde.org/kdualaction.html#setActive)
     ///
@@ -483,10 +603,14 @@ pub const KDualAction = extern struct {
     ///
     /// ` state: bool `
     ///
-    pub fn SetActive(self: KDualAction, state: bool) void {
+    pub fn setActive(self: KDualAction, state: bool) void {
         qtc.KDualAction_SetActive(@ptrCast(self.ptr), state);
     }
 
+    /// ### DEPRECATED: Use `activeChanged` instead
+    ///
+    pub const ActiveChanged = activeChanged;
+
     /// ### [Upstream resources](https://api.kde.org/kdualaction.html#activeChanged)
     ///
     /// ## Parameter(s):
@@ -495,10 +619,14 @@ pub const KDualAction = extern struct {
     ///
     /// ` param1: bool `
     ///
-    pub fn ActiveChanged(self: KDualAction, param1: bool) void {
+    pub fn activeChanged(self: KDualAction, param1: bool) void {
         qtc.KDualAction_ActiveChanged(@ptrCast(self.ptr), param1);
     }
 
+    /// ### DEPRECATED: Use `onActiveChanged` instead
+    ///
+    pub const OnActiveChanged = onActiveChanged;
+
     /// ### [Upstream resources](https://api.kde.org/kdualaction.html#activeChanged)
     ///
     /// ## Parameters:
@@ -507,9 +635,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` callback: *const fn (self: KDualAction, param1: bool) callconv(.c) void `
     ///
-    pub fn OnActiveChanged(self: KDualAction, callback: *const fn (KDualAction, bool) callconv(.c) void) void {
+    pub fn onActiveChanged(self: KDualAction, callback: *const fn (KDualAction, bool) callconv(.c) void) void {
         qtc.KDualAction_Connect_ActiveChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `activeChangedByUser` instead
+    ///
+    pub const ActiveChangedByUser = activeChangedByUser;
 
     /// ### [Upstream resources](https://api.kde.org/kdualaction.html#activeChangedByUser)
     ///
@@ -519,9 +651,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` param1: bool `
     ///
-    pub fn ActiveChangedByUser(self: KDualAction, param1: bool) void {
+    pub fn activeChangedByUser(self: KDualAction, param1: bool) void {
         qtc.KDualAction_ActiveChangedByUser(@ptrCast(self.ptr), param1);
     }
+
+    /// ### DEPRECATED: Use `onActiveChangedByUser` instead
+    ///
+    pub const OnActiveChangedByUser = onActiveChangedByUser;
 
     /// ### [Upstream resources](https://api.kde.org/kdualaction.html#activeChangedByUser)
     ///
@@ -531,9 +667,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` callback: *const fn (self: KDualAction, param1: bool) callconv(.c) void `
     ///
-    pub fn OnActiveChangedByUser(self: KDualAction, callback: *const fn (KDualAction, bool) callconv(.c) void) void {
+    pub fn onActiveChangedByUser(self: KDualAction, callback: *const fn (KDualAction, bool) callconv(.c) void) void {
         qtc.KDualAction_Connect_ActiveChangedByUser(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -545,15 +685,19 @@ pub const KDualAction = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDualAction.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDualAction.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -567,15 +711,19 @@ pub const KDualAction = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDualAction.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDualAction.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `associatedObjects` instead
+    ///
+    pub const AssociatedObjects = associatedObjects;
 
     /// Inherited from QAction
     ///
@@ -587,15 +735,19 @@ pub const KDualAction = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AssociatedObjects(self: KDualAction, allocator: std.mem.Allocator) []QObject {
+    pub fn associatedObjects(self: KDualAction, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QAction_AssociatedObjects(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KDualAction.AssociatedObjects: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KDualAction.associatedObjects: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setActionGroup` instead
+    ///
+    pub const SetActionGroup = setActionGroup;
 
     /// Inherited from QAction
     ///
@@ -607,10 +759,14 @@ pub const KDualAction = extern struct {
     ///
     /// ` group: QActionGroup `
     ///
-    pub fn SetActionGroup(self: KDualAction, group: anytype) void {
+    pub fn setActionGroup(self: KDualAction, group: anytype) void {
         comptime _ = @TypeOf(group)._is_QActionGroup;
         qtc.QAction_SetActionGroup(@ptrCast(self.ptr), @ptrCast(group.ptr));
     }
+
+    /// ### DEPRECATED: Use `actionGroup` instead
+    ///
+    pub const ActionGroup = actionGroup;
 
     /// Inherited from QAction
     ///
@@ -620,9 +776,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    pub fn ActionGroup(self: KDualAction) QActionGroup {
+    pub fn actionGroup(self: KDualAction) QActionGroup {
         return .{ .ptr = qtc.QAction_ActionGroup(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setIcon` instead
+    ///
+    pub const SetIcon = setIcon;
 
     /// Inherited from QAction
     ///
@@ -632,12 +792,16 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
-    pub fn SetIcon(self: KDualAction, icon: anytype) void {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        qtc.QAction_SetIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
+    pub fn setIcon(self: KDualAction, _icon: anytype) void {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        qtc.QAction_SetIcon(@ptrCast(self.ptr), @ptrCast(_icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `icon` instead
+    ///
+    pub const Icon = icon;
 
     /// Inherited from QAction
     ///
@@ -647,9 +811,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    pub fn Icon(self: KDualAction) QIcon {
+    pub fn icon(self: KDualAction) QIcon {
         return .{ .ptr = qtc.QAction_Icon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setText` instead
+    ///
+    pub const SetText = setText;
 
     /// Inherited from QAction
     ///
@@ -659,15 +827,19 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn SetText(self: KDualAction, text: []const u8) void {
+    pub fn setText(self: KDualAction, _text: []const u8) void {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         qtc.QAction_SetText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `text` instead
+    ///
+    pub const Text = text;
 
     /// Inherited from QAction
     ///
@@ -679,13 +851,17 @@ pub const KDualAction = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: KDualAction, allocator: std.mem.Allocator) []const u8 {
+    pub fn text(self: KDualAction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAction_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDualAction.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDualAction.text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setIconText` instead
+    ///
+    pub const SetIconText = setIconText;
 
     /// Inherited from QAction
     ///
@@ -695,15 +871,19 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn SetIconText(self: KDualAction, text: []const u8) void {
+    pub fn setIconText(self: KDualAction, _text: []const u8) void {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         qtc.QAction_SetIconText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `iconText` instead
+    ///
+    pub const IconText = iconText;
 
     /// Inherited from QAction
     ///
@@ -715,13 +895,17 @@ pub const KDualAction = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn IconText(self: KDualAction, allocator: std.mem.Allocator) []const u8 {
+    pub fn iconText(self: KDualAction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAction_IconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDualAction.IconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDualAction.iconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QAction
     ///
@@ -733,13 +917,17 @@ pub const KDualAction = extern struct {
     ///
     /// ` tip: []const u8 `
     ///
-    pub fn SetToolTip(self: KDualAction, tip: []const u8) void {
+    pub fn setToolTip(self: KDualAction, tip: []const u8) void {
         const tip_str = qtc.libqt_string{
             .len = tip.len,
             .data = tip.ptr,
         };
         qtc.QAction_SetToolTip(@ptrCast(self.ptr), tip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QAction
     ///
@@ -751,13 +939,17 @@ pub const KDualAction = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: KDualAction, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: KDualAction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAction_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDualAction.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDualAction.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QAction
     ///
@@ -767,15 +959,19 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: KDualAction, statusTip: []const u8) void {
+    pub fn setStatusTip(self: KDualAction, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QAction_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QAction
     ///
@@ -787,13 +983,17 @@ pub const KDualAction = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: KDualAction, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: KDualAction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAction_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDualAction.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDualAction.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QAction
     ///
@@ -805,13 +1005,17 @@ pub const KDualAction = extern struct {
     ///
     /// ` what: []const u8 `
     ///
-    pub fn SetWhatsThis(self: KDualAction, what: []const u8) void {
+    pub fn setWhatsThis(self: KDualAction, what: []const u8) void {
         const what_str = qtc.libqt_string{
             .len = what.len,
             .data = what.ptr,
         };
         qtc.QAction_SetWhatsThis(@ptrCast(self.ptr), what_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QAction
     ///
@@ -823,13 +1027,17 @@ pub const KDualAction = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: KDualAction, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: KDualAction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAction_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDualAction.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDualAction.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setPriority` instead
+    ///
+    pub const SetPriority = setPriority;
 
     /// Inherited from QAction
     ///
@@ -839,11 +1047,15 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    /// ` priority: qaction_enums.Priority `
+    /// ` _priority: qaction_enums.Priority `
     ///
-    pub fn SetPriority(self: KDualAction, priority: i32) void {
-        qtc.QAction_SetPriority(@ptrCast(self.ptr), @bitCast(priority));
+    pub fn setPriority(self: KDualAction, _priority: i32) void {
+        qtc.QAction_SetPriority(@ptrCast(self.ptr), @bitCast(_priority));
     }
+
+    /// ### DEPRECATED: Use `priority` instead
+    ///
+    pub const Priority = priority;
 
     /// Inherited from QAction
     ///
@@ -857,9 +1069,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` qaction_enums.Priority `
     ///
-    pub fn Priority(self: KDualAction) i32 {
+    pub fn priority(self: KDualAction) i32 {
         return qtc.QAction_Priority(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSeparator` instead
+    ///
+    pub const SetSeparator = setSeparator;
 
     /// Inherited from QAction
     ///
@@ -871,9 +1087,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetSeparator(self: KDualAction, b: bool) void {
+    pub fn setSeparator(self: KDualAction, b: bool) void {
         qtc.QAction_SetSeparator(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `isSeparator` instead
+    ///
+    pub const IsSeparator = isSeparator;
 
     /// Inherited from QAction
     ///
@@ -883,9 +1103,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    pub fn IsSeparator(self: KDualAction) bool {
+    pub fn isSeparator(self: KDualAction) bool {
         return qtc.QAction_IsSeparator(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setShortcut` instead
+    ///
+    pub const SetShortcut = setShortcut;
 
     /// Inherited from QAction
     ///
@@ -895,12 +1119,16 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    /// ` shortcut: QKeySequence `
+    /// ` _shortcut: QKeySequence `
     ///
-    pub fn SetShortcut(self: KDualAction, shortcut: anytype) void {
-        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
-        qtc.QAction_SetShortcut(@ptrCast(self.ptr), @ptrCast(shortcut.ptr));
+    pub fn setShortcut(self: KDualAction, _shortcut: anytype) void {
+        comptime _ = @TypeOf(_shortcut)._is_QKeySequence;
+        qtc.QAction_SetShortcut(@ptrCast(self.ptr), @ptrCast(_shortcut.ptr));
     }
+
+    /// ### DEPRECATED: Use `shortcut` instead
+    ///
+    pub const Shortcut = shortcut;
 
     /// Inherited from QAction
     ///
@@ -910,9 +1138,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    pub fn Shortcut(self: KDualAction) QKeySequence {
+    pub fn shortcut(self: KDualAction) QKeySequence {
         return .{ .ptr = qtc.QAction_Shortcut(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setShortcuts` instead
+    ///
+    pub const SetShortcuts = setShortcuts;
 
     /// Inherited from QAction
     ///
@@ -922,16 +1154,20 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    /// ` shortcuts: []QKeySequence `
+    /// ` _shortcuts: []QKeySequence `
     ///
-    pub fn SetShortcuts(self: KDualAction, shortcuts: []QKeySequence) void {
+    pub fn setShortcuts(self: KDualAction, _shortcuts: []QKeySequence) void {
         const shortcuts_list = qtc.libqt_list{
-            .len = shortcuts.len,
-            .data = @ptrCast(shortcuts.ptr),
+            .len = _shortcuts.len,
+            .data = @ptrCast(_shortcuts.ptr),
         };
         qtc.QAction_SetShortcuts(@ptrCast(self.ptr), shortcuts_list);
     }
 
+    /// ### DEPRECATED: Use `setShortcuts2` instead
+    ///
+    pub const SetShortcuts2 = setShortcuts2;
+
     /// Inherited from QAction
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setShortcuts)
@@ -940,11 +1176,15 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    /// ` shortcuts: qkeysequence_enums.StandardKey `
+    /// ` _shortcuts: qkeysequence_enums.StandardKey `
     ///
-    pub fn SetShortcuts2(self: KDualAction, shortcuts: i32) void {
-        qtc.QAction_SetShortcuts2(@ptrCast(self.ptr), @bitCast(shortcuts));
+    pub fn setShortcuts2(self: KDualAction, _shortcuts: i32) void {
+        qtc.QAction_SetShortcuts2(@ptrCast(self.ptr), @bitCast(_shortcuts));
     }
+
+    /// ### DEPRECATED: Use `shortcuts` instead
+    ///
+    pub const Shortcuts = shortcuts;
 
     /// Inherited from QAction
     ///
@@ -956,15 +1196,19 @@ pub const KDualAction = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Shortcuts(self: KDualAction, allocator: std.mem.Allocator) []QKeySequence {
+    pub fn shortcuts(self: KDualAction, allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.QAction_Shortcuts(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KDualAction.Shortcuts: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KDualAction.shortcuts: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setShortcutContext` instead
+    ///
+    pub const SetShortcutContext = setShortcutContext;
 
     /// Inherited from QAction
     ///
@@ -976,9 +1220,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn SetShortcutContext(self: KDualAction, context: i32) void {
+    pub fn setShortcutContext(self: KDualAction, context: i32) void {
         qtc.QAction_SetShortcutContext(@ptrCast(self.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `shortcutContext` instead
+    ///
+    pub const ShortcutContext = shortcutContext;
 
     /// Inherited from QAction
     ///
@@ -992,9 +1240,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` qnamespace_enums.ShortcutContext `
     ///
-    pub fn ShortcutContext(self: KDualAction) i32 {
+    pub fn shortcutContext(self: KDualAction) i32 {
         return qtc.QAction_ShortcutContext(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoRepeat` instead
+    ///
+    pub const SetAutoRepeat = setAutoRepeat;
 
     /// Inherited from QAction
     ///
@@ -1004,11 +1256,15 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    /// ` autoRepeat: bool `
+    /// ` _autoRepeat: bool `
     ///
-    pub fn SetAutoRepeat(self: KDualAction, autoRepeat: bool) void {
-        qtc.QAction_SetAutoRepeat(@ptrCast(self.ptr), autoRepeat);
+    pub fn setAutoRepeat(self: KDualAction, _autoRepeat: bool) void {
+        qtc.QAction_SetAutoRepeat(@ptrCast(self.ptr), _autoRepeat);
     }
+
+    /// ### DEPRECATED: Use `autoRepeat` instead
+    ///
+    pub const AutoRepeat = autoRepeat;
 
     /// Inherited from QAction
     ///
@@ -1018,9 +1274,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    pub fn AutoRepeat(self: KDualAction) bool {
+    pub fn autoRepeat(self: KDualAction) bool {
         return qtc.QAction_AutoRepeat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QAction
     ///
@@ -1030,12 +1290,16 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: KDualAction, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QAction_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: KDualAction, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QAction_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QAction
     ///
@@ -1045,9 +1309,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    pub fn Font(self: KDualAction) QFont {
+    pub fn font(self: KDualAction) QFont {
         return .{ .ptr = qtc.QAction_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCheckable` instead
+    ///
+    pub const SetCheckable = setCheckable;
 
     /// Inherited from QAction
     ///
@@ -1059,9 +1327,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` checkable: bool `
     ///
-    pub fn SetCheckable(self: KDualAction, checkable: bool) void {
+    pub fn setCheckable(self: KDualAction, checkable: bool) void {
         qtc.QAction_SetCheckable(@ptrCast(self.ptr), checkable);
     }
+
+    /// ### DEPRECATED: Use `isCheckable` instead
+    ///
+    pub const IsCheckable = isCheckable;
 
     /// Inherited from QAction
     ///
@@ -1071,9 +1343,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    pub fn IsCheckable(self: KDualAction) bool {
+    pub fn isCheckable(self: KDualAction) bool {
         return qtc.QAction_IsCheckable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `data` instead
+    ///
+    pub const Data = data;
 
     /// Inherited from QAction
     ///
@@ -1083,9 +1359,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    pub fn Data(self: KDualAction) QVariant {
+    pub fn data(self: KDualAction) QVariant {
         return .{ .ptr = qtc.QAction_Data(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setData` instead
+    ///
+    pub const SetData = setData;
 
     /// Inherited from QAction
     ///
@@ -1097,10 +1377,14 @@ pub const KDualAction = extern struct {
     ///
     /// ` varVal: QVariant `
     ///
-    pub fn SetData(self: KDualAction, varVal: anytype) void {
+    pub fn setData(self: KDualAction, varVal: anytype) void {
         comptime _ = @TypeOf(varVal)._is_QVariant;
         qtc.QAction_SetData(@ptrCast(self.ptr), @ptrCast(varVal.ptr));
     }
+
+    /// ### DEPRECATED: Use `isChecked` instead
+    ///
+    pub const IsChecked = isChecked;
 
     /// Inherited from QAction
     ///
@@ -1110,9 +1394,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    pub fn IsChecked(self: KDualAction) bool {
+    pub fn isChecked(self: KDualAction) bool {
         return qtc.QAction_IsChecked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QAction
     ///
@@ -1122,9 +1410,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    pub fn IsEnabled(self: KDualAction) bool {
+    pub fn isEnabled(self: KDualAction) bool {
         return qtc.QAction_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QAction
     ///
@@ -1134,9 +1426,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    pub fn IsVisible(self: KDualAction) bool {
+    pub fn isVisible(self: KDualAction) bool {
         return qtc.QAction_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activate` instead
+    ///
+    pub const Activate = activate;
 
     /// Inherited from QAction
     ///
@@ -1146,11 +1442,15 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    /// ` event: qaction_enums.ActionEvent `
+    /// ` _event: qaction_enums.ActionEvent `
     ///
-    pub fn Activate(self: KDualAction, event: i32) void {
-        qtc.QAction_Activate(@ptrCast(self.ptr), @bitCast(event));
+    pub fn activate(self: KDualAction, _event: i32) void {
+        qtc.QAction_Activate(@ptrCast(self.ptr), @bitCast(_event));
     }
+
+    /// ### DEPRECATED: Use `setMenuRole` instead
+    ///
+    pub const SetMenuRole = setMenuRole;
 
     /// Inherited from QAction
     ///
@@ -1160,11 +1460,15 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    /// ` menuRole: qaction_enums.MenuRole `
+    /// ` _menuRole: qaction_enums.MenuRole `
     ///
-    pub fn SetMenuRole(self: KDualAction, menuRole: i32) void {
-        qtc.QAction_SetMenuRole(@ptrCast(self.ptr), @bitCast(menuRole));
+    pub fn setMenuRole(self: KDualAction, _menuRole: i32) void {
+        qtc.QAction_SetMenuRole(@ptrCast(self.ptr), @bitCast(_menuRole));
     }
+
+    /// ### DEPRECATED: Use `menuRole` instead
+    ///
+    pub const MenuRole = menuRole;
 
     /// Inherited from QAction
     ///
@@ -1178,9 +1482,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` qaction_enums.MenuRole `
     ///
-    pub fn MenuRole(self: KDualAction) i32 {
+    pub fn menuRole(self: KDualAction) i32 {
         return qtc.QAction_MenuRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setIconVisibleInMenu` instead
+    ///
+    pub const SetIconVisibleInMenu = setIconVisibleInMenu;
 
     /// Inherited from QAction
     ///
@@ -1192,9 +1500,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetIconVisibleInMenu(self: KDualAction, visible: bool) void {
+    pub fn setIconVisibleInMenu(self: KDualAction, visible: bool) void {
         qtc.QAction_SetIconVisibleInMenu(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `isIconVisibleInMenu` instead
+    ///
+    pub const IsIconVisibleInMenu = isIconVisibleInMenu;
 
     /// Inherited from QAction
     ///
@@ -1204,9 +1516,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    pub fn IsIconVisibleInMenu(self: KDualAction) bool {
+    pub fn isIconVisibleInMenu(self: KDualAction) bool {
         return qtc.QAction_IsIconVisibleInMenu(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setShortcutVisibleInContextMenu` instead
+    ///
+    pub const SetShortcutVisibleInContextMenu = setShortcutVisibleInContextMenu;
 
     /// Inherited from QAction
     ///
@@ -1218,9 +1534,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` show: bool `
     ///
-    pub fn SetShortcutVisibleInContextMenu(self: KDualAction, show: bool) void {
+    pub fn setShortcutVisibleInContextMenu(self: KDualAction, show: bool) void {
         qtc.QAction_SetShortcutVisibleInContextMenu(@ptrCast(self.ptr), show);
     }
+
+    /// ### DEPRECATED: Use `isShortcutVisibleInContextMenu` instead
+    ///
+    pub const IsShortcutVisibleInContextMenu = isShortcutVisibleInContextMenu;
 
     /// Inherited from QAction
     ///
@@ -1230,9 +1550,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    pub fn IsShortcutVisibleInContextMenu(self: KDualAction) bool {
+    pub fn isShortcutVisibleInContextMenu(self: KDualAction) bool {
         return qtc.QAction_IsShortcutVisibleInContextMenu(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showStatusText` instead
+    ///
+    pub const ShowStatusText = showStatusText;
 
     /// Inherited from QAction
     ///
@@ -1242,9 +1566,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    pub fn ShowStatusText(self: KDualAction) bool {
+    pub fn showStatusText(self: KDualAction) bool {
         return qtc.QAction_ShowStatusText(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `trigger` instead
+    ///
+    pub const Trigger = trigger;
 
     /// Inherited from QAction
     ///
@@ -1254,9 +1582,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    pub fn Trigger(self: KDualAction) void {
+    pub fn trigger(self: KDualAction) void {
         qtc.QAction_Trigger(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hover` instead
+    ///
+    pub const Hover = hover;
 
     /// Inherited from QAction
     ///
@@ -1266,9 +1598,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    pub fn Hover(self: KDualAction) void {
+    pub fn hover(self: KDualAction) void {
         qtc.QAction_Hover(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setChecked` instead
+    ///
+    pub const SetChecked = setChecked;
 
     /// Inherited from QAction
     ///
@@ -1280,9 +1616,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` checked: bool `
     ///
-    pub fn SetChecked(self: KDualAction, checked: bool) void {
+    pub fn setChecked(self: KDualAction, checked: bool) void {
         qtc.QAction_SetChecked(@ptrCast(self.ptr), checked);
     }
+
+    /// ### DEPRECATED: Use `toggle` instead
+    ///
+    pub const Toggle = toggle;
 
     /// Inherited from QAction
     ///
@@ -1292,9 +1632,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    pub fn Toggle(self: KDualAction) void {
+    pub fn toggle(self: KDualAction) void {
         qtc.QAction_Toggle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QAction
     ///
@@ -1306,9 +1650,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: KDualAction, enabled: bool) void {
+    pub fn setEnabled(self: KDualAction, enabled: bool) void {
         qtc.QAction_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `resetEnabled` instead
+    ///
+    pub const ResetEnabled = resetEnabled;
 
     /// Inherited from QAction
     ///
@@ -1318,9 +1666,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    pub fn ResetEnabled(self: KDualAction) void {
+    pub fn resetEnabled(self: KDualAction) void {
         qtc.QAction_ResetEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QAction
     ///
@@ -1332,9 +1684,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetDisabled(self: KDualAction, b: bool) void {
+    pub fn setDisabled(self: KDualAction, b: bool) void {
         qtc.QAction_SetDisabled(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QAction
     ///
@@ -1346,9 +1702,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: KDualAction, visible: bool) void {
+    pub fn setVisible(self: KDualAction, visible: bool) void {
         qtc.QAction_SetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `changed` instead
+    ///
+    pub const Changed = changed;
 
     /// Inherited from QAction
     ///
@@ -1358,9 +1718,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    pub fn Changed(self: KDualAction) void {
+    pub fn changed(self: KDualAction) void {
         qtc.QAction_Changed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChanged` instead
+    ///
+    pub const OnChanged = onChanged;
 
     /// Inherited from QAction
     ///
@@ -1372,9 +1736,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` callback: *const fn (self: KDualAction) callconv(.c) void `
     ///
-    pub fn OnChanged(self: KDualAction, callback: *const fn (KDualAction) callconv(.c) void) void {
+    pub fn onChanged(self: KDualAction, callback: *const fn (KDualAction) callconv(.c) void) void {
         qtc.QAction_Connect_Changed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enabledChanged` instead
+    ///
+    pub const EnabledChanged = enabledChanged;
 
     /// Inherited from QAction
     ///
@@ -1386,9 +1754,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn EnabledChanged(self: KDualAction, enabled: bool) void {
+    pub fn enabledChanged(self: KDualAction, enabled: bool) void {
         qtc.QAction_EnabledChanged(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `onEnabledChanged` instead
+    ///
+    pub const OnEnabledChanged = onEnabledChanged;
 
     /// Inherited from QAction
     ///
@@ -1400,9 +1772,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` callback: *const fn (self: KDualAction, enabled: bool) callconv(.c) void `
     ///
-    pub fn OnEnabledChanged(self: KDualAction, callback: *const fn (KDualAction, bool) callconv(.c) void) void {
+    pub fn onEnabledChanged(self: KDualAction, callback: *const fn (KDualAction, bool) callconv(.c) void) void {
         qtc.QAction_Connect_EnabledChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `checkableChanged` instead
+    ///
+    pub const CheckableChanged = checkableChanged;
 
     /// Inherited from QAction
     ///
@@ -1414,9 +1790,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` checkable: bool `
     ///
-    pub fn CheckableChanged(self: KDualAction, checkable: bool) void {
+    pub fn checkableChanged(self: KDualAction, checkable: bool) void {
         qtc.QAction_CheckableChanged(@ptrCast(self.ptr), checkable);
     }
+
+    /// ### DEPRECATED: Use `onCheckableChanged` instead
+    ///
+    pub const OnCheckableChanged = onCheckableChanged;
 
     /// Inherited from QAction
     ///
@@ -1428,10 +1808,14 @@ pub const KDualAction = extern struct {
     ///
     /// ` callback: *const fn (self: KDualAction, checkable: bool) callconv(.c) void `
     ///
-    pub fn OnCheckableChanged(self: KDualAction, callback: *const fn (KDualAction, bool) callconv(.c) void) void {
+    pub fn onCheckableChanged(self: KDualAction, callback: *const fn (KDualAction, bool) callconv(.c) void) void {
         qtc.QAction_Connect_CheckableChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `visibleChanged` instead
+    ///
+    pub const VisibleChanged = visibleChanged;
+
     /// Inherited from QAction
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#visibleChanged)
@@ -1440,10 +1824,14 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    pub fn VisibleChanged(self: KDualAction) void {
+    pub fn visibleChanged(self: KDualAction) void {
         qtc.QAction_VisibleChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onVisibleChanged` instead
+    ///
+    pub const OnVisibleChanged = onVisibleChanged;
+
     /// Inherited from QAction
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#visibleChanged)
@@ -1454,10 +1842,14 @@ pub const KDualAction = extern struct {
     ///
     /// ` callback: *const fn (self: KDualAction) callconv(.c) void `
     ///
-    pub fn OnVisibleChanged(self: KDualAction, callback: *const fn (KDualAction) callconv(.c) void) void {
+    pub fn onVisibleChanged(self: KDualAction, callback: *const fn (KDualAction) callconv(.c) void) void {
         qtc.QAction_Connect_VisibleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `triggered` instead
+    ///
+    pub const Triggered = triggered;
+
     /// Inherited from QAction
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#triggered)
@@ -1466,10 +1858,14 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    pub fn Triggered(self: KDualAction) void {
+    pub fn triggered(self: KDualAction) void {
         qtc.QAction_Triggered(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onTriggered` instead
+    ///
+    pub const OnTriggered = onTriggered;
+
     /// Inherited from QAction
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#triggered)
@@ -1480,9 +1876,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` callback: *const fn (self: KDualAction) callconv(.c) void `
     ///
-    pub fn OnTriggered(self: KDualAction, callback: *const fn (KDualAction) callconv(.c) void) void {
+    pub fn onTriggered(self: KDualAction, callback: *const fn (KDualAction) callconv(.c) void) void {
         qtc.QAction_Connect_Triggered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hovered` instead
+    ///
+    pub const Hovered = hovered;
 
     /// Inherited from QAction
     ///
@@ -1492,9 +1892,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    pub fn Hovered(self: KDualAction) void {
+    pub fn hovered(self: KDualAction) void {
         qtc.QAction_Hovered(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHovered` instead
+    ///
+    pub const OnHovered = onHovered;
 
     /// Inherited from QAction
     ///
@@ -1506,9 +1910,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` callback: *const fn (self: KDualAction) callconv(.c) void `
     ///
-    pub fn OnHovered(self: KDualAction, callback: *const fn (KDualAction) callconv(.c) void) void {
+    pub fn onHovered(self: KDualAction, callback: *const fn (KDualAction) callconv(.c) void) void {
         qtc.QAction_Connect_Hovered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `toggled` instead
+    ///
+    pub const Toggled = toggled;
 
     /// Inherited from QAction
     ///
@@ -1520,9 +1928,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` param1: bool `
     ///
-    pub fn Toggled(self: KDualAction, param1: bool) void {
+    pub fn toggled(self: KDualAction, param1: bool) void {
         qtc.QAction_Toggled(@ptrCast(self.ptr), param1);
     }
+
+    /// ### DEPRECATED: Use `onToggled` instead
+    ///
+    pub const OnToggled = onToggled;
 
     /// Inherited from QAction
     ///
@@ -1534,9 +1946,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` callback: *const fn (self: KDualAction, param1: bool) callconv(.c) void `
     ///
-    pub fn OnToggled(self: KDualAction, callback: *const fn (KDualAction, bool) callconv(.c) void) void {
+    pub fn onToggled(self: KDualAction, callback: *const fn (KDualAction, bool) callconv(.c) void) void {
         qtc.QAction_Connect_Toggled(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showStatusText1` instead
+    ///
+    pub const ShowStatusText1 = showStatusText1;
 
     /// Inherited from QAction
     ///
@@ -1548,10 +1964,14 @@ pub const KDualAction = extern struct {
     ///
     /// ` object: QObject `
     ///
-    pub fn ShowStatusText1(self: KDualAction, object: anytype) bool {
+    pub fn showStatusText1(self: KDualAction, object: anytype) bool {
         comptime _ = @TypeOf(object)._is_QObject;
         return qtc.QAction_ShowStatusText1(@ptrCast(self.ptr), @ptrCast(object.ptr));
     }
+
+    /// ### DEPRECATED: Use `triggered1` instead
+    ///
+    pub const Triggered1 = triggered1;
 
     /// Inherited from QAction
     ///
@@ -1563,9 +1983,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` checked: bool `
     ///
-    pub fn Triggered1(self: KDualAction, checked: bool) void {
+    pub fn triggered1(self: KDualAction, checked: bool) void {
         qtc.QAction_Triggered1(@ptrCast(self.ptr), checked);
     }
+
+    /// ### DEPRECATED: Use `onTriggered1` instead
+    ///
+    pub const OnTriggered1 = onTriggered1;
 
     /// Inherited from QAction
     ///
@@ -1577,9 +2001,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` callback: *const fn (self: KDualAction, checked: bool) callconv(.c) void `
     ///
-    pub fn OnTriggered1(self: KDualAction, callback: *const fn (KDualAction, bool) callconv(.c) void) void {
+    pub fn onTriggered1(self: KDualAction, callback: *const fn (KDualAction, bool) callconv(.c) void) void {
         qtc.QAction_Connect_Triggered1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -1591,13 +2019,17 @@ pub const KDualAction = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KDualAction, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KDualAction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDualAction.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDualAction.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -1609,13 +2041,17 @@ pub const KDualAction = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KDualAction, name: []const u8) void {
+    pub fn setObjectName(self: KDualAction, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -1625,9 +2061,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    pub fn IsWidgetType(self: KDualAction) bool {
+    pub fn isWidgetType(self: KDualAction) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -1637,9 +2077,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    pub fn IsWindowType(self: KDualAction) bool {
+    pub fn isWindowType(self: KDualAction) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -1649,9 +2093,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    pub fn IsQuickItemType(self: KDualAction) bool {
+    pub fn isQuickItemType(self: KDualAction) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -1661,9 +2109,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    pub fn SignalsBlocked(self: KDualAction) bool {
+    pub fn signalsBlocked(self: KDualAction) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -1675,9 +2127,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KDualAction, b: bool) bool {
+    pub fn blockSignals(self: KDualAction, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -1687,9 +2143,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    pub fn Thread(self: KDualAction) QThread {
+    pub fn thread(self: KDualAction) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -1699,12 +2159,16 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KDualAction, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KDualAction, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -1716,9 +2180,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KDualAction, interval: i32) i32 {
+    pub fn startTimer(self: KDualAction, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -1730,9 +2198,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KDualAction, time: i64) i32 {
+    pub fn startTimer2(self: KDualAction, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -1744,9 +2216,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KDualAction, id: i32) void {
+    pub fn killTimer(self: KDualAction, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -1758,9 +2234,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KDualAction, id: i32) void {
+    pub fn killTimer2(self: KDualAction, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -1772,15 +2252,19 @@ pub const KDualAction = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KDualAction, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KDualAction, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KDualAction.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KDualAction.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -1790,12 +2274,16 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: KDualAction, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: KDualAction, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1807,10 +2295,14 @@ pub const KDualAction = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KDualAction, filterObj: anytype) void {
+    pub fn installEventFilter(self: KDualAction, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1822,10 +2314,14 @@ pub const KDualAction = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KDualAction, obj: anytype) void {
+    pub fn removeEventFilter(self: KDualAction, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -1833,7 +2329,7 @@ pub const KDualAction = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1841,13 +2337,17 @@ pub const KDualAction = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -1855,7 +2355,7 @@ pub const KDualAction = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1863,13 +2363,17 @@ pub const KDualAction = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -1879,18 +2383,22 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KDualAction, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KDualAction, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -1898,7 +2406,7 @@ pub const KDualAction = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1906,13 +2414,17 @@ pub const KDualAction = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -1920,7 +2432,7 @@ pub const KDualAction = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1928,13 +2440,17 @@ pub const KDualAction = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -1944,9 +2460,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    pub fn Disconnect3(self: KDualAction) bool {
+    pub fn disconnect3(self: KDualAction) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1958,10 +2478,14 @@ pub const KDualAction = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KDualAction, receiver: anytype) bool {
+    pub fn disconnect4(self: KDualAction, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1971,10 +2495,14 @@ pub const KDualAction = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1984,9 +2512,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    pub fn DumpObjectTree(self: KDualAction) void {
+    pub fn dumpObjectTree(self: KDualAction) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1996,9 +2528,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    pub fn DumpObjectInfo(self: KDualAction) void {
+    pub fn dumpObjectInfo(self: KDualAction) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -2012,11 +2548,15 @@ pub const KDualAction = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KDualAction, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KDualAction, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -2028,10 +2568,14 @@ pub const KDualAction = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KDualAction, name: [:0]const u8) QVariant {
+    pub fn property(self: KDualAction, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -2043,7 +2587,7 @@ pub const KDualAction = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KDualAction, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KDualAction, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -2051,27 +2595,19 @@ pub const KDualAction = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KDualAction.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KDualAction.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KDualAction.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KDualAction.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDualAction `
-    ///
-    pub fn BindingStorage(self: KDualAction) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -2081,9 +2617,29 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    pub fn BindingStorage2(self: KDualAction) QBindingStorage {
+    pub fn bindingStorage(self: KDualAction) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KDualAction `
+    ///
+    pub fn bindingStorage2(self: KDualAction) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -2093,9 +2649,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    pub fn Destroyed(self: KDualAction) void {
+    pub fn destroyed(self: KDualAction) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -2107,9 +2667,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` callback: *const fn (self: KDualAction) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KDualAction, callback: *const fn (KDualAction) callconv(.c) void) void {
+    pub fn onDestroyed(self: KDualAction, callback: *const fn (KDualAction) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -2119,9 +2683,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    pub fn Parent(self: KDualAction) QObject {
+    pub fn parent(self: KDualAction) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -2133,10 +2701,14 @@ pub const KDualAction = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KDualAction, classname: [:0]const u8) bool {
+    pub fn inherits(self: KDualAction, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -2146,9 +2718,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    pub fn DeleteLater(self: KDualAction) void {
+    pub fn deleteLater(self: KDualAction) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -2162,9 +2738,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KDualAction, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KDualAction, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -2178,9 +2758,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KDualAction, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KDualAction, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -2188,7 +2772,7 @@ pub const KDualAction = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2198,13 +2782,17 @@ pub const KDualAction = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -2212,7 +2800,7 @@ pub const KDualAction = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2222,13 +2810,17 @@ pub const KDualAction = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -2238,7 +2830,7 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2246,12 +2838,16 @@ pub const KDualAction = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KDualAction, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KDualAction, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -2263,10 +2859,14 @@ pub const KDualAction = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KDualAction, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KDualAction, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -2280,11 +2880,15 @@ pub const KDualAction = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KDualAction, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KDualAction, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -2300,13 +2904,17 @@ pub const KDualAction = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KDualAction, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KDualAction, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -2319,11 +2927,15 @@ pub const KDualAction = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KDualAction, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KDualAction, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -2335,10 +2947,14 @@ pub const KDualAction = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KDualAction, param1: anytype) void {
+    pub fn destroyed1(self: KDualAction, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -2350,9 +2966,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` callback: *const fn (self: KDualAction, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KDualAction, callback: *const fn (KDualAction, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KDualAction, callback: *const fn (KDualAction, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QAction
     ///
@@ -2366,14 +2986,14 @@ pub const KDualAction = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn Event(self: KDualAction, param1: anytype) bool {
+    pub fn event(self: KDualAction, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QEvent;
         return qtc.KDualAction_Event(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QAction
     ///
@@ -2387,10 +3007,14 @@ pub const KDualAction = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperEvent(self: KDualAction, param1: anytype) bool {
+    pub fn superEvent(self: KDualAction, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QEvent;
         return qtc.KDualAction_SuperEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QAction
     ///
@@ -2404,9 +3028,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` callback: *const fn (self: KDualAction, param1: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KDualAction, callback: *const fn (KDualAction, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KDualAction, callback: *const fn (KDualAction, QEvent) callconv(.c) bool) void {
         qtc.KDualAction_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -2420,17 +3048,17 @@ pub const KDualAction = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: KDualAction, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: KDualAction, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KDualAction_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KDualAction_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2444,13 +3072,17 @@ pub const KDualAction = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: KDualAction, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: KDualAction, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KDualAction_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KDualAction_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2464,9 +3096,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` callback: *const fn (self: KDualAction, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KDualAction, callback: *const fn (KDualAction, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KDualAction, callback: *const fn (KDualAction, QObject, QEvent) callconv(.c) bool) void {
         qtc.KDualAction_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -2478,16 +3114,16 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KDualAction, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KDualAction_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: KDualAction, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KDualAction_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -2499,12 +3135,16 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KDualAction, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KDualAction_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: KDualAction, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KDualAction_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -2518,9 +3158,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` callback: *const fn (self: KDualAction, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KDualAction, callback: *const fn (KDualAction, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KDualAction, callback: *const fn (KDualAction, QTimerEvent) callconv(.c) void) void {
         qtc.KDualAction_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -2532,16 +3176,16 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KDualAction, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KDualAction_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KDualAction, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KDualAction_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -2553,12 +3197,16 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KDualAction, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KDualAction_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KDualAction, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KDualAction_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -2572,9 +3220,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` callback: *const fn (self: KDualAction, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KDualAction, callback: *const fn (KDualAction, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KDualAction, callback: *const fn (KDualAction, QChildEvent) callconv(.c) void) void {
         qtc.KDualAction_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -2586,16 +3238,16 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KDualAction, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KDualAction_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KDualAction, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KDualAction_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -2607,12 +3259,16 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KDualAction, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KDualAction_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KDualAction, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KDualAction_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -2626,9 +3282,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` callback: *const fn (self: KDualAction, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KDualAction, callback: *const fn (KDualAction, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KDualAction, callback: *const fn (KDualAction, QEvent) callconv(.c) void) void {
         qtc.KDualAction_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -2642,14 +3302,14 @@ pub const KDualAction = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KDualAction, signal: anytype) void {
+    pub fn connectNotify(self: KDualAction, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KDualAction_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2663,11 +3323,15 @@ pub const KDualAction = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KDualAction, signal: anytype) void {
+    pub fn superConnectNotify(self: KDualAction, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KDualAction_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -2680,9 +3344,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` callback: *const fn (self: KDualAction, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KDualAction, callback: *const fn (KDualAction, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KDualAction, callback: *const fn (KDualAction, QMetaMethod) callconv(.c) void) void {
         qtc.KDualAction_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2696,14 +3364,14 @@ pub const KDualAction = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KDualAction, signal: anytype) void {
+    pub fn disconnectNotify(self: KDualAction, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KDualAction_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2717,10 +3385,14 @@ pub const KDualAction = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KDualAction, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KDualAction, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KDualAction_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2734,9 +3406,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` callback: *const fn (self: KDualAction, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KDualAction, callback: *const fn (KDualAction, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KDualAction, callback: *const fn (KDualAction, QMetaMethod) callconv(.c) void) void {
         qtc.KDualAction_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -2748,13 +3424,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    pub fn Sender(self: KDualAction) QObject {
+    pub fn sender(self: KDualAction) QObject {
         return .{ .ptr = qtc.KDualAction_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -2766,9 +3442,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    pub fn SuperSender(self: KDualAction) QObject {
+    pub fn superSender(self: KDualAction) QObject {
         return .{ .ptr = qtc.KDualAction_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -2782,9 +3462,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KDualAction, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KDualAction, callback: *const fn () callconv(.c) QObject) void {
         qtc.KDualAction_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2796,13 +3480,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    pub fn SenderSignalIndex(self: KDualAction) i32 {
+    pub fn senderSignalIndex(self: KDualAction) i32 {
         return qtc.KDualAction_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2814,9 +3498,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` self: KDualAction `
     ///
-    pub fn SuperSenderSignalIndex(self: KDualAction) i32 {
+    pub fn superSenderSignalIndex(self: KDualAction) i32 {
         return qtc.KDualAction_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2830,9 +3518,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KDualAction, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KDualAction, callback: *const fn () callconv(.c) i32) void {
         qtc.KDualAction_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -2846,14 +3538,14 @@ pub const KDualAction = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KDualAction, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KDualAction, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KDualAction_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -2867,10 +3559,14 @@ pub const KDualAction = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KDualAction, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KDualAction, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KDualAction_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -2884,9 +3580,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` callback: *const fn (self: KDualAction, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KDualAction, callback: *const fn (KDualAction, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KDualAction, callback: *const fn (KDualAction, [*:0]const u8) callconv(.c) i32) void {
         qtc.KDualAction_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2900,14 +3600,14 @@ pub const KDualAction = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KDualAction, signal: anytype) bool {
+    pub fn isSignalConnected(self: KDualAction, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KDualAction_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2921,10 +3621,14 @@ pub const KDualAction = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KDualAction, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KDualAction, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KDualAction_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2938,9 +3642,13 @@ pub const KDualAction = extern struct {
     ///
     /// ` callback: *const fn (self: KDualAction, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KDualAction, callback: *const fn (KDualAction, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KDualAction, callback: *const fn (KDualAction, QMetaMethod) callconv(.c) bool) void {
         qtc.KDualAction_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -2954,23 +3662,23 @@ pub const KDualAction = extern struct {
     ///
     /// ` callback: *const fn (self: KDualAction, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KDualAction, callback: *const fn (KDualAction, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KDualAction, callback: *const fn (KDualAction, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kdualaction.html#dtor.KDualAction)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KDualAction `
     ///
-    pub fn Delete(self: KDualAction) void {
+    pub fn delete(self: KDualAction) void {
         qtc.KDualAction_Delete(@ptrCast(self.ptr));
     }
 };

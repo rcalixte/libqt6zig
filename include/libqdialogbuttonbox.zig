@@ -82,95 +82,131 @@ pub const QDialogButtonBox = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new QDialogButtonBox object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QDialogButtonBox object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) QDialogButtonBox {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QDialogButtonBox_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) QDialogButtonBox {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QDialogButtonBox_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new QDialogButtonBox object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() QDialogButtonBox {
+    pub const New2 = new2;
+
+    /// Allocate a new QDialogButtonBox object in C++ memory
+    ///
+    pub fn new2() QDialogButtonBox {
         return .{ .ptr = qtc.QDialogButtonBox_new2() };
     }
 
-    /// New3 constructs a new QDialogButtonBox object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QDialogButtonBox object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` orientation: qnamespace_enums.Orientation `
+    /// ` _orientation: qnamespace_enums.Orientation `
     ///
-    pub fn New3(orientation: i32) QDialogButtonBox {
-        return .{ .ptr = qtc.QDialogButtonBox_new3(@bitCast(orientation)) };
+    pub fn new3(_orientation: i32) QDialogButtonBox {
+        return .{ .ptr = qtc.QDialogButtonBox_new3(@bitCast(_orientation)) };
     }
 
-    /// New4 constructs a new QDialogButtonBox object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QDialogButtonBox object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` buttons: flag of qdialogbuttonbox_enums.StandardButton `
+    /// ` _buttons: flag of qdialogbuttonbox_enums.StandardButton `
     ///
-    pub fn New4(buttons: i32) QDialogButtonBox {
-        return .{ .ptr = qtc.QDialogButtonBox_new4(@bitCast(buttons)) };
+    pub fn new4(_buttons: i32) QDialogButtonBox {
+        return .{ .ptr = qtc.QDialogButtonBox_new4(@bitCast(_buttons)) };
     }
 
-    /// New5 constructs a new QDialogButtonBox object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new QDialogButtonBox object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` buttons: flag of qdialogbuttonbox_enums.StandardButton `
+    /// ` _buttons: flag of qdialogbuttonbox_enums.StandardButton `
     ///
-    /// ` orientation: qnamespace_enums.Orientation `
+    /// ` _orientation: qnamespace_enums.Orientation `
     ///
-    pub fn New5(buttons: i32, orientation: i32) QDialogButtonBox {
-        return .{ .ptr = qtc.QDialogButtonBox_new5(@bitCast(buttons), @bitCast(orientation)) };
+    pub fn new5(_buttons: i32, _orientation: i32) QDialogButtonBox {
+        return .{ .ptr = qtc.QDialogButtonBox_new5(@bitCast(_buttons), @bitCast(_orientation)) };
     }
 
-    /// New6 constructs a new QDialogButtonBox object.
+    /// ### DEPRECATED: Use `new6` instead
+    ///
+    pub const New6 = new6;
+
+    /// Allocate a new QDialogButtonBox object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` orientation: qnamespace_enums.Orientation `
+    /// ` _orientation: qnamespace_enums.Orientation `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New6(orientation: i32, parent: anytype) QDialogButtonBox {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QDialogButtonBox_new6(@bitCast(orientation), @ptrCast(parent.ptr)) };
+    pub fn new6(_orientation: i32, _parent: anytype) QDialogButtonBox {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QDialogButtonBox_new6(@bitCast(_orientation), @ptrCast(_parent.ptr)) };
     }
 
-    /// New7 constructs a new QDialogButtonBox object.
+    /// ### DEPRECATED: Use `new7` instead
+    ///
+    pub const New7 = new7;
+
+    /// Allocate a new QDialogButtonBox object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` buttons: flag of qdialogbuttonbox_enums.StandardButton `
+    /// ` _buttons: flag of qdialogbuttonbox_enums.StandardButton `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New7(buttons: i32, parent: anytype) QDialogButtonBox {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QDialogButtonBox_new7(@bitCast(buttons), @ptrCast(parent.ptr)) };
+    pub fn new7(_buttons: i32, _parent: anytype) QDialogButtonBox {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QDialogButtonBox_new7(@bitCast(_buttons), @ptrCast(_parent.ptr)) };
     }
 
-    /// New8 constructs a new QDialogButtonBox object.
+    /// ### DEPRECATED: Use `new8` instead
+    ///
+    pub const New8 = new8;
+
+    /// Allocate a new QDialogButtonBox object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` buttons: flag of qdialogbuttonbox_enums.StandardButton `
+    /// ` _buttons: flag of qdialogbuttonbox_enums.StandardButton `
     ///
-    /// ` orientation: qnamespace_enums.Orientation `
+    /// ` _orientation: qnamespace_enums.Orientation `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New8(buttons: i32, orientation: i32, parent: anytype) QDialogButtonBox {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QDialogButtonBox_new8(@bitCast(buttons), @bitCast(orientation), @ptrCast(parent.ptr)) };
+    pub fn new8(_buttons: i32, _orientation: i32, _parent: anytype) QDialogButtonBox {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QDialogButtonBox_new8(@bitCast(_buttons), @bitCast(_orientation), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -178,9 +214,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn MetaObject(self: QDialogButtonBox) QMetaObject {
+    pub fn metaObject(self: QDialogButtonBox) QMetaObject {
         return .{ .ptr = qtc.QDialogButtonBox_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -192,13 +232,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QDialogButtonBox, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QDialogButtonBox, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QDialogButtonBox_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -208,9 +248,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn SuperMetaObject(self: QDialogButtonBox) QMetaObject {
+    pub fn superMetaObject(self: QDialogButtonBox) QMetaObject {
         return .{ .ptr = qtc.QDialogButtonBox_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -218,10 +262,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QDialogButtonBox, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QDialogButtonBox, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QDialogButtonBox_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -231,13 +279,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QDialogButtonBox_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -247,10 +295,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QDialogButtonBox, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QDialogButtonBox, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QDialogButtonBox_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -262,9 +314,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QDialogButtonBox, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QDialogButtonBox, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QDialogButtonBox_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -274,13 +330,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QDialogButtonBox_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -294,9 +350,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QDialogButtonBox, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QDialogButtonBox, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QDialogButtonBox_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -306,14 +366,18 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDialogButtonBox.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDialogButtonBox.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setOrientation` instead
+    ///
+    pub const SetOrientation = setOrientation;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialogbuttonbox.html#setOrientation)
     ///
@@ -321,11 +385,15 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` orientation: qnamespace_enums.Orientation `
+    /// ` _orientation: qnamespace_enums.Orientation `
     ///
-    pub fn SetOrientation(self: QDialogButtonBox, orientation: i32) void {
-        qtc.QDialogButtonBox_SetOrientation(@ptrCast(self.ptr), @bitCast(orientation));
+    pub fn setOrientation(self: QDialogButtonBox, _orientation: i32) void {
+        qtc.QDialogButtonBox_SetOrientation(@ptrCast(self.ptr), @bitCast(_orientation));
     }
+
+    /// ### DEPRECATED: Use `orientation` instead
+    ///
+    pub const Orientation = orientation;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialogbuttonbox.html#orientation)
     ///
@@ -337,9 +405,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` qnamespace_enums.Orientation `
     ///
-    pub fn Orientation(self: QDialogButtonBox) i32 {
+    pub fn orientation(self: QDialogButtonBox) i32 {
         return qtc.QDialogButtonBox_Orientation(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `addButton` instead
+    ///
+    pub const AddButton = addButton;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialogbuttonbox.html#addButton)
     ///
@@ -347,14 +419,18 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` button: QAbstractButton `
+    /// ` _button: QAbstractButton `
     ///
     /// ` role: qdialogbuttonbox_enums.ButtonRole `
     ///
-    pub fn AddButton(self: QDialogButtonBox, button: anytype, role: i32) void {
-        comptime _ = @TypeOf(button)._is_QAbstractButton;
-        qtc.QDialogButtonBox_AddButton(@ptrCast(self.ptr), @ptrCast(button.ptr), @bitCast(role));
+    pub fn addButton(self: QDialogButtonBox, _button: anytype, role: i32) void {
+        comptime _ = @TypeOf(_button)._is_QAbstractButton;
+        qtc.QDialogButtonBox_AddButton(@ptrCast(self.ptr), @ptrCast(_button.ptr), @bitCast(role));
     }
+
+    /// ### DEPRECATED: Use `addButton2` instead
+    ///
+    pub const AddButton2 = addButton2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialogbuttonbox.html#addButton)
     ///
@@ -366,7 +442,7 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` role: qdialogbuttonbox_enums.ButtonRole `
     ///
-    pub fn AddButton2(self: QDialogButtonBox, text: []const u8, role: i32) QPushButton {
+    pub fn addButton2(self: QDialogButtonBox, text: []const u8, role: i32) QPushButton {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -374,17 +450,25 @@ pub const QDialogButtonBox = extern struct {
         return .{ .ptr = qtc.QDialogButtonBox_AddButton2(@ptrCast(self.ptr), text_str, @bitCast(role)) };
     }
 
+    /// ### DEPRECATED: Use `addButton3` instead
+    ///
+    pub const AddButton3 = addButton3;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialogbuttonbox.html#addButton)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` button: qdialogbuttonbox_enums.StandardButton `
+    /// ` _button: qdialogbuttonbox_enums.StandardButton `
     ///
-    pub fn AddButton3(self: QDialogButtonBox, button: i32) QPushButton {
-        return .{ .ptr = qtc.QDialogButtonBox_AddButton3(@ptrCast(self.ptr), @bitCast(button)) };
+    pub fn addButton3(self: QDialogButtonBox, _button: i32) QPushButton {
+        return .{ .ptr = qtc.QDialogButtonBox_AddButton3(@ptrCast(self.ptr), @bitCast(_button)) };
     }
+
+    /// ### DEPRECATED: Use `removeButton` instead
+    ///
+    pub const RemoveButton = removeButton;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialogbuttonbox.html#removeButton)
     ///
@@ -392,12 +476,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` button: QAbstractButton `
+    /// ` _button: QAbstractButton `
     ///
-    pub fn RemoveButton(self: QDialogButtonBox, button: anytype) void {
-        comptime _ = @TypeOf(button)._is_QAbstractButton;
-        qtc.QDialogButtonBox_RemoveButton(@ptrCast(self.ptr), @ptrCast(button.ptr));
+    pub fn removeButton(self: QDialogButtonBox, _button: anytype) void {
+        comptime _ = @TypeOf(_button)._is_QAbstractButton;
+        qtc.QDialogButtonBox_RemoveButton(@ptrCast(self.ptr), @ptrCast(_button.ptr));
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialogbuttonbox.html#clear)
     ///
@@ -405,9 +493,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn Clear(self: QDialogButtonBox) void {
+    pub fn clear(self: QDialogButtonBox) void {
         qtc.QDialogButtonBox_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `buttons` instead
+    ///
+    pub const Buttons = buttons;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialogbuttonbox.html#buttons)
     ///
@@ -417,15 +509,19 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Buttons(self: QDialogButtonBox, allocator: std.mem.Allocator) []QAbstractButton {
+    pub fn buttons(self: QDialogButtonBox, allocator: std.mem.Allocator) []QAbstractButton {
         const _arr: qtc.libqt_list = qtc.QDialogButtonBox_Buttons(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAbstractButton, _arr.len) catch @panic("QDialogButtonBox.Buttons: Memory allocation failed");
-        const _data: [*]QtC.QAbstractButton = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAbstractButton, _arr.len) catch @panic("QDialogButtonBox.buttons: Memory allocation failed");
+        const _data_val: [*]QtC.QAbstractButton = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `buttonRole` instead
+    ///
+    pub const ButtonRole = buttonRole;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialogbuttonbox.html#buttonRole)
     ///
@@ -433,16 +529,20 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` button: QAbstractButton `
+    /// ` _button: QAbstractButton `
     ///
     /// ## Returns:
     ///
     /// ` qdialogbuttonbox_enums.ButtonRole `
     ///
-    pub fn ButtonRole(self: QDialogButtonBox, button: anytype) i32 {
-        comptime _ = @TypeOf(button)._is_QAbstractButton;
-        return qtc.QDialogButtonBox_ButtonRole(@ptrCast(self.ptr), @ptrCast(button.ptr));
+    pub fn buttonRole(self: QDialogButtonBox, _button: anytype) i32 {
+        comptime _ = @TypeOf(_button)._is_QAbstractButton;
+        return qtc.QDialogButtonBox_ButtonRole(@ptrCast(self.ptr), @ptrCast(_button.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStandardButtons` instead
+    ///
+    pub const SetStandardButtons = setStandardButtons;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialogbuttonbox.html#setStandardButtons)
     ///
@@ -450,11 +550,15 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` buttons: flag of qdialogbuttonbox_enums.StandardButton `
+    /// ` _buttons: flag of qdialogbuttonbox_enums.StandardButton `
     ///
-    pub fn SetStandardButtons(self: QDialogButtonBox, buttons: i32) void {
-        qtc.QDialogButtonBox_SetStandardButtons(@ptrCast(self.ptr), @bitCast(buttons));
+    pub fn setStandardButtons(self: QDialogButtonBox, _buttons: i32) void {
+        qtc.QDialogButtonBox_SetStandardButtons(@ptrCast(self.ptr), @bitCast(_buttons));
     }
+
+    /// ### DEPRECATED: Use `standardButtons` instead
+    ///
+    pub const StandardButtons = standardButtons;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialogbuttonbox.html#standardButtons)
     ///
@@ -466,9 +570,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` flag of qdialogbuttonbox_enums.StandardButton `
     ///
-    pub fn StandardButtons(self: QDialogButtonBox) i32 {
+    pub fn standardButtons(self: QDialogButtonBox) i32 {
         return qtc.QDialogButtonBox_StandardButtons(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `standardButton` instead
+    ///
+    pub const StandardButton = standardButton;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialogbuttonbox.html#standardButton)
     ///
@@ -476,16 +584,20 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` button: QAbstractButton `
+    /// ` _button: QAbstractButton `
     ///
     /// ## Returns:
     ///
     /// ` qdialogbuttonbox_enums.StandardButton `
     ///
-    pub fn StandardButton(self: QDialogButtonBox, button: anytype) i32 {
-        comptime _ = @TypeOf(button)._is_QAbstractButton;
-        return qtc.QDialogButtonBox_StandardButton(@ptrCast(self.ptr), @ptrCast(button.ptr));
+    pub fn standardButton(self: QDialogButtonBox, _button: anytype) i32 {
+        comptime _ = @TypeOf(_button)._is_QAbstractButton;
+        return qtc.QDialogButtonBox_StandardButton(@ptrCast(self.ptr), @ptrCast(_button.ptr));
     }
+
+    /// ### DEPRECATED: Use `button` instead
+    ///
+    pub const Button = button;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialogbuttonbox.html#button)
     ///
@@ -495,9 +607,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` which: qdialogbuttonbox_enums.StandardButton `
     ///
-    pub fn Button(self: QDialogButtonBox, which: i32) QPushButton {
+    pub fn button(self: QDialogButtonBox, which: i32) QPushButton {
         return .{ .ptr = qtc.QDialogButtonBox_Button(@ptrCast(self.ptr), @bitCast(which)) };
     }
+
+    /// ### DEPRECATED: Use `setCenterButtons` instead
+    ///
+    pub const SetCenterButtons = setCenterButtons;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialogbuttonbox.html#setCenterButtons)
     ///
@@ -507,9 +623,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` center: bool `
     ///
-    pub fn SetCenterButtons(self: QDialogButtonBox, center: bool) void {
+    pub fn setCenterButtons(self: QDialogButtonBox, center: bool) void {
         qtc.QDialogButtonBox_SetCenterButtons(@ptrCast(self.ptr), center);
     }
+
+    /// ### DEPRECATED: Use `centerButtons` instead
+    ///
+    pub const CenterButtons = centerButtons;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialogbuttonbox.html#centerButtons)
     ///
@@ -517,9 +637,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn CenterButtons(self: QDialogButtonBox) bool {
+    pub fn centerButtons(self: QDialogButtonBox) bool {
         return qtc.QDialogButtonBox_CenterButtons(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clicked` instead
+    ///
+    pub const Clicked = clicked;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialogbuttonbox.html#clicked)
     ///
@@ -527,12 +651,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` button: QAbstractButton `
+    /// ` _button: QAbstractButton `
     ///
-    pub fn Clicked(self: QDialogButtonBox, button: anytype) void {
-        comptime _ = @TypeOf(button)._is_QAbstractButton;
-        qtc.QDialogButtonBox_Clicked(@ptrCast(self.ptr), @ptrCast(button.ptr));
+    pub fn clicked(self: QDialogButtonBox, _button: anytype) void {
+        comptime _ = @TypeOf(_button)._is_QAbstractButton;
+        qtc.QDialogButtonBox_Clicked(@ptrCast(self.ptr), @ptrCast(_button.ptr));
     }
+
+    /// ### DEPRECATED: Use `onClicked` instead
+    ///
+    pub const OnClicked = onClicked;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialogbuttonbox.html#clicked)
     ///
@@ -542,20 +670,28 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, button: QAbstractButton) callconv(.c) void `
     ///
-    pub fn OnClicked(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QAbstractButton) callconv(.c) void) void {
+    pub fn onClicked(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QAbstractButton) callconv(.c) void) void {
         qtc.QDialogButtonBox_Connect_Clicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `accepted` instead
+    ///
+    pub const Accepted = accepted;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialogbuttonbox.html#accepted)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn Accepted(self: QDialogButtonBox) void {
+    pub fn accepted(self: QDialogButtonBox) void {
         qtc.QDialogButtonBox_Accepted(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onAccepted` instead
+    ///
+    pub const OnAccepted = onAccepted;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialogbuttonbox.html#accepted)
     ///
     /// ## Parameters:
@@ -564,20 +700,28 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox) callconv(.c) void `
     ///
-    pub fn OnAccepted(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox) callconv(.c) void) void {
+    pub fn onAccepted(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox) callconv(.c) void) void {
         qtc.QDialogButtonBox_Connect_Accepted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `helpRequested` instead
+    ///
+    pub const HelpRequested = helpRequested;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialogbuttonbox.html#helpRequested)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn HelpRequested(self: QDialogButtonBox) void {
+    pub fn helpRequested(self: QDialogButtonBox) void {
         qtc.QDialogButtonBox_HelpRequested(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onHelpRequested` instead
+    ///
+    pub const OnHelpRequested = onHelpRequested;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialogbuttonbox.html#helpRequested)
     ///
     /// ## Parameters:
@@ -586,9 +730,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox) callconv(.c) void `
     ///
-    pub fn OnHelpRequested(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox) callconv(.c) void) void {
+    pub fn onHelpRequested(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox) callconv(.c) void) void {
         qtc.QDialogButtonBox_Connect_HelpRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `rejected` instead
+    ///
+    pub const Rejected = rejected;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialogbuttonbox.html#rejected)
     ///
@@ -596,9 +744,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn Rejected(self: QDialogButtonBox) void {
+    pub fn rejected(self: QDialogButtonBox) void {
         qtc.QDialogButtonBox_Rejected(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onRejected` instead
+    ///
+    pub const OnRejected = onRejected;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialogbuttonbox.html#rejected)
     ///
@@ -608,9 +760,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox) callconv(.c) void `
     ///
-    pub fn OnRejected(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox) callconv(.c) void) void {
+    pub fn onRejected(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox) callconv(.c) void) void {
         qtc.QDialogButtonBox_Connect_Rejected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialogbuttonbox.html#changeEvent)
     ///
@@ -618,12 +774,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn ChangeEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QDialogButtonBox_ChangeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn changeEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QDialogButtonBox_ChangeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialogbuttonbox.html#changeEvent)
     ///
@@ -635,13 +795,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QEvent) callconv(.c) void) void {
         qtc.QDialogButtonBox_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialogbuttonbox.html#changeEvent)
     ///
@@ -651,12 +811,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperChangeEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QDialogButtonBox_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChangeEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QDialogButtonBox_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialogbuttonbox.html#event)
     ///
@@ -664,12 +828,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QDialogButtonBox, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QDialogButtonBox_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QDialogButtonBox, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QDialogButtonBox_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialogbuttonbox.html#event)
     ///
@@ -681,13 +849,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QEvent) callconv(.c) bool) void {
         qtc.QDialogButtonBox_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialogbuttonbox.html#event)
     ///
@@ -697,12 +865,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QDialogButtonBox, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QDialogButtonBox_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QDialogButtonBox, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QDialogButtonBox_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -714,15 +886,19 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDialogButtonBox.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDialogButtonBox.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -736,15 +912,19 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDialogButtonBox.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDialogButtonBox.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -754,9 +934,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn WinId(self: QDialogButtonBox) usize {
+    pub fn winId(self: QDialogButtonBox) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -766,9 +950,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn CreateWinId(self: QDialogButtonBox) void {
+    pub fn createWinId(self: QDialogButtonBox) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -778,9 +966,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn InternalWinId(self: QDialogButtonBox) usize {
+    pub fn internalWinId(self: QDialogButtonBox) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -790,9 +982,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn EffectiveWinId(self: QDialogButtonBox) usize {
+    pub fn effectiveWinId(self: QDialogButtonBox) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -802,9 +998,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn Style(self: QDialogButtonBox) QStyle {
+    pub fn style(self: QDialogButtonBox) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -814,12 +1014,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: QDialogButtonBox, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: QDialogButtonBox, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -829,9 +1033,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn IsTopLevel(self: QDialogButtonBox) bool {
+    pub fn isTopLevel(self: QDialogButtonBox) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -841,9 +1049,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn IsWindow(self: QDialogButtonBox) bool {
+    pub fn isWindow(self: QDialogButtonBox) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -853,9 +1065,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn IsModal(self: QDialogButtonBox) bool {
+    pub fn isModal(self: QDialogButtonBox) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -869,9 +1085,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: QDialogButtonBox) i32 {
+    pub fn windowModality(self: QDialogButtonBox) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -881,11 +1101,15 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: QDialogButtonBox, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: QDialogButtonBox, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -895,9 +1119,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn IsEnabled(self: QDialogButtonBox) bool {
+    pub fn isEnabled(self: QDialogButtonBox) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -909,10 +1137,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: QDialogButtonBox, param1: anytype) bool {
+    pub fn isEnabledTo(self: QDialogButtonBox, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -924,9 +1156,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: QDialogButtonBox, enabled: bool) void {
+    pub fn setEnabled(self: QDialogButtonBox, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -938,9 +1174,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: QDialogButtonBox, disabled: bool) void {
+    pub fn setDisabled(self: QDialogButtonBox, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -952,9 +1192,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: QDialogButtonBox, windowModified: bool) void {
+    pub fn setWindowModified(self: QDialogButtonBox, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -964,9 +1208,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn FrameGeometry(self: QDialogButtonBox) QRect {
+    pub fn frameGeometry(self: QDialogButtonBox) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -976,9 +1224,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn Geometry(self: QDialogButtonBox) QRect {
+    pub fn geometry(self: QDialogButtonBox) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -988,9 +1240,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn NormalGeometry(self: QDialogButtonBox) QRect {
+    pub fn normalGeometry(self: QDialogButtonBox) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -1000,9 +1256,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn X(self: QDialogButtonBox) i32 {
+    pub fn x(self: QDialogButtonBox) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -1012,9 +1272,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn Y(self: QDialogButtonBox) i32 {
+    pub fn y(self: QDialogButtonBox) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -1024,9 +1288,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn Pos(self: QDialogButtonBox) QPoint {
+    pub fn pos(self: QDialogButtonBox) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -1036,9 +1304,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn FrameSize(self: QDialogButtonBox) QSize {
+    pub fn frameSize(self: QDialogButtonBox) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -1048,9 +1320,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn Size(self: QDialogButtonBox) QSize {
+    pub fn size(self: QDialogButtonBox) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -1060,9 +1336,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn Width(self: QDialogButtonBox) i32 {
+    pub fn width(self: QDialogButtonBox) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -1072,9 +1352,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn Height(self: QDialogButtonBox) i32 {
+    pub fn height(self: QDialogButtonBox) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -1084,9 +1368,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn Rect(self: QDialogButtonBox) QRect {
+    pub fn rect(self: QDialogButtonBox) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -1096,9 +1384,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn ChildrenRect(self: QDialogButtonBox) QRect {
+    pub fn childrenRect(self: QDialogButtonBox) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -1108,9 +1400,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn ChildrenRegion(self: QDialogButtonBox) QRegion {
+    pub fn childrenRegion(self: QDialogButtonBox) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1120,9 +1416,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn MinimumSize(self: QDialogButtonBox) QSize {
+    pub fn minimumSize(self: QDialogButtonBox) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1132,9 +1432,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn MaximumSize(self: QDialogButtonBox) QSize {
+    pub fn maximumSize(self: QDialogButtonBox) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1144,9 +1448,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn MinimumWidth(self: QDialogButtonBox) i32 {
+    pub fn minimumWidth(self: QDialogButtonBox) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1156,9 +1464,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn MinimumHeight(self: QDialogButtonBox) i32 {
+    pub fn minimumHeight(self: QDialogButtonBox) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1168,9 +1480,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn MaximumWidth(self: QDialogButtonBox) i32 {
+    pub fn maximumWidth(self: QDialogButtonBox) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1180,9 +1496,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn MaximumHeight(self: QDialogButtonBox) i32 {
+    pub fn maximumHeight(self: QDialogButtonBox) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1192,12 +1512,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: QDialogButtonBox, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: QDialogButtonBox, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1211,9 +1535,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: QDialogButtonBox, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: QDialogButtonBox, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1223,12 +1551,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: QDialogButtonBox, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: QDialogButtonBox, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1242,9 +1574,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: QDialogButtonBox, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: QDialogButtonBox, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1256,9 +1592,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: QDialogButtonBox, minw: i32) void {
+    pub fn setMinimumWidth(self: QDialogButtonBox, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1270,9 +1610,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: QDialogButtonBox, minh: i32) void {
+    pub fn setMinimumHeight(self: QDialogButtonBox, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1284,9 +1628,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: QDialogButtonBox, maxw: i32) void {
+    pub fn setMaximumWidth(self: QDialogButtonBox, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1298,9 +1646,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: QDialogButtonBox, maxh: i32) void {
+    pub fn setMaximumHeight(self: QDialogButtonBox, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1310,9 +1662,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn SizeIncrement(self: QDialogButtonBox) QSize {
+    pub fn sizeIncrement(self: QDialogButtonBox) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1322,12 +1678,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: QDialogButtonBox, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: QDialogButtonBox, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -1341,9 +1701,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: QDialogButtonBox, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: QDialogButtonBox, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -1353,9 +1717,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn BaseSize(self: QDialogButtonBox) QSize {
+    pub fn baseSize(self: QDialogButtonBox) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -1365,12 +1733,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: QDialogButtonBox, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: QDialogButtonBox, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -1384,9 +1756,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: QDialogButtonBox, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: QDialogButtonBox, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -1398,10 +1774,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: QDialogButtonBox, fixedSize: anytype) void {
+    pub fn setFixedSize(self: QDialogButtonBox, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -1415,9 +1795,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: QDialogButtonBox, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: QDialogButtonBox, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -1429,9 +1813,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: QDialogButtonBox, w: i32) void {
+    pub fn setFixedWidth(self: QDialogButtonBox, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -1443,9 +1831,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: QDialogButtonBox, h: i32) void {
+    pub fn setFixedHeight(self: QDialogButtonBox, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -1457,11 +1849,15 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: QDialogButtonBox, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: QDialogButtonBox, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -1472,11 +1868,15 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: QDialogButtonBox, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: QDialogButtonBox, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1487,11 +1887,15 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: QDialogButtonBox, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: QDialogButtonBox, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1502,11 +1906,15 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: QDialogButtonBox, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: QDialogButtonBox, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1517,11 +1925,15 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: QDialogButtonBox, param1: anytype) QPointF {
+    pub fn mapToParent(self: QDialogButtonBox, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1532,10 +1944,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: QDialogButtonBox, param1: anytype) QPoint {
+    pub fn mapToParent2(self: QDialogButtonBox, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -1547,10 +1963,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: QDialogButtonBox, param1: anytype) QPointF {
+    pub fn mapFromParent(self: QDialogButtonBox, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -1562,10 +1982,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: QDialogButtonBox, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: QDialogButtonBox, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -1579,12 +2003,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: QDialogButtonBox, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: QDialogButtonBox, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -1597,11 +2025,15 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: QDialogButtonBox, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: QDialogButtonBox, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -1615,11 +2047,15 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: QDialogButtonBox, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: QDialogButtonBox, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -1633,11 +2069,15 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: QDialogButtonBox, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: QDialogButtonBox, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -1647,9 +2087,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn Window(self: QDialogButtonBox) QWidget {
+    pub fn window(self: QDialogButtonBox) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -1659,9 +2103,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn NativeParentWidget(self: QDialogButtonBox) QWidget {
+    pub fn nativeParentWidget(self: QDialogButtonBox) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -1671,9 +2119,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn TopLevelWidget(self: QDialogButtonBox) QWidget {
+    pub fn topLevelWidget(self: QDialogButtonBox) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -1683,9 +2135,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn Palette(self: QDialogButtonBox) QPalette {
+    pub fn palette(self: QDialogButtonBox) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -1695,12 +2151,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: QDialogButtonBox, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: QDialogButtonBox, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1710,11 +2170,15 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: QDialogButtonBox, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: QDialogButtonBox, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1728,9 +2192,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: QDialogButtonBox) i32 {
+    pub fn backgroundRole(self: QDialogButtonBox) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1740,11 +2208,15 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: QDialogButtonBox, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: QDialogButtonBox, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1758,9 +2230,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: QDialogButtonBox) i32 {
+    pub fn foregroundRole(self: QDialogButtonBox) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -1770,9 +2246,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn Font(self: QDialogButtonBox) QFont {
+    pub fn font(self: QDialogButtonBox) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -1782,12 +2262,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: QDialogButtonBox, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: QDialogButtonBox, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -1797,9 +2281,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn FontMetrics(self: QDialogButtonBox) QFontMetrics {
+    pub fn fontMetrics(self: QDialogButtonBox) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -1809,9 +2297,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn FontInfo(self: QDialogButtonBox) QFontInfo {
+    pub fn fontInfo(self: QDialogButtonBox) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -1821,9 +2313,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn Cursor(self: QDialogButtonBox) QCursor {
+    pub fn cursor(self: QDialogButtonBox) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -1833,12 +2329,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: QDialogButtonBox, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: QDialogButtonBox, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -1848,9 +2348,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn UnsetCursor(self: QDialogButtonBox) void {
+    pub fn unsetCursor(self: QDialogButtonBox) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -1862,9 +2366,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: QDialogButtonBox, enable: bool) void {
+    pub fn setMouseTracking(self: QDialogButtonBox, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -1874,9 +2382,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn HasMouseTracking(self: QDialogButtonBox) bool {
+    pub fn hasMouseTracking(self: QDialogButtonBox) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -1886,9 +2398,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn UnderMouse(self: QDialogButtonBox) bool {
+    pub fn underMouse(self: QDialogButtonBox) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -1900,9 +2416,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: QDialogButtonBox, enable: bool) void {
+    pub fn setTabletTracking(self: QDialogButtonBox, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -1912,24 +2432,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn HasTabletTracking(self: QDialogButtonBox) bool {
+    pub fn hasTabletTracking(self: QDialogButtonBox) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDialogButtonBox `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: QDialogButtonBox, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -1939,12 +2448,35 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: QDialogButtonBox, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: QDialogButtonBox, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QDialogButtonBox `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: QDialogButtonBox, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -1954,9 +2486,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn Mask(self: QDialogButtonBox) QRegion {
+    pub fn mask(self: QDialogButtonBox) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -1966,9 +2502,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn ClearMask(self: QDialogButtonBox) void {
+    pub fn clearMask(self: QDialogButtonBox) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -1980,10 +2520,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: QDialogButtonBox, target: anytype) void {
+    pub fn render(self: QDialogButtonBox, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -1995,10 +2539,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: QDialogButtonBox, painter: anytype) void {
+    pub fn render2(self: QDialogButtonBox, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -2008,9 +2556,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn Grab(self: QDialogButtonBox) QPixmap {
+    pub fn grab(self: QDialogButtonBox) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2020,9 +2572,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn GraphicsEffect(self: QDialogButtonBox) QGraphicsEffect {
+    pub fn graphicsEffect(self: QDialogButtonBox) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2034,10 +2590,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: QDialogButtonBox, effect: anytype) void {
+    pub fn setGraphicsEffect(self: QDialogButtonBox, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2049,9 +2609,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: QDialogButtonBox, typeVal: i32) void {
+    pub fn grabGesture(self: QDialogButtonBox, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2063,9 +2627,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: QDialogButtonBox, typeVal: i32) void {
+    pub fn ungrabGesture(self: QDialogButtonBox, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2075,15 +2643,19 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: QDialogButtonBox, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: QDialogButtonBox, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2093,15 +2665,19 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: QDialogButtonBox, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: QDialogButtonBox, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2113,13 +2689,17 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: QDialogButtonBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: QDialogButtonBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDialogButtonBox.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDialogButtonBox.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2131,13 +2711,17 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: QDialogButtonBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: QDialogButtonBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDialogButtonBox.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDialogButtonBox.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2149,10 +2733,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: QDialogButtonBox, icon: anytype) void {
+    pub fn setWindowIcon(self: QDialogButtonBox, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2162,9 +2750,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn WindowIcon(self: QDialogButtonBox) QIcon {
+    pub fn windowIcon(self: QDialogButtonBox) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2174,15 +2766,19 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: QDialogButtonBox, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: QDialogButtonBox, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2194,13 +2790,17 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: QDialogButtonBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: QDialogButtonBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDialogButtonBox.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDialogButtonBox.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -2210,15 +2810,19 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: QDialogButtonBox, windowRole: []const u8) void {
+    pub fn setWindowRole(self: QDialogButtonBox, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -2230,13 +2834,17 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: QDialogButtonBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: QDialogButtonBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDialogButtonBox.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDialogButtonBox.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2248,13 +2856,17 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: QDialogButtonBox, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: QDialogButtonBox, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2266,13 +2878,17 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: QDialogButtonBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: QDialogButtonBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDialogButtonBox.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDialogButtonBox.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2284,9 +2900,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: QDialogButtonBox, level: f64) void {
+    pub fn setWindowOpacity(self: QDialogButtonBox, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2296,9 +2916,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn WindowOpacity(self: QDialogButtonBox) f64 {
+    pub fn windowOpacity(self: QDialogButtonBox) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -2308,9 +2932,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn IsWindowModified(self: QDialogButtonBox) bool {
+    pub fn isWindowModified(self: QDialogButtonBox) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -2320,15 +2948,19 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: QDialogButtonBox, toolTip: []const u8) void {
+    pub fn setToolTip(self: QDialogButtonBox, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -2340,13 +2972,17 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: QDialogButtonBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: QDialogButtonBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDialogButtonBox.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDialogButtonBox.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2358,9 +2994,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: QDialogButtonBox, msec: i32) void {
+    pub fn setToolTipDuration(self: QDialogButtonBox, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2370,9 +3010,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn ToolTipDuration(self: QDialogButtonBox) i32 {
+    pub fn toolTipDuration(self: QDialogButtonBox) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -2382,15 +3026,19 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: QDialogButtonBox, statusTip: []const u8) void {
+    pub fn setStatusTip(self: QDialogButtonBox, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -2402,13 +3050,17 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: QDialogButtonBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: QDialogButtonBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDialogButtonBox.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDialogButtonBox.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2418,15 +3070,19 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: QDialogButtonBox, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: QDialogButtonBox, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2438,13 +3094,17 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: QDialogButtonBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: QDialogButtonBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDialogButtonBox.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDialogButtonBox.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2456,13 +3116,17 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: QDialogButtonBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: QDialogButtonBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDialogButtonBox.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDialogButtonBox.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2474,13 +3138,17 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: QDialogButtonBox, name: []const u8) void {
+    pub fn setAccessibleName(self: QDialogButtonBox, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2492,13 +3160,17 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: QDialogButtonBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: QDialogButtonBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDialogButtonBox.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDialogButtonBox.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2510,13 +3182,17 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: QDialogButtonBox, description: []const u8) void {
+    pub fn setAccessibleDescription(self: QDialogButtonBox, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2528,9 +3204,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: QDialogButtonBox, direction: i32) void {
+    pub fn setLayoutDirection(self: QDialogButtonBox, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2544,9 +3224,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: QDialogButtonBox) i32 {
+    pub fn layoutDirection(self: QDialogButtonBox) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2556,9 +3240,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn UnsetLayoutDirection(self: QDialogButtonBox) void {
+    pub fn unsetLayoutDirection(self: QDialogButtonBox) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -2568,12 +3256,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: QDialogButtonBox, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: QDialogButtonBox, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -2583,9 +3275,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn Locale(self: QDialogButtonBox) QLocale {
+    pub fn locale(self: QDialogButtonBox) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -2595,9 +3291,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn UnsetLocale(self: QDialogButtonBox) void {
+    pub fn unsetLocale(self: QDialogButtonBox) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -2607,9 +3307,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn IsRightToLeft(self: QDialogButtonBox) bool {
+    pub fn isRightToLeft(self: QDialogButtonBox) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -2619,9 +3323,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn IsLeftToRight(self: QDialogButtonBox) bool {
+    pub fn isLeftToRight(self: QDialogButtonBox) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -2631,9 +3339,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn SetFocus(self: QDialogButtonBox) void {
+    pub fn setFocus(self: QDialogButtonBox) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -2643,9 +3355,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn IsActiveWindow(self: QDialogButtonBox) bool {
+    pub fn isActiveWindow(self: QDialogButtonBox) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -2655,9 +3371,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn ActivateWindow(self: QDialogButtonBox) void {
+    pub fn activateWindow(self: QDialogButtonBox) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -2667,9 +3387,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn ClearFocus(self: QDialogButtonBox) void {
+    pub fn clearFocus(self: QDialogButtonBox) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -2681,9 +3405,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: QDialogButtonBox, reason: i32) void {
+    pub fn setFocus2(self: QDialogButtonBox, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2697,9 +3425,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: QDialogButtonBox) i32 {
+    pub fn focusPolicy(self: QDialogButtonBox) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2711,9 +3443,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: QDialogButtonBox, policy: i32) void {
+    pub fn setFocusPolicy(self: QDialogButtonBox, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -2723,9 +3459,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn HasFocus(self: QDialogButtonBox) bool {
+    pub fn hasFocus(self: QDialogButtonBox) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -2737,11 +3477,15 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -2751,12 +3495,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: QDialogButtonBox, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: QDialogButtonBox, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -2766,9 +3514,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn FocusProxy(self: QDialogButtonBox) QWidget {
+    pub fn focusProxy(self: QDialogButtonBox) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2782,9 +3534,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: QDialogButtonBox) i32 {
+    pub fn contextMenuPolicy(self: QDialogButtonBox) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2796,9 +3552,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: QDialogButtonBox, policy: i32) void {
+    pub fn setContextMenuPolicy(self: QDialogButtonBox, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -2808,9 +3568,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn GrabMouse(self: QDialogButtonBox) void {
+    pub fn grabMouse(self: QDialogButtonBox) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -2822,10 +3586,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: QDialogButtonBox, param1: anytype) void {
+    pub fn grabMouse2(self: QDialogButtonBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -2835,9 +3603,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn ReleaseMouse(self: QDialogButtonBox) void {
+    pub fn releaseMouse(self: QDialogButtonBox) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -2847,9 +3619,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn GrabKeyboard(self: QDialogButtonBox) void {
+    pub fn grabKeyboard(self: QDialogButtonBox) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -2859,9 +3635,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn ReleaseKeyboard(self: QDialogButtonBox) void {
+    pub fn releaseKeyboard(self: QDialogButtonBox) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -2873,10 +3653,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: QDialogButtonBox, key: anytype) i32 {
+    pub fn grabShortcut(self: QDialogButtonBox, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -2888,9 +3672,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: QDialogButtonBox, id: i32) void {
+    pub fn releaseShortcut(self: QDialogButtonBox, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2902,9 +3690,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: QDialogButtonBox, id: i32) void {
+    pub fn setShortcutEnabled(self: QDialogButtonBox, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -2916,25 +3708,37 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: QDialogButtonBox, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: QDialogButtonBox, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2944,9 +3748,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn UpdatesEnabled(self: QDialogButtonBox) bool {
+    pub fn updatesEnabled(self: QDialogButtonBox) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2958,9 +3766,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: QDialogButtonBox, enable: bool) void {
+    pub fn setUpdatesEnabled(self: QDialogButtonBox, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -2970,9 +3782,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn GraphicsProxyWidget(self: QDialogButtonBox) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: QDialogButtonBox) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -2982,9 +3798,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn Update(self: QDialogButtonBox) void {
+    pub fn update(self: QDialogButtonBox) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -2994,9 +3814,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn Repaint(self: QDialogButtonBox) void {
+    pub fn repaint(self: QDialogButtonBox) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -3006,17 +3830,21 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: QDialogButtonBox, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: QDialogButtonBox, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -3028,11 +3856,15 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: QDialogButtonBox, param1: anytype) void {
+    pub fn update3(self: QDialogButtonBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -3043,10 +3875,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: QDialogButtonBox, param1: anytype) void {
+    pub fn update4(self: QDialogButtonBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -3056,17 +3892,21 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: QDialogButtonBox, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: QDialogButtonBox, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -3078,10 +3918,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: QDialogButtonBox, param1: anytype) void {
+    pub fn repaint3(self: QDialogButtonBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -3093,10 +3937,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: QDialogButtonBox, param1: anytype) void {
+    pub fn repaint4(self: QDialogButtonBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -3108,9 +3956,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: QDialogButtonBox, hidden: bool) void {
+    pub fn setHidden(self: QDialogButtonBox, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -3120,9 +3972,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn Show(self: QDialogButtonBox) void {
+    pub fn show(self: QDialogButtonBox) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -3132,9 +3988,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn Hide(self: QDialogButtonBox) void {
+    pub fn hide(self: QDialogButtonBox) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3144,9 +4004,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn ShowMinimized(self: QDialogButtonBox) void {
+    pub fn showMinimized(self: QDialogButtonBox) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3156,9 +4020,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn ShowMaximized(self: QDialogButtonBox) void {
+    pub fn showMaximized(self: QDialogButtonBox) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3168,9 +4036,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn ShowFullScreen(self: QDialogButtonBox) void {
+    pub fn showFullScreen(self: QDialogButtonBox) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -3180,9 +4052,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn ShowNormal(self: QDialogButtonBox) void {
+    pub fn showNormal(self: QDialogButtonBox) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -3192,9 +4068,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn Close(self: QDialogButtonBox) bool {
+    pub fn close(self: QDialogButtonBox) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -3204,9 +4084,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn Raise(self: QDialogButtonBox) void {
+    pub fn raise(self: QDialogButtonBox) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -3216,9 +4100,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn Lower(self: QDialogButtonBox) void {
+    pub fn lower(self: QDialogButtonBox) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -3230,10 +4118,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: QDialogButtonBox, param1: anytype) void {
+    pub fn stackUnder(self: QDialogButtonBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -3243,13 +4135,17 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: QDialogButtonBox, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: QDialogButtonBox, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -3261,10 +4157,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: QDialogButtonBox, param1: anytype) void {
+    pub fn move2(self: QDialogButtonBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -3278,9 +4178,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: QDialogButtonBox, w: i32, h: i32) void {
+    pub fn resize(self: QDialogButtonBox, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -3292,10 +4196,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: QDialogButtonBox, param1: anytype) void {
+    pub fn resize2(self: QDialogButtonBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3305,17 +4213,21 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: QDialogButtonBox, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: QDialogButtonBox, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -3325,12 +4237,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: QDialogButtonBox, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: QDialogButtonBox, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3342,13 +4258,17 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: QDialogButtonBox, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: QDialogButtonBox, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QDialogButtonBox.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QDialogButtonBox.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3358,15 +4278,19 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: QDialogButtonBox, geometry: []u8) bool {
+    pub fn restoreGeometry(self: QDialogButtonBox, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -3376,9 +4300,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn AdjustSize(self: QDialogButtonBox) void {
+    pub fn adjustSize(self: QDialogButtonBox) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -3388,9 +4316,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn IsVisible(self: QDialogButtonBox) bool {
+    pub fn isVisible(self: QDialogButtonBox) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -3402,10 +4334,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: QDialogButtonBox, param1: anytype) bool {
+    pub fn isVisibleTo(self: QDialogButtonBox, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -3415,9 +4351,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn IsHidden(self: QDialogButtonBox) bool {
+    pub fn isHidden(self: QDialogButtonBox) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3427,9 +4367,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn IsMinimized(self: QDialogButtonBox) bool {
+    pub fn isMinimized(self: QDialogButtonBox) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3439,9 +4383,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn IsMaximized(self: QDialogButtonBox) bool {
+    pub fn isMaximized(self: QDialogButtonBox) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3451,9 +4399,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn IsFullScreen(self: QDialogButtonBox) bool {
+    pub fn isFullScreen(self: QDialogButtonBox) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -3467,9 +4419,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: QDialogButtonBox) i32 {
+    pub fn windowState(self: QDialogButtonBox) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3481,9 +4437,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: QDialogButtonBox, state: i32) void {
+    pub fn setWindowState(self: QDialogButtonBox, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3495,9 +4455,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: QDialogButtonBox, state: i32) void {
+    pub fn overrideWindowState(self: QDialogButtonBox, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3507,9 +4471,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn SizePolicy(self: QDialogButtonBox) QSizePolicy {
+    pub fn sizePolicy(self: QDialogButtonBox) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3519,12 +4487,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: QDialogButtonBox, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: QDialogButtonBox, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -3538,9 +4510,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: QDialogButtonBox, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: QDialogButtonBox, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -3550,9 +4526,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn VisibleRegion(self: QDialogButtonBox) QRegion {
+    pub fn visibleRegion(self: QDialogButtonBox) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3570,9 +4550,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: QDialogButtonBox, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: QDialogButtonBox, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -3584,10 +4568,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: QDialogButtonBox, margins: anytype) void {
+    pub fn setContentsMargins2(self: QDialogButtonBox, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3597,9 +4585,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn ContentsMargins(self: QDialogButtonBox) QMargins {
+    pub fn contentsMargins(self: QDialogButtonBox) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -3609,9 +4601,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn ContentsRect(self: QDialogButtonBox) QRect {
+    pub fn contentsRect(self: QDialogButtonBox) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -3621,9 +4617,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn Layout(self: QDialogButtonBox) QLayout {
+    pub fn layout(self: QDialogButtonBox) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -3633,12 +4633,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: QDialogButtonBox, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: QDialogButtonBox, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3648,24 +4652,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn UpdateGeometry(self: QDialogButtonBox) void {
+    pub fn updateGeometry(self: QDialogButtonBox) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDialogButtonBox `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: QDialogButtonBox, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -3675,14 +4668,37 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: QDialogButtonBox, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QDialogButtonBox `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: QDialogButtonBox, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: QDialogButtonBox, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -3696,9 +4712,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: QDialogButtonBox, dx: i32, dy: i32) void {
+    pub fn scroll(self: QDialogButtonBox, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -3714,10 +4734,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: QDialogButtonBox, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: QDialogButtonBox, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -3727,9 +4751,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn FocusWidget(self: QDialogButtonBox) QWidget {
+    pub fn focusWidget(self: QDialogButtonBox) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -3739,9 +4767,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn NextInFocusChain(self: QDialogButtonBox) QWidget {
+    pub fn nextInFocusChain(self: QDialogButtonBox) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -3751,9 +4783,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn PreviousInFocusChain(self: QDialogButtonBox) QWidget {
+    pub fn previousInFocusChain(self: QDialogButtonBox) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -3763,9 +4799,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn AcceptDrops(self: QDialogButtonBox) bool {
+    pub fn acceptDrops(self: QDialogButtonBox) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -3777,9 +4817,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: QDialogButtonBox, on: bool) void {
+    pub fn setAcceptDrops(self: QDialogButtonBox, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -3791,10 +4835,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: QDialogButtonBox, action: anytype) void {
+    pub fn addAction(self: QDialogButtonBox, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -3804,15 +4852,19 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: QDialogButtonBox, actions: []QAction) void {
+    pub fn addActions(self: QDialogButtonBox, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -3824,16 +4876,20 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: QDialogButtonBox, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: QDialogButtonBox, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -3847,11 +4903,15 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: QDialogButtonBox, before: anytype, action: anytype) void {
+    pub fn insertAction(self: QDialogButtonBox, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -3863,10 +4923,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: QDialogButtonBox, action: anytype) void {
+    pub fn removeAction(self: QDialogButtonBox, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -3878,15 +4942,19 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: QDialogButtonBox, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: QDialogButtonBox, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QDialogButtonBox.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QDialogButtonBox.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -3898,13 +4966,17 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: QDialogButtonBox, text: []const u8) QAction {
+    pub fn addAction2(self: QDialogButtonBox, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -3918,7 +4990,7 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: QDialogButtonBox, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: QDialogButtonBox, icon: anytype, text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -3927,6 +4999,10 @@ pub const QDialogButtonBox = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -3939,7 +5015,7 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: QDialogButtonBox, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: QDialogButtonBox, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -3947,6 +5023,10 @@ pub const QDialogButtonBox = extern struct {
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
 
     /// Inherited from QWidget
     ///
@@ -3962,7 +5042,7 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: QDialogButtonBox, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: QDialogButtonBox, icon: anytype, text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -3972,6 +5052,10 @@ pub const QDialogButtonBox = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
@@ -3980,9 +5064,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn ParentWidget(self: QDialogButtonBox) QWidget {
+    pub fn parentWidget(self: QDialogButtonBox) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -3994,9 +5082,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: QDialogButtonBox, typeVal: i32) void {
+    pub fn setWindowFlags(self: QDialogButtonBox, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4010,9 +5102,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: QDialogButtonBox) i32 {
+    pub fn windowFlags(self: QDialogButtonBox) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -4024,9 +5120,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: QDialogButtonBox, param1: i32) void {
+    pub fn setWindowFlag(self: QDialogButtonBox, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4038,9 +5138,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: QDialogButtonBox, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: QDialogButtonBox, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -4054,9 +5158,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: QDialogButtonBox) i32 {
+    pub fn windowType(self: QDialogButtonBox) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -4066,9 +5174,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -4078,13 +5190,17 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: QDialogButtonBox, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: QDialogButtonBox, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -4096,10 +5212,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: QDialogButtonBox, p: anytype) QWidget {
+    pub fn childAt2(self: QDialogButtonBox, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -4111,10 +5231,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: QDialogButtonBox, p: anytype) QWidget {
+    pub fn childAt3(self: QDialogButtonBox, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4126,9 +5250,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: QDialogButtonBox, param1: i32) void {
+    pub fn setAttribute(self: QDialogButtonBox, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4140,9 +5268,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: QDialogButtonBox, param1: i32) bool {
+    pub fn testAttribute(self: QDialogButtonBox, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -4152,9 +5284,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn EnsurePolished(self: QDialogButtonBox) void {
+    pub fn ensurePolished(self: QDialogButtonBox) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -4166,10 +5302,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: QDialogButtonBox, child: anytype) bool {
+    pub fn isAncestorOf(self: QDialogButtonBox, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4179,9 +5319,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn AutoFillBackground(self: QDialogButtonBox) bool {
+    pub fn autoFillBackground(self: QDialogButtonBox) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4193,9 +5337,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: QDialogButtonBox, enabled: bool) void {
+    pub fn setAutoFillBackground(self: QDialogButtonBox, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -4205,9 +5353,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn BackingStore(self: QDialogButtonBox) QBackingStore {
+    pub fn backingStore(self: QDialogButtonBox) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -4217,9 +5369,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn WindowHandle(self: QDialogButtonBox) QWindow {
+    pub fn windowHandle(self: QDialogButtonBox) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -4229,9 +5385,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn Screen(self: QDialogButtonBox) QScreen {
+    pub fn screen(self: QDialogButtonBox) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -4241,12 +5401,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: QDialogButtonBox, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: QDialogButtonBox, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -4254,12 +5418,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4271,13 +5439,17 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: QDialogButtonBox, title: []const u8) void {
+    pub fn windowTitleChanged(self: QDialogButtonBox, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4289,9 +5461,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4303,10 +5479,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: QDialogButtonBox, icon: anytype) void {
+    pub fn windowIconChanged(self: QDialogButtonBox, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4318,9 +5498,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4332,13 +5516,17 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: QDialogButtonBox, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: QDialogButtonBox, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4350,9 +5538,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4362,12 +5554,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: QDialogButtonBox, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: QDialogButtonBox, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4379,9 +5575,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4395,9 +5595,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: QDialogButtonBox) i32 {
+    pub fn inputMethodHints(self: QDialogButtonBox) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4409,9 +5613,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: QDialogButtonBox, hints: i32) void {
+    pub fn setInputMethodHints(self: QDialogButtonBox, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -4425,11 +5633,15 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: QDialogButtonBox, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: QDialogButtonBox, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -4445,13 +5657,17 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: QDialogButtonBox, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: QDialogButtonBox, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -4468,12 +5684,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: QDialogButtonBox, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: QDialogButtonBox, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -4487,11 +5707,15 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: QDialogButtonBox, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: QDialogButtonBox, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -4507,12 +5731,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: QDialogButtonBox, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: QDialogButtonBox, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -4530,12 +5758,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: QDialogButtonBox, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: QDialogButtonBox, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -4547,10 +5779,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: QDialogButtonBox, rectangle: anytype) QPixmap {
+    pub fn grab1(self: QDialogButtonBox, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -4564,9 +5800,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: QDialogButtonBox, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: QDialogButtonBox, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -4580,10 +5820,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: QDialogButtonBox, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: QDialogButtonBox, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -4597,9 +5841,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: QDialogButtonBox, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: QDialogButtonBox, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -4613,9 +5861,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: QDialogButtonBox, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: QDialogButtonBox, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -4629,9 +5881,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: QDialogButtonBox, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: QDialogButtonBox, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -4645,25 +5901,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: QDialogButtonBox, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: QDialogButtonBox, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -4671,17 +5915,41 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -4693,13 +5961,17 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QDialogButtonBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QDialogButtonBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDialogButtonBox.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDialogButtonBox.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -4711,13 +5983,17 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QDialogButtonBox, name: []const u8) void {
+    pub fn setObjectName(self: QDialogButtonBox, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -4727,9 +6003,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn IsWidgetType(self: QDialogButtonBox) bool {
+    pub fn isWidgetType(self: QDialogButtonBox) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -4739,9 +6019,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn IsWindowType(self: QDialogButtonBox) bool {
+    pub fn isWindowType(self: QDialogButtonBox) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -4751,9 +6035,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn IsQuickItemType(self: QDialogButtonBox) bool {
+    pub fn isQuickItemType(self: QDialogButtonBox) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -4763,9 +6051,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn SignalsBlocked(self: QDialogButtonBox) bool {
+    pub fn signalsBlocked(self: QDialogButtonBox) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -4777,9 +6069,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QDialogButtonBox, b: bool) bool {
+    pub fn blockSignals(self: QDialogButtonBox, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -4789,9 +6085,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn Thread(self: QDialogButtonBox) QThread {
+    pub fn thread(self: QDialogButtonBox) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -4801,12 +6101,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QDialogButtonBox, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QDialogButtonBox, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -4818,9 +6122,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QDialogButtonBox, interval: i32) i32 {
+    pub fn startTimer(self: QDialogButtonBox, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -4832,9 +6140,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QDialogButtonBox, time: i64) i32 {
+    pub fn startTimer2(self: QDialogButtonBox, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -4846,9 +6158,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QDialogButtonBox, id: i32) void {
+    pub fn killTimer(self: QDialogButtonBox, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -4860,9 +6176,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QDialogButtonBox, id: i32) void {
+    pub fn killTimer2(self: QDialogButtonBox, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -4874,15 +6194,19 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QDialogButtonBox, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QDialogButtonBox, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QDialogButtonBox.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QDialogButtonBox.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4894,10 +6218,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QDialogButtonBox, filterObj: anytype) void {
+    pub fn installEventFilter(self: QDialogButtonBox, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4909,10 +6237,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QDialogButtonBox, obj: anytype) void {
+    pub fn removeEventFilter(self: QDialogButtonBox, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -4920,7 +6252,7 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4928,13 +6260,17 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -4942,7 +6278,7 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -4950,13 +6286,17 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -4966,18 +6306,22 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QDialogButtonBox, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QDialogButtonBox, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -4985,7 +6329,7 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4993,13 +6337,17 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -5007,7 +6355,7 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5015,13 +6363,17 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -5031,9 +6383,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn Disconnect3(self: QDialogButtonBox) bool {
+    pub fn disconnect3(self: QDialogButtonBox) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -5045,10 +6401,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QDialogButtonBox, receiver: anytype) bool {
+    pub fn disconnect4(self: QDialogButtonBox, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -5058,10 +6418,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -5071,9 +6435,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn DumpObjectTree(self: QDialogButtonBox) void {
+    pub fn dumpObjectTree(self: QDialogButtonBox) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -5083,9 +6451,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn DumpObjectInfo(self: QDialogButtonBox) void {
+    pub fn dumpObjectInfo(self: QDialogButtonBox) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -5099,11 +6471,15 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QDialogButtonBox, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QDialogButtonBox, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -5115,10 +6491,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QDialogButtonBox, name: [:0]const u8) QVariant {
+    pub fn property(self: QDialogButtonBox, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -5130,7 +6510,7 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QDialogButtonBox, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QDialogButtonBox, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -5138,27 +6518,19 @@ pub const QDialogButtonBox = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QDialogButtonBox.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QDialogButtonBox.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QDialogButtonBox.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QDialogButtonBox.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDialogButtonBox `
-    ///
-    pub fn BindingStorage(self: QDialogButtonBox) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -5168,9 +6540,29 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn BindingStorage2(self: QDialogButtonBox) QBindingStorage {
+    pub fn bindingStorage(self: QDialogButtonBox) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QDialogButtonBox `
+    ///
+    pub fn bindingStorage2(self: QDialogButtonBox) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -5180,9 +6572,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn Destroyed(self: QDialogButtonBox) void {
+    pub fn destroyed(self: QDialogButtonBox) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -5194,9 +6590,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox) callconv(.c) void) void {
+    pub fn onDestroyed(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -5206,9 +6606,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn Parent(self: QDialogButtonBox) QObject {
+    pub fn parent(self: QDialogButtonBox) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -5220,10 +6624,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QDialogButtonBox, classname: [:0]const u8) bool {
+    pub fn inherits(self: QDialogButtonBox, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -5233,9 +6641,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn DeleteLater(self: QDialogButtonBox) void {
+    pub fn deleteLater(self: QDialogButtonBox) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -5249,9 +6661,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QDialogButtonBox, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QDialogButtonBox, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -5265,9 +6681,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QDialogButtonBox, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QDialogButtonBox, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -5275,7 +6695,7 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5285,13 +6705,17 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -5299,7 +6723,7 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5309,13 +6733,17 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -5325,7 +6753,7 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5333,12 +6761,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QDialogButtonBox, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QDialogButtonBox, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -5350,10 +6782,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QDialogButtonBox, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QDialogButtonBox, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -5367,11 +6803,15 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QDialogButtonBox, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QDialogButtonBox, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -5387,13 +6827,17 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QDialogButtonBox, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QDialogButtonBox, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -5406,11 +6850,15 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QDialogButtonBox, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QDialogButtonBox, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -5422,10 +6870,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QDialogButtonBox, param1: anytype) void {
+    pub fn destroyed1(self: QDialogButtonBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -5437,9 +6889,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -5449,9 +6905,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn PaintingActive(self: QDialogButtonBox) bool {
+    pub fn paintingActive(self: QDialogButtonBox) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5461,9 +6921,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn WidthMM(self: QDialogButtonBox) i32 {
+    pub fn widthMM(self: QDialogButtonBox) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5473,9 +6937,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn HeightMM(self: QDialogButtonBox) i32 {
+    pub fn heightMM(self: QDialogButtonBox) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5485,9 +6953,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn LogicalDpiX(self: QDialogButtonBox) i32 {
+    pub fn logicalDpiX(self: QDialogButtonBox) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5497,9 +6969,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn LogicalDpiY(self: QDialogButtonBox) i32 {
+    pub fn logicalDpiY(self: QDialogButtonBox) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5509,9 +6985,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn PhysicalDpiX(self: QDialogButtonBox) i32 {
+    pub fn physicalDpiX(self: QDialogButtonBox) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5521,9 +7001,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn PhysicalDpiY(self: QDialogButtonBox) i32 {
+    pub fn physicalDpiY(self: QDialogButtonBox) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -5533,9 +7017,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn DevicePixelRatio(self: QDialogButtonBox) f64 {
+    pub fn devicePixelRatio(self: QDialogButtonBox) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5545,9 +7033,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn DevicePixelRatioF(self: QDialogButtonBox) f64 {
+    pub fn devicePixelRatioF(self: QDialogButtonBox) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -5557,9 +7049,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn ColorCount(self: QDialogButtonBox) i32 {
+    pub fn colorCount(self: QDialogButtonBox) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -5569,17 +7065,25 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn Depth(self: QDialogButtonBox) i32 {
+    pub fn depth(self: QDialogButtonBox) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5587,13 +7091,17 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -5605,13 +7113,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn DevType(self: QDialogButtonBox) i32 {
+    pub fn devType(self: QDialogButtonBox) i32 {
         return qtc.QDialogButtonBox_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -5623,9 +7131,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn SuperDevType(self: QDialogButtonBox) i32 {
+    pub fn superDevType(self: QDialogButtonBox) i32 {
         return qtc.QDialogButtonBox_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -5639,9 +7151,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: QDialogButtonBox, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QDialogButtonBox, callback: *const fn () callconv(.c) i32) void {
         qtc.QDialogButtonBox_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -5655,13 +7171,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: QDialogButtonBox, visible: bool) void {
+    pub fn setVisible(self: QDialogButtonBox, visible: bool) void {
         qtc.QDialogButtonBox_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -5675,9 +7191,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: QDialogButtonBox, visible: bool) void {
+    pub fn superSetVisible(self: QDialogButtonBox, visible: bool) void {
         qtc.QDialogButtonBox_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -5691,10 +7211,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, bool) callconv(.c) void) void {
         qtc.QDialogButtonBox_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
@@ -5705,13 +7229,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn SizeHint(self: QDialogButtonBox) QSize {
+    pub fn sizeHint(self: QDialogButtonBox) QSize {
         return .{ .ptr = qtc.QDialogButtonBox_SizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5723,10 +7247,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn SuperSizeHint(self: QDialogButtonBox) QSize {
+    pub fn superSizeHint(self: QDialogButtonBox) QSize {
         return .{ .ptr = qtc.QDialogButtonBox_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
@@ -5741,9 +7269,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: QDialogButtonBox, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QDialogButtonBox, callback: *const fn () callconv(.c) QSize) void {
         qtc.QDialogButtonBox_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5755,13 +7287,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn MinimumSizeHint(self: QDialogButtonBox) QSize {
+    pub fn minimumSizeHint(self: QDialogButtonBox) QSize {
         return .{ .ptr = qtc.QDialogButtonBox_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5773,9 +7305,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn SuperMinimumSizeHint(self: QDialogButtonBox) QSize {
+    pub fn superMinimumSizeHint(self: QDialogButtonBox) QSize {
         return .{ .ptr = qtc.QDialogButtonBox_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5791,9 +7327,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: QDialogButtonBox, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: QDialogButtonBox, callback: *const fn () callconv(.c) QSize) void {
         qtc.QDialogButtonBox_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5807,13 +7347,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: QDialogButtonBox, param1: i32) i32 {
+    pub fn heightForWidth(self: QDialogButtonBox, param1: i32) i32 {
         return qtc.QDialogButtonBox_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5827,9 +7367,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: QDialogButtonBox, param1: i32) i32 {
+    pub fn superHeightForWidth(self: QDialogButtonBox, param1: i32) i32 {
         return qtc.QDialogButtonBox_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5843,9 +7387,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, i32) callconv(.c) i32) void {
         qtc.QDialogButtonBox_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5857,13 +7405,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn HasHeightForWidth(self: QDialogButtonBox) bool {
+    pub fn hasHeightForWidth(self: QDialogButtonBox) bool {
         return qtc.QDialogButtonBox_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5875,9 +7423,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn SuperHasHeightForWidth(self: QDialogButtonBox) bool {
+    pub fn superHasHeightForWidth(self: QDialogButtonBox) bool {
         return qtc.QDialogButtonBox_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5891,9 +7443,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: QDialogButtonBox, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QDialogButtonBox, callback: *const fn () callconv(.c) bool) void {
         qtc.QDialogButtonBox_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -5905,13 +7461,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn PaintEngine(self: QDialogButtonBox) QPaintEngine {
+    pub fn paintEngine(self: QDialogButtonBox) QPaintEngine {
         return .{ .ptr = qtc.QDialogButtonBox_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -5923,9 +7479,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn SuperPaintEngine(self: QDialogButtonBox) QPaintEngine {
+    pub fn superPaintEngine(self: QDialogButtonBox) QPaintEngine {
         return .{ .ptr = qtc.QDialogButtonBox_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -5939,10 +7499,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: QDialogButtonBox, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QDialogButtonBox, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.QDialogButtonBox_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
@@ -5953,16 +7517,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QDialogButtonBox_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mousePressEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QDialogButtonBox_MousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -5974,12 +7538,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QDialogButtonBox_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMousePressEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QDialogButtonBox_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -5993,10 +7561,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QMouseEvent) callconv(.c) void) void {
         qtc.QDialogButtonBox_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
@@ -6007,16 +7579,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QDialogButtonBox_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseReleaseEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QDialogButtonBox_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6028,12 +7600,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QDialogButtonBox_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseReleaseEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QDialogButtonBox_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6047,10 +7623,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QMouseEvent) callconv(.c) void) void {
         qtc.QDialogButtonBox_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
@@ -6061,16 +7641,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QDialogButtonBox_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QDialogButtonBox_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -6082,12 +7662,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QDialogButtonBox_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QDialogButtonBox_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -6101,10 +7685,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QMouseEvent) callconv(.c) void) void {
         qtc.QDialogButtonBox_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
@@ -6115,16 +7703,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QDialogButtonBox_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseMoveEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QDialogButtonBox_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6136,12 +7724,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QDialogButtonBox_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseMoveEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QDialogButtonBox_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6155,9 +7747,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QMouseEvent) callconv(.c) void) void {
         qtc.QDialogButtonBox_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6169,16 +7765,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.QDialogButtonBox_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn wheelEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.QDialogButtonBox_WheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6190,12 +7786,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.QDialogButtonBox_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superWheelEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.QDialogButtonBox_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6209,10 +7809,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QWheelEvent) callconv(.c) void) void {
         qtc.QDialogButtonBox_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyPressEvent)
@@ -6223,16 +7827,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QDialogButtonBox_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyPressEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QDialogButtonBox_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6244,12 +7848,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QDialogButtonBox_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyPressEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QDialogButtonBox_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6263,10 +7871,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QKeyEvent) callconv(.c) void) void {
         qtc.QDialogButtonBox_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
@@ -6277,16 +7889,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QDialogButtonBox_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyReleaseEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QDialogButtonBox_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6298,12 +7910,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QDialogButtonBox_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyReleaseEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QDialogButtonBox_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6317,10 +7933,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QKeyEvent) callconv(.c) void) void {
         qtc.QDialogButtonBox_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
@@ -6331,16 +7951,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QDialogButtonBox_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusInEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QDialogButtonBox_FocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -6352,12 +7972,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QDialogButtonBox_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusInEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QDialogButtonBox_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -6371,10 +7995,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QFocusEvent) callconv(.c) void) void {
         qtc.QDialogButtonBox_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
@@ -6385,16 +8013,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QDialogButtonBox_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusOutEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QDialogButtonBox_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -6406,12 +8034,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QDialogButtonBox_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusOutEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QDialogButtonBox_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -6425,9 +8057,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QFocusEvent) callconv(.c) void) void {
         qtc.QDialogButtonBox_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6439,16 +8075,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.QDialogButtonBox_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.QDialogButtonBox_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6460,12 +8096,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.QDialogButtonBox_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.QDialogButtonBox_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6479,9 +8119,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QEnterEvent) callconv(.c) void) void {
         qtc.QDialogButtonBox_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6493,16 +8137,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QDialogButtonBox_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QDialogButtonBox_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6514,12 +8158,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QDialogButtonBox_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QDialogButtonBox_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6533,9 +8181,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QEvent) callconv(.c) void) void {
         qtc.QDialogButtonBox_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// Inherited from QWidget
     ///
@@ -6547,16 +8199,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn PaintEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.QDialogButtonBox_PaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn paintEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.QDialogButtonBox_PaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -6568,12 +8220,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.QDialogButtonBox_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superPaintEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.QDialogButtonBox_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -6587,9 +8243,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, event: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QPaintEvent) callconv(.c) void) void {
         qtc.QDialogButtonBox_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6601,16 +8261,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.QDialogButtonBox_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.QDialogButtonBox_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6622,12 +8282,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.QDialogButtonBox_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.QDialogButtonBox_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6641,9 +8305,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QMoveEvent) callconv(.c) void) void {
         qtc.QDialogButtonBox_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6655,16 +8323,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.QDialogButtonBox_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn resizeEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.QDialogButtonBox_ResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6676,12 +8344,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.QDialogButtonBox_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superResizeEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.QDialogButtonBox_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6695,9 +8367,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QResizeEvent) callconv(.c) void) void {
         qtc.QDialogButtonBox_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6709,16 +8385,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.QDialogButtonBox_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.QDialogButtonBox_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6730,12 +8406,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.QDialogButtonBox_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.QDialogButtonBox_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6749,9 +8429,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QCloseEvent) callconv(.c) void) void {
         qtc.QDialogButtonBox_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -6763,16 +8447,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.QDialogButtonBox_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn contextMenuEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.QDialogButtonBox_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -6784,12 +8468,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.QDialogButtonBox_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superContextMenuEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.QDialogButtonBox_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -6803,9 +8491,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, event: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QContextMenuEvent) callconv(.c) void) void {
         qtc.QDialogButtonBox_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -6817,16 +8509,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.QDialogButtonBox_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.QDialogButtonBox_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -6838,12 +8530,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.QDialogButtonBox_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.QDialogButtonBox_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -6857,9 +8553,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QTabletEvent) callconv(.c) void) void {
         qtc.QDialogButtonBox_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -6871,16 +8571,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.QDialogButtonBox_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.QDialogButtonBox_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -6892,12 +8592,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.QDialogButtonBox_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.QDialogButtonBox_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -6911,9 +8615,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QActionEvent) callconv(.c) void) void {
         qtc.QDialogButtonBox_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6925,16 +8633,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.QDialogButtonBox_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.QDialogButtonBox_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6946,12 +8654,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.QDialogButtonBox_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.QDialogButtonBox_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6965,9 +8677,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QDragEnterEvent) callconv(.c) void) void {
         qtc.QDialogButtonBox_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6979,16 +8695,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.QDialogButtonBox_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.QDialogButtonBox_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7000,12 +8716,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.QDialogButtonBox_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.QDialogButtonBox_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7019,9 +8739,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QDragMoveEvent) callconv(.c) void) void {
         qtc.QDialogButtonBox_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7033,16 +8757,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.QDialogButtonBox_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.QDialogButtonBox_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7054,12 +8778,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.QDialogButtonBox_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.QDialogButtonBox_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7073,9 +8801,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QDragLeaveEvent) callconv(.c) void) void {
         qtc.QDialogButtonBox_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7087,16 +8819,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.QDialogButtonBox_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.QDialogButtonBox_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7108,12 +8840,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.QDialogButtonBox_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.QDialogButtonBox_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7127,9 +8863,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QDropEvent) callconv(.c) void) void {
         qtc.QDialogButtonBox_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QWidget
     ///
@@ -7141,16 +8881,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn ShowEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.QDialogButtonBox_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn showEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.QDialogButtonBox_ShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -7162,12 +8902,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.QDialogButtonBox_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superShowEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.QDialogButtonBox_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -7181,9 +8925,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QShowEvent) callconv(.c) void) void {
         qtc.QDialogButtonBox_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7195,16 +8943,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.QDialogButtonBox_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.QDialogButtonBox_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7216,12 +8964,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.QDialogButtonBox_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.QDialogButtonBox_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7235,9 +8987,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QHideEvent) callconv(.c) void) void {
         qtc.QDialogButtonBox_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7255,7 +9011,7 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: QDialogButtonBox, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: QDialogButtonBox, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -7263,9 +9019,9 @@ pub const QDialogButtonBox = extern struct {
         return qtc.QDialogButtonBox_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7283,13 +9039,17 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: QDialogButtonBox, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: QDialogButtonBox, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.QDialogButtonBox_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7303,9 +9063,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QDialogButtonBox_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -7319,13 +9083,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: QDialogButtonBox, param1: i32) i32 {
+    pub fn metric(self: QDialogButtonBox, param1: i32) i32 {
         return qtc.QDialogButtonBox_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -7339,9 +9103,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: QDialogButtonBox, param1: i32) i32 {
+    pub fn superMetric(self: QDialogButtonBox, param1: i32) i32 {
         return qtc.QDialogButtonBox_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -7355,9 +9123,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, i32) callconv(.c) i32) void {
         qtc.QDialogButtonBox_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -7371,14 +9143,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: QDialogButtonBox, painter: anytype) void {
+    pub fn initPainter(self: QDialogButtonBox, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QDialogButtonBox_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7392,10 +9164,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: QDialogButtonBox, painter: anytype) void {
+    pub fn superInitPainter(self: QDialogButtonBox, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QDialogButtonBox_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7409,9 +9185,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QPainter) callconv(.c) void) void {
         qtc.QDialogButtonBox_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -7425,14 +9205,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: QDialogButtonBox, offset: anytype) QPaintDevice {
+    pub fn redirected(self: QDialogButtonBox, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.QDialogButtonBox_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7446,10 +9226,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: QDialogButtonBox, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: QDialogButtonBox, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.QDialogButtonBox_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7463,9 +9247,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QPoint) callconv(.c) QPaintDevice) void {
         qtc.QDialogButtonBox_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7477,13 +9265,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn SharedPainter(self: QDialogButtonBox) QPainter {
+    pub fn sharedPainter(self: QDialogButtonBox) QPainter {
         return .{ .ptr = qtc.QDialogButtonBox_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7495,9 +9283,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn SuperSharedPainter(self: QDialogButtonBox) QPainter {
+    pub fn superSharedPainter(self: QDialogButtonBox) QPainter {
         return .{ .ptr = qtc.QDialogButtonBox_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7511,9 +9303,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: QDialogButtonBox, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QDialogButtonBox, callback: *const fn () callconv(.c) QPainter) void {
         qtc.QDialogButtonBox_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7527,14 +9323,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: QDialogButtonBox, param1: anytype) void {
+    pub fn inputMethodEvent(self: QDialogButtonBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.QDialogButtonBox_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7548,10 +9344,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: QDialogButtonBox, param1: anytype) void {
+    pub fn superInputMethodEvent(self: QDialogButtonBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.QDialogButtonBox_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7565,9 +9365,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QInputMethodEvent) callconv(.c) void) void {
         qtc.QDialogButtonBox_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7581,13 +9385,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: QDialogButtonBox, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: QDialogButtonBox, param1: i32) QVariant {
         return .{ .ptr = qtc.QDialogButtonBox_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7601,9 +9405,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: QDialogButtonBox, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: QDialogButtonBox, param1: i32) QVariant {
         return .{ .ptr = qtc.QDialogButtonBox_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7619,9 +9427,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, i32) callconv(.c) QVariant) void {
         qtc.QDialogButtonBox_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7635,13 +9447,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: QDialogButtonBox, next: bool) bool {
+    pub fn focusNextPrevChild(self: QDialogButtonBox, next: bool) bool {
         return qtc.QDialogButtonBox_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7655,9 +9467,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: QDialogButtonBox, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: QDialogButtonBox, next: bool) bool {
         return qtc.QDialogButtonBox_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7671,9 +9487,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, bool) callconv(.c) bool) void {
         qtc.QDialogButtonBox_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -7687,17 +9507,17 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QDialogButtonBox, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QDialogButtonBox, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QDialogButtonBox_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QDialogButtonBox_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -7711,13 +9531,17 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QDialogButtonBox, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QDialogButtonBox, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QDialogButtonBox_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QDialogButtonBox_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -7731,9 +9555,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QObject, QEvent) callconv(.c) bool) void {
         qtc.QDialogButtonBox_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -7745,16 +9573,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QDialogButtonBox_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QDialogButtonBox_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -7766,12 +9594,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QDialogButtonBox_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QDialogButtonBox_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -7785,9 +9617,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QTimerEvent) callconv(.c) void) void {
         qtc.QDialogButtonBox_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -7799,16 +9635,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QDialogButtonBox_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QDialogButtonBox_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -7820,12 +9656,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QDialogButtonBox_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QDialogButtonBox_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -7839,9 +9679,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QChildEvent) callconv(.c) void) void {
         qtc.QDialogButtonBox_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -7853,16 +9697,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QDialogButtonBox_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QDialogButtonBox_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -7874,12 +9718,16 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QDialogButtonBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QDialogButtonBox_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QDialogButtonBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QDialogButtonBox_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -7893,9 +9741,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QEvent) callconv(.c) void) void {
         qtc.QDialogButtonBox_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -7909,14 +9761,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QDialogButtonBox, signal: anytype) void {
+    pub fn connectNotify(self: QDialogButtonBox, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QDialogButtonBox_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7930,11 +9782,15 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QDialogButtonBox, signal: anytype) void {
+    pub fn superConnectNotify(self: QDialogButtonBox, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QDialogButtonBox_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -7947,9 +9803,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QMetaMethod) callconv(.c) void) void {
         qtc.QDialogButtonBox_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7963,14 +9823,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QDialogButtonBox, signal: anytype) void {
+    pub fn disconnectNotify(self: QDialogButtonBox, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QDialogButtonBox_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7984,10 +9844,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QDialogButtonBox, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QDialogButtonBox, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QDialogButtonBox_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8001,10 +9865,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QMetaMethod) callconv(.c) void) void {
         qtc.QDialogButtonBox_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8015,13 +9883,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn UpdateMicroFocus(self: QDialogButtonBox) void {
+    pub fn updateMicroFocus(self: QDialogButtonBox) void {
         qtc.QDialogButtonBox_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -8033,10 +9901,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn SuperUpdateMicroFocus(self: QDialogButtonBox) void {
+    pub fn superUpdateMicroFocus(self: QDialogButtonBox) void {
         qtc.QDialogButtonBox_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8049,10 +9921,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: QDialogButtonBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: QDialogButtonBox, callback: *const fn () callconv(.c) void) void {
         qtc.QDialogButtonBox_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8063,13 +9939,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn Create(self: QDialogButtonBox) void {
+    pub fn create(self: QDialogButtonBox) void {
         qtc.QDialogButtonBox_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -8081,10 +9957,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn SuperCreate(self: QDialogButtonBox) void {
+    pub fn superCreate(self: QDialogButtonBox) void {
         qtc.QDialogButtonBox_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8097,9 +9977,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: QDialogButtonBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: QDialogButtonBox, callback: *const fn () callconv(.c) void) void {
         qtc.QDialogButtonBox_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -8111,13 +9995,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn Destroy(self: QDialogButtonBox) void {
+    pub fn destroy(self: QDialogButtonBox) void {
         qtc.QDialogButtonBox_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8129,9 +10013,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn SuperDestroy(self: QDialogButtonBox) void {
+    pub fn superDestroy(self: QDialogButtonBox) void {
         qtc.QDialogButtonBox_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8145,10 +10033,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: QDialogButtonBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: QDialogButtonBox, callback: *const fn () callconv(.c) void) void {
         qtc.QDialogButtonBox_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8159,13 +10051,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn FocusNextChild(self: QDialogButtonBox) bool {
+    pub fn focusNextChild(self: QDialogButtonBox) bool {
         return qtc.QDialogButtonBox_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -8177,10 +10069,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn SuperFocusNextChild(self: QDialogButtonBox) bool {
+    pub fn superFocusNextChild(self: QDialogButtonBox) bool {
         return qtc.QDialogButtonBox_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8193,9 +10089,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: QDialogButtonBox, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: QDialogButtonBox, callback: *const fn () callconv(.c) bool) void {
         qtc.QDialogButtonBox_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8207,13 +10107,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn FocusPreviousChild(self: QDialogButtonBox) bool {
+    pub fn focusPreviousChild(self: QDialogButtonBox) bool {
         return qtc.QDialogButtonBox_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8225,9 +10125,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn SuperFocusPreviousChild(self: QDialogButtonBox) bool {
+    pub fn superFocusPreviousChild(self: QDialogButtonBox) bool {
         return qtc.QDialogButtonBox_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8241,9 +10145,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: QDialogButtonBox, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: QDialogButtonBox, callback: *const fn () callconv(.c) bool) void {
         qtc.QDialogButtonBox_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -8255,13 +10163,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn Sender(self: QDialogButtonBox) QObject {
+    pub fn sender(self: QDialogButtonBox) QObject {
         return .{ .ptr = qtc.QDialogButtonBox_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -8273,9 +10181,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn SuperSender(self: QDialogButtonBox) QObject {
+    pub fn superSender(self: QDialogButtonBox) QObject {
         return .{ .ptr = qtc.QDialogButtonBox_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -8289,9 +10201,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QDialogButtonBox, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QDialogButtonBox, callback: *const fn () callconv(.c) QObject) void {
         qtc.QDialogButtonBox_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8303,13 +10219,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn SenderSignalIndex(self: QDialogButtonBox) i32 {
+    pub fn senderSignalIndex(self: QDialogButtonBox) i32 {
         return qtc.QDialogButtonBox_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8321,9 +10237,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn SuperSenderSignalIndex(self: QDialogButtonBox) i32 {
+    pub fn superSenderSignalIndex(self: QDialogButtonBox) i32 {
         return qtc.QDialogButtonBox_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8337,9 +10257,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QDialogButtonBox, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QDialogButtonBox, callback: *const fn () callconv(.c) i32) void {
         qtc.QDialogButtonBox_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -8353,14 +10277,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QDialogButtonBox, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QDialogButtonBox, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QDialogButtonBox_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -8374,10 +10298,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QDialogButtonBox, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QDialogButtonBox, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QDialogButtonBox_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -8391,9 +10319,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, [*:0]const u8) callconv(.c) i32) void {
         qtc.QDialogButtonBox_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8407,14 +10339,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QDialogButtonBox, signal: anytype) bool {
+    pub fn isSignalConnected(self: QDialogButtonBox, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QDialogButtonBox_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8428,10 +10360,14 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QDialogButtonBox, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QDialogButtonBox, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QDialogButtonBox_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8445,9 +10381,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, QMetaMethod) callconv(.c) bool) void {
         qtc.QDialogButtonBox_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8463,13 +10403,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: QDialogButtonBox, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: QDialogButtonBox, metricA: i32, metricB: i32) f64 {
         return qtc.QDialogButtonBox_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8485,9 +10425,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: QDialogButtonBox, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: QDialogButtonBox, metricA: i32, metricB: i32) f64 {
         return qtc.QDialogButtonBox_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8501,9 +10445,13 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, i32, i32) callconv(.c) f64) void {
         qtc.QDialogButtonBox_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -8517,23 +10465,23 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialogbuttonbox.html#dtor.QDialogButtonBox)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDialogButtonBox `
     ///
-    pub fn Delete(self: QDialogButtonBox) void {
+    pub fn delete(self: QDialogButtonBox) void {
         qtc.QDialogButtonBox_Delete(@ptrCast(self.ptr));
     }
 };

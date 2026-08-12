@@ -30,22 +30,34 @@ pub const QDataWidgetMapper = extern struct {
     pub const _is_QDataWidgetMapper = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QDataWidgetMapper object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QDataWidgetMapper {
+    pub const New = new;
+
+    /// Allocate a new QDataWidgetMapper object in C++ memory
+    ///
+    pub fn new() QDataWidgetMapper {
         return .{ .ptr = qtc.QDataWidgetMapper_new() };
     }
 
-    /// New2 constructs a new QDataWidgetMapper object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QDataWidgetMapper object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) QDataWidgetMapper {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QDataWidgetMapper_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) QDataWidgetMapper {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QDataWidgetMapper_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -53,9 +65,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` self: QDataWidgetMapper `
     ///
-    pub fn MetaObject(self: QDataWidgetMapper) QMetaObject {
+    pub fn metaObject(self: QDataWidgetMapper) QMetaObject {
         return .{ .ptr = qtc.QDataWidgetMapper_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -67,13 +83,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QDataWidgetMapper, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QDataWidgetMapper, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QDataWidgetMapper_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -83,9 +99,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` self: QDataWidgetMapper `
     ///
-    pub fn SuperMetaObject(self: QDataWidgetMapper) QMetaObject {
+    pub fn superMetaObject(self: QDataWidgetMapper) QMetaObject {
         return .{ .ptr = qtc.QDataWidgetMapper_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -93,10 +113,14 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QDataWidgetMapper, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QDataWidgetMapper, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QDataWidgetMapper_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -106,13 +130,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QDataWidgetMapper, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QDataWidgetMapper, callback: *const fn (QDataWidgetMapper, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QDataWidgetMapper, callback: *const fn (QDataWidgetMapper, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QDataWidgetMapper_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -122,10 +146,14 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QDataWidgetMapper, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QDataWidgetMapper, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QDataWidgetMapper_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -137,9 +165,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QDataWidgetMapper, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QDataWidgetMapper, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QDataWidgetMapper_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -149,13 +181,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QDataWidgetMapper, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QDataWidgetMapper, callback: *const fn (QDataWidgetMapper, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QDataWidgetMapper, callback: *const fn (QDataWidgetMapper, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QDataWidgetMapper_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -169,9 +201,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QDataWidgetMapper, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QDataWidgetMapper, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QDataWidgetMapper_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -181,14 +217,18 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDataWidgetMapper.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDataWidgetMapper.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setModel` instead
+    ///
+    pub const SetModel = setModel;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#setModel)
     ///
@@ -196,12 +236,16 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` self: QDataWidgetMapper `
     ///
-    /// ` model: QAbstractItemModel `
+    /// ` _model: QAbstractItemModel `
     ///
-    pub fn SetModel(self: QDataWidgetMapper, model: anytype) void {
-        comptime _ = @TypeOf(model)._is_QAbstractItemModel;
-        qtc.QDataWidgetMapper_SetModel(@ptrCast(self.ptr), @ptrCast(model.ptr));
+    pub fn setModel(self: QDataWidgetMapper, _model: anytype) void {
+        comptime _ = @TypeOf(_model)._is_QAbstractItemModel;
+        qtc.QDataWidgetMapper_SetModel(@ptrCast(self.ptr), @ptrCast(_model.ptr));
     }
+
+    /// ### DEPRECATED: Use `model` instead
+    ///
+    pub const Model = model;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#model)
     ///
@@ -209,9 +253,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` self: QDataWidgetMapper `
     ///
-    pub fn Model(self: QDataWidgetMapper) QAbstractItemModel {
+    pub fn model(self: QDataWidgetMapper) QAbstractItemModel {
         return .{ .ptr = qtc.QDataWidgetMapper_Model(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setItemDelegate` instead
+    ///
+    pub const SetItemDelegate = setItemDelegate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#setItemDelegate)
     ///
@@ -221,10 +269,14 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` delegate: QAbstractItemDelegate `
     ///
-    pub fn SetItemDelegate(self: QDataWidgetMapper, delegate: anytype) void {
+    pub fn setItemDelegate(self: QDataWidgetMapper, delegate: anytype) void {
         comptime _ = @TypeOf(delegate)._is_QAbstractItemDelegate;
         qtc.QDataWidgetMapper_SetItemDelegate(@ptrCast(self.ptr), @ptrCast(delegate.ptr));
     }
+
+    /// ### DEPRECATED: Use `itemDelegate` instead
+    ///
+    pub const ItemDelegate = itemDelegate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#itemDelegate)
     ///
@@ -232,9 +284,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` self: QDataWidgetMapper `
     ///
-    pub fn ItemDelegate(self: QDataWidgetMapper) QAbstractItemDelegate {
+    pub fn itemDelegate(self: QDataWidgetMapper) QAbstractItemDelegate {
         return .{ .ptr = qtc.QDataWidgetMapper_ItemDelegate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setRootIndex` instead
+    ///
+    pub const SetRootIndex = setRootIndex;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#setRootIndex)
     ///
@@ -244,10 +300,14 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SetRootIndex(self: QDataWidgetMapper, index: anytype) void {
+    pub fn setRootIndex(self: QDataWidgetMapper, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QDataWidgetMapper_SetRootIndex(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `rootIndex` instead
+    ///
+    pub const RootIndex = rootIndex;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#rootIndex)
     ///
@@ -255,9 +315,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` self: QDataWidgetMapper `
     ///
-    pub fn RootIndex(self: QDataWidgetMapper) QModelIndex {
+    pub fn rootIndex(self: QDataWidgetMapper) QModelIndex {
         return .{ .ptr = qtc.QDataWidgetMapper_RootIndex(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setOrientation` instead
+    ///
+    pub const SetOrientation = setOrientation;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#setOrientation)
     ///
@@ -267,9 +331,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` aOrientation: qnamespace_enums.Orientation `
     ///
-    pub fn SetOrientation(self: QDataWidgetMapper, aOrientation: i32) void {
+    pub fn setOrientation(self: QDataWidgetMapper, aOrientation: i32) void {
         qtc.QDataWidgetMapper_SetOrientation(@ptrCast(self.ptr), @bitCast(aOrientation));
     }
+
+    /// ### DEPRECATED: Use `orientation` instead
+    ///
+    pub const Orientation = orientation;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#orientation)
     ///
@@ -281,9 +349,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` qnamespace_enums.Orientation `
     ///
-    pub fn Orientation(self: QDataWidgetMapper) i32 {
+    pub fn orientation(self: QDataWidgetMapper) i32 {
         return qtc.QDataWidgetMapper_Orientation(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSubmitPolicy` instead
+    ///
+    pub const SetSubmitPolicy = setSubmitPolicy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#setSubmitPolicy)
     ///
@@ -293,9 +365,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` policy: qdatawidgetmapper_enums.SubmitPolicy `
     ///
-    pub fn SetSubmitPolicy(self: QDataWidgetMapper, policy: i32) void {
+    pub fn setSubmitPolicy(self: QDataWidgetMapper, policy: i32) void {
         qtc.QDataWidgetMapper_SetSubmitPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `submitPolicy` instead
+    ///
+    pub const SubmitPolicy = submitPolicy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#submitPolicy)
     ///
@@ -307,9 +383,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` qdatawidgetmapper_enums.SubmitPolicy `
     ///
-    pub fn SubmitPolicy(self: QDataWidgetMapper) i32 {
+    pub fn submitPolicy(self: QDataWidgetMapper) i32 {
         return qtc.QDataWidgetMapper_SubmitPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `addMapping` instead
+    ///
+    pub const AddMapping = addMapping;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#addMapping)
     ///
@@ -321,10 +401,14 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` section: i32 `
     ///
-    pub fn AddMapping(self: QDataWidgetMapper, widget: anytype, section: i32) void {
+    pub fn addMapping(self: QDataWidgetMapper, widget: anytype, section: i32) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QDataWidgetMapper_AddMapping(@ptrCast(self.ptr), @ptrCast(widget.ptr), @bitCast(section));
     }
+
+    /// ### DEPRECATED: Use `addMapping2` instead
+    ///
+    pub const AddMapping2 = addMapping2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#addMapping)
     ///
@@ -338,7 +422,7 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` propertyName: []u8 `
     ///
-    pub fn AddMapping2(self: QDataWidgetMapper, widget: anytype, section: i32, propertyName: []u8) void {
+    pub fn addMapping2(self: QDataWidgetMapper, widget: anytype, section: i32, propertyName: []u8) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
         const propertyName_str = qtc.libqt_string{
             .len = propertyName.len,
@@ -346,6 +430,10 @@ pub const QDataWidgetMapper = extern struct {
         };
         qtc.QDataWidgetMapper_AddMapping2(@ptrCast(self.ptr), @ptrCast(widget.ptr), @bitCast(section), propertyName_str);
     }
+
+    /// ### DEPRECATED: Use `removeMapping` instead
+    ///
+    pub const RemoveMapping = removeMapping;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#removeMapping)
     ///
@@ -355,10 +443,14 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn RemoveMapping(self: QDataWidgetMapper, widget: anytype) void {
+    pub fn removeMapping(self: QDataWidgetMapper, widget: anytype) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QDataWidgetMapper_RemoveMapping(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `mappedSection` instead
+    ///
+    pub const MappedSection = mappedSection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#mappedSection)
     ///
@@ -368,10 +460,14 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn MappedSection(self: QDataWidgetMapper, widget: anytype) i32 {
+    pub fn mappedSection(self: QDataWidgetMapper, widget: anytype) i32 {
         comptime _ = @TypeOf(widget)._is_QWidget;
         return qtc.QDataWidgetMapper_MappedSection(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `mappedPropertyName` instead
+    ///
+    pub const MappedPropertyName = mappedPropertyName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#mappedPropertyName)
     ///
@@ -383,14 +479,18 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn MappedPropertyName(self: QDataWidgetMapper, allocator: std.mem.Allocator, widget: anytype) []u8 {
+    pub fn mappedPropertyName(self: QDataWidgetMapper, allocator: std.mem.Allocator, widget: anytype) []u8 {
         comptime _ = @TypeOf(widget)._is_QWidget;
         var _bytearray: qtc.libqt_string = qtc.QDataWidgetMapper_MappedPropertyName(@ptrCast(self.ptr), @ptrCast(widget.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QDataWidgetMapper.MappedPropertyName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QDataWidgetMapper.mappedPropertyName: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `mappedWidgetAt` instead
+    ///
+    pub const MappedWidgetAt = mappedWidgetAt;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#mappedWidgetAt)
     ///
@@ -400,9 +500,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` section: i32 `
     ///
-    pub fn MappedWidgetAt(self: QDataWidgetMapper, section: i32) QWidget {
+    pub fn mappedWidgetAt(self: QDataWidgetMapper, section: i32) QWidget {
         return .{ .ptr = qtc.QDataWidgetMapper_MappedWidgetAt(@ptrCast(self.ptr), @bitCast(section)) };
     }
+
+    /// ### DEPRECATED: Use `clearMapping` instead
+    ///
+    pub const ClearMapping = clearMapping;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#clearMapping)
     ///
@@ -410,9 +514,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` self: QDataWidgetMapper `
     ///
-    pub fn ClearMapping(self: QDataWidgetMapper) void {
+    pub fn clearMapping(self: QDataWidgetMapper) void {
         qtc.QDataWidgetMapper_ClearMapping(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `currentIndex` instead
+    ///
+    pub const CurrentIndex = currentIndex;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#currentIndex)
     ///
@@ -420,9 +528,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` self: QDataWidgetMapper `
     ///
-    pub fn CurrentIndex(self: QDataWidgetMapper) i32 {
+    pub fn currentIndex(self: QDataWidgetMapper) i32 {
         return qtc.QDataWidgetMapper_CurrentIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `revert` instead
+    ///
+    pub const Revert = revert;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#revert)
     ///
@@ -430,9 +542,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` self: QDataWidgetMapper `
     ///
-    pub fn Revert(self: QDataWidgetMapper) void {
+    pub fn revert(self: QDataWidgetMapper) void {
         qtc.QDataWidgetMapper_Revert(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `submit` instead
+    ///
+    pub const Submit = submit;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#submit)
     ///
@@ -440,9 +556,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` self: QDataWidgetMapper `
     ///
-    pub fn Submit(self: QDataWidgetMapper) bool {
+    pub fn submit(self: QDataWidgetMapper) bool {
         return qtc.QDataWidgetMapper_Submit(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toFirst` instead
+    ///
+    pub const ToFirst = toFirst;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#toFirst)
     ///
@@ -450,9 +570,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` self: QDataWidgetMapper `
     ///
-    pub fn ToFirst(self: QDataWidgetMapper) void {
+    pub fn toFirst(self: QDataWidgetMapper) void {
         qtc.QDataWidgetMapper_ToFirst(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toLast` instead
+    ///
+    pub const ToLast = toLast;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#toLast)
     ///
@@ -460,9 +584,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` self: QDataWidgetMapper `
     ///
-    pub fn ToLast(self: QDataWidgetMapper) void {
+    pub fn toLast(self: QDataWidgetMapper) void {
         qtc.QDataWidgetMapper_ToLast(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toNext` instead
+    ///
+    pub const ToNext = toNext;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#toNext)
     ///
@@ -470,9 +598,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` self: QDataWidgetMapper `
     ///
-    pub fn ToNext(self: QDataWidgetMapper) void {
+    pub fn toNext(self: QDataWidgetMapper) void {
         qtc.QDataWidgetMapper_ToNext(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toPrevious` instead
+    ///
+    pub const ToPrevious = toPrevious;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#toPrevious)
     ///
@@ -480,9 +612,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` self: QDataWidgetMapper `
     ///
-    pub fn ToPrevious(self: QDataWidgetMapper) void {
+    pub fn toPrevious(self: QDataWidgetMapper) void {
         qtc.QDataWidgetMapper_ToPrevious(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCurrentIndex` instead
+    ///
+    pub const SetCurrentIndex = setCurrentIndex;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#setCurrentIndex)
     ///
@@ -492,9 +628,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn SetCurrentIndex(self: QDataWidgetMapper, index: i32) void {
+    pub fn setCurrentIndex(self: QDataWidgetMapper, index: i32) void {
         qtc.QDataWidgetMapper_SetCurrentIndex(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `onSetCurrentIndex` instead
+    ///
+    pub const OnSetCurrentIndex = onSetCurrentIndex;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#setCurrentIndex)
     ///
@@ -506,13 +646,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QDataWidgetMapper, index: i32) callconv(.c) void `
     ///
-    pub fn OnSetCurrentIndex(self: QDataWidgetMapper, callback: *const fn (QDataWidgetMapper, i32) callconv(.c) void) void {
+    pub fn onSetCurrentIndex(self: QDataWidgetMapper, callback: *const fn (QDataWidgetMapper, i32) callconv(.c) void) void {
         qtc.QDataWidgetMapper_OnSetCurrentIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetCurrentIndex` instead
+    /// ### DEPRECATED: Use `superSetCurrentIndex` instead
     ///
-    pub const QBaseSetCurrentIndex = SuperSetCurrentIndex;
+    pub const SuperSetCurrentIndex = superSetCurrentIndex;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#setCurrentIndex)
     ///
@@ -524,9 +664,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn SuperSetCurrentIndex(self: QDataWidgetMapper, index: i32) void {
+    pub fn superSetCurrentIndex(self: QDataWidgetMapper, index: i32) void {
         qtc.QDataWidgetMapper_SuperSetCurrentIndex(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `setCurrentModelIndex` instead
+    ///
+    pub const SetCurrentModelIndex = setCurrentModelIndex;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#setCurrentModelIndex)
     ///
@@ -536,10 +680,14 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SetCurrentModelIndex(self: QDataWidgetMapper, index: anytype) void {
+    pub fn setCurrentModelIndex(self: QDataWidgetMapper, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QDataWidgetMapper_SetCurrentModelIndex(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `currentIndexChanged` instead
+    ///
+    pub const CurrentIndexChanged = currentIndexChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#currentIndexChanged)
     ///
@@ -549,9 +697,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn CurrentIndexChanged(self: QDataWidgetMapper, index: i32) void {
+    pub fn currentIndexChanged(self: QDataWidgetMapper, index: i32) void {
         qtc.QDataWidgetMapper_CurrentIndexChanged(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `onCurrentIndexChanged` instead
+    ///
+    pub const OnCurrentIndexChanged = onCurrentIndexChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#currentIndexChanged)
     ///
@@ -561,9 +713,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QDataWidgetMapper, index: i32) callconv(.c) void `
     ///
-    pub fn OnCurrentIndexChanged(self: QDataWidgetMapper, callback: *const fn (QDataWidgetMapper, i32) callconv(.c) void) void {
+    pub fn onCurrentIndexChanged(self: QDataWidgetMapper, callback: *const fn (QDataWidgetMapper, i32) callconv(.c) void) void {
         qtc.QDataWidgetMapper_Connect_CurrentIndexChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -575,15 +731,19 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDataWidgetMapper.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDataWidgetMapper.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -597,15 +757,19 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDataWidgetMapper.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDataWidgetMapper.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -617,13 +781,17 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QDataWidgetMapper, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QDataWidgetMapper, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDataWidgetMapper.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDataWidgetMapper.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -635,13 +803,17 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QDataWidgetMapper, name: []const u8) void {
+    pub fn setObjectName(self: QDataWidgetMapper, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -651,9 +823,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` self: QDataWidgetMapper `
     ///
-    pub fn IsWidgetType(self: QDataWidgetMapper) bool {
+    pub fn isWidgetType(self: QDataWidgetMapper) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -663,9 +839,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` self: QDataWidgetMapper `
     ///
-    pub fn IsWindowType(self: QDataWidgetMapper) bool {
+    pub fn isWindowType(self: QDataWidgetMapper) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -675,9 +855,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` self: QDataWidgetMapper `
     ///
-    pub fn IsQuickItemType(self: QDataWidgetMapper) bool {
+    pub fn isQuickItemType(self: QDataWidgetMapper) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -687,9 +871,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` self: QDataWidgetMapper `
     ///
-    pub fn SignalsBlocked(self: QDataWidgetMapper) bool {
+    pub fn signalsBlocked(self: QDataWidgetMapper) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -701,9 +889,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QDataWidgetMapper, b: bool) bool {
+    pub fn blockSignals(self: QDataWidgetMapper, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -713,9 +905,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` self: QDataWidgetMapper `
     ///
-    pub fn Thread(self: QDataWidgetMapper) QThread {
+    pub fn thread(self: QDataWidgetMapper) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -725,12 +921,16 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` self: QDataWidgetMapper `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QDataWidgetMapper, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QDataWidgetMapper, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -742,9 +942,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QDataWidgetMapper, interval: i32) i32 {
+    pub fn startTimer(self: QDataWidgetMapper, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -756,9 +960,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QDataWidgetMapper, time: i64) i32 {
+    pub fn startTimer2(self: QDataWidgetMapper, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -770,9 +978,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QDataWidgetMapper, id: i32) void {
+    pub fn killTimer(self: QDataWidgetMapper, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -784,9 +996,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QDataWidgetMapper, id: i32) void {
+    pub fn killTimer2(self: QDataWidgetMapper, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -798,15 +1014,19 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QDataWidgetMapper, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QDataWidgetMapper, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QDataWidgetMapper.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QDataWidgetMapper.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -816,12 +1036,16 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` self: QDataWidgetMapper `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QDataWidgetMapper, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QDataWidgetMapper, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -833,10 +1057,14 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QDataWidgetMapper, filterObj: anytype) void {
+    pub fn installEventFilter(self: QDataWidgetMapper, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -848,10 +1076,14 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QDataWidgetMapper, obj: anytype) void {
+    pub fn removeEventFilter(self: QDataWidgetMapper, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -859,7 +1091,7 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -867,13 +1099,17 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -881,7 +1117,7 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -889,13 +1125,17 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -905,18 +1145,22 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` self: QDataWidgetMapper `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QDataWidgetMapper, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QDataWidgetMapper, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -924,7 +1168,7 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -932,13 +1176,17 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -946,7 +1194,7 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -954,13 +1202,17 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -970,9 +1222,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` self: QDataWidgetMapper `
     ///
-    pub fn Disconnect3(self: QDataWidgetMapper) bool {
+    pub fn disconnect3(self: QDataWidgetMapper) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -984,10 +1240,14 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QDataWidgetMapper, receiver: anytype) bool {
+    pub fn disconnect4(self: QDataWidgetMapper, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -997,10 +1257,14 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1010,9 +1274,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` self: QDataWidgetMapper `
     ///
-    pub fn DumpObjectTree(self: QDataWidgetMapper) void {
+    pub fn dumpObjectTree(self: QDataWidgetMapper) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1022,9 +1290,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` self: QDataWidgetMapper `
     ///
-    pub fn DumpObjectInfo(self: QDataWidgetMapper) void {
+    pub fn dumpObjectInfo(self: QDataWidgetMapper) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1038,11 +1310,15 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QDataWidgetMapper, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QDataWidgetMapper, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1054,10 +1330,14 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QDataWidgetMapper, name: [:0]const u8) QVariant {
+    pub fn property(self: QDataWidgetMapper, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1069,7 +1349,7 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QDataWidgetMapper, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QDataWidgetMapper, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1077,27 +1357,19 @@ pub const QDataWidgetMapper = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QDataWidgetMapper.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QDataWidgetMapper.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QDataWidgetMapper.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QDataWidgetMapper.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDataWidgetMapper `
-    ///
-    pub fn BindingStorage(self: QDataWidgetMapper) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1107,9 +1379,29 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` self: QDataWidgetMapper `
     ///
-    pub fn BindingStorage2(self: QDataWidgetMapper) QBindingStorage {
+    pub fn bindingStorage(self: QDataWidgetMapper) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QDataWidgetMapper `
+    ///
+    pub fn bindingStorage2(self: QDataWidgetMapper) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1119,9 +1411,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` self: QDataWidgetMapper `
     ///
-    pub fn Destroyed(self: QDataWidgetMapper) void {
+    pub fn destroyed(self: QDataWidgetMapper) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1133,9 +1429,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QDataWidgetMapper) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QDataWidgetMapper, callback: *const fn (QDataWidgetMapper) callconv(.c) void) void {
+    pub fn onDestroyed(self: QDataWidgetMapper, callback: *const fn (QDataWidgetMapper) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1145,9 +1445,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` self: QDataWidgetMapper `
     ///
-    pub fn Parent(self: QDataWidgetMapper) QObject {
+    pub fn parent(self: QDataWidgetMapper) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1159,10 +1463,14 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QDataWidgetMapper, classname: [:0]const u8) bool {
+    pub fn inherits(self: QDataWidgetMapper, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1172,9 +1480,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` self: QDataWidgetMapper `
     ///
-    pub fn DeleteLater(self: QDataWidgetMapper) void {
+    pub fn deleteLater(self: QDataWidgetMapper) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1188,9 +1500,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QDataWidgetMapper, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QDataWidgetMapper, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1204,9 +1520,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QDataWidgetMapper, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QDataWidgetMapper, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1214,7 +1534,7 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1224,13 +1544,17 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1238,7 +1562,7 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1248,13 +1572,17 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1264,7 +1592,7 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` self: QDataWidgetMapper `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1272,12 +1600,16 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QDataWidgetMapper, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QDataWidgetMapper, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1289,10 +1621,14 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QDataWidgetMapper, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QDataWidgetMapper, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1306,11 +1642,15 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QDataWidgetMapper, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QDataWidgetMapper, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1326,13 +1666,17 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QDataWidgetMapper, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QDataWidgetMapper, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1345,11 +1689,15 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QDataWidgetMapper, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QDataWidgetMapper, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1361,10 +1709,14 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QDataWidgetMapper, param1: anytype) void {
+    pub fn destroyed1(self: QDataWidgetMapper, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1376,9 +1728,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QDataWidgetMapper, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QDataWidgetMapper, callback: *const fn (QDataWidgetMapper, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QDataWidgetMapper, callback: *const fn (QDataWidgetMapper, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -1390,16 +1746,16 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` self: QDataWidgetMapper `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QDataWidgetMapper, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QDataWidgetMapper_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QDataWidgetMapper, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QDataWidgetMapper_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -1411,12 +1767,16 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` self: QDataWidgetMapper `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QDataWidgetMapper, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QDataWidgetMapper_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QDataWidgetMapper, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QDataWidgetMapper_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -1430,9 +1790,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QDataWidgetMapper, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QDataWidgetMapper, callback: *const fn (QDataWidgetMapper, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QDataWidgetMapper, callback: *const fn (QDataWidgetMapper, QEvent) callconv(.c) bool) void {
         qtc.QDataWidgetMapper_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1446,17 +1810,17 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QDataWidgetMapper, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QDataWidgetMapper, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QDataWidgetMapper_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QDataWidgetMapper_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1470,13 +1834,17 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QDataWidgetMapper, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QDataWidgetMapper, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QDataWidgetMapper_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QDataWidgetMapper_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1490,9 +1858,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QDataWidgetMapper, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QDataWidgetMapper, callback: *const fn (QDataWidgetMapper, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QDataWidgetMapper, callback: *const fn (QDataWidgetMapper, QObject, QEvent) callconv(.c) bool) void {
         qtc.QDataWidgetMapper_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -1504,16 +1876,16 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` self: QDataWidgetMapper `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QDataWidgetMapper, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QDataWidgetMapper_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QDataWidgetMapper, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QDataWidgetMapper_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1525,12 +1897,16 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` self: QDataWidgetMapper `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QDataWidgetMapper, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QDataWidgetMapper_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QDataWidgetMapper, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QDataWidgetMapper_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1544,9 +1920,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QDataWidgetMapper, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QDataWidgetMapper, callback: *const fn (QDataWidgetMapper, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QDataWidgetMapper, callback: *const fn (QDataWidgetMapper, QTimerEvent) callconv(.c) void) void {
         qtc.QDataWidgetMapper_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -1558,16 +1938,16 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` self: QDataWidgetMapper `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QDataWidgetMapper, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QDataWidgetMapper_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QDataWidgetMapper, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QDataWidgetMapper_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1579,12 +1959,16 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` self: QDataWidgetMapper `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QDataWidgetMapper, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QDataWidgetMapper_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QDataWidgetMapper, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QDataWidgetMapper_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1598,9 +1982,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QDataWidgetMapper, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QDataWidgetMapper, callback: *const fn (QDataWidgetMapper, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QDataWidgetMapper, callback: *const fn (QDataWidgetMapper, QChildEvent) callconv(.c) void) void {
         qtc.QDataWidgetMapper_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -1612,16 +2000,16 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` self: QDataWidgetMapper `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QDataWidgetMapper, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QDataWidgetMapper_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QDataWidgetMapper, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QDataWidgetMapper_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1633,12 +2021,16 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` self: QDataWidgetMapper `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QDataWidgetMapper, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QDataWidgetMapper_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QDataWidgetMapper, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QDataWidgetMapper_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1652,9 +2044,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QDataWidgetMapper, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QDataWidgetMapper, callback: *const fn (QDataWidgetMapper, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QDataWidgetMapper, callback: *const fn (QDataWidgetMapper, QEvent) callconv(.c) void) void {
         qtc.QDataWidgetMapper_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -1668,14 +2064,14 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QDataWidgetMapper, signal: anytype) void {
+    pub fn connectNotify(self: QDataWidgetMapper, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QDataWidgetMapper_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1689,11 +2085,15 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QDataWidgetMapper, signal: anytype) void {
+    pub fn superConnectNotify(self: QDataWidgetMapper, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QDataWidgetMapper_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1706,9 +2106,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QDataWidgetMapper, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QDataWidgetMapper, callback: *const fn (QDataWidgetMapper, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QDataWidgetMapper, callback: *const fn (QDataWidgetMapper, QMetaMethod) callconv(.c) void) void {
         qtc.QDataWidgetMapper_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1722,14 +2126,14 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QDataWidgetMapper, signal: anytype) void {
+    pub fn disconnectNotify(self: QDataWidgetMapper, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QDataWidgetMapper_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1743,10 +2147,14 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QDataWidgetMapper, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QDataWidgetMapper, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QDataWidgetMapper_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1760,9 +2168,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QDataWidgetMapper, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QDataWidgetMapper, callback: *const fn (QDataWidgetMapper, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QDataWidgetMapper, callback: *const fn (QDataWidgetMapper, QMetaMethod) callconv(.c) void) void {
         qtc.QDataWidgetMapper_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -1774,13 +2186,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` self: QDataWidgetMapper `
     ///
-    pub fn Sender(self: QDataWidgetMapper) QObject {
+    pub fn sender(self: QDataWidgetMapper) QObject {
         return .{ .ptr = qtc.QDataWidgetMapper_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -1792,9 +2204,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` self: QDataWidgetMapper `
     ///
-    pub fn SuperSender(self: QDataWidgetMapper) QObject {
+    pub fn superSender(self: QDataWidgetMapper) QObject {
         return .{ .ptr = qtc.QDataWidgetMapper_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -1808,9 +2224,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QDataWidgetMapper, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QDataWidgetMapper, callback: *const fn () callconv(.c) QObject) void {
         qtc.QDataWidgetMapper_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1822,13 +2242,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` self: QDataWidgetMapper `
     ///
-    pub fn SenderSignalIndex(self: QDataWidgetMapper) i32 {
+    pub fn senderSignalIndex(self: QDataWidgetMapper) i32 {
         return qtc.QDataWidgetMapper_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1840,9 +2260,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` self: QDataWidgetMapper `
     ///
-    pub fn SuperSenderSignalIndex(self: QDataWidgetMapper) i32 {
+    pub fn superSenderSignalIndex(self: QDataWidgetMapper) i32 {
         return qtc.QDataWidgetMapper_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1856,9 +2280,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QDataWidgetMapper, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QDataWidgetMapper, callback: *const fn () callconv(.c) i32) void {
         qtc.QDataWidgetMapper_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -1872,14 +2300,14 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QDataWidgetMapper, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QDataWidgetMapper, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QDataWidgetMapper_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -1893,10 +2321,14 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QDataWidgetMapper, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QDataWidgetMapper, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QDataWidgetMapper_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -1910,9 +2342,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QDataWidgetMapper, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QDataWidgetMapper, callback: *const fn (QDataWidgetMapper, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QDataWidgetMapper, callback: *const fn (QDataWidgetMapper, [*:0]const u8) callconv(.c) i32) void {
         qtc.QDataWidgetMapper_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1926,14 +2362,14 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QDataWidgetMapper, signal: anytype) bool {
+    pub fn isSignalConnected(self: QDataWidgetMapper, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QDataWidgetMapper_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1947,10 +2383,14 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QDataWidgetMapper, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QDataWidgetMapper, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QDataWidgetMapper_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1964,9 +2404,13 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QDataWidgetMapper, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QDataWidgetMapper, callback: *const fn (QDataWidgetMapper, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QDataWidgetMapper, callback: *const fn (QDataWidgetMapper, QMetaMethod) callconv(.c) bool) void {
         qtc.QDataWidgetMapper_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -1980,23 +2424,23 @@ pub const QDataWidgetMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QDataWidgetMapper, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QDataWidgetMapper, callback: *const fn (QDataWidgetMapper, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QDataWidgetMapper, callback: *const fn (QDataWidgetMapper, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#dtor.QDataWidgetMapper)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDataWidgetMapper `
     ///
-    pub fn Delete(self: QDataWidgetMapper) void {
+    pub fn delete(self: QDataWidgetMapper) void {
         qtc.QDataWidgetMapper_Delete(@ptrCast(self.ptr));
     }
 };

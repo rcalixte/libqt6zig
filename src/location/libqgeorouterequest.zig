@@ -16,13 +16,21 @@ pub const QGeoRouteRequest = extern struct {
 
     pub const _is_QGeoRouteRequest = {};
 
-    /// New constructs a new QGeoRouteRequest object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QGeoRouteRequest {
+    pub const New = new;
+
+    /// Allocate a new QGeoRouteRequest object in C++ memory
+    ///
+    pub fn new() QGeoRouteRequest {
         return .{ .ptr = qtc.QGeoRouteRequest_new() };
     }
 
-    /// New2 constructs a new QGeoRouteRequest object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QGeoRouteRequest object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -30,36 +38,48 @@ pub const QGeoRouteRequest = extern struct {
     ///
     /// ` destination: QGeoCoordinate `
     ///
-    pub fn New2(origin: anytype, destination: anytype) QGeoRouteRequest {
+    pub fn new2(origin: anytype, destination: anytype) QGeoRouteRequest {
         comptime _ = @TypeOf(origin)._is_QGeoCoordinate;
         comptime _ = @TypeOf(destination)._is_QGeoCoordinate;
         return .{ .ptr = qtc.QGeoRouteRequest_new2(@ptrCast(origin.ptr), @ptrCast(destination.ptr)) };
     }
 
-    /// New3 constructs a new QGeoRouteRequest object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QGeoRouteRequest object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QGeoRouteRequest `
     ///
-    pub fn New3(other: anytype) QGeoRouteRequest {
+    pub fn new3(other: anytype) QGeoRouteRequest {
         comptime _ = @TypeOf(other)._is_QGeoRouteRequest;
         return .{ .ptr = qtc.QGeoRouteRequest_new3(@ptrCast(other.ptr)) };
     }
 
-    /// New4 constructs a new QGeoRouteRequest object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QGeoRouteRequest object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` waypoints: []QGeoCoordinate `
+    /// ` _waypoints: []QGeoCoordinate `
     ///
-    pub fn New4(waypoints: []QGeoCoordinate) QGeoRouteRequest {
+    pub fn new4(_waypoints: []QGeoCoordinate) QGeoRouteRequest {
         const waypoints_list = qtc.libqt_list{
-            .len = waypoints.len,
-            .data = @ptrCast(waypoints.ptr),
+            .len = _waypoints.len,
+            .data = @ptrCast(_waypoints.ptr),
         };
         return .{ .ptr = qtc.QGeoRouteRequest_new4(waypoints_list) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorouterequest.html#operator-eq)
     ///
@@ -69,10 +89,14 @@ pub const QGeoRouteRequest = extern struct {
     ///
     /// ` other: QGeoRouteRequest `
     ///
-    pub fn OperatorAssign(self: QGeoRouteRequest, other: anytype) void {
+    pub fn operatorAssign(self: QGeoRouteRequest, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QGeoRouteRequest;
         qtc.QGeoRouteRequest_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorouterequest.html#swap)
     ///
@@ -82,10 +106,14 @@ pub const QGeoRouteRequest = extern struct {
     ///
     /// ` other: QGeoRouteRequest `
     ///
-    pub fn Swap(self: QGeoRouteRequest, other: anytype) void {
+    pub fn swap(self: QGeoRouteRequest, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QGeoRouteRequest;
         qtc.QGeoRouteRequest_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWaypoints` instead
+    ///
+    pub const SetWaypoints = setWaypoints;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorouterequest.html#setWaypoints)
     ///
@@ -93,15 +121,19 @@ pub const QGeoRouteRequest = extern struct {
     ///
     /// ` self: QGeoRouteRequest `
     ///
-    /// ` waypoints: []QGeoCoordinate `
+    /// ` _waypoints: []QGeoCoordinate `
     ///
-    pub fn SetWaypoints(self: QGeoRouteRequest, waypoints: []QGeoCoordinate) void {
+    pub fn setWaypoints(self: QGeoRouteRequest, _waypoints: []QGeoCoordinate) void {
         const waypoints_list = qtc.libqt_list{
-            .len = waypoints.len,
-            .data = @ptrCast(waypoints.ptr),
+            .len = _waypoints.len,
+            .data = @ptrCast(_waypoints.ptr),
         };
         qtc.QGeoRouteRequest_SetWaypoints(@ptrCast(self.ptr), waypoints_list);
     }
+
+    /// ### DEPRECATED: Use `waypoints` instead
+    ///
+    pub const Waypoints = waypoints;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorouterequest.html#waypoints)
     ///
@@ -111,15 +143,19 @@ pub const QGeoRouteRequest = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Waypoints(self: QGeoRouteRequest, allocator: std.mem.Allocator) []QGeoCoordinate {
+    pub fn waypoints(self: QGeoRouteRequest, allocator: std.mem.Allocator) []QGeoCoordinate {
         const _arr: qtc.libqt_list = qtc.QGeoRouteRequest_Waypoints(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGeoCoordinate, _arr.len) catch @panic("QGeoRouteRequest.Waypoints: Memory allocation failed");
-        const _data: [*]QtC.QGeoCoordinate = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QGeoCoordinate, _arr.len) catch @panic("QGeoRouteRequest.waypoints: Memory allocation failed");
+        const _data_val: [*]QtC.QGeoCoordinate = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setExcludeAreas` instead
+    ///
+    pub const SetExcludeAreas = setExcludeAreas;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorouterequest.html#setExcludeAreas)
     ///
@@ -129,13 +165,17 @@ pub const QGeoRouteRequest = extern struct {
     ///
     /// ` areas: []QGeoRectangle `
     ///
-    pub fn SetExcludeAreas(self: QGeoRouteRequest, areas: []QGeoRectangle) void {
+    pub fn setExcludeAreas(self: QGeoRouteRequest, areas: []QGeoRectangle) void {
         const areas_list = qtc.libqt_list{
             .len = areas.len,
             .data = @ptrCast(areas.ptr),
         };
         qtc.QGeoRouteRequest_SetExcludeAreas(@ptrCast(self.ptr), areas_list);
     }
+
+    /// ### DEPRECATED: Use `excludeAreas` instead
+    ///
+    pub const ExcludeAreas = excludeAreas;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorouterequest.html#excludeAreas)
     ///
@@ -145,15 +185,19 @@ pub const QGeoRouteRequest = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ExcludeAreas(self: QGeoRouteRequest, allocator: std.mem.Allocator) []QGeoRectangle {
+    pub fn excludeAreas(self: QGeoRouteRequest, allocator: std.mem.Allocator) []QGeoRectangle {
         const _arr: qtc.libqt_list = qtc.QGeoRouteRequest_ExcludeAreas(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGeoRectangle, _arr.len) catch @panic("QGeoRouteRequest.ExcludeAreas: Memory allocation failed");
-        const _data: [*]QtC.QGeoRectangle = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QGeoRectangle, _arr.len) catch @panic("QGeoRouteRequest.excludeAreas: Memory allocation failed");
+        const _data_val: [*]QtC.QGeoRectangle = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setNumberAlternativeRoutes` instead
+    ///
+    pub const SetNumberAlternativeRoutes = setNumberAlternativeRoutes;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorouterequest.html#setNumberAlternativeRoutes)
     ///
@@ -163,9 +207,13 @@ pub const QGeoRouteRequest = extern struct {
     ///
     /// ` alternatives: i32 `
     ///
-    pub fn SetNumberAlternativeRoutes(self: QGeoRouteRequest, alternatives: i32) void {
+    pub fn setNumberAlternativeRoutes(self: QGeoRouteRequest, alternatives: i32) void {
         qtc.QGeoRouteRequest_SetNumberAlternativeRoutes(@ptrCast(self.ptr), @bitCast(alternatives));
     }
+
+    /// ### DEPRECATED: Use `numberAlternativeRoutes` instead
+    ///
+    pub const NumberAlternativeRoutes = numberAlternativeRoutes;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorouterequest.html#numberAlternativeRoutes)
     ///
@@ -173,9 +221,13 @@ pub const QGeoRouteRequest = extern struct {
     ///
     /// ` self: QGeoRouteRequest `
     ///
-    pub fn NumberAlternativeRoutes(self: QGeoRouteRequest) i32 {
+    pub fn numberAlternativeRoutes(self: QGeoRouteRequest) i32 {
         return qtc.QGeoRouteRequest_NumberAlternativeRoutes(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTravelModes` instead
+    ///
+    pub const SetTravelModes = setTravelModes;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorouterequest.html#setTravelModes)
     ///
@@ -183,11 +235,15 @@ pub const QGeoRouteRequest = extern struct {
     ///
     /// ` self: QGeoRouteRequest `
     ///
-    /// ` travelModes: flag of qgeorouterequest_enums.TravelMode `
+    /// ` _travelModes: flag of qgeorouterequest_enums.TravelMode `
     ///
-    pub fn SetTravelModes(self: QGeoRouteRequest, travelModes: i32) void {
-        qtc.QGeoRouteRequest_SetTravelModes(@ptrCast(self.ptr), @bitCast(travelModes));
+    pub fn setTravelModes(self: QGeoRouteRequest, _travelModes: i32) void {
+        qtc.QGeoRouteRequest_SetTravelModes(@ptrCast(self.ptr), @bitCast(_travelModes));
     }
+
+    /// ### DEPRECATED: Use `travelModes` instead
+    ///
+    pub const TravelModes = travelModes;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorouterequest.html#travelModes)
     ///
@@ -199,9 +255,13 @@ pub const QGeoRouteRequest = extern struct {
     ///
     /// ` flag of qgeorouterequest_enums.TravelMode `
     ///
-    pub fn TravelModes(self: QGeoRouteRequest) i32 {
+    pub fn travelModes(self: QGeoRouteRequest) i32 {
         return qtc.QGeoRouteRequest_TravelModes(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFeatureWeight` instead
+    ///
+    pub const SetFeatureWeight = setFeatureWeight;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorouterequest.html#setFeatureWeight)
     ///
@@ -211,11 +271,15 @@ pub const QGeoRouteRequest = extern struct {
     ///
     /// ` featureType: qgeorouterequest_enums.FeatureType `
     ///
-    /// ` featureWeight: qgeorouterequest_enums.FeatureWeight `
+    /// ` _featureWeight: qgeorouterequest_enums.FeatureWeight `
     ///
-    pub fn SetFeatureWeight(self: QGeoRouteRequest, featureType: i32, featureWeight: i32) void {
-        qtc.QGeoRouteRequest_SetFeatureWeight(@ptrCast(self.ptr), @bitCast(featureType), @bitCast(featureWeight));
+    pub fn setFeatureWeight(self: QGeoRouteRequest, featureType: i32, _featureWeight: i32) void {
+        qtc.QGeoRouteRequest_SetFeatureWeight(@ptrCast(self.ptr), @bitCast(featureType), @bitCast(_featureWeight));
     }
+
+    /// ### DEPRECATED: Use `featureWeight` instead
+    ///
+    pub const FeatureWeight = featureWeight;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorouterequest.html#featureWeight)
     ///
@@ -229,9 +293,13 @@ pub const QGeoRouteRequest = extern struct {
     ///
     /// ` qgeorouterequest_enums.FeatureWeight `
     ///
-    pub fn FeatureWeight(self: QGeoRouteRequest, featureType: i32) i32 {
+    pub fn featureWeight(self: QGeoRouteRequest, featureType: i32) i32 {
         return qtc.QGeoRouteRequest_FeatureWeight(@ptrCast(self.ptr), @bitCast(featureType));
     }
+
+    /// ### DEPRECATED: Use `featureTypes` instead
+    ///
+    pub const FeatureTypes = featureTypes;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorouterequest.html#featureTypes)
     ///
@@ -245,14 +313,18 @@ pub const QGeoRouteRequest = extern struct {
     ///
     /// ` []qgeorouterequest_enums.FeatureType `
     ///
-    pub fn FeatureTypes(self: QGeoRouteRequest, allocator: std.mem.Allocator) []i32 {
+    pub fn featureTypes(self: QGeoRouteRequest, allocator: std.mem.Allocator) []i32 {
         const _arr: qtc.libqt_list = qtc.QGeoRouteRequest_FeatureTypes(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QGeoRouteRequest.FeatureTypes: Memory allocation failed");
-        const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QGeoRouteRequest.featureTypes: Memory allocation failed");
+        const _data_val: [*]i32 = @ptrCast(@alignCast(_arr.data));
+        @memcpy(_ret, _data_val[0.._arr.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setRouteOptimization` instead
+    ///
+    pub const SetRouteOptimization = setRouteOptimization;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorouterequest.html#setRouteOptimization)
     ///
@@ -262,9 +334,13 @@ pub const QGeoRouteRequest = extern struct {
     ///
     /// ` optimization: flag of qgeorouterequest_enums.RouteOptimization `
     ///
-    pub fn SetRouteOptimization(self: QGeoRouteRequest, optimization: i32) void {
+    pub fn setRouteOptimization(self: QGeoRouteRequest, optimization: i32) void {
         qtc.QGeoRouteRequest_SetRouteOptimization(@ptrCast(self.ptr), @bitCast(optimization));
     }
+
+    /// ### DEPRECATED: Use `routeOptimization` instead
+    ///
+    pub const RouteOptimization = routeOptimization;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorouterequest.html#routeOptimization)
     ///
@@ -276,9 +352,13 @@ pub const QGeoRouteRequest = extern struct {
     ///
     /// ` flag of qgeorouterequest_enums.RouteOptimization `
     ///
-    pub fn RouteOptimization(self: QGeoRouteRequest) i32 {
+    pub fn routeOptimization(self: QGeoRouteRequest) i32 {
         return qtc.QGeoRouteRequest_RouteOptimization(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSegmentDetail` instead
+    ///
+    pub const SetSegmentDetail = setSegmentDetail;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorouterequest.html#setSegmentDetail)
     ///
@@ -286,11 +366,15 @@ pub const QGeoRouteRequest = extern struct {
     ///
     /// ` self: QGeoRouteRequest `
     ///
-    /// ` segmentDetail: qgeorouterequest_enums.SegmentDetail `
+    /// ` _segmentDetail: qgeorouterequest_enums.SegmentDetail `
     ///
-    pub fn SetSegmentDetail(self: QGeoRouteRequest, segmentDetail: i32) void {
-        qtc.QGeoRouteRequest_SetSegmentDetail(@ptrCast(self.ptr), @bitCast(segmentDetail));
+    pub fn setSegmentDetail(self: QGeoRouteRequest, _segmentDetail: i32) void {
+        qtc.QGeoRouteRequest_SetSegmentDetail(@ptrCast(self.ptr), @bitCast(_segmentDetail));
     }
+
+    /// ### DEPRECATED: Use `segmentDetail` instead
+    ///
+    pub const SegmentDetail = segmentDetail;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorouterequest.html#segmentDetail)
     ///
@@ -302,9 +386,13 @@ pub const QGeoRouteRequest = extern struct {
     ///
     /// ` qgeorouterequest_enums.SegmentDetail `
     ///
-    pub fn SegmentDetail(self: QGeoRouteRequest) i32 {
+    pub fn segmentDetail(self: QGeoRouteRequest) i32 {
         return qtc.QGeoRouteRequest_SegmentDetail(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setManeuverDetail` instead
+    ///
+    pub const SetManeuverDetail = setManeuverDetail;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorouterequest.html#setManeuverDetail)
     ///
@@ -312,11 +400,15 @@ pub const QGeoRouteRequest = extern struct {
     ///
     /// ` self: QGeoRouteRequest `
     ///
-    /// ` maneuverDetail: qgeorouterequest_enums.ManeuverDetail `
+    /// ` _maneuverDetail: qgeorouterequest_enums.ManeuverDetail `
     ///
-    pub fn SetManeuverDetail(self: QGeoRouteRequest, maneuverDetail: i32) void {
-        qtc.QGeoRouteRequest_SetManeuverDetail(@ptrCast(self.ptr), @bitCast(maneuverDetail));
+    pub fn setManeuverDetail(self: QGeoRouteRequest, _maneuverDetail: i32) void {
+        qtc.QGeoRouteRequest_SetManeuverDetail(@ptrCast(self.ptr), @bitCast(_maneuverDetail));
     }
+
+    /// ### DEPRECATED: Use `maneuverDetail` instead
+    ///
+    pub const ManeuverDetail = maneuverDetail;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorouterequest.html#maneuverDetail)
     ///
@@ -328,9 +420,13 @@ pub const QGeoRouteRequest = extern struct {
     ///
     /// ` qgeorouterequest_enums.ManeuverDetail `
     ///
-    pub fn ManeuverDetail(self: QGeoRouteRequest) i32 {
+    pub fn maneuverDetail(self: QGeoRouteRequest) i32 {
         return qtc.QGeoRouteRequest_ManeuverDetail(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDepartureTime` instead
+    ///
+    pub const SetDepartureTime = setDepartureTime;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorouterequest.html#setDepartureTime)
     ///
@@ -338,12 +434,16 @@ pub const QGeoRouteRequest = extern struct {
     ///
     /// ` self: QGeoRouteRequest `
     ///
-    /// ` departureTime: QDateTime `
+    /// ` _departureTime: QDateTime `
     ///
-    pub fn SetDepartureTime(self: QGeoRouteRequest, departureTime: anytype) void {
-        comptime _ = @TypeOf(departureTime)._is_QDateTime;
-        qtc.QGeoRouteRequest_SetDepartureTime(@ptrCast(self.ptr), @ptrCast(departureTime.ptr));
+    pub fn setDepartureTime(self: QGeoRouteRequest, _departureTime: anytype) void {
+        comptime _ = @TypeOf(_departureTime)._is_QDateTime;
+        qtc.QGeoRouteRequest_SetDepartureTime(@ptrCast(self.ptr), @ptrCast(_departureTime.ptr));
     }
+
+    /// ### DEPRECATED: Use `departureTime` instead
+    ///
+    pub const DepartureTime = departureTime;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorouterequest.html#departureTime)
     ///
@@ -351,23 +451,23 @@ pub const QGeoRouteRequest = extern struct {
     ///
     /// ` self: QGeoRouteRequest `
     ///
-    pub fn DepartureTime(self: QGeoRouteRequest) QDateTime {
+    pub fn departureTime(self: QGeoRouteRequest) QDateTime {
         return .{ .ptr = qtc.QGeoRouteRequest_DepartureTime(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorouterequest.html#dtor.QGeoRouteRequest)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QGeoRouteRequest `
     ///
-    pub fn Delete(self: QGeoRouteRequest) void {
+    pub fn delete(self: QGeoRouteRequest) void {
         qtc.QGeoRouteRequest_Delete(@ptrCast(self.ptr));
     }
 };

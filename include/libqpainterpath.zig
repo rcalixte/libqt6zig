@@ -19,33 +19,49 @@ pub const QPainterPath = extern struct {
 
     pub const _is_QPainterPath = {};
 
-    /// New constructs a new QPainterPath object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QPainterPath {
+    pub const New = new;
+
+    /// Allocate a new QPainterPath object in C++ memory
+    ///
+    pub fn new() QPainterPath {
         return .{ .ptr = qtc.QPainterPath_new() };
     }
 
-    /// New2 constructs a new QPainterPath object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QPainterPath object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` startPoint: QPointF `
     ///
-    pub fn New2(startPoint: anytype) QPainterPath {
+    pub fn new2(startPoint: anytype) QPainterPath {
         comptime _ = @TypeOf(startPoint)._is_QPointF;
         return .{ .ptr = qtc.QPainterPath_new2(@ptrCast(startPoint.ptr)) };
     }
 
-    /// New3 constructs a new QPainterPath object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QPainterPath object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QPainterPath `
     ///
-    pub fn New3(other: anytype) QPainterPath {
+    pub fn new3(other: anytype) QPainterPath {
         comptime _ = @TypeOf(other)._is_QPainterPath;
         return .{ .ptr = qtc.QPainterPath_new3(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#operator-eq)
     ///
@@ -55,10 +71,14 @@ pub const QPainterPath = extern struct {
     ///
     /// ` other: QPainterPath `
     ///
-    pub fn OperatorAssign(self: QPainterPath, other: anytype) void {
+    pub fn operatorAssign(self: QPainterPath, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QPainterPath;
         qtc.QPainterPath_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#swap)
     ///
@@ -68,10 +88,14 @@ pub const QPainterPath = extern struct {
     ///
     /// ` other: QPainterPath `
     ///
-    pub fn Swap(self: QPainterPath, other: anytype) void {
+    pub fn swap(self: QPainterPath, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QPainterPath;
         qtc.QPainterPath_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#clear)
     ///
@@ -79,9 +103,13 @@ pub const QPainterPath = extern struct {
     ///
     /// ` self: QPainterPath `
     ///
-    pub fn Clear(self: QPainterPath) void {
+    pub fn clear(self: QPainterPath) void {
         qtc.QPainterPath_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `reserve` instead
+    ///
+    pub const Reserve = reserve;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#reserve)
     ///
@@ -91,9 +119,13 @@ pub const QPainterPath = extern struct {
     ///
     /// ` size: i32 `
     ///
-    pub fn Reserve(self: QPainterPath, size: i32) void {
+    pub fn reserve(self: QPainterPath, size: i32) void {
         qtc.QPainterPath_Reserve(@ptrCast(self.ptr), @bitCast(size));
     }
+
+    /// ### DEPRECATED: Use `capacity` instead
+    ///
+    pub const Capacity = capacity;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#capacity)
     ///
@@ -101,9 +133,13 @@ pub const QPainterPath = extern struct {
     ///
     /// ` self: QPainterPath `
     ///
-    pub fn Capacity(self: QPainterPath) i32 {
+    pub fn capacity(self: QPainterPath) i32 {
         return qtc.QPainterPath_Capacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `closeSubpath` instead
+    ///
+    pub const CloseSubpath = closeSubpath;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#closeSubpath)
     ///
@@ -111,9 +147,13 @@ pub const QPainterPath = extern struct {
     ///
     /// ` self: QPainterPath `
     ///
-    pub fn CloseSubpath(self: QPainterPath) void {
+    pub fn closeSubpath(self: QPainterPath) void {
         qtc.QPainterPath_CloseSubpath(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `moveTo` instead
+    ///
+    pub const MoveTo = moveTo;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#moveTo)
     ///
@@ -123,11 +163,15 @@ pub const QPainterPath = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn MoveTo(self: QPainterPath, p: anytype) void {
+    pub fn moveTo(self: QPainterPath, p: anytype) void {
         comptime _ = @TypeOf(p)._is_QPointF;
         qtc.QPainterPath_MoveTo(@ptrCast(self.ptr), @ptrCast(p.ptr));
     }
 
+    /// ### DEPRECATED: Use `moveTo2` instead
+    ///
+    pub const MoveTo2 = moveTo2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#moveTo)
     ///
     /// ## Parameter(s):
@@ -138,9 +182,13 @@ pub const QPainterPath = extern struct {
     ///
     /// ` y: f64 `
     ///
-    pub fn MoveTo2(self: QPainterPath, x: f64, y: f64) void {
+    pub fn moveTo2(self: QPainterPath, x: f64, y: f64) void {
         qtc.QPainterPath_MoveTo2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
     }
+
+    /// ### DEPRECATED: Use `lineTo` instead
+    ///
+    pub const LineTo = lineTo;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#lineTo)
     ///
@@ -150,10 +198,14 @@ pub const QPainterPath = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn LineTo(self: QPainterPath, p: anytype) void {
+    pub fn lineTo(self: QPainterPath, p: anytype) void {
         comptime _ = @TypeOf(p)._is_QPointF;
         qtc.QPainterPath_LineTo(@ptrCast(self.ptr), @ptrCast(p.ptr));
     }
+
+    /// ### DEPRECATED: Use `lineTo2` instead
+    ///
+    pub const LineTo2 = lineTo2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#lineTo)
     ///
@@ -165,9 +217,13 @@ pub const QPainterPath = extern struct {
     ///
     /// ` y: f64 `
     ///
-    pub fn LineTo2(self: QPainterPath, x: f64, y: f64) void {
+    pub fn lineTo2(self: QPainterPath, x: f64, y: f64) void {
         qtc.QPainterPath_LineTo2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
     }
+
+    /// ### DEPRECATED: Use `arcMoveTo` instead
+    ///
+    pub const ArcMoveTo = arcMoveTo;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#arcMoveTo)
     ///
@@ -179,11 +235,15 @@ pub const QPainterPath = extern struct {
     ///
     /// ` angle: f64 `
     ///
-    pub fn ArcMoveTo(self: QPainterPath, rect: anytype, angle: f64) void {
+    pub fn arcMoveTo(self: QPainterPath, rect: anytype, angle: f64) void {
         comptime _ = @TypeOf(rect)._is_QRectF;
         qtc.QPainterPath_ArcMoveTo(@ptrCast(self.ptr), @ptrCast(rect.ptr), @bitCast(angle));
     }
 
+    /// ### DEPRECATED: Use `arcMoveTo2` instead
+    ///
+    pub const ArcMoveTo2 = arcMoveTo2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#arcMoveTo)
     ///
     /// ## Parameter(s):
@@ -200,9 +260,13 @@ pub const QPainterPath = extern struct {
     ///
     /// ` angle: f64 `
     ///
-    pub fn ArcMoveTo2(self: QPainterPath, x: f64, y: f64, w: f64, h: f64, angle: f64) void {
+    pub fn arcMoveTo2(self: QPainterPath, x: f64, y: f64, w: f64, h: f64, angle: f64) void {
         qtc.QPainterPath_ArcMoveTo2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(angle));
     }
+
+    /// ### DEPRECATED: Use `arcTo` instead
+    ///
+    pub const ArcTo = arcTo;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#arcTo)
     ///
@@ -216,10 +280,14 @@ pub const QPainterPath = extern struct {
     ///
     /// ` arcLength: f64 `
     ///
-    pub fn ArcTo(self: QPainterPath, rect: anytype, startAngle: f64, arcLength: f64) void {
+    pub fn arcTo(self: QPainterPath, rect: anytype, startAngle: f64, arcLength: f64) void {
         comptime _ = @TypeOf(rect)._is_QRectF;
         qtc.QPainterPath_ArcTo(@ptrCast(self.ptr), @ptrCast(rect.ptr), @bitCast(startAngle), @bitCast(arcLength));
     }
+
+    /// ### DEPRECATED: Use `arcTo2` instead
+    ///
+    pub const ArcTo2 = arcTo2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#arcTo)
     ///
@@ -239,9 +307,13 @@ pub const QPainterPath = extern struct {
     ///
     /// ` arcLength: f64 `
     ///
-    pub fn ArcTo2(self: QPainterPath, x: f64, y: f64, w: f64, h: f64, startAngle: f64, arcLength: f64) void {
+    pub fn arcTo2(self: QPainterPath, x: f64, y: f64, w: f64, h: f64, startAngle: f64, arcLength: f64) void {
         qtc.QPainterPath_ArcTo2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(startAngle), @bitCast(arcLength));
     }
+
+    /// ### DEPRECATED: Use `cubicTo` instead
+    ///
+    pub const CubicTo = cubicTo;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#cubicTo)
     ///
@@ -255,12 +327,16 @@ pub const QPainterPath = extern struct {
     ///
     /// ` endPt: QPointF `
     ///
-    pub fn CubicTo(self: QPainterPath, ctrlPt1: anytype, ctrlPt2: anytype, endPt: anytype) void {
+    pub fn cubicTo(self: QPainterPath, ctrlPt1: anytype, ctrlPt2: anytype, endPt: anytype) void {
         comptime _ = @TypeOf(ctrlPt1)._is_QPointF;
         comptime _ = @TypeOf(ctrlPt2)._is_QPointF;
         comptime _ = @TypeOf(endPt)._is_QPointF;
         qtc.QPainterPath_CubicTo(@ptrCast(self.ptr), @ptrCast(ctrlPt1.ptr), @ptrCast(ctrlPt2.ptr), @ptrCast(endPt.ptr));
     }
+
+    /// ### DEPRECATED: Use `cubicTo2` instead
+    ///
+    pub const CubicTo2 = cubicTo2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#cubicTo)
     ///
@@ -280,9 +356,13 @@ pub const QPainterPath = extern struct {
     ///
     /// ` endPty: f64 `
     ///
-    pub fn CubicTo2(self: QPainterPath, ctrlPt1x: f64, ctrlPt1y: f64, ctrlPt2x: f64, ctrlPt2y: f64, endPtx: f64, endPty: f64) void {
+    pub fn cubicTo2(self: QPainterPath, ctrlPt1x: f64, ctrlPt1y: f64, ctrlPt2x: f64, ctrlPt2y: f64, endPtx: f64, endPty: f64) void {
         qtc.QPainterPath_CubicTo2(@ptrCast(self.ptr), @bitCast(ctrlPt1x), @bitCast(ctrlPt1y), @bitCast(ctrlPt2x), @bitCast(ctrlPt2y), @bitCast(endPtx), @bitCast(endPty));
     }
+
+    /// ### DEPRECATED: Use `quadTo` instead
+    ///
+    pub const QuadTo = quadTo;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#quadTo)
     ///
@@ -294,11 +374,15 @@ pub const QPainterPath = extern struct {
     ///
     /// ` endPt: QPointF `
     ///
-    pub fn QuadTo(self: QPainterPath, ctrlPt: anytype, endPt: anytype) void {
+    pub fn quadTo(self: QPainterPath, ctrlPt: anytype, endPt: anytype) void {
         comptime _ = @TypeOf(ctrlPt)._is_QPointF;
         comptime _ = @TypeOf(endPt)._is_QPointF;
         qtc.QPainterPath_QuadTo(@ptrCast(self.ptr), @ptrCast(ctrlPt.ptr), @ptrCast(endPt.ptr));
     }
+
+    /// ### DEPRECATED: Use `quadTo2` instead
+    ///
+    pub const QuadTo2 = quadTo2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#quadTo)
     ///
@@ -314,9 +398,13 @@ pub const QPainterPath = extern struct {
     ///
     /// ` endPty: f64 `
     ///
-    pub fn QuadTo2(self: QPainterPath, ctrlPtx: f64, ctrlPty: f64, endPtx: f64, endPty: f64) void {
+    pub fn quadTo2(self: QPainterPath, ctrlPtx: f64, ctrlPty: f64, endPtx: f64, endPty: f64) void {
         qtc.QPainterPath_QuadTo2(@ptrCast(self.ptr), @bitCast(ctrlPtx), @bitCast(ctrlPty), @bitCast(endPtx), @bitCast(endPty));
     }
+
+    /// ### DEPRECATED: Use `currentPosition` instead
+    ///
+    pub const CurrentPosition = currentPosition;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#currentPosition)
     ///
@@ -324,9 +412,13 @@ pub const QPainterPath = extern struct {
     ///
     /// ` self: QPainterPath `
     ///
-    pub fn CurrentPosition(self: QPainterPath) QPointF {
+    pub fn currentPosition(self: QPainterPath) QPointF {
         return .{ .ptr = qtc.QPainterPath_CurrentPosition(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addRect` instead
+    ///
+    pub const AddRect = addRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#addRect)
     ///
@@ -336,11 +428,15 @@ pub const QPainterPath = extern struct {
     ///
     /// ` rect: QRectF `
     ///
-    pub fn AddRect(self: QPainterPath, rect: anytype) void {
+    pub fn addRect(self: QPainterPath, rect: anytype) void {
         comptime _ = @TypeOf(rect)._is_QRectF;
         qtc.QPainterPath_AddRect(@ptrCast(self.ptr), @ptrCast(rect.ptr));
     }
 
+    /// ### DEPRECATED: Use `addRect2` instead
+    ///
+    pub const AddRect2 = addRect2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#addRect)
     ///
     /// ## Parameter(s):
@@ -355,9 +451,13 @@ pub const QPainterPath = extern struct {
     ///
     /// ` h: f64 `
     ///
-    pub fn AddRect2(self: QPainterPath, x: f64, y: f64, w: f64, h: f64) void {
+    pub fn addRect2(self: QPainterPath, x: f64, y: f64, w: f64, h: f64) void {
         qtc.QPainterPath_AddRect2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `addEllipse` instead
+    ///
+    pub const AddEllipse = addEllipse;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#addEllipse)
     ///
@@ -367,10 +467,14 @@ pub const QPainterPath = extern struct {
     ///
     /// ` rect: QRectF `
     ///
-    pub fn AddEllipse(self: QPainterPath, rect: anytype) void {
+    pub fn addEllipse(self: QPainterPath, rect: anytype) void {
         comptime _ = @TypeOf(rect)._is_QRectF;
         qtc.QPainterPath_AddEllipse(@ptrCast(self.ptr), @ptrCast(rect.ptr));
     }
+
+    /// ### DEPRECATED: Use `addEllipse2` instead
+    ///
+    pub const AddEllipse2 = addEllipse2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#addEllipse)
     ///
@@ -386,9 +490,13 @@ pub const QPainterPath = extern struct {
     ///
     /// ` h: f64 `
     ///
-    pub fn AddEllipse2(self: QPainterPath, x: f64, y: f64, w: f64, h: f64) void {
+    pub fn addEllipse2(self: QPainterPath, x: f64, y: f64, w: f64, h: f64) void {
         qtc.QPainterPath_AddEllipse2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `addEllipse3` instead
+    ///
+    pub const AddEllipse3 = addEllipse3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#addEllipse)
     ///
@@ -402,10 +510,14 @@ pub const QPainterPath = extern struct {
     ///
     /// ` ry: f64 `
     ///
-    pub fn AddEllipse3(self: QPainterPath, center: anytype, rx: f64, ry: f64) void {
+    pub fn addEllipse3(self: QPainterPath, center: anytype, rx: f64, ry: f64) void {
         comptime _ = @TypeOf(center)._is_QPointF;
         qtc.QPainterPath_AddEllipse3(@ptrCast(self.ptr), @ptrCast(center.ptr), @bitCast(rx), @bitCast(ry));
     }
+
+    /// ### DEPRECATED: Use `addText` instead
+    ///
+    pub const AddText = addText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#addText)
     ///
@@ -419,7 +531,7 @@ pub const QPainterPath = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddText(self: QPainterPath, point: anytype, f: anytype, text: []const u8) void {
+    pub fn addText(self: QPainterPath, point: anytype, f: anytype, text: []const u8) void {
         comptime _ = @TypeOf(point)._is_QPointF;
         comptime _ = @TypeOf(f)._is_QFont;
         const text_str = qtc.libqt_string{
@@ -428,6 +540,10 @@ pub const QPainterPath = extern struct {
         };
         qtc.QPainterPath_AddText(@ptrCast(self.ptr), @ptrCast(point.ptr), @ptrCast(f.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `addText2` instead
+    ///
+    pub const AddText2 = addText2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#addText)
     ///
@@ -443,7 +559,7 @@ pub const QPainterPath = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddText2(self: QPainterPath, x: f64, y: f64, f: anytype, text: []const u8) void {
+    pub fn addText2(self: QPainterPath, x: f64, y: f64, f: anytype, text: []const u8) void {
         comptime _ = @TypeOf(f)._is_QFont;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -451,6 +567,10 @@ pub const QPainterPath = extern struct {
         };
         qtc.QPainterPath_AddText2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @ptrCast(f.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `addPath` instead
+    ///
+    pub const AddPath = addPath;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#addPath)
     ///
@@ -460,10 +580,14 @@ pub const QPainterPath = extern struct {
     ///
     /// ` path: QPainterPath `
     ///
-    pub fn AddPath(self: QPainterPath, path: anytype) void {
+    pub fn addPath(self: QPainterPath, path: anytype) void {
         comptime _ = @TypeOf(path)._is_QPainterPath;
         qtc.QPainterPath_AddPath(@ptrCast(self.ptr), @ptrCast(path.ptr));
     }
+
+    /// ### DEPRECATED: Use `addRegion` instead
+    ///
+    pub const AddRegion = addRegion;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#addRegion)
     ///
@@ -473,10 +597,14 @@ pub const QPainterPath = extern struct {
     ///
     /// ` region: QRegion `
     ///
-    pub fn AddRegion(self: QPainterPath, region: anytype) void {
+    pub fn addRegion(self: QPainterPath, region: anytype) void {
         comptime _ = @TypeOf(region)._is_QRegion;
         qtc.QPainterPath_AddRegion(@ptrCast(self.ptr), @ptrCast(region.ptr));
     }
+
+    /// ### DEPRECATED: Use `addRoundedRect` instead
+    ///
+    pub const AddRoundedRect = addRoundedRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#addRoundedRect)
     ///
@@ -490,10 +618,14 @@ pub const QPainterPath = extern struct {
     ///
     /// ` yRadius: f64 `
     ///
-    pub fn AddRoundedRect(self: QPainterPath, rect: anytype, xRadius: f64, yRadius: f64) void {
+    pub fn addRoundedRect(self: QPainterPath, rect: anytype, xRadius: f64, yRadius: f64) void {
         comptime _ = @TypeOf(rect)._is_QRectF;
         qtc.QPainterPath_AddRoundedRect(@ptrCast(self.ptr), @ptrCast(rect.ptr), @bitCast(xRadius), @bitCast(yRadius));
     }
+
+    /// ### DEPRECATED: Use `addRoundedRect2` instead
+    ///
+    pub const AddRoundedRect2 = addRoundedRect2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#addRoundedRect)
     ///
@@ -513,9 +645,13 @@ pub const QPainterPath = extern struct {
     ///
     /// ` yRadius: f64 `
     ///
-    pub fn AddRoundedRect2(self: QPainterPath, x: f64, y: f64, w: f64, h: f64, xRadius: f64, yRadius: f64) void {
+    pub fn addRoundedRect2(self: QPainterPath, x: f64, y: f64, w: f64, h: f64, xRadius: f64, yRadius: f64) void {
         qtc.QPainterPath_AddRoundedRect2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(xRadius), @bitCast(yRadius));
     }
+
+    /// ### DEPRECATED: Use `connectPath` instead
+    ///
+    pub const ConnectPath = connectPath;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#connectPath)
     ///
@@ -525,10 +661,14 @@ pub const QPainterPath = extern struct {
     ///
     /// ` path: QPainterPath `
     ///
-    pub fn ConnectPath(self: QPainterPath, path: anytype) void {
+    pub fn connectPath(self: QPainterPath, path: anytype) void {
         comptime _ = @TypeOf(path)._is_QPainterPath;
         qtc.QPainterPath_ConnectPath(@ptrCast(self.ptr), @ptrCast(path.ptr));
     }
+
+    /// ### DEPRECATED: Use `contains` instead
+    ///
+    pub const Contains = contains;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#contains)
     ///
@@ -538,10 +678,14 @@ pub const QPainterPath = extern struct {
     ///
     /// ` pt: QPointF `
     ///
-    pub fn Contains(self: QPainterPath, pt: anytype) bool {
+    pub fn contains(self: QPainterPath, pt: anytype) bool {
         comptime _ = @TypeOf(pt)._is_QPointF;
         return qtc.QPainterPath_Contains(@ptrCast(self.ptr), @ptrCast(pt.ptr));
     }
+
+    /// ### DEPRECATED: Use `contains2` instead
+    ///
+    pub const Contains2 = contains2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#contains)
     ///
@@ -551,10 +695,14 @@ pub const QPainterPath = extern struct {
     ///
     /// ` rect: QRectF `
     ///
-    pub fn Contains2(self: QPainterPath, rect: anytype) bool {
+    pub fn contains2(self: QPainterPath, rect: anytype) bool {
         comptime _ = @TypeOf(rect)._is_QRectF;
         return qtc.QPainterPath_Contains2(@ptrCast(self.ptr), @ptrCast(rect.ptr));
     }
+
+    /// ### DEPRECATED: Use `intersects` instead
+    ///
+    pub const Intersects = intersects;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#intersects)
     ///
@@ -564,11 +712,15 @@ pub const QPainterPath = extern struct {
     ///
     /// ` rect: QRectF `
     ///
-    pub fn Intersects(self: QPainterPath, rect: anytype) bool {
+    pub fn intersects(self: QPainterPath, rect: anytype) bool {
         comptime _ = @TypeOf(rect)._is_QRectF;
         return qtc.QPainterPath_Intersects(@ptrCast(self.ptr), @ptrCast(rect.ptr));
     }
 
+    /// ### DEPRECATED: Use `translate` instead
+    ///
+    pub const Translate = translate;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#translate)
     ///
     /// ## Parameter(s):
@@ -579,9 +731,13 @@ pub const QPainterPath = extern struct {
     ///
     /// ` dy: f64 `
     ///
-    pub fn Translate(self: QPainterPath, dx: f64, dy: f64) void {
+    pub fn translate(self: QPainterPath, dx: f64, dy: f64) void {
         qtc.QPainterPath_Translate(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `translate2` instead
+    ///
+    pub const Translate2 = translate2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#translate)
     ///
@@ -591,11 +747,15 @@ pub const QPainterPath = extern struct {
     ///
     /// ` offset: QPointF `
     ///
-    pub fn Translate2(self: QPainterPath, offset: anytype) void {
+    pub fn translate2(self: QPainterPath, offset: anytype) void {
         comptime _ = @TypeOf(offset)._is_QPointF;
         qtc.QPainterPath_Translate2(@ptrCast(self.ptr), @ptrCast(offset.ptr));
     }
 
+    /// ### DEPRECATED: Use `translated` instead
+    ///
+    pub const Translated = translated;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#translated)
     ///
     /// ## Parameter(s):
@@ -606,9 +766,13 @@ pub const QPainterPath = extern struct {
     ///
     /// ` dy: f64 `
     ///
-    pub fn Translated(self: QPainterPath, dx: f64, dy: f64) QPainterPath {
+    pub fn translated(self: QPainterPath, dx: f64, dy: f64) QPainterPath {
         return .{ .ptr = qtc.QPainterPath_Translated(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy)) };
     }
+
+    /// ### DEPRECATED: Use `translated2` instead
+    ///
+    pub const Translated2 = translated2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#translated)
     ///
@@ -618,10 +782,14 @@ pub const QPainterPath = extern struct {
     ///
     /// ` offset: QPointF `
     ///
-    pub fn Translated2(self: QPainterPath, offset: anytype) QPainterPath {
+    pub fn translated2(self: QPainterPath, offset: anytype) QPainterPath {
         comptime _ = @TypeOf(offset)._is_QPointF;
         return .{ .ptr = qtc.QPainterPath_Translated2(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `boundingRect` instead
+    ///
+    pub const BoundingRect = boundingRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#boundingRect)
     ///
@@ -629,9 +797,13 @@ pub const QPainterPath = extern struct {
     ///
     /// ` self: QPainterPath `
     ///
-    pub fn BoundingRect(self: QPainterPath) QRectF {
+    pub fn boundingRect(self: QPainterPath) QRectF {
         return .{ .ptr = qtc.QPainterPath_BoundingRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `controlPointRect` instead
+    ///
+    pub const ControlPointRect = controlPointRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#controlPointRect)
     ///
@@ -639,9 +811,13 @@ pub const QPainterPath = extern struct {
     ///
     /// ` self: QPainterPath `
     ///
-    pub fn ControlPointRect(self: QPainterPath) QRectF {
+    pub fn controlPointRect(self: QPainterPath) QRectF {
         return .{ .ptr = qtc.QPainterPath_ControlPointRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fillRule` instead
+    ///
+    pub const FillRule = fillRule;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#fillRule)
     ///
@@ -653,9 +829,13 @@ pub const QPainterPath = extern struct {
     ///
     /// ` qnamespace_enums.FillRule `
     ///
-    pub fn FillRule(self: QPainterPath) i32 {
+    pub fn fillRule(self: QPainterPath) i32 {
         return qtc.QPainterPath_FillRule(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFillRule` instead
+    ///
+    pub const SetFillRule = setFillRule;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#setFillRule)
     ///
@@ -663,11 +843,15 @@ pub const QPainterPath = extern struct {
     ///
     /// ` self: QPainterPath `
     ///
-    /// ` fillRule: qnamespace_enums.FillRule `
+    /// ` _fillRule: qnamespace_enums.FillRule `
     ///
-    pub fn SetFillRule(self: QPainterPath, fillRule: i32) void {
-        qtc.QPainterPath_SetFillRule(@ptrCast(self.ptr), @bitCast(fillRule));
+    pub fn setFillRule(self: QPainterPath, _fillRule: i32) void {
+        qtc.QPainterPath_SetFillRule(@ptrCast(self.ptr), @bitCast(_fillRule));
     }
+
+    /// ### DEPRECATED: Use `isEmpty` instead
+    ///
+    pub const IsEmpty = isEmpty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#isEmpty)
     ///
@@ -675,9 +859,13 @@ pub const QPainterPath = extern struct {
     ///
     /// ` self: QPainterPath `
     ///
-    pub fn IsEmpty(self: QPainterPath) bool {
+    pub fn isEmpty(self: QPainterPath) bool {
         return qtc.QPainterPath_IsEmpty(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toReversed` instead
+    ///
+    pub const ToReversed = toReversed;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#toReversed)
     ///
@@ -685,9 +873,13 @@ pub const QPainterPath = extern struct {
     ///
     /// ` self: QPainterPath `
     ///
-    pub fn ToReversed(self: QPainterPath) QPainterPath {
+    pub fn toReversed(self: QPainterPath) QPainterPath {
         return .{ .ptr = qtc.QPainterPath_ToReversed(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `elementCount` instead
+    ///
+    pub const ElementCount = elementCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#elementCount)
     ///
@@ -695,9 +887,13 @@ pub const QPainterPath = extern struct {
     ///
     /// ` self: QPainterPath `
     ///
-    pub fn ElementCount(self: QPainterPath) i32 {
+    pub fn elementCount(self: QPainterPath) i32 {
         return qtc.QPainterPath_ElementCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `elementAt` instead
+    ///
+    pub const ElementAt = elementAt;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#elementAt)
     ///
@@ -707,9 +903,13 @@ pub const QPainterPath = extern struct {
     ///
     /// ` i: i32 `
     ///
-    pub fn ElementAt(self: QPainterPath, i: i32) QPainterPath__Element {
+    pub fn elementAt(self: QPainterPath, i: i32) QPainterPath__Element {
         return .{ .ptr = qtc.QPainterPath_ElementAt(@ptrCast(self.ptr), @bitCast(i)) };
     }
+
+    /// ### DEPRECATED: Use `setElementPositionAt` instead
+    ///
+    pub const SetElementPositionAt = setElementPositionAt;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#setElementPositionAt)
     ///
@@ -723,9 +923,13 @@ pub const QPainterPath = extern struct {
     ///
     /// ` y: f64 `
     ///
-    pub fn SetElementPositionAt(self: QPainterPath, i: i32, x: f64, y: f64) void {
+    pub fn setElementPositionAt(self: QPainterPath, i: i32, x: f64, y: f64) void {
         qtc.QPainterPath_SetElementPositionAt(@ptrCast(self.ptr), @bitCast(i), @bitCast(x), @bitCast(y));
     }
+
+    /// ### DEPRECATED: Use `length` instead
+    ///
+    pub const Length = length;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#length)
     ///
@@ -733,9 +937,13 @@ pub const QPainterPath = extern struct {
     ///
     /// ` self: QPainterPath `
     ///
-    pub fn Length(self: QPainterPath) f64 {
+    pub fn length(self: QPainterPath) f64 {
         return qtc.QPainterPath_Length(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `percentAtLength` instead
+    ///
+    pub const PercentAtLength = percentAtLength;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#percentAtLength)
     ///
@@ -745,9 +953,13 @@ pub const QPainterPath = extern struct {
     ///
     /// ` t: f64 `
     ///
-    pub fn PercentAtLength(self: QPainterPath, t: f64) f64 {
+    pub fn percentAtLength(self: QPainterPath, t: f64) f64 {
         return qtc.QPainterPath_PercentAtLength(@ptrCast(self.ptr), @bitCast(t));
     }
+
+    /// ### DEPRECATED: Use `pointAtPercent` instead
+    ///
+    pub const PointAtPercent = pointAtPercent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#pointAtPercent)
     ///
@@ -757,9 +969,13 @@ pub const QPainterPath = extern struct {
     ///
     /// ` t: f64 `
     ///
-    pub fn PointAtPercent(self: QPainterPath, t: f64) QPointF {
+    pub fn pointAtPercent(self: QPainterPath, t: f64) QPointF {
         return .{ .ptr = qtc.QPainterPath_PointAtPercent(@ptrCast(self.ptr), @bitCast(t)) };
     }
+
+    /// ### DEPRECATED: Use `angleAtPercent` instead
+    ///
+    pub const AngleAtPercent = angleAtPercent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#angleAtPercent)
     ///
@@ -769,9 +985,13 @@ pub const QPainterPath = extern struct {
     ///
     /// ` t: f64 `
     ///
-    pub fn AngleAtPercent(self: QPainterPath, t: f64) f64 {
+    pub fn angleAtPercent(self: QPainterPath, t: f64) f64 {
         return qtc.QPainterPath_AngleAtPercent(@ptrCast(self.ptr), @bitCast(t));
     }
+
+    /// ### DEPRECATED: Use `slopeAtPercent` instead
+    ///
+    pub const SlopeAtPercent = slopeAtPercent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#slopeAtPercent)
     ///
@@ -781,9 +1001,13 @@ pub const QPainterPath = extern struct {
     ///
     /// ` t: f64 `
     ///
-    pub fn SlopeAtPercent(self: QPainterPath, t: f64) f64 {
+    pub fn slopeAtPercent(self: QPainterPath, t: f64) f64 {
         return qtc.QPainterPath_SlopeAtPercent(@ptrCast(self.ptr), @bitCast(t));
     }
+
+    /// ### DEPRECATED: Use `intersects2` instead
+    ///
+    pub const Intersects2 = intersects2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#intersects)
     ///
@@ -793,10 +1017,14 @@ pub const QPainterPath = extern struct {
     ///
     /// ` p: QPainterPath `
     ///
-    pub fn Intersects2(self: QPainterPath, p: anytype) bool {
+    pub fn intersects2(self: QPainterPath, p: anytype) bool {
         comptime _ = @TypeOf(p)._is_QPainterPath;
         return qtc.QPainterPath_Intersects2(@ptrCast(self.ptr), @ptrCast(p.ptr));
     }
+
+    /// ### DEPRECATED: Use `contains3` instead
+    ///
+    pub const Contains3 = contains3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#contains)
     ///
@@ -806,10 +1034,14 @@ pub const QPainterPath = extern struct {
     ///
     /// ` p: QPainterPath `
     ///
-    pub fn Contains3(self: QPainterPath, p: anytype) bool {
+    pub fn contains3(self: QPainterPath, p: anytype) bool {
         comptime _ = @TypeOf(p)._is_QPainterPath;
         return qtc.QPainterPath_Contains3(@ptrCast(self.ptr), @ptrCast(p.ptr));
     }
+
+    /// ### DEPRECATED: Use `united` instead
+    ///
+    pub const United = united;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#united)
     ///
@@ -819,10 +1051,14 @@ pub const QPainterPath = extern struct {
     ///
     /// ` r: QPainterPath `
     ///
-    pub fn United(self: QPainterPath, r: anytype) QPainterPath {
+    pub fn united(self: QPainterPath, r: anytype) QPainterPath {
         comptime _ = @TypeOf(r)._is_QPainterPath;
         return .{ .ptr = qtc.QPainterPath_United(@ptrCast(self.ptr), @ptrCast(r.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `intersected` instead
+    ///
+    pub const Intersected = intersected;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#intersected)
     ///
@@ -832,10 +1068,14 @@ pub const QPainterPath = extern struct {
     ///
     /// ` r: QPainterPath `
     ///
-    pub fn Intersected(self: QPainterPath, r: anytype) QPainterPath {
+    pub fn intersected(self: QPainterPath, r: anytype) QPainterPath {
         comptime _ = @TypeOf(r)._is_QPainterPath;
         return .{ .ptr = qtc.QPainterPath_Intersected(@ptrCast(self.ptr), @ptrCast(r.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `subtracted` instead
+    ///
+    pub const Subtracted = subtracted;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#subtracted)
     ///
@@ -845,10 +1085,14 @@ pub const QPainterPath = extern struct {
     ///
     /// ` r: QPainterPath `
     ///
-    pub fn Subtracted(self: QPainterPath, r: anytype) QPainterPath {
+    pub fn subtracted(self: QPainterPath, r: anytype) QPainterPath {
         comptime _ = @TypeOf(r)._is_QPainterPath;
         return .{ .ptr = qtc.QPainterPath_Subtracted(@ptrCast(self.ptr), @ptrCast(r.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `simplified` instead
+    ///
+    pub const Simplified = simplified;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#simplified)
     ///
@@ -856,9 +1100,13 @@ pub const QPainterPath = extern struct {
     ///
     /// ` self: QPainterPath `
     ///
-    pub fn Simplified(self: QPainterPath) QPainterPath {
+    pub fn simplified(self: QPainterPath) QPainterPath {
         return .{ .ptr = qtc.QPainterPath_Simplified(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#operator-eq-eq)
     ///
@@ -868,10 +1116,14 @@ pub const QPainterPath = extern struct {
     ///
     /// ` other: QPainterPath `
     ///
-    pub fn OperatorEqual(self: QPainterPath, other: anytype) bool {
+    pub fn operatorEqual(self: QPainterPath, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QPainterPath;
         return qtc.QPainterPath_OperatorEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#operator-not-eq)
     ///
@@ -881,10 +1133,14 @@ pub const QPainterPath = extern struct {
     ///
     /// ` other: QPainterPath `
     ///
-    pub fn OperatorNotEqual(self: QPainterPath, other: anytype) bool {
+    pub fn operatorNotEqual(self: QPainterPath, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QPainterPath;
         return qtc.QPainterPath_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorBitwiseAnd` instead
+    ///
+    pub const OperatorBitwiseAnd = operatorBitwiseAnd;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#operator-and)
     ///
@@ -894,10 +1150,14 @@ pub const QPainterPath = extern struct {
     ///
     /// ` other: QPainterPath `
     ///
-    pub fn OperatorBitwiseAnd(self: QPainterPath, other: anytype) QPainterPath {
+    pub fn operatorBitwiseAnd(self: QPainterPath, other: anytype) QPainterPath {
         comptime _ = @TypeOf(other)._is_QPainterPath;
         return .{ .ptr = qtc.QPainterPath_OperatorBitwiseAnd(@ptrCast(self.ptr), @ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorBitwiseOr` instead
+    ///
+    pub const OperatorBitwiseOr = operatorBitwiseOr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#operator-7c)
     ///
@@ -907,10 +1167,14 @@ pub const QPainterPath = extern struct {
     ///
     /// ` other: QPainterPath `
     ///
-    pub fn OperatorBitwiseOr(self: QPainterPath, other: anytype) QPainterPath {
+    pub fn operatorBitwiseOr(self: QPainterPath, other: anytype) QPainterPath {
         comptime _ = @TypeOf(other)._is_QPainterPath;
         return .{ .ptr = qtc.QPainterPath_OperatorBitwiseOr(@ptrCast(self.ptr), @ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorPlus` instead
+    ///
+    pub const OperatorPlus = operatorPlus;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#operator-2b)
     ///
@@ -920,10 +1184,14 @@ pub const QPainterPath = extern struct {
     ///
     /// ` other: QPainterPath `
     ///
-    pub fn OperatorPlus(self: QPainterPath, other: anytype) QPainterPath {
+    pub fn operatorPlus(self: QPainterPath, other: anytype) QPainterPath {
         comptime _ = @TypeOf(other)._is_QPainterPath;
         return .{ .ptr = qtc.QPainterPath_OperatorPlus(@ptrCast(self.ptr), @ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorMinus` instead
+    ///
+    pub const OperatorMinus = operatorMinus;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#operator-)
     ///
@@ -933,10 +1201,14 @@ pub const QPainterPath = extern struct {
     ///
     /// ` other: QPainterPath `
     ///
-    pub fn OperatorMinus(self: QPainterPath, other: anytype) QPainterPath {
+    pub fn operatorMinus(self: QPainterPath, other: anytype) QPainterPath {
         comptime _ = @TypeOf(other)._is_QPainterPath;
         return .{ .ptr = qtc.QPainterPath_OperatorMinus(@ptrCast(self.ptr), @ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorBitwiseAndAssign` instead
+    ///
+    pub const OperatorBitwiseAndAssign = operatorBitwiseAndAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#operator-and-eq)
     ///
@@ -946,10 +1218,14 @@ pub const QPainterPath = extern struct {
     ///
     /// ` other: QPainterPath `
     ///
-    pub fn OperatorBitwiseAndAssign(self: QPainterPath, other: anytype) void {
+    pub fn operatorBitwiseAndAssign(self: QPainterPath, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QPainterPath;
         qtc.QPainterPath_OperatorBitwiseAndAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorBitwiseOrAssign` instead
+    ///
+    pub const OperatorBitwiseOrAssign = operatorBitwiseOrAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#operator-7c-eq)
     ///
@@ -959,10 +1235,14 @@ pub const QPainterPath = extern struct {
     ///
     /// ` other: QPainterPath `
     ///
-    pub fn OperatorBitwiseOrAssign(self: QPainterPath, other: anytype) void {
+    pub fn operatorBitwiseOrAssign(self: QPainterPath, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QPainterPath;
         qtc.QPainterPath_OperatorBitwiseOrAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorPlusAssign` instead
+    ///
+    pub const OperatorPlusAssign = operatorPlusAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#operator-2b-eq)
     ///
@@ -972,10 +1252,14 @@ pub const QPainterPath = extern struct {
     ///
     /// ` other: QPainterPath `
     ///
-    pub fn OperatorPlusAssign(self: QPainterPath, other: anytype) QPainterPath {
+    pub fn operatorPlusAssign(self: QPainterPath, other: anytype) QPainterPath {
         comptime _ = @TypeOf(other)._is_QPainterPath;
         return .{ .ptr = qtc.QPainterPath_OperatorPlusAssign(@ptrCast(self.ptr), @ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorMinusAssign` instead
+    ///
+    pub const OperatorMinusAssign = operatorMinusAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#operator--eq)
     ///
@@ -985,10 +1269,14 @@ pub const QPainterPath = extern struct {
     ///
     /// ` other: QPainterPath `
     ///
-    pub fn OperatorMinusAssign(self: QPainterPath, other: anytype) QPainterPath {
+    pub fn operatorMinusAssign(self: QPainterPath, other: anytype) QPainterPath {
         comptime _ = @TypeOf(other)._is_QPainterPath;
         return .{ .ptr = qtc.QPainterPath_OperatorMinusAssign(@ptrCast(self.ptr), @ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addRoundedRect4` instead
+    ///
+    pub const AddRoundedRect4 = addRoundedRect4;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#addRoundedRect)
     ///
@@ -1004,10 +1292,14 @@ pub const QPainterPath = extern struct {
     ///
     /// ` mode: qnamespace_enums.SizeMode `
     ///
-    pub fn AddRoundedRect4(self: QPainterPath, rect: anytype, xRadius: f64, yRadius: f64, mode: i32) void {
+    pub fn addRoundedRect4(self: QPainterPath, rect: anytype, xRadius: f64, yRadius: f64, mode: i32) void {
         comptime _ = @TypeOf(rect)._is_QRectF;
         qtc.QPainterPath_AddRoundedRect4(@ptrCast(self.ptr), @ptrCast(rect.ptr), @bitCast(xRadius), @bitCast(yRadius), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `addRoundedRect7` instead
+    ///
+    pub const AddRoundedRect7 = addRoundedRect7;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#addRoundedRect)
     ///
@@ -1029,23 +1321,23 @@ pub const QPainterPath = extern struct {
     ///
     /// ` mode: qnamespace_enums.SizeMode `
     ///
-    pub fn AddRoundedRect7(self: QPainterPath, x: f64, y: f64, w: f64, h: f64, xRadius: f64, yRadius: f64, mode: i32) void {
+    pub fn addRoundedRect7(self: QPainterPath, x: f64, y: f64, w: f64, h: f64, xRadius: f64, yRadius: f64, mode: i32) void {
         qtc.QPainterPath_AddRoundedRect7(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(xRadius), @bitCast(yRadius), @bitCast(mode));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#dtor.QPainterPath)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QPainterPath `
     ///
-    pub fn Delete(self: QPainterPath) void {
+    pub fn delete(self: QPainterPath) void {
         qtc.QPainterPath_Delete(@ptrCast(self.ptr));
     }
 };
@@ -1060,22 +1352,34 @@ pub const QPainterPathStroker = extern struct {
 
     pub const _is_QPainterPathStroker = {};
 
-    /// New constructs a new QPainterPathStroker object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QPainterPathStroker {
+    pub const New = new;
+
+    /// Allocate a new QPainterPathStroker object in C++ memory
+    ///
+    pub fn new() QPainterPathStroker {
         return .{ .ptr = qtc.QPainterPathStroker_new() };
     }
 
-    /// New2 constructs a new QPainterPathStroker object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QPainterPathStroker object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` pen: QPen `
     ///
-    pub fn New2(pen: anytype) QPainterPathStroker {
+    pub fn new2(pen: anytype) QPainterPathStroker {
         comptime _ = @TypeOf(pen)._is_QPen;
         return .{ .ptr = qtc.QPainterPathStroker_new2(@ptrCast(pen.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWidth` instead
+    ///
+    pub const SetWidth = setWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpathstroker.html#setWidth)
     ///
@@ -1083,11 +1387,15 @@ pub const QPainterPathStroker = extern struct {
     ///
     /// ` self: QPainterPathStroker `
     ///
-    /// ` width: f64 `
+    /// ` _width: f64 `
     ///
-    pub fn SetWidth(self: QPainterPathStroker, width: f64) void {
-        qtc.QPainterPathStroker_SetWidth(@ptrCast(self.ptr), @bitCast(width));
+    pub fn setWidth(self: QPainterPathStroker, _width: f64) void {
+        qtc.QPainterPathStroker_SetWidth(@ptrCast(self.ptr), @bitCast(_width));
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpathstroker.html#width)
     ///
@@ -1095,9 +1403,13 @@ pub const QPainterPathStroker = extern struct {
     ///
     /// ` self: QPainterPathStroker `
     ///
-    pub fn Width(self: QPainterPathStroker) f64 {
+    pub fn width(self: QPainterPathStroker) f64 {
         return qtc.QPainterPathStroker_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCapStyle` instead
+    ///
+    pub const SetCapStyle = setCapStyle;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpathstroker.html#setCapStyle)
     ///
@@ -1107,9 +1419,13 @@ pub const QPainterPathStroker = extern struct {
     ///
     /// ` style: qnamespace_enums.PenCapStyle `
     ///
-    pub fn SetCapStyle(self: QPainterPathStroker, style: i32) void {
+    pub fn setCapStyle(self: QPainterPathStroker, style: i32) void {
         qtc.QPainterPathStroker_SetCapStyle(@ptrCast(self.ptr), @bitCast(style));
     }
+
+    /// ### DEPRECATED: Use `capStyle` instead
+    ///
+    pub const CapStyle = capStyle;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpathstroker.html#capStyle)
     ///
@@ -1121,9 +1437,13 @@ pub const QPainterPathStroker = extern struct {
     ///
     /// ` qnamespace_enums.PenCapStyle `
     ///
-    pub fn CapStyle(self: QPainterPathStroker) i32 {
+    pub fn capStyle(self: QPainterPathStroker) i32 {
         return qtc.QPainterPathStroker_CapStyle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setJoinStyle` instead
+    ///
+    pub const SetJoinStyle = setJoinStyle;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpathstroker.html#setJoinStyle)
     ///
@@ -1133,9 +1453,13 @@ pub const QPainterPathStroker = extern struct {
     ///
     /// ` style: qnamespace_enums.PenJoinStyle `
     ///
-    pub fn SetJoinStyle(self: QPainterPathStroker, style: i32) void {
+    pub fn setJoinStyle(self: QPainterPathStroker, style: i32) void {
         qtc.QPainterPathStroker_SetJoinStyle(@ptrCast(self.ptr), @bitCast(style));
     }
+
+    /// ### DEPRECATED: Use `joinStyle` instead
+    ///
+    pub const JoinStyle = joinStyle;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpathstroker.html#joinStyle)
     ///
@@ -1147,9 +1471,13 @@ pub const QPainterPathStroker = extern struct {
     ///
     /// ` qnamespace_enums.PenJoinStyle `
     ///
-    pub fn JoinStyle(self: QPainterPathStroker) i32 {
+    pub fn joinStyle(self: QPainterPathStroker) i32 {
         return qtc.QPainterPathStroker_JoinStyle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMiterLimit` instead
+    ///
+    pub const SetMiterLimit = setMiterLimit;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpathstroker.html#setMiterLimit)
     ///
@@ -1157,11 +1485,15 @@ pub const QPainterPathStroker = extern struct {
     ///
     /// ` self: QPainterPathStroker `
     ///
-    /// ` length: f64 `
+    /// ` _length: f64 `
     ///
-    pub fn SetMiterLimit(self: QPainterPathStroker, length: f64) void {
-        qtc.QPainterPathStroker_SetMiterLimit(@ptrCast(self.ptr), @bitCast(length));
+    pub fn setMiterLimit(self: QPainterPathStroker, _length: f64) void {
+        qtc.QPainterPathStroker_SetMiterLimit(@ptrCast(self.ptr), @bitCast(_length));
     }
+
+    /// ### DEPRECATED: Use `miterLimit` instead
+    ///
+    pub const MiterLimit = miterLimit;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpathstroker.html#miterLimit)
     ///
@@ -1169,9 +1501,13 @@ pub const QPainterPathStroker = extern struct {
     ///
     /// ` self: QPainterPathStroker `
     ///
-    pub fn MiterLimit(self: QPainterPathStroker) f64 {
+    pub fn miterLimit(self: QPainterPathStroker) f64 {
         return qtc.QPainterPathStroker_MiterLimit(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCurveThreshold` instead
+    ///
+    pub const SetCurveThreshold = setCurveThreshold;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpathstroker.html#setCurveThreshold)
     ///
@@ -1181,9 +1517,13 @@ pub const QPainterPathStroker = extern struct {
     ///
     /// ` threshold: f64 `
     ///
-    pub fn SetCurveThreshold(self: QPainterPathStroker, threshold: f64) void {
+    pub fn setCurveThreshold(self: QPainterPathStroker, threshold: f64) void {
         qtc.QPainterPathStroker_SetCurveThreshold(@ptrCast(self.ptr), @bitCast(threshold));
     }
+
+    /// ### DEPRECATED: Use `curveThreshold` instead
+    ///
+    pub const CurveThreshold = curveThreshold;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpathstroker.html#curveThreshold)
     ///
@@ -1191,21 +1531,13 @@ pub const QPainterPathStroker = extern struct {
     ///
     /// ` self: QPainterPathStroker `
     ///
-    pub fn CurveThreshold(self: QPainterPathStroker) f64 {
+    pub fn curveThreshold(self: QPainterPathStroker) f64 {
         return qtc.QPainterPathStroker_CurveThreshold(@ptrCast(self.ptr));
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpathstroker.html#setDashPattern)
+    /// ### DEPRECATED: Use `setDashPattern` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPainterPathStroker `
-    ///
-    /// ` dashPattern: qnamespace_enums.PenStyle `
-    ///
-    pub fn SetDashPattern(self: QPainterPathStroker, dashPattern: i32) void {
-        qtc.QPainterPathStroker_SetDashPattern(@ptrCast(self.ptr), @bitCast(dashPattern));
-    }
+    pub const SetDashPattern = setDashPattern;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpathstroker.html#setDashPattern)
     ///
@@ -1213,15 +1545,35 @@ pub const QPainterPathStroker = extern struct {
     ///
     /// ` self: QPainterPathStroker `
     ///
-    /// ` dashPattern: []f64 `
+    /// ` _dashPattern: qnamespace_enums.PenStyle `
     ///
-    pub fn SetDashPattern2(self: QPainterPathStroker, dashPattern: []f64) void {
+    pub fn setDashPattern(self: QPainterPathStroker, _dashPattern: i32) void {
+        qtc.QPainterPathStroker_SetDashPattern(@ptrCast(self.ptr), @bitCast(_dashPattern));
+    }
+
+    /// ### DEPRECATED: Use `setDashPattern2` instead
+    ///
+    pub const SetDashPattern2 = setDashPattern2;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpathstroker.html#setDashPattern)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QPainterPathStroker `
+    ///
+    /// ` _dashPattern: []f64 `
+    ///
+    pub fn setDashPattern2(self: QPainterPathStroker, _dashPattern: []f64) void {
         const dashPattern_list = qtc.libqt_list{
-            .len = dashPattern.len,
-            .data = dashPattern.ptr,
+            .len = _dashPattern.len,
+            .data = _dashPattern.ptr,
         };
         qtc.QPainterPathStroker_SetDashPattern2(@ptrCast(self.ptr), dashPattern_list);
     }
+
+    /// ### DEPRECATED: Use `dashPattern` instead
+    ///
+    pub const DashPattern = dashPattern;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpathstroker.html#dashPattern)
     ///
@@ -1231,14 +1583,18 @@ pub const QPainterPathStroker = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DashPattern(self: QPainterPathStroker, allocator: std.mem.Allocator) []f64 {
+    pub fn dashPattern(self: QPainterPathStroker, allocator: std.mem.Allocator) []f64 {
         const _arr: qtc.libqt_list = qtc.QPainterPathStroker_DashPattern(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(f64, _arr.len) catch @panic("QPainterPathStroker.DashPattern: Memory allocation failed");
-        const _data: [*]f64 = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        const _ret = allocator.alloc(f64, _arr.len) catch @panic("QPainterPathStroker.dashPattern: Memory allocation failed");
+        const _data_val: [*]f64 = @ptrCast(@alignCast(_arr.data));
+        @memcpy(_ret, _data_val[0.._arr.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setDashOffset` instead
+    ///
+    pub const SetDashOffset = setDashOffset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpathstroker.html#setDashOffset)
     ///
@@ -1248,9 +1604,13 @@ pub const QPainterPathStroker = extern struct {
     ///
     /// ` offset: f64 `
     ///
-    pub fn SetDashOffset(self: QPainterPathStroker, offset: f64) void {
+    pub fn setDashOffset(self: QPainterPathStroker, offset: f64) void {
         qtc.QPainterPathStroker_SetDashOffset(@ptrCast(self.ptr), @bitCast(offset));
     }
+
+    /// ### DEPRECATED: Use `dashOffset` instead
+    ///
+    pub const DashOffset = dashOffset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpathstroker.html#dashOffset)
     ///
@@ -1258,9 +1618,13 @@ pub const QPainterPathStroker = extern struct {
     ///
     /// ` self: QPainterPathStroker `
     ///
-    pub fn DashOffset(self: QPainterPathStroker) f64 {
+    pub fn dashOffset(self: QPainterPathStroker) f64 {
         return qtc.QPainterPathStroker_DashOffset(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createStroke` instead
+    ///
+    pub const CreateStroke = createStroke;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpathstroker.html#createStroke)
     ///
@@ -1270,24 +1634,24 @@ pub const QPainterPathStroker = extern struct {
     ///
     /// ` path: QPainterPath `
     ///
-    pub fn CreateStroke(self: QPainterPathStroker, path: anytype) QPainterPath {
+    pub fn createStroke(self: QPainterPathStroker, path: anytype) QPainterPath {
         comptime _ = @TypeOf(path)._is_QPainterPath;
         return .{ .ptr = qtc.QPainterPathStroker_CreateStroke(@ptrCast(self.ptr), @ptrCast(path.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpathstroker.html#dtor.QPainterPathStroker)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QPainterPathStroker `
     ///
-    pub fn Delete(self: QPainterPathStroker) void {
+    pub fn delete(self: QPainterPathStroker) void {
         qtc.QPainterPathStroker_Delete(@ptrCast(self.ptr));
     }
 };
@@ -1302,44 +1666,64 @@ pub const QPainterPath__Element = extern struct {
 
     pub const _is_QPainterPath__Element = {};
 
-    /// New constructs a new QPainterPath::Element object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QPainterPath__Element {
+    pub const New = new;
+
+    /// Allocate a new QPainterPath::Element object in C++ memory
+    ///
+    pub fn new() QPainterPath__Element {
         return .{ .ptr = qtc.QPainterPath__Element_new() };
     }
 
-    /// New2 constructs a new QPainterPath::Element object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QPainterPath::Element object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QPainterPath__Element `
     ///
-    pub fn New2(param1: anytype) QPainterPath__Element {
+    pub fn new2(param1: anytype) QPainterPath__Element {
         comptime _ = @TypeOf(param1)._is_QPainterPath__Element;
         return .{ .ptr = qtc.QPainterPath__Element_new2(@ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath-element.html#x-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QPainterPath__Element `
     ///
-    pub fn X(self: QPainterPath__Element) f64 {
+    pub fn x(self: QPainterPath__Element) f64 {
         return qtc.QPainterPath__Element_X(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setX` instead
+    ///
+    pub const SetX = setX;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath-element.html#x-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QPainterPath__Element `
     ///
-    /// ` x: f64 `
+    /// ` _x: f64 `
     ///
-    pub fn SetX(self: QPainterPath__Element, x: f64) void {
-        qtc.QPainterPath__Element_SetX(@ptrCast(self.ptr), @bitCast(x));
+    pub fn setX(self: QPainterPath__Element, _x: f64) void {
+        qtc.QPainterPath__Element_SetX(@ptrCast(self.ptr), @bitCast(_x));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath-element.html#y-var)
     ///
@@ -1347,21 +1731,31 @@ pub const QPainterPath__Element = extern struct {
     ///
     /// ` self: QPainterPath__Element `
     ///
-    pub fn Y(self: QPainterPath__Element) f64 {
+    pub fn y(self: QPainterPath__Element) f64 {
         return qtc.QPainterPath__Element_Y(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setY` instead
+    ///
+    pub const SetY = setY;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath-element.html#y-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QPainterPath__Element `
     ///
-    /// ` y: f64 `
+    /// ` _y: f64 `
     ///
-    pub fn SetY(self: QPainterPath__Element, y: f64) void {
-        qtc.QPainterPath__Element_SetY(@ptrCast(self.ptr), @bitCast(y));
+    pub fn setY(self: QPainterPath__Element, _y: f64) void {
+        qtc.QPainterPath__Element_SetY(@ptrCast(self.ptr), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath-element.html#type-var)
     ///
@@ -1373,9 +1767,13 @@ pub const QPainterPath__Element = extern struct {
     ///
     /// ` qpainterpath_enums.ElementType `
     ///
-    pub fn Type(self: QPainterPath__Element) i32 {
+    pub fn type0(self: QPainterPath__Element) i32 {
         return qtc.QPainterPath__Element_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setType` instead
+    ///
+    pub const SetType = setType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath-element.html#type-var)
     ///
@@ -1383,11 +1781,15 @@ pub const QPainterPath__Element = extern struct {
     ///
     /// ` self: QPainterPath__Element `
     ///
-    /// ` type: qpainterpath_enums.ElementType `
+    /// ` _type: qpainterpath_enums.ElementType `
     ///
-    pub fn SetType(self: QPainterPath__Element, _type: i32) void {
+    pub fn setType(self: QPainterPath__Element, _type: i32) void {
         qtc.QPainterPath__Element_SetType(@ptrCast(self.ptr), @bitCast(_type));
     }
+
+    /// ### DEPRECATED: Use `isMoveTo` instead
+    ///
+    pub const IsMoveTo = isMoveTo;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath-element.html#isMoveTo)
     ///
@@ -1395,9 +1797,13 @@ pub const QPainterPath__Element = extern struct {
     ///
     /// ` self: QPainterPath__Element `
     ///
-    pub fn IsMoveTo(self: QPainterPath__Element) bool {
+    pub fn isMoveTo(self: QPainterPath__Element) bool {
         return qtc.QPainterPath__Element_IsMoveTo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLineTo` instead
+    ///
+    pub const IsLineTo = isLineTo;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath-element.html#isLineTo)
     ///
@@ -1405,9 +1811,13 @@ pub const QPainterPath__Element = extern struct {
     ///
     /// ` self: QPainterPath__Element `
     ///
-    pub fn IsLineTo(self: QPainterPath__Element) bool {
+    pub fn isLineTo(self: QPainterPath__Element) bool {
         return qtc.QPainterPath__Element_IsLineTo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isCurveTo` instead
+    ///
+    pub const IsCurveTo = isCurveTo;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath-element.html#isCurveTo)
     ///
@@ -1415,9 +1825,13 @@ pub const QPainterPath__Element = extern struct {
     ///
     /// ` self: QPainterPath__Element `
     ///
-    pub fn IsCurveTo(self: QPainterPath__Element) bool {
+    pub fn isCurveTo(self: QPainterPath__Element) bool {
         return qtc.QPainterPath__Element_IsCurveTo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toQPointF` instead
+    ///
+    pub const ToQPointF = toQPointF;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath-element.html#operator)
     ///
@@ -1425,9 +1839,13 @@ pub const QPainterPath__Element = extern struct {
     ///
     /// ` self: QPainterPath__Element `
     ///
-    pub fn ToQPointF(self: QPainterPath__Element) QPointF {
+    pub fn toQPointF(self: QPainterPath__Element) QPointF {
         return .{ .ptr = qtc.QPainterPath__Element_ToQPointF(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath-element.html#operator-eq-eq)
     ///
@@ -1437,10 +1855,14 @@ pub const QPainterPath__Element = extern struct {
     ///
     /// ` e: QPainterPath__Element `
     ///
-    pub fn OperatorEqual(self: QPainterPath__Element, e: anytype) bool {
+    pub fn operatorEqual(self: QPainterPath__Element, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QPainterPath__Element;
         return qtc.QPainterPath__Element_OperatorEqual(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath-element.html#operator-not-eq)
     ///
@@ -1450,22 +1872,22 @@ pub const QPainterPath__Element = extern struct {
     ///
     /// ` e: QPainterPath__Element `
     ///
-    pub fn OperatorNotEqual(self: QPainterPath__Element, e: anytype) bool {
+    pub fn operatorNotEqual(self: QPainterPath__Element, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QPainterPath__Element;
         return qtc.QPainterPath__Element_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QPainterPath__Element `
     ///
-    pub fn Delete(self: QPainterPath__Element) void {
+    pub fn delete(self: QPainterPath__Element) void {
         qtc.QPainterPath__Element_Delete(@ptrCast(self.ptr));
     }
 };

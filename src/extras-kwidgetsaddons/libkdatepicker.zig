@@ -83,47 +83,67 @@ pub const KDatePicker = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new KDatePicker object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KDatePicker object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) KDatePicker {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KDatePicker_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) KDatePicker {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KDatePicker_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new KDatePicker object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() KDatePicker {
+    pub const New2 = new2;
+
+    /// Allocate a new KDatePicker object in C++ memory
+    ///
+    pub fn new2() KDatePicker {
         return .{ .ptr = qtc.KDatePicker_new2() };
     }
 
-    /// New3 constructs a new KDatePicker object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new KDatePicker object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` dt: QDate `
     ///
-    pub fn New3(dt: anytype) KDatePicker {
+    pub fn new3(dt: anytype) KDatePicker {
         comptime _ = @TypeOf(dt)._is_QDate;
         return .{ .ptr = qtc.KDatePicker_new3(@ptrCast(dt.ptr)) };
     }
 
-    /// New4 constructs a new KDatePicker object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new KDatePicker object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` dt: QDate `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New4(dt: anytype, parent: anytype) KDatePicker {
+    pub fn new4(dt: anytype, _parent: anytype) KDatePicker {
         comptime _ = @TypeOf(dt)._is_QDate;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KDatePicker_new4(@ptrCast(dt.ptr), @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KDatePicker_new4(@ptrCast(dt.ptr), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -131,9 +151,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn MetaObject(self: KDatePicker) QMetaObject {
+    pub fn metaObject(self: KDatePicker) QMetaObject {
         return .{ .ptr = qtc.KDatePicker_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -145,13 +169,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KDatePicker, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KDatePicker, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KDatePicker_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -161,9 +185,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn SuperMetaObject(self: KDatePicker) QMetaObject {
+    pub fn superMetaObject(self: KDatePicker) QMetaObject {
         return .{ .ptr = qtc.KDatePicker_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -171,10 +199,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KDatePicker, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KDatePicker, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KDatePicker_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -184,13 +216,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KDatePicker, callback: *const fn (KDatePicker, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KDatePicker, callback: *const fn (KDatePicker, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KDatePicker_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -200,10 +232,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KDatePicker, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KDatePicker, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KDatePicker_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -215,9 +251,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KDatePicker, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KDatePicker, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KDatePicker_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -227,13 +267,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KDatePicker, callback: *const fn (KDatePicker, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KDatePicker, callback: *const fn (KDatePicker, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KDatePicker_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -247,9 +287,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KDatePicker, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KDatePicker, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KDatePicker_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -259,14 +303,18 @@ pub const KDatePicker = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDatePicker.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDatePicker.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
 
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#sizeHint)
     ///
@@ -274,9 +322,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn SizeHint(self: KDatePicker) QSize {
+    pub fn sizeHint(self: KDatePicker) QSize {
         return .{ .ptr = qtc.KDatePicker_SizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
 
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#sizeHint)
     ///
@@ -290,13 +342,13 @@ pub const KDatePicker = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: KDatePicker, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KDatePicker, callback: *const fn () callconv(.c) QSize) void {
         qtc.KDatePicker_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#sizeHint)
     ///
@@ -306,9 +358,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn SuperSizeHint(self: KDatePicker) QSize {
+    pub fn superSizeHint(self: KDatePicker) QSize {
         return .{ .ptr = qtc.KDatePicker_SuperSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setDate` instead
+    ///
+    pub const SetDate = setDate;
 
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#setDate)
     ///
@@ -316,12 +372,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` date: QDate `
+    /// ` _date: QDate `
     ///
-    pub fn SetDate(self: KDatePicker, date: anytype) bool {
-        comptime _ = @TypeOf(date)._is_QDate;
-        return qtc.KDatePicker_SetDate(@ptrCast(self.ptr), @ptrCast(date.ptr));
+    pub fn setDate(self: KDatePicker, _date: anytype) bool {
+        comptime _ = @TypeOf(_date)._is_QDate;
+        return qtc.KDatePicker_SetDate(@ptrCast(self.ptr), @ptrCast(_date.ptr));
     }
+
+    /// ### DEPRECATED: Use `date` instead
+    ///
+    pub const Date = date;
 
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#date)
     ///
@@ -329,9 +389,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn Date(self: KDatePicker) QDate {
+    pub fn date(self: KDatePicker) QDate {
         return .{ .ptr = qtc.KDatePicker_Date(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFontSize` instead
+    ///
+    pub const SetFontSize = setFontSize;
 
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#setFontSize)
     ///
@@ -339,11 +403,15 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` fontSize: i32 `
+    /// ` _fontSize: i32 `
     ///
-    pub fn SetFontSize(self: KDatePicker, fontSize: i32) void {
-        qtc.KDatePicker_SetFontSize(@ptrCast(self.ptr), @bitCast(fontSize));
+    pub fn setFontSize(self: KDatePicker, _fontSize: i32) void {
+        qtc.KDatePicker_SetFontSize(@ptrCast(self.ptr), @bitCast(_fontSize));
     }
+
+    /// ### DEPRECATED: Use `fontSize` instead
+    ///
+    pub const FontSize = fontSize;
 
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#fontSize)
     ///
@@ -351,9 +419,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn FontSize(self: KDatePicker) i32 {
+    pub fn fontSize(self: KDatePicker) i32 {
         return qtc.KDatePicker_FontSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCloseButton` instead
+    ///
+    pub const SetCloseButton = setCloseButton;
 
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#setCloseButton)
     ///
@@ -363,9 +435,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetCloseButton(self: KDatePicker, enable: bool) void {
+    pub fn setCloseButton(self: KDatePicker, enable: bool) void {
         qtc.KDatePicker_SetCloseButton(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasCloseButton` instead
+    ///
+    pub const HasCloseButton = hasCloseButton;
 
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#hasCloseButton)
     ///
@@ -373,9 +449,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn HasCloseButton(self: KDatePicker) bool {
+    pub fn hasCloseButton(self: KDatePicker) bool {
         return qtc.KDatePicker_HasCloseButton(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDateRange` instead
+    ///
+    pub const SetDateRange = setDateRange;
 
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#setDateRange)
     ///
@@ -385,10 +465,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` minDate: QDate `
     ///
-    pub fn SetDateRange(self: KDatePicker, minDate: anytype) void {
+    pub fn setDateRange(self: KDatePicker, minDate: anytype) void {
         comptime _ = @TypeOf(minDate)._is_QDate;
         qtc.KDatePicker_SetDateRange(@ptrCast(self.ptr), @ptrCast(minDate.ptr));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#eventFilter)
     ///
@@ -400,11 +484,15 @@ pub const KDatePicker = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn EventFilter(self: KDatePicker, o: anytype, e: anytype) bool {
+    pub fn eventFilter(self: KDatePicker, o: anytype, e: anytype) bool {
         comptime _ = @TypeOf(o)._is_QObject;
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.KDatePicker_EventFilter(@ptrCast(self.ptr), @ptrCast(o.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#eventFilter)
     ///
@@ -416,13 +504,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, o: QObject, e: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KDatePicker, callback: *const fn (KDatePicker, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KDatePicker, callback: *const fn (KDatePicker, QObject, QEvent) callconv(.c) bool) void {
         qtc.KDatePicker_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#eventFilter)
     ///
@@ -436,11 +524,15 @@ pub const KDatePicker = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn SuperEventFilter(self: KDatePicker, o: anytype, e: anytype) bool {
+    pub fn superEventFilter(self: KDatePicker, o: anytype, e: anytype) bool {
         comptime _ = @TypeOf(o)._is_QObject;
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.KDatePicker_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(o.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#resizeEvent)
     ///
@@ -450,10 +542,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` param1: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: KDatePicker, param1: anytype) void {
+    pub fn resizeEvent(self: KDatePicker, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QResizeEvent;
         qtc.KDatePicker_ResizeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#resizeEvent)
     ///
@@ -465,13 +561,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, param1: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: KDatePicker, callback: *const fn (KDatePicker, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: KDatePicker, callback: *const fn (KDatePicker, QResizeEvent) callconv(.c) void) void {
         qtc.KDatePicker_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#resizeEvent)
     ///
@@ -483,10 +579,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` param1: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: KDatePicker, param1: anytype) void {
+    pub fn superResizeEvent(self: KDatePicker, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QResizeEvent;
         qtc.KDatePicker_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#changeEvent)
     ///
@@ -494,12 +594,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn ChangeEvent(self: KDatePicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KDatePicker_ChangeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn changeEvent(self: KDatePicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KDatePicker_ChangeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#changeEvent)
     ///
@@ -511,13 +615,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: KDatePicker, callback: *const fn (KDatePicker, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: KDatePicker, callback: *const fn (KDatePicker, QEvent) callconv(.c) void) void {
         qtc.KDatePicker_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#changeEvent)
     ///
@@ -527,12 +631,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperChangeEvent(self: KDatePicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KDatePicker_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChangeEvent(self: KDatePicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KDatePicker_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `dateChangedSlot` instead
+    ///
+    pub const DateChangedSlot = dateChangedSlot;
 
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#dateChangedSlot)
     ///
@@ -540,12 +648,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` date: QDate `
+    /// ` _date: QDate `
     ///
-    pub fn DateChangedSlot(self: KDatePicker, date: anytype) void {
-        comptime _ = @TypeOf(date)._is_QDate;
-        qtc.KDatePicker_DateChangedSlot(@ptrCast(self.ptr), @ptrCast(date.ptr));
+    pub fn dateChangedSlot(self: KDatePicker, _date: anytype) void {
+        comptime _ = @TypeOf(_date)._is_QDate;
+        qtc.KDatePicker_DateChangedSlot(@ptrCast(self.ptr), @ptrCast(_date.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDateChangedSlot` instead
+    ///
+    pub const OnDateChangedSlot = onDateChangedSlot;
 
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#dateChangedSlot)
     ///
@@ -557,13 +669,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, date: QDate) callconv(.c) void `
     ///
-    pub fn OnDateChangedSlot(self: KDatePicker, callback: *const fn (KDatePicker, QDate) callconv(.c) void) void {
+    pub fn onDateChangedSlot(self: KDatePicker, callback: *const fn (KDatePicker, QDate) callconv(.c) void) void {
         qtc.KDatePicker_OnDateChangedSlot(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDateChangedSlot` instead
+    /// ### DEPRECATED: Use `superDateChangedSlot` instead
     ///
-    pub const QBaseDateChangedSlot = SuperDateChangedSlot;
+    pub const SuperDateChangedSlot = superDateChangedSlot;
 
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#dateChangedSlot)
     ///
@@ -573,12 +685,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` date: QDate `
+    /// ` _date: QDate `
     ///
-    pub fn SuperDateChangedSlot(self: KDatePicker, date: anytype) void {
-        comptime _ = @TypeOf(date)._is_QDate;
-        qtc.KDatePicker_SuperDateChangedSlot(@ptrCast(self.ptr), @ptrCast(date.ptr));
+    pub fn superDateChangedSlot(self: KDatePicker, _date: anytype) void {
+        comptime _ = @TypeOf(_date)._is_QDate;
+        qtc.KDatePicker_SuperDateChangedSlot(@ptrCast(self.ptr), @ptrCast(_date.ptr));
     }
+
+    /// ### DEPRECATED: Use `tableClickedSlot` instead
+    ///
+    pub const TableClickedSlot = tableClickedSlot;
 
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#tableClickedSlot)
     ///
@@ -586,10 +702,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn TableClickedSlot(self: KDatePicker) void {
+    pub fn tableClickedSlot(self: KDatePicker) void {
         qtc.KDatePicker_TableClickedSlot(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onTableClickedSlot` instead
+    ///
+    pub const OnTableClickedSlot = onTableClickedSlot;
+
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#tableClickedSlot)
     ///
     /// Allows for overriding the related default method
@@ -600,13 +720,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnTableClickedSlot(self: KDatePicker, callback: *const fn () callconv(.c) void) void {
+    pub fn onTableClickedSlot(self: KDatePicker, callback: *const fn () callconv(.c) void) void {
         qtc.KDatePicker_OnTableClickedSlot(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperTableClickedSlot` instead
+    /// ### DEPRECATED: Use `superTableClickedSlot` instead
     ///
-    pub const QBaseTableClickedSlot = SuperTableClickedSlot;
+    pub const SuperTableClickedSlot = superTableClickedSlot;
 
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#tableClickedSlot)
     ///
@@ -616,20 +736,28 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn SuperTableClickedSlot(self: KDatePicker) void {
+    pub fn superTableClickedSlot(self: KDatePicker) void {
         qtc.KDatePicker_SuperTableClickedSlot(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `monthForwardClicked` instead
+    ///
+    pub const MonthForwardClicked = monthForwardClicked;
+
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#monthForwardClicked)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn MonthForwardClicked(self: KDatePicker) void {
+    pub fn monthForwardClicked(self: KDatePicker) void {
         qtc.KDatePicker_MonthForwardClicked(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onMonthForwardClicked` instead
+    ///
+    pub const OnMonthForwardClicked = onMonthForwardClicked;
+
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#monthForwardClicked)
     ///
     /// Allows for overriding the related default method
@@ -640,13 +768,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnMonthForwardClicked(self: KDatePicker, callback: *const fn () callconv(.c) void) void {
+    pub fn onMonthForwardClicked(self: KDatePicker, callback: *const fn () callconv(.c) void) void {
         qtc.KDatePicker_OnMonthForwardClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMonthForwardClicked` instead
+    /// ### DEPRECATED: Use `superMonthForwardClicked` instead
     ///
-    pub const QBaseMonthForwardClicked = SuperMonthForwardClicked;
+    pub const SuperMonthForwardClicked = superMonthForwardClicked;
 
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#monthForwardClicked)
     ///
@@ -656,20 +784,28 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn SuperMonthForwardClicked(self: KDatePicker) void {
+    pub fn superMonthForwardClicked(self: KDatePicker) void {
         qtc.KDatePicker_SuperMonthForwardClicked(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `monthBackwardClicked` instead
+    ///
+    pub const MonthBackwardClicked = monthBackwardClicked;
+
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#monthBackwardClicked)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn MonthBackwardClicked(self: KDatePicker) void {
+    pub fn monthBackwardClicked(self: KDatePicker) void {
         qtc.KDatePicker_MonthBackwardClicked(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onMonthBackwardClicked` instead
+    ///
+    pub const OnMonthBackwardClicked = onMonthBackwardClicked;
+
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#monthBackwardClicked)
     ///
     /// Allows for overriding the related default method
@@ -680,13 +816,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnMonthBackwardClicked(self: KDatePicker, callback: *const fn () callconv(.c) void) void {
+    pub fn onMonthBackwardClicked(self: KDatePicker, callback: *const fn () callconv(.c) void) void {
         qtc.KDatePicker_OnMonthBackwardClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMonthBackwardClicked` instead
+    /// ### DEPRECATED: Use `superMonthBackwardClicked` instead
     ///
-    pub const QBaseMonthBackwardClicked = SuperMonthBackwardClicked;
+    pub const SuperMonthBackwardClicked = superMonthBackwardClicked;
 
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#monthBackwardClicked)
     ///
@@ -696,20 +832,28 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn SuperMonthBackwardClicked(self: KDatePicker) void {
+    pub fn superMonthBackwardClicked(self: KDatePicker) void {
         qtc.KDatePicker_SuperMonthBackwardClicked(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `yearForwardClicked` instead
+    ///
+    pub const YearForwardClicked = yearForwardClicked;
+
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#yearForwardClicked)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn YearForwardClicked(self: KDatePicker) void {
+    pub fn yearForwardClicked(self: KDatePicker) void {
         qtc.KDatePicker_YearForwardClicked(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onYearForwardClicked` instead
+    ///
+    pub const OnYearForwardClicked = onYearForwardClicked;
+
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#yearForwardClicked)
     ///
     /// Allows for overriding the related default method
@@ -720,13 +864,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnYearForwardClicked(self: KDatePicker, callback: *const fn () callconv(.c) void) void {
+    pub fn onYearForwardClicked(self: KDatePicker, callback: *const fn () callconv(.c) void) void {
         qtc.KDatePicker_OnYearForwardClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperYearForwardClicked` instead
+    /// ### DEPRECATED: Use `superYearForwardClicked` instead
     ///
-    pub const QBaseYearForwardClicked = SuperYearForwardClicked;
+    pub const SuperYearForwardClicked = superYearForwardClicked;
 
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#yearForwardClicked)
     ///
@@ -736,20 +880,28 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn SuperYearForwardClicked(self: KDatePicker) void {
+    pub fn superYearForwardClicked(self: KDatePicker) void {
         qtc.KDatePicker_SuperYearForwardClicked(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `yearBackwardClicked` instead
+    ///
+    pub const YearBackwardClicked = yearBackwardClicked;
+
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#yearBackwardClicked)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn YearBackwardClicked(self: KDatePicker) void {
+    pub fn yearBackwardClicked(self: KDatePicker) void {
         qtc.KDatePicker_YearBackwardClicked(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onYearBackwardClicked` instead
+    ///
+    pub const OnYearBackwardClicked = onYearBackwardClicked;
+
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#yearBackwardClicked)
     ///
     /// Allows for overriding the related default method
@@ -760,13 +912,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnYearBackwardClicked(self: KDatePicker, callback: *const fn () callconv(.c) void) void {
+    pub fn onYearBackwardClicked(self: KDatePicker, callback: *const fn () callconv(.c) void) void {
         qtc.KDatePicker_OnYearBackwardClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperYearBackwardClicked` instead
+    /// ### DEPRECATED: Use `superYearBackwardClicked` instead
     ///
-    pub const QBaseYearBackwardClicked = SuperYearBackwardClicked;
+    pub const SuperYearBackwardClicked = superYearBackwardClicked;
 
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#yearBackwardClicked)
     ///
@@ -776,20 +928,28 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn SuperYearBackwardClicked(self: KDatePicker) void {
+    pub fn superYearBackwardClicked(self: KDatePicker) void {
         qtc.KDatePicker_SuperYearBackwardClicked(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `selectMonthClicked` instead
+    ///
+    pub const SelectMonthClicked = selectMonthClicked;
+
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#selectMonthClicked)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn SelectMonthClicked(self: KDatePicker) void {
+    pub fn selectMonthClicked(self: KDatePicker) void {
         qtc.KDatePicker_SelectMonthClicked(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSelectMonthClicked` instead
+    ///
+    pub const OnSelectMonthClicked = onSelectMonthClicked;
+
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#selectMonthClicked)
     ///
     /// Allows for overriding the related default method
@@ -800,13 +960,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnSelectMonthClicked(self: KDatePicker, callback: *const fn () callconv(.c) void) void {
+    pub fn onSelectMonthClicked(self: KDatePicker, callback: *const fn () callconv(.c) void) void {
         qtc.KDatePicker_OnSelectMonthClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSelectMonthClicked` instead
+    /// ### DEPRECATED: Use `superSelectMonthClicked` instead
     ///
-    pub const QBaseSelectMonthClicked = SuperSelectMonthClicked;
+    pub const SuperSelectMonthClicked = superSelectMonthClicked;
 
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#selectMonthClicked)
     ///
@@ -816,20 +976,28 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn SuperSelectMonthClicked(self: KDatePicker) void {
+    pub fn superSelectMonthClicked(self: KDatePicker) void {
         qtc.KDatePicker_SuperSelectMonthClicked(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `selectYearClicked` instead
+    ///
+    pub const SelectYearClicked = selectYearClicked;
+
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#selectYearClicked)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn SelectYearClicked(self: KDatePicker) void {
+    pub fn selectYearClicked(self: KDatePicker) void {
         qtc.KDatePicker_SelectYearClicked(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSelectYearClicked` instead
+    ///
+    pub const OnSelectYearClicked = onSelectYearClicked;
+
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#selectYearClicked)
     ///
     /// Allows for overriding the related default method
@@ -840,13 +1008,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnSelectYearClicked(self: KDatePicker, callback: *const fn () callconv(.c) void) void {
+    pub fn onSelectYearClicked(self: KDatePicker, callback: *const fn () callconv(.c) void) void {
         qtc.KDatePicker_OnSelectYearClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSelectYearClicked` instead
+    /// ### DEPRECATED: Use `superSelectYearClicked` instead
     ///
-    pub const QBaseSelectYearClicked = SuperSelectYearClicked;
+    pub const SuperSelectYearClicked = superSelectYearClicked;
 
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#selectYearClicked)
     ///
@@ -856,20 +1024,28 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn SuperSelectYearClicked(self: KDatePicker) void {
+    pub fn superSelectYearClicked(self: KDatePicker) void {
         qtc.KDatePicker_SuperSelectYearClicked(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `uncheckYearSelector` instead
+    ///
+    pub const UncheckYearSelector = uncheckYearSelector;
+
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#uncheckYearSelector)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn UncheckYearSelector(self: KDatePicker) void {
+    pub fn uncheckYearSelector(self: KDatePicker) void {
         qtc.KDatePicker_UncheckYearSelector(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUncheckYearSelector` instead
+    ///
+    pub const OnUncheckYearSelector = onUncheckYearSelector;
+
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#uncheckYearSelector)
     ///
     /// Allows for overriding the related default method
@@ -880,13 +1056,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUncheckYearSelector(self: KDatePicker, callback: *const fn () callconv(.c) void) void {
+    pub fn onUncheckYearSelector(self: KDatePicker, callback: *const fn () callconv(.c) void) void {
         qtc.KDatePicker_OnUncheckYearSelector(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperUncheckYearSelector` instead
+    /// ### DEPRECATED: Use `superUncheckYearSelector` instead
     ///
-    pub const QBaseUncheckYearSelector = SuperUncheckYearSelector;
+    pub const SuperUncheckYearSelector = superUncheckYearSelector;
 
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#uncheckYearSelector)
     ///
@@ -896,20 +1072,28 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn SuperUncheckYearSelector(self: KDatePicker) void {
+    pub fn superUncheckYearSelector(self: KDatePicker) void {
         qtc.KDatePicker_SuperUncheckYearSelector(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `lineEnterPressed` instead
+    ///
+    pub const LineEnterPressed = lineEnterPressed;
+
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#lineEnterPressed)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn LineEnterPressed(self: KDatePicker) void {
+    pub fn lineEnterPressed(self: KDatePicker) void {
         qtc.KDatePicker_LineEnterPressed(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onLineEnterPressed` instead
+    ///
+    pub const OnLineEnterPressed = onLineEnterPressed;
+
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#lineEnterPressed)
     ///
     /// Allows for overriding the related default method
@@ -920,13 +1104,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnLineEnterPressed(self: KDatePicker, callback: *const fn () callconv(.c) void) void {
+    pub fn onLineEnterPressed(self: KDatePicker, callback: *const fn () callconv(.c) void) void {
         qtc.KDatePicker_OnLineEnterPressed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperLineEnterPressed` instead
+    /// ### DEPRECATED: Use `superLineEnterPressed` instead
     ///
-    pub const QBaseLineEnterPressed = SuperLineEnterPressed;
+    pub const SuperLineEnterPressed = superLineEnterPressed;
 
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#lineEnterPressed)
     ///
@@ -936,9 +1120,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn SuperLineEnterPressed(self: KDatePicker) void {
+    pub fn superLineEnterPressed(self: KDatePicker) void {
         qtc.KDatePicker_SuperLineEnterPressed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `todayButtonClicked` instead
+    ///
+    pub const TodayButtonClicked = todayButtonClicked;
 
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#todayButtonClicked)
     ///
@@ -946,9 +1134,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn TodayButtonClicked(self: KDatePicker) void {
+    pub fn todayButtonClicked(self: KDatePicker) void {
         qtc.KDatePicker_TodayButtonClicked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTodayButtonClicked` instead
+    ///
+    pub const OnTodayButtonClicked = onTodayButtonClicked;
 
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#todayButtonClicked)
     ///
@@ -960,13 +1152,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnTodayButtonClicked(self: KDatePicker, callback: *const fn () callconv(.c) void) void {
+    pub fn onTodayButtonClicked(self: KDatePicker, callback: *const fn () callconv(.c) void) void {
         qtc.KDatePicker_OnTodayButtonClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperTodayButtonClicked` instead
+    /// ### DEPRECATED: Use `superTodayButtonClicked` instead
     ///
-    pub const QBaseTodayButtonClicked = SuperTodayButtonClicked;
+    pub const SuperTodayButtonClicked = superTodayButtonClicked;
 
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#todayButtonClicked)
     ///
@@ -976,9 +1168,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn SuperTodayButtonClicked(self: KDatePicker) void {
+    pub fn superTodayButtonClicked(self: KDatePicker) void {
         qtc.KDatePicker_SuperTodayButtonClicked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `weekSelected` instead
+    ///
+    pub const WeekSelected = weekSelected;
 
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#weekSelected)
     ///
@@ -988,9 +1184,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn WeekSelected(self: KDatePicker, param1: i32) void {
+    pub fn weekSelected(self: KDatePicker, param1: i32) void {
         qtc.KDatePicker_WeekSelected(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onWeekSelected` instead
+    ///
+    pub const OnWeekSelected = onWeekSelected;
 
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#weekSelected)
     ///
@@ -1002,13 +1202,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, param1: i32) callconv(.c) void `
     ///
-    pub fn OnWeekSelected(self: KDatePicker, callback: *const fn (KDatePicker, i32) callconv(.c) void) void {
+    pub fn onWeekSelected(self: KDatePicker, callback: *const fn (KDatePicker, i32) callconv(.c) void) void {
         qtc.KDatePicker_OnWeekSelected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperWeekSelected` instead
+    /// ### DEPRECATED: Use `superWeekSelected` instead
     ///
-    pub const QBaseWeekSelected = SuperWeekSelected;
+    pub const SuperWeekSelected = superWeekSelected;
 
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#weekSelected)
     ///
@@ -1020,22 +1220,30 @@ pub const KDatePicker = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperWeekSelected(self: KDatePicker, param1: i32) void {
+    pub fn superWeekSelected(self: KDatePicker, param1: i32) void {
         qtc.KDatePicker_SuperWeekSelected(@ptrCast(self.ptr), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `dateChanged` instead
+    ///
+    pub const DateChanged = dateChanged;
+
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#dateChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` date: QDate `
+    /// ` _date: QDate `
     ///
-    pub fn DateChanged(self: KDatePicker, date: anytype) void {
-        comptime _ = @TypeOf(date)._is_QDate;
-        qtc.KDatePicker_DateChanged(@ptrCast(self.ptr), @ptrCast(date.ptr));
+    pub fn dateChanged(self: KDatePicker, _date: anytype) void {
+        comptime _ = @TypeOf(_date)._is_QDate;
+        qtc.KDatePicker_DateChanged(@ptrCast(self.ptr), @ptrCast(_date.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDateChanged` instead
+    ///
+    pub const OnDateChanged = onDateChanged;
 
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#dateChanged)
     ///
@@ -1045,22 +1253,30 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, date: QDate) callconv(.c) void `
     ///
-    pub fn OnDateChanged(self: KDatePicker, callback: *const fn (KDatePicker, QDate) callconv(.c) void) void {
+    pub fn onDateChanged(self: KDatePicker, callback: *const fn (KDatePicker, QDate) callconv(.c) void) void {
         qtc.KDatePicker_Connect_DateChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `dateSelected` instead
+    ///
+    pub const DateSelected = dateSelected;
+
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#dateSelected)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` date: QDate `
+    /// ` _date: QDate `
     ///
-    pub fn DateSelected(self: KDatePicker, date: anytype) void {
-        comptime _ = @TypeOf(date)._is_QDate;
-        qtc.KDatePicker_DateSelected(@ptrCast(self.ptr), @ptrCast(date.ptr));
+    pub fn dateSelected(self: KDatePicker, _date: anytype) void {
+        comptime _ = @TypeOf(_date)._is_QDate;
+        qtc.KDatePicker_DateSelected(@ptrCast(self.ptr), @ptrCast(_date.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDateSelected` instead
+    ///
+    pub const OnDateSelected = onDateSelected;
 
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#dateSelected)
     ///
@@ -1070,22 +1286,30 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, date: QDate) callconv(.c) void `
     ///
-    pub fn OnDateSelected(self: KDatePicker, callback: *const fn (KDatePicker, QDate) callconv(.c) void) void {
+    pub fn onDateSelected(self: KDatePicker, callback: *const fn (KDatePicker, QDate) callconv(.c) void) void {
         qtc.KDatePicker_Connect_DateSelected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `dateEntered` instead
+    ///
+    pub const DateEntered = dateEntered;
+
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#dateEntered)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` date: QDate `
+    /// ` _date: QDate `
     ///
-    pub fn DateEntered(self: KDatePicker, date: anytype) void {
-        comptime _ = @TypeOf(date)._is_QDate;
-        qtc.KDatePicker_DateEntered(@ptrCast(self.ptr), @ptrCast(date.ptr));
+    pub fn dateEntered(self: KDatePicker, _date: anytype) void {
+        comptime _ = @TypeOf(_date)._is_QDate;
+        qtc.KDatePicker_DateEntered(@ptrCast(self.ptr), @ptrCast(_date.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDateEntered` instead
+    ///
+    pub const OnDateEntered = onDateEntered;
 
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#dateEntered)
     ///
@@ -1095,9 +1319,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, date: QDate) callconv(.c) void `
     ///
-    pub fn OnDateEntered(self: KDatePicker, callback: *const fn (KDatePicker, QDate) callconv(.c) void) void {
+    pub fn onDateEntered(self: KDatePicker, callback: *const fn (KDatePicker, QDate) callconv(.c) void) void {
         qtc.KDatePicker_Connect_DateEntered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tableClicked` instead
+    ///
+    pub const TableClicked = tableClicked;
 
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#tableClicked)
     ///
@@ -1105,9 +1333,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn TableClicked(self: KDatePicker) void {
+    pub fn tableClicked(self: KDatePicker) void {
         qtc.KDatePicker_TableClicked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTableClicked` instead
+    ///
+    pub const OnTableClicked = onTableClicked;
 
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#tableClicked)
     ///
@@ -1117,9 +1349,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker) callconv(.c) void `
     ///
-    pub fn OnTableClicked(self: KDatePicker, callback: *const fn (KDatePicker) callconv(.c) void) void {
+    pub fn onTableClicked(self: KDatePicker, callback: *const fn (KDatePicker) callconv(.c) void) void {
         qtc.KDatePicker_Connect_TableClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1131,15 +1367,19 @@ pub const KDatePicker = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDatePicker.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDatePicker.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1153,15 +1393,19 @@ pub const KDatePicker = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDatePicker.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDatePicker.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setDateRange2` instead
+    ///
+    pub const SetDateRange2 = setDateRange2;
 
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#setDateRange)
     ///
@@ -1173,11 +1417,15 @@ pub const KDatePicker = extern struct {
     ///
     /// ` maxDate: QDate `
     ///
-    pub fn SetDateRange2(self: KDatePicker, minDate: anytype, maxDate: anytype) void {
+    pub fn setDateRange2(self: KDatePicker, minDate: anytype, maxDate: anytype) void {
         comptime _ = @TypeOf(minDate)._is_QDate;
         comptime _ = @TypeOf(maxDate)._is_QDate;
         qtc.KDatePicker_SetDateRange2(@ptrCast(self.ptr), @ptrCast(minDate.ptr), @ptrCast(maxDate.ptr));
     }
+
+    /// ### DEPRECATED: Use `frameStyle` instead
+    ///
+    pub const FrameStyle = frameStyle;
 
     /// Inherited from QFrame
     ///
@@ -1187,9 +1435,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn FrameStyle(self: KDatePicker) i32 {
+    pub fn frameStyle(self: KDatePicker) i32 {
         return qtc.QFrame_FrameStyle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFrameStyle` instead
+    ///
+    pub const SetFrameStyle = setFrameStyle;
 
     /// Inherited from QFrame
     ///
@@ -1199,11 +1451,15 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` frameStyle: i32 `
+    /// ` _frameStyle: i32 `
     ///
-    pub fn SetFrameStyle(self: KDatePicker, frameStyle: i32) void {
-        qtc.QFrame_SetFrameStyle(@ptrCast(self.ptr), @bitCast(frameStyle));
+    pub fn setFrameStyle(self: KDatePicker, _frameStyle: i32) void {
+        qtc.QFrame_SetFrameStyle(@ptrCast(self.ptr), @bitCast(_frameStyle));
     }
+
+    /// ### DEPRECATED: Use `frameWidth` instead
+    ///
+    pub const FrameWidth = frameWidth;
 
     /// Inherited from QFrame
     ///
@@ -1213,9 +1469,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn FrameWidth(self: KDatePicker) i32 {
+    pub fn frameWidth(self: KDatePicker) i32 {
         return qtc.QFrame_FrameWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `frameShape` instead
+    ///
+    pub const FrameShape = frameShape;
 
     /// Inherited from QFrame
     ///
@@ -1229,9 +1489,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` qframe_enums.Shape `
     ///
-    pub fn FrameShape(self: KDatePicker) i32 {
+    pub fn frameShape(self: KDatePicker) i32 {
         return qtc.QFrame_FrameShape(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFrameShape` instead
+    ///
+    pub const SetFrameShape = setFrameShape;
 
     /// Inherited from QFrame
     ///
@@ -1241,11 +1505,15 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` frameShape: qframe_enums.Shape `
+    /// ` _frameShape: qframe_enums.Shape `
     ///
-    pub fn SetFrameShape(self: KDatePicker, frameShape: i32) void {
-        qtc.QFrame_SetFrameShape(@ptrCast(self.ptr), @bitCast(frameShape));
+    pub fn setFrameShape(self: KDatePicker, _frameShape: i32) void {
+        qtc.QFrame_SetFrameShape(@ptrCast(self.ptr), @bitCast(_frameShape));
     }
+
+    /// ### DEPRECATED: Use `frameShadow` instead
+    ///
+    pub const FrameShadow = frameShadow;
 
     /// Inherited from QFrame
     ///
@@ -1259,9 +1527,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` qframe_enums.Shadow `
     ///
-    pub fn FrameShadow(self: KDatePicker) i32 {
+    pub fn frameShadow(self: KDatePicker) i32 {
         return qtc.QFrame_FrameShadow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFrameShadow` instead
+    ///
+    pub const SetFrameShadow = setFrameShadow;
 
     /// Inherited from QFrame
     ///
@@ -1271,11 +1543,15 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` frameShadow: qframe_enums.Shadow `
+    /// ` _frameShadow: qframe_enums.Shadow `
     ///
-    pub fn SetFrameShadow(self: KDatePicker, frameShadow: i32) void {
-        qtc.QFrame_SetFrameShadow(@ptrCast(self.ptr), @bitCast(frameShadow));
+    pub fn setFrameShadow(self: KDatePicker, _frameShadow: i32) void {
+        qtc.QFrame_SetFrameShadow(@ptrCast(self.ptr), @bitCast(_frameShadow));
     }
+
+    /// ### DEPRECATED: Use `lineWidth` instead
+    ///
+    pub const LineWidth = lineWidth;
 
     /// Inherited from QFrame
     ///
@@ -1285,9 +1561,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn LineWidth(self: KDatePicker) i32 {
+    pub fn lineWidth(self: KDatePicker) i32 {
         return qtc.QFrame_LineWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLineWidth` instead
+    ///
+    pub const SetLineWidth = setLineWidth;
 
     /// Inherited from QFrame
     ///
@@ -1297,11 +1577,15 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` lineWidth: i32 `
+    /// ` _lineWidth: i32 `
     ///
-    pub fn SetLineWidth(self: KDatePicker, lineWidth: i32) void {
-        qtc.QFrame_SetLineWidth(@ptrCast(self.ptr), @bitCast(lineWidth));
+    pub fn setLineWidth(self: KDatePicker, _lineWidth: i32) void {
+        qtc.QFrame_SetLineWidth(@ptrCast(self.ptr), @bitCast(_lineWidth));
     }
+
+    /// ### DEPRECATED: Use `midLineWidth` instead
+    ///
+    pub const MidLineWidth = midLineWidth;
 
     /// Inherited from QFrame
     ///
@@ -1311,9 +1595,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn MidLineWidth(self: KDatePicker) i32 {
+    pub fn midLineWidth(self: KDatePicker) i32 {
         return qtc.QFrame_MidLineWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMidLineWidth` instead
+    ///
+    pub const SetMidLineWidth = setMidLineWidth;
 
     /// Inherited from QFrame
     ///
@@ -1323,11 +1611,15 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` midLineWidth: i32 `
+    /// ` _midLineWidth: i32 `
     ///
-    pub fn SetMidLineWidth(self: KDatePicker, midLineWidth: i32) void {
-        qtc.QFrame_SetMidLineWidth(@ptrCast(self.ptr), @bitCast(midLineWidth));
+    pub fn setMidLineWidth(self: KDatePicker, _midLineWidth: i32) void {
+        qtc.QFrame_SetMidLineWidth(@ptrCast(self.ptr), @bitCast(_midLineWidth));
     }
+
+    /// ### DEPRECATED: Use `frameRect` instead
+    ///
+    pub const FrameRect = frameRect;
 
     /// Inherited from QFrame
     ///
@@ -1337,9 +1629,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn FrameRect(self: KDatePicker) QRect {
+    pub fn frameRect(self: KDatePicker) QRect {
         return .{ .ptr = qtc.QFrame_FrameRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFrameRect` instead
+    ///
+    pub const SetFrameRect = setFrameRect;
 
     /// Inherited from QFrame
     ///
@@ -1349,12 +1645,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` frameRect: QRect `
+    /// ` _frameRect: QRect `
     ///
-    pub fn SetFrameRect(self: KDatePicker, frameRect: anytype) void {
-        comptime _ = @TypeOf(frameRect)._is_QRect;
-        qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(frameRect.ptr));
+    pub fn setFrameRect(self: KDatePicker, _frameRect: anytype) void {
+        comptime _ = @TypeOf(_frameRect)._is_QRect;
+        qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(_frameRect.ptr));
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -1364,9 +1664,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn WinId(self: KDatePicker) usize {
+    pub fn winId(self: KDatePicker) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -1376,9 +1680,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn CreateWinId(self: KDatePicker) void {
+    pub fn createWinId(self: KDatePicker) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -1388,9 +1696,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn InternalWinId(self: KDatePicker) usize {
+    pub fn internalWinId(self: KDatePicker) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -1400,9 +1712,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn EffectiveWinId(self: KDatePicker) usize {
+    pub fn effectiveWinId(self: KDatePicker) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -1412,9 +1728,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn Style(self: KDatePicker) QStyle {
+    pub fn style(self: KDatePicker) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -1424,12 +1744,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: KDatePicker, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: KDatePicker, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -1439,9 +1763,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn IsTopLevel(self: KDatePicker) bool {
+    pub fn isTopLevel(self: KDatePicker) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -1451,9 +1779,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn IsWindow(self: KDatePicker) bool {
+    pub fn isWindow(self: KDatePicker) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -1463,9 +1795,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn IsModal(self: KDatePicker) bool {
+    pub fn isModal(self: KDatePicker) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -1479,9 +1815,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: KDatePicker) i32 {
+    pub fn windowModality(self: KDatePicker) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -1491,11 +1831,15 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: KDatePicker, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: KDatePicker, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1505,9 +1849,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn IsEnabled(self: KDatePicker) bool {
+    pub fn isEnabled(self: KDatePicker) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -1519,10 +1867,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: KDatePicker, param1: anytype) bool {
+    pub fn isEnabledTo(self: KDatePicker, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1534,9 +1886,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: KDatePicker, enabled: bool) void {
+    pub fn setEnabled(self: KDatePicker, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -1548,9 +1904,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: KDatePicker, disabled: bool) void {
+    pub fn setDisabled(self: KDatePicker, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -1562,9 +1922,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: KDatePicker, windowModified: bool) void {
+    pub fn setWindowModified(self: KDatePicker, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1574,9 +1938,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn FrameGeometry(self: KDatePicker) QRect {
+    pub fn frameGeometry(self: KDatePicker) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -1586,9 +1954,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn Geometry(self: KDatePicker) QRect {
+    pub fn geometry(self: KDatePicker) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1598,9 +1970,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn NormalGeometry(self: KDatePicker) QRect {
+    pub fn normalGeometry(self: KDatePicker) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -1610,9 +1986,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn X(self: KDatePicker) i32 {
+    pub fn x(self: KDatePicker) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -1622,9 +2002,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn Y(self: KDatePicker) i32 {
+    pub fn y(self: KDatePicker) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -1634,9 +2018,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn Pos(self: KDatePicker) QPoint {
+    pub fn pos(self: KDatePicker) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -1646,9 +2034,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn FrameSize(self: KDatePicker) QSize {
+    pub fn frameSize(self: KDatePicker) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -1658,9 +2050,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn Size(self: KDatePicker) QSize {
+    pub fn size(self: KDatePicker) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -1670,9 +2066,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn Width(self: KDatePicker) i32 {
+    pub fn width(self: KDatePicker) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -1682,9 +2082,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn Height(self: KDatePicker) i32 {
+    pub fn height(self: KDatePicker) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -1694,9 +2098,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn Rect(self: KDatePicker) QRect {
+    pub fn rect(self: KDatePicker) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -1706,9 +2114,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn ChildrenRect(self: KDatePicker) QRect {
+    pub fn childrenRect(self: KDatePicker) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -1718,9 +2130,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn ChildrenRegion(self: KDatePicker) QRegion {
+    pub fn childrenRegion(self: KDatePicker) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1730,9 +2146,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn MinimumSize(self: KDatePicker) QSize {
+    pub fn minimumSize(self: KDatePicker) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1742,9 +2162,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn MaximumSize(self: KDatePicker) QSize {
+    pub fn maximumSize(self: KDatePicker) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1754,9 +2178,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn MinimumWidth(self: KDatePicker) i32 {
+    pub fn minimumWidth(self: KDatePicker) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1766,9 +2194,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn MinimumHeight(self: KDatePicker) i32 {
+    pub fn minimumHeight(self: KDatePicker) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1778,9 +2210,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn MaximumWidth(self: KDatePicker) i32 {
+    pub fn maximumWidth(self: KDatePicker) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1790,9 +2226,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn MaximumHeight(self: KDatePicker) i32 {
+    pub fn maximumHeight(self: KDatePicker) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1802,12 +2242,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: KDatePicker, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: KDatePicker, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1821,9 +2265,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: KDatePicker, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: KDatePicker, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1833,12 +2281,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: KDatePicker, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: KDatePicker, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1852,9 +2304,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: KDatePicker, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: KDatePicker, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1866,9 +2322,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: KDatePicker, minw: i32) void {
+    pub fn setMinimumWidth(self: KDatePicker, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1880,9 +2340,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: KDatePicker, minh: i32) void {
+    pub fn setMinimumHeight(self: KDatePicker, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1894,9 +2358,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: KDatePicker, maxw: i32) void {
+    pub fn setMaximumWidth(self: KDatePicker, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1908,9 +2376,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: KDatePicker, maxh: i32) void {
+    pub fn setMaximumHeight(self: KDatePicker, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1920,9 +2392,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn SizeIncrement(self: KDatePicker) QSize {
+    pub fn sizeIncrement(self: KDatePicker) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1932,12 +2408,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: KDatePicker, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: KDatePicker, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -1951,9 +2431,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: KDatePicker, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: KDatePicker, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -1963,9 +2447,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn BaseSize(self: KDatePicker) QSize {
+    pub fn baseSize(self: KDatePicker) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -1975,12 +2463,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: KDatePicker, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: KDatePicker, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -1994,9 +2486,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: KDatePicker, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: KDatePicker, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -2008,10 +2504,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: KDatePicker, fixedSize: anytype) void {
+    pub fn setFixedSize(self: KDatePicker, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -2025,9 +2525,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: KDatePicker, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: KDatePicker, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -2039,9 +2543,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: KDatePicker, w: i32) void {
+    pub fn setFixedWidth(self: KDatePicker, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -2053,9 +2561,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: KDatePicker, h: i32) void {
+    pub fn setFixedHeight(self: KDatePicker, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -2067,11 +2579,15 @@ pub const KDatePicker = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: KDatePicker, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: KDatePicker, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -2082,11 +2598,15 @@ pub const KDatePicker = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: KDatePicker, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: KDatePicker, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -2097,11 +2617,15 @@ pub const KDatePicker = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: KDatePicker, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: KDatePicker, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -2112,11 +2636,15 @@ pub const KDatePicker = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: KDatePicker, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: KDatePicker, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -2127,11 +2655,15 @@ pub const KDatePicker = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: KDatePicker, param1: anytype) QPointF {
+    pub fn mapToParent(self: KDatePicker, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -2142,10 +2674,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: KDatePicker, param1: anytype) QPoint {
+    pub fn mapToParent2(self: KDatePicker, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -2157,10 +2693,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: KDatePicker, param1: anytype) QPointF {
+    pub fn mapFromParent(self: KDatePicker, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -2172,10 +2712,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: KDatePicker, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: KDatePicker, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -2189,12 +2733,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: KDatePicker, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: KDatePicker, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -2207,11 +2755,15 @@ pub const KDatePicker = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: KDatePicker, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: KDatePicker, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -2225,11 +2777,15 @@ pub const KDatePicker = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: KDatePicker, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: KDatePicker, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -2243,11 +2799,15 @@ pub const KDatePicker = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: KDatePicker, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: KDatePicker, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -2257,9 +2817,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn Window(self: KDatePicker) QWidget {
+    pub fn window(self: KDatePicker) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -2269,9 +2833,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn NativeParentWidget(self: KDatePicker) QWidget {
+    pub fn nativeParentWidget(self: KDatePicker) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -2281,9 +2849,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn TopLevelWidget(self: KDatePicker) QWidget {
+    pub fn topLevelWidget(self: KDatePicker) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -2293,9 +2865,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn Palette(self: KDatePicker) QPalette {
+    pub fn palette(self: KDatePicker) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -2305,12 +2881,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: KDatePicker, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: KDatePicker, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2320,11 +2900,15 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: KDatePicker, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: KDatePicker, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2338,9 +2922,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: KDatePicker) i32 {
+    pub fn backgroundRole(self: KDatePicker) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2350,11 +2938,15 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: KDatePicker, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: KDatePicker, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2368,9 +2960,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: KDatePicker) i32 {
+    pub fn foregroundRole(self: KDatePicker) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -2380,9 +2976,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn Font(self: KDatePicker) QFont {
+    pub fn font(self: KDatePicker) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -2392,12 +2992,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: KDatePicker, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: KDatePicker, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -2407,9 +3011,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn FontMetrics(self: KDatePicker) QFontMetrics {
+    pub fn fontMetrics(self: KDatePicker) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -2419,9 +3027,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn FontInfo(self: KDatePicker) QFontInfo {
+    pub fn fontInfo(self: KDatePicker) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -2431,9 +3043,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn Cursor(self: KDatePicker) QCursor {
+    pub fn cursor(self: KDatePicker) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -2443,12 +3059,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: KDatePicker, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: KDatePicker, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -2458,9 +3078,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn UnsetCursor(self: KDatePicker) void {
+    pub fn unsetCursor(self: KDatePicker) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -2472,9 +3096,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: KDatePicker, enable: bool) void {
+    pub fn setMouseTracking(self: KDatePicker, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -2484,9 +3112,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn HasMouseTracking(self: KDatePicker) bool {
+    pub fn hasMouseTracking(self: KDatePicker) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -2496,9 +3128,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn UnderMouse(self: KDatePicker) bool {
+    pub fn underMouse(self: KDatePicker) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2510,9 +3146,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: KDatePicker, enable: bool) void {
+    pub fn setTabletTracking(self: KDatePicker, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2522,24 +3162,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn HasTabletTracking(self: KDatePicker) bool {
+    pub fn hasTabletTracking(self: KDatePicker) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDatePicker `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: KDatePicker, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -2549,12 +3178,35 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: KDatePicker, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: KDatePicker, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KDatePicker `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: KDatePicker, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -2564,9 +3216,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn Mask(self: KDatePicker) QRegion {
+    pub fn mask(self: KDatePicker) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -2576,9 +3232,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn ClearMask(self: KDatePicker) void {
+    pub fn clearMask(self: KDatePicker) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -2590,10 +3250,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: KDatePicker, target: anytype) void {
+    pub fn render(self: KDatePicker, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -2605,10 +3269,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: KDatePicker, painter: anytype) void {
+    pub fn render2(self: KDatePicker, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -2618,9 +3286,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn Grab(self: KDatePicker) QPixmap {
+    pub fn grab(self: KDatePicker) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2630,9 +3302,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn GraphicsEffect(self: KDatePicker) QGraphicsEffect {
+    pub fn graphicsEffect(self: KDatePicker) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2644,10 +3320,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: KDatePicker, effect: anytype) void {
+    pub fn setGraphicsEffect(self: KDatePicker, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2659,9 +3339,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: KDatePicker, typeVal: i32) void {
+    pub fn grabGesture(self: KDatePicker, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2673,9 +3357,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: KDatePicker, typeVal: i32) void {
+    pub fn ungrabGesture(self: KDatePicker, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2685,15 +3373,19 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: KDatePicker, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: KDatePicker, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2703,15 +3395,19 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: KDatePicker, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: KDatePicker, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2723,13 +3419,17 @@ pub const KDatePicker = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: KDatePicker, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: KDatePicker, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDatePicker.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDatePicker.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2741,13 +3441,17 @@ pub const KDatePicker = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: KDatePicker, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: KDatePicker, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDatePicker.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDatePicker.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2759,10 +3463,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: KDatePicker, icon: anytype) void {
+    pub fn setWindowIcon(self: KDatePicker, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2772,9 +3480,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn WindowIcon(self: KDatePicker) QIcon {
+    pub fn windowIcon(self: KDatePicker) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2784,15 +3496,19 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: KDatePicker, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: KDatePicker, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2804,13 +3520,17 @@ pub const KDatePicker = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: KDatePicker, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: KDatePicker, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDatePicker.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDatePicker.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -2820,15 +3540,19 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: KDatePicker, windowRole: []const u8) void {
+    pub fn setWindowRole(self: KDatePicker, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -2840,13 +3564,17 @@ pub const KDatePicker = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: KDatePicker, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: KDatePicker, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDatePicker.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDatePicker.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2858,13 +3586,17 @@ pub const KDatePicker = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: KDatePicker, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: KDatePicker, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2876,13 +3608,17 @@ pub const KDatePicker = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: KDatePicker, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: KDatePicker, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDatePicker.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDatePicker.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2894,9 +3630,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: KDatePicker, level: f64) void {
+    pub fn setWindowOpacity(self: KDatePicker, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2906,9 +3646,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn WindowOpacity(self: KDatePicker) f64 {
+    pub fn windowOpacity(self: KDatePicker) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -2918,9 +3662,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn IsWindowModified(self: KDatePicker) bool {
+    pub fn isWindowModified(self: KDatePicker) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -2930,15 +3678,19 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: KDatePicker, toolTip: []const u8) void {
+    pub fn setToolTip(self: KDatePicker, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -2950,13 +3702,17 @@ pub const KDatePicker = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: KDatePicker, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: KDatePicker, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDatePicker.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDatePicker.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2968,9 +3724,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: KDatePicker, msec: i32) void {
+    pub fn setToolTipDuration(self: KDatePicker, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2980,9 +3740,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn ToolTipDuration(self: KDatePicker) i32 {
+    pub fn toolTipDuration(self: KDatePicker) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -2992,15 +3756,19 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: KDatePicker, statusTip: []const u8) void {
+    pub fn setStatusTip(self: KDatePicker, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -3012,13 +3780,17 @@ pub const KDatePicker = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: KDatePicker, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: KDatePicker, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDatePicker.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDatePicker.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -3028,15 +3800,19 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: KDatePicker, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: KDatePicker, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -3048,13 +3824,17 @@ pub const KDatePicker = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: KDatePicker, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: KDatePicker, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDatePicker.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDatePicker.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -3066,13 +3846,17 @@ pub const KDatePicker = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: KDatePicker, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: KDatePicker, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDatePicker.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDatePicker.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -3084,13 +3868,17 @@ pub const KDatePicker = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: KDatePicker, name: []const u8) void {
+    pub fn setAccessibleName(self: KDatePicker, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -3102,13 +3890,17 @@ pub const KDatePicker = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: KDatePicker, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: KDatePicker, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDatePicker.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDatePicker.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -3120,13 +3912,17 @@ pub const KDatePicker = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: KDatePicker, description: []const u8) void {
+    pub fn setAccessibleDescription(self: KDatePicker, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3138,9 +3934,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: KDatePicker, direction: i32) void {
+    pub fn setLayoutDirection(self: KDatePicker, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3154,9 +3954,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: KDatePicker) i32 {
+    pub fn layoutDirection(self: KDatePicker) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3166,9 +3970,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn UnsetLayoutDirection(self: KDatePicker) void {
+    pub fn unsetLayoutDirection(self: KDatePicker) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -3178,12 +3986,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: KDatePicker, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: KDatePicker, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -3193,9 +4005,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn Locale(self: KDatePicker) QLocale {
+    pub fn locale(self: KDatePicker) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -3205,9 +4021,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn UnsetLocale(self: KDatePicker) void {
+    pub fn unsetLocale(self: KDatePicker) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -3217,9 +4037,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn IsRightToLeft(self: KDatePicker) bool {
+    pub fn isRightToLeft(self: KDatePicker) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -3229,9 +4053,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn IsLeftToRight(self: KDatePicker) bool {
+    pub fn isLeftToRight(self: KDatePicker) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -3241,9 +4069,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn SetFocus(self: KDatePicker) void {
+    pub fn setFocus(self: KDatePicker) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -3253,9 +4085,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn IsActiveWindow(self: KDatePicker) bool {
+    pub fn isActiveWindow(self: KDatePicker) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -3265,9 +4101,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn ActivateWindow(self: KDatePicker) void {
+    pub fn activateWindow(self: KDatePicker) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -3277,9 +4117,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn ClearFocus(self: KDatePicker) void {
+    pub fn clearFocus(self: KDatePicker) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -3291,9 +4135,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: KDatePicker, reason: i32) void {
+    pub fn setFocus2(self: KDatePicker, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3307,9 +4155,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: KDatePicker) i32 {
+    pub fn focusPolicy(self: KDatePicker) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3321,9 +4173,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: KDatePicker, policy: i32) void {
+    pub fn setFocusPolicy(self: KDatePicker, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -3333,9 +4189,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn HasFocus(self: KDatePicker) bool {
+    pub fn hasFocus(self: KDatePicker) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -3347,11 +4207,15 @@ pub const KDatePicker = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -3361,12 +4225,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: KDatePicker, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: KDatePicker, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -3376,9 +4244,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn FocusProxy(self: KDatePicker) QWidget {
+    pub fn focusProxy(self: KDatePicker) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3392,9 +4264,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: KDatePicker) i32 {
+    pub fn contextMenuPolicy(self: KDatePicker) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3406,9 +4282,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: KDatePicker, policy: i32) void {
+    pub fn setContextMenuPolicy(self: KDatePicker, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -3418,9 +4298,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn GrabMouse(self: KDatePicker) void {
+    pub fn grabMouse(self: KDatePicker) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -3432,10 +4316,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: KDatePicker, param1: anytype) void {
+    pub fn grabMouse2(self: KDatePicker, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -3445,9 +4333,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn ReleaseMouse(self: KDatePicker) void {
+    pub fn releaseMouse(self: KDatePicker) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -3457,9 +4349,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn GrabKeyboard(self: KDatePicker) void {
+    pub fn grabKeyboard(self: KDatePicker) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -3469,9 +4365,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn ReleaseKeyboard(self: KDatePicker) void {
+    pub fn releaseKeyboard(self: KDatePicker) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3483,10 +4383,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: KDatePicker, key: anytype) i32 {
+    pub fn grabShortcut(self: KDatePicker, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3498,9 +4402,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: KDatePicker, id: i32) void {
+    pub fn releaseShortcut(self: KDatePicker, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3512,9 +4420,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: KDatePicker, id: i32) void {
+    pub fn setShortcutEnabled(self: KDatePicker, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -3526,25 +4438,37 @@ pub const KDatePicker = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: KDatePicker, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: KDatePicker, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3554,9 +4478,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn UpdatesEnabled(self: KDatePicker) bool {
+    pub fn updatesEnabled(self: KDatePicker) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3568,9 +4496,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: KDatePicker, enable: bool) void {
+    pub fn setUpdatesEnabled(self: KDatePicker, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -3580,9 +4512,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn GraphicsProxyWidget(self: KDatePicker) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: KDatePicker) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -3592,9 +4528,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn Update(self: KDatePicker) void {
+    pub fn update(self: KDatePicker) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -3604,9 +4544,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn Repaint(self: KDatePicker) void {
+    pub fn repaint(self: KDatePicker) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -3616,17 +4560,21 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: KDatePicker, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: KDatePicker, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -3638,11 +4586,15 @@ pub const KDatePicker = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: KDatePicker, param1: anytype) void {
+    pub fn update3(self: KDatePicker, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -3653,10 +4605,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: KDatePicker, param1: anytype) void {
+    pub fn update4(self: KDatePicker, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -3666,17 +4622,21 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: KDatePicker, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: KDatePicker, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -3688,10 +4648,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: KDatePicker, param1: anytype) void {
+    pub fn repaint3(self: KDatePicker, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -3703,10 +4667,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: KDatePicker, param1: anytype) void {
+    pub fn repaint4(self: KDatePicker, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -3718,9 +4686,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: KDatePicker, hidden: bool) void {
+    pub fn setHidden(self: KDatePicker, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -3730,9 +4702,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn Show(self: KDatePicker) void {
+    pub fn show(self: KDatePicker) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -3742,9 +4718,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn Hide(self: KDatePicker) void {
+    pub fn hide(self: KDatePicker) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3754,9 +4734,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn ShowMinimized(self: KDatePicker) void {
+    pub fn showMinimized(self: KDatePicker) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3766,9 +4750,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn ShowMaximized(self: KDatePicker) void {
+    pub fn showMaximized(self: KDatePicker) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3778,9 +4766,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn ShowFullScreen(self: KDatePicker) void {
+    pub fn showFullScreen(self: KDatePicker) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -3790,9 +4782,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn ShowNormal(self: KDatePicker) void {
+    pub fn showNormal(self: KDatePicker) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -3802,9 +4798,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn Close(self: KDatePicker) bool {
+    pub fn close(self: KDatePicker) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -3814,9 +4814,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn Raise(self: KDatePicker) void {
+    pub fn raise(self: KDatePicker) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -3826,9 +4830,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn Lower(self: KDatePicker) void {
+    pub fn lower(self: KDatePicker) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -3840,10 +4848,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: KDatePicker, param1: anytype) void {
+    pub fn stackUnder(self: KDatePicker, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -3853,13 +4865,17 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: KDatePicker, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: KDatePicker, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -3871,10 +4887,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: KDatePicker, param1: anytype) void {
+    pub fn move2(self: KDatePicker, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -3888,9 +4908,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: KDatePicker, w: i32, h: i32) void {
+    pub fn resize(self: KDatePicker, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -3902,10 +4926,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: KDatePicker, param1: anytype) void {
+    pub fn resize2(self: KDatePicker, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3915,17 +4943,21 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: KDatePicker, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: KDatePicker, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -3935,12 +4967,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: KDatePicker, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: KDatePicker, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3952,13 +4988,17 @@ pub const KDatePicker = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: KDatePicker, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: KDatePicker, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KDatePicker.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KDatePicker.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3968,15 +5008,19 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: KDatePicker, geometry: []u8) bool {
+    pub fn restoreGeometry(self: KDatePicker, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -3986,9 +5030,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn AdjustSize(self: KDatePicker) void {
+    pub fn adjustSize(self: KDatePicker) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -3998,9 +5046,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn IsVisible(self: KDatePicker) bool {
+    pub fn isVisible(self: KDatePicker) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -4012,10 +5064,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: KDatePicker, param1: anytype) bool {
+    pub fn isVisibleTo(self: KDatePicker, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -4025,9 +5081,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn IsHidden(self: KDatePicker) bool {
+    pub fn isHidden(self: KDatePicker) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -4037,9 +5097,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn IsMinimized(self: KDatePicker) bool {
+    pub fn isMinimized(self: KDatePicker) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -4049,9 +5113,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn IsMaximized(self: KDatePicker) bool {
+    pub fn isMaximized(self: KDatePicker) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -4061,9 +5129,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn IsFullScreen(self: KDatePicker) bool {
+    pub fn isFullScreen(self: KDatePicker) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -4077,9 +5149,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: KDatePicker) i32 {
+    pub fn windowState(self: KDatePicker) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -4091,9 +5167,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: KDatePicker, state: i32) void {
+    pub fn setWindowState(self: KDatePicker, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -4105,9 +5185,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: KDatePicker, state: i32) void {
+    pub fn overrideWindowState(self: KDatePicker, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -4117,9 +5201,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn SizePolicy(self: KDatePicker) QSizePolicy {
+    pub fn sizePolicy(self: KDatePicker) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -4129,12 +5217,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: KDatePicker, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: KDatePicker, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -4148,9 +5240,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: KDatePicker, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: KDatePicker, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -4160,9 +5256,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn VisibleRegion(self: KDatePicker) QRegion {
+    pub fn visibleRegion(self: KDatePicker) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -4180,9 +5280,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: KDatePicker, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: KDatePicker, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -4194,10 +5298,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: KDatePicker, margins: anytype) void {
+    pub fn setContentsMargins2(self: KDatePicker, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -4207,9 +5315,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn ContentsMargins(self: KDatePicker) QMargins {
+    pub fn contentsMargins(self: KDatePicker) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -4219,9 +5331,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn ContentsRect(self: KDatePicker) QRect {
+    pub fn contentsRect(self: KDatePicker) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -4231,9 +5347,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn Layout(self: KDatePicker) QLayout {
+    pub fn layout(self: KDatePicker) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -4243,12 +5363,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: KDatePicker, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: KDatePicker, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4258,24 +5382,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn UpdateGeometry(self: KDatePicker) void {
+    pub fn updateGeometry(self: KDatePicker) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDatePicker `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: KDatePicker, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -4285,14 +5398,37 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: KDatePicker, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KDatePicker `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: KDatePicker, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: KDatePicker, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -4306,9 +5442,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: KDatePicker, dx: i32, dy: i32) void {
+    pub fn scroll(self: KDatePicker, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -4324,10 +5464,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: KDatePicker, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: KDatePicker, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -4337,9 +5481,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn FocusWidget(self: KDatePicker) QWidget {
+    pub fn focusWidget(self: KDatePicker) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -4349,9 +5497,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn NextInFocusChain(self: KDatePicker) QWidget {
+    pub fn nextInFocusChain(self: KDatePicker) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -4361,9 +5513,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn PreviousInFocusChain(self: KDatePicker) QWidget {
+    pub fn previousInFocusChain(self: KDatePicker) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -4373,9 +5529,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn AcceptDrops(self: KDatePicker) bool {
+    pub fn acceptDrops(self: KDatePicker) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -4387,9 +5547,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: KDatePicker, on: bool) void {
+    pub fn setAcceptDrops(self: KDatePicker, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -4401,10 +5565,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: KDatePicker, action: anytype) void {
+    pub fn addAction(self: KDatePicker, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -4414,15 +5582,19 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: KDatePicker, actions: []QAction) void {
+    pub fn addActions(self: KDatePicker, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -4434,16 +5606,20 @@ pub const KDatePicker = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: KDatePicker, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: KDatePicker, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -4457,11 +5633,15 @@ pub const KDatePicker = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: KDatePicker, before: anytype, action: anytype) void {
+    pub fn insertAction(self: KDatePicker, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -4473,10 +5653,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: KDatePicker, action: anytype) void {
+    pub fn removeAction(self: KDatePicker, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -4488,15 +5672,19 @@ pub const KDatePicker = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: KDatePicker, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: KDatePicker, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KDatePicker.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KDatePicker.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -4508,13 +5696,17 @@ pub const KDatePicker = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: KDatePicker, text: []const u8) QAction {
+    pub fn addAction2(self: KDatePicker, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -4528,7 +5720,7 @@ pub const KDatePicker = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: KDatePicker, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: KDatePicker, icon: anytype, text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -4537,6 +5729,10 @@ pub const KDatePicker = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -4549,7 +5745,7 @@ pub const KDatePicker = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: KDatePicker, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: KDatePicker, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -4557,6 +5753,10 @@ pub const KDatePicker = extern struct {
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
 
     /// Inherited from QWidget
     ///
@@ -4572,7 +5772,7 @@ pub const KDatePicker = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: KDatePicker, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: KDatePicker, icon: anytype, text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -4582,6 +5782,10 @@ pub const KDatePicker = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
@@ -4590,9 +5794,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn ParentWidget(self: KDatePicker) QWidget {
+    pub fn parentWidget(self: KDatePicker) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4604,9 +5812,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: KDatePicker, typeVal: i32) void {
+    pub fn setWindowFlags(self: KDatePicker, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4620,9 +5832,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: KDatePicker) i32 {
+    pub fn windowFlags(self: KDatePicker) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -4634,9 +5850,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: KDatePicker, param1: i32) void {
+    pub fn setWindowFlag(self: KDatePicker, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4648,9 +5868,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: KDatePicker, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: KDatePicker, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -4664,9 +5888,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: KDatePicker) i32 {
+    pub fn windowType(self: KDatePicker) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -4676,9 +5904,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -4688,13 +5920,17 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: KDatePicker, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: KDatePicker, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -4706,10 +5942,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: KDatePicker, p: anytype) QWidget {
+    pub fn childAt2(self: KDatePicker, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -4721,10 +5961,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: KDatePicker, p: anytype) QWidget {
+    pub fn childAt3(self: KDatePicker, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4736,9 +5980,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: KDatePicker, param1: i32) void {
+    pub fn setAttribute(self: KDatePicker, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4750,9 +5998,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: KDatePicker, param1: i32) bool {
+    pub fn testAttribute(self: KDatePicker, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -4762,9 +6014,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn EnsurePolished(self: KDatePicker) void {
+    pub fn ensurePolished(self: KDatePicker) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -4776,10 +6032,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: KDatePicker, child: anytype) bool {
+    pub fn isAncestorOf(self: KDatePicker, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4789,9 +6049,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn AutoFillBackground(self: KDatePicker) bool {
+    pub fn autoFillBackground(self: KDatePicker) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4803,9 +6067,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: KDatePicker, enabled: bool) void {
+    pub fn setAutoFillBackground(self: KDatePicker, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -4815,9 +6083,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn BackingStore(self: KDatePicker) QBackingStore {
+    pub fn backingStore(self: KDatePicker) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -4827,9 +6099,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn WindowHandle(self: KDatePicker) QWindow {
+    pub fn windowHandle(self: KDatePicker) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -4839,9 +6115,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn Screen(self: KDatePicker) QScreen {
+    pub fn screen(self: KDatePicker) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -4851,12 +6131,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: KDatePicker, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: KDatePicker, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -4864,12 +6148,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4881,13 +6169,17 @@ pub const KDatePicker = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: KDatePicker, title: []const u8) void {
+    pub fn windowTitleChanged(self: KDatePicker, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4899,9 +6191,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: KDatePicker, callback: *const fn (KDatePicker, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: KDatePicker, callback: *const fn (KDatePicker, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4913,10 +6209,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: KDatePicker, icon: anytype) void {
+    pub fn windowIconChanged(self: KDatePicker, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4928,9 +6228,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: KDatePicker, callback: *const fn (KDatePicker, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: KDatePicker, callback: *const fn (KDatePicker, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4942,13 +6246,17 @@ pub const KDatePicker = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: KDatePicker, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: KDatePicker, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4960,9 +6268,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: KDatePicker, callback: *const fn (KDatePicker, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: KDatePicker, callback: *const fn (KDatePicker, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4972,12 +6284,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: KDatePicker, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: KDatePicker, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4989,9 +6305,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: KDatePicker, callback: *const fn (KDatePicker, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: KDatePicker, callback: *const fn (KDatePicker, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -5005,9 +6325,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: KDatePicker) i32 {
+    pub fn inputMethodHints(self: KDatePicker) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -5019,9 +6343,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: KDatePicker, hints: i32) void {
+    pub fn setInputMethodHints(self: KDatePicker, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -5035,11 +6363,15 @@ pub const KDatePicker = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: KDatePicker, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: KDatePicker, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -5055,13 +6387,17 @@ pub const KDatePicker = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: KDatePicker, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: KDatePicker, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -5078,12 +6414,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: KDatePicker, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: KDatePicker, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -5097,11 +6437,15 @@ pub const KDatePicker = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: KDatePicker, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: KDatePicker, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -5117,12 +6461,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: KDatePicker, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: KDatePicker, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -5140,12 +6488,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: KDatePicker, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: KDatePicker, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -5157,10 +6509,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: KDatePicker, rectangle: anytype) QPixmap {
+    pub fn grab1(self: KDatePicker, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -5174,9 +6530,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: KDatePicker, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: KDatePicker, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -5190,10 +6550,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: KDatePicker, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: KDatePicker, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -5207,9 +6571,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: KDatePicker, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: KDatePicker, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -5223,9 +6591,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: KDatePicker, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: KDatePicker, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -5239,9 +6611,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: KDatePicker, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: KDatePicker, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -5255,25 +6631,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: KDatePicker, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: KDatePicker, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -5281,17 +6645,41 @@ pub const KDatePicker = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -5303,13 +6691,17 @@ pub const KDatePicker = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KDatePicker, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KDatePicker, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDatePicker.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDatePicker.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -5321,13 +6713,17 @@ pub const KDatePicker = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KDatePicker, name: []const u8) void {
+    pub fn setObjectName(self: KDatePicker, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -5337,9 +6733,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn IsWidgetType(self: KDatePicker) bool {
+    pub fn isWidgetType(self: KDatePicker) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -5349,9 +6749,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn IsWindowType(self: KDatePicker) bool {
+    pub fn isWindowType(self: KDatePicker) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -5361,9 +6765,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn IsQuickItemType(self: KDatePicker) bool {
+    pub fn isQuickItemType(self: KDatePicker) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -5373,9 +6781,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn SignalsBlocked(self: KDatePicker) bool {
+    pub fn signalsBlocked(self: KDatePicker) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -5387,9 +6799,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KDatePicker, b: bool) bool {
+    pub fn blockSignals(self: KDatePicker, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -5399,9 +6815,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn Thread(self: KDatePicker) QThread {
+    pub fn thread(self: KDatePicker) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -5411,12 +6831,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KDatePicker, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KDatePicker, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -5428,9 +6852,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KDatePicker, interval: i32) i32 {
+    pub fn startTimer(self: KDatePicker, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -5442,9 +6870,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KDatePicker, time: i64) i32 {
+    pub fn startTimer2(self: KDatePicker, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -5456,9 +6888,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KDatePicker, id: i32) void {
+    pub fn killTimer(self: KDatePicker, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -5470,9 +6906,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KDatePicker, id: i32) void {
+    pub fn killTimer2(self: KDatePicker, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -5484,15 +6924,19 @@ pub const KDatePicker = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KDatePicker, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KDatePicker, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KDatePicker.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KDatePicker.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5504,10 +6948,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KDatePicker, filterObj: anytype) void {
+    pub fn installEventFilter(self: KDatePicker, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5519,10 +6967,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KDatePicker, obj: anytype) void {
+    pub fn removeEventFilter(self: KDatePicker, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -5530,7 +6982,7 @@ pub const KDatePicker = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5538,13 +6990,17 @@ pub const KDatePicker = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -5552,7 +7008,7 @@ pub const KDatePicker = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5560,13 +7016,17 @@ pub const KDatePicker = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -5576,18 +7036,22 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KDatePicker, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KDatePicker, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -5595,7 +7059,7 @@ pub const KDatePicker = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5603,13 +7067,17 @@ pub const KDatePicker = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -5617,7 +7085,7 @@ pub const KDatePicker = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5625,13 +7093,17 @@ pub const KDatePicker = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -5641,9 +7113,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn Disconnect3(self: KDatePicker) bool {
+    pub fn disconnect3(self: KDatePicker) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -5655,10 +7131,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KDatePicker, receiver: anytype) bool {
+    pub fn disconnect4(self: KDatePicker, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -5668,10 +7148,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -5681,9 +7165,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn DumpObjectTree(self: KDatePicker) void {
+    pub fn dumpObjectTree(self: KDatePicker) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -5693,9 +7181,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn DumpObjectInfo(self: KDatePicker) void {
+    pub fn dumpObjectInfo(self: KDatePicker) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -5709,11 +7201,15 @@ pub const KDatePicker = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KDatePicker, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KDatePicker, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -5725,10 +7221,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KDatePicker, name: [:0]const u8) QVariant {
+    pub fn property(self: KDatePicker, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -5740,7 +7240,7 @@ pub const KDatePicker = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KDatePicker, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KDatePicker, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -5748,27 +7248,19 @@ pub const KDatePicker = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KDatePicker.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KDatePicker.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KDatePicker.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KDatePicker.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDatePicker `
-    ///
-    pub fn BindingStorage(self: KDatePicker) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -5778,9 +7270,29 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn BindingStorage2(self: KDatePicker) QBindingStorage {
+    pub fn bindingStorage(self: KDatePicker) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KDatePicker `
+    ///
+    pub fn bindingStorage2(self: KDatePicker) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -5790,9 +7302,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn Destroyed(self: KDatePicker) void {
+    pub fn destroyed(self: KDatePicker) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -5804,9 +7320,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KDatePicker, callback: *const fn (KDatePicker) callconv(.c) void) void {
+    pub fn onDestroyed(self: KDatePicker, callback: *const fn (KDatePicker) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -5816,9 +7336,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn Parent(self: KDatePicker) QObject {
+    pub fn parent(self: KDatePicker) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -5830,10 +7354,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KDatePicker, classname: [:0]const u8) bool {
+    pub fn inherits(self: KDatePicker, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -5843,9 +7371,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn DeleteLater(self: KDatePicker) void {
+    pub fn deleteLater(self: KDatePicker) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -5859,9 +7391,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KDatePicker, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KDatePicker, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -5875,9 +7411,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KDatePicker, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KDatePicker, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -5885,7 +7425,7 @@ pub const KDatePicker = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5895,13 +7435,17 @@ pub const KDatePicker = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -5909,7 +7453,7 @@ pub const KDatePicker = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5919,13 +7463,17 @@ pub const KDatePicker = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -5935,7 +7483,7 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5943,12 +7491,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KDatePicker, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KDatePicker, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -5960,10 +7512,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KDatePicker, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KDatePicker, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -5977,11 +7533,15 @@ pub const KDatePicker = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KDatePicker, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KDatePicker, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -5997,13 +7557,17 @@ pub const KDatePicker = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KDatePicker, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KDatePicker, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -6016,11 +7580,15 @@ pub const KDatePicker = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KDatePicker, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KDatePicker, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -6032,10 +7600,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KDatePicker, param1: anytype) void {
+    pub fn destroyed1(self: KDatePicker, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -6047,9 +7619,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KDatePicker, callback: *const fn (KDatePicker, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KDatePicker, callback: *const fn (KDatePicker, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -6059,9 +7635,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn PaintingActive(self: KDatePicker) bool {
+    pub fn paintingActive(self: KDatePicker) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -6071,9 +7651,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn WidthMM(self: KDatePicker) i32 {
+    pub fn widthMM(self: KDatePicker) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -6083,9 +7667,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn HeightMM(self: KDatePicker) i32 {
+    pub fn heightMM(self: KDatePicker) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -6095,9 +7683,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn LogicalDpiX(self: KDatePicker) i32 {
+    pub fn logicalDpiX(self: KDatePicker) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -6107,9 +7699,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn LogicalDpiY(self: KDatePicker) i32 {
+    pub fn logicalDpiY(self: KDatePicker) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -6119,9 +7715,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn PhysicalDpiX(self: KDatePicker) i32 {
+    pub fn physicalDpiX(self: KDatePicker) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -6131,9 +7731,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn PhysicalDpiY(self: KDatePicker) i32 {
+    pub fn physicalDpiY(self: KDatePicker) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -6143,9 +7747,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn DevicePixelRatio(self: KDatePicker) f64 {
+    pub fn devicePixelRatio(self: KDatePicker) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -6155,9 +7763,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn DevicePixelRatioF(self: KDatePicker) f64 {
+    pub fn devicePixelRatioF(self: KDatePicker) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -6167,9 +7779,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn ColorCount(self: KDatePicker) i32 {
+    pub fn colorCount(self: KDatePicker) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -6179,17 +7795,25 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn Depth(self: KDatePicker) i32 {
+    pub fn depth(self: KDatePicker) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -6197,13 +7821,17 @@ pub const KDatePicker = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QFrame
     ///
@@ -6217,14 +7845,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn Event(self: KDatePicker, e: anytype) bool {
+    pub fn event(self: KDatePicker, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.KDatePicker_Event(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QFrame
     ///
@@ -6238,10 +7866,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn SuperEvent(self: KDatePicker, e: anytype) bool {
+    pub fn superEvent(self: KDatePicker, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.KDatePicker_SuperEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QFrame
     ///
@@ -6255,9 +7887,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, e: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KDatePicker, callback: *const fn (KDatePicker, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KDatePicker, callback: *const fn (KDatePicker, QEvent) callconv(.c) bool) void {
         qtc.KDatePicker_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// Inherited from QFrame
     ///
@@ -6271,14 +7907,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` param1: QPaintEvent `
     ///
-    pub fn PaintEvent(self: KDatePicker, param1: anytype) void {
+    pub fn paintEvent(self: KDatePicker, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPaintEvent;
         qtc.KDatePicker_PaintEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// Inherited from QFrame
     ///
@@ -6292,10 +7928,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` param1: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: KDatePicker, param1: anytype) void {
+    pub fn superPaintEvent(self: KDatePicker, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPaintEvent;
         qtc.KDatePicker_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// Inherited from QFrame
     ///
@@ -6309,9 +7949,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, param1: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: KDatePicker, callback: *const fn (KDatePicker, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: KDatePicker, callback: *const fn (KDatePicker, QPaintEvent) callconv(.c) void) void {
         qtc.KDatePicker_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initStyleOption` instead
+    ///
+    pub const InitStyleOption = initStyleOption;
 
     /// Inherited from QFrame
     ///
@@ -6325,14 +7969,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` option: QStyleOptionFrame `
     ///
-    pub fn InitStyleOption(self: KDatePicker, option: anytype) void {
+    pub fn initStyleOption(self: KDatePicker, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionFrame;
         qtc.KDatePicker_InitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitStyleOption` instead
+    /// ### DEPRECATED: Use `superInitStyleOption` instead
     ///
-    pub const QBaseInitStyleOption = SuperInitStyleOption;
+    pub const SuperInitStyleOption = superInitStyleOption;
 
     /// Inherited from QFrame
     ///
@@ -6346,10 +7990,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` option: QStyleOptionFrame `
     ///
-    pub fn SuperInitStyleOption(self: KDatePicker, option: anytype) void {
+    pub fn superInitStyleOption(self: KDatePicker, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionFrame;
         qtc.KDatePicker_SuperInitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitStyleOption` instead
+    ///
+    pub const OnInitStyleOption = onInitStyleOption;
 
     /// Inherited from QFrame
     ///
@@ -6363,9 +8011,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, option: QStyleOptionFrame) callconv(.c) void `
     ///
-    pub fn OnInitStyleOption(self: KDatePicker, callback: *const fn (KDatePicker, QStyleOptionFrame) callconv(.c) void) void {
+    pub fn onInitStyleOption(self: KDatePicker, callback: *const fn (KDatePicker, QStyleOptionFrame) callconv(.c) void) void {
         qtc.KDatePicker_OnInitStyleOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -6377,13 +8029,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn DevType(self: KDatePicker) i32 {
+    pub fn devType(self: KDatePicker) i32 {
         return qtc.KDatePicker_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -6395,9 +8047,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn SuperDevType(self: KDatePicker) i32 {
+    pub fn superDevType(self: KDatePicker) i32 {
         return qtc.KDatePicker_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -6411,9 +8067,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: KDatePicker, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KDatePicker, callback: *const fn () callconv(.c) i32) void {
         qtc.KDatePicker_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -6427,13 +8087,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: KDatePicker, visible: bool) void {
+    pub fn setVisible(self: KDatePicker, visible: bool) void {
         qtc.KDatePicker_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -6447,9 +8107,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: KDatePicker, visible: bool) void {
+    pub fn superSetVisible(self: KDatePicker, visible: bool) void {
         qtc.KDatePicker_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -6463,9 +8127,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: KDatePicker, callback: *const fn (KDatePicker, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: KDatePicker, callback: *const fn (KDatePicker, bool) callconv(.c) void) void {
         qtc.KDatePicker_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -6477,13 +8145,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn MinimumSizeHint(self: KDatePicker) QSize {
+    pub fn minimumSizeHint(self: KDatePicker) QSize {
         return .{ .ptr = qtc.KDatePicker_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -6495,9 +8163,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn SuperMinimumSizeHint(self: KDatePicker) QSize {
+    pub fn superMinimumSizeHint(self: KDatePicker) QSize {
         return .{ .ptr = qtc.KDatePicker_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -6513,9 +8185,13 @@ pub const KDatePicker = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: KDatePicker, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KDatePicker, callback: *const fn () callconv(.c) QSize) void {
         qtc.KDatePicker_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6529,13 +8205,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: KDatePicker, param1: i32) i32 {
+    pub fn heightForWidth(self: KDatePicker, param1: i32) i32 {
         return qtc.KDatePicker_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6549,9 +8225,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: KDatePicker, param1: i32) i32 {
+    pub fn superHeightForWidth(self: KDatePicker, param1: i32) i32 {
         return qtc.KDatePicker_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6565,9 +8245,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: KDatePicker, callback: *const fn (KDatePicker, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: KDatePicker, callback: *const fn (KDatePicker, i32) callconv(.c) i32) void {
         qtc.KDatePicker_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6579,13 +8263,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn HasHeightForWidth(self: KDatePicker) bool {
+    pub fn hasHeightForWidth(self: KDatePicker) bool {
         return qtc.KDatePicker_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6597,9 +8281,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn SuperHasHeightForWidth(self: KDatePicker) bool {
+    pub fn superHasHeightForWidth(self: KDatePicker) bool {
         return qtc.KDatePicker_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6613,9 +8301,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: KDatePicker, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KDatePicker, callback: *const fn () callconv(.c) bool) void {
         qtc.KDatePicker_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6627,13 +8319,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn PaintEngine(self: KDatePicker) QPaintEngine {
+    pub fn paintEngine(self: KDatePicker) QPaintEngine {
         return .{ .ptr = qtc.KDatePicker_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6645,9 +8337,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn SuperPaintEngine(self: KDatePicker) QPaintEngine {
+    pub fn superPaintEngine(self: KDatePicker) QPaintEngine {
         return .{ .ptr = qtc.KDatePicker_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6661,10 +8357,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: KDatePicker, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KDatePicker, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.KDatePicker_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
@@ -6675,16 +8375,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: KDatePicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KDatePicker_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mousePressEvent(self: KDatePicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KDatePicker_MousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6696,12 +8396,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: KDatePicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KDatePicker_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMousePressEvent(self: KDatePicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KDatePicker_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6715,10 +8419,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: KDatePicker, callback: *const fn (KDatePicker, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: KDatePicker, callback: *const fn (KDatePicker, QMouseEvent) callconv(.c) void) void {
         qtc.KDatePicker_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
@@ -6729,16 +8437,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: KDatePicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KDatePicker_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseReleaseEvent(self: KDatePicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KDatePicker_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6750,12 +8458,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: KDatePicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KDatePicker_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseReleaseEvent(self: KDatePicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KDatePicker_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6769,10 +8481,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: KDatePicker, callback: *const fn (KDatePicker, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: KDatePicker, callback: *const fn (KDatePicker, QMouseEvent) callconv(.c) void) void {
         qtc.KDatePicker_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
@@ -6783,16 +8499,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: KDatePicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KDatePicker_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: KDatePicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KDatePicker_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -6804,12 +8520,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: KDatePicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KDatePicker_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: KDatePicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KDatePicker_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -6823,10 +8543,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: KDatePicker, callback: *const fn (KDatePicker, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: KDatePicker, callback: *const fn (KDatePicker, QMouseEvent) callconv(.c) void) void {
         qtc.KDatePicker_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
@@ -6837,16 +8561,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: KDatePicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KDatePicker_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseMoveEvent(self: KDatePicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KDatePicker_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6858,12 +8582,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: KDatePicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KDatePicker_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseMoveEvent(self: KDatePicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KDatePicker_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6877,9 +8605,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: KDatePicker, callback: *const fn (KDatePicker, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: KDatePicker, callback: *const fn (KDatePicker, QMouseEvent) callconv(.c) void) void {
         qtc.KDatePicker_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6891,16 +8623,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: KDatePicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.KDatePicker_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn wheelEvent(self: KDatePicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.KDatePicker_WheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6912,12 +8644,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: KDatePicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.KDatePicker_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superWheelEvent(self: KDatePicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.KDatePicker_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6931,10 +8667,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: KDatePicker, callback: *const fn (KDatePicker, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: KDatePicker, callback: *const fn (KDatePicker, QWheelEvent) callconv(.c) void) void {
         qtc.KDatePicker_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyPressEvent)
@@ -6945,16 +8685,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: KDatePicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KDatePicker_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyPressEvent(self: KDatePicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KDatePicker_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6966,12 +8706,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: KDatePicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KDatePicker_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyPressEvent(self: KDatePicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KDatePicker_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6985,10 +8729,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: KDatePicker, callback: *const fn (KDatePicker, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: KDatePicker, callback: *const fn (KDatePicker, QKeyEvent) callconv(.c) void) void {
         qtc.KDatePicker_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
@@ -6999,16 +8747,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: KDatePicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KDatePicker_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyReleaseEvent(self: KDatePicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KDatePicker_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -7020,12 +8768,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: KDatePicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KDatePicker_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyReleaseEvent(self: KDatePicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KDatePicker_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -7039,10 +8791,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: KDatePicker, callback: *const fn (KDatePicker, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: KDatePicker, callback: *const fn (KDatePicker, QKeyEvent) callconv(.c) void) void {
         qtc.KDatePicker_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
@@ -7053,16 +8809,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: KDatePicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KDatePicker_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusInEvent(self: KDatePicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KDatePicker_FocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -7074,12 +8830,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: KDatePicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KDatePicker_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusInEvent(self: KDatePicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KDatePicker_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -7093,10 +8853,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: KDatePicker, callback: *const fn (KDatePicker, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: KDatePicker, callback: *const fn (KDatePicker, QFocusEvent) callconv(.c) void) void {
         qtc.KDatePicker_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
@@ -7107,16 +8871,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: KDatePicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KDatePicker_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusOutEvent(self: KDatePicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KDatePicker_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -7128,12 +8892,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: KDatePicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KDatePicker_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusOutEvent(self: KDatePicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KDatePicker_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -7147,9 +8915,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: KDatePicker, callback: *const fn (KDatePicker, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: KDatePicker, callback: *const fn (KDatePicker, QFocusEvent) callconv(.c) void) void {
         qtc.KDatePicker_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7161,16 +8933,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: KDatePicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KDatePicker_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: KDatePicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KDatePicker_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7182,12 +8954,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: KDatePicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KDatePicker_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: KDatePicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KDatePicker_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7201,9 +8977,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: KDatePicker, callback: *const fn (KDatePicker, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: KDatePicker, callback: *const fn (KDatePicker, QEnterEvent) callconv(.c) void) void {
         qtc.KDatePicker_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7215,16 +8995,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: KDatePicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KDatePicker_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: KDatePicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KDatePicker_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7236,12 +9016,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: KDatePicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KDatePicker_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: KDatePicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KDatePicker_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7255,9 +9039,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: KDatePicker, callback: *const fn (KDatePicker, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: KDatePicker, callback: *const fn (KDatePicker, QEvent) callconv(.c) void) void {
         qtc.KDatePicker_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7269,16 +9057,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: KDatePicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KDatePicker_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: KDatePicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KDatePicker_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7290,12 +9078,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: KDatePicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KDatePicker_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: KDatePicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KDatePicker_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7309,9 +9101,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: KDatePicker, callback: *const fn (KDatePicker, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: KDatePicker, callback: *const fn (KDatePicker, QMoveEvent) callconv(.c) void) void {
         qtc.KDatePicker_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7323,16 +9119,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: KDatePicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.KDatePicker_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: KDatePicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.KDatePicker_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -7344,12 +9140,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: KDatePicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.KDatePicker_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: KDatePicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.KDatePicker_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -7363,9 +9163,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: KDatePicker, callback: *const fn (KDatePicker, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: KDatePicker, callback: *const fn (KDatePicker, QCloseEvent) callconv(.c) void) void {
         qtc.KDatePicker_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -7377,16 +9181,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: KDatePicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.KDatePicker_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn contextMenuEvent(self: KDatePicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.KDatePicker_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -7398,12 +9202,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: KDatePicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.KDatePicker_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superContextMenuEvent(self: KDatePicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.KDatePicker_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -7417,9 +9225,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, event: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: KDatePicker, callback: *const fn (KDatePicker, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: KDatePicker, callback: *const fn (KDatePicker, QContextMenuEvent) callconv(.c) void) void {
         qtc.KDatePicker_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7431,16 +9243,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: KDatePicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KDatePicker_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: KDatePicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KDatePicker_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7452,12 +9264,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: KDatePicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KDatePicker_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: KDatePicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KDatePicker_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7471,9 +9287,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: KDatePicker, callback: *const fn (KDatePicker, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: KDatePicker, callback: *const fn (KDatePicker, QTabletEvent) callconv(.c) void) void {
         qtc.KDatePicker_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7485,16 +9305,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: KDatePicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KDatePicker_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: KDatePicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KDatePicker_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7506,12 +9326,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: KDatePicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KDatePicker_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: KDatePicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KDatePicker_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7525,9 +9349,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: KDatePicker, callback: *const fn (KDatePicker, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: KDatePicker, callback: *const fn (KDatePicker, QActionEvent) callconv(.c) void) void {
         qtc.KDatePicker_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7539,16 +9367,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: KDatePicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KDatePicker_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: KDatePicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KDatePicker_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7560,12 +9388,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: KDatePicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KDatePicker_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: KDatePicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KDatePicker_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7579,9 +9411,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: KDatePicker, callback: *const fn (KDatePicker, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: KDatePicker, callback: *const fn (KDatePicker, QDragEnterEvent) callconv(.c) void) void {
         qtc.KDatePicker_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7593,16 +9429,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: KDatePicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KDatePicker_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: KDatePicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KDatePicker_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7614,12 +9450,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: KDatePicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KDatePicker_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: KDatePicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KDatePicker_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7633,9 +9473,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: KDatePicker, callback: *const fn (KDatePicker, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: KDatePicker, callback: *const fn (KDatePicker, QDragMoveEvent) callconv(.c) void) void {
         qtc.KDatePicker_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7647,16 +9491,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: KDatePicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KDatePicker_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: KDatePicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KDatePicker_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7668,12 +9512,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: KDatePicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KDatePicker_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: KDatePicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KDatePicker_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7687,9 +9535,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: KDatePicker, callback: *const fn (KDatePicker, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: KDatePicker, callback: *const fn (KDatePicker, QDragLeaveEvent) callconv(.c) void) void {
         qtc.KDatePicker_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7701,16 +9553,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: KDatePicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KDatePicker_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: KDatePicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KDatePicker_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7722,12 +9574,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: KDatePicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KDatePicker_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: KDatePicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KDatePicker_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7741,9 +9597,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: KDatePicker, callback: *const fn (KDatePicker, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: KDatePicker, callback: *const fn (KDatePicker, QDropEvent) callconv(.c) void) void {
         qtc.KDatePicker_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QWidget
     ///
@@ -7755,16 +9615,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn ShowEvent(self: KDatePicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.KDatePicker_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn showEvent(self: KDatePicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.KDatePicker_ShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -7776,12 +9636,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: KDatePicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.KDatePicker_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superShowEvent(self: KDatePicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.KDatePicker_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -7795,9 +9659,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: KDatePicker, callback: *const fn (KDatePicker, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: KDatePicker, callback: *const fn (KDatePicker, QShowEvent) callconv(.c) void) void {
         qtc.KDatePicker_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7809,16 +9677,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: KDatePicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KDatePicker_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: KDatePicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KDatePicker_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7830,12 +9698,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: KDatePicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KDatePicker_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: KDatePicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KDatePicker_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7849,9 +9721,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: KDatePicker, callback: *const fn (KDatePicker, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: KDatePicker, callback: *const fn (KDatePicker, QHideEvent) callconv(.c) void) void {
         qtc.KDatePicker_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7869,7 +9745,7 @@ pub const KDatePicker = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: KDatePicker, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: KDatePicker, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -7877,9 +9753,9 @@ pub const KDatePicker = extern struct {
         return qtc.KDatePicker_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7897,13 +9773,17 @@ pub const KDatePicker = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: KDatePicker, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: KDatePicker, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.KDatePicker_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7917,9 +9797,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: KDatePicker, callback: *const fn (KDatePicker, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: KDatePicker, callback: *const fn (KDatePicker, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KDatePicker_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -7933,13 +9817,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: KDatePicker, param1: i32) i32 {
+    pub fn metric(self: KDatePicker, param1: i32) i32 {
         return qtc.KDatePicker_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -7953,9 +9837,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: KDatePicker, param1: i32) i32 {
+    pub fn superMetric(self: KDatePicker, param1: i32) i32 {
         return qtc.KDatePicker_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -7969,9 +9857,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: KDatePicker, callback: *const fn (KDatePicker, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: KDatePicker, callback: *const fn (KDatePicker, i32) callconv(.c) i32) void {
         qtc.KDatePicker_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -7985,14 +9877,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: KDatePicker, painter: anytype) void {
+    pub fn initPainter(self: KDatePicker, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KDatePicker_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -8006,10 +9898,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: KDatePicker, painter: anytype) void {
+    pub fn superInitPainter(self: KDatePicker, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KDatePicker_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -8023,9 +9919,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: KDatePicker, callback: *const fn (KDatePicker, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: KDatePicker, callback: *const fn (KDatePicker, QPainter) callconv(.c) void) void {
         qtc.KDatePicker_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -8039,14 +9939,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: KDatePicker, offset: anytype) QPaintDevice {
+    pub fn redirected(self: KDatePicker, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KDatePicker_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -8060,10 +9960,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: KDatePicker, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: KDatePicker, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KDatePicker_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -8077,9 +9981,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: KDatePicker, callback: *const fn (KDatePicker, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: KDatePicker, callback: *const fn (KDatePicker, QPoint) callconv(.c) QPaintDevice) void {
         qtc.KDatePicker_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -8091,13 +9999,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn SharedPainter(self: KDatePicker) QPainter {
+    pub fn sharedPainter(self: KDatePicker) QPainter {
         return .{ .ptr = qtc.KDatePicker_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -8109,9 +10017,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn SuperSharedPainter(self: KDatePicker) QPainter {
+    pub fn superSharedPainter(self: KDatePicker) QPainter {
         return .{ .ptr = qtc.KDatePicker_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -8125,9 +10037,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: KDatePicker, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KDatePicker, callback: *const fn () callconv(.c) QPainter) void {
         qtc.KDatePicker_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -8141,14 +10057,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: KDatePicker, param1: anytype) void {
+    pub fn inputMethodEvent(self: KDatePicker, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KDatePicker_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -8162,10 +10078,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: KDatePicker, param1: anytype) void {
+    pub fn superInputMethodEvent(self: KDatePicker, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KDatePicker_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -8179,9 +10099,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: KDatePicker, callback: *const fn (KDatePicker, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: KDatePicker, callback: *const fn (KDatePicker, QInputMethodEvent) callconv(.c) void) void {
         qtc.KDatePicker_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -8195,13 +10119,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: KDatePicker, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: KDatePicker, param1: i32) QVariant {
         return .{ .ptr = qtc.KDatePicker_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -8215,9 +10139,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: KDatePicker, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: KDatePicker, param1: i32) QVariant {
         return .{ .ptr = qtc.KDatePicker_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -8233,9 +10161,13 @@ pub const KDatePicker = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: KDatePicker, callback: *const fn (KDatePicker, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: KDatePicker, callback: *const fn (KDatePicker, i32) callconv(.c) QVariant) void {
         qtc.KDatePicker_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8249,13 +10181,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: KDatePicker, next: bool) bool {
+    pub fn focusNextPrevChild(self: KDatePicker, next: bool) bool {
         return qtc.KDatePicker_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8269,9 +10201,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: KDatePicker, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: KDatePicker, next: bool) bool {
         return qtc.KDatePicker_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8285,9 +10221,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: KDatePicker, callback: *const fn (KDatePicker, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: KDatePicker, callback: *const fn (KDatePicker, bool) callconv(.c) bool) void {
         qtc.KDatePicker_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -8299,16 +10239,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KDatePicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KDatePicker_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: KDatePicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KDatePicker_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -8320,12 +10260,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KDatePicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KDatePicker_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: KDatePicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KDatePicker_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -8339,9 +10283,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KDatePicker, callback: *const fn (KDatePicker, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KDatePicker, callback: *const fn (KDatePicker, QTimerEvent) callconv(.c) void) void {
         qtc.KDatePicker_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -8353,16 +10301,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KDatePicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KDatePicker_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KDatePicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KDatePicker_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -8374,12 +10322,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KDatePicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KDatePicker_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KDatePicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KDatePicker_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -8393,9 +10345,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KDatePicker, callback: *const fn (KDatePicker, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KDatePicker, callback: *const fn (KDatePicker, QChildEvent) callconv(.c) void) void {
         qtc.KDatePicker_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -8407,16 +10363,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KDatePicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KDatePicker_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KDatePicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KDatePicker_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8428,12 +10384,16 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KDatePicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KDatePicker_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KDatePicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KDatePicker_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8447,9 +10407,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KDatePicker, callback: *const fn (KDatePicker, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KDatePicker, callback: *const fn (KDatePicker, QEvent) callconv(.c) void) void {
         qtc.KDatePicker_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -8463,14 +10427,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KDatePicker, signal: anytype) void {
+    pub fn connectNotify(self: KDatePicker, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KDatePicker_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8484,11 +10448,15 @@ pub const KDatePicker = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KDatePicker, signal: anytype) void {
+    pub fn superConnectNotify(self: KDatePicker, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KDatePicker_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -8501,9 +10469,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KDatePicker, callback: *const fn (KDatePicker, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KDatePicker, callback: *const fn (KDatePicker, QMetaMethod) callconv(.c) void) void {
         qtc.KDatePicker_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8517,14 +10489,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KDatePicker, signal: anytype) void {
+    pub fn disconnectNotify(self: KDatePicker, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KDatePicker_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8538,10 +10510,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KDatePicker, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KDatePicker, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KDatePicker_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8555,9 +10531,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KDatePicker, callback: *const fn (KDatePicker, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KDatePicker, callback: *const fn (KDatePicker, QMetaMethod) callconv(.c) void) void {
         qtc.KDatePicker_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `drawFrame` instead
+    ///
+    pub const DrawFrame = drawFrame;
 
     /// Inherited from QFrame
     ///
@@ -8571,14 +10551,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` param1: QPainter `
     ///
-    pub fn DrawFrame(self: KDatePicker, param1: anytype) void {
+    pub fn drawFrame(self: KDatePicker, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPainter;
         qtc.KDatePicker_DrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawFrame` instead
+    /// ### DEPRECATED: Use `superDrawFrame` instead
     ///
-    pub const QBaseDrawFrame = SuperDrawFrame;
+    pub const SuperDrawFrame = superDrawFrame;
 
     /// Inherited from QFrame
     ///
@@ -8592,10 +10572,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` param1: QPainter `
     ///
-    pub fn SuperDrawFrame(self: KDatePicker, param1: anytype) void {
+    pub fn superDrawFrame(self: KDatePicker, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPainter;
         qtc.KDatePicker_SuperDrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDrawFrame` instead
+    ///
+    pub const OnDrawFrame = onDrawFrame;
 
     /// Inherited from QFrame
     ///
@@ -8609,10 +10593,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, param1: QPainter) callconv(.c) void `
     ///
-    pub fn OnDrawFrame(self: KDatePicker, callback: *const fn (KDatePicker, QPainter) callconv(.c) void) void {
+    pub fn onDrawFrame(self: KDatePicker, callback: *const fn (KDatePicker, QPainter) callconv(.c) void) void {
         qtc.KDatePicker_OnDrawFrame(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8623,13 +10611,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn UpdateMicroFocus(self: KDatePicker) void {
+    pub fn updateMicroFocus(self: KDatePicker) void {
         qtc.KDatePicker_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -8641,10 +10629,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn SuperUpdateMicroFocus(self: KDatePicker) void {
+    pub fn superUpdateMicroFocus(self: KDatePicker) void {
         qtc.KDatePicker_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8657,10 +10649,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: KDatePicker, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: KDatePicker, callback: *const fn () callconv(.c) void) void {
         qtc.KDatePicker_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8671,13 +10667,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn Create(self: KDatePicker) void {
+    pub fn create(self: KDatePicker) void {
         qtc.KDatePicker_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -8689,10 +10685,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn SuperCreate(self: KDatePicker) void {
+    pub fn superCreate(self: KDatePicker) void {
         qtc.KDatePicker_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8705,9 +10705,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: KDatePicker, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: KDatePicker, callback: *const fn () callconv(.c) void) void {
         qtc.KDatePicker_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -8719,13 +10723,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn Destroy(self: KDatePicker) void {
+    pub fn destroy(self: KDatePicker) void {
         qtc.KDatePicker_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8737,9 +10741,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn SuperDestroy(self: KDatePicker) void {
+    pub fn superDestroy(self: KDatePicker) void {
         qtc.KDatePicker_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8753,10 +10761,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: KDatePicker, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: KDatePicker, callback: *const fn () callconv(.c) void) void {
         qtc.KDatePicker_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8767,13 +10779,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn FocusNextChild(self: KDatePicker) bool {
+    pub fn focusNextChild(self: KDatePicker) bool {
         return qtc.KDatePicker_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -8785,10 +10797,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn SuperFocusNextChild(self: KDatePicker) bool {
+    pub fn superFocusNextChild(self: KDatePicker) bool {
         return qtc.KDatePicker_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8801,9 +10817,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: KDatePicker, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: KDatePicker, callback: *const fn () callconv(.c) bool) void {
         qtc.KDatePicker_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8815,13 +10835,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn FocusPreviousChild(self: KDatePicker) bool {
+    pub fn focusPreviousChild(self: KDatePicker) bool {
         return qtc.KDatePicker_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8833,9 +10853,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn SuperFocusPreviousChild(self: KDatePicker) bool {
+    pub fn superFocusPreviousChild(self: KDatePicker) bool {
         return qtc.KDatePicker_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8849,9 +10873,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: KDatePicker, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: KDatePicker, callback: *const fn () callconv(.c) bool) void {
         qtc.KDatePicker_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -8863,13 +10891,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn Sender(self: KDatePicker) QObject {
+    pub fn sender(self: KDatePicker) QObject {
         return .{ .ptr = qtc.KDatePicker_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -8881,9 +10909,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn SuperSender(self: KDatePicker) QObject {
+    pub fn superSender(self: KDatePicker) QObject {
         return .{ .ptr = qtc.KDatePicker_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -8897,9 +10929,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KDatePicker, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KDatePicker, callback: *const fn () callconv(.c) QObject) void {
         qtc.KDatePicker_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8911,13 +10947,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn SenderSignalIndex(self: KDatePicker) i32 {
+    pub fn senderSignalIndex(self: KDatePicker) i32 {
         return qtc.KDatePicker_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8929,9 +10965,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn SuperSenderSignalIndex(self: KDatePicker) i32 {
+    pub fn superSenderSignalIndex(self: KDatePicker) i32 {
         return qtc.KDatePicker_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8945,9 +10985,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KDatePicker, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KDatePicker, callback: *const fn () callconv(.c) i32) void {
         qtc.KDatePicker_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -8961,14 +11005,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KDatePicker, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KDatePicker, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KDatePicker_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -8982,10 +11026,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KDatePicker, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KDatePicker, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KDatePicker_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -8999,9 +11047,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KDatePicker, callback: *const fn (KDatePicker, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KDatePicker, callback: *const fn (KDatePicker, [*:0]const u8) callconv(.c) i32) void {
         qtc.KDatePicker_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -9015,14 +11067,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KDatePicker, signal: anytype) bool {
+    pub fn isSignalConnected(self: KDatePicker, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KDatePicker_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -9036,10 +11088,14 @@ pub const KDatePicker = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KDatePicker, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KDatePicker, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KDatePicker_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -9053,9 +11109,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KDatePicker, callback: *const fn (KDatePicker, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KDatePicker, callback: *const fn (KDatePicker, QMetaMethod) callconv(.c) bool) void {
         qtc.KDatePicker_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9071,13 +11131,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: KDatePicker, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: KDatePicker, metricA: i32, metricB: i32) f64 {
         return qtc.KDatePicker_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9093,9 +11153,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: KDatePicker, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: KDatePicker, metricA: i32, metricB: i32) f64 {
         return qtc.KDatePicker_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9109,9 +11173,13 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: KDatePicker, callback: *const fn (KDatePicker, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: KDatePicker, callback: *const fn (KDatePicker, i32, i32) callconv(.c) f64) void {
         qtc.KDatePicker_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -9125,23 +11193,23 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn (self: KDatePicker, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KDatePicker, callback: *const fn (KDatePicker, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KDatePicker, callback: *const fn (KDatePicker, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#dtor.KDatePicker)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KDatePicker `
     ///
-    pub fn Delete(self: KDatePicker) void {
+    pub fn delete(self: KDatePicker) void {
         qtc.KDatePicker_Delete(@ptrCast(self.ptr));
     }
 };

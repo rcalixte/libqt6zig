@@ -11,11 +11,19 @@ pub const QAbstractNativeEventFilter = extern struct {
 
     pub const _is_QAbstractNativeEventFilter = {};
 
-    /// New constructs a new QAbstractNativeEventFilter object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QAbstractNativeEventFilter {
+    pub const New = new;
+
+    /// Allocate a new QAbstractNativeEventFilter object in C++ memory
+    ///
+    pub fn new() QAbstractNativeEventFilter {
         return .{ .ptr = qtc.QAbstractNativeEventFilter_new() };
     }
+
+    /// ### DEPRECATED: Use `nativeEventFilter` instead
+    ///
+    pub const NativeEventFilter = nativeEventFilter;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractnativeeventfilter.html#nativeEventFilter)
     ///
@@ -29,13 +37,17 @@ pub const QAbstractNativeEventFilter = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEventFilter(self: QAbstractNativeEventFilter, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEventFilter(self: QAbstractNativeEventFilter, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.QAbstractNativeEventFilter_NativeEventFilter(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEventFilter` instead
+    ///
+    pub const OnNativeEventFilter = onNativeEventFilter;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractnativeeventfilter.html#nativeEventFilter)
     ///
@@ -47,13 +59,13 @@ pub const QAbstractNativeEventFilter = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractNativeEventFilter, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEventFilter(self: QAbstractNativeEventFilter, callback: *const fn (QAbstractNativeEventFilter, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEventFilter(self: QAbstractNativeEventFilter, callback: *const fn (QAbstractNativeEventFilter, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QAbstractNativeEventFilter_OnNativeEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEventFilter` instead
+    /// ### DEPRECATED: Use `superNativeEventFilter` instead
     ///
-    pub const QBaseNativeEventFilter = SuperNativeEventFilter;
+    pub const SuperNativeEventFilter = superNativeEventFilter;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractnativeeventfilter.html#nativeEventFilter)
     ///
@@ -69,7 +81,7 @@ pub const QAbstractNativeEventFilter = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEventFilter(self: QAbstractNativeEventFilter, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEventFilter(self: QAbstractNativeEventFilter, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -77,19 +89,19 @@ pub const QAbstractNativeEventFilter = extern struct {
         return qtc.QAbstractNativeEventFilter_SuperNativeEventFilter(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractnativeeventfilter.html#dtor.QAbstractNativeEventFilter)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QAbstractNativeEventFilter `
     ///
-    pub fn Delete(self: QAbstractNativeEventFilter) void {
+    pub fn delete(self: QAbstractNativeEventFilter) void {
         qtc.QAbstractNativeEventFilter_Delete(@ptrCast(self.ptr));
     }
 };

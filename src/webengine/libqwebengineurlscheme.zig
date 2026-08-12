@@ -13,36 +13,52 @@ pub const QWebEngineUrlScheme = extern struct {
 
     pub const _is_QWebEngineUrlScheme = {};
 
-    /// New constructs a new QWebEngineUrlScheme object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QWebEngineUrlScheme {
+    pub const New = new;
+
+    /// Allocate a new QWebEngineUrlScheme object in C++ memory
+    ///
+    pub fn new() QWebEngineUrlScheme {
         return .{ .ptr = qtc.QWebEngineUrlScheme_new() };
     }
 
-    /// New2 constructs a new QWebEngineUrlScheme object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QWebEngineUrlScheme object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` name: []u8 `
+    /// ` _name: []u8 `
     ///
-    pub fn New2(name: []u8) QWebEngineUrlScheme {
+    pub fn new2(_name: []u8) QWebEngineUrlScheme {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         return .{ .ptr = qtc.QWebEngineUrlScheme_new2(name_str) };
     }
 
-    /// New3 constructs a new QWebEngineUrlScheme object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QWebEngineUrlScheme object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` that: QWebEngineUrlScheme `
     ///
-    pub fn New3(that: anytype) QWebEngineUrlScheme {
+    pub fn new3(that: anytype) QWebEngineUrlScheme {
         comptime _ = @TypeOf(that)._is_QWebEngineUrlScheme;
         return .{ .ptr = qtc.QWebEngineUrlScheme_new3(@ptrCast(that.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#operator-eq)
     ///
@@ -52,10 +68,14 @@ pub const QWebEngineUrlScheme = extern struct {
     ///
     /// ` that: QWebEngineUrlScheme `
     ///
-    pub fn OperatorAssign(self: QWebEngineUrlScheme, that: anytype) void {
+    pub fn operatorAssign(self: QWebEngineUrlScheme, that: anytype) void {
         comptime _ = @TypeOf(that)._is_QWebEngineUrlScheme;
         qtc.QWebEngineUrlScheme_OperatorAssign(@ptrCast(self.ptr), @ptrCast(that.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#operator-eq-eq)
     ///
@@ -65,10 +85,14 @@ pub const QWebEngineUrlScheme = extern struct {
     ///
     /// ` that: QWebEngineUrlScheme `
     ///
-    pub fn OperatorEqual(self: QWebEngineUrlScheme, that: anytype) bool {
+    pub fn operatorEqual(self: QWebEngineUrlScheme, that: anytype) bool {
         comptime _ = @TypeOf(that)._is_QWebEngineUrlScheme;
         return qtc.QWebEngineUrlScheme_OperatorEqual(@ptrCast(self.ptr), @ptrCast(that.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#operator-not-eq)
     ///
@@ -78,10 +102,14 @@ pub const QWebEngineUrlScheme = extern struct {
     ///
     /// ` that: QWebEngineUrlScheme `
     ///
-    pub fn OperatorNotEqual(self: QWebEngineUrlScheme, that: anytype) bool {
+    pub fn operatorNotEqual(self: QWebEngineUrlScheme, that: anytype) bool {
         comptime _ = @TypeOf(that)._is_QWebEngineUrlScheme;
         return qtc.QWebEngineUrlScheme_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(that.ptr));
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#name)
     ///
@@ -91,13 +119,17 @@ pub const QWebEngineUrlScheme = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: QWebEngineUrlScheme, allocator: std.mem.Allocator) []u8 {
+    pub fn name(self: QWebEngineUrlScheme, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWebEngineUrlScheme_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QWebEngineUrlScheme.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QWebEngineUrlScheme.name: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setName` instead
+    ///
+    pub const SetName = setName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#setName)
     ///
@@ -107,13 +139,17 @@ pub const QWebEngineUrlScheme = extern struct {
     ///
     /// ` newValue: []u8 `
     ///
-    pub fn SetName(self: QWebEngineUrlScheme, newValue: []u8) void {
+    pub fn setName(self: QWebEngineUrlScheme, newValue: []u8) void {
         const newValue_str = qtc.libqt_string{
             .len = newValue.len,
             .data = newValue.ptr,
         };
         qtc.QWebEngineUrlScheme_SetName(@ptrCast(self.ptr), newValue_str);
     }
+
+    /// ### DEPRECATED: Use `syntax` instead
+    ///
+    pub const Syntax = syntax;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#syntax)
     ///
@@ -125,9 +161,13 @@ pub const QWebEngineUrlScheme = extern struct {
     ///
     /// ` qwebengineurlscheme_enums.Syntax `
     ///
-    pub fn Syntax(self: QWebEngineUrlScheme) i32 {
+    pub fn syntax(self: QWebEngineUrlScheme) i32 {
         return qtc.QWebEngineUrlScheme_Syntax(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSyntax` instead
+    ///
+    pub const SetSyntax = setSyntax;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#setSyntax)
     ///
@@ -137,9 +177,13 @@ pub const QWebEngineUrlScheme = extern struct {
     ///
     /// ` newValue: qwebengineurlscheme_enums.Syntax `
     ///
-    pub fn SetSyntax(self: QWebEngineUrlScheme, newValue: i32) void {
+    pub fn setSyntax(self: QWebEngineUrlScheme, newValue: i32) void {
         qtc.QWebEngineUrlScheme_SetSyntax(@ptrCast(self.ptr), @bitCast(newValue));
     }
+
+    /// ### DEPRECATED: Use `defaultPort` instead
+    ///
+    pub const DefaultPort = defaultPort;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#defaultPort)
     ///
@@ -147,9 +191,13 @@ pub const QWebEngineUrlScheme = extern struct {
     ///
     /// ` self: QWebEngineUrlScheme `
     ///
-    pub fn DefaultPort(self: QWebEngineUrlScheme) i32 {
+    pub fn defaultPort(self: QWebEngineUrlScheme) i32 {
         return qtc.QWebEngineUrlScheme_DefaultPort(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDefaultPort` instead
+    ///
+    pub const SetDefaultPort = setDefaultPort;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#setDefaultPort)
     ///
@@ -159,9 +207,13 @@ pub const QWebEngineUrlScheme = extern struct {
     ///
     /// ` newValue: i32 `
     ///
-    pub fn SetDefaultPort(self: QWebEngineUrlScheme, newValue: i32) void {
+    pub fn setDefaultPort(self: QWebEngineUrlScheme, newValue: i32) void {
         qtc.QWebEngineUrlScheme_SetDefaultPort(@ptrCast(self.ptr), @bitCast(newValue));
     }
+
+    /// ### DEPRECATED: Use `flags` instead
+    ///
+    pub const Flags = flags;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#flags)
     ///
@@ -173,9 +225,13 @@ pub const QWebEngineUrlScheme = extern struct {
     ///
     /// ` flag of qwebengineurlscheme_enums.Flag `
     ///
-    pub fn Flags(self: QWebEngineUrlScheme) i32 {
+    pub fn flags(self: QWebEngineUrlScheme) i32 {
         return qtc.QWebEngineUrlScheme_Flags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFlags` instead
+    ///
+    pub const SetFlags = setFlags;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#setFlags)
     ///
@@ -185,9 +241,13 @@ pub const QWebEngineUrlScheme = extern struct {
     ///
     /// ` newValue: flag of qwebengineurlscheme_enums.Flag `
     ///
-    pub fn SetFlags(self: QWebEngineUrlScheme, newValue: i32) void {
+    pub fn setFlags(self: QWebEngineUrlScheme, newValue: i32) void {
         qtc.QWebEngineUrlScheme_SetFlags(@ptrCast(self.ptr), @bitCast(newValue));
     }
+
+    /// ### DEPRECATED: Use `registerScheme` instead
+    ///
+    pub const RegisterScheme = registerScheme;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#registerScheme)
     ///
@@ -195,38 +255,42 @@ pub const QWebEngineUrlScheme = extern struct {
     ///
     /// ` scheme: QWebEngineUrlScheme `
     ///
-    pub fn RegisterScheme(scheme: anytype) void {
+    pub fn registerScheme(scheme: anytype) void {
         comptime _ = @TypeOf(scheme)._is_QWebEngineUrlScheme;
         qtc.QWebEngineUrlScheme_RegisterScheme(@ptrCast(scheme.ptr));
     }
+
+    /// ### DEPRECATED: Use `schemeByName` instead
+    ///
+    pub const SchemeByName = schemeByName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#schemeByName)
     ///
     /// ## Parameter(s):
     ///
-    /// ` name: []u8 `
+    /// ` _name: []u8 `
     ///
-    pub fn SchemeByName(name: []u8) QWebEngineUrlScheme {
+    pub fn schemeByName(_name: []u8) QWebEngineUrlScheme {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         return .{ .ptr = qtc.QWebEngineUrlScheme_SchemeByName(name_str) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#dtor.QWebEngineUrlScheme)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QWebEngineUrlScheme `
     ///
-    pub fn Delete(self: QWebEngineUrlScheme) void {
+    pub fn delete(self: QWebEngineUrlScheme) void {
         qtc.QWebEngineUrlScheme_Delete(@ptrCast(self.ptr));
     }
 };

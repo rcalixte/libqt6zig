@@ -11,29 +11,40 @@ pub const QUntypedPropertyData = extern struct {
 
     pub const _is_QUntypedPropertyData = {};
 
-    /// New constructs a new QUntypedPropertyData object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QUntypedPropertyData object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QUntypedPropertyData `
     ///
-    pub fn New(other: anytype) QUntypedPropertyData {
+    pub fn new(other: anytype) QUntypedPropertyData {
         comptime _ = @TypeOf(other)._is_QUntypedPropertyData;
         return .{ .ptr = qtc.QUntypedPropertyData_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new QUntypedPropertyData object and invalidates the source QUntypedPropertyData object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QUntypedPropertyData object and invalidate the source QUntypedPropertyData object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QUntypedPropertyData `
     ///
-    pub fn New2(other: anytype) QUntypedPropertyData {
+    pub fn new2(other: anytype) QUntypedPropertyData {
         comptime _ = @TypeOf(other)._is_QUntypedPropertyData;
         return .{ .ptr = qtc.QUntypedPropertyData_new2(@ptrCast(other.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -41,11 +52,14 @@ pub const QUntypedPropertyData = extern struct {
     ///
     /// ` other: QUntypedPropertyData `
     ///
-    pub fn CopyAssign(self: QUntypedPropertyData, other: QUntypedPropertyData) void {
+    pub fn copyAssign(self: QUntypedPropertyData, other: QUntypedPropertyData) void {
         qtc.QUntypedPropertyData_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -53,23 +67,23 @@ pub const QUntypedPropertyData = extern struct {
     ///
     /// ` other: QUntypedPropertyData `
     ///
-    pub fn MoveAssign(self: QUntypedPropertyData, other: QUntypedPropertyData) void {
+    pub fn moveAssign(self: QUntypedPropertyData, other: QUntypedPropertyData) void {
         qtc.QUntypedPropertyData_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/quntypedpropertydata.html#dtor.QUntypedPropertyData)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QUntypedPropertyData `
     ///
-    pub fn Delete(self: QUntypedPropertyData) void {
+    pub fn delete(self: QUntypedPropertyData) void {
         qtc.QUntypedPropertyData_Delete(@ptrCast(self.ptr));
     }
 };

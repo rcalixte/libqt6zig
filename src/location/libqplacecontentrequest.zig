@@ -14,22 +14,34 @@ pub const QPlaceContentRequest = extern struct {
 
     pub const _is_QPlaceContentRequest = {};
 
-    /// New constructs a new QPlaceContentRequest object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QPlaceContentRequest {
+    pub const New = new;
+
+    /// Allocate a new QPlaceContentRequest object in C++ memory
+    ///
+    pub fn new() QPlaceContentRequest {
         return .{ .ptr = qtc.QPlaceContentRequest_new() };
     }
 
-    /// New2 constructs a new QPlaceContentRequest object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QPlaceContentRequest object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QPlaceContentRequest `
     ///
-    pub fn New2(other: anytype) QPlaceContentRequest {
+    pub fn new2(other: anytype) QPlaceContentRequest {
         comptime _ = @TypeOf(other)._is_QPlaceContentRequest;
         return .{ .ptr = qtc.QPlaceContentRequest_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontentrequest.html#operator-eq)
     ///
@@ -39,10 +51,14 @@ pub const QPlaceContentRequest = extern struct {
     ///
     /// ` other: QPlaceContentRequest `
     ///
-    pub fn OperatorAssign(self: QPlaceContentRequest, other: anytype) void {
+    pub fn operatorAssign(self: QPlaceContentRequest, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QPlaceContentRequest;
         qtc.QPlaceContentRequest_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontentrequest.html#swap)
     ///
@@ -52,10 +68,14 @@ pub const QPlaceContentRequest = extern struct {
     ///
     /// ` other: QPlaceContentRequest `
     ///
-    pub fn Swap(self: QPlaceContentRequest, other: anytype) void {
+    pub fn swap(self: QPlaceContentRequest, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QPlaceContentRequest;
         qtc.QPlaceContentRequest_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentType` instead
+    ///
+    pub const ContentType = contentType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontentrequest.html#contentType)
     ///
@@ -67,9 +87,13 @@ pub const QPlaceContentRequest = extern struct {
     ///
     /// ` qplacecontent_enums.Type `
     ///
-    pub fn ContentType(self: QPlaceContentRequest) i32 {
+    pub fn contentType(self: QPlaceContentRequest) i32 {
         return qtc.QPlaceContentRequest_ContentType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContentType` instead
+    ///
+    pub const SetContentType = setContentType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontentrequest.html#setContentType)
     ///
@@ -79,9 +103,13 @@ pub const QPlaceContentRequest = extern struct {
     ///
     /// ` typeVal: qplacecontent_enums.Type `
     ///
-    pub fn SetContentType(self: QPlaceContentRequest, typeVal: i32) void {
+    pub fn setContentType(self: QPlaceContentRequest, typeVal: i32) void {
         qtc.QPlaceContentRequest_SetContentType(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `placeId` instead
+    ///
+    pub const PlaceId = placeId;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontentrequest.html#placeId)
     ///
@@ -91,13 +119,17 @@ pub const QPlaceContentRequest = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PlaceId(self: QPlaceContentRequest, allocator: std.mem.Allocator) []const u8 {
+    pub fn placeId(self: QPlaceContentRequest, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QPlaceContentRequest_PlaceId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceContentRequest.PlaceId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceContentRequest.placeId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setPlaceId` instead
+    ///
+    pub const SetPlaceId = setPlaceId;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontentrequest.html#setPlaceId)
     ///
@@ -107,7 +139,7 @@ pub const QPlaceContentRequest = extern struct {
     ///
     /// ` identifier: []const u8 `
     ///
-    pub fn SetPlaceId(self: QPlaceContentRequest, identifier: []const u8) void {
+    pub fn setPlaceId(self: QPlaceContentRequest, identifier: []const u8) void {
         const identifier_str = qtc.libqt_string{
             .len = identifier.len,
             .data = identifier.ptr,
@@ -115,15 +147,23 @@ pub const QPlaceContentRequest = extern struct {
         qtc.QPlaceContentRequest_SetPlaceId(@ptrCast(self.ptr), identifier_str);
     }
 
+    /// ### DEPRECATED: Use `contentContext` instead
+    ///
+    pub const ContentContext = contentContext;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontentrequest.html#contentContext)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QPlaceContentRequest `
     ///
-    pub fn ContentContext(self: QPlaceContentRequest) QVariant {
+    pub fn contentContext(self: QPlaceContentRequest) QVariant {
         return .{ .ptr = qtc.QPlaceContentRequest_ContentContext(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentContext` instead
+    ///
+    pub const SetContentContext = setContentContext;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontentrequest.html#setContentContext)
     ///
@@ -133,10 +173,14 @@ pub const QPlaceContentRequest = extern struct {
     ///
     /// ` context: QVariant `
     ///
-    pub fn SetContentContext(self: QPlaceContentRequest, context: anytype) void {
+    pub fn setContentContext(self: QPlaceContentRequest, context: anytype) void {
         comptime _ = @TypeOf(context)._is_QVariant;
         qtc.QPlaceContentRequest_SetContentContext(@ptrCast(self.ptr), @ptrCast(context.ptr));
     }
+
+    /// ### DEPRECATED: Use `limit` instead
+    ///
+    pub const Limit = limit;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontentrequest.html#limit)
     ///
@@ -144,9 +188,13 @@ pub const QPlaceContentRequest = extern struct {
     ///
     /// ` self: QPlaceContentRequest `
     ///
-    pub fn Limit(self: QPlaceContentRequest) i32 {
+    pub fn limit(self: QPlaceContentRequest) i32 {
         return qtc.QPlaceContentRequest_Limit(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLimit` instead
+    ///
+    pub const SetLimit = setLimit;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontentrequest.html#setLimit)
     ///
@@ -154,11 +202,15 @@ pub const QPlaceContentRequest = extern struct {
     ///
     /// ` self: QPlaceContentRequest `
     ///
-    /// ` limit: i32 `
+    /// ` _limit: i32 `
     ///
-    pub fn SetLimit(self: QPlaceContentRequest, limit: i32) void {
-        qtc.QPlaceContentRequest_SetLimit(@ptrCast(self.ptr), @bitCast(limit));
+    pub fn setLimit(self: QPlaceContentRequest, _limit: i32) void {
+        qtc.QPlaceContentRequest_SetLimit(@ptrCast(self.ptr), @bitCast(_limit));
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontentrequest.html#clear)
     ///
@@ -166,23 +218,23 @@ pub const QPlaceContentRequest = extern struct {
     ///
     /// ` self: QPlaceContentRequest `
     ///
-    pub fn Clear(self: QPlaceContentRequest) void {
+    pub fn clear(self: QPlaceContentRequest) void {
         qtc.QPlaceContentRequest_Clear(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontentrequest.html#dtor.QPlaceContentRequest)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QPlaceContentRequest `
     ///
-    pub fn Delete(self: QPlaceContentRequest) void {
+    pub fn delete(self: QPlaceContentRequest) void {
         qtc.QPlaceContentRequest_Delete(@ptrCast(self.ptr));
     }
 };

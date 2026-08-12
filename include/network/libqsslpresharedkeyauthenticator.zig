@@ -12,22 +12,34 @@ pub const QSslPreSharedKeyAuthenticator = extern struct {
 
     pub const _is_QSslPreSharedKeyAuthenticator = {};
 
-    /// New constructs a new QSslPreSharedKeyAuthenticator object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QSslPreSharedKeyAuthenticator {
+    pub const New = new;
+
+    /// Allocate a new QSslPreSharedKeyAuthenticator object in C++ memory
+    ///
+    pub fn new() QSslPreSharedKeyAuthenticator {
         return .{ .ptr = qtc.QSslPreSharedKeyAuthenticator_new() };
     }
 
-    /// New2 constructs a new QSslPreSharedKeyAuthenticator object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QSslPreSharedKeyAuthenticator object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` authenticator: QSslPreSharedKeyAuthenticator `
     ///
-    pub fn New2(authenticator: anytype) QSslPreSharedKeyAuthenticator {
+    pub fn new2(authenticator: anytype) QSslPreSharedKeyAuthenticator {
         comptime _ = @TypeOf(authenticator)._is_QSslPreSharedKeyAuthenticator;
         return .{ .ptr = qtc.QSslPreSharedKeyAuthenticator_new2(@ptrCast(authenticator.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslpresharedkeyauthenticator.html#operator-eq)
     ///
@@ -37,10 +49,14 @@ pub const QSslPreSharedKeyAuthenticator = extern struct {
     ///
     /// ` authenticator: QSslPreSharedKeyAuthenticator `
     ///
-    pub fn OperatorAssign(self: QSslPreSharedKeyAuthenticator, authenticator: anytype) void {
+    pub fn operatorAssign(self: QSslPreSharedKeyAuthenticator, authenticator: anytype) void {
         comptime _ = @TypeOf(authenticator)._is_QSslPreSharedKeyAuthenticator;
         qtc.QSslPreSharedKeyAuthenticator_OperatorAssign(@ptrCast(self.ptr), @ptrCast(authenticator.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslpresharedkeyauthenticator.html#swap)
     ///
@@ -50,10 +66,14 @@ pub const QSslPreSharedKeyAuthenticator = extern struct {
     ///
     /// ` other: QSslPreSharedKeyAuthenticator `
     ///
-    pub fn Swap(self: QSslPreSharedKeyAuthenticator, other: anytype) void {
+    pub fn swap(self: QSslPreSharedKeyAuthenticator, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QSslPreSharedKeyAuthenticator;
         qtc.QSslPreSharedKeyAuthenticator_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `identityHint` instead
+    ///
+    pub const IdentityHint = identityHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslpresharedkeyauthenticator.html#identityHint)
     ///
@@ -63,13 +83,17 @@ pub const QSslPreSharedKeyAuthenticator = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn IdentityHint(self: QSslPreSharedKeyAuthenticator, allocator: std.mem.Allocator) []u8 {
+    pub fn identityHint(self: QSslPreSharedKeyAuthenticator, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QSslPreSharedKeyAuthenticator_IdentityHint(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QSslPreSharedKeyAuthenticator.IdentityHint: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QSslPreSharedKeyAuthenticator.identityHint: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setIdentity` instead
+    ///
+    pub const SetIdentity = setIdentity;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslpresharedkeyauthenticator.html#setIdentity)
     ///
@@ -77,15 +101,19 @@ pub const QSslPreSharedKeyAuthenticator = extern struct {
     ///
     /// ` self: QSslPreSharedKeyAuthenticator `
     ///
-    /// ` identity: []u8 `
+    /// ` _identity: []u8 `
     ///
-    pub fn SetIdentity(self: QSslPreSharedKeyAuthenticator, identity: []u8) void {
+    pub fn setIdentity(self: QSslPreSharedKeyAuthenticator, _identity: []u8) void {
         const identity_str = qtc.libqt_string{
-            .len = identity.len,
-            .data = identity.ptr,
+            .len = _identity.len,
+            .data = _identity.ptr,
         };
         qtc.QSslPreSharedKeyAuthenticator_SetIdentity(@ptrCast(self.ptr), identity_str);
     }
+
+    /// ### DEPRECATED: Use `identity` instead
+    ///
+    pub const Identity = identity;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslpresharedkeyauthenticator.html#identity)
     ///
@@ -95,13 +123,17 @@ pub const QSslPreSharedKeyAuthenticator = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Identity(self: QSslPreSharedKeyAuthenticator, allocator: std.mem.Allocator) []u8 {
+    pub fn identity(self: QSslPreSharedKeyAuthenticator, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QSslPreSharedKeyAuthenticator_Identity(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QSslPreSharedKeyAuthenticator.Identity: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QSslPreSharedKeyAuthenticator.identity: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `maximumIdentityLength` instead
+    ///
+    pub const MaximumIdentityLength = maximumIdentityLength;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslpresharedkeyauthenticator.html#maximumIdentityLength)
     ///
@@ -109,9 +141,13 @@ pub const QSslPreSharedKeyAuthenticator = extern struct {
     ///
     /// ` self: QSslPreSharedKeyAuthenticator `
     ///
-    pub fn MaximumIdentityLength(self: QSslPreSharedKeyAuthenticator) i32 {
+    pub fn maximumIdentityLength(self: QSslPreSharedKeyAuthenticator) i32 {
         return qtc.QSslPreSharedKeyAuthenticator_MaximumIdentityLength(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPreSharedKey` instead
+    ///
+    pub const SetPreSharedKey = setPreSharedKey;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslpresharedkeyauthenticator.html#setPreSharedKey)
     ///
@@ -119,15 +155,19 @@ pub const QSslPreSharedKeyAuthenticator = extern struct {
     ///
     /// ` self: QSslPreSharedKeyAuthenticator `
     ///
-    /// ` preSharedKey: []u8 `
+    /// ` _preSharedKey: []u8 `
     ///
-    pub fn SetPreSharedKey(self: QSslPreSharedKeyAuthenticator, preSharedKey: []u8) void {
+    pub fn setPreSharedKey(self: QSslPreSharedKeyAuthenticator, _preSharedKey: []u8) void {
         const preSharedKey_str = qtc.libqt_string{
-            .len = preSharedKey.len,
-            .data = preSharedKey.ptr,
+            .len = _preSharedKey.len,
+            .data = _preSharedKey.ptr,
         };
         qtc.QSslPreSharedKeyAuthenticator_SetPreSharedKey(@ptrCast(self.ptr), preSharedKey_str);
     }
+
+    /// ### DEPRECATED: Use `preSharedKey` instead
+    ///
+    pub const PreSharedKey = preSharedKey;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslpresharedkeyauthenticator.html#preSharedKey)
     ///
@@ -137,13 +177,17 @@ pub const QSslPreSharedKeyAuthenticator = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PreSharedKey(self: QSslPreSharedKeyAuthenticator, allocator: std.mem.Allocator) []u8 {
+    pub fn preSharedKey(self: QSslPreSharedKeyAuthenticator, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QSslPreSharedKeyAuthenticator_PreSharedKey(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QSslPreSharedKeyAuthenticator.PreSharedKey: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QSslPreSharedKeyAuthenticator.preSharedKey: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `maximumPreSharedKeyLength` instead
+    ///
+    pub const MaximumPreSharedKeyLength = maximumPreSharedKeyLength;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslpresharedkeyauthenticator.html#maximumPreSharedKeyLength)
     ///
@@ -151,23 +195,23 @@ pub const QSslPreSharedKeyAuthenticator = extern struct {
     ///
     /// ` self: QSslPreSharedKeyAuthenticator `
     ///
-    pub fn MaximumPreSharedKeyLength(self: QSslPreSharedKeyAuthenticator) i32 {
+    pub fn maximumPreSharedKeyLength(self: QSslPreSharedKeyAuthenticator) i32 {
         return qtc.QSslPreSharedKeyAuthenticator_MaximumPreSharedKeyLength(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslpresharedkeyauthenticator.html#dtor.QSslPreSharedKeyAuthenticator)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QSslPreSharedKeyAuthenticator `
     ///
-    pub fn Delete(self: QSslPreSharedKeyAuthenticator) void {
+    pub fn delete(self: QSslPreSharedKeyAuthenticator) void {
         qtc.QSslPreSharedKeyAuthenticator_Delete(@ptrCast(self.ptr));
     }
 };

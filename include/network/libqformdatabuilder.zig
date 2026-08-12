@@ -15,22 +15,34 @@ pub const QFormDataPartBuilder = extern struct {
 
     pub const _is_QFormDataPartBuilder = {};
 
-    /// New constructs a new QFormDataPartBuilder object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QFormDataPartBuilder {
+    pub const New = new;
+
+    /// Allocate a new QFormDataPartBuilder object in C++ memory
+    ///
+    pub fn new() QFormDataPartBuilder {
         return .{ .ptr = qtc.QFormDataPartBuilder_new() };
     }
 
-    /// New2 constructs a new QFormDataPartBuilder object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QFormDataPartBuilder object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QFormDataPartBuilder `
     ///
-    pub fn New2(param1: anytype) QFormDataPartBuilder {
+    pub fn new2(param1: anytype) QFormDataPartBuilder {
         comptime _ = @TypeOf(param1)._is_QFormDataPartBuilder;
         return .{ .ptr = qtc.QFormDataPartBuilder_new2(@ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformdatapartbuilder.html#swap)
     ///
@@ -40,10 +52,14 @@ pub const QFormDataPartBuilder = extern struct {
     ///
     /// ` other: QFormDataPartBuilder `
     ///
-    pub fn Swap(self: QFormDataPartBuilder, other: anytype) void {
+    pub fn swap(self: QFormDataPartBuilder, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QFormDataPartBuilder;
         qtc.QFormDataPartBuilder_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBody` instead
+    ///
+    pub const SetBody = setBody;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformdatapartbuilder.html#setBody)
     ///
@@ -53,13 +69,17 @@ pub const QFormDataPartBuilder = extern struct {
     ///
     /// ` data: []u8 `
     ///
-    pub fn SetBody(self: QFormDataPartBuilder, data: []u8) QFormDataPartBuilder {
+    pub fn setBody(self: QFormDataPartBuilder, data: []u8) QFormDataPartBuilder {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
         return .{ .ptr = qtc.QFormDataPartBuilder_SetBody(@ptrCast(self.ptr), data_str) };
     }
+
+    /// ### DEPRECATED: Use `setBodyDevice` instead
+    ///
+    pub const SetBodyDevice = setBodyDevice;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformdatapartbuilder.html#setBodyDevice)
     ///
@@ -69,10 +89,14 @@ pub const QFormDataPartBuilder = extern struct {
     ///
     /// ` body: QIODevice `
     ///
-    pub fn SetBodyDevice(self: QFormDataPartBuilder, body: anytype) QFormDataPartBuilder {
+    pub fn setBodyDevice(self: QFormDataPartBuilder, body: anytype) QFormDataPartBuilder {
         comptime _ = @TypeOf(body)._is_QIODevice;
         return .{ .ptr = qtc.QFormDataPartBuilder_SetBodyDevice(@ptrCast(self.ptr), @ptrCast(body.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setHeaders` instead
+    ///
+    pub const SetHeaders = setHeaders;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformdatapartbuilder.html#setHeaders)
     ///
@@ -82,10 +106,14 @@ pub const QFormDataPartBuilder = extern struct {
     ///
     /// ` headers: QHttpHeaders `
     ///
-    pub fn SetHeaders(self: QFormDataPartBuilder, headers: anytype) QFormDataPartBuilder {
+    pub fn setHeaders(self: QFormDataPartBuilder, headers: anytype) QFormDataPartBuilder {
         comptime _ = @TypeOf(headers)._is_QHttpHeaders;
         return .{ .ptr = qtc.QFormDataPartBuilder_SetHeaders(@ptrCast(self.ptr), @ptrCast(headers.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBody2` instead
+    ///
+    pub const SetBody2 = setBody2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformdatapartbuilder.html#setBody)
     ///
@@ -97,7 +125,7 @@ pub const QFormDataPartBuilder = extern struct {
     ///
     /// ` fileName: []const u8 `
     ///
-    pub fn SetBody2(self: QFormDataPartBuilder, data: []u8, fileName: []const u8) QFormDataPartBuilder {
+    pub fn setBody2(self: QFormDataPartBuilder, data: []u8, fileName: []const u8) QFormDataPartBuilder {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -108,6 +136,10 @@ pub const QFormDataPartBuilder = extern struct {
         };
         return .{ .ptr = qtc.QFormDataPartBuilder_SetBody2(@ptrCast(self.ptr), data_str, fileName_str) };
     }
+
+    /// ### DEPRECATED: Use `setBody3` instead
+    ///
+    pub const SetBody3 = setBody3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformdatapartbuilder.html#setBody)
     ///
@@ -121,7 +153,7 @@ pub const QFormDataPartBuilder = extern struct {
     ///
     /// ` mimeType: []const u8 `
     ///
-    pub fn SetBody3(self: QFormDataPartBuilder, data: []u8, fileName: []const u8, mimeType: []const u8) QFormDataPartBuilder {
+    pub fn setBody3(self: QFormDataPartBuilder, data: []u8, fileName: []const u8, mimeType: []const u8) QFormDataPartBuilder {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -137,6 +169,10 @@ pub const QFormDataPartBuilder = extern struct {
         return .{ .ptr = qtc.QFormDataPartBuilder_SetBody3(@ptrCast(self.ptr), data_str, fileName_str, mimeType_str) };
     }
 
+    /// ### DEPRECATED: Use `setBodyDevice2` instead
+    ///
+    pub const SetBodyDevice2 = setBodyDevice2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformdatapartbuilder.html#setBodyDevice)
     ///
     /// ## Parameter(s):
@@ -147,7 +183,7 @@ pub const QFormDataPartBuilder = extern struct {
     ///
     /// ` fileName: []const u8 `
     ///
-    pub fn SetBodyDevice2(self: QFormDataPartBuilder, body: anytype, fileName: []const u8) QFormDataPartBuilder {
+    pub fn setBodyDevice2(self: QFormDataPartBuilder, body: anytype, fileName: []const u8) QFormDataPartBuilder {
         comptime _ = @TypeOf(body)._is_QIODevice;
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
@@ -155,6 +191,10 @@ pub const QFormDataPartBuilder = extern struct {
         };
         return .{ .ptr = qtc.QFormDataPartBuilder_SetBodyDevice2(@ptrCast(self.ptr), @ptrCast(body.ptr), fileName_str) };
     }
+
+    /// ### DEPRECATED: Use `setBodyDevice3` instead
+    ///
+    pub const SetBodyDevice3 = setBodyDevice3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformdatapartbuilder.html#setBodyDevice)
     ///
@@ -168,7 +208,7 @@ pub const QFormDataPartBuilder = extern struct {
     ///
     /// ` mimeType: []const u8 `
     ///
-    pub fn SetBodyDevice3(self: QFormDataPartBuilder, body: anytype, fileName: []const u8, mimeType: []const u8) QFormDataPartBuilder {
+    pub fn setBodyDevice3(self: QFormDataPartBuilder, body: anytype, fileName: []const u8, mimeType: []const u8) QFormDataPartBuilder {
         comptime _ = @TypeOf(body)._is_QIODevice;
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
@@ -181,19 +221,19 @@ pub const QFormDataPartBuilder = extern struct {
         return .{ .ptr = qtc.QFormDataPartBuilder_SetBodyDevice3(@ptrCast(self.ptr), @ptrCast(body.ptr), fileName_str, mimeType_str) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformdatapartbuilder.html#dtor.QFormDataPartBuilder)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QFormDataPartBuilder `
     ///
-    pub fn Delete(self: QFormDataPartBuilder) void {
+    pub fn delete(self: QFormDataPartBuilder) void {
         qtc.QFormDataPartBuilder_Delete(@ptrCast(self.ptr));
     }
 };
@@ -208,11 +248,19 @@ pub const QFormDataBuilder = extern struct {
 
     pub const _is_QFormDataBuilder = {};
 
-    /// New constructs a new QFormDataBuilder object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QFormDataBuilder {
+    pub const New = new;
+
+    /// Allocate a new QFormDataBuilder object in C++ memory
+    ///
+    pub fn new() QFormDataBuilder {
         return .{ .ptr = qtc.QFormDataBuilder_new() };
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformdatabuilder.html#swap)
     ///
@@ -222,10 +270,14 @@ pub const QFormDataBuilder = extern struct {
     ///
     /// ` other: QFormDataBuilder `
     ///
-    pub fn Swap(self: QFormDataBuilder, other: anytype) void {
+    pub fn swap(self: QFormDataBuilder, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QFormDataBuilder;
         qtc.QFormDataBuilder_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `part` instead
+    ///
+    pub const Part = part;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformdatabuilder.html#part)
     ///
@@ -235,7 +287,7 @@ pub const QFormDataBuilder = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn Part(self: QFormDataBuilder, name: []const u8) QFormDataPartBuilder {
+    pub fn part(self: QFormDataBuilder, name: []const u8) QFormDataPartBuilder {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -243,15 +295,23 @@ pub const QFormDataBuilder = extern struct {
         return .{ .ptr = qtc.QFormDataBuilder_Part(@ptrCast(self.ptr), name_str) };
     }
 
+    /// ### DEPRECATED: Use `buildMultiPart` instead
+    ///
+    pub const BuildMultiPart = buildMultiPart;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformdatabuilder.html#buildMultiPart)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QFormDataBuilder `
     ///
-    pub fn BuildMultiPart(self: QFormDataBuilder) QHttpMultiPart {
+    pub fn buildMultiPart(self: QFormDataBuilder) QHttpMultiPart {
         return .{ .ptr = qtc.QFormDataBuilder_BuildMultiPart(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `buildMultiPart1` instead
+    ///
+    pub const BuildMultiPart1 = buildMultiPart1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformdatabuilder.html#buildMultiPart)
     ///
@@ -261,23 +321,23 @@ pub const QFormDataBuilder = extern struct {
     ///
     /// ` options: flag of qformdatabuilder_enums.Option `
     ///
-    pub fn BuildMultiPart1(self: QFormDataBuilder, options: i32) QHttpMultiPart {
+    pub fn buildMultiPart1(self: QFormDataBuilder, options: i32) QHttpMultiPart {
         return .{ .ptr = qtc.QFormDataBuilder_BuildMultiPart1(@ptrCast(self.ptr), @bitCast(options)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformdatabuilder.html#dtor.QFormDataBuilder)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QFormDataBuilder `
     ///
-    pub fn Delete(self: QFormDataBuilder) void {
+    pub fn delete(self: QFormDataBuilder) void {
         qtc.QFormDataBuilder_Delete(@ptrCast(self.ptr));
     }
 };

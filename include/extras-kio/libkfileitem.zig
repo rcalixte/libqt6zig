@@ -19,82 +19,110 @@ pub const KFileItem = extern struct {
 
     pub const _is_KFileItem = {};
 
-    /// New constructs a new KFileItem object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() KFileItem {
+    pub const New = new;
+
+    /// Allocate a new KFileItem object in C++ memory
+    ///
+    pub fn new() KFileItem {
         return .{ .ptr = qtc.KFileItem_new() };
     }
 
-    /// New2 constructs a new KFileItem object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KFileItem object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` entry: KIO__UDSEntry `
+    /// ` _entry: KIO__UDSEntry `
     ///
     /// ` itemOrDirUrl: QUrl `
     ///
-    pub fn New2(entry: anytype, itemOrDirUrl: anytype) KFileItem {
-        comptime _ = @TypeOf(entry)._is_KIO__UDSEntry;
+    pub fn new2(_entry: anytype, itemOrDirUrl: anytype) KFileItem {
+        comptime _ = @TypeOf(_entry)._is_KIO__UDSEntry;
         comptime _ = @TypeOf(itemOrDirUrl)._is_QUrl;
-        return .{ .ptr = qtc.KFileItem_new2(@ptrCast(entry.ptr), @ptrCast(itemOrDirUrl.ptr)) };
+        return .{ .ptr = qtc.KFileItem_new2(@ptrCast(_entry.ptr), @ptrCast(itemOrDirUrl.ptr)) };
     }
 
-    /// New3 constructs a new KFileItem object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new KFileItem object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` url: QUrl `
+    /// ` _url: QUrl `
     ///
-    pub fn New3(url: anytype) KFileItem {
-        comptime _ = @TypeOf(url)._is_QUrl;
-        return .{ .ptr = qtc.KFileItem_new3(@ptrCast(url.ptr)) };
+    pub fn new3(_url: anytype) KFileItem {
+        comptime _ = @TypeOf(_url)._is_QUrl;
+        return .{ .ptr = qtc.KFileItem_new3(@ptrCast(_url.ptr)) };
     }
 
-    /// New4 constructs a new KFileItem object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new KFileItem object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` url: QUrl `
+    /// ` _url: QUrl `
     ///
     /// ` mimeTypeDetermination: kfileitem_enums.MimeTypeDetermination `
     ///
-    pub fn New4(url: anytype, mimeTypeDetermination: i32) KFileItem {
-        comptime _ = @TypeOf(url)._is_QUrl;
-        return .{ .ptr = qtc.KFileItem_new4(@ptrCast(url.ptr), @bitCast(mimeTypeDetermination)) };
+    pub fn new4(_url: anytype, mimeTypeDetermination: i32) KFileItem {
+        comptime _ = @TypeOf(_url)._is_QUrl;
+        return .{ .ptr = qtc.KFileItem_new4(@ptrCast(_url.ptr), @bitCast(mimeTypeDetermination)) };
     }
 
-    /// New5 constructs a new KFileItem object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new KFileItem object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: KFileItem `
     ///
-    pub fn New5(param1: anytype) KFileItem {
+    pub fn new5(param1: anytype) KFileItem {
         comptime _ = @TypeOf(param1)._is_KFileItem;
         return .{ .ptr = qtc.KFileItem_new5(@ptrCast(param1.ptr)) };
     }
 
-    /// New6 constructs a new KFileItem object.
+    /// ### DEPRECATED: Use `new6` instead
+    ///
+    pub const New6 = new6;
+
+    /// Allocate a new KFileItem object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` entry: KIO__UDSEntry `
+    /// ` _entry: KIO__UDSEntry `
     ///
     /// ` itemOrDirUrl: QUrl `
     ///
     /// ` delayedMimeTypes: bool `
     ///
-    pub fn New6(entry: anytype, itemOrDirUrl: anytype, delayedMimeTypes: bool) KFileItem {
-        comptime _ = @TypeOf(entry)._is_KIO__UDSEntry;
+    pub fn new6(_entry: anytype, itemOrDirUrl: anytype, delayedMimeTypes: bool) KFileItem {
+        comptime _ = @TypeOf(_entry)._is_KIO__UDSEntry;
         comptime _ = @TypeOf(itemOrDirUrl)._is_QUrl;
-        return .{ .ptr = qtc.KFileItem_new6(@ptrCast(entry.ptr), @ptrCast(itemOrDirUrl.ptr), delayedMimeTypes) };
+        return .{ .ptr = qtc.KFileItem_new6(@ptrCast(_entry.ptr), @ptrCast(itemOrDirUrl.ptr), delayedMimeTypes) };
     }
 
-    /// New7 constructs a new KFileItem object.
+    /// ### DEPRECATED: Use `new7` instead
+    ///
+    pub const New7 = new7;
+
+    /// Allocate a new KFileItem object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` entry: KIO__UDSEntry `
+    /// ` _entry: KIO__UDSEntry `
     ///
     /// ` itemOrDirUrl: QUrl `
     ///
@@ -102,47 +130,59 @@ pub const KFileItem = extern struct {
     ///
     /// ` urlIsDirectory: bool `
     ///
-    pub fn New7(entry: anytype, itemOrDirUrl: anytype, delayedMimeTypes: bool, urlIsDirectory: bool) KFileItem {
-        comptime _ = @TypeOf(entry)._is_KIO__UDSEntry;
+    pub fn new7(_entry: anytype, itemOrDirUrl: anytype, delayedMimeTypes: bool, urlIsDirectory: bool) KFileItem {
+        comptime _ = @TypeOf(_entry)._is_KIO__UDSEntry;
         comptime _ = @TypeOf(itemOrDirUrl)._is_QUrl;
-        return .{ .ptr = qtc.KFileItem_new7(@ptrCast(entry.ptr), @ptrCast(itemOrDirUrl.ptr), delayedMimeTypes, urlIsDirectory) };
+        return .{ .ptr = qtc.KFileItem_new7(@ptrCast(_entry.ptr), @ptrCast(itemOrDirUrl.ptr), delayedMimeTypes, urlIsDirectory) };
     }
 
-    /// New8 constructs a new KFileItem object.
+    /// ### DEPRECATED: Use `new8` instead
+    ///
+    pub const New8 = new8;
+
+    /// Allocate a new KFileItem object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` url: QUrl `
+    /// ` _url: QUrl `
     ///
     /// ` mimeType: []const u8 `
     ///
-    pub fn New8(url: anytype, mimeType: []const u8) KFileItem {
-        comptime _ = @TypeOf(url)._is_QUrl;
+    pub fn new8(_url: anytype, mimeType: []const u8) KFileItem {
+        comptime _ = @TypeOf(_url)._is_QUrl;
         const mimeType_str = qtc.libqt_string{
             .len = mimeType.len,
             .data = mimeType.ptr,
         };
-        return .{ .ptr = qtc.KFileItem_new8(@ptrCast(url.ptr), mimeType_str) };
+        return .{ .ptr = qtc.KFileItem_new8(@ptrCast(_url.ptr), mimeType_str) };
     }
 
-    /// New9 constructs a new KFileItem object.
+    /// ### DEPRECATED: Use `new9` instead
+    ///
+    pub const New9 = new9;
+
+    /// Allocate a new KFileItem object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` url: QUrl `
+    /// ` _url: QUrl `
     ///
     /// ` mimeType: []const u8 `
     ///
-    /// ` mode: u32 `
+    /// ` _mode: u32 `
     ///
-    pub fn New9(url: anytype, mimeType: []const u8, mode: u32) KFileItem {
-        comptime _ = @TypeOf(url)._is_QUrl;
+    pub fn new9(_url: anytype, mimeType: []const u8, _mode: u32) KFileItem {
+        comptime _ = @TypeOf(_url)._is_QUrl;
         const mimeType_str = qtc.libqt_string{
             .len = mimeType.len,
             .data = mimeType.ptr,
         };
-        return .{ .ptr = qtc.KFileItem_new9(@ptrCast(url.ptr), mimeType_str, mode) };
+        return .{ .ptr = qtc.KFileItem_new9(@ptrCast(_url.ptr), mimeType_str, _mode) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#operator-eq)
     ///
@@ -152,10 +192,14 @@ pub const KFileItem = extern struct {
     ///
     /// ` param1: KFileItem `
     ///
-    pub fn OperatorAssign(self: KFileItem, param1: anytype) void {
+    pub fn operatorAssign(self: KFileItem, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_KFileItem;
         qtc.KFileItem_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `refresh` instead
+    ///
+    pub const Refresh = refresh;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#refresh)
     ///
@@ -163,9 +207,13 @@ pub const KFileItem = extern struct {
     ///
     /// ` self: KFileItem `
     ///
-    pub fn Refresh(self: KFileItem) void {
+    pub fn refresh(self: KFileItem) void {
         qtc.KFileItem_Refresh(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `refreshMimeType` instead
+    ///
+    pub const RefreshMimeType = refreshMimeType;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#refreshMimeType)
     ///
@@ -173,9 +221,13 @@ pub const KFileItem = extern struct {
     ///
     /// ` self: KFileItem `
     ///
-    pub fn RefreshMimeType(self: KFileItem) void {
+    pub fn refreshMimeType(self: KFileItem) void {
         qtc.KFileItem_RefreshMimeType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDelayedMimeTypes` instead
+    ///
+    pub const SetDelayedMimeTypes = setDelayedMimeTypes;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#setDelayedMimeTypes)
     ///
@@ -185,9 +237,13 @@ pub const KFileItem = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetDelayedMimeTypes(self: KFileItem, b: bool) void {
+    pub fn setDelayedMimeTypes(self: KFileItem, b: bool) void {
         qtc.KFileItem_SetDelayedMimeTypes(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `url` instead
+    ///
+    pub const Url = url;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#url)
     ///
@@ -195,9 +251,13 @@ pub const KFileItem = extern struct {
     ///
     /// ` self: KFileItem `
     ///
-    pub fn Url(self: KFileItem) QUrl {
+    pub fn url(self: KFileItem) QUrl {
         return .{ .ptr = qtc.KFileItem_Url(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setUrl` instead
+    ///
+    pub const SetUrl = setUrl;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#setUrl)
     ///
@@ -205,12 +265,16 @@ pub const KFileItem = extern struct {
     ///
     /// ` self: KFileItem `
     ///
-    /// ` url: QUrl `
+    /// ` _url: QUrl `
     ///
-    pub fn SetUrl(self: KFileItem, url: anytype) void {
-        comptime _ = @TypeOf(url)._is_QUrl;
-        qtc.KFileItem_SetUrl(@ptrCast(self.ptr), @ptrCast(url.ptr));
+    pub fn setUrl(self: KFileItem, _url: anytype) void {
+        comptime _ = @TypeOf(_url)._is_QUrl;
+        qtc.KFileItem_SetUrl(@ptrCast(self.ptr), @ptrCast(_url.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocalPath` instead
+    ///
+    pub const SetLocalPath = setLocalPath;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#setLocalPath)
     ///
@@ -220,7 +284,7 @@ pub const KFileItem = extern struct {
     ///
     /// ` path: []const u8 `
     ///
-    pub fn SetLocalPath(self: KFileItem, path: []const u8) void {
+    pub fn setLocalPath(self: KFileItem, path: []const u8) void {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
@@ -228,21 +292,29 @@ pub const KFileItem = extern struct {
         qtc.KFileItem_SetLocalPath(@ptrCast(self.ptr), path_str);
     }
 
+    /// ### DEPRECATED: Use `setName` instead
+    ///
+    pub const SetName = setName;
+
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#setName)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KFileItem `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn SetName(self: KFileItem, name: []const u8) void {
+    pub fn setName(self: KFileItem, _name: []const u8) void {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         qtc.KFileItem_SetName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `permissions` instead
+    ///
+    pub const Permissions = permissions;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#permissions)
     ///
@@ -250,9 +322,13 @@ pub const KFileItem = extern struct {
     ///
     /// ` self: KFileItem `
     ///
-    pub fn Permissions(self: KFileItem) u32 {
+    pub fn permissions(self: KFileItem) u32 {
         return @bitCast(qtc.KFileItem_Permissions(@ptrCast(self.ptr)));
     }
+
+    /// ### DEPRECATED: Use `permissionsString` instead
+    ///
+    pub const PermissionsString = permissionsString;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#permissionsString)
     ///
@@ -262,13 +338,17 @@ pub const KFileItem = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PermissionsString(self: KFileItem, allocator: std.mem.Allocator) []const u8 {
+    pub fn permissionsString(self: KFileItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KFileItem_PermissionsString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItem.PermissionsString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItem.permissionsString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `hasExtendedACL` instead
+    ///
+    pub const HasExtendedACL = hasExtendedACL;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#hasExtendedACL)
     ///
@@ -276,7 +356,7 @@ pub const KFileItem = extern struct {
     ///
     /// ` self: KFileItem `
     ///
-    pub fn HasExtendedACL(self: KFileItem) bool {
+    pub fn hasExtendedACL(self: KFileItem) bool {
         return qtc.KFileItem_HasExtendedACL(@ptrCast(self.ptr));
     }
 
@@ -290,15 +370,23 @@ pub const KFileItem = extern struct {
         return .{ .ptr = qtc.KFileItem_ACL(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `defaultACL` instead
+    ///
+    pub const DefaultACL = defaultACL;
+
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#defaultACL)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KFileItem `
     ///
-    pub fn DefaultACL(self: KFileItem) KACL {
+    pub fn defaultACL(self: KFileItem) KACL {
         return .{ .ptr = qtc.KFileItem_DefaultACL(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mode` instead
+    ///
+    pub const Mode = mode;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#mode)
     ///
@@ -306,9 +394,13 @@ pub const KFileItem = extern struct {
     ///
     /// ` self: KFileItem `
     ///
-    pub fn Mode(self: KFileItem) u32 {
+    pub fn mode(self: KFileItem) u32 {
         return @bitCast(qtc.KFileItem_Mode(@ptrCast(self.ptr)));
     }
+
+    /// ### DEPRECATED: Use `userId` instead
+    ///
+    pub const UserId = userId;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#userId)
     ///
@@ -316,9 +408,13 @@ pub const KFileItem = extern struct {
     ///
     /// ` self: KFileItem `
     ///
-    pub fn UserId(self: KFileItem) i32 {
+    pub fn userId(self: KFileItem) i32 {
         return qtc.KFileItem_UserId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `groupId` instead
+    ///
+    pub const GroupId = groupId;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#groupId)
     ///
@@ -326,9 +422,13 @@ pub const KFileItem = extern struct {
     ///
     /// ` self: KFileItem `
     ///
-    pub fn GroupId(self: KFileItem) i32 {
+    pub fn groupId(self: KFileItem) i32 {
         return qtc.KFileItem_GroupId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `user` instead
+    ///
+    pub const User = user;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#user)
     ///
@@ -338,13 +438,17 @@ pub const KFileItem = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn User(self: KFileItem, allocator: std.mem.Allocator) []const u8 {
+    pub fn user(self: KFileItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KFileItem_User(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItem.User: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItem.user: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `group` instead
+    ///
+    pub const Group = group;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#group)
     ///
@@ -354,13 +458,17 @@ pub const KFileItem = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Group(self: KFileItem, allocator: std.mem.Allocator) []const u8 {
+    pub fn group(self: KFileItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KFileItem_Group(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItem.Group: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItem.group: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isLink` instead
+    ///
+    pub const IsLink = isLink;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#isLink)
     ///
@@ -368,9 +476,13 @@ pub const KFileItem = extern struct {
     ///
     /// ` self: KFileItem `
     ///
-    pub fn IsLink(self: KFileItem) bool {
+    pub fn isLink(self: KFileItem) bool {
         return qtc.KFileItem_IsLink(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDir` instead
+    ///
+    pub const IsDir = isDir;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#isDir)
     ///
@@ -378,9 +490,13 @@ pub const KFileItem = extern struct {
     ///
     /// ` self: KFileItem `
     ///
-    pub fn IsDir(self: KFileItem) bool {
+    pub fn isDir(self: KFileItem) bool {
         return qtc.KFileItem_IsDir(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFile` instead
+    ///
+    pub const IsFile = isFile;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#isFile)
     ///
@@ -388,9 +504,13 @@ pub const KFileItem = extern struct {
     ///
     /// ` self: KFileItem `
     ///
-    pub fn IsFile(self: KFileItem) bool {
+    pub fn isFile(self: KFileItem) bool {
         return qtc.KFileItem_IsFile(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isReadable` instead
+    ///
+    pub const IsReadable = isReadable;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#isReadable)
     ///
@@ -398,9 +518,13 @@ pub const KFileItem = extern struct {
     ///
     /// ` self: KFileItem `
     ///
-    pub fn IsReadable(self: KFileItem) bool {
+    pub fn isReadable(self: KFileItem) bool {
         return qtc.KFileItem_IsReadable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWritable` instead
+    ///
+    pub const IsWritable = isWritable;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#isWritable)
     ///
@@ -408,9 +532,13 @@ pub const KFileItem = extern struct {
     ///
     /// ` self: KFileItem `
     ///
-    pub fn IsWritable(self: KFileItem) bool {
+    pub fn isWritable(self: KFileItem) bool {
         return qtc.KFileItem_IsWritable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#isHidden)
     ///
@@ -418,9 +546,13 @@ pub const KFileItem = extern struct {
     ///
     /// ` self: KFileItem `
     ///
-    pub fn IsHidden(self: KFileItem) bool {
+    pub fn isHidden(self: KFileItem) bool {
         return qtc.KFileItem_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isSlow` instead
+    ///
+    pub const IsSlow = isSlow;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#isSlow)
     ///
@@ -428,9 +560,13 @@ pub const KFileItem = extern struct {
     ///
     /// ` self: KFileItem `
     ///
-    pub fn IsSlow(self: KFileItem) bool {
+    pub fn isSlow(self: KFileItem) bool {
         return qtc.KFileItem_IsSlow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDesktopFile` instead
+    ///
+    pub const IsDesktopFile = isDesktopFile;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#isDesktopFile)
     ///
@@ -438,9 +574,13 @@ pub const KFileItem = extern struct {
     ///
     /// ` self: KFileItem `
     ///
-    pub fn IsDesktopFile(self: KFileItem) bool {
+    pub fn isDesktopFile(self: KFileItem) bool {
         return qtc.KFileItem_IsDesktopFile(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `linkDest` instead
+    ///
+    pub const LinkDest = linkDest;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#linkDest)
     ///
@@ -450,13 +590,17 @@ pub const KFileItem = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LinkDest(self: KFileItem, allocator: std.mem.Allocator) []const u8 {
+    pub fn linkDest(self: KFileItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KFileItem_LinkDest(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItem.LinkDest: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItem.linkDest: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `targetUrl` instead
+    ///
+    pub const TargetUrl = targetUrl;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#targetUrl)
     ///
@@ -464,9 +608,13 @@ pub const KFileItem = extern struct {
     ///
     /// ` self: KFileItem `
     ///
-    pub fn TargetUrl(self: KFileItem) QUrl {
+    pub fn targetUrl(self: KFileItem) QUrl {
         return .{ .ptr = qtc.KFileItem_TargetUrl(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `localPath` instead
+    ///
+    pub const LocalPath = localPath;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#localPath)
     ///
@@ -476,13 +624,17 @@ pub const KFileItem = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LocalPath(self: KFileItem, allocator: std.mem.Allocator) []const u8 {
+    pub fn localPath(self: KFileItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KFileItem_LocalPath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItem.LocalPath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItem.localPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#size)
     ///
@@ -490,9 +642,13 @@ pub const KFileItem = extern struct {
     ///
     /// ` self: KFileItem `
     ///
-    pub fn Size(self: KFileItem) usize {
+    pub fn size(self: KFileItem) usize {
         return qtc.KFileItem_Size(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `recursiveSize` instead
+    ///
+    pub const RecursiveSize = recursiveSize;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#recursiveSize)
     ///
@@ -500,9 +656,13 @@ pub const KFileItem = extern struct {
     ///
     /// ` self: KFileItem `
     ///
-    pub fn RecursiveSize(self: KFileItem) usize {
+    pub fn recursiveSize(self: KFileItem) usize {
         return qtc.KFileItem_RecursiveSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `time` instead
+    ///
+    pub const Time = time;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#time)
     ///
@@ -512,9 +672,13 @@ pub const KFileItem = extern struct {
     ///
     /// ` which: kfileitem_enums.FileTimes `
     ///
-    pub fn Time(self: KFileItem, which: i32) QDateTime {
+    pub fn time(self: KFileItem, which: i32) QDateTime {
         return .{ .ptr = qtc.KFileItem_Time(@ptrCast(self.ptr), @bitCast(which)) };
     }
+
+    /// ### DEPRECATED: Use `timeString` instead
+    ///
+    pub const TimeString = timeString;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#timeString)
     ///
@@ -524,13 +688,17 @@ pub const KFileItem = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TimeString(self: KFileItem, allocator: std.mem.Allocator) []const u8 {
+    pub fn timeString(self: KFileItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KFileItem_TimeString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItem.TimeString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItem.timeString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isLocalFile` instead
+    ///
+    pub const IsLocalFile = isLocalFile;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#isLocalFile)
     ///
@@ -538,9 +706,13 @@ pub const KFileItem = extern struct {
     ///
     /// ` self: KFileItem `
     ///
-    pub fn IsLocalFile(self: KFileItem) bool {
+    pub fn isLocalFile(self: KFileItem) bool {
         return qtc.KFileItem_IsLocalFile(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `text` instead
+    ///
+    pub const Text = text;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#text)
     ///
@@ -550,13 +722,17 @@ pub const KFileItem = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: KFileItem, allocator: std.mem.Allocator) []const u8 {
+    pub fn text(self: KFileItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KFileItem_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItem.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItem.text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#name)
     ///
@@ -566,13 +742,17 @@ pub const KFileItem = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: KFileItem, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: KFileItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KFileItem_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItem.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItem.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `mimetype` instead
+    ///
+    pub const Mimetype = mimetype;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#mimetype)
     ///
@@ -582,13 +762,17 @@ pub const KFileItem = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Mimetype(self: KFileItem, allocator: std.mem.Allocator) []const u8 {
+    pub fn mimetype(self: KFileItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KFileItem_Mimetype(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItem.Mimetype: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItem.mimetype: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `determineMimeType` instead
+    ///
+    pub const DetermineMimeType = determineMimeType;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#determineMimeType)
     ///
@@ -596,9 +780,13 @@ pub const KFileItem = extern struct {
     ///
     /// ` self: KFileItem `
     ///
-    pub fn DetermineMimeType(self: KFileItem) QMimeType {
+    pub fn determineMimeType(self: KFileItem) QMimeType {
         return .{ .ptr = qtc.KFileItem_DetermineMimeType(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `currentMimeType` instead
+    ///
+    pub const CurrentMimeType = currentMimeType;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#currentMimeType)
     ///
@@ -606,9 +794,13 @@ pub const KFileItem = extern struct {
     ///
     /// ` self: KFileItem `
     ///
-    pub fn CurrentMimeType(self: KFileItem) QMimeType {
+    pub fn currentMimeType(self: KFileItem) QMimeType {
         return .{ .ptr = qtc.KFileItem_CurrentMimeType(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isFinalIconKnown` instead
+    ///
+    pub const IsFinalIconKnown = isFinalIconKnown;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#isFinalIconKnown)
     ///
@@ -616,9 +808,13 @@ pub const KFileItem = extern struct {
     ///
     /// ` self: KFileItem `
     ///
-    pub fn IsFinalIconKnown(self: KFileItem) bool {
+    pub fn isFinalIconKnown(self: KFileItem) bool {
         return qtc.KFileItem_IsFinalIconKnown(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMimeTypeKnown` instead
+    ///
+    pub const IsMimeTypeKnown = isMimeTypeKnown;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#isMimeTypeKnown)
     ///
@@ -626,9 +822,13 @@ pub const KFileItem = extern struct {
     ///
     /// ` self: KFileItem `
     ///
-    pub fn IsMimeTypeKnown(self: KFileItem) bool {
+    pub fn isMimeTypeKnown(self: KFileItem) bool {
         return qtc.KFileItem_IsMimeTypeKnown(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `mimeComment` instead
+    ///
+    pub const MimeComment = mimeComment;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#mimeComment)
     ///
@@ -638,13 +838,17 @@ pub const KFileItem = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MimeComment(self: KFileItem, allocator: std.mem.Allocator) []const u8 {
+    pub fn mimeComment(self: KFileItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KFileItem_MimeComment(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItem.MimeComment: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItem.mimeComment: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `iconName` instead
+    ///
+    pub const IconName = iconName;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#iconName)
     ///
@@ -654,13 +858,17 @@ pub const KFileItem = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn IconName(self: KFileItem, allocator: std.mem.Allocator) []const u8 {
+    pub fn iconName(self: KFileItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KFileItem_IconName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItem.IconName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItem.iconName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `overlays` instead
+    ///
+    pub const Overlays = overlays;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#overlays)
     ///
@@ -670,7 +878,7 @@ pub const KFileItem = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Overlays(self: KFileItem, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn overlays(self: KFileItem, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KFileItem_Overlays(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -678,15 +886,19 @@ pub const KFileItem = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KFileItem.Overlays: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KFileItem.overlays: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KFileItem.Overlays: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KFileItem.overlays: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `comment` instead
+    ///
+    pub const Comment = comment;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#comment)
     ///
@@ -696,13 +908,17 @@ pub const KFileItem = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Comment(self: KFileItem, allocator: std.mem.Allocator) []const u8 {
+    pub fn comment(self: KFileItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KFileItem_Comment(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItem.Comment: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItem.comment: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `getStatusBarInfo` instead
+    ///
+    pub const GetStatusBarInfo = getStatusBarInfo;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#getStatusBarInfo)
     ///
@@ -712,13 +928,17 @@ pub const KFileItem = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GetStatusBarInfo(self: KFileItem, allocator: std.mem.Allocator) []const u8 {
+    pub fn getStatusBarInfo(self: KFileItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KFileItem_GetStatusBarInfo(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItem.GetStatusBarInfo: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItem.getStatusBarInfo: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `entry` instead
+    ///
+    pub const Entry = entry;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#entry)
     ///
@@ -726,9 +946,13 @@ pub const KFileItem = extern struct {
     ///
     /// ` self: KFileItem `
     ///
-    pub fn Entry(self: KFileItem) KIO__UDSEntry {
+    pub fn entry(self: KFileItem) KIO__UDSEntry {
         return .{ .ptr = qtc.KFileItem_Entry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isRegularFile` instead
+    ///
+    pub const IsRegularFile = isRegularFile;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#isRegularFile)
     ///
@@ -736,9 +960,13 @@ pub const KFileItem = extern struct {
     ///
     /// ` self: KFileItem `
     ///
-    pub fn IsRegularFile(self: KFileItem) bool {
+    pub fn isRegularFile(self: KFileItem) bool {
         return qtc.KFileItem_IsRegularFile(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `suffix` instead
+    ///
+    pub const Suffix = suffix;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#suffix)
     ///
@@ -748,13 +976,17 @@ pub const KFileItem = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Suffix(self: KFileItem, allocator: std.mem.Allocator) []const u8 {
+    pub fn suffix(self: KFileItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KFileItem_Suffix(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItem.Suffix: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItem.suffix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `cmp` instead
+    ///
+    pub const Cmp = cmp;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#cmp)
     ///
@@ -764,10 +996,14 @@ pub const KFileItem = extern struct {
     ///
     /// ` item: KFileItem `
     ///
-    pub fn Cmp(self: KFileItem, item: anytype) bool {
+    pub fn cmp(self: KFileItem, item: anytype) bool {
         comptime _ = @TypeOf(item)._is_KFileItem;
         return qtc.KFileItem_Cmp(@ptrCast(self.ptr), @ptrCast(item.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#operator-eq-eq)
     ///
@@ -777,10 +1013,14 @@ pub const KFileItem = extern struct {
     ///
     /// ` other: KFileItem `
     ///
-    pub fn OperatorEqual(self: KFileItem, other: anytype) bool {
+    pub fn operatorEqual(self: KFileItem, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_KFileItem;
         return qtc.KFileItem_OperatorEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#operator-not-eq)
     ///
@@ -790,10 +1030,14 @@ pub const KFileItem = extern struct {
     ///
     /// ` other: KFileItem `
     ///
-    pub fn OperatorNotEqual(self: KFileItem, other: anytype) bool {
+    pub fn operatorNotEqual(self: KFileItem, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_KFileItem;
         return qtc.KFileItem_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorLesser` instead
+    ///
+    pub const OperatorLesser = operatorLesser;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#operator-lt)
     ///
@@ -803,10 +1047,14 @@ pub const KFileItem = extern struct {
     ///
     /// ` other: KFileItem `
     ///
-    pub fn OperatorLesser(self: KFileItem, other: anytype) bool {
+    pub fn operatorLesser(self: KFileItem, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_KFileItem;
         return qtc.KFileItem_OperatorLesser(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorLesser2` instead
+    ///
+    pub const OperatorLesser2 = operatorLesser2;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#operator-lt)
     ///
@@ -816,10 +1064,14 @@ pub const KFileItem = extern struct {
     ///
     /// ` other: QUrl `
     ///
-    pub fn OperatorLesser2(self: KFileItem, other: anytype) bool {
+    pub fn operatorLesser2(self: KFileItem, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QUrl;
         return qtc.KFileItem_OperatorLesser2(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `toQVariant` instead
+    ///
+    pub const ToQVariant = toQVariant;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#operator)
     ///
@@ -827,9 +1079,13 @@ pub const KFileItem = extern struct {
     ///
     /// ` self: KFileItem `
     ///
-    pub fn ToQVariant(self: KFileItem) QVariant {
+    pub fn toQVariant(self: KFileItem) QVariant {
         return .{ .ptr = qtc.KFileItem_ToQVariant(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mostLocalUrl` instead
+    ///
+    pub const MostLocalUrl = mostLocalUrl;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#mostLocalUrl)
     ///
@@ -837,9 +1093,13 @@ pub const KFileItem = extern struct {
     ///
     /// ` self: KFileItem `
     ///
-    pub fn MostLocalUrl(self: KFileItem) QUrl {
+    pub fn mostLocalUrl(self: KFileItem) QUrl {
         return .{ .ptr = qtc.KFileItem_MostLocalUrl(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isMostLocalUrl` instead
+    ///
+    pub const IsMostLocalUrl = isMostLocalUrl;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#isMostLocalUrl)
     ///
@@ -847,9 +1107,13 @@ pub const KFileItem = extern struct {
     ///
     /// ` self: KFileItem `
     ///
-    pub fn IsMostLocalUrl(self: KFileItem) KFileItem__MostLocalUrlResult {
+    pub fn isMostLocalUrl(self: KFileItem) KFileItem__MostLocalUrlResult {
         return .{ .ptr = qtc.KFileItem_IsMostLocalUrl(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isNull` instead
+    ///
+    pub const IsNull = isNull;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#isNull)
     ///
@@ -857,9 +1121,13 @@ pub const KFileItem = extern struct {
     ///
     /// ` self: KFileItem `
     ///
-    pub fn IsNull(self: KFileItem) bool {
+    pub fn isNull(self: KFileItem) bool {
         return qtc.KFileItem_IsNull(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `exists` instead
+    ///
+    pub const Exists = exists;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#exists)
     ///
@@ -867,9 +1135,13 @@ pub const KFileItem = extern struct {
     ///
     /// ` self: KFileItem `
     ///
-    pub fn Exists(self: KFileItem) bool {
+    pub fn exists(self: KFileItem) bool {
         return qtc.KFileItem_Exists(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isExecutable` instead
+    ///
+    pub const IsExecutable = isExecutable;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#isExecutable)
     ///
@@ -877,9 +1149,13 @@ pub const KFileItem = extern struct {
     ///
     /// ` self: KFileItem `
     ///
-    pub fn IsExecutable(self: KFileItem) bool {
+    pub fn isExecutable(self: KFileItem) bool {
         return qtc.KFileItem_IsExecutable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `timeString1` instead
+    ///
+    pub const TimeString1 = timeString1;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#timeString)
     ///
@@ -891,13 +1167,17 @@ pub const KFileItem = extern struct {
     ///
     /// ` which: kfileitem_enums.FileTimes `
     ///
-    pub fn TimeString1(self: KFileItem, allocator: std.mem.Allocator, which: i32) []const u8 {
+    pub fn timeString1(self: KFileItem, allocator: std.mem.Allocator, which: i32) []const u8 {
         var _str = qtc.KFileItem_TimeString1(@ptrCast(self.ptr), @bitCast(which));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItem.TimeString1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItem.timeString1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `name1` instead
+    ///
+    pub const Name1 = name1;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#name)
     ///
@@ -909,13 +1189,17 @@ pub const KFileItem = extern struct {
     ///
     /// ` lowerCase: bool `
     ///
-    pub fn Name1(self: KFileItem, allocator: std.mem.Allocator, lowerCase: bool) []const u8 {
+    pub fn name1(self: KFileItem, allocator: std.mem.Allocator, lowerCase: bool) []const u8 {
         var _str = qtc.KFileItem_Name1(@ptrCast(self.ptr), lowerCase);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItem.Name1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItem.name1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `mostLocalUrl1` instead
+    ///
+    pub const MostLocalUrl1 = mostLocalUrl1;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#mostLocalUrl)
     ///
@@ -925,23 +1209,23 @@ pub const KFileItem = extern struct {
     ///
     /// ` local: *bool `
     ///
-    pub fn MostLocalUrl1(self: KFileItem, local: *bool) QUrl {
+    pub fn mostLocalUrl1(self: KFileItem, local: *bool) QUrl {
         return .{ .ptr = qtc.KFileItem_MostLocalUrl1(@ptrCast(self.ptr), @ptrCast(local)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#dtor.KFileItem)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KFileItem `
     ///
-    pub fn Delete(self: KFileItem) void {
+    pub fn delete(self: KFileItem) void {
         qtc.KFileItem_Delete(@ptrCast(self.ptr));
     }
 };
@@ -958,25 +1242,37 @@ pub const KFileItemList = extern struct {
 
     pub const _is_KFileItemList = {};
 
-    /// New constructs a new KFileItemList object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() KFileItemList {
+    pub const New = new;
+
+    /// Allocate a new KFileItemList object in C++ memory
+    ///
+    pub fn new() KFileItemList {
         return .{ .ptr = qtc.KFileItemList_new() };
     }
 
-    /// New2 constructs a new KFileItemList object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KFileItemList object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` items: []KFileItem `
     ///
-    pub fn New2(items: []KFileItem) KFileItemList {
+    pub fn new2(items: []KFileItem) KFileItemList {
         const items_list = qtc.libqt_list{
             .len = items.len,
             .data = @ptrCast(items.ptr),
         };
         return .{ .ptr = qtc.KFileItemList_new2(items_list) };
     }
+
+    /// ### DEPRECATED: Use `findByName` instead
+    ///
+    pub const FindByName = findByName;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemlist.html#findByName)
     ///
@@ -986,7 +1282,7 @@ pub const KFileItemList = extern struct {
     ///
     /// ` fileName: []const u8 `
     ///
-    pub fn FindByName(self: KFileItemList, fileName: []const u8) KFileItem {
+    pub fn findByName(self: KFileItemList, fileName: []const u8) KFileItem {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
@@ -994,18 +1290,26 @@ pub const KFileItemList = extern struct {
         return .{ .ptr = qtc.KFileItemList_FindByName(@ptrCast(self.ptr), fileName_str) };
     }
 
+    /// ### DEPRECATED: Use `findByUrl` instead
+    ///
+    pub const FindByUrl = findByUrl;
+
     /// ### [Upstream resources](https://api.kde.org/kfileitemlist.html#findByUrl)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KFileItemList `
     ///
-    /// ` url: QUrl `
+    /// ` _url: QUrl `
     ///
-    pub fn FindByUrl(self: KFileItemList, url: anytype) KFileItem {
-        comptime _ = @TypeOf(url)._is_QUrl;
-        return .{ .ptr = qtc.KFileItemList_FindByUrl(@ptrCast(self.ptr), @ptrCast(url.ptr)) };
+    pub fn findByUrl(self: KFileItemList, _url: anytype) KFileItem {
+        comptime _ = @TypeOf(_url)._is_QUrl;
+        return .{ .ptr = qtc.KFileItemList_FindByUrl(@ptrCast(self.ptr), @ptrCast(_url.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `urlList` instead
+    ///
+    pub const UrlList = urlList;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemlist.html#urlList)
     ///
@@ -1015,15 +1319,19 @@ pub const KFileItemList = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn UrlList(self: KFileItemList, allocator: std.mem.Allocator) []QUrl {
+    pub fn urlList(self: KFileItemList, allocator: std.mem.Allocator) []QUrl {
         const _arr: qtc.libqt_list = qtc.KFileItemList_UrlList(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("KFileItemList.UrlList: Memory allocation failed");
-        const _data: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("KFileItemList.urlList: Memory allocation failed");
+        const _data_val: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `targetUrlList` instead
+    ///
+    pub const TargetUrlList = targetUrlList;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemlist.html#targetUrlList)
     ///
@@ -1033,29 +1341,29 @@ pub const KFileItemList = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TargetUrlList(self: KFileItemList, allocator: std.mem.Allocator) []QUrl {
+    pub fn targetUrlList(self: KFileItemList, allocator: std.mem.Allocator) []QUrl {
         const _arr: qtc.libqt_list = qtc.KFileItemList_TargetUrlList(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("KFileItemList.TargetUrlList: Memory allocation failed");
-        const _data: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("KFileItemList.targetUrlList: Memory allocation failed");
+        const _data_val: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitemlist.html#dtor.KFileItemList)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KFileItemList `
     ///
-    pub fn Delete(self: KFileItemList) void {
+    pub fn delete(self: KFileItemList) void {
         qtc.KFileItemList_Delete(@ptrCast(self.ptr));
     }
 };
@@ -1070,45 +1378,65 @@ pub const KFileItem__MostLocalUrlResult = extern struct {
 
     pub const _is_KFileItem__MostLocalUrlResult = {};
 
-    /// New constructs a new KFileItem::MostLocalUrlResult object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() KFileItem__MostLocalUrlResult {
+    pub const New = new;
+
+    /// Allocate a new KFileItem::MostLocalUrlResult object in C++ memory
+    ///
+    pub fn new() KFileItem__MostLocalUrlResult {
         return .{ .ptr = qtc.KFileItem__MostLocalUrlResult_new() };
     }
 
-    /// New2 constructs a new KFileItem::MostLocalUrlResult object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KFileItem::MostLocalUrlResult object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: KFileItem__MostLocalUrlResult `
     ///
-    pub fn New2(param1: anytype) KFileItem__MostLocalUrlResult {
+    pub fn new2(param1: anytype) KFileItem__MostLocalUrlResult {
         comptime _ = @TypeOf(param1)._is_KFileItem__MostLocalUrlResult;
         return .{ .ptr = qtc.KFileItem__MostLocalUrlResult_new2(@ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `url` instead
+    ///
+    pub const Url = url;
+
     /// ### [Upstream resources](https://api.kde.org/kfileitem-mostlocalurlresult.html#url-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KFileItem__MostLocalUrlResult `
     ///
-    pub fn Url(self: KFileItem__MostLocalUrlResult) QUrl {
+    pub fn url(self: KFileItem__MostLocalUrlResult) QUrl {
         return .{ .ptr = qtc.KFileItem__MostLocalUrlResult_Url(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setUrl` instead
+    ///
+    pub const SetUrl = setUrl;
+
     /// ### [Upstream resources](https://api.kde.org/kfileitem-mostlocalurlresult.html#url-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KFileItem__MostLocalUrlResult `
     ///
-    /// ` url: QUrl `
+    /// ` _url: QUrl `
     ///
-    pub fn SetUrl(self: KFileItem__MostLocalUrlResult, url: anytype) void {
-        comptime _ = @TypeOf(url)._is_QUrl;
-        qtc.KFileItem__MostLocalUrlResult_SetUrl(@ptrCast(self.ptr), @ptrCast(url.ptr));
+    pub fn setUrl(self: KFileItem__MostLocalUrlResult, _url: anytype) void {
+        comptime _ = @TypeOf(_url)._is_QUrl;
+        qtc.KFileItem__MostLocalUrlResult_SetUrl(@ptrCast(self.ptr), @ptrCast(_url.ptr));
     }
+
+    /// ### DEPRECATED: Use `local` instead
+    ///
+    pub const Local = local;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem-mostlocalurlresult.html#local-var)
     ///
@@ -1116,21 +1444,29 @@ pub const KFileItem__MostLocalUrlResult = extern struct {
     ///
     /// ` self: KFileItem__MostLocalUrlResult `
     ///
-    pub fn Local(self: KFileItem__MostLocalUrlResult) bool {
+    pub fn local(self: KFileItem__MostLocalUrlResult) bool {
         return qtc.KFileItem__MostLocalUrlResult_Local(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setLocal` instead
+    ///
+    pub const SetLocal = setLocal;
+
     /// ### [Upstream resources](https://api.kde.org/kfileitem-mostlocalurlresult.html#local-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KFileItem__MostLocalUrlResult `
     ///
-    /// ` local: bool `
+    /// ` _local: bool `
     ///
-    pub fn SetLocal(self: KFileItem__MostLocalUrlResult, local: bool) void {
-        qtc.KFileItem__MostLocalUrlResult_SetLocal(@ptrCast(self.ptr), local);
+    pub fn setLocal(self: KFileItem__MostLocalUrlResult, _local: bool) void {
+        qtc.KFileItem__MostLocalUrlResult_SetLocal(@ptrCast(self.ptr), _local);
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem-mostlocalurlresult.html#operator-eq)
     ///
@@ -1140,22 +1476,22 @@ pub const KFileItem__MostLocalUrlResult = extern struct {
     ///
     /// ` param1: KFileItem__MostLocalUrlResult `
     ///
-    pub fn OperatorAssign(self: KFileItem__MostLocalUrlResult, param1: anytype) void {
+    pub fn operatorAssign(self: KFileItem__MostLocalUrlResult, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_KFileItem__MostLocalUrlResult;
         qtc.KFileItem__MostLocalUrlResult_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KFileItem__MostLocalUrlResult `
     ///
-    pub fn Delete(self: KFileItem__MostLocalUrlResult) void {
+    pub fn delete(self: KFileItem__MostLocalUrlResult) void {
         qtc.KFileItem__MostLocalUrlResult_Delete(@ptrCast(self.ptr));
     }
 };

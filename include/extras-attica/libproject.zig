@@ -13,22 +13,34 @@ pub const Attica__Project = extern struct {
 
     pub const _is_Attica__Project = {};
 
-    /// New constructs a new Attica::Project object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() Attica__Project {
+    pub const New = new;
+
+    /// Allocate a new Attica::Project object in C++ memory
+    ///
+    pub fn new() Attica__Project {
         return .{ .ptr = qtc.Attica__Project_new() };
     }
 
-    /// New2 constructs a new Attica::Project object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new Attica::Project object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: Attica__Project `
     ///
-    pub fn New2(other: anytype) Attica__Project {
+    pub fn new2(other: anytype) Attica__Project {
         comptime _ = @TypeOf(other)._is_Attica__Project;
         return .{ .ptr = qtc.Attica__Project_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://api.kde.org/attica-project.html#operator-eq)
     ///
@@ -38,10 +50,14 @@ pub const Attica__Project = extern struct {
     ///
     /// ` other: Attica__Project `
     ///
-    pub fn OperatorAssign(self: Attica__Project, other: anytype) void {
+    pub fn operatorAssign(self: Attica__Project, other: anytype) void {
         comptime _ = @TypeOf(other)._is_Attica__Project;
         qtc.Attica__Project_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `setId` instead
+    ///
+    pub const SetId = setId;
 
     /// ### [Upstream resources](https://api.kde.org/attica-project.html#setId)
     ///
@@ -49,15 +65,19 @@ pub const Attica__Project = extern struct {
     ///
     /// ` self: Attica__Project `
     ///
-    /// ` id: []const u8 `
+    /// ` _id: []const u8 `
     ///
-    pub fn SetId(self: Attica__Project, id: []const u8) void {
+    pub fn setId(self: Attica__Project, _id: []const u8) void {
         const id_str = qtc.libqt_string{
-            .len = id.len,
-            .data = id.ptr,
+            .len = _id.len,
+            .data = _id.ptr,
         };
         qtc.Attica__Project_SetId(@ptrCast(self.ptr), id_str);
     }
+
+    /// ### DEPRECATED: Use `id` instead
+    ///
+    pub const Id = id;
 
     /// ### [Upstream resources](https://api.kde.org/attica-project.html#id)
     ///
@@ -67,13 +87,17 @@ pub const Attica__Project = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Id(self: Attica__Project, allocator: std.mem.Allocator) []const u8 {
+    pub fn id(self: Attica__Project, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Project_Id(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Project.Id: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Project.id: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setName` instead
+    ///
+    pub const SetName = setName;
 
     /// ### [Upstream resources](https://api.kde.org/attica-project.html#setName)
     ///
@@ -81,15 +105,19 @@ pub const Attica__Project = extern struct {
     ///
     /// ` self: Attica__Project `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn SetName(self: Attica__Project, name: []const u8) void {
+    pub fn setName(self: Attica__Project, _name: []const u8) void {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         qtc.Attica__Project_SetName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// ### [Upstream resources](https://api.kde.org/attica-project.html#name)
     ///
@@ -99,13 +127,17 @@ pub const Attica__Project = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: Attica__Project, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: Attica__Project, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Project_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Project.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Project.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setVersion` instead
+    ///
+    pub const SetVersion = setVersion;
 
     /// ### [Upstream resources](https://api.kde.org/attica-project.html#setVersion)
     ///
@@ -113,15 +145,19 @@ pub const Attica__Project = extern struct {
     ///
     /// ` self: Attica__Project `
     ///
-    /// ` version: []const u8 `
+    /// ` _version: []const u8 `
     ///
-    pub fn SetVersion(self: Attica__Project, version: []const u8) void {
+    pub fn setVersion(self: Attica__Project, _version: []const u8) void {
         const version_str = qtc.libqt_string{
-            .len = version.len,
-            .data = version.ptr,
+            .len = _version.len,
+            .data = _version.ptr,
         };
         qtc.Attica__Project_SetVersion(@ptrCast(self.ptr), version_str);
     }
+
+    /// ### DEPRECATED: Use `version` instead
+    ///
+    pub const Version = version;
 
     /// ### [Upstream resources](https://api.kde.org/attica-project.html#version)
     ///
@@ -131,13 +167,17 @@ pub const Attica__Project = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Version(self: Attica__Project, allocator: std.mem.Allocator) []const u8 {
+    pub fn version(self: Attica__Project, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Project_Version(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Project.Version: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Project.version: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setUrl` instead
+    ///
+    pub const SetUrl = setUrl;
 
     /// ### [Upstream resources](https://api.kde.org/attica-project.html#setUrl)
     ///
@@ -145,15 +185,19 @@ pub const Attica__Project = extern struct {
     ///
     /// ` self: Attica__Project `
     ///
-    /// ` url: []const u8 `
+    /// ` _url: []const u8 `
     ///
-    pub fn SetUrl(self: Attica__Project, url: []const u8) void {
+    pub fn setUrl(self: Attica__Project, _url: []const u8) void {
         const url_str = qtc.libqt_string{
-            .len = url.len,
-            .data = url.ptr,
+            .len = _url.len,
+            .data = _url.ptr,
         };
         qtc.Attica__Project_SetUrl(@ptrCast(self.ptr), url_str);
     }
+
+    /// ### DEPRECATED: Use `url` instead
+    ///
+    pub const Url = url;
 
     /// ### [Upstream resources](https://api.kde.org/attica-project.html#url)
     ///
@@ -163,13 +207,17 @@ pub const Attica__Project = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Url(self: Attica__Project, allocator: std.mem.Allocator) []const u8 {
+    pub fn url(self: Attica__Project, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Project_Url(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Project.Url: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Project.url: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setLicense` instead
+    ///
+    pub const SetLicense = setLicense;
 
     /// ### [Upstream resources](https://api.kde.org/attica-project.html#setLicense)
     ///
@@ -177,15 +225,19 @@ pub const Attica__Project = extern struct {
     ///
     /// ` self: Attica__Project `
     ///
-    /// ` license: []const u8 `
+    /// ` _license: []const u8 `
     ///
-    pub fn SetLicense(self: Attica__Project, license: []const u8) void {
+    pub fn setLicense(self: Attica__Project, _license: []const u8) void {
         const license_str = qtc.libqt_string{
-            .len = license.len,
-            .data = license.ptr,
+            .len = _license.len,
+            .data = _license.ptr,
         };
         qtc.Attica__Project_SetLicense(@ptrCast(self.ptr), license_str);
     }
+
+    /// ### DEPRECATED: Use `license` instead
+    ///
+    pub const License = license;
 
     /// ### [Upstream resources](https://api.kde.org/attica-project.html#license)
     ///
@@ -195,13 +247,17 @@ pub const Attica__Project = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn License(self: Attica__Project, allocator: std.mem.Allocator) []const u8 {
+    pub fn license(self: Attica__Project, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Project_License(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Project.License: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Project.license: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setSummary` instead
+    ///
+    pub const SetSummary = setSummary;
 
     /// ### [Upstream resources](https://api.kde.org/attica-project.html#setSummary)
     ///
@@ -209,15 +265,19 @@ pub const Attica__Project = extern struct {
     ///
     /// ` self: Attica__Project `
     ///
-    /// ` summary: []const u8 `
+    /// ` _summary: []const u8 `
     ///
-    pub fn SetSummary(self: Attica__Project, summary: []const u8) void {
+    pub fn setSummary(self: Attica__Project, _summary: []const u8) void {
         const summary_str = qtc.libqt_string{
-            .len = summary.len,
-            .data = summary.ptr,
+            .len = _summary.len,
+            .data = _summary.ptr,
         };
         qtc.Attica__Project_SetSummary(@ptrCast(self.ptr), summary_str);
     }
+
+    /// ### DEPRECATED: Use `summary` instead
+    ///
+    pub const Summary = summary;
 
     /// ### [Upstream resources](https://api.kde.org/attica-project.html#summary)
     ///
@@ -227,13 +287,17 @@ pub const Attica__Project = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Summary(self: Attica__Project, allocator: std.mem.Allocator) []const u8 {
+    pub fn summary(self: Attica__Project, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Project_Summary(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Project.Summary: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Project.summary: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setDescription` instead
+    ///
+    pub const SetDescription = setDescription;
 
     /// ### [Upstream resources](https://api.kde.org/attica-project.html#setDescription)
     ///
@@ -241,15 +305,19 @@ pub const Attica__Project = extern struct {
     ///
     /// ` self: Attica__Project `
     ///
-    /// ` description: []const u8 `
+    /// ` _description: []const u8 `
     ///
-    pub fn SetDescription(self: Attica__Project, description: []const u8) void {
+    pub fn setDescription(self: Attica__Project, _description: []const u8) void {
         const description_str = qtc.libqt_string{
-            .len = description.len,
-            .data = description.ptr,
+            .len = _description.len,
+            .data = _description.ptr,
         };
         qtc.Attica__Project_SetDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `description` instead
+    ///
+    pub const Description = description;
 
     /// ### [Upstream resources](https://api.kde.org/attica-project.html#description)
     ///
@@ -259,13 +327,17 @@ pub const Attica__Project = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Description(self: Attica__Project, allocator: std.mem.Allocator) []const u8 {
+    pub fn description(self: Attica__Project, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Project_Description(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Project.Description: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Project.description: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setDevelopers` instead
+    ///
+    pub const SetDevelopers = setDevelopers;
 
     /// ### [Upstream resources](https://api.kde.org/attica-project.html#setDevelopers)
     ///
@@ -275,22 +347,26 @@ pub const Attica__Project = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` developers: []const []const u8 `
+    /// ` _developers: []const []const u8 `
     ///
-    pub fn SetDevelopers(self: Attica__Project, allocator: std.mem.Allocator, developers: []const []const u8) void {
-        const developers_arr = allocator.alloc(qtc.libqt_string, developers.len) catch @panic("Attica__Project.SetDevelopers: Memory allocation failed");
+    pub fn setDevelopers(self: Attica__Project, allocator: std.mem.Allocator, _developers: []const []const u8) void {
+        const developers_arr = allocator.alloc(qtc.libqt_string, _developers.len) catch @panic("Attica__Project.setDevelopers: Memory allocation failed");
         defer allocator.free(developers_arr);
-        for (developers, 0..developers.len) |item, i|
+        for (_developers, 0.._developers.len) |str_item, i|
             developers_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const developers_list = qtc.libqt_list{
-            .len = developers.len,
+            .len = _developers.len,
             .data = developers_arr.ptr,
         };
         qtc.Attica__Project_SetDevelopers(@ptrCast(self.ptr), developers_list);
     }
+
+    /// ### DEPRECATED: Use `developers` instead
+    ///
+    pub const Developers = developers;
 
     /// ### [Upstream resources](https://api.kde.org/attica-project.html#developers)
     ///
@@ -300,7 +376,7 @@ pub const Attica__Project = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Developers(self: Attica__Project, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn developers(self: Attica__Project, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.Attica__Project_Developers(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -308,15 +384,19 @@ pub const Attica__Project = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("Attica__Project.Developers: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("Attica__Project.developers: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("Attica__Project.Developers: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("Attica__Project.developers: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setRequirements` instead
+    ///
+    pub const SetRequirements = setRequirements;
 
     /// ### [Upstream resources](https://api.kde.org/attica-project.html#setRequirements)
     ///
@@ -324,15 +404,19 @@ pub const Attica__Project = extern struct {
     ///
     /// ` self: Attica__Project `
     ///
-    /// ` requirements: []const u8 `
+    /// ` _requirements: []const u8 `
     ///
-    pub fn SetRequirements(self: Attica__Project, requirements: []const u8) void {
+    pub fn setRequirements(self: Attica__Project, _requirements: []const u8) void {
         const requirements_str = qtc.libqt_string{
-            .len = requirements.len,
-            .data = requirements.ptr,
+            .len = _requirements.len,
+            .data = _requirements.ptr,
         };
         qtc.Attica__Project_SetRequirements(@ptrCast(self.ptr), requirements_str);
     }
+
+    /// ### DEPRECATED: Use `requirements` instead
+    ///
+    pub const Requirements = requirements;
 
     /// ### [Upstream resources](https://api.kde.org/attica-project.html#requirements)
     ///
@@ -342,13 +426,17 @@ pub const Attica__Project = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Requirements(self: Attica__Project, allocator: std.mem.Allocator) []const u8 {
+    pub fn requirements(self: Attica__Project, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Project_Requirements(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Project.Requirements: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Project.requirements: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setSpecFile` instead
+    ///
+    pub const SetSpecFile = setSpecFile;
 
     /// ### [Upstream resources](https://api.kde.org/attica-project.html#setSpecFile)
     ///
@@ -356,15 +444,19 @@ pub const Attica__Project = extern struct {
     ///
     /// ` self: Attica__Project `
     ///
-    /// ` specFile: []const u8 `
+    /// ` _specFile: []const u8 `
     ///
-    pub fn SetSpecFile(self: Attica__Project, specFile: []const u8) void {
+    pub fn setSpecFile(self: Attica__Project, _specFile: []const u8) void {
         const specFile_str = qtc.libqt_string{
-            .len = specFile.len,
-            .data = specFile.ptr,
+            .len = _specFile.len,
+            .data = _specFile.ptr,
         };
         qtc.Attica__Project_SetSpecFile(@ptrCast(self.ptr), specFile_str);
     }
+
+    /// ### DEPRECATED: Use `specFile` instead
+    ///
+    pub const SpecFile = specFile;
 
     /// ### [Upstream resources](https://api.kde.org/attica-project.html#specFile)
     ///
@@ -374,13 +466,17 @@ pub const Attica__Project = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SpecFile(self: Attica__Project, allocator: std.mem.Allocator) []const u8 {
+    pub fn specFile(self: Attica__Project, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Project_SpecFile(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Project.SpecFile: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Project.specFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addExtendedAttribute` instead
+    ///
+    pub const AddExtendedAttribute = addExtendedAttribute;
 
     /// ### [Upstream resources](https://api.kde.org/attica-project.html#addExtendedAttribute)
     ///
@@ -392,7 +488,7 @@ pub const Attica__Project = extern struct {
     ///
     /// ` value: []const u8 `
     ///
-    pub fn AddExtendedAttribute(self: Attica__Project, key: []const u8, value: []const u8) void {
+    pub fn addExtendedAttribute(self: Attica__Project, key: []const u8, value: []const u8) void {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -404,6 +500,10 @@ pub const Attica__Project = extern struct {
         qtc.Attica__Project_AddExtendedAttribute(@ptrCast(self.ptr), key_str, value_str);
     }
 
+    /// ### DEPRECATED: Use `extendedAttribute` instead
+    ///
+    pub const ExtendedAttribute = extendedAttribute;
+
     /// ### [Upstream resources](https://api.kde.org/attica-project.html#extendedAttribute)
     ///
     /// ## Parameter(s):
@@ -414,17 +514,21 @@ pub const Attica__Project = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn ExtendedAttribute(self: Attica__Project, allocator: std.mem.Allocator, key: []const u8) []const u8 {
+    pub fn extendedAttribute(self: Attica__Project, allocator: std.mem.Allocator, key: []const u8) []const u8 {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
         var _str = qtc.Attica__Project_ExtendedAttribute(@ptrCast(self.ptr), key_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Project.ExtendedAttribute: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Project.extendedAttribute: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `extendedAttributes` instead
+    ///
+    pub const ExtendedAttributes = extendedAttributes;
 
     /// ### [Upstream resources](https://api.kde.org/attica-project.html#extendedAttributes)
     ///
@@ -434,10 +538,10 @@ pub const Attica__Project = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ExtendedAttributes(self: Attica__Project, allocator: std.mem.Allocator) ArrayMap_constu8_constu8 {
+    pub fn extendedAttributes(self: Attica__Project, allocator: std.mem.Allocator) ArrayMap_constu8_constu8 {
         const _map: qtc.libqt_map = qtc.Attica__Project_ExtendedAttributes(@ptrCast(self.ptr));
         var _ret: ArrayMap_constu8_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("Attica__Project.ExtendedAttributes: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("Attica__Project.extendedAttributes: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
@@ -453,15 +557,19 @@ pub const Attica__Project = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("Attica__Project.ExtendedAttributes: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("Attica__Project.extendedAttributes: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("Attica__Project.ExtendedAttributes: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("Attica__Project.extendedAttributes: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
             _ret.putAssumeCapacity(_entry_slice, _value_slice);
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://api.kde.org/attica-project.html#isValid)
     ///
@@ -469,21 +577,21 @@ pub const Attica__Project = extern struct {
     ///
     /// ` self: Attica__Project `
     ///
-    pub fn IsValid(self: Attica__Project) bool {
+    pub fn isValid(self: Attica__Project) bool {
         return qtc.Attica__Project_IsValid(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Attica__Project `
     ///
-    pub fn Delete(self: Attica__Project) void {
+    pub fn delete(self: Attica__Project) void {
         qtc.Attica__Project_Delete(@ptrCast(self.ptr));
     }
 };

@@ -30,80 +30,96 @@ pub const KReplace = extern struct {
     pub const _is_KFind = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new KReplace object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KReplace object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` pattern: []const u8 `
+    /// ` _pattern: []const u8 `
     ///
     /// ` replacement: []const u8 `
     ///
-    /// ` options: isize `
+    /// ` _options: isize `
     ///
-    pub fn New(pattern: []const u8, replacement: []const u8, options: isize) KReplace {
+    pub fn new(_pattern: []const u8, replacement: []const u8, _options: isize) KReplace {
         const pattern_str = qtc.libqt_string{
-            .len = pattern.len,
-            .data = pattern.ptr,
+            .len = _pattern.len,
+            .data = _pattern.ptr,
         };
         const replacement_str = qtc.libqt_string{
             .len = replacement.len,
             .data = replacement.ptr,
         };
-        return .{ .ptr = qtc.KReplace_new(pattern_str, replacement_str, @bitCast(options)) };
+        return .{ .ptr = qtc.KReplace_new(pattern_str, replacement_str, @bitCast(_options)) };
     }
 
-    /// New2 constructs a new KReplace object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KReplace object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` pattern: []const u8 `
+    /// ` _pattern: []const u8 `
     ///
     /// ` replacement: []const u8 `
     ///
-    /// ` options: isize `
+    /// ` _options: isize `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
     /// ` replaceDialog: QWidget `
     ///
-    pub fn New2(pattern: []const u8, replacement: []const u8, options: isize, parent: anytype, replaceDialog: anytype) KReplace {
+    pub fn new2(_pattern: []const u8, replacement: []const u8, _options: isize, _parent: anytype, replaceDialog: anytype) KReplace {
         const pattern_str = qtc.libqt_string{
-            .len = pattern.len,
-            .data = pattern.ptr,
+            .len = _pattern.len,
+            .data = _pattern.ptr,
         };
         const replacement_str = qtc.libqt_string{
             .len = replacement.len,
             .data = replacement.ptr,
         };
-        comptime _ = @TypeOf(parent)._is_QWidget;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
         comptime _ = @TypeOf(replaceDialog)._is_QWidget;
-        return .{ .ptr = qtc.KReplace_new2(pattern_str, replacement_str, @bitCast(options), @ptrCast(parent.ptr), @ptrCast(replaceDialog.ptr)) };
+        return .{ .ptr = qtc.KReplace_new2(pattern_str, replacement_str, @bitCast(_options), @ptrCast(_parent.ptr), @ptrCast(replaceDialog.ptr)) };
     }
 
-    /// New3 constructs a new KReplace object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new KReplace object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` pattern: []const u8 `
+    /// ` _pattern: []const u8 `
     ///
     /// ` replacement: []const u8 `
     ///
-    /// ` options: isize `
+    /// ` _options: isize `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New3(pattern: []const u8, replacement: []const u8, options: isize, parent: anytype) KReplace {
+    pub fn new3(_pattern: []const u8, replacement: []const u8, _options: isize, _parent: anytype) KReplace {
         const pattern_str = qtc.libqt_string{
-            .len = pattern.len,
-            .data = pattern.ptr,
+            .len = _pattern.len,
+            .data = _pattern.ptr,
         };
         const replacement_str = qtc.libqt_string{
             .len = replacement.len,
             .data = replacement.ptr,
         };
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KReplace_new3(pattern_str, replacement_str, @bitCast(options), @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KReplace_new3(pattern_str, replacement_str, @bitCast(_options), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -111,9 +127,13 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    pub fn MetaObject(self: KReplace) QMetaObject {
+    pub fn metaObject(self: KReplace) QMetaObject {
         return .{ .ptr = qtc.KReplace_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -125,13 +145,13 @@ pub const KReplace = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KReplace, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KReplace, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KReplace_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -141,9 +161,13 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    pub fn SuperMetaObject(self: KReplace) QMetaObject {
+    pub fn superMetaObject(self: KReplace) QMetaObject {
         return .{ .ptr = qtc.KReplace_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -151,10 +175,14 @@ pub const KReplace = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KReplace, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KReplace, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KReplace_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -164,13 +192,13 @@ pub const KReplace = extern struct {
     ///
     /// ` callback: *const fn (self: KReplace, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KReplace, callback: *const fn (KReplace, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KReplace, callback: *const fn (KReplace, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KReplace_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -180,10 +208,14 @@ pub const KReplace = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KReplace, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KReplace, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KReplace_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -195,9 +227,13 @@ pub const KReplace = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KReplace, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KReplace, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KReplace_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -207,13 +243,13 @@ pub const KReplace = extern struct {
     ///
     /// ` callback: *const fn (self: KReplace, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KReplace, callback: *const fn (KReplace, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KReplace, callback: *const fn (KReplace, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KReplace_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -227,9 +263,13 @@ pub const KReplace = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KReplace, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KReplace, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KReplace_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -239,14 +279,18 @@ pub const KReplace = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplace.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplace.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `numReplacements` instead
+    ///
+    pub const NumReplacements = numReplacements;
 
     /// ### [Upstream resources](https://api.kde.org/kreplace.html#numReplacements)
     ///
@@ -254,9 +298,13 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    pub fn NumReplacements(self: KReplace) i32 {
+    pub fn numReplacements(self: KReplace) i32 {
         return qtc.KReplace_NumReplacements(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `resetCounts` instead
+    ///
+    pub const ResetCounts = resetCounts;
 
     /// ### [Upstream resources](https://api.kde.org/kreplace.html#resetCounts)
     ///
@@ -264,9 +312,13 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    pub fn ResetCounts(self: KReplace) void {
+    pub fn resetCounts(self: KReplace) void {
         qtc.KReplace_ResetCounts(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResetCounts` instead
+    ///
+    pub const OnResetCounts = onResetCounts;
 
     /// ### [Upstream resources](https://api.kde.org/kreplace.html#resetCounts)
     ///
@@ -278,13 +330,13 @@ pub const KReplace = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnResetCounts(self: KReplace, callback: *const fn () callconv(.c) void) void {
+    pub fn onResetCounts(self: KReplace, callback: *const fn () callconv(.c) void) void {
         qtc.KReplace_OnResetCounts(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperResetCounts` instead
+    /// ### DEPRECATED: Use `superResetCounts` instead
     ///
-    pub const QBaseResetCounts = SuperResetCounts;
+    pub const SuperResetCounts = superResetCounts;
 
     /// ### [Upstream resources](https://api.kde.org/kreplace.html#resetCounts)
     ///
@@ -294,9 +346,13 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    pub fn SuperResetCounts(self: KReplace) void {
+    pub fn superResetCounts(self: KReplace) void {
         qtc.KReplace_SuperResetCounts(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `replace` instead
+    ///
+    pub const Replace = replace;
 
     /// ### [Upstream resources](https://api.kde.org/kreplace.html#replace)
     ///
@@ -308,9 +364,13 @@ pub const KReplace = extern struct {
     ///
     /// ` kfind_enums.Result `
     ///
-    pub fn Replace(self: KReplace) i32 {
+    pub fn replace(self: KReplace) i32 {
         return qtc.KReplace_Replace(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `replaceNextDialog` instead
+    ///
+    pub const ReplaceNextDialog = replaceNextDialog;
 
     /// ### [Upstream resources](https://api.kde.org/kreplace.html#replaceNextDialog)
     ///
@@ -318,9 +378,13 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    pub fn ReplaceNextDialog(self: KReplace) QDialog {
+    pub fn replaceNextDialog(self: KReplace) QDialog {
         return .{ .ptr = qtc.KReplace_ReplaceNextDialog(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `closeReplaceNextDialog` instead
+    ///
+    pub const CloseReplaceNextDialog = closeReplaceNextDialog;
 
     /// ### [Upstream resources](https://api.kde.org/kreplace.html#closeReplaceNextDialog)
     ///
@@ -328,9 +392,13 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    pub fn CloseReplaceNextDialog(self: KReplace) void {
+    pub fn closeReplaceNextDialog(self: KReplace) void {
         qtc.KReplace_CloseReplaceNextDialog(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `replace2` instead
+    ///
+    pub const Replace2 = replace2;
 
     /// ### [Upstream resources](https://api.kde.org/kreplace.html#replace)
     ///
@@ -338,31 +406,35 @@ pub const KReplace = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    /// ` pattern: []const u8 `
+    /// ` _pattern: []const u8 `
     ///
     /// ` replacement: []const u8 `
     ///
-    /// ` index: i32 `
+    /// ` _index: i32 `
     ///
-    /// ` options: isize `
+    /// ` _options: isize `
     ///
     /// ` replacedLength: *i32 `
     ///
-    pub fn Replace2(text: []const u8, pattern: []const u8, replacement: []const u8, index: i32, options: isize, replacedLength: *i32) i32 {
+    pub fn replace2(text: []const u8, _pattern: []const u8, replacement: []const u8, _index: i32, _options: isize, replacedLength: *i32) i32 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         const pattern_str = qtc.libqt_string{
-            .len = pattern.len,
-            .data = pattern.ptr,
+            .len = _pattern.len,
+            .data = _pattern.ptr,
         };
         const replacement_str = qtc.libqt_string{
             .len = replacement.len,
             .data = replacement.ptr,
         };
-        return qtc.KReplace_Replace2(text_str, pattern_str, replacement_str, @bitCast(index), @bitCast(options), @ptrCast(replacedLength));
+        return qtc.KReplace_Replace2(text_str, pattern_str, replacement_str, @bitCast(_index), @bitCast(_options), @ptrCast(replacedLength));
     }
+
+    /// ### DEPRECATED: Use `shouldRestart` instead
+    ///
+    pub const ShouldRestart = shouldRestart;
 
     /// ### [Upstream resources](https://api.kde.org/kreplace.html#shouldRestart)
     ///
@@ -374,9 +446,13 @@ pub const KReplace = extern struct {
     ///
     /// ` showNumMatches: bool `
     ///
-    pub fn ShouldRestart(self: KReplace, forceAsking: bool, showNumMatches: bool) bool {
+    pub fn shouldRestart(self: KReplace, forceAsking: bool, showNumMatches: bool) bool {
         return qtc.KReplace_ShouldRestart(@ptrCast(self.ptr), forceAsking, showNumMatches);
     }
+
+    /// ### DEPRECATED: Use `onShouldRestart` instead
+    ///
+    pub const OnShouldRestart = onShouldRestart;
 
     /// ### [Upstream resources](https://api.kde.org/kreplace.html#shouldRestart)
     ///
@@ -388,13 +464,13 @@ pub const KReplace = extern struct {
     ///
     /// ` callback: *const fn (self: KReplace, forceAsking: bool, showNumMatches: bool) callconv(.c) bool `
     ///
-    pub fn OnShouldRestart(self: KReplace, callback: *const fn (KReplace, bool, bool) callconv(.c) bool) void {
+    pub fn onShouldRestart(self: KReplace, callback: *const fn (KReplace, bool, bool) callconv(.c) bool) void {
         qtc.KReplace_OnShouldRestart(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperShouldRestart` instead
+    /// ### DEPRECATED: Use `superShouldRestart` instead
     ///
-    pub const QBaseShouldRestart = SuperShouldRestart;
+    pub const SuperShouldRestart = superShouldRestart;
 
     /// ### [Upstream resources](https://api.kde.org/kreplace.html#shouldRestart)
     ///
@@ -408,9 +484,13 @@ pub const KReplace = extern struct {
     ///
     /// ` showNumMatches: bool `
     ///
-    pub fn SuperShouldRestart(self: KReplace, forceAsking: bool, showNumMatches: bool) bool {
+    pub fn superShouldRestart(self: KReplace, forceAsking: bool, showNumMatches: bool) bool {
         return qtc.KReplace_SuperShouldRestart(@ptrCast(self.ptr), forceAsking, showNumMatches);
     }
+
+    /// ### DEPRECATED: Use `displayFinalDialog` instead
+    ///
+    pub const DisplayFinalDialog = displayFinalDialog;
 
     /// ### [Upstream resources](https://api.kde.org/kreplace.html#displayFinalDialog)
     ///
@@ -418,9 +498,13 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    pub fn DisplayFinalDialog(self: KReplace) void {
+    pub fn displayFinalDialog(self: KReplace) void {
         qtc.KReplace_DisplayFinalDialog(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisplayFinalDialog` instead
+    ///
+    pub const OnDisplayFinalDialog = onDisplayFinalDialog;
 
     /// ### [Upstream resources](https://api.kde.org/kreplace.html#displayFinalDialog)
     ///
@@ -432,13 +516,13 @@ pub const KReplace = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDisplayFinalDialog(self: KReplace, callback: *const fn () callconv(.c) void) void {
+    pub fn onDisplayFinalDialog(self: KReplace, callback: *const fn () callconv(.c) void) void {
         qtc.KReplace_OnDisplayFinalDialog(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDisplayFinalDialog` instead
+    /// ### DEPRECATED: Use `superDisplayFinalDialog` instead
     ///
-    pub const QBaseDisplayFinalDialog = SuperDisplayFinalDialog;
+    pub const SuperDisplayFinalDialog = superDisplayFinalDialog;
 
     /// ### [Upstream resources](https://api.kde.org/kreplace.html#displayFinalDialog)
     ///
@@ -448,9 +532,13 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    pub fn SuperDisplayFinalDialog(self: KReplace) void {
+    pub fn superDisplayFinalDialog(self: KReplace) void {
         qtc.KReplace_SuperDisplayFinalDialog(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `textReplaced` instead
+    ///
+    pub const TextReplaced = textReplaced;
 
     /// ### [Upstream resources](https://api.kde.org/kreplace.html#textReplaced)
     ///
@@ -466,13 +554,17 @@ pub const KReplace = extern struct {
     ///
     /// ` matchedLength: i32 `
     ///
-    pub fn TextReplaced(self: KReplace, text: []const u8, replacementIndex: i32, replacedLength: i32, matchedLength: i32) void {
+    pub fn textReplaced(self: KReplace, text: []const u8, replacementIndex: i32, replacedLength: i32, matchedLength: i32) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.KReplace_TextReplaced(@ptrCast(self.ptr), text_str, @bitCast(replacementIndex), @bitCast(replacedLength), @bitCast(matchedLength));
     }
+
+    /// ### DEPRECATED: Use `onTextReplaced` instead
+    ///
+    pub const OnTextReplaced = onTextReplaced;
 
     /// ### [Upstream resources](https://api.kde.org/kreplace.html#textReplaced)
     ///
@@ -482,9 +574,13 @@ pub const KReplace = extern struct {
     ///
     /// ` callback: *const fn (self: KReplace, text: [*:0]const u8, replacementIndex: i32, replacedLength: i32, matchedLength: i32) callconv(.c) void `
     ///
-    pub fn OnTextReplaced(self: KReplace, callback: *const fn (KReplace, [*:0]const u8, i32, i32, i32) callconv(.c) void) void {
+    pub fn onTextReplaced(self: KReplace, callback: *const fn (KReplace, [*:0]const u8, i32, i32, i32) callconv(.c) void) void {
         qtc.KReplace_Connect_TextReplaced(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -496,15 +592,19 @@ pub const KReplace = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplace.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplace.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -518,15 +618,19 @@ pub const KReplace = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplace.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplace.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `replaceNextDialog1` instead
+    ///
+    pub const ReplaceNextDialog1 = replaceNextDialog1;
 
     /// ### [Upstream resources](https://api.kde.org/kreplace.html#replaceNextDialog)
     ///
@@ -536,9 +640,13 @@ pub const KReplace = extern struct {
     ///
     /// ` create: bool `
     ///
-    pub fn ReplaceNextDialog1(self: KReplace, create: bool) QDialog {
+    pub fn replaceNextDialog1(self: KReplace, create: bool) QDialog {
         return .{ .ptr = qtc.KReplace_ReplaceNextDialog1(@ptrCast(self.ptr), create) };
     }
+
+    /// ### DEPRECATED: Use `needData` instead
+    ///
+    pub const NeedData = needData;
 
     /// Inherited from KFind
     ///
@@ -548,9 +656,13 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    pub fn NeedData(self: KReplace) bool {
+    pub fn needData(self: KReplace) bool {
         return qtc.KFind_NeedData(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setData` instead
+    ///
+    pub const SetData = setData;
 
     /// Inherited from KFind
     ///
@@ -562,13 +674,17 @@ pub const KReplace = extern struct {
     ///
     /// ` data: []const u8 `
     ///
-    pub fn SetData(self: KReplace, data: []const u8) void {
+    pub fn setData(self: KReplace, data: []const u8) void {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
         qtc.KFind_SetData(@ptrCast(self.ptr), data_str);
     }
+
+    /// ### DEPRECATED: Use `setData2` instead
+    ///
+    pub const SetData2 = setData2;
 
     /// Inherited from KFind
     ///
@@ -582,13 +698,17 @@ pub const KReplace = extern struct {
     ///
     /// ` data: []const u8 `
     ///
-    pub fn SetData2(self: KReplace, id: i32, data: []const u8) void {
+    pub fn setData2(self: KReplace, id: i32, data: []const u8) void {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
         qtc.KFind_SetData2(@ptrCast(self.ptr), @bitCast(id), data_str);
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from KFind
     ///
@@ -602,9 +722,13 @@ pub const KReplace = extern struct {
     ///
     /// ` kfind_enums.Result `
     ///
-    pub fn Find(self: KReplace) i32 {
+    pub fn find(self: KReplace) i32 {
         return qtc.KFind_Find(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `options` instead
+    ///
+    pub const Options = options;
 
     /// Inherited from KFind
     ///
@@ -614,9 +738,13 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    pub fn Options(self: KReplace) isize {
+    pub fn options(self: KReplace) isize {
         return qtc.KFind_Options(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pattern` instead
+    ///
+    pub const Pattern = pattern;
 
     /// Inherited from KFind
     ///
@@ -628,13 +756,17 @@ pub const KReplace = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Pattern(self: KReplace, allocator: std.mem.Allocator) []const u8 {
+    pub fn pattern(self: KReplace, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KFind_Pattern(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplace.Pattern: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplace.pattern: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setPattern` instead
+    ///
+    pub const SetPattern = setPattern;
 
     /// Inherited from KFind
     ///
@@ -644,15 +776,19 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    /// ` pattern: []const u8 `
+    /// ` _pattern: []const u8 `
     ///
-    pub fn SetPattern(self: KReplace, pattern: []const u8) void {
+    pub fn setPattern(self: KReplace, _pattern: []const u8) void {
         const pattern_str = qtc.libqt_string{
-            .len = pattern.len,
-            .data = pattern.ptr,
+            .len = _pattern.len,
+            .data = _pattern.ptr,
         };
         qtc.KFind_SetPattern(@ptrCast(self.ptr), pattern_str);
     }
+
+    /// ### DEPRECATED: Use `numMatches` instead
+    ///
+    pub const NumMatches = numMatches;
 
     /// Inherited from KFind
     ///
@@ -662,9 +798,13 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    pub fn NumMatches(self: KReplace) i32 {
+    pub fn numMatches(self: KReplace) i32 {
         return qtc.KFind_NumMatches(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find2` instead
+    ///
+    pub const Find2 = find2;
 
     /// Inherited from KFind
     ///
@@ -674,28 +814,32 @@ pub const KReplace = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    /// ` pattern: []const u8 `
+    /// ` _pattern: []const u8 `
     ///
-    /// ` index: i32 `
+    /// ` _index: i32 `
     ///
-    /// ` options: isize `
+    /// ` _options: isize `
     ///
     /// ` matchedLength: *i32 `
     ///
     /// ` rmatch: QRegularExpressionMatch `
     ///
-    pub fn Find2(text: []const u8, pattern: []const u8, index: i32, options: isize, matchedLength: *i32, rmatch: anytype) i32 {
+    pub fn find2(text: []const u8, _pattern: []const u8, _index: i32, _options: isize, matchedLength: *i32, rmatch: anytype) i32 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         const pattern_str = qtc.libqt_string{
-            .len = pattern.len,
-            .data = pattern.ptr,
+            .len = _pattern.len,
+            .data = _pattern.ptr,
         };
         comptime _ = @TypeOf(rmatch)._is_QRegularExpressionMatch;
-        return qtc.KFind_Find2(text_str, pattern_str, @bitCast(index), @bitCast(options), @ptrCast(matchedLength), @ptrCast(rmatch.ptr));
+        return qtc.KFind_Find2(text_str, pattern_str, @bitCast(_index), @bitCast(_options), @ptrCast(matchedLength), @ptrCast(rmatch.ptr));
     }
+
+    /// ### DEPRECATED: Use `findNextDialog` instead
+    ///
+    pub const FindNextDialog = findNextDialog;
 
     /// Inherited from KFind
     ///
@@ -705,9 +849,13 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    pub fn FindNextDialog(self: KReplace) QDialog {
+    pub fn findNextDialog(self: KReplace) QDialog {
         return .{ .ptr = qtc.KFind_FindNextDialog(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `closeFindNextDialog` instead
+    ///
+    pub const CloseFindNextDialog = closeFindNextDialog;
 
     /// Inherited from KFind
     ///
@@ -717,9 +865,13 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    pub fn CloseFindNextDialog(self: KReplace) void {
+    pub fn closeFindNextDialog(self: KReplace) void {
         qtc.KFind_CloseFindNextDialog(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `index` instead
+    ///
+    pub const Index = index;
 
     /// Inherited from KFind
     ///
@@ -729,9 +881,13 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    pub fn Index(self: KReplace) i32 {
+    pub fn index(self: KReplace) i32 {
         return qtc.KFind_Index(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `textFound` instead
+    ///
+    pub const TextFound = textFound;
 
     /// Inherited from KFind
     ///
@@ -747,13 +903,17 @@ pub const KReplace = extern struct {
     ///
     /// ` matchedLength: i32 `
     ///
-    pub fn TextFound(self: KReplace, text: []const u8, matchingIndex: i32, matchedLength: i32) void {
+    pub fn textFound(self: KReplace, text: []const u8, matchingIndex: i32, matchedLength: i32) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.KFind_TextFound(@ptrCast(self.ptr), text_str, @bitCast(matchingIndex), @bitCast(matchedLength));
     }
+
+    /// ### DEPRECATED: Use `onTextFound` instead
+    ///
+    pub const OnTextFound = onTextFound;
 
     /// Inherited from KFind
     ///
@@ -765,9 +925,13 @@ pub const KReplace = extern struct {
     ///
     /// ` callback: *const fn (self: KReplace, text: [*:0]const u8, matchingIndex: i32, matchedLength: i32) callconv(.c) void `
     ///
-    pub fn OnTextFound(self: KReplace, callback: *const fn (KReplace, [*:0]const u8, i32, i32) callconv(.c) void) void {
+    pub fn onTextFound(self: KReplace, callback: *const fn (KReplace, [*:0]const u8, i32, i32) callconv(.c) void) void {
         qtc.KFind_Connect_TextFound(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `textFoundAtId` instead
+    ///
+    pub const TextFoundAtId = textFoundAtId;
 
     /// Inherited from KFind
     ///
@@ -783,9 +947,13 @@ pub const KReplace = extern struct {
     ///
     /// ` matchedLength: i32 `
     ///
-    pub fn TextFoundAtId(self: KReplace, id: i32, matchingIndex: i32, matchedLength: i32) void {
+    pub fn textFoundAtId(self: KReplace, id: i32, matchingIndex: i32, matchedLength: i32) void {
         qtc.KFind_TextFoundAtId(@ptrCast(self.ptr), @bitCast(id), @bitCast(matchingIndex), @bitCast(matchedLength));
     }
+
+    /// ### DEPRECATED: Use `onTextFoundAtId` instead
+    ///
+    pub const OnTextFoundAtId = onTextFoundAtId;
 
     /// Inherited from KFind
     ///
@@ -797,10 +965,14 @@ pub const KReplace = extern struct {
     ///
     /// ` callback: *const fn (self: KReplace, id: i32, matchingIndex: i32, matchedLength: i32) callconv(.c) void `
     ///
-    pub fn OnTextFoundAtId(self: KReplace, callback: *const fn (KReplace, i32, i32, i32) callconv(.c) void) void {
+    pub fn onTextFoundAtId(self: KReplace, callback: *const fn (KReplace, i32, i32, i32) callconv(.c) void) void {
         qtc.KFind_Connect_TextFoundAtId(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `findNext` instead
+    ///
+    pub const FindNext = findNext;
+
     /// Inherited from KFind
     ///
     /// ### [Upstream resources](https://api.kde.org/kfind.html#findNext)
@@ -809,10 +981,14 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    pub fn FindNext(self: KReplace) void {
+    pub fn findNext(self: KReplace) void {
         qtc.KFind_FindNext(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFindNext` instead
+    ///
+    pub const OnFindNext = onFindNext;
+
     /// Inherited from KFind
     ///
     /// ### [Upstream resources](https://api.kde.org/kfind.html#findNext)
@@ -823,10 +999,14 @@ pub const KReplace = extern struct {
     ///
     /// ` callback: *const fn (self: KReplace) callconv(.c) void `
     ///
-    pub fn OnFindNext(self: KReplace, callback: *const fn (KReplace) callconv(.c) void) void {
+    pub fn onFindNext(self: KReplace, callback: *const fn (KReplace) callconv(.c) void) void {
         qtc.KFind_Connect_FindNext(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `optionsChanged` instead
+    ///
+    pub const OptionsChanged = optionsChanged;
+
     /// Inherited from KFind
     ///
     /// ### [Upstream resources](https://api.kde.org/kfind.html#optionsChanged)
@@ -835,10 +1015,14 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    pub fn OptionsChanged(self: KReplace) void {
+    pub fn optionsChanged(self: KReplace) void {
         qtc.KFind_OptionsChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onOptionsChanged` instead
+    ///
+    pub const OnOptionsChanged = onOptionsChanged;
+
     /// Inherited from KFind
     ///
     /// ### [Upstream resources](https://api.kde.org/kfind.html#optionsChanged)
@@ -849,9 +1033,13 @@ pub const KReplace = extern struct {
     ///
     /// ` callback: *const fn (self: KReplace) callconv(.c) void `
     ///
-    pub fn OnOptionsChanged(self: KReplace, callback: *const fn (KReplace) callconv(.c) void) void {
+    pub fn onOptionsChanged(self: KReplace, callback: *const fn (KReplace) callconv(.c) void) void {
         qtc.KFind_Connect_OptionsChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dialogClosed` instead
+    ///
+    pub const DialogClosed = dialogClosed;
 
     /// Inherited from KFind
     ///
@@ -861,9 +1049,13 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    pub fn DialogClosed(self: KReplace) void {
+    pub fn dialogClosed(self: KReplace) void {
         qtc.KFind_DialogClosed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDialogClosed` instead
+    ///
+    pub const OnDialogClosed = onDialogClosed;
 
     /// Inherited from KFind
     ///
@@ -875,9 +1067,13 @@ pub const KReplace = extern struct {
     ///
     /// ` callback: *const fn (self: KReplace) callconv(.c) void `
     ///
-    pub fn OnDialogClosed(self: KReplace, callback: *const fn (KReplace) callconv(.c) void) void {
+    pub fn onDialogClosed(self: KReplace, callback: *const fn (KReplace) callconv(.c) void) void {
         qtc.KFind_Connect_DialogClosed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setData22` instead
+    ///
+    pub const SetData22 = setData22;
 
     /// Inherited from KFind
     ///
@@ -891,13 +1087,17 @@ pub const KReplace = extern struct {
     ///
     /// ` startPos: i32 `
     ///
-    pub fn SetData22(self: KReplace, data: []const u8, startPos: i32) void {
+    pub fn setData22(self: KReplace, data: []const u8, startPos: i32) void {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
         qtc.KFind_SetData22(@ptrCast(self.ptr), data_str, @bitCast(startPos));
     }
+
+    /// ### DEPRECATED: Use `setData3` instead
+    ///
+    pub const SetData3 = setData3;
 
     /// Inherited from KFind
     ///
@@ -913,13 +1113,17 @@ pub const KReplace = extern struct {
     ///
     /// ` startPos: i32 `
     ///
-    pub fn SetData3(self: KReplace, id: i32, data: []const u8, startPos: i32) void {
+    pub fn setData3(self: KReplace, id: i32, data: []const u8, startPos: i32) void {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
         qtc.KFind_SetData3(@ptrCast(self.ptr), @bitCast(id), data_str, @bitCast(startPos));
     }
+
+    /// ### DEPRECATED: Use `findNextDialog1` instead
+    ///
+    pub const FindNextDialog1 = findNextDialog1;
 
     /// Inherited from KFind
     ///
@@ -931,9 +1135,13 @@ pub const KReplace = extern struct {
     ///
     /// ` create: bool `
     ///
-    pub fn FindNextDialog1(self: KReplace, create: bool) QDialog {
+    pub fn findNextDialog1(self: KReplace, create: bool) QDialog {
         return .{ .ptr = qtc.KFind_FindNextDialog1(@ptrCast(self.ptr), create) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -945,13 +1153,17 @@ pub const KReplace = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KReplace, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KReplace, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplace.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplace.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -963,13 +1175,17 @@ pub const KReplace = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KReplace, name: []const u8) void {
+    pub fn setObjectName(self: KReplace, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -979,9 +1195,13 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    pub fn IsWidgetType(self: KReplace) bool {
+    pub fn isWidgetType(self: KReplace) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -991,9 +1211,13 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    pub fn IsWindowType(self: KReplace) bool {
+    pub fn isWindowType(self: KReplace) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -1003,9 +1227,13 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    pub fn IsQuickItemType(self: KReplace) bool {
+    pub fn isQuickItemType(self: KReplace) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -1015,9 +1243,13 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    pub fn SignalsBlocked(self: KReplace) bool {
+    pub fn signalsBlocked(self: KReplace) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -1029,9 +1261,13 @@ pub const KReplace = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KReplace, b: bool) bool {
+    pub fn blockSignals(self: KReplace, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -1041,9 +1277,13 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    pub fn Thread(self: KReplace) QThread {
+    pub fn thread(self: KReplace) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -1053,12 +1293,16 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KReplace, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KReplace, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -1070,9 +1314,13 @@ pub const KReplace = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KReplace, interval: i32) i32 {
+    pub fn startTimer(self: KReplace, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -1084,9 +1332,13 @@ pub const KReplace = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KReplace, time: i64) i32 {
+    pub fn startTimer2(self: KReplace, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -1098,9 +1350,13 @@ pub const KReplace = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KReplace, id: i32) void {
+    pub fn killTimer(self: KReplace, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -1112,9 +1368,13 @@ pub const KReplace = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KReplace, id: i32) void {
+    pub fn killTimer2(self: KReplace, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -1126,15 +1386,19 @@ pub const KReplace = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KReplace, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KReplace, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KReplace.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KReplace.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -1144,12 +1408,16 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: KReplace, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: KReplace, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1161,10 +1429,14 @@ pub const KReplace = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KReplace, filterObj: anytype) void {
+    pub fn installEventFilter(self: KReplace, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1176,10 +1448,14 @@ pub const KReplace = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KReplace, obj: anytype) void {
+    pub fn removeEventFilter(self: KReplace, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -1187,7 +1463,7 @@ pub const KReplace = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1195,13 +1471,17 @@ pub const KReplace = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -1209,7 +1489,7 @@ pub const KReplace = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1217,13 +1497,17 @@ pub const KReplace = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -1233,18 +1517,22 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KReplace, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KReplace, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -1252,7 +1540,7 @@ pub const KReplace = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1260,13 +1548,17 @@ pub const KReplace = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -1274,7 +1566,7 @@ pub const KReplace = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1282,13 +1574,17 @@ pub const KReplace = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -1298,9 +1594,13 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    pub fn Disconnect3(self: KReplace) bool {
+    pub fn disconnect3(self: KReplace) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1312,10 +1612,14 @@ pub const KReplace = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KReplace, receiver: anytype) bool {
+    pub fn disconnect4(self: KReplace, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1325,10 +1629,14 @@ pub const KReplace = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1338,9 +1646,13 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    pub fn DumpObjectTree(self: KReplace) void {
+    pub fn dumpObjectTree(self: KReplace) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1350,9 +1662,13 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    pub fn DumpObjectInfo(self: KReplace) void {
+    pub fn dumpObjectInfo(self: KReplace) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1366,11 +1682,15 @@ pub const KReplace = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KReplace, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KReplace, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1382,10 +1702,14 @@ pub const KReplace = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KReplace, name: [:0]const u8) QVariant {
+    pub fn property(self: KReplace, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1397,7 +1721,7 @@ pub const KReplace = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KReplace, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KReplace, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1405,27 +1729,19 @@ pub const KReplace = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KReplace.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KReplace.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KReplace.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KReplace.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KReplace `
-    ///
-    pub fn BindingStorage(self: KReplace) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1435,9 +1751,29 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    pub fn BindingStorage2(self: KReplace) QBindingStorage {
+    pub fn bindingStorage(self: KReplace) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KReplace `
+    ///
+    pub fn bindingStorage2(self: KReplace) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1447,9 +1783,13 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    pub fn Destroyed(self: KReplace) void {
+    pub fn destroyed(self: KReplace) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1461,9 +1801,13 @@ pub const KReplace = extern struct {
     ///
     /// ` callback: *const fn (self: KReplace) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KReplace, callback: *const fn (KReplace) callconv(.c) void) void {
+    pub fn onDestroyed(self: KReplace, callback: *const fn (KReplace) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1473,9 +1817,13 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    pub fn Parent(self: KReplace) QObject {
+    pub fn parent(self: KReplace) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1487,10 +1835,14 @@ pub const KReplace = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KReplace, classname: [:0]const u8) bool {
+    pub fn inherits(self: KReplace, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1500,9 +1852,13 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    pub fn DeleteLater(self: KReplace) void {
+    pub fn deleteLater(self: KReplace) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1516,9 +1872,13 @@ pub const KReplace = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KReplace, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KReplace, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1532,9 +1892,13 @@ pub const KReplace = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KReplace, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KReplace, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1542,7 +1906,7 @@ pub const KReplace = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1552,13 +1916,17 @@ pub const KReplace = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1566,7 +1934,7 @@ pub const KReplace = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1576,13 +1944,17 @@ pub const KReplace = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1592,7 +1964,7 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1600,12 +1972,16 @@ pub const KReplace = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KReplace, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KReplace, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1617,10 +1993,14 @@ pub const KReplace = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KReplace, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KReplace, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1634,11 +2014,15 @@ pub const KReplace = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KReplace, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KReplace, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1654,13 +2038,17 @@ pub const KReplace = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KReplace, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KReplace, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1673,11 +2061,15 @@ pub const KReplace = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KReplace, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KReplace, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1689,10 +2081,14 @@ pub const KReplace = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KReplace, param1: anytype) void {
+    pub fn destroyed1(self: KReplace, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1704,9 +2100,13 @@ pub const KReplace = extern struct {
     ///
     /// ` callback: *const fn (self: KReplace, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KReplace, callback: *const fn (KReplace, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KReplace, callback: *const fn (KReplace, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setOptions` instead
+    ///
+    pub const SetOptions = setOptions;
 
     /// Inherited from KFind
     ///
@@ -1718,15 +2118,15 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    /// ` options: isize `
+    /// ` _options: isize `
     ///
-    pub fn SetOptions(self: KReplace, options: isize) void {
-        qtc.KReplace_SetOptions(@ptrCast(self.ptr), @bitCast(options));
+    pub fn setOptions(self: KReplace, _options: isize) void {
+        qtc.KReplace_SetOptions(@ptrCast(self.ptr), @bitCast(_options));
     }
 
-    /// ### DEPRECATED: Use `SuperSetOptions` instead
+    /// ### DEPRECATED: Use `superSetOptions` instead
     ///
-    pub const QBaseSetOptions = SuperSetOptions;
+    pub const SuperSetOptions = superSetOptions;
 
     /// Inherited from KFind
     ///
@@ -1738,11 +2138,15 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    /// ` options: isize `
+    /// ` _options: isize `
     ///
-    pub fn SuperSetOptions(self: KReplace, options: isize) void {
-        qtc.KReplace_SuperSetOptions(@ptrCast(self.ptr), @bitCast(options));
+    pub fn superSetOptions(self: KReplace, _options: isize) void {
+        qtc.KReplace_SuperSetOptions(@ptrCast(self.ptr), @bitCast(_options));
     }
+
+    /// ### DEPRECATED: Use `onSetOptions` instead
+    ///
+    pub const OnSetOptions = onSetOptions;
 
     /// Inherited from KFind
     ///
@@ -1756,9 +2160,13 @@ pub const KReplace = extern struct {
     ///
     /// ` callback: *const fn (self: KReplace, options: isize) callconv(.c) void `
     ///
-    pub fn OnSetOptions(self: KReplace, callback: *const fn (KReplace, isize) callconv(.c) void) void {
+    pub fn onSetOptions(self: KReplace, callback: *const fn (KReplace, isize) callconv(.c) void) void {
         qtc.KReplace_OnSetOptions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `validateMatch` instead
+    ///
+    pub const ValidateMatch = validateMatch;
 
     /// Inherited from KFind
     ///
@@ -1772,21 +2180,21 @@ pub const KReplace = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    /// ` index: i32 `
+    /// ` _index: i32 `
     ///
     /// ` matchedlength: i32 `
     ///
-    pub fn ValidateMatch(self: KReplace, text: []const u8, index: i32, matchedlength: i32) bool {
+    pub fn validateMatch(self: KReplace, text: []const u8, _index: i32, matchedlength: i32) bool {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.KReplace_ValidateMatch(@ptrCast(self.ptr), text_str, @bitCast(index), @bitCast(matchedlength));
+        return qtc.KReplace_ValidateMatch(@ptrCast(self.ptr), text_str, @bitCast(_index), @bitCast(matchedlength));
     }
 
-    /// ### DEPRECATED: Use `SuperValidateMatch` instead
+    /// ### DEPRECATED: Use `superValidateMatch` instead
     ///
-    pub const QBaseValidateMatch = SuperValidateMatch;
+    pub const SuperValidateMatch = superValidateMatch;
 
     /// Inherited from KFind
     ///
@@ -1800,17 +2208,21 @@ pub const KReplace = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    /// ` index: i32 `
+    /// ` _index: i32 `
     ///
     /// ` matchedlength: i32 `
     ///
-    pub fn SuperValidateMatch(self: KReplace, text: []const u8, index: i32, matchedlength: i32) bool {
+    pub fn superValidateMatch(self: KReplace, text: []const u8, _index: i32, matchedlength: i32) bool {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.KReplace_SuperValidateMatch(@ptrCast(self.ptr), text_str, @bitCast(index), @bitCast(matchedlength));
+        return qtc.KReplace_SuperValidateMatch(@ptrCast(self.ptr), text_str, @bitCast(_index), @bitCast(matchedlength));
     }
+
+    /// ### DEPRECATED: Use `onValidateMatch` instead
+    ///
+    pub const OnValidateMatch = onValidateMatch;
 
     /// Inherited from KFind
     ///
@@ -1824,9 +2236,13 @@ pub const KReplace = extern struct {
     ///
     /// ` callback: *const fn (self: KReplace, text: [*:0]const u8, index: i32, matchedlength: i32) callconv(.c) bool `
     ///
-    pub fn OnValidateMatch(self: KReplace, callback: *const fn (KReplace, [*:0]const u8, i32, i32) callconv(.c) bool) void {
+    pub fn onValidateMatch(self: KReplace, callback: *const fn (KReplace, [*:0]const u8, i32, i32) callconv(.c) bool) void {
         qtc.KReplace_OnValidateMatch(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -1838,16 +2254,16 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: KReplace, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KReplace_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: KReplace, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KReplace_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -1859,12 +2275,16 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: KReplace, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KReplace_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: KReplace, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KReplace_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -1878,9 +2298,13 @@ pub const KReplace = extern struct {
     ///
     /// ` callback: *const fn (self: KReplace, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KReplace, callback: *const fn (KReplace, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KReplace, callback: *const fn (KReplace, QEvent) callconv(.c) bool) void {
         qtc.KReplace_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1894,17 +2318,17 @@ pub const KReplace = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: KReplace, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: KReplace, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KReplace_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KReplace_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1918,13 +2342,17 @@ pub const KReplace = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: KReplace, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: KReplace, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KReplace_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KReplace_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1938,9 +2366,13 @@ pub const KReplace = extern struct {
     ///
     /// ` callback: *const fn (self: KReplace, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KReplace, callback: *const fn (KReplace, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KReplace, callback: *const fn (KReplace, QObject, QEvent) callconv(.c) bool) void {
         qtc.KReplace_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -1952,16 +2384,16 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KReplace, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KReplace_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: KReplace, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KReplace_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1973,12 +2405,16 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KReplace, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KReplace_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: KReplace, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KReplace_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1992,9 +2428,13 @@ pub const KReplace = extern struct {
     ///
     /// ` callback: *const fn (self: KReplace, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KReplace, callback: *const fn (KReplace, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KReplace, callback: *const fn (KReplace, QTimerEvent) callconv(.c) void) void {
         qtc.KReplace_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -2006,16 +2446,16 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KReplace, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KReplace_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KReplace, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KReplace_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -2027,12 +2467,16 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KReplace, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KReplace_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KReplace, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KReplace_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -2046,9 +2490,13 @@ pub const KReplace = extern struct {
     ///
     /// ` callback: *const fn (self: KReplace, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KReplace, callback: *const fn (KReplace, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KReplace, callback: *const fn (KReplace, QChildEvent) callconv(.c) void) void {
         qtc.KReplace_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -2060,16 +2508,16 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KReplace, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KReplace_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KReplace, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KReplace_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -2081,12 +2529,16 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KReplace, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KReplace_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KReplace, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KReplace_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -2100,9 +2552,13 @@ pub const KReplace = extern struct {
     ///
     /// ` callback: *const fn (self: KReplace, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KReplace, callback: *const fn (KReplace, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KReplace, callback: *const fn (KReplace, QEvent) callconv(.c) void) void {
         qtc.KReplace_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -2116,14 +2572,14 @@ pub const KReplace = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KReplace, signal: anytype) void {
+    pub fn connectNotify(self: KReplace, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KReplace_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2137,11 +2593,15 @@ pub const KReplace = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KReplace, signal: anytype) void {
+    pub fn superConnectNotify(self: KReplace, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KReplace_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -2154,9 +2614,13 @@ pub const KReplace = extern struct {
     ///
     /// ` callback: *const fn (self: KReplace, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KReplace, callback: *const fn (KReplace, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KReplace, callback: *const fn (KReplace, QMetaMethod) callconv(.c) void) void {
         qtc.KReplace_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2170,14 +2634,14 @@ pub const KReplace = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KReplace, signal: anytype) void {
+    pub fn disconnectNotify(self: KReplace, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KReplace_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2191,10 +2655,14 @@ pub const KReplace = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KReplace, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KReplace, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KReplace_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2208,10 +2676,14 @@ pub const KReplace = extern struct {
     ///
     /// ` callback: *const fn (self: KReplace, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KReplace, callback: *const fn (KReplace, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KReplace, callback: *const fn (KReplace, QMetaMethod) callconv(.c) void) void {
         qtc.KReplace_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
+
     /// Inherited from KFind
     ///
     /// ### [Upstream resources](https://api.kde.org/kfind.html#parentWidget)
@@ -2222,13 +2694,13 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    pub fn ParentWidget(self: KReplace) QWidget {
+    pub fn parentWidget(self: KReplace) QWidget {
         return .{ .ptr = qtc.KReplace_ParentWidget(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperParentWidget` instead
+    /// ### DEPRECATED: Use `superParentWidget` instead
     ///
-    pub const QBaseParentWidget = SuperParentWidget;
+    pub const SuperParentWidget = superParentWidget;
 
     /// Inherited from KFind
     ///
@@ -2240,10 +2712,14 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    pub fn SuperParentWidget(self: KReplace) QWidget {
+    pub fn superParentWidget(self: KReplace) QWidget {
         return .{ .ptr = qtc.KReplace_SuperParentWidget(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onParentWidget` instead
+    ///
+    pub const OnParentWidget = onParentWidget;
+
     /// Inherited from KFind
     ///
     /// ### [Upstream resources](https://api.kde.org/kfind.html#parentWidget)
@@ -2256,9 +2732,13 @@ pub const KReplace = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QWidget `
     ///
-    pub fn OnParentWidget(self: KReplace, callback: *const fn () callconv(.c) QWidget) void {
+    pub fn onParentWidget(self: KReplace, callback: *const fn () callconv(.c) QWidget) void {
         qtc.KReplace_OnParentWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dialogsParent` instead
+    ///
+    pub const DialogsParent = dialogsParent;
 
     /// Inherited from KFind
     ///
@@ -2270,13 +2750,13 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    pub fn DialogsParent(self: KReplace) QWidget {
+    pub fn dialogsParent(self: KReplace) QWidget {
         return .{ .ptr = qtc.KReplace_DialogsParent(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperDialogsParent` instead
+    /// ### DEPRECATED: Use `superDialogsParent` instead
     ///
-    pub const QBaseDialogsParent = SuperDialogsParent;
+    pub const SuperDialogsParent = superDialogsParent;
 
     /// Inherited from KFind
     ///
@@ -2288,9 +2768,13 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    pub fn SuperDialogsParent(self: KReplace) QWidget {
+    pub fn superDialogsParent(self: KReplace) QWidget {
         return .{ .ptr = qtc.KReplace_SuperDialogsParent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onDialogsParent` instead
+    ///
+    pub const OnDialogsParent = onDialogsParent;
 
     /// Inherited from KFind
     ///
@@ -2304,9 +2788,13 @@ pub const KReplace = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QWidget `
     ///
-    pub fn OnDialogsParent(self: KReplace, callback: *const fn () callconv(.c) QWidget) void {
+    pub fn onDialogsParent(self: KReplace, callback: *const fn () callconv(.c) QWidget) void {
         qtc.KReplace_OnDialogsParent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -2318,13 +2806,13 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    pub fn Sender(self: KReplace) QObject {
+    pub fn sender(self: KReplace) QObject {
         return .{ .ptr = qtc.KReplace_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -2336,9 +2824,13 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    pub fn SuperSender(self: KReplace) QObject {
+    pub fn superSender(self: KReplace) QObject {
         return .{ .ptr = qtc.KReplace_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -2352,9 +2844,13 @@ pub const KReplace = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KReplace, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KReplace, callback: *const fn () callconv(.c) QObject) void {
         qtc.KReplace_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2366,13 +2862,13 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    pub fn SenderSignalIndex(self: KReplace) i32 {
+    pub fn senderSignalIndex(self: KReplace) i32 {
         return qtc.KReplace_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2384,9 +2880,13 @@ pub const KReplace = extern struct {
     ///
     /// ` self: KReplace `
     ///
-    pub fn SuperSenderSignalIndex(self: KReplace) i32 {
+    pub fn superSenderSignalIndex(self: KReplace) i32 {
         return qtc.KReplace_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2400,9 +2900,13 @@ pub const KReplace = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KReplace, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KReplace, callback: *const fn () callconv(.c) i32) void {
         qtc.KReplace_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -2416,14 +2920,14 @@ pub const KReplace = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KReplace, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KReplace, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KReplace_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -2437,10 +2941,14 @@ pub const KReplace = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KReplace, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KReplace, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KReplace_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -2454,9 +2962,13 @@ pub const KReplace = extern struct {
     ///
     /// ` callback: *const fn (self: KReplace, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KReplace, callback: *const fn (KReplace, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KReplace, callback: *const fn (KReplace, [*:0]const u8) callconv(.c) i32) void {
         qtc.KReplace_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2470,14 +2982,14 @@ pub const KReplace = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KReplace, signal: anytype) bool {
+    pub fn isSignalConnected(self: KReplace, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KReplace_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2491,10 +3003,14 @@ pub const KReplace = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KReplace, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KReplace, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KReplace_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2508,9 +3024,13 @@ pub const KReplace = extern struct {
     ///
     /// ` callback: *const fn (self: KReplace, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KReplace, callback: *const fn (KReplace, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KReplace, callback: *const fn (KReplace, QMetaMethod) callconv(.c) bool) void {
         qtc.KReplace_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -2524,23 +3044,23 @@ pub const KReplace = extern struct {
     ///
     /// ` callback: *const fn (self: KReplace, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KReplace, callback: *const fn (KReplace, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KReplace, callback: *const fn (KReplace, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kreplace.html#dtor.KReplace)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KReplace `
     ///
-    pub fn Delete(self: KReplace) void {
+    pub fn delete(self: KReplace) void {
         qtc.KReplace_Delete(@ptrCast(self.ptr));
     }
 };

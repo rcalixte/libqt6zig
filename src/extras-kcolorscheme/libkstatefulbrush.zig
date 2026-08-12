@@ -15,13 +15,21 @@ pub const KStatefulBrush = extern struct {
 
     pub const _is_KStatefulBrush = {};
 
-    /// New constructs a new KStatefulBrush object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() KStatefulBrush {
+    pub const New = new;
+
+    /// Allocate a new KStatefulBrush object in C++ memory
+    ///
+    pub fn new() KStatefulBrush {
         return .{ .ptr = qtc.KStatefulBrush_new() };
     }
 
-    /// New2 constructs a new KStatefulBrush object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KStatefulBrush object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -29,11 +37,15 @@ pub const KStatefulBrush = extern struct {
     ///
     /// ` param2: kcolorscheme_enums.ForegroundRole `
     ///
-    pub fn New2(param1: i32, param2: i32) KStatefulBrush {
+    pub fn new2(param1: i32, param2: i32) KStatefulBrush {
         return .{ .ptr = qtc.KStatefulBrush_new2(@bitCast(param1), @bitCast(param2)) };
     }
 
-    /// New3 constructs a new KStatefulBrush object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new KStatefulBrush object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -41,11 +53,15 @@ pub const KStatefulBrush = extern struct {
     ///
     /// ` param2: kcolorscheme_enums.BackgroundRole `
     ///
-    pub fn New3(param1: i32, param2: i32) KStatefulBrush {
+    pub fn new3(param1: i32, param2: i32) KStatefulBrush {
         return .{ .ptr = qtc.KStatefulBrush_new3(@bitCast(param1), @bitCast(param2)) };
     }
 
-    /// New4 constructs a new KStatefulBrush object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new KStatefulBrush object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -53,22 +69,30 @@ pub const KStatefulBrush = extern struct {
     ///
     /// ` param2: kcolorscheme_enums.DecorationRole `
     ///
-    pub fn New4(param1: i32, param2: i32) KStatefulBrush {
+    pub fn new4(param1: i32, param2: i32) KStatefulBrush {
         return .{ .ptr = qtc.KStatefulBrush_new4(@bitCast(param1), @bitCast(param2)) };
     }
 
-    /// New5 constructs a new KStatefulBrush object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new KStatefulBrush object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QBrush `
     ///
-    pub fn New5(param1: anytype) KStatefulBrush {
+    pub fn new5(param1: anytype) KStatefulBrush {
         comptime _ = @TypeOf(param1)._is_QBrush;
         return .{ .ptr = qtc.KStatefulBrush_new5(@ptrCast(param1.ptr)) };
     }
 
-    /// New6 constructs a new KStatefulBrush object.
+    /// ### DEPRECATED: Use `new6` instead
+    ///
+    pub const New6 = new6;
+
+    /// Allocate a new KStatefulBrush object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -76,22 +100,30 @@ pub const KStatefulBrush = extern struct {
     ///
     /// ` background: QBrush `
     ///
-    pub fn New6(param1: anytype, background: anytype) KStatefulBrush {
+    pub fn new6(param1: anytype, background: anytype) KStatefulBrush {
         comptime _ = @TypeOf(param1)._is_QBrush;
         comptime _ = @TypeOf(background)._is_QBrush;
         return .{ .ptr = qtc.KStatefulBrush_new6(@ptrCast(param1.ptr), @ptrCast(background.ptr)) };
     }
 
-    /// New7 constructs a new KStatefulBrush object.
+    /// ### DEPRECATED: Use `new7` instead
+    ///
+    pub const New7 = new7;
+
+    /// Allocate a new KStatefulBrush object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: KStatefulBrush `
     ///
-    pub fn New7(param1: anytype) KStatefulBrush {
+    pub fn new7(param1: anytype) KStatefulBrush {
         comptime _ = @TypeOf(param1)._is_KStatefulBrush;
         return .{ .ptr = qtc.KStatefulBrush_new7(@ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://api.kde.org/kstatefulbrush.html#operator-eq)
     ///
@@ -101,10 +133,14 @@ pub const KStatefulBrush = extern struct {
     ///
     /// ` param1: KStatefulBrush `
     ///
-    pub fn OperatorAssign(self: KStatefulBrush, param1: anytype) void {
+    pub fn operatorAssign(self: KStatefulBrush, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_KStatefulBrush;
         qtc.KStatefulBrush_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `brush` instead
+    ///
+    pub const Brush = brush;
 
     /// ### [Upstream resources](https://api.kde.org/kstatefulbrush.html#brush)
     ///
@@ -114,9 +150,13 @@ pub const KStatefulBrush = extern struct {
     ///
     /// ` param1: qpalette_enums.ColorGroup `
     ///
-    pub fn Brush(self: KStatefulBrush, param1: i32) QBrush {
+    pub fn brush(self: KStatefulBrush, param1: i32) QBrush {
         return .{ .ptr = qtc.KStatefulBrush_Brush(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `brush2` instead
+    ///
+    pub const Brush2 = brush2;
 
     /// ### [Upstream resources](https://api.kde.org/kstatefulbrush.html#brush)
     ///
@@ -126,24 +166,24 @@ pub const KStatefulBrush = extern struct {
     ///
     /// ` param1: QPalette `
     ///
-    pub fn Brush2(self: KStatefulBrush, param1: anytype) QBrush {
+    pub fn brush2(self: KStatefulBrush, param1: anytype) QBrush {
         comptime _ = @TypeOf(param1)._is_QPalette;
         return .{ .ptr = qtc.KStatefulBrush_Brush2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kstatefulbrush.html#dtor.KStatefulBrush)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KStatefulBrush `
     ///
-    pub fn Delete(self: KStatefulBrush) void {
+    pub fn delete(self: KStatefulBrush) void {
         qtc.KStatefulBrush_Delete(@ptrCast(self.ptr));
     }
 };

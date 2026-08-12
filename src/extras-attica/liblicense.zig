@@ -13,22 +13,34 @@ pub const Attica__License = extern struct {
 
     pub const _is_Attica__License = {};
 
-    /// New constructs a new Attica::License object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() Attica__License {
+    pub const New = new;
+
+    /// Allocate a new Attica::License object in C++ memory
+    ///
+    pub fn new() Attica__License {
         return .{ .ptr = qtc.Attica__License_new() };
     }
 
-    /// New2 constructs a new Attica::License object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new Attica::License object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: Attica__License `
     ///
-    pub fn New2(other: anytype) Attica__License {
+    pub fn new2(other: anytype) Attica__License {
         comptime _ = @TypeOf(other)._is_Attica__License;
         return .{ .ptr = qtc.Attica__License_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://api.kde.org/attica-license.html#operator-eq)
     ///
@@ -38,10 +50,14 @@ pub const Attica__License = extern struct {
     ///
     /// ` other: Attica__License `
     ///
-    pub fn OperatorAssign(self: Attica__License, other: anytype) void {
+    pub fn operatorAssign(self: Attica__License, other: anytype) void {
         comptime _ = @TypeOf(other)._is_Attica__License;
         qtc.Attica__License_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `id` instead
+    ///
+    pub const Id = id;
 
     /// ### [Upstream resources](https://api.kde.org/attica-license.html#id)
     ///
@@ -49,9 +65,13 @@ pub const Attica__License = extern struct {
     ///
     /// ` self: Attica__License `
     ///
-    pub fn Id(self: Attica__License) u32 {
+    pub fn id(self: Attica__License) u32 {
         return qtc.Attica__License_Id(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setId` instead
+    ///
+    pub const SetId = setId;
 
     /// ### [Upstream resources](https://api.kde.org/attica-license.html#setId)
     ///
@@ -59,11 +79,15 @@ pub const Attica__License = extern struct {
     ///
     /// ` self: Attica__License `
     ///
-    /// ` id: u32 `
+    /// ` _id: u32 `
     ///
-    pub fn SetId(self: Attica__License, id: u32) void {
-        qtc.Attica__License_SetId(@ptrCast(self.ptr), @bitCast(id));
+    pub fn setId(self: Attica__License, _id: u32) void {
+        qtc.Attica__License_SetId(@ptrCast(self.ptr), @bitCast(_id));
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// ### [Upstream resources](https://api.kde.org/attica-license.html#name)
     ///
@@ -73,13 +97,17 @@ pub const Attica__License = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: Attica__License, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: Attica__License, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__License_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__License.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__License.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setName` instead
+    ///
+    pub const SetName = setName;
 
     /// ### [Upstream resources](https://api.kde.org/attica-license.html#setName)
     ///
@@ -87,15 +115,19 @@ pub const Attica__License = extern struct {
     ///
     /// ` self: Attica__License `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn SetName(self: Attica__License, name: []const u8) void {
+    pub fn setName(self: Attica__License, _name: []const u8) void {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         qtc.Attica__License_SetName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `url` instead
+    ///
+    pub const Url = url;
 
     /// ### [Upstream resources](https://api.kde.org/attica-license.html#url)
     ///
@@ -103,9 +135,13 @@ pub const Attica__License = extern struct {
     ///
     /// ` self: Attica__License `
     ///
-    pub fn Url(self: Attica__License) QUrl {
+    pub fn url(self: Attica__License) QUrl {
         return .{ .ptr = qtc.Attica__License_Url(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setUrl` instead
+    ///
+    pub const SetUrl = setUrl;
 
     /// ### [Upstream resources](https://api.kde.org/attica-license.html#setUrl)
     ///
@@ -113,24 +149,24 @@ pub const Attica__License = extern struct {
     ///
     /// ` self: Attica__License `
     ///
-    /// ` url: QUrl `
+    /// ` _url: QUrl `
     ///
-    pub fn SetUrl(self: Attica__License, url: anytype) void {
-        comptime _ = @TypeOf(url)._is_QUrl;
-        qtc.Attica__License_SetUrl(@ptrCast(self.ptr), @ptrCast(url.ptr));
+    pub fn setUrl(self: Attica__License, _url: anytype) void {
+        comptime _ = @TypeOf(_url)._is_QUrl;
+        qtc.Attica__License_SetUrl(@ptrCast(self.ptr), @ptrCast(_url.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Attica__License `
     ///
-    pub fn Delete(self: Attica__License) void {
+    pub fn delete(self: Attica__License) void {
         qtc.Attica__License_Delete(@ptrCast(self.ptr));
     }
 };

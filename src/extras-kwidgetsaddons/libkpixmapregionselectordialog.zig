@@ -82,22 +82,34 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new KPixmapRegionSelectorDialog object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KPixmapRegionSelectorDialog object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) KPixmapRegionSelectorDialog {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KPixmapRegionSelectorDialog_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) KPixmapRegionSelectorDialog {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KPixmapRegionSelectorDialog_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new KPixmapRegionSelectorDialog object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() KPixmapRegionSelectorDialog {
+    pub const New2 = new2;
+
+    /// Allocate a new KPixmapRegionSelectorDialog object in C++ memory
+    ///
+    pub fn new2() KPixmapRegionSelectorDialog {
         return .{ .ptr = qtc.KPixmapRegionSelectorDialog_new2() };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -105,9 +117,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn MetaObject(self: KPixmapRegionSelectorDialog) QMetaObject {
+    pub fn metaObject(self: KPixmapRegionSelectorDialog) QMetaObject {
         return .{ .ptr = qtc.KPixmapRegionSelectorDialog_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -119,13 +135,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KPixmapRegionSelectorDialog, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KPixmapRegionSelectorDialog, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KPixmapRegionSelectorDialog_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -135,9 +151,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn SuperMetaObject(self: KPixmapRegionSelectorDialog) QMetaObject {
+    pub fn superMetaObject(self: KPixmapRegionSelectorDialog) QMetaObject {
         return .{ .ptr = qtc.KPixmapRegionSelectorDialog_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -145,10 +165,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KPixmapRegionSelectorDialog, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KPixmapRegionSelectorDialog, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KPixmapRegionSelectorDialog_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -158,13 +182,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KPixmapRegionSelectorDialog_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -174,10 +198,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KPixmapRegionSelectorDialog, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KPixmapRegionSelectorDialog, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KPixmapRegionSelectorDialog_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -189,9 +217,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KPixmapRegionSelectorDialog, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KPixmapRegionSelectorDialog, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KPixmapRegionSelectorDialog_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -201,13 +233,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KPixmapRegionSelectorDialog_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -221,9 +253,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KPixmapRegionSelectorDialog, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KPixmapRegionSelectorDialog, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KPixmapRegionSelectorDialog_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -233,14 +269,18 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapRegionSelectorDialog.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapRegionSelectorDialog.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `pixmapRegionSelectorWidget` instead
+    ///
+    pub const PixmapRegionSelectorWidget = pixmapRegionSelectorWidget;
 
     /// ### [Upstream resources](https://api.kde.org/kpixmapregionselectordialog.html#pixmapRegionSelectorWidget)
     ///
@@ -248,9 +288,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn PixmapRegionSelectorWidget(self: KPixmapRegionSelectorDialog) KPixmapRegionSelectorWidget {
+    pub fn pixmapRegionSelectorWidget(self: KPixmapRegionSelectorDialog) KPixmapRegionSelectorWidget {
         return .{ .ptr = qtc.KPixmapRegionSelectorDialog_PixmapRegionSelectorWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `getSelectedRegion` instead
+    ///
+    pub const GetSelectedRegion = getSelectedRegion;
 
     /// ### [Upstream resources](https://api.kde.org/kpixmapregionselectordialog.html#getSelectedRegion)
     ///
@@ -258,11 +302,15 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` pixmap: QPixmap `
     ///
-    pub fn GetSelectedRegion(pixmap: anytype) QRect {
+    pub fn getSelectedRegion(pixmap: anytype) QRect {
         comptime _ = @TypeOf(pixmap)._is_QPixmap;
         return .{ .ptr = qtc.KPixmapRegionSelectorDialog_GetSelectedRegion(@ptrCast(pixmap.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `getSelectedRegion2` instead
+    ///
+    pub const GetSelectedRegion2 = getSelectedRegion2;
+
     /// ### [Upstream resources](https://api.kde.org/kpixmapregionselectordialog.html#getSelectedRegion)
     ///
     /// ## Parameter(s):
@@ -273,10 +321,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` aspectRatioHeight: i32 `
     ///
-    pub fn GetSelectedRegion2(pixmap: anytype, aspectRatioWidth: i32, aspectRatioHeight: i32) QRect {
+    pub fn getSelectedRegion2(pixmap: anytype, aspectRatioWidth: i32, aspectRatioHeight: i32) QRect {
         comptime _ = @TypeOf(pixmap)._is_QPixmap;
         return .{ .ptr = qtc.KPixmapRegionSelectorDialog_GetSelectedRegion2(@ptrCast(pixmap.ptr), @bitCast(aspectRatioWidth), @bitCast(aspectRatioHeight)) };
     }
+
+    /// ### DEPRECATED: Use `getSelectedImage` instead
+    ///
+    pub const GetSelectedImage = getSelectedImage;
 
     /// ### [Upstream resources](https://api.kde.org/kpixmapregionselectordialog.html#getSelectedImage)
     ///
@@ -284,10 +336,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` pixmap: QPixmap `
     ///
-    pub fn GetSelectedImage(pixmap: anytype) QImage {
+    pub fn getSelectedImage(pixmap: anytype) QImage {
         comptime _ = @TypeOf(pixmap)._is_QPixmap;
         return .{ .ptr = qtc.KPixmapRegionSelectorDialog_GetSelectedImage(@ptrCast(pixmap.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `getSelectedImage2` instead
+    ///
+    pub const GetSelectedImage2 = getSelectedImage2;
 
     /// ### [Upstream resources](https://api.kde.org/kpixmapregionselectordialog.html#getSelectedImage)
     ///
@@ -299,10 +355,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` aspectRatioHeight: i32 `
     ///
-    pub fn GetSelectedImage2(pixmap: anytype, aspectRatioWidth: i32, aspectRatioHeight: i32) QImage {
+    pub fn getSelectedImage2(pixmap: anytype, aspectRatioWidth: i32, aspectRatioHeight: i32) QImage {
         comptime _ = @TypeOf(pixmap)._is_QPixmap;
         return .{ .ptr = qtc.KPixmapRegionSelectorDialog_GetSelectedImage2(@ptrCast(pixmap.ptr), @bitCast(aspectRatioWidth), @bitCast(aspectRatioHeight)) };
     }
+
+    /// ### DEPRECATED: Use `adjustRegionSelectorWidgetSizeToFitScreen` instead
+    ///
+    pub const AdjustRegionSelectorWidgetSizeToFitScreen = adjustRegionSelectorWidgetSizeToFitScreen;
 
     /// ### [Upstream resources](https://api.kde.org/kpixmapregionselectordialog.html#adjustRegionSelectorWidgetSizeToFitScreen)
     ///
@@ -310,9 +370,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn AdjustRegionSelectorWidgetSizeToFitScreen(self: KPixmapRegionSelectorDialog) void {
+    pub fn adjustRegionSelectorWidgetSizeToFitScreen(self: KPixmapRegionSelectorDialog) void {
         qtc.KPixmapRegionSelectorDialog_AdjustRegionSelectorWidgetSizeToFitScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -324,15 +388,19 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapRegionSelectorDialog.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapRegionSelectorDialog.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -346,29 +414,37 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapRegionSelectorDialog.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapRegionSelectorDialog.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `getSelectedRegion22` instead
+    ///
+    pub const GetSelectedRegion22 = getSelectedRegion22;
+
     /// ### [Upstream resources](https://api.kde.org/kpixmapregionselectordialog.html#getSelectedRegion)
     ///
     /// ## Parameter(s):
     ///
     /// ` pixmap: QPixmap `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn GetSelectedRegion22(pixmap: anytype, parent: anytype) QRect {
+    pub fn getSelectedRegion22(pixmap: anytype, _parent: anytype) QRect {
         comptime _ = @TypeOf(pixmap)._is_QPixmap;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KPixmapRegionSelectorDialog_GetSelectedRegion22(@ptrCast(pixmap.ptr), @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KPixmapRegionSelectorDialog_GetSelectedRegion22(@ptrCast(pixmap.ptr), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `getSelectedRegion4` instead
+    ///
+    pub const GetSelectedRegion4 = getSelectedRegion4;
 
     /// ### [Upstream resources](https://api.kde.org/kpixmapregionselectordialog.html#getSelectedRegion)
     ///
@@ -380,13 +456,17 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` aspectRatioHeight: i32 `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn GetSelectedRegion4(pixmap: anytype, aspectRatioWidth: i32, aspectRatioHeight: i32, parent: anytype) QRect {
+    pub fn getSelectedRegion4(pixmap: anytype, aspectRatioWidth: i32, aspectRatioHeight: i32, _parent: anytype) QRect {
         comptime _ = @TypeOf(pixmap)._is_QPixmap;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KPixmapRegionSelectorDialog_GetSelectedRegion4(@ptrCast(pixmap.ptr), @bitCast(aspectRatioWidth), @bitCast(aspectRatioHeight), @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KPixmapRegionSelectorDialog_GetSelectedRegion4(@ptrCast(pixmap.ptr), @bitCast(aspectRatioWidth), @bitCast(aspectRatioHeight), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `getSelectedImage22` instead
+    ///
+    pub const GetSelectedImage22 = getSelectedImage22;
 
     /// ### [Upstream resources](https://api.kde.org/kpixmapregionselectordialog.html#getSelectedImage)
     ///
@@ -394,13 +474,17 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` pixmap: QPixmap `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn GetSelectedImage22(pixmap: anytype, parent: anytype) QImage {
+    pub fn getSelectedImage22(pixmap: anytype, _parent: anytype) QImage {
         comptime _ = @TypeOf(pixmap)._is_QPixmap;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KPixmapRegionSelectorDialog_GetSelectedImage22(@ptrCast(pixmap.ptr), @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KPixmapRegionSelectorDialog_GetSelectedImage22(@ptrCast(pixmap.ptr), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `getSelectedImage4` instead
+    ///
+    pub const GetSelectedImage4 = getSelectedImage4;
 
     /// ### [Upstream resources](https://api.kde.org/kpixmapregionselectordialog.html#getSelectedImage)
     ///
@@ -412,13 +496,17 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` aspectRatioHeight: i32 `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn GetSelectedImage4(pixmap: anytype, aspectRatioWidth: i32, aspectRatioHeight: i32, parent: anytype) QImage {
+    pub fn getSelectedImage4(pixmap: anytype, aspectRatioWidth: i32, aspectRatioHeight: i32, _parent: anytype) QImage {
         comptime _ = @TypeOf(pixmap)._is_QPixmap;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KPixmapRegionSelectorDialog_GetSelectedImage4(@ptrCast(pixmap.ptr), @bitCast(aspectRatioWidth), @bitCast(aspectRatioHeight), @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KPixmapRegionSelectorDialog_GetSelectedImage4(@ptrCast(pixmap.ptr), @bitCast(aspectRatioWidth), @bitCast(aspectRatioHeight), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `result` instead
+    ///
+    pub const Result = result;
 
     /// Inherited from QDialog
     ///
@@ -428,9 +516,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn Result(self: KPixmapRegionSelectorDialog) i32 {
+    pub fn result(self: KPixmapRegionSelectorDialog) i32 {
         return qtc.QDialog_Result(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeGripEnabled` instead
+    ///
+    pub const SetSizeGripEnabled = setSizeGripEnabled;
 
     /// Inherited from QDialog
     ///
@@ -442,9 +534,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` sizeGripEnabled: bool `
     ///
-    pub fn SetSizeGripEnabled(self: KPixmapRegionSelectorDialog, sizeGripEnabled: bool) void {
+    pub fn setSizeGripEnabled(self: KPixmapRegionSelectorDialog, sizeGripEnabled: bool) void {
         qtc.QDialog_SetSizeGripEnabled(@ptrCast(self.ptr), sizeGripEnabled);
     }
+
+    /// ### DEPRECATED: Use `isSizeGripEnabled` instead
+    ///
+    pub const IsSizeGripEnabled = isSizeGripEnabled;
 
     /// Inherited from QDialog
     ///
@@ -454,9 +550,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn IsSizeGripEnabled(self: KPixmapRegionSelectorDialog) bool {
+    pub fn isSizeGripEnabled(self: KPixmapRegionSelectorDialog) bool {
         return qtc.QDialog_IsSizeGripEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setModal` instead
+    ///
+    pub const SetModal = setModal;
 
     /// Inherited from QDialog
     ///
@@ -468,9 +568,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` modal: bool `
     ///
-    pub fn SetModal(self: KPixmapRegionSelectorDialog, modal: bool) void {
+    pub fn setModal(self: KPixmapRegionSelectorDialog, modal: bool) void {
         qtc.QDialog_SetModal(@ptrCast(self.ptr), modal);
     }
+
+    /// ### DEPRECATED: Use `setResult` instead
+    ///
+    pub const SetResult = setResult;
 
     /// Inherited from QDialog
     ///
@@ -482,9 +586,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` r: i32 `
     ///
-    pub fn SetResult(self: KPixmapRegionSelectorDialog, r: i32) void {
+    pub fn setResult(self: KPixmapRegionSelectorDialog, r: i32) void {
         qtc.QDialog_SetResult(@ptrCast(self.ptr), @bitCast(r));
     }
+
+    /// ### DEPRECATED: Use `finished` instead
+    ///
+    pub const Finished = finished;
 
     /// Inherited from QDialog
     ///
@@ -494,11 +602,15 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` result: i32 `
+    /// ` _result: i32 `
     ///
-    pub fn Finished(self: KPixmapRegionSelectorDialog, result: i32) void {
-        qtc.QDialog_Finished(@ptrCast(self.ptr), @bitCast(result));
+    pub fn finished(self: KPixmapRegionSelectorDialog, _result: i32) void {
+        qtc.QDialog_Finished(@ptrCast(self.ptr), @bitCast(_result));
     }
+
+    /// ### DEPRECATED: Use `onFinished` instead
+    ///
+    pub const OnFinished = onFinished;
 
     /// Inherited from QDialog
     ///
@@ -510,10 +622,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, result: i32) callconv(.c) void `
     ///
-    pub fn OnFinished(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, i32) callconv(.c) void) void {
+    pub fn onFinished(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, i32) callconv(.c) void) void {
         qtc.QDialog_Connect_Finished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `accepted` instead
+    ///
+    pub const Accepted = accepted;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#accepted)
@@ -522,10 +638,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn Accepted(self: KPixmapRegionSelectorDialog) void {
+    pub fn accepted(self: KPixmapRegionSelectorDialog) void {
         qtc.QDialog_Accepted(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onAccepted` instead
+    ///
+    pub const OnAccepted = onAccepted;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#accepted)
@@ -536,9 +656,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog) callconv(.c) void `
     ///
-    pub fn OnAccepted(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog) callconv(.c) void) void {
+    pub fn onAccepted(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog) callconv(.c) void) void {
         qtc.QDialog_Connect_Accepted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `rejected` instead
+    ///
+    pub const Rejected = rejected;
 
     /// Inherited from QDialog
     ///
@@ -548,9 +672,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn Rejected(self: KPixmapRegionSelectorDialog) void {
+    pub fn rejected(self: KPixmapRegionSelectorDialog) void {
         qtc.QDialog_Rejected(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onRejected` instead
+    ///
+    pub const OnRejected = onRejected;
 
     /// Inherited from QDialog
     ///
@@ -562,9 +690,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog) callconv(.c) void `
     ///
-    pub fn OnRejected(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog) callconv(.c) void) void {
+    pub fn onRejected(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog) callconv(.c) void) void {
         qtc.QDialog_Connect_Rejected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -574,9 +706,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn WinId(self: KPixmapRegionSelectorDialog) usize {
+    pub fn winId(self: KPixmapRegionSelectorDialog) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -586,9 +722,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn CreateWinId(self: KPixmapRegionSelectorDialog) void {
+    pub fn createWinId(self: KPixmapRegionSelectorDialog) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -598,9 +738,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn InternalWinId(self: KPixmapRegionSelectorDialog) usize {
+    pub fn internalWinId(self: KPixmapRegionSelectorDialog) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -610,9 +754,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn EffectiveWinId(self: KPixmapRegionSelectorDialog) usize {
+    pub fn effectiveWinId(self: KPixmapRegionSelectorDialog) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -622,9 +770,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn Style(self: KPixmapRegionSelectorDialog) QStyle {
+    pub fn style(self: KPixmapRegionSelectorDialog) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -634,12 +786,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: KPixmapRegionSelectorDialog, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: KPixmapRegionSelectorDialog, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -649,9 +805,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn IsTopLevel(self: KPixmapRegionSelectorDialog) bool {
+    pub fn isTopLevel(self: KPixmapRegionSelectorDialog) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -661,9 +821,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn IsWindow(self: KPixmapRegionSelectorDialog) bool {
+    pub fn isWindow(self: KPixmapRegionSelectorDialog) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -673,9 +837,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn IsModal(self: KPixmapRegionSelectorDialog) bool {
+    pub fn isModal(self: KPixmapRegionSelectorDialog) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -689,9 +857,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: KPixmapRegionSelectorDialog) i32 {
+    pub fn windowModality(self: KPixmapRegionSelectorDialog) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -701,11 +873,15 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: KPixmapRegionSelectorDialog, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: KPixmapRegionSelectorDialog, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -715,9 +891,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn IsEnabled(self: KPixmapRegionSelectorDialog) bool {
+    pub fn isEnabled(self: KPixmapRegionSelectorDialog) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -729,10 +909,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: KPixmapRegionSelectorDialog, param1: anytype) bool {
+    pub fn isEnabledTo(self: KPixmapRegionSelectorDialog, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -744,9 +928,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: KPixmapRegionSelectorDialog, enabled: bool) void {
+    pub fn setEnabled(self: KPixmapRegionSelectorDialog, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -758,9 +946,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: KPixmapRegionSelectorDialog, disabled: bool) void {
+    pub fn setDisabled(self: KPixmapRegionSelectorDialog, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -772,9 +964,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: KPixmapRegionSelectorDialog, windowModified: bool) void {
+    pub fn setWindowModified(self: KPixmapRegionSelectorDialog, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -784,9 +980,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn FrameGeometry(self: KPixmapRegionSelectorDialog) QRect {
+    pub fn frameGeometry(self: KPixmapRegionSelectorDialog) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -796,9 +996,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn Geometry(self: KPixmapRegionSelectorDialog) QRect {
+    pub fn geometry(self: KPixmapRegionSelectorDialog) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -808,9 +1012,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn NormalGeometry(self: KPixmapRegionSelectorDialog) QRect {
+    pub fn normalGeometry(self: KPixmapRegionSelectorDialog) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -820,9 +1028,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn X(self: KPixmapRegionSelectorDialog) i32 {
+    pub fn x(self: KPixmapRegionSelectorDialog) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -832,9 +1044,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn Y(self: KPixmapRegionSelectorDialog) i32 {
+    pub fn y(self: KPixmapRegionSelectorDialog) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -844,9 +1060,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn Pos(self: KPixmapRegionSelectorDialog) QPoint {
+    pub fn pos(self: KPixmapRegionSelectorDialog) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -856,9 +1076,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn FrameSize(self: KPixmapRegionSelectorDialog) QSize {
+    pub fn frameSize(self: KPixmapRegionSelectorDialog) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -868,9 +1092,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn Size(self: KPixmapRegionSelectorDialog) QSize {
+    pub fn size(self: KPixmapRegionSelectorDialog) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -880,9 +1108,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn Width(self: KPixmapRegionSelectorDialog) i32 {
+    pub fn width(self: KPixmapRegionSelectorDialog) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -892,9 +1124,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn Height(self: KPixmapRegionSelectorDialog) i32 {
+    pub fn height(self: KPixmapRegionSelectorDialog) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -904,9 +1140,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn Rect(self: KPixmapRegionSelectorDialog) QRect {
+    pub fn rect(self: KPixmapRegionSelectorDialog) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -916,9 +1156,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn ChildrenRect(self: KPixmapRegionSelectorDialog) QRect {
+    pub fn childrenRect(self: KPixmapRegionSelectorDialog) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -928,9 +1172,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn ChildrenRegion(self: KPixmapRegionSelectorDialog) QRegion {
+    pub fn childrenRegion(self: KPixmapRegionSelectorDialog) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -940,9 +1188,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn MinimumSize(self: KPixmapRegionSelectorDialog) QSize {
+    pub fn minimumSize(self: KPixmapRegionSelectorDialog) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -952,9 +1204,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn MaximumSize(self: KPixmapRegionSelectorDialog) QSize {
+    pub fn maximumSize(self: KPixmapRegionSelectorDialog) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -964,9 +1220,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn MinimumWidth(self: KPixmapRegionSelectorDialog) i32 {
+    pub fn minimumWidth(self: KPixmapRegionSelectorDialog) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -976,9 +1236,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn MinimumHeight(self: KPixmapRegionSelectorDialog) i32 {
+    pub fn minimumHeight(self: KPixmapRegionSelectorDialog) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -988,9 +1252,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn MaximumWidth(self: KPixmapRegionSelectorDialog) i32 {
+    pub fn maximumWidth(self: KPixmapRegionSelectorDialog) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1000,9 +1268,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn MaximumHeight(self: KPixmapRegionSelectorDialog) i32 {
+    pub fn maximumHeight(self: KPixmapRegionSelectorDialog) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1012,12 +1284,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: KPixmapRegionSelectorDialog, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: KPixmapRegionSelectorDialog, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1031,9 +1307,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: KPixmapRegionSelectorDialog, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: KPixmapRegionSelectorDialog, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1043,12 +1323,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: KPixmapRegionSelectorDialog, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: KPixmapRegionSelectorDialog, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1062,9 +1346,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: KPixmapRegionSelectorDialog, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: KPixmapRegionSelectorDialog, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1076,9 +1364,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: KPixmapRegionSelectorDialog, minw: i32) void {
+    pub fn setMinimumWidth(self: KPixmapRegionSelectorDialog, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1090,9 +1382,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: KPixmapRegionSelectorDialog, minh: i32) void {
+    pub fn setMinimumHeight(self: KPixmapRegionSelectorDialog, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1104,9 +1400,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: KPixmapRegionSelectorDialog, maxw: i32) void {
+    pub fn setMaximumWidth(self: KPixmapRegionSelectorDialog, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1118,9 +1418,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: KPixmapRegionSelectorDialog, maxh: i32) void {
+    pub fn setMaximumHeight(self: KPixmapRegionSelectorDialog, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1130,9 +1434,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn SizeIncrement(self: KPixmapRegionSelectorDialog) QSize {
+    pub fn sizeIncrement(self: KPixmapRegionSelectorDialog) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1142,12 +1450,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: KPixmapRegionSelectorDialog, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: KPixmapRegionSelectorDialog, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -1161,9 +1473,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: KPixmapRegionSelectorDialog, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: KPixmapRegionSelectorDialog, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -1173,9 +1489,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn BaseSize(self: KPixmapRegionSelectorDialog) QSize {
+    pub fn baseSize(self: KPixmapRegionSelectorDialog) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -1185,12 +1505,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: KPixmapRegionSelectorDialog, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: KPixmapRegionSelectorDialog, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -1204,9 +1528,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: KPixmapRegionSelectorDialog, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: KPixmapRegionSelectorDialog, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -1218,10 +1546,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: KPixmapRegionSelectorDialog, fixedSize: anytype) void {
+    pub fn setFixedSize(self: KPixmapRegionSelectorDialog, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -1235,9 +1567,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: KPixmapRegionSelectorDialog, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: KPixmapRegionSelectorDialog, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -1249,9 +1585,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: KPixmapRegionSelectorDialog, w: i32) void {
+    pub fn setFixedWidth(self: KPixmapRegionSelectorDialog, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -1263,9 +1603,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: KPixmapRegionSelectorDialog, h: i32) void {
+    pub fn setFixedHeight(self: KPixmapRegionSelectorDialog, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -1277,11 +1621,15 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: KPixmapRegionSelectorDialog, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: KPixmapRegionSelectorDialog, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -1292,11 +1640,15 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: KPixmapRegionSelectorDialog, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: KPixmapRegionSelectorDialog, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1307,11 +1659,15 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: KPixmapRegionSelectorDialog, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: KPixmapRegionSelectorDialog, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1322,11 +1678,15 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: KPixmapRegionSelectorDialog, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: KPixmapRegionSelectorDialog, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1337,11 +1697,15 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: KPixmapRegionSelectorDialog, param1: anytype) QPointF {
+    pub fn mapToParent(self: KPixmapRegionSelectorDialog, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1352,10 +1716,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: KPixmapRegionSelectorDialog, param1: anytype) QPoint {
+    pub fn mapToParent2(self: KPixmapRegionSelectorDialog, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -1367,10 +1735,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: KPixmapRegionSelectorDialog, param1: anytype) QPointF {
+    pub fn mapFromParent(self: KPixmapRegionSelectorDialog, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -1382,10 +1754,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: KPixmapRegionSelectorDialog, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: KPixmapRegionSelectorDialog, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -1399,12 +1775,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: KPixmapRegionSelectorDialog, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: KPixmapRegionSelectorDialog, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -1417,11 +1797,15 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: KPixmapRegionSelectorDialog, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: KPixmapRegionSelectorDialog, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -1435,11 +1819,15 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: KPixmapRegionSelectorDialog, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: KPixmapRegionSelectorDialog, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -1453,11 +1841,15 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: KPixmapRegionSelectorDialog, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: KPixmapRegionSelectorDialog, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -1467,9 +1859,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn Window(self: KPixmapRegionSelectorDialog) QWidget {
+    pub fn window(self: KPixmapRegionSelectorDialog) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -1479,9 +1875,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn NativeParentWidget(self: KPixmapRegionSelectorDialog) QWidget {
+    pub fn nativeParentWidget(self: KPixmapRegionSelectorDialog) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -1491,9 +1891,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn TopLevelWidget(self: KPixmapRegionSelectorDialog) QWidget {
+    pub fn topLevelWidget(self: KPixmapRegionSelectorDialog) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -1503,9 +1907,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn Palette(self: KPixmapRegionSelectorDialog) QPalette {
+    pub fn palette(self: KPixmapRegionSelectorDialog) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -1515,12 +1923,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: KPixmapRegionSelectorDialog, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: KPixmapRegionSelectorDialog, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1530,11 +1942,15 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: KPixmapRegionSelectorDialog, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: KPixmapRegionSelectorDialog, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1548,9 +1964,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: KPixmapRegionSelectorDialog) i32 {
+    pub fn backgroundRole(self: KPixmapRegionSelectorDialog) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1560,11 +1980,15 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: KPixmapRegionSelectorDialog, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: KPixmapRegionSelectorDialog, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1578,9 +2002,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: KPixmapRegionSelectorDialog) i32 {
+    pub fn foregroundRole(self: KPixmapRegionSelectorDialog) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -1590,9 +2018,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn Font(self: KPixmapRegionSelectorDialog) QFont {
+    pub fn font(self: KPixmapRegionSelectorDialog) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -1602,12 +2034,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: KPixmapRegionSelectorDialog, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: KPixmapRegionSelectorDialog, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -1617,9 +2053,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn FontMetrics(self: KPixmapRegionSelectorDialog) QFontMetrics {
+    pub fn fontMetrics(self: KPixmapRegionSelectorDialog) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -1629,9 +2069,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn FontInfo(self: KPixmapRegionSelectorDialog) QFontInfo {
+    pub fn fontInfo(self: KPixmapRegionSelectorDialog) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -1641,9 +2085,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn Cursor(self: KPixmapRegionSelectorDialog) QCursor {
+    pub fn cursor(self: KPixmapRegionSelectorDialog) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -1653,12 +2101,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: KPixmapRegionSelectorDialog, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: KPixmapRegionSelectorDialog, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -1668,9 +2120,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn UnsetCursor(self: KPixmapRegionSelectorDialog) void {
+    pub fn unsetCursor(self: KPixmapRegionSelectorDialog) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -1682,9 +2138,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: KPixmapRegionSelectorDialog, enable: bool) void {
+    pub fn setMouseTracking(self: KPixmapRegionSelectorDialog, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -1694,9 +2154,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn HasMouseTracking(self: KPixmapRegionSelectorDialog) bool {
+    pub fn hasMouseTracking(self: KPixmapRegionSelectorDialog) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -1706,9 +2170,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn UnderMouse(self: KPixmapRegionSelectorDialog) bool {
+    pub fn underMouse(self: KPixmapRegionSelectorDialog) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -1720,9 +2188,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: KPixmapRegionSelectorDialog, enable: bool) void {
+    pub fn setTabletTracking(self: KPixmapRegionSelectorDialog, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -1732,24 +2204,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn HasTabletTracking(self: KPixmapRegionSelectorDialog) bool {
+    pub fn hasTabletTracking(self: KPixmapRegionSelectorDialog) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPixmapRegionSelectorDialog `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: KPixmapRegionSelectorDialog, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -1759,12 +2220,35 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: KPixmapRegionSelectorDialog, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: KPixmapRegionSelectorDialog, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KPixmapRegionSelectorDialog `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: KPixmapRegionSelectorDialog, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -1774,9 +2258,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn Mask(self: KPixmapRegionSelectorDialog) QRegion {
+    pub fn mask(self: KPixmapRegionSelectorDialog) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -1786,9 +2274,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn ClearMask(self: KPixmapRegionSelectorDialog) void {
+    pub fn clearMask(self: KPixmapRegionSelectorDialog) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -1800,10 +2292,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: KPixmapRegionSelectorDialog, target: anytype) void {
+    pub fn render(self: KPixmapRegionSelectorDialog, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -1815,10 +2311,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: KPixmapRegionSelectorDialog, painter: anytype) void {
+    pub fn render2(self: KPixmapRegionSelectorDialog, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -1828,9 +2328,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn Grab(self: KPixmapRegionSelectorDialog) QPixmap {
+    pub fn grab(self: KPixmapRegionSelectorDialog) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -1840,9 +2344,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn GraphicsEffect(self: KPixmapRegionSelectorDialog) QGraphicsEffect {
+    pub fn graphicsEffect(self: KPixmapRegionSelectorDialog) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -1854,10 +2362,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: KPixmapRegionSelectorDialog, effect: anytype) void {
+    pub fn setGraphicsEffect(self: KPixmapRegionSelectorDialog, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -1869,9 +2381,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: KPixmapRegionSelectorDialog, typeVal: i32) void {
+    pub fn grabGesture(self: KPixmapRegionSelectorDialog, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -1883,9 +2399,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: KPixmapRegionSelectorDialog, typeVal: i32) void {
+    pub fn ungrabGesture(self: KPixmapRegionSelectorDialog, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -1895,15 +2415,19 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: KPixmapRegionSelectorDialog, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: KPixmapRegionSelectorDialog, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -1913,15 +2437,19 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: KPixmapRegionSelectorDialog, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: KPixmapRegionSelectorDialog, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -1933,13 +2461,17 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: KPixmapRegionSelectorDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: KPixmapRegionSelectorDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapRegionSelectorDialog.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapRegionSelectorDialog.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -1951,13 +2483,17 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: KPixmapRegionSelectorDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: KPixmapRegionSelectorDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapRegionSelectorDialog.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapRegionSelectorDialog.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -1969,10 +2505,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: KPixmapRegionSelectorDialog, icon: anytype) void {
+    pub fn setWindowIcon(self: KPixmapRegionSelectorDialog, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -1982,9 +2522,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn WindowIcon(self: KPixmapRegionSelectorDialog) QIcon {
+    pub fn windowIcon(self: KPixmapRegionSelectorDialog) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -1994,15 +2538,19 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: KPixmapRegionSelectorDialog, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: KPixmapRegionSelectorDialog, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2014,13 +2562,17 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: KPixmapRegionSelectorDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: KPixmapRegionSelectorDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapRegionSelectorDialog.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapRegionSelectorDialog.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -2030,15 +2582,19 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: KPixmapRegionSelectorDialog, windowRole: []const u8) void {
+    pub fn setWindowRole(self: KPixmapRegionSelectorDialog, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -2050,13 +2606,17 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: KPixmapRegionSelectorDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: KPixmapRegionSelectorDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapRegionSelectorDialog.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapRegionSelectorDialog.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2068,13 +2628,17 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: KPixmapRegionSelectorDialog, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: KPixmapRegionSelectorDialog, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2086,13 +2650,17 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: KPixmapRegionSelectorDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: KPixmapRegionSelectorDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapRegionSelectorDialog.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapRegionSelectorDialog.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2104,9 +2672,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: KPixmapRegionSelectorDialog, level: f64) void {
+    pub fn setWindowOpacity(self: KPixmapRegionSelectorDialog, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2116,9 +2688,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn WindowOpacity(self: KPixmapRegionSelectorDialog) f64 {
+    pub fn windowOpacity(self: KPixmapRegionSelectorDialog) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -2128,9 +2704,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn IsWindowModified(self: KPixmapRegionSelectorDialog) bool {
+    pub fn isWindowModified(self: KPixmapRegionSelectorDialog) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -2140,15 +2720,19 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: KPixmapRegionSelectorDialog, toolTip: []const u8) void {
+    pub fn setToolTip(self: KPixmapRegionSelectorDialog, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -2160,13 +2744,17 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: KPixmapRegionSelectorDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: KPixmapRegionSelectorDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapRegionSelectorDialog.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapRegionSelectorDialog.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2178,9 +2766,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: KPixmapRegionSelectorDialog, msec: i32) void {
+    pub fn setToolTipDuration(self: KPixmapRegionSelectorDialog, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2190,9 +2782,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn ToolTipDuration(self: KPixmapRegionSelectorDialog) i32 {
+    pub fn toolTipDuration(self: KPixmapRegionSelectorDialog) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -2202,15 +2798,19 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: KPixmapRegionSelectorDialog, statusTip: []const u8) void {
+    pub fn setStatusTip(self: KPixmapRegionSelectorDialog, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -2222,13 +2822,17 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: KPixmapRegionSelectorDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: KPixmapRegionSelectorDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapRegionSelectorDialog.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapRegionSelectorDialog.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2238,15 +2842,19 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: KPixmapRegionSelectorDialog, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: KPixmapRegionSelectorDialog, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2258,13 +2866,17 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: KPixmapRegionSelectorDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: KPixmapRegionSelectorDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapRegionSelectorDialog.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapRegionSelectorDialog.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2276,13 +2888,17 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: KPixmapRegionSelectorDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: KPixmapRegionSelectorDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapRegionSelectorDialog.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapRegionSelectorDialog.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2294,13 +2910,17 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: KPixmapRegionSelectorDialog, name: []const u8) void {
+    pub fn setAccessibleName(self: KPixmapRegionSelectorDialog, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2312,13 +2932,17 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: KPixmapRegionSelectorDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: KPixmapRegionSelectorDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapRegionSelectorDialog.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapRegionSelectorDialog.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2330,13 +2954,17 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: KPixmapRegionSelectorDialog, description: []const u8) void {
+    pub fn setAccessibleDescription(self: KPixmapRegionSelectorDialog, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2348,9 +2976,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: KPixmapRegionSelectorDialog, direction: i32) void {
+    pub fn setLayoutDirection(self: KPixmapRegionSelectorDialog, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2364,9 +2996,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: KPixmapRegionSelectorDialog) i32 {
+    pub fn layoutDirection(self: KPixmapRegionSelectorDialog) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2376,9 +3012,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn UnsetLayoutDirection(self: KPixmapRegionSelectorDialog) void {
+    pub fn unsetLayoutDirection(self: KPixmapRegionSelectorDialog) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -2388,12 +3028,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: KPixmapRegionSelectorDialog, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: KPixmapRegionSelectorDialog, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -2403,9 +3047,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn Locale(self: KPixmapRegionSelectorDialog) QLocale {
+    pub fn locale(self: KPixmapRegionSelectorDialog) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -2415,9 +3063,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn UnsetLocale(self: KPixmapRegionSelectorDialog) void {
+    pub fn unsetLocale(self: KPixmapRegionSelectorDialog) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -2427,9 +3079,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn IsRightToLeft(self: KPixmapRegionSelectorDialog) bool {
+    pub fn isRightToLeft(self: KPixmapRegionSelectorDialog) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -2439,9 +3095,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn IsLeftToRight(self: KPixmapRegionSelectorDialog) bool {
+    pub fn isLeftToRight(self: KPixmapRegionSelectorDialog) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -2451,9 +3111,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn SetFocus(self: KPixmapRegionSelectorDialog) void {
+    pub fn setFocus(self: KPixmapRegionSelectorDialog) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -2463,9 +3127,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn IsActiveWindow(self: KPixmapRegionSelectorDialog) bool {
+    pub fn isActiveWindow(self: KPixmapRegionSelectorDialog) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -2475,9 +3143,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn ActivateWindow(self: KPixmapRegionSelectorDialog) void {
+    pub fn activateWindow(self: KPixmapRegionSelectorDialog) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -2487,9 +3159,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn ClearFocus(self: KPixmapRegionSelectorDialog) void {
+    pub fn clearFocus(self: KPixmapRegionSelectorDialog) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -2501,9 +3177,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: KPixmapRegionSelectorDialog, reason: i32) void {
+    pub fn setFocus2(self: KPixmapRegionSelectorDialog, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2517,9 +3197,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: KPixmapRegionSelectorDialog) i32 {
+    pub fn focusPolicy(self: KPixmapRegionSelectorDialog) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2531,9 +3215,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: KPixmapRegionSelectorDialog, policy: i32) void {
+    pub fn setFocusPolicy(self: KPixmapRegionSelectorDialog, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -2543,9 +3231,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn HasFocus(self: KPixmapRegionSelectorDialog) bool {
+    pub fn hasFocus(self: KPixmapRegionSelectorDialog) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -2557,11 +3249,15 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -2571,12 +3267,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: KPixmapRegionSelectorDialog, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: KPixmapRegionSelectorDialog, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -2586,9 +3286,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn FocusProxy(self: KPixmapRegionSelectorDialog) QWidget {
+    pub fn focusProxy(self: KPixmapRegionSelectorDialog) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2602,9 +3306,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: KPixmapRegionSelectorDialog) i32 {
+    pub fn contextMenuPolicy(self: KPixmapRegionSelectorDialog) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2616,9 +3324,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: KPixmapRegionSelectorDialog, policy: i32) void {
+    pub fn setContextMenuPolicy(self: KPixmapRegionSelectorDialog, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -2628,9 +3340,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn GrabMouse(self: KPixmapRegionSelectorDialog) void {
+    pub fn grabMouse(self: KPixmapRegionSelectorDialog) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -2642,10 +3358,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: KPixmapRegionSelectorDialog, param1: anytype) void {
+    pub fn grabMouse2(self: KPixmapRegionSelectorDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -2655,9 +3375,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn ReleaseMouse(self: KPixmapRegionSelectorDialog) void {
+    pub fn releaseMouse(self: KPixmapRegionSelectorDialog) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -2667,9 +3391,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn GrabKeyboard(self: KPixmapRegionSelectorDialog) void {
+    pub fn grabKeyboard(self: KPixmapRegionSelectorDialog) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -2679,9 +3407,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn ReleaseKeyboard(self: KPixmapRegionSelectorDialog) void {
+    pub fn releaseKeyboard(self: KPixmapRegionSelectorDialog) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -2693,10 +3425,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: KPixmapRegionSelectorDialog, key: anytype) i32 {
+    pub fn grabShortcut(self: KPixmapRegionSelectorDialog, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -2708,9 +3444,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: KPixmapRegionSelectorDialog, id: i32) void {
+    pub fn releaseShortcut(self: KPixmapRegionSelectorDialog, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2722,9 +3462,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: KPixmapRegionSelectorDialog, id: i32) void {
+    pub fn setShortcutEnabled(self: KPixmapRegionSelectorDialog, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -2736,25 +3480,37 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: KPixmapRegionSelectorDialog, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: KPixmapRegionSelectorDialog, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2764,9 +3520,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn UpdatesEnabled(self: KPixmapRegionSelectorDialog) bool {
+    pub fn updatesEnabled(self: KPixmapRegionSelectorDialog) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2778,9 +3538,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: KPixmapRegionSelectorDialog, enable: bool) void {
+    pub fn setUpdatesEnabled(self: KPixmapRegionSelectorDialog, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -2790,9 +3554,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn GraphicsProxyWidget(self: KPixmapRegionSelectorDialog) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: KPixmapRegionSelectorDialog) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -2802,9 +3570,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn Update(self: KPixmapRegionSelectorDialog) void {
+    pub fn update(self: KPixmapRegionSelectorDialog) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -2814,9 +3586,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn Repaint(self: KPixmapRegionSelectorDialog) void {
+    pub fn repaint(self: KPixmapRegionSelectorDialog) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -2826,17 +3602,21 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: KPixmapRegionSelectorDialog, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: KPixmapRegionSelectorDialog, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -2848,11 +3628,15 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: KPixmapRegionSelectorDialog, param1: anytype) void {
+    pub fn update3(self: KPixmapRegionSelectorDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -2863,10 +3647,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: KPixmapRegionSelectorDialog, param1: anytype) void {
+    pub fn update4(self: KPixmapRegionSelectorDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -2876,17 +3664,21 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: KPixmapRegionSelectorDialog, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: KPixmapRegionSelectorDialog, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -2898,10 +3690,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: KPixmapRegionSelectorDialog, param1: anytype) void {
+    pub fn repaint3(self: KPixmapRegionSelectorDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -2913,10 +3709,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: KPixmapRegionSelectorDialog, param1: anytype) void {
+    pub fn repaint4(self: KPixmapRegionSelectorDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -2928,9 +3728,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: KPixmapRegionSelectorDialog, hidden: bool) void {
+    pub fn setHidden(self: KPixmapRegionSelectorDialog, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -2940,9 +3744,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn Show(self: KPixmapRegionSelectorDialog) void {
+    pub fn show(self: KPixmapRegionSelectorDialog) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -2952,9 +3760,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn Hide(self: KPixmapRegionSelectorDialog) void {
+    pub fn hide(self: KPixmapRegionSelectorDialog) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -2964,9 +3776,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn ShowMinimized(self: KPixmapRegionSelectorDialog) void {
+    pub fn showMinimized(self: KPixmapRegionSelectorDialog) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -2976,9 +3792,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn ShowMaximized(self: KPixmapRegionSelectorDialog) void {
+    pub fn showMaximized(self: KPixmapRegionSelectorDialog) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -2988,9 +3808,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn ShowFullScreen(self: KPixmapRegionSelectorDialog) void {
+    pub fn showFullScreen(self: KPixmapRegionSelectorDialog) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -3000,9 +3824,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn ShowNormal(self: KPixmapRegionSelectorDialog) void {
+    pub fn showNormal(self: KPixmapRegionSelectorDialog) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -3012,9 +3840,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn Close(self: KPixmapRegionSelectorDialog) bool {
+    pub fn close(self: KPixmapRegionSelectorDialog) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -3024,9 +3856,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn Raise(self: KPixmapRegionSelectorDialog) void {
+    pub fn raise(self: KPixmapRegionSelectorDialog) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -3036,9 +3872,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn Lower(self: KPixmapRegionSelectorDialog) void {
+    pub fn lower(self: KPixmapRegionSelectorDialog) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -3050,10 +3890,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: KPixmapRegionSelectorDialog, param1: anytype) void {
+    pub fn stackUnder(self: KPixmapRegionSelectorDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -3063,13 +3907,17 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: KPixmapRegionSelectorDialog, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: KPixmapRegionSelectorDialog, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -3081,10 +3929,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: KPixmapRegionSelectorDialog, param1: anytype) void {
+    pub fn move2(self: KPixmapRegionSelectorDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -3098,9 +3950,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: KPixmapRegionSelectorDialog, w: i32, h: i32) void {
+    pub fn resize(self: KPixmapRegionSelectorDialog, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -3112,10 +3968,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: KPixmapRegionSelectorDialog, param1: anytype) void {
+    pub fn resize2(self: KPixmapRegionSelectorDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3125,17 +3985,21 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: KPixmapRegionSelectorDialog, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: KPixmapRegionSelectorDialog, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -3145,12 +4009,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: KPixmapRegionSelectorDialog, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: KPixmapRegionSelectorDialog, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3162,13 +4030,17 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: KPixmapRegionSelectorDialog, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: KPixmapRegionSelectorDialog, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KPixmapRegionSelectorDialog.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KPixmapRegionSelectorDialog.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3178,15 +4050,19 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: KPixmapRegionSelectorDialog, geometry: []u8) bool {
+    pub fn restoreGeometry(self: KPixmapRegionSelectorDialog, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -3196,9 +4072,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn AdjustSize(self: KPixmapRegionSelectorDialog) void {
+    pub fn adjustSize(self: KPixmapRegionSelectorDialog) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -3208,9 +4088,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn IsVisible(self: KPixmapRegionSelectorDialog) bool {
+    pub fn isVisible(self: KPixmapRegionSelectorDialog) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -3222,10 +4106,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: KPixmapRegionSelectorDialog, param1: anytype) bool {
+    pub fn isVisibleTo(self: KPixmapRegionSelectorDialog, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -3235,9 +4123,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn IsHidden(self: KPixmapRegionSelectorDialog) bool {
+    pub fn isHidden(self: KPixmapRegionSelectorDialog) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3247,9 +4139,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn IsMinimized(self: KPixmapRegionSelectorDialog) bool {
+    pub fn isMinimized(self: KPixmapRegionSelectorDialog) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3259,9 +4155,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn IsMaximized(self: KPixmapRegionSelectorDialog) bool {
+    pub fn isMaximized(self: KPixmapRegionSelectorDialog) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3271,9 +4171,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn IsFullScreen(self: KPixmapRegionSelectorDialog) bool {
+    pub fn isFullScreen(self: KPixmapRegionSelectorDialog) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -3287,9 +4191,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: KPixmapRegionSelectorDialog) i32 {
+    pub fn windowState(self: KPixmapRegionSelectorDialog) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3301,9 +4209,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: KPixmapRegionSelectorDialog, state: i32) void {
+    pub fn setWindowState(self: KPixmapRegionSelectorDialog, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3315,9 +4227,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: KPixmapRegionSelectorDialog, state: i32) void {
+    pub fn overrideWindowState(self: KPixmapRegionSelectorDialog, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3327,9 +4243,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn SizePolicy(self: KPixmapRegionSelectorDialog) QSizePolicy {
+    pub fn sizePolicy(self: KPixmapRegionSelectorDialog) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3339,12 +4259,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: KPixmapRegionSelectorDialog, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: KPixmapRegionSelectorDialog, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -3358,9 +4282,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: KPixmapRegionSelectorDialog, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: KPixmapRegionSelectorDialog, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -3370,9 +4298,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn VisibleRegion(self: KPixmapRegionSelectorDialog) QRegion {
+    pub fn visibleRegion(self: KPixmapRegionSelectorDialog) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3390,9 +4322,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: KPixmapRegionSelectorDialog, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: KPixmapRegionSelectorDialog, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -3404,10 +4340,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: KPixmapRegionSelectorDialog, margins: anytype) void {
+    pub fn setContentsMargins2(self: KPixmapRegionSelectorDialog, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3417,9 +4357,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn ContentsMargins(self: KPixmapRegionSelectorDialog) QMargins {
+    pub fn contentsMargins(self: KPixmapRegionSelectorDialog) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -3429,9 +4373,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn ContentsRect(self: KPixmapRegionSelectorDialog) QRect {
+    pub fn contentsRect(self: KPixmapRegionSelectorDialog) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -3441,9 +4389,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn Layout(self: KPixmapRegionSelectorDialog) QLayout {
+    pub fn layout(self: KPixmapRegionSelectorDialog) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -3453,12 +4405,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: KPixmapRegionSelectorDialog, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: KPixmapRegionSelectorDialog, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3468,24 +4424,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn UpdateGeometry(self: KPixmapRegionSelectorDialog) void {
+    pub fn updateGeometry(self: KPixmapRegionSelectorDialog) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPixmapRegionSelectorDialog `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: KPixmapRegionSelectorDialog, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -3495,14 +4440,37 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: KPixmapRegionSelectorDialog, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KPixmapRegionSelectorDialog `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: KPixmapRegionSelectorDialog, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: KPixmapRegionSelectorDialog, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -3516,9 +4484,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: KPixmapRegionSelectorDialog, dx: i32, dy: i32) void {
+    pub fn scroll(self: KPixmapRegionSelectorDialog, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -3534,10 +4506,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: KPixmapRegionSelectorDialog, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: KPixmapRegionSelectorDialog, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -3547,9 +4523,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn FocusWidget(self: KPixmapRegionSelectorDialog) QWidget {
+    pub fn focusWidget(self: KPixmapRegionSelectorDialog) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -3559,9 +4539,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn NextInFocusChain(self: KPixmapRegionSelectorDialog) QWidget {
+    pub fn nextInFocusChain(self: KPixmapRegionSelectorDialog) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -3571,9 +4555,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn PreviousInFocusChain(self: KPixmapRegionSelectorDialog) QWidget {
+    pub fn previousInFocusChain(self: KPixmapRegionSelectorDialog) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -3583,9 +4571,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn AcceptDrops(self: KPixmapRegionSelectorDialog) bool {
+    pub fn acceptDrops(self: KPixmapRegionSelectorDialog) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -3597,9 +4589,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: KPixmapRegionSelectorDialog, on: bool) void {
+    pub fn setAcceptDrops(self: KPixmapRegionSelectorDialog, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -3611,10 +4607,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: KPixmapRegionSelectorDialog, action: anytype) void {
+    pub fn addAction(self: KPixmapRegionSelectorDialog, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -3624,15 +4624,19 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: KPixmapRegionSelectorDialog, actions: []QAction) void {
+    pub fn addActions(self: KPixmapRegionSelectorDialog, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -3644,16 +4648,20 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: KPixmapRegionSelectorDialog, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: KPixmapRegionSelectorDialog, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -3667,11 +4675,15 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: KPixmapRegionSelectorDialog, before: anytype, action: anytype) void {
+    pub fn insertAction(self: KPixmapRegionSelectorDialog, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -3683,10 +4695,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: KPixmapRegionSelectorDialog, action: anytype) void {
+    pub fn removeAction(self: KPixmapRegionSelectorDialog, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -3698,15 +4714,19 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: KPixmapRegionSelectorDialog, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: KPixmapRegionSelectorDialog, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KPixmapRegionSelectorDialog.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KPixmapRegionSelectorDialog.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -3718,13 +4738,17 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: KPixmapRegionSelectorDialog, text: []const u8) QAction {
+    pub fn addAction2(self: KPixmapRegionSelectorDialog, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -3738,7 +4762,7 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: KPixmapRegionSelectorDialog, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: KPixmapRegionSelectorDialog, icon: anytype, text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -3747,6 +4771,10 @@ pub const KPixmapRegionSelectorDialog = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -3759,7 +4787,7 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: KPixmapRegionSelectorDialog, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: KPixmapRegionSelectorDialog, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -3767,6 +4795,10 @@ pub const KPixmapRegionSelectorDialog = extern struct {
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
 
     /// Inherited from QWidget
     ///
@@ -3782,7 +4814,7 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: KPixmapRegionSelectorDialog, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: KPixmapRegionSelectorDialog, icon: anytype, text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -3792,6 +4824,10 @@ pub const KPixmapRegionSelectorDialog = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
@@ -3800,9 +4836,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn ParentWidget(self: KPixmapRegionSelectorDialog) QWidget {
+    pub fn parentWidget(self: KPixmapRegionSelectorDialog) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -3814,9 +4854,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: KPixmapRegionSelectorDialog, typeVal: i32) void {
+    pub fn setWindowFlags(self: KPixmapRegionSelectorDialog, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -3830,9 +4874,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: KPixmapRegionSelectorDialog) i32 {
+    pub fn windowFlags(self: KPixmapRegionSelectorDialog) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -3844,9 +4892,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: KPixmapRegionSelectorDialog, param1: i32) void {
+    pub fn setWindowFlag(self: KPixmapRegionSelectorDialog, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -3858,9 +4910,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: KPixmapRegionSelectorDialog, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: KPixmapRegionSelectorDialog, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -3874,9 +4930,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: KPixmapRegionSelectorDialog) i32 {
+    pub fn windowType(self: KPixmapRegionSelectorDialog) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -3886,9 +4946,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -3898,13 +4962,17 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: KPixmapRegionSelectorDialog, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: KPixmapRegionSelectorDialog, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -3916,10 +4984,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: KPixmapRegionSelectorDialog, p: anytype) QWidget {
+    pub fn childAt2(self: KPixmapRegionSelectorDialog, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -3931,10 +5003,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: KPixmapRegionSelectorDialog, p: anytype) QWidget {
+    pub fn childAt3(self: KPixmapRegionSelectorDialog, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -3946,9 +5022,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: KPixmapRegionSelectorDialog, param1: i32) void {
+    pub fn setAttribute(self: KPixmapRegionSelectorDialog, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -3960,9 +5040,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: KPixmapRegionSelectorDialog, param1: i32) bool {
+    pub fn testAttribute(self: KPixmapRegionSelectorDialog, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -3972,9 +5056,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn EnsurePolished(self: KPixmapRegionSelectorDialog) void {
+    pub fn ensurePolished(self: KPixmapRegionSelectorDialog) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -3986,10 +5074,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: KPixmapRegionSelectorDialog, child: anytype) bool {
+    pub fn isAncestorOf(self: KPixmapRegionSelectorDialog, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -3999,9 +5091,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn AutoFillBackground(self: KPixmapRegionSelectorDialog) bool {
+    pub fn autoFillBackground(self: KPixmapRegionSelectorDialog) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4013,9 +5109,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: KPixmapRegionSelectorDialog, enabled: bool) void {
+    pub fn setAutoFillBackground(self: KPixmapRegionSelectorDialog, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -4025,9 +5125,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn BackingStore(self: KPixmapRegionSelectorDialog) QBackingStore {
+    pub fn backingStore(self: KPixmapRegionSelectorDialog) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -4037,9 +5141,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn WindowHandle(self: KPixmapRegionSelectorDialog) QWindow {
+    pub fn windowHandle(self: KPixmapRegionSelectorDialog) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -4049,9 +5157,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn Screen(self: KPixmapRegionSelectorDialog) QScreen {
+    pub fn screen(self: KPixmapRegionSelectorDialog) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -4061,12 +5173,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: KPixmapRegionSelectorDialog, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: KPixmapRegionSelectorDialog, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -4074,12 +5190,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4091,13 +5211,17 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: KPixmapRegionSelectorDialog, title: []const u8) void {
+    pub fn windowTitleChanged(self: KPixmapRegionSelectorDialog, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4109,9 +5233,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4123,10 +5251,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: KPixmapRegionSelectorDialog, icon: anytype) void {
+    pub fn windowIconChanged(self: KPixmapRegionSelectorDialog, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4138,9 +5270,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4152,13 +5288,17 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: KPixmapRegionSelectorDialog, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: KPixmapRegionSelectorDialog, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4170,9 +5310,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4182,12 +5326,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: KPixmapRegionSelectorDialog, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: KPixmapRegionSelectorDialog, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4199,9 +5347,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4215,9 +5367,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: KPixmapRegionSelectorDialog) i32 {
+    pub fn inputMethodHints(self: KPixmapRegionSelectorDialog) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4229,9 +5385,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: KPixmapRegionSelectorDialog, hints: i32) void {
+    pub fn setInputMethodHints(self: KPixmapRegionSelectorDialog, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -4245,11 +5405,15 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: KPixmapRegionSelectorDialog, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: KPixmapRegionSelectorDialog, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -4265,13 +5429,17 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: KPixmapRegionSelectorDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: KPixmapRegionSelectorDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -4288,12 +5456,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: KPixmapRegionSelectorDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: KPixmapRegionSelectorDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -4307,11 +5479,15 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: KPixmapRegionSelectorDialog, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: KPixmapRegionSelectorDialog, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -4327,12 +5503,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: KPixmapRegionSelectorDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: KPixmapRegionSelectorDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -4350,12 +5530,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: KPixmapRegionSelectorDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: KPixmapRegionSelectorDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -4367,10 +5551,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: KPixmapRegionSelectorDialog, rectangle: anytype) QPixmap {
+    pub fn grab1(self: KPixmapRegionSelectorDialog, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -4384,9 +5572,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: KPixmapRegionSelectorDialog, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: KPixmapRegionSelectorDialog, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -4400,10 +5592,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: KPixmapRegionSelectorDialog, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: KPixmapRegionSelectorDialog, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -4417,9 +5613,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: KPixmapRegionSelectorDialog, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: KPixmapRegionSelectorDialog, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -4433,9 +5633,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: KPixmapRegionSelectorDialog, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: KPixmapRegionSelectorDialog, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -4449,9 +5653,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: KPixmapRegionSelectorDialog, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: KPixmapRegionSelectorDialog, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -4465,25 +5673,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: KPixmapRegionSelectorDialog, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: KPixmapRegionSelectorDialog, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -4491,17 +5687,41 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -4513,13 +5733,17 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KPixmapRegionSelectorDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KPixmapRegionSelectorDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapRegionSelectorDialog.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapRegionSelectorDialog.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -4531,13 +5755,17 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KPixmapRegionSelectorDialog, name: []const u8) void {
+    pub fn setObjectName(self: KPixmapRegionSelectorDialog, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -4547,9 +5775,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn IsWidgetType(self: KPixmapRegionSelectorDialog) bool {
+    pub fn isWidgetType(self: KPixmapRegionSelectorDialog) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -4559,9 +5791,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn IsWindowType(self: KPixmapRegionSelectorDialog) bool {
+    pub fn isWindowType(self: KPixmapRegionSelectorDialog) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -4571,9 +5807,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn IsQuickItemType(self: KPixmapRegionSelectorDialog) bool {
+    pub fn isQuickItemType(self: KPixmapRegionSelectorDialog) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -4583,9 +5823,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn SignalsBlocked(self: KPixmapRegionSelectorDialog) bool {
+    pub fn signalsBlocked(self: KPixmapRegionSelectorDialog) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -4597,9 +5841,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KPixmapRegionSelectorDialog, b: bool) bool {
+    pub fn blockSignals(self: KPixmapRegionSelectorDialog, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -4609,9 +5857,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn Thread(self: KPixmapRegionSelectorDialog) QThread {
+    pub fn thread(self: KPixmapRegionSelectorDialog) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -4621,12 +5873,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KPixmapRegionSelectorDialog, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KPixmapRegionSelectorDialog, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -4638,9 +5894,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KPixmapRegionSelectorDialog, interval: i32) i32 {
+    pub fn startTimer(self: KPixmapRegionSelectorDialog, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -4652,9 +5912,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KPixmapRegionSelectorDialog, time: i64) i32 {
+    pub fn startTimer2(self: KPixmapRegionSelectorDialog, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -4666,9 +5930,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KPixmapRegionSelectorDialog, id: i32) void {
+    pub fn killTimer(self: KPixmapRegionSelectorDialog, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -4680,9 +5948,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KPixmapRegionSelectorDialog, id: i32) void {
+    pub fn killTimer2(self: KPixmapRegionSelectorDialog, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -4694,15 +5966,19 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KPixmapRegionSelectorDialog, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KPixmapRegionSelectorDialog, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KPixmapRegionSelectorDialog.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KPixmapRegionSelectorDialog.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4714,10 +5990,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KPixmapRegionSelectorDialog, filterObj: anytype) void {
+    pub fn installEventFilter(self: KPixmapRegionSelectorDialog, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4729,10 +6009,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KPixmapRegionSelectorDialog, obj: anytype) void {
+    pub fn removeEventFilter(self: KPixmapRegionSelectorDialog, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -4740,7 +6024,7 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4748,13 +6032,17 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -4762,7 +6050,7 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -4770,13 +6058,17 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -4786,18 +6078,22 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KPixmapRegionSelectorDialog, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KPixmapRegionSelectorDialog, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -4805,7 +6101,7 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4813,13 +6109,17 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -4827,7 +6127,7 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -4835,13 +6135,17 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -4851,9 +6155,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn Disconnect3(self: KPixmapRegionSelectorDialog) bool {
+    pub fn disconnect3(self: KPixmapRegionSelectorDialog) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -4865,10 +6173,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KPixmapRegionSelectorDialog, receiver: anytype) bool {
+    pub fn disconnect4(self: KPixmapRegionSelectorDialog, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -4878,10 +6190,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -4891,9 +6207,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn DumpObjectTree(self: KPixmapRegionSelectorDialog) void {
+    pub fn dumpObjectTree(self: KPixmapRegionSelectorDialog) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -4903,9 +6223,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn DumpObjectInfo(self: KPixmapRegionSelectorDialog) void {
+    pub fn dumpObjectInfo(self: KPixmapRegionSelectorDialog) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -4919,11 +6243,15 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KPixmapRegionSelectorDialog, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KPixmapRegionSelectorDialog, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -4935,10 +6263,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KPixmapRegionSelectorDialog, name: [:0]const u8) QVariant {
+    pub fn property(self: KPixmapRegionSelectorDialog, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -4950,7 +6282,7 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KPixmapRegionSelectorDialog, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KPixmapRegionSelectorDialog, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -4958,27 +6290,19 @@ pub const KPixmapRegionSelectorDialog = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KPixmapRegionSelectorDialog.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KPixmapRegionSelectorDialog.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KPixmapRegionSelectorDialog.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KPixmapRegionSelectorDialog.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPixmapRegionSelectorDialog `
-    ///
-    pub fn BindingStorage(self: KPixmapRegionSelectorDialog) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -4988,9 +6312,29 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn BindingStorage2(self: KPixmapRegionSelectorDialog) QBindingStorage {
+    pub fn bindingStorage(self: KPixmapRegionSelectorDialog) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KPixmapRegionSelectorDialog `
+    ///
+    pub fn bindingStorage2(self: KPixmapRegionSelectorDialog) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -5000,9 +6344,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn Destroyed(self: KPixmapRegionSelectorDialog) void {
+    pub fn destroyed(self: KPixmapRegionSelectorDialog) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -5014,9 +6362,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog) callconv(.c) void) void {
+    pub fn onDestroyed(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -5026,9 +6378,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn Parent(self: KPixmapRegionSelectorDialog) QObject {
+    pub fn parent(self: KPixmapRegionSelectorDialog) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -5040,10 +6396,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KPixmapRegionSelectorDialog, classname: [:0]const u8) bool {
+    pub fn inherits(self: KPixmapRegionSelectorDialog, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -5053,9 +6413,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn DeleteLater(self: KPixmapRegionSelectorDialog) void {
+    pub fn deleteLater(self: KPixmapRegionSelectorDialog) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -5069,9 +6433,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KPixmapRegionSelectorDialog, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KPixmapRegionSelectorDialog, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -5085,9 +6453,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KPixmapRegionSelectorDialog, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KPixmapRegionSelectorDialog, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -5095,7 +6467,7 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5105,13 +6477,17 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -5119,7 +6495,7 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5129,13 +6505,17 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -5145,7 +6525,7 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5153,12 +6533,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KPixmapRegionSelectorDialog, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KPixmapRegionSelectorDialog, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -5170,10 +6554,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KPixmapRegionSelectorDialog, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KPixmapRegionSelectorDialog, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -5187,11 +6575,15 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KPixmapRegionSelectorDialog, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KPixmapRegionSelectorDialog, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -5207,13 +6599,17 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KPixmapRegionSelectorDialog, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KPixmapRegionSelectorDialog, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -5226,11 +6622,15 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KPixmapRegionSelectorDialog, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KPixmapRegionSelectorDialog, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -5242,10 +6642,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KPixmapRegionSelectorDialog, param1: anytype) void {
+    pub fn destroyed1(self: KPixmapRegionSelectorDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -5257,9 +6661,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -5269,9 +6677,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn PaintingActive(self: KPixmapRegionSelectorDialog) bool {
+    pub fn paintingActive(self: KPixmapRegionSelectorDialog) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5281,9 +6693,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn WidthMM(self: KPixmapRegionSelectorDialog) i32 {
+    pub fn widthMM(self: KPixmapRegionSelectorDialog) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5293,9 +6709,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn HeightMM(self: KPixmapRegionSelectorDialog) i32 {
+    pub fn heightMM(self: KPixmapRegionSelectorDialog) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5305,9 +6725,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn LogicalDpiX(self: KPixmapRegionSelectorDialog) i32 {
+    pub fn logicalDpiX(self: KPixmapRegionSelectorDialog) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5317,9 +6741,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn LogicalDpiY(self: KPixmapRegionSelectorDialog) i32 {
+    pub fn logicalDpiY(self: KPixmapRegionSelectorDialog) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5329,9 +6757,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn PhysicalDpiX(self: KPixmapRegionSelectorDialog) i32 {
+    pub fn physicalDpiX(self: KPixmapRegionSelectorDialog) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5341,9 +6773,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn PhysicalDpiY(self: KPixmapRegionSelectorDialog) i32 {
+    pub fn physicalDpiY(self: KPixmapRegionSelectorDialog) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -5353,9 +6789,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn DevicePixelRatio(self: KPixmapRegionSelectorDialog) f64 {
+    pub fn devicePixelRatio(self: KPixmapRegionSelectorDialog) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5365,9 +6805,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn DevicePixelRatioF(self: KPixmapRegionSelectorDialog) f64 {
+    pub fn devicePixelRatioF(self: KPixmapRegionSelectorDialog) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -5377,9 +6821,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn ColorCount(self: KPixmapRegionSelectorDialog) i32 {
+    pub fn colorCount(self: KPixmapRegionSelectorDialog) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -5389,17 +6837,25 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn Depth(self: KPixmapRegionSelectorDialog) i32 {
+    pub fn depth(self: KPixmapRegionSelectorDialog) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5407,13 +6863,17 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QDialog
     ///
@@ -5427,13 +6887,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: KPixmapRegionSelectorDialog, visible: bool) void {
+    pub fn setVisible(self: KPixmapRegionSelectorDialog, visible: bool) void {
         qtc.KPixmapRegionSelectorDialog_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QDialog
     ///
@@ -5447,9 +6907,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: KPixmapRegionSelectorDialog, visible: bool) void {
+    pub fn superSetVisible(self: KPixmapRegionSelectorDialog, visible: bool) void {
         qtc.KPixmapRegionSelectorDialog_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QDialog
     ///
@@ -5463,10 +6927,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, bool) callconv(.c) void) void {
         qtc.KPixmapRegionSelectorDialog_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#sizeHint)
@@ -5477,13 +6945,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn SizeHint(self: KPixmapRegionSelectorDialog) QSize {
+    pub fn sizeHint(self: KPixmapRegionSelectorDialog) QSize {
         return .{ .ptr = qtc.KPixmapRegionSelectorDialog_SizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// Inherited from QDialog
     ///
@@ -5495,10 +6963,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn SuperSizeHint(self: KPixmapRegionSelectorDialog) QSize {
+    pub fn superSizeHint(self: KPixmapRegionSelectorDialog) QSize {
         return .{ .ptr = qtc.KPixmapRegionSelectorDialog_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#sizeHint)
@@ -5513,9 +6985,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: KPixmapRegionSelectorDialog, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KPixmapRegionSelectorDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.KPixmapRegionSelectorDialog_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QDialog
     ///
@@ -5527,13 +7003,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn MinimumSizeHint(self: KPixmapRegionSelectorDialog) QSize {
+    pub fn minimumSizeHint(self: KPixmapRegionSelectorDialog) QSize {
         return .{ .ptr = qtc.KPixmapRegionSelectorDialog_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QDialog
     ///
@@ -5545,9 +7021,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn SuperMinimumSizeHint(self: KPixmapRegionSelectorDialog) QSize {
+    pub fn superMinimumSizeHint(self: KPixmapRegionSelectorDialog) QSize {
         return .{ .ptr = qtc.KPixmapRegionSelectorDialog_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QDialog
     ///
@@ -5563,9 +7043,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: KPixmapRegionSelectorDialog, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KPixmapRegionSelectorDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.KPixmapRegionSelectorDialog_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `open` instead
+    ///
+    pub const Open = open;
 
     /// Inherited from QDialog
     ///
@@ -5577,13 +7061,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn Open(self: KPixmapRegionSelectorDialog) void {
+    pub fn open(self: KPixmapRegionSelectorDialog) void {
         qtc.KPixmapRegionSelectorDialog_Open(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperOpen` instead
+    /// ### DEPRECATED: Use `superOpen` instead
     ///
-    pub const QBaseOpen = SuperOpen;
+    pub const SuperOpen = superOpen;
 
     /// Inherited from QDialog
     ///
@@ -5595,9 +7079,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn SuperOpen(self: KPixmapRegionSelectorDialog) void {
+    pub fn superOpen(self: KPixmapRegionSelectorDialog) void {
         qtc.KPixmapRegionSelectorDialog_SuperOpen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onOpen` instead
+    ///
+    pub const OnOpen = onOpen;
 
     /// Inherited from QDialog
     ///
@@ -5611,9 +7099,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnOpen(self: KPixmapRegionSelectorDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onOpen(self: KPixmapRegionSelectorDialog, callback: *const fn () callconv(.c) void) void {
         qtc.KPixmapRegionSelectorDialog_OnOpen(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `exec` instead
+    ///
+    pub const Exec = exec;
 
     /// Inherited from QDialog
     ///
@@ -5625,13 +7117,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn Exec(self: KPixmapRegionSelectorDialog) i32 {
+    pub fn exec(self: KPixmapRegionSelectorDialog) i32 {
         return qtc.KPixmapRegionSelectorDialog_Exec(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperExec` instead
+    /// ### DEPRECATED: Use `superExec` instead
     ///
-    pub const QBaseExec = SuperExec;
+    pub const SuperExec = superExec;
 
     /// Inherited from QDialog
     ///
@@ -5643,9 +7135,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn SuperExec(self: KPixmapRegionSelectorDialog) i32 {
+    pub fn superExec(self: KPixmapRegionSelectorDialog) i32 {
         return qtc.KPixmapRegionSelectorDialog_SuperExec(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onExec` instead
+    ///
+    pub const OnExec = onExec;
 
     /// Inherited from QDialog
     ///
@@ -5659,9 +7155,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnExec(self: KPixmapRegionSelectorDialog, callback: *const fn () callconv(.c) i32) void {
+    pub fn onExec(self: KPixmapRegionSelectorDialog, callback: *const fn () callconv(.c) i32) void {
         qtc.KPixmapRegionSelectorDialog_OnExec(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `done` instead
+    ///
+    pub const Done = done;
 
     /// Inherited from QDialog
     ///
@@ -5675,13 +7175,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn Done(self: KPixmapRegionSelectorDialog, param1: i32) void {
+    pub fn done(self: KPixmapRegionSelectorDialog, param1: i32) void {
         qtc.KPixmapRegionSelectorDialog_Done(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperDone` instead
+    /// ### DEPRECATED: Use `superDone` instead
     ///
-    pub const QBaseDone = SuperDone;
+    pub const SuperDone = superDone;
 
     /// Inherited from QDialog
     ///
@@ -5695,9 +7195,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperDone(self: KPixmapRegionSelectorDialog, param1: i32) void {
+    pub fn superDone(self: KPixmapRegionSelectorDialog, param1: i32) void {
         qtc.KPixmapRegionSelectorDialog_SuperDone(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onDone` instead
+    ///
+    pub const OnDone = onDone;
 
     /// Inherited from QDialog
     ///
@@ -5711,10 +7215,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, param1: i32) callconv(.c) void `
     ///
-    pub fn OnDone(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, i32) callconv(.c) void) void {
+    pub fn onDone(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, i32) callconv(.c) void) void {
         qtc.KPixmapRegionSelectorDialog_OnDone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `accept` instead
+    ///
+    pub const Accept = accept;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#accept)
@@ -5725,13 +7233,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn Accept(self: KPixmapRegionSelectorDialog) void {
+    pub fn accept(self: KPixmapRegionSelectorDialog) void {
         qtc.KPixmapRegionSelectorDialog_Accept(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperAccept` instead
+    /// ### DEPRECATED: Use `superAccept` instead
     ///
-    pub const QBaseAccept = SuperAccept;
+    pub const SuperAccept = superAccept;
 
     /// Inherited from QDialog
     ///
@@ -5743,9 +7251,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn SuperAccept(self: KPixmapRegionSelectorDialog) void {
+    pub fn superAccept(self: KPixmapRegionSelectorDialog) void {
         qtc.KPixmapRegionSelectorDialog_SuperAccept(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onAccept` instead
+    ///
+    pub const OnAccept = onAccept;
 
     /// Inherited from QDialog
     ///
@@ -5759,9 +7271,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnAccept(self: KPixmapRegionSelectorDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onAccept(self: KPixmapRegionSelectorDialog, callback: *const fn () callconv(.c) void) void {
         qtc.KPixmapRegionSelectorDialog_OnAccept(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `reject` instead
+    ///
+    pub const Reject = reject;
 
     /// Inherited from QDialog
     ///
@@ -5773,13 +7289,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn Reject(self: KPixmapRegionSelectorDialog) void {
+    pub fn reject(self: KPixmapRegionSelectorDialog) void {
         qtc.KPixmapRegionSelectorDialog_Reject(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperReject` instead
+    /// ### DEPRECATED: Use `superReject` instead
     ///
-    pub const QBaseReject = SuperReject;
+    pub const SuperReject = superReject;
 
     /// Inherited from QDialog
     ///
@@ -5791,9 +7307,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn SuperReject(self: KPixmapRegionSelectorDialog) void {
+    pub fn superReject(self: KPixmapRegionSelectorDialog) void {
         qtc.KPixmapRegionSelectorDialog_SuperReject(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onReject` instead
+    ///
+    pub const OnReject = onReject;
 
     /// Inherited from QDialog
     ///
@@ -5807,9 +7327,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnReject(self: KPixmapRegionSelectorDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onReject(self: KPixmapRegionSelectorDialog, callback: *const fn () callconv(.c) void) void {
         qtc.KPixmapRegionSelectorDialog_OnReject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
 
     /// Inherited from QDialog
     ///
@@ -5823,14 +7347,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param1: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: KPixmapRegionSelectorDialog, param1: anytype) void {
+    pub fn keyPressEvent(self: KPixmapRegionSelectorDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QKeyEvent;
         qtc.KPixmapRegionSelectorDialog_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QDialog
     ///
@@ -5844,10 +7368,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param1: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: KPixmapRegionSelectorDialog, param1: anytype) void {
+    pub fn superKeyPressEvent(self: KPixmapRegionSelectorDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QKeyEvent;
         qtc.KPixmapRegionSelectorDialog_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// Inherited from QDialog
     ///
@@ -5861,9 +7389,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, param1: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QKeyEvent) callconv(.c) void) void {
         qtc.KPixmapRegionSelectorDialog_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QDialog
     ///
@@ -5877,14 +7409,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param1: QCloseEvent `
     ///
-    pub fn CloseEvent(self: KPixmapRegionSelectorDialog, param1: anytype) void {
+    pub fn closeEvent(self: KPixmapRegionSelectorDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCloseEvent;
         qtc.KPixmapRegionSelectorDialog_CloseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QDialog
     ///
@@ -5898,10 +7430,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param1: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: KPixmapRegionSelectorDialog, param1: anytype) void {
+    pub fn superCloseEvent(self: KPixmapRegionSelectorDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCloseEvent;
         qtc.KPixmapRegionSelectorDialog_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QDialog
     ///
@@ -5915,9 +7451,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, param1: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QCloseEvent) callconv(.c) void) void {
         qtc.KPixmapRegionSelectorDialog_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QDialog
     ///
@@ -5931,14 +7471,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param1: QShowEvent `
     ///
-    pub fn ShowEvent(self: KPixmapRegionSelectorDialog, param1: anytype) void {
+    pub fn showEvent(self: KPixmapRegionSelectorDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QShowEvent;
         qtc.KPixmapRegionSelectorDialog_ShowEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QDialog
     ///
@@ -5952,10 +7492,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param1: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: KPixmapRegionSelectorDialog, param1: anytype) void {
+    pub fn superShowEvent(self: KPixmapRegionSelectorDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QShowEvent;
         qtc.KPixmapRegionSelectorDialog_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QDialog
     ///
@@ -5969,9 +7513,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, param1: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QShowEvent) callconv(.c) void) void {
         qtc.KPixmapRegionSelectorDialog_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// Inherited from QDialog
     ///
@@ -5985,14 +7533,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param1: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: KPixmapRegionSelectorDialog, param1: anytype) void {
+    pub fn resizeEvent(self: KPixmapRegionSelectorDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QResizeEvent;
         qtc.KPixmapRegionSelectorDialog_ResizeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// Inherited from QDialog
     ///
@@ -6006,10 +7554,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param1: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: KPixmapRegionSelectorDialog, param1: anytype) void {
+    pub fn superResizeEvent(self: KPixmapRegionSelectorDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QResizeEvent;
         qtc.KPixmapRegionSelectorDialog_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// Inherited from QDialog
     ///
@@ -6023,9 +7575,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, param1: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QResizeEvent) callconv(.c) void) void {
         qtc.KPixmapRegionSelectorDialog_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QDialog
     ///
@@ -6039,14 +7595,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param1: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: KPixmapRegionSelectorDialog, param1: anytype) void {
+    pub fn contextMenuEvent(self: KPixmapRegionSelectorDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
         qtc.KPixmapRegionSelectorDialog_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QDialog
     ///
@@ -6060,10 +7616,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param1: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: KPixmapRegionSelectorDialog, param1: anytype) void {
+    pub fn superContextMenuEvent(self: KPixmapRegionSelectorDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
         qtc.KPixmapRegionSelectorDialog_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QDialog
     ///
@@ -6077,9 +7637,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, param1: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QContextMenuEvent) callconv(.c) void) void {
         qtc.KPixmapRegionSelectorDialog_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QDialog
     ///
@@ -6095,15 +7659,15 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param2: QEvent `
     ///
-    pub fn EventFilter(self: KPixmapRegionSelectorDialog, param1: anytype, param2: anytype) bool {
+    pub fn eventFilter(self: KPixmapRegionSelectorDialog, param1: anytype, param2: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QObject;
         comptime _ = @TypeOf(param2)._is_QEvent;
         return qtc.KPixmapRegionSelectorDialog_EventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QDialog
     ///
@@ -6119,11 +7683,15 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param2: QEvent `
     ///
-    pub fn SuperEventFilter(self: KPixmapRegionSelectorDialog, param1: anytype, param2: anytype) bool {
+    pub fn superEventFilter(self: KPixmapRegionSelectorDialog, param1: anytype, param2: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QObject;
         comptime _ = @TypeOf(param2)._is_QEvent;
         return qtc.KPixmapRegionSelectorDialog_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QDialog
     ///
@@ -6137,9 +7705,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, param1: QObject, param2: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QObject, QEvent) callconv(.c) bool) void {
         qtc.KPixmapRegionSelectorDialog_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -6151,13 +7723,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn DevType(self: KPixmapRegionSelectorDialog) i32 {
+    pub fn devType(self: KPixmapRegionSelectorDialog) i32 {
         return qtc.KPixmapRegionSelectorDialog_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -6169,9 +7741,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn SuperDevType(self: KPixmapRegionSelectorDialog) i32 {
+    pub fn superDevType(self: KPixmapRegionSelectorDialog) i32 {
         return qtc.KPixmapRegionSelectorDialog_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -6185,9 +7761,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: KPixmapRegionSelectorDialog, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KPixmapRegionSelectorDialog, callback: *const fn () callconv(.c) i32) void {
         qtc.KPixmapRegionSelectorDialog_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6201,13 +7781,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: KPixmapRegionSelectorDialog, param1: i32) i32 {
+    pub fn heightForWidth(self: KPixmapRegionSelectorDialog, param1: i32) i32 {
         return qtc.KPixmapRegionSelectorDialog_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6221,9 +7801,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: KPixmapRegionSelectorDialog, param1: i32) i32 {
+    pub fn superHeightForWidth(self: KPixmapRegionSelectorDialog, param1: i32) i32 {
         return qtc.KPixmapRegionSelectorDialog_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6237,9 +7821,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, i32) callconv(.c) i32) void {
         qtc.KPixmapRegionSelectorDialog_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6251,13 +7839,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn HasHeightForWidth(self: KPixmapRegionSelectorDialog) bool {
+    pub fn hasHeightForWidth(self: KPixmapRegionSelectorDialog) bool {
         return qtc.KPixmapRegionSelectorDialog_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6269,9 +7857,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn SuperHasHeightForWidth(self: KPixmapRegionSelectorDialog) bool {
+    pub fn superHasHeightForWidth(self: KPixmapRegionSelectorDialog) bool {
         return qtc.KPixmapRegionSelectorDialog_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6285,9 +7877,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: KPixmapRegionSelectorDialog, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KPixmapRegionSelectorDialog, callback: *const fn () callconv(.c) bool) void {
         qtc.KPixmapRegionSelectorDialog_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6299,13 +7895,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn PaintEngine(self: KPixmapRegionSelectorDialog) QPaintEngine {
+    pub fn paintEngine(self: KPixmapRegionSelectorDialog) QPaintEngine {
         return .{ .ptr = qtc.KPixmapRegionSelectorDialog_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6317,9 +7913,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn SuperPaintEngine(self: KPixmapRegionSelectorDialog) QPaintEngine {
+    pub fn superPaintEngine(self: KPixmapRegionSelectorDialog) QPaintEngine {
         return .{ .ptr = qtc.KPixmapRegionSelectorDialog_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6333,9 +7933,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: KPixmapRegionSelectorDialog, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KPixmapRegionSelectorDialog, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.KPixmapRegionSelectorDialog_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QWidget
     ///
@@ -6347,16 +7951,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: KPixmapRegionSelectorDialog, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KPixmapRegionSelectorDialog_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: KPixmapRegionSelectorDialog, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KPixmapRegionSelectorDialog_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QWidget
     ///
@@ -6368,12 +7972,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: KPixmapRegionSelectorDialog, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KPixmapRegionSelectorDialog_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: KPixmapRegionSelectorDialog, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KPixmapRegionSelectorDialog_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QWidget
     ///
@@ -6387,10 +7995,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QEvent) callconv(.c) bool) void {
         qtc.KPixmapRegionSelectorDialog_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
@@ -6401,16 +8013,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: KPixmapRegionSelectorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KPixmapRegionSelectorDialog_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mousePressEvent(self: KPixmapRegionSelectorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KPixmapRegionSelectorDialog_MousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6422,12 +8034,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: KPixmapRegionSelectorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KPixmapRegionSelectorDialog_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMousePressEvent(self: KPixmapRegionSelectorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KPixmapRegionSelectorDialog_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6441,10 +8057,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QMouseEvent) callconv(.c) void) void {
         qtc.KPixmapRegionSelectorDialog_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
@@ -6455,16 +8075,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: KPixmapRegionSelectorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KPixmapRegionSelectorDialog_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseReleaseEvent(self: KPixmapRegionSelectorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KPixmapRegionSelectorDialog_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6476,12 +8096,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: KPixmapRegionSelectorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KPixmapRegionSelectorDialog_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseReleaseEvent(self: KPixmapRegionSelectorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KPixmapRegionSelectorDialog_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6495,10 +8119,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QMouseEvent) callconv(.c) void) void {
         qtc.KPixmapRegionSelectorDialog_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
@@ -6509,16 +8137,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: KPixmapRegionSelectorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KPixmapRegionSelectorDialog_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: KPixmapRegionSelectorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KPixmapRegionSelectorDialog_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -6530,12 +8158,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: KPixmapRegionSelectorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KPixmapRegionSelectorDialog_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: KPixmapRegionSelectorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KPixmapRegionSelectorDialog_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -6549,10 +8181,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QMouseEvent) callconv(.c) void) void {
         qtc.KPixmapRegionSelectorDialog_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
@@ -6563,16 +8199,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: KPixmapRegionSelectorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KPixmapRegionSelectorDialog_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseMoveEvent(self: KPixmapRegionSelectorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KPixmapRegionSelectorDialog_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6584,12 +8220,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: KPixmapRegionSelectorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KPixmapRegionSelectorDialog_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseMoveEvent(self: KPixmapRegionSelectorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KPixmapRegionSelectorDialog_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6603,9 +8243,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QMouseEvent) callconv(.c) void) void {
         qtc.KPixmapRegionSelectorDialog_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6617,16 +8261,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: KPixmapRegionSelectorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.KPixmapRegionSelectorDialog_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn wheelEvent(self: KPixmapRegionSelectorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.KPixmapRegionSelectorDialog_WheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6638,12 +8282,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: KPixmapRegionSelectorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.KPixmapRegionSelectorDialog_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superWheelEvent(self: KPixmapRegionSelectorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.KPixmapRegionSelectorDialog_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6657,9 +8305,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QWheelEvent) callconv(.c) void) void {
         qtc.KPixmapRegionSelectorDialog_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6671,16 +8323,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: KPixmapRegionSelectorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KPixmapRegionSelectorDialog_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyReleaseEvent(self: KPixmapRegionSelectorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KPixmapRegionSelectorDialog_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6692,12 +8344,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: KPixmapRegionSelectorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KPixmapRegionSelectorDialog_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyReleaseEvent(self: KPixmapRegionSelectorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KPixmapRegionSelectorDialog_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6711,10 +8367,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QKeyEvent) callconv(.c) void) void {
         qtc.KPixmapRegionSelectorDialog_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
@@ -6725,16 +8385,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: KPixmapRegionSelectorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KPixmapRegionSelectorDialog_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusInEvent(self: KPixmapRegionSelectorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KPixmapRegionSelectorDialog_FocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -6746,12 +8406,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: KPixmapRegionSelectorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KPixmapRegionSelectorDialog_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusInEvent(self: KPixmapRegionSelectorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KPixmapRegionSelectorDialog_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -6765,10 +8429,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QFocusEvent) callconv(.c) void) void {
         qtc.KPixmapRegionSelectorDialog_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
@@ -6779,16 +8447,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: KPixmapRegionSelectorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KPixmapRegionSelectorDialog_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusOutEvent(self: KPixmapRegionSelectorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KPixmapRegionSelectorDialog_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -6800,12 +8468,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: KPixmapRegionSelectorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KPixmapRegionSelectorDialog_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusOutEvent(self: KPixmapRegionSelectorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KPixmapRegionSelectorDialog_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -6819,9 +8491,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QFocusEvent) callconv(.c) void) void {
         qtc.KPixmapRegionSelectorDialog_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6833,16 +8509,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: KPixmapRegionSelectorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KPixmapRegionSelectorDialog_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: KPixmapRegionSelectorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KPixmapRegionSelectorDialog_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6854,12 +8530,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: KPixmapRegionSelectorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KPixmapRegionSelectorDialog_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: KPixmapRegionSelectorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KPixmapRegionSelectorDialog_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6873,9 +8553,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QEnterEvent) callconv(.c) void) void {
         qtc.KPixmapRegionSelectorDialog_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6887,16 +8571,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: KPixmapRegionSelectorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KPixmapRegionSelectorDialog_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: KPixmapRegionSelectorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KPixmapRegionSelectorDialog_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6908,12 +8592,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: KPixmapRegionSelectorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KPixmapRegionSelectorDialog_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: KPixmapRegionSelectorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KPixmapRegionSelectorDialog_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6927,9 +8615,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QEvent) callconv(.c) void) void {
         qtc.KPixmapRegionSelectorDialog_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// Inherited from QWidget
     ///
@@ -6941,16 +8633,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn PaintEvent(self: KPixmapRegionSelectorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.KPixmapRegionSelectorDialog_PaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn paintEvent(self: KPixmapRegionSelectorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.KPixmapRegionSelectorDialog_PaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -6962,12 +8654,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: KPixmapRegionSelectorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.KPixmapRegionSelectorDialog_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superPaintEvent(self: KPixmapRegionSelectorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.KPixmapRegionSelectorDialog_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -6981,9 +8677,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, event: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QPaintEvent) callconv(.c) void) void {
         qtc.KPixmapRegionSelectorDialog_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6995,16 +8695,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: KPixmapRegionSelectorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KPixmapRegionSelectorDialog_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: KPixmapRegionSelectorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KPixmapRegionSelectorDialog_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7016,12 +8716,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: KPixmapRegionSelectorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KPixmapRegionSelectorDialog_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: KPixmapRegionSelectorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KPixmapRegionSelectorDialog_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7035,9 +8739,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QMoveEvent) callconv(.c) void) void {
         qtc.KPixmapRegionSelectorDialog_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7049,16 +8757,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: KPixmapRegionSelectorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KPixmapRegionSelectorDialog_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: KPixmapRegionSelectorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KPixmapRegionSelectorDialog_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7070,12 +8778,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: KPixmapRegionSelectorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KPixmapRegionSelectorDialog_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: KPixmapRegionSelectorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KPixmapRegionSelectorDialog_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7089,9 +8801,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QTabletEvent) callconv(.c) void) void {
         qtc.KPixmapRegionSelectorDialog_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7103,16 +8819,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: KPixmapRegionSelectorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KPixmapRegionSelectorDialog_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: KPixmapRegionSelectorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KPixmapRegionSelectorDialog_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7124,12 +8840,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: KPixmapRegionSelectorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KPixmapRegionSelectorDialog_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: KPixmapRegionSelectorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KPixmapRegionSelectorDialog_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7143,9 +8863,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QActionEvent) callconv(.c) void) void {
         qtc.KPixmapRegionSelectorDialog_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7157,16 +8881,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: KPixmapRegionSelectorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KPixmapRegionSelectorDialog_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: KPixmapRegionSelectorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KPixmapRegionSelectorDialog_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7178,12 +8902,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: KPixmapRegionSelectorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KPixmapRegionSelectorDialog_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: KPixmapRegionSelectorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KPixmapRegionSelectorDialog_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7197,9 +8925,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QDragEnterEvent) callconv(.c) void) void {
         qtc.KPixmapRegionSelectorDialog_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7211,16 +8943,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: KPixmapRegionSelectorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KPixmapRegionSelectorDialog_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: KPixmapRegionSelectorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KPixmapRegionSelectorDialog_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7232,12 +8964,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: KPixmapRegionSelectorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KPixmapRegionSelectorDialog_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: KPixmapRegionSelectorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KPixmapRegionSelectorDialog_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7251,9 +8987,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QDragMoveEvent) callconv(.c) void) void {
         qtc.KPixmapRegionSelectorDialog_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7265,16 +9005,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: KPixmapRegionSelectorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KPixmapRegionSelectorDialog_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: KPixmapRegionSelectorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KPixmapRegionSelectorDialog_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7286,12 +9026,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: KPixmapRegionSelectorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KPixmapRegionSelectorDialog_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: KPixmapRegionSelectorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KPixmapRegionSelectorDialog_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7305,9 +9049,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QDragLeaveEvent) callconv(.c) void) void {
         qtc.KPixmapRegionSelectorDialog_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7319,16 +9067,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: KPixmapRegionSelectorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KPixmapRegionSelectorDialog_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: KPixmapRegionSelectorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KPixmapRegionSelectorDialog_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7340,12 +9088,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: KPixmapRegionSelectorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KPixmapRegionSelectorDialog_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: KPixmapRegionSelectorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KPixmapRegionSelectorDialog_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7359,9 +9111,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QDropEvent) callconv(.c) void) void {
         qtc.KPixmapRegionSelectorDialog_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7373,16 +9129,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: KPixmapRegionSelectorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KPixmapRegionSelectorDialog_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: KPixmapRegionSelectorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KPixmapRegionSelectorDialog_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7394,12 +9150,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: KPixmapRegionSelectorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KPixmapRegionSelectorDialog_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: KPixmapRegionSelectorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KPixmapRegionSelectorDialog_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7413,9 +9173,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QHideEvent) callconv(.c) void) void {
         qtc.KPixmapRegionSelectorDialog_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7431,19 +9195,19 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` message: ?*anyopaque `
     ///
-    /// ` result: *isize `
+    /// ` _result: *isize `
     ///
-    pub fn NativeEvent(self: KPixmapRegionSelectorDialog, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: KPixmapRegionSelectorDialog, eventType: []u8, message: ?*anyopaque, _result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.KPixmapRegionSelectorDialog_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.KPixmapRegionSelectorDialog_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(_result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7459,15 +9223,19 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` message: ?*anyopaque `
     ///
-    /// ` result: *isize `
+    /// ` _result: *isize `
     ///
-    pub fn SuperNativeEvent(self: KPixmapRegionSelectorDialog, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: KPixmapRegionSelectorDialog, eventType: []u8, message: ?*anyopaque, _result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.KPixmapRegionSelectorDialog_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.KPixmapRegionSelectorDialog_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(_result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7481,9 +9249,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KPixmapRegionSelectorDialog_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7497,14 +9269,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: KPixmapRegionSelectorDialog, param1: anytype) void {
+    pub fn changeEvent(self: KPixmapRegionSelectorDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.KPixmapRegionSelectorDialog_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7518,10 +9290,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: KPixmapRegionSelectorDialog, param1: anytype) void {
+    pub fn superChangeEvent(self: KPixmapRegionSelectorDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.KPixmapRegionSelectorDialog_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7535,9 +9311,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QEvent) callconv(.c) void) void {
         qtc.KPixmapRegionSelectorDialog_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -7551,13 +9331,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: KPixmapRegionSelectorDialog, param1: i32) i32 {
+    pub fn metric(self: KPixmapRegionSelectorDialog, param1: i32) i32 {
         return qtc.KPixmapRegionSelectorDialog_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -7571,9 +9351,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: KPixmapRegionSelectorDialog, param1: i32) i32 {
+    pub fn superMetric(self: KPixmapRegionSelectorDialog, param1: i32) i32 {
         return qtc.KPixmapRegionSelectorDialog_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -7587,9 +9371,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, i32) callconv(.c) i32) void {
         qtc.KPixmapRegionSelectorDialog_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -7603,14 +9391,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: KPixmapRegionSelectorDialog, painter: anytype) void {
+    pub fn initPainter(self: KPixmapRegionSelectorDialog, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KPixmapRegionSelectorDialog_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7624,10 +9412,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: KPixmapRegionSelectorDialog, painter: anytype) void {
+    pub fn superInitPainter(self: KPixmapRegionSelectorDialog, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KPixmapRegionSelectorDialog_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7641,9 +9433,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QPainter) callconv(.c) void) void {
         qtc.KPixmapRegionSelectorDialog_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -7657,14 +9453,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: KPixmapRegionSelectorDialog, offset: anytype) QPaintDevice {
+    pub fn redirected(self: KPixmapRegionSelectorDialog, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KPixmapRegionSelectorDialog_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7678,10 +9474,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: KPixmapRegionSelectorDialog, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: KPixmapRegionSelectorDialog, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KPixmapRegionSelectorDialog_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7695,9 +9495,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QPoint) callconv(.c) QPaintDevice) void {
         qtc.KPixmapRegionSelectorDialog_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7709,13 +9513,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn SharedPainter(self: KPixmapRegionSelectorDialog) QPainter {
+    pub fn sharedPainter(self: KPixmapRegionSelectorDialog) QPainter {
         return .{ .ptr = qtc.KPixmapRegionSelectorDialog_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7727,9 +9531,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn SuperSharedPainter(self: KPixmapRegionSelectorDialog) QPainter {
+    pub fn superSharedPainter(self: KPixmapRegionSelectorDialog) QPainter {
         return .{ .ptr = qtc.KPixmapRegionSelectorDialog_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7743,9 +9551,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: KPixmapRegionSelectorDialog, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KPixmapRegionSelectorDialog, callback: *const fn () callconv(.c) QPainter) void {
         qtc.KPixmapRegionSelectorDialog_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7759,14 +9571,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: KPixmapRegionSelectorDialog, param1: anytype) void {
+    pub fn inputMethodEvent(self: KPixmapRegionSelectorDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KPixmapRegionSelectorDialog_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7780,10 +9592,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: KPixmapRegionSelectorDialog, param1: anytype) void {
+    pub fn superInputMethodEvent(self: KPixmapRegionSelectorDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KPixmapRegionSelectorDialog_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7797,9 +9613,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QInputMethodEvent) callconv(.c) void) void {
         qtc.KPixmapRegionSelectorDialog_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7813,13 +9633,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: KPixmapRegionSelectorDialog, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: KPixmapRegionSelectorDialog, param1: i32) QVariant {
         return .{ .ptr = qtc.KPixmapRegionSelectorDialog_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7833,9 +9653,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: KPixmapRegionSelectorDialog, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: KPixmapRegionSelectorDialog, param1: i32) QVariant {
         return .{ .ptr = qtc.KPixmapRegionSelectorDialog_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7851,9 +9675,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, i32) callconv(.c) QVariant) void {
         qtc.KPixmapRegionSelectorDialog_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7867,13 +9695,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: KPixmapRegionSelectorDialog, next: bool) bool {
+    pub fn focusNextPrevChild(self: KPixmapRegionSelectorDialog, next: bool) bool {
         return qtc.KPixmapRegionSelectorDialog_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7887,9 +9715,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: KPixmapRegionSelectorDialog, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: KPixmapRegionSelectorDialog, next: bool) bool {
         return qtc.KPixmapRegionSelectorDialog_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7903,9 +9735,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, bool) callconv(.c) bool) void {
         qtc.KPixmapRegionSelectorDialog_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -7917,16 +9753,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KPixmapRegionSelectorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KPixmapRegionSelectorDialog_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: KPixmapRegionSelectorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KPixmapRegionSelectorDialog_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -7938,12 +9774,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KPixmapRegionSelectorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KPixmapRegionSelectorDialog_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: KPixmapRegionSelectorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KPixmapRegionSelectorDialog_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -7957,9 +9797,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QTimerEvent) callconv(.c) void) void {
         qtc.KPixmapRegionSelectorDialog_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -7971,16 +9815,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KPixmapRegionSelectorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KPixmapRegionSelectorDialog_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KPixmapRegionSelectorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KPixmapRegionSelectorDialog_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -7992,12 +9836,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KPixmapRegionSelectorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KPixmapRegionSelectorDialog_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KPixmapRegionSelectorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KPixmapRegionSelectorDialog_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -8011,9 +9859,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QChildEvent) callconv(.c) void) void {
         qtc.KPixmapRegionSelectorDialog_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -8025,16 +9877,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KPixmapRegionSelectorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KPixmapRegionSelectorDialog_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KPixmapRegionSelectorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KPixmapRegionSelectorDialog_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8046,12 +9898,16 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KPixmapRegionSelectorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KPixmapRegionSelectorDialog_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KPixmapRegionSelectorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KPixmapRegionSelectorDialog_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8065,9 +9921,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QEvent) callconv(.c) void) void {
         qtc.KPixmapRegionSelectorDialog_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -8081,14 +9941,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KPixmapRegionSelectorDialog, signal: anytype) void {
+    pub fn connectNotify(self: KPixmapRegionSelectorDialog, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KPixmapRegionSelectorDialog_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8102,11 +9962,15 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KPixmapRegionSelectorDialog, signal: anytype) void {
+    pub fn superConnectNotify(self: KPixmapRegionSelectorDialog, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KPixmapRegionSelectorDialog_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -8119,9 +9983,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QMetaMethod) callconv(.c) void) void {
         qtc.KPixmapRegionSelectorDialog_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8135,14 +10003,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KPixmapRegionSelectorDialog, signal: anytype) void {
+    pub fn disconnectNotify(self: KPixmapRegionSelectorDialog, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KPixmapRegionSelectorDialog_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8156,10 +10024,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KPixmapRegionSelectorDialog, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KPixmapRegionSelectorDialog, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KPixmapRegionSelectorDialog_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8173,9 +10045,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QMetaMethod) callconv(.c) void) void {
         qtc.KPixmapRegionSelectorDialog_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `adjustPosition` instead
+    ///
+    pub const AdjustPosition = adjustPosition;
 
     /// Inherited from QDialog
     ///
@@ -8189,14 +10065,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn AdjustPosition(self: KPixmapRegionSelectorDialog, param1: anytype) void {
+    pub fn adjustPosition(self: KPixmapRegionSelectorDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.KPixmapRegionSelectorDialog_AdjustPosition(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperAdjustPosition` instead
+    /// ### DEPRECATED: Use `superAdjustPosition` instead
     ///
-    pub const QBaseAdjustPosition = SuperAdjustPosition;
+    pub const SuperAdjustPosition = superAdjustPosition;
 
     /// Inherited from QDialog
     ///
@@ -8210,10 +10086,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn SuperAdjustPosition(self: KPixmapRegionSelectorDialog, param1: anytype) void {
+    pub fn superAdjustPosition(self: KPixmapRegionSelectorDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.KPixmapRegionSelectorDialog_SuperAdjustPosition(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onAdjustPosition` instead
+    ///
+    pub const OnAdjustPosition = onAdjustPosition;
 
     /// Inherited from QDialog
     ///
@@ -8227,10 +10107,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, param1: QWidget) callconv(.c) void `
     ///
-    pub fn OnAdjustPosition(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QWidget) callconv(.c) void) void {
+    pub fn onAdjustPosition(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QWidget) callconv(.c) void) void {
         qtc.KPixmapRegionSelectorDialog_OnAdjustPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8241,13 +10125,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn UpdateMicroFocus(self: KPixmapRegionSelectorDialog) void {
+    pub fn updateMicroFocus(self: KPixmapRegionSelectorDialog) void {
         qtc.KPixmapRegionSelectorDialog_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -8259,10 +10143,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn SuperUpdateMicroFocus(self: KPixmapRegionSelectorDialog) void {
+    pub fn superUpdateMicroFocus(self: KPixmapRegionSelectorDialog) void {
         qtc.KPixmapRegionSelectorDialog_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8275,10 +10163,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: KPixmapRegionSelectorDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: KPixmapRegionSelectorDialog, callback: *const fn () callconv(.c) void) void {
         qtc.KPixmapRegionSelectorDialog_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8289,13 +10181,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn Create(self: KPixmapRegionSelectorDialog) void {
+    pub fn create(self: KPixmapRegionSelectorDialog) void {
         qtc.KPixmapRegionSelectorDialog_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -8307,10 +10199,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn SuperCreate(self: KPixmapRegionSelectorDialog) void {
+    pub fn superCreate(self: KPixmapRegionSelectorDialog) void {
         qtc.KPixmapRegionSelectorDialog_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8323,9 +10219,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: KPixmapRegionSelectorDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: KPixmapRegionSelectorDialog, callback: *const fn () callconv(.c) void) void {
         qtc.KPixmapRegionSelectorDialog_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -8337,13 +10237,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn Destroy(self: KPixmapRegionSelectorDialog) void {
+    pub fn destroy(self: KPixmapRegionSelectorDialog) void {
         qtc.KPixmapRegionSelectorDialog_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8355,9 +10255,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn SuperDestroy(self: KPixmapRegionSelectorDialog) void {
+    pub fn superDestroy(self: KPixmapRegionSelectorDialog) void {
         qtc.KPixmapRegionSelectorDialog_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8371,10 +10275,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: KPixmapRegionSelectorDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: KPixmapRegionSelectorDialog, callback: *const fn () callconv(.c) void) void {
         qtc.KPixmapRegionSelectorDialog_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8385,13 +10293,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn FocusNextChild(self: KPixmapRegionSelectorDialog) bool {
+    pub fn focusNextChild(self: KPixmapRegionSelectorDialog) bool {
         return qtc.KPixmapRegionSelectorDialog_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -8403,10 +10311,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn SuperFocusNextChild(self: KPixmapRegionSelectorDialog) bool {
+    pub fn superFocusNextChild(self: KPixmapRegionSelectorDialog) bool {
         return qtc.KPixmapRegionSelectorDialog_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8419,9 +10331,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: KPixmapRegionSelectorDialog, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: KPixmapRegionSelectorDialog, callback: *const fn () callconv(.c) bool) void {
         qtc.KPixmapRegionSelectorDialog_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8433,13 +10349,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn FocusPreviousChild(self: KPixmapRegionSelectorDialog) bool {
+    pub fn focusPreviousChild(self: KPixmapRegionSelectorDialog) bool {
         return qtc.KPixmapRegionSelectorDialog_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8451,9 +10367,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn SuperFocusPreviousChild(self: KPixmapRegionSelectorDialog) bool {
+    pub fn superFocusPreviousChild(self: KPixmapRegionSelectorDialog) bool {
         return qtc.KPixmapRegionSelectorDialog_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8467,9 +10387,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: KPixmapRegionSelectorDialog, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: KPixmapRegionSelectorDialog, callback: *const fn () callconv(.c) bool) void {
         qtc.KPixmapRegionSelectorDialog_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -8481,13 +10405,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn Sender(self: KPixmapRegionSelectorDialog) QObject {
+    pub fn sender(self: KPixmapRegionSelectorDialog) QObject {
         return .{ .ptr = qtc.KPixmapRegionSelectorDialog_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -8499,9 +10423,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn SuperSender(self: KPixmapRegionSelectorDialog) QObject {
+    pub fn superSender(self: KPixmapRegionSelectorDialog) QObject {
         return .{ .ptr = qtc.KPixmapRegionSelectorDialog_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -8515,9 +10443,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KPixmapRegionSelectorDialog, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KPixmapRegionSelectorDialog, callback: *const fn () callconv(.c) QObject) void {
         qtc.KPixmapRegionSelectorDialog_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8529,13 +10461,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn SenderSignalIndex(self: KPixmapRegionSelectorDialog) i32 {
+    pub fn senderSignalIndex(self: KPixmapRegionSelectorDialog) i32 {
         return qtc.KPixmapRegionSelectorDialog_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8547,9 +10479,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn SuperSenderSignalIndex(self: KPixmapRegionSelectorDialog) i32 {
+    pub fn superSenderSignalIndex(self: KPixmapRegionSelectorDialog) i32 {
         return qtc.KPixmapRegionSelectorDialog_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8563,9 +10499,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KPixmapRegionSelectorDialog, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KPixmapRegionSelectorDialog, callback: *const fn () callconv(.c) i32) void {
         qtc.KPixmapRegionSelectorDialog_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -8579,14 +10519,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KPixmapRegionSelectorDialog, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KPixmapRegionSelectorDialog, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KPixmapRegionSelectorDialog_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -8600,10 +10540,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KPixmapRegionSelectorDialog, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KPixmapRegionSelectorDialog, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KPixmapRegionSelectorDialog_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -8617,9 +10561,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, [*:0]const u8) callconv(.c) i32) void {
         qtc.KPixmapRegionSelectorDialog_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8633,14 +10581,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KPixmapRegionSelectorDialog, signal: anytype) bool {
+    pub fn isSignalConnected(self: KPixmapRegionSelectorDialog, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KPixmapRegionSelectorDialog_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8654,10 +10602,14 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KPixmapRegionSelectorDialog, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KPixmapRegionSelectorDialog, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KPixmapRegionSelectorDialog_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8671,9 +10623,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, QMetaMethod) callconv(.c) bool) void {
         qtc.KPixmapRegionSelectorDialog_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8689,13 +10645,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: KPixmapRegionSelectorDialog, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: KPixmapRegionSelectorDialog, metricA: i32, metricB: i32) f64 {
         return qtc.KPixmapRegionSelectorDialog_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8711,9 +10667,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: KPixmapRegionSelectorDialog, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: KPixmapRegionSelectorDialog, metricA: i32, metricB: i32) f64 {
         return qtc.KPixmapRegionSelectorDialog_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8727,9 +10687,13 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, i32, i32) callconv(.c) f64) void {
         qtc.KPixmapRegionSelectorDialog_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -8743,23 +10707,23 @@ pub const KPixmapRegionSelectorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorDialog, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KPixmapRegionSelectorDialog, callback: *const fn (KPixmapRegionSelectorDialog, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kpixmapregionselectordialog.html#dtor.KPixmapRegionSelectorDialog)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KPixmapRegionSelectorDialog `
     ///
-    pub fn Delete(self: KPixmapRegionSelectorDialog) void {
+    pub fn delete(self: KPixmapRegionSelectorDialog) void {
         qtc.KPixmapRegionSelectorDialog_Delete(@ptrCast(self.ptr));
     }
 };

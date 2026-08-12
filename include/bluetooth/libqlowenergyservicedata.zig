@@ -16,22 +16,34 @@ pub const QLowEnergyServiceData = extern struct {
 
     pub const _is_QLowEnergyServiceData = {};
 
-    /// New constructs a new QLowEnergyServiceData object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QLowEnergyServiceData {
+    pub const New = new;
+
+    /// Allocate a new QLowEnergyServiceData object in C++ memory
+    ///
+    pub fn new() QLowEnergyServiceData {
         return .{ .ptr = qtc.QLowEnergyServiceData_new() };
     }
 
-    /// New2 constructs a new QLowEnergyServiceData object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QLowEnergyServiceData object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QLowEnergyServiceData `
     ///
-    pub fn New2(other: anytype) QLowEnergyServiceData {
+    pub fn new2(other: anytype) QLowEnergyServiceData {
         comptime _ = @TypeOf(other)._is_QLowEnergyServiceData;
         return .{ .ptr = qtc.QLowEnergyServiceData_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlowenergyservicedata.html#operator-eq)
     ///
@@ -41,10 +53,16 @@ pub const QLowEnergyServiceData = extern struct {
     ///
     /// ` other: QLowEnergyServiceData `
     ///
-    pub fn OperatorAssign(self: QLowEnergyServiceData, other: anytype) void {
+    pub fn operatorAssign(self: QLowEnergyServiceData, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QLowEnergyServiceData;
         qtc.QLowEnergyServiceData_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlowenergyservicedata.html#type)
     ///
@@ -56,9 +74,13 @@ pub const QLowEnergyServiceData = extern struct {
     ///
     /// ` qlowenergyservicedata_enums.ServiceType `
     ///
-    pub fn Type(self: QLowEnergyServiceData) i32 {
+    pub fn type0(self: QLowEnergyServiceData) i32 {
         return qtc.QLowEnergyServiceData_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setType` instead
+    ///
+    pub const SetType = setType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlowenergyservicedata.html#setType)
     ///
@@ -68,9 +90,13 @@ pub const QLowEnergyServiceData = extern struct {
     ///
     /// ` typeVal: qlowenergyservicedata_enums.ServiceType `
     ///
-    pub fn SetType(self: QLowEnergyServiceData, typeVal: i32) void {
+    pub fn setType(self: QLowEnergyServiceData, typeVal: i32) void {
         qtc.QLowEnergyServiceData_SetType(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `uuid` instead
+    ///
+    pub const Uuid = uuid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlowenergyservicedata.html#uuid)
     ///
@@ -78,9 +104,13 @@ pub const QLowEnergyServiceData = extern struct {
     ///
     /// ` self: QLowEnergyServiceData `
     ///
-    pub fn Uuid(self: QLowEnergyServiceData) QBluetoothUuid {
+    pub fn uuid(self: QLowEnergyServiceData) QBluetoothUuid {
         return .{ .ptr = qtc.QLowEnergyServiceData_Uuid(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setUuid` instead
+    ///
+    pub const SetUuid = setUuid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlowenergyservicedata.html#setUuid)
     ///
@@ -88,12 +118,16 @@ pub const QLowEnergyServiceData = extern struct {
     ///
     /// ` self: QLowEnergyServiceData `
     ///
-    /// ` uuid: QBluetoothUuid `
+    /// ` _uuid: QBluetoothUuid `
     ///
-    pub fn SetUuid(self: QLowEnergyServiceData, uuid: anytype) void {
-        comptime _ = @TypeOf(uuid)._is_QBluetoothUuid;
-        qtc.QLowEnergyServiceData_SetUuid(@ptrCast(self.ptr), @ptrCast(uuid.ptr));
+    pub fn setUuid(self: QLowEnergyServiceData, _uuid: anytype) void {
+        comptime _ = @TypeOf(_uuid)._is_QBluetoothUuid;
+        qtc.QLowEnergyServiceData_SetUuid(@ptrCast(self.ptr), @ptrCast(_uuid.ptr));
     }
+
+    /// ### DEPRECATED: Use `includedServices` instead
+    ///
+    pub const IncludedServices = includedServices;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlowenergyservicedata.html#includedServices)
     ///
@@ -103,15 +137,19 @@ pub const QLowEnergyServiceData = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn IncludedServices(self: QLowEnergyServiceData, allocator: std.mem.Allocator) []QLowEnergyService {
+    pub fn includedServices(self: QLowEnergyServiceData, allocator: std.mem.Allocator) []QLowEnergyService {
         const _arr: qtc.libqt_list = qtc.QLowEnergyServiceData_IncludedServices(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QLowEnergyService, _arr.len) catch @panic("QLowEnergyServiceData.IncludedServices: Memory allocation failed");
-        const _data: [*]QtC.QLowEnergyService = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QLowEnergyService, _arr.len) catch @panic("QLowEnergyServiceData.includedServices: Memory allocation failed");
+        const _data_val: [*]QtC.QLowEnergyService = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setIncludedServices` instead
+    ///
+    pub const SetIncludedServices = setIncludedServices;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlowenergyservicedata.html#setIncludedServices)
     ///
@@ -121,13 +159,17 @@ pub const QLowEnergyServiceData = extern struct {
     ///
     /// ` services: []QLowEnergyService `
     ///
-    pub fn SetIncludedServices(self: QLowEnergyServiceData, services: []QLowEnergyService) void {
+    pub fn setIncludedServices(self: QLowEnergyServiceData, services: []QLowEnergyService) void {
         const services_list = qtc.libqt_list{
             .len = services.len,
             .data = @ptrCast(services.ptr),
         };
         qtc.QLowEnergyServiceData_SetIncludedServices(@ptrCast(self.ptr), services_list);
     }
+
+    /// ### DEPRECATED: Use `addIncludedService` instead
+    ///
+    pub const AddIncludedService = addIncludedService;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlowenergyservicedata.html#addIncludedService)
     ///
@@ -137,10 +179,14 @@ pub const QLowEnergyServiceData = extern struct {
     ///
     /// ` service: QLowEnergyService `
     ///
-    pub fn AddIncludedService(self: QLowEnergyServiceData, service: anytype) void {
+    pub fn addIncludedService(self: QLowEnergyServiceData, service: anytype) void {
         comptime _ = @TypeOf(service)._is_QLowEnergyService;
         qtc.QLowEnergyServiceData_AddIncludedService(@ptrCast(self.ptr), @ptrCast(service.ptr));
     }
+
+    /// ### DEPRECATED: Use `characteristics` instead
+    ///
+    pub const Characteristics = characteristics;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlowenergyservicedata.html#characteristics)
     ///
@@ -150,15 +196,19 @@ pub const QLowEnergyServiceData = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Characteristics(self: QLowEnergyServiceData, allocator: std.mem.Allocator) []QLowEnergyCharacteristicData {
+    pub fn characteristics(self: QLowEnergyServiceData, allocator: std.mem.Allocator) []QLowEnergyCharacteristicData {
         const _arr: qtc.libqt_list = qtc.QLowEnergyServiceData_Characteristics(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QLowEnergyCharacteristicData, _arr.len) catch @panic("QLowEnergyServiceData.Characteristics: Memory allocation failed");
-        const _data: [*]QtC.QLowEnergyCharacteristicData = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QLowEnergyCharacteristicData, _arr.len) catch @panic("QLowEnergyServiceData.characteristics: Memory allocation failed");
+        const _data_val: [*]QtC.QLowEnergyCharacteristicData = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setCharacteristics` instead
+    ///
+    pub const SetCharacteristics = setCharacteristics;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlowenergyservicedata.html#setCharacteristics)
     ///
@@ -166,15 +216,19 @@ pub const QLowEnergyServiceData = extern struct {
     ///
     /// ` self: QLowEnergyServiceData `
     ///
-    /// ` characteristics: []QLowEnergyCharacteristicData `
+    /// ` _characteristics: []QLowEnergyCharacteristicData `
     ///
-    pub fn SetCharacteristics(self: QLowEnergyServiceData, characteristics: []QLowEnergyCharacteristicData) void {
+    pub fn setCharacteristics(self: QLowEnergyServiceData, _characteristics: []QLowEnergyCharacteristicData) void {
         const characteristics_list = qtc.libqt_list{
-            .len = characteristics.len,
-            .data = @ptrCast(characteristics.ptr),
+            .len = _characteristics.len,
+            .data = @ptrCast(_characteristics.ptr),
         };
         qtc.QLowEnergyServiceData_SetCharacteristics(@ptrCast(self.ptr), characteristics_list);
     }
+
+    /// ### DEPRECATED: Use `addCharacteristic` instead
+    ///
+    pub const AddCharacteristic = addCharacteristic;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlowenergyservicedata.html#addCharacteristic)
     ///
@@ -184,10 +238,14 @@ pub const QLowEnergyServiceData = extern struct {
     ///
     /// ` characteristic: QLowEnergyCharacteristicData `
     ///
-    pub fn AddCharacteristic(self: QLowEnergyServiceData, characteristic: anytype) void {
+    pub fn addCharacteristic(self: QLowEnergyServiceData, characteristic: anytype) void {
         comptime _ = @TypeOf(characteristic)._is_QLowEnergyCharacteristicData;
         qtc.QLowEnergyServiceData_AddCharacteristic(@ptrCast(self.ptr), @ptrCast(characteristic.ptr));
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlowenergyservicedata.html#isValid)
     ///
@@ -195,9 +253,13 @@ pub const QLowEnergyServiceData = extern struct {
     ///
     /// ` self: QLowEnergyServiceData `
     ///
-    pub fn IsValid(self: QLowEnergyServiceData) bool {
+    pub fn isValid(self: QLowEnergyServiceData) bool {
         return qtc.QLowEnergyServiceData_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlowenergyservicedata.html#swap)
     ///
@@ -207,24 +269,24 @@ pub const QLowEnergyServiceData = extern struct {
     ///
     /// ` other: QLowEnergyServiceData `
     ///
-    pub fn Swap(self: QLowEnergyServiceData, other: anytype) void {
+    pub fn swap(self: QLowEnergyServiceData, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QLowEnergyServiceData;
         qtc.QLowEnergyServiceData_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlowenergyservicedata.html#dtor.QLowEnergyServiceData)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QLowEnergyServiceData `
     ///
-    pub fn Delete(self: QLowEnergyServiceData) void {
+    pub fn delete(self: QLowEnergyServiceData) void {
         qtc.QLowEnergyServiceData_Delete(@ptrCast(self.ptr));
     }
 };

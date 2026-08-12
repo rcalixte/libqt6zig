@@ -12,32 +12,48 @@ pub const QOpenGLBuffer = extern struct {
 
     pub const _is_QOpenGLBuffer = {};
 
-    /// New constructs a new QOpenGLBuffer object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QOpenGLBuffer {
+    pub const New = new;
+
+    /// Allocate a new QOpenGLBuffer object in C++ memory
+    ///
+    pub fn new() QOpenGLBuffer {
         return .{ .ptr = qtc.QOpenGLBuffer_new() };
     }
 
-    /// New2 constructs a new QOpenGLBuffer object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QOpenGLBuffer object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` typeVal: qopenglbuffer_enums.Type `
     ///
-    pub fn New2(typeVal: i32) QOpenGLBuffer {
+    pub fn new2(typeVal: i32) QOpenGLBuffer {
         return .{ .ptr = qtc.QOpenGLBuffer_new2(@bitCast(typeVal)) };
     }
 
-    /// New3 constructs a new QOpenGLBuffer object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QOpenGLBuffer object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QOpenGLBuffer `
     ///
-    pub fn New3(other: anytype) QOpenGLBuffer {
+    pub fn new3(other: anytype) QOpenGLBuffer {
         comptime _ = @TypeOf(other)._is_QOpenGLBuffer;
         return .{ .ptr = qtc.QOpenGLBuffer_new3(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#operator-eq)
     ///
@@ -47,10 +63,14 @@ pub const QOpenGLBuffer = extern struct {
     ///
     /// ` other: QOpenGLBuffer `
     ///
-    pub fn OperatorAssign(self: QOpenGLBuffer, other: anytype) void {
+    pub fn operatorAssign(self: QOpenGLBuffer, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QOpenGLBuffer;
         qtc.QOpenGLBuffer_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#swap)
     ///
@@ -60,10 +80,16 @@ pub const QOpenGLBuffer = extern struct {
     ///
     /// ` other: QOpenGLBuffer `
     ///
-    pub fn Swap(self: QOpenGLBuffer, other: anytype) void {
+    pub fn swap(self: QOpenGLBuffer, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QOpenGLBuffer;
         qtc.QOpenGLBuffer_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#type)
     ///
@@ -75,9 +101,13 @@ pub const QOpenGLBuffer = extern struct {
     ///
     /// ` qopenglbuffer_enums.Type `
     ///
-    pub fn Type(self: QOpenGLBuffer) i32 {
+    pub fn type0(self: QOpenGLBuffer) i32 {
         return qtc.QOpenGLBuffer_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `usagePattern` instead
+    ///
+    pub const UsagePattern = usagePattern;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#usagePattern)
     ///
@@ -89,9 +119,13 @@ pub const QOpenGLBuffer = extern struct {
     ///
     /// ` qopenglbuffer_enums.UsagePattern `
     ///
-    pub fn UsagePattern(self: QOpenGLBuffer) i32 {
+    pub fn usagePattern(self: QOpenGLBuffer) i32 {
         return qtc.QOpenGLBuffer_UsagePattern(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUsagePattern` instead
+    ///
+    pub const SetUsagePattern = setUsagePattern;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#setUsagePattern)
     ///
@@ -101,9 +135,13 @@ pub const QOpenGLBuffer = extern struct {
     ///
     /// ` value: qopenglbuffer_enums.UsagePattern `
     ///
-    pub fn SetUsagePattern(self: QOpenGLBuffer, value: i32) void {
+    pub fn setUsagePattern(self: QOpenGLBuffer, value: i32) void {
         qtc.QOpenGLBuffer_SetUsagePattern(@ptrCast(self.ptr), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#create)
     ///
@@ -111,9 +149,13 @@ pub const QOpenGLBuffer = extern struct {
     ///
     /// ` self: QOpenGLBuffer `
     ///
-    pub fn Create(self: QOpenGLBuffer) bool {
+    pub fn create(self: QOpenGLBuffer) bool {
         return qtc.QOpenGLBuffer_Create(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isCreated` instead
+    ///
+    pub const IsCreated = isCreated;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#isCreated)
     ///
@@ -121,9 +163,13 @@ pub const QOpenGLBuffer = extern struct {
     ///
     /// ` self: QOpenGLBuffer `
     ///
-    pub fn IsCreated(self: QOpenGLBuffer) bool {
+    pub fn isCreated(self: QOpenGLBuffer) bool {
         return qtc.QOpenGLBuffer_IsCreated(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#destroy)
     ///
@@ -131,9 +177,13 @@ pub const QOpenGLBuffer = extern struct {
     ///
     /// ` self: QOpenGLBuffer `
     ///
-    pub fn Destroy(self: QOpenGLBuffer) void {
+    pub fn destroy(self: QOpenGLBuffer) void {
         qtc.QOpenGLBuffer_Destroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `bind` instead
+    ///
+    pub const Bind = bind;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#bind)
     ///
@@ -141,9 +191,13 @@ pub const QOpenGLBuffer = extern struct {
     ///
     /// ` self: QOpenGLBuffer `
     ///
-    pub fn Bind(self: QOpenGLBuffer) bool {
+    pub fn bind(self: QOpenGLBuffer) bool {
         return qtc.QOpenGLBuffer_Bind(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `release` instead
+    ///
+    pub const Release = release;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#release)
     ///
@@ -151,9 +205,13 @@ pub const QOpenGLBuffer = extern struct {
     ///
     /// ` self: QOpenGLBuffer `
     ///
-    pub fn Release(self: QOpenGLBuffer) void {
+    pub fn release(self: QOpenGLBuffer) void {
         qtc.QOpenGLBuffer_Release(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `release2` instead
+    ///
+    pub const Release2 = release2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#release)
     ///
@@ -161,9 +219,13 @@ pub const QOpenGLBuffer = extern struct {
     ///
     /// ` typeVal: qopenglbuffer_enums.Type `
     ///
-    pub fn Release2(typeVal: i32) void {
+    pub fn release2(typeVal: i32) void {
         qtc.QOpenGLBuffer_Release2(@bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `bufferId` instead
+    ///
+    pub const BufferId = bufferId;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#bufferId)
     ///
@@ -171,9 +233,13 @@ pub const QOpenGLBuffer = extern struct {
     ///
     /// ` self: QOpenGLBuffer `
     ///
-    pub fn BufferId(self: QOpenGLBuffer) u32 {
+    pub fn bufferId(self: QOpenGLBuffer) u32 {
         return qtc.QOpenGLBuffer_BufferId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#size)
     ///
@@ -181,9 +247,13 @@ pub const QOpenGLBuffer = extern struct {
     ///
     /// ` self: QOpenGLBuffer `
     ///
-    pub fn Size(self: QOpenGLBuffer) i32 {
+    pub fn size(self: QOpenGLBuffer) i32 {
         return qtc.QOpenGLBuffer_Size(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `read` instead
+    ///
+    pub const Read = read;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#read)
     ///
@@ -197,9 +267,13 @@ pub const QOpenGLBuffer = extern struct {
     ///
     /// ` count: i32 `
     ///
-    pub fn Read(self: QOpenGLBuffer, offset: i32, data: ?*anyopaque, count: i32) bool {
+    pub fn read(self: QOpenGLBuffer, offset: i32, data: ?*anyopaque, count: i32) bool {
         return qtc.QOpenGLBuffer_Read(@ptrCast(self.ptr), @bitCast(offset), @ptrCast(data), @bitCast(count));
     }
+
+    /// ### DEPRECATED: Use `write` instead
+    ///
+    pub const Write = write;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#write)
     ///
@@ -213,9 +287,13 @@ pub const QOpenGLBuffer = extern struct {
     ///
     /// ` count: i32 `
     ///
-    pub fn Write(self: QOpenGLBuffer, offset: i32, data: ?*const anyopaque, count: i32) void {
+    pub fn write(self: QOpenGLBuffer, offset: i32, data: ?*const anyopaque, count: i32) void {
         qtc.QOpenGLBuffer_Write(@ptrCast(self.ptr), @bitCast(offset), @ptrCast(data), @bitCast(count));
     }
+
+    /// ### DEPRECATED: Use `allocate` instead
+    ///
+    pub const Allocate = allocate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#allocate)
     ///
@@ -227,9 +305,13 @@ pub const QOpenGLBuffer = extern struct {
     ///
     /// ` count: i32 `
     ///
-    pub fn Allocate(self: QOpenGLBuffer, data: ?*const anyopaque, count: i32) void {
+    pub fn allocate(self: QOpenGLBuffer, data: ?*const anyopaque, count: i32) void {
         qtc.QOpenGLBuffer_Allocate(@ptrCast(self.ptr), @ptrCast(data), @bitCast(count));
     }
+
+    /// ### DEPRECATED: Use `allocate2` instead
+    ///
+    pub const Allocate2 = allocate2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#allocate)
     ///
@@ -239,9 +321,13 @@ pub const QOpenGLBuffer = extern struct {
     ///
     /// ` count: i32 `
     ///
-    pub fn Allocate2(self: QOpenGLBuffer, count: i32) void {
+    pub fn allocate2(self: QOpenGLBuffer, count: i32) void {
         qtc.QOpenGLBuffer_Allocate2(@ptrCast(self.ptr), @bitCast(count));
     }
+
+    /// ### DEPRECATED: Use `map` instead
+    ///
+    pub const Map = map;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#map)
     ///
@@ -251,9 +337,13 @@ pub const QOpenGLBuffer = extern struct {
     ///
     /// ` access: qopenglbuffer_enums.Access `
     ///
-    pub fn Map(self: QOpenGLBuffer, access: i32) ?*anyopaque {
+    pub fn map(self: QOpenGLBuffer, access: i32) ?*anyopaque {
         return qtc.QOpenGLBuffer_Map(@ptrCast(self.ptr), @bitCast(access));
     }
+
+    /// ### DEPRECATED: Use `mapRange` instead
+    ///
+    pub const MapRange = mapRange;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#mapRange)
     ///
@@ -267,9 +357,13 @@ pub const QOpenGLBuffer = extern struct {
     ///
     /// ` access: flag of qopenglbuffer_enums.RangeAccessFlag `
     ///
-    pub fn MapRange(self: QOpenGLBuffer, offset: i32, count: i32, access: i32) ?*anyopaque {
+    pub fn mapRange(self: QOpenGLBuffer, offset: i32, count: i32, access: i32) ?*anyopaque {
         return qtc.QOpenGLBuffer_MapRange(@ptrCast(self.ptr), @bitCast(offset), @bitCast(count), @bitCast(access));
     }
+
+    /// ### DEPRECATED: Use `unmap` instead
+    ///
+    pub const Unmap = unmap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#unmap)
     ///
@@ -277,23 +371,23 @@ pub const QOpenGLBuffer = extern struct {
     ///
     /// ` self: QOpenGLBuffer `
     ///
-    pub fn Unmap(self: QOpenGLBuffer) bool {
+    pub fn unmap(self: QOpenGLBuffer) bool {
         return qtc.QOpenGLBuffer_Unmap(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#dtor.QOpenGLBuffer)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QOpenGLBuffer `
     ///
-    pub fn Delete(self: QOpenGLBuffer) void {
+    pub fn delete(self: QOpenGLBuffer) void {
         qtc.QOpenGLBuffer_Delete(@ptrCast(self.ptr));
     }
 };

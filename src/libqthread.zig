@@ -27,22 +27,34 @@ pub const QThread = extern struct {
     pub const _is_QThread = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QThread object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QThread {
+    pub const New = new;
+
+    /// Allocate a new QThread object in C++ memory
+    ///
+    pub fn new() QThread {
         return .{ .ptr = qtc.QThread_new() };
     }
 
-    /// New2 constructs a new QThread object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QThread object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) QThread {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QThread_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) QThread {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QThread_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -50,9 +62,13 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    pub fn MetaObject(self: QThread) QMetaObject {
+    pub fn metaObject(self: QThread) QMetaObject {
         return .{ .ptr = qtc.QThread_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -64,13 +80,13 @@ pub const QThread = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QThread, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QThread, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QThread_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -80,9 +96,13 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    pub fn SuperMetaObject(self: QThread) QMetaObject {
+    pub fn superMetaObject(self: QThread) QMetaObject {
         return .{ .ptr = qtc.QThread_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -90,10 +110,14 @@ pub const QThread = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QThread, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QThread, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QThread_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -103,13 +127,13 @@ pub const QThread = extern struct {
     ///
     /// ` callback: *const fn (self: QThread, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QThread, callback: *const fn (QThread, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QThread, callback: *const fn (QThread, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QThread_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -119,10 +143,14 @@ pub const QThread = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QThread, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QThread, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QThread_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -134,9 +162,13 @@ pub const QThread = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QThread, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QThread, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QThread_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -146,13 +178,13 @@ pub const QThread = extern struct {
     ///
     /// ` callback: *const fn (self: QThread, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QThread, callback: *const fn (QThread, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QThread, callback: *const fn (QThread, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QThread_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -166,9 +198,13 @@ pub const QThread = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QThread, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QThread, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QThread_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -178,44 +214,68 @@ pub const QThread = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QThread.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QThread.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `currentThreadId` instead
+    ///
+    pub const CurrentThreadId = currentThreadId;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#currentThreadId)
     ///
-    pub fn CurrentThreadId() ?*anyopaque {
+    pub fn currentThreadId() ?*anyopaque {
         return qtc.QThread_CurrentThreadId();
     }
 
+    /// ### DEPRECATED: Use `currentThread` instead
+    ///
+    pub const CurrentThread = currentThread;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#currentThread)
     ///
-    pub fn CurrentThread() QThread {
+    pub fn currentThread() QThread {
         return .{ .ptr = qtc.QThread_CurrentThread() };
     }
 
+    /// ### DEPRECATED: Use `isMainThread` instead
+    ///
+    pub const IsMainThread = isMainThread;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#isMainThread)
     ///
-    pub fn IsMainThread() bool {
+    pub fn isMainThread() bool {
         return qtc.QThread_IsMainThread();
     }
 
+    /// ### DEPRECATED: Use `idealThreadCount` instead
+    ///
+    pub const IdealThreadCount = idealThreadCount;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#idealThreadCount)
     ///
-    pub fn IdealThreadCount() i32 {
+    pub fn idealThreadCount() i32 {
         return qtc.QThread_IdealThreadCount();
     }
 
+    /// ### DEPRECATED: Use `yieldCurrentThread` instead
+    ///
+    pub const YieldCurrentThread = yieldCurrentThread;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#yieldCurrentThread)
     ///
-    pub fn YieldCurrentThread() void {
+    pub fn yieldCurrentThread() void {
         qtc.QThread_YieldCurrentThread();
     }
+
+    /// ### DEPRECATED: Use `setPriority` instead
+    ///
+    pub const SetPriority = setPriority;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#setPriority)
     ///
@@ -223,11 +283,15 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    /// ` priority: qthread_enums.Priority `
+    /// ` _priority: qthread_enums.Priority `
     ///
-    pub fn SetPriority(self: QThread, priority: i32) void {
-        qtc.QThread_SetPriority(@ptrCast(self.ptr), @bitCast(priority));
+    pub fn setPriority(self: QThread, _priority: i32) void {
+        qtc.QThread_SetPriority(@ptrCast(self.ptr), @bitCast(_priority));
     }
+
+    /// ### DEPRECATED: Use `priority` instead
+    ///
+    pub const Priority = priority;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#priority)
     ///
@@ -239,9 +303,13 @@ pub const QThread = extern struct {
     ///
     /// ` qthread_enums.Priority `
     ///
-    pub fn Priority(self: QThread) i32 {
+    pub fn priority(self: QThread) i32 {
         return qtc.QThread_Priority(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFinished` instead
+    ///
+    pub const IsFinished = isFinished;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#isFinished)
     ///
@@ -249,9 +317,13 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    pub fn IsFinished(self: QThread) bool {
+    pub fn isFinished(self: QThread) bool {
         return qtc.QThread_IsFinished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRunning` instead
+    ///
+    pub const IsRunning = isRunning;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#isRunning)
     ///
@@ -259,9 +331,13 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    pub fn IsRunning(self: QThread) bool {
+    pub fn isRunning(self: QThread) bool {
         return qtc.QThread_IsRunning(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `requestInterruption` instead
+    ///
+    pub const RequestInterruption = requestInterruption;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#requestInterruption)
     ///
@@ -269,9 +345,13 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    pub fn RequestInterruption(self: QThread) void {
+    pub fn requestInterruption(self: QThread) void {
         qtc.QThread_RequestInterruption(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isInterruptionRequested` instead
+    ///
+    pub const IsInterruptionRequested = isInterruptionRequested;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#isInterruptionRequested)
     ///
@@ -279,9 +359,13 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    pub fn IsInterruptionRequested(self: QThread) bool {
+    pub fn isInterruptionRequested(self: QThread) bool {
         return qtc.QThread_IsInterruptionRequested(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStackSize` instead
+    ///
+    pub const SetStackSize = setStackSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#setStackSize)
     ///
@@ -289,11 +373,15 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    /// ` stackSize: u32 `
+    /// ` _stackSize: u32 `
     ///
-    pub fn SetStackSize(self: QThread, stackSize: u32) void {
-        qtc.QThread_SetStackSize(@ptrCast(self.ptr), @bitCast(stackSize));
+    pub fn setStackSize(self: QThread, _stackSize: u32) void {
+        qtc.QThread_SetStackSize(@ptrCast(self.ptr), @bitCast(_stackSize));
     }
+
+    /// ### DEPRECATED: Use `stackSize` instead
+    ///
+    pub const StackSize = stackSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#stackSize)
     ///
@@ -301,9 +389,13 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    pub fn StackSize(self: QThread) u32 {
+    pub fn stackSize(self: QThread) u32 {
         return qtc.QThread_StackSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `eventDispatcher` instead
+    ///
+    pub const EventDispatcher = eventDispatcher;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#eventDispatcher)
     ///
@@ -311,9 +403,13 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    pub fn EventDispatcher(self: QThread) QAbstractEventDispatcher {
+    pub fn eventDispatcher(self: QThread) QAbstractEventDispatcher {
         return .{ .ptr = qtc.QThread_EventDispatcher(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setEventDispatcher` instead
+    ///
+    pub const SetEventDispatcher = setEventDispatcher;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#setEventDispatcher)
     ///
@@ -321,12 +417,16 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    /// ` eventDispatcher: QAbstractEventDispatcher `
+    /// ` _eventDispatcher: QAbstractEventDispatcher `
     ///
-    pub fn SetEventDispatcher(self: QThread, eventDispatcher: anytype) void {
-        comptime _ = @TypeOf(eventDispatcher)._is_QAbstractEventDispatcher;
-        qtc.QThread_SetEventDispatcher(@ptrCast(self.ptr), @ptrCast(eventDispatcher.ptr));
+    pub fn setEventDispatcher(self: QThread, _eventDispatcher: anytype) void {
+        comptime _ = @TypeOf(_eventDispatcher)._is_QAbstractEventDispatcher;
+        qtc.QThread_SetEventDispatcher(@ptrCast(self.ptr), @ptrCast(_eventDispatcher.ptr));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#event)
     ///
@@ -334,12 +434,16 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QThread, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QThread_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QThread, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QThread_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#event)
     ///
@@ -351,13 +455,13 @@ pub const QThread = extern struct {
     ///
     /// ` callback: *const fn (self: QThread, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QThread, callback: *const fn (QThread, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QThread, callback: *const fn (QThread, QEvent) callconv(.c) bool) void {
         qtc.QThread_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#event)
     ///
@@ -367,12 +471,16 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QThread, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QThread_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QThread, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QThread_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `loopLevel` instead
+    ///
+    pub const LoopLevel = loopLevel;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#loopLevel)
     ///
@@ -380,9 +488,13 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    pub fn LoopLevel(self: QThread) i32 {
+    pub fn loopLevel(self: QThread) i32 {
         return qtc.QThread_LoopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isCurrentThread` instead
+    ///
+    pub const IsCurrentThread = isCurrentThread;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#isCurrentThread)
     ///
@@ -390,9 +502,13 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    pub fn IsCurrentThread(self: QThread) bool {
+    pub fn isCurrentThread(self: QThread) bool {
         return qtc.QThread_IsCurrentThread(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `start` instead
+    ///
+    pub const Start = start;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#start)
     ///
@@ -400,9 +516,13 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    pub fn Start(self: QThread) void {
+    pub fn start(self: QThread) void {
         qtc.QThread_Start(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `terminate` instead
+    ///
+    pub const Terminate = terminate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#terminate)
     ///
@@ -410,9 +530,13 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    pub fn Terminate(self: QThread) void {
+    pub fn terminate(self: QThread) void {
         qtc.QThread_Terminate(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `exit` instead
+    ///
+    pub const Exit = exit;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#exit)
     ///
@@ -420,9 +544,13 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    pub fn Exit(self: QThread) void {
+    pub fn exit(self: QThread) void {
         qtc.QThread_Exit(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `quit` instead
+    ///
+    pub const Quit = quit;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#quit)
     ///
@@ -430,9 +558,13 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    pub fn Quit(self: QThread) void {
+    pub fn quit(self: QThread) void {
         qtc.QThread_Quit(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `wait` instead
+    ///
+    pub const Wait = wait;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#wait)
     ///
@@ -440,9 +572,13 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    pub fn Wait(self: QThread) bool {
+    pub fn wait(self: QThread) bool {
         return qtc.QThread_Wait(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `wait2` instead
+    ///
+    pub const Wait2 = wait2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#wait)
     ///
@@ -452,9 +588,13 @@ pub const QThread = extern struct {
     ///
     /// ` time: usize `
     ///
-    pub fn Wait2(self: QThread, time: usize) bool {
+    pub fn wait2(self: QThread, time: usize) bool {
         return qtc.QThread_Wait2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `sleep` instead
+    ///
+    pub const Sleep = sleep;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#sleep)
     ///
@@ -462,9 +602,13 @@ pub const QThread = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Sleep(param1: usize) void {
+    pub fn sleep(param1: usize) void {
         qtc.QThread_Sleep(@bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `msleep` instead
+    ///
+    pub const Msleep = msleep;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#msleep)
     ///
@@ -472,9 +616,13 @@ pub const QThread = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Msleep(param1: usize) void {
+    pub fn msleep(param1: usize) void {
         qtc.QThread_Msleep(@bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `usleep` instead
+    ///
+    pub const Usleep = usleep;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#usleep)
     ///
@@ -482,9 +630,13 @@ pub const QThread = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Usleep(param1: usize) void {
+    pub fn usleep(param1: usize) void {
         qtc.QThread_Usleep(@bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `sleep2` instead
+    ///
+    pub const Sleep2 = sleep2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#sleep)
     ///
@@ -492,9 +644,13 @@ pub const QThread = extern struct {
     ///
     /// ` nsec: i64 of nanoseconds `
     ///
-    pub fn Sleep2(nsec: i64) void {
+    pub fn sleep2(nsec: i64) void {
         qtc.QThread_Sleep2(@bitCast(nsec));
     }
+
+    /// ### DEPRECATED: Use `run` instead
+    ///
+    pub const Run = run;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#run)
     ///
@@ -502,9 +658,13 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    pub fn Run(self: QThread) void {
+    pub fn run(self: QThread) void {
         qtc.QThread_Run(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onRun` instead
+    ///
+    pub const OnRun = onRun;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#run)
     ///
@@ -516,13 +676,13 @@ pub const QThread = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnRun(self: QThread, callback: *const fn () callconv(.c) void) void {
+    pub fn onRun(self: QThread, callback: *const fn () callconv(.c) void) void {
         qtc.QThread_OnRun(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperRun` instead
+    /// ### DEPRECATED: Use `superRun` instead
     ///
-    pub const QBaseRun = SuperRun;
+    pub const SuperRun = superRun;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#run)
     ///
@@ -532,9 +692,13 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    pub fn SuperRun(self: QThread) void {
+    pub fn superRun(self: QThread) void {
         qtc.QThread_SuperRun(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `exec` instead
+    ///
+    pub const Exec = exec;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#exec)
     ///
@@ -542,9 +706,13 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    pub fn Exec(self: QThread) i32 {
+    pub fn exec(self: QThread) i32 {
         return qtc.QThread_Exec(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onExec` instead
+    ///
+    pub const OnExec = onExec;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#exec)
     ///
@@ -556,13 +724,13 @@ pub const QThread = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnExec(self: QThread, callback: *const fn () callconv(.c) i32) void {
+    pub fn onExec(self: QThread, callback: *const fn () callconv(.c) i32) void {
         qtc.QThread_OnExec(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperExec` instead
+    /// ### DEPRECATED: Use `superExec` instead
     ///
-    pub const QBaseExec = SuperExec;
+    pub const SuperExec = superExec;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#exec)
     ///
@@ -572,9 +740,13 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    pub fn SuperExec(self: QThread) i32 {
+    pub fn superExec(self: QThread) i32 {
         return qtc.QThread_SuperExec(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTerminationEnabled` instead
+    ///
+    pub const SetTerminationEnabled = setTerminationEnabled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#setTerminationEnabled)
     ///
@@ -582,9 +754,13 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    pub fn SetTerminationEnabled(self: QThread) void {
+    pub fn setTerminationEnabled(self: QThread) void {
         qtc.QThread_SetTerminationEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetTerminationEnabled` instead
+    ///
+    pub const OnSetTerminationEnabled = onSetTerminationEnabled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#setTerminationEnabled)
     ///
@@ -596,13 +772,13 @@ pub const QThread = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnSetTerminationEnabled(self: QThread, callback: *const fn () callconv(.c) void) void {
+    pub fn onSetTerminationEnabled(self: QThread, callback: *const fn () callconv(.c) void) void {
         qtc.QThread_OnSetTerminationEnabled(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetTerminationEnabled` instead
+    /// ### DEPRECATED: Use `superSetTerminationEnabled` instead
     ///
-    pub const QBaseSetTerminationEnabled = SuperSetTerminationEnabled;
+    pub const SuperSetTerminationEnabled = superSetTerminationEnabled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#setTerminationEnabled)
     ///
@@ -612,9 +788,13 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    pub fn SuperSetTerminationEnabled(self: QThread) void {
+    pub fn superSetTerminationEnabled(self: QThread) void {
         qtc.QThread_SuperSetTerminationEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -626,15 +806,19 @@ pub const QThread = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QThread.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QThread.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -648,15 +832,19 @@ pub const QThread = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QThread.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QThread.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `start1` instead
+    ///
+    pub const Start1 = start1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#start)
     ///
@@ -666,9 +854,13 @@ pub const QThread = extern struct {
     ///
     /// ` param1: qthread_enums.Priority `
     ///
-    pub fn Start1(self: QThread, param1: i32) void {
+    pub fn start1(self: QThread, param1: i32) void {
         qtc.QThread_Start1(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `exit1` instead
+    ///
+    pub const Exit1 = exit1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#exit)
     ///
@@ -678,9 +870,13 @@ pub const QThread = extern struct {
     ///
     /// ` retcode: i32 `
     ///
-    pub fn Exit1(self: QThread, retcode: i32) void {
+    pub fn exit1(self: QThread, retcode: i32) void {
         qtc.QThread_Exit1(@ptrCast(self.ptr), @bitCast(retcode));
     }
+
+    /// ### DEPRECATED: Use `wait1` instead
+    ///
+    pub const Wait1 = wait1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#wait)
     ///
@@ -690,10 +886,14 @@ pub const QThread = extern struct {
     ///
     /// ` deadline: QDeadlineTimer `
     ///
-    pub fn Wait1(self: QThread, deadline: anytype) bool {
+    pub fn wait1(self: QThread, deadline: anytype) bool {
         comptime _ = @TypeOf(deadline)._is_QDeadlineTimer;
         return qtc.QThread_Wait1(@ptrCast(self.ptr), @ptrCast(deadline.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTerminationEnabled1` instead
+    ///
+    pub const SetTerminationEnabled1 = setTerminationEnabled1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#setTerminationEnabled)
     ///
@@ -703,9 +903,13 @@ pub const QThread = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetTerminationEnabled1(self: QThread, enabled: bool) void {
+    pub fn setTerminationEnabled1(self: QThread, enabled: bool) void {
         qtc.QThread_SetTerminationEnabled1(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `onSetTerminationEnabled1` instead
+    ///
+    pub const OnSetTerminationEnabled1 = onSetTerminationEnabled1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#setTerminationEnabled)
     ///
@@ -717,13 +921,13 @@ pub const QThread = extern struct {
     ///
     /// ` callback: *const fn (self: QThread, enabled: bool) callconv(.c) void `
     ///
-    pub fn OnSetTerminationEnabled1(self: QThread, callback: *const fn (QThread, bool) callconv(.c) void) void {
+    pub fn onSetTerminationEnabled1(self: QThread, callback: *const fn (QThread, bool) callconv(.c) void) void {
         qtc.QThread_OnSetTerminationEnabled1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetTerminationEnabled1` instead
+    /// ### DEPRECATED: Use `superSetTerminationEnabled1` instead
     ///
-    pub const QBaseSetTerminationEnabled1 = SuperSetTerminationEnabled1;
+    pub const SuperSetTerminationEnabled1 = superSetTerminationEnabled1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#setTerminationEnabled)
     ///
@@ -735,9 +939,13 @@ pub const QThread = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SuperSetTerminationEnabled1(self: QThread, enabled: bool) void {
+    pub fn superSetTerminationEnabled1(self: QThread, enabled: bool) void {
         qtc.QThread_SuperSetTerminationEnabled1(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -749,13 +957,17 @@ pub const QThread = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QThread, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QThread, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QThread.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QThread.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -767,13 +979,17 @@ pub const QThread = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QThread, name: []const u8) void {
+    pub fn setObjectName(self: QThread, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -783,9 +999,13 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    pub fn IsWidgetType(self: QThread) bool {
+    pub fn isWidgetType(self: QThread) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -795,9 +1015,13 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    pub fn IsWindowType(self: QThread) bool {
+    pub fn isWindowType(self: QThread) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -807,9 +1031,13 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    pub fn IsQuickItemType(self: QThread) bool {
+    pub fn isQuickItemType(self: QThread) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -819,9 +1047,13 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    pub fn SignalsBlocked(self: QThread) bool {
+    pub fn signalsBlocked(self: QThread) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -833,9 +1065,13 @@ pub const QThread = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QThread, b: bool) bool {
+    pub fn blockSignals(self: QThread, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -845,9 +1081,13 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    pub fn Thread(self: QThread) QThread {
+    pub fn thread(self: QThread) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -857,12 +1097,16 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QThread, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QThread, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -874,9 +1118,13 @@ pub const QThread = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QThread, interval: i32) i32 {
+    pub fn startTimer(self: QThread, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -888,9 +1136,13 @@ pub const QThread = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QThread, time: i64) i32 {
+    pub fn startTimer2(self: QThread, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -902,9 +1154,13 @@ pub const QThread = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QThread, id: i32) void {
+    pub fn killTimer(self: QThread, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -916,9 +1172,13 @@ pub const QThread = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QThread, id: i32) void {
+    pub fn killTimer2(self: QThread, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -930,15 +1190,19 @@ pub const QThread = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QThread, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QThread, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QThread.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QThread.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -948,12 +1212,16 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QThread, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QThread, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -965,10 +1233,14 @@ pub const QThread = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QThread, filterObj: anytype) void {
+    pub fn installEventFilter(self: QThread, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -980,10 +1252,14 @@ pub const QThread = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QThread, obj: anytype) void {
+    pub fn removeEventFilter(self: QThread, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -991,7 +1267,7 @@ pub const QThread = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -999,13 +1275,17 @@ pub const QThread = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -1013,7 +1293,7 @@ pub const QThread = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1021,13 +1301,17 @@ pub const QThread = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -1037,18 +1321,22 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QThread, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QThread, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -1056,7 +1344,7 @@ pub const QThread = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1064,13 +1352,17 @@ pub const QThread = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -1078,7 +1370,7 @@ pub const QThread = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1086,13 +1378,17 @@ pub const QThread = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -1102,9 +1398,13 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    pub fn Disconnect3(self: QThread) bool {
+    pub fn disconnect3(self: QThread) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1116,10 +1416,14 @@ pub const QThread = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QThread, receiver: anytype) bool {
+    pub fn disconnect4(self: QThread, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1129,10 +1433,14 @@ pub const QThread = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1142,9 +1450,13 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    pub fn DumpObjectTree(self: QThread) void {
+    pub fn dumpObjectTree(self: QThread) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1154,9 +1466,13 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    pub fn DumpObjectInfo(self: QThread) void {
+    pub fn dumpObjectInfo(self: QThread) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1170,11 +1486,15 @@ pub const QThread = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QThread, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QThread, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1186,10 +1506,14 @@ pub const QThread = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QThread, name: [:0]const u8) QVariant {
+    pub fn property(self: QThread, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1201,7 +1525,7 @@ pub const QThread = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QThread, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QThread, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1209,27 +1533,19 @@ pub const QThread = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QThread.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QThread.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QThread.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QThread.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QThread `
-    ///
-    pub fn BindingStorage(self: QThread) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1239,9 +1555,29 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    pub fn BindingStorage2(self: QThread) QBindingStorage {
+    pub fn bindingStorage(self: QThread) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QThread `
+    ///
+    pub fn bindingStorage2(self: QThread) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1251,9 +1587,13 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    pub fn Destroyed(self: QThread) void {
+    pub fn destroyed(self: QThread) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1265,9 +1605,13 @@ pub const QThread = extern struct {
     ///
     /// ` callback: *const fn (self: QThread) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QThread, callback: *const fn (QThread) callconv(.c) void) void {
+    pub fn onDestroyed(self: QThread, callback: *const fn (QThread) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1277,9 +1621,13 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    pub fn Parent(self: QThread) QObject {
+    pub fn parent(self: QThread) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1291,10 +1639,14 @@ pub const QThread = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QThread, classname: [:0]const u8) bool {
+    pub fn inherits(self: QThread, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1304,9 +1656,13 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    pub fn DeleteLater(self: QThread) void {
+    pub fn deleteLater(self: QThread) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1320,9 +1676,13 @@ pub const QThread = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QThread, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QThread, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1336,9 +1696,13 @@ pub const QThread = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QThread, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QThread, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1346,7 +1710,7 @@ pub const QThread = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1356,13 +1720,17 @@ pub const QThread = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1370,7 +1738,7 @@ pub const QThread = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1380,13 +1748,17 @@ pub const QThread = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1396,7 +1768,7 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1404,12 +1776,16 @@ pub const QThread = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QThread, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QThread, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1421,10 +1797,14 @@ pub const QThread = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QThread, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QThread, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1438,11 +1818,15 @@ pub const QThread = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QThread, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QThread, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1458,13 +1842,17 @@ pub const QThread = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QThread, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QThread, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1477,11 +1865,15 @@ pub const QThread = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QThread, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QThread, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1493,10 +1885,14 @@ pub const QThread = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QThread, param1: anytype) void {
+    pub fn destroyed1(self: QThread, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1508,9 +1904,13 @@ pub const QThread = extern struct {
     ///
     /// ` callback: *const fn (self: QThread, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QThread, callback: *const fn (QThread, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QThread, callback: *const fn (QThread, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1524,17 +1924,17 @@ pub const QThread = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QThread, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QThread, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QThread_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QThread_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1548,13 +1948,17 @@ pub const QThread = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QThread, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QThread, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QThread_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QThread_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1568,9 +1972,13 @@ pub const QThread = extern struct {
     ///
     /// ` callback: *const fn (self: QThread, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QThread, callback: *const fn (QThread, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QThread, callback: *const fn (QThread, QObject, QEvent) callconv(.c) bool) void {
         qtc.QThread_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -1582,16 +1990,16 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QThread, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QThread_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QThread, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QThread_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1603,12 +2011,16 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QThread, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QThread_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QThread, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QThread_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1622,9 +2034,13 @@ pub const QThread = extern struct {
     ///
     /// ` callback: *const fn (self: QThread, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QThread, callback: *const fn (QThread, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QThread, callback: *const fn (QThread, QTimerEvent) callconv(.c) void) void {
         qtc.QThread_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -1636,16 +2052,16 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QThread, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QThread_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QThread, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QThread_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1657,12 +2073,16 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QThread, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QThread_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QThread, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QThread_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1676,9 +2096,13 @@ pub const QThread = extern struct {
     ///
     /// ` callback: *const fn (self: QThread, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QThread, callback: *const fn (QThread, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QThread, callback: *const fn (QThread, QChildEvent) callconv(.c) void) void {
         qtc.QThread_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -1690,16 +2114,16 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QThread, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QThread_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QThread, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QThread_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1711,12 +2135,16 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QThread, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QThread_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QThread, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QThread_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1730,9 +2158,13 @@ pub const QThread = extern struct {
     ///
     /// ` callback: *const fn (self: QThread, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QThread, callback: *const fn (QThread, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QThread, callback: *const fn (QThread, QEvent) callconv(.c) void) void {
         qtc.QThread_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -1746,14 +2178,14 @@ pub const QThread = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QThread, signal: anytype) void {
+    pub fn connectNotify(self: QThread, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QThread_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1767,11 +2199,15 @@ pub const QThread = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QThread, signal: anytype) void {
+    pub fn superConnectNotify(self: QThread, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QThread_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1784,9 +2220,13 @@ pub const QThread = extern struct {
     ///
     /// ` callback: *const fn (self: QThread, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QThread, callback: *const fn (QThread, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QThread, callback: *const fn (QThread, QMetaMethod) callconv(.c) void) void {
         qtc.QThread_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1800,14 +2240,14 @@ pub const QThread = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QThread, signal: anytype) void {
+    pub fn disconnectNotify(self: QThread, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QThread_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1821,10 +2261,14 @@ pub const QThread = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QThread, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QThread, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QThread_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1838,9 +2282,13 @@ pub const QThread = extern struct {
     ///
     /// ` callback: *const fn (self: QThread, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QThread, callback: *const fn (QThread, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QThread, callback: *const fn (QThread, QMetaMethod) callconv(.c) void) void {
         qtc.QThread_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -1852,13 +2300,13 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    pub fn Sender(self: QThread) QObject {
+    pub fn sender(self: QThread) QObject {
         return .{ .ptr = qtc.QThread_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -1870,9 +2318,13 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    pub fn SuperSender(self: QThread) QObject {
+    pub fn superSender(self: QThread) QObject {
         return .{ .ptr = qtc.QThread_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -1886,9 +2338,13 @@ pub const QThread = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QThread, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QThread, callback: *const fn () callconv(.c) QObject) void {
         qtc.QThread_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1900,13 +2356,13 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    pub fn SenderSignalIndex(self: QThread) i32 {
+    pub fn senderSignalIndex(self: QThread) i32 {
         return qtc.QThread_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1918,9 +2374,13 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    pub fn SuperSenderSignalIndex(self: QThread) i32 {
+    pub fn superSenderSignalIndex(self: QThread) i32 {
         return qtc.QThread_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1934,9 +2394,13 @@ pub const QThread = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QThread, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QThread, callback: *const fn () callconv(.c) i32) void {
         qtc.QThread_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -1950,14 +2414,14 @@ pub const QThread = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QThread, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QThread, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QThread_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -1971,10 +2435,14 @@ pub const QThread = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QThread, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QThread, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QThread_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -1988,9 +2456,13 @@ pub const QThread = extern struct {
     ///
     /// ` callback: *const fn (self: QThread, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QThread, callback: *const fn (QThread, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QThread, callback: *const fn (QThread, [*:0]const u8) callconv(.c) i32) void {
         qtc.QThread_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2004,14 +2476,14 @@ pub const QThread = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QThread, signal: anytype) bool {
+    pub fn isSignalConnected(self: QThread, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QThread_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2025,10 +2497,14 @@ pub const QThread = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QThread, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QThread, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QThread_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2042,9 +2518,13 @@ pub const QThread = extern struct {
     ///
     /// ` callback: *const fn (self: QThread, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QThread, callback: *const fn (QThread, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QThread, callback: *const fn (QThread, QMetaMethod) callconv(.c) bool) void {
         qtc.QThread_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onStarted` instead
+    ///
+    pub const OnStarted = onStarted;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#started)
     ///
@@ -2056,9 +2536,13 @@ pub const QThread = extern struct {
     ///
     /// ` callback: *const fn (self: QThread) callconv(.c) void `
     ///
-    pub fn OnStarted(self: QThread, callback: *const fn (QThread) callconv(.c) void) void {
+    pub fn onStarted(self: QThread, callback: *const fn (QThread) callconv(.c) void) void {
         qtc.QThread_Connect_Started(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onFinished` instead
+    ///
+    pub const OnFinished = onFinished;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#finished)
     ///
@@ -2070,9 +2554,13 @@ pub const QThread = extern struct {
     ///
     /// ` callback: *const fn (self: QThread) callconv(.c) void `
     ///
-    pub fn OnFinished(self: QThread, callback: *const fn (QThread) callconv(.c) void) void {
+    pub fn onFinished(self: QThread, callback: *const fn (QThread) callconv(.c) void) void {
         qtc.QThread_Connect_Finished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -2086,23 +2574,23 @@ pub const QThread = extern struct {
     ///
     /// ` callback: *const fn (self: QThread, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QThread, callback: *const fn (QThread, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QThread, callback: *const fn (QThread, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#dtor.QThread)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QThread `
     ///
-    pub fn Delete(self: QThread) void {
+    pub fn delete(self: QThread) void {
         qtc.QThread_Delete(@ptrCast(self.ptr));
     }
 };

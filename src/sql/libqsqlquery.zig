@@ -20,52 +20,72 @@ pub const QSqlQuery = extern struct {
 
     pub const _is_QSqlQuery = {};
 
-    /// New constructs a new QSqlQuery object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QSqlQuery object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` r: QSqlResult `
     ///
-    pub fn New(r: anytype) QSqlQuery {
+    pub fn new(r: anytype) QSqlQuery {
         comptime _ = @TypeOf(r)._is_QSqlResult;
         return .{ .ptr = qtc.QSqlQuery_new(@ptrCast(r.ptr)) };
     }
 
-    /// New2 constructs a new QSqlQuery object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() QSqlQuery {
+    pub const New2 = new2;
+
+    /// Allocate a new QSqlQuery object in C++ memory
+    ///
+    pub fn new2() QSqlQuery {
         return .{ .ptr = qtc.QSqlQuery_new2() };
     }
 
-    /// New3 constructs a new QSqlQuery object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QSqlQuery object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` db: QSqlDatabase `
     ///
-    pub fn New3(db: anytype) QSqlQuery {
+    pub fn new3(db: anytype) QSqlQuery {
         comptime _ = @TypeOf(db)._is_QSqlDatabase;
         return .{ .ptr = qtc.QSqlQuery_new3(@ptrCast(db.ptr)) };
     }
 
-    /// New4 constructs a new QSqlQuery object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QSqlQuery object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QSqlQuery `
     ///
-    pub fn New4(other: anytype) QSqlQuery {
+    pub fn new4(other: anytype) QSqlQuery {
         comptime _ = @TypeOf(other)._is_QSqlQuery;
         return .{ .ptr = qtc.QSqlQuery_new4(@ptrCast(other.ptr)) };
     }
 
-    /// New5 constructs a new QSqlQuery object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new QSqlQuery object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` query: []const u8 `
     ///
-    pub fn New5(query: []const u8) QSqlQuery {
+    pub fn new5(query: []const u8) QSqlQuery {
         const query_str = qtc.libqt_string{
             .len = query.len,
             .data = query.ptr,
@@ -73,7 +93,11 @@ pub const QSqlQuery = extern struct {
         return .{ .ptr = qtc.QSqlQuery_new5(query_str) };
     }
 
-    /// New6 constructs a new QSqlQuery object.
+    /// ### DEPRECATED: Use `new6` instead
+    ///
+    pub const New6 = new6;
+
+    /// Allocate a new QSqlQuery object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -81,7 +105,7 @@ pub const QSqlQuery = extern struct {
     ///
     /// ` db: QSqlDatabase `
     ///
-    pub fn New6(query: []const u8, db: anytype) QSqlQuery {
+    pub fn new6(query: []const u8, db: anytype) QSqlQuery {
         const query_str = qtc.libqt_string{
             .len = query.len,
             .data = query.ptr,
@@ -89,6 +113,10 @@ pub const QSqlQuery = extern struct {
         comptime _ = @TypeOf(db)._is_QSqlDatabase;
         return .{ .ptr = qtc.QSqlQuery_new6(query_str, @ptrCast(db.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#operator-eq)
     ///
@@ -98,10 +126,14 @@ pub const QSqlQuery = extern struct {
     ///
     /// ` other: QSqlQuery `
     ///
-    pub fn OperatorAssign(self: QSqlQuery, other: anytype) void {
+    pub fn operatorAssign(self: QSqlQuery, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QSqlQuery;
         qtc.QSqlQuery_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#swap)
     ///
@@ -111,10 +143,14 @@ pub const QSqlQuery = extern struct {
     ///
     /// ` other: QSqlQuery `
     ///
-    pub fn Swap(self: QSqlQuery, other: anytype) void {
+    pub fn swap(self: QSqlQuery, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QSqlQuery;
         qtc.QSqlQuery_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#isValid)
     ///
@@ -122,9 +158,13 @@ pub const QSqlQuery = extern struct {
     ///
     /// ` self: QSqlQuery `
     ///
-    pub fn IsValid(self: QSqlQuery) bool {
+    pub fn isValid(self: QSqlQuery) bool {
         return qtc.QSqlQuery_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActive` instead
+    ///
+    pub const IsActive = isActive;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#isActive)
     ///
@@ -132,9 +172,13 @@ pub const QSqlQuery = extern struct {
     ///
     /// ` self: QSqlQuery `
     ///
-    pub fn IsActive(self: QSqlQuery) bool {
+    pub fn isActive(self: QSqlQuery) bool {
         return qtc.QSqlQuery_IsActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isNull` instead
+    ///
+    pub const IsNull = isNull;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#isNull)
     ///
@@ -144,9 +188,13 @@ pub const QSqlQuery = extern struct {
     ///
     /// ` field: i32 `
     ///
-    pub fn IsNull(self: QSqlQuery, field: i32) bool {
+    pub fn isNull(self: QSqlQuery, field: i32) bool {
         return qtc.QSqlQuery_IsNull(@ptrCast(self.ptr), @bitCast(field));
     }
+
+    /// ### DEPRECATED: Use `isNull2` instead
+    ///
+    pub const IsNull2 = isNull2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#isNull)
     ///
@@ -156,7 +204,7 @@ pub const QSqlQuery = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn IsNull2(self: QSqlQuery, name: []const u8) bool {
+    pub fn isNull2(self: QSqlQuery, name: []const u8) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -164,15 +212,23 @@ pub const QSqlQuery = extern struct {
         return qtc.QSqlQuery_IsNull2(@ptrCast(self.ptr), name_str);
     }
 
+    /// ### DEPRECATED: Use `at` instead
+    ///
+    pub const At = at;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#at)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QSqlQuery `
     ///
-    pub fn At(self: QSqlQuery) i32 {
+    pub fn at(self: QSqlQuery) i32 {
         return qtc.QSqlQuery_At(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lastQuery` instead
+    ///
+    pub const LastQuery = lastQuery;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#lastQuery)
     ///
@@ -182,13 +238,17 @@ pub const QSqlQuery = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LastQuery(self: QSqlQuery, allocator: std.mem.Allocator) []const u8 {
+    pub fn lastQuery(self: QSqlQuery, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSqlQuery_LastQuery(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlQuery.LastQuery: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlQuery.lastQuery: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `numRowsAffected` instead
+    ///
+    pub const NumRowsAffected = numRowsAffected;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#numRowsAffected)
     ///
@@ -196,9 +256,13 @@ pub const QSqlQuery = extern struct {
     ///
     /// ` self: QSqlQuery `
     ///
-    pub fn NumRowsAffected(self: QSqlQuery) i32 {
+    pub fn numRowsAffected(self: QSqlQuery) i32 {
         return qtc.QSqlQuery_NumRowsAffected(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lastError` instead
+    ///
+    pub const LastError = lastError;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#lastError)
     ///
@@ -206,9 +270,13 @@ pub const QSqlQuery = extern struct {
     ///
     /// ` self: QSqlQuery `
     ///
-    pub fn LastError(self: QSqlQuery) QSqlError {
+    pub fn lastError(self: QSqlQuery) QSqlError {
         return .{ .ptr = qtc.QSqlQuery_LastError(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isSelect` instead
+    ///
+    pub const IsSelect = isSelect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#isSelect)
     ///
@@ -216,9 +284,13 @@ pub const QSqlQuery = extern struct {
     ///
     /// ` self: QSqlQuery `
     ///
-    pub fn IsSelect(self: QSqlQuery) bool {
+    pub fn isSelect(self: QSqlQuery) bool {
         return qtc.QSqlQuery_IsSelect(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#size)
     ///
@@ -226,9 +298,13 @@ pub const QSqlQuery = extern struct {
     ///
     /// ` self: QSqlQuery `
     ///
-    pub fn Size(self: QSqlQuery) i32 {
+    pub fn size(self: QSqlQuery) i32 {
         return qtc.QSqlQuery_Size(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `driver` instead
+    ///
+    pub const Driver = driver;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#driver)
     ///
@@ -236,9 +312,13 @@ pub const QSqlQuery = extern struct {
     ///
     /// ` self: QSqlQuery `
     ///
-    pub fn Driver(self: QSqlQuery) QSqlDriver {
+    pub fn driver(self: QSqlQuery) QSqlDriver {
         return .{ .ptr = qtc.QSqlQuery_Driver(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `result` instead
+    ///
+    pub const Result = result;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#result)
     ///
@@ -246,9 +326,13 @@ pub const QSqlQuery = extern struct {
     ///
     /// ` self: QSqlQuery `
     ///
-    pub fn Result(self: QSqlQuery) QSqlResult {
+    pub fn result(self: QSqlQuery) QSqlResult {
         return .{ .ptr = qtc.QSqlQuery_Result(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isForwardOnly` instead
+    ///
+    pub const IsForwardOnly = isForwardOnly;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#isForwardOnly)
     ///
@@ -256,9 +340,13 @@ pub const QSqlQuery = extern struct {
     ///
     /// ` self: QSqlQuery `
     ///
-    pub fn IsForwardOnly(self: QSqlQuery) bool {
+    pub fn isForwardOnly(self: QSqlQuery) bool {
         return qtc.QSqlQuery_IsForwardOnly(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `record` instead
+    ///
+    pub const Record = record;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#record)
     ///
@@ -266,9 +354,13 @@ pub const QSqlQuery = extern struct {
     ///
     /// ` self: QSqlQuery `
     ///
-    pub fn Record(self: QSqlQuery) QSqlRecord {
+    pub fn record(self: QSqlQuery) QSqlRecord {
         return .{ .ptr = qtc.QSqlQuery_Record(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setForwardOnly` instead
+    ///
+    pub const SetForwardOnly = setForwardOnly;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#setForwardOnly)
     ///
@@ -278,9 +370,13 @@ pub const QSqlQuery = extern struct {
     ///
     /// ` forward: bool `
     ///
-    pub fn SetForwardOnly(self: QSqlQuery, forward: bool) void {
+    pub fn setForwardOnly(self: QSqlQuery, forward: bool) void {
         qtc.QSqlQuery_SetForwardOnly(@ptrCast(self.ptr), forward);
     }
+
+    /// ### DEPRECATED: Use `exec` instead
+    ///
+    pub const Exec = exec;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#exec)
     ///
@@ -290,13 +386,17 @@ pub const QSqlQuery = extern struct {
     ///
     /// ` query: []const u8 `
     ///
-    pub fn Exec(self: QSqlQuery, query: []const u8) bool {
+    pub fn exec(self: QSqlQuery, query: []const u8) bool {
         const query_str = qtc.libqt_string{
             .len = query.len,
             .data = query.ptr,
         };
         return qtc.QSqlQuery_Exec(@ptrCast(self.ptr), query_str);
     }
+
+    /// ### DEPRECATED: Use `value` instead
+    ///
+    pub const Value = value;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#value)
     ///
@@ -306,9 +406,13 @@ pub const QSqlQuery = extern struct {
     ///
     /// ` i: i32 `
     ///
-    pub fn Value(self: QSqlQuery, i: i32) QVariant {
+    pub fn value(self: QSqlQuery, i: i32) QVariant {
         return .{ .ptr = qtc.QSqlQuery_Value(@ptrCast(self.ptr), @bitCast(i)) };
     }
+
+    /// ### DEPRECATED: Use `value2` instead
+    ///
+    pub const Value2 = value2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#value)
     ///
@@ -318,13 +422,17 @@ pub const QSqlQuery = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn Value2(self: QSqlQuery, name: []const u8) QVariant {
+    pub fn value2(self: QSqlQuery, name: []const u8) QVariant {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         return .{ .ptr = qtc.QSqlQuery_Value2(@ptrCast(self.ptr), name_str) };
     }
+
+    /// ### DEPRECATED: Use `setNumericalPrecisionPolicy` instead
+    ///
+    pub const SetNumericalPrecisionPolicy = setNumericalPrecisionPolicy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#setNumericalPrecisionPolicy)
     ///
@@ -334,9 +442,13 @@ pub const QSqlQuery = extern struct {
     ///
     /// ` precisionPolicy: qtsqlglobal_enums.NumericalPrecisionPolicy `
     ///
-    pub fn SetNumericalPrecisionPolicy(self: QSqlQuery, precisionPolicy: i32) void {
+    pub fn setNumericalPrecisionPolicy(self: QSqlQuery, precisionPolicy: i32) void {
         qtc.QSqlQuery_SetNumericalPrecisionPolicy(@ptrCast(self.ptr), @bitCast(precisionPolicy));
     }
+
+    /// ### DEPRECATED: Use `numericalPrecisionPolicy` instead
+    ///
+    pub const NumericalPrecisionPolicy = numericalPrecisionPolicy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#numericalPrecisionPolicy)
     ///
@@ -348,9 +460,13 @@ pub const QSqlQuery = extern struct {
     ///
     /// ` qtsqlglobal_enums.NumericalPrecisionPolicy `
     ///
-    pub fn NumericalPrecisionPolicy(self: QSqlQuery) i32 {
+    pub fn numericalPrecisionPolicy(self: QSqlQuery) i32 {
         return qtc.QSqlQuery_NumericalPrecisionPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPositionalBindingEnabled` instead
+    ///
+    pub const SetPositionalBindingEnabled = setPositionalBindingEnabled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#setPositionalBindingEnabled)
     ///
@@ -360,9 +476,13 @@ pub const QSqlQuery = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetPositionalBindingEnabled(self: QSqlQuery, enable: bool) void {
+    pub fn setPositionalBindingEnabled(self: QSqlQuery, enable: bool) void {
         qtc.QSqlQuery_SetPositionalBindingEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `isPositionalBindingEnabled` instead
+    ///
+    pub const IsPositionalBindingEnabled = isPositionalBindingEnabled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#isPositionalBindingEnabled)
     ///
@@ -370,9 +490,13 @@ pub const QSqlQuery = extern struct {
     ///
     /// ` self: QSqlQuery `
     ///
-    pub fn IsPositionalBindingEnabled(self: QSqlQuery) bool {
+    pub fn isPositionalBindingEnabled(self: QSqlQuery) bool {
         return qtc.QSqlQuery_IsPositionalBindingEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `seek` instead
+    ///
+    pub const Seek = seek;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#seek)
     ///
@@ -382,9 +506,13 @@ pub const QSqlQuery = extern struct {
     ///
     /// ` i: i32 `
     ///
-    pub fn Seek(self: QSqlQuery, i: i32) bool {
+    pub fn seek(self: QSqlQuery, i: i32) bool {
         return qtc.QSqlQuery_Seek(@ptrCast(self.ptr), @bitCast(i));
     }
+
+    /// ### DEPRECATED: Use `next` instead
+    ///
+    pub const Next = next;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#next)
     ///
@@ -392,9 +520,13 @@ pub const QSqlQuery = extern struct {
     ///
     /// ` self: QSqlQuery `
     ///
-    pub fn Next(self: QSqlQuery) bool {
+    pub fn next(self: QSqlQuery) bool {
         return qtc.QSqlQuery_Next(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `previous` instead
+    ///
+    pub const Previous = previous;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#previous)
     ///
@@ -402,9 +534,13 @@ pub const QSqlQuery = extern struct {
     ///
     /// ` self: QSqlQuery `
     ///
-    pub fn Previous(self: QSqlQuery) bool {
+    pub fn previous(self: QSqlQuery) bool {
         return qtc.QSqlQuery_Previous(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `first` instead
+    ///
+    pub const First = first;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#first)
     ///
@@ -412,9 +548,13 @@ pub const QSqlQuery = extern struct {
     ///
     /// ` self: QSqlQuery `
     ///
-    pub fn First(self: QSqlQuery) bool {
+    pub fn first(self: QSqlQuery) bool {
         return qtc.QSqlQuery_First(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `last` instead
+    ///
+    pub const Last = last;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#last)
     ///
@@ -422,9 +562,13 @@ pub const QSqlQuery = extern struct {
     ///
     /// ` self: QSqlQuery `
     ///
-    pub fn Last(self: QSqlQuery) bool {
+    pub fn last(self: QSqlQuery) bool {
         return qtc.QSqlQuery_Last(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#clear)
     ///
@@ -432,9 +576,13 @@ pub const QSqlQuery = extern struct {
     ///
     /// ` self: QSqlQuery `
     ///
-    pub fn Clear(self: QSqlQuery) void {
+    pub fn clear(self: QSqlQuery) void {
         qtc.QSqlQuery_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `exec2` instead
+    ///
+    pub const Exec2 = exec2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#exec)
     ///
@@ -442,9 +590,13 @@ pub const QSqlQuery = extern struct {
     ///
     /// ` self: QSqlQuery `
     ///
-    pub fn Exec2(self: QSqlQuery) bool {
+    pub fn exec2(self: QSqlQuery) bool {
         return qtc.QSqlQuery_Exec2(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `execBatch` instead
+    ///
+    pub const ExecBatch = execBatch;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#execBatch)
     ///
@@ -452,9 +604,13 @@ pub const QSqlQuery = extern struct {
     ///
     /// ` self: QSqlQuery `
     ///
-    pub fn ExecBatch(self: QSqlQuery) bool {
+    pub fn execBatch(self: QSqlQuery) bool {
         return qtc.QSqlQuery_ExecBatch(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `prepare` instead
+    ///
+    pub const Prepare = prepare;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#prepare)
     ///
@@ -464,13 +620,17 @@ pub const QSqlQuery = extern struct {
     ///
     /// ` query: []const u8 `
     ///
-    pub fn Prepare(self: QSqlQuery, query: []const u8) bool {
+    pub fn prepare(self: QSqlQuery, query: []const u8) bool {
         const query_str = qtc.libqt_string{
             .len = query.len,
             .data = query.ptr,
         };
         return qtc.QSqlQuery_Prepare(@ptrCast(self.ptr), query_str);
     }
+
+    /// ### DEPRECATED: Use `bindValue` instead
+    ///
+    pub const BindValue = bindValue;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#bindValue)
     ///
@@ -482,7 +642,7 @@ pub const QSqlQuery = extern struct {
     ///
     /// ` val: QVariant `
     ///
-    pub fn BindValue(self: QSqlQuery, placeholder: []const u8, val: anytype) void {
+    pub fn bindValue(self: QSqlQuery, placeholder: []const u8, val: anytype) void {
         const placeholder_str = qtc.libqt_string{
             .len = placeholder.len,
             .data = placeholder.ptr,
@@ -490,6 +650,10 @@ pub const QSqlQuery = extern struct {
         comptime _ = @TypeOf(val)._is_QVariant;
         qtc.QSqlQuery_BindValue(@ptrCast(self.ptr), placeholder_str, @ptrCast(val.ptr));
     }
+
+    /// ### DEPRECATED: Use `bindValue2` instead
+    ///
+    pub const BindValue2 = bindValue2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#bindValue)
     ///
@@ -501,10 +665,14 @@ pub const QSqlQuery = extern struct {
     ///
     /// ` val: QVariant `
     ///
-    pub fn BindValue2(self: QSqlQuery, pos: i32, val: anytype) void {
+    pub fn bindValue2(self: QSqlQuery, pos: i32, val: anytype) void {
         comptime _ = @TypeOf(val)._is_QVariant;
         qtc.QSqlQuery_BindValue2(@ptrCast(self.ptr), @bitCast(pos), @ptrCast(val.ptr));
     }
+
+    /// ### DEPRECATED: Use `addBindValue` instead
+    ///
+    pub const AddBindValue = addBindValue;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#addBindValue)
     ///
@@ -514,10 +682,14 @@ pub const QSqlQuery = extern struct {
     ///
     /// ` val: QVariant `
     ///
-    pub fn AddBindValue(self: QSqlQuery, val: anytype) void {
+    pub fn addBindValue(self: QSqlQuery, val: anytype) void {
         comptime _ = @TypeOf(val)._is_QVariant;
         qtc.QSqlQuery_AddBindValue(@ptrCast(self.ptr), @ptrCast(val.ptr));
     }
+
+    /// ### DEPRECATED: Use `boundValue` instead
+    ///
+    pub const BoundValue = boundValue;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#boundValue)
     ///
@@ -527,13 +699,17 @@ pub const QSqlQuery = extern struct {
     ///
     /// ` placeholder: []const u8 `
     ///
-    pub fn BoundValue(self: QSqlQuery, placeholder: []const u8) QVariant {
+    pub fn boundValue(self: QSqlQuery, placeholder: []const u8) QVariant {
         const placeholder_str = qtc.libqt_string{
             .len = placeholder.len,
             .data = placeholder.ptr,
         };
         return .{ .ptr = qtc.QSqlQuery_BoundValue(@ptrCast(self.ptr), placeholder_str) };
     }
+
+    /// ### DEPRECATED: Use `boundValue2` instead
+    ///
+    pub const BoundValue2 = boundValue2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#boundValue)
     ///
@@ -543,9 +719,13 @@ pub const QSqlQuery = extern struct {
     ///
     /// ` pos: i32 `
     ///
-    pub fn BoundValue2(self: QSqlQuery, pos: i32) QVariant {
+    pub fn boundValue2(self: QSqlQuery, pos: i32) QVariant {
         return .{ .ptr = qtc.QSqlQuery_BoundValue2(@ptrCast(self.ptr), @bitCast(pos)) };
     }
+
+    /// ### DEPRECATED: Use `boundValues` instead
+    ///
+    pub const BoundValues = boundValues;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#boundValues)
     ///
@@ -555,15 +735,19 @@ pub const QSqlQuery = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn BoundValues(self: QSqlQuery, allocator: std.mem.Allocator) []QVariant {
+    pub fn boundValues(self: QSqlQuery, allocator: std.mem.Allocator) []QVariant {
         const _arr: qtc.libqt_list = qtc.QSqlQuery_BoundValues(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QVariant, _arr.len) catch @panic("QSqlQuery.BoundValues: Memory allocation failed");
-        const _data: [*]QtC.QVariant = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QVariant, _arr.len) catch @panic("QSqlQuery.boundValues: Memory allocation failed");
+        const _data_val: [*]QtC.QVariant = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `boundValueNames` instead
+    ///
+    pub const BoundValueNames = boundValueNames;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#boundValueNames)
     ///
@@ -573,7 +757,7 @@ pub const QSqlQuery = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn BoundValueNames(self: QSqlQuery, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn boundValueNames(self: QSqlQuery, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QSqlQuery_BoundValueNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -581,15 +765,19 @@ pub const QSqlQuery = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QSqlQuery.BoundValueNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QSqlQuery.boundValueNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QSqlQuery.BoundValueNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QSqlQuery.boundValueNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `boundValueName` instead
+    ///
+    pub const BoundValueName = boundValueName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#boundValueName)
     ///
@@ -601,13 +789,17 @@ pub const QSqlQuery = extern struct {
     ///
     /// ` pos: i32 `
     ///
-    pub fn BoundValueName(self: QSqlQuery, allocator: std.mem.Allocator, pos: i32) []const u8 {
+    pub fn boundValueName(self: QSqlQuery, allocator: std.mem.Allocator, pos: i32) []const u8 {
         var _str = qtc.QSqlQuery_BoundValueName(@ptrCast(self.ptr), @bitCast(pos));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlQuery.BoundValueName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlQuery.boundValueName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `executedQuery` instead
+    ///
+    pub const ExecutedQuery = executedQuery;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#executedQuery)
     ///
@@ -617,13 +809,17 @@ pub const QSqlQuery = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ExecutedQuery(self: QSqlQuery, allocator: std.mem.Allocator) []const u8 {
+    pub fn executedQuery(self: QSqlQuery, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSqlQuery_ExecutedQuery(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlQuery.ExecutedQuery: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlQuery.executedQuery: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `lastInsertId` instead
+    ///
+    pub const LastInsertId = lastInsertId;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#lastInsertId)
     ///
@@ -631,9 +827,13 @@ pub const QSqlQuery = extern struct {
     ///
     /// ` self: QSqlQuery `
     ///
-    pub fn LastInsertId(self: QSqlQuery) QVariant {
+    pub fn lastInsertId(self: QSqlQuery) QVariant {
         return .{ .ptr = qtc.QSqlQuery_LastInsertId(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `finish` instead
+    ///
+    pub const Finish = finish;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#finish)
     ///
@@ -641,9 +841,13 @@ pub const QSqlQuery = extern struct {
     ///
     /// ` self: QSqlQuery `
     ///
-    pub fn Finish(self: QSqlQuery) void {
+    pub fn finish(self: QSqlQuery) void {
         qtc.QSqlQuery_Finish(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `nextResult` instead
+    ///
+    pub const NextResult = nextResult;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#nextResult)
     ///
@@ -651,9 +855,13 @@ pub const QSqlQuery = extern struct {
     ///
     /// ` self: QSqlQuery `
     ///
-    pub fn NextResult(self: QSqlQuery) bool {
+    pub fn nextResult(self: QSqlQuery) bool {
         return qtc.QSqlQuery_NextResult(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `seek2` instead
+    ///
+    pub const Seek2 = seek2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#seek)
     ///
@@ -665,9 +873,13 @@ pub const QSqlQuery = extern struct {
     ///
     /// ` relative: bool `
     ///
-    pub fn Seek2(self: QSqlQuery, i: i32, relative: bool) bool {
+    pub fn seek2(self: QSqlQuery, i: i32, relative: bool) bool {
         return qtc.QSqlQuery_Seek2(@ptrCast(self.ptr), @bitCast(i), relative);
     }
+
+    /// ### DEPRECATED: Use `execBatch1` instead
+    ///
+    pub const ExecBatch1 = execBatch1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#execBatch)
     ///
@@ -677,9 +889,13 @@ pub const QSqlQuery = extern struct {
     ///
     /// ` mode: qsqlquery_enums.BatchExecutionMode `
     ///
-    pub fn ExecBatch1(self: QSqlQuery, mode: i32) bool {
+    pub fn execBatch1(self: QSqlQuery, mode: i32) bool {
         return qtc.QSqlQuery_ExecBatch1(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `bindValue3` instead
+    ///
+    pub const BindValue3 = bindValue3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#bindValue)
     ///
@@ -693,7 +909,7 @@ pub const QSqlQuery = extern struct {
     ///
     /// ` typeVal: flag of qtsqlglobal_enums.ParamTypeFlag `
     ///
-    pub fn BindValue3(self: QSqlQuery, placeholder: []const u8, val: anytype, typeVal: i32) void {
+    pub fn bindValue3(self: QSqlQuery, placeholder: []const u8, val: anytype, typeVal: i32) void {
         const placeholder_str = qtc.libqt_string{
             .len = placeholder.len,
             .data = placeholder.ptr,
@@ -701,6 +917,10 @@ pub const QSqlQuery = extern struct {
         comptime _ = @TypeOf(val)._is_QVariant;
         qtc.QSqlQuery_BindValue3(@ptrCast(self.ptr), placeholder_str, @ptrCast(val.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `bindValue32` instead
+    ///
+    pub const BindValue32 = bindValue32;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#bindValue)
     ///
@@ -714,10 +934,14 @@ pub const QSqlQuery = extern struct {
     ///
     /// ` typeVal: flag of qtsqlglobal_enums.ParamTypeFlag `
     ///
-    pub fn BindValue32(self: QSqlQuery, pos: i32, val: anytype, typeVal: i32) void {
+    pub fn bindValue32(self: QSqlQuery, pos: i32, val: anytype, typeVal: i32) void {
         comptime _ = @TypeOf(val)._is_QVariant;
         qtc.QSqlQuery_BindValue32(@ptrCast(self.ptr), @bitCast(pos), @ptrCast(val.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `addBindValue2` instead
+    ///
+    pub const AddBindValue2 = addBindValue2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#addBindValue)
     ///
@@ -729,24 +953,24 @@ pub const QSqlQuery = extern struct {
     ///
     /// ` typeVal: flag of qtsqlglobal_enums.ParamTypeFlag `
     ///
-    pub fn AddBindValue2(self: QSqlQuery, val: anytype, typeVal: i32) void {
+    pub fn addBindValue2(self: QSqlQuery, val: anytype, typeVal: i32) void {
         comptime _ = @TypeOf(val)._is_QVariant;
         qtc.QSqlQuery_AddBindValue2(@ptrCast(self.ptr), @ptrCast(val.ptr), @bitCast(typeVal));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#dtor.QSqlQuery)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QSqlQuery `
     ///
-    pub fn Delete(self: QSqlQuery) void {
+    pub fn delete(self: QSqlQuery) void {
         qtc.QSqlQuery_Delete(@ptrCast(self.ptr));
     }
 };

@@ -89,22 +89,34 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new TextGrammarCheck::LanguageToolComboBox object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new TextGrammarCheck::LanguageToolComboBox object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) TextGrammarCheck__LanguageToolComboBox {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.TextGrammarCheck__LanguageToolComboBox_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) TextGrammarCheck__LanguageToolComboBox {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.TextGrammarCheck__LanguageToolComboBox_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new TextGrammarCheck::LanguageToolComboBox object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() TextGrammarCheck__LanguageToolComboBox {
+    pub const New2 = new2;
+
+    /// Allocate a new TextGrammarCheck::LanguageToolComboBox object in C++ memory
+    ///
+    pub fn new2() TextGrammarCheck__LanguageToolComboBox {
         return .{ .ptr = qtc.TextGrammarCheck__LanguageToolComboBox_new2() };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextGrammarCheck_1_1LanguageToolComboBox.html)
     ///
@@ -112,9 +124,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn MetaObject(self: TextGrammarCheck__LanguageToolComboBox) QMetaObject {
+    pub fn metaObject(self: TextGrammarCheck__LanguageToolComboBox) QMetaObject {
         return .{ .ptr = qtc.TextGrammarCheck__LanguageToolComboBox_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextGrammarCheck_1_1LanguageToolComboBox.html)
     ///
@@ -126,13 +142,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextGrammarCheck_1_1LanguageToolComboBox.html)
     ///
@@ -142,9 +158,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn SuperMetaObject(self: TextGrammarCheck__LanguageToolComboBox) QMetaObject {
+    pub fn superMetaObject(self: TextGrammarCheck__LanguageToolComboBox) QMetaObject {
         return .{ .ptr = qtc.TextGrammarCheck__LanguageToolComboBox_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -152,10 +172,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: TextGrammarCheck__LanguageToolComboBox, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: TextGrammarCheck__LanguageToolComboBox, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.TextGrammarCheck__LanguageToolComboBox_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -165,13 +189,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -181,10 +205,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: TextGrammarCheck__LanguageToolComboBox, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: TextGrammarCheck__LanguageToolComboBox, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.TextGrammarCheck__LanguageToolComboBox_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -196,9 +224,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: TextGrammarCheck__LanguageToolComboBox, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: TextGrammarCheck__LanguageToolComboBox, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.TextGrammarCheck__LanguageToolComboBox_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -208,13 +240,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -228,9 +260,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: TextGrammarCheck__LanguageToolComboBox, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: TextGrammarCheck__LanguageToolComboBox, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.TextGrammarCheck__LanguageToolComboBox_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -240,14 +276,18 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolComboBox.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolComboBox.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setLanguage` instead
+    ///
+    pub const SetLanguage = setLanguage;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextGrammarCheck_1_1LanguageToolComboBox.html)
     ///
@@ -257,13 +297,17 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` str: []const u8 `
     ///
-    pub fn SetLanguage(self: TextGrammarCheck__LanguageToolComboBox, str: []const u8) void {
+    pub fn setLanguage(self: TextGrammarCheck__LanguageToolComboBox, str: []const u8) void {
         const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
         };
         qtc.TextGrammarCheck__LanguageToolComboBox_SetLanguage(@ptrCast(self.ptr), str_str);
     }
+
+    /// ### DEPRECATED: Use `language` instead
+    ///
+    pub const Language = language;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextGrammarCheck_1_1LanguageToolComboBox.html)
     ///
@@ -273,13 +317,17 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Language(self: TextGrammarCheck__LanguageToolComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn language(self: TextGrammarCheck__LanguageToolComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextGrammarCheck__LanguageToolComboBox_Language(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolComboBox.Language: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolComboBox.language: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -291,15 +339,19 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolComboBox.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolComboBox.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -313,15 +365,19 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolComboBox.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolComboBox.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `maxVisibleItems` instead
+    ///
+    pub const MaxVisibleItems = maxVisibleItems;
 
     /// Inherited from QComboBox
     ///
@@ -331,9 +387,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn MaxVisibleItems(self: TextGrammarCheck__LanguageToolComboBox) i32 {
+    pub fn maxVisibleItems(self: TextGrammarCheck__LanguageToolComboBox) i32 {
         return qtc.QComboBox_MaxVisibleItems(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaxVisibleItems` instead
+    ///
+    pub const SetMaxVisibleItems = setMaxVisibleItems;
 
     /// Inherited from QComboBox
     ///
@@ -345,9 +405,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` maxItems: i32 `
     ///
-    pub fn SetMaxVisibleItems(self: TextGrammarCheck__LanguageToolComboBox, maxItems: i32) void {
+    pub fn setMaxVisibleItems(self: TextGrammarCheck__LanguageToolComboBox, maxItems: i32) void {
         qtc.QComboBox_SetMaxVisibleItems(@ptrCast(self.ptr), @bitCast(maxItems));
     }
+
+    /// ### DEPRECATED: Use `count` instead
+    ///
+    pub const Count = count;
 
     /// Inherited from QComboBox
     ///
@@ -357,9 +421,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn Count(self: TextGrammarCheck__LanguageToolComboBox) i32 {
+    pub fn count(self: TextGrammarCheck__LanguageToolComboBox) i32 {
         return qtc.QComboBox_Count(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaxCount` instead
+    ///
+    pub const SetMaxCount = setMaxCount;
 
     /// Inherited from QComboBox
     ///
@@ -371,9 +439,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` max: i32 `
     ///
-    pub fn SetMaxCount(self: TextGrammarCheck__LanguageToolComboBox, max: i32) void {
+    pub fn setMaxCount(self: TextGrammarCheck__LanguageToolComboBox, max: i32) void {
         qtc.QComboBox_SetMaxCount(@ptrCast(self.ptr), @bitCast(max));
     }
+
+    /// ### DEPRECATED: Use `maxCount` instead
+    ///
+    pub const MaxCount = maxCount;
 
     /// Inherited from QComboBox
     ///
@@ -383,9 +455,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn MaxCount(self: TextGrammarCheck__LanguageToolComboBox) i32 {
+    pub fn maxCount(self: TextGrammarCheck__LanguageToolComboBox) i32 {
         return qtc.QComboBox_MaxCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `duplicatesEnabled` instead
+    ///
+    pub const DuplicatesEnabled = duplicatesEnabled;
 
     /// Inherited from QComboBox
     ///
@@ -395,9 +471,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn DuplicatesEnabled(self: TextGrammarCheck__LanguageToolComboBox) bool {
+    pub fn duplicatesEnabled(self: TextGrammarCheck__LanguageToolComboBox) bool {
         return qtc.QComboBox_DuplicatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDuplicatesEnabled` instead
+    ///
+    pub const SetDuplicatesEnabled = setDuplicatesEnabled;
 
     /// Inherited from QComboBox
     ///
@@ -409,9 +489,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetDuplicatesEnabled(self: TextGrammarCheck__LanguageToolComboBox, enable: bool) void {
+    pub fn setDuplicatesEnabled(self: TextGrammarCheck__LanguageToolComboBox, enable: bool) void {
         qtc.QComboBox_SetDuplicatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `setFrame` instead
+    ///
+    pub const SetFrame = setFrame;
 
     /// Inherited from QComboBox
     ///
@@ -423,9 +507,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` frame: bool `
     ///
-    pub fn SetFrame(self: TextGrammarCheck__LanguageToolComboBox, frame: bool) void {
+    pub fn setFrame(self: TextGrammarCheck__LanguageToolComboBox, frame: bool) void {
         qtc.QComboBox_SetFrame(@ptrCast(self.ptr), frame);
     }
+
+    /// ### DEPRECATED: Use `hasFrame` instead
+    ///
+    pub const HasFrame = hasFrame;
 
     /// Inherited from QComboBox
     ///
@@ -435,9 +523,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn HasFrame(self: TextGrammarCheck__LanguageToolComboBox) bool {
+    pub fn hasFrame(self: TextGrammarCheck__LanguageToolComboBox) bool {
         return qtc.QComboBox_HasFrame(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `findText` instead
+    ///
+    pub const FindText = findText;
 
     /// Inherited from QComboBox
     ///
@@ -449,13 +541,17 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn FindText(self: TextGrammarCheck__LanguageToolComboBox, text: []const u8) i32 {
+    pub fn findText(self: TextGrammarCheck__LanguageToolComboBox, text: []const u8) i32 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return qtc.QComboBox_FindText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `findData` instead
+    ///
+    pub const FindData = findData;
 
     /// Inherited from QComboBox
     ///
@@ -467,10 +563,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` data: QVariant `
     ///
-    pub fn FindData(self: TextGrammarCheck__LanguageToolComboBox, data: anytype) i32 {
+    pub fn findData(self: TextGrammarCheck__LanguageToolComboBox, data: anytype) i32 {
         comptime _ = @TypeOf(data)._is_QVariant;
         return qtc.QComboBox_FindData(@ptrCast(self.ptr), @ptrCast(data.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertPolicy` instead
+    ///
+    pub const InsertPolicy = insertPolicy;
 
     /// Inherited from QComboBox
     ///
@@ -484,9 +584,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` qcombobox_enums.InsertPolicy `
     ///
-    pub fn InsertPolicy(self: TextGrammarCheck__LanguageToolComboBox) i32 {
+    pub fn insertPolicy(self: TextGrammarCheck__LanguageToolComboBox) i32 {
         return qtc.QComboBox_InsertPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInsertPolicy` instead
+    ///
+    pub const SetInsertPolicy = setInsertPolicy;
 
     /// Inherited from QComboBox
     ///
@@ -498,9 +602,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` policy: qcombobox_enums.InsertPolicy `
     ///
-    pub fn SetInsertPolicy(self: TextGrammarCheck__LanguageToolComboBox, policy: i32) void {
+    pub fn setInsertPolicy(self: TextGrammarCheck__LanguageToolComboBox, policy: i32) void {
         qtc.QComboBox_SetInsertPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `sizeAdjustPolicy` instead
+    ///
+    pub const SizeAdjustPolicy = sizeAdjustPolicy;
 
     /// Inherited from QComboBox
     ///
@@ -514,9 +622,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` qcombobox_enums.SizeAdjustPolicy `
     ///
-    pub fn SizeAdjustPolicy(self: TextGrammarCheck__LanguageToolComboBox) i32 {
+    pub fn sizeAdjustPolicy(self: TextGrammarCheck__LanguageToolComboBox) i32 {
         return qtc.QComboBox_SizeAdjustPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeAdjustPolicy` instead
+    ///
+    pub const SetSizeAdjustPolicy = setSizeAdjustPolicy;
 
     /// Inherited from QComboBox
     ///
@@ -528,9 +640,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` policy: qcombobox_enums.SizeAdjustPolicy `
     ///
-    pub fn SetSizeAdjustPolicy(self: TextGrammarCheck__LanguageToolComboBox, policy: i32) void {
+    pub fn setSizeAdjustPolicy(self: TextGrammarCheck__LanguageToolComboBox, policy: i32) void {
         qtc.QComboBox_SetSizeAdjustPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `minimumContentsLength` instead
+    ///
+    pub const MinimumContentsLength = minimumContentsLength;
 
     /// Inherited from QComboBox
     ///
@@ -540,9 +656,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn MinimumContentsLength(self: TextGrammarCheck__LanguageToolComboBox) i32 {
+    pub fn minimumContentsLength(self: TextGrammarCheck__LanguageToolComboBox) i32 {
         return qtc.QComboBox_MinimumContentsLength(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumContentsLength` instead
+    ///
+    pub const SetMinimumContentsLength = setMinimumContentsLength;
 
     /// Inherited from QComboBox
     ///
@@ -554,9 +674,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` characters: i32 `
     ///
-    pub fn SetMinimumContentsLength(self: TextGrammarCheck__LanguageToolComboBox, characters: i32) void {
+    pub fn setMinimumContentsLength(self: TextGrammarCheck__LanguageToolComboBox, characters: i32) void {
         qtc.QComboBox_SetMinimumContentsLength(@ptrCast(self.ptr), @bitCast(characters));
     }
+
+    /// ### DEPRECATED: Use `iconSize` instead
+    ///
+    pub const IconSize = iconSize;
 
     /// Inherited from QComboBox
     ///
@@ -566,9 +690,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn IconSize(self: TextGrammarCheck__LanguageToolComboBox) QSize {
+    pub fn iconSize(self: TextGrammarCheck__LanguageToolComboBox) QSize {
         return .{ .ptr = qtc.QComboBox_IconSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setIconSize` instead
+    ///
+    pub const SetIconSize = setIconSize;
 
     /// Inherited from QComboBox
     ///
@@ -578,12 +706,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` size: QSize `
+    /// ` _size: QSize `
     ///
-    pub fn SetIconSize(self: TextGrammarCheck__LanguageToolComboBox, size: anytype) void {
-        comptime _ = @TypeOf(size)._is_QSize;
-        qtc.QComboBox_SetIconSize(@ptrCast(self.ptr), @ptrCast(size.ptr));
+    pub fn setIconSize(self: TextGrammarCheck__LanguageToolComboBox, _size: anytype) void {
+        comptime _ = @TypeOf(_size)._is_QSize;
+        qtc.QComboBox_SetIconSize(@ptrCast(self.ptr), @ptrCast(_size.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPlaceholderText` instead
+    ///
+    pub const SetPlaceholderText = setPlaceholderText;
 
     /// Inherited from QComboBox
     ///
@@ -593,15 +725,19 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` placeholderText: []const u8 `
+    /// ` _placeholderText: []const u8 `
     ///
-    pub fn SetPlaceholderText(self: TextGrammarCheck__LanguageToolComboBox, placeholderText: []const u8) void {
+    pub fn setPlaceholderText(self: TextGrammarCheck__LanguageToolComboBox, _placeholderText: []const u8) void {
         const placeholderText_str = qtc.libqt_string{
-            .len = placeholderText.len,
-            .data = placeholderText.ptr,
+            .len = _placeholderText.len,
+            .data = _placeholderText.ptr,
         };
         qtc.QComboBox_SetPlaceholderText(@ptrCast(self.ptr), placeholderText_str);
     }
+
+    /// ### DEPRECATED: Use `placeholderText` instead
+    ///
+    pub const PlaceholderText = placeholderText;
 
     /// Inherited from QComboBox
     ///
@@ -613,13 +749,17 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PlaceholderText(self: TextGrammarCheck__LanguageToolComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn placeholderText(self: TextGrammarCheck__LanguageToolComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QComboBox_PlaceholderText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolComboBox.PlaceholderText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolComboBox.placeholderText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isEditable` instead
+    ///
+    pub const IsEditable = isEditable;
 
     /// Inherited from QComboBox
     ///
@@ -629,9 +769,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn IsEditable(self: TextGrammarCheck__LanguageToolComboBox) bool {
+    pub fn isEditable(self: TextGrammarCheck__LanguageToolComboBox) bool {
         return qtc.QComboBox_IsEditable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEditable` instead
+    ///
+    pub const SetEditable = setEditable;
 
     /// Inherited from QComboBox
     ///
@@ -643,9 +787,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` editable: bool `
     ///
-    pub fn SetEditable(self: TextGrammarCheck__LanguageToolComboBox, editable: bool) void {
+    pub fn setEditable(self: TextGrammarCheck__LanguageToolComboBox, editable: bool) void {
         qtc.QComboBox_SetEditable(@ptrCast(self.ptr), editable);
     }
+
+    /// ### DEPRECATED: Use `setLineEdit` instead
+    ///
+    pub const SetLineEdit = setLineEdit;
 
     /// Inherited from QComboBox
     ///
@@ -657,10 +805,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` edit: QLineEdit `
     ///
-    pub fn SetLineEdit(self: TextGrammarCheck__LanguageToolComboBox, edit: anytype) void {
+    pub fn setLineEdit(self: TextGrammarCheck__LanguageToolComboBox, edit: anytype) void {
         comptime _ = @TypeOf(edit)._is_QLineEdit;
         qtc.QComboBox_SetLineEdit(@ptrCast(self.ptr), @ptrCast(edit.ptr));
     }
+
+    /// ### DEPRECATED: Use `lineEdit` instead
+    ///
+    pub const LineEdit = lineEdit;
 
     /// Inherited from QComboBox
     ///
@@ -670,9 +822,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn LineEdit(self: TextGrammarCheck__LanguageToolComboBox) QLineEdit {
+    pub fn lineEdit(self: TextGrammarCheck__LanguageToolComboBox) QLineEdit {
         return .{ .ptr = qtc.QComboBox_LineEdit(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setValidator` instead
+    ///
+    pub const SetValidator = setValidator;
 
     /// Inherited from QComboBox
     ///
@@ -684,10 +840,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` v: QValidator `
     ///
-    pub fn SetValidator(self: TextGrammarCheck__LanguageToolComboBox, v: anytype) void {
+    pub fn setValidator(self: TextGrammarCheck__LanguageToolComboBox, v: anytype) void {
         comptime _ = @TypeOf(v)._is_QValidator;
         qtc.QComboBox_SetValidator(@ptrCast(self.ptr), @ptrCast(v.ptr));
     }
+
+    /// ### DEPRECATED: Use `validator` instead
+    ///
+    pub const Validator = validator;
 
     /// Inherited from QComboBox
     ///
@@ -697,9 +857,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn Validator(self: TextGrammarCheck__LanguageToolComboBox) QValidator {
+    pub fn validator(self: TextGrammarCheck__LanguageToolComboBox) QValidator {
         return .{ .ptr = qtc.QComboBox_Validator(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCompleter` instead
+    ///
+    pub const SetCompleter = setCompleter;
 
     /// Inherited from QComboBox
     ///
@@ -711,10 +875,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` c: QCompleter `
     ///
-    pub fn SetCompleter(self: TextGrammarCheck__LanguageToolComboBox, c: anytype) void {
+    pub fn setCompleter(self: TextGrammarCheck__LanguageToolComboBox, c: anytype) void {
         comptime _ = @TypeOf(c)._is_QCompleter;
         qtc.QComboBox_SetCompleter(@ptrCast(self.ptr), @ptrCast(c.ptr));
     }
+
+    /// ### DEPRECATED: Use `completer` instead
+    ///
+    pub const Completer = completer;
 
     /// Inherited from QComboBox
     ///
@@ -724,9 +892,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn Completer(self: TextGrammarCheck__LanguageToolComboBox) QCompleter {
+    pub fn completer(self: TextGrammarCheck__LanguageToolComboBox) QCompleter {
         return .{ .ptr = qtc.QComboBox_Completer(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `itemDelegate` instead
+    ///
+    pub const ItemDelegate = itemDelegate;
 
     /// Inherited from QComboBox
     ///
@@ -736,9 +908,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn ItemDelegate(self: TextGrammarCheck__LanguageToolComboBox) QAbstractItemDelegate {
+    pub fn itemDelegate(self: TextGrammarCheck__LanguageToolComboBox) QAbstractItemDelegate {
         return .{ .ptr = qtc.QComboBox_ItemDelegate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setItemDelegate` instead
+    ///
+    pub const SetItemDelegate = setItemDelegate;
 
     /// Inherited from QComboBox
     ///
@@ -750,10 +926,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` delegate: QAbstractItemDelegate `
     ///
-    pub fn SetItemDelegate(self: TextGrammarCheck__LanguageToolComboBox, delegate: anytype) void {
+    pub fn setItemDelegate(self: TextGrammarCheck__LanguageToolComboBox, delegate: anytype) void {
         comptime _ = @TypeOf(delegate)._is_QAbstractItemDelegate;
         qtc.QComboBox_SetItemDelegate(@ptrCast(self.ptr), @ptrCast(delegate.ptr));
     }
+
+    /// ### DEPRECATED: Use `model` instead
+    ///
+    pub const Model = model;
 
     /// Inherited from QComboBox
     ///
@@ -763,9 +943,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn Model(self: TextGrammarCheck__LanguageToolComboBox) QAbstractItemModel {
+    pub fn model(self: TextGrammarCheck__LanguageToolComboBox) QAbstractItemModel {
         return .{ .ptr = qtc.QComboBox_Model(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `rootModelIndex` instead
+    ///
+    pub const RootModelIndex = rootModelIndex;
 
     /// Inherited from QComboBox
     ///
@@ -775,9 +959,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn RootModelIndex(self: TextGrammarCheck__LanguageToolComboBox) QModelIndex {
+    pub fn rootModelIndex(self: TextGrammarCheck__LanguageToolComboBox) QModelIndex {
         return .{ .ptr = qtc.QComboBox_RootModelIndex(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setRootModelIndex` instead
+    ///
+    pub const SetRootModelIndex = setRootModelIndex;
 
     /// Inherited from QComboBox
     ///
@@ -789,10 +977,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SetRootModelIndex(self: TextGrammarCheck__LanguageToolComboBox, index: anytype) void {
+    pub fn setRootModelIndex(self: TextGrammarCheck__LanguageToolComboBox, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QComboBox_SetRootModelIndex(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `modelColumn` instead
+    ///
+    pub const ModelColumn = modelColumn;
 
     /// Inherited from QComboBox
     ///
@@ -802,9 +994,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn ModelColumn(self: TextGrammarCheck__LanguageToolComboBox) i32 {
+    pub fn modelColumn(self: TextGrammarCheck__LanguageToolComboBox) i32 {
         return qtc.QComboBox_ModelColumn(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setModelColumn` instead
+    ///
+    pub const SetModelColumn = setModelColumn;
 
     /// Inherited from QComboBox
     ///
@@ -816,9 +1012,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` visibleColumn: i32 `
     ///
-    pub fn SetModelColumn(self: TextGrammarCheck__LanguageToolComboBox, visibleColumn: i32) void {
+    pub fn setModelColumn(self: TextGrammarCheck__LanguageToolComboBox, visibleColumn: i32) void {
         qtc.QComboBox_SetModelColumn(@ptrCast(self.ptr), @bitCast(visibleColumn));
     }
+
+    /// ### DEPRECATED: Use `currentIndex` instead
+    ///
+    pub const CurrentIndex = currentIndex;
 
     /// Inherited from QComboBox
     ///
@@ -828,9 +1028,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn CurrentIndex(self: TextGrammarCheck__LanguageToolComboBox) i32 {
+    pub fn currentIndex(self: TextGrammarCheck__LanguageToolComboBox) i32 {
         return qtc.QComboBox_CurrentIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `currentText` instead
+    ///
+    pub const CurrentText = currentText;
 
     /// Inherited from QComboBox
     ///
@@ -842,13 +1046,17 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CurrentText(self: TextGrammarCheck__LanguageToolComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn currentText(self: TextGrammarCheck__LanguageToolComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QComboBox_CurrentText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolComboBox.CurrentText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolComboBox.currentText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `currentData` instead
+    ///
+    pub const CurrentData = currentData;
 
     /// Inherited from QComboBox
     ///
@@ -858,9 +1066,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn CurrentData(self: TextGrammarCheck__LanguageToolComboBox) QVariant {
+    pub fn currentData(self: TextGrammarCheck__LanguageToolComboBox) QVariant {
         return .{ .ptr = qtc.QComboBox_CurrentData(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `itemText` instead
+    ///
+    pub const ItemText = itemText;
 
     /// Inherited from QComboBox
     ///
@@ -874,13 +1086,17 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn ItemText(self: TextGrammarCheck__LanguageToolComboBox, allocator: std.mem.Allocator, index: i32) []const u8 {
+    pub fn itemText(self: TextGrammarCheck__LanguageToolComboBox, allocator: std.mem.Allocator, index: i32) []const u8 {
         var _str = qtc.QComboBox_ItemText(@ptrCast(self.ptr), @bitCast(index));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolComboBox.ItemText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolComboBox.itemText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `itemIcon` instead
+    ///
+    pub const ItemIcon = itemIcon;
 
     /// Inherited from QComboBox
     ///
@@ -892,9 +1108,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn ItemIcon(self: TextGrammarCheck__LanguageToolComboBox, index: i32) QIcon {
+    pub fn itemIcon(self: TextGrammarCheck__LanguageToolComboBox, index: i32) QIcon {
         return .{ .ptr = qtc.QComboBox_ItemIcon(@ptrCast(self.ptr), @bitCast(index)) };
     }
+
+    /// ### DEPRECATED: Use `itemData` instead
+    ///
+    pub const ItemData = itemData;
 
     /// Inherited from QComboBox
     ///
@@ -906,9 +1126,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn ItemData(self: TextGrammarCheck__LanguageToolComboBox, index: i32) QVariant {
+    pub fn itemData(self: TextGrammarCheck__LanguageToolComboBox, index: i32) QVariant {
         return .{ .ptr = qtc.QComboBox_ItemData(@ptrCast(self.ptr), @bitCast(index)) };
     }
+
+    /// ### DEPRECATED: Use `addItem` instead
+    ///
+    pub const AddItem = addItem;
 
     /// Inherited from QComboBox
     ///
@@ -920,13 +1144,17 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddItem(self: TextGrammarCheck__LanguageToolComboBox, text: []const u8) void {
+    pub fn addItem(self: TextGrammarCheck__LanguageToolComboBox, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QComboBox_AddItem(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `addItem2` instead
+    ///
+    pub const AddItem2 = addItem2;
 
     /// Inherited from QComboBox
     ///
@@ -940,7 +1168,7 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddItem2(self: TextGrammarCheck__LanguageToolComboBox, icon: anytype, text: []const u8) void {
+    pub fn addItem2(self: TextGrammarCheck__LanguageToolComboBox, icon: anytype, text: []const u8) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -948,6 +1176,10 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
         };
         qtc.QComboBox_AddItem2(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `addItems` instead
+    ///
+    pub const AddItems = addItems;
 
     /// Inherited from QComboBox
     ///
@@ -961,13 +1193,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` texts: []const []const u8 `
     ///
-    pub fn AddItems(self: TextGrammarCheck__LanguageToolComboBox, allocator: std.mem.Allocator, texts: []const []const u8) void {
-        const texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("TextGrammarCheck__LanguageToolComboBox.AddItems: Memory allocation failed");
+    pub fn addItems(self: TextGrammarCheck__LanguageToolComboBox, allocator: std.mem.Allocator, texts: []const []const u8) void {
+        const texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("TextGrammarCheck__LanguageToolComboBox.addItems: Memory allocation failed");
         defer allocator.free(texts_arr);
-        for (texts, 0..texts.len) |item, i|
+        for (texts, 0..texts.len) |str_item, i|
             texts_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const texts_list = qtc.libqt_list{
             .len = texts.len,
@@ -975,6 +1207,10 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
         };
         qtc.QComboBox_AddItems(@ptrCast(self.ptr), texts_list);
     }
+
+    /// ### DEPRECATED: Use `insertItem` instead
+    ///
+    pub const InsertItem = insertItem;
 
     /// Inherited from QComboBox
     ///
@@ -988,13 +1224,17 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn InsertItem(self: TextGrammarCheck__LanguageToolComboBox, index: i32, text: []const u8) void {
+    pub fn insertItem(self: TextGrammarCheck__LanguageToolComboBox, index: i32, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QComboBox_InsertItem(@ptrCast(self.ptr), @bitCast(index), text_str);
     }
+
+    /// ### DEPRECATED: Use `insertItem2` instead
+    ///
+    pub const InsertItem2 = insertItem2;
 
     /// Inherited from QComboBox
     ///
@@ -1010,7 +1250,7 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn InsertItem2(self: TextGrammarCheck__LanguageToolComboBox, index: i32, icon: anytype, text: []const u8) void {
+    pub fn insertItem2(self: TextGrammarCheck__LanguageToolComboBox, index: i32, icon: anytype, text: []const u8) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -1018,6 +1258,10 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
         };
         qtc.QComboBox_InsertItem2(@ptrCast(self.ptr), @bitCast(index), @ptrCast(icon.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `insertItems` instead
+    ///
+    pub const InsertItems = insertItems;
 
     /// Inherited from QComboBox
     ///
@@ -1033,13 +1277,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` texts: []const []const u8 `
     ///
-    pub fn InsertItems(self: TextGrammarCheck__LanguageToolComboBox, allocator: std.mem.Allocator, index: i32, texts: []const []const u8) void {
-        const texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("TextGrammarCheck__LanguageToolComboBox.InsertItems: Memory allocation failed");
+    pub fn insertItems(self: TextGrammarCheck__LanguageToolComboBox, allocator: std.mem.Allocator, index: i32, texts: []const []const u8) void {
+        const texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("TextGrammarCheck__LanguageToolComboBox.insertItems: Memory allocation failed");
         defer allocator.free(texts_arr);
-        for (texts, 0..texts.len) |item, i|
+        for (texts, 0..texts.len) |str_item, i|
             texts_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const texts_list = qtc.libqt_list{
             .len = texts.len,
@@ -1047,6 +1291,10 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
         };
         qtc.QComboBox_InsertItems(@ptrCast(self.ptr), @bitCast(index), texts_list);
     }
+
+    /// ### DEPRECATED: Use `insertSeparator` instead
+    ///
+    pub const InsertSeparator = insertSeparator;
 
     /// Inherited from QComboBox
     ///
@@ -1058,9 +1306,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn InsertSeparator(self: TextGrammarCheck__LanguageToolComboBox, index: i32) void {
+    pub fn insertSeparator(self: TextGrammarCheck__LanguageToolComboBox, index: i32) void {
         qtc.QComboBox_InsertSeparator(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `removeItem` instead
+    ///
+    pub const RemoveItem = removeItem;
 
     /// Inherited from QComboBox
     ///
@@ -1072,9 +1324,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn RemoveItem(self: TextGrammarCheck__LanguageToolComboBox, index: i32) void {
+    pub fn removeItem(self: TextGrammarCheck__LanguageToolComboBox, index: i32) void {
         qtc.QComboBox_RemoveItem(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `setItemText` instead
+    ///
+    pub const SetItemText = setItemText;
 
     /// Inherited from QComboBox
     ///
@@ -1088,13 +1344,17 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetItemText(self: TextGrammarCheck__LanguageToolComboBox, index: i32, text: []const u8) void {
+    pub fn setItemText(self: TextGrammarCheck__LanguageToolComboBox, index: i32, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QComboBox_SetItemText(@ptrCast(self.ptr), @bitCast(index), text_str);
     }
+
+    /// ### DEPRECATED: Use `setItemIcon` instead
+    ///
+    pub const SetItemIcon = setItemIcon;
 
     /// Inherited from QComboBox
     ///
@@ -1108,10 +1368,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetItemIcon(self: TextGrammarCheck__LanguageToolComboBox, index: i32, icon: anytype) void {
+    pub fn setItemIcon(self: TextGrammarCheck__LanguageToolComboBox, index: i32, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QComboBox_SetItemIcon(@ptrCast(self.ptr), @bitCast(index), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `setItemData` instead
+    ///
+    pub const SetItemData = setItemData;
 
     /// Inherited from QComboBox
     ///
@@ -1125,10 +1389,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetItemData(self: TextGrammarCheck__LanguageToolComboBox, index: i32, value: anytype) void {
+    pub fn setItemData(self: TextGrammarCheck__LanguageToolComboBox, index: i32, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QVariant;
         qtc.QComboBox_SetItemData(@ptrCast(self.ptr), @bitCast(index), @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `view` instead
+    ///
+    pub const View = view;
 
     /// Inherited from QComboBox
     ///
@@ -1138,9 +1406,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn View(self: TextGrammarCheck__LanguageToolComboBox) QAbstractItemView {
+    pub fn view(self: TextGrammarCheck__LanguageToolComboBox) QAbstractItemView {
         return .{ .ptr = qtc.QComboBox_View(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setView` instead
+    ///
+    pub const SetView = setView;
 
     /// Inherited from QComboBox
     ///
@@ -1152,10 +1424,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` itemView: QAbstractItemView `
     ///
-    pub fn SetView(self: TextGrammarCheck__LanguageToolComboBox, itemView: anytype) void {
+    pub fn setView(self: TextGrammarCheck__LanguageToolComboBox, itemView: anytype) void {
         comptime _ = @TypeOf(itemView)._is_QAbstractItemView;
         qtc.QComboBox_SetView(@ptrCast(self.ptr), @ptrCast(itemView.ptr));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery2` instead
+    ///
+    pub const InputMethodQuery2 = inputMethodQuery2;
 
     /// Inherited from QComboBox
     ///
@@ -1169,10 +1445,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` argument: QVariant `
     ///
-    pub fn InputMethodQuery2(self: TextGrammarCheck__LanguageToolComboBox, query: i32, argument: anytype) QVariant {
+    pub fn inputMethodQuery2(self: TextGrammarCheck__LanguageToolComboBox, query: i32, argument: anytype) QVariant {
         comptime _ = @TypeOf(argument)._is_QVariant;
         return .{ .ptr = qtc.QComboBox_InputMethodQuery2(@ptrCast(self.ptr), @bitCast(query), @ptrCast(argument.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// Inherited from QComboBox
     ///
@@ -1182,9 +1462,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn Clear(self: TextGrammarCheck__LanguageToolComboBox) void {
+    pub fn clear(self: TextGrammarCheck__LanguageToolComboBox) void {
         qtc.QComboBox_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearEditText` instead
+    ///
+    pub const ClearEditText = clearEditText;
 
     /// Inherited from QComboBox
     ///
@@ -1194,9 +1478,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn ClearEditText(self: TextGrammarCheck__LanguageToolComboBox) void {
+    pub fn clearEditText(self: TextGrammarCheck__LanguageToolComboBox) void {
         qtc.QComboBox_ClearEditText(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEditText` instead
+    ///
+    pub const SetEditText = setEditText;
 
     /// Inherited from QComboBox
     ///
@@ -1208,13 +1496,17 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetEditText(self: TextGrammarCheck__LanguageToolComboBox, text: []const u8) void {
+    pub fn setEditText(self: TextGrammarCheck__LanguageToolComboBox, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QComboBox_SetEditText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `setCurrentIndex` instead
+    ///
+    pub const SetCurrentIndex = setCurrentIndex;
 
     /// Inherited from QComboBox
     ///
@@ -1226,9 +1518,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn SetCurrentIndex(self: TextGrammarCheck__LanguageToolComboBox, index: i32) void {
+    pub fn setCurrentIndex(self: TextGrammarCheck__LanguageToolComboBox, index: i32) void {
         qtc.QComboBox_SetCurrentIndex(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `setCurrentText` instead
+    ///
+    pub const SetCurrentText = setCurrentText;
 
     /// Inherited from QComboBox
     ///
@@ -1240,7 +1536,7 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetCurrentText(self: TextGrammarCheck__LanguageToolComboBox, text: []const u8) void {
+    pub fn setCurrentText(self: TextGrammarCheck__LanguageToolComboBox, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -1248,6 +1544,10 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
         qtc.QComboBox_SetCurrentText(@ptrCast(self.ptr), text_str);
     }
 
+    /// ### DEPRECATED: Use `editTextChanged` instead
+    ///
+    pub const EditTextChanged = editTextChanged;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#editTextChanged)
@@ -1258,7 +1558,7 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn EditTextChanged(self: TextGrammarCheck__LanguageToolComboBox, param1: []const u8) void {
+    pub fn editTextChanged(self: TextGrammarCheck__LanguageToolComboBox, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -1266,6 +1566,10 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
         qtc.QComboBox_EditTextChanged(@ptrCast(self.ptr), param1_str);
     }
 
+    /// ### DEPRECATED: Use `onEditTextChanged` instead
+    ///
+    pub const OnEditTextChanged = onEditTextChanged;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#editTextChanged)
@@ -1276,9 +1580,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, param1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnEditTextChanged(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onEditTextChanged(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, [*:0]const u8) callconv(.c) void) void {
         qtc.QComboBox_Connect_EditTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `activated` instead
+    ///
+    pub const Activated = activated;
 
     /// Inherited from QComboBox
     ///
@@ -1290,9 +1598,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn Activated(self: TextGrammarCheck__LanguageToolComboBox, index: i32) void {
+    pub fn activated(self: TextGrammarCheck__LanguageToolComboBox, index: i32) void {
         qtc.QComboBox_Activated(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `onActivated` instead
+    ///
+    pub const OnActivated = onActivated;
 
     /// Inherited from QComboBox
     ///
@@ -1304,9 +1616,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, index: i32) callconv(.c) void `
     ///
-    pub fn OnActivated(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, i32) callconv(.c) void) void {
+    pub fn onActivated(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, i32) callconv(.c) void) void {
         qtc.QComboBox_Connect_Activated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `textActivated` instead
+    ///
+    pub const TextActivated = textActivated;
 
     /// Inherited from QComboBox
     ///
@@ -1318,7 +1634,7 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn TextActivated(self: TextGrammarCheck__LanguageToolComboBox, param1: []const u8) void {
+    pub fn textActivated(self: TextGrammarCheck__LanguageToolComboBox, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -1326,6 +1642,10 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
         qtc.QComboBox_TextActivated(@ptrCast(self.ptr), param1_str);
     }
 
+    /// ### DEPRECATED: Use `onTextActivated` instead
+    ///
+    pub const OnTextActivated = onTextActivated;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#textActivated)
@@ -1336,9 +1656,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, param1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnTextActivated(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onTextActivated(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, [*:0]const u8) callconv(.c) void) void {
         qtc.QComboBox_Connect_TextActivated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `highlighted` instead
+    ///
+    pub const Highlighted = highlighted;
 
     /// Inherited from QComboBox
     ///
@@ -1350,9 +1674,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn Highlighted(self: TextGrammarCheck__LanguageToolComboBox, index: i32) void {
+    pub fn highlighted(self: TextGrammarCheck__LanguageToolComboBox, index: i32) void {
         qtc.QComboBox_Highlighted(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `onHighlighted` instead
+    ///
+    pub const OnHighlighted = onHighlighted;
 
     /// Inherited from QComboBox
     ///
@@ -1364,9 +1692,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, index: i32) callconv(.c) void `
     ///
-    pub fn OnHighlighted(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, i32) callconv(.c) void) void {
+    pub fn onHighlighted(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, i32) callconv(.c) void) void {
         qtc.QComboBox_Connect_Highlighted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `textHighlighted` instead
+    ///
+    pub const TextHighlighted = textHighlighted;
 
     /// Inherited from QComboBox
     ///
@@ -1378,7 +1710,7 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn TextHighlighted(self: TextGrammarCheck__LanguageToolComboBox, param1: []const u8) void {
+    pub fn textHighlighted(self: TextGrammarCheck__LanguageToolComboBox, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -1386,6 +1718,10 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
         qtc.QComboBox_TextHighlighted(@ptrCast(self.ptr), param1_str);
     }
 
+    /// ### DEPRECATED: Use `onTextHighlighted` instead
+    ///
+    pub const OnTextHighlighted = onTextHighlighted;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#textHighlighted)
@@ -1396,9 +1732,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, param1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnTextHighlighted(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onTextHighlighted(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, [*:0]const u8) callconv(.c) void) void {
         qtc.QComboBox_Connect_TextHighlighted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `currentIndexChanged` instead
+    ///
+    pub const CurrentIndexChanged = currentIndexChanged;
 
     /// Inherited from QComboBox
     ///
@@ -1410,9 +1750,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn CurrentIndexChanged(self: TextGrammarCheck__LanguageToolComboBox, index: i32) void {
+    pub fn currentIndexChanged(self: TextGrammarCheck__LanguageToolComboBox, index: i32) void {
         qtc.QComboBox_CurrentIndexChanged(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `onCurrentIndexChanged` instead
+    ///
+    pub const OnCurrentIndexChanged = onCurrentIndexChanged;
 
     /// Inherited from QComboBox
     ///
@@ -1424,9 +1768,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, index: i32) callconv(.c) void `
     ///
-    pub fn OnCurrentIndexChanged(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, i32) callconv(.c) void) void {
+    pub fn onCurrentIndexChanged(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, i32) callconv(.c) void) void {
         qtc.QComboBox_Connect_CurrentIndexChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `currentTextChanged` instead
+    ///
+    pub const CurrentTextChanged = currentTextChanged;
 
     /// Inherited from QComboBox
     ///
@@ -1438,13 +1786,17 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn CurrentTextChanged(self: TextGrammarCheck__LanguageToolComboBox, param1: []const u8) void {
+    pub fn currentTextChanged(self: TextGrammarCheck__LanguageToolComboBox, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
         qtc.QComboBox_CurrentTextChanged(@ptrCast(self.ptr), param1_str);
     }
+
+    /// ### DEPRECATED: Use `onCurrentTextChanged` instead
+    ///
+    pub const OnCurrentTextChanged = onCurrentTextChanged;
 
     /// Inherited from QComboBox
     ///
@@ -1456,9 +1808,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, param1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnCurrentTextChanged(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onCurrentTextChanged(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, [*:0]const u8) callconv(.c) void) void {
         qtc.QComboBox_Connect_CurrentTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `findText2` instead
+    ///
+    pub const FindText2 = findText2;
 
     /// Inherited from QComboBox
     ///
@@ -1472,13 +1828,17 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.MatchFlag `
     ///
-    pub fn FindText2(self: TextGrammarCheck__LanguageToolComboBox, text: []const u8, flags: i32) i32 {
+    pub fn findText2(self: TextGrammarCheck__LanguageToolComboBox, text: []const u8, flags: i32) i32 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return qtc.QComboBox_FindText2(@ptrCast(self.ptr), text_str, @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `findData2` instead
+    ///
+    pub const FindData2 = findData2;
 
     /// Inherited from QComboBox
     ///
@@ -1492,10 +1852,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn FindData2(self: TextGrammarCheck__LanguageToolComboBox, data: anytype, role: i32) i32 {
+    pub fn findData2(self: TextGrammarCheck__LanguageToolComboBox, data: anytype, role: i32) i32 {
         comptime _ = @TypeOf(data)._is_QVariant;
         return qtc.QComboBox_FindData2(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(role));
     }
+
+    /// ### DEPRECATED: Use `findData3` instead
+    ///
+    pub const FindData3 = findData3;
 
     /// Inherited from QComboBox
     ///
@@ -1511,10 +1875,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.MatchFlag `
     ///
-    pub fn FindData3(self: TextGrammarCheck__LanguageToolComboBox, data: anytype, role: i32, flags: i32) i32 {
+    pub fn findData3(self: TextGrammarCheck__LanguageToolComboBox, data: anytype, role: i32, flags: i32) i32 {
         comptime _ = @TypeOf(data)._is_QVariant;
         return qtc.QComboBox_FindData3(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(role), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `currentData1` instead
+    ///
+    pub const CurrentData1 = currentData1;
 
     /// Inherited from QComboBox
     ///
@@ -1526,9 +1894,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn CurrentData1(self: TextGrammarCheck__LanguageToolComboBox, role: i32) QVariant {
+    pub fn currentData1(self: TextGrammarCheck__LanguageToolComboBox, role: i32) QVariant {
         return .{ .ptr = qtc.QComboBox_CurrentData1(@ptrCast(self.ptr), @bitCast(role)) };
     }
+
+    /// ### DEPRECATED: Use `itemData2` instead
+    ///
+    pub const ItemData2 = itemData2;
 
     /// Inherited from QComboBox
     ///
@@ -1542,9 +1914,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn ItemData2(self: TextGrammarCheck__LanguageToolComboBox, index: i32, role: i32) QVariant {
+    pub fn itemData2(self: TextGrammarCheck__LanguageToolComboBox, index: i32, role: i32) QVariant {
         return .{ .ptr = qtc.QComboBox_ItemData2(@ptrCast(self.ptr), @bitCast(index), @bitCast(role)) };
     }
+
+    /// ### DEPRECATED: Use `addItem22` instead
+    ///
+    pub const AddItem22 = addItem22;
 
     /// Inherited from QComboBox
     ///
@@ -1558,7 +1934,7 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` userData: QVariant `
     ///
-    pub fn AddItem22(self: TextGrammarCheck__LanguageToolComboBox, text: []const u8, userData: anytype) void {
+    pub fn addItem22(self: TextGrammarCheck__LanguageToolComboBox, text: []const u8, userData: anytype) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -1566,6 +1942,10 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
         comptime _ = @TypeOf(userData)._is_QVariant;
         qtc.QComboBox_AddItem22(@ptrCast(self.ptr), text_str, @ptrCast(userData.ptr));
     }
+
+    /// ### DEPRECATED: Use `addItem3` instead
+    ///
+    pub const AddItem3 = addItem3;
 
     /// Inherited from QComboBox
     ///
@@ -1581,7 +1961,7 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` userData: QVariant `
     ///
-    pub fn AddItem3(self: TextGrammarCheck__LanguageToolComboBox, icon: anytype, text: []const u8, userData: anytype) void {
+    pub fn addItem3(self: TextGrammarCheck__LanguageToolComboBox, icon: anytype, text: []const u8, userData: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -1591,6 +1971,10 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
         qtc.QComboBox_AddItem3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(userData.ptr));
     }
 
+    /// ### DEPRECATED: Use `insertItem3` instead
+    ///
+    pub const InsertItem3 = insertItem3;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#insertItem)
@@ -1605,7 +1989,7 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` userData: QVariant `
     ///
-    pub fn InsertItem3(self: TextGrammarCheck__LanguageToolComboBox, index: i32, text: []const u8, userData: anytype) void {
+    pub fn insertItem3(self: TextGrammarCheck__LanguageToolComboBox, index: i32, text: []const u8, userData: anytype) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -1613,6 +1997,10 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
         comptime _ = @TypeOf(userData)._is_QVariant;
         qtc.QComboBox_InsertItem3(@ptrCast(self.ptr), @bitCast(index), text_str, @ptrCast(userData.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertItem4` instead
+    ///
+    pub const InsertItem4 = insertItem4;
 
     /// Inherited from QComboBox
     ///
@@ -1630,7 +2018,7 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` userData: QVariant `
     ///
-    pub fn InsertItem4(self: TextGrammarCheck__LanguageToolComboBox, index: i32, icon: anytype, text: []const u8, userData: anytype) void {
+    pub fn insertItem4(self: TextGrammarCheck__LanguageToolComboBox, index: i32, icon: anytype, text: []const u8, userData: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -1639,6 +2027,10 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
         comptime _ = @TypeOf(userData)._is_QVariant;
         qtc.QComboBox_InsertItem4(@ptrCast(self.ptr), @bitCast(index), @ptrCast(icon.ptr), text_str, @ptrCast(userData.ptr));
     }
+
+    /// ### DEPRECATED: Use `setItemData3` instead
+    ///
+    pub const SetItemData3 = setItemData3;
 
     /// Inherited from QComboBox
     ///
@@ -1654,10 +2046,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn SetItemData3(self: TextGrammarCheck__LanguageToolComboBox, index: i32, value: anytype, role: i32) void {
+    pub fn setItemData3(self: TextGrammarCheck__LanguageToolComboBox, index: i32, value: anytype, role: i32) void {
         comptime _ = @TypeOf(value)._is_QVariant;
         qtc.QComboBox_SetItemData3(@ptrCast(self.ptr), @bitCast(index), @ptrCast(value.ptr), @bitCast(role));
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -1667,9 +2063,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn WinId(self: TextGrammarCheck__LanguageToolComboBox) usize {
+    pub fn winId(self: TextGrammarCheck__LanguageToolComboBox) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -1679,9 +2079,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn CreateWinId(self: TextGrammarCheck__LanguageToolComboBox) void {
+    pub fn createWinId(self: TextGrammarCheck__LanguageToolComboBox) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -1691,9 +2095,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn InternalWinId(self: TextGrammarCheck__LanguageToolComboBox) usize {
+    pub fn internalWinId(self: TextGrammarCheck__LanguageToolComboBox) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -1703,9 +2111,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn EffectiveWinId(self: TextGrammarCheck__LanguageToolComboBox) usize {
+    pub fn effectiveWinId(self: TextGrammarCheck__LanguageToolComboBox) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -1715,9 +2127,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn Style(self: TextGrammarCheck__LanguageToolComboBox) QStyle {
+    pub fn style(self: TextGrammarCheck__LanguageToolComboBox) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -1727,12 +2143,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: TextGrammarCheck__LanguageToolComboBox, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: TextGrammarCheck__LanguageToolComboBox, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -1742,9 +2162,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn IsTopLevel(self: TextGrammarCheck__LanguageToolComboBox) bool {
+    pub fn isTopLevel(self: TextGrammarCheck__LanguageToolComboBox) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -1754,9 +2178,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn IsWindow(self: TextGrammarCheck__LanguageToolComboBox) bool {
+    pub fn isWindow(self: TextGrammarCheck__LanguageToolComboBox) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -1766,9 +2194,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn IsModal(self: TextGrammarCheck__LanguageToolComboBox) bool {
+    pub fn isModal(self: TextGrammarCheck__LanguageToolComboBox) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -1782,9 +2214,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: TextGrammarCheck__LanguageToolComboBox) i32 {
+    pub fn windowModality(self: TextGrammarCheck__LanguageToolComboBox) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -1794,11 +2230,15 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: TextGrammarCheck__LanguageToolComboBox, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: TextGrammarCheck__LanguageToolComboBox, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1808,9 +2248,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn IsEnabled(self: TextGrammarCheck__LanguageToolComboBox) bool {
+    pub fn isEnabled(self: TextGrammarCheck__LanguageToolComboBox) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -1822,10 +2266,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: TextGrammarCheck__LanguageToolComboBox, param1: anytype) bool {
+    pub fn isEnabledTo(self: TextGrammarCheck__LanguageToolComboBox, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1837,9 +2285,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: TextGrammarCheck__LanguageToolComboBox, enabled: bool) void {
+    pub fn setEnabled(self: TextGrammarCheck__LanguageToolComboBox, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -1851,9 +2303,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: TextGrammarCheck__LanguageToolComboBox, disabled: bool) void {
+    pub fn setDisabled(self: TextGrammarCheck__LanguageToolComboBox, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -1865,9 +2321,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: TextGrammarCheck__LanguageToolComboBox, windowModified: bool) void {
+    pub fn setWindowModified(self: TextGrammarCheck__LanguageToolComboBox, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1877,9 +2337,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn FrameGeometry(self: TextGrammarCheck__LanguageToolComboBox) QRect {
+    pub fn frameGeometry(self: TextGrammarCheck__LanguageToolComboBox) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -1889,9 +2353,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn Geometry(self: TextGrammarCheck__LanguageToolComboBox) QRect {
+    pub fn geometry(self: TextGrammarCheck__LanguageToolComboBox) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1901,9 +2369,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn NormalGeometry(self: TextGrammarCheck__LanguageToolComboBox) QRect {
+    pub fn normalGeometry(self: TextGrammarCheck__LanguageToolComboBox) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -1913,9 +2385,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn X(self: TextGrammarCheck__LanguageToolComboBox) i32 {
+    pub fn x(self: TextGrammarCheck__LanguageToolComboBox) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -1925,9 +2401,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn Y(self: TextGrammarCheck__LanguageToolComboBox) i32 {
+    pub fn y(self: TextGrammarCheck__LanguageToolComboBox) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -1937,9 +2417,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn Pos(self: TextGrammarCheck__LanguageToolComboBox) QPoint {
+    pub fn pos(self: TextGrammarCheck__LanguageToolComboBox) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -1949,9 +2433,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn FrameSize(self: TextGrammarCheck__LanguageToolComboBox) QSize {
+    pub fn frameSize(self: TextGrammarCheck__LanguageToolComboBox) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -1961,9 +2449,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn Size(self: TextGrammarCheck__LanguageToolComboBox) QSize {
+    pub fn size(self: TextGrammarCheck__LanguageToolComboBox) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -1973,9 +2465,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn Width(self: TextGrammarCheck__LanguageToolComboBox) i32 {
+    pub fn width(self: TextGrammarCheck__LanguageToolComboBox) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -1985,9 +2481,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn Height(self: TextGrammarCheck__LanguageToolComboBox) i32 {
+    pub fn height(self: TextGrammarCheck__LanguageToolComboBox) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -1997,9 +2497,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn Rect(self: TextGrammarCheck__LanguageToolComboBox) QRect {
+    pub fn rect(self: TextGrammarCheck__LanguageToolComboBox) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -2009,9 +2513,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn ChildrenRect(self: TextGrammarCheck__LanguageToolComboBox) QRect {
+    pub fn childrenRect(self: TextGrammarCheck__LanguageToolComboBox) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -2021,9 +2529,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn ChildrenRegion(self: TextGrammarCheck__LanguageToolComboBox) QRegion {
+    pub fn childrenRegion(self: TextGrammarCheck__LanguageToolComboBox) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -2033,9 +2545,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn MinimumSize(self: TextGrammarCheck__LanguageToolComboBox) QSize {
+    pub fn minimumSize(self: TextGrammarCheck__LanguageToolComboBox) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -2045,9 +2561,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn MaximumSize(self: TextGrammarCheck__LanguageToolComboBox) QSize {
+    pub fn maximumSize(self: TextGrammarCheck__LanguageToolComboBox) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2057,9 +2577,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn MinimumWidth(self: TextGrammarCheck__LanguageToolComboBox) i32 {
+    pub fn minimumWidth(self: TextGrammarCheck__LanguageToolComboBox) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2069,9 +2593,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn MinimumHeight(self: TextGrammarCheck__LanguageToolComboBox) i32 {
+    pub fn minimumHeight(self: TextGrammarCheck__LanguageToolComboBox) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2081,9 +2609,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn MaximumWidth(self: TextGrammarCheck__LanguageToolComboBox) i32 {
+    pub fn maximumWidth(self: TextGrammarCheck__LanguageToolComboBox) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2093,9 +2625,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn MaximumHeight(self: TextGrammarCheck__LanguageToolComboBox) i32 {
+    pub fn maximumHeight(self: TextGrammarCheck__LanguageToolComboBox) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -2105,12 +2641,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: TextGrammarCheck__LanguageToolComboBox, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: TextGrammarCheck__LanguageToolComboBox, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -2124,9 +2664,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: TextGrammarCheck__LanguageToolComboBox, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: TextGrammarCheck__LanguageToolComboBox, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -2136,12 +2680,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: TextGrammarCheck__LanguageToolComboBox, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: TextGrammarCheck__LanguageToolComboBox, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -2155,9 +2703,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: TextGrammarCheck__LanguageToolComboBox, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: TextGrammarCheck__LanguageToolComboBox, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2169,9 +2721,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: TextGrammarCheck__LanguageToolComboBox, minw: i32) void {
+    pub fn setMinimumWidth(self: TextGrammarCheck__LanguageToolComboBox, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2183,9 +2739,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: TextGrammarCheck__LanguageToolComboBox, minh: i32) void {
+    pub fn setMinimumHeight(self: TextGrammarCheck__LanguageToolComboBox, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2197,9 +2757,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: TextGrammarCheck__LanguageToolComboBox, maxw: i32) void {
+    pub fn setMaximumWidth(self: TextGrammarCheck__LanguageToolComboBox, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2211,9 +2775,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: TextGrammarCheck__LanguageToolComboBox, maxh: i32) void {
+    pub fn setMaximumHeight(self: TextGrammarCheck__LanguageToolComboBox, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -2223,9 +2791,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn SizeIncrement(self: TextGrammarCheck__LanguageToolComboBox) QSize {
+    pub fn sizeIncrement(self: TextGrammarCheck__LanguageToolComboBox) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -2235,12 +2807,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: TextGrammarCheck__LanguageToolComboBox, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: TextGrammarCheck__LanguageToolComboBox, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -2254,9 +2830,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: TextGrammarCheck__LanguageToolComboBox, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: TextGrammarCheck__LanguageToolComboBox, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -2266,9 +2846,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn BaseSize(self: TextGrammarCheck__LanguageToolComboBox) QSize {
+    pub fn baseSize(self: TextGrammarCheck__LanguageToolComboBox) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -2278,12 +2862,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: TextGrammarCheck__LanguageToolComboBox, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: TextGrammarCheck__LanguageToolComboBox, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -2297,9 +2885,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: TextGrammarCheck__LanguageToolComboBox, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: TextGrammarCheck__LanguageToolComboBox, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -2311,10 +2903,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: TextGrammarCheck__LanguageToolComboBox, fixedSize: anytype) void {
+    pub fn setFixedSize(self: TextGrammarCheck__LanguageToolComboBox, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -2328,9 +2924,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: TextGrammarCheck__LanguageToolComboBox, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: TextGrammarCheck__LanguageToolComboBox, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -2342,9 +2942,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: TextGrammarCheck__LanguageToolComboBox, w: i32) void {
+    pub fn setFixedWidth(self: TextGrammarCheck__LanguageToolComboBox, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -2356,9 +2960,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: TextGrammarCheck__LanguageToolComboBox, h: i32) void {
+    pub fn setFixedHeight(self: TextGrammarCheck__LanguageToolComboBox, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -2370,11 +2978,15 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: TextGrammarCheck__LanguageToolComboBox, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: TextGrammarCheck__LanguageToolComboBox, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -2385,11 +2997,15 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: TextGrammarCheck__LanguageToolComboBox, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: TextGrammarCheck__LanguageToolComboBox, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -2400,11 +3016,15 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: TextGrammarCheck__LanguageToolComboBox, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: TextGrammarCheck__LanguageToolComboBox, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -2415,11 +3035,15 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: TextGrammarCheck__LanguageToolComboBox, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: TextGrammarCheck__LanguageToolComboBox, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -2430,11 +3054,15 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: TextGrammarCheck__LanguageToolComboBox, param1: anytype) QPointF {
+    pub fn mapToParent(self: TextGrammarCheck__LanguageToolComboBox, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -2445,10 +3073,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: TextGrammarCheck__LanguageToolComboBox, param1: anytype) QPoint {
+    pub fn mapToParent2(self: TextGrammarCheck__LanguageToolComboBox, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -2460,10 +3092,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: TextGrammarCheck__LanguageToolComboBox, param1: anytype) QPointF {
+    pub fn mapFromParent(self: TextGrammarCheck__LanguageToolComboBox, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -2475,10 +3111,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: TextGrammarCheck__LanguageToolComboBox, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: TextGrammarCheck__LanguageToolComboBox, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -2492,12 +3132,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: TextGrammarCheck__LanguageToolComboBox, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: TextGrammarCheck__LanguageToolComboBox, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -2510,11 +3154,15 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: TextGrammarCheck__LanguageToolComboBox, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: TextGrammarCheck__LanguageToolComboBox, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -2528,11 +3176,15 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: TextGrammarCheck__LanguageToolComboBox, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: TextGrammarCheck__LanguageToolComboBox, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -2546,11 +3198,15 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: TextGrammarCheck__LanguageToolComboBox, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: TextGrammarCheck__LanguageToolComboBox, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -2560,9 +3216,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn Window(self: TextGrammarCheck__LanguageToolComboBox) QWidget {
+    pub fn window(self: TextGrammarCheck__LanguageToolComboBox) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -2572,9 +3232,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn NativeParentWidget(self: TextGrammarCheck__LanguageToolComboBox) QWidget {
+    pub fn nativeParentWidget(self: TextGrammarCheck__LanguageToolComboBox) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -2584,9 +3248,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn TopLevelWidget(self: TextGrammarCheck__LanguageToolComboBox) QWidget {
+    pub fn topLevelWidget(self: TextGrammarCheck__LanguageToolComboBox) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -2596,9 +3264,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn Palette(self: TextGrammarCheck__LanguageToolComboBox) QPalette {
+    pub fn palette(self: TextGrammarCheck__LanguageToolComboBox) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -2608,12 +3280,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: TextGrammarCheck__LanguageToolComboBox, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: TextGrammarCheck__LanguageToolComboBox, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2623,11 +3299,15 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: TextGrammarCheck__LanguageToolComboBox, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: TextGrammarCheck__LanguageToolComboBox, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2641,9 +3321,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: TextGrammarCheck__LanguageToolComboBox) i32 {
+    pub fn backgroundRole(self: TextGrammarCheck__LanguageToolComboBox) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2653,11 +3337,15 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: TextGrammarCheck__LanguageToolComboBox, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: TextGrammarCheck__LanguageToolComboBox, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2671,9 +3359,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: TextGrammarCheck__LanguageToolComboBox) i32 {
+    pub fn foregroundRole(self: TextGrammarCheck__LanguageToolComboBox) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -2683,9 +3375,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn Font(self: TextGrammarCheck__LanguageToolComboBox) QFont {
+    pub fn font(self: TextGrammarCheck__LanguageToolComboBox) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -2695,12 +3391,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: TextGrammarCheck__LanguageToolComboBox, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: TextGrammarCheck__LanguageToolComboBox, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -2710,9 +3410,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn FontMetrics(self: TextGrammarCheck__LanguageToolComboBox) QFontMetrics {
+    pub fn fontMetrics(self: TextGrammarCheck__LanguageToolComboBox) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -2722,9 +3426,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn FontInfo(self: TextGrammarCheck__LanguageToolComboBox) QFontInfo {
+    pub fn fontInfo(self: TextGrammarCheck__LanguageToolComboBox) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -2734,9 +3442,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn Cursor(self: TextGrammarCheck__LanguageToolComboBox) QCursor {
+    pub fn cursor(self: TextGrammarCheck__LanguageToolComboBox) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -2746,12 +3458,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: TextGrammarCheck__LanguageToolComboBox, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: TextGrammarCheck__LanguageToolComboBox, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -2761,9 +3477,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn UnsetCursor(self: TextGrammarCheck__LanguageToolComboBox) void {
+    pub fn unsetCursor(self: TextGrammarCheck__LanguageToolComboBox) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -2775,9 +3495,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: TextGrammarCheck__LanguageToolComboBox, enable: bool) void {
+    pub fn setMouseTracking(self: TextGrammarCheck__LanguageToolComboBox, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -2787,9 +3511,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn HasMouseTracking(self: TextGrammarCheck__LanguageToolComboBox) bool {
+    pub fn hasMouseTracking(self: TextGrammarCheck__LanguageToolComboBox) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -2799,9 +3527,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn UnderMouse(self: TextGrammarCheck__LanguageToolComboBox) bool {
+    pub fn underMouse(self: TextGrammarCheck__LanguageToolComboBox) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2813,9 +3545,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: TextGrammarCheck__LanguageToolComboBox, enable: bool) void {
+    pub fn setTabletTracking(self: TextGrammarCheck__LanguageToolComboBox, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2825,24 +3561,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn HasTabletTracking(self: TextGrammarCheck__LanguageToolComboBox) bool {
+    pub fn hasTabletTracking(self: TextGrammarCheck__LanguageToolComboBox) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextGrammarCheck__LanguageToolComboBox `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: TextGrammarCheck__LanguageToolComboBox, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -2852,12 +3577,35 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: TextGrammarCheck__LanguageToolComboBox, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: TextGrammarCheck__LanguageToolComboBox, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextGrammarCheck__LanguageToolComboBox `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: TextGrammarCheck__LanguageToolComboBox, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -2867,9 +3615,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn Mask(self: TextGrammarCheck__LanguageToolComboBox) QRegion {
+    pub fn mask(self: TextGrammarCheck__LanguageToolComboBox) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -2879,9 +3631,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn ClearMask(self: TextGrammarCheck__LanguageToolComboBox) void {
+    pub fn clearMask(self: TextGrammarCheck__LanguageToolComboBox) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -2893,10 +3649,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: TextGrammarCheck__LanguageToolComboBox, target: anytype) void {
+    pub fn render(self: TextGrammarCheck__LanguageToolComboBox, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -2908,10 +3668,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: TextGrammarCheck__LanguageToolComboBox, painter: anytype) void {
+    pub fn render2(self: TextGrammarCheck__LanguageToolComboBox, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -2921,9 +3685,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn Grab(self: TextGrammarCheck__LanguageToolComboBox) QPixmap {
+    pub fn grab(self: TextGrammarCheck__LanguageToolComboBox) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2933,9 +3701,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn GraphicsEffect(self: TextGrammarCheck__LanguageToolComboBox) QGraphicsEffect {
+    pub fn graphicsEffect(self: TextGrammarCheck__LanguageToolComboBox) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2947,10 +3719,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: TextGrammarCheck__LanguageToolComboBox, effect: anytype) void {
+    pub fn setGraphicsEffect(self: TextGrammarCheck__LanguageToolComboBox, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2962,9 +3738,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: TextGrammarCheck__LanguageToolComboBox, typeVal: i32) void {
+    pub fn grabGesture(self: TextGrammarCheck__LanguageToolComboBox, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2976,9 +3756,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: TextGrammarCheck__LanguageToolComboBox, typeVal: i32) void {
+    pub fn ungrabGesture(self: TextGrammarCheck__LanguageToolComboBox, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2988,15 +3772,19 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: TextGrammarCheck__LanguageToolComboBox, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: TextGrammarCheck__LanguageToolComboBox, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -3006,15 +3794,19 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: TextGrammarCheck__LanguageToolComboBox, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: TextGrammarCheck__LanguageToolComboBox, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -3026,13 +3818,17 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: TextGrammarCheck__LanguageToolComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: TextGrammarCheck__LanguageToolComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolComboBox.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolComboBox.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -3044,13 +3840,17 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: TextGrammarCheck__LanguageToolComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: TextGrammarCheck__LanguageToolComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolComboBox.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolComboBox.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -3062,10 +3862,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: TextGrammarCheck__LanguageToolComboBox, icon: anytype) void {
+    pub fn setWindowIcon(self: TextGrammarCheck__LanguageToolComboBox, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -3075,9 +3879,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn WindowIcon(self: TextGrammarCheck__LanguageToolComboBox) QIcon {
+    pub fn windowIcon(self: TextGrammarCheck__LanguageToolComboBox) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -3087,15 +3895,19 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: TextGrammarCheck__LanguageToolComboBox, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: TextGrammarCheck__LanguageToolComboBox, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -3107,13 +3919,17 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: TextGrammarCheck__LanguageToolComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: TextGrammarCheck__LanguageToolComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolComboBox.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolComboBox.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -3123,15 +3939,19 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: TextGrammarCheck__LanguageToolComboBox, windowRole: []const u8) void {
+    pub fn setWindowRole(self: TextGrammarCheck__LanguageToolComboBox, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -3143,13 +3963,17 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: TextGrammarCheck__LanguageToolComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: TextGrammarCheck__LanguageToolComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolComboBox.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolComboBox.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -3161,13 +3985,17 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: TextGrammarCheck__LanguageToolComboBox, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: TextGrammarCheck__LanguageToolComboBox, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -3179,13 +4007,17 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: TextGrammarCheck__LanguageToolComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: TextGrammarCheck__LanguageToolComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolComboBox.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolComboBox.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -3197,9 +4029,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: TextGrammarCheck__LanguageToolComboBox, level: f64) void {
+    pub fn setWindowOpacity(self: TextGrammarCheck__LanguageToolComboBox, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -3209,9 +4045,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn WindowOpacity(self: TextGrammarCheck__LanguageToolComboBox) f64 {
+    pub fn windowOpacity(self: TextGrammarCheck__LanguageToolComboBox) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -3221,9 +4061,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn IsWindowModified(self: TextGrammarCheck__LanguageToolComboBox) bool {
+    pub fn isWindowModified(self: TextGrammarCheck__LanguageToolComboBox) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -3233,15 +4077,19 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: TextGrammarCheck__LanguageToolComboBox, toolTip: []const u8) void {
+    pub fn setToolTip(self: TextGrammarCheck__LanguageToolComboBox, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -3253,13 +4101,17 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: TextGrammarCheck__LanguageToolComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: TextGrammarCheck__LanguageToolComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolComboBox.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolComboBox.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -3271,9 +4123,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: TextGrammarCheck__LanguageToolComboBox, msec: i32) void {
+    pub fn setToolTipDuration(self: TextGrammarCheck__LanguageToolComboBox, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -3283,9 +4139,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn ToolTipDuration(self: TextGrammarCheck__LanguageToolComboBox) i32 {
+    pub fn toolTipDuration(self: TextGrammarCheck__LanguageToolComboBox) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -3295,15 +4155,19 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: TextGrammarCheck__LanguageToolComboBox, statusTip: []const u8) void {
+    pub fn setStatusTip(self: TextGrammarCheck__LanguageToolComboBox, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -3315,13 +4179,17 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: TextGrammarCheck__LanguageToolComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: TextGrammarCheck__LanguageToolComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolComboBox.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolComboBox.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -3331,15 +4199,19 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: TextGrammarCheck__LanguageToolComboBox, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: TextGrammarCheck__LanguageToolComboBox, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -3351,13 +4223,17 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: TextGrammarCheck__LanguageToolComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: TextGrammarCheck__LanguageToolComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolComboBox.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolComboBox.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -3369,13 +4245,17 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: TextGrammarCheck__LanguageToolComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: TextGrammarCheck__LanguageToolComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolComboBox.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolComboBox.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -3387,13 +4267,17 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: TextGrammarCheck__LanguageToolComboBox, name: []const u8) void {
+    pub fn setAccessibleName(self: TextGrammarCheck__LanguageToolComboBox, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -3405,13 +4289,17 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: TextGrammarCheck__LanguageToolComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: TextGrammarCheck__LanguageToolComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolComboBox.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolComboBox.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -3423,13 +4311,17 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: TextGrammarCheck__LanguageToolComboBox, description: []const u8) void {
+    pub fn setAccessibleDescription(self: TextGrammarCheck__LanguageToolComboBox, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3441,9 +4333,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: TextGrammarCheck__LanguageToolComboBox, direction: i32) void {
+    pub fn setLayoutDirection(self: TextGrammarCheck__LanguageToolComboBox, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3457,9 +4353,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: TextGrammarCheck__LanguageToolComboBox) i32 {
+    pub fn layoutDirection(self: TextGrammarCheck__LanguageToolComboBox) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3469,9 +4369,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn UnsetLayoutDirection(self: TextGrammarCheck__LanguageToolComboBox) void {
+    pub fn unsetLayoutDirection(self: TextGrammarCheck__LanguageToolComboBox) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -3481,12 +4385,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: TextGrammarCheck__LanguageToolComboBox, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: TextGrammarCheck__LanguageToolComboBox, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -3496,9 +4404,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn Locale(self: TextGrammarCheck__LanguageToolComboBox) QLocale {
+    pub fn locale(self: TextGrammarCheck__LanguageToolComboBox) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -3508,9 +4420,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn UnsetLocale(self: TextGrammarCheck__LanguageToolComboBox) void {
+    pub fn unsetLocale(self: TextGrammarCheck__LanguageToolComboBox) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -3520,9 +4436,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn IsRightToLeft(self: TextGrammarCheck__LanguageToolComboBox) bool {
+    pub fn isRightToLeft(self: TextGrammarCheck__LanguageToolComboBox) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -3532,9 +4452,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn IsLeftToRight(self: TextGrammarCheck__LanguageToolComboBox) bool {
+    pub fn isLeftToRight(self: TextGrammarCheck__LanguageToolComboBox) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -3544,9 +4468,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn SetFocus(self: TextGrammarCheck__LanguageToolComboBox) void {
+    pub fn setFocus(self: TextGrammarCheck__LanguageToolComboBox) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -3556,9 +4484,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn IsActiveWindow(self: TextGrammarCheck__LanguageToolComboBox) bool {
+    pub fn isActiveWindow(self: TextGrammarCheck__LanguageToolComboBox) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -3568,9 +4500,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn ActivateWindow(self: TextGrammarCheck__LanguageToolComboBox) void {
+    pub fn activateWindow(self: TextGrammarCheck__LanguageToolComboBox) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -3580,9 +4516,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn ClearFocus(self: TextGrammarCheck__LanguageToolComboBox) void {
+    pub fn clearFocus(self: TextGrammarCheck__LanguageToolComboBox) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -3594,9 +4534,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: TextGrammarCheck__LanguageToolComboBox, reason: i32) void {
+    pub fn setFocus2(self: TextGrammarCheck__LanguageToolComboBox, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3610,9 +4554,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: TextGrammarCheck__LanguageToolComboBox) i32 {
+    pub fn focusPolicy(self: TextGrammarCheck__LanguageToolComboBox) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3624,9 +4572,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: TextGrammarCheck__LanguageToolComboBox, policy: i32) void {
+    pub fn setFocusPolicy(self: TextGrammarCheck__LanguageToolComboBox, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -3636,9 +4588,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn HasFocus(self: TextGrammarCheck__LanguageToolComboBox) bool {
+    pub fn hasFocus(self: TextGrammarCheck__LanguageToolComboBox) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -3650,11 +4606,15 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -3664,12 +4624,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: TextGrammarCheck__LanguageToolComboBox, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: TextGrammarCheck__LanguageToolComboBox, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -3679,9 +4643,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn FocusProxy(self: TextGrammarCheck__LanguageToolComboBox) QWidget {
+    pub fn focusProxy(self: TextGrammarCheck__LanguageToolComboBox) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3695,9 +4663,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: TextGrammarCheck__LanguageToolComboBox) i32 {
+    pub fn contextMenuPolicy(self: TextGrammarCheck__LanguageToolComboBox) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3709,9 +4681,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: TextGrammarCheck__LanguageToolComboBox, policy: i32) void {
+    pub fn setContextMenuPolicy(self: TextGrammarCheck__LanguageToolComboBox, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -3721,9 +4697,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn GrabMouse(self: TextGrammarCheck__LanguageToolComboBox) void {
+    pub fn grabMouse(self: TextGrammarCheck__LanguageToolComboBox) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -3735,10 +4715,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: TextGrammarCheck__LanguageToolComboBox, param1: anytype) void {
+    pub fn grabMouse2(self: TextGrammarCheck__LanguageToolComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -3748,9 +4732,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn ReleaseMouse(self: TextGrammarCheck__LanguageToolComboBox) void {
+    pub fn releaseMouse(self: TextGrammarCheck__LanguageToolComboBox) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -3760,9 +4748,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn GrabKeyboard(self: TextGrammarCheck__LanguageToolComboBox) void {
+    pub fn grabKeyboard(self: TextGrammarCheck__LanguageToolComboBox) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -3772,9 +4764,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn ReleaseKeyboard(self: TextGrammarCheck__LanguageToolComboBox) void {
+    pub fn releaseKeyboard(self: TextGrammarCheck__LanguageToolComboBox) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3786,10 +4782,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: TextGrammarCheck__LanguageToolComboBox, key: anytype) i32 {
+    pub fn grabShortcut(self: TextGrammarCheck__LanguageToolComboBox, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3801,9 +4801,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: TextGrammarCheck__LanguageToolComboBox, id: i32) void {
+    pub fn releaseShortcut(self: TextGrammarCheck__LanguageToolComboBox, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3815,9 +4819,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: TextGrammarCheck__LanguageToolComboBox, id: i32) void {
+    pub fn setShortcutEnabled(self: TextGrammarCheck__LanguageToolComboBox, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -3829,25 +4837,37 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: TextGrammarCheck__LanguageToolComboBox, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: TextGrammarCheck__LanguageToolComboBox, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3857,9 +4877,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn UpdatesEnabled(self: TextGrammarCheck__LanguageToolComboBox) bool {
+    pub fn updatesEnabled(self: TextGrammarCheck__LanguageToolComboBox) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3871,9 +4895,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: TextGrammarCheck__LanguageToolComboBox, enable: bool) void {
+    pub fn setUpdatesEnabled(self: TextGrammarCheck__LanguageToolComboBox, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -3883,9 +4911,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn GraphicsProxyWidget(self: TextGrammarCheck__LanguageToolComboBox) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: TextGrammarCheck__LanguageToolComboBox) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -3895,9 +4927,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn Update(self: TextGrammarCheck__LanguageToolComboBox) void {
+    pub fn update(self: TextGrammarCheck__LanguageToolComboBox) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -3907,9 +4943,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn Repaint(self: TextGrammarCheck__LanguageToolComboBox) void {
+    pub fn repaint(self: TextGrammarCheck__LanguageToolComboBox) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -3919,17 +4959,21 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: TextGrammarCheck__LanguageToolComboBox, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: TextGrammarCheck__LanguageToolComboBox, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -3941,11 +4985,15 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: TextGrammarCheck__LanguageToolComboBox, param1: anytype) void {
+    pub fn update3(self: TextGrammarCheck__LanguageToolComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -3956,10 +5004,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: TextGrammarCheck__LanguageToolComboBox, param1: anytype) void {
+    pub fn update4(self: TextGrammarCheck__LanguageToolComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -3969,17 +5021,21 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: TextGrammarCheck__LanguageToolComboBox, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: TextGrammarCheck__LanguageToolComboBox, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -3991,10 +5047,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: TextGrammarCheck__LanguageToolComboBox, param1: anytype) void {
+    pub fn repaint3(self: TextGrammarCheck__LanguageToolComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -4006,10 +5066,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: TextGrammarCheck__LanguageToolComboBox, param1: anytype) void {
+    pub fn repaint4(self: TextGrammarCheck__LanguageToolComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -4021,9 +5085,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: TextGrammarCheck__LanguageToolComboBox, hidden: bool) void {
+    pub fn setHidden(self: TextGrammarCheck__LanguageToolComboBox, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -4033,9 +5101,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn Show(self: TextGrammarCheck__LanguageToolComboBox) void {
+    pub fn show(self: TextGrammarCheck__LanguageToolComboBox) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -4045,9 +5117,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn Hide(self: TextGrammarCheck__LanguageToolComboBox) void {
+    pub fn hide(self: TextGrammarCheck__LanguageToolComboBox) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -4057,9 +5133,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn ShowMinimized(self: TextGrammarCheck__LanguageToolComboBox) void {
+    pub fn showMinimized(self: TextGrammarCheck__LanguageToolComboBox) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -4069,9 +5149,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn ShowMaximized(self: TextGrammarCheck__LanguageToolComboBox) void {
+    pub fn showMaximized(self: TextGrammarCheck__LanguageToolComboBox) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -4081,9 +5165,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn ShowFullScreen(self: TextGrammarCheck__LanguageToolComboBox) void {
+    pub fn showFullScreen(self: TextGrammarCheck__LanguageToolComboBox) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -4093,9 +5181,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn ShowNormal(self: TextGrammarCheck__LanguageToolComboBox) void {
+    pub fn showNormal(self: TextGrammarCheck__LanguageToolComboBox) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -4105,9 +5197,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn Close(self: TextGrammarCheck__LanguageToolComboBox) bool {
+    pub fn close(self: TextGrammarCheck__LanguageToolComboBox) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -4117,9 +5213,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn Raise(self: TextGrammarCheck__LanguageToolComboBox) void {
+    pub fn raise(self: TextGrammarCheck__LanguageToolComboBox) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -4129,9 +5229,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn Lower(self: TextGrammarCheck__LanguageToolComboBox) void {
+    pub fn lower(self: TextGrammarCheck__LanguageToolComboBox) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -4143,10 +5247,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: TextGrammarCheck__LanguageToolComboBox, param1: anytype) void {
+    pub fn stackUnder(self: TextGrammarCheck__LanguageToolComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -4156,13 +5264,17 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: TextGrammarCheck__LanguageToolComboBox, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: TextGrammarCheck__LanguageToolComboBox, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -4174,10 +5286,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: TextGrammarCheck__LanguageToolComboBox, param1: anytype) void {
+    pub fn move2(self: TextGrammarCheck__LanguageToolComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -4191,9 +5307,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: TextGrammarCheck__LanguageToolComboBox, w: i32, h: i32) void {
+    pub fn resize(self: TextGrammarCheck__LanguageToolComboBox, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -4205,10 +5325,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: TextGrammarCheck__LanguageToolComboBox, param1: anytype) void {
+    pub fn resize2(self: TextGrammarCheck__LanguageToolComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4218,17 +5342,21 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: TextGrammarCheck__LanguageToolComboBox, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: TextGrammarCheck__LanguageToolComboBox, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -4238,12 +5366,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: TextGrammarCheck__LanguageToolComboBox, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: TextGrammarCheck__LanguageToolComboBox, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4255,13 +5387,17 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: TextGrammarCheck__LanguageToolComboBox, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: TextGrammarCheck__LanguageToolComboBox, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("TextGrammarCheck__LanguageToolComboBox.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("TextGrammarCheck__LanguageToolComboBox.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4271,15 +5407,19 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: TextGrammarCheck__LanguageToolComboBox, geometry: []u8) bool {
+    pub fn restoreGeometry(self: TextGrammarCheck__LanguageToolComboBox, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -4289,9 +5429,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn AdjustSize(self: TextGrammarCheck__LanguageToolComboBox) void {
+    pub fn adjustSize(self: TextGrammarCheck__LanguageToolComboBox) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -4301,9 +5445,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn IsVisible(self: TextGrammarCheck__LanguageToolComboBox) bool {
+    pub fn isVisible(self: TextGrammarCheck__LanguageToolComboBox) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -4315,10 +5463,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: TextGrammarCheck__LanguageToolComboBox, param1: anytype) bool {
+    pub fn isVisibleTo(self: TextGrammarCheck__LanguageToolComboBox, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -4328,9 +5480,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn IsHidden(self: TextGrammarCheck__LanguageToolComboBox) bool {
+    pub fn isHidden(self: TextGrammarCheck__LanguageToolComboBox) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -4340,9 +5496,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn IsMinimized(self: TextGrammarCheck__LanguageToolComboBox) bool {
+    pub fn isMinimized(self: TextGrammarCheck__LanguageToolComboBox) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -4352,9 +5512,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn IsMaximized(self: TextGrammarCheck__LanguageToolComboBox) bool {
+    pub fn isMaximized(self: TextGrammarCheck__LanguageToolComboBox) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -4364,9 +5528,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn IsFullScreen(self: TextGrammarCheck__LanguageToolComboBox) bool {
+    pub fn isFullScreen(self: TextGrammarCheck__LanguageToolComboBox) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -4380,9 +5548,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: TextGrammarCheck__LanguageToolComboBox) i32 {
+    pub fn windowState(self: TextGrammarCheck__LanguageToolComboBox) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -4394,9 +5566,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: TextGrammarCheck__LanguageToolComboBox, state: i32) void {
+    pub fn setWindowState(self: TextGrammarCheck__LanguageToolComboBox, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -4408,9 +5584,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: TextGrammarCheck__LanguageToolComboBox, state: i32) void {
+    pub fn overrideWindowState(self: TextGrammarCheck__LanguageToolComboBox, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -4420,9 +5600,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn SizePolicy(self: TextGrammarCheck__LanguageToolComboBox) QSizePolicy {
+    pub fn sizePolicy(self: TextGrammarCheck__LanguageToolComboBox) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -4432,12 +5616,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: TextGrammarCheck__LanguageToolComboBox, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: TextGrammarCheck__LanguageToolComboBox, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -4451,9 +5639,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: TextGrammarCheck__LanguageToolComboBox, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: TextGrammarCheck__LanguageToolComboBox, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -4463,9 +5655,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn VisibleRegion(self: TextGrammarCheck__LanguageToolComboBox) QRegion {
+    pub fn visibleRegion(self: TextGrammarCheck__LanguageToolComboBox) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -4483,9 +5679,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: TextGrammarCheck__LanguageToolComboBox, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: TextGrammarCheck__LanguageToolComboBox, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -4497,10 +5697,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: TextGrammarCheck__LanguageToolComboBox, margins: anytype) void {
+    pub fn setContentsMargins2(self: TextGrammarCheck__LanguageToolComboBox, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -4510,9 +5714,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn ContentsMargins(self: TextGrammarCheck__LanguageToolComboBox) QMargins {
+    pub fn contentsMargins(self: TextGrammarCheck__LanguageToolComboBox) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -4522,9 +5730,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn ContentsRect(self: TextGrammarCheck__LanguageToolComboBox) QRect {
+    pub fn contentsRect(self: TextGrammarCheck__LanguageToolComboBox) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -4534,9 +5746,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn Layout(self: TextGrammarCheck__LanguageToolComboBox) QLayout {
+    pub fn layout(self: TextGrammarCheck__LanguageToolComboBox) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -4546,12 +5762,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: TextGrammarCheck__LanguageToolComboBox, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: TextGrammarCheck__LanguageToolComboBox, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4561,24 +5781,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn UpdateGeometry(self: TextGrammarCheck__LanguageToolComboBox) void {
+    pub fn updateGeometry(self: TextGrammarCheck__LanguageToolComboBox) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextGrammarCheck__LanguageToolComboBox `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: TextGrammarCheck__LanguageToolComboBox, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -4588,14 +5797,37 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: TextGrammarCheck__LanguageToolComboBox, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextGrammarCheck__LanguageToolComboBox `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: TextGrammarCheck__LanguageToolComboBox, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: TextGrammarCheck__LanguageToolComboBox, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -4609,9 +5841,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: TextGrammarCheck__LanguageToolComboBox, dx: i32, dy: i32) void {
+    pub fn scroll(self: TextGrammarCheck__LanguageToolComboBox, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -4627,10 +5863,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: TextGrammarCheck__LanguageToolComboBox, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: TextGrammarCheck__LanguageToolComboBox, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -4640,9 +5880,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn FocusWidget(self: TextGrammarCheck__LanguageToolComboBox) QWidget {
+    pub fn focusWidget(self: TextGrammarCheck__LanguageToolComboBox) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -4652,9 +5896,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn NextInFocusChain(self: TextGrammarCheck__LanguageToolComboBox) QWidget {
+    pub fn nextInFocusChain(self: TextGrammarCheck__LanguageToolComboBox) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -4664,9 +5912,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn PreviousInFocusChain(self: TextGrammarCheck__LanguageToolComboBox) QWidget {
+    pub fn previousInFocusChain(self: TextGrammarCheck__LanguageToolComboBox) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -4676,9 +5928,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn AcceptDrops(self: TextGrammarCheck__LanguageToolComboBox) bool {
+    pub fn acceptDrops(self: TextGrammarCheck__LanguageToolComboBox) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -4690,9 +5946,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: TextGrammarCheck__LanguageToolComboBox, on: bool) void {
+    pub fn setAcceptDrops(self: TextGrammarCheck__LanguageToolComboBox, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -4704,10 +5964,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: TextGrammarCheck__LanguageToolComboBox, action: anytype) void {
+    pub fn addAction(self: TextGrammarCheck__LanguageToolComboBox, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -4717,15 +5981,19 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: TextGrammarCheck__LanguageToolComboBox, actions: []QAction) void {
+    pub fn addActions(self: TextGrammarCheck__LanguageToolComboBox, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -4737,16 +6005,20 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: TextGrammarCheck__LanguageToolComboBox, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: TextGrammarCheck__LanguageToolComboBox, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -4760,11 +6032,15 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: TextGrammarCheck__LanguageToolComboBox, before: anytype, action: anytype) void {
+    pub fn insertAction(self: TextGrammarCheck__LanguageToolComboBox, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -4776,10 +6052,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: TextGrammarCheck__LanguageToolComboBox, action: anytype) void {
+    pub fn removeAction(self: TextGrammarCheck__LanguageToolComboBox, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -4791,15 +6071,19 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: TextGrammarCheck__LanguageToolComboBox, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: TextGrammarCheck__LanguageToolComboBox, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("TextGrammarCheck__LanguageToolComboBox.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("TextGrammarCheck__LanguageToolComboBox.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -4811,13 +6095,17 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: TextGrammarCheck__LanguageToolComboBox, text: []const u8) QAction {
+    pub fn addAction2(self: TextGrammarCheck__LanguageToolComboBox, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -4831,7 +6119,7 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: TextGrammarCheck__LanguageToolComboBox, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: TextGrammarCheck__LanguageToolComboBox, icon: anytype, text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -4840,6 +6128,10 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -4852,7 +6144,7 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: TextGrammarCheck__LanguageToolComboBox, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: TextGrammarCheck__LanguageToolComboBox, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -4860,6 +6152,10 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
 
     /// Inherited from QWidget
     ///
@@ -4875,7 +6171,7 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: TextGrammarCheck__LanguageToolComboBox, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: TextGrammarCheck__LanguageToolComboBox, icon: anytype, text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -4885,6 +6181,10 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
@@ -4893,9 +6193,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn ParentWidget(self: TextGrammarCheck__LanguageToolComboBox) QWidget {
+    pub fn parentWidget(self: TextGrammarCheck__LanguageToolComboBox) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4907,9 +6211,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: TextGrammarCheck__LanguageToolComboBox, typeVal: i32) void {
+    pub fn setWindowFlags(self: TextGrammarCheck__LanguageToolComboBox, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4923,9 +6231,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: TextGrammarCheck__LanguageToolComboBox) i32 {
+    pub fn windowFlags(self: TextGrammarCheck__LanguageToolComboBox) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -4937,9 +6249,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: TextGrammarCheck__LanguageToolComboBox, param1: i32) void {
+    pub fn setWindowFlag(self: TextGrammarCheck__LanguageToolComboBox, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4951,9 +6267,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: TextGrammarCheck__LanguageToolComboBox, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: TextGrammarCheck__LanguageToolComboBox, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -4967,9 +6287,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: TextGrammarCheck__LanguageToolComboBox) i32 {
+    pub fn windowType(self: TextGrammarCheck__LanguageToolComboBox) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -4979,9 +6303,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -4991,13 +6319,17 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: TextGrammarCheck__LanguageToolComboBox, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: TextGrammarCheck__LanguageToolComboBox, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -5009,10 +6341,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: TextGrammarCheck__LanguageToolComboBox, p: anytype) QWidget {
+    pub fn childAt2(self: TextGrammarCheck__LanguageToolComboBox, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -5024,10 +6360,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: TextGrammarCheck__LanguageToolComboBox, p: anytype) QWidget {
+    pub fn childAt3(self: TextGrammarCheck__LanguageToolComboBox, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -5039,9 +6379,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: TextGrammarCheck__LanguageToolComboBox, param1: i32) void {
+    pub fn setAttribute(self: TextGrammarCheck__LanguageToolComboBox, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -5053,9 +6397,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: TextGrammarCheck__LanguageToolComboBox, param1: i32) bool {
+    pub fn testAttribute(self: TextGrammarCheck__LanguageToolComboBox, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -5065,9 +6413,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn EnsurePolished(self: TextGrammarCheck__LanguageToolComboBox) void {
+    pub fn ensurePolished(self: TextGrammarCheck__LanguageToolComboBox) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -5079,10 +6431,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: TextGrammarCheck__LanguageToolComboBox, child: anytype) bool {
+    pub fn isAncestorOf(self: TextGrammarCheck__LanguageToolComboBox, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -5092,9 +6448,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn AutoFillBackground(self: TextGrammarCheck__LanguageToolComboBox) bool {
+    pub fn autoFillBackground(self: TextGrammarCheck__LanguageToolComboBox) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -5106,9 +6466,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: TextGrammarCheck__LanguageToolComboBox, enabled: bool) void {
+    pub fn setAutoFillBackground(self: TextGrammarCheck__LanguageToolComboBox, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -5118,9 +6482,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn BackingStore(self: TextGrammarCheck__LanguageToolComboBox) QBackingStore {
+    pub fn backingStore(self: TextGrammarCheck__LanguageToolComboBox) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -5130,9 +6498,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn WindowHandle(self: TextGrammarCheck__LanguageToolComboBox) QWindow {
+    pub fn windowHandle(self: TextGrammarCheck__LanguageToolComboBox) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -5142,9 +6514,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn Screen(self: TextGrammarCheck__LanguageToolComboBox) QScreen {
+    pub fn screen(self: TextGrammarCheck__LanguageToolComboBox) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -5154,12 +6530,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: TextGrammarCheck__LanguageToolComboBox, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: TextGrammarCheck__LanguageToolComboBox, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -5167,12 +6547,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -5184,13 +6568,17 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: TextGrammarCheck__LanguageToolComboBox, title: []const u8) void {
+    pub fn windowTitleChanged(self: TextGrammarCheck__LanguageToolComboBox, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -5202,9 +6590,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -5216,10 +6608,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: TextGrammarCheck__LanguageToolComboBox, icon: anytype) void {
+    pub fn windowIconChanged(self: TextGrammarCheck__LanguageToolComboBox, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -5231,9 +6627,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -5245,13 +6645,17 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: TextGrammarCheck__LanguageToolComboBox, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: TextGrammarCheck__LanguageToolComboBox, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -5263,9 +6667,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -5275,12 +6683,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: TextGrammarCheck__LanguageToolComboBox, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: TextGrammarCheck__LanguageToolComboBox, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -5292,9 +6704,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -5308,9 +6724,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: TextGrammarCheck__LanguageToolComboBox) i32 {
+    pub fn inputMethodHints(self: TextGrammarCheck__LanguageToolComboBox) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -5322,9 +6742,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: TextGrammarCheck__LanguageToolComboBox, hints: i32) void {
+    pub fn setInputMethodHints(self: TextGrammarCheck__LanguageToolComboBox, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -5338,11 +6762,15 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: TextGrammarCheck__LanguageToolComboBox, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: TextGrammarCheck__LanguageToolComboBox, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -5358,13 +6786,17 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: TextGrammarCheck__LanguageToolComboBox, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: TextGrammarCheck__LanguageToolComboBox, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -5381,12 +6813,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: TextGrammarCheck__LanguageToolComboBox, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: TextGrammarCheck__LanguageToolComboBox, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -5400,11 +6836,15 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: TextGrammarCheck__LanguageToolComboBox, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: TextGrammarCheck__LanguageToolComboBox, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -5420,12 +6860,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: TextGrammarCheck__LanguageToolComboBox, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: TextGrammarCheck__LanguageToolComboBox, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -5443,12 +6887,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: TextGrammarCheck__LanguageToolComboBox, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: TextGrammarCheck__LanguageToolComboBox, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -5460,10 +6908,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: TextGrammarCheck__LanguageToolComboBox, rectangle: anytype) QPixmap {
+    pub fn grab1(self: TextGrammarCheck__LanguageToolComboBox, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -5477,9 +6929,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: TextGrammarCheck__LanguageToolComboBox, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: TextGrammarCheck__LanguageToolComboBox, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -5493,10 +6949,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: TextGrammarCheck__LanguageToolComboBox, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: TextGrammarCheck__LanguageToolComboBox, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -5510,9 +6970,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: TextGrammarCheck__LanguageToolComboBox, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: TextGrammarCheck__LanguageToolComboBox, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -5526,9 +6990,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: TextGrammarCheck__LanguageToolComboBox, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: TextGrammarCheck__LanguageToolComboBox, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -5542,9 +7010,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: TextGrammarCheck__LanguageToolComboBox, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: TextGrammarCheck__LanguageToolComboBox, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -5558,25 +7030,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: TextGrammarCheck__LanguageToolComboBox, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: TextGrammarCheck__LanguageToolComboBox, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -5584,17 +7044,41 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -5606,13 +7090,17 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: TextGrammarCheck__LanguageToolComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: TextGrammarCheck__LanguageToolComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolComboBox.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolComboBox.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -5624,13 +7112,17 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: TextGrammarCheck__LanguageToolComboBox, name: []const u8) void {
+    pub fn setObjectName(self: TextGrammarCheck__LanguageToolComboBox, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -5640,9 +7132,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn IsWidgetType(self: TextGrammarCheck__LanguageToolComboBox) bool {
+    pub fn isWidgetType(self: TextGrammarCheck__LanguageToolComboBox) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -5652,9 +7148,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn IsWindowType(self: TextGrammarCheck__LanguageToolComboBox) bool {
+    pub fn isWindowType(self: TextGrammarCheck__LanguageToolComboBox) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -5664,9 +7164,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn IsQuickItemType(self: TextGrammarCheck__LanguageToolComboBox) bool {
+    pub fn isQuickItemType(self: TextGrammarCheck__LanguageToolComboBox) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -5676,9 +7180,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn SignalsBlocked(self: TextGrammarCheck__LanguageToolComboBox) bool {
+    pub fn signalsBlocked(self: TextGrammarCheck__LanguageToolComboBox) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -5690,9 +7198,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: TextGrammarCheck__LanguageToolComboBox, b: bool) bool {
+    pub fn blockSignals(self: TextGrammarCheck__LanguageToolComboBox, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -5702,9 +7214,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn Thread(self: TextGrammarCheck__LanguageToolComboBox) QThread {
+    pub fn thread(self: TextGrammarCheck__LanguageToolComboBox) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -5714,12 +7230,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: TextGrammarCheck__LanguageToolComboBox, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: TextGrammarCheck__LanguageToolComboBox, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -5731,9 +7251,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: TextGrammarCheck__LanguageToolComboBox, interval: i32) i32 {
+    pub fn startTimer(self: TextGrammarCheck__LanguageToolComboBox, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -5745,9 +7269,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: TextGrammarCheck__LanguageToolComboBox, time: i64) i32 {
+    pub fn startTimer2(self: TextGrammarCheck__LanguageToolComboBox, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -5759,9 +7287,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: TextGrammarCheck__LanguageToolComboBox, id: i32) void {
+    pub fn killTimer(self: TextGrammarCheck__LanguageToolComboBox, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -5773,9 +7305,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: TextGrammarCheck__LanguageToolComboBox, id: i32) void {
+    pub fn killTimer2(self: TextGrammarCheck__LanguageToolComboBox, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -5787,15 +7323,19 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: TextGrammarCheck__LanguageToolComboBox, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: TextGrammarCheck__LanguageToolComboBox, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("TextGrammarCheck__LanguageToolComboBox.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("TextGrammarCheck__LanguageToolComboBox.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5807,10 +7347,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: TextGrammarCheck__LanguageToolComboBox, filterObj: anytype) void {
+    pub fn installEventFilter(self: TextGrammarCheck__LanguageToolComboBox, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5822,10 +7366,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: TextGrammarCheck__LanguageToolComboBox, obj: anytype) void {
+    pub fn removeEventFilter(self: TextGrammarCheck__LanguageToolComboBox, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -5833,7 +7381,7 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5841,13 +7389,17 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -5855,7 +7407,7 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5863,13 +7415,17 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -5879,18 +7435,22 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: TextGrammarCheck__LanguageToolComboBox, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: TextGrammarCheck__LanguageToolComboBox, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -5898,7 +7458,7 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5906,13 +7466,17 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -5920,7 +7484,7 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5928,13 +7492,17 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -5944,9 +7512,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn Disconnect3(self: TextGrammarCheck__LanguageToolComboBox) bool {
+    pub fn disconnect3(self: TextGrammarCheck__LanguageToolComboBox) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -5958,10 +7530,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: TextGrammarCheck__LanguageToolComboBox, receiver: anytype) bool {
+    pub fn disconnect4(self: TextGrammarCheck__LanguageToolComboBox, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -5971,10 +7547,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -5984,9 +7564,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn DumpObjectTree(self: TextGrammarCheck__LanguageToolComboBox) void {
+    pub fn dumpObjectTree(self: TextGrammarCheck__LanguageToolComboBox) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -5996,9 +7580,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn DumpObjectInfo(self: TextGrammarCheck__LanguageToolComboBox) void {
+    pub fn dumpObjectInfo(self: TextGrammarCheck__LanguageToolComboBox) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -6012,11 +7600,15 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: TextGrammarCheck__LanguageToolComboBox, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: TextGrammarCheck__LanguageToolComboBox, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -6028,10 +7620,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: TextGrammarCheck__LanguageToolComboBox, name: [:0]const u8) QVariant {
+    pub fn property(self: TextGrammarCheck__LanguageToolComboBox, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -6043,7 +7639,7 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: TextGrammarCheck__LanguageToolComboBox, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: TextGrammarCheck__LanguageToolComboBox, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -6051,27 +7647,19 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("TextGrammarCheck__LanguageToolComboBox.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("TextGrammarCheck__LanguageToolComboBox.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("TextGrammarCheck__LanguageToolComboBox.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("TextGrammarCheck__LanguageToolComboBox.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextGrammarCheck__LanguageToolComboBox `
-    ///
-    pub fn BindingStorage(self: TextGrammarCheck__LanguageToolComboBox) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -6081,9 +7669,29 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn BindingStorage2(self: TextGrammarCheck__LanguageToolComboBox) QBindingStorage {
+    pub fn bindingStorage(self: TextGrammarCheck__LanguageToolComboBox) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextGrammarCheck__LanguageToolComboBox `
+    ///
+    pub fn bindingStorage2(self: TextGrammarCheck__LanguageToolComboBox) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -6093,9 +7701,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn Destroyed(self: TextGrammarCheck__LanguageToolComboBox) void {
+    pub fn destroyed(self: TextGrammarCheck__LanguageToolComboBox) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -6107,9 +7719,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox) callconv(.c) void) void {
+    pub fn onDestroyed(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -6119,9 +7735,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn Parent(self: TextGrammarCheck__LanguageToolComboBox) QObject {
+    pub fn parent(self: TextGrammarCheck__LanguageToolComboBox) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -6133,10 +7753,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: TextGrammarCheck__LanguageToolComboBox, classname: [:0]const u8) bool {
+    pub fn inherits(self: TextGrammarCheck__LanguageToolComboBox, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -6146,9 +7770,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn DeleteLater(self: TextGrammarCheck__LanguageToolComboBox) void {
+    pub fn deleteLater(self: TextGrammarCheck__LanguageToolComboBox) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -6162,9 +7790,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: TextGrammarCheck__LanguageToolComboBox, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: TextGrammarCheck__LanguageToolComboBox, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -6178,9 +7810,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: TextGrammarCheck__LanguageToolComboBox, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: TextGrammarCheck__LanguageToolComboBox, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -6188,7 +7824,7 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6198,13 +7834,17 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -6212,7 +7852,7 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -6222,13 +7862,17 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -6238,7 +7882,7 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6246,12 +7890,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: TextGrammarCheck__LanguageToolComboBox, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: TextGrammarCheck__LanguageToolComboBox, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -6263,10 +7911,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: TextGrammarCheck__LanguageToolComboBox, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: TextGrammarCheck__LanguageToolComboBox, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -6280,11 +7932,15 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: TextGrammarCheck__LanguageToolComboBox, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: TextGrammarCheck__LanguageToolComboBox, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -6300,13 +7956,17 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: TextGrammarCheck__LanguageToolComboBox, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: TextGrammarCheck__LanguageToolComboBox, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -6319,11 +7979,15 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: TextGrammarCheck__LanguageToolComboBox, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: TextGrammarCheck__LanguageToolComboBox, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -6335,10 +7999,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: TextGrammarCheck__LanguageToolComboBox, param1: anytype) void {
+    pub fn destroyed1(self: TextGrammarCheck__LanguageToolComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -6350,9 +8018,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -6362,9 +8034,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn PaintingActive(self: TextGrammarCheck__LanguageToolComboBox) bool {
+    pub fn paintingActive(self: TextGrammarCheck__LanguageToolComboBox) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -6374,9 +8050,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn WidthMM(self: TextGrammarCheck__LanguageToolComboBox) i32 {
+    pub fn widthMM(self: TextGrammarCheck__LanguageToolComboBox) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -6386,9 +8066,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn HeightMM(self: TextGrammarCheck__LanguageToolComboBox) i32 {
+    pub fn heightMM(self: TextGrammarCheck__LanguageToolComboBox) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -6398,9 +8082,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn LogicalDpiX(self: TextGrammarCheck__LanguageToolComboBox) i32 {
+    pub fn logicalDpiX(self: TextGrammarCheck__LanguageToolComboBox) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -6410,9 +8098,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn LogicalDpiY(self: TextGrammarCheck__LanguageToolComboBox) i32 {
+    pub fn logicalDpiY(self: TextGrammarCheck__LanguageToolComboBox) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -6422,9 +8114,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn PhysicalDpiX(self: TextGrammarCheck__LanguageToolComboBox) i32 {
+    pub fn physicalDpiX(self: TextGrammarCheck__LanguageToolComboBox) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -6434,9 +8130,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn PhysicalDpiY(self: TextGrammarCheck__LanguageToolComboBox) i32 {
+    pub fn physicalDpiY(self: TextGrammarCheck__LanguageToolComboBox) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -6446,9 +8146,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn DevicePixelRatio(self: TextGrammarCheck__LanguageToolComboBox) f64 {
+    pub fn devicePixelRatio(self: TextGrammarCheck__LanguageToolComboBox) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -6458,9 +8162,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn DevicePixelRatioF(self: TextGrammarCheck__LanguageToolComboBox) f64 {
+    pub fn devicePixelRatioF(self: TextGrammarCheck__LanguageToolComboBox) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -6470,9 +8178,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn ColorCount(self: TextGrammarCheck__LanguageToolComboBox) i32 {
+    pub fn colorCount(self: TextGrammarCheck__LanguageToolComboBox) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -6482,17 +8194,25 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn Depth(self: TextGrammarCheck__LanguageToolComboBox) i32 {
+    pub fn depth(self: TextGrammarCheck__LanguageToolComboBox) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -6500,13 +8220,17 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `setModel` instead
+    ///
+    pub const SetModel = setModel;
 
     /// Inherited from QComboBox
     ///
@@ -6518,16 +8242,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` model: QAbstractItemModel `
+    /// ` _model: QAbstractItemModel `
     ///
-    pub fn SetModel(self: TextGrammarCheck__LanguageToolComboBox, model: anytype) void {
-        comptime _ = @TypeOf(model)._is_QAbstractItemModel;
-        qtc.TextGrammarCheck__LanguageToolComboBox_SetModel(@ptrCast(self.ptr), @ptrCast(model.ptr));
+    pub fn setModel(self: TextGrammarCheck__LanguageToolComboBox, _model: anytype) void {
+        comptime _ = @TypeOf(_model)._is_QAbstractItemModel;
+        qtc.TextGrammarCheck__LanguageToolComboBox_SetModel(@ptrCast(self.ptr), @ptrCast(_model.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetModel` instead
+    /// ### DEPRECATED: Use `superSetModel` instead
     ///
-    pub const QBaseSetModel = SuperSetModel;
+    pub const SuperSetModel = superSetModel;
 
     /// Inherited from QComboBox
     ///
@@ -6539,12 +8263,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` model: QAbstractItemModel `
+    /// ` _model: QAbstractItemModel `
     ///
-    pub fn SuperSetModel(self: TextGrammarCheck__LanguageToolComboBox, model: anytype) void {
-        comptime _ = @TypeOf(model)._is_QAbstractItemModel;
-        qtc.TextGrammarCheck__LanguageToolComboBox_SuperSetModel(@ptrCast(self.ptr), @ptrCast(model.ptr));
+    pub fn superSetModel(self: TextGrammarCheck__LanguageToolComboBox, _model: anytype) void {
+        comptime _ = @TypeOf(_model)._is_QAbstractItemModel;
+        qtc.TextGrammarCheck__LanguageToolComboBox_SuperSetModel(@ptrCast(self.ptr), @ptrCast(_model.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetModel` instead
+    ///
+    pub const OnSetModel = onSetModel;
 
     /// Inherited from QComboBox
     ///
@@ -6558,10 +8286,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, model: QAbstractItemModel) callconv(.c) void `
     ///
-    pub fn OnSetModel(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QAbstractItemModel) callconv(.c) void) void {
+    pub fn onSetModel(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QAbstractItemModel) callconv(.c) void) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnSetModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#sizeHint)
@@ -6572,13 +8304,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn SizeHint(self: TextGrammarCheck__LanguageToolComboBox) QSize {
+    pub fn sizeHint(self: TextGrammarCheck__LanguageToolComboBox) QSize {
         return .{ .ptr = qtc.TextGrammarCheck__LanguageToolComboBox_SizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// Inherited from QComboBox
     ///
@@ -6590,10 +8322,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn SuperSizeHint(self: TextGrammarCheck__LanguageToolComboBox) QSize {
+    pub fn superSizeHint(self: TextGrammarCheck__LanguageToolComboBox) QSize {
         return .{ .ptr = qtc.TextGrammarCheck__LanguageToolComboBox_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#sizeHint)
@@ -6608,9 +8344,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QComboBox
     ///
@@ -6622,13 +8362,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn MinimumSizeHint(self: TextGrammarCheck__LanguageToolComboBox) QSize {
+    pub fn minimumSizeHint(self: TextGrammarCheck__LanguageToolComboBox) QSize {
         return .{ .ptr = qtc.TextGrammarCheck__LanguageToolComboBox_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QComboBox
     ///
@@ -6640,9 +8380,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn SuperMinimumSizeHint(self: TextGrammarCheck__LanguageToolComboBox) QSize {
+    pub fn superMinimumSizeHint(self: TextGrammarCheck__LanguageToolComboBox) QSize {
         return .{ .ptr = qtc.TextGrammarCheck__LanguageToolComboBox_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QComboBox
     ///
@@ -6658,10 +8402,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `showPopup` instead
+    ///
+    pub const ShowPopup = showPopup;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#showPopup)
@@ -6672,13 +8420,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn ShowPopup(self: TextGrammarCheck__LanguageToolComboBox) void {
+    pub fn showPopup(self: TextGrammarCheck__LanguageToolComboBox) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_ShowPopup(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowPopup` instead
+    /// ### DEPRECATED: Use `superShowPopup` instead
     ///
-    pub const QBaseShowPopup = SuperShowPopup;
+    pub const SuperShowPopup = superShowPopup;
 
     /// Inherited from QComboBox
     ///
@@ -6690,10 +8438,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn SuperShowPopup(self: TextGrammarCheck__LanguageToolComboBox) void {
+    pub fn superShowPopup(self: TextGrammarCheck__LanguageToolComboBox) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_SuperShowPopup(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onShowPopup` instead
+    ///
+    pub const OnShowPopup = onShowPopup;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#showPopup)
@@ -6706,9 +8458,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnShowPopup(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onShowPopup(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn () callconv(.c) void) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnShowPopup(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hidePopup` instead
+    ///
+    pub const HidePopup = hidePopup;
 
     /// Inherited from QComboBox
     ///
@@ -6720,13 +8476,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn HidePopup(self: TextGrammarCheck__LanguageToolComboBox) void {
+    pub fn hidePopup(self: TextGrammarCheck__LanguageToolComboBox) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_HidePopup(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHidePopup` instead
+    /// ### DEPRECATED: Use `superHidePopup` instead
     ///
-    pub const QBaseHidePopup = SuperHidePopup;
+    pub const SuperHidePopup = superHidePopup;
 
     /// Inherited from QComboBox
     ///
@@ -6738,9 +8494,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn SuperHidePopup(self: TextGrammarCheck__LanguageToolComboBox) void {
+    pub fn superHidePopup(self: TextGrammarCheck__LanguageToolComboBox) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_SuperHidePopup(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHidePopup` instead
+    ///
+    pub const OnHidePopup = onHidePopup;
 
     /// Inherited from QComboBox
     ///
@@ -6754,9 +8514,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnHidePopup(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onHidePopup(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn () callconv(.c) void) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnHidePopup(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QComboBox
     ///
@@ -6768,16 +8532,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: TextGrammarCheck__LanguageToolComboBox, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.TextGrammarCheck__LanguageToolComboBox_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: TextGrammarCheck__LanguageToolComboBox, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.TextGrammarCheck__LanguageToolComboBox_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QComboBox
     ///
@@ -6789,12 +8553,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: TextGrammarCheck__LanguageToolComboBox, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.TextGrammarCheck__LanguageToolComboBox_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: TextGrammarCheck__LanguageToolComboBox, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.TextGrammarCheck__LanguageToolComboBox_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QComboBox
     ///
@@ -6808,9 +8576,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QEvent) callconv(.c) bool) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QComboBox
     ///
@@ -6824,13 +8596,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: TextGrammarCheck__LanguageToolComboBox, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: TextGrammarCheck__LanguageToolComboBox, param1: i32) QVariant {
         return .{ .ptr = qtc.TextGrammarCheck__LanguageToolComboBox_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QComboBox
     ///
@@ -6844,9 +8616,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: TextGrammarCheck__LanguageToolComboBox, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: TextGrammarCheck__LanguageToolComboBox, param1: i32) QVariant {
         return .{ .ptr = qtc.TextGrammarCheck__LanguageToolComboBox_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QComboBox
     ///
@@ -6862,9 +8638,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, i32) callconv(.c) QVariant) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
 
     /// Inherited from QComboBox
     ///
@@ -6878,14 +8658,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` e: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: TextGrammarCheck__LanguageToolComboBox, e: anytype) void {
+    pub fn focusInEvent(self: TextGrammarCheck__LanguageToolComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QFocusEvent;
         qtc.TextGrammarCheck__LanguageToolComboBox_FocusInEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QComboBox
     ///
@@ -6899,11 +8679,15 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` e: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: TextGrammarCheck__LanguageToolComboBox, e: anytype) void {
+    pub fn superFocusInEvent(self: TextGrammarCheck__LanguageToolComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QFocusEvent;
         qtc.TextGrammarCheck__LanguageToolComboBox_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#focusInEvent)
@@ -6916,9 +8700,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, e: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QFocusEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
 
     /// Inherited from QComboBox
     ///
@@ -6932,14 +8720,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` e: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: TextGrammarCheck__LanguageToolComboBox, e: anytype) void {
+    pub fn focusOutEvent(self: TextGrammarCheck__LanguageToolComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QFocusEvent;
         qtc.TextGrammarCheck__LanguageToolComboBox_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QComboBox
     ///
@@ -6953,10 +8741,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` e: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: TextGrammarCheck__LanguageToolComboBox, e: anytype) void {
+    pub fn superFocusOutEvent(self: TextGrammarCheck__LanguageToolComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QFocusEvent;
         qtc.TextGrammarCheck__LanguageToolComboBox_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QComboBox
     ///
@@ -6970,9 +8762,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, e: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QFocusEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QComboBox
     ///
@@ -6986,14 +8782,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn ChangeEvent(self: TextGrammarCheck__LanguageToolComboBox, e: anytype) void {
+    pub fn changeEvent(self: TextGrammarCheck__LanguageToolComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QEvent;
         qtc.TextGrammarCheck__LanguageToolComboBox_ChangeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7007,10 +8803,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn SuperChangeEvent(self: TextGrammarCheck__LanguageToolComboBox, e: anytype) void {
+    pub fn superChangeEvent(self: TextGrammarCheck__LanguageToolComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QEvent;
         qtc.TextGrammarCheck__LanguageToolComboBox_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7024,9 +8824,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, e: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7040,14 +8844,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` e: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: TextGrammarCheck__LanguageToolComboBox, e: anytype) void {
+    pub fn resizeEvent(self: TextGrammarCheck__LanguageToolComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QResizeEvent;
         qtc.TextGrammarCheck__LanguageToolComboBox_ResizeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7061,10 +8865,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` e: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: TextGrammarCheck__LanguageToolComboBox, e: anytype) void {
+    pub fn superResizeEvent(self: TextGrammarCheck__LanguageToolComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QResizeEvent;
         qtc.TextGrammarCheck__LanguageToolComboBox_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7078,9 +8886,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, e: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QResizeEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7094,14 +8906,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` e: QPaintEvent `
     ///
-    pub fn PaintEvent(self: TextGrammarCheck__LanguageToolComboBox, e: anytype) void {
+    pub fn paintEvent(self: TextGrammarCheck__LanguageToolComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QPaintEvent;
         qtc.TextGrammarCheck__LanguageToolComboBox_PaintEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7115,10 +8927,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` e: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: TextGrammarCheck__LanguageToolComboBox, e: anytype) void {
+    pub fn superPaintEvent(self: TextGrammarCheck__LanguageToolComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QPaintEvent;
         qtc.TextGrammarCheck__LanguageToolComboBox_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7132,9 +8948,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, e: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QPaintEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7148,14 +8968,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` e: QShowEvent `
     ///
-    pub fn ShowEvent(self: TextGrammarCheck__LanguageToolComboBox, e: anytype) void {
+    pub fn showEvent(self: TextGrammarCheck__LanguageToolComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QShowEvent;
         qtc.TextGrammarCheck__LanguageToolComboBox_ShowEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7169,10 +8989,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` e: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: TextGrammarCheck__LanguageToolComboBox, e: anytype) void {
+    pub fn superShowEvent(self: TextGrammarCheck__LanguageToolComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QShowEvent;
         qtc.TextGrammarCheck__LanguageToolComboBox_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7186,9 +9010,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, e: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QShowEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7202,14 +9030,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` e: QHideEvent `
     ///
-    pub fn HideEvent(self: TextGrammarCheck__LanguageToolComboBox, e: anytype) void {
+    pub fn hideEvent(self: TextGrammarCheck__LanguageToolComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QHideEvent;
         qtc.TextGrammarCheck__LanguageToolComboBox_HideEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7223,10 +9051,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` e: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: TextGrammarCheck__LanguageToolComboBox, e: anytype) void {
+    pub fn superHideEvent(self: TextGrammarCheck__LanguageToolComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QHideEvent;
         qtc.TextGrammarCheck__LanguageToolComboBox_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7240,9 +9072,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, e: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QHideEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7256,14 +9092,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: TextGrammarCheck__LanguageToolComboBox, e: anytype) void {
+    pub fn mousePressEvent(self: TextGrammarCheck__LanguageToolComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.TextGrammarCheck__LanguageToolComboBox_MousePressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7277,11 +9113,15 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: TextGrammarCheck__LanguageToolComboBox, e: anytype) void {
+    pub fn superMousePressEvent(self: TextGrammarCheck__LanguageToolComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.TextGrammarCheck__LanguageToolComboBox_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#mousePressEvent)
@@ -7294,9 +9134,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, e: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QMouseEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7310,14 +9154,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: TextGrammarCheck__LanguageToolComboBox, e: anytype) void {
+    pub fn mouseReleaseEvent(self: TextGrammarCheck__LanguageToolComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.TextGrammarCheck__LanguageToolComboBox_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7331,10 +9175,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: TextGrammarCheck__LanguageToolComboBox, e: anytype) void {
+    pub fn superMouseReleaseEvent(self: TextGrammarCheck__LanguageToolComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.TextGrammarCheck__LanguageToolComboBox_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7348,9 +9196,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, e: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QMouseEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7364,14 +9216,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: TextGrammarCheck__LanguageToolComboBox, e: anytype) void {
+    pub fn keyPressEvent(self: TextGrammarCheck__LanguageToolComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.TextGrammarCheck__LanguageToolComboBox_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7385,11 +9237,15 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: TextGrammarCheck__LanguageToolComboBox, e: anytype) void {
+    pub fn superKeyPressEvent(self: TextGrammarCheck__LanguageToolComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.TextGrammarCheck__LanguageToolComboBox_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#keyPressEvent)
@@ -7402,9 +9258,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, e: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QKeyEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7418,14 +9278,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: TextGrammarCheck__LanguageToolComboBox, e: anytype) void {
+    pub fn keyReleaseEvent(self: TextGrammarCheck__LanguageToolComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.TextGrammarCheck__LanguageToolComboBox_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7439,10 +9299,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: TextGrammarCheck__LanguageToolComboBox, e: anytype) void {
+    pub fn superKeyReleaseEvent(self: TextGrammarCheck__LanguageToolComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.TextGrammarCheck__LanguageToolComboBox_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7456,9 +9320,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, e: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QKeyEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7472,14 +9340,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` e: QWheelEvent `
     ///
-    pub fn WheelEvent(self: TextGrammarCheck__LanguageToolComboBox, e: anytype) void {
+    pub fn wheelEvent(self: TextGrammarCheck__LanguageToolComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QWheelEvent;
         qtc.TextGrammarCheck__LanguageToolComboBox_WheelEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7493,10 +9361,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` e: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: TextGrammarCheck__LanguageToolComboBox, e: anytype) void {
+    pub fn superWheelEvent(self: TextGrammarCheck__LanguageToolComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QWheelEvent;
         qtc.TextGrammarCheck__LanguageToolComboBox_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7510,9 +9382,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, e: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QWheelEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7526,14 +9402,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` e: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: TextGrammarCheck__LanguageToolComboBox, e: anytype) void {
+    pub fn contextMenuEvent(self: TextGrammarCheck__LanguageToolComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QContextMenuEvent;
         qtc.TextGrammarCheck__LanguageToolComboBox_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7547,10 +9423,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` e: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: TextGrammarCheck__LanguageToolComboBox, e: anytype) void {
+    pub fn superContextMenuEvent(self: TextGrammarCheck__LanguageToolComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QContextMenuEvent;
         qtc.TextGrammarCheck__LanguageToolComboBox_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7564,9 +9444,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, e: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QContextMenuEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7580,14 +9464,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: TextGrammarCheck__LanguageToolComboBox, param1: anytype) void {
+    pub fn inputMethodEvent(self: TextGrammarCheck__LanguageToolComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.TextGrammarCheck__LanguageToolComboBox_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7601,10 +9485,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: TextGrammarCheck__LanguageToolComboBox, param1: anytype) void {
+    pub fn superInputMethodEvent(self: TextGrammarCheck__LanguageToolComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.TextGrammarCheck__LanguageToolComboBox_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7618,9 +9506,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QInputMethodEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initStyleOption` instead
+    ///
+    pub const InitStyleOption = initStyleOption;
 
     /// Inherited from QComboBox
     ///
@@ -7634,14 +9526,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` option: QStyleOptionComboBox `
     ///
-    pub fn InitStyleOption(self: TextGrammarCheck__LanguageToolComboBox, option: anytype) void {
+    pub fn initStyleOption(self: TextGrammarCheck__LanguageToolComboBox, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionComboBox;
         qtc.TextGrammarCheck__LanguageToolComboBox_InitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitStyleOption` instead
+    /// ### DEPRECATED: Use `superInitStyleOption` instead
     ///
-    pub const QBaseInitStyleOption = SuperInitStyleOption;
+    pub const SuperInitStyleOption = superInitStyleOption;
 
     /// Inherited from QComboBox
     ///
@@ -7655,10 +9547,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` option: QStyleOptionComboBox `
     ///
-    pub fn SuperInitStyleOption(self: TextGrammarCheck__LanguageToolComboBox, option: anytype) void {
+    pub fn superInitStyleOption(self: TextGrammarCheck__LanguageToolComboBox, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionComboBox;
         qtc.TextGrammarCheck__LanguageToolComboBox_SuperInitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitStyleOption` instead
+    ///
+    pub const OnInitStyleOption = onInitStyleOption;
 
     /// Inherited from QComboBox
     ///
@@ -7672,9 +9568,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, option: QStyleOptionComboBox) callconv(.c) void `
     ///
-    pub fn OnInitStyleOption(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QStyleOptionComboBox) callconv(.c) void) void {
+    pub fn onInitStyleOption(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QStyleOptionComboBox) callconv(.c) void) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnInitStyleOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -7686,13 +9586,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn DevType(self: TextGrammarCheck__LanguageToolComboBox) i32 {
+    pub fn devType(self: TextGrammarCheck__LanguageToolComboBox) i32 {
         return qtc.TextGrammarCheck__LanguageToolComboBox_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -7704,9 +9604,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn SuperDevType(self: TextGrammarCheck__LanguageToolComboBox) i32 {
+    pub fn superDevType(self: TextGrammarCheck__LanguageToolComboBox) i32 {
         return qtc.TextGrammarCheck__LanguageToolComboBox_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -7720,9 +9624,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn () callconv(.c) i32) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -7736,13 +9644,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: TextGrammarCheck__LanguageToolComboBox, visible: bool) void {
+    pub fn setVisible(self: TextGrammarCheck__LanguageToolComboBox, visible: bool) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -7756,9 +9664,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: TextGrammarCheck__LanguageToolComboBox, visible: bool) void {
+    pub fn superSetVisible(self: TextGrammarCheck__LanguageToolComboBox, visible: bool) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -7772,9 +9684,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, bool) callconv(.c) void) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7788,13 +9704,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: TextGrammarCheck__LanguageToolComboBox, param1: i32) i32 {
+    pub fn heightForWidth(self: TextGrammarCheck__LanguageToolComboBox, param1: i32) i32 {
         return qtc.TextGrammarCheck__LanguageToolComboBox_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7808,9 +9724,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: TextGrammarCheck__LanguageToolComboBox, param1: i32) i32 {
+    pub fn superHeightForWidth(self: TextGrammarCheck__LanguageToolComboBox, param1: i32) i32 {
         return qtc.TextGrammarCheck__LanguageToolComboBox_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7824,9 +9744,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, i32) callconv(.c) i32) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7838,13 +9762,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn HasHeightForWidth(self: TextGrammarCheck__LanguageToolComboBox) bool {
+    pub fn hasHeightForWidth(self: TextGrammarCheck__LanguageToolComboBox) bool {
         return qtc.TextGrammarCheck__LanguageToolComboBox_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7856,9 +9780,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn SuperHasHeightForWidth(self: TextGrammarCheck__LanguageToolComboBox) bool {
+    pub fn superHasHeightForWidth(self: TextGrammarCheck__LanguageToolComboBox) bool {
         return qtc.TextGrammarCheck__LanguageToolComboBox_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7872,9 +9800,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn () callconv(.c) bool) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -7886,13 +9818,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn PaintEngine(self: TextGrammarCheck__LanguageToolComboBox) QPaintEngine {
+    pub fn paintEngine(self: TextGrammarCheck__LanguageToolComboBox) QPaintEngine {
         return .{ .ptr = qtc.TextGrammarCheck__LanguageToolComboBox_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -7904,9 +9836,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn SuperPaintEngine(self: TextGrammarCheck__LanguageToolComboBox) QPaintEngine {
+    pub fn superPaintEngine(self: TextGrammarCheck__LanguageToolComboBox) QPaintEngine {
         return .{ .ptr = qtc.TextGrammarCheck__LanguageToolComboBox_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -7920,10 +9856,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
@@ -7934,16 +9874,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: TextGrammarCheck__LanguageToolComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.TextGrammarCheck__LanguageToolComboBox_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: TextGrammarCheck__LanguageToolComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.TextGrammarCheck__LanguageToolComboBox_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -7955,12 +9895,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: TextGrammarCheck__LanguageToolComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.TextGrammarCheck__LanguageToolComboBox_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: TextGrammarCheck__LanguageToolComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.TextGrammarCheck__LanguageToolComboBox_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -7974,10 +9918,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QMouseEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
@@ -7988,16 +9936,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: TextGrammarCheck__LanguageToolComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.TextGrammarCheck__LanguageToolComboBox_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseMoveEvent(self: TextGrammarCheck__LanguageToolComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.TextGrammarCheck__LanguageToolComboBox_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8009,12 +9957,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: TextGrammarCheck__LanguageToolComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.TextGrammarCheck__LanguageToolComboBox_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseMoveEvent(self: TextGrammarCheck__LanguageToolComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.TextGrammarCheck__LanguageToolComboBox_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8028,9 +9980,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QMouseEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -8042,16 +9998,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: TextGrammarCheck__LanguageToolComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.TextGrammarCheck__LanguageToolComboBox_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: TextGrammarCheck__LanguageToolComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.TextGrammarCheck__LanguageToolComboBox_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -8063,12 +10019,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: TextGrammarCheck__LanguageToolComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.TextGrammarCheck__LanguageToolComboBox_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: TextGrammarCheck__LanguageToolComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.TextGrammarCheck__LanguageToolComboBox_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -8082,9 +10042,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QEnterEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8096,16 +10060,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: TextGrammarCheck__LanguageToolComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.TextGrammarCheck__LanguageToolComboBox_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: TextGrammarCheck__LanguageToolComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.TextGrammarCheck__LanguageToolComboBox_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8117,12 +10081,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: TextGrammarCheck__LanguageToolComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.TextGrammarCheck__LanguageToolComboBox_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: TextGrammarCheck__LanguageToolComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.TextGrammarCheck__LanguageToolComboBox_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8136,9 +10104,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8150,16 +10122,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: TextGrammarCheck__LanguageToolComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.TextGrammarCheck__LanguageToolComboBox_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: TextGrammarCheck__LanguageToolComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.TextGrammarCheck__LanguageToolComboBox_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8171,12 +10143,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: TextGrammarCheck__LanguageToolComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.TextGrammarCheck__LanguageToolComboBox_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: TextGrammarCheck__LanguageToolComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.TextGrammarCheck__LanguageToolComboBox_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8190,9 +10166,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QMoveEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -8204,16 +10184,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: TextGrammarCheck__LanguageToolComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.TextGrammarCheck__LanguageToolComboBox_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: TextGrammarCheck__LanguageToolComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.TextGrammarCheck__LanguageToolComboBox_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -8225,12 +10205,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: TextGrammarCheck__LanguageToolComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.TextGrammarCheck__LanguageToolComboBox_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: TextGrammarCheck__LanguageToolComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.TextGrammarCheck__LanguageToolComboBox_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -8244,9 +10228,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QCloseEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -8258,16 +10246,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: TextGrammarCheck__LanguageToolComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.TextGrammarCheck__LanguageToolComboBox_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: TextGrammarCheck__LanguageToolComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.TextGrammarCheck__LanguageToolComboBox_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -8279,12 +10267,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: TextGrammarCheck__LanguageToolComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.TextGrammarCheck__LanguageToolComboBox_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: TextGrammarCheck__LanguageToolComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.TextGrammarCheck__LanguageToolComboBox_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -8298,9 +10290,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QTabletEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -8312,16 +10308,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: TextGrammarCheck__LanguageToolComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.TextGrammarCheck__LanguageToolComboBox_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: TextGrammarCheck__LanguageToolComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.TextGrammarCheck__LanguageToolComboBox_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -8333,12 +10329,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: TextGrammarCheck__LanguageToolComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.TextGrammarCheck__LanguageToolComboBox_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: TextGrammarCheck__LanguageToolComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.TextGrammarCheck__LanguageToolComboBox_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -8352,9 +10352,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QActionEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -8366,16 +10370,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: TextGrammarCheck__LanguageToolComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.TextGrammarCheck__LanguageToolComboBox_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: TextGrammarCheck__LanguageToolComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.TextGrammarCheck__LanguageToolComboBox_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -8387,12 +10391,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: TextGrammarCheck__LanguageToolComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.TextGrammarCheck__LanguageToolComboBox_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: TextGrammarCheck__LanguageToolComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.TextGrammarCheck__LanguageToolComboBox_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -8406,9 +10414,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QDragEnterEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8420,16 +10432,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: TextGrammarCheck__LanguageToolComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.TextGrammarCheck__LanguageToolComboBox_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: TextGrammarCheck__LanguageToolComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.TextGrammarCheck__LanguageToolComboBox_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8441,12 +10453,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: TextGrammarCheck__LanguageToolComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.TextGrammarCheck__LanguageToolComboBox_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: TextGrammarCheck__LanguageToolComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.TextGrammarCheck__LanguageToolComboBox_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8460,9 +10476,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QDragMoveEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8474,16 +10494,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: TextGrammarCheck__LanguageToolComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.TextGrammarCheck__LanguageToolComboBox_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: TextGrammarCheck__LanguageToolComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.TextGrammarCheck__LanguageToolComboBox_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8495,12 +10515,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: TextGrammarCheck__LanguageToolComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.TextGrammarCheck__LanguageToolComboBox_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: TextGrammarCheck__LanguageToolComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.TextGrammarCheck__LanguageToolComboBox_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8514,9 +10538,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QDragLeaveEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QWidget
     ///
@@ -8528,16 +10556,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: TextGrammarCheck__LanguageToolComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.TextGrammarCheck__LanguageToolComboBox_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: TextGrammarCheck__LanguageToolComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.TextGrammarCheck__LanguageToolComboBox_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -8549,12 +10577,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: TextGrammarCheck__LanguageToolComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.TextGrammarCheck__LanguageToolComboBox_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: TextGrammarCheck__LanguageToolComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.TextGrammarCheck__LanguageToolComboBox_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -8568,9 +10600,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QDropEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -8588,7 +10624,7 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: TextGrammarCheck__LanguageToolComboBox, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: TextGrammarCheck__LanguageToolComboBox, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -8596,9 +10632,9 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
         return qtc.TextGrammarCheck__LanguageToolComboBox_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -8616,13 +10652,17 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: TextGrammarCheck__LanguageToolComboBox, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: TextGrammarCheck__LanguageToolComboBox, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.TextGrammarCheck__LanguageToolComboBox_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -8636,9 +10676,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -8652,13 +10696,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: TextGrammarCheck__LanguageToolComboBox, param1: i32) i32 {
+    pub fn metric(self: TextGrammarCheck__LanguageToolComboBox, param1: i32) i32 {
         return qtc.TextGrammarCheck__LanguageToolComboBox_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -8672,9 +10716,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: TextGrammarCheck__LanguageToolComboBox, param1: i32) i32 {
+    pub fn superMetric(self: TextGrammarCheck__LanguageToolComboBox, param1: i32) i32 {
         return qtc.TextGrammarCheck__LanguageToolComboBox_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -8688,9 +10736,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, i32) callconv(.c) i32) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -8704,14 +10756,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: TextGrammarCheck__LanguageToolComboBox, painter: anytype) void {
+    pub fn initPainter(self: TextGrammarCheck__LanguageToolComboBox, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.TextGrammarCheck__LanguageToolComboBox_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -8725,10 +10777,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: TextGrammarCheck__LanguageToolComboBox, painter: anytype) void {
+    pub fn superInitPainter(self: TextGrammarCheck__LanguageToolComboBox, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.TextGrammarCheck__LanguageToolComboBox_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -8742,9 +10798,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QPainter) callconv(.c) void) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -8758,14 +10818,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: TextGrammarCheck__LanguageToolComboBox, offset: anytype) QPaintDevice {
+    pub fn redirected(self: TextGrammarCheck__LanguageToolComboBox, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.TextGrammarCheck__LanguageToolComboBox_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -8779,10 +10839,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: TextGrammarCheck__LanguageToolComboBox, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: TextGrammarCheck__LanguageToolComboBox, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.TextGrammarCheck__LanguageToolComboBox_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -8796,9 +10860,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QPoint) callconv(.c) QPaintDevice) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -8810,13 +10878,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn SharedPainter(self: TextGrammarCheck__LanguageToolComboBox) QPainter {
+    pub fn sharedPainter(self: TextGrammarCheck__LanguageToolComboBox) QPainter {
         return .{ .ptr = qtc.TextGrammarCheck__LanguageToolComboBox_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -8828,9 +10896,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn SuperSharedPainter(self: TextGrammarCheck__LanguageToolComboBox) QPainter {
+    pub fn superSharedPainter(self: TextGrammarCheck__LanguageToolComboBox) QPainter {
         return .{ .ptr = qtc.TextGrammarCheck__LanguageToolComboBox_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -8844,9 +10916,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn () callconv(.c) QPainter) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8860,13 +10936,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: TextGrammarCheck__LanguageToolComboBox, next: bool) bool {
+    pub fn focusNextPrevChild(self: TextGrammarCheck__LanguageToolComboBox, next: bool) bool {
         return qtc.TextGrammarCheck__LanguageToolComboBox_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8880,9 +10956,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: TextGrammarCheck__LanguageToolComboBox, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: TextGrammarCheck__LanguageToolComboBox, next: bool) bool {
         return qtc.TextGrammarCheck__LanguageToolComboBox_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8896,9 +10976,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, bool) callconv(.c) bool) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -8912,17 +10996,17 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: TextGrammarCheck__LanguageToolComboBox, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: TextGrammarCheck__LanguageToolComboBox, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.TextGrammarCheck__LanguageToolComboBox_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.TextGrammarCheck__LanguageToolComboBox_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -8936,13 +11020,17 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: TextGrammarCheck__LanguageToolComboBox, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: TextGrammarCheck__LanguageToolComboBox, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.TextGrammarCheck__LanguageToolComboBox_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.TextGrammarCheck__LanguageToolComboBox_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -8956,9 +11044,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QObject, QEvent) callconv(.c) bool) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -8970,16 +11062,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: TextGrammarCheck__LanguageToolComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.TextGrammarCheck__LanguageToolComboBox_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: TextGrammarCheck__LanguageToolComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.TextGrammarCheck__LanguageToolComboBox_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -8991,12 +11083,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: TextGrammarCheck__LanguageToolComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.TextGrammarCheck__LanguageToolComboBox_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: TextGrammarCheck__LanguageToolComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.TextGrammarCheck__LanguageToolComboBox_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -9010,9 +11106,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QTimerEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -9024,16 +11124,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: TextGrammarCheck__LanguageToolComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.TextGrammarCheck__LanguageToolComboBox_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: TextGrammarCheck__LanguageToolComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.TextGrammarCheck__LanguageToolComboBox_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -9045,12 +11145,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: TextGrammarCheck__LanguageToolComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.TextGrammarCheck__LanguageToolComboBox_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: TextGrammarCheck__LanguageToolComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.TextGrammarCheck__LanguageToolComboBox_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -9064,9 +11168,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QChildEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -9078,16 +11186,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: TextGrammarCheck__LanguageToolComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.TextGrammarCheck__LanguageToolComboBox_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: TextGrammarCheck__LanguageToolComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.TextGrammarCheck__LanguageToolComboBox_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -9099,12 +11207,16 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: TextGrammarCheck__LanguageToolComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.TextGrammarCheck__LanguageToolComboBox_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: TextGrammarCheck__LanguageToolComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.TextGrammarCheck__LanguageToolComboBox_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -9118,9 +11230,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -9134,14 +11250,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: TextGrammarCheck__LanguageToolComboBox, signal: anytype) void {
+    pub fn connectNotify(self: TextGrammarCheck__LanguageToolComboBox, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.TextGrammarCheck__LanguageToolComboBox_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -9155,11 +11271,15 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: TextGrammarCheck__LanguageToolComboBox, signal: anytype) void {
+    pub fn superConnectNotify(self: TextGrammarCheck__LanguageToolComboBox, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.TextGrammarCheck__LanguageToolComboBox_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -9172,9 +11292,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QMetaMethod) callconv(.c) void) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -9188,14 +11312,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: TextGrammarCheck__LanguageToolComboBox, signal: anytype) void {
+    pub fn disconnectNotify(self: TextGrammarCheck__LanguageToolComboBox, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.TextGrammarCheck__LanguageToolComboBox_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -9209,10 +11333,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: TextGrammarCheck__LanguageToolComboBox, signal: anytype) void {
+    pub fn superDisconnectNotify(self: TextGrammarCheck__LanguageToolComboBox, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.TextGrammarCheck__LanguageToolComboBox_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -9226,10 +11354,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QMetaMethod) callconv(.c) void) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -9240,13 +11372,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn UpdateMicroFocus(self: TextGrammarCheck__LanguageToolComboBox) void {
+    pub fn updateMicroFocus(self: TextGrammarCheck__LanguageToolComboBox) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -9258,10 +11390,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn SuperUpdateMicroFocus(self: TextGrammarCheck__LanguageToolComboBox) void {
+    pub fn superUpdateMicroFocus(self: TextGrammarCheck__LanguageToolComboBox) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -9274,10 +11410,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn () callconv(.c) void) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -9288,13 +11428,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn Create(self: TextGrammarCheck__LanguageToolComboBox) void {
+    pub fn create(self: TextGrammarCheck__LanguageToolComboBox) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -9306,10 +11446,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn SuperCreate(self: TextGrammarCheck__LanguageToolComboBox) void {
+    pub fn superCreate(self: TextGrammarCheck__LanguageToolComboBox) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -9322,9 +11466,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn () callconv(.c) void) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -9336,13 +11484,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn Destroy(self: TextGrammarCheck__LanguageToolComboBox) void {
+    pub fn destroy(self: TextGrammarCheck__LanguageToolComboBox) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -9354,9 +11502,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn SuperDestroy(self: TextGrammarCheck__LanguageToolComboBox) void {
+    pub fn superDestroy(self: TextGrammarCheck__LanguageToolComboBox) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -9370,10 +11522,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn () callconv(.c) void) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -9384,13 +11540,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn FocusNextChild(self: TextGrammarCheck__LanguageToolComboBox) bool {
+    pub fn focusNextChild(self: TextGrammarCheck__LanguageToolComboBox) bool {
         return qtc.TextGrammarCheck__LanguageToolComboBox_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -9402,10 +11558,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn SuperFocusNextChild(self: TextGrammarCheck__LanguageToolComboBox) bool {
+    pub fn superFocusNextChild(self: TextGrammarCheck__LanguageToolComboBox) bool {
         return qtc.TextGrammarCheck__LanguageToolComboBox_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -9418,9 +11578,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn () callconv(.c) bool) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -9432,13 +11596,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn FocusPreviousChild(self: TextGrammarCheck__LanguageToolComboBox) bool {
+    pub fn focusPreviousChild(self: TextGrammarCheck__LanguageToolComboBox) bool {
         return qtc.TextGrammarCheck__LanguageToolComboBox_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -9450,9 +11614,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn SuperFocusPreviousChild(self: TextGrammarCheck__LanguageToolComboBox) bool {
+    pub fn superFocusPreviousChild(self: TextGrammarCheck__LanguageToolComboBox) bool {
         return qtc.TextGrammarCheck__LanguageToolComboBox_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -9466,9 +11634,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn () callconv(.c) bool) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -9480,13 +11652,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn Sender(self: TextGrammarCheck__LanguageToolComboBox) QObject {
+    pub fn sender(self: TextGrammarCheck__LanguageToolComboBox) QObject {
         return .{ .ptr = qtc.TextGrammarCheck__LanguageToolComboBox_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -9498,9 +11670,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn SuperSender(self: TextGrammarCheck__LanguageToolComboBox) QObject {
+    pub fn superSender(self: TextGrammarCheck__LanguageToolComboBox) QObject {
         return .{ .ptr = qtc.TextGrammarCheck__LanguageToolComboBox_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -9514,9 +11690,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn () callconv(.c) QObject) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -9528,13 +11708,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn SenderSignalIndex(self: TextGrammarCheck__LanguageToolComboBox) i32 {
+    pub fn senderSignalIndex(self: TextGrammarCheck__LanguageToolComboBox) i32 {
         return qtc.TextGrammarCheck__LanguageToolComboBox_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -9546,9 +11726,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn SuperSenderSignalIndex(self: TextGrammarCheck__LanguageToolComboBox) i32 {
+    pub fn superSenderSignalIndex(self: TextGrammarCheck__LanguageToolComboBox) i32 {
         return qtc.TextGrammarCheck__LanguageToolComboBox_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -9562,9 +11746,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn () callconv(.c) i32) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -9578,14 +11766,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: TextGrammarCheck__LanguageToolComboBox, signal: [:0]const u8) i32 {
+    pub fn receivers(self: TextGrammarCheck__LanguageToolComboBox, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.TextGrammarCheck__LanguageToolComboBox_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -9599,10 +11787,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: TextGrammarCheck__LanguageToolComboBox, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: TextGrammarCheck__LanguageToolComboBox, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.TextGrammarCheck__LanguageToolComboBox_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -9616,9 +11808,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, [*:0]const u8) callconv(.c) i32) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -9632,14 +11828,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: TextGrammarCheck__LanguageToolComboBox, signal: anytype) bool {
+    pub fn isSignalConnected(self: TextGrammarCheck__LanguageToolComboBox, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.TextGrammarCheck__LanguageToolComboBox_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -9653,10 +11849,14 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: TextGrammarCheck__LanguageToolComboBox, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: TextGrammarCheck__LanguageToolComboBox, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.TextGrammarCheck__LanguageToolComboBox_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -9670,9 +11870,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, QMetaMethod) callconv(.c) bool) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9688,13 +11892,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: TextGrammarCheck__LanguageToolComboBox, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: TextGrammarCheck__LanguageToolComboBox, metricA: i32, metricB: i32) f64 {
         return qtc.TextGrammarCheck__LanguageToolComboBox_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9710,9 +11914,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: TextGrammarCheck__LanguageToolComboBox, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: TextGrammarCheck__LanguageToolComboBox, metricA: i32, metricB: i32) f64 {
         return qtc.TextGrammarCheck__LanguageToolComboBox_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9726,9 +11934,13 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, i32, i32) callconv(.c) f64) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -9742,23 +11954,23 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextGrammarCheck_1_1LanguageToolComboBox.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: TextGrammarCheck__LanguageToolComboBox `
     ///
-    pub fn Delete(self: TextGrammarCheck__LanguageToolComboBox) void {
+    pub fn delete(self: TextGrammarCheck__LanguageToolComboBox) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_Delete(@ptrCast(self.ptr));
     }
 };

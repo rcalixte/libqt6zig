@@ -11,15 +11,23 @@ pub const QVLABaseBase = extern struct {
 
     pub const _is_QVLABaseBase = {};
 
+    /// ### DEPRECATED: Use `capacity` instead
+    ///
+    pub const Capacity = capacity;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvlabasebase.html#capacity)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QVLABaseBase `
     ///
-    pub fn Capacity(self: QVLABaseBase) isize {
+    pub fn capacity(self: QVLABaseBase) isize {
         return qtc.QVLABaseBase_Capacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvlabasebase.html#size)
     ///
@@ -27,9 +35,13 @@ pub const QVLABaseBase = extern struct {
     ///
     /// ` self: QVLABaseBase `
     ///
-    pub fn Size(self: QVLABaseBase) isize {
+    pub fn size(self: QVLABaseBase) isize {
         return qtc.QVLABaseBase_Size(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `empty` instead
+    ///
+    pub const Empty = empty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvlabasebase.html#empty)
     ///
@@ -37,7 +49,7 @@ pub const QVLABaseBase = extern struct {
     ///
     /// ` self: QVLABaseBase `
     ///
-    pub fn Empty(self: QVLABaseBase) bool {
+    pub fn empty(self: QVLABaseBase) bool {
         return qtc.QVLABaseBase_Empty(@ptrCast(self.ptr));
     }
 };

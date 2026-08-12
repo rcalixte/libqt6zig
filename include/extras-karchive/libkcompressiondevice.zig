@@ -32,7 +32,11 @@ pub const KCompressionDevice = extern struct {
     pub const _is_QObject = {};
     pub const _is_QIODeviceBase = {};
 
-    /// New constructs a new KCompressionDevice object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KCompressionDevice object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -42,12 +46,16 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` typeVal: kcompressiondevice_enums.CompressionType `
     ///
-    pub fn New(inputDevice: anytype, autoDeleteInputDevice: bool, typeVal: i32) KCompressionDevice {
+    pub fn new(inputDevice: anytype, autoDeleteInputDevice: bool, typeVal: i32) KCompressionDevice {
         comptime _ = @TypeOf(inputDevice)._is_QIODevice;
         return .{ .ptr = qtc.KCompressionDevice_new(@ptrCast(inputDevice.ptr), autoDeleteInputDevice, @bitCast(typeVal)) };
     }
 
-    /// New2 constructs a new KCompressionDevice object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KCompressionDevice object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -55,7 +63,7 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` typeVal: kcompressiondevice_enums.CompressionType `
     ///
-    pub fn New2(fileName: []const u8, typeVal: i32) KCompressionDevice {
+    pub fn new2(fileName: []const u8, typeVal: i32) KCompressionDevice {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
@@ -63,13 +71,17 @@ pub const KCompressionDevice = extern struct {
         return .{ .ptr = qtc.KCompressionDevice_new2(fileName_str, @bitCast(typeVal)) };
     }
 
-    /// New3 constructs a new KCompressionDevice object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new KCompressionDevice object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` fileName: []const u8 `
     ///
-    pub fn New3(fileName: []const u8) KCompressionDevice {
+    pub fn new3(fileName: []const u8) KCompressionDevice {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
@@ -77,15 +89,23 @@ pub const KCompressionDevice = extern struct {
         return .{ .ptr = qtc.KCompressionDevice_new3(fileName_str) };
     }
 
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn MetaObject(self: KCompressionDevice) QMetaObject {
+    pub fn metaObject(self: KCompressionDevice) QMetaObject {
         return .{ .ptr = qtc.KCompressionDevice_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -97,13 +117,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KCompressionDevice, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KCompressionDevice, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KCompressionDevice_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -113,9 +133,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn SuperMetaObject(self: KCompressionDevice) QMetaObject {
+    pub fn superMetaObject(self: KCompressionDevice) QMetaObject {
         return .{ .ptr = qtc.KCompressionDevice_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -123,10 +147,14 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KCompressionDevice, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KCompressionDevice, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KCompressionDevice_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -136,13 +164,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` callback: *const fn (self: KCompressionDevice, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KCompressionDevice, callback: *const fn (KCompressionDevice, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KCompressionDevice, callback: *const fn (KCompressionDevice, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KCompressionDevice_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -152,10 +180,14 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KCompressionDevice, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KCompressionDevice, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KCompressionDevice_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -167,9 +199,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KCompressionDevice, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KCompressionDevice, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KCompressionDevice_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -179,13 +215,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` callback: *const fn (self: KCompressionDevice, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KCompressionDevice, callback: *const fn (KCompressionDevice, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KCompressionDevice, callback: *const fn (KCompressionDevice, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KCompressionDevice_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -199,9 +235,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KCompressionDevice, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KCompressionDevice, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KCompressionDevice_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -211,14 +251,18 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompressionDevice.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompressionDevice.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `compressionType` instead
+    ///
+    pub const CompressionType = compressionType;
 
     /// ### [Upstream resources](https://api.kde.org/kcompressiondevice.html#compressionType)
     ///
@@ -230,9 +274,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` kcompressiondevice_enums.CompressionType `
     ///
-    pub fn CompressionType(self: KCompressionDevice) i32 {
+    pub fn compressionType(self: KCompressionDevice) i32 {
         return qtc.KCompressionDevice_CompressionType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `open` instead
+    ///
+    pub const Open = open;
 
     /// ### [Upstream resources](https://api.kde.org/kcompressiondevice.html#open)
     ///
@@ -242,9 +290,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn Open(self: KCompressionDevice, mode: i32) bool {
+    pub fn open(self: KCompressionDevice, mode: i32) bool {
         return qtc.KCompressionDevice_Open(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `onOpen` instead
+    ///
+    pub const OnOpen = onOpen;
 
     /// ### [Upstream resources](https://api.kde.org/kcompressiondevice.html#open)
     ///
@@ -256,13 +308,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` callback: *const fn (self: KCompressionDevice, mode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool `
     ///
-    pub fn OnOpen(self: KCompressionDevice, callback: *const fn (KCompressionDevice, i32) callconv(.c) bool) void {
+    pub fn onOpen(self: KCompressionDevice, callback: *const fn (KCompressionDevice, i32) callconv(.c) bool) void {
         qtc.KCompressionDevice_OnOpen(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperOpen` instead
+    /// ### DEPRECATED: Use `superOpen` instead
     ///
-    pub const QBaseOpen = SuperOpen;
+    pub const SuperOpen = superOpen;
 
     /// ### [Upstream resources](https://api.kde.org/kcompressiondevice.html#open)
     ///
@@ -274,9 +326,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn SuperOpen(self: KCompressionDevice, mode: i32) bool {
+    pub fn superOpen(self: KCompressionDevice, mode: i32) bool {
         return qtc.KCompressionDevice_SuperOpen(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// ### [Upstream resources](https://api.kde.org/kcompressiondevice.html#close)
     ///
@@ -284,9 +340,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn Close(self: KCompressionDevice) void {
+    pub fn close(self: KCompressionDevice) void {
         qtc.KCompressionDevice_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onClose` instead
+    ///
+    pub const OnClose = onClose;
 
     /// ### [Upstream resources](https://api.kde.org/kcompressiondevice.html#close)
     ///
@@ -298,13 +358,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnClose(self: KCompressionDevice, callback: *const fn () callconv(.c) void) void {
+    pub fn onClose(self: KCompressionDevice, callback: *const fn () callconv(.c) void) void {
         qtc.KCompressionDevice_OnClose(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperClose` instead
+    /// ### DEPRECATED: Use `superClose` instead
     ///
-    pub const QBaseClose = SuperClose;
+    pub const SuperClose = superClose;
 
     /// ### [Upstream resources](https://api.kde.org/kcompressiondevice.html#close)
     ///
@@ -314,9 +374,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn SuperClose(self: KCompressionDevice) void {
+    pub fn superClose(self: KCompressionDevice) void {
         qtc.KCompressionDevice_SuperClose(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setOrigFileName` instead
+    ///
+    pub const SetOrigFileName = setOrigFileName;
 
     /// ### [Upstream resources](https://api.kde.org/kcompressiondevice.html#setOrigFileName)
     ///
@@ -326,7 +390,7 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` fileName: []u8 `
     ///
-    pub fn SetOrigFileName(self: KCompressionDevice, fileName: []u8) void {
+    pub fn setOrigFileName(self: KCompressionDevice, fileName: []u8) void {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
@@ -334,15 +398,23 @@ pub const KCompressionDevice = extern struct {
         qtc.KCompressionDevice_SetOrigFileName(@ptrCast(self.ptr), fileName_str);
     }
 
+    /// ### DEPRECATED: Use `setSkipHeaders` instead
+    ///
+    pub const SetSkipHeaders = setSkipHeaders;
+
     /// ### [Upstream resources](https://api.kde.org/kcompressiondevice.html#setSkipHeaders)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn SetSkipHeaders(self: KCompressionDevice) void {
+    pub fn setSkipHeaders(self: KCompressionDevice) void {
         qtc.KCompressionDevice_SetSkipHeaders(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `seek` instead
+    ///
+    pub const Seek = seek;
 
     /// ### [Upstream resources](https://api.kde.org/kcompressiondevice.html#seek)
     ///
@@ -352,9 +424,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` param1: i64 `
     ///
-    pub fn Seek(self: KCompressionDevice, param1: i64) bool {
+    pub fn seek(self: KCompressionDevice, param1: i64) bool {
         return qtc.KCompressionDevice_Seek(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onSeek` instead
+    ///
+    pub const OnSeek = onSeek;
 
     /// ### [Upstream resources](https://api.kde.org/kcompressiondevice.html#seek)
     ///
@@ -366,13 +442,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` callback: *const fn (self: KCompressionDevice, param1: i64) callconv(.c) bool `
     ///
-    pub fn OnSeek(self: KCompressionDevice, callback: *const fn (KCompressionDevice, i64) callconv(.c) bool) void {
+    pub fn onSeek(self: KCompressionDevice, callback: *const fn (KCompressionDevice, i64) callconv(.c) bool) void {
         qtc.KCompressionDevice_OnSeek(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSeek` instead
+    /// ### DEPRECATED: Use `superSeek` instead
     ///
-    pub const QBaseSeek = SuperSeek;
+    pub const SuperSeek = superSeek;
 
     /// ### [Upstream resources](https://api.kde.org/kcompressiondevice.html#seek)
     ///
@@ -384,9 +460,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` param1: i64 `
     ///
-    pub fn SuperSeek(self: KCompressionDevice, param1: i64) bool {
+    pub fn superSeek(self: KCompressionDevice, param1: i64) bool {
         return qtc.KCompressionDevice_SuperSeek(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `atEnd` instead
+    ///
+    pub const AtEnd = atEnd;
 
     /// ### [Upstream resources](https://api.kde.org/kcompressiondevice.html#atEnd)
     ///
@@ -394,9 +474,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn AtEnd(self: KCompressionDevice) bool {
+    pub fn atEnd(self: KCompressionDevice) bool {
         return qtc.KCompressionDevice_AtEnd(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onAtEnd` instead
+    ///
+    pub const OnAtEnd = onAtEnd;
 
     /// ### [Upstream resources](https://api.kde.org/kcompressiondevice.html#atEnd)
     ///
@@ -408,13 +492,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnAtEnd(self: KCompressionDevice, callback: *const fn () callconv(.c) bool) void {
+    pub fn onAtEnd(self: KCompressionDevice, callback: *const fn () callconv(.c) bool) void {
         qtc.KCompressionDevice_OnAtEnd(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperAtEnd` instead
+    /// ### DEPRECATED: Use `superAtEnd` instead
     ///
-    pub const QBaseAtEnd = SuperAtEnd;
+    pub const SuperAtEnd = superAtEnd;
 
     /// ### [Upstream resources](https://api.kde.org/kcompressiondevice.html#atEnd)
     ///
@@ -424,9 +508,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn SuperAtEnd(self: KCompressionDevice) bool {
+    pub fn superAtEnd(self: KCompressionDevice) bool {
         return qtc.KCompressionDevice_SuperAtEnd(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `filterForCompressionType` instead
+    ///
+    pub const FilterForCompressionType = filterForCompressionType;
 
     /// ### [Upstream resources](https://api.kde.org/kcompressiondevice.html#filterForCompressionType)
     ///
@@ -434,9 +522,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` typeVal: kcompressiondevice_enums.CompressionType `
     ///
-    pub fn FilterForCompressionType(typeVal: i32) KFilterBase {
+    pub fn filterForCompressionType(typeVal: i32) KFilterBase {
         return .{ .ptr = qtc.KCompressionDevice_FilterForCompressionType(@bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `compressionTypeForMimeType` instead
+    ///
+    pub const CompressionTypeForMimeType = compressionTypeForMimeType;
 
     /// ### [Upstream resources](https://api.kde.org/kcompressiondevice.html#compressionTypeForMimeType)
     ///
@@ -448,13 +540,19 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` kcompressiondevice_enums.CompressionType `
     ///
-    pub fn CompressionTypeForMimeType(mimetype: []const u8) i32 {
+    pub fn compressionTypeForMimeType(mimetype: []const u8) i32 {
         const mimetype_str = qtc.libqt_string{
             .len = mimetype.len,
             .data = mimetype.ptr,
         };
         return qtc.KCompressionDevice_CompressionTypeForMimeType(mimetype_str);
     }
+
+    /// ### DEPRECATED: Use `error0` instead
+    ///
+    pub const Error = error0;
+
+    pub const @"error" = error0;
 
     /// ### [Upstream resources](https://api.kde.org/kcompressiondevice.html#error)
     ///
@@ -466,9 +564,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` qfiledevice_enums.FileError `
     ///
-    pub fn Error(self: KCompressionDevice) i32 {
+    pub fn error0(self: KCompressionDevice) i32 {
         return qtc.KCompressionDevice_Error(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `readData` instead
+    ///
+    pub const ReadData = readData;
 
     /// ### [Upstream resources](https://api.kde.org/kcompressiondevice.html#readData)
     ///
@@ -480,10 +582,14 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn ReadData(self: KCompressionDevice, data: [:0]u8, maxlen: i64) i64 {
+    pub fn readData(self: KCompressionDevice, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.KCompressionDevice_ReadData(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
+
+    /// ### DEPRECATED: Use `onReadData` instead
+    ///
+    pub const OnReadData = onReadData;
 
     /// ### [Upstream resources](https://api.kde.org/kcompressiondevice.html#readData)
     ///
@@ -495,13 +601,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` callback: *const fn (self: KCompressionDevice, data: qtc.libqt_string, maxlen: i64) callconv(.c) i64 `
     ///
-    pub fn OnReadData(self: KCompressionDevice, callback: *const fn (KCompressionDevice, qtc.libqt_string, i64) callconv(.c) i64) void {
+    pub fn onReadData(self: KCompressionDevice, callback: *const fn (KCompressionDevice, qtc.libqt_string, i64) callconv(.c) i64) void {
         qtc.KCompressionDevice_OnReadData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperReadData` instead
+    /// ### DEPRECATED: Use `superReadData` instead
     ///
-    pub const QBaseReadData = SuperReadData;
+    pub const SuperReadData = superReadData;
 
     /// ### [Upstream resources](https://api.kde.org/kcompressiondevice.html#readData)
     ///
@@ -515,10 +621,14 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn SuperReadData(self: KCompressionDevice, data: [:0]u8, maxlen: i64) i64 {
+    pub fn superReadData(self: KCompressionDevice, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.KCompressionDevice_SuperReadData(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
+
+    /// ### DEPRECATED: Use `writeData` instead
+    ///
+    pub const WriteData = writeData;
 
     /// ### [Upstream resources](https://api.kde.org/kcompressiondevice.html#writeData)
     ///
@@ -530,10 +640,14 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` len: i64 `
     ///
-    pub fn WriteData(self: KCompressionDevice, data: [:0]const u8, len: i64) i64 {
+    pub fn writeData(self: KCompressionDevice, data: [:0]const u8, len: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.KCompressionDevice_WriteData(@ptrCast(self.ptr), data_Cstring, @bitCast(len));
     }
+
+    /// ### DEPRECATED: Use `onWriteData` instead
+    ///
+    pub const OnWriteData = onWriteData;
 
     /// ### [Upstream resources](https://api.kde.org/kcompressiondevice.html#writeData)
     ///
@@ -545,13 +659,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` callback: *const fn (self: KCompressionDevice, data: [*:0]const u8, len: i64) callconv(.c) i64 `
     ///
-    pub fn OnWriteData(self: KCompressionDevice, callback: *const fn (KCompressionDevice, [*:0]const u8, i64) callconv(.c) i64) void {
+    pub fn onWriteData(self: KCompressionDevice, callback: *const fn (KCompressionDevice, [*:0]const u8, i64) callconv(.c) i64) void {
         qtc.KCompressionDevice_OnWriteData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperWriteData` instead
+    /// ### DEPRECATED: Use `superWriteData` instead
     ///
-    pub const QBaseWriteData = SuperWriteData;
+    pub const SuperWriteData = superWriteData;
 
     /// ### [Upstream resources](https://api.kde.org/kcompressiondevice.html#writeData)
     ///
@@ -565,10 +679,14 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` len: i64 `
     ///
-    pub fn SuperWriteData(self: KCompressionDevice, data: [:0]const u8, len: i64) i64 {
+    pub fn superWriteData(self: KCompressionDevice, data: [:0]const u8, len: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.KCompressionDevice_SuperWriteData(@ptrCast(self.ptr), data_Cstring, @bitCast(len));
     }
+
+    /// ### DEPRECATED: Use `filterBase` instead
+    ///
+    pub const FilterBase = filterBase;
 
     /// ### [Upstream resources](https://api.kde.org/kcompressiondevice.html#filterBase)
     ///
@@ -576,9 +694,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn FilterBase(self: KCompressionDevice) KFilterBase {
+    pub fn filterBase(self: KCompressionDevice) KFilterBase {
         return .{ .ptr = qtc.KCompressionDevice_FilterBase(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onFilterBase` instead
+    ///
+    pub const OnFilterBase = onFilterBase;
 
     /// ### [Upstream resources](https://api.kde.org/kcompressiondevice.html#filterBase)
     ///
@@ -590,13 +712,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) KFilterBase `
     ///
-    pub fn OnFilterBase(self: KCompressionDevice, callback: *const fn () callconv(.c) KFilterBase) void {
+    pub fn onFilterBase(self: KCompressionDevice, callback: *const fn () callconv(.c) KFilterBase) void {
         qtc.KCompressionDevice_OnFilterBase(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperFilterBase` instead
+    /// ### DEPRECATED: Use `superFilterBase` instead
     ///
-    pub const QBaseFilterBase = SuperFilterBase;
+    pub const SuperFilterBase = superFilterBase;
 
     /// ### [Upstream resources](https://api.kde.org/kcompressiondevice.html#filterBase)
     ///
@@ -606,9 +728,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn SuperFilterBase(self: KCompressionDevice) KFilterBase {
+    pub fn superFilterBase(self: KCompressionDevice) KFilterBase {
         return .{ .ptr = qtc.KCompressionDevice_SuperFilterBase(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -620,15 +746,19 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompressionDevice.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompressionDevice.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -642,15 +772,19 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompressionDevice.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompressionDevice.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `openMode` instead
+    ///
+    pub const OpenMode = openMode;
 
     /// Inherited from QIODevice
     ///
@@ -664,9 +798,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn OpenMode(self: KCompressionDevice) i32 {
+    pub fn openMode(self: KCompressionDevice) i32 {
         return qtc.QIODevice_OpenMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTextModeEnabled` instead
+    ///
+    pub const SetTextModeEnabled = setTextModeEnabled;
 
     /// Inherited from QIODevice
     ///
@@ -678,9 +816,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetTextModeEnabled(self: KCompressionDevice, enabled: bool) void {
+    pub fn setTextModeEnabled(self: KCompressionDevice, enabled: bool) void {
         qtc.QIODevice_SetTextModeEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `isTextModeEnabled` instead
+    ///
+    pub const IsTextModeEnabled = isTextModeEnabled;
 
     /// Inherited from QIODevice
     ///
@@ -690,9 +832,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn IsTextModeEnabled(self: KCompressionDevice) bool {
+    pub fn isTextModeEnabled(self: KCompressionDevice) bool {
         return qtc.QIODevice_IsTextModeEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isOpen` instead
+    ///
+    pub const IsOpen = isOpen;
 
     /// Inherited from QIODevice
     ///
@@ -702,9 +848,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn IsOpen(self: KCompressionDevice) bool {
+    pub fn isOpen(self: KCompressionDevice) bool {
         return qtc.QIODevice_IsOpen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isReadable` instead
+    ///
+    pub const IsReadable = isReadable;
 
     /// Inherited from QIODevice
     ///
@@ -714,9 +864,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn IsReadable(self: KCompressionDevice) bool {
+    pub fn isReadable(self: KCompressionDevice) bool {
         return qtc.QIODevice_IsReadable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWritable` instead
+    ///
+    pub const IsWritable = isWritable;
 
     /// Inherited from QIODevice
     ///
@@ -726,9 +880,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn IsWritable(self: KCompressionDevice) bool {
+    pub fn isWritable(self: KCompressionDevice) bool {
         return qtc.QIODevice_IsWritable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `readChannelCount` instead
+    ///
+    pub const ReadChannelCount = readChannelCount;
 
     /// Inherited from QIODevice
     ///
@@ -738,9 +896,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn ReadChannelCount(self: KCompressionDevice) i32 {
+    pub fn readChannelCount(self: KCompressionDevice) i32 {
         return qtc.QIODevice_ReadChannelCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `writeChannelCount` instead
+    ///
+    pub const WriteChannelCount = writeChannelCount;
 
     /// Inherited from QIODevice
     ///
@@ -750,9 +912,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn WriteChannelCount(self: KCompressionDevice) i32 {
+    pub fn writeChannelCount(self: KCompressionDevice) i32 {
         return qtc.QIODevice_WriteChannelCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `currentReadChannel` instead
+    ///
+    pub const CurrentReadChannel = currentReadChannel;
 
     /// Inherited from QIODevice
     ///
@@ -762,9 +928,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn CurrentReadChannel(self: KCompressionDevice) i32 {
+    pub fn currentReadChannel(self: KCompressionDevice) i32 {
         return qtc.QIODevice_CurrentReadChannel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCurrentReadChannel` instead
+    ///
+    pub const SetCurrentReadChannel = setCurrentReadChannel;
 
     /// Inherited from QIODevice
     ///
@@ -776,9 +946,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` channel: i32 `
     ///
-    pub fn SetCurrentReadChannel(self: KCompressionDevice, channel: i32) void {
+    pub fn setCurrentReadChannel(self: KCompressionDevice, channel: i32) void {
         qtc.QIODevice_SetCurrentReadChannel(@ptrCast(self.ptr), @bitCast(channel));
     }
+
+    /// ### DEPRECATED: Use `currentWriteChannel` instead
+    ///
+    pub const CurrentWriteChannel = currentWriteChannel;
 
     /// Inherited from QIODevice
     ///
@@ -788,9 +962,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn CurrentWriteChannel(self: KCompressionDevice) i32 {
+    pub fn currentWriteChannel(self: KCompressionDevice) i32 {
         return qtc.QIODevice_CurrentWriteChannel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCurrentWriteChannel` instead
+    ///
+    pub const SetCurrentWriteChannel = setCurrentWriteChannel;
 
     /// Inherited from QIODevice
     ///
@@ -802,9 +980,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` channel: i32 `
     ///
-    pub fn SetCurrentWriteChannel(self: KCompressionDevice, channel: i32) void {
+    pub fn setCurrentWriteChannel(self: KCompressionDevice, channel: i32) void {
         qtc.QIODevice_SetCurrentWriteChannel(@ptrCast(self.ptr), @bitCast(channel));
     }
+
+    /// ### DEPRECATED: Use `read` instead
+    ///
+    pub const Read = read;
 
     /// Inherited from QIODevice
     ///
@@ -818,10 +1000,14 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn Read(self: KCompressionDevice, data: [:0]u8, maxlen: i64) i64 {
+    pub fn read(self: KCompressionDevice, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.QIODevice_Read(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
+
+    /// ### DEPRECATED: Use `read2` instead
+    ///
+    pub const Read2 = read2;
 
     /// Inherited from QIODevice
     ///
@@ -835,13 +1021,17 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn Read2(self: KCompressionDevice, allocator: std.mem.Allocator, maxlen: i64) []u8 {
+    pub fn read2(self: KCompressionDevice, allocator: std.mem.Allocator, maxlen: i64) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QIODevice_Read2(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KCompressionDevice.Read2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KCompressionDevice.read2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `readAll` instead
+    ///
+    pub const ReadAll = readAll;
 
     /// Inherited from QIODevice
     ///
@@ -853,13 +1043,17 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadAll(self: KCompressionDevice, allocator: std.mem.Allocator) []u8 {
+    pub fn readAll(self: KCompressionDevice, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadAll(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KCompressionDevice.ReadAll: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KCompressionDevice.readAll: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `readLine` instead
+    ///
+    pub const ReadLine = readLine;
 
     /// Inherited from QIODevice
     ///
@@ -873,10 +1067,14 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn ReadLine(self: KCompressionDevice, data: [:0]u8, maxlen: i64) i64 {
+    pub fn readLine(self: KCompressionDevice, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.QIODevice_ReadLine(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
+
+    /// ### DEPRECATED: Use `readLine2` instead
+    ///
+    pub const ReadLine2 = readLine2;
 
     /// Inherited from QIODevice
     ///
@@ -888,13 +1086,17 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadLine2(self: KCompressionDevice, allocator: std.mem.Allocator) []u8 {
+    pub fn readLine2(self: KCompressionDevice, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine2(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KCompressionDevice.ReadLine2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KCompressionDevice.readLine2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `startTransaction` instead
+    ///
+    pub const StartTransaction = startTransaction;
 
     /// Inherited from QIODevice
     ///
@@ -904,9 +1106,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn StartTransaction(self: KCompressionDevice) void {
+    pub fn startTransaction(self: KCompressionDevice) void {
         qtc.QIODevice_StartTransaction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `commitTransaction` instead
+    ///
+    pub const CommitTransaction = commitTransaction;
 
     /// Inherited from QIODevice
     ///
@@ -916,9 +1122,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn CommitTransaction(self: KCompressionDevice) void {
+    pub fn commitTransaction(self: KCompressionDevice) void {
         qtc.QIODevice_CommitTransaction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rollbackTransaction` instead
+    ///
+    pub const RollbackTransaction = rollbackTransaction;
 
     /// Inherited from QIODevice
     ///
@@ -928,9 +1138,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn RollbackTransaction(self: KCompressionDevice) void {
+    pub fn rollbackTransaction(self: KCompressionDevice) void {
         qtc.QIODevice_RollbackTransaction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTransactionStarted` instead
+    ///
+    pub const IsTransactionStarted = isTransactionStarted;
 
     /// Inherited from QIODevice
     ///
@@ -940,9 +1154,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn IsTransactionStarted(self: KCompressionDevice) bool {
+    pub fn isTransactionStarted(self: KCompressionDevice) bool {
         return qtc.QIODevice_IsTransactionStarted(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `write` instead
+    ///
+    pub const Write = write;
 
     /// Inherited from QIODevice
     ///
@@ -956,10 +1174,14 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` len: i64 `
     ///
-    pub fn Write(self: KCompressionDevice, data: [:0]const u8, len: i64) i64 {
+    pub fn write(self: KCompressionDevice, data: [:0]const u8, len: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.QIODevice_Write(@ptrCast(self.ptr), data_Cstring, @bitCast(len));
     }
+
+    /// ### DEPRECATED: Use `write2` instead
+    ///
+    pub const Write2 = write2;
 
     /// Inherited from QIODevice
     ///
@@ -971,10 +1193,14 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` data: [:0]const u8 `
     ///
-    pub fn Write2(self: KCompressionDevice, data: [:0]const u8) i64 {
+    pub fn write2(self: KCompressionDevice, data: [:0]const u8) i64 {
         const data_Cstring = data.ptr;
         return qtc.QIODevice_Write2(@ptrCast(self.ptr), data_Cstring);
     }
+
+    /// ### DEPRECATED: Use `write3` instead
+    ///
+    pub const Write3 = write3;
 
     /// Inherited from QIODevice
     ///
@@ -986,13 +1212,17 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` data: []u8 `
     ///
-    pub fn Write3(self: KCompressionDevice, data: []u8) i64 {
+    pub fn write3(self: KCompressionDevice, data: []u8) i64 {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
         return qtc.QIODevice_Write3(@ptrCast(self.ptr), data_str);
     }
+
+    /// ### DEPRECATED: Use `peek` instead
+    ///
+    pub const Peek = peek;
 
     /// Inherited from QIODevice
     ///
@@ -1006,10 +1236,14 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn Peek(self: KCompressionDevice, data: [:0]u8, maxlen: i64) i64 {
+    pub fn peek(self: KCompressionDevice, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.QIODevice_Peek(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
+
+    /// ### DEPRECATED: Use `peek2` instead
+    ///
+    pub const Peek2 = peek2;
 
     /// Inherited from QIODevice
     ///
@@ -1023,13 +1257,17 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn Peek2(self: KCompressionDevice, allocator: std.mem.Allocator, maxlen: i64) []u8 {
+    pub fn peek2(self: KCompressionDevice, allocator: std.mem.Allocator, maxlen: i64) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QIODevice_Peek2(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KCompressionDevice.Peek2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KCompressionDevice.peek2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `skip` instead
+    ///
+    pub const Skip = skip;
 
     /// Inherited from QIODevice
     ///
@@ -1041,9 +1279,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` maxSize: i64 `
     ///
-    pub fn Skip(self: KCompressionDevice, maxSize: i64) i64 {
+    pub fn skip(self: KCompressionDevice, maxSize: i64) i64 {
         return qtc.QIODevice_Skip(@ptrCast(self.ptr), @bitCast(maxSize));
     }
+
+    /// ### DEPRECATED: Use `ungetChar` instead
+    ///
+    pub const UngetChar = ungetChar;
 
     /// Inherited from QIODevice
     ///
@@ -1055,9 +1297,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` c: u8 `
     ///
-    pub fn UngetChar(self: KCompressionDevice, c: u8) void {
+    pub fn ungetChar(self: KCompressionDevice, c: u8) void {
         qtc.QIODevice_UngetChar(@ptrCast(self.ptr), @bitCast(c));
     }
+
+    /// ### DEPRECATED: Use `putChar` instead
+    ///
+    pub const PutChar = putChar;
 
     /// Inherited from QIODevice
     ///
@@ -1069,9 +1315,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` c: u8 `
     ///
-    pub fn PutChar(self: KCompressionDevice, c: u8) bool {
+    pub fn putChar(self: KCompressionDevice, c: u8) bool {
         return qtc.QIODevice_PutChar(@ptrCast(self.ptr), @bitCast(c));
     }
+
+    /// ### DEPRECATED: Use `getChar` instead
+    ///
+    pub const GetChar = getChar;
 
     /// Inherited from QIODevice
     ///
@@ -1083,10 +1333,14 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` c: [:0]u8 `
     ///
-    pub fn GetChar(self: KCompressionDevice, c: [:0]u8) bool {
+    pub fn getChar(self: KCompressionDevice, c: [:0]u8) bool {
         const c_Cstring = c.ptr;
         return qtc.QIODevice_GetChar(@ptrCast(self.ptr), c_Cstring);
     }
+
+    /// ### DEPRECATED: Use `errorString` instead
+    ///
+    pub const ErrorString = errorString;
 
     /// Inherited from QIODevice
     ///
@@ -1098,13 +1352,17 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ErrorString(self: KCompressionDevice, allocator: std.mem.Allocator) []const u8 {
+    pub fn errorString(self: KCompressionDevice, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QIODevice_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompressionDevice.ErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompressionDevice.errorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `readyRead` instead
+    ///
+    pub const ReadyRead = readyRead;
 
     /// Inherited from QIODevice
     ///
@@ -1114,9 +1372,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn ReadyRead(self: KCompressionDevice) void {
+    pub fn readyRead(self: KCompressionDevice) void {
         qtc.QIODevice_ReadyRead(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onReadyRead` instead
+    ///
+    pub const OnReadyRead = onReadyRead;
 
     /// Inherited from QIODevice
     ///
@@ -1128,9 +1390,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` callback: *const fn (self: KCompressionDevice) callconv(.c) void `
     ///
-    pub fn OnReadyRead(self: KCompressionDevice, callback: *const fn (KCompressionDevice) callconv(.c) void) void {
+    pub fn onReadyRead(self: KCompressionDevice, callback: *const fn (KCompressionDevice) callconv(.c) void) void {
         qtc.QIODevice_Connect_ReadyRead(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `channelReadyRead` instead
+    ///
+    pub const ChannelReadyRead = channelReadyRead;
 
     /// Inherited from QIODevice
     ///
@@ -1142,9 +1408,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` channel: i32 `
     ///
-    pub fn ChannelReadyRead(self: KCompressionDevice, channel: i32) void {
+    pub fn channelReadyRead(self: KCompressionDevice, channel: i32) void {
         qtc.QIODevice_ChannelReadyRead(@ptrCast(self.ptr), @bitCast(channel));
     }
+
+    /// ### DEPRECATED: Use `onChannelReadyRead` instead
+    ///
+    pub const OnChannelReadyRead = onChannelReadyRead;
 
     /// Inherited from QIODevice
     ///
@@ -1156,9 +1426,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` callback: *const fn (self: KCompressionDevice, channel: i32) callconv(.c) void `
     ///
-    pub fn OnChannelReadyRead(self: KCompressionDevice, callback: *const fn (KCompressionDevice, i32) callconv(.c) void) void {
+    pub fn onChannelReadyRead(self: KCompressionDevice, callback: *const fn (KCompressionDevice, i32) callconv(.c) void) void {
         qtc.QIODevice_Connect_ChannelReadyRead(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `bytesWritten` instead
+    ///
+    pub const BytesWritten = bytesWritten;
 
     /// Inherited from QIODevice
     ///
@@ -1170,9 +1444,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` bytes: i64 `
     ///
-    pub fn BytesWritten(self: KCompressionDevice, bytes: i64) void {
+    pub fn bytesWritten(self: KCompressionDevice, bytes: i64) void {
         qtc.QIODevice_BytesWritten(@ptrCast(self.ptr), @bitCast(bytes));
     }
+
+    /// ### DEPRECATED: Use `onBytesWritten` instead
+    ///
+    pub const OnBytesWritten = onBytesWritten;
 
     /// Inherited from QIODevice
     ///
@@ -1184,9 +1462,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` callback: *const fn (self: KCompressionDevice, bytes: i64) callconv(.c) void `
     ///
-    pub fn OnBytesWritten(self: KCompressionDevice, callback: *const fn (KCompressionDevice, i64) callconv(.c) void) void {
+    pub fn onBytesWritten(self: KCompressionDevice, callback: *const fn (KCompressionDevice, i64) callconv(.c) void) void {
         qtc.QIODevice_Connect_BytesWritten(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `channelBytesWritten` instead
+    ///
+    pub const ChannelBytesWritten = channelBytesWritten;
 
     /// Inherited from QIODevice
     ///
@@ -1200,9 +1482,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` bytes: i64 `
     ///
-    pub fn ChannelBytesWritten(self: KCompressionDevice, channel: i32, bytes: i64) void {
+    pub fn channelBytesWritten(self: KCompressionDevice, channel: i32, bytes: i64) void {
         qtc.QIODevice_ChannelBytesWritten(@ptrCast(self.ptr), @bitCast(channel), @bitCast(bytes));
     }
+
+    /// ### DEPRECATED: Use `onChannelBytesWritten` instead
+    ///
+    pub const OnChannelBytesWritten = onChannelBytesWritten;
 
     /// Inherited from QIODevice
     ///
@@ -1214,10 +1500,14 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` callback: *const fn (self: KCompressionDevice, channel: i32, bytes: i64) callconv(.c) void `
     ///
-    pub fn OnChannelBytesWritten(self: KCompressionDevice, callback: *const fn (KCompressionDevice, i32, i64) callconv(.c) void) void {
+    pub fn onChannelBytesWritten(self: KCompressionDevice, callback: *const fn (KCompressionDevice, i32, i64) callconv(.c) void) void {
         qtc.QIODevice_Connect_ChannelBytesWritten(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `aboutToClose` instead
+    ///
+    pub const AboutToClose = aboutToClose;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#aboutToClose)
@@ -1226,10 +1516,14 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn AboutToClose(self: KCompressionDevice) void {
+    pub fn aboutToClose(self: KCompressionDevice) void {
         qtc.QIODevice_AboutToClose(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onAboutToClose` instead
+    ///
+    pub const OnAboutToClose = onAboutToClose;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#aboutToClose)
@@ -1240,9 +1534,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` callback: *const fn (self: KCompressionDevice) callconv(.c) void `
     ///
-    pub fn OnAboutToClose(self: KCompressionDevice, callback: *const fn (KCompressionDevice) callconv(.c) void) void {
+    pub fn onAboutToClose(self: KCompressionDevice, callback: *const fn (KCompressionDevice) callconv(.c) void) void {
         qtc.QIODevice_Connect_AboutToClose(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `readChannelFinished` instead
+    ///
+    pub const ReadChannelFinished = readChannelFinished;
 
     /// Inherited from QIODevice
     ///
@@ -1252,9 +1550,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn ReadChannelFinished(self: KCompressionDevice) void {
+    pub fn readChannelFinished(self: KCompressionDevice) void {
         qtc.QIODevice_ReadChannelFinished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onReadChannelFinished` instead
+    ///
+    pub const OnReadChannelFinished = onReadChannelFinished;
 
     /// Inherited from QIODevice
     ///
@@ -1266,9 +1568,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` callback: *const fn (self: KCompressionDevice) callconv(.c) void `
     ///
-    pub fn OnReadChannelFinished(self: KCompressionDevice, callback: *const fn (KCompressionDevice) callconv(.c) void) void {
+    pub fn onReadChannelFinished(self: KCompressionDevice, callback: *const fn (KCompressionDevice) callconv(.c) void) void {
         qtc.QIODevice_Connect_ReadChannelFinished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `readLine1` instead
+    ///
+    pub const ReadLine1 = readLine1;
 
     /// Inherited from QIODevice
     ///
@@ -1282,13 +1588,17 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn ReadLine1(self: KCompressionDevice, allocator: std.mem.Allocator, maxlen: i64) []u8 {
+    pub fn readLine1(self: KCompressionDevice, allocator: std.mem.Allocator, maxlen: i64) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine1(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KCompressionDevice.ReadLine1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KCompressionDevice.readLine1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -1300,13 +1610,17 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KCompressionDevice, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KCompressionDevice, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompressionDevice.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompressionDevice.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -1318,13 +1632,17 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KCompressionDevice, name: []const u8) void {
+    pub fn setObjectName(self: KCompressionDevice, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -1334,9 +1652,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn IsWidgetType(self: KCompressionDevice) bool {
+    pub fn isWidgetType(self: KCompressionDevice) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -1346,9 +1668,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn IsWindowType(self: KCompressionDevice) bool {
+    pub fn isWindowType(self: KCompressionDevice) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -1358,9 +1684,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn IsQuickItemType(self: KCompressionDevice) bool {
+    pub fn isQuickItemType(self: KCompressionDevice) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -1370,9 +1700,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn SignalsBlocked(self: KCompressionDevice) bool {
+    pub fn signalsBlocked(self: KCompressionDevice) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -1384,9 +1718,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KCompressionDevice, b: bool) bool {
+    pub fn blockSignals(self: KCompressionDevice, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -1396,9 +1734,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn Thread(self: KCompressionDevice) QThread {
+    pub fn thread(self: KCompressionDevice) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -1408,12 +1750,16 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KCompressionDevice, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KCompressionDevice, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -1425,9 +1771,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KCompressionDevice, interval: i32) i32 {
+    pub fn startTimer(self: KCompressionDevice, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -1439,9 +1789,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KCompressionDevice, time: i64) i32 {
+    pub fn startTimer2(self: KCompressionDevice, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -1453,9 +1807,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KCompressionDevice, id: i32) void {
+    pub fn killTimer(self: KCompressionDevice, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -1467,9 +1825,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KCompressionDevice, id: i32) void {
+    pub fn killTimer2(self: KCompressionDevice, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -1481,15 +1843,19 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KCompressionDevice, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KCompressionDevice, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KCompressionDevice.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KCompressionDevice.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -1499,12 +1865,16 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: KCompressionDevice, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: KCompressionDevice, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1516,10 +1886,14 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KCompressionDevice, filterObj: anytype) void {
+    pub fn installEventFilter(self: KCompressionDevice, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1531,10 +1905,14 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KCompressionDevice, obj: anytype) void {
+    pub fn removeEventFilter(self: KCompressionDevice, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -1542,7 +1920,7 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1550,13 +1928,17 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -1564,7 +1946,7 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1572,13 +1954,17 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -1588,18 +1974,22 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KCompressionDevice, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KCompressionDevice, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -1607,7 +1997,7 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1615,13 +2005,17 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -1629,7 +2023,7 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1637,13 +2031,17 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -1653,9 +2051,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn Disconnect3(self: KCompressionDevice) bool {
+    pub fn disconnect3(self: KCompressionDevice) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1667,10 +2069,14 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KCompressionDevice, receiver: anytype) bool {
+    pub fn disconnect4(self: KCompressionDevice, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1680,10 +2086,14 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1693,9 +2103,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn DumpObjectTree(self: KCompressionDevice) void {
+    pub fn dumpObjectTree(self: KCompressionDevice) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1705,9 +2119,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn DumpObjectInfo(self: KCompressionDevice) void {
+    pub fn dumpObjectInfo(self: KCompressionDevice) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1721,11 +2139,15 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KCompressionDevice, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KCompressionDevice, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1737,10 +2159,14 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KCompressionDevice, name: [:0]const u8) QVariant {
+    pub fn property(self: KCompressionDevice, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1752,7 +2178,7 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KCompressionDevice, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KCompressionDevice, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1760,27 +2186,19 @@ pub const KCompressionDevice = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KCompressionDevice.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KCompressionDevice.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KCompressionDevice.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KCompressionDevice.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCompressionDevice `
-    ///
-    pub fn BindingStorage(self: KCompressionDevice) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1790,9 +2208,29 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn BindingStorage2(self: KCompressionDevice) QBindingStorage {
+    pub fn bindingStorage(self: KCompressionDevice) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KCompressionDevice `
+    ///
+    pub fn bindingStorage2(self: KCompressionDevice) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1802,9 +2240,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn Destroyed(self: KCompressionDevice) void {
+    pub fn destroyed(self: KCompressionDevice) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1816,9 +2258,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` callback: *const fn (self: KCompressionDevice) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KCompressionDevice, callback: *const fn (KCompressionDevice) callconv(.c) void) void {
+    pub fn onDestroyed(self: KCompressionDevice, callback: *const fn (KCompressionDevice) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1828,9 +2274,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn Parent(self: KCompressionDevice) QObject {
+    pub fn parent(self: KCompressionDevice) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1842,10 +2292,14 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KCompressionDevice, classname: [:0]const u8) bool {
+    pub fn inherits(self: KCompressionDevice, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1855,9 +2309,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn DeleteLater(self: KCompressionDevice) void {
+    pub fn deleteLater(self: KCompressionDevice) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1871,9 +2329,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KCompressionDevice, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KCompressionDevice, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1887,9 +2349,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KCompressionDevice, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KCompressionDevice, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1897,7 +2363,7 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1907,13 +2373,17 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1921,7 +2391,7 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1931,13 +2401,17 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1947,7 +2421,7 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1955,12 +2429,16 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KCompressionDevice, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KCompressionDevice, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1972,10 +2450,14 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KCompressionDevice, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KCompressionDevice, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1989,11 +2471,15 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KCompressionDevice, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KCompressionDevice, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -2009,13 +2495,17 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KCompressionDevice, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KCompressionDevice, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -2028,11 +2518,15 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KCompressionDevice, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KCompressionDevice, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -2044,10 +2538,14 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KCompressionDevice, param1: anytype) void {
+    pub fn destroyed1(self: KCompressionDevice, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -2059,10 +2557,14 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` callback: *const fn (self: KCompressionDevice, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KCompressionDevice, callback: *const fn (KCompressionDevice, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KCompressionDevice, callback: *const fn (KCompressionDevice, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `isSequential` instead
+    ///
+    pub const IsSequential = isSequential;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isSequential)
@@ -2073,13 +2575,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn IsSequential(self: KCompressionDevice) bool {
+    pub fn isSequential(self: KCompressionDevice) bool {
         return qtc.KCompressionDevice_IsSequential(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSequential` instead
+    /// ### DEPRECATED: Use `superIsSequential` instead
     ///
-    pub const QBaseIsSequential = SuperIsSequential;
+    pub const SuperIsSequential = superIsSequential;
 
     /// Inherited from QIODevice
     ///
@@ -2091,10 +2593,14 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn SuperIsSequential(self: KCompressionDevice) bool {
+    pub fn superIsSequential(self: KCompressionDevice) bool {
         return qtc.KCompressionDevice_SuperIsSequential(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onIsSequential` instead
+    ///
+    pub const OnIsSequential = onIsSequential;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isSequential)
@@ -2107,10 +2613,14 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnIsSequential(self: KCompressionDevice, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsSequential(self: KCompressionDevice, callback: *const fn () callconv(.c) bool) void {
         qtc.KCompressionDevice_OnIsSequential(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#pos)
@@ -2121,13 +2631,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn Pos(self: KCompressionDevice) i64 {
+    pub fn pos(self: KCompressionDevice) i64 {
         return qtc.KCompressionDevice_Pos(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPos` instead
+    /// ### DEPRECATED: Use `superPos` instead
     ///
-    pub const QBasePos = SuperPos;
+    pub const SuperPos = superPos;
 
     /// Inherited from QIODevice
     ///
@@ -2139,10 +2649,14 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn SuperPos(self: KCompressionDevice) i64 {
+    pub fn superPos(self: KCompressionDevice) i64 {
         return qtc.KCompressionDevice_SuperPos(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onPos` instead
+    ///
+    pub const OnPos = onPos;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#pos)
@@ -2155,10 +2669,14 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i64 `
     ///
-    pub fn OnPos(self: KCompressionDevice, callback: *const fn () callconv(.c) i64) void {
+    pub fn onPos(self: KCompressionDevice, callback: *const fn () callconv(.c) i64) void {
         qtc.KCompressionDevice_OnPos(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#size)
@@ -2169,13 +2687,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn Size(self: KCompressionDevice) i64 {
+    pub fn size(self: KCompressionDevice) i64 {
         return qtc.KCompressionDevice_Size(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSize` instead
+    /// ### DEPRECATED: Use `superSize` instead
     ///
-    pub const QBaseSize = SuperSize;
+    pub const SuperSize = superSize;
 
     /// Inherited from QIODevice
     ///
@@ -2187,10 +2705,14 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn SuperSize(self: KCompressionDevice) i64 {
+    pub fn superSize(self: KCompressionDevice) i64 {
         return qtc.KCompressionDevice_SuperSize(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSize` instead
+    ///
+    pub const OnSize = onSize;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#size)
@@ -2203,10 +2725,14 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i64 `
     ///
-    pub fn OnSize(self: KCompressionDevice, callback: *const fn () callconv(.c) i64) void {
+    pub fn onSize(self: KCompressionDevice, callback: *const fn () callconv(.c) i64) void {
         qtc.KCompressionDevice_OnSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `reset` instead
+    ///
+    pub const Reset = reset;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#reset)
@@ -2217,13 +2743,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn Reset(self: KCompressionDevice) bool {
+    pub fn reset(self: KCompressionDevice) bool {
         return qtc.KCompressionDevice_Reset(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperReset` instead
+    /// ### DEPRECATED: Use `superReset` instead
     ///
-    pub const QBaseReset = SuperReset;
+    pub const SuperReset = superReset;
 
     /// Inherited from QIODevice
     ///
@@ -2235,10 +2761,14 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn SuperReset(self: KCompressionDevice) bool {
+    pub fn superReset(self: KCompressionDevice) bool {
         return qtc.KCompressionDevice_SuperReset(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onReset` instead
+    ///
+    pub const OnReset = onReset;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#reset)
@@ -2251,10 +2781,14 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnReset(self: KCompressionDevice, callback: *const fn () callconv(.c) bool) void {
+    pub fn onReset(self: KCompressionDevice, callback: *const fn () callconv(.c) bool) void {
         qtc.KCompressionDevice_OnReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `bytesAvailable` instead
+    ///
+    pub const BytesAvailable = bytesAvailable;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesAvailable)
@@ -2265,13 +2799,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn BytesAvailable(self: KCompressionDevice) i64 {
+    pub fn bytesAvailable(self: KCompressionDevice) i64 {
         return qtc.KCompressionDevice_BytesAvailable(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperBytesAvailable` instead
+    /// ### DEPRECATED: Use `superBytesAvailable` instead
     ///
-    pub const QBaseBytesAvailable = SuperBytesAvailable;
+    pub const SuperBytesAvailable = superBytesAvailable;
 
     /// Inherited from QIODevice
     ///
@@ -2283,10 +2817,14 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn SuperBytesAvailable(self: KCompressionDevice) i64 {
+    pub fn superBytesAvailable(self: KCompressionDevice) i64 {
         return qtc.KCompressionDevice_SuperBytesAvailable(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onBytesAvailable` instead
+    ///
+    pub const OnBytesAvailable = onBytesAvailable;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesAvailable)
@@ -2299,9 +2837,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i64 `
     ///
-    pub fn OnBytesAvailable(self: KCompressionDevice, callback: *const fn () callconv(.c) i64) void {
+    pub fn onBytesAvailable(self: KCompressionDevice, callback: *const fn () callconv(.c) i64) void {
         qtc.KCompressionDevice_OnBytesAvailable(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `bytesToWrite` instead
+    ///
+    pub const BytesToWrite = bytesToWrite;
 
     /// Inherited from QIODevice
     ///
@@ -2313,13 +2855,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn BytesToWrite(self: KCompressionDevice) i64 {
+    pub fn bytesToWrite(self: KCompressionDevice) i64 {
         return qtc.KCompressionDevice_BytesToWrite(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperBytesToWrite` instead
+    /// ### DEPRECATED: Use `superBytesToWrite` instead
     ///
-    pub const QBaseBytesToWrite = SuperBytesToWrite;
+    pub const SuperBytesToWrite = superBytesToWrite;
 
     /// Inherited from QIODevice
     ///
@@ -2331,9 +2873,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn SuperBytesToWrite(self: KCompressionDevice) i64 {
+    pub fn superBytesToWrite(self: KCompressionDevice) i64 {
         return qtc.KCompressionDevice_SuperBytesToWrite(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onBytesToWrite` instead
+    ///
+    pub const OnBytesToWrite = onBytesToWrite;
 
     /// Inherited from QIODevice
     ///
@@ -2347,9 +2893,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i64 `
     ///
-    pub fn OnBytesToWrite(self: KCompressionDevice, callback: *const fn () callconv(.c) i64) void {
+    pub fn onBytesToWrite(self: KCompressionDevice, callback: *const fn () callconv(.c) i64) void {
         qtc.KCompressionDevice_OnBytesToWrite(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `canReadLine` instead
+    ///
+    pub const CanReadLine = canReadLine;
 
     /// Inherited from QIODevice
     ///
@@ -2361,13 +2911,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn CanReadLine(self: KCompressionDevice) bool {
+    pub fn canReadLine(self: KCompressionDevice) bool {
         return qtc.KCompressionDevice_CanReadLine(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCanReadLine` instead
+    /// ### DEPRECATED: Use `superCanReadLine` instead
     ///
-    pub const QBaseCanReadLine = SuperCanReadLine;
+    pub const SuperCanReadLine = superCanReadLine;
 
     /// Inherited from QIODevice
     ///
@@ -2379,9 +2929,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn SuperCanReadLine(self: KCompressionDevice) bool {
+    pub fn superCanReadLine(self: KCompressionDevice) bool {
         return qtc.KCompressionDevice_SuperCanReadLine(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCanReadLine` instead
+    ///
+    pub const OnCanReadLine = onCanReadLine;
 
     /// Inherited from QIODevice
     ///
@@ -2395,10 +2949,14 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnCanReadLine(self: KCompressionDevice, callback: *const fn () callconv(.c) bool) void {
+    pub fn onCanReadLine(self: KCompressionDevice, callback: *const fn () callconv(.c) bool) void {
         qtc.KCompressionDevice_OnCanReadLine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `waitForReadyRead` instead
+    ///
+    pub const WaitForReadyRead = waitForReadyRead;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#waitForReadyRead)
@@ -2411,13 +2969,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` msecs: i32 `
     ///
-    pub fn WaitForReadyRead(self: KCompressionDevice, msecs: i32) bool {
+    pub fn waitForReadyRead(self: KCompressionDevice, msecs: i32) bool {
         return qtc.KCompressionDevice_WaitForReadyRead(@ptrCast(self.ptr), @bitCast(msecs));
     }
 
-    /// ### DEPRECATED: Use `SuperWaitForReadyRead` instead
+    /// ### DEPRECATED: Use `superWaitForReadyRead` instead
     ///
-    pub const QBaseWaitForReadyRead = SuperWaitForReadyRead;
+    pub const SuperWaitForReadyRead = superWaitForReadyRead;
 
     /// Inherited from QIODevice
     ///
@@ -2431,9 +2989,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` msecs: i32 `
     ///
-    pub fn SuperWaitForReadyRead(self: KCompressionDevice, msecs: i32) bool {
+    pub fn superWaitForReadyRead(self: KCompressionDevice, msecs: i32) bool {
         return qtc.KCompressionDevice_SuperWaitForReadyRead(@ptrCast(self.ptr), @bitCast(msecs));
     }
+
+    /// ### DEPRECATED: Use `onWaitForReadyRead` instead
+    ///
+    pub const OnWaitForReadyRead = onWaitForReadyRead;
 
     /// Inherited from QIODevice
     ///
@@ -2447,9 +3009,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` callback: *const fn (self: KCompressionDevice, msecs: i32) callconv(.c) bool `
     ///
-    pub fn OnWaitForReadyRead(self: KCompressionDevice, callback: *const fn (KCompressionDevice, i32) callconv(.c) bool) void {
+    pub fn onWaitForReadyRead(self: KCompressionDevice, callback: *const fn (KCompressionDevice, i32) callconv(.c) bool) void {
         qtc.KCompressionDevice_OnWaitForReadyRead(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `waitForBytesWritten` instead
+    ///
+    pub const WaitForBytesWritten = waitForBytesWritten;
 
     /// Inherited from QIODevice
     ///
@@ -2463,13 +3029,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` msecs: i32 `
     ///
-    pub fn WaitForBytesWritten(self: KCompressionDevice, msecs: i32) bool {
+    pub fn waitForBytesWritten(self: KCompressionDevice, msecs: i32) bool {
         return qtc.KCompressionDevice_WaitForBytesWritten(@ptrCast(self.ptr), @bitCast(msecs));
     }
 
-    /// ### DEPRECATED: Use `SuperWaitForBytesWritten` instead
+    /// ### DEPRECATED: Use `superWaitForBytesWritten` instead
     ///
-    pub const QBaseWaitForBytesWritten = SuperWaitForBytesWritten;
+    pub const SuperWaitForBytesWritten = superWaitForBytesWritten;
 
     /// Inherited from QIODevice
     ///
@@ -2483,9 +3049,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` msecs: i32 `
     ///
-    pub fn SuperWaitForBytesWritten(self: KCompressionDevice, msecs: i32) bool {
+    pub fn superWaitForBytesWritten(self: KCompressionDevice, msecs: i32) bool {
         return qtc.KCompressionDevice_SuperWaitForBytesWritten(@ptrCast(self.ptr), @bitCast(msecs));
     }
+
+    /// ### DEPRECATED: Use `onWaitForBytesWritten` instead
+    ///
+    pub const OnWaitForBytesWritten = onWaitForBytesWritten;
 
     /// Inherited from QIODevice
     ///
@@ -2499,9 +3069,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` callback: *const fn (self: KCompressionDevice, msecs: i32) callconv(.c) bool `
     ///
-    pub fn OnWaitForBytesWritten(self: KCompressionDevice, callback: *const fn (KCompressionDevice, i32) callconv(.c) bool) void {
+    pub fn onWaitForBytesWritten(self: KCompressionDevice, callback: *const fn (KCompressionDevice, i32) callconv(.c) bool) void {
         qtc.KCompressionDevice_OnWaitForBytesWritten(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `readLineData` instead
+    ///
+    pub const ReadLineData = readLineData;
 
     /// Inherited from QIODevice
     ///
@@ -2517,14 +3091,14 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn ReadLineData(self: KCompressionDevice, data: [:0]u8, maxlen: i64) i64 {
+    pub fn readLineData(self: KCompressionDevice, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.KCompressionDevice_ReadLineData(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
 
-    /// ### DEPRECATED: Use `SuperReadLineData` instead
+    /// ### DEPRECATED: Use `superReadLineData` instead
     ///
-    pub const QBaseReadLineData = SuperReadLineData;
+    pub const SuperReadLineData = superReadLineData;
 
     /// Inherited from QIODevice
     ///
@@ -2540,10 +3114,14 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn SuperReadLineData(self: KCompressionDevice, data: [:0]u8, maxlen: i64) i64 {
+    pub fn superReadLineData(self: KCompressionDevice, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.KCompressionDevice_SuperReadLineData(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
+
+    /// ### DEPRECATED: Use `onReadLineData` instead
+    ///
+    pub const OnReadLineData = onReadLineData;
 
     /// Inherited from QIODevice
     ///
@@ -2557,9 +3135,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` callback: *const fn (self: KCompressionDevice, data: qtc.libqt_string, maxlen: i64) callconv(.c) i64 `
     ///
-    pub fn OnReadLineData(self: KCompressionDevice, callback: *const fn (KCompressionDevice, qtc.libqt_string, i64) callconv(.c) i64) void {
+    pub fn onReadLineData(self: KCompressionDevice, callback: *const fn (KCompressionDevice, qtc.libqt_string, i64) callconv(.c) i64) void {
         qtc.KCompressionDevice_OnReadLineData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `skipData` instead
+    ///
+    pub const SkipData = skipData;
 
     /// Inherited from QIODevice
     ///
@@ -2573,13 +3155,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` maxSize: i64 `
     ///
-    pub fn SkipData(self: KCompressionDevice, maxSize: i64) i64 {
+    pub fn skipData(self: KCompressionDevice, maxSize: i64) i64 {
         return qtc.KCompressionDevice_SkipData(@ptrCast(self.ptr), @bitCast(maxSize));
     }
 
-    /// ### DEPRECATED: Use `SuperSkipData` instead
+    /// ### DEPRECATED: Use `superSkipData` instead
     ///
-    pub const QBaseSkipData = SuperSkipData;
+    pub const SuperSkipData = superSkipData;
 
     /// Inherited from QIODevice
     ///
@@ -2593,9 +3175,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` maxSize: i64 `
     ///
-    pub fn SuperSkipData(self: KCompressionDevice, maxSize: i64) i64 {
+    pub fn superSkipData(self: KCompressionDevice, maxSize: i64) i64 {
         return qtc.KCompressionDevice_SuperSkipData(@ptrCast(self.ptr), @bitCast(maxSize));
     }
+
+    /// ### DEPRECATED: Use `onSkipData` instead
+    ///
+    pub const OnSkipData = onSkipData;
 
     /// Inherited from QIODevice
     ///
@@ -2609,9 +3195,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` callback: *const fn (self: KCompressionDevice, maxSize: i64) callconv(.c) i64 `
     ///
-    pub fn OnSkipData(self: KCompressionDevice, callback: *const fn (KCompressionDevice, i64) callconv(.c) i64) void {
+    pub fn onSkipData(self: KCompressionDevice, callback: *const fn (KCompressionDevice, i64) callconv(.c) i64) void {
         qtc.KCompressionDevice_OnSkipData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -2623,16 +3213,16 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: KCompressionDevice, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KCompressionDevice_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: KCompressionDevice, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KCompressionDevice_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -2644,12 +3234,16 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: KCompressionDevice, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KCompressionDevice_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: KCompressionDevice, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KCompressionDevice_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -2663,9 +3257,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` callback: *const fn (self: KCompressionDevice, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KCompressionDevice, callback: *const fn (KCompressionDevice, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KCompressionDevice, callback: *const fn (KCompressionDevice, QEvent) callconv(.c) bool) void {
         qtc.KCompressionDevice_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -2679,17 +3277,17 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: KCompressionDevice, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: KCompressionDevice, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KCompressionDevice_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KCompressionDevice_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2703,13 +3301,17 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: KCompressionDevice, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: KCompressionDevice, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KCompressionDevice_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KCompressionDevice_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2723,9 +3325,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` callback: *const fn (self: KCompressionDevice, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KCompressionDevice, callback: *const fn (KCompressionDevice, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KCompressionDevice, callback: *const fn (KCompressionDevice, QObject, QEvent) callconv(.c) bool) void {
         qtc.KCompressionDevice_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -2737,16 +3343,16 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KCompressionDevice, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KCompressionDevice_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: KCompressionDevice, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KCompressionDevice_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -2758,12 +3364,16 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KCompressionDevice, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KCompressionDevice_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: KCompressionDevice, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KCompressionDevice_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -2777,9 +3387,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` callback: *const fn (self: KCompressionDevice, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KCompressionDevice, callback: *const fn (KCompressionDevice, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KCompressionDevice, callback: *const fn (KCompressionDevice, QTimerEvent) callconv(.c) void) void {
         qtc.KCompressionDevice_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -2791,16 +3405,16 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KCompressionDevice, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KCompressionDevice_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KCompressionDevice, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KCompressionDevice_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -2812,12 +3426,16 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KCompressionDevice, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KCompressionDevice_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KCompressionDevice, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KCompressionDevice_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -2831,9 +3449,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` callback: *const fn (self: KCompressionDevice, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KCompressionDevice, callback: *const fn (KCompressionDevice, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KCompressionDevice, callback: *const fn (KCompressionDevice, QChildEvent) callconv(.c) void) void {
         qtc.KCompressionDevice_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -2845,16 +3467,16 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KCompressionDevice, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KCompressionDevice_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KCompressionDevice, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KCompressionDevice_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -2866,12 +3488,16 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KCompressionDevice, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KCompressionDevice_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KCompressionDevice, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KCompressionDevice_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -2885,9 +3511,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` callback: *const fn (self: KCompressionDevice, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KCompressionDevice, callback: *const fn (KCompressionDevice, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KCompressionDevice, callback: *const fn (KCompressionDevice, QEvent) callconv(.c) void) void {
         qtc.KCompressionDevice_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -2901,14 +3531,14 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KCompressionDevice, signal: anytype) void {
+    pub fn connectNotify(self: KCompressionDevice, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KCompressionDevice_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2922,11 +3552,15 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KCompressionDevice, signal: anytype) void {
+    pub fn superConnectNotify(self: KCompressionDevice, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KCompressionDevice_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -2939,9 +3573,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` callback: *const fn (self: KCompressionDevice, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KCompressionDevice, callback: *const fn (KCompressionDevice, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KCompressionDevice, callback: *const fn (KCompressionDevice, QMetaMethod) callconv(.c) void) void {
         qtc.KCompressionDevice_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2955,14 +3593,14 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KCompressionDevice, signal: anytype) void {
+    pub fn disconnectNotify(self: KCompressionDevice, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KCompressionDevice_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2976,10 +3614,14 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KCompressionDevice, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KCompressionDevice, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KCompressionDevice_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2993,9 +3635,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` callback: *const fn (self: KCompressionDevice, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KCompressionDevice, callback: *const fn (KCompressionDevice, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KCompressionDevice, callback: *const fn (KCompressionDevice, QMetaMethod) callconv(.c) void) void {
         qtc.KCompressionDevice_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setOpenMode` instead
+    ///
+    pub const SetOpenMode = setOpenMode;
 
     /// Inherited from QIODevice
     ///
@@ -3007,15 +3653,15 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    /// ` openMode: flag of qiodevicebase_enums.OpenModeFlag `
+    /// ` _openMode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn SetOpenMode(self: KCompressionDevice, openMode: i32) void {
-        qtc.KCompressionDevice_SetOpenMode(@ptrCast(self.ptr), @bitCast(openMode));
+    pub fn setOpenMode(self: KCompressionDevice, _openMode: i32) void {
+        qtc.KCompressionDevice_SetOpenMode(@ptrCast(self.ptr), @bitCast(_openMode));
     }
 
-    /// ### DEPRECATED: Use `SuperSetOpenMode` instead
+    /// ### DEPRECATED: Use `superSetOpenMode` instead
     ///
-    pub const QBaseSetOpenMode = SuperSetOpenMode;
+    pub const SuperSetOpenMode = superSetOpenMode;
 
     /// Inherited from QIODevice
     ///
@@ -3027,11 +3673,15 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    /// ` openMode: flag of qiodevicebase_enums.OpenModeFlag `
+    /// ` _openMode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn SuperSetOpenMode(self: KCompressionDevice, openMode: i32) void {
-        qtc.KCompressionDevice_SuperSetOpenMode(@ptrCast(self.ptr), @bitCast(openMode));
+    pub fn superSetOpenMode(self: KCompressionDevice, _openMode: i32) void {
+        qtc.KCompressionDevice_SuperSetOpenMode(@ptrCast(self.ptr), @bitCast(_openMode));
     }
+
+    /// ### DEPRECATED: Use `onSetOpenMode` instead
+    ///
+    pub const OnSetOpenMode = onSetOpenMode;
 
     /// Inherited from QIODevice
     ///
@@ -3045,9 +3695,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` callback: *const fn (self: KCompressionDevice, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) void `
     ///
-    pub fn OnSetOpenMode(self: KCompressionDevice, callback: *const fn (KCompressionDevice, i32) callconv(.c) void) void {
+    pub fn onSetOpenMode(self: KCompressionDevice, callback: *const fn (KCompressionDevice, i32) callconv(.c) void) void {
         qtc.KCompressionDevice_OnSetOpenMode(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setErrorString` instead
+    ///
+    pub const SetErrorString = setErrorString;
 
     /// Inherited from QIODevice
     ///
@@ -3059,19 +3713,19 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    /// ` errorString: []const u8 `
+    /// ` _errorString: []const u8 `
     ///
-    pub fn SetErrorString(self: KCompressionDevice, errorString: []const u8) void {
+    pub fn setErrorString(self: KCompressionDevice, _errorString: []const u8) void {
         const errorString_str = qtc.libqt_string{
-            .len = errorString.len,
-            .data = errorString.ptr,
+            .len = _errorString.len,
+            .data = _errorString.ptr,
         };
         qtc.KCompressionDevice_SetErrorString(@ptrCast(self.ptr), errorString_str);
     }
 
-    /// ### DEPRECATED: Use `SuperSetErrorString` instead
+    /// ### DEPRECATED: Use `superSetErrorString` instead
     ///
-    pub const QBaseSetErrorString = SuperSetErrorString;
+    pub const SuperSetErrorString = superSetErrorString;
 
     /// Inherited from QIODevice
     ///
@@ -3083,15 +3737,19 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    /// ` errorString: []const u8 `
+    /// ` _errorString: []const u8 `
     ///
-    pub fn SuperSetErrorString(self: KCompressionDevice, errorString: []const u8) void {
+    pub fn superSetErrorString(self: KCompressionDevice, _errorString: []const u8) void {
         const errorString_str = qtc.libqt_string{
-            .len = errorString.len,
-            .data = errorString.ptr,
+            .len = _errorString.len,
+            .data = _errorString.ptr,
         };
         qtc.KCompressionDevice_SuperSetErrorString(@ptrCast(self.ptr), errorString_str);
     }
+
+    /// ### DEPRECATED: Use `onSetErrorString` instead
+    ///
+    pub const OnSetErrorString = onSetErrorString;
 
     /// Inherited from QIODevice
     ///
@@ -3105,9 +3763,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` callback: *const fn (self: KCompressionDevice, errorString: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetErrorString(self: KCompressionDevice, callback: *const fn (KCompressionDevice, [*:0]const u8) callconv(.c) void) void {
+    pub fn onSetErrorString(self: KCompressionDevice, callback: *const fn (KCompressionDevice, [*:0]const u8) callconv(.c) void) void {
         qtc.KCompressionDevice_OnSetErrorString(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -3119,13 +3781,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn Sender(self: KCompressionDevice) QObject {
+    pub fn sender(self: KCompressionDevice) QObject {
         return .{ .ptr = qtc.KCompressionDevice_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -3137,9 +3799,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn SuperSender(self: KCompressionDevice) QObject {
+    pub fn superSender(self: KCompressionDevice) QObject {
         return .{ .ptr = qtc.KCompressionDevice_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -3153,9 +3819,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KCompressionDevice, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KCompressionDevice, callback: *const fn () callconv(.c) QObject) void {
         qtc.KCompressionDevice_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -3167,13 +3837,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn SenderSignalIndex(self: KCompressionDevice) i32 {
+    pub fn senderSignalIndex(self: KCompressionDevice) i32 {
         return qtc.KCompressionDevice_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -3185,9 +3855,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn SuperSenderSignalIndex(self: KCompressionDevice) i32 {
+    pub fn superSenderSignalIndex(self: KCompressionDevice) i32 {
         return qtc.KCompressionDevice_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -3201,9 +3875,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KCompressionDevice, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KCompressionDevice, callback: *const fn () callconv(.c) i32) void {
         qtc.KCompressionDevice_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -3217,14 +3895,14 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KCompressionDevice, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KCompressionDevice, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KCompressionDevice_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -3238,10 +3916,14 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KCompressionDevice, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KCompressionDevice, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KCompressionDevice_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -3255,9 +3937,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` callback: *const fn (self: KCompressionDevice, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KCompressionDevice, callback: *const fn (KCompressionDevice, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KCompressionDevice, callback: *const fn (KCompressionDevice, [*:0]const u8) callconv(.c) i32) void {
         qtc.KCompressionDevice_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -3271,14 +3957,14 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KCompressionDevice, signal: anytype) bool {
+    pub fn isSignalConnected(self: KCompressionDevice, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KCompressionDevice_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -3292,10 +3978,14 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KCompressionDevice, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KCompressionDevice, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KCompressionDevice_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -3309,9 +3999,13 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` callback: *const fn (self: KCompressionDevice, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KCompressionDevice, callback: *const fn (KCompressionDevice, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KCompressionDevice, callback: *const fn (KCompressionDevice, QMetaMethod) callconv(.c) bool) void {
         qtc.KCompressionDevice_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -3325,23 +4019,23 @@ pub const KCompressionDevice = extern struct {
     ///
     /// ` callback: *const fn (self: KCompressionDevice, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KCompressionDevice, callback: *const fn (KCompressionDevice, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KCompressionDevice, callback: *const fn (KCompressionDevice, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kcompressiondevice.html#dtor.KCompressionDevice)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KCompressionDevice `
     ///
-    pub fn Delete(self: KCompressionDevice) void {
+    pub fn delete(self: KCompressionDevice) void {
         qtc.KCompressionDevice_Delete(@ptrCast(self.ptr));
     }
 };

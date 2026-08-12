@@ -17,29 +17,40 @@ pub const QAccessible = extern struct {
 
     pub const _is_QAccessible = {};
 
-    /// New constructs a new QAccessible object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QAccessible object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QAccessible `
     ///
-    pub fn New(other: anytype) QAccessible {
+    pub fn new(other: anytype) QAccessible {
         comptime _ = @TypeOf(other)._is_QAccessible;
         return .{ .ptr = qtc.QAccessible_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new QAccessible object and invalidates the source QAccessible object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QAccessible object and invalidate the source QAccessible object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QAccessible `
     ///
-    pub fn New2(other: anytype) QAccessible {
+    pub fn new2(other: anytype) QAccessible {
         comptime _ = @TypeOf(other)._is_QAccessible;
         return .{ .ptr = qtc.QAccessible_new2(@ptrCast(other.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -47,11 +58,14 @@ pub const QAccessible = extern struct {
     ///
     /// ` other: QAccessible `
     ///
-    pub fn CopyAssign(self: QAccessible, other: QAccessible) void {
+    pub fn copyAssign(self: QAccessible, other: QAccessible) void {
         qtc.QAccessible_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -59,9 +73,13 @@ pub const QAccessible = extern struct {
     ///
     /// ` other: QAccessible `
     ///
-    pub fn MoveAssign(self: QAccessible, other: QAccessible) void {
+    pub fn moveAssign(self: QAccessible, other: QAccessible) void {
         qtc.QAccessible_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `installUpdateHandler` instead
+    ///
+    pub const InstallUpdateHandler = installUpdateHandler;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#installUpdateHandler)
     ///
@@ -73,9 +91,13 @@ pub const QAccessible = extern struct {
     ///
     /// ` ?*const fn (funcparam1: QAccessibleEvent) callconv(.c) void `
     ///
-    pub fn InstallUpdateHandler(param1: *const fn (QAccessibleEvent) callconv(.c) void) ?*const fn (QAccessibleEvent) callconv(.c) void {
+    pub fn installUpdateHandler(param1: *const fn (QAccessibleEvent) callconv(.c) void) ?*const fn (QAccessibleEvent) callconv(.c) void {
         return @ptrFromInt(@as(usize, @bitCast(qtc.QAccessible_InstallUpdateHandler(@bitCast(@intFromPtr(param1))))));
     }
+
+    /// ### DEPRECATED: Use `installRootObjectHandler` instead
+    ///
+    pub const InstallRootObjectHandler = installRootObjectHandler;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#installRootObjectHandler)
     ///
@@ -87,9 +109,13 @@ pub const QAccessible = extern struct {
     ///
     /// ` ?*const fn (funcparam1: QObject) callconv(.c) void `
     ///
-    pub fn InstallRootObjectHandler(param1: *const fn (QObject) callconv(.c) void) ?*const fn (QObject) callconv(.c) void {
+    pub fn installRootObjectHandler(param1: *const fn (QObject) callconv(.c) void) ?*const fn (QObject) callconv(.c) void {
         return @ptrFromInt(@as(usize, @bitCast(qtc.QAccessible_InstallRootObjectHandler(@bitCast(@intFromPtr(param1))))));
     }
+
+    /// ### DEPRECATED: Use `installActivationObserver` instead
+    ///
+    pub const InstallActivationObserver = installActivationObserver;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#installActivationObserver)
     ///
@@ -97,10 +123,14 @@ pub const QAccessible = extern struct {
     ///
     /// ` param1: QAccessible__ActivationObserver `
     ///
-    pub fn InstallActivationObserver(param1: anytype) void {
+    pub fn installActivationObserver(param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QAccessible__ActivationObserver;
         qtc.QAccessible_InstallActivationObserver(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeActivationObserver` instead
+    ///
+    pub const RemoveActivationObserver = removeActivationObserver;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#removeActivationObserver)
     ///
@@ -108,10 +138,14 @@ pub const QAccessible = extern struct {
     ///
     /// ` param1: QAccessible__ActivationObserver `
     ///
-    pub fn RemoveActivationObserver(param1: anytype) void {
+    pub fn removeActivationObserver(param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QAccessible__ActivationObserver;
         qtc.QAccessible_RemoveActivationObserver(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `queryAccessibleInterface` instead
+    ///
+    pub const QueryAccessibleInterface = queryAccessibleInterface;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#queryAccessibleInterface)
     ///
@@ -119,10 +153,14 @@ pub const QAccessible = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn QueryAccessibleInterface(param1: anytype) QAccessibleInterface {
+    pub fn queryAccessibleInterface(param1: anytype) QAccessibleInterface {
         comptime _ = @TypeOf(param1)._is_QObject;
         return .{ .ptr = qtc.QAccessible_QueryAccessibleInterface(@ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `uniqueId` instead
+    ///
+    pub const UniqueId = uniqueId;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#uniqueId)
     ///
@@ -130,20 +168,28 @@ pub const QAccessible = extern struct {
     ///
     /// ` iface: QAccessibleInterface `
     ///
-    pub fn UniqueId(iface: anytype) u32 {
+    pub fn uniqueId(iface: anytype) u32 {
         comptime _ = @TypeOf(iface)._is_QAccessibleInterface;
         return qtc.QAccessible_UniqueId(@ptrCast(iface.ptr));
     }
+
+    /// ### DEPRECATED: Use `accessibleInterface` instead
+    ///
+    pub const AccessibleInterface = accessibleInterface;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#accessibleInterface)
     ///
     /// ## Parameter(s):
     ///
-    /// ` uniqueId: u32 `
+    /// ` _uniqueId: u32 `
     ///
-    pub fn AccessibleInterface(uniqueId: u32) QAccessibleInterface {
-        return .{ .ptr = qtc.QAccessible_AccessibleInterface(@bitCast(uniqueId)) };
+    pub fn accessibleInterface(_uniqueId: u32) QAccessibleInterface {
+        return .{ .ptr = qtc.QAccessible_AccessibleInterface(@bitCast(_uniqueId)) };
     }
+
+    /// ### DEPRECATED: Use `registerAccessibleInterface` instead
+    ///
+    pub const RegisterAccessibleInterface = registerAccessibleInterface;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#registerAccessibleInterface)
     ///
@@ -151,20 +197,28 @@ pub const QAccessible = extern struct {
     ///
     /// ` iface: QAccessibleInterface `
     ///
-    pub fn RegisterAccessibleInterface(iface: anytype) u32 {
+    pub fn registerAccessibleInterface(iface: anytype) u32 {
         comptime _ = @TypeOf(iface)._is_QAccessibleInterface;
         return qtc.QAccessible_RegisterAccessibleInterface(@ptrCast(iface.ptr));
     }
+
+    /// ### DEPRECATED: Use `deleteAccessibleInterface` instead
+    ///
+    pub const DeleteAccessibleInterface = deleteAccessibleInterface;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#deleteAccessibleInterface)
     ///
     /// ## Parameter(s):
     ///
-    /// ` uniqueId: u32 `
+    /// ` _uniqueId: u32 `
     ///
-    pub fn DeleteAccessibleInterface(uniqueId: u32) void {
-        qtc.QAccessible_DeleteAccessibleInterface(@bitCast(uniqueId));
+    pub fn deleteAccessibleInterface(_uniqueId: u32) void {
+        qtc.QAccessible_DeleteAccessibleInterface(@bitCast(_uniqueId));
     }
+
+    /// ### DEPRECATED: Use `updateAccessibility` instead
+    ///
+    pub const UpdateAccessibility = updateAccessibility;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#updateAccessibility)
     ///
@@ -172,16 +226,24 @@ pub const QAccessible = extern struct {
     ///
     /// ` event: QAccessibleEvent `
     ///
-    pub fn UpdateAccessibility(event: anytype) void {
+    pub fn updateAccessibility(event: anytype) void {
         comptime _ = @TypeOf(event)._is_QAccessibleEvent;
         qtc.QAccessible_UpdateAccessibility(@ptrCast(event.ptr));
     }
 
+    /// ### DEPRECATED: Use `isActive` instead
+    ///
+    pub const IsActive = isActive;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#isActive)
     ///
-    pub fn IsActive() bool {
+    pub fn isActive() bool {
         return qtc.QAccessible_IsActive();
     }
+
+    /// ### DEPRECATED: Use `setActive` instead
+    ///
+    pub const SetActive = setActive;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#setActive)
     ///
@@ -189,9 +251,13 @@ pub const QAccessible = extern struct {
     ///
     /// ` active: bool `
     ///
-    pub fn SetActive(active: bool) void {
+    pub fn setActive(active: bool) void {
         qtc.QAccessible_SetActive(active);
     }
+
+    /// ### DEPRECATED: Use `setRootObject` instead
+    ///
+    pub const SetRootObject = setRootObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#setRootObject)
     ///
@@ -199,16 +265,24 @@ pub const QAccessible = extern struct {
     ///
     /// ` object: QObject `
     ///
-    pub fn SetRootObject(object: anytype) void {
+    pub fn setRootObject(object: anytype) void {
         comptime _ = @TypeOf(object)._is_QObject;
         qtc.QAccessible_SetRootObject(@ptrCast(object.ptr));
     }
 
+    /// ### DEPRECATED: Use `cleanup` instead
+    ///
+    pub const Cleanup = cleanup;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#cleanup)
     ///
-    pub fn Cleanup() void {
+    pub fn cleanup() void {
         qtc.QAccessible_Cleanup();
     }
+
+    /// ### DEPRECATED: Use `qAccessibleTextBoundaryHelper` instead
+    ///
+    pub const QAccessibleTextBoundaryHelper = qAccessibleTextBoundaryHelper;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#qAccessibleTextBoundaryHelper)
     ///
@@ -218,7 +292,7 @@ pub const QAccessible = extern struct {
     ///
     /// ` boundaryType: qaccessible_base_enums.TextBoundaryType `
     ///
-    pub fn QAccessibleTextBoundaryHelper(cursor: anytype, boundaryType: i32) Struct_i32_i32 {
+    pub fn qAccessibleTextBoundaryHelper(cursor: anytype, boundaryType: i32) Struct_i32_i32 {
         comptime _ = @TypeOf(cursor)._is_QTextCursor;
         const _pair = qtc.QAccessible_QAccessibleTextBoundaryHelper(@ptrCast(cursor.ptr), @bitCast(boundaryType));
         return .{
@@ -227,19 +301,19 @@ pub const QAccessible = extern struct {
         };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#dtor.QAccessible)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QAccessible `
     ///
-    pub fn Delete(self: QAccessible) void {
+    pub fn delete(self: QAccessible) void {
         qtc.QAccessible_Delete(@ptrCast(self.ptr));
     }
 };
@@ -254,35 +328,50 @@ pub const QAccessible__State = extern struct {
 
     pub const _is_QAccessible__State = {};
 
-    /// New constructs a new QAccessible::State object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QAccessible::State object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QAccessible__State `
     ///
-    pub fn New(other: anytype) QAccessible__State {
+    pub fn new(other: anytype) QAccessible__State {
         comptime _ = @TypeOf(other)._is_QAccessible__State;
         return .{ .ptr = qtc.QAccessible__State_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new QAccessible::State object and invalidates the source QAccessible::State object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QAccessible::State object and invalidate the source QAccessible::State object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QAccessible__State `
     ///
-    pub fn New2(other: anytype) QAccessible__State {
+    pub fn new2(other: anytype) QAccessible__State {
         comptime _ = @TypeOf(other)._is_QAccessible__State;
         return .{ .ptr = qtc.QAccessible__State_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QAccessible::State object.
+    /// ### DEPRECATED: Use `new3` instead
     ///
-    pub fn New3() QAccessible__State {
+    pub const New3 = new3;
+
+    /// Allocate a new QAccessible::State object in C++ memory
+    ///
+    pub fn new3() QAccessible__State {
         return .{ .ptr = qtc.QAccessible__State_new3() };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -290,11 +379,14 @@ pub const QAccessible__State = extern struct {
     ///
     /// ` other: QAccessible__State `
     ///
-    pub fn CopyAssign(self: QAccessible__State, other: QAccessible__State) void {
+    pub fn copyAssign(self: QAccessible__State, other: QAccessible__State) void {
         qtc.QAccessible__State_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -302,31 +394,43 @@ pub const QAccessible__State = extern struct {
     ///
     /// ` other: QAccessible__State `
     ///
-    pub fn MoveAssign(self: QAccessible__State, other: QAccessible__State) void {
+    pub fn moveAssign(self: QAccessible__State, other: QAccessible__State) void {
         qtc.QAccessible__State_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
+    /// ### DEPRECATED: Use `disabled` instead
+    ///
+    pub const Disabled = disabled;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#disabled-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessible__State `
     ///
-    pub fn Disabled(self: QAccessible__State) u64 {
+    pub fn disabled(self: QAccessible__State) u64 {
         return qtc.QAccessible__State_Disabled(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#disabled-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessible__State `
     ///
-    /// ` disabled: u64 `
+    /// ` _disabled: u64 `
     ///
-    pub fn SetDisabled(self: QAccessible__State, disabled: u64) void {
-        qtc.QAccessible__State_SetDisabled(@ptrCast(self.ptr), @bitCast(disabled));
+    pub fn setDisabled(self: QAccessible__State, _disabled: u64) void {
+        qtc.QAccessible__State_SetDisabled(@ptrCast(self.ptr), @bitCast(_disabled));
     }
+
+    /// ### DEPRECATED: Use `selected` instead
+    ///
+    pub const Selected = selected;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#selected-var)
     ///
@@ -334,21 +438,29 @@ pub const QAccessible__State = extern struct {
     ///
     /// ` self: QAccessible__State `
     ///
-    pub fn Selected(self: QAccessible__State) u64 {
+    pub fn selected(self: QAccessible__State) u64 {
         return qtc.QAccessible__State_Selected(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setSelected` instead
+    ///
+    pub const SetSelected = setSelected;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#selected-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessible__State `
     ///
-    /// ` selected: u64 `
+    /// ` _selected: u64 `
     ///
-    pub fn SetSelected(self: QAccessible__State, selected: u64) void {
-        qtc.QAccessible__State_SetSelected(@ptrCast(self.ptr), @bitCast(selected));
+    pub fn setSelected(self: QAccessible__State, _selected: u64) void {
+        qtc.QAccessible__State_SetSelected(@ptrCast(self.ptr), @bitCast(_selected));
     }
+
+    /// ### DEPRECATED: Use `focusable` instead
+    ///
+    pub const Focusable = focusable;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#focusable-var)
     ///
@@ -356,21 +468,29 @@ pub const QAccessible__State = extern struct {
     ///
     /// ` self: QAccessible__State `
     ///
-    pub fn Focusable(self: QAccessible__State) u64 {
+    pub fn focusable(self: QAccessible__State) u64 {
         return qtc.QAccessible__State_Focusable(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setFocusable` instead
+    ///
+    pub const SetFocusable = setFocusable;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#focusable-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessible__State `
     ///
-    /// ` focusable: u64 `
+    /// ` _focusable: u64 `
     ///
-    pub fn SetFocusable(self: QAccessible__State, focusable: u64) void {
-        qtc.QAccessible__State_SetFocusable(@ptrCast(self.ptr), @bitCast(focusable));
+    pub fn setFocusable(self: QAccessible__State, _focusable: u64) void {
+        qtc.QAccessible__State_SetFocusable(@ptrCast(self.ptr), @bitCast(_focusable));
     }
+
+    /// ### DEPRECATED: Use `focused` instead
+    ///
+    pub const Focused = focused;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#focused-var)
     ///
@@ -378,21 +498,29 @@ pub const QAccessible__State = extern struct {
     ///
     /// ` self: QAccessible__State `
     ///
-    pub fn Focused(self: QAccessible__State) u64 {
+    pub fn focused(self: QAccessible__State) u64 {
         return qtc.QAccessible__State_Focused(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setFocused` instead
+    ///
+    pub const SetFocused = setFocused;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#focused-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessible__State `
     ///
-    /// ` focused: u64 `
+    /// ` _focused: u64 `
     ///
-    pub fn SetFocused(self: QAccessible__State, focused: u64) void {
-        qtc.QAccessible__State_SetFocused(@ptrCast(self.ptr), @bitCast(focused));
+    pub fn setFocused(self: QAccessible__State, _focused: u64) void {
+        qtc.QAccessible__State_SetFocused(@ptrCast(self.ptr), @bitCast(_focused));
     }
+
+    /// ### DEPRECATED: Use `pressed` instead
+    ///
+    pub const Pressed = pressed;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#pressed-var)
     ///
@@ -400,21 +528,29 @@ pub const QAccessible__State = extern struct {
     ///
     /// ` self: QAccessible__State `
     ///
-    pub fn Pressed(self: QAccessible__State) u64 {
+    pub fn pressed(self: QAccessible__State) u64 {
         return qtc.QAccessible__State_Pressed(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setPressed` instead
+    ///
+    pub const SetPressed = setPressed;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#pressed-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessible__State `
     ///
-    /// ` pressed: u64 `
+    /// ` _pressed: u64 `
     ///
-    pub fn SetPressed(self: QAccessible__State, pressed: u64) void {
-        qtc.QAccessible__State_SetPressed(@ptrCast(self.ptr), @bitCast(pressed));
+    pub fn setPressed(self: QAccessible__State, _pressed: u64) void {
+        qtc.QAccessible__State_SetPressed(@ptrCast(self.ptr), @bitCast(_pressed));
     }
+
+    /// ### DEPRECATED: Use `checkable` instead
+    ///
+    pub const Checkable = checkable;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#checkable-var)
     ///
@@ -422,21 +558,29 @@ pub const QAccessible__State = extern struct {
     ///
     /// ` self: QAccessible__State `
     ///
-    pub fn Checkable(self: QAccessible__State) u64 {
+    pub fn checkable(self: QAccessible__State) u64 {
         return qtc.QAccessible__State_Checkable(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setCheckable` instead
+    ///
+    pub const SetCheckable = setCheckable;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#checkable-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessible__State `
     ///
-    /// ` checkable: u64 `
+    /// ` _checkable: u64 `
     ///
-    pub fn SetCheckable(self: QAccessible__State, checkable: u64) void {
-        qtc.QAccessible__State_SetCheckable(@ptrCast(self.ptr), @bitCast(checkable));
+    pub fn setCheckable(self: QAccessible__State, _checkable: u64) void {
+        qtc.QAccessible__State_SetCheckable(@ptrCast(self.ptr), @bitCast(_checkable));
     }
+
+    /// ### DEPRECATED: Use `checked` instead
+    ///
+    pub const Checked = checked;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#checked-var)
     ///
@@ -444,21 +588,29 @@ pub const QAccessible__State = extern struct {
     ///
     /// ` self: QAccessible__State `
     ///
-    pub fn Checked(self: QAccessible__State) u64 {
+    pub fn checked(self: QAccessible__State) u64 {
         return qtc.QAccessible__State_Checked(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setChecked` instead
+    ///
+    pub const SetChecked = setChecked;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#checked-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessible__State `
     ///
-    /// ` checked: u64 `
+    /// ` _checked: u64 `
     ///
-    pub fn SetChecked(self: QAccessible__State, checked: u64) void {
-        qtc.QAccessible__State_SetChecked(@ptrCast(self.ptr), @bitCast(checked));
+    pub fn setChecked(self: QAccessible__State, _checked: u64) void {
+        qtc.QAccessible__State_SetChecked(@ptrCast(self.ptr), @bitCast(_checked));
     }
+
+    /// ### DEPRECATED: Use `checkStateMixed` instead
+    ///
+    pub const CheckStateMixed = checkStateMixed;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#checkStateMixed-var)
     ///
@@ -466,21 +618,29 @@ pub const QAccessible__State = extern struct {
     ///
     /// ` self: QAccessible__State `
     ///
-    pub fn CheckStateMixed(self: QAccessible__State) u64 {
+    pub fn checkStateMixed(self: QAccessible__State) u64 {
         return qtc.QAccessible__State_CheckStateMixed(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setCheckStateMixed` instead
+    ///
+    pub const SetCheckStateMixed = setCheckStateMixed;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#checkStateMixed-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessible__State `
     ///
-    /// ` checkStateMixed: u64 `
+    /// ` _checkStateMixed: u64 `
     ///
-    pub fn SetCheckStateMixed(self: QAccessible__State, checkStateMixed: u64) void {
-        qtc.QAccessible__State_SetCheckStateMixed(@ptrCast(self.ptr), @bitCast(checkStateMixed));
+    pub fn setCheckStateMixed(self: QAccessible__State, _checkStateMixed: u64) void {
+        qtc.QAccessible__State_SetCheckStateMixed(@ptrCast(self.ptr), @bitCast(_checkStateMixed));
     }
+
+    /// ### DEPRECATED: Use `readOnly` instead
+    ///
+    pub const ReadOnly = readOnly;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#readOnly-var)
     ///
@@ -488,21 +648,29 @@ pub const QAccessible__State = extern struct {
     ///
     /// ` self: QAccessible__State `
     ///
-    pub fn ReadOnly(self: QAccessible__State) u64 {
+    pub fn readOnly(self: QAccessible__State) u64 {
         return qtc.QAccessible__State_ReadOnly(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setReadOnly` instead
+    ///
+    pub const SetReadOnly = setReadOnly;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#readOnly-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessible__State `
     ///
-    /// ` readOnly: u64 `
+    /// ` _readOnly: u64 `
     ///
-    pub fn SetReadOnly(self: QAccessible__State, readOnly: u64) void {
-        qtc.QAccessible__State_SetReadOnly(@ptrCast(self.ptr), @bitCast(readOnly));
+    pub fn setReadOnly(self: QAccessible__State, _readOnly: u64) void {
+        qtc.QAccessible__State_SetReadOnly(@ptrCast(self.ptr), @bitCast(_readOnly));
     }
+
+    /// ### DEPRECATED: Use `hotTracked` instead
+    ///
+    pub const HotTracked = hotTracked;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#hotTracked-var)
     ///
@@ -510,21 +678,29 @@ pub const QAccessible__State = extern struct {
     ///
     /// ` self: QAccessible__State `
     ///
-    pub fn HotTracked(self: QAccessible__State) u64 {
+    pub fn hotTracked(self: QAccessible__State) u64 {
         return qtc.QAccessible__State_HotTracked(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setHotTracked` instead
+    ///
+    pub const SetHotTracked = setHotTracked;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#hotTracked-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessible__State `
     ///
-    /// ` hotTracked: u64 `
+    /// ` _hotTracked: u64 `
     ///
-    pub fn SetHotTracked(self: QAccessible__State, hotTracked: u64) void {
-        qtc.QAccessible__State_SetHotTracked(@ptrCast(self.ptr), @bitCast(hotTracked));
+    pub fn setHotTracked(self: QAccessible__State, _hotTracked: u64) void {
+        qtc.QAccessible__State_SetHotTracked(@ptrCast(self.ptr), @bitCast(_hotTracked));
     }
+
+    /// ### DEPRECATED: Use `defaultButton` instead
+    ///
+    pub const DefaultButton = defaultButton;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#defaultButton-var)
     ///
@@ -532,21 +708,29 @@ pub const QAccessible__State = extern struct {
     ///
     /// ` self: QAccessible__State `
     ///
-    pub fn DefaultButton(self: QAccessible__State) u64 {
+    pub fn defaultButton(self: QAccessible__State) u64 {
         return qtc.QAccessible__State_DefaultButton(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setDefaultButton` instead
+    ///
+    pub const SetDefaultButton = setDefaultButton;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#defaultButton-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessible__State `
     ///
-    /// ` defaultButton: u64 `
+    /// ` _defaultButton: u64 `
     ///
-    pub fn SetDefaultButton(self: QAccessible__State, defaultButton: u64) void {
-        qtc.QAccessible__State_SetDefaultButton(@ptrCast(self.ptr), @bitCast(defaultButton));
+    pub fn setDefaultButton(self: QAccessible__State, _defaultButton: u64) void {
+        qtc.QAccessible__State_SetDefaultButton(@ptrCast(self.ptr), @bitCast(_defaultButton));
     }
+
+    /// ### DEPRECATED: Use `expanded` instead
+    ///
+    pub const Expanded = expanded;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#expanded-var)
     ///
@@ -554,21 +738,29 @@ pub const QAccessible__State = extern struct {
     ///
     /// ` self: QAccessible__State `
     ///
-    pub fn Expanded(self: QAccessible__State) u64 {
+    pub fn expanded(self: QAccessible__State) u64 {
         return qtc.QAccessible__State_Expanded(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setExpanded` instead
+    ///
+    pub const SetExpanded = setExpanded;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#expanded-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessible__State `
     ///
-    /// ` expanded: u64 `
+    /// ` _expanded: u64 `
     ///
-    pub fn SetExpanded(self: QAccessible__State, expanded: u64) void {
-        qtc.QAccessible__State_SetExpanded(@ptrCast(self.ptr), @bitCast(expanded));
+    pub fn setExpanded(self: QAccessible__State, _expanded: u64) void {
+        qtc.QAccessible__State_SetExpanded(@ptrCast(self.ptr), @bitCast(_expanded));
     }
+
+    /// ### DEPRECATED: Use `collapsed` instead
+    ///
+    pub const Collapsed = collapsed;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#collapsed-var)
     ///
@@ -576,21 +768,29 @@ pub const QAccessible__State = extern struct {
     ///
     /// ` self: QAccessible__State `
     ///
-    pub fn Collapsed(self: QAccessible__State) u64 {
+    pub fn collapsed(self: QAccessible__State) u64 {
         return qtc.QAccessible__State_Collapsed(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setCollapsed` instead
+    ///
+    pub const SetCollapsed = setCollapsed;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#collapsed-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessible__State `
     ///
-    /// ` collapsed: u64 `
+    /// ` _collapsed: u64 `
     ///
-    pub fn SetCollapsed(self: QAccessible__State, collapsed: u64) void {
-        qtc.QAccessible__State_SetCollapsed(@ptrCast(self.ptr), @bitCast(collapsed));
+    pub fn setCollapsed(self: QAccessible__State, _collapsed: u64) void {
+        qtc.QAccessible__State_SetCollapsed(@ptrCast(self.ptr), @bitCast(_collapsed));
     }
+
+    /// ### DEPRECATED: Use `busy` instead
+    ///
+    pub const Busy = busy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#busy-var)
     ///
@@ -598,21 +798,29 @@ pub const QAccessible__State = extern struct {
     ///
     /// ` self: QAccessible__State `
     ///
-    pub fn Busy(self: QAccessible__State) u64 {
+    pub fn busy(self: QAccessible__State) u64 {
         return qtc.QAccessible__State_Busy(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setBusy` instead
+    ///
+    pub const SetBusy = setBusy;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#busy-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessible__State `
     ///
-    /// ` busy: u64 `
+    /// ` _busy: u64 `
     ///
-    pub fn SetBusy(self: QAccessible__State, busy: u64) void {
-        qtc.QAccessible__State_SetBusy(@ptrCast(self.ptr), @bitCast(busy));
+    pub fn setBusy(self: QAccessible__State, _busy: u64) void {
+        qtc.QAccessible__State_SetBusy(@ptrCast(self.ptr), @bitCast(_busy));
     }
+
+    /// ### DEPRECATED: Use `expandable` instead
+    ///
+    pub const Expandable = expandable;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#expandable-var)
     ///
@@ -620,21 +828,29 @@ pub const QAccessible__State = extern struct {
     ///
     /// ` self: QAccessible__State `
     ///
-    pub fn Expandable(self: QAccessible__State) u64 {
+    pub fn expandable(self: QAccessible__State) u64 {
         return qtc.QAccessible__State_Expandable(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setExpandable` instead
+    ///
+    pub const SetExpandable = setExpandable;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#expandable-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessible__State `
     ///
-    /// ` expandable: u64 `
+    /// ` _expandable: u64 `
     ///
-    pub fn SetExpandable(self: QAccessible__State, expandable: u64) void {
-        qtc.QAccessible__State_SetExpandable(@ptrCast(self.ptr), @bitCast(expandable));
+    pub fn setExpandable(self: QAccessible__State, _expandable: u64) void {
+        qtc.QAccessible__State_SetExpandable(@ptrCast(self.ptr), @bitCast(_expandable));
     }
+
+    /// ### DEPRECATED: Use `marqueed` instead
+    ///
+    pub const Marqueed = marqueed;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#marqueed-var)
     ///
@@ -642,21 +858,29 @@ pub const QAccessible__State = extern struct {
     ///
     /// ` self: QAccessible__State `
     ///
-    pub fn Marqueed(self: QAccessible__State) u64 {
+    pub fn marqueed(self: QAccessible__State) u64 {
         return qtc.QAccessible__State_Marqueed(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setMarqueed` instead
+    ///
+    pub const SetMarqueed = setMarqueed;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#marqueed-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessible__State `
     ///
-    /// ` marqueed: u64 `
+    /// ` _marqueed: u64 `
     ///
-    pub fn SetMarqueed(self: QAccessible__State, marqueed: u64) void {
-        qtc.QAccessible__State_SetMarqueed(@ptrCast(self.ptr), @bitCast(marqueed));
+    pub fn setMarqueed(self: QAccessible__State, _marqueed: u64) void {
+        qtc.QAccessible__State_SetMarqueed(@ptrCast(self.ptr), @bitCast(_marqueed));
     }
+
+    /// ### DEPRECATED: Use `animated` instead
+    ///
+    pub const Animated = animated;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#animated-var)
     ///
@@ -664,21 +888,29 @@ pub const QAccessible__State = extern struct {
     ///
     /// ` self: QAccessible__State `
     ///
-    pub fn Animated(self: QAccessible__State) u64 {
+    pub fn animated(self: QAccessible__State) u64 {
         return qtc.QAccessible__State_Animated(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setAnimated` instead
+    ///
+    pub const SetAnimated = setAnimated;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#animated-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessible__State `
     ///
-    /// ` animated: u64 `
+    /// ` _animated: u64 `
     ///
-    pub fn SetAnimated(self: QAccessible__State, animated: u64) void {
-        qtc.QAccessible__State_SetAnimated(@ptrCast(self.ptr), @bitCast(animated));
+    pub fn setAnimated(self: QAccessible__State, _animated: u64) void {
+        qtc.QAccessible__State_SetAnimated(@ptrCast(self.ptr), @bitCast(_animated));
     }
+
+    /// ### DEPRECATED: Use `invisible` instead
+    ///
+    pub const Invisible = invisible;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#invisible-var)
     ///
@@ -686,21 +918,29 @@ pub const QAccessible__State = extern struct {
     ///
     /// ` self: QAccessible__State `
     ///
-    pub fn Invisible(self: QAccessible__State) u64 {
+    pub fn invisible(self: QAccessible__State) u64 {
         return qtc.QAccessible__State_Invisible(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setInvisible` instead
+    ///
+    pub const SetInvisible = setInvisible;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#invisible-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessible__State `
     ///
-    /// ` invisible: u64 `
+    /// ` _invisible: u64 `
     ///
-    pub fn SetInvisible(self: QAccessible__State, invisible: u64) void {
-        qtc.QAccessible__State_SetInvisible(@ptrCast(self.ptr), @bitCast(invisible));
+    pub fn setInvisible(self: QAccessible__State, _invisible: u64) void {
+        qtc.QAccessible__State_SetInvisible(@ptrCast(self.ptr), @bitCast(_invisible));
     }
+
+    /// ### DEPRECATED: Use `offscreen` instead
+    ///
+    pub const Offscreen = offscreen;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#offscreen-var)
     ///
@@ -708,21 +948,29 @@ pub const QAccessible__State = extern struct {
     ///
     /// ` self: QAccessible__State `
     ///
-    pub fn Offscreen(self: QAccessible__State) u64 {
+    pub fn offscreen(self: QAccessible__State) u64 {
         return qtc.QAccessible__State_Offscreen(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setOffscreen` instead
+    ///
+    pub const SetOffscreen = setOffscreen;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#offscreen-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessible__State `
     ///
-    /// ` offscreen: u64 `
+    /// ` _offscreen: u64 `
     ///
-    pub fn SetOffscreen(self: QAccessible__State, offscreen: u64) void {
-        qtc.QAccessible__State_SetOffscreen(@ptrCast(self.ptr), @bitCast(offscreen));
+    pub fn setOffscreen(self: QAccessible__State, _offscreen: u64) void {
+        qtc.QAccessible__State_SetOffscreen(@ptrCast(self.ptr), @bitCast(_offscreen));
     }
+
+    /// ### DEPRECATED: Use `sizeable` instead
+    ///
+    pub const Sizeable = sizeable;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#sizeable-var)
     ///
@@ -730,21 +978,29 @@ pub const QAccessible__State = extern struct {
     ///
     /// ` self: QAccessible__State `
     ///
-    pub fn Sizeable(self: QAccessible__State) u64 {
+    pub fn sizeable(self: QAccessible__State) u64 {
         return qtc.QAccessible__State_Sizeable(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setSizeable` instead
+    ///
+    pub const SetSizeable = setSizeable;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#sizeable-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessible__State `
     ///
-    /// ` sizeable: u64 `
+    /// ` _sizeable: u64 `
     ///
-    pub fn SetSizeable(self: QAccessible__State, sizeable: u64) void {
-        qtc.QAccessible__State_SetSizeable(@ptrCast(self.ptr), @bitCast(sizeable));
+    pub fn setSizeable(self: QAccessible__State, _sizeable: u64) void {
+        qtc.QAccessible__State_SetSizeable(@ptrCast(self.ptr), @bitCast(_sizeable));
     }
+
+    /// ### DEPRECATED: Use `movable` instead
+    ///
+    pub const Movable = movable;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#movable-var)
     ///
@@ -752,21 +1008,29 @@ pub const QAccessible__State = extern struct {
     ///
     /// ` self: QAccessible__State `
     ///
-    pub fn Movable(self: QAccessible__State) u64 {
+    pub fn movable(self: QAccessible__State) u64 {
         return qtc.QAccessible__State_Movable(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setMovable` instead
+    ///
+    pub const SetMovable = setMovable;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#movable-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessible__State `
     ///
-    /// ` movable: u64 `
+    /// ` _movable: u64 `
     ///
-    pub fn SetMovable(self: QAccessible__State, movable: u64) void {
-        qtc.QAccessible__State_SetMovable(@ptrCast(self.ptr), @bitCast(movable));
+    pub fn setMovable(self: QAccessible__State, _movable: u64) void {
+        qtc.QAccessible__State_SetMovable(@ptrCast(self.ptr), @bitCast(_movable));
     }
+
+    /// ### DEPRECATED: Use `selfVoicing` instead
+    ///
+    pub const SelfVoicing = selfVoicing;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#selfVoicing-var)
     ///
@@ -774,21 +1038,29 @@ pub const QAccessible__State = extern struct {
     ///
     /// ` self: QAccessible__State `
     ///
-    pub fn SelfVoicing(self: QAccessible__State) u64 {
+    pub fn selfVoicing(self: QAccessible__State) u64 {
         return qtc.QAccessible__State_SelfVoicing(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setSelfVoicing` instead
+    ///
+    pub const SetSelfVoicing = setSelfVoicing;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#selfVoicing-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessible__State `
     ///
-    /// ` selfVoicing: u64 `
+    /// ` _selfVoicing: u64 `
     ///
-    pub fn SetSelfVoicing(self: QAccessible__State, selfVoicing: u64) void {
-        qtc.QAccessible__State_SetSelfVoicing(@ptrCast(self.ptr), @bitCast(selfVoicing));
+    pub fn setSelfVoicing(self: QAccessible__State, _selfVoicing: u64) void {
+        qtc.QAccessible__State_SetSelfVoicing(@ptrCast(self.ptr), @bitCast(_selfVoicing));
     }
+
+    /// ### DEPRECATED: Use `selectable` instead
+    ///
+    pub const Selectable = selectable;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#selectable-var)
     ///
@@ -796,21 +1068,29 @@ pub const QAccessible__State = extern struct {
     ///
     /// ` self: QAccessible__State `
     ///
-    pub fn Selectable(self: QAccessible__State) u64 {
+    pub fn selectable(self: QAccessible__State) u64 {
         return qtc.QAccessible__State_Selectable(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setSelectable` instead
+    ///
+    pub const SetSelectable = setSelectable;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#selectable-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessible__State `
     ///
-    /// ` selectable: u64 `
+    /// ` _selectable: u64 `
     ///
-    pub fn SetSelectable(self: QAccessible__State, selectable: u64) void {
-        qtc.QAccessible__State_SetSelectable(@ptrCast(self.ptr), @bitCast(selectable));
+    pub fn setSelectable(self: QAccessible__State, _selectable: u64) void {
+        qtc.QAccessible__State_SetSelectable(@ptrCast(self.ptr), @bitCast(_selectable));
     }
+
+    /// ### DEPRECATED: Use `linked` instead
+    ///
+    pub const Linked = linked;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#linked-var)
     ///
@@ -818,21 +1098,29 @@ pub const QAccessible__State = extern struct {
     ///
     /// ` self: QAccessible__State `
     ///
-    pub fn Linked(self: QAccessible__State) u64 {
+    pub fn linked(self: QAccessible__State) u64 {
         return qtc.QAccessible__State_Linked(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setLinked` instead
+    ///
+    pub const SetLinked = setLinked;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#linked-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessible__State `
     ///
-    /// ` linked: u64 `
+    /// ` _linked: u64 `
     ///
-    pub fn SetLinked(self: QAccessible__State, linked: u64) void {
-        qtc.QAccessible__State_SetLinked(@ptrCast(self.ptr), @bitCast(linked));
+    pub fn setLinked(self: QAccessible__State, _linked: u64) void {
+        qtc.QAccessible__State_SetLinked(@ptrCast(self.ptr), @bitCast(_linked));
     }
+
+    /// ### DEPRECATED: Use `traversed` instead
+    ///
+    pub const Traversed = traversed;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#traversed-var)
     ///
@@ -840,21 +1128,29 @@ pub const QAccessible__State = extern struct {
     ///
     /// ` self: QAccessible__State `
     ///
-    pub fn Traversed(self: QAccessible__State) u64 {
+    pub fn traversed(self: QAccessible__State) u64 {
         return qtc.QAccessible__State_Traversed(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setTraversed` instead
+    ///
+    pub const SetTraversed = setTraversed;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#traversed-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessible__State `
     ///
-    /// ` traversed: u64 `
+    /// ` _traversed: u64 `
     ///
-    pub fn SetTraversed(self: QAccessible__State, traversed: u64) void {
-        qtc.QAccessible__State_SetTraversed(@ptrCast(self.ptr), @bitCast(traversed));
+    pub fn setTraversed(self: QAccessible__State, _traversed: u64) void {
+        qtc.QAccessible__State_SetTraversed(@ptrCast(self.ptr), @bitCast(_traversed));
     }
+
+    /// ### DEPRECATED: Use `multiSelectable` instead
+    ///
+    pub const MultiSelectable = multiSelectable;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#multiSelectable-var)
     ///
@@ -862,21 +1158,29 @@ pub const QAccessible__State = extern struct {
     ///
     /// ` self: QAccessible__State `
     ///
-    pub fn MultiSelectable(self: QAccessible__State) u64 {
+    pub fn multiSelectable(self: QAccessible__State) u64 {
         return qtc.QAccessible__State_MultiSelectable(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setMultiSelectable` instead
+    ///
+    pub const SetMultiSelectable = setMultiSelectable;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#multiSelectable-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessible__State `
     ///
-    /// ` multiSelectable: u64 `
+    /// ` _multiSelectable: u64 `
     ///
-    pub fn SetMultiSelectable(self: QAccessible__State, multiSelectable: u64) void {
-        qtc.QAccessible__State_SetMultiSelectable(@ptrCast(self.ptr), @bitCast(multiSelectable));
+    pub fn setMultiSelectable(self: QAccessible__State, _multiSelectable: u64) void {
+        qtc.QAccessible__State_SetMultiSelectable(@ptrCast(self.ptr), @bitCast(_multiSelectable));
     }
+
+    /// ### DEPRECATED: Use `extSelectable` instead
+    ///
+    pub const ExtSelectable = extSelectable;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#extSelectable-var)
     ///
@@ -884,21 +1188,29 @@ pub const QAccessible__State = extern struct {
     ///
     /// ` self: QAccessible__State `
     ///
-    pub fn ExtSelectable(self: QAccessible__State) u64 {
+    pub fn extSelectable(self: QAccessible__State) u64 {
         return qtc.QAccessible__State_ExtSelectable(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setExtSelectable` instead
+    ///
+    pub const SetExtSelectable = setExtSelectable;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#extSelectable-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessible__State `
     ///
-    /// ` extSelectable: u64 `
+    /// ` _extSelectable: u64 `
     ///
-    pub fn SetExtSelectable(self: QAccessible__State, extSelectable: u64) void {
-        qtc.QAccessible__State_SetExtSelectable(@ptrCast(self.ptr), @bitCast(extSelectable));
+    pub fn setExtSelectable(self: QAccessible__State, _extSelectable: u64) void {
+        qtc.QAccessible__State_SetExtSelectable(@ptrCast(self.ptr), @bitCast(_extSelectable));
     }
+
+    /// ### DEPRECATED: Use `passwordEdit` instead
+    ///
+    pub const PasswordEdit = passwordEdit;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#passwordEdit-var)
     ///
@@ -906,21 +1218,29 @@ pub const QAccessible__State = extern struct {
     ///
     /// ` self: QAccessible__State `
     ///
-    pub fn PasswordEdit(self: QAccessible__State) u64 {
+    pub fn passwordEdit(self: QAccessible__State) u64 {
         return qtc.QAccessible__State_PasswordEdit(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setPasswordEdit` instead
+    ///
+    pub const SetPasswordEdit = setPasswordEdit;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#passwordEdit-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessible__State `
     ///
-    /// ` passwordEdit: u64 `
+    /// ` _passwordEdit: u64 `
     ///
-    pub fn SetPasswordEdit(self: QAccessible__State, passwordEdit: u64) void {
-        qtc.QAccessible__State_SetPasswordEdit(@ptrCast(self.ptr), @bitCast(passwordEdit));
+    pub fn setPasswordEdit(self: QAccessible__State, _passwordEdit: u64) void {
+        qtc.QAccessible__State_SetPasswordEdit(@ptrCast(self.ptr), @bitCast(_passwordEdit));
     }
+
+    /// ### DEPRECATED: Use `hasPopup` instead
+    ///
+    pub const HasPopup = hasPopup;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#hasPopup-var)
     ///
@@ -928,21 +1248,29 @@ pub const QAccessible__State = extern struct {
     ///
     /// ` self: QAccessible__State `
     ///
-    pub fn HasPopup(self: QAccessible__State) u64 {
+    pub fn hasPopup(self: QAccessible__State) u64 {
         return qtc.QAccessible__State_HasPopup(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setHasPopup` instead
+    ///
+    pub const SetHasPopup = setHasPopup;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#hasPopup-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessible__State `
     ///
-    /// ` hasPopup: u64 `
+    /// ` _hasPopup: u64 `
     ///
-    pub fn SetHasPopup(self: QAccessible__State, hasPopup: u64) void {
-        qtc.QAccessible__State_SetHasPopup(@ptrCast(self.ptr), @bitCast(hasPopup));
+    pub fn setHasPopup(self: QAccessible__State, _hasPopup: u64) void {
+        qtc.QAccessible__State_SetHasPopup(@ptrCast(self.ptr), @bitCast(_hasPopup));
     }
+
+    /// ### DEPRECATED: Use `modal` instead
+    ///
+    pub const Modal = modal;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#modal-var)
     ///
@@ -950,21 +1278,29 @@ pub const QAccessible__State = extern struct {
     ///
     /// ` self: QAccessible__State `
     ///
-    pub fn Modal(self: QAccessible__State) u64 {
+    pub fn modal(self: QAccessible__State) u64 {
         return qtc.QAccessible__State_Modal(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setModal` instead
+    ///
+    pub const SetModal = setModal;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#modal-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessible__State `
     ///
-    /// ` modal: u64 `
+    /// ` _modal: u64 `
     ///
-    pub fn SetModal(self: QAccessible__State, modal: u64) void {
-        qtc.QAccessible__State_SetModal(@ptrCast(self.ptr), @bitCast(modal));
+    pub fn setModal(self: QAccessible__State, _modal: u64) void {
+        qtc.QAccessible__State_SetModal(@ptrCast(self.ptr), @bitCast(_modal));
     }
+
+    /// ### DEPRECATED: Use `active` instead
+    ///
+    pub const Active = active;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#active-var)
     ///
@@ -972,21 +1308,29 @@ pub const QAccessible__State = extern struct {
     ///
     /// ` self: QAccessible__State `
     ///
-    pub fn Active(self: QAccessible__State) u64 {
+    pub fn active(self: QAccessible__State) u64 {
         return qtc.QAccessible__State_Active(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setActive` instead
+    ///
+    pub const SetActive = setActive;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#active-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessible__State `
     ///
-    /// ` active: u64 `
+    /// ` _active: u64 `
     ///
-    pub fn SetActive(self: QAccessible__State, active: u64) void {
-        qtc.QAccessible__State_SetActive(@ptrCast(self.ptr), @bitCast(active));
+    pub fn setActive(self: QAccessible__State, _active: u64) void {
+        qtc.QAccessible__State_SetActive(@ptrCast(self.ptr), @bitCast(_active));
     }
+
+    /// ### DEPRECATED: Use `invalid` instead
+    ///
+    pub const Invalid = invalid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#invalid-var)
     ///
@@ -994,21 +1338,29 @@ pub const QAccessible__State = extern struct {
     ///
     /// ` self: QAccessible__State `
     ///
-    pub fn Invalid(self: QAccessible__State) u64 {
+    pub fn invalid(self: QAccessible__State) u64 {
         return qtc.QAccessible__State_Invalid(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setInvalid` instead
+    ///
+    pub const SetInvalid = setInvalid;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#invalid-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessible__State `
     ///
-    /// ` invalid: u64 `
+    /// ` _invalid: u64 `
     ///
-    pub fn SetInvalid(self: QAccessible__State, invalid: u64) void {
-        qtc.QAccessible__State_SetInvalid(@ptrCast(self.ptr), @bitCast(invalid));
+    pub fn setInvalid(self: QAccessible__State, _invalid: u64) void {
+        qtc.QAccessible__State_SetInvalid(@ptrCast(self.ptr), @bitCast(_invalid));
     }
+
+    /// ### DEPRECATED: Use `editable` instead
+    ///
+    pub const Editable = editable;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#editable-var)
     ///
@@ -1016,21 +1368,29 @@ pub const QAccessible__State = extern struct {
     ///
     /// ` self: QAccessible__State `
     ///
-    pub fn Editable(self: QAccessible__State) u64 {
+    pub fn editable(self: QAccessible__State) u64 {
         return qtc.QAccessible__State_Editable(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setEditable` instead
+    ///
+    pub const SetEditable = setEditable;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#editable-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessible__State `
     ///
-    /// ` editable: u64 `
+    /// ` _editable: u64 `
     ///
-    pub fn SetEditable(self: QAccessible__State, editable: u64) void {
-        qtc.QAccessible__State_SetEditable(@ptrCast(self.ptr), @bitCast(editable));
+    pub fn setEditable(self: QAccessible__State, _editable: u64) void {
+        qtc.QAccessible__State_SetEditable(@ptrCast(self.ptr), @bitCast(_editable));
     }
+
+    /// ### DEPRECATED: Use `multiLine` instead
+    ///
+    pub const MultiLine = multiLine;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#multiLine-var)
     ///
@@ -1038,21 +1398,29 @@ pub const QAccessible__State = extern struct {
     ///
     /// ` self: QAccessible__State `
     ///
-    pub fn MultiLine(self: QAccessible__State) u64 {
+    pub fn multiLine(self: QAccessible__State) u64 {
         return qtc.QAccessible__State_MultiLine(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setMultiLine` instead
+    ///
+    pub const SetMultiLine = setMultiLine;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#multiLine-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessible__State `
     ///
-    /// ` multiLine: u64 `
+    /// ` _multiLine: u64 `
     ///
-    pub fn SetMultiLine(self: QAccessible__State, multiLine: u64) void {
-        qtc.QAccessible__State_SetMultiLine(@ptrCast(self.ptr), @bitCast(multiLine));
+    pub fn setMultiLine(self: QAccessible__State, _multiLine: u64) void {
+        qtc.QAccessible__State_SetMultiLine(@ptrCast(self.ptr), @bitCast(_multiLine));
     }
+
+    /// ### DEPRECATED: Use `selectableText` instead
+    ///
+    pub const SelectableText = selectableText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#selectableText-var)
     ///
@@ -1060,21 +1428,29 @@ pub const QAccessible__State = extern struct {
     ///
     /// ` self: QAccessible__State `
     ///
-    pub fn SelectableText(self: QAccessible__State) u64 {
+    pub fn selectableText(self: QAccessible__State) u64 {
         return qtc.QAccessible__State_SelectableText(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setSelectableText` instead
+    ///
+    pub const SetSelectableText = setSelectableText;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#selectableText-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessible__State `
     ///
-    /// ` selectableText: u64 `
+    /// ` _selectableText: u64 `
     ///
-    pub fn SetSelectableText(self: QAccessible__State, selectableText: u64) void {
-        qtc.QAccessible__State_SetSelectableText(@ptrCast(self.ptr), @bitCast(selectableText));
+    pub fn setSelectableText(self: QAccessible__State, _selectableText: u64) void {
+        qtc.QAccessible__State_SetSelectableText(@ptrCast(self.ptr), @bitCast(_selectableText));
     }
+
+    /// ### DEPRECATED: Use `supportsAutoCompletion` instead
+    ///
+    pub const SupportsAutoCompletion = supportsAutoCompletion;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#supportsAutoCompletion-var)
     ///
@@ -1082,21 +1458,29 @@ pub const QAccessible__State = extern struct {
     ///
     /// ` self: QAccessible__State `
     ///
-    pub fn SupportsAutoCompletion(self: QAccessible__State) u64 {
+    pub fn supportsAutoCompletion(self: QAccessible__State) u64 {
         return qtc.QAccessible__State_SupportsAutoCompletion(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setSupportsAutoCompletion` instead
+    ///
+    pub const SetSupportsAutoCompletion = setSupportsAutoCompletion;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#supportsAutoCompletion-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessible__State `
     ///
-    /// ` supportsAutoCompletion: u64 `
+    /// ` _supportsAutoCompletion: u64 `
     ///
-    pub fn SetSupportsAutoCompletion(self: QAccessible__State, supportsAutoCompletion: u64) void {
-        qtc.QAccessible__State_SetSupportsAutoCompletion(@ptrCast(self.ptr), @bitCast(supportsAutoCompletion));
+    pub fn setSupportsAutoCompletion(self: QAccessible__State, _supportsAutoCompletion: u64) void {
+        qtc.QAccessible__State_SetSupportsAutoCompletion(@ptrCast(self.ptr), @bitCast(_supportsAutoCompletion));
     }
+
+    /// ### DEPRECATED: Use `searchEdit` instead
+    ///
+    pub const SearchEdit = searchEdit;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#searchEdit-var)
     ///
@@ -1104,33 +1488,37 @@ pub const QAccessible__State = extern struct {
     ///
     /// ` self: QAccessible__State `
     ///
-    pub fn SearchEdit(self: QAccessible__State) u64 {
+    pub fn searchEdit(self: QAccessible__State) u64 {
         return qtc.QAccessible__State_SearchEdit(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setSearchEdit` instead
+    ///
+    pub const SetSearchEdit = setSearchEdit;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-state.html#searchEdit-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessible__State `
     ///
-    /// ` searchEdit: u64 `
+    /// ` _searchEdit: u64 `
     ///
-    pub fn SetSearchEdit(self: QAccessible__State, searchEdit: u64) void {
-        qtc.QAccessible__State_SetSearchEdit(@ptrCast(self.ptr), @bitCast(searchEdit));
+    pub fn setSearchEdit(self: QAccessible__State, _searchEdit: u64) void {
+        qtc.QAccessible__State_SetSearchEdit(@ptrCast(self.ptr), @bitCast(_searchEdit));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QAccessible__State `
     ///
-    pub fn Delete(self: QAccessible__State) void {
+    pub fn delete(self: QAccessible__State) void {
         qtc.QAccessible__State_Delete(@ptrCast(self.ptr));
     }
 };
@@ -1145,17 +1533,25 @@ pub const QAccessible__ActivationObserver = extern struct {
 
     pub const _is_QAccessible__ActivationObserver = {};
 
+    /// ### DEPRECATED: Use `accessibilityActiveChanged` instead
+    ///
+    pub const AccessibilityActiveChanged = accessibilityActiveChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-activationobserver.html#accessibilityActiveChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAccessible__ActivationObserver `
     ///
-    /// ` active: bool `
+    /// ` _active: bool `
     ///
-    pub fn AccessibilityActiveChanged(self: QAccessible__ActivationObserver, active: bool) void {
-        qtc.QAccessible__ActivationObserver_AccessibilityActiveChanged(@ptrCast(self.ptr), active);
+    pub fn accessibilityActiveChanged(self: QAccessible__ActivationObserver, _active: bool) void {
+        qtc.QAccessible__ActivationObserver_AccessibilityActiveChanged(@ptrCast(self.ptr), _active);
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-activationobserver.html#operator-eq)
     ///
@@ -1165,22 +1561,22 @@ pub const QAccessible__ActivationObserver = extern struct {
     ///
     /// ` param1: QAccessible__ActivationObserver `
     ///
-    pub fn OperatorAssign(self: QAccessible__ActivationObserver, param1: anytype) void {
+    pub fn operatorAssign(self: QAccessible__ActivationObserver, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QAccessible__ActivationObserver;
         qtc.QAccessible__ActivationObserver_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QAccessible__ActivationObserver `
     ///
-    pub fn Delete(self: QAccessible__ActivationObserver) void {
+    pub fn delete(self: QAccessible__ActivationObserver) void {
         qtc.QAccessible__ActivationObserver_Delete(@ptrCast(self.ptr));
     }
 };

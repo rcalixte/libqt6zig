@@ -92,22 +92,34 @@ pub const KTimeComboBox = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new KTimeComboBox object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KTimeComboBox object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) KTimeComboBox {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KTimeComboBox_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) KTimeComboBox {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KTimeComboBox_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new KTimeComboBox object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() KTimeComboBox {
+    pub const New2 = new2;
+
+    /// Allocate a new KTimeComboBox object in C++ memory
+    ///
+    pub fn new2() KTimeComboBox {
         return .{ .ptr = qtc.KTimeComboBox_new2() };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -115,9 +127,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn MetaObject(self: KTimeComboBox) QMetaObject {
+    pub fn metaObject(self: KTimeComboBox) QMetaObject {
         return .{ .ptr = qtc.KTimeComboBox_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -129,13 +145,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KTimeComboBox, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KTimeComboBox, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KTimeComboBox_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -145,9 +161,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn SuperMetaObject(self: KTimeComboBox) QMetaObject {
+    pub fn superMetaObject(self: KTimeComboBox) QMetaObject {
         return .{ .ptr = qtc.KTimeComboBox_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -155,10 +175,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KTimeComboBox, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KTimeComboBox, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KTimeComboBox_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -168,13 +192,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KTimeComboBox, callback: *const fn (KTimeComboBox, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KTimeComboBox, callback: *const fn (KTimeComboBox, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KTimeComboBox_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -184,10 +208,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KTimeComboBox, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KTimeComboBox, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KTimeComboBox_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -199,9 +227,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KTimeComboBox, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KTimeComboBox, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KTimeComboBox_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -211,13 +243,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KTimeComboBox, callback: *const fn (KTimeComboBox, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KTimeComboBox, callback: *const fn (KTimeComboBox, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KTimeComboBox_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -231,9 +263,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KTimeComboBox, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KTimeComboBox, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KTimeComboBox_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -243,14 +279,18 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTimeComboBox.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTimeComboBox.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `time` instead
+    ///
+    pub const Time = time;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#time)
     ///
@@ -258,9 +298,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn Time(self: KTimeComboBox) QTime {
+    pub fn time(self: KTimeComboBox) QTime {
         return .{ .ptr = qtc.KTimeComboBox_Time(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#isValid)
     ///
@@ -268,9 +312,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn IsValid(self: KTimeComboBox) bool {
+    pub fn isValid(self: KTimeComboBox) bool {
         return qtc.KTimeComboBox_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isNull` instead
+    ///
+    pub const IsNull = isNull;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#isNull)
     ///
@@ -278,9 +326,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn IsNull(self: KTimeComboBox) bool {
+    pub fn isNull(self: KTimeComboBox) bool {
         return qtc.KTimeComboBox_IsNull(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `options` instead
+    ///
+    pub const Options = options;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#options)
     ///
@@ -292,9 +344,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` flag of ktimecombobox_enums.Option `
     ///
-    pub fn Options(self: KTimeComboBox) i32 {
+    pub fn options(self: KTimeComboBox) i32 {
         return qtc.KTimeComboBox_Options(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `displayFormat` instead
+    ///
+    pub const DisplayFormat = displayFormat;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#displayFormat)
     ///
@@ -306,9 +362,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` qlocale_enums.FormatType `
     ///
-    pub fn DisplayFormat(self: KTimeComboBox) i32 {
+    pub fn displayFormat(self: KTimeComboBox) i32 {
         return qtc.KTimeComboBox_DisplayFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumTime` instead
+    ///
+    pub const MinimumTime = minimumTime;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#minimumTime)
     ///
@@ -316,9 +376,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn MinimumTime(self: KTimeComboBox) QTime {
+    pub fn minimumTime(self: KTimeComboBox) QTime {
         return .{ .ptr = qtc.KTimeComboBox_MinimumTime(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `resetMinimumTime` instead
+    ///
+    pub const ResetMinimumTime = resetMinimumTime;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#resetMinimumTime)
     ///
@@ -326,9 +390,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn ResetMinimumTime(self: KTimeComboBox) void {
+    pub fn resetMinimumTime(self: KTimeComboBox) void {
         qtc.KTimeComboBox_ResetMinimumTime(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumTime` instead
+    ///
+    pub const MaximumTime = maximumTime;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#maximumTime)
     ///
@@ -336,9 +404,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn MaximumTime(self: KTimeComboBox) QTime {
+    pub fn maximumTime(self: KTimeComboBox) QTime {
         return .{ .ptr = qtc.KTimeComboBox_MaximumTime(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `resetMaximumTime` instead
+    ///
+    pub const ResetMaximumTime = resetMaximumTime;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#resetMaximumTime)
     ///
@@ -346,9 +418,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn ResetMaximumTime(self: KTimeComboBox) void {
+    pub fn resetMaximumTime(self: KTimeComboBox) void {
         qtc.KTimeComboBox_ResetMaximumTime(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTimeRange` instead
+    ///
+    pub const SetTimeRange = setTimeRange;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#setTimeRange)
     ///
@@ -360,11 +436,15 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` maxTime: QTime `
     ///
-    pub fn SetTimeRange(self: KTimeComboBox, minTime: anytype, maxTime: anytype) void {
+    pub fn setTimeRange(self: KTimeComboBox, minTime: anytype, maxTime: anytype) void {
         comptime _ = @TypeOf(minTime)._is_QTime;
         comptime _ = @TypeOf(maxTime)._is_QTime;
         qtc.KTimeComboBox_SetTimeRange(@ptrCast(self.ptr), @ptrCast(minTime.ptr), @ptrCast(maxTime.ptr));
     }
+
+    /// ### DEPRECATED: Use `resetTimeRange` instead
+    ///
+    pub const ResetTimeRange = resetTimeRange;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#resetTimeRange)
     ///
@@ -372,9 +452,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn ResetTimeRange(self: KTimeComboBox) void {
+    pub fn resetTimeRange(self: KTimeComboBox) void {
         qtc.KTimeComboBox_ResetTimeRange(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `timeListInterval` instead
+    ///
+    pub const TimeListInterval = timeListInterval;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#timeListInterval)
     ///
@@ -382,9 +466,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn TimeListInterval(self: KTimeComboBox) i32 {
+    pub fn timeListInterval(self: KTimeComboBox) i32 {
         return qtc.KTimeComboBox_TimeListInterval(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `timeList` instead
+    ///
+    pub const TimeList = timeList;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#timeList)
     ///
@@ -394,28 +482,36 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TimeList(self: KTimeComboBox, allocator: std.mem.Allocator) []QTime {
+    pub fn timeList(self: KTimeComboBox, allocator: std.mem.Allocator) []QTime {
         const _arr: qtc.libqt_list = qtc.KTimeComboBox_TimeList(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QTime, _arr.len) catch @panic("KTimeComboBox.TimeList: Memory allocation failed");
-        const _data: [*]QtC.QTime = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QTime, _arr.len) catch @panic("KTimeComboBox.timeList: Memory allocation failed");
+        const _data_val: [*]QtC.QTime = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `timeEntered` instead
+    ///
+    pub const TimeEntered = timeEntered;
+
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#timeEntered)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` time: QTime `
+    /// ` _time: QTime `
     ///
-    pub fn TimeEntered(self: KTimeComboBox, time: anytype) void {
-        comptime _ = @TypeOf(time)._is_QTime;
-        qtc.KTimeComboBox_TimeEntered(@ptrCast(self.ptr), @ptrCast(time.ptr));
+    pub fn timeEntered(self: KTimeComboBox, _time: anytype) void {
+        comptime _ = @TypeOf(_time)._is_QTime;
+        qtc.KTimeComboBox_TimeEntered(@ptrCast(self.ptr), @ptrCast(_time.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimeEntered` instead
+    ///
+    pub const OnTimeEntered = onTimeEntered;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#timeEntered)
     ///
@@ -425,22 +521,30 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, time: QTime) callconv(.c) void `
     ///
-    pub fn OnTimeEntered(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QTime) callconv(.c) void) void {
+    pub fn onTimeEntered(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QTime) callconv(.c) void) void {
         qtc.KTimeComboBox_Connect_TimeEntered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `timeChanged` instead
+    ///
+    pub const TimeChanged = timeChanged;
+
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#timeChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` time: QTime `
+    /// ` _time: QTime `
     ///
-    pub fn TimeChanged(self: KTimeComboBox, time: anytype) void {
-        comptime _ = @TypeOf(time)._is_QTime;
-        qtc.KTimeComboBox_TimeChanged(@ptrCast(self.ptr), @ptrCast(time.ptr));
+    pub fn timeChanged(self: KTimeComboBox, _time: anytype) void {
+        comptime _ = @TypeOf(_time)._is_QTime;
+        qtc.KTimeComboBox_TimeChanged(@ptrCast(self.ptr), @ptrCast(_time.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimeChanged` instead
+    ///
+    pub const OnTimeChanged = onTimeChanged;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#timeChanged)
     ///
@@ -450,22 +554,30 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, time: QTime) callconv(.c) void `
     ///
-    pub fn OnTimeChanged(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QTime) callconv(.c) void) void {
+    pub fn onTimeChanged(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QTime) callconv(.c) void) void {
         qtc.KTimeComboBox_Connect_TimeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `timeEdited` instead
+    ///
+    pub const TimeEdited = timeEdited;
+
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#timeEdited)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` time: QTime `
+    /// ` _time: QTime `
     ///
-    pub fn TimeEdited(self: KTimeComboBox, time: anytype) void {
-        comptime _ = @TypeOf(time)._is_QTime;
-        qtc.KTimeComboBox_TimeEdited(@ptrCast(self.ptr), @ptrCast(time.ptr));
+    pub fn timeEdited(self: KTimeComboBox, _time: anytype) void {
+        comptime _ = @TypeOf(_time)._is_QTime;
+        qtc.KTimeComboBox_TimeEdited(@ptrCast(self.ptr), @ptrCast(_time.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimeEdited` instead
+    ///
+    pub const OnTimeEdited = onTimeEdited;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#timeEdited)
     ///
@@ -475,9 +587,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, time: QTime) callconv(.c) void `
     ///
-    pub fn OnTimeEdited(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QTime) callconv(.c) void) void {
+    pub fn onTimeEdited(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QTime) callconv(.c) void) void {
         qtc.KTimeComboBox_Connect_TimeEdited(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setTime` instead
+    ///
+    pub const SetTime = setTime;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#setTime)
     ///
@@ -485,12 +601,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` time: QTime `
+    /// ` _time: QTime `
     ///
-    pub fn SetTime(self: KTimeComboBox, time: anytype) void {
-        comptime _ = @TypeOf(time)._is_QTime;
-        qtc.KTimeComboBox_SetTime(@ptrCast(self.ptr), @ptrCast(time.ptr));
+    pub fn setTime(self: KTimeComboBox, _time: anytype) void {
+        comptime _ = @TypeOf(_time)._is_QTime;
+        qtc.KTimeComboBox_SetTime(@ptrCast(self.ptr), @ptrCast(_time.ptr));
     }
+
+    /// ### DEPRECATED: Use `setOptions` instead
+    ///
+    pub const SetOptions = setOptions;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#setOptions)
     ///
@@ -498,11 +618,15 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` options: flag of ktimecombobox_enums.Option `
+    /// ` _options: flag of ktimecombobox_enums.Option `
     ///
-    pub fn SetOptions(self: KTimeComboBox, options: i32) void {
-        qtc.KTimeComboBox_SetOptions(@ptrCast(self.ptr), @bitCast(options));
+    pub fn setOptions(self: KTimeComboBox, _options: i32) void {
+        qtc.KTimeComboBox_SetOptions(@ptrCast(self.ptr), @bitCast(_options));
     }
+
+    /// ### DEPRECATED: Use `setDisplayFormat` instead
+    ///
+    pub const SetDisplayFormat = setDisplayFormat;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#setDisplayFormat)
     ///
@@ -512,9 +636,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` format: qlocale_enums.FormatType `
     ///
-    pub fn SetDisplayFormat(self: KTimeComboBox, format: i32) void {
+    pub fn setDisplayFormat(self: KTimeComboBox, format: i32) void {
         qtc.KTimeComboBox_SetDisplayFormat(@ptrCast(self.ptr), @bitCast(format));
     }
+
+    /// ### DEPRECATED: Use `setMinimumTime` instead
+    ///
+    pub const SetMinimumTime = setMinimumTime;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#setMinimumTime)
     ///
@@ -524,10 +652,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` minTime: QTime `
     ///
-    pub fn SetMinimumTime(self: KTimeComboBox, minTime: anytype) void {
+    pub fn setMinimumTime(self: KTimeComboBox, minTime: anytype) void {
         comptime _ = @TypeOf(minTime)._is_QTime;
         qtc.KTimeComboBox_SetMinimumTime(@ptrCast(self.ptr), @ptrCast(minTime.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumTime` instead
+    ///
+    pub const SetMaximumTime = setMaximumTime;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#setMaximumTime)
     ///
@@ -537,10 +669,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` maxTime: QTime `
     ///
-    pub fn SetMaximumTime(self: KTimeComboBox, maxTime: anytype) void {
+    pub fn setMaximumTime(self: KTimeComboBox, maxTime: anytype) void {
         comptime _ = @TypeOf(maxTime)._is_QTime;
         qtc.KTimeComboBox_SetMaximumTime(@ptrCast(self.ptr), @ptrCast(maxTime.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTimeListInterval` instead
+    ///
+    pub const SetTimeListInterval = setTimeListInterval;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#setTimeListInterval)
     ///
@@ -550,9 +686,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` minutes: i32 `
     ///
-    pub fn SetTimeListInterval(self: KTimeComboBox, minutes: i32) void {
+    pub fn setTimeListInterval(self: KTimeComboBox, minutes: i32) void {
         qtc.KTimeComboBox_SetTimeListInterval(@ptrCast(self.ptr), @bitCast(minutes));
     }
+
+    /// ### DEPRECATED: Use `setTimeList` instead
+    ///
+    pub const SetTimeList = setTimeList;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#setTimeList)
     ///
@@ -560,15 +700,19 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` timeList: []QTime `
+    /// ` _timeList: []QTime `
     ///
-    pub fn SetTimeList(self: KTimeComboBox, timeList: []QTime) void {
+    pub fn setTimeList(self: KTimeComboBox, _timeList: []QTime) void {
         const timeList_list = qtc.libqt_list{
-            .len = timeList.len,
-            .data = @ptrCast(timeList.ptr),
+            .len = _timeList.len,
+            .data = @ptrCast(_timeList.ptr),
         };
         qtc.KTimeComboBox_SetTimeList(@ptrCast(self.ptr), timeList_list);
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#eventFilter)
     ///
@@ -578,13 +722,17 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` object: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: KTimeComboBox, object: anytype, event: anytype) bool {
+    pub fn eventFilter(self: KTimeComboBox, object: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(object)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KTimeComboBox_EventFilter(@ptrCast(self.ptr), @ptrCast(object.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KTimeComboBox_EventFilter(@ptrCast(self.ptr), @ptrCast(object.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#eventFilter)
     ///
@@ -596,13 +744,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, object: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QObject, QEvent) callconv(.c) bool) void {
         qtc.KTimeComboBox_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#eventFilter)
     ///
@@ -614,13 +762,17 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` object: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: KTimeComboBox, object: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: KTimeComboBox, object: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(object)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KTimeComboBox_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(object.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KTimeComboBox_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(object.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `showPopup` instead
+    ///
+    pub const ShowPopup = showPopup;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#showPopup)
     ///
@@ -628,10 +780,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn ShowPopup(self: KTimeComboBox) void {
+    pub fn showPopup(self: KTimeComboBox) void {
         qtc.KTimeComboBox_ShowPopup(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onShowPopup` instead
+    ///
+    pub const OnShowPopup = onShowPopup;
+
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#showPopup)
     ///
     /// Allows for overriding the related default method
@@ -642,13 +798,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnShowPopup(self: KTimeComboBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onShowPopup(self: KTimeComboBox, callback: *const fn () callconv(.c) void) void {
         qtc.KTimeComboBox_OnShowPopup(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperShowPopup` instead
+    /// ### DEPRECATED: Use `superShowPopup` instead
     ///
-    pub const QBaseShowPopup = SuperShowPopup;
+    pub const SuperShowPopup = superShowPopup;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#showPopup)
     ///
@@ -658,9 +814,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn SuperShowPopup(self: KTimeComboBox) void {
+    pub fn superShowPopup(self: KTimeComboBox) void {
         qtc.KTimeComboBox_SuperShowPopup(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hidePopup` instead
+    ///
+    pub const HidePopup = hidePopup;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#hidePopup)
     ///
@@ -668,9 +828,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn HidePopup(self: KTimeComboBox) void {
+    pub fn hidePopup(self: KTimeComboBox) void {
         qtc.KTimeComboBox_HidePopup(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHidePopup` instead
+    ///
+    pub const OnHidePopup = onHidePopup;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#hidePopup)
     ///
@@ -682,13 +846,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnHidePopup(self: KTimeComboBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onHidePopup(self: KTimeComboBox, callback: *const fn () callconv(.c) void) void {
         qtc.KTimeComboBox_OnHidePopup(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperHidePopup` instead
+    /// ### DEPRECATED: Use `superHidePopup` instead
     ///
-    pub const QBaseHidePopup = SuperHidePopup;
+    pub const SuperHidePopup = superHidePopup;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#hidePopup)
     ///
@@ -698,9 +862,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn SuperHidePopup(self: KTimeComboBox) void {
+    pub fn superHidePopup(self: KTimeComboBox) void {
         qtc.KTimeComboBox_SuperHidePopup(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#mousePressEvent)
     ///
@@ -708,12 +876,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: KTimeComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KTimeComboBox_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mousePressEvent(self: KTimeComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KTimeComboBox_MousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#mousePressEvent)
     ///
@@ -725,13 +897,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QMouseEvent) callconv(.c) void) void {
         qtc.KTimeComboBox_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#mousePressEvent)
     ///
@@ -741,12 +913,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: KTimeComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KTimeComboBox_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMousePressEvent(self: KTimeComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KTimeComboBox_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#wheelEvent)
     ///
@@ -754,12 +930,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: KTimeComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.KTimeComboBox_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn wheelEvent(self: KTimeComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.KTimeComboBox_WheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#wheelEvent)
     ///
@@ -771,13 +951,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QWheelEvent) callconv(.c) void) void {
         qtc.KTimeComboBox_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#wheelEvent)
     ///
@@ -787,12 +967,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: KTimeComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.KTimeComboBox_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superWheelEvent(self: KTimeComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.KTimeComboBox_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#keyPressEvent)
     ///
@@ -800,12 +984,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: KTimeComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KTimeComboBox_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyPressEvent(self: KTimeComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KTimeComboBox_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#keyPressEvent)
     ///
@@ -817,13 +1005,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QKeyEvent) callconv(.c) void) void {
         qtc.KTimeComboBox_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#keyPressEvent)
     ///
@@ -833,12 +1021,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: KTimeComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KTimeComboBox_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyPressEvent(self: KTimeComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KTimeComboBox_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#focusInEvent)
     ///
@@ -846,12 +1038,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: KTimeComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KTimeComboBox_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusInEvent(self: KTimeComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KTimeComboBox_FocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#focusInEvent)
     ///
@@ -863,13 +1059,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QFocusEvent) callconv(.c) void) void {
         qtc.KTimeComboBox_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#focusInEvent)
     ///
@@ -879,12 +1075,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: KTimeComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KTimeComboBox_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusInEvent(self: KTimeComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KTimeComboBox_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#focusOutEvent)
     ///
@@ -892,12 +1092,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: KTimeComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KTimeComboBox_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusOutEvent(self: KTimeComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KTimeComboBox_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#focusOutEvent)
     ///
@@ -909,13 +1113,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QFocusEvent) callconv(.c) void) void {
         qtc.KTimeComboBox_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#focusOutEvent)
     ///
@@ -925,12 +1129,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: KTimeComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KTimeComboBox_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusOutEvent(self: KTimeComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KTimeComboBox_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#resizeEvent)
     ///
@@ -938,12 +1146,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: KTimeComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.KTimeComboBox_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn resizeEvent(self: KTimeComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.KTimeComboBox_ResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#resizeEvent)
     ///
@@ -955,13 +1167,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QResizeEvent) callconv(.c) void) void {
         qtc.KTimeComboBox_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#resizeEvent)
     ///
@@ -971,12 +1183,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: KTimeComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.KTimeComboBox_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superResizeEvent(self: KTimeComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.KTimeComboBox_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `assignTime` instead
+    ///
+    pub const AssignTime = assignTime;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#assignTime)
     ///
@@ -984,12 +1200,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` time: QTime `
+    /// ` _time: QTime `
     ///
-    pub fn AssignTime(self: KTimeComboBox, time: anytype) void {
-        comptime _ = @TypeOf(time)._is_QTime;
-        qtc.KTimeComboBox_AssignTime(@ptrCast(self.ptr), @ptrCast(time.ptr));
+    pub fn assignTime(self: KTimeComboBox, _time: anytype) void {
+        comptime _ = @TypeOf(_time)._is_QTime;
+        qtc.KTimeComboBox_AssignTime(@ptrCast(self.ptr), @ptrCast(_time.ptr));
     }
+
+    /// ### DEPRECATED: Use `onAssignTime` instead
+    ///
+    pub const OnAssignTime = onAssignTime;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#assignTime)
     ///
@@ -1001,13 +1221,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, time: QTime) callconv(.c) void `
     ///
-    pub fn OnAssignTime(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QTime) callconv(.c) void) void {
+    pub fn onAssignTime(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QTime) callconv(.c) void) void {
         qtc.KTimeComboBox_OnAssignTime(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperAssignTime` instead
+    /// ### DEPRECATED: Use `superAssignTime` instead
     ///
-    pub const QBaseAssignTime = SuperAssignTime;
+    pub const SuperAssignTime = superAssignTime;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#assignTime)
     ///
@@ -1017,12 +1237,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` time: QTime `
+    /// ` _time: QTime `
     ///
-    pub fn SuperAssignTime(self: KTimeComboBox, time: anytype) void {
-        comptime _ = @TypeOf(time)._is_QTime;
-        qtc.KTimeComboBox_SuperAssignTime(@ptrCast(self.ptr), @ptrCast(time.ptr));
+    pub fn superAssignTime(self: KTimeComboBox, _time: anytype) void {
+        comptime _ = @TypeOf(_time)._is_QTime;
+        qtc.KTimeComboBox_SuperAssignTime(@ptrCast(self.ptr), @ptrCast(_time.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1034,15 +1258,19 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTimeComboBox.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTimeComboBox.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1056,15 +1284,19 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTimeComboBox.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTimeComboBox.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setTimeRange3` instead
+    ///
+    pub const SetTimeRange3 = setTimeRange3;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#setTimeRange)
     ///
@@ -1078,7 +1310,7 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` minWarnMsg: []const u8 `
     ///
-    pub fn SetTimeRange3(self: KTimeComboBox, minTime: anytype, maxTime: anytype, minWarnMsg: []const u8) void {
+    pub fn setTimeRange3(self: KTimeComboBox, minTime: anytype, maxTime: anytype, minWarnMsg: []const u8) void {
         comptime _ = @TypeOf(minTime)._is_QTime;
         comptime _ = @TypeOf(maxTime)._is_QTime;
         const minWarnMsg_str = qtc.libqt_string{
@@ -1087,6 +1319,10 @@ pub const KTimeComboBox = extern struct {
         };
         qtc.KTimeComboBox_SetTimeRange3(@ptrCast(self.ptr), @ptrCast(minTime.ptr), @ptrCast(maxTime.ptr), minWarnMsg_str);
     }
+
+    /// ### DEPRECATED: Use `setTimeRange4` instead
+    ///
+    pub const SetTimeRange4 = setTimeRange4;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#setTimeRange)
     ///
@@ -1102,7 +1338,7 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` maxWarnMsg: []const u8 `
     ///
-    pub fn SetTimeRange4(self: KTimeComboBox, minTime: anytype, maxTime: anytype, minWarnMsg: []const u8, maxWarnMsg: []const u8) void {
+    pub fn setTimeRange4(self: KTimeComboBox, minTime: anytype, maxTime: anytype, minWarnMsg: []const u8, maxWarnMsg: []const u8) void {
         comptime _ = @TypeOf(minTime)._is_QTime;
         comptime _ = @TypeOf(maxTime)._is_QTime;
         const minWarnMsg_str = qtc.libqt_string{
@@ -1116,6 +1352,10 @@ pub const KTimeComboBox = extern struct {
         qtc.KTimeComboBox_SetTimeRange4(@ptrCast(self.ptr), @ptrCast(minTime.ptr), @ptrCast(maxTime.ptr), minWarnMsg_str, maxWarnMsg_str);
     }
 
+    /// ### DEPRECATED: Use `setMinimumTime2` instead
+    ///
+    pub const SetMinimumTime2 = setMinimumTime2;
+
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#setMinimumTime)
     ///
     /// ## Parameter(s):
@@ -1126,7 +1366,7 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` minWarnMsg: []const u8 `
     ///
-    pub fn SetMinimumTime2(self: KTimeComboBox, minTime: anytype, minWarnMsg: []const u8) void {
+    pub fn setMinimumTime2(self: KTimeComboBox, minTime: anytype, minWarnMsg: []const u8) void {
         comptime _ = @TypeOf(minTime)._is_QTime;
         const minWarnMsg_str = qtc.libqt_string{
             .len = minWarnMsg.len,
@@ -1134,6 +1374,10 @@ pub const KTimeComboBox = extern struct {
         };
         qtc.KTimeComboBox_SetMinimumTime2(@ptrCast(self.ptr), @ptrCast(minTime.ptr), minWarnMsg_str);
     }
+
+    /// ### DEPRECATED: Use `setMaximumTime2` instead
+    ///
+    pub const SetMaximumTime2 = setMaximumTime2;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#setMaximumTime)
     ///
@@ -1145,7 +1389,7 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` maxWarnMsg: []const u8 `
     ///
-    pub fn SetMaximumTime2(self: KTimeComboBox, maxTime: anytype, maxWarnMsg: []const u8) void {
+    pub fn setMaximumTime2(self: KTimeComboBox, maxTime: anytype, maxWarnMsg: []const u8) void {
         comptime _ = @TypeOf(maxTime)._is_QTime;
         const maxWarnMsg_str = qtc.libqt_string{
             .len = maxWarnMsg.len,
@@ -1154,20 +1398,24 @@ pub const KTimeComboBox = extern struct {
         qtc.KTimeComboBox_SetMaximumTime2(@ptrCast(self.ptr), @ptrCast(maxTime.ptr), maxWarnMsg_str);
     }
 
+    /// ### DEPRECATED: Use `setTimeList2` instead
+    ///
+    pub const SetTimeList2 = setTimeList2;
+
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#setTimeList)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` timeList: []QTime `
+    /// ` _timeList: []QTime `
     ///
     /// ` minWarnMsg: []const u8 `
     ///
-    pub fn SetTimeList2(self: KTimeComboBox, timeList: []QTime, minWarnMsg: []const u8) void {
+    pub fn setTimeList2(self: KTimeComboBox, _timeList: []QTime, minWarnMsg: []const u8) void {
         const timeList_list = qtc.libqt_list{
-            .len = timeList.len,
-            .data = @ptrCast(timeList.ptr),
+            .len = _timeList.len,
+            .data = @ptrCast(_timeList.ptr),
         };
         const minWarnMsg_str = qtc.libqt_string{
             .len = minWarnMsg.len,
@@ -1176,22 +1424,26 @@ pub const KTimeComboBox = extern struct {
         qtc.KTimeComboBox_SetTimeList2(@ptrCast(self.ptr), timeList_list, minWarnMsg_str);
     }
 
+    /// ### DEPRECATED: Use `setTimeList3` instead
+    ///
+    pub const SetTimeList3 = setTimeList3;
+
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#setTimeList)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` timeList: []QTime `
+    /// ` _timeList: []QTime `
     ///
     /// ` minWarnMsg: []const u8 `
     ///
     /// ` maxWarnMsg: []const u8 `
     ///
-    pub fn SetTimeList3(self: KTimeComboBox, timeList: []QTime, minWarnMsg: []const u8, maxWarnMsg: []const u8) void {
+    pub fn setTimeList3(self: KTimeComboBox, _timeList: []QTime, minWarnMsg: []const u8, maxWarnMsg: []const u8) void {
         const timeList_list = qtc.libqt_list{
-            .len = timeList.len,
-            .data = @ptrCast(timeList.ptr),
+            .len = _timeList.len,
+            .data = @ptrCast(_timeList.ptr),
         };
         const minWarnMsg_str = qtc.libqt_string{
             .len = minWarnMsg.len,
@@ -1204,6 +1456,10 @@ pub const KTimeComboBox = extern struct {
         qtc.KTimeComboBox_SetTimeList3(@ptrCast(self.ptr), timeList_list, minWarnMsg_str, maxWarnMsg_str);
     }
 
+    /// ### DEPRECATED: Use `maxVisibleItems` instead
+    ///
+    pub const MaxVisibleItems = maxVisibleItems;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#maxVisibleItems)
@@ -1212,9 +1468,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn MaxVisibleItems(self: KTimeComboBox) i32 {
+    pub fn maxVisibleItems(self: KTimeComboBox) i32 {
         return qtc.QComboBox_MaxVisibleItems(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaxVisibleItems` instead
+    ///
+    pub const SetMaxVisibleItems = setMaxVisibleItems;
 
     /// Inherited from QComboBox
     ///
@@ -1226,9 +1486,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` maxItems: i32 `
     ///
-    pub fn SetMaxVisibleItems(self: KTimeComboBox, maxItems: i32) void {
+    pub fn setMaxVisibleItems(self: KTimeComboBox, maxItems: i32) void {
         qtc.QComboBox_SetMaxVisibleItems(@ptrCast(self.ptr), @bitCast(maxItems));
     }
+
+    /// ### DEPRECATED: Use `count` instead
+    ///
+    pub const Count = count;
 
     /// Inherited from QComboBox
     ///
@@ -1238,9 +1502,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn Count(self: KTimeComboBox) i32 {
+    pub fn count(self: KTimeComboBox) i32 {
         return qtc.QComboBox_Count(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaxCount` instead
+    ///
+    pub const SetMaxCount = setMaxCount;
 
     /// Inherited from QComboBox
     ///
@@ -1252,9 +1520,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` max: i32 `
     ///
-    pub fn SetMaxCount(self: KTimeComboBox, max: i32) void {
+    pub fn setMaxCount(self: KTimeComboBox, max: i32) void {
         qtc.QComboBox_SetMaxCount(@ptrCast(self.ptr), @bitCast(max));
     }
+
+    /// ### DEPRECATED: Use `maxCount` instead
+    ///
+    pub const MaxCount = maxCount;
 
     /// Inherited from QComboBox
     ///
@@ -1264,9 +1536,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn MaxCount(self: KTimeComboBox) i32 {
+    pub fn maxCount(self: KTimeComboBox) i32 {
         return qtc.QComboBox_MaxCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `duplicatesEnabled` instead
+    ///
+    pub const DuplicatesEnabled = duplicatesEnabled;
 
     /// Inherited from QComboBox
     ///
@@ -1276,9 +1552,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn DuplicatesEnabled(self: KTimeComboBox) bool {
+    pub fn duplicatesEnabled(self: KTimeComboBox) bool {
         return qtc.QComboBox_DuplicatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDuplicatesEnabled` instead
+    ///
+    pub const SetDuplicatesEnabled = setDuplicatesEnabled;
 
     /// Inherited from QComboBox
     ///
@@ -1290,9 +1570,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetDuplicatesEnabled(self: KTimeComboBox, enable: bool) void {
+    pub fn setDuplicatesEnabled(self: KTimeComboBox, enable: bool) void {
         qtc.QComboBox_SetDuplicatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `setFrame` instead
+    ///
+    pub const SetFrame = setFrame;
 
     /// Inherited from QComboBox
     ///
@@ -1304,9 +1588,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` frame: bool `
     ///
-    pub fn SetFrame(self: KTimeComboBox, frame: bool) void {
+    pub fn setFrame(self: KTimeComboBox, frame: bool) void {
         qtc.QComboBox_SetFrame(@ptrCast(self.ptr), frame);
     }
+
+    /// ### DEPRECATED: Use `hasFrame` instead
+    ///
+    pub const HasFrame = hasFrame;
 
     /// Inherited from QComboBox
     ///
@@ -1316,9 +1604,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn HasFrame(self: KTimeComboBox) bool {
+    pub fn hasFrame(self: KTimeComboBox) bool {
         return qtc.QComboBox_HasFrame(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `findText` instead
+    ///
+    pub const FindText = findText;
 
     /// Inherited from QComboBox
     ///
@@ -1330,13 +1622,17 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn FindText(self: KTimeComboBox, text: []const u8) i32 {
+    pub fn findText(self: KTimeComboBox, text: []const u8) i32 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return qtc.QComboBox_FindText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `findData` instead
+    ///
+    pub const FindData = findData;
 
     /// Inherited from QComboBox
     ///
@@ -1348,10 +1644,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` data: QVariant `
     ///
-    pub fn FindData(self: KTimeComboBox, data: anytype) i32 {
+    pub fn findData(self: KTimeComboBox, data: anytype) i32 {
         comptime _ = @TypeOf(data)._is_QVariant;
         return qtc.QComboBox_FindData(@ptrCast(self.ptr), @ptrCast(data.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertPolicy` instead
+    ///
+    pub const InsertPolicy = insertPolicy;
 
     /// Inherited from QComboBox
     ///
@@ -1365,9 +1665,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` qcombobox_enums.InsertPolicy `
     ///
-    pub fn InsertPolicy(self: KTimeComboBox) i32 {
+    pub fn insertPolicy(self: KTimeComboBox) i32 {
         return qtc.QComboBox_InsertPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInsertPolicy` instead
+    ///
+    pub const SetInsertPolicy = setInsertPolicy;
 
     /// Inherited from QComboBox
     ///
@@ -1379,9 +1683,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` policy: qcombobox_enums.InsertPolicy `
     ///
-    pub fn SetInsertPolicy(self: KTimeComboBox, policy: i32) void {
+    pub fn setInsertPolicy(self: KTimeComboBox, policy: i32) void {
         qtc.QComboBox_SetInsertPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `sizeAdjustPolicy` instead
+    ///
+    pub const SizeAdjustPolicy = sizeAdjustPolicy;
 
     /// Inherited from QComboBox
     ///
@@ -1395,9 +1703,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` qcombobox_enums.SizeAdjustPolicy `
     ///
-    pub fn SizeAdjustPolicy(self: KTimeComboBox) i32 {
+    pub fn sizeAdjustPolicy(self: KTimeComboBox) i32 {
         return qtc.QComboBox_SizeAdjustPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeAdjustPolicy` instead
+    ///
+    pub const SetSizeAdjustPolicy = setSizeAdjustPolicy;
 
     /// Inherited from QComboBox
     ///
@@ -1409,9 +1721,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` policy: qcombobox_enums.SizeAdjustPolicy `
     ///
-    pub fn SetSizeAdjustPolicy(self: KTimeComboBox, policy: i32) void {
+    pub fn setSizeAdjustPolicy(self: KTimeComboBox, policy: i32) void {
         qtc.QComboBox_SetSizeAdjustPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `minimumContentsLength` instead
+    ///
+    pub const MinimumContentsLength = minimumContentsLength;
 
     /// Inherited from QComboBox
     ///
@@ -1421,9 +1737,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn MinimumContentsLength(self: KTimeComboBox) i32 {
+    pub fn minimumContentsLength(self: KTimeComboBox) i32 {
         return qtc.QComboBox_MinimumContentsLength(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumContentsLength` instead
+    ///
+    pub const SetMinimumContentsLength = setMinimumContentsLength;
 
     /// Inherited from QComboBox
     ///
@@ -1435,9 +1755,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` characters: i32 `
     ///
-    pub fn SetMinimumContentsLength(self: KTimeComboBox, characters: i32) void {
+    pub fn setMinimumContentsLength(self: KTimeComboBox, characters: i32) void {
         qtc.QComboBox_SetMinimumContentsLength(@ptrCast(self.ptr), @bitCast(characters));
     }
+
+    /// ### DEPRECATED: Use `iconSize` instead
+    ///
+    pub const IconSize = iconSize;
 
     /// Inherited from QComboBox
     ///
@@ -1447,9 +1771,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn IconSize(self: KTimeComboBox) QSize {
+    pub fn iconSize(self: KTimeComboBox) QSize {
         return .{ .ptr = qtc.QComboBox_IconSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setIconSize` instead
+    ///
+    pub const SetIconSize = setIconSize;
 
     /// Inherited from QComboBox
     ///
@@ -1459,12 +1787,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` size: QSize `
+    /// ` _size: QSize `
     ///
-    pub fn SetIconSize(self: KTimeComboBox, size: anytype) void {
-        comptime _ = @TypeOf(size)._is_QSize;
-        qtc.QComboBox_SetIconSize(@ptrCast(self.ptr), @ptrCast(size.ptr));
+    pub fn setIconSize(self: KTimeComboBox, _size: anytype) void {
+        comptime _ = @TypeOf(_size)._is_QSize;
+        qtc.QComboBox_SetIconSize(@ptrCast(self.ptr), @ptrCast(_size.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPlaceholderText` instead
+    ///
+    pub const SetPlaceholderText = setPlaceholderText;
 
     /// Inherited from QComboBox
     ///
@@ -1474,15 +1806,19 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` placeholderText: []const u8 `
+    /// ` _placeholderText: []const u8 `
     ///
-    pub fn SetPlaceholderText(self: KTimeComboBox, placeholderText: []const u8) void {
+    pub fn setPlaceholderText(self: KTimeComboBox, _placeholderText: []const u8) void {
         const placeholderText_str = qtc.libqt_string{
-            .len = placeholderText.len,
-            .data = placeholderText.ptr,
+            .len = _placeholderText.len,
+            .data = _placeholderText.ptr,
         };
         qtc.QComboBox_SetPlaceholderText(@ptrCast(self.ptr), placeholderText_str);
     }
+
+    /// ### DEPRECATED: Use `placeholderText` instead
+    ///
+    pub const PlaceholderText = placeholderText;
 
     /// Inherited from QComboBox
     ///
@@ -1494,13 +1830,17 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PlaceholderText(self: KTimeComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn placeholderText(self: KTimeComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QComboBox_PlaceholderText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTimeComboBox.PlaceholderText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTimeComboBox.placeholderText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isEditable` instead
+    ///
+    pub const IsEditable = isEditable;
 
     /// Inherited from QComboBox
     ///
@@ -1510,9 +1850,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn IsEditable(self: KTimeComboBox) bool {
+    pub fn isEditable(self: KTimeComboBox) bool {
         return qtc.QComboBox_IsEditable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEditable` instead
+    ///
+    pub const SetEditable = setEditable;
 
     /// Inherited from QComboBox
     ///
@@ -1524,9 +1868,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` editable: bool `
     ///
-    pub fn SetEditable(self: KTimeComboBox, editable: bool) void {
+    pub fn setEditable(self: KTimeComboBox, editable: bool) void {
         qtc.QComboBox_SetEditable(@ptrCast(self.ptr), editable);
     }
+
+    /// ### DEPRECATED: Use `setLineEdit` instead
+    ///
+    pub const SetLineEdit = setLineEdit;
 
     /// Inherited from QComboBox
     ///
@@ -1538,10 +1886,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` edit: QLineEdit `
     ///
-    pub fn SetLineEdit(self: KTimeComboBox, edit: anytype) void {
+    pub fn setLineEdit(self: KTimeComboBox, edit: anytype) void {
         comptime _ = @TypeOf(edit)._is_QLineEdit;
         qtc.QComboBox_SetLineEdit(@ptrCast(self.ptr), @ptrCast(edit.ptr));
     }
+
+    /// ### DEPRECATED: Use `lineEdit` instead
+    ///
+    pub const LineEdit = lineEdit;
 
     /// Inherited from QComboBox
     ///
@@ -1551,9 +1903,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn LineEdit(self: KTimeComboBox) QLineEdit {
+    pub fn lineEdit(self: KTimeComboBox) QLineEdit {
         return .{ .ptr = qtc.QComboBox_LineEdit(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setValidator` instead
+    ///
+    pub const SetValidator = setValidator;
 
     /// Inherited from QComboBox
     ///
@@ -1565,10 +1921,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` v: QValidator `
     ///
-    pub fn SetValidator(self: KTimeComboBox, v: anytype) void {
+    pub fn setValidator(self: KTimeComboBox, v: anytype) void {
         comptime _ = @TypeOf(v)._is_QValidator;
         qtc.QComboBox_SetValidator(@ptrCast(self.ptr), @ptrCast(v.ptr));
     }
+
+    /// ### DEPRECATED: Use `validator` instead
+    ///
+    pub const Validator = validator;
 
     /// Inherited from QComboBox
     ///
@@ -1578,9 +1938,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn Validator(self: KTimeComboBox) QValidator {
+    pub fn validator(self: KTimeComboBox) QValidator {
         return .{ .ptr = qtc.QComboBox_Validator(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCompleter` instead
+    ///
+    pub const SetCompleter = setCompleter;
 
     /// Inherited from QComboBox
     ///
@@ -1592,10 +1956,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` c: QCompleter `
     ///
-    pub fn SetCompleter(self: KTimeComboBox, c: anytype) void {
+    pub fn setCompleter(self: KTimeComboBox, c: anytype) void {
         comptime _ = @TypeOf(c)._is_QCompleter;
         qtc.QComboBox_SetCompleter(@ptrCast(self.ptr), @ptrCast(c.ptr));
     }
+
+    /// ### DEPRECATED: Use `completer` instead
+    ///
+    pub const Completer = completer;
 
     /// Inherited from QComboBox
     ///
@@ -1605,9 +1973,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn Completer(self: KTimeComboBox) QCompleter {
+    pub fn completer(self: KTimeComboBox) QCompleter {
         return .{ .ptr = qtc.QComboBox_Completer(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `itemDelegate` instead
+    ///
+    pub const ItemDelegate = itemDelegate;
 
     /// Inherited from QComboBox
     ///
@@ -1617,9 +1989,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn ItemDelegate(self: KTimeComboBox) QAbstractItemDelegate {
+    pub fn itemDelegate(self: KTimeComboBox) QAbstractItemDelegate {
         return .{ .ptr = qtc.QComboBox_ItemDelegate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setItemDelegate` instead
+    ///
+    pub const SetItemDelegate = setItemDelegate;
 
     /// Inherited from QComboBox
     ///
@@ -1631,10 +2007,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` delegate: QAbstractItemDelegate `
     ///
-    pub fn SetItemDelegate(self: KTimeComboBox, delegate: anytype) void {
+    pub fn setItemDelegate(self: KTimeComboBox, delegate: anytype) void {
         comptime _ = @TypeOf(delegate)._is_QAbstractItemDelegate;
         qtc.QComboBox_SetItemDelegate(@ptrCast(self.ptr), @ptrCast(delegate.ptr));
     }
+
+    /// ### DEPRECATED: Use `model` instead
+    ///
+    pub const Model = model;
 
     /// Inherited from QComboBox
     ///
@@ -1644,9 +2024,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn Model(self: KTimeComboBox) QAbstractItemModel {
+    pub fn model(self: KTimeComboBox) QAbstractItemModel {
         return .{ .ptr = qtc.QComboBox_Model(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `rootModelIndex` instead
+    ///
+    pub const RootModelIndex = rootModelIndex;
 
     /// Inherited from QComboBox
     ///
@@ -1656,9 +2040,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn RootModelIndex(self: KTimeComboBox) QModelIndex {
+    pub fn rootModelIndex(self: KTimeComboBox) QModelIndex {
         return .{ .ptr = qtc.QComboBox_RootModelIndex(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setRootModelIndex` instead
+    ///
+    pub const SetRootModelIndex = setRootModelIndex;
 
     /// Inherited from QComboBox
     ///
@@ -1670,10 +2058,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SetRootModelIndex(self: KTimeComboBox, index: anytype) void {
+    pub fn setRootModelIndex(self: KTimeComboBox, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QComboBox_SetRootModelIndex(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `modelColumn` instead
+    ///
+    pub const ModelColumn = modelColumn;
 
     /// Inherited from QComboBox
     ///
@@ -1683,9 +2075,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn ModelColumn(self: KTimeComboBox) i32 {
+    pub fn modelColumn(self: KTimeComboBox) i32 {
         return qtc.QComboBox_ModelColumn(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setModelColumn` instead
+    ///
+    pub const SetModelColumn = setModelColumn;
 
     /// Inherited from QComboBox
     ///
@@ -1697,9 +2093,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` visibleColumn: i32 `
     ///
-    pub fn SetModelColumn(self: KTimeComboBox, visibleColumn: i32) void {
+    pub fn setModelColumn(self: KTimeComboBox, visibleColumn: i32) void {
         qtc.QComboBox_SetModelColumn(@ptrCast(self.ptr), @bitCast(visibleColumn));
     }
+
+    /// ### DEPRECATED: Use `currentIndex` instead
+    ///
+    pub const CurrentIndex = currentIndex;
 
     /// Inherited from QComboBox
     ///
@@ -1709,9 +2109,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn CurrentIndex(self: KTimeComboBox) i32 {
+    pub fn currentIndex(self: KTimeComboBox) i32 {
         return qtc.QComboBox_CurrentIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `currentText` instead
+    ///
+    pub const CurrentText = currentText;
 
     /// Inherited from QComboBox
     ///
@@ -1723,13 +2127,17 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CurrentText(self: KTimeComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn currentText(self: KTimeComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QComboBox_CurrentText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTimeComboBox.CurrentText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTimeComboBox.currentText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `currentData` instead
+    ///
+    pub const CurrentData = currentData;
 
     /// Inherited from QComboBox
     ///
@@ -1739,9 +2147,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn CurrentData(self: KTimeComboBox) QVariant {
+    pub fn currentData(self: KTimeComboBox) QVariant {
         return .{ .ptr = qtc.QComboBox_CurrentData(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `itemText` instead
+    ///
+    pub const ItemText = itemText;
 
     /// Inherited from QComboBox
     ///
@@ -1755,13 +2167,17 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn ItemText(self: KTimeComboBox, allocator: std.mem.Allocator, index: i32) []const u8 {
+    pub fn itemText(self: KTimeComboBox, allocator: std.mem.Allocator, index: i32) []const u8 {
         var _str = qtc.QComboBox_ItemText(@ptrCast(self.ptr), @bitCast(index));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTimeComboBox.ItemText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTimeComboBox.itemText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `itemIcon` instead
+    ///
+    pub const ItemIcon = itemIcon;
 
     /// Inherited from QComboBox
     ///
@@ -1773,9 +2189,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn ItemIcon(self: KTimeComboBox, index: i32) QIcon {
+    pub fn itemIcon(self: KTimeComboBox, index: i32) QIcon {
         return .{ .ptr = qtc.QComboBox_ItemIcon(@ptrCast(self.ptr), @bitCast(index)) };
     }
+
+    /// ### DEPRECATED: Use `itemData` instead
+    ///
+    pub const ItemData = itemData;
 
     /// Inherited from QComboBox
     ///
@@ -1787,9 +2207,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn ItemData(self: KTimeComboBox, index: i32) QVariant {
+    pub fn itemData(self: KTimeComboBox, index: i32) QVariant {
         return .{ .ptr = qtc.QComboBox_ItemData(@ptrCast(self.ptr), @bitCast(index)) };
     }
+
+    /// ### DEPRECATED: Use `addItem` instead
+    ///
+    pub const AddItem = addItem;
 
     /// Inherited from QComboBox
     ///
@@ -1801,13 +2225,17 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddItem(self: KTimeComboBox, text: []const u8) void {
+    pub fn addItem(self: KTimeComboBox, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QComboBox_AddItem(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `addItem2` instead
+    ///
+    pub const AddItem2 = addItem2;
 
     /// Inherited from QComboBox
     ///
@@ -1821,7 +2249,7 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddItem2(self: KTimeComboBox, icon: anytype, text: []const u8) void {
+    pub fn addItem2(self: KTimeComboBox, icon: anytype, text: []const u8) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -1829,6 +2257,10 @@ pub const KTimeComboBox = extern struct {
         };
         qtc.QComboBox_AddItem2(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `addItems` instead
+    ///
+    pub const AddItems = addItems;
 
     /// Inherited from QComboBox
     ///
@@ -1842,13 +2274,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` texts: []const []const u8 `
     ///
-    pub fn AddItems(self: KTimeComboBox, allocator: std.mem.Allocator, texts: []const []const u8) void {
-        const texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("KTimeComboBox.AddItems: Memory allocation failed");
+    pub fn addItems(self: KTimeComboBox, allocator: std.mem.Allocator, texts: []const []const u8) void {
+        const texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("KTimeComboBox.addItems: Memory allocation failed");
         defer allocator.free(texts_arr);
-        for (texts, 0..texts.len) |item, i|
+        for (texts, 0..texts.len) |str_item, i|
             texts_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const texts_list = qtc.libqt_list{
             .len = texts.len,
@@ -1856,6 +2288,10 @@ pub const KTimeComboBox = extern struct {
         };
         qtc.QComboBox_AddItems(@ptrCast(self.ptr), texts_list);
     }
+
+    /// ### DEPRECATED: Use `insertItem` instead
+    ///
+    pub const InsertItem = insertItem;
 
     /// Inherited from QComboBox
     ///
@@ -1869,13 +2305,17 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn InsertItem(self: KTimeComboBox, index: i32, text: []const u8) void {
+    pub fn insertItem(self: KTimeComboBox, index: i32, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QComboBox_InsertItem(@ptrCast(self.ptr), @bitCast(index), text_str);
     }
+
+    /// ### DEPRECATED: Use `insertItem2` instead
+    ///
+    pub const InsertItem2 = insertItem2;
 
     /// Inherited from QComboBox
     ///
@@ -1891,7 +2331,7 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn InsertItem2(self: KTimeComboBox, index: i32, icon: anytype, text: []const u8) void {
+    pub fn insertItem2(self: KTimeComboBox, index: i32, icon: anytype, text: []const u8) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -1899,6 +2339,10 @@ pub const KTimeComboBox = extern struct {
         };
         qtc.QComboBox_InsertItem2(@ptrCast(self.ptr), @bitCast(index), @ptrCast(icon.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `insertItems` instead
+    ///
+    pub const InsertItems = insertItems;
 
     /// Inherited from QComboBox
     ///
@@ -1914,13 +2358,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` texts: []const []const u8 `
     ///
-    pub fn InsertItems(self: KTimeComboBox, allocator: std.mem.Allocator, index: i32, texts: []const []const u8) void {
-        const texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("KTimeComboBox.InsertItems: Memory allocation failed");
+    pub fn insertItems(self: KTimeComboBox, allocator: std.mem.Allocator, index: i32, texts: []const []const u8) void {
+        const texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("KTimeComboBox.insertItems: Memory allocation failed");
         defer allocator.free(texts_arr);
-        for (texts, 0..texts.len) |item, i|
+        for (texts, 0..texts.len) |str_item, i|
             texts_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const texts_list = qtc.libqt_list{
             .len = texts.len,
@@ -1928,6 +2372,10 @@ pub const KTimeComboBox = extern struct {
         };
         qtc.QComboBox_InsertItems(@ptrCast(self.ptr), @bitCast(index), texts_list);
     }
+
+    /// ### DEPRECATED: Use `insertSeparator` instead
+    ///
+    pub const InsertSeparator = insertSeparator;
 
     /// Inherited from QComboBox
     ///
@@ -1939,9 +2387,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn InsertSeparator(self: KTimeComboBox, index: i32) void {
+    pub fn insertSeparator(self: KTimeComboBox, index: i32) void {
         qtc.QComboBox_InsertSeparator(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `removeItem` instead
+    ///
+    pub const RemoveItem = removeItem;
 
     /// Inherited from QComboBox
     ///
@@ -1953,9 +2405,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn RemoveItem(self: KTimeComboBox, index: i32) void {
+    pub fn removeItem(self: KTimeComboBox, index: i32) void {
         qtc.QComboBox_RemoveItem(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `setItemText` instead
+    ///
+    pub const SetItemText = setItemText;
 
     /// Inherited from QComboBox
     ///
@@ -1969,13 +2425,17 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetItemText(self: KTimeComboBox, index: i32, text: []const u8) void {
+    pub fn setItemText(self: KTimeComboBox, index: i32, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QComboBox_SetItemText(@ptrCast(self.ptr), @bitCast(index), text_str);
     }
+
+    /// ### DEPRECATED: Use `setItemIcon` instead
+    ///
+    pub const SetItemIcon = setItemIcon;
 
     /// Inherited from QComboBox
     ///
@@ -1989,10 +2449,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetItemIcon(self: KTimeComboBox, index: i32, icon: anytype) void {
+    pub fn setItemIcon(self: KTimeComboBox, index: i32, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QComboBox_SetItemIcon(@ptrCast(self.ptr), @bitCast(index), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `setItemData` instead
+    ///
+    pub const SetItemData = setItemData;
 
     /// Inherited from QComboBox
     ///
@@ -2006,10 +2470,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetItemData(self: KTimeComboBox, index: i32, value: anytype) void {
+    pub fn setItemData(self: KTimeComboBox, index: i32, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QVariant;
         qtc.QComboBox_SetItemData(@ptrCast(self.ptr), @bitCast(index), @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `view` instead
+    ///
+    pub const View = view;
 
     /// Inherited from QComboBox
     ///
@@ -2019,9 +2487,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn View(self: KTimeComboBox) QAbstractItemView {
+    pub fn view(self: KTimeComboBox) QAbstractItemView {
         return .{ .ptr = qtc.QComboBox_View(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setView` instead
+    ///
+    pub const SetView = setView;
 
     /// Inherited from QComboBox
     ///
@@ -2033,10 +2505,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` itemView: QAbstractItemView `
     ///
-    pub fn SetView(self: KTimeComboBox, itemView: anytype) void {
+    pub fn setView(self: KTimeComboBox, itemView: anytype) void {
         comptime _ = @TypeOf(itemView)._is_QAbstractItemView;
         qtc.QComboBox_SetView(@ptrCast(self.ptr), @ptrCast(itemView.ptr));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery2` instead
+    ///
+    pub const InputMethodQuery2 = inputMethodQuery2;
 
     /// Inherited from QComboBox
     ///
@@ -2050,10 +2526,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` argument: QVariant `
     ///
-    pub fn InputMethodQuery2(self: KTimeComboBox, query: i32, argument: anytype) QVariant {
+    pub fn inputMethodQuery2(self: KTimeComboBox, query: i32, argument: anytype) QVariant {
         comptime _ = @TypeOf(argument)._is_QVariant;
         return .{ .ptr = qtc.QComboBox_InputMethodQuery2(@ptrCast(self.ptr), @bitCast(query), @ptrCast(argument.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// Inherited from QComboBox
     ///
@@ -2063,9 +2543,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn Clear(self: KTimeComboBox) void {
+    pub fn clear(self: KTimeComboBox) void {
         qtc.QComboBox_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearEditText` instead
+    ///
+    pub const ClearEditText = clearEditText;
 
     /// Inherited from QComboBox
     ///
@@ -2075,9 +2559,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn ClearEditText(self: KTimeComboBox) void {
+    pub fn clearEditText(self: KTimeComboBox) void {
         qtc.QComboBox_ClearEditText(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEditText` instead
+    ///
+    pub const SetEditText = setEditText;
 
     /// Inherited from QComboBox
     ///
@@ -2089,13 +2577,17 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetEditText(self: KTimeComboBox, text: []const u8) void {
+    pub fn setEditText(self: KTimeComboBox, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QComboBox_SetEditText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `setCurrentIndex` instead
+    ///
+    pub const SetCurrentIndex = setCurrentIndex;
 
     /// Inherited from QComboBox
     ///
@@ -2107,9 +2599,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn SetCurrentIndex(self: KTimeComboBox, index: i32) void {
+    pub fn setCurrentIndex(self: KTimeComboBox, index: i32) void {
         qtc.QComboBox_SetCurrentIndex(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `setCurrentText` instead
+    ///
+    pub const SetCurrentText = setCurrentText;
 
     /// Inherited from QComboBox
     ///
@@ -2121,7 +2617,7 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetCurrentText(self: KTimeComboBox, text: []const u8) void {
+    pub fn setCurrentText(self: KTimeComboBox, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -2129,6 +2625,10 @@ pub const KTimeComboBox = extern struct {
         qtc.QComboBox_SetCurrentText(@ptrCast(self.ptr), text_str);
     }
 
+    /// ### DEPRECATED: Use `editTextChanged` instead
+    ///
+    pub const EditTextChanged = editTextChanged;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#editTextChanged)
@@ -2139,7 +2639,7 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn EditTextChanged(self: KTimeComboBox, param1: []const u8) void {
+    pub fn editTextChanged(self: KTimeComboBox, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -2147,6 +2647,10 @@ pub const KTimeComboBox = extern struct {
         qtc.QComboBox_EditTextChanged(@ptrCast(self.ptr), param1_str);
     }
 
+    /// ### DEPRECATED: Use `onEditTextChanged` instead
+    ///
+    pub const OnEditTextChanged = onEditTextChanged;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#editTextChanged)
@@ -2157,9 +2661,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, param1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnEditTextChanged(self: KTimeComboBox, callback: *const fn (KTimeComboBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onEditTextChanged(self: KTimeComboBox, callback: *const fn (KTimeComboBox, [*:0]const u8) callconv(.c) void) void {
         qtc.QComboBox_Connect_EditTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `activated` instead
+    ///
+    pub const Activated = activated;
 
     /// Inherited from QComboBox
     ///
@@ -2171,9 +2679,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn Activated(self: KTimeComboBox, index: i32) void {
+    pub fn activated(self: KTimeComboBox, index: i32) void {
         qtc.QComboBox_Activated(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `onActivated` instead
+    ///
+    pub const OnActivated = onActivated;
 
     /// Inherited from QComboBox
     ///
@@ -2185,9 +2697,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, index: i32) callconv(.c) void `
     ///
-    pub fn OnActivated(self: KTimeComboBox, callback: *const fn (KTimeComboBox, i32) callconv(.c) void) void {
+    pub fn onActivated(self: KTimeComboBox, callback: *const fn (KTimeComboBox, i32) callconv(.c) void) void {
         qtc.QComboBox_Connect_Activated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `textActivated` instead
+    ///
+    pub const TextActivated = textActivated;
 
     /// Inherited from QComboBox
     ///
@@ -2199,7 +2715,7 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn TextActivated(self: KTimeComboBox, param1: []const u8) void {
+    pub fn textActivated(self: KTimeComboBox, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -2207,6 +2723,10 @@ pub const KTimeComboBox = extern struct {
         qtc.QComboBox_TextActivated(@ptrCast(self.ptr), param1_str);
     }
 
+    /// ### DEPRECATED: Use `onTextActivated` instead
+    ///
+    pub const OnTextActivated = onTextActivated;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#textActivated)
@@ -2217,9 +2737,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, param1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnTextActivated(self: KTimeComboBox, callback: *const fn (KTimeComboBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onTextActivated(self: KTimeComboBox, callback: *const fn (KTimeComboBox, [*:0]const u8) callconv(.c) void) void {
         qtc.QComboBox_Connect_TextActivated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `highlighted` instead
+    ///
+    pub const Highlighted = highlighted;
 
     /// Inherited from QComboBox
     ///
@@ -2231,9 +2755,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn Highlighted(self: KTimeComboBox, index: i32) void {
+    pub fn highlighted(self: KTimeComboBox, index: i32) void {
         qtc.QComboBox_Highlighted(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `onHighlighted` instead
+    ///
+    pub const OnHighlighted = onHighlighted;
 
     /// Inherited from QComboBox
     ///
@@ -2245,9 +2773,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, index: i32) callconv(.c) void `
     ///
-    pub fn OnHighlighted(self: KTimeComboBox, callback: *const fn (KTimeComboBox, i32) callconv(.c) void) void {
+    pub fn onHighlighted(self: KTimeComboBox, callback: *const fn (KTimeComboBox, i32) callconv(.c) void) void {
         qtc.QComboBox_Connect_Highlighted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `textHighlighted` instead
+    ///
+    pub const TextHighlighted = textHighlighted;
 
     /// Inherited from QComboBox
     ///
@@ -2259,7 +2791,7 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn TextHighlighted(self: KTimeComboBox, param1: []const u8) void {
+    pub fn textHighlighted(self: KTimeComboBox, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -2267,6 +2799,10 @@ pub const KTimeComboBox = extern struct {
         qtc.QComboBox_TextHighlighted(@ptrCast(self.ptr), param1_str);
     }
 
+    /// ### DEPRECATED: Use `onTextHighlighted` instead
+    ///
+    pub const OnTextHighlighted = onTextHighlighted;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#textHighlighted)
@@ -2277,9 +2813,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, param1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnTextHighlighted(self: KTimeComboBox, callback: *const fn (KTimeComboBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onTextHighlighted(self: KTimeComboBox, callback: *const fn (KTimeComboBox, [*:0]const u8) callconv(.c) void) void {
         qtc.QComboBox_Connect_TextHighlighted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `currentIndexChanged` instead
+    ///
+    pub const CurrentIndexChanged = currentIndexChanged;
 
     /// Inherited from QComboBox
     ///
@@ -2291,9 +2831,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn CurrentIndexChanged(self: KTimeComboBox, index: i32) void {
+    pub fn currentIndexChanged(self: KTimeComboBox, index: i32) void {
         qtc.QComboBox_CurrentIndexChanged(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `onCurrentIndexChanged` instead
+    ///
+    pub const OnCurrentIndexChanged = onCurrentIndexChanged;
 
     /// Inherited from QComboBox
     ///
@@ -2305,9 +2849,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, index: i32) callconv(.c) void `
     ///
-    pub fn OnCurrentIndexChanged(self: KTimeComboBox, callback: *const fn (KTimeComboBox, i32) callconv(.c) void) void {
+    pub fn onCurrentIndexChanged(self: KTimeComboBox, callback: *const fn (KTimeComboBox, i32) callconv(.c) void) void {
         qtc.QComboBox_Connect_CurrentIndexChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `currentTextChanged` instead
+    ///
+    pub const CurrentTextChanged = currentTextChanged;
 
     /// Inherited from QComboBox
     ///
@@ -2319,13 +2867,17 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn CurrentTextChanged(self: KTimeComboBox, param1: []const u8) void {
+    pub fn currentTextChanged(self: KTimeComboBox, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
         qtc.QComboBox_CurrentTextChanged(@ptrCast(self.ptr), param1_str);
     }
+
+    /// ### DEPRECATED: Use `onCurrentTextChanged` instead
+    ///
+    pub const OnCurrentTextChanged = onCurrentTextChanged;
 
     /// Inherited from QComboBox
     ///
@@ -2337,9 +2889,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, param1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnCurrentTextChanged(self: KTimeComboBox, callback: *const fn (KTimeComboBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onCurrentTextChanged(self: KTimeComboBox, callback: *const fn (KTimeComboBox, [*:0]const u8) callconv(.c) void) void {
         qtc.QComboBox_Connect_CurrentTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `findText2` instead
+    ///
+    pub const FindText2 = findText2;
 
     /// Inherited from QComboBox
     ///
@@ -2353,13 +2909,17 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.MatchFlag `
     ///
-    pub fn FindText2(self: KTimeComboBox, text: []const u8, flags: i32) i32 {
+    pub fn findText2(self: KTimeComboBox, text: []const u8, flags: i32) i32 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return qtc.QComboBox_FindText2(@ptrCast(self.ptr), text_str, @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `findData2` instead
+    ///
+    pub const FindData2 = findData2;
 
     /// Inherited from QComboBox
     ///
@@ -2373,10 +2933,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn FindData2(self: KTimeComboBox, data: anytype, role: i32) i32 {
+    pub fn findData2(self: KTimeComboBox, data: anytype, role: i32) i32 {
         comptime _ = @TypeOf(data)._is_QVariant;
         return qtc.QComboBox_FindData2(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(role));
     }
+
+    /// ### DEPRECATED: Use `findData3` instead
+    ///
+    pub const FindData3 = findData3;
 
     /// Inherited from QComboBox
     ///
@@ -2392,10 +2956,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.MatchFlag `
     ///
-    pub fn FindData3(self: KTimeComboBox, data: anytype, role: i32, flags: i32) i32 {
+    pub fn findData3(self: KTimeComboBox, data: anytype, role: i32, flags: i32) i32 {
         comptime _ = @TypeOf(data)._is_QVariant;
         return qtc.QComboBox_FindData3(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(role), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `currentData1` instead
+    ///
+    pub const CurrentData1 = currentData1;
 
     /// Inherited from QComboBox
     ///
@@ -2407,9 +2975,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn CurrentData1(self: KTimeComboBox, role: i32) QVariant {
+    pub fn currentData1(self: KTimeComboBox, role: i32) QVariant {
         return .{ .ptr = qtc.QComboBox_CurrentData1(@ptrCast(self.ptr), @bitCast(role)) };
     }
+
+    /// ### DEPRECATED: Use `itemData2` instead
+    ///
+    pub const ItemData2 = itemData2;
 
     /// Inherited from QComboBox
     ///
@@ -2423,9 +2995,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn ItemData2(self: KTimeComboBox, index: i32, role: i32) QVariant {
+    pub fn itemData2(self: KTimeComboBox, index: i32, role: i32) QVariant {
         return .{ .ptr = qtc.QComboBox_ItemData2(@ptrCast(self.ptr), @bitCast(index), @bitCast(role)) };
     }
+
+    /// ### DEPRECATED: Use `addItem22` instead
+    ///
+    pub const AddItem22 = addItem22;
 
     /// Inherited from QComboBox
     ///
@@ -2439,7 +3015,7 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` userData: QVariant `
     ///
-    pub fn AddItem22(self: KTimeComboBox, text: []const u8, userData: anytype) void {
+    pub fn addItem22(self: KTimeComboBox, text: []const u8, userData: anytype) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -2447,6 +3023,10 @@ pub const KTimeComboBox = extern struct {
         comptime _ = @TypeOf(userData)._is_QVariant;
         qtc.QComboBox_AddItem22(@ptrCast(self.ptr), text_str, @ptrCast(userData.ptr));
     }
+
+    /// ### DEPRECATED: Use `addItem3` instead
+    ///
+    pub const AddItem3 = addItem3;
 
     /// Inherited from QComboBox
     ///
@@ -2462,7 +3042,7 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` userData: QVariant `
     ///
-    pub fn AddItem3(self: KTimeComboBox, icon: anytype, text: []const u8, userData: anytype) void {
+    pub fn addItem3(self: KTimeComboBox, icon: anytype, text: []const u8, userData: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -2472,6 +3052,10 @@ pub const KTimeComboBox = extern struct {
         qtc.QComboBox_AddItem3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(userData.ptr));
     }
 
+    /// ### DEPRECATED: Use `insertItem3` instead
+    ///
+    pub const InsertItem3 = insertItem3;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#insertItem)
@@ -2486,7 +3070,7 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` userData: QVariant `
     ///
-    pub fn InsertItem3(self: KTimeComboBox, index: i32, text: []const u8, userData: anytype) void {
+    pub fn insertItem3(self: KTimeComboBox, index: i32, text: []const u8, userData: anytype) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -2494,6 +3078,10 @@ pub const KTimeComboBox = extern struct {
         comptime _ = @TypeOf(userData)._is_QVariant;
         qtc.QComboBox_InsertItem3(@ptrCast(self.ptr), @bitCast(index), text_str, @ptrCast(userData.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertItem4` instead
+    ///
+    pub const InsertItem4 = insertItem4;
 
     /// Inherited from QComboBox
     ///
@@ -2511,7 +3099,7 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` userData: QVariant `
     ///
-    pub fn InsertItem4(self: KTimeComboBox, index: i32, icon: anytype, text: []const u8, userData: anytype) void {
+    pub fn insertItem4(self: KTimeComboBox, index: i32, icon: anytype, text: []const u8, userData: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -2520,6 +3108,10 @@ pub const KTimeComboBox = extern struct {
         comptime _ = @TypeOf(userData)._is_QVariant;
         qtc.QComboBox_InsertItem4(@ptrCast(self.ptr), @bitCast(index), @ptrCast(icon.ptr), text_str, @ptrCast(userData.ptr));
     }
+
+    /// ### DEPRECATED: Use `setItemData3` instead
+    ///
+    pub const SetItemData3 = setItemData3;
 
     /// Inherited from QComboBox
     ///
@@ -2535,10 +3127,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn SetItemData3(self: KTimeComboBox, index: i32, value: anytype, role: i32) void {
+    pub fn setItemData3(self: KTimeComboBox, index: i32, value: anytype, role: i32) void {
         comptime _ = @TypeOf(value)._is_QVariant;
         qtc.QComboBox_SetItemData3(@ptrCast(self.ptr), @bitCast(index), @ptrCast(value.ptr), @bitCast(role));
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -2548,9 +3144,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn WinId(self: KTimeComboBox) usize {
+    pub fn winId(self: KTimeComboBox) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -2560,9 +3160,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn CreateWinId(self: KTimeComboBox) void {
+    pub fn createWinId(self: KTimeComboBox) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -2572,9 +3176,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn InternalWinId(self: KTimeComboBox) usize {
+    pub fn internalWinId(self: KTimeComboBox) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -2584,9 +3192,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn EffectiveWinId(self: KTimeComboBox) usize {
+    pub fn effectiveWinId(self: KTimeComboBox) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -2596,9 +3208,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn Style(self: KTimeComboBox) QStyle {
+    pub fn style(self: KTimeComboBox) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -2608,12 +3224,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: KTimeComboBox, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: KTimeComboBox, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -2623,9 +3243,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn IsTopLevel(self: KTimeComboBox) bool {
+    pub fn isTopLevel(self: KTimeComboBox) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -2635,9 +3259,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn IsWindow(self: KTimeComboBox) bool {
+    pub fn isWindow(self: KTimeComboBox) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -2647,9 +3275,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn IsModal(self: KTimeComboBox) bool {
+    pub fn isModal(self: KTimeComboBox) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -2663,9 +3295,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: KTimeComboBox) i32 {
+    pub fn windowModality(self: KTimeComboBox) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -2675,11 +3311,15 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: KTimeComboBox, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: KTimeComboBox, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2689,9 +3329,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn IsEnabled(self: KTimeComboBox) bool {
+    pub fn isEnabled(self: KTimeComboBox) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -2703,10 +3347,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: KTimeComboBox, param1: anytype) bool {
+    pub fn isEnabledTo(self: KTimeComboBox, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2718,9 +3366,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: KTimeComboBox, enabled: bool) void {
+    pub fn setEnabled(self: KTimeComboBox, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -2732,9 +3384,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: KTimeComboBox, disabled: bool) void {
+    pub fn setDisabled(self: KTimeComboBox, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -2746,9 +3402,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: KTimeComboBox, windowModified: bool) void {
+    pub fn setWindowModified(self: KTimeComboBox, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -2758,9 +3418,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn FrameGeometry(self: KTimeComboBox) QRect {
+    pub fn frameGeometry(self: KTimeComboBox) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -2770,9 +3434,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn Geometry(self: KTimeComboBox) QRect {
+    pub fn geometry(self: KTimeComboBox) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -2782,9 +3450,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn NormalGeometry(self: KTimeComboBox) QRect {
+    pub fn normalGeometry(self: KTimeComboBox) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -2794,9 +3466,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn X(self: KTimeComboBox) i32 {
+    pub fn x(self: KTimeComboBox) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -2806,9 +3482,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn Y(self: KTimeComboBox) i32 {
+    pub fn y(self: KTimeComboBox) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -2818,9 +3498,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn Pos(self: KTimeComboBox) QPoint {
+    pub fn pos(self: KTimeComboBox) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -2830,9 +3514,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn FrameSize(self: KTimeComboBox) QSize {
+    pub fn frameSize(self: KTimeComboBox) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -2842,9 +3530,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn Size(self: KTimeComboBox) QSize {
+    pub fn size(self: KTimeComboBox) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -2854,9 +3546,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn Width(self: KTimeComboBox) i32 {
+    pub fn width(self: KTimeComboBox) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -2866,9 +3562,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn Height(self: KTimeComboBox) i32 {
+    pub fn height(self: KTimeComboBox) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -2878,9 +3578,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn Rect(self: KTimeComboBox) QRect {
+    pub fn rect(self: KTimeComboBox) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -2890,9 +3594,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn ChildrenRect(self: KTimeComboBox) QRect {
+    pub fn childrenRect(self: KTimeComboBox) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -2902,9 +3610,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn ChildrenRegion(self: KTimeComboBox) QRegion {
+    pub fn childrenRegion(self: KTimeComboBox) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -2914,9 +3626,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn MinimumSize(self: KTimeComboBox) QSize {
+    pub fn minimumSize(self: KTimeComboBox) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -2926,9 +3642,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn MaximumSize(self: KTimeComboBox) QSize {
+    pub fn maximumSize(self: KTimeComboBox) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2938,9 +3658,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn MinimumWidth(self: KTimeComboBox) i32 {
+    pub fn minimumWidth(self: KTimeComboBox) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2950,9 +3674,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn MinimumHeight(self: KTimeComboBox) i32 {
+    pub fn minimumHeight(self: KTimeComboBox) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2962,9 +3690,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn MaximumWidth(self: KTimeComboBox) i32 {
+    pub fn maximumWidth(self: KTimeComboBox) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2974,9 +3706,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn MaximumHeight(self: KTimeComboBox) i32 {
+    pub fn maximumHeight(self: KTimeComboBox) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -2986,12 +3722,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: KTimeComboBox, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: KTimeComboBox, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -3005,9 +3745,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: KTimeComboBox, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: KTimeComboBox, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -3017,12 +3761,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: KTimeComboBox, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: KTimeComboBox, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -3036,9 +3784,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: KTimeComboBox, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: KTimeComboBox, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -3050,9 +3802,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: KTimeComboBox, minw: i32) void {
+    pub fn setMinimumWidth(self: KTimeComboBox, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -3064,9 +3820,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: KTimeComboBox, minh: i32) void {
+    pub fn setMinimumHeight(self: KTimeComboBox, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -3078,9 +3838,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: KTimeComboBox, maxw: i32) void {
+    pub fn setMaximumWidth(self: KTimeComboBox, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -3092,9 +3856,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: KTimeComboBox, maxh: i32) void {
+    pub fn setMaximumHeight(self: KTimeComboBox, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -3104,9 +3872,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn SizeIncrement(self: KTimeComboBox) QSize {
+    pub fn sizeIncrement(self: KTimeComboBox) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -3116,12 +3888,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: KTimeComboBox, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: KTimeComboBox, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -3135,9 +3911,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: KTimeComboBox, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: KTimeComboBox, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -3147,9 +3927,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn BaseSize(self: KTimeComboBox) QSize {
+    pub fn baseSize(self: KTimeComboBox) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -3159,12 +3943,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: KTimeComboBox, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: KTimeComboBox, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -3178,9 +3966,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: KTimeComboBox, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: KTimeComboBox, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -3192,10 +3984,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: KTimeComboBox, fixedSize: anytype) void {
+    pub fn setFixedSize(self: KTimeComboBox, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -3209,9 +4005,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: KTimeComboBox, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: KTimeComboBox, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -3223,9 +4023,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: KTimeComboBox, w: i32) void {
+    pub fn setFixedWidth(self: KTimeComboBox, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -3237,9 +4041,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: KTimeComboBox, h: i32) void {
+    pub fn setFixedHeight(self: KTimeComboBox, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -3251,11 +4059,15 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: KTimeComboBox, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: KTimeComboBox, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -3266,11 +4078,15 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: KTimeComboBox, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: KTimeComboBox, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -3281,11 +4097,15 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: KTimeComboBox, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: KTimeComboBox, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -3296,11 +4116,15 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: KTimeComboBox, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: KTimeComboBox, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -3311,11 +4135,15 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: KTimeComboBox, param1: anytype) QPointF {
+    pub fn mapToParent(self: KTimeComboBox, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -3326,10 +4154,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: KTimeComboBox, param1: anytype) QPoint {
+    pub fn mapToParent2(self: KTimeComboBox, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -3341,10 +4173,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: KTimeComboBox, param1: anytype) QPointF {
+    pub fn mapFromParent(self: KTimeComboBox, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -3356,10 +4192,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: KTimeComboBox, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: KTimeComboBox, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -3373,12 +4213,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: KTimeComboBox, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: KTimeComboBox, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -3391,11 +4235,15 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: KTimeComboBox, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: KTimeComboBox, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -3409,11 +4257,15 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: KTimeComboBox, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: KTimeComboBox, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -3427,11 +4279,15 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: KTimeComboBox, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: KTimeComboBox, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -3441,9 +4297,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn Window(self: KTimeComboBox) QWidget {
+    pub fn window(self: KTimeComboBox) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -3453,9 +4313,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn NativeParentWidget(self: KTimeComboBox) QWidget {
+    pub fn nativeParentWidget(self: KTimeComboBox) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -3465,9 +4329,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn TopLevelWidget(self: KTimeComboBox) QWidget {
+    pub fn topLevelWidget(self: KTimeComboBox) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -3477,9 +4345,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn Palette(self: KTimeComboBox) QPalette {
+    pub fn palette(self: KTimeComboBox) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -3489,12 +4361,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: KTimeComboBox, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: KTimeComboBox, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -3504,11 +4380,15 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: KTimeComboBox, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: KTimeComboBox, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -3522,9 +4402,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: KTimeComboBox) i32 {
+    pub fn backgroundRole(self: KTimeComboBox) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -3534,11 +4418,15 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: KTimeComboBox, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: KTimeComboBox, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -3552,9 +4440,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: KTimeComboBox) i32 {
+    pub fn foregroundRole(self: KTimeComboBox) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -3564,9 +4456,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn Font(self: KTimeComboBox) QFont {
+    pub fn font(self: KTimeComboBox) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -3576,12 +4472,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: KTimeComboBox, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: KTimeComboBox, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -3591,9 +4491,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn FontMetrics(self: KTimeComboBox) QFontMetrics {
+    pub fn fontMetrics(self: KTimeComboBox) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -3603,9 +4507,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn FontInfo(self: KTimeComboBox) QFontInfo {
+    pub fn fontInfo(self: KTimeComboBox) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -3615,9 +4523,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn Cursor(self: KTimeComboBox) QCursor {
+    pub fn cursor(self: KTimeComboBox) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -3627,12 +4539,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: KTimeComboBox, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: KTimeComboBox, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -3642,9 +4558,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn UnsetCursor(self: KTimeComboBox) void {
+    pub fn unsetCursor(self: KTimeComboBox) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -3656,9 +4576,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: KTimeComboBox, enable: bool) void {
+    pub fn setMouseTracking(self: KTimeComboBox, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -3668,9 +4592,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn HasMouseTracking(self: KTimeComboBox) bool {
+    pub fn hasMouseTracking(self: KTimeComboBox) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -3680,9 +4608,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn UnderMouse(self: KTimeComboBox) bool {
+    pub fn underMouse(self: KTimeComboBox) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -3694,9 +4626,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: KTimeComboBox, enable: bool) void {
+    pub fn setTabletTracking(self: KTimeComboBox, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -3706,24 +4642,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn HasTabletTracking(self: KTimeComboBox) bool {
+    pub fn hasTabletTracking(self: KTimeComboBox) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTimeComboBox `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: KTimeComboBox, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -3733,12 +4658,35 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: KTimeComboBox, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: KTimeComboBox, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KTimeComboBox `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: KTimeComboBox, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -3748,9 +4696,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn Mask(self: KTimeComboBox) QRegion {
+    pub fn mask(self: KTimeComboBox) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -3760,9 +4712,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn ClearMask(self: KTimeComboBox) void {
+    pub fn clearMask(self: KTimeComboBox) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -3774,10 +4730,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: KTimeComboBox, target: anytype) void {
+    pub fn render(self: KTimeComboBox, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -3789,10 +4749,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: KTimeComboBox, painter: anytype) void {
+    pub fn render2(self: KTimeComboBox, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -3802,9 +4766,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn Grab(self: KTimeComboBox) QPixmap {
+    pub fn grab(self: KTimeComboBox) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -3814,9 +4782,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn GraphicsEffect(self: KTimeComboBox) QGraphicsEffect {
+    pub fn graphicsEffect(self: KTimeComboBox) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -3828,10 +4800,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: KTimeComboBox, effect: anytype) void {
+    pub fn setGraphicsEffect(self: KTimeComboBox, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -3843,9 +4819,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: KTimeComboBox, typeVal: i32) void {
+    pub fn grabGesture(self: KTimeComboBox, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -3857,9 +4837,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: KTimeComboBox, typeVal: i32) void {
+    pub fn ungrabGesture(self: KTimeComboBox, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -3869,15 +4853,19 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: KTimeComboBox, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: KTimeComboBox, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -3887,15 +4875,19 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: KTimeComboBox, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: KTimeComboBox, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -3907,13 +4899,17 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: KTimeComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: KTimeComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTimeComboBox.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTimeComboBox.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -3925,13 +4921,17 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: KTimeComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: KTimeComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTimeComboBox.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTimeComboBox.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -3943,10 +4943,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: KTimeComboBox, icon: anytype) void {
+    pub fn setWindowIcon(self: KTimeComboBox, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -3956,9 +4960,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn WindowIcon(self: KTimeComboBox) QIcon {
+    pub fn windowIcon(self: KTimeComboBox) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -3968,15 +4976,19 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: KTimeComboBox, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: KTimeComboBox, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -3988,13 +5000,17 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: KTimeComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: KTimeComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTimeComboBox.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTimeComboBox.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -4004,15 +5020,19 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: KTimeComboBox, windowRole: []const u8) void {
+    pub fn setWindowRole(self: KTimeComboBox, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -4024,13 +5044,17 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: KTimeComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: KTimeComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTimeComboBox.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTimeComboBox.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -4042,13 +5066,17 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: KTimeComboBox, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: KTimeComboBox, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -4060,13 +5088,17 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: KTimeComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: KTimeComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTimeComboBox.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTimeComboBox.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -4078,9 +5110,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: KTimeComboBox, level: f64) void {
+    pub fn setWindowOpacity(self: KTimeComboBox, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -4090,9 +5126,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn WindowOpacity(self: KTimeComboBox) f64 {
+    pub fn windowOpacity(self: KTimeComboBox) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -4102,9 +5142,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn IsWindowModified(self: KTimeComboBox) bool {
+    pub fn isWindowModified(self: KTimeComboBox) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -4114,15 +5158,19 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: KTimeComboBox, toolTip: []const u8) void {
+    pub fn setToolTip(self: KTimeComboBox, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -4134,13 +5182,17 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: KTimeComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: KTimeComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTimeComboBox.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTimeComboBox.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -4152,9 +5204,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: KTimeComboBox, msec: i32) void {
+    pub fn setToolTipDuration(self: KTimeComboBox, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -4164,9 +5220,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn ToolTipDuration(self: KTimeComboBox) i32 {
+    pub fn toolTipDuration(self: KTimeComboBox) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -4176,15 +5236,19 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: KTimeComboBox, statusTip: []const u8) void {
+    pub fn setStatusTip(self: KTimeComboBox, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -4196,13 +5260,17 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: KTimeComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: KTimeComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTimeComboBox.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTimeComboBox.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -4212,15 +5280,19 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: KTimeComboBox, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: KTimeComboBox, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -4232,13 +5304,17 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: KTimeComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: KTimeComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTimeComboBox.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTimeComboBox.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -4250,13 +5326,17 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: KTimeComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: KTimeComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTimeComboBox.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTimeComboBox.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -4268,13 +5348,17 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: KTimeComboBox, name: []const u8) void {
+    pub fn setAccessibleName(self: KTimeComboBox, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -4286,13 +5370,17 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: KTimeComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: KTimeComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTimeComboBox.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTimeComboBox.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -4304,13 +5392,17 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: KTimeComboBox, description: []const u8) void {
+    pub fn setAccessibleDescription(self: KTimeComboBox, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -4322,9 +5414,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: KTimeComboBox, direction: i32) void {
+    pub fn setLayoutDirection(self: KTimeComboBox, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -4338,9 +5434,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: KTimeComboBox) i32 {
+    pub fn layoutDirection(self: KTimeComboBox) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -4350,9 +5450,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn UnsetLayoutDirection(self: KTimeComboBox) void {
+    pub fn unsetLayoutDirection(self: KTimeComboBox) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -4362,12 +5466,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: KTimeComboBox, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: KTimeComboBox, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -4377,9 +5485,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn Locale(self: KTimeComboBox) QLocale {
+    pub fn locale(self: KTimeComboBox) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -4389,9 +5501,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn UnsetLocale(self: KTimeComboBox) void {
+    pub fn unsetLocale(self: KTimeComboBox) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -4401,9 +5517,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn IsRightToLeft(self: KTimeComboBox) bool {
+    pub fn isRightToLeft(self: KTimeComboBox) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -4413,9 +5533,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn IsLeftToRight(self: KTimeComboBox) bool {
+    pub fn isLeftToRight(self: KTimeComboBox) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -4425,9 +5549,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn SetFocus(self: KTimeComboBox) void {
+    pub fn setFocus(self: KTimeComboBox) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -4437,9 +5565,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn IsActiveWindow(self: KTimeComboBox) bool {
+    pub fn isActiveWindow(self: KTimeComboBox) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -4449,9 +5581,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn ActivateWindow(self: KTimeComboBox) void {
+    pub fn activateWindow(self: KTimeComboBox) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -4461,9 +5597,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn ClearFocus(self: KTimeComboBox) void {
+    pub fn clearFocus(self: KTimeComboBox) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -4475,9 +5615,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: KTimeComboBox, reason: i32) void {
+    pub fn setFocus2(self: KTimeComboBox, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -4491,9 +5635,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: KTimeComboBox) i32 {
+    pub fn focusPolicy(self: KTimeComboBox) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -4505,9 +5653,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: KTimeComboBox, policy: i32) void {
+    pub fn setFocusPolicy(self: KTimeComboBox, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -4517,9 +5669,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn HasFocus(self: KTimeComboBox) bool {
+    pub fn hasFocus(self: KTimeComboBox) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -4531,11 +5687,15 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -4545,12 +5705,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: KTimeComboBox, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: KTimeComboBox, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -4560,9 +5724,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn FocusProxy(self: KTimeComboBox) QWidget {
+    pub fn focusProxy(self: KTimeComboBox) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -4576,9 +5744,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: KTimeComboBox) i32 {
+    pub fn contextMenuPolicy(self: KTimeComboBox) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -4590,9 +5762,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: KTimeComboBox, policy: i32) void {
+    pub fn setContextMenuPolicy(self: KTimeComboBox, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -4602,9 +5778,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn GrabMouse(self: KTimeComboBox) void {
+    pub fn grabMouse(self: KTimeComboBox) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -4616,10 +5796,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: KTimeComboBox, param1: anytype) void {
+    pub fn grabMouse2(self: KTimeComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -4629,9 +5813,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn ReleaseMouse(self: KTimeComboBox) void {
+    pub fn releaseMouse(self: KTimeComboBox) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -4641,9 +5829,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn GrabKeyboard(self: KTimeComboBox) void {
+    pub fn grabKeyboard(self: KTimeComboBox) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -4653,9 +5845,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn ReleaseKeyboard(self: KTimeComboBox) void {
+    pub fn releaseKeyboard(self: KTimeComboBox) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -4667,10 +5863,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: KTimeComboBox, key: anytype) i32 {
+    pub fn grabShortcut(self: KTimeComboBox, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -4682,9 +5882,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: KTimeComboBox, id: i32) void {
+    pub fn releaseShortcut(self: KTimeComboBox, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -4696,9 +5900,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: KTimeComboBox, id: i32) void {
+    pub fn setShortcutEnabled(self: KTimeComboBox, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -4710,25 +5918,37 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: KTimeComboBox, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: KTimeComboBox, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -4738,9 +5958,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn UpdatesEnabled(self: KTimeComboBox) bool {
+    pub fn updatesEnabled(self: KTimeComboBox) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -4752,9 +5976,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: KTimeComboBox, enable: bool) void {
+    pub fn setUpdatesEnabled(self: KTimeComboBox, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -4764,9 +5992,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn GraphicsProxyWidget(self: KTimeComboBox) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: KTimeComboBox) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -4776,9 +6008,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn Update(self: KTimeComboBox) void {
+    pub fn update(self: KTimeComboBox) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -4788,9 +6024,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn Repaint(self: KTimeComboBox) void {
+    pub fn repaint(self: KTimeComboBox) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -4800,17 +6040,21 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: KTimeComboBox, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: KTimeComboBox, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -4822,11 +6066,15 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: KTimeComboBox, param1: anytype) void {
+    pub fn update3(self: KTimeComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -4837,10 +6085,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: KTimeComboBox, param1: anytype) void {
+    pub fn update4(self: KTimeComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -4850,17 +6102,21 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: KTimeComboBox, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: KTimeComboBox, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -4872,10 +6128,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: KTimeComboBox, param1: anytype) void {
+    pub fn repaint3(self: KTimeComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -4887,10 +6147,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: KTimeComboBox, param1: anytype) void {
+    pub fn repaint4(self: KTimeComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -4902,9 +6166,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: KTimeComboBox, hidden: bool) void {
+    pub fn setHidden(self: KTimeComboBox, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -4914,9 +6182,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn Show(self: KTimeComboBox) void {
+    pub fn show(self: KTimeComboBox) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -4926,9 +6198,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn Hide(self: KTimeComboBox) void {
+    pub fn hide(self: KTimeComboBox) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -4938,9 +6214,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn ShowMinimized(self: KTimeComboBox) void {
+    pub fn showMinimized(self: KTimeComboBox) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -4950,9 +6230,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn ShowMaximized(self: KTimeComboBox) void {
+    pub fn showMaximized(self: KTimeComboBox) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -4962,9 +6246,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn ShowFullScreen(self: KTimeComboBox) void {
+    pub fn showFullScreen(self: KTimeComboBox) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -4974,9 +6262,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn ShowNormal(self: KTimeComboBox) void {
+    pub fn showNormal(self: KTimeComboBox) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -4986,9 +6278,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn Close(self: KTimeComboBox) bool {
+    pub fn close(self: KTimeComboBox) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -4998,9 +6294,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn Raise(self: KTimeComboBox) void {
+    pub fn raise(self: KTimeComboBox) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -5010,9 +6310,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn Lower(self: KTimeComboBox) void {
+    pub fn lower(self: KTimeComboBox) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -5024,10 +6328,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: KTimeComboBox, param1: anytype) void {
+    pub fn stackUnder(self: KTimeComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -5037,13 +6345,17 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: KTimeComboBox, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: KTimeComboBox, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -5055,10 +6367,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: KTimeComboBox, param1: anytype) void {
+    pub fn move2(self: KTimeComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -5072,9 +6388,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: KTimeComboBox, w: i32, h: i32) void {
+    pub fn resize(self: KTimeComboBox, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -5086,10 +6406,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: KTimeComboBox, param1: anytype) void {
+    pub fn resize2(self: KTimeComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -5099,17 +6423,21 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: KTimeComboBox, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: KTimeComboBox, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -5119,12 +6447,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: KTimeComboBox, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: KTimeComboBox, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -5136,13 +6468,17 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: KTimeComboBox, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: KTimeComboBox, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KTimeComboBox.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KTimeComboBox.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -5152,15 +6488,19 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: KTimeComboBox, geometry: []u8) bool {
+    pub fn restoreGeometry(self: KTimeComboBox, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -5170,9 +6510,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn AdjustSize(self: KTimeComboBox) void {
+    pub fn adjustSize(self: KTimeComboBox) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -5182,9 +6526,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn IsVisible(self: KTimeComboBox) bool {
+    pub fn isVisible(self: KTimeComboBox) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -5196,10 +6544,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: KTimeComboBox, param1: anytype) bool {
+    pub fn isVisibleTo(self: KTimeComboBox, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -5209,9 +6561,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn IsHidden(self: KTimeComboBox) bool {
+    pub fn isHidden(self: KTimeComboBox) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -5221,9 +6577,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn IsMinimized(self: KTimeComboBox) bool {
+    pub fn isMinimized(self: KTimeComboBox) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -5233,9 +6593,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn IsMaximized(self: KTimeComboBox) bool {
+    pub fn isMaximized(self: KTimeComboBox) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -5245,9 +6609,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn IsFullScreen(self: KTimeComboBox) bool {
+    pub fn isFullScreen(self: KTimeComboBox) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -5261,9 +6629,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: KTimeComboBox) i32 {
+    pub fn windowState(self: KTimeComboBox) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -5275,9 +6647,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: KTimeComboBox, state: i32) void {
+    pub fn setWindowState(self: KTimeComboBox, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -5289,9 +6665,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: KTimeComboBox, state: i32) void {
+    pub fn overrideWindowState(self: KTimeComboBox, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -5301,9 +6681,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn SizePolicy(self: KTimeComboBox) QSizePolicy {
+    pub fn sizePolicy(self: KTimeComboBox) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -5313,12 +6697,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: KTimeComboBox, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: KTimeComboBox, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -5332,9 +6720,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: KTimeComboBox, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: KTimeComboBox, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -5344,9 +6736,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn VisibleRegion(self: KTimeComboBox) QRegion {
+    pub fn visibleRegion(self: KTimeComboBox) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -5364,9 +6760,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: KTimeComboBox, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: KTimeComboBox, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -5378,10 +6778,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: KTimeComboBox, margins: anytype) void {
+    pub fn setContentsMargins2(self: KTimeComboBox, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -5391,9 +6795,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn ContentsMargins(self: KTimeComboBox) QMargins {
+    pub fn contentsMargins(self: KTimeComboBox) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -5403,9 +6811,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn ContentsRect(self: KTimeComboBox) QRect {
+    pub fn contentsRect(self: KTimeComboBox) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -5415,9 +6827,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn Layout(self: KTimeComboBox) QLayout {
+    pub fn layout(self: KTimeComboBox) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -5427,12 +6843,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: KTimeComboBox, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: KTimeComboBox, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -5442,24 +6862,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn UpdateGeometry(self: KTimeComboBox) void {
+    pub fn updateGeometry(self: KTimeComboBox) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTimeComboBox `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: KTimeComboBox, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -5469,14 +6878,37 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: KTimeComboBox, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KTimeComboBox `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: KTimeComboBox, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: KTimeComboBox, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -5490,9 +6922,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: KTimeComboBox, dx: i32, dy: i32) void {
+    pub fn scroll(self: KTimeComboBox, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -5508,10 +6944,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: KTimeComboBox, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: KTimeComboBox, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -5521,9 +6961,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn FocusWidget(self: KTimeComboBox) QWidget {
+    pub fn focusWidget(self: KTimeComboBox) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -5533,9 +6977,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn NextInFocusChain(self: KTimeComboBox) QWidget {
+    pub fn nextInFocusChain(self: KTimeComboBox) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -5545,9 +6993,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn PreviousInFocusChain(self: KTimeComboBox) QWidget {
+    pub fn previousInFocusChain(self: KTimeComboBox) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -5557,9 +7009,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn AcceptDrops(self: KTimeComboBox) bool {
+    pub fn acceptDrops(self: KTimeComboBox) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -5571,9 +7027,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: KTimeComboBox, on: bool) void {
+    pub fn setAcceptDrops(self: KTimeComboBox, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -5585,10 +7045,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: KTimeComboBox, action: anytype) void {
+    pub fn addAction(self: KTimeComboBox, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -5598,15 +7062,19 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: KTimeComboBox, actions: []QAction) void {
+    pub fn addActions(self: KTimeComboBox, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -5618,16 +7086,20 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: KTimeComboBox, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: KTimeComboBox, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -5641,11 +7113,15 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: KTimeComboBox, before: anytype, action: anytype) void {
+    pub fn insertAction(self: KTimeComboBox, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -5657,10 +7133,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: KTimeComboBox, action: anytype) void {
+    pub fn removeAction(self: KTimeComboBox, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -5672,15 +7152,19 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: KTimeComboBox, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: KTimeComboBox, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KTimeComboBox.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KTimeComboBox.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -5692,13 +7176,17 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: KTimeComboBox, text: []const u8) QAction {
+    pub fn addAction2(self: KTimeComboBox, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -5712,7 +7200,7 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: KTimeComboBox, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: KTimeComboBox, icon: anytype, text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -5721,6 +7209,10 @@ pub const KTimeComboBox = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -5733,7 +7225,7 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: KTimeComboBox, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: KTimeComboBox, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -5741,6 +7233,10 @@ pub const KTimeComboBox = extern struct {
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
 
     /// Inherited from QWidget
     ///
@@ -5756,7 +7252,7 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: KTimeComboBox, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: KTimeComboBox, icon: anytype, text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -5766,6 +7262,10 @@ pub const KTimeComboBox = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
@@ -5774,9 +7274,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn ParentWidget(self: KTimeComboBox) QWidget {
+    pub fn parentWidget(self: KTimeComboBox) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -5788,9 +7292,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: KTimeComboBox, typeVal: i32) void {
+    pub fn setWindowFlags(self: KTimeComboBox, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -5804,9 +7312,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: KTimeComboBox) i32 {
+    pub fn windowFlags(self: KTimeComboBox) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -5818,9 +7330,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: KTimeComboBox, param1: i32) void {
+    pub fn setWindowFlag(self: KTimeComboBox, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -5832,9 +7348,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: KTimeComboBox, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: KTimeComboBox, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -5848,9 +7368,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: KTimeComboBox) i32 {
+    pub fn windowType(self: KTimeComboBox) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -5860,9 +7384,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -5872,13 +7400,17 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: KTimeComboBox, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: KTimeComboBox, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -5890,10 +7422,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: KTimeComboBox, p: anytype) QWidget {
+    pub fn childAt2(self: KTimeComboBox, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -5905,10 +7441,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: KTimeComboBox, p: anytype) QWidget {
+    pub fn childAt3(self: KTimeComboBox, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -5920,9 +7460,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: KTimeComboBox, param1: i32) void {
+    pub fn setAttribute(self: KTimeComboBox, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -5934,9 +7478,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: KTimeComboBox, param1: i32) bool {
+    pub fn testAttribute(self: KTimeComboBox, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -5946,9 +7494,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn EnsurePolished(self: KTimeComboBox) void {
+    pub fn ensurePolished(self: KTimeComboBox) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -5960,10 +7512,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: KTimeComboBox, child: anytype) bool {
+    pub fn isAncestorOf(self: KTimeComboBox, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -5973,9 +7529,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn AutoFillBackground(self: KTimeComboBox) bool {
+    pub fn autoFillBackground(self: KTimeComboBox) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -5987,9 +7547,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: KTimeComboBox, enabled: bool) void {
+    pub fn setAutoFillBackground(self: KTimeComboBox, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -5999,9 +7563,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn BackingStore(self: KTimeComboBox) QBackingStore {
+    pub fn backingStore(self: KTimeComboBox) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -6011,9 +7579,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn WindowHandle(self: KTimeComboBox) QWindow {
+    pub fn windowHandle(self: KTimeComboBox) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -6023,9 +7595,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn Screen(self: KTimeComboBox) QScreen {
+    pub fn screen(self: KTimeComboBox) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -6035,12 +7611,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: KTimeComboBox, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: KTimeComboBox, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -6048,12 +7628,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -6065,13 +7649,17 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: KTimeComboBox, title: []const u8) void {
+    pub fn windowTitleChanged(self: KTimeComboBox, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -6083,9 +7671,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: KTimeComboBox, callback: *const fn (KTimeComboBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: KTimeComboBox, callback: *const fn (KTimeComboBox, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -6097,10 +7689,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: KTimeComboBox, icon: anytype) void {
+    pub fn windowIconChanged(self: KTimeComboBox, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -6112,9 +7708,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -6126,13 +7726,17 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: KTimeComboBox, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: KTimeComboBox, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -6144,9 +7748,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: KTimeComboBox, callback: *const fn (KTimeComboBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: KTimeComboBox, callback: *const fn (KTimeComboBox, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -6156,12 +7764,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: KTimeComboBox, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: KTimeComboBox, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -6173,9 +7785,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -6189,9 +7805,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: KTimeComboBox) i32 {
+    pub fn inputMethodHints(self: KTimeComboBox) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -6203,9 +7823,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: KTimeComboBox, hints: i32) void {
+    pub fn setInputMethodHints(self: KTimeComboBox, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -6219,11 +7843,15 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: KTimeComboBox, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: KTimeComboBox, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -6239,13 +7867,17 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: KTimeComboBox, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: KTimeComboBox, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -6262,12 +7894,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: KTimeComboBox, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: KTimeComboBox, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -6281,11 +7917,15 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: KTimeComboBox, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: KTimeComboBox, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -6301,12 +7941,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: KTimeComboBox, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: KTimeComboBox, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -6324,12 +7968,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: KTimeComboBox, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: KTimeComboBox, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -6341,10 +7989,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: KTimeComboBox, rectangle: anytype) QPixmap {
+    pub fn grab1(self: KTimeComboBox, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -6358,9 +8010,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: KTimeComboBox, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: KTimeComboBox, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -6374,10 +8030,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: KTimeComboBox, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: KTimeComboBox, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -6391,9 +8051,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: KTimeComboBox, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: KTimeComboBox, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -6407,9 +8071,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: KTimeComboBox, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: KTimeComboBox, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -6423,9 +8091,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: KTimeComboBox, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: KTimeComboBox, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -6439,25 +8111,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: KTimeComboBox, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: KTimeComboBox, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -6465,17 +8125,41 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -6487,13 +8171,17 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KTimeComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KTimeComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTimeComboBox.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTimeComboBox.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -6505,13 +8193,17 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KTimeComboBox, name: []const u8) void {
+    pub fn setObjectName(self: KTimeComboBox, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -6521,9 +8213,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn IsWidgetType(self: KTimeComboBox) bool {
+    pub fn isWidgetType(self: KTimeComboBox) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -6533,9 +8229,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn IsWindowType(self: KTimeComboBox) bool {
+    pub fn isWindowType(self: KTimeComboBox) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -6545,9 +8245,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn IsQuickItemType(self: KTimeComboBox) bool {
+    pub fn isQuickItemType(self: KTimeComboBox) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -6557,9 +8261,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn SignalsBlocked(self: KTimeComboBox) bool {
+    pub fn signalsBlocked(self: KTimeComboBox) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -6571,9 +8279,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KTimeComboBox, b: bool) bool {
+    pub fn blockSignals(self: KTimeComboBox, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -6583,9 +8295,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn Thread(self: KTimeComboBox) QThread {
+    pub fn thread(self: KTimeComboBox) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -6595,12 +8311,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KTimeComboBox, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KTimeComboBox, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -6612,9 +8332,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KTimeComboBox, interval: i32) i32 {
+    pub fn startTimer(self: KTimeComboBox, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -6624,11 +8348,15 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` time: i64 of nanoseconds `
+    /// ` _time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KTimeComboBox, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
+    pub fn startTimer2(self: KTimeComboBox, _time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(_time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -6640,9 +8368,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KTimeComboBox, id: i32) void {
+    pub fn killTimer(self: KTimeComboBox, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -6654,9 +8386,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KTimeComboBox, id: i32) void {
+    pub fn killTimer2(self: KTimeComboBox, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -6668,15 +8404,19 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KTimeComboBox, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KTimeComboBox, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KTimeComboBox.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KTimeComboBox.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -6688,10 +8428,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KTimeComboBox, filterObj: anytype) void {
+    pub fn installEventFilter(self: KTimeComboBox, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -6703,10 +8447,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KTimeComboBox, obj: anytype) void {
+    pub fn removeEventFilter(self: KTimeComboBox, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -6714,7 +8462,7 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6722,13 +8470,17 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -6736,7 +8488,7 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -6744,13 +8496,17 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -6760,18 +8516,22 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KTimeComboBox, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KTimeComboBox, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -6779,7 +8539,7 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6787,13 +8547,17 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -6801,7 +8565,7 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -6809,13 +8573,17 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -6825,9 +8593,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn Disconnect3(self: KTimeComboBox) bool {
+    pub fn disconnect3(self: KTimeComboBox) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -6839,10 +8611,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KTimeComboBox, receiver: anytype) bool {
+    pub fn disconnect4(self: KTimeComboBox, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -6852,10 +8628,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -6865,9 +8645,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn DumpObjectTree(self: KTimeComboBox) void {
+    pub fn dumpObjectTree(self: KTimeComboBox) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -6877,9 +8661,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn DumpObjectInfo(self: KTimeComboBox) void {
+    pub fn dumpObjectInfo(self: KTimeComboBox) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -6893,11 +8681,15 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KTimeComboBox, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KTimeComboBox, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -6909,10 +8701,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KTimeComboBox, name: [:0]const u8) QVariant {
+    pub fn property(self: KTimeComboBox, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -6924,7 +8720,7 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KTimeComboBox, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KTimeComboBox, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -6932,27 +8728,19 @@ pub const KTimeComboBox = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KTimeComboBox.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KTimeComboBox.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KTimeComboBox.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KTimeComboBox.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTimeComboBox `
-    ///
-    pub fn BindingStorage(self: KTimeComboBox) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -6962,9 +8750,29 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn BindingStorage2(self: KTimeComboBox) QBindingStorage {
+    pub fn bindingStorage(self: KTimeComboBox) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KTimeComboBox `
+    ///
+    pub fn bindingStorage2(self: KTimeComboBox) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -6974,9 +8782,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn Destroyed(self: KTimeComboBox) void {
+    pub fn destroyed(self: KTimeComboBox) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -6988,9 +8800,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KTimeComboBox, callback: *const fn (KTimeComboBox) callconv(.c) void) void {
+    pub fn onDestroyed(self: KTimeComboBox, callback: *const fn (KTimeComboBox) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -7000,9 +8816,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn Parent(self: KTimeComboBox) QObject {
+    pub fn parent(self: KTimeComboBox) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -7014,10 +8834,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KTimeComboBox, classname: [:0]const u8) bool {
+    pub fn inherits(self: KTimeComboBox, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -7027,9 +8851,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn DeleteLater(self: KTimeComboBox) void {
+    pub fn deleteLater(self: KTimeComboBox) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -7043,9 +8871,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KTimeComboBox, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KTimeComboBox, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -7055,13 +8887,17 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` time: i64 of nanoseconds `
+    /// ` _time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KTimeComboBox, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
+    pub fn startTimer23(self: KTimeComboBox, _time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(_time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -7069,7 +8905,7 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -7079,13 +8915,17 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -7093,7 +8933,7 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -7103,13 +8943,17 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -7119,7 +8963,7 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -7127,12 +8971,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KTimeComboBox, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KTimeComboBox, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -7144,10 +8992,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KTimeComboBox, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KTimeComboBox, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -7161,11 +9013,15 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KTimeComboBox, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KTimeComboBox, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -7181,13 +9037,17 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KTimeComboBox, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KTimeComboBox, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -7200,11 +9060,15 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KTimeComboBox, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KTimeComboBox, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -7216,10 +9080,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KTimeComboBox, param1: anytype) void {
+    pub fn destroyed1(self: KTimeComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -7231,9 +9099,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -7243,9 +9115,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn PaintingActive(self: KTimeComboBox) bool {
+    pub fn paintingActive(self: KTimeComboBox) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -7255,9 +9131,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn WidthMM(self: KTimeComboBox) i32 {
+    pub fn widthMM(self: KTimeComboBox) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -7267,9 +9147,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn HeightMM(self: KTimeComboBox) i32 {
+    pub fn heightMM(self: KTimeComboBox) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -7279,9 +9163,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn LogicalDpiX(self: KTimeComboBox) i32 {
+    pub fn logicalDpiX(self: KTimeComboBox) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -7291,9 +9179,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn LogicalDpiY(self: KTimeComboBox) i32 {
+    pub fn logicalDpiY(self: KTimeComboBox) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -7303,9 +9195,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn PhysicalDpiX(self: KTimeComboBox) i32 {
+    pub fn physicalDpiX(self: KTimeComboBox) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -7315,9 +9211,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn PhysicalDpiY(self: KTimeComboBox) i32 {
+    pub fn physicalDpiY(self: KTimeComboBox) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -7327,9 +9227,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn DevicePixelRatio(self: KTimeComboBox) f64 {
+    pub fn devicePixelRatio(self: KTimeComboBox) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -7339,9 +9243,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn DevicePixelRatioF(self: KTimeComboBox) f64 {
+    pub fn devicePixelRatioF(self: KTimeComboBox) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -7351,9 +9259,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn ColorCount(self: KTimeComboBox) i32 {
+    pub fn colorCount(self: KTimeComboBox) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -7363,17 +9275,25 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn Depth(self: KTimeComboBox) i32 {
+    pub fn depth(self: KTimeComboBox) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -7381,13 +9301,17 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `setModel` instead
+    ///
+    pub const SetModel = setModel;
 
     /// Inherited from QComboBox
     ///
@@ -7399,16 +9323,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` model: QAbstractItemModel `
+    /// ` _model: QAbstractItemModel `
     ///
-    pub fn SetModel(self: KTimeComboBox, model: anytype) void {
-        comptime _ = @TypeOf(model)._is_QAbstractItemModel;
-        qtc.KTimeComboBox_SetModel(@ptrCast(self.ptr), @ptrCast(model.ptr));
+    pub fn setModel(self: KTimeComboBox, _model: anytype) void {
+        comptime _ = @TypeOf(_model)._is_QAbstractItemModel;
+        qtc.KTimeComboBox_SetModel(@ptrCast(self.ptr), @ptrCast(_model.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetModel` instead
+    /// ### DEPRECATED: Use `superSetModel` instead
     ///
-    pub const QBaseSetModel = SuperSetModel;
+    pub const SuperSetModel = superSetModel;
 
     /// Inherited from QComboBox
     ///
@@ -7420,12 +9344,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` model: QAbstractItemModel `
+    /// ` _model: QAbstractItemModel `
     ///
-    pub fn SuperSetModel(self: KTimeComboBox, model: anytype) void {
-        comptime _ = @TypeOf(model)._is_QAbstractItemModel;
-        qtc.KTimeComboBox_SuperSetModel(@ptrCast(self.ptr), @ptrCast(model.ptr));
+    pub fn superSetModel(self: KTimeComboBox, _model: anytype) void {
+        comptime _ = @TypeOf(_model)._is_QAbstractItemModel;
+        qtc.KTimeComboBox_SuperSetModel(@ptrCast(self.ptr), @ptrCast(_model.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetModel` instead
+    ///
+    pub const OnSetModel = onSetModel;
 
     /// Inherited from QComboBox
     ///
@@ -7439,10 +9367,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, model: QAbstractItemModel) callconv(.c) void `
     ///
-    pub fn OnSetModel(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QAbstractItemModel) callconv(.c) void) void {
+    pub fn onSetModel(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QAbstractItemModel) callconv(.c) void) void {
         qtc.KTimeComboBox_OnSetModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#sizeHint)
@@ -7453,13 +9385,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn SizeHint(self: KTimeComboBox) QSize {
+    pub fn sizeHint(self: KTimeComboBox) QSize {
         return .{ .ptr = qtc.KTimeComboBox_SizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// Inherited from QComboBox
     ///
@@ -7471,10 +9403,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn SuperSizeHint(self: KTimeComboBox) QSize {
+    pub fn superSizeHint(self: KTimeComboBox) QSize {
         return .{ .ptr = qtc.KTimeComboBox_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#sizeHint)
@@ -7489,9 +9425,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: KTimeComboBox, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KTimeComboBox, callback: *const fn () callconv(.c) QSize) void {
         qtc.KTimeComboBox_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QComboBox
     ///
@@ -7503,13 +9443,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn MinimumSizeHint(self: KTimeComboBox) QSize {
+    pub fn minimumSizeHint(self: KTimeComboBox) QSize {
         return .{ .ptr = qtc.KTimeComboBox_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QComboBox
     ///
@@ -7521,9 +9461,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn SuperMinimumSizeHint(self: KTimeComboBox) QSize {
+    pub fn superMinimumSizeHint(self: KTimeComboBox) QSize {
         return .{ .ptr = qtc.KTimeComboBox_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QComboBox
     ///
@@ -7539,9 +9483,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: KTimeComboBox, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KTimeComboBox, callback: *const fn () callconv(.c) QSize) void {
         qtc.KTimeComboBox_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QComboBox
     ///
@@ -7553,16 +9501,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: KTimeComboBox, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KTimeComboBox_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: KTimeComboBox, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KTimeComboBox_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7574,12 +9522,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: KTimeComboBox, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KTimeComboBox_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: KTimeComboBox, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KTimeComboBox_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7593,9 +9545,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QEvent) callconv(.c) bool) void {
         qtc.KTimeComboBox_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QComboBox
     ///
@@ -7609,13 +9565,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: KTimeComboBox, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: KTimeComboBox, param1: i32) QVariant {
         return .{ .ptr = qtc.KTimeComboBox_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QComboBox
     ///
@@ -7629,9 +9585,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: KTimeComboBox, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: KTimeComboBox, param1: i32) QVariant {
         return .{ .ptr = qtc.KTimeComboBox_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QComboBox
     ///
@@ -7647,9 +9607,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: KTimeComboBox, callback: *const fn (KTimeComboBox, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: KTimeComboBox, callback: *const fn (KTimeComboBox, i32) callconv(.c) QVariant) void {
         qtc.KTimeComboBox_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7663,14 +9627,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn ChangeEvent(self: KTimeComboBox, e: anytype) void {
+    pub fn changeEvent(self: KTimeComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QEvent;
         qtc.KTimeComboBox_ChangeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7684,10 +9648,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn SuperChangeEvent(self: KTimeComboBox, e: anytype) void {
+    pub fn superChangeEvent(self: KTimeComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QEvent;
         qtc.KTimeComboBox_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7701,9 +9669,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, e: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QEvent) callconv(.c) void) void {
         qtc.KTimeComboBox_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7717,14 +9689,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` e: QPaintEvent `
     ///
-    pub fn PaintEvent(self: KTimeComboBox, e: anytype) void {
+    pub fn paintEvent(self: KTimeComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QPaintEvent;
         qtc.KTimeComboBox_PaintEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7738,10 +9710,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` e: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: KTimeComboBox, e: anytype) void {
+    pub fn superPaintEvent(self: KTimeComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QPaintEvent;
         qtc.KTimeComboBox_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7755,9 +9731,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, e: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QPaintEvent) callconv(.c) void) void {
         qtc.KTimeComboBox_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7771,14 +9751,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` e: QShowEvent `
     ///
-    pub fn ShowEvent(self: KTimeComboBox, e: anytype) void {
+    pub fn showEvent(self: KTimeComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QShowEvent;
         qtc.KTimeComboBox_ShowEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7792,10 +9772,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` e: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: KTimeComboBox, e: anytype) void {
+    pub fn superShowEvent(self: KTimeComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QShowEvent;
         qtc.KTimeComboBox_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7809,9 +9793,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, e: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QShowEvent) callconv(.c) void) void {
         qtc.KTimeComboBox_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7825,14 +9813,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` e: QHideEvent `
     ///
-    pub fn HideEvent(self: KTimeComboBox, e: anytype) void {
+    pub fn hideEvent(self: KTimeComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QHideEvent;
         qtc.KTimeComboBox_HideEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7846,10 +9834,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` e: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: KTimeComboBox, e: anytype) void {
+    pub fn superHideEvent(self: KTimeComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QHideEvent;
         qtc.KTimeComboBox_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7863,9 +9855,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, e: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QHideEvent) callconv(.c) void) void {
         qtc.KTimeComboBox_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7879,14 +9875,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: KTimeComboBox, e: anytype) void {
+    pub fn mouseReleaseEvent(self: KTimeComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.KTimeComboBox_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7900,10 +9896,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: KTimeComboBox, e: anytype) void {
+    pub fn superMouseReleaseEvent(self: KTimeComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.KTimeComboBox_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7917,9 +9917,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, e: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QMouseEvent) callconv(.c) void) void {
         qtc.KTimeComboBox_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7933,14 +9937,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: KTimeComboBox, e: anytype) void {
+    pub fn keyReleaseEvent(self: KTimeComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.KTimeComboBox_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7954,10 +9958,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: KTimeComboBox, e: anytype) void {
+    pub fn superKeyReleaseEvent(self: KTimeComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.KTimeComboBox_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7971,9 +9979,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, e: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QKeyEvent) callconv(.c) void) void {
         qtc.KTimeComboBox_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7987,14 +9999,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` e: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: KTimeComboBox, e: anytype) void {
+    pub fn contextMenuEvent(self: KTimeComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QContextMenuEvent;
         qtc.KTimeComboBox_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QComboBox
     ///
@@ -8008,10 +10020,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` e: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: KTimeComboBox, e: anytype) void {
+    pub fn superContextMenuEvent(self: KTimeComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QContextMenuEvent;
         qtc.KTimeComboBox_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QComboBox
     ///
@@ -8025,9 +10041,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, e: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QContextMenuEvent) callconv(.c) void) void {
         qtc.KTimeComboBox_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QComboBox
     ///
@@ -8041,14 +10061,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: KTimeComboBox, param1: anytype) void {
+    pub fn inputMethodEvent(self: KTimeComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KTimeComboBox_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QComboBox
     ///
@@ -8062,10 +10082,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: KTimeComboBox, param1: anytype) void {
+    pub fn superInputMethodEvent(self: KTimeComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KTimeComboBox_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QComboBox
     ///
@@ -8079,9 +10103,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QInputMethodEvent) callconv(.c) void) void {
         qtc.KTimeComboBox_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initStyleOption` instead
+    ///
+    pub const InitStyleOption = initStyleOption;
 
     /// Inherited from QComboBox
     ///
@@ -8095,14 +10123,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` option: QStyleOptionComboBox `
     ///
-    pub fn InitStyleOption(self: KTimeComboBox, option: anytype) void {
+    pub fn initStyleOption(self: KTimeComboBox, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionComboBox;
         qtc.KTimeComboBox_InitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitStyleOption` instead
+    /// ### DEPRECATED: Use `superInitStyleOption` instead
     ///
-    pub const QBaseInitStyleOption = SuperInitStyleOption;
+    pub const SuperInitStyleOption = superInitStyleOption;
 
     /// Inherited from QComboBox
     ///
@@ -8116,10 +10144,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` option: QStyleOptionComboBox `
     ///
-    pub fn SuperInitStyleOption(self: KTimeComboBox, option: anytype) void {
+    pub fn superInitStyleOption(self: KTimeComboBox, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionComboBox;
         qtc.KTimeComboBox_SuperInitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitStyleOption` instead
+    ///
+    pub const OnInitStyleOption = onInitStyleOption;
 
     /// Inherited from QComboBox
     ///
@@ -8133,9 +10165,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, option: QStyleOptionComboBox) callconv(.c) void `
     ///
-    pub fn OnInitStyleOption(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QStyleOptionComboBox) callconv(.c) void) void {
+    pub fn onInitStyleOption(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QStyleOptionComboBox) callconv(.c) void) void {
         qtc.KTimeComboBox_OnInitStyleOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -8147,13 +10183,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn DevType(self: KTimeComboBox) i32 {
+    pub fn devType(self: KTimeComboBox) i32 {
         return qtc.KTimeComboBox_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -8165,9 +10201,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn SuperDevType(self: KTimeComboBox) i32 {
+    pub fn superDevType(self: KTimeComboBox) i32 {
         return qtc.KTimeComboBox_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -8181,9 +10221,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: KTimeComboBox, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KTimeComboBox, callback: *const fn () callconv(.c) i32) void {
         qtc.KTimeComboBox_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -8197,13 +10241,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: KTimeComboBox, visible: bool) void {
+    pub fn setVisible(self: KTimeComboBox, visible: bool) void {
         qtc.KTimeComboBox_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -8217,9 +10261,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: KTimeComboBox, visible: bool) void {
+    pub fn superSetVisible(self: KTimeComboBox, visible: bool) void {
         qtc.KTimeComboBox_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -8233,9 +10281,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: KTimeComboBox, callback: *const fn (KTimeComboBox, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: KTimeComboBox, callback: *const fn (KTimeComboBox, bool) callconv(.c) void) void {
         qtc.KTimeComboBox_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -8249,13 +10301,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: KTimeComboBox, param1: i32) i32 {
+    pub fn heightForWidth(self: KTimeComboBox, param1: i32) i32 {
         return qtc.KTimeComboBox_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -8269,9 +10321,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: KTimeComboBox, param1: i32) i32 {
+    pub fn superHeightForWidth(self: KTimeComboBox, param1: i32) i32 {
         return qtc.KTimeComboBox_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -8285,9 +10341,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: KTimeComboBox, callback: *const fn (KTimeComboBox, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: KTimeComboBox, callback: *const fn (KTimeComboBox, i32) callconv(.c) i32) void {
         qtc.KTimeComboBox_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -8299,13 +10359,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn HasHeightForWidth(self: KTimeComboBox) bool {
+    pub fn hasHeightForWidth(self: KTimeComboBox) bool {
         return qtc.KTimeComboBox_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -8317,9 +10377,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn SuperHasHeightForWidth(self: KTimeComboBox) bool {
+    pub fn superHasHeightForWidth(self: KTimeComboBox) bool {
         return qtc.KTimeComboBox_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -8333,9 +10397,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: KTimeComboBox, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KTimeComboBox, callback: *const fn () callconv(.c) bool) void {
         qtc.KTimeComboBox_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -8347,13 +10415,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn PaintEngine(self: KTimeComboBox) QPaintEngine {
+    pub fn paintEngine(self: KTimeComboBox) QPaintEngine {
         return .{ .ptr = qtc.KTimeComboBox_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -8365,9 +10433,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn SuperPaintEngine(self: KTimeComboBox) QPaintEngine {
+    pub fn superPaintEngine(self: KTimeComboBox) QPaintEngine {
         return .{ .ptr = qtc.KTimeComboBox_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -8381,10 +10453,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: KTimeComboBox, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KTimeComboBox, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.KTimeComboBox_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
@@ -8395,16 +10471,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: KTimeComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KTimeComboBox_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: KTimeComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KTimeComboBox_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -8416,12 +10492,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: KTimeComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KTimeComboBox_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: KTimeComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KTimeComboBox_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -8435,10 +10515,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QMouseEvent) callconv(.c) void) void {
         qtc.KTimeComboBox_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
@@ -8449,16 +10533,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: KTimeComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KTimeComboBox_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseMoveEvent(self: KTimeComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KTimeComboBox_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8470,12 +10554,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: KTimeComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KTimeComboBox_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseMoveEvent(self: KTimeComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KTimeComboBox_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8489,9 +10577,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QMouseEvent) callconv(.c) void) void {
         qtc.KTimeComboBox_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -8503,16 +10595,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: KTimeComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KTimeComboBox_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: KTimeComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KTimeComboBox_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -8524,12 +10616,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: KTimeComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KTimeComboBox_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: KTimeComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KTimeComboBox_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -8543,9 +10639,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QEnterEvent) callconv(.c) void) void {
         qtc.KTimeComboBox_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8557,16 +10657,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: KTimeComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KTimeComboBox_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: KTimeComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KTimeComboBox_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8578,12 +10678,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: KTimeComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KTimeComboBox_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: KTimeComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KTimeComboBox_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8597,9 +10701,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QEvent) callconv(.c) void) void {
         qtc.KTimeComboBox_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8611,16 +10719,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: KTimeComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KTimeComboBox_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: KTimeComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KTimeComboBox_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8632,12 +10740,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: KTimeComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KTimeComboBox_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: KTimeComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KTimeComboBox_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8651,9 +10763,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QMoveEvent) callconv(.c) void) void {
         qtc.KTimeComboBox_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -8665,16 +10781,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: KTimeComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.KTimeComboBox_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: KTimeComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.KTimeComboBox_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -8686,12 +10802,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: KTimeComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.KTimeComboBox_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: KTimeComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.KTimeComboBox_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -8705,9 +10825,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QCloseEvent) callconv(.c) void) void {
         qtc.KTimeComboBox_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -8719,16 +10843,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: KTimeComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KTimeComboBox_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: KTimeComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KTimeComboBox_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -8740,12 +10864,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: KTimeComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KTimeComboBox_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: KTimeComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KTimeComboBox_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -8759,9 +10887,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QTabletEvent) callconv(.c) void) void {
         qtc.KTimeComboBox_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -8773,16 +10905,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: KTimeComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KTimeComboBox_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: KTimeComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KTimeComboBox_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -8794,12 +10926,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: KTimeComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KTimeComboBox_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: KTimeComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KTimeComboBox_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -8813,9 +10949,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QActionEvent) callconv(.c) void) void {
         qtc.KTimeComboBox_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -8827,16 +10967,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: KTimeComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KTimeComboBox_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: KTimeComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KTimeComboBox_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -8848,12 +10988,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: KTimeComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KTimeComboBox_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: KTimeComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KTimeComboBox_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -8867,9 +11011,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QDragEnterEvent) callconv(.c) void) void {
         qtc.KTimeComboBox_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8881,16 +11029,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: KTimeComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KTimeComboBox_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: KTimeComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KTimeComboBox_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8902,12 +11050,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: KTimeComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KTimeComboBox_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: KTimeComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KTimeComboBox_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8921,9 +11073,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QDragMoveEvent) callconv(.c) void) void {
         qtc.KTimeComboBox_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8935,16 +11091,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: KTimeComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KTimeComboBox_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: KTimeComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KTimeComboBox_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8956,12 +11112,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: KTimeComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KTimeComboBox_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: KTimeComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KTimeComboBox_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8975,9 +11135,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QDragLeaveEvent) callconv(.c) void) void {
         qtc.KTimeComboBox_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QWidget
     ///
@@ -8989,16 +11153,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: KTimeComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KTimeComboBox_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: KTimeComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KTimeComboBox_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -9010,12 +11174,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: KTimeComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KTimeComboBox_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: KTimeComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KTimeComboBox_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -9029,9 +11197,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QDropEvent) callconv(.c) void) void {
         qtc.KTimeComboBox_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -9049,7 +11221,7 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: KTimeComboBox, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: KTimeComboBox, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -9057,9 +11229,9 @@ pub const KTimeComboBox = extern struct {
         return qtc.KTimeComboBox_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -9077,13 +11249,17 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: KTimeComboBox, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: KTimeComboBox, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.KTimeComboBox_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -9097,9 +11273,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KTimeComboBox_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -9113,13 +11293,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: KTimeComboBox, param1: i32) i32 {
+    pub fn metric(self: KTimeComboBox, param1: i32) i32 {
         return qtc.KTimeComboBox_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -9133,9 +11313,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: KTimeComboBox, param1: i32) i32 {
+    pub fn superMetric(self: KTimeComboBox, param1: i32) i32 {
         return qtc.KTimeComboBox_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -9149,9 +11333,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: KTimeComboBox, callback: *const fn (KTimeComboBox, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: KTimeComboBox, callback: *const fn (KTimeComboBox, i32) callconv(.c) i32) void {
         qtc.KTimeComboBox_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -9165,14 +11353,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: KTimeComboBox, painter: anytype) void {
+    pub fn initPainter(self: KTimeComboBox, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KTimeComboBox_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -9186,10 +11374,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: KTimeComboBox, painter: anytype) void {
+    pub fn superInitPainter(self: KTimeComboBox, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KTimeComboBox_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -9203,9 +11395,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QPainter) callconv(.c) void) void {
         qtc.KTimeComboBox_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -9219,14 +11415,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: KTimeComboBox, offset: anytype) QPaintDevice {
+    pub fn redirected(self: KTimeComboBox, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KTimeComboBox_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -9240,10 +11436,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: KTimeComboBox, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: KTimeComboBox, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KTimeComboBox_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -9257,9 +11457,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QPoint) callconv(.c) QPaintDevice) void {
         qtc.KTimeComboBox_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -9271,13 +11475,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn SharedPainter(self: KTimeComboBox) QPainter {
+    pub fn sharedPainter(self: KTimeComboBox) QPainter {
         return .{ .ptr = qtc.KTimeComboBox_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -9289,9 +11493,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn SuperSharedPainter(self: KTimeComboBox) QPainter {
+    pub fn superSharedPainter(self: KTimeComboBox) QPainter {
         return .{ .ptr = qtc.KTimeComboBox_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -9305,9 +11513,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: KTimeComboBox, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KTimeComboBox, callback: *const fn () callconv(.c) QPainter) void {
         qtc.KTimeComboBox_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -9321,13 +11533,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: KTimeComboBox, next: bool) bool {
+    pub fn focusNextPrevChild(self: KTimeComboBox, next: bool) bool {
         return qtc.KTimeComboBox_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -9341,9 +11553,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: KTimeComboBox, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: KTimeComboBox, next: bool) bool {
         return qtc.KTimeComboBox_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -9357,9 +11573,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: KTimeComboBox, callback: *const fn (KTimeComboBox, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: KTimeComboBox, callback: *const fn (KTimeComboBox, bool) callconv(.c) bool) void {
         qtc.KTimeComboBox_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -9371,16 +11591,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KTimeComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KTimeComboBox_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: KTimeComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KTimeComboBox_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -9392,12 +11612,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KTimeComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KTimeComboBox_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: KTimeComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KTimeComboBox_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -9411,9 +11635,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QTimerEvent) callconv(.c) void) void {
         qtc.KTimeComboBox_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -9425,16 +11653,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KTimeComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KTimeComboBox_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KTimeComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KTimeComboBox_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -9446,12 +11674,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KTimeComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KTimeComboBox_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KTimeComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KTimeComboBox_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -9465,9 +11697,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QChildEvent) callconv(.c) void) void {
         qtc.KTimeComboBox_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -9479,16 +11715,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KTimeComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KTimeComboBox_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KTimeComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KTimeComboBox_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -9500,12 +11736,16 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KTimeComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KTimeComboBox_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KTimeComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KTimeComboBox_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -9519,9 +11759,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QEvent) callconv(.c) void) void {
         qtc.KTimeComboBox_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -9535,14 +11779,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KTimeComboBox, signal: anytype) void {
+    pub fn connectNotify(self: KTimeComboBox, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KTimeComboBox_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -9556,11 +11800,15 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KTimeComboBox, signal: anytype) void {
+    pub fn superConnectNotify(self: KTimeComboBox, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KTimeComboBox_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -9573,9 +11821,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QMetaMethod) callconv(.c) void) void {
         qtc.KTimeComboBox_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -9589,14 +11841,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KTimeComboBox, signal: anytype) void {
+    pub fn disconnectNotify(self: KTimeComboBox, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KTimeComboBox_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -9610,10 +11862,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KTimeComboBox, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KTimeComboBox, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KTimeComboBox_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -9627,10 +11883,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QMetaMethod) callconv(.c) void) void {
         qtc.KTimeComboBox_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -9641,13 +11901,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn UpdateMicroFocus(self: KTimeComboBox) void {
+    pub fn updateMicroFocus(self: KTimeComboBox) void {
         qtc.KTimeComboBox_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -9659,10 +11919,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn SuperUpdateMicroFocus(self: KTimeComboBox) void {
+    pub fn superUpdateMicroFocus(self: KTimeComboBox) void {
         qtc.KTimeComboBox_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -9675,10 +11939,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: KTimeComboBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: KTimeComboBox, callback: *const fn () callconv(.c) void) void {
         qtc.KTimeComboBox_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -9689,13 +11957,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn Create(self: KTimeComboBox) void {
+    pub fn create(self: KTimeComboBox) void {
         qtc.KTimeComboBox_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -9707,10 +11975,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn SuperCreate(self: KTimeComboBox) void {
+    pub fn superCreate(self: KTimeComboBox) void {
         qtc.KTimeComboBox_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -9723,9 +11995,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: KTimeComboBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: KTimeComboBox, callback: *const fn () callconv(.c) void) void {
         qtc.KTimeComboBox_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -9737,13 +12013,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn Destroy(self: KTimeComboBox) void {
+    pub fn destroy(self: KTimeComboBox) void {
         qtc.KTimeComboBox_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -9755,9 +12031,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn SuperDestroy(self: KTimeComboBox) void {
+    pub fn superDestroy(self: KTimeComboBox) void {
         qtc.KTimeComboBox_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -9771,10 +12051,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: KTimeComboBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: KTimeComboBox, callback: *const fn () callconv(.c) void) void {
         qtc.KTimeComboBox_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -9785,13 +12069,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn FocusNextChild(self: KTimeComboBox) bool {
+    pub fn focusNextChild(self: KTimeComboBox) bool {
         return qtc.KTimeComboBox_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -9803,10 +12087,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn SuperFocusNextChild(self: KTimeComboBox) bool {
+    pub fn superFocusNextChild(self: KTimeComboBox) bool {
         return qtc.KTimeComboBox_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -9819,9 +12107,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: KTimeComboBox, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: KTimeComboBox, callback: *const fn () callconv(.c) bool) void {
         qtc.KTimeComboBox_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -9833,13 +12125,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn FocusPreviousChild(self: KTimeComboBox) bool {
+    pub fn focusPreviousChild(self: KTimeComboBox) bool {
         return qtc.KTimeComboBox_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -9851,9 +12143,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn SuperFocusPreviousChild(self: KTimeComboBox) bool {
+    pub fn superFocusPreviousChild(self: KTimeComboBox) bool {
         return qtc.KTimeComboBox_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -9867,9 +12163,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: KTimeComboBox, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: KTimeComboBox, callback: *const fn () callconv(.c) bool) void {
         qtc.KTimeComboBox_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -9881,13 +12181,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn Sender(self: KTimeComboBox) QObject {
+    pub fn sender(self: KTimeComboBox) QObject {
         return .{ .ptr = qtc.KTimeComboBox_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -9899,9 +12199,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn SuperSender(self: KTimeComboBox) QObject {
+    pub fn superSender(self: KTimeComboBox) QObject {
         return .{ .ptr = qtc.KTimeComboBox_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -9915,9 +12219,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KTimeComboBox, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KTimeComboBox, callback: *const fn () callconv(.c) QObject) void {
         qtc.KTimeComboBox_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -9929,13 +12237,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn SenderSignalIndex(self: KTimeComboBox) i32 {
+    pub fn senderSignalIndex(self: KTimeComboBox) i32 {
         return qtc.KTimeComboBox_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -9947,9 +12255,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn SuperSenderSignalIndex(self: KTimeComboBox) i32 {
+    pub fn superSenderSignalIndex(self: KTimeComboBox) i32 {
         return qtc.KTimeComboBox_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -9963,9 +12275,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KTimeComboBox, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KTimeComboBox, callback: *const fn () callconv(.c) i32) void {
         qtc.KTimeComboBox_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -9979,14 +12295,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KTimeComboBox, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KTimeComboBox, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KTimeComboBox_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -10000,10 +12316,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KTimeComboBox, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KTimeComboBox, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KTimeComboBox_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -10017,9 +12337,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KTimeComboBox, callback: *const fn (KTimeComboBox, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KTimeComboBox, callback: *const fn (KTimeComboBox, [*:0]const u8) callconv(.c) i32) void {
         qtc.KTimeComboBox_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -10033,14 +12357,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KTimeComboBox, signal: anytype) bool {
+    pub fn isSignalConnected(self: KTimeComboBox, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KTimeComboBox_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -10054,10 +12378,14 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KTimeComboBox, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KTimeComboBox, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KTimeComboBox_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -10071,9 +12399,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KTimeComboBox, callback: *const fn (KTimeComboBox, QMetaMethod) callconv(.c) bool) void {
         qtc.KTimeComboBox_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -10089,13 +12421,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: KTimeComboBox, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: KTimeComboBox, metricA: i32, metricB: i32) f64 {
         return qtc.KTimeComboBox_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -10111,9 +12443,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: KTimeComboBox, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: KTimeComboBox, metricA: i32, metricB: i32) f64 {
         return qtc.KTimeComboBox_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -10127,9 +12463,13 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: KTimeComboBox, callback: *const fn (KTimeComboBox, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: KTimeComboBox, callback: *const fn (KTimeComboBox, i32, i32) callconv(.c) f64) void {
         qtc.KTimeComboBox_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -10143,23 +12483,23 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: KTimeComboBox, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KTimeComboBox, callback: *const fn (KTimeComboBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KTimeComboBox, callback: *const fn (KTimeComboBox, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/ktimecombobox.html#dtor.KTimeComboBox)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KTimeComboBox `
     ///
-    pub fn Delete(self: KTimeComboBox) void {
+    pub fn delete(self: KTimeComboBox) void {
         qtc.KTimeComboBox_Delete(@ptrCast(self.ptr));
     }
 };

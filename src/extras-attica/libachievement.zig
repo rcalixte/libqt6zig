@@ -15,22 +15,34 @@ pub const Attica__Achievement = extern struct {
 
     pub const _is_Attica__Achievement = {};
 
-    /// New constructs a new Attica::Achievement object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() Attica__Achievement {
+    pub const New = new;
+
+    /// Allocate a new Attica::Achievement object in C++ memory
+    ///
+    pub fn new() Attica__Achievement {
         return .{ .ptr = qtc.Attica__Achievement_new() };
     }
 
-    /// New2 constructs a new Attica::Achievement object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new Attica::Achievement object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: Attica__Achievement `
     ///
-    pub fn New2(other: anytype) Attica__Achievement {
+    pub fn new2(other: anytype) Attica__Achievement {
         comptime _ = @TypeOf(other)._is_Attica__Achievement;
         return .{ .ptr = qtc.Attica__Achievement_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `stringToAchievementType` instead
+    ///
+    pub const StringToAchievementType = stringToAchievementType;
 
     /// ### [Upstream resources](https://api.kde.org/attica-achievement.html#stringToAchievementType)
     ///
@@ -42,13 +54,17 @@ pub const Attica__Achievement = extern struct {
     ///
     /// ` achievement_enums.Type `
     ///
-    pub fn StringToAchievementType(achievementTypeString: []const u8) i32 {
+    pub fn stringToAchievementType(achievementTypeString: []const u8) i32 {
         const achievementTypeString_str = qtc.libqt_string{
             .len = achievementTypeString.len,
             .data = achievementTypeString.ptr,
         };
         return qtc.Attica__Achievement_StringToAchievementType(achievementTypeString_str);
     }
+
+    /// ### DEPRECATED: Use `achievementTypeToString` instead
+    ///
+    pub const AchievementTypeToString = achievementTypeToString;
 
     /// ### [Upstream resources](https://api.kde.org/attica-achievement.html#achievementTypeToString)
     ///
@@ -58,13 +74,17 @@ pub const Attica__Achievement = extern struct {
     ///
     /// ` typeVal: achievement_enums.Type `
     ///
-    pub fn AchievementTypeToString(allocator: std.mem.Allocator, typeVal: i32) []const u8 {
+    pub fn achievementTypeToString(allocator: std.mem.Allocator, typeVal: i32) []const u8 {
         var _str = qtc.Attica__Achievement_AchievementTypeToString(@bitCast(typeVal));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Achievement.AchievementTypeToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Achievement.achievementTypeToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `stringToAchievementVisibility` instead
+    ///
+    pub const StringToAchievementVisibility = stringToAchievementVisibility;
 
     /// ### [Upstream resources](https://api.kde.org/attica-achievement.html#stringToAchievementVisibility)
     ///
@@ -76,7 +96,7 @@ pub const Attica__Achievement = extern struct {
     ///
     /// ` achievement_enums.Visibility `
     ///
-    pub fn StringToAchievementVisibility(achievementVisibilityString: []const u8) i32 {
+    pub fn stringToAchievementVisibility(achievementVisibilityString: []const u8) i32 {
         const achievementVisibilityString_str = qtc.libqt_string{
             .len = achievementVisibilityString.len,
             .data = achievementVisibilityString.ptr,
@@ -84,21 +104,29 @@ pub const Attica__Achievement = extern struct {
         return qtc.Attica__Achievement_StringToAchievementVisibility(achievementVisibilityString_str);
     }
 
+    /// ### DEPRECATED: Use `achievementVisibilityToString` instead
+    ///
+    pub const AchievementVisibilityToString = achievementVisibilityToString;
+
     /// ### [Upstream resources](https://api.kde.org/attica-achievement.html#achievementVisibilityToString)
     ///
     /// ## Parameter(s):
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` visibility: achievement_enums.Visibility `
+    /// ` _visibility: achievement_enums.Visibility `
     ///
-    pub fn AchievementVisibilityToString(allocator: std.mem.Allocator, visibility: i32) []const u8 {
-        var _str = qtc.Attica__Achievement_AchievementVisibilityToString(@bitCast(visibility));
+    pub fn achievementVisibilityToString(allocator: std.mem.Allocator, _visibility: i32) []const u8 {
+        var _str = qtc.Attica__Achievement_AchievementVisibilityToString(@bitCast(_visibility));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Achievement.AchievementVisibilityToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Achievement.achievementVisibilityToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://api.kde.org/attica-achievement.html#operator-eq)
     ///
@@ -108,10 +136,14 @@ pub const Attica__Achievement = extern struct {
     ///
     /// ` other: Attica__Achievement `
     ///
-    pub fn OperatorAssign(self: Attica__Achievement, other: anytype) void {
+    pub fn operatorAssign(self: Attica__Achievement, other: anytype) void {
         comptime _ = @TypeOf(other)._is_Attica__Achievement;
         qtc.Attica__Achievement_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `setId` instead
+    ///
+    pub const SetId = setId;
 
     /// ### [Upstream resources](https://api.kde.org/attica-achievement.html#setId)
     ///
@@ -119,15 +151,19 @@ pub const Attica__Achievement = extern struct {
     ///
     /// ` self: Attica__Achievement `
     ///
-    /// ` id: []const u8 `
+    /// ` _id: []const u8 `
     ///
-    pub fn SetId(self: Attica__Achievement, id: []const u8) void {
+    pub fn setId(self: Attica__Achievement, _id: []const u8) void {
         const id_str = qtc.libqt_string{
-            .len = id.len,
-            .data = id.ptr,
+            .len = _id.len,
+            .data = _id.ptr,
         };
         qtc.Attica__Achievement_SetId(@ptrCast(self.ptr), id_str);
     }
+
+    /// ### DEPRECATED: Use `id` instead
+    ///
+    pub const Id = id;
 
     /// ### [Upstream resources](https://api.kde.org/attica-achievement.html#id)
     ///
@@ -137,13 +173,17 @@ pub const Attica__Achievement = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Id(self: Attica__Achievement, allocator: std.mem.Allocator) []const u8 {
+    pub fn id(self: Attica__Achievement, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Achievement_Id(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Achievement.Id: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Achievement.id: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setContentId` instead
+    ///
+    pub const SetContentId = setContentId;
 
     /// ### [Upstream resources](https://api.kde.org/attica-achievement.html#setContentId)
     ///
@@ -151,15 +191,19 @@ pub const Attica__Achievement = extern struct {
     ///
     /// ` self: Attica__Achievement `
     ///
-    /// ` contentId: []const u8 `
+    /// ` _contentId: []const u8 `
     ///
-    pub fn SetContentId(self: Attica__Achievement, contentId: []const u8) void {
+    pub fn setContentId(self: Attica__Achievement, _contentId: []const u8) void {
         const contentId_str = qtc.libqt_string{
-            .len = contentId.len,
-            .data = contentId.ptr,
+            .len = _contentId.len,
+            .data = _contentId.ptr,
         };
         qtc.Attica__Achievement_SetContentId(@ptrCast(self.ptr), contentId_str);
     }
+
+    /// ### DEPRECATED: Use `contentId` instead
+    ///
+    pub const ContentId = contentId;
 
     /// ### [Upstream resources](https://api.kde.org/attica-achievement.html#contentId)
     ///
@@ -169,13 +213,17 @@ pub const Attica__Achievement = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ContentId(self: Attica__Achievement, allocator: std.mem.Allocator) []const u8 {
+    pub fn contentId(self: Attica__Achievement, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Achievement_ContentId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Achievement.ContentId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Achievement.contentId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setName` instead
+    ///
+    pub const SetName = setName;
 
     /// ### [Upstream resources](https://api.kde.org/attica-achievement.html#setName)
     ///
@@ -183,15 +231,19 @@ pub const Attica__Achievement = extern struct {
     ///
     /// ` self: Attica__Achievement `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn SetName(self: Attica__Achievement, name: []const u8) void {
+    pub fn setName(self: Attica__Achievement, _name: []const u8) void {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         qtc.Attica__Achievement_SetName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// ### [Upstream resources](https://api.kde.org/attica-achievement.html#name)
     ///
@@ -201,13 +253,17 @@ pub const Attica__Achievement = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: Attica__Achievement, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: Attica__Achievement, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Achievement_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Achievement.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Achievement.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setDescription` instead
+    ///
+    pub const SetDescription = setDescription;
 
     /// ### [Upstream resources](https://api.kde.org/attica-achievement.html#setDescription)
     ///
@@ -215,15 +271,19 @@ pub const Attica__Achievement = extern struct {
     ///
     /// ` self: Attica__Achievement `
     ///
-    /// ` description: []const u8 `
+    /// ` _description: []const u8 `
     ///
-    pub fn SetDescription(self: Attica__Achievement, description: []const u8) void {
+    pub fn setDescription(self: Attica__Achievement, _description: []const u8) void {
         const description_str = qtc.libqt_string{
-            .len = description.len,
-            .data = description.ptr,
+            .len = _description.len,
+            .data = _description.ptr,
         };
         qtc.Attica__Achievement_SetDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `description` instead
+    ///
+    pub const Description = description;
 
     /// ### [Upstream resources](https://api.kde.org/attica-achievement.html#description)
     ///
@@ -233,13 +293,17 @@ pub const Attica__Achievement = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Description(self: Attica__Achievement, allocator: std.mem.Allocator) []const u8 {
+    pub fn description(self: Attica__Achievement, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Achievement_Description(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Achievement.Description: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Achievement.description: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setExplanation` instead
+    ///
+    pub const SetExplanation = setExplanation;
 
     /// ### [Upstream resources](https://api.kde.org/attica-achievement.html#setExplanation)
     ///
@@ -247,15 +311,19 @@ pub const Attica__Achievement = extern struct {
     ///
     /// ` self: Attica__Achievement `
     ///
-    /// ` explanation: []const u8 `
+    /// ` _explanation: []const u8 `
     ///
-    pub fn SetExplanation(self: Attica__Achievement, explanation: []const u8) void {
+    pub fn setExplanation(self: Attica__Achievement, _explanation: []const u8) void {
         const explanation_str = qtc.libqt_string{
-            .len = explanation.len,
-            .data = explanation.ptr,
+            .len = _explanation.len,
+            .data = _explanation.ptr,
         };
         qtc.Attica__Achievement_SetExplanation(@ptrCast(self.ptr), explanation_str);
     }
+
+    /// ### DEPRECATED: Use `explanation` instead
+    ///
+    pub const Explanation = explanation;
 
     /// ### [Upstream resources](https://api.kde.org/attica-achievement.html#explanation)
     ///
@@ -265,13 +333,17 @@ pub const Attica__Achievement = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Explanation(self: Attica__Achievement, allocator: std.mem.Allocator) []const u8 {
+    pub fn explanation(self: Attica__Achievement, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Achievement_Explanation(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Achievement.Explanation: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Achievement.explanation: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setPoints` instead
+    ///
+    pub const SetPoints = setPoints;
 
     /// ### [Upstream resources](https://api.kde.org/attica-achievement.html#setPoints)
     ///
@@ -279,11 +351,15 @@ pub const Attica__Achievement = extern struct {
     ///
     /// ` self: Attica__Achievement `
     ///
-    /// ` points: i32 `
+    /// ` _points: i32 `
     ///
-    pub fn SetPoints(self: Attica__Achievement, points: i32) void {
-        qtc.Attica__Achievement_SetPoints(@ptrCast(self.ptr), @bitCast(points));
+    pub fn setPoints(self: Attica__Achievement, _points: i32) void {
+        qtc.Attica__Achievement_SetPoints(@ptrCast(self.ptr), @bitCast(_points));
     }
+
+    /// ### DEPRECATED: Use `points` instead
+    ///
+    pub const Points = points;
 
     /// ### [Upstream resources](https://api.kde.org/attica-achievement.html#points)
     ///
@@ -291,9 +367,13 @@ pub const Attica__Achievement = extern struct {
     ///
     /// ` self: Attica__Achievement `
     ///
-    pub fn Points(self: Attica__Achievement) i32 {
+    pub fn points(self: Attica__Achievement) i32 {
         return qtc.Attica__Achievement_Points(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setImage` instead
+    ///
+    pub const SetImage = setImage;
 
     /// ### [Upstream resources](https://api.kde.org/attica-achievement.html#setImage)
     ///
@@ -301,12 +381,16 @@ pub const Attica__Achievement = extern struct {
     ///
     /// ` self: Attica__Achievement `
     ///
-    /// ` image: QUrl `
+    /// ` _image: QUrl `
     ///
-    pub fn SetImage(self: Attica__Achievement, image: anytype) void {
-        comptime _ = @TypeOf(image)._is_QUrl;
-        qtc.Attica__Achievement_SetImage(@ptrCast(self.ptr), @ptrCast(image.ptr));
+    pub fn setImage(self: Attica__Achievement, _image: anytype) void {
+        comptime _ = @TypeOf(_image)._is_QUrl;
+        qtc.Attica__Achievement_SetImage(@ptrCast(self.ptr), @ptrCast(_image.ptr));
     }
+
+    /// ### DEPRECATED: Use `image` instead
+    ///
+    pub const Image = image;
 
     /// ### [Upstream resources](https://api.kde.org/attica-achievement.html#image)
     ///
@@ -314,9 +398,13 @@ pub const Attica__Achievement = extern struct {
     ///
     /// ` self: Attica__Achievement `
     ///
-    pub fn Image(self: Attica__Achievement) QUrl {
+    pub fn image(self: Attica__Achievement) QUrl {
         return .{ .ptr = qtc.Attica__Achievement_Image(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setDependencies` instead
+    ///
+    pub const SetDependencies = setDependencies;
 
     /// ### [Upstream resources](https://api.kde.org/attica-achievement.html#setDependencies)
     ///
@@ -326,22 +414,26 @@ pub const Attica__Achievement = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` dependencies: []const []const u8 `
+    /// ` _dependencies: []const []const u8 `
     ///
-    pub fn SetDependencies(self: Attica__Achievement, allocator: std.mem.Allocator, dependencies: []const []const u8) void {
-        const dependencies_arr = allocator.alloc(qtc.libqt_string, dependencies.len) catch @panic("Attica__Achievement.SetDependencies: Memory allocation failed");
+    pub fn setDependencies(self: Attica__Achievement, allocator: std.mem.Allocator, _dependencies: []const []const u8) void {
+        const dependencies_arr = allocator.alloc(qtc.libqt_string, _dependencies.len) catch @panic("Attica__Achievement.setDependencies: Memory allocation failed");
         defer allocator.free(dependencies_arr);
-        for (dependencies, 0..dependencies.len) |item, i|
+        for (_dependencies, 0.._dependencies.len) |str_item, i|
             dependencies_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const dependencies_list = qtc.libqt_list{
-            .len = dependencies.len,
+            .len = _dependencies.len,
             .data = dependencies_arr.ptr,
         };
         qtc.Attica__Achievement_SetDependencies(@ptrCast(self.ptr), dependencies_list);
     }
+
+    /// ### DEPRECATED: Use `addDependency` instead
+    ///
+    pub const AddDependency = addDependency;
 
     /// ### [Upstream resources](https://api.kde.org/attica-achievement.html#addDependency)
     ///
@@ -351,13 +443,17 @@ pub const Attica__Achievement = extern struct {
     ///
     /// ` dependency: []const u8 `
     ///
-    pub fn AddDependency(self: Attica__Achievement, dependency: []const u8) void {
+    pub fn addDependency(self: Attica__Achievement, dependency: []const u8) void {
         const dependency_str = qtc.libqt_string{
             .len = dependency.len,
             .data = dependency.ptr,
         };
         qtc.Attica__Achievement_AddDependency(@ptrCast(self.ptr), dependency_str);
     }
+
+    /// ### DEPRECATED: Use `removeDependency` instead
+    ///
+    pub const RemoveDependency = removeDependency;
 
     /// ### [Upstream resources](https://api.kde.org/attica-achievement.html#removeDependency)
     ///
@@ -367,13 +463,17 @@ pub const Attica__Achievement = extern struct {
     ///
     /// ` dependency: []const u8 `
     ///
-    pub fn RemoveDependency(self: Attica__Achievement, dependency: []const u8) void {
+    pub fn removeDependency(self: Attica__Achievement, dependency: []const u8) void {
         const dependency_str = qtc.libqt_string{
             .len = dependency.len,
             .data = dependency.ptr,
         };
         qtc.Attica__Achievement_RemoveDependency(@ptrCast(self.ptr), dependency_str);
     }
+
+    /// ### DEPRECATED: Use `dependencies` instead
+    ///
+    pub const Dependencies = dependencies;
 
     /// ### [Upstream resources](https://api.kde.org/attica-achievement.html#dependencies)
     ///
@@ -383,7 +483,7 @@ pub const Attica__Achievement = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Dependencies(self: Attica__Achievement, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn dependencies(self: Attica__Achievement, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.Attica__Achievement_Dependencies(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -391,15 +491,19 @@ pub const Attica__Achievement = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("Attica__Achievement.Dependencies: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("Attica__Achievement.dependencies: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("Attica__Achievement.Dependencies: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("Attica__Achievement.dependencies: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setVisibility` instead
+    ///
+    pub const SetVisibility = setVisibility;
 
     /// ### [Upstream resources](https://api.kde.org/attica-achievement.html#setVisibility)
     ///
@@ -407,11 +511,15 @@ pub const Attica__Achievement = extern struct {
     ///
     /// ` self: Attica__Achievement `
     ///
-    /// ` visibility: achievement_enums.Visibility `
+    /// ` _visibility: achievement_enums.Visibility `
     ///
-    pub fn SetVisibility(self: Attica__Achievement, visibility: i32) void {
-        qtc.Attica__Achievement_SetVisibility(@ptrCast(self.ptr), @bitCast(visibility));
+    pub fn setVisibility(self: Attica__Achievement, _visibility: i32) void {
+        qtc.Attica__Achievement_SetVisibility(@ptrCast(self.ptr), @bitCast(_visibility));
     }
+
+    /// ### DEPRECATED: Use `visibility` instead
+    ///
+    pub const Visibility = visibility;
 
     /// ### [Upstream resources](https://api.kde.org/attica-achievement.html#visibility)
     ///
@@ -423,9 +531,13 @@ pub const Attica__Achievement = extern struct {
     ///
     /// ` achievement_enums.Visibility `
     ///
-    pub fn Visibility(self: Attica__Achievement) i32 {
+    pub fn visibility(self: Attica__Achievement) i32 {
         return qtc.Attica__Achievement_Visibility(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setType` instead
+    ///
+    pub const SetType = setType;
 
     /// ### [Upstream resources](https://api.kde.org/attica-achievement.html#setType)
     ///
@@ -435,9 +547,15 @@ pub const Attica__Achievement = extern struct {
     ///
     /// ` typeVal: achievement_enums.Type `
     ///
-    pub fn SetType(self: Attica__Achievement, typeVal: i32) void {
+    pub fn setType(self: Attica__Achievement, typeVal: i32) void {
         qtc.Attica__Achievement_SetType(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// ### [Upstream resources](https://api.kde.org/attica-achievement.html#type)
     ///
@@ -449,9 +567,13 @@ pub const Attica__Achievement = extern struct {
     ///
     /// ` achievement_enums.Type `
     ///
-    pub fn Type(self: Attica__Achievement) i32 {
+    pub fn type0(self: Attica__Achievement) i32 {
         return qtc.Attica__Achievement_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setOptions` instead
+    ///
+    pub const SetOptions = setOptions;
 
     /// ### [Upstream resources](https://api.kde.org/attica-achievement.html#setOptions)
     ///
@@ -461,22 +583,26 @@ pub const Attica__Achievement = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` options: []const []const u8 `
+    /// ` _options: []const []const u8 `
     ///
-    pub fn SetOptions(self: Attica__Achievement, allocator: std.mem.Allocator, options: []const []const u8) void {
-        const options_arr = allocator.alloc(qtc.libqt_string, options.len) catch @panic("Attica__Achievement.SetOptions: Memory allocation failed");
+    pub fn setOptions(self: Attica__Achievement, allocator: std.mem.Allocator, _options: []const []const u8) void {
+        const options_arr = allocator.alloc(qtc.libqt_string, _options.len) catch @panic("Attica__Achievement.setOptions: Memory allocation failed");
         defer allocator.free(options_arr);
-        for (options, 0..options.len) |item, i|
+        for (_options, 0.._options.len) |str_item, i|
             options_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const options_list = qtc.libqt_list{
-            .len = options.len,
+            .len = _options.len,
             .data = options_arr.ptr,
         };
         qtc.Attica__Achievement_SetOptions(@ptrCast(self.ptr), options_list);
     }
+
+    /// ### DEPRECATED: Use `addOption` instead
+    ///
+    pub const AddOption = addOption;
 
     /// ### [Upstream resources](https://api.kde.org/attica-achievement.html#addOption)
     ///
@@ -486,13 +612,17 @@ pub const Attica__Achievement = extern struct {
     ///
     /// ` option: []const u8 `
     ///
-    pub fn AddOption(self: Attica__Achievement, option: []const u8) void {
+    pub fn addOption(self: Attica__Achievement, option: []const u8) void {
         const option_str = qtc.libqt_string{
             .len = option.len,
             .data = option.ptr,
         };
         qtc.Attica__Achievement_AddOption(@ptrCast(self.ptr), option_str);
     }
+
+    /// ### DEPRECATED: Use `removeOption` instead
+    ///
+    pub const RemoveOption = removeOption;
 
     /// ### [Upstream resources](https://api.kde.org/attica-achievement.html#removeOption)
     ///
@@ -502,13 +632,17 @@ pub const Attica__Achievement = extern struct {
     ///
     /// ` option: []const u8 `
     ///
-    pub fn RemoveOption(self: Attica__Achievement, option: []const u8) void {
+    pub fn removeOption(self: Attica__Achievement, option: []const u8) void {
         const option_str = qtc.libqt_string{
             .len = option.len,
             .data = option.ptr,
         };
         qtc.Attica__Achievement_RemoveOption(@ptrCast(self.ptr), option_str);
     }
+
+    /// ### DEPRECATED: Use `options` instead
+    ///
+    pub const Options = options;
 
     /// ### [Upstream resources](https://api.kde.org/attica-achievement.html#options)
     ///
@@ -518,7 +652,7 @@ pub const Attica__Achievement = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Options(self: Attica__Achievement, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn options(self: Attica__Achievement, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.Attica__Achievement_Options(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -526,15 +660,19 @@ pub const Attica__Achievement = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("Attica__Achievement.Options: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("Attica__Achievement.options: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("Attica__Achievement.Options: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("Attica__Achievement.options: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setSteps` instead
+    ///
+    pub const SetSteps = setSteps;
 
     /// ### [Upstream resources](https://api.kde.org/attica-achievement.html#setSteps)
     ///
@@ -542,11 +680,15 @@ pub const Attica__Achievement = extern struct {
     ///
     /// ` self: Attica__Achievement `
     ///
-    /// ` steps: i32 `
+    /// ` _steps: i32 `
     ///
-    pub fn SetSteps(self: Attica__Achievement, steps: i32) void {
-        qtc.Attica__Achievement_SetSteps(@ptrCast(self.ptr), @bitCast(steps));
+    pub fn setSteps(self: Attica__Achievement, _steps: i32) void {
+        qtc.Attica__Achievement_SetSteps(@ptrCast(self.ptr), @bitCast(_steps));
     }
+
+    /// ### DEPRECATED: Use `steps` instead
+    ///
+    pub const Steps = steps;
 
     /// ### [Upstream resources](https://api.kde.org/attica-achievement.html#steps)
     ///
@@ -554,9 +696,13 @@ pub const Attica__Achievement = extern struct {
     ///
     /// ` self: Attica__Achievement `
     ///
-    pub fn Steps(self: Attica__Achievement) i32 {
+    pub fn steps(self: Attica__Achievement) i32 {
         return qtc.Attica__Achievement_Steps(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProgress` instead
+    ///
+    pub const SetProgress = setProgress;
 
     /// ### [Upstream resources](https://api.kde.org/attica-achievement.html#setProgress)
     ///
@@ -564,12 +710,16 @@ pub const Attica__Achievement = extern struct {
     ///
     /// ` self: Attica__Achievement `
     ///
-    /// ` progress: QVariant `
+    /// ` _progress: QVariant `
     ///
-    pub fn SetProgress(self: Attica__Achievement, progress: anytype) void {
-        comptime _ = @TypeOf(progress)._is_QVariant;
-        qtc.Attica__Achievement_SetProgress(@ptrCast(self.ptr), @ptrCast(progress.ptr));
+    pub fn setProgress(self: Attica__Achievement, _progress: anytype) void {
+        comptime _ = @TypeOf(_progress)._is_QVariant;
+        qtc.Attica__Achievement_SetProgress(@ptrCast(self.ptr), @ptrCast(_progress.ptr));
     }
+
+    /// ### DEPRECATED: Use `progress` instead
+    ///
+    pub const Progress = progress;
 
     /// ### [Upstream resources](https://api.kde.org/attica-achievement.html#progress)
     ///
@@ -577,9 +727,13 @@ pub const Attica__Achievement = extern struct {
     ///
     /// ` self: Attica__Achievement `
     ///
-    pub fn Progress(self: Attica__Achievement) QVariant {
+    pub fn progress(self: Attica__Achievement) QVariant {
         return .{ .ptr = qtc.Attica__Achievement_Progress(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://api.kde.org/attica-achievement.html#isValid)
     ///
@@ -587,21 +741,21 @@ pub const Attica__Achievement = extern struct {
     ///
     /// ` self: Attica__Achievement `
     ///
-    pub fn IsValid(self: Attica__Achievement) bool {
+    pub fn isValid(self: Attica__Achievement) bool {
         return qtc.Attica__Achievement_IsValid(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Attica__Achievement `
     ///
-    pub fn Delete(self: Attica__Achievement) void {
+    pub fn delete(self: Attica__Achievement) void {
         qtc.Attica__Achievement_Delete(@ptrCast(self.ptr));
     }
 };

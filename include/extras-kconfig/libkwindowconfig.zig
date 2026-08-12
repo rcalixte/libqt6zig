@@ -15,6 +15,10 @@ pub const KWindowConfig = extern struct {
 
     pub const _is_KWindowConfig = {};
 
+    /// ### DEPRECATED: Use `saveWindowSize` instead
+    ///
+    pub const SaveWindowSize = saveWindowSize;
+
     /// ### [Upstream resources](https://api.kde.org/kwindowconfig.html#saveWindowSize)
     ///
     /// ## Parameter(s):
@@ -25,11 +29,15 @@ pub const KWindowConfig = extern struct {
     ///
     /// ` options: flag of kconfigbase_enums.WriteConfigFlag `
     ///
-    pub fn SaveWindowSize(window: anytype, config: anytype, options: i32) void {
+    pub fn saveWindowSize(window: anytype, config: anytype, options: i32) void {
         comptime _ = @TypeOf(window)._is_QWindow;
         comptime _ = @TypeOf(config)._is_KConfigGroup;
         qtc.KWindowConfig_SaveWindowSize(@ptrCast(window.ptr), @ptrCast(config.ptr), @bitCast(options));
     }
+
+    /// ### DEPRECATED: Use `hasSavedWindowSize` instead
+    ///
+    pub const HasSavedWindowSize = hasSavedWindowSize;
 
     /// ### [Upstream resources](https://api.kde.org/kwindowconfig.html#hasSavedWindowSize)
     ///
@@ -37,10 +45,14 @@ pub const KWindowConfig = extern struct {
     ///
     /// ` config: KConfigGroup `
     ///
-    pub fn HasSavedWindowSize(config: anytype) bool {
+    pub fn hasSavedWindowSize(config: anytype) bool {
         comptime _ = @TypeOf(config)._is_KConfigGroup;
         return qtc.KWindowConfig_HasSavedWindowSize(@ptrCast(config.ptr));
     }
+
+    /// ### DEPRECATED: Use `restoreWindowSize` instead
+    ///
+    pub const RestoreWindowSize = restoreWindowSize;
 
     /// ### [Upstream resources](https://api.kde.org/kwindowconfig.html#restoreWindowSize)
     ///
@@ -50,11 +62,15 @@ pub const KWindowConfig = extern struct {
     ///
     /// ` config: KConfigGroup `
     ///
-    pub fn RestoreWindowSize(window: anytype, config: anytype) void {
+    pub fn restoreWindowSize(window: anytype, config: anytype) void {
         comptime _ = @TypeOf(window)._is_QWindow;
         comptime _ = @TypeOf(config)._is_KConfigGroup;
         qtc.KWindowConfig_RestoreWindowSize(@ptrCast(window.ptr), @ptrCast(config.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveWindowPosition` instead
+    ///
+    pub const SaveWindowPosition = saveWindowPosition;
 
     /// ### [Upstream resources](https://api.kde.org/kwindowconfig.html#saveWindowPosition)
     ///
@@ -66,11 +82,15 @@ pub const KWindowConfig = extern struct {
     ///
     /// ` options: flag of kconfigbase_enums.WriteConfigFlag `
     ///
-    pub fn SaveWindowPosition(window: anytype, config: anytype, options: i32) void {
+    pub fn saveWindowPosition(window: anytype, config: anytype, options: i32) void {
         comptime _ = @TypeOf(window)._is_QWindow;
         comptime _ = @TypeOf(config)._is_KConfigGroup;
         qtc.KWindowConfig_SaveWindowPosition(@ptrCast(window.ptr), @ptrCast(config.ptr), @bitCast(options));
     }
+
+    /// ### DEPRECATED: Use `hasSavedWindowPosition` instead
+    ///
+    pub const HasSavedWindowPosition = hasSavedWindowPosition;
 
     /// ### [Upstream resources](https://api.kde.org/kwindowconfig.html#hasSavedWindowPosition)
     ///
@@ -78,10 +98,14 @@ pub const KWindowConfig = extern struct {
     ///
     /// ` config: KConfigGroup `
     ///
-    pub fn HasSavedWindowPosition(config: anytype) bool {
+    pub fn hasSavedWindowPosition(config: anytype) bool {
         comptime _ = @TypeOf(config)._is_KConfigGroup;
         return qtc.KWindowConfig_HasSavedWindowPosition(@ptrCast(config.ptr));
     }
+
+    /// ### DEPRECATED: Use `restoreWindowPosition` instead
+    ///
+    pub const RestoreWindowPosition = restoreWindowPosition;
 
     /// ### [Upstream resources](https://api.kde.org/kwindowconfig.html#restoreWindowPosition)
     ///
@@ -91,11 +115,15 @@ pub const KWindowConfig = extern struct {
     ///
     /// ` config: KConfigGroup `
     ///
-    pub fn RestoreWindowPosition(window: anytype, config: anytype) void {
+    pub fn restoreWindowPosition(window: anytype, config: anytype) void {
         comptime _ = @TypeOf(window)._is_QWindow;
         comptime _ = @TypeOf(config)._is_KConfigGroup;
         qtc.KWindowConfig_RestoreWindowPosition(@ptrCast(window.ptr), @ptrCast(config.ptr));
     }
+
+    /// ### DEPRECATED: Use `restoreWindowScreenPosition` instead
+    ///
+    pub const RestoreWindowScreenPosition = restoreWindowScreenPosition;
 
     /// ### [Upstream resources](https://api.kde.org/kwindowconfig.html#restoreWindowScreenPosition)
     ///
@@ -107,7 +135,7 @@ pub const KWindowConfig = extern struct {
     ///
     /// ` config: KConfigGroup `
     ///
-    pub fn RestoreWindowScreenPosition(window: anytype, screen: anytype, config: anytype) void {
+    pub fn restoreWindowScreenPosition(window: anytype, screen: anytype, config: anytype) void {
         comptime _ = @TypeOf(window)._is_QWindow;
         comptime _ = @TypeOf(screen)._is_QScreen;
         comptime _ = @TypeOf(config)._is_KConfigGroup;

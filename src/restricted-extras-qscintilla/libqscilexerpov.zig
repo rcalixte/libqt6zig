@@ -31,22 +31,34 @@ pub const QsciLexerPOV = extern struct {
     pub const _is_QsciLexer = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QsciLexerPOV object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QsciLexerPOV {
+    pub const New = new;
+
+    /// Allocate a new QsciLexerPOV object in C++ memory
+    ///
+    pub fn new() QsciLexerPOV {
         return .{ .ptr = qtc.QsciLexerPOV_new() };
     }
 
-    /// New2 constructs a new QsciLexerPOV object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QsciLexerPOV object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) QsciLexerPOV {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QsciLexerPOV_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) QsciLexerPOV {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QsciLexerPOV_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -54,9 +66,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` self: QsciLexerPOV `
     ///
-    pub fn MetaObject(self: QsciLexerPOV) QMetaObject {
+    pub fn metaObject(self: QsciLexerPOV) QMetaObject {
         return .{ .ptr = qtc.QsciLexerPOV_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -68,13 +84,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QsciLexerPOV, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QsciLexerPOV, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QsciLexerPOV_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -84,9 +100,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` self: QsciLexerPOV `
     ///
-    pub fn SuperMetaObject(self: QsciLexerPOV) QMetaObject {
+    pub fn superMetaObject(self: QsciLexerPOV) QMetaObject {
         return .{ .ptr = qtc.QsciLexerPOV_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -94,10 +114,14 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QsciLexerPOV, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QsciLexerPOV, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QsciLexerPOV_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -107,13 +131,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` callback: *const fn (self: QsciLexerPOV, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QsciLexerPOV_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -123,10 +147,14 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QsciLexerPOV, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QsciLexerPOV, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QsciLexerPOV_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -138,9 +166,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QsciLexerPOV, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QsciLexerPOV, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QsciLexerPOV_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -150,13 +182,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` callback: *const fn (self: QsciLexerPOV, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QsciLexerPOV_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -170,9 +202,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QsciLexerPOV, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QsciLexerPOV, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QsciLexerPOV_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -182,46 +218,48 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciLexerPOV.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciLexerPOV.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `language` instead
+    ///
+    pub const Language = language;
+
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPOV.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QsciLexerPOV `
     ///
-    pub fn Language(self: QsciLexerPOV) [:0]const u8 {
+    pub fn language(self: QsciLexerPOV) [:0]const u8 {
         const _ret = qtc.QsciLexerPOV_Language(@ptrCast(self.ptr));
         return std.mem.span(_ret);
     }
 
+    /// ### DEPRECATED: Use `lexer` instead
+    ///
+    pub const Lexer = lexer;
+
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPOV.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QsciLexerPOV `
     ///
-    pub fn Lexer(self: QsciLexerPOV) [:0]const u8 {
+    pub fn lexer(self: QsciLexerPOV) [:0]const u8 {
         const _ret = qtc.QsciLexerPOV_Lexer(@ptrCast(self.ptr));
         return std.mem.span(_ret);
     }
 
-    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPOV.html)
+    /// ### DEPRECATED: Use `braceStyle` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciLexerPOV `
-    ///
-    pub fn BraceStyle(self: QsciLexerPOV) i32 {
-        return qtc.QsciLexerPOV_BraceStyle(@ptrCast(self.ptr));
-    }
+    pub const BraceStyle = braceStyle;
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPOV.html)
     ///
@@ -229,11 +267,29 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` self: QsciLexerPOV `
     ///
-    pub fn WordCharacters(self: QsciLexerPOV) [:0]const u8 {
+    pub fn braceStyle(self: QsciLexerPOV) i32 {
+        return qtc.QsciLexerPOV_BraceStyle(@ptrCast(self.ptr));
+    }
+
+    /// ### DEPRECATED: Use `wordCharacters` instead
+    ///
+    pub const WordCharacters = wordCharacters;
+
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPOV.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QsciLexerPOV `
+    ///
+    pub fn wordCharacters(self: QsciLexerPOV) [:0]const u8 {
         const _ret = qtc.QsciLexerPOV_WordCharacters(@ptrCast(self.ptr));
         return std.mem.span(_ret);
     }
 
+    /// ### DEPRECATED: Use `defaultColor` instead
+    ///
+    pub const DefaultColor = defaultColor;
+
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPOV.html)
     ///
     /// ## Parameter(s):
@@ -242,10 +298,14 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` style: i32 `
     ///
-    pub fn DefaultColor(self: QsciLexerPOV, style: i32) QColor {
+    pub fn defaultColor(self: QsciLexerPOV, style: i32) QColor {
         return .{ .ptr = qtc.QsciLexerPOV_DefaultColor(@ptrCast(self.ptr), @bitCast(style)) };
     }
 
+    /// ### DEPRECATED: Use `defaultEolFill` instead
+    ///
+    pub const DefaultEolFill = defaultEolFill;
+
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPOV.html)
     ///
     /// ## Parameter(s):
@@ -254,21 +314,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` style: i32 `
     ///
-    pub fn DefaultEolFill(self: QsciLexerPOV, style: i32) bool {
+    pub fn defaultEolFill(self: QsciLexerPOV, style: i32) bool {
         return qtc.QsciLexerPOV_DefaultEolFill(@ptrCast(self.ptr), @bitCast(style));
     }
 
-    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPOV.html)
+    /// ### DEPRECATED: Use `defaultFont` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciLexerPOV `
-    ///
-    /// ` style: i32 `
-    ///
-    pub fn DefaultFont(self: QsciLexerPOV, style: i32) QFont {
-        return .{ .ptr = qtc.QsciLexerPOV_DefaultFont(@ptrCast(self.ptr), @bitCast(style)) };
-    }
+    pub const DefaultFont = defaultFont;
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPOV.html)
     ///
@@ -278,9 +330,29 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` style: i32 `
     ///
-    pub fn DefaultPaper(self: QsciLexerPOV, style: i32) QColor {
+    pub fn defaultFont(self: QsciLexerPOV, style: i32) QFont {
+        return .{ .ptr = qtc.QsciLexerPOV_DefaultFont(@ptrCast(self.ptr), @bitCast(style)) };
+    }
+
+    /// ### DEPRECATED: Use `defaultPaper` instead
+    ///
+    pub const DefaultPaper = defaultPaper;
+
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPOV.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QsciLexerPOV `
+    ///
+    /// ` style: i32 `
+    ///
+    pub fn defaultPaper(self: QsciLexerPOV, style: i32) QColor {
         return .{ .ptr = qtc.QsciLexerPOV_DefaultPaper(@ptrCast(self.ptr), @bitCast(style)) };
     }
+
+    /// ### DEPRECATED: Use `keywords` instead
+    ///
+    pub const Keywords = keywords;
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPOV.html)
     ///
@@ -290,10 +362,14 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` set: i32 `
     ///
-    pub fn Keywords(self: QsciLexerPOV, set: i32) [:0]const u8 {
+    pub fn keywords(self: QsciLexerPOV, set: i32) [:0]const u8 {
         const _ret = qtc.QsciLexerPOV_Keywords(@ptrCast(self.ptr), @bitCast(set));
         return std.mem.span(_ret);
     }
+
+    /// ### DEPRECATED: Use `description` instead
+    ///
+    pub const Description = description;
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPOV.html)
     ///
@@ -305,54 +381,74 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` style: i32 `
     ///
-    pub fn Description(self: QsciLexerPOV, allocator: std.mem.Allocator, style: i32) []const u8 {
+    pub fn description(self: QsciLexerPOV, allocator: std.mem.Allocator, style: i32) []const u8 {
         var _str = qtc.QsciLexerPOV_Description(@ptrCast(self.ptr), @bitCast(style));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciLexerPOV.Description: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciLexerPOV.description: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `refreshProperties` instead
+    ///
+    pub const RefreshProperties = refreshProperties;
+
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPOV.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QsciLexerPOV `
     ///
-    pub fn RefreshProperties(self: QsciLexerPOV) void {
+    pub fn refreshProperties(self: QsciLexerPOV) void {
         qtc.QsciLexerPOV_RefreshProperties(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `foldComments` instead
+    ///
+    pub const FoldComments = foldComments;
+
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPOV.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QsciLexerPOV `
     ///
-    pub fn FoldComments(self: QsciLexerPOV) bool {
+    pub fn foldComments(self: QsciLexerPOV) bool {
         return qtc.QsciLexerPOV_FoldComments(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `foldCompact` instead
+    ///
+    pub const FoldCompact = foldCompact;
+
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPOV.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QsciLexerPOV `
     ///
-    pub fn FoldCompact(self: QsciLexerPOV) bool {
+    pub fn foldCompact(self: QsciLexerPOV) bool {
         return qtc.QsciLexerPOV_FoldCompact(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `foldDirectives` instead
+    ///
+    pub const FoldDirectives = foldDirectives;
+
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPOV.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QsciLexerPOV `
     ///
-    pub fn FoldDirectives(self: QsciLexerPOV) bool {
+    pub fn foldDirectives(self: QsciLexerPOV) bool {
         return qtc.QsciLexerPOV_FoldDirectives(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setFoldComments` instead
+    ///
+    pub const SetFoldComments = setFoldComments;
+
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPOV.html)
     ///
     /// ## Parameter(s):
@@ -361,10 +457,14 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` fold: bool `
     ///
-    pub fn SetFoldComments(self: QsciLexerPOV, fold: bool) void {
+    pub fn setFoldComments(self: QsciLexerPOV, fold: bool) void {
         qtc.QsciLexerPOV_SetFoldComments(@ptrCast(self.ptr), fold);
     }
 
+    /// ### DEPRECATED: Use `onSetFoldComments` instead
+    ///
+    pub const OnSetFoldComments = onSetFoldComments;
+
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPOV.html)
     ///
     /// Allows for overriding the related default method
@@ -375,13 +475,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` callback: *const fn (self: QsciLexerPOV, fold: bool) callconv(.c) void `
     ///
-    pub fn OnSetFoldComments(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, bool) callconv(.c) void) void {
+    pub fn onSetFoldComments(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, bool) callconv(.c) void) void {
         qtc.QsciLexerPOV_OnSetFoldComments(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetFoldComments` instead
+    /// ### DEPRECATED: Use `superSetFoldComments` instead
     ///
-    pub const QBaseSetFoldComments = SuperSetFoldComments;
+    pub const SuperSetFoldComments = superSetFoldComments;
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPOV.html)
     ///
@@ -393,10 +493,14 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` fold: bool `
     ///
-    pub fn SuperSetFoldComments(self: QsciLexerPOV, fold: bool) void {
+    pub fn superSetFoldComments(self: QsciLexerPOV, fold: bool) void {
         qtc.QsciLexerPOV_SuperSetFoldComments(@ptrCast(self.ptr), fold);
     }
 
+    /// ### DEPRECATED: Use `setFoldCompact` instead
+    ///
+    pub const SetFoldCompact = setFoldCompact;
+
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPOV.html)
     ///
     /// ## Parameter(s):
@@ -405,10 +509,14 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` fold: bool `
     ///
-    pub fn SetFoldCompact(self: QsciLexerPOV, fold: bool) void {
+    pub fn setFoldCompact(self: QsciLexerPOV, fold: bool) void {
         qtc.QsciLexerPOV_SetFoldCompact(@ptrCast(self.ptr), fold);
     }
 
+    /// ### DEPRECATED: Use `onSetFoldCompact` instead
+    ///
+    pub const OnSetFoldCompact = onSetFoldCompact;
+
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPOV.html)
     ///
     /// Allows for overriding the related default method
@@ -419,13 +527,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` callback: *const fn (self: QsciLexerPOV, fold: bool) callconv(.c) void `
     ///
-    pub fn OnSetFoldCompact(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, bool) callconv(.c) void) void {
+    pub fn onSetFoldCompact(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, bool) callconv(.c) void) void {
         qtc.QsciLexerPOV_OnSetFoldCompact(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetFoldCompact` instead
+    /// ### DEPRECATED: Use `superSetFoldCompact` instead
     ///
-    pub const QBaseSetFoldCompact = SuperSetFoldCompact;
+    pub const SuperSetFoldCompact = superSetFoldCompact;
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPOV.html)
     ///
@@ -437,9 +545,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` fold: bool `
     ///
-    pub fn SuperSetFoldCompact(self: QsciLexerPOV, fold: bool) void {
+    pub fn superSetFoldCompact(self: QsciLexerPOV, fold: bool) void {
         qtc.QsciLexerPOV_SuperSetFoldCompact(@ptrCast(self.ptr), fold);
     }
+
+    /// ### DEPRECATED: Use `setFoldDirectives` instead
+    ///
+    pub const SetFoldDirectives = setFoldDirectives;
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPOV.html)
     ///
@@ -449,9 +561,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` fold: bool `
     ///
-    pub fn SetFoldDirectives(self: QsciLexerPOV, fold: bool) void {
+    pub fn setFoldDirectives(self: QsciLexerPOV, fold: bool) void {
         qtc.QsciLexerPOV_SetFoldDirectives(@ptrCast(self.ptr), fold);
     }
+
+    /// ### DEPRECATED: Use `onSetFoldDirectives` instead
+    ///
+    pub const OnSetFoldDirectives = onSetFoldDirectives;
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPOV.html)
     ///
@@ -463,13 +579,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` callback: *const fn (self: QsciLexerPOV, fold: bool) callconv(.c) void `
     ///
-    pub fn OnSetFoldDirectives(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, bool) callconv(.c) void) void {
+    pub fn onSetFoldDirectives(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, bool) callconv(.c) void) void {
         qtc.QsciLexerPOV_OnSetFoldDirectives(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetFoldDirectives` instead
+    /// ### DEPRECATED: Use `superSetFoldDirectives` instead
     ///
-    pub const QBaseSetFoldDirectives = SuperSetFoldDirectives;
+    pub const SuperSetFoldDirectives = superSetFoldDirectives;
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPOV.html)
     ///
@@ -481,9 +597,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` fold: bool `
     ///
-    pub fn SuperSetFoldDirectives(self: QsciLexerPOV, fold: bool) void {
+    pub fn superSetFoldDirectives(self: QsciLexerPOV, fold: bool) void {
         qtc.QsciLexerPOV_SuperSetFoldDirectives(@ptrCast(self.ptr), fold);
     }
+
+    /// ### DEPRECATED: Use `readProperties` instead
+    ///
+    pub const ReadProperties = readProperties;
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPOV.html)
     ///
@@ -495,7 +615,7 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` prefix: []const u8 `
     ///
-    pub fn ReadProperties(self: QsciLexerPOV, qs: anytype, prefix: []const u8) bool {
+    pub fn readProperties(self: QsciLexerPOV, qs: anytype, prefix: []const u8) bool {
         comptime _ = @TypeOf(qs)._is_QSettings;
         const prefix_str = qtc.libqt_string{
             .len = prefix.len,
@@ -504,6 +624,10 @@ pub const QsciLexerPOV = extern struct {
         return qtc.QsciLexerPOV_ReadProperties(@ptrCast(self.ptr), @ptrCast(qs.ptr), prefix_str);
     }
 
+    /// ### DEPRECATED: Use `onReadProperties` instead
+    ///
+    pub const OnReadProperties = onReadProperties;
+
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPOV.html)
     ///
     /// Allows for overriding the related default method
@@ -514,13 +638,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` callback: *const fn (self: QsciLexerPOV, qs: QSettings, prefix: [*:0]const u8) callconv(.c) bool `
     ///
-    pub fn OnReadProperties(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, QSettings, [*:0]const u8) callconv(.c) bool) void {
+    pub fn onReadProperties(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, QSettings, [*:0]const u8) callconv(.c) bool) void {
         qtc.QsciLexerPOV_OnReadProperties(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperReadProperties` instead
+    /// ### DEPRECATED: Use `superReadProperties` instead
     ///
-    pub const QBaseReadProperties = SuperReadProperties;
+    pub const SuperReadProperties = superReadProperties;
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPOV.html)
     ///
@@ -534,7 +658,7 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` prefix: []const u8 `
     ///
-    pub fn SuperReadProperties(self: QsciLexerPOV, qs: anytype, prefix: []const u8) bool {
+    pub fn superReadProperties(self: QsciLexerPOV, qs: anytype, prefix: []const u8) bool {
         comptime _ = @TypeOf(qs)._is_QSettings;
         const prefix_str = qtc.libqt_string{
             .len = prefix.len,
@@ -543,6 +667,10 @@ pub const QsciLexerPOV = extern struct {
         return qtc.QsciLexerPOV_SuperReadProperties(@ptrCast(self.ptr), @ptrCast(qs.ptr), prefix_str);
     }
 
+    /// ### DEPRECATED: Use `writeProperties` instead
+    ///
+    pub const WriteProperties = writeProperties;
+
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPOV.html)
     ///
     /// ## Parameter(s):
@@ -553,7 +681,7 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` prefix: []const u8 `
     ///
-    pub fn WriteProperties(self: QsciLexerPOV, qs: anytype, prefix: []const u8) bool {
+    pub fn writeProperties(self: QsciLexerPOV, qs: anytype, prefix: []const u8) bool {
         comptime _ = @TypeOf(qs)._is_QSettings;
         const prefix_str = qtc.libqt_string{
             .len = prefix.len,
@@ -561,6 +689,10 @@ pub const QsciLexerPOV = extern struct {
         };
         return qtc.QsciLexerPOV_WriteProperties(@ptrCast(self.ptr), @ptrCast(qs.ptr), prefix_str);
     }
+
+    /// ### DEPRECATED: Use `onWriteProperties` instead
+    ///
+    pub const OnWriteProperties = onWriteProperties;
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPOV.html)
     ///
@@ -572,13 +704,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` callback: *const fn (self: QsciLexerPOV, qs: QSettings, prefix: [*:0]const u8) callconv(.c) bool `
     ///
-    pub fn OnWriteProperties(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, QSettings, [*:0]const u8) callconv(.c) bool) void {
+    pub fn onWriteProperties(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, QSettings, [*:0]const u8) callconv(.c) bool) void {
         qtc.QsciLexerPOV_OnWriteProperties(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperWriteProperties` instead
+    /// ### DEPRECATED: Use `superWriteProperties` instead
     ///
-    pub const QBaseWriteProperties = SuperWriteProperties;
+    pub const SuperWriteProperties = superWriteProperties;
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPOV.html)
     ///
@@ -592,7 +724,7 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` prefix: []const u8 `
     ///
-    pub fn SuperWriteProperties(self: QsciLexerPOV, qs: anytype, prefix: []const u8) bool {
+    pub fn superWriteProperties(self: QsciLexerPOV, qs: anytype, prefix: []const u8) bool {
         comptime _ = @TypeOf(qs)._is_QSettings;
         const prefix_str = qtc.libqt_string{
             .len = prefix.len,
@@ -600,6 +732,10 @@ pub const QsciLexerPOV = extern struct {
         };
         return qtc.QsciLexerPOV_SuperWriteProperties(@ptrCast(self.ptr), @ptrCast(qs.ptr), prefix_str);
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -611,15 +747,19 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciLexerPOV.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciLexerPOV.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -633,16 +773,20 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciLexerPOV.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciLexerPOV.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `apis` instead
+    ///
+    pub const Apis = apis;
+
     /// Inherited from QsciLexer
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
@@ -651,10 +795,14 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` self: QsciLexerPOV `
     ///
-    pub fn Apis(self: QsciLexerPOV) QsciAbstractAPIs {
+    pub fn apis(self: QsciLexerPOV) QsciAbstractAPIs {
         return .{ .ptr = qtc.QsciLexer_Apis(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `autoIndentStyle` instead
+    ///
+    pub const AutoIndentStyle = autoIndentStyle;
+
     /// Inherited from QsciLexer
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
@@ -663,21 +811,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` self: QsciLexerPOV `
     ///
-    pub fn AutoIndentStyle(self: QsciLexerPOV) i32 {
+    pub fn autoIndentStyle(self: QsciLexerPOV) i32 {
         return qtc.QsciLexer_AutoIndentStyle(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QsciLexer
+    /// ### DEPRECATED: Use `editor` instead
     ///
-    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciLexerPOV `
-    ///
-    pub fn Editor(self: QsciLexerPOV) QsciScintilla {
-        return .{ .ptr = qtc.QsciLexer_Editor(@ptrCast(self.ptr)) };
-    }
+    pub const Editor = editor;
 
     /// Inherited from QsciLexer
     ///
@@ -687,12 +827,32 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` self: QsciLexerPOV `
     ///
-    /// ` apis: QsciAbstractAPIs `
-    ///
-    pub fn SetAPIs(self: QsciLexerPOV, apis: anytype) void {
-        comptime _ = @TypeOf(apis)._is_QsciAbstractAPIs;
-        qtc.QsciLexer_SetAPIs(@ptrCast(self.ptr), @ptrCast(apis.ptr));
+    pub fn editor(self: QsciLexerPOV) QsciScintilla {
+        return .{ .ptr = qtc.QsciLexer_Editor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAPIs` instead
+    ///
+    pub const SetAPIs = setAPIs;
+
+    /// Inherited from QsciLexer
+    ///
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QsciLexerPOV `
+    ///
+    /// ` _apis: QsciAbstractAPIs `
+    ///
+    pub fn setAPIs(self: QsciLexerPOV, _apis: anytype) void {
+        comptime _ = @TypeOf(_apis)._is_QsciAbstractAPIs;
+        qtc.QsciLexer_SetAPIs(@ptrCast(self.ptr), @ptrCast(_apis.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setDefaultColor` instead
+    ///
+    pub const SetDefaultColor = setDefaultColor;
 
     /// Inherited from QsciLexer
     ///
@@ -704,10 +864,14 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` c: QColor `
     ///
-    pub fn SetDefaultColor(self: QsciLexerPOV, c: anytype) void {
+    pub fn setDefaultColor(self: QsciLexerPOV, c: anytype) void {
         comptime _ = @TypeOf(c)._is_QColor;
         qtc.QsciLexer_SetDefaultColor(@ptrCast(self.ptr), @ptrCast(c.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDefaultFont` instead
+    ///
+    pub const SetDefaultFont = setDefaultFont;
 
     /// Inherited from QsciLexer
     ///
@@ -719,10 +883,14 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` f: QFont `
     ///
-    pub fn SetDefaultFont(self: QsciLexerPOV, f: anytype) void {
+    pub fn setDefaultFont(self: QsciLexerPOV, f: anytype) void {
         comptime _ = @TypeOf(f)._is_QFont;
         qtc.QsciLexer_SetDefaultFont(@ptrCast(self.ptr), @ptrCast(f.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDefaultPaper` instead
+    ///
+    pub const SetDefaultPaper = setDefaultPaper;
 
     /// Inherited from QsciLexer
     ///
@@ -734,25 +902,14 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` c: QColor `
     ///
-    pub fn SetDefaultPaper(self: QsciLexerPOV, c: anytype) void {
+    pub fn setDefaultPaper(self: QsciLexerPOV, c: anytype) void {
         comptime _ = @TypeOf(c)._is_QColor;
         qtc.QsciLexer_SetDefaultPaper(@ptrCast(self.ptr), @ptrCast(c.ptr));
     }
 
-    /// Inherited from QsciLexer
+    /// ### DEPRECATED: Use `readSettings` instead
     ///
-    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciLexerPOV `
-    ///
-    /// ` qs: QSettings `
-    ///
-    pub fn ReadSettings(self: QsciLexerPOV, qs: anytype) bool {
-        comptime _ = @TypeOf(qs)._is_QSettings;
-        return qtc.QsciLexer_ReadSettings(@ptrCast(self.ptr), @ptrCast(qs.ptr));
-    }
+    pub const ReadSettings = readSettings;
 
     /// Inherited from QsciLexer
     ///
@@ -764,10 +921,33 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` qs: QSettings `
     ///
-    pub fn WriteSettings(self: QsciLexerPOV, qs: anytype) bool {
+    pub fn readSettings(self: QsciLexerPOV, qs: anytype) bool {
+        comptime _ = @TypeOf(qs)._is_QSettings;
+        return qtc.QsciLexer_ReadSettings(@ptrCast(self.ptr), @ptrCast(qs.ptr));
+    }
+
+    /// ### DEPRECATED: Use `writeSettings` instead
+    ///
+    pub const WriteSettings = writeSettings;
+
+    /// Inherited from QsciLexer
+    ///
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QsciLexerPOV `
+    ///
+    /// ` qs: QSettings `
+    ///
+    pub fn writeSettings(self: QsciLexerPOV, qs: anytype) bool {
         comptime _ = @TypeOf(qs)._is_QSettings;
         return qtc.QsciLexer_WriteSettings(@ptrCast(self.ptr), @ptrCast(qs.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorChanged` instead
+    ///
+    pub const ColorChanged = colorChanged;
 
     /// Inherited from QsciLexer
     ///
@@ -781,10 +961,14 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` style: i32 `
     ///
-    pub fn ColorChanged(self: QsciLexerPOV, c: anytype, style: i32) void {
+    pub fn colorChanged(self: QsciLexerPOV, c: anytype, style: i32) void {
         comptime _ = @TypeOf(c)._is_QColor;
         qtc.QsciLexer_ColorChanged(@ptrCast(self.ptr), @ptrCast(c.ptr), @bitCast(style));
     }
+
+    /// ### DEPRECATED: Use `onColorChanged` instead
+    ///
+    pub const OnColorChanged = onColorChanged;
 
     /// Inherited from QsciLexer
     ///
@@ -796,9 +980,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` callback: *const fn (self: QsciLexerPOV, c: QColor, style: i32) callconv(.c) void `
     ///
-    pub fn OnColorChanged(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, QColor, i32) callconv(.c) void) void {
+    pub fn onColorChanged(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, QColor, i32) callconv(.c) void) void {
         qtc.QsciLexer_Connect_ColorChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eolFillChanged` instead
+    ///
+    pub const EolFillChanged = eolFillChanged;
 
     /// Inherited from QsciLexer
     ///
@@ -812,9 +1000,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` style: i32 `
     ///
-    pub fn EolFillChanged(self: QsciLexerPOV, eolfilled: bool, style: i32) void {
+    pub fn eolFillChanged(self: QsciLexerPOV, eolfilled: bool, style: i32) void {
         qtc.QsciLexer_EolFillChanged(@ptrCast(self.ptr), eolfilled, @bitCast(style));
     }
+
+    /// ### DEPRECATED: Use `onEolFillChanged` instead
+    ///
+    pub const OnEolFillChanged = onEolFillChanged;
 
     /// Inherited from QsciLexer
     ///
@@ -826,9 +1018,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` callback: *const fn (self: QsciLexerPOV, eolfilled: bool, style: i32) callconv(.c) void `
     ///
-    pub fn OnEolFillChanged(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, bool, i32) callconv(.c) void) void {
+    pub fn onEolFillChanged(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, bool, i32) callconv(.c) void) void {
         qtc.QsciLexer_Connect_EolFillChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `fontChanged` instead
+    ///
+    pub const FontChanged = fontChanged;
 
     /// Inherited from QsciLexer
     ///
@@ -842,10 +1038,14 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` style: i32 `
     ///
-    pub fn FontChanged(self: QsciLexerPOV, f: anytype, style: i32) void {
+    pub fn fontChanged(self: QsciLexerPOV, f: anytype, style: i32) void {
         comptime _ = @TypeOf(f)._is_QFont;
         qtc.QsciLexer_FontChanged(@ptrCast(self.ptr), @ptrCast(f.ptr), @bitCast(style));
     }
+
+    /// ### DEPRECATED: Use `onFontChanged` instead
+    ///
+    pub const OnFontChanged = onFontChanged;
 
     /// Inherited from QsciLexer
     ///
@@ -857,9 +1057,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` callback: *const fn (self: QsciLexerPOV, f: QFont, style: i32) callconv(.c) void `
     ///
-    pub fn OnFontChanged(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, QFont, i32) callconv(.c) void) void {
+    pub fn onFontChanged(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, QFont, i32) callconv(.c) void) void {
         qtc.QsciLexer_Connect_FontChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paperChanged` instead
+    ///
+    pub const PaperChanged = paperChanged;
 
     /// Inherited from QsciLexer
     ///
@@ -873,10 +1077,14 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` style: i32 `
     ///
-    pub fn PaperChanged(self: QsciLexerPOV, c: anytype, style: i32) void {
+    pub fn paperChanged(self: QsciLexerPOV, c: anytype, style: i32) void {
         comptime _ = @TypeOf(c)._is_QColor;
         qtc.QsciLexer_PaperChanged(@ptrCast(self.ptr), @ptrCast(c.ptr), @bitCast(style));
     }
+
+    /// ### DEPRECATED: Use `onPaperChanged` instead
+    ///
+    pub const OnPaperChanged = onPaperChanged;
 
     /// Inherited from QsciLexer
     ///
@@ -888,9 +1096,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` callback: *const fn (self: QsciLexerPOV, c: QColor, style: i32) callconv(.c) void `
     ///
-    pub fn OnPaperChanged(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, QColor, i32) callconv(.c) void) void {
+    pub fn onPaperChanged(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, QColor, i32) callconv(.c) void) void {
         qtc.QsciLexer_Connect_PaperChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `propertyChanged` instead
+    ///
+    pub const PropertyChanged = propertyChanged;
 
     /// Inherited from QsciLexer
     ///
@@ -904,11 +1116,15 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` val: [:0]const u8 `
     ///
-    pub fn PropertyChanged(self: QsciLexerPOV, prop: [:0]const u8, val: [:0]const u8) void {
+    pub fn propertyChanged(self: QsciLexerPOV, prop: [:0]const u8, val: [:0]const u8) void {
         const prop_Cstring = prop.ptr;
         const val_Cstring = val.ptr;
         qtc.QsciLexer_PropertyChanged(@ptrCast(self.ptr), prop_Cstring, val_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onPropertyChanged` instead
+    ///
+    pub const OnPropertyChanged = onPropertyChanged;
 
     /// Inherited from QsciLexer
     ///
@@ -920,9 +1136,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` callback: *const fn (self: QsciLexerPOV, prop: [*:0]const u8, val: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnPropertyChanged(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
+    pub fn onPropertyChanged(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
         qtc.QsciLexer_Connect_PropertyChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `readSettings2` instead
+    ///
+    pub const ReadSettings2 = readSettings2;
 
     /// Inherited from QsciLexer
     ///
@@ -936,12 +1156,16 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` prefix: [:0]const u8 `
     ///
-    pub fn ReadSettings2(self: QsciLexerPOV, qs: anytype, prefix: [:0]const u8) bool {
+    pub fn readSettings2(self: QsciLexerPOV, qs: anytype, prefix: [:0]const u8) bool {
         comptime _ = @TypeOf(qs)._is_QSettings;
         const prefix_Cstring = prefix.ptr;
         return qtc.QsciLexer_ReadSettings2(@ptrCast(self.ptr), @ptrCast(qs.ptr), prefix_Cstring);
     }
 
+    /// ### DEPRECATED: Use `writeSettings2` instead
+    ///
+    pub const WriteSettings2 = writeSettings2;
+
     /// Inherited from QsciLexer
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
@@ -954,11 +1178,15 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` prefix: [:0]const u8 `
     ///
-    pub fn WriteSettings2(self: QsciLexerPOV, qs: anytype, prefix: [:0]const u8) bool {
+    pub fn writeSettings2(self: QsciLexerPOV, qs: anytype, prefix: [:0]const u8) bool {
         comptime _ = @TypeOf(qs)._is_QSettings;
         const prefix_Cstring = prefix.ptr;
         return qtc.QsciLexer_WriteSettings2(@ptrCast(self.ptr), @ptrCast(qs.ptr), prefix_Cstring);
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -970,13 +1198,17 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QsciLexerPOV, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QsciLexerPOV, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciLexerPOV.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciLexerPOV.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -988,13 +1220,17 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QsciLexerPOV, name: []const u8) void {
+    pub fn setObjectName(self: QsciLexerPOV, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -1004,9 +1240,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` self: QsciLexerPOV `
     ///
-    pub fn IsWidgetType(self: QsciLexerPOV) bool {
+    pub fn isWidgetType(self: QsciLexerPOV) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -1016,9 +1256,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` self: QsciLexerPOV `
     ///
-    pub fn IsWindowType(self: QsciLexerPOV) bool {
+    pub fn isWindowType(self: QsciLexerPOV) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -1028,9 +1272,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` self: QsciLexerPOV `
     ///
-    pub fn IsQuickItemType(self: QsciLexerPOV) bool {
+    pub fn isQuickItemType(self: QsciLexerPOV) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -1040,9 +1288,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` self: QsciLexerPOV `
     ///
-    pub fn SignalsBlocked(self: QsciLexerPOV) bool {
+    pub fn signalsBlocked(self: QsciLexerPOV) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -1054,9 +1306,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QsciLexerPOV, b: bool) bool {
+    pub fn blockSignals(self: QsciLexerPOV, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -1066,9 +1322,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` self: QsciLexerPOV `
     ///
-    pub fn Thread(self: QsciLexerPOV) QThread {
+    pub fn thread(self: QsciLexerPOV) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -1078,12 +1338,16 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` self: QsciLexerPOV `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QsciLexerPOV, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QsciLexerPOV, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -1095,9 +1359,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QsciLexerPOV, interval: i32) i32 {
+    pub fn startTimer(self: QsciLexerPOV, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -1109,9 +1377,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QsciLexerPOV, time: i64) i32 {
+    pub fn startTimer2(self: QsciLexerPOV, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -1123,9 +1395,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QsciLexerPOV, id: i32) void {
+    pub fn killTimer(self: QsciLexerPOV, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -1137,9 +1413,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QsciLexerPOV, id: i32) void {
+    pub fn killTimer2(self: QsciLexerPOV, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -1151,15 +1431,19 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QsciLexerPOV, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QsciLexerPOV, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QsciLexerPOV.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QsciLexerPOV.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -1169,12 +1453,16 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` self: QsciLexerPOV `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QsciLexerPOV, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QsciLexerPOV, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1186,10 +1474,14 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QsciLexerPOV, filterObj: anytype) void {
+    pub fn installEventFilter(self: QsciLexerPOV, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1201,10 +1493,14 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QsciLexerPOV, obj: anytype) void {
+    pub fn removeEventFilter(self: QsciLexerPOV, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -1212,7 +1508,7 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1220,13 +1516,17 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -1234,7 +1534,7 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1242,13 +1542,17 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -1258,18 +1562,22 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` self: QsciLexerPOV `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QsciLexerPOV, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QsciLexerPOV, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -1277,7 +1585,7 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1285,13 +1593,17 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -1299,7 +1611,7 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1307,13 +1619,17 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -1323,9 +1639,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` self: QsciLexerPOV `
     ///
-    pub fn Disconnect3(self: QsciLexerPOV) bool {
+    pub fn disconnect3(self: QsciLexerPOV) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1337,10 +1657,14 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QsciLexerPOV, receiver: anytype) bool {
+    pub fn disconnect4(self: QsciLexerPOV, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1350,10 +1674,14 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1363,9 +1691,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` self: QsciLexerPOV `
     ///
-    pub fn DumpObjectTree(self: QsciLexerPOV) void {
+    pub fn dumpObjectTree(self: QsciLexerPOV) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1375,9 +1707,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` self: QsciLexerPOV `
     ///
-    pub fn DumpObjectInfo(self: QsciLexerPOV) void {
+    pub fn dumpObjectInfo(self: QsciLexerPOV) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1391,11 +1727,15 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QsciLexerPOV, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QsciLexerPOV, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1407,10 +1747,14 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QsciLexerPOV, name: [:0]const u8) QVariant {
+    pub fn property(self: QsciLexerPOV, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1422,7 +1766,7 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QsciLexerPOV, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QsciLexerPOV, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1430,27 +1774,19 @@ pub const QsciLexerPOV = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QsciLexerPOV.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QsciLexerPOV.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QsciLexerPOV.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QsciLexerPOV.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciLexerPOV `
-    ///
-    pub fn BindingStorage(self: QsciLexerPOV) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1460,9 +1796,29 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` self: QsciLexerPOV `
     ///
-    pub fn BindingStorage2(self: QsciLexerPOV) QBindingStorage {
+    pub fn bindingStorage(self: QsciLexerPOV) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QsciLexerPOV `
+    ///
+    pub fn bindingStorage2(self: QsciLexerPOV) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1472,9 +1828,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` self: QsciLexerPOV `
     ///
-    pub fn Destroyed(self: QsciLexerPOV) void {
+    pub fn destroyed(self: QsciLexerPOV) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1486,9 +1846,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` callback: *const fn (self: QsciLexerPOV) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV) callconv(.c) void) void {
+    pub fn onDestroyed(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1498,9 +1862,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` self: QsciLexerPOV `
     ///
-    pub fn Parent(self: QsciLexerPOV) QObject {
+    pub fn parent(self: QsciLexerPOV) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1512,10 +1880,14 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QsciLexerPOV, classname: [:0]const u8) bool {
+    pub fn inherits(self: QsciLexerPOV, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1525,9 +1897,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` self: QsciLexerPOV `
     ///
-    pub fn DeleteLater(self: QsciLexerPOV) void {
+    pub fn deleteLater(self: QsciLexerPOV) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1541,9 +1917,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QsciLexerPOV, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QsciLexerPOV, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1557,9 +1937,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QsciLexerPOV, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QsciLexerPOV, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1567,7 +1951,7 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1577,13 +1961,17 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1591,7 +1979,7 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1601,13 +1989,17 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1617,7 +2009,7 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` self: QsciLexerPOV `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1625,12 +2017,16 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QsciLexerPOV, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QsciLexerPOV, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1642,10 +2038,14 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QsciLexerPOV, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QsciLexerPOV, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1659,11 +2059,15 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QsciLexerPOV, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QsciLexerPOV, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1679,13 +2083,17 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QsciLexerPOV, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QsciLexerPOV, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1698,11 +2106,15 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QsciLexerPOV, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QsciLexerPOV, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1714,10 +2126,14 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QsciLexerPOV, param1: anytype) void {
+    pub fn destroyed1(self: QsciLexerPOV, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1729,9 +2145,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` callback: *const fn (self: QsciLexerPOV, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `lexerId` instead
+    ///
+    pub const LexerId = lexerId;
 
     /// Inherited from QsciLexer
     ///
@@ -1743,13 +2163,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` self: QsciLexerPOV `
     ///
-    pub fn LexerId(self: QsciLexerPOV) i32 {
+    pub fn lexerId(self: QsciLexerPOV) i32 {
         return qtc.QsciLexerPOV_LexerId(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLexerId` instead
+    /// ### DEPRECATED: Use `superLexerId` instead
     ///
-    pub const QBaseLexerId = SuperLexerId;
+    pub const SuperLexerId = superLexerId;
 
     /// Inherited from QsciLexer
     ///
@@ -1761,9 +2181,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` self: QsciLexerPOV `
     ///
-    pub fn SuperLexerId(self: QsciLexerPOV) i32 {
+    pub fn superLexerId(self: QsciLexerPOV) i32 {
         return qtc.QsciLexerPOV_SuperLexerId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLexerId` instead
+    ///
+    pub const OnLexerId = onLexerId;
 
     /// Inherited from QsciLexer
     ///
@@ -1777,9 +2201,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnLexerId(self: QsciLexerPOV, callback: *const fn () callconv(.c) i32) void {
+    pub fn onLexerId(self: QsciLexerPOV, callback: *const fn () callconv(.c) i32) void {
         qtc.QsciLexerPOV_OnLexerId(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `autoCompletionFillups` instead
+    ///
+    pub const AutoCompletionFillups = autoCompletionFillups;
 
     /// Inherited from QsciLexer
     ///
@@ -1791,14 +2219,14 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` self: QsciLexerPOV `
     ///
-    pub fn AutoCompletionFillups(self: QsciLexerPOV) [:0]const u8 {
+    pub fn autoCompletionFillups(self: QsciLexerPOV) [:0]const u8 {
         const _ret = qtc.QsciLexerPOV_AutoCompletionFillups(@ptrCast(self.ptr));
         return std.mem.span(_ret);
     }
 
-    /// ### DEPRECATED: Use `SuperAutoCompletionFillups` instead
+    /// ### DEPRECATED: Use `superAutoCompletionFillups` instead
     ///
-    pub const QBaseAutoCompletionFillups = SuperAutoCompletionFillups;
+    pub const SuperAutoCompletionFillups = superAutoCompletionFillups;
 
     /// Inherited from QsciLexer
     ///
@@ -1810,10 +2238,14 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` self: QsciLexerPOV `
     ///
-    pub fn SuperAutoCompletionFillups(self: QsciLexerPOV) [:0]const u8 {
+    pub fn superAutoCompletionFillups(self: QsciLexerPOV) [:0]const u8 {
         const _ret = qtc.QsciLexerPOV_SuperAutoCompletionFillups(@ptrCast(self.ptr));
         return std.mem.span(_ret);
     }
+
+    /// ### DEPRECATED: Use `onAutoCompletionFillups` instead
+    ///
+    pub const OnAutoCompletionFillups = onAutoCompletionFillups;
 
     /// Inherited from QsciLexer
     ///
@@ -1827,9 +2259,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnAutoCompletionFillups(self: QsciLexerPOV, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onAutoCompletionFillups(self: QsciLexerPOV, callback: *const fn () callconv(.c) [*:0]const u8) void {
         qtc.QsciLexerPOV_OnAutoCompletionFillups(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `autoCompletionWordSeparators` instead
+    ///
+    pub const AutoCompletionWordSeparators = autoCompletionWordSeparators;
 
     /// Inherited from QsciLexer
     ///
@@ -1843,7 +2279,7 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AutoCompletionWordSeparators(self: QsciLexerPOV, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn autoCompletionWordSeparators(self: QsciLexerPOV, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QsciLexerPOV_AutoCompletionWordSeparators(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1851,19 +2287,19 @@ pub const QsciLexerPOV = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QsciLexerPOV.AutoCompletionWordSeparators: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QsciLexerPOV.autoCompletionWordSeparators: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QsciLexerPOV.AutoCompletionWordSeparators: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QsciLexerPOV.autoCompletionWordSeparators: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `SuperAutoCompletionWordSeparators` instead
+    /// ### DEPRECATED: Use `superAutoCompletionWordSeparators` instead
     ///
-    pub const QBaseAutoCompletionWordSeparators = SuperAutoCompletionWordSeparators;
+    pub const SuperAutoCompletionWordSeparators = superAutoCompletionWordSeparators;
 
     /// Inherited from QsciLexer
     ///
@@ -1877,7 +2313,7 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperAutoCompletionWordSeparators(self: QsciLexerPOV, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn superAutoCompletionWordSeparators(self: QsciLexerPOV, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QsciLexerPOV_SuperAutoCompletionWordSeparators(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1885,15 +2321,19 @@ pub const QsciLexerPOV = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QsciLexerPOV.AutoCompletionWordSeparators: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QsciLexerPOV.autoCompletionWordSeparators: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QsciLexerPOV.AutoCompletionWordSeparators: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QsciLexerPOV.autoCompletionWordSeparators: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onAutoCompletionWordSeparators` instead
+    ///
+    pub const OnAutoCompletionWordSeparators = onAutoCompletionWordSeparators;
 
     /// Inherited from QsciLexer
     ///
@@ -1909,9 +2349,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn OnAutoCompletionWordSeparators(self: QsciLexerPOV, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
+    pub fn onAutoCompletionWordSeparators(self: QsciLexerPOV, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.QsciLexerPOV_OnAutoCompletionWordSeparators(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `blockEnd` instead
+    ///
+    pub const BlockEnd = blockEnd;
 
     /// Inherited from QsciLexer
     ///
@@ -1925,14 +2369,14 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` style: *i32 `
     ///
-    pub fn BlockEnd(self: QsciLexerPOV, style: *i32) [:0]const u8 {
+    pub fn blockEnd(self: QsciLexerPOV, style: *i32) [:0]const u8 {
         const _ret = qtc.QsciLexerPOV_BlockEnd(@ptrCast(self.ptr), @ptrCast(style));
         return std.mem.span(_ret);
     }
 
-    /// ### DEPRECATED: Use `SuperBlockEnd` instead
+    /// ### DEPRECATED: Use `superBlockEnd` instead
     ///
-    pub const QBaseBlockEnd = SuperBlockEnd;
+    pub const SuperBlockEnd = superBlockEnd;
 
     /// Inherited from QsciLexer
     ///
@@ -1946,10 +2390,14 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` style: *i32 `
     ///
-    pub fn SuperBlockEnd(self: QsciLexerPOV, style: *i32) [:0]const u8 {
+    pub fn superBlockEnd(self: QsciLexerPOV, style: *i32) [:0]const u8 {
         const _ret = qtc.QsciLexerPOV_SuperBlockEnd(@ptrCast(self.ptr), @ptrCast(style));
         return std.mem.span(_ret);
     }
+
+    /// ### DEPRECATED: Use `onBlockEnd` instead
+    ///
+    pub const OnBlockEnd = onBlockEnd;
 
     /// Inherited from QsciLexer
     ///
@@ -1963,9 +2411,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` callback: *const fn (self: QsciLexerPOV, style: *i32) callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnBlockEnd(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, *i32) callconv(.c) [*:0]const u8) void {
+    pub fn onBlockEnd(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, *i32) callconv(.c) [*:0]const u8) void {
         qtc.QsciLexerPOV_OnBlockEnd(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `blockLookback` instead
+    ///
+    pub const BlockLookback = blockLookback;
 
     /// Inherited from QsciLexer
     ///
@@ -1977,13 +2429,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` self: QsciLexerPOV `
     ///
-    pub fn BlockLookback(self: QsciLexerPOV) i32 {
+    pub fn blockLookback(self: QsciLexerPOV) i32 {
         return qtc.QsciLexerPOV_BlockLookback(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperBlockLookback` instead
+    /// ### DEPRECATED: Use `superBlockLookback` instead
     ///
-    pub const QBaseBlockLookback = SuperBlockLookback;
+    pub const SuperBlockLookback = superBlockLookback;
 
     /// Inherited from QsciLexer
     ///
@@ -1995,9 +2447,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` self: QsciLexerPOV `
     ///
-    pub fn SuperBlockLookback(self: QsciLexerPOV) i32 {
+    pub fn superBlockLookback(self: QsciLexerPOV) i32 {
         return qtc.QsciLexerPOV_SuperBlockLookback(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onBlockLookback` instead
+    ///
+    pub const OnBlockLookback = onBlockLookback;
 
     /// Inherited from QsciLexer
     ///
@@ -2011,9 +2467,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnBlockLookback(self: QsciLexerPOV, callback: *const fn () callconv(.c) i32) void {
+    pub fn onBlockLookback(self: QsciLexerPOV, callback: *const fn () callconv(.c) i32) void {
         qtc.QsciLexerPOV_OnBlockLookback(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `blockStart` instead
+    ///
+    pub const BlockStart = blockStart;
 
     /// Inherited from QsciLexer
     ///
@@ -2027,14 +2487,14 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` style: *i32 `
     ///
-    pub fn BlockStart(self: QsciLexerPOV, style: *i32) [:0]const u8 {
+    pub fn blockStart(self: QsciLexerPOV, style: *i32) [:0]const u8 {
         const _ret = qtc.QsciLexerPOV_BlockStart(@ptrCast(self.ptr), @ptrCast(style));
         return std.mem.span(_ret);
     }
 
-    /// ### DEPRECATED: Use `SuperBlockStart` instead
+    /// ### DEPRECATED: Use `superBlockStart` instead
     ///
-    pub const QBaseBlockStart = SuperBlockStart;
+    pub const SuperBlockStart = superBlockStart;
 
     /// Inherited from QsciLexer
     ///
@@ -2048,11 +2508,15 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` style: *i32 `
     ///
-    pub fn SuperBlockStart(self: QsciLexerPOV, style: *i32) [:0]const u8 {
+    pub fn superBlockStart(self: QsciLexerPOV, style: *i32) [:0]const u8 {
         const _ret = qtc.QsciLexerPOV_SuperBlockStart(@ptrCast(self.ptr), @ptrCast(style));
         return std.mem.span(_ret);
     }
 
+    /// ### DEPRECATED: Use `onBlockStart` instead
+    ///
+    pub const OnBlockStart = onBlockStart;
+
     /// Inherited from QsciLexer
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
@@ -2065,9 +2529,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` callback: *const fn (self: QsciLexerPOV, style: *i32) callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnBlockStart(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, *i32) callconv(.c) [*:0]const u8) void {
+    pub fn onBlockStart(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, *i32) callconv(.c) [*:0]const u8) void {
         qtc.QsciLexerPOV_OnBlockStart(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `blockStartKeyword` instead
+    ///
+    pub const BlockStartKeyword = blockStartKeyword;
 
     /// Inherited from QsciLexer
     ///
@@ -2081,14 +2549,14 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` style: *i32 `
     ///
-    pub fn BlockStartKeyword(self: QsciLexerPOV, style: *i32) [:0]const u8 {
+    pub fn blockStartKeyword(self: QsciLexerPOV, style: *i32) [:0]const u8 {
         const _ret = qtc.QsciLexerPOV_BlockStartKeyword(@ptrCast(self.ptr), @ptrCast(style));
         return std.mem.span(_ret);
     }
 
-    /// ### DEPRECATED: Use `SuperBlockStartKeyword` instead
+    /// ### DEPRECATED: Use `superBlockStartKeyword` instead
     ///
-    pub const QBaseBlockStartKeyword = SuperBlockStartKeyword;
+    pub const SuperBlockStartKeyword = superBlockStartKeyword;
 
     /// Inherited from QsciLexer
     ///
@@ -2102,10 +2570,14 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` style: *i32 `
     ///
-    pub fn SuperBlockStartKeyword(self: QsciLexerPOV, style: *i32) [:0]const u8 {
+    pub fn superBlockStartKeyword(self: QsciLexerPOV, style: *i32) [:0]const u8 {
         const _ret = qtc.QsciLexerPOV_SuperBlockStartKeyword(@ptrCast(self.ptr), @ptrCast(style));
         return std.mem.span(_ret);
     }
+
+    /// ### DEPRECATED: Use `onBlockStartKeyword` instead
+    ///
+    pub const OnBlockStartKeyword = onBlockStartKeyword;
 
     /// Inherited from QsciLexer
     ///
@@ -2119,9 +2591,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` callback: *const fn (self: QsciLexerPOV, style: *i32) callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnBlockStartKeyword(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, *i32) callconv(.c) [*:0]const u8) void {
+    pub fn onBlockStartKeyword(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, *i32) callconv(.c) [*:0]const u8) void {
         qtc.QsciLexerPOV_OnBlockStartKeyword(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `caseSensitive` instead
+    ///
+    pub const CaseSensitive = caseSensitive;
 
     /// Inherited from QsciLexer
     ///
@@ -2133,13 +2609,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` self: QsciLexerPOV `
     ///
-    pub fn CaseSensitive(self: QsciLexerPOV) bool {
+    pub fn caseSensitive(self: QsciLexerPOV) bool {
         return qtc.QsciLexerPOV_CaseSensitive(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCaseSensitive` instead
+    /// ### DEPRECATED: Use `superCaseSensitive` instead
     ///
-    pub const QBaseCaseSensitive = SuperCaseSensitive;
+    pub const SuperCaseSensitive = superCaseSensitive;
 
     /// Inherited from QsciLexer
     ///
@@ -2151,9 +2627,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` self: QsciLexerPOV `
     ///
-    pub fn SuperCaseSensitive(self: QsciLexerPOV) bool {
+    pub fn superCaseSensitive(self: QsciLexerPOV) bool {
         return qtc.QsciLexerPOV_SuperCaseSensitive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCaseSensitive` instead
+    ///
+    pub const OnCaseSensitive = onCaseSensitive;
 
     /// Inherited from QsciLexer
     ///
@@ -2167,9 +2647,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnCaseSensitive(self: QsciLexerPOV, callback: *const fn () callconv(.c) bool) void {
+    pub fn onCaseSensitive(self: QsciLexerPOV, callback: *const fn () callconv(.c) bool) void {
         qtc.QsciLexerPOV_OnCaseSensitive(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `color` instead
+    ///
+    pub const Color = color;
 
     /// Inherited from QsciLexer
     ///
@@ -2183,13 +2667,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` style: i32 `
     ///
-    pub fn Color(self: QsciLexerPOV, style: i32) QColor {
+    pub fn color(self: QsciLexerPOV, style: i32) QColor {
         return .{ .ptr = qtc.QsciLexerPOV_Color(@ptrCast(self.ptr), @bitCast(style)) };
     }
 
-    /// ### DEPRECATED: Use `SuperColor` instead
+    /// ### DEPRECATED: Use `superColor` instead
     ///
-    pub const QBaseColor = SuperColor;
+    pub const SuperColor = superColor;
 
     /// Inherited from QsciLexer
     ///
@@ -2203,9 +2687,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` style: i32 `
     ///
-    pub fn SuperColor(self: QsciLexerPOV, style: i32) QColor {
+    pub fn superColor(self: QsciLexerPOV, style: i32) QColor {
         return .{ .ptr = qtc.QsciLexerPOV_SuperColor(@ptrCast(self.ptr), @bitCast(style)) };
     }
+
+    /// ### DEPRECATED: Use `onColor` instead
+    ///
+    pub const OnColor = onColor;
 
     /// Inherited from QsciLexer
     ///
@@ -2221,9 +2709,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnColor(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, i32) callconv(.c) QColor) void {
+    pub fn onColor(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, i32) callconv(.c) QColor) void {
         qtc.QsciLexerPOV_OnColor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eolFill` instead
+    ///
+    pub const EolFill = eolFill;
 
     /// Inherited from QsciLexer
     ///
@@ -2237,13 +2729,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` style: i32 `
     ///
-    pub fn EolFill(self: QsciLexerPOV, style: i32) bool {
+    pub fn eolFill(self: QsciLexerPOV, style: i32) bool {
         return qtc.QsciLexerPOV_EolFill(@ptrCast(self.ptr), @bitCast(style));
     }
 
-    /// ### DEPRECATED: Use `SuperEolFill` instead
+    /// ### DEPRECATED: Use `superEolFill` instead
     ///
-    pub const QBaseEolFill = SuperEolFill;
+    pub const SuperEolFill = superEolFill;
 
     /// Inherited from QsciLexer
     ///
@@ -2257,9 +2749,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` style: i32 `
     ///
-    pub fn SuperEolFill(self: QsciLexerPOV, style: i32) bool {
+    pub fn superEolFill(self: QsciLexerPOV, style: i32) bool {
         return qtc.QsciLexerPOV_SuperEolFill(@ptrCast(self.ptr), @bitCast(style));
     }
+
+    /// ### DEPRECATED: Use `onEolFill` instead
+    ///
+    pub const OnEolFill = onEolFill;
 
     /// Inherited from QsciLexer
     ///
@@ -2273,10 +2769,14 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` callback: *const fn (self: QsciLexerPOV, style: i32) callconv(.c) bool `
     ///
-    pub fn OnEolFill(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, i32) callconv(.c) bool) void {
+    pub fn onEolFill(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, i32) callconv(.c) bool) void {
         qtc.QsciLexerPOV_OnEolFill(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
+
     /// Inherited from QsciLexer
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
@@ -2289,13 +2789,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` style: i32 `
     ///
-    pub fn Font(self: QsciLexerPOV, style: i32) QFont {
+    pub fn font(self: QsciLexerPOV, style: i32) QFont {
         return .{ .ptr = qtc.QsciLexerPOV_Font(@ptrCast(self.ptr), @bitCast(style)) };
     }
 
-    /// ### DEPRECATED: Use `SuperFont` instead
+    /// ### DEPRECATED: Use `superFont` instead
     ///
-    pub const QBaseFont = SuperFont;
+    pub const SuperFont = superFont;
 
     /// Inherited from QsciLexer
     ///
@@ -2309,10 +2809,14 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` style: i32 `
     ///
-    pub fn SuperFont(self: QsciLexerPOV, style: i32) QFont {
+    pub fn superFont(self: QsciLexerPOV, style: i32) QFont {
         return .{ .ptr = qtc.QsciLexerPOV_SuperFont(@ptrCast(self.ptr), @bitCast(style)) };
     }
 
+    /// ### DEPRECATED: Use `onFont` instead
+    ///
+    pub const OnFont = onFont;
+
     /// Inherited from QsciLexer
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
@@ -2327,10 +2831,14 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnFont(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, i32) callconv(.c) QFont) void {
+    pub fn onFont(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, i32) callconv(.c) QFont) void {
         qtc.QsciLexerPOV_OnFont(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `indentationGuideView` instead
+    ///
+    pub const IndentationGuideView = indentationGuideView;
+
     /// Inherited from QsciLexer
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
@@ -2341,13 +2849,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` self: QsciLexerPOV `
     ///
-    pub fn IndentationGuideView(self: QsciLexerPOV) i32 {
+    pub fn indentationGuideView(self: QsciLexerPOV) i32 {
         return qtc.QsciLexerPOV_IndentationGuideView(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIndentationGuideView` instead
+    /// ### DEPRECATED: Use `superIndentationGuideView` instead
     ///
-    pub const QBaseIndentationGuideView = SuperIndentationGuideView;
+    pub const SuperIndentationGuideView = superIndentationGuideView;
 
     /// Inherited from QsciLexer
     ///
@@ -2359,10 +2867,14 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` self: QsciLexerPOV `
     ///
-    pub fn SuperIndentationGuideView(self: QsciLexerPOV) i32 {
+    pub fn superIndentationGuideView(self: QsciLexerPOV) i32 {
         return qtc.QsciLexerPOV_SuperIndentationGuideView(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onIndentationGuideView` instead
+    ///
+    pub const OnIndentationGuideView = onIndentationGuideView;
+
     /// Inherited from QsciLexer
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
@@ -2375,10 +2887,14 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnIndentationGuideView(self: QsciLexerPOV, callback: *const fn () callconv(.c) i32) void {
+    pub fn onIndentationGuideView(self: QsciLexerPOV, callback: *const fn () callconv(.c) i32) void {
         qtc.QsciLexerPOV_OnIndentationGuideView(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `defaultStyle` instead
+    ///
+    pub const DefaultStyle = defaultStyle;
+
     /// Inherited from QsciLexer
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
@@ -2389,13 +2905,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` self: QsciLexerPOV `
     ///
-    pub fn DefaultStyle(self: QsciLexerPOV) i32 {
+    pub fn defaultStyle(self: QsciLexerPOV) i32 {
         return qtc.QsciLexerPOV_DefaultStyle(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDefaultStyle` instead
+    /// ### DEPRECATED: Use `superDefaultStyle` instead
     ///
-    pub const QBaseDefaultStyle = SuperDefaultStyle;
+    pub const SuperDefaultStyle = superDefaultStyle;
 
     /// Inherited from QsciLexer
     ///
@@ -2407,9 +2923,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` self: QsciLexerPOV `
     ///
-    pub fn SuperDefaultStyle(self: QsciLexerPOV) i32 {
+    pub fn superDefaultStyle(self: QsciLexerPOV) i32 {
         return qtc.QsciLexerPOV_SuperDefaultStyle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDefaultStyle` instead
+    ///
+    pub const OnDefaultStyle = onDefaultStyle;
 
     /// Inherited from QsciLexer
     ///
@@ -2423,10 +2943,14 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDefaultStyle(self: QsciLexerPOV, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDefaultStyle(self: QsciLexerPOV, callback: *const fn () callconv(.c) i32) void {
         qtc.QsciLexerPOV_OnDefaultStyle(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `paper` instead
+    ///
+    pub const Paper = paper;
+
     /// Inherited from QsciLexer
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
@@ -2439,13 +2963,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` style: i32 `
     ///
-    pub fn Paper(self: QsciLexerPOV, style: i32) QColor {
+    pub fn paper(self: QsciLexerPOV, style: i32) QColor {
         return .{ .ptr = qtc.QsciLexerPOV_Paper(@ptrCast(self.ptr), @bitCast(style)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaper` instead
+    /// ### DEPRECATED: Use `superPaper` instead
     ///
-    pub const QBasePaper = SuperPaper;
+    pub const SuperPaper = superPaper;
 
     /// Inherited from QsciLexer
     ///
@@ -2459,10 +2983,14 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` style: i32 `
     ///
-    pub fn SuperPaper(self: QsciLexerPOV, style: i32) QColor {
+    pub fn superPaper(self: QsciLexerPOV, style: i32) QColor {
         return .{ .ptr = qtc.QsciLexerPOV_SuperPaper(@ptrCast(self.ptr), @bitCast(style)) };
     }
 
+    /// ### DEPRECATED: Use `onPaper` instead
+    ///
+    pub const OnPaper = onPaper;
+
     /// Inherited from QsciLexer
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
@@ -2477,10 +3005,14 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnPaper(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, i32) callconv(.c) QColor) void {
+    pub fn onPaper(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, i32) callconv(.c) QColor) void {
         qtc.QsciLexerPOV_OnPaper(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `defaultColor2` instead
+    ///
+    pub const DefaultColor2 = defaultColor2;
+
     /// Inherited from QsciLexer
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
@@ -2493,13 +3025,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` style: i32 `
     ///
-    pub fn DefaultColor2(self: QsciLexerPOV, style: i32) QColor {
+    pub fn defaultColor2(self: QsciLexerPOV, style: i32) QColor {
         return .{ .ptr = qtc.QsciLexerPOV_DefaultColor2(@ptrCast(self.ptr), @bitCast(style)) };
     }
 
-    /// ### DEPRECATED: Use `SuperDefaultColor2` instead
+    /// ### DEPRECATED: Use `superDefaultColor2` instead
     ///
-    pub const QBaseDefaultColor2 = SuperDefaultColor2;
+    pub const SuperDefaultColor2 = superDefaultColor2;
 
     /// Inherited from QsciLexer
     ///
@@ -2513,9 +3045,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` style: i32 `
     ///
-    pub fn SuperDefaultColor2(self: QsciLexerPOV, style: i32) QColor {
+    pub fn superDefaultColor2(self: QsciLexerPOV, style: i32) QColor {
         return .{ .ptr = qtc.QsciLexerPOV_SuperDefaultColor2(@ptrCast(self.ptr), @bitCast(style)) };
     }
+
+    /// ### DEPRECATED: Use `onDefaultColor2` instead
+    ///
+    pub const OnDefaultColor2 = onDefaultColor2;
 
     /// Inherited from QsciLexer
     ///
@@ -2531,9 +3067,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnDefaultColor2(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, i32) callconv(.c) QColor) void {
+    pub fn onDefaultColor2(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, i32) callconv(.c) QColor) void {
         qtc.QsciLexerPOV_OnDefaultColor2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `defaultFont2` instead
+    ///
+    pub const DefaultFont2 = defaultFont2;
 
     /// Inherited from QsciLexer
     ///
@@ -2547,13 +3087,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` style: i32 `
     ///
-    pub fn DefaultFont2(self: QsciLexerPOV, style: i32) QFont {
+    pub fn defaultFont2(self: QsciLexerPOV, style: i32) QFont {
         return .{ .ptr = qtc.QsciLexerPOV_DefaultFont2(@ptrCast(self.ptr), @bitCast(style)) };
     }
 
-    /// ### DEPRECATED: Use `SuperDefaultFont2` instead
+    /// ### DEPRECATED: Use `superDefaultFont2` instead
     ///
-    pub const QBaseDefaultFont2 = SuperDefaultFont2;
+    pub const SuperDefaultFont2 = superDefaultFont2;
 
     /// Inherited from QsciLexer
     ///
@@ -2567,9 +3107,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` style: i32 `
     ///
-    pub fn SuperDefaultFont2(self: QsciLexerPOV, style: i32) QFont {
+    pub fn superDefaultFont2(self: QsciLexerPOV, style: i32) QFont {
         return .{ .ptr = qtc.QsciLexerPOV_SuperDefaultFont2(@ptrCast(self.ptr), @bitCast(style)) };
     }
+
+    /// ### DEPRECATED: Use `onDefaultFont2` instead
+    ///
+    pub const OnDefaultFont2 = onDefaultFont2;
 
     /// Inherited from QsciLexer
     ///
@@ -2585,9 +3129,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnDefaultFont2(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, i32) callconv(.c) QFont) void {
+    pub fn onDefaultFont2(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, i32) callconv(.c) QFont) void {
         qtc.QsciLexerPOV_OnDefaultFont2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `defaultPaper2` instead
+    ///
+    pub const DefaultPaper2 = defaultPaper2;
 
     /// Inherited from QsciLexer
     ///
@@ -2601,13 +3149,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` style: i32 `
     ///
-    pub fn DefaultPaper2(self: QsciLexerPOV, style: i32) QColor {
+    pub fn defaultPaper2(self: QsciLexerPOV, style: i32) QColor {
         return .{ .ptr = qtc.QsciLexerPOV_DefaultPaper2(@ptrCast(self.ptr), @bitCast(style)) };
     }
 
-    /// ### DEPRECATED: Use `SuperDefaultPaper2` instead
+    /// ### DEPRECATED: Use `superDefaultPaper2` instead
     ///
-    pub const QBaseDefaultPaper2 = SuperDefaultPaper2;
+    pub const SuperDefaultPaper2 = superDefaultPaper2;
 
     /// Inherited from QsciLexer
     ///
@@ -2621,9 +3169,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` style: i32 `
     ///
-    pub fn SuperDefaultPaper2(self: QsciLexerPOV, style: i32) QColor {
+    pub fn superDefaultPaper2(self: QsciLexerPOV, style: i32) QColor {
         return .{ .ptr = qtc.QsciLexerPOV_SuperDefaultPaper2(@ptrCast(self.ptr), @bitCast(style)) };
     }
+
+    /// ### DEPRECATED: Use `onDefaultPaper2` instead
+    ///
+    pub const OnDefaultPaper2 = onDefaultPaper2;
 
     /// Inherited from QsciLexer
     ///
@@ -2639,9 +3191,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnDefaultPaper2(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, i32) callconv(.c) QColor) void {
+    pub fn onDefaultPaper2(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, i32) callconv(.c) QColor) void {
         qtc.QsciLexerPOV_OnDefaultPaper2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setEditor` instead
+    ///
+    pub const SetEditor = setEditor;
 
     /// Inherited from QsciLexer
     ///
@@ -2653,16 +3209,16 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` self: QsciLexerPOV `
     ///
-    /// ` editor: QsciScintilla `
+    /// ` _editor: QsciScintilla `
     ///
-    pub fn SetEditor(self: QsciLexerPOV, editor: anytype) void {
-        comptime _ = @TypeOf(editor)._is_QsciScintilla;
-        qtc.QsciLexerPOV_SetEditor(@ptrCast(self.ptr), @ptrCast(editor.ptr));
+    pub fn setEditor(self: QsciLexerPOV, _editor: anytype) void {
+        comptime _ = @TypeOf(_editor)._is_QsciScintilla;
+        qtc.QsciLexerPOV_SetEditor(@ptrCast(self.ptr), @ptrCast(_editor.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetEditor` instead
+    /// ### DEPRECATED: Use `superSetEditor` instead
     ///
-    pub const QBaseSetEditor = SuperSetEditor;
+    pub const SuperSetEditor = superSetEditor;
 
     /// Inherited from QsciLexer
     ///
@@ -2674,12 +3230,16 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` self: QsciLexerPOV `
     ///
-    /// ` editor: QsciScintilla `
+    /// ` _editor: QsciScintilla `
     ///
-    pub fn SuperSetEditor(self: QsciLexerPOV, editor: anytype) void {
-        comptime _ = @TypeOf(editor)._is_QsciScintilla;
-        qtc.QsciLexerPOV_SuperSetEditor(@ptrCast(self.ptr), @ptrCast(editor.ptr));
+    pub fn superSetEditor(self: QsciLexerPOV, _editor: anytype) void {
+        comptime _ = @TypeOf(_editor)._is_QsciScintilla;
+        qtc.QsciLexerPOV_SuperSetEditor(@ptrCast(self.ptr), @ptrCast(_editor.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetEditor` instead
+    ///
+    pub const OnSetEditor = onSetEditor;
 
     /// Inherited from QsciLexer
     ///
@@ -2693,9 +3253,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` callback: *const fn (self: QsciLexerPOV, editor: QsciScintilla) callconv(.c) void `
     ///
-    pub fn OnSetEditor(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, QsciScintilla) callconv(.c) void) void {
+    pub fn onSetEditor(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, QsciScintilla) callconv(.c) void) void {
         qtc.QsciLexerPOV_OnSetEditor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `styleBitsNeeded` instead
+    ///
+    pub const StyleBitsNeeded = styleBitsNeeded;
 
     /// Inherited from QsciLexer
     ///
@@ -2707,13 +3271,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` self: QsciLexerPOV `
     ///
-    pub fn StyleBitsNeeded(self: QsciLexerPOV) i32 {
+    pub fn styleBitsNeeded(self: QsciLexerPOV) i32 {
         return qtc.QsciLexerPOV_StyleBitsNeeded(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperStyleBitsNeeded` instead
+    /// ### DEPRECATED: Use `superStyleBitsNeeded` instead
     ///
-    pub const QBaseStyleBitsNeeded = SuperStyleBitsNeeded;
+    pub const SuperStyleBitsNeeded = superStyleBitsNeeded;
 
     /// Inherited from QsciLexer
     ///
@@ -2725,9 +3289,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` self: QsciLexerPOV `
     ///
-    pub fn SuperStyleBitsNeeded(self: QsciLexerPOV) i32 {
+    pub fn superStyleBitsNeeded(self: QsciLexerPOV) i32 {
         return qtc.QsciLexerPOV_SuperStyleBitsNeeded(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onStyleBitsNeeded` instead
+    ///
+    pub const OnStyleBitsNeeded = onStyleBitsNeeded;
 
     /// Inherited from QsciLexer
     ///
@@ -2741,9 +3309,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnStyleBitsNeeded(self: QsciLexerPOV, callback: *const fn () callconv(.c) i32) void {
+    pub fn onStyleBitsNeeded(self: QsciLexerPOV, callback: *const fn () callconv(.c) i32) void {
         qtc.QsciLexerPOV_OnStyleBitsNeeded(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setAutoIndentStyle` instead
+    ///
+    pub const SetAutoIndentStyle = setAutoIndentStyle;
 
     /// Inherited from QsciLexer
     ///
@@ -2757,13 +3329,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` autoindentstyle: i32 `
     ///
-    pub fn SetAutoIndentStyle(self: QsciLexerPOV, autoindentstyle: i32) void {
+    pub fn setAutoIndentStyle(self: QsciLexerPOV, autoindentstyle: i32) void {
         qtc.QsciLexerPOV_SetAutoIndentStyle(@ptrCast(self.ptr), @bitCast(autoindentstyle));
     }
 
-    /// ### DEPRECATED: Use `SuperSetAutoIndentStyle` instead
+    /// ### DEPRECATED: Use `superSetAutoIndentStyle` instead
     ///
-    pub const QBaseSetAutoIndentStyle = SuperSetAutoIndentStyle;
+    pub const SuperSetAutoIndentStyle = superSetAutoIndentStyle;
 
     /// Inherited from QsciLexer
     ///
@@ -2777,9 +3349,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` autoindentstyle: i32 `
     ///
-    pub fn SuperSetAutoIndentStyle(self: QsciLexerPOV, autoindentstyle: i32) void {
+    pub fn superSetAutoIndentStyle(self: QsciLexerPOV, autoindentstyle: i32) void {
         qtc.QsciLexerPOV_SuperSetAutoIndentStyle(@ptrCast(self.ptr), @bitCast(autoindentstyle));
     }
+
+    /// ### DEPRECATED: Use `onSetAutoIndentStyle` instead
+    ///
+    pub const OnSetAutoIndentStyle = onSetAutoIndentStyle;
 
     /// Inherited from QsciLexer
     ///
@@ -2793,9 +3369,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` callback: *const fn (self: QsciLexerPOV, autoindentstyle: i32) callconv(.c) void `
     ///
-    pub fn OnSetAutoIndentStyle(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, i32) callconv(.c) void) void {
+    pub fn onSetAutoIndentStyle(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, i32) callconv(.c) void) void {
         qtc.QsciLexerPOV_OnSetAutoIndentStyle(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setColor` instead
+    ///
+    pub const SetColor = setColor;
 
     /// Inherited from QsciLexer
     ///
@@ -2811,14 +3391,14 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` style: i32 `
     ///
-    pub fn SetColor(self: QsciLexerPOV, c: anytype, style: i32) void {
+    pub fn setColor(self: QsciLexerPOV, c: anytype, style: i32) void {
         comptime _ = @TypeOf(c)._is_QColor;
         qtc.QsciLexerPOV_SetColor(@ptrCast(self.ptr), @ptrCast(c.ptr), @bitCast(style));
     }
 
-    /// ### DEPRECATED: Use `SuperSetColor` instead
+    /// ### DEPRECATED: Use `superSetColor` instead
     ///
-    pub const QBaseSetColor = SuperSetColor;
+    pub const SuperSetColor = superSetColor;
 
     /// Inherited from QsciLexer
     ///
@@ -2834,10 +3414,14 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` style: i32 `
     ///
-    pub fn SuperSetColor(self: QsciLexerPOV, c: anytype, style: i32) void {
+    pub fn superSetColor(self: QsciLexerPOV, c: anytype, style: i32) void {
         comptime _ = @TypeOf(c)._is_QColor;
         qtc.QsciLexerPOV_SuperSetColor(@ptrCast(self.ptr), @ptrCast(c.ptr), @bitCast(style));
     }
+
+    /// ### DEPRECATED: Use `onSetColor` instead
+    ///
+    pub const OnSetColor = onSetColor;
 
     /// Inherited from QsciLexer
     ///
@@ -2851,9 +3435,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` callback: *const fn (self: QsciLexerPOV, c: QColor, style: i32) callconv(.c) void `
     ///
-    pub fn OnSetColor(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, QColor, i32) callconv(.c) void) void {
+    pub fn onSetColor(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, QColor, i32) callconv(.c) void) void {
         qtc.QsciLexerPOV_OnSetColor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setEolFill` instead
+    ///
+    pub const SetEolFill = setEolFill;
 
     /// Inherited from QsciLexer
     ///
@@ -2869,13 +3457,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` style: i32 `
     ///
-    pub fn SetEolFill(self: QsciLexerPOV, eoffill: bool, style: i32) void {
+    pub fn setEolFill(self: QsciLexerPOV, eoffill: bool, style: i32) void {
         qtc.QsciLexerPOV_SetEolFill(@ptrCast(self.ptr), eoffill, @bitCast(style));
     }
 
-    /// ### DEPRECATED: Use `SuperSetEolFill` instead
+    /// ### DEPRECATED: Use `superSetEolFill` instead
     ///
-    pub const QBaseSetEolFill = SuperSetEolFill;
+    pub const SuperSetEolFill = superSetEolFill;
 
     /// Inherited from QsciLexer
     ///
@@ -2891,9 +3479,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` style: i32 `
     ///
-    pub fn SuperSetEolFill(self: QsciLexerPOV, eoffill: bool, style: i32) void {
+    pub fn superSetEolFill(self: QsciLexerPOV, eoffill: bool, style: i32) void {
         qtc.QsciLexerPOV_SuperSetEolFill(@ptrCast(self.ptr), eoffill, @bitCast(style));
     }
+
+    /// ### DEPRECATED: Use `onSetEolFill` instead
+    ///
+    pub const OnSetEolFill = onSetEolFill;
 
     /// Inherited from QsciLexer
     ///
@@ -2907,9 +3499,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` callback: *const fn (self: QsciLexerPOV, eoffill: bool, style: i32) callconv(.c) void `
     ///
-    pub fn OnSetEolFill(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, bool, i32) callconv(.c) void) void {
+    pub fn onSetEolFill(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, bool, i32) callconv(.c) void) void {
         qtc.QsciLexerPOV_OnSetEolFill(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QsciLexer
     ///
@@ -2925,14 +3521,14 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` style: i32 `
     ///
-    pub fn SetFont(self: QsciLexerPOV, f: anytype, style: i32) void {
+    pub fn setFont(self: QsciLexerPOV, f: anytype, style: i32) void {
         comptime _ = @TypeOf(f)._is_QFont;
         qtc.QsciLexerPOV_SetFont(@ptrCast(self.ptr), @ptrCast(f.ptr), @bitCast(style));
     }
 
-    /// ### DEPRECATED: Use `SuperSetFont` instead
+    /// ### DEPRECATED: Use `superSetFont` instead
     ///
-    pub const QBaseSetFont = SuperSetFont;
+    pub const SuperSetFont = superSetFont;
 
     /// Inherited from QsciLexer
     ///
@@ -2948,10 +3544,14 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` style: i32 `
     ///
-    pub fn SuperSetFont(self: QsciLexerPOV, f: anytype, style: i32) void {
+    pub fn superSetFont(self: QsciLexerPOV, f: anytype, style: i32) void {
         comptime _ = @TypeOf(f)._is_QFont;
         qtc.QsciLexerPOV_SuperSetFont(@ptrCast(self.ptr), @ptrCast(f.ptr), @bitCast(style));
     }
+
+    /// ### DEPRECATED: Use `onSetFont` instead
+    ///
+    pub const OnSetFont = onSetFont;
 
     /// Inherited from QsciLexer
     ///
@@ -2965,9 +3565,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` callback: *const fn (self: QsciLexerPOV, f: QFont, style: i32) callconv(.c) void `
     ///
-    pub fn OnSetFont(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, QFont, i32) callconv(.c) void) void {
+    pub fn onSetFont(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, QFont, i32) callconv(.c) void) void {
         qtc.QsciLexerPOV_OnSetFont(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setPaper` instead
+    ///
+    pub const SetPaper = setPaper;
 
     /// Inherited from QsciLexer
     ///
@@ -2983,14 +3587,14 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` style: i32 `
     ///
-    pub fn SetPaper(self: QsciLexerPOV, c: anytype, style: i32) void {
+    pub fn setPaper(self: QsciLexerPOV, c: anytype, style: i32) void {
         comptime _ = @TypeOf(c)._is_QColor;
         qtc.QsciLexerPOV_SetPaper(@ptrCast(self.ptr), @ptrCast(c.ptr), @bitCast(style));
     }
 
-    /// ### DEPRECATED: Use `SuperSetPaper` instead
+    /// ### DEPRECATED: Use `superSetPaper` instead
     ///
-    pub const QBaseSetPaper = SuperSetPaper;
+    pub const SuperSetPaper = superSetPaper;
 
     /// Inherited from QsciLexer
     ///
@@ -3006,10 +3610,14 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` style: i32 `
     ///
-    pub fn SuperSetPaper(self: QsciLexerPOV, c: anytype, style: i32) void {
+    pub fn superSetPaper(self: QsciLexerPOV, c: anytype, style: i32) void {
         comptime _ = @TypeOf(c)._is_QColor;
         qtc.QsciLexerPOV_SuperSetPaper(@ptrCast(self.ptr), @ptrCast(c.ptr), @bitCast(style));
     }
+
+    /// ### DEPRECATED: Use `onSetPaper` instead
+    ///
+    pub const OnSetPaper = onSetPaper;
 
     /// Inherited from QsciLexer
     ///
@@ -3023,9 +3631,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` callback: *const fn (self: QsciLexerPOV, c: QColor, style: i32) callconv(.c) void `
     ///
-    pub fn OnSetPaper(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, QColor, i32) callconv(.c) void) void {
+    pub fn onSetPaper(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, QColor, i32) callconv(.c) void) void {
         qtc.QsciLexerPOV_OnSetPaper(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -3037,16 +3649,16 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` self: QsciLexerPOV `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QsciLexerPOV, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QsciLexerPOV_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QsciLexerPOV, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QsciLexerPOV_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -3058,12 +3670,16 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` self: QsciLexerPOV `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QsciLexerPOV, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QsciLexerPOV_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QsciLexerPOV, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QsciLexerPOV_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -3077,9 +3693,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` callback: *const fn (self: QsciLexerPOV, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, QEvent) callconv(.c) bool) void {
         qtc.QsciLexerPOV_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -3093,17 +3713,17 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QsciLexerPOV, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QsciLexerPOV, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QsciLexerPOV_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QsciLexerPOV_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -3117,13 +3737,17 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QsciLexerPOV, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QsciLexerPOV, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QsciLexerPOV_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QsciLexerPOV_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -3137,9 +3761,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` callback: *const fn (self: QsciLexerPOV, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, QObject, QEvent) callconv(.c) bool) void {
         qtc.QsciLexerPOV_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -3151,16 +3779,16 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` self: QsciLexerPOV `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QsciLexerPOV, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QsciLexerPOV_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QsciLexerPOV, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QsciLexerPOV_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -3172,12 +3800,16 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` self: QsciLexerPOV `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QsciLexerPOV, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QsciLexerPOV_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QsciLexerPOV, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QsciLexerPOV_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -3191,9 +3823,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` callback: *const fn (self: QsciLexerPOV, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, QTimerEvent) callconv(.c) void) void {
         qtc.QsciLexerPOV_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -3205,16 +3841,16 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` self: QsciLexerPOV `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QsciLexerPOV, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QsciLexerPOV_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QsciLexerPOV, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QsciLexerPOV_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -3226,12 +3862,16 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` self: QsciLexerPOV `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QsciLexerPOV, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QsciLexerPOV_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QsciLexerPOV, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QsciLexerPOV_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -3245,9 +3885,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` callback: *const fn (self: QsciLexerPOV, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, QChildEvent) callconv(.c) void) void {
         qtc.QsciLexerPOV_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -3259,16 +3903,16 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` self: QsciLexerPOV `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QsciLexerPOV, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QsciLexerPOV_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QsciLexerPOV, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QsciLexerPOV_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -3280,12 +3924,16 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` self: QsciLexerPOV `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QsciLexerPOV, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QsciLexerPOV_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QsciLexerPOV, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QsciLexerPOV_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -3299,9 +3947,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` callback: *const fn (self: QsciLexerPOV, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, QEvent) callconv(.c) void) void {
         qtc.QsciLexerPOV_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -3315,14 +3967,14 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QsciLexerPOV, signal: anytype) void {
+    pub fn connectNotify(self: QsciLexerPOV, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QsciLexerPOV_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3336,10 +3988,14 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QsciLexerPOV, signal: anytype) void {
+    pub fn superConnectNotify(self: QsciLexerPOV, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QsciLexerPOV_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3353,9 +4009,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` callback: *const fn (self: QsciLexerPOV, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, QMetaMethod) callconv(.c) void) void {
         qtc.QsciLexerPOV_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3369,14 +4029,14 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QsciLexerPOV, signal: anytype) void {
+    pub fn disconnectNotify(self: QsciLexerPOV, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QsciLexerPOV_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3390,10 +4050,14 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QsciLexerPOV, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QsciLexerPOV, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QsciLexerPOV_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3407,9 +4071,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` callback: *const fn (self: QsciLexerPOV, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, QMetaMethod) callconv(.c) void) void {
         qtc.QsciLexerPOV_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `textAsBytes` instead
+    ///
+    pub const TextAsBytes = textAsBytes;
 
     /// Inherited from QsciLexer
     ///
@@ -3425,21 +4093,21 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn TextAsBytes(self: QsciLexerPOV, allocator: std.mem.Allocator, text: []const u8) []u8 {
+    pub fn textAsBytes(self: QsciLexerPOV, allocator: std.mem.Allocator, text: []const u8) []u8 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         var _bytearray: qtc.libqt_string = qtc.QsciLexerPOV_TextAsBytes(@ptrCast(self.ptr), text_str);
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QsciLexerPOV.TextAsBytes: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QsciLexerPOV.textAsBytes: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `SuperTextAsBytes` instead
+    /// ### DEPRECATED: Use `superTextAsBytes` instead
     ///
-    pub const QBaseTextAsBytes = SuperTextAsBytes;
+    pub const SuperTextAsBytes = superTextAsBytes;
 
     /// Inherited from QsciLexer
     ///
@@ -3455,17 +4123,21 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SuperTextAsBytes(self: QsciLexerPOV, allocator: std.mem.Allocator, text: []const u8) []u8 {
+    pub fn superTextAsBytes(self: QsciLexerPOV, allocator: std.mem.Allocator, text: []const u8) []u8 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         var _bytearray: qtc.libqt_string = qtc.QsciLexerPOV_SuperTextAsBytes(@ptrCast(self.ptr), text_str);
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QsciLexerPOV.TextAsBytes: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QsciLexerPOV.textAsBytes: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onTextAsBytes` instead
+    ///
+    pub const OnTextAsBytes = onTextAsBytes;
 
     /// Inherited from QsciLexer
     ///
@@ -3479,9 +4151,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` callback: *const fn (self: QsciLexerPOV, text: [*:0]const u8) callconv(.c) qtc.libqt_string `
     ///
-    pub fn OnTextAsBytes(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, [*:0]const u8) callconv(.c) qtc.libqt_string) void {
+    pub fn onTextAsBytes(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, [*:0]const u8) callconv(.c) qtc.libqt_string) void {
         qtc.QsciLexerPOV_OnTextAsBytes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `bytesAsText` instead
+    ///
+    pub const BytesAsText = bytesAsText;
 
     /// Inherited from QsciLexer
     ///
@@ -3499,18 +4175,18 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` size: i32 `
     ///
-    pub fn BytesAsText(self: QsciLexerPOV, allocator: std.mem.Allocator, bytes: [:0]const u8, size: i32) []const u8 {
+    pub fn bytesAsText(self: QsciLexerPOV, allocator: std.mem.Allocator, bytes: [:0]const u8, size: i32) []const u8 {
         const bytes_Cstring = bytes.ptr;
         var _str = qtc.QsciLexerPOV_BytesAsText(@ptrCast(self.ptr), bytes_Cstring, @bitCast(size));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciLexerPOV.BytesAsText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciLexerPOV.bytesAsText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `SuperBytesAsText` instead
+    /// ### DEPRECATED: Use `superBytesAsText` instead
     ///
-    pub const QBaseBytesAsText = SuperBytesAsText;
+    pub const SuperBytesAsText = superBytesAsText;
 
     /// Inherited from QsciLexer
     ///
@@ -3528,14 +4204,18 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` size: i32 `
     ///
-    pub fn SuperBytesAsText(self: QsciLexerPOV, allocator: std.mem.Allocator, bytes: [:0]const u8, size: i32) []const u8 {
+    pub fn superBytesAsText(self: QsciLexerPOV, allocator: std.mem.Allocator, bytes: [:0]const u8, size: i32) []const u8 {
         const bytes_Cstring = bytes.ptr;
         var _str = qtc.QsciLexerPOV_SuperBytesAsText(@ptrCast(self.ptr), bytes_Cstring, @bitCast(size));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciLexerPOV.BytesAsText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciLexerPOV.bytesAsText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onBytesAsText` instead
+    ///
+    pub const OnBytesAsText = onBytesAsText;
 
     /// Inherited from QsciLexer
     ///
@@ -3549,9 +4229,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` callback: *const fn (self: QsciLexerPOV, bytes: [*:0]const u8, size: i32) callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnBytesAsText(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, [*:0]const u8, i32) callconv(.c) [*:0]const u8) void {
+    pub fn onBytesAsText(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, [*:0]const u8, i32) callconv(.c) [*:0]const u8) void {
         qtc.QsciLexerPOV_OnBytesAsText(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -3563,13 +4247,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` self: QsciLexerPOV `
     ///
-    pub fn Sender(self: QsciLexerPOV) QObject {
+    pub fn sender(self: QsciLexerPOV) QObject {
         return .{ .ptr = qtc.QsciLexerPOV_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -3581,9 +4265,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` self: QsciLexerPOV `
     ///
-    pub fn SuperSender(self: QsciLexerPOV) QObject {
+    pub fn superSender(self: QsciLexerPOV) QObject {
         return .{ .ptr = qtc.QsciLexerPOV_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -3597,9 +4285,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QsciLexerPOV, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QsciLexerPOV, callback: *const fn () callconv(.c) QObject) void {
         qtc.QsciLexerPOV_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -3611,13 +4303,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` self: QsciLexerPOV `
     ///
-    pub fn SenderSignalIndex(self: QsciLexerPOV) i32 {
+    pub fn senderSignalIndex(self: QsciLexerPOV) i32 {
         return qtc.QsciLexerPOV_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -3629,9 +4321,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` self: QsciLexerPOV `
     ///
-    pub fn SuperSenderSignalIndex(self: QsciLexerPOV) i32 {
+    pub fn superSenderSignalIndex(self: QsciLexerPOV) i32 {
         return qtc.QsciLexerPOV_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -3645,9 +4341,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QsciLexerPOV, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QsciLexerPOV, callback: *const fn () callconv(.c) i32) void {
         qtc.QsciLexerPOV_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -3661,14 +4361,14 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QsciLexerPOV, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QsciLexerPOV, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QsciLexerPOV_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -3682,10 +4382,14 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QsciLexerPOV, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QsciLexerPOV, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QsciLexerPOV_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -3699,9 +4403,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` callback: *const fn (self: QsciLexerPOV, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, [*:0]const u8) callconv(.c) i32) void {
         qtc.QsciLexerPOV_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -3715,14 +4423,14 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QsciLexerPOV, signal: anytype) bool {
+    pub fn isSignalConnected(self: QsciLexerPOV, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QsciLexerPOV_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -3736,10 +4444,14 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QsciLexerPOV, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QsciLexerPOV, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QsciLexerPOV_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -3753,9 +4465,13 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` callback: *const fn (self: QsciLexerPOV, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, QMetaMethod) callconv(.c) bool) void {
         qtc.QsciLexerPOV_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -3769,23 +4485,23 @@ pub const QsciLexerPOV = extern struct {
     ///
     /// ` callback: *const fn (self: QsciLexerPOV, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QsciLexerPOV, callback: *const fn (QsciLexerPOV, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPOV.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QsciLexerPOV `
     ///
-    pub fn Delete(self: QsciLexerPOV) void {
+    pub fn delete(self: QsciLexerPOV) void {
         qtc.QsciLexerPOV_Delete(@ptrCast(self.ptr));
     }
 };

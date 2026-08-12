@@ -64,15 +64,23 @@ pub const QDesignerFormWindowInterface = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn MetaObject(self: QDesignerFormWindowInterface) QMetaObject {
+    pub fn metaObject(self: QDesignerFormWindowInterface) QMetaObject {
         return .{ .ptr = qtc.QDesignerFormWindowInterface_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -80,10 +88,14 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QDesignerFormWindowInterface, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QDesignerFormWindowInterface, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QDesignerFormWindowInterface_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -95,9 +107,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QDesignerFormWindowInterface, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QDesignerFormWindowInterface, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QDesignerFormWindowInterface_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -107,14 +123,18 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerFormWindowInterface.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerFormWindowInterface.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `fileName` instead
+    ///
+    pub const FileName = fileName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#fileName)
     ///
@@ -124,13 +144,17 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FileName(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const u8 {
+    pub fn fileName(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerFormWindowInterface_FileName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerFormWindowInterface.FileName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerFormWindowInterface.fileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `absoluteDir` instead
+    ///
+    pub const AbsoluteDir = absoluteDir;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#absoluteDir)
     ///
@@ -138,9 +162,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn AbsoluteDir(self: QDesignerFormWindowInterface) QDir {
+    pub fn absoluteDir(self: QDesignerFormWindowInterface) QDir {
         return .{ .ptr = qtc.QDesignerFormWindowInterface_AbsoluteDir(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contents` instead
+    ///
+    pub const Contents = contents;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#contents)
     ///
@@ -150,13 +178,17 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Contents(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const u8 {
+    pub fn contents(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerFormWindowInterface_Contents(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerFormWindowInterface.Contents: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerFormWindowInterface.contents: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `checkContents` instead
+    ///
+    pub const CheckContents = checkContents;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#checkContents)
     ///
@@ -166,7 +198,7 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CheckContents(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn checkContents(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QDesignerFormWindowInterface_CheckContents(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -174,15 +206,19 @@ pub const QDesignerFormWindowInterface = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QDesignerFormWindowInterface.CheckContents: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QDesignerFormWindowInterface.checkContents: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QDesignerFormWindowInterface.CheckContents: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QDesignerFormWindowInterface.checkContents: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `features` instead
+    ///
+    pub const Features = features;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#features)
     ///
@@ -194,9 +230,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` flag of abstractformwindow_enums.FeatureFlag `
     ///
-    pub fn Features(self: QDesignerFormWindowInterface) i32 {
+    pub fn features(self: QDesignerFormWindowInterface) i32 {
         return qtc.QDesignerFormWindowInterface_Features(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hasFeature` instead
+    ///
+    pub const HasFeature = hasFeature;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#hasFeature)
     ///
@@ -206,9 +246,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` f: flag of abstractformwindow_enums.FeatureFlag `
     ///
-    pub fn HasFeature(self: QDesignerFormWindowInterface, f: i32) bool {
+    pub fn hasFeature(self: QDesignerFormWindowInterface, f: i32) bool {
         return qtc.QDesignerFormWindowInterface_HasFeature(@ptrCast(self.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `author` instead
+    ///
+    pub const Author = author;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#author)
     ///
@@ -218,13 +262,17 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Author(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const u8 {
+    pub fn author(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerFormWindowInterface_Author(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerFormWindowInterface.Author: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerFormWindowInterface.author: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAuthor` instead
+    ///
+    pub const SetAuthor = setAuthor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#setAuthor)
     ///
@@ -232,15 +280,19 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` author: []const u8 `
+    /// ` _author: []const u8 `
     ///
-    pub fn SetAuthor(self: QDesignerFormWindowInterface, author: []const u8) void {
+    pub fn setAuthor(self: QDesignerFormWindowInterface, _author: []const u8) void {
         const author_str = qtc.libqt_string{
-            .len = author.len,
-            .data = author.ptr,
+            .len = _author.len,
+            .data = _author.ptr,
         };
         qtc.QDesignerFormWindowInterface_SetAuthor(@ptrCast(self.ptr), author_str);
     }
+
+    /// ### DEPRECATED: Use `comment` instead
+    ///
+    pub const Comment = comment;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#comment)
     ///
@@ -250,13 +302,17 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Comment(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const u8 {
+    pub fn comment(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerFormWindowInterface_Comment(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerFormWindowInterface.Comment: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerFormWindowInterface.comment: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setComment` instead
+    ///
+    pub const SetComment = setComment;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#setComment)
     ///
@@ -264,15 +320,19 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` comment: []const u8 `
+    /// ` _comment: []const u8 `
     ///
-    pub fn SetComment(self: QDesignerFormWindowInterface, comment: []const u8) void {
+    pub fn setComment(self: QDesignerFormWindowInterface, _comment: []const u8) void {
         const comment_str = qtc.libqt_string{
-            .len = comment.len,
-            .data = comment.ptr,
+            .len = _comment.len,
+            .data = _comment.ptr,
         };
         qtc.QDesignerFormWindowInterface_SetComment(@ptrCast(self.ptr), comment_str);
     }
+
+    /// ### DEPRECATED: Use `layoutDefault` instead
+    ///
+    pub const LayoutDefault = layoutDefault;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#layoutDefault)
     ///
@@ -284,9 +344,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` spacing: *i32 `
     ///
-    pub fn LayoutDefault(self: QDesignerFormWindowInterface, margin: *i32, spacing: *i32) void {
+    pub fn layoutDefault(self: QDesignerFormWindowInterface, margin: *i32, spacing: *i32) void {
         qtc.QDesignerFormWindowInterface_LayoutDefault(@ptrCast(self.ptr), @ptrCast(margin), @ptrCast(spacing));
     }
+
+    /// ### DEPRECATED: Use `setLayoutDefault` instead
+    ///
+    pub const SetLayoutDefault = setLayoutDefault;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#setLayoutDefault)
     ///
@@ -298,9 +362,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` spacing: i32 `
     ///
-    pub fn SetLayoutDefault(self: QDesignerFormWindowInterface, margin: i32, spacing: i32) void {
+    pub fn setLayoutDefault(self: QDesignerFormWindowInterface, margin: i32, spacing: i32) void {
         qtc.QDesignerFormWindowInterface_SetLayoutDefault(@ptrCast(self.ptr), @bitCast(margin), @bitCast(spacing));
     }
+
+    /// ### DEPRECATED: Use `setLayoutFunction` instead
+    ///
+    pub const SetLayoutFunction = setLayoutFunction;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#setLayoutFunction)
     ///
@@ -312,7 +380,7 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` spacing: []const u8 `
     ///
-    pub fn SetLayoutFunction(self: QDesignerFormWindowInterface, margin: []const u8, spacing: []const u8) void {
+    pub fn setLayoutFunction(self: QDesignerFormWindowInterface, margin: []const u8, spacing: []const u8) void {
         const margin_str = qtc.libqt_string{
             .len = margin.len,
             .data = margin.ptr,
@@ -324,6 +392,10 @@ pub const QDesignerFormWindowInterface = extern struct {
         qtc.QDesignerFormWindowInterface_SetLayoutFunction(@ptrCast(self.ptr), margin_str, spacing_str);
     }
 
+    /// ### DEPRECATED: Use `pixmapFunction` instead
+    ///
+    pub const PixmapFunction = pixmapFunction;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#pixmapFunction)
     ///
     /// ## Parameter(s):
@@ -332,13 +404,17 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PixmapFunction(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const u8 {
+    pub fn pixmapFunction(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerFormWindowInterface_PixmapFunction(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerFormWindowInterface.PixmapFunction: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerFormWindowInterface.pixmapFunction: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setPixmapFunction` instead
+    ///
+    pub const SetPixmapFunction = setPixmapFunction;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#setPixmapFunction)
     ///
@@ -346,15 +422,19 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` pixmapFunction: []const u8 `
+    /// ` _pixmapFunction: []const u8 `
     ///
-    pub fn SetPixmapFunction(self: QDesignerFormWindowInterface, pixmapFunction: []const u8) void {
+    pub fn setPixmapFunction(self: QDesignerFormWindowInterface, _pixmapFunction: []const u8) void {
         const pixmapFunction_str = qtc.libqt_string{
-            .len = pixmapFunction.len,
-            .data = pixmapFunction.ptr,
+            .len = _pixmapFunction.len,
+            .data = _pixmapFunction.ptr,
         };
         qtc.QDesignerFormWindowInterface_SetPixmapFunction(@ptrCast(self.ptr), pixmapFunction_str);
     }
+
+    /// ### DEPRECATED: Use `exportMacro` instead
+    ///
+    pub const ExportMacro = exportMacro;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#exportMacro)
     ///
@@ -364,13 +444,17 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ExportMacro(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const u8 {
+    pub fn exportMacro(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerFormWindowInterface_ExportMacro(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerFormWindowInterface.ExportMacro: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerFormWindowInterface.exportMacro: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setExportMacro` instead
+    ///
+    pub const SetExportMacro = setExportMacro;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#setExportMacro)
     ///
@@ -378,15 +462,19 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` exportMacro: []const u8 `
+    /// ` _exportMacro: []const u8 `
     ///
-    pub fn SetExportMacro(self: QDesignerFormWindowInterface, exportMacro: []const u8) void {
+    pub fn setExportMacro(self: QDesignerFormWindowInterface, _exportMacro: []const u8) void {
         const exportMacro_str = qtc.libqt_string{
-            .len = exportMacro.len,
-            .data = exportMacro.ptr,
+            .len = _exportMacro.len,
+            .data = _exportMacro.ptr,
         };
         qtc.QDesignerFormWindowInterface_SetExportMacro(@ptrCast(self.ptr), exportMacro_str);
     }
+
+    /// ### DEPRECATED: Use `includeHints` instead
+    ///
+    pub const IncludeHints = includeHints;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#includeHints)
     ///
@@ -396,7 +484,7 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn IncludeHints(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn includeHints(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QDesignerFormWindowInterface_IncludeHints(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -404,15 +492,19 @@ pub const QDesignerFormWindowInterface = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QDesignerFormWindowInterface.IncludeHints: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QDesignerFormWindowInterface.includeHints: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QDesignerFormWindowInterface.IncludeHints: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QDesignerFormWindowInterface.includeHints: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setIncludeHints` instead
+    ///
+    pub const SetIncludeHints = setIncludeHints;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#setIncludeHints)
     ///
@@ -422,22 +514,26 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` includeHints: []const []const u8 `
+    /// ` _includeHints: []const []const u8 `
     ///
-    pub fn SetIncludeHints(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator, includeHints: []const []const u8) void {
-        const includeHints_arr = allocator.alloc(qtc.libqt_string, includeHints.len) catch @panic("QDesignerFormWindowInterface.SetIncludeHints: Memory allocation failed");
+    pub fn setIncludeHints(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator, _includeHints: []const []const u8) void {
+        const includeHints_arr = allocator.alloc(qtc.libqt_string, _includeHints.len) catch @panic("QDesignerFormWindowInterface.setIncludeHints: Memory allocation failed");
         defer allocator.free(includeHints_arr);
-        for (includeHints, 0..includeHints.len) |item, i|
+        for (_includeHints, 0.._includeHints.len) |str_item, i|
             includeHints_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const includeHints_list = qtc.libqt_list{
-            .len = includeHints.len,
+            .len = _includeHints.len,
             .data = includeHints_arr.ptr,
         };
         qtc.QDesignerFormWindowInterface_SetIncludeHints(@ptrCast(self.ptr), includeHints_list);
     }
+
+    /// ### DEPRECATED: Use `resourceFileSaveMode` instead
+    ///
+    pub const ResourceFileSaveMode = resourceFileSaveMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#resourceFileSaveMode)
     ///
@@ -449,9 +545,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` abstractformwindow_enums.ResourceFileSaveMode `
     ///
-    pub fn ResourceFileSaveMode(self: QDesignerFormWindowInterface) i32 {
+    pub fn resourceFileSaveMode(self: QDesignerFormWindowInterface) i32 {
         return qtc.QDesignerFormWindowInterface_ResourceFileSaveMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setResourceFileSaveMode` instead
+    ///
+    pub const SetResourceFileSaveMode = setResourceFileSaveMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#setResourceFileSaveMode)
     ///
@@ -461,9 +561,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` behaviour: abstractformwindow_enums.ResourceFileSaveMode `
     ///
-    pub fn SetResourceFileSaveMode(self: QDesignerFormWindowInterface, behaviour: i32) void {
+    pub fn setResourceFileSaveMode(self: QDesignerFormWindowInterface, behaviour: i32) void {
         qtc.QDesignerFormWindowInterface_SetResourceFileSaveMode(@ptrCast(self.ptr), @bitCast(behaviour));
     }
+
+    /// ### DEPRECATED: Use `activeResourceFilePaths` instead
+    ///
+    pub const ActiveResourceFilePaths = activeResourceFilePaths;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#activeResourceFilePaths)
     ///
@@ -473,7 +577,7 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ActiveResourceFilePaths(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn activeResourceFilePaths(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QDesignerFormWindowInterface_ActiveResourceFilePaths(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -481,15 +585,19 @@ pub const QDesignerFormWindowInterface = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QDesignerFormWindowInterface.ActiveResourceFilePaths: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QDesignerFormWindowInterface.activeResourceFilePaths: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QDesignerFormWindowInterface.ActiveResourceFilePaths: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QDesignerFormWindowInterface.activeResourceFilePaths: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `core` instead
+    ///
+    pub const Core = core;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#core)
     ///
@@ -497,9 +605,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Core(self: QDesignerFormWindowInterface) QDesignerFormEditorInterface {
+    pub fn core(self: QDesignerFormWindowInterface) QDesignerFormEditorInterface {
         return .{ .ptr = qtc.QDesignerFormWindowInterface_Core(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#cursor)
     ///
@@ -507,9 +619,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Cursor(self: QDesignerFormWindowInterface) QDesignerFormWindowCursorInterface {
+    pub fn cursor(self: QDesignerFormWindowInterface) QDesignerFormWindowCursorInterface {
         return .{ .ptr = qtc.QDesignerFormWindowInterface_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toolCount` instead
+    ///
+    pub const ToolCount = toolCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#toolCount)
     ///
@@ -517,9 +633,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn ToolCount(self: QDesignerFormWindowInterface) i32 {
+    pub fn toolCount(self: QDesignerFormWindowInterface) i32 {
         return qtc.QDesignerFormWindowInterface_ToolCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `currentTool` instead
+    ///
+    pub const CurrentTool = currentTool;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#currentTool)
     ///
@@ -527,9 +647,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn CurrentTool(self: QDesignerFormWindowInterface) i32 {
+    pub fn currentTool(self: QDesignerFormWindowInterface) i32 {
         return qtc.QDesignerFormWindowInterface_CurrentTool(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCurrentTool` instead
+    ///
+    pub const SetCurrentTool = setCurrentTool;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#setCurrentTool)
     ///
@@ -539,9 +663,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn SetCurrentTool(self: QDesignerFormWindowInterface, index: i32) void {
+    pub fn setCurrentTool(self: QDesignerFormWindowInterface, index: i32) void {
         qtc.QDesignerFormWindowInterface_SetCurrentTool(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `tool` instead
+    ///
+    pub const Tool = tool;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#tool)
     ///
@@ -551,9 +679,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn Tool(self: QDesignerFormWindowInterface, index: i32) QDesignerFormWindowToolInterface {
+    pub fn tool(self: QDesignerFormWindowInterface, index: i32) QDesignerFormWindowToolInterface {
         return .{ .ptr = qtc.QDesignerFormWindowInterface_Tool(@ptrCast(self.ptr), @bitCast(index)) };
     }
+
+    /// ### DEPRECATED: Use `registerTool` instead
+    ///
+    pub const RegisterTool = registerTool;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#registerTool)
     ///
@@ -561,12 +693,16 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` tool: QDesignerFormWindowToolInterface `
+    /// ` _tool: QDesignerFormWindowToolInterface `
     ///
-    pub fn RegisterTool(self: QDesignerFormWindowInterface, tool: anytype) void {
-        comptime _ = @TypeOf(tool)._is_QDesignerFormWindowToolInterface;
-        qtc.QDesignerFormWindowInterface_RegisterTool(@ptrCast(self.ptr), @ptrCast(tool.ptr));
+    pub fn registerTool(self: QDesignerFormWindowInterface, _tool: anytype) void {
+        comptime _ = @TypeOf(_tool)._is_QDesignerFormWindowToolInterface;
+        qtc.QDesignerFormWindowInterface_RegisterTool(@ptrCast(self.ptr), @ptrCast(_tool.ptr));
     }
+
+    /// ### DEPRECATED: Use `grid` instead
+    ///
+    pub const Grid = grid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#grid)
     ///
@@ -574,9 +710,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Grid(self: QDesignerFormWindowInterface) QPoint {
+    pub fn grid(self: QDesignerFormWindowInterface) QPoint {
         return .{ .ptr = qtc.QDesignerFormWindowInterface_Grid(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mainContainer` instead
+    ///
+    pub const MainContainer = mainContainer;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#mainContainer)
     ///
@@ -584,9 +724,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn MainContainer(self: QDesignerFormWindowInterface) QWidget {
+    pub fn mainContainer(self: QDesignerFormWindowInterface) QWidget {
         return .{ .ptr = qtc.QDesignerFormWindowInterface_MainContainer(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setMainContainer` instead
+    ///
+    pub const SetMainContainer = setMainContainer;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#setMainContainer)
     ///
@@ -594,12 +738,16 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` mainContainer: QWidget `
+    /// ` _mainContainer: QWidget `
     ///
-    pub fn SetMainContainer(self: QDesignerFormWindowInterface, mainContainer: anytype) void {
-        comptime _ = @TypeOf(mainContainer)._is_QWidget;
-        qtc.QDesignerFormWindowInterface_SetMainContainer(@ptrCast(self.ptr), @ptrCast(mainContainer.ptr));
+    pub fn setMainContainer(self: QDesignerFormWindowInterface, _mainContainer: anytype) void {
+        comptime _ = @TypeOf(_mainContainer)._is_QWidget;
+        qtc.QDesignerFormWindowInterface_SetMainContainer(@ptrCast(self.ptr), @ptrCast(_mainContainer.ptr));
     }
+
+    /// ### DEPRECATED: Use `formContainer` instead
+    ///
+    pub const FormContainer = formContainer;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#formContainer)
     ///
@@ -607,9 +755,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn FormContainer(self: QDesignerFormWindowInterface) QWidget {
+    pub fn formContainer(self: QDesignerFormWindowInterface) QWidget {
         return .{ .ptr = qtc.QDesignerFormWindowInterface_FormContainer(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isManaged` instead
+    ///
+    pub const IsManaged = isManaged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#isManaged)
     ///
@@ -619,10 +771,14 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn IsManaged(self: QDesignerFormWindowInterface, widget: anytype) bool {
+    pub fn isManaged(self: QDesignerFormWindowInterface, widget: anytype) bool {
         comptime _ = @TypeOf(widget)._is_QWidget;
         return qtc.QDesignerFormWindowInterface_IsManaged(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDirty` instead
+    ///
+    pub const IsDirty = isDirty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#isDirty)
     ///
@@ -630,9 +786,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn IsDirty(self: QDesignerFormWindowInterface) bool {
+    pub fn isDirty(self: QDesignerFormWindowInterface) bool {
         return qtc.QDesignerFormWindowInterface_IsDirty(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `findFormWindow` instead
+    ///
+    pub const FindFormWindow = findFormWindow;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#findFormWindow)
     ///
@@ -640,10 +800,14 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` w: QWidget `
     ///
-    pub fn FindFormWindow(w: anytype) QDesignerFormWindowInterface {
+    pub fn findFormWindow(w: anytype) QDesignerFormWindowInterface {
         comptime _ = @TypeOf(w)._is_QWidget;
         return .{ .ptr = qtc.QDesignerFormWindowInterface_FindFormWindow(@ptrCast(w.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `findFormWindow2` instead
+    ///
+    pub const FindFormWindow2 = findFormWindow2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#findFormWindow)
     ///
@@ -651,10 +815,14 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn FindFormWindow2(obj: anytype) QDesignerFormWindowInterface {
+    pub fn findFormWindow2(obj: anytype) QDesignerFormWindowInterface {
         comptime _ = @TypeOf(obj)._is_QObject;
         return .{ .ptr = qtc.QDesignerFormWindowInterface_FindFormWindow2(@ptrCast(obj.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `commandHistory` instead
+    ///
+    pub const CommandHistory = commandHistory;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#commandHistory)
     ///
@@ -662,9 +830,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn CommandHistory(self: QDesignerFormWindowInterface) QUndoStack {
+    pub fn commandHistory(self: QDesignerFormWindowInterface) QUndoStack {
         return .{ .ptr = qtc.QDesignerFormWindowInterface_CommandHistory(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `beginCommand` instead
+    ///
+    pub const BeginCommand = beginCommand;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#beginCommand)
     ///
@@ -674,7 +846,7 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn BeginCommand(self: QDesignerFormWindowInterface, description: []const u8) void {
+    pub fn beginCommand(self: QDesignerFormWindowInterface, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
@@ -682,15 +854,23 @@ pub const QDesignerFormWindowInterface = extern struct {
         qtc.QDesignerFormWindowInterface_BeginCommand(@ptrCast(self.ptr), description_str);
     }
 
+    /// ### DEPRECATED: Use `endCommand` instead
+    ///
+    pub const EndCommand = endCommand;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#endCommand)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn EndCommand(self: QDesignerFormWindowInterface) void {
+    pub fn endCommand(self: QDesignerFormWindowInterface) void {
         qtc.QDesignerFormWindowInterface_EndCommand(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `simplifySelection` instead
+    ///
+    pub const SimplifySelection = simplifySelection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#simplifySelection)
     ///
@@ -700,7 +880,7 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` widgets: []QWidget `
     ///
-    pub fn SimplifySelection(self: QDesignerFormWindowInterface, widgets: []QWidget) void {
+    pub fn simplifySelection(self: QDesignerFormWindowInterface, widgets: []QWidget) void {
         const widgets_list = qtc.libqt_list{
             .len = widgets.len,
             .data = @ptrCast(widgets.ptr),
@@ -708,15 +888,23 @@ pub const QDesignerFormWindowInterface = extern struct {
         qtc.QDesignerFormWindowInterface_SimplifySelection(@ptrCast(self.ptr), widgets_list);
     }
 
+    /// ### DEPRECATED: Use `emitSelectionChanged` instead
+    ///
+    pub const EmitSelectionChanged = emitSelectionChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#emitSelectionChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn EmitSelectionChanged(self: QDesignerFormWindowInterface) void {
+    pub fn emitSelectionChanged(self: QDesignerFormWindowInterface) void {
         qtc.QDesignerFormWindowInterface_EmitSelectionChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `resourceFiles` instead
+    ///
+    pub const ResourceFiles = resourceFiles;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#resourceFiles)
     ///
@@ -726,7 +914,7 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ResourceFiles(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn resourceFiles(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QDesignerFormWindowInterface_ResourceFiles(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -734,15 +922,19 @@ pub const QDesignerFormWindowInterface = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QDesignerFormWindowInterface.ResourceFiles: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QDesignerFormWindowInterface.resourceFiles: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QDesignerFormWindowInterface.ResourceFiles: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QDesignerFormWindowInterface.resourceFiles: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addResourceFile` instead
+    ///
+    pub const AddResourceFile = addResourceFile;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#addResourceFile)
     ///
@@ -752,13 +944,17 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` path: []const u8 `
     ///
-    pub fn AddResourceFile(self: QDesignerFormWindowInterface, path: []const u8) void {
+    pub fn addResourceFile(self: QDesignerFormWindowInterface, path: []const u8) void {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
         qtc.QDesignerFormWindowInterface_AddResourceFile(@ptrCast(self.ptr), path_str);
     }
+
+    /// ### DEPRECATED: Use `removeResourceFile` instead
+    ///
+    pub const RemoveResourceFile = removeResourceFile;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#removeResourceFile)
     ///
@@ -768,13 +964,17 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` path: []const u8 `
     ///
-    pub fn RemoveResourceFile(self: QDesignerFormWindowInterface, path: []const u8) void {
+    pub fn removeResourceFile(self: QDesignerFormWindowInterface, path: []const u8) void {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
         qtc.QDesignerFormWindowInterface_RemoveResourceFile(@ptrCast(self.ptr), path_str);
     }
+
+    /// ### DEPRECATED: Use `ensureUniqueObjectName` instead
+    ///
+    pub const EnsureUniqueObjectName = ensureUniqueObjectName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#ensureUniqueObjectName)
     ///
@@ -784,10 +984,14 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` object: QObject `
     ///
-    pub fn EnsureUniqueObjectName(self: QDesignerFormWindowInterface, object: anytype) void {
+    pub fn ensureUniqueObjectName(self: QDesignerFormWindowInterface, object: anytype) void {
         comptime _ = @TypeOf(object)._is_QObject;
         qtc.QDesignerFormWindowInterface_EnsureUniqueObjectName(@ptrCast(self.ptr), @ptrCast(object.ptr));
     }
+
+    /// ### DEPRECATED: Use `manageWidget` instead
+    ///
+    pub const ManageWidget = manageWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#manageWidget)
     ///
@@ -797,10 +1001,14 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn ManageWidget(self: QDesignerFormWindowInterface, widget: anytype) void {
+    pub fn manageWidget(self: QDesignerFormWindowInterface, widget: anytype) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QDesignerFormWindowInterface_ManageWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `unmanageWidget` instead
+    ///
+    pub const UnmanageWidget = unmanageWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#unmanageWidget)
     ///
@@ -810,10 +1018,14 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn UnmanageWidget(self: QDesignerFormWindowInterface, widget: anytype) void {
+    pub fn unmanageWidget(self: QDesignerFormWindowInterface, widget: anytype) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QDesignerFormWindowInterface_UnmanageWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFeatures` instead
+    ///
+    pub const SetFeatures = setFeatures;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#setFeatures)
     ///
@@ -823,9 +1035,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` f: flag of abstractformwindow_enums.FeatureFlag `
     ///
-    pub fn SetFeatures(self: QDesignerFormWindowInterface, f: i32) void {
+    pub fn setFeatures(self: QDesignerFormWindowInterface, f: i32) void {
         qtc.QDesignerFormWindowInterface_SetFeatures(@ptrCast(self.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `setDirty` instead
+    ///
+    pub const SetDirty = setDirty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#setDirty)
     ///
@@ -835,9 +1051,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` dirty: bool `
     ///
-    pub fn SetDirty(self: QDesignerFormWindowInterface, dirty: bool) void {
+    pub fn setDirty(self: QDesignerFormWindowInterface, dirty: bool) void {
         qtc.QDesignerFormWindowInterface_SetDirty(@ptrCast(self.ptr), dirty);
     }
+
+    /// ### DEPRECATED: Use `clearSelection` instead
+    ///
+    pub const ClearSelection = clearSelection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#clearSelection)
     ///
@@ -847,9 +1067,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` changePropertyDisplay: bool `
     ///
-    pub fn ClearSelection(self: QDesignerFormWindowInterface, changePropertyDisplay: bool) void {
+    pub fn clearSelection(self: QDesignerFormWindowInterface, changePropertyDisplay: bool) void {
         qtc.QDesignerFormWindowInterface_ClearSelection(@ptrCast(self.ptr), changePropertyDisplay);
     }
+
+    /// ### DEPRECATED: Use `selectWidget` instead
+    ///
+    pub const SelectWidget = selectWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#selectWidget)
     ///
@@ -861,10 +1085,14 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` select: bool `
     ///
-    pub fn SelectWidget(self: QDesignerFormWindowInterface, w: anytype, select: bool) void {
+    pub fn selectWidget(self: QDesignerFormWindowInterface, w: anytype, select: bool) void {
         comptime _ = @TypeOf(w)._is_QWidget;
         qtc.QDesignerFormWindowInterface_SelectWidget(@ptrCast(self.ptr), @ptrCast(w.ptr), select);
     }
+
+    /// ### DEPRECATED: Use `setGrid` instead
+    ///
+    pub const SetGrid = setGrid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#setGrid)
     ///
@@ -872,12 +1100,16 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` grid: QPoint `
+    /// ` _grid: QPoint `
     ///
-    pub fn SetGrid(self: QDesignerFormWindowInterface, grid: anytype) void {
-        comptime _ = @TypeOf(grid)._is_QPoint;
-        qtc.QDesignerFormWindowInterface_SetGrid(@ptrCast(self.ptr), @ptrCast(grid.ptr));
+    pub fn setGrid(self: QDesignerFormWindowInterface, _grid: anytype) void {
+        comptime _ = @TypeOf(_grid)._is_QPoint;
+        qtc.QDesignerFormWindowInterface_SetGrid(@ptrCast(self.ptr), @ptrCast(_grid.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFileName` instead
+    ///
+    pub const SetFileName = setFileName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#setFileName)
     ///
@@ -885,15 +1117,19 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` fileName: []const u8 `
+    /// ` _fileName: []const u8 `
     ///
-    pub fn SetFileName(self: QDesignerFormWindowInterface, fileName: []const u8) void {
+    pub fn setFileName(self: QDesignerFormWindowInterface, _fileName: []const u8) void {
         const fileName_str = qtc.libqt_string{
-            .len = fileName.len,
-            .data = fileName.ptr,
+            .len = _fileName.len,
+            .data = _fileName.ptr,
         };
         qtc.QDesignerFormWindowInterface_SetFileName(@ptrCast(self.ptr), fileName_str);
     }
+
+    /// ### DEPRECATED: Use `setContents2` instead
+    ///
+    pub const SetContents2 = setContents2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#setContents)
     ///
@@ -901,15 +1137,19 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` contents: []const u8 `
+    /// ` _contents: []const u8 `
     ///
-    pub fn SetContents2(self: QDesignerFormWindowInterface, contents: []const u8) bool {
+    pub fn setContents2(self: QDesignerFormWindowInterface, _contents: []const u8) bool {
         const contents_str = qtc.libqt_string{
-            .len = contents.len,
-            .data = contents.ptr,
+            .len = _contents.len,
+            .data = _contents.ptr,
         };
         return qtc.QDesignerFormWindowInterface_SetContents2(@ptrCast(self.ptr), contents_str);
     }
+
+    /// ### DEPRECATED: Use `editWidgets` instead
+    ///
+    pub const EditWidgets = editWidgets;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#editWidgets)
     ///
@@ -917,9 +1157,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn EditWidgets(self: QDesignerFormWindowInterface) void {
+    pub fn editWidgets(self: QDesignerFormWindowInterface) void {
         qtc.QDesignerFormWindowInterface_EditWidgets(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateResourceFilePaths` instead
+    ///
+    pub const ActivateResourceFilePaths = activateResourceFilePaths;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#activateResourceFilePaths)
     ///
@@ -931,13 +1175,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` paths: []const []const u8 `
     ///
-    pub fn ActivateResourceFilePaths(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator, paths: []const []const u8) void {
-        const paths_arr = allocator.alloc(qtc.libqt_string, paths.len) catch @panic("QDesignerFormWindowInterface.ActivateResourceFilePaths: Memory allocation failed");
+    pub fn activateResourceFilePaths(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator, paths: []const []const u8) void {
+        const paths_arr = allocator.alloc(qtc.libqt_string, paths.len) catch @panic("QDesignerFormWindowInterface.activateResourceFilePaths: Memory allocation failed");
         defer allocator.free(paths_arr);
-        for (paths, 0..paths.len) |item, i|
+        for (paths, 0..paths.len) |str_item, i|
             paths_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const paths_list = qtc.libqt_list{
             .len = paths.len,
@@ -946,18 +1190,26 @@ pub const QDesignerFormWindowInterface = extern struct {
         qtc.QDesignerFormWindowInterface_ActivateResourceFilePaths(@ptrCast(self.ptr), paths_list);
     }
 
+    /// ### DEPRECATED: Use `mainContainerChanged` instead
+    ///
+    pub const MainContainerChanged = mainContainerChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#mainContainerChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` mainContainer: QWidget `
+    /// ` _mainContainer: QWidget `
     ///
-    pub fn MainContainerChanged(self: QDesignerFormWindowInterface, mainContainer: anytype) void {
-        comptime _ = @TypeOf(mainContainer)._is_QWidget;
-        qtc.QDesignerFormWindowInterface_MainContainerChanged(@ptrCast(self.ptr), @ptrCast(mainContainer.ptr));
+    pub fn mainContainerChanged(self: QDesignerFormWindowInterface, _mainContainer: anytype) void {
+        comptime _ = @TypeOf(_mainContainer)._is_QWidget;
+        qtc.QDesignerFormWindowInterface_MainContainerChanged(@ptrCast(self.ptr), @ptrCast(_mainContainer.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMainContainerChanged` instead
+    ///
+    pub const OnMainContainerChanged = onMainContainerChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#mainContainerChanged)
     ///
@@ -967,9 +1219,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerFormWindowInterface, mainContainer: QWidget) callconv(.c) void `
     ///
-    pub fn OnMainContainerChanged(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface, QWidget) callconv(.c) void) void {
+    pub fn onMainContainerChanged(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface, QWidget) callconv(.c) void) void {
         qtc.QDesignerFormWindowInterface_Connect_MainContainerChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `toolChanged` instead
+    ///
+    pub const ToolChanged = toolChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#toolChanged)
     ///
@@ -979,9 +1235,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` toolIndex: i32 `
     ///
-    pub fn ToolChanged(self: QDesignerFormWindowInterface, toolIndex: i32) void {
+    pub fn toolChanged(self: QDesignerFormWindowInterface, toolIndex: i32) void {
         qtc.QDesignerFormWindowInterface_ToolChanged(@ptrCast(self.ptr), @bitCast(toolIndex));
     }
+
+    /// ### DEPRECATED: Use `onToolChanged` instead
+    ///
+    pub const OnToolChanged = onToolChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#toolChanged)
     ///
@@ -991,9 +1251,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerFormWindowInterface, toolIndex: i32) callconv(.c) void `
     ///
-    pub fn OnToolChanged(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface, i32) callconv(.c) void) void {
+    pub fn onToolChanged(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface, i32) callconv(.c) void) void {
         qtc.QDesignerFormWindowInterface_Connect_ToolChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `fileNameChanged` instead
+    ///
+    pub const FileNameChanged = fileNameChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#fileNameChanged)
     ///
@@ -1001,15 +1265,19 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` fileName: []const u8 `
+    /// ` _fileName: []const u8 `
     ///
-    pub fn FileNameChanged(self: QDesignerFormWindowInterface, fileName: []const u8) void {
+    pub fn fileNameChanged(self: QDesignerFormWindowInterface, _fileName: []const u8) void {
         const fileName_str = qtc.libqt_string{
-            .len = fileName.len,
-            .data = fileName.ptr,
+            .len = _fileName.len,
+            .data = _fileName.ptr,
         };
         qtc.QDesignerFormWindowInterface_FileNameChanged(@ptrCast(self.ptr), fileName_str);
     }
+
+    /// ### DEPRECATED: Use `onFileNameChanged` instead
+    ///
+    pub const OnFileNameChanged = onFileNameChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#fileNameChanged)
     ///
@@ -1019,9 +1287,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerFormWindowInterface, fileName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnFileNameChanged(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface, [*:0]const u8) callconv(.c) void) void {
+    pub fn onFileNameChanged(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface, [*:0]const u8) callconv(.c) void) void {
         qtc.QDesignerFormWindowInterface_Connect_FileNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `featureChanged` instead
+    ///
+    pub const FeatureChanged = featureChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#featureChanged)
     ///
@@ -1031,9 +1303,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` f: flag of abstractformwindow_enums.FeatureFlag `
     ///
-    pub fn FeatureChanged(self: QDesignerFormWindowInterface, f: i32) void {
+    pub fn featureChanged(self: QDesignerFormWindowInterface, f: i32) void {
         qtc.QDesignerFormWindowInterface_FeatureChanged(@ptrCast(self.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `onFeatureChanged` instead
+    ///
+    pub const OnFeatureChanged = onFeatureChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#featureChanged)
     ///
@@ -1043,20 +1319,28 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerFormWindowInterface, f: flag of abstractformwindow_enums.FeatureFlag) callconv(.c) void `
     ///
-    pub fn OnFeatureChanged(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface, i32) callconv(.c) void) void {
+    pub fn onFeatureChanged(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface, i32) callconv(.c) void) void {
         qtc.QDesignerFormWindowInterface_Connect_FeatureChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `selectionChanged` instead
+    ///
+    pub const SelectionChanged = selectionChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#selectionChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn SelectionChanged(self: QDesignerFormWindowInterface) void {
+    pub fn selectionChanged(self: QDesignerFormWindowInterface) void {
         qtc.QDesignerFormWindowInterface_SelectionChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSelectionChanged` instead
+    ///
+    pub const OnSelectionChanged = onSelectionChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#selectionChanged)
     ///
     /// ## Parameters:
@@ -1065,20 +1349,28 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerFormWindowInterface) callconv(.c) void `
     ///
-    pub fn OnSelectionChanged(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface) callconv(.c) void) void {
+    pub fn onSelectionChanged(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface) callconv(.c) void) void {
         qtc.QDesignerFormWindowInterface_Connect_SelectionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `geometryChanged` instead
+    ///
+    pub const GeometryChanged = geometryChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#geometryChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn GeometryChanged(self: QDesignerFormWindowInterface) void {
+    pub fn geometryChanged(self: QDesignerFormWindowInterface) void {
         qtc.QDesignerFormWindowInterface_GeometryChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onGeometryChanged` instead
+    ///
+    pub const OnGeometryChanged = onGeometryChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#geometryChanged)
     ///
     /// ## Parameters:
@@ -1087,9 +1379,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerFormWindowInterface) callconv(.c) void `
     ///
-    pub fn OnGeometryChanged(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface) callconv(.c) void) void {
+    pub fn onGeometryChanged(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface) callconv(.c) void) void {
         qtc.QDesignerFormWindowInterface_Connect_GeometryChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resourceFilesChanged` instead
+    ///
+    pub const ResourceFilesChanged = resourceFilesChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#resourceFilesChanged)
     ///
@@ -1097,9 +1393,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn ResourceFilesChanged(self: QDesignerFormWindowInterface) void {
+    pub fn resourceFilesChanged(self: QDesignerFormWindowInterface) void {
         qtc.QDesignerFormWindowInterface_ResourceFilesChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResourceFilesChanged` instead
+    ///
+    pub const OnResourceFilesChanged = onResourceFilesChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#resourceFilesChanged)
     ///
@@ -1109,9 +1409,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerFormWindowInterface) callconv(.c) void `
     ///
-    pub fn OnResourceFilesChanged(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface) callconv(.c) void) void {
+    pub fn onResourceFilesChanged(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface) callconv(.c) void) void {
         qtc.QDesignerFormWindowInterface_Connect_ResourceFilesChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `widgetManaged` instead
+    ///
+    pub const WidgetManaged = widgetManaged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#widgetManaged)
     ///
@@ -1121,11 +1425,15 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn WidgetManaged(self: QDesignerFormWindowInterface, widget: anytype) void {
+    pub fn widgetManaged(self: QDesignerFormWindowInterface, widget: anytype) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QDesignerFormWindowInterface_WidgetManaged(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
 
+    /// ### DEPRECATED: Use `onWidgetManaged` instead
+    ///
+    pub const OnWidgetManaged = onWidgetManaged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#widgetManaged)
     ///
     /// ## Parameters:
@@ -1134,9 +1442,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerFormWindowInterface, widget: QWidget) callconv(.c) void `
     ///
-    pub fn OnWidgetManaged(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface, QWidget) callconv(.c) void) void {
+    pub fn onWidgetManaged(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface, QWidget) callconv(.c) void) void {
         qtc.QDesignerFormWindowInterface_Connect_WidgetManaged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `widgetUnmanaged` instead
+    ///
+    pub const WidgetUnmanaged = widgetUnmanaged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#widgetUnmanaged)
     ///
@@ -1146,11 +1458,15 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn WidgetUnmanaged(self: QDesignerFormWindowInterface, widget: anytype) void {
+    pub fn widgetUnmanaged(self: QDesignerFormWindowInterface, widget: anytype) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QDesignerFormWindowInterface_WidgetUnmanaged(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
 
+    /// ### DEPRECATED: Use `onWidgetUnmanaged` instead
+    ///
+    pub const OnWidgetUnmanaged = onWidgetUnmanaged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#widgetUnmanaged)
     ///
     /// ## Parameters:
@@ -1159,9 +1475,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerFormWindowInterface, widget: QWidget) callconv(.c) void `
     ///
-    pub fn OnWidgetUnmanaged(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface, QWidget) callconv(.c) void) void {
+    pub fn onWidgetUnmanaged(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface, QWidget) callconv(.c) void) void {
         qtc.QDesignerFormWindowInterface_Connect_WidgetUnmanaged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `aboutToUnmanageWidget` instead
+    ///
+    pub const AboutToUnmanageWidget = aboutToUnmanageWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#aboutToUnmanageWidget)
     ///
@@ -1171,11 +1491,15 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn AboutToUnmanageWidget(self: QDesignerFormWindowInterface, widget: anytype) void {
+    pub fn aboutToUnmanageWidget(self: QDesignerFormWindowInterface, widget: anytype) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QDesignerFormWindowInterface_AboutToUnmanageWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
 
+    /// ### DEPRECATED: Use `onAboutToUnmanageWidget` instead
+    ///
+    pub const OnAboutToUnmanageWidget = onAboutToUnmanageWidget;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#aboutToUnmanageWidget)
     ///
     /// ## Parameters:
@@ -1184,9 +1508,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerFormWindowInterface, widget: QWidget) callconv(.c) void `
     ///
-    pub fn OnAboutToUnmanageWidget(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface, QWidget) callconv(.c) void) void {
+    pub fn onAboutToUnmanageWidget(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface, QWidget) callconv(.c) void) void {
         qtc.QDesignerFormWindowInterface_Connect_AboutToUnmanageWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `activated` instead
+    ///
+    pub const Activated = activated;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#activated)
     ///
@@ -1196,10 +1524,14 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn Activated(self: QDesignerFormWindowInterface, widget: anytype) void {
+    pub fn activated(self: QDesignerFormWindowInterface, widget: anytype) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QDesignerFormWindowInterface_Activated(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActivated` instead
+    ///
+    pub const OnActivated = onActivated;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#activated)
     ///
@@ -1209,9 +1541,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerFormWindowInterface, widget: QWidget) callconv(.c) void `
     ///
-    pub fn OnActivated(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface, QWidget) callconv(.c) void) void {
+    pub fn onActivated(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface, QWidget) callconv(.c) void) void {
         qtc.QDesignerFormWindowInterface_Connect_Activated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changed` instead
+    ///
+    pub const Changed = changed;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#changed)
     ///
@@ -1219,9 +1555,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Changed(self: QDesignerFormWindowInterface) void {
+    pub fn changed(self: QDesignerFormWindowInterface) void {
         qtc.QDesignerFormWindowInterface_Changed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChanged` instead
+    ///
+    pub const OnChanged = onChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#changed)
     ///
@@ -1231,9 +1571,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerFormWindowInterface) callconv(.c) void `
     ///
-    pub fn OnChanged(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface) callconv(.c) void) void {
+    pub fn onChanged(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface) callconv(.c) void) void {
         qtc.QDesignerFormWindowInterface_Connect_Changed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `widgetRemoved` instead
+    ///
+    pub const WidgetRemoved = widgetRemoved;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#widgetRemoved)
     ///
@@ -1243,10 +1587,14 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` w: QWidget `
     ///
-    pub fn WidgetRemoved(self: QDesignerFormWindowInterface, w: anytype) void {
+    pub fn widgetRemoved(self: QDesignerFormWindowInterface, w: anytype) void {
         comptime _ = @TypeOf(w)._is_QWidget;
         qtc.QDesignerFormWindowInterface_WidgetRemoved(@ptrCast(self.ptr), @ptrCast(w.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWidgetRemoved` instead
+    ///
+    pub const OnWidgetRemoved = onWidgetRemoved;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#widgetRemoved)
     ///
@@ -1256,9 +1604,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerFormWindowInterface, w: QWidget) callconv(.c) void `
     ///
-    pub fn OnWidgetRemoved(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface, QWidget) callconv(.c) void) void {
+    pub fn onWidgetRemoved(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface, QWidget) callconv(.c) void) void {
         qtc.QDesignerFormWindowInterface_Connect_WidgetRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `objectRemoved` instead
+    ///
+    pub const ObjectRemoved = objectRemoved;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#objectRemoved)
     ///
@@ -1268,10 +1620,14 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` o: QObject `
     ///
-    pub fn ObjectRemoved(self: QDesignerFormWindowInterface, o: anytype) void {
+    pub fn objectRemoved(self: QDesignerFormWindowInterface, o: anytype) void {
         comptime _ = @TypeOf(o)._is_QObject;
         qtc.QDesignerFormWindowInterface_ObjectRemoved(@ptrCast(self.ptr), @ptrCast(o.ptr));
     }
+
+    /// ### DEPRECATED: Use `onObjectRemoved` instead
+    ///
+    pub const OnObjectRemoved = onObjectRemoved;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#objectRemoved)
     ///
@@ -1281,9 +1637,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerFormWindowInterface, o: QObject) callconv(.c) void `
     ///
-    pub fn OnObjectRemoved(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface, QObject) callconv(.c) void) void {
+    pub fn onObjectRemoved(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface, QObject) callconv(.c) void) void {
         qtc.QDesignerFormWindowInterface_Connect_ObjectRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1295,15 +1655,19 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerFormWindowInterface.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerFormWindowInterface.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1317,15 +1681,19 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerFormWindowInterface.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerFormWindowInterface.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `activateResourceFilePaths2` instead
+    ///
+    pub const ActivateResourceFilePaths2 = activateResourceFilePaths2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#activateResourceFilePaths)
     ///
@@ -1339,13 +1707,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` errorCount: *i32 `
     ///
-    pub fn ActivateResourceFilePaths2(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator, paths: []const []const u8, errorCount: *i32) void {
-        const paths_arr = allocator.alloc(qtc.libqt_string, paths.len) catch @panic("QDesignerFormWindowInterface.ActivateResourceFilePaths2: Memory allocation failed");
+    pub fn activateResourceFilePaths2(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator, paths: []const []const u8, errorCount: *i32) void {
+        const paths_arr = allocator.alloc(qtc.libqt_string, paths.len) catch @panic("QDesignerFormWindowInterface.activateResourceFilePaths2: Memory allocation failed");
         defer allocator.free(paths_arr);
-        for (paths, 0..paths.len) |item, i|
+        for (paths, 0..paths.len) |str_item, i|
             paths_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const paths_list = qtc.libqt_list{
             .len = paths.len,
@@ -1353,6 +1721,10 @@ pub const QDesignerFormWindowInterface = extern struct {
         };
         qtc.QDesignerFormWindowInterface_ActivateResourceFilePaths2(@ptrCast(self.ptr), paths_list, @ptrCast(errorCount));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -1362,9 +1734,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn DevType(self: QDesignerFormWindowInterface) i32 {
+    pub fn devType(self: QDesignerFormWindowInterface) i32 {
         return qtc.QWidget_DevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -1374,9 +1750,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn WinId(self: QDesignerFormWindowInterface) usize {
+    pub fn winId(self: QDesignerFormWindowInterface) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -1386,9 +1766,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn CreateWinId(self: QDesignerFormWindowInterface) void {
+    pub fn createWinId(self: QDesignerFormWindowInterface) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -1398,9 +1782,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn InternalWinId(self: QDesignerFormWindowInterface) usize {
+    pub fn internalWinId(self: QDesignerFormWindowInterface) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -1410,9 +1798,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn EffectiveWinId(self: QDesignerFormWindowInterface) usize {
+    pub fn effectiveWinId(self: QDesignerFormWindowInterface) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -1422,9 +1814,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Style(self: QDesignerFormWindowInterface) QStyle {
+    pub fn style(self: QDesignerFormWindowInterface) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -1434,12 +1830,16 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: QDesignerFormWindowInterface, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: QDesignerFormWindowInterface, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -1449,9 +1849,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn IsTopLevel(self: QDesignerFormWindowInterface) bool {
+    pub fn isTopLevel(self: QDesignerFormWindowInterface) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -1461,9 +1865,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn IsWindow(self: QDesignerFormWindowInterface) bool {
+    pub fn isWindow(self: QDesignerFormWindowInterface) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -1473,9 +1881,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn IsModal(self: QDesignerFormWindowInterface) bool {
+    pub fn isModal(self: QDesignerFormWindowInterface) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -1489,9 +1901,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: QDesignerFormWindowInterface) i32 {
+    pub fn windowModality(self: QDesignerFormWindowInterface) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -1501,11 +1917,15 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: QDesignerFormWindowInterface, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: QDesignerFormWindowInterface, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1515,9 +1935,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn IsEnabled(self: QDesignerFormWindowInterface) bool {
+    pub fn isEnabled(self: QDesignerFormWindowInterface) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -1529,10 +1953,14 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: QDesignerFormWindowInterface, param1: anytype) bool {
+    pub fn isEnabledTo(self: QDesignerFormWindowInterface, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1544,9 +1972,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: QDesignerFormWindowInterface, enabled: bool) void {
+    pub fn setEnabled(self: QDesignerFormWindowInterface, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -1558,9 +1990,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: QDesignerFormWindowInterface, disabled: bool) void {
+    pub fn setDisabled(self: QDesignerFormWindowInterface, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -1572,9 +2008,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: QDesignerFormWindowInterface, windowModified: bool) void {
+    pub fn setWindowModified(self: QDesignerFormWindowInterface, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1584,9 +2024,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn FrameGeometry(self: QDesignerFormWindowInterface) QRect {
+    pub fn frameGeometry(self: QDesignerFormWindowInterface) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -1596,9 +2040,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Geometry(self: QDesignerFormWindowInterface) QRect {
+    pub fn geometry(self: QDesignerFormWindowInterface) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1608,9 +2056,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn NormalGeometry(self: QDesignerFormWindowInterface) QRect {
+    pub fn normalGeometry(self: QDesignerFormWindowInterface) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -1620,9 +2072,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn X(self: QDesignerFormWindowInterface) i32 {
+    pub fn x(self: QDesignerFormWindowInterface) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -1632,9 +2088,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Y(self: QDesignerFormWindowInterface) i32 {
+    pub fn y(self: QDesignerFormWindowInterface) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -1644,9 +2104,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Pos(self: QDesignerFormWindowInterface) QPoint {
+    pub fn pos(self: QDesignerFormWindowInterface) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -1656,9 +2120,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn FrameSize(self: QDesignerFormWindowInterface) QSize {
+    pub fn frameSize(self: QDesignerFormWindowInterface) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -1668,9 +2136,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Size(self: QDesignerFormWindowInterface) QSize {
+    pub fn size(self: QDesignerFormWindowInterface) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -1680,9 +2152,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Width(self: QDesignerFormWindowInterface) i32 {
+    pub fn width(self: QDesignerFormWindowInterface) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -1692,9 +2168,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Height(self: QDesignerFormWindowInterface) i32 {
+    pub fn height(self: QDesignerFormWindowInterface) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -1704,9 +2184,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Rect(self: QDesignerFormWindowInterface) QRect {
+    pub fn rect(self: QDesignerFormWindowInterface) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -1716,9 +2200,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn ChildrenRect(self: QDesignerFormWindowInterface) QRect {
+    pub fn childrenRect(self: QDesignerFormWindowInterface) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -1728,9 +2216,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn ChildrenRegion(self: QDesignerFormWindowInterface) QRegion {
+    pub fn childrenRegion(self: QDesignerFormWindowInterface) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1740,9 +2232,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn MinimumSize(self: QDesignerFormWindowInterface) QSize {
+    pub fn minimumSize(self: QDesignerFormWindowInterface) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1752,9 +2248,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn MaximumSize(self: QDesignerFormWindowInterface) QSize {
+    pub fn maximumSize(self: QDesignerFormWindowInterface) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1764,9 +2264,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn MinimumWidth(self: QDesignerFormWindowInterface) i32 {
+    pub fn minimumWidth(self: QDesignerFormWindowInterface) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1776,9 +2280,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn MinimumHeight(self: QDesignerFormWindowInterface) i32 {
+    pub fn minimumHeight(self: QDesignerFormWindowInterface) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1788,9 +2296,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn MaximumWidth(self: QDesignerFormWindowInterface) i32 {
+    pub fn maximumWidth(self: QDesignerFormWindowInterface) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1800,9 +2312,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn MaximumHeight(self: QDesignerFormWindowInterface) i32 {
+    pub fn maximumHeight(self: QDesignerFormWindowInterface) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1812,12 +2328,16 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: QDesignerFormWindowInterface, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: QDesignerFormWindowInterface, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1831,9 +2351,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: QDesignerFormWindowInterface, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: QDesignerFormWindowInterface, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1843,12 +2367,16 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: QDesignerFormWindowInterface, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: QDesignerFormWindowInterface, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1862,9 +2390,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: QDesignerFormWindowInterface, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: QDesignerFormWindowInterface, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1876,9 +2408,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: QDesignerFormWindowInterface, minw: i32) void {
+    pub fn setMinimumWidth(self: QDesignerFormWindowInterface, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1890,9 +2426,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: QDesignerFormWindowInterface, minh: i32) void {
+    pub fn setMinimumHeight(self: QDesignerFormWindowInterface, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1904,9 +2444,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: QDesignerFormWindowInterface, maxw: i32) void {
+    pub fn setMaximumWidth(self: QDesignerFormWindowInterface, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1918,9 +2462,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: QDesignerFormWindowInterface, maxh: i32) void {
+    pub fn setMaximumHeight(self: QDesignerFormWindowInterface, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1930,9 +2478,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn SizeIncrement(self: QDesignerFormWindowInterface) QSize {
+    pub fn sizeIncrement(self: QDesignerFormWindowInterface) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1942,12 +2494,16 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: QDesignerFormWindowInterface, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: QDesignerFormWindowInterface, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -1961,9 +2517,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: QDesignerFormWindowInterface, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: QDesignerFormWindowInterface, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -1973,9 +2533,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn BaseSize(self: QDesignerFormWindowInterface) QSize {
+    pub fn baseSize(self: QDesignerFormWindowInterface) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -1985,12 +2549,16 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: QDesignerFormWindowInterface, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: QDesignerFormWindowInterface, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -2004,9 +2572,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: QDesignerFormWindowInterface, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: QDesignerFormWindowInterface, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -2018,10 +2590,14 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: QDesignerFormWindowInterface, fixedSize: anytype) void {
+    pub fn setFixedSize(self: QDesignerFormWindowInterface, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -2035,9 +2611,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: QDesignerFormWindowInterface, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: QDesignerFormWindowInterface, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -2049,9 +2629,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: QDesignerFormWindowInterface, w: i32) void {
+    pub fn setFixedWidth(self: QDesignerFormWindowInterface, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -2063,9 +2647,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: QDesignerFormWindowInterface, h: i32) void {
+    pub fn setFixedHeight(self: QDesignerFormWindowInterface, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -2077,11 +2665,15 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: QDesignerFormWindowInterface, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: QDesignerFormWindowInterface, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -2092,11 +2684,15 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: QDesignerFormWindowInterface, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: QDesignerFormWindowInterface, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -2107,11 +2703,15 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: QDesignerFormWindowInterface, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: QDesignerFormWindowInterface, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -2122,11 +2722,15 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: QDesignerFormWindowInterface, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: QDesignerFormWindowInterface, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -2137,11 +2741,15 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: QDesignerFormWindowInterface, param1: anytype) QPointF {
+    pub fn mapToParent(self: QDesignerFormWindowInterface, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -2152,10 +2760,14 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: QDesignerFormWindowInterface, param1: anytype) QPoint {
+    pub fn mapToParent2(self: QDesignerFormWindowInterface, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -2167,10 +2779,14 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: QDesignerFormWindowInterface, param1: anytype) QPointF {
+    pub fn mapFromParent(self: QDesignerFormWindowInterface, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -2182,10 +2798,14 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: QDesignerFormWindowInterface, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: QDesignerFormWindowInterface, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -2199,12 +2819,16 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: QDesignerFormWindowInterface, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: QDesignerFormWindowInterface, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -2217,11 +2841,15 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: QDesignerFormWindowInterface, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: QDesignerFormWindowInterface, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -2235,11 +2863,15 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: QDesignerFormWindowInterface, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: QDesignerFormWindowInterface, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -2253,11 +2885,15 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: QDesignerFormWindowInterface, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: QDesignerFormWindowInterface, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -2267,9 +2903,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Window(self: QDesignerFormWindowInterface) QWidget {
+    pub fn window(self: QDesignerFormWindowInterface) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -2279,9 +2919,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn NativeParentWidget(self: QDesignerFormWindowInterface) QWidget {
+    pub fn nativeParentWidget(self: QDesignerFormWindowInterface) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -2291,9 +2935,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn TopLevelWidget(self: QDesignerFormWindowInterface) QWidget {
+    pub fn topLevelWidget(self: QDesignerFormWindowInterface) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -2303,9 +2951,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Palette(self: QDesignerFormWindowInterface) QPalette {
+    pub fn palette(self: QDesignerFormWindowInterface) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -2315,12 +2967,16 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: QDesignerFormWindowInterface, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: QDesignerFormWindowInterface, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2330,11 +2986,15 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: QDesignerFormWindowInterface, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: QDesignerFormWindowInterface, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2348,9 +3008,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: QDesignerFormWindowInterface) i32 {
+    pub fn backgroundRole(self: QDesignerFormWindowInterface) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2360,11 +3024,15 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: QDesignerFormWindowInterface, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: QDesignerFormWindowInterface, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2378,9 +3046,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: QDesignerFormWindowInterface) i32 {
+    pub fn foregroundRole(self: QDesignerFormWindowInterface) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -2390,9 +3062,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Font(self: QDesignerFormWindowInterface) QFont {
+    pub fn font(self: QDesignerFormWindowInterface) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -2402,12 +3078,16 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: QDesignerFormWindowInterface, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: QDesignerFormWindowInterface, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -2417,9 +3097,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn FontMetrics(self: QDesignerFormWindowInterface) QFontMetrics {
+    pub fn fontMetrics(self: QDesignerFormWindowInterface) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -2429,9 +3113,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn FontInfo(self: QDesignerFormWindowInterface) QFontInfo {
+    pub fn fontInfo(self: QDesignerFormWindowInterface) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -2441,12 +3129,16 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: QDesignerFormWindowInterface, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: QDesignerFormWindowInterface, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -2456,9 +3148,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn UnsetCursor(self: QDesignerFormWindowInterface) void {
+    pub fn unsetCursor(self: QDesignerFormWindowInterface) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -2470,9 +3166,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: QDesignerFormWindowInterface, enable: bool) void {
+    pub fn setMouseTracking(self: QDesignerFormWindowInterface, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -2482,9 +3182,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn HasMouseTracking(self: QDesignerFormWindowInterface) bool {
+    pub fn hasMouseTracking(self: QDesignerFormWindowInterface) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -2494,9 +3198,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn UnderMouse(self: QDesignerFormWindowInterface) bool {
+    pub fn underMouse(self: QDesignerFormWindowInterface) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2508,9 +3216,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: QDesignerFormWindowInterface, enable: bool) void {
+    pub fn setTabletTracking(self: QDesignerFormWindowInterface, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2520,24 +3232,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn HasTabletTracking(self: QDesignerFormWindowInterface) bool {
+    pub fn hasTabletTracking(self: QDesignerFormWindowInterface) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerFormWindowInterface `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: QDesignerFormWindowInterface, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -2547,12 +3248,35 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: QDesignerFormWindowInterface, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: QDesignerFormWindowInterface, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QDesignerFormWindowInterface `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: QDesignerFormWindowInterface, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -2562,9 +3286,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Mask(self: QDesignerFormWindowInterface) QRegion {
+    pub fn mask(self: QDesignerFormWindowInterface) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -2574,9 +3302,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn ClearMask(self: QDesignerFormWindowInterface) void {
+    pub fn clearMask(self: QDesignerFormWindowInterface) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -2588,10 +3320,14 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: QDesignerFormWindowInterface, target: anytype) void {
+    pub fn render(self: QDesignerFormWindowInterface, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -2603,10 +3339,14 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: QDesignerFormWindowInterface, painter: anytype) void {
+    pub fn render2(self: QDesignerFormWindowInterface, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -2616,9 +3356,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Grab(self: QDesignerFormWindowInterface) QPixmap {
+    pub fn grab(self: QDesignerFormWindowInterface) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2628,9 +3372,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn GraphicsEffect(self: QDesignerFormWindowInterface) QGraphicsEffect {
+    pub fn graphicsEffect(self: QDesignerFormWindowInterface) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2642,10 +3390,14 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: QDesignerFormWindowInterface, effect: anytype) void {
+    pub fn setGraphicsEffect(self: QDesignerFormWindowInterface, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2657,9 +3409,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: QDesignerFormWindowInterface, typeVal: i32) void {
+    pub fn grabGesture(self: QDesignerFormWindowInterface, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2671,9 +3427,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: QDesignerFormWindowInterface, typeVal: i32) void {
+    pub fn ungrabGesture(self: QDesignerFormWindowInterface, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2683,15 +3443,19 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: QDesignerFormWindowInterface, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: QDesignerFormWindowInterface, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2701,15 +3465,19 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: QDesignerFormWindowInterface, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: QDesignerFormWindowInterface, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2721,13 +3489,17 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerFormWindowInterface.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerFormWindowInterface.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2739,13 +3511,17 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerFormWindowInterface.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerFormWindowInterface.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2757,10 +3533,14 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: QDesignerFormWindowInterface, icon: anytype) void {
+    pub fn setWindowIcon(self: QDesignerFormWindowInterface, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2770,9 +3550,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn WindowIcon(self: QDesignerFormWindowInterface) QIcon {
+    pub fn windowIcon(self: QDesignerFormWindowInterface) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2782,15 +3566,19 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: QDesignerFormWindowInterface, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: QDesignerFormWindowInterface, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2802,13 +3590,17 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerFormWindowInterface.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerFormWindowInterface.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -2818,15 +3610,19 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: QDesignerFormWindowInterface, windowRole: []const u8) void {
+    pub fn setWindowRole(self: QDesignerFormWindowInterface, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -2838,13 +3634,17 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerFormWindowInterface.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerFormWindowInterface.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2856,13 +3656,17 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: QDesignerFormWindowInterface, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: QDesignerFormWindowInterface, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2874,13 +3678,17 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerFormWindowInterface.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerFormWindowInterface.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2892,9 +3700,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: QDesignerFormWindowInterface, level: f64) void {
+    pub fn setWindowOpacity(self: QDesignerFormWindowInterface, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2904,9 +3716,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn WindowOpacity(self: QDesignerFormWindowInterface) f64 {
+    pub fn windowOpacity(self: QDesignerFormWindowInterface) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -2916,9 +3732,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn IsWindowModified(self: QDesignerFormWindowInterface) bool {
+    pub fn isWindowModified(self: QDesignerFormWindowInterface) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -2928,15 +3748,19 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: QDesignerFormWindowInterface, toolTip: []const u8) void {
+    pub fn setToolTip(self: QDesignerFormWindowInterface, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -2948,13 +3772,17 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerFormWindowInterface.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerFormWindowInterface.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2966,9 +3794,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: QDesignerFormWindowInterface, msec: i32) void {
+    pub fn setToolTipDuration(self: QDesignerFormWindowInterface, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2978,9 +3810,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn ToolTipDuration(self: QDesignerFormWindowInterface) i32 {
+    pub fn toolTipDuration(self: QDesignerFormWindowInterface) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -2990,15 +3826,19 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: QDesignerFormWindowInterface, statusTip: []const u8) void {
+    pub fn setStatusTip(self: QDesignerFormWindowInterface, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -3010,13 +3850,17 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerFormWindowInterface.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerFormWindowInterface.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -3026,15 +3870,19 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: QDesignerFormWindowInterface, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: QDesignerFormWindowInterface, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -3046,13 +3894,17 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerFormWindowInterface.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerFormWindowInterface.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -3064,13 +3916,17 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerFormWindowInterface.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerFormWindowInterface.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -3082,13 +3938,17 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: QDesignerFormWindowInterface, name: []const u8) void {
+    pub fn setAccessibleName(self: QDesignerFormWindowInterface, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -3100,13 +3960,17 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerFormWindowInterface.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerFormWindowInterface.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -3118,13 +3982,17 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: QDesignerFormWindowInterface, description: []const u8) void {
+    pub fn setAccessibleDescription(self: QDesignerFormWindowInterface, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3136,9 +4004,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: QDesignerFormWindowInterface, direction: i32) void {
+    pub fn setLayoutDirection(self: QDesignerFormWindowInterface, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3152,9 +4024,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: QDesignerFormWindowInterface) i32 {
+    pub fn layoutDirection(self: QDesignerFormWindowInterface) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3164,9 +4040,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn UnsetLayoutDirection(self: QDesignerFormWindowInterface) void {
+    pub fn unsetLayoutDirection(self: QDesignerFormWindowInterface) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -3176,12 +4056,16 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: QDesignerFormWindowInterface, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: QDesignerFormWindowInterface, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -3191,9 +4075,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Locale(self: QDesignerFormWindowInterface) QLocale {
+    pub fn locale(self: QDesignerFormWindowInterface) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -3203,9 +4091,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn UnsetLocale(self: QDesignerFormWindowInterface) void {
+    pub fn unsetLocale(self: QDesignerFormWindowInterface) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -3215,9 +4107,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn IsRightToLeft(self: QDesignerFormWindowInterface) bool {
+    pub fn isRightToLeft(self: QDesignerFormWindowInterface) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -3227,9 +4123,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn IsLeftToRight(self: QDesignerFormWindowInterface) bool {
+    pub fn isLeftToRight(self: QDesignerFormWindowInterface) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -3239,9 +4139,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn SetFocus(self: QDesignerFormWindowInterface) void {
+    pub fn setFocus(self: QDesignerFormWindowInterface) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -3251,9 +4155,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn IsActiveWindow(self: QDesignerFormWindowInterface) bool {
+    pub fn isActiveWindow(self: QDesignerFormWindowInterface) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -3263,9 +4171,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn ActivateWindow(self: QDesignerFormWindowInterface) void {
+    pub fn activateWindow(self: QDesignerFormWindowInterface) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -3275,9 +4187,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn ClearFocus(self: QDesignerFormWindowInterface) void {
+    pub fn clearFocus(self: QDesignerFormWindowInterface) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -3289,9 +4205,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: QDesignerFormWindowInterface, reason: i32) void {
+    pub fn setFocus2(self: QDesignerFormWindowInterface, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3305,9 +4225,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: QDesignerFormWindowInterface) i32 {
+    pub fn focusPolicy(self: QDesignerFormWindowInterface) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3319,9 +4243,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: QDesignerFormWindowInterface, policy: i32) void {
+    pub fn setFocusPolicy(self: QDesignerFormWindowInterface, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -3331,9 +4259,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn HasFocus(self: QDesignerFormWindowInterface) bool {
+    pub fn hasFocus(self: QDesignerFormWindowInterface) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -3345,11 +4277,15 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -3359,12 +4295,16 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: QDesignerFormWindowInterface, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: QDesignerFormWindowInterface, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -3374,9 +4314,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn FocusProxy(self: QDesignerFormWindowInterface) QWidget {
+    pub fn focusProxy(self: QDesignerFormWindowInterface) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3390,9 +4334,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: QDesignerFormWindowInterface) i32 {
+    pub fn contextMenuPolicy(self: QDesignerFormWindowInterface) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3404,9 +4352,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: QDesignerFormWindowInterface, policy: i32) void {
+    pub fn setContextMenuPolicy(self: QDesignerFormWindowInterface, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -3416,9 +4368,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn GrabMouse(self: QDesignerFormWindowInterface) void {
+    pub fn grabMouse(self: QDesignerFormWindowInterface) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -3430,10 +4386,14 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: QDesignerFormWindowInterface, param1: anytype) void {
+    pub fn grabMouse2(self: QDesignerFormWindowInterface, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -3443,9 +4403,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn ReleaseMouse(self: QDesignerFormWindowInterface) void {
+    pub fn releaseMouse(self: QDesignerFormWindowInterface) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -3455,9 +4419,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn GrabKeyboard(self: QDesignerFormWindowInterface) void {
+    pub fn grabKeyboard(self: QDesignerFormWindowInterface) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -3467,9 +4435,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn ReleaseKeyboard(self: QDesignerFormWindowInterface) void {
+    pub fn releaseKeyboard(self: QDesignerFormWindowInterface) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3481,10 +4453,14 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: QDesignerFormWindowInterface, key: anytype) i32 {
+    pub fn grabShortcut(self: QDesignerFormWindowInterface, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3496,9 +4472,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: QDesignerFormWindowInterface, id: i32) void {
+    pub fn releaseShortcut(self: QDesignerFormWindowInterface, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3510,9 +4490,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: QDesignerFormWindowInterface, id: i32) void {
+    pub fn setShortcutEnabled(self: QDesignerFormWindowInterface, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -3524,25 +4508,37 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: QDesignerFormWindowInterface, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: QDesignerFormWindowInterface, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3552,9 +4548,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn UpdatesEnabled(self: QDesignerFormWindowInterface) bool {
+    pub fn updatesEnabled(self: QDesignerFormWindowInterface) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3566,9 +4566,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: QDesignerFormWindowInterface, enable: bool) void {
+    pub fn setUpdatesEnabled(self: QDesignerFormWindowInterface, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -3578,9 +4582,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn GraphicsProxyWidget(self: QDesignerFormWindowInterface) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: QDesignerFormWindowInterface) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -3590,9 +4598,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Update(self: QDesignerFormWindowInterface) void {
+    pub fn update(self: QDesignerFormWindowInterface) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -3602,9 +4614,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Repaint(self: QDesignerFormWindowInterface) void {
+    pub fn repaint(self: QDesignerFormWindowInterface) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -3614,17 +4630,21 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: QDesignerFormWindowInterface, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: QDesignerFormWindowInterface, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -3636,11 +4656,15 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: QDesignerFormWindowInterface, param1: anytype) void {
+    pub fn update3(self: QDesignerFormWindowInterface, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -3651,10 +4675,14 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: QDesignerFormWindowInterface, param1: anytype) void {
+    pub fn update4(self: QDesignerFormWindowInterface, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -3664,17 +4692,21 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: QDesignerFormWindowInterface, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: QDesignerFormWindowInterface, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -3686,10 +4718,14 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: QDesignerFormWindowInterface, param1: anytype) void {
+    pub fn repaint3(self: QDesignerFormWindowInterface, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -3701,10 +4737,14 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: QDesignerFormWindowInterface, param1: anytype) void {
+    pub fn repaint4(self: QDesignerFormWindowInterface, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -3716,9 +4756,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: QDesignerFormWindowInterface, visible: bool) void {
+    pub fn setVisible(self: QDesignerFormWindowInterface, visible: bool) void {
         qtc.QWidget_SetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -3730,9 +4774,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: QDesignerFormWindowInterface, hidden: bool) void {
+    pub fn setHidden(self: QDesignerFormWindowInterface, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -3742,9 +4790,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Show(self: QDesignerFormWindowInterface) void {
+    pub fn show(self: QDesignerFormWindowInterface) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -3754,9 +4806,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Hide(self: QDesignerFormWindowInterface) void {
+    pub fn hide(self: QDesignerFormWindowInterface) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3766,9 +4822,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn ShowMinimized(self: QDesignerFormWindowInterface) void {
+    pub fn showMinimized(self: QDesignerFormWindowInterface) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3778,9 +4838,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn ShowMaximized(self: QDesignerFormWindowInterface) void {
+    pub fn showMaximized(self: QDesignerFormWindowInterface) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3790,9 +4854,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn ShowFullScreen(self: QDesignerFormWindowInterface) void {
+    pub fn showFullScreen(self: QDesignerFormWindowInterface) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -3802,9 +4870,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn ShowNormal(self: QDesignerFormWindowInterface) void {
+    pub fn showNormal(self: QDesignerFormWindowInterface) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -3814,9 +4886,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Close(self: QDesignerFormWindowInterface) bool {
+    pub fn close(self: QDesignerFormWindowInterface) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -3826,9 +4902,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Raise(self: QDesignerFormWindowInterface) void {
+    pub fn raise(self: QDesignerFormWindowInterface) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -3838,9 +4918,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Lower(self: QDesignerFormWindowInterface) void {
+    pub fn lower(self: QDesignerFormWindowInterface) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -3852,10 +4936,14 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: QDesignerFormWindowInterface, param1: anytype) void {
+    pub fn stackUnder(self: QDesignerFormWindowInterface, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -3865,13 +4953,17 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: QDesignerFormWindowInterface, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: QDesignerFormWindowInterface, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -3883,10 +4975,14 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: QDesignerFormWindowInterface, param1: anytype) void {
+    pub fn move2(self: QDesignerFormWindowInterface, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -3900,9 +4996,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: QDesignerFormWindowInterface, w: i32, h: i32) void {
+    pub fn resize(self: QDesignerFormWindowInterface, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -3914,10 +5014,14 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: QDesignerFormWindowInterface, param1: anytype) void {
+    pub fn resize2(self: QDesignerFormWindowInterface, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3927,17 +5031,21 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: QDesignerFormWindowInterface, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: QDesignerFormWindowInterface, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -3947,12 +5055,16 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: QDesignerFormWindowInterface, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: QDesignerFormWindowInterface, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3964,13 +5076,17 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QDesignerFormWindowInterface.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QDesignerFormWindowInterface.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3980,15 +5096,19 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: QDesignerFormWindowInterface, geometry: []u8) bool {
+    pub fn restoreGeometry(self: QDesignerFormWindowInterface, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -3998,9 +5118,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn AdjustSize(self: QDesignerFormWindowInterface) void {
+    pub fn adjustSize(self: QDesignerFormWindowInterface) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -4010,9 +5134,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn IsVisible(self: QDesignerFormWindowInterface) bool {
+    pub fn isVisible(self: QDesignerFormWindowInterface) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -4024,10 +5152,14 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: QDesignerFormWindowInterface, param1: anytype) bool {
+    pub fn isVisibleTo(self: QDesignerFormWindowInterface, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -4037,9 +5169,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn IsHidden(self: QDesignerFormWindowInterface) bool {
+    pub fn isHidden(self: QDesignerFormWindowInterface) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -4049,9 +5185,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn IsMinimized(self: QDesignerFormWindowInterface) bool {
+    pub fn isMinimized(self: QDesignerFormWindowInterface) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -4061,9 +5201,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn IsMaximized(self: QDesignerFormWindowInterface) bool {
+    pub fn isMaximized(self: QDesignerFormWindowInterface) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -4073,9 +5217,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn IsFullScreen(self: QDesignerFormWindowInterface) bool {
+    pub fn isFullScreen(self: QDesignerFormWindowInterface) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -4089,9 +5237,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: QDesignerFormWindowInterface) i32 {
+    pub fn windowState(self: QDesignerFormWindowInterface) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -4103,9 +5255,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: QDesignerFormWindowInterface, state: i32) void {
+    pub fn setWindowState(self: QDesignerFormWindowInterface, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -4117,9 +5273,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: QDesignerFormWindowInterface, state: i32) void {
+    pub fn overrideWindowState(self: QDesignerFormWindowInterface, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
 
     /// Inherited from QWidget
     ///
@@ -4129,9 +5289,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn SizeHint(self: QDesignerFormWindowInterface) QSize {
+    pub fn sizeHint(self: QDesignerFormWindowInterface) QSize {
         return .{ .ptr = qtc.QWidget_SizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -4141,9 +5305,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn MinimumSizeHint(self: QDesignerFormWindowInterface) QSize {
+    pub fn minimumSizeHint(self: QDesignerFormWindowInterface) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -4153,9 +5321,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn SizePolicy(self: QDesignerFormWindowInterface) QSizePolicy {
+    pub fn sizePolicy(self: QDesignerFormWindowInterface) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -4165,12 +5337,16 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: QDesignerFormWindowInterface, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: QDesignerFormWindowInterface, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -4184,9 +5360,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: QDesignerFormWindowInterface, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: QDesignerFormWindowInterface, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -4198,9 +5378,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: QDesignerFormWindowInterface, param1: i32) i32 {
+    pub fn heightForWidth(self: QDesignerFormWindowInterface, param1: i32) i32 {
         return qtc.QWidget_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -4210,9 +5394,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn HasHeightForWidth(self: QDesignerFormWindowInterface) bool {
+    pub fn hasHeightForWidth(self: QDesignerFormWindowInterface) bool {
         return qtc.QWidget_HasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -4222,9 +5410,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn VisibleRegion(self: QDesignerFormWindowInterface) QRegion {
+    pub fn visibleRegion(self: QDesignerFormWindowInterface) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -4242,9 +5434,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: QDesignerFormWindowInterface, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: QDesignerFormWindowInterface, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -4256,10 +5452,14 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: QDesignerFormWindowInterface, margins: anytype) void {
+    pub fn setContentsMargins2(self: QDesignerFormWindowInterface, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -4269,9 +5469,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn ContentsMargins(self: QDesignerFormWindowInterface) QMargins {
+    pub fn contentsMargins(self: QDesignerFormWindowInterface) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -4281,9 +5485,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn ContentsRect(self: QDesignerFormWindowInterface) QRect {
+    pub fn contentsRect(self: QDesignerFormWindowInterface) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -4293,9 +5501,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Layout(self: QDesignerFormWindowInterface) QLayout {
+    pub fn layout(self: QDesignerFormWindowInterface) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -4305,12 +5517,16 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: QDesignerFormWindowInterface, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: QDesignerFormWindowInterface, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4320,24 +5536,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn UpdateGeometry(self: QDesignerFormWindowInterface) void {
+    pub fn updateGeometry(self: QDesignerFormWindowInterface) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerFormWindowInterface `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: QDesignerFormWindowInterface, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -4347,14 +5552,37 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: QDesignerFormWindowInterface, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QDesignerFormWindowInterface `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: QDesignerFormWindowInterface, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: QDesignerFormWindowInterface, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -4368,9 +5596,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: QDesignerFormWindowInterface, dx: i32, dy: i32) void {
+    pub fn scroll(self: QDesignerFormWindowInterface, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -4386,10 +5618,14 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: QDesignerFormWindowInterface, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: QDesignerFormWindowInterface, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -4399,9 +5635,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn FocusWidget(self: QDesignerFormWindowInterface) QWidget {
+    pub fn focusWidget(self: QDesignerFormWindowInterface) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -4411,9 +5651,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn NextInFocusChain(self: QDesignerFormWindowInterface) QWidget {
+    pub fn nextInFocusChain(self: QDesignerFormWindowInterface) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -4423,9 +5667,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn PreviousInFocusChain(self: QDesignerFormWindowInterface) QWidget {
+    pub fn previousInFocusChain(self: QDesignerFormWindowInterface) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -4435,9 +5683,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn AcceptDrops(self: QDesignerFormWindowInterface) bool {
+    pub fn acceptDrops(self: QDesignerFormWindowInterface) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -4449,9 +5701,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: QDesignerFormWindowInterface, on: bool) void {
+    pub fn setAcceptDrops(self: QDesignerFormWindowInterface, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -4463,10 +5719,14 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: QDesignerFormWindowInterface, action: anytype) void {
+    pub fn addAction(self: QDesignerFormWindowInterface, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -4476,15 +5736,19 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: QDesignerFormWindowInterface, actions: []QAction) void {
+    pub fn addActions(self: QDesignerFormWindowInterface, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -4496,16 +5760,20 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: QDesignerFormWindowInterface, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: QDesignerFormWindowInterface, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -4519,11 +5787,15 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: QDesignerFormWindowInterface, before: anytype, action: anytype) void {
+    pub fn insertAction(self: QDesignerFormWindowInterface, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -4535,10 +5807,14 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: QDesignerFormWindowInterface, action: anytype) void {
+    pub fn removeAction(self: QDesignerFormWindowInterface, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -4550,15 +5826,19 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QDesignerFormWindowInterface.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QDesignerFormWindowInterface.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -4570,13 +5850,17 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: QDesignerFormWindowInterface, text: []const u8) QAction {
+    pub fn addAction2(self: QDesignerFormWindowInterface, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -4590,7 +5874,7 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: QDesignerFormWindowInterface, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: QDesignerFormWindowInterface, icon: anytype, text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -4599,6 +5883,10 @@ pub const QDesignerFormWindowInterface = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -4611,7 +5899,7 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: QDesignerFormWindowInterface, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: QDesignerFormWindowInterface, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -4619,6 +5907,10 @@ pub const QDesignerFormWindowInterface = extern struct {
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
 
     /// Inherited from QWidget
     ///
@@ -4634,7 +5926,7 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: QDesignerFormWindowInterface, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: QDesignerFormWindowInterface, icon: anytype, text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -4644,6 +5936,10 @@ pub const QDesignerFormWindowInterface = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
@@ -4652,9 +5948,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn ParentWidget(self: QDesignerFormWindowInterface) QWidget {
+    pub fn parentWidget(self: QDesignerFormWindowInterface) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4666,9 +5966,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: QDesignerFormWindowInterface, typeVal: i32) void {
+    pub fn setWindowFlags(self: QDesignerFormWindowInterface, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4682,9 +5986,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: QDesignerFormWindowInterface) i32 {
+    pub fn windowFlags(self: QDesignerFormWindowInterface) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -4696,9 +6004,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: QDesignerFormWindowInterface, param1: i32) void {
+    pub fn setWindowFlag(self: QDesignerFormWindowInterface, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4710,9 +6022,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: QDesignerFormWindowInterface, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: QDesignerFormWindowInterface, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -4726,9 +6042,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: QDesignerFormWindowInterface) i32 {
+    pub fn windowType(self: QDesignerFormWindowInterface) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -4738,9 +6058,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -4750,13 +6074,17 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: QDesignerFormWindowInterface, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: QDesignerFormWindowInterface, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -4768,10 +6096,14 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: QDesignerFormWindowInterface, p: anytype) QWidget {
+    pub fn childAt2(self: QDesignerFormWindowInterface, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -4783,10 +6115,14 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: QDesignerFormWindowInterface, p: anytype) QWidget {
+    pub fn childAt3(self: QDesignerFormWindowInterface, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4798,9 +6134,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: QDesignerFormWindowInterface, param1: i32) void {
+    pub fn setAttribute(self: QDesignerFormWindowInterface, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4812,9 +6152,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: QDesignerFormWindowInterface, param1: i32) bool {
+    pub fn testAttribute(self: QDesignerFormWindowInterface, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -4824,9 +6168,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn PaintEngine(self: QDesignerFormWindowInterface) QPaintEngine {
+    pub fn paintEngine(self: QDesignerFormWindowInterface) QPaintEngine {
         return .{ .ptr = qtc.QWidget_PaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -4836,9 +6184,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn EnsurePolished(self: QDesignerFormWindowInterface) void {
+    pub fn ensurePolished(self: QDesignerFormWindowInterface) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -4850,10 +6202,14 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: QDesignerFormWindowInterface, child: anytype) bool {
+    pub fn isAncestorOf(self: QDesignerFormWindowInterface, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4863,9 +6219,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn AutoFillBackground(self: QDesignerFormWindowInterface) bool {
+    pub fn autoFillBackground(self: QDesignerFormWindowInterface) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4877,9 +6237,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: QDesignerFormWindowInterface, enabled: bool) void {
+    pub fn setAutoFillBackground(self: QDesignerFormWindowInterface, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -4889,9 +6253,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn BackingStore(self: QDesignerFormWindowInterface) QBackingStore {
+    pub fn backingStore(self: QDesignerFormWindowInterface) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -4901,9 +6269,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn WindowHandle(self: QDesignerFormWindowInterface) QWindow {
+    pub fn windowHandle(self: QDesignerFormWindowInterface) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -4913,9 +6285,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Screen(self: QDesignerFormWindowInterface) QScreen {
+    pub fn screen(self: QDesignerFormWindowInterface) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -4925,12 +6301,16 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: QDesignerFormWindowInterface, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: QDesignerFormWindowInterface, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -4938,12 +6318,16 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4955,13 +6339,17 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: QDesignerFormWindowInterface, title: []const u8) void {
+    pub fn windowTitleChanged(self: QDesignerFormWindowInterface, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4973,9 +6361,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerFormWindowInterface, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4987,10 +6379,14 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: QDesignerFormWindowInterface, icon: anytype) void {
+    pub fn windowIconChanged(self: QDesignerFormWindowInterface, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -5002,9 +6398,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerFormWindowInterface, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -5016,13 +6416,17 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: QDesignerFormWindowInterface, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: QDesignerFormWindowInterface, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -5034,9 +6438,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerFormWindowInterface, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -5046,12 +6454,16 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: QDesignerFormWindowInterface, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: QDesignerFormWindowInterface, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -5063,9 +6475,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerFormWindowInterface, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -5077,9 +6493,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: QDesignerFormWindowInterface, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: QDesignerFormWindowInterface, param1: i32) QVariant {
         return .{ .ptr = qtc.QWidget_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -5093,9 +6513,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: QDesignerFormWindowInterface) i32 {
+    pub fn inputMethodHints(self: QDesignerFormWindowInterface) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -5107,9 +6531,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: QDesignerFormWindowInterface, hints: i32) void {
+    pub fn setInputMethodHints(self: QDesignerFormWindowInterface, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -5123,11 +6551,15 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: QDesignerFormWindowInterface, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: QDesignerFormWindowInterface, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -5143,13 +6575,17 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: QDesignerFormWindowInterface, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: QDesignerFormWindowInterface, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -5166,12 +6602,16 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: QDesignerFormWindowInterface, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: QDesignerFormWindowInterface, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -5185,11 +6625,15 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: QDesignerFormWindowInterface, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: QDesignerFormWindowInterface, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -5205,12 +6649,16 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: QDesignerFormWindowInterface, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: QDesignerFormWindowInterface, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -5228,12 +6676,16 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: QDesignerFormWindowInterface, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: QDesignerFormWindowInterface, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -5245,10 +6697,14 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: QDesignerFormWindowInterface, rectangle: anytype) QPixmap {
+    pub fn grab1(self: QDesignerFormWindowInterface, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -5262,9 +6718,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: QDesignerFormWindowInterface, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: QDesignerFormWindowInterface, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -5278,10 +6738,14 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: QDesignerFormWindowInterface, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: QDesignerFormWindowInterface, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -5295,9 +6759,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: QDesignerFormWindowInterface, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: QDesignerFormWindowInterface, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -5311,9 +6779,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: QDesignerFormWindowInterface, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: QDesignerFormWindowInterface, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -5327,9 +6799,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: QDesignerFormWindowInterface, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: QDesignerFormWindowInterface, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -5343,25 +6819,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: QDesignerFormWindowInterface, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: QDesignerFormWindowInterface, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -5369,17 +6833,41 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -5391,13 +6879,17 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QDesignerFormWindowInterface, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QDesignerFormWindowInterface, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -5409,13 +6901,17 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerFormWindowInterface.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerFormWindowInterface.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -5427,13 +6923,17 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QDesignerFormWindowInterface, name: []const u8) void {
+    pub fn setObjectName(self: QDesignerFormWindowInterface, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -5443,9 +6943,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn IsWidgetType(self: QDesignerFormWindowInterface) bool {
+    pub fn isWidgetType(self: QDesignerFormWindowInterface) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -5455,9 +6959,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn IsWindowType(self: QDesignerFormWindowInterface) bool {
+    pub fn isWindowType(self: QDesignerFormWindowInterface) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -5467,9 +6975,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn IsQuickItemType(self: QDesignerFormWindowInterface) bool {
+    pub fn isQuickItemType(self: QDesignerFormWindowInterface) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -5479,9 +6991,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn SignalsBlocked(self: QDesignerFormWindowInterface) bool {
+    pub fn signalsBlocked(self: QDesignerFormWindowInterface) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -5493,9 +7009,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QDesignerFormWindowInterface, b: bool) bool {
+    pub fn blockSignals(self: QDesignerFormWindowInterface, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -5505,9 +7025,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Thread(self: QDesignerFormWindowInterface) QThread {
+    pub fn thread(self: QDesignerFormWindowInterface) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -5517,12 +7041,16 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QDesignerFormWindowInterface, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QDesignerFormWindowInterface, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -5534,9 +7062,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QDesignerFormWindowInterface, interval: i32) i32 {
+    pub fn startTimer(self: QDesignerFormWindowInterface, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -5548,9 +7080,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QDesignerFormWindowInterface, time: i64) i32 {
+    pub fn startTimer2(self: QDesignerFormWindowInterface, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -5562,9 +7098,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QDesignerFormWindowInterface, id: i32) void {
+    pub fn killTimer(self: QDesignerFormWindowInterface, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -5576,9 +7116,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QDesignerFormWindowInterface, id: i32) void {
+    pub fn killTimer2(self: QDesignerFormWindowInterface, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -5590,15 +7134,19 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QDesignerFormWindowInterface.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QDesignerFormWindowInterface.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5610,10 +7158,14 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QDesignerFormWindowInterface, filterObj: anytype) void {
+    pub fn installEventFilter(self: QDesignerFormWindowInterface, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5625,10 +7177,14 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QDesignerFormWindowInterface, obj: anytype) void {
+    pub fn removeEventFilter(self: QDesignerFormWindowInterface, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -5636,7 +7192,7 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5644,13 +7200,17 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -5658,7 +7218,7 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5666,13 +7226,17 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -5682,18 +7246,22 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QDesignerFormWindowInterface, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QDesignerFormWindowInterface, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -5701,7 +7269,7 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5709,13 +7277,17 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -5723,7 +7295,7 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5731,13 +7303,17 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -5747,9 +7323,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Disconnect3(self: QDesignerFormWindowInterface) bool {
+    pub fn disconnect3(self: QDesignerFormWindowInterface) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -5761,10 +7341,14 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QDesignerFormWindowInterface, receiver: anytype) bool {
+    pub fn disconnect4(self: QDesignerFormWindowInterface, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -5774,10 +7358,14 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -5787,9 +7375,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn DumpObjectTree(self: QDesignerFormWindowInterface) void {
+    pub fn dumpObjectTree(self: QDesignerFormWindowInterface) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -5799,9 +7391,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn DumpObjectInfo(self: QDesignerFormWindowInterface) void {
+    pub fn dumpObjectInfo(self: QDesignerFormWindowInterface) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -5815,11 +7411,15 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QDesignerFormWindowInterface, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QDesignerFormWindowInterface, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -5831,10 +7431,14 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QDesignerFormWindowInterface, name: [:0]const u8) QVariant {
+    pub fn property(self: QDesignerFormWindowInterface, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -5846,7 +7450,7 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -5854,27 +7458,19 @@ pub const QDesignerFormWindowInterface = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QDesignerFormWindowInterface.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QDesignerFormWindowInterface.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QDesignerFormWindowInterface.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QDesignerFormWindowInterface.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerFormWindowInterface `
-    ///
-    pub fn BindingStorage(self: QDesignerFormWindowInterface) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -5884,9 +7480,29 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn BindingStorage2(self: QDesignerFormWindowInterface) QBindingStorage {
+    pub fn bindingStorage(self: QDesignerFormWindowInterface) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QDesignerFormWindowInterface `
+    ///
+    pub fn bindingStorage2(self: QDesignerFormWindowInterface) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -5896,9 +7512,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Destroyed(self: QDesignerFormWindowInterface) void {
+    pub fn destroyed(self: QDesignerFormWindowInterface) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -5910,9 +7530,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerFormWindowInterface) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface) callconv(.c) void) void {
+    pub fn onDestroyed(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -5922,9 +7546,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Parent(self: QDesignerFormWindowInterface) QObject {
+    pub fn parent(self: QDesignerFormWindowInterface) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -5936,10 +7564,14 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QDesignerFormWindowInterface, classname: [:0]const u8) bool {
+    pub fn inherits(self: QDesignerFormWindowInterface, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -5949,9 +7581,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn DeleteLater(self: QDesignerFormWindowInterface) void {
+    pub fn deleteLater(self: QDesignerFormWindowInterface) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -5965,9 +7601,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QDesignerFormWindowInterface, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QDesignerFormWindowInterface, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -5981,9 +7621,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QDesignerFormWindowInterface, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QDesignerFormWindowInterface, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -5991,7 +7635,7 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6001,13 +7645,17 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -6015,7 +7663,7 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -6025,13 +7673,17 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -6041,7 +7693,7 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6049,12 +7701,16 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QDesignerFormWindowInterface, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QDesignerFormWindowInterface, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -6066,10 +7722,14 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QDesignerFormWindowInterface, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QDesignerFormWindowInterface, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -6083,11 +7743,15 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QDesignerFormWindowInterface, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QDesignerFormWindowInterface, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -6103,13 +7767,17 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QDesignerFormWindowInterface, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QDesignerFormWindowInterface, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -6122,11 +7790,15 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QDesignerFormWindowInterface, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QDesignerFormWindowInterface, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -6138,10 +7810,14 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QDesignerFormWindowInterface, param1: anytype) void {
+    pub fn destroyed1(self: QDesignerFormWindowInterface, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -6153,9 +7829,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerFormWindowInterface, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -6165,9 +7845,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn PaintingActive(self: QDesignerFormWindowInterface) bool {
+    pub fn paintingActive(self: QDesignerFormWindowInterface) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -6177,9 +7861,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn WidthMM(self: QDesignerFormWindowInterface) i32 {
+    pub fn widthMM(self: QDesignerFormWindowInterface) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -6189,9 +7877,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn HeightMM(self: QDesignerFormWindowInterface) i32 {
+    pub fn heightMM(self: QDesignerFormWindowInterface) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -6201,9 +7893,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn LogicalDpiX(self: QDesignerFormWindowInterface) i32 {
+    pub fn logicalDpiX(self: QDesignerFormWindowInterface) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -6213,9 +7909,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn LogicalDpiY(self: QDesignerFormWindowInterface) i32 {
+    pub fn logicalDpiY(self: QDesignerFormWindowInterface) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -6225,9 +7925,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn PhysicalDpiX(self: QDesignerFormWindowInterface) i32 {
+    pub fn physicalDpiX(self: QDesignerFormWindowInterface) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -6237,9 +7941,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn PhysicalDpiY(self: QDesignerFormWindowInterface) i32 {
+    pub fn physicalDpiY(self: QDesignerFormWindowInterface) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -6249,9 +7957,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn DevicePixelRatio(self: QDesignerFormWindowInterface) f64 {
+    pub fn devicePixelRatio(self: QDesignerFormWindowInterface) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -6261,9 +7973,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn DevicePixelRatioF(self: QDesignerFormWindowInterface) f64 {
+    pub fn devicePixelRatioF(self: QDesignerFormWindowInterface) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -6273,9 +7989,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn ColorCount(self: QDesignerFormWindowInterface) i32 {
+    pub fn colorCount(self: QDesignerFormWindowInterface) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -6285,17 +8005,25 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Depth(self: QDesignerFormWindowInterface) i32 {
+    pub fn depth(self: QDesignerFormWindowInterface) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -6307,9 +8035,13 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
+    pub fn encodeMetricF(metric: i32, value: f64) i32 {
         return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -6323,23 +8055,23 @@ pub const QDesignerFormWindowInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerFormWindowInterface, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#dtor.QDesignerFormWindowInterface)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Delete(self: QDesignerFormWindowInterface) void {
+    pub fn delete(self: QDesignerFormWindowInterface) void {
         qtc.QDesignerFormWindowInterface_Delete(@ptrCast(self.ptr));
     }
 };

@@ -14,6 +14,10 @@ pub const KIO__JobUiDelegateExtension = extern struct {
 
     pub const _is_KIO__JobUiDelegateExtension = {};
 
+    /// ### DEPRECATED: Use `askDeleteConfirmation` instead
+    ///
+    pub const AskDeleteConfirmation = askDeleteConfirmation;
+
     /// ### [Upstream resources](https://api.kde.org/kio-jobuidelegateextension.html#askDeleteConfirmation)
     ///
     /// ## Parameter(s):
@@ -26,13 +30,17 @@ pub const KIO__JobUiDelegateExtension = extern struct {
     ///
     /// ` confirmationType: jobuidelegateextension_enums.ConfirmationType `
     ///
-    pub fn AskDeleteConfirmation(self: KIO__JobUiDelegateExtension, urls: []QUrl, deletionType: i32, confirmationType: i32) bool {
+    pub fn askDeleteConfirmation(self: KIO__JobUiDelegateExtension, urls: []QUrl, deletionType: i32, confirmationType: i32) bool {
         const urls_list = qtc.libqt_list{
             .len = urls.len,
             .data = @ptrCast(urls.ptr),
         };
         return qtc.KIO__JobUiDelegateExtension_AskDeleteConfirmation(@ptrCast(self.ptr), urls_list, @bitCast(deletionType), @bitCast(confirmationType));
     }
+
+    /// ### DEPRECATED: Use `updateUrlInClipboard` instead
+    ///
+    pub const UpdateUrlInClipboard = updateUrlInClipboard;
 
     /// ### [Upstream resources](https://api.kde.org/kio-jobuidelegateextension.html#updateUrlInClipboard)
     ///
@@ -44,7 +52,7 @@ pub const KIO__JobUiDelegateExtension = extern struct {
     ///
     /// ` dest: QUrl `
     ///
-    pub fn UpdateUrlInClipboard(self: KIO__JobUiDelegateExtension, src: anytype, dest: anytype) void {
+    pub fn updateUrlInClipboard(self: KIO__JobUiDelegateExtension, src: anytype, dest: anytype) void {
         comptime _ = @TypeOf(src)._is_QUrl;
         comptime _ = @TypeOf(dest)._is_QUrl;
         qtc.KIO__JobUiDelegateExtension_UpdateUrlInClipboard(@ptrCast(self.ptr), @ptrCast(src.ptr), @ptrCast(dest.ptr));
@@ -61,11 +69,19 @@ pub const KIO = extern struct {
 
     pub const _is_KIO = {};
 
+    /// ### DEPRECATED: Use `defaultJobUiDelegateExtension` instead
+    ///
+    pub const DefaultJobUiDelegateExtension = defaultJobUiDelegateExtension;
+
     /// ### [Upstream resources](https://api.kde.org/kio.html#defaultJobUiDelegateExtension)
     ///
-    pub fn DefaultJobUiDelegateExtension() KIO__JobUiDelegateExtension {
+    pub fn defaultJobUiDelegateExtension() KIO__JobUiDelegateExtension {
         return .{ .ptr = qtc.KIO_DefaultJobUiDelegateExtension() };
     }
+
+    /// ### DEPRECATED: Use `setDefaultJobUiDelegateExtension` instead
+    ///
+    pub const SetDefaultJobUiDelegateExtension = setDefaultJobUiDelegateExtension;
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#setDefaultJobUiDelegateExtension)
     ///
@@ -73,7 +89,7 @@ pub const KIO = extern struct {
     ///
     /// ` extension: KIO__JobUiDelegateExtension `
     ///
-    pub fn SetDefaultJobUiDelegateExtension(extension: anytype) void {
+    pub fn setDefaultJobUiDelegateExtension(extension: anytype) void {
         comptime _ = @TypeOf(extension)._is_KIO__JobUiDelegateExtension;
         qtc.KIO_SetDefaultJobUiDelegateExtension(@ptrCast(extension.ptr));
     }

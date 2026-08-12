@@ -12,23 +12,35 @@ pub const TextEmoticonsCore__UnicodeEmoticon = extern struct {
 
     pub const _is_TextEmoticonsCore__UnicodeEmoticon = {};
 
-    /// New constructs a new TextEmoticonsCore::UnicodeEmoticon object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() TextEmoticonsCore__UnicodeEmoticon {
+    pub const New = new;
+
+    /// Allocate a new TextEmoticonsCore::UnicodeEmoticon object in C++ memory
+    ///
+    pub fn new() TextEmoticonsCore__UnicodeEmoticon {
         return .{ .ptr = qtc.TextEmoticonsCore__UnicodeEmoticon_new() };
     }
 
-    /// New2 constructs a new TextEmoticonsCore::UnicodeEmoticon object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new TextEmoticonsCore::UnicodeEmoticon object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: TextEmoticonsCore__UnicodeEmoticon `
     ///
-    pub fn New2(param1: anytype) TextEmoticonsCore__UnicodeEmoticon {
+    pub fn new2(param1: anytype) TextEmoticonsCore__UnicodeEmoticon {
         comptime _ = @TypeOf(param1)._is_TextEmoticonsCore__UnicodeEmoticon;
         return .{ .ptr = qtc.TextEmoticonsCore__UnicodeEmoticon_new2(@ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `identifier` instead
+    ///
+    pub const Identifier = identifier;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEmoticonsCore_1_1UnicodeEmoticon.html)
     ///
     /// ## Parameter(s):
@@ -37,13 +49,17 @@ pub const TextEmoticonsCore__UnicodeEmoticon = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Identifier(self: TextEmoticonsCore__UnicodeEmoticon, allocator: std.mem.Allocator) []const u8 {
+    pub fn identifier(self: TextEmoticonsCore__UnicodeEmoticon, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextEmoticonsCore__UnicodeEmoticon_Identifier(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEmoticonsCore__UnicodeEmoticon.Identifier: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEmoticonsCore__UnicodeEmoticon.identifier: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setIdentifier` instead
+    ///
+    pub const SetIdentifier = setIdentifier;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEmoticonsCore_1_1UnicodeEmoticon.html)
     ///
@@ -51,16 +67,20 @@ pub const TextEmoticonsCore__UnicodeEmoticon = extern struct {
     ///
     /// ` self: TextEmoticonsCore__UnicodeEmoticon `
     ///
-    /// ` identifier: []const u8 `
+    /// ` _identifier: []const u8 `
     ///
-    pub fn SetIdentifier(self: TextEmoticonsCore__UnicodeEmoticon, identifier: []const u8) void {
+    pub fn setIdentifier(self: TextEmoticonsCore__UnicodeEmoticon, _identifier: []const u8) void {
         const identifier_str = qtc.libqt_string{
-            .len = identifier.len,
-            .data = identifier.ptr,
+            .len = _identifier.len,
+            .data = _identifier.ptr,
         };
         qtc.TextEmoticonsCore__UnicodeEmoticon_SetIdentifier(@ptrCast(self.ptr), identifier_str);
     }
 
+    /// ### DEPRECATED: Use `unicode` instead
+    ///
+    pub const Unicode = unicode;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEmoticonsCore_1_1UnicodeEmoticon.html)
     ///
     /// ## Parameter(s):
@@ -69,13 +89,17 @@ pub const TextEmoticonsCore__UnicodeEmoticon = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Unicode(self: TextEmoticonsCore__UnicodeEmoticon, allocator: std.mem.Allocator) []const u8 {
+    pub fn unicode(self: TextEmoticonsCore__UnicodeEmoticon, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextEmoticonsCore__UnicodeEmoticon_Unicode(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEmoticonsCore__UnicodeEmoticon.Unicode: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEmoticonsCore__UnicodeEmoticon.unicode: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `unicodeDisplay` instead
+    ///
+    pub const UnicodeDisplay = unicodeDisplay;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEmoticonsCore_1_1UnicodeEmoticon.html)
     ///
@@ -85,13 +109,17 @@ pub const TextEmoticonsCore__UnicodeEmoticon = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn UnicodeDisplay(self: TextEmoticonsCore__UnicodeEmoticon, allocator: std.mem.Allocator) []const u8 {
+    pub fn unicodeDisplay(self: TextEmoticonsCore__UnicodeEmoticon, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextEmoticonsCore__UnicodeEmoticon_UnicodeDisplay(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEmoticonsCore__UnicodeEmoticon.UnicodeDisplay: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEmoticonsCore__UnicodeEmoticon.unicodeDisplay: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setUnicode` instead
+    ///
+    pub const SetUnicode = setUnicode;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEmoticonsCore_1_1UnicodeEmoticon.html)
     ///
@@ -99,16 +127,20 @@ pub const TextEmoticonsCore__UnicodeEmoticon = extern struct {
     ///
     /// ` self: TextEmoticonsCore__UnicodeEmoticon `
     ///
-    /// ` unicode: []const u8 `
+    /// ` _unicode: []const u8 `
     ///
-    pub fn SetUnicode(self: TextEmoticonsCore__UnicodeEmoticon, unicode: []const u8) void {
+    pub fn setUnicode(self: TextEmoticonsCore__UnicodeEmoticon, _unicode: []const u8) void {
         const unicode_str = qtc.libqt_string{
-            .len = unicode.len,
-            .data = unicode.ptr,
+            .len = _unicode.len,
+            .data = _unicode.ptr,
         };
         qtc.TextEmoticonsCore__UnicodeEmoticon_SetUnicode(@ptrCast(self.ptr), unicode_str);
     }
 
+    /// ### DEPRECATED: Use `category` instead
+    ///
+    pub const Category = category;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEmoticonsCore_1_1UnicodeEmoticon.html)
     ///
     /// ## Parameter(s):
@@ -117,29 +149,37 @@ pub const TextEmoticonsCore__UnicodeEmoticon = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Category(self: TextEmoticonsCore__UnicodeEmoticon, allocator: std.mem.Allocator) []const u8 {
+    pub fn category(self: TextEmoticonsCore__UnicodeEmoticon, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextEmoticonsCore__UnicodeEmoticon_Category(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEmoticonsCore__UnicodeEmoticon.Category: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEmoticonsCore__UnicodeEmoticon.category: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `setCategory` instead
+    ///
+    pub const SetCategory = setCategory;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEmoticonsCore_1_1UnicodeEmoticon.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: TextEmoticonsCore__UnicodeEmoticon `
     ///
-    /// ` category: []const u8 `
+    /// ` _category: []const u8 `
     ///
-    pub fn SetCategory(self: TextEmoticonsCore__UnicodeEmoticon, category: []const u8) void {
+    pub fn setCategory(self: TextEmoticonsCore__UnicodeEmoticon, _category: []const u8) void {
         const category_str = qtc.libqt_string{
-            .len = category.len,
-            .data = category.ptr,
+            .len = _category.len,
+            .data = _category.ptr,
         };
         qtc.TextEmoticonsCore__UnicodeEmoticon_SetCategory(@ptrCast(self.ptr), category_str);
     }
+
+    /// ### DEPRECATED: Use `aliases` instead
+    ///
+    pub const Aliases = aliases;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEmoticonsCore_1_1UnicodeEmoticon.html)
     ///
@@ -149,7 +189,7 @@ pub const TextEmoticonsCore__UnicodeEmoticon = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Aliases(self: TextEmoticonsCore__UnicodeEmoticon, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn aliases(self: TextEmoticonsCore__UnicodeEmoticon, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.TextEmoticonsCore__UnicodeEmoticon_Aliases(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -157,16 +197,20 @@ pub const TextEmoticonsCore__UnicodeEmoticon = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("TextEmoticonsCore__UnicodeEmoticon.Aliases: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("TextEmoticonsCore__UnicodeEmoticon.aliases: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("TextEmoticonsCore__UnicodeEmoticon.Aliases: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("TextEmoticonsCore__UnicodeEmoticon.aliases: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `setAliases` instead
+    ///
+    pub const SetAliases = setAliases;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEmoticonsCore_1_1UnicodeEmoticon.html)
     ///
     /// ## Parameter(s):
@@ -175,58 +219,60 @@ pub const TextEmoticonsCore__UnicodeEmoticon = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` aliases: []const []const u8 `
+    /// ` _aliases: []const []const u8 `
     ///
-    pub fn SetAliases(self: TextEmoticonsCore__UnicodeEmoticon, allocator: std.mem.Allocator, aliases: []const []const u8) void {
-        const aliases_arr = allocator.alloc(qtc.libqt_string, aliases.len) catch @panic("TextEmoticonsCore__UnicodeEmoticon.SetAliases: Memory allocation failed");
+    pub fn setAliases(self: TextEmoticonsCore__UnicodeEmoticon, allocator: std.mem.Allocator, _aliases: []const []const u8) void {
+        const aliases_arr = allocator.alloc(qtc.libqt_string, _aliases.len) catch @panic("TextEmoticonsCore__UnicodeEmoticon.setAliases: Memory allocation failed");
         defer allocator.free(aliases_arr);
-        for (aliases, 0..aliases.len) |item, i|
+        for (_aliases, 0.._aliases.len) |str_item, i|
             aliases_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const aliases_list = qtc.libqt_list{
-            .len = aliases.len,
+            .len = _aliases.len,
             .data = aliases_arr.ptr,
         };
         qtc.TextEmoticonsCore__UnicodeEmoticon_SetAliases(@ptrCast(self.ptr), aliases_list);
     }
 
+    /// ### DEPRECATED: Use `hasEmoji` instead
+    ///
+    pub const HasEmoji = hasEmoji;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEmoticonsCore_1_1UnicodeEmoticon.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: TextEmoticonsCore__UnicodeEmoticon `
     ///
-    /// ` identifier: []const u8 `
+    /// ` _identifier: []const u8 `
     ///
-    pub fn HasEmoji(self: TextEmoticonsCore__UnicodeEmoticon, identifier: []const u8) bool {
+    pub fn hasEmoji(self: TextEmoticonsCore__UnicodeEmoticon, _identifier: []const u8) bool {
         const identifier_str = qtc.libqt_string{
-            .len = identifier.len,
-            .data = identifier.ptr,
+            .len = _identifier.len,
+            .data = _identifier.ptr,
         };
         return qtc.TextEmoticonsCore__UnicodeEmoticon_HasEmoji(@ptrCast(self.ptr), identifier_str);
     }
 
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEmoticonsCore_1_1UnicodeEmoticon.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: TextEmoticonsCore__UnicodeEmoticon `
     ///
-    pub fn IsValid(self: TextEmoticonsCore__UnicodeEmoticon) bool {
+    pub fn isValid(self: TextEmoticonsCore__UnicodeEmoticon) bool {
         return qtc.TextEmoticonsCore__UnicodeEmoticon_IsValid(@ptrCast(self.ptr));
     }
 
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEmoticonsCore_1_1UnicodeEmoticon.html)
+    /// ### DEPRECATED: Use `order` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextEmoticonsCore__UnicodeEmoticon `
-    ///
-    pub fn Order(self: TextEmoticonsCore__UnicodeEmoticon) i32 {
-        return qtc.TextEmoticonsCore__UnicodeEmoticon_Order(@ptrCast(self.ptr));
-    }
+    pub const Order = order;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEmoticonsCore_1_1UnicodeEmoticon.html)
     ///
@@ -234,11 +280,29 @@ pub const TextEmoticonsCore__UnicodeEmoticon = extern struct {
     ///
     /// ` self: TextEmoticonsCore__UnicodeEmoticon `
     ///
-    /// ` order: i32 `
-    ///
-    pub fn SetOrder(self: TextEmoticonsCore__UnicodeEmoticon, order: i32) void {
-        qtc.TextEmoticonsCore__UnicodeEmoticon_SetOrder(@ptrCast(self.ptr), @bitCast(order));
+    pub fn order(self: TextEmoticonsCore__UnicodeEmoticon) i32 {
+        return qtc.TextEmoticonsCore__UnicodeEmoticon_Order(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setOrder` instead
+    ///
+    pub const SetOrder = setOrder;
+
+    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEmoticonsCore_1_1UnicodeEmoticon.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextEmoticonsCore__UnicodeEmoticon `
+    ///
+    /// ` _order: i32 `
+    ///
+    pub fn setOrder(self: TextEmoticonsCore__UnicodeEmoticon, _order: i32) void {
+        qtc.TextEmoticonsCore__UnicodeEmoticon_SetOrder(@ptrCast(self.ptr), @bitCast(_order));
+    }
+
+    /// ### DEPRECATED: Use `key` instead
+    ///
+    pub const Key = key;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEmoticonsCore_1_1UnicodeEmoticon.html)
     ///
@@ -248,13 +312,17 @@ pub const TextEmoticonsCore__UnicodeEmoticon = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Key(self: TextEmoticonsCore__UnicodeEmoticon, allocator: std.mem.Allocator) []const u8 {
+    pub fn key(self: TextEmoticonsCore__UnicodeEmoticon, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextEmoticonsCore__UnicodeEmoticon_Key(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEmoticonsCore__UnicodeEmoticon.Key: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEmoticonsCore__UnicodeEmoticon.key: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setKey` instead
+    ///
+    pub const SetKey = setKey;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEmoticonsCore_1_1UnicodeEmoticon.html)
     ///
@@ -262,15 +330,19 @@ pub const TextEmoticonsCore__UnicodeEmoticon = extern struct {
     ///
     /// ` self: TextEmoticonsCore__UnicodeEmoticon `
     ///
-    /// ` key: []const u8 `
+    /// ` _key: []const u8 `
     ///
-    pub fn SetKey(self: TextEmoticonsCore__UnicodeEmoticon, key: []const u8) void {
+    pub fn setKey(self: TextEmoticonsCore__UnicodeEmoticon, _key: []const u8) void {
         const key_str = qtc.libqt_string{
-            .len = key.len,
-            .data = key.ptr,
+            .len = _key.len,
+            .data = _key.ptr,
         };
         qtc.TextEmoticonsCore__UnicodeEmoticon_SetKey(@ptrCast(self.ptr), key_str);
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEmoticonsCore_1_1UnicodeEmoticon.html)
     ///
@@ -280,24 +352,24 @@ pub const TextEmoticonsCore__UnicodeEmoticon = extern struct {
     ///
     /// ` other: TextEmoticonsCore__UnicodeEmoticon `
     ///
-    pub fn OperatorEqual(self: TextEmoticonsCore__UnicodeEmoticon, other: anytype) bool {
+    pub fn operatorEqual(self: TextEmoticonsCore__UnicodeEmoticon, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_TextEmoticonsCore__UnicodeEmoticon;
         return qtc.TextEmoticonsCore__UnicodeEmoticon_OperatorEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEmoticonsCore_1_1UnicodeEmoticon.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: TextEmoticonsCore__UnicodeEmoticon `
     ///
-    pub fn Delete(self: TextEmoticonsCore__UnicodeEmoticon) void {
+    pub fn delete(self: TextEmoticonsCore__UnicodeEmoticon) void {
         qtc.TextEmoticonsCore__UnicodeEmoticon_Delete(@ptrCast(self.ptr));
     }
 };

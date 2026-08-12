@@ -16,35 +16,47 @@ pub const QDir = extern struct {
 
     pub const _is_QDir = {};
 
-    /// New constructs a new QDir object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QDir object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QDir `
     ///
-    pub fn New(param1: anytype) QDir {
+    pub fn new(param1: anytype) QDir {
         comptime _ = @TypeOf(param1)._is_QDir;
         return .{ .ptr = qtc.QDir_new(@ptrCast(param1.ptr)) };
     }
 
-    /// New2 constructs a new QDir object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() QDir {
+    pub const New2 = new2;
+
+    /// Allocate a new QDir object in C++ memory
+    ///
+    pub fn new2() QDir {
         return .{ .ptr = qtc.QDir_new2() };
     }
 
-    /// New3 constructs a new QDir object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QDir object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` path: []const u8 `
+    /// ` _path: []const u8 `
     ///
     /// ` nameFilter: []const u8 `
     ///
-    pub fn New3(path: []const u8, nameFilter: []const u8) QDir {
+    pub fn new3(_path: []const u8, nameFilter: []const u8) QDir {
         const path_str = qtc.libqt_string{
-            .len = path.len,
-            .data = path.ptr,
+            .len = _path.len,
+            .data = _path.ptr,
         };
         const nameFilter_str = qtc.libqt_string{
             .len = nameFilter.len,
@@ -53,34 +65,42 @@ pub const QDir = extern struct {
         return .{ .ptr = qtc.QDir_new3(path_str, nameFilter_str) };
     }
 
-    /// New4 constructs a new QDir object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QDir object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` path: []const u8 `
+    /// ` _path: []const u8 `
     ///
-    pub fn New4(path: []const u8) QDir {
+    pub fn new4(_path: []const u8) QDir {
         const path_str = qtc.libqt_string{
-            .len = path.len,
-            .data = path.ptr,
+            .len = _path.len,
+            .data = _path.ptr,
         };
         return .{ .ptr = qtc.QDir_new4(path_str) };
     }
 
-    /// New5 constructs a new QDir object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new QDir object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` path: []const u8 `
+    /// ` _path: []const u8 `
     ///
     /// ` nameFilter: []const u8 `
     ///
     /// ` sort: flag of qdir_enums.SortFlag `
     ///
-    pub fn New5(path: []const u8, nameFilter: []const u8, sort: i32) QDir {
+    pub fn new5(_path: []const u8, nameFilter: []const u8, sort: i32) QDir {
         const path_str = qtc.libqt_string{
-            .len = path.len,
-            .data = path.ptr,
+            .len = _path.len,
+            .data = _path.ptr,
         };
         const nameFilter_str = qtc.libqt_string{
             .len = nameFilter.len,
@@ -89,29 +109,37 @@ pub const QDir = extern struct {
         return .{ .ptr = qtc.QDir_new5(path_str, nameFilter_str, @bitCast(sort)) };
     }
 
-    /// New6 constructs a new QDir object.
+    /// ### DEPRECATED: Use `new6` instead
+    ///
+    pub const New6 = new6;
+
+    /// Allocate a new QDir object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` path: []const u8 `
+    /// ` _path: []const u8 `
     ///
     /// ` nameFilter: []const u8 `
     ///
     /// ` sort: flag of qdir_enums.SortFlag `
     ///
-    /// ` filter: flag of qdir_enums.Filter `
+    /// ` _filter: flag of qdir_enums.Filter `
     ///
-    pub fn New6(path: []const u8, nameFilter: []const u8, sort: i32, filter: i32) QDir {
+    pub fn new6(_path: []const u8, nameFilter: []const u8, sort: i32, _filter: i32) QDir {
         const path_str = qtc.libqt_string{
-            .len = path.len,
-            .data = path.ptr,
+            .len = _path.len,
+            .data = _path.ptr,
         };
         const nameFilter_str = qtc.libqt_string{
             .len = nameFilter.len,
             .data = nameFilter.ptr,
         };
-        return .{ .ptr = qtc.QDir_new6(path_str, nameFilter_str, @bitCast(sort), @bitCast(filter)) };
+        return .{ .ptr = qtc.QDir_new6(path_str, nameFilter_str, @bitCast(sort), @bitCast(_filter)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#operator-eq)
     ///
@@ -121,10 +149,14 @@ pub const QDir = extern struct {
     ///
     /// ` param1: QDir `
     ///
-    pub fn OperatorAssign(self: QDir, param1: anytype) void {
+    pub fn operatorAssign(self: QDir, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QDir;
         qtc.QDir_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#swap)
     ///
@@ -134,10 +166,14 @@ pub const QDir = extern struct {
     ///
     /// ` other: QDir `
     ///
-    pub fn Swap(self: QDir, other: anytype) void {
+    pub fn swap(self: QDir, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QDir;
         qtc.QDir_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPath` instead
+    ///
+    pub const SetPath = setPath;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#setPath)
     ///
@@ -145,15 +181,19 @@ pub const QDir = extern struct {
     ///
     /// ` self: QDir `
     ///
-    /// ` path: []const u8 `
+    /// ` _path: []const u8 `
     ///
-    pub fn SetPath(self: QDir, path: []const u8) void {
+    pub fn setPath(self: QDir, _path: []const u8) void {
         const path_str = qtc.libqt_string{
-            .len = path.len,
-            .data = path.ptr,
+            .len = _path.len,
+            .data = _path.ptr,
         };
         qtc.QDir_SetPath(@ptrCast(self.ptr), path_str);
     }
+
+    /// ### DEPRECATED: Use `path` instead
+    ///
+    pub const Path = path;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#path)
     ///
@@ -163,13 +203,17 @@ pub const QDir = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Path(self: QDir, allocator: std.mem.Allocator) []const u8 {
+    pub fn path(self: QDir, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDir_Path(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDir.Path: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDir.path: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `absolutePath` instead
+    ///
+    pub const AbsolutePath = absolutePath;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#absolutePath)
     ///
@@ -179,13 +223,17 @@ pub const QDir = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AbsolutePath(self: QDir, allocator: std.mem.Allocator) []const u8 {
+    pub fn absolutePath(self: QDir, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDir_AbsolutePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDir.AbsolutePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDir.absolutePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `canonicalPath` instead
+    ///
+    pub const CanonicalPath = canonicalPath;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#canonicalPath)
     ///
@@ -195,13 +243,17 @@ pub const QDir = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CanonicalPath(self: QDir, allocator: std.mem.Allocator) []const u8 {
+    pub fn canonicalPath(self: QDir, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDir_CanonicalPath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDir.CanonicalPath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDir.canonicalPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setSearchPaths` instead
+    ///
+    pub const SetSearchPaths = setSearchPaths;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#setSearchPaths)
     ///
@@ -211,26 +263,30 @@ pub const QDir = extern struct {
     ///
     /// ` prefix: []const u8 `
     ///
-    /// ` searchPaths: []const []const u8 `
+    /// ` _searchPaths: []const []const u8 `
     ///
-    pub fn SetSearchPaths(allocator: std.mem.Allocator, prefix: []const u8, searchPaths: []const []const u8) void {
+    pub fn setSearchPaths(allocator: std.mem.Allocator, prefix: []const u8, _searchPaths: []const []const u8) void {
         const prefix_str = qtc.libqt_string{
             .len = prefix.len,
             .data = prefix.ptr,
         };
-        const searchPaths_arr = allocator.alloc(qtc.libqt_string, searchPaths.len) catch @panic("QDir.SetSearchPaths: Memory allocation failed");
+        const searchPaths_arr = allocator.alloc(qtc.libqt_string, _searchPaths.len) catch @panic("QDir.setSearchPaths: Memory allocation failed");
         defer allocator.free(searchPaths_arr);
-        for (searchPaths, 0..searchPaths.len) |item, i|
+        for (_searchPaths, 0.._searchPaths.len) |str_item, i|
             searchPaths_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const searchPaths_list = qtc.libqt_list{
-            .len = searchPaths.len,
+            .len = _searchPaths.len,
             .data = searchPaths_arr.ptr,
         };
         qtc.QDir_SetSearchPaths(prefix_str, searchPaths_list);
     }
+
+    /// ### DEPRECATED: Use `addSearchPath` instead
+    ///
+    pub const AddSearchPath = addSearchPath;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#addSearchPath)
     ///
@@ -238,19 +294,23 @@ pub const QDir = extern struct {
     ///
     /// ` prefix: []const u8 `
     ///
-    /// ` path: []const u8 `
+    /// ` _path: []const u8 `
     ///
-    pub fn AddSearchPath(prefix: []const u8, path: []const u8) void {
+    pub fn addSearchPath(prefix: []const u8, _path: []const u8) void {
         const prefix_str = qtc.libqt_string{
             .len = prefix.len,
             .data = prefix.ptr,
         };
         const path_str = qtc.libqt_string{
-            .len = path.len,
-            .data = path.ptr,
+            .len = _path.len,
+            .data = _path.ptr,
         };
         qtc.QDir_AddSearchPath(prefix_str, path_str);
     }
+
+    /// ### DEPRECATED: Use `searchPaths` instead
+    ///
+    pub const SearchPaths = searchPaths;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#searchPaths)
     ///
@@ -260,7 +320,7 @@ pub const QDir = extern struct {
     ///
     /// ` prefix: []const u8 `
     ///
-    pub fn SearchPaths(allocator: std.mem.Allocator, prefix: []const u8) []const []const u8 {
+    pub fn searchPaths(allocator: std.mem.Allocator, prefix: []const u8) []const []const u8 {
         const prefix_str = qtc.libqt_string{
             .len = prefix.len,
             .data = prefix.ptr,
@@ -272,15 +332,19 @@ pub const QDir = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QDir.SearchPaths: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QDir.searchPaths: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QDir.SearchPaths: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QDir.searchPaths: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `dirName` instead
+    ///
+    pub const DirName = dirName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#dirName)
     ///
@@ -290,13 +354,17 @@ pub const QDir = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DirName(self: QDir, allocator: std.mem.Allocator) []const u8 {
+    pub fn dirName(self: QDir, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDir_DirName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDir.DirName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDir.dirName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `filePath` instead
+    ///
+    pub const FilePath = filePath;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#filePath)
     ///
@@ -308,17 +376,21 @@ pub const QDir = extern struct {
     ///
     /// ` fileName: []const u8 `
     ///
-    pub fn FilePath(self: QDir, allocator: std.mem.Allocator, fileName: []const u8) []const u8 {
+    pub fn filePath(self: QDir, allocator: std.mem.Allocator, fileName: []const u8) []const u8 {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
         var _str = qtc.QDir_FilePath(@ptrCast(self.ptr), fileName_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDir.FilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDir.filePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `absoluteFilePath` instead
+    ///
+    pub const AbsoluteFilePath = absoluteFilePath;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#absoluteFilePath)
     ///
@@ -330,17 +402,21 @@ pub const QDir = extern struct {
     ///
     /// ` fileName: []const u8 `
     ///
-    pub fn AbsoluteFilePath(self: QDir, allocator: std.mem.Allocator, fileName: []const u8) []const u8 {
+    pub fn absoluteFilePath(self: QDir, allocator: std.mem.Allocator, fileName: []const u8) []const u8 {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
         var _str = qtc.QDir_AbsoluteFilePath(@ptrCast(self.ptr), fileName_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDir.AbsoluteFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDir.absoluteFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `relativeFilePath` instead
+    ///
+    pub const RelativeFilePath = relativeFilePath;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#relativeFilePath)
     ///
@@ -352,17 +428,21 @@ pub const QDir = extern struct {
     ///
     /// ` fileName: []const u8 `
     ///
-    pub fn RelativeFilePath(self: QDir, allocator: std.mem.Allocator, fileName: []const u8) []const u8 {
+    pub fn relativeFilePath(self: QDir, allocator: std.mem.Allocator, fileName: []const u8) []const u8 {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
         var _str = qtc.QDir_RelativeFilePath(@ptrCast(self.ptr), fileName_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDir.RelativeFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDir.relativeFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `toNativeSeparators` instead
+    ///
+    pub const ToNativeSeparators = toNativeSeparators;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#toNativeSeparators)
     ///
@@ -372,17 +452,21 @@ pub const QDir = extern struct {
     ///
     /// ` pathName: []const u8 `
     ///
-    pub fn ToNativeSeparators(allocator: std.mem.Allocator, pathName: []const u8) []const u8 {
+    pub fn toNativeSeparators(allocator: std.mem.Allocator, pathName: []const u8) []const u8 {
         const pathName_str = qtc.libqt_string{
             .len = pathName.len,
             .data = pathName.ptr,
         };
         var _str = qtc.QDir_ToNativeSeparators(pathName_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDir.ToNativeSeparators: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDir.toNativeSeparators: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `fromNativeSeparators` instead
+    ///
+    pub const FromNativeSeparators = fromNativeSeparators;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#fromNativeSeparators)
     ///
@@ -392,17 +476,21 @@ pub const QDir = extern struct {
     ///
     /// ` pathName: []const u8 `
     ///
-    pub fn FromNativeSeparators(allocator: std.mem.Allocator, pathName: []const u8) []const u8 {
+    pub fn fromNativeSeparators(allocator: std.mem.Allocator, pathName: []const u8) []const u8 {
         const pathName_str = qtc.libqt_string{
             .len = pathName.len,
             .data = pathName.ptr,
         };
         var _str = qtc.QDir_FromNativeSeparators(pathName_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDir.FromNativeSeparators: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDir.fromNativeSeparators: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `cd` instead
+    ///
+    pub const Cd = cd;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#cd)
     ///
@@ -410,15 +498,19 @@ pub const QDir = extern struct {
     ///
     /// ` self: QDir `
     ///
-    /// ` dirName: []const u8 `
+    /// ` _dirName: []const u8 `
     ///
-    pub fn Cd(self: QDir, dirName: []const u8) bool {
+    pub fn cd(self: QDir, _dirName: []const u8) bool {
         const dirName_str = qtc.libqt_string{
-            .len = dirName.len,
-            .data = dirName.ptr,
+            .len = _dirName.len,
+            .data = _dirName.ptr,
         };
         return qtc.QDir_Cd(@ptrCast(self.ptr), dirName_str);
     }
+
+    /// ### DEPRECATED: Use `cdUp` instead
+    ///
+    pub const CdUp = cdUp;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#cdUp)
     ///
@@ -426,9 +518,13 @@ pub const QDir = extern struct {
     ///
     /// ` self: QDir `
     ///
-    pub fn CdUp(self: QDir) bool {
+    pub fn cdUp(self: QDir) bool {
         return qtc.QDir_CdUp(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `nameFilters` instead
+    ///
+    pub const NameFilters = nameFilters;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#nameFilters)
     ///
@@ -438,7 +534,7 @@ pub const QDir = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NameFilters(self: QDir, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn nameFilters(self: QDir, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QDir_NameFilters(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -446,15 +542,19 @@ pub const QDir = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QDir.NameFilters: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QDir.nameFilters: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QDir.NameFilters: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QDir.nameFilters: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setNameFilters` instead
+    ///
+    pub const SetNameFilters = setNameFilters;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#setNameFilters)
     ///
@@ -464,22 +564,26 @@ pub const QDir = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` nameFilters: []const []const u8 `
+    /// ` _nameFilters: []const []const u8 `
     ///
-    pub fn SetNameFilters(self: QDir, allocator: std.mem.Allocator, nameFilters: []const []const u8) void {
-        const nameFilters_arr = allocator.alloc(qtc.libqt_string, nameFilters.len) catch @panic("QDir.SetNameFilters: Memory allocation failed");
+    pub fn setNameFilters(self: QDir, allocator: std.mem.Allocator, _nameFilters: []const []const u8) void {
+        const nameFilters_arr = allocator.alloc(qtc.libqt_string, _nameFilters.len) catch @panic("QDir.setNameFilters: Memory allocation failed");
         defer allocator.free(nameFilters_arr);
-        for (nameFilters, 0..nameFilters.len) |item, i|
+        for (_nameFilters, 0.._nameFilters.len) |str_item, i|
             nameFilters_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const nameFilters_list = qtc.libqt_list{
-            .len = nameFilters.len,
+            .len = _nameFilters.len,
             .data = nameFilters_arr.ptr,
         };
         qtc.QDir_SetNameFilters(@ptrCast(self.ptr), nameFilters_list);
     }
+
+    /// ### DEPRECATED: Use `filter` instead
+    ///
+    pub const Filter = filter;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#filter)
     ///
@@ -491,9 +595,13 @@ pub const QDir = extern struct {
     ///
     /// ` flag of qdir_enums.Filter `
     ///
-    pub fn Filter(self: QDir) i32 {
+    pub fn filter(self: QDir) i32 {
         return qtc.QDir_Filter(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFilter` instead
+    ///
+    pub const SetFilter = setFilter;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#setFilter)
     ///
@@ -501,11 +609,15 @@ pub const QDir = extern struct {
     ///
     /// ` self: QDir `
     ///
-    /// ` filter: flag of qdir_enums.Filter `
+    /// ` _filter: flag of qdir_enums.Filter `
     ///
-    pub fn SetFilter(self: QDir, filter: i32) void {
-        qtc.QDir_SetFilter(@ptrCast(self.ptr), @bitCast(filter));
+    pub fn setFilter(self: QDir, _filter: i32) void {
+        qtc.QDir_SetFilter(@ptrCast(self.ptr), @bitCast(_filter));
     }
+
+    /// ### DEPRECATED: Use `sorting` instead
+    ///
+    pub const Sorting = sorting;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#sorting)
     ///
@@ -517,9 +629,13 @@ pub const QDir = extern struct {
     ///
     /// ` flag of qdir_enums.SortFlag `
     ///
-    pub fn Sorting(self: QDir) i32 {
+    pub fn sorting(self: QDir) i32 {
         return qtc.QDir_Sorting(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSorting` instead
+    ///
+    pub const SetSorting = setSorting;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#setSorting)
     ///
@@ -529,9 +645,13 @@ pub const QDir = extern struct {
     ///
     /// ` sort: flag of qdir_enums.SortFlag `
     ///
-    pub fn SetSorting(self: QDir, sort: i32) void {
+    pub fn setSorting(self: QDir, sort: i32) void {
         qtc.QDir_SetSorting(@ptrCast(self.ptr), @bitCast(sort));
     }
+
+    /// ### DEPRECATED: Use `count` instead
+    ///
+    pub const Count = count;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#count)
     ///
@@ -539,9 +659,13 @@ pub const QDir = extern struct {
     ///
     /// ` self: QDir `
     ///
-    pub fn Count(self: QDir) isize {
+    pub fn count(self: QDir) isize {
         return qtc.QDir_Count(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEmpty` instead
+    ///
+    pub const IsEmpty = isEmpty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#isEmpty)
     ///
@@ -549,9 +673,13 @@ pub const QDir = extern struct {
     ///
     /// ` self: QDir `
     ///
-    pub fn IsEmpty(self: QDir) bool {
+    pub fn isEmpty(self: QDir) bool {
         return qtc.QDir_IsEmpty(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorSubscript` instead
+    ///
+    pub const OperatorSubscript = operatorSubscript;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#operator-5b-5d)
     ///
@@ -563,13 +691,17 @@ pub const QDir = extern struct {
     ///
     /// ` param1: isize `
     ///
-    pub fn OperatorSubscript(self: QDir, allocator: std.mem.Allocator, param1: isize) []const u8 {
+    pub fn operatorSubscript(self: QDir, allocator: std.mem.Allocator, param1: isize) []const u8 {
         var _str = qtc.QDir_OperatorSubscript(@ptrCast(self.ptr), @bitCast(param1));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDir.OperatorSubscript: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDir.operatorSubscript: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `nameFiltersFromString` instead
+    ///
+    pub const NameFiltersFromString = nameFiltersFromString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#nameFiltersFromString)
     ///
@@ -579,7 +711,7 @@ pub const QDir = extern struct {
     ///
     /// ` nameFilter: []const u8 `
     ///
-    pub fn NameFiltersFromString(allocator: std.mem.Allocator, nameFilter: []const u8) []const []const u8 {
+    pub fn nameFiltersFromString(allocator: std.mem.Allocator, nameFilter: []const u8) []const []const u8 {
         const nameFilter_str = qtc.libqt_string{
             .len = nameFilter.len,
             .data = nameFilter.ptr,
@@ -591,15 +723,19 @@ pub const QDir = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QDir.NameFiltersFromString: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QDir.nameFiltersFromString: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QDir.NameFiltersFromString: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QDir.nameFiltersFromString: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `entryList` instead
+    ///
+    pub const EntryList = entryList;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#entryList)
     ///
@@ -609,7 +745,7 @@ pub const QDir = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn EntryList(self: QDir, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn entryList(self: QDir, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QDir_EntryList(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -617,15 +753,19 @@ pub const QDir = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QDir.EntryList: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QDir.entryList: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QDir.EntryList: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QDir.entryList: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `entryList2` instead
+    ///
+    pub const EntryList2 = entryList2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#entryList)
     ///
@@ -635,18 +775,18 @@ pub const QDir = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` nameFilters: []const []const u8 `
+    /// ` _nameFilters: []const []const u8 `
     ///
-    pub fn EntryList2(self: QDir, allocator: std.mem.Allocator, nameFilters: []const []const u8) []const []const u8 {
-        const nameFilters_arr = allocator.alloc(qtc.libqt_string, nameFilters.len) catch @panic("QDir.EntryList2: Memory allocation failed");
+    pub fn entryList2(self: QDir, allocator: std.mem.Allocator, _nameFilters: []const []const u8) []const []const u8 {
+        const nameFilters_arr = allocator.alloc(qtc.libqt_string, _nameFilters.len) catch @panic("QDir.entryList2: Memory allocation failed");
         defer allocator.free(nameFilters_arr);
-        for (nameFilters, 0..nameFilters.len) |item, i|
+        for (_nameFilters, 0.._nameFilters.len) |str_item, i|
             nameFilters_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const nameFilters_list = qtc.libqt_list{
-            .len = nameFilters.len,
+            .len = _nameFilters.len,
             .data = nameFilters_arr.ptr,
         };
         const _arr: qtc.libqt_list = qtc.QDir_EntryList2(@ptrCast(self.ptr), nameFilters_list);
@@ -656,33 +796,19 @@ pub const QDir = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QDir.EntryList2: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QDir.entryList2: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QDir.EntryList2: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QDir.entryList2: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#entryInfoList)
+    /// ### DEPRECATED: Use `entryInfoList` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDir `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn EntryInfoList(self: QDir, allocator: std.mem.Allocator) []QFileInfo {
-        const _arr: qtc.libqt_list = qtc.QDir_EntryInfoList(@ptrCast(self.ptr));
-        defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QFileInfo, _arr.len) catch @panic("QDir.EntryInfoList: Memory allocation failed");
-        const _data: [*]QtC.QFileInfo = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
-        return _ret;
-    }
+    pub const EntryInfoList = entryInfoList;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#entryInfoList)
     ///
@@ -692,28 +818,54 @@ pub const QDir = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` nameFilters: []const []const u8 `
+    pub fn entryInfoList(self: QDir, allocator: std.mem.Allocator) []QFileInfo {
+        const _arr: qtc.libqt_list = qtc.QDir_EntryInfoList(@ptrCast(self.ptr));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QFileInfo, _arr.len) catch @panic("QDir.entryInfoList: Memory allocation failed");
+        const _data_val: [*]QtC.QFileInfo = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
+        return _ret;
+    }
+
+    /// ### DEPRECATED: Use `entryInfoList2` instead
     ///
-    pub fn EntryInfoList2(self: QDir, allocator: std.mem.Allocator, nameFilters: []const []const u8) []QFileInfo {
-        const nameFilters_arr = allocator.alloc(qtc.libqt_string, nameFilters.len) catch @panic("QDir.EntryInfoList2: Memory allocation failed");
+    pub const EntryInfoList2 = entryInfoList2;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#entryInfoList)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QDir `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` _nameFilters: []const []const u8 `
+    ///
+    pub fn entryInfoList2(self: QDir, allocator: std.mem.Allocator, _nameFilters: []const []const u8) []QFileInfo {
+        const nameFilters_arr = allocator.alloc(qtc.libqt_string, _nameFilters.len) catch @panic("QDir.entryInfoList2: Memory allocation failed");
         defer allocator.free(nameFilters_arr);
-        for (nameFilters, 0..nameFilters.len) |item, i|
+        for (_nameFilters, 0.._nameFilters.len) |str_item, i|
             nameFilters_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const nameFilters_list = qtc.libqt_list{
-            .len = nameFilters.len,
+            .len = _nameFilters.len,
             .data = nameFilters_arr.ptr,
         };
         const _arr: qtc.libqt_list = qtc.QDir_EntryInfoList2(@ptrCast(self.ptr), nameFilters_list);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QFileInfo, _arr.len) catch @panic("QDir.EntryInfoList2: Memory allocation failed");
-        const _data: [*]QtC.QFileInfo = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QFileInfo, _arr.len) catch @panic("QDir.entryInfoList2: Memory allocation failed");
+        const _data_val: [*]QtC.QFileInfo = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `mkdir` instead
+    ///
+    pub const Mkdir = mkdir;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#mkdir)
     ///
@@ -721,33 +873,41 @@ pub const QDir = extern struct {
     ///
     /// ` self: QDir `
     ///
-    /// ` dirName: []const u8 `
+    /// ` _dirName: []const u8 `
     ///
-    pub fn Mkdir(self: QDir, dirName: []const u8) bool {
+    pub fn mkdir(self: QDir, _dirName: []const u8) bool {
         const dirName_str = qtc.libqt_string{
-            .len = dirName.len,
-            .data = dirName.ptr,
+            .len = _dirName.len,
+            .data = _dirName.ptr,
         };
         return qtc.QDir_Mkdir(@ptrCast(self.ptr), dirName_str);
     }
 
+    /// ### DEPRECATED: Use `mkdir2` instead
+    ///
+    pub const Mkdir2 = mkdir2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#mkdir)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QDir `
     ///
-    /// ` dirName: []const u8 `
+    /// ` _dirName: []const u8 `
     ///
     /// ` permissions: flag of qfiledevice_enums.Permission `
     ///
-    pub fn Mkdir2(self: QDir, dirName: []const u8, permissions: i32) bool {
+    pub fn mkdir2(self: QDir, _dirName: []const u8, permissions: i32) bool {
         const dirName_str = qtc.libqt_string{
-            .len = dirName.len,
-            .data = dirName.ptr,
+            .len = _dirName.len,
+            .data = _dirName.ptr,
         };
         return qtc.QDir_Mkdir2(@ptrCast(self.ptr), dirName_str, @bitCast(permissions));
     }
+
+    /// ### DEPRECATED: Use `rmdir` instead
+    ///
+    pub const Rmdir = rmdir;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#rmdir)
     ///
@@ -755,15 +915,19 @@ pub const QDir = extern struct {
     ///
     /// ` self: QDir `
     ///
-    /// ` dirName: []const u8 `
+    /// ` _dirName: []const u8 `
     ///
-    pub fn Rmdir(self: QDir, dirName: []const u8) bool {
+    pub fn rmdir(self: QDir, _dirName: []const u8) bool {
         const dirName_str = qtc.libqt_string{
-            .len = dirName.len,
-            .data = dirName.ptr,
+            .len = _dirName.len,
+            .data = _dirName.ptr,
         };
         return qtc.QDir_Rmdir(@ptrCast(self.ptr), dirName_str);
     }
+
+    /// ### DEPRECATED: Use `mkpath` instead
+    ///
+    pub const Mkpath = mkpath;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#mkpath)
     ///
@@ -773,13 +937,17 @@ pub const QDir = extern struct {
     ///
     /// ` dirPath: []const u8 `
     ///
-    pub fn Mkpath(self: QDir, dirPath: []const u8) bool {
+    pub fn mkpath(self: QDir, dirPath: []const u8) bool {
         const dirPath_str = qtc.libqt_string{
             .len = dirPath.len,
             .data = dirPath.ptr,
         };
         return qtc.QDir_Mkpath(@ptrCast(self.ptr), dirPath_str);
     }
+
+    /// ### DEPRECATED: Use `rmpath` instead
+    ///
+    pub const Rmpath = rmpath;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#rmpath)
     ///
@@ -789,7 +957,7 @@ pub const QDir = extern struct {
     ///
     /// ` dirPath: []const u8 `
     ///
-    pub fn Rmpath(self: QDir, dirPath: []const u8) bool {
+    pub fn rmpath(self: QDir, dirPath: []const u8) bool {
         const dirPath_str = qtc.libqt_string{
             .len = dirPath.len,
             .data = dirPath.ptr,
@@ -797,15 +965,23 @@ pub const QDir = extern struct {
         return qtc.QDir_Rmpath(@ptrCast(self.ptr), dirPath_str);
     }
 
+    /// ### DEPRECATED: Use `removeRecursively` instead
+    ///
+    pub const RemoveRecursively = removeRecursively;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#removeRecursively)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QDir `
     ///
-    pub fn RemoveRecursively(self: QDir) bool {
+    pub fn removeRecursively(self: QDir) bool {
         return qtc.QDir_RemoveRecursively(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isReadable` instead
+    ///
+    pub const IsReadable = isReadable;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#isReadable)
     ///
@@ -813,9 +989,13 @@ pub const QDir = extern struct {
     ///
     /// ` self: QDir `
     ///
-    pub fn IsReadable(self: QDir) bool {
+    pub fn isReadable(self: QDir) bool {
         return qtc.QDir_IsReadable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `exists` instead
+    ///
+    pub const Exists = exists;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#exists)
     ///
@@ -823,9 +1003,13 @@ pub const QDir = extern struct {
     ///
     /// ` self: QDir `
     ///
-    pub fn Exists(self: QDir) bool {
+    pub fn exists(self: QDir) bool {
         return qtc.QDir_Exists(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRoot` instead
+    ///
+    pub const IsRoot = isRoot;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#isRoot)
     ///
@@ -833,37 +1017,49 @@ pub const QDir = extern struct {
     ///
     /// ` self: QDir `
     ///
-    pub fn IsRoot(self: QDir) bool {
+    pub fn isRoot(self: QDir) bool {
         return qtc.QDir_IsRoot(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRelativePath` instead
+    ///
+    pub const IsRelativePath = isRelativePath;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#isRelativePath)
     ///
     /// ## Parameter(s):
     ///
-    /// ` path: []const u8 `
+    /// ` _path: []const u8 `
     ///
-    pub fn IsRelativePath(path: []const u8) bool {
+    pub fn isRelativePath(_path: []const u8) bool {
         const path_str = qtc.libqt_string{
-            .len = path.len,
-            .data = path.ptr,
+            .len = _path.len,
+            .data = _path.ptr,
         };
         return qtc.QDir_IsRelativePath(path_str);
     }
+
+    /// ### DEPRECATED: Use `isAbsolutePath` instead
+    ///
+    pub const IsAbsolutePath = isAbsolutePath;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#isAbsolutePath)
     ///
     /// ## Parameter(s):
     ///
-    /// ` path: []const u8 `
+    /// ` _path: []const u8 `
     ///
-    pub fn IsAbsolutePath(path: []const u8) bool {
+    pub fn isAbsolutePath(_path: []const u8) bool {
         const path_str = qtc.libqt_string{
-            .len = path.len,
-            .data = path.ptr,
+            .len = _path.len,
+            .data = _path.ptr,
         };
         return qtc.QDir_IsAbsolutePath(path_str);
     }
+
+    /// ### DEPRECATED: Use `isRelative` instead
+    ///
+    pub const IsRelative = isRelative;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#isRelative)
     ///
@@ -871,9 +1067,13 @@ pub const QDir = extern struct {
     ///
     /// ` self: QDir `
     ///
-    pub fn IsRelative(self: QDir) bool {
+    pub fn isRelative(self: QDir) bool {
         return qtc.QDir_IsRelative(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAbsolute` instead
+    ///
+    pub const IsAbsolute = isAbsolute;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#isAbsolute)
     ///
@@ -881,9 +1081,13 @@ pub const QDir = extern struct {
     ///
     /// ` self: QDir `
     ///
-    pub fn IsAbsolute(self: QDir) bool {
+    pub fn isAbsolute(self: QDir) bool {
         return qtc.QDir_IsAbsolute(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `makeAbsolute` instead
+    ///
+    pub const MakeAbsolute = makeAbsolute;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#makeAbsolute)
     ///
@@ -891,9 +1095,13 @@ pub const QDir = extern struct {
     ///
     /// ` self: QDir `
     ///
-    pub fn MakeAbsolute(self: QDir) bool {
+    pub fn makeAbsolute(self: QDir) bool {
         return qtc.QDir_MakeAbsolute(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `remove` instead
+    ///
+    pub const Remove = remove;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#remove)
     ///
@@ -903,13 +1111,17 @@ pub const QDir = extern struct {
     ///
     /// ` fileName: []const u8 `
     ///
-    pub fn Remove(self: QDir, fileName: []const u8) bool {
+    pub fn remove(self: QDir, fileName: []const u8) bool {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
         return qtc.QDir_Remove(@ptrCast(self.ptr), fileName_str);
     }
+
+    /// ### DEPRECATED: Use `rename` instead
+    ///
+    pub const Rename = rename;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#rename)
     ///
@@ -921,7 +1133,7 @@ pub const QDir = extern struct {
     ///
     /// ` newName: []const u8 `
     ///
-    pub fn Rename(self: QDir, oldName: []const u8, newName: []const u8) bool {
+    pub fn rename(self: QDir, oldName: []const u8, newName: []const u8) bool {
         const oldName_str = qtc.libqt_string{
             .len = oldName.len,
             .data = oldName.ptr,
@@ -933,6 +1145,10 @@ pub const QDir = extern struct {
         return qtc.QDir_Rename(@ptrCast(self.ptr), oldName_str, newName_str);
     }
 
+    /// ### DEPRECATED: Use `exists2` instead
+    ///
+    pub const Exists2 = exists2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#exists)
     ///
     /// ## Parameter(s):
@@ -941,7 +1157,7 @@ pub const QDir = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn Exists2(self: QDir, name: []const u8) bool {
+    pub fn exists2(self: QDir, name: []const u8) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -949,53 +1165,77 @@ pub const QDir = extern struct {
         return qtc.QDir_Exists2(@ptrCast(self.ptr), name_str);
     }
 
+    /// ### DEPRECATED: Use `drives` instead
+    ///
+    pub const Drives = drives;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#drives)
     ///
     /// ## Parameter(s):
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Drives(allocator: std.mem.Allocator) []QFileInfo {
+    pub fn drives(allocator: std.mem.Allocator) []QFileInfo {
         const _arr: qtc.libqt_list = qtc.QDir_Drives();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QFileInfo, _arr.len) catch @panic("QDir.Drives: Memory allocation failed");
-        const _data: [*]QtC.QFileInfo = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QFileInfo, _arr.len) catch @panic("QDir.drives: Memory allocation failed");
+        const _data_val: [*]QtC.QFileInfo = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `listSeparator` instead
+    ///
+    pub const ListSeparator = listSeparator;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#listSeparator)
     ///
-    pub fn ListSeparator() QChar {
+    pub fn listSeparator() QChar {
         return .{ .ptr = qtc.QDir_ListSeparator() };
     }
 
+    /// ### DEPRECATED: Use `separator` instead
+    ///
+    pub const Separator = separator;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#separator)
     ///
-    pub fn Separator() QChar {
+    pub fn separator() QChar {
         return .{ .ptr = qtc.QDir_Separator() };
     }
+
+    /// ### DEPRECATED: Use `setCurrent` instead
+    ///
+    pub const SetCurrent = setCurrent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#setCurrent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` path: []const u8 `
+    /// ` _path: []const u8 `
     ///
-    pub fn SetCurrent(path: []const u8) bool {
+    pub fn setCurrent(_path: []const u8) bool {
         const path_str = qtc.libqt_string{
-            .len = path.len,
-            .data = path.ptr,
+            .len = _path.len,
+            .data = _path.ptr,
         };
         return qtc.QDir_SetCurrent(path_str);
     }
 
+    /// ### DEPRECATED: Use `current` instead
+    ///
+    pub const Current = current;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#current)
     ///
-    pub fn Current() QDir {
+    pub fn current() QDir {
         return .{ .ptr = qtc.QDir_Current() };
     }
+
+    /// ### DEPRECATED: Use `currentPath` instead
+    ///
+    pub const CurrentPath = currentPath;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#currentPath)
     ///
@@ -1003,19 +1243,27 @@ pub const QDir = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CurrentPath(allocator: std.mem.Allocator) []const u8 {
+    pub fn currentPath(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDir_CurrentPath();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDir.CurrentPath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDir.currentPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `home` instead
+    ///
+    pub const Home = home;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#home)
     ///
-    pub fn Home() QDir {
+    pub fn home() QDir {
         return .{ .ptr = qtc.QDir_Home() };
     }
+
+    /// ### DEPRECATED: Use `homePath` instead
+    ///
+    pub const HomePath = homePath;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#homePath)
     ///
@@ -1023,19 +1271,27 @@ pub const QDir = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn HomePath(allocator: std.mem.Allocator) []const u8 {
+    pub fn homePath(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDir_HomePath();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDir.HomePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDir.homePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `root` instead
+    ///
+    pub const Root = root;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#root)
     ///
-    pub fn Root() QDir {
+    pub fn root() QDir {
         return .{ .ptr = qtc.QDir_Root() };
     }
+
+    /// ### DEPRECATED: Use `rootPath` instead
+    ///
+    pub const RootPath = rootPath;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#rootPath)
     ///
@@ -1043,19 +1299,27 @@ pub const QDir = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn RootPath(allocator: std.mem.Allocator) []const u8 {
+    pub fn rootPath(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDir_RootPath();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDir.RootPath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDir.rootPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `temp` instead
+    ///
+    pub const Temp = temp;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#temp)
     ///
-    pub fn Temp() QDir {
+    pub fn temp() QDir {
         return .{ .ptr = qtc.QDir_Temp() };
     }
+
+    /// ### DEPRECATED: Use `tempPath` instead
+    ///
+    pub const TempPath = tempPath;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#tempPath)
     ///
@@ -1063,13 +1327,17 @@ pub const QDir = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TempPath(allocator: std.mem.Allocator) []const u8 {
+    pub fn tempPath(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDir_TempPath();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDir.TempPath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDir.tempPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `match` instead
+    ///
+    pub const Match = match;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#match)
     ///
@@ -1081,13 +1349,13 @@ pub const QDir = extern struct {
     ///
     /// ` fileName: []const u8 `
     ///
-    pub fn Match(allocator: std.mem.Allocator, filters: []const []const u8, fileName: []const u8) bool {
-        const filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("QDir.Match: Memory allocation failed");
+    pub fn match(allocator: std.mem.Allocator, filters: []const []const u8, fileName: []const u8) bool {
+        const filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("QDir.match: Memory allocation failed");
         defer allocator.free(filters_arr);
-        for (filters, 0..filters.len) |item, i|
+        for (filters, 0..filters.len) |str_item, i|
             filters_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const filters_list = qtc.libqt_list{
             .len = filters.len,
@@ -1100,18 +1368,22 @@ pub const QDir = extern struct {
         return qtc.QDir_Match(filters_list, fileName_str);
     }
 
+    /// ### DEPRECATED: Use `match2` instead
+    ///
+    pub const Match2 = match2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#match)
     ///
     /// ## Parameter(s):
     ///
-    /// ` filter: []const u8 `
+    /// ` _filter: []const u8 `
     ///
     /// ` fileName: []const u8 `
     ///
-    pub fn Match2(filter: []const u8, fileName: []const u8) bool {
+    pub fn match2(_filter: []const u8, fileName: []const u8) bool {
         const filter_str = qtc.libqt_string{
-            .len = filter.len,
-            .data = filter.ptr,
+            .len = _filter.len,
+            .data = _filter.ptr,
         };
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
@@ -1120,25 +1392,33 @@ pub const QDir = extern struct {
         return qtc.QDir_Match2(filter_str, fileName_str);
     }
 
+    /// ### DEPRECATED: Use `cleanPath` instead
+    ///
+    pub const CleanPath = cleanPath;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#cleanPath)
     ///
     /// ## Parameter(s):
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` path: []const u8 `
+    /// ` _path: []const u8 `
     ///
-    pub fn CleanPath(allocator: std.mem.Allocator, path: []const u8) []const u8 {
+    pub fn cleanPath(allocator: std.mem.Allocator, _path: []const u8) []const u8 {
         const path_str = qtc.libqt_string{
-            .len = path.len,
-            .data = path.ptr,
+            .len = _path.len,
+            .data = _path.ptr,
         };
         var _str = qtc.QDir_CleanPath(path_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDir.CleanPath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDir.cleanPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `refresh` instead
+    ///
+    pub const Refresh = refresh;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#refresh)
     ///
@@ -1146,9 +1426,13 @@ pub const QDir = extern struct {
     ///
     /// ` self: QDir `
     ///
-    pub fn Refresh(self: QDir) void {
+    pub fn refresh(self: QDir) void {
         qtc.QDir_Refresh(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEmpty1` instead
+    ///
+    pub const IsEmpty1 = isEmpty1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#isEmpty)
     ///
@@ -1158,9 +1442,13 @@ pub const QDir = extern struct {
     ///
     /// ` filters: flag of qdir_enums.Filter `
     ///
-    pub fn IsEmpty1(self: QDir, filters: i32) bool {
+    pub fn isEmpty1(self: QDir, filters: i32) bool {
         return qtc.QDir_IsEmpty1(@ptrCast(self.ptr), @bitCast(filters));
     }
+
+    /// ### DEPRECATED: Use `entryList1` instead
+    ///
+    pub const EntryList1 = entryList1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#entryList)
     ///
@@ -1172,7 +1460,7 @@ pub const QDir = extern struct {
     ///
     /// ` filters: flag of qdir_enums.Filter `
     ///
-    pub fn EntryList1(self: QDir, allocator: std.mem.Allocator, filters: i32) []const []const u8 {
+    pub fn entryList1(self: QDir, allocator: std.mem.Allocator, filters: i32) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QDir_EntryList1(@ptrCast(self.ptr), @bitCast(filters));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1180,15 +1468,19 @@ pub const QDir = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QDir.EntryList1: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QDir.entryList1: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QDir.EntryList1: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QDir.entryList1: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `entryList22` instead
+    ///
+    pub const EntryList22 = entryList22;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#entryList)
     ///
@@ -1202,7 +1494,7 @@ pub const QDir = extern struct {
     ///
     /// ` sort: flag of qdir_enums.SortFlag `
     ///
-    pub fn EntryList22(self: QDir, allocator: std.mem.Allocator, filters: i32, sort: i32) []const []const u8 {
+    pub fn entryList22(self: QDir, allocator: std.mem.Allocator, filters: i32, sort: i32) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QDir_EntryList22(@ptrCast(self.ptr), @bitCast(filters), @bitCast(sort));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1210,15 +1502,19 @@ pub const QDir = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QDir.EntryList22: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QDir.entryList22: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QDir.EntryList22: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QDir.entryList22: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `entryList23` instead
+    ///
+    pub const EntryList23 = entryList23;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#entryList)
     ///
@@ -1228,20 +1524,20 @@ pub const QDir = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` nameFilters: []const []const u8 `
+    /// ` _nameFilters: []const []const u8 `
     ///
     /// ` filters: flag of qdir_enums.Filter `
     ///
-    pub fn EntryList23(self: QDir, allocator: std.mem.Allocator, nameFilters: []const []const u8, filters: i32) []const []const u8 {
-        const nameFilters_arr = allocator.alloc(qtc.libqt_string, nameFilters.len) catch @panic("QDir.EntryList23: Memory allocation failed");
+    pub fn entryList23(self: QDir, allocator: std.mem.Allocator, _nameFilters: []const []const u8, filters: i32) []const []const u8 {
+        const nameFilters_arr = allocator.alloc(qtc.libqt_string, _nameFilters.len) catch @panic("QDir.entryList23: Memory allocation failed");
         defer allocator.free(nameFilters_arr);
-        for (nameFilters, 0..nameFilters.len) |item, i|
+        for (_nameFilters, 0.._nameFilters.len) |str_item, i|
             nameFilters_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const nameFilters_list = qtc.libqt_list{
-            .len = nameFilters.len,
+            .len = _nameFilters.len,
             .data = nameFilters_arr.ptr,
         };
         const _arr: qtc.libqt_list = qtc.QDir_EntryList23(@ptrCast(self.ptr), nameFilters_list, @bitCast(filters));
@@ -1251,15 +1547,19 @@ pub const QDir = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QDir.EntryList23: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QDir.entryList23: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QDir.EntryList23: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QDir.entryList23: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `entryList3` instead
+    ///
+    pub const EntryList3 = entryList3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#entryList)
     ///
@@ -1269,22 +1569,22 @@ pub const QDir = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` nameFilters: []const []const u8 `
+    /// ` _nameFilters: []const []const u8 `
     ///
     /// ` filters: flag of qdir_enums.Filter `
     ///
     /// ` sort: flag of qdir_enums.SortFlag `
     ///
-    pub fn EntryList3(self: QDir, allocator: std.mem.Allocator, nameFilters: []const []const u8, filters: i32, sort: i32) []const []const u8 {
-        const nameFilters_arr = allocator.alloc(qtc.libqt_string, nameFilters.len) catch @panic("QDir.EntryList3: Memory allocation failed");
+    pub fn entryList3(self: QDir, allocator: std.mem.Allocator, _nameFilters: []const []const u8, filters: i32, sort: i32) []const []const u8 {
+        const nameFilters_arr = allocator.alloc(qtc.libqt_string, _nameFilters.len) catch @panic("QDir.entryList3: Memory allocation failed");
         defer allocator.free(nameFilters_arr);
-        for (nameFilters, 0..nameFilters.len) |item, i|
+        for (_nameFilters, 0.._nameFilters.len) |str_item, i|
             nameFilters_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const nameFilters_list = qtc.libqt_list{
-            .len = nameFilters.len,
+            .len = _nameFilters.len,
             .data = nameFilters_arr.ptr,
         };
         const _arr: qtc.libqt_list = qtc.QDir_EntryList3(@ptrCast(self.ptr), nameFilters_list, @bitCast(filters), @bitCast(sort));
@@ -1294,16 +1594,20 @@ pub const QDir = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QDir.EntryList3: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QDir.entryList3: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QDir.EntryList3: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QDir.entryList3: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `entryInfoList1` instead
+    ///
+    pub const EntryInfoList1 = entryInfoList1;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#entryInfoList)
     ///
     /// ## Parameter(s):
@@ -1314,15 +1618,19 @@ pub const QDir = extern struct {
     ///
     /// ` filters: flag of qdir_enums.Filter `
     ///
-    pub fn EntryInfoList1(self: QDir, allocator: std.mem.Allocator, filters: i32) []QFileInfo {
+    pub fn entryInfoList1(self: QDir, allocator: std.mem.Allocator, filters: i32) []QFileInfo {
         const _arr: qtc.libqt_list = qtc.QDir_EntryInfoList1(@ptrCast(self.ptr), @bitCast(filters));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QFileInfo, _arr.len) catch @panic("QDir.EntryInfoList1: Memory allocation failed");
-        const _data: [*]QtC.QFileInfo = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QFileInfo, _arr.len) catch @panic("QDir.entryInfoList1: Memory allocation failed");
+        const _data_val: [*]QtC.QFileInfo = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `entryInfoList22` instead
+    ///
+    pub const EntryInfoList22 = entryInfoList22;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#entryInfoList)
     ///
@@ -1336,15 +1644,19 @@ pub const QDir = extern struct {
     ///
     /// ` sort: flag of qdir_enums.SortFlag `
     ///
-    pub fn EntryInfoList22(self: QDir, allocator: std.mem.Allocator, filters: i32, sort: i32) []QFileInfo {
+    pub fn entryInfoList22(self: QDir, allocator: std.mem.Allocator, filters: i32, sort: i32) []QFileInfo {
         const _arr: qtc.libqt_list = qtc.QDir_EntryInfoList22(@ptrCast(self.ptr), @bitCast(filters), @bitCast(sort));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QFileInfo, _arr.len) catch @panic("QDir.EntryInfoList22: Memory allocation failed");
-        const _data: [*]QtC.QFileInfo = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QFileInfo, _arr.len) catch @panic("QDir.entryInfoList22: Memory allocation failed");
+        const _data_val: [*]QtC.QFileInfo = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `entryInfoList23` instead
+    ///
+    pub const EntryInfoList23 = entryInfoList23;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#entryInfoList)
     ///
@@ -1354,30 +1666,34 @@ pub const QDir = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` nameFilters: []const []const u8 `
+    /// ` _nameFilters: []const []const u8 `
     ///
     /// ` filters: flag of qdir_enums.Filter `
     ///
-    pub fn EntryInfoList23(self: QDir, allocator: std.mem.Allocator, nameFilters: []const []const u8, filters: i32) []QFileInfo {
-        const nameFilters_arr = allocator.alloc(qtc.libqt_string, nameFilters.len) catch @panic("QDir.EntryInfoList23: Memory allocation failed");
+    pub fn entryInfoList23(self: QDir, allocator: std.mem.Allocator, _nameFilters: []const []const u8, filters: i32) []QFileInfo {
+        const nameFilters_arr = allocator.alloc(qtc.libqt_string, _nameFilters.len) catch @panic("QDir.entryInfoList23: Memory allocation failed");
         defer allocator.free(nameFilters_arr);
-        for (nameFilters, 0..nameFilters.len) |item, i|
+        for (_nameFilters, 0.._nameFilters.len) |str_item, i|
             nameFilters_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const nameFilters_list = qtc.libqt_list{
-            .len = nameFilters.len,
+            .len = _nameFilters.len,
             .data = nameFilters_arr.ptr,
         };
         const _arr: qtc.libqt_list = qtc.QDir_EntryInfoList23(@ptrCast(self.ptr), nameFilters_list, @bitCast(filters));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QFileInfo, _arr.len) catch @panic("QDir.EntryInfoList23: Memory allocation failed");
-        const _data: [*]QtC.QFileInfo = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QFileInfo, _arr.len) catch @panic("QDir.entryInfoList23: Memory allocation failed");
+        const _data_val: [*]QtC.QFileInfo = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `entryInfoList3` instead
+    ///
+    pub const EntryInfoList3 = entryInfoList3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#entryInfoList)
     ///
@@ -1387,46 +1703,46 @@ pub const QDir = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` nameFilters: []const []const u8 `
+    /// ` _nameFilters: []const []const u8 `
     ///
     /// ` filters: flag of qdir_enums.Filter `
     ///
     /// ` sort: flag of qdir_enums.SortFlag `
     ///
-    pub fn EntryInfoList3(self: QDir, allocator: std.mem.Allocator, nameFilters: []const []const u8, filters: i32, sort: i32) []QFileInfo {
-        const nameFilters_arr = allocator.alloc(qtc.libqt_string, nameFilters.len) catch @panic("QDir.EntryInfoList3: Memory allocation failed");
+    pub fn entryInfoList3(self: QDir, allocator: std.mem.Allocator, _nameFilters: []const []const u8, filters: i32, sort: i32) []QFileInfo {
+        const nameFilters_arr = allocator.alloc(qtc.libqt_string, _nameFilters.len) catch @panic("QDir.entryInfoList3: Memory allocation failed");
         defer allocator.free(nameFilters_arr);
-        for (nameFilters, 0..nameFilters.len) |item, i|
+        for (_nameFilters, 0.._nameFilters.len) |str_item, i|
             nameFilters_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const nameFilters_list = qtc.libqt_list{
-            .len = nameFilters.len,
+            .len = _nameFilters.len,
             .data = nameFilters_arr.ptr,
         };
         const _arr: qtc.libqt_list = qtc.QDir_EntryInfoList3(@ptrCast(self.ptr), nameFilters_list, @bitCast(filters), @bitCast(sort));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QFileInfo, _arr.len) catch @panic("QDir.EntryInfoList3: Memory allocation failed");
-        const _data: [*]QtC.QFileInfo = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QFileInfo, _arr.len) catch @panic("QDir.entryInfoList3: Memory allocation failed");
+        const _data_val: [*]QtC.QFileInfo = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#dtor.QDir)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDir `
     ///
-    pub fn Delete(self: QDir) void {
+    pub fn delete(self: QDir) void {
         qtc.QDir_Delete(@ptrCast(self.ptr));
     }
 };

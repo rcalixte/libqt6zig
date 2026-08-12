@@ -11,29 +11,40 @@ pub const LayerShellQt__Shell = extern struct {
 
     pub const _is_LayerShellQt__Shell = {};
 
-    /// New constructs a new LayerShellQt::Shell object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new LayerShellQt::Shell object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: LayerShellQt__Shell `
     ///
-    pub fn New(other: anytype) LayerShellQt__Shell {
+    pub fn new(other: anytype) LayerShellQt__Shell {
         comptime _ = @TypeOf(other)._is_LayerShellQt__Shell;
         return .{ .ptr = qtc.LayerShellQt__Shell_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new LayerShellQt::Shell object and invalidates the source LayerShellQt::Shell object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new LayerShellQt::Shell object and invalidate the source LayerShellQt::Shell object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: LayerShellQt__Shell `
     ///
-    pub fn New2(other: anytype) LayerShellQt__Shell {
+    pub fn new2(other: anytype) LayerShellQt__Shell {
         comptime _ = @TypeOf(other)._is_LayerShellQt__Shell;
         return .{ .ptr = qtc.LayerShellQt__Shell_new2(@ptrCast(other.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -41,11 +52,14 @@ pub const LayerShellQt__Shell = extern struct {
     ///
     /// ` other: LayerShellQt__Shell `
     ///
-    pub fn CopyAssign(self: LayerShellQt__Shell, other: LayerShellQt__Shell) void {
+    pub fn copyAssign(self: LayerShellQt__Shell, other: LayerShellQt__Shell) void {
         qtc.LayerShellQt__Shell_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -53,29 +67,33 @@ pub const LayerShellQt__Shell = extern struct {
     ///
     /// ` other: LayerShellQt__Shell `
     ///
-    pub fn MoveAssign(self: LayerShellQt__Shell, other: LayerShellQt__Shell) void {
+    pub fn moveAssign(self: LayerShellQt__Shell, other: LayerShellQt__Shell) void {
         qtc.LayerShellQt__Shell_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
+    /// ### DEPRECATED: Use `useLayerShell` instead
+    ///
+    pub const UseLayerShell = useLayerShell;
+
     /// ### [Upstream resources](https://invent.kde.org/plasma/layer-shell-qt)
     ///
-    pub fn UseLayerShell() void {
+    pub fn useLayerShell() void {
         qtc.LayerShellQt__Shell_UseLayerShell();
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://invent.kde.org/plasma/layer-shell-qt)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: LayerShellQt__Shell `
     ///
-    pub fn Delete(self: LayerShellQt__Shell) void {
+    pub fn delete(self: LayerShellQt__Shell) void {
         qtc.LayerShellQt__Shell_Delete(@ptrCast(self.ptr));
     }
 };

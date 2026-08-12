@@ -56,27 +56,41 @@ pub const KTextEditor__Mark = extern struct {
 
     pub const _is_KTextEditor__Mark = {};
 
+    /// ### DEPRECATED: Use `line` instead
+    ///
+    pub const Line = line;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-mark.html#line-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__Mark `
     ///
-    pub fn Line(self: KTextEditor__Mark) i32 {
+    pub fn line(self: KTextEditor__Mark) i32 {
         return qtc.KTextEditor__Mark_Line(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setLine` instead
+    ///
+    pub const SetLine = setLine;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-mark.html#line-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__Mark `
     ///
-    /// ` line: i32 `
+    /// ` _line: i32 `
     ///
-    pub fn SetLine(self: KTextEditor__Mark, line: i32) void {
-        qtc.KTextEditor__Mark_SetLine(@ptrCast(self.ptr), @bitCast(line));
+    pub fn setLine(self: KTextEditor__Mark, _line: i32) void {
+        qtc.KTextEditor__Mark_SetLine(@ptrCast(self.ptr), @bitCast(_line));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-mark.html#type-var)
     ///
@@ -84,33 +98,37 @@ pub const KTextEditor__Mark = extern struct {
     ///
     /// ` self: KTextEditor__Mark `
     ///
-    pub fn Type(self: KTextEditor__Mark) u32 {
+    pub fn type0(self: KTextEditor__Mark) u32 {
         return qtc.KTextEditor__Mark_Type(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setType` instead
+    ///
+    pub const SetType = setType;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-mark.html#type-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__Mark `
     ///
-    /// ` type: u32 `
+    /// ` _type: u32 `
     ///
-    pub fn SetType(self: KTextEditor__Mark, _type: u32) void {
+    pub fn setType(self: KTextEditor__Mark, _type: u32) void {
         qtc.KTextEditor__Mark_SetType(@ptrCast(self.ptr), @bitCast(_type));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KTextEditor__Mark `
     ///
-    pub fn Delete(self: KTextEditor__Mark) void {
+    pub fn delete(self: KTextEditor__Mark) void {
         qtc.KTextEditor__Mark_Delete(@ptrCast(self.ptr));
     }
 };
@@ -131,15 +149,23 @@ pub const KTextEditor__Document = extern struct {
     pub const _is_KParts__PartBase = {};
     pub const _is_KXMLGUIClient = {};
 
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn MetaObject(self: KTextEditor__Document) QMetaObject {
+    pub fn metaObject(self: KTextEditor__Document) QMetaObject {
         return .{ .ptr = qtc.KTextEditor__Document_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -147,10 +173,14 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KTextEditor__Document, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KTextEditor__Document, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KTextEditor__Document_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -162,9 +192,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KTextEditor__Document, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KTextEditor__Document, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KTextEditor__Document_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -174,14 +208,18 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Document.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Document.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `createView` instead
+    ///
+    pub const CreateView = createView;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#createView)
     ///
@@ -189,15 +227,19 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
     /// ` mainWindow: KTextEditor__MainWindow `
     ///
-    pub fn CreateView(self: KTextEditor__Document, parent: anytype, mainWindow: anytype) KTextEditor__View {
-        comptime _ = @TypeOf(parent)._is_QWidget;
+    pub fn createView(self: KTextEditor__Document, _parent: anytype, mainWindow: anytype) KTextEditor__View {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
         comptime _ = @TypeOf(mainWindow)._is_KTextEditor__MainWindow;
-        return .{ .ptr = qtc.KTextEditor__Document_CreateView(@ptrCast(self.ptr), @ptrCast(parent.ptr), @ptrCast(mainWindow.ptr)) };
+        return .{ .ptr = qtc.KTextEditor__Document_CreateView(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @ptrCast(mainWindow.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `views` instead
+    ///
+    pub const Views = views;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#views)
     ///
@@ -207,15 +249,19 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Views(self: KTextEditor__Document, allocator: std.mem.Allocator) []KTextEditor__View {
+    pub fn views(self: KTextEditor__Document, allocator: std.mem.Allocator) []KTextEditor__View {
         const _arr: qtc.libqt_list = qtc.KTextEditor__Document_Views(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KTextEditor__View, _arr.len) catch @panic("KTextEditor__Document.Views: Memory allocation failed");
-        const _data: [*]QtC.KTextEditor__View = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(KTextEditor__View, _arr.len) catch @panic("KTextEditor__Document.views: Memory allocation failed");
+        const _data_val: [*]QtC.KTextEditor__View = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `viewCreated` instead
+    ///
+    pub const ViewCreated = viewCreated;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#viewCreated)
     ///
@@ -227,11 +273,15 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` view: KTextEditor__View `
     ///
-    pub fn ViewCreated(self: KTextEditor__Document, document: anytype, view: anytype) void {
+    pub fn viewCreated(self: KTextEditor__Document, document: anytype, view: anytype) void {
         comptime _ = @TypeOf(document)._is_KTextEditor__Document;
         comptime _ = @TypeOf(view)._is_KTextEditor__View;
         qtc.KTextEditor__Document_ViewCreated(@ptrCast(self.ptr), @ptrCast(document.ptr), @ptrCast(view.ptr));
     }
+
+    /// ### DEPRECATED: Use `onViewCreated` instead
+    ///
+    pub const OnViewCreated = onViewCreated;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#viewCreated)
     ///
@@ -241,9 +291,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Document, document: KTextEditor__Document, view: KTextEditor__View) callconv(.c) void `
     ///
-    pub fn OnViewCreated(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document, KTextEditor__View) callconv(.c) void) void {
+    pub fn onViewCreated(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document, KTextEditor__View) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_ViewCreated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `documentName` instead
+    ///
+    pub const DocumentName = documentName;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#documentName)
     ///
@@ -253,13 +307,17 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DocumentName(self: KTextEditor__Document, allocator: std.mem.Allocator) []const u8 {
+    pub fn documentName(self: KTextEditor__Document, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KTextEditor__Document_DocumentName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Document.DocumentName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Document.documentName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `mimeType` instead
+    ///
+    pub const MimeType = mimeType;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#mimeType)
     ///
@@ -269,13 +327,17 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MimeType(self: KTextEditor__Document, allocator: std.mem.Allocator) []const u8 {
+    pub fn mimeType(self: KTextEditor__Document, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KTextEditor__Document_MimeType(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Document.MimeType: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Document.mimeType: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `checksum` instead
+    ///
+    pub const Checksum = checksum;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#checksum)
     ///
@@ -285,14 +347,18 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Checksum(self: KTextEditor__Document, allocator: std.mem.Allocator) []u8 {
+    pub fn checksum(self: KTextEditor__Document, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.KTextEditor__Document_Checksum(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KTextEditor__Document.Checksum: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KTextEditor__Document.checksum: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `documentNameChanged` instead
+    ///
+    pub const DocumentNameChanged = documentNameChanged;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#documentNameChanged)
     ///
     /// ## Parameter(s):
@@ -301,11 +367,15 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` document: KTextEditor__Document `
     ///
-    pub fn DocumentNameChanged(self: KTextEditor__Document, document: anytype) void {
+    pub fn documentNameChanged(self: KTextEditor__Document, document: anytype) void {
         comptime _ = @TypeOf(document)._is_KTextEditor__Document;
         qtc.KTextEditor__Document_DocumentNameChanged(@ptrCast(self.ptr), @ptrCast(document.ptr));
     }
 
+    /// ### DEPRECATED: Use `onDocumentNameChanged` instead
+    ///
+    pub const OnDocumentNameChanged = onDocumentNameChanged;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#documentNameChanged)
     ///
     /// ## Parameters:
@@ -314,9 +384,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Document, document: KTextEditor__Document) callconv(.c) void `
     ///
-    pub fn OnDocumentNameChanged(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document) callconv(.c) void) void {
+    pub fn onDocumentNameChanged(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_DocumentNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `documentUrlChanged` instead
+    ///
+    pub const DocumentUrlChanged = documentUrlChanged;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#documentUrlChanged)
     ///
@@ -326,11 +400,15 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` document: KTextEditor__Document `
     ///
-    pub fn DocumentUrlChanged(self: KTextEditor__Document, document: anytype) void {
+    pub fn documentUrlChanged(self: KTextEditor__Document, document: anytype) void {
         comptime _ = @TypeOf(document)._is_KTextEditor__Document;
         qtc.KTextEditor__Document_DocumentUrlChanged(@ptrCast(self.ptr), @ptrCast(document.ptr));
     }
 
+    /// ### DEPRECATED: Use `onDocumentUrlChanged` instead
+    ///
+    pub const OnDocumentUrlChanged = onDocumentUrlChanged;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#documentUrlChanged)
     ///
     /// ## Parameters:
@@ -339,9 +417,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Document, document: KTextEditor__Document) callconv(.c) void `
     ///
-    pub fn OnDocumentUrlChanged(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document) callconv(.c) void) void {
+    pub fn onDocumentUrlChanged(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_DocumentUrlChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `modifiedChanged` instead
+    ///
+    pub const ModifiedChanged = modifiedChanged;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#modifiedChanged)
     ///
@@ -351,11 +433,15 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` document: KTextEditor__Document `
     ///
-    pub fn ModifiedChanged(self: KTextEditor__Document, document: anytype) void {
+    pub fn modifiedChanged(self: KTextEditor__Document, document: anytype) void {
         comptime _ = @TypeOf(document)._is_KTextEditor__Document;
         qtc.KTextEditor__Document_ModifiedChanged(@ptrCast(self.ptr), @ptrCast(document.ptr));
     }
 
+    /// ### DEPRECATED: Use `onModifiedChanged` instead
+    ///
+    pub const OnModifiedChanged = onModifiedChanged;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#modifiedChanged)
     ///
     /// ## Parameters:
@@ -364,9 +450,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Document, document: KTextEditor__Document) callconv(.c) void `
     ///
-    pub fn OnModifiedChanged(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document) callconv(.c) void) void {
+    pub fn onModifiedChanged(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_ModifiedChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `readWriteChanged` instead
+    ///
+    pub const ReadWriteChanged = readWriteChanged;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#readWriteChanged)
     ///
@@ -376,10 +466,14 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` document: KTextEditor__Document `
     ///
-    pub fn ReadWriteChanged(self: KTextEditor__Document, document: anytype) void {
+    pub fn readWriteChanged(self: KTextEditor__Document, document: anytype) void {
         comptime _ = @TypeOf(document)._is_KTextEditor__Document;
         qtc.KTextEditor__Document_ReadWriteChanged(@ptrCast(self.ptr), @ptrCast(document.ptr));
     }
+
+    /// ### DEPRECATED: Use `onReadWriteChanged` instead
+    ///
+    pub const OnReadWriteChanged = onReadWriteChanged;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#readWriteChanged)
     ///
@@ -389,9 +483,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Document, document: KTextEditor__Document) callconv(.c) void `
     ///
-    pub fn OnReadWriteChanged(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document) callconv(.c) void) void {
+    pub fn onReadWriteChanged(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_ReadWriteChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setEncoding` instead
+    ///
+    pub const SetEncoding = setEncoding;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#setEncoding)
     ///
@@ -399,15 +497,19 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    /// ` encoding: []const u8 `
+    /// ` _encoding: []const u8 `
     ///
-    pub fn SetEncoding(self: KTextEditor__Document, encoding: []const u8) bool {
+    pub fn setEncoding(self: KTextEditor__Document, _encoding: []const u8) bool {
         const encoding_str = qtc.libqt_string{
-            .len = encoding.len,
-            .data = encoding.ptr,
+            .len = _encoding.len,
+            .data = _encoding.ptr,
         };
         return qtc.KTextEditor__Document_SetEncoding(@ptrCast(self.ptr), encoding_str);
     }
+
+    /// ### DEPRECATED: Use `encoding` instead
+    ///
+    pub const Encoding = encoding;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#encoding)
     ///
@@ -417,13 +519,17 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Encoding(self: KTextEditor__Document, allocator: std.mem.Allocator) []const u8 {
+    pub fn encoding(self: KTextEditor__Document, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KTextEditor__Document_Encoding(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Document.Encoding: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Document.encoding: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `documentReload` instead
+    ///
+    pub const DocumentReload = documentReload;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#documentReload)
     ///
@@ -431,9 +537,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn DocumentReload(self: KTextEditor__Document) bool {
+    pub fn documentReload(self: KTextEditor__Document) bool {
         return qtc.KTextEditor__Document_DocumentReload(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `documentSave` instead
+    ///
+    pub const DocumentSave = documentSave;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#documentSave)
     ///
@@ -441,9 +551,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn DocumentSave(self: KTextEditor__Document) bool {
+    pub fn documentSave(self: KTextEditor__Document) bool {
         return qtc.KTextEditor__Document_DocumentSave(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `documentSaveAs` instead
+    ///
+    pub const DocumentSaveAs = documentSaveAs;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#documentSaveAs)
     ///
@@ -451,9 +565,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn DocumentSaveAs(self: KTextEditor__Document) bool {
+    pub fn documentSaveAs(self: KTextEditor__Document) bool {
         return qtc.KTextEditor__Document_DocumentSaveAs(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `openingError` instead
+    ///
+    pub const OpeningError = openingError;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#openingError)
     ///
@@ -461,9 +579,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn OpeningError(self: KTextEditor__Document) bool {
+    pub fn openingError(self: KTextEditor__Document) bool {
         return qtc.KTextEditor__Document_OpeningError(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `documentSavedOrUploaded` instead
+    ///
+    pub const DocumentSavedOrUploaded = documentSavedOrUploaded;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#documentSavedOrUploaded)
     ///
@@ -473,12 +595,16 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` document: KTextEditor__Document `
     ///
-    /// ` saveAs: bool `
+    /// ` _saveAs: bool `
     ///
-    pub fn DocumentSavedOrUploaded(self: KTextEditor__Document, document: anytype, saveAs: bool) void {
+    pub fn documentSavedOrUploaded(self: KTextEditor__Document, document: anytype, _saveAs: bool) void {
         comptime _ = @TypeOf(document)._is_KTextEditor__Document;
-        qtc.KTextEditor__Document_DocumentSavedOrUploaded(@ptrCast(self.ptr), @ptrCast(document.ptr), saveAs);
+        qtc.KTextEditor__Document_DocumentSavedOrUploaded(@ptrCast(self.ptr), @ptrCast(document.ptr), _saveAs);
     }
+
+    /// ### DEPRECATED: Use `onDocumentSavedOrUploaded` instead
+    ///
+    pub const OnDocumentSavedOrUploaded = onDocumentSavedOrUploaded;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#documentSavedOrUploaded)
     ///
@@ -488,9 +614,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Document, document: KTextEditor__Document, saveAs: bool) callconv(.c) void `
     ///
-    pub fn OnDocumentSavedOrUploaded(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document, bool) callconv(.c) void) void {
+    pub fn onDocumentSavedOrUploaded(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document, bool) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_DocumentSavedOrUploaded(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `aboutToClose` instead
+    ///
+    pub const AboutToClose = aboutToClose;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#aboutToClose)
     ///
@@ -500,11 +630,15 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` document: KTextEditor__Document `
     ///
-    pub fn AboutToClose(self: KTextEditor__Document, document: anytype) void {
+    pub fn aboutToClose(self: KTextEditor__Document, document: anytype) void {
         comptime _ = @TypeOf(document)._is_KTextEditor__Document;
         qtc.KTextEditor__Document_AboutToClose(@ptrCast(self.ptr), @ptrCast(document.ptr));
     }
 
+    /// ### DEPRECATED: Use `onAboutToClose` instead
+    ///
+    pub const OnAboutToClose = onAboutToClose;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#aboutToClose)
     ///
     /// ## Parameters:
@@ -513,9 +647,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Document, document: KTextEditor__Document) callconv(.c) void `
     ///
-    pub fn OnAboutToClose(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document) callconv(.c) void) void {
+    pub fn onAboutToClose(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_AboutToClose(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `aboutToReload` instead
+    ///
+    pub const AboutToReload = aboutToReload;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#aboutToReload)
     ///
@@ -525,11 +663,15 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` document: KTextEditor__Document `
     ///
-    pub fn AboutToReload(self: KTextEditor__Document, document: anytype) void {
+    pub fn aboutToReload(self: KTextEditor__Document, document: anytype) void {
         comptime _ = @TypeOf(document)._is_KTextEditor__Document;
         qtc.KTextEditor__Document_AboutToReload(@ptrCast(self.ptr), @ptrCast(document.ptr));
     }
 
+    /// ### DEPRECATED: Use `onAboutToReload` instead
+    ///
+    pub const OnAboutToReload = onAboutToReload;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#aboutToReload)
     ///
     /// ## Parameters:
@@ -538,9 +680,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Document, document: KTextEditor__Document) callconv(.c) void `
     ///
-    pub fn OnAboutToReload(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document) callconv(.c) void) void {
+    pub fn onAboutToReload(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_AboutToReload(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `reloaded` instead
+    ///
+    pub const Reloaded = reloaded;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#reloaded)
     ///
@@ -550,11 +696,15 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` document: KTextEditor__Document `
     ///
-    pub fn Reloaded(self: KTextEditor__Document, document: anytype) void {
+    pub fn reloaded(self: KTextEditor__Document, document: anytype) void {
         comptime _ = @TypeOf(document)._is_KTextEditor__Document;
         qtc.KTextEditor__Document_Reloaded(@ptrCast(self.ptr), @ptrCast(document.ptr));
     }
 
+    /// ### DEPRECATED: Use `onReloaded` instead
+    ///
+    pub const OnReloaded = onReloaded;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#reloaded)
     ///
     /// ## Parameters:
@@ -563,9 +713,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Document, document: KTextEditor__Document) callconv(.c) void `
     ///
-    pub fn OnReloaded(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document) callconv(.c) void) void {
+    pub fn onReloaded(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_Reloaded(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `aboutToSave` instead
+    ///
+    pub const AboutToSave = aboutToSave;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#aboutToSave)
     ///
@@ -575,10 +729,14 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` document: KTextEditor__Document `
     ///
-    pub fn AboutToSave(self: KTextEditor__Document, document: anytype) void {
+    pub fn aboutToSave(self: KTextEditor__Document, document: anytype) void {
         comptime _ = @TypeOf(document)._is_KTextEditor__Document;
         qtc.KTextEditor__Document_AboutToSave(@ptrCast(self.ptr), @ptrCast(document.ptr));
     }
+
+    /// ### DEPRECATED: Use `onAboutToSave` instead
+    ///
+    pub const OnAboutToSave = onAboutToSave;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#aboutToSave)
     ///
@@ -588,9 +746,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Document, document: KTextEditor__Document) callconv(.c) void `
     ///
-    pub fn OnAboutToSave(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document) callconv(.c) void) void {
+    pub fn onAboutToSave(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_AboutToSave(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isEditingTransactionRunning` instead
+    ///
+    pub const IsEditingTransactionRunning = isEditingTransactionRunning;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#isEditingTransactionRunning)
     ///
@@ -598,9 +760,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn IsEditingTransactionRunning(self: KTextEditor__Document) bool {
+    pub fn isEditingTransactionRunning(self: KTextEditor__Document) bool {
         return qtc.KTextEditor__Document_IsEditingTransactionRunning(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `text` instead
+    ///
+    pub const Text = text;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#text)
     ///
@@ -610,13 +776,17 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: KTextEditor__Document, allocator: std.mem.Allocator) []const u8 {
+    pub fn text(self: KTextEditor__Document, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KTextEditor__Document_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Document.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Document.text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `text2` instead
+    ///
+    pub const Text2 = text2;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#text)
     ///
@@ -630,14 +800,18 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` block: bool `
     ///
-    pub fn Text2(self: KTextEditor__Document, allocator: std.mem.Allocator, range: anytype, block: bool) []const u8 {
+    pub fn text2(self: KTextEditor__Document, allocator: std.mem.Allocator, range: anytype, block: bool) []const u8 {
         comptime _ = @TypeOf(range)._is_KTextEditor__Range;
         var _str = qtc.KTextEditor__Document_Text2(@ptrCast(self.ptr), @ptrCast(range.ptr), block);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Document.Text2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Document.text2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `characterAt` instead
+    ///
+    pub const CharacterAt = characterAt;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#characterAt)
     ///
@@ -647,10 +821,14 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` position: KTextEditor__Cursor `
     ///
-    pub fn CharacterAt(self: KTextEditor__Document, position: anytype) QChar {
+    pub fn characterAt(self: KTextEditor__Document, position: anytype) QChar {
         comptime _ = @TypeOf(position)._is_KTextEditor__Cursor;
         return .{ .ptr = qtc.KTextEditor__Document_CharacterAt(@ptrCast(self.ptr), @ptrCast(position.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `wordAt` instead
+    ///
+    pub const WordAt = wordAt;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#wordAt)
     ///
@@ -662,14 +840,18 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` cursor: KTextEditor__Cursor `
     ///
-    pub fn WordAt(self: KTextEditor__Document, allocator: std.mem.Allocator, cursor: anytype) []const u8 {
+    pub fn wordAt(self: KTextEditor__Document, allocator: std.mem.Allocator, cursor: anytype) []const u8 {
         comptime _ = @TypeOf(cursor)._is_KTextEditor__Cursor;
         var _str = qtc.KTextEditor__Document_WordAt(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Document.WordAt: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Document.wordAt: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `wordRangeAt` instead
+    ///
+    pub const WordRangeAt = wordRangeAt;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#wordRangeAt)
     ///
@@ -679,10 +861,14 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` cursor: KTextEditor__Cursor `
     ///
-    pub fn WordRangeAt(self: KTextEditor__Document, cursor: anytype) KTextEditor__Range {
+    pub fn wordRangeAt(self: KTextEditor__Document, cursor: anytype) KTextEditor__Range {
         comptime _ = @TypeOf(cursor)._is_KTextEditor__Cursor;
         return .{ .ptr = qtc.KTextEditor__Document_WordRangeAt(@ptrCast(self.ptr), @ptrCast(cursor.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isValidTextPosition` instead
+    ///
+    pub const IsValidTextPosition = isValidTextPosition;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#isValidTextPosition)
     ///
@@ -692,10 +878,14 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` cursor: KTextEditor__Cursor `
     ///
-    pub fn IsValidTextPosition(self: KTextEditor__Document, cursor: anytype) bool {
+    pub fn isValidTextPosition(self: KTextEditor__Document, cursor: anytype) bool {
         comptime _ = @TypeOf(cursor)._is_KTextEditor__Cursor;
         return qtc.KTextEditor__Document_IsValidTextPosition(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `textLines` instead
+    ///
+    pub const TextLines = textLines;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#textLines)
     ///
@@ -709,7 +899,7 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` block: bool `
     ///
-    pub fn TextLines(self: KTextEditor__Document, allocator: std.mem.Allocator, range: anytype, block: bool) []const []const u8 {
+    pub fn textLines(self: KTextEditor__Document, allocator: std.mem.Allocator, range: anytype, block: bool) []const []const u8 {
         comptime _ = @TypeOf(range)._is_KTextEditor__Range;
         const _arr: qtc.libqt_list = qtc.KTextEditor__Document_TextLines(@ptrCast(self.ptr), @ptrCast(range.ptr), block);
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -718,15 +908,19 @@ pub const KTextEditor__Document = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KTextEditor__Document.TextLines: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KTextEditor__Document.textLines: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KTextEditor__Document.TextLines: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KTextEditor__Document.textLines: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `line` instead
+    ///
+    pub const Line = line;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#line)
     ///
@@ -736,15 +930,19 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` line: i32 `
+    /// ` _line: i32 `
     ///
-    pub fn Line(self: KTextEditor__Document, allocator: std.mem.Allocator, line: i32) []const u8 {
-        var _str = qtc.KTextEditor__Document_Line(@ptrCast(self.ptr), @bitCast(line));
+    pub fn line(self: KTextEditor__Document, allocator: std.mem.Allocator, _line: i32) []const u8 {
+        var _str = qtc.KTextEditor__Document_Line(@ptrCast(self.ptr), @bitCast(_line));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Document.Line: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Document.line: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `lines` instead
+    ///
+    pub const Lines = lines;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#lines)
     ///
@@ -752,9 +950,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn Lines(self: KTextEditor__Document) i32 {
+    pub fn lines(self: KTextEditor__Document) i32 {
         return qtc.KTextEditor__Document_Lines(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLineModified` instead
+    ///
+    pub const IsLineModified = isLineModified;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#isLineModified)
     ///
@@ -762,11 +964,15 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    /// ` line: i32 `
+    /// ` _line: i32 `
     ///
-    pub fn IsLineModified(self: KTextEditor__Document, line: i32) bool {
-        return qtc.KTextEditor__Document_IsLineModified(@ptrCast(self.ptr), @bitCast(line));
+    pub fn isLineModified(self: KTextEditor__Document, _line: i32) bool {
+        return qtc.KTextEditor__Document_IsLineModified(@ptrCast(self.ptr), @bitCast(_line));
     }
+
+    /// ### DEPRECATED: Use `isLineSaved` instead
+    ///
+    pub const IsLineSaved = isLineSaved;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#isLineSaved)
     ///
@@ -774,11 +980,15 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    /// ` line: i32 `
+    /// ` _line: i32 `
     ///
-    pub fn IsLineSaved(self: KTextEditor__Document, line: i32) bool {
-        return qtc.KTextEditor__Document_IsLineSaved(@ptrCast(self.ptr), @bitCast(line));
+    pub fn isLineSaved(self: KTextEditor__Document, _line: i32) bool {
+        return qtc.KTextEditor__Document_IsLineSaved(@ptrCast(self.ptr), @bitCast(_line));
     }
+
+    /// ### DEPRECATED: Use `isLineTouched` instead
+    ///
+    pub const IsLineTouched = isLineTouched;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#isLineTouched)
     ///
@@ -786,11 +996,15 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    /// ` line: i32 `
+    /// ` _line: i32 `
     ///
-    pub fn IsLineTouched(self: KTextEditor__Document, line: i32) bool {
-        return qtc.KTextEditor__Document_IsLineTouched(@ptrCast(self.ptr), @bitCast(line));
+    pub fn isLineTouched(self: KTextEditor__Document, _line: i32) bool {
+        return qtc.KTextEditor__Document_IsLineTouched(@ptrCast(self.ptr), @bitCast(_line));
     }
+
+    /// ### DEPRECATED: Use `documentEnd` instead
+    ///
+    pub const DocumentEnd = documentEnd;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#documentEnd)
     ///
@@ -798,9 +1012,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn DocumentEnd(self: KTextEditor__Document) KTextEditor__Cursor {
+    pub fn documentEnd(self: KTextEditor__Document) KTextEditor__Cursor {
         return .{ .ptr = qtc.KTextEditor__Document_DocumentEnd(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `documentRange` instead
+    ///
+    pub const DocumentRange = documentRange;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#documentRange)
     ///
@@ -808,9 +1026,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn DocumentRange(self: KTextEditor__Document) KTextEditor__Range {
+    pub fn documentRange(self: KTextEditor__Document) KTextEditor__Range {
         return .{ .ptr = qtc.KTextEditor__Document_DocumentRange(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `totalCharacters` instead
+    ///
+    pub const TotalCharacters = totalCharacters;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#totalCharacters)
     ///
@@ -818,9 +1040,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn TotalCharacters(self: KTextEditor__Document) isize {
+    pub fn totalCharacters(self: KTextEditor__Document) isize {
         return qtc.KTextEditor__Document_TotalCharacters(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEmpty` instead
+    ///
+    pub const IsEmpty = isEmpty;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#isEmpty)
     ///
@@ -828,9 +1054,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn IsEmpty(self: KTextEditor__Document) bool {
+    pub fn isEmpty(self: KTextEditor__Document) bool {
         return qtc.KTextEditor__Document_IsEmpty(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lineLength` instead
+    ///
+    pub const LineLength = lineLength;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#lineLength)
     ///
@@ -838,11 +1068,15 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    /// ` line: i32 `
+    /// ` _line: i32 `
     ///
-    pub fn LineLength(self: KTextEditor__Document, line: i32) i32 {
-        return qtc.KTextEditor__Document_LineLength(@ptrCast(self.ptr), @bitCast(line));
+    pub fn lineLength(self: KTextEditor__Document, _line: i32) i32 {
+        return qtc.KTextEditor__Document_LineLength(@ptrCast(self.ptr), @bitCast(_line));
     }
+
+    /// ### DEPRECATED: Use `endOfLine` instead
+    ///
+    pub const EndOfLine = endOfLine;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#endOfLine)
     ///
@@ -850,11 +1084,15 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    /// ` line: i32 `
+    /// ` _line: i32 `
     ///
-    pub fn EndOfLine(self: KTextEditor__Document, line: i32) KTextEditor__Cursor {
-        return .{ .ptr = qtc.KTextEditor__Document_EndOfLine(@ptrCast(self.ptr), @bitCast(line)) };
+    pub fn endOfLine(self: KTextEditor__Document, _line: i32) KTextEditor__Cursor {
+        return .{ .ptr = qtc.KTextEditor__Document_EndOfLine(@ptrCast(self.ptr), @bitCast(_line)) };
     }
+
+    /// ### DEPRECATED: Use `setText` instead
+    ///
+    pub const SetText = setText;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#setText)
     ///
@@ -862,15 +1100,19 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn SetText(self: KTextEditor__Document, text: []const u8) bool {
+    pub fn setText(self: KTextEditor__Document, _text: []const u8) bool {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         return qtc.KTextEditor__Document_SetText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `setText2` instead
+    ///
+    pub const SetText2 = setText2;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#setText)
     ///
@@ -880,22 +1122,26 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` text: []const []const u8 `
+    /// ` _text: []const []const u8 `
     ///
-    pub fn SetText2(self: KTextEditor__Document, allocator: std.mem.Allocator, text: []const []const u8) bool {
-        const text_arr = allocator.alloc(qtc.libqt_string, text.len) catch @panic("KTextEditor__Document.SetText2: Memory allocation failed");
+    pub fn setText2(self: KTextEditor__Document, allocator: std.mem.Allocator, _text: []const []const u8) bool {
+        const text_arr = allocator.alloc(qtc.libqt_string, _text.len) catch @panic("KTextEditor__Document.setText2: Memory allocation failed");
         defer allocator.free(text_arr);
-        for (text, 0..text.len) |item, i|
+        for (_text, 0.._text.len) |str_item, i|
             text_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const text_list = qtc.libqt_list{
-            .len = text.len,
+            .len = _text.len,
             .data = text_arr.ptr,
         };
         return qtc.KTextEditor__Document_SetText2(@ptrCast(self.ptr), text_list);
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#clear)
     ///
@@ -903,9 +1149,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn Clear(self: KTextEditor__Document) bool {
+    pub fn clear(self: KTextEditor__Document) bool {
         return qtc.KTextEditor__Document_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertText` instead
+    ///
+    pub const InsertText = insertText;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#insertText)
     ///
@@ -915,18 +1165,22 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` position: KTextEditor__Cursor `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
     /// ` block: bool `
     ///
-    pub fn InsertText(self: KTextEditor__Document, position: anytype, text: []const u8, block: bool) bool {
+    pub fn insertText(self: KTextEditor__Document, position: anytype, _text: []const u8, block: bool) bool {
         comptime _ = @TypeOf(position)._is_KTextEditor__Cursor;
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         return qtc.KTextEditor__Document_InsertText(@ptrCast(self.ptr), @ptrCast(position.ptr), text_str, block);
     }
+
+    /// ### DEPRECATED: Use `insertText2` instead
+    ///
+    pub const InsertText2 = insertText2;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#insertText)
     ///
@@ -938,26 +1192,30 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` position: KTextEditor__Cursor `
     ///
-    /// ` text: []const []const u8 `
+    /// ` _text: []const []const u8 `
     ///
     /// ` block: bool `
     ///
-    pub fn InsertText2(self: KTextEditor__Document, allocator: std.mem.Allocator, position: anytype, text: []const []const u8, block: bool) bool {
+    pub fn insertText2(self: KTextEditor__Document, allocator: std.mem.Allocator, position: anytype, _text: []const []const u8, block: bool) bool {
         comptime _ = @TypeOf(position)._is_KTextEditor__Cursor;
-        const text_arr = allocator.alloc(qtc.libqt_string, text.len) catch @panic("KTextEditor__Document.InsertText2: Memory allocation failed");
+        const text_arr = allocator.alloc(qtc.libqt_string, _text.len) catch @panic("KTextEditor__Document.insertText2: Memory allocation failed");
         defer allocator.free(text_arr);
-        for (text, 0..text.len) |item, i|
+        for (_text, 0.._text.len) |str_item, i|
             text_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const text_list = qtc.libqt_list{
-            .len = text.len,
+            .len = _text.len,
             .data = text_arr.ptr,
         };
         return qtc.KTextEditor__Document_InsertText2(@ptrCast(self.ptr), @ptrCast(position.ptr), text_list, block);
     }
 
+    /// ### DEPRECATED: Use `replaceText` instead
+    ///
+    pub const ReplaceText = replaceText;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#replaceText)
     ///
     /// ## Parameter(s):
@@ -966,18 +1224,22 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` range: KTextEditor__Range `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
     /// ` block: bool `
     ///
-    pub fn ReplaceText(self: KTextEditor__Document, range: anytype, text: []const u8, block: bool) bool {
+    pub fn replaceText(self: KTextEditor__Document, range: anytype, _text: []const u8, block: bool) bool {
         comptime _ = @TypeOf(range)._is_KTextEditor__Range;
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         return qtc.KTextEditor__Document_ReplaceText(@ptrCast(self.ptr), @ptrCast(range.ptr), text_str, block);
     }
+
+    /// ### DEPRECATED: Use `replaceText2` instead
+    ///
+    pub const ReplaceText2 = replaceText2;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#replaceText)
     ///
@@ -989,25 +1251,29 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` range: KTextEditor__Range `
     ///
-    /// ` text: []const []const u8 `
+    /// ` _text: []const []const u8 `
     ///
     /// ` block: bool `
     ///
-    pub fn ReplaceText2(self: KTextEditor__Document, allocator: std.mem.Allocator, range: anytype, text: []const []const u8, block: bool) bool {
+    pub fn replaceText2(self: KTextEditor__Document, allocator: std.mem.Allocator, range: anytype, _text: []const []const u8, block: bool) bool {
         comptime _ = @TypeOf(range)._is_KTextEditor__Range;
-        const text_arr = allocator.alloc(qtc.libqt_string, text.len) catch @panic("KTextEditor__Document.ReplaceText2: Memory allocation failed");
+        const text_arr = allocator.alloc(qtc.libqt_string, _text.len) catch @panic("KTextEditor__Document.replaceText2: Memory allocation failed");
         defer allocator.free(text_arr);
-        for (text, 0..text.len) |item, i|
+        for (_text, 0.._text.len) |str_item, i|
             text_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const text_list = qtc.libqt_list{
-            .len = text.len,
+            .len = _text.len,
             .data = text_arr.ptr,
         };
         return qtc.KTextEditor__Document_ReplaceText2(@ptrCast(self.ptr), @ptrCast(range.ptr), text_list, block);
     }
+
+    /// ### DEPRECATED: Use `removeText` instead
+    ///
+    pub const RemoveText = removeText;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#removeText)
     ///
@@ -1019,10 +1285,14 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` block: bool `
     ///
-    pub fn RemoveText(self: KTextEditor__Document, range: anytype, block: bool) bool {
+    pub fn removeText(self: KTextEditor__Document, range: anytype, block: bool) bool {
         comptime _ = @TypeOf(range)._is_KTextEditor__Range;
         return qtc.KTextEditor__Document_RemoveText(@ptrCast(self.ptr), @ptrCast(range.ptr), block);
     }
+
+    /// ### DEPRECATED: Use `insertLine` instead
+    ///
+    pub const InsertLine = insertLine;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#insertLine)
     ///
@@ -1030,17 +1300,21 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    /// ` line: i32 `
+    /// ` _line: i32 `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn InsertLine(self: KTextEditor__Document, line: i32, text: []const u8) bool {
+    pub fn insertLine(self: KTextEditor__Document, _line: i32, _text: []const u8) bool {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
-        return qtc.KTextEditor__Document_InsertLine(@ptrCast(self.ptr), @bitCast(line), text_str);
+        return qtc.KTextEditor__Document_InsertLine(@ptrCast(self.ptr), @bitCast(_line), text_str);
     }
+
+    /// ### DEPRECATED: Use `insertLines` instead
+    ///
+    pub const InsertLines = insertLines;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#insertLines)
     ///
@@ -1050,24 +1324,28 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` line: i32 `
+    /// ` _line: i32 `
     ///
-    /// ` text: []const []const u8 `
+    /// ` _text: []const []const u8 `
     ///
-    pub fn InsertLines(self: KTextEditor__Document, allocator: std.mem.Allocator, line: i32, text: []const []const u8) bool {
-        const text_arr = allocator.alloc(qtc.libqt_string, text.len) catch @panic("KTextEditor__Document.InsertLines: Memory allocation failed");
+    pub fn insertLines(self: KTextEditor__Document, allocator: std.mem.Allocator, _line: i32, _text: []const []const u8) bool {
+        const text_arr = allocator.alloc(qtc.libqt_string, _text.len) catch @panic("KTextEditor__Document.insertLines: Memory allocation failed");
         defer allocator.free(text_arr);
-        for (text, 0..text.len) |item, i|
+        for (_text, 0.._text.len) |str_item, i|
             text_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const text_list = qtc.libqt_list{
-            .len = text.len,
+            .len = _text.len,
             .data = text_arr.ptr,
         };
-        return qtc.KTextEditor__Document_InsertLines(@ptrCast(self.ptr), @bitCast(line), text_list);
+        return qtc.KTextEditor__Document_InsertLines(@ptrCast(self.ptr), @bitCast(_line), text_list);
     }
+
+    /// ### DEPRECATED: Use `removeLine` instead
+    ///
+    pub const RemoveLine = removeLine;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#removeLine)
     ///
@@ -1075,11 +1353,15 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    /// ` line: i32 `
+    /// ` _line: i32 `
     ///
-    pub fn RemoveLine(self: KTextEditor__Document, line: i32) bool {
-        return qtc.KTextEditor__Document_RemoveLine(@ptrCast(self.ptr), @bitCast(line));
+    pub fn removeLine(self: KTextEditor__Document, _line: i32) bool {
+        return qtc.KTextEditor__Document_RemoveLine(@ptrCast(self.ptr), @bitCast(_line));
     }
+
+    /// ### DEPRECATED: Use `searchText` instead
+    ///
+    pub const SearchText = searchText;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#searchText)
     ///
@@ -1093,7 +1375,7 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` pattern: []const u8 `
     ///
-    pub fn SearchText(self: KTextEditor__Document, allocator: std.mem.Allocator, range: anytype, pattern: []const u8) []KTextEditor__Range {
+    pub fn searchText(self: KTextEditor__Document, allocator: std.mem.Allocator, range: anytype, pattern: []const u8) []KTextEditor__Range {
         comptime _ = @TypeOf(range)._is_KTextEditor__Range;
         const pattern_str = qtc.libqt_string{
             .len = pattern.len,
@@ -1101,12 +1383,16 @@ pub const KTextEditor__Document = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.KTextEditor__Document_SearchText(@ptrCast(self.ptr), @ptrCast(range.ptr), pattern_str);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KTextEditor__Range, _arr.len) catch @panic("KTextEditor__Document.SearchText: Memory allocation failed");
-        const _data: [*]QtC.KTextEditor__Range = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(KTextEditor__Range, _arr.len) catch @panic("KTextEditor__Document.searchText: Memory allocation failed");
+        const _data_val: [*]QtC.KTextEditor__Range = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `cursorToOffset` instead
+    ///
+    pub const CursorToOffset = cursorToOffset;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#cursorToOffset)
     ///
@@ -1116,10 +1402,14 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` c: KTextEditor__Cursor `
     ///
-    pub fn CursorToOffset(self: KTextEditor__Document, c: anytype) isize {
+    pub fn cursorToOffset(self: KTextEditor__Document, c: anytype) isize {
         comptime _ = @TypeOf(c)._is_KTextEditor__Cursor;
         return qtc.KTextEditor__Document_CursorToOffset(@ptrCast(self.ptr), @ptrCast(c.ptr));
     }
+
+    /// ### DEPRECATED: Use `offsetToCursor` instead
+    ///
+    pub const OffsetToCursor = offsetToCursor;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#offsetToCursor)
     ///
@@ -1129,9 +1419,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` offset: isize `
     ///
-    pub fn OffsetToCursor(self: KTextEditor__Document, offset: isize) KTextEditor__Cursor {
+    pub fn offsetToCursor(self: KTextEditor__Document, offset: isize) KTextEditor__Cursor {
         return .{ .ptr = qtc.KTextEditor__Document_OffsetToCursor(@ptrCast(self.ptr), @bitCast(offset)) };
     }
+
+    /// ### DEPRECATED: Use `editingStarted` instead
+    ///
+    pub const EditingStarted = editingStarted;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#editingStarted)
     ///
@@ -1141,11 +1435,15 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` document: KTextEditor__Document `
     ///
-    pub fn EditingStarted(self: KTextEditor__Document, document: anytype) void {
+    pub fn editingStarted(self: KTextEditor__Document, document: anytype) void {
         comptime _ = @TypeOf(document)._is_KTextEditor__Document;
         qtc.KTextEditor__Document_EditingStarted(@ptrCast(self.ptr), @ptrCast(document.ptr));
     }
 
+    /// ### DEPRECATED: Use `onEditingStarted` instead
+    ///
+    pub const OnEditingStarted = onEditingStarted;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#editingStarted)
     ///
     /// ## Parameters:
@@ -1154,9 +1452,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Document, document: KTextEditor__Document) callconv(.c) void `
     ///
-    pub fn OnEditingStarted(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document) callconv(.c) void) void {
+    pub fn onEditingStarted(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_EditingStarted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `editingFinished` instead
+    ///
+    pub const EditingFinished = editingFinished;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#editingFinished)
     ///
@@ -1166,10 +1468,14 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` document: KTextEditor__Document `
     ///
-    pub fn EditingFinished(self: KTextEditor__Document, document: anytype) void {
+    pub fn editingFinished(self: KTextEditor__Document, document: anytype) void {
         comptime _ = @TypeOf(document)._is_KTextEditor__Document;
         qtc.KTextEditor__Document_EditingFinished(@ptrCast(self.ptr), @ptrCast(document.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEditingFinished` instead
+    ///
+    pub const OnEditingFinished = onEditingFinished;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#editingFinished)
     ///
@@ -1179,9 +1485,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Document, document: KTextEditor__Document) callconv(.c) void `
     ///
-    pub fn OnEditingFinished(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document) callconv(.c) void) void {
+    pub fn onEditingFinished(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_EditingFinished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `lineWrapped` instead
+    ///
+    pub const LineWrapped = lineWrapped;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#lineWrapped)
     ///
@@ -1193,11 +1503,15 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` position: KTextEditor__Cursor `
     ///
-    pub fn LineWrapped(self: KTextEditor__Document, document: anytype, position: anytype) void {
+    pub fn lineWrapped(self: KTextEditor__Document, document: anytype, position: anytype) void {
         comptime _ = @TypeOf(document)._is_KTextEditor__Document;
         comptime _ = @TypeOf(position)._is_KTextEditor__Cursor;
         qtc.KTextEditor__Document_LineWrapped(@ptrCast(self.ptr), @ptrCast(document.ptr), @ptrCast(position.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLineWrapped` instead
+    ///
+    pub const OnLineWrapped = onLineWrapped;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#lineWrapped)
     ///
@@ -1207,9 +1521,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Document, document: KTextEditor__Document, position: KTextEditor__Cursor) callconv(.c) void `
     ///
-    pub fn OnLineWrapped(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document, KTextEditor__Cursor) callconv(.c) void) void {
+    pub fn onLineWrapped(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document, KTextEditor__Cursor) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_LineWrapped(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `lineUnwrapped` instead
+    ///
+    pub const LineUnwrapped = lineUnwrapped;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#lineUnwrapped)
     ///
@@ -1219,12 +1537,16 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` document: KTextEditor__Document `
     ///
-    /// ` line: i32 `
+    /// ` _line: i32 `
     ///
-    pub fn LineUnwrapped(self: KTextEditor__Document, document: anytype, line: i32) void {
+    pub fn lineUnwrapped(self: KTextEditor__Document, document: anytype, _line: i32) void {
         comptime _ = @TypeOf(document)._is_KTextEditor__Document;
-        qtc.KTextEditor__Document_LineUnwrapped(@ptrCast(self.ptr), @ptrCast(document.ptr), @bitCast(line));
+        qtc.KTextEditor__Document_LineUnwrapped(@ptrCast(self.ptr), @ptrCast(document.ptr), @bitCast(_line));
     }
+
+    /// ### DEPRECATED: Use `onLineUnwrapped` instead
+    ///
+    pub const OnLineUnwrapped = onLineUnwrapped;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#lineUnwrapped)
     ///
@@ -1234,9 +1556,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Document, document: KTextEditor__Document, line: i32) callconv(.c) void `
     ///
-    pub fn OnLineUnwrapped(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document, i32) callconv(.c) void) void {
+    pub fn onLineUnwrapped(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document, i32) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_LineUnwrapped(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `textInserted` instead
+    ///
+    pub const TextInserted = textInserted;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#textInserted)
     ///
@@ -1248,17 +1574,21 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` position: KTextEditor__Cursor `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn TextInserted(self: KTextEditor__Document, document: anytype, position: anytype, text: []const u8) void {
+    pub fn textInserted(self: KTextEditor__Document, document: anytype, position: anytype, _text: []const u8) void {
         comptime _ = @TypeOf(document)._is_KTextEditor__Document;
         comptime _ = @TypeOf(position)._is_KTextEditor__Cursor;
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         qtc.KTextEditor__Document_TextInserted(@ptrCast(self.ptr), @ptrCast(document.ptr), @ptrCast(position.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `onTextInserted` instead
+    ///
+    pub const OnTextInserted = onTextInserted;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#textInserted)
     ///
@@ -1268,9 +1598,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Document, document: KTextEditor__Document, position: KTextEditor__Cursor, text: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnTextInserted(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document, KTextEditor__Cursor, [*:0]const u8) callconv(.c) void) void {
+    pub fn onTextInserted(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document, KTextEditor__Cursor, [*:0]const u8) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_TextInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `textRemoved` instead
+    ///
+    pub const TextRemoved = textRemoved;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#textRemoved)
     ///
@@ -1282,17 +1616,21 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` range: KTextEditor__Range `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn TextRemoved(self: KTextEditor__Document, document: anytype, range: anytype, text: []const u8) void {
+    pub fn textRemoved(self: KTextEditor__Document, document: anytype, range: anytype, _text: []const u8) void {
         comptime _ = @TypeOf(document)._is_KTextEditor__Document;
         comptime _ = @TypeOf(range)._is_KTextEditor__Range;
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         qtc.KTextEditor__Document_TextRemoved(@ptrCast(self.ptr), @ptrCast(document.ptr), @ptrCast(range.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `onTextRemoved` instead
+    ///
+    pub const OnTextRemoved = onTextRemoved;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#textRemoved)
     ///
@@ -1302,9 +1640,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Document, document: KTextEditor__Document, range: KTextEditor__Range, text: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnTextRemoved(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document, KTextEditor__Range, [*:0]const u8) callconv(.c) void) void {
+    pub fn onTextRemoved(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document, KTextEditor__Range, [*:0]const u8) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_TextRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `textChanged` instead
+    ///
+    pub const TextChanged = textChanged;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#textChanged)
     ///
@@ -1314,10 +1656,14 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` document: KTextEditor__Document `
     ///
-    pub fn TextChanged(self: KTextEditor__Document, document: anytype) void {
+    pub fn textChanged(self: KTextEditor__Document, document: anytype) void {
         comptime _ = @TypeOf(document)._is_KTextEditor__Document;
         qtc.KTextEditor__Document_TextChanged(@ptrCast(self.ptr), @ptrCast(document.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTextChanged` instead
+    ///
+    pub const OnTextChanged = onTextChanged;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#textChanged)
     ///
@@ -1327,9 +1673,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Document, document: KTextEditor__Document) callconv(.c) void `
     ///
-    pub fn OnTextChanged(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document) callconv(.c) void) void {
+    pub fn onTextChanged(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_TextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `defaultStyleAt` instead
+    ///
+    pub const DefaultStyleAt = defaultStyleAt;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#defaultStyleAt)
     ///
@@ -1343,10 +1693,14 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` theme_enums.TextStyle `
     ///
-    pub fn DefaultStyleAt(self: KTextEditor__Document, position: anytype) i32 {
+    pub fn defaultStyleAt(self: KTextEditor__Document, position: anytype) i32 {
         comptime _ = @TypeOf(position)._is_KTextEditor__Cursor;
         return qtc.KTextEditor__Document_DefaultStyleAt(@ptrCast(self.ptr), @ptrCast(position.ptr));
     }
+
+    /// ### DEPRECATED: Use `mode` instead
+    ///
+    pub const Mode = mode;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#mode)
     ///
@@ -1356,13 +1710,17 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Mode(self: KTextEditor__Document, allocator: std.mem.Allocator) []const u8 {
+    pub fn mode(self: KTextEditor__Document, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KTextEditor__Document_Mode(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Document.Mode: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Document.mode: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `highlightingMode` instead
+    ///
+    pub const HighlightingMode = highlightingMode;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#highlightingMode)
     ///
@@ -1372,13 +1730,17 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn HighlightingMode(self: KTextEditor__Document, allocator: std.mem.Allocator) []const u8 {
+    pub fn highlightingMode(self: KTextEditor__Document, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KTextEditor__Document_HighlightingMode(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Document.HighlightingMode: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Document.highlightingMode: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `embeddedHighlightingModes` instead
+    ///
+    pub const EmbeddedHighlightingModes = embeddedHighlightingModes;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#embeddedHighlightingModes)
     ///
@@ -1388,7 +1750,7 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn EmbeddedHighlightingModes(self: KTextEditor__Document, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn embeddedHighlightingModes(self: KTextEditor__Document, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KTextEditor__Document_EmbeddedHighlightingModes(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1396,15 +1758,19 @@ pub const KTextEditor__Document = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KTextEditor__Document.EmbeddedHighlightingModes: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KTextEditor__Document.embeddedHighlightingModes: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KTextEditor__Document.EmbeddedHighlightingModes: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KTextEditor__Document.embeddedHighlightingModes: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `highlightingModeAt` instead
+    ///
+    pub const HighlightingModeAt = highlightingModeAt;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#highlightingModeAt)
     ///
@@ -1416,14 +1782,18 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` position: KTextEditor__Cursor `
     ///
-    pub fn HighlightingModeAt(self: KTextEditor__Document, allocator: std.mem.Allocator, position: anytype) []const u8 {
+    pub fn highlightingModeAt(self: KTextEditor__Document, allocator: std.mem.Allocator, position: anytype) []const u8 {
         comptime _ = @TypeOf(position)._is_KTextEditor__Cursor;
         var _str = qtc.KTextEditor__Document_HighlightingModeAt(@ptrCast(self.ptr), @ptrCast(position.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Document.HighlightingModeAt: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Document.highlightingModeAt: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `modes` instead
+    ///
+    pub const Modes = modes;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#modes)
     ///
@@ -1433,7 +1803,7 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Modes(self: KTextEditor__Document, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn modes(self: KTextEditor__Document, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KTextEditor__Document_Modes(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1441,15 +1811,19 @@ pub const KTextEditor__Document = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KTextEditor__Document.Modes: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KTextEditor__Document.modes: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KTextEditor__Document.Modes: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KTextEditor__Document.modes: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `highlightingModes` instead
+    ///
+    pub const HighlightingModes = highlightingModes;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#highlightingModes)
     ///
@@ -1459,7 +1833,7 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn HighlightingModes(self: KTextEditor__Document, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn highlightingModes(self: KTextEditor__Document, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KTextEditor__Document_HighlightingModes(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1467,15 +1841,19 @@ pub const KTextEditor__Document = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KTextEditor__Document.HighlightingModes: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KTextEditor__Document.highlightingModes: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KTextEditor__Document.HighlightingModes: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KTextEditor__Document.highlightingModes: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setMode` instead
+    ///
+    pub const SetMode = setMode;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#setMode)
     ///
@@ -1485,13 +1863,17 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetMode(self: KTextEditor__Document, name: []const u8) bool {
+    pub fn setMode(self: KTextEditor__Document, name: []const u8) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         return qtc.KTextEditor__Document_SetMode(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `setHighlightingMode` instead
+    ///
+    pub const SetHighlightingMode = setHighlightingMode;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#setHighlightingMode)
     ///
@@ -1501,13 +1883,17 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetHighlightingMode(self: KTextEditor__Document, name: []const u8) bool {
+    pub fn setHighlightingMode(self: KTextEditor__Document, name: []const u8) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         return qtc.KTextEditor__Document_SetHighlightingMode(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `highlightingModeSection` instead
+    ///
+    pub const HighlightingModeSection = highlightingModeSection;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#highlightingModeSection)
     ///
@@ -1519,13 +1905,17 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn HighlightingModeSection(self: KTextEditor__Document, allocator: std.mem.Allocator, index: i32) []const u8 {
+    pub fn highlightingModeSection(self: KTextEditor__Document, allocator: std.mem.Allocator, index: i32) []const u8 {
         var _str = qtc.KTextEditor__Document_HighlightingModeSection(@ptrCast(self.ptr), @bitCast(index));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Document.HighlightingModeSection: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Document.highlightingModeSection: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `modeSection` instead
+    ///
+    pub const ModeSection = modeSection;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#modeSection)
     ///
@@ -1537,14 +1927,18 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn ModeSection(self: KTextEditor__Document, allocator: std.mem.Allocator, index: i32) []const u8 {
+    pub fn modeSection(self: KTextEditor__Document, allocator: std.mem.Allocator, index: i32) []const u8 {
         var _str = qtc.KTextEditor__Document_ModeSection(@ptrCast(self.ptr), @bitCast(index));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Document.ModeSection: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Document.modeSection: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `modeChanged` instead
+    ///
+    pub const ModeChanged = modeChanged;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#modeChanged)
     ///
     /// ## Parameter(s):
@@ -1553,11 +1947,15 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` document: KTextEditor__Document `
     ///
-    pub fn ModeChanged(self: KTextEditor__Document, document: anytype) void {
+    pub fn modeChanged(self: KTextEditor__Document, document: anytype) void {
         comptime _ = @TypeOf(document)._is_KTextEditor__Document;
         qtc.KTextEditor__Document_ModeChanged(@ptrCast(self.ptr), @ptrCast(document.ptr));
     }
 
+    /// ### DEPRECATED: Use `onModeChanged` instead
+    ///
+    pub const OnModeChanged = onModeChanged;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#modeChanged)
     ///
     /// ## Parameters:
@@ -1566,9 +1964,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Document, document: KTextEditor__Document) callconv(.c) void `
     ///
-    pub fn OnModeChanged(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document) callconv(.c) void) void {
+    pub fn onModeChanged(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_ModeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `highlightingModeChanged` instead
+    ///
+    pub const HighlightingModeChanged = highlightingModeChanged;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#highlightingModeChanged)
     ///
@@ -1578,10 +1980,14 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` document: KTextEditor__Document `
     ///
-    pub fn HighlightingModeChanged(self: KTextEditor__Document, document: anytype) void {
+    pub fn highlightingModeChanged(self: KTextEditor__Document, document: anytype) void {
         comptime _ = @TypeOf(document)._is_KTextEditor__Document;
         qtc.KTextEditor__Document_HighlightingModeChanged(@ptrCast(self.ptr), @ptrCast(document.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHighlightingModeChanged` instead
+    ///
+    pub const OnHighlightingModeChanged = onHighlightingModeChanged;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#highlightingModeChanged)
     ///
@@ -1591,9 +1997,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Document, document: KTextEditor__Document) callconv(.c) void `
     ///
-    pub fn OnHighlightingModeChanged(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document) callconv(.c) void) void {
+    pub fn onHighlightingModeChanged(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_HighlightingModeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `print` instead
+    ///
+    pub const Print = print;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#print)
     ///
@@ -1601,9 +2011,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn Print(self: KTextEditor__Document) bool {
+    pub fn print(self: KTextEditor__Document) bool {
         return qtc.KTextEditor__Document_Print(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `printPreview` instead
+    ///
+    pub const PrintPreview = printPreview;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#printPreview)
     ///
@@ -1611,9 +2025,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn PrintPreview(self: KTextEditor__Document) void {
+    pub fn printPreview(self: KTextEditor__Document) void {
         qtc.KTextEditor__Document_PrintPreview(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `postMessage` instead
+    ///
+    pub const PostMessage = postMessage;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#postMessage)
     ///
@@ -1623,10 +2041,14 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` message: KTextEditor__Message `
     ///
-    pub fn PostMessage(self: KTextEditor__Document, message: anytype) bool {
+    pub fn postMessage(self: KTextEditor__Document, message: anytype) bool {
         comptime _ = @TypeOf(message)._is_KTextEditor__Message;
         return qtc.KTextEditor__Document_PostMessage(@ptrCast(self.ptr), @ptrCast(message.ptr));
     }
+
+    /// ### DEPRECATED: Use `readSessionConfig` instead
+    ///
+    pub const ReadSessionConfig = readSessionConfig;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#readSessionConfig)
     ///
@@ -1640,10 +2062,10 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` flags: Set_constu8 `
     ///
-    pub fn ReadSessionConfig(self: KTextEditor__Document, allocator: std.mem.Allocator, config: anytype, flags: Set_constu8) void {
+    pub fn readSessionConfig(self: KTextEditor__Document, allocator: std.mem.Allocator, config: anytype, flags: Set_constu8) void {
         comptime _ = @TypeOf(config)._is_KConfigGroup;
         const flags_count = flags.count();
-        const flags_arr = allocator.alloc(qtc.libqt_string, flags_count) catch @panic("KTextEditor__Document.ReadSessionConfig: Memory allocation failed");
+        const flags_arr = allocator.alloc(qtc.libqt_string, flags_count) catch @panic("KTextEditor__Document.readSessionConfig: Memory allocation failed");
         defer allocator.free(flags_arr);
         var flags_it = flags.keyIterator();
         var flags_i: usize = 0;
@@ -1660,6 +2082,10 @@ pub const KTextEditor__Document = extern struct {
         qtc.KTextEditor__Document_ReadSessionConfig(@ptrCast(self.ptr), @ptrCast(config.ptr), flags_set);
     }
 
+    /// ### DEPRECATED: Use `writeSessionConfig` instead
+    ///
+    pub const WriteSessionConfig = writeSessionConfig;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#writeSessionConfig)
     ///
     /// ## Parameter(s):
@@ -1672,10 +2098,10 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` flags: Set_constu8 `
     ///
-    pub fn WriteSessionConfig(self: KTextEditor__Document, allocator: std.mem.Allocator, config: anytype, flags: Set_constu8) void {
+    pub fn writeSessionConfig(self: KTextEditor__Document, allocator: std.mem.Allocator, config: anytype, flags: Set_constu8) void {
         comptime _ = @TypeOf(config)._is_KConfigGroup;
         const flags_count = flags.count();
-        const flags_arr = allocator.alloc(qtc.libqt_string, flags_count) catch @panic("KTextEditor__Document.WriteSessionConfig: Memory allocation failed");
+        const flags_arr = allocator.alloc(qtc.libqt_string, flags_count) catch @panic("KTextEditor__Document.writeSessionConfig: Memory allocation failed");
         defer allocator.free(flags_arr);
         var flags_it = flags.keyIterator();
         var flags_i: usize = 0;
@@ -1692,15 +2118,23 @@ pub const KTextEditor__Document = extern struct {
         qtc.KTextEditor__Document_WriteSessionConfig(@ptrCast(self.ptr), @ptrCast(config.ptr), flags_set);
     }
 
+    /// ### DEPRECATED: Use `isDataRecoveryAvailable` instead
+    ///
+    pub const IsDataRecoveryAvailable = isDataRecoveryAvailable;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#isDataRecoveryAvailable)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn IsDataRecoveryAvailable(self: KTextEditor__Document) bool {
+    pub fn isDataRecoveryAvailable(self: KTextEditor__Document) bool {
         return qtc.KTextEditor__Document_IsDataRecoveryAvailable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `recoverData` instead
+    ///
+    pub const RecoverData = recoverData;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#recoverData)
     ///
@@ -1708,9 +2142,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn RecoverData(self: KTextEditor__Document) void {
+    pub fn recoverData(self: KTextEditor__Document) void {
         qtc.KTextEditor__Document_RecoverData(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `discardDataRecovery` instead
+    ///
+    pub const DiscardDataRecovery = discardDataRecovery;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#discardDataRecovery)
     ///
@@ -1718,9 +2156,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn DiscardDataRecovery(self: KTextEditor__Document) void {
+    pub fn discardDataRecovery(self: KTextEditor__Document) void {
         qtc.KTextEditor__Document_DiscardDataRecovery(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `configChanged` instead
+    ///
+    pub const ConfigChanged = configChanged;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#configChanged)
     ///
@@ -1730,10 +2172,14 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` document: KTextEditor__Document `
     ///
-    pub fn ConfigChanged(self: KTextEditor__Document, document: anytype) void {
+    pub fn configChanged(self: KTextEditor__Document, document: anytype) void {
         comptime _ = @TypeOf(document)._is_KTextEditor__Document;
         qtc.KTextEditor__Document_ConfigChanged(@ptrCast(self.ptr), @ptrCast(document.ptr));
     }
+
+    /// ### DEPRECATED: Use `onConfigChanged` instead
+    ///
+    pub const OnConfigChanged = onConfigChanged;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#configChanged)
     ///
@@ -1743,9 +2189,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Document, document: KTextEditor__Document) callconv(.c) void `
     ///
-    pub fn OnConfigChanged(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document) callconv(.c) void) void {
+    pub fn onConfigChanged(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_ConfigChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `newMovingCursor` instead
+    ///
+    pub const NewMovingCursor = newMovingCursor;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#newMovingCursor)
     ///
@@ -1757,10 +2207,14 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` insertBehavior: movingcursor_enums.InsertBehavior `
     ///
-    pub fn NewMovingCursor(self: KTextEditor__Document, position: anytype, insertBehavior: i32) KTextEditor__MovingCursor {
+    pub fn newMovingCursor(self: KTextEditor__Document, position: anytype, insertBehavior: i32) KTextEditor__MovingCursor {
         comptime _ = @TypeOf(position)._is_KTextEditor__Cursor;
         return .{ .ptr = qtc.KTextEditor__Document_NewMovingCursor(@ptrCast(self.ptr), @ptrCast(position.ptr), @bitCast(insertBehavior)) };
     }
+
+    /// ### DEPRECATED: Use `newMovingRange` instead
+    ///
+    pub const NewMovingRange = newMovingRange;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#newMovingRange)
     ///
@@ -1774,10 +2228,14 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` emptyBehavior: movingrange_enums.EmptyBehavior `
     ///
-    pub fn NewMovingRange(self: KTextEditor__Document, range: anytype, insertBehaviors: i32, emptyBehavior: i32) KTextEditor__MovingRange {
+    pub fn newMovingRange(self: KTextEditor__Document, range: anytype, insertBehaviors: i32, emptyBehavior: i32) KTextEditor__MovingRange {
         comptime _ = @TypeOf(range)._is_KTextEditor__Range;
         return .{ .ptr = qtc.KTextEditor__Document_NewMovingRange(@ptrCast(self.ptr), @ptrCast(range.ptr), @bitCast(insertBehaviors), @bitCast(emptyBehavior)) };
     }
+
+    /// ### DEPRECATED: Use `revision` instead
+    ///
+    pub const Revision = revision;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#revision)
     ///
@@ -1785,9 +2243,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn Revision(self: KTextEditor__Document) i64 {
+    pub fn revision(self: KTextEditor__Document) i64 {
         return qtc.KTextEditor__Document_Revision(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lastSavedRevision` instead
+    ///
+    pub const LastSavedRevision = lastSavedRevision;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#lastSavedRevision)
     ///
@@ -1795,9 +2257,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn LastSavedRevision(self: KTextEditor__Document) i64 {
+    pub fn lastSavedRevision(self: KTextEditor__Document) i64 {
         return qtc.KTextEditor__Document_LastSavedRevision(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lockRevision` instead
+    ///
+    pub const LockRevision = lockRevision;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#lockRevision)
     ///
@@ -1805,11 +2271,15 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    /// ` revision: i64 `
+    /// ` _revision: i64 `
     ///
-    pub fn LockRevision(self: KTextEditor__Document, revision: i64) void {
-        qtc.KTextEditor__Document_LockRevision(@ptrCast(self.ptr), @bitCast(revision));
+    pub fn lockRevision(self: KTextEditor__Document, _revision: i64) void {
+        qtc.KTextEditor__Document_LockRevision(@ptrCast(self.ptr), @bitCast(_revision));
     }
+
+    /// ### DEPRECATED: Use `unlockRevision` instead
+    ///
+    pub const UnlockRevision = unlockRevision;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#unlockRevision)
     ///
@@ -1817,11 +2287,15 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    /// ` revision: i64 `
+    /// ` _revision: i64 `
     ///
-    pub fn UnlockRevision(self: KTextEditor__Document, revision: i64) void {
-        qtc.KTextEditor__Document_UnlockRevision(@ptrCast(self.ptr), @bitCast(revision));
+    pub fn unlockRevision(self: KTextEditor__Document, _revision: i64) void {
+        qtc.KTextEditor__Document_UnlockRevision(@ptrCast(self.ptr), @bitCast(_revision));
     }
+
+    /// ### DEPRECATED: Use `transformCursor` instead
+    ///
+    pub const TransformCursor = transformCursor;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#transformCursor)
     ///
@@ -1837,10 +2311,14 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` toRevision: i64 `
     ///
-    pub fn TransformCursor(self: KTextEditor__Document, cursor: anytype, insertBehavior: i32, fromRevision: i64, toRevision: i64) void {
+    pub fn transformCursor(self: KTextEditor__Document, cursor: anytype, insertBehavior: i32, fromRevision: i64, toRevision: i64) void {
         comptime _ = @TypeOf(cursor)._is_KTextEditor__Cursor;
         qtc.KTextEditor__Document_TransformCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr), @bitCast(insertBehavior), @bitCast(fromRevision), @bitCast(toRevision));
     }
+
+    /// ### DEPRECATED: Use `transformCursor2` instead
+    ///
+    pub const TransformCursor2 = transformCursor2;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#transformCursor)
     ///
@@ -1848,7 +2326,7 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    /// ` line: *i32 `
+    /// ` _line: *i32 `
     ///
     /// ` column: *i32 `
     ///
@@ -1858,9 +2336,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` toRevision: i64 `
     ///
-    pub fn TransformCursor2(self: KTextEditor__Document, line: *i32, column: *i32, insertBehavior: i32, fromRevision: i64, toRevision: i64) void {
-        qtc.KTextEditor__Document_TransformCursor2(@ptrCast(self.ptr), @ptrCast(line), @ptrCast(column), @bitCast(insertBehavior), @bitCast(fromRevision), @bitCast(toRevision));
+    pub fn transformCursor2(self: KTextEditor__Document, _line: *i32, column: *i32, insertBehavior: i32, fromRevision: i64, toRevision: i64) void {
+        qtc.KTextEditor__Document_TransformCursor2(@ptrCast(self.ptr), @ptrCast(_line), @ptrCast(column), @bitCast(insertBehavior), @bitCast(fromRevision), @bitCast(toRevision));
     }
+
+    /// ### DEPRECATED: Use `transformRange` instead
+    ///
+    pub const TransformRange = transformRange;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#transformRange)
     ///
@@ -1878,11 +2360,15 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` toRevision: i64 `
     ///
-    pub fn TransformRange(self: KTextEditor__Document, range: anytype, insertBehaviors: i32, emptyBehavior: i32, fromRevision: i64, toRevision: i64) void {
+    pub fn transformRange(self: KTextEditor__Document, range: anytype, insertBehaviors: i32, emptyBehavior: i32, fromRevision: i64, toRevision: i64) void {
         comptime _ = @TypeOf(range)._is_KTextEditor__Range;
         qtc.KTextEditor__Document_TransformRange(@ptrCast(self.ptr), @ptrCast(range.ptr), @bitCast(insertBehaviors), @bitCast(emptyBehavior), @bitCast(fromRevision), @bitCast(toRevision));
     }
 
+    /// ### DEPRECATED: Use `aboutToDeleteMovingInterfaceContent` instead
+    ///
+    pub const AboutToDeleteMovingInterfaceContent = aboutToDeleteMovingInterfaceContent;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#aboutToDeleteMovingInterfaceContent)
     ///
     /// ## Parameter(s):
@@ -1891,11 +2377,15 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` document: KTextEditor__Document `
     ///
-    pub fn AboutToDeleteMovingInterfaceContent(self: KTextEditor__Document, document: anytype) void {
+    pub fn aboutToDeleteMovingInterfaceContent(self: KTextEditor__Document, document: anytype) void {
         comptime _ = @TypeOf(document)._is_KTextEditor__Document;
         qtc.KTextEditor__Document_AboutToDeleteMovingInterfaceContent(@ptrCast(self.ptr), @ptrCast(document.ptr));
     }
 
+    /// ### DEPRECATED: Use `onAboutToDeleteMovingInterfaceContent` instead
+    ///
+    pub const OnAboutToDeleteMovingInterfaceContent = onAboutToDeleteMovingInterfaceContent;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#aboutToDeleteMovingInterfaceContent)
     ///
     /// ## Parameters:
@@ -1904,9 +2394,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Document, document: KTextEditor__Document) callconv(.c) void `
     ///
-    pub fn OnAboutToDeleteMovingInterfaceContent(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document) callconv(.c) void) void {
+    pub fn onAboutToDeleteMovingInterfaceContent(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_AboutToDeleteMovingInterfaceContent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `aboutToInvalidateMovingInterfaceContent` instead
+    ///
+    pub const AboutToInvalidateMovingInterfaceContent = aboutToInvalidateMovingInterfaceContent;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#aboutToInvalidateMovingInterfaceContent)
     ///
@@ -1916,10 +2410,14 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` document: KTextEditor__Document `
     ///
-    pub fn AboutToInvalidateMovingInterfaceContent(self: KTextEditor__Document, document: anytype) void {
+    pub fn aboutToInvalidateMovingInterfaceContent(self: KTextEditor__Document, document: anytype) void {
         comptime _ = @TypeOf(document)._is_KTextEditor__Document;
         qtc.KTextEditor__Document_AboutToInvalidateMovingInterfaceContent(@ptrCast(self.ptr), @ptrCast(document.ptr));
     }
+
+    /// ### DEPRECATED: Use `onAboutToInvalidateMovingInterfaceContent` instead
+    ///
+    pub const OnAboutToInvalidateMovingInterfaceContent = onAboutToInvalidateMovingInterfaceContent;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#aboutToInvalidateMovingInterfaceContent)
     ///
@@ -1929,9 +2427,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Document, document: KTextEditor__Document) callconv(.c) void `
     ///
-    pub fn OnAboutToInvalidateMovingInterfaceContent(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document) callconv(.c) void) void {
+    pub fn onAboutToInvalidateMovingInterfaceContent(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_AboutToInvalidateMovingInterfaceContent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `configKeys` instead
+    ///
+    pub const ConfigKeys = configKeys;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#configKeys)
     ///
@@ -1941,7 +2443,7 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ConfigKeys(self: KTextEditor__Document, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn configKeys(self: KTextEditor__Document, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KTextEditor__Document_ConfigKeys(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1949,15 +2451,19 @@ pub const KTextEditor__Document = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KTextEditor__Document.ConfigKeys: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KTextEditor__Document.configKeys: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KTextEditor__Document.ConfigKeys: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KTextEditor__Document.configKeys: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `configValue` instead
+    ///
+    pub const ConfigValue = configValue;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#configValue)
     ///
@@ -1967,13 +2473,17 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn ConfigValue(self: KTextEditor__Document, key: []const u8) QVariant {
+    pub fn configValue(self: KTextEditor__Document, key: []const u8) QVariant {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
         return .{ .ptr = qtc.KTextEditor__Document_ConfigValue(@ptrCast(self.ptr), key_str) };
     }
+
+    /// ### DEPRECATED: Use `setConfigValue` instead
+    ///
+    pub const SetConfigValue = setConfigValue;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#setConfigValue)
     ///
@@ -1985,7 +2495,7 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetConfigValue(self: KTextEditor__Document, key: []const u8, value: anytype) void {
+    pub fn setConfigValue(self: KTextEditor__Document, key: []const u8, value: anytype) void {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -1993,6 +2503,10 @@ pub const KTextEditor__Document = extern struct {
         comptime _ = @TypeOf(value)._is_QVariant;
         qtc.KTextEditor__Document_SetConfigValue(@ptrCast(self.ptr), key_str, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `setModifiedOnDisk` instead
+    ///
+    pub const SetModifiedOnDisk = setModifiedOnDisk;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#setModifiedOnDisk)
     ///
@@ -2002,9 +2516,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` reason: document_enums.ModifiedOnDiskReason `
     ///
-    pub fn SetModifiedOnDisk(self: KTextEditor__Document, reason: i32) void {
+    pub fn setModifiedOnDisk(self: KTextEditor__Document, reason: i32) void {
         qtc.KTextEditor__Document_SetModifiedOnDisk(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `setModifiedOnDiskWarning` instead
+    ///
+    pub const SetModifiedOnDiskWarning = setModifiedOnDiskWarning;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#setModifiedOnDiskWarning)
     ///
@@ -2014,9 +2532,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetModifiedOnDiskWarning(self: KTextEditor__Document, on: bool) void {
+    pub fn setModifiedOnDiskWarning(self: KTextEditor__Document, on: bool) void {
         qtc.KTextEditor__Document_SetModifiedOnDiskWarning(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `modifiedOnDisk` instead
+    ///
+    pub const ModifiedOnDisk = modifiedOnDisk;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#modifiedOnDisk)
     ///
@@ -2026,14 +2548,18 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` document: KTextEditor__Document `
     ///
-    /// ` isModified: bool `
+    /// ` _isModified: bool `
     ///
     /// ` reason: document_enums.ModifiedOnDiskReason `
     ///
-    pub fn ModifiedOnDisk(self: KTextEditor__Document, document: anytype, isModified: bool, reason: i32) void {
+    pub fn modifiedOnDisk(self: KTextEditor__Document, document: anytype, _isModified: bool, reason: i32) void {
         comptime _ = @TypeOf(document)._is_KTextEditor__Document;
-        qtc.KTextEditor__Document_ModifiedOnDisk(@ptrCast(self.ptr), @ptrCast(document.ptr), isModified, @bitCast(reason));
+        qtc.KTextEditor__Document_ModifiedOnDisk(@ptrCast(self.ptr), @ptrCast(document.ptr), _isModified, @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `onModifiedOnDisk` instead
+    ///
+    pub const OnModifiedOnDisk = onModifiedOnDisk;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#modifiedOnDisk)
     ///
@@ -2043,9 +2569,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Document, document: KTextEditor__Document, isModified: bool, reason: document_enums.ModifiedOnDiskReason) callconv(.c) void `
     ///
-    pub fn OnModifiedOnDisk(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document, bool, i32) callconv(.c) void) void {
+    pub fn onModifiedOnDisk(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document, bool, i32) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_ModifiedOnDisk(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mark` instead
+    ///
+    pub const Mark = mark;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#mark)
     ///
@@ -2053,11 +2583,15 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    /// ` line: i32 `
+    /// ` _line: i32 `
     ///
-    pub fn Mark(self: KTextEditor__Document, line: i32) u32 {
-        return qtc.KTextEditor__Document_Mark(@ptrCast(self.ptr), @bitCast(line));
+    pub fn mark(self: KTextEditor__Document, _line: i32) u32 {
+        return qtc.KTextEditor__Document_Mark(@ptrCast(self.ptr), @bitCast(_line));
     }
+
+    /// ### DEPRECATED: Use `setMark` instead
+    ///
+    pub const SetMark = setMark;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#setMark)
     ///
@@ -2065,13 +2599,17 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    /// ` line: i32 `
+    /// ` _line: i32 `
     ///
     /// ` markType: u32 `
     ///
-    pub fn SetMark(self: KTextEditor__Document, line: i32, markType: u32) void {
-        qtc.KTextEditor__Document_SetMark(@ptrCast(self.ptr), @bitCast(line), @bitCast(markType));
+    pub fn setMark(self: KTextEditor__Document, _line: i32, markType: u32) void {
+        qtc.KTextEditor__Document_SetMark(@ptrCast(self.ptr), @bitCast(_line), @bitCast(markType));
     }
+
+    /// ### DEPRECATED: Use `clearMark` instead
+    ///
+    pub const ClearMark = clearMark;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#clearMark)
     ///
@@ -2079,11 +2617,15 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    /// ` line: i32 `
+    /// ` _line: i32 `
     ///
-    pub fn ClearMark(self: KTextEditor__Document, line: i32) void {
-        qtc.KTextEditor__Document_ClearMark(@ptrCast(self.ptr), @bitCast(line));
+    pub fn clearMark(self: KTextEditor__Document, _line: i32) void {
+        qtc.KTextEditor__Document_ClearMark(@ptrCast(self.ptr), @bitCast(_line));
     }
+
+    /// ### DEPRECATED: Use `addMark` instead
+    ///
+    pub const AddMark = addMark;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#addMark)
     ///
@@ -2091,13 +2633,17 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    /// ` line: i32 `
+    /// ` _line: i32 `
     ///
     /// ` markType: u32 `
     ///
-    pub fn AddMark(self: KTextEditor__Document, line: i32, markType: u32) void {
-        qtc.KTextEditor__Document_AddMark(@ptrCast(self.ptr), @bitCast(line), @bitCast(markType));
+    pub fn addMark(self: KTextEditor__Document, _line: i32, markType: u32) void {
+        qtc.KTextEditor__Document_AddMark(@ptrCast(self.ptr), @bitCast(_line), @bitCast(markType));
     }
+
+    /// ### DEPRECATED: Use `removeMark` instead
+    ///
+    pub const RemoveMark = removeMark;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#removeMark)
     ///
@@ -2105,13 +2651,17 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    /// ` line: i32 `
+    /// ` _line: i32 `
     ///
     /// ` markType: u32 `
     ///
-    pub fn RemoveMark(self: KTextEditor__Document, line: i32, markType: u32) void {
-        qtc.KTextEditor__Document_RemoveMark(@ptrCast(self.ptr), @bitCast(line), @bitCast(markType));
+    pub fn removeMark(self: KTextEditor__Document, _line: i32, markType: u32) void {
+        qtc.KTextEditor__Document_RemoveMark(@ptrCast(self.ptr), @bitCast(_line), @bitCast(markType));
     }
+
+    /// ### DEPRECATED: Use `marks` instead
+    ///
+    pub const Marks = marks;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#marks)
     ///
@@ -2121,10 +2671,10 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Marks(self: KTextEditor__Document, allocator: std.mem.Allocator) Map_i32_KTextEditorMark {
+    pub fn marks(self: KTextEditor__Document, allocator: std.mem.Allocator) Map_i32_KTextEditorMark {
         const _map: qtc.libqt_map = qtc.KTextEditor__Document_Marks(@ptrCast(self.ptr));
         var _ret: Map_i32_KTextEditorMark = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KTextEditor__Document.Marks: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KTextEditor__Document.marks: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -2140,21 +2690,33 @@ pub const KTextEditor__Document = extern struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `clearMarks` instead
+    ///
+    pub const ClearMarks = clearMarks;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#clearMarks)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn ClearMarks(self: KTextEditor__Document) void {
+    pub fn clearMarks(self: KTextEditor__Document) void {
         qtc.KTextEditor__Document_ClearMarks(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `reservedMarkersCount` instead
+    ///
+    pub const ReservedMarkersCount = reservedMarkersCount;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#reservedMarkersCount)
     ///
-    pub fn ReservedMarkersCount() i32 {
+    pub fn reservedMarkersCount() i32 {
         return qtc.KTextEditor__Document_ReservedMarkersCount();
     }
+
+    /// ### DEPRECATED: Use `setMarkDescription` instead
+    ///
+    pub const SetMarkDescription = setMarkDescription;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#setMarkDescription)
     ///
@@ -2162,17 +2724,21 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    /// ` mark: document_enums.MarkTypes `
+    /// ` _mark: document_enums.MarkTypes `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn SetMarkDescription(self: KTextEditor__Document, mark: i32, text: []const u8) void {
+    pub fn setMarkDescription(self: KTextEditor__Document, _mark: i32, _text: []const u8) void {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
-        qtc.KTextEditor__Document_SetMarkDescription(@ptrCast(self.ptr), @bitCast(mark), text_str);
+        qtc.KTextEditor__Document_SetMarkDescription(@ptrCast(self.ptr), @bitCast(_mark), text_str);
     }
+
+    /// ### DEPRECATED: Use `markDescription` instead
+    ///
+    pub const MarkDescription = markDescription;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#markDescription)
     ///
@@ -2182,15 +2748,19 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` mark: document_enums.MarkTypes `
+    /// ` _mark: document_enums.MarkTypes `
     ///
-    pub fn MarkDescription(self: KTextEditor__Document, allocator: std.mem.Allocator, mark: i32) []const u8 {
-        var _str = qtc.KTextEditor__Document_MarkDescription(@ptrCast(self.ptr), @bitCast(mark));
+    pub fn markDescription(self: KTextEditor__Document, allocator: std.mem.Allocator, _mark: i32) []const u8 {
+        var _str = qtc.KTextEditor__Document_MarkDescription(@ptrCast(self.ptr), @bitCast(_mark));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Document.MarkDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Document.markDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setEditableMarks` instead
+    ///
+    pub const SetEditableMarks = setEditableMarks;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#setEditableMarks)
     ///
@@ -2200,9 +2770,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` markMask: u32 `
     ///
-    pub fn SetEditableMarks(self: KTextEditor__Document, markMask: u32) void {
+    pub fn setEditableMarks(self: KTextEditor__Document, markMask: u32) void {
         qtc.KTextEditor__Document_SetEditableMarks(@ptrCast(self.ptr), @bitCast(markMask));
     }
+
+    /// ### DEPRECATED: Use `editableMarks` instead
+    ///
+    pub const EditableMarks = editableMarks;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#editableMarks)
     ///
@@ -2210,9 +2784,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn EditableMarks(self: KTextEditor__Document) u32 {
+    pub fn editableMarks(self: KTextEditor__Document) u32 {
         return qtc.KTextEditor__Document_EditableMarks(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMarkIcon` instead
+    ///
+    pub const SetMarkIcon = setMarkIcon;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#setMarkIcon)
     ///
@@ -2224,10 +2802,14 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetMarkIcon(self: KTextEditor__Document, markType: i32, icon: anytype) void {
+    pub fn setMarkIcon(self: KTextEditor__Document, markType: i32, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.KTextEditor__Document_SetMarkIcon(@ptrCast(self.ptr), @bitCast(markType), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `markIcon` instead
+    ///
+    pub const MarkIcon = markIcon;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#markIcon)
     ///
@@ -2237,9 +2819,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` markType: document_enums.MarkTypes `
     ///
-    pub fn MarkIcon(self: KTextEditor__Document, markType: i32) QIcon {
+    pub fn markIcon(self: KTextEditor__Document, markType: i32) QIcon {
         return .{ .ptr = qtc.KTextEditor__Document_MarkIcon(@ptrCast(self.ptr), @bitCast(markType)) };
     }
+
+    /// ### DEPRECATED: Use `marksChanged` instead
+    ///
+    pub const MarksChanged = marksChanged;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#marksChanged)
     ///
@@ -2249,10 +2835,14 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` document: KTextEditor__Document `
     ///
-    pub fn MarksChanged(self: KTextEditor__Document, document: anytype) void {
+    pub fn marksChanged(self: KTextEditor__Document, document: anytype) void {
         comptime _ = @TypeOf(document)._is_KTextEditor__Document;
         qtc.KTextEditor__Document_MarksChanged(@ptrCast(self.ptr), @ptrCast(document.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMarksChanged` instead
+    ///
+    pub const OnMarksChanged = onMarksChanged;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#marksChanged)
     ///
@@ -2262,9 +2852,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Document, document: KTextEditor__Document) callconv(.c) void `
     ///
-    pub fn OnMarksChanged(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document) callconv(.c) void) void {
+    pub fn onMarksChanged(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_MarksChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `markChanged` instead
+    ///
+    pub const MarkChanged = markChanged;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#markChanged)
     ///
@@ -2274,15 +2868,19 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` document: KTextEditor__Document `
     ///
-    /// ` mark: KTextEditor__Mark `
+    /// ` _mark: KTextEditor__Mark `
     ///
-    /// ` action: document_enums.MarkChangeAction `
+    /// ` _action: document_enums.MarkChangeAction `
     ///
-    pub fn MarkChanged(self: KTextEditor__Document, document: anytype, mark: anytype, action: i32) void {
+    pub fn markChanged(self: KTextEditor__Document, document: anytype, _mark: anytype, _action: i32) void {
         comptime _ = @TypeOf(document)._is_KTextEditor__Document;
-        comptime _ = @TypeOf(mark)._is_KTextEditor__Mark;
-        qtc.KTextEditor__Document_MarkChanged(@ptrCast(self.ptr), @ptrCast(document.ptr), @ptrCast(mark.ptr), @bitCast(action));
+        comptime _ = @TypeOf(_mark)._is_KTextEditor__Mark;
+        qtc.KTextEditor__Document_MarkChanged(@ptrCast(self.ptr), @ptrCast(document.ptr), @ptrCast(_mark.ptr), @bitCast(_action));
     }
+
+    /// ### DEPRECATED: Use `onMarkChanged` instead
+    ///
+    pub const OnMarkChanged = onMarkChanged;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#markChanged)
     ///
@@ -2292,9 +2890,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Document, document: KTextEditor__Document, mark: KTextEditor__Mark, action: document_enums.MarkChangeAction) callconv(.c) void `
     ///
-    pub fn OnMarkChanged(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document, KTextEditor__Mark, i32) callconv(.c) void) void {
+    pub fn onMarkChanged(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document, KTextEditor__Mark, i32) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_MarkChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `markToolTipRequested` instead
+    ///
+    pub const MarkToolTipRequested = markToolTipRequested;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#markToolTipRequested)
     ///
@@ -2304,18 +2906,22 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` document: KTextEditor__Document `
     ///
-    /// ` mark: KTextEditor__Mark `
+    /// ` _mark: KTextEditor__Mark `
     ///
     /// ` position: QPoint `
     ///
     /// ` handled: *bool `
     ///
-    pub fn MarkToolTipRequested(self: KTextEditor__Document, document: anytype, mark: anytype, position: anytype, handled: *bool) void {
+    pub fn markToolTipRequested(self: KTextEditor__Document, document: anytype, _mark: anytype, position: anytype, handled: *bool) void {
         comptime _ = @TypeOf(document)._is_KTextEditor__Document;
-        comptime _ = @TypeOf(mark)._is_KTextEditor__Mark;
+        comptime _ = @TypeOf(_mark)._is_KTextEditor__Mark;
         comptime _ = @TypeOf(position)._is_QPoint;
-        qtc.KTextEditor__Document_MarkToolTipRequested(@ptrCast(self.ptr), @ptrCast(document.ptr), @ptrCast(mark.ptr), @ptrCast(position.ptr), @ptrCast(handled));
+        qtc.KTextEditor__Document_MarkToolTipRequested(@ptrCast(self.ptr), @ptrCast(document.ptr), @ptrCast(_mark.ptr), @ptrCast(position.ptr), @ptrCast(handled));
     }
+
+    /// ### DEPRECATED: Use `onMarkToolTipRequested` instead
+    ///
+    pub const OnMarkToolTipRequested = onMarkToolTipRequested;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#markToolTipRequested)
     ///
@@ -2325,9 +2931,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Document, document: KTextEditor__Document, mark: KTextEditor__Mark, position: QPoint, handled: *bool) callconv(.c) void `
     ///
-    pub fn OnMarkToolTipRequested(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document, KTextEditor__Mark, QPoint, *bool) callconv(.c) void) void {
+    pub fn onMarkToolTipRequested(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document, KTextEditor__Mark, QPoint, *bool) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_MarkToolTipRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `markContextMenuRequested` instead
+    ///
+    pub const MarkContextMenuRequested = markContextMenuRequested;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#markContextMenuRequested)
     ///
@@ -2337,18 +2947,22 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` document: KTextEditor__Document `
     ///
-    /// ` mark: KTextEditor__Mark `
+    /// ` _mark: KTextEditor__Mark `
     ///
     /// ` pos: QPoint `
     ///
     /// ` handled: *bool `
     ///
-    pub fn MarkContextMenuRequested(self: KTextEditor__Document, document: anytype, mark: anytype, pos: anytype, handled: *bool) void {
+    pub fn markContextMenuRequested(self: KTextEditor__Document, document: anytype, _mark: anytype, pos: anytype, handled: *bool) void {
         comptime _ = @TypeOf(document)._is_KTextEditor__Document;
-        comptime _ = @TypeOf(mark)._is_KTextEditor__Mark;
+        comptime _ = @TypeOf(_mark)._is_KTextEditor__Mark;
         comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.KTextEditor__Document_MarkContextMenuRequested(@ptrCast(self.ptr), @ptrCast(document.ptr), @ptrCast(mark.ptr), @ptrCast(pos.ptr), @ptrCast(handled));
+        qtc.KTextEditor__Document_MarkContextMenuRequested(@ptrCast(self.ptr), @ptrCast(document.ptr), @ptrCast(_mark.ptr), @ptrCast(pos.ptr), @ptrCast(handled));
     }
+
+    /// ### DEPRECATED: Use `onMarkContextMenuRequested` instead
+    ///
+    pub const OnMarkContextMenuRequested = onMarkContextMenuRequested;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#markContextMenuRequested)
     ///
@@ -2358,9 +2972,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Document, document: KTextEditor__Document, mark: KTextEditor__Mark, pos: QPoint, handled: *bool) callconv(.c) void `
     ///
-    pub fn OnMarkContextMenuRequested(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document, KTextEditor__Mark, QPoint, *bool) callconv(.c) void) void {
+    pub fn onMarkContextMenuRequested(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document, KTextEditor__Mark, QPoint, *bool) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_MarkContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `markClicked` instead
+    ///
+    pub const MarkClicked = markClicked;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#markClicked)
     ///
@@ -2370,15 +2988,19 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` document: KTextEditor__Document `
     ///
-    /// ` mark: KTextEditor__Mark `
+    /// ` _mark: KTextEditor__Mark `
     ///
     /// ` handled: *bool `
     ///
-    pub fn MarkClicked(self: KTextEditor__Document, document: anytype, mark: anytype, handled: *bool) void {
+    pub fn markClicked(self: KTextEditor__Document, document: anytype, _mark: anytype, handled: *bool) void {
         comptime _ = @TypeOf(document)._is_KTextEditor__Document;
-        comptime _ = @TypeOf(mark)._is_KTextEditor__Mark;
-        qtc.KTextEditor__Document_MarkClicked(@ptrCast(self.ptr), @ptrCast(document.ptr), @ptrCast(mark.ptr), @ptrCast(handled));
+        comptime _ = @TypeOf(_mark)._is_KTextEditor__Mark;
+        qtc.KTextEditor__Document_MarkClicked(@ptrCast(self.ptr), @ptrCast(document.ptr), @ptrCast(_mark.ptr), @ptrCast(handled));
     }
+
+    /// ### DEPRECATED: Use `onMarkClicked` instead
+    ///
+    pub const OnMarkClicked = onMarkClicked;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#markClicked)
     ///
@@ -2388,9 +3010,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Document, document: KTextEditor__Document, mark: KTextEditor__Mark, handled: *bool) callconv(.c) void `
     ///
-    pub fn OnMarkClicked(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document, KTextEditor__Mark, *bool) callconv(.c) void) void {
+    pub fn onMarkClicked(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KTextEditor__Document, KTextEditor__Mark, *bool) callconv(.c) void) void {
         qtc.KTextEditor__Document_Connect_MarkClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setAnnotationModel` instead
+    ///
+    pub const SetAnnotationModel = setAnnotationModel;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#setAnnotationModel)
     ///
@@ -2400,10 +3026,14 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` model: KTextEditor__AnnotationModel `
     ///
-    pub fn SetAnnotationModel(self: KTextEditor__Document, model: anytype) void {
+    pub fn setAnnotationModel(self: KTextEditor__Document, model: anytype) void {
         comptime _ = @TypeOf(model)._is_KTextEditor__AnnotationModel;
         qtc.KTextEditor__Document_SetAnnotationModel(@ptrCast(self.ptr), @ptrCast(model.ptr));
     }
+
+    /// ### DEPRECATED: Use `annotationModel` instead
+    ///
+    pub const AnnotationModel = annotationModel;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#annotationModel)
     ///
@@ -2411,9 +3041,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn AnnotationModel(self: KTextEditor__Document) KTextEditor__AnnotationModel {
+    pub fn annotationModel(self: KTextEditor__Document) KTextEditor__AnnotationModel {
         return .{ .ptr = qtc.KTextEditor__Document_AnnotationModel(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -2425,15 +3059,19 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Document.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Document.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -2447,15 +3085,19 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Document.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Document.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `searchText3` instead
+    ///
+    pub const SearchText3 = searchText3;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document.html#searchText)
     ///
@@ -2471,7 +3113,7 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` options: flag of document_enums.SearchOption `
     ///
-    pub fn SearchText3(self: KTextEditor__Document, allocator: std.mem.Allocator, range: anytype, pattern: []const u8, options: i32) []KTextEditor__Range {
+    pub fn searchText3(self: KTextEditor__Document, allocator: std.mem.Allocator, range: anytype, pattern: []const u8, options: i32) []KTextEditor__Range {
         comptime _ = @TypeOf(range)._is_KTextEditor__Range;
         const pattern_str = qtc.libqt_string{
             .len = pattern.len,
@@ -2479,12 +3121,16 @@ pub const KTextEditor__Document = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.KTextEditor__Document_SearchText3(@ptrCast(self.ptr), @ptrCast(range.ptr), pattern_str, @bitCast(options));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KTextEditor__Range, _arr.len) catch @panic("KTextEditor__Document.SearchText3: Memory allocation failed");
-        const _data: [*]QtC.KTextEditor__Range = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(KTextEditor__Range, _arr.len) catch @panic("KTextEditor__Document.searchText3: Memory allocation failed");
+        const _data_val: [*]QtC.KTextEditor__Range = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isReadWrite` instead
+    ///
+    pub const IsReadWrite = isReadWrite;
 
     /// Inherited from KParts::ReadWritePart
     ///
@@ -2494,9 +3140,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn IsReadWrite(self: KTextEditor__Document) bool {
+    pub fn isReadWrite(self: KTextEditor__Document) bool {
         return qtc.KParts__ReadWritePart_IsReadWrite(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setReadWrite` instead
+    ///
+    pub const SetReadWrite = setReadWrite;
 
     /// Inherited from KParts::ReadWritePart
     ///
@@ -2508,9 +3158,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` readwrite: bool `
     ///
-    pub fn SetReadWrite(self: KTextEditor__Document, readwrite: bool) void {
+    pub fn setReadWrite(self: KTextEditor__Document, readwrite: bool) void {
         qtc.KParts__ReadWritePart_SetReadWrite(@ptrCast(self.ptr), readwrite);
     }
+
+    /// ### DEPRECATED: Use `isModified` instead
+    ///
+    pub const IsModified = isModified;
 
     /// Inherited from KParts::ReadWritePart
     ///
@@ -2520,9 +3174,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn IsModified(self: KTextEditor__Document) bool {
+    pub fn isModified(self: KTextEditor__Document) bool {
         return qtc.KParts__ReadWritePart_IsModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `queryClose` instead
+    ///
+    pub const QueryClose = queryClose;
 
     /// Inherited from KParts::ReadWritePart
     ///
@@ -2532,9 +3190,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn QueryClose(self: KTextEditor__Document) bool {
+    pub fn queryClose(self: KTextEditor__Document) bool {
         return qtc.KParts__ReadWritePart_QueryClose(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `closeUrl` instead
+    ///
+    pub const CloseUrl = closeUrl;
 
     /// Inherited from KParts::ReadWritePart
     ///
@@ -2544,9 +3206,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn CloseUrl(self: KTextEditor__Document) bool {
+    pub fn closeUrl(self: KTextEditor__Document) bool {
         return qtc.KParts__ReadWritePart_CloseUrl(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `closeUrl2` instead
+    ///
+    pub const CloseUrl2 = closeUrl2;
 
     /// Inherited from KParts::ReadWritePart
     ///
@@ -2558,9 +3224,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` promptToSave: bool `
     ///
-    pub fn CloseUrl2(self: KTextEditor__Document, promptToSave: bool) bool {
+    pub fn closeUrl2(self: KTextEditor__Document, promptToSave: bool) bool {
         return qtc.KParts__ReadWritePart_CloseUrl2(@ptrCast(self.ptr), promptToSave);
     }
+
+    /// ### DEPRECATED: Use `saveAs` instead
+    ///
+    pub const SaveAs = saveAs;
 
     /// Inherited from KParts::ReadWritePart
     ///
@@ -2570,12 +3240,16 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    /// ` url: QUrl `
+    /// ` _url: QUrl `
     ///
-    pub fn SaveAs(self: KTextEditor__Document, url: anytype) bool {
-        comptime _ = @TypeOf(url)._is_QUrl;
-        return qtc.KParts__ReadWritePart_SaveAs(@ptrCast(self.ptr), @ptrCast(url.ptr));
+    pub fn saveAs(self: KTextEditor__Document, _url: anytype) bool {
+        comptime _ = @TypeOf(_url)._is_QUrl;
+        return qtc.KParts__ReadWritePart_SaveAs(@ptrCast(self.ptr), @ptrCast(_url.ptr));
     }
+
+    /// ### DEPRECATED: Use `setModified` instead
+    ///
+    pub const SetModified = setModified;
 
     /// Inherited from KParts::ReadWritePart
     ///
@@ -2587,9 +3261,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` modified: bool `
     ///
-    pub fn SetModified(self: KTextEditor__Document, modified: bool) void {
+    pub fn setModified(self: KTextEditor__Document, modified: bool) void {
         qtc.KParts__ReadWritePart_SetModified(@ptrCast(self.ptr), modified);
     }
+
+    /// ### DEPRECATED: Use `sigQueryClose` instead
+    ///
+    pub const SigQueryClose = sigQueryClose;
 
     /// Inherited from KParts::ReadWritePart
     ///
@@ -2603,9 +3281,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` abortClosing: *bool `
     ///
-    pub fn SigQueryClose(self: KTextEditor__Document, handled: *bool, abortClosing: *bool) void {
+    pub fn sigQueryClose(self: KTextEditor__Document, handled: *bool, abortClosing: *bool) void {
         qtc.KParts__ReadWritePart_SigQueryClose(@ptrCast(self.ptr), @ptrCast(handled), @ptrCast(abortClosing));
     }
+
+    /// ### DEPRECATED: Use `onSigQueryClose` instead
+    ///
+    pub const OnSigQueryClose = onSigQueryClose;
 
     /// Inherited from KParts::ReadWritePart
     ///
@@ -2617,9 +3299,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Document, handled: *bool, abortClosing: *bool) callconv(.c) void `
     ///
-    pub fn OnSigQueryClose(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, *bool, *bool) callconv(.c) void) void {
+    pub fn onSigQueryClose(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, *bool, *bool) callconv(.c) void) void {
         qtc.KParts__ReadWritePart_Connect_SigQueryClose(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setModified2` instead
+    ///
+    pub const SetModified2 = setModified2;
 
     /// Inherited from KParts::ReadWritePart
     ///
@@ -2629,9 +3315,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn SetModified2(self: KTextEditor__Document) void {
+    pub fn setModified2(self: KTextEditor__Document) void {
         qtc.KParts__ReadWritePart_SetModified2(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `save` instead
+    ///
+    pub const Save = save;
 
     /// Inherited from KParts::ReadWritePart
     ///
@@ -2641,9 +3331,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn Save(self: KTextEditor__Document) bool {
+    pub fn save(self: KTextEditor__Document) bool {
         return qtc.KParts__ReadWritePart_Save(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `waitSaveComplete` instead
+    ///
+    pub const WaitSaveComplete = waitSaveComplete;
 
     /// Inherited from KParts::ReadWritePart
     ///
@@ -2653,9 +3347,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn WaitSaveComplete(self: KTextEditor__Document) bool {
+    pub fn waitSaveComplete(self: KTextEditor__Document) bool {
         return qtc.KParts__ReadWritePart_WaitSaveComplete(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProgressInfoEnabled` instead
+    ///
+    pub const SetProgressInfoEnabled = setProgressInfoEnabled;
 
     /// Inherited from KParts::ReadOnlyPart
     ///
@@ -2667,9 +3365,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` show: bool `
     ///
-    pub fn SetProgressInfoEnabled(self: KTextEditor__Document, show: bool) void {
+    pub fn setProgressInfoEnabled(self: KTextEditor__Document, show: bool) void {
         qtc.KParts__ReadOnlyPart_SetProgressInfoEnabled(@ptrCast(self.ptr), show);
     }
+
+    /// ### DEPRECATED: Use `isProgressInfoEnabled` instead
+    ///
+    pub const IsProgressInfoEnabled = isProgressInfoEnabled;
 
     /// Inherited from KParts::ReadOnlyPart
     ///
@@ -2679,9 +3381,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn IsProgressInfoEnabled(self: KTextEditor__Document) bool {
+    pub fn isProgressInfoEnabled(self: KTextEditor__Document) bool {
         return qtc.KParts__ReadOnlyPart_IsProgressInfoEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `openUrl` instead
+    ///
+    pub const OpenUrl = openUrl;
 
     /// Inherited from KParts::ReadOnlyPart
     ///
@@ -2691,12 +3397,16 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    /// ` url: QUrl `
+    /// ` _url: QUrl `
     ///
-    pub fn OpenUrl(self: KTextEditor__Document, url: anytype) bool {
-        comptime _ = @TypeOf(url)._is_QUrl;
-        return qtc.KParts__ReadOnlyPart_OpenUrl(@ptrCast(self.ptr), @ptrCast(url.ptr));
+    pub fn openUrl(self: KTextEditor__Document, _url: anytype) bool {
+        comptime _ = @TypeOf(_url)._is_QUrl;
+        return qtc.KParts__ReadOnlyPart_OpenUrl(@ptrCast(self.ptr), @ptrCast(_url.ptr));
     }
+
+    /// ### DEPRECATED: Use `url` instead
+    ///
+    pub const Url = url;
 
     /// Inherited from KParts::ReadOnlyPart
     ///
@@ -2706,9 +3416,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn Url(self: KTextEditor__Document) QUrl {
+    pub fn url(self: KTextEditor__Document) QUrl {
         return .{ .ptr = qtc.KParts__ReadOnlyPart_Url(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `navigationExtension` instead
+    ///
+    pub const NavigationExtension = navigationExtension;
 
     /// Inherited from KParts::ReadOnlyPart
     ///
@@ -2718,9 +3432,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn NavigationExtension(self: KTextEditor__Document) KParts__NavigationExtension {
+    pub fn navigationExtension(self: KTextEditor__Document) KParts__NavigationExtension {
         return .{ .ptr = qtc.KParts__ReadOnlyPart_NavigationExtension(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setArguments` instead
+    ///
+    pub const SetArguments = setArguments;
 
     /// Inherited from KParts::ReadOnlyPart
     ///
@@ -2730,12 +3448,16 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    /// ` arguments: KParts__OpenUrlArguments `
+    /// ` _arguments: KParts__OpenUrlArguments `
     ///
-    pub fn SetArguments(self: KTextEditor__Document, arguments: anytype) void {
-        comptime _ = @TypeOf(arguments)._is_KParts__OpenUrlArguments;
-        qtc.KParts__ReadOnlyPart_SetArguments(@ptrCast(self.ptr), @ptrCast(arguments.ptr));
+    pub fn setArguments(self: KTextEditor__Document, _arguments: anytype) void {
+        comptime _ = @TypeOf(_arguments)._is_KParts__OpenUrlArguments;
+        qtc.KParts__ReadOnlyPart_SetArguments(@ptrCast(self.ptr), @ptrCast(_arguments.ptr));
     }
+
+    /// ### DEPRECATED: Use `arguments` instead
+    ///
+    pub const Arguments = arguments;
 
     /// Inherited from KParts::ReadOnlyPart
     ///
@@ -2745,9 +3467,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn Arguments(self: KTextEditor__Document) KParts__OpenUrlArguments {
+    pub fn arguments(self: KTextEditor__Document) KParts__OpenUrlArguments {
         return .{ .ptr = qtc.KParts__ReadOnlyPart_Arguments(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `openStream` instead
+    ///
+    pub const OpenStream = openStream;
 
     /// Inherited from KParts::ReadOnlyPart
     ///
@@ -2757,18 +3483,22 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    /// ` mimeType: []const u8 `
+    /// ` _mimeType: []const u8 `
     ///
-    /// ` url: QUrl `
+    /// ` _url: QUrl `
     ///
-    pub fn OpenStream(self: KTextEditor__Document, mimeType: []const u8, url: anytype) bool {
+    pub fn openStream(self: KTextEditor__Document, _mimeType: []const u8, _url: anytype) bool {
         const mimeType_str = qtc.libqt_string{
-            .len = mimeType.len,
-            .data = mimeType.ptr,
+            .len = _mimeType.len,
+            .data = _mimeType.ptr,
         };
-        comptime _ = @TypeOf(url)._is_QUrl;
-        return qtc.KParts__ReadOnlyPart_OpenStream(@ptrCast(self.ptr), mimeType_str, @ptrCast(url.ptr));
+        comptime _ = @TypeOf(_url)._is_QUrl;
+        return qtc.KParts__ReadOnlyPart_OpenStream(@ptrCast(self.ptr), mimeType_str, @ptrCast(_url.ptr));
     }
+
+    /// ### DEPRECATED: Use `writeStream` instead
+    ///
+    pub const WriteStream = writeStream;
 
     /// Inherited from KParts::ReadOnlyPart
     ///
@@ -2780,13 +3510,17 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` data: []u8 `
     ///
-    pub fn WriteStream(self: KTextEditor__Document, data: []u8) bool {
+    pub fn writeStream(self: KTextEditor__Document, data: []u8) bool {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
         return qtc.KParts__ReadOnlyPart_WriteStream(@ptrCast(self.ptr), data_str);
     }
+
+    /// ### DEPRECATED: Use `closeStream` instead
+    ///
+    pub const CloseStream = closeStream;
 
     /// Inherited from KParts::ReadOnlyPart
     ///
@@ -2796,9 +3530,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn CloseStream(self: KTextEditor__Document) bool {
+    pub fn closeStream(self: KTextEditor__Document) bool {
         return qtc.KParts__ReadOnlyPart_CloseStream(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `started` instead
+    ///
+    pub const Started = started;
 
     /// Inherited from KParts::ReadOnlyPart
     ///
@@ -2810,10 +3548,14 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` job: KIO__Job `
     ///
-    pub fn Started(self: KTextEditor__Document, job: anytype) void {
+    pub fn started(self: KTextEditor__Document, job: anytype) void {
         comptime _ = @TypeOf(job)._is_KIO__Job;
         qtc.KParts__ReadOnlyPart_Started(@ptrCast(self.ptr), @ptrCast(job.ptr));
     }
+
+    /// ### DEPRECATED: Use `onStarted` instead
+    ///
+    pub const OnStarted = onStarted;
 
     /// Inherited from KParts::ReadOnlyPart
     ///
@@ -2825,10 +3567,14 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Document, job: KIO__Job) callconv(.c) void `
     ///
-    pub fn OnStarted(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KIO__Job) callconv(.c) void) void {
+    pub fn onStarted(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, KIO__Job) callconv(.c) void) void {
         qtc.KParts__ReadOnlyPart_Connect_Started(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `completed` instead
+    ///
+    pub const Completed = completed;
+
     /// Inherited from KParts::ReadOnlyPart
     ///
     /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#completed)
@@ -2837,10 +3583,14 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn Completed(self: KTextEditor__Document) void {
+    pub fn completed(self: KTextEditor__Document) void {
         qtc.KParts__ReadOnlyPart_Completed(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCompleted` instead
+    ///
+    pub const OnCompleted = onCompleted;
+
     /// Inherited from KParts::ReadOnlyPart
     ///
     /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#completed)
@@ -2851,9 +3601,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Document) callconv(.c) void `
     ///
-    pub fn OnCompleted(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document) callconv(.c) void) void {
+    pub fn onCompleted(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document) callconv(.c) void) void {
         qtc.KParts__ReadOnlyPart_Connect_Completed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `completedWithPendingAction` instead
+    ///
+    pub const CompletedWithPendingAction = completedWithPendingAction;
 
     /// Inherited from KParts::ReadOnlyPart
     ///
@@ -2863,9 +3617,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn CompletedWithPendingAction(self: KTextEditor__Document) void {
+    pub fn completedWithPendingAction(self: KTextEditor__Document) void {
         qtc.KParts__ReadOnlyPart_CompletedWithPendingAction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCompletedWithPendingAction` instead
+    ///
+    pub const OnCompletedWithPendingAction = onCompletedWithPendingAction;
 
     /// Inherited from KParts::ReadOnlyPart
     ///
@@ -2877,9 +3635,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Document) callconv(.c) void `
     ///
-    pub fn OnCompletedWithPendingAction(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document) callconv(.c) void) void {
+    pub fn onCompletedWithPendingAction(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document) callconv(.c) void) void {
         qtc.KParts__ReadOnlyPart_Connect_CompletedWithPendingAction(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `canceled` instead
+    ///
+    pub const Canceled = canceled;
 
     /// Inherited from KParts::ReadOnlyPart
     ///
@@ -2891,13 +3653,17 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` errMsg: []const u8 `
     ///
-    pub fn Canceled(self: KTextEditor__Document, errMsg: []const u8) void {
+    pub fn canceled(self: KTextEditor__Document, errMsg: []const u8) void {
         const errMsg_str = qtc.libqt_string{
             .len = errMsg.len,
             .data = errMsg.ptr,
         };
         qtc.KParts__ReadOnlyPart_Canceled(@ptrCast(self.ptr), errMsg_str);
     }
+
+    /// ### DEPRECATED: Use `onCanceled` instead
+    ///
+    pub const OnCanceled = onCanceled;
 
     /// Inherited from KParts::ReadOnlyPart
     ///
@@ -2909,9 +3675,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Document, errMsg: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnCanceled(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, [*:0]const u8) callconv(.c) void) void {
+    pub fn onCanceled(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, [*:0]const u8) callconv(.c) void) void {
         qtc.KParts__ReadOnlyPart_Connect_Canceled(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `urlChanged` instead
+    ///
+    pub const UrlChanged = urlChanged;
 
     /// Inherited from KParts::ReadOnlyPart
     ///
@@ -2921,12 +3691,16 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    /// ` url: QUrl `
+    /// ` _url: QUrl `
     ///
-    pub fn UrlChanged(self: KTextEditor__Document, url: anytype) void {
-        comptime _ = @TypeOf(url)._is_QUrl;
-        qtc.KParts__ReadOnlyPart_UrlChanged(@ptrCast(self.ptr), @ptrCast(url.ptr));
+    pub fn urlChanged(self: KTextEditor__Document, _url: anytype) void {
+        comptime _ = @TypeOf(_url)._is_QUrl;
+        qtc.KParts__ReadOnlyPart_UrlChanged(@ptrCast(self.ptr), @ptrCast(_url.ptr));
     }
+
+    /// ### DEPRECATED: Use `onUrlChanged` instead
+    ///
+    pub const OnUrlChanged = onUrlChanged;
 
     /// Inherited from KParts::ReadOnlyPart
     ///
@@ -2938,9 +3712,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Document, url: QUrl) callconv(.c) void `
     ///
-    pub fn OnUrlChanged(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, QUrl) callconv(.c) void) void {
+    pub fn onUrlChanged(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, QUrl) callconv(.c) void) void {
         qtc.KParts__ReadOnlyPart_Connect_UrlChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `widget` instead
+    ///
+    pub const Widget = widget;
 
     /// Inherited from KParts::Part
     ///
@@ -2950,9 +3728,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn Widget(self: KTextEditor__Document) QWidget {
+    pub fn widget(self: KTextEditor__Document) QWidget {
         return .{ .ptr = qtc.KParts__Part_Widget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setManager` instead
+    ///
+    pub const SetManager = setManager;
 
     /// Inherited from KParts::Part
     ///
@@ -2962,12 +3744,16 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    /// ` manager: KParts__PartManager `
+    /// ` _manager: KParts__PartManager `
     ///
-    pub fn SetManager(self: KTextEditor__Document, manager: anytype) void {
-        comptime _ = @TypeOf(manager)._is_KParts__PartManager;
-        qtc.KParts__Part_SetManager(@ptrCast(self.ptr), @ptrCast(manager.ptr));
+    pub fn setManager(self: KTextEditor__Document, _manager: anytype) void {
+        comptime _ = @TypeOf(_manager)._is_KParts__PartManager;
+        qtc.KParts__Part_SetManager(@ptrCast(self.ptr), @ptrCast(_manager.ptr));
     }
+
+    /// ### DEPRECATED: Use `manager` instead
+    ///
+    pub const Manager = manager;
 
     /// Inherited from KParts::Part
     ///
@@ -2977,9 +3763,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn Manager(self: KTextEditor__Document) KParts__PartManager {
+    pub fn manager(self: KTextEditor__Document) KParts__PartManager {
         return .{ .ptr = qtc.KParts__Part_Manager(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAutoDeleteWidget` instead
+    ///
+    pub const SetAutoDeleteWidget = setAutoDeleteWidget;
 
     /// Inherited from KParts::Part
     ///
@@ -2991,9 +3781,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` autoDeleteWidget: bool `
     ///
-    pub fn SetAutoDeleteWidget(self: KTextEditor__Document, autoDeleteWidget: bool) void {
+    pub fn setAutoDeleteWidget(self: KTextEditor__Document, autoDeleteWidget: bool) void {
         qtc.KParts__Part_SetAutoDeleteWidget(@ptrCast(self.ptr), autoDeleteWidget);
     }
+
+    /// ### DEPRECATED: Use `setAutoDeletePart` instead
+    ///
+    pub const SetAutoDeletePart = setAutoDeletePart;
 
     /// Inherited from KParts::Part
     ///
@@ -3005,9 +3799,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` autoDeletePart: bool `
     ///
-    pub fn SetAutoDeletePart(self: KTextEditor__Document, autoDeletePart: bool) void {
+    pub fn setAutoDeletePart(self: KTextEditor__Document, autoDeletePart: bool) void {
         qtc.KParts__Part_SetAutoDeletePart(@ptrCast(self.ptr), autoDeletePart);
     }
+
+    /// ### DEPRECATED: Use `hitTest` instead
+    ///
+    pub const HitTest = hitTest;
 
     /// Inherited from KParts::Part
     ///
@@ -3017,15 +3815,19 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    /// ` widget: QWidget `
+    /// ` _widget: QWidget `
     ///
     /// ` globalPos: QPoint `
     ///
-    pub fn HitTest(self: KTextEditor__Document, widget: anytype, globalPos: anytype) KParts__Part {
-        comptime _ = @TypeOf(widget)._is_QWidget;
+    pub fn hitTest(self: KTextEditor__Document, _widget: anytype, globalPos: anytype) KParts__Part {
+        comptime _ = @TypeOf(_widget)._is_QWidget;
         comptime _ = @TypeOf(globalPos)._is_QPoint;
-        return .{ .ptr = qtc.KParts__Part_HitTest(@ptrCast(self.ptr), @ptrCast(widget.ptr), @ptrCast(globalPos.ptr)) };
+        return .{ .ptr = qtc.KParts__Part_HitTest(@ptrCast(self.ptr), @ptrCast(_widget.ptr), @ptrCast(globalPos.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaData` instead
+    ///
+    pub const MetaData = metaData;
 
     /// Inherited from KParts::Part
     ///
@@ -3035,9 +3837,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn MetaData(self: KTextEditor__Document) KPluginMetaData {
+    pub fn metaData(self: KTextEditor__Document) KPluginMetaData {
         return .{ .ptr = qtc.KParts__Part_MetaData(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowCaption` instead
+    ///
+    pub const SetWindowCaption = setWindowCaption;
 
     /// Inherited from KParts::Part
     ///
@@ -3049,13 +3855,17 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` caption: []const u8 `
     ///
-    pub fn SetWindowCaption(self: KTextEditor__Document, caption: []const u8) void {
+    pub fn setWindowCaption(self: KTextEditor__Document, caption: []const u8) void {
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
         qtc.KParts__Part_SetWindowCaption(@ptrCast(self.ptr), caption_str);
     }
+
+    /// ### DEPRECATED: Use `onSetWindowCaption` instead
+    ///
+    pub const OnSetWindowCaption = onSetWindowCaption;
 
     /// Inherited from KParts::Part
     ///
@@ -3067,9 +3877,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Document, caption: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetWindowCaption(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, [*:0]const u8) callconv(.c) void) void {
+    pub fn onSetWindowCaption(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, [*:0]const u8) callconv(.c) void) void {
         qtc.KParts__Part_Connect_SetWindowCaption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setStatusBarText` instead
+    ///
+    pub const SetStatusBarText = setStatusBarText;
 
     /// Inherited from KParts::Part
     ///
@@ -3079,15 +3893,19 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn SetStatusBarText(self: KTextEditor__Document, text: []const u8) void {
+    pub fn setStatusBarText(self: KTextEditor__Document, _text: []const u8) void {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         qtc.KParts__Part_SetStatusBarText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `onSetStatusBarText` instead
+    ///
+    pub const OnSetStatusBarText = onSetStatusBarText;
 
     /// Inherited from KParts::Part
     ///
@@ -3099,9 +3917,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Document, text: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetStatusBarText(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, [*:0]const u8) callconv(.c) void) void {
+    pub fn onSetStatusBarText(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, [*:0]const u8) callconv(.c) void) void {
         qtc.KParts__Part_Connect_SetStatusBarText(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -3111,12 +3933,16 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: KTextEditor__Document, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QObject_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: KTextEditor__Document, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QObject_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -3128,13 +3954,17 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: KTextEditor__Document, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: KTextEditor__Document, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -3146,13 +3976,17 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KTextEditor__Document, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KTextEditor__Document, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Document.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Document.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -3164,13 +3998,17 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KTextEditor__Document, name: []const u8) void {
+    pub fn setObjectName(self: KTextEditor__Document, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -3180,9 +4018,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn IsWidgetType(self: KTextEditor__Document) bool {
+    pub fn isWidgetType(self: KTextEditor__Document) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -3192,9 +4034,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn IsWindowType(self: KTextEditor__Document) bool {
+    pub fn isWindowType(self: KTextEditor__Document) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -3204,9 +4050,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn IsQuickItemType(self: KTextEditor__Document) bool {
+    pub fn isQuickItemType(self: KTextEditor__Document) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -3216,9 +4066,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn SignalsBlocked(self: KTextEditor__Document) bool {
+    pub fn signalsBlocked(self: KTextEditor__Document) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -3230,9 +4084,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KTextEditor__Document, b: bool) bool {
+    pub fn blockSignals(self: KTextEditor__Document, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -3242,9 +4100,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn Thread(self: KTextEditor__Document) QThread {
+    pub fn thread(self: KTextEditor__Document) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -3254,12 +4116,16 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KTextEditor__Document, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KTextEditor__Document, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -3271,9 +4137,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KTextEditor__Document, interval: i32) i32 {
+    pub fn startTimer(self: KTextEditor__Document, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -3285,9 +4155,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KTextEditor__Document, time: i64) i32 {
+    pub fn startTimer2(self: KTextEditor__Document, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -3299,9 +4173,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KTextEditor__Document, id: i32) void {
+    pub fn killTimer(self: KTextEditor__Document, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -3313,9 +4191,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KTextEditor__Document, id: i32) void {
+    pub fn killTimer2(self: KTextEditor__Document, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -3327,15 +4209,19 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KTextEditor__Document, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KTextEditor__Document, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KTextEditor__Document.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KTextEditor__Document.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -3345,12 +4231,16 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: KTextEditor__Document, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: KTextEditor__Document, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -3362,10 +4252,14 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KTextEditor__Document, filterObj: anytype) void {
+    pub fn installEventFilter(self: KTextEditor__Document, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -3377,10 +4271,14 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KTextEditor__Document, obj: anytype) void {
+    pub fn removeEventFilter(self: KTextEditor__Document, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -3388,7 +4286,7 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -3396,13 +4294,17 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -3410,7 +4312,7 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -3418,13 +4320,17 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -3434,18 +4340,22 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KTextEditor__Document, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KTextEditor__Document, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -3453,7 +4363,7 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -3461,13 +4371,17 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -3475,7 +4389,7 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -3483,13 +4397,17 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -3499,9 +4417,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn Disconnect3(self: KTextEditor__Document) bool {
+    pub fn disconnect3(self: KTextEditor__Document) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -3513,10 +4435,14 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KTextEditor__Document, receiver: anytype) bool {
+    pub fn disconnect4(self: KTextEditor__Document, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -3526,10 +4452,14 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -3539,9 +4469,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn DumpObjectTree(self: KTextEditor__Document) void {
+    pub fn dumpObjectTree(self: KTextEditor__Document) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -3551,9 +4485,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn DumpObjectInfo(self: KTextEditor__Document) void {
+    pub fn dumpObjectInfo(self: KTextEditor__Document) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -3567,11 +4505,15 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KTextEditor__Document, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KTextEditor__Document, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -3583,10 +4525,14 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KTextEditor__Document, name: [:0]const u8) QVariant {
+    pub fn property(self: KTextEditor__Document, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -3598,7 +4544,7 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KTextEditor__Document, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KTextEditor__Document, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -3606,27 +4552,19 @@ pub const KTextEditor__Document = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KTextEditor__Document.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KTextEditor__Document.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KTextEditor__Document.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KTextEditor__Document.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTextEditor__Document `
-    ///
-    pub fn BindingStorage(self: KTextEditor__Document) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -3636,9 +4574,29 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn BindingStorage2(self: KTextEditor__Document) QBindingStorage {
+    pub fn bindingStorage(self: KTextEditor__Document) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KTextEditor__Document `
+    ///
+    pub fn bindingStorage2(self: KTextEditor__Document) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -3648,9 +4606,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn Destroyed(self: KTextEditor__Document) void {
+    pub fn destroyed(self: KTextEditor__Document) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -3662,9 +4624,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Document) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document) callconv(.c) void) void {
+    pub fn onDestroyed(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -3674,9 +4640,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn Parent(self: KTextEditor__Document) QObject {
+    pub fn parent(self: KTextEditor__Document) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -3688,10 +4658,14 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KTextEditor__Document, classname: [:0]const u8) bool {
+    pub fn inherits(self: KTextEditor__Document, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -3701,9 +4675,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn DeleteLater(self: KTextEditor__Document) void {
+    pub fn deleteLater(self: KTextEditor__Document) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -3717,9 +4695,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KTextEditor__Document, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KTextEditor__Document, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -3733,9 +4715,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KTextEditor__Document, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KTextEditor__Document, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -3743,7 +4729,7 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -3753,13 +4739,17 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -3767,7 +4757,7 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -3777,13 +4767,17 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -3793,7 +4787,7 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -3801,12 +4795,16 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KTextEditor__Document, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KTextEditor__Document, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -3818,10 +4816,14 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KTextEditor__Document, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KTextEditor__Document, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -3835,11 +4837,15 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KTextEditor__Document, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KTextEditor__Document, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -3855,13 +4861,17 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KTextEditor__Document, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KTextEditor__Document, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -3874,11 +4884,15 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KTextEditor__Document, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KTextEditor__Document, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -3890,10 +4904,14 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KTextEditor__Document, param1: anytype) void {
+    pub fn destroyed1(self: KTextEditor__Document, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -3905,9 +4923,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Document, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setPartObject` instead
+    ///
+    pub const SetPartObject = setPartObject;
 
     /// Inherited from KParts::PartBase
     ///
@@ -3919,10 +4941,14 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` object: QObject `
     ///
-    pub fn SetPartObject(self: KTextEditor__Document, object: anytype) void {
+    pub fn setPartObject(self: KTextEditor__Document, object: anytype) void {
         comptime _ = @TypeOf(object)._is_QObject;
         qtc.KParts__PartBase_SetPartObject(@ptrCast(self.ptr), @ptrCast(object.ptr));
     }
+
+    /// ### DEPRECATED: Use `partObject` instead
+    ///
+    pub const PartObject = partObject;
 
     /// Inherited from KParts::PartBase
     ///
@@ -3932,9 +4958,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn PartObject(self: KTextEditor__Document) QObject {
+    pub fn partObject(self: KTextEditor__Document) QObject {
         return .{ .ptr = qtc.KParts__PartBase_PartObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `action` instead
+    ///
+    pub const Action = action;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -3946,13 +4976,17 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn Action(self: KTextEditor__Document, name: []const u8) QAction {
+    pub fn action(self: KTextEditor__Document, name: []const u8) QAction {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         return .{ .ptr = qtc.KXMLGUIClient_Action(@ptrCast(self.ptr), name_str) };
     }
+
+    /// ### DEPRECATED: Use `action2` instead
+    ///
+    pub const Action2 = action2;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -3964,10 +4998,14 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` element: QDomElement `
     ///
-    pub fn Action2(self: KTextEditor__Document, element: anytype) QAction {
+    pub fn action2(self: KTextEditor__Document, element: anytype) QAction {
         comptime _ = @TypeOf(element)._is_QDomElement;
         return .{ .ptr = qtc.KXMLGUIClient_Action2(@ptrCast(self.ptr), @ptrCast(element.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `actionCollection` instead
+    ///
+    pub const ActionCollection = actionCollection;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -3977,9 +5015,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn ActionCollection(self: KTextEditor__Document) KActionCollection {
+    pub fn actionCollection(self: KTextEditor__Document) KActionCollection {
         return .{ .ptr = qtc.KXMLGUIClient_ActionCollection(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `componentName` instead
+    ///
+    pub const ComponentName = componentName;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -3991,13 +5033,17 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ComponentName(self: KTextEditor__Document, allocator: std.mem.Allocator) []const u8 {
+    pub fn componentName(self: KTextEditor__Document, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KXMLGUIClient_ComponentName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Document.ComponentName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Document.componentName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `domDocument` instead
+    ///
+    pub const DomDocument = domDocument;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -4007,9 +5053,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn DomDocument(self: KTextEditor__Document) QDomDocument {
+    pub fn domDocument(self: KTextEditor__Document) QDomDocument {
         return .{ .ptr = qtc.KXMLGUIClient_DomDocument(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `xmlFile` instead
+    ///
+    pub const XmlFile = xmlFile;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -4021,13 +5071,17 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn XmlFile(self: KTextEditor__Document, allocator: std.mem.Allocator) []const u8 {
+    pub fn xmlFile(self: KTextEditor__Document, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KXMLGUIClient_XmlFile(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Document.XmlFile: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Document.xmlFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `localXMLFile` instead
+    ///
+    pub const LocalXMLFile = localXMLFile;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -4039,13 +5093,17 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LocalXMLFile(self: KTextEditor__Document, allocator: std.mem.Allocator) []const u8 {
+    pub fn localXMLFile(self: KTextEditor__Document, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KXMLGUIClient_LocalXMLFile(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Document.LocalXMLFile: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Document.localXMLFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setXMLGUIBuildDocument` instead
+    ///
+    pub const SetXMLGUIBuildDocument = setXMLGUIBuildDocument;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -4057,10 +5115,14 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` doc: QDomDocument `
     ///
-    pub fn SetXMLGUIBuildDocument(self: KTextEditor__Document, doc: anytype) void {
+    pub fn setXMLGUIBuildDocument(self: KTextEditor__Document, doc: anytype) void {
         comptime _ = @TypeOf(doc)._is_QDomDocument;
         qtc.KXMLGUIClient_SetXMLGUIBuildDocument(@ptrCast(self.ptr), @ptrCast(doc.ptr));
     }
+
+    /// ### DEPRECATED: Use `xmlguiBuildDocument` instead
+    ///
+    pub const XmlguiBuildDocument = xmlguiBuildDocument;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -4070,9 +5132,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn XmlguiBuildDocument(self: KTextEditor__Document) QDomDocument {
+    pub fn xmlguiBuildDocument(self: KTextEditor__Document) QDomDocument {
         return .{ .ptr = qtc.KXMLGUIClient_XmlguiBuildDocument(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFactory` instead
+    ///
+    pub const SetFactory = setFactory;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -4082,12 +5148,16 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    /// ` factory: KXMLGUIFactory `
+    /// ` _factory: KXMLGUIFactory `
     ///
-    pub fn SetFactory(self: KTextEditor__Document, factory: anytype) void {
-        comptime _ = @TypeOf(factory)._is_KXMLGUIFactory;
-        qtc.KXMLGUIClient_SetFactory(@ptrCast(self.ptr), @ptrCast(factory.ptr));
+    pub fn setFactory(self: KTextEditor__Document, _factory: anytype) void {
+        comptime _ = @TypeOf(_factory)._is_KXMLGUIFactory;
+        qtc.KXMLGUIClient_SetFactory(@ptrCast(self.ptr), @ptrCast(_factory.ptr));
     }
+
+    /// ### DEPRECATED: Use `factory` instead
+    ///
+    pub const Factory = factory;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -4097,9 +5167,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn Factory(self: KTextEditor__Document) KXMLGUIFactory {
+    pub fn factory(self: KTextEditor__Document) KXMLGUIFactory {
         return .{ .ptr = qtc.KXMLGUIClient_Factory(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `parentClient` instead
+    ///
+    pub const ParentClient = parentClient;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -4109,9 +5183,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn ParentClient(self: KTextEditor__Document) KXMLGUIClient {
+    pub fn parentClient(self: KTextEditor__Document) KXMLGUIClient {
         return .{ .ptr = qtc.KXMLGUIClient_ParentClient(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `insertChildClient` instead
+    ///
+    pub const InsertChildClient = insertChildClient;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -4123,10 +5201,14 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` child: KXMLGUIClient `
     ///
-    pub fn InsertChildClient(self: KTextEditor__Document, child: anytype) void {
+    pub fn insertChildClient(self: KTextEditor__Document, child: anytype) void {
         comptime _ = @TypeOf(child)._is_KXMLGUIClient;
         qtc.KXMLGUIClient_InsertChildClient(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeChildClient` instead
+    ///
+    pub const RemoveChildClient = removeChildClient;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -4138,10 +5220,14 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` child: KXMLGUIClient `
     ///
-    pub fn RemoveChildClient(self: KTextEditor__Document, child: anytype) void {
+    pub fn removeChildClient(self: KTextEditor__Document, child: anytype) void {
         comptime _ = @TypeOf(child)._is_KXMLGUIClient;
         qtc.KXMLGUIClient_RemoveChildClient(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `childClients` instead
+    ///
+    pub const ChildClients = childClients;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -4153,15 +5239,19 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ChildClients(self: KTextEditor__Document, allocator: std.mem.Allocator) []KXMLGUIClient {
+    pub fn childClients(self: KTextEditor__Document, allocator: std.mem.Allocator) []KXMLGUIClient {
         const _arr: qtc.libqt_list = qtc.KXMLGUIClient_ChildClients(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KXMLGUIClient, _arr.len) catch @panic("KTextEditor__Document.ChildClients: Memory allocation failed");
-        const _data: [*]QtC.KXMLGUIClient = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(KXMLGUIClient, _arr.len) catch @panic("KTextEditor__Document.childClients: Memory allocation failed");
+        const _data_val: [*]QtC.KXMLGUIClient = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setClientBuilder` instead
+    ///
+    pub const SetClientBuilder = setClientBuilder;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -4173,10 +5263,14 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` builder: KXMLGUIBuilder `
     ///
-    pub fn SetClientBuilder(self: KTextEditor__Document, builder: anytype) void {
+    pub fn setClientBuilder(self: KTextEditor__Document, builder: anytype) void {
         comptime _ = @TypeOf(builder)._is_KXMLGUIBuilder;
         qtc.KXMLGUIClient_SetClientBuilder(@ptrCast(self.ptr), @ptrCast(builder.ptr));
     }
+
+    /// ### DEPRECATED: Use `clientBuilder` instead
+    ///
+    pub const ClientBuilder = clientBuilder;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -4186,9 +5280,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn ClientBuilder(self: KTextEditor__Document) KXMLGUIBuilder {
+    pub fn clientBuilder(self: KTextEditor__Document) KXMLGUIBuilder {
         return .{ .ptr = qtc.KXMLGUIClient_ClientBuilder(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `reloadXML` instead
+    ///
+    pub const ReloadXML = reloadXML;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -4198,9 +5296,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn ReloadXML(self: KTextEditor__Document) void {
+    pub fn reloadXML(self: KTextEditor__Document) void {
         qtc.KXMLGUIClient_ReloadXML(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `plugActionList` instead
+    ///
+    pub const PlugActionList = plugActionList;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -4214,7 +5316,7 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` actionList: []QAction `
     ///
-    pub fn PlugActionList(self: KTextEditor__Document, name: []const u8, actionList: []QAction) void {
+    pub fn plugActionList(self: KTextEditor__Document, name: []const u8, actionList: []QAction) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -4226,6 +5328,10 @@ pub const KTextEditor__Document = extern struct {
         qtc.KXMLGUIClient_PlugActionList(@ptrCast(self.ptr), name_str, actionList_list);
     }
 
+    /// ### DEPRECATED: Use `unplugActionList` instead
+    ///
+    pub const UnplugActionList = unplugActionList;
+
     /// Inherited from KXMLGUIClient
     ///
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#unplugActionList)
@@ -4236,13 +5342,17 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn UnplugActionList(self: KTextEditor__Document, name: []const u8) void {
+    pub fn unplugActionList(self: KTextEditor__Document, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.KXMLGUIClient_UnplugActionList(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `findMostRecentXMLFile` instead
+    ///
+    pub const FindMostRecentXMLFile = findMostRecentXMLFile;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -4256,13 +5366,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` doc: []const u8 `
     ///
-    pub fn FindMostRecentXMLFile(allocator: std.mem.Allocator, files: []const []const u8, doc: []const u8) []const u8 {
-        const files_arr = allocator.alloc(qtc.libqt_string, files.len) catch @panic("KTextEditor__Document.FindMostRecentXMLFile: Memory allocation failed");
+    pub fn findMostRecentXMLFile(allocator: std.mem.Allocator, files: []const []const u8, doc: []const u8) []const u8 {
+        const files_arr = allocator.alloc(qtc.libqt_string, files.len) catch @panic("KTextEditor__Document.findMostRecentXMLFile: Memory allocation failed");
         defer allocator.free(files_arr);
-        for (files, 0..files.len) |item, i|
+        for (files, 0..files.len) |str_item, i|
             files_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const files_list = qtc.libqt_list{
             .len = files.len,
@@ -4274,10 +5384,14 @@ pub const KTextEditor__Document = extern struct {
         };
         var _str = qtc.KXMLGUIClient_FindMostRecentXMLFile(files_list, doc_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Document.FindMostRecentXMLFile: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Document.findMostRecentXMLFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addStateActionEnabled` instead
+    ///
+    pub const AddStateActionEnabled = addStateActionEnabled;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -4289,19 +5403,23 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` state: []const u8 `
     ///
-    /// ` action: []const u8 `
+    /// ` _action: []const u8 `
     ///
-    pub fn AddStateActionEnabled(self: KTextEditor__Document, state: []const u8, action: []const u8) void {
+    pub fn addStateActionEnabled(self: KTextEditor__Document, state: []const u8, _action: []const u8) void {
         const state_str = qtc.libqt_string{
             .len = state.len,
             .data = state.ptr,
         };
         const action_str = qtc.libqt_string{
-            .len = action.len,
-            .data = action.ptr,
+            .len = _action.len,
+            .data = _action.ptr,
         };
         qtc.KXMLGUIClient_AddStateActionEnabled(@ptrCast(self.ptr), state_str, action_str);
     }
+
+    /// ### DEPRECATED: Use `addStateActionDisabled` instead
+    ///
+    pub const AddStateActionDisabled = addStateActionDisabled;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -4313,19 +5431,23 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` state: []const u8 `
     ///
-    /// ` action: []const u8 `
+    /// ` _action: []const u8 `
     ///
-    pub fn AddStateActionDisabled(self: KTextEditor__Document, state: []const u8, action: []const u8) void {
+    pub fn addStateActionDisabled(self: KTextEditor__Document, state: []const u8, _action: []const u8) void {
         const state_str = qtc.libqt_string{
             .len = state.len,
             .data = state.ptr,
         };
         const action_str = qtc.libqt_string{
-            .len = action.len,
-            .data = action.ptr,
+            .len = _action.len,
+            .data = _action.ptr,
         };
         qtc.KXMLGUIClient_AddStateActionDisabled(@ptrCast(self.ptr), state_str, action_str);
     }
+
+    /// ### DEPRECATED: Use `getActionsToChangeForState` instead
+    ///
+    pub const GetActionsToChangeForState = getActionsToChangeForState;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -4337,13 +5459,17 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` state: []const u8 `
     ///
-    pub fn GetActionsToChangeForState(self: KTextEditor__Document, state: []const u8) KXMLGUIClient__StateChange {
+    pub fn getActionsToChangeForState(self: KTextEditor__Document, state: []const u8) KXMLGUIClient__StateChange {
         const state_str = qtc.libqt_string{
             .len = state.len,
             .data = state.ptr,
         };
         return .{ .ptr = qtc.KXMLGUIClient_GetActionsToChangeForState(@ptrCast(self.ptr), state_str) };
     }
+
+    /// ### DEPRECATED: Use `beginXMLPlug` instead
+    ///
+    pub const BeginXMLPlug = beginXMLPlug;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -4355,10 +5481,14 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn BeginXMLPlug(self: KTextEditor__Document, param1: anytype) void {
+    pub fn beginXMLPlug(self: KTextEditor__Document, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.KXMLGUIClient_BeginXMLPlug(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `endXMLPlug` instead
+    ///
+    pub const EndXMLPlug = endXMLPlug;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -4368,9 +5498,13 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn EndXMLPlug(self: KTextEditor__Document) void {
+    pub fn endXMLPlug(self: KTextEditor__Document) void {
         qtc.KXMLGUIClient_EndXMLPlug(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `prepareXMLUnplug` instead
+    ///
+    pub const PrepareXMLUnplug = prepareXMLUnplug;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -4382,10 +5516,14 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn PrepareXMLUnplug(self: KTextEditor__Document, param1: anytype) void {
+    pub fn prepareXMLUnplug(self: KTextEditor__Document, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.KXMLGUIClient_PrepareXMLUnplug(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `replaceXMLFile` instead
+    ///
+    pub const ReplaceXMLFile = replaceXMLFile;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -4399,7 +5537,7 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` localxmlfile: []const u8 `
     ///
-    pub fn ReplaceXMLFile(self: KTextEditor__Document, xmlfile: []const u8, localxmlfile: []const u8) void {
+    pub fn replaceXMLFile(self: KTextEditor__Document, xmlfile: []const u8, localxmlfile: []const u8) void {
         const xmlfile_str = qtc.libqt_string{
             .len = xmlfile.len,
             .data = xmlfile.ptr,
@@ -4411,6 +5549,10 @@ pub const KTextEditor__Document = extern struct {
         qtc.KXMLGUIClient_ReplaceXMLFile(@ptrCast(self.ptr), xmlfile_str, localxmlfile_str);
     }
 
+    /// ### DEPRECATED: Use `findVersionNumber` instead
+    ///
+    pub const FindVersionNumber = findVersionNumber;
+
     /// Inherited from KXMLGUIClient
     ///
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#findVersionNumber)
@@ -4421,17 +5563,21 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` xml: []const u8 `
     ///
-    pub fn FindVersionNumber(allocator: std.mem.Allocator, xml: []const u8) []const u8 {
+    pub fn findVersionNumber(allocator: std.mem.Allocator, xml: []const u8) []const u8 {
         const xml_str = qtc.libqt_string{
             .len = xml.len,
             .data = xml.ptr,
         };
         var _str = qtc.KXMLGUIClient_FindVersionNumber(xml_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Document.FindVersionNumber: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Document.findVersionNumber: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `replaceXMLFile3` instead
+    ///
+    pub const ReplaceXMLFile3 = replaceXMLFile3;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -4447,7 +5593,7 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` merge: bool `
     ///
-    pub fn ReplaceXMLFile3(self: KTextEditor__Document, xmlfile: []const u8, localxmlfile: []const u8, merge: bool) void {
+    pub fn replaceXMLFile3(self: KTextEditor__Document, xmlfile: []const u8, localxmlfile: []const u8, merge: bool) void {
         const xmlfile_str = qtc.libqt_string{
             .len = xmlfile.len,
             .data = xmlfile.ptr,
@@ -4458,6 +5604,10 @@ pub const KTextEditor__Document = extern struct {
         };
         qtc.KXMLGUIClient_ReplaceXMLFile3(@ptrCast(self.ptr), xmlfile_str, localxmlfile_str, merge);
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -4471,21 +5621,21 @@ pub const KTextEditor__Document = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Document, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KTextEditor__Document, callback: *const fn (KTextEditor__Document, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KTextEditor__Document `
     ///
-    pub fn Delete(self: KTextEditor__Document) void {
+    pub fn delete(self: KTextEditor__Document) void {
         qtc.KTextEditor__Document_Delete(@ptrCast(self.ptr));
     }
 };
@@ -4500,16 +5650,24 @@ pub const KTextEditor__Document__EditingTransaction = extern struct {
 
     pub const _is_KTextEditor__Document__EditingTransaction = {};
 
-    /// New constructs a new KTextEditor::Document::EditingTransaction object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KTextEditor::Document::EditingTransaction object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` document: KTextEditor__Document `
     ///
-    pub fn New(document: anytype) KTextEditor__Document__EditingTransaction {
+    pub fn new(document: anytype) KTextEditor__Document__EditingTransaction {
         comptime _ = @TypeOf(document)._is_KTextEditor__Document;
         return .{ .ptr = qtc.KTextEditor__Document__EditingTransaction_new(@ptrCast(document.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `start` instead
+    ///
+    pub const Start = start;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document-editingtransaction.html#start)
     ///
@@ -4517,9 +5675,13 @@ pub const KTextEditor__Document__EditingTransaction = extern struct {
     ///
     /// ` self: KTextEditor__Document__EditingTransaction `
     ///
-    pub fn Start(self: KTextEditor__Document__EditingTransaction) void {
+    pub fn start(self: KTextEditor__Document__EditingTransaction) void {
         qtc.KTextEditor__Document__EditingTransaction_Start(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `finish` instead
+    ///
+    pub const Finish = finish;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-document-editingtransaction.html#finish)
     ///
@@ -4527,21 +5689,21 @@ pub const KTextEditor__Document__EditingTransaction = extern struct {
     ///
     /// ` self: KTextEditor__Document__EditingTransaction `
     ///
-    pub fn Finish(self: KTextEditor__Document__EditingTransaction) void {
+    pub fn finish(self: KTextEditor__Document__EditingTransaction) void {
         qtc.KTextEditor__Document__EditingTransaction_Finish(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KTextEditor__Document__EditingTransaction `
     ///
-    pub fn Delete(self: KTextEditor__Document__EditingTransaction) void {
+    pub fn delete(self: KTextEditor__Document__EditingTransaction) void {
         qtc.KTextEditor__Document__EditingTransaction_Delete(@ptrCast(self.ptr));
     }
 };

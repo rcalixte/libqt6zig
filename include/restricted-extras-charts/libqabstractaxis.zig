@@ -28,15 +28,23 @@ pub const QAbstractAxis = extern struct {
     pub const _is_QAbstractAxis = {};
     pub const _is_QObject = {};
 
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn MetaObject(self: QAbstractAxis) QMetaObject {
+    pub fn metaObject(self: QAbstractAxis) QMetaObject {
         return .{ .ptr = qtc.QAbstractAxis_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -44,10 +52,14 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QAbstractAxis, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QAbstractAxis, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QAbstractAxis_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -59,9 +71,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QAbstractAxis, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QAbstractAxis, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QAbstractAxis_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -71,14 +87,20 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractAxis.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractAxis.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#type)
     ///
@@ -90,9 +112,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` qabstractaxis_enums.AxisType `
     ///
-    pub fn Type(self: QAbstractAxis) i32 {
+    pub fn type0(self: QAbstractAxis) i32 {
         return qtc.QAbstractAxis_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#isVisible)
     ///
@@ -100,9 +126,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn IsVisible(self: QAbstractAxis) bool {
+    pub fn isVisible(self: QAbstractAxis) bool {
         return qtc.QAbstractAxis_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#setVisible)
     ///
@@ -110,9 +140,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn SetVisible(self: QAbstractAxis) void {
+    pub fn setVisible(self: QAbstractAxis) void {
         qtc.QAbstractAxis_SetVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#show)
     ///
@@ -120,9 +154,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn Show(self: QAbstractAxis) void {
+    pub fn show(self: QAbstractAxis) void {
         qtc.QAbstractAxis_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#hide)
     ///
@@ -130,9 +168,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn Hide(self: QAbstractAxis) void {
+    pub fn hide(self: QAbstractAxis) void {
         qtc.QAbstractAxis_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLineVisible` instead
+    ///
+    pub const IsLineVisible = isLineVisible;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#isLineVisible)
     ///
@@ -140,9 +182,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn IsLineVisible(self: QAbstractAxis) bool {
+    pub fn isLineVisible(self: QAbstractAxis) bool {
         return qtc.QAbstractAxis_IsLineVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLineVisible` instead
+    ///
+    pub const SetLineVisible = setLineVisible;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#setLineVisible)
     ///
@@ -150,9 +196,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn SetLineVisible(self: QAbstractAxis) void {
+    pub fn setLineVisible(self: QAbstractAxis) void {
         qtc.QAbstractAxis_SetLineVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLinePen` instead
+    ///
+    pub const SetLinePen = setLinePen;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#setLinePen)
     ///
@@ -162,10 +212,14 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` pen: QPen `
     ///
-    pub fn SetLinePen(self: QAbstractAxis, pen: anytype) void {
+    pub fn setLinePen(self: QAbstractAxis, pen: anytype) void {
         comptime _ = @TypeOf(pen)._is_QPen;
         qtc.QAbstractAxis_SetLinePen(@ptrCast(self.ptr), @ptrCast(pen.ptr));
     }
+
+    /// ### DEPRECATED: Use `linePen` instead
+    ///
+    pub const LinePen = linePen;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#linePen)
     ///
@@ -173,9 +227,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn LinePen(self: QAbstractAxis) QPen {
+    pub fn linePen(self: QAbstractAxis) QPen {
         return .{ .ptr = qtc.QAbstractAxis_LinePen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLinePenColor` instead
+    ///
+    pub const SetLinePenColor = setLinePenColor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#setLinePenColor)
     ///
@@ -185,10 +243,14 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` color: QColor `
     ///
-    pub fn SetLinePenColor(self: QAbstractAxis, color: anytype) void {
+    pub fn setLinePenColor(self: QAbstractAxis, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.QAbstractAxis_SetLinePenColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
+
+    /// ### DEPRECATED: Use `linePenColor` instead
+    ///
+    pub const LinePenColor = linePenColor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#linePenColor)
     ///
@@ -196,9 +258,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn LinePenColor(self: QAbstractAxis) QColor {
+    pub fn linePenColor(self: QAbstractAxis) QColor {
         return .{ .ptr = qtc.QAbstractAxis_LinePenColor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isGridLineVisible` instead
+    ///
+    pub const IsGridLineVisible = isGridLineVisible;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#isGridLineVisible)
     ///
@@ -206,9 +272,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn IsGridLineVisible(self: QAbstractAxis) bool {
+    pub fn isGridLineVisible(self: QAbstractAxis) bool {
         return qtc.QAbstractAxis_IsGridLineVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGridLineVisible` instead
+    ///
+    pub const SetGridLineVisible = setGridLineVisible;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#setGridLineVisible)
     ///
@@ -216,9 +286,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn SetGridLineVisible(self: QAbstractAxis) void {
+    pub fn setGridLineVisible(self: QAbstractAxis) void {
         qtc.QAbstractAxis_SetGridLineVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGridLinePen` instead
+    ///
+    pub const SetGridLinePen = setGridLinePen;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#setGridLinePen)
     ///
@@ -228,10 +302,14 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` pen: QPen `
     ///
-    pub fn SetGridLinePen(self: QAbstractAxis, pen: anytype) void {
+    pub fn setGridLinePen(self: QAbstractAxis, pen: anytype) void {
         comptime _ = @TypeOf(pen)._is_QPen;
         qtc.QAbstractAxis_SetGridLinePen(@ptrCast(self.ptr), @ptrCast(pen.ptr));
     }
+
+    /// ### DEPRECATED: Use `gridLinePen` instead
+    ///
+    pub const GridLinePen = gridLinePen;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#gridLinePen)
     ///
@@ -239,9 +317,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn GridLinePen(self: QAbstractAxis) QPen {
+    pub fn gridLinePen(self: QAbstractAxis) QPen {
         return .{ .ptr = qtc.QAbstractAxis_GridLinePen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isMinorGridLineVisible` instead
+    ///
+    pub const IsMinorGridLineVisible = isMinorGridLineVisible;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#isMinorGridLineVisible)
     ///
@@ -249,9 +331,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn IsMinorGridLineVisible(self: QAbstractAxis) bool {
+    pub fn isMinorGridLineVisible(self: QAbstractAxis) bool {
         return qtc.QAbstractAxis_IsMinorGridLineVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinorGridLineVisible` instead
+    ///
+    pub const SetMinorGridLineVisible = setMinorGridLineVisible;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#setMinorGridLineVisible)
     ///
@@ -259,9 +345,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn SetMinorGridLineVisible(self: QAbstractAxis) void {
+    pub fn setMinorGridLineVisible(self: QAbstractAxis) void {
         qtc.QAbstractAxis_SetMinorGridLineVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinorGridLinePen` instead
+    ///
+    pub const SetMinorGridLinePen = setMinorGridLinePen;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#setMinorGridLinePen)
     ///
@@ -271,10 +361,14 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` pen: QPen `
     ///
-    pub fn SetMinorGridLinePen(self: QAbstractAxis, pen: anytype) void {
+    pub fn setMinorGridLinePen(self: QAbstractAxis, pen: anytype) void {
         comptime _ = @TypeOf(pen)._is_QPen;
         qtc.QAbstractAxis_SetMinorGridLinePen(@ptrCast(self.ptr), @ptrCast(pen.ptr));
     }
+
+    /// ### DEPRECATED: Use `minorGridLinePen` instead
+    ///
+    pub const MinorGridLinePen = minorGridLinePen;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#minorGridLinePen)
     ///
@@ -282,9 +376,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn MinorGridLinePen(self: QAbstractAxis) QPen {
+    pub fn minorGridLinePen(self: QAbstractAxis) QPen {
         return .{ .ptr = qtc.QAbstractAxis_MinorGridLinePen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGridLineColor` instead
+    ///
+    pub const SetGridLineColor = setGridLineColor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#setGridLineColor)
     ///
@@ -294,10 +392,14 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` color: QColor `
     ///
-    pub fn SetGridLineColor(self: QAbstractAxis, color: anytype) void {
+    pub fn setGridLineColor(self: QAbstractAxis, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.QAbstractAxis_SetGridLineColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
+
+    /// ### DEPRECATED: Use `gridLineColor` instead
+    ///
+    pub const GridLineColor = gridLineColor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#gridLineColor)
     ///
@@ -305,9 +407,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn GridLineColor(self: QAbstractAxis) QColor {
+    pub fn gridLineColor(self: QAbstractAxis) QColor {
         return .{ .ptr = qtc.QAbstractAxis_GridLineColor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setMinorGridLineColor` instead
+    ///
+    pub const SetMinorGridLineColor = setMinorGridLineColor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#setMinorGridLineColor)
     ///
@@ -317,10 +423,14 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` color: QColor `
     ///
-    pub fn SetMinorGridLineColor(self: QAbstractAxis, color: anytype) void {
+    pub fn setMinorGridLineColor(self: QAbstractAxis, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.QAbstractAxis_SetMinorGridLineColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
+
+    /// ### DEPRECATED: Use `minorGridLineColor` instead
+    ///
+    pub const MinorGridLineColor = minorGridLineColor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#minorGridLineColor)
     ///
@@ -328,9 +438,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn MinorGridLineColor(self: QAbstractAxis) QColor {
+    pub fn minorGridLineColor(self: QAbstractAxis) QColor {
         return .{ .ptr = qtc.QAbstractAxis_MinorGridLineColor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `labelsVisible` instead
+    ///
+    pub const LabelsVisible = labelsVisible;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#labelsVisible)
     ///
@@ -338,9 +452,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn LabelsVisible(self: QAbstractAxis) bool {
+    pub fn labelsVisible(self: QAbstractAxis) bool {
         return qtc.QAbstractAxis_LabelsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLabelsVisible` instead
+    ///
+    pub const SetLabelsVisible = setLabelsVisible;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#setLabelsVisible)
     ///
@@ -348,9 +466,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn SetLabelsVisible(self: QAbstractAxis) void {
+    pub fn setLabelsVisible(self: QAbstractAxis) void {
         qtc.QAbstractAxis_SetLabelsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLabelsBrush` instead
+    ///
+    pub const SetLabelsBrush = setLabelsBrush;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#setLabelsBrush)
     ///
@@ -360,10 +482,14 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` brush: QBrush `
     ///
-    pub fn SetLabelsBrush(self: QAbstractAxis, brush: anytype) void {
+    pub fn setLabelsBrush(self: QAbstractAxis, brush: anytype) void {
         comptime _ = @TypeOf(brush)._is_QBrush;
         qtc.QAbstractAxis_SetLabelsBrush(@ptrCast(self.ptr), @ptrCast(brush.ptr));
     }
+
+    /// ### DEPRECATED: Use `labelsBrush` instead
+    ///
+    pub const LabelsBrush = labelsBrush;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#labelsBrush)
     ///
@@ -371,9 +497,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn LabelsBrush(self: QAbstractAxis) QBrush {
+    pub fn labelsBrush(self: QAbstractAxis) QBrush {
         return .{ .ptr = qtc.QAbstractAxis_LabelsBrush(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLabelsFont` instead
+    ///
+    pub const SetLabelsFont = setLabelsFont;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#setLabelsFont)
     ///
@@ -383,10 +513,14 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` font: QFont `
     ///
-    pub fn SetLabelsFont(self: QAbstractAxis, font: anytype) void {
+    pub fn setLabelsFont(self: QAbstractAxis, font: anytype) void {
         comptime _ = @TypeOf(font)._is_QFont;
         qtc.QAbstractAxis_SetLabelsFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
     }
+
+    /// ### DEPRECATED: Use `labelsFont` instead
+    ///
+    pub const LabelsFont = labelsFont;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#labelsFont)
     ///
@@ -394,9 +528,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn LabelsFont(self: QAbstractAxis) QFont {
+    pub fn labelsFont(self: QAbstractAxis) QFont {
         return .{ .ptr = qtc.QAbstractAxis_LabelsFont(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLabelsAngle` instead
+    ///
+    pub const SetLabelsAngle = setLabelsAngle;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#setLabelsAngle)
     ///
@@ -406,9 +544,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` angle: i32 `
     ///
-    pub fn SetLabelsAngle(self: QAbstractAxis, angle: i32) void {
+    pub fn setLabelsAngle(self: QAbstractAxis, angle: i32) void {
         qtc.QAbstractAxis_SetLabelsAngle(@ptrCast(self.ptr), @bitCast(angle));
     }
+
+    /// ### DEPRECATED: Use `labelsAngle` instead
+    ///
+    pub const LabelsAngle = labelsAngle;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#labelsAngle)
     ///
@@ -416,9 +558,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn LabelsAngle(self: QAbstractAxis) i32 {
+    pub fn labelsAngle(self: QAbstractAxis) i32 {
         return qtc.QAbstractAxis_LabelsAngle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLabelsColor` instead
+    ///
+    pub const SetLabelsColor = setLabelsColor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#setLabelsColor)
     ///
@@ -428,10 +574,14 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` color: QColor `
     ///
-    pub fn SetLabelsColor(self: QAbstractAxis, color: anytype) void {
+    pub fn setLabelsColor(self: QAbstractAxis, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.QAbstractAxis_SetLabelsColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
+
+    /// ### DEPRECATED: Use `labelsColor` instead
+    ///
+    pub const LabelsColor = labelsColor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#labelsColor)
     ///
@@ -439,9 +589,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn LabelsColor(self: QAbstractAxis) QColor {
+    pub fn labelsColor(self: QAbstractAxis) QColor {
         return .{ .ptr = qtc.QAbstractAxis_LabelsColor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isTitleVisible` instead
+    ///
+    pub const IsTitleVisible = isTitleVisible;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#isTitleVisible)
     ///
@@ -449,9 +603,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn IsTitleVisible(self: QAbstractAxis) bool {
+    pub fn isTitleVisible(self: QAbstractAxis) bool {
         return qtc.QAbstractAxis_IsTitleVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTitleVisible` instead
+    ///
+    pub const SetTitleVisible = setTitleVisible;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#setTitleVisible)
     ///
@@ -459,9 +617,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn SetTitleVisible(self: QAbstractAxis) void {
+    pub fn setTitleVisible(self: QAbstractAxis) void {
         qtc.QAbstractAxis_SetTitleVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTitleBrush` instead
+    ///
+    pub const SetTitleBrush = setTitleBrush;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#setTitleBrush)
     ///
@@ -471,10 +633,14 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` brush: QBrush `
     ///
-    pub fn SetTitleBrush(self: QAbstractAxis, brush: anytype) void {
+    pub fn setTitleBrush(self: QAbstractAxis, brush: anytype) void {
         comptime _ = @TypeOf(brush)._is_QBrush;
         qtc.QAbstractAxis_SetTitleBrush(@ptrCast(self.ptr), @ptrCast(brush.ptr));
     }
+
+    /// ### DEPRECATED: Use `titleBrush` instead
+    ///
+    pub const TitleBrush = titleBrush;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#titleBrush)
     ///
@@ -482,9 +648,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn TitleBrush(self: QAbstractAxis) QBrush {
+    pub fn titleBrush(self: QAbstractAxis) QBrush {
         return .{ .ptr = qtc.QAbstractAxis_TitleBrush(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setTitleFont` instead
+    ///
+    pub const SetTitleFont = setTitleFont;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#setTitleFont)
     ///
@@ -494,10 +664,14 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` font: QFont `
     ///
-    pub fn SetTitleFont(self: QAbstractAxis, font: anytype) void {
+    pub fn setTitleFont(self: QAbstractAxis, font: anytype) void {
         comptime _ = @TypeOf(font)._is_QFont;
         qtc.QAbstractAxis_SetTitleFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
     }
+
+    /// ### DEPRECATED: Use `titleFont` instead
+    ///
+    pub const TitleFont = titleFont;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#titleFont)
     ///
@@ -505,9 +679,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn TitleFont(self: QAbstractAxis) QFont {
+    pub fn titleFont(self: QAbstractAxis) QFont {
         return .{ .ptr = qtc.QAbstractAxis_TitleFont(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setTitleText` instead
+    ///
+    pub const SetTitleText = setTitleText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#setTitleText)
     ///
@@ -517,13 +695,17 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn SetTitleText(self: QAbstractAxis, title: []const u8) void {
+    pub fn setTitleText(self: QAbstractAxis, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QAbstractAxis_SetTitleText(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `titleText` instead
+    ///
+    pub const TitleText = titleText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#titleText)
     ///
@@ -533,13 +715,17 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TitleText(self: QAbstractAxis, allocator: std.mem.Allocator) []const u8 {
+    pub fn titleText(self: QAbstractAxis, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAbstractAxis_TitleText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractAxis.TitleText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractAxis.titleText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `shadesVisible` instead
+    ///
+    pub const ShadesVisible = shadesVisible;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#shadesVisible)
     ///
@@ -547,9 +733,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn ShadesVisible(self: QAbstractAxis) bool {
+    pub fn shadesVisible(self: QAbstractAxis) bool {
         return qtc.QAbstractAxis_ShadesVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setShadesVisible` instead
+    ///
+    pub const SetShadesVisible = setShadesVisible;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#setShadesVisible)
     ///
@@ -557,9 +747,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn SetShadesVisible(self: QAbstractAxis) void {
+    pub fn setShadesVisible(self: QAbstractAxis) void {
         qtc.QAbstractAxis_SetShadesVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setShadesPen` instead
+    ///
+    pub const SetShadesPen = setShadesPen;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#setShadesPen)
     ///
@@ -569,10 +763,14 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` pen: QPen `
     ///
-    pub fn SetShadesPen(self: QAbstractAxis, pen: anytype) void {
+    pub fn setShadesPen(self: QAbstractAxis, pen: anytype) void {
         comptime _ = @TypeOf(pen)._is_QPen;
         qtc.QAbstractAxis_SetShadesPen(@ptrCast(self.ptr), @ptrCast(pen.ptr));
     }
+
+    /// ### DEPRECATED: Use `shadesPen` instead
+    ///
+    pub const ShadesPen = shadesPen;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#shadesPen)
     ///
@@ -580,9 +778,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn ShadesPen(self: QAbstractAxis) QPen {
+    pub fn shadesPen(self: QAbstractAxis) QPen {
         return .{ .ptr = qtc.QAbstractAxis_ShadesPen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setShadesBrush` instead
+    ///
+    pub const SetShadesBrush = setShadesBrush;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#setShadesBrush)
     ///
@@ -592,10 +794,14 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` brush: QBrush `
     ///
-    pub fn SetShadesBrush(self: QAbstractAxis, brush: anytype) void {
+    pub fn setShadesBrush(self: QAbstractAxis, brush: anytype) void {
         comptime _ = @TypeOf(brush)._is_QBrush;
         qtc.QAbstractAxis_SetShadesBrush(@ptrCast(self.ptr), @ptrCast(brush.ptr));
     }
+
+    /// ### DEPRECATED: Use `shadesBrush` instead
+    ///
+    pub const ShadesBrush = shadesBrush;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#shadesBrush)
     ///
@@ -603,9 +809,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn ShadesBrush(self: QAbstractAxis) QBrush {
+    pub fn shadesBrush(self: QAbstractAxis) QBrush {
         return .{ .ptr = qtc.QAbstractAxis_ShadesBrush(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setShadesColor` instead
+    ///
+    pub const SetShadesColor = setShadesColor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#setShadesColor)
     ///
@@ -615,10 +825,14 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` color: QColor `
     ///
-    pub fn SetShadesColor(self: QAbstractAxis, color: anytype) void {
+    pub fn setShadesColor(self: QAbstractAxis, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.QAbstractAxis_SetShadesColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
+
+    /// ### DEPRECATED: Use `shadesColor` instead
+    ///
+    pub const ShadesColor = shadesColor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#shadesColor)
     ///
@@ -626,9 +840,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn ShadesColor(self: QAbstractAxis) QColor {
+    pub fn shadesColor(self: QAbstractAxis) QColor {
         return .{ .ptr = qtc.QAbstractAxis_ShadesColor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setShadesBorderColor` instead
+    ///
+    pub const SetShadesBorderColor = setShadesBorderColor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#setShadesBorderColor)
     ///
@@ -638,10 +856,14 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` color: QColor `
     ///
-    pub fn SetShadesBorderColor(self: QAbstractAxis, color: anytype) void {
+    pub fn setShadesBorderColor(self: QAbstractAxis, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.QAbstractAxis_SetShadesBorderColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
+
+    /// ### DEPRECATED: Use `shadesBorderColor` instead
+    ///
+    pub const ShadesBorderColor = shadesBorderColor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#shadesBorderColor)
     ///
@@ -649,9 +871,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn ShadesBorderColor(self: QAbstractAxis) QColor {
+    pub fn shadesBorderColor(self: QAbstractAxis) QColor {
         return .{ .ptr = qtc.QAbstractAxis_ShadesBorderColor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `orientation` instead
+    ///
+    pub const Orientation = orientation;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#orientation)
     ///
@@ -663,9 +889,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` qnamespace_enums.Orientation `
     ///
-    pub fn Orientation(self: QAbstractAxis) i32 {
+    pub fn orientation(self: QAbstractAxis) i32 {
         return qtc.QAbstractAxis_Orientation(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `alignment` instead
+    ///
+    pub const Alignment = alignment;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#alignment)
     ///
@@ -677,9 +907,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn Alignment(self: QAbstractAxis) i32 {
+    pub fn alignment(self: QAbstractAxis) i32 {
         return qtc.QAbstractAxis_Alignment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMin` instead
+    ///
+    pub const SetMin = setMin;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#setMin)
     ///
@@ -689,10 +923,14 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` min: QVariant `
     ///
-    pub fn SetMin(self: QAbstractAxis, min: anytype) void {
+    pub fn setMin(self: QAbstractAxis, min: anytype) void {
         comptime _ = @TypeOf(min)._is_QVariant;
         qtc.QAbstractAxis_SetMin(@ptrCast(self.ptr), @ptrCast(min.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMax` instead
+    ///
+    pub const SetMax = setMax;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#setMax)
     ///
@@ -702,10 +940,14 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` max: QVariant `
     ///
-    pub fn SetMax(self: QAbstractAxis, max: anytype) void {
+    pub fn setMax(self: QAbstractAxis, max: anytype) void {
         comptime _ = @TypeOf(max)._is_QVariant;
         qtc.QAbstractAxis_SetMax(@ptrCast(self.ptr), @ptrCast(max.ptr));
     }
+
+    /// ### DEPRECATED: Use `setRange` instead
+    ///
+    pub const SetRange = setRange;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#setRange)
     ///
@@ -717,11 +959,15 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` max: QVariant `
     ///
-    pub fn SetRange(self: QAbstractAxis, min: anytype, max: anytype) void {
+    pub fn setRange(self: QAbstractAxis, min: anytype, max: anytype) void {
         comptime _ = @TypeOf(min)._is_QVariant;
         comptime _ = @TypeOf(max)._is_QVariant;
         qtc.QAbstractAxis_SetRange(@ptrCast(self.ptr), @ptrCast(min.ptr), @ptrCast(max.ptr));
     }
+
+    /// ### DEPRECATED: Use `setReverse` instead
+    ///
+    pub const SetReverse = setReverse;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#setReverse)
     ///
@@ -729,9 +975,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn SetReverse(self: QAbstractAxis) void {
+    pub fn setReverse(self: QAbstractAxis) void {
         qtc.QAbstractAxis_SetReverse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isReverse` instead
+    ///
+    pub const IsReverse = isReverse;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#isReverse)
     ///
@@ -739,9 +989,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn IsReverse(self: QAbstractAxis) bool {
+    pub fn isReverse(self: QAbstractAxis) bool {
         return qtc.QAbstractAxis_IsReverse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLabelsEditable` instead
+    ///
+    pub const SetLabelsEditable = setLabelsEditable;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#setLabelsEditable)
     ///
@@ -749,9 +1003,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn SetLabelsEditable(self: QAbstractAxis) void {
+    pub fn setLabelsEditable(self: QAbstractAxis) void {
         qtc.QAbstractAxis_SetLabelsEditable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `labelsEditable` instead
+    ///
+    pub const LabelsEditable = labelsEditable;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#labelsEditable)
     ///
@@ -759,9 +1017,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn LabelsEditable(self: QAbstractAxis) bool {
+    pub fn labelsEditable(self: QAbstractAxis) bool {
         return qtc.QAbstractAxis_LabelsEditable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `labelsTruncated` instead
+    ///
+    pub const LabelsTruncated = labelsTruncated;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#labelsTruncated)
     ///
@@ -769,9 +1031,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn LabelsTruncated(self: QAbstractAxis) bool {
+    pub fn labelsTruncated(self: QAbstractAxis) bool {
         return qtc.QAbstractAxis_LabelsTruncated(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTruncateLabels` instead
+    ///
+    pub const SetTruncateLabels = setTruncateLabels;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#setTruncateLabels)
     ///
@@ -779,9 +1045,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn SetTruncateLabels(self: QAbstractAxis) void {
+    pub fn setTruncateLabels(self: QAbstractAxis) void {
         qtc.QAbstractAxis_SetTruncateLabels(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `truncateLabels` instead
+    ///
+    pub const TruncateLabels = truncateLabels;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#truncateLabels)
     ///
@@ -789,9 +1059,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn TruncateLabels(self: QAbstractAxis) bool {
+    pub fn truncateLabels(self: QAbstractAxis) bool {
         return qtc.QAbstractAxis_TruncateLabels(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `visibleChanged` instead
+    ///
+    pub const VisibleChanged = visibleChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#visibleChanged)
     ///
@@ -801,9 +1075,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn VisibleChanged(self: QAbstractAxis, visible: bool) void {
+    pub fn visibleChanged(self: QAbstractAxis, visible: bool) void {
         qtc.QAbstractAxis_VisibleChanged(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onVisibleChanged` instead
+    ///
+    pub const OnVisibleChanged = onVisibleChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#visibleChanged)
     ///
@@ -813,9 +1091,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractAxis, visible: bool) callconv(.c) void `
     ///
-    pub fn OnVisibleChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, bool) callconv(.c) void) void {
+    pub fn onVisibleChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, bool) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_VisibleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `linePenChanged` instead
+    ///
+    pub const LinePenChanged = linePenChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#linePenChanged)
     ///
@@ -825,10 +1107,14 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` pen: QPen `
     ///
-    pub fn LinePenChanged(self: QAbstractAxis, pen: anytype) void {
+    pub fn linePenChanged(self: QAbstractAxis, pen: anytype) void {
         comptime _ = @TypeOf(pen)._is_QPen;
         qtc.QAbstractAxis_LinePenChanged(@ptrCast(self.ptr), @ptrCast(pen.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLinePenChanged` instead
+    ///
+    pub const OnLinePenChanged = onLinePenChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#linePenChanged)
     ///
@@ -838,10 +1124,14 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractAxis, pen: QPen) callconv(.c) void `
     ///
-    pub fn OnLinePenChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, QPen) callconv(.c) void) void {
+    pub fn onLinePenChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, QPen) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_LinePenChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `lineVisibleChanged` instead
+    ///
+    pub const LineVisibleChanged = lineVisibleChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#lineVisibleChanged)
     ///
     /// ## Parameter(s):
@@ -850,10 +1140,14 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn LineVisibleChanged(self: QAbstractAxis, visible: bool) void {
+    pub fn lineVisibleChanged(self: QAbstractAxis, visible: bool) void {
         qtc.QAbstractAxis_LineVisibleChanged(@ptrCast(self.ptr), visible);
     }
 
+    /// ### DEPRECATED: Use `onLineVisibleChanged` instead
+    ///
+    pub const OnLineVisibleChanged = onLineVisibleChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#lineVisibleChanged)
     ///
     /// ## Parameters:
@@ -862,9 +1156,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractAxis, visible: bool) callconv(.c) void `
     ///
-    pub fn OnLineVisibleChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, bool) callconv(.c) void) void {
+    pub fn onLineVisibleChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, bool) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_LineVisibleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `labelsVisibleChanged` instead
+    ///
+    pub const LabelsVisibleChanged = labelsVisibleChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#labelsVisibleChanged)
     ///
@@ -874,9 +1172,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn LabelsVisibleChanged(self: QAbstractAxis, visible: bool) void {
+    pub fn labelsVisibleChanged(self: QAbstractAxis, visible: bool) void {
         qtc.QAbstractAxis_LabelsVisibleChanged(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onLabelsVisibleChanged` instead
+    ///
+    pub const OnLabelsVisibleChanged = onLabelsVisibleChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#labelsVisibleChanged)
     ///
@@ -886,9 +1188,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractAxis, visible: bool) callconv(.c) void `
     ///
-    pub fn OnLabelsVisibleChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, bool) callconv(.c) void) void {
+    pub fn onLabelsVisibleChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, bool) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_LabelsVisibleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `labelsBrushChanged` instead
+    ///
+    pub const LabelsBrushChanged = labelsBrushChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#labelsBrushChanged)
     ///
@@ -898,10 +1204,14 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` brush: QBrush `
     ///
-    pub fn LabelsBrushChanged(self: QAbstractAxis, brush: anytype) void {
+    pub fn labelsBrushChanged(self: QAbstractAxis, brush: anytype) void {
         comptime _ = @TypeOf(brush)._is_QBrush;
         qtc.QAbstractAxis_LabelsBrushChanged(@ptrCast(self.ptr), @ptrCast(brush.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLabelsBrushChanged` instead
+    ///
+    pub const OnLabelsBrushChanged = onLabelsBrushChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#labelsBrushChanged)
     ///
@@ -911,9 +1221,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractAxis, brush: QBrush) callconv(.c) void `
     ///
-    pub fn OnLabelsBrushChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, QBrush) callconv(.c) void) void {
+    pub fn onLabelsBrushChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, QBrush) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_LabelsBrushChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `labelsFontChanged` instead
+    ///
+    pub const LabelsFontChanged = labelsFontChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#labelsFontChanged)
     ///
@@ -923,10 +1237,14 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` pen: QFont `
     ///
-    pub fn LabelsFontChanged(self: QAbstractAxis, pen: anytype) void {
+    pub fn labelsFontChanged(self: QAbstractAxis, pen: anytype) void {
         comptime _ = @TypeOf(pen)._is_QFont;
         qtc.QAbstractAxis_LabelsFontChanged(@ptrCast(self.ptr), @ptrCast(pen.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLabelsFontChanged` instead
+    ///
+    pub const OnLabelsFontChanged = onLabelsFontChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#labelsFontChanged)
     ///
@@ -936,9 +1254,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractAxis, pen: QFont) callconv(.c) void `
     ///
-    pub fn OnLabelsFontChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, QFont) callconv(.c) void) void {
+    pub fn onLabelsFontChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, QFont) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_LabelsFontChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `labelsAngleChanged` instead
+    ///
+    pub const LabelsAngleChanged = labelsAngleChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#labelsAngleChanged)
     ///
@@ -948,9 +1270,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` angle: i32 `
     ///
-    pub fn LabelsAngleChanged(self: QAbstractAxis, angle: i32) void {
+    pub fn labelsAngleChanged(self: QAbstractAxis, angle: i32) void {
         qtc.QAbstractAxis_LabelsAngleChanged(@ptrCast(self.ptr), @bitCast(angle));
     }
+
+    /// ### DEPRECATED: Use `onLabelsAngleChanged` instead
+    ///
+    pub const OnLabelsAngleChanged = onLabelsAngleChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#labelsAngleChanged)
     ///
@@ -960,9 +1286,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractAxis, angle: i32) callconv(.c) void `
     ///
-    pub fn OnLabelsAngleChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, i32) callconv(.c) void) void {
+    pub fn onLabelsAngleChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, i32) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_LabelsAngleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `gridLinePenChanged` instead
+    ///
+    pub const GridLinePenChanged = gridLinePenChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#gridLinePenChanged)
     ///
@@ -972,11 +1302,15 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` pen: QPen `
     ///
-    pub fn GridLinePenChanged(self: QAbstractAxis, pen: anytype) void {
+    pub fn gridLinePenChanged(self: QAbstractAxis, pen: anytype) void {
         comptime _ = @TypeOf(pen)._is_QPen;
         qtc.QAbstractAxis_GridLinePenChanged(@ptrCast(self.ptr), @ptrCast(pen.ptr));
     }
 
+    /// ### DEPRECATED: Use `onGridLinePenChanged` instead
+    ///
+    pub const OnGridLinePenChanged = onGridLinePenChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#gridLinePenChanged)
     ///
     /// ## Parameters:
@@ -985,10 +1319,14 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractAxis, pen: QPen) callconv(.c) void `
     ///
-    pub fn OnGridLinePenChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, QPen) callconv(.c) void) void {
+    pub fn onGridLinePenChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, QPen) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_GridLinePenChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `gridVisibleChanged` instead
+    ///
+    pub const GridVisibleChanged = gridVisibleChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#gridVisibleChanged)
     ///
     /// ## Parameter(s):
@@ -997,10 +1335,14 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn GridVisibleChanged(self: QAbstractAxis, visible: bool) void {
+    pub fn gridVisibleChanged(self: QAbstractAxis, visible: bool) void {
         qtc.QAbstractAxis_GridVisibleChanged(@ptrCast(self.ptr), visible);
     }
 
+    /// ### DEPRECATED: Use `onGridVisibleChanged` instead
+    ///
+    pub const OnGridVisibleChanged = onGridVisibleChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#gridVisibleChanged)
     ///
     /// ## Parameters:
@@ -1009,9 +1351,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractAxis, visible: bool) callconv(.c) void `
     ///
-    pub fn OnGridVisibleChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, bool) callconv(.c) void) void {
+    pub fn onGridVisibleChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, bool) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_GridVisibleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minorGridVisibleChanged` instead
+    ///
+    pub const MinorGridVisibleChanged = minorGridVisibleChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#minorGridVisibleChanged)
     ///
@@ -1021,9 +1367,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn MinorGridVisibleChanged(self: QAbstractAxis, visible: bool) void {
+    pub fn minorGridVisibleChanged(self: QAbstractAxis, visible: bool) void {
         qtc.QAbstractAxis_MinorGridVisibleChanged(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onMinorGridVisibleChanged` instead
+    ///
+    pub const OnMinorGridVisibleChanged = onMinorGridVisibleChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#minorGridVisibleChanged)
     ///
@@ -1033,9 +1383,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractAxis, visible: bool) callconv(.c) void `
     ///
-    pub fn OnMinorGridVisibleChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, bool) callconv(.c) void) void {
+    pub fn onMinorGridVisibleChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, bool) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_MinorGridVisibleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minorGridLinePenChanged` instead
+    ///
+    pub const MinorGridLinePenChanged = minorGridLinePenChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#minorGridLinePenChanged)
     ///
@@ -1045,10 +1399,14 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` pen: QPen `
     ///
-    pub fn MinorGridLinePenChanged(self: QAbstractAxis, pen: anytype) void {
+    pub fn minorGridLinePenChanged(self: QAbstractAxis, pen: anytype) void {
         comptime _ = @TypeOf(pen)._is_QPen;
         qtc.QAbstractAxis_MinorGridLinePenChanged(@ptrCast(self.ptr), @ptrCast(pen.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMinorGridLinePenChanged` instead
+    ///
+    pub const OnMinorGridLinePenChanged = onMinorGridLinePenChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#minorGridLinePenChanged)
     ///
@@ -1058,9 +1416,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractAxis, pen: QPen) callconv(.c) void `
     ///
-    pub fn OnMinorGridLinePenChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, QPen) callconv(.c) void) void {
+    pub fn onMinorGridLinePenChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, QPen) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_MinorGridLinePenChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `gridLineColorChanged` instead
+    ///
+    pub const GridLineColorChanged = gridLineColorChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#gridLineColorChanged)
     ///
@@ -1070,11 +1432,15 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` color: QColor `
     ///
-    pub fn GridLineColorChanged(self: QAbstractAxis, color: anytype) void {
+    pub fn gridLineColorChanged(self: QAbstractAxis, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.QAbstractAxis_GridLineColorChanged(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
+    /// ### DEPRECATED: Use `onGridLineColorChanged` instead
+    ///
+    pub const OnGridLineColorChanged = onGridLineColorChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#gridLineColorChanged)
     ///
     /// ## Parameters:
@@ -1083,9 +1449,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractAxis, color: QColor) callconv(.c) void `
     ///
-    pub fn OnGridLineColorChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, QColor) callconv(.c) void) void {
+    pub fn onGridLineColorChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, QColor) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_GridLineColorChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minorGridLineColorChanged` instead
+    ///
+    pub const MinorGridLineColorChanged = minorGridLineColorChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#minorGridLineColorChanged)
     ///
@@ -1095,11 +1465,15 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` color: QColor `
     ///
-    pub fn MinorGridLineColorChanged(self: QAbstractAxis, color: anytype) void {
+    pub fn minorGridLineColorChanged(self: QAbstractAxis, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.QAbstractAxis_MinorGridLineColorChanged(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
+    /// ### DEPRECATED: Use `onMinorGridLineColorChanged` instead
+    ///
+    pub const OnMinorGridLineColorChanged = onMinorGridLineColorChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#minorGridLineColorChanged)
     ///
     /// ## Parameters:
@@ -1108,9 +1482,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractAxis, color: QColor) callconv(.c) void `
     ///
-    pub fn OnMinorGridLineColorChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, QColor) callconv(.c) void) void {
+    pub fn onMinorGridLineColorChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, QColor) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_MinorGridLineColorChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `colorChanged` instead
+    ///
+    pub const ColorChanged = colorChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#colorChanged)
     ///
@@ -1120,11 +1498,15 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` color: QColor `
     ///
-    pub fn ColorChanged(self: QAbstractAxis, color: anytype) void {
+    pub fn colorChanged(self: QAbstractAxis, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.QAbstractAxis_ColorChanged(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
+    /// ### DEPRECATED: Use `onColorChanged` instead
+    ///
+    pub const OnColorChanged = onColorChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#colorChanged)
     ///
     /// ## Parameters:
@@ -1133,9 +1515,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractAxis, color: QColor) callconv(.c) void `
     ///
-    pub fn OnColorChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, QColor) callconv(.c) void) void {
+    pub fn onColorChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, QColor) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_ColorChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `labelsColorChanged` instead
+    ///
+    pub const LabelsColorChanged = labelsColorChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#labelsColorChanged)
     ///
@@ -1145,10 +1531,14 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` color: QColor `
     ///
-    pub fn LabelsColorChanged(self: QAbstractAxis, color: anytype) void {
+    pub fn labelsColorChanged(self: QAbstractAxis, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.QAbstractAxis_LabelsColorChanged(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLabelsColorChanged` instead
+    ///
+    pub const OnLabelsColorChanged = onLabelsColorChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#labelsColorChanged)
     ///
@@ -1158,9 +1548,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractAxis, color: QColor) callconv(.c) void `
     ///
-    pub fn OnLabelsColorChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, QColor) callconv(.c) void) void {
+    pub fn onLabelsColorChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, QColor) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_LabelsColorChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `titleTextChanged` instead
+    ///
+    pub const TitleTextChanged = titleTextChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#titleTextChanged)
     ///
@@ -1170,13 +1564,17 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn TitleTextChanged(self: QAbstractAxis, title: []const u8) void {
+    pub fn titleTextChanged(self: QAbstractAxis, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QAbstractAxis_TitleTextChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onTitleTextChanged` instead
+    ///
+    pub const OnTitleTextChanged = onTitleTextChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#titleTextChanged)
     ///
@@ -1186,9 +1584,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractAxis, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnTitleTextChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, [*:0]const u8) callconv(.c) void) void {
+    pub fn onTitleTextChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, [*:0]const u8) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_TitleTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `titleBrushChanged` instead
+    ///
+    pub const TitleBrushChanged = titleBrushChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#titleBrushChanged)
     ///
@@ -1198,10 +1600,14 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` brush: QBrush `
     ///
-    pub fn TitleBrushChanged(self: QAbstractAxis, brush: anytype) void {
+    pub fn titleBrushChanged(self: QAbstractAxis, brush: anytype) void {
         comptime _ = @TypeOf(brush)._is_QBrush;
         qtc.QAbstractAxis_TitleBrushChanged(@ptrCast(self.ptr), @ptrCast(brush.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTitleBrushChanged` instead
+    ///
+    pub const OnTitleBrushChanged = onTitleBrushChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#titleBrushChanged)
     ///
@@ -1211,9 +1617,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractAxis, brush: QBrush) callconv(.c) void `
     ///
-    pub fn OnTitleBrushChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, QBrush) callconv(.c) void) void {
+    pub fn onTitleBrushChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, QBrush) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_TitleBrushChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `titleVisibleChanged` instead
+    ///
+    pub const TitleVisibleChanged = titleVisibleChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#titleVisibleChanged)
     ///
@@ -1223,9 +1633,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn TitleVisibleChanged(self: QAbstractAxis, visible: bool) void {
+    pub fn titleVisibleChanged(self: QAbstractAxis, visible: bool) void {
         qtc.QAbstractAxis_TitleVisibleChanged(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onTitleVisibleChanged` instead
+    ///
+    pub const OnTitleVisibleChanged = onTitleVisibleChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#titleVisibleChanged)
     ///
@@ -1235,9 +1649,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractAxis, visible: bool) callconv(.c) void `
     ///
-    pub fn OnTitleVisibleChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, bool) callconv(.c) void) void {
+    pub fn onTitleVisibleChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, bool) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_TitleVisibleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `titleFontChanged` instead
+    ///
+    pub const TitleFontChanged = titleFontChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#titleFontChanged)
     ///
@@ -1247,10 +1665,14 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` font: QFont `
     ///
-    pub fn TitleFontChanged(self: QAbstractAxis, font: anytype) void {
+    pub fn titleFontChanged(self: QAbstractAxis, font: anytype) void {
         comptime _ = @TypeOf(font)._is_QFont;
         qtc.QAbstractAxis_TitleFontChanged(@ptrCast(self.ptr), @ptrCast(font.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTitleFontChanged` instead
+    ///
+    pub const OnTitleFontChanged = onTitleFontChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#titleFontChanged)
     ///
@@ -1260,9 +1682,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractAxis, font: QFont) callconv(.c) void `
     ///
-    pub fn OnTitleFontChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, QFont) callconv(.c) void) void {
+    pub fn onTitleFontChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, QFont) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_TitleFontChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `shadesVisibleChanged` instead
+    ///
+    pub const ShadesVisibleChanged = shadesVisibleChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#shadesVisibleChanged)
     ///
@@ -1272,9 +1698,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn ShadesVisibleChanged(self: QAbstractAxis, visible: bool) void {
+    pub fn shadesVisibleChanged(self: QAbstractAxis, visible: bool) void {
         qtc.QAbstractAxis_ShadesVisibleChanged(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onShadesVisibleChanged` instead
+    ///
+    pub const OnShadesVisibleChanged = onShadesVisibleChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#shadesVisibleChanged)
     ///
@@ -1284,9 +1714,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractAxis, visible: bool) callconv(.c) void `
     ///
-    pub fn OnShadesVisibleChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, bool) callconv(.c) void) void {
+    pub fn onShadesVisibleChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, bool) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_ShadesVisibleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `shadesColorChanged` instead
+    ///
+    pub const ShadesColorChanged = shadesColorChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#shadesColorChanged)
     ///
@@ -1296,11 +1730,15 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` color: QColor `
     ///
-    pub fn ShadesColorChanged(self: QAbstractAxis, color: anytype) void {
+    pub fn shadesColorChanged(self: QAbstractAxis, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.QAbstractAxis_ShadesColorChanged(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
+    /// ### DEPRECATED: Use `onShadesColorChanged` instead
+    ///
+    pub const OnShadesColorChanged = onShadesColorChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#shadesColorChanged)
     ///
     /// ## Parameters:
@@ -1309,9 +1747,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractAxis, color: QColor) callconv(.c) void `
     ///
-    pub fn OnShadesColorChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, QColor) callconv(.c) void) void {
+    pub fn onShadesColorChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, QColor) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_ShadesColorChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `shadesBorderColorChanged` instead
+    ///
+    pub const ShadesBorderColorChanged = shadesBorderColorChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#shadesBorderColorChanged)
     ///
@@ -1321,10 +1763,14 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` color: QColor `
     ///
-    pub fn ShadesBorderColorChanged(self: QAbstractAxis, color: anytype) void {
+    pub fn shadesBorderColorChanged(self: QAbstractAxis, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.QAbstractAxis_ShadesBorderColorChanged(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShadesBorderColorChanged` instead
+    ///
+    pub const OnShadesBorderColorChanged = onShadesBorderColorChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#shadesBorderColorChanged)
     ///
@@ -1334,9 +1780,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractAxis, color: QColor) callconv(.c) void `
     ///
-    pub fn OnShadesBorderColorChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, QColor) callconv(.c) void) void {
+    pub fn onShadesBorderColorChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, QColor) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_ShadesBorderColorChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `shadesPenChanged` instead
+    ///
+    pub const ShadesPenChanged = shadesPenChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#shadesPenChanged)
     ///
@@ -1346,10 +1796,14 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` pen: QPen `
     ///
-    pub fn ShadesPenChanged(self: QAbstractAxis, pen: anytype) void {
+    pub fn shadesPenChanged(self: QAbstractAxis, pen: anytype) void {
         comptime _ = @TypeOf(pen)._is_QPen;
         qtc.QAbstractAxis_ShadesPenChanged(@ptrCast(self.ptr), @ptrCast(pen.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShadesPenChanged` instead
+    ///
+    pub const OnShadesPenChanged = onShadesPenChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#shadesPenChanged)
     ///
@@ -1359,9 +1813,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractAxis, pen: QPen) callconv(.c) void `
     ///
-    pub fn OnShadesPenChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, QPen) callconv(.c) void) void {
+    pub fn onShadesPenChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, QPen) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_ShadesPenChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `shadesBrushChanged` instead
+    ///
+    pub const ShadesBrushChanged = shadesBrushChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#shadesBrushChanged)
     ///
@@ -1371,10 +1829,14 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` brush: QBrush `
     ///
-    pub fn ShadesBrushChanged(self: QAbstractAxis, brush: anytype) void {
+    pub fn shadesBrushChanged(self: QAbstractAxis, brush: anytype) void {
         comptime _ = @TypeOf(brush)._is_QBrush;
         qtc.QAbstractAxis_ShadesBrushChanged(@ptrCast(self.ptr), @ptrCast(brush.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShadesBrushChanged` instead
+    ///
+    pub const OnShadesBrushChanged = onShadesBrushChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#shadesBrushChanged)
     ///
@@ -1384,9 +1846,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractAxis, brush: QBrush) callconv(.c) void `
     ///
-    pub fn OnShadesBrushChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, QBrush) callconv(.c) void) void {
+    pub fn onShadesBrushChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, QBrush) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_ShadesBrushChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `reverseChanged` instead
+    ///
+    pub const ReverseChanged = reverseChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#reverseChanged)
     ///
@@ -1396,9 +1862,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` reverse: bool `
     ///
-    pub fn ReverseChanged(self: QAbstractAxis, reverse: bool) void {
+    pub fn reverseChanged(self: QAbstractAxis, reverse: bool) void {
         qtc.QAbstractAxis_ReverseChanged(@ptrCast(self.ptr), reverse);
     }
+
+    /// ### DEPRECATED: Use `onReverseChanged` instead
+    ///
+    pub const OnReverseChanged = onReverseChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#reverseChanged)
     ///
@@ -1408,9 +1878,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractAxis, reverse: bool) callconv(.c) void `
     ///
-    pub fn OnReverseChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, bool) callconv(.c) void) void {
+    pub fn onReverseChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, bool) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_ReverseChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `labelsEditableChanged` instead
+    ///
+    pub const LabelsEditableChanged = labelsEditableChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#labelsEditableChanged)
     ///
@@ -1420,9 +1894,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` editable: bool `
     ///
-    pub fn LabelsEditableChanged(self: QAbstractAxis, editable: bool) void {
+    pub fn labelsEditableChanged(self: QAbstractAxis, editable: bool) void {
         qtc.QAbstractAxis_LabelsEditableChanged(@ptrCast(self.ptr), editable);
     }
+
+    /// ### DEPRECATED: Use `onLabelsEditableChanged` instead
+    ///
+    pub const OnLabelsEditableChanged = onLabelsEditableChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#labelsEditableChanged)
     ///
@@ -1432,9 +1910,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractAxis, editable: bool) callconv(.c) void `
     ///
-    pub fn OnLabelsEditableChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, bool) callconv(.c) void) void {
+    pub fn onLabelsEditableChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, bool) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_LabelsEditableChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `labelsTruncatedChanged` instead
+    ///
+    pub const LabelsTruncatedChanged = labelsTruncatedChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#labelsTruncatedChanged)
     ///
@@ -1442,11 +1924,15 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    /// ` labelsTruncated: bool `
+    /// ` _labelsTruncated: bool `
     ///
-    pub fn LabelsTruncatedChanged(self: QAbstractAxis, labelsTruncated: bool) void {
-        qtc.QAbstractAxis_LabelsTruncatedChanged(@ptrCast(self.ptr), labelsTruncated);
+    pub fn labelsTruncatedChanged(self: QAbstractAxis, _labelsTruncated: bool) void {
+        qtc.QAbstractAxis_LabelsTruncatedChanged(@ptrCast(self.ptr), _labelsTruncated);
     }
+
+    /// ### DEPRECATED: Use `onLabelsTruncatedChanged` instead
+    ///
+    pub const OnLabelsTruncatedChanged = onLabelsTruncatedChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#labelsTruncatedChanged)
     ///
@@ -1456,9 +1942,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractAxis, labelsTruncated: bool) callconv(.c) void `
     ///
-    pub fn OnLabelsTruncatedChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, bool) callconv(.c) void) void {
+    pub fn onLabelsTruncatedChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, bool) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_LabelsTruncatedChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `truncateLabelsChanged` instead
+    ///
+    pub const TruncateLabelsChanged = truncateLabelsChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#truncateLabelsChanged)
     ///
@@ -1466,11 +1956,15 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    /// ` truncateLabels: bool `
+    /// ` _truncateLabels: bool `
     ///
-    pub fn TruncateLabelsChanged(self: QAbstractAxis, truncateLabels: bool) void {
-        qtc.QAbstractAxis_TruncateLabelsChanged(@ptrCast(self.ptr), truncateLabels);
+    pub fn truncateLabelsChanged(self: QAbstractAxis, _truncateLabels: bool) void {
+        qtc.QAbstractAxis_TruncateLabelsChanged(@ptrCast(self.ptr), _truncateLabels);
     }
+
+    /// ### DEPRECATED: Use `onTruncateLabelsChanged` instead
+    ///
+    pub const OnTruncateLabelsChanged = onTruncateLabelsChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#truncateLabelsChanged)
     ///
@@ -1480,9 +1974,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractAxis, truncateLabels: bool) callconv(.c) void `
     ///
-    pub fn OnTruncateLabelsChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, bool) callconv(.c) void) void {
+    pub fn onTruncateLabelsChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, bool) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_TruncateLabelsChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1494,15 +1992,19 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractAxis.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractAxis.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1516,15 +2018,19 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractAxis.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractAxis.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setVisible1` instead
+    ///
+    pub const SetVisible1 = setVisible1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#setVisible)
     ///
@@ -1534,9 +2040,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible1(self: QAbstractAxis, visible: bool) void {
+    pub fn setVisible1(self: QAbstractAxis, visible: bool) void {
         qtc.QAbstractAxis_SetVisible1(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `setLineVisible1` instead
+    ///
+    pub const SetLineVisible1 = setLineVisible1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#setLineVisible)
     ///
@@ -1546,9 +2056,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetLineVisible1(self: QAbstractAxis, visible: bool) void {
+    pub fn setLineVisible1(self: QAbstractAxis, visible: bool) void {
         qtc.QAbstractAxis_SetLineVisible1(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `setGridLineVisible1` instead
+    ///
+    pub const SetGridLineVisible1 = setGridLineVisible1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#setGridLineVisible)
     ///
@@ -1558,9 +2072,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetGridLineVisible1(self: QAbstractAxis, visible: bool) void {
+    pub fn setGridLineVisible1(self: QAbstractAxis, visible: bool) void {
         qtc.QAbstractAxis_SetGridLineVisible1(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `setMinorGridLineVisible1` instead
+    ///
+    pub const SetMinorGridLineVisible1 = setMinorGridLineVisible1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#setMinorGridLineVisible)
     ///
@@ -1570,9 +2088,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetMinorGridLineVisible1(self: QAbstractAxis, visible: bool) void {
+    pub fn setMinorGridLineVisible1(self: QAbstractAxis, visible: bool) void {
         qtc.QAbstractAxis_SetMinorGridLineVisible1(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `setLabelsVisible1` instead
+    ///
+    pub const SetLabelsVisible1 = setLabelsVisible1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#setLabelsVisible)
     ///
@@ -1582,9 +2104,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetLabelsVisible1(self: QAbstractAxis, visible: bool) void {
+    pub fn setLabelsVisible1(self: QAbstractAxis, visible: bool) void {
         qtc.QAbstractAxis_SetLabelsVisible1(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `setTitleVisible1` instead
+    ///
+    pub const SetTitleVisible1 = setTitleVisible1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#setTitleVisible)
     ///
@@ -1594,9 +2120,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetTitleVisible1(self: QAbstractAxis, visible: bool) void {
+    pub fn setTitleVisible1(self: QAbstractAxis, visible: bool) void {
         qtc.QAbstractAxis_SetTitleVisible1(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `setShadesVisible1` instead
+    ///
+    pub const SetShadesVisible1 = setShadesVisible1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#setShadesVisible)
     ///
@@ -1606,9 +2136,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetShadesVisible1(self: QAbstractAxis, visible: bool) void {
+    pub fn setShadesVisible1(self: QAbstractAxis, visible: bool) void {
         qtc.QAbstractAxis_SetShadesVisible1(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `setReverse1` instead
+    ///
+    pub const SetReverse1 = setReverse1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#setReverse)
     ///
@@ -1618,9 +2152,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` reverse: bool `
     ///
-    pub fn SetReverse1(self: QAbstractAxis, reverse: bool) void {
+    pub fn setReverse1(self: QAbstractAxis, reverse: bool) void {
         qtc.QAbstractAxis_SetReverse1(@ptrCast(self.ptr), reverse);
     }
+
+    /// ### DEPRECATED: Use `setLabelsEditable1` instead
+    ///
+    pub const SetLabelsEditable1 = setLabelsEditable1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#setLabelsEditable)
     ///
@@ -1630,9 +2168,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` editable: bool `
     ///
-    pub fn SetLabelsEditable1(self: QAbstractAxis, editable: bool) void {
+    pub fn setLabelsEditable1(self: QAbstractAxis, editable: bool) void {
         qtc.QAbstractAxis_SetLabelsEditable1(@ptrCast(self.ptr), editable);
     }
+
+    /// ### DEPRECATED: Use `setTruncateLabels1` instead
+    ///
+    pub const SetTruncateLabels1 = setTruncateLabels1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#setTruncateLabels)
     ///
@@ -1640,11 +2182,15 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    /// ` truncateLabels: bool `
+    /// ` _truncateLabels: bool `
     ///
-    pub fn SetTruncateLabels1(self: QAbstractAxis, truncateLabels: bool) void {
-        qtc.QAbstractAxis_SetTruncateLabels1(@ptrCast(self.ptr), truncateLabels);
+    pub fn setTruncateLabels1(self: QAbstractAxis, _truncateLabels: bool) void {
+        qtc.QAbstractAxis_SetTruncateLabels1(@ptrCast(self.ptr), _truncateLabels);
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -1654,12 +2200,16 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QAbstractAxis, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QObject_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QAbstractAxis, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QObject_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1671,13 +2221,17 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QAbstractAxis, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QAbstractAxis, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -1689,13 +2243,17 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QAbstractAxis, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QAbstractAxis, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractAxis.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractAxis.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -1707,13 +2265,17 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QAbstractAxis, name: []const u8) void {
+    pub fn setObjectName(self: QAbstractAxis, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -1723,9 +2285,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn IsWidgetType(self: QAbstractAxis) bool {
+    pub fn isWidgetType(self: QAbstractAxis) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -1735,9 +2301,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn IsWindowType(self: QAbstractAxis) bool {
+    pub fn isWindowType(self: QAbstractAxis) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -1747,9 +2317,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn IsQuickItemType(self: QAbstractAxis) bool {
+    pub fn isQuickItemType(self: QAbstractAxis) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -1759,9 +2333,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn SignalsBlocked(self: QAbstractAxis) bool {
+    pub fn signalsBlocked(self: QAbstractAxis) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -1773,9 +2351,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QAbstractAxis, b: bool) bool {
+    pub fn blockSignals(self: QAbstractAxis, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -1785,9 +2367,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn Thread(self: QAbstractAxis) QThread {
+    pub fn thread(self: QAbstractAxis) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -1797,12 +2383,16 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QAbstractAxis, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QAbstractAxis, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -1814,9 +2404,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QAbstractAxis, interval: i32) i32 {
+    pub fn startTimer(self: QAbstractAxis, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -1828,9 +2422,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QAbstractAxis, time: i64) i32 {
+    pub fn startTimer2(self: QAbstractAxis, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -1842,9 +2440,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QAbstractAxis, id: i32) void {
+    pub fn killTimer(self: QAbstractAxis, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -1856,9 +2458,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QAbstractAxis, id: i32) void {
+    pub fn killTimer2(self: QAbstractAxis, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -1870,15 +2476,19 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QAbstractAxis, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QAbstractAxis, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QAbstractAxis.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QAbstractAxis.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -1888,12 +2498,16 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QAbstractAxis, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QAbstractAxis, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1905,10 +2519,14 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QAbstractAxis, filterObj: anytype) void {
+    pub fn installEventFilter(self: QAbstractAxis, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1920,10 +2538,14 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QAbstractAxis, obj: anytype) void {
+    pub fn removeEventFilter(self: QAbstractAxis, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -1931,7 +2553,7 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1939,13 +2561,17 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -1953,7 +2579,7 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1961,13 +2587,17 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -1977,18 +2607,22 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QAbstractAxis, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QAbstractAxis, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -1996,7 +2630,7 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2004,13 +2638,17 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -2018,7 +2656,7 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2026,13 +2664,17 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -2042,9 +2684,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn Disconnect3(self: QAbstractAxis) bool {
+    pub fn disconnect3(self: QAbstractAxis) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -2056,10 +2702,14 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QAbstractAxis, receiver: anytype) bool {
+    pub fn disconnect4(self: QAbstractAxis, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -2069,10 +2719,14 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -2082,9 +2736,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn DumpObjectTree(self: QAbstractAxis) void {
+    pub fn dumpObjectTree(self: QAbstractAxis) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -2094,9 +2752,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn DumpObjectInfo(self: QAbstractAxis) void {
+    pub fn dumpObjectInfo(self: QAbstractAxis) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -2110,11 +2772,15 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QAbstractAxis, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QAbstractAxis, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -2126,10 +2792,14 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QAbstractAxis, name: [:0]const u8) QVariant {
+    pub fn property(self: QAbstractAxis, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -2141,7 +2811,7 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QAbstractAxis, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QAbstractAxis, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -2149,27 +2819,19 @@ pub const QAbstractAxis = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QAbstractAxis.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QAbstractAxis.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QAbstractAxis.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QAbstractAxis.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractAxis `
-    ///
-    pub fn BindingStorage(self: QAbstractAxis) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -2179,9 +2841,29 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn BindingStorage2(self: QAbstractAxis) QBindingStorage {
+    pub fn bindingStorage(self: QAbstractAxis) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QAbstractAxis `
+    ///
+    pub fn bindingStorage2(self: QAbstractAxis) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -2191,9 +2873,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn Destroyed(self: QAbstractAxis) void {
+    pub fn destroyed(self: QAbstractAxis) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -2205,9 +2891,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractAxis) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QAbstractAxis, callback: *const fn (QAbstractAxis) callconv(.c) void) void {
+    pub fn onDestroyed(self: QAbstractAxis, callback: *const fn (QAbstractAxis) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -2217,9 +2907,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn Parent(self: QAbstractAxis) QObject {
+    pub fn parent(self: QAbstractAxis) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -2231,10 +2925,14 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QAbstractAxis, classname: [:0]const u8) bool {
+    pub fn inherits(self: QAbstractAxis, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -2244,9 +2942,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn DeleteLater(self: QAbstractAxis) void {
+    pub fn deleteLater(self: QAbstractAxis) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -2260,9 +2962,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QAbstractAxis, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QAbstractAxis, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -2276,9 +2982,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QAbstractAxis, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QAbstractAxis, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -2286,7 +2996,7 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2296,13 +3006,17 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -2310,7 +3024,7 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2320,13 +3034,17 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -2336,7 +3054,7 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` self: QAbstractAxis `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2344,12 +3062,16 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QAbstractAxis, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QAbstractAxis, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -2361,10 +3083,14 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QAbstractAxis, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QAbstractAxis, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -2378,11 +3104,15 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QAbstractAxis, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QAbstractAxis, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -2398,13 +3128,17 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QAbstractAxis, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QAbstractAxis, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -2417,11 +3151,15 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QAbstractAxis, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QAbstractAxis, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -2433,10 +3171,14 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QAbstractAxis, param1: anytype) void {
+    pub fn destroyed1(self: QAbstractAxis, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -2448,9 +3190,13 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractAxis, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QAbstractAxis, callback: *const fn (QAbstractAxis, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QAbstractAxis, callback: *const fn (QAbstractAxis, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -2464,23 +3210,23 @@ pub const QAbstractAxis = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractAxis, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QAbstractAxis, callback: *const fn (QAbstractAxis, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#dtor.QAbstractAxis)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QAbstractAxis `
     ///
-    pub fn Delete(self: QAbstractAxis) void {
+    pub fn delete(self: QAbstractAxis) void {
         qtc.QAbstractAxis_Delete(@ptrCast(self.ptr));
     }
 };

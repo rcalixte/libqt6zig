@@ -80,47 +80,67 @@ pub const KPixmapSequenceWidget = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new KPixmapSequenceWidget object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KPixmapSequenceWidget object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) KPixmapSequenceWidget {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KPixmapSequenceWidget_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) KPixmapSequenceWidget {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KPixmapSequenceWidget_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new KPixmapSequenceWidget object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() KPixmapSequenceWidget {
+    pub const New2 = new2;
+
+    /// Allocate a new KPixmapSequenceWidget object in C++ memory
+    ///
+    pub fn new2() KPixmapSequenceWidget {
         return .{ .ptr = qtc.KPixmapSequenceWidget_new2() };
     }
 
-    /// New3 constructs a new KPixmapSequenceWidget object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new KPixmapSequenceWidget object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` seq: KPixmapSequence `
     ///
-    pub fn New3(seq: anytype) KPixmapSequenceWidget {
+    pub fn new3(seq: anytype) KPixmapSequenceWidget {
         comptime _ = @TypeOf(seq)._is_KPixmapSequence;
         return .{ .ptr = qtc.KPixmapSequenceWidget_new3(@ptrCast(seq.ptr)) };
     }
 
-    /// New4 constructs a new KPixmapSequenceWidget object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new KPixmapSequenceWidget object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` seq: KPixmapSequence `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New4(seq: anytype, parent: anytype) KPixmapSequenceWidget {
+    pub fn new4(seq: anytype, _parent: anytype) KPixmapSequenceWidget {
         comptime _ = @TypeOf(seq)._is_KPixmapSequence;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KPixmapSequenceWidget_new4(@ptrCast(seq.ptr), @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KPixmapSequenceWidget_new4(@ptrCast(seq.ptr), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -128,9 +148,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn MetaObject(self: KPixmapSequenceWidget) QMetaObject {
+    pub fn metaObject(self: KPixmapSequenceWidget) QMetaObject {
         return .{ .ptr = qtc.KPixmapSequenceWidget_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -142,13 +166,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KPixmapSequenceWidget, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KPixmapSequenceWidget, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KPixmapSequenceWidget_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -158,9 +182,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn SuperMetaObject(self: KPixmapSequenceWidget) QMetaObject {
+    pub fn superMetaObject(self: KPixmapSequenceWidget) QMetaObject {
         return .{ .ptr = qtc.KPixmapSequenceWidget_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -168,10 +196,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KPixmapSequenceWidget, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KPixmapSequenceWidget, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KPixmapSequenceWidget_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -181,13 +213,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KPixmapSequenceWidget_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -197,10 +229,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KPixmapSequenceWidget, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KPixmapSequenceWidget, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KPixmapSequenceWidget_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -212,9 +248,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KPixmapSequenceWidget, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KPixmapSequenceWidget, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KPixmapSequenceWidget_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -224,13 +264,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KPixmapSequenceWidget_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -244,9 +284,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KPixmapSequenceWidget, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KPixmapSequenceWidget, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KPixmapSequenceWidget_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -256,14 +300,18 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapSequenceWidget.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapSequenceWidget.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `sequence` instead
+    ///
+    pub const Sequence = sequence;
 
     /// ### [Upstream resources](https://api.kde.org/kpixmapsequencewidget.html#sequence)
     ///
@@ -271,9 +319,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn Sequence(self: KPixmapSequenceWidget) KPixmapSequence {
+    pub fn sequence(self: KPixmapSequenceWidget) KPixmapSequence {
         return .{ .ptr = qtc.KPixmapSequenceWidget_Sequence(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `interval` instead
+    ///
+    pub const Interval = interval;
 
     /// ### [Upstream resources](https://api.kde.org/kpixmapsequencewidget.html#interval)
     ///
@@ -281,9 +333,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn Interval(self: KPixmapSequenceWidget) i32 {
+    pub fn interval(self: KPixmapSequenceWidget) i32 {
         return qtc.KPixmapSequenceWidget_Interval(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
 
     /// ### [Upstream resources](https://api.kde.org/kpixmapsequencewidget.html#sizeHint)
     ///
@@ -291,9 +347,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn SizeHint(self: KPixmapSequenceWidget) QSize {
+    pub fn sizeHint(self: KPixmapSequenceWidget) QSize {
         return .{ .ptr = qtc.KPixmapSequenceWidget_SizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
 
     /// ### [Upstream resources](https://api.kde.org/kpixmapsequencewidget.html#sizeHint)
     ///
@@ -307,13 +367,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: KPixmapSequenceWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KPixmapSequenceWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.KPixmapSequenceWidget_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// ### [Upstream resources](https://api.kde.org/kpixmapsequencewidget.html#sizeHint)
     ///
@@ -323,9 +383,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn SuperSizeHint(self: KPixmapSequenceWidget) QSize {
+    pub fn superSizeHint(self: KPixmapSequenceWidget) QSize {
         return .{ .ptr = qtc.KPixmapSequenceWidget_SuperSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSequence` instead
+    ///
+    pub const SetSequence = setSequence;
 
     /// ### [Upstream resources](https://api.kde.org/kpixmapsequencewidget.html#setSequence)
     ///
@@ -335,10 +399,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` seq: KPixmapSequence `
     ///
-    pub fn SetSequence(self: KPixmapSequenceWidget, seq: anytype) void {
+    pub fn setSequence(self: KPixmapSequenceWidget, seq: anytype) void {
         comptime _ = @TypeOf(seq)._is_KPixmapSequence;
         qtc.KPixmapSequenceWidget_SetSequence(@ptrCast(self.ptr), @ptrCast(seq.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInterval` instead
+    ///
+    pub const SetInterval = setInterval;
 
     /// ### [Upstream resources](https://api.kde.org/kpixmapsequencewidget.html#setInterval)
     ///
@@ -348,9 +416,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` msecs: i32 `
     ///
-    pub fn SetInterval(self: KPixmapSequenceWidget, msecs: i32) void {
+    pub fn setInterval(self: KPixmapSequenceWidget, msecs: i32) void {
         qtc.KPixmapSequenceWidget_SetInterval(@ptrCast(self.ptr), @bitCast(msecs));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -362,15 +434,19 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapSequenceWidget.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapSequenceWidget.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -384,15 +460,19 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapSequenceWidget.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapSequenceWidget.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -402,9 +482,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn WinId(self: KPixmapSequenceWidget) usize {
+    pub fn winId(self: KPixmapSequenceWidget) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -414,9 +498,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn CreateWinId(self: KPixmapSequenceWidget) void {
+    pub fn createWinId(self: KPixmapSequenceWidget) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -426,9 +514,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn InternalWinId(self: KPixmapSequenceWidget) usize {
+    pub fn internalWinId(self: KPixmapSequenceWidget) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -438,9 +530,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn EffectiveWinId(self: KPixmapSequenceWidget) usize {
+    pub fn effectiveWinId(self: KPixmapSequenceWidget) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -450,9 +546,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn Style(self: KPixmapSequenceWidget) QStyle {
+    pub fn style(self: KPixmapSequenceWidget) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -462,12 +562,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: KPixmapSequenceWidget, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: KPixmapSequenceWidget, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -477,9 +581,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn IsTopLevel(self: KPixmapSequenceWidget) bool {
+    pub fn isTopLevel(self: KPixmapSequenceWidget) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -489,9 +597,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn IsWindow(self: KPixmapSequenceWidget) bool {
+    pub fn isWindow(self: KPixmapSequenceWidget) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -501,9 +613,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn IsModal(self: KPixmapSequenceWidget) bool {
+    pub fn isModal(self: KPixmapSequenceWidget) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -517,9 +633,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: KPixmapSequenceWidget) i32 {
+    pub fn windowModality(self: KPixmapSequenceWidget) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -529,11 +649,15 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: KPixmapSequenceWidget, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: KPixmapSequenceWidget, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -543,9 +667,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn IsEnabled(self: KPixmapSequenceWidget) bool {
+    pub fn isEnabled(self: KPixmapSequenceWidget) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -557,10 +685,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: KPixmapSequenceWidget, param1: anytype) bool {
+    pub fn isEnabledTo(self: KPixmapSequenceWidget, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -572,9 +704,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: KPixmapSequenceWidget, enabled: bool) void {
+    pub fn setEnabled(self: KPixmapSequenceWidget, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -586,9 +722,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: KPixmapSequenceWidget, disabled: bool) void {
+    pub fn setDisabled(self: KPixmapSequenceWidget, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -600,9 +740,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: KPixmapSequenceWidget, windowModified: bool) void {
+    pub fn setWindowModified(self: KPixmapSequenceWidget, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -612,9 +756,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn FrameGeometry(self: KPixmapSequenceWidget) QRect {
+    pub fn frameGeometry(self: KPixmapSequenceWidget) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -624,9 +772,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn Geometry(self: KPixmapSequenceWidget) QRect {
+    pub fn geometry(self: KPixmapSequenceWidget) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -636,9 +788,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn NormalGeometry(self: KPixmapSequenceWidget) QRect {
+    pub fn normalGeometry(self: KPixmapSequenceWidget) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -648,9 +804,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn X(self: KPixmapSequenceWidget) i32 {
+    pub fn x(self: KPixmapSequenceWidget) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -660,9 +820,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn Y(self: KPixmapSequenceWidget) i32 {
+    pub fn y(self: KPixmapSequenceWidget) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -672,9 +836,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn Pos(self: KPixmapSequenceWidget) QPoint {
+    pub fn pos(self: KPixmapSequenceWidget) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -684,9 +852,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn FrameSize(self: KPixmapSequenceWidget) QSize {
+    pub fn frameSize(self: KPixmapSequenceWidget) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -696,9 +868,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn Size(self: KPixmapSequenceWidget) QSize {
+    pub fn size(self: KPixmapSequenceWidget) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -708,9 +884,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn Width(self: KPixmapSequenceWidget) i32 {
+    pub fn width(self: KPixmapSequenceWidget) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -720,9 +900,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn Height(self: KPixmapSequenceWidget) i32 {
+    pub fn height(self: KPixmapSequenceWidget) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -732,9 +916,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn Rect(self: KPixmapSequenceWidget) QRect {
+    pub fn rect(self: KPixmapSequenceWidget) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -744,9 +932,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn ChildrenRect(self: KPixmapSequenceWidget) QRect {
+    pub fn childrenRect(self: KPixmapSequenceWidget) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -756,9 +948,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn ChildrenRegion(self: KPixmapSequenceWidget) QRegion {
+    pub fn childrenRegion(self: KPixmapSequenceWidget) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -768,9 +964,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn MinimumSize(self: KPixmapSequenceWidget) QSize {
+    pub fn minimumSize(self: KPixmapSequenceWidget) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -780,9 +980,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn MaximumSize(self: KPixmapSequenceWidget) QSize {
+    pub fn maximumSize(self: KPixmapSequenceWidget) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -792,9 +996,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn MinimumWidth(self: KPixmapSequenceWidget) i32 {
+    pub fn minimumWidth(self: KPixmapSequenceWidget) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -804,9 +1012,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn MinimumHeight(self: KPixmapSequenceWidget) i32 {
+    pub fn minimumHeight(self: KPixmapSequenceWidget) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -816,9 +1028,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn MaximumWidth(self: KPixmapSequenceWidget) i32 {
+    pub fn maximumWidth(self: KPixmapSequenceWidget) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -828,9 +1044,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn MaximumHeight(self: KPixmapSequenceWidget) i32 {
+    pub fn maximumHeight(self: KPixmapSequenceWidget) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -840,12 +1060,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: KPixmapSequenceWidget, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: KPixmapSequenceWidget, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -859,9 +1083,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: KPixmapSequenceWidget, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: KPixmapSequenceWidget, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -871,12 +1099,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: KPixmapSequenceWidget, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: KPixmapSequenceWidget, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -890,9 +1122,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: KPixmapSequenceWidget, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: KPixmapSequenceWidget, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -904,9 +1140,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: KPixmapSequenceWidget, minw: i32) void {
+    pub fn setMinimumWidth(self: KPixmapSequenceWidget, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -918,9 +1158,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: KPixmapSequenceWidget, minh: i32) void {
+    pub fn setMinimumHeight(self: KPixmapSequenceWidget, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -932,9 +1176,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: KPixmapSequenceWidget, maxw: i32) void {
+    pub fn setMaximumWidth(self: KPixmapSequenceWidget, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -946,9 +1194,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: KPixmapSequenceWidget, maxh: i32) void {
+    pub fn setMaximumHeight(self: KPixmapSequenceWidget, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -958,9 +1210,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn SizeIncrement(self: KPixmapSequenceWidget) QSize {
+    pub fn sizeIncrement(self: KPixmapSequenceWidget) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -970,12 +1226,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: KPixmapSequenceWidget, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: KPixmapSequenceWidget, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -989,9 +1249,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: KPixmapSequenceWidget, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: KPixmapSequenceWidget, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -1001,9 +1265,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn BaseSize(self: KPixmapSequenceWidget) QSize {
+    pub fn baseSize(self: KPixmapSequenceWidget) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -1013,12 +1281,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: KPixmapSequenceWidget, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: KPixmapSequenceWidget, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -1032,9 +1304,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: KPixmapSequenceWidget, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: KPixmapSequenceWidget, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -1046,10 +1322,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: KPixmapSequenceWidget, fixedSize: anytype) void {
+    pub fn setFixedSize(self: KPixmapSequenceWidget, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -1063,9 +1343,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: KPixmapSequenceWidget, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: KPixmapSequenceWidget, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -1077,9 +1361,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: KPixmapSequenceWidget, w: i32) void {
+    pub fn setFixedWidth(self: KPixmapSequenceWidget, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -1091,9 +1379,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: KPixmapSequenceWidget, h: i32) void {
+    pub fn setFixedHeight(self: KPixmapSequenceWidget, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -1105,11 +1397,15 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: KPixmapSequenceWidget, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: KPixmapSequenceWidget, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -1120,11 +1416,15 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: KPixmapSequenceWidget, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: KPixmapSequenceWidget, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1135,11 +1435,15 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: KPixmapSequenceWidget, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: KPixmapSequenceWidget, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1150,11 +1454,15 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: KPixmapSequenceWidget, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: KPixmapSequenceWidget, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1165,11 +1473,15 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: KPixmapSequenceWidget, param1: anytype) QPointF {
+    pub fn mapToParent(self: KPixmapSequenceWidget, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1180,10 +1492,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: KPixmapSequenceWidget, param1: anytype) QPoint {
+    pub fn mapToParent2(self: KPixmapSequenceWidget, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -1195,10 +1511,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: KPixmapSequenceWidget, param1: anytype) QPointF {
+    pub fn mapFromParent(self: KPixmapSequenceWidget, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -1210,10 +1530,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: KPixmapSequenceWidget, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: KPixmapSequenceWidget, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -1227,12 +1551,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: KPixmapSequenceWidget, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: KPixmapSequenceWidget, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -1245,11 +1573,15 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: KPixmapSequenceWidget, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: KPixmapSequenceWidget, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -1263,11 +1595,15 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: KPixmapSequenceWidget, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: KPixmapSequenceWidget, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -1281,11 +1617,15 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: KPixmapSequenceWidget, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: KPixmapSequenceWidget, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -1295,9 +1635,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn Window(self: KPixmapSequenceWidget) QWidget {
+    pub fn window(self: KPixmapSequenceWidget) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -1307,9 +1651,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn NativeParentWidget(self: KPixmapSequenceWidget) QWidget {
+    pub fn nativeParentWidget(self: KPixmapSequenceWidget) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -1319,9 +1667,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn TopLevelWidget(self: KPixmapSequenceWidget) QWidget {
+    pub fn topLevelWidget(self: KPixmapSequenceWidget) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -1331,9 +1683,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn Palette(self: KPixmapSequenceWidget) QPalette {
+    pub fn palette(self: KPixmapSequenceWidget) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -1343,12 +1699,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: KPixmapSequenceWidget, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: KPixmapSequenceWidget, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1358,11 +1718,15 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: KPixmapSequenceWidget, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: KPixmapSequenceWidget, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1376,9 +1740,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: KPixmapSequenceWidget) i32 {
+    pub fn backgroundRole(self: KPixmapSequenceWidget) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1388,11 +1756,15 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: KPixmapSequenceWidget, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: KPixmapSequenceWidget, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1406,9 +1778,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: KPixmapSequenceWidget) i32 {
+    pub fn foregroundRole(self: KPixmapSequenceWidget) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -1418,9 +1794,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn Font(self: KPixmapSequenceWidget) QFont {
+    pub fn font(self: KPixmapSequenceWidget) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -1430,12 +1810,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: KPixmapSequenceWidget, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: KPixmapSequenceWidget, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -1445,9 +1829,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn FontMetrics(self: KPixmapSequenceWidget) QFontMetrics {
+    pub fn fontMetrics(self: KPixmapSequenceWidget) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -1457,9 +1845,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn FontInfo(self: KPixmapSequenceWidget) QFontInfo {
+    pub fn fontInfo(self: KPixmapSequenceWidget) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -1469,9 +1861,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn Cursor(self: KPixmapSequenceWidget) QCursor {
+    pub fn cursor(self: KPixmapSequenceWidget) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -1481,12 +1877,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: KPixmapSequenceWidget, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: KPixmapSequenceWidget, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -1496,9 +1896,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn UnsetCursor(self: KPixmapSequenceWidget) void {
+    pub fn unsetCursor(self: KPixmapSequenceWidget) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -1510,9 +1914,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: KPixmapSequenceWidget, enable: bool) void {
+    pub fn setMouseTracking(self: KPixmapSequenceWidget, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -1522,9 +1930,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn HasMouseTracking(self: KPixmapSequenceWidget) bool {
+    pub fn hasMouseTracking(self: KPixmapSequenceWidget) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -1534,9 +1946,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn UnderMouse(self: KPixmapSequenceWidget) bool {
+    pub fn underMouse(self: KPixmapSequenceWidget) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -1548,9 +1964,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: KPixmapSequenceWidget, enable: bool) void {
+    pub fn setTabletTracking(self: KPixmapSequenceWidget, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -1560,24 +1980,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn HasTabletTracking(self: KPixmapSequenceWidget) bool {
+    pub fn hasTabletTracking(self: KPixmapSequenceWidget) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPixmapSequenceWidget `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: KPixmapSequenceWidget, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -1587,12 +1996,35 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: KPixmapSequenceWidget, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: KPixmapSequenceWidget, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KPixmapSequenceWidget `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: KPixmapSequenceWidget, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -1602,9 +2034,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn Mask(self: KPixmapSequenceWidget) QRegion {
+    pub fn mask(self: KPixmapSequenceWidget) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -1614,9 +2050,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn ClearMask(self: KPixmapSequenceWidget) void {
+    pub fn clearMask(self: KPixmapSequenceWidget) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -1628,10 +2068,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: KPixmapSequenceWidget, target: anytype) void {
+    pub fn render(self: KPixmapSequenceWidget, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -1643,10 +2087,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: KPixmapSequenceWidget, painter: anytype) void {
+    pub fn render2(self: KPixmapSequenceWidget, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -1656,9 +2104,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn Grab(self: KPixmapSequenceWidget) QPixmap {
+    pub fn grab(self: KPixmapSequenceWidget) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -1668,9 +2120,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn GraphicsEffect(self: KPixmapSequenceWidget) QGraphicsEffect {
+    pub fn graphicsEffect(self: KPixmapSequenceWidget) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -1682,10 +2138,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: KPixmapSequenceWidget, effect: anytype) void {
+    pub fn setGraphicsEffect(self: KPixmapSequenceWidget, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -1697,9 +2157,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: KPixmapSequenceWidget, typeVal: i32) void {
+    pub fn grabGesture(self: KPixmapSequenceWidget, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -1711,9 +2175,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: KPixmapSequenceWidget, typeVal: i32) void {
+    pub fn ungrabGesture(self: KPixmapSequenceWidget, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -1723,15 +2191,19 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: KPixmapSequenceWidget, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: KPixmapSequenceWidget, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -1741,15 +2213,19 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: KPixmapSequenceWidget, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: KPixmapSequenceWidget, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -1761,13 +2237,17 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: KPixmapSequenceWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: KPixmapSequenceWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapSequenceWidget.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapSequenceWidget.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -1779,13 +2259,17 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: KPixmapSequenceWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: KPixmapSequenceWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapSequenceWidget.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapSequenceWidget.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -1797,10 +2281,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: KPixmapSequenceWidget, icon: anytype) void {
+    pub fn setWindowIcon(self: KPixmapSequenceWidget, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -1810,9 +2298,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn WindowIcon(self: KPixmapSequenceWidget) QIcon {
+    pub fn windowIcon(self: KPixmapSequenceWidget) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -1822,15 +2314,19 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: KPixmapSequenceWidget, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: KPixmapSequenceWidget, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -1842,13 +2338,17 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: KPixmapSequenceWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: KPixmapSequenceWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapSequenceWidget.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapSequenceWidget.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -1858,15 +2358,19 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: KPixmapSequenceWidget, windowRole: []const u8) void {
+    pub fn setWindowRole(self: KPixmapSequenceWidget, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -1878,13 +2382,17 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: KPixmapSequenceWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: KPixmapSequenceWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapSequenceWidget.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapSequenceWidget.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -1896,13 +2404,17 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: KPixmapSequenceWidget, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: KPixmapSequenceWidget, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -1914,13 +2426,17 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: KPixmapSequenceWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: KPixmapSequenceWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapSequenceWidget.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapSequenceWidget.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -1932,9 +2448,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: KPixmapSequenceWidget, level: f64) void {
+    pub fn setWindowOpacity(self: KPixmapSequenceWidget, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -1944,9 +2464,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn WindowOpacity(self: KPixmapSequenceWidget) f64 {
+    pub fn windowOpacity(self: KPixmapSequenceWidget) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -1956,9 +2480,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn IsWindowModified(self: KPixmapSequenceWidget) bool {
+    pub fn isWindowModified(self: KPixmapSequenceWidget) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -1968,15 +2496,19 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: KPixmapSequenceWidget, toolTip: []const u8) void {
+    pub fn setToolTip(self: KPixmapSequenceWidget, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -1988,13 +2520,17 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: KPixmapSequenceWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: KPixmapSequenceWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapSequenceWidget.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapSequenceWidget.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2006,9 +2542,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: KPixmapSequenceWidget, msec: i32) void {
+    pub fn setToolTipDuration(self: KPixmapSequenceWidget, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2018,9 +2558,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn ToolTipDuration(self: KPixmapSequenceWidget) i32 {
+    pub fn toolTipDuration(self: KPixmapSequenceWidget) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -2030,15 +2574,19 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: KPixmapSequenceWidget, statusTip: []const u8) void {
+    pub fn setStatusTip(self: KPixmapSequenceWidget, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -2050,13 +2598,17 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: KPixmapSequenceWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: KPixmapSequenceWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapSequenceWidget.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapSequenceWidget.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2066,15 +2618,19 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: KPixmapSequenceWidget, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: KPixmapSequenceWidget, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2086,13 +2642,17 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: KPixmapSequenceWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: KPixmapSequenceWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapSequenceWidget.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapSequenceWidget.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2104,13 +2664,17 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: KPixmapSequenceWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: KPixmapSequenceWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapSequenceWidget.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapSequenceWidget.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2122,13 +2686,17 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: KPixmapSequenceWidget, name: []const u8) void {
+    pub fn setAccessibleName(self: KPixmapSequenceWidget, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2140,13 +2708,17 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: KPixmapSequenceWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: KPixmapSequenceWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapSequenceWidget.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapSequenceWidget.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2158,13 +2730,17 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: KPixmapSequenceWidget, description: []const u8) void {
+    pub fn setAccessibleDescription(self: KPixmapSequenceWidget, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2176,9 +2752,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: KPixmapSequenceWidget, direction: i32) void {
+    pub fn setLayoutDirection(self: KPixmapSequenceWidget, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2192,9 +2772,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: KPixmapSequenceWidget) i32 {
+    pub fn layoutDirection(self: KPixmapSequenceWidget) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2204,9 +2788,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn UnsetLayoutDirection(self: KPixmapSequenceWidget) void {
+    pub fn unsetLayoutDirection(self: KPixmapSequenceWidget) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -2216,12 +2804,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: KPixmapSequenceWidget, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: KPixmapSequenceWidget, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -2231,9 +2823,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn Locale(self: KPixmapSequenceWidget) QLocale {
+    pub fn locale(self: KPixmapSequenceWidget) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -2243,9 +2839,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn UnsetLocale(self: KPixmapSequenceWidget) void {
+    pub fn unsetLocale(self: KPixmapSequenceWidget) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -2255,9 +2855,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn IsRightToLeft(self: KPixmapSequenceWidget) bool {
+    pub fn isRightToLeft(self: KPixmapSequenceWidget) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -2267,9 +2871,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn IsLeftToRight(self: KPixmapSequenceWidget) bool {
+    pub fn isLeftToRight(self: KPixmapSequenceWidget) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -2279,9 +2887,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn SetFocus(self: KPixmapSequenceWidget) void {
+    pub fn setFocus(self: KPixmapSequenceWidget) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -2291,9 +2903,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn IsActiveWindow(self: KPixmapSequenceWidget) bool {
+    pub fn isActiveWindow(self: KPixmapSequenceWidget) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -2303,9 +2919,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn ActivateWindow(self: KPixmapSequenceWidget) void {
+    pub fn activateWindow(self: KPixmapSequenceWidget) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -2315,9 +2935,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn ClearFocus(self: KPixmapSequenceWidget) void {
+    pub fn clearFocus(self: KPixmapSequenceWidget) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -2329,9 +2953,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: KPixmapSequenceWidget, reason: i32) void {
+    pub fn setFocus2(self: KPixmapSequenceWidget, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2345,9 +2973,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: KPixmapSequenceWidget) i32 {
+    pub fn focusPolicy(self: KPixmapSequenceWidget) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2359,9 +2991,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: KPixmapSequenceWidget, policy: i32) void {
+    pub fn setFocusPolicy(self: KPixmapSequenceWidget, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -2371,9 +3007,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn HasFocus(self: KPixmapSequenceWidget) bool {
+    pub fn hasFocus(self: KPixmapSequenceWidget) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -2385,11 +3025,15 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -2399,12 +3043,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: KPixmapSequenceWidget, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: KPixmapSequenceWidget, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -2414,9 +3062,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn FocusProxy(self: KPixmapSequenceWidget) QWidget {
+    pub fn focusProxy(self: KPixmapSequenceWidget) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2430,9 +3082,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: KPixmapSequenceWidget) i32 {
+    pub fn contextMenuPolicy(self: KPixmapSequenceWidget) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2444,9 +3100,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: KPixmapSequenceWidget, policy: i32) void {
+    pub fn setContextMenuPolicy(self: KPixmapSequenceWidget, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -2456,9 +3116,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn GrabMouse(self: KPixmapSequenceWidget) void {
+    pub fn grabMouse(self: KPixmapSequenceWidget) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -2470,10 +3134,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: KPixmapSequenceWidget, param1: anytype) void {
+    pub fn grabMouse2(self: KPixmapSequenceWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -2483,9 +3151,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn ReleaseMouse(self: KPixmapSequenceWidget) void {
+    pub fn releaseMouse(self: KPixmapSequenceWidget) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -2495,9 +3167,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn GrabKeyboard(self: KPixmapSequenceWidget) void {
+    pub fn grabKeyboard(self: KPixmapSequenceWidget) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -2507,9 +3183,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn ReleaseKeyboard(self: KPixmapSequenceWidget) void {
+    pub fn releaseKeyboard(self: KPixmapSequenceWidget) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -2521,10 +3201,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: KPixmapSequenceWidget, key: anytype) i32 {
+    pub fn grabShortcut(self: KPixmapSequenceWidget, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -2536,9 +3220,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: KPixmapSequenceWidget, id: i32) void {
+    pub fn releaseShortcut(self: KPixmapSequenceWidget, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2550,9 +3238,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: KPixmapSequenceWidget, id: i32) void {
+    pub fn setShortcutEnabled(self: KPixmapSequenceWidget, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -2564,25 +3256,37 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: KPixmapSequenceWidget, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: KPixmapSequenceWidget, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2592,9 +3296,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn UpdatesEnabled(self: KPixmapSequenceWidget) bool {
+    pub fn updatesEnabled(self: KPixmapSequenceWidget) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2606,9 +3314,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: KPixmapSequenceWidget, enable: bool) void {
+    pub fn setUpdatesEnabled(self: KPixmapSequenceWidget, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -2618,9 +3330,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn GraphicsProxyWidget(self: KPixmapSequenceWidget) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: KPixmapSequenceWidget) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -2630,9 +3346,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn Update(self: KPixmapSequenceWidget) void {
+    pub fn update(self: KPixmapSequenceWidget) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -2642,9 +3362,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn Repaint(self: KPixmapSequenceWidget) void {
+    pub fn repaint(self: KPixmapSequenceWidget) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -2654,17 +3378,21 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: KPixmapSequenceWidget, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: KPixmapSequenceWidget, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -2676,11 +3404,15 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: KPixmapSequenceWidget, param1: anytype) void {
+    pub fn update3(self: KPixmapSequenceWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -2691,10 +3423,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: KPixmapSequenceWidget, param1: anytype) void {
+    pub fn update4(self: KPixmapSequenceWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -2704,17 +3440,21 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: KPixmapSequenceWidget, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: KPixmapSequenceWidget, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -2726,10 +3466,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: KPixmapSequenceWidget, param1: anytype) void {
+    pub fn repaint3(self: KPixmapSequenceWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -2741,10 +3485,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: KPixmapSequenceWidget, param1: anytype) void {
+    pub fn repaint4(self: KPixmapSequenceWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -2756,9 +3504,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: KPixmapSequenceWidget, hidden: bool) void {
+    pub fn setHidden(self: KPixmapSequenceWidget, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -2768,9 +3520,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn Show(self: KPixmapSequenceWidget) void {
+    pub fn show(self: KPixmapSequenceWidget) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -2780,9 +3536,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn Hide(self: KPixmapSequenceWidget) void {
+    pub fn hide(self: KPixmapSequenceWidget) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -2792,9 +3552,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn ShowMinimized(self: KPixmapSequenceWidget) void {
+    pub fn showMinimized(self: KPixmapSequenceWidget) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -2804,9 +3568,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn ShowMaximized(self: KPixmapSequenceWidget) void {
+    pub fn showMaximized(self: KPixmapSequenceWidget) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -2816,9 +3584,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn ShowFullScreen(self: KPixmapSequenceWidget) void {
+    pub fn showFullScreen(self: KPixmapSequenceWidget) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -2828,9 +3600,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn ShowNormal(self: KPixmapSequenceWidget) void {
+    pub fn showNormal(self: KPixmapSequenceWidget) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -2840,9 +3616,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn Close(self: KPixmapSequenceWidget) bool {
+    pub fn close(self: KPixmapSequenceWidget) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -2852,9 +3632,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn Raise(self: KPixmapSequenceWidget) void {
+    pub fn raise(self: KPixmapSequenceWidget) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -2864,9 +3648,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn Lower(self: KPixmapSequenceWidget) void {
+    pub fn lower(self: KPixmapSequenceWidget) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -2878,10 +3666,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: KPixmapSequenceWidget, param1: anytype) void {
+    pub fn stackUnder(self: KPixmapSequenceWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -2891,13 +3683,17 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: KPixmapSequenceWidget, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: KPixmapSequenceWidget, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -2909,10 +3705,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: KPixmapSequenceWidget, param1: anytype) void {
+    pub fn move2(self: KPixmapSequenceWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -2926,9 +3726,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: KPixmapSequenceWidget, w: i32, h: i32) void {
+    pub fn resize(self: KPixmapSequenceWidget, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -2940,10 +3744,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: KPixmapSequenceWidget, param1: anytype) void {
+    pub fn resize2(self: KPixmapSequenceWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -2953,17 +3761,21 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: KPixmapSequenceWidget, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: KPixmapSequenceWidget, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -2973,12 +3785,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: KPixmapSequenceWidget, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: KPixmapSequenceWidget, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -2990,13 +3806,17 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: KPixmapSequenceWidget, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: KPixmapSequenceWidget, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KPixmapSequenceWidget.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KPixmapSequenceWidget.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3006,15 +3826,19 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: KPixmapSequenceWidget, geometry: []u8) bool {
+    pub fn restoreGeometry(self: KPixmapSequenceWidget, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -3024,9 +3848,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn AdjustSize(self: KPixmapSequenceWidget) void {
+    pub fn adjustSize(self: KPixmapSequenceWidget) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -3036,9 +3864,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn IsVisible(self: KPixmapSequenceWidget) bool {
+    pub fn isVisible(self: KPixmapSequenceWidget) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -3050,10 +3882,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: KPixmapSequenceWidget, param1: anytype) bool {
+    pub fn isVisibleTo(self: KPixmapSequenceWidget, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -3063,9 +3899,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn IsHidden(self: KPixmapSequenceWidget) bool {
+    pub fn isHidden(self: KPixmapSequenceWidget) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3075,9 +3915,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn IsMinimized(self: KPixmapSequenceWidget) bool {
+    pub fn isMinimized(self: KPixmapSequenceWidget) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3087,9 +3931,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn IsMaximized(self: KPixmapSequenceWidget) bool {
+    pub fn isMaximized(self: KPixmapSequenceWidget) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3099,9 +3947,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn IsFullScreen(self: KPixmapSequenceWidget) bool {
+    pub fn isFullScreen(self: KPixmapSequenceWidget) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -3115,9 +3967,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: KPixmapSequenceWidget) i32 {
+    pub fn windowState(self: KPixmapSequenceWidget) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3129,9 +3985,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: KPixmapSequenceWidget, state: i32) void {
+    pub fn setWindowState(self: KPixmapSequenceWidget, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3143,9 +4003,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: KPixmapSequenceWidget, state: i32) void {
+    pub fn overrideWindowState(self: KPixmapSequenceWidget, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3155,9 +4019,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn SizePolicy(self: KPixmapSequenceWidget) QSizePolicy {
+    pub fn sizePolicy(self: KPixmapSequenceWidget) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3167,12 +4035,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: KPixmapSequenceWidget, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: KPixmapSequenceWidget, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -3186,9 +4058,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: KPixmapSequenceWidget, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: KPixmapSequenceWidget, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -3198,9 +4074,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn VisibleRegion(self: KPixmapSequenceWidget) QRegion {
+    pub fn visibleRegion(self: KPixmapSequenceWidget) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3218,9 +4098,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: KPixmapSequenceWidget, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: KPixmapSequenceWidget, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -3232,10 +4116,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: KPixmapSequenceWidget, margins: anytype) void {
+    pub fn setContentsMargins2(self: KPixmapSequenceWidget, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3245,9 +4133,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn ContentsMargins(self: KPixmapSequenceWidget) QMargins {
+    pub fn contentsMargins(self: KPixmapSequenceWidget) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -3257,9 +4149,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn ContentsRect(self: KPixmapSequenceWidget) QRect {
+    pub fn contentsRect(self: KPixmapSequenceWidget) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -3269,9 +4165,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn Layout(self: KPixmapSequenceWidget) QLayout {
+    pub fn layout(self: KPixmapSequenceWidget) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -3281,12 +4181,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: KPixmapSequenceWidget, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: KPixmapSequenceWidget, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3296,24 +4200,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn UpdateGeometry(self: KPixmapSequenceWidget) void {
+    pub fn updateGeometry(self: KPixmapSequenceWidget) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPixmapSequenceWidget `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: KPixmapSequenceWidget, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -3323,14 +4216,37 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: KPixmapSequenceWidget, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KPixmapSequenceWidget `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: KPixmapSequenceWidget, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: KPixmapSequenceWidget, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -3344,9 +4260,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: KPixmapSequenceWidget, dx: i32, dy: i32) void {
+    pub fn scroll(self: KPixmapSequenceWidget, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -3362,10 +4282,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: KPixmapSequenceWidget, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: KPixmapSequenceWidget, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -3375,9 +4299,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn FocusWidget(self: KPixmapSequenceWidget) QWidget {
+    pub fn focusWidget(self: KPixmapSequenceWidget) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -3387,9 +4315,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn NextInFocusChain(self: KPixmapSequenceWidget) QWidget {
+    pub fn nextInFocusChain(self: KPixmapSequenceWidget) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -3399,9 +4331,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn PreviousInFocusChain(self: KPixmapSequenceWidget) QWidget {
+    pub fn previousInFocusChain(self: KPixmapSequenceWidget) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -3411,9 +4347,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn AcceptDrops(self: KPixmapSequenceWidget) bool {
+    pub fn acceptDrops(self: KPixmapSequenceWidget) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -3425,9 +4365,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: KPixmapSequenceWidget, on: bool) void {
+    pub fn setAcceptDrops(self: KPixmapSequenceWidget, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -3439,10 +4383,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: KPixmapSequenceWidget, action: anytype) void {
+    pub fn addAction(self: KPixmapSequenceWidget, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -3452,15 +4400,19 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: KPixmapSequenceWidget, actions: []QAction) void {
+    pub fn addActions(self: KPixmapSequenceWidget, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -3472,16 +4424,20 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: KPixmapSequenceWidget, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: KPixmapSequenceWidget, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -3495,11 +4451,15 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: KPixmapSequenceWidget, before: anytype, action: anytype) void {
+    pub fn insertAction(self: KPixmapSequenceWidget, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -3511,10 +4471,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: KPixmapSequenceWidget, action: anytype) void {
+    pub fn removeAction(self: KPixmapSequenceWidget, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -3526,15 +4490,19 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: KPixmapSequenceWidget, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: KPixmapSequenceWidget, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KPixmapSequenceWidget.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KPixmapSequenceWidget.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -3546,13 +4514,17 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: KPixmapSequenceWidget, text: []const u8) QAction {
+    pub fn addAction2(self: KPixmapSequenceWidget, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -3566,7 +4538,7 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: KPixmapSequenceWidget, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: KPixmapSequenceWidget, icon: anytype, text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -3575,6 +4547,10 @@ pub const KPixmapSequenceWidget = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -3587,7 +4563,7 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: KPixmapSequenceWidget, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: KPixmapSequenceWidget, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -3595,6 +4571,10 @@ pub const KPixmapSequenceWidget = extern struct {
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
 
     /// Inherited from QWidget
     ///
@@ -3610,7 +4590,7 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: KPixmapSequenceWidget, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: KPixmapSequenceWidget, icon: anytype, text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -3620,6 +4600,10 @@ pub const KPixmapSequenceWidget = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
@@ -3628,9 +4612,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn ParentWidget(self: KPixmapSequenceWidget) QWidget {
+    pub fn parentWidget(self: KPixmapSequenceWidget) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -3642,9 +4630,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: KPixmapSequenceWidget, typeVal: i32) void {
+    pub fn setWindowFlags(self: KPixmapSequenceWidget, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -3658,9 +4650,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: KPixmapSequenceWidget) i32 {
+    pub fn windowFlags(self: KPixmapSequenceWidget) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -3672,9 +4668,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: KPixmapSequenceWidget, param1: i32) void {
+    pub fn setWindowFlag(self: KPixmapSequenceWidget, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -3686,9 +4686,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: KPixmapSequenceWidget, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: KPixmapSequenceWidget, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -3702,9 +4706,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: KPixmapSequenceWidget) i32 {
+    pub fn windowType(self: KPixmapSequenceWidget) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -3714,9 +4722,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -3726,13 +4738,17 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: KPixmapSequenceWidget, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: KPixmapSequenceWidget, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -3744,10 +4760,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: KPixmapSequenceWidget, p: anytype) QWidget {
+    pub fn childAt2(self: KPixmapSequenceWidget, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -3759,10 +4779,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: KPixmapSequenceWidget, p: anytype) QWidget {
+    pub fn childAt3(self: KPixmapSequenceWidget, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -3774,9 +4798,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: KPixmapSequenceWidget, param1: i32) void {
+    pub fn setAttribute(self: KPixmapSequenceWidget, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -3788,9 +4816,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: KPixmapSequenceWidget, param1: i32) bool {
+    pub fn testAttribute(self: KPixmapSequenceWidget, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -3800,9 +4832,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn EnsurePolished(self: KPixmapSequenceWidget) void {
+    pub fn ensurePolished(self: KPixmapSequenceWidget) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -3814,10 +4850,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: KPixmapSequenceWidget, child: anytype) bool {
+    pub fn isAncestorOf(self: KPixmapSequenceWidget, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -3827,9 +4867,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn AutoFillBackground(self: KPixmapSequenceWidget) bool {
+    pub fn autoFillBackground(self: KPixmapSequenceWidget) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -3841,9 +4885,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: KPixmapSequenceWidget, enabled: bool) void {
+    pub fn setAutoFillBackground(self: KPixmapSequenceWidget, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -3853,9 +4901,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn BackingStore(self: KPixmapSequenceWidget) QBackingStore {
+    pub fn backingStore(self: KPixmapSequenceWidget) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -3865,9 +4917,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn WindowHandle(self: KPixmapSequenceWidget) QWindow {
+    pub fn windowHandle(self: KPixmapSequenceWidget) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -3877,9 +4933,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn Screen(self: KPixmapSequenceWidget) QScreen {
+    pub fn screen(self: KPixmapSequenceWidget) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -3889,12 +4949,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: KPixmapSequenceWidget, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: KPixmapSequenceWidget, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -3902,12 +4966,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -3919,13 +4987,17 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: KPixmapSequenceWidget, title: []const u8) void {
+    pub fn windowTitleChanged(self: KPixmapSequenceWidget, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -3937,9 +5009,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -3951,10 +5027,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: KPixmapSequenceWidget, icon: anytype) void {
+    pub fn windowIconChanged(self: KPixmapSequenceWidget, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -3966,9 +5046,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -3980,13 +5064,17 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: KPixmapSequenceWidget, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: KPixmapSequenceWidget, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -3998,9 +5086,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4010,12 +5102,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: KPixmapSequenceWidget, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: KPixmapSequenceWidget, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4027,9 +5123,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4043,9 +5143,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: KPixmapSequenceWidget) i32 {
+    pub fn inputMethodHints(self: KPixmapSequenceWidget) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4057,9 +5161,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: KPixmapSequenceWidget, hints: i32) void {
+    pub fn setInputMethodHints(self: KPixmapSequenceWidget, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -4073,11 +5181,15 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: KPixmapSequenceWidget, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: KPixmapSequenceWidget, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -4093,13 +5205,17 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: KPixmapSequenceWidget, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: KPixmapSequenceWidget, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -4116,12 +5232,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: KPixmapSequenceWidget, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: KPixmapSequenceWidget, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -4135,11 +5255,15 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: KPixmapSequenceWidget, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: KPixmapSequenceWidget, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -4155,12 +5279,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: KPixmapSequenceWidget, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: KPixmapSequenceWidget, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -4178,12 +5306,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: KPixmapSequenceWidget, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: KPixmapSequenceWidget, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -4195,10 +5327,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: KPixmapSequenceWidget, rectangle: anytype) QPixmap {
+    pub fn grab1(self: KPixmapSequenceWidget, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -4212,9 +5348,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: KPixmapSequenceWidget, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: KPixmapSequenceWidget, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -4228,10 +5368,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: KPixmapSequenceWidget, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: KPixmapSequenceWidget, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -4245,9 +5389,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: KPixmapSequenceWidget, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: KPixmapSequenceWidget, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -4261,9 +5409,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: KPixmapSequenceWidget, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: KPixmapSequenceWidget, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -4277,9 +5429,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: KPixmapSequenceWidget, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: KPixmapSequenceWidget, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -4293,25 +5449,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: KPixmapSequenceWidget, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: KPixmapSequenceWidget, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -4319,17 +5463,41 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -4341,13 +5509,17 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KPixmapSequenceWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KPixmapSequenceWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapSequenceWidget.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPixmapSequenceWidget.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -4359,13 +5531,17 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KPixmapSequenceWidget, name: []const u8) void {
+    pub fn setObjectName(self: KPixmapSequenceWidget, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -4375,9 +5551,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn IsWidgetType(self: KPixmapSequenceWidget) bool {
+    pub fn isWidgetType(self: KPixmapSequenceWidget) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -4387,9 +5567,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn IsWindowType(self: KPixmapSequenceWidget) bool {
+    pub fn isWindowType(self: KPixmapSequenceWidget) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -4399,9 +5583,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn IsQuickItemType(self: KPixmapSequenceWidget) bool {
+    pub fn isQuickItemType(self: KPixmapSequenceWidget) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -4411,9 +5599,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn SignalsBlocked(self: KPixmapSequenceWidget) bool {
+    pub fn signalsBlocked(self: KPixmapSequenceWidget) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -4425,9 +5617,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KPixmapSequenceWidget, b: bool) bool {
+    pub fn blockSignals(self: KPixmapSequenceWidget, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -4437,9 +5633,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn Thread(self: KPixmapSequenceWidget) QThread {
+    pub fn thread(self: KPixmapSequenceWidget) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -4449,12 +5649,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KPixmapSequenceWidget, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KPixmapSequenceWidget, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -4464,11 +5668,15 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` interval: i32 `
+    /// ` _interval: i32 `
     ///
-    pub fn StartTimer(self: KPixmapSequenceWidget, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
+    pub fn startTimer(self: KPixmapSequenceWidget, _interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(_interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -4480,9 +5688,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KPixmapSequenceWidget, time: i64) i32 {
+    pub fn startTimer2(self: KPixmapSequenceWidget, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -4494,9 +5706,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KPixmapSequenceWidget, id: i32) void {
+    pub fn killTimer(self: KPixmapSequenceWidget, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -4508,9 +5724,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KPixmapSequenceWidget, id: i32) void {
+    pub fn killTimer2(self: KPixmapSequenceWidget, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -4522,15 +5742,19 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KPixmapSequenceWidget, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KPixmapSequenceWidget, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KPixmapSequenceWidget.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KPixmapSequenceWidget.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4542,10 +5766,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KPixmapSequenceWidget, filterObj: anytype) void {
+    pub fn installEventFilter(self: KPixmapSequenceWidget, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4557,10 +5785,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KPixmapSequenceWidget, obj: anytype) void {
+    pub fn removeEventFilter(self: KPixmapSequenceWidget, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -4568,7 +5800,7 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4576,13 +5808,17 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -4590,7 +5826,7 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -4598,13 +5834,17 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -4614,18 +5854,22 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KPixmapSequenceWidget, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KPixmapSequenceWidget, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -4633,7 +5877,7 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4641,13 +5885,17 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -4655,7 +5903,7 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -4663,13 +5911,17 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -4679,9 +5931,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn Disconnect3(self: KPixmapSequenceWidget) bool {
+    pub fn disconnect3(self: KPixmapSequenceWidget) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -4693,10 +5949,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KPixmapSequenceWidget, receiver: anytype) bool {
+    pub fn disconnect4(self: KPixmapSequenceWidget, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -4706,10 +5966,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -4719,9 +5983,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn DumpObjectTree(self: KPixmapSequenceWidget) void {
+    pub fn dumpObjectTree(self: KPixmapSequenceWidget) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -4731,9 +5999,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn DumpObjectInfo(self: KPixmapSequenceWidget) void {
+    pub fn dumpObjectInfo(self: KPixmapSequenceWidget) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -4747,11 +6019,15 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KPixmapSequenceWidget, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KPixmapSequenceWidget, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -4763,10 +6039,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KPixmapSequenceWidget, name: [:0]const u8) QVariant {
+    pub fn property(self: KPixmapSequenceWidget, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -4778,7 +6058,7 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KPixmapSequenceWidget, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KPixmapSequenceWidget, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -4786,27 +6066,19 @@ pub const KPixmapSequenceWidget = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KPixmapSequenceWidget.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KPixmapSequenceWidget.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KPixmapSequenceWidget.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KPixmapSequenceWidget.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPixmapSequenceWidget `
-    ///
-    pub fn BindingStorage(self: KPixmapSequenceWidget) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -4816,9 +6088,29 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn BindingStorage2(self: KPixmapSequenceWidget) QBindingStorage {
+    pub fn bindingStorage(self: KPixmapSequenceWidget) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KPixmapSequenceWidget `
+    ///
+    pub fn bindingStorage2(self: KPixmapSequenceWidget) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -4828,9 +6120,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn Destroyed(self: KPixmapSequenceWidget) void {
+    pub fn destroyed(self: KPixmapSequenceWidget) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -4842,9 +6138,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget) callconv(.c) void) void {
+    pub fn onDestroyed(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -4854,9 +6154,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn Parent(self: KPixmapSequenceWidget) QObject {
+    pub fn parent(self: KPixmapSequenceWidget) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -4868,10 +6172,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KPixmapSequenceWidget, classname: [:0]const u8) bool {
+    pub fn inherits(self: KPixmapSequenceWidget, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -4881,9 +6189,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn DeleteLater(self: KPixmapSequenceWidget) void {
+    pub fn deleteLater(self: KPixmapSequenceWidget) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -4893,13 +6205,17 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` interval: i32 `
+    /// ` _interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KPixmapSequenceWidget, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
+    pub fn startTimer22(self: KPixmapSequenceWidget, _interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(_interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -4913,9 +6229,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KPixmapSequenceWidget, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KPixmapSequenceWidget, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -4923,7 +6243,7 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4933,13 +6253,17 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -4947,7 +6271,7 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -4957,13 +6281,17 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -4973,7 +6301,7 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4981,12 +6309,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KPixmapSequenceWidget, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KPixmapSequenceWidget, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -4998,10 +6330,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KPixmapSequenceWidget, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KPixmapSequenceWidget, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -5015,11 +6351,15 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KPixmapSequenceWidget, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KPixmapSequenceWidget, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -5035,13 +6375,17 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KPixmapSequenceWidget, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KPixmapSequenceWidget, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -5054,11 +6398,15 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KPixmapSequenceWidget, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KPixmapSequenceWidget, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -5070,10 +6418,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KPixmapSequenceWidget, param1: anytype) void {
+    pub fn destroyed1(self: KPixmapSequenceWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -5085,9 +6437,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -5097,9 +6453,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn PaintingActive(self: KPixmapSequenceWidget) bool {
+    pub fn paintingActive(self: KPixmapSequenceWidget) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5109,9 +6469,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn WidthMM(self: KPixmapSequenceWidget) i32 {
+    pub fn widthMM(self: KPixmapSequenceWidget) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5121,9 +6485,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn HeightMM(self: KPixmapSequenceWidget) i32 {
+    pub fn heightMM(self: KPixmapSequenceWidget) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5133,9 +6501,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn LogicalDpiX(self: KPixmapSequenceWidget) i32 {
+    pub fn logicalDpiX(self: KPixmapSequenceWidget) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5145,9 +6517,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn LogicalDpiY(self: KPixmapSequenceWidget) i32 {
+    pub fn logicalDpiY(self: KPixmapSequenceWidget) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5157,9 +6533,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn PhysicalDpiX(self: KPixmapSequenceWidget) i32 {
+    pub fn physicalDpiX(self: KPixmapSequenceWidget) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5169,9 +6549,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn PhysicalDpiY(self: KPixmapSequenceWidget) i32 {
+    pub fn physicalDpiY(self: KPixmapSequenceWidget) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -5181,9 +6565,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn DevicePixelRatio(self: KPixmapSequenceWidget) f64 {
+    pub fn devicePixelRatio(self: KPixmapSequenceWidget) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5193,9 +6581,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn DevicePixelRatioF(self: KPixmapSequenceWidget) f64 {
+    pub fn devicePixelRatioF(self: KPixmapSequenceWidget) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -5205,9 +6597,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn ColorCount(self: KPixmapSequenceWidget) i32 {
+    pub fn colorCount(self: KPixmapSequenceWidget) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -5217,17 +6613,25 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn Depth(self: KPixmapSequenceWidget) i32 {
+    pub fn depth(self: KPixmapSequenceWidget) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5235,13 +6639,17 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -5253,13 +6661,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn DevType(self: KPixmapSequenceWidget) i32 {
+    pub fn devType(self: KPixmapSequenceWidget) i32 {
         return qtc.KPixmapSequenceWidget_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -5271,9 +6679,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn SuperDevType(self: KPixmapSequenceWidget) i32 {
+    pub fn superDevType(self: KPixmapSequenceWidget) i32 {
         return qtc.KPixmapSequenceWidget_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -5287,9 +6699,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: KPixmapSequenceWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KPixmapSequenceWidget, callback: *const fn () callconv(.c) i32) void {
         qtc.KPixmapSequenceWidget_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -5303,13 +6719,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: KPixmapSequenceWidget, visible: bool) void {
+    pub fn setVisible(self: KPixmapSequenceWidget, visible: bool) void {
         qtc.KPixmapSequenceWidget_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -5323,9 +6739,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: KPixmapSequenceWidget, visible: bool) void {
+    pub fn superSetVisible(self: KPixmapSequenceWidget, visible: bool) void {
         qtc.KPixmapSequenceWidget_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -5339,9 +6759,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, bool) callconv(.c) void) void {
         qtc.KPixmapSequenceWidget_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5353,13 +6777,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn MinimumSizeHint(self: KPixmapSequenceWidget) QSize {
+    pub fn minimumSizeHint(self: KPixmapSequenceWidget) QSize {
         return .{ .ptr = qtc.KPixmapSequenceWidget_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5371,9 +6795,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn SuperMinimumSizeHint(self: KPixmapSequenceWidget) QSize {
+    pub fn superMinimumSizeHint(self: KPixmapSequenceWidget) QSize {
         return .{ .ptr = qtc.KPixmapSequenceWidget_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5389,9 +6817,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: KPixmapSequenceWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KPixmapSequenceWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.KPixmapSequenceWidget_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5405,13 +6837,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: KPixmapSequenceWidget, param1: i32) i32 {
+    pub fn heightForWidth(self: KPixmapSequenceWidget, param1: i32) i32 {
         return qtc.KPixmapSequenceWidget_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5425,9 +6857,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: KPixmapSequenceWidget, param1: i32) i32 {
+    pub fn superHeightForWidth(self: KPixmapSequenceWidget, param1: i32) i32 {
         return qtc.KPixmapSequenceWidget_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5441,9 +6877,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, i32) callconv(.c) i32) void {
         qtc.KPixmapSequenceWidget_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5455,13 +6895,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn HasHeightForWidth(self: KPixmapSequenceWidget) bool {
+    pub fn hasHeightForWidth(self: KPixmapSequenceWidget) bool {
         return qtc.KPixmapSequenceWidget_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5473,9 +6913,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn SuperHasHeightForWidth(self: KPixmapSequenceWidget) bool {
+    pub fn superHasHeightForWidth(self: KPixmapSequenceWidget) bool {
         return qtc.KPixmapSequenceWidget_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5489,9 +6933,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: KPixmapSequenceWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KPixmapSequenceWidget, callback: *const fn () callconv(.c) bool) void {
         qtc.KPixmapSequenceWidget_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -5503,13 +6951,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn PaintEngine(self: KPixmapSequenceWidget) QPaintEngine {
+    pub fn paintEngine(self: KPixmapSequenceWidget) QPaintEngine {
         return .{ .ptr = qtc.KPixmapSequenceWidget_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -5521,9 +6969,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn SuperPaintEngine(self: KPixmapSequenceWidget) QPaintEngine {
+    pub fn superPaintEngine(self: KPixmapSequenceWidget) QPaintEngine {
         return .{ .ptr = qtc.KPixmapSequenceWidget_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -5537,9 +6989,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: KPixmapSequenceWidget, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KPixmapSequenceWidget, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.KPixmapSequenceWidget_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QWidget
     ///
@@ -5551,16 +7007,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: KPixmapSequenceWidget, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KPixmapSequenceWidget_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: KPixmapSequenceWidget, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KPixmapSequenceWidget_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QWidget
     ///
@@ -5572,12 +7028,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: KPixmapSequenceWidget, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KPixmapSequenceWidget_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: KPixmapSequenceWidget, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KPixmapSequenceWidget_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QWidget
     ///
@@ -5591,10 +7051,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QEvent) callconv(.c) bool) void {
         qtc.KPixmapSequenceWidget_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
@@ -5605,16 +7069,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KPixmapSequenceWidget_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mousePressEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KPixmapSequenceWidget_MousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -5626,12 +7090,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KPixmapSequenceWidget_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMousePressEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KPixmapSequenceWidget_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -5645,10 +7113,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QMouseEvent) callconv(.c) void) void {
         qtc.KPixmapSequenceWidget_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
@@ -5659,16 +7131,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KPixmapSequenceWidget_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseReleaseEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KPixmapSequenceWidget_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -5680,12 +7152,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KPixmapSequenceWidget_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseReleaseEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KPixmapSequenceWidget_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -5699,10 +7175,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QMouseEvent) callconv(.c) void) void {
         qtc.KPixmapSequenceWidget_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
@@ -5713,16 +7193,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KPixmapSequenceWidget_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KPixmapSequenceWidget_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -5734,12 +7214,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KPixmapSequenceWidget_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KPixmapSequenceWidget_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -5753,10 +7237,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QMouseEvent) callconv(.c) void) void {
         qtc.KPixmapSequenceWidget_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
@@ -5767,16 +7255,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KPixmapSequenceWidget_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseMoveEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KPixmapSequenceWidget_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -5788,12 +7276,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KPixmapSequenceWidget_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseMoveEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KPixmapSequenceWidget_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -5807,9 +7299,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QMouseEvent) callconv(.c) void) void {
         qtc.KPixmapSequenceWidget_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -5821,16 +7317,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.KPixmapSequenceWidget_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn wheelEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.KPixmapSequenceWidget_WheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -5842,12 +7338,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.KPixmapSequenceWidget_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superWheelEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.KPixmapSequenceWidget_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -5861,10 +7361,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QWheelEvent) callconv(.c) void) void {
         qtc.KPixmapSequenceWidget_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyPressEvent)
@@ -5875,16 +7379,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KPixmapSequenceWidget_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyPressEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KPixmapSequenceWidget_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QWidget
     ///
@@ -5896,12 +7400,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KPixmapSequenceWidget_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyPressEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KPixmapSequenceWidget_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// Inherited from QWidget
     ///
@@ -5915,10 +7423,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QKeyEvent) callconv(.c) void) void {
         qtc.KPixmapSequenceWidget_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
@@ -5929,16 +7441,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KPixmapSequenceWidget_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyReleaseEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KPixmapSequenceWidget_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -5950,12 +7462,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KPixmapSequenceWidget_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyReleaseEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KPixmapSequenceWidget_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -5969,10 +7485,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QKeyEvent) callconv(.c) void) void {
         qtc.KPixmapSequenceWidget_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
@@ -5983,16 +7503,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KPixmapSequenceWidget_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusInEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KPixmapSequenceWidget_FocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -6004,12 +7524,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KPixmapSequenceWidget_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusInEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KPixmapSequenceWidget_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -6023,10 +7547,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QFocusEvent) callconv(.c) void) void {
         qtc.KPixmapSequenceWidget_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
@@ -6037,16 +7565,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KPixmapSequenceWidget_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusOutEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KPixmapSequenceWidget_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -6058,12 +7586,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KPixmapSequenceWidget_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusOutEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KPixmapSequenceWidget_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -6077,9 +7609,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QFocusEvent) callconv(.c) void) void {
         qtc.KPixmapSequenceWidget_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6091,16 +7627,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KPixmapSequenceWidget_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KPixmapSequenceWidget_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6112,12 +7648,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KPixmapSequenceWidget_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KPixmapSequenceWidget_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6131,9 +7671,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QEnterEvent) callconv(.c) void) void {
         qtc.KPixmapSequenceWidget_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6145,16 +7689,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KPixmapSequenceWidget_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KPixmapSequenceWidget_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6166,12 +7710,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KPixmapSequenceWidget_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KPixmapSequenceWidget_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6185,9 +7733,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QEvent) callconv(.c) void) void {
         qtc.KPixmapSequenceWidget_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// Inherited from QWidget
     ///
@@ -6199,16 +7751,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn PaintEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.KPixmapSequenceWidget_PaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn paintEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.KPixmapSequenceWidget_PaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -6220,12 +7772,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.KPixmapSequenceWidget_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superPaintEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.KPixmapSequenceWidget_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -6239,9 +7795,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget, event: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QPaintEvent) callconv(.c) void) void {
         qtc.KPixmapSequenceWidget_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6253,16 +7813,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KPixmapSequenceWidget_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KPixmapSequenceWidget_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6274,12 +7834,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KPixmapSequenceWidget_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KPixmapSequenceWidget_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6293,9 +7857,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QMoveEvent) callconv(.c) void) void {
         qtc.KPixmapSequenceWidget_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6307,16 +7875,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.KPixmapSequenceWidget_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn resizeEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.KPixmapSequenceWidget_ResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6328,12 +7896,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.KPixmapSequenceWidget_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superResizeEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.KPixmapSequenceWidget_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6347,9 +7919,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QResizeEvent) callconv(.c) void) void {
         qtc.KPixmapSequenceWidget_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6361,16 +7937,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.KPixmapSequenceWidget_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.KPixmapSequenceWidget_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6382,12 +7958,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.KPixmapSequenceWidget_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.KPixmapSequenceWidget_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6401,9 +7981,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QCloseEvent) callconv(.c) void) void {
         qtc.KPixmapSequenceWidget_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -6415,16 +7999,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.KPixmapSequenceWidget_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn contextMenuEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.KPixmapSequenceWidget_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -6436,12 +8020,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.KPixmapSequenceWidget_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superContextMenuEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.KPixmapSequenceWidget_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -6455,9 +8043,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget, event: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QContextMenuEvent) callconv(.c) void) void {
         qtc.KPixmapSequenceWidget_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -6469,16 +8061,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KPixmapSequenceWidget_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KPixmapSequenceWidget_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -6490,12 +8082,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KPixmapSequenceWidget_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KPixmapSequenceWidget_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -6509,9 +8105,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QTabletEvent) callconv(.c) void) void {
         qtc.KPixmapSequenceWidget_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -6523,16 +8123,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KPixmapSequenceWidget_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KPixmapSequenceWidget_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -6544,12 +8144,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KPixmapSequenceWidget_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KPixmapSequenceWidget_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -6563,9 +8167,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QActionEvent) callconv(.c) void) void {
         qtc.KPixmapSequenceWidget_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6577,16 +8185,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KPixmapSequenceWidget_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KPixmapSequenceWidget_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6598,12 +8206,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KPixmapSequenceWidget_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KPixmapSequenceWidget_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6617,9 +8229,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QDragEnterEvent) callconv(.c) void) void {
         qtc.KPixmapSequenceWidget_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6631,16 +8247,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KPixmapSequenceWidget_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KPixmapSequenceWidget_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6652,12 +8268,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KPixmapSequenceWidget_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KPixmapSequenceWidget_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6671,9 +8291,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QDragMoveEvent) callconv(.c) void) void {
         qtc.KPixmapSequenceWidget_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6685,16 +8309,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KPixmapSequenceWidget_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KPixmapSequenceWidget_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6706,12 +8330,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KPixmapSequenceWidget_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KPixmapSequenceWidget_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6725,9 +8353,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QDragLeaveEvent) callconv(.c) void) void {
         qtc.KPixmapSequenceWidget_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QWidget
     ///
@@ -6739,16 +8371,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KPixmapSequenceWidget_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KPixmapSequenceWidget_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -6760,12 +8392,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KPixmapSequenceWidget_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KPixmapSequenceWidget_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -6779,9 +8415,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QDropEvent) callconv(.c) void) void {
         qtc.KPixmapSequenceWidget_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QWidget
     ///
@@ -6793,16 +8433,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn ShowEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.KPixmapSequenceWidget_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn showEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.KPixmapSequenceWidget_ShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -6814,12 +8454,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.KPixmapSequenceWidget_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superShowEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.KPixmapSequenceWidget_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -6833,9 +8477,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QShowEvent) callconv(.c) void) void {
         qtc.KPixmapSequenceWidget_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -6847,16 +8495,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KPixmapSequenceWidget_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KPixmapSequenceWidget_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -6868,12 +8516,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KPixmapSequenceWidget_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KPixmapSequenceWidget_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -6887,9 +8539,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QHideEvent) callconv(.c) void) void {
         qtc.KPixmapSequenceWidget_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6907,7 +8563,7 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: KPixmapSequenceWidget, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: KPixmapSequenceWidget, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -6915,9 +8571,9 @@ pub const KPixmapSequenceWidget = extern struct {
         return qtc.KPixmapSequenceWidget_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6935,13 +8591,17 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: KPixmapSequenceWidget, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: KPixmapSequenceWidget, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.KPixmapSequenceWidget_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6955,9 +8615,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KPixmapSequenceWidget_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6971,14 +8635,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: KPixmapSequenceWidget, param1: anytype) void {
+    pub fn changeEvent(self: KPixmapSequenceWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.KPixmapSequenceWidget_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6992,10 +8656,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: KPixmapSequenceWidget, param1: anytype) void {
+    pub fn superChangeEvent(self: KPixmapSequenceWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.KPixmapSequenceWidget_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7009,9 +8677,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QEvent) callconv(.c) void) void {
         qtc.KPixmapSequenceWidget_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -7025,13 +8697,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: KPixmapSequenceWidget, param1: i32) i32 {
+    pub fn metric(self: KPixmapSequenceWidget, param1: i32) i32 {
         return qtc.KPixmapSequenceWidget_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -7045,9 +8717,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: KPixmapSequenceWidget, param1: i32) i32 {
+    pub fn superMetric(self: KPixmapSequenceWidget, param1: i32) i32 {
         return qtc.KPixmapSequenceWidget_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -7061,9 +8737,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, i32) callconv(.c) i32) void {
         qtc.KPixmapSequenceWidget_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -7077,14 +8757,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: KPixmapSequenceWidget, painter: anytype) void {
+    pub fn initPainter(self: KPixmapSequenceWidget, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KPixmapSequenceWidget_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7098,10 +8778,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: KPixmapSequenceWidget, painter: anytype) void {
+    pub fn superInitPainter(self: KPixmapSequenceWidget, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KPixmapSequenceWidget_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7115,9 +8799,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QPainter) callconv(.c) void) void {
         qtc.KPixmapSequenceWidget_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -7131,14 +8819,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: KPixmapSequenceWidget, offset: anytype) QPaintDevice {
+    pub fn redirected(self: KPixmapSequenceWidget, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KPixmapSequenceWidget_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7152,10 +8840,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: KPixmapSequenceWidget, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: KPixmapSequenceWidget, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KPixmapSequenceWidget_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7169,9 +8861,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QPoint) callconv(.c) QPaintDevice) void {
         qtc.KPixmapSequenceWidget_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7183,13 +8879,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn SharedPainter(self: KPixmapSequenceWidget) QPainter {
+    pub fn sharedPainter(self: KPixmapSequenceWidget) QPainter {
         return .{ .ptr = qtc.KPixmapSequenceWidget_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7201,9 +8897,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn SuperSharedPainter(self: KPixmapSequenceWidget) QPainter {
+    pub fn superSharedPainter(self: KPixmapSequenceWidget) QPainter {
         return .{ .ptr = qtc.KPixmapSequenceWidget_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7217,9 +8917,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: KPixmapSequenceWidget, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KPixmapSequenceWidget, callback: *const fn () callconv(.c) QPainter) void {
         qtc.KPixmapSequenceWidget_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7233,14 +8937,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: KPixmapSequenceWidget, param1: anytype) void {
+    pub fn inputMethodEvent(self: KPixmapSequenceWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KPixmapSequenceWidget_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7254,10 +8958,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: KPixmapSequenceWidget, param1: anytype) void {
+    pub fn superInputMethodEvent(self: KPixmapSequenceWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KPixmapSequenceWidget_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7271,9 +8979,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QInputMethodEvent) callconv(.c) void) void {
         qtc.KPixmapSequenceWidget_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7287,13 +8999,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: KPixmapSequenceWidget, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: KPixmapSequenceWidget, param1: i32) QVariant {
         return .{ .ptr = qtc.KPixmapSequenceWidget_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7307,9 +9019,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: KPixmapSequenceWidget, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: KPixmapSequenceWidget, param1: i32) QVariant {
         return .{ .ptr = qtc.KPixmapSequenceWidget_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7325,9 +9041,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, i32) callconv(.c) QVariant) void {
         qtc.KPixmapSequenceWidget_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7341,13 +9061,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: KPixmapSequenceWidget, next: bool) bool {
+    pub fn focusNextPrevChild(self: KPixmapSequenceWidget, next: bool) bool {
         return qtc.KPixmapSequenceWidget_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7361,9 +9081,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: KPixmapSequenceWidget, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: KPixmapSequenceWidget, next: bool) bool {
         return qtc.KPixmapSequenceWidget_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7377,9 +9101,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, bool) callconv(.c) bool) void {
         qtc.KPixmapSequenceWidget_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -7393,17 +9121,17 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: KPixmapSequenceWidget, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: KPixmapSequenceWidget, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KPixmapSequenceWidget_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KPixmapSequenceWidget_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -7417,13 +9145,17 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: KPixmapSequenceWidget, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: KPixmapSequenceWidget, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KPixmapSequenceWidget_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KPixmapSequenceWidget_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -7437,9 +9169,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QObject, QEvent) callconv(.c) bool) void {
         qtc.KPixmapSequenceWidget_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -7451,16 +9187,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KPixmapSequenceWidget_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KPixmapSequenceWidget_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -7472,12 +9208,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KPixmapSequenceWidget_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KPixmapSequenceWidget_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -7491,9 +9231,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QTimerEvent) callconv(.c) void) void {
         qtc.KPixmapSequenceWidget_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -7505,16 +9249,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KPixmapSequenceWidget_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KPixmapSequenceWidget_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -7526,12 +9270,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KPixmapSequenceWidget_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KPixmapSequenceWidget_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -7545,9 +9293,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QChildEvent) callconv(.c) void) void {
         qtc.KPixmapSequenceWidget_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -7559,16 +9311,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KPixmapSequenceWidget_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KPixmapSequenceWidget_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -7580,12 +9332,16 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KPixmapSequenceWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KPixmapSequenceWidget_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KPixmapSequenceWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KPixmapSequenceWidget_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -7599,9 +9355,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QEvent) callconv(.c) void) void {
         qtc.KPixmapSequenceWidget_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -7615,14 +9375,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KPixmapSequenceWidget, signal: anytype) void {
+    pub fn connectNotify(self: KPixmapSequenceWidget, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KPixmapSequenceWidget_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7636,11 +9396,15 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KPixmapSequenceWidget, signal: anytype) void {
+    pub fn superConnectNotify(self: KPixmapSequenceWidget, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KPixmapSequenceWidget_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -7653,9 +9417,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QMetaMethod) callconv(.c) void) void {
         qtc.KPixmapSequenceWidget_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7669,14 +9437,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KPixmapSequenceWidget, signal: anytype) void {
+    pub fn disconnectNotify(self: KPixmapSequenceWidget, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KPixmapSequenceWidget_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7690,10 +9458,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KPixmapSequenceWidget, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KPixmapSequenceWidget, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KPixmapSequenceWidget_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7707,10 +9479,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QMetaMethod) callconv(.c) void) void {
         qtc.KPixmapSequenceWidget_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -7721,13 +9497,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn UpdateMicroFocus(self: KPixmapSequenceWidget) void {
+    pub fn updateMicroFocus(self: KPixmapSequenceWidget) void {
         qtc.KPixmapSequenceWidget_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -7739,10 +9515,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn SuperUpdateMicroFocus(self: KPixmapSequenceWidget) void {
+    pub fn superUpdateMicroFocus(self: KPixmapSequenceWidget) void {
         qtc.KPixmapSequenceWidget_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -7755,10 +9535,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: KPixmapSequenceWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: KPixmapSequenceWidget, callback: *const fn () callconv(.c) void) void {
         qtc.KPixmapSequenceWidget_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -7769,13 +9553,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn Create(self: KPixmapSequenceWidget) void {
+    pub fn create(self: KPixmapSequenceWidget) void {
         qtc.KPixmapSequenceWidget_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -7787,10 +9571,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn SuperCreate(self: KPixmapSequenceWidget) void {
+    pub fn superCreate(self: KPixmapSequenceWidget) void {
         qtc.KPixmapSequenceWidget_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -7803,9 +9591,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: KPixmapSequenceWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: KPixmapSequenceWidget, callback: *const fn () callconv(.c) void) void {
         qtc.KPixmapSequenceWidget_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -7817,13 +9609,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn Destroy(self: KPixmapSequenceWidget) void {
+    pub fn destroy(self: KPixmapSequenceWidget) void {
         qtc.KPixmapSequenceWidget_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -7835,9 +9627,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn SuperDestroy(self: KPixmapSequenceWidget) void {
+    pub fn superDestroy(self: KPixmapSequenceWidget) void {
         qtc.KPixmapSequenceWidget_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -7851,10 +9647,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: KPixmapSequenceWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: KPixmapSequenceWidget, callback: *const fn () callconv(.c) void) void {
         qtc.KPixmapSequenceWidget_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -7865,13 +9665,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn FocusNextChild(self: KPixmapSequenceWidget) bool {
+    pub fn focusNextChild(self: KPixmapSequenceWidget) bool {
         return qtc.KPixmapSequenceWidget_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -7883,10 +9683,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn SuperFocusNextChild(self: KPixmapSequenceWidget) bool {
+    pub fn superFocusNextChild(self: KPixmapSequenceWidget) bool {
         return qtc.KPixmapSequenceWidget_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -7899,9 +9703,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: KPixmapSequenceWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: KPixmapSequenceWidget, callback: *const fn () callconv(.c) bool) void {
         qtc.KPixmapSequenceWidget_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -7913,13 +9721,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn FocusPreviousChild(self: KPixmapSequenceWidget) bool {
+    pub fn focusPreviousChild(self: KPixmapSequenceWidget) bool {
         return qtc.KPixmapSequenceWidget_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -7931,9 +9739,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn SuperFocusPreviousChild(self: KPixmapSequenceWidget) bool {
+    pub fn superFocusPreviousChild(self: KPixmapSequenceWidget) bool {
         return qtc.KPixmapSequenceWidget_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -7947,9 +9759,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: KPixmapSequenceWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: KPixmapSequenceWidget, callback: *const fn () callconv(.c) bool) void {
         qtc.KPixmapSequenceWidget_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -7961,13 +9777,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn Sender(self: KPixmapSequenceWidget) QObject {
+    pub fn sender(self: KPixmapSequenceWidget) QObject {
         return .{ .ptr = qtc.KPixmapSequenceWidget_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -7979,9 +9795,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn SuperSender(self: KPixmapSequenceWidget) QObject {
+    pub fn superSender(self: KPixmapSequenceWidget) QObject {
         return .{ .ptr = qtc.KPixmapSequenceWidget_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -7995,9 +9815,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KPixmapSequenceWidget, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KPixmapSequenceWidget, callback: *const fn () callconv(.c) QObject) void {
         qtc.KPixmapSequenceWidget_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8009,13 +9833,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn SenderSignalIndex(self: KPixmapSequenceWidget) i32 {
+    pub fn senderSignalIndex(self: KPixmapSequenceWidget) i32 {
         return qtc.KPixmapSequenceWidget_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8027,9 +9851,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn SuperSenderSignalIndex(self: KPixmapSequenceWidget) i32 {
+    pub fn superSenderSignalIndex(self: KPixmapSequenceWidget) i32 {
         return qtc.KPixmapSequenceWidget_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8043,9 +9871,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KPixmapSequenceWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KPixmapSequenceWidget, callback: *const fn () callconv(.c) i32) void {
         qtc.KPixmapSequenceWidget_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -8059,14 +9891,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KPixmapSequenceWidget, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KPixmapSequenceWidget, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KPixmapSequenceWidget_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -8080,10 +9912,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KPixmapSequenceWidget, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KPixmapSequenceWidget, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KPixmapSequenceWidget_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -8097,9 +9933,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, [*:0]const u8) callconv(.c) i32) void {
         qtc.KPixmapSequenceWidget_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8113,14 +9953,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KPixmapSequenceWidget, signal: anytype) bool {
+    pub fn isSignalConnected(self: KPixmapSequenceWidget, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KPixmapSequenceWidget_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8134,10 +9974,14 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KPixmapSequenceWidget, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KPixmapSequenceWidget, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KPixmapSequenceWidget_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8151,9 +9995,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, QMetaMethod) callconv(.c) bool) void {
         qtc.KPixmapSequenceWidget_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8169,13 +10017,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: KPixmapSequenceWidget, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: KPixmapSequenceWidget, metricA: i32, metricB: i32) f64 {
         return qtc.KPixmapSequenceWidget_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8191,9 +10039,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: KPixmapSequenceWidget, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: KPixmapSequenceWidget, metricA: i32, metricB: i32) f64 {
         return qtc.KPixmapSequenceWidget_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8207,9 +10059,13 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, i32, i32) callconv(.c) f64) void {
         qtc.KPixmapSequenceWidget_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -8223,23 +10079,23 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kpixmapsequencewidget.html#dtor.KPixmapSequenceWidget)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KPixmapSequenceWidget `
     ///
-    pub fn Delete(self: KPixmapSequenceWidget) void {
+    pub fn delete(self: KPixmapSequenceWidget) void {
         qtc.KPixmapSequenceWidget_Delete(@ptrCast(self.ptr));
     }
 };

@@ -17,22 +17,34 @@ pub const QPlaceIcon = extern struct {
 
     pub const _is_QPlaceIcon = {};
 
-    /// New constructs a new QPlaceIcon object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QPlaceIcon {
+    pub const New = new;
+
+    /// Allocate a new QPlaceIcon object in C++ memory
+    ///
+    pub fn new() QPlaceIcon {
         return .{ .ptr = qtc.QPlaceIcon_new() };
     }
 
-    /// New2 constructs a new QPlaceIcon object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QPlaceIcon object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QPlaceIcon `
     ///
-    pub fn New2(other: anytype) QPlaceIcon {
+    pub fn new2(other: anytype) QPlaceIcon {
         comptime _ = @TypeOf(other)._is_QPlaceIcon;
         return .{ .ptr = qtc.QPlaceIcon_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceicon.html#operator-eq)
     ///
@@ -42,10 +54,14 @@ pub const QPlaceIcon = extern struct {
     ///
     /// ` other: QPlaceIcon `
     ///
-    pub fn OperatorAssign(self: QPlaceIcon, other: anytype) void {
+    pub fn operatorAssign(self: QPlaceIcon, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QPlaceIcon;
         qtc.QPlaceIcon_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceicon.html#swap)
     ///
@@ -55,10 +71,14 @@ pub const QPlaceIcon = extern struct {
     ///
     /// ` other: QPlaceIcon `
     ///
-    pub fn Swap(self: QPlaceIcon, other: anytype) void {
+    pub fn swap(self: QPlaceIcon, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QPlaceIcon;
         qtc.QPlaceIcon_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `url` instead
+    ///
+    pub const Url = url;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceicon.html#url)
     ///
@@ -66,9 +86,13 @@ pub const QPlaceIcon = extern struct {
     ///
     /// ` self: QPlaceIcon `
     ///
-    pub fn Url(self: QPlaceIcon) QUrl {
+    pub fn url(self: QPlaceIcon) QUrl {
         return .{ .ptr = qtc.QPlaceIcon_Url(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `manager` instead
+    ///
+    pub const Manager = manager;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceicon.html#manager)
     ///
@@ -76,9 +100,13 @@ pub const QPlaceIcon = extern struct {
     ///
     /// ` self: QPlaceIcon `
     ///
-    pub fn Manager(self: QPlaceIcon) QPlaceManager {
+    pub fn manager(self: QPlaceIcon) QPlaceManager {
         return .{ .ptr = qtc.QPlaceIcon_Manager(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setManager` instead
+    ///
+    pub const SetManager = setManager;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceicon.html#setManager)
     ///
@@ -86,12 +114,16 @@ pub const QPlaceIcon = extern struct {
     ///
     /// ` self: QPlaceIcon `
     ///
-    /// ` manager: QPlaceManager `
+    /// ` _manager: QPlaceManager `
     ///
-    pub fn SetManager(self: QPlaceIcon, manager: anytype) void {
-        comptime _ = @TypeOf(manager)._is_QPlaceManager;
-        qtc.QPlaceIcon_SetManager(@ptrCast(self.ptr), @ptrCast(manager.ptr));
+    pub fn setManager(self: QPlaceIcon, _manager: anytype) void {
+        comptime _ = @TypeOf(_manager)._is_QPlaceManager;
+        qtc.QPlaceIcon_SetManager(@ptrCast(self.ptr), @ptrCast(_manager.ptr));
     }
+
+    /// ### DEPRECATED: Use `parameters` instead
+    ///
+    pub const Parameters = parameters;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceicon.html#parameters)
     ///
@@ -101,10 +133,10 @@ pub const QPlaceIcon = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Parameters(self: QPlaceIcon, allocator: std.mem.Allocator) ArrayMap_constu8_QVariant {
+    pub fn parameters(self: QPlaceIcon, allocator: std.mem.Allocator) ArrayMap_constu8_QVariant {
         const _map: qtc.libqt_map = qtc.QPlaceIcon_Parameters(@ptrCast(self.ptr));
         var _ret: ArrayMap_constu8_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QPlaceIcon.Parameters: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QPlaceIcon.parameters: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {
@@ -118,13 +150,17 @@ pub const QPlaceIcon = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("QPlaceIcon.Parameters: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("QPlaceIcon.parameters: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
             _ret.putAssumeCapacity(_entry_slice, .{ .ptr = @ptrCast(_value) });
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParameters` instead
+    ///
+    pub const SetParameters = setParameters;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceicon.html#setParameters)
     ///
@@ -134,16 +170,16 @@ pub const QPlaceIcon = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` parameters: ArrayMap_constu8_QVariant `
+    /// ` _parameters: ArrayMap_constu8_QVariant `
     ///
-    pub fn SetParameters(self: QPlaceIcon, allocator: std.mem.Allocator, parameters: ArrayMap_constu8_QVariant) void {
-        const parameters_count = parameters.count();
-        const parameters_keys = allocator.alloc(qtc.libqt_string, parameters_count) catch @panic("QPlaceIcon.SetParameters: Memory allocation failed");
+    pub fn setParameters(self: QPlaceIcon, allocator: std.mem.Allocator, _parameters: ArrayMap_constu8_QVariant) void {
+        const parameters_count = _parameters.count();
+        const parameters_keys = allocator.alloc(qtc.libqt_string, parameters_count) catch @panic("QPlaceIcon.setParameters: Memory allocation failed");
         defer allocator.free(parameters_keys);
-        const parameters_values = allocator.alloc(QtC.QVariant, parameters_count) catch @panic("QPlaceIcon.SetParameters: Memory allocation failed");
+        const parameters_values = allocator.alloc(QtC.QVariant, parameters_count) catch @panic("QPlaceIcon.setParameters: Memory allocation failed");
         defer allocator.free(parameters_values);
         var i: usize = 0;
-        var parameters_it = parameters.iterator();
+        var parameters_it = _parameters.iterator();
         while (parameters_it.next()) |it_entry| : (i += 1) {
             const parameters_key = it_entry.key_ptr.*;
             parameters_keys[i] = qtc.libqt_string{
@@ -160,15 +196,23 @@ pub const QPlaceIcon = extern struct {
         qtc.QPlaceIcon_SetParameters(@ptrCast(self.ptr), parameters_map);
     }
 
+    /// ### DEPRECATED: Use `isEmpty` instead
+    ///
+    pub const IsEmpty = isEmpty;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceicon.html#isEmpty)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QPlaceIcon `
     ///
-    pub fn IsEmpty(self: QPlaceIcon) bool {
+    pub fn isEmpty(self: QPlaceIcon) bool {
         return qtc.QPlaceIcon_IsEmpty(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `url1` instead
+    ///
+    pub const Url1 = url1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceicon.html#url)
     ///
@@ -178,24 +222,24 @@ pub const QPlaceIcon = extern struct {
     ///
     /// ` size: QSize `
     ///
-    pub fn Url1(self: QPlaceIcon, size: anytype) QUrl {
+    pub fn url1(self: QPlaceIcon, size: anytype) QUrl {
         comptime _ = @TypeOf(size)._is_QSize;
         return .{ .ptr = qtc.QPlaceIcon_Url1(@ptrCast(self.ptr), @ptrCast(size.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceicon.html#dtor.QPlaceIcon)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QPlaceIcon `
     ///
-    pub fn Delete(self: QPlaceIcon) void {
+    pub fn delete(self: QPlaceIcon) void {
         qtc.QPlaceIcon_Delete(@ptrCast(self.ptr));
     }
 };

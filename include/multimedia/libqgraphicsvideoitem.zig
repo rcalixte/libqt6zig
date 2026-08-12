@@ -55,22 +55,34 @@ pub const QGraphicsVideoItem = extern struct {
     pub const _is_QObject = {};
     pub const _is_QGraphicsItem = {};
 
-    /// New constructs a new QGraphicsVideoItem object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QGraphicsVideoItem {
+    pub const New = new;
+
+    /// Allocate a new QGraphicsVideoItem object in C++ memory
+    ///
+    pub fn new() QGraphicsVideoItem {
         return .{ .ptr = qtc.QGraphicsVideoItem_new() };
     }
 
-    /// New2 constructs a new QGraphicsVideoItem object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QGraphicsVideoItem object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QGraphicsItem `
+    /// ` _parent: QGraphicsItem `
     ///
-    pub fn New2(parent: anytype) QGraphicsVideoItem {
-        comptime _ = @TypeOf(parent)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsVideoItem_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) QGraphicsVideoItem {
+        comptime _ = @TypeOf(_parent)._is_QGraphicsItem;
+        return .{ .ptr = qtc.QGraphicsVideoItem_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -78,9 +90,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn MetaObject(self: QGraphicsVideoItem) QMetaObject {
+    pub fn metaObject(self: QGraphicsVideoItem) QMetaObject {
         return .{ .ptr = qtc.QGraphicsVideoItem_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -92,13 +108,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QGraphicsVideoItem, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QGraphicsVideoItem, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QGraphicsVideoItem_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -108,9 +124,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn SuperMetaObject(self: QGraphicsVideoItem) QMetaObject {
+    pub fn superMetaObject(self: QGraphicsVideoItem) QMetaObject {
         return .{ .ptr = qtc.QGraphicsVideoItem_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -118,10 +138,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QGraphicsVideoItem, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QGraphicsVideoItem, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QGraphicsVideoItem_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -131,13 +155,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QGraphicsVideoItem_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -147,10 +171,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QGraphicsVideoItem, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QGraphicsVideoItem, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QGraphicsVideoItem_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -162,9 +190,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QGraphicsVideoItem, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QGraphicsVideoItem, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QGraphicsVideoItem_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -174,13 +206,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QGraphicsVideoItem_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -194,9 +226,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QGraphicsVideoItem, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QGraphicsVideoItem, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QGraphicsVideoItem_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -206,14 +242,18 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsVideoItem.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsVideoItem.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `videoSink` instead
+    ///
+    pub const VideoSink = videoSink;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#videoSink)
     ///
@@ -221,9 +261,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn VideoSink(self: QGraphicsVideoItem) QVideoSink {
+    pub fn videoSink(self: QGraphicsVideoItem) QVideoSink {
         return .{ .ptr = qtc.QGraphicsVideoItem_VideoSink(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `aspectRatioMode` instead
+    ///
+    pub const AspectRatioMode = aspectRatioMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#aspectRatioMode)
     ///
@@ -235,9 +279,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` qnamespace_enums.AspectRatioMode `
     ///
-    pub fn AspectRatioMode(self: QGraphicsVideoItem) i32 {
+    pub fn aspectRatioMode(self: QGraphicsVideoItem) i32 {
         return qtc.QGraphicsVideoItem_AspectRatioMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAspectRatioMode` instead
+    ///
+    pub const SetAspectRatioMode = setAspectRatioMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#setAspectRatioMode)
     ///
@@ -247,9 +295,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` mode: qnamespace_enums.AspectRatioMode `
     ///
-    pub fn SetAspectRatioMode(self: QGraphicsVideoItem, mode: i32) void {
+    pub fn setAspectRatioMode(self: QGraphicsVideoItem, mode: i32) void {
         qtc.QGraphicsVideoItem_SetAspectRatioMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `offset` instead
+    ///
+    pub const Offset = offset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#offset)
     ///
@@ -257,9 +309,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn Offset(self: QGraphicsVideoItem) QPointF {
+    pub fn offset(self: QGraphicsVideoItem) QPointF {
         return .{ .ptr = qtc.QGraphicsVideoItem_Offset(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setOffset` instead
+    ///
+    pub const SetOffset = setOffset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#setOffset)
     ///
@@ -267,12 +323,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` offset: QPointF `
+    /// ` _offset: QPointF `
     ///
-    pub fn SetOffset(self: QGraphicsVideoItem, offset: anytype) void {
-        comptime _ = @TypeOf(offset)._is_QPointF;
-        qtc.QGraphicsVideoItem_SetOffset(@ptrCast(self.ptr), @ptrCast(offset.ptr));
+    pub fn setOffset(self: QGraphicsVideoItem, _offset: anytype) void {
+        comptime _ = @TypeOf(_offset)._is_QPointF;
+        qtc.QGraphicsVideoItem_SetOffset(@ptrCast(self.ptr), @ptrCast(_offset.ptr));
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#size)
     ///
@@ -280,9 +340,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn Size(self: QGraphicsVideoItem) QSizeF {
+    pub fn size(self: QGraphicsVideoItem) QSizeF {
         return .{ .ptr = qtc.QGraphicsVideoItem_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSize` instead
+    ///
+    pub const SetSize = setSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#setSize)
     ///
@@ -290,12 +354,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` size: QSizeF `
+    /// ` _size: QSizeF `
     ///
-    pub fn SetSize(self: QGraphicsVideoItem, size: anytype) void {
-        comptime _ = @TypeOf(size)._is_QSizeF;
-        qtc.QGraphicsVideoItem_SetSize(@ptrCast(self.ptr), @ptrCast(size.ptr));
+    pub fn setSize(self: QGraphicsVideoItem, _size: anytype) void {
+        comptime _ = @TypeOf(_size)._is_QSizeF;
+        qtc.QGraphicsVideoItem_SetSize(@ptrCast(self.ptr), @ptrCast(_size.ptr));
     }
+
+    /// ### DEPRECATED: Use `nativeSize` instead
+    ///
+    pub const NativeSize = nativeSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#nativeSize)
     ///
@@ -303,9 +371,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn NativeSize(self: QGraphicsVideoItem) QSizeF {
+    pub fn nativeSize(self: QGraphicsVideoItem) QSizeF {
         return .{ .ptr = qtc.QGraphicsVideoItem_NativeSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `boundingRect` instead
+    ///
+    pub const BoundingRect = boundingRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#boundingRect)
     ///
@@ -313,9 +385,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn BoundingRect(self: QGraphicsVideoItem) QRectF {
+    pub fn boundingRect(self: QGraphicsVideoItem) QRectF {
         return .{ .ptr = qtc.QGraphicsVideoItem_BoundingRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onBoundingRect` instead
+    ///
+    pub const OnBoundingRect = onBoundingRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#boundingRect)
     ///
@@ -329,13 +405,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnBoundingRect(self: QGraphicsVideoItem, callback: *const fn () callconv(.c) QRectF) void {
+    pub fn onBoundingRect(self: QGraphicsVideoItem, callback: *const fn () callconv(.c) QRectF) void {
         qtc.QGraphicsVideoItem_OnBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperBoundingRect` instead
+    /// ### DEPRECATED: Use `superBoundingRect` instead
     ///
-    pub const QBaseBoundingRect = SuperBoundingRect;
+    pub const SuperBoundingRect = superBoundingRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#boundingRect)
     ///
@@ -345,9 +421,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn SuperBoundingRect(self: QGraphicsVideoItem) QRectF {
+    pub fn superBoundingRect(self: QGraphicsVideoItem) QRectF {
         return .{ .ptr = qtc.QGraphicsVideoItem_SuperBoundingRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `paint` instead
+    ///
+    pub const Paint = paint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#paint)
     ///
@@ -361,12 +441,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn Paint(self: QGraphicsVideoItem, painter: anytype, option: anytype, widget: anytype) void {
+    pub fn paint(self: QGraphicsVideoItem, painter: anytype, option: anytype, widget: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(option)._is_QStyleOptionGraphicsItem;
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QGraphicsVideoItem_Paint(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(option.ptr), @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaint` instead
+    ///
+    pub const OnPaint = onPaint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#paint)
     ///
@@ -378,13 +462,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem, painter: QPainter, option: QStyleOptionGraphicsItem, widget: QWidget) callconv(.c) void `
     ///
-    pub fn OnPaint(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QPainter, QStyleOptionGraphicsItem, QWidget) callconv(.c) void) void {
+    pub fn onPaint(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QPainter, QStyleOptionGraphicsItem, QWidget) callconv(.c) void) void {
         qtc.QGraphicsVideoItem_OnPaint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperPaint` instead
+    /// ### DEPRECATED: Use `superPaint` instead
     ///
-    pub const QBasePaint = SuperPaint;
+    pub const SuperPaint = superPaint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#paint)
     ///
@@ -400,12 +484,18 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn SuperPaint(self: QGraphicsVideoItem, painter: anytype, option: anytype, widget: anytype) void {
+    pub fn superPaint(self: QGraphicsVideoItem, painter: anytype, option: anytype, widget: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(option)._is_QStyleOptionGraphicsItem;
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QGraphicsVideoItem_SuperPaint(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(option.ptr), @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#type)
     ///
@@ -413,9 +503,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn Type(self: QGraphicsVideoItem) i32 {
+    pub fn type0(self: QGraphicsVideoItem) i32 {
         return qtc.QGraphicsVideoItem_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onType` instead
+    ///
+    pub const OnType = onType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#type)
     ///
@@ -427,13 +521,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnType(self: QGraphicsVideoItem, callback: *const fn () callconv(.c) i32) void {
+    pub fn onType(self: QGraphicsVideoItem, callback: *const fn () callconv(.c) i32) void {
         qtc.QGraphicsVideoItem_OnType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperType` instead
+    /// ### DEPRECATED: Use `superType` instead
     ///
-    pub const QBaseType = SuperType;
+    pub const SuperType = superType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#type)
     ///
@@ -443,9 +537,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn SuperType(self: QGraphicsVideoItem) i32 {
+    pub fn superType(self: QGraphicsVideoItem) i32 {
         return qtc.QGraphicsVideoItem_SuperType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `nativeSizeChanged` instead
+    ///
+    pub const NativeSizeChanged = nativeSizeChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#nativeSizeChanged)
     ///
@@ -453,12 +551,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` size: QSizeF `
+    /// ` _size: QSizeF `
     ///
-    pub fn NativeSizeChanged(self: QGraphicsVideoItem, size: anytype) void {
-        comptime _ = @TypeOf(size)._is_QSizeF;
-        qtc.QGraphicsVideoItem_NativeSizeChanged(@ptrCast(self.ptr), @ptrCast(size.ptr));
+    pub fn nativeSizeChanged(self: QGraphicsVideoItem, _size: anytype) void {
+        comptime _ = @TypeOf(_size)._is_QSizeF;
+        qtc.QGraphicsVideoItem_NativeSizeChanged(@ptrCast(self.ptr), @ptrCast(_size.ptr));
     }
+
+    /// ### DEPRECATED: Use `onNativeSizeChanged` instead
+    ///
+    pub const OnNativeSizeChanged = onNativeSizeChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#nativeSizeChanged)
     ///
@@ -468,9 +570,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem, size: QSizeF) callconv(.c) void `
     ///
-    pub fn OnNativeSizeChanged(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QSizeF) callconv(.c) void) void {
+    pub fn onNativeSizeChanged(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QSizeF) callconv(.c) void) void {
         qtc.QGraphicsVideoItem_Connect_NativeSizeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#timerEvent)
     ///
@@ -478,12 +584,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QGraphicsVideoItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QGraphicsVideoItem_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QGraphicsVideoItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QGraphicsVideoItem_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#timerEvent)
     ///
@@ -495,13 +605,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QTimerEvent) callconv(.c) void) void {
         qtc.QGraphicsVideoItem_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#timerEvent)
     ///
@@ -511,12 +621,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QGraphicsVideoItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QGraphicsVideoItem_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QGraphicsVideoItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QGraphicsVideoItem_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `itemChange` instead
+    ///
+    pub const ItemChange = itemChange;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#itemChange)
     ///
@@ -528,10 +642,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn ItemChange(self: QGraphicsVideoItem, change: i32, value: anytype) QVariant {
+    pub fn itemChange(self: QGraphicsVideoItem, change: i32, value: anytype) QVariant {
         comptime _ = @TypeOf(value)._is_QVariant;
         return .{ .ptr = qtc.QGraphicsVideoItem_ItemChange(@ptrCast(self.ptr), @bitCast(change), @ptrCast(value.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onItemChange` instead
+    ///
+    pub const OnItemChange = onItemChange;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#itemChange)
     ///
@@ -545,13 +663,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnItemChange(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, i32, QVariant) callconv(.c) QVariant) void {
+    pub fn onItemChange(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, i32, QVariant) callconv(.c) QVariant) void {
         qtc.QGraphicsVideoItem_OnItemChange(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperItemChange` instead
+    /// ### DEPRECATED: Use `superItemChange` instead
     ///
-    pub const QBaseItemChange = SuperItemChange;
+    pub const SuperItemChange = superItemChange;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#itemChange)
     ///
@@ -565,10 +683,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SuperItemChange(self: QGraphicsVideoItem, change: i32, value: anytype) QVariant {
+    pub fn superItemChange(self: QGraphicsVideoItem, change: i32, value: anytype) QVariant {
         comptime _ = @TypeOf(value)._is_QVariant;
         return .{ .ptr = qtc.QGraphicsVideoItem_SuperItemChange(@ptrCast(self.ptr), @bitCast(change), @ptrCast(value.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -580,15 +702,19 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsVideoItem.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsVideoItem.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -602,15 +728,19 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsVideoItem.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsVideoItem.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QGraphicsObject
     ///
@@ -622,9 +752,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: QGraphicsVideoItem, typeVal: i32) void {
+    pub fn grabGesture(self: QGraphicsVideoItem, typeVal: i32) void {
         qtc.QGraphicsObject_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QGraphicsObject
     ///
@@ -636,10 +770,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: QGraphicsVideoItem, typeVal: i32) void {
+    pub fn ungrabGesture(self: QGraphicsVideoItem, typeVal: i32) void {
         qtc.QGraphicsObject_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
+    /// ### DEPRECATED: Use `parentChanged` instead
+    ///
+    pub const ParentChanged = parentChanged;
+
     /// Inherited from QGraphicsObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#parentChanged)
@@ -648,10 +786,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn ParentChanged(self: QGraphicsVideoItem) void {
+    pub fn parentChanged(self: QGraphicsVideoItem) void {
         qtc.QGraphicsObject_ParentChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onParentChanged` instead
+    ///
+    pub const OnParentChanged = onParentChanged;
+
     /// Inherited from QGraphicsObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#parentChanged)
@@ -662,10 +804,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem) callconv(.c) void `
     ///
-    pub fn OnParentChanged(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem) callconv(.c) void) void {
+    pub fn onParentChanged(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem) callconv(.c) void) void {
         qtc.QGraphicsObject_Connect_ParentChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `opacityChanged` instead
+    ///
+    pub const OpacityChanged = opacityChanged;
+
     /// Inherited from QGraphicsObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#opacityChanged)
@@ -674,10 +820,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn OpacityChanged(self: QGraphicsVideoItem) void {
+    pub fn opacityChanged(self: QGraphicsVideoItem) void {
         qtc.QGraphicsObject_OpacityChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onOpacityChanged` instead
+    ///
+    pub const OnOpacityChanged = onOpacityChanged;
+
     /// Inherited from QGraphicsObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#opacityChanged)
@@ -688,10 +838,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem) callconv(.c) void `
     ///
-    pub fn OnOpacityChanged(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem) callconv(.c) void) void {
+    pub fn onOpacityChanged(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem) callconv(.c) void) void {
         qtc.QGraphicsObject_Connect_OpacityChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `visibleChanged` instead
+    ///
+    pub const VisibleChanged = visibleChanged;
+
     /// Inherited from QGraphicsObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#visibleChanged)
@@ -700,10 +854,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn VisibleChanged(self: QGraphicsVideoItem) void {
+    pub fn visibleChanged(self: QGraphicsVideoItem) void {
         qtc.QGraphicsObject_VisibleChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onVisibleChanged` instead
+    ///
+    pub const OnVisibleChanged = onVisibleChanged;
+
     /// Inherited from QGraphicsObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#visibleChanged)
@@ -714,10 +872,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem) callconv(.c) void `
     ///
-    pub fn OnVisibleChanged(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem) callconv(.c) void) void {
+    pub fn onVisibleChanged(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem) callconv(.c) void) void {
         qtc.QGraphicsObject_Connect_VisibleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `enabledChanged` instead
+    ///
+    pub const EnabledChanged = enabledChanged;
+
     /// Inherited from QGraphicsObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#enabledChanged)
@@ -726,10 +888,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn EnabledChanged(self: QGraphicsVideoItem) void {
+    pub fn enabledChanged(self: QGraphicsVideoItem) void {
         qtc.QGraphicsObject_EnabledChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onEnabledChanged` instead
+    ///
+    pub const OnEnabledChanged = onEnabledChanged;
+
     /// Inherited from QGraphicsObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#enabledChanged)
@@ -740,10 +906,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem) callconv(.c) void `
     ///
-    pub fn OnEnabledChanged(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem) callconv(.c) void) void {
+    pub fn onEnabledChanged(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem) callconv(.c) void) void {
         qtc.QGraphicsObject_Connect_EnabledChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `xChanged` instead
+    ///
+    pub const XChanged = xChanged;
+
     /// Inherited from QGraphicsObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#xChanged)
@@ -752,10 +922,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn XChanged(self: QGraphicsVideoItem) void {
+    pub fn xChanged(self: QGraphicsVideoItem) void {
         qtc.QGraphicsObject_XChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onXChanged` instead
+    ///
+    pub const OnXChanged = onXChanged;
+
     /// Inherited from QGraphicsObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#xChanged)
@@ -766,10 +940,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem) callconv(.c) void `
     ///
-    pub fn OnXChanged(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem) callconv(.c) void) void {
+    pub fn onXChanged(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem) callconv(.c) void) void {
         qtc.QGraphicsObject_Connect_XChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `yChanged` instead
+    ///
+    pub const YChanged = yChanged;
+
     /// Inherited from QGraphicsObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#yChanged)
@@ -778,10 +956,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn YChanged(self: QGraphicsVideoItem) void {
+    pub fn yChanged(self: QGraphicsVideoItem) void {
         qtc.QGraphicsObject_YChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onYChanged` instead
+    ///
+    pub const OnYChanged = onYChanged;
+
     /// Inherited from QGraphicsObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#yChanged)
@@ -792,10 +974,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem) callconv(.c) void `
     ///
-    pub fn OnYChanged(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem) callconv(.c) void) void {
+    pub fn onYChanged(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem) callconv(.c) void) void {
         qtc.QGraphicsObject_Connect_YChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `zChanged` instead
+    ///
+    pub const ZChanged = zChanged;
+
     /// Inherited from QGraphicsObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#zChanged)
@@ -804,10 +990,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn ZChanged(self: QGraphicsVideoItem) void {
+    pub fn zChanged(self: QGraphicsVideoItem) void {
         qtc.QGraphicsObject_ZChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onZChanged` instead
+    ///
+    pub const OnZChanged = onZChanged;
+
     /// Inherited from QGraphicsObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#zChanged)
@@ -818,10 +1008,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem) callconv(.c) void `
     ///
-    pub fn OnZChanged(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem) callconv(.c) void) void {
+    pub fn onZChanged(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem) callconv(.c) void) void {
         qtc.QGraphicsObject_Connect_ZChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `rotationChanged` instead
+    ///
+    pub const RotationChanged = rotationChanged;
+
     /// Inherited from QGraphicsObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#rotationChanged)
@@ -830,10 +1024,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn RotationChanged(self: QGraphicsVideoItem) void {
+    pub fn rotationChanged(self: QGraphicsVideoItem) void {
         qtc.QGraphicsObject_RotationChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onRotationChanged` instead
+    ///
+    pub const OnRotationChanged = onRotationChanged;
+
     /// Inherited from QGraphicsObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#rotationChanged)
@@ -844,10 +1042,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem) callconv(.c) void `
     ///
-    pub fn OnRotationChanged(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem) callconv(.c) void) void {
+    pub fn onRotationChanged(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem) callconv(.c) void) void {
         qtc.QGraphicsObject_Connect_RotationChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `scaleChanged` instead
+    ///
+    pub const ScaleChanged = scaleChanged;
+
     /// Inherited from QGraphicsObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#scaleChanged)
@@ -856,10 +1058,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn ScaleChanged(self: QGraphicsVideoItem) void {
+    pub fn scaleChanged(self: QGraphicsVideoItem) void {
         qtc.QGraphicsObject_ScaleChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onScaleChanged` instead
+    ///
+    pub const OnScaleChanged = onScaleChanged;
+
     /// Inherited from QGraphicsObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#scaleChanged)
@@ -870,10 +1076,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem) callconv(.c) void `
     ///
-    pub fn OnScaleChanged(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem) callconv(.c) void) void {
+    pub fn onScaleChanged(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem) callconv(.c) void) void {
         qtc.QGraphicsObject_Connect_ScaleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `childrenChanged` instead
+    ///
+    pub const ChildrenChanged = childrenChanged;
+
     /// Inherited from QGraphicsObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#childrenChanged)
@@ -882,10 +1092,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn ChildrenChanged(self: QGraphicsVideoItem) void {
+    pub fn childrenChanged(self: QGraphicsVideoItem) void {
         qtc.QGraphicsObject_ChildrenChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onChildrenChanged` instead
+    ///
+    pub const OnChildrenChanged = onChildrenChanged;
+
     /// Inherited from QGraphicsObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#childrenChanged)
@@ -896,10 +1110,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem) callconv(.c) void `
     ///
-    pub fn OnChildrenChanged(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem) callconv(.c) void) void {
+    pub fn onChildrenChanged(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem) callconv(.c) void) void {
         qtc.QGraphicsObject_Connect_ChildrenChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `widthChanged` instead
+    ///
+    pub const WidthChanged = widthChanged;
+
     /// Inherited from QGraphicsObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#widthChanged)
@@ -908,10 +1126,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn WidthChanged(self: QGraphicsVideoItem) void {
+    pub fn widthChanged(self: QGraphicsVideoItem) void {
         qtc.QGraphicsObject_WidthChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onWidthChanged` instead
+    ///
+    pub const OnWidthChanged = onWidthChanged;
+
     /// Inherited from QGraphicsObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#widthChanged)
@@ -922,9 +1144,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem) callconv(.c) void `
     ///
-    pub fn OnWidthChanged(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem) callconv(.c) void) void {
+    pub fn onWidthChanged(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem) callconv(.c) void) void {
         qtc.QGraphicsObject_Connect_WidthChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightChanged` instead
+    ///
+    pub const HeightChanged = heightChanged;
 
     /// Inherited from QGraphicsObject
     ///
@@ -934,9 +1160,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn HeightChanged(self: QGraphicsVideoItem) void {
+    pub fn heightChanged(self: QGraphicsVideoItem) void {
         qtc.QGraphicsObject_HeightChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHeightChanged` instead
+    ///
+    pub const OnHeightChanged = onHeightChanged;
 
     /// Inherited from QGraphicsObject
     ///
@@ -948,9 +1178,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem) callconv(.c) void `
     ///
-    pub fn OnHeightChanged(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem) callconv(.c) void) void {
+    pub fn onHeightChanged(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem) callconv(.c) void) void {
         qtc.QGraphicsObject_Connect_HeightChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QGraphicsObject
     ///
@@ -962,11 +1196,15 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    /// ` flags: flag of qnamespace_enums.GestureFlag `
+    /// ` _flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: QGraphicsVideoItem, typeVal: i32, flags: i32) void {
-        qtc.QGraphicsObject_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
+    pub fn grabGesture2(self: QGraphicsVideoItem, typeVal: i32, _flags: i32) void {
+        qtc.QGraphicsObject_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(_flags));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -978,13 +1216,17 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QGraphicsVideoItem, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QGraphicsVideoItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsVideoItem.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsVideoItem.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -996,13 +1238,17 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QGraphicsVideoItem, name: []const u8) void {
+    pub fn setObjectName(self: QGraphicsVideoItem, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -1012,9 +1258,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn IsWidgetType(self: QGraphicsVideoItem) bool {
+    pub fn isWidgetType(self: QGraphicsVideoItem) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -1024,9 +1274,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn IsWindowType(self: QGraphicsVideoItem) bool {
+    pub fn isWindowType(self: QGraphicsVideoItem) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -1036,9 +1290,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn IsQuickItemType(self: QGraphicsVideoItem) bool {
+    pub fn isQuickItemType(self: QGraphicsVideoItem) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -1048,9 +1306,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn SignalsBlocked(self: QGraphicsVideoItem) bool {
+    pub fn signalsBlocked(self: QGraphicsVideoItem) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -1062,9 +1324,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QGraphicsVideoItem, b: bool) bool {
+    pub fn blockSignals(self: QGraphicsVideoItem, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -1074,9 +1340,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn Thread(self: QGraphicsVideoItem) QThread {
+    pub fn thread(self: QGraphicsVideoItem) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -1086,12 +1356,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QGraphicsVideoItem, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QGraphicsVideoItem, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -1103,9 +1377,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QGraphicsVideoItem, interval: i32) i32 {
+    pub fn startTimer(self: QGraphicsVideoItem, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -1117,9 +1395,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QGraphicsVideoItem, time: i64) i32 {
+    pub fn startTimer2(self: QGraphicsVideoItem, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -1131,9 +1413,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QGraphicsVideoItem, id: i32) void {
+    pub fn killTimer(self: QGraphicsVideoItem, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -1145,9 +1431,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QGraphicsVideoItem, id: i32) void {
+    pub fn killTimer2(self: QGraphicsVideoItem, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -1159,15 +1449,19 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QGraphicsVideoItem, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QGraphicsVideoItem, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QGraphicsVideoItem.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QGraphicsVideoItem.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -1177,12 +1471,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QGraphicsVideoItem, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QGraphicsVideoItem, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1194,10 +1492,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QGraphicsVideoItem, filterObj: anytype) void {
+    pub fn installEventFilter(self: QGraphicsVideoItem, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1209,10 +1511,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QGraphicsVideoItem, obj: anytype) void {
+    pub fn removeEventFilter(self: QGraphicsVideoItem, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -1220,7 +1526,7 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1228,13 +1534,17 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -1242,7 +1552,7 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1250,13 +1560,17 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -1266,18 +1580,22 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QGraphicsVideoItem, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QGraphicsVideoItem, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -1285,7 +1603,7 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1293,13 +1611,17 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -1307,7 +1629,7 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1315,13 +1637,17 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -1331,9 +1657,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn Disconnect3(self: QGraphicsVideoItem) bool {
+    pub fn disconnect3(self: QGraphicsVideoItem) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1345,10 +1675,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QGraphicsVideoItem, receiver: anytype) bool {
+    pub fn disconnect4(self: QGraphicsVideoItem, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1358,10 +1692,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1371,9 +1709,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn DumpObjectTree(self: QGraphicsVideoItem) void {
+    pub fn dumpObjectTree(self: QGraphicsVideoItem) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1383,9 +1725,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn DumpObjectInfo(self: QGraphicsVideoItem) void {
+    pub fn dumpObjectInfo(self: QGraphicsVideoItem) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1399,11 +1745,15 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QGraphicsVideoItem, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QGraphicsVideoItem, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1415,10 +1765,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QGraphicsVideoItem, name: [:0]const u8) QVariant {
+    pub fn property(self: QGraphicsVideoItem, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1430,7 +1784,7 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QGraphicsVideoItem, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QGraphicsVideoItem, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1438,27 +1792,19 @@ pub const QGraphicsVideoItem = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QGraphicsVideoItem.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QGraphicsVideoItem.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QGraphicsVideoItem.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QGraphicsVideoItem.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsVideoItem `
-    ///
-    pub fn BindingStorage(self: QGraphicsVideoItem) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1468,9 +1814,29 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn BindingStorage2(self: QGraphicsVideoItem) QBindingStorage {
+    pub fn bindingStorage(self: QGraphicsVideoItem) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGraphicsVideoItem `
+    ///
+    pub fn bindingStorage2(self: QGraphicsVideoItem) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1480,9 +1846,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn Destroyed(self: QGraphicsVideoItem) void {
+    pub fn destroyed(self: QGraphicsVideoItem) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1494,9 +1864,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem) callconv(.c) void) void {
+    pub fn onDestroyed(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1506,9 +1880,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn Parent(self: QGraphicsVideoItem) QObject {
+    pub fn parent(self: QGraphicsVideoItem) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1520,10 +1898,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QGraphicsVideoItem, classname: [:0]const u8) bool {
+    pub fn inherits(self: QGraphicsVideoItem, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1533,9 +1915,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn DeleteLater(self: QGraphicsVideoItem) void {
+    pub fn deleteLater(self: QGraphicsVideoItem) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1549,9 +1935,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QGraphicsVideoItem, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QGraphicsVideoItem, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1565,9 +1955,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QGraphicsVideoItem, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QGraphicsVideoItem, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1575,7 +1969,7 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1585,13 +1979,17 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1599,7 +1997,7 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1609,13 +2007,17 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1625,7 +2027,7 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1633,12 +2035,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QGraphicsVideoItem, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QGraphicsVideoItem, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1650,10 +2056,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QGraphicsVideoItem, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QGraphicsVideoItem, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1667,11 +2077,15 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QGraphicsVideoItem, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QGraphicsVideoItem, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1687,13 +2101,17 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QGraphicsVideoItem, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QGraphicsVideoItem, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1706,11 +2124,15 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QGraphicsVideoItem, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QGraphicsVideoItem, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1722,10 +2144,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QGraphicsVideoItem, param1: anytype) void {
+    pub fn destroyed1(self: QGraphicsVideoItem, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1737,9 +2163,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `scene` instead
+    ///
+    pub const Scene = scene;
 
     /// Inherited from QGraphicsItem
     ///
@@ -1749,9 +2179,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn Scene(self: QGraphicsVideoItem) QGraphicsScene {
+    pub fn scene(self: QGraphicsVideoItem) QGraphicsScene {
         return .{ .ptr = qtc.QGraphicsItem_Scene(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `parentItem` instead
+    ///
+    pub const ParentItem = parentItem;
 
     /// Inherited from QGraphicsItem
     ///
@@ -1761,9 +2195,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn ParentItem(self: QGraphicsVideoItem) QGraphicsItem {
+    pub fn parentItem(self: QGraphicsVideoItem) QGraphicsItem {
         return .{ .ptr = qtc.QGraphicsItem_ParentItem(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelItem` instead
+    ///
+    pub const TopLevelItem = topLevelItem;
 
     /// Inherited from QGraphicsItem
     ///
@@ -1773,9 +2211,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn TopLevelItem(self: QGraphicsVideoItem) QGraphicsItem {
+    pub fn topLevelItem(self: QGraphicsVideoItem) QGraphicsItem {
         return .{ .ptr = qtc.QGraphicsItem_TopLevelItem(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `parentObject` instead
+    ///
+    pub const ParentObject = parentObject;
 
     /// Inherited from QGraphicsItem
     ///
@@ -1785,9 +2227,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn ParentObject(self: QGraphicsVideoItem) QGraphicsObject {
+    pub fn parentObject(self: QGraphicsVideoItem) QGraphicsObject {
         return .{ .ptr = qtc.QGraphicsItem_ParentObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
 
     /// Inherited from QGraphicsItem
     ///
@@ -1797,9 +2243,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn ParentWidget(self: QGraphicsVideoItem) QGraphicsWidget {
+    pub fn parentWidget(self: QGraphicsVideoItem) QGraphicsWidget {
         return .{ .ptr = qtc.QGraphicsItem_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QGraphicsItem
     ///
@@ -1809,9 +2259,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn TopLevelWidget(self: QGraphicsVideoItem) QGraphicsWidget {
+    pub fn topLevelWidget(self: QGraphicsVideoItem) QGraphicsWidget {
         return .{ .ptr = qtc.QGraphicsItem_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QGraphicsItem
     ///
@@ -1821,9 +2275,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn Window(self: QGraphicsVideoItem) QGraphicsWidget {
+    pub fn window(self: QGraphicsVideoItem) QGraphicsWidget {
         return .{ .ptr = qtc.QGraphicsItem_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `panel` instead
+    ///
+    pub const Panel = panel;
 
     /// Inherited from QGraphicsItem
     ///
@@ -1833,9 +2291,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn Panel(self: QGraphicsVideoItem) QGraphicsItem {
+    pub fn panel(self: QGraphicsVideoItem) QGraphicsItem {
         return .{ .ptr = qtc.QGraphicsItem_Panel(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setParentItem` instead
+    ///
+    pub const SetParentItem = setParentItem;
 
     /// Inherited from QGraphicsItem
     ///
@@ -1845,12 +2307,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` parent: QGraphicsItem `
+    /// ` _parent: QGraphicsItem `
     ///
-    pub fn SetParentItem(self: QGraphicsVideoItem, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QGraphicsItem;
-        qtc.QGraphicsItem_SetParentItem(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParentItem(self: QGraphicsVideoItem, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QGraphicsItem;
+        qtc.QGraphicsItem_SetParentItem(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `childItems` instead
+    ///
+    pub const ChildItems = childItems;
 
     /// Inherited from QGraphicsItem
     ///
@@ -1862,15 +2328,19 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ChildItems(self: QGraphicsVideoItem, allocator: std.mem.Allocator) []QGraphicsItem {
+    pub fn childItems(self: QGraphicsVideoItem, allocator: std.mem.Allocator) []QGraphicsItem {
         const _arr: qtc.libqt_list = qtc.QGraphicsItem_ChildItems(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("QGraphicsVideoItem.ChildItems: Memory allocation failed");
-        const _data: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("QGraphicsVideoItem.childItems: Memory allocation failed");
+        const _data_val: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isWidget` instead
+    ///
+    pub const IsWidget = isWidget;
 
     /// Inherited from QGraphicsItem
     ///
@@ -1880,9 +2350,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn IsWidget(self: QGraphicsVideoItem) bool {
+    pub fn isWidget(self: QGraphicsVideoItem) bool {
         return qtc.QGraphicsItem_IsWidget(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QGraphicsItem
     ///
@@ -1892,9 +2366,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn IsWindow(self: QGraphicsVideoItem) bool {
+    pub fn isWindow(self: QGraphicsVideoItem) bool {
         return qtc.QGraphicsItem_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isPanel` instead
+    ///
+    pub const IsPanel = isPanel;
 
     /// Inherited from QGraphicsItem
     ///
@@ -1904,21 +2382,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn IsPanel(self: QGraphicsVideoItem) bool {
+    pub fn isPanel(self: QGraphicsVideoItem) bool {
         return qtc.QGraphicsItem_IsPanel(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QGraphicsItem
+    /// ### DEPRECATED: Use `toGraphicsObject` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#toGraphicsObject)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsVideoItem `
-    ///
-    pub fn ToGraphicsObject(self: QGraphicsVideoItem) QGraphicsObject {
-        return .{ .ptr = qtc.QGraphicsItem_ToGraphicsObject(@ptrCast(self.ptr)) };
-    }
+    pub const ToGraphicsObject = toGraphicsObject;
 
     /// Inherited from QGraphicsItem
     ///
@@ -1928,9 +2398,29 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn ToGraphicsObject2(self: QGraphicsVideoItem) QGraphicsObject {
+    pub fn toGraphicsObject(self: QGraphicsVideoItem) QGraphicsObject {
+        return .{ .ptr = qtc.QGraphicsItem_ToGraphicsObject(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `toGraphicsObject2` instead
+    ///
+    pub const ToGraphicsObject2 = toGraphicsObject2;
+
+    /// Inherited from QGraphicsItem
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#toGraphicsObject)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGraphicsVideoItem `
+    ///
+    pub fn toGraphicsObject2(self: QGraphicsVideoItem) QGraphicsObject {
         return .{ .ptr = qtc.QGraphicsItem_ToGraphicsObject2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `group` instead
+    ///
+    pub const Group = group;
 
     /// Inherited from QGraphicsItem
     ///
@@ -1940,9 +2430,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn Group(self: QGraphicsVideoItem) QGraphicsItemGroup {
+    pub fn group(self: QGraphicsVideoItem) QGraphicsItemGroup {
         return .{ .ptr = qtc.QGraphicsItem_Group(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGroup` instead
+    ///
+    pub const SetGroup = setGroup;
 
     /// Inherited from QGraphicsItem
     ///
@@ -1952,12 +2446,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` group: QGraphicsItemGroup `
+    /// ` _group: QGraphicsItemGroup `
     ///
-    pub fn SetGroup(self: QGraphicsVideoItem, group: anytype) void {
-        comptime _ = @TypeOf(group)._is_QGraphicsItemGroup;
-        qtc.QGraphicsItem_SetGroup(@ptrCast(self.ptr), @ptrCast(group.ptr));
+    pub fn setGroup(self: QGraphicsVideoItem, _group: anytype) void {
+        comptime _ = @TypeOf(_group)._is_QGraphicsItemGroup;
+        qtc.QGraphicsItem_SetGroup(@ptrCast(self.ptr), @ptrCast(_group.ptr));
     }
+
+    /// ### DEPRECATED: Use `flags` instead
+    ///
+    pub const Flags = flags;
 
     /// Inherited from QGraphicsItem
     ///
@@ -1971,9 +2469,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` flag of qgraphicsitem_enums.GraphicsItemFlag `
     ///
-    pub fn Flags(self: QGraphicsVideoItem) i32 {
+    pub fn flags(self: QGraphicsVideoItem) i32 {
         return qtc.QGraphicsItem_Flags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFlag` instead
+    ///
+    pub const SetFlag = setFlag;
 
     /// Inherited from QGraphicsItem
     ///
@@ -1985,9 +2487,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` flag: qgraphicsitem_enums.GraphicsItemFlag `
     ///
-    pub fn SetFlag(self: QGraphicsVideoItem, flag: i32) void {
+    pub fn setFlag(self: QGraphicsVideoItem, flag: i32) void {
         qtc.QGraphicsItem_SetFlag(@ptrCast(self.ptr), @bitCast(flag));
     }
+
+    /// ### DEPRECATED: Use `setFlags` instead
+    ///
+    pub const SetFlags = setFlags;
 
     /// Inherited from QGraphicsItem
     ///
@@ -1997,11 +2503,15 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` flags: flag of qgraphicsitem_enums.GraphicsItemFlag `
+    /// ` _flags: flag of qgraphicsitem_enums.GraphicsItemFlag `
     ///
-    pub fn SetFlags(self: QGraphicsVideoItem, flags: i32) void {
-        qtc.QGraphicsItem_SetFlags(@ptrCast(self.ptr), @bitCast(flags));
+    pub fn setFlags(self: QGraphicsVideoItem, _flags: i32) void {
+        qtc.QGraphicsItem_SetFlags(@ptrCast(self.ptr), @bitCast(_flags));
     }
+
+    /// ### DEPRECATED: Use `cacheMode` instead
+    ///
+    pub const CacheMode = cacheMode;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2015,9 +2525,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` qgraphicsitem_enums.CacheMode `
     ///
-    pub fn CacheMode(self: QGraphicsVideoItem) i32 {
+    pub fn cacheMode(self: QGraphicsVideoItem) i32 {
         return qtc.QGraphicsItem_CacheMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCacheMode` instead
+    ///
+    pub const SetCacheMode = setCacheMode;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2029,9 +2543,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` mode: qgraphicsitem_enums.CacheMode `
     ///
-    pub fn SetCacheMode(self: QGraphicsVideoItem, mode: i32) void {
+    pub fn setCacheMode(self: QGraphicsVideoItem, mode: i32) void {
         qtc.QGraphicsItem_SetCacheMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `panelModality` instead
+    ///
+    pub const PanelModality = panelModality;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2045,9 +2563,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` qgraphicsitem_enums.PanelModality `
     ///
-    pub fn PanelModality(self: QGraphicsVideoItem) i32 {
+    pub fn panelModality(self: QGraphicsVideoItem) i32 {
         return qtc.QGraphicsItem_PanelModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPanelModality` instead
+    ///
+    pub const SetPanelModality = setPanelModality;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2057,11 +2579,15 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` panelModality: qgraphicsitem_enums.PanelModality `
+    /// ` _panelModality: qgraphicsitem_enums.PanelModality `
     ///
-    pub fn SetPanelModality(self: QGraphicsVideoItem, panelModality: i32) void {
-        qtc.QGraphicsItem_SetPanelModality(@ptrCast(self.ptr), @bitCast(panelModality));
+    pub fn setPanelModality(self: QGraphicsVideoItem, _panelModality: i32) void {
+        qtc.QGraphicsItem_SetPanelModality(@ptrCast(self.ptr), @bitCast(_panelModality));
     }
+
+    /// ### DEPRECATED: Use `isBlockedByModalPanel` instead
+    ///
+    pub const IsBlockedByModalPanel = isBlockedByModalPanel;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2071,9 +2597,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn IsBlockedByModalPanel(self: QGraphicsVideoItem) bool {
+    pub fn isBlockedByModalPanel(self: QGraphicsVideoItem) bool {
         return qtc.QGraphicsItem_IsBlockedByModalPanel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2085,13 +2615,17 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: QGraphicsVideoItem, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: QGraphicsVideoItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGraphicsItem_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsVideoItem.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsVideoItem.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2101,15 +2635,19 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: QGraphicsVideoItem, toolTip: []const u8) void {
+    pub fn setToolTip(self: QGraphicsVideoItem, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QGraphicsItem_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2119,9 +2657,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn Cursor(self: QGraphicsVideoItem) QCursor {
+    pub fn cursor(self: QGraphicsVideoItem) QCursor {
         return .{ .ptr = qtc.QGraphicsItem_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2131,12 +2673,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: QGraphicsVideoItem, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QGraphicsItem_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: QGraphicsVideoItem, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QGraphicsItem_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `hasCursor` instead
+    ///
+    pub const HasCursor = hasCursor;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2146,9 +2692,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn HasCursor(self: QGraphicsVideoItem) bool {
+    pub fn hasCursor(self: QGraphicsVideoItem) bool {
         return qtc.QGraphicsItem_HasCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2158,9 +2708,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn UnsetCursor(self: QGraphicsVideoItem) void {
+    pub fn unsetCursor(self: QGraphicsVideoItem) void {
         qtc.QGraphicsItem_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2170,9 +2724,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn IsVisible(self: QGraphicsVideoItem) bool {
+    pub fn isVisible(self: QGraphicsVideoItem) bool {
         return qtc.QGraphicsItem_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2182,12 +2740,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` parent: QGraphicsItem `
+    /// ` _parent: QGraphicsItem `
     ///
-    pub fn IsVisibleTo(self: QGraphicsVideoItem, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QGraphicsItem;
-        return qtc.QGraphicsItem_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn isVisibleTo(self: QGraphicsVideoItem, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QGraphicsItem;
+        return qtc.QGraphicsItem_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2199,9 +2761,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: QGraphicsVideoItem, visible: bool) void {
+    pub fn setVisible(self: QGraphicsVideoItem, visible: bool) void {
         qtc.QGraphicsItem_SetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2211,9 +2777,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn Hide(self: QGraphicsVideoItem) void {
+    pub fn hide(self: QGraphicsVideoItem) void {
         qtc.QGraphicsItem_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2223,9 +2793,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn Show(self: QGraphicsVideoItem) void {
+    pub fn show(self: QGraphicsVideoItem) void {
         qtc.QGraphicsItem_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2235,9 +2809,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn IsEnabled(self: QGraphicsVideoItem) bool {
+    pub fn isEnabled(self: QGraphicsVideoItem) bool {
         return qtc.QGraphicsItem_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2249,9 +2827,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: QGraphicsVideoItem, enabled: bool) void {
+    pub fn setEnabled(self: QGraphicsVideoItem, enabled: bool) void {
         qtc.QGraphicsItem_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `isSelected` instead
+    ///
+    pub const IsSelected = isSelected;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2261,9 +2843,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn IsSelected(self: QGraphicsVideoItem) bool {
+    pub fn isSelected(self: QGraphicsVideoItem) bool {
         return qtc.QGraphicsItem_IsSelected(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSelected` instead
+    ///
+    pub const SetSelected = setSelected;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2275,9 +2861,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` selected: bool `
     ///
-    pub fn SetSelected(self: QGraphicsVideoItem, selected: bool) void {
+    pub fn setSelected(self: QGraphicsVideoItem, selected: bool) void {
         qtc.QGraphicsItem_SetSelected(@ptrCast(self.ptr), selected);
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2287,9 +2877,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn AcceptDrops(self: QGraphicsVideoItem) bool {
+    pub fn acceptDrops(self: QGraphicsVideoItem) bool {
         return qtc.QGraphicsItem_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2301,9 +2895,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: QGraphicsVideoItem, on: bool) void {
+    pub fn setAcceptDrops(self: QGraphicsVideoItem, on: bool) void {
         qtc.QGraphicsItem_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `opacity` instead
+    ///
+    pub const Opacity = opacity;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2313,9 +2911,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn Opacity(self: QGraphicsVideoItem) f64 {
+    pub fn opacity(self: QGraphicsVideoItem) f64 {
         return qtc.QGraphicsItem_Opacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveOpacity` instead
+    ///
+    pub const EffectiveOpacity = effectiveOpacity;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2325,9 +2927,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn EffectiveOpacity(self: QGraphicsVideoItem) f64 {
+    pub fn effectiveOpacity(self: QGraphicsVideoItem) f64 {
         return qtc.QGraphicsItem_EffectiveOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setOpacity` instead
+    ///
+    pub const SetOpacity = setOpacity;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2337,11 +2943,15 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` opacity: f64 `
+    /// ` _opacity: f64 `
     ///
-    pub fn SetOpacity(self: QGraphicsVideoItem, opacity: f64) void {
-        qtc.QGraphicsItem_SetOpacity(@ptrCast(self.ptr), @bitCast(opacity));
+    pub fn setOpacity(self: QGraphicsVideoItem, _opacity: f64) void {
+        qtc.QGraphicsItem_SetOpacity(@ptrCast(self.ptr), @bitCast(_opacity));
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2351,9 +2961,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn GraphicsEffect(self: QGraphicsVideoItem) QGraphicsEffect {
+    pub fn graphicsEffect(self: QGraphicsVideoItem) QGraphicsEffect {
         return .{ .ptr = qtc.QGraphicsItem_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2365,10 +2979,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: QGraphicsVideoItem, effect: anytype) void {
+    pub fn setGraphicsEffect(self: QGraphicsVideoItem, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QGraphicsItem_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `acceptedMouseButtons` instead
+    ///
+    pub const AcceptedMouseButtons = acceptedMouseButtons;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2382,9 +3000,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` flag of qnamespace_enums.MouseButton `
     ///
-    pub fn AcceptedMouseButtons(self: QGraphicsVideoItem) i32 {
+    pub fn acceptedMouseButtons(self: QGraphicsVideoItem) i32 {
         return qtc.QGraphicsItem_AcceptedMouseButtons(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptedMouseButtons` instead
+    ///
+    pub const SetAcceptedMouseButtons = setAcceptedMouseButtons;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2396,9 +3018,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` buttons: flag of qnamespace_enums.MouseButton `
     ///
-    pub fn SetAcceptedMouseButtons(self: QGraphicsVideoItem, buttons: i32) void {
+    pub fn setAcceptedMouseButtons(self: QGraphicsVideoItem, buttons: i32) void {
         qtc.QGraphicsItem_SetAcceptedMouseButtons(@ptrCast(self.ptr), @bitCast(buttons));
     }
+
+    /// ### DEPRECATED: Use `acceptHoverEvents` instead
+    ///
+    pub const AcceptHoverEvents = acceptHoverEvents;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2408,9 +3034,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn AcceptHoverEvents(self: QGraphicsVideoItem) bool {
+    pub fn acceptHoverEvents(self: QGraphicsVideoItem) bool {
         return qtc.QGraphicsItem_AcceptHoverEvents(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptHoverEvents` instead
+    ///
+    pub const SetAcceptHoverEvents = setAcceptHoverEvents;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2422,9 +3052,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAcceptHoverEvents(self: QGraphicsVideoItem, enabled: bool) void {
+    pub fn setAcceptHoverEvents(self: QGraphicsVideoItem, enabled: bool) void {
         qtc.QGraphicsItem_SetAcceptHoverEvents(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `acceptTouchEvents` instead
+    ///
+    pub const AcceptTouchEvents = acceptTouchEvents;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2434,9 +3068,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn AcceptTouchEvents(self: QGraphicsVideoItem) bool {
+    pub fn acceptTouchEvents(self: QGraphicsVideoItem) bool {
         return qtc.QGraphicsItem_AcceptTouchEvents(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptTouchEvents` instead
+    ///
+    pub const SetAcceptTouchEvents = setAcceptTouchEvents;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2448,9 +3086,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAcceptTouchEvents(self: QGraphicsVideoItem, enabled: bool) void {
+    pub fn setAcceptTouchEvents(self: QGraphicsVideoItem, enabled: bool) void {
         qtc.QGraphicsItem_SetAcceptTouchEvents(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `filtersChildEvents` instead
+    ///
+    pub const FiltersChildEvents = filtersChildEvents;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2460,9 +3102,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn FiltersChildEvents(self: QGraphicsVideoItem) bool {
+    pub fn filtersChildEvents(self: QGraphicsVideoItem) bool {
         return qtc.QGraphicsItem_FiltersChildEvents(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFiltersChildEvents` instead
+    ///
+    pub const SetFiltersChildEvents = setFiltersChildEvents;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2474,9 +3120,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetFiltersChildEvents(self: QGraphicsVideoItem, enabled: bool) void {
+    pub fn setFiltersChildEvents(self: QGraphicsVideoItem, enabled: bool) void {
         qtc.QGraphicsItem_SetFiltersChildEvents(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `handlesChildEvents` instead
+    ///
+    pub const HandlesChildEvents = handlesChildEvents;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2486,9 +3136,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn HandlesChildEvents(self: QGraphicsVideoItem) bool {
+    pub fn handlesChildEvents(self: QGraphicsVideoItem) bool {
         return qtc.QGraphicsItem_HandlesChildEvents(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHandlesChildEvents` instead
+    ///
+    pub const SetHandlesChildEvents = setHandlesChildEvents;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2500,9 +3154,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetHandlesChildEvents(self: QGraphicsVideoItem, enabled: bool) void {
+    pub fn setHandlesChildEvents(self: QGraphicsVideoItem, enabled: bool) void {
         qtc.QGraphicsItem_SetHandlesChildEvents(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `isActive` instead
+    ///
+    pub const IsActive = isActive;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2512,9 +3170,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn IsActive(self: QGraphicsVideoItem) bool {
+    pub fn isActive(self: QGraphicsVideoItem) bool {
         return qtc.QGraphicsItem_IsActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setActive` instead
+    ///
+    pub const SetActive = setActive;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2526,9 +3188,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` active: bool `
     ///
-    pub fn SetActive(self: QGraphicsVideoItem, active: bool) void {
+    pub fn setActive(self: QGraphicsVideoItem, active: bool) void {
         qtc.QGraphicsItem_SetActive(@ptrCast(self.ptr), active);
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2538,9 +3204,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn HasFocus(self: QGraphicsVideoItem) bool {
+    pub fn hasFocus(self: QGraphicsVideoItem) bool {
         return qtc.QGraphicsItem_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2550,9 +3220,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn SetFocus(self: QGraphicsVideoItem) void {
+    pub fn setFocus(self: QGraphicsVideoItem) void {
         qtc.QGraphicsItem_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2562,9 +3236,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn ClearFocus(self: QGraphicsVideoItem) void {
+    pub fn clearFocus(self: QGraphicsVideoItem) void {
         qtc.QGraphicsItem_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2574,9 +3252,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn FocusProxy(self: QGraphicsVideoItem) QGraphicsItem {
+    pub fn focusProxy(self: QGraphicsVideoItem) QGraphicsItem {
         return .{ .ptr = qtc.QGraphicsItem_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2588,10 +3270,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` item: QGraphicsItem `
     ///
-    pub fn SetFocusProxy(self: QGraphicsVideoItem, item: anytype) void {
+    pub fn setFocusProxy(self: QGraphicsVideoItem, item: anytype) void {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
         qtc.QGraphicsItem_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(item.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusItem` instead
+    ///
+    pub const FocusItem = focusItem;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2601,9 +3287,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn FocusItem(self: QGraphicsVideoItem) QGraphicsItem {
+    pub fn focusItem(self: QGraphicsVideoItem) QGraphicsItem {
         return .{ .ptr = qtc.QGraphicsItem_FocusItem(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `focusScopeItem` instead
+    ///
+    pub const FocusScopeItem = focusScopeItem;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2613,9 +3303,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn FocusScopeItem(self: QGraphicsVideoItem) QGraphicsItem {
+    pub fn focusScopeItem(self: QGraphicsVideoItem) QGraphicsItem {
         return .{ .ptr = qtc.QGraphicsItem_FocusScopeItem(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2625,9 +3319,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn GrabMouse(self: QGraphicsVideoItem) void {
+    pub fn grabMouse(self: QGraphicsVideoItem) void {
         qtc.QGraphicsItem_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `ungrabMouse` instead
+    ///
+    pub const UngrabMouse = ungrabMouse;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2637,9 +3335,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn UngrabMouse(self: QGraphicsVideoItem) void {
+    pub fn ungrabMouse(self: QGraphicsVideoItem) void {
         qtc.QGraphicsItem_UngrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2649,9 +3351,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn GrabKeyboard(self: QGraphicsVideoItem) void {
+    pub fn grabKeyboard(self: QGraphicsVideoItem) void {
         qtc.QGraphicsItem_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `ungrabKeyboard` instead
+    ///
+    pub const UngrabKeyboard = ungrabKeyboard;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2661,9 +3367,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn UngrabKeyboard(self: QGraphicsVideoItem) void {
+    pub fn ungrabKeyboard(self: QGraphicsVideoItem) void {
         qtc.QGraphicsItem_UngrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2673,9 +3383,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn Pos(self: QGraphicsVideoItem) QPointF {
+    pub fn pos(self: QGraphicsVideoItem) QPointF {
         return .{ .ptr = qtc.QGraphicsItem_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2685,9 +3399,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn X(self: QGraphicsVideoItem) f64 {
+    pub fn x(self: QGraphicsVideoItem) f64 {
         return qtc.QGraphicsItem_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setX` instead
+    ///
+    pub const SetX = setX;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2697,11 +3415,15 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` x: f64 `
+    /// ` _x: f64 `
     ///
-    pub fn SetX(self: QGraphicsVideoItem, x: f64) void {
-        qtc.QGraphicsItem_SetX(@ptrCast(self.ptr), @bitCast(x));
+    pub fn setX(self: QGraphicsVideoItem, _x: f64) void {
+        qtc.QGraphicsItem_SetX(@ptrCast(self.ptr), @bitCast(_x));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2711,9 +3433,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn Y(self: QGraphicsVideoItem) f64 {
+    pub fn y(self: QGraphicsVideoItem) f64 {
         return qtc.QGraphicsItem_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setY` instead
+    ///
+    pub const SetY = setY;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2723,11 +3449,15 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` y: f64 `
+    /// ` _y: f64 `
     ///
-    pub fn SetY(self: QGraphicsVideoItem, y: f64) void {
-        qtc.QGraphicsItem_SetY(@ptrCast(self.ptr), @bitCast(y));
+    pub fn setY(self: QGraphicsVideoItem, _y: f64) void {
+        qtc.QGraphicsItem_SetY(@ptrCast(self.ptr), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `scenePos` instead
+    ///
+    pub const ScenePos = scenePos;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2737,24 +3467,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn ScenePos(self: QGraphicsVideoItem) QPointF {
+    pub fn scenePos(self: QGraphicsVideoItem) QPointF {
         return .{ .ptr = qtc.QGraphicsItem_ScenePos(@ptrCast(self.ptr)) };
     }
 
-    /// Inherited from QGraphicsItem
+    /// ### DEPRECATED: Use `setPos` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setPos)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsVideoItem `
-    ///
-    /// ` pos: QPointF `
-    ///
-    pub fn SetPos(self: QGraphicsVideoItem, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPointF;
-        qtc.QGraphicsItem_SetPos(@ptrCast(self.ptr), @ptrCast(pos.ptr));
-    }
+    pub const SetPos = setPos;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2764,13 +3483,36 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` x: f64 `
+    /// ` _pos: QPointF `
     ///
-    /// ` y: f64 `
-    ///
-    pub fn SetPos2(self: QGraphicsVideoItem, x: f64, y: f64) void {
-        qtc.QGraphicsItem_SetPos2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn setPos(self: QGraphicsVideoItem, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPointF;
+        qtc.QGraphicsItem_SetPos(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPos2` instead
+    ///
+    pub const SetPos2 = setPos2;
+
+    /// Inherited from QGraphicsItem
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setPos)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGraphicsVideoItem `
+    ///
+    /// ` _x: f64 `
+    ///
+    /// ` _y: f64 `
+    ///
+    pub fn setPos2(self: QGraphicsVideoItem, _x: f64, _y: f64) void {
+        qtc.QGraphicsItem_SetPos2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
+    }
+
+    /// ### DEPRECATED: Use `moveBy` instead
+    ///
+    pub const MoveBy = moveBy;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2784,21 +3526,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` dy: f64 `
     ///
-    pub fn MoveBy(self: QGraphicsVideoItem, dx: f64, dy: f64) void {
+    pub fn moveBy(self: QGraphicsVideoItem, dx: f64, dy: f64) void {
         qtc.QGraphicsItem_MoveBy(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
-    /// Inherited from QGraphicsItem
+    /// ### DEPRECATED: Use `ensureVisible` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsVideoItem `
-    ///
-    pub fn EnsureVisible(self: QGraphicsVideoItem) void {
-        qtc.QGraphicsItem_EnsureVisible(@ptrCast(self.ptr));
-    }
+    pub const EnsureVisible = ensureVisible;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2808,17 +3542,37 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` x: f64 `
+    pub fn ensureVisible(self: QGraphicsVideoItem) void {
+        qtc.QGraphicsItem_EnsureVisible(@ptrCast(self.ptr));
+    }
+
+    /// ### DEPRECATED: Use `ensureVisible2` instead
     ///
-    /// ` y: f64 `
+    pub const EnsureVisible2 = ensureVisible2;
+
+    /// Inherited from QGraphicsItem
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGraphicsVideoItem `
+    ///
+    /// ` _x: f64 `
+    ///
+    /// ` _y: f64 `
     ///
     /// ` w: f64 `
     ///
     /// ` h: f64 `
     ///
-    pub fn EnsureVisible2(self: QGraphicsVideoItem, x: f64, y: f64, w: f64, h: f64) void {
-        qtc.QGraphicsItem_EnsureVisible2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn ensureVisible2(self: QGraphicsVideoItem, _x: f64, _y: f64, w: f64, h: f64) void {
+        qtc.QGraphicsItem_EnsureVisible2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `transform` instead
+    ///
+    pub const Transform = transform;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2828,9 +3582,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn Transform(self: QGraphicsVideoItem) QTransform {
+    pub fn transform(self: QGraphicsVideoItem) QTransform {
         return .{ .ptr = qtc.QGraphicsItem_Transform(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `sceneTransform` instead
+    ///
+    pub const SceneTransform = sceneTransform;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2840,9 +3598,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn SceneTransform(self: QGraphicsVideoItem) QTransform {
+    pub fn sceneTransform(self: QGraphicsVideoItem) QTransform {
         return .{ .ptr = qtc.QGraphicsItem_SceneTransform(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `deviceTransform` instead
+    ///
+    pub const DeviceTransform = deviceTransform;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2854,10 +3616,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` viewportTransform: QTransform `
     ///
-    pub fn DeviceTransform(self: QGraphicsVideoItem, viewportTransform: anytype) QTransform {
+    pub fn deviceTransform(self: QGraphicsVideoItem, viewportTransform: anytype) QTransform {
         comptime _ = @TypeOf(viewportTransform)._is_QTransform;
         return .{ .ptr = qtc.QGraphicsItem_DeviceTransform(@ptrCast(self.ptr), @ptrCast(viewportTransform.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `itemTransform` instead
+    ///
+    pub const ItemTransform = itemTransform;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2869,10 +3635,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` other: QGraphicsItem `
     ///
-    pub fn ItemTransform(self: QGraphicsVideoItem, other: anytype) QTransform {
+    pub fn itemTransform(self: QGraphicsVideoItem, other: anytype) QTransform {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
         return .{ .ptr = qtc.QGraphicsItem_ItemTransform(@ptrCast(self.ptr), @ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setTransform` instead
+    ///
+    pub const SetTransform = setTransform;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2884,10 +3654,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` matrix: QTransform `
     ///
-    pub fn SetTransform(self: QGraphicsVideoItem, matrix: anytype) void {
+    pub fn setTransform(self: QGraphicsVideoItem, matrix: anytype) void {
         comptime _ = @TypeOf(matrix)._is_QTransform;
         qtc.QGraphicsItem_SetTransform(@ptrCast(self.ptr), @ptrCast(matrix.ptr));
     }
+
+    /// ### DEPRECATED: Use `resetTransform` instead
+    ///
+    pub const ResetTransform = resetTransform;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2897,9 +3671,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn ResetTransform(self: QGraphicsVideoItem) void {
+    pub fn resetTransform(self: QGraphicsVideoItem) void {
         qtc.QGraphicsItem_ResetTransform(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setRotation` instead
+    ///
+    pub const SetRotation = setRotation;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2911,9 +3689,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` angle: f64 `
     ///
-    pub fn SetRotation(self: QGraphicsVideoItem, angle: f64) void {
+    pub fn setRotation(self: QGraphicsVideoItem, angle: f64) void {
         qtc.QGraphicsItem_SetRotation(@ptrCast(self.ptr), @bitCast(angle));
     }
+
+    /// ### DEPRECATED: Use `rotation` instead
+    ///
+    pub const Rotation = rotation;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2923,9 +3705,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn Rotation(self: QGraphicsVideoItem) f64 {
+    pub fn rotation(self: QGraphicsVideoItem) f64 {
         return qtc.QGraphicsItem_Rotation(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setScale` instead
+    ///
+    pub const SetScale = setScale;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2935,11 +3721,15 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` scale: f64 `
+    /// ` _scale: f64 `
     ///
-    pub fn SetScale(self: QGraphicsVideoItem, scale: f64) void {
-        qtc.QGraphicsItem_SetScale(@ptrCast(self.ptr), @bitCast(scale));
+    pub fn setScale(self: QGraphicsVideoItem, _scale: f64) void {
+        qtc.QGraphicsItem_SetScale(@ptrCast(self.ptr), @bitCast(_scale));
     }
+
+    /// ### DEPRECATED: Use `scale` instead
+    ///
+    pub const Scale = scale;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2949,9 +3739,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn Scale(self: QGraphicsVideoItem) f64 {
+    pub fn scale(self: QGraphicsVideoItem) f64 {
         return qtc.QGraphicsItem_Scale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `transformations` instead
+    ///
+    pub const Transformations = transformations;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2963,15 +3757,19 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Transformations(self: QGraphicsVideoItem, allocator: std.mem.Allocator) []QGraphicsTransform {
+    pub fn transformations(self: QGraphicsVideoItem, allocator: std.mem.Allocator) []QGraphicsTransform {
         const _arr: qtc.libqt_list = qtc.QGraphicsItem_Transformations(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGraphicsTransform, _arr.len) catch @panic("QGraphicsVideoItem.Transformations: Memory allocation failed");
-        const _data: [*]QtC.QGraphicsTransform = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QGraphicsTransform, _arr.len) catch @panic("QGraphicsVideoItem.transformations: Memory allocation failed");
+        const _data_val: [*]QtC.QGraphicsTransform = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setTransformations` instead
+    ///
+    pub const SetTransformations = setTransformations;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2981,15 +3779,19 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` transformations: []QGraphicsTransform `
+    /// ` _transformations: []QGraphicsTransform `
     ///
-    pub fn SetTransformations(self: QGraphicsVideoItem, transformations: []QGraphicsTransform) void {
+    pub fn setTransformations(self: QGraphicsVideoItem, _transformations: []QGraphicsTransform) void {
         const transformations_list = qtc.libqt_list{
-            .len = transformations.len,
-            .data = @ptrCast(transformations.ptr),
+            .len = _transformations.len,
+            .data = @ptrCast(_transformations.ptr),
         };
         qtc.QGraphicsItem_SetTransformations(@ptrCast(self.ptr), transformations_list);
     }
+
+    /// ### DEPRECATED: Use `transformOriginPoint` instead
+    ///
+    pub const TransformOriginPoint = transformOriginPoint;
 
     /// Inherited from QGraphicsItem
     ///
@@ -2999,9 +3801,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn TransformOriginPoint(self: QGraphicsVideoItem) QPointF {
+    pub fn transformOriginPoint(self: QGraphicsVideoItem) QPointF {
         return .{ .ptr = qtc.QGraphicsItem_TransformOriginPoint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setTransformOriginPoint` instead
+    ///
+    pub const SetTransformOriginPoint = setTransformOriginPoint;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3013,10 +3819,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` origin: QPointF `
     ///
-    pub fn SetTransformOriginPoint(self: QGraphicsVideoItem, origin: anytype) void {
+    pub fn setTransformOriginPoint(self: QGraphicsVideoItem, origin: anytype) void {
         comptime _ = @TypeOf(origin)._is_QPointF;
         qtc.QGraphicsItem_SetTransformOriginPoint(@ptrCast(self.ptr), @ptrCast(origin.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTransformOriginPoint2` instead
+    ///
+    pub const SetTransformOriginPoint2 = setTransformOriginPoint2;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3030,9 +3840,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` ay: f64 `
     ///
-    pub fn SetTransformOriginPoint2(self: QGraphicsVideoItem, ax: f64, ay: f64) void {
+    pub fn setTransformOriginPoint2(self: QGraphicsVideoItem, ax: f64, ay: f64) void {
         qtc.QGraphicsItem_SetTransformOriginPoint2(@ptrCast(self.ptr), @bitCast(ax), @bitCast(ay));
     }
+
+    /// ### DEPRECATED: Use `zValue` instead
+    ///
+    pub const ZValue = zValue;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3042,9 +3856,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn ZValue(self: QGraphicsVideoItem) f64 {
+    pub fn zValue(self: QGraphicsVideoItem) f64 {
         return qtc.QGraphicsItem_ZValue(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setZValue` instead
+    ///
+    pub const SetZValue = setZValue;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3056,9 +3874,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` z: f64 `
     ///
-    pub fn SetZValue(self: QGraphicsVideoItem, z: f64) void {
+    pub fn setZValue(self: QGraphicsVideoItem, z: f64) void {
         qtc.QGraphicsItem_SetZValue(@ptrCast(self.ptr), @bitCast(z));
     }
+
+    /// ### DEPRECATED: Use `stackBefore` instead
+    ///
+    pub const StackBefore = stackBefore;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3070,10 +3892,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` sibling: QGraphicsItem `
     ///
-    pub fn StackBefore(self: QGraphicsVideoItem, sibling: anytype) void {
+    pub fn stackBefore(self: QGraphicsVideoItem, sibling: anytype) void {
         comptime _ = @TypeOf(sibling)._is_QGraphicsItem;
         qtc.QGraphicsItem_StackBefore(@ptrCast(self.ptr), @ptrCast(sibling.ptr));
     }
+
+    /// ### DEPRECATED: Use `childrenBoundingRect` instead
+    ///
+    pub const ChildrenBoundingRect = childrenBoundingRect;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3083,9 +3909,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn ChildrenBoundingRect(self: QGraphicsVideoItem) QRectF {
+    pub fn childrenBoundingRect(self: QGraphicsVideoItem) QRectF {
         return .{ .ptr = qtc.QGraphicsItem_ChildrenBoundingRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `sceneBoundingRect` instead
+    ///
+    pub const SceneBoundingRect = sceneBoundingRect;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3095,9 +3925,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn SceneBoundingRect(self: QGraphicsVideoItem) QRectF {
+    pub fn sceneBoundingRect(self: QGraphicsVideoItem) QRectF {
         return .{ .ptr = qtc.QGraphicsItem_SceneBoundingRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isClipped` instead
+    ///
+    pub const IsClipped = isClipped;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3107,9 +3941,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn IsClipped(self: QGraphicsVideoItem) bool {
+    pub fn isClipped(self: QGraphicsVideoItem) bool {
         return qtc.QGraphicsItem_IsClipped(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clipPath` instead
+    ///
+    pub const ClipPath = clipPath;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3119,9 +3957,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn ClipPath(self: QGraphicsVideoItem) QPainterPath {
+    pub fn clipPath(self: QGraphicsVideoItem) QPainterPath {
         return .{ .ptr = qtc.QGraphicsItem_ClipPath(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `collidingItems` instead
+    ///
+    pub const CollidingItems = collidingItems;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3133,27 +3975,19 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CollidingItems(self: QGraphicsVideoItem, allocator: std.mem.Allocator) []QGraphicsItem {
+    pub fn collidingItems(self: QGraphicsVideoItem, allocator: std.mem.Allocator) []QGraphicsItem {
         const _arr: qtc.libqt_list = qtc.QGraphicsItem_CollidingItems(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("QGraphicsVideoItem.CollidingItems: Memory allocation failed");
-        const _data: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("QGraphicsVideoItem.collidingItems: Memory allocation failed");
+        const _data_val: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
-    /// Inherited from QGraphicsItem
+    /// ### DEPRECATED: Use `isObscured` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isObscured)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsVideoItem `
-    ///
-    pub fn IsObscured(self: QGraphicsVideoItem) bool {
-        return qtc.QGraphicsItem_IsObscured(@ptrCast(self.ptr));
-    }
+    pub const IsObscured = isObscured;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3163,17 +3997,37 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` x: f64 `
+    pub fn isObscured(self: QGraphicsVideoItem) bool {
+        return qtc.QGraphicsItem_IsObscured(@ptrCast(self.ptr));
+    }
+
+    /// ### DEPRECATED: Use `isObscured2` instead
     ///
-    /// ` y: f64 `
+    pub const IsObscured2 = isObscured2;
+
+    /// Inherited from QGraphicsItem
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isObscured)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGraphicsVideoItem `
+    ///
+    /// ` _x: f64 `
+    ///
+    /// ` _y: f64 `
     ///
     /// ` w: f64 `
     ///
     /// ` h: f64 `
     ///
-    pub fn IsObscured2(self: QGraphicsVideoItem, x: f64, y: f64, w: f64, h: f64) bool {
-        return qtc.QGraphicsItem_IsObscured2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn isObscured2(self: QGraphicsVideoItem, _x: f64, _y: f64, w: f64, h: f64) bool {
+        return qtc.QGraphicsItem_IsObscured2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `boundingRegion` instead
+    ///
+    pub const BoundingRegion = boundingRegion;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3185,10 +4039,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` itemToDeviceTransform: QTransform `
     ///
-    pub fn BoundingRegion(self: QGraphicsVideoItem, itemToDeviceTransform: anytype) QRegion {
+    pub fn boundingRegion(self: QGraphicsVideoItem, itemToDeviceTransform: anytype) QRegion {
         comptime _ = @TypeOf(itemToDeviceTransform)._is_QTransform;
         return .{ .ptr = qtc.QGraphicsItem_BoundingRegion(@ptrCast(self.ptr), @ptrCast(itemToDeviceTransform.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `boundingRegionGranularity` instead
+    ///
+    pub const BoundingRegionGranularity = boundingRegionGranularity;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3198,9 +4056,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn BoundingRegionGranularity(self: QGraphicsVideoItem) f64 {
+    pub fn boundingRegionGranularity(self: QGraphicsVideoItem) f64 {
         return qtc.QGraphicsItem_BoundingRegionGranularity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBoundingRegionGranularity` instead
+    ///
+    pub const SetBoundingRegionGranularity = setBoundingRegionGranularity;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3212,21 +4074,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` granularity: f64 `
     ///
-    pub fn SetBoundingRegionGranularity(self: QGraphicsVideoItem, granularity: f64) void {
+    pub fn setBoundingRegionGranularity(self: QGraphicsVideoItem, granularity: f64) void {
         qtc.QGraphicsItem_SetBoundingRegionGranularity(@ptrCast(self.ptr), @bitCast(granularity));
     }
 
-    /// Inherited from QGraphicsItem
+    /// ### DEPRECATED: Use `update` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#update)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsVideoItem `
-    ///
-    pub fn Update(self: QGraphicsVideoItem) void {
-        qtc.QGraphicsItem_Update(@ptrCast(self.ptr));
-    }
+    pub const Update = update;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3236,17 +4090,37 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` x: f64 `
+    pub fn update(self: QGraphicsVideoItem) void {
+        qtc.QGraphicsItem_Update(@ptrCast(self.ptr));
+    }
+
+    /// ### DEPRECATED: Use `update2` instead
     ///
-    /// ` y: f64 `
+    pub const Update2 = update2;
+
+    /// Inherited from QGraphicsItem
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#update)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGraphicsVideoItem `
+    ///
+    /// ` _x: f64 `
+    ///
+    /// ` _y: f64 `
     ///
     /// ` width: f64 `
     ///
     /// ` height: f64 `
     ///
-    pub fn Update2(self: QGraphicsVideoItem, x: f64, y: f64, width: f64, height: f64) void {
-        qtc.QGraphicsItem_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(width), @bitCast(height));
+    pub fn update2(self: QGraphicsVideoItem, _x: f64, _y: f64, width: f64, height: f64) void {
+        qtc.QGraphicsItem_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(width), @bitCast(height));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3260,9 +4134,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` dy: f64 `
     ///
-    pub fn Scroll(self: QGraphicsVideoItem, dx: f64, dy: f64) void {
+    pub fn scroll(self: QGraphicsVideoItem, dx: f64, dy: f64) void {
         qtc.QGraphicsItem_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `mapToItem` instead
+    ///
+    pub const MapToItem = mapToItem;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3276,12 +4154,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` point: QPointF `
     ///
-    pub fn MapToItem(self: QGraphicsVideoItem, item: anytype, point: anytype) QPointF {
+    pub fn mapToItem(self: QGraphicsVideoItem, item: anytype, point: anytype) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
         comptime _ = @TypeOf(point)._is_QPointF;
         return .{ .ptr = qtc.QGraphicsItem_MapToItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(point.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent)
@@ -3292,10 +4174,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` point: QPointF `
     ///
-    pub fn MapToParent(self: QGraphicsVideoItem, point: anytype) QPointF {
+    pub fn mapToParent(self: QGraphicsVideoItem, point: anytype) QPointF {
         comptime _ = @TypeOf(point)._is_QPointF;
         return .{ .ptr = qtc.QGraphicsItem_MapToParent(@ptrCast(self.ptr), @ptrCast(point.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapToScene` instead
+    ///
+    pub const MapToScene = mapToScene;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3307,10 +4193,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` point: QPointF `
     ///
-    pub fn MapToScene(self: QGraphicsVideoItem, point: anytype) QPointF {
+    pub fn mapToScene(self: QGraphicsVideoItem, point: anytype) QPointF {
         comptime _ = @TypeOf(point)._is_QPointF;
         return .{ .ptr = qtc.QGraphicsItem_MapToScene(@ptrCast(self.ptr), @ptrCast(point.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapRectToItem` instead
+    ///
+    pub const MapRectToItem = mapRectToItem;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3324,12 +4214,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` rect: QRectF `
     ///
-    pub fn MapRectToItem(self: QGraphicsVideoItem, item: anytype, rect: anytype) QRectF {
+    pub fn mapRectToItem(self: QGraphicsVideoItem, item: anytype, rect: anytype) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
         comptime _ = @TypeOf(rect)._is_QRectF;
         return .{ .ptr = qtc.QGraphicsItem_MapRectToItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(rect.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapRectToParent` instead
+    ///
+    pub const MapRectToParent = mapRectToParent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectToParent)
@@ -3340,10 +4234,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` rect: QRectF `
     ///
-    pub fn MapRectToParent(self: QGraphicsVideoItem, rect: anytype) QRectF {
+    pub fn mapRectToParent(self: QGraphicsVideoItem, rect: anytype) QRectF {
         comptime _ = @TypeOf(rect)._is_QRectF;
         return .{ .ptr = qtc.QGraphicsItem_MapRectToParent(@ptrCast(self.ptr), @ptrCast(rect.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapRectToScene` instead
+    ///
+    pub const MapRectToScene = mapRectToScene;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3355,10 +4253,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` rect: QRectF `
     ///
-    pub fn MapRectToScene(self: QGraphicsVideoItem, rect: anytype) QRectF {
+    pub fn mapRectToScene(self: QGraphicsVideoItem, rect: anytype) QRectF {
         comptime _ = @TypeOf(rect)._is_QRectF;
         return .{ .ptr = qtc.QGraphicsItem_MapRectToScene(@ptrCast(self.ptr), @ptrCast(rect.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapToItem4` instead
+    ///
+    pub const MapToItem4 = mapToItem4;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3372,11 +4274,15 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` path: QPainterPath `
     ///
-    pub fn MapToItem4(self: QGraphicsVideoItem, item: anytype, path: anytype) QPainterPath {
+    pub fn mapToItem4(self: QGraphicsVideoItem, item: anytype, path: anytype) QPainterPath {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
         comptime _ = @TypeOf(path)._is_QPainterPath;
         return .{ .ptr = qtc.QGraphicsItem_MapToItem4(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(path.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapToParent4` instead
+    ///
+    pub const MapToParent4 = mapToParent4;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3388,10 +4294,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` path: QPainterPath `
     ///
-    pub fn MapToParent4(self: QGraphicsVideoItem, path: anytype) QPainterPath {
+    pub fn mapToParent4(self: QGraphicsVideoItem, path: anytype) QPainterPath {
         comptime _ = @TypeOf(path)._is_QPainterPath;
         return .{ .ptr = qtc.QGraphicsItem_MapToParent4(@ptrCast(self.ptr), @ptrCast(path.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapToScene4` instead
+    ///
+    pub const MapToScene4 = mapToScene4;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3403,10 +4313,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` path: QPainterPath `
     ///
-    pub fn MapToScene4(self: QGraphicsVideoItem, path: anytype) QPainterPath {
+    pub fn mapToScene4(self: QGraphicsVideoItem, path: anytype) QPainterPath {
         comptime _ = @TypeOf(path)._is_QPainterPath;
         return .{ .ptr = qtc.QGraphicsItem_MapToScene4(@ptrCast(self.ptr), @ptrCast(path.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromItem` instead
+    ///
+    pub const MapFromItem = mapFromItem;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3420,11 +4334,15 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` point: QPointF `
     ///
-    pub fn MapFromItem(self: QGraphicsVideoItem, item: anytype, point: anytype) QPointF {
+    pub fn mapFromItem(self: QGraphicsVideoItem, item: anytype, point: anytype) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
         comptime _ = @TypeOf(point)._is_QPointF;
         return .{ .ptr = qtc.QGraphicsItem_MapFromItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(point.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3436,10 +4354,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` point: QPointF `
     ///
-    pub fn MapFromParent(self: QGraphicsVideoItem, point: anytype) QPointF {
+    pub fn mapFromParent(self: QGraphicsVideoItem, point: anytype) QPointF {
         comptime _ = @TypeOf(point)._is_QPointF;
         return .{ .ptr = qtc.QGraphicsItem_MapFromParent(@ptrCast(self.ptr), @ptrCast(point.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromScene` instead
+    ///
+    pub const MapFromScene = mapFromScene;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3451,10 +4373,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` point: QPointF `
     ///
-    pub fn MapFromScene(self: QGraphicsVideoItem, point: anytype) QPointF {
+    pub fn mapFromScene(self: QGraphicsVideoItem, point: anytype) QPointF {
         comptime _ = @TypeOf(point)._is_QPointF;
         return .{ .ptr = qtc.QGraphicsItem_MapFromScene(@ptrCast(self.ptr), @ptrCast(point.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapRectFromItem` instead
+    ///
+    pub const MapRectFromItem = mapRectFromItem;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3468,11 +4394,15 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` rect: QRectF `
     ///
-    pub fn MapRectFromItem(self: QGraphicsVideoItem, item: anytype, rect: anytype) QRectF {
+    pub fn mapRectFromItem(self: QGraphicsVideoItem, item: anytype, rect: anytype) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
         comptime _ = @TypeOf(rect)._is_QRectF;
         return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(rect.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapRectFromParent` instead
+    ///
+    pub const MapRectFromParent = mapRectFromParent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3484,10 +4414,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` rect: QRectF `
     ///
-    pub fn MapRectFromParent(self: QGraphicsVideoItem, rect: anytype) QRectF {
+    pub fn mapRectFromParent(self: QGraphicsVideoItem, rect: anytype) QRectF {
         comptime _ = @TypeOf(rect)._is_QRectF;
         return .{ .ptr = qtc.QGraphicsItem_MapRectFromParent(@ptrCast(self.ptr), @ptrCast(rect.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapRectFromScene` instead
+    ///
+    pub const MapRectFromScene = mapRectFromScene;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3499,10 +4433,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` rect: QRectF `
     ///
-    pub fn MapRectFromScene(self: QGraphicsVideoItem, rect: anytype) QRectF {
+    pub fn mapRectFromScene(self: QGraphicsVideoItem, rect: anytype) QRectF {
         comptime _ = @TypeOf(rect)._is_QRectF;
         return .{ .ptr = qtc.QGraphicsItem_MapRectFromScene(@ptrCast(self.ptr), @ptrCast(rect.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromItem4` instead
+    ///
+    pub const MapFromItem4 = mapFromItem4;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3516,11 +4454,15 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` path: QPainterPath `
     ///
-    pub fn MapFromItem4(self: QGraphicsVideoItem, item: anytype, path: anytype) QPainterPath {
+    pub fn mapFromItem4(self: QGraphicsVideoItem, item: anytype, path: anytype) QPainterPath {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
         comptime _ = @TypeOf(path)._is_QPainterPath;
         return .{ .ptr = qtc.QGraphicsItem_MapFromItem4(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(path.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent4` instead
+    ///
+    pub const MapFromParent4 = mapFromParent4;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3532,10 +4474,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` path: QPainterPath `
     ///
-    pub fn MapFromParent4(self: QGraphicsVideoItem, path: anytype) QPainterPath {
+    pub fn mapFromParent4(self: QGraphicsVideoItem, path: anytype) QPainterPath {
         comptime _ = @TypeOf(path)._is_QPainterPath;
         return .{ .ptr = qtc.QGraphicsItem_MapFromParent4(@ptrCast(self.ptr), @ptrCast(path.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromScene4` instead
+    ///
+    pub const MapFromScene4 = mapFromScene4;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3547,10 +4493,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` path: QPainterPath `
     ///
-    pub fn MapFromScene4(self: QGraphicsVideoItem, path: anytype) QPainterPath {
+    pub fn mapFromScene4(self: QGraphicsVideoItem, path: anytype) QPainterPath {
         comptime _ = @TypeOf(path)._is_QPainterPath;
         return .{ .ptr = qtc.QGraphicsItem_MapFromScene4(@ptrCast(self.ptr), @ptrCast(path.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapToItem5` instead
+    ///
+    pub const MapToItem5 = mapToItem5;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3562,14 +4512,18 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` item: QGraphicsItem `
     ///
-    /// ` x: f64 `
+    /// ` _x: f64 `
     ///
-    /// ` y: f64 `
+    /// ` _y: f64 `
     ///
-    pub fn MapToItem5(self: QGraphicsVideoItem, item: anytype, x: f64, y: f64) QPointF {
+    pub fn mapToItem5(self: QGraphicsVideoItem, item: anytype, _x: f64, _y: f64) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapToItem5(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(x), @bitCast(y)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapToItem5(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `mapToParent5` instead
+    ///
+    pub const MapToParent5 = mapToParent5;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3579,13 +4533,17 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` x: f64 `
+    /// ` _x: f64 `
     ///
-    /// ` y: f64 `
+    /// ` _y: f64 `
     ///
-    pub fn MapToParent5(self: QGraphicsVideoItem, x: f64, y: f64) QPointF {
-        return .{ .ptr = qtc.QGraphicsItem_MapToParent5(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn mapToParent5(self: QGraphicsVideoItem, _x: f64, _y: f64) QPointF {
+        return .{ .ptr = qtc.QGraphicsItem_MapToParent5(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `mapToScene5` instead
+    ///
+    pub const MapToScene5 = mapToScene5;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3595,13 +4553,17 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` x: f64 `
+    /// ` _x: f64 `
     ///
-    /// ` y: f64 `
+    /// ` _y: f64 `
     ///
-    pub fn MapToScene5(self: QGraphicsVideoItem, x: f64, y: f64) QPointF {
-        return .{ .ptr = qtc.QGraphicsItem_MapToScene5(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn mapToScene5(self: QGraphicsVideoItem, _x: f64, _y: f64) QPointF {
+        return .{ .ptr = qtc.QGraphicsItem_MapToScene5(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `mapRectToItem2` instead
+    ///
+    pub const MapRectToItem2 = mapRectToItem2;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3613,18 +4575,22 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` item: QGraphicsItem `
     ///
-    /// ` x: f64 `
+    /// ` _x: f64 `
     ///
-    /// ` y: f64 `
+    /// ` _y: f64 `
     ///
     /// ` w: f64 `
     ///
     /// ` h: f64 `
     ///
-    pub fn MapRectToItem2(self: QGraphicsVideoItem, item: anytype, x: f64, y: f64, w: f64, h: f64) QRectF {
+    pub fn mapRectToItem2(self: QGraphicsVideoItem, item: anytype, _x: f64, _y: f64, w: f64, h: f64) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
     }
+
+    /// ### DEPRECATED: Use `mapRectToParent2` instead
+    ///
+    pub const MapRectToParent2 = mapRectToParent2;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3634,17 +4600,21 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` x: f64 `
+    /// ` _x: f64 `
     ///
-    /// ` y: f64 `
+    /// ` _y: f64 `
     ///
     /// ` w: f64 `
     ///
     /// ` h: f64 `
     ///
-    pub fn MapRectToParent2(self: QGraphicsVideoItem, x: f64, y: f64, w: f64, h: f64) QRectF {
-        return .{ .ptr = qtc.QGraphicsItem_MapRectToParent2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h)) };
+    pub fn mapRectToParent2(self: QGraphicsVideoItem, _x: f64, _y: f64, w: f64, h: f64) QRectF {
+        return .{ .ptr = qtc.QGraphicsItem_MapRectToParent2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
     }
+
+    /// ### DEPRECATED: Use `mapRectToScene2` instead
+    ///
+    pub const MapRectToScene2 = mapRectToScene2;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3654,17 +4624,21 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` x: f64 `
+    /// ` _x: f64 `
     ///
-    /// ` y: f64 `
+    /// ` _y: f64 `
     ///
     /// ` w: f64 `
     ///
     /// ` h: f64 `
     ///
-    pub fn MapRectToScene2(self: QGraphicsVideoItem, x: f64, y: f64, w: f64, h: f64) QRectF {
-        return .{ .ptr = qtc.QGraphicsItem_MapRectToScene2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h)) };
+    pub fn mapRectToScene2(self: QGraphicsVideoItem, _x: f64, _y: f64, w: f64, h: f64) QRectF {
+        return .{ .ptr = qtc.QGraphicsItem_MapRectToScene2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromItem5` instead
+    ///
+    pub const MapFromItem5 = mapFromItem5;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3676,14 +4650,18 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` item: QGraphicsItem `
     ///
-    /// ` x: f64 `
+    /// ` _x: f64 `
     ///
-    /// ` y: f64 `
+    /// ` _y: f64 `
     ///
-    pub fn MapFromItem5(self: QGraphicsVideoItem, item: anytype, x: f64, y: f64) QPointF {
+    pub fn mapFromItem5(self: QGraphicsVideoItem, item: anytype, _x: f64, _y: f64) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapFromItem5(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(x), @bitCast(y)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapFromItem5(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent5` instead
+    ///
+    pub const MapFromParent5 = mapFromParent5;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3693,13 +4671,17 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` x: f64 `
+    /// ` _x: f64 `
     ///
-    /// ` y: f64 `
+    /// ` _y: f64 `
     ///
-    pub fn MapFromParent5(self: QGraphicsVideoItem, x: f64, y: f64) QPointF {
-        return .{ .ptr = qtc.QGraphicsItem_MapFromParent5(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn mapFromParent5(self: QGraphicsVideoItem, _x: f64, _y: f64) QPointF {
+        return .{ .ptr = qtc.QGraphicsItem_MapFromParent5(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromScene5` instead
+    ///
+    pub const MapFromScene5 = mapFromScene5;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3709,13 +4691,17 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` x: f64 `
+    /// ` _x: f64 `
     ///
-    /// ` y: f64 `
+    /// ` _y: f64 `
     ///
-    pub fn MapFromScene5(self: QGraphicsVideoItem, x: f64, y: f64) QPointF {
-        return .{ .ptr = qtc.QGraphicsItem_MapFromScene5(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn mapFromScene5(self: QGraphicsVideoItem, _x: f64, _y: f64) QPointF {
+        return .{ .ptr = qtc.QGraphicsItem_MapFromScene5(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `mapRectFromItem2` instead
+    ///
+    pub const MapRectFromItem2 = mapRectFromItem2;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3727,18 +4713,22 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` item: QGraphicsItem `
     ///
-    /// ` x: f64 `
+    /// ` _x: f64 `
     ///
-    /// ` y: f64 `
+    /// ` _y: f64 `
     ///
     /// ` w: f64 `
     ///
     /// ` h: f64 `
     ///
-    pub fn MapRectFromItem2(self: QGraphicsVideoItem, item: anytype, x: f64, y: f64, w: f64, h: f64) QRectF {
+    pub fn mapRectFromItem2(self: QGraphicsVideoItem, item: anytype, _x: f64, _y: f64, w: f64, h: f64) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
     }
+
+    /// ### DEPRECATED: Use `mapRectFromParent2` instead
+    ///
+    pub const MapRectFromParent2 = mapRectFromParent2;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3748,17 +4738,21 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` x: f64 `
+    /// ` _x: f64 `
     ///
-    /// ` y: f64 `
+    /// ` _y: f64 `
     ///
     /// ` w: f64 `
     ///
     /// ` h: f64 `
     ///
-    pub fn MapRectFromParent2(self: QGraphicsVideoItem, x: f64, y: f64, w: f64, h: f64) QRectF {
-        return .{ .ptr = qtc.QGraphicsItem_MapRectFromParent2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h)) };
+    pub fn mapRectFromParent2(self: QGraphicsVideoItem, _x: f64, _y: f64, w: f64, h: f64) QRectF {
+        return .{ .ptr = qtc.QGraphicsItem_MapRectFromParent2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
     }
+
+    /// ### DEPRECATED: Use `mapRectFromScene2` instead
+    ///
+    pub const MapRectFromScene2 = mapRectFromScene2;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3768,17 +4762,21 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` x: f64 `
+    /// ` _x: f64 `
     ///
-    /// ` y: f64 `
+    /// ` _y: f64 `
     ///
     /// ` w: f64 `
     ///
     /// ` h: f64 `
     ///
-    pub fn MapRectFromScene2(self: QGraphicsVideoItem, x: f64, y: f64, w: f64, h: f64) QRectF {
-        return .{ .ptr = qtc.QGraphicsItem_MapRectFromScene2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h)) };
+    pub fn mapRectFromScene2(self: QGraphicsVideoItem, _x: f64, _y: f64, w: f64, h: f64) QRectF {
+        return .{ .ptr = qtc.QGraphicsItem_MapRectFromScene2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3790,10 +4788,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` child: QGraphicsItem `
     ///
-    pub fn IsAncestorOf(self: QGraphicsVideoItem, child: anytype) bool {
+    pub fn isAncestorOf(self: QGraphicsVideoItem, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QGraphicsItem;
         return qtc.QGraphicsItem_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `commonAncestorItem` instead
+    ///
+    pub const CommonAncestorItem = commonAncestorItem;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3805,10 +4807,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` other: QGraphicsItem `
     ///
-    pub fn CommonAncestorItem(self: QGraphicsVideoItem, other: anytype) QGraphicsItem {
+    pub fn commonAncestorItem(self: QGraphicsVideoItem, other: anytype) QGraphicsItem {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
         return .{ .ptr = qtc.QGraphicsItem_CommonAncestorItem(@ptrCast(self.ptr), @ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isUnderMouse` instead
+    ///
+    pub const IsUnderMouse = isUnderMouse;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3818,9 +4824,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn IsUnderMouse(self: QGraphicsVideoItem) bool {
+    pub fn isUnderMouse(self: QGraphicsVideoItem) bool {
         return qtc.QGraphicsItem_IsUnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `data` instead
+    ///
+    pub const Data = data;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3832,9 +4842,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` key: i32 `
     ///
-    pub fn Data(self: QGraphicsVideoItem, key: i32) QVariant {
+    pub fn data(self: QGraphicsVideoItem, key: i32) QVariant {
         return .{ .ptr = qtc.QGraphicsItem_Data(@ptrCast(self.ptr), @bitCast(key)) };
     }
+
+    /// ### DEPRECATED: Use `setData` instead
+    ///
+    pub const SetData = setData;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3848,10 +4862,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetData(self: QGraphicsVideoItem, key: i32, value: anytype) void {
+    pub fn setData(self: QGraphicsVideoItem, key: i32, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QVariant;
         qtc.QGraphicsItem_SetData(@ptrCast(self.ptr), @bitCast(key), @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3865,9 +4883,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: QGraphicsVideoItem) i32 {
+    pub fn inputMethodHints(self: QGraphicsVideoItem) i32 {
         return qtc.QGraphicsItem_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3879,9 +4901,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: QGraphicsVideoItem, hints: i32) void {
+    pub fn setInputMethodHints(self: QGraphicsVideoItem, hints: i32) void {
         qtc.QGraphicsItem_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `installSceneEventFilter` instead
+    ///
+    pub const InstallSceneEventFilter = installSceneEventFilter;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3893,10 +4919,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` filterItem: QGraphicsItem `
     ///
-    pub fn InstallSceneEventFilter(self: QGraphicsVideoItem, filterItem: anytype) void {
+    pub fn installSceneEventFilter(self: QGraphicsVideoItem, filterItem: anytype) void {
         comptime _ = @TypeOf(filterItem)._is_QGraphicsItem;
         qtc.QGraphicsItem_InstallSceneEventFilter(@ptrCast(self.ptr), @ptrCast(filterItem.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeSceneEventFilter` instead
+    ///
+    pub const RemoveSceneEventFilter = removeSceneEventFilter;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3908,10 +4938,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` filterItem: QGraphicsItem `
     ///
-    pub fn RemoveSceneEventFilter(self: QGraphicsVideoItem, filterItem: anytype) void {
+    pub fn removeSceneEventFilter(self: QGraphicsVideoItem, filterItem: anytype) void {
         comptime _ = @TypeOf(filterItem)._is_QGraphicsItem;
         qtc.QGraphicsItem_RemoveSceneEventFilter(@ptrCast(self.ptr), @ptrCast(filterItem.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFlag2` instead
+    ///
+    pub const SetFlag2 = setFlag2;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3925,9 +4959,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetFlag2(self: QGraphicsVideoItem, flag: i32, enabled: bool) void {
+    pub fn setFlag2(self: QGraphicsVideoItem, flag: i32, enabled: bool) void {
         qtc.QGraphicsItem_SetFlag2(@ptrCast(self.ptr), @bitCast(flag), enabled);
     }
+
+    /// ### DEPRECATED: Use `setCacheMode2` instead
+    ///
+    pub const SetCacheMode2 = setCacheMode2;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3941,10 +4979,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` cacheSize: QSize `
     ///
-    pub fn SetCacheMode2(self: QGraphicsVideoItem, mode: i32, cacheSize: anytype) void {
+    pub fn setCacheMode2(self: QGraphicsVideoItem, mode: i32, cacheSize: anytype) void {
         comptime _ = @TypeOf(cacheSize)._is_QSize;
         qtc.QGraphicsItem_SetCacheMode2(@ptrCast(self.ptr), @bitCast(mode), @ptrCast(cacheSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `isBlockedByModalPanel1` instead
+    ///
+    pub const IsBlockedByModalPanel1 = isBlockedByModalPanel1;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3956,9 +4998,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` blockingPanel: *QGraphicsItem.ptr `
     ///
-    pub fn IsBlockedByModalPanel1(self: QGraphicsVideoItem, blockingPanel: *?*anyopaque) bool {
+    pub fn isBlockedByModalPanel1(self: QGraphicsVideoItem, blockingPanel: *?*anyopaque) bool {
         return qtc.QGraphicsItem_IsBlockedByModalPanel1(@ptrCast(self.ptr), @ptrCast(blockingPanel));
     }
+
+    /// ### DEPRECATED: Use `setFocus1` instead
+    ///
+    pub const SetFocus1 = setFocus1;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3970,9 +5016,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` focusReason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus1(self: QGraphicsVideoItem, focusReason: i32) void {
+    pub fn setFocus1(self: QGraphicsVideoItem, focusReason: i32) void {
         qtc.QGraphicsItem_SetFocus1(@ptrCast(self.ptr), @bitCast(focusReason));
     }
+
+    /// ### DEPRECATED: Use `ensureVisible1` instead
+    ///
+    pub const EnsureVisible1 = ensureVisible1;
 
     /// Inherited from QGraphicsItem
     ///
@@ -3984,11 +5034,15 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` rect: QRectF `
     ///
-    pub fn EnsureVisible1(self: QGraphicsVideoItem, rect: anytype) void {
+    pub fn ensureVisible1(self: QGraphicsVideoItem, rect: anytype) void {
         comptime _ = @TypeOf(rect)._is_QRectF;
         qtc.QGraphicsItem_EnsureVisible1(@ptrCast(self.ptr), @ptrCast(rect.ptr));
     }
 
+    /// ### DEPRECATED: Use `ensureVisible22` instead
+    ///
+    pub const EnsureVisible22 = ensureVisible22;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
@@ -4001,11 +5055,15 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` xmargin: i32 `
     ///
-    pub fn EnsureVisible22(self: QGraphicsVideoItem, rect: anytype, xmargin: i32) void {
+    pub fn ensureVisible22(self: QGraphicsVideoItem, rect: anytype, xmargin: i32) void {
         comptime _ = @TypeOf(rect)._is_QRectF;
         qtc.QGraphicsItem_EnsureVisible22(@ptrCast(self.ptr), @ptrCast(rect.ptr), @bitCast(xmargin));
     }
 
+    /// ### DEPRECATED: Use `ensureVisible3` instead
+    ///
+    pub const EnsureVisible3 = ensureVisible3;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
@@ -4020,10 +5078,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` ymargin: i32 `
     ///
-    pub fn EnsureVisible3(self: QGraphicsVideoItem, rect: anytype, xmargin: i32, ymargin: i32) void {
+    pub fn ensureVisible3(self: QGraphicsVideoItem, rect: anytype, xmargin: i32, ymargin: i32) void {
         comptime _ = @TypeOf(rect)._is_QRectF;
         qtc.QGraphicsItem_EnsureVisible3(@ptrCast(self.ptr), @ptrCast(rect.ptr), @bitCast(xmargin), @bitCast(ymargin));
     }
+
+    /// ### DEPRECATED: Use `ensureVisible5` instead
+    ///
+    pub const EnsureVisible5 = ensureVisible5;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4033,9 +5095,9 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` x: f64 `
+    /// ` _x: f64 `
     ///
-    /// ` y: f64 `
+    /// ` _y: f64 `
     ///
     /// ` w: f64 `
     ///
@@ -4043,9 +5105,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` xmargin: i32 `
     ///
-    pub fn EnsureVisible5(self: QGraphicsVideoItem, x: f64, y: f64, w: f64, h: f64, xmargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible5(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(xmargin));
+    pub fn ensureVisible5(self: QGraphicsVideoItem, _x: f64, _y: f64, w: f64, h: f64, xmargin: i32) void {
+        qtc.QGraphicsItem_EnsureVisible5(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h), @bitCast(xmargin));
     }
+
+    /// ### DEPRECATED: Use `ensureVisible6` instead
+    ///
+    pub const EnsureVisible6 = ensureVisible6;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4055,9 +5121,9 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` x: f64 `
+    /// ` _x: f64 `
     ///
-    /// ` y: f64 `
+    /// ` _y: f64 `
     ///
     /// ` w: f64 `
     ///
@@ -4067,9 +5133,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` ymargin: i32 `
     ///
-    pub fn EnsureVisible6(self: QGraphicsVideoItem, x: f64, y: f64, w: f64, h: f64, xmargin: i32, ymargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible6(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(xmargin), @bitCast(ymargin));
+    pub fn ensureVisible6(self: QGraphicsVideoItem, _x: f64, _y: f64, w: f64, h: f64, xmargin: i32, ymargin: i32) void {
+        qtc.QGraphicsItem_EnsureVisible6(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h), @bitCast(xmargin), @bitCast(ymargin));
     }
+
+    /// ### DEPRECATED: Use `itemTransform2` instead
+    ///
+    pub const ItemTransform2 = itemTransform2;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4083,10 +5153,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` ok: *bool `
     ///
-    pub fn ItemTransform2(self: QGraphicsVideoItem, other: anytype, ok: *bool) QTransform {
+    pub fn itemTransform2(self: QGraphicsVideoItem, other: anytype, ok: *bool) QTransform {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
         return .{ .ptr = qtc.QGraphicsItem_ItemTransform2(@ptrCast(self.ptr), @ptrCast(other.ptr), @ptrCast(ok)) };
     }
+
+    /// ### DEPRECATED: Use `setTransform2` instead
+    ///
+    pub const SetTransform2 = setTransform2;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4100,10 +5174,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` combine: bool `
     ///
-    pub fn SetTransform2(self: QGraphicsVideoItem, matrix: anytype, combine: bool) void {
+    pub fn setTransform2(self: QGraphicsVideoItem, matrix: anytype, combine: bool) void {
         comptime _ = @TypeOf(matrix)._is_QTransform;
         qtc.QGraphicsItem_SetTransform2(@ptrCast(self.ptr), @ptrCast(matrix.ptr), combine);
     }
+
+    /// ### DEPRECATED: Use `collidingItems1` instead
+    ///
+    pub const CollidingItems1 = collidingItems1;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4117,15 +5195,19 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
-    pub fn CollidingItems1(self: QGraphicsVideoItem, allocator: std.mem.Allocator, mode: i32) []QGraphicsItem {
+    pub fn collidingItems1(self: QGraphicsVideoItem, allocator: std.mem.Allocator, mode: i32) []QGraphicsItem {
         const _arr: qtc.libqt_list = qtc.QGraphicsItem_CollidingItems1(@ptrCast(self.ptr), @bitCast(mode));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("QGraphicsVideoItem.CollidingItems1: Memory allocation failed");
-        const _data: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("QGraphicsVideoItem.collidingItems1: Memory allocation failed");
+        const _data_val: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isObscured1` instead
+    ///
+    pub const IsObscured1 = isObscured1;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4137,10 +5219,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` rect: QRectF `
     ///
-    pub fn IsObscured1(self: QGraphicsVideoItem, rect: anytype) bool {
+    pub fn isObscured1(self: QGraphicsVideoItem, rect: anytype) bool {
         comptime _ = @TypeOf(rect)._is_QRectF;
         return qtc.QGraphicsItem_IsObscured1(@ptrCast(self.ptr), @ptrCast(rect.ptr));
     }
+
+    /// ### DEPRECATED: Use `update1` instead
+    ///
+    pub const Update1 = update1;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4152,10 +5238,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` rect: QRectF `
     ///
-    pub fn Update1(self: QGraphicsVideoItem, rect: anytype) void {
+    pub fn update1(self: QGraphicsVideoItem, rect: anytype) void {
         comptime _ = @TypeOf(rect)._is_QRectF;
         qtc.QGraphicsItem_Update1(@ptrCast(self.ptr), @ptrCast(rect.ptr));
     }
+
+    /// ### DEPRECATED: Use `scroll3` instead
+    ///
+    pub const Scroll3 = scroll3;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4171,10 +5261,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` rect: QRectF `
     ///
-    pub fn Scroll3(self: QGraphicsVideoItem, dx: f64, dy: f64, rect: anytype) void {
+    pub fn scroll3(self: QGraphicsVideoItem, dx: f64, dy: f64, rect: anytype) void {
         comptime _ = @TypeOf(rect)._is_QRectF;
         qtc.QGraphicsItem_Scroll3(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(rect.ptr));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QGraphicsObject
     ///
@@ -4188,14 +5282,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` ev: QEvent `
     ///
-    pub fn Event(self: QGraphicsVideoItem, ev: anytype) bool {
+    pub fn event(self: QGraphicsVideoItem, ev: anytype) bool {
         comptime _ = @TypeOf(ev)._is_QEvent;
         return qtc.QGraphicsVideoItem_Event(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QGraphicsObject
     ///
@@ -4209,10 +5303,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` ev: QEvent `
     ///
-    pub fn SuperEvent(self: QGraphicsVideoItem, ev: anytype) bool {
+    pub fn superEvent(self: QGraphicsVideoItem, ev: anytype) bool {
         comptime _ = @TypeOf(ev)._is_QEvent;
         return qtc.QGraphicsVideoItem_SuperEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QGraphicsObject
     ///
@@ -4226,9 +5324,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem, ev: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QEvent) callconv(.c) bool) void {
         qtc.QGraphicsVideoItem_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -4242,17 +5344,17 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QGraphicsVideoItem, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QGraphicsVideoItem, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QGraphicsVideoItem_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QGraphicsVideoItem_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4266,13 +5368,17 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QGraphicsVideoItem, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QGraphicsVideoItem, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QGraphicsVideoItem_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QGraphicsVideoItem_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4286,9 +5392,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QObject, QEvent) callconv(.c) bool) void {
         qtc.QGraphicsVideoItem_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -4300,16 +5410,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QGraphicsVideoItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QGraphicsVideoItem_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QGraphicsVideoItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QGraphicsVideoItem_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -4321,12 +5431,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QGraphicsVideoItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QGraphicsVideoItem_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QGraphicsVideoItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QGraphicsVideoItem_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -4340,9 +5454,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QChildEvent) callconv(.c) void) void {
         qtc.QGraphicsVideoItem_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -4354,16 +5472,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QGraphicsVideoItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QGraphicsVideoItem_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QGraphicsVideoItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QGraphicsVideoItem_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -4375,12 +5493,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QGraphicsVideoItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QGraphicsVideoItem_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QGraphicsVideoItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QGraphicsVideoItem_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -4394,9 +5516,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QEvent) callconv(.c) void) void {
         qtc.QGraphicsVideoItem_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -4410,14 +5536,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QGraphicsVideoItem, signal: anytype) void {
+    pub fn connectNotify(self: QGraphicsVideoItem, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QGraphicsVideoItem_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -4431,11 +5557,15 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QGraphicsVideoItem, signal: anytype) void {
+    pub fn superConnectNotify(self: QGraphicsVideoItem, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QGraphicsVideoItem_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -4448,9 +5578,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QMetaMethod) callconv(.c) void) void {
         qtc.QGraphicsVideoItem_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -4464,14 +5598,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QGraphicsVideoItem, signal: anytype) void {
+    pub fn disconnectNotify(self: QGraphicsVideoItem, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QGraphicsVideoItem_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -4485,10 +5619,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QGraphicsVideoItem, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QGraphicsVideoItem, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QGraphicsVideoItem_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -4502,9 +5640,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QMetaMethod) callconv(.c) void) void {
         qtc.QGraphicsVideoItem_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `advance` instead
+    ///
+    pub const Advance = advance;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4518,13 +5660,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` phase: i32 `
     ///
-    pub fn Advance(self: QGraphicsVideoItem, phase: i32) void {
+    pub fn advance(self: QGraphicsVideoItem, phase: i32) void {
         qtc.QGraphicsVideoItem_Advance(@ptrCast(self.ptr), @bitCast(phase));
     }
 
-    /// ### DEPRECATED: Use `SuperAdvance` instead
+    /// ### DEPRECATED: Use `superAdvance` instead
     ///
-    pub const QBaseAdvance = SuperAdvance;
+    pub const SuperAdvance = superAdvance;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4538,9 +5680,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` phase: i32 `
     ///
-    pub fn SuperAdvance(self: QGraphicsVideoItem, phase: i32) void {
+    pub fn superAdvance(self: QGraphicsVideoItem, phase: i32) void {
         qtc.QGraphicsVideoItem_SuperAdvance(@ptrCast(self.ptr), @bitCast(phase));
     }
+
+    /// ### DEPRECATED: Use `onAdvance` instead
+    ///
+    pub const OnAdvance = onAdvance;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4554,9 +5700,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem, phase: i32) callconv(.c) void `
     ///
-    pub fn OnAdvance(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, i32) callconv(.c) void) void {
+    pub fn onAdvance(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, i32) callconv(.c) void) void {
         qtc.QGraphicsVideoItem_OnAdvance(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `shape` instead
+    ///
+    pub const Shape = shape;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4568,13 +5718,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn Shape(self: QGraphicsVideoItem) QPainterPath {
+    pub fn shape(self: QGraphicsVideoItem) QPainterPath {
         return .{ .ptr = qtc.QGraphicsVideoItem_Shape(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperShape` instead
+    /// ### DEPRECATED: Use `superShape` instead
     ///
-    pub const QBaseShape = SuperShape;
+    pub const SuperShape = superShape;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4586,9 +5736,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn SuperShape(self: QGraphicsVideoItem) QPainterPath {
+    pub fn superShape(self: QGraphicsVideoItem) QPainterPath {
         return .{ .ptr = qtc.QGraphicsVideoItem_SuperShape(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onShape` instead
+    ///
+    pub const OnShape = onShape;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4604,9 +5758,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnShape(self: QGraphicsVideoItem, callback: *const fn () callconv(.c) QPainterPath) void {
+    pub fn onShape(self: QGraphicsVideoItem, callback: *const fn () callconv(.c) QPainterPath) void {
         qtc.QGraphicsVideoItem_OnShape(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contains` instead
+    ///
+    pub const Contains = contains;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4620,14 +5778,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` point: QPointF `
     ///
-    pub fn Contains(self: QGraphicsVideoItem, point: anytype) bool {
+    pub fn contains(self: QGraphicsVideoItem, point: anytype) bool {
         comptime _ = @TypeOf(point)._is_QPointF;
         return qtc.QGraphicsVideoItem_Contains(@ptrCast(self.ptr), @ptrCast(point.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContains` instead
+    /// ### DEPRECATED: Use `superContains` instead
     ///
-    pub const QBaseContains = SuperContains;
+    pub const SuperContains = superContains;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4641,10 +5799,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` point: QPointF `
     ///
-    pub fn SuperContains(self: QGraphicsVideoItem, point: anytype) bool {
+    pub fn superContains(self: QGraphicsVideoItem, point: anytype) bool {
         comptime _ = @TypeOf(point)._is_QPointF;
         return qtc.QGraphicsVideoItem_SuperContains(@ptrCast(self.ptr), @ptrCast(point.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContains` instead
+    ///
+    pub const OnContains = onContains;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4658,9 +5820,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem, point: QPointF) callconv(.c) bool `
     ///
-    pub fn OnContains(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QPointF) callconv(.c) bool) void {
+    pub fn onContains(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QPointF) callconv(.c) bool) void {
         qtc.QGraphicsVideoItem_OnContains(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `collidesWithItem` instead
+    ///
+    pub const CollidesWithItem = collidesWithItem;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4676,14 +5842,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
-    pub fn CollidesWithItem(self: QGraphicsVideoItem, other: anytype, mode: i32) bool {
+    pub fn collidesWithItem(self: QGraphicsVideoItem, other: anytype, mode: i32) bool {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
         return qtc.QGraphicsVideoItem_CollidesWithItem(@ptrCast(self.ptr), @ptrCast(other.ptr), @bitCast(mode));
     }
 
-    /// ### DEPRECATED: Use `SuperCollidesWithItem` instead
+    /// ### DEPRECATED: Use `superCollidesWithItem` instead
     ///
-    pub const QBaseCollidesWithItem = SuperCollidesWithItem;
+    pub const SuperCollidesWithItem = superCollidesWithItem;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4699,10 +5865,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
-    pub fn SuperCollidesWithItem(self: QGraphicsVideoItem, other: anytype, mode: i32) bool {
+    pub fn superCollidesWithItem(self: QGraphicsVideoItem, other: anytype, mode: i32) bool {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
         return qtc.QGraphicsVideoItem_SuperCollidesWithItem(@ptrCast(self.ptr), @ptrCast(other.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `onCollidesWithItem` instead
+    ///
+    pub const OnCollidesWithItem = onCollidesWithItem;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4716,9 +5886,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem, other: QGraphicsItem, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool `
     ///
-    pub fn OnCollidesWithItem(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QGraphicsItem, i32) callconv(.c) bool) void {
+    pub fn onCollidesWithItem(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QGraphicsItem, i32) callconv(.c) bool) void {
         qtc.QGraphicsVideoItem_OnCollidesWithItem(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `collidesWithPath` instead
+    ///
+    pub const CollidesWithPath = collidesWithPath;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4734,14 +5908,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
-    pub fn CollidesWithPath(self: QGraphicsVideoItem, path: anytype, mode: i32) bool {
+    pub fn collidesWithPath(self: QGraphicsVideoItem, path: anytype, mode: i32) bool {
         comptime _ = @TypeOf(path)._is_QPainterPath;
         return qtc.QGraphicsVideoItem_CollidesWithPath(@ptrCast(self.ptr), @ptrCast(path.ptr), @bitCast(mode));
     }
 
-    /// ### DEPRECATED: Use `SuperCollidesWithPath` instead
+    /// ### DEPRECATED: Use `superCollidesWithPath` instead
     ///
-    pub const QBaseCollidesWithPath = SuperCollidesWithPath;
+    pub const SuperCollidesWithPath = superCollidesWithPath;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4757,10 +5931,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
-    pub fn SuperCollidesWithPath(self: QGraphicsVideoItem, path: anytype, mode: i32) bool {
+    pub fn superCollidesWithPath(self: QGraphicsVideoItem, path: anytype, mode: i32) bool {
         comptime _ = @TypeOf(path)._is_QPainterPath;
         return qtc.QGraphicsVideoItem_SuperCollidesWithPath(@ptrCast(self.ptr), @ptrCast(path.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `onCollidesWithPath` instead
+    ///
+    pub const OnCollidesWithPath = onCollidesWithPath;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4774,9 +5952,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem, path: QPainterPath, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool `
     ///
-    pub fn OnCollidesWithPath(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QPainterPath, i32) callconv(.c) bool) void {
+    pub fn onCollidesWithPath(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QPainterPath, i32) callconv(.c) bool) void {
         qtc.QGraphicsVideoItem_OnCollidesWithPath(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isObscuredBy` instead
+    ///
+    pub const IsObscuredBy = isObscuredBy;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4790,14 +5972,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` item: QGraphicsItem `
     ///
-    pub fn IsObscuredBy(self: QGraphicsVideoItem, item: anytype) bool {
+    pub fn isObscuredBy(self: QGraphicsVideoItem, item: anytype) bool {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
         return qtc.QGraphicsVideoItem_IsObscuredBy(@ptrCast(self.ptr), @ptrCast(item.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsObscuredBy` instead
+    /// ### DEPRECATED: Use `superIsObscuredBy` instead
     ///
-    pub const QBaseIsObscuredBy = SuperIsObscuredBy;
+    pub const SuperIsObscuredBy = superIsObscuredBy;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4811,10 +5993,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` item: QGraphicsItem `
     ///
-    pub fn SuperIsObscuredBy(self: QGraphicsVideoItem, item: anytype) bool {
+    pub fn superIsObscuredBy(self: QGraphicsVideoItem, item: anytype) bool {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
         return qtc.QGraphicsVideoItem_SuperIsObscuredBy(@ptrCast(self.ptr), @ptrCast(item.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsObscuredBy` instead
+    ///
+    pub const OnIsObscuredBy = onIsObscuredBy;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4828,9 +6014,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem, item: QGraphicsItem) callconv(.c) bool `
     ///
-    pub fn OnIsObscuredBy(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QGraphicsItem) callconv(.c) bool) void {
+    pub fn onIsObscuredBy(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QGraphicsItem) callconv(.c) bool) void {
         qtc.QGraphicsVideoItem_OnIsObscuredBy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `opaqueArea` instead
+    ///
+    pub const OpaqueArea = opaqueArea;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4842,13 +6032,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn OpaqueArea(self: QGraphicsVideoItem) QPainterPath {
+    pub fn opaqueArea(self: QGraphicsVideoItem) QPainterPath {
         return .{ .ptr = qtc.QGraphicsVideoItem_OpaqueArea(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperOpaqueArea` instead
+    /// ### DEPRECATED: Use `superOpaqueArea` instead
     ///
-    pub const QBaseOpaqueArea = SuperOpaqueArea;
+    pub const SuperOpaqueArea = superOpaqueArea;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4860,9 +6050,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn SuperOpaqueArea(self: QGraphicsVideoItem) QPainterPath {
+    pub fn superOpaqueArea(self: QGraphicsVideoItem) QPainterPath {
         return .{ .ptr = qtc.QGraphicsVideoItem_SuperOpaqueArea(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onOpaqueArea` instead
+    ///
+    pub const OnOpaqueArea = onOpaqueArea;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4878,9 +6072,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnOpaqueArea(self: QGraphicsVideoItem, callback: *const fn () callconv(.c) QPainterPath) void {
+    pub fn onOpaqueArea(self: QGraphicsVideoItem, callback: *const fn () callconv(.c) QPainterPath) void {
         qtc.QGraphicsVideoItem_OnOpaqueArea(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sceneEventFilter` instead
+    ///
+    pub const SceneEventFilter = sceneEventFilter;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4894,17 +6092,17 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` watched: QGraphicsItem `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SceneEventFilter(self: QGraphicsVideoItem, watched: anytype, event: anytype) bool {
+    pub fn sceneEventFilter(self: QGraphicsVideoItem, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QGraphicsItem;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QGraphicsVideoItem_SceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QGraphicsVideoItem_SceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSceneEventFilter` instead
+    /// ### DEPRECATED: Use `superSceneEventFilter` instead
     ///
-    pub const QBaseSceneEventFilter = SuperSceneEventFilter;
+    pub const SuperSceneEventFilter = superSceneEventFilter;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4918,13 +6116,17 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` watched: QGraphicsItem `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperSceneEventFilter(self: QGraphicsVideoItem, watched: anytype, event: anytype) bool {
+    pub fn superSceneEventFilter(self: QGraphicsVideoItem, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QGraphicsItem;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QGraphicsVideoItem_SuperSceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QGraphicsVideoItem_SuperSceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSceneEventFilter` instead
+    ///
+    pub const OnSceneEventFilter = onSceneEventFilter;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4938,9 +6140,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem, watched: QGraphicsItem, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnSceneEventFilter(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QGraphicsItem, QEvent) callconv(.c) bool) void {
+    pub fn onSceneEventFilter(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QGraphicsItem, QEvent) callconv(.c) bool) void {
         qtc.QGraphicsVideoItem_OnSceneEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sceneEvent` instead
+    ///
+    pub const SceneEvent = sceneEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4952,16 +6158,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SceneEvent(self: QGraphicsVideoItem, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QGraphicsVideoItem_SceneEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn sceneEvent(self: QGraphicsVideoItem, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QGraphicsVideoItem_SceneEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSceneEvent` instead
+    /// ### DEPRECATED: Use `superSceneEvent` instead
     ///
-    pub const QBaseSceneEvent = SuperSceneEvent;
+    pub const SuperSceneEvent = superSceneEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4973,12 +6179,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperSceneEvent(self: QGraphicsVideoItem, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QGraphicsVideoItem_SuperSceneEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superSceneEvent(self: QGraphicsVideoItem, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QGraphicsVideoItem_SuperSceneEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSceneEvent` instead
+    ///
+    pub const OnSceneEvent = onSceneEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -4992,9 +6202,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnSceneEvent(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QEvent) callconv(.c) bool) void {
+    pub fn onSceneEvent(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QEvent) callconv(.c) bool) void {
         qtc.QGraphicsVideoItem_OnSceneEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5006,16 +6220,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` event: QGraphicsSceneContextMenuEvent `
+    /// ` _event: QGraphicsSceneContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: QGraphicsVideoItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QGraphicsSceneContextMenuEvent;
-        qtc.QGraphicsVideoItem_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn contextMenuEvent(self: QGraphicsVideoItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QGraphicsSceneContextMenuEvent;
+        qtc.QGraphicsVideoItem_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5027,12 +6241,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` event: QGraphicsSceneContextMenuEvent `
+    /// ` _event: QGraphicsSceneContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: QGraphicsVideoItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QGraphicsSceneContextMenuEvent;
-        qtc.QGraphicsVideoItem_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superContextMenuEvent(self: QGraphicsVideoItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QGraphicsSceneContextMenuEvent;
+        qtc.QGraphicsVideoItem_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5046,10 +6264,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem, event: QGraphicsSceneContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QGraphicsSceneContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QGraphicsSceneContextMenuEvent) callconv(.c) void) void {
         qtc.QGraphicsVideoItem_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#dragEnterEvent)
@@ -5060,16 +6282,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` event: QGraphicsSceneDragDropEvent `
+    /// ` _event: QGraphicsSceneDragDropEvent `
     ///
-    pub fn DragEnterEvent(self: QGraphicsVideoItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QGraphicsSceneDragDropEvent;
-        qtc.QGraphicsVideoItem_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: QGraphicsVideoItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QGraphicsSceneDragDropEvent;
+        qtc.QGraphicsVideoItem_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5081,12 +6303,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` event: QGraphicsSceneDragDropEvent `
+    /// ` _event: QGraphicsSceneDragDropEvent `
     ///
-    pub fn SuperDragEnterEvent(self: QGraphicsVideoItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QGraphicsSceneDragDropEvent;
-        qtc.QGraphicsVideoItem_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: QGraphicsVideoItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QGraphicsSceneDragDropEvent;
+        qtc.QGraphicsVideoItem_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5100,10 +6326,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem, event: QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QGraphicsSceneDragDropEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QGraphicsSceneDragDropEvent) callconv(.c) void) void {
         qtc.QGraphicsVideoItem_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#dragLeaveEvent)
@@ -5114,16 +6344,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` event: QGraphicsSceneDragDropEvent `
+    /// ` _event: QGraphicsSceneDragDropEvent `
     ///
-    pub fn DragLeaveEvent(self: QGraphicsVideoItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QGraphicsSceneDragDropEvent;
-        qtc.QGraphicsVideoItem_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: QGraphicsVideoItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QGraphicsSceneDragDropEvent;
+        qtc.QGraphicsVideoItem_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5135,12 +6365,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` event: QGraphicsSceneDragDropEvent `
+    /// ` _event: QGraphicsSceneDragDropEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: QGraphicsVideoItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QGraphicsSceneDragDropEvent;
-        qtc.QGraphicsVideoItem_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: QGraphicsVideoItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QGraphicsSceneDragDropEvent;
+        qtc.QGraphicsVideoItem_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5154,10 +6388,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem, event: QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QGraphicsSceneDragDropEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QGraphicsSceneDragDropEvent) callconv(.c) void) void {
         qtc.QGraphicsVideoItem_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#dragMoveEvent)
@@ -5168,16 +6406,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` event: QGraphicsSceneDragDropEvent `
+    /// ` _event: QGraphicsSceneDragDropEvent `
     ///
-    pub fn DragMoveEvent(self: QGraphicsVideoItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QGraphicsSceneDragDropEvent;
-        qtc.QGraphicsVideoItem_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: QGraphicsVideoItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QGraphicsSceneDragDropEvent;
+        qtc.QGraphicsVideoItem_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5189,12 +6427,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` event: QGraphicsSceneDragDropEvent `
+    /// ` _event: QGraphicsSceneDragDropEvent `
     ///
-    pub fn SuperDragMoveEvent(self: QGraphicsVideoItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QGraphicsSceneDragDropEvent;
-        qtc.QGraphicsVideoItem_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: QGraphicsVideoItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QGraphicsSceneDragDropEvent;
+        qtc.QGraphicsVideoItem_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5208,10 +6450,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem, event: QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QGraphicsSceneDragDropEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QGraphicsSceneDragDropEvent) callconv(.c) void) void {
         qtc.QGraphicsVideoItem_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#dropEvent)
@@ -5222,16 +6468,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` event: QGraphicsSceneDragDropEvent `
+    /// ` _event: QGraphicsSceneDragDropEvent `
     ///
-    pub fn DropEvent(self: QGraphicsVideoItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QGraphicsSceneDragDropEvent;
-        qtc.QGraphicsVideoItem_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: QGraphicsVideoItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QGraphicsSceneDragDropEvent;
+        qtc.QGraphicsVideoItem_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5243,12 +6489,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` event: QGraphicsSceneDragDropEvent `
+    /// ` _event: QGraphicsSceneDragDropEvent `
     ///
-    pub fn SuperDropEvent(self: QGraphicsVideoItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QGraphicsSceneDragDropEvent;
-        qtc.QGraphicsVideoItem_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: QGraphicsVideoItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QGraphicsSceneDragDropEvent;
+        qtc.QGraphicsVideoItem_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5262,10 +6512,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem, event: QGraphicsSceneDragDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QGraphicsSceneDragDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QGraphicsSceneDragDropEvent) callconv(.c) void) void {
         qtc.QGraphicsVideoItem_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#focusInEvent)
@@ -5276,16 +6530,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: QGraphicsVideoItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QGraphicsVideoItem_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusInEvent(self: QGraphicsVideoItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QGraphicsVideoItem_FocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5297,12 +6551,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: QGraphicsVideoItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QGraphicsVideoItem_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusInEvent(self: QGraphicsVideoItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QGraphicsVideoItem_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5316,10 +6574,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QFocusEvent) callconv(.c) void) void {
         qtc.QGraphicsVideoItem_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#focusOutEvent)
@@ -5330,16 +6592,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: QGraphicsVideoItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QGraphicsVideoItem_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusOutEvent(self: QGraphicsVideoItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QGraphicsVideoItem_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5351,12 +6613,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: QGraphicsVideoItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QGraphicsVideoItem_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusOutEvent(self: QGraphicsVideoItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QGraphicsVideoItem_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5370,10 +6636,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QFocusEvent) callconv(.c) void) void {
         qtc.QGraphicsVideoItem_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `hoverEnterEvent` instead
+    ///
+    pub const HoverEnterEvent = hoverEnterEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#hoverEnterEvent)
@@ -5384,16 +6654,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` event: QGraphicsSceneHoverEvent `
+    /// ` _event: QGraphicsSceneHoverEvent `
     ///
-    pub fn HoverEnterEvent(self: QGraphicsVideoItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QGraphicsSceneHoverEvent;
-        qtc.QGraphicsVideoItem_HoverEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hoverEnterEvent(self: QGraphicsVideoItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QGraphicsSceneHoverEvent;
+        qtc.QGraphicsVideoItem_HoverEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHoverEnterEvent` instead
+    /// ### DEPRECATED: Use `superHoverEnterEvent` instead
     ///
-    pub const QBaseHoverEnterEvent = SuperHoverEnterEvent;
+    pub const SuperHoverEnterEvent = superHoverEnterEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5405,12 +6675,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` event: QGraphicsSceneHoverEvent `
+    /// ` _event: QGraphicsSceneHoverEvent `
     ///
-    pub fn SuperHoverEnterEvent(self: QGraphicsVideoItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QGraphicsSceneHoverEvent;
-        qtc.QGraphicsVideoItem_SuperHoverEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHoverEnterEvent(self: QGraphicsVideoItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QGraphicsSceneHoverEvent;
+        qtc.QGraphicsVideoItem_SuperHoverEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHoverEnterEvent` instead
+    ///
+    pub const OnHoverEnterEvent = onHoverEnterEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5424,10 +6698,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem, event: QGraphicsSceneHoverEvent) callconv(.c) void `
     ///
-    pub fn OnHoverEnterEvent(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QGraphicsSceneHoverEvent) callconv(.c) void) void {
+    pub fn onHoverEnterEvent(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QGraphicsSceneHoverEvent) callconv(.c) void) void {
         qtc.QGraphicsVideoItem_OnHoverEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `hoverMoveEvent` instead
+    ///
+    pub const HoverMoveEvent = hoverMoveEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#hoverMoveEvent)
@@ -5438,16 +6716,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` event: QGraphicsSceneHoverEvent `
+    /// ` _event: QGraphicsSceneHoverEvent `
     ///
-    pub fn HoverMoveEvent(self: QGraphicsVideoItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QGraphicsSceneHoverEvent;
-        qtc.QGraphicsVideoItem_HoverMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hoverMoveEvent(self: QGraphicsVideoItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QGraphicsSceneHoverEvent;
+        qtc.QGraphicsVideoItem_HoverMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHoverMoveEvent` instead
+    /// ### DEPRECATED: Use `superHoverMoveEvent` instead
     ///
-    pub const QBaseHoverMoveEvent = SuperHoverMoveEvent;
+    pub const SuperHoverMoveEvent = superHoverMoveEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5459,12 +6737,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` event: QGraphicsSceneHoverEvent `
+    /// ` _event: QGraphicsSceneHoverEvent `
     ///
-    pub fn SuperHoverMoveEvent(self: QGraphicsVideoItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QGraphicsSceneHoverEvent;
-        qtc.QGraphicsVideoItem_SuperHoverMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHoverMoveEvent(self: QGraphicsVideoItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QGraphicsSceneHoverEvent;
+        qtc.QGraphicsVideoItem_SuperHoverMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHoverMoveEvent` instead
+    ///
+    pub const OnHoverMoveEvent = onHoverMoveEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5478,10 +6760,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem, event: QGraphicsSceneHoverEvent) callconv(.c) void `
     ///
-    pub fn OnHoverMoveEvent(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QGraphicsSceneHoverEvent) callconv(.c) void) void {
+    pub fn onHoverMoveEvent(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QGraphicsSceneHoverEvent) callconv(.c) void) void {
         qtc.QGraphicsVideoItem_OnHoverMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `hoverLeaveEvent` instead
+    ///
+    pub const HoverLeaveEvent = hoverLeaveEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#hoverLeaveEvent)
@@ -5492,16 +6778,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` event: QGraphicsSceneHoverEvent `
+    /// ` _event: QGraphicsSceneHoverEvent `
     ///
-    pub fn HoverLeaveEvent(self: QGraphicsVideoItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QGraphicsSceneHoverEvent;
-        qtc.QGraphicsVideoItem_HoverLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hoverLeaveEvent(self: QGraphicsVideoItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QGraphicsSceneHoverEvent;
+        qtc.QGraphicsVideoItem_HoverLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHoverLeaveEvent` instead
+    /// ### DEPRECATED: Use `superHoverLeaveEvent` instead
     ///
-    pub const QBaseHoverLeaveEvent = SuperHoverLeaveEvent;
+    pub const SuperHoverLeaveEvent = superHoverLeaveEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5513,12 +6799,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` event: QGraphicsSceneHoverEvent `
+    /// ` _event: QGraphicsSceneHoverEvent `
     ///
-    pub fn SuperHoverLeaveEvent(self: QGraphicsVideoItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QGraphicsSceneHoverEvent;
-        qtc.QGraphicsVideoItem_SuperHoverLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHoverLeaveEvent(self: QGraphicsVideoItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QGraphicsSceneHoverEvent;
+        qtc.QGraphicsVideoItem_SuperHoverLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHoverLeaveEvent` instead
+    ///
+    pub const OnHoverLeaveEvent = onHoverLeaveEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5532,10 +6822,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem, event: QGraphicsSceneHoverEvent) callconv(.c) void `
     ///
-    pub fn OnHoverLeaveEvent(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QGraphicsSceneHoverEvent) callconv(.c) void) void {
+    pub fn onHoverLeaveEvent(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QGraphicsSceneHoverEvent) callconv(.c) void) void {
         qtc.QGraphicsVideoItem_OnHoverLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#keyPressEvent)
@@ -5546,16 +6840,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: QGraphicsVideoItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QGraphicsVideoItem_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyPressEvent(self: QGraphicsVideoItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QGraphicsVideoItem_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5567,12 +6861,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: QGraphicsVideoItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QGraphicsVideoItem_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyPressEvent(self: QGraphicsVideoItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QGraphicsVideoItem_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5586,10 +6884,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QKeyEvent) callconv(.c) void) void {
         qtc.QGraphicsVideoItem_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#keyReleaseEvent)
@@ -5600,16 +6902,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: QGraphicsVideoItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QGraphicsVideoItem_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyReleaseEvent(self: QGraphicsVideoItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QGraphicsVideoItem_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5621,12 +6923,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: QGraphicsVideoItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QGraphicsVideoItem_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyReleaseEvent(self: QGraphicsVideoItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QGraphicsVideoItem_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5640,10 +6946,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QKeyEvent) callconv(.c) void) void {
         qtc.QGraphicsVideoItem_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mousePressEvent)
@@ -5654,16 +6964,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` event: QGraphicsSceneMouseEvent `
+    /// ` _event: QGraphicsSceneMouseEvent `
     ///
-    pub fn MousePressEvent(self: QGraphicsVideoItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QGraphicsSceneMouseEvent;
-        qtc.QGraphicsVideoItem_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mousePressEvent(self: QGraphicsVideoItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QGraphicsSceneMouseEvent;
+        qtc.QGraphicsVideoItem_MousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5675,12 +6985,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` event: QGraphicsSceneMouseEvent `
+    /// ` _event: QGraphicsSceneMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: QGraphicsVideoItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QGraphicsSceneMouseEvent;
-        qtc.QGraphicsVideoItem_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMousePressEvent(self: QGraphicsVideoItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QGraphicsSceneMouseEvent;
+        qtc.QGraphicsVideoItem_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5694,10 +7008,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem, event: QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QGraphicsSceneMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QGraphicsSceneMouseEvent) callconv(.c) void) void {
         qtc.QGraphicsVideoItem_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseMoveEvent)
@@ -5708,16 +7026,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` event: QGraphicsSceneMouseEvent `
+    /// ` _event: QGraphicsSceneMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: QGraphicsVideoItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QGraphicsSceneMouseEvent;
-        qtc.QGraphicsVideoItem_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseMoveEvent(self: QGraphicsVideoItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QGraphicsSceneMouseEvent;
+        qtc.QGraphicsVideoItem_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5729,12 +7047,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` event: QGraphicsSceneMouseEvent `
+    /// ` _event: QGraphicsSceneMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: QGraphicsVideoItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QGraphicsSceneMouseEvent;
-        qtc.QGraphicsVideoItem_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseMoveEvent(self: QGraphicsVideoItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QGraphicsSceneMouseEvent;
+        qtc.QGraphicsVideoItem_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5748,10 +7070,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem, event: QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QGraphicsSceneMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QGraphicsSceneMouseEvent) callconv(.c) void) void {
         qtc.QGraphicsVideoItem_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseReleaseEvent)
@@ -5762,16 +7088,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` event: QGraphicsSceneMouseEvent `
+    /// ` _event: QGraphicsSceneMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: QGraphicsVideoItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QGraphicsSceneMouseEvent;
-        qtc.QGraphicsVideoItem_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseReleaseEvent(self: QGraphicsVideoItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QGraphicsSceneMouseEvent;
+        qtc.QGraphicsVideoItem_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5783,12 +7109,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` event: QGraphicsSceneMouseEvent `
+    /// ` _event: QGraphicsSceneMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: QGraphicsVideoItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QGraphicsSceneMouseEvent;
-        qtc.QGraphicsVideoItem_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseReleaseEvent(self: QGraphicsVideoItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QGraphicsSceneMouseEvent;
+        qtc.QGraphicsVideoItem_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5802,10 +7132,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem, event: QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QGraphicsSceneMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QGraphicsSceneMouseEvent) callconv(.c) void) void {
         qtc.QGraphicsVideoItem_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseDoubleClickEvent)
@@ -5816,16 +7150,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` event: QGraphicsSceneMouseEvent `
+    /// ` _event: QGraphicsSceneMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: QGraphicsVideoItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QGraphicsSceneMouseEvent;
-        qtc.QGraphicsVideoItem_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: QGraphicsVideoItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QGraphicsSceneMouseEvent;
+        qtc.QGraphicsVideoItem_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5837,12 +7171,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` event: QGraphicsSceneMouseEvent `
+    /// ` _event: QGraphicsSceneMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: QGraphicsVideoItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QGraphicsSceneMouseEvent;
-        qtc.QGraphicsVideoItem_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: QGraphicsVideoItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QGraphicsSceneMouseEvent;
+        qtc.QGraphicsVideoItem_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5856,9 +7194,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem, event: QGraphicsSceneMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QGraphicsSceneMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QGraphicsSceneMouseEvent) callconv(.c) void) void {
         qtc.QGraphicsVideoItem_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5870,16 +7212,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` event: QGraphicsSceneWheelEvent `
+    /// ` _event: QGraphicsSceneWheelEvent `
     ///
-    pub fn WheelEvent(self: QGraphicsVideoItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QGraphicsSceneWheelEvent;
-        qtc.QGraphicsVideoItem_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn wheelEvent(self: QGraphicsVideoItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QGraphicsSceneWheelEvent;
+        qtc.QGraphicsVideoItem_WheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5891,12 +7233,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` event: QGraphicsSceneWheelEvent `
+    /// ` _event: QGraphicsSceneWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: QGraphicsVideoItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QGraphicsSceneWheelEvent;
-        qtc.QGraphicsVideoItem_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superWheelEvent(self: QGraphicsVideoItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QGraphicsSceneWheelEvent;
+        qtc.QGraphicsVideoItem_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5910,9 +7256,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem, event: QGraphicsSceneWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QGraphicsSceneWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QGraphicsSceneWheelEvent) callconv(.c) void) void {
         qtc.QGraphicsVideoItem_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5924,16 +7274,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` event: QInputMethodEvent `
+    /// ` _event: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: QGraphicsVideoItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QInputMethodEvent;
-        qtc.QGraphicsVideoItem_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn inputMethodEvent(self: QGraphicsVideoItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QInputMethodEvent;
+        qtc.QGraphicsVideoItem_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5945,12 +7295,16 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` event: QInputMethodEvent `
+    /// ` _event: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: QGraphicsVideoItem, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QInputMethodEvent;
-        qtc.QGraphicsVideoItem_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superInputMethodEvent(self: QGraphicsVideoItem, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QInputMethodEvent;
+        qtc.QGraphicsVideoItem_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5964,9 +7318,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem, event: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QInputMethodEvent) callconv(.c) void) void {
         qtc.QGraphicsVideoItem_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QGraphicsItem
     ///
@@ -5980,13 +7338,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: QGraphicsVideoItem, query: i32) QVariant {
+    pub fn inputMethodQuery(self: QGraphicsVideoItem, query: i32) QVariant {
         return .{ .ptr = qtc.QGraphicsVideoItem_InputMethodQuery(@ptrCast(self.ptr), @bitCast(query)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QGraphicsItem
     ///
@@ -6000,9 +7358,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: QGraphicsVideoItem, query: i32) QVariant {
+    pub fn superInputMethodQuery(self: QGraphicsVideoItem, query: i32) QVariant {
         return .{ .ptr = qtc.QGraphicsVideoItem_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(query)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QGraphicsItem
     ///
@@ -6018,9 +7380,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, i32) callconv(.c) QVariant) void {
         qtc.QGraphicsVideoItem_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `supportsExtension` instead
+    ///
+    pub const SupportsExtension = supportsExtension;
 
     /// Inherited from QGraphicsItem
     ///
@@ -6032,15 +7398,15 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` extension: qgraphicsitem_enums.Extension `
+    /// ` _extension: qgraphicsitem_enums.Extension `
     ///
-    pub fn SupportsExtension(self: QGraphicsVideoItem, extension: i32) bool {
-        return qtc.QGraphicsVideoItem_SupportsExtension(@ptrCast(self.ptr), @bitCast(extension));
+    pub fn supportsExtension(self: QGraphicsVideoItem, _extension: i32) bool {
+        return qtc.QGraphicsVideoItem_SupportsExtension(@ptrCast(self.ptr), @bitCast(_extension));
     }
 
-    /// ### DEPRECATED: Use `SuperSupportsExtension` instead
+    /// ### DEPRECATED: Use `superSupportsExtension` instead
     ///
-    pub const QBaseSupportsExtension = SuperSupportsExtension;
+    pub const SuperSupportsExtension = superSupportsExtension;
 
     /// Inherited from QGraphicsItem
     ///
@@ -6052,11 +7418,15 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` extension: qgraphicsitem_enums.Extension `
+    /// ` _extension: qgraphicsitem_enums.Extension `
     ///
-    pub fn SuperSupportsExtension(self: QGraphicsVideoItem, extension: i32) bool {
-        return qtc.QGraphicsVideoItem_SuperSupportsExtension(@ptrCast(self.ptr), @bitCast(extension));
+    pub fn superSupportsExtension(self: QGraphicsVideoItem, _extension: i32) bool {
+        return qtc.QGraphicsVideoItem_SuperSupportsExtension(@ptrCast(self.ptr), @bitCast(_extension));
     }
+
+    /// ### DEPRECATED: Use `onSupportsExtension` instead
+    ///
+    pub const OnSupportsExtension = onSupportsExtension;
 
     /// Inherited from QGraphicsItem
     ///
@@ -6070,9 +7440,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem, extension: qgraphicsitem_enums.Extension) callconv(.c) bool `
     ///
-    pub fn OnSupportsExtension(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, i32) callconv(.c) bool) void {
+    pub fn onSupportsExtension(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, i32) callconv(.c) bool) void {
         qtc.QGraphicsVideoItem_OnSupportsExtension(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setExtension` instead
+    ///
+    pub const SetExtension = setExtension;
 
     /// Inherited from QGraphicsItem
     ///
@@ -6084,18 +7458,18 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` extension: qgraphicsitem_enums.Extension `
+    /// ` _extension: qgraphicsitem_enums.Extension `
     ///
     /// ` variant: QVariant `
     ///
-    pub fn SetExtension(self: QGraphicsVideoItem, extension: i32, variant: anytype) void {
+    pub fn setExtension(self: QGraphicsVideoItem, _extension: i32, variant: anytype) void {
         comptime _ = @TypeOf(variant)._is_QVariant;
-        qtc.QGraphicsVideoItem_SetExtension(@ptrCast(self.ptr), @bitCast(extension), @ptrCast(variant.ptr));
+        qtc.QGraphicsVideoItem_SetExtension(@ptrCast(self.ptr), @bitCast(_extension), @ptrCast(variant.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetExtension` instead
+    /// ### DEPRECATED: Use `superSetExtension` instead
     ///
-    pub const QBaseSetExtension = SuperSetExtension;
+    pub const SuperSetExtension = superSetExtension;
 
     /// Inherited from QGraphicsItem
     ///
@@ -6107,14 +7481,18 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    /// ` extension: qgraphicsitem_enums.Extension `
+    /// ` _extension: qgraphicsitem_enums.Extension `
     ///
     /// ` variant: QVariant `
     ///
-    pub fn SuperSetExtension(self: QGraphicsVideoItem, extension: i32, variant: anytype) void {
+    pub fn superSetExtension(self: QGraphicsVideoItem, _extension: i32, variant: anytype) void {
         comptime _ = @TypeOf(variant)._is_QVariant;
-        qtc.QGraphicsVideoItem_SuperSetExtension(@ptrCast(self.ptr), @bitCast(extension), @ptrCast(variant.ptr));
+        qtc.QGraphicsVideoItem_SuperSetExtension(@ptrCast(self.ptr), @bitCast(_extension), @ptrCast(variant.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetExtension` instead
+    ///
+    pub const OnSetExtension = onSetExtension;
 
     /// Inherited from QGraphicsItem
     ///
@@ -6128,9 +7506,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem, extension: qgraphicsitem_enums.Extension, variant: QVariant) callconv(.c) void `
     ///
-    pub fn OnSetExtension(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, i32, QVariant) callconv(.c) void) void {
+    pub fn onSetExtension(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, i32, QVariant) callconv(.c) void) void {
         qtc.QGraphicsVideoItem_OnSetExtension(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `extension` instead
+    ///
+    pub const Extension = extension;
 
     /// Inherited from QGraphicsItem
     ///
@@ -6144,14 +7526,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` variant: QVariant `
     ///
-    pub fn Extension(self: QGraphicsVideoItem, variant: anytype) QVariant {
+    pub fn extension(self: QGraphicsVideoItem, variant: anytype) QVariant {
         comptime _ = @TypeOf(variant)._is_QVariant;
         return .{ .ptr = qtc.QGraphicsVideoItem_Extension(@ptrCast(self.ptr), @ptrCast(variant.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperExtension` instead
+    /// ### DEPRECATED: Use `superExtension` instead
     ///
-    pub const QBaseExtension = SuperExtension;
+    pub const SuperExtension = superExtension;
 
     /// Inherited from QGraphicsItem
     ///
@@ -6165,10 +7547,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` variant: QVariant `
     ///
-    pub fn SuperExtension(self: QGraphicsVideoItem, variant: anytype) QVariant {
+    pub fn superExtension(self: QGraphicsVideoItem, variant: anytype) QVariant {
         comptime _ = @TypeOf(variant)._is_QVariant;
         return .{ .ptr = qtc.QGraphicsVideoItem_SuperExtension(@ptrCast(self.ptr), @ptrCast(variant.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onExtension` instead
+    ///
+    pub const OnExtension = onExtension;
 
     /// Inherited from QGraphicsItem
     ///
@@ -6184,9 +7570,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnExtension(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QVariant) callconv(.c) QVariant) void {
+    pub fn onExtension(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QVariant) callconv(.c) QVariant) void {
         qtc.QGraphicsVideoItem_OnExtension(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
 
     /// Inherited from QGraphicsObject
     ///
@@ -6198,13 +7588,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn UpdateMicroFocus(self: QGraphicsVideoItem) void {
+    pub fn updateMicroFocus(self: QGraphicsVideoItem) void {
         qtc.QGraphicsVideoItem_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QGraphicsObject
     ///
@@ -6216,9 +7606,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn SuperUpdateMicroFocus(self: QGraphicsVideoItem) void {
+    pub fn superUpdateMicroFocus(self: QGraphicsVideoItem) void {
         qtc.QGraphicsVideoItem_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
 
     /// Inherited from QGraphicsObject
     ///
@@ -6232,9 +7626,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: QGraphicsVideoItem, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: QGraphicsVideoItem, callback: *const fn () callconv(.c) void) void {
         qtc.QGraphicsVideoItem_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -6246,13 +7644,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn Sender(self: QGraphicsVideoItem) QObject {
+    pub fn sender(self: QGraphicsVideoItem) QObject {
         return .{ .ptr = qtc.QGraphicsVideoItem_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -6264,9 +7662,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn SuperSender(self: QGraphicsVideoItem) QObject {
+    pub fn superSender(self: QGraphicsVideoItem) QObject {
         return .{ .ptr = qtc.QGraphicsVideoItem_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -6280,9 +7682,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QGraphicsVideoItem, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QGraphicsVideoItem, callback: *const fn () callconv(.c) QObject) void {
         qtc.QGraphicsVideoItem_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -6294,13 +7700,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn SenderSignalIndex(self: QGraphicsVideoItem) i32 {
+    pub fn senderSignalIndex(self: QGraphicsVideoItem) i32 {
         return qtc.QGraphicsVideoItem_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -6312,9 +7718,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn SuperSenderSignalIndex(self: QGraphicsVideoItem) i32 {
+    pub fn superSenderSignalIndex(self: QGraphicsVideoItem) i32 {
         return qtc.QGraphicsVideoItem_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -6328,9 +7738,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QGraphicsVideoItem, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QGraphicsVideoItem, callback: *const fn () callconv(.c) i32) void {
         qtc.QGraphicsVideoItem_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -6344,14 +7758,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QGraphicsVideoItem, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QGraphicsVideoItem, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QGraphicsVideoItem_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -6365,10 +7779,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QGraphicsVideoItem, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QGraphicsVideoItem, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QGraphicsVideoItem_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -6382,9 +7800,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, [*:0]const u8) callconv(.c) i32) void {
         qtc.QGraphicsVideoItem_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -6398,14 +7820,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QGraphicsVideoItem, signal: anytype) bool {
+    pub fn isSignalConnected(self: QGraphicsVideoItem, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QGraphicsVideoItem_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -6419,10 +7841,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QGraphicsVideoItem, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QGraphicsVideoItem, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QGraphicsVideoItem_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -6436,10 +7862,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QMetaMethod) callconv(.c) bool) void {
         qtc.QGraphicsVideoItem_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `addToIndex` instead
+    ///
+    pub const AddToIndex = addToIndex;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#addToIndex)
@@ -6450,13 +7880,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn AddToIndex(self: QGraphicsVideoItem) void {
+    pub fn addToIndex(self: QGraphicsVideoItem) void {
         qtc.QGraphicsVideoItem_AddToIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperAddToIndex` instead
+    /// ### DEPRECATED: Use `superAddToIndex` instead
     ///
-    pub const QBaseAddToIndex = SuperAddToIndex;
+    pub const SuperAddToIndex = superAddToIndex;
 
     /// Inherited from QGraphicsItem
     ///
@@ -6468,10 +7898,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn SuperAddToIndex(self: QGraphicsVideoItem) void {
+    pub fn superAddToIndex(self: QGraphicsVideoItem) void {
         qtc.QGraphicsVideoItem_SuperAddToIndex(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onAddToIndex` instead
+    ///
+    pub const OnAddToIndex = onAddToIndex;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#addToIndex)
@@ -6484,10 +7918,14 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnAddToIndex(self: QGraphicsVideoItem, callback: *const fn () callconv(.c) void) void {
+    pub fn onAddToIndex(self: QGraphicsVideoItem, callback: *const fn () callconv(.c) void) void {
         qtc.QGraphicsVideoItem_OnAddToIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `removeFromIndex` instead
+    ///
+    pub const RemoveFromIndex = removeFromIndex;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#removeFromIndex)
@@ -6498,13 +7936,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn RemoveFromIndex(self: QGraphicsVideoItem) void {
+    pub fn removeFromIndex(self: QGraphicsVideoItem) void {
         qtc.QGraphicsVideoItem_RemoveFromIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperRemoveFromIndex` instead
+    /// ### DEPRECATED: Use `superRemoveFromIndex` instead
     ///
-    pub const QBaseRemoveFromIndex = SuperRemoveFromIndex;
+    pub const SuperRemoveFromIndex = superRemoveFromIndex;
 
     /// Inherited from QGraphicsItem
     ///
@@ -6516,9 +7954,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn SuperRemoveFromIndex(self: QGraphicsVideoItem) void {
+    pub fn superRemoveFromIndex(self: QGraphicsVideoItem) void {
         qtc.QGraphicsVideoItem_SuperRemoveFromIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onRemoveFromIndex` instead
+    ///
+    pub const OnRemoveFromIndex = onRemoveFromIndex;
 
     /// Inherited from QGraphicsItem
     ///
@@ -6532,9 +7974,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnRemoveFromIndex(self: QGraphicsVideoItem, callback: *const fn () callconv(.c) void) void {
+    pub fn onRemoveFromIndex(self: QGraphicsVideoItem, callback: *const fn () callconv(.c) void) void {
         qtc.QGraphicsVideoItem_OnRemoveFromIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `prepareGeometryChange` instead
+    ///
+    pub const PrepareGeometryChange = prepareGeometryChange;
 
     /// Inherited from QGraphicsItem
     ///
@@ -6546,13 +7992,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn PrepareGeometryChange(self: QGraphicsVideoItem) void {
+    pub fn prepareGeometryChange(self: QGraphicsVideoItem) void {
         qtc.QGraphicsVideoItem_PrepareGeometryChange(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPrepareGeometryChange` instead
+    /// ### DEPRECATED: Use `superPrepareGeometryChange` instead
     ///
-    pub const QBasePrepareGeometryChange = SuperPrepareGeometryChange;
+    pub const SuperPrepareGeometryChange = superPrepareGeometryChange;
 
     /// Inherited from QGraphicsItem
     ///
@@ -6564,9 +8010,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn SuperPrepareGeometryChange(self: QGraphicsVideoItem) void {
+    pub fn superPrepareGeometryChange(self: QGraphicsVideoItem) void {
         qtc.QGraphicsVideoItem_SuperPrepareGeometryChange(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPrepareGeometryChange` instead
+    ///
+    pub const OnPrepareGeometryChange = onPrepareGeometryChange;
 
     /// Inherited from QGraphicsItem
     ///
@@ -6580,9 +8030,13 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnPrepareGeometryChange(self: QGraphicsVideoItem, callback: *const fn () callconv(.c) void) void {
+    pub fn onPrepareGeometryChange(self: QGraphicsVideoItem, callback: *const fn () callconv(.c) void) void {
         qtc.QGraphicsVideoItem_OnPrepareGeometryChange(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -6596,23 +8050,23 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#dtor.QGraphicsVideoItem)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QGraphicsVideoItem `
     ///
-    pub fn Delete(self: QGraphicsVideoItem) void {
+    pub fn delete(self: QGraphicsVideoItem) void {
         qtc.QGraphicsVideoItem_Delete(@ptrCast(self.ptr));
     }
 };

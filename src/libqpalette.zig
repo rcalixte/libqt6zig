@@ -16,121 +16,153 @@ pub const QPalette = extern struct {
 
     pub const _is_QPalette = {};
 
-    /// New constructs a new QPalette object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QPalette {
+    pub const New = new;
+
+    /// Allocate a new QPalette object in C++ memory
+    ///
+    pub fn new() QPalette {
         return .{ .ptr = qtc.QPalette_new() };
     }
 
-    /// New2 constructs a new QPalette object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QPalette object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` button: QColor `
+    /// ` _button: QColor `
     ///
-    pub fn New2(button: anytype) QPalette {
-        comptime _ = @TypeOf(button)._is_QColor;
-        return .{ .ptr = qtc.QPalette_new2(@ptrCast(button.ptr)) };
+    pub fn new2(_button: anytype) QPalette {
+        comptime _ = @TypeOf(_button)._is_QColor;
+        return .{ .ptr = qtc.QPalette_new2(@ptrCast(_button.ptr)) };
     }
 
-    /// New3 constructs a new QPalette object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QPalette object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` button: qnamespace_enums.GlobalColor `
+    /// ` _button: qnamespace_enums.GlobalColor `
     ///
-    pub fn New3(button: i32) QPalette {
-        return .{ .ptr = qtc.QPalette_new3(@bitCast(button)) };
+    pub fn new3(_button: i32) QPalette {
+        return .{ .ptr = qtc.QPalette_new3(@bitCast(_button)) };
     }
 
-    /// New4 constructs a new QPalette object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QPalette object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` button: QColor `
+    /// ` _button: QColor `
     ///
-    /// ` window: QColor `
+    /// ` _window: QColor `
     ///
-    pub fn New4(button: anytype, window: anytype) QPalette {
-        comptime _ = @TypeOf(button)._is_QColor;
-        comptime _ = @TypeOf(window)._is_QColor;
-        return .{ .ptr = qtc.QPalette_new4(@ptrCast(button.ptr), @ptrCast(window.ptr)) };
+    pub fn new4(_button: anytype, _window: anytype) QPalette {
+        comptime _ = @TypeOf(_button)._is_QColor;
+        comptime _ = @TypeOf(_window)._is_QColor;
+        return .{ .ptr = qtc.QPalette_new4(@ptrCast(_button.ptr), @ptrCast(_window.ptr)) };
     }
 
-    /// New5 constructs a new QPalette object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new QPalette object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` windowText: QBrush `
+    /// ` _windowText: QBrush `
     ///
-    /// ` button: QBrush `
+    /// ` _button: QBrush `
     ///
-    /// ` light: QBrush `
+    /// ` _light: QBrush `
     ///
-    /// ` dark: QBrush `
+    /// ` _dark: QBrush `
     ///
-    /// ` mid: QBrush `
+    /// ` _mid: QBrush `
     ///
-    /// ` text: QBrush `
+    /// ` _text: QBrush `
     ///
     /// ` bright_text: QBrush `
     ///
-    /// ` base: QBrush `
+    /// ` _base: QBrush `
     ///
-    /// ` window: QBrush `
+    /// ` _window: QBrush `
     ///
-    pub fn New5(windowText: anytype, button: anytype, light: anytype, dark: anytype, mid: anytype, text: anytype, bright_text: anytype, base: anytype, window: anytype) QPalette {
-        comptime _ = @TypeOf(windowText)._is_QBrush;
-        comptime _ = @TypeOf(button)._is_QBrush;
-        comptime _ = @TypeOf(light)._is_QBrush;
-        comptime _ = @TypeOf(dark)._is_QBrush;
-        comptime _ = @TypeOf(mid)._is_QBrush;
-        comptime _ = @TypeOf(text)._is_QBrush;
+    pub fn new5(_windowText: anytype, _button: anytype, _light: anytype, _dark: anytype, _mid: anytype, _text: anytype, bright_text: anytype, _base: anytype, _window: anytype) QPalette {
+        comptime _ = @TypeOf(_windowText)._is_QBrush;
+        comptime _ = @TypeOf(_button)._is_QBrush;
+        comptime _ = @TypeOf(_light)._is_QBrush;
+        comptime _ = @TypeOf(_dark)._is_QBrush;
+        comptime _ = @TypeOf(_mid)._is_QBrush;
+        comptime _ = @TypeOf(_text)._is_QBrush;
         comptime _ = @TypeOf(bright_text)._is_QBrush;
-        comptime _ = @TypeOf(base)._is_QBrush;
-        comptime _ = @TypeOf(window)._is_QBrush;
-        return .{ .ptr = qtc.QPalette_new5(@ptrCast(windowText.ptr), @ptrCast(button.ptr), @ptrCast(light.ptr), @ptrCast(dark.ptr), @ptrCast(mid.ptr), @ptrCast(text.ptr), @ptrCast(bright_text.ptr), @ptrCast(base.ptr), @ptrCast(window.ptr)) };
+        comptime _ = @TypeOf(_base)._is_QBrush;
+        comptime _ = @TypeOf(_window)._is_QBrush;
+        return .{ .ptr = qtc.QPalette_new5(@ptrCast(_windowText.ptr), @ptrCast(_button.ptr), @ptrCast(_light.ptr), @ptrCast(_dark.ptr), @ptrCast(_mid.ptr), @ptrCast(_text.ptr), @ptrCast(bright_text.ptr), @ptrCast(_base.ptr), @ptrCast(_window.ptr)) };
     }
 
-    /// New6 constructs a new QPalette object.
+    /// ### DEPRECATED: Use `new6` instead
+    ///
+    pub const New6 = new6;
+
+    /// Allocate a new QPalette object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` windowText: QColor `
+    /// ` _windowText: QColor `
     ///
-    /// ` window: QColor `
+    /// ` _window: QColor `
     ///
-    /// ` light: QColor `
+    /// ` _light: QColor `
     ///
-    /// ` dark: QColor `
+    /// ` _dark: QColor `
     ///
-    /// ` mid: QColor `
+    /// ` _mid: QColor `
     ///
-    /// ` text: QColor `
+    /// ` _text: QColor `
     ///
-    /// ` base: QColor `
+    /// ` _base: QColor `
     ///
-    pub fn New6(windowText: anytype, window: anytype, light: anytype, dark: anytype, mid: anytype, text: anytype, base: anytype) QPalette {
-        comptime _ = @TypeOf(windowText)._is_QColor;
-        comptime _ = @TypeOf(window)._is_QColor;
-        comptime _ = @TypeOf(light)._is_QColor;
-        comptime _ = @TypeOf(dark)._is_QColor;
-        comptime _ = @TypeOf(mid)._is_QColor;
-        comptime _ = @TypeOf(text)._is_QColor;
-        comptime _ = @TypeOf(base)._is_QColor;
-        return .{ .ptr = qtc.QPalette_new6(@ptrCast(windowText.ptr), @ptrCast(window.ptr), @ptrCast(light.ptr), @ptrCast(dark.ptr), @ptrCast(mid.ptr), @ptrCast(text.ptr), @ptrCast(base.ptr)) };
+    pub fn new6(_windowText: anytype, _window: anytype, _light: anytype, _dark: anytype, _mid: anytype, _text: anytype, _base: anytype) QPalette {
+        comptime _ = @TypeOf(_windowText)._is_QColor;
+        comptime _ = @TypeOf(_window)._is_QColor;
+        comptime _ = @TypeOf(_light)._is_QColor;
+        comptime _ = @TypeOf(_dark)._is_QColor;
+        comptime _ = @TypeOf(_mid)._is_QColor;
+        comptime _ = @TypeOf(_text)._is_QColor;
+        comptime _ = @TypeOf(_base)._is_QColor;
+        return .{ .ptr = qtc.QPalette_new6(@ptrCast(_windowText.ptr), @ptrCast(_window.ptr), @ptrCast(_light.ptr), @ptrCast(_dark.ptr), @ptrCast(_mid.ptr), @ptrCast(_text.ptr), @ptrCast(_base.ptr)) };
     }
 
-    /// New7 constructs a new QPalette object.
+    /// ### DEPRECATED: Use `new7` instead
+    ///
+    pub const New7 = new7;
+
+    /// Allocate a new QPalette object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` palette: QPalette `
     ///
-    pub fn New7(palette: anytype) QPalette {
+    pub fn new7(palette: anytype) QPalette {
         comptime _ = @TypeOf(palette)._is_QPalette;
         return .{ .ptr = qtc.QPalette_new7(@ptrCast(palette.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#operator-eq)
     ///
@@ -140,10 +172,14 @@ pub const QPalette = extern struct {
     ///
     /// ` palette: QPalette `
     ///
-    pub fn OperatorAssign(self: QPalette, palette: anytype) void {
+    pub fn operatorAssign(self: QPalette, palette: anytype) void {
         comptime _ = @TypeOf(palette)._is_QPalette;
         qtc.QPalette_OperatorAssign(@ptrCast(self.ptr), @ptrCast(palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#swap)
     ///
@@ -153,10 +189,14 @@ pub const QPalette = extern struct {
     ///
     /// ` other: QPalette `
     ///
-    pub fn Swap(self: QPalette, other: anytype) void {
+    pub fn swap(self: QPalette, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QPalette;
         qtc.QPalette_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `toQVariant` instead
+    ///
+    pub const ToQVariant = toQVariant;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#operator)
     ///
@@ -164,9 +204,13 @@ pub const QPalette = extern struct {
     ///
     /// ` self: QPalette `
     ///
-    pub fn ToQVariant(self: QPalette) QVariant {
+    pub fn toQVariant(self: QPalette) QVariant {
         return .{ .ptr = qtc.QPalette_ToQVariant(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `currentColorGroup` instead
+    ///
+    pub const CurrentColorGroup = currentColorGroup;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#currentColorGroup)
     ///
@@ -178,9 +222,13 @@ pub const QPalette = extern struct {
     ///
     /// ` qpalette_enums.ColorGroup `
     ///
-    pub fn CurrentColorGroup(self: QPalette) i32 {
+    pub fn currentColorGroup(self: QPalette) i32 {
         return qtc.QPalette_CurrentColorGroup(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCurrentColorGroup` instead
+    ///
+    pub const SetCurrentColorGroup = setCurrentColorGroup;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#setCurrentColorGroup)
     ///
@@ -190,9 +238,13 @@ pub const QPalette = extern struct {
     ///
     /// ` cg: qpalette_enums.ColorGroup `
     ///
-    pub fn SetCurrentColorGroup(self: QPalette, cg: i32) void {
+    pub fn setCurrentColorGroup(self: QPalette, cg: i32) void {
         qtc.QPalette_SetCurrentColorGroup(@ptrCast(self.ptr), @bitCast(cg));
     }
+
+    /// ### DEPRECATED: Use `color` instead
+    ///
+    pub const Color = color;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#color)
     ///
@@ -204,9 +256,13 @@ pub const QPalette = extern struct {
     ///
     /// ` cr: qpalette_enums.ColorRole `
     ///
-    pub fn Color(self: QPalette, cg: i32, cr: i32) QColor {
+    pub fn color(self: QPalette, cg: i32, cr: i32) QColor {
         return .{ .ptr = qtc.QPalette_Color(@ptrCast(self.ptr), @bitCast(cg), @bitCast(cr)) };
     }
+
+    /// ### DEPRECATED: Use `brush` instead
+    ///
+    pub const Brush = brush;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#brush)
     ///
@@ -218,9 +274,13 @@ pub const QPalette = extern struct {
     ///
     /// ` cr: qpalette_enums.ColorRole `
     ///
-    pub fn Brush(self: QPalette, cg: i32, cr: i32) QBrush {
+    pub fn brush(self: QPalette, cg: i32, cr: i32) QBrush {
         return .{ .ptr = qtc.QPalette_Brush(@ptrCast(self.ptr), @bitCast(cg), @bitCast(cr)) };
     }
+
+    /// ### DEPRECATED: Use `setColor` instead
+    ///
+    pub const SetColor = setColor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#setColor)
     ///
@@ -232,12 +292,16 @@ pub const QPalette = extern struct {
     ///
     /// ` cr: qpalette_enums.ColorRole `
     ///
-    /// ` color: QColor `
+    /// ` _color: QColor `
     ///
-    pub fn SetColor(self: QPalette, cg: i32, cr: i32, color: anytype) void {
-        comptime _ = @TypeOf(color)._is_QColor;
-        qtc.QPalette_SetColor(@ptrCast(self.ptr), @bitCast(cg), @bitCast(cr), @ptrCast(color.ptr));
+    pub fn setColor(self: QPalette, cg: i32, cr: i32, _color: anytype) void {
+        comptime _ = @TypeOf(_color)._is_QColor;
+        qtc.QPalette_SetColor(@ptrCast(self.ptr), @bitCast(cg), @bitCast(cr), @ptrCast(_color.ptr));
     }
+
+    /// ### DEPRECATED: Use `setColor2` instead
+    ///
+    pub const SetColor2 = setColor2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#setColor)
     ///
@@ -247,12 +311,16 @@ pub const QPalette = extern struct {
     ///
     /// ` cr: qpalette_enums.ColorRole `
     ///
-    /// ` color: QColor `
+    /// ` _color: QColor `
     ///
-    pub fn SetColor2(self: QPalette, cr: i32, color: anytype) void {
-        comptime _ = @TypeOf(color)._is_QColor;
-        qtc.QPalette_SetColor2(@ptrCast(self.ptr), @bitCast(cr), @ptrCast(color.ptr));
+    pub fn setColor2(self: QPalette, cr: i32, _color: anytype) void {
+        comptime _ = @TypeOf(_color)._is_QColor;
+        qtc.QPalette_SetColor2(@ptrCast(self.ptr), @bitCast(cr), @ptrCast(_color.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBrush` instead
+    ///
+    pub const SetBrush = setBrush;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#setBrush)
     ///
@@ -262,12 +330,16 @@ pub const QPalette = extern struct {
     ///
     /// ` cr: qpalette_enums.ColorRole `
     ///
-    /// ` brush: QBrush `
+    /// ` _brush: QBrush `
     ///
-    pub fn SetBrush(self: QPalette, cr: i32, brush: anytype) void {
-        comptime _ = @TypeOf(brush)._is_QBrush;
-        qtc.QPalette_SetBrush(@ptrCast(self.ptr), @bitCast(cr), @ptrCast(brush.ptr));
+    pub fn setBrush(self: QPalette, cr: i32, _brush: anytype) void {
+        comptime _ = @TypeOf(_brush)._is_QBrush;
+        qtc.QPalette_SetBrush(@ptrCast(self.ptr), @bitCast(cr), @ptrCast(_brush.ptr));
     }
+
+    /// ### DEPRECATED: Use `isBrushSet` instead
+    ///
+    pub const IsBrushSet = isBrushSet;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#isBrushSet)
     ///
@@ -279,9 +351,13 @@ pub const QPalette = extern struct {
     ///
     /// ` cr: qpalette_enums.ColorRole `
     ///
-    pub fn IsBrushSet(self: QPalette, cg: i32, cr: i32) bool {
+    pub fn isBrushSet(self: QPalette, cg: i32, cr: i32) bool {
         return qtc.QPalette_IsBrushSet(@ptrCast(self.ptr), @bitCast(cg), @bitCast(cr));
     }
+
+    /// ### DEPRECATED: Use `setBrush2` instead
+    ///
+    pub const SetBrush2 = setBrush2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#setBrush)
     ///
@@ -293,12 +369,16 @@ pub const QPalette = extern struct {
     ///
     /// ` cr: qpalette_enums.ColorRole `
     ///
-    /// ` brush: QBrush `
+    /// ` _brush: QBrush `
     ///
-    pub fn SetBrush2(self: QPalette, cg: i32, cr: i32, brush: anytype) void {
-        comptime _ = @TypeOf(brush)._is_QBrush;
-        qtc.QPalette_SetBrush2(@ptrCast(self.ptr), @bitCast(cg), @bitCast(cr), @ptrCast(brush.ptr));
+    pub fn setBrush2(self: QPalette, cg: i32, cr: i32, _brush: anytype) void {
+        comptime _ = @TypeOf(_brush)._is_QBrush;
+        qtc.QPalette_SetBrush2(@ptrCast(self.ptr), @bitCast(cg), @bitCast(cr), @ptrCast(_brush.ptr));
     }
+
+    /// ### DEPRECATED: Use `setColorGroup` instead
+    ///
+    pub const SetColorGroup = setColorGroup;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#setColorGroup)
     ///
@@ -308,36 +388,40 @@ pub const QPalette = extern struct {
     ///
     /// ` cr: qpalette_enums.ColorGroup `
     ///
-    /// ` windowText: QBrush `
+    /// ` _windowText: QBrush `
     ///
-    /// ` button: QBrush `
+    /// ` _button: QBrush `
     ///
-    /// ` light: QBrush `
+    /// ` _light: QBrush `
     ///
-    /// ` dark: QBrush `
+    /// ` _dark: QBrush `
     ///
-    /// ` mid: QBrush `
+    /// ` _mid: QBrush `
     ///
-    /// ` text: QBrush `
+    /// ` _text: QBrush `
     ///
     /// ` bright_text: QBrush `
     ///
-    /// ` base: QBrush `
+    /// ` _base: QBrush `
     ///
-    /// ` window: QBrush `
+    /// ` _window: QBrush `
     ///
-    pub fn SetColorGroup(self: QPalette, cr: i32, windowText: anytype, button: anytype, light: anytype, dark: anytype, mid: anytype, text: anytype, bright_text: anytype, base: anytype, window: anytype) void {
-        comptime _ = @TypeOf(windowText)._is_QBrush;
-        comptime _ = @TypeOf(button)._is_QBrush;
-        comptime _ = @TypeOf(light)._is_QBrush;
-        comptime _ = @TypeOf(dark)._is_QBrush;
-        comptime _ = @TypeOf(mid)._is_QBrush;
-        comptime _ = @TypeOf(text)._is_QBrush;
+    pub fn setColorGroup(self: QPalette, cr: i32, _windowText: anytype, _button: anytype, _light: anytype, _dark: anytype, _mid: anytype, _text: anytype, bright_text: anytype, _base: anytype, _window: anytype) void {
+        comptime _ = @TypeOf(_windowText)._is_QBrush;
+        comptime _ = @TypeOf(_button)._is_QBrush;
+        comptime _ = @TypeOf(_light)._is_QBrush;
+        comptime _ = @TypeOf(_dark)._is_QBrush;
+        comptime _ = @TypeOf(_mid)._is_QBrush;
+        comptime _ = @TypeOf(_text)._is_QBrush;
         comptime _ = @TypeOf(bright_text)._is_QBrush;
-        comptime _ = @TypeOf(base)._is_QBrush;
-        comptime _ = @TypeOf(window)._is_QBrush;
-        qtc.QPalette_SetColorGroup(@ptrCast(self.ptr), @bitCast(cr), @ptrCast(windowText.ptr), @ptrCast(button.ptr), @ptrCast(light.ptr), @ptrCast(dark.ptr), @ptrCast(mid.ptr), @ptrCast(text.ptr), @ptrCast(bright_text.ptr), @ptrCast(base.ptr), @ptrCast(window.ptr));
+        comptime _ = @TypeOf(_base)._is_QBrush;
+        comptime _ = @TypeOf(_window)._is_QBrush;
+        qtc.QPalette_SetColorGroup(@ptrCast(self.ptr), @bitCast(cr), @ptrCast(_windowText.ptr), @ptrCast(_button.ptr), @ptrCast(_light.ptr), @ptrCast(_dark.ptr), @ptrCast(_mid.ptr), @ptrCast(_text.ptr), @ptrCast(bright_text.ptr), @ptrCast(_base.ptr), @ptrCast(_window.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEqual` instead
+    ///
+    pub const IsEqual = isEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#isEqual)
     ///
@@ -349,9 +433,13 @@ pub const QPalette = extern struct {
     ///
     /// ` cr2: qpalette_enums.ColorGroup `
     ///
-    pub fn IsEqual(self: QPalette, cr1: i32, cr2: i32) bool {
+    pub fn isEqual(self: QPalette, cr1: i32, cr2: i32) bool {
         return qtc.QPalette_IsEqual(@ptrCast(self.ptr), @bitCast(cr1), @bitCast(cr2));
     }
+
+    /// ### DEPRECATED: Use `color2` instead
+    ///
+    pub const Color2 = color2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#color)
     ///
@@ -361,9 +449,13 @@ pub const QPalette = extern struct {
     ///
     /// ` cr: qpalette_enums.ColorRole `
     ///
-    pub fn Color2(self: QPalette, cr: i32) QColor {
+    pub fn color2(self: QPalette, cr: i32) QColor {
         return .{ .ptr = qtc.QPalette_Color2(@ptrCast(self.ptr), @bitCast(cr)) };
     }
+
+    /// ### DEPRECATED: Use `brush2` instead
+    ///
+    pub const Brush2 = brush2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#brush)
     ///
@@ -373,9 +465,13 @@ pub const QPalette = extern struct {
     ///
     /// ` cr: qpalette_enums.ColorRole `
     ///
-    pub fn Brush2(self: QPalette, cr: i32) QBrush {
+    pub fn brush2(self: QPalette, cr: i32) QBrush {
         return .{ .ptr = qtc.QPalette_Brush2(@ptrCast(self.ptr), @bitCast(cr)) };
     }
+
+    /// ### DEPRECATED: Use `windowText` instead
+    ///
+    pub const WindowText = windowText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#windowText)
     ///
@@ -383,9 +479,13 @@ pub const QPalette = extern struct {
     ///
     /// ` self: QPalette `
     ///
-    pub fn WindowText(self: QPalette) QBrush {
+    pub fn windowText(self: QPalette) QBrush {
         return .{ .ptr = qtc.QPalette_WindowText(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `button` instead
+    ///
+    pub const Button = button;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#button)
     ///
@@ -393,9 +493,13 @@ pub const QPalette = extern struct {
     ///
     /// ` self: QPalette `
     ///
-    pub fn Button(self: QPalette) QBrush {
+    pub fn button(self: QPalette) QBrush {
         return .{ .ptr = qtc.QPalette_Button(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `light` instead
+    ///
+    pub const Light = light;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#light)
     ///
@@ -403,9 +507,13 @@ pub const QPalette = extern struct {
     ///
     /// ` self: QPalette `
     ///
-    pub fn Light(self: QPalette) QBrush {
+    pub fn light(self: QPalette) QBrush {
         return .{ .ptr = qtc.QPalette_Light(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `dark` instead
+    ///
+    pub const Dark = dark;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#dark)
     ///
@@ -413,9 +521,13 @@ pub const QPalette = extern struct {
     ///
     /// ` self: QPalette `
     ///
-    pub fn Dark(self: QPalette) QBrush {
+    pub fn dark(self: QPalette) QBrush {
         return .{ .ptr = qtc.QPalette_Dark(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mid` instead
+    ///
+    pub const Mid = mid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#mid)
     ///
@@ -423,9 +535,13 @@ pub const QPalette = extern struct {
     ///
     /// ` self: QPalette `
     ///
-    pub fn Mid(self: QPalette) QBrush {
+    pub fn mid(self: QPalette) QBrush {
         return .{ .ptr = qtc.QPalette_Mid(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `text` instead
+    ///
+    pub const Text = text;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#text)
     ///
@@ -433,9 +549,13 @@ pub const QPalette = extern struct {
     ///
     /// ` self: QPalette `
     ///
-    pub fn Text(self: QPalette) QBrush {
+    pub fn text(self: QPalette) QBrush {
         return .{ .ptr = qtc.QPalette_Text(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `base` instead
+    ///
+    pub const Base = base;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#base)
     ///
@@ -443,9 +563,13 @@ pub const QPalette = extern struct {
     ///
     /// ` self: QPalette `
     ///
-    pub fn Base(self: QPalette) QBrush {
+    pub fn base(self: QPalette) QBrush {
         return .{ .ptr = qtc.QPalette_Base(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `alternateBase` instead
+    ///
+    pub const AlternateBase = alternateBase;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#alternateBase)
     ///
@@ -453,9 +577,13 @@ pub const QPalette = extern struct {
     ///
     /// ` self: QPalette `
     ///
-    pub fn AlternateBase(self: QPalette) QBrush {
+    pub fn alternateBase(self: QPalette) QBrush {
         return .{ .ptr = qtc.QPalette_AlternateBase(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toolTipBase` instead
+    ///
+    pub const ToolTipBase = toolTipBase;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#toolTipBase)
     ///
@@ -463,9 +591,13 @@ pub const QPalette = extern struct {
     ///
     /// ` self: QPalette `
     ///
-    pub fn ToolTipBase(self: QPalette) QBrush {
+    pub fn toolTipBase(self: QPalette) QBrush {
         return .{ .ptr = qtc.QPalette_ToolTipBase(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toolTipText` instead
+    ///
+    pub const ToolTipText = toolTipText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#toolTipText)
     ///
@@ -473,9 +605,13 @@ pub const QPalette = extern struct {
     ///
     /// ` self: QPalette `
     ///
-    pub fn ToolTipText(self: QPalette) QBrush {
+    pub fn toolTipText(self: QPalette) QBrush {
         return .{ .ptr = qtc.QPalette_ToolTipText(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#window)
     ///
@@ -483,9 +619,13 @@ pub const QPalette = extern struct {
     ///
     /// ` self: QPalette `
     ///
-    pub fn Window(self: QPalette) QBrush {
+    pub fn window(self: QPalette) QBrush {
         return .{ .ptr = qtc.QPalette_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `midlight` instead
+    ///
+    pub const Midlight = midlight;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#midlight)
     ///
@@ -493,9 +633,13 @@ pub const QPalette = extern struct {
     ///
     /// ` self: QPalette `
     ///
-    pub fn Midlight(self: QPalette) QBrush {
+    pub fn midlight(self: QPalette) QBrush {
         return .{ .ptr = qtc.QPalette_Midlight(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `brightText` instead
+    ///
+    pub const BrightText = brightText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#brightText)
     ///
@@ -503,9 +647,13 @@ pub const QPalette = extern struct {
     ///
     /// ` self: QPalette `
     ///
-    pub fn BrightText(self: QPalette) QBrush {
+    pub fn brightText(self: QPalette) QBrush {
         return .{ .ptr = qtc.QPalette_BrightText(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `buttonText` instead
+    ///
+    pub const ButtonText = buttonText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#buttonText)
     ///
@@ -513,9 +661,13 @@ pub const QPalette = extern struct {
     ///
     /// ` self: QPalette `
     ///
-    pub fn ButtonText(self: QPalette) QBrush {
+    pub fn buttonText(self: QPalette) QBrush {
         return .{ .ptr = qtc.QPalette_ButtonText(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `shadow` instead
+    ///
+    pub const Shadow = shadow;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#shadow)
     ///
@@ -523,9 +675,13 @@ pub const QPalette = extern struct {
     ///
     /// ` self: QPalette `
     ///
-    pub fn Shadow(self: QPalette) QBrush {
+    pub fn shadow(self: QPalette) QBrush {
         return .{ .ptr = qtc.QPalette_Shadow(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `highlight` instead
+    ///
+    pub const Highlight = highlight;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#highlight)
     ///
@@ -533,9 +689,13 @@ pub const QPalette = extern struct {
     ///
     /// ` self: QPalette `
     ///
-    pub fn Highlight(self: QPalette) QBrush {
+    pub fn highlight(self: QPalette) QBrush {
         return .{ .ptr = qtc.QPalette_Highlight(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `highlightedText` instead
+    ///
+    pub const HighlightedText = highlightedText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#highlightedText)
     ///
@@ -543,9 +703,13 @@ pub const QPalette = extern struct {
     ///
     /// ` self: QPalette `
     ///
-    pub fn HighlightedText(self: QPalette) QBrush {
+    pub fn highlightedText(self: QPalette) QBrush {
         return .{ .ptr = qtc.QPalette_HighlightedText(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `link` instead
+    ///
+    pub const Link = link;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#link)
     ///
@@ -553,9 +717,13 @@ pub const QPalette = extern struct {
     ///
     /// ` self: QPalette `
     ///
-    pub fn Link(self: QPalette) QBrush {
+    pub fn link(self: QPalette) QBrush {
         return .{ .ptr = qtc.QPalette_Link(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `linkVisited` instead
+    ///
+    pub const LinkVisited = linkVisited;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#linkVisited)
     ///
@@ -563,9 +731,13 @@ pub const QPalette = extern struct {
     ///
     /// ` self: QPalette `
     ///
-    pub fn LinkVisited(self: QPalette) QBrush {
+    pub fn linkVisited(self: QPalette) QBrush {
         return .{ .ptr = qtc.QPalette_LinkVisited(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `placeholderText` instead
+    ///
+    pub const PlaceholderText = placeholderText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#placeholderText)
     ///
@@ -573,9 +745,13 @@ pub const QPalette = extern struct {
     ///
     /// ` self: QPalette `
     ///
-    pub fn PlaceholderText(self: QPalette) QBrush {
+    pub fn placeholderText(self: QPalette) QBrush {
         return .{ .ptr = qtc.QPalette_PlaceholderText(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `accent` instead
+    ///
+    pub const Accent = accent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#accent)
     ///
@@ -583,9 +759,13 @@ pub const QPalette = extern struct {
     ///
     /// ` self: QPalette `
     ///
-    pub fn Accent(self: QPalette) QBrush {
+    pub fn accent(self: QPalette) QBrush {
         return .{ .ptr = qtc.QPalette_Accent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#operator-eq-eq)
     ///
@@ -595,10 +775,14 @@ pub const QPalette = extern struct {
     ///
     /// ` p: QPalette `
     ///
-    pub fn OperatorEqual(self: QPalette, p: anytype) bool {
+    pub fn operatorEqual(self: QPalette, p: anytype) bool {
         comptime _ = @TypeOf(p)._is_QPalette;
         return qtc.QPalette_OperatorEqual(@ptrCast(self.ptr), @ptrCast(p.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#operator-not-eq)
     ///
@@ -608,10 +792,14 @@ pub const QPalette = extern struct {
     ///
     /// ` p: QPalette `
     ///
-    pub fn OperatorNotEqual(self: QPalette, p: anytype) bool {
+    pub fn operatorNotEqual(self: QPalette, p: anytype) bool {
         comptime _ = @TypeOf(p)._is_QPalette;
         return qtc.QPalette_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(p.ptr));
     }
+
+    /// ### DEPRECATED: Use `isCopyOf` instead
+    ///
+    pub const IsCopyOf = isCopyOf;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#isCopyOf)
     ///
@@ -621,10 +809,14 @@ pub const QPalette = extern struct {
     ///
     /// ` p: QPalette `
     ///
-    pub fn IsCopyOf(self: QPalette, p: anytype) bool {
+    pub fn isCopyOf(self: QPalette, p: anytype) bool {
         comptime _ = @TypeOf(p)._is_QPalette;
         return qtc.QPalette_IsCopyOf(@ptrCast(self.ptr), @ptrCast(p.ptr));
     }
+
+    /// ### DEPRECATED: Use `cacheKey` instead
+    ///
+    pub const CacheKey = cacheKey;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#cacheKey)
     ///
@@ -632,9 +824,13 @@ pub const QPalette = extern struct {
     ///
     /// ` self: QPalette `
     ///
-    pub fn CacheKey(self: QPalette) i64 {
+    pub fn cacheKey(self: QPalette) i64 {
         return qtc.QPalette_CacheKey(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `resolve` instead
+    ///
+    pub const Resolve = resolve;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#resolve)
     ///
@@ -644,10 +840,14 @@ pub const QPalette = extern struct {
     ///
     /// ` other: QPalette `
     ///
-    pub fn Resolve(self: QPalette, other: anytype) QPalette {
+    pub fn resolve(self: QPalette, other: anytype) QPalette {
         comptime _ = @TypeOf(other)._is_QPalette;
         return .{ .ptr = qtc.QPalette_Resolve(@ptrCast(self.ptr), @ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `resolveMask` instead
+    ///
+    pub const ResolveMask = resolveMask;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#resolveMask)
     ///
@@ -655,9 +855,13 @@ pub const QPalette = extern struct {
     ///
     /// ` self: QPalette `
     ///
-    pub fn ResolveMask(self: QPalette) usize {
+    pub fn resolveMask(self: QPalette) usize {
         return qtc.QPalette_ResolveMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setResolveMask` instead
+    ///
+    pub const SetResolveMask = setResolveMask;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#setResolveMask)
     ///
@@ -667,23 +871,23 @@ pub const QPalette = extern struct {
     ///
     /// ` mask: usize `
     ///
-    pub fn SetResolveMask(self: QPalette, mask: usize) void {
+    pub fn setResolveMask(self: QPalette, mask: usize) void {
         qtc.QPalette_SetResolveMask(@ptrCast(self.ptr), @bitCast(mask));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#dtor.QPalette)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QPalette `
     ///
-    pub fn Delete(self: QPalette) void {
+    pub fn delete(self: QPalette) void {
         qtc.QPalette_Delete(@ptrCast(self.ptr));
     }
 };

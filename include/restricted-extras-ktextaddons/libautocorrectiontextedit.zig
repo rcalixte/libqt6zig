@@ -101,22 +101,34 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new TextAutoCorrectionWidgets::AutoCorrectionTextEdit object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new TextAutoCorrectionWidgets::AutoCorrectionTextEdit object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) TextAutoCorrectionWidgets__AutoCorrectionTextEdit {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) TextAutoCorrectionWidgets__AutoCorrectionTextEdit {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new TextAutoCorrectionWidgets::AutoCorrectionTextEdit object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() TextAutoCorrectionWidgets__AutoCorrectionTextEdit {
+    pub const New2 = new2;
+
+    /// Allocate a new TextAutoCorrectionWidgets::AutoCorrectionTextEdit object in C++ memory
+    ///
+    pub fn new2() TextAutoCorrectionWidgets__AutoCorrectionTextEdit {
         return .{ .ptr = qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_new2() };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionWidgets_1_1AutoCorrectionTextEdit.html)
     ///
@@ -124,9 +136,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn MetaObject(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QMetaObject {
+    pub fn metaObject(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QMetaObject {
         return .{ .ptr = qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionWidgets_1_1AutoCorrectionTextEdit.html)
     ///
@@ -138,13 +154,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionWidgets_1_1AutoCorrectionTextEdit.html)
     ///
@@ -154,9 +170,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn SuperMetaObject(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QMetaObject {
+    pub fn superMetaObject(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QMetaObject {
         return .{ .ptr = qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -164,10 +184,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -177,13 +201,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -193,10 +217,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -208,9 +236,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -220,13 +252,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -240,9 +272,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -252,14 +288,18 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `autocorrection` instead
+    ///
+    pub const Autocorrection = autocorrection;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionWidgets_1_1AutoCorrectionTextEdit.html)
     ///
@@ -267,9 +307,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn Autocorrection(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) TextAutoCorrectionCore__AutoCorrection {
+    pub fn autocorrection(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) TextAutoCorrectionCore__AutoCorrection {
         return .{ .ptr = qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_Autocorrection(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAutocorrection` instead
+    ///
+    pub const SetAutocorrection = setAutocorrection;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionWidgets_1_1AutoCorrectionTextEdit.html)
     ///
@@ -279,10 +323,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` autocorrect: TextAutoCorrectionCore__AutoCorrection `
     ///
-    pub fn SetAutocorrection(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, autocorrect: anytype) void {
+    pub fn setAutocorrection(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, autocorrect: anytype) void {
         comptime _ = @TypeOf(autocorrect)._is_TextAutoCorrectionCore__AutoCorrection;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SetAutocorrection(@ptrCast(self.ptr), @ptrCast(autocorrect.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutocorrectionLanguage` instead
+    ///
+    pub const SetAutocorrectionLanguage = setAutocorrectionLanguage;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionWidgets_1_1AutoCorrectionTextEdit.html)
     ///
@@ -292,13 +340,17 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` language: []const u8 `
     ///
-    pub fn SetAutocorrectionLanguage(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, language: []const u8) void {
+    pub fn setAutocorrectionLanguage(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, language: []const u8) void {
         const language_str = qtc.libqt_string{
             .len = language.len,
             .data = language.ptr,
         };
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SetAutocorrectionLanguage(@ptrCast(self.ptr), language_str);
     }
+
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionWidgets_1_1AutoCorrectionTextEdit.html)
     ///
@@ -308,10 +360,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
+    pub fn keyPressEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionWidgets_1_1AutoCorrectionTextEdit.html)
     ///
@@ -323,13 +379,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QKeyEvent) callconv(.c) void) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionWidgets_1_1AutoCorrectionTextEdit.html)
     ///
@@ -341,10 +397,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
+    pub fn superKeyPressEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -356,15 +416,19 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -378,15 +442,19 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setDocument` instead
+    ///
+    pub const SetDocument = setDocument;
 
     /// Inherited from QTextEdit
     ///
@@ -396,12 +464,16 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` document: QTextDocument `
+    /// ` _document: QTextDocument `
     ///
-    pub fn SetDocument(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, document: anytype) void {
-        comptime _ = @TypeOf(document)._is_QTextDocument;
-        qtc.QTextEdit_SetDocument(@ptrCast(self.ptr), @ptrCast(document.ptr));
+    pub fn setDocument(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _document: anytype) void {
+        comptime _ = @TypeOf(_document)._is_QTextDocument;
+        qtc.QTextEdit_SetDocument(@ptrCast(self.ptr), @ptrCast(_document.ptr));
     }
+
+    /// ### DEPRECATED: Use `document` instead
+    ///
+    pub const Document = document;
 
     /// Inherited from QTextEdit
     ///
@@ -411,9 +483,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn Document(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QTextDocument {
+    pub fn document(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QTextDocument {
         return .{ .ptr = qtc.QTextEdit_Document(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPlaceholderText` instead
+    ///
+    pub const SetPlaceholderText = setPlaceholderText;
 
     /// Inherited from QTextEdit
     ///
@@ -423,15 +499,19 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` placeholderText: []const u8 `
+    /// ` _placeholderText: []const u8 `
     ///
-    pub fn SetPlaceholderText(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, placeholderText: []const u8) void {
+    pub fn setPlaceholderText(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _placeholderText: []const u8) void {
         const placeholderText_str = qtc.libqt_string{
-            .len = placeholderText.len,
-            .data = placeholderText.ptr,
+            .len = _placeholderText.len,
+            .data = _placeholderText.ptr,
         };
         qtc.QTextEdit_SetPlaceholderText(@ptrCast(self.ptr), placeholderText_str);
     }
+
+    /// ### DEPRECATED: Use `placeholderText` instead
+    ///
+    pub const PlaceholderText = placeholderText;
 
     /// Inherited from QTextEdit
     ///
@@ -443,13 +523,17 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PlaceholderText(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn placeholderText(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextEdit_PlaceholderText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.PlaceholderText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.placeholderText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setTextCursor` instead
+    ///
+    pub const SetTextCursor = setTextCursor;
 
     /// Inherited from QTextEdit
     ///
@@ -459,12 +543,16 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` cursor: QTextCursor `
+    /// ` _cursor: QTextCursor `
     ///
-    pub fn SetTextCursor(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QTextCursor;
-        qtc.QTextEdit_SetTextCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setTextCursor(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QTextCursor;
+        qtc.QTextEdit_SetTextCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `textCursor` instead
+    ///
+    pub const TextCursor = textCursor;
 
     /// Inherited from QTextEdit
     ///
@@ -474,9 +562,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn TextCursor(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QTextCursor {
+    pub fn textCursor(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QTextCursor {
         return .{ .ptr = qtc.QTextEdit_TextCursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isReadOnly` instead
+    ///
+    pub const IsReadOnly = isReadOnly;
 
     /// Inherited from QTextEdit
     ///
@@ -486,9 +578,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn IsReadOnly(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
+    pub fn isReadOnly(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
         return qtc.QTextEdit_IsReadOnly(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setReadOnly` instead
+    ///
+    pub const SetReadOnly = setReadOnly;
 
     /// Inherited from QTextEdit
     ///
@@ -500,9 +596,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` ro: bool `
     ///
-    pub fn SetReadOnly(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, ro: bool) void {
+    pub fn setReadOnly(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, ro: bool) void {
         qtc.QTextEdit_SetReadOnly(@ptrCast(self.ptr), ro);
     }
+
+    /// ### DEPRECATED: Use `setTextInteractionFlags` instead
+    ///
+    pub const SetTextInteractionFlags = setTextInteractionFlags;
 
     /// Inherited from QTextEdit
     ///
@@ -514,9 +614,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.TextInteractionFlag `
     ///
-    pub fn SetTextInteractionFlags(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, flags: i32) void {
+    pub fn setTextInteractionFlags(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, flags: i32) void {
         qtc.QTextEdit_SetTextInteractionFlags(@ptrCast(self.ptr), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `textInteractionFlags` instead
+    ///
+    pub const TextInteractionFlags = textInteractionFlags;
 
     /// Inherited from QTextEdit
     ///
@@ -530,9 +634,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` flag of qnamespace_enums.TextInteractionFlag `
     ///
-    pub fn TextInteractionFlags(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
+    pub fn textInteractionFlags(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
         return qtc.QTextEdit_TextInteractionFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontPointSize` instead
+    ///
+    pub const FontPointSize = fontPointSize;
 
     /// Inherited from QTextEdit
     ///
@@ -542,9 +650,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn FontPointSize(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) f64 {
+    pub fn fontPointSize(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) f64 {
         return qtc.QTextEdit_FontPointSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontFamily` instead
+    ///
+    pub const FontFamily = fontFamily;
 
     /// Inherited from QTextEdit
     ///
@@ -556,13 +668,17 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FontFamily(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn fontFamily(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextEdit_FontFamily(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.FontFamily: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.fontFamily: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `fontWeight` instead
+    ///
+    pub const FontWeight = fontWeight;
 
     /// Inherited from QTextEdit
     ///
@@ -572,9 +688,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn FontWeight(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
+    pub fn fontWeight(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
         return qtc.QTextEdit_FontWeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontUnderline` instead
+    ///
+    pub const FontUnderline = fontUnderline;
 
     /// Inherited from QTextEdit
     ///
@@ -584,9 +704,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn FontUnderline(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
+    pub fn fontUnderline(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
         return qtc.QTextEdit_FontUnderline(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontItalic` instead
+    ///
+    pub const FontItalic = fontItalic;
 
     /// Inherited from QTextEdit
     ///
@@ -596,9 +720,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn FontItalic(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
+    pub fn fontItalic(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
         return qtc.QTextEdit_FontItalic(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `textColor` instead
+    ///
+    pub const TextColor = textColor;
 
     /// Inherited from QTextEdit
     ///
@@ -608,9 +736,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn TextColor(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QColor {
+    pub fn textColor(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QColor {
         return .{ .ptr = qtc.QTextEdit_TextColor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `textBackgroundColor` instead
+    ///
+    pub const TextBackgroundColor = textBackgroundColor;
 
     /// Inherited from QTextEdit
     ///
@@ -620,9 +752,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn TextBackgroundColor(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QColor {
+    pub fn textBackgroundColor(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QColor {
         return .{ .ptr = qtc.QTextEdit_TextBackgroundColor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `currentFont` instead
+    ///
+    pub const CurrentFont = currentFont;
 
     /// Inherited from QTextEdit
     ///
@@ -632,9 +768,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn CurrentFont(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QFont {
+    pub fn currentFont(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QFont {
         return .{ .ptr = qtc.QTextEdit_CurrentFont(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `alignment` instead
+    ///
+    pub const Alignment = alignment;
 
     /// Inherited from QTextEdit
     ///
@@ -648,9 +788,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn Alignment(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
+    pub fn alignment(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
         return qtc.QTextEdit_Alignment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `mergeCurrentCharFormat` instead
+    ///
+    pub const MergeCurrentCharFormat = mergeCurrentCharFormat;
 
     /// Inherited from QTextEdit
     ///
@@ -662,10 +806,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` modifier: QTextCharFormat `
     ///
-    pub fn MergeCurrentCharFormat(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, modifier: anytype) void {
+    pub fn mergeCurrentCharFormat(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, modifier: anytype) void {
         comptime _ = @TypeOf(modifier)._is_QTextCharFormat;
         qtc.QTextEdit_MergeCurrentCharFormat(@ptrCast(self.ptr), @ptrCast(modifier.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCurrentCharFormat` instead
+    ///
+    pub const SetCurrentCharFormat = setCurrentCharFormat;
 
     /// Inherited from QTextEdit
     ///
@@ -677,10 +825,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` format: QTextCharFormat `
     ///
-    pub fn SetCurrentCharFormat(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, format: anytype) void {
+    pub fn setCurrentCharFormat(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, format: anytype) void {
         comptime _ = @TypeOf(format)._is_QTextCharFormat;
         qtc.QTextEdit_SetCurrentCharFormat(@ptrCast(self.ptr), @ptrCast(format.ptr));
     }
+
+    /// ### DEPRECATED: Use `currentCharFormat` instead
+    ///
+    pub const CurrentCharFormat = currentCharFormat;
 
     /// Inherited from QTextEdit
     ///
@@ -690,9 +842,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn CurrentCharFormat(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QTextCharFormat {
+    pub fn currentCharFormat(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QTextCharFormat {
         return .{ .ptr = qtc.QTextEdit_CurrentCharFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `autoFormatting` instead
+    ///
+    pub const AutoFormatting = autoFormatting;
 
     /// Inherited from QTextEdit
     ///
@@ -706,9 +862,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` flag of qtextedit_enums.AutoFormattingFlag `
     ///
-    pub fn AutoFormatting(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
+    pub fn autoFormatting(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
         return qtc.QTextEdit_AutoFormatting(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFormatting` instead
+    ///
+    pub const SetAutoFormatting = setAutoFormatting;
 
     /// Inherited from QTextEdit
     ///
@@ -720,9 +880,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` features: flag of qtextedit_enums.AutoFormattingFlag `
     ///
-    pub fn SetAutoFormatting(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, features: i32) void {
+    pub fn setAutoFormatting(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, features: i32) void {
         qtc.QTextEdit_SetAutoFormatting(@ptrCast(self.ptr), @bitCast(features));
     }
+
+    /// ### DEPRECATED: Use `tabChangesFocus` instead
+    ///
+    pub const TabChangesFocus = tabChangesFocus;
 
     /// Inherited from QTextEdit
     ///
@@ -732,9 +896,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn TabChangesFocus(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
+    pub fn tabChangesFocus(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
         return qtc.QTextEdit_TabChangesFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabChangesFocus` instead
+    ///
+    pub const SetTabChangesFocus = setTabChangesFocus;
 
     /// Inherited from QTextEdit
     ///
@@ -746,9 +914,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetTabChangesFocus(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, b: bool) void {
+    pub fn setTabChangesFocus(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, b: bool) void {
         qtc.QTextEdit_SetTabChangesFocus(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `setDocumentTitle` instead
+    ///
+    pub const SetDocumentTitle = setDocumentTitle;
 
     /// Inherited from QTextEdit
     ///
@@ -760,13 +932,17 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn SetDocumentTitle(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, title: []const u8) void {
+    pub fn setDocumentTitle(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QTextEdit_SetDocumentTitle(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `documentTitle` instead
+    ///
+    pub const DocumentTitle = documentTitle;
 
     /// Inherited from QTextEdit
     ///
@@ -778,13 +954,17 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DocumentTitle(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn documentTitle(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextEdit_DocumentTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.DocumentTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.documentTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isUndoRedoEnabled` instead
+    ///
+    pub const IsUndoRedoEnabled = isUndoRedoEnabled;
 
     /// Inherited from QTextEdit
     ///
@@ -794,9 +974,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn IsUndoRedoEnabled(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
+    pub fn isUndoRedoEnabled(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
         return qtc.QTextEdit_IsUndoRedoEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUndoRedoEnabled` instead
+    ///
+    pub const SetUndoRedoEnabled = setUndoRedoEnabled;
 
     /// Inherited from QTextEdit
     ///
@@ -808,9 +992,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUndoRedoEnabled(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, enable: bool) void {
+    pub fn setUndoRedoEnabled(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, enable: bool) void {
         qtc.QTextEdit_SetUndoRedoEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `lineWrapMode` instead
+    ///
+    pub const LineWrapMode = lineWrapMode;
 
     /// Inherited from QTextEdit
     ///
@@ -824,9 +1012,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` qtextedit_enums.LineWrapMode `
     ///
-    pub fn LineWrapMode(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
+    pub fn lineWrapMode(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
         return qtc.QTextEdit_LineWrapMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLineWrapMode` instead
+    ///
+    pub const SetLineWrapMode = setLineWrapMode;
 
     /// Inherited from QTextEdit
     ///
@@ -838,9 +1030,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` mode: qtextedit_enums.LineWrapMode `
     ///
-    pub fn SetLineWrapMode(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, mode: i32) void {
+    pub fn setLineWrapMode(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, mode: i32) void {
         qtc.QTextEdit_SetLineWrapMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `lineWrapColumnOrWidth` instead
+    ///
+    pub const LineWrapColumnOrWidth = lineWrapColumnOrWidth;
 
     /// Inherited from QTextEdit
     ///
@@ -850,9 +1046,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn LineWrapColumnOrWidth(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
+    pub fn lineWrapColumnOrWidth(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
         return qtc.QTextEdit_LineWrapColumnOrWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLineWrapColumnOrWidth` instead
+    ///
+    pub const SetLineWrapColumnOrWidth = setLineWrapColumnOrWidth;
 
     /// Inherited from QTextEdit
     ///
@@ -864,9 +1064,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetLineWrapColumnOrWidth(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, w: i32) void {
+    pub fn setLineWrapColumnOrWidth(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, w: i32) void {
         qtc.QTextEdit_SetLineWrapColumnOrWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `wordWrapMode` instead
+    ///
+    pub const WordWrapMode = wordWrapMode;
 
     /// Inherited from QTextEdit
     ///
@@ -880,9 +1084,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` qtextoption_enums.WrapMode `
     ///
-    pub fn WordWrapMode(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
+    pub fn wordWrapMode(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
         return qtc.QTextEdit_WordWrapMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWordWrapMode` instead
+    ///
+    pub const SetWordWrapMode = setWordWrapMode;
 
     /// Inherited from QTextEdit
     ///
@@ -894,9 +1102,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` policy: qtextoption_enums.WrapMode `
     ///
-    pub fn SetWordWrapMode(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, policy: i32) void {
+    pub fn setWordWrapMode(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, policy: i32) void {
         qtc.QTextEdit_SetWordWrapMode(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QTextEdit
     ///
@@ -908,13 +1120,17 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` exp: []const u8 `
     ///
-    pub fn Find(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, exp: []const u8) bool {
+    pub fn find(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, exp: []const u8) bool {
         const exp_str = qtc.libqt_string{
             .len = exp.len,
             .data = exp.ptr,
         };
         return qtc.QTextEdit_Find(@ptrCast(self.ptr), exp_str);
     }
+
+    /// ### DEPRECATED: Use `find2` instead
+    ///
+    pub const Find2 = find2;
 
     /// Inherited from QTextEdit
     ///
@@ -926,10 +1142,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` exp: QRegularExpression `
     ///
-    pub fn Find2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, exp: anytype) bool {
+    pub fn find2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, exp: anytype) bool {
         comptime _ = @TypeOf(exp)._is_QRegularExpression;
         return qtc.QTextEdit_Find2(@ptrCast(self.ptr), @ptrCast(exp.ptr));
     }
+
+    /// ### DEPRECATED: Use `toPlainText` instead
+    ///
+    pub const ToPlainText = toPlainText;
 
     /// Inherited from QTextEdit
     ///
@@ -941,13 +1161,17 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToPlainText(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn toPlainText(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextEdit_ToPlainText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.ToPlainText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.toPlainText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `toHtml` instead
+    ///
+    pub const ToHtml = toHtml;
 
     /// Inherited from QTextEdit
     ///
@@ -959,13 +1183,17 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToHtml(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn toHtml(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextEdit_ToHtml(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.ToHtml: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.toHtml: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `toMarkdown` instead
+    ///
+    pub const ToMarkdown = toMarkdown;
 
     /// Inherited from QTextEdit
     ///
@@ -977,13 +1205,17 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToMarkdown(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn toMarkdown(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextEdit_ToMarkdown(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.ToMarkdown: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.toMarkdown: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `ensureCursorVisible` instead
+    ///
+    pub const EnsureCursorVisible = ensureCursorVisible;
 
     /// Inherited from QTextEdit
     ///
@@ -993,9 +1225,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn EnsureCursorVisible(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
+    pub fn ensureCursorVisible(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
         qtc.QTextEdit_EnsureCursorVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createStandardContextMenu` instead
+    ///
+    pub const CreateStandardContextMenu = createStandardContextMenu;
 
     /// Inherited from QTextEdit
     ///
@@ -1005,9 +1241,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn CreateStandardContextMenu(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QMenu {
+    pub fn createStandardContextMenu(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QMenu {
         return .{ .ptr = qtc.QTextEdit_CreateStandardContextMenu(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `createStandardContextMenu2` instead
+    ///
+    pub const CreateStandardContextMenu2 = createStandardContextMenu2;
 
     /// Inherited from QTextEdit
     ///
@@ -1019,10 +1259,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` position: QPoint `
     ///
-    pub fn CreateStandardContextMenu2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, position: anytype) QMenu {
+    pub fn createStandardContextMenu2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, position: anytype) QMenu {
         comptime _ = @TypeOf(position)._is_QPoint;
         return .{ .ptr = qtc.QTextEdit_CreateStandardContextMenu2(@ptrCast(self.ptr), @ptrCast(position.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursorForPosition` instead
+    ///
+    pub const CursorForPosition = cursorForPosition;
 
     /// Inherited from QTextEdit
     ///
@@ -1032,12 +1276,16 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CursorForPosition(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, pos: anytype) QTextCursor {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        return .{ .ptr = qtc.QTextEdit_CursorForPosition(@ptrCast(self.ptr), @ptrCast(pos.ptr)) };
+    pub fn cursorForPosition(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _pos: anytype) QTextCursor {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        return .{ .ptr = qtc.QTextEdit_CursorForPosition(@ptrCast(self.ptr), @ptrCast(_pos.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursorRect` instead
+    ///
+    pub const CursorRect = cursorRect;
 
     /// Inherited from QTextEdit
     ///
@@ -1047,12 +1295,16 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` cursor: QTextCursor `
+    /// ` _cursor: QTextCursor `
     ///
-    pub fn CursorRect(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, cursor: anytype) QRect {
-        comptime _ = @TypeOf(cursor)._is_QTextCursor;
-        return .{ .ptr = qtc.QTextEdit_CursorRect(@ptrCast(self.ptr), @ptrCast(cursor.ptr)) };
+    pub fn cursorRect(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _cursor: anytype) QRect {
+        comptime _ = @TypeOf(_cursor)._is_QTextCursor;
+        return .{ .ptr = qtc.QTextEdit_CursorRect(@ptrCast(self.ptr), @ptrCast(_cursor.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursorRect2` instead
+    ///
+    pub const CursorRect2 = cursorRect2;
 
     /// Inherited from QTextEdit
     ///
@@ -1062,9 +1314,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn CursorRect2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QRect {
+    pub fn cursorRect2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QRect {
         return .{ .ptr = qtc.QTextEdit_CursorRect2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `anchorAt` instead
+    ///
+    pub const AnchorAt = anchorAt;
 
     /// Inherited from QTextEdit
     ///
@@ -1076,16 +1332,20 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn AnchorAt(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator, pos: anytype) []const u8 {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        var _str = qtc.QTextEdit_AnchorAt(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn anchorAt(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator, _pos: anytype) []const u8 {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        var _str = qtc.QTextEdit_AnchorAt(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.AnchorAt: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.anchorAt: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `overwriteMode` instead
+    ///
+    pub const OverwriteMode = overwriteMode;
 
     /// Inherited from QTextEdit
     ///
@@ -1095,9 +1355,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn OverwriteMode(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
+    pub fn overwriteMode(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
         return qtc.QTextEdit_OverwriteMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setOverwriteMode` instead
+    ///
+    pub const SetOverwriteMode = setOverwriteMode;
 
     /// Inherited from QTextEdit
     ///
@@ -1109,9 +1373,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` overwrite: bool `
     ///
-    pub fn SetOverwriteMode(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, overwrite: bool) void {
+    pub fn setOverwriteMode(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, overwrite: bool) void {
         qtc.QTextEdit_SetOverwriteMode(@ptrCast(self.ptr), overwrite);
     }
+
+    /// ### DEPRECATED: Use `tabStopDistance` instead
+    ///
+    pub const TabStopDistance = tabStopDistance;
 
     /// Inherited from QTextEdit
     ///
@@ -1121,9 +1389,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn TabStopDistance(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) f64 {
+    pub fn tabStopDistance(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) f64 {
         return qtc.QTextEdit_TabStopDistance(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabStopDistance` instead
+    ///
+    pub const SetTabStopDistance = setTabStopDistance;
 
     /// Inherited from QTextEdit
     ///
@@ -1135,9 +1407,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` distance: f64 `
     ///
-    pub fn SetTabStopDistance(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, distance: f64) void {
+    pub fn setTabStopDistance(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, distance: f64) void {
         qtc.QTextEdit_SetTabStopDistance(@ptrCast(self.ptr), @bitCast(distance));
     }
+
+    /// ### DEPRECATED: Use `cursorWidth` instead
+    ///
+    pub const CursorWidth = cursorWidth;
 
     /// Inherited from QTextEdit
     ///
@@ -1147,9 +1423,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn CursorWidth(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
+    pub fn cursorWidth(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
         return qtc.QTextEdit_CursorWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCursorWidth` instead
+    ///
+    pub const SetCursorWidth = setCursorWidth;
 
     /// Inherited from QTextEdit
     ///
@@ -1159,11 +1439,15 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` width: i32 `
+    /// ` _width: i32 `
     ///
-    pub fn SetCursorWidth(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, width: i32) void {
-        qtc.QTextEdit_SetCursorWidth(@ptrCast(self.ptr), @bitCast(width));
+    pub fn setCursorWidth(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _width: i32) void {
+        qtc.QTextEdit_SetCursorWidth(@ptrCast(self.ptr), @bitCast(_width));
     }
+
+    /// ### DEPRECATED: Use `acceptRichText` instead
+    ///
+    pub const AcceptRichText = acceptRichText;
 
     /// Inherited from QTextEdit
     ///
@@ -1173,9 +1457,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn AcceptRichText(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
+    pub fn acceptRichText(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
         return qtc.QTextEdit_AcceptRichText(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptRichText` instead
+    ///
+    pub const SetAcceptRichText = setAcceptRichText;
 
     /// Inherited from QTextEdit
     ///
@@ -1187,9 +1475,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` accept: bool `
     ///
-    pub fn SetAcceptRichText(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, accept: bool) void {
+    pub fn setAcceptRichText(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, accept: bool) void {
         qtc.QTextEdit_SetAcceptRichText(@ptrCast(self.ptr), accept);
     }
+
+    /// ### DEPRECATED: Use `setExtraSelections` instead
+    ///
+    pub const SetExtraSelections = setExtraSelections;
 
     /// Inherited from QTextEdit
     ///
@@ -1201,13 +1493,17 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` selections: []QTextEdit__ExtraSelection `
     ///
-    pub fn SetExtraSelections(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, selections: []QTextEdit__ExtraSelection) void {
+    pub fn setExtraSelections(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, selections: []QTextEdit__ExtraSelection) void {
         const selections_list = qtc.libqt_list{
             .len = selections.len,
             .data = @ptrCast(selections.ptr),
         };
         qtc.QTextEdit_SetExtraSelections(@ptrCast(self.ptr), selections_list);
     }
+
+    /// ### DEPRECATED: Use `extraSelections` instead
+    ///
+    pub const ExtraSelections = extraSelections;
 
     /// Inherited from QTextEdit
     ///
@@ -1219,15 +1515,19 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ExtraSelections(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []QTextEdit__ExtraSelection {
+    pub fn extraSelections(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []QTextEdit__ExtraSelection {
         const _arr: qtc.libqt_list = qtc.QTextEdit_ExtraSelections(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QTextEdit__ExtraSelection, _arr.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.ExtraSelections: Memory allocation failed");
-        const _data: [*]QtC.QTextEdit__ExtraSelection = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QTextEdit__ExtraSelection, _arr.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.extraSelections: Memory allocation failed");
+        const _data_val: [*]QtC.QTextEdit__ExtraSelection = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `moveCursor` instead
+    ///
+    pub const MoveCursor = moveCursor;
 
     /// Inherited from QTextEdit
     ///
@@ -1239,9 +1539,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` operation: qtextcursor_enums.MoveOperation `
     ///
-    pub fn MoveCursor(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, operation: i32) void {
+    pub fn moveCursor(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, operation: i32) void {
         qtc.QTextEdit_MoveCursor(@ptrCast(self.ptr), @bitCast(operation));
     }
+
+    /// ### DEPRECATED: Use `canPaste` instead
+    ///
+    pub const CanPaste = canPaste;
 
     /// Inherited from QTextEdit
     ///
@@ -1251,9 +1555,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn CanPaste(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
+    pub fn canPaste(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
         return qtc.QTextEdit_CanPaste(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `print` instead
+    ///
+    pub const Print = print;
 
     /// Inherited from QTextEdit
     ///
@@ -1265,10 +1573,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` printer: QPagedPaintDevice `
     ///
-    pub fn Print(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, printer: anytype) void {
+    pub fn print(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, printer: anytype) void {
         comptime _ = @TypeOf(printer)._is_QPagedPaintDevice;
         qtc.QTextEdit_Print(@ptrCast(self.ptr), @ptrCast(printer.ptr));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery2` instead
+    ///
+    pub const InputMethodQuery2 = inputMethodQuery2;
 
     /// Inherited from QTextEdit
     ///
@@ -1282,10 +1594,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` argument: QVariant `
     ///
-    pub fn InputMethodQuery2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, query: i32, argument: anytype) QVariant {
+    pub fn inputMethodQuery2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, query: i32, argument: anytype) QVariant {
         comptime _ = @TypeOf(argument)._is_QVariant;
         return .{ .ptr = qtc.QTextEdit_InputMethodQuery2(@ptrCast(self.ptr), @bitCast(query), @ptrCast(argument.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFontPointSize` instead
+    ///
+    pub const SetFontPointSize = setFontPointSize;
 
     /// Inherited from QTextEdit
     ///
@@ -1297,9 +1613,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` s: f64 `
     ///
-    pub fn SetFontPointSize(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, s: f64) void {
+    pub fn setFontPointSize(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, s: f64) void {
         qtc.QTextEdit_SetFontPointSize(@ptrCast(self.ptr), @bitCast(s));
     }
+
+    /// ### DEPRECATED: Use `setFontFamily` instead
+    ///
+    pub const SetFontFamily = setFontFamily;
 
     /// Inherited from QTextEdit
     ///
@@ -1309,15 +1629,19 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` fontFamily: []const u8 `
+    /// ` _fontFamily: []const u8 `
     ///
-    pub fn SetFontFamily(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, fontFamily: []const u8) void {
+    pub fn setFontFamily(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _fontFamily: []const u8) void {
         const fontFamily_str = qtc.libqt_string{
-            .len = fontFamily.len,
-            .data = fontFamily.ptr,
+            .len = _fontFamily.len,
+            .data = _fontFamily.ptr,
         };
         qtc.QTextEdit_SetFontFamily(@ptrCast(self.ptr), fontFamily_str);
     }
+
+    /// ### DEPRECATED: Use `setFontWeight` instead
+    ///
+    pub const SetFontWeight = setFontWeight;
 
     /// Inherited from QTextEdit
     ///
@@ -1329,9 +1653,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFontWeight(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, w: i32) void {
+    pub fn setFontWeight(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, w: i32) void {
         qtc.QTextEdit_SetFontWeight(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFontUnderline` instead
+    ///
+    pub const SetFontUnderline = setFontUnderline;
 
     /// Inherited from QTextEdit
     ///
@@ -1343,9 +1671,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetFontUnderline(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, b: bool) void {
+    pub fn setFontUnderline(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, b: bool) void {
         qtc.QTextEdit_SetFontUnderline(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `setFontItalic` instead
+    ///
+    pub const SetFontItalic = setFontItalic;
 
     /// Inherited from QTextEdit
     ///
@@ -1357,9 +1689,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetFontItalic(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, b: bool) void {
+    pub fn setFontItalic(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, b: bool) void {
         qtc.QTextEdit_SetFontItalic(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `setTextColor` instead
+    ///
+    pub const SetTextColor = setTextColor;
 
     /// Inherited from QTextEdit
     ///
@@ -1371,10 +1707,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` c: QColor `
     ///
-    pub fn SetTextColor(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, c: anytype) void {
+    pub fn setTextColor(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, c: anytype) void {
         comptime _ = @TypeOf(c)._is_QColor;
         qtc.QTextEdit_SetTextColor(@ptrCast(self.ptr), @ptrCast(c.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTextBackgroundColor` instead
+    ///
+    pub const SetTextBackgroundColor = setTextBackgroundColor;
 
     /// Inherited from QTextEdit
     ///
@@ -1386,10 +1726,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` c: QColor `
     ///
-    pub fn SetTextBackgroundColor(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, c: anytype) void {
+    pub fn setTextBackgroundColor(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, c: anytype) void {
         comptime _ = @TypeOf(c)._is_QColor;
         qtc.QTextEdit_SetTextBackgroundColor(@ptrCast(self.ptr), @ptrCast(c.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCurrentFont` instead
+    ///
+    pub const SetCurrentFont = setCurrentFont;
 
     /// Inherited from QTextEdit
     ///
@@ -1401,10 +1745,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` f: QFont `
     ///
-    pub fn SetCurrentFont(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, f: anytype) void {
+    pub fn setCurrentFont(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, f: anytype) void {
         comptime _ = @TypeOf(f)._is_QFont;
         qtc.QTextEdit_SetCurrentFont(@ptrCast(self.ptr), @ptrCast(f.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAlignment` instead
+    ///
+    pub const SetAlignment = setAlignment;
 
     /// Inherited from QTextEdit
     ///
@@ -1416,9 +1764,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` a: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn SetAlignment(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, a: i32) void {
+    pub fn setAlignment(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, a: i32) void {
         qtc.QTextEdit_SetAlignment(@ptrCast(self.ptr), @bitCast(a));
     }
+
+    /// ### DEPRECATED: Use `setPlainText` instead
+    ///
+    pub const SetPlainText = setPlainText;
 
     /// Inherited from QTextEdit
     ///
@@ -1430,13 +1782,17 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetPlainText(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, text: []const u8) void {
+    pub fn setPlainText(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QTextEdit_SetPlainText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `setHtml` instead
+    ///
+    pub const SetHtml = setHtml;
 
     /// Inherited from QTextEdit
     ///
@@ -1448,13 +1804,17 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetHtml(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, text: []const u8) void {
+    pub fn setHtml(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QTextEdit_SetHtml(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `setMarkdown` instead
+    ///
+    pub const SetMarkdown = setMarkdown;
 
     /// Inherited from QTextEdit
     ///
@@ -1466,13 +1826,17 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` markdown: []const u8 `
     ///
-    pub fn SetMarkdown(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, markdown: []const u8) void {
+    pub fn setMarkdown(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, markdown: []const u8) void {
         const markdown_str = qtc.libqt_string{
             .len = markdown.len,
             .data = markdown.ptr,
         };
         qtc.QTextEdit_SetMarkdown(@ptrCast(self.ptr), markdown_str);
     }
+
+    /// ### DEPRECATED: Use `setText` instead
+    ///
+    pub const SetText = setText;
 
     /// Inherited from QTextEdit
     ///
@@ -1484,13 +1848,17 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetText(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, text: []const u8) void {
+    pub fn setText(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QTextEdit_SetText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `cut` instead
+    ///
+    pub const Cut = cut;
 
     /// Inherited from QTextEdit
     ///
@@ -1500,9 +1868,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn Cut(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
+    pub fn cut(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
         qtc.QTextEdit_Cut(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `copy` instead
+    ///
+    pub const Copy = copy;
 
     /// Inherited from QTextEdit
     ///
@@ -1512,9 +1884,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn Copy(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
+    pub fn copy(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
         qtc.QTextEdit_Copy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `paste` instead
+    ///
+    pub const Paste = paste;
 
     /// Inherited from QTextEdit
     ///
@@ -1524,9 +1900,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn Paste(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
+    pub fn paste(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
         qtc.QTextEdit_Paste(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `undo` instead
+    ///
+    pub const Undo = undo;
 
     /// Inherited from QTextEdit
     ///
@@ -1536,9 +1916,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn Undo(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
+    pub fn undo(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
         qtc.QTextEdit_Undo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `redo` instead
+    ///
+    pub const Redo = redo;
 
     /// Inherited from QTextEdit
     ///
@@ -1548,9 +1932,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn Redo(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
+    pub fn redo(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
         qtc.QTextEdit_Redo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// Inherited from QTextEdit
     ///
@@ -1560,9 +1948,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn Clear(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
+    pub fn clear(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
         qtc.QTextEdit_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `selectAll` instead
+    ///
+    pub const SelectAll = selectAll;
 
     /// Inherited from QTextEdit
     ///
@@ -1572,9 +1964,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn SelectAll(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
+    pub fn selectAll(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
         qtc.QTextEdit_SelectAll(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertPlainText` instead
+    ///
+    pub const InsertPlainText = insertPlainText;
 
     /// Inherited from QTextEdit
     ///
@@ -1586,13 +1982,17 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn InsertPlainText(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, text: []const u8) void {
+    pub fn insertPlainText(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QTextEdit_InsertPlainText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `insertHtml` instead
+    ///
+    pub const InsertHtml = insertHtml;
 
     /// Inherited from QTextEdit
     ///
@@ -1604,13 +2004,17 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn InsertHtml(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, text: []const u8) void {
+    pub fn insertHtml(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QTextEdit_InsertHtml(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `append` instead
+    ///
+    pub const Append = append;
 
     /// Inherited from QTextEdit
     ///
@@ -1622,13 +2026,17 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn Append(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, text: []const u8) void {
+    pub fn append(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QTextEdit_Append(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `scrollToAnchor` instead
+    ///
+    pub const ScrollToAnchor = scrollToAnchor;
 
     /// Inherited from QTextEdit
     ///
@@ -1640,13 +2048,17 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn ScrollToAnchor(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, name: []const u8) void {
+    pub fn scrollToAnchor(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QTextEdit_ScrollToAnchor(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `zoomIn` instead
+    ///
+    pub const ZoomIn = zoomIn;
 
     /// Inherited from QTextEdit
     ///
@@ -1656,9 +2068,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn ZoomIn(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
+    pub fn zoomIn(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
         qtc.QTextEdit_ZoomIn(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `zoomOut` instead
+    ///
+    pub const ZoomOut = zoomOut;
 
     /// Inherited from QTextEdit
     ///
@@ -1668,9 +2084,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn ZoomOut(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
+    pub fn zoomOut(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
         qtc.QTextEdit_ZoomOut(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `textChanged` instead
+    ///
+    pub const TextChanged = textChanged;
 
     /// Inherited from QTextEdit
     ///
@@ -1680,9 +2100,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn TextChanged(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
+    pub fn textChanged(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
         qtc.QTextEdit_TextChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTextChanged` instead
+    ///
+    pub const OnTextChanged = onTextChanged;
 
     /// Inherited from QTextEdit
     ///
@@ -1694,10 +2118,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) callconv(.c) void `
     ///
-    pub fn OnTextChanged(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit) callconv(.c) void) void {
+    pub fn onTextChanged(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit) callconv(.c) void) void {
         qtc.QTextEdit_Connect_TextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `undoAvailable` instead
+    ///
+    pub const UndoAvailable = undoAvailable;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#undoAvailable)
@@ -1708,10 +2136,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn UndoAvailable(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, b: bool) void {
+    pub fn undoAvailable(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, b: bool) void {
         qtc.QTextEdit_UndoAvailable(@ptrCast(self.ptr), b);
     }
 
+    /// ### DEPRECATED: Use `onUndoAvailable` instead
+    ///
+    pub const OnUndoAvailable = onUndoAvailable;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#undoAvailable)
@@ -1722,9 +2154,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, b: bool) callconv(.c) void `
     ///
-    pub fn OnUndoAvailable(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, bool) callconv(.c) void) void {
+    pub fn onUndoAvailable(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, bool) callconv(.c) void) void {
         qtc.QTextEdit_Connect_UndoAvailable(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redoAvailable` instead
+    ///
+    pub const RedoAvailable = redoAvailable;
 
     /// Inherited from QTextEdit
     ///
@@ -1736,9 +2172,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn RedoAvailable(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, b: bool) void {
+    pub fn redoAvailable(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, b: bool) void {
         qtc.QTextEdit_RedoAvailable(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `onRedoAvailable` instead
+    ///
+    pub const OnRedoAvailable = onRedoAvailable;
 
     /// Inherited from QTextEdit
     ///
@@ -1750,9 +2190,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, b: bool) callconv(.c) void `
     ///
-    pub fn OnRedoAvailable(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, bool) callconv(.c) void) void {
+    pub fn onRedoAvailable(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, bool) callconv(.c) void) void {
         qtc.QTextEdit_Connect_RedoAvailable(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `currentCharFormatChanged` instead
+    ///
+    pub const CurrentCharFormatChanged = currentCharFormatChanged;
 
     /// Inherited from QTextEdit
     ///
@@ -1764,10 +2208,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` format: QTextCharFormat `
     ///
-    pub fn CurrentCharFormatChanged(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, format: anytype) void {
+    pub fn currentCharFormatChanged(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, format: anytype) void {
         comptime _ = @TypeOf(format)._is_QTextCharFormat;
         qtc.QTextEdit_CurrentCharFormatChanged(@ptrCast(self.ptr), @ptrCast(format.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCurrentCharFormatChanged` instead
+    ///
+    pub const OnCurrentCharFormatChanged = onCurrentCharFormatChanged;
 
     /// Inherited from QTextEdit
     ///
@@ -1779,9 +2227,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, format: QTextCharFormat) callconv(.c) void `
     ///
-    pub fn OnCurrentCharFormatChanged(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QTextCharFormat) callconv(.c) void) void {
+    pub fn onCurrentCharFormatChanged(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QTextCharFormat) callconv(.c) void) void {
         qtc.QTextEdit_Connect_CurrentCharFormatChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `copyAvailable` instead
+    ///
+    pub const CopyAvailable = copyAvailable;
 
     /// Inherited from QTextEdit
     ///
@@ -1793,9 +2245,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn CopyAvailable(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, b: bool) void {
+    pub fn copyAvailable(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, b: bool) void {
         qtc.QTextEdit_CopyAvailable(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `onCopyAvailable` instead
+    ///
+    pub const OnCopyAvailable = onCopyAvailable;
 
     /// Inherited from QTextEdit
     ///
@@ -1807,10 +2263,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, b: bool) callconv(.c) void `
     ///
-    pub fn OnCopyAvailable(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, bool) callconv(.c) void) void {
+    pub fn onCopyAvailable(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, bool) callconv(.c) void) void {
         qtc.QTextEdit_Connect_CopyAvailable(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `selectionChanged` instead
+    ///
+    pub const SelectionChanged = selectionChanged;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#selectionChanged)
@@ -1819,10 +2279,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn SelectionChanged(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
+    pub fn selectionChanged(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
         qtc.QTextEdit_SelectionChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSelectionChanged` instead
+    ///
+    pub const OnSelectionChanged = onSelectionChanged;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#selectionChanged)
@@ -1833,9 +2297,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) callconv(.c) void `
     ///
-    pub fn OnSelectionChanged(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit) callconv(.c) void) void {
+    pub fn onSelectionChanged(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit) callconv(.c) void) void {
         qtc.QTextEdit_Connect_SelectionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `cursorPositionChanged` instead
+    ///
+    pub const CursorPositionChanged = cursorPositionChanged;
 
     /// Inherited from QTextEdit
     ///
@@ -1845,9 +2313,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn CursorPositionChanged(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
+    pub fn cursorPositionChanged(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
         qtc.QTextEdit_CursorPositionChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCursorPositionChanged` instead
+    ///
+    pub const OnCursorPositionChanged = onCursorPositionChanged;
 
     /// Inherited from QTextEdit
     ///
@@ -1859,9 +2331,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) callconv(.c) void `
     ///
-    pub fn OnCursorPositionChanged(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit) callconv(.c) void) void {
+    pub fn onCursorPositionChanged(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit) callconv(.c) void) void {
         qtc.QTextEdit_Connect_CursorPositionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `find22` instead
+    ///
+    pub const Find22 = find22;
 
     /// Inherited from QTextEdit
     ///
@@ -1875,13 +2351,17 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` options: flag of qtextdocument_enums.FindFlag `
     ///
-    pub fn Find22(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, exp: []const u8, options: i32) bool {
+    pub fn find22(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, exp: []const u8, options: i32) bool {
         const exp_str = qtc.libqt_string{
             .len = exp.len,
             .data = exp.ptr,
         };
         return qtc.QTextEdit_Find22(@ptrCast(self.ptr), exp_str, @bitCast(options));
     }
+
+    /// ### DEPRECATED: Use `find23` instead
+    ///
+    pub const Find23 = find23;
 
     /// Inherited from QTextEdit
     ///
@@ -1895,10 +2375,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` options: flag of qtextdocument_enums.FindFlag `
     ///
-    pub fn Find23(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, exp: anytype, options: i32) bool {
+    pub fn find23(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, exp: anytype, options: i32) bool {
         comptime _ = @TypeOf(exp)._is_QRegularExpression;
         return qtc.QTextEdit_Find23(@ptrCast(self.ptr), @ptrCast(exp.ptr), @bitCast(options));
     }
+
+    /// ### DEPRECATED: Use `toMarkdown1` instead
+    ///
+    pub const ToMarkdown1 = toMarkdown1;
 
     /// Inherited from QTextEdit
     ///
@@ -1912,13 +2396,17 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` features: flag of qtextdocument_enums.MarkdownFeature `
     ///
-    pub fn ToMarkdown1(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator, features: i32) []const u8 {
+    pub fn toMarkdown1(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator, features: i32) []const u8 {
         var _str = qtc.QTextEdit_ToMarkdown1(@ptrCast(self.ptr), @bitCast(features));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.ToMarkdown1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.toMarkdown1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `moveCursor2` instead
+    ///
+    pub const MoveCursor2 = moveCursor2;
 
     /// Inherited from QTextEdit
     ///
@@ -1932,9 +2420,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` mode: qtextcursor_enums.MoveMode `
     ///
-    pub fn MoveCursor2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, operation: i32, mode: i32) void {
+    pub fn moveCursor2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, operation: i32, mode: i32) void {
         qtc.QTextEdit_MoveCursor2(@ptrCast(self.ptr), @bitCast(operation), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `zoomIn1` instead
+    ///
+    pub const ZoomIn1 = zoomIn1;
 
     /// Inherited from QTextEdit
     ///
@@ -1946,9 +2438,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` range: i32 `
     ///
-    pub fn ZoomIn1(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, range: i32) void {
+    pub fn zoomIn1(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, range: i32) void {
         qtc.QTextEdit_ZoomIn1(@ptrCast(self.ptr), @bitCast(range));
     }
+
+    /// ### DEPRECATED: Use `zoomOut1` instead
+    ///
+    pub const ZoomOut1 = zoomOut1;
 
     /// Inherited from QTextEdit
     ///
@@ -1960,9 +2456,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` range: i32 `
     ///
-    pub fn ZoomOut1(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, range: i32) void {
+    pub fn zoomOut1(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, range: i32) void {
         qtc.QTextEdit_ZoomOut1(@ptrCast(self.ptr), @bitCast(range));
     }
+
+    /// ### DEPRECATED: Use `verticalScrollBarPolicy` instead
+    ///
+    pub const VerticalScrollBarPolicy = verticalScrollBarPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -1976,9 +2476,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn VerticalScrollBarPolicy(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
+    pub fn verticalScrollBarPolicy(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
         return qtc.QAbstractScrollArea_VerticalScrollBarPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setVerticalScrollBarPolicy` instead
+    ///
+    pub const SetVerticalScrollBarPolicy = setVerticalScrollBarPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -1988,11 +2492,15 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` verticalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
+    /// ` _verticalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn SetVerticalScrollBarPolicy(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, verticalScrollBarPolicy: i32) void {
-        qtc.QAbstractScrollArea_SetVerticalScrollBarPolicy(@ptrCast(self.ptr), @bitCast(verticalScrollBarPolicy));
+    pub fn setVerticalScrollBarPolicy(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _verticalScrollBarPolicy: i32) void {
+        qtc.QAbstractScrollArea_SetVerticalScrollBarPolicy(@ptrCast(self.ptr), @bitCast(_verticalScrollBarPolicy));
     }
+
+    /// ### DEPRECATED: Use `verticalScrollBar` instead
+    ///
+    pub const VerticalScrollBar = verticalScrollBar;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2002,9 +2510,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn VerticalScrollBar(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QScrollBar {
+    pub fn verticalScrollBar(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QScrollBar {
         return .{ .ptr = qtc.QAbstractScrollArea_VerticalScrollBar(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setVerticalScrollBar` instead
+    ///
+    pub const SetVerticalScrollBar = setVerticalScrollBar;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2016,10 +2528,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` scrollbar: QScrollBar `
     ///
-    pub fn SetVerticalScrollBar(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, scrollbar: anytype) void {
+    pub fn setVerticalScrollBar(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, scrollbar: anytype) void {
         comptime _ = @TypeOf(scrollbar)._is_QScrollBar;
         qtc.QAbstractScrollArea_SetVerticalScrollBar(@ptrCast(self.ptr), @ptrCast(scrollbar.ptr));
     }
+
+    /// ### DEPRECATED: Use `horizontalScrollBarPolicy` instead
+    ///
+    pub const HorizontalScrollBarPolicy = horizontalScrollBarPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2033,9 +2549,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn HorizontalScrollBarPolicy(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
+    pub fn horizontalScrollBarPolicy(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
         return qtc.QAbstractScrollArea_HorizontalScrollBarPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHorizontalScrollBarPolicy` instead
+    ///
+    pub const SetHorizontalScrollBarPolicy = setHorizontalScrollBarPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2045,11 +2565,15 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` horizontalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
+    /// ` _horizontalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn SetHorizontalScrollBarPolicy(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, horizontalScrollBarPolicy: i32) void {
-        qtc.QAbstractScrollArea_SetHorizontalScrollBarPolicy(@ptrCast(self.ptr), @bitCast(horizontalScrollBarPolicy));
+    pub fn setHorizontalScrollBarPolicy(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _horizontalScrollBarPolicy: i32) void {
+        qtc.QAbstractScrollArea_SetHorizontalScrollBarPolicy(@ptrCast(self.ptr), @bitCast(_horizontalScrollBarPolicy));
     }
+
+    /// ### DEPRECATED: Use `horizontalScrollBar` instead
+    ///
+    pub const HorizontalScrollBar = horizontalScrollBar;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2059,9 +2583,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn HorizontalScrollBar(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QScrollBar {
+    pub fn horizontalScrollBar(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QScrollBar {
         return .{ .ptr = qtc.QAbstractScrollArea_HorizontalScrollBar(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setHorizontalScrollBar` instead
+    ///
+    pub const SetHorizontalScrollBar = setHorizontalScrollBar;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2073,10 +2601,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` scrollbar: QScrollBar `
     ///
-    pub fn SetHorizontalScrollBar(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, scrollbar: anytype) void {
+    pub fn setHorizontalScrollBar(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, scrollbar: anytype) void {
         comptime _ = @TypeOf(scrollbar)._is_QScrollBar;
         qtc.QAbstractScrollArea_SetHorizontalScrollBar(@ptrCast(self.ptr), @ptrCast(scrollbar.ptr));
     }
+
+    /// ### DEPRECATED: Use `cornerWidget` instead
+    ///
+    pub const CornerWidget = cornerWidget;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2086,9 +2618,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn CornerWidget(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QWidget {
+    pub fn cornerWidget(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QWidget {
         return .{ .ptr = qtc.QAbstractScrollArea_CornerWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCornerWidget` instead
+    ///
+    pub const SetCornerWidget = setCornerWidget;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2100,10 +2636,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn SetCornerWidget(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, widget: anytype) void {
+    pub fn setCornerWidget(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, widget: anytype) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QAbstractScrollArea_SetCornerWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `addScrollBarWidget` instead
+    ///
+    pub const AddScrollBarWidget = addScrollBarWidget;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2115,12 +2655,16 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
+    /// ` _alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn AddScrollBarWidget(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, widget: anytype, alignment: i32) void {
+    pub fn addScrollBarWidget(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, widget: anytype, _alignment: i32) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
-        qtc.QAbstractScrollArea_AddScrollBarWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr), @bitCast(alignment));
+        qtc.QAbstractScrollArea_AddScrollBarWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr), @bitCast(_alignment));
     }
+
+    /// ### DEPRECATED: Use `scrollBarWidgets` instead
+    ///
+    pub const ScrollBarWidgets = scrollBarWidgets;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2132,17 +2676,21 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
+    /// ` _alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn ScrollBarWidgets(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator, alignment: i32) []QWidget {
-        const _arr: qtc.libqt_list = qtc.QAbstractScrollArea_ScrollBarWidgets(@ptrCast(self.ptr), @bitCast(alignment));
+    pub fn scrollBarWidgets(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator, _alignment: i32) []QWidget {
+        const _arr: qtc.libqt_list = qtc.QAbstractScrollArea_ScrollBarWidgets(@ptrCast(self.ptr), @bitCast(_alignment));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.ScrollBarWidgets: Memory allocation failed");
-        const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.scrollBarWidgets: Memory allocation failed");
+        const _data_val: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `viewport` instead
+    ///
+    pub const Viewport = viewport;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2152,9 +2700,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn Viewport(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QWidget {
+    pub fn viewport(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QWidget {
         return .{ .ptr = qtc.QAbstractScrollArea_Viewport(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setViewport` instead
+    ///
+    pub const SetViewport = setViewport;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2166,10 +2718,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn SetViewport(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, widget: anytype) void {
+    pub fn setViewport(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, widget: anytype) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QAbstractScrollArea_SetViewport(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumViewportSize` instead
+    ///
+    pub const MaximumViewportSize = maximumViewportSize;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2179,9 +2735,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn MaximumViewportSize(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QSize {
+    pub fn maximumViewportSize(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QSize {
         return .{ .ptr = qtc.QAbstractScrollArea_MaximumViewportSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `sizeAdjustPolicy` instead
+    ///
+    pub const SizeAdjustPolicy = sizeAdjustPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2195,9 +2755,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` qabstractscrollarea_enums.SizeAdjustPolicy `
     ///
-    pub fn SizeAdjustPolicy(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
+    pub fn sizeAdjustPolicy(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
         return qtc.QAbstractScrollArea_SizeAdjustPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeAdjustPolicy` instead
+    ///
+    pub const SetSizeAdjustPolicy = setSizeAdjustPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2209,9 +2773,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` policy: qabstractscrollarea_enums.SizeAdjustPolicy `
     ///
-    pub fn SetSizeAdjustPolicy(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, policy: i32) void {
+    pub fn setSizeAdjustPolicy(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, policy: i32) void {
         qtc.QAbstractScrollArea_SetSizeAdjustPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `frameStyle` instead
+    ///
+    pub const FrameStyle = frameStyle;
 
     /// Inherited from QFrame
     ///
@@ -2221,9 +2789,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn FrameStyle(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
+    pub fn frameStyle(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
         return qtc.QFrame_FrameStyle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFrameStyle` instead
+    ///
+    pub const SetFrameStyle = setFrameStyle;
 
     /// Inherited from QFrame
     ///
@@ -2233,11 +2805,15 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` frameStyle: i32 `
+    /// ` _frameStyle: i32 `
     ///
-    pub fn SetFrameStyle(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, frameStyle: i32) void {
-        qtc.QFrame_SetFrameStyle(@ptrCast(self.ptr), @bitCast(frameStyle));
+    pub fn setFrameStyle(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _frameStyle: i32) void {
+        qtc.QFrame_SetFrameStyle(@ptrCast(self.ptr), @bitCast(_frameStyle));
     }
+
+    /// ### DEPRECATED: Use `frameWidth` instead
+    ///
+    pub const FrameWidth = frameWidth;
 
     /// Inherited from QFrame
     ///
@@ -2247,9 +2823,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn FrameWidth(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
+    pub fn frameWidth(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
         return qtc.QFrame_FrameWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `frameShape` instead
+    ///
+    pub const FrameShape = frameShape;
 
     /// Inherited from QFrame
     ///
@@ -2263,9 +2843,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` qframe_enums.Shape `
     ///
-    pub fn FrameShape(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
+    pub fn frameShape(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
         return qtc.QFrame_FrameShape(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFrameShape` instead
+    ///
+    pub const SetFrameShape = setFrameShape;
 
     /// Inherited from QFrame
     ///
@@ -2275,11 +2859,15 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` frameShape: qframe_enums.Shape `
+    /// ` _frameShape: qframe_enums.Shape `
     ///
-    pub fn SetFrameShape(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, frameShape: i32) void {
-        qtc.QFrame_SetFrameShape(@ptrCast(self.ptr), @bitCast(frameShape));
+    pub fn setFrameShape(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _frameShape: i32) void {
+        qtc.QFrame_SetFrameShape(@ptrCast(self.ptr), @bitCast(_frameShape));
     }
+
+    /// ### DEPRECATED: Use `frameShadow` instead
+    ///
+    pub const FrameShadow = frameShadow;
 
     /// Inherited from QFrame
     ///
@@ -2293,9 +2881,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` qframe_enums.Shadow `
     ///
-    pub fn FrameShadow(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
+    pub fn frameShadow(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
         return qtc.QFrame_FrameShadow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFrameShadow` instead
+    ///
+    pub const SetFrameShadow = setFrameShadow;
 
     /// Inherited from QFrame
     ///
@@ -2305,11 +2897,15 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` frameShadow: qframe_enums.Shadow `
+    /// ` _frameShadow: qframe_enums.Shadow `
     ///
-    pub fn SetFrameShadow(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, frameShadow: i32) void {
-        qtc.QFrame_SetFrameShadow(@ptrCast(self.ptr), @bitCast(frameShadow));
+    pub fn setFrameShadow(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _frameShadow: i32) void {
+        qtc.QFrame_SetFrameShadow(@ptrCast(self.ptr), @bitCast(_frameShadow));
     }
+
+    /// ### DEPRECATED: Use `lineWidth` instead
+    ///
+    pub const LineWidth = lineWidth;
 
     /// Inherited from QFrame
     ///
@@ -2319,9 +2915,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn LineWidth(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
+    pub fn lineWidth(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
         return qtc.QFrame_LineWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLineWidth` instead
+    ///
+    pub const SetLineWidth = setLineWidth;
 
     /// Inherited from QFrame
     ///
@@ -2331,11 +2931,15 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` lineWidth: i32 `
+    /// ` _lineWidth: i32 `
     ///
-    pub fn SetLineWidth(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, lineWidth: i32) void {
-        qtc.QFrame_SetLineWidth(@ptrCast(self.ptr), @bitCast(lineWidth));
+    pub fn setLineWidth(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _lineWidth: i32) void {
+        qtc.QFrame_SetLineWidth(@ptrCast(self.ptr), @bitCast(_lineWidth));
     }
+
+    /// ### DEPRECATED: Use `midLineWidth` instead
+    ///
+    pub const MidLineWidth = midLineWidth;
 
     /// Inherited from QFrame
     ///
@@ -2345,9 +2949,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn MidLineWidth(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
+    pub fn midLineWidth(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
         return qtc.QFrame_MidLineWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMidLineWidth` instead
+    ///
+    pub const SetMidLineWidth = setMidLineWidth;
 
     /// Inherited from QFrame
     ///
@@ -2357,11 +2965,15 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` midLineWidth: i32 `
+    /// ` _midLineWidth: i32 `
     ///
-    pub fn SetMidLineWidth(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, midLineWidth: i32) void {
-        qtc.QFrame_SetMidLineWidth(@ptrCast(self.ptr), @bitCast(midLineWidth));
+    pub fn setMidLineWidth(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _midLineWidth: i32) void {
+        qtc.QFrame_SetMidLineWidth(@ptrCast(self.ptr), @bitCast(_midLineWidth));
     }
+
+    /// ### DEPRECATED: Use `frameRect` instead
+    ///
+    pub const FrameRect = frameRect;
 
     /// Inherited from QFrame
     ///
@@ -2371,9 +2983,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn FrameRect(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QRect {
+    pub fn frameRect(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QRect {
         return .{ .ptr = qtc.QFrame_FrameRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFrameRect` instead
+    ///
+    pub const SetFrameRect = setFrameRect;
 
     /// Inherited from QFrame
     ///
@@ -2383,12 +2999,16 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` frameRect: QRect `
+    /// ` _frameRect: QRect `
     ///
-    pub fn SetFrameRect(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, frameRect: anytype) void {
-        comptime _ = @TypeOf(frameRect)._is_QRect;
-        qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(frameRect.ptr));
+    pub fn setFrameRect(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _frameRect: anytype) void {
+        comptime _ = @TypeOf(_frameRect)._is_QRect;
+        qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(_frameRect.ptr));
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -2398,9 +3018,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn WinId(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) usize {
+    pub fn winId(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -2410,9 +3034,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn CreateWinId(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
+    pub fn createWinId(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -2422,9 +3050,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn InternalWinId(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) usize {
+    pub fn internalWinId(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -2434,9 +3066,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn EffectiveWinId(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) usize {
+    pub fn effectiveWinId(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -2446,9 +3082,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn Style(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QStyle {
+    pub fn style(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -2458,12 +3098,16 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -2473,9 +3117,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn IsTopLevel(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
+    pub fn isTopLevel(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -2485,9 +3133,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn IsWindow(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
+    pub fn isWindow(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -2497,9 +3149,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn IsModal(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
+    pub fn isModal(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -2513,9 +3169,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
+    pub fn windowModality(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -2525,11 +3185,15 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2539,9 +3203,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn IsEnabled(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
+    pub fn isEnabled(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -2553,10 +3221,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) bool {
+    pub fn isEnabledTo(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2568,9 +3240,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, enabled: bool) void {
+    pub fn setEnabled(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -2582,9 +3258,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, disabled: bool) void {
+    pub fn setDisabled(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -2596,9 +3276,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, windowModified: bool) void {
+    pub fn setWindowModified(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -2608,9 +3292,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn FrameGeometry(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QRect {
+    pub fn frameGeometry(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -2620,9 +3308,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn Geometry(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QRect {
+    pub fn geometry(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -2632,9 +3324,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn NormalGeometry(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QRect {
+    pub fn normalGeometry(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -2644,9 +3340,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn X(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
+    pub fn x(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -2656,9 +3356,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn Y(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
+    pub fn y(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -2668,9 +3372,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn Pos(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QPoint {
+    pub fn pos(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -2680,9 +3388,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn FrameSize(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QSize {
+    pub fn frameSize(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -2692,9 +3404,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn Size(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QSize {
+    pub fn size(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -2704,9 +3420,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn Width(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
+    pub fn width(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -2716,9 +3436,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn Height(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
+    pub fn height(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -2728,9 +3452,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn Rect(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QRect {
+    pub fn rect(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -2740,9 +3468,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn ChildrenRect(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QRect {
+    pub fn childrenRect(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -2752,9 +3484,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn ChildrenRegion(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QRegion {
+    pub fn childrenRegion(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -2764,9 +3500,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn MinimumSize(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QSize {
+    pub fn minimumSize(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -2776,9 +3516,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn MaximumSize(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QSize {
+    pub fn maximumSize(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2788,9 +3532,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn MinimumWidth(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
+    pub fn minimumWidth(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2800,9 +3548,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn MinimumHeight(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
+    pub fn minimumHeight(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2812,9 +3564,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn MaximumWidth(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
+    pub fn maximumWidth(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2824,9 +3580,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn MaximumHeight(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
+    pub fn maximumHeight(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -2836,12 +3596,16 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -2855,9 +3619,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -2867,12 +3635,16 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -2886,9 +3658,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2900,9 +3676,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, minw: i32) void {
+    pub fn setMinimumWidth(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2914,9 +3694,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, minh: i32) void {
+    pub fn setMinimumHeight(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2928,9 +3712,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, maxw: i32) void {
+    pub fn setMaximumWidth(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2942,9 +3730,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, maxh: i32) void {
+    pub fn setMaximumHeight(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -2954,9 +3746,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn SizeIncrement(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QSize {
+    pub fn sizeIncrement(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -2966,12 +3762,16 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -2985,9 +3785,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -2997,9 +3801,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn BaseSize(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QSize {
+    pub fn baseSize(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -3009,12 +3817,16 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -3028,9 +3840,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -3042,10 +3858,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, fixedSize: anytype) void {
+    pub fn setFixedSize(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -3059,9 +3879,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -3073,9 +3897,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, w: i32) void {
+    pub fn setFixedWidth(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -3087,9 +3915,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, h: i32) void {
+    pub fn setFixedHeight(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -3101,11 +3933,15 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -3116,11 +3952,15 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -3131,11 +3971,15 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -3146,11 +3990,15 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -3161,11 +4009,15 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) QPointF {
+    pub fn mapToParent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -3176,10 +4028,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) QPoint {
+    pub fn mapToParent2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -3191,10 +4047,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) QPointF {
+    pub fn mapFromParent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -3206,10 +4066,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -3223,12 +4087,16 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -3241,11 +4109,15 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -3259,11 +4131,15 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -3277,11 +4153,15 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -3291,9 +4171,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn Window(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QWidget {
+    pub fn window(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -3303,9 +4187,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn NativeParentWidget(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QWidget {
+    pub fn nativeParentWidget(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -3315,9 +4203,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn TopLevelWidget(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QWidget {
+    pub fn topLevelWidget(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -3327,9 +4219,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn Palette(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QPalette {
+    pub fn palette(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -3339,12 +4235,16 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -3354,11 +4254,15 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -3372,9 +4276,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
+    pub fn backgroundRole(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -3384,11 +4292,15 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -3402,9 +4314,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
+    pub fn foregroundRole(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -3414,9 +4330,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn Font(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QFont {
+    pub fn font(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -3426,12 +4346,16 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -3441,9 +4365,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn FontMetrics(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QFontMetrics {
+    pub fn fontMetrics(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -3453,9 +4381,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn FontInfo(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QFontInfo {
+    pub fn fontInfo(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -3465,9 +4397,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn Cursor(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QCursor {
+    pub fn cursor(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -3477,12 +4413,16 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -3492,9 +4432,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn UnsetCursor(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
+    pub fn unsetCursor(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -3506,9 +4450,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, enable: bool) void {
+    pub fn setMouseTracking(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -3518,9 +4466,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn HasMouseTracking(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
+    pub fn hasMouseTracking(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -3530,9 +4482,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn UnderMouse(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
+    pub fn underMouse(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -3544,9 +4500,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, enable: bool) void {
+    pub fn setTabletTracking(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -3556,24 +4516,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn HasTabletTracking(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
+    pub fn hasTabletTracking(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -3583,12 +4532,35 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -3598,9 +4570,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn Mask(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QRegion {
+    pub fn mask(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -3610,9 +4586,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn ClearMask(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
+    pub fn clearMask(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -3624,10 +4604,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, target: anytype) void {
+    pub fn render(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -3639,10 +4623,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, painter: anytype) void {
+    pub fn render2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -3652,9 +4640,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn Grab(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QPixmap {
+    pub fn grab(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -3664,9 +4656,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn GraphicsEffect(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QGraphicsEffect {
+    pub fn graphicsEffect(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -3678,10 +4674,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, effect: anytype) void {
+    pub fn setGraphicsEffect(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -3693,9 +4693,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, typeVal: i32) void {
+    pub fn grabGesture(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -3707,9 +4711,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, typeVal: i32) void {
+    pub fn ungrabGesture(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -3719,15 +4727,19 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -3737,15 +4749,19 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -3757,13 +4773,17 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -3775,13 +4795,17 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -3793,10 +4817,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, icon: anytype) void {
+    pub fn setWindowIcon(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -3806,9 +4834,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn WindowIcon(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QIcon {
+    pub fn windowIcon(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -3818,15 +4850,19 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -3838,13 +4874,17 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -3854,15 +4894,19 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, windowRole: []const u8) void {
+    pub fn setWindowRole(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -3874,13 +4918,17 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -3892,13 +4940,17 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -3910,13 +4962,17 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -3928,9 +4984,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, level: f64) void {
+    pub fn setWindowOpacity(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -3940,9 +5000,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn WindowOpacity(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) f64 {
+    pub fn windowOpacity(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -3952,9 +5016,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn IsWindowModified(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
+    pub fn isWindowModified(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -3964,15 +5032,19 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, toolTip: []const u8) void {
+    pub fn setToolTip(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -3984,13 +5056,17 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -4002,9 +5078,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, msec: i32) void {
+    pub fn setToolTipDuration(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -4014,9 +5094,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn ToolTipDuration(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
+    pub fn toolTipDuration(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -4026,15 +5110,19 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, statusTip: []const u8) void {
+    pub fn setStatusTip(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -4046,13 +5134,17 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -4062,15 +5154,19 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -4082,13 +5178,17 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -4100,13 +5200,17 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -4118,13 +5222,17 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, name: []const u8) void {
+    pub fn setAccessibleName(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -4136,13 +5244,17 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -4154,13 +5266,17 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, description: []const u8) void {
+    pub fn setAccessibleDescription(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -4172,9 +5288,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, direction: i32) void {
+    pub fn setLayoutDirection(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -4188,9 +5308,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
+    pub fn layoutDirection(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -4200,9 +5324,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn UnsetLayoutDirection(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
+    pub fn unsetLayoutDirection(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -4212,12 +5340,16 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -4227,9 +5359,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn Locale(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QLocale {
+    pub fn locale(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -4239,9 +5375,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn UnsetLocale(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
+    pub fn unsetLocale(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -4251,9 +5391,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn IsRightToLeft(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
+    pub fn isRightToLeft(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -4263,9 +5407,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn IsLeftToRight(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
+    pub fn isLeftToRight(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -4275,9 +5423,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn SetFocus(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
+    pub fn setFocus(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -4287,9 +5439,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn IsActiveWindow(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
+    pub fn isActiveWindow(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -4299,9 +5455,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn ActivateWindow(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
+    pub fn activateWindow(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -4311,9 +5471,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn ClearFocus(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
+    pub fn clearFocus(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -4325,9 +5489,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, reason: i32) void {
+    pub fn setFocus2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -4341,9 +5509,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
+    pub fn focusPolicy(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -4355,9 +5527,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, policy: i32) void {
+    pub fn setFocusPolicy(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -4367,9 +5543,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn HasFocus(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
+    pub fn hasFocus(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -4381,11 +5561,15 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -4395,12 +5579,16 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -4410,9 +5598,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn FocusProxy(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QWidget {
+    pub fn focusProxy(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -4426,9 +5618,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
+    pub fn contextMenuPolicy(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -4440,9 +5636,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, policy: i32) void {
+    pub fn setContextMenuPolicy(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -4452,9 +5652,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn GrabMouse(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
+    pub fn grabMouse(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -4466,10 +5670,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) void {
+    pub fn grabMouse2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -4479,9 +5687,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn ReleaseMouse(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
+    pub fn releaseMouse(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -4491,9 +5703,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn GrabKeyboard(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
+    pub fn grabKeyboard(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -4503,9 +5719,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn ReleaseKeyboard(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
+    pub fn releaseKeyboard(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -4517,10 +5737,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, key: anytype) i32 {
+    pub fn grabShortcut(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -4532,9 +5756,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, id: i32) void {
+    pub fn releaseShortcut(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -4546,9 +5774,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, id: i32) void {
+    pub fn setShortcutEnabled(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -4560,25 +5792,37 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -4588,9 +5832,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn UpdatesEnabled(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
+    pub fn updatesEnabled(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -4602,9 +5850,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, enable: bool) void {
+    pub fn setUpdatesEnabled(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -4614,9 +5866,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn GraphicsProxyWidget(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -4626,9 +5882,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn Update(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
+    pub fn update(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -4638,9 +5898,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn Repaint(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
+    pub fn repaint(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -4650,17 +5914,21 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -4672,11 +5940,15 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) void {
+    pub fn update3(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -4687,10 +5959,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) void {
+    pub fn update4(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -4700,17 +5976,21 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -4722,10 +6002,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) void {
+    pub fn repaint3(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -4737,10 +6021,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) void {
+    pub fn repaint4(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -4752,9 +6040,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, hidden: bool) void {
+    pub fn setHidden(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -4764,9 +6056,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn Show(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
+    pub fn show(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -4776,9 +6072,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn Hide(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
+    pub fn hide(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -4788,9 +6088,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn ShowMinimized(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
+    pub fn showMinimized(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -4800,9 +6104,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn ShowMaximized(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
+    pub fn showMaximized(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -4812,9 +6120,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn ShowFullScreen(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
+    pub fn showFullScreen(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -4824,9 +6136,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn ShowNormal(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
+    pub fn showNormal(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -4836,9 +6152,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn Close(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
+    pub fn close(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -4848,9 +6168,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn Raise(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
+    pub fn raise(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -4860,9 +6184,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn Lower(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
+    pub fn lower(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -4874,10 +6202,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) void {
+    pub fn stackUnder(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -4887,13 +6219,17 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -4905,10 +6241,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) void {
+    pub fn move2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -4922,9 +6262,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, w: i32, h: i32) void {
+    pub fn resize(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -4936,10 +6280,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) void {
+    pub fn resize2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4949,17 +6297,21 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -4969,12 +6321,16 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4986,13 +6342,17 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -5002,15 +6362,19 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, geometry: []u8) bool {
+    pub fn restoreGeometry(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -5020,9 +6384,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn AdjustSize(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
+    pub fn adjustSize(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -5032,9 +6400,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn IsVisible(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
+    pub fn isVisible(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -5046,10 +6418,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) bool {
+    pub fn isVisibleTo(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -5059,9 +6435,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn IsHidden(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
+    pub fn isHidden(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -5071,9 +6451,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn IsMinimized(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
+    pub fn isMinimized(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -5083,9 +6467,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn IsMaximized(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
+    pub fn isMaximized(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -5095,9 +6483,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn IsFullScreen(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
+    pub fn isFullScreen(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -5111,9 +6503,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
+    pub fn windowState(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -5125,9 +6521,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, state: i32) void {
+    pub fn setWindowState(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -5139,9 +6539,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, state: i32) void {
+    pub fn overrideWindowState(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -5151,9 +6555,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn SizePolicy(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QSizePolicy {
+    pub fn sizePolicy(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -5163,12 +6571,16 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -5182,9 +6594,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -5194,9 +6610,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn VisibleRegion(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QRegion {
+    pub fn visibleRegion(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -5214,9 +6634,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -5228,10 +6652,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, margins: anytype) void {
+    pub fn setContentsMargins2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -5241,9 +6669,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn ContentsMargins(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QMargins {
+    pub fn contentsMargins(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -5253,9 +6685,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn ContentsRect(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QRect {
+    pub fn contentsRect(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -5265,9 +6701,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn Layout(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QLayout {
+    pub fn layout(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -5277,12 +6717,16 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -5292,24 +6736,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn UpdateGeometry(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
+    pub fn updateGeometry(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -5319,14 +6752,37 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -5340,9 +6796,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, dx: i32, dy: i32) void {
+    pub fn scroll(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -5358,10 +6818,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -5371,9 +6835,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn FocusWidget(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QWidget {
+    pub fn focusWidget(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -5383,9 +6851,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn NextInFocusChain(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QWidget {
+    pub fn nextInFocusChain(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -5395,9 +6867,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn PreviousInFocusChain(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QWidget {
+    pub fn previousInFocusChain(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -5407,9 +6883,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn AcceptDrops(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
+    pub fn acceptDrops(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -5421,9 +6901,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, on: bool) void {
+    pub fn setAcceptDrops(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -5435,10 +6919,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, action: anytype) void {
+    pub fn addAction(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -5448,15 +6936,19 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, actions: []QAction) void {
+    pub fn addActions(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -5468,16 +6960,20 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -5491,11 +6987,15 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, before: anytype, action: anytype) void {
+    pub fn insertAction(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -5507,10 +7007,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, action: anytype) void {
+    pub fn removeAction(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -5522,15 +7026,19 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -5542,13 +7050,17 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, text: []const u8) QAction {
+    pub fn addAction2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -5562,7 +7074,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, icon: anytype, text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -5571,6 +7083,10 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -5583,7 +7099,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -5591,6 +7107,10 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
 
     /// Inherited from QWidget
     ///
@@ -5606,7 +7126,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, icon: anytype, text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -5616,6 +7136,10 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
@@ -5624,9 +7148,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn ParentWidget(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QWidget {
+    pub fn parentWidget(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -5638,9 +7166,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, typeVal: i32) void {
+    pub fn setWindowFlags(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -5654,9 +7186,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
+    pub fn windowFlags(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -5668,9 +7204,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: i32) void {
+    pub fn setWindowFlag(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -5682,9 +7222,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -5698,9 +7242,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
+    pub fn windowType(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -5710,13 +7258,17 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -5728,10 +7280,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, p: anytype) QWidget {
+    pub fn childAt2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -5743,10 +7299,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, p: anytype) QWidget {
+    pub fn childAt3(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -5758,9 +7318,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: i32) void {
+    pub fn setAttribute(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -5772,9 +7336,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: i32) bool {
+    pub fn testAttribute(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -5784,9 +7352,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn EnsurePolished(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
+    pub fn ensurePolished(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -5798,10 +7370,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, child: anytype) bool {
+    pub fn isAncestorOf(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -5811,9 +7387,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn AutoFillBackground(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
+    pub fn autoFillBackground(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -5825,9 +7405,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, enabled: bool) void {
+    pub fn setAutoFillBackground(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -5837,9 +7421,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn BackingStore(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QBackingStore {
+    pub fn backingStore(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -5849,9 +7437,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn WindowHandle(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QWindow {
+    pub fn windowHandle(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -5861,9 +7453,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn Screen(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QScreen {
+    pub fn screen(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -5873,12 +7469,16 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -5886,12 +7486,16 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -5903,13 +7507,17 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, title: []const u8) void {
+    pub fn windowTitleChanged(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -5921,9 +7529,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -5935,10 +7547,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, icon: anytype) void {
+    pub fn windowIconChanged(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -5950,9 +7566,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -5964,13 +7584,17 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -5982,9 +7606,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -5994,12 +7622,16 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -6011,9 +7643,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -6027,9 +7663,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
+    pub fn inputMethodHints(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -6041,9 +7681,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, hints: i32) void {
+    pub fn setInputMethodHints(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -6057,11 +7701,15 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -6077,13 +7725,17 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -6100,12 +7752,16 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -6119,11 +7775,15 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -6139,12 +7799,16 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -6162,12 +7826,16 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -6179,10 +7847,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, rectangle: anytype) QPixmap {
+    pub fn grab1(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -6196,9 +7868,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -6212,10 +7888,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -6229,9 +7909,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -6245,9 +7929,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -6261,9 +7949,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -6277,25 +7969,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -6303,17 +7983,41 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -6325,13 +8029,17 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -6343,13 +8051,17 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, name: []const u8) void {
+    pub fn setObjectName(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -6359,9 +8071,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn IsWidgetType(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
+    pub fn isWidgetType(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -6371,9 +8087,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn IsWindowType(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
+    pub fn isWindowType(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -6383,9 +8103,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn IsQuickItemType(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
+    pub fn isQuickItemType(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -6395,9 +8119,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn SignalsBlocked(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
+    pub fn signalsBlocked(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -6409,9 +8137,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, b: bool) bool {
+    pub fn blockSignals(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -6421,9 +8153,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn Thread(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QThread {
+    pub fn thread(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -6433,12 +8169,16 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -6450,9 +8190,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, interval: i32) i32 {
+    pub fn startTimer(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -6464,9 +8208,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, time: i64) i32 {
+    pub fn startTimer2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -6478,9 +8226,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, id: i32) void {
+    pub fn killTimer(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -6492,9 +8244,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, id: i32) void {
+    pub fn killTimer2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -6506,15 +8262,19 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -6526,10 +8286,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, filterObj: anytype) void {
+    pub fn installEventFilter(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -6541,10 +8305,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, obj: anytype) void {
+    pub fn removeEventFilter(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -6552,7 +8320,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6560,13 +8328,17 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -6574,7 +8346,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -6582,13 +8354,17 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -6598,18 +8374,22 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -6617,7 +8397,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6625,13 +8405,17 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -6639,7 +8423,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -6647,13 +8431,17 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -6663,9 +8451,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn Disconnect3(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
+    pub fn disconnect3(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -6677,10 +8469,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, receiver: anytype) bool {
+    pub fn disconnect4(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -6690,10 +8486,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -6703,9 +8503,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn DumpObjectTree(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
+    pub fn dumpObjectTree(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -6715,9 +8519,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn DumpObjectInfo(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
+    pub fn dumpObjectInfo(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -6731,11 +8539,15 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -6747,10 +8559,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, name: [:0]const u8) QVariant {
+    pub fn property(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -6762,7 +8578,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -6770,27 +8586,19 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
-    ///
-    pub fn BindingStorage(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -6800,9 +8608,29 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn BindingStorage2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QBindingStorage {
+    pub fn bindingStorage(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
+    ///
+    pub fn bindingStorage2(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -6812,9 +8640,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn Destroyed(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
+    pub fn destroyed(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -6826,9 +8658,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit) callconv(.c) void) void {
+    pub fn onDestroyed(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -6838,9 +8674,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn Parent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QObject {
+    pub fn parent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -6852,10 +8692,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, classname: [:0]const u8) bool {
+    pub fn inherits(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -6865,9 +8709,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn DeleteLater(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
+    pub fn deleteLater(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -6881,9 +8729,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -6897,9 +8749,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -6907,7 +8763,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6917,13 +8773,17 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -6931,7 +8791,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -6941,13 +8801,17 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -6957,7 +8821,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6965,12 +8829,16 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -6982,10 +8850,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -6999,11 +8871,15 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -7019,13 +8895,17 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -7038,11 +8918,15 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -7054,10 +8938,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) void {
+    pub fn destroyed1(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -7069,9 +8957,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -7081,9 +8973,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn PaintingActive(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
+    pub fn paintingActive(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -7093,9 +8989,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn WidthMM(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
+    pub fn widthMM(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -7105,9 +9005,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn HeightMM(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
+    pub fn heightMM(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -7117,9 +9021,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn LogicalDpiX(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
+    pub fn logicalDpiX(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -7129,9 +9037,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn LogicalDpiY(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
+    pub fn logicalDpiY(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -7141,9 +9053,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn PhysicalDpiX(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
+    pub fn physicalDpiX(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -7153,9 +9069,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn PhysicalDpiY(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
+    pub fn physicalDpiY(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -7165,9 +9085,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn DevicePixelRatio(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) f64 {
+    pub fn devicePixelRatio(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -7177,9 +9101,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn DevicePixelRatioF(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) f64 {
+    pub fn devicePixelRatioF(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -7189,9 +9117,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn ColorCount(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
+    pub fn colorCount(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -7201,17 +9133,25 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn Depth(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
+    pub fn depth(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -7219,13 +9159,17 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `loadResource` instead
+    ///
+    pub const LoadResource = loadResource;
 
     /// Inherited from QTextEdit
     ///
@@ -7241,14 +9185,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` name: QUrl `
     ///
-    pub fn LoadResource(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, typeVal: i32, name: anytype) QVariant {
+    pub fn loadResource(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, typeVal: i32, name: anytype) QVariant {
         comptime _ = @TypeOf(name)._is_QUrl;
         return .{ .ptr = qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_LoadResource(@ptrCast(self.ptr), @bitCast(typeVal), @ptrCast(name.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperLoadResource` instead
+    /// ### DEPRECATED: Use `superLoadResource` instead
     ///
-    pub const QBaseLoadResource = SuperLoadResource;
+    pub const SuperLoadResource = superLoadResource;
 
     /// Inherited from QTextEdit
     ///
@@ -7264,10 +9208,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` name: QUrl `
     ///
-    pub fn SuperLoadResource(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, typeVal: i32, name: anytype) QVariant {
+    pub fn superLoadResource(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, typeVal: i32, name: anytype) QVariant {
         comptime _ = @TypeOf(name)._is_QUrl;
         return .{ .ptr = qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperLoadResource(@ptrCast(self.ptr), @bitCast(typeVal), @ptrCast(name.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onLoadResource` instead
+    ///
+    pub const OnLoadResource = onLoadResource;
 
     /// Inherited from QTextEdit
     ///
@@ -7283,9 +9231,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnLoadResource(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, i32, QUrl) callconv(.c) QVariant) void {
+    pub fn onLoadResource(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, i32, QUrl) callconv(.c) QVariant) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnLoadResource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QTextEdit
     ///
@@ -7297,15 +9249,15 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` property: qnamespace_enums.InputMethodQuery `
+    /// ` _property: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, property: i32) QVariant {
-        return .{ .ptr = qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_InputMethodQuery(@ptrCast(self.ptr), @bitCast(property)) };
+    pub fn inputMethodQuery(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _property: i32) QVariant {
+        return .{ .ptr = qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_InputMethodQuery(@ptrCast(self.ptr), @bitCast(_property)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QTextEdit
     ///
@@ -7317,11 +9269,15 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` property: qnamespace_enums.InputMethodQuery `
+    /// ` _property: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, property: i32) QVariant {
-        return .{ .ptr = qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(property)) };
+    pub fn superInputMethodQuery(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _property: i32) QVariant {
+        return .{ .ptr = qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(_property)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QTextEdit
     ///
@@ -7337,9 +9293,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, i32) callconv(.c) QVariant) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QTextEdit
     ///
@@ -7353,14 +9313,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn Event(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) bool {
+    pub fn event(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_Event(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -7374,10 +9334,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn SuperEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) bool {
+    pub fn superEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -7391,9 +9355,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QEvent) callconv(.c) bool) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -7407,14 +9375,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` e: QTimerEvent `
     ///
-    pub fn TimerEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
+    pub fn timerEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QTimerEvent;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_TimerEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -7428,10 +9396,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` e: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
+    pub fn superTimerEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QTimerEvent;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -7445,9 +9417,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QTimerEvent) callconv(.c) void) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -7461,14 +9437,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
+    pub fn keyReleaseEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -7482,10 +9458,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
+    pub fn superKeyReleaseEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -7499,9 +9479,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QKeyEvent) callconv(.c) void) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -7515,14 +9499,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` e: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
+    pub fn resizeEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QResizeEvent;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_ResizeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -7536,10 +9520,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` e: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
+    pub fn superResizeEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QResizeEvent;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -7553,9 +9541,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QResizeEvent) callconv(.c) void) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -7569,14 +9561,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` e: QPaintEvent `
     ///
-    pub fn PaintEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
+    pub fn paintEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QPaintEvent;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_PaintEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -7590,10 +9582,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` e: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
+    pub fn superPaintEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QPaintEvent;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -7607,9 +9603,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QPaintEvent) callconv(.c) void) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -7623,14 +9623,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
+    pub fn mousePressEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_MousePressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -7644,11 +9644,15 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
+    pub fn superMousePressEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mousePressEvent)
@@ -7661,9 +9665,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QMouseEvent) callconv(.c) void) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -7677,14 +9685,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
+    pub fn mouseMoveEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -7698,11 +9706,15 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
+    pub fn superMouseMoveEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mouseMoveEvent)
@@ -7715,9 +9727,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QMouseEvent) callconv(.c) void) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -7731,14 +9747,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
+    pub fn mouseReleaseEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -7752,11 +9768,15 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
+    pub fn superMouseReleaseEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mouseReleaseEvent)
@@ -7769,9 +9789,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QMouseEvent) callconv(.c) void) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -7785,14 +9809,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
+    pub fn mouseDoubleClickEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -7806,10 +9830,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
+    pub fn superMouseDoubleClickEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -7823,9 +9851,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QMouseEvent) callconv(.c) void) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QTextEdit
     ///
@@ -7839,13 +9871,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, next: bool) bool {
+    pub fn focusNextPrevChild(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, next: bool) bool {
         return qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QTextEdit
     ///
@@ -7859,9 +9891,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, next: bool) bool {
         return qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QTextEdit
     ///
@@ -7875,9 +9911,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, bool) callconv(.c) bool) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -7891,14 +9931,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` e: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
+    pub fn contextMenuEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QContextMenuEvent;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -7912,10 +9952,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` e: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
+    pub fn superContextMenuEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QContextMenuEvent;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -7929,9 +9973,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QContextMenuEvent) callconv(.c) void) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -7945,14 +9993,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` e: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
+    pub fn dragEnterEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QDragEnterEvent;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -7966,10 +10014,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` e: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
+    pub fn superDragEnterEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QDragEnterEvent;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -7983,9 +10035,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QDragEnterEvent) callconv(.c) void) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -7999,14 +10055,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` e: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
+    pub fn dragLeaveEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QDragLeaveEvent;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -8020,10 +10076,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` e: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
+    pub fn superDragLeaveEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QDragLeaveEvent;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -8037,9 +10097,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QDragLeaveEvent) callconv(.c) void) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -8053,14 +10117,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` e: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
+    pub fn dragMoveEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QDragMoveEvent;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -8074,10 +10138,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` e: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
+    pub fn superDragMoveEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QDragMoveEvent;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -8091,9 +10159,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QDragMoveEvent) callconv(.c) void) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -8107,14 +10179,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` e: QDropEvent `
     ///
-    pub fn DropEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
+    pub fn dropEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QDropEvent;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_DropEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -8128,10 +10200,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` e: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
+    pub fn superDropEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QDropEvent;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -8145,9 +10221,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QDropEvent) callconv(.c) void) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -8161,14 +10241,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` e: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
+    pub fn focusInEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QFocusEvent;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_FocusInEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -8182,11 +10262,15 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` e: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
+    pub fn superFocusInEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QFocusEvent;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#focusInEvent)
@@ -8199,9 +10283,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QFocusEvent) callconv(.c) void) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -8215,14 +10303,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` e: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
+    pub fn focusOutEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QFocusEvent;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -8236,10 +10324,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` e: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
+    pub fn superFocusOutEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QFocusEvent;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -8253,9 +10345,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QFocusEvent) callconv(.c) void) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -8269,14 +10365,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` param1: QShowEvent `
     ///
-    pub fn ShowEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) void {
+    pub fn showEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QShowEvent;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_ShowEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -8290,10 +10386,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` param1: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) void {
+    pub fn superShowEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QShowEvent;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -8307,9 +10407,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QShowEvent) callconv(.c) void) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -8323,14 +10427,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn ChangeEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
+    pub fn changeEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QEvent;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_ChangeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -8344,10 +10448,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn SuperChangeEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
+    pub fn superChangeEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QEvent;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -8361,9 +10469,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QEvent) callconv(.c) void) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -8377,14 +10489,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` e: QWheelEvent `
     ///
-    pub fn WheelEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
+    pub fn wheelEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QWheelEvent;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_WheelEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -8398,10 +10510,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` e: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
+    pub fn superWheelEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QWheelEvent;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -8415,9 +10531,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, e: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QWheelEvent) callconv(.c) void) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `createMimeDataFromSelection` instead
+    ///
+    pub const CreateMimeDataFromSelection = createMimeDataFromSelection;
 
     /// Inherited from QTextEdit
     ///
@@ -8429,13 +10549,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn CreateMimeDataFromSelection(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QMimeData {
+    pub fn createMimeDataFromSelection(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QMimeData {
         return .{ .ptr = qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_CreateMimeDataFromSelection(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperCreateMimeDataFromSelection` instead
+    /// ### DEPRECATED: Use `superCreateMimeDataFromSelection` instead
     ///
-    pub const QBaseCreateMimeDataFromSelection = SuperCreateMimeDataFromSelection;
+    pub const SuperCreateMimeDataFromSelection = superCreateMimeDataFromSelection;
 
     /// Inherited from QTextEdit
     ///
@@ -8447,9 +10567,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn SuperCreateMimeDataFromSelection(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QMimeData {
+    pub fn superCreateMimeDataFromSelection(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QMimeData {
         return .{ .ptr = qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperCreateMimeDataFromSelection(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onCreateMimeDataFromSelection` instead
+    ///
+    pub const OnCreateMimeDataFromSelection = onCreateMimeDataFromSelection;
 
     /// Inherited from QTextEdit
     ///
@@ -8463,9 +10587,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMimeData `
     ///
-    pub fn OnCreateMimeDataFromSelection(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) QMimeData) void {
+    pub fn onCreateMimeDataFromSelection(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) QMimeData) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnCreateMimeDataFromSelection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `canInsertFromMimeData` instead
+    ///
+    pub const CanInsertFromMimeData = canInsertFromMimeData;
 
     /// Inherited from QTextEdit
     ///
@@ -8479,14 +10607,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` source: QMimeData `
     ///
-    pub fn CanInsertFromMimeData(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, source: anytype) bool {
+    pub fn canInsertFromMimeData(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, source: anytype) bool {
         comptime _ = @TypeOf(source)._is_QMimeData;
         return qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_CanInsertFromMimeData(@ptrCast(self.ptr), @ptrCast(source.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCanInsertFromMimeData` instead
+    /// ### DEPRECATED: Use `superCanInsertFromMimeData` instead
     ///
-    pub const QBaseCanInsertFromMimeData = SuperCanInsertFromMimeData;
+    pub const SuperCanInsertFromMimeData = superCanInsertFromMimeData;
 
     /// Inherited from QTextEdit
     ///
@@ -8500,10 +10628,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` source: QMimeData `
     ///
-    pub fn SuperCanInsertFromMimeData(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, source: anytype) bool {
+    pub fn superCanInsertFromMimeData(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, source: anytype) bool {
         comptime _ = @TypeOf(source)._is_QMimeData;
         return qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperCanInsertFromMimeData(@ptrCast(self.ptr), @ptrCast(source.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCanInsertFromMimeData` instead
+    ///
+    pub const OnCanInsertFromMimeData = onCanInsertFromMimeData;
 
     /// Inherited from QTextEdit
     ///
@@ -8517,9 +10649,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, source: QMimeData) callconv(.c) bool `
     ///
-    pub fn OnCanInsertFromMimeData(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QMimeData) callconv(.c) bool) void {
+    pub fn onCanInsertFromMimeData(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QMimeData) callconv(.c) bool) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnCanInsertFromMimeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `insertFromMimeData` instead
+    ///
+    pub const InsertFromMimeData = insertFromMimeData;
 
     /// Inherited from QTextEdit
     ///
@@ -8533,14 +10669,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` source: QMimeData `
     ///
-    pub fn InsertFromMimeData(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, source: anytype) void {
+    pub fn insertFromMimeData(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, source: anytype) void {
         comptime _ = @TypeOf(source)._is_QMimeData;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_InsertFromMimeData(@ptrCast(self.ptr), @ptrCast(source.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInsertFromMimeData` instead
+    /// ### DEPRECATED: Use `superInsertFromMimeData` instead
     ///
-    pub const QBaseInsertFromMimeData = SuperInsertFromMimeData;
+    pub const SuperInsertFromMimeData = superInsertFromMimeData;
 
     /// Inherited from QTextEdit
     ///
@@ -8554,10 +10690,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` source: QMimeData `
     ///
-    pub fn SuperInsertFromMimeData(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, source: anytype) void {
+    pub fn superInsertFromMimeData(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, source: anytype) void {
         comptime _ = @TypeOf(source)._is_QMimeData;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperInsertFromMimeData(@ptrCast(self.ptr), @ptrCast(source.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInsertFromMimeData` instead
+    ///
+    pub const OnInsertFromMimeData = onInsertFromMimeData;
 
     /// Inherited from QTextEdit
     ///
@@ -8571,9 +10711,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, source: QMimeData) callconv(.c) void `
     ///
-    pub fn OnInsertFromMimeData(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QMimeData) callconv(.c) void) void {
+    pub fn onInsertFromMimeData(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QMimeData) callconv(.c) void) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnInsertFromMimeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -8587,14 +10731,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) void {
+    pub fn inputMethodEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -8608,10 +10752,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) void {
+    pub fn superInputMethodEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -8625,9 +10773,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QInputMethodEvent) callconv(.c) void) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `scrollContentsBy` instead
+    ///
+    pub const ScrollContentsBy = scrollContentsBy;
 
     /// Inherited from QTextEdit
     ///
@@ -8643,13 +10795,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn ScrollContentsBy(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, dx: i32, dy: i32) void {
+    pub fn scrollContentsBy(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, dx: i32, dy: i32) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_ScrollContentsBy(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
-    /// ### DEPRECATED: Use `SuperScrollContentsBy` instead
+    /// ### DEPRECATED: Use `superScrollContentsBy` instead
     ///
-    pub const QBaseScrollContentsBy = SuperScrollContentsBy;
+    pub const SuperScrollContentsBy = superScrollContentsBy;
 
     /// Inherited from QTextEdit
     ///
@@ -8665,9 +10817,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn SuperScrollContentsBy(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, dx: i32, dy: i32) void {
+    pub fn superScrollContentsBy(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, dx: i32, dy: i32) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperScrollContentsBy(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `onScrollContentsBy` instead
+    ///
+    pub const OnScrollContentsBy = onScrollContentsBy;
 
     /// Inherited from QTextEdit
     ///
@@ -8681,9 +10837,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, dx: i32, dy: i32) callconv(.c) void `
     ///
-    pub fn OnScrollContentsBy(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, i32, i32) callconv(.c) void) void {
+    pub fn onScrollContentsBy(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, i32, i32) callconv(.c) void) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnScrollContentsBy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `doSetTextCursor` instead
+    ///
+    pub const DoSetTextCursor = doSetTextCursor;
 
     /// Inherited from QTextEdit
     ///
@@ -8695,16 +10855,16 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` cursor: QTextCursor `
+    /// ` _cursor: QTextCursor `
     ///
-    pub fn DoSetTextCursor(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QTextCursor;
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_DoSetTextCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn doSetTextCursor(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QTextCursor;
+        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_DoSetTextCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDoSetTextCursor` instead
+    /// ### DEPRECATED: Use `superDoSetTextCursor` instead
     ///
-    pub const QBaseDoSetTextCursor = SuperDoSetTextCursor;
+    pub const SuperDoSetTextCursor = superDoSetTextCursor;
 
     /// Inherited from QTextEdit
     ///
@@ -8716,12 +10876,16 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` cursor: QTextCursor `
+    /// ` _cursor: QTextCursor `
     ///
-    pub fn SuperDoSetTextCursor(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QTextCursor;
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperDoSetTextCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn superDoSetTextCursor(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QTextCursor;
+        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperDoSetTextCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDoSetTextCursor` instead
+    ///
+    pub const OnDoSetTextCursor = onDoSetTextCursor;
 
     /// Inherited from QTextEdit
     ///
@@ -8735,10 +10899,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, cursor: QTextCursor) callconv(.c) void `
     ///
-    pub fn OnDoSetTextCursor(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QTextCursor) callconv(.c) void) void {
+    pub fn onDoSetTextCursor(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QTextCursor) callconv(.c) void) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnDoSetTextCursor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
@@ -8749,13 +10917,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn MinimumSizeHint(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QSize {
+    pub fn minimumSizeHint(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QSize {
         return .{ .ptr = qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8767,10 +10935,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn SuperMinimumSizeHint(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QSize {
+    pub fn superMinimumSizeHint(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QSize {
         return .{ .ptr = qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
@@ -8785,9 +10957,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8799,13 +10975,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn SizeHint(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QSize {
+    pub fn sizeHint(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QSize {
         return .{ .ptr = qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8817,9 +10993,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn SuperSizeHint(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QSize {
+    pub fn superSizeHint(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QSize {
         return .{ .ptr = qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8835,9 +11015,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setupViewport` instead
+    ///
+    pub const SetupViewport = setupViewport;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8849,16 +11033,16 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` viewport: QWidget `
+    /// ` _viewport: QWidget `
     ///
-    pub fn SetupViewport(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, viewport: anytype) void {
-        comptime _ = @TypeOf(viewport)._is_QWidget;
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SetupViewport(@ptrCast(self.ptr), @ptrCast(viewport.ptr));
+    pub fn setupViewport(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _viewport: anytype) void {
+        comptime _ = @TypeOf(_viewport)._is_QWidget;
+        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SetupViewport(@ptrCast(self.ptr), @ptrCast(_viewport.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetupViewport` instead
+    /// ### DEPRECATED: Use `superSetupViewport` instead
     ///
-    pub const QBaseSetupViewport = SuperSetupViewport;
+    pub const SuperSetupViewport = superSetupViewport;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8870,12 +11054,16 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` viewport: QWidget `
+    /// ` _viewport: QWidget `
     ///
-    pub fn SuperSetupViewport(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, viewport: anytype) void {
-        comptime _ = @TypeOf(viewport)._is_QWidget;
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperSetupViewport(@ptrCast(self.ptr), @ptrCast(viewport.ptr));
+    pub fn superSetupViewport(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _viewport: anytype) void {
+        comptime _ = @TypeOf(_viewport)._is_QWidget;
+        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperSetupViewport(@ptrCast(self.ptr), @ptrCast(_viewport.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetupViewport` instead
+    ///
+    pub const OnSetupViewport = onSetupViewport;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8889,9 +11077,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, viewport: QWidget) callconv(.c) void `
     ///
-    pub fn OnSetupViewport(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QWidget) callconv(.c) void) void {
+    pub fn onSetupViewport(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QWidget) callconv(.c) void) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnSetupViewport(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8907,15 +11099,15 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` param2: QEvent `
     ///
-    pub fn EventFilter(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype, param2: anytype) bool {
+    pub fn eventFilter(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype, param2: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QObject;
         comptime _ = @TypeOf(param2)._is_QEvent;
         return qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_EventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8931,11 +11123,15 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` param2: QEvent `
     ///
-    pub fn SuperEventFilter(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype, param2: anytype) bool {
+    pub fn superEventFilter(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype, param2: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QObject;
         comptime _ = @TypeOf(param2)._is_QEvent;
         return qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8949,9 +11145,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: QObject, param2: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QObject, QEvent) callconv(.c) bool) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `viewportEvent` instead
+    ///
+    pub const ViewportEvent = viewportEvent;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8965,14 +11165,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn ViewportEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) bool {
+    pub fn viewportEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QEvent;
         return qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_ViewportEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperViewportEvent` instead
+    /// ### DEPRECATED: Use `superViewportEvent` instead
     ///
-    pub const QBaseViewportEvent = SuperViewportEvent;
+    pub const SuperViewportEvent = superViewportEvent;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8986,10 +11186,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperViewportEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) bool {
+    pub fn superViewportEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QEvent;
         return qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperViewportEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onViewportEvent` instead
+    ///
+    pub const OnViewportEvent = onViewportEvent;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -9003,9 +11207,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: QEvent) callconv(.c) bool `
     ///
-    pub fn OnViewportEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QEvent) callconv(.c) bool) void {
+    pub fn onViewportEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QEvent) callconv(.c) bool) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnViewportEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `viewportSizeHint` instead
+    ///
+    pub const ViewportSizeHint = viewportSizeHint;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -9017,13 +11225,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn ViewportSizeHint(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QSize {
+    pub fn viewportSizeHint(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QSize {
         return .{ .ptr = qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_ViewportSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperViewportSizeHint` instead
+    /// ### DEPRECATED: Use `superViewportSizeHint` instead
     ///
-    pub const QBaseViewportSizeHint = SuperViewportSizeHint;
+    pub const SuperViewportSizeHint = superViewportSizeHint;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -9035,9 +11243,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn SuperViewportSizeHint(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QSize {
+    pub fn superViewportSizeHint(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QSize {
         return .{ .ptr = qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperViewportSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onViewportSizeHint` instead
+    ///
+    pub const OnViewportSizeHint = onViewportSizeHint;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -9053,9 +11265,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnViewportSizeHint(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onViewportSizeHint(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnViewportSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initStyleOption` instead
+    ///
+    pub const InitStyleOption = initStyleOption;
 
     /// Inherited from QFrame
     ///
@@ -9069,14 +11285,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` option: QStyleOptionFrame `
     ///
-    pub fn InitStyleOption(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, option: anytype) void {
+    pub fn initStyleOption(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionFrame;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_InitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitStyleOption` instead
+    /// ### DEPRECATED: Use `superInitStyleOption` instead
     ///
-    pub const QBaseInitStyleOption = SuperInitStyleOption;
+    pub const SuperInitStyleOption = superInitStyleOption;
 
     /// Inherited from QFrame
     ///
@@ -9090,10 +11306,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` option: QStyleOptionFrame `
     ///
-    pub fn SuperInitStyleOption(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, option: anytype) void {
+    pub fn superInitStyleOption(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionFrame;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperInitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitStyleOption` instead
+    ///
+    pub const OnInitStyleOption = onInitStyleOption;
 
     /// Inherited from QFrame
     ///
@@ -9107,9 +11327,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, option: QStyleOptionFrame) callconv(.c) void `
     ///
-    pub fn OnInitStyleOption(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QStyleOptionFrame) callconv(.c) void) void {
+    pub fn onInitStyleOption(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QStyleOptionFrame) callconv(.c) void) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnInitStyleOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -9121,13 +11345,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn DevType(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
+    pub fn devType(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
         return qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -9139,9 +11363,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn SuperDevType(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
+    pub fn superDevType(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
         return qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -9155,9 +11383,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) i32) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -9171,13 +11403,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, visible: bool) void {
+    pub fn setVisible(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, visible: bool) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -9191,9 +11423,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, visible: bool) void {
+    pub fn superSetVisible(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, visible: bool) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -9207,9 +11443,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, bool) callconv(.c) void) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -9223,13 +11463,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: i32) i32 {
+    pub fn heightForWidth(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: i32) i32 {
         return qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -9243,9 +11483,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: i32) i32 {
+    pub fn superHeightForWidth(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: i32) i32 {
         return qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -9259,9 +11503,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, i32) callconv(.c) i32) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -9273,13 +11521,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn HasHeightForWidth(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
+    pub fn hasHeightForWidth(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
         return qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -9291,9 +11539,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn SuperHasHeightForWidth(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
+    pub fn superHasHeightForWidth(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
         return qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -9307,9 +11559,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) bool) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -9321,13 +11577,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn PaintEngine(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QPaintEngine {
+    pub fn paintEngine(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QPaintEngine {
         return .{ .ptr = qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -9339,9 +11595,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn SuperPaintEngine(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QPaintEngine {
+    pub fn superPaintEngine(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QPaintEngine {
         return .{ .ptr = qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -9355,9 +11615,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -9369,16 +11633,16 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -9390,12 +11654,16 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -9409,9 +11677,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QEnterEvent) callconv(.c) void) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9423,16 +11695,16 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9444,12 +11716,16 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9463,9 +11739,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QEvent) callconv(.c) void) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9477,16 +11757,16 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9498,12 +11778,16 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9517,9 +11801,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QMoveEvent) callconv(.c) void) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -9531,16 +11819,16 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -9552,12 +11840,16 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -9571,9 +11863,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QCloseEvent) callconv(.c) void) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -9585,16 +11881,16 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -9606,12 +11902,16 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -9625,9 +11925,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QTabletEvent) callconv(.c) void) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -9639,16 +11943,16 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -9660,12 +11964,16 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -9679,9 +11987,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QActionEvent) callconv(.c) void) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -9693,16 +12005,16 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -9714,12 +12026,16 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -9733,9 +12049,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QHideEvent) callconv(.c) void) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -9753,7 +12073,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -9761,9 +12081,9 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
         return qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -9781,13 +12101,17 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -9801,9 +12125,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -9817,13 +12145,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: i32) i32 {
+    pub fn metric(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: i32) i32 {
         return qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -9837,9 +12165,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: i32) i32 {
+    pub fn superMetric(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: i32) i32 {
         return qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -9853,9 +12185,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, i32) callconv(.c) i32) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -9869,14 +12205,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, painter: anytype) void {
+    pub fn initPainter(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -9890,10 +12226,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, painter: anytype) void {
+    pub fn superInitPainter(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -9907,9 +12247,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QPainter) callconv(.c) void) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -9923,14 +12267,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, offset: anytype) QPaintDevice {
+    pub fn redirected(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -9944,10 +12288,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -9961,9 +12309,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QPoint) callconv(.c) QPaintDevice) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -9975,13 +12327,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn SharedPainter(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QPainter {
+    pub fn sharedPainter(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QPainter {
         return .{ .ptr = qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -9993,9 +12345,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn SuperSharedPainter(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QPainter {
+    pub fn superSharedPainter(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QPainter {
         return .{ .ptr = qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -10009,9 +12365,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) QPainter) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -10023,16 +12383,16 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -10044,12 +12404,16 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -10063,9 +12427,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QChildEvent) callconv(.c) void) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -10077,16 +12445,16 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -10098,12 +12466,16 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -10117,9 +12489,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QEvent) callconv(.c) void) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -10133,14 +12509,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, signal: anytype) void {
+    pub fn connectNotify(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -10154,11 +12530,15 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, signal: anytype) void {
+    pub fn superConnectNotify(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -10171,9 +12551,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QMetaMethod) callconv(.c) void) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -10187,14 +12571,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, signal: anytype) void {
+    pub fn disconnectNotify(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -10208,10 +12592,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, signal: anytype) void {
+    pub fn superDisconnectNotify(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -10225,9 +12613,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QMetaMethod) callconv(.c) void) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `zoomInF` instead
+    ///
+    pub const ZoomInF = zoomInF;
 
     /// Inherited from QTextEdit
     ///
@@ -10241,13 +12633,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` range: f32 `
     ///
-    pub fn ZoomInF(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, range: f32) void {
+    pub fn zoomInF(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, range: f32) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_ZoomInF(@ptrCast(self.ptr), @bitCast(range));
     }
 
-    /// ### DEPRECATED: Use `SuperZoomInF` instead
+    /// ### DEPRECATED: Use `superZoomInF` instead
     ///
-    pub const QBaseZoomInF = SuperZoomInF;
+    pub const SuperZoomInF = superZoomInF;
 
     /// Inherited from QTextEdit
     ///
@@ -10261,9 +12653,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` range: f32 `
     ///
-    pub fn SuperZoomInF(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, range: f32) void {
+    pub fn superZoomInF(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, range: f32) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperZoomInF(@ptrCast(self.ptr), @bitCast(range));
     }
+
+    /// ### DEPRECATED: Use `onZoomInF` instead
+    ///
+    pub const OnZoomInF = onZoomInF;
 
     /// Inherited from QTextEdit
     ///
@@ -10277,9 +12673,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, range: f32) callconv(.c) void `
     ///
-    pub fn OnZoomInF(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, f32) callconv(.c) void) void {
+    pub fn onZoomInF(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, f32) callconv(.c) void) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnZoomInF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setViewportMargins` instead
+    ///
+    pub const SetViewportMargins = setViewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -10299,13 +12699,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetViewportMargins(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setViewportMargins(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
-    /// ### DEPRECATED: Use `SuperSetViewportMargins` instead
+    /// ### DEPRECATED: Use `superSetViewportMargins` instead
     ///
-    pub const QBaseSetViewportMargins = SuperSetViewportMargins;
+    pub const SuperSetViewportMargins = superSetViewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -10325,9 +12725,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SuperSetViewportMargins(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn superSetViewportMargins(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperSetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `onSetViewportMargins` instead
+    ///
+    pub const OnSetViewportMargins = onSetViewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -10341,9 +12745,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, left: i32, top: i32, right: i32, bottom: i32) callconv(.c) void `
     ///
-    pub fn OnSetViewportMargins(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, i32, i32, i32, i32) callconv(.c) void) void {
+    pub fn onSetViewportMargins(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, i32, i32, i32, i32) callconv(.c) void) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnSetViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `viewportMargins` instead
+    ///
+    pub const ViewportMargins = viewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -10355,13 +12763,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn ViewportMargins(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QMargins {
+    pub fn viewportMargins(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QMargins {
         return .{ .ptr = qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_ViewportMargins(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperViewportMargins` instead
+    /// ### DEPRECATED: Use `superViewportMargins` instead
     ///
-    pub const QBaseViewportMargins = SuperViewportMargins;
+    pub const SuperViewportMargins = superViewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -10373,9 +12781,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn SuperViewportMargins(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QMargins {
+    pub fn superViewportMargins(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QMargins {
         return .{ .ptr = qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperViewportMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onViewportMargins` instead
+    ///
+    pub const OnViewportMargins = onViewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -10391,9 +12803,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnViewportMargins(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) QMargins) void {
+    pub fn onViewportMargins(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) QMargins) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `drawFrame` instead
+    ///
+    pub const DrawFrame = drawFrame;
 
     /// Inherited from QFrame
     ///
@@ -10407,14 +12823,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` param1: QPainter `
     ///
-    pub fn DrawFrame(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) void {
+    pub fn drawFrame(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPainter;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_DrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawFrame` instead
+    /// ### DEPRECATED: Use `superDrawFrame` instead
     ///
-    pub const QBaseDrawFrame = SuperDrawFrame;
+    pub const SuperDrawFrame = superDrawFrame;
 
     /// Inherited from QFrame
     ///
@@ -10428,10 +12844,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` param1: QPainter `
     ///
-    pub fn SuperDrawFrame(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) void {
+    pub fn superDrawFrame(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPainter;
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperDrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDrawFrame` instead
+    ///
+    pub const OnDrawFrame = onDrawFrame;
 
     /// Inherited from QFrame
     ///
@@ -10445,10 +12865,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: QPainter) callconv(.c) void `
     ///
-    pub fn OnDrawFrame(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QPainter) callconv(.c) void) void {
+    pub fn onDrawFrame(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QPainter) callconv(.c) void) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnDrawFrame(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -10459,13 +12883,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn UpdateMicroFocus(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
+    pub fn updateMicroFocus(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -10477,10 +12901,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn SuperUpdateMicroFocus(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
+    pub fn superUpdateMicroFocus(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -10493,10 +12921,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) void) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -10507,13 +12939,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn Create(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
+    pub fn create(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -10525,10 +12957,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn SuperCreate(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
+    pub fn superCreate(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -10541,9 +12977,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) void) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -10555,13 +12995,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn Destroy(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
+    pub fn destroy(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -10573,9 +13013,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn SuperDestroy(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
+    pub fn superDestroy(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -10589,10 +13033,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) void) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -10603,13 +13051,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn FocusNextChild(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
+    pub fn focusNextChild(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
         return qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -10621,10 +13069,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn SuperFocusNextChild(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
+    pub fn superFocusNextChild(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
         return qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -10637,9 +13089,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) bool) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -10651,13 +13107,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn FocusPreviousChild(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
+    pub fn focusPreviousChild(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
         return qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -10669,9 +13125,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn SuperFocusPreviousChild(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
+    pub fn superFocusPreviousChild(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
         return qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -10685,9 +13145,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) bool) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -10699,13 +13163,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn Sender(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QObject {
+    pub fn sender(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QObject {
         return .{ .ptr = qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -10717,9 +13181,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn SuperSender(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QObject {
+    pub fn superSender(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QObject {
         return .{ .ptr = qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -10733,9 +13201,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) QObject) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -10747,13 +13219,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn SenderSignalIndex(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
+    pub fn senderSignalIndex(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
         return qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -10765,9 +13237,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn SuperSenderSignalIndex(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
+    pub fn superSenderSignalIndex(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
         return qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -10781,9 +13257,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) i32) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -10797,14 +13277,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, signal: [:0]const u8) i32 {
+    pub fn receivers(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -10818,10 +13298,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -10835,9 +13319,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, [*:0]const u8) callconv(.c) i32) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -10851,14 +13339,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, signal: anytype) bool {
+    pub fn isSignalConnected(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -10872,10 +13360,14 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -10889,9 +13381,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QMetaMethod) callconv(.c) bool) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -10907,13 +13403,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, metricA: i32, metricB: i32) f64 {
         return qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -10929,9 +13425,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, metricA: i32, metricB: i32) f64 {
         return qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -10945,9 +13445,13 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, i32, i32) callconv(.c) f64) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -10961,23 +13465,23 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionWidgets_1_1AutoCorrectionTextEdit.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    pub fn Delete(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
+    pub fn delete(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_Delete(@ptrCast(self.ptr));
     }
 };

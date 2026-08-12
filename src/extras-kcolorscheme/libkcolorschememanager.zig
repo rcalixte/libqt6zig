@@ -27,22 +27,34 @@ pub const KColorSchemeManager = extern struct {
     pub const _is_KColorSchemeManager = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new KColorSchemeManager object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() KColorSchemeManager {
+    pub const New = new;
+
+    /// Allocate a new KColorSchemeManager object in C++ memory
+    ///
+    pub fn new() KColorSchemeManager {
         return .{ .ptr = qtc.KColorSchemeManager_new() };
     }
 
-    /// New2 constructs a new KColorSchemeManager object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KColorSchemeManager object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) KColorSchemeManager {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.KColorSchemeManager_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) KColorSchemeManager {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.KColorSchemeManager_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -50,9 +62,13 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` self: KColorSchemeManager `
     ///
-    pub fn MetaObject(self: KColorSchemeManager) QMetaObject {
+    pub fn metaObject(self: KColorSchemeManager) QMetaObject {
         return .{ .ptr = qtc.KColorSchemeManager_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -64,13 +80,13 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KColorSchemeManager, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KColorSchemeManager, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KColorSchemeManager_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -80,9 +96,13 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` self: KColorSchemeManager `
     ///
-    pub fn SuperMetaObject(self: KColorSchemeManager) QMetaObject {
+    pub fn superMetaObject(self: KColorSchemeManager) QMetaObject {
         return .{ .ptr = qtc.KColorSchemeManager_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -90,10 +110,14 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KColorSchemeManager, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KColorSchemeManager, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KColorSchemeManager_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -103,13 +127,13 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` callback: *const fn (self: KColorSchemeManager, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KColorSchemeManager, callback: *const fn (KColorSchemeManager, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KColorSchemeManager, callback: *const fn (KColorSchemeManager, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KColorSchemeManager_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -119,10 +143,14 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KColorSchemeManager, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KColorSchemeManager, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KColorSchemeManager_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -134,9 +162,13 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KColorSchemeManager, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KColorSchemeManager, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KColorSchemeManager_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -146,13 +178,13 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` callback: *const fn (self: KColorSchemeManager, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KColorSchemeManager, callback: *const fn (KColorSchemeManager, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KColorSchemeManager, callback: *const fn (KColorSchemeManager, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KColorSchemeManager_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -166,9 +198,13 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KColorSchemeManager, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KColorSchemeManager, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KColorSchemeManager_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -178,14 +214,18 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KColorSchemeManager.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KColorSchemeManager.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `model` instead
+    ///
+    pub const Model = model;
 
     /// ### [Upstream resources](https://api.kde.org/kcolorschememanager.html#model)
     ///
@@ -193,9 +233,13 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` self: KColorSchemeManager `
     ///
-    pub fn Model(self: KColorSchemeManager) QAbstractItemModel {
+    pub fn model(self: KColorSchemeManager) QAbstractItemModel {
         return .{ .ptr = qtc.KColorSchemeManager_Model(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `indexForSchemeId` instead
+    ///
+    pub const IndexForSchemeId = indexForSchemeId;
 
     /// ### [Upstream resources](https://api.kde.org/kcolorschememanager.html#indexForSchemeId)
     ///
@@ -205,13 +249,17 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` id: []const u8 `
     ///
-    pub fn IndexForSchemeId(self: KColorSchemeManager, id: []const u8) QModelIndex {
+    pub fn indexForSchemeId(self: KColorSchemeManager, id: []const u8) QModelIndex {
         const id_str = qtc.libqt_string{
             .len = id.len,
             .data = id.ptr,
         };
         return .{ .ptr = qtc.KColorSchemeManager_IndexForSchemeId(@ptrCast(self.ptr), id_str) };
     }
+
+    /// ### DEPRECATED: Use `indexForScheme` instead
+    ///
+    pub const IndexForScheme = indexForScheme;
 
     /// ### [Upstream resources](https://api.kde.org/kcolorschememanager.html#indexForScheme)
     ///
@@ -221,13 +269,17 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn IndexForScheme(self: KColorSchemeManager, name: []const u8) QModelIndex {
+    pub fn indexForScheme(self: KColorSchemeManager, name: []const u8) QModelIndex {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         return .{ .ptr = qtc.KColorSchemeManager_IndexForScheme(@ptrCast(self.ptr), name_str) };
     }
+
+    /// ### DEPRECATED: Use `saveSchemeToConfigFile` instead
+    ///
+    pub const SaveSchemeToConfigFile = saveSchemeToConfigFile;
 
     /// ### [Upstream resources](https://api.kde.org/kcolorschememanager.html#saveSchemeToConfigFile)
     ///
@@ -237,13 +289,17 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` schemeName: []const u8 `
     ///
-    pub fn SaveSchemeToConfigFile(self: KColorSchemeManager, schemeName: []const u8) void {
+    pub fn saveSchemeToConfigFile(self: KColorSchemeManager, schemeName: []const u8) void {
         const schemeName_str = qtc.libqt_string{
             .len = schemeName.len,
             .data = schemeName.ptr,
         };
         qtc.KColorSchemeManager_SaveSchemeToConfigFile(@ptrCast(self.ptr), schemeName_str);
     }
+
+    /// ### DEPRECATED: Use `setAutosaveChanges` instead
+    ///
+    pub const SetAutosaveChanges = setAutosaveChanges;
 
     /// ### [Upstream resources](https://api.kde.org/kcolorschememanager.html#setAutosaveChanges)
     ///
@@ -253,9 +309,13 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` autosaveChanges: bool `
     ///
-    pub fn SetAutosaveChanges(self: KColorSchemeManager, autosaveChanges: bool) void {
+    pub fn setAutosaveChanges(self: KColorSchemeManager, autosaveChanges: bool) void {
         qtc.KColorSchemeManager_SetAutosaveChanges(@ptrCast(self.ptr), autosaveChanges);
     }
+
+    /// ### DEPRECATED: Use `activeSchemeId` instead
+    ///
+    pub const ActiveSchemeId = activeSchemeId;
 
     /// ### [Upstream resources](https://api.kde.org/kcolorschememanager.html#activeSchemeId)
     ///
@@ -265,13 +325,17 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ActiveSchemeId(self: KColorSchemeManager, allocator: std.mem.Allocator) []const u8 {
+    pub fn activeSchemeId(self: KColorSchemeManager, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KColorSchemeManager_ActiveSchemeId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KColorSchemeManager.ActiveSchemeId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KColorSchemeManager.activeSchemeId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `activeSchemeName` instead
+    ///
+    pub const ActiveSchemeName = activeSchemeName;
 
     /// ### [Upstream resources](https://api.kde.org/kcolorschememanager.html#activeSchemeName)
     ///
@@ -281,19 +345,27 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ActiveSchemeName(self: KColorSchemeManager, allocator: std.mem.Allocator) []const u8 {
+    pub fn activeSchemeName(self: KColorSchemeManager, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KColorSchemeManager_ActiveSchemeName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KColorSchemeManager.ActiveSchemeName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KColorSchemeManager.activeSchemeName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `instance` instead
+    ///
+    pub const Instance = instance;
+
     /// ### [Upstream resources](https://api.kde.org/kcolorschememanager.html#instance)
     ///
-    pub fn Instance() KColorSchemeManager {
+    pub fn instance() KColorSchemeManager {
         return .{ .ptr = qtc.KColorSchemeManager_Instance() };
     }
+
+    /// ### DEPRECATED: Use `activateScheme` instead
+    ///
+    pub const ActivateScheme = activateScheme;
 
     /// ### [Upstream resources](https://api.kde.org/kcolorschememanager.html#activateScheme)
     ///
@@ -303,10 +375,14 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn ActivateScheme(self: KColorSchemeManager, index: anytype) void {
+    pub fn activateScheme(self: KColorSchemeManager, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.KColorSchemeManager_ActivateScheme(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -318,15 +394,19 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KColorSchemeManager.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KColorSchemeManager.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -340,15 +420,19 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KColorSchemeManager.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KColorSchemeManager.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -360,13 +444,17 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KColorSchemeManager, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KColorSchemeManager, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KColorSchemeManager.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KColorSchemeManager.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -378,13 +466,17 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KColorSchemeManager, name: []const u8) void {
+    pub fn setObjectName(self: KColorSchemeManager, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -394,9 +486,13 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` self: KColorSchemeManager `
     ///
-    pub fn IsWidgetType(self: KColorSchemeManager) bool {
+    pub fn isWidgetType(self: KColorSchemeManager) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -406,9 +502,13 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` self: KColorSchemeManager `
     ///
-    pub fn IsWindowType(self: KColorSchemeManager) bool {
+    pub fn isWindowType(self: KColorSchemeManager) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -418,9 +518,13 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` self: KColorSchemeManager `
     ///
-    pub fn IsQuickItemType(self: KColorSchemeManager) bool {
+    pub fn isQuickItemType(self: KColorSchemeManager) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -430,9 +534,13 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` self: KColorSchemeManager `
     ///
-    pub fn SignalsBlocked(self: KColorSchemeManager) bool {
+    pub fn signalsBlocked(self: KColorSchemeManager) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -444,9 +552,13 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KColorSchemeManager, b: bool) bool {
+    pub fn blockSignals(self: KColorSchemeManager, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -456,9 +568,13 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` self: KColorSchemeManager `
     ///
-    pub fn Thread(self: KColorSchemeManager) QThread {
+    pub fn thread(self: KColorSchemeManager) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -468,12 +584,16 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` self: KColorSchemeManager `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KColorSchemeManager, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KColorSchemeManager, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -485,9 +605,13 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KColorSchemeManager, interval: i32) i32 {
+    pub fn startTimer(self: KColorSchemeManager, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -499,9 +623,13 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KColorSchemeManager, time: i64) i32 {
+    pub fn startTimer2(self: KColorSchemeManager, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -513,9 +641,13 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KColorSchemeManager, id: i32) void {
+    pub fn killTimer(self: KColorSchemeManager, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -527,9 +659,13 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KColorSchemeManager, id: i32) void {
+    pub fn killTimer2(self: KColorSchemeManager, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -541,15 +677,19 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KColorSchemeManager, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KColorSchemeManager, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KColorSchemeManager.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KColorSchemeManager.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -559,12 +699,16 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` self: KColorSchemeManager `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: KColorSchemeManager, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: KColorSchemeManager, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -576,10 +720,14 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KColorSchemeManager, filterObj: anytype) void {
+    pub fn installEventFilter(self: KColorSchemeManager, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -591,10 +739,14 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KColorSchemeManager, obj: anytype) void {
+    pub fn removeEventFilter(self: KColorSchemeManager, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -602,7 +754,7 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -610,13 +762,17 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -624,7 +780,7 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -632,13 +788,17 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -648,18 +808,22 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` self: KColorSchemeManager `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KColorSchemeManager, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KColorSchemeManager, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -667,7 +831,7 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -675,13 +839,17 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -689,7 +857,7 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -697,13 +865,17 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -713,9 +885,13 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` self: KColorSchemeManager `
     ///
-    pub fn Disconnect3(self: KColorSchemeManager) bool {
+    pub fn disconnect3(self: KColorSchemeManager) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -727,10 +903,14 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KColorSchemeManager, receiver: anytype) bool {
+    pub fn disconnect4(self: KColorSchemeManager, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -740,10 +920,14 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -753,9 +937,13 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` self: KColorSchemeManager `
     ///
-    pub fn DumpObjectTree(self: KColorSchemeManager) void {
+    pub fn dumpObjectTree(self: KColorSchemeManager) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -765,9 +953,13 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` self: KColorSchemeManager `
     ///
-    pub fn DumpObjectInfo(self: KColorSchemeManager) void {
+    pub fn dumpObjectInfo(self: KColorSchemeManager) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -781,11 +973,15 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KColorSchemeManager, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KColorSchemeManager, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -797,10 +993,14 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KColorSchemeManager, name: [:0]const u8) QVariant {
+    pub fn property(self: KColorSchemeManager, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -812,7 +1012,7 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KColorSchemeManager, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KColorSchemeManager, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -820,27 +1020,19 @@ pub const KColorSchemeManager = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KColorSchemeManager.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KColorSchemeManager.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KColorSchemeManager.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KColorSchemeManager.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KColorSchemeManager `
-    ///
-    pub fn BindingStorage(self: KColorSchemeManager) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -850,9 +1042,29 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` self: KColorSchemeManager `
     ///
-    pub fn BindingStorage2(self: KColorSchemeManager) QBindingStorage {
+    pub fn bindingStorage(self: KColorSchemeManager) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KColorSchemeManager `
+    ///
+    pub fn bindingStorage2(self: KColorSchemeManager) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -862,9 +1074,13 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` self: KColorSchemeManager `
     ///
-    pub fn Destroyed(self: KColorSchemeManager) void {
+    pub fn destroyed(self: KColorSchemeManager) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -876,9 +1092,13 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` callback: *const fn (self: KColorSchemeManager) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KColorSchemeManager, callback: *const fn (KColorSchemeManager) callconv(.c) void) void {
+    pub fn onDestroyed(self: KColorSchemeManager, callback: *const fn (KColorSchemeManager) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -888,9 +1108,13 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` self: KColorSchemeManager `
     ///
-    pub fn Parent(self: KColorSchemeManager) QObject {
+    pub fn parent(self: KColorSchemeManager) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -902,10 +1126,14 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KColorSchemeManager, classname: [:0]const u8) bool {
+    pub fn inherits(self: KColorSchemeManager, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -915,9 +1143,13 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` self: KColorSchemeManager `
     ///
-    pub fn DeleteLater(self: KColorSchemeManager) void {
+    pub fn deleteLater(self: KColorSchemeManager) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -931,9 +1163,13 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KColorSchemeManager, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KColorSchemeManager, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -947,9 +1183,13 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KColorSchemeManager, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KColorSchemeManager, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -957,7 +1197,7 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -967,13 +1207,17 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -981,7 +1225,7 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -991,13 +1235,17 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1007,7 +1255,7 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` self: KColorSchemeManager `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1015,12 +1263,16 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KColorSchemeManager, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KColorSchemeManager, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1032,10 +1284,14 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KColorSchemeManager, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KColorSchemeManager, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1049,11 +1305,15 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KColorSchemeManager, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KColorSchemeManager, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1069,13 +1329,17 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KColorSchemeManager, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KColorSchemeManager, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1088,11 +1352,15 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KColorSchemeManager, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KColorSchemeManager, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1104,10 +1372,14 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KColorSchemeManager, param1: anytype) void {
+    pub fn destroyed1(self: KColorSchemeManager, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1119,9 +1391,13 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` callback: *const fn (self: KColorSchemeManager, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KColorSchemeManager, callback: *const fn (KColorSchemeManager, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KColorSchemeManager, callback: *const fn (KColorSchemeManager, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -1133,16 +1409,16 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` self: KColorSchemeManager `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: KColorSchemeManager, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KColorSchemeManager_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: KColorSchemeManager, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KColorSchemeManager_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -1154,12 +1430,16 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` self: KColorSchemeManager `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: KColorSchemeManager, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KColorSchemeManager_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: KColorSchemeManager, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KColorSchemeManager_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -1173,9 +1453,13 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` callback: *const fn (self: KColorSchemeManager, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KColorSchemeManager, callback: *const fn (KColorSchemeManager, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KColorSchemeManager, callback: *const fn (KColorSchemeManager, QEvent) callconv(.c) bool) void {
         qtc.KColorSchemeManager_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1189,17 +1473,17 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: KColorSchemeManager, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: KColorSchemeManager, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KColorSchemeManager_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KColorSchemeManager_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1213,13 +1497,17 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: KColorSchemeManager, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: KColorSchemeManager, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KColorSchemeManager_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KColorSchemeManager_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1233,9 +1521,13 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` callback: *const fn (self: KColorSchemeManager, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KColorSchemeManager, callback: *const fn (KColorSchemeManager, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KColorSchemeManager, callback: *const fn (KColorSchemeManager, QObject, QEvent) callconv(.c) bool) void {
         qtc.KColorSchemeManager_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -1247,16 +1539,16 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` self: KColorSchemeManager `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KColorSchemeManager, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KColorSchemeManager_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: KColorSchemeManager, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KColorSchemeManager_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1268,12 +1560,16 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` self: KColorSchemeManager `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KColorSchemeManager, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KColorSchemeManager_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: KColorSchemeManager, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KColorSchemeManager_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1287,9 +1583,13 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` callback: *const fn (self: KColorSchemeManager, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KColorSchemeManager, callback: *const fn (KColorSchemeManager, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KColorSchemeManager, callback: *const fn (KColorSchemeManager, QTimerEvent) callconv(.c) void) void {
         qtc.KColorSchemeManager_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -1301,16 +1601,16 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` self: KColorSchemeManager `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KColorSchemeManager, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KColorSchemeManager_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KColorSchemeManager, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KColorSchemeManager_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1322,12 +1622,16 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` self: KColorSchemeManager `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KColorSchemeManager, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KColorSchemeManager_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KColorSchemeManager, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KColorSchemeManager_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1341,9 +1645,13 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` callback: *const fn (self: KColorSchemeManager, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KColorSchemeManager, callback: *const fn (KColorSchemeManager, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KColorSchemeManager, callback: *const fn (KColorSchemeManager, QChildEvent) callconv(.c) void) void {
         qtc.KColorSchemeManager_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -1355,16 +1663,16 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` self: KColorSchemeManager `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KColorSchemeManager, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KColorSchemeManager_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KColorSchemeManager, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KColorSchemeManager_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1376,12 +1684,16 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` self: KColorSchemeManager `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KColorSchemeManager, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KColorSchemeManager_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KColorSchemeManager, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KColorSchemeManager_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1395,9 +1707,13 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` callback: *const fn (self: KColorSchemeManager, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KColorSchemeManager, callback: *const fn (KColorSchemeManager, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KColorSchemeManager, callback: *const fn (KColorSchemeManager, QEvent) callconv(.c) void) void {
         qtc.KColorSchemeManager_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -1411,14 +1727,14 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KColorSchemeManager, signal: anytype) void {
+    pub fn connectNotify(self: KColorSchemeManager, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KColorSchemeManager_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1432,11 +1748,15 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KColorSchemeManager, signal: anytype) void {
+    pub fn superConnectNotify(self: KColorSchemeManager, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KColorSchemeManager_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1449,9 +1769,13 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` callback: *const fn (self: KColorSchemeManager, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KColorSchemeManager, callback: *const fn (KColorSchemeManager, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KColorSchemeManager, callback: *const fn (KColorSchemeManager, QMetaMethod) callconv(.c) void) void {
         qtc.KColorSchemeManager_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1465,14 +1789,14 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KColorSchemeManager, signal: anytype) void {
+    pub fn disconnectNotify(self: KColorSchemeManager, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KColorSchemeManager_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1486,10 +1810,14 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KColorSchemeManager, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KColorSchemeManager, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KColorSchemeManager_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1503,9 +1831,13 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` callback: *const fn (self: KColorSchemeManager, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KColorSchemeManager, callback: *const fn (KColorSchemeManager, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KColorSchemeManager, callback: *const fn (KColorSchemeManager, QMetaMethod) callconv(.c) void) void {
         qtc.KColorSchemeManager_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -1517,13 +1849,13 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` self: KColorSchemeManager `
     ///
-    pub fn Sender(self: KColorSchemeManager) QObject {
+    pub fn sender(self: KColorSchemeManager) QObject {
         return .{ .ptr = qtc.KColorSchemeManager_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -1535,9 +1867,13 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` self: KColorSchemeManager `
     ///
-    pub fn SuperSender(self: KColorSchemeManager) QObject {
+    pub fn superSender(self: KColorSchemeManager) QObject {
         return .{ .ptr = qtc.KColorSchemeManager_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -1551,9 +1887,13 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KColorSchemeManager, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KColorSchemeManager, callback: *const fn () callconv(.c) QObject) void {
         qtc.KColorSchemeManager_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1565,13 +1905,13 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` self: KColorSchemeManager `
     ///
-    pub fn SenderSignalIndex(self: KColorSchemeManager) i32 {
+    pub fn senderSignalIndex(self: KColorSchemeManager) i32 {
         return qtc.KColorSchemeManager_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1583,9 +1923,13 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` self: KColorSchemeManager `
     ///
-    pub fn SuperSenderSignalIndex(self: KColorSchemeManager) i32 {
+    pub fn superSenderSignalIndex(self: KColorSchemeManager) i32 {
         return qtc.KColorSchemeManager_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1599,9 +1943,13 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KColorSchemeManager, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KColorSchemeManager, callback: *const fn () callconv(.c) i32) void {
         qtc.KColorSchemeManager_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -1615,14 +1963,14 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KColorSchemeManager, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KColorSchemeManager, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KColorSchemeManager_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -1636,10 +1984,14 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KColorSchemeManager, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KColorSchemeManager, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KColorSchemeManager_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -1653,9 +2005,13 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` callback: *const fn (self: KColorSchemeManager, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KColorSchemeManager, callback: *const fn (KColorSchemeManager, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KColorSchemeManager, callback: *const fn (KColorSchemeManager, [*:0]const u8) callconv(.c) i32) void {
         qtc.KColorSchemeManager_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1669,14 +2025,14 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KColorSchemeManager, signal: anytype) bool {
+    pub fn isSignalConnected(self: KColorSchemeManager, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KColorSchemeManager_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1690,10 +2046,14 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KColorSchemeManager, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KColorSchemeManager, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KColorSchemeManager_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1707,9 +2067,13 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` callback: *const fn (self: KColorSchemeManager, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KColorSchemeManager, callback: *const fn (KColorSchemeManager, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KColorSchemeManager, callback: *const fn (KColorSchemeManager, QMetaMethod) callconv(.c) bool) void {
         qtc.KColorSchemeManager_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -1723,23 +2087,23 @@ pub const KColorSchemeManager = extern struct {
     ///
     /// ` callback: *const fn (self: KColorSchemeManager, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KColorSchemeManager, callback: *const fn (KColorSchemeManager, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KColorSchemeManager, callback: *const fn (KColorSchemeManager, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kcolorschememanager.html#dtor.KColorSchemeManager)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KColorSchemeManager `
     ///
-    pub fn Delete(self: KColorSchemeManager) void {
+    pub fn delete(self: KColorSchemeManager) void {
         qtc.KColorSchemeManager_Delete(@ptrCast(self.ptr));
     }
 };

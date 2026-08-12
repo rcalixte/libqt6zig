@@ -12,46 +12,65 @@ pub const QMetaContainer = extern struct {
 
     pub const _is_QMetaContainer = {};
 
-    /// New constructs a new QMetaContainer object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QMetaContainer {
+    pub const New = new;
+
+    /// Allocate a new QMetaContainer object in C++ memory
+    ///
+    pub fn new() QMetaContainer {
         return .{ .ptr = qtc.QMetaContainer_new() };
     }
 
-    /// New2 constructs a new QMetaContainer object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QMetaContainer object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QMetaContainer `
     ///
-    pub fn New2(other: anytype) QMetaContainer {
+    pub fn new2(other: anytype) QMetaContainer {
         comptime _ = @TypeOf(other)._is_QMetaContainer;
         return .{ .ptr = qtc.QMetaContainer_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QMetaContainer object and invalidates the source QMetaContainer object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QMetaContainer object and invalidate the source QMetaContainer object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QMetaContainer `
     ///
-    pub fn New3(other: anytype) QMetaContainer {
+    pub fn new3(other: anytype) QMetaContainer {
         comptime _ = @TypeOf(other)._is_QMetaContainer;
         return .{ .ptr = qtc.QMetaContainer_new3(@ptrCast(other.ptr)) };
     }
 
-    /// New4 constructs a new QMetaContainer object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QMetaContainer object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QMetaContainer `
     ///
-    pub fn New4(param1: anytype) QMetaContainer {
+    pub fn new4(param1: anytype) QMetaContainer {
         comptime _ = @TypeOf(param1)._is_QMetaContainer;
         return .{ .ptr = qtc.QMetaContainer_new4(@ptrCast(param1.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -59,11 +78,14 @@ pub const QMetaContainer = extern struct {
     ///
     /// ` other: QMetaContainer `
     ///
-    pub fn CopyAssign(self: QMetaContainer, other: QMetaContainer) void {
+    pub fn copyAssign(self: QMetaContainer, other: QMetaContainer) void {
         qtc.QMetaContainer_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -71,9 +93,13 @@ pub const QMetaContainer = extern struct {
     ///
     /// ` other: QMetaContainer `
     ///
-    pub fn MoveAssign(self: QMetaContainer, other: QMetaContainer) void {
+    pub fn moveAssign(self: QMetaContainer, other: QMetaContainer) void {
         qtc.QMetaContainer_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `hasInputIterator` instead
+    ///
+    pub const HasInputIterator = hasInputIterator;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetacontainer.html#hasInputIterator)
     ///
@@ -81,9 +107,13 @@ pub const QMetaContainer = extern struct {
     ///
     /// ` self: QMetaContainer `
     ///
-    pub fn HasInputIterator(self: QMetaContainer) bool {
+    pub fn hasInputIterator(self: QMetaContainer) bool {
         return qtc.QMetaContainer_HasInputIterator(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hasForwardIterator` instead
+    ///
+    pub const HasForwardIterator = hasForwardIterator;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetacontainer.html#hasForwardIterator)
     ///
@@ -91,9 +121,13 @@ pub const QMetaContainer = extern struct {
     ///
     /// ` self: QMetaContainer `
     ///
-    pub fn HasForwardIterator(self: QMetaContainer) bool {
+    pub fn hasForwardIterator(self: QMetaContainer) bool {
         return qtc.QMetaContainer_HasForwardIterator(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hasBidirectionalIterator` instead
+    ///
+    pub const HasBidirectionalIterator = hasBidirectionalIterator;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetacontainer.html#hasBidirectionalIterator)
     ///
@@ -101,9 +135,13 @@ pub const QMetaContainer = extern struct {
     ///
     /// ` self: QMetaContainer `
     ///
-    pub fn HasBidirectionalIterator(self: QMetaContainer) bool {
+    pub fn hasBidirectionalIterator(self: QMetaContainer) bool {
         return qtc.QMetaContainer_HasBidirectionalIterator(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hasRandomAccessIterator` instead
+    ///
+    pub const HasRandomAccessIterator = hasRandomAccessIterator;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetacontainer.html#hasRandomAccessIterator)
     ///
@@ -111,9 +149,13 @@ pub const QMetaContainer = extern struct {
     ///
     /// ` self: QMetaContainer `
     ///
-    pub fn HasRandomAccessIterator(self: QMetaContainer) bool {
+    pub fn hasRandomAccessIterator(self: QMetaContainer) bool {
         return qtc.QMetaContainer_HasRandomAccessIterator(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hasSize` instead
+    ///
+    pub const HasSize = hasSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetacontainer.html#hasSize)
     ///
@@ -121,9 +163,13 @@ pub const QMetaContainer = extern struct {
     ///
     /// ` self: QMetaContainer `
     ///
-    pub fn HasSize(self: QMetaContainer) bool {
+    pub fn hasSize(self: QMetaContainer) bool {
         return qtc.QMetaContainer_HasSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetacontainer.html#size)
     ///
@@ -133,9 +179,13 @@ pub const QMetaContainer = extern struct {
     ///
     /// ` container: ?*const anyopaque `
     ///
-    pub fn Size(self: QMetaContainer, container: ?*const anyopaque) isize {
+    pub fn size(self: QMetaContainer, container: ?*const anyopaque) isize {
         return qtc.QMetaContainer_Size(@ptrCast(self.ptr), @ptrCast(container));
     }
+
+    /// ### DEPRECATED: Use `canClear` instead
+    ///
+    pub const CanClear = canClear;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetacontainer.html#canClear)
     ///
@@ -143,9 +193,13 @@ pub const QMetaContainer = extern struct {
     ///
     /// ` self: QMetaContainer `
     ///
-    pub fn CanClear(self: QMetaContainer) bool {
+    pub fn canClear(self: QMetaContainer) bool {
         return qtc.QMetaContainer_CanClear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetacontainer.html#clear)
     ///
@@ -155,9 +209,13 @@ pub const QMetaContainer = extern struct {
     ///
     /// ` container: ?*anyopaque `
     ///
-    pub fn Clear(self: QMetaContainer, container: ?*anyopaque) void {
+    pub fn clear(self: QMetaContainer, container: ?*anyopaque) void {
         qtc.QMetaContainer_Clear(@ptrCast(self.ptr), @ptrCast(container));
     }
+
+    /// ### DEPRECATED: Use `hasIterator` instead
+    ///
+    pub const HasIterator = hasIterator;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetacontainer.html#hasIterator)
     ///
@@ -165,9 +223,13 @@ pub const QMetaContainer = extern struct {
     ///
     /// ` self: QMetaContainer `
     ///
-    pub fn HasIterator(self: QMetaContainer) bool {
+    pub fn hasIterator(self: QMetaContainer) bool {
         return qtc.QMetaContainer_HasIterator(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `begin` instead
+    ///
+    pub const Begin = begin;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetacontainer.html#begin)
     ///
@@ -177,9 +239,13 @@ pub const QMetaContainer = extern struct {
     ///
     /// ` container: ?*anyopaque `
     ///
-    pub fn Begin(self: QMetaContainer, container: ?*anyopaque) ?*anyopaque {
+    pub fn begin(self: QMetaContainer, container: ?*anyopaque) ?*anyopaque {
         return qtc.QMetaContainer_Begin(@ptrCast(self.ptr), @ptrCast(container));
     }
+
+    /// ### DEPRECATED: Use `end` instead
+    ///
+    pub const End = end;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetacontainer.html#end)
     ///
@@ -189,9 +255,13 @@ pub const QMetaContainer = extern struct {
     ///
     /// ` container: ?*anyopaque `
     ///
-    pub fn End(self: QMetaContainer, container: ?*anyopaque) ?*anyopaque {
+    pub fn end(self: QMetaContainer, container: ?*anyopaque) ?*anyopaque {
         return qtc.QMetaContainer_End(@ptrCast(self.ptr), @ptrCast(container));
     }
+
+    /// ### DEPRECATED: Use `destroyIterator` instead
+    ///
+    pub const DestroyIterator = destroyIterator;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetacontainer.html#destroyIterator)
     ///
@@ -201,9 +271,13 @@ pub const QMetaContainer = extern struct {
     ///
     /// ` iterator: ?*const anyopaque `
     ///
-    pub fn DestroyIterator(self: QMetaContainer, iterator: ?*const anyopaque) void {
+    pub fn destroyIterator(self: QMetaContainer, iterator: ?*const anyopaque) void {
         qtc.QMetaContainer_DestroyIterator(@ptrCast(self.ptr), @ptrCast(iterator));
     }
+
+    /// ### DEPRECATED: Use `compareIterator` instead
+    ///
+    pub const CompareIterator = compareIterator;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetacontainer.html#compareIterator)
     ///
@@ -215,9 +289,13 @@ pub const QMetaContainer = extern struct {
     ///
     /// ` j: ?*const anyopaque `
     ///
-    pub fn CompareIterator(self: QMetaContainer, i: ?*const anyopaque, j: ?*const anyopaque) bool {
+    pub fn compareIterator(self: QMetaContainer, i: ?*const anyopaque, j: ?*const anyopaque) bool {
         return qtc.QMetaContainer_CompareIterator(@ptrCast(self.ptr), @ptrCast(i), @ptrCast(j));
     }
+
+    /// ### DEPRECATED: Use `copyIterator` instead
+    ///
+    pub const CopyIterator = copyIterator;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetacontainer.html#copyIterator)
     ///
@@ -229,9 +307,13 @@ pub const QMetaContainer = extern struct {
     ///
     /// ` source: ?*const anyopaque `
     ///
-    pub fn CopyIterator(self: QMetaContainer, target: ?*anyopaque, source: ?*const anyopaque) void {
+    pub fn copyIterator(self: QMetaContainer, target: ?*anyopaque, source: ?*const anyopaque) void {
         qtc.QMetaContainer_CopyIterator(@ptrCast(self.ptr), @ptrCast(target), @ptrCast(source));
     }
+
+    /// ### DEPRECATED: Use `advanceIterator` instead
+    ///
+    pub const AdvanceIterator = advanceIterator;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetacontainer.html#advanceIterator)
     ///
@@ -243,9 +325,13 @@ pub const QMetaContainer = extern struct {
     ///
     /// ` step: isize `
     ///
-    pub fn AdvanceIterator(self: QMetaContainer, iterator: ?*anyopaque, step: isize) void {
+    pub fn advanceIterator(self: QMetaContainer, iterator: ?*anyopaque, step: isize) void {
         qtc.QMetaContainer_AdvanceIterator(@ptrCast(self.ptr), @ptrCast(iterator), @bitCast(step));
     }
+
+    /// ### DEPRECATED: Use `diffIterator` instead
+    ///
+    pub const DiffIterator = diffIterator;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetacontainer.html#diffIterator)
     ///
@@ -257,9 +343,13 @@ pub const QMetaContainer = extern struct {
     ///
     /// ` j: ?*const anyopaque `
     ///
-    pub fn DiffIterator(self: QMetaContainer, i: ?*const anyopaque, j: ?*const anyopaque) isize {
+    pub fn diffIterator(self: QMetaContainer, i: ?*const anyopaque, j: ?*const anyopaque) isize {
         return qtc.QMetaContainer_DiffIterator(@ptrCast(self.ptr), @ptrCast(i), @ptrCast(j));
     }
+
+    /// ### DEPRECATED: Use `hasConstIterator` instead
+    ///
+    pub const HasConstIterator = hasConstIterator;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetacontainer.html#hasConstIterator)
     ///
@@ -267,9 +357,13 @@ pub const QMetaContainer = extern struct {
     ///
     /// ` self: QMetaContainer `
     ///
-    pub fn HasConstIterator(self: QMetaContainer) bool {
+    pub fn hasConstIterator(self: QMetaContainer) bool {
         return qtc.QMetaContainer_HasConstIterator(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `constBegin` instead
+    ///
+    pub const ConstBegin = constBegin;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetacontainer.html#constBegin)
     ///
@@ -279,9 +373,13 @@ pub const QMetaContainer = extern struct {
     ///
     /// ` container: ?*const anyopaque `
     ///
-    pub fn ConstBegin(self: QMetaContainer, container: ?*const anyopaque) ?*anyopaque {
+    pub fn constBegin(self: QMetaContainer, container: ?*const anyopaque) ?*anyopaque {
         return qtc.QMetaContainer_ConstBegin(@ptrCast(self.ptr), @ptrCast(container));
     }
+
+    /// ### DEPRECATED: Use `constEnd` instead
+    ///
+    pub const ConstEnd = constEnd;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetacontainer.html#constEnd)
     ///
@@ -291,9 +389,13 @@ pub const QMetaContainer = extern struct {
     ///
     /// ` container: ?*const anyopaque `
     ///
-    pub fn ConstEnd(self: QMetaContainer, container: ?*const anyopaque) ?*anyopaque {
+    pub fn constEnd(self: QMetaContainer, container: ?*const anyopaque) ?*anyopaque {
         return qtc.QMetaContainer_ConstEnd(@ptrCast(self.ptr), @ptrCast(container));
     }
+
+    /// ### DEPRECATED: Use `destroyConstIterator` instead
+    ///
+    pub const DestroyConstIterator = destroyConstIterator;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetacontainer.html#destroyConstIterator)
     ///
@@ -303,9 +405,13 @@ pub const QMetaContainer = extern struct {
     ///
     /// ` iterator: ?*const anyopaque `
     ///
-    pub fn DestroyConstIterator(self: QMetaContainer, iterator: ?*const anyopaque) void {
+    pub fn destroyConstIterator(self: QMetaContainer, iterator: ?*const anyopaque) void {
         qtc.QMetaContainer_DestroyConstIterator(@ptrCast(self.ptr), @ptrCast(iterator));
     }
+
+    /// ### DEPRECATED: Use `compareConstIterator` instead
+    ///
+    pub const CompareConstIterator = compareConstIterator;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetacontainer.html#compareConstIterator)
     ///
@@ -317,9 +423,13 @@ pub const QMetaContainer = extern struct {
     ///
     /// ` j: ?*const anyopaque `
     ///
-    pub fn CompareConstIterator(self: QMetaContainer, i: ?*const anyopaque, j: ?*const anyopaque) bool {
+    pub fn compareConstIterator(self: QMetaContainer, i: ?*const anyopaque, j: ?*const anyopaque) bool {
         return qtc.QMetaContainer_CompareConstIterator(@ptrCast(self.ptr), @ptrCast(i), @ptrCast(j));
     }
+
+    /// ### DEPRECATED: Use `copyConstIterator` instead
+    ///
+    pub const CopyConstIterator = copyConstIterator;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetacontainer.html#copyConstIterator)
     ///
@@ -331,9 +441,13 @@ pub const QMetaContainer = extern struct {
     ///
     /// ` source: ?*const anyopaque `
     ///
-    pub fn CopyConstIterator(self: QMetaContainer, target: ?*anyopaque, source: ?*const anyopaque) void {
+    pub fn copyConstIterator(self: QMetaContainer, target: ?*anyopaque, source: ?*const anyopaque) void {
         qtc.QMetaContainer_CopyConstIterator(@ptrCast(self.ptr), @ptrCast(target), @ptrCast(source));
     }
+
+    /// ### DEPRECATED: Use `advanceConstIterator` instead
+    ///
+    pub const AdvanceConstIterator = advanceConstIterator;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetacontainer.html#advanceConstIterator)
     ///
@@ -345,9 +459,13 @@ pub const QMetaContainer = extern struct {
     ///
     /// ` step: isize `
     ///
-    pub fn AdvanceConstIterator(self: QMetaContainer, iterator: ?*anyopaque, step: isize) void {
+    pub fn advanceConstIterator(self: QMetaContainer, iterator: ?*anyopaque, step: isize) void {
         qtc.QMetaContainer_AdvanceConstIterator(@ptrCast(self.ptr), @ptrCast(iterator), @bitCast(step));
     }
+
+    /// ### DEPRECATED: Use `diffConstIterator` instead
+    ///
+    pub const DiffConstIterator = diffConstIterator;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetacontainer.html#diffConstIterator)
     ///
@@ -359,23 +477,23 @@ pub const QMetaContainer = extern struct {
     ///
     /// ` j: ?*const anyopaque `
     ///
-    pub fn DiffConstIterator(self: QMetaContainer, i: ?*const anyopaque, j: ?*const anyopaque) isize {
+    pub fn diffConstIterator(self: QMetaContainer, i: ?*const anyopaque, j: ?*const anyopaque) isize {
         return qtc.QMetaContainer_DiffConstIterator(@ptrCast(self.ptr), @ptrCast(i), @ptrCast(j));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetacontainer.html#dtor.QMetaContainer)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QMetaContainer `
     ///
-    pub fn Delete(self: QMetaContainer) void {
+    pub fn delete(self: QMetaContainer) void {
         qtc.QMetaContainer_Delete(@ptrCast(self.ptr));
     }
 };
@@ -391,35 +509,50 @@ pub const QMetaSequence = extern struct {
     pub const _is_QMetaSequence = {};
     pub const _is_QMetaContainer = {};
 
-    /// New constructs a new QMetaSequence object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QMetaSequence {
+    pub const New = new;
+
+    /// Allocate a new QMetaSequence object in C++ memory
+    ///
+    pub fn new() QMetaSequence {
         return .{ .ptr = qtc.QMetaSequence_new() };
     }
 
-    /// New2 constructs a new QMetaSequence object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QMetaSequence object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QMetaSequence `
     ///
-    pub fn New2(other: anytype) QMetaSequence {
+    pub fn new2(other: anytype) QMetaSequence {
         comptime _ = @TypeOf(other)._is_QMetaSequence;
         return .{ .ptr = qtc.QMetaSequence_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QMetaSequence object and invalidates the source QMetaSequence object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QMetaSequence object and invalidate the source QMetaSequence object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QMetaSequence `
     ///
-    pub fn New3(other: anytype) QMetaSequence {
+    pub fn new3(other: anytype) QMetaSequence {
         comptime _ = @TypeOf(other)._is_QMetaSequence;
         return .{ .ptr = qtc.QMetaSequence_new3(@ptrCast(other.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -427,11 +560,14 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` other: QMetaSequence `
     ///
-    pub fn CopyAssign(self: QMetaSequence, other: QMetaSequence) void {
+    pub fn copyAssign(self: QMetaSequence, other: QMetaSequence) void {
         qtc.QMetaSequence_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -439,9 +575,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` other: QMetaSequence `
     ///
-    pub fn MoveAssign(self: QMetaSequence, other: QMetaSequence) void {
+    pub fn moveAssign(self: QMetaSequence, other: QMetaSequence) void {
         qtc.QMetaSequence_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `valueMetaType` instead
+    ///
+    pub const ValueMetaType = valueMetaType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetasequence.html#valueMetaType)
     ///
@@ -449,9 +589,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` self: QMetaSequence `
     ///
-    pub fn ValueMetaType(self: QMetaSequence) QMetaType {
+    pub fn valueMetaType(self: QMetaSequence) QMetaType {
         return .{ .ptr = qtc.QMetaSequence_ValueMetaType(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isSortable` instead
+    ///
+    pub const IsSortable = isSortable;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetasequence.html#isSortable)
     ///
@@ -459,9 +603,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` self: QMetaSequence `
     ///
-    pub fn IsSortable(self: QMetaSequence) bool {
+    pub fn isSortable(self: QMetaSequence) bool {
         return qtc.QMetaSequence_IsSortable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `canAddValueAtBegin` instead
+    ///
+    pub const CanAddValueAtBegin = canAddValueAtBegin;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetasequence.html#canAddValueAtBegin)
     ///
@@ -469,9 +617,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` self: QMetaSequence `
     ///
-    pub fn CanAddValueAtBegin(self: QMetaSequence) bool {
+    pub fn canAddValueAtBegin(self: QMetaSequence) bool {
         return qtc.QMetaSequence_CanAddValueAtBegin(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `addValueAtBegin` instead
+    ///
+    pub const AddValueAtBegin = addValueAtBegin;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetasequence.html#addValueAtBegin)
     ///
@@ -483,9 +635,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` value: ?*const anyopaque `
     ///
-    pub fn AddValueAtBegin(self: QMetaSequence, container: ?*anyopaque, value: ?*const anyopaque) void {
+    pub fn addValueAtBegin(self: QMetaSequence, container: ?*anyopaque, value: ?*const anyopaque) void {
         qtc.QMetaSequence_AddValueAtBegin(@ptrCast(self.ptr), @ptrCast(container), @ptrCast(value));
     }
+
+    /// ### DEPRECATED: Use `canAddValueAtEnd` instead
+    ///
+    pub const CanAddValueAtEnd = canAddValueAtEnd;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetasequence.html#canAddValueAtEnd)
     ///
@@ -493,9 +649,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` self: QMetaSequence `
     ///
-    pub fn CanAddValueAtEnd(self: QMetaSequence) bool {
+    pub fn canAddValueAtEnd(self: QMetaSequence) bool {
         return qtc.QMetaSequence_CanAddValueAtEnd(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `addValueAtEnd` instead
+    ///
+    pub const AddValueAtEnd = addValueAtEnd;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetasequence.html#addValueAtEnd)
     ///
@@ -507,9 +667,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` value: ?*const anyopaque `
     ///
-    pub fn AddValueAtEnd(self: QMetaSequence, container: ?*anyopaque, value: ?*const anyopaque) void {
+    pub fn addValueAtEnd(self: QMetaSequence, container: ?*anyopaque, value: ?*const anyopaque) void {
         qtc.QMetaSequence_AddValueAtEnd(@ptrCast(self.ptr), @ptrCast(container), @ptrCast(value));
     }
+
+    /// ### DEPRECATED: Use `canRemoveValueAtBegin` instead
+    ///
+    pub const CanRemoveValueAtBegin = canRemoveValueAtBegin;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetasequence.html#canRemoveValueAtBegin)
     ///
@@ -517,9 +681,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` self: QMetaSequence `
     ///
-    pub fn CanRemoveValueAtBegin(self: QMetaSequence) bool {
+    pub fn canRemoveValueAtBegin(self: QMetaSequence) bool {
         return qtc.QMetaSequence_CanRemoveValueAtBegin(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeValueAtBegin` instead
+    ///
+    pub const RemoveValueAtBegin = removeValueAtBegin;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetasequence.html#removeValueAtBegin)
     ///
@@ -529,9 +697,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` container: ?*anyopaque `
     ///
-    pub fn RemoveValueAtBegin(self: QMetaSequence, container: ?*anyopaque) void {
+    pub fn removeValueAtBegin(self: QMetaSequence, container: ?*anyopaque) void {
         qtc.QMetaSequence_RemoveValueAtBegin(@ptrCast(self.ptr), @ptrCast(container));
     }
+
+    /// ### DEPRECATED: Use `canRemoveValueAtEnd` instead
+    ///
+    pub const CanRemoveValueAtEnd = canRemoveValueAtEnd;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetasequence.html#canRemoveValueAtEnd)
     ///
@@ -539,9 +711,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` self: QMetaSequence `
     ///
-    pub fn CanRemoveValueAtEnd(self: QMetaSequence) bool {
+    pub fn canRemoveValueAtEnd(self: QMetaSequence) bool {
         return qtc.QMetaSequence_CanRemoveValueAtEnd(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeValueAtEnd` instead
+    ///
+    pub const RemoveValueAtEnd = removeValueAtEnd;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetasequence.html#removeValueAtEnd)
     ///
@@ -551,9 +727,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` container: ?*anyopaque `
     ///
-    pub fn RemoveValueAtEnd(self: QMetaSequence, container: ?*anyopaque) void {
+    pub fn removeValueAtEnd(self: QMetaSequence, container: ?*anyopaque) void {
         qtc.QMetaSequence_RemoveValueAtEnd(@ptrCast(self.ptr), @ptrCast(container));
     }
+
+    /// ### DEPRECATED: Use `canGetValueAtIndex` instead
+    ///
+    pub const CanGetValueAtIndex = canGetValueAtIndex;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetasequence.html#canGetValueAtIndex)
     ///
@@ -561,9 +741,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` self: QMetaSequence `
     ///
-    pub fn CanGetValueAtIndex(self: QMetaSequence) bool {
+    pub fn canGetValueAtIndex(self: QMetaSequence) bool {
         return qtc.QMetaSequence_CanGetValueAtIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `valueAtIndex` instead
+    ///
+    pub const ValueAtIndex = valueAtIndex;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetasequence.html#valueAtIndex)
     ///
@@ -577,9 +761,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` result: ?*anyopaque `
     ///
-    pub fn ValueAtIndex(self: QMetaSequence, container: ?*const anyopaque, index: isize, result: ?*anyopaque) void {
+    pub fn valueAtIndex(self: QMetaSequence, container: ?*const anyopaque, index: isize, result: ?*anyopaque) void {
         qtc.QMetaSequence_ValueAtIndex(@ptrCast(self.ptr), @ptrCast(container), @bitCast(index), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `canSetValueAtIndex` instead
+    ///
+    pub const CanSetValueAtIndex = canSetValueAtIndex;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetasequence.html#canSetValueAtIndex)
     ///
@@ -587,9 +775,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` self: QMetaSequence `
     ///
-    pub fn CanSetValueAtIndex(self: QMetaSequence) bool {
+    pub fn canSetValueAtIndex(self: QMetaSequence) bool {
         return qtc.QMetaSequence_CanSetValueAtIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setValueAtIndex` instead
+    ///
+    pub const SetValueAtIndex = setValueAtIndex;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetasequence.html#setValueAtIndex)
     ///
@@ -603,9 +795,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` value: ?*const anyopaque `
     ///
-    pub fn SetValueAtIndex(self: QMetaSequence, container: ?*anyopaque, index: isize, value: ?*const anyopaque) void {
+    pub fn setValueAtIndex(self: QMetaSequence, container: ?*anyopaque, index: isize, value: ?*const anyopaque) void {
         qtc.QMetaSequence_SetValueAtIndex(@ptrCast(self.ptr), @ptrCast(container), @bitCast(index), @ptrCast(value));
     }
+
+    /// ### DEPRECATED: Use `canAddValue` instead
+    ///
+    pub const CanAddValue = canAddValue;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetasequence.html#canAddValue)
     ///
@@ -613,9 +809,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` self: QMetaSequence `
     ///
-    pub fn CanAddValue(self: QMetaSequence) bool {
+    pub fn canAddValue(self: QMetaSequence) bool {
         return qtc.QMetaSequence_CanAddValue(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `addValue` instead
+    ///
+    pub const AddValue = addValue;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetasequence.html#addValue)
     ///
@@ -627,9 +827,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` value: ?*const anyopaque `
     ///
-    pub fn AddValue(self: QMetaSequence, container: ?*anyopaque, value: ?*const anyopaque) void {
+    pub fn addValue(self: QMetaSequence, container: ?*anyopaque, value: ?*const anyopaque) void {
         qtc.QMetaSequence_AddValue(@ptrCast(self.ptr), @ptrCast(container), @ptrCast(value));
     }
+
+    /// ### DEPRECATED: Use `canRemoveValue` instead
+    ///
+    pub const CanRemoveValue = canRemoveValue;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetasequence.html#canRemoveValue)
     ///
@@ -637,9 +841,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` self: QMetaSequence `
     ///
-    pub fn CanRemoveValue(self: QMetaSequence) bool {
+    pub fn canRemoveValue(self: QMetaSequence) bool {
         return qtc.QMetaSequence_CanRemoveValue(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeValue` instead
+    ///
+    pub const RemoveValue = removeValue;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetasequence.html#removeValue)
     ///
@@ -649,9 +857,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` container: ?*anyopaque `
     ///
-    pub fn RemoveValue(self: QMetaSequence, container: ?*anyopaque) void {
+    pub fn removeValue(self: QMetaSequence, container: ?*anyopaque) void {
         qtc.QMetaSequence_RemoveValue(@ptrCast(self.ptr), @ptrCast(container));
     }
+
+    /// ### DEPRECATED: Use `canGetValueAtIterator` instead
+    ///
+    pub const CanGetValueAtIterator = canGetValueAtIterator;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetasequence.html#canGetValueAtIterator)
     ///
@@ -659,9 +871,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` self: QMetaSequence `
     ///
-    pub fn CanGetValueAtIterator(self: QMetaSequence) bool {
+    pub fn canGetValueAtIterator(self: QMetaSequence) bool {
         return qtc.QMetaSequence_CanGetValueAtIterator(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `valueAtIterator` instead
+    ///
+    pub const ValueAtIterator = valueAtIterator;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetasequence.html#valueAtIterator)
     ///
@@ -673,9 +889,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` result: ?*anyopaque `
     ///
-    pub fn ValueAtIterator(self: QMetaSequence, iterator: ?*const anyopaque, result: ?*anyopaque) void {
+    pub fn valueAtIterator(self: QMetaSequence, iterator: ?*const anyopaque, result: ?*anyopaque) void {
         qtc.QMetaSequence_ValueAtIterator(@ptrCast(self.ptr), @ptrCast(iterator), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `canSetValueAtIterator` instead
+    ///
+    pub const CanSetValueAtIterator = canSetValueAtIterator;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetasequence.html#canSetValueAtIterator)
     ///
@@ -683,9 +903,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` self: QMetaSequence `
     ///
-    pub fn CanSetValueAtIterator(self: QMetaSequence) bool {
+    pub fn canSetValueAtIterator(self: QMetaSequence) bool {
         return qtc.QMetaSequence_CanSetValueAtIterator(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setValueAtIterator` instead
+    ///
+    pub const SetValueAtIterator = setValueAtIterator;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetasequence.html#setValueAtIterator)
     ///
@@ -697,9 +921,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` value: ?*const anyopaque `
     ///
-    pub fn SetValueAtIterator(self: QMetaSequence, iterator: ?*const anyopaque, value: ?*const anyopaque) void {
+    pub fn setValueAtIterator(self: QMetaSequence, iterator: ?*const anyopaque, value: ?*const anyopaque) void {
         qtc.QMetaSequence_SetValueAtIterator(@ptrCast(self.ptr), @ptrCast(iterator), @ptrCast(value));
     }
+
+    /// ### DEPRECATED: Use `canInsertValueAtIterator` instead
+    ///
+    pub const CanInsertValueAtIterator = canInsertValueAtIterator;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetasequence.html#canInsertValueAtIterator)
     ///
@@ -707,9 +935,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` self: QMetaSequence `
     ///
-    pub fn CanInsertValueAtIterator(self: QMetaSequence) bool {
+    pub fn canInsertValueAtIterator(self: QMetaSequence) bool {
         return qtc.QMetaSequence_CanInsertValueAtIterator(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertValueAtIterator` instead
+    ///
+    pub const InsertValueAtIterator = insertValueAtIterator;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetasequence.html#insertValueAtIterator)
     ///
@@ -723,9 +955,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` value: ?*const anyopaque `
     ///
-    pub fn InsertValueAtIterator(self: QMetaSequence, container: ?*anyopaque, iterator: ?*const anyopaque, value: ?*const anyopaque) void {
+    pub fn insertValueAtIterator(self: QMetaSequence, container: ?*anyopaque, iterator: ?*const anyopaque, value: ?*const anyopaque) void {
         qtc.QMetaSequence_InsertValueAtIterator(@ptrCast(self.ptr), @ptrCast(container), @ptrCast(iterator), @ptrCast(value));
     }
+
+    /// ### DEPRECATED: Use `canEraseValueAtIterator` instead
+    ///
+    pub const CanEraseValueAtIterator = canEraseValueAtIterator;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetasequence.html#canEraseValueAtIterator)
     ///
@@ -733,9 +969,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` self: QMetaSequence `
     ///
-    pub fn CanEraseValueAtIterator(self: QMetaSequence) bool {
+    pub fn canEraseValueAtIterator(self: QMetaSequence) bool {
         return qtc.QMetaSequence_CanEraseValueAtIterator(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `eraseValueAtIterator` instead
+    ///
+    pub const EraseValueAtIterator = eraseValueAtIterator;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetasequence.html#eraseValueAtIterator)
     ///
@@ -747,9 +987,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` iterator: ?*const anyopaque `
     ///
-    pub fn EraseValueAtIterator(self: QMetaSequence, container: ?*anyopaque, iterator: ?*const anyopaque) void {
+    pub fn eraseValueAtIterator(self: QMetaSequence, container: ?*anyopaque, iterator: ?*const anyopaque) void {
         qtc.QMetaSequence_EraseValueAtIterator(@ptrCast(self.ptr), @ptrCast(container), @ptrCast(iterator));
     }
+
+    /// ### DEPRECATED: Use `canEraseRangeAtIterator` instead
+    ///
+    pub const CanEraseRangeAtIterator = canEraseRangeAtIterator;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetasequence.html#canEraseRangeAtIterator)
     ///
@@ -757,9 +1001,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` self: QMetaSequence `
     ///
-    pub fn CanEraseRangeAtIterator(self: QMetaSequence) bool {
+    pub fn canEraseRangeAtIterator(self: QMetaSequence) bool {
         return qtc.QMetaSequence_CanEraseRangeAtIterator(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `eraseRangeAtIterator` instead
+    ///
+    pub const EraseRangeAtIterator = eraseRangeAtIterator;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetasequence.html#eraseRangeAtIterator)
     ///
@@ -773,9 +1021,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` iterator2: ?*const anyopaque `
     ///
-    pub fn EraseRangeAtIterator(self: QMetaSequence, container: ?*anyopaque, iterator1: ?*const anyopaque, iterator2: ?*const anyopaque) void {
+    pub fn eraseRangeAtIterator(self: QMetaSequence, container: ?*anyopaque, iterator1: ?*const anyopaque, iterator2: ?*const anyopaque) void {
         qtc.QMetaSequence_EraseRangeAtIterator(@ptrCast(self.ptr), @ptrCast(container), @ptrCast(iterator1), @ptrCast(iterator2));
     }
+
+    /// ### DEPRECATED: Use `canGetValueAtConstIterator` instead
+    ///
+    pub const CanGetValueAtConstIterator = canGetValueAtConstIterator;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetasequence.html#canGetValueAtConstIterator)
     ///
@@ -783,9 +1035,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` self: QMetaSequence `
     ///
-    pub fn CanGetValueAtConstIterator(self: QMetaSequence) bool {
+    pub fn canGetValueAtConstIterator(self: QMetaSequence) bool {
         return qtc.QMetaSequence_CanGetValueAtConstIterator(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `valueAtConstIterator` instead
+    ///
+    pub const ValueAtConstIterator = valueAtConstIterator;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetasequence.html#valueAtConstIterator)
     ///
@@ -797,9 +1053,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` result: ?*anyopaque `
     ///
-    pub fn ValueAtConstIterator(self: QMetaSequence, iterator: ?*const anyopaque, result: ?*anyopaque) void {
+    pub fn valueAtConstIterator(self: QMetaSequence, iterator: ?*const anyopaque, result: ?*anyopaque) void {
         qtc.QMetaSequence_ValueAtConstIterator(@ptrCast(self.ptr), @ptrCast(iterator), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `hasInputIterator` instead
+    ///
+    pub const HasInputIterator = hasInputIterator;
 
     /// Inherited from QMetaContainer
     ///
@@ -809,9 +1069,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` self: QMetaSequence `
     ///
-    pub fn HasInputIterator(self: QMetaSequence) bool {
+    pub fn hasInputIterator(self: QMetaSequence) bool {
         return qtc.QMetaContainer_HasInputIterator(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hasForwardIterator` instead
+    ///
+    pub const HasForwardIterator = hasForwardIterator;
 
     /// Inherited from QMetaContainer
     ///
@@ -821,9 +1085,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` self: QMetaSequence `
     ///
-    pub fn HasForwardIterator(self: QMetaSequence) bool {
+    pub fn hasForwardIterator(self: QMetaSequence) bool {
         return qtc.QMetaContainer_HasForwardIterator(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hasBidirectionalIterator` instead
+    ///
+    pub const HasBidirectionalIterator = hasBidirectionalIterator;
 
     /// Inherited from QMetaContainer
     ///
@@ -833,9 +1101,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` self: QMetaSequence `
     ///
-    pub fn HasBidirectionalIterator(self: QMetaSequence) bool {
+    pub fn hasBidirectionalIterator(self: QMetaSequence) bool {
         return qtc.QMetaContainer_HasBidirectionalIterator(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hasRandomAccessIterator` instead
+    ///
+    pub const HasRandomAccessIterator = hasRandomAccessIterator;
 
     /// Inherited from QMetaContainer
     ///
@@ -845,9 +1117,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` self: QMetaSequence `
     ///
-    pub fn HasRandomAccessIterator(self: QMetaSequence) bool {
+    pub fn hasRandomAccessIterator(self: QMetaSequence) bool {
         return qtc.QMetaContainer_HasRandomAccessIterator(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hasSize` instead
+    ///
+    pub const HasSize = hasSize;
 
     /// Inherited from QMetaContainer
     ///
@@ -857,9 +1133,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` self: QMetaSequence `
     ///
-    pub fn HasSize(self: QMetaSequence) bool {
+    pub fn hasSize(self: QMetaSequence) bool {
         return qtc.QMetaContainer_HasSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QMetaContainer
     ///
@@ -871,9 +1151,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` container: ?*const anyopaque `
     ///
-    pub fn Size(self: QMetaSequence, container: ?*const anyopaque) isize {
+    pub fn size(self: QMetaSequence, container: ?*const anyopaque) isize {
         return qtc.QMetaContainer_Size(@ptrCast(self.ptr), @ptrCast(container));
     }
+
+    /// ### DEPRECATED: Use `canClear` instead
+    ///
+    pub const CanClear = canClear;
 
     /// Inherited from QMetaContainer
     ///
@@ -883,9 +1167,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` self: QMetaSequence `
     ///
-    pub fn CanClear(self: QMetaSequence) bool {
+    pub fn canClear(self: QMetaSequence) bool {
         return qtc.QMetaContainer_CanClear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// Inherited from QMetaContainer
     ///
@@ -897,9 +1185,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` container: ?*anyopaque `
     ///
-    pub fn Clear(self: QMetaSequence, container: ?*anyopaque) void {
+    pub fn clear(self: QMetaSequence, container: ?*anyopaque) void {
         qtc.QMetaContainer_Clear(@ptrCast(self.ptr), @ptrCast(container));
     }
+
+    /// ### DEPRECATED: Use `hasIterator` instead
+    ///
+    pub const HasIterator = hasIterator;
 
     /// Inherited from QMetaContainer
     ///
@@ -909,9 +1201,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` self: QMetaSequence `
     ///
-    pub fn HasIterator(self: QMetaSequence) bool {
+    pub fn hasIterator(self: QMetaSequence) bool {
         return qtc.QMetaContainer_HasIterator(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `begin` instead
+    ///
+    pub const Begin = begin;
 
     /// Inherited from QMetaContainer
     ///
@@ -923,9 +1219,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` container: ?*anyopaque `
     ///
-    pub fn Begin(self: QMetaSequence, container: ?*anyopaque) ?*anyopaque {
+    pub fn begin(self: QMetaSequence, container: ?*anyopaque) ?*anyopaque {
         return qtc.QMetaContainer_Begin(@ptrCast(self.ptr), @ptrCast(container));
     }
+
+    /// ### DEPRECATED: Use `end` instead
+    ///
+    pub const End = end;
 
     /// Inherited from QMetaContainer
     ///
@@ -937,9 +1237,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` container: ?*anyopaque `
     ///
-    pub fn End(self: QMetaSequence, container: ?*anyopaque) ?*anyopaque {
+    pub fn end(self: QMetaSequence, container: ?*anyopaque) ?*anyopaque {
         return qtc.QMetaContainer_End(@ptrCast(self.ptr), @ptrCast(container));
     }
+
+    /// ### DEPRECATED: Use `destroyIterator` instead
+    ///
+    pub const DestroyIterator = destroyIterator;
 
     /// Inherited from QMetaContainer
     ///
@@ -951,9 +1255,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` iterator: ?*const anyopaque `
     ///
-    pub fn DestroyIterator(self: QMetaSequence, iterator: ?*const anyopaque) void {
+    pub fn destroyIterator(self: QMetaSequence, iterator: ?*const anyopaque) void {
         qtc.QMetaContainer_DestroyIterator(@ptrCast(self.ptr), @ptrCast(iterator));
     }
+
+    /// ### DEPRECATED: Use `compareIterator` instead
+    ///
+    pub const CompareIterator = compareIterator;
 
     /// Inherited from QMetaContainer
     ///
@@ -967,9 +1275,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` j: ?*const anyopaque `
     ///
-    pub fn CompareIterator(self: QMetaSequence, i: ?*const anyopaque, j: ?*const anyopaque) bool {
+    pub fn compareIterator(self: QMetaSequence, i: ?*const anyopaque, j: ?*const anyopaque) bool {
         return qtc.QMetaContainer_CompareIterator(@ptrCast(self.ptr), @ptrCast(i), @ptrCast(j));
     }
+
+    /// ### DEPRECATED: Use `copyIterator` instead
+    ///
+    pub const CopyIterator = copyIterator;
 
     /// Inherited from QMetaContainer
     ///
@@ -983,9 +1295,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` source: ?*const anyopaque `
     ///
-    pub fn CopyIterator(self: QMetaSequence, target: ?*anyopaque, source: ?*const anyopaque) void {
+    pub fn copyIterator(self: QMetaSequence, target: ?*anyopaque, source: ?*const anyopaque) void {
         qtc.QMetaContainer_CopyIterator(@ptrCast(self.ptr), @ptrCast(target), @ptrCast(source));
     }
+
+    /// ### DEPRECATED: Use `advanceIterator` instead
+    ///
+    pub const AdvanceIterator = advanceIterator;
 
     /// Inherited from QMetaContainer
     ///
@@ -999,9 +1315,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` step: isize `
     ///
-    pub fn AdvanceIterator(self: QMetaSequence, iterator: ?*anyopaque, step: isize) void {
+    pub fn advanceIterator(self: QMetaSequence, iterator: ?*anyopaque, step: isize) void {
         qtc.QMetaContainer_AdvanceIterator(@ptrCast(self.ptr), @ptrCast(iterator), @bitCast(step));
     }
+
+    /// ### DEPRECATED: Use `diffIterator` instead
+    ///
+    pub const DiffIterator = diffIterator;
 
     /// Inherited from QMetaContainer
     ///
@@ -1015,9 +1335,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` j: ?*const anyopaque `
     ///
-    pub fn DiffIterator(self: QMetaSequence, i: ?*const anyopaque, j: ?*const anyopaque) isize {
+    pub fn diffIterator(self: QMetaSequence, i: ?*const anyopaque, j: ?*const anyopaque) isize {
         return qtc.QMetaContainer_DiffIterator(@ptrCast(self.ptr), @ptrCast(i), @ptrCast(j));
     }
+
+    /// ### DEPRECATED: Use `hasConstIterator` instead
+    ///
+    pub const HasConstIterator = hasConstIterator;
 
     /// Inherited from QMetaContainer
     ///
@@ -1027,9 +1351,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` self: QMetaSequence `
     ///
-    pub fn HasConstIterator(self: QMetaSequence) bool {
+    pub fn hasConstIterator(self: QMetaSequence) bool {
         return qtc.QMetaContainer_HasConstIterator(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `constBegin` instead
+    ///
+    pub const ConstBegin = constBegin;
 
     /// Inherited from QMetaContainer
     ///
@@ -1041,9 +1369,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` container: ?*const anyopaque `
     ///
-    pub fn ConstBegin(self: QMetaSequence, container: ?*const anyopaque) ?*anyopaque {
+    pub fn constBegin(self: QMetaSequence, container: ?*const anyopaque) ?*anyopaque {
         return qtc.QMetaContainer_ConstBegin(@ptrCast(self.ptr), @ptrCast(container));
     }
+
+    /// ### DEPRECATED: Use `constEnd` instead
+    ///
+    pub const ConstEnd = constEnd;
 
     /// Inherited from QMetaContainer
     ///
@@ -1055,9 +1387,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` container: ?*const anyopaque `
     ///
-    pub fn ConstEnd(self: QMetaSequence, container: ?*const anyopaque) ?*anyopaque {
+    pub fn constEnd(self: QMetaSequence, container: ?*const anyopaque) ?*anyopaque {
         return qtc.QMetaContainer_ConstEnd(@ptrCast(self.ptr), @ptrCast(container));
     }
+
+    /// ### DEPRECATED: Use `destroyConstIterator` instead
+    ///
+    pub const DestroyConstIterator = destroyConstIterator;
 
     /// Inherited from QMetaContainer
     ///
@@ -1069,9 +1405,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` iterator: ?*const anyopaque `
     ///
-    pub fn DestroyConstIterator(self: QMetaSequence, iterator: ?*const anyopaque) void {
+    pub fn destroyConstIterator(self: QMetaSequence, iterator: ?*const anyopaque) void {
         qtc.QMetaContainer_DestroyConstIterator(@ptrCast(self.ptr), @ptrCast(iterator));
     }
+
+    /// ### DEPRECATED: Use `compareConstIterator` instead
+    ///
+    pub const CompareConstIterator = compareConstIterator;
 
     /// Inherited from QMetaContainer
     ///
@@ -1085,9 +1425,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` j: ?*const anyopaque `
     ///
-    pub fn CompareConstIterator(self: QMetaSequence, i: ?*const anyopaque, j: ?*const anyopaque) bool {
+    pub fn compareConstIterator(self: QMetaSequence, i: ?*const anyopaque, j: ?*const anyopaque) bool {
         return qtc.QMetaContainer_CompareConstIterator(@ptrCast(self.ptr), @ptrCast(i), @ptrCast(j));
     }
+
+    /// ### DEPRECATED: Use `copyConstIterator` instead
+    ///
+    pub const CopyConstIterator = copyConstIterator;
 
     /// Inherited from QMetaContainer
     ///
@@ -1101,9 +1445,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` source: ?*const anyopaque `
     ///
-    pub fn CopyConstIterator(self: QMetaSequence, target: ?*anyopaque, source: ?*const anyopaque) void {
+    pub fn copyConstIterator(self: QMetaSequence, target: ?*anyopaque, source: ?*const anyopaque) void {
         qtc.QMetaContainer_CopyConstIterator(@ptrCast(self.ptr), @ptrCast(target), @ptrCast(source));
     }
+
+    /// ### DEPRECATED: Use `advanceConstIterator` instead
+    ///
+    pub const AdvanceConstIterator = advanceConstIterator;
 
     /// Inherited from QMetaContainer
     ///
@@ -1117,9 +1465,13 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` step: isize `
     ///
-    pub fn AdvanceConstIterator(self: QMetaSequence, iterator: ?*anyopaque, step: isize) void {
+    pub fn advanceConstIterator(self: QMetaSequence, iterator: ?*anyopaque, step: isize) void {
         qtc.QMetaContainer_AdvanceConstIterator(@ptrCast(self.ptr), @ptrCast(iterator), @bitCast(step));
     }
+
+    /// ### DEPRECATED: Use `diffConstIterator` instead
+    ///
+    pub const DiffConstIterator = diffConstIterator;
 
     /// Inherited from QMetaContainer
     ///
@@ -1133,23 +1485,23 @@ pub const QMetaSequence = extern struct {
     ///
     /// ` j: ?*const anyopaque `
     ///
-    pub fn DiffConstIterator(self: QMetaSequence, i: ?*const anyopaque, j: ?*const anyopaque) isize {
+    pub fn diffConstIterator(self: QMetaSequence, i: ?*const anyopaque, j: ?*const anyopaque) isize {
         return qtc.QMetaContainer_DiffConstIterator(@ptrCast(self.ptr), @ptrCast(i), @ptrCast(j));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetasequence.html#dtor.QMetaSequence)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QMetaSequence `
     ///
-    pub fn Delete(self: QMetaSequence) void {
+    pub fn delete(self: QMetaSequence) void {
         qtc.QMetaSequence_Delete(@ptrCast(self.ptr));
     }
 };
@@ -1165,35 +1517,50 @@ pub const QMetaAssociation = extern struct {
     pub const _is_QMetaAssociation = {};
     pub const _is_QMetaContainer = {};
 
-    /// New constructs a new QMetaAssociation object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QMetaAssociation {
+    pub const New = new;
+
+    /// Allocate a new QMetaAssociation object in C++ memory
+    ///
+    pub fn new() QMetaAssociation {
         return .{ .ptr = qtc.QMetaAssociation_new() };
     }
 
-    /// New2 constructs a new QMetaAssociation object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QMetaAssociation object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QMetaAssociation `
     ///
-    pub fn New2(other: anytype) QMetaAssociation {
+    pub fn new2(other: anytype) QMetaAssociation {
         comptime _ = @TypeOf(other)._is_QMetaAssociation;
         return .{ .ptr = qtc.QMetaAssociation_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QMetaAssociation object and invalidates the source QMetaAssociation object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QMetaAssociation object and invalidate the source QMetaAssociation object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QMetaAssociation `
     ///
-    pub fn New3(other: anytype) QMetaAssociation {
+    pub fn new3(other: anytype) QMetaAssociation {
         comptime _ = @TypeOf(other)._is_QMetaAssociation;
         return .{ .ptr = qtc.QMetaAssociation_new3(@ptrCast(other.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -1201,11 +1568,14 @@ pub const QMetaAssociation = extern struct {
     ///
     /// ` other: QMetaAssociation `
     ///
-    pub fn CopyAssign(self: QMetaAssociation, other: QMetaAssociation) void {
+    pub fn copyAssign(self: QMetaAssociation, other: QMetaAssociation) void {
         qtc.QMetaAssociation_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -1213,9 +1583,13 @@ pub const QMetaAssociation = extern struct {
     ///
     /// ` other: QMetaAssociation `
     ///
-    pub fn MoveAssign(self: QMetaAssociation, other: QMetaAssociation) void {
+    pub fn moveAssign(self: QMetaAssociation, other: QMetaAssociation) void {
         qtc.QMetaAssociation_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `keyMetaType` instead
+    ///
+    pub const KeyMetaType = keyMetaType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaassociation.html#keyMetaType)
     ///
@@ -1223,9 +1597,13 @@ pub const QMetaAssociation = extern struct {
     ///
     /// ` self: QMetaAssociation `
     ///
-    pub fn KeyMetaType(self: QMetaAssociation) QMetaType {
+    pub fn keyMetaType(self: QMetaAssociation) QMetaType {
         return .{ .ptr = qtc.QMetaAssociation_KeyMetaType(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mappedMetaType` instead
+    ///
+    pub const MappedMetaType = mappedMetaType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaassociation.html#mappedMetaType)
     ///
@@ -1233,9 +1611,13 @@ pub const QMetaAssociation = extern struct {
     ///
     /// ` self: QMetaAssociation `
     ///
-    pub fn MappedMetaType(self: QMetaAssociation) QMetaType {
+    pub fn mappedMetaType(self: QMetaAssociation) QMetaType {
         return .{ .ptr = qtc.QMetaAssociation_MappedMetaType(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `canInsertKey` instead
+    ///
+    pub const CanInsertKey = canInsertKey;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaassociation.html#canInsertKey)
     ///
@@ -1243,9 +1625,13 @@ pub const QMetaAssociation = extern struct {
     ///
     /// ` self: QMetaAssociation `
     ///
-    pub fn CanInsertKey(self: QMetaAssociation) bool {
+    pub fn canInsertKey(self: QMetaAssociation) bool {
         return qtc.QMetaAssociation_CanInsertKey(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertKey` instead
+    ///
+    pub const InsertKey = insertKey;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaassociation.html#insertKey)
     ///
@@ -1257,9 +1643,13 @@ pub const QMetaAssociation = extern struct {
     ///
     /// ` key: ?*const anyopaque `
     ///
-    pub fn InsertKey(self: QMetaAssociation, container: ?*anyopaque, key: ?*const anyopaque) void {
+    pub fn insertKey(self: QMetaAssociation, container: ?*anyopaque, key: ?*const anyopaque) void {
         qtc.QMetaAssociation_InsertKey(@ptrCast(self.ptr), @ptrCast(container), @ptrCast(key));
     }
+
+    /// ### DEPRECATED: Use `canRemoveKey` instead
+    ///
+    pub const CanRemoveKey = canRemoveKey;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaassociation.html#canRemoveKey)
     ///
@@ -1267,9 +1657,13 @@ pub const QMetaAssociation = extern struct {
     ///
     /// ` self: QMetaAssociation `
     ///
-    pub fn CanRemoveKey(self: QMetaAssociation) bool {
+    pub fn canRemoveKey(self: QMetaAssociation) bool {
         return qtc.QMetaAssociation_CanRemoveKey(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeKey` instead
+    ///
+    pub const RemoveKey = removeKey;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaassociation.html#removeKey)
     ///
@@ -1281,9 +1675,13 @@ pub const QMetaAssociation = extern struct {
     ///
     /// ` key: ?*const anyopaque `
     ///
-    pub fn RemoveKey(self: QMetaAssociation, container: ?*anyopaque, key: ?*const anyopaque) void {
+    pub fn removeKey(self: QMetaAssociation, container: ?*anyopaque, key: ?*const anyopaque) void {
         qtc.QMetaAssociation_RemoveKey(@ptrCast(self.ptr), @ptrCast(container), @ptrCast(key));
     }
+
+    /// ### DEPRECATED: Use `canContainsKey` instead
+    ///
+    pub const CanContainsKey = canContainsKey;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaassociation.html#canContainsKey)
     ///
@@ -1291,9 +1689,13 @@ pub const QMetaAssociation = extern struct {
     ///
     /// ` self: QMetaAssociation `
     ///
-    pub fn CanContainsKey(self: QMetaAssociation) bool {
+    pub fn canContainsKey(self: QMetaAssociation) bool {
         return qtc.QMetaAssociation_CanContainsKey(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `containsKey` instead
+    ///
+    pub const ContainsKey = containsKey;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaassociation.html#containsKey)
     ///
@@ -1305,9 +1707,13 @@ pub const QMetaAssociation = extern struct {
     ///
     /// ` key: ?*const anyopaque `
     ///
-    pub fn ContainsKey(self: QMetaAssociation, container: ?*const anyopaque, key: ?*const anyopaque) bool {
+    pub fn containsKey(self: QMetaAssociation, container: ?*const anyopaque, key: ?*const anyopaque) bool {
         return qtc.QMetaAssociation_ContainsKey(@ptrCast(self.ptr), @ptrCast(container), @ptrCast(key));
     }
+
+    /// ### DEPRECATED: Use `canGetMappedAtKey` instead
+    ///
+    pub const CanGetMappedAtKey = canGetMappedAtKey;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaassociation.html#canGetMappedAtKey)
     ///
@@ -1315,9 +1721,13 @@ pub const QMetaAssociation = extern struct {
     ///
     /// ` self: QMetaAssociation `
     ///
-    pub fn CanGetMappedAtKey(self: QMetaAssociation) bool {
+    pub fn canGetMappedAtKey(self: QMetaAssociation) bool {
         return qtc.QMetaAssociation_CanGetMappedAtKey(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `mappedAtKey` instead
+    ///
+    pub const MappedAtKey = mappedAtKey;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaassociation.html#mappedAtKey)
     ///
@@ -1331,9 +1741,13 @@ pub const QMetaAssociation = extern struct {
     ///
     /// ` mapped: ?*anyopaque `
     ///
-    pub fn MappedAtKey(self: QMetaAssociation, container: ?*const anyopaque, key: ?*const anyopaque, mapped: ?*anyopaque) void {
+    pub fn mappedAtKey(self: QMetaAssociation, container: ?*const anyopaque, key: ?*const anyopaque, mapped: ?*anyopaque) void {
         qtc.QMetaAssociation_MappedAtKey(@ptrCast(self.ptr), @ptrCast(container), @ptrCast(key), @ptrCast(mapped));
     }
+
+    /// ### DEPRECATED: Use `canSetMappedAtKey` instead
+    ///
+    pub const CanSetMappedAtKey = canSetMappedAtKey;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaassociation.html#canSetMappedAtKey)
     ///
@@ -1341,9 +1755,13 @@ pub const QMetaAssociation = extern struct {
     ///
     /// ` self: QMetaAssociation `
     ///
-    pub fn CanSetMappedAtKey(self: QMetaAssociation) bool {
+    pub fn canSetMappedAtKey(self: QMetaAssociation) bool {
         return qtc.QMetaAssociation_CanSetMappedAtKey(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMappedAtKey` instead
+    ///
+    pub const SetMappedAtKey = setMappedAtKey;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaassociation.html#setMappedAtKey)
     ///
@@ -1357,9 +1775,13 @@ pub const QMetaAssociation = extern struct {
     ///
     /// ` mapped: ?*const anyopaque `
     ///
-    pub fn SetMappedAtKey(self: QMetaAssociation, container: ?*anyopaque, key: ?*const anyopaque, mapped: ?*const anyopaque) void {
+    pub fn setMappedAtKey(self: QMetaAssociation, container: ?*anyopaque, key: ?*const anyopaque, mapped: ?*const anyopaque) void {
         qtc.QMetaAssociation_SetMappedAtKey(@ptrCast(self.ptr), @ptrCast(container), @ptrCast(key), @ptrCast(mapped));
     }
+
+    /// ### DEPRECATED: Use `canGetKeyAtIterator` instead
+    ///
+    pub const CanGetKeyAtIterator = canGetKeyAtIterator;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaassociation.html#canGetKeyAtIterator)
     ///
@@ -1367,9 +1789,13 @@ pub const QMetaAssociation = extern struct {
     ///
     /// ` self: QMetaAssociation `
     ///
-    pub fn CanGetKeyAtIterator(self: QMetaAssociation) bool {
+    pub fn canGetKeyAtIterator(self: QMetaAssociation) bool {
         return qtc.QMetaAssociation_CanGetKeyAtIterator(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `keyAtIterator` instead
+    ///
+    pub const KeyAtIterator = keyAtIterator;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaassociation.html#keyAtIterator)
     ///
@@ -1381,9 +1807,13 @@ pub const QMetaAssociation = extern struct {
     ///
     /// ` key: ?*anyopaque `
     ///
-    pub fn KeyAtIterator(self: QMetaAssociation, iterator: ?*const anyopaque, key: ?*anyopaque) void {
+    pub fn keyAtIterator(self: QMetaAssociation, iterator: ?*const anyopaque, key: ?*anyopaque) void {
         qtc.QMetaAssociation_KeyAtIterator(@ptrCast(self.ptr), @ptrCast(iterator), @ptrCast(key));
     }
+
+    /// ### DEPRECATED: Use `canGetKeyAtConstIterator` instead
+    ///
+    pub const CanGetKeyAtConstIterator = canGetKeyAtConstIterator;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaassociation.html#canGetKeyAtConstIterator)
     ///
@@ -1391,9 +1821,13 @@ pub const QMetaAssociation = extern struct {
     ///
     /// ` self: QMetaAssociation `
     ///
-    pub fn CanGetKeyAtConstIterator(self: QMetaAssociation) bool {
+    pub fn canGetKeyAtConstIterator(self: QMetaAssociation) bool {
         return qtc.QMetaAssociation_CanGetKeyAtConstIterator(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `keyAtConstIterator` instead
+    ///
+    pub const KeyAtConstIterator = keyAtConstIterator;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaassociation.html#keyAtConstIterator)
     ///
@@ -1405,9 +1839,13 @@ pub const QMetaAssociation = extern struct {
     ///
     /// ` key: ?*anyopaque `
     ///
-    pub fn KeyAtConstIterator(self: QMetaAssociation, iterator: ?*const anyopaque, key: ?*anyopaque) void {
+    pub fn keyAtConstIterator(self: QMetaAssociation, iterator: ?*const anyopaque, key: ?*anyopaque) void {
         qtc.QMetaAssociation_KeyAtConstIterator(@ptrCast(self.ptr), @ptrCast(iterator), @ptrCast(key));
     }
+
+    /// ### DEPRECATED: Use `canGetMappedAtIterator` instead
+    ///
+    pub const CanGetMappedAtIterator = canGetMappedAtIterator;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaassociation.html#canGetMappedAtIterator)
     ///
@@ -1415,9 +1853,13 @@ pub const QMetaAssociation = extern struct {
     ///
     /// ` self: QMetaAssociation `
     ///
-    pub fn CanGetMappedAtIterator(self: QMetaAssociation) bool {
+    pub fn canGetMappedAtIterator(self: QMetaAssociation) bool {
         return qtc.QMetaAssociation_CanGetMappedAtIterator(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `mappedAtIterator` instead
+    ///
+    pub const MappedAtIterator = mappedAtIterator;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaassociation.html#mappedAtIterator)
     ///
@@ -1429,9 +1871,13 @@ pub const QMetaAssociation = extern struct {
     ///
     /// ` mapped: ?*anyopaque `
     ///
-    pub fn MappedAtIterator(self: QMetaAssociation, iterator: ?*const anyopaque, mapped: ?*anyopaque) void {
+    pub fn mappedAtIterator(self: QMetaAssociation, iterator: ?*const anyopaque, mapped: ?*anyopaque) void {
         qtc.QMetaAssociation_MappedAtIterator(@ptrCast(self.ptr), @ptrCast(iterator), @ptrCast(mapped));
     }
+
+    /// ### DEPRECATED: Use `canGetMappedAtConstIterator` instead
+    ///
+    pub const CanGetMappedAtConstIterator = canGetMappedAtConstIterator;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaassociation.html#canGetMappedAtConstIterator)
     ///
@@ -1439,9 +1885,13 @@ pub const QMetaAssociation = extern struct {
     ///
     /// ` self: QMetaAssociation `
     ///
-    pub fn CanGetMappedAtConstIterator(self: QMetaAssociation) bool {
+    pub fn canGetMappedAtConstIterator(self: QMetaAssociation) bool {
         return qtc.QMetaAssociation_CanGetMappedAtConstIterator(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `mappedAtConstIterator` instead
+    ///
+    pub const MappedAtConstIterator = mappedAtConstIterator;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaassociation.html#mappedAtConstIterator)
     ///
@@ -1453,9 +1903,13 @@ pub const QMetaAssociation = extern struct {
     ///
     /// ` mapped: ?*anyopaque `
     ///
-    pub fn MappedAtConstIterator(self: QMetaAssociation, iterator: ?*const anyopaque, mapped: ?*anyopaque) void {
+    pub fn mappedAtConstIterator(self: QMetaAssociation, iterator: ?*const anyopaque, mapped: ?*anyopaque) void {
         qtc.QMetaAssociation_MappedAtConstIterator(@ptrCast(self.ptr), @ptrCast(iterator), @ptrCast(mapped));
     }
+
+    /// ### DEPRECATED: Use `canSetMappedAtIterator` instead
+    ///
+    pub const CanSetMappedAtIterator = canSetMappedAtIterator;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaassociation.html#canSetMappedAtIterator)
     ///
@@ -1463,9 +1917,13 @@ pub const QMetaAssociation = extern struct {
     ///
     /// ` self: QMetaAssociation `
     ///
-    pub fn CanSetMappedAtIterator(self: QMetaAssociation) bool {
+    pub fn canSetMappedAtIterator(self: QMetaAssociation) bool {
         return qtc.QMetaAssociation_CanSetMappedAtIterator(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMappedAtIterator` instead
+    ///
+    pub const SetMappedAtIterator = setMappedAtIterator;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaassociation.html#setMappedAtIterator)
     ///
@@ -1477,9 +1935,13 @@ pub const QMetaAssociation = extern struct {
     ///
     /// ` mapped: ?*const anyopaque `
     ///
-    pub fn SetMappedAtIterator(self: QMetaAssociation, iterator: ?*const anyopaque, mapped: ?*const anyopaque) void {
+    pub fn setMappedAtIterator(self: QMetaAssociation, iterator: ?*const anyopaque, mapped: ?*const anyopaque) void {
         qtc.QMetaAssociation_SetMappedAtIterator(@ptrCast(self.ptr), @ptrCast(iterator), @ptrCast(mapped));
     }
+
+    /// ### DEPRECATED: Use `canCreateIteratorAtKey` instead
+    ///
+    pub const CanCreateIteratorAtKey = canCreateIteratorAtKey;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaassociation.html#canCreateIteratorAtKey)
     ///
@@ -1487,9 +1949,13 @@ pub const QMetaAssociation = extern struct {
     ///
     /// ` self: QMetaAssociation `
     ///
-    pub fn CanCreateIteratorAtKey(self: QMetaAssociation) bool {
+    pub fn canCreateIteratorAtKey(self: QMetaAssociation) bool {
         return qtc.QMetaAssociation_CanCreateIteratorAtKey(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createIteratorAtKey` instead
+    ///
+    pub const CreateIteratorAtKey = createIteratorAtKey;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaassociation.html#createIteratorAtKey)
     ///
@@ -1501,9 +1967,13 @@ pub const QMetaAssociation = extern struct {
     ///
     /// ` key: ?*const anyopaque `
     ///
-    pub fn CreateIteratorAtKey(self: QMetaAssociation, container: ?*anyopaque, key: ?*const anyopaque) ?*anyopaque {
+    pub fn createIteratorAtKey(self: QMetaAssociation, container: ?*anyopaque, key: ?*const anyopaque) ?*anyopaque {
         return qtc.QMetaAssociation_CreateIteratorAtKey(@ptrCast(self.ptr), @ptrCast(container), @ptrCast(key));
     }
+
+    /// ### DEPRECATED: Use `canCreateConstIteratorAtKey` instead
+    ///
+    pub const CanCreateConstIteratorAtKey = canCreateConstIteratorAtKey;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaassociation.html#canCreateConstIteratorAtKey)
     ///
@@ -1511,9 +1981,13 @@ pub const QMetaAssociation = extern struct {
     ///
     /// ` self: QMetaAssociation `
     ///
-    pub fn CanCreateConstIteratorAtKey(self: QMetaAssociation) bool {
+    pub fn canCreateConstIteratorAtKey(self: QMetaAssociation) bool {
         return qtc.QMetaAssociation_CanCreateConstIteratorAtKey(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createConstIteratorAtKey` instead
+    ///
+    pub const CreateConstIteratorAtKey = createConstIteratorAtKey;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaassociation.html#createConstIteratorAtKey)
     ///
@@ -1525,9 +1999,13 @@ pub const QMetaAssociation = extern struct {
     ///
     /// ` key: ?*const anyopaque `
     ///
-    pub fn CreateConstIteratorAtKey(self: QMetaAssociation, container: ?*const anyopaque, key: ?*const anyopaque) ?*anyopaque {
+    pub fn createConstIteratorAtKey(self: QMetaAssociation, container: ?*const anyopaque, key: ?*const anyopaque) ?*anyopaque {
         return qtc.QMetaAssociation_CreateConstIteratorAtKey(@ptrCast(self.ptr), @ptrCast(container), @ptrCast(key));
     }
+
+    /// ### DEPRECATED: Use `hasInputIterator` instead
+    ///
+    pub const HasInputIterator = hasInputIterator;
 
     /// Inherited from QMetaContainer
     ///
@@ -1537,9 +2015,13 @@ pub const QMetaAssociation = extern struct {
     ///
     /// ` self: QMetaAssociation `
     ///
-    pub fn HasInputIterator(self: QMetaAssociation) bool {
+    pub fn hasInputIterator(self: QMetaAssociation) bool {
         return qtc.QMetaContainer_HasInputIterator(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hasForwardIterator` instead
+    ///
+    pub const HasForwardIterator = hasForwardIterator;
 
     /// Inherited from QMetaContainer
     ///
@@ -1549,9 +2031,13 @@ pub const QMetaAssociation = extern struct {
     ///
     /// ` self: QMetaAssociation `
     ///
-    pub fn HasForwardIterator(self: QMetaAssociation) bool {
+    pub fn hasForwardIterator(self: QMetaAssociation) bool {
         return qtc.QMetaContainer_HasForwardIterator(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hasBidirectionalIterator` instead
+    ///
+    pub const HasBidirectionalIterator = hasBidirectionalIterator;
 
     /// Inherited from QMetaContainer
     ///
@@ -1561,9 +2047,13 @@ pub const QMetaAssociation = extern struct {
     ///
     /// ` self: QMetaAssociation `
     ///
-    pub fn HasBidirectionalIterator(self: QMetaAssociation) bool {
+    pub fn hasBidirectionalIterator(self: QMetaAssociation) bool {
         return qtc.QMetaContainer_HasBidirectionalIterator(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hasRandomAccessIterator` instead
+    ///
+    pub const HasRandomAccessIterator = hasRandomAccessIterator;
 
     /// Inherited from QMetaContainer
     ///
@@ -1573,9 +2063,13 @@ pub const QMetaAssociation = extern struct {
     ///
     /// ` self: QMetaAssociation `
     ///
-    pub fn HasRandomAccessIterator(self: QMetaAssociation) bool {
+    pub fn hasRandomAccessIterator(self: QMetaAssociation) bool {
         return qtc.QMetaContainer_HasRandomAccessIterator(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hasSize` instead
+    ///
+    pub const HasSize = hasSize;
 
     /// Inherited from QMetaContainer
     ///
@@ -1585,9 +2079,13 @@ pub const QMetaAssociation = extern struct {
     ///
     /// ` self: QMetaAssociation `
     ///
-    pub fn HasSize(self: QMetaAssociation) bool {
+    pub fn hasSize(self: QMetaAssociation) bool {
         return qtc.QMetaContainer_HasSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QMetaContainer
     ///
@@ -1599,9 +2097,13 @@ pub const QMetaAssociation = extern struct {
     ///
     /// ` container: ?*const anyopaque `
     ///
-    pub fn Size(self: QMetaAssociation, container: ?*const anyopaque) isize {
+    pub fn size(self: QMetaAssociation, container: ?*const anyopaque) isize {
         return qtc.QMetaContainer_Size(@ptrCast(self.ptr), @ptrCast(container));
     }
+
+    /// ### DEPRECATED: Use `canClear` instead
+    ///
+    pub const CanClear = canClear;
 
     /// Inherited from QMetaContainer
     ///
@@ -1611,9 +2113,13 @@ pub const QMetaAssociation = extern struct {
     ///
     /// ` self: QMetaAssociation `
     ///
-    pub fn CanClear(self: QMetaAssociation) bool {
+    pub fn canClear(self: QMetaAssociation) bool {
         return qtc.QMetaContainer_CanClear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// Inherited from QMetaContainer
     ///
@@ -1625,9 +2131,13 @@ pub const QMetaAssociation = extern struct {
     ///
     /// ` container: ?*anyopaque `
     ///
-    pub fn Clear(self: QMetaAssociation, container: ?*anyopaque) void {
+    pub fn clear(self: QMetaAssociation, container: ?*anyopaque) void {
         qtc.QMetaContainer_Clear(@ptrCast(self.ptr), @ptrCast(container));
     }
+
+    /// ### DEPRECATED: Use `hasIterator` instead
+    ///
+    pub const HasIterator = hasIterator;
 
     /// Inherited from QMetaContainer
     ///
@@ -1637,9 +2147,13 @@ pub const QMetaAssociation = extern struct {
     ///
     /// ` self: QMetaAssociation `
     ///
-    pub fn HasIterator(self: QMetaAssociation) bool {
+    pub fn hasIterator(self: QMetaAssociation) bool {
         return qtc.QMetaContainer_HasIterator(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `begin` instead
+    ///
+    pub const Begin = begin;
 
     /// Inherited from QMetaContainer
     ///
@@ -1651,9 +2165,13 @@ pub const QMetaAssociation = extern struct {
     ///
     /// ` container: ?*anyopaque `
     ///
-    pub fn Begin(self: QMetaAssociation, container: ?*anyopaque) ?*anyopaque {
+    pub fn begin(self: QMetaAssociation, container: ?*anyopaque) ?*anyopaque {
         return qtc.QMetaContainer_Begin(@ptrCast(self.ptr), @ptrCast(container));
     }
+
+    /// ### DEPRECATED: Use `end` instead
+    ///
+    pub const End = end;
 
     /// Inherited from QMetaContainer
     ///
@@ -1665,9 +2183,13 @@ pub const QMetaAssociation = extern struct {
     ///
     /// ` container: ?*anyopaque `
     ///
-    pub fn End(self: QMetaAssociation, container: ?*anyopaque) ?*anyopaque {
+    pub fn end(self: QMetaAssociation, container: ?*anyopaque) ?*anyopaque {
         return qtc.QMetaContainer_End(@ptrCast(self.ptr), @ptrCast(container));
     }
+
+    /// ### DEPRECATED: Use `destroyIterator` instead
+    ///
+    pub const DestroyIterator = destroyIterator;
 
     /// Inherited from QMetaContainer
     ///
@@ -1679,9 +2201,13 @@ pub const QMetaAssociation = extern struct {
     ///
     /// ` iterator: ?*const anyopaque `
     ///
-    pub fn DestroyIterator(self: QMetaAssociation, iterator: ?*const anyopaque) void {
+    pub fn destroyIterator(self: QMetaAssociation, iterator: ?*const anyopaque) void {
         qtc.QMetaContainer_DestroyIterator(@ptrCast(self.ptr), @ptrCast(iterator));
     }
+
+    /// ### DEPRECATED: Use `compareIterator` instead
+    ///
+    pub const CompareIterator = compareIterator;
 
     /// Inherited from QMetaContainer
     ///
@@ -1695,9 +2221,13 @@ pub const QMetaAssociation = extern struct {
     ///
     /// ` j: ?*const anyopaque `
     ///
-    pub fn CompareIterator(self: QMetaAssociation, i: ?*const anyopaque, j: ?*const anyopaque) bool {
+    pub fn compareIterator(self: QMetaAssociation, i: ?*const anyopaque, j: ?*const anyopaque) bool {
         return qtc.QMetaContainer_CompareIterator(@ptrCast(self.ptr), @ptrCast(i), @ptrCast(j));
     }
+
+    /// ### DEPRECATED: Use `copyIterator` instead
+    ///
+    pub const CopyIterator = copyIterator;
 
     /// Inherited from QMetaContainer
     ///
@@ -1711,9 +2241,13 @@ pub const QMetaAssociation = extern struct {
     ///
     /// ` source: ?*const anyopaque `
     ///
-    pub fn CopyIterator(self: QMetaAssociation, target: ?*anyopaque, source: ?*const anyopaque) void {
+    pub fn copyIterator(self: QMetaAssociation, target: ?*anyopaque, source: ?*const anyopaque) void {
         qtc.QMetaContainer_CopyIterator(@ptrCast(self.ptr), @ptrCast(target), @ptrCast(source));
     }
+
+    /// ### DEPRECATED: Use `advanceIterator` instead
+    ///
+    pub const AdvanceIterator = advanceIterator;
 
     /// Inherited from QMetaContainer
     ///
@@ -1727,9 +2261,13 @@ pub const QMetaAssociation = extern struct {
     ///
     /// ` step: isize `
     ///
-    pub fn AdvanceIterator(self: QMetaAssociation, iterator: ?*anyopaque, step: isize) void {
+    pub fn advanceIterator(self: QMetaAssociation, iterator: ?*anyopaque, step: isize) void {
         qtc.QMetaContainer_AdvanceIterator(@ptrCast(self.ptr), @ptrCast(iterator), @bitCast(step));
     }
+
+    /// ### DEPRECATED: Use `diffIterator` instead
+    ///
+    pub const DiffIterator = diffIterator;
 
     /// Inherited from QMetaContainer
     ///
@@ -1743,9 +2281,13 @@ pub const QMetaAssociation = extern struct {
     ///
     /// ` j: ?*const anyopaque `
     ///
-    pub fn DiffIterator(self: QMetaAssociation, i: ?*const anyopaque, j: ?*const anyopaque) isize {
+    pub fn diffIterator(self: QMetaAssociation, i: ?*const anyopaque, j: ?*const anyopaque) isize {
         return qtc.QMetaContainer_DiffIterator(@ptrCast(self.ptr), @ptrCast(i), @ptrCast(j));
     }
+
+    /// ### DEPRECATED: Use `hasConstIterator` instead
+    ///
+    pub const HasConstIterator = hasConstIterator;
 
     /// Inherited from QMetaContainer
     ///
@@ -1755,9 +2297,13 @@ pub const QMetaAssociation = extern struct {
     ///
     /// ` self: QMetaAssociation `
     ///
-    pub fn HasConstIterator(self: QMetaAssociation) bool {
+    pub fn hasConstIterator(self: QMetaAssociation) bool {
         return qtc.QMetaContainer_HasConstIterator(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `constBegin` instead
+    ///
+    pub const ConstBegin = constBegin;
 
     /// Inherited from QMetaContainer
     ///
@@ -1769,9 +2315,13 @@ pub const QMetaAssociation = extern struct {
     ///
     /// ` container: ?*const anyopaque `
     ///
-    pub fn ConstBegin(self: QMetaAssociation, container: ?*const anyopaque) ?*anyopaque {
+    pub fn constBegin(self: QMetaAssociation, container: ?*const anyopaque) ?*anyopaque {
         return qtc.QMetaContainer_ConstBegin(@ptrCast(self.ptr), @ptrCast(container));
     }
+
+    /// ### DEPRECATED: Use `constEnd` instead
+    ///
+    pub const ConstEnd = constEnd;
 
     /// Inherited from QMetaContainer
     ///
@@ -1783,9 +2333,13 @@ pub const QMetaAssociation = extern struct {
     ///
     /// ` container: ?*const anyopaque `
     ///
-    pub fn ConstEnd(self: QMetaAssociation, container: ?*const anyopaque) ?*anyopaque {
+    pub fn constEnd(self: QMetaAssociation, container: ?*const anyopaque) ?*anyopaque {
         return qtc.QMetaContainer_ConstEnd(@ptrCast(self.ptr), @ptrCast(container));
     }
+
+    /// ### DEPRECATED: Use `destroyConstIterator` instead
+    ///
+    pub const DestroyConstIterator = destroyConstIterator;
 
     /// Inherited from QMetaContainer
     ///
@@ -1797,9 +2351,13 @@ pub const QMetaAssociation = extern struct {
     ///
     /// ` iterator: ?*const anyopaque `
     ///
-    pub fn DestroyConstIterator(self: QMetaAssociation, iterator: ?*const anyopaque) void {
+    pub fn destroyConstIterator(self: QMetaAssociation, iterator: ?*const anyopaque) void {
         qtc.QMetaContainer_DestroyConstIterator(@ptrCast(self.ptr), @ptrCast(iterator));
     }
+
+    /// ### DEPRECATED: Use `compareConstIterator` instead
+    ///
+    pub const CompareConstIterator = compareConstIterator;
 
     /// Inherited from QMetaContainer
     ///
@@ -1813,9 +2371,13 @@ pub const QMetaAssociation = extern struct {
     ///
     /// ` j: ?*const anyopaque `
     ///
-    pub fn CompareConstIterator(self: QMetaAssociation, i: ?*const anyopaque, j: ?*const anyopaque) bool {
+    pub fn compareConstIterator(self: QMetaAssociation, i: ?*const anyopaque, j: ?*const anyopaque) bool {
         return qtc.QMetaContainer_CompareConstIterator(@ptrCast(self.ptr), @ptrCast(i), @ptrCast(j));
     }
+
+    /// ### DEPRECATED: Use `copyConstIterator` instead
+    ///
+    pub const CopyConstIterator = copyConstIterator;
 
     /// Inherited from QMetaContainer
     ///
@@ -1829,9 +2391,13 @@ pub const QMetaAssociation = extern struct {
     ///
     /// ` source: ?*const anyopaque `
     ///
-    pub fn CopyConstIterator(self: QMetaAssociation, target: ?*anyopaque, source: ?*const anyopaque) void {
+    pub fn copyConstIterator(self: QMetaAssociation, target: ?*anyopaque, source: ?*const anyopaque) void {
         qtc.QMetaContainer_CopyConstIterator(@ptrCast(self.ptr), @ptrCast(target), @ptrCast(source));
     }
+
+    /// ### DEPRECATED: Use `advanceConstIterator` instead
+    ///
+    pub const AdvanceConstIterator = advanceConstIterator;
 
     /// Inherited from QMetaContainer
     ///
@@ -1845,9 +2411,13 @@ pub const QMetaAssociation = extern struct {
     ///
     /// ` step: isize `
     ///
-    pub fn AdvanceConstIterator(self: QMetaAssociation, iterator: ?*anyopaque, step: isize) void {
+    pub fn advanceConstIterator(self: QMetaAssociation, iterator: ?*anyopaque, step: isize) void {
         qtc.QMetaContainer_AdvanceConstIterator(@ptrCast(self.ptr), @ptrCast(iterator), @bitCast(step));
     }
+
+    /// ### DEPRECATED: Use `diffConstIterator` instead
+    ///
+    pub const DiffConstIterator = diffConstIterator;
 
     /// Inherited from QMetaContainer
     ///
@@ -1861,23 +2431,23 @@ pub const QMetaAssociation = extern struct {
     ///
     /// ` j: ?*const anyopaque `
     ///
-    pub fn DiffConstIterator(self: QMetaAssociation, i: ?*const anyopaque, j: ?*const anyopaque) isize {
+    pub fn diffConstIterator(self: QMetaAssociation, i: ?*const anyopaque, j: ?*const anyopaque) isize {
         return qtc.QMetaContainer_DiffConstIterator(@ptrCast(self.ptr), @ptrCast(i), @ptrCast(j));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaassociation.html#dtor.QMetaAssociation)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QMetaAssociation `
     ///
-    pub fn Delete(self: QMetaAssociation) void {
+    pub fn delete(self: QMetaAssociation) void {
         qtc.QMetaAssociation_Delete(@ptrCast(self.ptr));
     }
 };

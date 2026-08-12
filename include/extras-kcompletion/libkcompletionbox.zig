@@ -100,22 +100,34 @@ pub const KCompletionBox = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new KCompletionBox object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KCompletionBox object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) KCompletionBox {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KCompletionBox_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) KCompletionBox {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KCompletionBox_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new KCompletionBox object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() KCompletionBox {
+    pub const New2 = new2;
+
+    /// Allocate a new KCompletionBox object in C++ memory
+    ///
+    pub fn new2() KCompletionBox {
         return .{ .ptr = qtc.KCompletionBox_new2() };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -123,9 +135,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn MetaObject(self: KCompletionBox) QMetaObject {
+    pub fn metaObject(self: KCompletionBox) QMetaObject {
         return .{ .ptr = qtc.KCompletionBox_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -137,13 +153,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KCompletionBox, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KCompletionBox, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KCompletionBox_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -153,9 +169,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn SuperMetaObject(self: KCompletionBox) QMetaObject {
+    pub fn superMetaObject(self: KCompletionBox) QMetaObject {
         return .{ .ptr = qtc.KCompletionBox_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -163,10 +183,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KCompletionBox, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KCompletionBox, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KCompletionBox_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -176,13 +200,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KCompletionBox, callback: *const fn (KCompletionBox, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KCompletionBox, callback: *const fn (KCompletionBox, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KCompletionBox_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -192,10 +216,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KCompletionBox, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KCompletionBox, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KCompletionBox_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -207,9 +235,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KCompletionBox, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KCompletionBox, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KCompletionBox_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -219,13 +251,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KCompletionBox, callback: *const fn (KCompletionBox, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KCompletionBox, callback: *const fn (KCompletionBox, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KCompletionBox_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -239,9 +271,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KCompletionBox, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KCompletionBox, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KCompletionBox_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -251,14 +287,18 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompletionBox.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompletionBox.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#sizeHint)
     ///
@@ -266,9 +306,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn SizeHint(self: KCompletionBox) QSize {
+    pub fn sizeHint(self: KCompletionBox) QSize {
         return .{ .ptr = qtc.KCompletionBox_SizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#sizeHint)
     ///
@@ -282,13 +326,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: KCompletionBox, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KCompletionBox, callback: *const fn () callconv(.c) QSize) void {
         qtc.KCompletionBox_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#sizeHint)
     ///
@@ -298,9 +342,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn SuperSizeHint(self: KCompletionBox) QSize {
+    pub fn superSizeHint(self: KCompletionBox) QSize {
         return .{ .ptr = qtc.KCompletionBox_SuperSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `activateOnSelect` instead
+    ///
+    pub const ActivateOnSelect = activateOnSelect;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#activateOnSelect)
     ///
@@ -308,9 +356,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn ActivateOnSelect(self: KCompletionBox) bool {
+    pub fn activateOnSelect(self: KCompletionBox) bool {
         return qtc.KCompletionBox_ActivateOnSelect(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `items` instead
+    ///
+    pub const Items = items;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#items)
     ///
@@ -320,7 +372,7 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Items(self: KCompletionBox, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn items(self: KCompletionBox, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KCompletionBox_Items(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -328,15 +380,19 @@ pub const KCompletionBox = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KCompletionBox.Items: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KCompletionBox.items: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KCompletionBox.Items: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KCompletionBox.items: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isTabHandling` instead
+    ///
+    pub const IsTabHandling = isTabHandling;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#isTabHandling)
     ///
@@ -344,9 +400,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn IsTabHandling(self: KCompletionBox) bool {
+    pub fn isTabHandling(self: KCompletionBox) bool {
         return qtc.KCompletionBox_IsTabHandling(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `cancelledText` instead
+    ///
+    pub const CancelledText = cancelledText;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#cancelledText)
     ///
@@ -356,13 +416,17 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CancelledText(self: KCompletionBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn cancelledText(self: KCompletionBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KCompletionBox_CancelledText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompletionBox.CancelledText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompletionBox.cancelledText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `insertItems` instead
+    ///
+    pub const InsertItems = insertItems;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#insertItems)
     ///
@@ -372,22 +436,26 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` items: []const []const u8 `
+    /// ` _items: []const []const u8 `
     ///
-    pub fn InsertItems(self: KCompletionBox, allocator: std.mem.Allocator, items: []const []const u8) void {
-        const items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("KCompletionBox.InsertItems: Memory allocation failed");
+    pub fn insertItems(self: KCompletionBox, allocator: std.mem.Allocator, _items: []const []const u8) void {
+        const items_arr = allocator.alloc(qtc.libqt_string, _items.len) catch @panic("KCompletionBox.insertItems: Memory allocation failed");
         defer allocator.free(items_arr);
-        for (items, 0..items.len) |item, i|
+        for (_items, 0.._items.len) |str_item, i|
             items_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const items_list = qtc.libqt_list{
-            .len = items.len,
+            .len = _items.len,
             .data = items_arr.ptr,
         };
         qtc.KCompletionBox_InsertItems(@ptrCast(self.ptr), items_list);
     }
+
+    /// ### DEPRECATED: Use `setItems` instead
+    ///
+    pub const SetItems = setItems;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#setItems)
     ///
@@ -397,22 +465,26 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` items: []const []const u8 `
+    /// ` _items: []const []const u8 `
     ///
-    pub fn SetItems(self: KCompletionBox, allocator: std.mem.Allocator, items: []const []const u8) void {
-        const items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("KCompletionBox.SetItems: Memory allocation failed");
+    pub fn setItems(self: KCompletionBox, allocator: std.mem.Allocator, _items: []const []const u8) void {
+        const items_arr = allocator.alloc(qtc.libqt_string, _items.len) catch @panic("KCompletionBox.setItems: Memory allocation failed");
         defer allocator.free(items_arr);
-        for (items, 0..items.len) |item, i|
+        for (_items, 0.._items.len) |str_item, i|
             items_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const items_list = qtc.libqt_list{
-            .len = items.len,
+            .len = _items.len,
             .data = items_arr.ptr,
         };
         qtc.KCompletionBox_SetItems(@ptrCast(self.ptr), items_list);
     }
+
+    /// ### DEPRECATED: Use `popup` instead
+    ///
+    pub const Popup = popup;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#popup)
     ///
@@ -420,9 +492,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn Popup(self: KCompletionBox) void {
+    pub fn popup(self: KCompletionBox) void {
         qtc.KCompletionBox_Popup(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPopup` instead
+    ///
+    pub const OnPopup = onPopup;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#popup)
     ///
@@ -434,13 +510,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnPopup(self: KCompletionBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onPopup(self: KCompletionBox, callback: *const fn () callconv(.c) void) void {
         qtc.KCompletionBox_OnPopup(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperPopup` instead
+    /// ### DEPRECATED: Use `superPopup` instead
     ///
-    pub const QBasePopup = SuperPopup;
+    pub const SuperPopup = superPopup;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#popup)
     ///
@@ -450,9 +526,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn SuperPopup(self: KCompletionBox) void {
+    pub fn superPopup(self: KCompletionBox) void {
         qtc.KCompletionBox_SuperPopup(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabHandling` instead
+    ///
+    pub const SetTabHandling = setTabHandling;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#setTabHandling)
     ///
@@ -462,9 +542,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabHandling(self: KCompletionBox, enable: bool) void {
+    pub fn setTabHandling(self: KCompletionBox, enable: bool) void {
         qtc.KCompletionBox_SetTabHandling(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `setCancelledText` instead
+    ///
+    pub const SetCancelledText = setCancelledText;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#setCancelledText)
     ///
@@ -474,13 +558,17 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetCancelledText(self: KCompletionBox, text: []const u8) void {
+    pub fn setCancelledText(self: KCompletionBox, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.KCompletionBox_SetCancelledText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `setActivateOnSelect` instead
+    ///
+    pub const SetActivateOnSelect = setActivateOnSelect;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#setActivateOnSelect)
     ///
@@ -490,9 +578,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` doEmit: bool `
     ///
-    pub fn SetActivateOnSelect(self: KCompletionBox, doEmit: bool) void {
+    pub fn setActivateOnSelect(self: KCompletionBox, doEmit: bool) void {
         qtc.KCompletionBox_SetActivateOnSelect(@ptrCast(self.ptr), doEmit);
     }
+
+    /// ### DEPRECATED: Use `down` instead
+    ///
+    pub const Down = down;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#down)
     ///
@@ -500,9 +592,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn Down(self: KCompletionBox) void {
+    pub fn down(self: KCompletionBox) void {
         qtc.KCompletionBox_Down(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `up` instead
+    ///
+    pub const Up = up;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#up)
     ///
@@ -510,9 +606,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn Up(self: KCompletionBox) void {
+    pub fn up(self: KCompletionBox) void {
         qtc.KCompletionBox_Up(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pageDown` instead
+    ///
+    pub const PageDown = pageDown;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#pageDown)
     ///
@@ -520,9 +620,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn PageDown(self: KCompletionBox) void {
+    pub fn pageDown(self: KCompletionBox) void {
         qtc.KCompletionBox_PageDown(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pageUp` instead
+    ///
+    pub const PageUp = pageUp;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#pageUp)
     ///
@@ -530,9 +634,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn PageUp(self: KCompletionBox) void {
+    pub fn pageUp(self: KCompletionBox) void {
         qtc.KCompletionBox_PageUp(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `home` instead
+    ///
+    pub const Home = home;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#home)
     ///
@@ -540,9 +648,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn Home(self: KCompletionBox) void {
+    pub fn home(self: KCompletionBox) void {
         qtc.KCompletionBox_Home(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `end` instead
+    ///
+    pub const End = end;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#end)
     ///
@@ -550,9 +662,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn End(self: KCompletionBox) void {
+    pub fn end(self: KCompletionBox) void {
         qtc.KCompletionBox_End(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#setVisible)
     ///
@@ -562,9 +678,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: KCompletionBox, visible: bool) void {
+    pub fn setVisible(self: KCompletionBox, visible: bool) void {
         qtc.KCompletionBox_SetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#setVisible)
     ///
@@ -576,13 +696,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: KCompletionBox, callback: *const fn (KCompletionBox, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: KCompletionBox, callback: *const fn (KCompletionBox, bool) callconv(.c) void) void {
         qtc.KCompletionBox_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#setVisible)
     ///
@@ -594,9 +714,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: KCompletionBox, visible: bool) void {
+    pub fn superSetVisible(self: KCompletionBox, visible: bool) void {
         qtc.KCompletionBox_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `textActivated` instead
+    ///
+    pub const TextActivated = textActivated;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#textActivated)
     ///
@@ -606,13 +730,17 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn TextActivated(self: KCompletionBox, text: []const u8) void {
+    pub fn textActivated(self: KCompletionBox, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.KCompletionBox_TextActivated(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `onTextActivated` instead
+    ///
+    pub const OnTextActivated = onTextActivated;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#textActivated)
     ///
@@ -622,9 +750,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, text: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnTextActivated(self: KCompletionBox, callback: *const fn (KCompletionBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onTextActivated(self: KCompletionBox, callback: *const fn (KCompletionBox, [*:0]const u8) callconv(.c) void) void {
         qtc.KCompletionBox_Connect_TextActivated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `userCancelled` instead
+    ///
+    pub const UserCancelled = userCancelled;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#userCancelled)
     ///
@@ -634,13 +766,17 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn UserCancelled(self: KCompletionBox, param1: []const u8) void {
+    pub fn userCancelled(self: KCompletionBox, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
         qtc.KCompletionBox_UserCancelled(@ptrCast(self.ptr), param1_str);
     }
+
+    /// ### DEPRECATED: Use `onUserCancelled` instead
+    ///
+    pub const OnUserCancelled = onUserCancelled;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#userCancelled)
     ///
@@ -650,9 +786,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, param1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnUserCancelled(self: KCompletionBox, callback: *const fn (KCompletionBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onUserCancelled(self: KCompletionBox, callback: *const fn (KCompletionBox, [*:0]const u8) callconv(.c) void) void {
         qtc.KCompletionBox_Connect_UserCancelled(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `calculateGeometry` instead
+    ///
+    pub const CalculateGeometry = calculateGeometry;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#calculateGeometry)
     ///
@@ -660,9 +800,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn CalculateGeometry(self: KCompletionBox) QRect {
+    pub fn calculateGeometry(self: KCompletionBox) QRect {
         return .{ .ptr = qtc.KCompletionBox_CalculateGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onCalculateGeometry` instead
+    ///
+    pub const OnCalculateGeometry = onCalculateGeometry;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#calculateGeometry)
     ///
@@ -676,13 +820,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnCalculateGeometry(self: KCompletionBox, callback: *const fn () callconv(.c) QRect) void {
+    pub fn onCalculateGeometry(self: KCompletionBox, callback: *const fn () callconv(.c) QRect) void {
         qtc.KCompletionBox_OnCalculateGeometry(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperCalculateGeometry` instead
+    /// ### DEPRECATED: Use `superCalculateGeometry` instead
     ///
-    pub const QBaseCalculateGeometry = SuperCalculateGeometry;
+    pub const SuperCalculateGeometry = superCalculateGeometry;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#calculateGeometry)
     ///
@@ -692,9 +836,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn SuperCalculateGeometry(self: KCompletionBox) QRect {
+    pub fn superCalculateGeometry(self: KCompletionBox) QRect {
         return .{ .ptr = qtc.KCompletionBox_SuperCalculateGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `resizeAndReposition` instead
+    ///
+    pub const ResizeAndReposition = resizeAndReposition;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#resizeAndReposition)
     ///
@@ -702,9 +850,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn ResizeAndReposition(self: KCompletionBox) void {
+    pub fn resizeAndReposition(self: KCompletionBox) void {
         qtc.KCompletionBox_ResizeAndReposition(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeAndReposition` instead
+    ///
+    pub const OnResizeAndReposition = onResizeAndReposition;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#resizeAndReposition)
     ///
@@ -716,13 +868,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnResizeAndReposition(self: KCompletionBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onResizeAndReposition(self: KCompletionBox, callback: *const fn () callconv(.c) void) void {
         qtc.KCompletionBox_OnResizeAndReposition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeAndReposition` instead
+    /// ### DEPRECATED: Use `superResizeAndReposition` instead
     ///
-    pub const QBaseResizeAndReposition = SuperResizeAndReposition;
+    pub const SuperResizeAndReposition = superResizeAndReposition;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#resizeAndReposition)
     ///
@@ -732,9 +884,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn SuperResizeAndReposition(self: KCompletionBox) void {
+    pub fn superResizeAndReposition(self: KCompletionBox) void {
         qtc.KCompletionBox_SuperResizeAndReposition(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#eventFilter)
     ///
@@ -746,11 +902,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` param2: QEvent `
     ///
-    pub fn EventFilter(self: KCompletionBox, param1: anytype, param2: anytype) bool {
+    pub fn eventFilter(self: KCompletionBox, param1: anytype, param2: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QObject;
         comptime _ = @TypeOf(param2)._is_QEvent;
         return qtc.KCompletionBox_EventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#eventFilter)
     ///
@@ -762,13 +922,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, param1: QObject, param2: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KCompletionBox, callback: *const fn (KCompletionBox, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KCompletionBox, callback: *const fn (KCompletionBox, QObject, QEvent) callconv(.c) bool) void {
         qtc.KCompletionBox_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#eventFilter)
     ///
@@ -782,11 +942,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` param2: QEvent `
     ///
-    pub fn SuperEventFilter(self: KCompletionBox, param1: anytype, param2: anytype) bool {
+    pub fn superEventFilter(self: KCompletionBox, param1: anytype, param2: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QObject;
         comptime _ = @TypeOf(param2)._is_QEvent;
         return qtc.KCompletionBox_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `globalPositionHint` instead
+    ///
+    pub const GlobalPositionHint = globalPositionHint;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#globalPositionHint)
     ///
@@ -794,9 +958,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn GlobalPositionHint(self: KCompletionBox) QPoint {
+    pub fn globalPositionHint(self: KCompletionBox) QPoint {
         return .{ .ptr = qtc.KCompletionBox_GlobalPositionHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onGlobalPositionHint` instead
+    ///
+    pub const OnGlobalPositionHint = onGlobalPositionHint;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#globalPositionHint)
     ///
@@ -810,13 +978,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnGlobalPositionHint(self: KCompletionBox, callback: *const fn () callconv(.c) QPoint) void {
+    pub fn onGlobalPositionHint(self: KCompletionBox, callback: *const fn () callconv(.c) QPoint) void {
         qtc.KCompletionBox_OnGlobalPositionHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperGlobalPositionHint` instead
+    /// ### DEPRECATED: Use `superGlobalPositionHint` instead
     ///
-    pub const QBaseGlobalPositionHint = SuperGlobalPositionHint;
+    pub const SuperGlobalPositionHint = superGlobalPositionHint;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#globalPositionHint)
     ///
@@ -826,9 +994,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn SuperGlobalPositionHint(self: KCompletionBox) QPoint {
+    pub fn superGlobalPositionHint(self: KCompletionBox) QPoint {
         return .{ .ptr = qtc.KCompletionBox_SuperGlobalPositionHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `slotActivated` instead
+    ///
+    pub const SlotActivated = slotActivated;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#slotActivated)
     ///
@@ -838,10 +1010,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` param1: QListWidgetItem `
     ///
-    pub fn SlotActivated(self: KCompletionBox, param1: anytype) void {
+    pub fn slotActivated(self: KCompletionBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QListWidgetItem;
         qtc.KCompletionBox_SlotActivated(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSlotActivated` instead
+    ///
+    pub const OnSlotActivated = onSlotActivated;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#slotActivated)
     ///
@@ -853,13 +1029,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, param1: QListWidgetItem) callconv(.c) void `
     ///
-    pub fn OnSlotActivated(self: KCompletionBox, callback: *const fn (KCompletionBox, QListWidgetItem) callconv(.c) void) void {
+    pub fn onSlotActivated(self: KCompletionBox, callback: *const fn (KCompletionBox, QListWidgetItem) callconv(.c) void) void {
         qtc.KCompletionBox_OnSlotActivated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSlotActivated` instead
+    /// ### DEPRECATED: Use `superSlotActivated` instead
     ///
-    pub const QBaseSlotActivated = SuperSlotActivated;
+    pub const SuperSlotActivated = superSlotActivated;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#slotActivated)
     ///
@@ -871,10 +1047,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` param1: QListWidgetItem `
     ///
-    pub fn SuperSlotActivated(self: KCompletionBox, param1: anytype) void {
+    pub fn superSlotActivated(self: KCompletionBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QListWidgetItem;
         qtc.KCompletionBox_SuperSlotActivated(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -886,15 +1066,19 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompletionBox.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompletionBox.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -908,15 +1092,19 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompletionBox.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompletionBox.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `insertItems2` instead
+    ///
+    pub const InsertItems2 = insertItems2;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#insertItems)
     ///
@@ -926,24 +1114,28 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` items: []const []const u8 `
+    /// ` _items: []const []const u8 `
     ///
     /// ` index: i32 `
     ///
-    pub fn InsertItems2(self: KCompletionBox, allocator: std.mem.Allocator, items: []const []const u8, index: i32) void {
-        const items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("KCompletionBox.InsertItems2: Memory allocation failed");
+    pub fn insertItems2(self: KCompletionBox, allocator: std.mem.Allocator, _items: []const []const u8, index: i32) void {
+        const items_arr = allocator.alloc(qtc.libqt_string, _items.len) catch @panic("KCompletionBox.insertItems2: Memory allocation failed");
         defer allocator.free(items_arr);
-        for (items, 0..items.len) |item, i|
+        for (_items, 0.._items.len) |str_item, i|
             items_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const items_list = qtc.libqt_list{
-            .len = items.len,
+            .len = _items.len,
             .data = items_arr.ptr,
         };
         qtc.KCompletionBox_InsertItems2(@ptrCast(self.ptr), items_list, @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `item` instead
+    ///
+    pub const Item = item;
 
     /// Inherited from QListWidget
     ///
@@ -953,11 +1145,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
-    pub fn Item(self: KCompletionBox, row: i32) QListWidgetItem {
-        return .{ .ptr = qtc.QListWidget_Item(@ptrCast(self.ptr), @bitCast(row)) };
+    pub fn item(self: KCompletionBox, _row: i32) QListWidgetItem {
+        return .{ .ptr = qtc.QListWidget_Item(@ptrCast(self.ptr), @bitCast(_row)) };
     }
+
+    /// ### DEPRECATED: Use `row` instead
+    ///
+    pub const Row = row;
 
     /// Inherited from QListWidget
     ///
@@ -967,12 +1163,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` item: QListWidgetItem `
+    /// ` _item: QListWidgetItem `
     ///
-    pub fn Row(self: KCompletionBox, item: anytype) i32 {
-        comptime _ = @TypeOf(item)._is_QListWidgetItem;
-        return qtc.QListWidget_Row(@ptrCast(self.ptr), @ptrCast(item.ptr));
+    pub fn row(self: KCompletionBox, _item: anytype) i32 {
+        comptime _ = @TypeOf(_item)._is_QListWidgetItem;
+        return qtc.QListWidget_Row(@ptrCast(self.ptr), @ptrCast(_item.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertItem` instead
+    ///
+    pub const InsertItem = insertItem;
 
     /// Inherited from QListWidget
     ///
@@ -982,14 +1182,18 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
-    /// ` item: QListWidgetItem `
+    /// ` _item: QListWidgetItem `
     ///
-    pub fn InsertItem(self: KCompletionBox, row: i32, item: anytype) void {
-        comptime _ = @TypeOf(item)._is_QListWidgetItem;
-        qtc.QListWidget_InsertItem(@ptrCast(self.ptr), @bitCast(row), @ptrCast(item.ptr));
+    pub fn insertItem(self: KCompletionBox, _row: i32, _item: anytype) void {
+        comptime _ = @TypeOf(_item)._is_QListWidgetItem;
+        qtc.QListWidget_InsertItem(@ptrCast(self.ptr), @bitCast(_row), @ptrCast(_item.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertItem2` instead
+    ///
+    pub const InsertItem2 = insertItem2;
 
     /// Inherited from QListWidget
     ///
@@ -999,17 +1203,21 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
     /// ` label: []const u8 `
     ///
-    pub fn InsertItem2(self: KCompletionBox, row: i32, label: []const u8) void {
+    pub fn insertItem2(self: KCompletionBox, _row: i32, label: []const u8) void {
         const label_str = qtc.libqt_string{
             .len = label.len,
             .data = label.ptr,
         };
-        qtc.QListWidget_InsertItem2(@ptrCast(self.ptr), @bitCast(row), label_str);
+        qtc.QListWidget_InsertItem2(@ptrCast(self.ptr), @bitCast(_row), label_str);
     }
+
+    /// ### DEPRECATED: Use `addItem` instead
+    ///
+    pub const AddItem = addItem;
 
     /// Inherited from QListWidget
     ///
@@ -1021,7 +1229,7 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` label: []const u8 `
     ///
-    pub fn AddItem(self: KCompletionBox, label: []const u8) void {
+    pub fn addItem(self: KCompletionBox, label: []const u8) void {
         const label_str = qtc.libqt_string{
             .len = label.len,
             .data = label.ptr,
@@ -1029,6 +1237,10 @@ pub const KCompletionBox = extern struct {
         qtc.QListWidget_AddItem(@ptrCast(self.ptr), label_str);
     }
 
+    /// ### DEPRECATED: Use `addItem2` instead
+    ///
+    pub const AddItem2 = addItem2;
+
     /// Inherited from QListWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#addItem)
@@ -1037,12 +1249,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` item: QListWidgetItem `
+    /// ` _item: QListWidgetItem `
     ///
-    pub fn AddItem2(self: KCompletionBox, item: anytype) void {
-        comptime _ = @TypeOf(item)._is_QListWidgetItem;
-        qtc.QListWidget_AddItem2(@ptrCast(self.ptr), @ptrCast(item.ptr));
+    pub fn addItem2(self: KCompletionBox, _item: anytype) void {
+        comptime _ = @TypeOf(_item)._is_QListWidgetItem;
+        qtc.QListWidget_AddItem2(@ptrCast(self.ptr), @ptrCast(_item.ptr));
     }
+
+    /// ### DEPRECATED: Use `addItems` instead
+    ///
+    pub const AddItems = addItems;
 
     /// Inherited from QListWidget
     ///
@@ -1056,13 +1272,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` labels: []const []const u8 `
     ///
-    pub fn AddItems(self: KCompletionBox, allocator: std.mem.Allocator, labels: []const []const u8) void {
-        const labels_arr = allocator.alloc(qtc.libqt_string, labels.len) catch @panic("KCompletionBox.AddItems: Memory allocation failed");
+    pub fn addItems(self: KCompletionBox, allocator: std.mem.Allocator, labels: []const []const u8) void {
+        const labels_arr = allocator.alloc(qtc.libqt_string, labels.len) catch @panic("KCompletionBox.addItems: Memory allocation failed");
         defer allocator.free(labels_arr);
-        for (labels, 0..labels.len) |item, i|
+        for (labels, 0..labels.len) |str_item, i|
             labels_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const labels_list = qtc.libqt_list{
             .len = labels.len,
@@ -1070,6 +1286,10 @@ pub const KCompletionBox = extern struct {
         };
         qtc.QListWidget_AddItems(@ptrCast(self.ptr), labels_list);
     }
+
+    /// ### DEPRECATED: Use `takeItem` instead
+    ///
+    pub const TakeItem = takeItem;
 
     /// Inherited from QListWidget
     ///
@@ -1079,11 +1299,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
-    pub fn TakeItem(self: KCompletionBox, row: i32) QListWidgetItem {
-        return .{ .ptr = qtc.QListWidget_TakeItem(@ptrCast(self.ptr), @bitCast(row)) };
+    pub fn takeItem(self: KCompletionBox, _row: i32) QListWidgetItem {
+        return .{ .ptr = qtc.QListWidget_TakeItem(@ptrCast(self.ptr), @bitCast(_row)) };
     }
+
+    /// ### DEPRECATED: Use `count` instead
+    ///
+    pub const Count = count;
 
     /// Inherited from QListWidget
     ///
@@ -1093,9 +1317,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn Count(self: KCompletionBox) i32 {
+    pub fn count(self: KCompletionBox) i32 {
         return qtc.QListWidget_Count(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `currentItem` instead
+    ///
+    pub const CurrentItem = currentItem;
 
     /// Inherited from QListWidget
     ///
@@ -1105,24 +1333,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn CurrentItem(self: KCompletionBox) QListWidgetItem {
+    pub fn currentItem(self: KCompletionBox) QListWidgetItem {
         return .{ .ptr = qtc.QListWidget_CurrentItem(@ptrCast(self.ptr)) };
     }
 
-    /// Inherited from QListWidget
+    /// ### DEPRECATED: Use `setCurrentItem` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#setCurrentItem)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCompletionBox `
-    ///
-    /// ` item: QListWidgetItem `
-    ///
-    pub fn SetCurrentItem(self: KCompletionBox, item: anytype) void {
-        comptime _ = @TypeOf(item)._is_QListWidgetItem;
-        qtc.QListWidget_SetCurrentItem(@ptrCast(self.ptr), @ptrCast(item.ptr));
-    }
+    pub const SetCurrentItem = setCurrentItem;
 
     /// Inherited from QListWidget
     ///
@@ -1132,14 +1349,37 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` item: QListWidgetItem `
+    /// ` _item: QListWidgetItem `
+    ///
+    pub fn setCurrentItem(self: KCompletionBox, _item: anytype) void {
+        comptime _ = @TypeOf(_item)._is_QListWidgetItem;
+        qtc.QListWidget_SetCurrentItem(@ptrCast(self.ptr), @ptrCast(_item.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setCurrentItem2` instead
+    ///
+    pub const SetCurrentItem2 = setCurrentItem2;
+
+    /// Inherited from QListWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#setCurrentItem)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KCompletionBox `
+    ///
+    /// ` _item: QListWidgetItem `
     ///
     /// ` command: flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn SetCurrentItem2(self: KCompletionBox, item: anytype, command: i32) void {
-        comptime _ = @TypeOf(item)._is_QListWidgetItem;
-        qtc.QListWidget_SetCurrentItem2(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(command));
+    pub fn setCurrentItem2(self: KCompletionBox, _item: anytype, command: i32) void {
+        comptime _ = @TypeOf(_item)._is_QListWidgetItem;
+        qtc.QListWidget_SetCurrentItem2(@ptrCast(self.ptr), @ptrCast(_item.ptr), @bitCast(command));
     }
+
+    /// ### DEPRECATED: Use `currentRow` instead
+    ///
+    pub const CurrentRow = currentRow;
 
     /// Inherited from QListWidget
     ///
@@ -1149,23 +1389,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn CurrentRow(self: KCompletionBox) i32 {
+    pub fn currentRow(self: KCompletionBox) i32 {
         return qtc.QListWidget_CurrentRow(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QListWidget
+    /// ### DEPRECATED: Use `setCurrentRow` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#setCurrentRow)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCompletionBox `
-    ///
-    /// ` row: i32 `
-    ///
-    pub fn SetCurrentRow(self: KCompletionBox, row: i32) void {
-        qtc.QListWidget_SetCurrentRow(@ptrCast(self.ptr), @bitCast(row));
-    }
+    pub const SetCurrentRow = setCurrentRow;
 
     /// Inherited from QListWidget
     ///
@@ -1175,13 +1405,35 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
+    ///
+    pub fn setCurrentRow(self: KCompletionBox, _row: i32) void {
+        qtc.QListWidget_SetCurrentRow(@ptrCast(self.ptr), @bitCast(_row));
+    }
+
+    /// ### DEPRECATED: Use `setCurrentRow2` instead
+    ///
+    pub const SetCurrentRow2 = setCurrentRow2;
+
+    /// Inherited from QListWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#setCurrentRow)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KCompletionBox `
+    ///
+    /// ` _row: i32 `
     ///
     /// ` command: flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn SetCurrentRow2(self: KCompletionBox, row: i32, command: i32) void {
-        qtc.QListWidget_SetCurrentRow2(@ptrCast(self.ptr), @bitCast(row), @bitCast(command));
+    pub fn setCurrentRow2(self: KCompletionBox, _row: i32, command: i32) void {
+        qtc.QListWidget_SetCurrentRow2(@ptrCast(self.ptr), @bitCast(_row), @bitCast(command));
     }
+
+    /// ### DEPRECATED: Use `itemAt` instead
+    ///
+    pub const ItemAt = itemAt;
 
     /// Inherited from QListWidget
     ///
@@ -1193,10 +1445,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ItemAt(self: KCompletionBox, p: anytype) QListWidgetItem {
+    pub fn itemAt(self: KCompletionBox, p: anytype) QListWidgetItem {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QListWidget_ItemAt(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `itemAt2` instead
+    ///
+    pub const ItemAt2 = itemAt2;
 
     /// Inherited from QListWidget
     ///
@@ -1206,13 +1462,17 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ItemAt2(self: KCompletionBox, x: i32, y: i32) QListWidgetItem {
-        return .{ .ptr = qtc.QListWidget_ItemAt2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn itemAt2(self: KCompletionBox, _x: i32, _y: i32) QListWidgetItem {
+        return .{ .ptr = qtc.QListWidget_ItemAt2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `visualItemRect` instead
+    ///
+    pub const VisualItemRect = visualItemRect;
 
     /// Inherited from QListWidget
     ///
@@ -1222,12 +1482,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` item: QListWidgetItem `
+    /// ` _item: QListWidgetItem `
     ///
-    pub fn VisualItemRect(self: KCompletionBox, item: anytype) QRect {
-        comptime _ = @TypeOf(item)._is_QListWidgetItem;
-        return .{ .ptr = qtc.QListWidget_VisualItemRect(@ptrCast(self.ptr), @ptrCast(item.ptr)) };
+    pub fn visualItemRect(self: KCompletionBox, _item: anytype) QRect {
+        comptime _ = @TypeOf(_item)._is_QListWidgetItem;
+        return .{ .ptr = qtc.QListWidget_VisualItemRect(@ptrCast(self.ptr), @ptrCast(_item.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `sortItems` instead
+    ///
+    pub const SortItems = sortItems;
 
     /// Inherited from QListWidget
     ///
@@ -1237,9 +1501,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn SortItems(self: KCompletionBox) void {
+    pub fn sortItems(self: KCompletionBox) void {
         qtc.QListWidget_SortItems(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSortingEnabled` instead
+    ///
+    pub const SetSortingEnabled = setSortingEnabled;
 
     /// Inherited from QListWidget
     ///
@@ -1251,9 +1519,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetSortingEnabled(self: KCompletionBox, enable: bool) void {
+    pub fn setSortingEnabled(self: KCompletionBox, enable: bool) void {
         qtc.QListWidget_SetSortingEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `isSortingEnabled` instead
+    ///
+    pub const IsSortingEnabled = isSortingEnabled;
 
     /// Inherited from QListWidget
     ///
@@ -1263,9 +1535,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn IsSortingEnabled(self: KCompletionBox) bool {
+    pub fn isSortingEnabled(self: KCompletionBox) bool {
         return qtc.QListWidget_IsSortingEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `editItem` instead
+    ///
+    pub const EditItem = editItem;
 
     /// Inherited from QListWidget
     ///
@@ -1275,12 +1551,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` item: QListWidgetItem `
+    /// ` _item: QListWidgetItem `
     ///
-    pub fn EditItem(self: KCompletionBox, item: anytype) void {
-        comptime _ = @TypeOf(item)._is_QListWidgetItem;
-        qtc.QListWidget_EditItem(@ptrCast(self.ptr), @ptrCast(item.ptr));
+    pub fn editItem(self: KCompletionBox, _item: anytype) void {
+        comptime _ = @TypeOf(_item)._is_QListWidgetItem;
+        qtc.QListWidget_EditItem(@ptrCast(self.ptr), @ptrCast(_item.ptr));
     }
+
+    /// ### DEPRECATED: Use `openPersistentEditor` instead
+    ///
+    pub const OpenPersistentEditor = openPersistentEditor;
 
     /// Inherited from QListWidget
     ///
@@ -1290,12 +1570,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` item: QListWidgetItem `
+    /// ` _item: QListWidgetItem `
     ///
-    pub fn OpenPersistentEditor(self: KCompletionBox, item: anytype) void {
-        comptime _ = @TypeOf(item)._is_QListWidgetItem;
-        qtc.QListWidget_OpenPersistentEditor(@ptrCast(self.ptr), @ptrCast(item.ptr));
+    pub fn openPersistentEditor(self: KCompletionBox, _item: anytype) void {
+        comptime _ = @TypeOf(_item)._is_QListWidgetItem;
+        qtc.QListWidget_OpenPersistentEditor(@ptrCast(self.ptr), @ptrCast(_item.ptr));
     }
+
+    /// ### DEPRECATED: Use `closePersistentEditor` instead
+    ///
+    pub const ClosePersistentEditor = closePersistentEditor;
 
     /// Inherited from QListWidget
     ///
@@ -1305,12 +1589,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` item: QListWidgetItem `
+    /// ` _item: QListWidgetItem `
     ///
-    pub fn ClosePersistentEditor(self: KCompletionBox, item: anytype) void {
-        comptime _ = @TypeOf(item)._is_QListWidgetItem;
-        qtc.QListWidget_ClosePersistentEditor(@ptrCast(self.ptr), @ptrCast(item.ptr));
+    pub fn closePersistentEditor(self: KCompletionBox, _item: anytype) void {
+        comptime _ = @TypeOf(_item)._is_QListWidgetItem;
+        qtc.QListWidget_ClosePersistentEditor(@ptrCast(self.ptr), @ptrCast(_item.ptr));
     }
+
+    /// ### DEPRECATED: Use `isPersistentEditorOpen` instead
+    ///
+    pub const IsPersistentEditorOpen = isPersistentEditorOpen;
 
     /// Inherited from QListWidget
     ///
@@ -1320,12 +1608,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` item: QListWidgetItem `
+    /// ` _item: QListWidgetItem `
     ///
-    pub fn IsPersistentEditorOpen(self: KCompletionBox, item: anytype) bool {
-        comptime _ = @TypeOf(item)._is_QListWidgetItem;
-        return qtc.QListWidget_IsPersistentEditorOpen(@ptrCast(self.ptr), @ptrCast(item.ptr));
+    pub fn isPersistentEditorOpen(self: KCompletionBox, _item: anytype) bool {
+        comptime _ = @TypeOf(_item)._is_QListWidgetItem;
+        return qtc.QListWidget_IsPersistentEditorOpen(@ptrCast(self.ptr), @ptrCast(_item.ptr));
     }
+
+    /// ### DEPRECATED: Use `itemWidget` instead
+    ///
+    pub const ItemWidget = itemWidget;
 
     /// Inherited from QListWidget
     ///
@@ -1335,12 +1627,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` item: QListWidgetItem `
+    /// ` _item: QListWidgetItem `
     ///
-    pub fn ItemWidget(self: KCompletionBox, item: anytype) QWidget {
-        comptime _ = @TypeOf(item)._is_QListWidgetItem;
-        return .{ .ptr = qtc.QListWidget_ItemWidget(@ptrCast(self.ptr), @ptrCast(item.ptr)) };
+    pub fn itemWidget(self: KCompletionBox, _item: anytype) QWidget {
+        comptime _ = @TypeOf(_item)._is_QListWidgetItem;
+        return .{ .ptr = qtc.QListWidget_ItemWidget(@ptrCast(self.ptr), @ptrCast(_item.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setItemWidget` instead
+    ///
+    pub const SetItemWidget = setItemWidget;
 
     /// Inherited from QListWidget
     ///
@@ -1350,15 +1646,19 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` item: QListWidgetItem `
+    /// ` _item: QListWidgetItem `
     ///
     /// ` widget: QWidget `
     ///
-    pub fn SetItemWidget(self: KCompletionBox, item: anytype, widget: anytype) void {
-        comptime _ = @TypeOf(item)._is_QListWidgetItem;
+    pub fn setItemWidget(self: KCompletionBox, _item: anytype, widget: anytype) void {
+        comptime _ = @TypeOf(_item)._is_QListWidgetItem;
         comptime _ = @TypeOf(widget)._is_QWidget;
-        qtc.QListWidget_SetItemWidget(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(widget.ptr));
+        qtc.QListWidget_SetItemWidget(@ptrCast(self.ptr), @ptrCast(_item.ptr), @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeItemWidget` instead
+    ///
+    pub const RemoveItemWidget = removeItemWidget;
 
     /// Inherited from QListWidget
     ///
@@ -1368,12 +1668,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` item: QListWidgetItem `
+    /// ` _item: QListWidgetItem `
     ///
-    pub fn RemoveItemWidget(self: KCompletionBox, item: anytype) void {
-        comptime _ = @TypeOf(item)._is_QListWidgetItem;
-        qtc.QListWidget_RemoveItemWidget(@ptrCast(self.ptr), @ptrCast(item.ptr));
+    pub fn removeItemWidget(self: KCompletionBox, _item: anytype) void {
+        comptime _ = @TypeOf(_item)._is_QListWidgetItem;
+        qtc.QListWidget_RemoveItemWidget(@ptrCast(self.ptr), @ptrCast(_item.ptr));
     }
+
+    /// ### DEPRECATED: Use `selectedItems` instead
+    ///
+    pub const SelectedItems = selectedItems;
 
     /// Inherited from QListWidget
     ///
@@ -1385,15 +1689,19 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SelectedItems(self: KCompletionBox, allocator: std.mem.Allocator) []QListWidgetItem {
+    pub fn selectedItems(self: KCompletionBox, allocator: std.mem.Allocator) []QListWidgetItem {
         const _arr: qtc.libqt_list = qtc.QListWidget_SelectedItems(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QListWidgetItem, _arr.len) catch @panic("KCompletionBox.SelectedItems: Memory allocation failed");
-        const _data: [*]QtC.QListWidgetItem = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QListWidgetItem, _arr.len) catch @panic("KCompletionBox.selectedItems: Memory allocation failed");
+        const _data_val: [*]QtC.QListWidgetItem = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `findItems` instead
+    ///
+    pub const FindItems = findItems;
 
     /// Inherited from QListWidget
     ///
@@ -1409,19 +1717,23 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.MatchFlag `
     ///
-    pub fn FindItems(self: KCompletionBox, allocator: std.mem.Allocator, text: []const u8, flags: i32) []QListWidgetItem {
+    pub fn findItems(self: KCompletionBox, allocator: std.mem.Allocator, text: []const u8, flags: i32) []QListWidgetItem {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         const _arr: qtc.libqt_list = qtc.QListWidget_FindItems(@ptrCast(self.ptr), text_str, @bitCast(flags));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QListWidgetItem, _arr.len) catch @panic("KCompletionBox.FindItems: Memory allocation failed");
-        const _data: [*]QtC.QListWidgetItem = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QListWidgetItem, _arr.len) catch @panic("KCompletionBox.findItems: Memory allocation failed");
+        const _data_val: [*]QtC.QListWidgetItem = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `indexFromItem` instead
+    ///
+    pub const IndexFromItem = indexFromItem;
 
     /// Inherited from QListWidget
     ///
@@ -1431,12 +1743,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` item: QListWidgetItem `
+    /// ` _item: QListWidgetItem `
     ///
-    pub fn IndexFromItem(self: KCompletionBox, item: anytype) QModelIndex {
-        comptime _ = @TypeOf(item)._is_QListWidgetItem;
-        return .{ .ptr = qtc.QListWidget_IndexFromItem(@ptrCast(self.ptr), @ptrCast(item.ptr)) };
+    pub fn indexFromItem(self: KCompletionBox, _item: anytype) QModelIndex {
+        comptime _ = @TypeOf(_item)._is_QListWidgetItem;
+        return .{ .ptr = qtc.QListWidget_IndexFromItem(@ptrCast(self.ptr), @ptrCast(_item.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `itemFromIndex` instead
+    ///
+    pub const ItemFromIndex = itemFromIndex;
 
     /// Inherited from QListWidget
     ///
@@ -1448,10 +1764,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn ItemFromIndex(self: KCompletionBox, index: anytype) QListWidgetItem {
+    pub fn itemFromIndex(self: KCompletionBox, index: anytype) QListWidgetItem {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.QListWidget_ItemFromIndex(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `scrollToItem` instead
+    ///
+    pub const ScrollToItem = scrollToItem;
 
     /// Inherited from QListWidget
     ///
@@ -1461,12 +1781,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` item: QListWidgetItem `
+    /// ` _item: QListWidgetItem `
     ///
-    pub fn ScrollToItem(self: KCompletionBox, item: anytype) void {
-        comptime _ = @TypeOf(item)._is_QListWidgetItem;
-        qtc.QListWidget_ScrollToItem(@ptrCast(self.ptr), @ptrCast(item.ptr));
+    pub fn scrollToItem(self: KCompletionBox, _item: anytype) void {
+        comptime _ = @TypeOf(_item)._is_QListWidgetItem;
+        qtc.QListWidget_ScrollToItem(@ptrCast(self.ptr), @ptrCast(_item.ptr));
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// Inherited from QListWidget
     ///
@@ -1476,10 +1800,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn Clear(self: KCompletionBox) void {
+    pub fn clear(self: KCompletionBox) void {
         qtc.QListWidget_Clear(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `itemPressed` instead
+    ///
+    pub const ItemPressed = itemPressed;
+
     /// Inherited from QListWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#itemPressed)
@@ -1488,12 +1816,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` item: QListWidgetItem `
+    /// ` _item: QListWidgetItem `
     ///
-    pub fn ItemPressed(self: KCompletionBox, item: anytype) void {
-        comptime _ = @TypeOf(item)._is_QListWidgetItem;
-        qtc.QListWidget_ItemPressed(@ptrCast(self.ptr), @ptrCast(item.ptr));
+    pub fn itemPressed(self: KCompletionBox, _item: anytype) void {
+        comptime _ = @TypeOf(_item)._is_QListWidgetItem;
+        qtc.QListWidget_ItemPressed(@ptrCast(self.ptr), @ptrCast(_item.ptr));
     }
+
+    /// ### DEPRECATED: Use `onItemPressed` instead
+    ///
+    pub const OnItemPressed = onItemPressed;
 
     /// Inherited from QListWidget
     ///
@@ -1505,10 +1837,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, item: QListWidgetItem) callconv(.c) void `
     ///
-    pub fn OnItemPressed(self: KCompletionBox, callback: *const fn (KCompletionBox, QListWidgetItem) callconv(.c) void) void {
+    pub fn onItemPressed(self: KCompletionBox, callback: *const fn (KCompletionBox, QListWidgetItem) callconv(.c) void) void {
         qtc.QListWidget_Connect_ItemPressed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `itemClicked` instead
+    ///
+    pub const ItemClicked = itemClicked;
+
     /// Inherited from QListWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#itemClicked)
@@ -1517,12 +1853,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` item: QListWidgetItem `
+    /// ` _item: QListWidgetItem `
     ///
-    pub fn ItemClicked(self: KCompletionBox, item: anytype) void {
-        comptime _ = @TypeOf(item)._is_QListWidgetItem;
-        qtc.QListWidget_ItemClicked(@ptrCast(self.ptr), @ptrCast(item.ptr));
+    pub fn itemClicked(self: KCompletionBox, _item: anytype) void {
+        comptime _ = @TypeOf(_item)._is_QListWidgetItem;
+        qtc.QListWidget_ItemClicked(@ptrCast(self.ptr), @ptrCast(_item.ptr));
     }
+
+    /// ### DEPRECATED: Use `onItemClicked` instead
+    ///
+    pub const OnItemClicked = onItemClicked;
 
     /// Inherited from QListWidget
     ///
@@ -1534,10 +1874,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, item: QListWidgetItem) callconv(.c) void `
     ///
-    pub fn OnItemClicked(self: KCompletionBox, callback: *const fn (KCompletionBox, QListWidgetItem) callconv(.c) void) void {
+    pub fn onItemClicked(self: KCompletionBox, callback: *const fn (KCompletionBox, QListWidgetItem) callconv(.c) void) void {
         qtc.QListWidget_Connect_ItemClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `itemDoubleClicked` instead
+    ///
+    pub const ItemDoubleClicked = itemDoubleClicked;
+
     /// Inherited from QListWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#itemDoubleClicked)
@@ -1546,12 +1890,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` item: QListWidgetItem `
+    /// ` _item: QListWidgetItem `
     ///
-    pub fn ItemDoubleClicked(self: KCompletionBox, item: anytype) void {
-        comptime _ = @TypeOf(item)._is_QListWidgetItem;
-        qtc.QListWidget_ItemDoubleClicked(@ptrCast(self.ptr), @ptrCast(item.ptr));
+    pub fn itemDoubleClicked(self: KCompletionBox, _item: anytype) void {
+        comptime _ = @TypeOf(_item)._is_QListWidgetItem;
+        qtc.QListWidget_ItemDoubleClicked(@ptrCast(self.ptr), @ptrCast(_item.ptr));
     }
+
+    /// ### DEPRECATED: Use `onItemDoubleClicked` instead
+    ///
+    pub const OnItemDoubleClicked = onItemDoubleClicked;
 
     /// Inherited from QListWidget
     ///
@@ -1563,10 +1911,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, item: QListWidgetItem) callconv(.c) void `
     ///
-    pub fn OnItemDoubleClicked(self: KCompletionBox, callback: *const fn (KCompletionBox, QListWidgetItem) callconv(.c) void) void {
+    pub fn onItemDoubleClicked(self: KCompletionBox, callback: *const fn (KCompletionBox, QListWidgetItem) callconv(.c) void) void {
         qtc.QListWidget_Connect_ItemDoubleClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `itemActivated` instead
+    ///
+    pub const ItemActivated = itemActivated;
+
     /// Inherited from QListWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#itemActivated)
@@ -1575,12 +1927,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` item: QListWidgetItem `
+    /// ` _item: QListWidgetItem `
     ///
-    pub fn ItemActivated(self: KCompletionBox, item: anytype) void {
-        comptime _ = @TypeOf(item)._is_QListWidgetItem;
-        qtc.QListWidget_ItemActivated(@ptrCast(self.ptr), @ptrCast(item.ptr));
+    pub fn itemActivated(self: KCompletionBox, _item: anytype) void {
+        comptime _ = @TypeOf(_item)._is_QListWidgetItem;
+        qtc.QListWidget_ItemActivated(@ptrCast(self.ptr), @ptrCast(_item.ptr));
     }
+
+    /// ### DEPRECATED: Use `onItemActivated` instead
+    ///
+    pub const OnItemActivated = onItemActivated;
 
     /// Inherited from QListWidget
     ///
@@ -1592,10 +1948,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, item: QListWidgetItem) callconv(.c) void `
     ///
-    pub fn OnItemActivated(self: KCompletionBox, callback: *const fn (KCompletionBox, QListWidgetItem) callconv(.c) void) void {
+    pub fn onItemActivated(self: KCompletionBox, callback: *const fn (KCompletionBox, QListWidgetItem) callconv(.c) void) void {
         qtc.QListWidget_Connect_ItemActivated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `itemEntered` instead
+    ///
+    pub const ItemEntered = itemEntered;
+
     /// Inherited from QListWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#itemEntered)
@@ -1604,12 +1964,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` item: QListWidgetItem `
+    /// ` _item: QListWidgetItem `
     ///
-    pub fn ItemEntered(self: KCompletionBox, item: anytype) void {
-        comptime _ = @TypeOf(item)._is_QListWidgetItem;
-        qtc.QListWidget_ItemEntered(@ptrCast(self.ptr), @ptrCast(item.ptr));
+    pub fn itemEntered(self: KCompletionBox, _item: anytype) void {
+        comptime _ = @TypeOf(_item)._is_QListWidgetItem;
+        qtc.QListWidget_ItemEntered(@ptrCast(self.ptr), @ptrCast(_item.ptr));
     }
+
+    /// ### DEPRECATED: Use `onItemEntered` instead
+    ///
+    pub const OnItemEntered = onItemEntered;
 
     /// Inherited from QListWidget
     ///
@@ -1621,10 +1985,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, item: QListWidgetItem) callconv(.c) void `
     ///
-    pub fn OnItemEntered(self: KCompletionBox, callback: *const fn (KCompletionBox, QListWidgetItem) callconv(.c) void) void {
+    pub fn onItemEntered(self: KCompletionBox, callback: *const fn (KCompletionBox, QListWidgetItem) callconv(.c) void) void {
         qtc.QListWidget_Connect_ItemEntered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `itemChanged` instead
+    ///
+    pub const ItemChanged = itemChanged;
+
     /// Inherited from QListWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#itemChanged)
@@ -1633,12 +2001,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` item: QListWidgetItem `
+    /// ` _item: QListWidgetItem `
     ///
-    pub fn ItemChanged(self: KCompletionBox, item: anytype) void {
-        comptime _ = @TypeOf(item)._is_QListWidgetItem;
-        qtc.QListWidget_ItemChanged(@ptrCast(self.ptr), @ptrCast(item.ptr));
+    pub fn itemChanged(self: KCompletionBox, _item: anytype) void {
+        comptime _ = @TypeOf(_item)._is_QListWidgetItem;
+        qtc.QListWidget_ItemChanged(@ptrCast(self.ptr), @ptrCast(_item.ptr));
     }
+
+    /// ### DEPRECATED: Use `onItemChanged` instead
+    ///
+    pub const OnItemChanged = onItemChanged;
 
     /// Inherited from QListWidget
     ///
@@ -1650,9 +2022,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, item: QListWidgetItem) callconv(.c) void `
     ///
-    pub fn OnItemChanged(self: KCompletionBox, callback: *const fn (KCompletionBox, QListWidgetItem) callconv(.c) void) void {
+    pub fn onItemChanged(self: KCompletionBox, callback: *const fn (KCompletionBox, QListWidgetItem) callconv(.c) void) void {
         qtc.QListWidget_Connect_ItemChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `currentItemChanged` instead
+    ///
+    pub const CurrentItemChanged = currentItemChanged;
 
     /// Inherited from QListWidget
     ///
@@ -1666,11 +2042,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` previous: QListWidgetItem `
     ///
-    pub fn CurrentItemChanged(self: KCompletionBox, current: anytype, previous: anytype) void {
+    pub fn currentItemChanged(self: KCompletionBox, current: anytype, previous: anytype) void {
         comptime _ = @TypeOf(current)._is_QListWidgetItem;
         comptime _ = @TypeOf(previous)._is_QListWidgetItem;
         qtc.QListWidget_CurrentItemChanged(@ptrCast(self.ptr), @ptrCast(current.ptr), @ptrCast(previous.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCurrentItemChanged` instead
+    ///
+    pub const OnCurrentItemChanged = onCurrentItemChanged;
 
     /// Inherited from QListWidget
     ///
@@ -1682,9 +2062,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, current: QListWidgetItem, previous: QListWidgetItem) callconv(.c) void `
     ///
-    pub fn OnCurrentItemChanged(self: KCompletionBox, callback: *const fn (KCompletionBox, QListWidgetItem, QListWidgetItem) callconv(.c) void) void {
+    pub fn onCurrentItemChanged(self: KCompletionBox, callback: *const fn (KCompletionBox, QListWidgetItem, QListWidgetItem) callconv(.c) void) void {
         qtc.QListWidget_Connect_CurrentItemChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `currentTextChanged` instead
+    ///
+    pub const CurrentTextChanged = currentTextChanged;
 
     /// Inherited from QListWidget
     ///
@@ -1696,13 +2080,17 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` currentText: []const u8 `
     ///
-    pub fn CurrentTextChanged(self: KCompletionBox, currentText: []const u8) void {
+    pub fn currentTextChanged(self: KCompletionBox, currentText: []const u8) void {
         const currentText_str = qtc.libqt_string{
             .len = currentText.len,
             .data = currentText.ptr,
         };
         qtc.QListWidget_CurrentTextChanged(@ptrCast(self.ptr), currentText_str);
     }
+
+    /// ### DEPRECATED: Use `onCurrentTextChanged` instead
+    ///
+    pub const OnCurrentTextChanged = onCurrentTextChanged;
 
     /// Inherited from QListWidget
     ///
@@ -1714,9 +2102,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, currentText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnCurrentTextChanged(self: KCompletionBox, callback: *const fn (KCompletionBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onCurrentTextChanged(self: KCompletionBox, callback: *const fn (KCompletionBox, [*:0]const u8) callconv(.c) void) void {
         qtc.QListWidget_Connect_CurrentTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `currentRowChanged` instead
+    ///
+    pub const CurrentRowChanged = currentRowChanged;
 
     /// Inherited from QListWidget
     ///
@@ -1726,11 +2118,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` currentRow: i32 `
+    /// ` _currentRow: i32 `
     ///
-    pub fn CurrentRowChanged(self: KCompletionBox, currentRow: i32) void {
-        qtc.QListWidget_CurrentRowChanged(@ptrCast(self.ptr), @bitCast(currentRow));
+    pub fn currentRowChanged(self: KCompletionBox, _currentRow: i32) void {
+        qtc.QListWidget_CurrentRowChanged(@ptrCast(self.ptr), @bitCast(_currentRow));
     }
+
+    /// ### DEPRECATED: Use `onCurrentRowChanged` instead
+    ///
+    pub const OnCurrentRowChanged = onCurrentRowChanged;
 
     /// Inherited from QListWidget
     ///
@@ -1742,9 +2138,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, currentRow: i32) callconv(.c) void `
     ///
-    pub fn OnCurrentRowChanged(self: KCompletionBox, callback: *const fn (KCompletionBox, i32) callconv(.c) void) void {
+    pub fn onCurrentRowChanged(self: KCompletionBox, callback: *const fn (KCompletionBox, i32) callconv(.c) void) void {
         qtc.QListWidget_Connect_CurrentRowChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `itemSelectionChanged` instead
+    ///
+    pub const ItemSelectionChanged = itemSelectionChanged;
 
     /// Inherited from QListWidget
     ///
@@ -1754,9 +2154,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn ItemSelectionChanged(self: KCompletionBox) void {
+    pub fn itemSelectionChanged(self: KCompletionBox) void {
         qtc.QListWidget_ItemSelectionChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onItemSelectionChanged` instead
+    ///
+    pub const OnItemSelectionChanged = onItemSelectionChanged;
 
     /// Inherited from QListWidget
     ///
@@ -1768,9 +2172,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox) callconv(.c) void `
     ///
-    pub fn OnItemSelectionChanged(self: KCompletionBox, callback: *const fn (KCompletionBox) callconv(.c) void) void {
+    pub fn onItemSelectionChanged(self: KCompletionBox, callback: *const fn (KCompletionBox) callconv(.c) void) void {
         qtc.QListWidget_Connect_ItemSelectionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sortItems1` instead
+    ///
+    pub const SortItems1 = sortItems1;
 
     /// Inherited from QListWidget
     ///
@@ -1782,9 +2190,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` order: qnamespace_enums.SortOrder `
     ///
-    pub fn SortItems1(self: KCompletionBox, order: i32) void {
+    pub fn sortItems1(self: KCompletionBox, order: i32) void {
         qtc.QListWidget_SortItems1(@ptrCast(self.ptr), @bitCast(order));
     }
+
+    /// ### DEPRECATED: Use `scrollToItem2` instead
+    ///
+    pub const ScrollToItem2 = scrollToItem2;
 
     /// Inherited from QListWidget
     ///
@@ -1794,14 +2206,18 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` item: QListWidgetItem `
+    /// ` _item: QListWidgetItem `
     ///
     /// ` hint: qabstractitemview_enums.ScrollHint `
     ///
-    pub fn ScrollToItem2(self: KCompletionBox, item: anytype, hint: i32) void {
-        comptime _ = @TypeOf(item)._is_QListWidgetItem;
-        qtc.QListWidget_ScrollToItem2(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(hint));
+    pub fn scrollToItem2(self: KCompletionBox, _item: anytype, hint: i32) void {
+        comptime _ = @TypeOf(_item)._is_QListWidgetItem;
+        qtc.QListWidget_ScrollToItem2(@ptrCast(self.ptr), @ptrCast(_item.ptr), @bitCast(hint));
     }
+
+    /// ### DEPRECATED: Use `setMovement` instead
+    ///
+    pub const SetMovement = setMovement;
 
     /// Inherited from QListView
     ///
@@ -1811,11 +2227,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` movement: qlistview_enums.Movement `
+    /// ` _movement: qlistview_enums.Movement `
     ///
-    pub fn SetMovement(self: KCompletionBox, movement: i32) void {
-        qtc.QListView_SetMovement(@ptrCast(self.ptr), @bitCast(movement));
+    pub fn setMovement(self: KCompletionBox, _movement: i32) void {
+        qtc.QListView_SetMovement(@ptrCast(self.ptr), @bitCast(_movement));
     }
+
+    /// ### DEPRECATED: Use `movement` instead
+    ///
+    pub const Movement = movement;
 
     /// Inherited from QListView
     ///
@@ -1829,9 +2249,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` qlistview_enums.Movement `
     ///
-    pub fn Movement(self: KCompletionBox) i32 {
+    pub fn movement(self: KCompletionBox) i32 {
         return qtc.QListView_Movement(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFlow` instead
+    ///
+    pub const SetFlow = setFlow;
 
     /// Inherited from QListView
     ///
@@ -1841,11 +2265,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` flow: qlistview_enums.Flow `
+    /// ` _flow: qlistview_enums.Flow `
     ///
-    pub fn SetFlow(self: KCompletionBox, flow: i32) void {
-        qtc.QListView_SetFlow(@ptrCast(self.ptr), @bitCast(flow));
+    pub fn setFlow(self: KCompletionBox, _flow: i32) void {
+        qtc.QListView_SetFlow(@ptrCast(self.ptr), @bitCast(_flow));
     }
+
+    /// ### DEPRECATED: Use `flow` instead
+    ///
+    pub const Flow = flow;
 
     /// Inherited from QListView
     ///
@@ -1859,9 +2287,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` qlistview_enums.Flow `
     ///
-    pub fn Flow(self: KCompletionBox) i32 {
+    pub fn flow(self: KCompletionBox) i32 {
         return qtc.QListView_Flow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWrapping` instead
+    ///
+    pub const SetWrapping = setWrapping;
 
     /// Inherited from QListView
     ///
@@ -1873,9 +2305,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetWrapping(self: KCompletionBox, enable: bool) void {
+    pub fn setWrapping(self: KCompletionBox, enable: bool) void {
         qtc.QListView_SetWrapping(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `isWrapping` instead
+    ///
+    pub const IsWrapping = isWrapping;
 
     /// Inherited from QListView
     ///
@@ -1885,9 +2321,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn IsWrapping(self: KCompletionBox) bool {
+    pub fn isWrapping(self: KCompletionBox) bool {
         return qtc.QListView_IsWrapping(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setResizeMode` instead
+    ///
+    pub const SetResizeMode = setResizeMode;
 
     /// Inherited from QListView
     ///
@@ -1899,9 +2339,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` mode: qlistview_enums.ResizeMode `
     ///
-    pub fn SetResizeMode(self: KCompletionBox, mode: i32) void {
+    pub fn setResizeMode(self: KCompletionBox, mode: i32) void {
         qtc.QListView_SetResizeMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `resizeMode` instead
+    ///
+    pub const ResizeMode = resizeMode;
 
     /// Inherited from QListView
     ///
@@ -1915,9 +2359,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` qlistview_enums.ResizeMode `
     ///
-    pub fn ResizeMode(self: KCompletionBox) i32 {
+    pub fn resizeMode(self: KCompletionBox) i32 {
         return qtc.QListView_ResizeMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLayoutMode` instead
+    ///
+    pub const SetLayoutMode = setLayoutMode;
 
     /// Inherited from QListView
     ///
@@ -1929,9 +2377,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` mode: qlistview_enums.LayoutMode `
     ///
-    pub fn SetLayoutMode(self: KCompletionBox, mode: i32) void {
+    pub fn setLayoutMode(self: KCompletionBox, mode: i32) void {
         qtc.QListView_SetLayoutMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `layoutMode` instead
+    ///
+    pub const LayoutMode = layoutMode;
 
     /// Inherited from QListView
     ///
@@ -1945,9 +2397,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` qlistview_enums.LayoutMode `
     ///
-    pub fn LayoutMode(self: KCompletionBox) i32 {
+    pub fn layoutMode(self: KCompletionBox) i32 {
         return qtc.QListView_LayoutMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSpacing` instead
+    ///
+    pub const SetSpacing = setSpacing;
 
     /// Inherited from QListView
     ///
@@ -1959,9 +2415,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` space: i32 `
     ///
-    pub fn SetSpacing(self: KCompletionBox, space: i32) void {
+    pub fn setSpacing(self: KCompletionBox, space: i32) void {
         qtc.QListView_SetSpacing(@ptrCast(self.ptr), @bitCast(space));
     }
+
+    /// ### DEPRECATED: Use `spacing` instead
+    ///
+    pub const Spacing = spacing;
 
     /// Inherited from QListView
     ///
@@ -1971,9 +2431,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn Spacing(self: KCompletionBox) i32 {
+    pub fn spacing(self: KCompletionBox) i32 {
         return qtc.QListView_Spacing(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBatchSize` instead
+    ///
+    pub const SetBatchSize = setBatchSize;
 
     /// Inherited from QListView
     ///
@@ -1983,11 +2447,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` batchSize: i32 `
+    /// ` _batchSize: i32 `
     ///
-    pub fn SetBatchSize(self: KCompletionBox, batchSize: i32) void {
-        qtc.QListView_SetBatchSize(@ptrCast(self.ptr), @bitCast(batchSize));
+    pub fn setBatchSize(self: KCompletionBox, _batchSize: i32) void {
+        qtc.QListView_SetBatchSize(@ptrCast(self.ptr), @bitCast(_batchSize));
     }
+
+    /// ### DEPRECATED: Use `batchSize` instead
+    ///
+    pub const BatchSize = batchSize;
 
     /// Inherited from QListView
     ///
@@ -1997,9 +2465,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn BatchSize(self: KCompletionBox) i32 {
+    pub fn batchSize(self: KCompletionBox) i32 {
         return qtc.QListView_BatchSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGridSize` instead
+    ///
+    pub const SetGridSize = setGridSize;
 
     /// Inherited from QListView
     ///
@@ -2009,12 +2481,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` size: QSize `
+    /// ` _size: QSize `
     ///
-    pub fn SetGridSize(self: KCompletionBox, size: anytype) void {
-        comptime _ = @TypeOf(size)._is_QSize;
-        qtc.QListView_SetGridSize(@ptrCast(self.ptr), @ptrCast(size.ptr));
+    pub fn setGridSize(self: KCompletionBox, _size: anytype) void {
+        comptime _ = @TypeOf(_size)._is_QSize;
+        qtc.QListView_SetGridSize(@ptrCast(self.ptr), @ptrCast(_size.ptr));
     }
+
+    /// ### DEPRECATED: Use `gridSize` instead
+    ///
+    pub const GridSize = gridSize;
 
     /// Inherited from QListView
     ///
@@ -2024,9 +2500,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn GridSize(self: KCompletionBox) QSize {
+    pub fn gridSize(self: KCompletionBox) QSize {
         return .{ .ptr = qtc.QListView_GridSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setViewMode` instead
+    ///
+    pub const SetViewMode = setViewMode;
 
     /// Inherited from QListView
     ///
@@ -2038,9 +2518,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` mode: qlistview_enums.ViewMode `
     ///
-    pub fn SetViewMode(self: KCompletionBox, mode: i32) void {
+    pub fn setViewMode(self: KCompletionBox, mode: i32) void {
         qtc.QListView_SetViewMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `viewMode` instead
+    ///
+    pub const ViewMode = viewMode;
 
     /// Inherited from QListView
     ///
@@ -2054,9 +2538,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` qlistview_enums.ViewMode `
     ///
-    pub fn ViewMode(self: KCompletionBox) i32 {
+    pub fn viewMode(self: KCompletionBox) i32 {
         return qtc.QListView_ViewMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearPropertyFlags` instead
+    ///
+    pub const ClearPropertyFlags = clearPropertyFlags;
 
     /// Inherited from QListView
     ///
@@ -2066,9 +2554,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn ClearPropertyFlags(self: KCompletionBox) void {
+    pub fn clearPropertyFlags(self: KCompletionBox) void {
         qtc.QListView_ClearPropertyFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRowHidden` instead
+    ///
+    pub const IsRowHidden = isRowHidden;
 
     /// Inherited from QListView
     ///
@@ -2078,11 +2570,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
-    pub fn IsRowHidden(self: KCompletionBox, row: i32) bool {
-        return qtc.QListView_IsRowHidden(@ptrCast(self.ptr), @bitCast(row));
+    pub fn isRowHidden(self: KCompletionBox, _row: i32) bool {
+        return qtc.QListView_IsRowHidden(@ptrCast(self.ptr), @bitCast(_row));
     }
+
+    /// ### DEPRECATED: Use `setRowHidden` instead
+    ///
+    pub const SetRowHidden = setRowHidden;
 
     /// Inherited from QListView
     ///
@@ -2092,13 +2588,17 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
-    /// ` hide: bool `
+    /// ` _hide: bool `
     ///
-    pub fn SetRowHidden(self: KCompletionBox, row: i32, hide: bool) void {
-        qtc.QListView_SetRowHidden(@ptrCast(self.ptr), @bitCast(row), hide);
+    pub fn setRowHidden(self: KCompletionBox, _row: i32, _hide: bool) void {
+        qtc.QListView_SetRowHidden(@ptrCast(self.ptr), @bitCast(_row), _hide);
     }
+
+    /// ### DEPRECATED: Use `setModelColumn` instead
+    ///
+    pub const SetModelColumn = setModelColumn;
 
     /// Inherited from QListView
     ///
@@ -2110,9 +2610,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn SetModelColumn(self: KCompletionBox, column: i32) void {
+    pub fn setModelColumn(self: KCompletionBox, column: i32) void {
         qtc.QListView_SetModelColumn(@ptrCast(self.ptr), @bitCast(column));
     }
+
+    /// ### DEPRECATED: Use `modelColumn` instead
+    ///
+    pub const ModelColumn = modelColumn;
 
     /// Inherited from QListView
     ///
@@ -2122,9 +2626,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn ModelColumn(self: KCompletionBox) i32 {
+    pub fn modelColumn(self: KCompletionBox) i32 {
         return qtc.QListView_ModelColumn(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUniformItemSizes` instead
+    ///
+    pub const SetUniformItemSizes = setUniformItemSizes;
 
     /// Inherited from QListView
     ///
@@ -2136,9 +2644,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUniformItemSizes(self: KCompletionBox, enable: bool) void {
+    pub fn setUniformItemSizes(self: KCompletionBox, enable: bool) void {
         qtc.QListView_SetUniformItemSizes(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `uniformItemSizes` instead
+    ///
+    pub const UniformItemSizes = uniformItemSizes;
 
     /// Inherited from QListView
     ///
@@ -2148,9 +2660,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn UniformItemSizes(self: KCompletionBox) bool {
+    pub fn uniformItemSizes(self: KCompletionBox) bool {
         return qtc.QListView_UniformItemSizes(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWordWrap` instead
+    ///
+    pub const SetWordWrap = setWordWrap;
 
     /// Inherited from QListView
     ///
@@ -2162,9 +2678,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWordWrap(self: KCompletionBox, on: bool) void {
+    pub fn setWordWrap(self: KCompletionBox, on: bool) void {
         qtc.QListView_SetWordWrap(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `wordWrap` instead
+    ///
+    pub const WordWrap = wordWrap;
 
     /// Inherited from QListView
     ///
@@ -2174,9 +2694,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn WordWrap(self: KCompletionBox) bool {
+    pub fn wordWrap(self: KCompletionBox) bool {
         return qtc.QListView_WordWrap(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSelectionRectVisible` instead
+    ///
+    pub const SetSelectionRectVisible = setSelectionRectVisible;
 
     /// Inherited from QListView
     ///
@@ -2186,11 +2710,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` show: bool `
+    /// ` _show: bool `
     ///
-    pub fn SetSelectionRectVisible(self: KCompletionBox, show: bool) void {
-        qtc.QListView_SetSelectionRectVisible(@ptrCast(self.ptr), show);
+    pub fn setSelectionRectVisible(self: KCompletionBox, _show: bool) void {
+        qtc.QListView_SetSelectionRectVisible(@ptrCast(self.ptr), _show);
     }
+
+    /// ### DEPRECATED: Use `isSelectionRectVisible` instead
+    ///
+    pub const IsSelectionRectVisible = isSelectionRectVisible;
 
     /// Inherited from QListView
     ///
@@ -2200,9 +2728,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn IsSelectionRectVisible(self: KCompletionBox) bool {
+    pub fn isSelectionRectVisible(self: KCompletionBox) bool {
         return qtc.QListView_IsSelectionRectVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setItemAlignment` instead
+    ///
+    pub const SetItemAlignment = setItemAlignment;
 
     /// Inherited from QListView
     ///
@@ -2214,9 +2746,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn SetItemAlignment(self: KCompletionBox, alignment: i32) void {
+    pub fn setItemAlignment(self: KCompletionBox, alignment: i32) void {
         qtc.QListView_SetItemAlignment(@ptrCast(self.ptr), @bitCast(alignment));
     }
+
+    /// ### DEPRECATED: Use `itemAlignment` instead
+    ///
+    pub const ItemAlignment = itemAlignment;
 
     /// Inherited from QListView
     ///
@@ -2230,9 +2766,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn ItemAlignment(self: KCompletionBox) i32 {
+    pub fn itemAlignment(self: KCompletionBox) i32 {
         return qtc.QListView_ItemAlignment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `indexesMoved` instead
+    ///
+    pub const IndexesMoved = indexesMoved;
 
     /// Inherited from QListView
     ///
@@ -2244,13 +2784,17 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` indexes: []QModelIndex `
     ///
-    pub fn IndexesMoved(self: KCompletionBox, indexes: []QModelIndex) void {
+    pub fn indexesMoved(self: KCompletionBox, indexes: []QModelIndex) void {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
         qtc.QListView_IndexesMoved(@ptrCast(self.ptr), indexes_list);
     }
+
+    /// ### DEPRECATED: Use `onIndexesMoved` instead
+    ///
+    pub const OnIndexesMoved = onIndexesMoved;
 
     /// Inherited from QListView
     ///
@@ -2262,9 +2806,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, indexes: qtc.libqt_list ([]QModelIndex)) callconv(.c) void `
     ///
-    pub fn OnIndexesMoved(self: KCompletionBox, callback: *const fn (KCompletionBox, qtc.libqt_list) callconv(.c) void) void {
+    pub fn onIndexesMoved(self: KCompletionBox, callback: *const fn (KCompletionBox, qtc.libqt_list) callconv(.c) void) void {
         qtc.QListView_Connect_IndexesMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setModel` instead
+    ///
+    pub const SetModel = setModel;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2274,12 +2822,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` model: QAbstractItemModel `
+    /// ` _model: QAbstractItemModel `
     ///
-    pub fn SetModel(self: KCompletionBox, model: anytype) void {
-        comptime _ = @TypeOf(model)._is_QAbstractItemModel;
-        qtc.QAbstractItemView_SetModel(@ptrCast(self.ptr), @ptrCast(model.ptr));
+    pub fn setModel(self: KCompletionBox, _model: anytype) void {
+        comptime _ = @TypeOf(_model)._is_QAbstractItemModel;
+        qtc.QAbstractItemView_SetModel(@ptrCast(self.ptr), @ptrCast(_model.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetModel` instead
+    ///
+    pub const OnSetModel = onSetModel;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2293,13 +2845,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, model: QAbstractItemModel) callconv(.c) void `
     ///
-    pub fn OnSetModel(self: KCompletionBox, callback: *const fn (KCompletionBox, QAbstractItemModel) callconv(.c) void) void {
+    pub fn onSetModel(self: KCompletionBox, callback: *const fn (KCompletionBox, QAbstractItemModel) callconv(.c) void) void {
         qtc.QAbstractItemView_OnSetModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetModel` instead
+    /// ### DEPRECATED: Use `superSetModel` instead
     ///
-    pub const QBaseSetModel = SuperSetModel;
+    pub const SuperSetModel = superSetModel;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2311,12 +2863,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` model: QAbstractItemModel `
+    /// ` _model: QAbstractItemModel `
     ///
-    pub fn SuperSetModel(self: KCompletionBox, model: anytype) void {
-        comptime _ = @TypeOf(model)._is_QAbstractItemModel;
-        qtc.QAbstractItemView_SuperSetModel(@ptrCast(self.ptr), @ptrCast(model.ptr));
+    pub fn superSetModel(self: KCompletionBox, _model: anytype) void {
+        comptime _ = @TypeOf(_model)._is_QAbstractItemModel;
+        qtc.QAbstractItemView_SuperSetModel(@ptrCast(self.ptr), @ptrCast(_model.ptr));
     }
+
+    /// ### DEPRECATED: Use `model` instead
+    ///
+    pub const Model = model;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2326,9 +2882,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn Model(self: KCompletionBox) QAbstractItemModel {
+    pub fn model(self: KCompletionBox) QAbstractItemModel {
         return .{ .ptr = qtc.QAbstractItemView_Model(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `selectionModel` instead
+    ///
+    pub const SelectionModel = selectionModel;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2338,9 +2898,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn SelectionModel(self: KCompletionBox) QItemSelectionModel {
+    pub fn selectionModel(self: KCompletionBox) QItemSelectionModel {
         return .{ .ptr = qtc.QAbstractItemView_SelectionModel(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setItemDelegate` instead
+    ///
+    pub const SetItemDelegate = setItemDelegate;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2352,10 +2916,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` delegate: QAbstractItemDelegate `
     ///
-    pub fn SetItemDelegate(self: KCompletionBox, delegate: anytype) void {
+    pub fn setItemDelegate(self: KCompletionBox, delegate: anytype) void {
         comptime _ = @TypeOf(delegate)._is_QAbstractItemDelegate;
         qtc.QAbstractItemView_SetItemDelegate(@ptrCast(self.ptr), @ptrCast(delegate.ptr));
     }
+
+    /// ### DEPRECATED: Use `itemDelegate` instead
+    ///
+    pub const ItemDelegate = itemDelegate;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2365,9 +2933,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn ItemDelegate(self: KCompletionBox) QAbstractItemDelegate {
+    pub fn itemDelegate(self: KCompletionBox) QAbstractItemDelegate {
         return .{ .ptr = qtc.QAbstractItemView_ItemDelegate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSelectionMode` instead
+    ///
+    pub const SetSelectionMode = setSelectionMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2379,9 +2951,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` mode: qabstractitemview_enums.SelectionMode `
     ///
-    pub fn SetSelectionMode(self: KCompletionBox, mode: i32) void {
+    pub fn setSelectionMode(self: KCompletionBox, mode: i32) void {
         qtc.QAbstractItemView_SetSelectionMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `selectionMode` instead
+    ///
+    pub const SelectionMode = selectionMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2395,9 +2971,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` qabstractitemview_enums.SelectionMode `
     ///
-    pub fn SelectionMode(self: KCompletionBox) i32 {
+    pub fn selectionMode(self: KCompletionBox) i32 {
         return qtc.QAbstractItemView_SelectionMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSelectionBehavior` instead
+    ///
+    pub const SetSelectionBehavior = setSelectionBehavior;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2409,9 +2989,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` behavior: qabstractitemview_enums.SelectionBehavior `
     ///
-    pub fn SetSelectionBehavior(self: KCompletionBox, behavior: i32) void {
+    pub fn setSelectionBehavior(self: KCompletionBox, behavior: i32) void {
         qtc.QAbstractItemView_SetSelectionBehavior(@ptrCast(self.ptr), @bitCast(behavior));
     }
+
+    /// ### DEPRECATED: Use `selectionBehavior` instead
+    ///
+    pub const SelectionBehavior = selectionBehavior;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2425,9 +3009,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` qabstractitemview_enums.SelectionBehavior `
     ///
-    pub fn SelectionBehavior(self: KCompletionBox) i32 {
+    pub fn selectionBehavior(self: KCompletionBox) i32 {
         return qtc.QAbstractItemView_SelectionBehavior(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `currentIndex` instead
+    ///
+    pub const CurrentIndex = currentIndex;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2437,9 +3025,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn CurrentIndex(self: KCompletionBox) QModelIndex {
+    pub fn currentIndex(self: KCompletionBox) QModelIndex {
         return .{ .ptr = qtc.QAbstractItemView_CurrentIndex(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `rootIndex` instead
+    ///
+    pub const RootIndex = rootIndex;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2449,9 +3041,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn RootIndex(self: KCompletionBox) QModelIndex {
+    pub fn rootIndex(self: KCompletionBox) QModelIndex {
         return .{ .ptr = qtc.QAbstractItemView_RootIndex(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setEditTriggers` instead
+    ///
+    pub const SetEditTriggers = setEditTriggers;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2463,9 +3059,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` triggers: flag of qabstractitemview_enums.EditTrigger `
     ///
-    pub fn SetEditTriggers(self: KCompletionBox, triggers: i32) void {
+    pub fn setEditTriggers(self: KCompletionBox, triggers: i32) void {
         qtc.QAbstractItemView_SetEditTriggers(@ptrCast(self.ptr), @bitCast(triggers));
     }
+
+    /// ### DEPRECATED: Use `editTriggers` instead
+    ///
+    pub const EditTriggers = editTriggers;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2479,9 +3079,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` flag of qabstractitemview_enums.EditTrigger `
     ///
-    pub fn EditTriggers(self: KCompletionBox) i32 {
+    pub fn editTriggers(self: KCompletionBox) i32 {
         return qtc.QAbstractItemView_EditTriggers(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setVerticalScrollMode` instead
+    ///
+    pub const SetVerticalScrollMode = setVerticalScrollMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2493,9 +3097,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` mode: qabstractitemview_enums.ScrollMode `
     ///
-    pub fn SetVerticalScrollMode(self: KCompletionBox, mode: i32) void {
+    pub fn setVerticalScrollMode(self: KCompletionBox, mode: i32) void {
         qtc.QAbstractItemView_SetVerticalScrollMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `verticalScrollMode` instead
+    ///
+    pub const VerticalScrollMode = verticalScrollMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2509,9 +3117,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` qabstractitemview_enums.ScrollMode `
     ///
-    pub fn VerticalScrollMode(self: KCompletionBox) i32 {
+    pub fn verticalScrollMode(self: KCompletionBox) i32 {
         return qtc.QAbstractItemView_VerticalScrollMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `resetVerticalScrollMode` instead
+    ///
+    pub const ResetVerticalScrollMode = resetVerticalScrollMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2521,9 +3133,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn ResetVerticalScrollMode(self: KCompletionBox) void {
+    pub fn resetVerticalScrollMode(self: KCompletionBox) void {
         qtc.QAbstractItemView_ResetVerticalScrollMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHorizontalScrollMode` instead
+    ///
+    pub const SetHorizontalScrollMode = setHorizontalScrollMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2535,9 +3151,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` mode: qabstractitemview_enums.ScrollMode `
     ///
-    pub fn SetHorizontalScrollMode(self: KCompletionBox, mode: i32) void {
+    pub fn setHorizontalScrollMode(self: KCompletionBox, mode: i32) void {
         qtc.QAbstractItemView_SetHorizontalScrollMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `horizontalScrollMode` instead
+    ///
+    pub const HorizontalScrollMode = horizontalScrollMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2551,9 +3171,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` qabstractitemview_enums.ScrollMode `
     ///
-    pub fn HorizontalScrollMode(self: KCompletionBox) i32 {
+    pub fn horizontalScrollMode(self: KCompletionBox) i32 {
         return qtc.QAbstractItemView_HorizontalScrollMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `resetHorizontalScrollMode` instead
+    ///
+    pub const ResetHorizontalScrollMode = resetHorizontalScrollMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2563,9 +3187,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn ResetHorizontalScrollMode(self: KCompletionBox) void {
+    pub fn resetHorizontalScrollMode(self: KCompletionBox) void {
         qtc.QAbstractItemView_ResetHorizontalScrollMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoScroll` instead
+    ///
+    pub const SetAutoScroll = setAutoScroll;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2577,9 +3205,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetAutoScroll(self: KCompletionBox, enable: bool) void {
+    pub fn setAutoScroll(self: KCompletionBox, enable: bool) void {
         qtc.QAbstractItemView_SetAutoScroll(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasAutoScroll` instead
+    ///
+    pub const HasAutoScroll = hasAutoScroll;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2589,9 +3221,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn HasAutoScroll(self: KCompletionBox) bool {
+    pub fn hasAutoScroll(self: KCompletionBox) bool {
         return qtc.QAbstractItemView_HasAutoScroll(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoScrollMargin` instead
+    ///
+    pub const SetAutoScrollMargin = setAutoScrollMargin;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2603,9 +3239,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` margin: i32 `
     ///
-    pub fn SetAutoScrollMargin(self: KCompletionBox, margin: i32) void {
+    pub fn setAutoScrollMargin(self: KCompletionBox, margin: i32) void {
         qtc.QAbstractItemView_SetAutoScrollMargin(@ptrCast(self.ptr), @bitCast(margin));
     }
+
+    /// ### DEPRECATED: Use `autoScrollMargin` instead
+    ///
+    pub const AutoScrollMargin = autoScrollMargin;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2615,9 +3255,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn AutoScrollMargin(self: KCompletionBox) i32 {
+    pub fn autoScrollMargin(self: KCompletionBox) i32 {
         return qtc.QAbstractItemView_AutoScrollMargin(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabKeyNavigation` instead
+    ///
+    pub const SetTabKeyNavigation = setTabKeyNavigation;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2629,9 +3273,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabKeyNavigation(self: KCompletionBox, enable: bool) void {
+    pub fn setTabKeyNavigation(self: KCompletionBox, enable: bool) void {
         qtc.QAbstractItemView_SetTabKeyNavigation(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `tabKeyNavigation` instead
+    ///
+    pub const TabKeyNavigation = tabKeyNavigation;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2641,9 +3289,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn TabKeyNavigation(self: KCompletionBox) bool {
+    pub fn tabKeyNavigation(self: KCompletionBox) bool {
         return qtc.QAbstractItemView_TabKeyNavigation(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDropIndicatorShown` instead
+    ///
+    pub const SetDropIndicatorShown = setDropIndicatorShown;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2655,9 +3307,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetDropIndicatorShown(self: KCompletionBox, enable: bool) void {
+    pub fn setDropIndicatorShown(self: KCompletionBox, enable: bool) void {
         qtc.QAbstractItemView_SetDropIndicatorShown(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `showDropIndicator` instead
+    ///
+    pub const ShowDropIndicator = showDropIndicator;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2667,9 +3323,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn ShowDropIndicator(self: KCompletionBox) bool {
+    pub fn showDropIndicator(self: KCompletionBox) bool {
         return qtc.QAbstractItemView_ShowDropIndicator(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDragEnabled` instead
+    ///
+    pub const SetDragEnabled = setDragEnabled;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2681,9 +3341,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetDragEnabled(self: KCompletionBox, enable: bool) void {
+    pub fn setDragEnabled(self: KCompletionBox, enable: bool) void {
         qtc.QAbstractItemView_SetDragEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `dragEnabled` instead
+    ///
+    pub const DragEnabled = dragEnabled;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2693,9 +3357,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn DragEnabled(self: KCompletionBox) bool {
+    pub fn dragEnabled(self: KCompletionBox) bool {
         return qtc.QAbstractItemView_DragEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDragDropOverwriteMode` instead
+    ///
+    pub const SetDragDropOverwriteMode = setDragDropOverwriteMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2707,9 +3375,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` overwrite: bool `
     ///
-    pub fn SetDragDropOverwriteMode(self: KCompletionBox, overwrite: bool) void {
+    pub fn setDragDropOverwriteMode(self: KCompletionBox, overwrite: bool) void {
         qtc.QAbstractItemView_SetDragDropOverwriteMode(@ptrCast(self.ptr), overwrite);
     }
+
+    /// ### DEPRECATED: Use `dragDropOverwriteMode` instead
+    ///
+    pub const DragDropOverwriteMode = dragDropOverwriteMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2719,9 +3391,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn DragDropOverwriteMode(self: KCompletionBox) bool {
+    pub fn dragDropOverwriteMode(self: KCompletionBox) bool {
         return qtc.QAbstractItemView_DragDropOverwriteMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDragDropMode` instead
+    ///
+    pub const SetDragDropMode = setDragDropMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2733,9 +3409,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` behavior: qabstractitemview_enums.DragDropMode `
     ///
-    pub fn SetDragDropMode(self: KCompletionBox, behavior: i32) void {
+    pub fn setDragDropMode(self: KCompletionBox, behavior: i32) void {
         qtc.QAbstractItemView_SetDragDropMode(@ptrCast(self.ptr), @bitCast(behavior));
     }
+
+    /// ### DEPRECATED: Use `dragDropMode` instead
+    ///
+    pub const DragDropMode = dragDropMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2749,9 +3429,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` qabstractitemview_enums.DragDropMode `
     ///
-    pub fn DragDropMode(self: KCompletionBox) i32 {
+    pub fn dragDropMode(self: KCompletionBox) i32 {
         return qtc.QAbstractItemView_DragDropMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDefaultDropAction` instead
+    ///
+    pub const SetDefaultDropAction = setDefaultDropAction;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2763,9 +3447,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` dropAction: qnamespace_enums.DropAction `
     ///
-    pub fn SetDefaultDropAction(self: KCompletionBox, dropAction: i32) void {
+    pub fn setDefaultDropAction(self: KCompletionBox, dropAction: i32) void {
         qtc.QAbstractItemView_SetDefaultDropAction(@ptrCast(self.ptr), @bitCast(dropAction));
     }
+
+    /// ### DEPRECATED: Use `defaultDropAction` instead
+    ///
+    pub const DefaultDropAction = defaultDropAction;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2779,9 +3467,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` qnamespace_enums.DropAction `
     ///
-    pub fn DefaultDropAction(self: KCompletionBox) i32 {
+    pub fn defaultDropAction(self: KCompletionBox) i32 {
         return qtc.QAbstractItemView_DefaultDropAction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAlternatingRowColors` instead
+    ///
+    pub const SetAlternatingRowColors = setAlternatingRowColors;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2793,9 +3485,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetAlternatingRowColors(self: KCompletionBox, enable: bool) void {
+    pub fn setAlternatingRowColors(self: KCompletionBox, enable: bool) void {
         qtc.QAbstractItemView_SetAlternatingRowColors(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `alternatingRowColors` instead
+    ///
+    pub const AlternatingRowColors = alternatingRowColors;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2805,9 +3501,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn AlternatingRowColors(self: KCompletionBox) bool {
+    pub fn alternatingRowColors(self: KCompletionBox) bool {
         return qtc.QAbstractItemView_AlternatingRowColors(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setIconSize` instead
+    ///
+    pub const SetIconSize = setIconSize;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2817,12 +3517,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` size: QSize `
+    /// ` _size: QSize `
     ///
-    pub fn SetIconSize(self: KCompletionBox, size: anytype) void {
-        comptime _ = @TypeOf(size)._is_QSize;
-        qtc.QAbstractItemView_SetIconSize(@ptrCast(self.ptr), @ptrCast(size.ptr));
+    pub fn setIconSize(self: KCompletionBox, _size: anytype) void {
+        comptime _ = @TypeOf(_size)._is_QSize;
+        qtc.QAbstractItemView_SetIconSize(@ptrCast(self.ptr), @ptrCast(_size.ptr));
     }
+
+    /// ### DEPRECATED: Use `iconSize` instead
+    ///
+    pub const IconSize = iconSize;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2832,9 +3536,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn IconSize(self: KCompletionBox) QSize {
+    pub fn iconSize(self: KCompletionBox) QSize {
         return .{ .ptr = qtc.QAbstractItemView_IconSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setTextElideMode` instead
+    ///
+    pub const SetTextElideMode = setTextElideMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2846,9 +3554,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` mode: qnamespace_enums.TextElideMode `
     ///
-    pub fn SetTextElideMode(self: KCompletionBox, mode: i32) void {
+    pub fn setTextElideMode(self: KCompletionBox, mode: i32) void {
         qtc.QAbstractItemView_SetTextElideMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `textElideMode` instead
+    ///
+    pub const TextElideMode = textElideMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2862,9 +3574,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` qnamespace_enums.TextElideMode `
     ///
-    pub fn TextElideMode(self: KCompletionBox) i32 {
+    pub fn textElideMode(self: KCompletionBox) i32 {
         return qtc.QAbstractItemView_TextElideMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `sizeHintForIndex` instead
+    ///
+    pub const SizeHintForIndex = sizeHintForIndex;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2876,10 +3592,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SizeHintForIndex(self: KCompletionBox, index: anytype) QSize {
+    pub fn sizeHintForIndex(self: KCompletionBox, index: anytype) QSize {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.QAbstractItemView_SizeHintForIndex(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setIndexWidget` instead
+    ///
+    pub const SetIndexWidget = setIndexWidget;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2893,11 +3613,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn SetIndexWidget(self: KCompletionBox, index: anytype, widget: anytype) void {
+    pub fn setIndexWidget(self: KCompletionBox, index: anytype, widget: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QAbstractItemView_SetIndexWidget(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `indexWidget` instead
+    ///
+    pub const IndexWidget = indexWidget;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2909,10 +3633,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn IndexWidget(self: KCompletionBox, index: anytype) QWidget {
+    pub fn indexWidget(self: KCompletionBox, index: anytype) QWidget {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.QAbstractItemView_IndexWidget(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setItemDelegateForRow` instead
+    ///
+    pub const SetItemDelegateForRow = setItemDelegateForRow;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2922,14 +3650,18 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
     /// ` delegate: QAbstractItemDelegate `
     ///
-    pub fn SetItemDelegateForRow(self: KCompletionBox, row: i32, delegate: anytype) void {
+    pub fn setItemDelegateForRow(self: KCompletionBox, _row: i32, delegate: anytype) void {
         comptime _ = @TypeOf(delegate)._is_QAbstractItemDelegate;
-        qtc.QAbstractItemView_SetItemDelegateForRow(@ptrCast(self.ptr), @bitCast(row), @ptrCast(delegate.ptr));
+        qtc.QAbstractItemView_SetItemDelegateForRow(@ptrCast(self.ptr), @bitCast(_row), @ptrCast(delegate.ptr));
     }
+
+    /// ### DEPRECATED: Use `itemDelegateForRow` instead
+    ///
+    pub const ItemDelegateForRow = itemDelegateForRow;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2939,11 +3671,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
-    pub fn ItemDelegateForRow(self: KCompletionBox, row: i32) QAbstractItemDelegate {
-        return .{ .ptr = qtc.QAbstractItemView_ItemDelegateForRow(@ptrCast(self.ptr), @bitCast(row)) };
+    pub fn itemDelegateForRow(self: KCompletionBox, _row: i32) QAbstractItemDelegate {
+        return .{ .ptr = qtc.QAbstractItemView_ItemDelegateForRow(@ptrCast(self.ptr), @bitCast(_row)) };
     }
+
+    /// ### DEPRECATED: Use `setItemDelegateForColumn` instead
+    ///
+    pub const SetItemDelegateForColumn = setItemDelegateForColumn;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2957,10 +3693,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` delegate: QAbstractItemDelegate `
     ///
-    pub fn SetItemDelegateForColumn(self: KCompletionBox, column: i32, delegate: anytype) void {
+    pub fn setItemDelegateForColumn(self: KCompletionBox, column: i32, delegate: anytype) void {
         comptime _ = @TypeOf(delegate)._is_QAbstractItemDelegate;
         qtc.QAbstractItemView_SetItemDelegateForColumn(@ptrCast(self.ptr), @bitCast(column), @ptrCast(delegate.ptr));
     }
+
+    /// ### DEPRECATED: Use `itemDelegateForColumn` instead
+    ///
+    pub const ItemDelegateForColumn = itemDelegateForColumn;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2972,9 +3712,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn ItemDelegateForColumn(self: KCompletionBox, column: i32) QAbstractItemDelegate {
+    pub fn itemDelegateForColumn(self: KCompletionBox, column: i32) QAbstractItemDelegate {
         return .{ .ptr = qtc.QAbstractItemView_ItemDelegateForColumn(@ptrCast(self.ptr), @bitCast(column)) };
     }
+
+    /// ### DEPRECATED: Use `itemDelegate2` instead
+    ///
+    pub const ItemDelegate2 = itemDelegate2;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2986,10 +3730,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn ItemDelegate2(self: KCompletionBox, index: anytype) QAbstractItemDelegate {
+    pub fn itemDelegate2(self: KCompletionBox, index: anytype) QAbstractItemDelegate {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.QAbstractItemView_ItemDelegate2(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `edit` instead
+    ///
+    pub const Edit = edit;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3001,10 +3749,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn Edit(self: KCompletionBox, index: anytype) void {
+    pub fn edit(self: KCompletionBox, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QAbstractItemView_Edit(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearSelection` instead
+    ///
+    pub const ClearSelection = clearSelection;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3014,9 +3766,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn ClearSelection(self: KCompletionBox) void {
+    pub fn clearSelection(self: KCompletionBox) void {
         qtc.QAbstractItemView_ClearSelection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCurrentIndex` instead
+    ///
+    pub const SetCurrentIndex = setCurrentIndex;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3028,10 +3784,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SetCurrentIndex(self: KCompletionBox, index: anytype) void {
+    pub fn setCurrentIndex(self: KCompletionBox, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QAbstractItemView_SetCurrentIndex(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `scrollToTop` instead
+    ///
+    pub const ScrollToTop = scrollToTop;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3041,9 +3801,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn ScrollToTop(self: KCompletionBox) void {
+    pub fn scrollToTop(self: KCompletionBox) void {
         qtc.QAbstractItemView_ScrollToTop(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `scrollToBottom` instead
+    ///
+    pub const ScrollToBottom = scrollToBottom;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3053,9 +3817,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn ScrollToBottom(self: KCompletionBox) void {
+    pub fn scrollToBottom(self: KCompletionBox) void {
         qtc.QAbstractItemView_ScrollToBottom(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3067,11 +3835,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn Update(self: KCompletionBox, index: anytype) void {
+    pub fn update(self: KCompletionBox, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QAbstractItemView_Update(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
+    /// ### DEPRECATED: Use `pressed` instead
+    ///
+    pub const Pressed = pressed;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#pressed)
@@ -3082,11 +3854,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn Pressed(self: KCompletionBox, index: anytype) void {
+    pub fn pressed(self: KCompletionBox, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QAbstractItemView_Pressed(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
+    /// ### DEPRECATED: Use `onPressed` instead
+    ///
+    pub const OnPressed = onPressed;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#pressed)
@@ -3097,9 +3873,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnPressed(self: KCompletionBox, callback: *const fn (KCompletionBox, QModelIndex) callconv(.c) void) void {
+    pub fn onPressed(self: KCompletionBox, callback: *const fn (KCompletionBox, QModelIndex) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Pressed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `clicked` instead
+    ///
+    pub const Clicked = clicked;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3111,11 +3891,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn Clicked(self: KCompletionBox, index: anytype) void {
+    pub fn clicked(self: KCompletionBox, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QAbstractItemView_Clicked(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
+    /// ### DEPRECATED: Use `onClicked` instead
+    ///
+    pub const OnClicked = onClicked;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#clicked)
@@ -3126,9 +3910,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnClicked(self: KCompletionBox, callback: *const fn (KCompletionBox, QModelIndex) callconv(.c) void) void {
+    pub fn onClicked(self: KCompletionBox, callback: *const fn (KCompletionBox, QModelIndex) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Clicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `doubleClicked` instead
+    ///
+    pub const DoubleClicked = doubleClicked;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3140,11 +3928,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn DoubleClicked(self: KCompletionBox, index: anytype) void {
+    pub fn doubleClicked(self: KCompletionBox, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QAbstractItemView_DoubleClicked(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
+    /// ### DEPRECATED: Use `onDoubleClicked` instead
+    ///
+    pub const OnDoubleClicked = onDoubleClicked;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doubleClicked)
@@ -3155,9 +3947,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnDoubleClicked(self: KCompletionBox, callback: *const fn (KCompletionBox, QModelIndex) callconv(.c) void) void {
+    pub fn onDoubleClicked(self: KCompletionBox, callback: *const fn (KCompletionBox, QModelIndex) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_DoubleClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `activated` instead
+    ///
+    pub const Activated = activated;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3169,11 +3965,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn Activated(self: KCompletionBox, index: anytype) void {
+    pub fn activated(self: KCompletionBox, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QAbstractItemView_Activated(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
+    /// ### DEPRECATED: Use `onActivated` instead
+    ///
+    pub const OnActivated = onActivated;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#activated)
@@ -3184,9 +3984,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnActivated(self: KCompletionBox, callback: *const fn (KCompletionBox, QModelIndex) callconv(.c) void) void {
+    pub fn onActivated(self: KCompletionBox, callback: *const fn (KCompletionBox, QModelIndex) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Activated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `entered` instead
+    ///
+    pub const Entered = entered;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3198,10 +4002,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn Entered(self: KCompletionBox, index: anytype) void {
+    pub fn entered(self: KCompletionBox, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QAbstractItemView_Entered(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEntered` instead
+    ///
+    pub const OnEntered = onEntered;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3213,9 +4021,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnEntered(self: KCompletionBox, callback: *const fn (KCompletionBox, QModelIndex) callconv(.c) void) void {
+    pub fn onEntered(self: KCompletionBox, callback: *const fn (KCompletionBox, QModelIndex) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Entered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `viewportEntered` instead
+    ///
+    pub const ViewportEntered = viewportEntered;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3225,9 +4037,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn ViewportEntered(self: KCompletionBox) void {
+    pub fn viewportEntered(self: KCompletionBox) void {
         qtc.QAbstractItemView_ViewportEntered(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onViewportEntered` instead
+    ///
+    pub const OnViewportEntered = onViewportEntered;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3239,9 +4055,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox) callconv(.c) void `
     ///
-    pub fn OnViewportEntered(self: KCompletionBox, callback: *const fn (KCompletionBox) callconv(.c) void) void {
+    pub fn onViewportEntered(self: KCompletionBox, callback: *const fn (KCompletionBox) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_ViewportEntered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `iconSizeChanged` instead
+    ///
+    pub const IconSizeChanged = iconSizeChanged;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3251,12 +4071,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` size: QSize `
+    /// ` _size: QSize `
     ///
-    pub fn IconSizeChanged(self: KCompletionBox, size: anytype) void {
-        comptime _ = @TypeOf(size)._is_QSize;
-        qtc.QAbstractItemView_IconSizeChanged(@ptrCast(self.ptr), @ptrCast(size.ptr));
+    pub fn iconSizeChanged(self: KCompletionBox, _size: anytype) void {
+        comptime _ = @TypeOf(_size)._is_QSize;
+        qtc.QAbstractItemView_IconSizeChanged(@ptrCast(self.ptr), @ptrCast(_size.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIconSizeChanged` instead
+    ///
+    pub const OnIconSizeChanged = onIconSizeChanged;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3268,9 +4092,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, size: QSize) callconv(.c) void `
     ///
-    pub fn OnIconSizeChanged(self: KCompletionBox, callback: *const fn (KCompletionBox, QSize) callconv(.c) void) void {
+    pub fn onIconSizeChanged(self: KCompletionBox, callback: *const fn (KCompletionBox, QSize) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_IconSizeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `verticalScrollBarPolicy` instead
+    ///
+    pub const VerticalScrollBarPolicy = verticalScrollBarPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3284,9 +4112,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn VerticalScrollBarPolicy(self: KCompletionBox) i32 {
+    pub fn verticalScrollBarPolicy(self: KCompletionBox) i32 {
         return qtc.QAbstractScrollArea_VerticalScrollBarPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setVerticalScrollBarPolicy` instead
+    ///
+    pub const SetVerticalScrollBarPolicy = setVerticalScrollBarPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3296,11 +4128,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` verticalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
+    /// ` _verticalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn SetVerticalScrollBarPolicy(self: KCompletionBox, verticalScrollBarPolicy: i32) void {
-        qtc.QAbstractScrollArea_SetVerticalScrollBarPolicy(@ptrCast(self.ptr), @bitCast(verticalScrollBarPolicy));
+    pub fn setVerticalScrollBarPolicy(self: KCompletionBox, _verticalScrollBarPolicy: i32) void {
+        qtc.QAbstractScrollArea_SetVerticalScrollBarPolicy(@ptrCast(self.ptr), @bitCast(_verticalScrollBarPolicy));
     }
+
+    /// ### DEPRECATED: Use `verticalScrollBar` instead
+    ///
+    pub const VerticalScrollBar = verticalScrollBar;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3310,9 +4146,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn VerticalScrollBar(self: KCompletionBox) QScrollBar {
+    pub fn verticalScrollBar(self: KCompletionBox) QScrollBar {
         return .{ .ptr = qtc.QAbstractScrollArea_VerticalScrollBar(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setVerticalScrollBar` instead
+    ///
+    pub const SetVerticalScrollBar = setVerticalScrollBar;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3324,10 +4164,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` scrollbar: QScrollBar `
     ///
-    pub fn SetVerticalScrollBar(self: KCompletionBox, scrollbar: anytype) void {
+    pub fn setVerticalScrollBar(self: KCompletionBox, scrollbar: anytype) void {
         comptime _ = @TypeOf(scrollbar)._is_QScrollBar;
         qtc.QAbstractScrollArea_SetVerticalScrollBar(@ptrCast(self.ptr), @ptrCast(scrollbar.ptr));
     }
+
+    /// ### DEPRECATED: Use `horizontalScrollBarPolicy` instead
+    ///
+    pub const HorizontalScrollBarPolicy = horizontalScrollBarPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3341,9 +4185,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn HorizontalScrollBarPolicy(self: KCompletionBox) i32 {
+    pub fn horizontalScrollBarPolicy(self: KCompletionBox) i32 {
         return qtc.QAbstractScrollArea_HorizontalScrollBarPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHorizontalScrollBarPolicy` instead
+    ///
+    pub const SetHorizontalScrollBarPolicy = setHorizontalScrollBarPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3353,11 +4201,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` horizontalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
+    /// ` _horizontalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn SetHorizontalScrollBarPolicy(self: KCompletionBox, horizontalScrollBarPolicy: i32) void {
-        qtc.QAbstractScrollArea_SetHorizontalScrollBarPolicy(@ptrCast(self.ptr), @bitCast(horizontalScrollBarPolicy));
+    pub fn setHorizontalScrollBarPolicy(self: KCompletionBox, _horizontalScrollBarPolicy: i32) void {
+        qtc.QAbstractScrollArea_SetHorizontalScrollBarPolicy(@ptrCast(self.ptr), @bitCast(_horizontalScrollBarPolicy));
     }
+
+    /// ### DEPRECATED: Use `horizontalScrollBar` instead
+    ///
+    pub const HorizontalScrollBar = horizontalScrollBar;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3367,9 +4219,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn HorizontalScrollBar(self: KCompletionBox) QScrollBar {
+    pub fn horizontalScrollBar(self: KCompletionBox) QScrollBar {
         return .{ .ptr = qtc.QAbstractScrollArea_HorizontalScrollBar(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setHorizontalScrollBar` instead
+    ///
+    pub const SetHorizontalScrollBar = setHorizontalScrollBar;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3381,10 +4237,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` scrollbar: QScrollBar `
     ///
-    pub fn SetHorizontalScrollBar(self: KCompletionBox, scrollbar: anytype) void {
+    pub fn setHorizontalScrollBar(self: KCompletionBox, scrollbar: anytype) void {
         comptime _ = @TypeOf(scrollbar)._is_QScrollBar;
         qtc.QAbstractScrollArea_SetHorizontalScrollBar(@ptrCast(self.ptr), @ptrCast(scrollbar.ptr));
     }
+
+    /// ### DEPRECATED: Use `cornerWidget` instead
+    ///
+    pub const CornerWidget = cornerWidget;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3394,9 +4254,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn CornerWidget(self: KCompletionBox) QWidget {
+    pub fn cornerWidget(self: KCompletionBox) QWidget {
         return .{ .ptr = qtc.QAbstractScrollArea_CornerWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCornerWidget` instead
+    ///
+    pub const SetCornerWidget = setCornerWidget;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3408,10 +4272,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn SetCornerWidget(self: KCompletionBox, widget: anytype) void {
+    pub fn setCornerWidget(self: KCompletionBox, widget: anytype) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QAbstractScrollArea_SetCornerWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `addScrollBarWidget` instead
+    ///
+    pub const AddScrollBarWidget = addScrollBarWidget;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3425,10 +4293,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn AddScrollBarWidget(self: KCompletionBox, widget: anytype, alignment: i32) void {
+    pub fn addScrollBarWidget(self: KCompletionBox, widget: anytype, alignment: i32) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QAbstractScrollArea_AddScrollBarWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr), @bitCast(alignment));
     }
+
+    /// ### DEPRECATED: Use `scrollBarWidgets` instead
+    ///
+    pub const ScrollBarWidgets = scrollBarWidgets;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3442,15 +4314,19 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn ScrollBarWidgets(self: KCompletionBox, allocator: std.mem.Allocator, alignment: i32) []QWidget {
+    pub fn scrollBarWidgets(self: KCompletionBox, allocator: std.mem.Allocator, alignment: i32) []QWidget {
         const _arr: qtc.libqt_list = qtc.QAbstractScrollArea_ScrollBarWidgets(@ptrCast(self.ptr), @bitCast(alignment));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("KCompletionBox.ScrollBarWidgets: Memory allocation failed");
-        const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("KCompletionBox.scrollBarWidgets: Memory allocation failed");
+        const _data_val: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `viewport` instead
+    ///
+    pub const Viewport = viewport;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3460,9 +4336,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn Viewport(self: KCompletionBox) QWidget {
+    pub fn viewport(self: KCompletionBox) QWidget {
         return .{ .ptr = qtc.QAbstractScrollArea_Viewport(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setViewport` instead
+    ///
+    pub const SetViewport = setViewport;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3474,10 +4354,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn SetViewport(self: KCompletionBox, widget: anytype) void {
+    pub fn setViewport(self: KCompletionBox, widget: anytype) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QAbstractScrollArea_SetViewport(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumViewportSize` instead
+    ///
+    pub const MaximumViewportSize = maximumViewportSize;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3487,9 +4371,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn MaximumViewportSize(self: KCompletionBox) QSize {
+    pub fn maximumViewportSize(self: KCompletionBox) QSize {
         return .{ .ptr = qtc.QAbstractScrollArea_MaximumViewportSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `sizeAdjustPolicy` instead
+    ///
+    pub const SizeAdjustPolicy = sizeAdjustPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3503,9 +4391,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` qabstractscrollarea_enums.SizeAdjustPolicy `
     ///
-    pub fn SizeAdjustPolicy(self: KCompletionBox) i32 {
+    pub fn sizeAdjustPolicy(self: KCompletionBox) i32 {
         return qtc.QAbstractScrollArea_SizeAdjustPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeAdjustPolicy` instead
+    ///
+    pub const SetSizeAdjustPolicy = setSizeAdjustPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3517,9 +4409,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` policy: qabstractscrollarea_enums.SizeAdjustPolicy `
     ///
-    pub fn SetSizeAdjustPolicy(self: KCompletionBox, policy: i32) void {
+    pub fn setSizeAdjustPolicy(self: KCompletionBox, policy: i32) void {
         qtc.QAbstractScrollArea_SetSizeAdjustPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `frameStyle` instead
+    ///
+    pub const FrameStyle = frameStyle;
 
     /// Inherited from QFrame
     ///
@@ -3529,9 +4425,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn FrameStyle(self: KCompletionBox) i32 {
+    pub fn frameStyle(self: KCompletionBox) i32 {
         return qtc.QFrame_FrameStyle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFrameStyle` instead
+    ///
+    pub const SetFrameStyle = setFrameStyle;
 
     /// Inherited from QFrame
     ///
@@ -3541,11 +4441,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` frameStyle: i32 `
+    /// ` _frameStyle: i32 `
     ///
-    pub fn SetFrameStyle(self: KCompletionBox, frameStyle: i32) void {
-        qtc.QFrame_SetFrameStyle(@ptrCast(self.ptr), @bitCast(frameStyle));
+    pub fn setFrameStyle(self: KCompletionBox, _frameStyle: i32) void {
+        qtc.QFrame_SetFrameStyle(@ptrCast(self.ptr), @bitCast(_frameStyle));
     }
+
+    /// ### DEPRECATED: Use `frameWidth` instead
+    ///
+    pub const FrameWidth = frameWidth;
 
     /// Inherited from QFrame
     ///
@@ -3555,9 +4459,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn FrameWidth(self: KCompletionBox) i32 {
+    pub fn frameWidth(self: KCompletionBox) i32 {
         return qtc.QFrame_FrameWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `frameShape` instead
+    ///
+    pub const FrameShape = frameShape;
 
     /// Inherited from QFrame
     ///
@@ -3571,9 +4479,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` qframe_enums.Shape `
     ///
-    pub fn FrameShape(self: KCompletionBox) i32 {
+    pub fn frameShape(self: KCompletionBox) i32 {
         return qtc.QFrame_FrameShape(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFrameShape` instead
+    ///
+    pub const SetFrameShape = setFrameShape;
 
     /// Inherited from QFrame
     ///
@@ -3583,11 +4495,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` frameShape: qframe_enums.Shape `
+    /// ` _frameShape: qframe_enums.Shape `
     ///
-    pub fn SetFrameShape(self: KCompletionBox, frameShape: i32) void {
-        qtc.QFrame_SetFrameShape(@ptrCast(self.ptr), @bitCast(frameShape));
+    pub fn setFrameShape(self: KCompletionBox, _frameShape: i32) void {
+        qtc.QFrame_SetFrameShape(@ptrCast(self.ptr), @bitCast(_frameShape));
     }
+
+    /// ### DEPRECATED: Use `frameShadow` instead
+    ///
+    pub const FrameShadow = frameShadow;
 
     /// Inherited from QFrame
     ///
@@ -3601,9 +4517,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` qframe_enums.Shadow `
     ///
-    pub fn FrameShadow(self: KCompletionBox) i32 {
+    pub fn frameShadow(self: KCompletionBox) i32 {
         return qtc.QFrame_FrameShadow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFrameShadow` instead
+    ///
+    pub const SetFrameShadow = setFrameShadow;
 
     /// Inherited from QFrame
     ///
@@ -3613,11 +4533,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` frameShadow: qframe_enums.Shadow `
+    /// ` _frameShadow: qframe_enums.Shadow `
     ///
-    pub fn SetFrameShadow(self: KCompletionBox, frameShadow: i32) void {
-        qtc.QFrame_SetFrameShadow(@ptrCast(self.ptr), @bitCast(frameShadow));
+    pub fn setFrameShadow(self: KCompletionBox, _frameShadow: i32) void {
+        qtc.QFrame_SetFrameShadow(@ptrCast(self.ptr), @bitCast(_frameShadow));
     }
+
+    /// ### DEPRECATED: Use `lineWidth` instead
+    ///
+    pub const LineWidth = lineWidth;
 
     /// Inherited from QFrame
     ///
@@ -3627,9 +4551,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn LineWidth(self: KCompletionBox) i32 {
+    pub fn lineWidth(self: KCompletionBox) i32 {
         return qtc.QFrame_LineWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLineWidth` instead
+    ///
+    pub const SetLineWidth = setLineWidth;
 
     /// Inherited from QFrame
     ///
@@ -3639,11 +4567,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` lineWidth: i32 `
+    /// ` _lineWidth: i32 `
     ///
-    pub fn SetLineWidth(self: KCompletionBox, lineWidth: i32) void {
-        qtc.QFrame_SetLineWidth(@ptrCast(self.ptr), @bitCast(lineWidth));
+    pub fn setLineWidth(self: KCompletionBox, _lineWidth: i32) void {
+        qtc.QFrame_SetLineWidth(@ptrCast(self.ptr), @bitCast(_lineWidth));
     }
+
+    /// ### DEPRECATED: Use `midLineWidth` instead
+    ///
+    pub const MidLineWidth = midLineWidth;
 
     /// Inherited from QFrame
     ///
@@ -3653,9 +4585,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn MidLineWidth(self: KCompletionBox) i32 {
+    pub fn midLineWidth(self: KCompletionBox) i32 {
         return qtc.QFrame_MidLineWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMidLineWidth` instead
+    ///
+    pub const SetMidLineWidth = setMidLineWidth;
 
     /// Inherited from QFrame
     ///
@@ -3665,11 +4601,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` midLineWidth: i32 `
+    /// ` _midLineWidth: i32 `
     ///
-    pub fn SetMidLineWidth(self: KCompletionBox, midLineWidth: i32) void {
-        qtc.QFrame_SetMidLineWidth(@ptrCast(self.ptr), @bitCast(midLineWidth));
+    pub fn setMidLineWidth(self: KCompletionBox, _midLineWidth: i32) void {
+        qtc.QFrame_SetMidLineWidth(@ptrCast(self.ptr), @bitCast(_midLineWidth));
     }
+
+    /// ### DEPRECATED: Use `frameRect` instead
+    ///
+    pub const FrameRect = frameRect;
 
     /// Inherited from QFrame
     ///
@@ -3679,9 +4619,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn FrameRect(self: KCompletionBox) QRect {
+    pub fn frameRect(self: KCompletionBox) QRect {
         return .{ .ptr = qtc.QFrame_FrameRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFrameRect` instead
+    ///
+    pub const SetFrameRect = setFrameRect;
 
     /// Inherited from QFrame
     ///
@@ -3691,12 +4635,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` frameRect: QRect `
+    /// ` _frameRect: QRect `
     ///
-    pub fn SetFrameRect(self: KCompletionBox, frameRect: anytype) void {
-        comptime _ = @TypeOf(frameRect)._is_QRect;
-        qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(frameRect.ptr));
+    pub fn setFrameRect(self: KCompletionBox, _frameRect: anytype) void {
+        comptime _ = @TypeOf(_frameRect)._is_QRect;
+        qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(_frameRect.ptr));
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -3706,9 +4654,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn WinId(self: KCompletionBox) usize {
+    pub fn winId(self: KCompletionBox) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -3718,9 +4670,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn CreateWinId(self: KCompletionBox) void {
+    pub fn createWinId(self: KCompletionBox) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -3730,9 +4686,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn InternalWinId(self: KCompletionBox) usize {
+    pub fn internalWinId(self: KCompletionBox) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -3742,9 +4702,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn EffectiveWinId(self: KCompletionBox) usize {
+    pub fn effectiveWinId(self: KCompletionBox) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -3754,9 +4718,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn Style(self: KCompletionBox) QStyle {
+    pub fn style(self: KCompletionBox) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -3766,12 +4734,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: KCompletionBox, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: KCompletionBox, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -3781,9 +4753,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn IsTopLevel(self: KCompletionBox) bool {
+    pub fn isTopLevel(self: KCompletionBox) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -3793,9 +4769,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn IsWindow(self: KCompletionBox) bool {
+    pub fn isWindow(self: KCompletionBox) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -3805,9 +4785,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn IsModal(self: KCompletionBox) bool {
+    pub fn isModal(self: KCompletionBox) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -3821,9 +4805,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: KCompletionBox) i32 {
+    pub fn windowModality(self: KCompletionBox) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -3833,11 +4821,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: KCompletionBox, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: KCompletionBox, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3847,9 +4839,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn IsEnabled(self: KCompletionBox) bool {
+    pub fn isEnabled(self: KCompletionBox) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -3861,10 +4857,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: KCompletionBox, param1: anytype) bool {
+    pub fn isEnabledTo(self: KCompletionBox, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3876,9 +4876,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: KCompletionBox, enabled: bool) void {
+    pub fn setEnabled(self: KCompletionBox, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -3890,9 +4894,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: KCompletionBox, disabled: bool) void {
+    pub fn setDisabled(self: KCompletionBox, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -3904,9 +4912,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: KCompletionBox, windowModified: bool) void {
+    pub fn setWindowModified(self: KCompletionBox, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3916,9 +4928,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn FrameGeometry(self: KCompletionBox) QRect {
+    pub fn frameGeometry(self: KCompletionBox) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -3928,9 +4944,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn Geometry(self: KCompletionBox) QRect {
+    pub fn geometry(self: KCompletionBox) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3940,9 +4960,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn NormalGeometry(self: KCompletionBox) QRect {
+    pub fn normalGeometry(self: KCompletionBox) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -3952,9 +4976,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn X(self: KCompletionBox) i32 {
+    pub fn x(self: KCompletionBox) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -3964,9 +4992,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn Y(self: KCompletionBox) i32 {
+    pub fn y(self: KCompletionBox) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -3976,9 +5008,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn Pos(self: KCompletionBox) QPoint {
+    pub fn pos(self: KCompletionBox) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -3988,9 +5024,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn FrameSize(self: KCompletionBox) QSize {
+    pub fn frameSize(self: KCompletionBox) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -4000,9 +5040,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn Size(self: KCompletionBox) QSize {
+    pub fn size(self: KCompletionBox) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -4012,9 +5056,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn Width(self: KCompletionBox) i32 {
+    pub fn width(self: KCompletionBox) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -4024,9 +5072,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn Height(self: KCompletionBox) i32 {
+    pub fn height(self: KCompletionBox) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -4036,9 +5088,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn Rect(self: KCompletionBox) QRect {
+    pub fn rect(self: KCompletionBox) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -4048,9 +5104,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn ChildrenRect(self: KCompletionBox) QRect {
+    pub fn childrenRect(self: KCompletionBox) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -4060,9 +5120,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn ChildrenRegion(self: KCompletionBox) QRegion {
+    pub fn childrenRegion(self: KCompletionBox) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -4072,9 +5136,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn MinimumSize(self: KCompletionBox) QSize {
+    pub fn minimumSize(self: KCompletionBox) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -4084,9 +5152,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn MaximumSize(self: KCompletionBox) QSize {
+    pub fn maximumSize(self: KCompletionBox) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -4096,9 +5168,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn MinimumWidth(self: KCompletionBox) i32 {
+    pub fn minimumWidth(self: KCompletionBox) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -4108,9 +5184,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn MinimumHeight(self: KCompletionBox) i32 {
+    pub fn minimumHeight(self: KCompletionBox) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -4120,9 +5200,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn MaximumWidth(self: KCompletionBox) i32 {
+    pub fn maximumWidth(self: KCompletionBox) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -4132,9 +5216,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn MaximumHeight(self: KCompletionBox) i32 {
+    pub fn maximumHeight(self: KCompletionBox) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -4144,12 +5232,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: KCompletionBox, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: KCompletionBox, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -4163,9 +5255,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: KCompletionBox, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: KCompletionBox, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -4175,12 +5271,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: KCompletionBox, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: KCompletionBox, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -4194,9 +5294,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: KCompletionBox, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: KCompletionBox, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -4208,9 +5312,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: KCompletionBox, minw: i32) void {
+    pub fn setMinimumWidth(self: KCompletionBox, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -4222,9 +5330,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: KCompletionBox, minh: i32) void {
+    pub fn setMinimumHeight(self: KCompletionBox, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -4236,9 +5348,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: KCompletionBox, maxw: i32) void {
+    pub fn setMaximumWidth(self: KCompletionBox, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -4250,9 +5366,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: KCompletionBox, maxh: i32) void {
+    pub fn setMaximumHeight(self: KCompletionBox, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -4262,9 +5382,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn SizeIncrement(self: KCompletionBox) QSize {
+    pub fn sizeIncrement(self: KCompletionBox) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -4274,12 +5398,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: KCompletionBox, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: KCompletionBox, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -4293,9 +5421,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: KCompletionBox, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: KCompletionBox, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -4305,9 +5437,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn BaseSize(self: KCompletionBox) QSize {
+    pub fn baseSize(self: KCompletionBox) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -4317,12 +5453,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: KCompletionBox, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: KCompletionBox, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -4336,9 +5476,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: KCompletionBox, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: KCompletionBox, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -4350,10 +5494,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: KCompletionBox, fixedSize: anytype) void {
+    pub fn setFixedSize(self: KCompletionBox, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -4367,9 +5515,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: KCompletionBox, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: KCompletionBox, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -4381,9 +5533,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: KCompletionBox, w: i32) void {
+    pub fn setFixedWidth(self: KCompletionBox, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -4395,9 +5551,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: KCompletionBox, h: i32) void {
+    pub fn setFixedHeight(self: KCompletionBox, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -4409,11 +5569,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: KCompletionBox, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: KCompletionBox, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -4424,11 +5588,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: KCompletionBox, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: KCompletionBox, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -4439,11 +5607,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: KCompletionBox, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: KCompletionBox, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -4454,11 +5626,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: KCompletionBox, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: KCompletionBox, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -4469,11 +5645,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: KCompletionBox, param1: anytype) QPointF {
+    pub fn mapToParent(self: KCompletionBox, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -4484,10 +5664,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: KCompletionBox, param1: anytype) QPoint {
+    pub fn mapToParent2(self: KCompletionBox, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -4499,10 +5683,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: KCompletionBox, param1: anytype) QPointF {
+    pub fn mapFromParent(self: KCompletionBox, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -4514,10 +5702,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: KCompletionBox, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: KCompletionBox, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -4531,12 +5723,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: KCompletionBox, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: KCompletionBox, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -4549,11 +5745,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: KCompletionBox, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: KCompletionBox, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -4567,11 +5767,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: KCompletionBox, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: KCompletionBox, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -4585,11 +5789,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: KCompletionBox, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: KCompletionBox, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -4599,9 +5807,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn Window(self: KCompletionBox) QWidget {
+    pub fn window(self: KCompletionBox) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -4611,9 +5823,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn NativeParentWidget(self: KCompletionBox) QWidget {
+    pub fn nativeParentWidget(self: KCompletionBox) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -4623,9 +5839,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn TopLevelWidget(self: KCompletionBox) QWidget {
+    pub fn topLevelWidget(self: KCompletionBox) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -4635,9 +5855,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn Palette(self: KCompletionBox) QPalette {
+    pub fn palette(self: KCompletionBox) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -4647,12 +5871,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: KCompletionBox, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: KCompletionBox, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -4662,11 +5890,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: KCompletionBox, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: KCompletionBox, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -4680,9 +5912,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: KCompletionBox) i32 {
+    pub fn backgroundRole(self: KCompletionBox) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -4692,11 +5928,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: KCompletionBox, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: KCompletionBox, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -4710,9 +5950,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: KCompletionBox) i32 {
+    pub fn foregroundRole(self: KCompletionBox) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -4722,9 +5966,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn Font(self: KCompletionBox) QFont {
+    pub fn font(self: KCompletionBox) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -4734,12 +5982,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: KCompletionBox, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: KCompletionBox, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -4749,9 +6001,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn FontMetrics(self: KCompletionBox) QFontMetrics {
+    pub fn fontMetrics(self: KCompletionBox) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -4761,9 +6017,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn FontInfo(self: KCompletionBox) QFontInfo {
+    pub fn fontInfo(self: KCompletionBox) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -4773,9 +6033,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn Cursor(self: KCompletionBox) QCursor {
+    pub fn cursor(self: KCompletionBox) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -4785,12 +6049,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: KCompletionBox, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: KCompletionBox, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -4800,9 +6068,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn UnsetCursor(self: KCompletionBox) void {
+    pub fn unsetCursor(self: KCompletionBox) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -4814,9 +6086,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: KCompletionBox, enable: bool) void {
+    pub fn setMouseTracking(self: KCompletionBox, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -4826,9 +6102,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn HasMouseTracking(self: KCompletionBox) bool {
+    pub fn hasMouseTracking(self: KCompletionBox) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -4838,9 +6118,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn UnderMouse(self: KCompletionBox) bool {
+    pub fn underMouse(self: KCompletionBox) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -4852,9 +6136,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: KCompletionBox, enable: bool) void {
+    pub fn setTabletTracking(self: KCompletionBox, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -4864,24 +6152,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn HasTabletTracking(self: KCompletionBox) bool {
+    pub fn hasTabletTracking(self: KCompletionBox) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCompletionBox `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: KCompletionBox, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -4891,12 +6168,35 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: KCompletionBox, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: KCompletionBox, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KCompletionBox `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: KCompletionBox, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -4906,9 +6206,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn Mask(self: KCompletionBox) QRegion {
+    pub fn mask(self: KCompletionBox) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -4918,9 +6222,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn ClearMask(self: KCompletionBox) void {
+    pub fn clearMask(self: KCompletionBox) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -4932,10 +6240,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: KCompletionBox, target: anytype) void {
+    pub fn render(self: KCompletionBox, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -4947,10 +6259,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: KCompletionBox, painter: anytype) void {
+    pub fn render2(self: KCompletionBox, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -4960,9 +6276,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn Grab(self: KCompletionBox) QPixmap {
+    pub fn grab(self: KCompletionBox) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -4972,9 +6292,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn GraphicsEffect(self: KCompletionBox) QGraphicsEffect {
+    pub fn graphicsEffect(self: KCompletionBox) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -4986,10 +6310,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: KCompletionBox, effect: anytype) void {
+    pub fn setGraphicsEffect(self: KCompletionBox, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -5001,9 +6329,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: KCompletionBox, typeVal: i32) void {
+    pub fn grabGesture(self: KCompletionBox, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -5015,9 +6347,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: KCompletionBox, typeVal: i32) void {
+    pub fn ungrabGesture(self: KCompletionBox, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -5027,15 +6363,19 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: KCompletionBox, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: KCompletionBox, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -5045,15 +6385,19 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: KCompletionBox, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: KCompletionBox, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -5065,13 +6409,17 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: KCompletionBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: KCompletionBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompletionBox.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompletionBox.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -5083,13 +6431,17 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: KCompletionBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: KCompletionBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompletionBox.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompletionBox.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -5101,10 +6453,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: KCompletionBox, icon: anytype) void {
+    pub fn setWindowIcon(self: KCompletionBox, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -5114,9 +6470,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn WindowIcon(self: KCompletionBox) QIcon {
+    pub fn windowIcon(self: KCompletionBox) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -5126,15 +6486,19 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: KCompletionBox, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: KCompletionBox, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -5146,13 +6510,17 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: KCompletionBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: KCompletionBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompletionBox.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompletionBox.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -5162,15 +6530,19 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: KCompletionBox, windowRole: []const u8) void {
+    pub fn setWindowRole(self: KCompletionBox, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -5182,13 +6554,17 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: KCompletionBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: KCompletionBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompletionBox.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompletionBox.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -5200,13 +6576,17 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: KCompletionBox, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: KCompletionBox, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -5218,13 +6598,17 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: KCompletionBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: KCompletionBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompletionBox.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompletionBox.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -5236,9 +6620,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: KCompletionBox, level: f64) void {
+    pub fn setWindowOpacity(self: KCompletionBox, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -5248,9 +6636,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn WindowOpacity(self: KCompletionBox) f64 {
+    pub fn windowOpacity(self: KCompletionBox) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -5260,9 +6652,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn IsWindowModified(self: KCompletionBox) bool {
+    pub fn isWindowModified(self: KCompletionBox) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -5272,15 +6668,19 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: KCompletionBox, toolTip: []const u8) void {
+    pub fn setToolTip(self: KCompletionBox, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -5292,13 +6692,17 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: KCompletionBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: KCompletionBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompletionBox.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompletionBox.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -5310,9 +6714,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: KCompletionBox, msec: i32) void {
+    pub fn setToolTipDuration(self: KCompletionBox, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -5322,9 +6730,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn ToolTipDuration(self: KCompletionBox) i32 {
+    pub fn toolTipDuration(self: KCompletionBox) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -5334,15 +6746,19 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: KCompletionBox, statusTip: []const u8) void {
+    pub fn setStatusTip(self: KCompletionBox, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -5354,13 +6770,17 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: KCompletionBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: KCompletionBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompletionBox.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompletionBox.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -5370,15 +6790,19 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: KCompletionBox, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: KCompletionBox, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -5390,13 +6814,17 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: KCompletionBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: KCompletionBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompletionBox.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompletionBox.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -5408,13 +6836,17 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: KCompletionBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: KCompletionBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompletionBox.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompletionBox.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -5426,13 +6858,17 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: KCompletionBox, name: []const u8) void {
+    pub fn setAccessibleName(self: KCompletionBox, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -5444,13 +6880,17 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: KCompletionBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: KCompletionBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompletionBox.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompletionBox.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -5462,13 +6902,17 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: KCompletionBox, description: []const u8) void {
+    pub fn setAccessibleDescription(self: KCompletionBox, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -5480,9 +6924,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: KCompletionBox, direction: i32) void {
+    pub fn setLayoutDirection(self: KCompletionBox, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -5496,9 +6944,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: KCompletionBox) i32 {
+    pub fn layoutDirection(self: KCompletionBox) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -5508,9 +6960,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn UnsetLayoutDirection(self: KCompletionBox) void {
+    pub fn unsetLayoutDirection(self: KCompletionBox) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -5520,12 +6976,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: KCompletionBox, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: KCompletionBox, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -5535,9 +6995,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn Locale(self: KCompletionBox) QLocale {
+    pub fn locale(self: KCompletionBox) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -5547,9 +7011,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn UnsetLocale(self: KCompletionBox) void {
+    pub fn unsetLocale(self: KCompletionBox) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -5559,9 +7027,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn IsRightToLeft(self: KCompletionBox) bool {
+    pub fn isRightToLeft(self: KCompletionBox) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -5571,9 +7043,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn IsLeftToRight(self: KCompletionBox) bool {
+    pub fn isLeftToRight(self: KCompletionBox) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -5583,9 +7059,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn SetFocus(self: KCompletionBox) void {
+    pub fn setFocus(self: KCompletionBox) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -5595,9 +7075,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn IsActiveWindow(self: KCompletionBox) bool {
+    pub fn isActiveWindow(self: KCompletionBox) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -5607,9 +7091,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn ActivateWindow(self: KCompletionBox) void {
+    pub fn activateWindow(self: KCompletionBox) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -5619,9 +7107,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn ClearFocus(self: KCompletionBox) void {
+    pub fn clearFocus(self: KCompletionBox) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -5633,9 +7125,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: KCompletionBox, reason: i32) void {
+    pub fn setFocus2(self: KCompletionBox, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -5649,9 +7145,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: KCompletionBox) i32 {
+    pub fn focusPolicy(self: KCompletionBox) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -5663,9 +7163,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: KCompletionBox, policy: i32) void {
+    pub fn setFocusPolicy(self: KCompletionBox, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -5675,9 +7179,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn HasFocus(self: KCompletionBox) bool {
+    pub fn hasFocus(self: KCompletionBox) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -5689,11 +7197,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -5703,12 +7215,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: KCompletionBox, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: KCompletionBox, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -5718,9 +7234,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn FocusProxy(self: KCompletionBox) QWidget {
+    pub fn focusProxy(self: KCompletionBox) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -5734,9 +7254,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: KCompletionBox) i32 {
+    pub fn contextMenuPolicy(self: KCompletionBox) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -5748,9 +7272,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: KCompletionBox, policy: i32) void {
+    pub fn setContextMenuPolicy(self: KCompletionBox, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -5760,9 +7288,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn GrabMouse(self: KCompletionBox) void {
+    pub fn grabMouse(self: KCompletionBox) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -5774,10 +7306,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: KCompletionBox, param1: anytype) void {
+    pub fn grabMouse2(self: KCompletionBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -5787,9 +7323,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn ReleaseMouse(self: KCompletionBox) void {
+    pub fn releaseMouse(self: KCompletionBox) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -5799,9 +7339,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn GrabKeyboard(self: KCompletionBox) void {
+    pub fn grabKeyboard(self: KCompletionBox) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -5811,9 +7355,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn ReleaseKeyboard(self: KCompletionBox) void {
+    pub fn releaseKeyboard(self: KCompletionBox) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -5825,10 +7373,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: KCompletionBox, key: anytype) i32 {
+    pub fn grabShortcut(self: KCompletionBox, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -5840,9 +7392,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: KCompletionBox, id: i32) void {
+    pub fn releaseShortcut(self: KCompletionBox, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -5854,9 +7410,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: KCompletionBox, id: i32) void {
+    pub fn setShortcutEnabled(self: KCompletionBox, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -5868,25 +7428,37 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: KCompletionBox, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: KCompletionBox, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -5896,9 +7468,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn UpdatesEnabled(self: KCompletionBox) bool {
+    pub fn updatesEnabled(self: KCompletionBox) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -5910,9 +7486,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: KCompletionBox, enable: bool) void {
+    pub fn setUpdatesEnabled(self: KCompletionBox, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -5922,9 +7502,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn GraphicsProxyWidget(self: KCompletionBox) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: KCompletionBox) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -5934,9 +7518,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn Repaint(self: KCompletionBox) void {
+    pub fn repaint(self: KCompletionBox) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -5946,17 +7534,21 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: KCompletionBox, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: KCompletionBox, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -5968,11 +7560,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: KCompletionBox, param1: anytype) void {
+    pub fn update3(self: KCompletionBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -5983,10 +7579,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: KCompletionBox, param1: anytype) void {
+    pub fn update4(self: KCompletionBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -5996,17 +7596,21 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: KCompletionBox, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: KCompletionBox, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -6018,10 +7622,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: KCompletionBox, param1: anytype) void {
+    pub fn repaint3(self: KCompletionBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -6033,10 +7641,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: KCompletionBox, param1: anytype) void {
+    pub fn repaint4(self: KCompletionBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -6048,9 +7660,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: KCompletionBox, hidden: bool) void {
+    pub fn setHidden(self: KCompletionBox, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -6060,9 +7676,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn Show(self: KCompletionBox) void {
+    pub fn show(self: KCompletionBox) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -6072,9 +7692,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn Hide(self: KCompletionBox) void {
+    pub fn hide(self: KCompletionBox) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -6084,9 +7708,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn ShowMinimized(self: KCompletionBox) void {
+    pub fn showMinimized(self: KCompletionBox) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -6096,9 +7724,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn ShowMaximized(self: KCompletionBox) void {
+    pub fn showMaximized(self: KCompletionBox) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -6108,9 +7740,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn ShowFullScreen(self: KCompletionBox) void {
+    pub fn showFullScreen(self: KCompletionBox) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -6120,9 +7756,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn ShowNormal(self: KCompletionBox) void {
+    pub fn showNormal(self: KCompletionBox) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -6132,9 +7772,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn Close(self: KCompletionBox) bool {
+    pub fn close(self: KCompletionBox) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -6144,9 +7788,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn Raise(self: KCompletionBox) void {
+    pub fn raise(self: KCompletionBox) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -6156,9 +7804,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn Lower(self: KCompletionBox) void {
+    pub fn lower(self: KCompletionBox) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -6170,10 +7822,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: KCompletionBox, param1: anytype) void {
+    pub fn stackUnder(self: KCompletionBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -6183,13 +7839,17 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: KCompletionBox, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: KCompletionBox, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -6201,10 +7861,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: KCompletionBox, param1: anytype) void {
+    pub fn move2(self: KCompletionBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -6218,9 +7882,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: KCompletionBox, w: i32, h: i32) void {
+    pub fn resize(self: KCompletionBox, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -6232,10 +7900,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: KCompletionBox, param1: anytype) void {
+    pub fn resize2(self: KCompletionBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -6245,17 +7917,21 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: KCompletionBox, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: KCompletionBox, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -6265,12 +7941,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: KCompletionBox, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: KCompletionBox, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -6282,13 +7962,17 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: KCompletionBox, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: KCompletionBox, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KCompletionBox.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KCompletionBox.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -6298,15 +7982,19 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: KCompletionBox, geometry: []u8) bool {
+    pub fn restoreGeometry(self: KCompletionBox, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -6316,9 +8004,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn AdjustSize(self: KCompletionBox) void {
+    pub fn adjustSize(self: KCompletionBox) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -6328,9 +8020,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn IsVisible(self: KCompletionBox) bool {
+    pub fn isVisible(self: KCompletionBox) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -6342,10 +8038,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: KCompletionBox, param1: anytype) bool {
+    pub fn isVisibleTo(self: KCompletionBox, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -6355,9 +8055,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn IsHidden(self: KCompletionBox) bool {
+    pub fn isHidden(self: KCompletionBox) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -6367,9 +8071,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn IsMinimized(self: KCompletionBox) bool {
+    pub fn isMinimized(self: KCompletionBox) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -6379,9 +8087,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn IsMaximized(self: KCompletionBox) bool {
+    pub fn isMaximized(self: KCompletionBox) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -6391,9 +8103,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn IsFullScreen(self: KCompletionBox) bool {
+    pub fn isFullScreen(self: KCompletionBox) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -6407,9 +8123,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: KCompletionBox) i32 {
+    pub fn windowState(self: KCompletionBox) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -6419,11 +8139,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` state: flag of qnamespace_enums.WindowState `
+    /// ` _state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: KCompletionBox, state: i32) void {
-        qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
+    pub fn setWindowState(self: KCompletionBox, _state: i32) void {
+        qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(_state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -6433,11 +8157,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` state: flag of qnamespace_enums.WindowState `
+    /// ` _state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: KCompletionBox, state: i32) void {
-        qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
+    pub fn overrideWindowState(self: KCompletionBox, _state: i32) void {
+        qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(_state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -6447,9 +8175,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn SizePolicy(self: KCompletionBox) QSizePolicy {
+    pub fn sizePolicy(self: KCompletionBox) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -6459,12 +8191,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: KCompletionBox, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: KCompletionBox, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -6478,9 +8214,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: KCompletionBox, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: KCompletionBox, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -6490,9 +8230,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn VisibleRegion(self: KCompletionBox) QRegion {
+    pub fn visibleRegion(self: KCompletionBox) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -6510,9 +8254,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: KCompletionBox, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: KCompletionBox, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -6524,10 +8272,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: KCompletionBox, margins: anytype) void {
+    pub fn setContentsMargins2(self: KCompletionBox, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -6537,9 +8289,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn ContentsMargins(self: KCompletionBox) QMargins {
+    pub fn contentsMargins(self: KCompletionBox) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -6549,9 +8305,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn ContentsRect(self: KCompletionBox) QRect {
+    pub fn contentsRect(self: KCompletionBox) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -6561,9 +8321,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn Layout(self: KCompletionBox) QLayout {
+    pub fn layout(self: KCompletionBox) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -6573,12 +8337,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: KCompletionBox, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: KCompletionBox, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -6588,24 +8356,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn UpdateGeometry(self: KCompletionBox) void {
+    pub fn updateGeometry(self: KCompletionBox) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCompletionBox `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: KCompletionBox, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -6615,14 +8372,37 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: KCompletionBox, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KCompletionBox `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: KCompletionBox, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: KCompletionBox, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -6636,9 +8416,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: KCompletionBox, dx: i32, dy: i32) void {
+    pub fn scroll(self: KCompletionBox, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -6654,10 +8438,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: KCompletionBox, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: KCompletionBox, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -6667,9 +8455,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn FocusWidget(self: KCompletionBox) QWidget {
+    pub fn focusWidget(self: KCompletionBox) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -6679,9 +8471,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn NextInFocusChain(self: KCompletionBox) QWidget {
+    pub fn nextInFocusChain(self: KCompletionBox) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -6691,9 +8487,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn PreviousInFocusChain(self: KCompletionBox) QWidget {
+    pub fn previousInFocusChain(self: KCompletionBox) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -6703,9 +8503,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn AcceptDrops(self: KCompletionBox) bool {
+    pub fn acceptDrops(self: KCompletionBox) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -6717,9 +8521,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: KCompletionBox, on: bool) void {
+    pub fn setAcceptDrops(self: KCompletionBox, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -6731,10 +8539,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: KCompletionBox, action: anytype) void {
+    pub fn addAction(self: KCompletionBox, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -6744,15 +8556,19 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: KCompletionBox, actions: []QAction) void {
+    pub fn addActions(self: KCompletionBox, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -6764,16 +8580,20 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: KCompletionBox, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: KCompletionBox, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -6787,11 +8607,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: KCompletionBox, before: anytype, action: anytype) void {
+    pub fn insertAction(self: KCompletionBox, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -6803,10 +8627,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: KCompletionBox, action: anytype) void {
+    pub fn removeAction(self: KCompletionBox, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -6818,15 +8646,19 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: KCompletionBox, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: KCompletionBox, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KCompletionBox.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KCompletionBox.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -6838,13 +8670,17 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: KCompletionBox, text: []const u8) QAction {
+    pub fn addAction2(self: KCompletionBox, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -6858,7 +8694,7 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: KCompletionBox, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: KCompletionBox, icon: anytype, text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -6867,6 +8703,10 @@ pub const KCompletionBox = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -6879,7 +8719,7 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: KCompletionBox, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: KCompletionBox, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -6887,6 +8727,10 @@ pub const KCompletionBox = extern struct {
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
 
     /// Inherited from QWidget
     ///
@@ -6902,7 +8746,7 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: KCompletionBox, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: KCompletionBox, icon: anytype, text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -6912,6 +8756,10 @@ pub const KCompletionBox = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
@@ -6920,9 +8768,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn ParentWidget(self: KCompletionBox) QWidget {
+    pub fn parentWidget(self: KCompletionBox) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -6934,9 +8786,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: KCompletionBox, typeVal: i32) void {
+    pub fn setWindowFlags(self: KCompletionBox, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -6950,9 +8806,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: KCompletionBox) i32 {
+    pub fn windowFlags(self: KCompletionBox) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -6964,9 +8824,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: KCompletionBox, param1: i32) void {
+    pub fn setWindowFlag(self: KCompletionBox, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -6978,9 +8842,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: KCompletionBox, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: KCompletionBox, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -6994,9 +8862,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: KCompletionBox) i32 {
+    pub fn windowType(self: KCompletionBox) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -7006,9 +8878,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -7018,13 +8894,17 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: KCompletionBox, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: KCompletionBox, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -7036,10 +8916,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: KCompletionBox, p: anytype) QWidget {
+    pub fn childAt2(self: KCompletionBox, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -7051,10 +8935,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: KCompletionBox, p: anytype) QWidget {
+    pub fn childAt3(self: KCompletionBox, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -7066,9 +8954,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: KCompletionBox, param1: i32) void {
+    pub fn setAttribute(self: KCompletionBox, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -7080,9 +8972,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: KCompletionBox, param1: i32) bool {
+    pub fn testAttribute(self: KCompletionBox, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -7092,9 +8988,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn EnsurePolished(self: KCompletionBox) void {
+    pub fn ensurePolished(self: KCompletionBox) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -7106,10 +9006,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: KCompletionBox, child: anytype) bool {
+    pub fn isAncestorOf(self: KCompletionBox, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -7119,9 +9023,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn AutoFillBackground(self: KCompletionBox) bool {
+    pub fn autoFillBackground(self: KCompletionBox) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -7133,9 +9041,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: KCompletionBox, enabled: bool) void {
+    pub fn setAutoFillBackground(self: KCompletionBox, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -7145,9 +9057,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn BackingStore(self: KCompletionBox) QBackingStore {
+    pub fn backingStore(self: KCompletionBox) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -7157,9 +9073,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn WindowHandle(self: KCompletionBox) QWindow {
+    pub fn windowHandle(self: KCompletionBox) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -7169,9 +9089,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn Screen(self: KCompletionBox) QScreen {
+    pub fn screen(self: KCompletionBox) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -7181,12 +9105,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: KCompletionBox, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: KCompletionBox, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -7194,12 +9122,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -7211,13 +9143,17 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: KCompletionBox, title: []const u8) void {
+    pub fn windowTitleChanged(self: KCompletionBox, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -7229,9 +9165,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: KCompletionBox, callback: *const fn (KCompletionBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: KCompletionBox, callback: *const fn (KCompletionBox, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -7243,10 +9183,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: KCompletionBox, icon: anytype) void {
+    pub fn windowIconChanged(self: KCompletionBox, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -7258,9 +9202,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: KCompletionBox, callback: *const fn (KCompletionBox, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: KCompletionBox, callback: *const fn (KCompletionBox, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -7272,13 +9220,17 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: KCompletionBox, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: KCompletionBox, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -7290,9 +9242,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: KCompletionBox, callback: *const fn (KCompletionBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: KCompletionBox, callback: *const fn (KCompletionBox, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -7302,12 +9258,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: KCompletionBox, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: KCompletionBox, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -7319,9 +9279,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: KCompletionBox, callback: *const fn (KCompletionBox, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: KCompletionBox, callback: *const fn (KCompletionBox, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -7335,9 +9299,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: KCompletionBox) i32 {
+    pub fn inputMethodHints(self: KCompletionBox) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -7349,9 +9317,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: KCompletionBox, hints: i32) void {
+    pub fn setInputMethodHints(self: KCompletionBox, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -7365,11 +9337,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: KCompletionBox, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: KCompletionBox, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -7385,13 +9361,17 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: KCompletionBox, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: KCompletionBox, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -7408,12 +9388,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: KCompletionBox, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: KCompletionBox, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -7427,11 +9411,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: KCompletionBox, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: KCompletionBox, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -7447,12 +9435,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: KCompletionBox, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: KCompletionBox, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -7470,12 +9462,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: KCompletionBox, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: KCompletionBox, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -7487,10 +9483,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: KCompletionBox, rectangle: anytype) QPixmap {
+    pub fn grab1(self: KCompletionBox, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -7504,9 +9504,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: KCompletionBox, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: KCompletionBox, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -7520,10 +9524,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: KCompletionBox, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: KCompletionBox, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -7537,9 +9545,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: KCompletionBox, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: KCompletionBox, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -7553,9 +9565,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: KCompletionBox, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: KCompletionBox, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -7569,9 +9585,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: KCompletionBox, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: KCompletionBox, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -7585,25 +9605,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: KCompletionBox, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: KCompletionBox, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -7611,17 +9619,41 @@ pub const KCompletionBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -7633,13 +9665,17 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KCompletionBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KCompletionBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompletionBox.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompletionBox.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -7651,13 +9687,17 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KCompletionBox, name: []const u8) void {
+    pub fn setObjectName(self: KCompletionBox, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -7667,9 +9707,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn IsWidgetType(self: KCompletionBox) bool {
+    pub fn isWidgetType(self: KCompletionBox) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -7679,9 +9723,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn IsWindowType(self: KCompletionBox) bool {
+    pub fn isWindowType(self: KCompletionBox) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -7691,9 +9739,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn IsQuickItemType(self: KCompletionBox) bool {
+    pub fn isQuickItemType(self: KCompletionBox) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -7703,9 +9755,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn SignalsBlocked(self: KCompletionBox) bool {
+    pub fn signalsBlocked(self: KCompletionBox) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -7717,9 +9773,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KCompletionBox, b: bool) bool {
+    pub fn blockSignals(self: KCompletionBox, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -7729,9 +9789,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn Thread(self: KCompletionBox) QThread {
+    pub fn thread(self: KCompletionBox) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -7741,12 +9805,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KCompletionBox, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KCompletionBox, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -7758,9 +9826,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KCompletionBox, interval: i32) i32 {
+    pub fn startTimer(self: KCompletionBox, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -7772,9 +9844,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KCompletionBox, time: i64) i32 {
+    pub fn startTimer2(self: KCompletionBox, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -7786,9 +9862,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KCompletionBox, id: i32) void {
+    pub fn killTimer(self: KCompletionBox, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -7800,9 +9880,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KCompletionBox, id: i32) void {
+    pub fn killTimer2(self: KCompletionBox, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -7814,15 +9898,19 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KCompletionBox, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KCompletionBox, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KCompletionBox.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KCompletionBox.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -7834,10 +9922,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KCompletionBox, filterObj: anytype) void {
+    pub fn installEventFilter(self: KCompletionBox, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -7849,10 +9941,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KCompletionBox, obj: anytype) void {
+    pub fn removeEventFilter(self: KCompletionBox, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -7860,7 +9956,7 @@ pub const KCompletionBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -7868,13 +9964,17 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -7882,7 +9982,7 @@ pub const KCompletionBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -7890,13 +9990,17 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -7906,18 +10010,22 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KCompletionBox, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KCompletionBox, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -7925,7 +10033,7 @@ pub const KCompletionBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -7933,13 +10041,17 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -7947,7 +10059,7 @@ pub const KCompletionBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -7955,13 +10067,17 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -7971,9 +10087,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn Disconnect3(self: KCompletionBox) bool {
+    pub fn disconnect3(self: KCompletionBox) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -7985,10 +10105,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KCompletionBox, receiver: anytype) bool {
+    pub fn disconnect4(self: KCompletionBox, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -7998,10 +10122,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -8011,9 +10139,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn DumpObjectTree(self: KCompletionBox) void {
+    pub fn dumpObjectTree(self: KCompletionBox) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -8023,9 +10155,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn DumpObjectInfo(self: KCompletionBox) void {
+    pub fn dumpObjectInfo(self: KCompletionBox) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -8039,11 +10175,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KCompletionBox, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KCompletionBox, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -8055,10 +10195,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KCompletionBox, name: [:0]const u8) QVariant {
+    pub fn property(self: KCompletionBox, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -8070,7 +10214,7 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KCompletionBox, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KCompletionBox, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -8078,27 +10222,19 @@ pub const KCompletionBox = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KCompletionBox.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KCompletionBox.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KCompletionBox.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KCompletionBox.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCompletionBox `
-    ///
-    pub fn BindingStorage(self: KCompletionBox) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -8108,9 +10244,29 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn BindingStorage2(self: KCompletionBox) QBindingStorage {
+    pub fn bindingStorage(self: KCompletionBox) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KCompletionBox `
+    ///
+    pub fn bindingStorage2(self: KCompletionBox) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -8120,9 +10276,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn Destroyed(self: KCompletionBox) void {
+    pub fn destroyed(self: KCompletionBox) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -8134,9 +10294,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KCompletionBox, callback: *const fn (KCompletionBox) callconv(.c) void) void {
+    pub fn onDestroyed(self: KCompletionBox, callback: *const fn (KCompletionBox) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -8146,9 +10310,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn Parent(self: KCompletionBox) QObject {
+    pub fn parent(self: KCompletionBox) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -8160,10 +10328,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KCompletionBox, classname: [:0]const u8) bool {
+    pub fn inherits(self: KCompletionBox, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -8173,9 +10345,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn DeleteLater(self: KCompletionBox) void {
+    pub fn deleteLater(self: KCompletionBox) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -8189,9 +10365,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KCompletionBox, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KCompletionBox, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -8205,9 +10385,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KCompletionBox, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KCompletionBox, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -8215,7 +10399,7 @@ pub const KCompletionBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -8225,13 +10409,17 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -8239,7 +10427,7 @@ pub const KCompletionBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -8249,13 +10437,17 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -8265,7 +10457,7 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -8273,12 +10465,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KCompletionBox, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KCompletionBox, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -8290,10 +10486,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KCompletionBox, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KCompletionBox, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -8307,11 +10507,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KCompletionBox, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KCompletionBox, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -8327,13 +10531,17 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KCompletionBox, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KCompletionBox, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -8346,11 +10554,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KCompletionBox, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KCompletionBox, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -8362,10 +10574,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KCompletionBox, param1: anytype) void {
+    pub fn destroyed1(self: KCompletionBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -8377,9 +10593,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KCompletionBox, callback: *const fn (KCompletionBox, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KCompletionBox, callback: *const fn (KCompletionBox, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -8389,9 +10609,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn PaintingActive(self: KCompletionBox) bool {
+    pub fn paintingActive(self: KCompletionBox) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -8401,9 +10625,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn WidthMM(self: KCompletionBox) i32 {
+    pub fn widthMM(self: KCompletionBox) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -8413,9 +10641,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn HeightMM(self: KCompletionBox) i32 {
+    pub fn heightMM(self: KCompletionBox) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -8425,9 +10657,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn LogicalDpiX(self: KCompletionBox) i32 {
+    pub fn logicalDpiX(self: KCompletionBox) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -8437,9 +10673,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn LogicalDpiY(self: KCompletionBox) i32 {
+    pub fn logicalDpiY(self: KCompletionBox) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -8449,9 +10689,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn PhysicalDpiX(self: KCompletionBox) i32 {
+    pub fn physicalDpiX(self: KCompletionBox) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -8461,9 +10705,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn PhysicalDpiY(self: KCompletionBox) i32 {
+    pub fn physicalDpiY(self: KCompletionBox) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -8473,9 +10721,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn DevicePixelRatio(self: KCompletionBox) f64 {
+    pub fn devicePixelRatio(self: KCompletionBox) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8485,9 +10737,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn DevicePixelRatioF(self: KCompletionBox) f64 {
+    pub fn devicePixelRatioF(self: KCompletionBox) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -8497,9 +10753,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn ColorCount(self: KCompletionBox) i32 {
+    pub fn colorCount(self: KCompletionBox) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -8509,17 +10769,25 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn Depth(self: KCompletionBox) i32 {
+    pub fn depth(self: KCompletionBox) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8527,13 +10795,17 @@ pub const KCompletionBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `setSelectionModel` instead
+    ///
+    pub const SetSelectionModel = setSelectionModel;
 
     /// Inherited from QListWidget
     ///
@@ -8545,16 +10817,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` selectionModel: QItemSelectionModel `
+    /// ` _selectionModel: QItemSelectionModel `
     ///
-    pub fn SetSelectionModel(self: KCompletionBox, selectionModel: anytype) void {
-        comptime _ = @TypeOf(selectionModel)._is_QItemSelectionModel;
-        qtc.KCompletionBox_SetSelectionModel(@ptrCast(self.ptr), @ptrCast(selectionModel.ptr));
+    pub fn setSelectionModel(self: KCompletionBox, _selectionModel: anytype) void {
+        comptime _ = @TypeOf(_selectionModel)._is_QItemSelectionModel;
+        qtc.KCompletionBox_SetSelectionModel(@ptrCast(self.ptr), @ptrCast(_selectionModel.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetSelectionModel` instead
+    /// ### DEPRECATED: Use `superSetSelectionModel` instead
     ///
-    pub const QBaseSetSelectionModel = SuperSetSelectionModel;
+    pub const SuperSetSelectionModel = superSetSelectionModel;
 
     /// Inherited from QListWidget
     ///
@@ -8566,12 +10838,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` selectionModel: QItemSelectionModel `
+    /// ` _selectionModel: QItemSelectionModel `
     ///
-    pub fn SuperSetSelectionModel(self: KCompletionBox, selectionModel: anytype) void {
-        comptime _ = @TypeOf(selectionModel)._is_QItemSelectionModel;
-        qtc.KCompletionBox_SuperSetSelectionModel(@ptrCast(self.ptr), @ptrCast(selectionModel.ptr));
+    pub fn superSetSelectionModel(self: KCompletionBox, _selectionModel: anytype) void {
+        comptime _ = @TypeOf(_selectionModel)._is_QItemSelectionModel;
+        qtc.KCompletionBox_SuperSetSelectionModel(@ptrCast(self.ptr), @ptrCast(_selectionModel.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetSelectionModel` instead
+    ///
+    pub const OnSetSelectionModel = onSetSelectionModel;
 
     /// Inherited from QListWidget
     ///
@@ -8585,9 +10861,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, selectionModel: QItemSelectionModel) callconv(.c) void `
     ///
-    pub fn OnSetSelectionModel(self: KCompletionBox, callback: *const fn (KCompletionBox, QItemSelectionModel) callconv(.c) void) void {
+    pub fn onSetSelectionModel(self: KCompletionBox, callback: *const fn (KCompletionBox, QItemSelectionModel) callconv(.c) void) void {
         qtc.KCompletionBox_OnSetSelectionModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QListWidget
     ///
@@ -8599,16 +10879,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: KCompletionBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KCompletionBox_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: KCompletionBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KCompletionBox_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QListWidget
     ///
@@ -8620,12 +10900,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: KCompletionBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KCompletionBox_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: KCompletionBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KCompletionBox_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QListWidget
     ///
@@ -8639,9 +10923,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QDropEvent) callconv(.c) void) void {
         qtc.KCompletionBox_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QListWidget
     ///
@@ -8655,14 +10943,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn Event(self: KCompletionBox, e: anytype) bool {
+    pub fn event(self: KCompletionBox, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.KCompletionBox_Event(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QListWidget
     ///
@@ -8676,10 +10964,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn SuperEvent(self: KCompletionBox, e: anytype) bool {
+    pub fn superEvent(self: KCompletionBox, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.KCompletionBox_SuperEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QListWidget
     ///
@@ -8693,9 +10985,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, e: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QEvent) callconv(.c) bool) void {
         qtc.KCompletionBox_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mimeTypes` instead
+    ///
+    pub const MimeTypes = mimeTypes;
 
     /// Inherited from QListWidget
     ///
@@ -8709,7 +11005,7 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MimeTypes(self: KCompletionBox, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn mimeTypes(self: KCompletionBox, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KCompletionBox_MimeTypes(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -8717,19 +11013,19 @@ pub const KCompletionBox = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KCompletionBox.MimeTypes: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KCompletionBox.mimeTypes: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KCompletionBox.MimeTypes: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KCompletionBox.mimeTypes: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `SuperMimeTypes` instead
+    /// ### DEPRECATED: Use `superMimeTypes` instead
     ///
-    pub const QBaseMimeTypes = SuperMimeTypes;
+    pub const SuperMimeTypes = superMimeTypes;
 
     /// Inherited from QListWidget
     ///
@@ -8743,7 +11039,7 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperMimeTypes(self: KCompletionBox, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn superMimeTypes(self: KCompletionBox, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KCompletionBox_SuperMimeTypes(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -8751,15 +11047,19 @@ pub const KCompletionBox = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KCompletionBox.MimeTypes: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KCompletionBox.mimeTypes: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KCompletionBox.MimeTypes: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KCompletionBox.mimeTypes: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onMimeTypes` instead
+    ///
+    pub const OnMimeTypes = onMimeTypes;
 
     /// Inherited from QListWidget
     ///
@@ -8775,9 +11075,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn OnMimeTypes(self: KCompletionBox, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
+    pub fn onMimeTypes(self: KCompletionBox, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.KCompletionBox_OnMimeTypes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mimeData` instead
+    ///
+    pub const MimeData = mimeData;
 
     /// Inherited from QListWidget
     ///
@@ -8789,19 +11093,19 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` items: []QListWidgetItem `
+    /// ` _items: []QListWidgetItem `
     ///
-    pub fn MimeData(self: KCompletionBox, items: []QListWidgetItem) QMimeData {
+    pub fn mimeData(self: KCompletionBox, _items: []QListWidgetItem) QMimeData {
         const items_list = qtc.libqt_list{
-            .len = items.len,
-            .data = @ptrCast(items.ptr),
+            .len = _items.len,
+            .data = @ptrCast(_items.ptr),
         };
         return .{ .ptr = qtc.KCompletionBox_MimeData(@ptrCast(self.ptr), items_list) };
     }
 
-    /// ### DEPRECATED: Use `SuperMimeData` instead
+    /// ### DEPRECATED: Use `superMimeData` instead
     ///
-    pub const QBaseMimeData = SuperMimeData;
+    pub const SuperMimeData = superMimeData;
 
     /// Inherited from QListWidget
     ///
@@ -8813,15 +11117,19 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` items: []QListWidgetItem `
+    /// ` _items: []QListWidgetItem `
     ///
-    pub fn SuperMimeData(self: KCompletionBox, items: []QListWidgetItem) QMimeData {
+    pub fn superMimeData(self: KCompletionBox, _items: []QListWidgetItem) QMimeData {
         const items_list = qtc.libqt_list{
-            .len = items.len,
-            .data = @ptrCast(items.ptr),
+            .len = _items.len,
+            .data = @ptrCast(_items.ptr),
         };
         return .{ .ptr = qtc.KCompletionBox_SuperMimeData(@ptrCast(self.ptr), items_list) };
     }
+
+    /// ### DEPRECATED: Use `onMimeData` instead
+    ///
+    pub const OnMimeData = onMimeData;
 
     /// Inherited from QListWidget
     ///
@@ -8835,9 +11143,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, items: qtc.libqt_list ([]QListWidgetItem)) callconv(.c) QMimeData `
     ///
-    pub fn OnMimeData(self: KCompletionBox, callback: *const fn (KCompletionBox, qtc.libqt_list) callconv(.c) QMimeData) void {
+    pub fn onMimeData(self: KCompletionBox, callback: *const fn (KCompletionBox, qtc.libqt_list) callconv(.c) QMimeData) void {
         qtc.KCompletionBox_OnMimeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropMimeData` instead
+    ///
+    pub const DropMimeData = dropMimeData;
 
     /// Inherited from QListWidget
     ///
@@ -8855,14 +11167,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` action: qnamespace_enums.DropAction `
     ///
-    pub fn DropMimeData(self: KCompletionBox, index: i32, data: anytype, action: i32) bool {
+    pub fn dropMimeData(self: KCompletionBox, index: i32, data: anytype, action: i32) bool {
         comptime _ = @TypeOf(data)._is_QMimeData;
         return qtc.KCompletionBox_DropMimeData(@ptrCast(self.ptr), @bitCast(index), @ptrCast(data.ptr), @bitCast(action));
     }
 
-    /// ### DEPRECATED: Use `SuperDropMimeData` instead
+    /// ### DEPRECATED: Use `superDropMimeData` instead
     ///
-    pub const QBaseDropMimeData = SuperDropMimeData;
+    pub const SuperDropMimeData = superDropMimeData;
 
     /// Inherited from QListWidget
     ///
@@ -8880,10 +11192,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` action: qnamespace_enums.DropAction `
     ///
-    pub fn SuperDropMimeData(self: KCompletionBox, index: i32, data: anytype, action: i32) bool {
+    pub fn superDropMimeData(self: KCompletionBox, index: i32, data: anytype, action: i32) bool {
         comptime _ = @TypeOf(data)._is_QMimeData;
         return qtc.KCompletionBox_SuperDropMimeData(@ptrCast(self.ptr), @bitCast(index), @ptrCast(data.ptr), @bitCast(action));
     }
+
+    /// ### DEPRECATED: Use `onDropMimeData` instead
+    ///
+    pub const OnDropMimeData = onDropMimeData;
 
     /// Inherited from QListWidget
     ///
@@ -8897,9 +11213,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, index: i32, data: QMimeData, action: qnamespace_enums.DropAction) callconv(.c) bool `
     ///
-    pub fn OnDropMimeData(self: KCompletionBox, callback: *const fn (KCompletionBox, i32, QMimeData, i32) callconv(.c) bool) void {
+    pub fn onDropMimeData(self: KCompletionBox, callback: *const fn (KCompletionBox, i32, QMimeData, i32) callconv(.c) bool) void {
         qtc.KCompletionBox_OnDropMimeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `supportedDropActions` instead
+    ///
+    pub const SupportedDropActions = supportedDropActions;
 
     /// Inherited from QListWidget
     ///
@@ -8915,13 +11235,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn SupportedDropActions(self: KCompletionBox) i32 {
+    pub fn supportedDropActions(self: KCompletionBox) i32 {
         return qtc.KCompletionBox_SupportedDropActions(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSupportedDropActions` instead
+    /// ### DEPRECATED: Use `superSupportedDropActions` instead
     ///
-    pub const QBaseSupportedDropActions = SuperSupportedDropActions;
+    pub const SuperSupportedDropActions = superSupportedDropActions;
 
     /// Inherited from QListWidget
     ///
@@ -8937,9 +11257,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn SuperSupportedDropActions(self: KCompletionBox) i32 {
+    pub fn superSupportedDropActions(self: KCompletionBox) i32 {
         return qtc.KCompletionBox_SuperSupportedDropActions(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSupportedDropActions` instead
+    ///
+    pub const OnSupportedDropActions = onSupportedDropActions;
 
     /// Inherited from QListWidget
     ///
@@ -8953,9 +11277,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSupportedDropActions(self: KCompletionBox, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSupportedDropActions(self: KCompletionBox, callback: *const fn () callconv(.c) i32) void {
         qtc.KCompletionBox_OnSupportedDropActions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `visualRect` instead
+    ///
+    pub const VisualRect = visualRect;
 
     /// Inherited from QListView
     ///
@@ -8969,14 +11297,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn VisualRect(self: KCompletionBox, index: anytype) QRect {
+    pub fn visualRect(self: KCompletionBox, index: anytype) QRect {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.KCompletionBox_VisualRect(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperVisualRect` instead
+    /// ### DEPRECATED: Use `superVisualRect` instead
     ///
-    pub const QBaseVisualRect = SuperVisualRect;
+    pub const SuperVisualRect = superVisualRect;
 
     /// Inherited from QListView
     ///
@@ -8990,10 +11318,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SuperVisualRect(self: KCompletionBox, index: anytype) QRect {
+    pub fn superVisualRect(self: KCompletionBox, index: anytype) QRect {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.KCompletionBox_SuperVisualRect(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onVisualRect` instead
+    ///
+    pub const OnVisualRect = onVisualRect;
 
     /// Inherited from QListView
     ///
@@ -9009,9 +11341,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnVisualRect(self: KCompletionBox, callback: *const fn (KCompletionBox, QModelIndex) callconv(.c) QRect) void {
+    pub fn onVisualRect(self: KCompletionBox, callback: *const fn (KCompletionBox, QModelIndex) callconv(.c) QRect) void {
         qtc.KCompletionBox_OnVisualRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `scrollTo` instead
+    ///
+    pub const ScrollTo = scrollTo;
 
     /// Inherited from QListView
     ///
@@ -9027,14 +11363,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` hint: qabstractitemview_enums.ScrollHint `
     ///
-    pub fn ScrollTo(self: KCompletionBox, index: anytype, hint: i32) void {
+    pub fn scrollTo(self: KCompletionBox, index: anytype, hint: i32) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.KCompletionBox_ScrollTo(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(hint));
     }
 
-    /// ### DEPRECATED: Use `SuperScrollTo` instead
+    /// ### DEPRECATED: Use `superScrollTo` instead
     ///
-    pub const QBaseScrollTo = SuperScrollTo;
+    pub const SuperScrollTo = superScrollTo;
 
     /// Inherited from QListView
     ///
@@ -9050,10 +11386,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` hint: qabstractitemview_enums.ScrollHint `
     ///
-    pub fn SuperScrollTo(self: KCompletionBox, index: anytype, hint: i32) void {
+    pub fn superScrollTo(self: KCompletionBox, index: anytype, hint: i32) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.KCompletionBox_SuperScrollTo(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(hint));
     }
+
+    /// ### DEPRECATED: Use `onScrollTo` instead
+    ///
+    pub const OnScrollTo = onScrollTo;
 
     /// Inherited from QListView
     ///
@@ -9067,9 +11407,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, index: QModelIndex, hint: qabstractitemview_enums.ScrollHint) callconv(.c) void `
     ///
-    pub fn OnScrollTo(self: KCompletionBox, callback: *const fn (KCompletionBox, QModelIndex, i32) callconv(.c) void) void {
+    pub fn onScrollTo(self: KCompletionBox, callback: *const fn (KCompletionBox, QModelIndex, i32) callconv(.c) void) void {
         qtc.KCompletionBox_OnScrollTo(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `indexAt` instead
+    ///
+    pub const IndexAt = indexAt;
 
     /// Inherited from QListView
     ///
@@ -9083,14 +11427,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn IndexAt(self: KCompletionBox, p: anytype) QModelIndex {
+    pub fn indexAt(self: KCompletionBox, p: anytype) QModelIndex {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.KCompletionBox_IndexAt(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperIndexAt` instead
+    /// ### DEPRECATED: Use `superIndexAt` instead
     ///
-    pub const QBaseIndexAt = SuperIndexAt;
+    pub const SuperIndexAt = superIndexAt;
 
     /// Inherited from QListView
     ///
@@ -9104,10 +11448,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn SuperIndexAt(self: KCompletionBox, p: anytype) QModelIndex {
+    pub fn superIndexAt(self: KCompletionBox, p: anytype) QModelIndex {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.KCompletionBox_SuperIndexAt(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onIndexAt` instead
+    ///
+    pub const OnIndexAt = onIndexAt;
 
     /// Inherited from QListView
     ///
@@ -9123,10 +11471,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnIndexAt(self: KCompletionBox, callback: *const fn (KCompletionBox, QPoint) callconv(.c) QModelIndex) void {
+    pub fn onIndexAt(self: KCompletionBox, callback: *const fn (KCompletionBox, QPoint) callconv(.c) QModelIndex) void {
         qtc.KCompletionBox_OnIndexAt(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `doItemsLayout` instead
+    ///
+    pub const DoItemsLayout = doItemsLayout;
+
     /// Inherited from QListView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#doItemsLayout)
@@ -9137,13 +11489,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn DoItemsLayout(self: KCompletionBox) void {
+    pub fn doItemsLayout(self: KCompletionBox) void {
         qtc.KCompletionBox_DoItemsLayout(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDoItemsLayout` instead
+    /// ### DEPRECATED: Use `superDoItemsLayout` instead
     ///
-    pub const QBaseDoItemsLayout = SuperDoItemsLayout;
+    pub const SuperDoItemsLayout = superDoItemsLayout;
 
     /// Inherited from QListView
     ///
@@ -9155,9 +11507,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn SuperDoItemsLayout(self: KCompletionBox) void {
+    pub fn superDoItemsLayout(self: KCompletionBox) void {
         qtc.KCompletionBox_SuperDoItemsLayout(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDoItemsLayout` instead
+    ///
+    pub const OnDoItemsLayout = onDoItemsLayout;
 
     /// Inherited from QListView
     ///
@@ -9171,9 +11527,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDoItemsLayout(self: KCompletionBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onDoItemsLayout(self: KCompletionBox, callback: *const fn () callconv(.c) void) void {
         qtc.KCompletionBox_OnDoItemsLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `reset` instead
+    ///
+    pub const Reset = reset;
 
     /// Inherited from QListView
     ///
@@ -9185,13 +11545,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn Reset(self: KCompletionBox) void {
+    pub fn reset(self: KCompletionBox) void {
         qtc.KCompletionBox_Reset(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperReset` instead
+    /// ### DEPRECATED: Use `superReset` instead
     ///
-    pub const QBaseReset = SuperReset;
+    pub const SuperReset = superReset;
 
     /// Inherited from QListView
     ///
@@ -9203,9 +11563,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn SuperReset(self: KCompletionBox) void {
+    pub fn superReset(self: KCompletionBox) void {
         qtc.KCompletionBox_SuperReset(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onReset` instead
+    ///
+    pub const OnReset = onReset;
 
     /// Inherited from QListView
     ///
@@ -9219,9 +11583,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnReset(self: KCompletionBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onReset(self: KCompletionBox, callback: *const fn () callconv(.c) void) void {
         qtc.KCompletionBox_OnReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setRootIndex` instead
+    ///
+    pub const SetRootIndex = setRootIndex;
 
     /// Inherited from QListView
     ///
@@ -9235,14 +11603,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SetRootIndex(self: KCompletionBox, index: anytype) void {
+    pub fn setRootIndex(self: KCompletionBox, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.KCompletionBox_SetRootIndex(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetRootIndex` instead
+    /// ### DEPRECATED: Use `superSetRootIndex` instead
     ///
-    pub const QBaseSetRootIndex = SuperSetRootIndex;
+    pub const SuperSetRootIndex = superSetRootIndex;
 
     /// Inherited from QListView
     ///
@@ -9256,10 +11624,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SuperSetRootIndex(self: KCompletionBox, index: anytype) void {
+    pub fn superSetRootIndex(self: KCompletionBox, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.KCompletionBox_SuperSetRootIndex(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetRootIndex` instead
+    ///
+    pub const OnSetRootIndex = onSetRootIndex;
 
     /// Inherited from QListView
     ///
@@ -9273,9 +11645,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnSetRootIndex(self: KCompletionBox, callback: *const fn (KCompletionBox, QModelIndex) callconv(.c) void) void {
+    pub fn onSetRootIndex(self: KCompletionBox, callback: *const fn (KCompletionBox, QModelIndex) callconv(.c) void) void {
         qtc.KCompletionBox_OnSetRootIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `scrollContentsBy` instead
+    ///
+    pub const ScrollContentsBy = scrollContentsBy;
 
     /// Inherited from QListView
     ///
@@ -9291,13 +11667,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn ScrollContentsBy(self: KCompletionBox, dx: i32, dy: i32) void {
+    pub fn scrollContentsBy(self: KCompletionBox, dx: i32, dy: i32) void {
         qtc.KCompletionBox_ScrollContentsBy(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
-    /// ### DEPRECATED: Use `SuperScrollContentsBy` instead
+    /// ### DEPRECATED: Use `superScrollContentsBy` instead
     ///
-    pub const QBaseScrollContentsBy = SuperScrollContentsBy;
+    pub const SuperScrollContentsBy = superScrollContentsBy;
 
     /// Inherited from QListView
     ///
@@ -9313,9 +11689,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn SuperScrollContentsBy(self: KCompletionBox, dx: i32, dy: i32) void {
+    pub fn superScrollContentsBy(self: KCompletionBox, dx: i32, dy: i32) void {
         qtc.KCompletionBox_SuperScrollContentsBy(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `onScrollContentsBy` instead
+    ///
+    pub const OnScrollContentsBy = onScrollContentsBy;
 
     /// Inherited from QListView
     ///
@@ -9329,9 +11709,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, dx: i32, dy: i32) callconv(.c) void `
     ///
-    pub fn OnScrollContentsBy(self: KCompletionBox, callback: *const fn (KCompletionBox, i32, i32) callconv(.c) void) void {
+    pub fn onScrollContentsBy(self: KCompletionBox, callback: *const fn (KCompletionBox, i32, i32) callconv(.c) void) void {
         qtc.KCompletionBox_OnScrollContentsBy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dataChanged` instead
+    ///
+    pub const DataChanged = dataChanged;
 
     /// Inherited from QListView
     ///
@@ -9349,7 +11733,7 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` roles: []i32 `
     ///
-    pub fn DataChanged(self: KCompletionBox, topLeft: anytype, bottomRight: anytype, roles: []i32) void {
+    pub fn dataChanged(self: KCompletionBox, topLeft: anytype, bottomRight: anytype, roles: []i32) void {
         comptime _ = @TypeOf(topLeft)._is_QModelIndex;
         comptime _ = @TypeOf(bottomRight)._is_QModelIndex;
         const roles_list = qtc.libqt_list{
@@ -9359,9 +11743,9 @@ pub const KCompletionBox = extern struct {
         qtc.KCompletionBox_DataChanged(@ptrCast(self.ptr), @ptrCast(topLeft.ptr), @ptrCast(bottomRight.ptr), roles_list);
     }
 
-    /// ### DEPRECATED: Use `SuperDataChanged` instead
+    /// ### DEPRECATED: Use `superDataChanged` instead
     ///
-    pub const QBaseDataChanged = SuperDataChanged;
+    pub const SuperDataChanged = superDataChanged;
 
     /// Inherited from QListView
     ///
@@ -9379,7 +11763,7 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` roles: []i32 `
     ///
-    pub fn SuperDataChanged(self: KCompletionBox, topLeft: anytype, bottomRight: anytype, roles: []i32) void {
+    pub fn superDataChanged(self: KCompletionBox, topLeft: anytype, bottomRight: anytype, roles: []i32) void {
         comptime _ = @TypeOf(topLeft)._is_QModelIndex;
         comptime _ = @TypeOf(bottomRight)._is_QModelIndex;
         const roles_list = qtc.libqt_list{
@@ -9388,6 +11772,10 @@ pub const KCompletionBox = extern struct {
         };
         qtc.KCompletionBox_SuperDataChanged(@ptrCast(self.ptr), @ptrCast(topLeft.ptr), @ptrCast(bottomRight.ptr), roles_list);
     }
+
+    /// ### DEPRECATED: Use `onDataChanged` instead
+    ///
+    pub const OnDataChanged = onDataChanged;
 
     /// Inherited from QListView
     ///
@@ -9401,10 +11789,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, topLeft: QModelIndex, bottomRight: QModelIndex, roles: qtc.libqt_list ([]i32)) callconv(.c) void `
     ///
-    pub fn OnDataChanged(self: KCompletionBox, callback: *const fn (KCompletionBox, QModelIndex, QModelIndex, qtc.libqt_list) callconv(.c) void) void {
+    pub fn onDataChanged(self: KCompletionBox, callback: *const fn (KCompletionBox, QModelIndex, QModelIndex, qtc.libqt_list) callconv(.c) void) void {
         qtc.KCompletionBox_OnDataChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `rowsInserted` instead
+    ///
+    pub const RowsInserted = rowsInserted;
+
     /// Inherited from QListView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#rowsInserted)
@@ -9415,20 +11807,20 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` start: i32 `
     ///
-    /// ` end: i32 `
+    /// ` _end: i32 `
     ///
-    pub fn RowsInserted(self: KCompletionBox, parent: anytype, start: i32, end: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.KCompletionBox_RowsInserted(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(start), @bitCast(end));
+    pub fn rowsInserted(self: KCompletionBox, _parent: anytype, start: i32, _end: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.KCompletionBox_RowsInserted(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(start), @bitCast(_end));
     }
 
-    /// ### DEPRECATED: Use `SuperRowsInserted` instead
+    /// ### DEPRECATED: Use `superRowsInserted` instead
     ///
-    pub const QBaseRowsInserted = SuperRowsInserted;
+    pub const SuperRowsInserted = superRowsInserted;
 
     /// Inherited from QListView
     ///
@@ -9440,16 +11832,20 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` start: i32 `
     ///
-    /// ` end: i32 `
+    /// ` _end: i32 `
     ///
-    pub fn SuperRowsInserted(self: KCompletionBox, parent: anytype, start: i32, end: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.KCompletionBox_SuperRowsInserted(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(start), @bitCast(end));
+    pub fn superRowsInserted(self: KCompletionBox, _parent: anytype, start: i32, _end: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.KCompletionBox_SuperRowsInserted(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(start), @bitCast(_end));
     }
+
+    /// ### DEPRECATED: Use `onRowsInserted` instead
+    ///
+    pub const OnRowsInserted = onRowsInserted;
 
     /// Inherited from QListView
     ///
@@ -9463,10 +11859,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, parent: QModelIndex, start: i32, end: i32) callconv(.c) void `
     ///
-    pub fn OnRowsInserted(self: KCompletionBox, callback: *const fn (KCompletionBox, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onRowsInserted(self: KCompletionBox, callback: *const fn (KCompletionBox, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.KCompletionBox_OnRowsInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `rowsAboutToBeRemoved` instead
+    ///
+    pub const RowsAboutToBeRemoved = rowsAboutToBeRemoved;
+
     /// Inherited from QListView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#rowsAboutToBeRemoved)
@@ -9477,20 +11877,20 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` start: i32 `
     ///
-    /// ` end: i32 `
+    /// ` _end: i32 `
     ///
-    pub fn RowsAboutToBeRemoved(self: KCompletionBox, parent: anytype, start: i32, end: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.KCompletionBox_RowsAboutToBeRemoved(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(start), @bitCast(end));
+    pub fn rowsAboutToBeRemoved(self: KCompletionBox, _parent: anytype, start: i32, _end: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.KCompletionBox_RowsAboutToBeRemoved(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(start), @bitCast(_end));
     }
 
-    /// ### DEPRECATED: Use `SuperRowsAboutToBeRemoved` instead
+    /// ### DEPRECATED: Use `superRowsAboutToBeRemoved` instead
     ///
-    pub const QBaseRowsAboutToBeRemoved = SuperRowsAboutToBeRemoved;
+    pub const SuperRowsAboutToBeRemoved = superRowsAboutToBeRemoved;
 
     /// Inherited from QListView
     ///
@@ -9502,16 +11902,20 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` start: i32 `
     ///
-    /// ` end: i32 `
+    /// ` _end: i32 `
     ///
-    pub fn SuperRowsAboutToBeRemoved(self: KCompletionBox, parent: anytype, start: i32, end: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.KCompletionBox_SuperRowsAboutToBeRemoved(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(start), @bitCast(end));
+    pub fn superRowsAboutToBeRemoved(self: KCompletionBox, _parent: anytype, start: i32, _end: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.KCompletionBox_SuperRowsAboutToBeRemoved(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(start), @bitCast(_end));
     }
+
+    /// ### DEPRECATED: Use `onRowsAboutToBeRemoved` instead
+    ///
+    pub const OnRowsAboutToBeRemoved = onRowsAboutToBeRemoved;
 
     /// Inherited from QListView
     ///
@@ -9525,9 +11929,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, parent: QModelIndex, start: i32, end: i32) callconv(.c) void `
     ///
-    pub fn OnRowsAboutToBeRemoved(self: KCompletionBox, callback: *const fn (KCompletionBox, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onRowsAboutToBeRemoved(self: KCompletionBox, callback: *const fn (KCompletionBox, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.KCompletionBox_OnRowsAboutToBeRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
 
     /// Inherited from QListView
     ///
@@ -9541,14 +11949,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: KCompletionBox, e: anytype) void {
+    pub fn mouseMoveEvent(self: KCompletionBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.KCompletionBox_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QListView
     ///
@@ -9562,11 +11970,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: KCompletionBox, e: anytype) void {
+    pub fn superMouseMoveEvent(self: KCompletionBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.KCompletionBox_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
+
     /// Inherited from QListView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#mouseMoveEvent)
@@ -9579,9 +11991,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, e: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QMouseEvent) callconv(.c) void) void {
         qtc.KCompletionBox_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
 
     /// Inherited from QListView
     ///
@@ -9595,14 +12011,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: KCompletionBox, e: anytype) void {
+    pub fn mouseReleaseEvent(self: KCompletionBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.KCompletionBox_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QListView
     ///
@@ -9616,10 +12032,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: KCompletionBox, e: anytype) void {
+    pub fn superMouseReleaseEvent(self: KCompletionBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.KCompletionBox_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from QListView
     ///
@@ -9633,9 +12053,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, e: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QMouseEvent) callconv(.c) void) void {
         qtc.KCompletionBox_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QListView
     ///
@@ -9649,14 +12073,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` e: QWheelEvent `
     ///
-    pub fn WheelEvent(self: KCompletionBox, e: anytype) void {
+    pub fn wheelEvent(self: KCompletionBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QWheelEvent;
         qtc.KCompletionBox_WheelEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QListView
     ///
@@ -9670,10 +12094,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` e: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: KCompletionBox, e: anytype) void {
+    pub fn superWheelEvent(self: KCompletionBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QWheelEvent;
         qtc.KCompletionBox_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QListView
     ///
@@ -9687,9 +12115,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, e: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QWheelEvent) callconv(.c) void) void {
         qtc.KCompletionBox_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QListView
     ///
@@ -9703,14 +12135,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` e: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KCompletionBox, e: anytype) void {
+    pub fn timerEvent(self: KCompletionBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QTimerEvent;
         qtc.KCompletionBox_TimerEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QListView
     ///
@@ -9724,10 +12156,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` e: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KCompletionBox, e: anytype) void {
+    pub fn superTimerEvent(self: KCompletionBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QTimerEvent;
         qtc.KCompletionBox_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QListView
     ///
@@ -9741,9 +12177,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, e: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QTimerEvent) callconv(.c) void) void {
         qtc.KCompletionBox_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// Inherited from QListView
     ///
@@ -9757,14 +12197,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` e: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: KCompletionBox, e: anytype) void {
+    pub fn resizeEvent(self: KCompletionBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QResizeEvent;
         qtc.KCompletionBox_ResizeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// Inherited from QListView
     ///
@@ -9778,10 +12218,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` e: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: KCompletionBox, e: anytype) void {
+    pub fn superResizeEvent(self: KCompletionBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QResizeEvent;
         qtc.KCompletionBox_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// Inherited from QListView
     ///
@@ -9795,9 +12239,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, e: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QResizeEvent) callconv(.c) void) void {
         qtc.KCompletionBox_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QListView
     ///
@@ -9811,14 +12259,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` e: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: KCompletionBox, e: anytype) void {
+    pub fn dragMoveEvent(self: KCompletionBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QDragMoveEvent;
         qtc.KCompletionBox_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QListView
     ///
@@ -9832,10 +12280,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` e: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: KCompletionBox, e: anytype) void {
+    pub fn superDragMoveEvent(self: KCompletionBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QDragMoveEvent;
         qtc.KCompletionBox_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QListView
     ///
@@ -9849,9 +12301,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, e: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QDragMoveEvent) callconv(.c) void) void {
         qtc.KCompletionBox_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QListView
     ///
@@ -9865,14 +12321,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` e: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: KCompletionBox, e: anytype) void {
+    pub fn dragLeaveEvent(self: KCompletionBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QDragLeaveEvent;
         qtc.KCompletionBox_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QListView
     ///
@@ -9886,10 +12342,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` e: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: KCompletionBox, e: anytype) void {
+    pub fn superDragLeaveEvent(self: KCompletionBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QDragLeaveEvent;
         qtc.KCompletionBox_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QListView
     ///
@@ -9903,9 +12363,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, e: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QDragLeaveEvent) callconv(.c) void) void {
         qtc.KCompletionBox_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `startDrag` instead
+    ///
+    pub const StartDrag = startDrag;
 
     /// Inherited from QListView
     ///
@@ -9919,13 +12383,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` supportedActions: flag of qnamespace_enums.DropAction `
     ///
-    pub fn StartDrag(self: KCompletionBox, supportedActions: i32) void {
+    pub fn startDrag(self: KCompletionBox, supportedActions: i32) void {
         qtc.KCompletionBox_StartDrag(@ptrCast(self.ptr), @bitCast(supportedActions));
     }
 
-    /// ### DEPRECATED: Use `SuperStartDrag` instead
+    /// ### DEPRECATED: Use `superStartDrag` instead
     ///
-    pub const QBaseStartDrag = SuperStartDrag;
+    pub const SuperStartDrag = superStartDrag;
 
     /// Inherited from QListView
     ///
@@ -9939,9 +12403,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` supportedActions: flag of qnamespace_enums.DropAction `
     ///
-    pub fn SuperStartDrag(self: KCompletionBox, supportedActions: i32) void {
+    pub fn superStartDrag(self: KCompletionBox, supportedActions: i32) void {
         qtc.KCompletionBox_SuperStartDrag(@ptrCast(self.ptr), @bitCast(supportedActions));
     }
+
+    /// ### DEPRECATED: Use `onStartDrag` instead
+    ///
+    pub const OnStartDrag = onStartDrag;
 
     /// Inherited from QListView
     ///
@@ -9955,9 +12423,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, supportedActions: flag of qnamespace_enums.DropAction) callconv(.c) void `
     ///
-    pub fn OnStartDrag(self: KCompletionBox, callback: *const fn (KCompletionBox, i32) callconv(.c) void) void {
+    pub fn onStartDrag(self: KCompletionBox, callback: *const fn (KCompletionBox, i32) callconv(.c) void) void {
         qtc.KCompletionBox_OnStartDrag(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initViewItemOption` instead
+    ///
+    pub const InitViewItemOption = initViewItemOption;
 
     /// Inherited from QListView
     ///
@@ -9971,14 +12443,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` option: QStyleOptionViewItem `
     ///
-    pub fn InitViewItemOption(self: KCompletionBox, option: anytype) void {
+    pub fn initViewItemOption(self: KCompletionBox, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         qtc.KCompletionBox_InitViewItemOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitViewItemOption` instead
+    /// ### DEPRECATED: Use `superInitViewItemOption` instead
     ///
-    pub const QBaseInitViewItemOption = SuperInitViewItemOption;
+    pub const SuperInitViewItemOption = superInitViewItemOption;
 
     /// Inherited from QListView
     ///
@@ -9992,10 +12464,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` option: QStyleOptionViewItem `
     ///
-    pub fn SuperInitViewItemOption(self: KCompletionBox, option: anytype) void {
+    pub fn superInitViewItemOption(self: KCompletionBox, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         qtc.KCompletionBox_SuperInitViewItemOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitViewItemOption` instead
+    ///
+    pub const OnInitViewItemOption = onInitViewItemOption;
 
     /// Inherited from QListView
     ///
@@ -10009,9 +12485,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, option: QStyleOptionViewItem) callconv(.c) void `
     ///
-    pub fn OnInitViewItemOption(self: KCompletionBox, callback: *const fn (KCompletionBox, QStyleOptionViewItem) callconv(.c) void) void {
+    pub fn onInitViewItemOption(self: KCompletionBox, callback: *const fn (KCompletionBox, QStyleOptionViewItem) callconv(.c) void) void {
         qtc.KCompletionBox_OnInitViewItemOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// Inherited from QListView
     ///
@@ -10025,14 +12505,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` e: QPaintEvent `
     ///
-    pub fn PaintEvent(self: KCompletionBox, e: anytype) void {
+    pub fn paintEvent(self: KCompletionBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QPaintEvent;
         qtc.KCompletionBox_PaintEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// Inherited from QListView
     ///
@@ -10046,10 +12526,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` e: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: KCompletionBox, e: anytype) void {
+    pub fn superPaintEvent(self: KCompletionBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QPaintEvent;
         qtc.KCompletionBox_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// Inherited from QListView
     ///
@@ -10063,10 +12547,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, e: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QPaintEvent) callconv(.c) void) void {
         qtc.KCompletionBox_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `horizontalOffset` instead
+    ///
+    pub const HorizontalOffset = horizontalOffset;
+
     /// Inherited from QListView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#horizontalOffset)
@@ -10077,13 +12565,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn HorizontalOffset(self: KCompletionBox) i32 {
+    pub fn horizontalOffset(self: KCompletionBox) i32 {
         return qtc.KCompletionBox_HorizontalOffset(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHorizontalOffset` instead
+    /// ### DEPRECATED: Use `superHorizontalOffset` instead
     ///
-    pub const QBaseHorizontalOffset = SuperHorizontalOffset;
+    pub const SuperHorizontalOffset = superHorizontalOffset;
 
     /// Inherited from QListView
     ///
@@ -10095,10 +12583,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn SuperHorizontalOffset(self: KCompletionBox) i32 {
+    pub fn superHorizontalOffset(self: KCompletionBox) i32 {
         return qtc.KCompletionBox_SuperHorizontalOffset(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onHorizontalOffset` instead
+    ///
+    pub const OnHorizontalOffset = onHorizontalOffset;
+
     /// Inherited from QListView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#horizontalOffset)
@@ -10111,9 +12603,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnHorizontalOffset(self: KCompletionBox, callback: *const fn () callconv(.c) i32) void {
+    pub fn onHorizontalOffset(self: KCompletionBox, callback: *const fn () callconv(.c) i32) void {
         qtc.KCompletionBox_OnHorizontalOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `verticalOffset` instead
+    ///
+    pub const VerticalOffset = verticalOffset;
 
     /// Inherited from QListView
     ///
@@ -10125,13 +12621,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn VerticalOffset(self: KCompletionBox) i32 {
+    pub fn verticalOffset(self: KCompletionBox) i32 {
         return qtc.KCompletionBox_VerticalOffset(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperVerticalOffset` instead
+    /// ### DEPRECATED: Use `superVerticalOffset` instead
     ///
-    pub const QBaseVerticalOffset = SuperVerticalOffset;
+    pub const SuperVerticalOffset = superVerticalOffset;
 
     /// Inherited from QListView
     ///
@@ -10143,9 +12639,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn SuperVerticalOffset(self: KCompletionBox) i32 {
+    pub fn superVerticalOffset(self: KCompletionBox) i32 {
         return qtc.KCompletionBox_SuperVerticalOffset(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onVerticalOffset` instead
+    ///
+    pub const OnVerticalOffset = onVerticalOffset;
 
     /// Inherited from QListView
     ///
@@ -10159,9 +12659,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnVerticalOffset(self: KCompletionBox, callback: *const fn () callconv(.c) i32) void {
+    pub fn onVerticalOffset(self: KCompletionBox, callback: *const fn () callconv(.c) i32) void {
         qtc.KCompletionBox_OnVerticalOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveCursor` instead
+    ///
+    pub const MoveCursor = moveCursor;
 
     /// Inherited from QListView
     ///
@@ -10177,13 +12681,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn MoveCursor(self: KCompletionBox, cursorAction: i32, modifiers: i32) QModelIndex {
+    pub fn moveCursor(self: KCompletionBox, cursorAction: i32, modifiers: i32) QModelIndex {
         return .{ .ptr = qtc.KCompletionBox_MoveCursor(@ptrCast(self.ptr), @bitCast(cursorAction), @bitCast(modifiers)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMoveCursor` instead
+    /// ### DEPRECATED: Use `superMoveCursor` instead
     ///
-    pub const QBaseMoveCursor = SuperMoveCursor;
+    pub const SuperMoveCursor = superMoveCursor;
 
     /// Inherited from QListView
     ///
@@ -10199,9 +12703,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn SuperMoveCursor(self: KCompletionBox, cursorAction: i32, modifiers: i32) QModelIndex {
+    pub fn superMoveCursor(self: KCompletionBox, cursorAction: i32, modifiers: i32) QModelIndex {
         return .{ .ptr = qtc.KCompletionBox_SuperMoveCursor(@ptrCast(self.ptr), @bitCast(cursorAction), @bitCast(modifiers)) };
     }
+
+    /// ### DEPRECATED: Use `onMoveCursor` instead
+    ///
+    pub const OnMoveCursor = onMoveCursor;
 
     /// Inherited from QListView
     ///
@@ -10217,9 +12725,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMoveCursor(self: KCompletionBox, callback: *const fn (KCompletionBox, i32, i32) callconv(.c) QModelIndex) void {
+    pub fn onMoveCursor(self: KCompletionBox, callback: *const fn (KCompletionBox, i32, i32) callconv(.c) QModelIndex) void {
         qtc.KCompletionBox_OnMoveCursor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setSelection` instead
+    ///
+    pub const SetSelection = setSelection;
 
     /// Inherited from QListView
     ///
@@ -10231,18 +12743,18 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
     /// ` command: flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn SetSelection(self: KCompletionBox, rect: anytype, command: i32) void {
-        comptime _ = @TypeOf(rect)._is_QRect;
-        qtc.KCompletionBox_SetSelection(@ptrCast(self.ptr), @ptrCast(rect.ptr), @bitCast(command));
+    pub fn setSelection(self: KCompletionBox, _rect: anytype, command: i32) void {
+        comptime _ = @TypeOf(_rect)._is_QRect;
+        qtc.KCompletionBox_SetSelection(@ptrCast(self.ptr), @ptrCast(_rect.ptr), @bitCast(command));
     }
 
-    /// ### DEPRECATED: Use `SuperSetSelection` instead
+    /// ### DEPRECATED: Use `superSetSelection` instead
     ///
-    pub const QBaseSetSelection = SuperSetSelection;
+    pub const SuperSetSelection = superSetSelection;
 
     /// Inherited from QListView
     ///
@@ -10254,14 +12766,18 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
     /// ` command: flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn SuperSetSelection(self: KCompletionBox, rect: anytype, command: i32) void {
-        comptime _ = @TypeOf(rect)._is_QRect;
-        qtc.KCompletionBox_SuperSetSelection(@ptrCast(self.ptr), @ptrCast(rect.ptr), @bitCast(command));
+    pub fn superSetSelection(self: KCompletionBox, _rect: anytype, command: i32) void {
+        comptime _ = @TypeOf(_rect)._is_QRect;
+        qtc.KCompletionBox_SuperSetSelection(@ptrCast(self.ptr), @ptrCast(_rect.ptr), @bitCast(command));
     }
+
+    /// ### DEPRECATED: Use `onSetSelection` instead
+    ///
+    pub const OnSetSelection = onSetSelection;
 
     /// Inherited from QListView
     ///
@@ -10275,9 +12791,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, rect: QRect, command: flag of qitemselectionmodel_enums.SelectionFlag) callconv(.c) void `
     ///
-    pub fn OnSetSelection(self: KCompletionBox, callback: *const fn (KCompletionBox, QRect, i32) callconv(.c) void) void {
+    pub fn onSetSelection(self: KCompletionBox, callback: *const fn (KCompletionBox, QRect, i32) callconv(.c) void) void {
         qtc.KCompletionBox_OnSetSelection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `visualRegionForSelection` instead
+    ///
+    pub const VisualRegionForSelection = visualRegionForSelection;
 
     /// Inherited from QListView
     ///
@@ -10291,14 +12811,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` selection: QItemSelection `
     ///
-    pub fn VisualRegionForSelection(self: KCompletionBox, selection: anytype) QRegion {
+    pub fn visualRegionForSelection(self: KCompletionBox, selection: anytype) QRegion {
         comptime _ = @TypeOf(selection)._is_QItemSelection;
         return .{ .ptr = qtc.KCompletionBox_VisualRegionForSelection(@ptrCast(self.ptr), @ptrCast(selection.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperVisualRegionForSelection` instead
+    /// ### DEPRECATED: Use `superVisualRegionForSelection` instead
     ///
-    pub const QBaseVisualRegionForSelection = SuperVisualRegionForSelection;
+    pub const SuperVisualRegionForSelection = superVisualRegionForSelection;
 
     /// Inherited from QListView
     ///
@@ -10312,10 +12832,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` selection: QItemSelection `
     ///
-    pub fn SuperVisualRegionForSelection(self: KCompletionBox, selection: anytype) QRegion {
+    pub fn superVisualRegionForSelection(self: KCompletionBox, selection: anytype) QRegion {
         comptime _ = @TypeOf(selection)._is_QItemSelection;
         return .{ .ptr = qtc.KCompletionBox_SuperVisualRegionForSelection(@ptrCast(self.ptr), @ptrCast(selection.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onVisualRegionForSelection` instead
+    ///
+    pub const OnVisualRegionForSelection = onVisualRegionForSelection;
 
     /// Inherited from QListView
     ///
@@ -10331,9 +12855,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnVisualRegionForSelection(self: KCompletionBox, callback: *const fn (KCompletionBox, QItemSelection) callconv(.c) QRegion) void {
+    pub fn onVisualRegionForSelection(self: KCompletionBox, callback: *const fn (KCompletionBox, QItemSelection) callconv(.c) QRegion) void {
         qtc.KCompletionBox_OnVisualRegionForSelection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `selectedIndexes` instead
+    ///
+    pub const SelectedIndexes = selectedIndexes;
 
     /// Inherited from QListView
     ///
@@ -10347,19 +12875,19 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SelectedIndexes(self: KCompletionBox, allocator: std.mem.Allocator) []QModelIndex {
+    pub fn selectedIndexes(self: KCompletionBox, allocator: std.mem.Allocator) []QModelIndex {
         const _arr: qtc.libqt_list = qtc.KCompletionBox_SelectedIndexes(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("KCompletionBox.SelectedIndexes: Memory allocation failed");
-        const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("KCompletionBox.selectedIndexes: Memory allocation failed");
+        const _data_val: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `SuperSelectedIndexes` instead
+    /// ### DEPRECATED: Use `superSelectedIndexes` instead
     ///
-    pub const QBaseSelectedIndexes = SuperSelectedIndexes;
+    pub const SuperSelectedIndexes = superSelectedIndexes;
 
     /// Inherited from QListView
     ///
@@ -10373,15 +12901,19 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperSelectedIndexes(self: KCompletionBox, allocator: std.mem.Allocator) []QModelIndex {
+    pub fn superSelectedIndexes(self: KCompletionBox, allocator: std.mem.Allocator) []QModelIndex {
         const _arr: qtc.libqt_list = qtc.KCompletionBox_SuperSelectedIndexes(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("KCompletionBox.SelectedIndexes: Memory allocation failed");
-        const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("KCompletionBox.selectedIndexes: Memory allocation failed");
+        const _data_val: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onSelectedIndexes` instead
+    ///
+    pub const OnSelectedIndexes = onSelectedIndexes;
 
     /// Inherited from QListView
     ///
@@ -10401,9 +12933,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` C ABI representation of []QModelIndex `
     ///
-    pub fn OnSelectedIndexes(self: KCompletionBox, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+    pub fn onSelectedIndexes(self: KCompletionBox, callback: *const fn () callconv(.c) qtc.libqt_list) void {
         qtc.KCompletionBox_OnSelectedIndexes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `updateGeometries` instead
+    ///
+    pub const UpdateGeometries = updateGeometries;
 
     /// Inherited from QListView
     ///
@@ -10415,13 +12951,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn UpdateGeometries(self: KCompletionBox) void {
+    pub fn updateGeometries(self: KCompletionBox) void {
         qtc.KCompletionBox_UpdateGeometries(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateGeometries` instead
+    /// ### DEPRECATED: Use `superUpdateGeometries` instead
     ///
-    pub const QBaseUpdateGeometries = SuperUpdateGeometries;
+    pub const SuperUpdateGeometries = superUpdateGeometries;
 
     /// Inherited from QListView
     ///
@@ -10433,9 +12969,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn SuperUpdateGeometries(self: KCompletionBox) void {
+    pub fn superUpdateGeometries(self: KCompletionBox) void {
         qtc.KCompletionBox_SuperUpdateGeometries(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onUpdateGeometries` instead
+    ///
+    pub const OnUpdateGeometries = onUpdateGeometries;
 
     /// Inherited from QListView
     ///
@@ -10449,9 +12989,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateGeometries(self: KCompletionBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateGeometries(self: KCompletionBox, callback: *const fn () callconv(.c) void) void {
         qtc.KCompletionBox_OnUpdateGeometries(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isIndexHidden` instead
+    ///
+    pub const IsIndexHidden = isIndexHidden;
 
     /// Inherited from QListView
     ///
@@ -10465,14 +13009,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn IsIndexHidden(self: KCompletionBox, index: anytype) bool {
+    pub fn isIndexHidden(self: KCompletionBox, index: anytype) bool {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return qtc.KCompletionBox_IsIndexHidden(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsIndexHidden` instead
+    /// ### DEPRECATED: Use `superIsIndexHidden` instead
     ///
-    pub const QBaseIsIndexHidden = SuperIsIndexHidden;
+    pub const SuperIsIndexHidden = superIsIndexHidden;
 
     /// Inherited from QListView
     ///
@@ -10486,10 +13030,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SuperIsIndexHidden(self: KCompletionBox, index: anytype) bool {
+    pub fn superIsIndexHidden(self: KCompletionBox, index: anytype) bool {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return qtc.KCompletionBox_SuperIsIndexHidden(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsIndexHidden` instead
+    ///
+    pub const OnIsIndexHidden = onIsIndexHidden;
 
     /// Inherited from QListView
     ///
@@ -10503,9 +13051,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, index: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnIsIndexHidden(self: KCompletionBox, callback: *const fn (KCompletionBox, QModelIndex) callconv(.c) bool) void {
+    pub fn onIsIndexHidden(self: KCompletionBox, callback: *const fn (KCompletionBox, QModelIndex) callconv(.c) bool) void {
         qtc.KCompletionBox_OnIsIndexHidden(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `selectionChanged` instead
+    ///
+    pub const SelectionChanged = selectionChanged;
 
     /// Inherited from QListView
     ///
@@ -10521,15 +13073,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` deselected: QItemSelection `
     ///
-    pub fn SelectionChanged(self: KCompletionBox, selected: anytype, deselected: anytype) void {
+    pub fn selectionChanged(self: KCompletionBox, selected: anytype, deselected: anytype) void {
         comptime _ = @TypeOf(selected)._is_QItemSelection;
         comptime _ = @TypeOf(deselected)._is_QItemSelection;
         qtc.KCompletionBox_SelectionChanged(@ptrCast(self.ptr), @ptrCast(selected.ptr), @ptrCast(deselected.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSelectionChanged` instead
+    /// ### DEPRECATED: Use `superSelectionChanged` instead
     ///
-    pub const QBaseSelectionChanged = SuperSelectionChanged;
+    pub const SuperSelectionChanged = superSelectionChanged;
 
     /// Inherited from QListView
     ///
@@ -10545,11 +13097,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` deselected: QItemSelection `
     ///
-    pub fn SuperSelectionChanged(self: KCompletionBox, selected: anytype, deselected: anytype) void {
+    pub fn superSelectionChanged(self: KCompletionBox, selected: anytype, deselected: anytype) void {
         comptime _ = @TypeOf(selected)._is_QItemSelection;
         comptime _ = @TypeOf(deselected)._is_QItemSelection;
         qtc.KCompletionBox_SuperSelectionChanged(@ptrCast(self.ptr), @ptrCast(selected.ptr), @ptrCast(deselected.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSelectionChanged` instead
+    ///
+    pub const OnSelectionChanged = onSelectionChanged;
 
     /// Inherited from QListView
     ///
@@ -10563,9 +13119,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, selected: QItemSelection, deselected: QItemSelection) callconv(.c) void `
     ///
-    pub fn OnSelectionChanged(self: KCompletionBox, callback: *const fn (KCompletionBox, QItemSelection, QItemSelection) callconv(.c) void) void {
+    pub fn onSelectionChanged(self: KCompletionBox, callback: *const fn (KCompletionBox, QItemSelection, QItemSelection) callconv(.c) void) void {
         qtc.KCompletionBox_OnSelectionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `currentChanged` instead
+    ///
+    pub const CurrentChanged = currentChanged;
 
     /// Inherited from QListView
     ///
@@ -10581,15 +13141,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` previous: QModelIndex `
     ///
-    pub fn CurrentChanged(self: KCompletionBox, current: anytype, previous: anytype) void {
+    pub fn currentChanged(self: KCompletionBox, current: anytype, previous: anytype) void {
         comptime _ = @TypeOf(current)._is_QModelIndex;
         comptime _ = @TypeOf(previous)._is_QModelIndex;
         qtc.KCompletionBox_CurrentChanged(@ptrCast(self.ptr), @ptrCast(current.ptr), @ptrCast(previous.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCurrentChanged` instead
+    /// ### DEPRECATED: Use `superCurrentChanged` instead
     ///
-    pub const QBaseCurrentChanged = SuperCurrentChanged;
+    pub const SuperCurrentChanged = superCurrentChanged;
 
     /// Inherited from QListView
     ///
@@ -10605,11 +13165,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` previous: QModelIndex `
     ///
-    pub fn SuperCurrentChanged(self: KCompletionBox, current: anytype, previous: anytype) void {
+    pub fn superCurrentChanged(self: KCompletionBox, current: anytype, previous: anytype) void {
         comptime _ = @TypeOf(current)._is_QModelIndex;
         comptime _ = @TypeOf(previous)._is_QModelIndex;
         qtc.KCompletionBox_SuperCurrentChanged(@ptrCast(self.ptr), @ptrCast(current.ptr), @ptrCast(previous.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCurrentChanged` instead
+    ///
+    pub const OnCurrentChanged = onCurrentChanged;
 
     /// Inherited from QListView
     ///
@@ -10623,9 +13187,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, current: QModelIndex, previous: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnCurrentChanged(self: KCompletionBox, callback: *const fn (KCompletionBox, QModelIndex, QModelIndex) callconv(.c) void) void {
+    pub fn onCurrentChanged(self: KCompletionBox, callback: *const fn (KCompletionBox, QModelIndex, QModelIndex) callconv(.c) void) void {
         qtc.KCompletionBox_OnCurrentChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `viewportSizeHint` instead
+    ///
+    pub const ViewportSizeHint = viewportSizeHint;
 
     /// Inherited from QListView
     ///
@@ -10637,13 +13205,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn ViewportSizeHint(self: KCompletionBox) QSize {
+    pub fn viewportSizeHint(self: KCompletionBox) QSize {
         return .{ .ptr = qtc.KCompletionBox_ViewportSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperViewportSizeHint` instead
+    /// ### DEPRECATED: Use `superViewportSizeHint` instead
     ///
-    pub const QBaseViewportSizeHint = SuperViewportSizeHint;
+    pub const SuperViewportSizeHint = superViewportSizeHint;
 
     /// Inherited from QListView
     ///
@@ -10655,9 +13223,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn SuperViewportSizeHint(self: KCompletionBox) QSize {
+    pub fn superViewportSizeHint(self: KCompletionBox) QSize {
         return .{ .ptr = qtc.KCompletionBox_SuperViewportSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onViewportSizeHint` instead
+    ///
+    pub const OnViewportSizeHint = onViewportSizeHint;
 
     /// Inherited from QListView
     ///
@@ -10673,9 +13245,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnViewportSizeHint(self: KCompletionBox, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onViewportSizeHint(self: KCompletionBox, callback: *const fn () callconv(.c) QSize) void {
         qtc.KCompletionBox_OnViewportSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyboardSearch` instead
+    ///
+    pub const KeyboardSearch = keyboardSearch;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10689,7 +13265,7 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` search: []const u8 `
     ///
-    pub fn KeyboardSearch(self: KCompletionBox, search: []const u8) void {
+    pub fn keyboardSearch(self: KCompletionBox, search: []const u8) void {
         const search_str = qtc.libqt_string{
             .len = search.len,
             .data = search.ptr,
@@ -10697,9 +13273,9 @@ pub const KCompletionBox = extern struct {
         qtc.KCompletionBox_KeyboardSearch(@ptrCast(self.ptr), search_str);
     }
 
-    /// ### DEPRECATED: Use `SuperKeyboardSearch` instead
+    /// ### DEPRECATED: Use `superKeyboardSearch` instead
     ///
-    pub const QBaseKeyboardSearch = SuperKeyboardSearch;
+    pub const SuperKeyboardSearch = superKeyboardSearch;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10713,13 +13289,17 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` search: []const u8 `
     ///
-    pub fn SuperKeyboardSearch(self: KCompletionBox, search: []const u8) void {
+    pub fn superKeyboardSearch(self: KCompletionBox, search: []const u8) void {
         const search_str = qtc.libqt_string{
             .len = search.len,
             .data = search.ptr,
         };
         qtc.KCompletionBox_SuperKeyboardSearch(@ptrCast(self.ptr), search_str);
     }
+
+    /// ### DEPRECATED: Use `onKeyboardSearch` instead
+    ///
+    pub const OnKeyboardSearch = onKeyboardSearch;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10733,9 +13313,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, search: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnKeyboardSearch(self: KCompletionBox, callback: *const fn (KCompletionBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onKeyboardSearch(self: KCompletionBox, callback: *const fn (KCompletionBox, [*:0]const u8) callconv(.c) void) void {
         qtc.KCompletionBox_OnKeyboardSearch(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sizeHintForRow` instead
+    ///
+    pub const SizeHintForRow = sizeHintForRow;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10747,15 +13331,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
-    pub fn SizeHintForRow(self: KCompletionBox, row: i32) i32 {
-        return qtc.KCompletionBox_SizeHintForRow(@ptrCast(self.ptr), @bitCast(row));
+    pub fn sizeHintForRow(self: KCompletionBox, _row: i32) i32 {
+        return qtc.KCompletionBox_SizeHintForRow(@ptrCast(self.ptr), @bitCast(_row));
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHintForRow` instead
+    /// ### DEPRECATED: Use `superSizeHintForRow` instead
     ///
-    pub const QBaseSizeHintForRow = SuperSizeHintForRow;
+    pub const SuperSizeHintForRow = superSizeHintForRow;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10767,11 +13351,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
-    pub fn SuperSizeHintForRow(self: KCompletionBox, row: i32) i32 {
-        return qtc.KCompletionBox_SuperSizeHintForRow(@ptrCast(self.ptr), @bitCast(row));
+    pub fn superSizeHintForRow(self: KCompletionBox, _row: i32) i32 {
+        return qtc.KCompletionBox_SuperSizeHintForRow(@ptrCast(self.ptr), @bitCast(_row));
     }
+
+    /// ### DEPRECATED: Use `onSizeHintForRow` instead
+    ///
+    pub const OnSizeHintForRow = onSizeHintForRow;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10785,9 +13373,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, row: i32) callconv(.c) i32 `
     ///
-    pub fn OnSizeHintForRow(self: KCompletionBox, callback: *const fn (KCompletionBox, i32) callconv(.c) i32) void {
+    pub fn onSizeHintForRow(self: KCompletionBox, callback: *const fn (KCompletionBox, i32) callconv(.c) i32) void {
         qtc.KCompletionBox_OnSizeHintForRow(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sizeHintForColumn` instead
+    ///
+    pub const SizeHintForColumn = sizeHintForColumn;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10801,13 +13393,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn SizeHintForColumn(self: KCompletionBox, column: i32) i32 {
+    pub fn sizeHintForColumn(self: KCompletionBox, column: i32) i32 {
         return qtc.KCompletionBox_SizeHintForColumn(@ptrCast(self.ptr), @bitCast(column));
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHintForColumn` instead
+    /// ### DEPRECATED: Use `superSizeHintForColumn` instead
     ///
-    pub const QBaseSizeHintForColumn = SuperSizeHintForColumn;
+    pub const SuperSizeHintForColumn = superSizeHintForColumn;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10821,9 +13413,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn SuperSizeHintForColumn(self: KCompletionBox, column: i32) i32 {
+    pub fn superSizeHintForColumn(self: KCompletionBox, column: i32) i32 {
         return qtc.KCompletionBox_SuperSizeHintForColumn(@ptrCast(self.ptr), @bitCast(column));
     }
+
+    /// ### DEPRECATED: Use `onSizeHintForColumn` instead
+    ///
+    pub const OnSizeHintForColumn = onSizeHintForColumn;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10837,9 +13433,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, column: i32) callconv(.c) i32 `
     ///
-    pub fn OnSizeHintForColumn(self: KCompletionBox, callback: *const fn (KCompletionBox, i32) callconv(.c) i32) void {
+    pub fn onSizeHintForColumn(self: KCompletionBox, callback: *const fn (KCompletionBox, i32) callconv(.c) i32) void {
         qtc.KCompletionBox_OnSizeHintForColumn(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `itemDelegateForIndex` instead
+    ///
+    pub const ItemDelegateForIndex = itemDelegateForIndex;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10853,14 +13453,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn ItemDelegateForIndex(self: KCompletionBox, index: anytype) QAbstractItemDelegate {
+    pub fn itemDelegateForIndex(self: KCompletionBox, index: anytype) QAbstractItemDelegate {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.KCompletionBox_ItemDelegateForIndex(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperItemDelegateForIndex` instead
+    /// ### DEPRECATED: Use `superItemDelegateForIndex` instead
     ///
-    pub const QBaseItemDelegateForIndex = SuperItemDelegateForIndex;
+    pub const SuperItemDelegateForIndex = superItemDelegateForIndex;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10874,10 +13474,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SuperItemDelegateForIndex(self: KCompletionBox, index: anytype) QAbstractItemDelegate {
+    pub fn superItemDelegateForIndex(self: KCompletionBox, index: anytype) QAbstractItemDelegate {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.KCompletionBox_SuperItemDelegateForIndex(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onItemDelegateForIndex` instead
+    ///
+    pub const OnItemDelegateForIndex = onItemDelegateForIndex;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10891,9 +13495,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, index: QModelIndex) callconv(.c) QAbstractItemDelegate `
     ///
-    pub fn OnItemDelegateForIndex(self: KCompletionBox, callback: *const fn (KCompletionBox, QModelIndex) callconv(.c) QAbstractItemDelegate) void {
+    pub fn onItemDelegateForIndex(self: KCompletionBox, callback: *const fn (KCompletionBox, QModelIndex) callconv(.c) QAbstractItemDelegate) void {
         qtc.KCompletionBox_OnItemDelegateForIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10907,13 +13515,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: KCompletionBox, query: i32) QVariant {
+    pub fn inputMethodQuery(self: KCompletionBox, query: i32) QVariant {
         return .{ .ptr = qtc.KCompletionBox_InputMethodQuery(@ptrCast(self.ptr), @bitCast(query)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10927,9 +13535,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: KCompletionBox, query: i32) QVariant {
+    pub fn superInputMethodQuery(self: KCompletionBox, query: i32) QVariant {
         return .{ .ptr = qtc.KCompletionBox_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(query)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10945,10 +13557,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: KCompletionBox, callback: *const fn (KCompletionBox, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: KCompletionBox, callback: *const fn (KCompletionBox, i32) callconv(.c) QVariant) void {
         qtc.KCompletionBox_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `selectAll` instead
+    ///
+    pub const SelectAll = selectAll;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectAll)
@@ -10959,13 +13575,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn SelectAll(self: KCompletionBox) void {
+    pub fn selectAll(self: KCompletionBox) void {
         qtc.KCompletionBox_SelectAll(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSelectAll` instead
+    /// ### DEPRECATED: Use `superSelectAll` instead
     ///
-    pub const QBaseSelectAll = SuperSelectAll;
+    pub const SuperSelectAll = superSelectAll;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10977,10 +13593,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn SuperSelectAll(self: KCompletionBox) void {
+    pub fn superSelectAll(self: KCompletionBox) void {
         qtc.KCompletionBox_SuperSelectAll(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSelectAll` instead
+    ///
+    pub const OnSelectAll = onSelectAll;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectAll)
@@ -10993,10 +13613,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnSelectAll(self: KCompletionBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onSelectAll(self: KCompletionBox, callback: *const fn () callconv(.c) void) void {
         qtc.KCompletionBox_OnSelectAll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateEditorData` instead
+    ///
+    pub const UpdateEditorData = updateEditorData;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorData)
@@ -11007,13 +13631,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn UpdateEditorData(self: KCompletionBox) void {
+    pub fn updateEditorData(self: KCompletionBox) void {
         qtc.KCompletionBox_UpdateEditorData(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateEditorData` instead
+    /// ### DEPRECATED: Use `superUpdateEditorData` instead
     ///
-    pub const QBaseUpdateEditorData = SuperUpdateEditorData;
+    pub const SuperUpdateEditorData = superUpdateEditorData;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11025,10 +13649,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn SuperUpdateEditorData(self: KCompletionBox) void {
+    pub fn superUpdateEditorData(self: KCompletionBox) void {
         qtc.KCompletionBox_SuperUpdateEditorData(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateEditorData` instead
+    ///
+    pub const OnUpdateEditorData = onUpdateEditorData;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorData)
@@ -11041,9 +13669,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateEditorData(self: KCompletionBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateEditorData(self: KCompletionBox, callback: *const fn () callconv(.c) void) void {
         qtc.KCompletionBox_OnUpdateEditorData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `updateEditorGeometries` instead
+    ///
+    pub const UpdateEditorGeometries = updateEditorGeometries;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11055,13 +13687,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn UpdateEditorGeometries(self: KCompletionBox) void {
+    pub fn updateEditorGeometries(self: KCompletionBox) void {
         qtc.KCompletionBox_UpdateEditorGeometries(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateEditorGeometries` instead
+    /// ### DEPRECATED: Use `superUpdateEditorGeometries` instead
     ///
-    pub const QBaseUpdateEditorGeometries = SuperUpdateEditorGeometries;
+    pub const SuperUpdateEditorGeometries = superUpdateEditorGeometries;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11073,9 +13705,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn SuperUpdateEditorGeometries(self: KCompletionBox) void {
+    pub fn superUpdateEditorGeometries(self: KCompletionBox) void {
         qtc.KCompletionBox_SuperUpdateEditorGeometries(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onUpdateEditorGeometries` instead
+    ///
+    pub const OnUpdateEditorGeometries = onUpdateEditorGeometries;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11089,10 +13725,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateEditorGeometries(self: KCompletionBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateEditorGeometries(self: KCompletionBox, callback: *const fn () callconv(.c) void) void {
         qtc.KCompletionBox_OnUpdateEditorGeometries(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `verticalScrollbarAction` instead
+    ///
+    pub const VerticalScrollbarAction = verticalScrollbarAction;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarAction)
@@ -11105,13 +13745,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` action: i32 `
     ///
-    pub fn VerticalScrollbarAction(self: KCompletionBox, action: i32) void {
+    pub fn verticalScrollbarAction(self: KCompletionBox, action: i32) void {
         qtc.KCompletionBox_VerticalScrollbarAction(@ptrCast(self.ptr), @bitCast(action));
     }
 
-    /// ### DEPRECATED: Use `SuperVerticalScrollbarAction` instead
+    /// ### DEPRECATED: Use `superVerticalScrollbarAction` instead
     ///
-    pub const QBaseVerticalScrollbarAction = SuperVerticalScrollbarAction;
+    pub const SuperVerticalScrollbarAction = superVerticalScrollbarAction;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11125,10 +13765,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` action: i32 `
     ///
-    pub fn SuperVerticalScrollbarAction(self: KCompletionBox, action: i32) void {
+    pub fn superVerticalScrollbarAction(self: KCompletionBox, action: i32) void {
         qtc.KCompletionBox_SuperVerticalScrollbarAction(@ptrCast(self.ptr), @bitCast(action));
     }
 
+    /// ### DEPRECATED: Use `onVerticalScrollbarAction` instead
+    ///
+    pub const OnVerticalScrollbarAction = onVerticalScrollbarAction;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarAction)
@@ -11141,9 +13785,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, action: i32) callconv(.c) void `
     ///
-    pub fn OnVerticalScrollbarAction(self: KCompletionBox, callback: *const fn (KCompletionBox, i32) callconv(.c) void) void {
+    pub fn onVerticalScrollbarAction(self: KCompletionBox, callback: *const fn (KCompletionBox, i32) callconv(.c) void) void {
         qtc.KCompletionBox_OnVerticalScrollbarAction(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `horizontalScrollbarAction` instead
+    ///
+    pub const HorizontalScrollbarAction = horizontalScrollbarAction;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11157,13 +13805,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` action: i32 `
     ///
-    pub fn HorizontalScrollbarAction(self: KCompletionBox, action: i32) void {
+    pub fn horizontalScrollbarAction(self: KCompletionBox, action: i32) void {
         qtc.KCompletionBox_HorizontalScrollbarAction(@ptrCast(self.ptr), @bitCast(action));
     }
 
-    /// ### DEPRECATED: Use `SuperHorizontalScrollbarAction` instead
+    /// ### DEPRECATED: Use `superHorizontalScrollbarAction` instead
     ///
-    pub const QBaseHorizontalScrollbarAction = SuperHorizontalScrollbarAction;
+    pub const SuperHorizontalScrollbarAction = superHorizontalScrollbarAction;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11177,9 +13825,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` action: i32 `
     ///
-    pub fn SuperHorizontalScrollbarAction(self: KCompletionBox, action: i32) void {
+    pub fn superHorizontalScrollbarAction(self: KCompletionBox, action: i32) void {
         qtc.KCompletionBox_SuperHorizontalScrollbarAction(@ptrCast(self.ptr), @bitCast(action));
     }
+
+    /// ### DEPRECATED: Use `onHorizontalScrollbarAction` instead
+    ///
+    pub const OnHorizontalScrollbarAction = onHorizontalScrollbarAction;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11193,10 +13845,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, action: i32) callconv(.c) void `
     ///
-    pub fn OnHorizontalScrollbarAction(self: KCompletionBox, callback: *const fn (KCompletionBox, i32) callconv(.c) void) void {
+    pub fn onHorizontalScrollbarAction(self: KCompletionBox, callback: *const fn (KCompletionBox, i32) callconv(.c) void) void {
         qtc.KCompletionBox_OnHorizontalScrollbarAction(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `verticalScrollbarValueChanged` instead
+    ///
+    pub const VerticalScrollbarValueChanged = verticalScrollbarValueChanged;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarValueChanged)
@@ -11209,13 +13865,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` value: i32 `
     ///
-    pub fn VerticalScrollbarValueChanged(self: KCompletionBox, value: i32) void {
+    pub fn verticalScrollbarValueChanged(self: KCompletionBox, value: i32) void {
         qtc.KCompletionBox_VerticalScrollbarValueChanged(@ptrCast(self.ptr), @bitCast(value));
     }
 
-    /// ### DEPRECATED: Use `SuperVerticalScrollbarValueChanged` instead
+    /// ### DEPRECATED: Use `superVerticalScrollbarValueChanged` instead
     ///
-    pub const QBaseVerticalScrollbarValueChanged = SuperVerticalScrollbarValueChanged;
+    pub const SuperVerticalScrollbarValueChanged = superVerticalScrollbarValueChanged;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11229,9 +13885,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` value: i32 `
     ///
-    pub fn SuperVerticalScrollbarValueChanged(self: KCompletionBox, value: i32) void {
+    pub fn superVerticalScrollbarValueChanged(self: KCompletionBox, value: i32) void {
         qtc.KCompletionBox_SuperVerticalScrollbarValueChanged(@ptrCast(self.ptr), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `onVerticalScrollbarValueChanged` instead
+    ///
+    pub const OnVerticalScrollbarValueChanged = onVerticalScrollbarValueChanged;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11245,9 +13905,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, value: i32) callconv(.c) void `
     ///
-    pub fn OnVerticalScrollbarValueChanged(self: KCompletionBox, callback: *const fn (KCompletionBox, i32) callconv(.c) void) void {
+    pub fn onVerticalScrollbarValueChanged(self: KCompletionBox, callback: *const fn (KCompletionBox, i32) callconv(.c) void) void {
         qtc.KCompletionBox_OnVerticalScrollbarValueChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `horizontalScrollbarValueChanged` instead
+    ///
+    pub const HorizontalScrollbarValueChanged = horizontalScrollbarValueChanged;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11261,13 +13925,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` value: i32 `
     ///
-    pub fn HorizontalScrollbarValueChanged(self: KCompletionBox, value: i32) void {
+    pub fn horizontalScrollbarValueChanged(self: KCompletionBox, value: i32) void {
         qtc.KCompletionBox_HorizontalScrollbarValueChanged(@ptrCast(self.ptr), @bitCast(value));
     }
 
-    /// ### DEPRECATED: Use `SuperHorizontalScrollbarValueChanged` instead
+    /// ### DEPRECATED: Use `superHorizontalScrollbarValueChanged` instead
     ///
-    pub const QBaseHorizontalScrollbarValueChanged = SuperHorizontalScrollbarValueChanged;
+    pub const SuperHorizontalScrollbarValueChanged = superHorizontalScrollbarValueChanged;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11281,9 +13945,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` value: i32 `
     ///
-    pub fn SuperHorizontalScrollbarValueChanged(self: KCompletionBox, value: i32) void {
+    pub fn superHorizontalScrollbarValueChanged(self: KCompletionBox, value: i32) void {
         qtc.KCompletionBox_SuperHorizontalScrollbarValueChanged(@ptrCast(self.ptr), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `onHorizontalScrollbarValueChanged` instead
+    ///
+    pub const OnHorizontalScrollbarValueChanged = onHorizontalScrollbarValueChanged;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11297,9 +13965,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, value: i32) callconv(.c) void `
     ///
-    pub fn OnHorizontalScrollbarValueChanged(self: KCompletionBox, callback: *const fn (KCompletionBox, i32) callconv(.c) void) void {
+    pub fn onHorizontalScrollbarValueChanged(self: KCompletionBox, callback: *const fn (KCompletionBox, i32) callconv(.c) void) void {
         qtc.KCompletionBox_OnHorizontalScrollbarValueChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEditor` instead
+    ///
+    pub const CloseEditor = closeEditor;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11315,14 +13987,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` hint: qabstractitemdelegate_enums.EndEditHint `
     ///
-    pub fn CloseEditor(self: KCompletionBox, editor: anytype, hint: i32) void {
+    pub fn closeEditor(self: KCompletionBox, editor: anytype, hint: i32) void {
         comptime _ = @TypeOf(editor)._is_QWidget;
         qtc.KCompletionBox_CloseEditor(@ptrCast(self.ptr), @ptrCast(editor.ptr), @bitCast(hint));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEditor` instead
+    /// ### DEPRECATED: Use `superCloseEditor` instead
     ///
-    pub const QBaseCloseEditor = SuperCloseEditor;
+    pub const SuperCloseEditor = superCloseEditor;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11338,10 +14010,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` hint: qabstractitemdelegate_enums.EndEditHint `
     ///
-    pub fn SuperCloseEditor(self: KCompletionBox, editor: anytype, hint: i32) void {
+    pub fn superCloseEditor(self: KCompletionBox, editor: anytype, hint: i32) void {
         comptime _ = @TypeOf(editor)._is_QWidget;
         qtc.KCompletionBox_SuperCloseEditor(@ptrCast(self.ptr), @ptrCast(editor.ptr), @bitCast(hint));
     }
+
+    /// ### DEPRECATED: Use `onCloseEditor` instead
+    ///
+    pub const OnCloseEditor = onCloseEditor;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11355,9 +14031,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, editor: QWidget, hint: qabstractitemdelegate_enums.EndEditHint) callconv(.c) void `
     ///
-    pub fn OnCloseEditor(self: KCompletionBox, callback: *const fn (KCompletionBox, QWidget, i32) callconv(.c) void) void {
+    pub fn onCloseEditor(self: KCompletionBox, callback: *const fn (KCompletionBox, QWidget, i32) callconv(.c) void) void {
         qtc.KCompletionBox_OnCloseEditor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `commitData` instead
+    ///
+    pub const CommitData = commitData;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11371,14 +14051,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` editor: QWidget `
     ///
-    pub fn CommitData(self: KCompletionBox, editor: anytype) void {
+    pub fn commitData(self: KCompletionBox, editor: anytype) void {
         comptime _ = @TypeOf(editor)._is_QWidget;
         qtc.KCompletionBox_CommitData(@ptrCast(self.ptr), @ptrCast(editor.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCommitData` instead
+    /// ### DEPRECATED: Use `superCommitData` instead
     ///
-    pub const QBaseCommitData = SuperCommitData;
+    pub const SuperCommitData = superCommitData;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11392,10 +14072,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` editor: QWidget `
     ///
-    pub fn SuperCommitData(self: KCompletionBox, editor: anytype) void {
+    pub fn superCommitData(self: KCompletionBox, editor: anytype) void {
         comptime _ = @TypeOf(editor)._is_QWidget;
         qtc.KCompletionBox_SuperCommitData(@ptrCast(self.ptr), @ptrCast(editor.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCommitData` instead
+    ///
+    pub const OnCommitData = onCommitData;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11409,9 +14093,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, editor: QWidget) callconv(.c) void `
     ///
-    pub fn OnCommitData(self: KCompletionBox, callback: *const fn (KCompletionBox, QWidget) callconv(.c) void) void {
+    pub fn onCommitData(self: KCompletionBox, callback: *const fn (KCompletionBox, QWidget) callconv(.c) void) void {
         qtc.KCompletionBox_OnCommitData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `editorDestroyed` instead
+    ///
+    pub const EditorDestroyed = editorDestroyed;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11425,14 +14113,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` editor: QObject `
     ///
-    pub fn EditorDestroyed(self: KCompletionBox, editor: anytype) void {
+    pub fn editorDestroyed(self: KCompletionBox, editor: anytype) void {
         comptime _ = @TypeOf(editor)._is_QObject;
         qtc.KCompletionBox_EditorDestroyed(@ptrCast(self.ptr), @ptrCast(editor.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEditorDestroyed` instead
+    /// ### DEPRECATED: Use `superEditorDestroyed` instead
     ///
-    pub const QBaseEditorDestroyed = SuperEditorDestroyed;
+    pub const SuperEditorDestroyed = superEditorDestroyed;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11446,10 +14134,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` editor: QObject `
     ///
-    pub fn SuperEditorDestroyed(self: KCompletionBox, editor: anytype) void {
+    pub fn superEditorDestroyed(self: KCompletionBox, editor: anytype) void {
         comptime _ = @TypeOf(editor)._is_QObject;
         qtc.KCompletionBox_SuperEditorDestroyed(@ptrCast(self.ptr), @ptrCast(editor.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEditorDestroyed` instead
+    ///
+    pub const OnEditorDestroyed = onEditorDestroyed;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11463,9 +14155,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, editor: QObject) callconv(.c) void `
     ///
-    pub fn OnEditorDestroyed(self: KCompletionBox, callback: *const fn (KCompletionBox, QObject) callconv(.c) void) void {
+    pub fn onEditorDestroyed(self: KCompletionBox, callback: *const fn (KCompletionBox, QObject) callconv(.c) void) void {
         qtc.KCompletionBox_OnEditorDestroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `edit2` instead
+    ///
+    pub const Edit2 = edit2;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11481,17 +14177,17 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` trigger: qabstractitemview_enums.EditTrigger `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Edit2(self: KCompletionBox, index: anytype, trigger: i32, event: anytype) bool {
+    pub fn edit2(self: KCompletionBox, index: anytype, trigger: i32, _event: anytype) bool {
         comptime _ = @TypeOf(index)._is_QModelIndex;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KCompletionBox_Edit2(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(trigger), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KCompletionBox_Edit2(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(trigger), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEdit2` instead
+    /// ### DEPRECATED: Use `superEdit2` instead
     ///
-    pub const QBaseEdit2 = SuperEdit2;
+    pub const SuperEdit2 = superEdit2;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11507,13 +14203,17 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` trigger: qabstractitemview_enums.EditTrigger `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEdit2(self: KCompletionBox, index: anytype, trigger: i32, event: anytype) bool {
+    pub fn superEdit2(self: KCompletionBox, index: anytype, trigger: i32, _event: anytype) bool {
         comptime _ = @TypeOf(index)._is_QModelIndex;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KCompletionBox_SuperEdit2(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(trigger), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KCompletionBox_SuperEdit2(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(trigger), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEdit2` instead
+    ///
+    pub const OnEdit2 = onEdit2;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11527,9 +14227,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, index: QModelIndex, trigger: qabstractitemview_enums.EditTrigger, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEdit2(self: KCompletionBox, callback: *const fn (KCompletionBox, QModelIndex, i32, QEvent) callconv(.c) bool) void {
+    pub fn onEdit2(self: KCompletionBox, callback: *const fn (KCompletionBox, QModelIndex, i32, QEvent) callconv(.c) bool) void {
         qtc.KCompletionBox_OnEdit2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `selectionCommand` instead
+    ///
+    pub const SelectionCommand = selectionCommand;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11543,21 +14247,21 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
     /// ## Returns:
     ///
     /// ` flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn SelectionCommand(self: KCompletionBox, index: anytype, event: anytype) i32 {
+    pub fn selectionCommand(self: KCompletionBox, index: anytype, _event: anytype) i32 {
         comptime _ = @TypeOf(index)._is_QModelIndex;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KCompletionBox_SelectionCommand(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KCompletionBox_SelectionCommand(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSelectionCommand` instead
+    /// ### DEPRECATED: Use `superSelectionCommand` instead
     ///
-    pub const QBaseSelectionCommand = SuperSelectionCommand;
+    pub const SuperSelectionCommand = superSelectionCommand;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11571,17 +14275,21 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
     /// ## Returns:
     ///
     /// ` flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn SuperSelectionCommand(self: KCompletionBox, index: anytype, event: anytype) i32 {
+    pub fn superSelectionCommand(self: KCompletionBox, index: anytype, _event: anytype) i32 {
         comptime _ = @TypeOf(index)._is_QModelIndex;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KCompletionBox_SuperSelectionCommand(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KCompletionBox_SuperSelectionCommand(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSelectionCommand` instead
+    ///
+    pub const OnSelectionCommand = onSelectionCommand;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11595,9 +14303,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, index: QModelIndex, event: QEvent) callconv(.c) i32 `
     ///
-    pub fn OnSelectionCommand(self: KCompletionBox, callback: *const fn (KCompletionBox, QModelIndex, QEvent) callconv(.c) i32) void {
+    pub fn onSelectionCommand(self: KCompletionBox, callback: *const fn (KCompletionBox, QModelIndex, QEvent) callconv(.c) i32) void {
         qtc.KCompletionBox_OnSelectionCommand(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11611,13 +14323,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: KCompletionBox, next: bool) bool {
+    pub fn focusNextPrevChild(self: KCompletionBox, next: bool) bool {
         return qtc.KCompletionBox_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11631,9 +14343,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: KCompletionBox, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: KCompletionBox, next: bool) bool {
         return qtc.KCompletionBox_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11647,9 +14363,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: KCompletionBox, callback: *const fn (KCompletionBox, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: KCompletionBox, callback: *const fn (KCompletionBox, bool) callconv(.c) bool) void {
         qtc.KCompletionBox_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `viewportEvent` instead
+    ///
+    pub const ViewportEvent = viewportEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11661,16 +14381,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn ViewportEvent(self: KCompletionBox, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KCompletionBox_ViewportEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn viewportEvent(self: KCompletionBox, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KCompletionBox_ViewportEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperViewportEvent` instead
+    /// ### DEPRECATED: Use `superViewportEvent` instead
     ///
-    pub const QBaseViewportEvent = SuperViewportEvent;
+    pub const SuperViewportEvent = superViewportEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11682,12 +14402,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperViewportEvent(self: KCompletionBox, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KCompletionBox_SuperViewportEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superViewportEvent(self: KCompletionBox, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KCompletionBox_SuperViewportEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onViewportEvent` instead
+    ///
+    pub const OnViewportEvent = onViewportEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11701,10 +14425,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnViewportEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QEvent) callconv(.c) bool) void {
+    pub fn onViewportEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QEvent) callconv(.c) bool) void {
         qtc.KCompletionBox_OnViewportEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mousePressEvent)
@@ -11715,16 +14443,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: KCompletionBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KCompletionBox_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mousePressEvent(self: KCompletionBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KCompletionBox_MousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11736,12 +14464,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: KCompletionBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KCompletionBox_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMousePressEvent(self: KCompletionBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KCompletionBox_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11755,10 +14487,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QMouseEvent) callconv(.c) void) void {
         qtc.KCompletionBox_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mouseDoubleClickEvent)
@@ -11769,16 +14505,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: KCompletionBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KCompletionBox_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: KCompletionBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KCompletionBox_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11790,12 +14526,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: KCompletionBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KCompletionBox_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: KCompletionBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KCompletionBox_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11809,9 +14549,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QMouseEvent) callconv(.c) void) void {
         qtc.KCompletionBox_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11823,16 +14567,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: KCompletionBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KCompletionBox_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: KCompletionBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KCompletionBox_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11844,12 +14588,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: KCompletionBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KCompletionBox_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: KCompletionBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KCompletionBox_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11863,10 +14611,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QDragEnterEvent) callconv(.c) void) void {
         qtc.KCompletionBox_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusInEvent)
@@ -11877,16 +14629,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: KCompletionBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KCompletionBox_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusInEvent(self: KCompletionBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KCompletionBox_FocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11898,12 +14650,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: KCompletionBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KCompletionBox_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusInEvent(self: KCompletionBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KCompletionBox_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11917,10 +14673,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QFocusEvent) callconv(.c) void) void {
         qtc.KCompletionBox_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusOutEvent)
@@ -11931,16 +14691,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: KCompletionBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KCompletionBox_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusOutEvent(self: KCompletionBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KCompletionBox_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11952,12 +14712,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: KCompletionBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KCompletionBox_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusOutEvent(self: KCompletionBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KCompletionBox_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11971,9 +14735,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QFocusEvent) callconv(.c) void) void {
         qtc.KCompletionBox_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11985,16 +14753,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: KCompletionBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KCompletionBox_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyPressEvent(self: KCompletionBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KCompletionBox_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12006,12 +14774,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: KCompletionBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KCompletionBox_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyPressEvent(self: KCompletionBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KCompletionBox_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12025,9 +14797,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QKeyEvent) callconv(.c) void) void {
         qtc.KCompletionBox_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12039,16 +14815,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` event: QInputMethodEvent `
+    /// ` _event: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: KCompletionBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QInputMethodEvent;
-        qtc.KCompletionBox_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn inputMethodEvent(self: KCompletionBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QInputMethodEvent;
+        qtc.KCompletionBox_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12060,12 +14836,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` event: QInputMethodEvent `
+    /// ` _event: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: KCompletionBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QInputMethodEvent;
-        qtc.KCompletionBox_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superInputMethodEvent(self: KCompletionBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QInputMethodEvent;
+        qtc.KCompletionBox_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12079,9 +14859,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, event: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QInputMethodEvent) callconv(.c) void) void {
         qtc.KCompletionBox_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -12093,13 +14877,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn MinimumSizeHint(self: KCompletionBox) QSize {
+    pub fn minimumSizeHint(self: KCompletionBox) QSize {
         return .{ .ptr = qtc.KCompletionBox_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -12111,9 +14895,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn SuperMinimumSizeHint(self: KCompletionBox) QSize {
+    pub fn superMinimumSizeHint(self: KCompletionBox) QSize {
         return .{ .ptr = qtc.KCompletionBox_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -12129,9 +14917,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: KCompletionBox, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KCompletionBox, callback: *const fn () callconv(.c) QSize) void {
         qtc.KCompletionBox_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setupViewport` instead
+    ///
+    pub const SetupViewport = setupViewport;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -12143,16 +14935,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` viewport: QWidget `
+    /// ` _viewport: QWidget `
     ///
-    pub fn SetupViewport(self: KCompletionBox, viewport: anytype) void {
-        comptime _ = @TypeOf(viewport)._is_QWidget;
-        qtc.KCompletionBox_SetupViewport(@ptrCast(self.ptr), @ptrCast(viewport.ptr));
+    pub fn setupViewport(self: KCompletionBox, _viewport: anytype) void {
+        comptime _ = @TypeOf(_viewport)._is_QWidget;
+        qtc.KCompletionBox_SetupViewport(@ptrCast(self.ptr), @ptrCast(_viewport.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetupViewport` instead
+    /// ### DEPRECATED: Use `superSetupViewport` instead
     ///
-    pub const QBaseSetupViewport = SuperSetupViewport;
+    pub const SuperSetupViewport = superSetupViewport;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -12164,12 +14956,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` viewport: QWidget `
+    /// ` _viewport: QWidget `
     ///
-    pub fn SuperSetupViewport(self: KCompletionBox, viewport: anytype) void {
-        comptime _ = @TypeOf(viewport)._is_QWidget;
-        qtc.KCompletionBox_SuperSetupViewport(@ptrCast(self.ptr), @ptrCast(viewport.ptr));
+    pub fn superSetupViewport(self: KCompletionBox, _viewport: anytype) void {
+        comptime _ = @TypeOf(_viewport)._is_QWidget;
+        qtc.KCompletionBox_SuperSetupViewport(@ptrCast(self.ptr), @ptrCast(_viewport.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetupViewport` instead
+    ///
+    pub const OnSetupViewport = onSetupViewport;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -12183,9 +14979,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, viewport: QWidget) callconv(.c) void `
     ///
-    pub fn OnSetupViewport(self: KCompletionBox, callback: *const fn (KCompletionBox, QWidget) callconv(.c) void) void {
+    pub fn onSetupViewport(self: KCompletionBox, callback: *const fn (KCompletionBox, QWidget) callconv(.c) void) void {
         qtc.KCompletionBox_OnSetupViewport(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -12199,14 +14999,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` param1: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: KCompletionBox, param1: anytype) void {
+    pub fn contextMenuEvent(self: KCompletionBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
         qtc.KCompletionBox_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -12220,10 +15020,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` param1: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: KCompletionBox, param1: anytype) void {
+    pub fn superContextMenuEvent(self: KCompletionBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
         qtc.KCompletionBox_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -12237,9 +15041,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, param1: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QContextMenuEvent) callconv(.c) void) void {
         qtc.KCompletionBox_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QFrame
     ///
@@ -12253,14 +15061,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: KCompletionBox, param1: anytype) void {
+    pub fn changeEvent(self: KCompletionBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.KCompletionBox_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QFrame
     ///
@@ -12274,10 +15082,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: KCompletionBox, param1: anytype) void {
+    pub fn superChangeEvent(self: KCompletionBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.KCompletionBox_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QFrame
     ///
@@ -12291,9 +15103,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QEvent) callconv(.c) void) void {
         qtc.KCompletionBox_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initStyleOption` instead
+    ///
+    pub const InitStyleOption = initStyleOption;
 
     /// Inherited from QFrame
     ///
@@ -12307,14 +15123,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` option: QStyleOptionFrame `
     ///
-    pub fn InitStyleOption(self: KCompletionBox, option: anytype) void {
+    pub fn initStyleOption(self: KCompletionBox, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionFrame;
         qtc.KCompletionBox_InitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitStyleOption` instead
+    /// ### DEPRECATED: Use `superInitStyleOption` instead
     ///
-    pub const QBaseInitStyleOption = SuperInitStyleOption;
+    pub const SuperInitStyleOption = superInitStyleOption;
 
     /// Inherited from QFrame
     ///
@@ -12328,10 +15144,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` option: QStyleOptionFrame `
     ///
-    pub fn SuperInitStyleOption(self: KCompletionBox, option: anytype) void {
+    pub fn superInitStyleOption(self: KCompletionBox, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionFrame;
         qtc.KCompletionBox_SuperInitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitStyleOption` instead
+    ///
+    pub const OnInitStyleOption = onInitStyleOption;
 
     /// Inherited from QFrame
     ///
@@ -12345,9 +15165,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, option: QStyleOptionFrame) callconv(.c) void `
     ///
-    pub fn OnInitStyleOption(self: KCompletionBox, callback: *const fn (KCompletionBox, QStyleOptionFrame) callconv(.c) void) void {
+    pub fn onInitStyleOption(self: KCompletionBox, callback: *const fn (KCompletionBox, QStyleOptionFrame) callconv(.c) void) void {
         qtc.KCompletionBox_OnInitStyleOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -12359,13 +15183,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn DevType(self: KCompletionBox) i32 {
+    pub fn devType(self: KCompletionBox) i32 {
         return qtc.KCompletionBox_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -12377,9 +15201,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn SuperDevType(self: KCompletionBox) i32 {
+    pub fn superDevType(self: KCompletionBox) i32 {
         return qtc.KCompletionBox_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -12393,9 +15221,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: KCompletionBox, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KCompletionBox, callback: *const fn () callconv(.c) i32) void {
         qtc.KCompletionBox_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -12409,13 +15241,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: KCompletionBox, param1: i32) i32 {
+    pub fn heightForWidth(self: KCompletionBox, param1: i32) i32 {
         return qtc.KCompletionBox_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -12429,9 +15261,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: KCompletionBox, param1: i32) i32 {
+    pub fn superHeightForWidth(self: KCompletionBox, param1: i32) i32 {
         return qtc.KCompletionBox_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -12445,9 +15281,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: KCompletionBox, callback: *const fn (KCompletionBox, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: KCompletionBox, callback: *const fn (KCompletionBox, i32) callconv(.c) i32) void {
         qtc.KCompletionBox_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -12459,13 +15299,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn HasHeightForWidth(self: KCompletionBox) bool {
+    pub fn hasHeightForWidth(self: KCompletionBox) bool {
         return qtc.KCompletionBox_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -12477,9 +15317,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn SuperHasHeightForWidth(self: KCompletionBox) bool {
+    pub fn superHasHeightForWidth(self: KCompletionBox) bool {
         return qtc.KCompletionBox_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -12493,9 +15337,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: KCompletionBox, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KCompletionBox, callback: *const fn () callconv(.c) bool) void {
         qtc.KCompletionBox_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -12507,13 +15355,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn PaintEngine(self: KCompletionBox) QPaintEngine {
+    pub fn paintEngine(self: KCompletionBox) QPaintEngine {
         return .{ .ptr = qtc.KCompletionBox_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -12525,9 +15373,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn SuperPaintEngine(self: KCompletionBox) QPaintEngine {
+    pub fn superPaintEngine(self: KCompletionBox) QPaintEngine {
         return .{ .ptr = qtc.KCompletionBox_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -12541,9 +15393,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: KCompletionBox, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KCompletionBox, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.KCompletionBox_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -12555,16 +15411,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: KCompletionBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KCompletionBox_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyReleaseEvent(self: KCompletionBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KCompletionBox_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -12576,12 +15432,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: KCompletionBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KCompletionBox_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyReleaseEvent(self: KCompletionBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KCompletionBox_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -12595,9 +15455,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QKeyEvent) callconv(.c) void) void {
         qtc.KCompletionBox_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -12609,16 +15473,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: KCompletionBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KCompletionBox_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: KCompletionBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KCompletionBox_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -12630,12 +15494,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: KCompletionBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KCompletionBox_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: KCompletionBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KCompletionBox_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -12649,9 +15517,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QEnterEvent) callconv(.c) void) void {
         qtc.KCompletionBox_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -12663,16 +15535,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: KCompletionBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KCompletionBox_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: KCompletionBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KCompletionBox_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -12684,12 +15556,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: KCompletionBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KCompletionBox_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: KCompletionBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KCompletionBox_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -12703,9 +15579,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QEvent) callconv(.c) void) void {
         qtc.KCompletionBox_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -12717,16 +15597,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: KCompletionBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KCompletionBox_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: KCompletionBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KCompletionBox_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -12738,12 +15618,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: KCompletionBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KCompletionBox_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: KCompletionBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KCompletionBox_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -12757,9 +15641,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QMoveEvent) callconv(.c) void) void {
         qtc.KCompletionBox_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -12771,16 +15659,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: KCompletionBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.KCompletionBox_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: KCompletionBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.KCompletionBox_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -12792,12 +15680,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: KCompletionBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.KCompletionBox_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: KCompletionBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.KCompletionBox_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -12811,9 +15703,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QCloseEvent) callconv(.c) void) void {
         qtc.KCompletionBox_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -12825,16 +15721,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: KCompletionBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KCompletionBox_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: KCompletionBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KCompletionBox_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -12846,12 +15742,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: KCompletionBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KCompletionBox_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: KCompletionBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KCompletionBox_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -12865,9 +15765,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QTabletEvent) callconv(.c) void) void {
         qtc.KCompletionBox_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -12879,16 +15783,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: KCompletionBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KCompletionBox_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: KCompletionBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KCompletionBox_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -12900,12 +15804,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: KCompletionBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KCompletionBox_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: KCompletionBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KCompletionBox_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -12919,9 +15827,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QActionEvent) callconv(.c) void) void {
         qtc.KCompletionBox_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QWidget
     ///
@@ -12933,16 +15845,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn ShowEvent(self: KCompletionBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.KCompletionBox_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn showEvent(self: KCompletionBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.KCompletionBox_ShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -12954,12 +15866,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: KCompletionBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.KCompletionBox_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superShowEvent(self: KCompletionBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.KCompletionBox_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -12973,9 +15889,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QShowEvent) callconv(.c) void) void {
         qtc.KCompletionBox_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -12987,16 +15907,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: KCompletionBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KCompletionBox_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: KCompletionBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KCompletionBox_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -13008,12 +15928,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: KCompletionBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KCompletionBox_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: KCompletionBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KCompletionBox_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -13027,9 +15951,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QHideEvent) callconv(.c) void) void {
         qtc.KCompletionBox_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -13047,7 +15975,7 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: KCompletionBox, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: KCompletionBox, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -13055,9 +15983,9 @@ pub const KCompletionBox = extern struct {
         return qtc.KCompletionBox_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -13075,13 +16003,17 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: KCompletionBox, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: KCompletionBox, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.KCompletionBox_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -13095,9 +16027,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KCompletionBox_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -13111,13 +16047,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: KCompletionBox, param1: i32) i32 {
+    pub fn metric(self: KCompletionBox, param1: i32) i32 {
         return qtc.KCompletionBox_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -13131,9 +16067,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: KCompletionBox, param1: i32) i32 {
+    pub fn superMetric(self: KCompletionBox, param1: i32) i32 {
         return qtc.KCompletionBox_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -13147,9 +16087,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: KCompletionBox, callback: *const fn (KCompletionBox, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: KCompletionBox, callback: *const fn (KCompletionBox, i32) callconv(.c) i32) void {
         qtc.KCompletionBox_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -13163,14 +16107,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: KCompletionBox, painter: anytype) void {
+    pub fn initPainter(self: KCompletionBox, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KCompletionBox_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -13184,10 +16128,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: KCompletionBox, painter: anytype) void {
+    pub fn superInitPainter(self: KCompletionBox, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KCompletionBox_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -13201,9 +16149,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: KCompletionBox, callback: *const fn (KCompletionBox, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: KCompletionBox, callback: *const fn (KCompletionBox, QPainter) callconv(.c) void) void {
         qtc.KCompletionBox_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -13217,14 +16169,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: KCompletionBox, offset: anytype) QPaintDevice {
+    pub fn redirected(self: KCompletionBox, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KCompletionBox_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -13238,10 +16190,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: KCompletionBox, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: KCompletionBox, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KCompletionBox_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -13255,9 +16211,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: KCompletionBox, callback: *const fn (KCompletionBox, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: KCompletionBox, callback: *const fn (KCompletionBox, QPoint) callconv(.c) QPaintDevice) void {
         qtc.KCompletionBox_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -13269,13 +16229,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn SharedPainter(self: KCompletionBox) QPainter {
+    pub fn sharedPainter(self: KCompletionBox) QPainter {
         return .{ .ptr = qtc.KCompletionBox_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -13287,9 +16247,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn SuperSharedPainter(self: KCompletionBox) QPainter {
+    pub fn superSharedPainter(self: KCompletionBox) QPainter {
         return .{ .ptr = qtc.KCompletionBox_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -13303,9 +16267,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: KCompletionBox, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KCompletionBox, callback: *const fn () callconv(.c) QPainter) void {
         qtc.KCompletionBox_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -13317,16 +16285,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KCompletionBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KCompletionBox_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KCompletionBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KCompletionBox_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -13338,12 +16306,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KCompletionBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KCompletionBox_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KCompletionBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KCompletionBox_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -13357,9 +16329,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QChildEvent) callconv(.c) void) void {
         qtc.KCompletionBox_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -13371,16 +16347,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KCompletionBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KCompletionBox_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KCompletionBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KCompletionBox_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -13392,12 +16368,16 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KCompletionBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KCompletionBox_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KCompletionBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KCompletionBox_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -13411,9 +16391,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KCompletionBox, callback: *const fn (KCompletionBox, QEvent) callconv(.c) void) void {
         qtc.KCompletionBox_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -13427,14 +16411,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KCompletionBox, signal: anytype) void {
+    pub fn connectNotify(self: KCompletionBox, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KCompletionBox_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -13448,11 +16432,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KCompletionBox, signal: anytype) void {
+    pub fn superConnectNotify(self: KCompletionBox, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KCompletionBox_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -13465,9 +16453,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KCompletionBox, callback: *const fn (KCompletionBox, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KCompletionBox, callback: *const fn (KCompletionBox, QMetaMethod) callconv(.c) void) void {
         qtc.KCompletionBox_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -13481,14 +16473,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KCompletionBox, signal: anytype) void {
+    pub fn disconnectNotify(self: KCompletionBox, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KCompletionBox_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -13502,10 +16494,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KCompletionBox, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KCompletionBox, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KCompletionBox_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -13519,9 +16515,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KCompletionBox, callback: *const fn (KCompletionBox, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KCompletionBox, callback: *const fn (KCompletionBox, QMetaMethod) callconv(.c) void) void {
         qtc.KCompletionBox_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeContents` instead
+    ///
+    pub const ResizeContents = resizeContents;
 
     /// Inherited from QListView
     ///
@@ -13533,17 +16533,17 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` width: i32 `
+    /// ` _width: i32 `
     ///
-    /// ` height: i32 `
+    /// ` _height: i32 `
     ///
-    pub fn ResizeContents(self: KCompletionBox, width: i32, height: i32) void {
-        qtc.KCompletionBox_ResizeContents(@ptrCast(self.ptr), @bitCast(width), @bitCast(height));
+    pub fn resizeContents(self: KCompletionBox, _width: i32, _height: i32) void {
+        qtc.KCompletionBox_ResizeContents(@ptrCast(self.ptr), @bitCast(_width), @bitCast(_height));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeContents` instead
+    /// ### DEPRECATED: Use `superResizeContents` instead
     ///
-    pub const QBaseResizeContents = SuperResizeContents;
+    pub const SuperResizeContents = superResizeContents;
 
     /// Inherited from QListView
     ///
@@ -13555,13 +16555,17 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` width: i32 `
+    /// ` _width: i32 `
     ///
-    /// ` height: i32 `
+    /// ` _height: i32 `
     ///
-    pub fn SuperResizeContents(self: KCompletionBox, width: i32, height: i32) void {
-        qtc.KCompletionBox_SuperResizeContents(@ptrCast(self.ptr), @bitCast(width), @bitCast(height));
+    pub fn superResizeContents(self: KCompletionBox, _width: i32, _height: i32) void {
+        qtc.KCompletionBox_SuperResizeContents(@ptrCast(self.ptr), @bitCast(_width), @bitCast(_height));
     }
+
+    /// ### DEPRECATED: Use `onResizeContents` instead
+    ///
+    pub const OnResizeContents = onResizeContents;
 
     /// Inherited from QListView
     ///
@@ -13575,9 +16579,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, width: i32, height: i32) callconv(.c) void `
     ///
-    pub fn OnResizeContents(self: KCompletionBox, callback: *const fn (KCompletionBox, i32, i32) callconv(.c) void) void {
+    pub fn onResizeContents(self: KCompletionBox, callback: *const fn (KCompletionBox, i32, i32) callconv(.c) void) void {
         qtc.KCompletionBox_OnResizeContents(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contentsSize` instead
+    ///
+    pub const ContentsSize = contentsSize;
 
     /// Inherited from QListView
     ///
@@ -13589,13 +16597,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn ContentsSize(self: KCompletionBox) QSize {
+    pub fn contentsSize(self: KCompletionBox) QSize {
         return .{ .ptr = qtc.KCompletionBox_ContentsSize(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperContentsSize` instead
+    /// ### DEPRECATED: Use `superContentsSize` instead
     ///
-    pub const QBaseContentsSize = SuperContentsSize;
+    pub const SuperContentsSize = superContentsSize;
 
     /// Inherited from QListView
     ///
@@ -13607,9 +16615,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn SuperContentsSize(self: KCompletionBox) QSize {
+    pub fn superContentsSize(self: KCompletionBox) QSize {
         return .{ .ptr = qtc.KCompletionBox_SuperContentsSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onContentsSize` instead
+    ///
+    pub const OnContentsSize = onContentsSize;
 
     /// Inherited from QListView
     ///
@@ -13625,9 +16637,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnContentsSize(self: KCompletionBox, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onContentsSize(self: KCompletionBox, callback: *const fn () callconv(.c) QSize) void {
         qtc.KCompletionBox_OnContentsSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `rectForIndex` instead
+    ///
+    pub const RectForIndex = rectForIndex;
 
     /// Inherited from QListView
     ///
@@ -13641,14 +16657,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn RectForIndex(self: KCompletionBox, index: anytype) QRect {
+    pub fn rectForIndex(self: KCompletionBox, index: anytype) QRect {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.KCompletionBox_RectForIndex(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRectForIndex` instead
+    /// ### DEPRECATED: Use `superRectForIndex` instead
     ///
-    pub const QBaseRectForIndex = SuperRectForIndex;
+    pub const SuperRectForIndex = superRectForIndex;
 
     /// Inherited from QListView
     ///
@@ -13662,10 +16678,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SuperRectForIndex(self: KCompletionBox, index: anytype) QRect {
+    pub fn superRectForIndex(self: KCompletionBox, index: anytype) QRect {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.KCompletionBox_SuperRectForIndex(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRectForIndex` instead
+    ///
+    pub const OnRectForIndex = onRectForIndex;
 
     /// Inherited from QListView
     ///
@@ -13681,9 +16701,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnRectForIndex(self: KCompletionBox, callback: *const fn (KCompletionBox, QModelIndex) callconv(.c) QRect) void {
+    pub fn onRectForIndex(self: KCompletionBox, callback: *const fn (KCompletionBox, QModelIndex) callconv(.c) QRect) void {
         qtc.KCompletionBox_OnRectForIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setPositionForIndex` instead
+    ///
+    pub const SetPositionForIndex = setPositionForIndex;
 
     /// Inherited from QListView
     ///
@@ -13699,15 +16723,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SetPositionForIndex(self: KCompletionBox, position: anytype, index: anytype) void {
+    pub fn setPositionForIndex(self: KCompletionBox, position: anytype, index: anytype) void {
         comptime _ = @TypeOf(position)._is_QPoint;
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.KCompletionBox_SetPositionForIndex(@ptrCast(self.ptr), @ptrCast(position.ptr), @ptrCast(index.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetPositionForIndex` instead
+    /// ### DEPRECATED: Use `superSetPositionForIndex` instead
     ///
-    pub const QBaseSetPositionForIndex = SuperSetPositionForIndex;
+    pub const SuperSetPositionForIndex = superSetPositionForIndex;
 
     /// Inherited from QListView
     ///
@@ -13723,11 +16747,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SuperSetPositionForIndex(self: KCompletionBox, position: anytype, index: anytype) void {
+    pub fn superSetPositionForIndex(self: KCompletionBox, position: anytype, index: anytype) void {
         comptime _ = @TypeOf(position)._is_QPoint;
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.KCompletionBox_SuperSetPositionForIndex(@ptrCast(self.ptr), @ptrCast(position.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetPositionForIndex` instead
+    ///
+    pub const OnSetPositionForIndex = onSetPositionForIndex;
 
     /// Inherited from QListView
     ///
@@ -13741,9 +16769,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, position: QPoint, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnSetPositionForIndex(self: KCompletionBox, callback: *const fn (KCompletionBox, QPoint, QModelIndex) callconv(.c) void) void {
+    pub fn onSetPositionForIndex(self: KCompletionBox, callback: *const fn (KCompletionBox, QPoint, QModelIndex) callconv(.c) void) void {
         qtc.KCompletionBox_OnSetPositionForIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `state` instead
+    ///
+    pub const State = state;
 
     /// Inherited from QAbstractItemView
     ///
@@ -13759,13 +16791,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` qabstractitemview_enums.State `
     ///
-    pub fn State(self: KCompletionBox) i32 {
+    pub fn state(self: KCompletionBox) i32 {
         return qtc.KCompletionBox_State(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperState` instead
+    /// ### DEPRECATED: Use `superState` instead
     ///
-    pub const QBaseState = SuperState;
+    pub const SuperState = superState;
 
     /// Inherited from QAbstractItemView
     ///
@@ -13781,9 +16813,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` qabstractitemview_enums.State `
     ///
-    pub fn SuperState(self: KCompletionBox) i32 {
+    pub fn superState(self: KCompletionBox) i32 {
         return qtc.KCompletionBox_SuperState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onState` instead
+    ///
+    pub const OnState = onState;
 
     /// Inherited from QAbstractItemView
     ///
@@ -13797,9 +16833,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnState(self: KCompletionBox, callback: *const fn () callconv(.c) i32) void {
+    pub fn onState(self: KCompletionBox, callback: *const fn () callconv(.c) i32) void {
         qtc.KCompletionBox_OnState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setState` instead
+    ///
+    pub const SetState = setState;
 
     /// Inherited from QAbstractItemView
     ///
@@ -13811,15 +16851,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` state: qabstractitemview_enums.State `
+    /// ` _state: qabstractitemview_enums.State `
     ///
-    pub fn SetState(self: KCompletionBox, state: i32) void {
-        qtc.KCompletionBox_SetState(@ptrCast(self.ptr), @bitCast(state));
+    pub fn setState(self: KCompletionBox, _state: i32) void {
+        qtc.KCompletionBox_SetState(@ptrCast(self.ptr), @bitCast(_state));
     }
 
-    /// ### DEPRECATED: Use `SuperSetState` instead
+    /// ### DEPRECATED: Use `superSetState` instead
     ///
-    pub const QBaseSetState = SuperSetState;
+    pub const SuperSetState = superSetState;
 
     /// Inherited from QAbstractItemView
     ///
@@ -13831,11 +16871,15 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    /// ` state: qabstractitemview_enums.State `
+    /// ` _state: qabstractitemview_enums.State `
     ///
-    pub fn SuperSetState(self: KCompletionBox, state: i32) void {
-        qtc.KCompletionBox_SuperSetState(@ptrCast(self.ptr), @bitCast(state));
+    pub fn superSetState(self: KCompletionBox, _state: i32) void {
+        qtc.KCompletionBox_SuperSetState(@ptrCast(self.ptr), @bitCast(_state));
     }
+
+    /// ### DEPRECATED: Use `onSetState` instead
+    ///
+    pub const OnSetState = onSetState;
 
     /// Inherited from QAbstractItemView
     ///
@@ -13849,10 +16893,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, state: qabstractitemview_enums.State) callconv(.c) void `
     ///
-    pub fn OnSetState(self: KCompletionBox, callback: *const fn (KCompletionBox, i32) callconv(.c) void) void {
+    pub fn onSetState(self: KCompletionBox, callback: *const fn (KCompletionBox, i32) callconv(.c) void) void {
         qtc.KCompletionBox_OnSetState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `scheduleDelayedItemsLayout` instead
+    ///
+    pub const ScheduleDelayedItemsLayout = scheduleDelayedItemsLayout;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
@@ -13863,13 +16911,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn ScheduleDelayedItemsLayout(self: KCompletionBox) void {
+    pub fn scheduleDelayedItemsLayout(self: KCompletionBox) void {
         qtc.KCompletionBox_ScheduleDelayedItemsLayout(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperScheduleDelayedItemsLayout` instead
+    /// ### DEPRECATED: Use `superScheduleDelayedItemsLayout` instead
     ///
-    pub const QBaseScheduleDelayedItemsLayout = SuperScheduleDelayedItemsLayout;
+    pub const SuperScheduleDelayedItemsLayout = superScheduleDelayedItemsLayout;
 
     /// Inherited from QAbstractItemView
     ///
@@ -13881,9 +16929,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn SuperScheduleDelayedItemsLayout(self: KCompletionBox) void {
+    pub fn superScheduleDelayedItemsLayout(self: KCompletionBox) void {
         qtc.KCompletionBox_SuperScheduleDelayedItemsLayout(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onScheduleDelayedItemsLayout` instead
+    ///
+    pub const OnScheduleDelayedItemsLayout = onScheduleDelayedItemsLayout;
 
     /// Inherited from QAbstractItemView
     ///
@@ -13897,9 +16949,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnScheduleDelayedItemsLayout(self: KCompletionBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onScheduleDelayedItemsLayout(self: KCompletionBox, callback: *const fn () callconv(.c) void) void {
         qtc.KCompletionBox_OnScheduleDelayedItemsLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `executeDelayedItemsLayout` instead
+    ///
+    pub const ExecuteDelayedItemsLayout = executeDelayedItemsLayout;
 
     /// Inherited from QAbstractItemView
     ///
@@ -13911,13 +16967,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn ExecuteDelayedItemsLayout(self: KCompletionBox) void {
+    pub fn executeDelayedItemsLayout(self: KCompletionBox) void {
         qtc.KCompletionBox_ExecuteDelayedItemsLayout(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperExecuteDelayedItemsLayout` instead
+    /// ### DEPRECATED: Use `superExecuteDelayedItemsLayout` instead
     ///
-    pub const QBaseExecuteDelayedItemsLayout = SuperExecuteDelayedItemsLayout;
+    pub const SuperExecuteDelayedItemsLayout = superExecuteDelayedItemsLayout;
 
     /// Inherited from QAbstractItemView
     ///
@@ -13929,9 +16985,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn SuperExecuteDelayedItemsLayout(self: KCompletionBox) void {
+    pub fn superExecuteDelayedItemsLayout(self: KCompletionBox) void {
         qtc.KCompletionBox_SuperExecuteDelayedItemsLayout(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onExecuteDelayedItemsLayout` instead
+    ///
+    pub const OnExecuteDelayedItemsLayout = onExecuteDelayedItemsLayout;
 
     /// Inherited from QAbstractItemView
     ///
@@ -13945,9 +17005,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnExecuteDelayedItemsLayout(self: KCompletionBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onExecuteDelayedItemsLayout(self: KCompletionBox, callback: *const fn () callconv(.c) void) void {
         qtc.KCompletionBox_OnExecuteDelayedItemsLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setDirtyRegion` instead
+    ///
+    pub const SetDirtyRegion = setDirtyRegion;
 
     /// Inherited from QAbstractItemView
     ///
@@ -13961,14 +17025,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` region: QRegion `
     ///
-    pub fn SetDirtyRegion(self: KCompletionBox, region: anytype) void {
+    pub fn setDirtyRegion(self: KCompletionBox, region: anytype) void {
         comptime _ = @TypeOf(region)._is_QRegion;
         qtc.KCompletionBox_SetDirtyRegion(@ptrCast(self.ptr), @ptrCast(region.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetDirtyRegion` instead
+    /// ### DEPRECATED: Use `superSetDirtyRegion` instead
     ///
-    pub const QBaseSetDirtyRegion = SuperSetDirtyRegion;
+    pub const SuperSetDirtyRegion = superSetDirtyRegion;
 
     /// Inherited from QAbstractItemView
     ///
@@ -13982,10 +17046,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` region: QRegion `
     ///
-    pub fn SuperSetDirtyRegion(self: KCompletionBox, region: anytype) void {
+    pub fn superSetDirtyRegion(self: KCompletionBox, region: anytype) void {
         comptime _ = @TypeOf(region)._is_QRegion;
         qtc.KCompletionBox_SuperSetDirtyRegion(@ptrCast(self.ptr), @ptrCast(region.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetDirtyRegion` instead
+    ///
+    pub const OnSetDirtyRegion = onSetDirtyRegion;
 
     /// Inherited from QAbstractItemView
     ///
@@ -13999,9 +17067,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, region: QRegion) callconv(.c) void `
     ///
-    pub fn OnSetDirtyRegion(self: KCompletionBox, callback: *const fn (KCompletionBox, QRegion) callconv(.c) void) void {
+    pub fn onSetDirtyRegion(self: KCompletionBox, callback: *const fn (KCompletionBox, QRegion) callconv(.c) void) void {
         qtc.KCompletionBox_OnSetDirtyRegion(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `scrollDirtyRegion` instead
+    ///
+    pub const ScrollDirtyRegion = scrollDirtyRegion;
 
     /// Inherited from QAbstractItemView
     ///
@@ -14017,13 +17089,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn ScrollDirtyRegion(self: KCompletionBox, dx: i32, dy: i32) void {
+    pub fn scrollDirtyRegion(self: KCompletionBox, dx: i32, dy: i32) void {
         qtc.KCompletionBox_ScrollDirtyRegion(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
-    /// ### DEPRECATED: Use `SuperScrollDirtyRegion` instead
+    /// ### DEPRECATED: Use `superScrollDirtyRegion` instead
     ///
-    pub const QBaseScrollDirtyRegion = SuperScrollDirtyRegion;
+    pub const SuperScrollDirtyRegion = superScrollDirtyRegion;
 
     /// Inherited from QAbstractItemView
     ///
@@ -14039,9 +17111,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn SuperScrollDirtyRegion(self: KCompletionBox, dx: i32, dy: i32) void {
+    pub fn superScrollDirtyRegion(self: KCompletionBox, dx: i32, dy: i32) void {
         qtc.KCompletionBox_SuperScrollDirtyRegion(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `onScrollDirtyRegion` instead
+    ///
+    pub const OnScrollDirtyRegion = onScrollDirtyRegion;
 
     /// Inherited from QAbstractItemView
     ///
@@ -14055,9 +17131,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, dx: i32, dy: i32) callconv(.c) void `
     ///
-    pub fn OnScrollDirtyRegion(self: KCompletionBox, callback: *const fn (KCompletionBox, i32, i32) callconv(.c) void) void {
+    pub fn onScrollDirtyRegion(self: KCompletionBox, callback: *const fn (KCompletionBox, i32, i32) callconv(.c) void) void {
         qtc.KCompletionBox_OnScrollDirtyRegion(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dirtyRegionOffset` instead
+    ///
+    pub const DirtyRegionOffset = dirtyRegionOffset;
 
     /// Inherited from QAbstractItemView
     ///
@@ -14069,13 +17149,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn DirtyRegionOffset(self: KCompletionBox) QPoint {
+    pub fn dirtyRegionOffset(self: KCompletionBox) QPoint {
         return .{ .ptr = qtc.KCompletionBox_DirtyRegionOffset(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperDirtyRegionOffset` instead
+    /// ### DEPRECATED: Use `superDirtyRegionOffset` instead
     ///
-    pub const QBaseDirtyRegionOffset = SuperDirtyRegionOffset;
+    pub const SuperDirtyRegionOffset = superDirtyRegionOffset;
 
     /// Inherited from QAbstractItemView
     ///
@@ -14087,9 +17167,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn SuperDirtyRegionOffset(self: KCompletionBox) QPoint {
+    pub fn superDirtyRegionOffset(self: KCompletionBox) QPoint {
         return .{ .ptr = qtc.KCompletionBox_SuperDirtyRegionOffset(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onDirtyRegionOffset` instead
+    ///
+    pub const OnDirtyRegionOffset = onDirtyRegionOffset;
 
     /// Inherited from QAbstractItemView
     ///
@@ -14105,10 +17189,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnDirtyRegionOffset(self: KCompletionBox, callback: *const fn () callconv(.c) QPoint) void {
+    pub fn onDirtyRegionOffset(self: KCompletionBox, callback: *const fn () callconv(.c) QPoint) void {
         qtc.KCompletionBox_OnDirtyRegionOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `startAutoScroll` instead
+    ///
+    pub const StartAutoScroll = startAutoScroll;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
@@ -14119,13 +17207,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn StartAutoScroll(self: KCompletionBox) void {
+    pub fn startAutoScroll(self: KCompletionBox) void {
         qtc.KCompletionBox_StartAutoScroll(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperStartAutoScroll` instead
+    /// ### DEPRECATED: Use `superStartAutoScroll` instead
     ///
-    pub const QBaseStartAutoScroll = SuperStartAutoScroll;
+    pub const SuperStartAutoScroll = superStartAutoScroll;
 
     /// Inherited from QAbstractItemView
     ///
@@ -14137,10 +17225,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn SuperStartAutoScroll(self: KCompletionBox) void {
+    pub fn superStartAutoScroll(self: KCompletionBox) void {
         qtc.KCompletionBox_SuperStartAutoScroll(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onStartAutoScroll` instead
+    ///
+    pub const OnStartAutoScroll = onStartAutoScroll;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
@@ -14153,10 +17245,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnStartAutoScroll(self: KCompletionBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onStartAutoScroll(self: KCompletionBox, callback: *const fn () callconv(.c) void) void {
         qtc.KCompletionBox_OnStartAutoScroll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `stopAutoScroll` instead
+    ///
+    pub const StopAutoScroll = stopAutoScroll;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
@@ -14167,13 +17263,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn StopAutoScroll(self: KCompletionBox) void {
+    pub fn stopAutoScroll(self: KCompletionBox) void {
         qtc.KCompletionBox_StopAutoScroll(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperStopAutoScroll` instead
+    /// ### DEPRECATED: Use `superStopAutoScroll` instead
     ///
-    pub const QBaseStopAutoScroll = SuperStopAutoScroll;
+    pub const SuperStopAutoScroll = superStopAutoScroll;
 
     /// Inherited from QAbstractItemView
     ///
@@ -14185,10 +17281,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn SuperStopAutoScroll(self: KCompletionBox) void {
+    pub fn superStopAutoScroll(self: KCompletionBox) void {
         qtc.KCompletionBox_SuperStopAutoScroll(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onStopAutoScroll` instead
+    ///
+    pub const OnStopAutoScroll = onStopAutoScroll;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
@@ -14201,9 +17301,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnStopAutoScroll(self: KCompletionBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onStopAutoScroll(self: KCompletionBox, callback: *const fn () callconv(.c) void) void {
         qtc.KCompletionBox_OnStopAutoScroll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `doAutoScroll` instead
+    ///
+    pub const DoAutoScroll = doAutoScroll;
 
     /// Inherited from QAbstractItemView
     ///
@@ -14215,13 +17319,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn DoAutoScroll(self: KCompletionBox) void {
+    pub fn doAutoScroll(self: KCompletionBox) void {
         qtc.KCompletionBox_DoAutoScroll(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDoAutoScroll` instead
+    /// ### DEPRECATED: Use `superDoAutoScroll` instead
     ///
-    pub const QBaseDoAutoScroll = SuperDoAutoScroll;
+    pub const SuperDoAutoScroll = superDoAutoScroll;
 
     /// Inherited from QAbstractItemView
     ///
@@ -14233,9 +17337,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn SuperDoAutoScroll(self: KCompletionBox) void {
+    pub fn superDoAutoScroll(self: KCompletionBox) void {
         qtc.KCompletionBox_SuperDoAutoScroll(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDoAutoScroll` instead
+    ///
+    pub const OnDoAutoScroll = onDoAutoScroll;
 
     /// Inherited from QAbstractItemView
     ///
@@ -14249,9 +17357,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDoAutoScroll(self: KCompletionBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onDoAutoScroll(self: KCompletionBox, callback: *const fn () callconv(.c) void) void {
         qtc.KCompletionBox_OnDoAutoScroll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropIndicatorPosition` instead
+    ///
+    pub const DropIndicatorPosition = dropIndicatorPosition;
 
     /// Inherited from QAbstractItemView
     ///
@@ -14267,13 +17379,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` qabstractitemview_enums.DropIndicatorPosition `
     ///
-    pub fn DropIndicatorPosition(self: KCompletionBox) i32 {
+    pub fn dropIndicatorPosition(self: KCompletionBox) i32 {
         return qtc.KCompletionBox_DropIndicatorPosition(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropIndicatorPosition` instead
+    /// ### DEPRECATED: Use `superDropIndicatorPosition` instead
     ///
-    pub const QBaseDropIndicatorPosition = SuperDropIndicatorPosition;
+    pub const SuperDropIndicatorPosition = superDropIndicatorPosition;
 
     /// Inherited from QAbstractItemView
     ///
@@ -14289,9 +17401,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` qabstractitemview_enums.DropIndicatorPosition `
     ///
-    pub fn SuperDropIndicatorPosition(self: KCompletionBox) i32 {
+    pub fn superDropIndicatorPosition(self: KCompletionBox) i32 {
         return qtc.KCompletionBox_SuperDropIndicatorPosition(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropIndicatorPosition` instead
+    ///
+    pub const OnDropIndicatorPosition = onDropIndicatorPosition;
 
     /// Inherited from QAbstractItemView
     ///
@@ -14305,9 +17421,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDropIndicatorPosition(self: KCompletionBox, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDropIndicatorPosition(self: KCompletionBox, callback: *const fn () callconv(.c) i32) void {
         qtc.KCompletionBox_OnDropIndicatorPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setViewportMargins` instead
+    ///
+    pub const SetViewportMargins = setViewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -14327,13 +17447,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetViewportMargins(self: KCompletionBox, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setViewportMargins(self: KCompletionBox, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.KCompletionBox_SetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
-    /// ### DEPRECATED: Use `SuperSetViewportMargins` instead
+    /// ### DEPRECATED: Use `superSetViewportMargins` instead
     ///
-    pub const QBaseSetViewportMargins = SuperSetViewportMargins;
+    pub const SuperSetViewportMargins = superSetViewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -14353,9 +17473,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SuperSetViewportMargins(self: KCompletionBox, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn superSetViewportMargins(self: KCompletionBox, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.KCompletionBox_SuperSetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `onSetViewportMargins` instead
+    ///
+    pub const OnSetViewportMargins = onSetViewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -14369,9 +17493,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, left: i32, top: i32, right: i32, bottom: i32) callconv(.c) void `
     ///
-    pub fn OnSetViewportMargins(self: KCompletionBox, callback: *const fn (KCompletionBox, i32, i32, i32, i32) callconv(.c) void) void {
+    pub fn onSetViewportMargins(self: KCompletionBox, callback: *const fn (KCompletionBox, i32, i32, i32, i32) callconv(.c) void) void {
         qtc.KCompletionBox_OnSetViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `viewportMargins` instead
+    ///
+    pub const ViewportMargins = viewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -14383,13 +17511,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn ViewportMargins(self: KCompletionBox) QMargins {
+    pub fn viewportMargins(self: KCompletionBox) QMargins {
         return .{ .ptr = qtc.KCompletionBox_ViewportMargins(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperViewportMargins` instead
+    /// ### DEPRECATED: Use `superViewportMargins` instead
     ///
-    pub const QBaseViewportMargins = SuperViewportMargins;
+    pub const SuperViewportMargins = superViewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -14401,9 +17529,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn SuperViewportMargins(self: KCompletionBox) QMargins {
+    pub fn superViewportMargins(self: KCompletionBox) QMargins {
         return .{ .ptr = qtc.KCompletionBox_SuperViewportMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onViewportMargins` instead
+    ///
+    pub const OnViewportMargins = onViewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -14419,9 +17551,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnViewportMargins(self: KCompletionBox, callback: *const fn () callconv(.c) QMargins) void {
+    pub fn onViewportMargins(self: KCompletionBox, callback: *const fn () callconv(.c) QMargins) void {
         qtc.KCompletionBox_OnViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `drawFrame` instead
+    ///
+    pub const DrawFrame = drawFrame;
 
     /// Inherited from QFrame
     ///
@@ -14435,14 +17571,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` param1: QPainter `
     ///
-    pub fn DrawFrame(self: KCompletionBox, param1: anytype) void {
+    pub fn drawFrame(self: KCompletionBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPainter;
         qtc.KCompletionBox_DrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawFrame` instead
+    /// ### DEPRECATED: Use `superDrawFrame` instead
     ///
-    pub const QBaseDrawFrame = SuperDrawFrame;
+    pub const SuperDrawFrame = superDrawFrame;
 
     /// Inherited from QFrame
     ///
@@ -14456,10 +17592,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` param1: QPainter `
     ///
-    pub fn SuperDrawFrame(self: KCompletionBox, param1: anytype) void {
+    pub fn superDrawFrame(self: KCompletionBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPainter;
         qtc.KCompletionBox_SuperDrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDrawFrame` instead
+    ///
+    pub const OnDrawFrame = onDrawFrame;
 
     /// Inherited from QFrame
     ///
@@ -14473,10 +17613,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, param1: QPainter) callconv(.c) void `
     ///
-    pub fn OnDrawFrame(self: KCompletionBox, callback: *const fn (KCompletionBox, QPainter) callconv(.c) void) void {
+    pub fn onDrawFrame(self: KCompletionBox, callback: *const fn (KCompletionBox, QPainter) callconv(.c) void) void {
         qtc.KCompletionBox_OnDrawFrame(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -14487,13 +17631,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn UpdateMicroFocus(self: KCompletionBox) void {
+    pub fn updateMicroFocus(self: KCompletionBox) void {
         qtc.KCompletionBox_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -14505,10 +17649,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn SuperUpdateMicroFocus(self: KCompletionBox) void {
+    pub fn superUpdateMicroFocus(self: KCompletionBox) void {
         qtc.KCompletionBox_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -14521,10 +17669,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: KCompletionBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: KCompletionBox, callback: *const fn () callconv(.c) void) void {
         qtc.KCompletionBox_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -14535,13 +17687,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn Create(self: KCompletionBox) void {
+    pub fn create(self: KCompletionBox) void {
         qtc.KCompletionBox_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -14553,10 +17705,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn SuperCreate(self: KCompletionBox) void {
+    pub fn superCreate(self: KCompletionBox) void {
         qtc.KCompletionBox_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -14569,9 +17725,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: KCompletionBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: KCompletionBox, callback: *const fn () callconv(.c) void) void {
         qtc.KCompletionBox_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -14583,13 +17743,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn Destroy(self: KCompletionBox) void {
+    pub fn destroy(self: KCompletionBox) void {
         qtc.KCompletionBox_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -14601,9 +17761,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn SuperDestroy(self: KCompletionBox) void {
+    pub fn superDestroy(self: KCompletionBox) void {
         qtc.KCompletionBox_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -14617,10 +17781,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: KCompletionBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: KCompletionBox, callback: *const fn () callconv(.c) void) void {
         qtc.KCompletionBox_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -14631,13 +17799,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn FocusNextChild(self: KCompletionBox) bool {
+    pub fn focusNextChild(self: KCompletionBox) bool {
         return qtc.KCompletionBox_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -14649,10 +17817,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn SuperFocusNextChild(self: KCompletionBox) bool {
+    pub fn superFocusNextChild(self: KCompletionBox) bool {
         return qtc.KCompletionBox_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -14665,9 +17837,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: KCompletionBox, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: KCompletionBox, callback: *const fn () callconv(.c) bool) void {
         qtc.KCompletionBox_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -14679,13 +17855,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn FocusPreviousChild(self: KCompletionBox) bool {
+    pub fn focusPreviousChild(self: KCompletionBox) bool {
         return qtc.KCompletionBox_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -14697,9 +17873,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn SuperFocusPreviousChild(self: KCompletionBox) bool {
+    pub fn superFocusPreviousChild(self: KCompletionBox) bool {
         return qtc.KCompletionBox_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -14713,9 +17893,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: KCompletionBox, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: KCompletionBox, callback: *const fn () callconv(.c) bool) void {
         qtc.KCompletionBox_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -14727,13 +17911,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn Sender(self: KCompletionBox) QObject {
+    pub fn sender(self: KCompletionBox) QObject {
         return .{ .ptr = qtc.KCompletionBox_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -14745,9 +17929,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn SuperSender(self: KCompletionBox) QObject {
+    pub fn superSender(self: KCompletionBox) QObject {
         return .{ .ptr = qtc.KCompletionBox_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -14761,9 +17949,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KCompletionBox, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KCompletionBox, callback: *const fn () callconv(.c) QObject) void {
         qtc.KCompletionBox_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -14775,13 +17967,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn SenderSignalIndex(self: KCompletionBox) i32 {
+    pub fn senderSignalIndex(self: KCompletionBox) i32 {
         return qtc.KCompletionBox_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -14793,9 +17985,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn SuperSenderSignalIndex(self: KCompletionBox) i32 {
+    pub fn superSenderSignalIndex(self: KCompletionBox) i32 {
         return qtc.KCompletionBox_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -14809,9 +18005,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KCompletionBox, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KCompletionBox, callback: *const fn () callconv(.c) i32) void {
         qtc.KCompletionBox_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -14825,14 +18025,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KCompletionBox, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KCompletionBox, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KCompletionBox_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -14846,10 +18046,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KCompletionBox, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KCompletionBox, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KCompletionBox_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -14863,9 +18067,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KCompletionBox, callback: *const fn (KCompletionBox, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KCompletionBox, callback: *const fn (KCompletionBox, [*:0]const u8) callconv(.c) i32) void {
         qtc.KCompletionBox_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -14879,14 +18087,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KCompletionBox, signal: anytype) bool {
+    pub fn isSignalConnected(self: KCompletionBox, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KCompletionBox_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -14900,10 +18108,14 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KCompletionBox, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KCompletionBox, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KCompletionBox_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -14917,9 +18129,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KCompletionBox, callback: *const fn (KCompletionBox, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KCompletionBox, callback: *const fn (KCompletionBox, QMetaMethod) callconv(.c) bool) void {
         qtc.KCompletionBox_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -14935,13 +18151,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: KCompletionBox, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: KCompletionBox, metricA: i32, metricB: i32) f64 {
         return qtc.KCompletionBox_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -14957,9 +18173,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: KCompletionBox, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: KCompletionBox, metricA: i32, metricB: i32) f64 {
         return qtc.KCompletionBox_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -14973,9 +18193,13 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: KCompletionBox, callback: *const fn (KCompletionBox, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: KCompletionBox, callback: *const fn (KCompletionBox, i32, i32) callconv(.c) f64) void {
         qtc.KCompletionBox_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -14989,23 +18213,23 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KCompletionBox, callback: *const fn (KCompletionBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KCompletionBox, callback: *const fn (KCompletionBox, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbox.html#dtor.KCompletionBox)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KCompletionBox `
     ///
-    pub fn Delete(self: KCompletionBox) void {
+    pub fn delete(self: KCompletionBox) void {
         qtc.KCompletionBox_Delete(@ptrCast(self.ptr));
     }
 };

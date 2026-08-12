@@ -18,32 +18,48 @@ pub const QLayoutItem = extern struct {
 
     pub const _is_QLayoutItem = {};
 
-    /// New constructs a new QLayoutItem object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QLayoutItem {
+    pub const New = new;
+
+    /// Allocate a new QLayoutItem object in C++ memory
+    ///
+    pub fn new() QLayoutItem {
         return .{ .ptr = qtc.QLayoutItem_new() };
     }
 
-    /// New2 constructs a new QLayoutItem object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QLayoutItem object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QLayoutItem `
     ///
-    pub fn New2(param1: anytype) QLayoutItem {
+    pub fn new2(param1: anytype) QLayoutItem {
         comptime _ = @TypeOf(param1)._is_QLayoutItem;
         return .{ .ptr = qtc.QLayoutItem_new2(@ptrCast(param1.ptr)) };
     }
 
-    /// New3 constructs a new QLayoutItem object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QLayoutItem object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
+    /// ` _alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn New3(alignment: i32) QLayoutItem {
-        return .{ .ptr = qtc.QLayoutItem_new3(@bitCast(alignment)) };
+    pub fn new3(_alignment: i32) QLayoutItem {
+        return .{ .ptr = qtc.QLayoutItem_new3(@bitCast(_alignment)) };
     }
+
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#sizeHint)
     ///
@@ -51,10 +67,14 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` self: QLayoutItem `
     ///
-    pub fn SizeHint(self: QLayoutItem) QSize {
+    pub fn sizeHint(self: QLayoutItem) QSize {
         return .{ .ptr = qtc.QLayoutItem_SizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#sizeHint)
     ///
     /// Allows for overriding the related default method
@@ -67,13 +87,13 @@ pub const QLayoutItem = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: QLayoutItem, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QLayoutItem, callback: *const fn () callconv(.c) QSize) void {
         qtc.QLayoutItem_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#sizeHint)
     ///
@@ -83,20 +103,28 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` self: QLayoutItem `
     ///
-    pub fn SuperSizeHint(self: QLayoutItem) QSize {
+    pub fn superSizeHint(self: QLayoutItem) QSize {
         return .{ .ptr = qtc.QLayoutItem_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#minimumSize)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QLayoutItem `
     ///
-    pub fn MinimumSize(self: QLayoutItem) QSize {
+    pub fn minimumSize(self: QLayoutItem) QSize {
         return .{ .ptr = qtc.QLayoutItem_MinimumSize(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onMinimumSize` instead
+    ///
+    pub const OnMinimumSize = onMinimumSize;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#minimumSize)
     ///
     /// Allows for overriding the related default method
@@ -109,13 +137,13 @@ pub const QLayoutItem = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSize(self: QLayoutItem, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSize(self: QLayoutItem, callback: *const fn () callconv(.c) QSize) void {
         qtc.QLayoutItem_OnMinimumSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSize` instead
+    /// ### DEPRECATED: Use `superMinimumSize` instead
     ///
-    pub const QBaseMinimumSize = SuperMinimumSize;
+    pub const SuperMinimumSize = superMinimumSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#minimumSize)
     ///
@@ -125,9 +153,13 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` self: QLayoutItem `
     ///
-    pub fn SuperMinimumSize(self: QLayoutItem) QSize {
+    pub fn superMinimumSize(self: QLayoutItem) QSize {
         return .{ .ptr = qtc.QLayoutItem_SuperMinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#maximumSize)
     ///
@@ -135,9 +167,13 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` self: QLayoutItem `
     ///
-    pub fn MaximumSize(self: QLayoutItem) QSize {
+    pub fn maximumSize(self: QLayoutItem) QSize {
         return .{ .ptr = qtc.QLayoutItem_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMaximumSize` instead
+    ///
+    pub const OnMaximumSize = onMaximumSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#maximumSize)
     ///
@@ -151,13 +187,13 @@ pub const QLayoutItem = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMaximumSize(self: QLayoutItem, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMaximumSize(self: QLayoutItem, callback: *const fn () callconv(.c) QSize) void {
         qtc.QLayoutItem_OnMaximumSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMaximumSize` instead
+    /// ### DEPRECATED: Use `superMaximumSize` instead
     ///
-    pub const QBaseMaximumSize = SuperMaximumSize;
+    pub const SuperMaximumSize = superMaximumSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#maximumSize)
     ///
@@ -167,9 +203,13 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` self: QLayoutItem `
     ///
-    pub fn SuperMaximumSize(self: QLayoutItem) QSize {
+    pub fn superMaximumSize(self: QLayoutItem) QSize {
         return .{ .ptr = qtc.QLayoutItem_SuperMaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `expandingDirections` instead
+    ///
+    pub const ExpandingDirections = expandingDirections;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#expandingDirections)
     ///
@@ -181,9 +221,13 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` flag of qnamespace_enums.Orientation `
     ///
-    pub fn ExpandingDirections(self: QLayoutItem) i32 {
+    pub fn expandingDirections(self: QLayoutItem) i32 {
         return qtc.QLayoutItem_ExpandingDirections(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onExpandingDirections` instead
+    ///
+    pub const OnExpandingDirections = onExpandingDirections;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#expandingDirections)
     ///
@@ -195,13 +239,13 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnExpandingDirections(self: QLayoutItem, callback: *const fn () callconv(.c) i32) void {
+    pub fn onExpandingDirections(self: QLayoutItem, callback: *const fn () callconv(.c) i32) void {
         qtc.QLayoutItem_OnExpandingDirections(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperExpandingDirections` instead
+    /// ### DEPRECATED: Use `superExpandingDirections` instead
     ///
-    pub const QBaseExpandingDirections = SuperExpandingDirections;
+    pub const SuperExpandingDirections = superExpandingDirections;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#expandingDirections)
     ///
@@ -215,9 +259,13 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` flag of qnamespace_enums.Orientation `
     ///
-    pub fn SuperExpandingDirections(self: QLayoutItem) i32 {
+    pub fn superExpandingDirections(self: QLayoutItem) i32 {
         return qtc.QLayoutItem_SuperExpandingDirections(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#setGeometry)
     ///
@@ -225,12 +273,16 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` self: QLayoutItem `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry(self: QLayoutItem, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QLayoutItem_SetGeometry(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry(self: QLayoutItem, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QLayoutItem_SetGeometry(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetGeometry` instead
+    ///
+    pub const OnSetGeometry = onSetGeometry;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#setGeometry)
     ///
@@ -242,13 +294,13 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` callback: *const fn (self: QLayoutItem, geometry: QRect) callconv(.c) void `
     ///
-    pub fn OnSetGeometry(self: QLayoutItem, callback: *const fn (QLayoutItem, QRect) callconv(.c) void) void {
+    pub fn onSetGeometry(self: QLayoutItem, callback: *const fn (QLayoutItem, QRect) callconv(.c) void) void {
         qtc.QLayoutItem_OnSetGeometry(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetGeometry` instead
+    /// ### DEPRECATED: Use `superSetGeometry` instead
     ///
-    pub const QBaseSetGeometry = SuperSetGeometry;
+    pub const SuperSetGeometry = superSetGeometry;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#setGeometry)
     ///
@@ -258,12 +310,16 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` self: QLayoutItem `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SuperSetGeometry(self: QLayoutItem, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QLayoutItem_SuperSetGeometry(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn superSetGeometry(self: QLayoutItem, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QLayoutItem_SuperSetGeometry(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#geometry)
     ///
@@ -271,9 +327,13 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` self: QLayoutItem `
     ///
-    pub fn Geometry(self: QLayoutItem) QRect {
+    pub fn geometry(self: QLayoutItem) QRect {
         return .{ .ptr = qtc.QLayoutItem_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onGeometry` instead
+    ///
+    pub const OnGeometry = onGeometry;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#geometry)
     ///
@@ -287,13 +347,13 @@ pub const QLayoutItem = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnGeometry(self: QLayoutItem, callback: *const fn () callconv(.c) QRect) void {
+    pub fn onGeometry(self: QLayoutItem, callback: *const fn () callconv(.c) QRect) void {
         qtc.QLayoutItem_OnGeometry(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperGeometry` instead
+    /// ### DEPRECATED: Use `superGeometry` instead
     ///
-    pub const QBaseGeometry = SuperGeometry;
+    pub const SuperGeometry = superGeometry;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#geometry)
     ///
@@ -303,20 +363,28 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` self: QLayoutItem `
     ///
-    pub fn SuperGeometry(self: QLayoutItem) QRect {
+    pub fn superGeometry(self: QLayoutItem) QRect {
         return .{ .ptr = qtc.QLayoutItem_SuperGeometry(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `isEmpty` instead
+    ///
+    pub const IsEmpty = isEmpty;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#isEmpty)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QLayoutItem `
     ///
-    pub fn IsEmpty(self: QLayoutItem) bool {
+    pub fn isEmpty(self: QLayoutItem) bool {
         return qtc.QLayoutItem_IsEmpty(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onIsEmpty` instead
+    ///
+    pub const OnIsEmpty = onIsEmpty;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#isEmpty)
     ///
     /// Allows for overriding the related default method
@@ -327,13 +395,13 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnIsEmpty(self: QLayoutItem, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsEmpty(self: QLayoutItem, callback: *const fn () callconv(.c) bool) void {
         qtc.QLayoutItem_OnIsEmpty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperIsEmpty` instead
+    /// ### DEPRECATED: Use `superIsEmpty` instead
     ///
-    pub const QBaseIsEmpty = SuperIsEmpty;
+    pub const SuperIsEmpty = superIsEmpty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#isEmpty)
     ///
@@ -343,9 +411,13 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` self: QLayoutItem `
     ///
-    pub fn SuperIsEmpty(self: QLayoutItem) bool {
+    pub fn superIsEmpty(self: QLayoutItem) bool {
         return qtc.QLayoutItem_SuperIsEmpty(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#hasHeightForWidth)
     ///
@@ -353,9 +425,13 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` self: QLayoutItem `
     ///
-    pub fn HasHeightForWidth(self: QLayoutItem) bool {
+    pub fn hasHeightForWidth(self: QLayoutItem) bool {
         return qtc.QLayoutItem_HasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#hasHeightForWidth)
     ///
@@ -367,13 +443,13 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: QLayoutItem, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QLayoutItem, callback: *const fn () callconv(.c) bool) void {
         qtc.QLayoutItem_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#hasHeightForWidth)
     ///
@@ -383,10 +459,14 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` self: QLayoutItem `
     ///
-    pub fn SuperHasHeightForWidth(self: QLayoutItem) bool {
+    pub fn superHasHeightForWidth(self: QLayoutItem) bool {
         return qtc.QLayoutItem_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#heightForWidth)
     ///
     /// ## Parameter(s):
@@ -395,10 +475,14 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: QLayoutItem, param1: i32) i32 {
+    pub fn heightForWidth(self: QLayoutItem, param1: i32) i32 {
         return qtc.QLayoutItem_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#heightForWidth)
     ///
     /// Allows for overriding the related default method
@@ -409,13 +493,13 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` callback: *const fn (self: QLayoutItem, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: QLayoutItem, callback: *const fn (QLayoutItem, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: QLayoutItem, callback: *const fn (QLayoutItem, i32) callconv(.c) i32) void {
         qtc.QLayoutItem_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#heightForWidth)
     ///
@@ -427,9 +511,13 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: QLayoutItem, param1: i32) i32 {
+    pub fn superHeightForWidth(self: QLayoutItem, param1: i32) i32 {
         return qtc.QLayoutItem_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `minimumHeightForWidth` instead
+    ///
+    pub const MinimumHeightForWidth = minimumHeightForWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#minimumHeightForWidth)
     ///
@@ -439,9 +527,13 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn MinimumHeightForWidth(self: QLayoutItem, param1: i32) i32 {
+    pub fn minimumHeightForWidth(self: QLayoutItem, param1: i32) i32 {
         return qtc.QLayoutItem_MinimumHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMinimumHeightForWidth` instead
+    ///
+    pub const OnMinimumHeightForWidth = onMinimumHeightForWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#minimumHeightForWidth)
     ///
@@ -453,13 +545,13 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` callback: *const fn (self: QLayoutItem, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnMinimumHeightForWidth(self: QLayoutItem, callback: *const fn (QLayoutItem, i32) callconv(.c) i32) void {
+    pub fn onMinimumHeightForWidth(self: QLayoutItem, callback: *const fn (QLayoutItem, i32) callconv(.c) i32) void {
         qtc.QLayoutItem_OnMinimumHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumHeightForWidth` instead
+    /// ### DEPRECATED: Use `superMinimumHeightForWidth` instead
     ///
-    pub const QBaseMinimumHeightForWidth = SuperMinimumHeightForWidth;
+    pub const SuperMinimumHeightForWidth = superMinimumHeightForWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#minimumHeightForWidth)
     ///
@@ -471,9 +563,13 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperMinimumHeightForWidth(self: QLayoutItem, param1: i32) i32 {
+    pub fn superMinimumHeightForWidth(self: QLayoutItem, param1: i32) i32 {
         return qtc.QLayoutItem_SuperMinimumHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `invalidate` instead
+    ///
+    pub const Invalidate = invalidate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
     ///
@@ -481,9 +577,13 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` self: QLayoutItem `
     ///
-    pub fn Invalidate(self: QLayoutItem) void {
+    pub fn invalidate(self: QLayoutItem) void {
         qtc.QLayoutItem_Invalidate(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInvalidate` instead
+    ///
+    pub const OnInvalidate = onInvalidate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
     ///
@@ -495,13 +595,13 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnInvalidate(self: QLayoutItem, callback: *const fn () callconv(.c) void) void {
+    pub fn onInvalidate(self: QLayoutItem, callback: *const fn () callconv(.c) void) void {
         qtc.QLayoutItem_OnInvalidate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperInvalidate` instead
+    /// ### DEPRECATED: Use `superInvalidate` instead
     ///
-    pub const QBaseInvalidate = SuperInvalidate;
+    pub const SuperInvalidate = superInvalidate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
     ///
@@ -511,9 +611,13 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` self: QLayoutItem `
     ///
-    pub fn SuperInvalidate(self: QLayoutItem) void {
+    pub fn superInvalidate(self: QLayoutItem) void {
         qtc.QLayoutItem_SuperInvalidate(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widget` instead
+    ///
+    pub const Widget = widget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
     ///
@@ -521,9 +625,13 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` self: QLayoutItem `
     ///
-    pub fn Widget(self: QLayoutItem) QWidget {
+    pub fn widget(self: QLayoutItem) QWidget {
         return .{ .ptr = qtc.QLayoutItem_Widget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onWidget` instead
+    ///
+    pub const OnWidget = onWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
     ///
@@ -535,13 +643,13 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QWidget `
     ///
-    pub fn OnWidget(self: QLayoutItem, callback: *const fn () callconv(.c) QWidget) void {
+    pub fn onWidget(self: QLayoutItem, callback: *const fn () callconv(.c) QWidget) void {
         qtc.QLayoutItem_OnWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperWidget` instead
+    /// ### DEPRECATED: Use `superWidget` instead
     ///
-    pub const QBaseWidget = SuperWidget;
+    pub const SuperWidget = superWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
     ///
@@ -551,9 +659,13 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` self: QLayoutItem `
     ///
-    pub fn SuperWidget(self: QLayoutItem) QWidget {
+    pub fn superWidget(self: QLayoutItem) QWidget {
         return .{ .ptr = qtc.QLayoutItem_SuperWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
     ///
@@ -561,9 +673,13 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` self: QLayoutItem `
     ///
-    pub fn Layout(self: QLayoutItem) QLayout {
+    pub fn layout(self: QLayoutItem) QLayout {
         return .{ .ptr = qtc.QLayoutItem_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onLayout` instead
+    ///
+    pub const OnLayout = onLayout;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
     ///
@@ -575,13 +691,13 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QLayout `
     ///
-    pub fn OnLayout(self: QLayoutItem, callback: *const fn () callconv(.c) QLayout) void {
+    pub fn onLayout(self: QLayoutItem, callback: *const fn () callconv(.c) QLayout) void {
         qtc.QLayoutItem_OnLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperLayout` instead
+    /// ### DEPRECATED: Use `superLayout` instead
     ///
-    pub const QBaseLayout = SuperLayout;
+    pub const SuperLayout = superLayout;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
     ///
@@ -591,9 +707,13 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` self: QLayoutItem `
     ///
-    pub fn SuperLayout(self: QLayoutItem) QLayout {
+    pub fn superLayout(self: QLayoutItem) QLayout {
         return .{ .ptr = qtc.QLayoutItem_SuperLayout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `spacerItem` instead
+    ///
+    pub const SpacerItem = spacerItem;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
     ///
@@ -601,9 +721,13 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` self: QLayoutItem `
     ///
-    pub fn SpacerItem(self: QLayoutItem) QSpacerItem {
+    pub fn spacerItem(self: QLayoutItem) QSpacerItem {
         return .{ .ptr = qtc.QLayoutItem_SpacerItem(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSpacerItem` instead
+    ///
+    pub const OnSpacerItem = onSpacerItem;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
     ///
@@ -615,13 +739,13 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSpacerItem `
     ///
-    pub fn OnSpacerItem(self: QLayoutItem, callback: *const fn () callconv(.c) QSpacerItem) void {
+    pub fn onSpacerItem(self: QLayoutItem, callback: *const fn () callconv(.c) QSpacerItem) void {
         qtc.QLayoutItem_OnSpacerItem(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSpacerItem` instead
+    /// ### DEPRECATED: Use `superSpacerItem` instead
     ///
-    pub const QBaseSpacerItem = SuperSpacerItem;
+    pub const SuperSpacerItem = superSpacerItem;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
     ///
@@ -631,9 +755,13 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` self: QLayoutItem `
     ///
-    pub fn SuperSpacerItem(self: QLayoutItem) QSpacerItem {
+    pub fn superSpacerItem(self: QLayoutItem) QSpacerItem {
         return .{ .ptr = qtc.QLayoutItem_SuperSpacerItem(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `alignment` instead
+    ///
+    pub const Alignment = alignment;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#alignment)
     ///
@@ -645,9 +773,13 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn Alignment(self: QLayoutItem) i32 {
+    pub fn alignment(self: QLayoutItem) i32 {
         return qtc.QLayoutItem_Alignment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAlignment` instead
+    ///
+    pub const SetAlignment = setAlignment;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#setAlignment)
     ///
@@ -657,9 +789,13 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` a: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn SetAlignment(self: QLayoutItem, a: i32) void {
+    pub fn setAlignment(self: QLayoutItem, a: i32) void {
         qtc.QLayoutItem_SetAlignment(@ptrCast(self.ptr), @bitCast(a));
     }
+
+    /// ### DEPRECATED: Use `controlTypes` instead
+    ///
+    pub const ControlTypes = controlTypes;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#controlTypes)
     ///
@@ -671,9 +807,13 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` flag of qsizepolicy_enums.ControlType `
     ///
-    pub fn ControlTypes(self: QLayoutItem) i32 {
+    pub fn controlTypes(self: QLayoutItem) i32 {
         return qtc.QLayoutItem_ControlTypes(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onControlTypes` instead
+    ///
+    pub const OnControlTypes = onControlTypes;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#controlTypes)
     ///
@@ -685,13 +825,13 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnControlTypes(self: QLayoutItem, callback: *const fn () callconv(.c) i32) void {
+    pub fn onControlTypes(self: QLayoutItem, callback: *const fn () callconv(.c) i32) void {
         qtc.QLayoutItem_OnControlTypes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperControlTypes` instead
+    /// ### DEPRECATED: Use `superControlTypes` instead
     ///
-    pub const QBaseControlTypes = SuperControlTypes;
+    pub const SuperControlTypes = superControlTypes;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#controlTypes)
     ///
@@ -705,9 +845,13 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` flag of qsizepolicy_enums.ControlType `
     ///
-    pub fn SuperControlTypes(self: QLayoutItem) i32 {
+    pub fn superControlTypes(self: QLayoutItem) i32 {
         return qtc.QLayoutItem_SuperControlTypes(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#operator-eq)
     ///
@@ -717,10 +861,14 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` param1: QLayoutItem `
     ///
-    pub fn OperatorAssign(self: QLayoutItem, param1: anytype) void {
+    pub fn operatorAssign(self: QLayoutItem, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QLayoutItem;
         qtc.QLayoutItem_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onOperatorAssign` instead
+    ///
+    pub const OnOperatorAssign = onOperatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#operator-eq)
     ///
@@ -732,13 +880,13 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` callback: *const fn (self: QLayoutItem, param1: QLayoutItem) callconv(.c) void `
     ///
-    pub fn OnOperatorAssign(self: QLayoutItem, callback: *const fn (QLayoutItem, QLayoutItem) callconv(.c) void) void {
+    pub fn onOperatorAssign(self: QLayoutItem, callback: *const fn (QLayoutItem, QLayoutItem) callconv(.c) void) void {
         qtc.QLayoutItem_OnOperatorAssign(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperOperatorAssign` instead
+    /// ### DEPRECATED: Use `superOperatorAssign` instead
     ///
-    pub const QBaseOperatorAssign = SuperOperatorAssign;
+    pub const SuperOperatorAssign = superOperatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#operator-eq)
     ///
@@ -750,24 +898,24 @@ pub const QLayoutItem = extern struct {
     ///
     /// ` param1: QLayoutItem `
     ///
-    pub fn SuperOperatorAssign(self: QLayoutItem, param1: anytype) void {
+    pub fn superOperatorAssign(self: QLayoutItem, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QLayoutItem;
         qtc.QLayoutItem_SuperOperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#dtor.QLayoutItem)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QLayoutItem `
     ///
-    pub fn Delete(self: QLayoutItem) void {
+    pub fn delete(self: QLayoutItem) void {
         qtc.QLayoutItem_Delete(@ptrCast(self.ptr));
     }
 };
@@ -783,7 +931,11 @@ pub const QSpacerItem = extern struct {
     pub const _is_QSpacerItem = {};
     pub const _is_QLayoutItem = {};
 
-    /// New constructs a new QSpacerItem object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QSpacerItem object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -791,22 +943,30 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn New(w: i32, h: i32) QSpacerItem {
+    pub fn new(w: i32, h: i32) QSpacerItem {
         return .{ .ptr = qtc.QSpacerItem_new(@bitCast(w), @bitCast(h)) };
     }
 
-    /// New2 constructs a new QSpacerItem object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QSpacerItem object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QSpacerItem `
     ///
-    pub fn New2(param1: anytype) QSpacerItem {
+    pub fn new2(param1: anytype) QSpacerItem {
         comptime _ = @TypeOf(param1)._is_QSpacerItem;
         return .{ .ptr = qtc.QSpacerItem_new2(@ptrCast(param1.ptr)) };
     }
 
-    /// New3 constructs a new QSpacerItem object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QSpacerItem object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -816,11 +976,15 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` hData: qsizepolicy_enums.Policy `
     ///
-    pub fn New3(w: i32, h: i32, hData: i32) QSpacerItem {
+    pub fn new3(w: i32, h: i32, hData: i32) QSpacerItem {
         return .{ .ptr = qtc.QSpacerItem_new3(@bitCast(w), @bitCast(h), @bitCast(hData)) };
     }
 
-    /// New4 constructs a new QSpacerItem object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QSpacerItem object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -832,9 +996,13 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` vData: qsizepolicy_enums.Policy `
     ///
-    pub fn New4(w: i32, h: i32, hData: i32, vData: i32) QSpacerItem {
+    pub fn new4(w: i32, h: i32, hData: i32, vData: i32) QSpacerItem {
         return .{ .ptr = qtc.QSpacerItem_new4(@bitCast(w), @bitCast(h), @bitCast(hData), @bitCast(vData)) };
     }
+
+    /// ### DEPRECATED: Use `changeSize` instead
+    ///
+    pub const ChangeSize = changeSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#changeSize)
     ///
@@ -846,20 +1014,28 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn ChangeSize(self: QSpacerItem, w: i32, h: i32) void {
+    pub fn changeSize(self: QSpacerItem, w: i32, h: i32) void {
         qtc.QSpacerItem_ChangeSize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#sizeHint)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QSpacerItem `
     ///
-    pub fn SizeHint(self: QSpacerItem) QSize {
+    pub fn sizeHint(self: QSpacerItem) QSize {
         return .{ .ptr = qtc.QSpacerItem_SizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#sizeHint)
     ///
     /// Allows for overriding the related default method
@@ -872,13 +1048,13 @@ pub const QSpacerItem = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: QSpacerItem, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QSpacerItem, callback: *const fn () callconv(.c) QSize) void {
         qtc.QSpacerItem_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#sizeHint)
     ///
@@ -888,20 +1064,28 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` self: QSpacerItem `
     ///
-    pub fn SuperSizeHint(self: QSpacerItem) QSize {
+    pub fn superSizeHint(self: QSpacerItem) QSize {
         return .{ .ptr = qtc.QSpacerItem_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#minimumSize)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QSpacerItem `
     ///
-    pub fn MinimumSize(self: QSpacerItem) QSize {
+    pub fn minimumSize(self: QSpacerItem) QSize {
         return .{ .ptr = qtc.QSpacerItem_MinimumSize(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onMinimumSize` instead
+    ///
+    pub const OnMinimumSize = onMinimumSize;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#minimumSize)
     ///
     /// Allows for overriding the related default method
@@ -914,13 +1098,13 @@ pub const QSpacerItem = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSize(self: QSpacerItem, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSize(self: QSpacerItem, callback: *const fn () callconv(.c) QSize) void {
         qtc.QSpacerItem_OnMinimumSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSize` instead
+    /// ### DEPRECATED: Use `superMinimumSize` instead
     ///
-    pub const QBaseMinimumSize = SuperMinimumSize;
+    pub const SuperMinimumSize = superMinimumSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#minimumSize)
     ///
@@ -930,9 +1114,13 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` self: QSpacerItem `
     ///
-    pub fn SuperMinimumSize(self: QSpacerItem) QSize {
+    pub fn superMinimumSize(self: QSpacerItem) QSize {
         return .{ .ptr = qtc.QSpacerItem_SuperMinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#maximumSize)
     ///
@@ -940,9 +1128,13 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` self: QSpacerItem `
     ///
-    pub fn MaximumSize(self: QSpacerItem) QSize {
+    pub fn maximumSize(self: QSpacerItem) QSize {
         return .{ .ptr = qtc.QSpacerItem_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMaximumSize` instead
+    ///
+    pub const OnMaximumSize = onMaximumSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#maximumSize)
     ///
@@ -956,13 +1148,13 @@ pub const QSpacerItem = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMaximumSize(self: QSpacerItem, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMaximumSize(self: QSpacerItem, callback: *const fn () callconv(.c) QSize) void {
         qtc.QSpacerItem_OnMaximumSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMaximumSize` instead
+    /// ### DEPRECATED: Use `superMaximumSize` instead
     ///
-    pub const QBaseMaximumSize = SuperMaximumSize;
+    pub const SuperMaximumSize = superMaximumSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#maximumSize)
     ///
@@ -972,9 +1164,13 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` self: QSpacerItem `
     ///
-    pub fn SuperMaximumSize(self: QSpacerItem) QSize {
+    pub fn superMaximumSize(self: QSpacerItem) QSize {
         return .{ .ptr = qtc.QSpacerItem_SuperMaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `expandingDirections` instead
+    ///
+    pub const ExpandingDirections = expandingDirections;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#expandingDirections)
     ///
@@ -986,9 +1182,13 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` flag of qnamespace_enums.Orientation `
     ///
-    pub fn ExpandingDirections(self: QSpacerItem) i32 {
+    pub fn expandingDirections(self: QSpacerItem) i32 {
         return qtc.QSpacerItem_ExpandingDirections(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onExpandingDirections` instead
+    ///
+    pub const OnExpandingDirections = onExpandingDirections;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#expandingDirections)
     ///
@@ -1000,13 +1200,13 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnExpandingDirections(self: QSpacerItem, callback: *const fn () callconv(.c) i32) void {
+    pub fn onExpandingDirections(self: QSpacerItem, callback: *const fn () callconv(.c) i32) void {
         qtc.QSpacerItem_OnExpandingDirections(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperExpandingDirections` instead
+    /// ### DEPRECATED: Use `superExpandingDirections` instead
     ///
-    pub const QBaseExpandingDirections = SuperExpandingDirections;
+    pub const SuperExpandingDirections = superExpandingDirections;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#expandingDirections)
     ///
@@ -1020,9 +1220,13 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` flag of qnamespace_enums.Orientation `
     ///
-    pub fn SuperExpandingDirections(self: QSpacerItem) i32 {
+    pub fn superExpandingDirections(self: QSpacerItem) i32 {
         return qtc.QSpacerItem_SuperExpandingDirections(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEmpty` instead
+    ///
+    pub const IsEmpty = isEmpty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#isEmpty)
     ///
@@ -1030,9 +1234,13 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` self: QSpacerItem `
     ///
-    pub fn IsEmpty(self: QSpacerItem) bool {
+    pub fn isEmpty(self: QSpacerItem) bool {
         return qtc.QSpacerItem_IsEmpty(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsEmpty` instead
+    ///
+    pub const OnIsEmpty = onIsEmpty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#isEmpty)
     ///
@@ -1044,13 +1252,13 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnIsEmpty(self: QSpacerItem, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsEmpty(self: QSpacerItem, callback: *const fn () callconv(.c) bool) void {
         qtc.QSpacerItem_OnIsEmpty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperIsEmpty` instead
+    /// ### DEPRECATED: Use `superIsEmpty` instead
     ///
-    pub const QBaseIsEmpty = SuperIsEmpty;
+    pub const SuperIsEmpty = superIsEmpty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#isEmpty)
     ///
@@ -1060,9 +1268,13 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` self: QSpacerItem `
     ///
-    pub fn SuperIsEmpty(self: QSpacerItem) bool {
+    pub fn superIsEmpty(self: QSpacerItem) bool {
         return qtc.QSpacerItem_SuperIsEmpty(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#setGeometry)
     ///
@@ -1070,12 +1282,16 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` self: QSpacerItem `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry(self: QSpacerItem, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QSpacerItem_SetGeometry(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry(self: QSpacerItem, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QSpacerItem_SetGeometry(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetGeometry` instead
+    ///
+    pub const OnSetGeometry = onSetGeometry;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#setGeometry)
     ///
@@ -1087,13 +1303,13 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` callback: *const fn (self: QSpacerItem, geometry: QRect) callconv(.c) void `
     ///
-    pub fn OnSetGeometry(self: QSpacerItem, callback: *const fn (QSpacerItem, QRect) callconv(.c) void) void {
+    pub fn onSetGeometry(self: QSpacerItem, callback: *const fn (QSpacerItem, QRect) callconv(.c) void) void {
         qtc.QSpacerItem_OnSetGeometry(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetGeometry` instead
+    /// ### DEPRECATED: Use `superSetGeometry` instead
     ///
-    pub const QBaseSetGeometry = SuperSetGeometry;
+    pub const SuperSetGeometry = superSetGeometry;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#setGeometry)
     ///
@@ -1103,12 +1319,16 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` self: QSpacerItem `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SuperSetGeometry(self: QSpacerItem, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QSpacerItem_SuperSetGeometry(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn superSetGeometry(self: QSpacerItem, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QSpacerItem_SuperSetGeometry(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#geometry)
     ///
@@ -1116,9 +1336,13 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` self: QSpacerItem `
     ///
-    pub fn Geometry(self: QSpacerItem) QRect {
+    pub fn geometry(self: QSpacerItem) QRect {
         return .{ .ptr = qtc.QSpacerItem_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onGeometry` instead
+    ///
+    pub const OnGeometry = onGeometry;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#geometry)
     ///
@@ -1132,13 +1356,13 @@ pub const QSpacerItem = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnGeometry(self: QSpacerItem, callback: *const fn () callconv(.c) QRect) void {
+    pub fn onGeometry(self: QSpacerItem, callback: *const fn () callconv(.c) QRect) void {
         qtc.QSpacerItem_OnGeometry(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperGeometry` instead
+    /// ### DEPRECATED: Use `superGeometry` instead
     ///
-    pub const QBaseGeometry = SuperGeometry;
+    pub const SuperGeometry = superGeometry;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#geometry)
     ///
@@ -1148,9 +1372,13 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` self: QSpacerItem `
     ///
-    pub fn SuperGeometry(self: QSpacerItem) QRect {
+    pub fn superGeometry(self: QSpacerItem) QRect {
         return .{ .ptr = qtc.QSpacerItem_SuperGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `spacerItem` instead
+    ///
+    pub const SpacerItem = spacerItem;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#spacerItem)
     ///
@@ -1158,9 +1386,13 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` self: QSpacerItem `
     ///
-    pub fn SpacerItem(self: QSpacerItem) QSpacerItem {
+    pub fn spacerItem(self: QSpacerItem) QSpacerItem {
         return .{ .ptr = qtc.QSpacerItem_SpacerItem(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSpacerItem` instead
+    ///
+    pub const OnSpacerItem = onSpacerItem;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#spacerItem)
     ///
@@ -1172,13 +1404,13 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSpacerItem `
     ///
-    pub fn OnSpacerItem(self: QSpacerItem, callback: *const fn () callconv(.c) QSpacerItem) void {
+    pub fn onSpacerItem(self: QSpacerItem, callback: *const fn () callconv(.c) QSpacerItem) void {
         qtc.QSpacerItem_OnSpacerItem(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSpacerItem` instead
+    /// ### DEPRECATED: Use `superSpacerItem` instead
     ///
-    pub const QBaseSpacerItem = SuperSpacerItem;
+    pub const SuperSpacerItem = superSpacerItem;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#spacerItem)
     ///
@@ -1188,9 +1420,13 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` self: QSpacerItem `
     ///
-    pub fn SuperSpacerItem(self: QSpacerItem) QSpacerItem {
+    pub fn superSpacerItem(self: QSpacerItem) QSpacerItem {
         return .{ .ptr = qtc.QSpacerItem_SuperSpacerItem(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#sizePolicy)
     ///
@@ -1198,9 +1434,13 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` self: QSpacerItem `
     ///
-    pub fn SizePolicy(self: QSpacerItem) QSizePolicy {
+    pub fn sizePolicy(self: QSpacerItem) QSizePolicy {
         return .{ .ptr = qtc.QSpacerItem_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `changeSize3` instead
+    ///
+    pub const ChangeSize3 = changeSize3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#changeSize)
     ///
@@ -1214,9 +1454,13 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` hData: qsizepolicy_enums.Policy `
     ///
-    pub fn ChangeSize3(self: QSpacerItem, w: i32, h: i32, hData: i32) void {
+    pub fn changeSize3(self: QSpacerItem, w: i32, h: i32, hData: i32) void {
         qtc.QSpacerItem_ChangeSize3(@ptrCast(self.ptr), @bitCast(w), @bitCast(h), @bitCast(hData));
     }
+
+    /// ### DEPRECATED: Use `changeSize4` instead
+    ///
+    pub const ChangeSize4 = changeSize4;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#changeSize)
     ///
@@ -1232,9 +1476,13 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` vData: qsizepolicy_enums.Policy `
     ///
-    pub fn ChangeSize4(self: QSpacerItem, w: i32, h: i32, hData: i32, vData: i32) void {
+    pub fn changeSize4(self: QSpacerItem, w: i32, h: i32, hData: i32, vData: i32) void {
         qtc.QSpacerItem_ChangeSize4(@ptrCast(self.ptr), @bitCast(w), @bitCast(h), @bitCast(hData), @bitCast(vData));
     }
+
+    /// ### DEPRECATED: Use `alignment` instead
+    ///
+    pub const Alignment = alignment;
 
     /// Inherited from QLayoutItem
     ///
@@ -1248,9 +1496,13 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn Alignment(self: QSpacerItem) i32 {
+    pub fn alignment(self: QSpacerItem) i32 {
         return qtc.QLayoutItem_Alignment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAlignment` instead
+    ///
+    pub const SetAlignment = setAlignment;
 
     /// Inherited from QLayoutItem
     ///
@@ -1262,9 +1514,13 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` a: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn SetAlignment(self: QSpacerItem, a: i32) void {
+    pub fn setAlignment(self: QSpacerItem, a: i32) void {
         qtc.QLayoutItem_SetAlignment(@ptrCast(self.ptr), @bitCast(a));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QLayoutItem
     ///
@@ -1276,13 +1532,13 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` self: QSpacerItem `
     ///
-    pub fn HasHeightForWidth(self: QSpacerItem) bool {
+    pub fn hasHeightForWidth(self: QSpacerItem) bool {
         return qtc.QSpacerItem_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QLayoutItem
     ///
@@ -1294,9 +1550,13 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` self: QSpacerItem `
     ///
-    pub fn SuperHasHeightForWidth(self: QSpacerItem) bool {
+    pub fn superHasHeightForWidth(self: QSpacerItem) bool {
         return qtc.QSpacerItem_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QLayoutItem
     ///
@@ -1310,10 +1570,14 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: QSpacerItem, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QSpacerItem, callback: *const fn () callconv(.c) bool) void {
         qtc.QSpacerItem_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
+
     /// Inherited from QLayoutItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#heightForWidth)
@@ -1326,13 +1590,13 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: QSpacerItem, param1: i32) i32 {
+    pub fn heightForWidth(self: QSpacerItem, param1: i32) i32 {
         return qtc.QSpacerItem_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QLayoutItem
     ///
@@ -1346,10 +1610,14 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: QSpacerItem, param1: i32) i32 {
+    pub fn superHeightForWidth(self: QSpacerItem, param1: i32) i32 {
         return qtc.QSpacerItem_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
+
     /// Inherited from QLayoutItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#heightForWidth)
@@ -1362,9 +1630,13 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` callback: *const fn (self: QSpacerItem, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: QSpacerItem, callback: *const fn (QSpacerItem, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: QSpacerItem, callback: *const fn (QSpacerItem, i32) callconv(.c) i32) void {
         qtc.QSpacerItem_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumHeightForWidth` instead
+    ///
+    pub const MinimumHeightForWidth = minimumHeightForWidth;
 
     /// Inherited from QLayoutItem
     ///
@@ -1378,13 +1650,13 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn MinimumHeightForWidth(self: QSpacerItem, param1: i32) i32 {
+    pub fn minimumHeightForWidth(self: QSpacerItem, param1: i32) i32 {
         return qtc.QSpacerItem_MinimumHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumHeightForWidth` instead
+    /// ### DEPRECATED: Use `superMinimumHeightForWidth` instead
     ///
-    pub const QBaseMinimumHeightForWidth = SuperMinimumHeightForWidth;
+    pub const SuperMinimumHeightForWidth = superMinimumHeightForWidth;
 
     /// Inherited from QLayoutItem
     ///
@@ -1398,9 +1670,13 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperMinimumHeightForWidth(self: QSpacerItem, param1: i32) i32 {
+    pub fn superMinimumHeightForWidth(self: QSpacerItem, param1: i32) i32 {
         return qtc.QSpacerItem_SuperMinimumHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMinimumHeightForWidth` instead
+    ///
+    pub const OnMinimumHeightForWidth = onMinimumHeightForWidth;
 
     /// Inherited from QLayoutItem
     ///
@@ -1414,9 +1690,13 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` callback: *const fn (self: QSpacerItem, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnMinimumHeightForWidth(self: QSpacerItem, callback: *const fn (QSpacerItem, i32) callconv(.c) i32) void {
+    pub fn onMinimumHeightForWidth(self: QSpacerItem, callback: *const fn (QSpacerItem, i32) callconv(.c) i32) void {
         qtc.QSpacerItem_OnMinimumHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `invalidate` instead
+    ///
+    pub const Invalidate = invalidate;
 
     /// Inherited from QLayoutItem
     ///
@@ -1428,13 +1708,13 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` self: QSpacerItem `
     ///
-    pub fn Invalidate(self: QSpacerItem) void {
+    pub fn invalidate(self: QSpacerItem) void {
         qtc.QSpacerItem_Invalidate(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInvalidate` instead
+    /// ### DEPRECATED: Use `superInvalidate` instead
     ///
-    pub const QBaseInvalidate = SuperInvalidate;
+    pub const SuperInvalidate = superInvalidate;
 
     /// Inherited from QLayoutItem
     ///
@@ -1446,9 +1726,13 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` self: QSpacerItem `
     ///
-    pub fn SuperInvalidate(self: QSpacerItem) void {
+    pub fn superInvalidate(self: QSpacerItem) void {
         qtc.QSpacerItem_SuperInvalidate(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInvalidate` instead
+    ///
+    pub const OnInvalidate = onInvalidate;
 
     /// Inherited from QLayoutItem
     ///
@@ -1462,9 +1746,13 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnInvalidate(self: QSpacerItem, callback: *const fn () callconv(.c) void) void {
+    pub fn onInvalidate(self: QSpacerItem, callback: *const fn () callconv(.c) void) void {
         qtc.QSpacerItem_OnInvalidate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `widget` instead
+    ///
+    pub const Widget = widget;
 
     /// Inherited from QLayoutItem
     ///
@@ -1476,13 +1764,13 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` self: QSpacerItem `
     ///
-    pub fn Widget(self: QSpacerItem) QWidget {
+    pub fn widget(self: QSpacerItem) QWidget {
         return .{ .ptr = qtc.QSpacerItem_Widget(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperWidget` instead
+    /// ### DEPRECATED: Use `superWidget` instead
     ///
-    pub const QBaseWidget = SuperWidget;
+    pub const SuperWidget = superWidget;
 
     /// Inherited from QLayoutItem
     ///
@@ -1494,9 +1782,13 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` self: QSpacerItem `
     ///
-    pub fn SuperWidget(self: QSpacerItem) QWidget {
+    pub fn superWidget(self: QSpacerItem) QWidget {
         return .{ .ptr = qtc.QSpacerItem_SuperWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onWidget` instead
+    ///
+    pub const OnWidget = onWidget;
 
     /// Inherited from QLayoutItem
     ///
@@ -1510,9 +1802,13 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QWidget `
     ///
-    pub fn OnWidget(self: QSpacerItem, callback: *const fn () callconv(.c) QWidget) void {
+    pub fn onWidget(self: QSpacerItem, callback: *const fn () callconv(.c) QWidget) void {
         qtc.QSpacerItem_OnWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QLayoutItem
     ///
@@ -1524,13 +1820,13 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` self: QSpacerItem `
     ///
-    pub fn Layout(self: QSpacerItem) QLayout {
+    pub fn layout(self: QSpacerItem) QLayout {
         return .{ .ptr = qtc.QSpacerItem_Layout(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperLayout` instead
+    /// ### DEPRECATED: Use `superLayout` instead
     ///
-    pub const QBaseLayout = SuperLayout;
+    pub const SuperLayout = superLayout;
 
     /// Inherited from QLayoutItem
     ///
@@ -1542,9 +1838,13 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` self: QSpacerItem `
     ///
-    pub fn SuperLayout(self: QSpacerItem) QLayout {
+    pub fn superLayout(self: QSpacerItem) QLayout {
         return .{ .ptr = qtc.QSpacerItem_SuperLayout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onLayout` instead
+    ///
+    pub const OnLayout = onLayout;
 
     /// Inherited from QLayoutItem
     ///
@@ -1558,9 +1858,13 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QLayout `
     ///
-    pub fn OnLayout(self: QSpacerItem, callback: *const fn () callconv(.c) QLayout) void {
+    pub fn onLayout(self: QSpacerItem, callback: *const fn () callconv(.c) QLayout) void {
         qtc.QSpacerItem_OnLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `controlTypes` instead
+    ///
+    pub const ControlTypes = controlTypes;
 
     /// Inherited from QLayoutItem
     ///
@@ -1576,13 +1880,13 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` flag of qsizepolicy_enums.ControlType `
     ///
-    pub fn ControlTypes(self: QSpacerItem) i32 {
+    pub fn controlTypes(self: QSpacerItem) i32 {
         return qtc.QSpacerItem_ControlTypes(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperControlTypes` instead
+    /// ### DEPRECATED: Use `superControlTypes` instead
     ///
-    pub const QBaseControlTypes = SuperControlTypes;
+    pub const SuperControlTypes = superControlTypes;
 
     /// Inherited from QLayoutItem
     ///
@@ -1598,9 +1902,13 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` flag of qsizepolicy_enums.ControlType `
     ///
-    pub fn SuperControlTypes(self: QSpacerItem) i32 {
+    pub fn superControlTypes(self: QSpacerItem) i32 {
         return qtc.QSpacerItem_SuperControlTypes(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onControlTypes` instead
+    ///
+    pub const OnControlTypes = onControlTypes;
 
     /// Inherited from QLayoutItem
     ///
@@ -1614,23 +1922,23 @@ pub const QSpacerItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnControlTypes(self: QSpacerItem, callback: *const fn () callconv(.c) i32) void {
+    pub fn onControlTypes(self: QSpacerItem, callback: *const fn () callconv(.c) i32) void {
         qtc.QSpacerItem_OnControlTypes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#dtor.QSpacerItem)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QSpacerItem `
     ///
-    pub fn Delete(self: QSpacerItem) void {
+    pub fn delete(self: QSpacerItem) void {
         qtc.QSpacerItem_Delete(@ptrCast(self.ptr));
     }
 };
@@ -1646,27 +1954,39 @@ pub const QWidgetItem = extern struct {
     pub const _is_QWidgetItem = {};
     pub const _is_QLayoutItem = {};
 
-    /// New constructs a new QWidgetItem object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QWidgetItem object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` w: QWidget `
     ///
-    pub fn New(w: anytype) QWidgetItem {
+    pub fn new(w: anytype) QWidgetItem {
         comptime _ = @TypeOf(w)._is_QWidget;
         return .{ .ptr = qtc.QWidgetItem_new(@ptrCast(w.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#sizeHint)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QWidgetItem `
     ///
-    pub fn SizeHint(self: QWidgetItem) QSize {
+    pub fn sizeHint(self: QWidgetItem) QSize {
         return .{ .ptr = qtc.QWidgetItem_SizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#sizeHint)
     ///
     /// Allows for overriding the related default method
@@ -1679,13 +1999,13 @@ pub const QWidgetItem = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: QWidgetItem, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QWidgetItem, callback: *const fn () callconv(.c) QSize) void {
         qtc.QWidgetItem_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#sizeHint)
     ///
@@ -1695,20 +2015,28 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` self: QWidgetItem `
     ///
-    pub fn SuperSizeHint(self: QWidgetItem) QSize {
+    pub fn superSizeHint(self: QWidgetItem) QSize {
         return .{ .ptr = qtc.QWidgetItem_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#minimumSize)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QWidgetItem `
     ///
-    pub fn MinimumSize(self: QWidgetItem) QSize {
+    pub fn minimumSize(self: QWidgetItem) QSize {
         return .{ .ptr = qtc.QWidgetItem_MinimumSize(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onMinimumSize` instead
+    ///
+    pub const OnMinimumSize = onMinimumSize;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#minimumSize)
     ///
     /// Allows for overriding the related default method
@@ -1721,13 +2049,13 @@ pub const QWidgetItem = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSize(self: QWidgetItem, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSize(self: QWidgetItem, callback: *const fn () callconv(.c) QSize) void {
         qtc.QWidgetItem_OnMinimumSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSize` instead
+    /// ### DEPRECATED: Use `superMinimumSize` instead
     ///
-    pub const QBaseMinimumSize = SuperMinimumSize;
+    pub const SuperMinimumSize = superMinimumSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#minimumSize)
     ///
@@ -1737,9 +2065,13 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` self: QWidgetItem `
     ///
-    pub fn SuperMinimumSize(self: QWidgetItem) QSize {
+    pub fn superMinimumSize(self: QWidgetItem) QSize {
         return .{ .ptr = qtc.QWidgetItem_SuperMinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#maximumSize)
     ///
@@ -1747,9 +2079,13 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` self: QWidgetItem `
     ///
-    pub fn MaximumSize(self: QWidgetItem) QSize {
+    pub fn maximumSize(self: QWidgetItem) QSize {
         return .{ .ptr = qtc.QWidgetItem_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMaximumSize` instead
+    ///
+    pub const OnMaximumSize = onMaximumSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#maximumSize)
     ///
@@ -1763,13 +2099,13 @@ pub const QWidgetItem = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMaximumSize(self: QWidgetItem, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMaximumSize(self: QWidgetItem, callback: *const fn () callconv(.c) QSize) void {
         qtc.QWidgetItem_OnMaximumSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMaximumSize` instead
+    /// ### DEPRECATED: Use `superMaximumSize` instead
     ///
-    pub const QBaseMaximumSize = SuperMaximumSize;
+    pub const SuperMaximumSize = superMaximumSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#maximumSize)
     ///
@@ -1779,9 +2115,13 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` self: QWidgetItem `
     ///
-    pub fn SuperMaximumSize(self: QWidgetItem) QSize {
+    pub fn superMaximumSize(self: QWidgetItem) QSize {
         return .{ .ptr = qtc.QWidgetItem_SuperMaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `expandingDirections` instead
+    ///
+    pub const ExpandingDirections = expandingDirections;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#expandingDirections)
     ///
@@ -1793,9 +2133,13 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` flag of qnamespace_enums.Orientation `
     ///
-    pub fn ExpandingDirections(self: QWidgetItem) i32 {
+    pub fn expandingDirections(self: QWidgetItem) i32 {
         return qtc.QWidgetItem_ExpandingDirections(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onExpandingDirections` instead
+    ///
+    pub const OnExpandingDirections = onExpandingDirections;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#expandingDirections)
     ///
@@ -1807,13 +2151,13 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnExpandingDirections(self: QWidgetItem, callback: *const fn () callconv(.c) i32) void {
+    pub fn onExpandingDirections(self: QWidgetItem, callback: *const fn () callconv(.c) i32) void {
         qtc.QWidgetItem_OnExpandingDirections(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperExpandingDirections` instead
+    /// ### DEPRECATED: Use `superExpandingDirections` instead
     ///
-    pub const QBaseExpandingDirections = SuperExpandingDirections;
+    pub const SuperExpandingDirections = superExpandingDirections;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#expandingDirections)
     ///
@@ -1827,9 +2171,13 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` flag of qnamespace_enums.Orientation `
     ///
-    pub fn SuperExpandingDirections(self: QWidgetItem) i32 {
+    pub fn superExpandingDirections(self: QWidgetItem) i32 {
         return qtc.QWidgetItem_SuperExpandingDirections(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEmpty` instead
+    ///
+    pub const IsEmpty = isEmpty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#isEmpty)
     ///
@@ -1837,9 +2185,13 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` self: QWidgetItem `
     ///
-    pub fn IsEmpty(self: QWidgetItem) bool {
+    pub fn isEmpty(self: QWidgetItem) bool {
         return qtc.QWidgetItem_IsEmpty(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsEmpty` instead
+    ///
+    pub const OnIsEmpty = onIsEmpty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#isEmpty)
     ///
@@ -1851,13 +2203,13 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnIsEmpty(self: QWidgetItem, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsEmpty(self: QWidgetItem, callback: *const fn () callconv(.c) bool) void {
         qtc.QWidgetItem_OnIsEmpty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperIsEmpty` instead
+    /// ### DEPRECATED: Use `superIsEmpty` instead
     ///
-    pub const QBaseIsEmpty = SuperIsEmpty;
+    pub const SuperIsEmpty = superIsEmpty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#isEmpty)
     ///
@@ -1867,9 +2219,13 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` self: QWidgetItem `
     ///
-    pub fn SuperIsEmpty(self: QWidgetItem) bool {
+    pub fn superIsEmpty(self: QWidgetItem) bool {
         return qtc.QWidgetItem_SuperIsEmpty(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#setGeometry)
     ///
@@ -1877,12 +2233,16 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` self: QWidgetItem `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry(self: QWidgetItem, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidgetItem_SetGeometry(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry(self: QWidgetItem, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidgetItem_SetGeometry(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetGeometry` instead
+    ///
+    pub const OnSetGeometry = onSetGeometry;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#setGeometry)
     ///
@@ -1894,13 +2254,13 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` callback: *const fn (self: QWidgetItem, geometry: QRect) callconv(.c) void `
     ///
-    pub fn OnSetGeometry(self: QWidgetItem, callback: *const fn (QWidgetItem, QRect) callconv(.c) void) void {
+    pub fn onSetGeometry(self: QWidgetItem, callback: *const fn (QWidgetItem, QRect) callconv(.c) void) void {
         qtc.QWidgetItem_OnSetGeometry(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetGeometry` instead
+    /// ### DEPRECATED: Use `superSetGeometry` instead
     ///
-    pub const QBaseSetGeometry = SuperSetGeometry;
+    pub const SuperSetGeometry = superSetGeometry;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#setGeometry)
     ///
@@ -1910,12 +2270,16 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` self: QWidgetItem `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SuperSetGeometry(self: QWidgetItem, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidgetItem_SuperSetGeometry(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn superSetGeometry(self: QWidgetItem, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidgetItem_SuperSetGeometry(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#geometry)
     ///
@@ -1923,9 +2287,13 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` self: QWidgetItem `
     ///
-    pub fn Geometry(self: QWidgetItem) QRect {
+    pub fn geometry(self: QWidgetItem) QRect {
         return .{ .ptr = qtc.QWidgetItem_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onGeometry` instead
+    ///
+    pub const OnGeometry = onGeometry;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#geometry)
     ///
@@ -1939,13 +2307,13 @@ pub const QWidgetItem = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnGeometry(self: QWidgetItem, callback: *const fn () callconv(.c) QRect) void {
+    pub fn onGeometry(self: QWidgetItem, callback: *const fn () callconv(.c) QRect) void {
         qtc.QWidgetItem_OnGeometry(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperGeometry` instead
+    /// ### DEPRECATED: Use `superGeometry` instead
     ///
-    pub const QBaseGeometry = SuperGeometry;
+    pub const SuperGeometry = superGeometry;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#geometry)
     ///
@@ -1955,9 +2323,13 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` self: QWidgetItem `
     ///
-    pub fn SuperGeometry(self: QWidgetItem) QRect {
+    pub fn superGeometry(self: QWidgetItem) QRect {
         return .{ .ptr = qtc.QWidgetItem_SuperGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `widget` instead
+    ///
+    pub const Widget = widget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#widget)
     ///
@@ -1965,9 +2337,13 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` self: QWidgetItem `
     ///
-    pub fn Widget(self: QWidgetItem) QWidget {
+    pub fn widget(self: QWidgetItem) QWidget {
         return .{ .ptr = qtc.QWidgetItem_Widget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onWidget` instead
+    ///
+    pub const OnWidget = onWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#widget)
     ///
@@ -1979,13 +2355,13 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QWidget `
     ///
-    pub fn OnWidget(self: QWidgetItem, callback: *const fn () callconv(.c) QWidget) void {
+    pub fn onWidget(self: QWidgetItem, callback: *const fn () callconv(.c) QWidget) void {
         qtc.QWidgetItem_OnWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperWidget` instead
+    /// ### DEPRECATED: Use `superWidget` instead
     ///
-    pub const QBaseWidget = SuperWidget;
+    pub const SuperWidget = superWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#widget)
     ///
@@ -1995,9 +2371,13 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` self: QWidgetItem `
     ///
-    pub fn SuperWidget(self: QWidgetItem) QWidget {
+    pub fn superWidget(self: QWidgetItem) QWidget {
         return .{ .ptr = qtc.QWidgetItem_SuperWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#hasHeightForWidth)
     ///
@@ -2005,9 +2385,13 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` self: QWidgetItem `
     ///
-    pub fn HasHeightForWidth(self: QWidgetItem) bool {
+    pub fn hasHeightForWidth(self: QWidgetItem) bool {
         return qtc.QWidgetItem_HasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#hasHeightForWidth)
     ///
@@ -2019,13 +2403,13 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: QWidgetItem, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QWidgetItem, callback: *const fn () callconv(.c) bool) void {
         qtc.QWidgetItem_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#hasHeightForWidth)
     ///
@@ -2035,10 +2419,14 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` self: QWidgetItem `
     ///
-    pub fn SuperHasHeightForWidth(self: QWidgetItem) bool {
+    pub fn superHasHeightForWidth(self: QWidgetItem) bool {
         return qtc.QWidgetItem_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#heightForWidth)
     ///
     /// ## Parameter(s):
@@ -2047,10 +2435,14 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: QWidgetItem, param1: i32) i32 {
+    pub fn heightForWidth(self: QWidgetItem, param1: i32) i32 {
         return qtc.QWidgetItem_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#heightForWidth)
     ///
     /// Allows for overriding the related default method
@@ -2061,13 +2453,13 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` callback: *const fn (self: QWidgetItem, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: QWidgetItem, callback: *const fn (QWidgetItem, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: QWidgetItem, callback: *const fn (QWidgetItem, i32) callconv(.c) i32) void {
         qtc.QWidgetItem_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#heightForWidth)
     ///
@@ -2079,9 +2471,13 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: QWidgetItem, param1: i32) i32 {
+    pub fn superHeightForWidth(self: QWidgetItem, param1: i32) i32 {
         return qtc.QWidgetItem_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `minimumHeightForWidth` instead
+    ///
+    pub const MinimumHeightForWidth = minimumHeightForWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#minimumHeightForWidth)
     ///
@@ -2091,9 +2487,13 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn MinimumHeightForWidth(self: QWidgetItem, param1: i32) i32 {
+    pub fn minimumHeightForWidth(self: QWidgetItem, param1: i32) i32 {
         return qtc.QWidgetItem_MinimumHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMinimumHeightForWidth` instead
+    ///
+    pub const OnMinimumHeightForWidth = onMinimumHeightForWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#minimumHeightForWidth)
     ///
@@ -2105,13 +2505,13 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` callback: *const fn (self: QWidgetItem, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnMinimumHeightForWidth(self: QWidgetItem, callback: *const fn (QWidgetItem, i32) callconv(.c) i32) void {
+    pub fn onMinimumHeightForWidth(self: QWidgetItem, callback: *const fn (QWidgetItem, i32) callconv(.c) i32) void {
         qtc.QWidgetItem_OnMinimumHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumHeightForWidth` instead
+    /// ### DEPRECATED: Use `superMinimumHeightForWidth` instead
     ///
-    pub const QBaseMinimumHeightForWidth = SuperMinimumHeightForWidth;
+    pub const SuperMinimumHeightForWidth = superMinimumHeightForWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#minimumHeightForWidth)
     ///
@@ -2123,9 +2523,13 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperMinimumHeightForWidth(self: QWidgetItem, param1: i32) i32 {
+    pub fn superMinimumHeightForWidth(self: QWidgetItem, param1: i32) i32 {
         return qtc.QWidgetItem_SuperMinimumHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `controlTypes` instead
+    ///
+    pub const ControlTypes = controlTypes;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#controlTypes)
     ///
@@ -2137,9 +2541,13 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` flag of qsizepolicy_enums.ControlType `
     ///
-    pub fn ControlTypes(self: QWidgetItem) i32 {
+    pub fn controlTypes(self: QWidgetItem) i32 {
         return qtc.QWidgetItem_ControlTypes(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onControlTypes` instead
+    ///
+    pub const OnControlTypes = onControlTypes;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#controlTypes)
     ///
@@ -2151,13 +2559,13 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnControlTypes(self: QWidgetItem, callback: *const fn () callconv(.c) i32) void {
+    pub fn onControlTypes(self: QWidgetItem, callback: *const fn () callconv(.c) i32) void {
         qtc.QWidgetItem_OnControlTypes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperControlTypes` instead
+    /// ### DEPRECATED: Use `superControlTypes` instead
     ///
-    pub const QBaseControlTypes = SuperControlTypes;
+    pub const SuperControlTypes = superControlTypes;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#controlTypes)
     ///
@@ -2171,9 +2579,13 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` flag of qsizepolicy_enums.ControlType `
     ///
-    pub fn SuperControlTypes(self: QWidgetItem) i32 {
+    pub fn superControlTypes(self: QWidgetItem) i32 {
         return qtc.QWidgetItem_SuperControlTypes(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `alignment` instead
+    ///
+    pub const Alignment = alignment;
 
     /// Inherited from QLayoutItem
     ///
@@ -2187,9 +2599,13 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn Alignment(self: QWidgetItem) i32 {
+    pub fn alignment(self: QWidgetItem) i32 {
         return qtc.QLayoutItem_Alignment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAlignment` instead
+    ///
+    pub const SetAlignment = setAlignment;
 
     /// Inherited from QLayoutItem
     ///
@@ -2201,9 +2617,13 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` a: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn SetAlignment(self: QWidgetItem, a: i32) void {
+    pub fn setAlignment(self: QWidgetItem, a: i32) void {
         qtc.QLayoutItem_SetAlignment(@ptrCast(self.ptr), @bitCast(a));
     }
+
+    /// ### DEPRECATED: Use `invalidate` instead
+    ///
+    pub const Invalidate = invalidate;
 
     /// Inherited from QLayoutItem
     ///
@@ -2215,13 +2635,13 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` self: QWidgetItem `
     ///
-    pub fn Invalidate(self: QWidgetItem) void {
+    pub fn invalidate(self: QWidgetItem) void {
         qtc.QWidgetItem_Invalidate(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInvalidate` instead
+    /// ### DEPRECATED: Use `superInvalidate` instead
     ///
-    pub const QBaseInvalidate = SuperInvalidate;
+    pub const SuperInvalidate = superInvalidate;
 
     /// Inherited from QLayoutItem
     ///
@@ -2233,9 +2653,13 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` self: QWidgetItem `
     ///
-    pub fn SuperInvalidate(self: QWidgetItem) void {
+    pub fn superInvalidate(self: QWidgetItem) void {
         qtc.QWidgetItem_SuperInvalidate(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInvalidate` instead
+    ///
+    pub const OnInvalidate = onInvalidate;
 
     /// Inherited from QLayoutItem
     ///
@@ -2249,9 +2673,13 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnInvalidate(self: QWidgetItem, callback: *const fn () callconv(.c) void) void {
+    pub fn onInvalidate(self: QWidgetItem, callback: *const fn () callconv(.c) void) void {
         qtc.QWidgetItem_OnInvalidate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QLayoutItem
     ///
@@ -2263,13 +2691,13 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` self: QWidgetItem `
     ///
-    pub fn Layout(self: QWidgetItem) QLayout {
+    pub fn layout(self: QWidgetItem) QLayout {
         return .{ .ptr = qtc.QWidgetItem_Layout(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperLayout` instead
+    /// ### DEPRECATED: Use `superLayout` instead
     ///
-    pub const QBaseLayout = SuperLayout;
+    pub const SuperLayout = superLayout;
 
     /// Inherited from QLayoutItem
     ///
@@ -2281,9 +2709,13 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` self: QWidgetItem `
     ///
-    pub fn SuperLayout(self: QWidgetItem) QLayout {
+    pub fn superLayout(self: QWidgetItem) QLayout {
         return .{ .ptr = qtc.QWidgetItem_SuperLayout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onLayout` instead
+    ///
+    pub const OnLayout = onLayout;
 
     /// Inherited from QLayoutItem
     ///
@@ -2297,9 +2729,13 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QLayout `
     ///
-    pub fn OnLayout(self: QWidgetItem, callback: *const fn () callconv(.c) QLayout) void {
+    pub fn onLayout(self: QWidgetItem, callback: *const fn () callconv(.c) QLayout) void {
         qtc.QWidgetItem_OnLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `spacerItem` instead
+    ///
+    pub const SpacerItem = spacerItem;
 
     /// Inherited from QLayoutItem
     ///
@@ -2311,13 +2747,13 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` self: QWidgetItem `
     ///
-    pub fn SpacerItem(self: QWidgetItem) QSpacerItem {
+    pub fn spacerItem(self: QWidgetItem) QSpacerItem {
         return .{ .ptr = qtc.QWidgetItem_SpacerItem(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSpacerItem` instead
+    /// ### DEPRECATED: Use `superSpacerItem` instead
     ///
-    pub const QBaseSpacerItem = SuperSpacerItem;
+    pub const SuperSpacerItem = superSpacerItem;
 
     /// Inherited from QLayoutItem
     ///
@@ -2329,9 +2765,13 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` self: QWidgetItem `
     ///
-    pub fn SuperSpacerItem(self: QWidgetItem) QSpacerItem {
+    pub fn superSpacerItem(self: QWidgetItem) QSpacerItem {
         return .{ .ptr = qtc.QWidgetItem_SuperSpacerItem(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSpacerItem` instead
+    ///
+    pub const OnSpacerItem = onSpacerItem;
 
     /// Inherited from QLayoutItem
     ///
@@ -2345,23 +2785,23 @@ pub const QWidgetItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSpacerItem `
     ///
-    pub fn OnSpacerItem(self: QWidgetItem, callback: *const fn () callconv(.c) QSpacerItem) void {
+    pub fn onSpacerItem(self: QWidgetItem, callback: *const fn () callconv(.c) QSpacerItem) void {
         qtc.QWidgetItem_OnSpacerItem(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#dtor.QWidgetItem)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QWidgetItem `
     ///
-    pub fn Delete(self: QWidgetItem) void {
+    pub fn delete(self: QWidgetItem) void {
         qtc.QWidgetItem_Delete(@ptrCast(self.ptr));
     }
 };
@@ -2378,16 +2818,24 @@ pub const QWidgetItemV2 = extern struct {
     pub const _is_QWidgetItem = {};
     pub const _is_QLayoutItem = {};
 
-    /// New constructs a new QWidgetItemV2 object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QWidgetItemV2 object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` widget: QWidget `
+    /// ` _widget: QWidget `
     ///
-    pub fn New(widget: anytype) QWidgetItemV2 {
-        comptime _ = @TypeOf(widget)._is_QWidget;
-        return .{ .ptr = qtc.QWidgetItemV2_new(@ptrCast(widget.ptr)) };
+    pub fn new(_widget: anytype) QWidgetItemV2 {
+        comptime _ = @TypeOf(_widget)._is_QWidget;
+        return .{ .ptr = qtc.QWidgetItemV2_new(@ptrCast(_widget.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#sizeHint)
     ///
@@ -2395,10 +2843,14 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` self: QWidgetItemV2 `
     ///
-    pub fn SizeHint(self: QWidgetItemV2) QSize {
+    pub fn sizeHint(self: QWidgetItemV2) QSize {
         return .{ .ptr = qtc.QWidgetItemV2_SizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#sizeHint)
     ///
     /// Allows for overriding the related default method
@@ -2411,13 +2863,13 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: QWidgetItemV2, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QWidgetItemV2, callback: *const fn () callconv(.c) QSize) void {
         qtc.QWidgetItemV2_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#sizeHint)
     ///
@@ -2427,20 +2879,28 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` self: QWidgetItemV2 `
     ///
-    pub fn SuperSizeHint(self: QWidgetItemV2) QSize {
+    pub fn superSizeHint(self: QWidgetItemV2) QSize {
         return .{ .ptr = qtc.QWidgetItemV2_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#minimumSize)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QWidgetItemV2 `
     ///
-    pub fn MinimumSize(self: QWidgetItemV2) QSize {
+    pub fn minimumSize(self: QWidgetItemV2) QSize {
         return .{ .ptr = qtc.QWidgetItemV2_MinimumSize(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onMinimumSize` instead
+    ///
+    pub const OnMinimumSize = onMinimumSize;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#minimumSize)
     ///
     /// Allows for overriding the related default method
@@ -2453,13 +2913,13 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSize(self: QWidgetItemV2, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSize(self: QWidgetItemV2, callback: *const fn () callconv(.c) QSize) void {
         qtc.QWidgetItemV2_OnMinimumSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSize` instead
+    /// ### DEPRECATED: Use `superMinimumSize` instead
     ///
-    pub const QBaseMinimumSize = SuperMinimumSize;
+    pub const SuperMinimumSize = superMinimumSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#minimumSize)
     ///
@@ -2469,9 +2929,13 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` self: QWidgetItemV2 `
     ///
-    pub fn SuperMinimumSize(self: QWidgetItemV2) QSize {
+    pub fn superMinimumSize(self: QWidgetItemV2) QSize {
         return .{ .ptr = qtc.QWidgetItemV2_SuperMinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#maximumSize)
     ///
@@ -2479,9 +2943,13 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` self: QWidgetItemV2 `
     ///
-    pub fn MaximumSize(self: QWidgetItemV2) QSize {
+    pub fn maximumSize(self: QWidgetItemV2) QSize {
         return .{ .ptr = qtc.QWidgetItemV2_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMaximumSize` instead
+    ///
+    pub const OnMaximumSize = onMaximumSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#maximumSize)
     ///
@@ -2495,13 +2963,13 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMaximumSize(self: QWidgetItemV2, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMaximumSize(self: QWidgetItemV2, callback: *const fn () callconv(.c) QSize) void {
         qtc.QWidgetItemV2_OnMaximumSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMaximumSize` instead
+    /// ### DEPRECATED: Use `superMaximumSize` instead
     ///
-    pub const QBaseMaximumSize = SuperMaximumSize;
+    pub const SuperMaximumSize = superMaximumSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#maximumSize)
     ///
@@ -2511,9 +2979,13 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` self: QWidgetItemV2 `
     ///
-    pub fn SuperMaximumSize(self: QWidgetItemV2) QSize {
+    pub fn superMaximumSize(self: QWidgetItemV2) QSize {
         return .{ .ptr = qtc.QWidgetItemV2_SuperMaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#heightForWidth)
     ///
@@ -2523,9 +2995,13 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` width: i32 `
     ///
-    pub fn HeightForWidth(self: QWidgetItemV2, width: i32) i32 {
+    pub fn heightForWidth(self: QWidgetItemV2, width: i32) i32 {
         return qtc.QWidgetItemV2_HeightForWidth(@ptrCast(self.ptr), @bitCast(width));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#heightForWidth)
     ///
@@ -2537,13 +3013,13 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` callback: *const fn (self: QWidgetItemV2, width: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: QWidgetItemV2, callback: *const fn (QWidgetItemV2, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: QWidgetItemV2, callback: *const fn (QWidgetItemV2, i32) callconv(.c) i32) void {
         qtc.QWidgetItemV2_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#heightForWidth)
     ///
@@ -2555,9 +3031,13 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` width: i32 `
     ///
-    pub fn SuperHeightForWidth(self: QWidgetItemV2, width: i32) i32 {
+    pub fn superHeightForWidth(self: QWidgetItemV2, width: i32) i32 {
         return qtc.QWidgetItemV2_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(width));
     }
+
+    /// ### DEPRECATED: Use `alignment` instead
+    ///
+    pub const Alignment = alignment;
 
     /// Inherited from QLayoutItem
     ///
@@ -2571,9 +3051,13 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn Alignment(self: QWidgetItemV2) i32 {
+    pub fn alignment(self: QWidgetItemV2) i32 {
         return qtc.QLayoutItem_Alignment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAlignment` instead
+    ///
+    pub const SetAlignment = setAlignment;
 
     /// Inherited from QLayoutItem
     ///
@@ -2585,9 +3069,13 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` a: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn SetAlignment(self: QWidgetItemV2, a: i32) void {
+    pub fn setAlignment(self: QWidgetItemV2, a: i32) void {
         qtc.QLayoutItem_SetAlignment(@ptrCast(self.ptr), @bitCast(a));
     }
+
+    /// ### DEPRECATED: Use `expandingDirections` instead
+    ///
+    pub const ExpandingDirections = expandingDirections;
 
     /// Inherited from QWidgetItem
     ///
@@ -2603,13 +3091,13 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` flag of qnamespace_enums.Orientation `
     ///
-    pub fn ExpandingDirections(self: QWidgetItemV2) i32 {
+    pub fn expandingDirections(self: QWidgetItemV2) i32 {
         return qtc.QWidgetItemV2_ExpandingDirections(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperExpandingDirections` instead
+    /// ### DEPRECATED: Use `superExpandingDirections` instead
     ///
-    pub const QBaseExpandingDirections = SuperExpandingDirections;
+    pub const SuperExpandingDirections = superExpandingDirections;
 
     /// Inherited from QWidgetItem
     ///
@@ -2625,9 +3113,13 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` flag of qnamespace_enums.Orientation `
     ///
-    pub fn SuperExpandingDirections(self: QWidgetItemV2) i32 {
+    pub fn superExpandingDirections(self: QWidgetItemV2) i32 {
         return qtc.QWidgetItemV2_SuperExpandingDirections(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onExpandingDirections` instead
+    ///
+    pub const OnExpandingDirections = onExpandingDirections;
 
     /// Inherited from QWidgetItem
     ///
@@ -2641,9 +3133,13 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnExpandingDirections(self: QWidgetItemV2, callback: *const fn () callconv(.c) i32) void {
+    pub fn onExpandingDirections(self: QWidgetItemV2, callback: *const fn () callconv(.c) i32) void {
         qtc.QWidgetItemV2_OnExpandingDirections(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isEmpty` instead
+    ///
+    pub const IsEmpty = isEmpty;
 
     /// Inherited from QWidgetItem
     ///
@@ -2655,13 +3151,13 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` self: QWidgetItemV2 `
     ///
-    pub fn IsEmpty(self: QWidgetItemV2) bool {
+    pub fn isEmpty(self: QWidgetItemV2) bool {
         return qtc.QWidgetItemV2_IsEmpty(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsEmpty` instead
+    /// ### DEPRECATED: Use `superIsEmpty` instead
     ///
-    pub const QBaseIsEmpty = SuperIsEmpty;
+    pub const SuperIsEmpty = superIsEmpty;
 
     /// Inherited from QWidgetItem
     ///
@@ -2673,9 +3169,13 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` self: QWidgetItemV2 `
     ///
-    pub fn SuperIsEmpty(self: QWidgetItemV2) bool {
+    pub fn superIsEmpty(self: QWidgetItemV2) bool {
         return qtc.QWidgetItemV2_SuperIsEmpty(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsEmpty` instead
+    ///
+    pub const OnIsEmpty = onIsEmpty;
 
     /// Inherited from QWidgetItem
     ///
@@ -2689,9 +3189,13 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnIsEmpty(self: QWidgetItemV2, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsEmpty(self: QWidgetItemV2, callback: *const fn () callconv(.c) bool) void {
         qtc.QWidgetItemV2_OnIsEmpty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidgetItem
     ///
@@ -2703,16 +3207,16 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` self: QWidgetItemV2 `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry(self: QWidgetItemV2, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidgetItemV2_SetGeometry(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry(self: QWidgetItemV2, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidgetItemV2_SetGeometry(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetGeometry` instead
+    /// ### DEPRECATED: Use `superSetGeometry` instead
     ///
-    pub const QBaseSetGeometry = SuperSetGeometry;
+    pub const SuperSetGeometry = superSetGeometry;
 
     /// Inherited from QWidgetItem
     ///
@@ -2724,12 +3228,16 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` self: QWidgetItemV2 `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SuperSetGeometry(self: QWidgetItemV2, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidgetItemV2_SuperSetGeometry(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn superSetGeometry(self: QWidgetItemV2, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidgetItemV2_SuperSetGeometry(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetGeometry` instead
+    ///
+    pub const OnSetGeometry = onSetGeometry;
 
     /// Inherited from QWidgetItem
     ///
@@ -2743,9 +3251,13 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` callback: *const fn (self: QWidgetItemV2, geometry: QRect) callconv(.c) void `
     ///
-    pub fn OnSetGeometry(self: QWidgetItemV2, callback: *const fn (QWidgetItemV2, QRect) callconv(.c) void) void {
+    pub fn onSetGeometry(self: QWidgetItemV2, callback: *const fn (QWidgetItemV2, QRect) callconv(.c) void) void {
         qtc.QWidgetItemV2_OnSetGeometry(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidgetItem
     ///
@@ -2757,13 +3269,13 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` self: QWidgetItemV2 `
     ///
-    pub fn Geometry(self: QWidgetItemV2) QRect {
+    pub fn geometry(self: QWidgetItemV2) QRect {
         return .{ .ptr = qtc.QWidgetItemV2_Geometry(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperGeometry` instead
+    /// ### DEPRECATED: Use `superGeometry` instead
     ///
-    pub const QBaseGeometry = SuperGeometry;
+    pub const SuperGeometry = superGeometry;
 
     /// Inherited from QWidgetItem
     ///
@@ -2775,9 +3287,13 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` self: QWidgetItemV2 `
     ///
-    pub fn SuperGeometry(self: QWidgetItemV2) QRect {
+    pub fn superGeometry(self: QWidgetItemV2) QRect {
         return .{ .ptr = qtc.QWidgetItemV2_SuperGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onGeometry` instead
+    ///
+    pub const OnGeometry = onGeometry;
 
     /// Inherited from QWidgetItem
     ///
@@ -2793,9 +3309,13 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnGeometry(self: QWidgetItemV2, callback: *const fn () callconv(.c) QRect) void {
+    pub fn onGeometry(self: QWidgetItemV2, callback: *const fn () callconv(.c) QRect) void {
         qtc.QWidgetItemV2_OnGeometry(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `widget` instead
+    ///
+    pub const Widget = widget;
 
     /// Inherited from QWidgetItem
     ///
@@ -2807,13 +3327,13 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` self: QWidgetItemV2 `
     ///
-    pub fn Widget(self: QWidgetItemV2) QWidget {
+    pub fn widget(self: QWidgetItemV2) QWidget {
         return .{ .ptr = qtc.QWidgetItemV2_Widget(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperWidget` instead
+    /// ### DEPRECATED: Use `superWidget` instead
     ///
-    pub const QBaseWidget = SuperWidget;
+    pub const SuperWidget = superWidget;
 
     /// Inherited from QWidgetItem
     ///
@@ -2825,9 +3345,13 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` self: QWidgetItemV2 `
     ///
-    pub fn SuperWidget(self: QWidgetItemV2) QWidget {
+    pub fn superWidget(self: QWidgetItemV2) QWidget {
         return .{ .ptr = qtc.QWidgetItemV2_SuperWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onWidget` instead
+    ///
+    pub const OnWidget = onWidget;
 
     /// Inherited from QWidgetItem
     ///
@@ -2841,9 +3365,13 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QWidget `
     ///
-    pub fn OnWidget(self: QWidgetItemV2, callback: *const fn () callconv(.c) QWidget) void {
+    pub fn onWidget(self: QWidgetItemV2, callback: *const fn () callconv(.c) QWidget) void {
         qtc.QWidgetItemV2_OnWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidgetItem
     ///
@@ -2855,13 +3383,13 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` self: QWidgetItemV2 `
     ///
-    pub fn HasHeightForWidth(self: QWidgetItemV2) bool {
+    pub fn hasHeightForWidth(self: QWidgetItemV2) bool {
         return qtc.QWidgetItemV2_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidgetItem
     ///
@@ -2873,9 +3401,13 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` self: QWidgetItemV2 `
     ///
-    pub fn SuperHasHeightForWidth(self: QWidgetItemV2) bool {
+    pub fn superHasHeightForWidth(self: QWidgetItemV2) bool {
         return qtc.QWidgetItemV2_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidgetItem
     ///
@@ -2889,9 +3421,13 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: QWidgetItemV2, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QWidgetItemV2, callback: *const fn () callconv(.c) bool) void {
         qtc.QWidgetItemV2_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumHeightForWidth` instead
+    ///
+    pub const MinimumHeightForWidth = minimumHeightForWidth;
 
     /// Inherited from QWidgetItem
     ///
@@ -2905,13 +3441,13 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn MinimumHeightForWidth(self: QWidgetItemV2, param1: i32) i32 {
+    pub fn minimumHeightForWidth(self: QWidgetItemV2, param1: i32) i32 {
         return qtc.QWidgetItemV2_MinimumHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumHeightForWidth` instead
+    /// ### DEPRECATED: Use `superMinimumHeightForWidth` instead
     ///
-    pub const QBaseMinimumHeightForWidth = SuperMinimumHeightForWidth;
+    pub const SuperMinimumHeightForWidth = superMinimumHeightForWidth;
 
     /// Inherited from QWidgetItem
     ///
@@ -2925,9 +3461,13 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperMinimumHeightForWidth(self: QWidgetItemV2, param1: i32) i32 {
+    pub fn superMinimumHeightForWidth(self: QWidgetItemV2, param1: i32) i32 {
         return qtc.QWidgetItemV2_SuperMinimumHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMinimumHeightForWidth` instead
+    ///
+    pub const OnMinimumHeightForWidth = onMinimumHeightForWidth;
 
     /// Inherited from QWidgetItem
     ///
@@ -2941,9 +3481,13 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` callback: *const fn (self: QWidgetItemV2, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnMinimumHeightForWidth(self: QWidgetItemV2, callback: *const fn (QWidgetItemV2, i32) callconv(.c) i32) void {
+    pub fn onMinimumHeightForWidth(self: QWidgetItemV2, callback: *const fn (QWidgetItemV2, i32) callconv(.c) i32) void {
         qtc.QWidgetItemV2_OnMinimumHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `controlTypes` instead
+    ///
+    pub const ControlTypes = controlTypes;
 
     /// Inherited from QWidgetItem
     ///
@@ -2959,13 +3503,13 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` flag of qsizepolicy_enums.ControlType `
     ///
-    pub fn ControlTypes(self: QWidgetItemV2) i32 {
+    pub fn controlTypes(self: QWidgetItemV2) i32 {
         return qtc.QWidgetItemV2_ControlTypes(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperControlTypes` instead
+    /// ### DEPRECATED: Use `superControlTypes` instead
     ///
-    pub const QBaseControlTypes = SuperControlTypes;
+    pub const SuperControlTypes = superControlTypes;
 
     /// Inherited from QWidgetItem
     ///
@@ -2981,9 +3525,13 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` flag of qsizepolicy_enums.ControlType `
     ///
-    pub fn SuperControlTypes(self: QWidgetItemV2) i32 {
+    pub fn superControlTypes(self: QWidgetItemV2) i32 {
         return qtc.QWidgetItemV2_SuperControlTypes(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onControlTypes` instead
+    ///
+    pub const OnControlTypes = onControlTypes;
 
     /// Inherited from QWidgetItem
     ///
@@ -2997,9 +3545,13 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnControlTypes(self: QWidgetItemV2, callback: *const fn () callconv(.c) i32) void {
+    pub fn onControlTypes(self: QWidgetItemV2, callback: *const fn () callconv(.c) i32) void {
         qtc.QWidgetItemV2_OnControlTypes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `invalidate` instead
+    ///
+    pub const Invalidate = invalidate;
 
     /// Inherited from QLayoutItem
     ///
@@ -3011,13 +3563,13 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` self: QWidgetItemV2 `
     ///
-    pub fn Invalidate(self: QWidgetItemV2) void {
+    pub fn invalidate(self: QWidgetItemV2) void {
         qtc.QWidgetItemV2_Invalidate(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInvalidate` instead
+    /// ### DEPRECATED: Use `superInvalidate` instead
     ///
-    pub const QBaseInvalidate = SuperInvalidate;
+    pub const SuperInvalidate = superInvalidate;
 
     /// Inherited from QLayoutItem
     ///
@@ -3029,9 +3581,13 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` self: QWidgetItemV2 `
     ///
-    pub fn SuperInvalidate(self: QWidgetItemV2) void {
+    pub fn superInvalidate(self: QWidgetItemV2) void {
         qtc.QWidgetItemV2_SuperInvalidate(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInvalidate` instead
+    ///
+    pub const OnInvalidate = onInvalidate;
 
     /// Inherited from QLayoutItem
     ///
@@ -3045,9 +3601,13 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnInvalidate(self: QWidgetItemV2, callback: *const fn () callconv(.c) void) void {
+    pub fn onInvalidate(self: QWidgetItemV2, callback: *const fn () callconv(.c) void) void {
         qtc.QWidgetItemV2_OnInvalidate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QLayoutItem
     ///
@@ -3059,13 +3619,13 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` self: QWidgetItemV2 `
     ///
-    pub fn Layout(self: QWidgetItemV2) QLayout {
+    pub fn layout(self: QWidgetItemV2) QLayout {
         return .{ .ptr = qtc.QWidgetItemV2_Layout(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperLayout` instead
+    /// ### DEPRECATED: Use `superLayout` instead
     ///
-    pub const QBaseLayout = SuperLayout;
+    pub const SuperLayout = superLayout;
 
     /// Inherited from QLayoutItem
     ///
@@ -3077,9 +3637,13 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` self: QWidgetItemV2 `
     ///
-    pub fn SuperLayout(self: QWidgetItemV2) QLayout {
+    pub fn superLayout(self: QWidgetItemV2) QLayout {
         return .{ .ptr = qtc.QWidgetItemV2_SuperLayout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onLayout` instead
+    ///
+    pub const OnLayout = onLayout;
 
     /// Inherited from QLayoutItem
     ///
@@ -3093,9 +3657,13 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QLayout `
     ///
-    pub fn OnLayout(self: QWidgetItemV2, callback: *const fn () callconv(.c) QLayout) void {
+    pub fn onLayout(self: QWidgetItemV2, callback: *const fn () callconv(.c) QLayout) void {
         qtc.QWidgetItemV2_OnLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `spacerItem` instead
+    ///
+    pub const SpacerItem = spacerItem;
 
     /// Inherited from QLayoutItem
     ///
@@ -3107,13 +3675,13 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` self: QWidgetItemV2 `
     ///
-    pub fn SpacerItem(self: QWidgetItemV2) QSpacerItem {
+    pub fn spacerItem(self: QWidgetItemV2) QSpacerItem {
         return .{ .ptr = qtc.QWidgetItemV2_SpacerItem(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSpacerItem` instead
+    /// ### DEPRECATED: Use `superSpacerItem` instead
     ///
-    pub const QBaseSpacerItem = SuperSpacerItem;
+    pub const SuperSpacerItem = superSpacerItem;
 
     /// Inherited from QLayoutItem
     ///
@@ -3125,9 +3693,13 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` self: QWidgetItemV2 `
     ///
-    pub fn SuperSpacerItem(self: QWidgetItemV2) QSpacerItem {
+    pub fn superSpacerItem(self: QWidgetItemV2) QSpacerItem {
         return .{ .ptr = qtc.QWidgetItemV2_SuperSpacerItem(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSpacerItem` instead
+    ///
+    pub const OnSpacerItem = onSpacerItem;
 
     /// Inherited from QLayoutItem
     ///
@@ -3141,23 +3713,23 @@ pub const QWidgetItemV2 = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSpacerItem `
     ///
-    pub fn OnSpacerItem(self: QWidgetItemV2, callback: *const fn () callconv(.c) QSpacerItem) void {
+    pub fn onSpacerItem(self: QWidgetItemV2, callback: *const fn () callconv(.c) QSpacerItem) void {
         qtc.QWidgetItemV2_OnSpacerItem(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#dtor.QWidgetItemV2)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QWidgetItemV2 `
     ///
-    pub fn Delete(self: QWidgetItemV2) void {
+    pub fn delete(self: QWidgetItemV2) void {
         qtc.QWidgetItemV2_Delete(@ptrCast(self.ptr));
     }
 };

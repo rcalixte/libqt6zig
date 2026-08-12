@@ -93,35 +93,51 @@ pub const QTableWidgetSelectionRange = extern struct {
 
     pub const _is_QTableWidgetSelectionRange = {};
 
-    /// New constructs a new QTableWidgetSelectionRange object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QTableWidgetSelectionRange {
+    pub const New = new;
+
+    /// Allocate a new QTableWidgetSelectionRange object in C++ memory
+    ///
+    pub fn new() QTableWidgetSelectionRange {
         return .{ .ptr = qtc.QTableWidgetSelectionRange_new() };
     }
 
-    /// New2 constructs a new QTableWidgetSelectionRange object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QTableWidgetSelectionRange object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QTableWidgetSelectionRange `
     ///
-    pub fn New2(other: anytype) QTableWidgetSelectionRange {
+    pub fn new2(other: anytype) QTableWidgetSelectionRange {
         comptime _ = @TypeOf(other)._is_QTableWidgetSelectionRange;
         return .{ .ptr = qtc.QTableWidgetSelectionRange_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QTableWidgetSelectionRange object and invalidates the source QTableWidgetSelectionRange object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QTableWidgetSelectionRange object and invalidate the source QTableWidgetSelectionRange object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QTableWidgetSelectionRange `
     ///
-    pub fn New3(other: anytype) QTableWidgetSelectionRange {
+    pub fn new3(other: anytype) QTableWidgetSelectionRange {
         comptime _ = @TypeOf(other)._is_QTableWidgetSelectionRange;
         return .{ .ptr = qtc.QTableWidgetSelectionRange_new3(@ptrCast(other.ptr)) };
     }
 
-    /// New4 constructs a new QTableWidgetSelectionRange object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QTableWidgetSelectionRange object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -133,11 +149,14 @@ pub const QTableWidgetSelectionRange = extern struct {
     ///
     /// ` right: i32 `
     ///
-    pub fn New4(top: i32, left: i32, bottom: i32, right: i32) QTableWidgetSelectionRange {
+    pub fn new4(top: i32, left: i32, bottom: i32, right: i32) QTableWidgetSelectionRange {
         return .{ .ptr = qtc.QTableWidgetSelectionRange_new4(@bitCast(top), @bitCast(left), @bitCast(bottom), @bitCast(right)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -145,11 +164,14 @@ pub const QTableWidgetSelectionRange = extern struct {
     ///
     /// ` other: QTableWidgetSelectionRange `
     ///
-    pub fn CopyAssign(self: QTableWidgetSelectionRange, other: QTableWidgetSelectionRange) void {
+    pub fn copyAssign(self: QTableWidgetSelectionRange, other: QTableWidgetSelectionRange) void {
         qtc.QTableWidgetSelectionRange_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -157,9 +179,13 @@ pub const QTableWidgetSelectionRange = extern struct {
     ///
     /// ` other: QTableWidgetSelectionRange `
     ///
-    pub fn MoveAssign(self: QTableWidgetSelectionRange, other: QTableWidgetSelectionRange) void {
+    pub fn moveAssign(self: QTableWidgetSelectionRange, other: QTableWidgetSelectionRange) void {
         qtc.QTableWidgetSelectionRange_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `topRow` instead
+    ///
+    pub const TopRow = topRow;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetselectionrange.html#topRow)
     ///
@@ -167,9 +193,13 @@ pub const QTableWidgetSelectionRange = extern struct {
     ///
     /// ` self: QTableWidgetSelectionRange `
     ///
-    pub fn TopRow(self: QTableWidgetSelectionRange) i32 {
+    pub fn topRow(self: QTableWidgetSelectionRange) i32 {
         return qtc.QTableWidgetSelectionRange_TopRow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `bottomRow` instead
+    ///
+    pub const BottomRow = bottomRow;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetselectionrange.html#bottomRow)
     ///
@@ -177,9 +207,13 @@ pub const QTableWidgetSelectionRange = extern struct {
     ///
     /// ` self: QTableWidgetSelectionRange `
     ///
-    pub fn BottomRow(self: QTableWidgetSelectionRange) i32 {
+    pub fn bottomRow(self: QTableWidgetSelectionRange) i32 {
         return qtc.QTableWidgetSelectionRange_BottomRow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `leftColumn` instead
+    ///
+    pub const LeftColumn = leftColumn;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetselectionrange.html#leftColumn)
     ///
@@ -187,9 +221,13 @@ pub const QTableWidgetSelectionRange = extern struct {
     ///
     /// ` self: QTableWidgetSelectionRange `
     ///
-    pub fn LeftColumn(self: QTableWidgetSelectionRange) i32 {
+    pub fn leftColumn(self: QTableWidgetSelectionRange) i32 {
         return qtc.QTableWidgetSelectionRange_LeftColumn(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rightColumn` instead
+    ///
+    pub const RightColumn = rightColumn;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetselectionrange.html#rightColumn)
     ///
@@ -197,9 +235,13 @@ pub const QTableWidgetSelectionRange = extern struct {
     ///
     /// ` self: QTableWidgetSelectionRange `
     ///
-    pub fn RightColumn(self: QTableWidgetSelectionRange) i32 {
+    pub fn rightColumn(self: QTableWidgetSelectionRange) i32 {
         return qtc.QTableWidgetSelectionRange_RightColumn(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rowCount` instead
+    ///
+    pub const RowCount = rowCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetselectionrange.html#rowCount)
     ///
@@ -207,9 +249,13 @@ pub const QTableWidgetSelectionRange = extern struct {
     ///
     /// ` self: QTableWidgetSelectionRange `
     ///
-    pub fn RowCount(self: QTableWidgetSelectionRange) i32 {
+    pub fn rowCount(self: QTableWidgetSelectionRange) i32 {
         return qtc.QTableWidgetSelectionRange_RowCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `columnCount` instead
+    ///
+    pub const ColumnCount = columnCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetselectionrange.html#columnCount)
     ///
@@ -217,23 +263,23 @@ pub const QTableWidgetSelectionRange = extern struct {
     ///
     /// ` self: QTableWidgetSelectionRange `
     ///
-    pub fn ColumnCount(self: QTableWidgetSelectionRange) i32 {
+    pub fn columnCount(self: QTableWidgetSelectionRange) i32 {
         return qtc.QTableWidgetSelectionRange_ColumnCount(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetselectionrange.html#dtor.QTableWidgetSelectionRange)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QTableWidgetSelectionRange `
     ///
-    pub fn Delete(self: QTableWidgetSelectionRange) void {
+    pub fn delete(self: QTableWidgetSelectionRange) void {
         qtc.QTableWidgetSelectionRange_Delete(@ptrCast(self.ptr));
     }
 };
@@ -248,98 +294,130 @@ pub const QTableWidgetItem = extern struct {
 
     pub const _is_QTableWidgetItem = {};
 
-    /// New constructs a new QTableWidgetItem object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QTableWidgetItem {
+    pub const New = new;
+
+    /// Allocate a new QTableWidgetItem object in C++ memory
+    ///
+    pub fn new() QTableWidgetItem {
         return .{ .ptr = qtc.QTableWidgetItem_new() };
     }
 
-    /// New2 constructs a new QTableWidgetItem object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QTableWidgetItem object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn New2(text: []const u8) QTableWidgetItem {
+    pub fn new2(_text: []const u8) QTableWidgetItem {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         return .{ .ptr = qtc.QTableWidgetItem_new2(text_str) };
     }
 
-    /// New3 constructs a new QTableWidgetItem object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QTableWidgetItem object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn New3(icon: anytype, text: []const u8) QTableWidgetItem {
-        comptime _ = @TypeOf(icon)._is_QIcon;
+    pub fn new3(_icon: anytype, _text: []const u8) QTableWidgetItem {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
-        return .{ .ptr = qtc.QTableWidgetItem_new3(@ptrCast(icon.ptr), text_str) };
+        return .{ .ptr = qtc.QTableWidgetItem_new3(@ptrCast(_icon.ptr), text_str) };
     }
 
-    /// New4 constructs a new QTableWidgetItem object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QTableWidgetItem object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QTableWidgetItem `
     ///
-    pub fn New4(other: anytype) QTableWidgetItem {
+    pub fn new4(other: anytype) QTableWidgetItem {
         comptime _ = @TypeOf(other)._is_QTableWidgetItem;
         return .{ .ptr = qtc.QTableWidgetItem_new4(@ptrCast(other.ptr)) };
     }
 
-    /// New5 constructs a new QTableWidgetItem object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new QTableWidgetItem object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` typeVal: i32 `
     ///
-    pub fn New5(typeVal: i32) QTableWidgetItem {
+    pub fn new5(typeVal: i32) QTableWidgetItem {
         return .{ .ptr = qtc.QTableWidgetItem_new5(@bitCast(typeVal)) };
     }
 
-    /// New6 constructs a new QTableWidgetItem object.
+    /// ### DEPRECATED: Use `new6` instead
+    ///
+    pub const New6 = new6;
+
+    /// Allocate a new QTableWidgetItem object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
     /// ` typeVal: i32 `
     ///
-    pub fn New6(text: []const u8, typeVal: i32) QTableWidgetItem {
+    pub fn new6(_text: []const u8, typeVal: i32) QTableWidgetItem {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         return .{ .ptr = qtc.QTableWidgetItem_new6(text_str, @bitCast(typeVal)) };
     }
 
-    /// New7 constructs a new QTableWidgetItem object.
+    /// ### DEPRECATED: Use `new7` instead
+    ///
+    pub const New7 = new7;
+
+    /// Allocate a new QTableWidgetItem object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
     /// ` typeVal: i32 `
     ///
-    pub fn New7(icon: anytype, text: []const u8, typeVal: i32) QTableWidgetItem {
-        comptime _ = @TypeOf(icon)._is_QIcon;
+    pub fn new7(_icon: anytype, _text: []const u8, typeVal: i32) QTableWidgetItem {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
-        return .{ .ptr = qtc.QTableWidgetItem_new7(@ptrCast(icon.ptr), text_str, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QTableWidgetItem_new7(@ptrCast(_icon.ptr), text_str, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `clone` instead
+    ///
+    pub const Clone = clone;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#clone)
     ///
@@ -347,9 +425,13 @@ pub const QTableWidgetItem = extern struct {
     ///
     /// ` self: QTableWidgetItem `
     ///
-    pub fn Clone(self: QTableWidgetItem) QTableWidgetItem {
+    pub fn clone(self: QTableWidgetItem) QTableWidgetItem {
         return .{ .ptr = qtc.QTableWidgetItem_Clone(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onClone` instead
+    ///
+    pub const OnClone = onClone;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#clone)
     ///
@@ -361,13 +443,13 @@ pub const QTableWidgetItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QTableWidgetItem `
     ///
-    pub fn OnClone(self: QTableWidgetItem, callback: *const fn () callconv(.c) QTableWidgetItem) void {
+    pub fn onClone(self: QTableWidgetItem, callback: *const fn () callconv(.c) QTableWidgetItem) void {
         qtc.QTableWidgetItem_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperClone` instead
+    /// ### DEPRECATED: Use `superClone` instead
     ///
-    pub const QBaseClone = SuperClone;
+    pub const SuperClone = superClone;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#clone)
     ///
@@ -377,9 +459,13 @@ pub const QTableWidgetItem = extern struct {
     ///
     /// ` self: QTableWidgetItem `
     ///
-    pub fn SuperClone(self: QTableWidgetItem) QTableWidgetItem {
+    pub fn superClone(self: QTableWidgetItem) QTableWidgetItem {
         return .{ .ptr = qtc.QTableWidgetItem_SuperClone(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `tableWidget` instead
+    ///
+    pub const TableWidget = tableWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#tableWidget)
     ///
@@ -387,9 +473,13 @@ pub const QTableWidgetItem = extern struct {
     ///
     /// ` self: QTableWidgetItem `
     ///
-    pub fn TableWidget(self: QTableWidgetItem) QTableWidget {
+    pub fn tableWidget(self: QTableWidgetItem) QTableWidget {
         return .{ .ptr = qtc.QTableWidgetItem_TableWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `row` instead
+    ///
+    pub const Row = row;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#row)
     ///
@@ -397,9 +487,13 @@ pub const QTableWidgetItem = extern struct {
     ///
     /// ` self: QTableWidgetItem `
     ///
-    pub fn Row(self: QTableWidgetItem) i32 {
+    pub fn row(self: QTableWidgetItem) i32 {
         return qtc.QTableWidgetItem_Row(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `column` instead
+    ///
+    pub const Column = column;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#column)
     ///
@@ -407,9 +501,13 @@ pub const QTableWidgetItem = extern struct {
     ///
     /// ` self: QTableWidgetItem `
     ///
-    pub fn Column(self: QTableWidgetItem) i32 {
+    pub fn column(self: QTableWidgetItem) i32 {
         return qtc.QTableWidgetItem_Column(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSelected` instead
+    ///
+    pub const SetSelected = setSelected;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#setSelected)
     ///
@@ -419,9 +517,13 @@ pub const QTableWidgetItem = extern struct {
     ///
     /// ` select: bool `
     ///
-    pub fn SetSelected(self: QTableWidgetItem, select: bool) void {
+    pub fn setSelected(self: QTableWidgetItem, select: bool) void {
         qtc.QTableWidgetItem_SetSelected(@ptrCast(self.ptr), select);
     }
+
+    /// ### DEPRECATED: Use `isSelected` instead
+    ///
+    pub const IsSelected = isSelected;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#isSelected)
     ///
@@ -429,9 +531,13 @@ pub const QTableWidgetItem = extern struct {
     ///
     /// ` self: QTableWidgetItem `
     ///
-    pub fn IsSelected(self: QTableWidgetItem) bool {
+    pub fn isSelected(self: QTableWidgetItem) bool {
         return qtc.QTableWidgetItem_IsSelected(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `flags` instead
+    ///
+    pub const Flags = flags;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#flags)
     ///
@@ -443,9 +549,13 @@ pub const QTableWidgetItem = extern struct {
     ///
     /// ` flag of qnamespace_enums.ItemFlag `
     ///
-    pub fn Flags(self: QTableWidgetItem) i32 {
+    pub fn flags(self: QTableWidgetItem) i32 {
         return qtc.QTableWidgetItem_Flags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFlags` instead
+    ///
+    pub const SetFlags = setFlags;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#setFlags)
     ///
@@ -453,11 +563,15 @@ pub const QTableWidgetItem = extern struct {
     ///
     /// ` self: QTableWidgetItem `
     ///
-    /// ` flags: flag of qnamespace_enums.ItemFlag `
+    /// ` _flags: flag of qnamespace_enums.ItemFlag `
     ///
-    pub fn SetFlags(self: QTableWidgetItem, flags: i32) void {
-        qtc.QTableWidgetItem_SetFlags(@ptrCast(self.ptr), @bitCast(flags));
+    pub fn setFlags(self: QTableWidgetItem, _flags: i32) void {
+        qtc.QTableWidgetItem_SetFlags(@ptrCast(self.ptr), @bitCast(_flags));
     }
+
+    /// ### DEPRECATED: Use `text` instead
+    ///
+    pub const Text = text;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#text)
     ///
@@ -467,13 +581,17 @@ pub const QTableWidgetItem = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: QTableWidgetItem, allocator: std.mem.Allocator) []const u8 {
+    pub fn text(self: QTableWidgetItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTableWidgetItem_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTableWidgetItem.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTableWidgetItem.text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setText` instead
+    ///
+    pub const SetText = setText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#setText)
     ///
@@ -481,15 +599,19 @@ pub const QTableWidgetItem = extern struct {
     ///
     /// ` self: QTableWidgetItem `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn SetText(self: QTableWidgetItem, text: []const u8) void {
+    pub fn setText(self: QTableWidgetItem, _text: []const u8) void {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         qtc.QTableWidgetItem_SetText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `icon` instead
+    ///
+    pub const Icon = icon;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#icon)
     ///
@@ -497,9 +619,13 @@ pub const QTableWidgetItem = extern struct {
     ///
     /// ` self: QTableWidgetItem `
     ///
-    pub fn Icon(self: QTableWidgetItem) QIcon {
+    pub fn icon(self: QTableWidgetItem) QIcon {
         return .{ .ptr = qtc.QTableWidgetItem_Icon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setIcon` instead
+    ///
+    pub const SetIcon = setIcon;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#setIcon)
     ///
@@ -507,12 +633,16 @@ pub const QTableWidgetItem = extern struct {
     ///
     /// ` self: QTableWidgetItem `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
-    pub fn SetIcon(self: QTableWidgetItem, icon: anytype) void {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        qtc.QTableWidgetItem_SetIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
+    pub fn setIcon(self: QTableWidgetItem, _icon: anytype) void {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        qtc.QTableWidgetItem_SetIcon(@ptrCast(self.ptr), @ptrCast(_icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#statusTip)
     ///
@@ -522,13 +652,17 @@ pub const QTableWidgetItem = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: QTableWidgetItem, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: QTableWidgetItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTableWidgetItem_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTableWidgetItem.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTableWidgetItem.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#setStatusTip)
     ///
@@ -536,15 +670,19 @@ pub const QTableWidgetItem = extern struct {
     ///
     /// ` self: QTableWidgetItem `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: QTableWidgetItem, statusTip: []const u8) void {
+    pub fn setStatusTip(self: QTableWidgetItem, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QTableWidgetItem_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#toolTip)
     ///
@@ -554,13 +692,17 @@ pub const QTableWidgetItem = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: QTableWidgetItem, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: QTableWidgetItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTableWidgetItem_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTableWidgetItem.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTableWidgetItem.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#setToolTip)
     ///
@@ -568,15 +710,19 @@ pub const QTableWidgetItem = extern struct {
     ///
     /// ` self: QTableWidgetItem `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: QTableWidgetItem, toolTip: []const u8) void {
+    pub fn setToolTip(self: QTableWidgetItem, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QTableWidgetItem_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#whatsThis)
     ///
@@ -586,13 +732,17 @@ pub const QTableWidgetItem = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: QTableWidgetItem, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: QTableWidgetItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTableWidgetItem_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTableWidgetItem.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTableWidgetItem.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#setWhatsThis)
     ///
@@ -600,15 +750,19 @@ pub const QTableWidgetItem = extern struct {
     ///
     /// ` self: QTableWidgetItem `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: QTableWidgetItem, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: QTableWidgetItem, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QTableWidgetItem_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#font)
     ///
@@ -616,9 +770,13 @@ pub const QTableWidgetItem = extern struct {
     ///
     /// ` self: QTableWidgetItem `
     ///
-    pub fn Font(self: QTableWidgetItem) QFont {
+    pub fn font(self: QTableWidgetItem) QFont {
         return .{ .ptr = qtc.QTableWidgetItem_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#setFont)
     ///
@@ -626,12 +784,16 @@ pub const QTableWidgetItem = extern struct {
     ///
     /// ` self: QTableWidgetItem `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: QTableWidgetItem, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QTableWidgetItem_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: QTableWidgetItem, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QTableWidgetItem_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `textAlignment` instead
+    ///
+    pub const TextAlignment = textAlignment;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#textAlignment)
     ///
@@ -639,9 +801,13 @@ pub const QTableWidgetItem = extern struct {
     ///
     /// ` self: QTableWidgetItem `
     ///
-    pub fn TextAlignment(self: QTableWidgetItem) i32 {
+    pub fn textAlignment(self: QTableWidgetItem) i32 {
         return qtc.QTableWidgetItem_TextAlignment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTextAlignment` instead
+    ///
+    pub const SetTextAlignment = setTextAlignment;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#setTextAlignment)
     ///
@@ -651,9 +817,13 @@ pub const QTableWidgetItem = extern struct {
     ///
     /// ` alignment: i32 `
     ///
-    pub fn SetTextAlignment(self: QTableWidgetItem, alignment: i32) void {
+    pub fn setTextAlignment(self: QTableWidgetItem, alignment: i32) void {
         qtc.QTableWidgetItem_SetTextAlignment(@ptrCast(self.ptr), @bitCast(alignment));
     }
+
+    /// ### DEPRECATED: Use `setTextAlignment2` instead
+    ///
+    pub const SetTextAlignment2 = setTextAlignment2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#setTextAlignment)
     ///
@@ -663,9 +833,13 @@ pub const QTableWidgetItem = extern struct {
     ///
     /// ` alignment: qnamespace_enums.AlignmentFlag `
     ///
-    pub fn SetTextAlignment2(self: QTableWidgetItem, alignment: i32) void {
+    pub fn setTextAlignment2(self: QTableWidgetItem, alignment: i32) void {
         qtc.QTableWidgetItem_SetTextAlignment2(@ptrCast(self.ptr), @bitCast(alignment));
     }
+
+    /// ### DEPRECATED: Use `setTextAlignment3` instead
+    ///
+    pub const SetTextAlignment3 = setTextAlignment3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#setTextAlignment)
     ///
@@ -675,9 +849,13 @@ pub const QTableWidgetItem = extern struct {
     ///
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn SetTextAlignment3(self: QTableWidgetItem, alignment: i32) void {
+    pub fn setTextAlignment3(self: QTableWidgetItem, alignment: i32) void {
         qtc.QTableWidgetItem_SetTextAlignment3(@ptrCast(self.ptr), @bitCast(alignment));
     }
+
+    /// ### DEPRECATED: Use `background` instead
+    ///
+    pub const Background = background;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#background)
     ///
@@ -685,9 +863,13 @@ pub const QTableWidgetItem = extern struct {
     ///
     /// ` self: QTableWidgetItem `
     ///
-    pub fn Background(self: QTableWidgetItem) QBrush {
+    pub fn background(self: QTableWidgetItem) QBrush {
         return .{ .ptr = qtc.QTableWidgetItem_Background(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBackground` instead
+    ///
+    pub const SetBackground = setBackground;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#setBackground)
     ///
@@ -697,10 +879,14 @@ pub const QTableWidgetItem = extern struct {
     ///
     /// ` brush: QBrush `
     ///
-    pub fn SetBackground(self: QTableWidgetItem, brush: anytype) void {
+    pub fn setBackground(self: QTableWidgetItem, brush: anytype) void {
         comptime _ = @TypeOf(brush)._is_QBrush;
         qtc.QTableWidgetItem_SetBackground(@ptrCast(self.ptr), @ptrCast(brush.ptr));
     }
+
+    /// ### DEPRECATED: Use `foreground` instead
+    ///
+    pub const Foreground = foreground;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#foreground)
     ///
@@ -708,9 +894,13 @@ pub const QTableWidgetItem = extern struct {
     ///
     /// ` self: QTableWidgetItem `
     ///
-    pub fn Foreground(self: QTableWidgetItem) QBrush {
+    pub fn foreground(self: QTableWidgetItem) QBrush {
         return .{ .ptr = qtc.QTableWidgetItem_Foreground(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setForeground` instead
+    ///
+    pub const SetForeground = setForeground;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#setForeground)
     ///
@@ -720,10 +910,14 @@ pub const QTableWidgetItem = extern struct {
     ///
     /// ` brush: QBrush `
     ///
-    pub fn SetForeground(self: QTableWidgetItem, brush: anytype) void {
+    pub fn setForeground(self: QTableWidgetItem, brush: anytype) void {
         comptime _ = @TypeOf(brush)._is_QBrush;
         qtc.QTableWidgetItem_SetForeground(@ptrCast(self.ptr), @ptrCast(brush.ptr));
     }
+
+    /// ### DEPRECATED: Use `checkState` instead
+    ///
+    pub const CheckState = checkState;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#checkState)
     ///
@@ -735,9 +929,13 @@ pub const QTableWidgetItem = extern struct {
     ///
     /// ` qnamespace_enums.CheckState `
     ///
-    pub fn CheckState(self: QTableWidgetItem) i32 {
+    pub fn checkState(self: QTableWidgetItem) i32 {
         return qtc.QTableWidgetItem_CheckState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCheckState` instead
+    ///
+    pub const SetCheckState = setCheckState;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#setCheckState)
     ///
@@ -747,9 +945,13 @@ pub const QTableWidgetItem = extern struct {
     ///
     /// ` state: qnamespace_enums.CheckState `
     ///
-    pub fn SetCheckState(self: QTableWidgetItem, state: i32) void {
+    pub fn setCheckState(self: QTableWidgetItem, state: i32) void {
         qtc.QTableWidgetItem_SetCheckState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#sizeHint)
     ///
@@ -757,9 +959,13 @@ pub const QTableWidgetItem = extern struct {
     ///
     /// ` self: QTableWidgetItem `
     ///
-    pub fn SizeHint(self: QTableWidgetItem) QSize {
+    pub fn sizeHint(self: QTableWidgetItem) QSize {
         return .{ .ptr = qtc.QTableWidgetItem_SizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeHint` instead
+    ///
+    pub const SetSizeHint = setSizeHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#setSizeHint)
     ///
@@ -769,10 +975,14 @@ pub const QTableWidgetItem = extern struct {
     ///
     /// ` size: QSize `
     ///
-    pub fn SetSizeHint(self: QTableWidgetItem, size: anytype) void {
+    pub fn setSizeHint(self: QTableWidgetItem, size: anytype) void {
         comptime _ = @TypeOf(size)._is_QSize;
         qtc.QTableWidgetItem_SetSizeHint(@ptrCast(self.ptr), @ptrCast(size.ptr));
     }
+
+    /// ### DEPRECATED: Use `data` instead
+    ///
+    pub const Data = data;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#data)
     ///
@@ -782,9 +992,13 @@ pub const QTableWidgetItem = extern struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn Data(self: QTableWidgetItem, role: i32) QVariant {
+    pub fn data(self: QTableWidgetItem, role: i32) QVariant {
         return .{ .ptr = qtc.QTableWidgetItem_Data(@ptrCast(self.ptr), @bitCast(role)) };
     }
+
+    /// ### DEPRECATED: Use `onData` instead
+    ///
+    pub const OnData = onData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#data)
     ///
@@ -798,13 +1012,13 @@ pub const QTableWidgetItem = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnData(self: QTableWidgetItem, callback: *const fn (QTableWidgetItem, i32) callconv(.c) QVariant) void {
+    pub fn onData(self: QTableWidgetItem, callback: *const fn (QTableWidgetItem, i32) callconv(.c) QVariant) void {
         qtc.QTableWidgetItem_OnData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperData` instead
+    /// ### DEPRECATED: Use `superData` instead
     ///
-    pub const QBaseData = SuperData;
+    pub const SuperData = superData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#data)
     ///
@@ -816,9 +1030,13 @@ pub const QTableWidgetItem = extern struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn SuperData(self: QTableWidgetItem, role: i32) QVariant {
+    pub fn superData(self: QTableWidgetItem, role: i32) QVariant {
         return .{ .ptr = qtc.QTableWidgetItem_SuperData(@ptrCast(self.ptr), @bitCast(role)) };
     }
+
+    /// ### DEPRECATED: Use `setData` instead
+    ///
+    pub const SetData = setData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#setData)
     ///
@@ -830,10 +1048,14 @@ pub const QTableWidgetItem = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetData(self: QTableWidgetItem, role: i32, value: anytype) void {
+    pub fn setData(self: QTableWidgetItem, role: i32, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QVariant;
         qtc.QTableWidgetItem_SetData(@ptrCast(self.ptr), @bitCast(role), @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetData` instead
+    ///
+    pub const OnSetData = onSetData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#setData)
     ///
@@ -845,13 +1067,13 @@ pub const QTableWidgetItem = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidgetItem, role: i32, value: QVariant) callconv(.c) void `
     ///
-    pub fn OnSetData(self: QTableWidgetItem, callback: *const fn (QTableWidgetItem, i32, QVariant) callconv(.c) void) void {
+    pub fn onSetData(self: QTableWidgetItem, callback: *const fn (QTableWidgetItem, i32, QVariant) callconv(.c) void) void {
         qtc.QTableWidgetItem_OnSetData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetData` instead
+    /// ### DEPRECATED: Use `superSetData` instead
     ///
-    pub const QBaseSetData = SuperSetData;
+    pub const SuperSetData = superSetData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#setData)
     ///
@@ -865,10 +1087,14 @@ pub const QTableWidgetItem = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SuperSetData(self: QTableWidgetItem, role: i32, value: anytype) void {
+    pub fn superSetData(self: QTableWidgetItem, role: i32, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QVariant;
         qtc.QTableWidgetItem_SuperSetData(@ptrCast(self.ptr), @bitCast(role), @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorLesser` instead
+    ///
+    pub const OperatorLesser = operatorLesser;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#operator-lt)
     ///
@@ -878,10 +1104,14 @@ pub const QTableWidgetItem = extern struct {
     ///
     /// ` other: QTableWidgetItem `
     ///
-    pub fn OperatorLesser(self: QTableWidgetItem, other: anytype) bool {
+    pub fn operatorLesser(self: QTableWidgetItem, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QTableWidgetItem;
         return qtc.QTableWidgetItem_OperatorLesser(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `onOperatorLesser` instead
+    ///
+    pub const OnOperatorLesser = onOperatorLesser;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#operator-lt)
     ///
@@ -893,13 +1123,13 @@ pub const QTableWidgetItem = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidgetItem, other: QTableWidgetItem) callconv(.c) bool `
     ///
-    pub fn OnOperatorLesser(self: QTableWidgetItem, callback: *const fn (QTableWidgetItem, QTableWidgetItem) callconv(.c) bool) void {
+    pub fn onOperatorLesser(self: QTableWidgetItem, callback: *const fn (QTableWidgetItem, QTableWidgetItem) callconv(.c) bool) void {
         qtc.QTableWidgetItem_OnOperatorLesser(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperOperatorLesser` instead
+    /// ### DEPRECATED: Use `superOperatorLesser` instead
     ///
-    pub const QBaseOperatorLesser = SuperOperatorLesser;
+    pub const SuperOperatorLesser = superOperatorLesser;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#operator-lt)
     ///
@@ -911,10 +1141,14 @@ pub const QTableWidgetItem = extern struct {
     ///
     /// ` other: QTableWidgetItem `
     ///
-    pub fn SuperOperatorLesser(self: QTableWidgetItem, other: anytype) bool {
+    pub fn superOperatorLesser(self: QTableWidgetItem, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QTableWidgetItem;
         return qtc.QTableWidgetItem_SuperOperatorLesser(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `read` instead
+    ///
+    pub const Read = read;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#read)
     ///
@@ -924,10 +1158,14 @@ pub const QTableWidgetItem = extern struct {
     ///
     /// ` in: QDataStream `
     ///
-    pub fn Read(self: QTableWidgetItem, in: anytype) void {
+    pub fn read(self: QTableWidgetItem, in: anytype) void {
         comptime _ = @TypeOf(in)._is_QDataStream;
         qtc.QTableWidgetItem_Read(@ptrCast(self.ptr), @ptrCast(in.ptr));
     }
+
+    /// ### DEPRECATED: Use `onRead` instead
+    ///
+    pub const OnRead = onRead;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#read)
     ///
@@ -939,13 +1177,13 @@ pub const QTableWidgetItem = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidgetItem, in: QDataStream) callconv(.c) void `
     ///
-    pub fn OnRead(self: QTableWidgetItem, callback: *const fn (QTableWidgetItem, QDataStream) callconv(.c) void) void {
+    pub fn onRead(self: QTableWidgetItem, callback: *const fn (QTableWidgetItem, QDataStream) callconv(.c) void) void {
         qtc.QTableWidgetItem_OnRead(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperRead` instead
+    /// ### DEPRECATED: Use `superRead` instead
     ///
-    pub const QBaseRead = SuperRead;
+    pub const SuperRead = superRead;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#read)
     ///
@@ -957,10 +1195,14 @@ pub const QTableWidgetItem = extern struct {
     ///
     /// ` in: QDataStream `
     ///
-    pub fn SuperRead(self: QTableWidgetItem, in: anytype) void {
+    pub fn superRead(self: QTableWidgetItem, in: anytype) void {
         comptime _ = @TypeOf(in)._is_QDataStream;
         qtc.QTableWidgetItem_SuperRead(@ptrCast(self.ptr), @ptrCast(in.ptr));
     }
+
+    /// ### DEPRECATED: Use `write` instead
+    ///
+    pub const Write = write;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#write)
     ///
@@ -970,10 +1212,14 @@ pub const QTableWidgetItem = extern struct {
     ///
     /// ` out: QDataStream `
     ///
-    pub fn Write(self: QTableWidgetItem, out: anytype) void {
+    pub fn write(self: QTableWidgetItem, out: anytype) void {
         comptime _ = @TypeOf(out)._is_QDataStream;
         qtc.QTableWidgetItem_Write(@ptrCast(self.ptr), @ptrCast(out.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWrite` instead
+    ///
+    pub const OnWrite = onWrite;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#write)
     ///
@@ -985,13 +1231,13 @@ pub const QTableWidgetItem = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidgetItem, out: QDataStream) callconv(.c) void `
     ///
-    pub fn OnWrite(self: QTableWidgetItem, callback: *const fn (QTableWidgetItem, QDataStream) callconv(.c) void) void {
+    pub fn onWrite(self: QTableWidgetItem, callback: *const fn (QTableWidgetItem, QDataStream) callconv(.c) void) void {
         qtc.QTableWidgetItem_OnWrite(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperWrite` instead
+    /// ### DEPRECATED: Use `superWrite` instead
     ///
-    pub const QBaseWrite = SuperWrite;
+    pub const SuperWrite = superWrite;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#write)
     ///
@@ -1003,10 +1249,14 @@ pub const QTableWidgetItem = extern struct {
     ///
     /// ` out: QDataStream `
     ///
-    pub fn SuperWrite(self: QTableWidgetItem, out: anytype) void {
+    pub fn superWrite(self: QTableWidgetItem, out: anytype) void {
         comptime _ = @TypeOf(out)._is_QDataStream;
         qtc.QTableWidgetItem_SuperWrite(@ptrCast(self.ptr), @ptrCast(out.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#operator-eq)
     ///
@@ -1016,10 +1266,16 @@ pub const QTableWidgetItem = extern struct {
     ///
     /// ` other: QTableWidgetItem `
     ///
-    pub fn OperatorAssign(self: QTableWidgetItem, other: anytype) void {
+    pub fn operatorAssign(self: QTableWidgetItem, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QTableWidgetItem;
         qtc.QTableWidgetItem_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#type)
     ///
@@ -1027,23 +1283,23 @@ pub const QTableWidgetItem = extern struct {
     ///
     /// ` self: QTableWidgetItem `
     ///
-    pub fn Type(self: QTableWidgetItem) i32 {
+    pub fn type0(self: QTableWidgetItem) i32 {
         return qtc.QTableWidgetItem_Type(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#dtor.QTableWidgetItem)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QTableWidgetItem `
     ///
-    pub fn Delete(self: QTableWidgetItem) void {
+    pub fn delete(self: QTableWidgetItem) void {
         qtc.QTableWidgetItem_Delete(@ptrCast(self.ptr));
     }
 };
@@ -1065,24 +1321,36 @@ pub const QTableWidget = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new QTableWidget object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QTableWidget object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) QTableWidget {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QTableWidget_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) QTableWidget {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QTableWidget_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new QTableWidget object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() QTableWidget {
+    pub const New2 = new2;
+
+    /// Allocate a new QTableWidget object in C++ memory
+    ///
+    pub fn new2() QTableWidget {
         return .{ .ptr = qtc.QTableWidget_new2() };
     }
 
-    /// New3 constructs a new QTableWidget object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QTableWidget object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -1090,11 +1358,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` columns: i32 `
     ///
-    pub fn New3(rows: i32, columns: i32) QTableWidget {
+    pub fn new3(rows: i32, columns: i32) QTableWidget {
         return .{ .ptr = qtc.QTableWidget_new3(@bitCast(rows), @bitCast(columns)) };
     }
 
-    /// New4 constructs a new QTableWidget object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QTableWidget object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -1102,12 +1374,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` columns: i32 `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New4(rows: i32, columns: i32, parent: anytype) QTableWidget {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QTableWidget_new4(@bitCast(rows), @bitCast(columns), @ptrCast(parent.ptr)) };
+    pub fn new4(rows: i32, columns: i32, _parent: anytype) QTableWidget {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QTableWidget_new4(@bitCast(rows), @bitCast(columns), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -1115,9 +1391,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn MetaObject(self: QTableWidget) QMetaObject {
+    pub fn metaObject(self: QTableWidget) QMetaObject {
         return .{ .ptr = qtc.QTableWidget_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -1129,13 +1409,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QTableWidget, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QTableWidget, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QTableWidget_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -1145,9 +1425,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn SuperMetaObject(self: QTableWidget) QMetaObject {
+    pub fn superMetaObject(self: QTableWidget) QMetaObject {
         return .{ .ptr = qtc.QTableWidget_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -1155,10 +1439,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QTableWidget, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QTableWidget, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QTableWidget_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -1168,13 +1456,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QTableWidget, callback: *const fn (QTableWidget, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QTableWidget, callback: *const fn (QTableWidget, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QTableWidget_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -1184,10 +1472,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QTableWidget, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QTableWidget, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QTableWidget_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -1199,9 +1491,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QTableWidget, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QTableWidget, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QTableWidget_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -1211,13 +1507,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QTableWidget_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -1231,9 +1527,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QTableWidget, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QTableWidget, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QTableWidget_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1243,14 +1543,18 @@ pub const QTableWidget = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTableWidget.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTableWidget.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setRowCount` instead
+    ///
+    pub const SetRowCount = setRowCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#setRowCount)
     ///
@@ -1260,9 +1564,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` rows: i32 `
     ///
-    pub fn SetRowCount(self: QTableWidget, rows: i32) void {
+    pub fn setRowCount(self: QTableWidget, rows: i32) void {
         qtc.QTableWidget_SetRowCount(@ptrCast(self.ptr), @bitCast(rows));
     }
+
+    /// ### DEPRECATED: Use `rowCount` instead
+    ///
+    pub const RowCount = rowCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#rowCount)
     ///
@@ -1270,9 +1578,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn RowCount(self: QTableWidget) i32 {
+    pub fn rowCount(self: QTableWidget) i32 {
         return qtc.QTableWidget_RowCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setColumnCount` instead
+    ///
+    pub const SetColumnCount = setColumnCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#setColumnCount)
     ///
@@ -1282,9 +1594,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` columns: i32 `
     ///
-    pub fn SetColumnCount(self: QTableWidget, columns: i32) void {
+    pub fn setColumnCount(self: QTableWidget, columns: i32) void {
         qtc.QTableWidget_SetColumnCount(@ptrCast(self.ptr), @bitCast(columns));
     }
+
+    /// ### DEPRECATED: Use `columnCount` instead
+    ///
+    pub const ColumnCount = columnCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#columnCount)
     ///
@@ -1292,9 +1608,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn ColumnCount(self: QTableWidget) i32 {
+    pub fn columnCount(self: QTableWidget) i32 {
         return qtc.QTableWidget_ColumnCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `row` instead
+    ///
+    pub const Row = row;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#row)
     ///
@@ -1302,12 +1622,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` item: QTableWidgetItem `
+    /// ` _item: QTableWidgetItem `
     ///
-    pub fn Row(self: QTableWidget, item: anytype) i32 {
-        comptime _ = @TypeOf(item)._is_QTableWidgetItem;
-        return qtc.QTableWidget_Row(@ptrCast(self.ptr), @ptrCast(item.ptr));
+    pub fn row(self: QTableWidget, _item: anytype) i32 {
+        comptime _ = @TypeOf(_item)._is_QTableWidgetItem;
+        return qtc.QTableWidget_Row(@ptrCast(self.ptr), @ptrCast(_item.ptr));
     }
+
+    /// ### DEPRECATED: Use `column` instead
+    ///
+    pub const Column = column;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#column)
     ///
@@ -1315,12 +1639,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` item: QTableWidgetItem `
+    /// ` _item: QTableWidgetItem `
     ///
-    pub fn Column(self: QTableWidget, item: anytype) i32 {
-        comptime _ = @TypeOf(item)._is_QTableWidgetItem;
-        return qtc.QTableWidget_Column(@ptrCast(self.ptr), @ptrCast(item.ptr));
+    pub fn column(self: QTableWidget, _item: anytype) i32 {
+        comptime _ = @TypeOf(_item)._is_QTableWidgetItem;
+        return qtc.QTableWidget_Column(@ptrCast(self.ptr), @ptrCast(_item.ptr));
     }
+
+    /// ### DEPRECATED: Use `item` instead
+    ///
+    pub const Item = item;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#item)
     ///
@@ -1328,13 +1656,17 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
-    /// ` column: i32 `
+    /// ` _column: i32 `
     ///
-    pub fn Item(self: QTableWidget, row: i32, column: i32) QTableWidgetItem {
-        return .{ .ptr = qtc.QTableWidget_Item(@ptrCast(self.ptr), @bitCast(row), @bitCast(column)) };
+    pub fn item(self: QTableWidget, _row: i32, _column: i32) QTableWidgetItem {
+        return .{ .ptr = qtc.QTableWidget_Item(@ptrCast(self.ptr), @bitCast(_row), @bitCast(_column)) };
     }
+
+    /// ### DEPRECATED: Use `setItem` instead
+    ///
+    pub const SetItem = setItem;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#setItem)
     ///
@@ -1342,16 +1674,20 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
-    /// ` column: i32 `
+    /// ` _column: i32 `
     ///
-    /// ` item: QTableWidgetItem `
+    /// ` _item: QTableWidgetItem `
     ///
-    pub fn SetItem(self: QTableWidget, row: i32, column: i32, item: anytype) void {
-        comptime _ = @TypeOf(item)._is_QTableWidgetItem;
-        qtc.QTableWidget_SetItem(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(item.ptr));
+    pub fn setItem(self: QTableWidget, _row: i32, _column: i32, _item: anytype) void {
+        comptime _ = @TypeOf(_item)._is_QTableWidgetItem;
+        qtc.QTableWidget_SetItem(@ptrCast(self.ptr), @bitCast(_row), @bitCast(_column), @ptrCast(_item.ptr));
     }
+
+    /// ### DEPRECATED: Use `takeItem` instead
+    ///
+    pub const TakeItem = takeItem;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#takeItem)
     ///
@@ -1359,13 +1695,17 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
-    /// ` column: i32 `
+    /// ` _column: i32 `
     ///
-    pub fn TakeItem(self: QTableWidget, row: i32, column: i32) QTableWidgetItem {
-        return .{ .ptr = qtc.QTableWidget_TakeItem(@ptrCast(self.ptr), @bitCast(row), @bitCast(column)) };
+    pub fn takeItem(self: QTableWidget, _row: i32, _column: i32) QTableWidgetItem {
+        return .{ .ptr = qtc.QTableWidget_TakeItem(@ptrCast(self.ptr), @bitCast(_row), @bitCast(_column)) };
     }
+
+    /// ### DEPRECATED: Use `items` instead
+    ///
+    pub const Items = items;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#items)
     ///
@@ -1375,18 +1715,22 @@ pub const QTableWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` data: QMimeData `
+    /// ` _data: QMimeData `
     ///
-    pub fn Items(self: QTableWidget, allocator: std.mem.Allocator, data: anytype) []QTableWidgetItem {
-        comptime _ = @TypeOf(data)._is_QMimeData;
-        const _arr: qtc.libqt_list = qtc.QTableWidget_Items(@ptrCast(self.ptr), @ptrCast(data.ptr));
+    pub fn items(self: QTableWidget, allocator: std.mem.Allocator, _data: anytype) []QTableWidgetItem {
+        comptime _ = @TypeOf(_data)._is_QMimeData;
+        const _arr: qtc.libqt_list = qtc.QTableWidget_Items(@ptrCast(self.ptr), @ptrCast(_data.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QTableWidgetItem, _arr.len) catch @panic("QTableWidget.Items: Memory allocation failed");
-        const _data: [*]QtC.QTableWidgetItem = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QTableWidgetItem, _arr.len) catch @panic("QTableWidget.items: Memory allocation failed");
+        const _data_val: [*]QtC.QTableWidgetItem = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `indexFromItem` instead
+    ///
+    pub const IndexFromItem = indexFromItem;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#indexFromItem)
     ///
@@ -1394,12 +1738,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` item: QTableWidgetItem `
+    /// ` _item: QTableWidgetItem `
     ///
-    pub fn IndexFromItem(self: QTableWidget, item: anytype) QModelIndex {
-        comptime _ = @TypeOf(item)._is_QTableWidgetItem;
-        return .{ .ptr = qtc.QTableWidget_IndexFromItem(@ptrCast(self.ptr), @ptrCast(item.ptr)) };
+    pub fn indexFromItem(self: QTableWidget, _item: anytype) QModelIndex {
+        comptime _ = @TypeOf(_item)._is_QTableWidgetItem;
+        return .{ .ptr = qtc.QTableWidget_IndexFromItem(@ptrCast(self.ptr), @ptrCast(_item.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `itemFromIndex` instead
+    ///
+    pub const ItemFromIndex = itemFromIndex;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemFromIndex)
     ///
@@ -1409,10 +1757,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn ItemFromIndex(self: QTableWidget, index: anytype) QTableWidgetItem {
+    pub fn itemFromIndex(self: QTableWidget, index: anytype) QTableWidgetItem {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.QTableWidget_ItemFromIndex(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `verticalHeaderItem` instead
+    ///
+    pub const VerticalHeaderItem = verticalHeaderItem;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#verticalHeaderItem)
     ///
@@ -1420,11 +1772,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
-    pub fn VerticalHeaderItem(self: QTableWidget, row: i32) QTableWidgetItem {
-        return .{ .ptr = qtc.QTableWidget_VerticalHeaderItem(@ptrCast(self.ptr), @bitCast(row)) };
+    pub fn verticalHeaderItem(self: QTableWidget, _row: i32) QTableWidgetItem {
+        return .{ .ptr = qtc.QTableWidget_VerticalHeaderItem(@ptrCast(self.ptr), @bitCast(_row)) };
     }
+
+    /// ### DEPRECATED: Use `setVerticalHeaderItem` instead
+    ///
+    pub const SetVerticalHeaderItem = setVerticalHeaderItem;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#setVerticalHeaderItem)
     ///
@@ -1432,14 +1788,18 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
-    /// ` item: QTableWidgetItem `
+    /// ` _item: QTableWidgetItem `
     ///
-    pub fn SetVerticalHeaderItem(self: QTableWidget, row: i32, item: anytype) void {
-        comptime _ = @TypeOf(item)._is_QTableWidgetItem;
-        qtc.QTableWidget_SetVerticalHeaderItem(@ptrCast(self.ptr), @bitCast(row), @ptrCast(item.ptr));
+    pub fn setVerticalHeaderItem(self: QTableWidget, _row: i32, _item: anytype) void {
+        comptime _ = @TypeOf(_item)._is_QTableWidgetItem;
+        qtc.QTableWidget_SetVerticalHeaderItem(@ptrCast(self.ptr), @bitCast(_row), @ptrCast(_item.ptr));
     }
+
+    /// ### DEPRECATED: Use `takeVerticalHeaderItem` instead
+    ///
+    pub const TakeVerticalHeaderItem = takeVerticalHeaderItem;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#takeVerticalHeaderItem)
     ///
@@ -1447,11 +1807,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
-    pub fn TakeVerticalHeaderItem(self: QTableWidget, row: i32) QTableWidgetItem {
-        return .{ .ptr = qtc.QTableWidget_TakeVerticalHeaderItem(@ptrCast(self.ptr), @bitCast(row)) };
+    pub fn takeVerticalHeaderItem(self: QTableWidget, _row: i32) QTableWidgetItem {
+        return .{ .ptr = qtc.QTableWidget_TakeVerticalHeaderItem(@ptrCast(self.ptr), @bitCast(_row)) };
     }
+
+    /// ### DEPRECATED: Use `horizontalHeaderItem` instead
+    ///
+    pub const HorizontalHeaderItem = horizontalHeaderItem;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#horizontalHeaderItem)
     ///
@@ -1459,11 +1823,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` column: i32 `
+    /// ` _column: i32 `
     ///
-    pub fn HorizontalHeaderItem(self: QTableWidget, column: i32) QTableWidgetItem {
-        return .{ .ptr = qtc.QTableWidget_HorizontalHeaderItem(@ptrCast(self.ptr), @bitCast(column)) };
+    pub fn horizontalHeaderItem(self: QTableWidget, _column: i32) QTableWidgetItem {
+        return .{ .ptr = qtc.QTableWidget_HorizontalHeaderItem(@ptrCast(self.ptr), @bitCast(_column)) };
     }
+
+    /// ### DEPRECATED: Use `setHorizontalHeaderItem` instead
+    ///
+    pub const SetHorizontalHeaderItem = setHorizontalHeaderItem;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#setHorizontalHeaderItem)
     ///
@@ -1471,14 +1839,18 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` column: i32 `
+    /// ` _column: i32 `
     ///
-    /// ` item: QTableWidgetItem `
+    /// ` _item: QTableWidgetItem `
     ///
-    pub fn SetHorizontalHeaderItem(self: QTableWidget, column: i32, item: anytype) void {
-        comptime _ = @TypeOf(item)._is_QTableWidgetItem;
-        qtc.QTableWidget_SetHorizontalHeaderItem(@ptrCast(self.ptr), @bitCast(column), @ptrCast(item.ptr));
+    pub fn setHorizontalHeaderItem(self: QTableWidget, _column: i32, _item: anytype) void {
+        comptime _ = @TypeOf(_item)._is_QTableWidgetItem;
+        qtc.QTableWidget_SetHorizontalHeaderItem(@ptrCast(self.ptr), @bitCast(_column), @ptrCast(_item.ptr));
     }
+
+    /// ### DEPRECATED: Use `takeHorizontalHeaderItem` instead
+    ///
+    pub const TakeHorizontalHeaderItem = takeHorizontalHeaderItem;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#takeHorizontalHeaderItem)
     ///
@@ -1486,11 +1858,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` column: i32 `
+    /// ` _column: i32 `
     ///
-    pub fn TakeHorizontalHeaderItem(self: QTableWidget, column: i32) QTableWidgetItem {
-        return .{ .ptr = qtc.QTableWidget_TakeHorizontalHeaderItem(@ptrCast(self.ptr), @bitCast(column)) };
+    pub fn takeHorizontalHeaderItem(self: QTableWidget, _column: i32) QTableWidgetItem {
+        return .{ .ptr = qtc.QTableWidget_TakeHorizontalHeaderItem(@ptrCast(self.ptr), @bitCast(_column)) };
     }
+
+    /// ### DEPRECATED: Use `setVerticalHeaderLabels` instead
+    ///
+    pub const SetVerticalHeaderLabels = setVerticalHeaderLabels;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#setVerticalHeaderLabels)
     ///
@@ -1502,13 +1878,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` labels: []const []const u8 `
     ///
-    pub fn SetVerticalHeaderLabels(self: QTableWidget, allocator: std.mem.Allocator, labels: []const []const u8) void {
-        const labels_arr = allocator.alloc(qtc.libqt_string, labels.len) catch @panic("QTableWidget.SetVerticalHeaderLabels: Memory allocation failed");
+    pub fn setVerticalHeaderLabels(self: QTableWidget, allocator: std.mem.Allocator, labels: []const []const u8) void {
+        const labels_arr = allocator.alloc(qtc.libqt_string, labels.len) catch @panic("QTableWidget.setVerticalHeaderLabels: Memory allocation failed");
         defer allocator.free(labels_arr);
-        for (labels, 0..labels.len) |item, i|
+        for (labels, 0..labels.len) |str_item, i|
             labels_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const labels_list = qtc.libqt_list{
             .len = labels.len,
@@ -1516,6 +1892,10 @@ pub const QTableWidget = extern struct {
         };
         qtc.QTableWidget_SetVerticalHeaderLabels(@ptrCast(self.ptr), labels_list);
     }
+
+    /// ### DEPRECATED: Use `setHorizontalHeaderLabels` instead
+    ///
+    pub const SetHorizontalHeaderLabels = setHorizontalHeaderLabels;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#setHorizontalHeaderLabels)
     ///
@@ -1527,13 +1907,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` labels: []const []const u8 `
     ///
-    pub fn SetHorizontalHeaderLabels(self: QTableWidget, allocator: std.mem.Allocator, labels: []const []const u8) void {
-        const labels_arr = allocator.alloc(qtc.libqt_string, labels.len) catch @panic("QTableWidget.SetHorizontalHeaderLabels: Memory allocation failed");
+    pub fn setHorizontalHeaderLabels(self: QTableWidget, allocator: std.mem.Allocator, labels: []const []const u8) void {
+        const labels_arr = allocator.alloc(qtc.libqt_string, labels.len) catch @panic("QTableWidget.setHorizontalHeaderLabels: Memory allocation failed");
         defer allocator.free(labels_arr);
-        for (labels, 0..labels.len) |item, i|
+        for (labels, 0..labels.len) |str_item, i|
             labels_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const labels_list = qtc.libqt_list{
             .len = labels.len,
@@ -1542,15 +1922,23 @@ pub const QTableWidget = extern struct {
         qtc.QTableWidget_SetHorizontalHeaderLabels(@ptrCast(self.ptr), labels_list);
     }
 
+    /// ### DEPRECATED: Use `currentRow` instead
+    ///
+    pub const CurrentRow = currentRow;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#currentRow)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn CurrentRow(self: QTableWidget) i32 {
+    pub fn currentRow(self: QTableWidget) i32 {
         return qtc.QTableWidget_CurrentRow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `currentColumn` instead
+    ///
+    pub const CurrentColumn = currentColumn;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#currentColumn)
     ///
@@ -1558,9 +1946,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn CurrentColumn(self: QTableWidget) i32 {
+    pub fn currentColumn(self: QTableWidget) i32 {
         return qtc.QTableWidget_CurrentColumn(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `currentItem` instead
+    ///
+    pub const CurrentItem = currentItem;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#currentItem)
     ///
@@ -1568,22 +1960,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn CurrentItem(self: QTableWidget) QTableWidgetItem {
+    pub fn currentItem(self: QTableWidget) QTableWidgetItem {
         return .{ .ptr = qtc.QTableWidget_CurrentItem(@ptrCast(self.ptr)) };
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#setCurrentItem)
+    /// ### DEPRECATED: Use `setCurrentItem` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTableWidget `
-    ///
-    /// ` item: QTableWidgetItem `
-    ///
-    pub fn SetCurrentItem(self: QTableWidget, item: anytype) void {
-        comptime _ = @TypeOf(item)._is_QTableWidgetItem;
-        qtc.QTableWidget_SetCurrentItem(@ptrCast(self.ptr), @ptrCast(item.ptr));
-    }
+    pub const SetCurrentItem = setCurrentItem;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#setCurrentItem)
     ///
@@ -1591,14 +1974,35 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` item: QTableWidgetItem `
+    /// ` _item: QTableWidgetItem `
+    ///
+    pub fn setCurrentItem(self: QTableWidget, _item: anytype) void {
+        comptime _ = @TypeOf(_item)._is_QTableWidgetItem;
+        qtc.QTableWidget_SetCurrentItem(@ptrCast(self.ptr), @ptrCast(_item.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setCurrentItem2` instead
+    ///
+    pub const SetCurrentItem2 = setCurrentItem2;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#setCurrentItem)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QTableWidget `
+    ///
+    /// ` _item: QTableWidgetItem `
     ///
     /// ` command: flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn SetCurrentItem2(self: QTableWidget, item: anytype, command: i32) void {
-        comptime _ = @TypeOf(item)._is_QTableWidgetItem;
-        qtc.QTableWidget_SetCurrentItem2(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(command));
+    pub fn setCurrentItem2(self: QTableWidget, _item: anytype, command: i32) void {
+        comptime _ = @TypeOf(_item)._is_QTableWidgetItem;
+        qtc.QTableWidget_SetCurrentItem2(@ptrCast(self.ptr), @ptrCast(_item.ptr), @bitCast(command));
     }
+
+    /// ### DEPRECATED: Use `setCurrentCell` instead
+    ///
+    pub const SetCurrentCell = setCurrentCell;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#setCurrentCell)
     ///
@@ -1606,13 +2010,17 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
-    /// ` column: i32 `
+    /// ` _column: i32 `
     ///
-    pub fn SetCurrentCell(self: QTableWidget, row: i32, column: i32) void {
-        qtc.QTableWidget_SetCurrentCell(@ptrCast(self.ptr), @bitCast(row), @bitCast(column));
+    pub fn setCurrentCell(self: QTableWidget, _row: i32, _column: i32) void {
+        qtc.QTableWidget_SetCurrentCell(@ptrCast(self.ptr), @bitCast(_row), @bitCast(_column));
     }
+
+    /// ### DEPRECATED: Use `setCurrentCell2` instead
+    ///
+    pub const SetCurrentCell2 = setCurrentCell2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#setCurrentCell)
     ///
@@ -1620,15 +2028,19 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
-    /// ` column: i32 `
+    /// ` _column: i32 `
     ///
     /// ` command: flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn SetCurrentCell2(self: QTableWidget, row: i32, column: i32, command: i32) void {
-        qtc.QTableWidget_SetCurrentCell2(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @bitCast(command));
+    pub fn setCurrentCell2(self: QTableWidget, _row: i32, _column: i32, command: i32) void {
+        qtc.QTableWidget_SetCurrentCell2(@ptrCast(self.ptr), @bitCast(_row), @bitCast(_column), @bitCast(command));
     }
+
+    /// ### DEPRECATED: Use `sortItems` instead
+    ///
+    pub const SortItems = sortItems;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#sortItems)
     ///
@@ -1636,11 +2048,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` column: i32 `
+    /// ` _column: i32 `
     ///
-    pub fn SortItems(self: QTableWidget, column: i32) void {
-        qtc.QTableWidget_SortItems(@ptrCast(self.ptr), @bitCast(column));
+    pub fn sortItems(self: QTableWidget, _column: i32) void {
+        qtc.QTableWidget_SortItems(@ptrCast(self.ptr), @bitCast(_column));
     }
+
+    /// ### DEPRECATED: Use `setSortingEnabled` instead
+    ///
+    pub const SetSortingEnabled = setSortingEnabled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#setSortingEnabled)
     ///
@@ -1650,9 +2066,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetSortingEnabled(self: QTableWidget, enable: bool) void {
+    pub fn setSortingEnabled(self: QTableWidget, enable: bool) void {
         qtc.QTableWidget_SetSortingEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `isSortingEnabled` instead
+    ///
+    pub const IsSortingEnabled = isSortingEnabled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#isSortingEnabled)
     ///
@@ -1660,9 +2080,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn IsSortingEnabled(self: QTableWidget) bool {
+    pub fn isSortingEnabled(self: QTableWidget) bool {
         return qtc.QTableWidget_IsSortingEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `editItem` instead
+    ///
+    pub const EditItem = editItem;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#editItem)
     ///
@@ -1670,12 +2094,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` item: QTableWidgetItem `
+    /// ` _item: QTableWidgetItem `
     ///
-    pub fn EditItem(self: QTableWidget, item: anytype) void {
-        comptime _ = @TypeOf(item)._is_QTableWidgetItem;
-        qtc.QTableWidget_EditItem(@ptrCast(self.ptr), @ptrCast(item.ptr));
+    pub fn editItem(self: QTableWidget, _item: anytype) void {
+        comptime _ = @TypeOf(_item)._is_QTableWidgetItem;
+        qtc.QTableWidget_EditItem(@ptrCast(self.ptr), @ptrCast(_item.ptr));
     }
+
+    /// ### DEPRECATED: Use `openPersistentEditor` instead
+    ///
+    pub const OpenPersistentEditor = openPersistentEditor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#openPersistentEditor)
     ///
@@ -1683,12 +2111,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` item: QTableWidgetItem `
+    /// ` _item: QTableWidgetItem `
     ///
-    pub fn OpenPersistentEditor(self: QTableWidget, item: anytype) void {
-        comptime _ = @TypeOf(item)._is_QTableWidgetItem;
-        qtc.QTableWidget_OpenPersistentEditor(@ptrCast(self.ptr), @ptrCast(item.ptr));
+    pub fn openPersistentEditor(self: QTableWidget, _item: anytype) void {
+        comptime _ = @TypeOf(_item)._is_QTableWidgetItem;
+        qtc.QTableWidget_OpenPersistentEditor(@ptrCast(self.ptr), @ptrCast(_item.ptr));
     }
+
+    /// ### DEPRECATED: Use `closePersistentEditor` instead
+    ///
+    pub const ClosePersistentEditor = closePersistentEditor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#closePersistentEditor)
     ///
@@ -1696,12 +2128,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` item: QTableWidgetItem `
+    /// ` _item: QTableWidgetItem `
     ///
-    pub fn ClosePersistentEditor(self: QTableWidget, item: anytype) void {
-        comptime _ = @TypeOf(item)._is_QTableWidgetItem;
-        qtc.QTableWidget_ClosePersistentEditor(@ptrCast(self.ptr), @ptrCast(item.ptr));
+    pub fn closePersistentEditor(self: QTableWidget, _item: anytype) void {
+        comptime _ = @TypeOf(_item)._is_QTableWidgetItem;
+        qtc.QTableWidget_ClosePersistentEditor(@ptrCast(self.ptr), @ptrCast(_item.ptr));
     }
+
+    /// ### DEPRECATED: Use `isPersistentEditorOpen` instead
+    ///
+    pub const IsPersistentEditorOpen = isPersistentEditorOpen;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#isPersistentEditorOpen)
     ///
@@ -1709,12 +2145,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` item: QTableWidgetItem `
+    /// ` _item: QTableWidgetItem `
     ///
-    pub fn IsPersistentEditorOpen(self: QTableWidget, item: anytype) bool {
-        comptime _ = @TypeOf(item)._is_QTableWidgetItem;
-        return qtc.QTableWidget_IsPersistentEditorOpen(@ptrCast(self.ptr), @ptrCast(item.ptr));
+    pub fn isPersistentEditorOpen(self: QTableWidget, _item: anytype) bool {
+        comptime _ = @TypeOf(_item)._is_QTableWidgetItem;
+        return qtc.QTableWidget_IsPersistentEditorOpen(@ptrCast(self.ptr), @ptrCast(_item.ptr));
     }
+
+    /// ### DEPRECATED: Use `cellWidget` instead
+    ///
+    pub const CellWidget = cellWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#cellWidget)
     ///
@@ -1722,13 +2162,17 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
-    /// ` column: i32 `
+    /// ` _column: i32 `
     ///
-    pub fn CellWidget(self: QTableWidget, row: i32, column: i32) QWidget {
-        return .{ .ptr = qtc.QTableWidget_CellWidget(@ptrCast(self.ptr), @bitCast(row), @bitCast(column)) };
+    pub fn cellWidget(self: QTableWidget, _row: i32, _column: i32) QWidget {
+        return .{ .ptr = qtc.QTableWidget_CellWidget(@ptrCast(self.ptr), @bitCast(_row), @bitCast(_column)) };
     }
+
+    /// ### DEPRECATED: Use `setCellWidget` instead
+    ///
+    pub const SetCellWidget = setCellWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#setCellWidget)
     ///
@@ -1736,16 +2180,20 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
-    /// ` column: i32 `
+    /// ` _column: i32 `
     ///
     /// ` widget: QWidget `
     ///
-    pub fn SetCellWidget(self: QTableWidget, row: i32, column: i32, widget: anytype) void {
+    pub fn setCellWidget(self: QTableWidget, _row: i32, _column: i32, widget: anytype) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
-        qtc.QTableWidget_SetCellWidget(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(widget.ptr));
+        qtc.QTableWidget_SetCellWidget(@ptrCast(self.ptr), @bitCast(_row), @bitCast(_column), @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeCellWidget` instead
+    ///
+    pub const RemoveCellWidget = removeCellWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#removeCellWidget)
     ///
@@ -1753,13 +2201,17 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
-    /// ` column: i32 `
+    /// ` _column: i32 `
     ///
-    pub fn RemoveCellWidget(self: QTableWidget, row: i32, column: i32) void {
-        qtc.QTableWidget_RemoveCellWidget(@ptrCast(self.ptr), @bitCast(row), @bitCast(column));
+    pub fn removeCellWidget(self: QTableWidget, _row: i32, _column: i32) void {
+        qtc.QTableWidget_RemoveCellWidget(@ptrCast(self.ptr), @bitCast(_row), @bitCast(_column));
     }
+
+    /// ### DEPRECATED: Use `setRangeSelected` instead
+    ///
+    pub const SetRangeSelected = setRangeSelected;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#setRangeSelected)
     ///
@@ -1771,10 +2223,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` select: bool `
     ///
-    pub fn SetRangeSelected(self: QTableWidget, range: anytype, select: bool) void {
+    pub fn setRangeSelected(self: QTableWidget, range: anytype, select: bool) void {
         comptime _ = @TypeOf(range)._is_QTableWidgetSelectionRange;
         qtc.QTableWidget_SetRangeSelected(@ptrCast(self.ptr), @ptrCast(range.ptr), select);
     }
+
+    /// ### DEPRECATED: Use `selectedRanges` instead
+    ///
+    pub const SelectedRanges = selectedRanges;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#selectedRanges)
     ///
@@ -1784,15 +2240,19 @@ pub const QTableWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SelectedRanges(self: QTableWidget, allocator: std.mem.Allocator) []QTableWidgetSelectionRange {
+    pub fn selectedRanges(self: QTableWidget, allocator: std.mem.Allocator) []QTableWidgetSelectionRange {
         const _arr: qtc.libqt_list = qtc.QTableWidget_SelectedRanges(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QTableWidgetSelectionRange, _arr.len) catch @panic("QTableWidget.SelectedRanges: Memory allocation failed");
-        const _data: [*]QtC.QTableWidgetSelectionRange = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QTableWidgetSelectionRange, _arr.len) catch @panic("QTableWidget.selectedRanges: Memory allocation failed");
+        const _data_val: [*]QtC.QTableWidgetSelectionRange = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `selectedItems` instead
+    ///
+    pub const SelectedItems = selectedItems;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#selectedItems)
     ///
@@ -1802,15 +2262,19 @@ pub const QTableWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SelectedItems(self: QTableWidget, allocator: std.mem.Allocator) []QTableWidgetItem {
+    pub fn selectedItems(self: QTableWidget, allocator: std.mem.Allocator) []QTableWidgetItem {
         const _arr: qtc.libqt_list = qtc.QTableWidget_SelectedItems(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QTableWidgetItem, _arr.len) catch @panic("QTableWidget.SelectedItems: Memory allocation failed");
-        const _data: [*]QtC.QTableWidgetItem = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QTableWidgetItem, _arr.len) catch @panic("QTableWidget.selectedItems: Memory allocation failed");
+        const _data_val: [*]QtC.QTableWidgetItem = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `findItems` instead
+    ///
+    pub const FindItems = findItems;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#findItems)
     ///
@@ -1820,23 +2284,27 @@ pub const QTableWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    /// ` flags: flag of qnamespace_enums.MatchFlag `
+    /// ` _flags: flag of qnamespace_enums.MatchFlag `
     ///
-    pub fn FindItems(self: QTableWidget, allocator: std.mem.Allocator, text: []const u8, flags: i32) []QTableWidgetItem {
+    pub fn findItems(self: QTableWidget, allocator: std.mem.Allocator, _text: []const u8, _flags: i32) []QTableWidgetItem {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.QTableWidget_FindItems(@ptrCast(self.ptr), text_str, @bitCast(flags));
+        const _arr: qtc.libqt_list = qtc.QTableWidget_FindItems(@ptrCast(self.ptr), text_str, @bitCast(_flags));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QTableWidgetItem, _arr.len) catch @panic("QTableWidget.FindItems: Memory allocation failed");
-        const _data: [*]QtC.QTableWidgetItem = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QTableWidgetItem, _arr.len) catch @panic("QTableWidget.findItems: Memory allocation failed");
+        const _data_val: [*]QtC.QTableWidgetItem = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `visualRow` instead
+    ///
+    pub const VisualRow = visualRow;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#visualRow)
     ///
@@ -1846,9 +2314,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` logicalRow: i32 `
     ///
-    pub fn VisualRow(self: QTableWidget, logicalRow: i32) i32 {
+    pub fn visualRow(self: QTableWidget, logicalRow: i32) i32 {
         return qtc.QTableWidget_VisualRow(@ptrCast(self.ptr), @bitCast(logicalRow));
     }
+
+    /// ### DEPRECATED: Use `visualColumn` instead
+    ///
+    pub const VisualColumn = visualColumn;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#visualColumn)
     ///
@@ -1858,9 +2330,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` logicalColumn: i32 `
     ///
-    pub fn VisualColumn(self: QTableWidget, logicalColumn: i32) i32 {
+    pub fn visualColumn(self: QTableWidget, logicalColumn: i32) i32 {
         return qtc.QTableWidget_VisualColumn(@ptrCast(self.ptr), @bitCast(logicalColumn));
     }
+
+    /// ### DEPRECATED: Use `itemAt` instead
+    ///
+    pub const ItemAt = itemAt;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemAt)
     ///
@@ -1870,10 +2346,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ItemAt(self: QTableWidget, p: anytype) QTableWidgetItem {
+    pub fn itemAt(self: QTableWidget, p: anytype) QTableWidgetItem {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QTableWidget_ItemAt(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `itemAt2` instead
+    ///
+    pub const ItemAt2 = itemAt2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemAt)
     ///
@@ -1881,13 +2361,17 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ItemAt2(self: QTableWidget, x: i32, y: i32) QTableWidgetItem {
-        return .{ .ptr = qtc.QTableWidget_ItemAt2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn itemAt2(self: QTableWidget, _x: i32, _y: i32) QTableWidgetItem {
+        return .{ .ptr = qtc.QTableWidget_ItemAt2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `visualItemRect` instead
+    ///
+    pub const VisualItemRect = visualItemRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#visualItemRect)
     ///
@@ -1895,12 +2379,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` item: QTableWidgetItem `
+    /// ` _item: QTableWidgetItem `
     ///
-    pub fn VisualItemRect(self: QTableWidget, item: anytype) QRect {
-        comptime _ = @TypeOf(item)._is_QTableWidgetItem;
-        return .{ .ptr = qtc.QTableWidget_VisualItemRect(@ptrCast(self.ptr), @ptrCast(item.ptr)) };
+    pub fn visualItemRect(self: QTableWidget, _item: anytype) QRect {
+        comptime _ = @TypeOf(_item)._is_QTableWidgetItem;
+        return .{ .ptr = qtc.QTableWidget_VisualItemRect(@ptrCast(self.ptr), @ptrCast(_item.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `itemPrototype` instead
+    ///
+    pub const ItemPrototype = itemPrototype;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemPrototype)
     ///
@@ -1908,9 +2396,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn ItemPrototype(self: QTableWidget) QTableWidgetItem {
+    pub fn itemPrototype(self: QTableWidget) QTableWidgetItem {
         return .{ .ptr = qtc.QTableWidget_ItemPrototype(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setItemPrototype` instead
+    ///
+    pub const SetItemPrototype = setItemPrototype;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#setItemPrototype)
     ///
@@ -1918,12 +2410,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` item: QTableWidgetItem `
+    /// ` _item: QTableWidgetItem `
     ///
-    pub fn SetItemPrototype(self: QTableWidget, item: anytype) void {
-        comptime _ = @TypeOf(item)._is_QTableWidgetItem;
-        qtc.QTableWidget_SetItemPrototype(@ptrCast(self.ptr), @ptrCast(item.ptr));
+    pub fn setItemPrototype(self: QTableWidget, _item: anytype) void {
+        comptime _ = @TypeOf(_item)._is_QTableWidgetItem;
+        qtc.QTableWidget_SetItemPrototype(@ptrCast(self.ptr), @ptrCast(_item.ptr));
     }
+
+    /// ### DEPRECATED: Use `scrollToItem` instead
+    ///
+    pub const ScrollToItem = scrollToItem;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#scrollToItem)
     ///
@@ -1931,12 +2427,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` item: QTableWidgetItem `
+    /// ` _item: QTableWidgetItem `
     ///
-    pub fn ScrollToItem(self: QTableWidget, item: anytype) void {
-        comptime _ = @TypeOf(item)._is_QTableWidgetItem;
-        qtc.QTableWidget_ScrollToItem(@ptrCast(self.ptr), @ptrCast(item.ptr));
+    pub fn scrollToItem(self: QTableWidget, _item: anytype) void {
+        comptime _ = @TypeOf(_item)._is_QTableWidgetItem;
+        qtc.QTableWidget_ScrollToItem(@ptrCast(self.ptr), @ptrCast(_item.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertRow` instead
+    ///
+    pub const InsertRow = insertRow;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#insertRow)
     ///
@@ -1944,11 +2444,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
-    pub fn InsertRow(self: QTableWidget, row: i32) void {
-        qtc.QTableWidget_InsertRow(@ptrCast(self.ptr), @bitCast(row));
+    pub fn insertRow(self: QTableWidget, _row: i32) void {
+        qtc.QTableWidget_InsertRow(@ptrCast(self.ptr), @bitCast(_row));
     }
+
+    /// ### DEPRECATED: Use `insertColumn` instead
+    ///
+    pub const InsertColumn = insertColumn;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#insertColumn)
     ///
@@ -1956,11 +2460,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` column: i32 `
+    /// ` _column: i32 `
     ///
-    pub fn InsertColumn(self: QTableWidget, column: i32) void {
-        qtc.QTableWidget_InsertColumn(@ptrCast(self.ptr), @bitCast(column));
+    pub fn insertColumn(self: QTableWidget, _column: i32) void {
+        qtc.QTableWidget_InsertColumn(@ptrCast(self.ptr), @bitCast(_column));
     }
+
+    /// ### DEPRECATED: Use `removeRow` instead
+    ///
+    pub const RemoveRow = removeRow;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#removeRow)
     ///
@@ -1968,11 +2476,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
-    pub fn RemoveRow(self: QTableWidget, row: i32) void {
-        qtc.QTableWidget_RemoveRow(@ptrCast(self.ptr), @bitCast(row));
+    pub fn removeRow(self: QTableWidget, _row: i32) void {
+        qtc.QTableWidget_RemoveRow(@ptrCast(self.ptr), @bitCast(_row));
     }
+
+    /// ### DEPRECATED: Use `removeColumn` instead
+    ///
+    pub const RemoveColumn = removeColumn;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#removeColumn)
     ///
@@ -1980,11 +2492,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` column: i32 `
+    /// ` _column: i32 `
     ///
-    pub fn RemoveColumn(self: QTableWidget, column: i32) void {
-        qtc.QTableWidget_RemoveColumn(@ptrCast(self.ptr), @bitCast(column));
+    pub fn removeColumn(self: QTableWidget, _column: i32) void {
+        qtc.QTableWidget_RemoveColumn(@ptrCast(self.ptr), @bitCast(_column));
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#clear)
     ///
@@ -1992,9 +2508,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn Clear(self: QTableWidget) void {
+    pub fn clear(self: QTableWidget) void {
         qtc.QTableWidget_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearContents` instead
+    ///
+    pub const ClearContents = clearContents;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#clearContents)
     ///
@@ -2002,22 +2522,30 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn ClearContents(self: QTableWidget) void {
+    pub fn clearContents(self: QTableWidget) void {
         qtc.QTableWidget_ClearContents(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `itemPressed` instead
+    ///
+    pub const ItemPressed = itemPressed;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemPressed)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` item: QTableWidgetItem `
+    /// ` _item: QTableWidgetItem `
     ///
-    pub fn ItemPressed(self: QTableWidget, item: anytype) void {
-        comptime _ = @TypeOf(item)._is_QTableWidgetItem;
-        qtc.QTableWidget_ItemPressed(@ptrCast(self.ptr), @ptrCast(item.ptr));
+    pub fn itemPressed(self: QTableWidget, _item: anytype) void {
+        comptime _ = @TypeOf(_item)._is_QTableWidgetItem;
+        qtc.QTableWidget_ItemPressed(@ptrCast(self.ptr), @ptrCast(_item.ptr));
     }
+
+    /// ### DEPRECATED: Use `onItemPressed` instead
+    ///
+    pub const OnItemPressed = onItemPressed;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemPressed)
     ///
@@ -2027,22 +2555,30 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, item: QTableWidgetItem) callconv(.c) void `
     ///
-    pub fn OnItemPressed(self: QTableWidget, callback: *const fn (QTableWidget, QTableWidgetItem) callconv(.c) void) void {
+    pub fn onItemPressed(self: QTableWidget, callback: *const fn (QTableWidget, QTableWidgetItem) callconv(.c) void) void {
         qtc.QTableWidget_Connect_ItemPressed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `itemClicked` instead
+    ///
+    pub const ItemClicked = itemClicked;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemClicked)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` item: QTableWidgetItem `
+    /// ` _item: QTableWidgetItem `
     ///
-    pub fn ItemClicked(self: QTableWidget, item: anytype) void {
-        comptime _ = @TypeOf(item)._is_QTableWidgetItem;
-        qtc.QTableWidget_ItemClicked(@ptrCast(self.ptr), @ptrCast(item.ptr));
+    pub fn itemClicked(self: QTableWidget, _item: anytype) void {
+        comptime _ = @TypeOf(_item)._is_QTableWidgetItem;
+        qtc.QTableWidget_ItemClicked(@ptrCast(self.ptr), @ptrCast(_item.ptr));
     }
+
+    /// ### DEPRECATED: Use `onItemClicked` instead
+    ///
+    pub const OnItemClicked = onItemClicked;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemClicked)
     ///
@@ -2052,22 +2588,30 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, item: QTableWidgetItem) callconv(.c) void `
     ///
-    pub fn OnItemClicked(self: QTableWidget, callback: *const fn (QTableWidget, QTableWidgetItem) callconv(.c) void) void {
+    pub fn onItemClicked(self: QTableWidget, callback: *const fn (QTableWidget, QTableWidgetItem) callconv(.c) void) void {
         qtc.QTableWidget_Connect_ItemClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `itemDoubleClicked` instead
+    ///
+    pub const ItemDoubleClicked = itemDoubleClicked;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemDoubleClicked)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` item: QTableWidgetItem `
+    /// ` _item: QTableWidgetItem `
     ///
-    pub fn ItemDoubleClicked(self: QTableWidget, item: anytype) void {
-        comptime _ = @TypeOf(item)._is_QTableWidgetItem;
-        qtc.QTableWidget_ItemDoubleClicked(@ptrCast(self.ptr), @ptrCast(item.ptr));
+    pub fn itemDoubleClicked(self: QTableWidget, _item: anytype) void {
+        comptime _ = @TypeOf(_item)._is_QTableWidgetItem;
+        qtc.QTableWidget_ItemDoubleClicked(@ptrCast(self.ptr), @ptrCast(_item.ptr));
     }
+
+    /// ### DEPRECATED: Use `onItemDoubleClicked` instead
+    ///
+    pub const OnItemDoubleClicked = onItemDoubleClicked;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemDoubleClicked)
     ///
@@ -2077,22 +2621,30 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, item: QTableWidgetItem) callconv(.c) void `
     ///
-    pub fn OnItemDoubleClicked(self: QTableWidget, callback: *const fn (QTableWidget, QTableWidgetItem) callconv(.c) void) void {
+    pub fn onItemDoubleClicked(self: QTableWidget, callback: *const fn (QTableWidget, QTableWidgetItem) callconv(.c) void) void {
         qtc.QTableWidget_Connect_ItemDoubleClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `itemActivated` instead
+    ///
+    pub const ItemActivated = itemActivated;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemActivated)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` item: QTableWidgetItem `
+    /// ` _item: QTableWidgetItem `
     ///
-    pub fn ItemActivated(self: QTableWidget, item: anytype) void {
-        comptime _ = @TypeOf(item)._is_QTableWidgetItem;
-        qtc.QTableWidget_ItemActivated(@ptrCast(self.ptr), @ptrCast(item.ptr));
+    pub fn itemActivated(self: QTableWidget, _item: anytype) void {
+        comptime _ = @TypeOf(_item)._is_QTableWidgetItem;
+        qtc.QTableWidget_ItemActivated(@ptrCast(self.ptr), @ptrCast(_item.ptr));
     }
+
+    /// ### DEPRECATED: Use `onItemActivated` instead
+    ///
+    pub const OnItemActivated = onItemActivated;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemActivated)
     ///
@@ -2102,22 +2654,30 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, item: QTableWidgetItem) callconv(.c) void `
     ///
-    pub fn OnItemActivated(self: QTableWidget, callback: *const fn (QTableWidget, QTableWidgetItem) callconv(.c) void) void {
+    pub fn onItemActivated(self: QTableWidget, callback: *const fn (QTableWidget, QTableWidgetItem) callconv(.c) void) void {
         qtc.QTableWidget_Connect_ItemActivated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `itemEntered` instead
+    ///
+    pub const ItemEntered = itemEntered;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemEntered)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` item: QTableWidgetItem `
+    /// ` _item: QTableWidgetItem `
     ///
-    pub fn ItemEntered(self: QTableWidget, item: anytype) void {
-        comptime _ = @TypeOf(item)._is_QTableWidgetItem;
-        qtc.QTableWidget_ItemEntered(@ptrCast(self.ptr), @ptrCast(item.ptr));
+    pub fn itemEntered(self: QTableWidget, _item: anytype) void {
+        comptime _ = @TypeOf(_item)._is_QTableWidgetItem;
+        qtc.QTableWidget_ItemEntered(@ptrCast(self.ptr), @ptrCast(_item.ptr));
     }
+
+    /// ### DEPRECATED: Use `onItemEntered` instead
+    ///
+    pub const OnItemEntered = onItemEntered;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemEntered)
     ///
@@ -2127,22 +2687,30 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, item: QTableWidgetItem) callconv(.c) void `
     ///
-    pub fn OnItemEntered(self: QTableWidget, callback: *const fn (QTableWidget, QTableWidgetItem) callconv(.c) void) void {
+    pub fn onItemEntered(self: QTableWidget, callback: *const fn (QTableWidget, QTableWidgetItem) callconv(.c) void) void {
         qtc.QTableWidget_Connect_ItemEntered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `itemChanged` instead
+    ///
+    pub const ItemChanged = itemChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` item: QTableWidgetItem `
+    /// ` _item: QTableWidgetItem `
     ///
-    pub fn ItemChanged(self: QTableWidget, item: anytype) void {
-        comptime _ = @TypeOf(item)._is_QTableWidgetItem;
-        qtc.QTableWidget_ItemChanged(@ptrCast(self.ptr), @ptrCast(item.ptr));
+    pub fn itemChanged(self: QTableWidget, _item: anytype) void {
+        comptime _ = @TypeOf(_item)._is_QTableWidgetItem;
+        qtc.QTableWidget_ItemChanged(@ptrCast(self.ptr), @ptrCast(_item.ptr));
     }
+
+    /// ### DEPRECATED: Use `onItemChanged` instead
+    ///
+    pub const OnItemChanged = onItemChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemChanged)
     ///
@@ -2152,9 +2720,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, item: QTableWidgetItem) callconv(.c) void `
     ///
-    pub fn OnItemChanged(self: QTableWidget, callback: *const fn (QTableWidget, QTableWidgetItem) callconv(.c) void) void {
+    pub fn onItemChanged(self: QTableWidget, callback: *const fn (QTableWidget, QTableWidgetItem) callconv(.c) void) void {
         qtc.QTableWidget_Connect_ItemChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `currentItemChanged` instead
+    ///
+    pub const CurrentItemChanged = currentItemChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#currentItemChanged)
     ///
@@ -2166,11 +2738,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` previous: QTableWidgetItem `
     ///
-    pub fn CurrentItemChanged(self: QTableWidget, current: anytype, previous: anytype) void {
+    pub fn currentItemChanged(self: QTableWidget, current: anytype, previous: anytype) void {
         comptime _ = @TypeOf(current)._is_QTableWidgetItem;
         comptime _ = @TypeOf(previous)._is_QTableWidgetItem;
         qtc.QTableWidget_CurrentItemChanged(@ptrCast(self.ptr), @ptrCast(current.ptr), @ptrCast(previous.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCurrentItemChanged` instead
+    ///
+    pub const OnCurrentItemChanged = onCurrentItemChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#currentItemChanged)
     ///
@@ -2180,9 +2756,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, current: QTableWidgetItem, previous: QTableWidgetItem) callconv(.c) void `
     ///
-    pub fn OnCurrentItemChanged(self: QTableWidget, callback: *const fn (QTableWidget, QTableWidgetItem, QTableWidgetItem) callconv(.c) void) void {
+    pub fn onCurrentItemChanged(self: QTableWidget, callback: *const fn (QTableWidget, QTableWidgetItem, QTableWidgetItem) callconv(.c) void) void {
         qtc.QTableWidget_Connect_CurrentItemChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `itemSelectionChanged` instead
+    ///
+    pub const ItemSelectionChanged = itemSelectionChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemSelectionChanged)
     ///
@@ -2190,9 +2770,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn ItemSelectionChanged(self: QTableWidget) void {
+    pub fn itemSelectionChanged(self: QTableWidget) void {
         qtc.QTableWidget_ItemSelectionChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onItemSelectionChanged` instead
+    ///
+    pub const OnItemSelectionChanged = onItemSelectionChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemSelectionChanged)
     ///
@@ -2202,23 +2786,31 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget) callconv(.c) void `
     ///
-    pub fn OnItemSelectionChanged(self: QTableWidget, callback: *const fn (QTableWidget) callconv(.c) void) void {
+    pub fn onItemSelectionChanged(self: QTableWidget, callback: *const fn (QTableWidget) callconv(.c) void) void {
         qtc.QTableWidget_Connect_ItemSelectionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `cellPressed` instead
+    ///
+    pub const CellPressed = cellPressed;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#cellPressed)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
-    /// ` column: i32 `
+    /// ` _column: i32 `
     ///
-    pub fn CellPressed(self: QTableWidget, row: i32, column: i32) void {
-        qtc.QTableWidget_CellPressed(@ptrCast(self.ptr), @bitCast(row), @bitCast(column));
+    pub fn cellPressed(self: QTableWidget, _row: i32, _column: i32) void {
+        qtc.QTableWidget_CellPressed(@ptrCast(self.ptr), @bitCast(_row), @bitCast(_column));
     }
+
+    /// ### DEPRECATED: Use `onCellPressed` instead
+    ///
+    pub const OnCellPressed = onCellPressed;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#cellPressed)
     ///
@@ -2228,23 +2820,31 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, row: i32, column: i32) callconv(.c) void `
     ///
-    pub fn OnCellPressed(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32) callconv(.c) void) void {
+    pub fn onCellPressed(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32) callconv(.c) void) void {
         qtc.QTableWidget_Connect_CellPressed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `cellClicked` instead
+    ///
+    pub const CellClicked = cellClicked;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#cellClicked)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
-    /// ` column: i32 `
+    /// ` _column: i32 `
     ///
-    pub fn CellClicked(self: QTableWidget, row: i32, column: i32) void {
-        qtc.QTableWidget_CellClicked(@ptrCast(self.ptr), @bitCast(row), @bitCast(column));
+    pub fn cellClicked(self: QTableWidget, _row: i32, _column: i32) void {
+        qtc.QTableWidget_CellClicked(@ptrCast(self.ptr), @bitCast(_row), @bitCast(_column));
     }
+
+    /// ### DEPRECATED: Use `onCellClicked` instead
+    ///
+    pub const OnCellClicked = onCellClicked;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#cellClicked)
     ///
@@ -2254,23 +2854,31 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, row: i32, column: i32) callconv(.c) void `
     ///
-    pub fn OnCellClicked(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32) callconv(.c) void) void {
+    pub fn onCellClicked(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32) callconv(.c) void) void {
         qtc.QTableWidget_Connect_CellClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `cellDoubleClicked` instead
+    ///
+    pub const CellDoubleClicked = cellDoubleClicked;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#cellDoubleClicked)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
-    /// ` column: i32 `
+    /// ` _column: i32 `
     ///
-    pub fn CellDoubleClicked(self: QTableWidget, row: i32, column: i32) void {
-        qtc.QTableWidget_CellDoubleClicked(@ptrCast(self.ptr), @bitCast(row), @bitCast(column));
+    pub fn cellDoubleClicked(self: QTableWidget, _row: i32, _column: i32) void {
+        qtc.QTableWidget_CellDoubleClicked(@ptrCast(self.ptr), @bitCast(_row), @bitCast(_column));
     }
+
+    /// ### DEPRECATED: Use `onCellDoubleClicked` instead
+    ///
+    pub const OnCellDoubleClicked = onCellDoubleClicked;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#cellDoubleClicked)
     ///
@@ -2280,23 +2888,31 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, row: i32, column: i32) callconv(.c) void `
     ///
-    pub fn OnCellDoubleClicked(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32) callconv(.c) void) void {
+    pub fn onCellDoubleClicked(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32) callconv(.c) void) void {
         qtc.QTableWidget_Connect_CellDoubleClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `cellActivated` instead
+    ///
+    pub const CellActivated = cellActivated;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#cellActivated)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
-    /// ` column: i32 `
+    /// ` _column: i32 `
     ///
-    pub fn CellActivated(self: QTableWidget, row: i32, column: i32) void {
-        qtc.QTableWidget_CellActivated(@ptrCast(self.ptr), @bitCast(row), @bitCast(column));
+    pub fn cellActivated(self: QTableWidget, _row: i32, _column: i32) void {
+        qtc.QTableWidget_CellActivated(@ptrCast(self.ptr), @bitCast(_row), @bitCast(_column));
     }
+
+    /// ### DEPRECATED: Use `onCellActivated` instead
+    ///
+    pub const OnCellActivated = onCellActivated;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#cellActivated)
     ///
@@ -2306,23 +2922,31 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, row: i32, column: i32) callconv(.c) void `
     ///
-    pub fn OnCellActivated(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32) callconv(.c) void) void {
+    pub fn onCellActivated(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32) callconv(.c) void) void {
         qtc.QTableWidget_Connect_CellActivated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `cellEntered` instead
+    ///
+    pub const CellEntered = cellEntered;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#cellEntered)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
-    /// ` column: i32 `
+    /// ` _column: i32 `
     ///
-    pub fn CellEntered(self: QTableWidget, row: i32, column: i32) void {
-        qtc.QTableWidget_CellEntered(@ptrCast(self.ptr), @bitCast(row), @bitCast(column));
+    pub fn cellEntered(self: QTableWidget, _row: i32, _column: i32) void {
+        qtc.QTableWidget_CellEntered(@ptrCast(self.ptr), @bitCast(_row), @bitCast(_column));
     }
+
+    /// ### DEPRECATED: Use `onCellEntered` instead
+    ///
+    pub const OnCellEntered = onCellEntered;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#cellEntered)
     ///
@@ -2332,23 +2956,31 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, row: i32, column: i32) callconv(.c) void `
     ///
-    pub fn OnCellEntered(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32) callconv(.c) void) void {
+    pub fn onCellEntered(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32) callconv(.c) void) void {
         qtc.QTableWidget_Connect_CellEntered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `cellChanged` instead
+    ///
+    pub const CellChanged = cellChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#cellChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
-    /// ` column: i32 `
+    /// ` _column: i32 `
     ///
-    pub fn CellChanged(self: QTableWidget, row: i32, column: i32) void {
-        qtc.QTableWidget_CellChanged(@ptrCast(self.ptr), @bitCast(row), @bitCast(column));
+    pub fn cellChanged(self: QTableWidget, _row: i32, _column: i32) void {
+        qtc.QTableWidget_CellChanged(@ptrCast(self.ptr), @bitCast(_row), @bitCast(_column));
     }
+
+    /// ### DEPRECATED: Use `onCellChanged` instead
+    ///
+    pub const OnCellChanged = onCellChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#cellChanged)
     ///
@@ -2358,9 +2990,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, row: i32, column: i32) callconv(.c) void `
     ///
-    pub fn OnCellChanged(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32) callconv(.c) void) void {
+    pub fn onCellChanged(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32) callconv(.c) void) void {
         qtc.QTableWidget_Connect_CellChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `currentCellChanged` instead
+    ///
+    pub const CurrentCellChanged = currentCellChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#currentCellChanged)
     ///
@@ -2368,17 +3004,21 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` currentRow: i32 `
+    /// ` _currentRow: i32 `
     ///
-    /// ` currentColumn: i32 `
+    /// ` _currentColumn: i32 `
     ///
     /// ` previousRow: i32 `
     ///
     /// ` previousColumn: i32 `
     ///
-    pub fn CurrentCellChanged(self: QTableWidget, currentRow: i32, currentColumn: i32, previousRow: i32, previousColumn: i32) void {
-        qtc.QTableWidget_CurrentCellChanged(@ptrCast(self.ptr), @bitCast(currentRow), @bitCast(currentColumn), @bitCast(previousRow), @bitCast(previousColumn));
+    pub fn currentCellChanged(self: QTableWidget, _currentRow: i32, _currentColumn: i32, previousRow: i32, previousColumn: i32) void {
+        qtc.QTableWidget_CurrentCellChanged(@ptrCast(self.ptr), @bitCast(_currentRow), @bitCast(_currentColumn), @bitCast(previousRow), @bitCast(previousColumn));
     }
+
+    /// ### DEPRECATED: Use `onCurrentCellChanged` instead
+    ///
+    pub const OnCurrentCellChanged = onCurrentCellChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#currentCellChanged)
     ///
@@ -2388,9 +3028,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, currentRow: i32, currentColumn: i32, previousRow: i32, previousColumn: i32) callconv(.c) void `
     ///
-    pub fn OnCurrentCellChanged(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32, i32, i32) callconv(.c) void) void {
+    pub fn onCurrentCellChanged(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32, i32, i32) callconv(.c) void) void {
         qtc.QTableWidget_Connect_CurrentCellChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#event)
     ///
@@ -2400,10 +3044,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn Event(self: QTableWidget, e: anytype) bool {
+    pub fn event(self: QTableWidget, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.QTableWidget_Event(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#event)
     ///
@@ -2415,13 +3063,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, e: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QTableWidget, callback: *const fn (QTableWidget, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QTableWidget, callback: *const fn (QTableWidget, QEvent) callconv(.c) bool) void {
         qtc.QTableWidget_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#event)
     ///
@@ -2433,10 +3081,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn SuperEvent(self: QTableWidget, e: anytype) bool {
+    pub fn superEvent(self: QTableWidget, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.QTableWidget_SuperEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `mimeTypes` instead
+    ///
+    pub const MimeTypes = mimeTypes;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#mimeTypes)
     ///
@@ -2446,7 +3098,7 @@ pub const QTableWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MimeTypes(self: QTableWidget, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn mimeTypes(self: QTableWidget, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QTableWidget_MimeTypes(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -2454,15 +3106,19 @@ pub const QTableWidget = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QTableWidget.MimeTypes: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QTableWidget.mimeTypes: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QTableWidget.MimeTypes: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QTableWidget.mimeTypes: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onMimeTypes` instead
+    ///
+    pub const OnMimeTypes = onMimeTypes;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#mimeTypes)
     ///
@@ -2476,13 +3132,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn OnMimeTypes(self: QTableWidget, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
+    pub fn onMimeTypes(self: QTableWidget, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.QTableWidget_OnMimeTypes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMimeTypes` instead
+    /// ### DEPRECATED: Use `superMimeTypes` instead
     ///
-    pub const QBaseMimeTypes = SuperMimeTypes;
+    pub const SuperMimeTypes = superMimeTypes;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#mimeTypes)
     ///
@@ -2494,7 +3150,7 @@ pub const QTableWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperMimeTypes(self: QTableWidget, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn superMimeTypes(self: QTableWidget, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QTableWidget_SuperMimeTypes(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -2502,15 +3158,19 @@ pub const QTableWidget = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QTableWidget.MimeTypes: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QTableWidget.mimeTypes: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QTableWidget.MimeTypes: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QTableWidget.mimeTypes: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `mimeData` instead
+    ///
+    pub const MimeData = mimeData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#mimeData)
     ///
@@ -2518,15 +3178,19 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` items: []QTableWidgetItem `
+    /// ` _items: []QTableWidgetItem `
     ///
-    pub fn MimeData(self: QTableWidget, items: []QTableWidgetItem) QMimeData {
+    pub fn mimeData(self: QTableWidget, _items: []QTableWidgetItem) QMimeData {
         const items_list = qtc.libqt_list{
-            .len = items.len,
-            .data = @ptrCast(items.ptr),
+            .len = _items.len,
+            .data = @ptrCast(_items.ptr),
         };
         return .{ .ptr = qtc.QTableWidget_MimeData(@ptrCast(self.ptr), items_list) };
     }
+
+    /// ### DEPRECATED: Use `onMimeData` instead
+    ///
+    pub const OnMimeData = onMimeData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#mimeData)
     ///
@@ -2538,13 +3202,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, items: qtc.libqt_list ([]QTableWidgetItem)) callconv(.c) QMimeData `
     ///
-    pub fn OnMimeData(self: QTableWidget, callback: *const fn (QTableWidget, qtc.libqt_list) callconv(.c) QMimeData) void {
+    pub fn onMimeData(self: QTableWidget, callback: *const fn (QTableWidget, qtc.libqt_list) callconv(.c) QMimeData) void {
         qtc.QTableWidget_OnMimeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMimeData` instead
+    /// ### DEPRECATED: Use `superMimeData` instead
     ///
-    pub const QBaseMimeData = SuperMimeData;
+    pub const SuperMimeData = superMimeData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#mimeData)
     ///
@@ -2554,15 +3218,19 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` items: []QTableWidgetItem `
+    /// ` _items: []QTableWidgetItem `
     ///
-    pub fn SuperMimeData(self: QTableWidget, items: []QTableWidgetItem) QMimeData {
+    pub fn superMimeData(self: QTableWidget, _items: []QTableWidgetItem) QMimeData {
         const items_list = qtc.libqt_list{
-            .len = items.len,
-            .data = @ptrCast(items.ptr),
+            .len = _items.len,
+            .data = @ptrCast(_items.ptr),
         };
         return .{ .ptr = qtc.QTableWidget_SuperMimeData(@ptrCast(self.ptr), items_list) };
     }
+
+    /// ### DEPRECATED: Use `dropMimeData` instead
+    ///
+    pub const DropMimeData = dropMimeData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#dropMimeData)
     ///
@@ -2570,18 +3238,22 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
-    /// ` column: i32 `
+    /// ` _column: i32 `
     ///
-    /// ` data: QMimeData `
+    /// ` _data: QMimeData `
     ///
     /// ` action: qnamespace_enums.DropAction `
     ///
-    pub fn DropMimeData(self: QTableWidget, row: i32, column: i32, data: anytype, action: i32) bool {
-        comptime _ = @TypeOf(data)._is_QMimeData;
-        return qtc.QTableWidget_DropMimeData(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(data.ptr), @bitCast(action));
+    pub fn dropMimeData(self: QTableWidget, _row: i32, _column: i32, _data: anytype, action: i32) bool {
+        comptime _ = @TypeOf(_data)._is_QMimeData;
+        return qtc.QTableWidget_DropMimeData(@ptrCast(self.ptr), @bitCast(_row), @bitCast(_column), @ptrCast(_data.ptr), @bitCast(action));
     }
+
+    /// ### DEPRECATED: Use `onDropMimeData` instead
+    ///
+    pub const OnDropMimeData = onDropMimeData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#dropMimeData)
     ///
@@ -2593,13 +3265,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, row: i32, column: i32, data: QMimeData, action: qnamespace_enums.DropAction) callconv(.c) bool `
     ///
-    pub fn OnDropMimeData(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32, QMimeData, i32) callconv(.c) bool) void {
+    pub fn onDropMimeData(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32, QMimeData, i32) callconv(.c) bool) void {
         qtc.QTableWidget_OnDropMimeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDropMimeData` instead
+    /// ### DEPRECATED: Use `superDropMimeData` instead
     ///
-    pub const QBaseDropMimeData = SuperDropMimeData;
+    pub const SuperDropMimeData = superDropMimeData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#dropMimeData)
     ///
@@ -2609,18 +3281,22 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
-    /// ` column: i32 `
+    /// ` _column: i32 `
     ///
-    /// ` data: QMimeData `
+    /// ` _data: QMimeData `
     ///
     /// ` action: qnamespace_enums.DropAction `
     ///
-    pub fn SuperDropMimeData(self: QTableWidget, row: i32, column: i32, data: anytype, action: i32) bool {
-        comptime _ = @TypeOf(data)._is_QMimeData;
-        return qtc.QTableWidget_SuperDropMimeData(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(data.ptr), @bitCast(action));
+    pub fn superDropMimeData(self: QTableWidget, _row: i32, _column: i32, _data: anytype, action: i32) bool {
+        comptime _ = @TypeOf(_data)._is_QMimeData;
+        return qtc.QTableWidget_SuperDropMimeData(@ptrCast(self.ptr), @bitCast(_row), @bitCast(_column), @ptrCast(_data.ptr), @bitCast(action));
     }
+
+    /// ### DEPRECATED: Use `supportedDropActions` instead
+    ///
+    pub const SupportedDropActions = supportedDropActions;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#supportedDropActions)
     ///
@@ -2632,9 +3308,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn SupportedDropActions(self: QTableWidget) i32 {
+    pub fn supportedDropActions(self: QTableWidget) i32 {
         return qtc.QTableWidget_SupportedDropActions(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSupportedDropActions` instead
+    ///
+    pub const OnSupportedDropActions = onSupportedDropActions;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#supportedDropActions)
     ///
@@ -2646,13 +3326,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSupportedDropActions(self: QTableWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSupportedDropActions(self: QTableWidget, callback: *const fn () callconv(.c) i32) void {
         qtc.QTableWidget_OnSupportedDropActions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSupportedDropActions` instead
+    /// ### DEPRECATED: Use `superSupportedDropActions` instead
     ///
-    pub const QBaseSupportedDropActions = SuperSupportedDropActions;
+    pub const SuperSupportedDropActions = superSupportedDropActions;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#supportedDropActions)
     ///
@@ -2666,9 +3346,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn SuperSupportedDropActions(self: QTableWidget) i32 {
+    pub fn superSupportedDropActions(self: QTableWidget) i32 {
         return qtc.QTableWidget_SuperSupportedDropActions(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#dropEvent)
     ///
@@ -2676,12 +3360,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: QTableWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.QTableWidget_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: QTableWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.QTableWidget_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#dropEvent)
     ///
@@ -2693,13 +3381,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: QTableWidget, callback: *const fn (QTableWidget, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: QTableWidget, callback: *const fn (QTableWidget, QDropEvent) callconv(.c) void) void {
         qtc.QTableWidget_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#dropEvent)
     ///
@@ -2709,12 +3397,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: QTableWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.QTableWidget_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: QTableWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.QTableWidget_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -2726,15 +3418,19 @@ pub const QTableWidget = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTableWidget.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTableWidget.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -2748,15 +3444,19 @@ pub const QTableWidget = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTableWidget.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTableWidget.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `sortItems2` instead
+    ///
+    pub const SortItems2 = sortItems2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#sortItems)
     ///
@@ -2764,13 +3464,17 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` column: i32 `
+    /// ` _column: i32 `
     ///
     /// ` order: qnamespace_enums.SortOrder `
     ///
-    pub fn SortItems2(self: QTableWidget, column: i32, order: i32) void {
-        qtc.QTableWidget_SortItems2(@ptrCast(self.ptr), @bitCast(column), @bitCast(order));
+    pub fn sortItems2(self: QTableWidget, _column: i32, order: i32) void {
+        qtc.QTableWidget_SortItems2(@ptrCast(self.ptr), @bitCast(_column), @bitCast(order));
     }
+
+    /// ### DEPRECATED: Use `scrollToItem2` instead
+    ///
+    pub const ScrollToItem2 = scrollToItem2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#scrollToItem)
     ///
@@ -2778,14 +3482,18 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` item: QTableWidgetItem `
+    /// ` _item: QTableWidgetItem `
     ///
     /// ` hint: qabstractitemview_enums.ScrollHint `
     ///
-    pub fn ScrollToItem2(self: QTableWidget, item: anytype, hint: i32) void {
-        comptime _ = @TypeOf(item)._is_QTableWidgetItem;
-        qtc.QTableWidget_ScrollToItem2(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(hint));
+    pub fn scrollToItem2(self: QTableWidget, _item: anytype, hint: i32) void {
+        comptime _ = @TypeOf(_item)._is_QTableWidgetItem;
+        qtc.QTableWidget_ScrollToItem2(@ptrCast(self.ptr), @ptrCast(_item.ptr), @bitCast(hint));
     }
+
+    /// ### DEPRECATED: Use `setModel` instead
+    ///
+    pub const SetModel = setModel;
 
     /// Inherited from QTableView
     ///
@@ -2795,12 +3503,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` model: QAbstractItemModel `
+    /// ` _model: QAbstractItemModel `
     ///
-    pub fn SetModel(self: QTableWidget, model: anytype) void {
-        comptime _ = @TypeOf(model)._is_QAbstractItemModel;
-        qtc.QTableView_SetModel(@ptrCast(self.ptr), @ptrCast(model.ptr));
+    pub fn setModel(self: QTableWidget, _model: anytype) void {
+        comptime _ = @TypeOf(_model)._is_QAbstractItemModel;
+        qtc.QTableView_SetModel(@ptrCast(self.ptr), @ptrCast(_model.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetModel` instead
+    ///
+    pub const OnSetModel = onSetModel;
 
     /// Inherited from QTableView
     ///
@@ -2814,13 +3526,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, model: QAbstractItemModel) callconv(.c) void `
     ///
-    pub fn OnSetModel(self: QTableWidget, callback: *const fn (QTableWidget, QAbstractItemModel) callconv(.c) void) void {
+    pub fn onSetModel(self: QTableWidget, callback: *const fn (QTableWidget, QAbstractItemModel) callconv(.c) void) void {
         qtc.QTableView_OnSetModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetModel` instead
+    /// ### DEPRECATED: Use `superSetModel` instead
     ///
-    pub const QBaseSetModel = SuperSetModel;
+    pub const SuperSetModel = superSetModel;
 
     /// Inherited from QTableView
     ///
@@ -2832,12 +3544,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` model: QAbstractItemModel `
+    /// ` _model: QAbstractItemModel `
     ///
-    pub fn SuperSetModel(self: QTableWidget, model: anytype) void {
-        comptime _ = @TypeOf(model)._is_QAbstractItemModel;
-        qtc.QTableView_SuperSetModel(@ptrCast(self.ptr), @ptrCast(model.ptr));
+    pub fn superSetModel(self: QTableWidget, _model: anytype) void {
+        comptime _ = @TypeOf(_model)._is_QAbstractItemModel;
+        qtc.QTableView_SuperSetModel(@ptrCast(self.ptr), @ptrCast(_model.ptr));
     }
+
+    /// ### DEPRECATED: Use `horizontalHeader` instead
+    ///
+    pub const HorizontalHeader = horizontalHeader;
 
     /// Inherited from QTableView
     ///
@@ -2847,9 +3563,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn HorizontalHeader(self: QTableWidget) QHeaderView {
+    pub fn horizontalHeader(self: QTableWidget) QHeaderView {
         return .{ .ptr = qtc.QTableView_HorizontalHeader(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `verticalHeader` instead
+    ///
+    pub const VerticalHeader = verticalHeader;
 
     /// Inherited from QTableView
     ///
@@ -2859,9 +3579,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn VerticalHeader(self: QTableWidget) QHeaderView {
+    pub fn verticalHeader(self: QTableWidget) QHeaderView {
         return .{ .ptr = qtc.QTableView_VerticalHeader(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setHorizontalHeader` instead
+    ///
+    pub const SetHorizontalHeader = setHorizontalHeader;
 
     /// Inherited from QTableView
     ///
@@ -2873,10 +3597,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` header: QHeaderView `
     ///
-    pub fn SetHorizontalHeader(self: QTableWidget, header: anytype) void {
+    pub fn setHorizontalHeader(self: QTableWidget, header: anytype) void {
         comptime _ = @TypeOf(header)._is_QHeaderView;
         qtc.QTableView_SetHorizontalHeader(@ptrCast(self.ptr), @ptrCast(header.ptr));
     }
+
+    /// ### DEPRECATED: Use `setVerticalHeader` instead
+    ///
+    pub const SetVerticalHeader = setVerticalHeader;
 
     /// Inherited from QTableView
     ///
@@ -2888,10 +3616,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` header: QHeaderView `
     ///
-    pub fn SetVerticalHeader(self: QTableWidget, header: anytype) void {
+    pub fn setVerticalHeader(self: QTableWidget, header: anytype) void {
         comptime _ = @TypeOf(header)._is_QHeaderView;
         qtc.QTableView_SetVerticalHeader(@ptrCast(self.ptr), @ptrCast(header.ptr));
     }
+
+    /// ### DEPRECATED: Use `rowViewportPosition` instead
+    ///
+    pub const RowViewportPosition = rowViewportPosition;
 
     /// Inherited from QTableView
     ///
@@ -2901,11 +3633,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
-    pub fn RowViewportPosition(self: QTableWidget, row: i32) i32 {
-        return qtc.QTableView_RowViewportPosition(@ptrCast(self.ptr), @bitCast(row));
+    pub fn rowViewportPosition(self: QTableWidget, _row: i32) i32 {
+        return qtc.QTableView_RowViewportPosition(@ptrCast(self.ptr), @bitCast(_row));
     }
+
+    /// ### DEPRECATED: Use `rowAt` instead
+    ///
+    pub const RowAt = rowAt;
 
     /// Inherited from QTableView
     ///
@@ -2915,11 +3651,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn RowAt(self: QTableWidget, y: i32) i32 {
-        return qtc.QTableView_RowAt(@ptrCast(self.ptr), @bitCast(y));
+    pub fn rowAt(self: QTableWidget, _y: i32) i32 {
+        return qtc.QTableView_RowAt(@ptrCast(self.ptr), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `setRowHeight` instead
+    ///
+    pub const SetRowHeight = setRowHeight;
 
     /// Inherited from QTableView
     ///
@@ -2929,13 +3669,17 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
-    /// ` height: i32 `
+    /// ` _height: i32 `
     ///
-    pub fn SetRowHeight(self: QTableWidget, row: i32, height: i32) void {
-        qtc.QTableView_SetRowHeight(@ptrCast(self.ptr), @bitCast(row), @bitCast(height));
+    pub fn setRowHeight(self: QTableWidget, _row: i32, _height: i32) void {
+        qtc.QTableView_SetRowHeight(@ptrCast(self.ptr), @bitCast(_row), @bitCast(_height));
     }
+
+    /// ### DEPRECATED: Use `rowHeight` instead
+    ///
+    pub const RowHeight = rowHeight;
 
     /// Inherited from QTableView
     ///
@@ -2945,11 +3689,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
-    pub fn RowHeight(self: QTableWidget, row: i32) i32 {
-        return qtc.QTableView_RowHeight(@ptrCast(self.ptr), @bitCast(row));
+    pub fn rowHeight(self: QTableWidget, _row: i32) i32 {
+        return qtc.QTableView_RowHeight(@ptrCast(self.ptr), @bitCast(_row));
     }
+
+    /// ### DEPRECATED: Use `columnViewportPosition` instead
+    ///
+    pub const ColumnViewportPosition = columnViewportPosition;
 
     /// Inherited from QTableView
     ///
@@ -2959,11 +3707,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` column: i32 `
+    /// ` _column: i32 `
     ///
-    pub fn ColumnViewportPosition(self: QTableWidget, column: i32) i32 {
-        return qtc.QTableView_ColumnViewportPosition(@ptrCast(self.ptr), @bitCast(column));
+    pub fn columnViewportPosition(self: QTableWidget, _column: i32) i32 {
+        return qtc.QTableView_ColumnViewportPosition(@ptrCast(self.ptr), @bitCast(_column));
     }
+
+    /// ### DEPRECATED: Use `columnAt` instead
+    ///
+    pub const ColumnAt = columnAt;
 
     /// Inherited from QTableView
     ///
@@ -2973,11 +3725,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    pub fn ColumnAt(self: QTableWidget, x: i32) i32 {
-        return qtc.QTableView_ColumnAt(@ptrCast(self.ptr), @bitCast(x));
+    pub fn columnAt(self: QTableWidget, _x: i32) i32 {
+        return qtc.QTableView_ColumnAt(@ptrCast(self.ptr), @bitCast(_x));
     }
+
+    /// ### DEPRECATED: Use `setColumnWidth` instead
+    ///
+    pub const SetColumnWidth = setColumnWidth;
 
     /// Inherited from QTableView
     ///
@@ -2987,13 +3743,17 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` column: i32 `
+    /// ` _column: i32 `
     ///
-    /// ` width: i32 `
+    /// ` _width: i32 `
     ///
-    pub fn SetColumnWidth(self: QTableWidget, column: i32, width: i32) void {
-        qtc.QTableView_SetColumnWidth(@ptrCast(self.ptr), @bitCast(column), @bitCast(width));
+    pub fn setColumnWidth(self: QTableWidget, _column: i32, _width: i32) void {
+        qtc.QTableView_SetColumnWidth(@ptrCast(self.ptr), @bitCast(_column), @bitCast(_width));
     }
+
+    /// ### DEPRECATED: Use `columnWidth` instead
+    ///
+    pub const ColumnWidth = columnWidth;
 
     /// Inherited from QTableView
     ///
@@ -3003,11 +3763,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` column: i32 `
+    /// ` _column: i32 `
     ///
-    pub fn ColumnWidth(self: QTableWidget, column: i32) i32 {
-        return qtc.QTableView_ColumnWidth(@ptrCast(self.ptr), @bitCast(column));
+    pub fn columnWidth(self: QTableWidget, _column: i32) i32 {
+        return qtc.QTableView_ColumnWidth(@ptrCast(self.ptr), @bitCast(_column));
     }
+
+    /// ### DEPRECATED: Use `isRowHidden` instead
+    ///
+    pub const IsRowHidden = isRowHidden;
 
     /// Inherited from QTableView
     ///
@@ -3017,11 +3781,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
-    pub fn IsRowHidden(self: QTableWidget, row: i32) bool {
-        return qtc.QTableView_IsRowHidden(@ptrCast(self.ptr), @bitCast(row));
+    pub fn isRowHidden(self: QTableWidget, _row: i32) bool {
+        return qtc.QTableView_IsRowHidden(@ptrCast(self.ptr), @bitCast(_row));
     }
+
+    /// ### DEPRECATED: Use `setRowHidden` instead
+    ///
+    pub const SetRowHidden = setRowHidden;
 
     /// Inherited from QTableView
     ///
@@ -3031,13 +3799,17 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
-    /// ` hide: bool `
+    /// ` _hide: bool `
     ///
-    pub fn SetRowHidden(self: QTableWidget, row: i32, hide: bool) void {
-        qtc.QTableView_SetRowHidden(@ptrCast(self.ptr), @bitCast(row), hide);
+    pub fn setRowHidden(self: QTableWidget, _row: i32, _hide: bool) void {
+        qtc.QTableView_SetRowHidden(@ptrCast(self.ptr), @bitCast(_row), _hide);
     }
+
+    /// ### DEPRECATED: Use `isColumnHidden` instead
+    ///
+    pub const IsColumnHidden = isColumnHidden;
 
     /// Inherited from QTableView
     ///
@@ -3047,11 +3819,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` column: i32 `
+    /// ` _column: i32 `
     ///
-    pub fn IsColumnHidden(self: QTableWidget, column: i32) bool {
-        return qtc.QTableView_IsColumnHidden(@ptrCast(self.ptr), @bitCast(column));
+    pub fn isColumnHidden(self: QTableWidget, _column: i32) bool {
+        return qtc.QTableView_IsColumnHidden(@ptrCast(self.ptr), @bitCast(_column));
     }
+
+    /// ### DEPRECATED: Use `setColumnHidden` instead
+    ///
+    pub const SetColumnHidden = setColumnHidden;
 
     /// Inherited from QTableView
     ///
@@ -3061,13 +3837,17 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` column: i32 `
+    /// ` _column: i32 `
     ///
-    /// ` hide: bool `
+    /// ` _hide: bool `
     ///
-    pub fn SetColumnHidden(self: QTableWidget, column: i32, hide: bool) void {
-        qtc.QTableView_SetColumnHidden(@ptrCast(self.ptr), @bitCast(column), hide);
+    pub fn setColumnHidden(self: QTableWidget, _column: i32, _hide: bool) void {
+        qtc.QTableView_SetColumnHidden(@ptrCast(self.ptr), @bitCast(_column), _hide);
     }
+
+    /// ### DEPRECATED: Use `showGrid` instead
+    ///
+    pub const ShowGrid = showGrid;
 
     /// Inherited from QTableView
     ///
@@ -3077,9 +3857,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn ShowGrid(self: QTableWidget) bool {
+    pub fn showGrid(self: QTableWidget) bool {
         return qtc.QTableView_ShowGrid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `gridStyle` instead
+    ///
+    pub const GridStyle = gridStyle;
 
     /// Inherited from QTableView
     ///
@@ -3093,9 +3877,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` qnamespace_enums.PenStyle `
     ///
-    pub fn GridStyle(self: QTableWidget) i32 {
+    pub fn gridStyle(self: QTableWidget) i32 {
         return qtc.QTableView_GridStyle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGridStyle` instead
+    ///
+    pub const SetGridStyle = setGridStyle;
 
     /// Inherited from QTableView
     ///
@@ -3105,11 +3893,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` style: qnamespace_enums.PenStyle `
+    /// ` _style: qnamespace_enums.PenStyle `
     ///
-    pub fn SetGridStyle(self: QTableWidget, style: i32) void {
-        qtc.QTableView_SetGridStyle(@ptrCast(self.ptr), @bitCast(style));
+    pub fn setGridStyle(self: QTableWidget, _style: i32) void {
+        qtc.QTableView_SetGridStyle(@ptrCast(self.ptr), @bitCast(_style));
     }
+
+    /// ### DEPRECATED: Use `setWordWrap` instead
+    ///
+    pub const SetWordWrap = setWordWrap;
 
     /// Inherited from QTableView
     ///
@@ -3121,9 +3913,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWordWrap(self: QTableWidget, on: bool) void {
+    pub fn setWordWrap(self: QTableWidget, on: bool) void {
         qtc.QTableView_SetWordWrap(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `wordWrap` instead
+    ///
+    pub const WordWrap = wordWrap;
 
     /// Inherited from QTableView
     ///
@@ -3133,9 +3929,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn WordWrap(self: QTableWidget) bool {
+    pub fn wordWrap(self: QTableWidget) bool {
         return qtc.QTableView_WordWrap(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCornerButtonEnabled` instead
+    ///
+    pub const SetCornerButtonEnabled = setCornerButtonEnabled;
 
     /// Inherited from QTableView
     ///
@@ -3147,9 +3947,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetCornerButtonEnabled(self: QTableWidget, enable: bool) void {
+    pub fn setCornerButtonEnabled(self: QTableWidget, enable: bool) void {
         qtc.QTableView_SetCornerButtonEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `isCornerButtonEnabled` instead
+    ///
+    pub const IsCornerButtonEnabled = isCornerButtonEnabled;
 
     /// Inherited from QTableView
     ///
@@ -3159,9 +3963,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn IsCornerButtonEnabled(self: QTableWidget) bool {
+    pub fn isCornerButtonEnabled(self: QTableWidget) bool {
         return qtc.QTableView_IsCornerButtonEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSpan` instead
+    ///
+    pub const SetSpan = setSpan;
 
     /// Inherited from QTableView
     ///
@@ -3171,17 +3979,21 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
-    /// ` column: i32 `
+    /// ` _column: i32 `
     ///
-    /// ` rowSpan: i32 `
+    /// ` _rowSpan: i32 `
     ///
-    /// ` columnSpan: i32 `
+    /// ` _columnSpan: i32 `
     ///
-    pub fn SetSpan(self: QTableWidget, row: i32, column: i32, rowSpan: i32, columnSpan: i32) void {
-        qtc.QTableView_SetSpan(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @bitCast(rowSpan), @bitCast(columnSpan));
+    pub fn setSpan(self: QTableWidget, _row: i32, _column: i32, _rowSpan: i32, _columnSpan: i32) void {
+        qtc.QTableView_SetSpan(@ptrCast(self.ptr), @bitCast(_row), @bitCast(_column), @bitCast(_rowSpan), @bitCast(_columnSpan));
     }
+
+    /// ### DEPRECATED: Use `rowSpan` instead
+    ///
+    pub const RowSpan = rowSpan;
 
     /// Inherited from QTableView
     ///
@@ -3191,13 +4003,17 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
-    /// ` column: i32 `
+    /// ` _column: i32 `
     ///
-    pub fn RowSpan(self: QTableWidget, row: i32, column: i32) i32 {
-        return qtc.QTableView_RowSpan(@ptrCast(self.ptr), @bitCast(row), @bitCast(column));
+    pub fn rowSpan(self: QTableWidget, _row: i32, _column: i32) i32 {
+        return qtc.QTableView_RowSpan(@ptrCast(self.ptr), @bitCast(_row), @bitCast(_column));
     }
+
+    /// ### DEPRECATED: Use `columnSpan` instead
+    ///
+    pub const ColumnSpan = columnSpan;
 
     /// Inherited from QTableView
     ///
@@ -3207,13 +4023,17 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
-    /// ` column: i32 `
+    /// ` _column: i32 `
     ///
-    pub fn ColumnSpan(self: QTableWidget, row: i32, column: i32) i32 {
-        return qtc.QTableView_ColumnSpan(@ptrCast(self.ptr), @bitCast(row), @bitCast(column));
+    pub fn columnSpan(self: QTableWidget, _row: i32, _column: i32) i32 {
+        return qtc.QTableView_ColumnSpan(@ptrCast(self.ptr), @bitCast(_row), @bitCast(_column));
     }
+
+    /// ### DEPRECATED: Use `clearSpans` instead
+    ///
+    pub const ClearSpans = clearSpans;
 
     /// Inherited from QTableView
     ///
@@ -3223,9 +4043,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn ClearSpans(self: QTableWidget) void {
+    pub fn clearSpans(self: QTableWidget) void {
         qtc.QTableView_ClearSpans(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `selectRow` instead
+    ///
+    pub const SelectRow = selectRow;
 
     /// Inherited from QTableView
     ///
@@ -3235,11 +4059,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
-    pub fn SelectRow(self: QTableWidget, row: i32) void {
-        qtc.QTableView_SelectRow(@ptrCast(self.ptr), @bitCast(row));
+    pub fn selectRow(self: QTableWidget, _row: i32) void {
+        qtc.QTableView_SelectRow(@ptrCast(self.ptr), @bitCast(_row));
     }
+
+    /// ### DEPRECATED: Use `selectColumn` instead
+    ///
+    pub const SelectColumn = selectColumn;
 
     /// Inherited from QTableView
     ///
@@ -3249,11 +4077,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` column: i32 `
+    /// ` _column: i32 `
     ///
-    pub fn SelectColumn(self: QTableWidget, column: i32) void {
-        qtc.QTableView_SelectColumn(@ptrCast(self.ptr), @bitCast(column));
+    pub fn selectColumn(self: QTableWidget, _column: i32) void {
+        qtc.QTableView_SelectColumn(@ptrCast(self.ptr), @bitCast(_column));
     }
+
+    /// ### DEPRECATED: Use `hideRow` instead
+    ///
+    pub const HideRow = hideRow;
 
     /// Inherited from QTableView
     ///
@@ -3263,11 +4095,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
-    pub fn HideRow(self: QTableWidget, row: i32) void {
-        qtc.QTableView_HideRow(@ptrCast(self.ptr), @bitCast(row));
+    pub fn hideRow(self: QTableWidget, _row: i32) void {
+        qtc.QTableView_HideRow(@ptrCast(self.ptr), @bitCast(_row));
     }
+
+    /// ### DEPRECATED: Use `hideColumn` instead
+    ///
+    pub const HideColumn = hideColumn;
 
     /// Inherited from QTableView
     ///
@@ -3277,11 +4113,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` column: i32 `
+    /// ` _column: i32 `
     ///
-    pub fn HideColumn(self: QTableWidget, column: i32) void {
-        qtc.QTableView_HideColumn(@ptrCast(self.ptr), @bitCast(column));
+    pub fn hideColumn(self: QTableWidget, _column: i32) void {
+        qtc.QTableView_HideColumn(@ptrCast(self.ptr), @bitCast(_column));
     }
+
+    /// ### DEPRECATED: Use `showRow` instead
+    ///
+    pub const ShowRow = showRow;
 
     /// Inherited from QTableView
     ///
@@ -3291,11 +4131,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
-    pub fn ShowRow(self: QTableWidget, row: i32) void {
-        qtc.QTableView_ShowRow(@ptrCast(self.ptr), @bitCast(row));
+    pub fn showRow(self: QTableWidget, _row: i32) void {
+        qtc.QTableView_ShowRow(@ptrCast(self.ptr), @bitCast(_row));
     }
+
+    /// ### DEPRECATED: Use `showColumn` instead
+    ///
+    pub const ShowColumn = showColumn;
 
     /// Inherited from QTableView
     ///
@@ -3305,11 +4149,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` column: i32 `
+    /// ` _column: i32 `
     ///
-    pub fn ShowColumn(self: QTableWidget, column: i32) void {
-        qtc.QTableView_ShowColumn(@ptrCast(self.ptr), @bitCast(column));
+    pub fn showColumn(self: QTableWidget, _column: i32) void {
+        qtc.QTableView_ShowColumn(@ptrCast(self.ptr), @bitCast(_column));
     }
+
+    /// ### DEPRECATED: Use `resizeRowToContents` instead
+    ///
+    pub const ResizeRowToContents = resizeRowToContents;
 
     /// Inherited from QTableView
     ///
@@ -3319,11 +4167,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
-    pub fn ResizeRowToContents(self: QTableWidget, row: i32) void {
-        qtc.QTableView_ResizeRowToContents(@ptrCast(self.ptr), @bitCast(row));
+    pub fn resizeRowToContents(self: QTableWidget, _row: i32) void {
+        qtc.QTableView_ResizeRowToContents(@ptrCast(self.ptr), @bitCast(_row));
     }
+
+    /// ### DEPRECATED: Use `resizeRowsToContents` instead
+    ///
+    pub const ResizeRowsToContents = resizeRowsToContents;
 
     /// Inherited from QTableView
     ///
@@ -3333,9 +4185,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn ResizeRowsToContents(self: QTableWidget) void {
+    pub fn resizeRowsToContents(self: QTableWidget) void {
         qtc.QTableView_ResizeRowsToContents(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `resizeColumnToContents` instead
+    ///
+    pub const ResizeColumnToContents = resizeColumnToContents;
 
     /// Inherited from QTableView
     ///
@@ -3345,11 +4201,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` column: i32 `
+    /// ` _column: i32 `
     ///
-    pub fn ResizeColumnToContents(self: QTableWidget, column: i32) void {
-        qtc.QTableView_ResizeColumnToContents(@ptrCast(self.ptr), @bitCast(column));
+    pub fn resizeColumnToContents(self: QTableWidget, _column: i32) void {
+        qtc.QTableView_ResizeColumnToContents(@ptrCast(self.ptr), @bitCast(_column));
     }
+
+    /// ### DEPRECATED: Use `resizeColumnsToContents` instead
+    ///
+    pub const ResizeColumnsToContents = resizeColumnsToContents;
 
     /// Inherited from QTableView
     ///
@@ -3359,9 +4219,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn ResizeColumnsToContents(self: QTableWidget) void {
+    pub fn resizeColumnsToContents(self: QTableWidget) void {
         qtc.QTableView_ResizeColumnsToContents(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `sortByColumn` instead
+    ///
+    pub const SortByColumn = sortByColumn;
 
     /// Inherited from QTableView
     ///
@@ -3371,13 +4235,17 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` column: i32 `
+    /// ` _column: i32 `
     ///
     /// ` order: qnamespace_enums.SortOrder `
     ///
-    pub fn SortByColumn(self: QTableWidget, column: i32, order: i32) void {
-        qtc.QTableView_SortByColumn(@ptrCast(self.ptr), @bitCast(column), @bitCast(order));
+    pub fn sortByColumn(self: QTableWidget, _column: i32, order: i32) void {
+        qtc.QTableView_SortByColumn(@ptrCast(self.ptr), @bitCast(_column), @bitCast(order));
     }
+
+    /// ### DEPRECATED: Use `setShowGrid` instead
+    ///
+    pub const SetShowGrid = setShowGrid;
 
     /// Inherited from QTableView
     ///
@@ -3387,11 +4255,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` show: bool `
+    /// ` _show: bool `
     ///
-    pub fn SetShowGrid(self: QTableWidget, show: bool) void {
-        qtc.QTableView_SetShowGrid(@ptrCast(self.ptr), show);
+    pub fn setShowGrid(self: QTableWidget, _show: bool) void {
+        qtc.QTableView_SetShowGrid(@ptrCast(self.ptr), _show);
     }
+
+    /// ### DEPRECATED: Use `model` instead
+    ///
+    pub const Model = model;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3401,9 +4273,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn Model(self: QTableWidget) QAbstractItemModel {
+    pub fn model(self: QTableWidget) QAbstractItemModel {
         return .{ .ptr = qtc.QAbstractItemView_Model(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `selectionModel` instead
+    ///
+    pub const SelectionModel = selectionModel;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3413,9 +4289,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn SelectionModel(self: QTableWidget) QItemSelectionModel {
+    pub fn selectionModel(self: QTableWidget) QItemSelectionModel {
         return .{ .ptr = qtc.QAbstractItemView_SelectionModel(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setItemDelegate` instead
+    ///
+    pub const SetItemDelegate = setItemDelegate;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3427,10 +4307,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` delegate: QAbstractItemDelegate `
     ///
-    pub fn SetItemDelegate(self: QTableWidget, delegate: anytype) void {
+    pub fn setItemDelegate(self: QTableWidget, delegate: anytype) void {
         comptime _ = @TypeOf(delegate)._is_QAbstractItemDelegate;
         qtc.QAbstractItemView_SetItemDelegate(@ptrCast(self.ptr), @ptrCast(delegate.ptr));
     }
+
+    /// ### DEPRECATED: Use `itemDelegate` instead
+    ///
+    pub const ItemDelegate = itemDelegate;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3440,9 +4324,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn ItemDelegate(self: QTableWidget) QAbstractItemDelegate {
+    pub fn itemDelegate(self: QTableWidget) QAbstractItemDelegate {
         return .{ .ptr = qtc.QAbstractItemView_ItemDelegate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSelectionMode` instead
+    ///
+    pub const SetSelectionMode = setSelectionMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3454,9 +4342,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` mode: qabstractitemview_enums.SelectionMode `
     ///
-    pub fn SetSelectionMode(self: QTableWidget, mode: i32) void {
+    pub fn setSelectionMode(self: QTableWidget, mode: i32) void {
         qtc.QAbstractItemView_SetSelectionMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `selectionMode` instead
+    ///
+    pub const SelectionMode = selectionMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3470,9 +4362,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` qabstractitemview_enums.SelectionMode `
     ///
-    pub fn SelectionMode(self: QTableWidget) i32 {
+    pub fn selectionMode(self: QTableWidget) i32 {
         return qtc.QAbstractItemView_SelectionMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSelectionBehavior` instead
+    ///
+    pub const SetSelectionBehavior = setSelectionBehavior;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3484,9 +4380,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` behavior: qabstractitemview_enums.SelectionBehavior `
     ///
-    pub fn SetSelectionBehavior(self: QTableWidget, behavior: i32) void {
+    pub fn setSelectionBehavior(self: QTableWidget, behavior: i32) void {
         qtc.QAbstractItemView_SetSelectionBehavior(@ptrCast(self.ptr), @bitCast(behavior));
     }
+
+    /// ### DEPRECATED: Use `selectionBehavior` instead
+    ///
+    pub const SelectionBehavior = selectionBehavior;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3500,9 +4400,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` qabstractitemview_enums.SelectionBehavior `
     ///
-    pub fn SelectionBehavior(self: QTableWidget) i32 {
+    pub fn selectionBehavior(self: QTableWidget) i32 {
         return qtc.QAbstractItemView_SelectionBehavior(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `currentIndex` instead
+    ///
+    pub const CurrentIndex = currentIndex;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3512,9 +4416,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn CurrentIndex(self: QTableWidget) QModelIndex {
+    pub fn currentIndex(self: QTableWidget) QModelIndex {
         return .{ .ptr = qtc.QAbstractItemView_CurrentIndex(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `rootIndex` instead
+    ///
+    pub const RootIndex = rootIndex;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3524,9 +4432,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn RootIndex(self: QTableWidget) QModelIndex {
+    pub fn rootIndex(self: QTableWidget) QModelIndex {
         return .{ .ptr = qtc.QAbstractItemView_RootIndex(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setEditTriggers` instead
+    ///
+    pub const SetEditTriggers = setEditTriggers;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3538,9 +4450,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` triggers: flag of qabstractitemview_enums.EditTrigger `
     ///
-    pub fn SetEditTriggers(self: QTableWidget, triggers: i32) void {
+    pub fn setEditTriggers(self: QTableWidget, triggers: i32) void {
         qtc.QAbstractItemView_SetEditTriggers(@ptrCast(self.ptr), @bitCast(triggers));
     }
+
+    /// ### DEPRECATED: Use `editTriggers` instead
+    ///
+    pub const EditTriggers = editTriggers;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3554,9 +4470,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` flag of qabstractitemview_enums.EditTrigger `
     ///
-    pub fn EditTriggers(self: QTableWidget) i32 {
+    pub fn editTriggers(self: QTableWidget) i32 {
         return qtc.QAbstractItemView_EditTriggers(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setVerticalScrollMode` instead
+    ///
+    pub const SetVerticalScrollMode = setVerticalScrollMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3568,9 +4488,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` mode: qabstractitemview_enums.ScrollMode `
     ///
-    pub fn SetVerticalScrollMode(self: QTableWidget, mode: i32) void {
+    pub fn setVerticalScrollMode(self: QTableWidget, mode: i32) void {
         qtc.QAbstractItemView_SetVerticalScrollMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `verticalScrollMode` instead
+    ///
+    pub const VerticalScrollMode = verticalScrollMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3584,9 +4508,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` qabstractitemview_enums.ScrollMode `
     ///
-    pub fn VerticalScrollMode(self: QTableWidget) i32 {
+    pub fn verticalScrollMode(self: QTableWidget) i32 {
         return qtc.QAbstractItemView_VerticalScrollMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `resetVerticalScrollMode` instead
+    ///
+    pub const ResetVerticalScrollMode = resetVerticalScrollMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3596,9 +4524,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn ResetVerticalScrollMode(self: QTableWidget) void {
+    pub fn resetVerticalScrollMode(self: QTableWidget) void {
         qtc.QAbstractItemView_ResetVerticalScrollMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHorizontalScrollMode` instead
+    ///
+    pub const SetHorizontalScrollMode = setHorizontalScrollMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3610,9 +4542,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` mode: qabstractitemview_enums.ScrollMode `
     ///
-    pub fn SetHorizontalScrollMode(self: QTableWidget, mode: i32) void {
+    pub fn setHorizontalScrollMode(self: QTableWidget, mode: i32) void {
         qtc.QAbstractItemView_SetHorizontalScrollMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `horizontalScrollMode` instead
+    ///
+    pub const HorizontalScrollMode = horizontalScrollMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3626,9 +4562,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` qabstractitemview_enums.ScrollMode `
     ///
-    pub fn HorizontalScrollMode(self: QTableWidget) i32 {
+    pub fn horizontalScrollMode(self: QTableWidget) i32 {
         return qtc.QAbstractItemView_HorizontalScrollMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `resetHorizontalScrollMode` instead
+    ///
+    pub const ResetHorizontalScrollMode = resetHorizontalScrollMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3638,9 +4578,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn ResetHorizontalScrollMode(self: QTableWidget) void {
+    pub fn resetHorizontalScrollMode(self: QTableWidget) void {
         qtc.QAbstractItemView_ResetHorizontalScrollMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoScroll` instead
+    ///
+    pub const SetAutoScroll = setAutoScroll;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3652,9 +4596,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetAutoScroll(self: QTableWidget, enable: bool) void {
+    pub fn setAutoScroll(self: QTableWidget, enable: bool) void {
         qtc.QAbstractItemView_SetAutoScroll(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasAutoScroll` instead
+    ///
+    pub const HasAutoScroll = hasAutoScroll;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3664,9 +4612,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn HasAutoScroll(self: QTableWidget) bool {
+    pub fn hasAutoScroll(self: QTableWidget) bool {
         return qtc.QAbstractItemView_HasAutoScroll(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoScrollMargin` instead
+    ///
+    pub const SetAutoScrollMargin = setAutoScrollMargin;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3678,9 +4630,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` margin: i32 `
     ///
-    pub fn SetAutoScrollMargin(self: QTableWidget, margin: i32) void {
+    pub fn setAutoScrollMargin(self: QTableWidget, margin: i32) void {
         qtc.QAbstractItemView_SetAutoScrollMargin(@ptrCast(self.ptr), @bitCast(margin));
     }
+
+    /// ### DEPRECATED: Use `autoScrollMargin` instead
+    ///
+    pub const AutoScrollMargin = autoScrollMargin;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3690,9 +4646,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn AutoScrollMargin(self: QTableWidget) i32 {
+    pub fn autoScrollMargin(self: QTableWidget) i32 {
         return qtc.QAbstractItemView_AutoScrollMargin(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabKeyNavigation` instead
+    ///
+    pub const SetTabKeyNavigation = setTabKeyNavigation;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3704,9 +4664,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabKeyNavigation(self: QTableWidget, enable: bool) void {
+    pub fn setTabKeyNavigation(self: QTableWidget, enable: bool) void {
         qtc.QAbstractItemView_SetTabKeyNavigation(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `tabKeyNavigation` instead
+    ///
+    pub const TabKeyNavigation = tabKeyNavigation;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3716,9 +4680,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn TabKeyNavigation(self: QTableWidget) bool {
+    pub fn tabKeyNavigation(self: QTableWidget) bool {
         return qtc.QAbstractItemView_TabKeyNavigation(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDropIndicatorShown` instead
+    ///
+    pub const SetDropIndicatorShown = setDropIndicatorShown;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3730,9 +4698,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetDropIndicatorShown(self: QTableWidget, enable: bool) void {
+    pub fn setDropIndicatorShown(self: QTableWidget, enable: bool) void {
         qtc.QAbstractItemView_SetDropIndicatorShown(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `showDropIndicator` instead
+    ///
+    pub const ShowDropIndicator = showDropIndicator;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3742,9 +4714,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn ShowDropIndicator(self: QTableWidget) bool {
+    pub fn showDropIndicator(self: QTableWidget) bool {
         return qtc.QAbstractItemView_ShowDropIndicator(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDragEnabled` instead
+    ///
+    pub const SetDragEnabled = setDragEnabled;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3756,9 +4732,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetDragEnabled(self: QTableWidget, enable: bool) void {
+    pub fn setDragEnabled(self: QTableWidget, enable: bool) void {
         qtc.QAbstractItemView_SetDragEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `dragEnabled` instead
+    ///
+    pub const DragEnabled = dragEnabled;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3768,9 +4748,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn DragEnabled(self: QTableWidget) bool {
+    pub fn dragEnabled(self: QTableWidget) bool {
         return qtc.QAbstractItemView_DragEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDragDropOverwriteMode` instead
+    ///
+    pub const SetDragDropOverwriteMode = setDragDropOverwriteMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3782,9 +4766,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` overwrite: bool `
     ///
-    pub fn SetDragDropOverwriteMode(self: QTableWidget, overwrite: bool) void {
+    pub fn setDragDropOverwriteMode(self: QTableWidget, overwrite: bool) void {
         qtc.QAbstractItemView_SetDragDropOverwriteMode(@ptrCast(self.ptr), overwrite);
     }
+
+    /// ### DEPRECATED: Use `dragDropOverwriteMode` instead
+    ///
+    pub const DragDropOverwriteMode = dragDropOverwriteMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3794,9 +4782,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn DragDropOverwriteMode(self: QTableWidget) bool {
+    pub fn dragDropOverwriteMode(self: QTableWidget) bool {
         return qtc.QAbstractItemView_DragDropOverwriteMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDragDropMode` instead
+    ///
+    pub const SetDragDropMode = setDragDropMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3808,9 +4800,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` behavior: qabstractitemview_enums.DragDropMode `
     ///
-    pub fn SetDragDropMode(self: QTableWidget, behavior: i32) void {
+    pub fn setDragDropMode(self: QTableWidget, behavior: i32) void {
         qtc.QAbstractItemView_SetDragDropMode(@ptrCast(self.ptr), @bitCast(behavior));
     }
+
+    /// ### DEPRECATED: Use `dragDropMode` instead
+    ///
+    pub const DragDropMode = dragDropMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3824,9 +4820,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` qabstractitemview_enums.DragDropMode `
     ///
-    pub fn DragDropMode(self: QTableWidget) i32 {
+    pub fn dragDropMode(self: QTableWidget) i32 {
         return qtc.QAbstractItemView_DragDropMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDefaultDropAction` instead
+    ///
+    pub const SetDefaultDropAction = setDefaultDropAction;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3838,9 +4838,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` dropAction: qnamespace_enums.DropAction `
     ///
-    pub fn SetDefaultDropAction(self: QTableWidget, dropAction: i32) void {
+    pub fn setDefaultDropAction(self: QTableWidget, dropAction: i32) void {
         qtc.QAbstractItemView_SetDefaultDropAction(@ptrCast(self.ptr), @bitCast(dropAction));
     }
+
+    /// ### DEPRECATED: Use `defaultDropAction` instead
+    ///
+    pub const DefaultDropAction = defaultDropAction;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3854,9 +4858,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` qnamespace_enums.DropAction `
     ///
-    pub fn DefaultDropAction(self: QTableWidget) i32 {
+    pub fn defaultDropAction(self: QTableWidget) i32 {
         return qtc.QAbstractItemView_DefaultDropAction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAlternatingRowColors` instead
+    ///
+    pub const SetAlternatingRowColors = setAlternatingRowColors;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3868,9 +4876,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetAlternatingRowColors(self: QTableWidget, enable: bool) void {
+    pub fn setAlternatingRowColors(self: QTableWidget, enable: bool) void {
         qtc.QAbstractItemView_SetAlternatingRowColors(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `alternatingRowColors` instead
+    ///
+    pub const AlternatingRowColors = alternatingRowColors;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3880,9 +4892,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn AlternatingRowColors(self: QTableWidget) bool {
+    pub fn alternatingRowColors(self: QTableWidget) bool {
         return qtc.QAbstractItemView_AlternatingRowColors(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setIconSize` instead
+    ///
+    pub const SetIconSize = setIconSize;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3892,12 +4908,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` size: QSize `
+    /// ` _size: QSize `
     ///
-    pub fn SetIconSize(self: QTableWidget, size: anytype) void {
-        comptime _ = @TypeOf(size)._is_QSize;
-        qtc.QAbstractItemView_SetIconSize(@ptrCast(self.ptr), @ptrCast(size.ptr));
+    pub fn setIconSize(self: QTableWidget, _size: anytype) void {
+        comptime _ = @TypeOf(_size)._is_QSize;
+        qtc.QAbstractItemView_SetIconSize(@ptrCast(self.ptr), @ptrCast(_size.ptr));
     }
+
+    /// ### DEPRECATED: Use `iconSize` instead
+    ///
+    pub const IconSize = iconSize;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3907,9 +4927,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn IconSize(self: QTableWidget) QSize {
+    pub fn iconSize(self: QTableWidget) QSize {
         return .{ .ptr = qtc.QAbstractItemView_IconSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setTextElideMode` instead
+    ///
+    pub const SetTextElideMode = setTextElideMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3921,9 +4945,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` mode: qnamespace_enums.TextElideMode `
     ///
-    pub fn SetTextElideMode(self: QTableWidget, mode: i32) void {
+    pub fn setTextElideMode(self: QTableWidget, mode: i32) void {
         qtc.QAbstractItemView_SetTextElideMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `textElideMode` instead
+    ///
+    pub const TextElideMode = textElideMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3937,9 +4965,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` qnamespace_enums.TextElideMode `
     ///
-    pub fn TextElideMode(self: QTableWidget) i32 {
+    pub fn textElideMode(self: QTableWidget) i32 {
         return qtc.QAbstractItemView_TextElideMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `sizeHintForIndex` instead
+    ///
+    pub const SizeHintForIndex = sizeHintForIndex;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3951,10 +4983,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SizeHintForIndex(self: QTableWidget, index: anytype) QSize {
+    pub fn sizeHintForIndex(self: QTableWidget, index: anytype) QSize {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.QAbstractItemView_SizeHintForIndex(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setIndexWidget` instead
+    ///
+    pub const SetIndexWidget = setIndexWidget;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3968,11 +5004,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn SetIndexWidget(self: QTableWidget, index: anytype, widget: anytype) void {
+    pub fn setIndexWidget(self: QTableWidget, index: anytype, widget: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QAbstractItemView_SetIndexWidget(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `indexWidget` instead
+    ///
+    pub const IndexWidget = indexWidget;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3984,10 +5024,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn IndexWidget(self: QTableWidget, index: anytype) QWidget {
+    pub fn indexWidget(self: QTableWidget, index: anytype) QWidget {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.QAbstractItemView_IndexWidget(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setItemDelegateForRow` instead
+    ///
+    pub const SetItemDelegateForRow = setItemDelegateForRow;
 
     /// Inherited from QAbstractItemView
     ///
@@ -3997,14 +5041,18 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
     /// ` delegate: QAbstractItemDelegate `
     ///
-    pub fn SetItemDelegateForRow(self: QTableWidget, row: i32, delegate: anytype) void {
+    pub fn setItemDelegateForRow(self: QTableWidget, _row: i32, delegate: anytype) void {
         comptime _ = @TypeOf(delegate)._is_QAbstractItemDelegate;
-        qtc.QAbstractItemView_SetItemDelegateForRow(@ptrCast(self.ptr), @bitCast(row), @ptrCast(delegate.ptr));
+        qtc.QAbstractItemView_SetItemDelegateForRow(@ptrCast(self.ptr), @bitCast(_row), @ptrCast(delegate.ptr));
     }
+
+    /// ### DEPRECATED: Use `itemDelegateForRow` instead
+    ///
+    pub const ItemDelegateForRow = itemDelegateForRow;
 
     /// Inherited from QAbstractItemView
     ///
@@ -4014,11 +5062,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
-    pub fn ItemDelegateForRow(self: QTableWidget, row: i32) QAbstractItemDelegate {
-        return .{ .ptr = qtc.QAbstractItemView_ItemDelegateForRow(@ptrCast(self.ptr), @bitCast(row)) };
+    pub fn itemDelegateForRow(self: QTableWidget, _row: i32) QAbstractItemDelegate {
+        return .{ .ptr = qtc.QAbstractItemView_ItemDelegateForRow(@ptrCast(self.ptr), @bitCast(_row)) };
     }
+
+    /// ### DEPRECATED: Use `setItemDelegateForColumn` instead
+    ///
+    pub const SetItemDelegateForColumn = setItemDelegateForColumn;
 
     /// Inherited from QAbstractItemView
     ///
@@ -4028,14 +5080,18 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` column: i32 `
+    /// ` _column: i32 `
     ///
     /// ` delegate: QAbstractItemDelegate `
     ///
-    pub fn SetItemDelegateForColumn(self: QTableWidget, column: i32, delegate: anytype) void {
+    pub fn setItemDelegateForColumn(self: QTableWidget, _column: i32, delegate: anytype) void {
         comptime _ = @TypeOf(delegate)._is_QAbstractItemDelegate;
-        qtc.QAbstractItemView_SetItemDelegateForColumn(@ptrCast(self.ptr), @bitCast(column), @ptrCast(delegate.ptr));
+        qtc.QAbstractItemView_SetItemDelegateForColumn(@ptrCast(self.ptr), @bitCast(_column), @ptrCast(delegate.ptr));
     }
+
+    /// ### DEPRECATED: Use `itemDelegateForColumn` instead
+    ///
+    pub const ItemDelegateForColumn = itemDelegateForColumn;
 
     /// Inherited from QAbstractItemView
     ///
@@ -4045,11 +5101,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` column: i32 `
+    /// ` _column: i32 `
     ///
-    pub fn ItemDelegateForColumn(self: QTableWidget, column: i32) QAbstractItemDelegate {
-        return .{ .ptr = qtc.QAbstractItemView_ItemDelegateForColumn(@ptrCast(self.ptr), @bitCast(column)) };
+    pub fn itemDelegateForColumn(self: QTableWidget, _column: i32) QAbstractItemDelegate {
+        return .{ .ptr = qtc.QAbstractItemView_ItemDelegateForColumn(@ptrCast(self.ptr), @bitCast(_column)) };
     }
+
+    /// ### DEPRECATED: Use `itemDelegate2` instead
+    ///
+    pub const ItemDelegate2 = itemDelegate2;
 
     /// Inherited from QAbstractItemView
     ///
@@ -4061,10 +5121,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn ItemDelegate2(self: QTableWidget, index: anytype) QAbstractItemDelegate {
+    pub fn itemDelegate2(self: QTableWidget, index: anytype) QAbstractItemDelegate {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.QAbstractItemView_ItemDelegate2(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `edit` instead
+    ///
+    pub const Edit = edit;
 
     /// Inherited from QAbstractItemView
     ///
@@ -4076,10 +5140,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn Edit(self: QTableWidget, index: anytype) void {
+    pub fn edit(self: QTableWidget, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QAbstractItemView_Edit(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearSelection` instead
+    ///
+    pub const ClearSelection = clearSelection;
 
     /// Inherited from QAbstractItemView
     ///
@@ -4089,9 +5157,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn ClearSelection(self: QTableWidget) void {
+    pub fn clearSelection(self: QTableWidget) void {
         qtc.QAbstractItemView_ClearSelection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCurrentIndex` instead
+    ///
+    pub const SetCurrentIndex = setCurrentIndex;
 
     /// Inherited from QAbstractItemView
     ///
@@ -4103,10 +5175,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SetCurrentIndex(self: QTableWidget, index: anytype) void {
+    pub fn setCurrentIndex(self: QTableWidget, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QAbstractItemView_SetCurrentIndex(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `scrollToTop` instead
+    ///
+    pub const ScrollToTop = scrollToTop;
 
     /// Inherited from QAbstractItemView
     ///
@@ -4116,9 +5192,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn ScrollToTop(self: QTableWidget) void {
+    pub fn scrollToTop(self: QTableWidget) void {
         qtc.QAbstractItemView_ScrollToTop(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `scrollToBottom` instead
+    ///
+    pub const ScrollToBottom = scrollToBottom;
 
     /// Inherited from QAbstractItemView
     ///
@@ -4128,9 +5208,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn ScrollToBottom(self: QTableWidget) void {
+    pub fn scrollToBottom(self: QTableWidget) void {
         qtc.QAbstractItemView_ScrollToBottom(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QAbstractItemView
     ///
@@ -4142,11 +5226,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn Update(self: QTableWidget, index: anytype) void {
+    pub fn update(self: QTableWidget, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QAbstractItemView_Update(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
+    /// ### DEPRECATED: Use `pressed` instead
+    ///
+    pub const Pressed = pressed;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#pressed)
@@ -4157,11 +5245,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn Pressed(self: QTableWidget, index: anytype) void {
+    pub fn pressed(self: QTableWidget, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QAbstractItemView_Pressed(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
+    /// ### DEPRECATED: Use `onPressed` instead
+    ///
+    pub const OnPressed = onPressed;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#pressed)
@@ -4172,9 +5264,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnPressed(self: QTableWidget, callback: *const fn (QTableWidget, QModelIndex) callconv(.c) void) void {
+    pub fn onPressed(self: QTableWidget, callback: *const fn (QTableWidget, QModelIndex) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Pressed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `clicked` instead
+    ///
+    pub const Clicked = clicked;
 
     /// Inherited from QAbstractItemView
     ///
@@ -4186,11 +5282,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn Clicked(self: QTableWidget, index: anytype) void {
+    pub fn clicked(self: QTableWidget, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QAbstractItemView_Clicked(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
+    /// ### DEPRECATED: Use `onClicked` instead
+    ///
+    pub const OnClicked = onClicked;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#clicked)
@@ -4201,9 +5301,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnClicked(self: QTableWidget, callback: *const fn (QTableWidget, QModelIndex) callconv(.c) void) void {
+    pub fn onClicked(self: QTableWidget, callback: *const fn (QTableWidget, QModelIndex) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Clicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `doubleClicked` instead
+    ///
+    pub const DoubleClicked = doubleClicked;
 
     /// Inherited from QAbstractItemView
     ///
@@ -4215,11 +5319,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn DoubleClicked(self: QTableWidget, index: anytype) void {
+    pub fn doubleClicked(self: QTableWidget, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QAbstractItemView_DoubleClicked(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
+    /// ### DEPRECATED: Use `onDoubleClicked` instead
+    ///
+    pub const OnDoubleClicked = onDoubleClicked;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doubleClicked)
@@ -4230,9 +5338,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnDoubleClicked(self: QTableWidget, callback: *const fn (QTableWidget, QModelIndex) callconv(.c) void) void {
+    pub fn onDoubleClicked(self: QTableWidget, callback: *const fn (QTableWidget, QModelIndex) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_DoubleClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `activated` instead
+    ///
+    pub const Activated = activated;
 
     /// Inherited from QAbstractItemView
     ///
@@ -4244,11 +5356,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn Activated(self: QTableWidget, index: anytype) void {
+    pub fn activated(self: QTableWidget, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QAbstractItemView_Activated(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
+    /// ### DEPRECATED: Use `onActivated` instead
+    ///
+    pub const OnActivated = onActivated;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#activated)
@@ -4259,9 +5375,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnActivated(self: QTableWidget, callback: *const fn (QTableWidget, QModelIndex) callconv(.c) void) void {
+    pub fn onActivated(self: QTableWidget, callback: *const fn (QTableWidget, QModelIndex) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Activated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `entered` instead
+    ///
+    pub const Entered = entered;
 
     /// Inherited from QAbstractItemView
     ///
@@ -4273,10 +5393,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn Entered(self: QTableWidget, index: anytype) void {
+    pub fn entered(self: QTableWidget, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QAbstractItemView_Entered(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEntered` instead
+    ///
+    pub const OnEntered = onEntered;
 
     /// Inherited from QAbstractItemView
     ///
@@ -4288,9 +5412,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnEntered(self: QTableWidget, callback: *const fn (QTableWidget, QModelIndex) callconv(.c) void) void {
+    pub fn onEntered(self: QTableWidget, callback: *const fn (QTableWidget, QModelIndex) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Entered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `viewportEntered` instead
+    ///
+    pub const ViewportEntered = viewportEntered;
 
     /// Inherited from QAbstractItemView
     ///
@@ -4300,9 +5428,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn ViewportEntered(self: QTableWidget) void {
+    pub fn viewportEntered(self: QTableWidget) void {
         qtc.QAbstractItemView_ViewportEntered(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onViewportEntered` instead
+    ///
+    pub const OnViewportEntered = onViewportEntered;
 
     /// Inherited from QAbstractItemView
     ///
@@ -4314,9 +5446,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget) callconv(.c) void `
     ///
-    pub fn OnViewportEntered(self: QTableWidget, callback: *const fn (QTableWidget) callconv(.c) void) void {
+    pub fn onViewportEntered(self: QTableWidget, callback: *const fn (QTableWidget) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_ViewportEntered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `iconSizeChanged` instead
+    ///
+    pub const IconSizeChanged = iconSizeChanged;
 
     /// Inherited from QAbstractItemView
     ///
@@ -4326,12 +5462,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` size: QSize `
+    /// ` _size: QSize `
     ///
-    pub fn IconSizeChanged(self: QTableWidget, size: anytype) void {
-        comptime _ = @TypeOf(size)._is_QSize;
-        qtc.QAbstractItemView_IconSizeChanged(@ptrCast(self.ptr), @ptrCast(size.ptr));
+    pub fn iconSizeChanged(self: QTableWidget, _size: anytype) void {
+        comptime _ = @TypeOf(_size)._is_QSize;
+        qtc.QAbstractItemView_IconSizeChanged(@ptrCast(self.ptr), @ptrCast(_size.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIconSizeChanged` instead
+    ///
+    pub const OnIconSizeChanged = onIconSizeChanged;
 
     /// Inherited from QAbstractItemView
     ///
@@ -4343,9 +5483,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, size: QSize) callconv(.c) void `
     ///
-    pub fn OnIconSizeChanged(self: QTableWidget, callback: *const fn (QTableWidget, QSize) callconv(.c) void) void {
+    pub fn onIconSizeChanged(self: QTableWidget, callback: *const fn (QTableWidget, QSize) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_IconSizeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `verticalScrollBarPolicy` instead
+    ///
+    pub const VerticalScrollBarPolicy = verticalScrollBarPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -4359,9 +5503,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn VerticalScrollBarPolicy(self: QTableWidget) i32 {
+    pub fn verticalScrollBarPolicy(self: QTableWidget) i32 {
         return qtc.QAbstractScrollArea_VerticalScrollBarPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setVerticalScrollBarPolicy` instead
+    ///
+    pub const SetVerticalScrollBarPolicy = setVerticalScrollBarPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -4371,11 +5519,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` verticalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
+    /// ` _verticalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn SetVerticalScrollBarPolicy(self: QTableWidget, verticalScrollBarPolicy: i32) void {
-        qtc.QAbstractScrollArea_SetVerticalScrollBarPolicy(@ptrCast(self.ptr), @bitCast(verticalScrollBarPolicy));
+    pub fn setVerticalScrollBarPolicy(self: QTableWidget, _verticalScrollBarPolicy: i32) void {
+        qtc.QAbstractScrollArea_SetVerticalScrollBarPolicy(@ptrCast(self.ptr), @bitCast(_verticalScrollBarPolicy));
     }
+
+    /// ### DEPRECATED: Use `verticalScrollBar` instead
+    ///
+    pub const VerticalScrollBar = verticalScrollBar;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -4385,9 +5537,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn VerticalScrollBar(self: QTableWidget) QScrollBar {
+    pub fn verticalScrollBar(self: QTableWidget) QScrollBar {
         return .{ .ptr = qtc.QAbstractScrollArea_VerticalScrollBar(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setVerticalScrollBar` instead
+    ///
+    pub const SetVerticalScrollBar = setVerticalScrollBar;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -4399,10 +5555,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` scrollbar: QScrollBar `
     ///
-    pub fn SetVerticalScrollBar(self: QTableWidget, scrollbar: anytype) void {
+    pub fn setVerticalScrollBar(self: QTableWidget, scrollbar: anytype) void {
         comptime _ = @TypeOf(scrollbar)._is_QScrollBar;
         qtc.QAbstractScrollArea_SetVerticalScrollBar(@ptrCast(self.ptr), @ptrCast(scrollbar.ptr));
     }
+
+    /// ### DEPRECATED: Use `horizontalScrollBarPolicy` instead
+    ///
+    pub const HorizontalScrollBarPolicy = horizontalScrollBarPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -4416,9 +5576,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn HorizontalScrollBarPolicy(self: QTableWidget) i32 {
+    pub fn horizontalScrollBarPolicy(self: QTableWidget) i32 {
         return qtc.QAbstractScrollArea_HorizontalScrollBarPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHorizontalScrollBarPolicy` instead
+    ///
+    pub const SetHorizontalScrollBarPolicy = setHorizontalScrollBarPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -4428,11 +5592,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` horizontalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
+    /// ` _horizontalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn SetHorizontalScrollBarPolicy(self: QTableWidget, horizontalScrollBarPolicy: i32) void {
-        qtc.QAbstractScrollArea_SetHorizontalScrollBarPolicy(@ptrCast(self.ptr), @bitCast(horizontalScrollBarPolicy));
+    pub fn setHorizontalScrollBarPolicy(self: QTableWidget, _horizontalScrollBarPolicy: i32) void {
+        qtc.QAbstractScrollArea_SetHorizontalScrollBarPolicy(@ptrCast(self.ptr), @bitCast(_horizontalScrollBarPolicy));
     }
+
+    /// ### DEPRECATED: Use `horizontalScrollBar` instead
+    ///
+    pub const HorizontalScrollBar = horizontalScrollBar;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -4442,9 +5610,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn HorizontalScrollBar(self: QTableWidget) QScrollBar {
+    pub fn horizontalScrollBar(self: QTableWidget) QScrollBar {
         return .{ .ptr = qtc.QAbstractScrollArea_HorizontalScrollBar(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setHorizontalScrollBar` instead
+    ///
+    pub const SetHorizontalScrollBar = setHorizontalScrollBar;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -4456,10 +5628,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` scrollbar: QScrollBar `
     ///
-    pub fn SetHorizontalScrollBar(self: QTableWidget, scrollbar: anytype) void {
+    pub fn setHorizontalScrollBar(self: QTableWidget, scrollbar: anytype) void {
         comptime _ = @TypeOf(scrollbar)._is_QScrollBar;
         qtc.QAbstractScrollArea_SetHorizontalScrollBar(@ptrCast(self.ptr), @ptrCast(scrollbar.ptr));
     }
+
+    /// ### DEPRECATED: Use `cornerWidget` instead
+    ///
+    pub const CornerWidget = cornerWidget;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -4469,9 +5645,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn CornerWidget(self: QTableWidget) QWidget {
+    pub fn cornerWidget(self: QTableWidget) QWidget {
         return .{ .ptr = qtc.QAbstractScrollArea_CornerWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCornerWidget` instead
+    ///
+    pub const SetCornerWidget = setCornerWidget;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -4483,10 +5663,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn SetCornerWidget(self: QTableWidget, widget: anytype) void {
+    pub fn setCornerWidget(self: QTableWidget, widget: anytype) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QAbstractScrollArea_SetCornerWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `addScrollBarWidget` instead
+    ///
+    pub const AddScrollBarWidget = addScrollBarWidget;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -4500,10 +5684,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn AddScrollBarWidget(self: QTableWidget, widget: anytype, alignment: i32) void {
+    pub fn addScrollBarWidget(self: QTableWidget, widget: anytype, alignment: i32) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QAbstractScrollArea_AddScrollBarWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr), @bitCast(alignment));
     }
+
+    /// ### DEPRECATED: Use `scrollBarWidgets` instead
+    ///
+    pub const ScrollBarWidgets = scrollBarWidgets;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -4517,15 +5705,19 @@ pub const QTableWidget = extern struct {
     ///
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn ScrollBarWidgets(self: QTableWidget, allocator: std.mem.Allocator, alignment: i32) []QWidget {
+    pub fn scrollBarWidgets(self: QTableWidget, allocator: std.mem.Allocator, alignment: i32) []QWidget {
         const _arr: qtc.libqt_list = qtc.QAbstractScrollArea_ScrollBarWidgets(@ptrCast(self.ptr), @bitCast(alignment));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("QTableWidget.ScrollBarWidgets: Memory allocation failed");
-        const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("QTableWidget.scrollBarWidgets: Memory allocation failed");
+        const _data_val: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `viewport` instead
+    ///
+    pub const Viewport = viewport;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -4535,9 +5727,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn Viewport(self: QTableWidget) QWidget {
+    pub fn viewport(self: QTableWidget) QWidget {
         return .{ .ptr = qtc.QAbstractScrollArea_Viewport(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setViewport` instead
+    ///
+    pub const SetViewport = setViewport;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -4549,10 +5745,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn SetViewport(self: QTableWidget, widget: anytype) void {
+    pub fn setViewport(self: QTableWidget, widget: anytype) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QAbstractScrollArea_SetViewport(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumViewportSize` instead
+    ///
+    pub const MaximumViewportSize = maximumViewportSize;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -4562,9 +5762,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn MaximumViewportSize(self: QTableWidget) QSize {
+    pub fn maximumViewportSize(self: QTableWidget) QSize {
         return .{ .ptr = qtc.QAbstractScrollArea_MaximumViewportSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `sizeAdjustPolicy` instead
+    ///
+    pub const SizeAdjustPolicy = sizeAdjustPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -4578,9 +5782,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` qabstractscrollarea_enums.SizeAdjustPolicy `
     ///
-    pub fn SizeAdjustPolicy(self: QTableWidget) i32 {
+    pub fn sizeAdjustPolicy(self: QTableWidget) i32 {
         return qtc.QAbstractScrollArea_SizeAdjustPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeAdjustPolicy` instead
+    ///
+    pub const SetSizeAdjustPolicy = setSizeAdjustPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -4592,9 +5800,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` policy: qabstractscrollarea_enums.SizeAdjustPolicy `
     ///
-    pub fn SetSizeAdjustPolicy(self: QTableWidget, policy: i32) void {
+    pub fn setSizeAdjustPolicy(self: QTableWidget, policy: i32) void {
         qtc.QAbstractScrollArea_SetSizeAdjustPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `frameStyle` instead
+    ///
+    pub const FrameStyle = frameStyle;
 
     /// Inherited from QFrame
     ///
@@ -4604,9 +5816,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn FrameStyle(self: QTableWidget) i32 {
+    pub fn frameStyle(self: QTableWidget) i32 {
         return qtc.QFrame_FrameStyle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFrameStyle` instead
+    ///
+    pub const SetFrameStyle = setFrameStyle;
 
     /// Inherited from QFrame
     ///
@@ -4616,11 +5832,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` frameStyle: i32 `
+    /// ` _frameStyle: i32 `
     ///
-    pub fn SetFrameStyle(self: QTableWidget, frameStyle: i32) void {
-        qtc.QFrame_SetFrameStyle(@ptrCast(self.ptr), @bitCast(frameStyle));
+    pub fn setFrameStyle(self: QTableWidget, _frameStyle: i32) void {
+        qtc.QFrame_SetFrameStyle(@ptrCast(self.ptr), @bitCast(_frameStyle));
     }
+
+    /// ### DEPRECATED: Use `frameWidth` instead
+    ///
+    pub const FrameWidth = frameWidth;
 
     /// Inherited from QFrame
     ///
@@ -4630,9 +5850,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn FrameWidth(self: QTableWidget) i32 {
+    pub fn frameWidth(self: QTableWidget) i32 {
         return qtc.QFrame_FrameWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `frameShape` instead
+    ///
+    pub const FrameShape = frameShape;
 
     /// Inherited from QFrame
     ///
@@ -4646,9 +5870,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` qframe_enums.Shape `
     ///
-    pub fn FrameShape(self: QTableWidget) i32 {
+    pub fn frameShape(self: QTableWidget) i32 {
         return qtc.QFrame_FrameShape(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFrameShape` instead
+    ///
+    pub const SetFrameShape = setFrameShape;
 
     /// Inherited from QFrame
     ///
@@ -4658,11 +5886,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` frameShape: qframe_enums.Shape `
+    /// ` _frameShape: qframe_enums.Shape `
     ///
-    pub fn SetFrameShape(self: QTableWidget, frameShape: i32) void {
-        qtc.QFrame_SetFrameShape(@ptrCast(self.ptr), @bitCast(frameShape));
+    pub fn setFrameShape(self: QTableWidget, _frameShape: i32) void {
+        qtc.QFrame_SetFrameShape(@ptrCast(self.ptr), @bitCast(_frameShape));
     }
+
+    /// ### DEPRECATED: Use `frameShadow` instead
+    ///
+    pub const FrameShadow = frameShadow;
 
     /// Inherited from QFrame
     ///
@@ -4676,9 +5908,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` qframe_enums.Shadow `
     ///
-    pub fn FrameShadow(self: QTableWidget) i32 {
+    pub fn frameShadow(self: QTableWidget) i32 {
         return qtc.QFrame_FrameShadow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFrameShadow` instead
+    ///
+    pub const SetFrameShadow = setFrameShadow;
 
     /// Inherited from QFrame
     ///
@@ -4688,11 +5924,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` frameShadow: qframe_enums.Shadow `
+    /// ` _frameShadow: qframe_enums.Shadow `
     ///
-    pub fn SetFrameShadow(self: QTableWidget, frameShadow: i32) void {
-        qtc.QFrame_SetFrameShadow(@ptrCast(self.ptr), @bitCast(frameShadow));
+    pub fn setFrameShadow(self: QTableWidget, _frameShadow: i32) void {
+        qtc.QFrame_SetFrameShadow(@ptrCast(self.ptr), @bitCast(_frameShadow));
     }
+
+    /// ### DEPRECATED: Use `lineWidth` instead
+    ///
+    pub const LineWidth = lineWidth;
 
     /// Inherited from QFrame
     ///
@@ -4702,9 +5942,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn LineWidth(self: QTableWidget) i32 {
+    pub fn lineWidth(self: QTableWidget) i32 {
         return qtc.QFrame_LineWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLineWidth` instead
+    ///
+    pub const SetLineWidth = setLineWidth;
 
     /// Inherited from QFrame
     ///
@@ -4714,11 +5958,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` lineWidth: i32 `
+    /// ` _lineWidth: i32 `
     ///
-    pub fn SetLineWidth(self: QTableWidget, lineWidth: i32) void {
-        qtc.QFrame_SetLineWidth(@ptrCast(self.ptr), @bitCast(lineWidth));
+    pub fn setLineWidth(self: QTableWidget, _lineWidth: i32) void {
+        qtc.QFrame_SetLineWidth(@ptrCast(self.ptr), @bitCast(_lineWidth));
     }
+
+    /// ### DEPRECATED: Use `midLineWidth` instead
+    ///
+    pub const MidLineWidth = midLineWidth;
 
     /// Inherited from QFrame
     ///
@@ -4728,9 +5976,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn MidLineWidth(self: QTableWidget) i32 {
+    pub fn midLineWidth(self: QTableWidget) i32 {
         return qtc.QFrame_MidLineWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMidLineWidth` instead
+    ///
+    pub const SetMidLineWidth = setMidLineWidth;
 
     /// Inherited from QFrame
     ///
@@ -4740,11 +5992,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` midLineWidth: i32 `
+    /// ` _midLineWidth: i32 `
     ///
-    pub fn SetMidLineWidth(self: QTableWidget, midLineWidth: i32) void {
-        qtc.QFrame_SetMidLineWidth(@ptrCast(self.ptr), @bitCast(midLineWidth));
+    pub fn setMidLineWidth(self: QTableWidget, _midLineWidth: i32) void {
+        qtc.QFrame_SetMidLineWidth(@ptrCast(self.ptr), @bitCast(_midLineWidth));
     }
+
+    /// ### DEPRECATED: Use `frameRect` instead
+    ///
+    pub const FrameRect = frameRect;
 
     /// Inherited from QFrame
     ///
@@ -4754,9 +6010,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn FrameRect(self: QTableWidget) QRect {
+    pub fn frameRect(self: QTableWidget) QRect {
         return .{ .ptr = qtc.QFrame_FrameRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFrameRect` instead
+    ///
+    pub const SetFrameRect = setFrameRect;
 
     /// Inherited from QFrame
     ///
@@ -4766,12 +6026,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` frameRect: QRect `
+    /// ` _frameRect: QRect `
     ///
-    pub fn SetFrameRect(self: QTableWidget, frameRect: anytype) void {
-        comptime _ = @TypeOf(frameRect)._is_QRect;
-        qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(frameRect.ptr));
+    pub fn setFrameRect(self: QTableWidget, _frameRect: anytype) void {
+        comptime _ = @TypeOf(_frameRect)._is_QRect;
+        qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(_frameRect.ptr));
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -4781,9 +6045,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn WinId(self: QTableWidget) usize {
+    pub fn winId(self: QTableWidget) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -4793,9 +6061,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn CreateWinId(self: QTableWidget) void {
+    pub fn createWinId(self: QTableWidget) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -4805,9 +6077,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn InternalWinId(self: QTableWidget) usize {
+    pub fn internalWinId(self: QTableWidget) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -4817,9 +6093,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn EffectiveWinId(self: QTableWidget) usize {
+    pub fn effectiveWinId(self: QTableWidget) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -4829,9 +6109,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn Style(self: QTableWidget) QStyle {
+    pub fn style(self: QTableWidget) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -4841,12 +6125,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: QTableWidget, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: QTableWidget, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -4856,9 +6144,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn IsTopLevel(self: QTableWidget) bool {
+    pub fn isTopLevel(self: QTableWidget) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -4868,9 +6160,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn IsWindow(self: QTableWidget) bool {
+    pub fn isWindow(self: QTableWidget) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -4880,9 +6176,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn IsModal(self: QTableWidget) bool {
+    pub fn isModal(self: QTableWidget) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -4896,9 +6196,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: QTableWidget) i32 {
+    pub fn windowModality(self: QTableWidget) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -4908,11 +6212,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: QTableWidget, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: QTableWidget, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -4922,9 +6230,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn IsEnabled(self: QTableWidget) bool {
+    pub fn isEnabled(self: QTableWidget) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -4936,10 +6248,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: QTableWidget, param1: anytype) bool {
+    pub fn isEnabledTo(self: QTableWidget, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -4951,9 +6267,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: QTableWidget, enabled: bool) void {
+    pub fn setEnabled(self: QTableWidget, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -4965,9 +6285,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: QTableWidget, disabled: bool) void {
+    pub fn setDisabled(self: QTableWidget, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -4979,9 +6303,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: QTableWidget, windowModified: bool) void {
+    pub fn setWindowModified(self: QTableWidget, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4991,9 +6319,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn FrameGeometry(self: QTableWidget) QRect {
+    pub fn frameGeometry(self: QTableWidget) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -5003,9 +6335,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn Geometry(self: QTableWidget) QRect {
+    pub fn geometry(self: QTableWidget) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -5015,9 +6351,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn NormalGeometry(self: QTableWidget) QRect {
+    pub fn normalGeometry(self: QTableWidget) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -5027,9 +6367,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn X(self: QTableWidget) i32 {
+    pub fn x(self: QTableWidget) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -5039,9 +6383,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn Y(self: QTableWidget) i32 {
+    pub fn y(self: QTableWidget) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -5051,9 +6399,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn Pos(self: QTableWidget) QPoint {
+    pub fn pos(self: QTableWidget) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -5063,9 +6415,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn FrameSize(self: QTableWidget) QSize {
+    pub fn frameSize(self: QTableWidget) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -5075,9 +6431,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn Size(self: QTableWidget) QSize {
+    pub fn size(self: QTableWidget) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -5087,9 +6447,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn Width(self: QTableWidget) i32 {
+    pub fn width(self: QTableWidget) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -5099,9 +6463,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn Height(self: QTableWidget) i32 {
+    pub fn height(self: QTableWidget) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -5111,9 +6479,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn Rect(self: QTableWidget) QRect {
+    pub fn rect(self: QTableWidget) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -5123,9 +6495,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn ChildrenRect(self: QTableWidget) QRect {
+    pub fn childrenRect(self: QTableWidget) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -5135,9 +6511,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn ChildrenRegion(self: QTableWidget) QRegion {
+    pub fn childrenRegion(self: QTableWidget) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -5147,9 +6527,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn MinimumSize(self: QTableWidget) QSize {
+    pub fn minimumSize(self: QTableWidget) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -5159,9 +6543,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn MaximumSize(self: QTableWidget) QSize {
+    pub fn maximumSize(self: QTableWidget) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -5171,9 +6559,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn MinimumWidth(self: QTableWidget) i32 {
+    pub fn minimumWidth(self: QTableWidget) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -5183,9 +6575,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn MinimumHeight(self: QTableWidget) i32 {
+    pub fn minimumHeight(self: QTableWidget) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -5195,9 +6591,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn MaximumWidth(self: QTableWidget) i32 {
+    pub fn maximumWidth(self: QTableWidget) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -5207,9 +6607,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn MaximumHeight(self: QTableWidget) i32 {
+    pub fn maximumHeight(self: QTableWidget) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -5219,12 +6623,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: QTableWidget, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: QTableWidget, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -5238,9 +6646,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: QTableWidget, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: QTableWidget, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -5250,12 +6662,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: QTableWidget, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: QTableWidget, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -5269,9 +6685,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: QTableWidget, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: QTableWidget, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -5283,9 +6703,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: QTableWidget, minw: i32) void {
+    pub fn setMinimumWidth(self: QTableWidget, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -5297,9 +6721,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: QTableWidget, minh: i32) void {
+    pub fn setMinimumHeight(self: QTableWidget, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -5311,9 +6739,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: QTableWidget, maxw: i32) void {
+    pub fn setMaximumWidth(self: QTableWidget, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -5325,9 +6757,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: QTableWidget, maxh: i32) void {
+    pub fn setMaximumHeight(self: QTableWidget, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -5337,9 +6773,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn SizeIncrement(self: QTableWidget) QSize {
+    pub fn sizeIncrement(self: QTableWidget) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -5349,12 +6789,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: QTableWidget, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: QTableWidget, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -5368,9 +6812,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: QTableWidget, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: QTableWidget, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -5380,9 +6828,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn BaseSize(self: QTableWidget) QSize {
+    pub fn baseSize(self: QTableWidget) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -5392,12 +6844,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: QTableWidget, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: QTableWidget, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -5411,9 +6867,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: QTableWidget, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: QTableWidget, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -5425,10 +6885,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: QTableWidget, fixedSize: anytype) void {
+    pub fn setFixedSize(self: QTableWidget, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -5442,9 +6906,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: QTableWidget, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: QTableWidget, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -5456,9 +6924,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: QTableWidget, w: i32) void {
+    pub fn setFixedWidth(self: QTableWidget, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -5470,9 +6942,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: QTableWidget, h: i32) void {
+    pub fn setFixedHeight(self: QTableWidget, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -5484,11 +6960,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: QTableWidget, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: QTableWidget, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -5499,11 +6979,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: QTableWidget, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: QTableWidget, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -5514,11 +6998,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: QTableWidget, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: QTableWidget, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -5529,11 +7017,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: QTableWidget, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: QTableWidget, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -5544,11 +7036,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: QTableWidget, param1: anytype) QPointF {
+    pub fn mapToParent(self: QTableWidget, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -5559,10 +7055,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: QTableWidget, param1: anytype) QPoint {
+    pub fn mapToParent2(self: QTableWidget, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -5574,10 +7074,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: QTableWidget, param1: anytype) QPointF {
+    pub fn mapFromParent(self: QTableWidget, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -5589,10 +7093,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: QTableWidget, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: QTableWidget, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -5606,12 +7114,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: QTableWidget, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: QTableWidget, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -5624,11 +7136,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: QTableWidget, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: QTableWidget, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -5642,11 +7158,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: QTableWidget, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: QTableWidget, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -5660,11 +7180,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: QTableWidget, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: QTableWidget, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -5674,9 +7198,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn Window(self: QTableWidget) QWidget {
+    pub fn window(self: QTableWidget) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -5686,9 +7214,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn NativeParentWidget(self: QTableWidget) QWidget {
+    pub fn nativeParentWidget(self: QTableWidget) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -5698,9 +7230,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn TopLevelWidget(self: QTableWidget) QWidget {
+    pub fn topLevelWidget(self: QTableWidget) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -5710,9 +7246,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn Palette(self: QTableWidget) QPalette {
+    pub fn palette(self: QTableWidget) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -5722,12 +7262,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: QTableWidget, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: QTableWidget, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -5737,11 +7281,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: QTableWidget, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: QTableWidget, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -5755,9 +7303,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: QTableWidget) i32 {
+    pub fn backgroundRole(self: QTableWidget) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -5767,11 +7319,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: QTableWidget, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: QTableWidget, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -5785,9 +7341,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: QTableWidget) i32 {
+    pub fn foregroundRole(self: QTableWidget) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -5797,9 +7357,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn Font(self: QTableWidget) QFont {
+    pub fn font(self: QTableWidget) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -5809,12 +7373,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: QTableWidget, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: QTableWidget, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -5824,9 +7392,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn FontMetrics(self: QTableWidget) QFontMetrics {
+    pub fn fontMetrics(self: QTableWidget) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -5836,9 +7408,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn FontInfo(self: QTableWidget) QFontInfo {
+    pub fn fontInfo(self: QTableWidget) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -5848,9 +7424,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn Cursor(self: QTableWidget) QCursor {
+    pub fn cursor(self: QTableWidget) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -5860,12 +7440,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: QTableWidget, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: QTableWidget, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -5875,9 +7459,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn UnsetCursor(self: QTableWidget) void {
+    pub fn unsetCursor(self: QTableWidget) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -5889,9 +7477,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: QTableWidget, enable: bool) void {
+    pub fn setMouseTracking(self: QTableWidget, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -5901,9 +7493,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn HasMouseTracking(self: QTableWidget) bool {
+    pub fn hasMouseTracking(self: QTableWidget) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -5913,9 +7509,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn UnderMouse(self: QTableWidget) bool {
+    pub fn underMouse(self: QTableWidget) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -5927,9 +7527,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: QTableWidget, enable: bool) void {
+    pub fn setTabletTracking(self: QTableWidget, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -5939,24 +7543,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn HasTabletTracking(self: QTableWidget) bool {
+    pub fn hasTabletTracking(self: QTableWidget) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTableWidget `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: QTableWidget, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -5966,12 +7559,35 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: QTableWidget, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: QTableWidget, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QTableWidget `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: QTableWidget, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -5981,9 +7597,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn Mask(self: QTableWidget) QRegion {
+    pub fn mask(self: QTableWidget) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -5993,9 +7613,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn ClearMask(self: QTableWidget) void {
+    pub fn clearMask(self: QTableWidget) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -6007,10 +7631,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: QTableWidget, target: anytype) void {
+    pub fn render(self: QTableWidget, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -6022,10 +7650,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: QTableWidget, painter: anytype) void {
+    pub fn render2(self: QTableWidget, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -6035,9 +7667,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn Grab(self: QTableWidget) QPixmap {
+    pub fn grab(self: QTableWidget) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -6047,9 +7683,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn GraphicsEffect(self: QTableWidget) QGraphicsEffect {
+    pub fn graphicsEffect(self: QTableWidget) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -6061,10 +7701,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: QTableWidget, effect: anytype) void {
+    pub fn setGraphicsEffect(self: QTableWidget, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -6076,9 +7720,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: QTableWidget, typeVal: i32) void {
+    pub fn grabGesture(self: QTableWidget, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -6090,9 +7738,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: QTableWidget, typeVal: i32) void {
+    pub fn ungrabGesture(self: QTableWidget, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -6102,15 +7754,19 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: QTableWidget, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: QTableWidget, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -6120,15 +7776,19 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: QTableWidget, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: QTableWidget, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -6140,13 +7800,17 @@ pub const QTableWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: QTableWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: QTableWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTableWidget.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTableWidget.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -6158,13 +7822,17 @@ pub const QTableWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: QTableWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: QTableWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTableWidget.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTableWidget.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -6174,12 +7842,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: QTableWidget, icon: anytype) void {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
+    pub fn setWindowIcon(self: QTableWidget, _icon: anytype) void {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(_icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -6189,9 +7861,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn WindowIcon(self: QTableWidget) QIcon {
+    pub fn windowIcon(self: QTableWidget) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -6201,15 +7877,19 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: QTableWidget, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: QTableWidget, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -6221,13 +7901,17 @@ pub const QTableWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: QTableWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: QTableWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTableWidget.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTableWidget.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -6237,15 +7921,19 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: QTableWidget, windowRole: []const u8) void {
+    pub fn setWindowRole(self: QTableWidget, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -6257,13 +7945,17 @@ pub const QTableWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: QTableWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: QTableWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTableWidget.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTableWidget.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -6275,13 +7967,17 @@ pub const QTableWidget = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: QTableWidget, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: QTableWidget, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -6293,13 +7989,17 @@ pub const QTableWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: QTableWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: QTableWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTableWidget.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTableWidget.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -6311,9 +8011,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: QTableWidget, level: f64) void {
+    pub fn setWindowOpacity(self: QTableWidget, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -6323,9 +8027,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn WindowOpacity(self: QTableWidget) f64 {
+    pub fn windowOpacity(self: QTableWidget) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -6335,9 +8043,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn IsWindowModified(self: QTableWidget) bool {
+    pub fn isWindowModified(self: QTableWidget) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -6347,15 +8059,19 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: QTableWidget, toolTip: []const u8) void {
+    pub fn setToolTip(self: QTableWidget, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -6367,13 +8083,17 @@ pub const QTableWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: QTableWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: QTableWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTableWidget.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTableWidget.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -6385,9 +8105,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: QTableWidget, msec: i32) void {
+    pub fn setToolTipDuration(self: QTableWidget, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -6397,9 +8121,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn ToolTipDuration(self: QTableWidget) i32 {
+    pub fn toolTipDuration(self: QTableWidget) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -6409,15 +8137,19 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: QTableWidget, statusTip: []const u8) void {
+    pub fn setStatusTip(self: QTableWidget, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -6429,13 +8161,17 @@ pub const QTableWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: QTableWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: QTableWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTableWidget.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTableWidget.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -6445,15 +8181,19 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: QTableWidget, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: QTableWidget, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -6465,13 +8205,17 @@ pub const QTableWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: QTableWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: QTableWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTableWidget.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTableWidget.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -6483,13 +8227,17 @@ pub const QTableWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: QTableWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: QTableWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTableWidget.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTableWidget.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -6501,13 +8249,17 @@ pub const QTableWidget = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: QTableWidget, name: []const u8) void {
+    pub fn setAccessibleName(self: QTableWidget, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -6519,13 +8271,17 @@ pub const QTableWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: QTableWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: QTableWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTableWidget.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTableWidget.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -6537,13 +8293,17 @@ pub const QTableWidget = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: QTableWidget, description: []const u8) void {
+    pub fn setAccessibleDescription(self: QTableWidget, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -6555,9 +8315,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: QTableWidget, direction: i32) void {
+    pub fn setLayoutDirection(self: QTableWidget, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -6571,9 +8335,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: QTableWidget) i32 {
+    pub fn layoutDirection(self: QTableWidget) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -6583,9 +8351,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn UnsetLayoutDirection(self: QTableWidget) void {
+    pub fn unsetLayoutDirection(self: QTableWidget) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -6595,12 +8367,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: QTableWidget, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: QTableWidget, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -6610,9 +8386,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn Locale(self: QTableWidget) QLocale {
+    pub fn locale(self: QTableWidget) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -6622,9 +8402,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn UnsetLocale(self: QTableWidget) void {
+    pub fn unsetLocale(self: QTableWidget) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -6634,9 +8418,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn IsRightToLeft(self: QTableWidget) bool {
+    pub fn isRightToLeft(self: QTableWidget) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -6646,9 +8434,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn IsLeftToRight(self: QTableWidget) bool {
+    pub fn isLeftToRight(self: QTableWidget) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -6658,9 +8450,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn SetFocus(self: QTableWidget) void {
+    pub fn setFocus(self: QTableWidget) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -6670,9 +8466,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn IsActiveWindow(self: QTableWidget) bool {
+    pub fn isActiveWindow(self: QTableWidget) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -6682,9 +8482,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn ActivateWindow(self: QTableWidget) void {
+    pub fn activateWindow(self: QTableWidget) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -6694,9 +8498,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn ClearFocus(self: QTableWidget) void {
+    pub fn clearFocus(self: QTableWidget) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -6708,9 +8516,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: QTableWidget, reason: i32) void {
+    pub fn setFocus2(self: QTableWidget, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -6724,9 +8536,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: QTableWidget) i32 {
+    pub fn focusPolicy(self: QTableWidget) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -6738,9 +8554,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: QTableWidget, policy: i32) void {
+    pub fn setFocusPolicy(self: QTableWidget, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -6750,9 +8570,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn HasFocus(self: QTableWidget) bool {
+    pub fn hasFocus(self: QTableWidget) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -6764,11 +8588,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -6778,12 +8606,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: QTableWidget, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: QTableWidget, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -6793,9 +8625,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn FocusProxy(self: QTableWidget) QWidget {
+    pub fn focusProxy(self: QTableWidget) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -6809,9 +8645,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: QTableWidget) i32 {
+    pub fn contextMenuPolicy(self: QTableWidget) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -6823,9 +8663,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: QTableWidget, policy: i32) void {
+    pub fn setContextMenuPolicy(self: QTableWidget, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -6835,9 +8679,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn GrabMouse(self: QTableWidget) void {
+    pub fn grabMouse(self: QTableWidget) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -6849,10 +8697,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: QTableWidget, param1: anytype) void {
+    pub fn grabMouse2(self: QTableWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -6862,9 +8714,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn ReleaseMouse(self: QTableWidget) void {
+    pub fn releaseMouse(self: QTableWidget) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -6874,9 +8730,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn GrabKeyboard(self: QTableWidget) void {
+    pub fn grabKeyboard(self: QTableWidget) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -6886,9 +8746,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn ReleaseKeyboard(self: QTableWidget) void {
+    pub fn releaseKeyboard(self: QTableWidget) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -6900,10 +8764,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: QTableWidget, key: anytype) i32 {
+    pub fn grabShortcut(self: QTableWidget, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -6915,9 +8783,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: QTableWidget, id: i32) void {
+    pub fn releaseShortcut(self: QTableWidget, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -6929,9 +8801,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: QTableWidget, id: i32) void {
+    pub fn setShortcutEnabled(self: QTableWidget, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -6943,25 +8819,37 @@ pub const QTableWidget = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: QTableWidget, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: QTableWidget, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -6971,9 +8859,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn UpdatesEnabled(self: QTableWidget) bool {
+    pub fn updatesEnabled(self: QTableWidget) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -6985,9 +8877,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: QTableWidget, enable: bool) void {
+    pub fn setUpdatesEnabled(self: QTableWidget, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -6997,9 +8893,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn GraphicsProxyWidget(self: QTableWidget) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: QTableWidget) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -7009,9 +8909,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn Repaint(self: QTableWidget) void {
+    pub fn repaint(self: QTableWidget) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -7021,17 +8925,21 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: QTableWidget, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: QTableWidget, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -7043,11 +8951,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: QTableWidget, param1: anytype) void {
+    pub fn update3(self: QTableWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -7058,10 +8970,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: QTableWidget, param1: anytype) void {
+    pub fn update4(self: QTableWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -7071,17 +8987,21 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: QTableWidget, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: QTableWidget, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -7093,10 +9013,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: QTableWidget, param1: anytype) void {
+    pub fn repaint3(self: QTableWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -7108,10 +9032,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: QTableWidget, param1: anytype) void {
+    pub fn repaint4(self: QTableWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -7123,9 +9051,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: QTableWidget, hidden: bool) void {
+    pub fn setHidden(self: QTableWidget, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -7135,9 +9067,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn Show(self: QTableWidget) void {
+    pub fn show(self: QTableWidget) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -7147,9 +9083,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn Hide(self: QTableWidget) void {
+    pub fn hide(self: QTableWidget) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -7159,9 +9099,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn ShowMinimized(self: QTableWidget) void {
+    pub fn showMinimized(self: QTableWidget) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -7171,9 +9115,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn ShowMaximized(self: QTableWidget) void {
+    pub fn showMaximized(self: QTableWidget) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -7183,9 +9131,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn ShowFullScreen(self: QTableWidget) void {
+    pub fn showFullScreen(self: QTableWidget) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -7195,9 +9147,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn ShowNormal(self: QTableWidget) void {
+    pub fn showNormal(self: QTableWidget) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -7207,9 +9163,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn Close(self: QTableWidget) bool {
+    pub fn close(self: QTableWidget) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -7219,9 +9179,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn Raise(self: QTableWidget) void {
+    pub fn raise(self: QTableWidget) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -7231,9 +9195,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn Lower(self: QTableWidget) void {
+    pub fn lower(self: QTableWidget) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -7245,10 +9213,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: QTableWidget, param1: anytype) void {
+    pub fn stackUnder(self: QTableWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -7258,13 +9230,17 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: QTableWidget, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: QTableWidget, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -7276,10 +9252,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: QTableWidget, param1: anytype) void {
+    pub fn move2(self: QTableWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -7293,9 +9273,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: QTableWidget, w: i32, h: i32) void {
+    pub fn resize(self: QTableWidget, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -7307,10 +9291,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: QTableWidget, param1: anytype) void {
+    pub fn resize2(self: QTableWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -7320,17 +9308,21 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: QTableWidget, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: QTableWidget, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -7340,12 +9332,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: QTableWidget, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: QTableWidget, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -7357,13 +9353,17 @@ pub const QTableWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: QTableWidget, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: QTableWidget, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QTableWidget.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QTableWidget.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -7373,15 +9373,19 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: QTableWidget, geometry: []u8) bool {
+    pub fn restoreGeometry(self: QTableWidget, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -7391,9 +9395,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn AdjustSize(self: QTableWidget) void {
+    pub fn adjustSize(self: QTableWidget) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -7403,9 +9411,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn IsVisible(self: QTableWidget) bool {
+    pub fn isVisible(self: QTableWidget) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -7417,10 +9429,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: QTableWidget, param1: anytype) bool {
+    pub fn isVisibleTo(self: QTableWidget, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -7430,9 +9446,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn IsHidden(self: QTableWidget) bool {
+    pub fn isHidden(self: QTableWidget) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -7442,9 +9462,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn IsMinimized(self: QTableWidget) bool {
+    pub fn isMinimized(self: QTableWidget) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -7454,9 +9478,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn IsMaximized(self: QTableWidget) bool {
+    pub fn isMaximized(self: QTableWidget) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -7466,9 +9494,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn IsFullScreen(self: QTableWidget) bool {
+    pub fn isFullScreen(self: QTableWidget) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -7482,9 +9514,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: QTableWidget) i32 {
+    pub fn windowState(self: QTableWidget) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -7494,11 +9530,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` state: flag of qnamespace_enums.WindowState `
+    /// ` _state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: QTableWidget, state: i32) void {
-        qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
+    pub fn setWindowState(self: QTableWidget, _state: i32) void {
+        qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(_state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -7508,11 +9548,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` state: flag of qnamespace_enums.WindowState `
+    /// ` _state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: QTableWidget, state: i32) void {
-        qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
+    pub fn overrideWindowState(self: QTableWidget, _state: i32) void {
+        qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(_state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -7522,9 +9566,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn SizePolicy(self: QTableWidget) QSizePolicy {
+    pub fn sizePolicy(self: QTableWidget) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -7534,12 +9582,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: QTableWidget, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: QTableWidget, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -7553,9 +9605,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: QTableWidget, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: QTableWidget, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -7565,9 +9621,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn VisibleRegion(self: QTableWidget) QRegion {
+    pub fn visibleRegion(self: QTableWidget) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -7585,9 +9645,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: QTableWidget, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: QTableWidget, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -7599,10 +9663,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: QTableWidget, margins: anytype) void {
+    pub fn setContentsMargins2(self: QTableWidget, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -7612,9 +9680,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn ContentsMargins(self: QTableWidget) QMargins {
+    pub fn contentsMargins(self: QTableWidget) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -7624,9 +9696,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn ContentsRect(self: QTableWidget) QRect {
+    pub fn contentsRect(self: QTableWidget) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -7636,9 +9712,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn Layout(self: QTableWidget) QLayout {
+    pub fn layout(self: QTableWidget) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -7648,12 +9728,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: QTableWidget, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: QTableWidget, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -7663,24 +9747,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn UpdateGeometry(self: QTableWidget) void {
+    pub fn updateGeometry(self: QTableWidget) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTableWidget `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: QTableWidget, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -7690,14 +9763,37 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: QTableWidget, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QTableWidget `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: QTableWidget, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: QTableWidget, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -7711,9 +9807,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: QTableWidget, dx: i32, dy: i32) void {
+    pub fn scroll(self: QTableWidget, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -7729,10 +9829,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: QTableWidget, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: QTableWidget, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -7742,9 +9846,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn FocusWidget(self: QTableWidget) QWidget {
+    pub fn focusWidget(self: QTableWidget) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -7754,9 +9862,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn NextInFocusChain(self: QTableWidget) QWidget {
+    pub fn nextInFocusChain(self: QTableWidget) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -7766,9 +9878,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn PreviousInFocusChain(self: QTableWidget) QWidget {
+    pub fn previousInFocusChain(self: QTableWidget) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -7778,9 +9894,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn AcceptDrops(self: QTableWidget) bool {
+    pub fn acceptDrops(self: QTableWidget) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -7792,9 +9912,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: QTableWidget, on: bool) void {
+    pub fn setAcceptDrops(self: QTableWidget, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -7806,10 +9930,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: QTableWidget, action: anytype) void {
+    pub fn addAction(self: QTableWidget, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -7819,15 +9947,19 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: QTableWidget, actions: []QAction) void {
+    pub fn addActions(self: QTableWidget, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -7839,16 +9971,20 @@ pub const QTableWidget = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: QTableWidget, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: QTableWidget, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -7862,11 +9998,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: QTableWidget, before: anytype, action: anytype) void {
+    pub fn insertAction(self: QTableWidget, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -7878,10 +10018,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: QTableWidget, action: anytype) void {
+    pub fn removeAction(self: QTableWidget, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -7893,15 +10037,19 @@ pub const QTableWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: QTableWidget, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: QTableWidget, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QTableWidget.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QTableWidget.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -7911,36 +10059,19 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn AddAction2(self: QTableWidget, text: []const u8) QAction {
+    pub fn addAction2(self: QTableWidget, _text: []const u8) QAction {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `addAction3` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTableWidget `
-    ///
-    /// ` icon: QIcon `
-    ///
-    /// ` text: []const u8 `
-    ///
-    pub fn AddAction3(self: QTableWidget, icon: anytype, text: []const u8) QAction {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
-        };
-        return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
-    }
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -7950,19 +10081,48 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` text: []const u8 `
+    /// ` _icon: QIcon `
+    ///
+    /// ` _text: []const u8 `
+    ///
+    pub fn addAction3(self: QTableWidget, _icon: anytype, _text: []const u8) QAction {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        const text_str = qtc.libqt_string{
+            .len = _text.len,
+            .data = _text.ptr,
+        };
+        return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(_icon.ptr), text_str) };
+    }
+
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QTableWidget `
+    ///
+    /// ` _text: []const u8 `
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: QTableWidget, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: QTableWidget, _text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -7971,21 +10131,25 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: QTableWidget, icon: anytype, text: []const u8, shortcut: anytype) QAction {
-        comptime _ = @TypeOf(icon)._is_QIcon;
+    pub fn addAction5(self: QTableWidget, _icon: anytype, _text: []const u8, shortcut: anytype) QAction {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
-        return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
+        return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(_icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
 
     /// Inherited from QWidget
     ///
@@ -7995,9 +10159,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn ParentWidget(self: QTableWidget) QWidget {
+    pub fn parentWidget(self: QTableWidget) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -8009,9 +10177,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: QTableWidget, typeVal: i32) void {
+    pub fn setWindowFlags(self: QTableWidget, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -8025,9 +10197,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: QTableWidget) i32 {
+    pub fn windowFlags(self: QTableWidget) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -8039,9 +10215,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: QTableWidget, param1: i32) void {
+    pub fn setWindowFlag(self: QTableWidget, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -8053,9 +10233,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: QTableWidget, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: QTableWidget, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -8069,9 +10253,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: QTableWidget) i32 {
+    pub fn windowType(self: QTableWidget) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -8081,9 +10269,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -8093,13 +10285,17 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: QTableWidget, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: QTableWidget, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -8111,10 +10307,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: QTableWidget, p: anytype) QWidget {
+    pub fn childAt2(self: QTableWidget, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -8126,10 +10326,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: QTableWidget, p: anytype) QWidget {
+    pub fn childAt3(self: QTableWidget, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -8141,9 +10345,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: QTableWidget, param1: i32) void {
+    pub fn setAttribute(self: QTableWidget, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -8155,9 +10363,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: QTableWidget, param1: i32) bool {
+    pub fn testAttribute(self: QTableWidget, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -8167,9 +10379,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn EnsurePolished(self: QTableWidget) void {
+    pub fn ensurePolished(self: QTableWidget) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -8181,10 +10397,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: QTableWidget, child: anytype) bool {
+    pub fn isAncestorOf(self: QTableWidget, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -8194,9 +10414,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn AutoFillBackground(self: QTableWidget) bool {
+    pub fn autoFillBackground(self: QTableWidget) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -8208,9 +10432,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: QTableWidget, enabled: bool) void {
+    pub fn setAutoFillBackground(self: QTableWidget, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -8220,9 +10448,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn BackingStore(self: QTableWidget) QBackingStore {
+    pub fn backingStore(self: QTableWidget) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -8232,9 +10464,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn WindowHandle(self: QTableWidget) QWindow {
+    pub fn windowHandle(self: QTableWidget) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -8244,9 +10480,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn Screen(self: QTableWidget) QScreen {
+    pub fn screen(self: QTableWidget) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -8256,12 +10496,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: QTableWidget, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: QTableWidget, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -8269,12 +10513,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -8286,13 +10534,17 @@ pub const QTableWidget = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: QTableWidget, title: []const u8) void {
+    pub fn windowTitleChanged(self: QTableWidget, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -8304,9 +10556,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: QTableWidget, callback: *const fn (QTableWidget, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: QTableWidget, callback: *const fn (QTableWidget, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -8316,12 +10572,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: QTableWidget, icon: anytype) void {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
+    pub fn windowIconChanged(self: QTableWidget, _icon: anytype) void {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(_icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -8333,9 +10593,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: QTableWidget, callback: *const fn (QTableWidget, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: QTableWidget, callback: *const fn (QTableWidget, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -8347,13 +10611,17 @@ pub const QTableWidget = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: QTableWidget, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: QTableWidget, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -8365,9 +10633,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: QTableWidget, callback: *const fn (QTableWidget, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: QTableWidget, callback: *const fn (QTableWidget, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -8377,12 +10649,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: QTableWidget, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: QTableWidget, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -8394,9 +10670,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: QTableWidget, callback: *const fn (QTableWidget, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: QTableWidget, callback: *const fn (QTableWidget, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -8410,9 +10690,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: QTableWidget) i32 {
+    pub fn inputMethodHints(self: QTableWidget) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -8424,9 +10708,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: QTableWidget, hints: i32) void {
+    pub fn setInputMethodHints(self: QTableWidget, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -8440,11 +10728,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: QTableWidget, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: QTableWidget, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -8460,13 +10752,17 @@ pub const QTableWidget = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: QTableWidget, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: QTableWidget, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -8483,12 +10779,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: QTableWidget, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: QTableWidget, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -8502,11 +10802,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: QTableWidget, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: QTableWidget, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -8522,12 +10826,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: QTableWidget, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: QTableWidget, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -8545,12 +10853,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: QTableWidget, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: QTableWidget, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -8562,10 +10874,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: QTableWidget, rectangle: anytype) QPixmap {
+    pub fn grab1(self: QTableWidget, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -8577,11 +10893,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    /// ` flags: flag of qnamespace_enums.GestureFlag `
+    /// ` _flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: QTableWidget, typeVal: i32, flags: i32) void {
-        qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
+    pub fn grabGesture2(self: QTableWidget, typeVal: i32, _flags: i32) void {
+        qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(_flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -8595,10 +10915,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: QTableWidget, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: QTableWidget, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -8612,9 +10936,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: QTableWidget, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: QTableWidget, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -8628,9 +10956,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: QTableWidget, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: QTableWidget, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -8644,9 +10976,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: QTableWidget, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: QTableWidget, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -8660,25 +10996,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: QTableWidget, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: QTableWidget, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -8686,17 +11010,41 @@ pub const QTableWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    /// ` flags: flag of qnamespace_enums.WindowType `
-    ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
+    ///
+    /// ` _flags: flag of qnamespace_enums.WindowType `
+    ///
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, _flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(_flags)) };
+    }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -8708,13 +11056,17 @@ pub const QTableWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QTableWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QTableWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTableWidget.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTableWidget.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -8726,13 +11078,17 @@ pub const QTableWidget = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QTableWidget, name: []const u8) void {
+    pub fn setObjectName(self: QTableWidget, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -8742,9 +11098,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn IsWidgetType(self: QTableWidget) bool {
+    pub fn isWidgetType(self: QTableWidget) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -8754,9 +11114,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn IsWindowType(self: QTableWidget) bool {
+    pub fn isWindowType(self: QTableWidget) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -8766,9 +11130,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn IsQuickItemType(self: QTableWidget) bool {
+    pub fn isQuickItemType(self: QTableWidget) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -8778,9 +11146,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn SignalsBlocked(self: QTableWidget) bool {
+    pub fn signalsBlocked(self: QTableWidget) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -8792,9 +11164,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QTableWidget, b: bool) bool {
+    pub fn blockSignals(self: QTableWidget, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -8804,9 +11180,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn Thread(self: QTableWidget) QThread {
+    pub fn thread(self: QTableWidget) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -8816,12 +11196,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QTableWidget, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QTableWidget, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -8833,9 +11217,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QTableWidget, interval: i32) i32 {
+    pub fn startTimer(self: QTableWidget, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -8847,9 +11235,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QTableWidget, time: i64) i32 {
+    pub fn startTimer2(self: QTableWidget, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -8861,9 +11253,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QTableWidget, id: i32) void {
+    pub fn killTimer(self: QTableWidget, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -8875,9 +11271,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QTableWidget, id: i32) void {
+    pub fn killTimer2(self: QTableWidget, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -8889,15 +11289,19 @@ pub const QTableWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QTableWidget, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QTableWidget, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QTableWidget.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QTableWidget.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -8909,10 +11313,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QTableWidget, filterObj: anytype) void {
+    pub fn installEventFilter(self: QTableWidget, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -8924,10 +11332,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QTableWidget, obj: anytype) void {
+    pub fn removeEventFilter(self: QTableWidget, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -8935,7 +11347,7 @@ pub const QTableWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -8943,13 +11355,17 @@ pub const QTableWidget = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -8957,7 +11373,7 @@ pub const QTableWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -8965,13 +11381,17 @@ pub const QTableWidget = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -8981,18 +11401,22 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QTableWidget, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QTableWidget, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -9000,7 +11424,7 @@ pub const QTableWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -9008,13 +11432,17 @@ pub const QTableWidget = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -9022,7 +11450,7 @@ pub const QTableWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -9030,13 +11458,17 @@ pub const QTableWidget = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -9046,9 +11478,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn Disconnect3(self: QTableWidget) bool {
+    pub fn disconnect3(self: QTableWidget) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -9060,10 +11496,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QTableWidget, receiver: anytype) bool {
+    pub fn disconnect4(self: QTableWidget, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -9073,10 +11513,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -9086,9 +11530,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn DumpObjectTree(self: QTableWidget) void {
+    pub fn dumpObjectTree(self: QTableWidget) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -9098,9 +11546,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn DumpObjectInfo(self: QTableWidget) void {
+    pub fn dumpObjectInfo(self: QTableWidget) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -9114,11 +11566,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QTableWidget, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QTableWidget, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -9130,10 +11586,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QTableWidget, name: [:0]const u8) QVariant {
+    pub fn property(self: QTableWidget, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -9145,7 +11605,7 @@ pub const QTableWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QTableWidget, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QTableWidget, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -9153,27 +11613,19 @@ pub const QTableWidget = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QTableWidget.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QTableWidget.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QTableWidget.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QTableWidget.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTableWidget `
-    ///
-    pub fn BindingStorage(self: QTableWidget) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -9183,9 +11635,29 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn BindingStorage2(self: QTableWidget) QBindingStorage {
+    pub fn bindingStorage(self: QTableWidget) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QTableWidget `
+    ///
+    pub fn bindingStorage2(self: QTableWidget) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -9195,9 +11667,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn Destroyed(self: QTableWidget) void {
+    pub fn destroyed(self: QTableWidget) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -9209,9 +11685,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QTableWidget, callback: *const fn (QTableWidget) callconv(.c) void) void {
+    pub fn onDestroyed(self: QTableWidget, callback: *const fn (QTableWidget) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -9221,9 +11701,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn Parent(self: QTableWidget) QObject {
+    pub fn parent(self: QTableWidget) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -9235,10 +11719,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QTableWidget, classname: [:0]const u8) bool {
+    pub fn inherits(self: QTableWidget, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -9248,9 +11736,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn DeleteLater(self: QTableWidget) void {
+    pub fn deleteLater(self: QTableWidget) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -9264,9 +11756,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QTableWidget, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QTableWidget, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -9280,9 +11776,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QTableWidget, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QTableWidget, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -9290,7 +11790,7 @@ pub const QTableWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -9300,13 +11800,17 @@ pub const QTableWidget = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -9314,7 +11818,7 @@ pub const QTableWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -9324,13 +11828,17 @@ pub const QTableWidget = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -9340,7 +11848,7 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -9348,12 +11856,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QTableWidget, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QTableWidget, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -9365,10 +11877,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QTableWidget, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QTableWidget, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -9382,11 +11898,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QTableWidget, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QTableWidget, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -9402,13 +11922,17 @@ pub const QTableWidget = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QTableWidget, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QTableWidget, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -9421,11 +11945,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QTableWidget, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QTableWidget, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -9437,10 +11965,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QTableWidget, param1: anytype) void {
+    pub fn destroyed1(self: QTableWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -9452,9 +11984,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QTableWidget, callback: *const fn (QTableWidget, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QTableWidget, callback: *const fn (QTableWidget, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -9464,9 +12000,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn PaintingActive(self: QTableWidget) bool {
+    pub fn paintingActive(self: QTableWidget) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -9476,9 +12016,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn WidthMM(self: QTableWidget) i32 {
+    pub fn widthMM(self: QTableWidget) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -9488,9 +12032,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn HeightMM(self: QTableWidget) i32 {
+    pub fn heightMM(self: QTableWidget) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -9500,9 +12048,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn LogicalDpiX(self: QTableWidget) i32 {
+    pub fn logicalDpiX(self: QTableWidget) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -9512,9 +12064,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn LogicalDpiY(self: QTableWidget) i32 {
+    pub fn logicalDpiY(self: QTableWidget) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -9524,9 +12080,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn PhysicalDpiX(self: QTableWidget) i32 {
+    pub fn physicalDpiX(self: QTableWidget) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -9536,9 +12096,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn PhysicalDpiY(self: QTableWidget) i32 {
+    pub fn physicalDpiY(self: QTableWidget) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -9548,9 +12112,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn DevicePixelRatio(self: QTableWidget) f64 {
+    pub fn devicePixelRatio(self: QTableWidget) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9560,9 +12128,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn DevicePixelRatioF(self: QTableWidget) f64 {
+    pub fn devicePixelRatioF(self: QTableWidget) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -9572,9 +12144,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn ColorCount(self: QTableWidget) i32 {
+    pub fn colorCount(self: QTableWidget) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -9584,17 +12160,25 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn Depth(self: QTableWidget) i32 {
+    pub fn depth(self: QTableWidget) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9602,13 +12186,17 @@ pub const QTableWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `setRootIndex` instead
+    ///
+    pub const SetRootIndex = setRootIndex;
 
     /// Inherited from QTableView
     ///
@@ -9622,14 +12210,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SetRootIndex(self: QTableWidget, index: anytype) void {
+    pub fn setRootIndex(self: QTableWidget, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QTableWidget_SetRootIndex(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetRootIndex` instead
+    /// ### DEPRECATED: Use `superSetRootIndex` instead
     ///
-    pub const QBaseSetRootIndex = SuperSetRootIndex;
+    pub const SuperSetRootIndex = superSetRootIndex;
 
     /// Inherited from QTableView
     ///
@@ -9643,10 +12231,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SuperSetRootIndex(self: QTableWidget, index: anytype) void {
+    pub fn superSetRootIndex(self: QTableWidget, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QTableWidget_SuperSetRootIndex(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetRootIndex` instead
+    ///
+    pub const OnSetRootIndex = onSetRootIndex;
 
     /// Inherited from QTableView
     ///
@@ -9660,9 +12252,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnSetRootIndex(self: QTableWidget, callback: *const fn (QTableWidget, QModelIndex) callconv(.c) void) void {
+    pub fn onSetRootIndex(self: QTableWidget, callback: *const fn (QTableWidget, QModelIndex) callconv(.c) void) void {
         qtc.QTableWidget_OnSetRootIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setSelectionModel` instead
+    ///
+    pub const SetSelectionModel = setSelectionModel;
 
     /// Inherited from QTableView
     ///
@@ -9674,16 +12270,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` selectionModel: QItemSelectionModel `
+    /// ` _selectionModel: QItemSelectionModel `
     ///
-    pub fn SetSelectionModel(self: QTableWidget, selectionModel: anytype) void {
-        comptime _ = @TypeOf(selectionModel)._is_QItemSelectionModel;
-        qtc.QTableWidget_SetSelectionModel(@ptrCast(self.ptr), @ptrCast(selectionModel.ptr));
+    pub fn setSelectionModel(self: QTableWidget, _selectionModel: anytype) void {
+        comptime _ = @TypeOf(_selectionModel)._is_QItemSelectionModel;
+        qtc.QTableWidget_SetSelectionModel(@ptrCast(self.ptr), @ptrCast(_selectionModel.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetSelectionModel` instead
+    /// ### DEPRECATED: Use `superSetSelectionModel` instead
     ///
-    pub const QBaseSetSelectionModel = SuperSetSelectionModel;
+    pub const SuperSetSelectionModel = superSetSelectionModel;
 
     /// Inherited from QTableView
     ///
@@ -9695,12 +12291,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` selectionModel: QItemSelectionModel `
+    /// ` _selectionModel: QItemSelectionModel `
     ///
-    pub fn SuperSetSelectionModel(self: QTableWidget, selectionModel: anytype) void {
-        comptime _ = @TypeOf(selectionModel)._is_QItemSelectionModel;
-        qtc.QTableWidget_SuperSetSelectionModel(@ptrCast(self.ptr), @ptrCast(selectionModel.ptr));
+    pub fn superSetSelectionModel(self: QTableWidget, _selectionModel: anytype) void {
+        comptime _ = @TypeOf(_selectionModel)._is_QItemSelectionModel;
+        qtc.QTableWidget_SuperSetSelectionModel(@ptrCast(self.ptr), @ptrCast(_selectionModel.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetSelectionModel` instead
+    ///
+    pub const OnSetSelectionModel = onSetSelectionModel;
 
     /// Inherited from QTableView
     ///
@@ -9714,9 +12314,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, selectionModel: QItemSelectionModel) callconv(.c) void `
     ///
-    pub fn OnSetSelectionModel(self: QTableWidget, callback: *const fn (QTableWidget, QItemSelectionModel) callconv(.c) void) void {
+    pub fn onSetSelectionModel(self: QTableWidget, callback: *const fn (QTableWidget, QItemSelectionModel) callconv(.c) void) void {
         qtc.QTableWidget_OnSetSelectionModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `doItemsLayout` instead
+    ///
+    pub const DoItemsLayout = doItemsLayout;
 
     /// Inherited from QTableView
     ///
@@ -9728,13 +12332,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn DoItemsLayout(self: QTableWidget) void {
+    pub fn doItemsLayout(self: QTableWidget) void {
         qtc.QTableWidget_DoItemsLayout(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDoItemsLayout` instead
+    /// ### DEPRECATED: Use `superDoItemsLayout` instead
     ///
-    pub const QBaseDoItemsLayout = SuperDoItemsLayout;
+    pub const SuperDoItemsLayout = superDoItemsLayout;
 
     /// Inherited from QTableView
     ///
@@ -9746,9 +12350,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn SuperDoItemsLayout(self: QTableWidget) void {
+    pub fn superDoItemsLayout(self: QTableWidget) void {
         qtc.QTableWidget_SuperDoItemsLayout(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDoItemsLayout` instead
+    ///
+    pub const OnDoItemsLayout = onDoItemsLayout;
 
     /// Inherited from QTableView
     ///
@@ -9762,9 +12370,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDoItemsLayout(self: QTableWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onDoItemsLayout(self: QTableWidget, callback: *const fn () callconv(.c) void) void {
         qtc.QTableWidget_OnDoItemsLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `visualRect` instead
+    ///
+    pub const VisualRect = visualRect;
 
     /// Inherited from QTableView
     ///
@@ -9778,14 +12390,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn VisualRect(self: QTableWidget, index: anytype) QRect {
+    pub fn visualRect(self: QTableWidget, index: anytype) QRect {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.QTableWidget_VisualRect(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperVisualRect` instead
+    /// ### DEPRECATED: Use `superVisualRect` instead
     ///
-    pub const QBaseVisualRect = SuperVisualRect;
+    pub const SuperVisualRect = superVisualRect;
 
     /// Inherited from QTableView
     ///
@@ -9799,10 +12411,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SuperVisualRect(self: QTableWidget, index: anytype) QRect {
+    pub fn superVisualRect(self: QTableWidget, index: anytype) QRect {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.QTableWidget_SuperVisualRect(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onVisualRect` instead
+    ///
+    pub const OnVisualRect = onVisualRect;
 
     /// Inherited from QTableView
     ///
@@ -9818,9 +12434,13 @@ pub const QTableWidget = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnVisualRect(self: QTableWidget, callback: *const fn (QTableWidget, QModelIndex) callconv(.c) QRect) void {
+    pub fn onVisualRect(self: QTableWidget, callback: *const fn (QTableWidget, QModelIndex) callconv(.c) QRect) void {
         qtc.QTableWidget_OnVisualRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `scrollTo` instead
+    ///
+    pub const ScrollTo = scrollTo;
 
     /// Inherited from QTableView
     ///
@@ -9836,14 +12456,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` hint: qabstractitemview_enums.ScrollHint `
     ///
-    pub fn ScrollTo(self: QTableWidget, index: anytype, hint: i32) void {
+    pub fn scrollTo(self: QTableWidget, index: anytype, hint: i32) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QTableWidget_ScrollTo(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(hint));
     }
 
-    /// ### DEPRECATED: Use `SuperScrollTo` instead
+    /// ### DEPRECATED: Use `superScrollTo` instead
     ///
-    pub const QBaseScrollTo = SuperScrollTo;
+    pub const SuperScrollTo = superScrollTo;
 
     /// Inherited from QTableView
     ///
@@ -9859,10 +12479,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` hint: qabstractitemview_enums.ScrollHint `
     ///
-    pub fn SuperScrollTo(self: QTableWidget, index: anytype, hint: i32) void {
+    pub fn superScrollTo(self: QTableWidget, index: anytype, hint: i32) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QTableWidget_SuperScrollTo(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(hint));
     }
+
+    /// ### DEPRECATED: Use `onScrollTo` instead
+    ///
+    pub const OnScrollTo = onScrollTo;
 
     /// Inherited from QTableView
     ///
@@ -9876,9 +12500,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, index: QModelIndex, hint: qabstractitemview_enums.ScrollHint) callconv(.c) void `
     ///
-    pub fn OnScrollTo(self: QTableWidget, callback: *const fn (QTableWidget, QModelIndex, i32) callconv(.c) void) void {
+    pub fn onScrollTo(self: QTableWidget, callback: *const fn (QTableWidget, QModelIndex, i32) callconv(.c) void) void {
         qtc.QTableWidget_OnScrollTo(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `indexAt` instead
+    ///
+    pub const IndexAt = indexAt;
 
     /// Inherited from QTableView
     ///
@@ -9892,14 +12520,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn IndexAt(self: QTableWidget, p: anytype) QModelIndex {
+    pub fn indexAt(self: QTableWidget, p: anytype) QModelIndex {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QTableWidget_IndexAt(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperIndexAt` instead
+    /// ### DEPRECATED: Use `superIndexAt` instead
     ///
-    pub const QBaseIndexAt = SuperIndexAt;
+    pub const SuperIndexAt = superIndexAt;
 
     /// Inherited from QTableView
     ///
@@ -9913,10 +12541,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn SuperIndexAt(self: QTableWidget, p: anytype) QModelIndex {
+    pub fn superIndexAt(self: QTableWidget, p: anytype) QModelIndex {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QTableWidget_SuperIndexAt(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onIndexAt` instead
+    ///
+    pub const OnIndexAt = onIndexAt;
 
     /// Inherited from QTableView
     ///
@@ -9932,9 +12564,13 @@ pub const QTableWidget = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnIndexAt(self: QTableWidget, callback: *const fn (QTableWidget, QPoint) callconv(.c) QModelIndex) void {
+    pub fn onIndexAt(self: QTableWidget, callback: *const fn (QTableWidget, QPoint) callconv(.c) QModelIndex) void {
         qtc.QTableWidget_OnIndexAt(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `scrollContentsBy` instead
+    ///
+    pub const ScrollContentsBy = scrollContentsBy;
 
     /// Inherited from QTableView
     ///
@@ -9950,13 +12586,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn ScrollContentsBy(self: QTableWidget, dx: i32, dy: i32) void {
+    pub fn scrollContentsBy(self: QTableWidget, dx: i32, dy: i32) void {
         qtc.QTableWidget_ScrollContentsBy(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
-    /// ### DEPRECATED: Use `SuperScrollContentsBy` instead
+    /// ### DEPRECATED: Use `superScrollContentsBy` instead
     ///
-    pub const QBaseScrollContentsBy = SuperScrollContentsBy;
+    pub const SuperScrollContentsBy = superScrollContentsBy;
 
     /// Inherited from QTableView
     ///
@@ -9972,9 +12608,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn SuperScrollContentsBy(self: QTableWidget, dx: i32, dy: i32) void {
+    pub fn superScrollContentsBy(self: QTableWidget, dx: i32, dy: i32) void {
         qtc.QTableWidget_SuperScrollContentsBy(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `onScrollContentsBy` instead
+    ///
+    pub const OnScrollContentsBy = onScrollContentsBy;
 
     /// Inherited from QTableView
     ///
@@ -9988,9 +12628,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, dx: i32, dy: i32) callconv(.c) void `
     ///
-    pub fn OnScrollContentsBy(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32) callconv(.c) void) void {
+    pub fn onScrollContentsBy(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32) callconv(.c) void) void {
         qtc.QTableWidget_OnScrollContentsBy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initViewItemOption` instead
+    ///
+    pub const InitViewItemOption = initViewItemOption;
 
     /// Inherited from QTableView
     ///
@@ -10004,14 +12648,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` option: QStyleOptionViewItem `
     ///
-    pub fn InitViewItemOption(self: QTableWidget, option: anytype) void {
+    pub fn initViewItemOption(self: QTableWidget, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         qtc.QTableWidget_InitViewItemOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitViewItemOption` instead
+    /// ### DEPRECATED: Use `superInitViewItemOption` instead
     ///
-    pub const QBaseInitViewItemOption = SuperInitViewItemOption;
+    pub const SuperInitViewItemOption = superInitViewItemOption;
 
     /// Inherited from QTableView
     ///
@@ -10025,10 +12669,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` option: QStyleOptionViewItem `
     ///
-    pub fn SuperInitViewItemOption(self: QTableWidget, option: anytype) void {
+    pub fn superInitViewItemOption(self: QTableWidget, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         qtc.QTableWidget_SuperInitViewItemOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitViewItemOption` instead
+    ///
+    pub const OnInitViewItemOption = onInitViewItemOption;
 
     /// Inherited from QTableView
     ///
@@ -10042,9 +12690,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, option: QStyleOptionViewItem) callconv(.c) void `
     ///
-    pub fn OnInitViewItemOption(self: QTableWidget, callback: *const fn (QTableWidget, QStyleOptionViewItem) callconv(.c) void) void {
+    pub fn onInitViewItemOption(self: QTableWidget, callback: *const fn (QTableWidget, QStyleOptionViewItem) callconv(.c) void) void {
         qtc.QTableWidget_OnInitViewItemOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// Inherited from QTableView
     ///
@@ -10058,14 +12710,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` e: QPaintEvent `
     ///
-    pub fn PaintEvent(self: QTableWidget, e: anytype) void {
+    pub fn paintEvent(self: QTableWidget, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QPaintEvent;
         qtc.QTableWidget_PaintEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// Inherited from QTableView
     ///
@@ -10079,10 +12731,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` e: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: QTableWidget, e: anytype) void {
+    pub fn superPaintEvent(self: QTableWidget, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QPaintEvent;
         qtc.QTableWidget_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// Inherited from QTableView
     ///
@@ -10096,9 +12752,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, e: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: QTableWidget, callback: *const fn (QTableWidget, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: QTableWidget, callback: *const fn (QTableWidget, QPaintEvent) callconv(.c) void) void {
         qtc.QTableWidget_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QTableView
     ///
@@ -10110,16 +12770,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QTableWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QTableWidget_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QTableWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QTableWidget_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QTableView
     ///
@@ -10131,12 +12791,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QTableWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QTableWidget_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QTableWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QTableWidget_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QTableView
     ///
@@ -10150,10 +12814,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QTableWidget, callback: *const fn (QTableWidget, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QTableWidget, callback: *const fn (QTableWidget, QTimerEvent) callconv(.c) void) void {
         qtc.QTableWidget_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `horizontalOffset` instead
+    ///
+    pub const HorizontalOffset = horizontalOffset;
+
     /// Inherited from QTableView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#horizontalOffset)
@@ -10164,13 +12832,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn HorizontalOffset(self: QTableWidget) i32 {
+    pub fn horizontalOffset(self: QTableWidget) i32 {
         return qtc.QTableWidget_HorizontalOffset(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHorizontalOffset` instead
+    /// ### DEPRECATED: Use `superHorizontalOffset` instead
     ///
-    pub const QBaseHorizontalOffset = SuperHorizontalOffset;
+    pub const SuperHorizontalOffset = superHorizontalOffset;
 
     /// Inherited from QTableView
     ///
@@ -10182,10 +12850,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn SuperHorizontalOffset(self: QTableWidget) i32 {
+    pub fn superHorizontalOffset(self: QTableWidget) i32 {
         return qtc.QTableWidget_SuperHorizontalOffset(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onHorizontalOffset` instead
+    ///
+    pub const OnHorizontalOffset = onHorizontalOffset;
+
     /// Inherited from QTableView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#horizontalOffset)
@@ -10198,9 +12870,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnHorizontalOffset(self: QTableWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onHorizontalOffset(self: QTableWidget, callback: *const fn () callconv(.c) i32) void {
         qtc.QTableWidget_OnHorizontalOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `verticalOffset` instead
+    ///
+    pub const VerticalOffset = verticalOffset;
 
     /// Inherited from QTableView
     ///
@@ -10212,13 +12888,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn VerticalOffset(self: QTableWidget) i32 {
+    pub fn verticalOffset(self: QTableWidget) i32 {
         return qtc.QTableWidget_VerticalOffset(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperVerticalOffset` instead
+    /// ### DEPRECATED: Use `superVerticalOffset` instead
     ///
-    pub const QBaseVerticalOffset = SuperVerticalOffset;
+    pub const SuperVerticalOffset = superVerticalOffset;
 
     /// Inherited from QTableView
     ///
@@ -10230,9 +12906,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn SuperVerticalOffset(self: QTableWidget) i32 {
+    pub fn superVerticalOffset(self: QTableWidget) i32 {
         return qtc.QTableWidget_SuperVerticalOffset(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onVerticalOffset` instead
+    ///
+    pub const OnVerticalOffset = onVerticalOffset;
 
     /// Inherited from QTableView
     ///
@@ -10246,9 +12926,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnVerticalOffset(self: QTableWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onVerticalOffset(self: QTableWidget, callback: *const fn () callconv(.c) i32) void {
         qtc.QTableWidget_OnVerticalOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveCursor` instead
+    ///
+    pub const MoveCursor = moveCursor;
 
     /// Inherited from QTableView
     ///
@@ -10264,13 +12948,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn MoveCursor(self: QTableWidget, cursorAction: i32, modifiers: i32) QModelIndex {
+    pub fn moveCursor(self: QTableWidget, cursorAction: i32, modifiers: i32) QModelIndex {
         return .{ .ptr = qtc.QTableWidget_MoveCursor(@ptrCast(self.ptr), @bitCast(cursorAction), @bitCast(modifiers)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMoveCursor` instead
+    /// ### DEPRECATED: Use `superMoveCursor` instead
     ///
-    pub const QBaseMoveCursor = SuperMoveCursor;
+    pub const SuperMoveCursor = superMoveCursor;
 
     /// Inherited from QTableView
     ///
@@ -10286,9 +12970,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn SuperMoveCursor(self: QTableWidget, cursorAction: i32, modifiers: i32) QModelIndex {
+    pub fn superMoveCursor(self: QTableWidget, cursorAction: i32, modifiers: i32) QModelIndex {
         return .{ .ptr = qtc.QTableWidget_SuperMoveCursor(@ptrCast(self.ptr), @bitCast(cursorAction), @bitCast(modifiers)) };
     }
+
+    /// ### DEPRECATED: Use `onMoveCursor` instead
+    ///
+    pub const OnMoveCursor = onMoveCursor;
 
     /// Inherited from QTableView
     ///
@@ -10304,9 +12992,13 @@ pub const QTableWidget = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMoveCursor(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32) callconv(.c) QModelIndex) void {
+    pub fn onMoveCursor(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32) callconv(.c) QModelIndex) void {
         qtc.QTableWidget_OnMoveCursor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setSelection` instead
+    ///
+    pub const SetSelection = setSelection;
 
     /// Inherited from QTableView
     ///
@@ -10318,18 +13010,18 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
     /// ` command: flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn SetSelection(self: QTableWidget, rect: anytype, command: i32) void {
-        comptime _ = @TypeOf(rect)._is_QRect;
-        qtc.QTableWidget_SetSelection(@ptrCast(self.ptr), @ptrCast(rect.ptr), @bitCast(command));
+    pub fn setSelection(self: QTableWidget, _rect: anytype, command: i32) void {
+        comptime _ = @TypeOf(_rect)._is_QRect;
+        qtc.QTableWidget_SetSelection(@ptrCast(self.ptr), @ptrCast(_rect.ptr), @bitCast(command));
     }
 
-    /// ### DEPRECATED: Use `SuperSetSelection` instead
+    /// ### DEPRECATED: Use `superSetSelection` instead
     ///
-    pub const QBaseSetSelection = SuperSetSelection;
+    pub const SuperSetSelection = superSetSelection;
 
     /// Inherited from QTableView
     ///
@@ -10341,14 +13033,18 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
     /// ` command: flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn SuperSetSelection(self: QTableWidget, rect: anytype, command: i32) void {
-        comptime _ = @TypeOf(rect)._is_QRect;
-        qtc.QTableWidget_SuperSetSelection(@ptrCast(self.ptr), @ptrCast(rect.ptr), @bitCast(command));
+    pub fn superSetSelection(self: QTableWidget, _rect: anytype, command: i32) void {
+        comptime _ = @TypeOf(_rect)._is_QRect;
+        qtc.QTableWidget_SuperSetSelection(@ptrCast(self.ptr), @ptrCast(_rect.ptr), @bitCast(command));
     }
+
+    /// ### DEPRECATED: Use `onSetSelection` instead
+    ///
+    pub const OnSetSelection = onSetSelection;
 
     /// Inherited from QTableView
     ///
@@ -10362,9 +13058,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, rect: QRect, command: flag of qitemselectionmodel_enums.SelectionFlag) callconv(.c) void `
     ///
-    pub fn OnSetSelection(self: QTableWidget, callback: *const fn (QTableWidget, QRect, i32) callconv(.c) void) void {
+    pub fn onSetSelection(self: QTableWidget, callback: *const fn (QTableWidget, QRect, i32) callconv(.c) void) void {
         qtc.QTableWidget_OnSetSelection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `visualRegionForSelection` instead
+    ///
+    pub const VisualRegionForSelection = visualRegionForSelection;
 
     /// Inherited from QTableView
     ///
@@ -10378,14 +13078,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` selection: QItemSelection `
     ///
-    pub fn VisualRegionForSelection(self: QTableWidget, selection: anytype) QRegion {
+    pub fn visualRegionForSelection(self: QTableWidget, selection: anytype) QRegion {
         comptime _ = @TypeOf(selection)._is_QItemSelection;
         return .{ .ptr = qtc.QTableWidget_VisualRegionForSelection(@ptrCast(self.ptr), @ptrCast(selection.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperVisualRegionForSelection` instead
+    /// ### DEPRECATED: Use `superVisualRegionForSelection` instead
     ///
-    pub const QBaseVisualRegionForSelection = SuperVisualRegionForSelection;
+    pub const SuperVisualRegionForSelection = superVisualRegionForSelection;
 
     /// Inherited from QTableView
     ///
@@ -10399,10 +13099,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` selection: QItemSelection `
     ///
-    pub fn SuperVisualRegionForSelection(self: QTableWidget, selection: anytype) QRegion {
+    pub fn superVisualRegionForSelection(self: QTableWidget, selection: anytype) QRegion {
         comptime _ = @TypeOf(selection)._is_QItemSelection;
         return .{ .ptr = qtc.QTableWidget_SuperVisualRegionForSelection(@ptrCast(self.ptr), @ptrCast(selection.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onVisualRegionForSelection` instead
+    ///
+    pub const OnVisualRegionForSelection = onVisualRegionForSelection;
 
     /// Inherited from QTableView
     ///
@@ -10418,9 +13122,13 @@ pub const QTableWidget = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnVisualRegionForSelection(self: QTableWidget, callback: *const fn (QTableWidget, QItemSelection) callconv(.c) QRegion) void {
+    pub fn onVisualRegionForSelection(self: QTableWidget, callback: *const fn (QTableWidget, QItemSelection) callconv(.c) QRegion) void {
         qtc.QTableWidget_OnVisualRegionForSelection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `selectedIndexes` instead
+    ///
+    pub const SelectedIndexes = selectedIndexes;
 
     /// Inherited from QTableView
     ///
@@ -10434,19 +13142,19 @@ pub const QTableWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SelectedIndexes(self: QTableWidget, allocator: std.mem.Allocator) []QModelIndex {
+    pub fn selectedIndexes(self: QTableWidget, allocator: std.mem.Allocator) []QModelIndex {
         const _arr: qtc.libqt_list = qtc.QTableWidget_SelectedIndexes(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("QTableWidget.SelectedIndexes: Memory allocation failed");
-        const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("QTableWidget.selectedIndexes: Memory allocation failed");
+        const _data_val: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `SuperSelectedIndexes` instead
+    /// ### DEPRECATED: Use `superSelectedIndexes` instead
     ///
-    pub const QBaseSelectedIndexes = SuperSelectedIndexes;
+    pub const SuperSelectedIndexes = superSelectedIndexes;
 
     /// Inherited from QTableView
     ///
@@ -10460,15 +13168,19 @@ pub const QTableWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperSelectedIndexes(self: QTableWidget, allocator: std.mem.Allocator) []QModelIndex {
+    pub fn superSelectedIndexes(self: QTableWidget, allocator: std.mem.Allocator) []QModelIndex {
         const _arr: qtc.libqt_list = qtc.QTableWidget_SuperSelectedIndexes(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("QTableWidget.SelectedIndexes: Memory allocation failed");
-        const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("QTableWidget.selectedIndexes: Memory allocation failed");
+        const _data_val: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onSelectedIndexes` instead
+    ///
+    pub const OnSelectedIndexes = onSelectedIndexes;
 
     /// Inherited from QTableView
     ///
@@ -10488,9 +13200,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` C ABI representation of []QModelIndex `
     ///
-    pub fn OnSelectedIndexes(self: QTableWidget, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+    pub fn onSelectedIndexes(self: QTableWidget, callback: *const fn () callconv(.c) qtc.libqt_list) void {
         qtc.QTableWidget_OnSelectedIndexes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `updateGeometries` instead
+    ///
+    pub const UpdateGeometries = updateGeometries;
 
     /// Inherited from QTableView
     ///
@@ -10502,13 +13218,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn UpdateGeometries(self: QTableWidget) void {
+    pub fn updateGeometries(self: QTableWidget) void {
         qtc.QTableWidget_UpdateGeometries(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateGeometries` instead
+    /// ### DEPRECATED: Use `superUpdateGeometries` instead
     ///
-    pub const QBaseUpdateGeometries = SuperUpdateGeometries;
+    pub const SuperUpdateGeometries = superUpdateGeometries;
 
     /// Inherited from QTableView
     ///
@@ -10520,9 +13236,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn SuperUpdateGeometries(self: QTableWidget) void {
+    pub fn superUpdateGeometries(self: QTableWidget) void {
         qtc.QTableWidget_SuperUpdateGeometries(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onUpdateGeometries` instead
+    ///
+    pub const OnUpdateGeometries = onUpdateGeometries;
 
     /// Inherited from QTableView
     ///
@@ -10536,9 +13256,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateGeometries(self: QTableWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateGeometries(self: QTableWidget, callback: *const fn () callconv(.c) void) void {
         qtc.QTableWidget_OnUpdateGeometries(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `viewportSizeHint` instead
+    ///
+    pub const ViewportSizeHint = viewportSizeHint;
 
     /// Inherited from QTableView
     ///
@@ -10550,13 +13274,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn ViewportSizeHint(self: QTableWidget) QSize {
+    pub fn viewportSizeHint(self: QTableWidget) QSize {
         return .{ .ptr = qtc.QTableWidget_ViewportSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperViewportSizeHint` instead
+    /// ### DEPRECATED: Use `superViewportSizeHint` instead
     ///
-    pub const QBaseViewportSizeHint = SuperViewportSizeHint;
+    pub const SuperViewportSizeHint = superViewportSizeHint;
 
     /// Inherited from QTableView
     ///
@@ -10568,9 +13292,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn SuperViewportSizeHint(self: QTableWidget) QSize {
+    pub fn superViewportSizeHint(self: QTableWidget) QSize {
         return .{ .ptr = qtc.QTableWidget_SuperViewportSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onViewportSizeHint` instead
+    ///
+    pub const OnViewportSizeHint = onViewportSizeHint;
 
     /// Inherited from QTableView
     ///
@@ -10586,9 +13314,13 @@ pub const QTableWidget = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnViewportSizeHint(self: QTableWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onViewportSizeHint(self: QTableWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.QTableWidget_OnViewportSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sizeHintForRow` instead
+    ///
+    pub const SizeHintForRow = sizeHintForRow;
 
     /// Inherited from QTableView
     ///
@@ -10600,15 +13332,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
-    pub fn SizeHintForRow(self: QTableWidget, row: i32) i32 {
-        return qtc.QTableWidget_SizeHintForRow(@ptrCast(self.ptr), @bitCast(row));
+    pub fn sizeHintForRow(self: QTableWidget, _row: i32) i32 {
+        return qtc.QTableWidget_SizeHintForRow(@ptrCast(self.ptr), @bitCast(_row));
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHintForRow` instead
+    /// ### DEPRECATED: Use `superSizeHintForRow` instead
     ///
-    pub const QBaseSizeHintForRow = SuperSizeHintForRow;
+    pub const SuperSizeHintForRow = superSizeHintForRow;
 
     /// Inherited from QTableView
     ///
@@ -10620,11 +13352,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
-    pub fn SuperSizeHintForRow(self: QTableWidget, row: i32) i32 {
-        return qtc.QTableWidget_SuperSizeHintForRow(@ptrCast(self.ptr), @bitCast(row));
+    pub fn superSizeHintForRow(self: QTableWidget, _row: i32) i32 {
+        return qtc.QTableWidget_SuperSizeHintForRow(@ptrCast(self.ptr), @bitCast(_row));
     }
+
+    /// ### DEPRECATED: Use `onSizeHintForRow` instead
+    ///
+    pub const OnSizeHintForRow = onSizeHintForRow;
 
     /// Inherited from QTableView
     ///
@@ -10638,9 +13374,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, row: i32) callconv(.c) i32 `
     ///
-    pub fn OnSizeHintForRow(self: QTableWidget, callback: *const fn (QTableWidget, i32) callconv(.c) i32) void {
+    pub fn onSizeHintForRow(self: QTableWidget, callback: *const fn (QTableWidget, i32) callconv(.c) i32) void {
         qtc.QTableWidget_OnSizeHintForRow(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sizeHintForColumn` instead
+    ///
+    pub const SizeHintForColumn = sizeHintForColumn;
 
     /// Inherited from QTableView
     ///
@@ -10652,15 +13392,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` column: i32 `
+    /// ` _column: i32 `
     ///
-    pub fn SizeHintForColumn(self: QTableWidget, column: i32) i32 {
-        return qtc.QTableWidget_SizeHintForColumn(@ptrCast(self.ptr), @bitCast(column));
+    pub fn sizeHintForColumn(self: QTableWidget, _column: i32) i32 {
+        return qtc.QTableWidget_SizeHintForColumn(@ptrCast(self.ptr), @bitCast(_column));
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHintForColumn` instead
+    /// ### DEPRECATED: Use `superSizeHintForColumn` instead
     ///
-    pub const QBaseSizeHintForColumn = SuperSizeHintForColumn;
+    pub const SuperSizeHintForColumn = superSizeHintForColumn;
 
     /// Inherited from QTableView
     ///
@@ -10672,11 +13412,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` column: i32 `
+    /// ` _column: i32 `
     ///
-    pub fn SuperSizeHintForColumn(self: QTableWidget, column: i32) i32 {
-        return qtc.QTableWidget_SuperSizeHintForColumn(@ptrCast(self.ptr), @bitCast(column));
+    pub fn superSizeHintForColumn(self: QTableWidget, _column: i32) i32 {
+        return qtc.QTableWidget_SuperSizeHintForColumn(@ptrCast(self.ptr), @bitCast(_column));
     }
+
+    /// ### DEPRECATED: Use `onSizeHintForColumn` instead
+    ///
+    pub const OnSizeHintForColumn = onSizeHintForColumn;
 
     /// Inherited from QTableView
     ///
@@ -10690,10 +13434,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, column: i32) callconv(.c) i32 `
     ///
-    pub fn OnSizeHintForColumn(self: QTableWidget, callback: *const fn (QTableWidget, i32) callconv(.c) i32) void {
+    pub fn onSizeHintForColumn(self: QTableWidget, callback: *const fn (QTableWidget, i32) callconv(.c) i32) void {
         qtc.QTableWidget_OnSizeHintForColumn(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `verticalScrollbarAction` instead
+    ///
+    pub const VerticalScrollbarAction = verticalScrollbarAction;
+
     /// Inherited from QTableView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#verticalScrollbarAction)
@@ -10706,13 +13454,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` action: i32 `
     ///
-    pub fn VerticalScrollbarAction(self: QTableWidget, action: i32) void {
+    pub fn verticalScrollbarAction(self: QTableWidget, action: i32) void {
         qtc.QTableWidget_VerticalScrollbarAction(@ptrCast(self.ptr), @bitCast(action));
     }
 
-    /// ### DEPRECATED: Use `SuperVerticalScrollbarAction` instead
+    /// ### DEPRECATED: Use `superVerticalScrollbarAction` instead
     ///
-    pub const QBaseVerticalScrollbarAction = SuperVerticalScrollbarAction;
+    pub const SuperVerticalScrollbarAction = superVerticalScrollbarAction;
 
     /// Inherited from QTableView
     ///
@@ -10726,9 +13474,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` action: i32 `
     ///
-    pub fn SuperVerticalScrollbarAction(self: QTableWidget, action: i32) void {
+    pub fn superVerticalScrollbarAction(self: QTableWidget, action: i32) void {
         qtc.QTableWidget_SuperVerticalScrollbarAction(@ptrCast(self.ptr), @bitCast(action));
     }
+
+    /// ### DEPRECATED: Use `onVerticalScrollbarAction` instead
+    ///
+    pub const OnVerticalScrollbarAction = onVerticalScrollbarAction;
 
     /// Inherited from QTableView
     ///
@@ -10742,9 +13494,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, action: i32) callconv(.c) void `
     ///
-    pub fn OnVerticalScrollbarAction(self: QTableWidget, callback: *const fn (QTableWidget, i32) callconv(.c) void) void {
+    pub fn onVerticalScrollbarAction(self: QTableWidget, callback: *const fn (QTableWidget, i32) callconv(.c) void) void {
         qtc.QTableWidget_OnVerticalScrollbarAction(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `horizontalScrollbarAction` instead
+    ///
+    pub const HorizontalScrollbarAction = horizontalScrollbarAction;
 
     /// Inherited from QTableView
     ///
@@ -10758,13 +13514,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` action: i32 `
     ///
-    pub fn HorizontalScrollbarAction(self: QTableWidget, action: i32) void {
+    pub fn horizontalScrollbarAction(self: QTableWidget, action: i32) void {
         qtc.QTableWidget_HorizontalScrollbarAction(@ptrCast(self.ptr), @bitCast(action));
     }
 
-    /// ### DEPRECATED: Use `SuperHorizontalScrollbarAction` instead
+    /// ### DEPRECATED: Use `superHorizontalScrollbarAction` instead
     ///
-    pub const QBaseHorizontalScrollbarAction = SuperHorizontalScrollbarAction;
+    pub const SuperHorizontalScrollbarAction = superHorizontalScrollbarAction;
 
     /// Inherited from QTableView
     ///
@@ -10778,9 +13534,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` action: i32 `
     ///
-    pub fn SuperHorizontalScrollbarAction(self: QTableWidget, action: i32) void {
+    pub fn superHorizontalScrollbarAction(self: QTableWidget, action: i32) void {
         qtc.QTableWidget_SuperHorizontalScrollbarAction(@ptrCast(self.ptr), @bitCast(action));
     }
+
+    /// ### DEPRECATED: Use `onHorizontalScrollbarAction` instead
+    ///
+    pub const OnHorizontalScrollbarAction = onHorizontalScrollbarAction;
 
     /// Inherited from QTableView
     ///
@@ -10794,9 +13554,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, action: i32) callconv(.c) void `
     ///
-    pub fn OnHorizontalScrollbarAction(self: QTableWidget, callback: *const fn (QTableWidget, i32) callconv(.c) void) void {
+    pub fn onHorizontalScrollbarAction(self: QTableWidget, callback: *const fn (QTableWidget, i32) callconv(.c) void) void {
         qtc.QTableWidget_OnHorizontalScrollbarAction(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isIndexHidden` instead
+    ///
+    pub const IsIndexHidden = isIndexHidden;
 
     /// Inherited from QTableView
     ///
@@ -10810,14 +13574,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn IsIndexHidden(self: QTableWidget, index: anytype) bool {
+    pub fn isIndexHidden(self: QTableWidget, index: anytype) bool {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return qtc.QTableWidget_IsIndexHidden(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsIndexHidden` instead
+    /// ### DEPRECATED: Use `superIsIndexHidden` instead
     ///
-    pub const QBaseIsIndexHidden = SuperIsIndexHidden;
+    pub const SuperIsIndexHidden = superIsIndexHidden;
 
     /// Inherited from QTableView
     ///
@@ -10831,10 +13595,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SuperIsIndexHidden(self: QTableWidget, index: anytype) bool {
+    pub fn superIsIndexHidden(self: QTableWidget, index: anytype) bool {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return qtc.QTableWidget_SuperIsIndexHidden(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsIndexHidden` instead
+    ///
+    pub const OnIsIndexHidden = onIsIndexHidden;
 
     /// Inherited from QTableView
     ///
@@ -10848,9 +13616,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, index: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnIsIndexHidden(self: QTableWidget, callback: *const fn (QTableWidget, QModelIndex) callconv(.c) bool) void {
+    pub fn onIsIndexHidden(self: QTableWidget, callback: *const fn (QTableWidget, QModelIndex) callconv(.c) bool) void {
         qtc.QTableWidget_OnIsIndexHidden(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `selectionChanged` instead
+    ///
+    pub const SelectionChanged = selectionChanged;
 
     /// Inherited from QTableView
     ///
@@ -10866,15 +13638,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` deselected: QItemSelection `
     ///
-    pub fn SelectionChanged(self: QTableWidget, selected: anytype, deselected: anytype) void {
+    pub fn selectionChanged(self: QTableWidget, selected: anytype, deselected: anytype) void {
         comptime _ = @TypeOf(selected)._is_QItemSelection;
         comptime _ = @TypeOf(deselected)._is_QItemSelection;
         qtc.QTableWidget_SelectionChanged(@ptrCast(self.ptr), @ptrCast(selected.ptr), @ptrCast(deselected.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSelectionChanged` instead
+    /// ### DEPRECATED: Use `superSelectionChanged` instead
     ///
-    pub const QBaseSelectionChanged = SuperSelectionChanged;
+    pub const SuperSelectionChanged = superSelectionChanged;
 
     /// Inherited from QTableView
     ///
@@ -10890,11 +13662,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` deselected: QItemSelection `
     ///
-    pub fn SuperSelectionChanged(self: QTableWidget, selected: anytype, deselected: anytype) void {
+    pub fn superSelectionChanged(self: QTableWidget, selected: anytype, deselected: anytype) void {
         comptime _ = @TypeOf(selected)._is_QItemSelection;
         comptime _ = @TypeOf(deselected)._is_QItemSelection;
         qtc.QTableWidget_SuperSelectionChanged(@ptrCast(self.ptr), @ptrCast(selected.ptr), @ptrCast(deselected.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSelectionChanged` instead
+    ///
+    pub const OnSelectionChanged = onSelectionChanged;
 
     /// Inherited from QTableView
     ///
@@ -10908,9 +13684,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, selected: QItemSelection, deselected: QItemSelection) callconv(.c) void `
     ///
-    pub fn OnSelectionChanged(self: QTableWidget, callback: *const fn (QTableWidget, QItemSelection, QItemSelection) callconv(.c) void) void {
+    pub fn onSelectionChanged(self: QTableWidget, callback: *const fn (QTableWidget, QItemSelection, QItemSelection) callconv(.c) void) void {
         qtc.QTableWidget_OnSelectionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `currentChanged` instead
+    ///
+    pub const CurrentChanged = currentChanged;
 
     /// Inherited from QTableView
     ///
@@ -10926,15 +13706,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` previous: QModelIndex `
     ///
-    pub fn CurrentChanged(self: QTableWidget, current: anytype, previous: anytype) void {
+    pub fn currentChanged(self: QTableWidget, current: anytype, previous: anytype) void {
         comptime _ = @TypeOf(current)._is_QModelIndex;
         comptime _ = @TypeOf(previous)._is_QModelIndex;
         qtc.QTableWidget_CurrentChanged(@ptrCast(self.ptr), @ptrCast(current.ptr), @ptrCast(previous.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCurrentChanged` instead
+    /// ### DEPRECATED: Use `superCurrentChanged` instead
     ///
-    pub const QBaseCurrentChanged = SuperCurrentChanged;
+    pub const SuperCurrentChanged = superCurrentChanged;
 
     /// Inherited from QTableView
     ///
@@ -10950,11 +13730,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` previous: QModelIndex `
     ///
-    pub fn SuperCurrentChanged(self: QTableWidget, current: anytype, previous: anytype) void {
+    pub fn superCurrentChanged(self: QTableWidget, current: anytype, previous: anytype) void {
         comptime _ = @TypeOf(current)._is_QModelIndex;
         comptime _ = @TypeOf(previous)._is_QModelIndex;
         qtc.QTableWidget_SuperCurrentChanged(@ptrCast(self.ptr), @ptrCast(current.ptr), @ptrCast(previous.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCurrentChanged` instead
+    ///
+    pub const OnCurrentChanged = onCurrentChanged;
 
     /// Inherited from QTableView
     ///
@@ -10968,9 +13752,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, current: QModelIndex, previous: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnCurrentChanged(self: QTableWidget, callback: *const fn (QTableWidget, QModelIndex, QModelIndex) callconv(.c) void) void {
+    pub fn onCurrentChanged(self: QTableWidget, callback: *const fn (QTableWidget, QModelIndex, QModelIndex) callconv(.c) void) void {
         qtc.QTableWidget_OnCurrentChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyboardSearch` instead
+    ///
+    pub const KeyboardSearch = keyboardSearch;
 
     /// Inherited from QAbstractItemView
     ///
@@ -10984,7 +13772,7 @@ pub const QTableWidget = extern struct {
     ///
     /// ` search: []const u8 `
     ///
-    pub fn KeyboardSearch(self: QTableWidget, search: []const u8) void {
+    pub fn keyboardSearch(self: QTableWidget, search: []const u8) void {
         const search_str = qtc.libqt_string{
             .len = search.len,
             .data = search.ptr,
@@ -10992,9 +13780,9 @@ pub const QTableWidget = extern struct {
         qtc.QTableWidget_KeyboardSearch(@ptrCast(self.ptr), search_str);
     }
 
-    /// ### DEPRECATED: Use `SuperKeyboardSearch` instead
+    /// ### DEPRECATED: Use `superKeyboardSearch` instead
     ///
-    pub const QBaseKeyboardSearch = SuperKeyboardSearch;
+    pub const SuperKeyboardSearch = superKeyboardSearch;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11008,13 +13796,17 @@ pub const QTableWidget = extern struct {
     ///
     /// ` search: []const u8 `
     ///
-    pub fn SuperKeyboardSearch(self: QTableWidget, search: []const u8) void {
+    pub fn superKeyboardSearch(self: QTableWidget, search: []const u8) void {
         const search_str = qtc.libqt_string{
             .len = search.len,
             .data = search.ptr,
         };
         qtc.QTableWidget_SuperKeyboardSearch(@ptrCast(self.ptr), search_str);
     }
+
+    /// ### DEPRECATED: Use `onKeyboardSearch` instead
+    ///
+    pub const OnKeyboardSearch = onKeyboardSearch;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11028,9 +13820,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, search: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnKeyboardSearch(self: QTableWidget, callback: *const fn (QTableWidget, [*:0]const u8) callconv(.c) void) void {
+    pub fn onKeyboardSearch(self: QTableWidget, callback: *const fn (QTableWidget, [*:0]const u8) callconv(.c) void) void {
         qtc.QTableWidget_OnKeyboardSearch(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `itemDelegateForIndex` instead
+    ///
+    pub const ItemDelegateForIndex = itemDelegateForIndex;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11044,14 +13840,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn ItemDelegateForIndex(self: QTableWidget, index: anytype) QAbstractItemDelegate {
+    pub fn itemDelegateForIndex(self: QTableWidget, index: anytype) QAbstractItemDelegate {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.QTableWidget_ItemDelegateForIndex(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperItemDelegateForIndex` instead
+    /// ### DEPRECATED: Use `superItemDelegateForIndex` instead
     ///
-    pub const QBaseItemDelegateForIndex = SuperItemDelegateForIndex;
+    pub const SuperItemDelegateForIndex = superItemDelegateForIndex;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11065,10 +13861,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SuperItemDelegateForIndex(self: QTableWidget, index: anytype) QAbstractItemDelegate {
+    pub fn superItemDelegateForIndex(self: QTableWidget, index: anytype) QAbstractItemDelegate {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.QTableWidget_SuperItemDelegateForIndex(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onItemDelegateForIndex` instead
+    ///
+    pub const OnItemDelegateForIndex = onItemDelegateForIndex;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11082,9 +13882,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, index: QModelIndex) callconv(.c) QAbstractItemDelegate `
     ///
-    pub fn OnItemDelegateForIndex(self: QTableWidget, callback: *const fn (QTableWidget, QModelIndex) callconv(.c) QAbstractItemDelegate) void {
+    pub fn onItemDelegateForIndex(self: QTableWidget, callback: *const fn (QTableWidget, QModelIndex) callconv(.c) QAbstractItemDelegate) void {
         qtc.QTableWidget_OnItemDelegateForIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11098,13 +13902,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: QTableWidget, query: i32) QVariant {
+    pub fn inputMethodQuery(self: QTableWidget, query: i32) QVariant {
         return .{ .ptr = qtc.QTableWidget_InputMethodQuery(@ptrCast(self.ptr), @bitCast(query)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11118,9 +13922,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: QTableWidget, query: i32) QVariant {
+    pub fn superInputMethodQuery(self: QTableWidget, query: i32) QVariant {
         return .{ .ptr = qtc.QTableWidget_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(query)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11136,10 +13944,14 @@ pub const QTableWidget = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: QTableWidget, callback: *const fn (QTableWidget, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: QTableWidget, callback: *const fn (QTableWidget, i32) callconv(.c) QVariant) void {
         qtc.QTableWidget_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `reset` instead
+    ///
+    pub const Reset = reset;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#reset)
@@ -11150,13 +13962,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn Reset(self: QTableWidget) void {
+    pub fn reset(self: QTableWidget) void {
         qtc.QTableWidget_Reset(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperReset` instead
+    /// ### DEPRECATED: Use `superReset` instead
     ///
-    pub const QBaseReset = SuperReset;
+    pub const SuperReset = superReset;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11168,9 +13980,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn SuperReset(self: QTableWidget) void {
+    pub fn superReset(self: QTableWidget) void {
         qtc.QTableWidget_SuperReset(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onReset` instead
+    ///
+    pub const OnReset = onReset;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11184,9 +14000,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnReset(self: QTableWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onReset(self: QTableWidget, callback: *const fn () callconv(.c) void) void {
         qtc.QTableWidget_OnReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `selectAll` instead
+    ///
+    pub const SelectAll = selectAll;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11198,13 +14018,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn SelectAll(self: QTableWidget) void {
+    pub fn selectAll(self: QTableWidget) void {
         qtc.QTableWidget_SelectAll(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSelectAll` instead
+    /// ### DEPRECATED: Use `superSelectAll` instead
     ///
-    pub const QBaseSelectAll = SuperSelectAll;
+    pub const SuperSelectAll = superSelectAll;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11216,9 +14036,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn SuperSelectAll(self: QTableWidget) void {
+    pub fn superSelectAll(self: QTableWidget) void {
         qtc.QTableWidget_SuperSelectAll(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSelectAll` instead
+    ///
+    pub const OnSelectAll = onSelectAll;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11232,9 +14056,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnSelectAll(self: QTableWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onSelectAll(self: QTableWidget, callback: *const fn () callconv(.c) void) void {
         qtc.QTableWidget_OnSelectAll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dataChanged` instead
+    ///
+    pub const DataChanged = dataChanged;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11252,7 +14080,7 @@ pub const QTableWidget = extern struct {
     ///
     /// ` roles: []i32 `
     ///
-    pub fn DataChanged(self: QTableWidget, topLeft: anytype, bottomRight: anytype, roles: []i32) void {
+    pub fn dataChanged(self: QTableWidget, topLeft: anytype, bottomRight: anytype, roles: []i32) void {
         comptime _ = @TypeOf(topLeft)._is_QModelIndex;
         comptime _ = @TypeOf(bottomRight)._is_QModelIndex;
         const roles_list = qtc.libqt_list{
@@ -11262,9 +14090,9 @@ pub const QTableWidget = extern struct {
         qtc.QTableWidget_DataChanged(@ptrCast(self.ptr), @ptrCast(topLeft.ptr), @ptrCast(bottomRight.ptr), roles_list);
     }
 
-    /// ### DEPRECATED: Use `SuperDataChanged` instead
+    /// ### DEPRECATED: Use `superDataChanged` instead
     ///
-    pub const QBaseDataChanged = SuperDataChanged;
+    pub const SuperDataChanged = superDataChanged;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11282,7 +14110,7 @@ pub const QTableWidget = extern struct {
     ///
     /// ` roles: []i32 `
     ///
-    pub fn SuperDataChanged(self: QTableWidget, topLeft: anytype, bottomRight: anytype, roles: []i32) void {
+    pub fn superDataChanged(self: QTableWidget, topLeft: anytype, bottomRight: anytype, roles: []i32) void {
         comptime _ = @TypeOf(topLeft)._is_QModelIndex;
         comptime _ = @TypeOf(bottomRight)._is_QModelIndex;
         const roles_list = qtc.libqt_list{
@@ -11291,6 +14119,10 @@ pub const QTableWidget = extern struct {
         };
         qtc.QTableWidget_SuperDataChanged(@ptrCast(self.ptr), @ptrCast(topLeft.ptr), @ptrCast(bottomRight.ptr), roles_list);
     }
+
+    /// ### DEPRECATED: Use `onDataChanged` instead
+    ///
+    pub const OnDataChanged = onDataChanged;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11304,10 +14136,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, topLeft: QModelIndex, bottomRight: QModelIndex, roles: qtc.libqt_list ([]i32)) callconv(.c) void `
     ///
-    pub fn OnDataChanged(self: QTableWidget, callback: *const fn (QTableWidget, QModelIndex, QModelIndex, qtc.libqt_list) callconv(.c) void) void {
+    pub fn onDataChanged(self: QTableWidget, callback: *const fn (QTableWidget, QModelIndex, QModelIndex, qtc.libqt_list) callconv(.c) void) void {
         qtc.QTableWidget_OnDataChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `rowsInserted` instead
+    ///
+    pub const RowsInserted = rowsInserted;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#rowsInserted)
@@ -11318,20 +14154,20 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` start: i32 `
     ///
     /// ` end: i32 `
     ///
-    pub fn RowsInserted(self: QTableWidget, parent: anytype, start: i32, end: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.QTableWidget_RowsInserted(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(start), @bitCast(end));
+    pub fn rowsInserted(self: QTableWidget, _parent: anytype, start: i32, end: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.QTableWidget_RowsInserted(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(start), @bitCast(end));
     }
 
-    /// ### DEPRECATED: Use `SuperRowsInserted` instead
+    /// ### DEPRECATED: Use `superRowsInserted` instead
     ///
-    pub const QBaseRowsInserted = SuperRowsInserted;
+    pub const SuperRowsInserted = superRowsInserted;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11343,16 +14179,20 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` start: i32 `
     ///
     /// ` end: i32 `
     ///
-    pub fn SuperRowsInserted(self: QTableWidget, parent: anytype, start: i32, end: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.QTableWidget_SuperRowsInserted(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(start), @bitCast(end));
+    pub fn superRowsInserted(self: QTableWidget, _parent: anytype, start: i32, end: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.QTableWidget_SuperRowsInserted(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(start), @bitCast(end));
     }
+
+    /// ### DEPRECATED: Use `onRowsInserted` instead
+    ///
+    pub const OnRowsInserted = onRowsInserted;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11366,10 +14206,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, parent: QModelIndex, start: i32, end: i32) callconv(.c) void `
     ///
-    pub fn OnRowsInserted(self: QTableWidget, callback: *const fn (QTableWidget, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onRowsInserted(self: QTableWidget, callback: *const fn (QTableWidget, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QTableWidget_OnRowsInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `rowsAboutToBeRemoved` instead
+    ///
+    pub const RowsAboutToBeRemoved = rowsAboutToBeRemoved;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#rowsAboutToBeRemoved)
@@ -11380,20 +14224,20 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` start: i32 `
     ///
     /// ` end: i32 `
     ///
-    pub fn RowsAboutToBeRemoved(self: QTableWidget, parent: anytype, start: i32, end: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.QTableWidget_RowsAboutToBeRemoved(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(start), @bitCast(end));
+    pub fn rowsAboutToBeRemoved(self: QTableWidget, _parent: anytype, start: i32, end: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.QTableWidget_RowsAboutToBeRemoved(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(start), @bitCast(end));
     }
 
-    /// ### DEPRECATED: Use `SuperRowsAboutToBeRemoved` instead
+    /// ### DEPRECATED: Use `superRowsAboutToBeRemoved` instead
     ///
-    pub const QBaseRowsAboutToBeRemoved = SuperRowsAboutToBeRemoved;
+    pub const SuperRowsAboutToBeRemoved = superRowsAboutToBeRemoved;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11405,16 +14249,20 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` start: i32 `
     ///
     /// ` end: i32 `
     ///
-    pub fn SuperRowsAboutToBeRemoved(self: QTableWidget, parent: anytype, start: i32, end: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.QTableWidget_SuperRowsAboutToBeRemoved(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(start), @bitCast(end));
+    pub fn superRowsAboutToBeRemoved(self: QTableWidget, _parent: anytype, start: i32, end: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.QTableWidget_SuperRowsAboutToBeRemoved(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(start), @bitCast(end));
     }
+
+    /// ### DEPRECATED: Use `onRowsAboutToBeRemoved` instead
+    ///
+    pub const OnRowsAboutToBeRemoved = onRowsAboutToBeRemoved;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11428,10 +14276,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, parent: QModelIndex, start: i32, end: i32) callconv(.c) void `
     ///
-    pub fn OnRowsAboutToBeRemoved(self: QTableWidget, callback: *const fn (QTableWidget, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onRowsAboutToBeRemoved(self: QTableWidget, callback: *const fn (QTableWidget, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QTableWidget_OnRowsAboutToBeRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateEditorData` instead
+    ///
+    pub const UpdateEditorData = updateEditorData;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorData)
@@ -11442,13 +14294,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn UpdateEditorData(self: QTableWidget) void {
+    pub fn updateEditorData(self: QTableWidget) void {
         qtc.QTableWidget_UpdateEditorData(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateEditorData` instead
+    /// ### DEPRECATED: Use `superUpdateEditorData` instead
     ///
-    pub const QBaseUpdateEditorData = SuperUpdateEditorData;
+    pub const SuperUpdateEditorData = superUpdateEditorData;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11460,10 +14312,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn SuperUpdateEditorData(self: QTableWidget) void {
+    pub fn superUpdateEditorData(self: QTableWidget) void {
         qtc.QTableWidget_SuperUpdateEditorData(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateEditorData` instead
+    ///
+    pub const OnUpdateEditorData = onUpdateEditorData;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorData)
@@ -11476,9 +14332,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateEditorData(self: QTableWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateEditorData(self: QTableWidget, callback: *const fn () callconv(.c) void) void {
         qtc.QTableWidget_OnUpdateEditorData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `updateEditorGeometries` instead
+    ///
+    pub const UpdateEditorGeometries = updateEditorGeometries;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11490,13 +14350,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn UpdateEditorGeometries(self: QTableWidget) void {
+    pub fn updateEditorGeometries(self: QTableWidget) void {
         qtc.QTableWidget_UpdateEditorGeometries(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateEditorGeometries` instead
+    /// ### DEPRECATED: Use `superUpdateEditorGeometries` instead
     ///
-    pub const QBaseUpdateEditorGeometries = SuperUpdateEditorGeometries;
+    pub const SuperUpdateEditorGeometries = superUpdateEditorGeometries;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11508,9 +14368,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn SuperUpdateEditorGeometries(self: QTableWidget) void {
+    pub fn superUpdateEditorGeometries(self: QTableWidget) void {
         qtc.QTableWidget_SuperUpdateEditorGeometries(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onUpdateEditorGeometries` instead
+    ///
+    pub const OnUpdateEditorGeometries = onUpdateEditorGeometries;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11524,10 +14388,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateEditorGeometries(self: QTableWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateEditorGeometries(self: QTableWidget, callback: *const fn () callconv(.c) void) void {
         qtc.QTableWidget_OnUpdateEditorGeometries(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `verticalScrollbarValueChanged` instead
+    ///
+    pub const VerticalScrollbarValueChanged = verticalScrollbarValueChanged;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarValueChanged)
@@ -11540,13 +14408,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` value: i32 `
     ///
-    pub fn VerticalScrollbarValueChanged(self: QTableWidget, value: i32) void {
+    pub fn verticalScrollbarValueChanged(self: QTableWidget, value: i32) void {
         qtc.QTableWidget_VerticalScrollbarValueChanged(@ptrCast(self.ptr), @bitCast(value));
     }
 
-    /// ### DEPRECATED: Use `SuperVerticalScrollbarValueChanged` instead
+    /// ### DEPRECATED: Use `superVerticalScrollbarValueChanged` instead
     ///
-    pub const QBaseVerticalScrollbarValueChanged = SuperVerticalScrollbarValueChanged;
+    pub const SuperVerticalScrollbarValueChanged = superVerticalScrollbarValueChanged;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11560,9 +14428,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` value: i32 `
     ///
-    pub fn SuperVerticalScrollbarValueChanged(self: QTableWidget, value: i32) void {
+    pub fn superVerticalScrollbarValueChanged(self: QTableWidget, value: i32) void {
         qtc.QTableWidget_SuperVerticalScrollbarValueChanged(@ptrCast(self.ptr), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `onVerticalScrollbarValueChanged` instead
+    ///
+    pub const OnVerticalScrollbarValueChanged = onVerticalScrollbarValueChanged;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11576,9 +14448,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, value: i32) callconv(.c) void `
     ///
-    pub fn OnVerticalScrollbarValueChanged(self: QTableWidget, callback: *const fn (QTableWidget, i32) callconv(.c) void) void {
+    pub fn onVerticalScrollbarValueChanged(self: QTableWidget, callback: *const fn (QTableWidget, i32) callconv(.c) void) void {
         qtc.QTableWidget_OnVerticalScrollbarValueChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `horizontalScrollbarValueChanged` instead
+    ///
+    pub const HorizontalScrollbarValueChanged = horizontalScrollbarValueChanged;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11592,13 +14468,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` value: i32 `
     ///
-    pub fn HorizontalScrollbarValueChanged(self: QTableWidget, value: i32) void {
+    pub fn horizontalScrollbarValueChanged(self: QTableWidget, value: i32) void {
         qtc.QTableWidget_HorizontalScrollbarValueChanged(@ptrCast(self.ptr), @bitCast(value));
     }
 
-    /// ### DEPRECATED: Use `SuperHorizontalScrollbarValueChanged` instead
+    /// ### DEPRECATED: Use `superHorizontalScrollbarValueChanged` instead
     ///
-    pub const QBaseHorizontalScrollbarValueChanged = SuperHorizontalScrollbarValueChanged;
+    pub const SuperHorizontalScrollbarValueChanged = superHorizontalScrollbarValueChanged;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11612,9 +14488,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` value: i32 `
     ///
-    pub fn SuperHorizontalScrollbarValueChanged(self: QTableWidget, value: i32) void {
+    pub fn superHorizontalScrollbarValueChanged(self: QTableWidget, value: i32) void {
         qtc.QTableWidget_SuperHorizontalScrollbarValueChanged(@ptrCast(self.ptr), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `onHorizontalScrollbarValueChanged` instead
+    ///
+    pub const OnHorizontalScrollbarValueChanged = onHorizontalScrollbarValueChanged;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11628,9 +14508,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, value: i32) callconv(.c) void `
     ///
-    pub fn OnHorizontalScrollbarValueChanged(self: QTableWidget, callback: *const fn (QTableWidget, i32) callconv(.c) void) void {
+    pub fn onHorizontalScrollbarValueChanged(self: QTableWidget, callback: *const fn (QTableWidget, i32) callconv(.c) void) void {
         qtc.QTableWidget_OnHorizontalScrollbarValueChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEditor` instead
+    ///
+    pub const CloseEditor = closeEditor;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11646,14 +14530,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` hint: qabstractitemdelegate_enums.EndEditHint `
     ///
-    pub fn CloseEditor(self: QTableWidget, editor: anytype, hint: i32) void {
+    pub fn closeEditor(self: QTableWidget, editor: anytype, hint: i32) void {
         comptime _ = @TypeOf(editor)._is_QWidget;
         qtc.QTableWidget_CloseEditor(@ptrCast(self.ptr), @ptrCast(editor.ptr), @bitCast(hint));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEditor` instead
+    /// ### DEPRECATED: Use `superCloseEditor` instead
     ///
-    pub const QBaseCloseEditor = SuperCloseEditor;
+    pub const SuperCloseEditor = superCloseEditor;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11669,10 +14553,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` hint: qabstractitemdelegate_enums.EndEditHint `
     ///
-    pub fn SuperCloseEditor(self: QTableWidget, editor: anytype, hint: i32) void {
+    pub fn superCloseEditor(self: QTableWidget, editor: anytype, hint: i32) void {
         comptime _ = @TypeOf(editor)._is_QWidget;
         qtc.QTableWidget_SuperCloseEditor(@ptrCast(self.ptr), @ptrCast(editor.ptr), @bitCast(hint));
     }
+
+    /// ### DEPRECATED: Use `onCloseEditor` instead
+    ///
+    pub const OnCloseEditor = onCloseEditor;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11686,9 +14574,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, editor: QWidget, hint: qabstractitemdelegate_enums.EndEditHint) callconv(.c) void `
     ///
-    pub fn OnCloseEditor(self: QTableWidget, callback: *const fn (QTableWidget, QWidget, i32) callconv(.c) void) void {
+    pub fn onCloseEditor(self: QTableWidget, callback: *const fn (QTableWidget, QWidget, i32) callconv(.c) void) void {
         qtc.QTableWidget_OnCloseEditor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `commitData` instead
+    ///
+    pub const CommitData = commitData;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11702,14 +14594,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` editor: QWidget `
     ///
-    pub fn CommitData(self: QTableWidget, editor: anytype) void {
+    pub fn commitData(self: QTableWidget, editor: anytype) void {
         comptime _ = @TypeOf(editor)._is_QWidget;
         qtc.QTableWidget_CommitData(@ptrCast(self.ptr), @ptrCast(editor.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCommitData` instead
+    /// ### DEPRECATED: Use `superCommitData` instead
     ///
-    pub const QBaseCommitData = SuperCommitData;
+    pub const SuperCommitData = superCommitData;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11723,10 +14615,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` editor: QWidget `
     ///
-    pub fn SuperCommitData(self: QTableWidget, editor: anytype) void {
+    pub fn superCommitData(self: QTableWidget, editor: anytype) void {
         comptime _ = @TypeOf(editor)._is_QWidget;
         qtc.QTableWidget_SuperCommitData(@ptrCast(self.ptr), @ptrCast(editor.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCommitData` instead
+    ///
+    pub const OnCommitData = onCommitData;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11740,9 +14636,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, editor: QWidget) callconv(.c) void `
     ///
-    pub fn OnCommitData(self: QTableWidget, callback: *const fn (QTableWidget, QWidget) callconv(.c) void) void {
+    pub fn onCommitData(self: QTableWidget, callback: *const fn (QTableWidget, QWidget) callconv(.c) void) void {
         qtc.QTableWidget_OnCommitData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `editorDestroyed` instead
+    ///
+    pub const EditorDestroyed = editorDestroyed;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11756,14 +14656,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` editor: QObject `
     ///
-    pub fn EditorDestroyed(self: QTableWidget, editor: anytype) void {
+    pub fn editorDestroyed(self: QTableWidget, editor: anytype) void {
         comptime _ = @TypeOf(editor)._is_QObject;
         qtc.QTableWidget_EditorDestroyed(@ptrCast(self.ptr), @ptrCast(editor.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEditorDestroyed` instead
+    /// ### DEPRECATED: Use `superEditorDestroyed` instead
     ///
-    pub const QBaseEditorDestroyed = SuperEditorDestroyed;
+    pub const SuperEditorDestroyed = superEditorDestroyed;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11777,10 +14677,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` editor: QObject `
     ///
-    pub fn SuperEditorDestroyed(self: QTableWidget, editor: anytype) void {
+    pub fn superEditorDestroyed(self: QTableWidget, editor: anytype) void {
         comptime _ = @TypeOf(editor)._is_QObject;
         qtc.QTableWidget_SuperEditorDestroyed(@ptrCast(self.ptr), @ptrCast(editor.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEditorDestroyed` instead
+    ///
+    pub const OnEditorDestroyed = onEditorDestroyed;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11794,9 +14698,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, editor: QObject) callconv(.c) void `
     ///
-    pub fn OnEditorDestroyed(self: QTableWidget, callback: *const fn (QTableWidget, QObject) callconv(.c) void) void {
+    pub fn onEditorDestroyed(self: QTableWidget, callback: *const fn (QTableWidget, QObject) callconv(.c) void) void {
         qtc.QTableWidget_OnEditorDestroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `edit2` instead
+    ///
+    pub const Edit2 = edit2;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11812,17 +14720,17 @@ pub const QTableWidget = extern struct {
     ///
     /// ` trigger: qabstractitemview_enums.EditTrigger `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Edit2(self: QTableWidget, index: anytype, trigger: i32, event: anytype) bool {
+    pub fn edit2(self: QTableWidget, index: anytype, trigger: i32, _event: anytype) bool {
         comptime _ = @TypeOf(index)._is_QModelIndex;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QTableWidget_Edit2(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(trigger), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QTableWidget_Edit2(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(trigger), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEdit2` instead
+    /// ### DEPRECATED: Use `superEdit2` instead
     ///
-    pub const QBaseEdit2 = SuperEdit2;
+    pub const SuperEdit2 = superEdit2;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11838,13 +14746,17 @@ pub const QTableWidget = extern struct {
     ///
     /// ` trigger: qabstractitemview_enums.EditTrigger `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEdit2(self: QTableWidget, index: anytype, trigger: i32, event: anytype) bool {
+    pub fn superEdit2(self: QTableWidget, index: anytype, trigger: i32, _event: anytype) bool {
         comptime _ = @TypeOf(index)._is_QModelIndex;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QTableWidget_SuperEdit2(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(trigger), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QTableWidget_SuperEdit2(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(trigger), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEdit2` instead
+    ///
+    pub const OnEdit2 = onEdit2;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11858,9 +14770,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, index: QModelIndex, trigger: qabstractitemview_enums.EditTrigger, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEdit2(self: QTableWidget, callback: *const fn (QTableWidget, QModelIndex, i32, QEvent) callconv(.c) bool) void {
+    pub fn onEdit2(self: QTableWidget, callback: *const fn (QTableWidget, QModelIndex, i32, QEvent) callconv(.c) bool) void {
         qtc.QTableWidget_OnEdit2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `selectionCommand` instead
+    ///
+    pub const SelectionCommand = selectionCommand;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11874,21 +14790,21 @@ pub const QTableWidget = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
     /// ## Returns:
     ///
     /// ` flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn SelectionCommand(self: QTableWidget, index: anytype, event: anytype) i32 {
+    pub fn selectionCommand(self: QTableWidget, index: anytype, _event: anytype) i32 {
         comptime _ = @TypeOf(index)._is_QModelIndex;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QTableWidget_SelectionCommand(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QTableWidget_SelectionCommand(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSelectionCommand` instead
+    /// ### DEPRECATED: Use `superSelectionCommand` instead
     ///
-    pub const QBaseSelectionCommand = SuperSelectionCommand;
+    pub const SuperSelectionCommand = superSelectionCommand;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11902,17 +14818,21 @@ pub const QTableWidget = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
     /// ## Returns:
     ///
     /// ` flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn SuperSelectionCommand(self: QTableWidget, index: anytype, event: anytype) i32 {
+    pub fn superSelectionCommand(self: QTableWidget, index: anytype, _event: anytype) i32 {
         comptime _ = @TypeOf(index)._is_QModelIndex;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QTableWidget_SuperSelectionCommand(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QTableWidget_SuperSelectionCommand(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSelectionCommand` instead
+    ///
+    pub const OnSelectionCommand = onSelectionCommand;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11926,9 +14846,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, index: QModelIndex, event: QEvent) callconv(.c) i32 `
     ///
-    pub fn OnSelectionCommand(self: QTableWidget, callback: *const fn (QTableWidget, QModelIndex, QEvent) callconv(.c) i32) void {
+    pub fn onSelectionCommand(self: QTableWidget, callback: *const fn (QTableWidget, QModelIndex, QEvent) callconv(.c) i32) void {
         qtc.QTableWidget_OnSelectionCommand(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `startDrag` instead
+    ///
+    pub const StartDrag = startDrag;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11942,13 +14866,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` supportedActions: flag of qnamespace_enums.DropAction `
     ///
-    pub fn StartDrag(self: QTableWidget, supportedActions: i32) void {
+    pub fn startDrag(self: QTableWidget, supportedActions: i32) void {
         qtc.QTableWidget_StartDrag(@ptrCast(self.ptr), @bitCast(supportedActions));
     }
 
-    /// ### DEPRECATED: Use `SuperStartDrag` instead
+    /// ### DEPRECATED: Use `superStartDrag` instead
     ///
-    pub const QBaseStartDrag = SuperStartDrag;
+    pub const SuperStartDrag = superStartDrag;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11962,9 +14886,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` supportedActions: flag of qnamespace_enums.DropAction `
     ///
-    pub fn SuperStartDrag(self: QTableWidget, supportedActions: i32) void {
+    pub fn superStartDrag(self: QTableWidget, supportedActions: i32) void {
         qtc.QTableWidget_SuperStartDrag(@ptrCast(self.ptr), @bitCast(supportedActions));
     }
+
+    /// ### DEPRECATED: Use `onStartDrag` instead
+    ///
+    pub const OnStartDrag = onStartDrag;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11978,9 +14906,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, supportedActions: flag of qnamespace_enums.DropAction) callconv(.c) void `
     ///
-    pub fn OnStartDrag(self: QTableWidget, callback: *const fn (QTableWidget, i32) callconv(.c) void) void {
+    pub fn onStartDrag(self: QTableWidget, callback: *const fn (QTableWidget, i32) callconv(.c) void) void {
         qtc.QTableWidget_OnStartDrag(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11994,13 +14926,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: QTableWidget, next: bool) bool {
+    pub fn focusNextPrevChild(self: QTableWidget, next: bool) bool {
         return qtc.QTableWidget_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12014,9 +14946,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: QTableWidget, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: QTableWidget, next: bool) bool {
         return qtc.QTableWidget_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12030,9 +14966,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: QTableWidget, callback: *const fn (QTableWidget, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: QTableWidget, callback: *const fn (QTableWidget, bool) callconv(.c) bool) void {
         qtc.QTableWidget_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `viewportEvent` instead
+    ///
+    pub const ViewportEvent = viewportEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12044,16 +14984,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn ViewportEvent(self: QTableWidget, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QTableWidget_ViewportEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn viewportEvent(self: QTableWidget, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QTableWidget_ViewportEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperViewportEvent` instead
+    /// ### DEPRECATED: Use `superViewportEvent` instead
     ///
-    pub const QBaseViewportEvent = SuperViewportEvent;
+    pub const SuperViewportEvent = superViewportEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12065,12 +15005,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperViewportEvent(self: QTableWidget, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QTableWidget_SuperViewportEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superViewportEvent(self: QTableWidget, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QTableWidget_SuperViewportEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onViewportEvent` instead
+    ///
+    pub const OnViewportEvent = onViewportEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12084,10 +15028,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnViewportEvent(self: QTableWidget, callback: *const fn (QTableWidget, QEvent) callconv(.c) bool) void {
+    pub fn onViewportEvent(self: QTableWidget, callback: *const fn (QTableWidget, QEvent) callconv(.c) bool) void {
         qtc.QTableWidget_OnViewportEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mousePressEvent)
@@ -12098,16 +15046,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: QTableWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QTableWidget_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mousePressEvent(self: QTableWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QTableWidget_MousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12119,12 +15067,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: QTableWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QTableWidget_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMousePressEvent(self: QTableWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QTableWidget_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12138,10 +15090,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: QTableWidget, callback: *const fn (QTableWidget, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: QTableWidget, callback: *const fn (QTableWidget, QMouseEvent) callconv(.c) void) void {
         qtc.QTableWidget_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mouseMoveEvent)
@@ -12152,16 +15108,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: QTableWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QTableWidget_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseMoveEvent(self: QTableWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QTableWidget_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12173,12 +15129,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: QTableWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QTableWidget_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseMoveEvent(self: QTableWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QTableWidget_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12192,10 +15152,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: QTableWidget, callback: *const fn (QTableWidget, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: QTableWidget, callback: *const fn (QTableWidget, QMouseEvent) callconv(.c) void) void {
         qtc.QTableWidget_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mouseReleaseEvent)
@@ -12206,16 +15170,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: QTableWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QTableWidget_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseReleaseEvent(self: QTableWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QTableWidget_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12227,12 +15191,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: QTableWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QTableWidget_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseReleaseEvent(self: QTableWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QTableWidget_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12246,10 +15214,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: QTableWidget, callback: *const fn (QTableWidget, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: QTableWidget, callback: *const fn (QTableWidget, QMouseEvent) callconv(.c) void) void {
         qtc.QTableWidget_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mouseDoubleClickEvent)
@@ -12260,16 +15232,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: QTableWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QTableWidget_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: QTableWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QTableWidget_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12281,12 +15253,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: QTableWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QTableWidget_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: QTableWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QTableWidget_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12300,9 +15276,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: QTableWidget, callback: *const fn (QTableWidget, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: QTableWidget, callback: *const fn (QTableWidget, QMouseEvent) callconv(.c) void) void {
         qtc.QTableWidget_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12314,16 +15294,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: QTableWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.QTableWidget_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: QTableWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.QTableWidget_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12335,12 +15315,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: QTableWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.QTableWidget_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: QTableWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.QTableWidget_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12354,9 +15338,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: QTableWidget, callback: *const fn (QTableWidget, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: QTableWidget, callback: *const fn (QTableWidget, QDragEnterEvent) callconv(.c) void) void {
         qtc.QTableWidget_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12368,16 +15356,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: QTableWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.QTableWidget_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: QTableWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.QTableWidget_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12389,12 +15377,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: QTableWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.QTableWidget_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: QTableWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.QTableWidget_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12408,9 +15400,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: QTableWidget, callback: *const fn (QTableWidget, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: QTableWidget, callback: *const fn (QTableWidget, QDragMoveEvent) callconv(.c) void) void {
         qtc.QTableWidget_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12422,16 +15418,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: QTableWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.QTableWidget_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: QTableWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.QTableWidget_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12443,12 +15439,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: QTableWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.QTableWidget_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: QTableWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.QTableWidget_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12462,10 +15462,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: QTableWidget, callback: *const fn (QTableWidget, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: QTableWidget, callback: *const fn (QTableWidget, QDragLeaveEvent) callconv(.c) void) void {
         qtc.QTableWidget_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusInEvent)
@@ -12476,16 +15480,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: QTableWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QTableWidget_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusInEvent(self: QTableWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QTableWidget_FocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12497,12 +15501,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: QTableWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QTableWidget_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusInEvent(self: QTableWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QTableWidget_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12516,10 +15524,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: QTableWidget, callback: *const fn (QTableWidget, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: QTableWidget, callback: *const fn (QTableWidget, QFocusEvent) callconv(.c) void) void {
         qtc.QTableWidget_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusOutEvent)
@@ -12530,16 +15542,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: QTableWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QTableWidget_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusOutEvent(self: QTableWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QTableWidget_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12551,12 +15563,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: QTableWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QTableWidget_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusOutEvent(self: QTableWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QTableWidget_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12570,9 +15586,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: QTableWidget, callback: *const fn (QTableWidget, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: QTableWidget, callback: *const fn (QTableWidget, QFocusEvent) callconv(.c) void) void {
         qtc.QTableWidget_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12584,16 +15604,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: QTableWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QTableWidget_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyPressEvent(self: QTableWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QTableWidget_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12605,12 +15625,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: QTableWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QTableWidget_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyPressEvent(self: QTableWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QTableWidget_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12624,9 +15648,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: QTableWidget, callback: *const fn (QTableWidget, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: QTableWidget, callback: *const fn (QTableWidget, QKeyEvent) callconv(.c) void) void {
         qtc.QTableWidget_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12638,16 +15666,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: QTableWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.QTableWidget_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn resizeEvent(self: QTableWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.QTableWidget_ResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12659,12 +15687,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: QTableWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.QTableWidget_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superResizeEvent(self: QTableWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.QTableWidget_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12678,9 +15710,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: QTableWidget, callback: *const fn (QTableWidget, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: QTableWidget, callback: *const fn (QTableWidget, QResizeEvent) callconv(.c) void) void {
         qtc.QTableWidget_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12692,16 +15728,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` event: QInputMethodEvent `
+    /// ` _event: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: QTableWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QInputMethodEvent;
-        qtc.QTableWidget_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn inputMethodEvent(self: QTableWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QInputMethodEvent;
+        qtc.QTableWidget_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12713,12 +15749,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` event: QInputMethodEvent `
+    /// ` _event: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: QTableWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QInputMethodEvent;
-        qtc.QTableWidget_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superInputMethodEvent(self: QTableWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QInputMethodEvent;
+        qtc.QTableWidget_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12732,9 +15772,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, event: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: QTableWidget, callback: *const fn (QTableWidget, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: QTableWidget, callback: *const fn (QTableWidget, QInputMethodEvent) callconv(.c) void) void {
         qtc.QTableWidget_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12748,17 +15792,17 @@ pub const QTableWidget = extern struct {
     ///
     /// ` object: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QTableWidget, object: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QTableWidget, object: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(object)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QTableWidget_EventFilter(@ptrCast(self.ptr), @ptrCast(object.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QTableWidget_EventFilter(@ptrCast(self.ptr), @ptrCast(object.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12772,13 +15816,17 @@ pub const QTableWidget = extern struct {
     ///
     /// ` object: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QTableWidget, object: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QTableWidget, object: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(object)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QTableWidget_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(object.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QTableWidget_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(object.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12792,10 +15840,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, object: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QTableWidget, callback: *const fn (QTableWidget, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QTableWidget, callback: *const fn (QTableWidget, QObject, QEvent) callconv(.c) bool) void {
         qtc.QTableWidget_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
@@ -12806,13 +15858,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn MinimumSizeHint(self: QTableWidget) QSize {
+    pub fn minimumSizeHint(self: QTableWidget) QSize {
         return .{ .ptr = qtc.QTableWidget_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -12824,10 +15876,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn SuperMinimumSizeHint(self: QTableWidget) QSize {
+    pub fn superMinimumSizeHint(self: QTableWidget) QSize {
         return .{ .ptr = qtc.QTableWidget_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
@@ -12842,9 +15898,13 @@ pub const QTableWidget = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: QTableWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: QTableWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.QTableWidget_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -12856,13 +15916,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn SizeHint(self: QTableWidget) QSize {
+    pub fn sizeHint(self: QTableWidget) QSize {
         return .{ .ptr = qtc.QTableWidget_SizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -12874,9 +15934,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn SuperSizeHint(self: QTableWidget) QSize {
+    pub fn superSizeHint(self: QTableWidget) QSize {
         return .{ .ptr = qtc.QTableWidget_SuperSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -12892,9 +15956,13 @@ pub const QTableWidget = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: QTableWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QTableWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.QTableWidget_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setupViewport` instead
+    ///
+    pub const SetupViewport = setupViewport;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -12906,16 +15974,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` viewport: QWidget `
+    /// ` _viewport: QWidget `
     ///
-    pub fn SetupViewport(self: QTableWidget, viewport: anytype) void {
-        comptime _ = @TypeOf(viewport)._is_QWidget;
-        qtc.QTableWidget_SetupViewport(@ptrCast(self.ptr), @ptrCast(viewport.ptr));
+    pub fn setupViewport(self: QTableWidget, _viewport: anytype) void {
+        comptime _ = @TypeOf(_viewport)._is_QWidget;
+        qtc.QTableWidget_SetupViewport(@ptrCast(self.ptr), @ptrCast(_viewport.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetupViewport` instead
+    /// ### DEPRECATED: Use `superSetupViewport` instead
     ///
-    pub const QBaseSetupViewport = SuperSetupViewport;
+    pub const SuperSetupViewport = superSetupViewport;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -12927,12 +15995,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` viewport: QWidget `
+    /// ` _viewport: QWidget `
     ///
-    pub fn SuperSetupViewport(self: QTableWidget, viewport: anytype) void {
-        comptime _ = @TypeOf(viewport)._is_QWidget;
-        qtc.QTableWidget_SuperSetupViewport(@ptrCast(self.ptr), @ptrCast(viewport.ptr));
+    pub fn superSetupViewport(self: QTableWidget, _viewport: anytype) void {
+        comptime _ = @TypeOf(_viewport)._is_QWidget;
+        qtc.QTableWidget_SuperSetupViewport(@ptrCast(self.ptr), @ptrCast(_viewport.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetupViewport` instead
+    ///
+    pub const OnSetupViewport = onSetupViewport;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -12946,9 +16018,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, viewport: QWidget) callconv(.c) void `
     ///
-    pub fn OnSetupViewport(self: QTableWidget, callback: *const fn (QTableWidget, QWidget) callconv(.c) void) void {
+    pub fn onSetupViewport(self: QTableWidget, callback: *const fn (QTableWidget, QWidget) callconv(.c) void) void {
         qtc.QTableWidget_OnSetupViewport(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -12962,14 +16038,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` param1: QWheelEvent `
     ///
-    pub fn WheelEvent(self: QTableWidget, param1: anytype) void {
+    pub fn wheelEvent(self: QTableWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWheelEvent;
         qtc.QTableWidget_WheelEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -12983,10 +16059,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` param1: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: QTableWidget, param1: anytype) void {
+    pub fn superWheelEvent(self: QTableWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWheelEvent;
         qtc.QTableWidget_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -13000,9 +16080,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, param1: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: QTableWidget, callback: *const fn (QTableWidget, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: QTableWidget, callback: *const fn (QTableWidget, QWheelEvent) callconv(.c) void) void {
         qtc.QTableWidget_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -13016,14 +16100,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` param1: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: QTableWidget, param1: anytype) void {
+    pub fn contextMenuEvent(self: QTableWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
         qtc.QTableWidget_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -13037,10 +16121,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` param1: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: QTableWidget, param1: anytype) void {
+    pub fn superContextMenuEvent(self: QTableWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
         qtc.QTableWidget_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -13054,9 +16142,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, param1: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: QTableWidget, callback: *const fn (QTableWidget, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: QTableWidget, callback: *const fn (QTableWidget, QContextMenuEvent) callconv(.c) void) void {
         qtc.QTableWidget_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QFrame
     ///
@@ -13070,14 +16162,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: QTableWidget, param1: anytype) void {
+    pub fn changeEvent(self: QTableWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.QTableWidget_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QFrame
     ///
@@ -13091,10 +16183,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: QTableWidget, param1: anytype) void {
+    pub fn superChangeEvent(self: QTableWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.QTableWidget_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QFrame
     ///
@@ -13108,9 +16204,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: QTableWidget, callback: *const fn (QTableWidget, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: QTableWidget, callback: *const fn (QTableWidget, QEvent) callconv(.c) void) void {
         qtc.QTableWidget_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initStyleOption` instead
+    ///
+    pub const InitStyleOption = initStyleOption;
 
     /// Inherited from QFrame
     ///
@@ -13124,14 +16224,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` option: QStyleOptionFrame `
     ///
-    pub fn InitStyleOption(self: QTableWidget, option: anytype) void {
+    pub fn initStyleOption(self: QTableWidget, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionFrame;
         qtc.QTableWidget_InitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitStyleOption` instead
+    /// ### DEPRECATED: Use `superInitStyleOption` instead
     ///
-    pub const QBaseInitStyleOption = SuperInitStyleOption;
+    pub const SuperInitStyleOption = superInitStyleOption;
 
     /// Inherited from QFrame
     ///
@@ -13145,10 +16245,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` option: QStyleOptionFrame `
     ///
-    pub fn SuperInitStyleOption(self: QTableWidget, option: anytype) void {
+    pub fn superInitStyleOption(self: QTableWidget, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionFrame;
         qtc.QTableWidget_SuperInitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitStyleOption` instead
+    ///
+    pub const OnInitStyleOption = onInitStyleOption;
 
     /// Inherited from QFrame
     ///
@@ -13162,9 +16266,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, option: QStyleOptionFrame) callconv(.c) void `
     ///
-    pub fn OnInitStyleOption(self: QTableWidget, callback: *const fn (QTableWidget, QStyleOptionFrame) callconv(.c) void) void {
+    pub fn onInitStyleOption(self: QTableWidget, callback: *const fn (QTableWidget, QStyleOptionFrame) callconv(.c) void) void {
         qtc.QTableWidget_OnInitStyleOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -13176,13 +16284,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn DevType(self: QTableWidget) i32 {
+    pub fn devType(self: QTableWidget) i32 {
         return qtc.QTableWidget_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -13194,9 +16302,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn SuperDevType(self: QTableWidget) i32 {
+    pub fn superDevType(self: QTableWidget) i32 {
         return qtc.QTableWidget_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -13210,9 +16322,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: QTableWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QTableWidget, callback: *const fn () callconv(.c) i32) void {
         qtc.QTableWidget_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -13226,13 +16342,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: QTableWidget, visible: bool) void {
+    pub fn setVisible(self: QTableWidget, visible: bool) void {
         qtc.QTableWidget_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -13246,9 +16362,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: QTableWidget, visible: bool) void {
+    pub fn superSetVisible(self: QTableWidget, visible: bool) void {
         qtc.QTableWidget_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -13262,9 +16382,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: QTableWidget, callback: *const fn (QTableWidget, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: QTableWidget, callback: *const fn (QTableWidget, bool) callconv(.c) void) void {
         qtc.QTableWidget_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -13278,13 +16402,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: QTableWidget, param1: i32) i32 {
+    pub fn heightForWidth(self: QTableWidget, param1: i32) i32 {
         return qtc.QTableWidget_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -13298,9 +16422,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: QTableWidget, param1: i32) i32 {
+    pub fn superHeightForWidth(self: QTableWidget, param1: i32) i32 {
         return qtc.QTableWidget_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -13314,9 +16442,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: QTableWidget, callback: *const fn (QTableWidget, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: QTableWidget, callback: *const fn (QTableWidget, i32) callconv(.c) i32) void {
         qtc.QTableWidget_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -13328,13 +16460,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn HasHeightForWidth(self: QTableWidget) bool {
+    pub fn hasHeightForWidth(self: QTableWidget) bool {
         return qtc.QTableWidget_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -13346,9 +16478,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn SuperHasHeightForWidth(self: QTableWidget) bool {
+    pub fn superHasHeightForWidth(self: QTableWidget) bool {
         return qtc.QTableWidget_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -13362,9 +16498,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: QTableWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QTableWidget, callback: *const fn () callconv(.c) bool) void {
         qtc.QTableWidget_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -13376,13 +16516,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn PaintEngine(self: QTableWidget) QPaintEngine {
+    pub fn paintEngine(self: QTableWidget) QPaintEngine {
         return .{ .ptr = qtc.QTableWidget_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -13394,9 +16534,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn SuperPaintEngine(self: QTableWidget) QPaintEngine {
+    pub fn superPaintEngine(self: QTableWidget) QPaintEngine {
         return .{ .ptr = qtc.QTableWidget_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -13410,9 +16554,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: QTableWidget, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QTableWidget, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.QTableWidget_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -13424,16 +16572,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: QTableWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QTableWidget_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyReleaseEvent(self: QTableWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QTableWidget_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -13445,12 +16593,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: QTableWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QTableWidget_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyReleaseEvent(self: QTableWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QTableWidget_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -13464,9 +16616,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: QTableWidget, callback: *const fn (QTableWidget, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: QTableWidget, callback: *const fn (QTableWidget, QKeyEvent) callconv(.c) void) void {
         qtc.QTableWidget_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -13478,16 +16634,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: QTableWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.QTableWidget_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: QTableWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.QTableWidget_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -13499,12 +16655,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: QTableWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.QTableWidget_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: QTableWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.QTableWidget_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -13518,9 +16678,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: QTableWidget, callback: *const fn (QTableWidget, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: QTableWidget, callback: *const fn (QTableWidget, QEnterEvent) callconv(.c) void) void {
         qtc.QTableWidget_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -13532,16 +16696,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: QTableWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QTableWidget_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: QTableWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QTableWidget_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -13553,12 +16717,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: QTableWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QTableWidget_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: QTableWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QTableWidget_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -13572,9 +16740,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: QTableWidget, callback: *const fn (QTableWidget, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: QTableWidget, callback: *const fn (QTableWidget, QEvent) callconv(.c) void) void {
         qtc.QTableWidget_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -13586,16 +16758,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: QTableWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.QTableWidget_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: QTableWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.QTableWidget_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -13607,12 +16779,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: QTableWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.QTableWidget_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: QTableWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.QTableWidget_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -13626,9 +16802,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: QTableWidget, callback: *const fn (QTableWidget, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: QTableWidget, callback: *const fn (QTableWidget, QMoveEvent) callconv(.c) void) void {
         qtc.QTableWidget_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -13640,16 +16820,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: QTableWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.QTableWidget_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: QTableWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.QTableWidget_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -13661,12 +16841,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: QTableWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.QTableWidget_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: QTableWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.QTableWidget_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -13680,9 +16864,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: QTableWidget, callback: *const fn (QTableWidget, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: QTableWidget, callback: *const fn (QTableWidget, QCloseEvent) callconv(.c) void) void {
         qtc.QTableWidget_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -13694,16 +16882,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: QTableWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.QTableWidget_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: QTableWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.QTableWidget_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -13715,12 +16903,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: QTableWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.QTableWidget_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: QTableWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.QTableWidget_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -13734,9 +16926,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: QTableWidget, callback: *const fn (QTableWidget, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: QTableWidget, callback: *const fn (QTableWidget, QTabletEvent) callconv(.c) void) void {
         qtc.QTableWidget_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -13748,16 +16944,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: QTableWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.QTableWidget_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: QTableWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.QTableWidget_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -13769,12 +16965,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: QTableWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.QTableWidget_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: QTableWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.QTableWidget_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -13788,9 +16988,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: QTableWidget, callback: *const fn (QTableWidget, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: QTableWidget, callback: *const fn (QTableWidget, QActionEvent) callconv(.c) void) void {
         qtc.QTableWidget_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QWidget
     ///
@@ -13802,16 +17006,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn ShowEvent(self: QTableWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.QTableWidget_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn showEvent(self: QTableWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.QTableWidget_ShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -13823,12 +17027,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: QTableWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.QTableWidget_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superShowEvent(self: QTableWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.QTableWidget_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -13842,9 +17050,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: QTableWidget, callback: *const fn (QTableWidget, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: QTableWidget, callback: *const fn (QTableWidget, QShowEvent) callconv(.c) void) void {
         qtc.QTableWidget_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -13856,16 +17068,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: QTableWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.QTableWidget_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: QTableWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.QTableWidget_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -13877,12 +17089,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: QTableWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.QTableWidget_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: QTableWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.QTableWidget_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -13896,9 +17112,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: QTableWidget, callback: *const fn (QTableWidget, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: QTableWidget, callback: *const fn (QTableWidget, QHideEvent) callconv(.c) void) void {
         qtc.QTableWidget_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -13916,7 +17136,7 @@ pub const QTableWidget = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: QTableWidget, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: QTableWidget, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -13924,9 +17144,9 @@ pub const QTableWidget = extern struct {
         return qtc.QTableWidget_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -13944,13 +17164,17 @@ pub const QTableWidget = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: QTableWidget, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: QTableWidget, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.QTableWidget_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -13964,9 +17188,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: QTableWidget, callback: *const fn (QTableWidget, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: QTableWidget, callback: *const fn (QTableWidget, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QTableWidget_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -13980,13 +17208,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: QTableWidget, param1: i32) i32 {
+    pub fn metric(self: QTableWidget, param1: i32) i32 {
         return qtc.QTableWidget_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -14000,9 +17228,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: QTableWidget, param1: i32) i32 {
+    pub fn superMetric(self: QTableWidget, param1: i32) i32 {
         return qtc.QTableWidget_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -14016,9 +17248,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: QTableWidget, callback: *const fn (QTableWidget, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: QTableWidget, callback: *const fn (QTableWidget, i32) callconv(.c) i32) void {
         qtc.QTableWidget_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -14032,14 +17268,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: QTableWidget, painter: anytype) void {
+    pub fn initPainter(self: QTableWidget, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QTableWidget_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -14053,10 +17289,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: QTableWidget, painter: anytype) void {
+    pub fn superInitPainter(self: QTableWidget, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QTableWidget_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -14070,9 +17310,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: QTableWidget, callback: *const fn (QTableWidget, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: QTableWidget, callback: *const fn (QTableWidget, QPainter) callconv(.c) void) void {
         qtc.QTableWidget_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -14086,14 +17330,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: QTableWidget, offset: anytype) QPaintDevice {
+    pub fn redirected(self: QTableWidget, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.QTableWidget_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -14107,10 +17351,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: QTableWidget, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: QTableWidget, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.QTableWidget_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -14124,9 +17372,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: QTableWidget, callback: *const fn (QTableWidget, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: QTableWidget, callback: *const fn (QTableWidget, QPoint) callconv(.c) QPaintDevice) void {
         qtc.QTableWidget_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -14138,13 +17390,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn SharedPainter(self: QTableWidget) QPainter {
+    pub fn sharedPainter(self: QTableWidget) QPainter {
         return .{ .ptr = qtc.QTableWidget_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -14156,9 +17408,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn SuperSharedPainter(self: QTableWidget) QPainter {
+    pub fn superSharedPainter(self: QTableWidget) QPainter {
         return .{ .ptr = qtc.QTableWidget_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -14172,9 +17428,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: QTableWidget, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QTableWidget, callback: *const fn () callconv(.c) QPainter) void {
         qtc.QTableWidget_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -14186,16 +17446,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QTableWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QTableWidget_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QTableWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QTableWidget_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -14207,12 +17467,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QTableWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QTableWidget_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QTableWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QTableWidget_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -14226,9 +17490,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QTableWidget, callback: *const fn (QTableWidget, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QTableWidget, callback: *const fn (QTableWidget, QChildEvent) callconv(.c) void) void {
         qtc.QTableWidget_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -14240,16 +17508,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QTableWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QTableWidget_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QTableWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QTableWidget_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -14261,12 +17529,16 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QTableWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QTableWidget_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QTableWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QTableWidget_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -14280,9 +17552,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QTableWidget, callback: *const fn (QTableWidget, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QTableWidget, callback: *const fn (QTableWidget, QEvent) callconv(.c) void) void {
         qtc.QTableWidget_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -14296,14 +17572,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QTableWidget, signal: anytype) void {
+    pub fn connectNotify(self: QTableWidget, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QTableWidget_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -14317,11 +17593,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QTableWidget, signal: anytype) void {
+    pub fn superConnectNotify(self: QTableWidget, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QTableWidget_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -14334,9 +17614,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QTableWidget, callback: *const fn (QTableWidget, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QTableWidget, callback: *const fn (QTableWidget, QMetaMethod) callconv(.c) void) void {
         qtc.QTableWidget_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -14350,14 +17634,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QTableWidget, signal: anytype) void {
+    pub fn disconnectNotify(self: QTableWidget, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QTableWidget_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -14371,10 +17655,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QTableWidget, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QTableWidget, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QTableWidget_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -14388,9 +17676,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QTableWidget, callback: *const fn (QTableWidget, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QTableWidget, callback: *const fn (QTableWidget, QMetaMethod) callconv(.c) void) void {
         qtc.QTableWidget_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `rowMoved` instead
+    ///
+    pub const RowMoved = rowMoved;
 
     /// Inherited from QTableView
     ///
@@ -14402,19 +17694,19 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
     /// ` oldIndex: i32 `
     ///
     /// ` newIndex: i32 `
     ///
-    pub fn RowMoved(self: QTableWidget, row: i32, oldIndex: i32, newIndex: i32) void {
-        qtc.QTableWidget_RowMoved(@ptrCast(self.ptr), @bitCast(row), @bitCast(oldIndex), @bitCast(newIndex));
+    pub fn rowMoved(self: QTableWidget, _row: i32, oldIndex: i32, newIndex: i32) void {
+        qtc.QTableWidget_RowMoved(@ptrCast(self.ptr), @bitCast(_row), @bitCast(oldIndex), @bitCast(newIndex));
     }
 
-    /// ### DEPRECATED: Use `SuperRowMoved` instead
+    /// ### DEPRECATED: Use `superRowMoved` instead
     ///
-    pub const QBaseRowMoved = SuperRowMoved;
+    pub const SuperRowMoved = superRowMoved;
 
     /// Inherited from QTableView
     ///
@@ -14426,15 +17718,19 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
     /// ` oldIndex: i32 `
     ///
     /// ` newIndex: i32 `
     ///
-    pub fn SuperRowMoved(self: QTableWidget, row: i32, oldIndex: i32, newIndex: i32) void {
-        qtc.QTableWidget_SuperRowMoved(@ptrCast(self.ptr), @bitCast(row), @bitCast(oldIndex), @bitCast(newIndex));
+    pub fn superRowMoved(self: QTableWidget, _row: i32, oldIndex: i32, newIndex: i32) void {
+        qtc.QTableWidget_SuperRowMoved(@ptrCast(self.ptr), @bitCast(_row), @bitCast(oldIndex), @bitCast(newIndex));
     }
+
+    /// ### DEPRECATED: Use `onRowMoved` instead
+    ///
+    pub const OnRowMoved = onRowMoved;
 
     /// Inherited from QTableView
     ///
@@ -14448,9 +17744,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, row: i32, oldIndex: i32, newIndex: i32) callconv(.c) void `
     ///
-    pub fn OnRowMoved(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32, i32) callconv(.c) void) void {
+    pub fn onRowMoved(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32, i32) callconv(.c) void) void {
         qtc.QTableWidget_OnRowMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `columnMoved` instead
+    ///
+    pub const ColumnMoved = columnMoved;
 
     /// Inherited from QTableView
     ///
@@ -14462,19 +17762,19 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` column: i32 `
+    /// ` _column: i32 `
     ///
     /// ` oldIndex: i32 `
     ///
     /// ` newIndex: i32 `
     ///
-    pub fn ColumnMoved(self: QTableWidget, column: i32, oldIndex: i32, newIndex: i32) void {
-        qtc.QTableWidget_ColumnMoved(@ptrCast(self.ptr), @bitCast(column), @bitCast(oldIndex), @bitCast(newIndex));
+    pub fn columnMoved(self: QTableWidget, _column: i32, oldIndex: i32, newIndex: i32) void {
+        qtc.QTableWidget_ColumnMoved(@ptrCast(self.ptr), @bitCast(_column), @bitCast(oldIndex), @bitCast(newIndex));
     }
 
-    /// ### DEPRECATED: Use `SuperColumnMoved` instead
+    /// ### DEPRECATED: Use `superColumnMoved` instead
     ///
-    pub const QBaseColumnMoved = SuperColumnMoved;
+    pub const SuperColumnMoved = superColumnMoved;
 
     /// Inherited from QTableView
     ///
@@ -14486,15 +17786,19 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` column: i32 `
+    /// ` _column: i32 `
     ///
     /// ` oldIndex: i32 `
     ///
     /// ` newIndex: i32 `
     ///
-    pub fn SuperColumnMoved(self: QTableWidget, column: i32, oldIndex: i32, newIndex: i32) void {
-        qtc.QTableWidget_SuperColumnMoved(@ptrCast(self.ptr), @bitCast(column), @bitCast(oldIndex), @bitCast(newIndex));
+    pub fn superColumnMoved(self: QTableWidget, _column: i32, oldIndex: i32, newIndex: i32) void {
+        qtc.QTableWidget_SuperColumnMoved(@ptrCast(self.ptr), @bitCast(_column), @bitCast(oldIndex), @bitCast(newIndex));
     }
+
+    /// ### DEPRECATED: Use `onColumnMoved` instead
+    ///
+    pub const OnColumnMoved = onColumnMoved;
 
     /// Inherited from QTableView
     ///
@@ -14508,9 +17812,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, column: i32, oldIndex: i32, newIndex: i32) callconv(.c) void `
     ///
-    pub fn OnColumnMoved(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32, i32) callconv(.c) void) void {
+    pub fn onColumnMoved(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32, i32) callconv(.c) void) void {
         qtc.QTableWidget_OnColumnMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `rowResized` instead
+    ///
+    pub const RowResized = rowResized;
 
     /// Inherited from QTableView
     ///
@@ -14522,19 +17830,19 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
     /// ` oldHeight: i32 `
     ///
     /// ` newHeight: i32 `
     ///
-    pub fn RowResized(self: QTableWidget, row: i32, oldHeight: i32, newHeight: i32) void {
-        qtc.QTableWidget_RowResized(@ptrCast(self.ptr), @bitCast(row), @bitCast(oldHeight), @bitCast(newHeight));
+    pub fn rowResized(self: QTableWidget, _row: i32, oldHeight: i32, newHeight: i32) void {
+        qtc.QTableWidget_RowResized(@ptrCast(self.ptr), @bitCast(_row), @bitCast(oldHeight), @bitCast(newHeight));
     }
 
-    /// ### DEPRECATED: Use `SuperRowResized` instead
+    /// ### DEPRECATED: Use `superRowResized` instead
     ///
-    pub const QBaseRowResized = SuperRowResized;
+    pub const SuperRowResized = superRowResized;
 
     /// Inherited from QTableView
     ///
@@ -14546,15 +17854,19 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
     /// ` oldHeight: i32 `
     ///
     /// ` newHeight: i32 `
     ///
-    pub fn SuperRowResized(self: QTableWidget, row: i32, oldHeight: i32, newHeight: i32) void {
-        qtc.QTableWidget_SuperRowResized(@ptrCast(self.ptr), @bitCast(row), @bitCast(oldHeight), @bitCast(newHeight));
+    pub fn superRowResized(self: QTableWidget, _row: i32, oldHeight: i32, newHeight: i32) void {
+        qtc.QTableWidget_SuperRowResized(@ptrCast(self.ptr), @bitCast(_row), @bitCast(oldHeight), @bitCast(newHeight));
     }
+
+    /// ### DEPRECATED: Use `onRowResized` instead
+    ///
+    pub const OnRowResized = onRowResized;
 
     /// Inherited from QTableView
     ///
@@ -14568,9 +17880,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, row: i32, oldHeight: i32, newHeight: i32) callconv(.c) void `
     ///
-    pub fn OnRowResized(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32, i32) callconv(.c) void) void {
+    pub fn onRowResized(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32, i32) callconv(.c) void) void {
         qtc.QTableWidget_OnRowResized(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `columnResized` instead
+    ///
+    pub const ColumnResized = columnResized;
 
     /// Inherited from QTableView
     ///
@@ -14582,19 +17898,19 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` column: i32 `
+    /// ` _column: i32 `
     ///
     /// ` oldWidth: i32 `
     ///
     /// ` newWidth: i32 `
     ///
-    pub fn ColumnResized(self: QTableWidget, column: i32, oldWidth: i32, newWidth: i32) void {
-        qtc.QTableWidget_ColumnResized(@ptrCast(self.ptr), @bitCast(column), @bitCast(oldWidth), @bitCast(newWidth));
+    pub fn columnResized(self: QTableWidget, _column: i32, oldWidth: i32, newWidth: i32) void {
+        qtc.QTableWidget_ColumnResized(@ptrCast(self.ptr), @bitCast(_column), @bitCast(oldWidth), @bitCast(newWidth));
     }
 
-    /// ### DEPRECATED: Use `SuperColumnResized` instead
+    /// ### DEPRECATED: Use `superColumnResized` instead
     ///
-    pub const QBaseColumnResized = SuperColumnResized;
+    pub const SuperColumnResized = superColumnResized;
 
     /// Inherited from QTableView
     ///
@@ -14606,15 +17922,19 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` column: i32 `
+    /// ` _column: i32 `
     ///
     /// ` oldWidth: i32 `
     ///
     /// ` newWidth: i32 `
     ///
-    pub fn SuperColumnResized(self: QTableWidget, column: i32, oldWidth: i32, newWidth: i32) void {
-        qtc.QTableWidget_SuperColumnResized(@ptrCast(self.ptr), @bitCast(column), @bitCast(oldWidth), @bitCast(newWidth));
+    pub fn superColumnResized(self: QTableWidget, _column: i32, oldWidth: i32, newWidth: i32) void {
+        qtc.QTableWidget_SuperColumnResized(@ptrCast(self.ptr), @bitCast(_column), @bitCast(oldWidth), @bitCast(newWidth));
     }
+
+    /// ### DEPRECATED: Use `onColumnResized` instead
+    ///
+    pub const OnColumnResized = onColumnResized;
 
     /// Inherited from QTableView
     ///
@@ -14628,10 +17948,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, column: i32, oldWidth: i32, newWidth: i32) callconv(.c) void `
     ///
-    pub fn OnColumnResized(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32, i32) callconv(.c) void) void {
+    pub fn onColumnResized(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32, i32) callconv(.c) void) void {
         qtc.QTableWidget_OnColumnResized(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `rowCountChanged` instead
+    ///
+    pub const RowCountChanged = rowCountChanged;
+
     /// Inherited from QTableView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#rowCountChanged)
@@ -14646,13 +17970,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` newCount: i32 `
     ///
-    pub fn RowCountChanged(self: QTableWidget, oldCount: i32, newCount: i32) void {
+    pub fn rowCountChanged(self: QTableWidget, oldCount: i32, newCount: i32) void {
         qtc.QTableWidget_RowCountChanged(@ptrCast(self.ptr), @bitCast(oldCount), @bitCast(newCount));
     }
 
-    /// ### DEPRECATED: Use `SuperRowCountChanged` instead
+    /// ### DEPRECATED: Use `superRowCountChanged` instead
     ///
-    pub const QBaseRowCountChanged = SuperRowCountChanged;
+    pub const SuperRowCountChanged = superRowCountChanged;
 
     /// Inherited from QTableView
     ///
@@ -14668,10 +17992,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` newCount: i32 `
     ///
-    pub fn SuperRowCountChanged(self: QTableWidget, oldCount: i32, newCount: i32) void {
+    pub fn superRowCountChanged(self: QTableWidget, oldCount: i32, newCount: i32) void {
         qtc.QTableWidget_SuperRowCountChanged(@ptrCast(self.ptr), @bitCast(oldCount), @bitCast(newCount));
     }
 
+    /// ### DEPRECATED: Use `onRowCountChanged` instead
+    ///
+    pub const OnRowCountChanged = onRowCountChanged;
+
     /// Inherited from QTableView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#rowCountChanged)
@@ -14684,9 +18012,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, oldCount: i32, newCount: i32) callconv(.c) void `
     ///
-    pub fn OnRowCountChanged(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32) callconv(.c) void) void {
+    pub fn onRowCountChanged(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32) callconv(.c) void) void {
         qtc.QTableWidget_OnRowCountChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `columnCountChanged` instead
+    ///
+    pub const ColumnCountChanged = columnCountChanged;
 
     /// Inherited from QTableView
     ///
@@ -14702,13 +18034,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` newCount: i32 `
     ///
-    pub fn ColumnCountChanged(self: QTableWidget, oldCount: i32, newCount: i32) void {
+    pub fn columnCountChanged(self: QTableWidget, oldCount: i32, newCount: i32) void {
         qtc.QTableWidget_ColumnCountChanged(@ptrCast(self.ptr), @bitCast(oldCount), @bitCast(newCount));
     }
 
-    /// ### DEPRECATED: Use `SuperColumnCountChanged` instead
+    /// ### DEPRECATED: Use `superColumnCountChanged` instead
     ///
-    pub const QBaseColumnCountChanged = SuperColumnCountChanged;
+    pub const SuperColumnCountChanged = superColumnCountChanged;
 
     /// Inherited from QTableView
     ///
@@ -14724,9 +18056,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` newCount: i32 `
     ///
-    pub fn SuperColumnCountChanged(self: QTableWidget, oldCount: i32, newCount: i32) void {
+    pub fn superColumnCountChanged(self: QTableWidget, oldCount: i32, newCount: i32) void {
         qtc.QTableWidget_SuperColumnCountChanged(@ptrCast(self.ptr), @bitCast(oldCount), @bitCast(newCount));
     }
+
+    /// ### DEPRECATED: Use `onColumnCountChanged` instead
+    ///
+    pub const OnColumnCountChanged = onColumnCountChanged;
 
     /// Inherited from QTableView
     ///
@@ -14740,9 +18076,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, oldCount: i32, newCount: i32) callconv(.c) void `
     ///
-    pub fn OnColumnCountChanged(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32) callconv(.c) void) void {
+    pub fn onColumnCountChanged(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32) callconv(.c) void) void {
         qtc.QTableWidget_OnColumnCountChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `state` instead
+    ///
+    pub const State = state;
 
     /// Inherited from QAbstractItemView
     ///
@@ -14758,13 +18098,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` qabstractitemview_enums.State `
     ///
-    pub fn State(self: QTableWidget) i32 {
+    pub fn state(self: QTableWidget) i32 {
         return qtc.QTableWidget_State(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperState` instead
+    /// ### DEPRECATED: Use `superState` instead
     ///
-    pub const QBaseState = SuperState;
+    pub const SuperState = superState;
 
     /// Inherited from QAbstractItemView
     ///
@@ -14780,9 +18120,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` qabstractitemview_enums.State `
     ///
-    pub fn SuperState(self: QTableWidget) i32 {
+    pub fn superState(self: QTableWidget) i32 {
         return qtc.QTableWidget_SuperState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onState` instead
+    ///
+    pub const OnState = onState;
 
     /// Inherited from QAbstractItemView
     ///
@@ -14796,9 +18140,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnState(self: QTableWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onState(self: QTableWidget, callback: *const fn () callconv(.c) i32) void {
         qtc.QTableWidget_OnState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setState` instead
+    ///
+    pub const SetState = setState;
 
     /// Inherited from QAbstractItemView
     ///
@@ -14810,15 +18158,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` state: qabstractitemview_enums.State `
+    /// ` _state: qabstractitemview_enums.State `
     ///
-    pub fn SetState(self: QTableWidget, state: i32) void {
-        qtc.QTableWidget_SetState(@ptrCast(self.ptr), @bitCast(state));
+    pub fn setState(self: QTableWidget, _state: i32) void {
+        qtc.QTableWidget_SetState(@ptrCast(self.ptr), @bitCast(_state));
     }
 
-    /// ### DEPRECATED: Use `SuperSetState` instead
+    /// ### DEPRECATED: Use `superSetState` instead
     ///
-    pub const QBaseSetState = SuperSetState;
+    pub const SuperSetState = superSetState;
 
     /// Inherited from QAbstractItemView
     ///
@@ -14830,11 +18178,15 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    /// ` state: qabstractitemview_enums.State `
+    /// ` _state: qabstractitemview_enums.State `
     ///
-    pub fn SuperSetState(self: QTableWidget, state: i32) void {
-        qtc.QTableWidget_SuperSetState(@ptrCast(self.ptr), @bitCast(state));
+    pub fn superSetState(self: QTableWidget, _state: i32) void {
+        qtc.QTableWidget_SuperSetState(@ptrCast(self.ptr), @bitCast(_state));
     }
+
+    /// ### DEPRECATED: Use `onSetState` instead
+    ///
+    pub const OnSetState = onSetState;
 
     /// Inherited from QAbstractItemView
     ///
@@ -14848,10 +18200,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, state: qabstractitemview_enums.State) callconv(.c) void `
     ///
-    pub fn OnSetState(self: QTableWidget, callback: *const fn (QTableWidget, i32) callconv(.c) void) void {
+    pub fn onSetState(self: QTableWidget, callback: *const fn (QTableWidget, i32) callconv(.c) void) void {
         qtc.QTableWidget_OnSetState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `scheduleDelayedItemsLayout` instead
+    ///
+    pub const ScheduleDelayedItemsLayout = scheduleDelayedItemsLayout;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
@@ -14862,13 +18218,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn ScheduleDelayedItemsLayout(self: QTableWidget) void {
+    pub fn scheduleDelayedItemsLayout(self: QTableWidget) void {
         qtc.QTableWidget_ScheduleDelayedItemsLayout(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperScheduleDelayedItemsLayout` instead
+    /// ### DEPRECATED: Use `superScheduleDelayedItemsLayout` instead
     ///
-    pub const QBaseScheduleDelayedItemsLayout = SuperScheduleDelayedItemsLayout;
+    pub const SuperScheduleDelayedItemsLayout = superScheduleDelayedItemsLayout;
 
     /// Inherited from QAbstractItemView
     ///
@@ -14880,9 +18236,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn SuperScheduleDelayedItemsLayout(self: QTableWidget) void {
+    pub fn superScheduleDelayedItemsLayout(self: QTableWidget) void {
         qtc.QTableWidget_SuperScheduleDelayedItemsLayout(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onScheduleDelayedItemsLayout` instead
+    ///
+    pub const OnScheduleDelayedItemsLayout = onScheduleDelayedItemsLayout;
 
     /// Inherited from QAbstractItemView
     ///
@@ -14896,9 +18256,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnScheduleDelayedItemsLayout(self: QTableWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onScheduleDelayedItemsLayout(self: QTableWidget, callback: *const fn () callconv(.c) void) void {
         qtc.QTableWidget_OnScheduleDelayedItemsLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `executeDelayedItemsLayout` instead
+    ///
+    pub const ExecuteDelayedItemsLayout = executeDelayedItemsLayout;
 
     /// Inherited from QAbstractItemView
     ///
@@ -14910,13 +18274,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn ExecuteDelayedItemsLayout(self: QTableWidget) void {
+    pub fn executeDelayedItemsLayout(self: QTableWidget) void {
         qtc.QTableWidget_ExecuteDelayedItemsLayout(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperExecuteDelayedItemsLayout` instead
+    /// ### DEPRECATED: Use `superExecuteDelayedItemsLayout` instead
     ///
-    pub const QBaseExecuteDelayedItemsLayout = SuperExecuteDelayedItemsLayout;
+    pub const SuperExecuteDelayedItemsLayout = superExecuteDelayedItemsLayout;
 
     /// Inherited from QAbstractItemView
     ///
@@ -14928,9 +18292,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn SuperExecuteDelayedItemsLayout(self: QTableWidget) void {
+    pub fn superExecuteDelayedItemsLayout(self: QTableWidget) void {
         qtc.QTableWidget_SuperExecuteDelayedItemsLayout(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onExecuteDelayedItemsLayout` instead
+    ///
+    pub const OnExecuteDelayedItemsLayout = onExecuteDelayedItemsLayout;
 
     /// Inherited from QAbstractItemView
     ///
@@ -14944,9 +18312,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnExecuteDelayedItemsLayout(self: QTableWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onExecuteDelayedItemsLayout(self: QTableWidget, callback: *const fn () callconv(.c) void) void {
         qtc.QTableWidget_OnExecuteDelayedItemsLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setDirtyRegion` instead
+    ///
+    pub const SetDirtyRegion = setDirtyRegion;
 
     /// Inherited from QAbstractItemView
     ///
@@ -14960,14 +18332,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` region: QRegion `
     ///
-    pub fn SetDirtyRegion(self: QTableWidget, region: anytype) void {
+    pub fn setDirtyRegion(self: QTableWidget, region: anytype) void {
         comptime _ = @TypeOf(region)._is_QRegion;
         qtc.QTableWidget_SetDirtyRegion(@ptrCast(self.ptr), @ptrCast(region.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetDirtyRegion` instead
+    /// ### DEPRECATED: Use `superSetDirtyRegion` instead
     ///
-    pub const QBaseSetDirtyRegion = SuperSetDirtyRegion;
+    pub const SuperSetDirtyRegion = superSetDirtyRegion;
 
     /// Inherited from QAbstractItemView
     ///
@@ -14981,10 +18353,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` region: QRegion `
     ///
-    pub fn SuperSetDirtyRegion(self: QTableWidget, region: anytype) void {
+    pub fn superSetDirtyRegion(self: QTableWidget, region: anytype) void {
         comptime _ = @TypeOf(region)._is_QRegion;
         qtc.QTableWidget_SuperSetDirtyRegion(@ptrCast(self.ptr), @ptrCast(region.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetDirtyRegion` instead
+    ///
+    pub const OnSetDirtyRegion = onSetDirtyRegion;
 
     /// Inherited from QAbstractItemView
     ///
@@ -14998,9 +18374,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, region: QRegion) callconv(.c) void `
     ///
-    pub fn OnSetDirtyRegion(self: QTableWidget, callback: *const fn (QTableWidget, QRegion) callconv(.c) void) void {
+    pub fn onSetDirtyRegion(self: QTableWidget, callback: *const fn (QTableWidget, QRegion) callconv(.c) void) void {
         qtc.QTableWidget_OnSetDirtyRegion(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `scrollDirtyRegion` instead
+    ///
+    pub const ScrollDirtyRegion = scrollDirtyRegion;
 
     /// Inherited from QAbstractItemView
     ///
@@ -15016,13 +18396,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn ScrollDirtyRegion(self: QTableWidget, dx: i32, dy: i32) void {
+    pub fn scrollDirtyRegion(self: QTableWidget, dx: i32, dy: i32) void {
         qtc.QTableWidget_ScrollDirtyRegion(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
-    /// ### DEPRECATED: Use `SuperScrollDirtyRegion` instead
+    /// ### DEPRECATED: Use `superScrollDirtyRegion` instead
     ///
-    pub const QBaseScrollDirtyRegion = SuperScrollDirtyRegion;
+    pub const SuperScrollDirtyRegion = superScrollDirtyRegion;
 
     /// Inherited from QAbstractItemView
     ///
@@ -15038,9 +18418,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn SuperScrollDirtyRegion(self: QTableWidget, dx: i32, dy: i32) void {
+    pub fn superScrollDirtyRegion(self: QTableWidget, dx: i32, dy: i32) void {
         qtc.QTableWidget_SuperScrollDirtyRegion(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `onScrollDirtyRegion` instead
+    ///
+    pub const OnScrollDirtyRegion = onScrollDirtyRegion;
 
     /// Inherited from QAbstractItemView
     ///
@@ -15054,9 +18438,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, dx: i32, dy: i32) callconv(.c) void `
     ///
-    pub fn OnScrollDirtyRegion(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32) callconv(.c) void) void {
+    pub fn onScrollDirtyRegion(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32) callconv(.c) void) void {
         qtc.QTableWidget_OnScrollDirtyRegion(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dirtyRegionOffset` instead
+    ///
+    pub const DirtyRegionOffset = dirtyRegionOffset;
 
     /// Inherited from QAbstractItemView
     ///
@@ -15068,13 +18456,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn DirtyRegionOffset(self: QTableWidget) QPoint {
+    pub fn dirtyRegionOffset(self: QTableWidget) QPoint {
         return .{ .ptr = qtc.QTableWidget_DirtyRegionOffset(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperDirtyRegionOffset` instead
+    /// ### DEPRECATED: Use `superDirtyRegionOffset` instead
     ///
-    pub const QBaseDirtyRegionOffset = SuperDirtyRegionOffset;
+    pub const SuperDirtyRegionOffset = superDirtyRegionOffset;
 
     /// Inherited from QAbstractItemView
     ///
@@ -15086,9 +18474,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn SuperDirtyRegionOffset(self: QTableWidget) QPoint {
+    pub fn superDirtyRegionOffset(self: QTableWidget) QPoint {
         return .{ .ptr = qtc.QTableWidget_SuperDirtyRegionOffset(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onDirtyRegionOffset` instead
+    ///
+    pub const OnDirtyRegionOffset = onDirtyRegionOffset;
 
     /// Inherited from QAbstractItemView
     ///
@@ -15104,10 +18496,14 @@ pub const QTableWidget = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnDirtyRegionOffset(self: QTableWidget, callback: *const fn () callconv(.c) QPoint) void {
+    pub fn onDirtyRegionOffset(self: QTableWidget, callback: *const fn () callconv(.c) QPoint) void {
         qtc.QTableWidget_OnDirtyRegionOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `startAutoScroll` instead
+    ///
+    pub const StartAutoScroll = startAutoScroll;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
@@ -15118,13 +18514,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn StartAutoScroll(self: QTableWidget) void {
+    pub fn startAutoScroll(self: QTableWidget) void {
         qtc.QTableWidget_StartAutoScroll(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperStartAutoScroll` instead
+    /// ### DEPRECATED: Use `superStartAutoScroll` instead
     ///
-    pub const QBaseStartAutoScroll = SuperStartAutoScroll;
+    pub const SuperStartAutoScroll = superStartAutoScroll;
 
     /// Inherited from QAbstractItemView
     ///
@@ -15136,10 +18532,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn SuperStartAutoScroll(self: QTableWidget) void {
+    pub fn superStartAutoScroll(self: QTableWidget) void {
         qtc.QTableWidget_SuperStartAutoScroll(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onStartAutoScroll` instead
+    ///
+    pub const OnStartAutoScroll = onStartAutoScroll;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
@@ -15152,10 +18552,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnStartAutoScroll(self: QTableWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onStartAutoScroll(self: QTableWidget, callback: *const fn () callconv(.c) void) void {
         qtc.QTableWidget_OnStartAutoScroll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `stopAutoScroll` instead
+    ///
+    pub const StopAutoScroll = stopAutoScroll;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
@@ -15166,13 +18570,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn StopAutoScroll(self: QTableWidget) void {
+    pub fn stopAutoScroll(self: QTableWidget) void {
         qtc.QTableWidget_StopAutoScroll(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperStopAutoScroll` instead
+    /// ### DEPRECATED: Use `superStopAutoScroll` instead
     ///
-    pub const QBaseStopAutoScroll = SuperStopAutoScroll;
+    pub const SuperStopAutoScroll = superStopAutoScroll;
 
     /// Inherited from QAbstractItemView
     ///
@@ -15184,10 +18588,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn SuperStopAutoScroll(self: QTableWidget) void {
+    pub fn superStopAutoScroll(self: QTableWidget) void {
         qtc.QTableWidget_SuperStopAutoScroll(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onStopAutoScroll` instead
+    ///
+    pub const OnStopAutoScroll = onStopAutoScroll;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
@@ -15200,9 +18608,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnStopAutoScroll(self: QTableWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onStopAutoScroll(self: QTableWidget, callback: *const fn () callconv(.c) void) void {
         qtc.QTableWidget_OnStopAutoScroll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `doAutoScroll` instead
+    ///
+    pub const DoAutoScroll = doAutoScroll;
 
     /// Inherited from QAbstractItemView
     ///
@@ -15214,13 +18626,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn DoAutoScroll(self: QTableWidget) void {
+    pub fn doAutoScroll(self: QTableWidget) void {
         qtc.QTableWidget_DoAutoScroll(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDoAutoScroll` instead
+    /// ### DEPRECATED: Use `superDoAutoScroll` instead
     ///
-    pub const QBaseDoAutoScroll = SuperDoAutoScroll;
+    pub const SuperDoAutoScroll = superDoAutoScroll;
 
     /// Inherited from QAbstractItemView
     ///
@@ -15232,9 +18644,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn SuperDoAutoScroll(self: QTableWidget) void {
+    pub fn superDoAutoScroll(self: QTableWidget) void {
         qtc.QTableWidget_SuperDoAutoScroll(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDoAutoScroll` instead
+    ///
+    pub const OnDoAutoScroll = onDoAutoScroll;
 
     /// Inherited from QAbstractItemView
     ///
@@ -15248,9 +18664,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDoAutoScroll(self: QTableWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onDoAutoScroll(self: QTableWidget, callback: *const fn () callconv(.c) void) void {
         qtc.QTableWidget_OnDoAutoScroll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropIndicatorPosition` instead
+    ///
+    pub const DropIndicatorPosition = dropIndicatorPosition;
 
     /// Inherited from QAbstractItemView
     ///
@@ -15266,13 +18686,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` qabstractitemview_enums.DropIndicatorPosition `
     ///
-    pub fn DropIndicatorPosition(self: QTableWidget) i32 {
+    pub fn dropIndicatorPosition(self: QTableWidget) i32 {
         return qtc.QTableWidget_DropIndicatorPosition(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropIndicatorPosition` instead
+    /// ### DEPRECATED: Use `superDropIndicatorPosition` instead
     ///
-    pub const QBaseDropIndicatorPosition = SuperDropIndicatorPosition;
+    pub const SuperDropIndicatorPosition = superDropIndicatorPosition;
 
     /// Inherited from QAbstractItemView
     ///
@@ -15288,9 +18708,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` qabstractitemview_enums.DropIndicatorPosition `
     ///
-    pub fn SuperDropIndicatorPosition(self: QTableWidget) i32 {
+    pub fn superDropIndicatorPosition(self: QTableWidget) i32 {
         return qtc.QTableWidget_SuperDropIndicatorPosition(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropIndicatorPosition` instead
+    ///
+    pub const OnDropIndicatorPosition = onDropIndicatorPosition;
 
     /// Inherited from QAbstractItemView
     ///
@@ -15304,9 +18728,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDropIndicatorPosition(self: QTableWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDropIndicatorPosition(self: QTableWidget, callback: *const fn () callconv(.c) i32) void {
         qtc.QTableWidget_OnDropIndicatorPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setViewportMargins` instead
+    ///
+    pub const SetViewportMargins = setViewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -15326,13 +18754,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetViewportMargins(self: QTableWidget, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setViewportMargins(self: QTableWidget, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QTableWidget_SetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
-    /// ### DEPRECATED: Use `SuperSetViewportMargins` instead
+    /// ### DEPRECATED: Use `superSetViewportMargins` instead
     ///
-    pub const QBaseSetViewportMargins = SuperSetViewportMargins;
+    pub const SuperSetViewportMargins = superSetViewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -15352,9 +18780,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SuperSetViewportMargins(self: QTableWidget, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn superSetViewportMargins(self: QTableWidget, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QTableWidget_SuperSetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `onSetViewportMargins` instead
+    ///
+    pub const OnSetViewportMargins = onSetViewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -15368,9 +18800,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, left: i32, top: i32, right: i32, bottom: i32) callconv(.c) void `
     ///
-    pub fn OnSetViewportMargins(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32, i32, i32) callconv(.c) void) void {
+    pub fn onSetViewportMargins(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32, i32, i32) callconv(.c) void) void {
         qtc.QTableWidget_OnSetViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `viewportMargins` instead
+    ///
+    pub const ViewportMargins = viewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -15382,13 +18818,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn ViewportMargins(self: QTableWidget) QMargins {
+    pub fn viewportMargins(self: QTableWidget) QMargins {
         return .{ .ptr = qtc.QTableWidget_ViewportMargins(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperViewportMargins` instead
+    /// ### DEPRECATED: Use `superViewportMargins` instead
     ///
-    pub const QBaseViewportMargins = SuperViewportMargins;
+    pub const SuperViewportMargins = superViewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -15400,9 +18836,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn SuperViewportMargins(self: QTableWidget) QMargins {
+    pub fn superViewportMargins(self: QTableWidget) QMargins {
         return .{ .ptr = qtc.QTableWidget_SuperViewportMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onViewportMargins` instead
+    ///
+    pub const OnViewportMargins = onViewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -15418,9 +18858,13 @@ pub const QTableWidget = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnViewportMargins(self: QTableWidget, callback: *const fn () callconv(.c) QMargins) void {
+    pub fn onViewportMargins(self: QTableWidget, callback: *const fn () callconv(.c) QMargins) void {
         qtc.QTableWidget_OnViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `drawFrame` instead
+    ///
+    pub const DrawFrame = drawFrame;
 
     /// Inherited from QFrame
     ///
@@ -15434,14 +18878,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` param1: QPainter `
     ///
-    pub fn DrawFrame(self: QTableWidget, param1: anytype) void {
+    pub fn drawFrame(self: QTableWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPainter;
         qtc.QTableWidget_DrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawFrame` instead
+    /// ### DEPRECATED: Use `superDrawFrame` instead
     ///
-    pub const QBaseDrawFrame = SuperDrawFrame;
+    pub const SuperDrawFrame = superDrawFrame;
 
     /// Inherited from QFrame
     ///
@@ -15455,10 +18899,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` param1: QPainter `
     ///
-    pub fn SuperDrawFrame(self: QTableWidget, param1: anytype) void {
+    pub fn superDrawFrame(self: QTableWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPainter;
         qtc.QTableWidget_SuperDrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDrawFrame` instead
+    ///
+    pub const OnDrawFrame = onDrawFrame;
 
     /// Inherited from QFrame
     ///
@@ -15472,10 +18920,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, param1: QPainter) callconv(.c) void `
     ///
-    pub fn OnDrawFrame(self: QTableWidget, callback: *const fn (QTableWidget, QPainter) callconv(.c) void) void {
+    pub fn onDrawFrame(self: QTableWidget, callback: *const fn (QTableWidget, QPainter) callconv(.c) void) void {
         qtc.QTableWidget_OnDrawFrame(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -15486,13 +18938,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn UpdateMicroFocus(self: QTableWidget) void {
+    pub fn updateMicroFocus(self: QTableWidget) void {
         qtc.QTableWidget_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -15504,10 +18956,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn SuperUpdateMicroFocus(self: QTableWidget) void {
+    pub fn superUpdateMicroFocus(self: QTableWidget) void {
         qtc.QTableWidget_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -15520,10 +18976,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: QTableWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: QTableWidget, callback: *const fn () callconv(.c) void) void {
         qtc.QTableWidget_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -15534,13 +18994,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn Create(self: QTableWidget) void {
+    pub fn create(self: QTableWidget) void {
         qtc.QTableWidget_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -15552,10 +19012,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn SuperCreate(self: QTableWidget) void {
+    pub fn superCreate(self: QTableWidget) void {
         qtc.QTableWidget_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -15568,9 +19032,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: QTableWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: QTableWidget, callback: *const fn () callconv(.c) void) void {
         qtc.QTableWidget_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -15582,13 +19050,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn Destroy(self: QTableWidget) void {
+    pub fn destroy(self: QTableWidget) void {
         qtc.QTableWidget_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -15600,9 +19068,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn SuperDestroy(self: QTableWidget) void {
+    pub fn superDestroy(self: QTableWidget) void {
         qtc.QTableWidget_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -15616,10 +19088,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: QTableWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: QTableWidget, callback: *const fn () callconv(.c) void) void {
         qtc.QTableWidget_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -15630,13 +19106,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn FocusNextChild(self: QTableWidget) bool {
+    pub fn focusNextChild(self: QTableWidget) bool {
         return qtc.QTableWidget_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -15648,10 +19124,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn SuperFocusNextChild(self: QTableWidget) bool {
+    pub fn superFocusNextChild(self: QTableWidget) bool {
         return qtc.QTableWidget_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -15664,9 +19144,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: QTableWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: QTableWidget, callback: *const fn () callconv(.c) bool) void {
         qtc.QTableWidget_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -15678,13 +19162,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn FocusPreviousChild(self: QTableWidget) bool {
+    pub fn focusPreviousChild(self: QTableWidget) bool {
         return qtc.QTableWidget_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -15696,9 +19180,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn SuperFocusPreviousChild(self: QTableWidget) bool {
+    pub fn superFocusPreviousChild(self: QTableWidget) bool {
         return qtc.QTableWidget_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -15712,9 +19200,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: QTableWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: QTableWidget, callback: *const fn () callconv(.c) bool) void {
         qtc.QTableWidget_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -15726,13 +19218,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn Sender(self: QTableWidget) QObject {
+    pub fn sender(self: QTableWidget) QObject {
         return .{ .ptr = qtc.QTableWidget_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -15744,9 +19236,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn SuperSender(self: QTableWidget) QObject {
+    pub fn superSender(self: QTableWidget) QObject {
         return .{ .ptr = qtc.QTableWidget_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -15760,9 +19256,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QTableWidget, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QTableWidget, callback: *const fn () callconv(.c) QObject) void {
         qtc.QTableWidget_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -15774,13 +19274,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn SenderSignalIndex(self: QTableWidget) i32 {
+    pub fn senderSignalIndex(self: QTableWidget) i32 {
         return qtc.QTableWidget_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -15792,9 +19292,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn SuperSenderSignalIndex(self: QTableWidget) i32 {
+    pub fn superSenderSignalIndex(self: QTableWidget) i32 {
         return qtc.QTableWidget_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -15808,9 +19312,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QTableWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QTableWidget, callback: *const fn () callconv(.c) i32) void {
         qtc.QTableWidget_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -15824,14 +19332,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QTableWidget, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QTableWidget, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QTableWidget_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -15845,10 +19353,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QTableWidget, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QTableWidget, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QTableWidget_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -15862,9 +19374,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QTableWidget, callback: *const fn (QTableWidget, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QTableWidget, callback: *const fn (QTableWidget, [*:0]const u8) callconv(.c) i32) void {
         qtc.QTableWidget_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -15878,14 +19394,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QTableWidget, signal: anytype) bool {
+    pub fn isSignalConnected(self: QTableWidget, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QTableWidget_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -15899,10 +19415,14 @@ pub const QTableWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QTableWidget, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QTableWidget, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QTableWidget_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -15916,9 +19436,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QTableWidget, callback: *const fn (QTableWidget, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QTableWidget, callback: *const fn (QTableWidget, QMetaMethod) callconv(.c) bool) void {
         qtc.QTableWidget_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -15934,13 +19458,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: QTableWidget, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: QTableWidget, metricA: i32, metricB: i32) f64 {
         return qtc.QTableWidget_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -15956,9 +19480,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: QTableWidget, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: QTableWidget, metricA: i32, metricB: i32) f64 {
         return qtc.QTableWidget_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -15972,9 +19500,13 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32) callconv(.c) f64) void {
         qtc.QTableWidget_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -15988,23 +19520,23 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QTableWidget, callback: *const fn (QTableWidget, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QTableWidget, callback: *const fn (QTableWidget, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#dtor.QTableWidget)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QTableWidget `
     ///
-    pub fn Delete(self: QTableWidget) void {
+    pub fn delete(self: QTableWidget) void {
         qtc.QTableWidget_Delete(@ptrCast(self.ptr));
     }
 };

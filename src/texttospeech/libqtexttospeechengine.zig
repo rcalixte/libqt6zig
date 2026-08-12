@@ -30,22 +30,34 @@ pub const QTextToSpeechEngine = extern struct {
     pub const _is_QTextToSpeechEngine = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QTextToSpeechEngine object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QTextToSpeechEngine {
+    pub const New = new;
+
+    /// Allocate a new QTextToSpeechEngine object in C++ memory
+    ///
+    pub fn new() QTextToSpeechEngine {
         return .{ .ptr = qtc.QTextToSpeechEngine_new() };
     }
 
-    /// New2 constructs a new QTextToSpeechEngine object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QTextToSpeechEngine object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) QTextToSpeechEngine {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QTextToSpeechEngine_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) QTextToSpeechEngine {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QTextToSpeechEngine_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -53,9 +65,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    pub fn MetaObject(self: QTextToSpeechEngine) QMetaObject {
+    pub fn metaObject(self: QTextToSpeechEngine) QMetaObject {
         return .{ .ptr = qtc.QTextToSpeechEngine_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -67,13 +83,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QTextToSpeechEngine, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QTextToSpeechEngine, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QTextToSpeechEngine_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -83,9 +99,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    pub fn SuperMetaObject(self: QTextToSpeechEngine) QMetaObject {
+    pub fn superMetaObject(self: QTextToSpeechEngine) QMetaObject {
         return .{ .ptr = qtc.QTextToSpeechEngine_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -93,10 +113,14 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QTextToSpeechEngine, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QTextToSpeechEngine, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QTextToSpeechEngine_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -106,13 +130,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QTextToSpeechEngine, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QTextToSpeechEngine_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -122,10 +146,14 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QTextToSpeechEngine, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QTextToSpeechEngine, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QTextToSpeechEngine_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -137,9 +165,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QTextToSpeechEngine, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QTextToSpeechEngine, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QTextToSpeechEngine_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -149,13 +181,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QTextToSpeechEngine, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QTextToSpeechEngine_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -169,9 +201,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QTextToSpeechEngine, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QTextToSpeechEngine, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QTextToSpeechEngine_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -181,14 +217,18 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextToSpeechEngine.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextToSpeechEngine.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `capabilities` instead
+    ///
+    pub const Capabilities = capabilities;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#capabilities)
     ///
@@ -200,9 +240,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` flag of qtexttospeech_enums.Capability `
     ///
-    pub fn Capabilities(self: QTextToSpeechEngine) i32 {
+    pub fn capabilities(self: QTextToSpeechEngine) i32 {
         return qtc.QTextToSpeechEngine_Capabilities(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCapabilities` instead
+    ///
+    pub const OnCapabilities = onCapabilities;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#capabilities)
     ///
@@ -214,13 +258,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnCapabilities(self: QTextToSpeechEngine, callback: *const fn () callconv(.c) i32) void {
+    pub fn onCapabilities(self: QTextToSpeechEngine, callback: *const fn () callconv(.c) i32) void {
         qtc.QTextToSpeechEngine_OnCapabilities(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperCapabilities` instead
+    /// ### DEPRECATED: Use `superCapabilities` instead
     ///
-    pub const QBaseCapabilities = SuperCapabilities;
+    pub const SuperCapabilities = superCapabilities;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#capabilities)
     ///
@@ -234,9 +278,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` flag of qtexttospeech_enums.Capability `
     ///
-    pub fn SuperCapabilities(self: QTextToSpeechEngine) i32 {
+    pub fn superCapabilities(self: QTextToSpeechEngine) i32 {
         return qtc.QTextToSpeechEngine_SuperCapabilities(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `availableLocales` instead
+    ///
+    pub const AvailableLocales = availableLocales;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#availableLocales)
     ///
@@ -246,15 +294,19 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AvailableLocales(self: QTextToSpeechEngine, allocator: std.mem.Allocator) []QLocale {
+    pub fn availableLocales(self: QTextToSpeechEngine, allocator: std.mem.Allocator) []QLocale {
         const _arr: qtc.libqt_list = qtc.QTextToSpeechEngine_AvailableLocales(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QLocale, _arr.len) catch @panic("QTextToSpeechEngine.AvailableLocales: Memory allocation failed");
-        const _data: [*]QtC.QLocale = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QLocale, _arr.len) catch @panic("QTextToSpeechEngine.availableLocales: Memory allocation failed");
+        const _data_val: [*]QtC.QLocale = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onAvailableLocales` instead
+    ///
+    pub const OnAvailableLocales = onAvailableLocales;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#availableLocales)
     ///
@@ -272,13 +324,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` C ABI representation of []QLocale `
     ///
-    pub fn OnAvailableLocales(self: QTextToSpeechEngine, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+    pub fn onAvailableLocales(self: QTextToSpeechEngine, callback: *const fn () callconv(.c) qtc.libqt_list) void {
         qtc.QTextToSpeechEngine_OnAvailableLocales(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperAvailableLocales` instead
+    /// ### DEPRECATED: Use `superAvailableLocales` instead
     ///
-    pub const QBaseAvailableLocales = SuperAvailableLocales;
+    pub const SuperAvailableLocales = superAvailableLocales;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#availableLocales)
     ///
@@ -290,15 +342,19 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperAvailableLocales(self: QTextToSpeechEngine, allocator: std.mem.Allocator) []QLocale {
+    pub fn superAvailableLocales(self: QTextToSpeechEngine, allocator: std.mem.Allocator) []QLocale {
         const _arr: qtc.libqt_list = qtc.QTextToSpeechEngine_SuperAvailableLocales(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QLocale, _arr.len) catch @panic("QTextToSpeechEngine.AvailableLocales: Memory allocation failed");
-        const _data: [*]QtC.QLocale = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QLocale, _arr.len) catch @panic("QTextToSpeechEngine.availableLocales: Memory allocation failed");
+        const _data_val: [*]QtC.QLocale = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `availableVoices` instead
+    ///
+    pub const AvailableVoices = availableVoices;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#availableVoices)
     ///
@@ -308,15 +364,19 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AvailableVoices(self: QTextToSpeechEngine, allocator: std.mem.Allocator) []QVoice {
+    pub fn availableVoices(self: QTextToSpeechEngine, allocator: std.mem.Allocator) []QVoice {
         const _arr: qtc.libqt_list = qtc.QTextToSpeechEngine_AvailableVoices(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QVoice, _arr.len) catch @panic("QTextToSpeechEngine.AvailableVoices: Memory allocation failed");
-        const _data: [*]QtC.QVoice = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QVoice, _arr.len) catch @panic("QTextToSpeechEngine.availableVoices: Memory allocation failed");
+        const _data_val: [*]QtC.QVoice = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onAvailableVoices` instead
+    ///
+    pub const OnAvailableVoices = onAvailableVoices;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#availableVoices)
     ///
@@ -334,13 +394,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` C ABI representation of []QVoice `
     ///
-    pub fn OnAvailableVoices(self: QTextToSpeechEngine, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+    pub fn onAvailableVoices(self: QTextToSpeechEngine, callback: *const fn () callconv(.c) qtc.libqt_list) void {
         qtc.QTextToSpeechEngine_OnAvailableVoices(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperAvailableVoices` instead
+    /// ### DEPRECATED: Use `superAvailableVoices` instead
     ///
-    pub const QBaseAvailableVoices = SuperAvailableVoices;
+    pub const SuperAvailableVoices = superAvailableVoices;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#availableVoices)
     ///
@@ -352,15 +412,19 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperAvailableVoices(self: QTextToSpeechEngine, allocator: std.mem.Allocator) []QVoice {
+    pub fn superAvailableVoices(self: QTextToSpeechEngine, allocator: std.mem.Allocator) []QVoice {
         const _arr: qtc.libqt_list = qtc.QTextToSpeechEngine_SuperAvailableVoices(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QVoice, _arr.len) catch @panic("QTextToSpeechEngine.AvailableVoices: Memory allocation failed");
-        const _data: [*]QtC.QVoice = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QVoice, _arr.len) catch @panic("QTextToSpeechEngine.availableVoices: Memory allocation failed");
+        const _data_val: [*]QtC.QVoice = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `say` instead
+    ///
+    pub const Say = say;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#say)
     ///
@@ -370,7 +434,7 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn Say(self: QTextToSpeechEngine, text: []const u8) void {
+    pub fn say(self: QTextToSpeechEngine, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -378,6 +442,10 @@ pub const QTextToSpeechEngine = extern struct {
         qtc.QTextToSpeechEngine_Say(@ptrCast(self.ptr), text_str);
     }
 
+    /// ### DEPRECATED: Use `onSay` instead
+    ///
+    pub const OnSay = onSay;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#say)
     ///
     /// Allows for overriding the related default method
@@ -388,13 +456,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QTextToSpeechEngine, text: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSay(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, [*:0]const u8) callconv(.c) void) void {
+    pub fn onSay(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, [*:0]const u8) callconv(.c) void) void {
         qtc.QTextToSpeechEngine_OnSay(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSay` instead
+    /// ### DEPRECATED: Use `superSay` instead
     ///
-    pub const QBaseSay = SuperSay;
+    pub const SuperSay = superSay;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#say)
     ///
@@ -406,7 +474,7 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SuperSay(self: QTextToSpeechEngine, text: []const u8) void {
+    pub fn superSay(self: QTextToSpeechEngine, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -414,6 +482,10 @@ pub const QTextToSpeechEngine = extern struct {
         qtc.QTextToSpeechEngine_SuperSay(@ptrCast(self.ptr), text_str);
     }
 
+    /// ### DEPRECATED: Use `synthesize` instead
+    ///
+    pub const Synthesize = synthesize;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#synthesize)
     ///
     /// ## Parameter(s):
@@ -422,13 +494,17 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn Synthesize(self: QTextToSpeechEngine, text: []const u8) void {
+    pub fn synthesize(self: QTextToSpeechEngine, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QTextToSpeechEngine_Synthesize(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `onSynthesize` instead
+    ///
+    pub const OnSynthesize = onSynthesize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#synthesize)
     ///
@@ -440,13 +516,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QTextToSpeechEngine, text: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSynthesize(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, [*:0]const u8) callconv(.c) void) void {
+    pub fn onSynthesize(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, [*:0]const u8) callconv(.c) void) void {
         qtc.QTextToSpeechEngine_OnSynthesize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSynthesize` instead
+    /// ### DEPRECATED: Use `superSynthesize` instead
     ///
-    pub const QBaseSynthesize = SuperSynthesize;
+    pub const SuperSynthesize = superSynthesize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#synthesize)
     ///
@@ -458,7 +534,7 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SuperSynthesize(self: QTextToSpeechEngine, text: []const u8) void {
+    pub fn superSynthesize(self: QTextToSpeechEngine, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -466,6 +542,10 @@ pub const QTextToSpeechEngine = extern struct {
         qtc.QTextToSpeechEngine_SuperSynthesize(@ptrCast(self.ptr), text_str);
     }
 
+    /// ### DEPRECATED: Use `stop` instead
+    ///
+    pub const Stop = stop;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#stop)
     ///
     /// ## Parameter(s):
@@ -474,10 +554,14 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` boundaryHint: qtexttospeech_enums.BoundaryHint `
     ///
-    pub fn Stop(self: QTextToSpeechEngine, boundaryHint: i32) void {
+    pub fn stop(self: QTextToSpeechEngine, boundaryHint: i32) void {
         qtc.QTextToSpeechEngine_Stop(@ptrCast(self.ptr), @bitCast(boundaryHint));
     }
 
+    /// ### DEPRECATED: Use `onStop` instead
+    ///
+    pub const OnStop = onStop;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#stop)
     ///
     /// Allows for overriding the related default method
@@ -488,13 +572,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QTextToSpeechEngine, boundaryHint: qtexttospeech_enums.BoundaryHint) callconv(.c) void `
     ///
-    pub fn OnStop(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, i32) callconv(.c) void) void {
+    pub fn onStop(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, i32) callconv(.c) void) void {
         qtc.QTextToSpeechEngine_OnStop(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperStop` instead
+    /// ### DEPRECATED: Use `superStop` instead
     ///
-    pub const QBaseStop = SuperStop;
+    pub const SuperStop = superStop;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#stop)
     ///
@@ -506,9 +590,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` boundaryHint: qtexttospeech_enums.BoundaryHint `
     ///
-    pub fn SuperStop(self: QTextToSpeechEngine, boundaryHint: i32) void {
+    pub fn superStop(self: QTextToSpeechEngine, boundaryHint: i32) void {
         qtc.QTextToSpeechEngine_SuperStop(@ptrCast(self.ptr), @bitCast(boundaryHint));
     }
+
+    /// ### DEPRECATED: Use `pause` instead
+    ///
+    pub const Pause = pause;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#pause)
     ///
@@ -518,9 +606,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` boundaryHint: qtexttospeech_enums.BoundaryHint `
     ///
-    pub fn Pause(self: QTextToSpeechEngine, boundaryHint: i32) void {
+    pub fn pause(self: QTextToSpeechEngine, boundaryHint: i32) void {
         qtc.QTextToSpeechEngine_Pause(@ptrCast(self.ptr), @bitCast(boundaryHint));
     }
+
+    /// ### DEPRECATED: Use `onPause` instead
+    ///
+    pub const OnPause = onPause;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#pause)
     ///
@@ -532,13 +624,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QTextToSpeechEngine, boundaryHint: qtexttospeech_enums.BoundaryHint) callconv(.c) void `
     ///
-    pub fn OnPause(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, i32) callconv(.c) void) void {
+    pub fn onPause(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, i32) callconv(.c) void) void {
         qtc.QTextToSpeechEngine_OnPause(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperPause` instead
+    /// ### DEPRECATED: Use `superPause` instead
     ///
-    pub const QBasePause = SuperPause;
+    pub const SuperPause = superPause;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#pause)
     ///
@@ -550,9 +642,15 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` boundaryHint: qtexttospeech_enums.BoundaryHint `
     ///
-    pub fn SuperPause(self: QTextToSpeechEngine, boundaryHint: i32) void {
+    pub fn superPause(self: QTextToSpeechEngine, boundaryHint: i32) void {
         qtc.QTextToSpeechEngine_SuperPause(@ptrCast(self.ptr), @bitCast(boundaryHint));
     }
+
+    /// ### DEPRECATED: Use `resume0` instead
+    ///
+    pub const Resume = resume0;
+
+    pub const @"resume" = resume0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#resume)
     ///
@@ -560,9 +658,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    pub fn Resume(self: QTextToSpeechEngine) void {
+    pub fn resume0(self: QTextToSpeechEngine) void {
         qtc.QTextToSpeechEngine_Resume(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResume` instead
+    ///
+    pub const OnResume = onResume;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#resume)
     ///
@@ -574,13 +676,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnResume(self: QTextToSpeechEngine, callback: *const fn () callconv(.c) void) void {
+    pub fn onResume(self: QTextToSpeechEngine, callback: *const fn () callconv(.c) void) void {
         qtc.QTextToSpeechEngine_OnResume(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperResume` instead
+    /// ### DEPRECATED: Use `superResume` instead
     ///
-    pub const QBaseResume = SuperResume;
+    pub const SuperResume = superResume;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#resume)
     ///
@@ -590,9 +692,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    pub fn SuperResume(self: QTextToSpeechEngine) void {
+    pub fn superResume(self: QTextToSpeechEngine) void {
         qtc.QTextToSpeechEngine_SuperResume(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rate` instead
+    ///
+    pub const Rate = rate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#rate)
     ///
@@ -600,9 +706,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    pub fn Rate(self: QTextToSpeechEngine) f64 {
+    pub fn rate(self: QTextToSpeechEngine) f64 {
         return qtc.QTextToSpeechEngine_Rate(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onRate` instead
+    ///
+    pub const OnRate = onRate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#rate)
     ///
@@ -614,13 +724,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) f64 `
     ///
-    pub fn OnRate(self: QTextToSpeechEngine, callback: *const fn () callconv(.c) f64) void {
+    pub fn onRate(self: QTextToSpeechEngine, callback: *const fn () callconv(.c) f64) void {
         qtc.QTextToSpeechEngine_OnRate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperRate` instead
+    /// ### DEPRECATED: Use `superRate` instead
     ///
-    pub const QBaseRate = SuperRate;
+    pub const SuperRate = superRate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#rate)
     ///
@@ -630,9 +740,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    pub fn SuperRate(self: QTextToSpeechEngine) f64 {
+    pub fn superRate(self: QTextToSpeechEngine) f64 {
         return qtc.QTextToSpeechEngine_SuperRate(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setRate` instead
+    ///
+    pub const SetRate = setRate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#setRate)
     ///
@@ -640,11 +754,15 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    /// ` rate: f64 `
+    /// ` _rate: f64 `
     ///
-    pub fn SetRate(self: QTextToSpeechEngine, rate: f64) bool {
-        return qtc.QTextToSpeechEngine_SetRate(@ptrCast(self.ptr), @bitCast(rate));
+    pub fn setRate(self: QTextToSpeechEngine, _rate: f64) bool {
+        return qtc.QTextToSpeechEngine_SetRate(@ptrCast(self.ptr), @bitCast(_rate));
     }
+
+    /// ### DEPRECATED: Use `onSetRate` instead
+    ///
+    pub const OnSetRate = onSetRate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#setRate)
     ///
@@ -656,13 +774,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QTextToSpeechEngine, rate: f64) callconv(.c) bool `
     ///
-    pub fn OnSetRate(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, f64) callconv(.c) bool) void {
+    pub fn onSetRate(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, f64) callconv(.c) bool) void {
         qtc.QTextToSpeechEngine_OnSetRate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetRate` instead
+    /// ### DEPRECATED: Use `superSetRate` instead
     ///
-    pub const QBaseSetRate = SuperSetRate;
+    pub const SuperSetRate = superSetRate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#setRate)
     ///
@@ -672,11 +790,15 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    /// ` rate: f64 `
+    /// ` _rate: f64 `
     ///
-    pub fn SuperSetRate(self: QTextToSpeechEngine, rate: f64) bool {
-        return qtc.QTextToSpeechEngine_SuperSetRate(@ptrCast(self.ptr), @bitCast(rate));
+    pub fn superSetRate(self: QTextToSpeechEngine, _rate: f64) bool {
+        return qtc.QTextToSpeechEngine_SuperSetRate(@ptrCast(self.ptr), @bitCast(_rate));
     }
+
+    /// ### DEPRECATED: Use `pitch` instead
+    ///
+    pub const Pitch = pitch;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#pitch)
     ///
@@ -684,9 +806,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    pub fn Pitch(self: QTextToSpeechEngine) f64 {
+    pub fn pitch(self: QTextToSpeechEngine) f64 {
         return qtc.QTextToSpeechEngine_Pitch(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPitch` instead
+    ///
+    pub const OnPitch = onPitch;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#pitch)
     ///
@@ -698,13 +824,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) f64 `
     ///
-    pub fn OnPitch(self: QTextToSpeechEngine, callback: *const fn () callconv(.c) f64) void {
+    pub fn onPitch(self: QTextToSpeechEngine, callback: *const fn () callconv(.c) f64) void {
         qtc.QTextToSpeechEngine_OnPitch(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperPitch` instead
+    /// ### DEPRECATED: Use `superPitch` instead
     ///
-    pub const QBasePitch = SuperPitch;
+    pub const SuperPitch = superPitch;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#pitch)
     ///
@@ -714,9 +840,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    pub fn SuperPitch(self: QTextToSpeechEngine) f64 {
+    pub fn superPitch(self: QTextToSpeechEngine) f64 {
         return qtc.QTextToSpeechEngine_SuperPitch(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPitch` instead
+    ///
+    pub const SetPitch = setPitch;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#setPitch)
     ///
@@ -724,11 +854,15 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    /// ` pitch: f64 `
+    /// ` _pitch: f64 `
     ///
-    pub fn SetPitch(self: QTextToSpeechEngine, pitch: f64) bool {
-        return qtc.QTextToSpeechEngine_SetPitch(@ptrCast(self.ptr), @bitCast(pitch));
+    pub fn setPitch(self: QTextToSpeechEngine, _pitch: f64) bool {
+        return qtc.QTextToSpeechEngine_SetPitch(@ptrCast(self.ptr), @bitCast(_pitch));
     }
+
+    /// ### DEPRECATED: Use `onSetPitch` instead
+    ///
+    pub const OnSetPitch = onSetPitch;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#setPitch)
     ///
@@ -740,13 +874,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QTextToSpeechEngine, pitch: f64) callconv(.c) bool `
     ///
-    pub fn OnSetPitch(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, f64) callconv(.c) bool) void {
+    pub fn onSetPitch(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, f64) callconv(.c) bool) void {
         qtc.QTextToSpeechEngine_OnSetPitch(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetPitch` instead
+    /// ### DEPRECATED: Use `superSetPitch` instead
     ///
-    pub const QBaseSetPitch = SuperSetPitch;
+    pub const SuperSetPitch = superSetPitch;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#setPitch)
     ///
@@ -756,11 +890,15 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    /// ` pitch: f64 `
+    /// ` _pitch: f64 `
     ///
-    pub fn SuperSetPitch(self: QTextToSpeechEngine, pitch: f64) bool {
-        return qtc.QTextToSpeechEngine_SuperSetPitch(@ptrCast(self.ptr), @bitCast(pitch));
+    pub fn superSetPitch(self: QTextToSpeechEngine, _pitch: f64) bool {
+        return qtc.QTextToSpeechEngine_SuperSetPitch(@ptrCast(self.ptr), @bitCast(_pitch));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#locale)
     ///
@@ -768,9 +906,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    pub fn Locale(self: QTextToSpeechEngine) QLocale {
+    pub fn locale(self: QTextToSpeechEngine) QLocale {
         return .{ .ptr = qtc.QTextToSpeechEngine_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onLocale` instead
+    ///
+    pub const OnLocale = onLocale;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#locale)
     ///
@@ -784,13 +926,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnLocale(self: QTextToSpeechEngine, callback: *const fn () callconv(.c) QLocale) void {
+    pub fn onLocale(self: QTextToSpeechEngine, callback: *const fn () callconv(.c) QLocale) void {
         qtc.QTextToSpeechEngine_OnLocale(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperLocale` instead
+    /// ### DEPRECATED: Use `superLocale` instead
     ///
-    pub const QBaseLocale = SuperLocale;
+    pub const SuperLocale = superLocale;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#locale)
     ///
@@ -800,9 +942,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    pub fn SuperLocale(self: QTextToSpeechEngine) QLocale {
+    pub fn superLocale(self: QTextToSpeechEngine) QLocale {
         return .{ .ptr = qtc.QTextToSpeechEngine_SuperLocale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#setLocale)
     ///
@@ -810,12 +956,16 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: QTextToSpeechEngine, locale: anytype) bool {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        return qtc.QTextToSpeechEngine_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: QTextToSpeechEngine, _locale: anytype) bool {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        return qtc.QTextToSpeechEngine_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetLocale` instead
+    ///
+    pub const OnSetLocale = onSetLocale;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#setLocale)
     ///
@@ -827,13 +977,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QTextToSpeechEngine, locale: QLocale) callconv(.c) bool `
     ///
-    pub fn OnSetLocale(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, QLocale) callconv(.c) bool) void {
+    pub fn onSetLocale(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, QLocale) callconv(.c) bool) void {
         qtc.QTextToSpeechEngine_OnSetLocale(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetLocale` instead
+    /// ### DEPRECATED: Use `superSetLocale` instead
     ///
-    pub const QBaseSetLocale = SuperSetLocale;
+    pub const SuperSetLocale = superSetLocale;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#setLocale)
     ///
@@ -843,12 +993,16 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SuperSetLocale(self: QTextToSpeechEngine, locale: anytype) bool {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        return qtc.QTextToSpeechEngine_SuperSetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn superSetLocale(self: QTextToSpeechEngine, _locale: anytype) bool {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        return qtc.QTextToSpeechEngine_SuperSetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `volume` instead
+    ///
+    pub const Volume = volume;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#volume)
     ///
@@ -856,9 +1010,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    pub fn Volume(self: QTextToSpeechEngine) f64 {
+    pub fn volume(self: QTextToSpeechEngine) f64 {
         return qtc.QTextToSpeechEngine_Volume(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onVolume` instead
+    ///
+    pub const OnVolume = onVolume;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#volume)
     ///
@@ -870,13 +1028,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) f64 `
     ///
-    pub fn OnVolume(self: QTextToSpeechEngine, callback: *const fn () callconv(.c) f64) void {
+    pub fn onVolume(self: QTextToSpeechEngine, callback: *const fn () callconv(.c) f64) void {
         qtc.QTextToSpeechEngine_OnVolume(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperVolume` instead
+    /// ### DEPRECATED: Use `superVolume` instead
     ///
-    pub const QBaseVolume = SuperVolume;
+    pub const SuperVolume = superVolume;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#volume)
     ///
@@ -886,9 +1044,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    pub fn SuperVolume(self: QTextToSpeechEngine) f64 {
+    pub fn superVolume(self: QTextToSpeechEngine) f64 {
         return qtc.QTextToSpeechEngine_SuperVolume(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setVolume` instead
+    ///
+    pub const SetVolume = setVolume;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#setVolume)
     ///
@@ -896,11 +1058,15 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    /// ` volume: f64 `
+    /// ` _volume: f64 `
     ///
-    pub fn SetVolume(self: QTextToSpeechEngine, volume: f64) bool {
-        return qtc.QTextToSpeechEngine_SetVolume(@ptrCast(self.ptr), @bitCast(volume));
+    pub fn setVolume(self: QTextToSpeechEngine, _volume: f64) bool {
+        return qtc.QTextToSpeechEngine_SetVolume(@ptrCast(self.ptr), @bitCast(_volume));
     }
+
+    /// ### DEPRECATED: Use `onSetVolume` instead
+    ///
+    pub const OnSetVolume = onSetVolume;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#setVolume)
     ///
@@ -912,13 +1078,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QTextToSpeechEngine, volume: f64) callconv(.c) bool `
     ///
-    pub fn OnSetVolume(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, f64) callconv(.c) bool) void {
+    pub fn onSetVolume(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, f64) callconv(.c) bool) void {
         qtc.QTextToSpeechEngine_OnSetVolume(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetVolume` instead
+    /// ### DEPRECATED: Use `superSetVolume` instead
     ///
-    pub const QBaseSetVolume = SuperSetVolume;
+    pub const SuperSetVolume = superSetVolume;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#setVolume)
     ///
@@ -928,11 +1094,15 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    /// ` volume: f64 `
+    /// ` _volume: f64 `
     ///
-    pub fn SuperSetVolume(self: QTextToSpeechEngine, volume: f64) bool {
-        return qtc.QTextToSpeechEngine_SuperSetVolume(@ptrCast(self.ptr), @bitCast(volume));
+    pub fn superSetVolume(self: QTextToSpeechEngine, _volume: f64) bool {
+        return qtc.QTextToSpeechEngine_SuperSetVolume(@ptrCast(self.ptr), @bitCast(_volume));
     }
+
+    /// ### DEPRECATED: Use `voice` instead
+    ///
+    pub const Voice = voice;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#voice)
     ///
@@ -940,9 +1110,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    pub fn Voice(self: QTextToSpeechEngine) QVoice {
+    pub fn voice(self: QTextToSpeechEngine) QVoice {
         return .{ .ptr = qtc.QTextToSpeechEngine_Voice(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onVoice` instead
+    ///
+    pub const OnVoice = onVoice;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#voice)
     ///
@@ -956,13 +1130,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnVoice(self: QTextToSpeechEngine, callback: *const fn () callconv(.c) QVoice) void {
+    pub fn onVoice(self: QTextToSpeechEngine, callback: *const fn () callconv(.c) QVoice) void {
         qtc.QTextToSpeechEngine_OnVoice(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperVoice` instead
+    /// ### DEPRECATED: Use `superVoice` instead
     ///
-    pub const QBaseVoice = SuperVoice;
+    pub const SuperVoice = superVoice;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#voice)
     ///
@@ -972,9 +1146,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    pub fn SuperVoice(self: QTextToSpeechEngine) QVoice {
+    pub fn superVoice(self: QTextToSpeechEngine) QVoice {
         return .{ .ptr = qtc.QTextToSpeechEngine_SuperVoice(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setVoice` instead
+    ///
+    pub const SetVoice = setVoice;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#setVoice)
     ///
@@ -982,12 +1160,16 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    /// ` voice: QVoice `
+    /// ` _voice: QVoice `
     ///
-    pub fn SetVoice(self: QTextToSpeechEngine, voice: anytype) bool {
-        comptime _ = @TypeOf(voice)._is_QVoice;
-        return qtc.QTextToSpeechEngine_SetVoice(@ptrCast(self.ptr), @ptrCast(voice.ptr));
+    pub fn setVoice(self: QTextToSpeechEngine, _voice: anytype) bool {
+        comptime _ = @TypeOf(_voice)._is_QVoice;
+        return qtc.QTextToSpeechEngine_SetVoice(@ptrCast(self.ptr), @ptrCast(_voice.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetVoice` instead
+    ///
+    pub const OnSetVoice = onSetVoice;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#setVoice)
     ///
@@ -999,13 +1181,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QTextToSpeechEngine, voice: QVoice) callconv(.c) bool `
     ///
-    pub fn OnSetVoice(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, QVoice) callconv(.c) bool) void {
+    pub fn onSetVoice(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, QVoice) callconv(.c) bool) void {
         qtc.QTextToSpeechEngine_OnSetVoice(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetVoice` instead
+    /// ### DEPRECATED: Use `superSetVoice` instead
     ///
-    pub const QBaseSetVoice = SuperSetVoice;
+    pub const SuperSetVoice = superSetVoice;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#setVoice)
     ///
@@ -1015,12 +1197,16 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    /// ` voice: QVoice `
+    /// ` _voice: QVoice `
     ///
-    pub fn SuperSetVoice(self: QTextToSpeechEngine, voice: anytype) bool {
-        comptime _ = @TypeOf(voice)._is_QVoice;
-        return qtc.QTextToSpeechEngine_SuperSetVoice(@ptrCast(self.ptr), @ptrCast(voice.ptr));
+    pub fn superSetVoice(self: QTextToSpeechEngine, _voice: anytype) bool {
+        comptime _ = @TypeOf(_voice)._is_QVoice;
+        return qtc.QTextToSpeechEngine_SuperSetVoice(@ptrCast(self.ptr), @ptrCast(_voice.ptr));
     }
+
+    /// ### DEPRECATED: Use `state` instead
+    ///
+    pub const State = state;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#state)
     ///
@@ -1032,10 +1218,14 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` qtexttospeech_enums.State `
     ///
-    pub fn State(self: QTextToSpeechEngine) i32 {
+    pub fn state(self: QTextToSpeechEngine) i32 {
         return qtc.QTextToSpeechEngine_State(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onState` instead
+    ///
+    pub const OnState = onState;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#state)
     ///
     /// Allows for overriding the related default method
@@ -1046,13 +1236,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnState(self: QTextToSpeechEngine, callback: *const fn () callconv(.c) i32) void {
+    pub fn onState(self: QTextToSpeechEngine, callback: *const fn () callconv(.c) i32) void {
         qtc.QTextToSpeechEngine_OnState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperState` instead
+    /// ### DEPRECATED: Use `superState` instead
     ///
-    pub const QBaseState = SuperState;
+    pub const SuperState = superState;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#state)
     ///
@@ -1066,9 +1256,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` qtexttospeech_enums.State `
     ///
-    pub fn SuperState(self: QTextToSpeechEngine) i32 {
+    pub fn superState(self: QTextToSpeechEngine) i32 {
         return qtc.QTextToSpeechEngine_SuperState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `errorReason` instead
+    ///
+    pub const ErrorReason = errorReason;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#errorReason)
     ///
@@ -1080,9 +1274,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` qtexttospeech_enums.ErrorReason `
     ///
-    pub fn ErrorReason(self: QTextToSpeechEngine) i32 {
+    pub fn errorReason(self: QTextToSpeechEngine) i32 {
         return qtc.QTextToSpeechEngine_ErrorReason(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onErrorReason` instead
+    ///
+    pub const OnErrorReason = onErrorReason;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#errorReason)
     ///
@@ -1094,13 +1292,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnErrorReason(self: QTextToSpeechEngine, callback: *const fn () callconv(.c) i32) void {
+    pub fn onErrorReason(self: QTextToSpeechEngine, callback: *const fn () callconv(.c) i32) void {
         qtc.QTextToSpeechEngine_OnErrorReason(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperErrorReason` instead
+    /// ### DEPRECATED: Use `superErrorReason` instead
     ///
-    pub const QBaseErrorReason = SuperErrorReason;
+    pub const SuperErrorReason = superErrorReason;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#errorReason)
     ///
@@ -1114,9 +1312,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` qtexttospeech_enums.ErrorReason `
     ///
-    pub fn SuperErrorReason(self: QTextToSpeechEngine) i32 {
+    pub fn superErrorReason(self: QTextToSpeechEngine) i32 {
         return qtc.QTextToSpeechEngine_SuperErrorReason(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `errorString` instead
+    ///
+    pub const ErrorString = errorString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#errorString)
     ///
@@ -1126,13 +1328,17 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ErrorString(self: QTextToSpeechEngine, allocator: std.mem.Allocator) []const u8 {
+    pub fn errorString(self: QTextToSpeechEngine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextToSpeechEngine_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextToSpeechEngine.ErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextToSpeechEngine.errorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onErrorString` instead
+    ///
+    pub const OnErrorString = onErrorString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#errorString)
     ///
@@ -1144,13 +1350,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnErrorString(self: QTextToSpeechEngine, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onErrorString(self: QTextToSpeechEngine, callback: *const fn () callconv(.c) [*:0]const u8) void {
         qtc.QTextToSpeechEngine_OnErrorString(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperErrorString` instead
+    /// ### DEPRECATED: Use `superErrorString` instead
     ///
-    pub const QBaseErrorString = SuperErrorString;
+    pub const SuperErrorString = superErrorString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#errorString)
     ///
@@ -1162,13 +1368,17 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperErrorString(self: QTextToSpeechEngine, allocator: std.mem.Allocator) []const u8 {
+    pub fn superErrorString(self: QTextToSpeechEngine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextToSpeechEngine_SuperErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextToSpeechEngine.ErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextToSpeechEngine.errorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `createVoice` instead
+    ///
+    pub const CreateVoice = createVoice;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#createVoice)
     ///
@@ -1178,7 +1388,7 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
     /// ` gender: qvoice_enums.Gender `
     ///
@@ -1186,15 +1396,19 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` data: QVariant `
     ///
-    pub fn CreateVoice(self: QTextToSpeechEngine, name: []const u8, locale: anytype, gender: i32, age: i32, data: anytype) QVoice {
+    pub fn createVoice(self: QTextToSpeechEngine, name: []const u8, _locale: anytype, gender: i32, age: i32, data: anytype) QVoice {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        comptime _ = @TypeOf(locale)._is_QLocale;
+        comptime _ = @TypeOf(_locale)._is_QLocale;
         comptime _ = @TypeOf(data)._is_QVariant;
-        return .{ .ptr = qtc.QTextToSpeechEngine_CreateVoice(@ptrCast(self.ptr), name_str, @ptrCast(locale.ptr), @bitCast(gender), @bitCast(age), @ptrCast(data.ptr)) };
+        return .{ .ptr = qtc.QTextToSpeechEngine_CreateVoice(@ptrCast(self.ptr), name_str, @ptrCast(_locale.ptr), @bitCast(gender), @bitCast(age), @ptrCast(data.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onCreateVoice` instead
+    ///
+    pub const OnCreateVoice = onCreateVoice;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#createVoice)
     ///
@@ -1208,13 +1422,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnCreateVoice(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, [*:0]const u8, QLocale, i32, i32, QVariant) callconv(.c) QVoice) void {
+    pub fn onCreateVoice(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, [*:0]const u8, QLocale, i32, i32, QVariant) callconv(.c) QVoice) void {
         qtc.QTextToSpeechEngine_OnCreateVoice(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperCreateVoice` instead
+    /// ### DEPRECATED: Use `superCreateVoice` instead
     ///
-    pub const QBaseCreateVoice = SuperCreateVoice;
+    pub const SuperCreateVoice = superCreateVoice;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#createVoice)
     ///
@@ -1226,7 +1440,7 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
     /// ` gender: qvoice_enums.Gender `
     ///
@@ -1234,15 +1448,19 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` data: QVariant `
     ///
-    pub fn SuperCreateVoice(self: QTextToSpeechEngine, name: []const u8, locale: anytype, gender: i32, age: i32, data: anytype) QVoice {
+    pub fn superCreateVoice(self: QTextToSpeechEngine, name: []const u8, _locale: anytype, gender: i32, age: i32, data: anytype) QVoice {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        comptime _ = @TypeOf(locale)._is_QLocale;
+        comptime _ = @TypeOf(_locale)._is_QLocale;
         comptime _ = @TypeOf(data)._is_QVariant;
-        return .{ .ptr = qtc.QTextToSpeechEngine_SuperCreateVoice(@ptrCast(self.ptr), name_str, @ptrCast(locale.ptr), @bitCast(gender), @bitCast(age), @ptrCast(data.ptr)) };
+        return .{ .ptr = qtc.QTextToSpeechEngine_SuperCreateVoice(@ptrCast(self.ptr), name_str, @ptrCast(_locale.ptr), @bitCast(gender), @bitCast(age), @ptrCast(data.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `voiceData` instead
+    ///
+    pub const VoiceData = voiceData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#voiceData)
     ///
@@ -1250,12 +1468,16 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    /// ` voice: QVoice `
+    /// ` _voice: QVoice `
     ///
-    pub fn VoiceData(self: QTextToSpeechEngine, voice: anytype) QVariant {
-        comptime _ = @TypeOf(voice)._is_QVoice;
-        return .{ .ptr = qtc.QTextToSpeechEngine_VoiceData(@ptrCast(self.ptr), @ptrCast(voice.ptr)) };
+    pub fn voiceData(self: QTextToSpeechEngine, _voice: anytype) QVariant {
+        comptime _ = @TypeOf(_voice)._is_QVoice;
+        return .{ .ptr = qtc.QTextToSpeechEngine_VoiceData(@ptrCast(self.ptr), @ptrCast(_voice.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onVoiceData` instead
+    ///
+    pub const OnVoiceData = onVoiceData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#voiceData)
     ///
@@ -1269,13 +1491,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnVoiceData(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, QVoice) callconv(.c) QVariant) void {
+    pub fn onVoiceData(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, QVoice) callconv(.c) QVariant) void {
         qtc.QTextToSpeechEngine_OnVoiceData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperVoiceData` instead
+    /// ### DEPRECATED: Use `superVoiceData` instead
     ///
-    pub const QBaseVoiceData = SuperVoiceData;
+    pub const SuperVoiceData = superVoiceData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#voiceData)
     ///
@@ -1285,12 +1507,16 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    /// ` voice: QVoice `
+    /// ` _voice: QVoice `
     ///
-    pub fn SuperVoiceData(self: QTextToSpeechEngine, voice: anytype) QVariant {
-        comptime _ = @TypeOf(voice)._is_QVoice;
-        return .{ .ptr = qtc.QTextToSpeechEngine_SuperVoiceData(@ptrCast(self.ptr), @ptrCast(voice.ptr)) };
+    pub fn superVoiceData(self: QTextToSpeechEngine, _voice: anytype) QVariant {
+        comptime _ = @TypeOf(_voice)._is_QVoice;
+        return .{ .ptr = qtc.QTextToSpeechEngine_SuperVoiceData(@ptrCast(self.ptr), @ptrCast(_voice.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `stateChanged` instead
+    ///
+    pub const StateChanged = stateChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#stateChanged)
     ///
@@ -1298,11 +1524,15 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    /// ` state: qtexttospeech_enums.State `
+    /// ` _state: qtexttospeech_enums.State `
     ///
-    pub fn StateChanged(self: QTextToSpeechEngine, state: i32) void {
-        qtc.QTextToSpeechEngine_StateChanged(@ptrCast(self.ptr), @bitCast(state));
+    pub fn stateChanged(self: QTextToSpeechEngine, _state: i32) void {
+        qtc.QTextToSpeechEngine_StateChanged(@ptrCast(self.ptr), @bitCast(_state));
     }
+
+    /// ### DEPRECATED: Use `onStateChanged` instead
+    ///
+    pub const OnStateChanged = onStateChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#stateChanged)
     ///
@@ -1312,9 +1542,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QTextToSpeechEngine, state: qtexttospeech_enums.State) callconv(.c) void `
     ///
-    pub fn OnStateChanged(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, i32) callconv(.c) void) void {
+    pub fn onStateChanged(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, i32) callconv(.c) void) void {
         qtc.QTextToSpeechEngine_Connect_StateChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `errorOccurred` instead
+    ///
+    pub const ErrorOccurred = errorOccurred;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#errorOccurred)
     ///
@@ -1324,15 +1558,19 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` errorVal: qtexttospeech_enums.ErrorReason `
     ///
-    /// ` errorString: []const u8 `
+    /// ` _errorString: []const u8 `
     ///
-    pub fn ErrorOccurred(self: QTextToSpeechEngine, errorVal: i32, errorString: []const u8) void {
+    pub fn errorOccurred(self: QTextToSpeechEngine, errorVal: i32, _errorString: []const u8) void {
         const errorString_str = qtc.libqt_string{
-            .len = errorString.len,
-            .data = errorString.ptr,
+            .len = _errorString.len,
+            .data = _errorString.ptr,
         };
         qtc.QTextToSpeechEngine_ErrorOccurred(@ptrCast(self.ptr), @bitCast(errorVal), errorString_str);
     }
+
+    /// ### DEPRECATED: Use `onErrorOccurred` instead
+    ///
+    pub const OnErrorOccurred = onErrorOccurred;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#errorOccurred)
     ///
@@ -1342,9 +1580,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QTextToSpeechEngine, errorVal: qtexttospeech_enums.ErrorReason, errorString: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnErrorOccurred(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, i32, [*:0]const u8) callconv(.c) void) void {
+    pub fn onErrorOccurred(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.QTextToSpeechEngine_Connect_ErrorOccurred(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sayingWord` instead
+    ///
+    pub const SayingWord = sayingWord;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#sayingWord)
     ///
@@ -1358,13 +1600,17 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` length: isize `
     ///
-    pub fn SayingWord(self: QTextToSpeechEngine, word: []const u8, start: isize, length: isize) void {
+    pub fn sayingWord(self: QTextToSpeechEngine, word: []const u8, start: isize, length: isize) void {
         const word_str = qtc.libqt_string{
             .len = word.len,
             .data = word.ptr,
         };
         qtc.QTextToSpeechEngine_SayingWord(@ptrCast(self.ptr), word_str, @bitCast(start), @bitCast(length));
     }
+
+    /// ### DEPRECATED: Use `onSayingWord` instead
+    ///
+    pub const OnSayingWord = onSayingWord;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#sayingWord)
     ///
@@ -1374,9 +1620,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QTextToSpeechEngine, word: [*:0]const u8, start: isize, length: isize) callconv(.c) void `
     ///
-    pub fn OnSayingWord(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, [*:0]const u8, isize, isize) callconv(.c) void) void {
+    pub fn onSayingWord(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, [*:0]const u8, isize, isize) callconv(.c) void) void {
         qtc.QTextToSpeechEngine_Connect_SayingWord(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `synthesized` instead
+    ///
+    pub const Synthesized = synthesized;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#synthesized)
     ///
@@ -1388,7 +1638,7 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` data: []u8 `
     ///
-    pub fn Synthesized(self: QTextToSpeechEngine, format: anytype, data: []u8) void {
+    pub fn synthesized(self: QTextToSpeechEngine, format: anytype, data: []u8) void {
         comptime _ = @TypeOf(format)._is_QAudioFormat;
         const data_str = qtc.libqt_string{
             .len = data.len,
@@ -1396,6 +1646,10 @@ pub const QTextToSpeechEngine = extern struct {
         };
         qtc.QTextToSpeechEngine_Synthesized(@ptrCast(self.ptr), @ptrCast(format.ptr), data_str);
     }
+
+    /// ### DEPRECATED: Use `onSynthesized` instead
+    ///
+    pub const OnSynthesized = onSynthesized;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#synthesized)
     ///
@@ -1405,9 +1659,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QTextToSpeechEngine, format: QAudioFormat, data: qtc.libqt_string) callconv(.c) void `
     ///
-    pub fn OnSynthesized(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, QAudioFormat, qtc.libqt_string) callconv(.c) void) void {
+    pub fn onSynthesized(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, QAudioFormat, qtc.libqt_string) callconv(.c) void) void {
         qtc.QTextToSpeechEngine_Connect_Synthesized(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1419,15 +1677,19 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextToSpeechEngine.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextToSpeechEngine.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1441,15 +1703,19 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextToSpeechEngine.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextToSpeechEngine.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -1461,13 +1727,17 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QTextToSpeechEngine, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QTextToSpeechEngine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextToSpeechEngine.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextToSpeechEngine.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -1479,13 +1749,17 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QTextToSpeechEngine, name: []const u8) void {
+    pub fn setObjectName(self: QTextToSpeechEngine, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -1495,9 +1769,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    pub fn IsWidgetType(self: QTextToSpeechEngine) bool {
+    pub fn isWidgetType(self: QTextToSpeechEngine) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -1507,9 +1785,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    pub fn IsWindowType(self: QTextToSpeechEngine) bool {
+    pub fn isWindowType(self: QTextToSpeechEngine) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -1519,9 +1801,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    pub fn IsQuickItemType(self: QTextToSpeechEngine) bool {
+    pub fn isQuickItemType(self: QTextToSpeechEngine) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -1531,9 +1817,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    pub fn SignalsBlocked(self: QTextToSpeechEngine) bool {
+    pub fn signalsBlocked(self: QTextToSpeechEngine) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -1545,9 +1835,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QTextToSpeechEngine, b: bool) bool {
+    pub fn blockSignals(self: QTextToSpeechEngine, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -1557,9 +1851,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    pub fn Thread(self: QTextToSpeechEngine) QThread {
+    pub fn thread(self: QTextToSpeechEngine) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -1569,12 +1867,16 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QTextToSpeechEngine, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QTextToSpeechEngine, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -1586,9 +1888,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QTextToSpeechEngine, interval: i32) i32 {
+    pub fn startTimer(self: QTextToSpeechEngine, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -1600,9 +1906,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QTextToSpeechEngine, time: i64) i32 {
+    pub fn startTimer2(self: QTextToSpeechEngine, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -1614,9 +1924,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QTextToSpeechEngine, id: i32) void {
+    pub fn killTimer(self: QTextToSpeechEngine, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -1628,9 +1942,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QTextToSpeechEngine, id: i32) void {
+    pub fn killTimer2(self: QTextToSpeechEngine, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -1642,15 +1960,19 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QTextToSpeechEngine, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QTextToSpeechEngine, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QTextToSpeechEngine.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QTextToSpeechEngine.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -1660,12 +1982,16 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QTextToSpeechEngine, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QTextToSpeechEngine, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1677,10 +2003,14 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QTextToSpeechEngine, filterObj: anytype) void {
+    pub fn installEventFilter(self: QTextToSpeechEngine, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1692,10 +2022,14 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QTextToSpeechEngine, obj: anytype) void {
+    pub fn removeEventFilter(self: QTextToSpeechEngine, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -1703,7 +2037,7 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1711,13 +2045,17 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -1725,7 +2063,7 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1733,13 +2071,17 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -1749,18 +2091,22 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QTextToSpeechEngine, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QTextToSpeechEngine, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -1768,7 +2114,7 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1776,13 +2122,17 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -1790,7 +2140,7 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1798,13 +2148,17 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -1814,9 +2168,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    pub fn Disconnect3(self: QTextToSpeechEngine) bool {
+    pub fn disconnect3(self: QTextToSpeechEngine) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1828,10 +2186,14 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QTextToSpeechEngine, receiver: anytype) bool {
+    pub fn disconnect4(self: QTextToSpeechEngine, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1841,10 +2203,14 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1854,9 +2220,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    pub fn DumpObjectTree(self: QTextToSpeechEngine) void {
+    pub fn dumpObjectTree(self: QTextToSpeechEngine) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1866,9 +2236,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    pub fn DumpObjectInfo(self: QTextToSpeechEngine) void {
+    pub fn dumpObjectInfo(self: QTextToSpeechEngine) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1882,11 +2256,15 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QTextToSpeechEngine, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QTextToSpeechEngine, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1898,10 +2276,14 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QTextToSpeechEngine, name: [:0]const u8) QVariant {
+    pub fn property(self: QTextToSpeechEngine, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1913,7 +2295,7 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QTextToSpeechEngine, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QTextToSpeechEngine, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1921,27 +2303,19 @@ pub const QTextToSpeechEngine = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QTextToSpeechEngine.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QTextToSpeechEngine.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QTextToSpeechEngine.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QTextToSpeechEngine.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextToSpeechEngine `
-    ///
-    pub fn BindingStorage(self: QTextToSpeechEngine) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1951,9 +2325,29 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    pub fn BindingStorage2(self: QTextToSpeechEngine) QBindingStorage {
+    pub fn bindingStorage(self: QTextToSpeechEngine) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QTextToSpeechEngine `
+    ///
+    pub fn bindingStorage2(self: QTextToSpeechEngine) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1963,9 +2357,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    pub fn Destroyed(self: QTextToSpeechEngine) void {
+    pub fn destroyed(self: QTextToSpeechEngine) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1977,9 +2375,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QTextToSpeechEngine) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine) callconv(.c) void) void {
+    pub fn onDestroyed(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1989,9 +2391,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    pub fn Parent(self: QTextToSpeechEngine) QObject {
+    pub fn parent(self: QTextToSpeechEngine) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -2003,10 +2409,14 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QTextToSpeechEngine, classname: [:0]const u8) bool {
+    pub fn inherits(self: QTextToSpeechEngine, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -2016,9 +2426,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    pub fn DeleteLater(self: QTextToSpeechEngine) void {
+    pub fn deleteLater(self: QTextToSpeechEngine) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -2032,9 +2446,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QTextToSpeechEngine, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QTextToSpeechEngine, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -2048,9 +2466,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QTextToSpeechEngine, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QTextToSpeechEngine, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -2058,7 +2480,7 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2068,13 +2490,17 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -2082,7 +2508,7 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2092,13 +2518,17 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -2108,7 +2538,7 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2116,12 +2546,16 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QTextToSpeechEngine, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QTextToSpeechEngine, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -2133,10 +2567,14 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QTextToSpeechEngine, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QTextToSpeechEngine, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -2150,11 +2588,15 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QTextToSpeechEngine, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QTextToSpeechEngine, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -2170,13 +2612,17 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QTextToSpeechEngine, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QTextToSpeechEngine, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -2189,11 +2635,15 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QTextToSpeechEngine, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QTextToSpeechEngine, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -2205,10 +2655,14 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QTextToSpeechEngine, param1: anytype) void {
+    pub fn destroyed1(self: QTextToSpeechEngine, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -2220,9 +2674,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QTextToSpeechEngine, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -2234,16 +2692,16 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QTextToSpeechEngine, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QTextToSpeechEngine_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QTextToSpeechEngine, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QTextToSpeechEngine_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -2255,12 +2713,16 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QTextToSpeechEngine, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QTextToSpeechEngine_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QTextToSpeechEngine, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QTextToSpeechEngine_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -2274,9 +2736,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QTextToSpeechEngine, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, QEvent) callconv(.c) bool) void {
         qtc.QTextToSpeechEngine_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -2290,17 +2756,17 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QTextToSpeechEngine, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QTextToSpeechEngine, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QTextToSpeechEngine_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QTextToSpeechEngine_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2314,13 +2780,17 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QTextToSpeechEngine, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QTextToSpeechEngine, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QTextToSpeechEngine_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QTextToSpeechEngine_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2334,9 +2804,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QTextToSpeechEngine, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, QObject, QEvent) callconv(.c) bool) void {
         qtc.QTextToSpeechEngine_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -2348,16 +2822,16 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QTextToSpeechEngine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QTextToSpeechEngine_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QTextToSpeechEngine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QTextToSpeechEngine_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -2369,12 +2843,16 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QTextToSpeechEngine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QTextToSpeechEngine_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QTextToSpeechEngine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QTextToSpeechEngine_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -2388,9 +2866,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QTextToSpeechEngine, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, QTimerEvent) callconv(.c) void) void {
         qtc.QTextToSpeechEngine_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -2402,16 +2884,16 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QTextToSpeechEngine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QTextToSpeechEngine_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QTextToSpeechEngine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QTextToSpeechEngine_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -2423,12 +2905,16 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QTextToSpeechEngine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QTextToSpeechEngine_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QTextToSpeechEngine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QTextToSpeechEngine_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -2442,9 +2928,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QTextToSpeechEngine, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, QChildEvent) callconv(.c) void) void {
         qtc.QTextToSpeechEngine_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -2456,16 +2946,16 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QTextToSpeechEngine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QTextToSpeechEngine_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QTextToSpeechEngine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QTextToSpeechEngine_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -2477,12 +2967,16 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QTextToSpeechEngine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QTextToSpeechEngine_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QTextToSpeechEngine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QTextToSpeechEngine_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -2496,9 +2990,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QTextToSpeechEngine, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, QEvent) callconv(.c) void) void {
         qtc.QTextToSpeechEngine_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -2512,14 +3010,14 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QTextToSpeechEngine, signal: anytype) void {
+    pub fn connectNotify(self: QTextToSpeechEngine, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QTextToSpeechEngine_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2533,11 +3031,15 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QTextToSpeechEngine, signal: anytype) void {
+    pub fn superConnectNotify(self: QTextToSpeechEngine, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QTextToSpeechEngine_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -2550,9 +3052,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QTextToSpeechEngine, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, QMetaMethod) callconv(.c) void) void {
         qtc.QTextToSpeechEngine_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2566,14 +3072,14 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QTextToSpeechEngine, signal: anytype) void {
+    pub fn disconnectNotify(self: QTextToSpeechEngine, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QTextToSpeechEngine_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2587,10 +3093,14 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QTextToSpeechEngine, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QTextToSpeechEngine, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QTextToSpeechEngine_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2604,9 +3114,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QTextToSpeechEngine, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, QMetaMethod) callconv(.c) void) void {
         qtc.QTextToSpeechEngine_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -2618,13 +3132,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    pub fn Sender(self: QTextToSpeechEngine) QObject {
+    pub fn sender(self: QTextToSpeechEngine) QObject {
         return .{ .ptr = qtc.QTextToSpeechEngine_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -2636,9 +3150,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    pub fn SuperSender(self: QTextToSpeechEngine) QObject {
+    pub fn superSender(self: QTextToSpeechEngine) QObject {
         return .{ .ptr = qtc.QTextToSpeechEngine_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -2652,9 +3170,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QTextToSpeechEngine, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QTextToSpeechEngine, callback: *const fn () callconv(.c) QObject) void {
         qtc.QTextToSpeechEngine_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2666,13 +3188,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    pub fn SenderSignalIndex(self: QTextToSpeechEngine) i32 {
+    pub fn senderSignalIndex(self: QTextToSpeechEngine) i32 {
         return qtc.QTextToSpeechEngine_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2684,9 +3206,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    pub fn SuperSenderSignalIndex(self: QTextToSpeechEngine) i32 {
+    pub fn superSenderSignalIndex(self: QTextToSpeechEngine) i32 {
         return qtc.QTextToSpeechEngine_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2700,9 +3226,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QTextToSpeechEngine, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QTextToSpeechEngine, callback: *const fn () callconv(.c) i32) void {
         qtc.QTextToSpeechEngine_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -2716,14 +3246,14 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QTextToSpeechEngine, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QTextToSpeechEngine, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QTextToSpeechEngine_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -2737,10 +3267,14 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QTextToSpeechEngine, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QTextToSpeechEngine, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QTextToSpeechEngine_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -2754,9 +3288,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QTextToSpeechEngine, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, [*:0]const u8) callconv(.c) i32) void {
         qtc.QTextToSpeechEngine_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2770,14 +3308,14 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QTextToSpeechEngine, signal: anytype) bool {
+    pub fn isSignalConnected(self: QTextToSpeechEngine, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QTextToSpeechEngine_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2791,10 +3329,14 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QTextToSpeechEngine, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QTextToSpeechEngine, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QTextToSpeechEngine_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2808,9 +3350,13 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QTextToSpeechEngine, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, QMetaMethod) callconv(.c) bool) void {
         qtc.QTextToSpeechEngine_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -2824,23 +3370,23 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QTextToSpeechEngine, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechengine.html#dtor.QTextToSpeechEngine)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    pub fn Delete(self: QTextToSpeechEngine) void {
+    pub fn delete(self: QTextToSpeechEngine) void {
         qtc.QTextToSpeechEngine_Delete(@ptrCast(self.ptr));
     }
 };

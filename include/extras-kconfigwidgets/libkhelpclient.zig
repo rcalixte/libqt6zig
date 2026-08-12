@@ -11,6 +11,10 @@ pub const KHelpClient = extern struct {
 
     pub const _is_KHelpClient = {};
 
+    /// ### DEPRECATED: Use `invokeHelp` instead
+    ///
+    pub const InvokeHelp = invokeHelp;
+
     /// ### [Upstream resources](https://api.kde.org/khelpclient.html#invokeHelp)
     ///
     /// ## Parameter(s):
@@ -19,7 +23,7 @@ pub const KHelpClient = extern struct {
     ///
     /// ` appname: []const u8 `
     ///
-    pub fn InvokeHelp(anchor: []const u8, appname: []const u8) void {
+    pub fn invokeHelp(anchor: []const u8, appname: []const u8) void {
         const anchor_str = qtc.libqt_string{
             .len = anchor.len,
             .data = anchor.ptr,

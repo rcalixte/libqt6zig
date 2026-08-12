@@ -18,13 +18,21 @@ pub const KConfig = extern struct {
     pub const _is_KConfig = {};
     pub const _is_KConfigBase = {};
 
-    /// New constructs a new KConfig object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() KConfig {
+    pub const New = new;
+
+    /// Allocate a new KConfig object in C++ memory
+    ///
+    pub fn new() KConfig {
         return .{ .ptr = qtc.KConfig_new() };
     }
 
-    /// New2 constructs a new KConfig object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KConfig object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -32,7 +40,7 @@ pub const KConfig = extern struct {
     ///
     /// ` backend: []const u8 `
     ///
-    pub fn New2(file: []const u8, backend: []const u8) KConfig {
+    pub fn new2(file: []const u8, backend: []const u8) KConfig {
         const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
@@ -44,13 +52,17 @@ pub const KConfig = extern struct {
         return .{ .ptr = qtc.KConfig_new2(file_str, backend_str) };
     }
 
-    /// New3 constructs a new KConfig object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new KConfig object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` file: []const u8 `
     ///
-    pub fn New3(file: []const u8) KConfig {
+    pub fn new3(file: []const u8) KConfig {
         const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
@@ -58,7 +70,11 @@ pub const KConfig = extern struct {
         return .{ .ptr = qtc.KConfig_new3(file_str) };
     }
 
-    /// New4 constructs a new KConfig object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new KConfig object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -66,7 +82,7 @@ pub const KConfig = extern struct {
     ///
     /// ` mode: flag of kconfig_enums.OpenFlag `
     ///
-    pub fn New4(file: []const u8, mode: i32) KConfig {
+    pub fn new4(file: []const u8, mode: i32) KConfig {
         const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
@@ -74,7 +90,11 @@ pub const KConfig = extern struct {
         return .{ .ptr = qtc.KConfig_new4(file_str, @bitCast(mode)) };
     }
 
-    /// New5 constructs a new KConfig object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new KConfig object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -84,7 +104,7 @@ pub const KConfig = extern struct {
     ///
     /// ` typeVal: qstandardpaths_enums.StandardLocation `
     ///
-    pub fn New5(file: []const u8, mode: i32, typeVal: i32) KConfig {
+    pub fn new5(file: []const u8, mode: i32, typeVal: i32) KConfig {
         const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
@@ -92,7 +112,11 @@ pub const KConfig = extern struct {
         return .{ .ptr = qtc.KConfig_new5(file_str, @bitCast(mode), @bitCast(typeVal)) };
     }
 
-    /// New6 constructs a new KConfig object.
+    /// ### DEPRECATED: Use `new6` instead
+    ///
+    pub const New6 = new6;
+
+    /// Allocate a new KConfig object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -102,7 +126,7 @@ pub const KConfig = extern struct {
     ///
     /// ` typeVal: qstandardpaths_enums.StandardLocation `
     ///
-    pub fn New6(file: []const u8, backend: []const u8, typeVal: i32) KConfig {
+    pub fn new6(file: []const u8, backend: []const u8, typeVal: i32) KConfig {
         const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
@@ -114,6 +138,10 @@ pub const KConfig = extern struct {
         return .{ .ptr = qtc.KConfig_new6(file_str, backend_str, @bitCast(typeVal)) };
     }
 
+    /// ### DEPRECATED: Use `locationType` instead
+    ///
+    pub const LocationType = locationType;
+
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#locationType)
     ///
     /// ## Parameter(s):
@@ -124,9 +152,13 @@ pub const KConfig = extern struct {
     ///
     /// ` qstandardpaths_enums.StandardLocation `
     ///
-    pub fn LocationType(self: KConfig) i32 {
+    pub fn locationType(self: KConfig) i32 {
         return qtc.KConfig_LocationType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#name)
     ///
@@ -136,13 +168,17 @@ pub const KConfig = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: KConfig, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: KConfig, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KConfig_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KConfig.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KConfig.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `openFlags` instead
+    ///
+    pub const OpenFlags = openFlags;
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#openFlags)
     ///
@@ -154,9 +190,13 @@ pub const KConfig = extern struct {
     ///
     /// ` flag of kconfig_enums.OpenFlag `
     ///
-    pub fn OpenFlags(self: KConfig) i32 {
+    pub fn openFlags(self: KConfig) i32 {
         return qtc.KConfig_OpenFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `sync` instead
+    ///
+    pub const Sync = sync;
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#sync)
     ///
@@ -164,9 +204,13 @@ pub const KConfig = extern struct {
     ///
     /// ` self: KConfig `
     ///
-    pub fn Sync(self: KConfig) bool {
+    pub fn sync(self: KConfig) bool {
         return qtc.KConfig_Sync(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSync` instead
+    ///
+    pub const OnSync = onSync;
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#sync)
     ///
@@ -178,13 +222,13 @@ pub const KConfig = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnSync(self: KConfig, callback: *const fn () callconv(.c) bool) void {
+    pub fn onSync(self: KConfig, callback: *const fn () callconv(.c) bool) void {
         qtc.KConfig_OnSync(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSync` instead
+    /// ### DEPRECATED: Use `superSync` instead
     ///
-    pub const QBaseSync = SuperSync;
+    pub const SuperSync = superSync;
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#sync)
     ///
@@ -194,9 +238,13 @@ pub const KConfig = extern struct {
     ///
     /// ` self: KConfig `
     ///
-    pub fn SuperSync(self: KConfig) bool {
+    pub fn superSync(self: KConfig) bool {
         return qtc.KConfig_SuperSync(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDirty` instead
+    ///
+    pub const IsDirty = isDirty;
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#isDirty)
     ///
@@ -204,9 +252,13 @@ pub const KConfig = extern struct {
     ///
     /// ` self: KConfig `
     ///
-    pub fn IsDirty(self: KConfig) bool {
+    pub fn isDirty(self: KConfig) bool {
         return qtc.KConfig_IsDirty(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `markAsClean` instead
+    ///
+    pub const MarkAsClean = markAsClean;
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#markAsClean)
     ///
@@ -214,9 +266,13 @@ pub const KConfig = extern struct {
     ///
     /// ` self: KConfig `
     ///
-    pub fn MarkAsClean(self: KConfig) void {
+    pub fn markAsClean(self: KConfig) void {
         qtc.KConfig_MarkAsClean(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMarkAsClean` instead
+    ///
+    pub const OnMarkAsClean = onMarkAsClean;
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#markAsClean)
     ///
@@ -228,13 +284,13 @@ pub const KConfig = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnMarkAsClean(self: KConfig, callback: *const fn () callconv(.c) void) void {
+    pub fn onMarkAsClean(self: KConfig, callback: *const fn () callconv(.c) void) void {
         qtc.KConfig_OnMarkAsClean(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMarkAsClean` instead
+    /// ### DEPRECATED: Use `superMarkAsClean` instead
     ///
-    pub const QBaseMarkAsClean = SuperMarkAsClean;
+    pub const SuperMarkAsClean = superMarkAsClean;
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#markAsClean)
     ///
@@ -244,9 +300,13 @@ pub const KConfig = extern struct {
     ///
     /// ` self: KConfig `
     ///
-    pub fn SuperMarkAsClean(self: KConfig) void {
+    pub fn superMarkAsClean(self: KConfig) void {
         qtc.KConfig_SuperMarkAsClean(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `accessMode` instead
+    ///
+    pub const AccessMode = accessMode;
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#accessMode)
     ///
@@ -258,9 +318,13 @@ pub const KConfig = extern struct {
     ///
     /// ` kconfigbase_enums.AccessMode `
     ///
-    pub fn AccessMode(self: KConfig) i32 {
+    pub fn accessMode(self: KConfig) i32 {
         return qtc.KConfig_AccessMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onAccessMode` instead
+    ///
+    pub const OnAccessMode = onAccessMode;
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#accessMode)
     ///
@@ -272,13 +336,13 @@ pub const KConfig = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnAccessMode(self: KConfig, callback: *const fn () callconv(.c) i32) void {
+    pub fn onAccessMode(self: KConfig, callback: *const fn () callconv(.c) i32) void {
         qtc.KConfig_OnAccessMode(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperAccessMode` instead
+    /// ### DEPRECATED: Use `superAccessMode` instead
     ///
-    pub const QBaseAccessMode = SuperAccessMode;
+    pub const SuperAccessMode = superAccessMode;
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#accessMode)
     ///
@@ -292,9 +356,13 @@ pub const KConfig = extern struct {
     ///
     /// ` kconfigbase_enums.AccessMode `
     ///
-    pub fn SuperAccessMode(self: KConfig) i32 {
+    pub fn superAccessMode(self: KConfig) i32 {
         return qtc.KConfig_SuperAccessMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isConfigWritable` instead
+    ///
+    pub const IsConfigWritable = isConfigWritable;
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#isConfigWritable)
     ///
@@ -304,9 +372,13 @@ pub const KConfig = extern struct {
     ///
     /// ` warnUser: bool `
     ///
-    pub fn IsConfigWritable(self: KConfig, warnUser: bool) bool {
+    pub fn isConfigWritable(self: KConfig, warnUser: bool) bool {
         return qtc.KConfig_IsConfigWritable(@ptrCast(self.ptr), warnUser);
     }
+
+    /// ### DEPRECATED: Use `copyTo` instead
+    ///
+    pub const CopyTo = copyTo;
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#copyTo)
     ///
@@ -316,13 +388,17 @@ pub const KConfig = extern struct {
     ///
     /// ` file: []const u8 `
     ///
-    pub fn CopyTo(self: KConfig, file: []const u8) KConfig {
+    pub fn copyTo(self: KConfig, file: []const u8) KConfig {
         const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
         };
         return .{ .ptr = qtc.KConfig_CopyTo(@ptrCast(self.ptr), file_str) };
     }
+
+    /// ### DEPRECATED: Use `checkUpdate` instead
+    ///
+    pub const CheckUpdate = checkUpdate;
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#checkUpdate)
     ///
@@ -334,7 +410,7 @@ pub const KConfig = extern struct {
     ///
     /// ` updateFile: []const u8 `
     ///
-    pub fn CheckUpdate(self: KConfig, id: []const u8, updateFile: []const u8) void {
+    pub fn checkUpdate(self: KConfig, id: []const u8, updateFile: []const u8) void {
         const id_str = qtc.libqt_string{
             .len = id.len,
             .data = id.ptr,
@@ -346,15 +422,23 @@ pub const KConfig = extern struct {
         qtc.KConfig_CheckUpdate(@ptrCast(self.ptr), id_str, updateFile_str);
     }
 
+    /// ### DEPRECATED: Use `reparseConfiguration` instead
+    ///
+    pub const ReparseConfiguration = reparseConfiguration;
+
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#reparseConfiguration)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KConfig `
     ///
-    pub fn ReparseConfiguration(self: KConfig) void {
+    pub fn reparseConfiguration(self: KConfig) void {
         qtc.KConfig_ReparseConfiguration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `addConfigSources` instead
+    ///
+    pub const AddConfigSources = addConfigSources;
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#addConfigSources)
     ///
@@ -366,13 +450,13 @@ pub const KConfig = extern struct {
     ///
     /// ` sources: []const []const u8 `
     ///
-    pub fn AddConfigSources(self: KConfig, allocator: std.mem.Allocator, sources: []const []const u8) void {
-        const sources_arr = allocator.alloc(qtc.libqt_string, sources.len) catch @panic("KConfig.AddConfigSources: Memory allocation failed");
+    pub fn addConfigSources(self: KConfig, allocator: std.mem.Allocator, sources: []const []const u8) void {
+        const sources_arr = allocator.alloc(qtc.libqt_string, sources.len) catch @panic("KConfig.addConfigSources: Memory allocation failed");
         defer allocator.free(sources_arr);
-        for (sources, 0..sources.len) |item, i|
+        for (sources, 0..sources.len) |str_item, i|
             sources_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const sources_list = qtc.libqt_list{
             .len = sources.len,
@@ -380,6 +464,10 @@ pub const KConfig = extern struct {
         };
         qtc.KConfig_AddConfigSources(@ptrCast(self.ptr), sources_list);
     }
+
+    /// ### DEPRECATED: Use `additionalConfigSources` instead
+    ///
+    pub const AdditionalConfigSources = additionalConfigSources;
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#additionalConfigSources)
     ///
@@ -389,7 +477,7 @@ pub const KConfig = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AdditionalConfigSources(self: KConfig, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn additionalConfigSources(self: KConfig, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KConfig_AdditionalConfigSources(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -397,15 +485,19 @@ pub const KConfig = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KConfig.AdditionalConfigSources: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KConfig.additionalConfigSources: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KConfig.AdditionalConfigSources: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KConfig.additionalConfigSources: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#locale)
     ///
@@ -415,13 +507,17 @@ pub const KConfig = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Locale(self: KConfig, allocator: std.mem.Allocator) []const u8 {
+    pub fn locale(self: KConfig, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KConfig_Locale(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KConfig.Locale: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KConfig.locale: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#setLocale)
     ///
@@ -431,13 +527,17 @@ pub const KConfig = extern struct {
     ///
     /// ` aLocale: []const u8 `
     ///
-    pub fn SetLocale(self: KConfig, aLocale: []const u8) bool {
+    pub fn setLocale(self: KConfig, aLocale: []const u8) bool {
         const aLocale_str = qtc.libqt_string{
             .len = aLocale.len,
             .data = aLocale.ptr,
         };
         return qtc.KConfig_SetLocale(@ptrCast(self.ptr), aLocale_str);
     }
+
+    /// ### DEPRECATED: Use `setReadDefaults` instead
+    ///
+    pub const SetReadDefaults = setReadDefaults;
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#setReadDefaults)
     ///
@@ -447,9 +547,13 @@ pub const KConfig = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetReadDefaults(self: KConfig, b: bool) void {
+    pub fn setReadDefaults(self: KConfig, b: bool) void {
         qtc.KConfig_SetReadDefaults(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `readDefaults` instead
+    ///
+    pub const ReadDefaults = readDefaults;
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#readDefaults)
     ///
@@ -457,9 +561,13 @@ pub const KConfig = extern struct {
     ///
     /// ` self: KConfig `
     ///
-    pub fn ReadDefaults(self: KConfig) bool {
+    pub fn readDefaults(self: KConfig) bool {
         return qtc.KConfig_ReadDefaults(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isImmutable` instead
+    ///
+    pub const IsImmutable = isImmutable;
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#isImmutable)
     ///
@@ -467,9 +575,13 @@ pub const KConfig = extern struct {
     ///
     /// ` self: KConfig `
     ///
-    pub fn IsImmutable(self: KConfig) bool {
+    pub fn isImmutable(self: KConfig) bool {
         return qtc.KConfig_IsImmutable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsImmutable` instead
+    ///
+    pub const OnIsImmutable = onIsImmutable;
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#isImmutable)
     ///
@@ -481,13 +593,13 @@ pub const KConfig = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnIsImmutable(self: KConfig, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsImmutable(self: KConfig, callback: *const fn () callconv(.c) bool) void {
         qtc.KConfig_OnIsImmutable(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperIsImmutable` instead
+    /// ### DEPRECATED: Use `superIsImmutable` instead
     ///
-    pub const QBaseIsImmutable = SuperIsImmutable;
+    pub const SuperIsImmutable = superIsImmutable;
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#isImmutable)
     ///
@@ -497,9 +609,13 @@ pub const KConfig = extern struct {
     ///
     /// ` self: KConfig `
     ///
-    pub fn SuperIsImmutable(self: KConfig) bool {
+    pub fn superIsImmutable(self: KConfig) bool {
         return qtc.KConfig_SuperIsImmutable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `groupList` instead
+    ///
+    pub const GroupList = groupList;
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#groupList)
     ///
@@ -509,7 +625,7 @@ pub const KConfig = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GroupList(self: KConfig, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn groupList(self: KConfig, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KConfig_GroupList(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -517,15 +633,19 @@ pub const KConfig = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KConfig.GroupList: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KConfig.groupList: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KConfig.GroupList: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KConfig.groupList: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onGroupList` instead
+    ///
+    pub const OnGroupList = onGroupList;
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#groupList)
     ///
@@ -539,13 +659,13 @@ pub const KConfig = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn OnGroupList(self: KConfig, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
+    pub fn onGroupList(self: KConfig, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.KConfig_OnGroupList(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperGroupList` instead
+    /// ### DEPRECATED: Use `superGroupList` instead
     ///
-    pub const QBaseGroupList = SuperGroupList;
+    pub const SuperGroupList = superGroupList;
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#groupList)
     ///
@@ -557,7 +677,7 @@ pub const KConfig = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperGroupList(self: KConfig, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn superGroupList(self: KConfig, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KConfig_SuperGroupList(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -565,15 +685,19 @@ pub const KConfig = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KConfig.GroupList: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KConfig.groupList: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KConfig.GroupList: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KConfig.groupList: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `entryMap` instead
+    ///
+    pub const EntryMap = entryMap;
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#entryMap)
     ///
@@ -583,10 +707,10 @@ pub const KConfig = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn EntryMap(self: KConfig, allocator: std.mem.Allocator) ArrayMap_constu8_constu8 {
+    pub fn entryMap(self: KConfig, allocator: std.mem.Allocator) ArrayMap_constu8_constu8 {
         const _map: qtc.libqt_map = qtc.KConfig_EntryMap(@ptrCast(self.ptr));
         var _ret: ArrayMap_constu8_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KConfig.EntryMap: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KConfig.entryMap: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
@@ -602,15 +726,19 @@ pub const KConfig = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("KConfig.EntryMap: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("KConfig.entryMap: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("KConfig.EntryMap: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("KConfig.entryMap: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
             _ret.putAssumeCapacity(_entry_slice, _value_slice);
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setMainConfigName` instead
+    ///
+    pub const SetMainConfigName = setMainConfigName;
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#setMainConfigName)
     ///
@@ -618,7 +746,7 @@ pub const KConfig = extern struct {
     ///
     /// ` str: []const u8 `
     ///
-    pub fn SetMainConfigName(str: []const u8) void {
+    pub fn setMainConfigName(str: []const u8) void {
         const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
@@ -626,19 +754,27 @@ pub const KConfig = extern struct {
         qtc.KConfig_SetMainConfigName(str_str);
     }
 
+    /// ### DEPRECATED: Use `mainConfigName` instead
+    ///
+    pub const MainConfigName = mainConfigName;
+
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#mainConfigName)
     ///
     /// ## Parameter(s):
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MainConfigName(allocator: std.mem.Allocator) []const u8 {
+    pub fn mainConfigName(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KConfig_MainConfigName();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KConfig.MainConfigName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KConfig.mainConfigName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `hasGroupImpl` instead
+    ///
+    pub const HasGroupImpl = hasGroupImpl;
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#hasGroupImpl)
     ///
@@ -648,13 +784,17 @@ pub const KConfig = extern struct {
     ///
     /// ` groupName: []const u8 `
     ///
-    pub fn HasGroupImpl(self: KConfig, groupName: []const u8) bool {
+    pub fn hasGroupImpl(self: KConfig, groupName: []const u8) bool {
         const groupName_str = qtc.libqt_string{
             .len = groupName.len,
             .data = groupName.ptr,
         };
         return qtc.KConfig_HasGroupImpl(@ptrCast(self.ptr), groupName_str);
     }
+
+    /// ### DEPRECATED: Use `onHasGroupImpl` instead
+    ///
+    pub const OnHasGroupImpl = onHasGroupImpl;
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#hasGroupImpl)
     ///
@@ -666,13 +806,13 @@ pub const KConfig = extern struct {
     ///
     /// ` callback: *const fn (self: KConfig, groupName: [*:0]const u8) callconv(.c) bool `
     ///
-    pub fn OnHasGroupImpl(self: KConfig, callback: *const fn (KConfig, [*:0]const u8) callconv(.c) bool) void {
+    pub fn onHasGroupImpl(self: KConfig, callback: *const fn (KConfig, [*:0]const u8) callconv(.c) bool) void {
         qtc.KConfig_OnHasGroupImpl(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperHasGroupImpl` instead
+    /// ### DEPRECATED: Use `superHasGroupImpl` instead
     ///
-    pub const QBaseHasGroupImpl = SuperHasGroupImpl;
+    pub const SuperHasGroupImpl = superHasGroupImpl;
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#hasGroupImpl)
     ///
@@ -684,7 +824,7 @@ pub const KConfig = extern struct {
     ///
     /// ` groupName: []const u8 `
     ///
-    pub fn SuperHasGroupImpl(self: KConfig, groupName: []const u8) bool {
+    pub fn superHasGroupImpl(self: KConfig, groupName: []const u8) bool {
         const groupName_str = qtc.libqt_string{
             .len = groupName.len,
             .data = groupName.ptr,
@@ -692,6 +832,10 @@ pub const KConfig = extern struct {
         return qtc.KConfig_SuperHasGroupImpl(@ptrCast(self.ptr), groupName_str);
     }
 
+    /// ### DEPRECATED: Use `groupImpl` instead
+    ///
+    pub const GroupImpl = groupImpl;
+
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#groupImpl)
     ///
     /// ## Parameter(s):
@@ -700,7 +844,7 @@ pub const KConfig = extern struct {
     ///
     /// ` groupName: []const u8 `
     ///
-    pub fn GroupImpl(self: KConfig, groupName: []const u8) KConfigGroup {
+    pub fn groupImpl(self: KConfig, groupName: []const u8) KConfigGroup {
         const groupName_str = qtc.libqt_string{
             .len = groupName.len,
             .data = groupName.ptr,
@@ -708,6 +852,10 @@ pub const KConfig = extern struct {
         return .{ .ptr = qtc.KConfig_GroupImpl(@ptrCast(self.ptr), groupName_str) };
     }
 
+    /// ### DEPRECATED: Use `onGroupImpl` instead
+    ///
+    pub const OnGroupImpl = onGroupImpl;
+
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#groupImpl)
     ///
     /// Allows for overriding the related default method
@@ -720,13 +868,13 @@ pub const KConfig = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnGroupImpl(self: KConfig, callback: *const fn (KConfig, [*:0]const u8) callconv(.c) KConfigGroup) void {
+    pub fn onGroupImpl(self: KConfig, callback: *const fn (KConfig, [*:0]const u8) callconv(.c) KConfigGroup) void {
         qtc.KConfig_OnGroupImpl(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperGroupImpl` instead
+    /// ### DEPRECATED: Use `superGroupImpl` instead
     ///
-    pub const QBaseGroupImpl = SuperGroupImpl;
+    pub const SuperGroupImpl = superGroupImpl;
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#groupImpl)
     ///
@@ -738,7 +886,7 @@ pub const KConfig = extern struct {
     ///
     /// ` groupName: []const u8 `
     ///
-    pub fn SuperGroupImpl(self: KConfig, groupName: []const u8) KConfigGroup {
+    pub fn superGroupImpl(self: KConfig, groupName: []const u8) KConfigGroup {
         const groupName_str = qtc.libqt_string{
             .len = groupName.len,
             .data = groupName.ptr,
@@ -746,6 +894,10 @@ pub const KConfig = extern struct {
         return .{ .ptr = qtc.KConfig_SuperGroupImpl(@ptrCast(self.ptr), groupName_str) };
     }
 
+    /// ### DEPRECATED: Use `groupImpl2` instead
+    ///
+    pub const GroupImpl2 = groupImpl2;
+
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#groupImpl)
     ///
     /// ## Parameter(s):
@@ -754,13 +906,17 @@ pub const KConfig = extern struct {
     ///
     /// ` groupName: []const u8 `
     ///
-    pub fn GroupImpl2(self: KConfig, groupName: []const u8) KConfigGroup {
+    pub fn groupImpl2(self: KConfig, groupName: []const u8) KConfigGroup {
         const groupName_str = qtc.libqt_string{
             .len = groupName.len,
             .data = groupName.ptr,
         };
         return .{ .ptr = qtc.KConfig_GroupImpl2(@ptrCast(self.ptr), groupName_str) };
     }
+
+    /// ### DEPRECATED: Use `onGroupImpl2` instead
+    ///
+    pub const OnGroupImpl2 = onGroupImpl2;
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#groupImpl)
     ///
@@ -774,13 +930,13 @@ pub const KConfig = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnGroupImpl2(self: KConfig, callback: *const fn (KConfig, [*:0]const u8) callconv(.c) KConfigGroup) void {
+    pub fn onGroupImpl2(self: KConfig, callback: *const fn (KConfig, [*:0]const u8) callconv(.c) KConfigGroup) void {
         qtc.KConfig_OnGroupImpl2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperGroupImpl2` instead
+    /// ### DEPRECATED: Use `superGroupImpl2` instead
     ///
-    pub const QBaseGroupImpl2 = SuperGroupImpl2;
+    pub const SuperGroupImpl2 = superGroupImpl2;
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#groupImpl)
     ///
@@ -792,13 +948,17 @@ pub const KConfig = extern struct {
     ///
     /// ` groupName: []const u8 `
     ///
-    pub fn SuperGroupImpl2(self: KConfig, groupName: []const u8) KConfigGroup {
+    pub fn superGroupImpl2(self: KConfig, groupName: []const u8) KConfigGroup {
         const groupName_str = qtc.libqt_string{
             .len = groupName.len,
             .data = groupName.ptr,
         };
         return .{ .ptr = qtc.KConfig_SuperGroupImpl2(@ptrCast(self.ptr), groupName_str) };
     }
+
+    /// ### DEPRECATED: Use `deleteGroupImpl` instead
+    ///
+    pub const DeleteGroupImpl = deleteGroupImpl;
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#deleteGroupImpl)
     ///
@@ -810,13 +970,17 @@ pub const KConfig = extern struct {
     ///
     /// ` flags: flag of kconfigbase_enums.WriteConfigFlag `
     ///
-    pub fn DeleteGroupImpl(self: KConfig, groupName: []const u8, flags: i32) void {
+    pub fn deleteGroupImpl(self: KConfig, groupName: []const u8, flags: i32) void {
         const groupName_str = qtc.libqt_string{
             .len = groupName.len,
             .data = groupName.ptr,
         };
         qtc.KConfig_DeleteGroupImpl(@ptrCast(self.ptr), groupName_str, @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `onDeleteGroupImpl` instead
+    ///
+    pub const OnDeleteGroupImpl = onDeleteGroupImpl;
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#deleteGroupImpl)
     ///
@@ -828,13 +992,13 @@ pub const KConfig = extern struct {
     ///
     /// ` callback: *const fn (self: KConfig, groupName: [*:0]const u8, flags: flag of kconfigbase_enums.WriteConfigFlag) callconv(.c) void `
     ///
-    pub fn OnDeleteGroupImpl(self: KConfig, callback: *const fn (KConfig, [*:0]const u8, i32) callconv(.c) void) void {
+    pub fn onDeleteGroupImpl(self: KConfig, callback: *const fn (KConfig, [*:0]const u8, i32) callconv(.c) void) void {
         qtc.KConfig_OnDeleteGroupImpl(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDeleteGroupImpl` instead
+    /// ### DEPRECATED: Use `superDeleteGroupImpl` instead
     ///
-    pub const QBaseDeleteGroupImpl = SuperDeleteGroupImpl;
+    pub const SuperDeleteGroupImpl = superDeleteGroupImpl;
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#deleteGroupImpl)
     ///
@@ -848,13 +1012,17 @@ pub const KConfig = extern struct {
     ///
     /// ` flags: flag of kconfigbase_enums.WriteConfigFlag `
     ///
-    pub fn SuperDeleteGroupImpl(self: KConfig, groupName: []const u8, flags: i32) void {
+    pub fn superDeleteGroupImpl(self: KConfig, groupName: []const u8, flags: i32) void {
         const groupName_str = qtc.libqt_string{
             .len = groupName.len,
             .data = groupName.ptr,
         };
         qtc.KConfig_SuperDeleteGroupImpl(@ptrCast(self.ptr), groupName_str, @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `isGroupImmutableImpl` instead
+    ///
+    pub const IsGroupImmutableImpl = isGroupImmutableImpl;
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#isGroupImmutableImpl)
     ///
@@ -864,13 +1032,17 @@ pub const KConfig = extern struct {
     ///
     /// ` groupName: []const u8 `
     ///
-    pub fn IsGroupImmutableImpl(self: KConfig, groupName: []const u8) bool {
+    pub fn isGroupImmutableImpl(self: KConfig, groupName: []const u8) bool {
         const groupName_str = qtc.libqt_string{
             .len = groupName.len,
             .data = groupName.ptr,
         };
         return qtc.KConfig_IsGroupImmutableImpl(@ptrCast(self.ptr), groupName_str);
     }
+
+    /// ### DEPRECATED: Use `onIsGroupImmutableImpl` instead
+    ///
+    pub const OnIsGroupImmutableImpl = onIsGroupImmutableImpl;
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#isGroupImmutableImpl)
     ///
@@ -882,13 +1054,13 @@ pub const KConfig = extern struct {
     ///
     /// ` callback: *const fn (self: KConfig, groupName: [*:0]const u8) callconv(.c) bool `
     ///
-    pub fn OnIsGroupImmutableImpl(self: KConfig, callback: *const fn (KConfig, [*:0]const u8) callconv(.c) bool) void {
+    pub fn onIsGroupImmutableImpl(self: KConfig, callback: *const fn (KConfig, [*:0]const u8) callconv(.c) bool) void {
         qtc.KConfig_OnIsGroupImmutableImpl(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperIsGroupImmutableImpl` instead
+    /// ### DEPRECATED: Use `superIsGroupImmutableImpl` instead
     ///
-    pub const QBaseIsGroupImmutableImpl = SuperIsGroupImmutableImpl;
+    pub const SuperIsGroupImmutableImpl = superIsGroupImmutableImpl;
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#isGroupImmutableImpl)
     ///
@@ -900,13 +1072,17 @@ pub const KConfig = extern struct {
     ///
     /// ` groupName: []const u8 `
     ///
-    pub fn SuperIsGroupImmutableImpl(self: KConfig, groupName: []const u8) bool {
+    pub fn superIsGroupImmutableImpl(self: KConfig, groupName: []const u8) bool {
         const groupName_str = qtc.libqt_string{
             .len = groupName.len,
             .data = groupName.ptr,
         };
         return qtc.KConfig_SuperIsGroupImmutableImpl(@ptrCast(self.ptr), groupName_str);
     }
+
+    /// ### DEPRECATED: Use `virtualHook` instead
+    ///
+    pub const VirtualHook = virtualHook;
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#virtual_hook)
     ///
@@ -918,9 +1094,13 @@ pub const KConfig = extern struct {
     ///
     /// ` data: ?*anyopaque `
     ///
-    pub fn VirtualHook(self: KConfig, id: i32, data: ?*anyopaque) void {
+    pub fn virtualHook(self: KConfig, id: i32, data: ?*anyopaque) void {
         qtc.KConfig_VirtualHook(@ptrCast(self.ptr), @bitCast(id), @ptrCast(data));
     }
+
+    /// ### DEPRECATED: Use `onVirtualHook` instead
+    ///
+    pub const OnVirtualHook = onVirtualHook;
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#virtual_hook)
     ///
@@ -932,13 +1112,13 @@ pub const KConfig = extern struct {
     ///
     /// ` callback: *const fn (self: KConfig, id: i32, data: ?*anyopaque) callconv(.c) void `
     ///
-    pub fn OnVirtualHook(self: KConfig, callback: *const fn (KConfig, i32, ?*anyopaque) callconv(.c) void) void {
+    pub fn onVirtualHook(self: KConfig, callback: *const fn (KConfig, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.KConfig_OnVirtualHook(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperVirtualHook` instead
+    /// ### DEPRECATED: Use `superVirtualHook` instead
     ///
-    pub const QBaseVirtualHook = SuperVirtualHook;
+    pub const SuperVirtualHook = superVirtualHook;
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#virtual_hook)
     ///
@@ -952,9 +1132,13 @@ pub const KConfig = extern struct {
     ///
     /// ` data: ?*anyopaque `
     ///
-    pub fn SuperVirtualHook(self: KConfig, id: i32, data: ?*anyopaque) void {
+    pub fn superVirtualHook(self: KConfig, id: i32, data: ?*anyopaque) void {
         qtc.KConfig_SuperVirtualHook(@ptrCast(self.ptr), @bitCast(id), @ptrCast(data));
     }
+
+    /// ### DEPRECATED: Use `copyTo2` instead
+    ///
+    pub const CopyTo2 = copyTo2;
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#copyTo)
     ///
@@ -966,7 +1150,7 @@ pub const KConfig = extern struct {
     ///
     /// ` config: KConfig `
     ///
-    pub fn CopyTo2(self: KConfig, file: []const u8, config: anytype) KConfig {
+    pub fn copyTo2(self: KConfig, file: []const u8, config: anytype) KConfig {
         const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
@@ -974,6 +1158,10 @@ pub const KConfig = extern struct {
         comptime _ = @TypeOf(config)._is_KConfig;
         return .{ .ptr = qtc.KConfig_CopyTo2(@ptrCast(self.ptr), file_str, @ptrCast(config.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `entryMap1` instead
+    ///
+    pub const EntryMap1 = entryMap1;
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#entryMap)
     ///
@@ -985,14 +1173,14 @@ pub const KConfig = extern struct {
     ///
     /// ` aGroup: []const u8 `
     ///
-    pub fn EntryMap1(self: KConfig, allocator: std.mem.Allocator, aGroup: []const u8) ArrayMap_constu8_constu8 {
+    pub fn entryMap1(self: KConfig, allocator: std.mem.Allocator, aGroup: []const u8) ArrayMap_constu8_constu8 {
         const aGroup_str = qtc.libqt_string{
             .len = aGroup.len,
             .data = aGroup.ptr,
         };
         const _map: qtc.libqt_map = qtc.KConfig_EntryMap1(@ptrCast(self.ptr), aGroup_str);
         var _ret: ArrayMap_constu8_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KConfig.EntryMap1: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KConfig.entryMap1: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
@@ -1008,15 +1196,19 @@ pub const KConfig = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("KConfig.EntryMap1: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("KConfig.entryMap1: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("KConfig.EntryMap1: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("KConfig.entryMap1: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
             _ret.putAssumeCapacity(_entry_slice, _value_slice);
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `hasGroup` instead
+    ///
+    pub const HasGroup = hasGroup;
 
     /// Inherited from KConfigBase
     ///
@@ -1026,33 +1218,19 @@ pub const KConfig = extern struct {
     ///
     /// ` self: KConfig `
     ///
-    /// ` group: []const u8 `
+    /// ` _group: []const u8 `
     ///
-    pub fn HasGroup(self: KConfig, group: []const u8) bool {
+    pub fn hasGroup(self: KConfig, _group: []const u8) bool {
         const group_str = qtc.libqt_string{
-            .len = group.len,
-            .data = group.ptr,
+            .len = _group.len,
+            .data = _group.ptr,
         };
         return qtc.KConfigBase_HasGroup(@ptrCast(self.ptr), group_str);
     }
 
-    /// Inherited from KConfigBase
+    /// ### DEPRECATED: Use `group` instead
     ///
-    /// ### [Upstream resources](https://api.kde.org/kconfigbase.html#group)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KConfig `
-    ///
-    /// ` group: []const u8 `
-    ///
-    pub fn Group(self: KConfig, group: []const u8) KConfigGroup {
-        const group_str = qtc.libqt_string{
-            .len = group.len,
-            .data = group.ptr,
-        };
-        return .{ .ptr = qtc.KConfigBase_Group(@ptrCast(self.ptr), group_str) };
-    }
+    pub const Group = group;
 
     /// Inherited from KConfigBase
     ///
@@ -1062,15 +1240,41 @@ pub const KConfig = extern struct {
     ///
     /// ` self: KConfig `
     ///
-    /// ` group: []const u8 `
+    /// ` _group: []const u8 `
     ///
-    pub fn Group2(self: KConfig, group: []const u8) KConfigGroup {
+    pub fn group(self: KConfig, _group: []const u8) KConfigGroup {
         const group_str = qtc.libqt_string{
-            .len = group.len,
-            .data = group.ptr,
+            .len = _group.len,
+            .data = _group.ptr,
+        };
+        return .{ .ptr = qtc.KConfigBase_Group(@ptrCast(self.ptr), group_str) };
+    }
+
+    /// ### DEPRECATED: Use `group2` instead
+    ///
+    pub const Group2 = group2;
+
+    /// Inherited from KConfigBase
+    ///
+    /// ### [Upstream resources](https://api.kde.org/kconfigbase.html#group)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KConfig `
+    ///
+    /// ` _group: []const u8 `
+    ///
+    pub fn group2(self: KConfig, _group: []const u8) KConfigGroup {
+        const group_str = qtc.libqt_string{
+            .len = _group.len,
+            .data = _group.ptr,
         };
         return .{ .ptr = qtc.KConfigBase_Group2(@ptrCast(self.ptr), group_str) };
     }
+
+    /// ### DEPRECATED: Use `deleteGroup` instead
+    ///
+    pub const DeleteGroup = deleteGroup;
 
     /// Inherited from KConfigBase
     ///
@@ -1080,15 +1284,19 @@ pub const KConfig = extern struct {
     ///
     /// ` self: KConfig `
     ///
-    /// ` group: []const u8 `
+    /// ` _group: []const u8 `
     ///
-    pub fn DeleteGroup(self: KConfig, group: []const u8) void {
+    pub fn deleteGroup(self: KConfig, _group: []const u8) void {
         const group_str = qtc.libqt_string{
-            .len = group.len,
-            .data = group.ptr,
+            .len = _group.len,
+            .data = _group.ptr,
         };
         qtc.KConfigBase_DeleteGroup(@ptrCast(self.ptr), group_str);
     }
+
+    /// ### DEPRECATED: Use `isGroupImmutable` instead
+    ///
+    pub const IsGroupImmutable = isGroupImmutable;
 
     /// Inherited from KConfigBase
     ///
@@ -1098,15 +1306,19 @@ pub const KConfig = extern struct {
     ///
     /// ` self: KConfig `
     ///
-    /// ` group: []const u8 `
+    /// ` _group: []const u8 `
     ///
-    pub fn IsGroupImmutable(self: KConfig, group: []const u8) bool {
+    pub fn isGroupImmutable(self: KConfig, _group: []const u8) bool {
         const group_str = qtc.libqt_string{
-            .len = group.len,
-            .data = group.ptr,
+            .len = _group.len,
+            .data = _group.ptr,
         };
         return qtc.KConfigBase_IsGroupImmutable(@ptrCast(self.ptr), group_str);
     }
+
+    /// ### DEPRECATED: Use `deleteGroup2` instead
+    ///
+    pub const DeleteGroup2 = deleteGroup2;
 
     /// Inherited from KConfigBase
     ///
@@ -1116,31 +1328,31 @@ pub const KConfig = extern struct {
     ///
     /// ` self: KConfig `
     ///
-    /// ` group: []const u8 `
+    /// ` _group: []const u8 `
     ///
     /// ` flags: flag of kconfigbase_enums.WriteConfigFlag `
     ///
-    pub fn DeleteGroup2(self: KConfig, group: []const u8, flags: i32) void {
+    pub fn deleteGroup2(self: KConfig, _group: []const u8, flags: i32) void {
         const group_str = qtc.libqt_string{
-            .len = group.len,
-            .data = group.ptr,
+            .len = _group.len,
+            .data = _group.ptr,
         };
         qtc.KConfigBase_DeleteGroup2(@ptrCast(self.ptr), group_str, @bitCast(flags));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#dtor.KConfig)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KConfig `
     ///
-    pub fn Delete(self: KConfig) void {
+    pub fn delete(self: KConfig) void {
         qtc.KConfig_Delete(@ptrCast(self.ptr));
     }
 };

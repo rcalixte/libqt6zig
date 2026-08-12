@@ -14,36 +14,52 @@ pub const QGeoPositionInfo = extern struct {
 
     pub const _is_QGeoPositionInfo = {};
 
-    /// New constructs a new QGeoPositionInfo object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QGeoPositionInfo {
+    pub const New = new;
+
+    /// Allocate a new QGeoPositionInfo object in C++ memory
+    ///
+    pub fn new() QGeoPositionInfo {
         return .{ .ptr = qtc.QGeoPositionInfo_new() };
     }
 
-    /// New2 constructs a new QGeoPositionInfo object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QGeoPositionInfo object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` coordinate: QGeoCoordinate `
+    /// ` _coordinate: QGeoCoordinate `
     ///
     /// ` updateTime: QDateTime `
     ///
-    pub fn New2(coordinate: anytype, updateTime: anytype) QGeoPositionInfo {
-        comptime _ = @TypeOf(coordinate)._is_QGeoCoordinate;
+    pub fn new2(_coordinate: anytype, updateTime: anytype) QGeoPositionInfo {
+        comptime _ = @TypeOf(_coordinate)._is_QGeoCoordinate;
         comptime _ = @TypeOf(updateTime)._is_QDateTime;
-        return .{ .ptr = qtc.QGeoPositionInfo_new2(@ptrCast(coordinate.ptr), @ptrCast(updateTime.ptr)) };
+        return .{ .ptr = qtc.QGeoPositionInfo_new2(@ptrCast(_coordinate.ptr), @ptrCast(updateTime.ptr)) };
     }
 
-    /// New3 constructs a new QGeoPositionInfo object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QGeoPositionInfo object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QGeoPositionInfo `
     ///
-    pub fn New3(other: anytype) QGeoPositionInfo {
+    pub fn new3(other: anytype) QGeoPositionInfo {
         comptime _ = @TypeOf(other)._is_QGeoPositionInfo;
         return .{ .ptr = qtc.QGeoPositionInfo_new3(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfo.html#operator-eq)
     ///
@@ -53,10 +69,14 @@ pub const QGeoPositionInfo = extern struct {
     ///
     /// ` other: QGeoPositionInfo `
     ///
-    pub fn OperatorAssign(self: QGeoPositionInfo, other: anytype) void {
+    pub fn operatorAssign(self: QGeoPositionInfo, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QGeoPositionInfo;
         qtc.QGeoPositionInfo_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfo.html#swap)
     ///
@@ -66,10 +86,14 @@ pub const QGeoPositionInfo = extern struct {
     ///
     /// ` other: QGeoPositionInfo `
     ///
-    pub fn Swap(self: QGeoPositionInfo, other: anytype) void {
+    pub fn swap(self: QGeoPositionInfo, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QGeoPositionInfo;
         qtc.QGeoPositionInfo_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfo.html#isValid)
     ///
@@ -77,9 +101,13 @@ pub const QGeoPositionInfo = extern struct {
     ///
     /// ` self: QGeoPositionInfo `
     ///
-    pub fn IsValid(self: QGeoPositionInfo) bool {
+    pub fn isValid(self: QGeoPositionInfo) bool {
         return qtc.QGeoPositionInfo_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTimestamp` instead
+    ///
+    pub const SetTimestamp = setTimestamp;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfo.html#setTimestamp)
     ///
@@ -87,12 +115,16 @@ pub const QGeoPositionInfo = extern struct {
     ///
     /// ` self: QGeoPositionInfo `
     ///
-    /// ` timestamp: QDateTime `
+    /// ` _timestamp: QDateTime `
     ///
-    pub fn SetTimestamp(self: QGeoPositionInfo, timestamp: anytype) void {
-        comptime _ = @TypeOf(timestamp)._is_QDateTime;
-        qtc.QGeoPositionInfo_SetTimestamp(@ptrCast(self.ptr), @ptrCast(timestamp.ptr));
+    pub fn setTimestamp(self: QGeoPositionInfo, _timestamp: anytype) void {
+        comptime _ = @TypeOf(_timestamp)._is_QDateTime;
+        qtc.QGeoPositionInfo_SetTimestamp(@ptrCast(self.ptr), @ptrCast(_timestamp.ptr));
     }
+
+    /// ### DEPRECATED: Use `timestamp` instead
+    ///
+    pub const Timestamp = timestamp;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfo.html#timestamp)
     ///
@@ -100,9 +132,13 @@ pub const QGeoPositionInfo = extern struct {
     ///
     /// ` self: QGeoPositionInfo `
     ///
-    pub fn Timestamp(self: QGeoPositionInfo) QDateTime {
+    pub fn timestamp(self: QGeoPositionInfo) QDateTime {
         return .{ .ptr = qtc.QGeoPositionInfo_Timestamp(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCoordinate` instead
+    ///
+    pub const SetCoordinate = setCoordinate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfo.html#setCoordinate)
     ///
@@ -110,12 +146,16 @@ pub const QGeoPositionInfo = extern struct {
     ///
     /// ` self: QGeoPositionInfo `
     ///
-    /// ` coordinate: QGeoCoordinate `
+    /// ` _coordinate: QGeoCoordinate `
     ///
-    pub fn SetCoordinate(self: QGeoPositionInfo, coordinate: anytype) void {
-        comptime _ = @TypeOf(coordinate)._is_QGeoCoordinate;
-        qtc.QGeoPositionInfo_SetCoordinate(@ptrCast(self.ptr), @ptrCast(coordinate.ptr));
+    pub fn setCoordinate(self: QGeoPositionInfo, _coordinate: anytype) void {
+        comptime _ = @TypeOf(_coordinate)._is_QGeoCoordinate;
+        qtc.QGeoPositionInfo_SetCoordinate(@ptrCast(self.ptr), @ptrCast(_coordinate.ptr));
     }
+
+    /// ### DEPRECATED: Use `coordinate` instead
+    ///
+    pub const Coordinate = coordinate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfo.html#coordinate)
     ///
@@ -123,9 +163,13 @@ pub const QGeoPositionInfo = extern struct {
     ///
     /// ` self: QGeoPositionInfo `
     ///
-    pub fn Coordinate(self: QGeoPositionInfo) QGeoCoordinate {
+    pub fn coordinate(self: QGeoPositionInfo) QGeoCoordinate {
         return .{ .ptr = qtc.QGeoPositionInfo_Coordinate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfo.html#setAttribute)
     ///
@@ -133,13 +177,17 @@ pub const QGeoPositionInfo = extern struct {
     ///
     /// ` self: QGeoPositionInfo `
     ///
-    /// ` attribute: qgeopositioninfo_enums.Attribute `
+    /// ` _attribute: qgeopositioninfo_enums.Attribute `
     ///
     /// ` value: f64 `
     ///
-    pub fn SetAttribute(self: QGeoPositionInfo, attribute: i32, value: f64) void {
-        qtc.QGeoPositionInfo_SetAttribute(@ptrCast(self.ptr), @bitCast(attribute), @bitCast(value));
+    pub fn setAttribute(self: QGeoPositionInfo, _attribute: i32, value: f64) void {
+        qtc.QGeoPositionInfo_SetAttribute(@ptrCast(self.ptr), @bitCast(_attribute), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `attribute` instead
+    ///
+    pub const Attribute = attribute;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfo.html#attribute)
     ///
@@ -147,11 +195,15 @@ pub const QGeoPositionInfo = extern struct {
     ///
     /// ` self: QGeoPositionInfo `
     ///
-    /// ` attribute: qgeopositioninfo_enums.Attribute `
+    /// ` _attribute: qgeopositioninfo_enums.Attribute `
     ///
-    pub fn Attribute(self: QGeoPositionInfo, attribute: i32) f64 {
-        return qtc.QGeoPositionInfo_Attribute(@ptrCast(self.ptr), @bitCast(attribute));
+    pub fn attribute(self: QGeoPositionInfo, _attribute: i32) f64 {
+        return qtc.QGeoPositionInfo_Attribute(@ptrCast(self.ptr), @bitCast(_attribute));
     }
+
+    /// ### DEPRECATED: Use `removeAttribute` instead
+    ///
+    pub const RemoveAttribute = removeAttribute;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfo.html#removeAttribute)
     ///
@@ -159,11 +211,15 @@ pub const QGeoPositionInfo = extern struct {
     ///
     /// ` self: QGeoPositionInfo `
     ///
-    /// ` attribute: qgeopositioninfo_enums.Attribute `
+    /// ` _attribute: qgeopositioninfo_enums.Attribute `
     ///
-    pub fn RemoveAttribute(self: QGeoPositionInfo, attribute: i32) void {
-        qtc.QGeoPositionInfo_RemoveAttribute(@ptrCast(self.ptr), @bitCast(attribute));
+    pub fn removeAttribute(self: QGeoPositionInfo, _attribute: i32) void {
+        qtc.QGeoPositionInfo_RemoveAttribute(@ptrCast(self.ptr), @bitCast(_attribute));
     }
+
+    /// ### DEPRECATED: Use `hasAttribute` instead
+    ///
+    pub const HasAttribute = hasAttribute;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfo.html#hasAttribute)
     ///
@@ -171,11 +227,15 @@ pub const QGeoPositionInfo = extern struct {
     ///
     /// ` self: QGeoPositionInfo `
     ///
-    /// ` attribute: qgeopositioninfo_enums.Attribute `
+    /// ` _attribute: qgeopositioninfo_enums.Attribute `
     ///
-    pub fn HasAttribute(self: QGeoPositionInfo, attribute: i32) bool {
-        return qtc.QGeoPositionInfo_HasAttribute(@ptrCast(self.ptr), @bitCast(attribute));
+    pub fn hasAttribute(self: QGeoPositionInfo, _attribute: i32) bool {
+        return qtc.QGeoPositionInfo_HasAttribute(@ptrCast(self.ptr), @bitCast(_attribute));
     }
+
+    /// ### DEPRECATED: Use `detach` instead
+    ///
+    pub const Detach = detach;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfo.html#detach)
     ///
@@ -183,23 +243,23 @@ pub const QGeoPositionInfo = extern struct {
     ///
     /// ` self: QGeoPositionInfo `
     ///
-    pub fn Detach(self: QGeoPositionInfo) void {
+    pub fn detach(self: QGeoPositionInfo) void {
         qtc.QGeoPositionInfo_Detach(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfo.html#dtor.QGeoPositionInfo)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QGeoPositionInfo `
     ///
-    pub fn Delete(self: QGeoPositionInfo) void {
+    pub fn delete(self: QGeoPositionInfo) void {
         qtc.QGeoPositionInfo_Delete(@ptrCast(self.ptr));
     }
 };

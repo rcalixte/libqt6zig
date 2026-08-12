@@ -33,13 +33,21 @@ pub const QKeyEventTransition = extern struct {
     pub const _is_QAbstractTransition = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QKeyEventTransition object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QKeyEventTransition {
+    pub const New = new;
+
+    /// Allocate a new QKeyEventTransition object in C++ memory
+    ///
+    pub fn new() QKeyEventTransition {
         return .{ .ptr = qtc.QKeyEventTransition_new() };
     }
 
-    /// New2 constructs a new QKeyEventTransition object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QKeyEventTransition object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -47,25 +55,33 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` typeVal: qcoreevent_enums.Type `
     ///
-    /// ` key: i32 `
+    /// ` _key: i32 `
     ///
-    pub fn New2(object: anytype, typeVal: i32, key: i32) QKeyEventTransition {
+    pub fn new2(object: anytype, typeVal: i32, _key: i32) QKeyEventTransition {
         comptime _ = @TypeOf(object)._is_QObject;
-        return .{ .ptr = qtc.QKeyEventTransition_new2(@ptrCast(object.ptr), @bitCast(typeVal), @bitCast(key)) };
+        return .{ .ptr = qtc.QKeyEventTransition_new2(@ptrCast(object.ptr), @bitCast(typeVal), @bitCast(_key)) };
     }
 
-    /// New3 constructs a new QKeyEventTransition object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QKeyEventTransition object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` sourceState: QState `
+    /// ` _sourceState: QState `
     ///
-    pub fn New3(sourceState: anytype) QKeyEventTransition {
-        comptime _ = @TypeOf(sourceState)._is_QState;
-        return .{ .ptr = qtc.QKeyEventTransition_new3(@ptrCast(sourceState.ptr)) };
+    pub fn new3(_sourceState: anytype) QKeyEventTransition {
+        comptime _ = @TypeOf(_sourceState)._is_QState;
+        return .{ .ptr = qtc.QKeyEventTransition_new3(@ptrCast(_sourceState.ptr)) };
     }
 
-    /// New4 constructs a new QKeyEventTransition object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QKeyEventTransition object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -73,15 +89,19 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` typeVal: qcoreevent_enums.Type `
     ///
-    /// ` key: i32 `
+    /// ` _key: i32 `
     ///
-    /// ` sourceState: QState `
+    /// ` _sourceState: QState `
     ///
-    pub fn New4(object: anytype, typeVal: i32, key: i32, sourceState: anytype) QKeyEventTransition {
+    pub fn new4(object: anytype, typeVal: i32, _key: i32, _sourceState: anytype) QKeyEventTransition {
         comptime _ = @TypeOf(object)._is_QObject;
-        comptime _ = @TypeOf(sourceState)._is_QState;
-        return .{ .ptr = qtc.QKeyEventTransition_new4(@ptrCast(object.ptr), @bitCast(typeVal), @bitCast(key), @ptrCast(sourceState.ptr)) };
+        comptime _ = @TypeOf(_sourceState)._is_QState;
+        return .{ .ptr = qtc.QKeyEventTransition_new4(@ptrCast(object.ptr), @bitCast(typeVal), @bitCast(_key), @ptrCast(_sourceState.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -89,9 +109,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` self: QKeyEventTransition `
     ///
-    pub fn MetaObject(self: QKeyEventTransition) QMetaObject {
+    pub fn metaObject(self: QKeyEventTransition) QMetaObject {
         return .{ .ptr = qtc.QKeyEventTransition_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -103,13 +127,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QKeyEventTransition, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QKeyEventTransition, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QKeyEventTransition_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -119,9 +143,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` self: QKeyEventTransition `
     ///
-    pub fn SuperMetaObject(self: QKeyEventTransition) QMetaObject {
+    pub fn superMetaObject(self: QKeyEventTransition) QMetaObject {
         return .{ .ptr = qtc.QKeyEventTransition_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -129,10 +157,14 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QKeyEventTransition, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QKeyEventTransition, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QKeyEventTransition_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -142,13 +174,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` callback: *const fn (self: QKeyEventTransition, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QKeyEventTransition, callback: *const fn (QKeyEventTransition, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QKeyEventTransition, callback: *const fn (QKeyEventTransition, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QKeyEventTransition_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -158,10 +190,14 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QKeyEventTransition, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QKeyEventTransition, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QKeyEventTransition_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -173,9 +209,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QKeyEventTransition, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QKeyEventTransition, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QKeyEventTransition_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -185,13 +225,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` callback: *const fn (self: QKeyEventTransition, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QKeyEventTransition, callback: *const fn (QKeyEventTransition, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QKeyEventTransition, callback: *const fn (QKeyEventTransition, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QKeyEventTransition_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -205,9 +245,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QKeyEventTransition, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QKeyEventTransition, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QKeyEventTransition_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -217,14 +261,18 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QKeyEventTransition.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QKeyEventTransition.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `key` instead
+    ///
+    pub const Key = key;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeyeventtransition.html#key)
     ///
@@ -232,9 +280,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` self: QKeyEventTransition `
     ///
-    pub fn Key(self: QKeyEventTransition) i32 {
+    pub fn key(self: QKeyEventTransition) i32 {
         return qtc.QKeyEventTransition_Key(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setKey` instead
+    ///
+    pub const SetKey = setKey;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeyeventtransition.html#setKey)
     ///
@@ -242,11 +294,15 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` self: QKeyEventTransition `
     ///
-    /// ` key: i32 `
+    /// ` _key: i32 `
     ///
-    pub fn SetKey(self: QKeyEventTransition, key: i32) void {
-        qtc.QKeyEventTransition_SetKey(@ptrCast(self.ptr), @bitCast(key));
+    pub fn setKey(self: QKeyEventTransition, _key: i32) void {
+        qtc.QKeyEventTransition_SetKey(@ptrCast(self.ptr), @bitCast(_key));
     }
+
+    /// ### DEPRECATED: Use `modifierMask` instead
+    ///
+    pub const ModifierMask = modifierMask;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeyeventtransition.html#modifierMask)
     ///
@@ -258,9 +314,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn ModifierMask(self: QKeyEventTransition) i32 {
+    pub fn modifierMask(self: QKeyEventTransition) i32 {
         return qtc.QKeyEventTransition_ModifierMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setModifierMask` instead
+    ///
+    pub const SetModifierMask = setModifierMask;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeyeventtransition.html#setModifierMask)
     ///
@@ -270,9 +330,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn SetModifierMask(self: QKeyEventTransition, modifiers: i32) void {
+    pub fn setModifierMask(self: QKeyEventTransition, modifiers: i32) void {
         qtc.QKeyEventTransition_SetModifierMask(@ptrCast(self.ptr), @bitCast(modifiers));
     }
+
+    /// ### DEPRECATED: Use `onTransition` instead
+    ///
+    pub const OnTransition = onTransition;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeyeventtransition.html#onTransition)
     ///
@@ -280,12 +344,16 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` self: QKeyEventTransition `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn OnTransition(self: QKeyEventTransition, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QKeyEventTransition_OnTransition(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn onTransition(self: QKeyEventTransition, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QKeyEventTransition_OnTransition(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onOnTransition` instead
+    ///
+    pub const OnOnTransition = onOnTransition;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeyeventtransition.html#onTransition)
     ///
@@ -297,13 +365,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` callback: *const fn (self: QKeyEventTransition, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnOnTransition(self: QKeyEventTransition, callback: *const fn (QKeyEventTransition, QEvent) callconv(.c) void) void {
+    pub fn onOnTransition(self: QKeyEventTransition, callback: *const fn (QKeyEventTransition, QEvent) callconv(.c) void) void {
         qtc.QKeyEventTransition_OnOnTransition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperOnTransition` instead
+    /// ### DEPRECATED: Use `superOnTransition` instead
     ///
-    pub const QBaseOnTransition = SuperOnTransition;
+    pub const SuperOnTransition = superOnTransition;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeyeventtransition.html#onTransition)
     ///
@@ -313,12 +381,16 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` self: QKeyEventTransition `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperOnTransition(self: QKeyEventTransition, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QKeyEventTransition_SuperOnTransition(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superOnTransition(self: QKeyEventTransition, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QKeyEventTransition_SuperOnTransition(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `eventTest` instead
+    ///
+    pub const EventTest = eventTest;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeyeventtransition.html#eventTest)
     ///
@@ -326,12 +398,16 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` self: QKeyEventTransition `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventTest(self: QKeyEventTransition, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QKeyEventTransition_EventTest(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn eventTest(self: QKeyEventTransition, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QKeyEventTransition_EventTest(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventTest` instead
+    ///
+    pub const OnEventTest = onEventTest;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeyeventtransition.html#eventTest)
     ///
@@ -343,13 +419,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` callback: *const fn (self: QKeyEventTransition, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventTest(self: QKeyEventTransition, callback: *const fn (QKeyEventTransition, QEvent) callconv(.c) bool) void {
+    pub fn onEventTest(self: QKeyEventTransition, callback: *const fn (QKeyEventTransition, QEvent) callconv(.c) bool) void {
         qtc.QKeyEventTransition_OnEventTest(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEventTest` instead
+    /// ### DEPRECATED: Use `superEventTest` instead
     ///
-    pub const QBaseEventTest = SuperEventTest;
+    pub const SuperEventTest = superEventTest;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeyeventtransition.html#eventTest)
     ///
@@ -359,12 +435,16 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` self: QKeyEventTransition `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventTest(self: QKeyEventTransition, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QKeyEventTransition_SuperEventTest(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEventTest(self: QKeyEventTransition, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QKeyEventTransition_SuperEventTest(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -376,15 +456,19 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QKeyEventTransition.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QKeyEventTransition.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -398,15 +482,19 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QKeyEventTransition.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QKeyEventTransition.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `eventSource` instead
+    ///
+    pub const EventSource = eventSource;
 
     /// Inherited from QEventTransition
     ///
@@ -416,9 +504,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` self: QKeyEventTransition `
     ///
-    pub fn EventSource(self: QKeyEventTransition) QObject {
+    pub fn eventSource(self: QKeyEventTransition) QObject {
         return .{ .ptr = qtc.QEventTransition_EventSource(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setEventSource` instead
+    ///
+    pub const SetEventSource = setEventSource;
 
     /// Inherited from QEventTransition
     ///
@@ -430,10 +522,14 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` object: QObject `
     ///
-    pub fn SetEventSource(self: QKeyEventTransition, object: anytype) void {
+    pub fn setEventSource(self: QKeyEventTransition, object: anytype) void {
         comptime _ = @TypeOf(object)._is_QObject;
         qtc.QEventTransition_SetEventSource(@ptrCast(self.ptr), @ptrCast(object.ptr));
     }
+
+    /// ### DEPRECATED: Use `eventType` instead
+    ///
+    pub const EventType = eventType;
 
     /// Inherited from QEventTransition
     ///
@@ -447,9 +543,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` qcoreevent_enums.Type `
     ///
-    pub fn EventType(self: QKeyEventTransition) i32 {
+    pub fn eventType(self: QKeyEventTransition) i32 {
         return qtc.QEventTransition_EventType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEventType` instead
+    ///
+    pub const SetEventType = setEventType;
 
     /// Inherited from QEventTransition
     ///
@@ -461,9 +561,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` typeVal: qcoreevent_enums.Type `
     ///
-    pub fn SetEventType(self: QKeyEventTransition, typeVal: i32) void {
+    pub fn setEventType(self: QKeyEventTransition, typeVal: i32) void {
         qtc.QEventTransition_SetEventType(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `sourceState` instead
+    ///
+    pub const SourceState = sourceState;
 
     /// Inherited from QAbstractTransition
     ///
@@ -473,9 +577,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` self: QKeyEventTransition `
     ///
-    pub fn SourceState(self: QKeyEventTransition) QState {
+    pub fn sourceState(self: QKeyEventTransition) QState {
         return .{ .ptr = qtc.QAbstractTransition_SourceState(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `targetState` instead
+    ///
+    pub const TargetState = targetState;
 
     /// Inherited from QAbstractTransition
     ///
@@ -485,9 +593,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` self: QKeyEventTransition `
     ///
-    pub fn TargetState(self: QKeyEventTransition) QAbstractState {
+    pub fn targetState(self: QKeyEventTransition) QAbstractState {
         return .{ .ptr = qtc.QAbstractTransition_TargetState(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setTargetState` instead
+    ///
+    pub const SetTargetState = setTargetState;
 
     /// Inherited from QAbstractTransition
     ///
@@ -499,10 +611,14 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` target: QAbstractState `
     ///
-    pub fn SetTargetState(self: QKeyEventTransition, target: anytype) void {
+    pub fn setTargetState(self: QKeyEventTransition, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QAbstractState;
         qtc.QAbstractTransition_SetTargetState(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `targetStates` instead
+    ///
+    pub const TargetStates = targetStates;
 
     /// Inherited from QAbstractTransition
     ///
@@ -514,15 +630,19 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TargetStates(self: QKeyEventTransition, allocator: std.mem.Allocator) []QAbstractState {
+    pub fn targetStates(self: QKeyEventTransition, allocator: std.mem.Allocator) []QAbstractState {
         const _arr: qtc.libqt_list = qtc.QAbstractTransition_TargetStates(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAbstractState, _arr.len) catch @panic("QKeyEventTransition.TargetStates: Memory allocation failed");
-        const _data: [*]QtC.QAbstractState = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAbstractState, _arr.len) catch @panic("QKeyEventTransition.targetStates: Memory allocation failed");
+        const _data_val: [*]QtC.QAbstractState = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setTargetStates` instead
+    ///
+    pub const SetTargetStates = setTargetStates;
 
     /// Inherited from QAbstractTransition
     ///
@@ -534,13 +654,17 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` targets: []QAbstractState `
     ///
-    pub fn SetTargetStates(self: QKeyEventTransition, targets: []QAbstractState) void {
+    pub fn setTargetStates(self: QKeyEventTransition, targets: []QAbstractState) void {
         const targets_list = qtc.libqt_list{
             .len = targets.len,
             .data = @ptrCast(targets.ptr),
         };
         qtc.QAbstractTransition_SetTargetStates(@ptrCast(self.ptr), targets_list);
     }
+
+    /// ### DEPRECATED: Use `transitionType` instead
+    ///
+    pub const TransitionType = transitionType;
 
     /// Inherited from QAbstractTransition
     ///
@@ -554,9 +678,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` qabstracttransition_enums.TransitionType `
     ///
-    pub fn TransitionType(self: QKeyEventTransition) i32 {
+    pub fn transitionType(self: QKeyEventTransition) i32 {
         return qtc.QAbstractTransition_TransitionType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTransitionType` instead
+    ///
+    pub const SetTransitionType = setTransitionType;
 
     /// Inherited from QAbstractTransition
     ///
@@ -568,9 +696,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` typeVal: qabstracttransition_enums.TransitionType `
     ///
-    pub fn SetTransitionType(self: QKeyEventTransition, typeVal: i32) void {
+    pub fn setTransitionType(self: QKeyEventTransition, typeVal: i32) void {
         qtc.QAbstractTransition_SetTransitionType(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `machine` instead
+    ///
+    pub const Machine = machine;
 
     /// Inherited from QAbstractTransition
     ///
@@ -580,9 +712,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` self: QKeyEventTransition `
     ///
-    pub fn Machine(self: QKeyEventTransition) QStateMachine {
+    pub fn machine(self: QKeyEventTransition) QStateMachine {
         return .{ .ptr = qtc.QAbstractTransition_Machine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAnimation` instead
+    ///
+    pub const AddAnimation = addAnimation;
 
     /// Inherited from QAbstractTransition
     ///
@@ -594,10 +730,14 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` animation: QAbstractAnimation `
     ///
-    pub fn AddAnimation(self: QKeyEventTransition, animation: anytype) void {
+    pub fn addAnimation(self: QKeyEventTransition, animation: anytype) void {
         comptime _ = @TypeOf(animation)._is_QAbstractAnimation;
         qtc.QAbstractTransition_AddAnimation(@ptrCast(self.ptr), @ptrCast(animation.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAnimation` instead
+    ///
+    pub const RemoveAnimation = removeAnimation;
 
     /// Inherited from QAbstractTransition
     ///
@@ -609,10 +749,14 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` animation: QAbstractAnimation `
     ///
-    pub fn RemoveAnimation(self: QKeyEventTransition, animation: anytype) void {
+    pub fn removeAnimation(self: QKeyEventTransition, animation: anytype) void {
         comptime _ = @TypeOf(animation)._is_QAbstractAnimation;
         qtc.QAbstractTransition_RemoveAnimation(@ptrCast(self.ptr), @ptrCast(animation.ptr));
     }
+
+    /// ### DEPRECATED: Use `animations` instead
+    ///
+    pub const Animations = animations;
 
     /// Inherited from QAbstractTransition
     ///
@@ -624,15 +768,19 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Animations(self: QKeyEventTransition, allocator: std.mem.Allocator) []QAbstractAnimation {
+    pub fn animations(self: QKeyEventTransition, allocator: std.mem.Allocator) []QAbstractAnimation {
         const _arr: qtc.libqt_list = qtc.QAbstractTransition_Animations(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAbstractAnimation, _arr.len) catch @panic("QKeyEventTransition.Animations: Memory allocation failed");
-        const _data: [*]QtC.QAbstractAnimation = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAbstractAnimation, _arr.len) catch @panic("QKeyEventTransition.animations: Memory allocation failed");
+        const _data_val: [*]QtC.QAbstractAnimation = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -644,13 +792,17 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QKeyEventTransition, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QKeyEventTransition, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QKeyEventTransition.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QKeyEventTransition.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -662,13 +814,17 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QKeyEventTransition, name: []const u8) void {
+    pub fn setObjectName(self: QKeyEventTransition, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -678,9 +834,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` self: QKeyEventTransition `
     ///
-    pub fn IsWidgetType(self: QKeyEventTransition) bool {
+    pub fn isWidgetType(self: QKeyEventTransition) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -690,9 +850,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` self: QKeyEventTransition `
     ///
-    pub fn IsWindowType(self: QKeyEventTransition) bool {
+    pub fn isWindowType(self: QKeyEventTransition) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -702,9 +866,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` self: QKeyEventTransition `
     ///
-    pub fn IsQuickItemType(self: QKeyEventTransition) bool {
+    pub fn isQuickItemType(self: QKeyEventTransition) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -714,9 +882,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` self: QKeyEventTransition `
     ///
-    pub fn SignalsBlocked(self: QKeyEventTransition) bool {
+    pub fn signalsBlocked(self: QKeyEventTransition) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -728,9 +900,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QKeyEventTransition, b: bool) bool {
+    pub fn blockSignals(self: QKeyEventTransition, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -740,9 +916,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` self: QKeyEventTransition `
     ///
-    pub fn Thread(self: QKeyEventTransition) QThread {
+    pub fn thread(self: QKeyEventTransition) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -752,12 +932,16 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` self: QKeyEventTransition `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QKeyEventTransition, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QKeyEventTransition, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -769,9 +953,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QKeyEventTransition, interval: i32) i32 {
+    pub fn startTimer(self: QKeyEventTransition, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -783,9 +971,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QKeyEventTransition, time: i64) i32 {
+    pub fn startTimer2(self: QKeyEventTransition, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -797,9 +989,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QKeyEventTransition, id: i32) void {
+    pub fn killTimer(self: QKeyEventTransition, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -811,9 +1007,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QKeyEventTransition, id: i32) void {
+    pub fn killTimer2(self: QKeyEventTransition, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -825,15 +1025,19 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QKeyEventTransition, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QKeyEventTransition, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QKeyEventTransition.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QKeyEventTransition.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -843,12 +1047,16 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` self: QKeyEventTransition `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QKeyEventTransition, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QKeyEventTransition, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -860,10 +1068,14 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QKeyEventTransition, filterObj: anytype) void {
+    pub fn installEventFilter(self: QKeyEventTransition, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -875,10 +1087,14 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QKeyEventTransition, obj: anytype) void {
+    pub fn removeEventFilter(self: QKeyEventTransition, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -886,7 +1102,7 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -894,13 +1110,17 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -908,7 +1128,7 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -916,13 +1136,17 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -932,18 +1156,22 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` self: QKeyEventTransition `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QKeyEventTransition, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QKeyEventTransition, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -951,7 +1179,7 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -959,13 +1187,17 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -973,7 +1205,7 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -981,13 +1213,17 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -997,9 +1233,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` self: QKeyEventTransition `
     ///
-    pub fn Disconnect3(self: QKeyEventTransition) bool {
+    pub fn disconnect3(self: QKeyEventTransition) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1011,10 +1251,14 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QKeyEventTransition, receiver: anytype) bool {
+    pub fn disconnect4(self: QKeyEventTransition, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1024,10 +1268,14 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1037,9 +1285,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` self: QKeyEventTransition `
     ///
-    pub fn DumpObjectTree(self: QKeyEventTransition) void {
+    pub fn dumpObjectTree(self: QKeyEventTransition) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1049,9 +1301,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` self: QKeyEventTransition `
     ///
-    pub fn DumpObjectInfo(self: QKeyEventTransition) void {
+    pub fn dumpObjectInfo(self: QKeyEventTransition) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1065,11 +1321,15 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QKeyEventTransition, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QKeyEventTransition, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1081,10 +1341,14 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QKeyEventTransition, name: [:0]const u8) QVariant {
+    pub fn property(self: QKeyEventTransition, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1096,7 +1360,7 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QKeyEventTransition, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QKeyEventTransition, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1104,27 +1368,19 @@ pub const QKeyEventTransition = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QKeyEventTransition.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QKeyEventTransition.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QKeyEventTransition.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QKeyEventTransition.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QKeyEventTransition `
-    ///
-    pub fn BindingStorage(self: QKeyEventTransition) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1134,9 +1390,29 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` self: QKeyEventTransition `
     ///
-    pub fn BindingStorage2(self: QKeyEventTransition) QBindingStorage {
+    pub fn bindingStorage(self: QKeyEventTransition) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QKeyEventTransition `
+    ///
+    pub fn bindingStorage2(self: QKeyEventTransition) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1146,9 +1422,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` self: QKeyEventTransition `
     ///
-    pub fn Destroyed(self: QKeyEventTransition) void {
+    pub fn destroyed(self: QKeyEventTransition) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1160,9 +1440,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` callback: *const fn (self: QKeyEventTransition) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QKeyEventTransition, callback: *const fn (QKeyEventTransition) callconv(.c) void) void {
+    pub fn onDestroyed(self: QKeyEventTransition, callback: *const fn (QKeyEventTransition) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1172,9 +1456,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` self: QKeyEventTransition `
     ///
-    pub fn Parent(self: QKeyEventTransition) QObject {
+    pub fn parent(self: QKeyEventTransition) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1186,10 +1474,14 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QKeyEventTransition, classname: [:0]const u8) bool {
+    pub fn inherits(self: QKeyEventTransition, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1199,9 +1491,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` self: QKeyEventTransition `
     ///
-    pub fn DeleteLater(self: QKeyEventTransition) void {
+    pub fn deleteLater(self: QKeyEventTransition) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1215,9 +1511,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QKeyEventTransition, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QKeyEventTransition, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1231,9 +1531,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QKeyEventTransition, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QKeyEventTransition, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1241,7 +1545,7 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1251,13 +1555,17 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1265,7 +1573,7 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1275,13 +1583,17 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1291,7 +1603,7 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` self: QKeyEventTransition `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1299,12 +1611,16 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QKeyEventTransition, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QKeyEventTransition, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1316,10 +1632,14 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QKeyEventTransition, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QKeyEventTransition, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1333,11 +1653,15 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QKeyEventTransition, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QKeyEventTransition, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1353,13 +1677,17 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QKeyEventTransition, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QKeyEventTransition, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1372,11 +1700,15 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QKeyEventTransition, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QKeyEventTransition, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1388,10 +1720,14 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QKeyEventTransition, param1: anytype) void {
+    pub fn destroyed1(self: QKeyEventTransition, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1403,9 +1739,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` callback: *const fn (self: QKeyEventTransition, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QKeyEventTransition, callback: *const fn (QKeyEventTransition, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QKeyEventTransition, callback: *const fn (QKeyEventTransition, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QEventTransition
     ///
@@ -1419,14 +1759,14 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn Event(self: QKeyEventTransition, e: anytype) bool {
+    pub fn event(self: QKeyEventTransition, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.QKeyEventTransition_Event(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QEventTransition
     ///
@@ -1440,10 +1780,14 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn SuperEvent(self: QKeyEventTransition, e: anytype) bool {
+    pub fn superEvent(self: QKeyEventTransition, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.QKeyEventTransition_SuperEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QEventTransition
     ///
@@ -1457,9 +1801,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` callback: *const fn (self: QKeyEventTransition, e: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QKeyEventTransition, callback: *const fn (QKeyEventTransition, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QKeyEventTransition, callback: *const fn (QKeyEventTransition, QEvent) callconv(.c) bool) void {
         qtc.QKeyEventTransition_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1473,17 +1821,17 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QKeyEventTransition, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QKeyEventTransition, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QKeyEventTransition_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QKeyEventTransition_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1497,13 +1845,17 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QKeyEventTransition, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QKeyEventTransition, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QKeyEventTransition_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QKeyEventTransition_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1517,9 +1869,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` callback: *const fn (self: QKeyEventTransition, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QKeyEventTransition, callback: *const fn (QKeyEventTransition, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QKeyEventTransition, callback: *const fn (QKeyEventTransition, QObject, QEvent) callconv(.c) bool) void {
         qtc.QKeyEventTransition_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -1531,16 +1887,16 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` self: QKeyEventTransition `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QKeyEventTransition, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QKeyEventTransition_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QKeyEventTransition, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QKeyEventTransition_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1552,12 +1908,16 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` self: QKeyEventTransition `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QKeyEventTransition, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QKeyEventTransition_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QKeyEventTransition, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QKeyEventTransition_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1571,9 +1931,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` callback: *const fn (self: QKeyEventTransition, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QKeyEventTransition, callback: *const fn (QKeyEventTransition, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QKeyEventTransition, callback: *const fn (QKeyEventTransition, QTimerEvent) callconv(.c) void) void {
         qtc.QKeyEventTransition_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -1585,16 +1949,16 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` self: QKeyEventTransition `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QKeyEventTransition, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QKeyEventTransition_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QKeyEventTransition, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QKeyEventTransition_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1606,12 +1970,16 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` self: QKeyEventTransition `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QKeyEventTransition, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QKeyEventTransition_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QKeyEventTransition, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QKeyEventTransition_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1625,9 +1993,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` callback: *const fn (self: QKeyEventTransition, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QKeyEventTransition, callback: *const fn (QKeyEventTransition, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QKeyEventTransition, callback: *const fn (QKeyEventTransition, QChildEvent) callconv(.c) void) void {
         qtc.QKeyEventTransition_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -1639,16 +2011,16 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` self: QKeyEventTransition `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QKeyEventTransition, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QKeyEventTransition_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QKeyEventTransition, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QKeyEventTransition_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1660,12 +2032,16 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` self: QKeyEventTransition `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QKeyEventTransition, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QKeyEventTransition_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QKeyEventTransition, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QKeyEventTransition_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1679,9 +2055,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` callback: *const fn (self: QKeyEventTransition, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QKeyEventTransition, callback: *const fn (QKeyEventTransition, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QKeyEventTransition, callback: *const fn (QKeyEventTransition, QEvent) callconv(.c) void) void {
         qtc.QKeyEventTransition_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -1695,14 +2075,14 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QKeyEventTransition, signal: anytype) void {
+    pub fn connectNotify(self: QKeyEventTransition, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QKeyEventTransition_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1716,11 +2096,15 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QKeyEventTransition, signal: anytype) void {
+    pub fn superConnectNotify(self: QKeyEventTransition, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QKeyEventTransition_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1733,9 +2117,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` callback: *const fn (self: QKeyEventTransition, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QKeyEventTransition, callback: *const fn (QKeyEventTransition, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QKeyEventTransition, callback: *const fn (QKeyEventTransition, QMetaMethod) callconv(.c) void) void {
         qtc.QKeyEventTransition_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1749,14 +2137,14 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QKeyEventTransition, signal: anytype) void {
+    pub fn disconnectNotify(self: QKeyEventTransition, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QKeyEventTransition_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1770,10 +2158,14 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QKeyEventTransition, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QKeyEventTransition, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QKeyEventTransition_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1787,9 +2179,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` callback: *const fn (self: QKeyEventTransition, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QKeyEventTransition, callback: *const fn (QKeyEventTransition, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QKeyEventTransition, callback: *const fn (QKeyEventTransition, QMetaMethod) callconv(.c) void) void {
         qtc.QKeyEventTransition_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -1801,13 +2197,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` self: QKeyEventTransition `
     ///
-    pub fn Sender(self: QKeyEventTransition) QObject {
+    pub fn sender(self: QKeyEventTransition) QObject {
         return .{ .ptr = qtc.QKeyEventTransition_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -1819,9 +2215,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` self: QKeyEventTransition `
     ///
-    pub fn SuperSender(self: QKeyEventTransition) QObject {
+    pub fn superSender(self: QKeyEventTransition) QObject {
         return .{ .ptr = qtc.QKeyEventTransition_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -1835,9 +2235,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QKeyEventTransition, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QKeyEventTransition, callback: *const fn () callconv(.c) QObject) void {
         qtc.QKeyEventTransition_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1849,13 +2253,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` self: QKeyEventTransition `
     ///
-    pub fn SenderSignalIndex(self: QKeyEventTransition) i32 {
+    pub fn senderSignalIndex(self: QKeyEventTransition) i32 {
         return qtc.QKeyEventTransition_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1867,9 +2271,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` self: QKeyEventTransition `
     ///
-    pub fn SuperSenderSignalIndex(self: QKeyEventTransition) i32 {
+    pub fn superSenderSignalIndex(self: QKeyEventTransition) i32 {
         return qtc.QKeyEventTransition_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1883,9 +2291,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QKeyEventTransition, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QKeyEventTransition, callback: *const fn () callconv(.c) i32) void {
         qtc.QKeyEventTransition_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -1899,14 +2311,14 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QKeyEventTransition, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QKeyEventTransition, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QKeyEventTransition_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -1920,10 +2332,14 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QKeyEventTransition, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QKeyEventTransition, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QKeyEventTransition_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -1937,9 +2353,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` callback: *const fn (self: QKeyEventTransition, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QKeyEventTransition, callback: *const fn (QKeyEventTransition, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QKeyEventTransition, callback: *const fn (QKeyEventTransition, [*:0]const u8) callconv(.c) i32) void {
         qtc.QKeyEventTransition_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1953,14 +2373,14 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QKeyEventTransition, signal: anytype) bool {
+    pub fn isSignalConnected(self: QKeyEventTransition, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QKeyEventTransition_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1974,10 +2394,14 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QKeyEventTransition, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QKeyEventTransition, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QKeyEventTransition_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1991,9 +2415,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` callback: *const fn (self: QKeyEventTransition, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QKeyEventTransition, callback: *const fn (QKeyEventTransition, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QKeyEventTransition, callback: *const fn (QKeyEventTransition, QMetaMethod) callconv(.c) bool) void {
         qtc.QKeyEventTransition_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onTriggered` instead
+    ///
+    pub const OnTriggered = onTriggered;
 
     /// Inherited from QAbstractTransition
     ///
@@ -2007,9 +2435,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` callback: *const fn (self: QKeyEventTransition) callconv(.c) void `
     ///
-    pub fn OnTriggered(self: QKeyEventTransition, callback: *const fn (QKeyEventTransition) callconv(.c) void) void {
+    pub fn onTriggered(self: QKeyEventTransition, callback: *const fn (QKeyEventTransition) callconv(.c) void) void {
         qtc.QAbstractTransition_Connect_Triggered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onTargetStateChanged` instead
+    ///
+    pub const OnTargetStateChanged = onTargetStateChanged;
 
     /// Inherited from QAbstractTransition
     ///
@@ -2023,9 +2455,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` callback: *const fn (self: QKeyEventTransition) callconv(.c) void `
     ///
-    pub fn OnTargetStateChanged(self: QKeyEventTransition, callback: *const fn (QKeyEventTransition) callconv(.c) void) void {
+    pub fn onTargetStateChanged(self: QKeyEventTransition, callback: *const fn (QKeyEventTransition) callconv(.c) void) void {
         qtc.QAbstractTransition_Connect_TargetStateChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onTargetStatesChanged` instead
+    ///
+    pub const OnTargetStatesChanged = onTargetStatesChanged;
 
     /// Inherited from QAbstractTransition
     ///
@@ -2039,9 +2475,13 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` callback: *const fn (self: QKeyEventTransition) callconv(.c) void `
     ///
-    pub fn OnTargetStatesChanged(self: QKeyEventTransition, callback: *const fn (QKeyEventTransition) callconv(.c) void) void {
+    pub fn onTargetStatesChanged(self: QKeyEventTransition, callback: *const fn (QKeyEventTransition) callconv(.c) void) void {
         qtc.QAbstractTransition_Connect_TargetStatesChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -2055,23 +2495,23 @@ pub const QKeyEventTransition = extern struct {
     ///
     /// ` callback: *const fn (self: QKeyEventTransition, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QKeyEventTransition, callback: *const fn (QKeyEventTransition, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QKeyEventTransition, callback: *const fn (QKeyEventTransition, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeyeventtransition.html#dtor.QKeyEventTransition)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QKeyEventTransition `
     ///
-    pub fn Delete(self: QKeyEventTransition) void {
+    pub fn delete(self: QKeyEventTransition) void {
         qtc.QKeyEventTransition_Delete(@ptrCast(self.ptr));
     }
 };

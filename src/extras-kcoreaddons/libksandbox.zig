@@ -13,23 +13,39 @@ pub const KSandbox = extern struct {
 
     pub const _is_KSandbox = {};
 
+    /// ### DEPRECATED: Use `isInside` instead
+    ///
+    pub const IsInside = isInside;
+
     /// ### [Upstream resources](https://api.kde.org/ksandbox.html#isInside)
     ///
-    pub fn IsInside() bool {
+    pub fn isInside() bool {
         return qtc.KSandbox_IsInside();
     }
 
+    /// ### DEPRECATED: Use `isFlatpak` instead
+    ///
+    pub const IsFlatpak = isFlatpak;
+
     /// ### [Upstream resources](https://api.kde.org/ksandbox.html#isFlatpak)
     ///
-    pub fn IsFlatpak() bool {
+    pub fn isFlatpak() bool {
         return qtc.KSandbox_IsFlatpak();
     }
 
+    /// ### DEPRECATED: Use `isSnap` instead
+    ///
+    pub const IsSnap = isSnap;
+
     /// ### [Upstream resources](https://api.kde.org/ksandbox.html#isSnap)
     ///
-    pub fn IsSnap() bool {
+    pub fn isSnap() bool {
         return qtc.KSandbox_IsSnap();
     }
+
+    /// ### DEPRECATED: Use `makeHostContext` instead
+    ///
+    pub const MakeHostContext = makeHostContext;
 
     /// ### [Upstream resources](https://api.kde.org/ksandbox.html#makeHostContext)
     ///
@@ -37,10 +53,14 @@ pub const KSandbox = extern struct {
     ///
     /// ` process: QProcess `
     ///
-    pub fn MakeHostContext(process: anytype) KSandbox__ProcessContext {
+    pub fn makeHostContext(process: anytype) KSandbox__ProcessContext {
         comptime _ = @TypeOf(process)._is_QProcess;
         return .{ .ptr = qtc.KSandbox_MakeHostContext(@ptrCast(process.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `startHostProcess` instead
+    ///
+    pub const StartHostProcess = startHostProcess;
 
     /// ### [Upstream resources](https://api.kde.org/ksandbox.html#startHostProcess)
     ///
@@ -50,7 +70,7 @@ pub const KSandbox = extern struct {
     ///
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn StartHostProcess(process: anytype, mode: i32) void {
+    pub fn startHostProcess(process: anytype, mode: i32) void {
         comptime _ = @TypeOf(process)._is_QProcess;
         qtc.KSandbox_StartHostProcess(@ptrCast(process.ptr), @bitCast(mode));
     }
@@ -66,34 +86,42 @@ pub const KSandbox__ProcessContext = extern struct {
 
     pub const _is_KSandbox__ProcessContext = {};
 
-    /// New constructs a new KSandbox::ProcessContext object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() KSandbox__ProcessContext {
+    pub const New = new;
+
+    /// Allocate a new KSandbox::ProcessContext object in C++ memory
+    ///
+    pub fn new() KSandbox__ProcessContext {
         return .{ .ptr = qtc.KSandbox__ProcessContext_new() };
     }
 
-    /// New2 constructs a new KSandbox::ProcessContext object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KSandbox::ProcessContext object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: KSandbox__ProcessContext `
     ///
-    pub fn New2(param1: anytype) KSandbox__ProcessContext {
+    pub fn new2(param1: anytype) KSandbox__ProcessContext {
         comptime _ = @TypeOf(param1)._is_KSandbox__ProcessContext;
         return .{ .ptr = qtc.KSandbox__ProcessContext_new2(@ptrCast(param1.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KSandbox__ProcessContext `
     ///
-    pub fn Delete(self: KSandbox__ProcessContext) void {
+    pub fn delete(self: KSandbox__ProcessContext) void {
         qtc.KSandbox__ProcessContext_Delete(@ptrCast(self.ptr));
     }
 };

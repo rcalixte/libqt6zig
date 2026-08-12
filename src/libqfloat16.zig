@@ -12,33 +12,48 @@ pub const qfloat16 = extern struct {
 
     pub const _is_qfloat16 = {};
 
-    /// New constructs a new qfloat16 object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() qfloat16 {
+    pub const New = new;
+
+    /// Allocate a new qfloat16 object in C++ memory
+    ///
+    pub fn new() qfloat16 {
         return .{ .ptr = qtc.qfloat16_new() };
     }
 
-    /// New2 constructs a new qfloat16 object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new qfloat16 object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: qnamespace_enums.Initialization `
     ///
-    pub fn New2(param1: i32) qfloat16 {
+    pub fn new2(param1: i32) qfloat16 {
         return .{ .ptr = qtc.qfloat16_new2(@bitCast(param1)) };
     }
 
-    /// New3 constructs a new qfloat16 object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new qfloat16 object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` f: f32 `
     ///
-    pub fn New3(f: f32) qfloat16 {
+    pub fn new3(f: f32) qfloat16 {
         return .{ .ptr = qtc.qfloat16_new3(@bitCast(f)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -46,11 +61,14 @@ pub const qfloat16 = extern struct {
     ///
     /// ` other: qfloat16 `
     ///
-    pub fn CopyAssign(self: qfloat16, other: qfloat16) void {
+    pub fn copyAssign(self: qfloat16, other: qfloat16) void {
         qtc.qfloat16_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -58,9 +76,13 @@ pub const qfloat16 = extern struct {
     ///
     /// ` other: qfloat16 `
     ///
-    pub fn MoveAssign(self: qfloat16, other: qfloat16) void {
+    pub fn moveAssign(self: qfloat16, other: qfloat16) void {
         qtc.qfloat16_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `toFloat` instead
+    ///
+    pub const ToFloat = toFloat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfloat16.html#operator)
     ///
@@ -68,9 +90,13 @@ pub const qfloat16 = extern struct {
     ///
     /// ` self: qfloat16 `
     ///
-    pub fn ToFloat(self: qfloat16) f32 {
+    pub fn toFloat(self: qfloat16) f32 {
         return qtc.qfloat16_ToFloat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isInf` instead
+    ///
+    pub const IsInf = isInf;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfloat16.html#isInf)
     ///
@@ -78,9 +104,13 @@ pub const qfloat16 = extern struct {
     ///
     /// ` self: qfloat16 `
     ///
-    pub fn IsInf(self: qfloat16) bool {
+    pub fn isInf(self: qfloat16) bool {
         return qtc.qfloat16_IsInf(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isNaN` instead
+    ///
+    pub const IsNaN = isNaN;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfloat16.html#isNaN)
     ///
@@ -88,9 +118,13 @@ pub const qfloat16 = extern struct {
     ///
     /// ` self: qfloat16 `
     ///
-    pub fn IsNaN(self: qfloat16) bool {
+    pub fn isNaN(self: qfloat16) bool {
         return qtc.qfloat16_IsNaN(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFinite` instead
+    ///
+    pub const IsFinite = isFinite;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfloat16.html#isFinite)
     ///
@@ -98,9 +132,13 @@ pub const qfloat16 = extern struct {
     ///
     /// ` self: qfloat16 `
     ///
-    pub fn IsFinite(self: qfloat16) bool {
+    pub fn isFinite(self: qfloat16) bool {
         return qtc.qfloat16_IsFinite(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `fpClassify` instead
+    ///
+    pub const FpClassify = fpClassify;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfloat16.html#fpClassify)
     ///
@@ -108,9 +146,13 @@ pub const qfloat16 = extern struct {
     ///
     /// ` self: qfloat16 `
     ///
-    pub fn FpClassify(self: qfloat16) i32 {
+    pub fn fpClassify(self: qfloat16) i32 {
         return qtc.qfloat16_FpClassify(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isNormal` instead
+    ///
+    pub const IsNormal = isNormal;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfloat16.html#isNormal)
     ///
@@ -118,23 +160,23 @@ pub const qfloat16 = extern struct {
     ///
     /// ` self: qfloat16 `
     ///
-    pub fn IsNormal(self: qfloat16) bool {
+    pub fn isNormal(self: qfloat16) bool {
         return qtc.qfloat16_IsNormal(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfloat16.html#dtor.qfloat16)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: qfloat16 `
     ///
-    pub fn Delete(self: qfloat16) void {
+    pub fn delete(self: qfloat16) void {
         qtc.qfloat16_Delete(@ptrCast(self.ptr));
     }
 };

@@ -28,22 +28,34 @@ pub const QVCandlestickModelMapper = extern struct {
     pub const _is_QCandlestickModelMapper = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QVCandlestickModelMapper object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QVCandlestickModelMapper {
+    pub const New = new;
+
+    /// Allocate a new QVCandlestickModelMapper object in C++ memory
+    ///
+    pub fn new() QVCandlestickModelMapper {
         return .{ .ptr = qtc.QVCandlestickModelMapper_new() };
     }
 
-    /// New2 constructs a new QVCandlestickModelMapper object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QVCandlestickModelMapper object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) QVCandlestickModelMapper {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QVCandlestickModelMapper_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) QVCandlestickModelMapper {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QVCandlestickModelMapper_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -51,9 +63,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    pub fn MetaObject(self: QVCandlestickModelMapper) QMetaObject {
+    pub fn metaObject(self: QVCandlestickModelMapper) QMetaObject {
         return .{ .ptr = qtc.QVCandlestickModelMapper_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -65,13 +81,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QVCandlestickModelMapper, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QVCandlestickModelMapper, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QVCandlestickModelMapper_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -81,9 +97,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    pub fn SuperMetaObject(self: QVCandlestickModelMapper) QMetaObject {
+    pub fn superMetaObject(self: QVCandlestickModelMapper) QMetaObject {
         return .{ .ptr = qtc.QVCandlestickModelMapper_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -91,10 +111,14 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QVCandlestickModelMapper, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QVCandlestickModelMapper, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QVCandlestickModelMapper_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -104,13 +128,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVCandlestickModelMapper, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QVCandlestickModelMapper_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -120,10 +144,14 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QVCandlestickModelMapper, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QVCandlestickModelMapper, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QVCandlestickModelMapper_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -135,9 +163,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QVCandlestickModelMapper, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QVCandlestickModelMapper, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QVCandlestickModelMapper_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -147,13 +179,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVCandlestickModelMapper, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QVCandlestickModelMapper_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -167,9 +199,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QVCandlestickModelMapper, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QVCandlestickModelMapper, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QVCandlestickModelMapper_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -179,14 +215,18 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QVCandlestickModelMapper.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QVCandlestickModelMapper.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `orientation` instead
+    ///
+    pub const Orientation = orientation;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#orientation)
     ///
@@ -198,9 +238,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` qnamespace_enums.Orientation `
     ///
-    pub fn Orientation(self: QVCandlestickModelMapper) i32 {
+    pub fn orientation(self: QVCandlestickModelMapper) i32 {
         return qtc.QVCandlestickModelMapper_Orientation(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onOrientation` instead
+    ///
+    pub const OnOrientation = onOrientation;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#orientation)
     ///
@@ -212,13 +256,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnOrientation(self: QVCandlestickModelMapper, callback: *const fn () callconv(.c) i32) void {
+    pub fn onOrientation(self: QVCandlestickModelMapper, callback: *const fn () callconv(.c) i32) void {
         qtc.QVCandlestickModelMapper_OnOrientation(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperOrientation` instead
+    /// ### DEPRECATED: Use `superOrientation` instead
     ///
-    pub const QBaseOrientation = SuperOrientation;
+    pub const SuperOrientation = superOrientation;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#orientation)
     ///
@@ -232,9 +276,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` qnamespace_enums.Orientation `
     ///
-    pub fn SuperOrientation(self: QVCandlestickModelMapper) i32 {
+    pub fn superOrientation(self: QVCandlestickModelMapper) i32 {
         return qtc.QVCandlestickModelMapper_SuperOrientation(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTimestampRow` instead
+    ///
+    pub const SetTimestampRow = setTimestampRow;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#setTimestampRow)
     ///
@@ -242,11 +290,15 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    /// ` timestampRow: i32 `
+    /// ` _timestampRow: i32 `
     ///
-    pub fn SetTimestampRow(self: QVCandlestickModelMapper, timestampRow: i32) void {
-        qtc.QVCandlestickModelMapper_SetTimestampRow(@ptrCast(self.ptr), @bitCast(timestampRow));
+    pub fn setTimestampRow(self: QVCandlestickModelMapper, _timestampRow: i32) void {
+        qtc.QVCandlestickModelMapper_SetTimestampRow(@ptrCast(self.ptr), @bitCast(_timestampRow));
     }
+
+    /// ### DEPRECATED: Use `timestampRow` instead
+    ///
+    pub const TimestampRow = timestampRow;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#timestampRow)
     ///
@@ -254,9 +306,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    pub fn TimestampRow(self: QVCandlestickModelMapper) i32 {
+    pub fn timestampRow(self: QVCandlestickModelMapper) i32 {
         return qtc.QVCandlestickModelMapper_TimestampRow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setOpenRow` instead
+    ///
+    pub const SetOpenRow = setOpenRow;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#setOpenRow)
     ///
@@ -264,11 +320,15 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    /// ` openRow: i32 `
+    /// ` _openRow: i32 `
     ///
-    pub fn SetOpenRow(self: QVCandlestickModelMapper, openRow: i32) void {
-        qtc.QVCandlestickModelMapper_SetOpenRow(@ptrCast(self.ptr), @bitCast(openRow));
+    pub fn setOpenRow(self: QVCandlestickModelMapper, _openRow: i32) void {
+        qtc.QVCandlestickModelMapper_SetOpenRow(@ptrCast(self.ptr), @bitCast(_openRow));
     }
+
+    /// ### DEPRECATED: Use `openRow` instead
+    ///
+    pub const OpenRow = openRow;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#openRow)
     ///
@@ -276,9 +336,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    pub fn OpenRow(self: QVCandlestickModelMapper) i32 {
+    pub fn openRow(self: QVCandlestickModelMapper) i32 {
         return qtc.QVCandlestickModelMapper_OpenRow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHighRow` instead
+    ///
+    pub const SetHighRow = setHighRow;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#setHighRow)
     ///
@@ -286,11 +350,15 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    /// ` highRow: i32 `
+    /// ` _highRow: i32 `
     ///
-    pub fn SetHighRow(self: QVCandlestickModelMapper, highRow: i32) void {
-        qtc.QVCandlestickModelMapper_SetHighRow(@ptrCast(self.ptr), @bitCast(highRow));
+    pub fn setHighRow(self: QVCandlestickModelMapper, _highRow: i32) void {
+        qtc.QVCandlestickModelMapper_SetHighRow(@ptrCast(self.ptr), @bitCast(_highRow));
     }
+
+    /// ### DEPRECATED: Use `highRow` instead
+    ///
+    pub const HighRow = highRow;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#highRow)
     ///
@@ -298,9 +366,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    pub fn HighRow(self: QVCandlestickModelMapper) i32 {
+    pub fn highRow(self: QVCandlestickModelMapper) i32 {
         return qtc.QVCandlestickModelMapper_HighRow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLowRow` instead
+    ///
+    pub const SetLowRow = setLowRow;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#setLowRow)
     ///
@@ -308,11 +380,15 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    /// ` lowRow: i32 `
+    /// ` _lowRow: i32 `
     ///
-    pub fn SetLowRow(self: QVCandlestickModelMapper, lowRow: i32) void {
-        qtc.QVCandlestickModelMapper_SetLowRow(@ptrCast(self.ptr), @bitCast(lowRow));
+    pub fn setLowRow(self: QVCandlestickModelMapper, _lowRow: i32) void {
+        qtc.QVCandlestickModelMapper_SetLowRow(@ptrCast(self.ptr), @bitCast(_lowRow));
     }
+
+    /// ### DEPRECATED: Use `lowRow` instead
+    ///
+    pub const LowRow = lowRow;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#lowRow)
     ///
@@ -320,9 +396,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    pub fn LowRow(self: QVCandlestickModelMapper) i32 {
+    pub fn lowRow(self: QVCandlestickModelMapper) i32 {
         return qtc.QVCandlestickModelMapper_LowRow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCloseRow` instead
+    ///
+    pub const SetCloseRow = setCloseRow;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#setCloseRow)
     ///
@@ -330,11 +410,15 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    /// ` closeRow: i32 `
+    /// ` _closeRow: i32 `
     ///
-    pub fn SetCloseRow(self: QVCandlestickModelMapper, closeRow: i32) void {
-        qtc.QVCandlestickModelMapper_SetCloseRow(@ptrCast(self.ptr), @bitCast(closeRow));
+    pub fn setCloseRow(self: QVCandlestickModelMapper, _closeRow: i32) void {
+        qtc.QVCandlestickModelMapper_SetCloseRow(@ptrCast(self.ptr), @bitCast(_closeRow));
     }
+
+    /// ### DEPRECATED: Use `closeRow` instead
+    ///
+    pub const CloseRow = closeRow;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#closeRow)
     ///
@@ -342,9 +426,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    pub fn CloseRow(self: QVCandlestickModelMapper) i32 {
+    pub fn closeRow(self: QVCandlestickModelMapper) i32 {
         return qtc.QVCandlestickModelMapper_CloseRow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFirstSetColumn` instead
+    ///
+    pub const SetFirstSetColumn = setFirstSetColumn;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#setFirstSetColumn)
     ///
@@ -352,11 +440,15 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    /// ` firstSetColumn: i32 `
+    /// ` _firstSetColumn: i32 `
     ///
-    pub fn SetFirstSetColumn(self: QVCandlestickModelMapper, firstSetColumn: i32) void {
-        qtc.QVCandlestickModelMapper_SetFirstSetColumn(@ptrCast(self.ptr), @bitCast(firstSetColumn));
+    pub fn setFirstSetColumn(self: QVCandlestickModelMapper, _firstSetColumn: i32) void {
+        qtc.QVCandlestickModelMapper_SetFirstSetColumn(@ptrCast(self.ptr), @bitCast(_firstSetColumn));
     }
+
+    /// ### DEPRECATED: Use `firstSetColumn` instead
+    ///
+    pub const FirstSetColumn = firstSetColumn;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#firstSetColumn)
     ///
@@ -364,9 +456,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    pub fn FirstSetColumn(self: QVCandlestickModelMapper) i32 {
+    pub fn firstSetColumn(self: QVCandlestickModelMapper) i32 {
         return qtc.QVCandlestickModelMapper_FirstSetColumn(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLastSetColumn` instead
+    ///
+    pub const SetLastSetColumn = setLastSetColumn;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#setLastSetColumn)
     ///
@@ -374,11 +470,15 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    /// ` lastSetColumn: i32 `
+    /// ` _lastSetColumn: i32 `
     ///
-    pub fn SetLastSetColumn(self: QVCandlestickModelMapper, lastSetColumn: i32) void {
-        qtc.QVCandlestickModelMapper_SetLastSetColumn(@ptrCast(self.ptr), @bitCast(lastSetColumn));
+    pub fn setLastSetColumn(self: QVCandlestickModelMapper, _lastSetColumn: i32) void {
+        qtc.QVCandlestickModelMapper_SetLastSetColumn(@ptrCast(self.ptr), @bitCast(_lastSetColumn));
     }
+
+    /// ### DEPRECATED: Use `lastSetColumn` instead
+    ///
+    pub const LastSetColumn = lastSetColumn;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#lastSetColumn)
     ///
@@ -386,20 +486,28 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    pub fn LastSetColumn(self: QVCandlestickModelMapper) i32 {
+    pub fn lastSetColumn(self: QVCandlestickModelMapper) i32 {
         return qtc.QVCandlestickModelMapper_LastSetColumn(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `timestampRowChanged` instead
+    ///
+    pub const TimestampRowChanged = timestampRowChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#timestampRowChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    pub fn TimestampRowChanged(self: QVCandlestickModelMapper) void {
+    pub fn timestampRowChanged(self: QVCandlestickModelMapper) void {
         qtc.QVCandlestickModelMapper_TimestampRowChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onTimestampRowChanged` instead
+    ///
+    pub const OnTimestampRowChanged = onTimestampRowChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#timestampRowChanged)
     ///
     /// ## Parameters:
@@ -408,20 +516,28 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVCandlestickModelMapper) callconv(.c) void `
     ///
-    pub fn OnTimestampRowChanged(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper) callconv(.c) void) void {
+    pub fn onTimestampRowChanged(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper) callconv(.c) void) void {
         qtc.QVCandlestickModelMapper_Connect_TimestampRowChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `openRowChanged` instead
+    ///
+    pub const OpenRowChanged = openRowChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#openRowChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    pub fn OpenRowChanged(self: QVCandlestickModelMapper) void {
+    pub fn openRowChanged(self: QVCandlestickModelMapper) void {
         qtc.QVCandlestickModelMapper_OpenRowChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onOpenRowChanged` instead
+    ///
+    pub const OnOpenRowChanged = onOpenRowChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#openRowChanged)
     ///
     /// ## Parameters:
@@ -430,20 +546,28 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVCandlestickModelMapper) callconv(.c) void `
     ///
-    pub fn OnOpenRowChanged(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper) callconv(.c) void) void {
+    pub fn onOpenRowChanged(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper) callconv(.c) void) void {
         qtc.QVCandlestickModelMapper_Connect_OpenRowChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `highRowChanged` instead
+    ///
+    pub const HighRowChanged = highRowChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#highRowChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    pub fn HighRowChanged(self: QVCandlestickModelMapper) void {
+    pub fn highRowChanged(self: QVCandlestickModelMapper) void {
         qtc.QVCandlestickModelMapper_HighRowChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onHighRowChanged` instead
+    ///
+    pub const OnHighRowChanged = onHighRowChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#highRowChanged)
     ///
     /// ## Parameters:
@@ -452,20 +576,28 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVCandlestickModelMapper) callconv(.c) void `
     ///
-    pub fn OnHighRowChanged(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper) callconv(.c) void) void {
+    pub fn onHighRowChanged(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper) callconv(.c) void) void {
         qtc.QVCandlestickModelMapper_Connect_HighRowChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `lowRowChanged` instead
+    ///
+    pub const LowRowChanged = lowRowChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#lowRowChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    pub fn LowRowChanged(self: QVCandlestickModelMapper) void {
+    pub fn lowRowChanged(self: QVCandlestickModelMapper) void {
         qtc.QVCandlestickModelMapper_LowRowChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onLowRowChanged` instead
+    ///
+    pub const OnLowRowChanged = onLowRowChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#lowRowChanged)
     ///
     /// ## Parameters:
@@ -474,20 +606,28 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVCandlestickModelMapper) callconv(.c) void `
     ///
-    pub fn OnLowRowChanged(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper) callconv(.c) void) void {
+    pub fn onLowRowChanged(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper) callconv(.c) void) void {
         qtc.QVCandlestickModelMapper_Connect_LowRowChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `closeRowChanged` instead
+    ///
+    pub const CloseRowChanged = closeRowChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#closeRowChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    pub fn CloseRowChanged(self: QVCandlestickModelMapper) void {
+    pub fn closeRowChanged(self: QVCandlestickModelMapper) void {
         qtc.QVCandlestickModelMapper_CloseRowChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCloseRowChanged` instead
+    ///
+    pub const OnCloseRowChanged = onCloseRowChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#closeRowChanged)
     ///
     /// ## Parameters:
@@ -496,20 +636,28 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVCandlestickModelMapper) callconv(.c) void `
     ///
-    pub fn OnCloseRowChanged(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper) callconv(.c) void) void {
+    pub fn onCloseRowChanged(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper) callconv(.c) void) void {
         qtc.QVCandlestickModelMapper_Connect_CloseRowChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `firstSetColumnChanged` instead
+    ///
+    pub const FirstSetColumnChanged = firstSetColumnChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#firstSetColumnChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    pub fn FirstSetColumnChanged(self: QVCandlestickModelMapper) void {
+    pub fn firstSetColumnChanged(self: QVCandlestickModelMapper) void {
         qtc.QVCandlestickModelMapper_FirstSetColumnChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFirstSetColumnChanged` instead
+    ///
+    pub const OnFirstSetColumnChanged = onFirstSetColumnChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#firstSetColumnChanged)
     ///
     /// ## Parameters:
@@ -518,9 +666,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVCandlestickModelMapper) callconv(.c) void `
     ///
-    pub fn OnFirstSetColumnChanged(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper) callconv(.c) void) void {
+    pub fn onFirstSetColumnChanged(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper) callconv(.c) void) void {
         qtc.QVCandlestickModelMapper_Connect_FirstSetColumnChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `lastSetColumnChanged` instead
+    ///
+    pub const LastSetColumnChanged = lastSetColumnChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#lastSetColumnChanged)
     ///
@@ -528,9 +680,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    pub fn LastSetColumnChanged(self: QVCandlestickModelMapper) void {
+    pub fn lastSetColumnChanged(self: QVCandlestickModelMapper) void {
         qtc.QVCandlestickModelMapper_LastSetColumnChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLastSetColumnChanged` instead
+    ///
+    pub const OnLastSetColumnChanged = onLastSetColumnChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#lastSetColumnChanged)
     ///
@@ -540,9 +696,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVCandlestickModelMapper) callconv(.c) void `
     ///
-    pub fn OnLastSetColumnChanged(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper) callconv(.c) void) void {
+    pub fn onLastSetColumnChanged(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper) callconv(.c) void) void {
         qtc.QVCandlestickModelMapper_Connect_LastSetColumnChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -554,15 +714,19 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QVCandlestickModelMapper.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QVCandlestickModelMapper.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -576,15 +740,19 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QVCandlestickModelMapper.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QVCandlestickModelMapper.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setModel` instead
+    ///
+    pub const SetModel = setModel;
 
     /// Inherited from QCandlestickModelMapper
     ///
@@ -594,12 +762,16 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    /// ` model: QAbstractItemModel `
+    /// ` _model: QAbstractItemModel `
     ///
-    pub fn SetModel(self: QVCandlestickModelMapper, model: anytype) void {
-        comptime _ = @TypeOf(model)._is_QAbstractItemModel;
-        qtc.QCandlestickModelMapper_SetModel(@ptrCast(self.ptr), @ptrCast(model.ptr));
+    pub fn setModel(self: QVCandlestickModelMapper, _model: anytype) void {
+        comptime _ = @TypeOf(_model)._is_QAbstractItemModel;
+        qtc.QCandlestickModelMapper_SetModel(@ptrCast(self.ptr), @ptrCast(_model.ptr));
     }
+
+    /// ### DEPRECATED: Use `model` instead
+    ///
+    pub const Model = model;
 
     /// Inherited from QCandlestickModelMapper
     ///
@@ -609,9 +781,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    pub fn Model(self: QVCandlestickModelMapper) QAbstractItemModel {
+    pub fn model(self: QVCandlestickModelMapper) QAbstractItemModel {
         return .{ .ptr = qtc.QCandlestickModelMapper_Model(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSeries` instead
+    ///
+    pub const SetSeries = setSeries;
 
     /// Inherited from QCandlestickModelMapper
     ///
@@ -621,12 +797,16 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    /// ` series: QCandlestickSeries `
+    /// ` _series: QCandlestickSeries `
     ///
-    pub fn SetSeries(self: QVCandlestickModelMapper, series: anytype) void {
-        comptime _ = @TypeOf(series)._is_QCandlestickSeries;
-        qtc.QCandlestickModelMapper_SetSeries(@ptrCast(self.ptr), @ptrCast(series.ptr));
+    pub fn setSeries(self: QVCandlestickModelMapper, _series: anytype) void {
+        comptime _ = @TypeOf(_series)._is_QCandlestickSeries;
+        qtc.QCandlestickModelMapper_SetSeries(@ptrCast(self.ptr), @ptrCast(_series.ptr));
     }
+
+    /// ### DEPRECATED: Use `series` instead
+    ///
+    pub const Series = series;
 
     /// Inherited from QCandlestickModelMapper
     ///
@@ -636,10 +816,14 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    pub fn Series(self: QVCandlestickModelMapper) QCandlestickSeries {
+    pub fn series(self: QVCandlestickModelMapper) QCandlestickSeries {
         return .{ .ptr = qtc.QCandlestickModelMapper_Series(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `modelReplaced` instead
+    ///
+    pub const ModelReplaced = modelReplaced;
+
     /// Inherited from QCandlestickModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#modelReplaced)
@@ -648,10 +832,14 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    pub fn ModelReplaced(self: QVCandlestickModelMapper) void {
+    pub fn modelReplaced(self: QVCandlestickModelMapper) void {
         qtc.QCandlestickModelMapper_ModelReplaced(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onModelReplaced` instead
+    ///
+    pub const OnModelReplaced = onModelReplaced;
+
     /// Inherited from QCandlestickModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#modelReplaced)
@@ -662,9 +850,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVCandlestickModelMapper) callconv(.c) void `
     ///
-    pub fn OnModelReplaced(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper) callconv(.c) void) void {
+    pub fn onModelReplaced(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper) callconv(.c) void) void {
         qtc.QCandlestickModelMapper_Connect_ModelReplaced(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `seriesReplaced` instead
+    ///
+    pub const SeriesReplaced = seriesReplaced;
 
     /// Inherited from QCandlestickModelMapper
     ///
@@ -674,9 +866,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    pub fn SeriesReplaced(self: QVCandlestickModelMapper) void {
+    pub fn seriesReplaced(self: QVCandlestickModelMapper) void {
         qtc.QCandlestickModelMapper_SeriesReplaced(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSeriesReplaced` instead
+    ///
+    pub const OnSeriesReplaced = onSeriesReplaced;
 
     /// Inherited from QCandlestickModelMapper
     ///
@@ -688,9 +884,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVCandlestickModelMapper) callconv(.c) void `
     ///
-    pub fn OnSeriesReplaced(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper) callconv(.c) void) void {
+    pub fn onSeriesReplaced(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper) callconv(.c) void) void {
         qtc.QCandlestickModelMapper_Connect_SeriesReplaced(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -702,13 +902,17 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QVCandlestickModelMapper, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QVCandlestickModelMapper, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QVCandlestickModelMapper.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QVCandlestickModelMapper.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -720,13 +924,17 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QVCandlestickModelMapper, name: []const u8) void {
+    pub fn setObjectName(self: QVCandlestickModelMapper, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -736,9 +944,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    pub fn IsWidgetType(self: QVCandlestickModelMapper) bool {
+    pub fn isWidgetType(self: QVCandlestickModelMapper) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -748,9 +960,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    pub fn IsWindowType(self: QVCandlestickModelMapper) bool {
+    pub fn isWindowType(self: QVCandlestickModelMapper) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -760,9 +976,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    pub fn IsQuickItemType(self: QVCandlestickModelMapper) bool {
+    pub fn isQuickItemType(self: QVCandlestickModelMapper) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -772,9 +992,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    pub fn SignalsBlocked(self: QVCandlestickModelMapper) bool {
+    pub fn signalsBlocked(self: QVCandlestickModelMapper) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -786,9 +1010,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QVCandlestickModelMapper, b: bool) bool {
+    pub fn blockSignals(self: QVCandlestickModelMapper, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -798,9 +1026,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    pub fn Thread(self: QVCandlestickModelMapper) QThread {
+    pub fn thread(self: QVCandlestickModelMapper) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -810,12 +1042,16 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QVCandlestickModelMapper, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QVCandlestickModelMapper, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -827,9 +1063,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QVCandlestickModelMapper, interval: i32) i32 {
+    pub fn startTimer(self: QVCandlestickModelMapper, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -841,9 +1081,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QVCandlestickModelMapper, time: i64) i32 {
+    pub fn startTimer2(self: QVCandlestickModelMapper, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -855,9 +1099,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QVCandlestickModelMapper, id: i32) void {
+    pub fn killTimer(self: QVCandlestickModelMapper, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -869,9 +1117,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QVCandlestickModelMapper, id: i32) void {
+    pub fn killTimer2(self: QVCandlestickModelMapper, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -883,15 +1135,19 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QVCandlestickModelMapper, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QVCandlestickModelMapper, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QVCandlestickModelMapper.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QVCandlestickModelMapper.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -901,12 +1157,16 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QVCandlestickModelMapper, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QVCandlestickModelMapper, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -918,10 +1178,14 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QVCandlestickModelMapper, filterObj: anytype) void {
+    pub fn installEventFilter(self: QVCandlestickModelMapper, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -933,10 +1197,14 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QVCandlestickModelMapper, obj: anytype) void {
+    pub fn removeEventFilter(self: QVCandlestickModelMapper, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -944,7 +1212,7 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -952,13 +1220,17 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -966,7 +1238,7 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -974,13 +1246,17 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -990,18 +1266,22 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QVCandlestickModelMapper, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QVCandlestickModelMapper, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -1009,7 +1289,7 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1017,13 +1297,17 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -1031,7 +1315,7 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1039,13 +1323,17 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -1055,9 +1343,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    pub fn Disconnect3(self: QVCandlestickModelMapper) bool {
+    pub fn disconnect3(self: QVCandlestickModelMapper) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1069,10 +1361,14 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QVCandlestickModelMapper, receiver: anytype) bool {
+    pub fn disconnect4(self: QVCandlestickModelMapper, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1082,10 +1378,14 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1095,9 +1395,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    pub fn DumpObjectTree(self: QVCandlestickModelMapper) void {
+    pub fn dumpObjectTree(self: QVCandlestickModelMapper) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1107,9 +1411,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    pub fn DumpObjectInfo(self: QVCandlestickModelMapper) void {
+    pub fn dumpObjectInfo(self: QVCandlestickModelMapper) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1123,11 +1431,15 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QVCandlestickModelMapper, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QVCandlestickModelMapper, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1139,10 +1451,14 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QVCandlestickModelMapper, name: [:0]const u8) QVariant {
+    pub fn property(self: QVCandlestickModelMapper, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1154,7 +1470,7 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QVCandlestickModelMapper, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QVCandlestickModelMapper, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1162,27 +1478,19 @@ pub const QVCandlestickModelMapper = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QVCandlestickModelMapper.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QVCandlestickModelMapper.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QVCandlestickModelMapper.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QVCandlestickModelMapper.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QVCandlestickModelMapper `
-    ///
-    pub fn BindingStorage(self: QVCandlestickModelMapper) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1192,9 +1500,29 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    pub fn BindingStorage2(self: QVCandlestickModelMapper) QBindingStorage {
+    pub fn bindingStorage(self: QVCandlestickModelMapper) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QVCandlestickModelMapper `
+    ///
+    pub fn bindingStorage2(self: QVCandlestickModelMapper) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1204,9 +1532,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    pub fn Destroyed(self: QVCandlestickModelMapper) void {
+    pub fn destroyed(self: QVCandlestickModelMapper) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1218,9 +1550,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVCandlestickModelMapper) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper) callconv(.c) void) void {
+    pub fn onDestroyed(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1230,9 +1566,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    pub fn Parent(self: QVCandlestickModelMapper) QObject {
+    pub fn parent(self: QVCandlestickModelMapper) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1244,10 +1584,14 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QVCandlestickModelMapper, classname: [:0]const u8) bool {
+    pub fn inherits(self: QVCandlestickModelMapper, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1257,9 +1601,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    pub fn DeleteLater(self: QVCandlestickModelMapper) void {
+    pub fn deleteLater(self: QVCandlestickModelMapper) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1273,9 +1621,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QVCandlestickModelMapper, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QVCandlestickModelMapper, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1289,9 +1641,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QVCandlestickModelMapper, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QVCandlestickModelMapper, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1299,7 +1655,7 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1309,13 +1665,17 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1323,7 +1683,7 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1333,13 +1693,17 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1349,7 +1713,7 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1357,12 +1721,16 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QVCandlestickModelMapper, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QVCandlestickModelMapper, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1374,10 +1742,14 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QVCandlestickModelMapper, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QVCandlestickModelMapper, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1391,11 +1763,15 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QVCandlestickModelMapper, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QVCandlestickModelMapper, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1411,13 +1787,17 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QVCandlestickModelMapper, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QVCandlestickModelMapper, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1430,11 +1810,15 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QVCandlestickModelMapper, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QVCandlestickModelMapper, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1446,10 +1830,14 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QVCandlestickModelMapper, param1: anytype) void {
+    pub fn destroyed1(self: QVCandlestickModelMapper, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1461,9 +1849,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVCandlestickModelMapper, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -1475,16 +1867,16 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QVCandlestickModelMapper, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QVCandlestickModelMapper_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QVCandlestickModelMapper, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QVCandlestickModelMapper_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -1496,12 +1888,16 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QVCandlestickModelMapper, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QVCandlestickModelMapper_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QVCandlestickModelMapper, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QVCandlestickModelMapper_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -1515,9 +1911,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVCandlestickModelMapper, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper, QEvent) callconv(.c) bool) void {
         qtc.QVCandlestickModelMapper_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1531,17 +1931,17 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QVCandlestickModelMapper, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QVCandlestickModelMapper, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QVCandlestickModelMapper_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QVCandlestickModelMapper_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1555,13 +1955,17 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QVCandlestickModelMapper, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QVCandlestickModelMapper, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QVCandlestickModelMapper_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QVCandlestickModelMapper_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1575,9 +1979,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVCandlestickModelMapper, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper, QObject, QEvent) callconv(.c) bool) void {
         qtc.QVCandlestickModelMapper_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -1589,16 +1997,16 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QVCandlestickModelMapper, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QVCandlestickModelMapper_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QVCandlestickModelMapper, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QVCandlestickModelMapper_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1610,12 +2018,16 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QVCandlestickModelMapper, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QVCandlestickModelMapper_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QVCandlestickModelMapper, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QVCandlestickModelMapper_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1629,9 +2041,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVCandlestickModelMapper, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper, QTimerEvent) callconv(.c) void) void {
         qtc.QVCandlestickModelMapper_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -1643,16 +2059,16 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QVCandlestickModelMapper, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QVCandlestickModelMapper_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QVCandlestickModelMapper, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QVCandlestickModelMapper_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1664,12 +2080,16 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QVCandlestickModelMapper, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QVCandlestickModelMapper_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QVCandlestickModelMapper, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QVCandlestickModelMapper_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1683,9 +2103,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVCandlestickModelMapper, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper, QChildEvent) callconv(.c) void) void {
         qtc.QVCandlestickModelMapper_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -1697,16 +2121,16 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QVCandlestickModelMapper, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QVCandlestickModelMapper_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QVCandlestickModelMapper, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QVCandlestickModelMapper_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1718,12 +2142,16 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QVCandlestickModelMapper, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QVCandlestickModelMapper_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QVCandlestickModelMapper, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QVCandlestickModelMapper_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1737,9 +2165,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVCandlestickModelMapper, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper, QEvent) callconv(.c) void) void {
         qtc.QVCandlestickModelMapper_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -1753,14 +2185,14 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QVCandlestickModelMapper, signal: anytype) void {
+    pub fn connectNotify(self: QVCandlestickModelMapper, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QVCandlestickModelMapper_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1774,11 +2206,15 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QVCandlestickModelMapper, signal: anytype) void {
+    pub fn superConnectNotify(self: QVCandlestickModelMapper, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QVCandlestickModelMapper_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1791,9 +2227,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVCandlestickModelMapper, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper, QMetaMethod) callconv(.c) void) void {
         qtc.QVCandlestickModelMapper_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1807,14 +2247,14 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QVCandlestickModelMapper, signal: anytype) void {
+    pub fn disconnectNotify(self: QVCandlestickModelMapper, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QVCandlestickModelMapper_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1828,10 +2268,14 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QVCandlestickModelMapper, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QVCandlestickModelMapper, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QVCandlestickModelMapper_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1845,9 +2289,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVCandlestickModelMapper, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper, QMetaMethod) callconv(.c) void) void {
         qtc.QVCandlestickModelMapper_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setTimestamp` instead
+    ///
+    pub const SetTimestamp = setTimestamp;
 
     /// Inherited from QCandlestickModelMapper
     ///
@@ -1859,15 +2307,15 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    /// ` timestamp: i32 `
+    /// ` _timestamp: i32 `
     ///
-    pub fn SetTimestamp(self: QVCandlestickModelMapper, timestamp: i32) void {
-        qtc.QVCandlestickModelMapper_SetTimestamp(@ptrCast(self.ptr), @bitCast(timestamp));
+    pub fn setTimestamp(self: QVCandlestickModelMapper, _timestamp: i32) void {
+        qtc.QVCandlestickModelMapper_SetTimestamp(@ptrCast(self.ptr), @bitCast(_timestamp));
     }
 
-    /// ### DEPRECATED: Use `SuperSetTimestamp` instead
+    /// ### DEPRECATED: Use `superSetTimestamp` instead
     ///
-    pub const QBaseSetTimestamp = SuperSetTimestamp;
+    pub const SuperSetTimestamp = superSetTimestamp;
 
     /// Inherited from QCandlestickModelMapper
     ///
@@ -1879,11 +2327,15 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    /// ` timestamp: i32 `
+    /// ` _timestamp: i32 `
     ///
-    pub fn SuperSetTimestamp(self: QVCandlestickModelMapper, timestamp: i32) void {
-        qtc.QVCandlestickModelMapper_SuperSetTimestamp(@ptrCast(self.ptr), @bitCast(timestamp));
+    pub fn superSetTimestamp(self: QVCandlestickModelMapper, _timestamp: i32) void {
+        qtc.QVCandlestickModelMapper_SuperSetTimestamp(@ptrCast(self.ptr), @bitCast(_timestamp));
     }
+
+    /// ### DEPRECATED: Use `onSetTimestamp` instead
+    ///
+    pub const OnSetTimestamp = onSetTimestamp;
 
     /// Inherited from QCandlestickModelMapper
     ///
@@ -1897,9 +2349,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVCandlestickModelMapper, timestamp: i32) callconv(.c) void `
     ///
-    pub fn OnSetTimestamp(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper, i32) callconv(.c) void) void {
+    pub fn onSetTimestamp(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper, i32) callconv(.c) void) void {
         qtc.QVCandlestickModelMapper_OnSetTimestamp(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timestamp` instead
+    ///
+    pub const Timestamp = timestamp;
 
     /// Inherited from QCandlestickModelMapper
     ///
@@ -1911,13 +2367,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    pub fn Timestamp(self: QVCandlestickModelMapper) i32 {
+    pub fn timestamp(self: QVCandlestickModelMapper) i32 {
         return qtc.QVCandlestickModelMapper_Timestamp(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimestamp` instead
+    /// ### DEPRECATED: Use `superTimestamp` instead
     ///
-    pub const QBaseTimestamp = SuperTimestamp;
+    pub const SuperTimestamp = superTimestamp;
 
     /// Inherited from QCandlestickModelMapper
     ///
@@ -1929,9 +2385,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    pub fn SuperTimestamp(self: QVCandlestickModelMapper) i32 {
+    pub fn superTimestamp(self: QVCandlestickModelMapper) i32 {
         return qtc.QVCandlestickModelMapper_SuperTimestamp(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimestamp` instead
+    ///
+    pub const OnTimestamp = onTimestamp;
 
     /// Inherited from QCandlestickModelMapper
     ///
@@ -1945,9 +2405,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnTimestamp(self: QVCandlestickModelMapper, callback: *const fn () callconv(.c) i32) void {
+    pub fn onTimestamp(self: QVCandlestickModelMapper, callback: *const fn () callconv(.c) i32) void {
         qtc.QVCandlestickModelMapper_OnTimestamp(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setOpen` instead
+    ///
+    pub const SetOpen = setOpen;
 
     /// Inherited from QCandlestickModelMapper
     ///
@@ -1959,15 +2423,15 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    /// ` open: i32 `
+    /// ` _open: i32 `
     ///
-    pub fn SetOpen(self: QVCandlestickModelMapper, open: i32) void {
-        qtc.QVCandlestickModelMapper_SetOpen(@ptrCast(self.ptr), @bitCast(open));
+    pub fn setOpen(self: QVCandlestickModelMapper, _open: i32) void {
+        qtc.QVCandlestickModelMapper_SetOpen(@ptrCast(self.ptr), @bitCast(_open));
     }
 
-    /// ### DEPRECATED: Use `SuperSetOpen` instead
+    /// ### DEPRECATED: Use `superSetOpen` instead
     ///
-    pub const QBaseSetOpen = SuperSetOpen;
+    pub const SuperSetOpen = superSetOpen;
 
     /// Inherited from QCandlestickModelMapper
     ///
@@ -1979,11 +2443,15 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    /// ` open: i32 `
+    /// ` _open: i32 `
     ///
-    pub fn SuperSetOpen(self: QVCandlestickModelMapper, open: i32) void {
-        qtc.QVCandlestickModelMapper_SuperSetOpen(@ptrCast(self.ptr), @bitCast(open));
+    pub fn superSetOpen(self: QVCandlestickModelMapper, _open: i32) void {
+        qtc.QVCandlestickModelMapper_SuperSetOpen(@ptrCast(self.ptr), @bitCast(_open));
     }
+
+    /// ### DEPRECATED: Use `onSetOpen` instead
+    ///
+    pub const OnSetOpen = onSetOpen;
 
     /// Inherited from QCandlestickModelMapper
     ///
@@ -1997,9 +2465,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVCandlestickModelMapper, open: i32) callconv(.c) void `
     ///
-    pub fn OnSetOpen(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper, i32) callconv(.c) void) void {
+    pub fn onSetOpen(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper, i32) callconv(.c) void) void {
         qtc.QVCandlestickModelMapper_OnSetOpen(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `open` instead
+    ///
+    pub const Open = open;
 
     /// Inherited from QCandlestickModelMapper
     ///
@@ -2011,13 +2483,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    pub fn Open(self: QVCandlestickModelMapper) i32 {
+    pub fn open(self: QVCandlestickModelMapper) i32 {
         return qtc.QVCandlestickModelMapper_Open(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperOpen` instead
+    /// ### DEPRECATED: Use `superOpen` instead
     ///
-    pub const QBaseOpen = SuperOpen;
+    pub const SuperOpen = superOpen;
 
     /// Inherited from QCandlestickModelMapper
     ///
@@ -2029,9 +2501,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    pub fn SuperOpen(self: QVCandlestickModelMapper) i32 {
+    pub fn superOpen(self: QVCandlestickModelMapper) i32 {
         return qtc.QVCandlestickModelMapper_SuperOpen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onOpen` instead
+    ///
+    pub const OnOpen = onOpen;
 
     /// Inherited from QCandlestickModelMapper
     ///
@@ -2045,9 +2521,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnOpen(self: QVCandlestickModelMapper, callback: *const fn () callconv(.c) i32) void {
+    pub fn onOpen(self: QVCandlestickModelMapper, callback: *const fn () callconv(.c) i32) void {
         qtc.QVCandlestickModelMapper_OnOpen(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setHigh` instead
+    ///
+    pub const SetHigh = setHigh;
 
     /// Inherited from QCandlestickModelMapper
     ///
@@ -2059,15 +2539,15 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    /// ` high: i32 `
+    /// ` _high: i32 `
     ///
-    pub fn SetHigh(self: QVCandlestickModelMapper, high: i32) void {
-        qtc.QVCandlestickModelMapper_SetHigh(@ptrCast(self.ptr), @bitCast(high));
+    pub fn setHigh(self: QVCandlestickModelMapper, _high: i32) void {
+        qtc.QVCandlestickModelMapper_SetHigh(@ptrCast(self.ptr), @bitCast(_high));
     }
 
-    /// ### DEPRECATED: Use `SuperSetHigh` instead
+    /// ### DEPRECATED: Use `superSetHigh` instead
     ///
-    pub const QBaseSetHigh = SuperSetHigh;
+    pub const SuperSetHigh = superSetHigh;
 
     /// Inherited from QCandlestickModelMapper
     ///
@@ -2079,11 +2559,15 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    /// ` high: i32 `
+    /// ` _high: i32 `
     ///
-    pub fn SuperSetHigh(self: QVCandlestickModelMapper, high: i32) void {
-        qtc.QVCandlestickModelMapper_SuperSetHigh(@ptrCast(self.ptr), @bitCast(high));
+    pub fn superSetHigh(self: QVCandlestickModelMapper, _high: i32) void {
+        qtc.QVCandlestickModelMapper_SuperSetHigh(@ptrCast(self.ptr), @bitCast(_high));
     }
+
+    /// ### DEPRECATED: Use `onSetHigh` instead
+    ///
+    pub const OnSetHigh = onSetHigh;
 
     /// Inherited from QCandlestickModelMapper
     ///
@@ -2097,9 +2581,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVCandlestickModelMapper, high: i32) callconv(.c) void `
     ///
-    pub fn OnSetHigh(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper, i32) callconv(.c) void) void {
+    pub fn onSetHigh(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper, i32) callconv(.c) void) void {
         qtc.QVCandlestickModelMapper_OnSetHigh(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `high` instead
+    ///
+    pub const High = high;
 
     /// Inherited from QCandlestickModelMapper
     ///
@@ -2111,13 +2599,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    pub fn High(self: QVCandlestickModelMapper) i32 {
+    pub fn high(self: QVCandlestickModelMapper) i32 {
         return qtc.QVCandlestickModelMapper_High(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHigh` instead
+    /// ### DEPRECATED: Use `superHigh` instead
     ///
-    pub const QBaseHigh = SuperHigh;
+    pub const SuperHigh = superHigh;
 
     /// Inherited from QCandlestickModelMapper
     ///
@@ -2129,9 +2617,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    pub fn SuperHigh(self: QVCandlestickModelMapper) i32 {
+    pub fn superHigh(self: QVCandlestickModelMapper) i32 {
         return qtc.QVCandlestickModelMapper_SuperHigh(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHigh` instead
+    ///
+    pub const OnHigh = onHigh;
 
     /// Inherited from QCandlestickModelMapper
     ///
@@ -2145,9 +2637,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnHigh(self: QVCandlestickModelMapper, callback: *const fn () callconv(.c) i32) void {
+    pub fn onHigh(self: QVCandlestickModelMapper, callback: *const fn () callconv(.c) i32) void {
         qtc.QVCandlestickModelMapper_OnHigh(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setLow` instead
+    ///
+    pub const SetLow = setLow;
 
     /// Inherited from QCandlestickModelMapper
     ///
@@ -2159,15 +2655,15 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    /// ` low: i32 `
+    /// ` _low: i32 `
     ///
-    pub fn SetLow(self: QVCandlestickModelMapper, low: i32) void {
-        qtc.QVCandlestickModelMapper_SetLow(@ptrCast(self.ptr), @bitCast(low));
+    pub fn setLow(self: QVCandlestickModelMapper, _low: i32) void {
+        qtc.QVCandlestickModelMapper_SetLow(@ptrCast(self.ptr), @bitCast(_low));
     }
 
-    /// ### DEPRECATED: Use `SuperSetLow` instead
+    /// ### DEPRECATED: Use `superSetLow` instead
     ///
-    pub const QBaseSetLow = SuperSetLow;
+    pub const SuperSetLow = superSetLow;
 
     /// Inherited from QCandlestickModelMapper
     ///
@@ -2179,11 +2675,15 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    /// ` low: i32 `
+    /// ` _low: i32 `
     ///
-    pub fn SuperSetLow(self: QVCandlestickModelMapper, low: i32) void {
-        qtc.QVCandlestickModelMapper_SuperSetLow(@ptrCast(self.ptr), @bitCast(low));
+    pub fn superSetLow(self: QVCandlestickModelMapper, _low: i32) void {
+        qtc.QVCandlestickModelMapper_SuperSetLow(@ptrCast(self.ptr), @bitCast(_low));
     }
+
+    /// ### DEPRECATED: Use `onSetLow` instead
+    ///
+    pub const OnSetLow = onSetLow;
 
     /// Inherited from QCandlestickModelMapper
     ///
@@ -2197,9 +2697,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVCandlestickModelMapper, low: i32) callconv(.c) void `
     ///
-    pub fn OnSetLow(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper, i32) callconv(.c) void) void {
+    pub fn onSetLow(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper, i32) callconv(.c) void) void {
         qtc.QVCandlestickModelMapper_OnSetLow(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `low` instead
+    ///
+    pub const Low = low;
 
     /// Inherited from QCandlestickModelMapper
     ///
@@ -2211,13 +2715,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    pub fn Low(self: QVCandlestickModelMapper) i32 {
+    pub fn low(self: QVCandlestickModelMapper) i32 {
         return qtc.QVCandlestickModelMapper_Low(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLow` instead
+    /// ### DEPRECATED: Use `superLow` instead
     ///
-    pub const QBaseLow = SuperLow;
+    pub const SuperLow = superLow;
 
     /// Inherited from QCandlestickModelMapper
     ///
@@ -2229,9 +2733,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    pub fn SuperLow(self: QVCandlestickModelMapper) i32 {
+    pub fn superLow(self: QVCandlestickModelMapper) i32 {
         return qtc.QVCandlestickModelMapper_SuperLow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLow` instead
+    ///
+    pub const OnLow = onLow;
 
     /// Inherited from QCandlestickModelMapper
     ///
@@ -2245,9 +2753,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnLow(self: QVCandlestickModelMapper, callback: *const fn () callconv(.c) i32) void {
+    pub fn onLow(self: QVCandlestickModelMapper, callback: *const fn () callconv(.c) i32) void {
         qtc.QVCandlestickModelMapper_OnLow(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setClose` instead
+    ///
+    pub const SetClose = setClose;
 
     /// Inherited from QCandlestickModelMapper
     ///
@@ -2259,15 +2771,15 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    /// ` close: i32 `
+    /// ` _close: i32 `
     ///
-    pub fn SetClose(self: QVCandlestickModelMapper, close: i32) void {
-        qtc.QVCandlestickModelMapper_SetClose(@ptrCast(self.ptr), @bitCast(close));
+    pub fn setClose(self: QVCandlestickModelMapper, _close: i32) void {
+        qtc.QVCandlestickModelMapper_SetClose(@ptrCast(self.ptr), @bitCast(_close));
     }
 
-    /// ### DEPRECATED: Use `SuperSetClose` instead
+    /// ### DEPRECATED: Use `superSetClose` instead
     ///
-    pub const QBaseSetClose = SuperSetClose;
+    pub const SuperSetClose = superSetClose;
 
     /// Inherited from QCandlestickModelMapper
     ///
@@ -2279,11 +2791,15 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    /// ` close: i32 `
+    /// ` _close: i32 `
     ///
-    pub fn SuperSetClose(self: QVCandlestickModelMapper, close: i32) void {
-        qtc.QVCandlestickModelMapper_SuperSetClose(@ptrCast(self.ptr), @bitCast(close));
+    pub fn superSetClose(self: QVCandlestickModelMapper, _close: i32) void {
+        qtc.QVCandlestickModelMapper_SuperSetClose(@ptrCast(self.ptr), @bitCast(_close));
     }
+
+    /// ### DEPRECATED: Use `onSetClose` instead
+    ///
+    pub const OnSetClose = onSetClose;
 
     /// Inherited from QCandlestickModelMapper
     ///
@@ -2297,9 +2813,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVCandlestickModelMapper, close: i32) callconv(.c) void `
     ///
-    pub fn OnSetClose(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper, i32) callconv(.c) void) void {
+    pub fn onSetClose(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper, i32) callconv(.c) void) void {
         qtc.QVCandlestickModelMapper_OnSetClose(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QCandlestickModelMapper
     ///
@@ -2311,13 +2831,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    pub fn Close(self: QVCandlestickModelMapper) i32 {
+    pub fn close(self: QVCandlestickModelMapper) i32 {
         return qtc.QVCandlestickModelMapper_Close(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperClose` instead
+    /// ### DEPRECATED: Use `superClose` instead
     ///
-    pub const QBaseClose = SuperClose;
+    pub const SuperClose = superClose;
 
     /// Inherited from QCandlestickModelMapper
     ///
@@ -2329,9 +2849,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    pub fn SuperClose(self: QVCandlestickModelMapper) i32 {
+    pub fn superClose(self: QVCandlestickModelMapper) i32 {
         return qtc.QVCandlestickModelMapper_SuperClose(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onClose` instead
+    ///
+    pub const OnClose = onClose;
 
     /// Inherited from QCandlestickModelMapper
     ///
@@ -2345,9 +2869,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnClose(self: QVCandlestickModelMapper, callback: *const fn () callconv(.c) i32) void {
+    pub fn onClose(self: QVCandlestickModelMapper, callback: *const fn () callconv(.c) i32) void {
         qtc.QVCandlestickModelMapper_OnClose(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setFirstSetSection` instead
+    ///
+    pub const SetFirstSetSection = setFirstSetSection;
 
     /// Inherited from QCandlestickModelMapper
     ///
@@ -2359,15 +2887,15 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    /// ` firstSetSection: i32 `
+    /// ` _firstSetSection: i32 `
     ///
-    pub fn SetFirstSetSection(self: QVCandlestickModelMapper, firstSetSection: i32) void {
-        qtc.QVCandlestickModelMapper_SetFirstSetSection(@ptrCast(self.ptr), @bitCast(firstSetSection));
+    pub fn setFirstSetSection(self: QVCandlestickModelMapper, _firstSetSection: i32) void {
+        qtc.QVCandlestickModelMapper_SetFirstSetSection(@ptrCast(self.ptr), @bitCast(_firstSetSection));
     }
 
-    /// ### DEPRECATED: Use `SuperSetFirstSetSection` instead
+    /// ### DEPRECATED: Use `superSetFirstSetSection` instead
     ///
-    pub const QBaseSetFirstSetSection = SuperSetFirstSetSection;
+    pub const SuperSetFirstSetSection = superSetFirstSetSection;
 
     /// Inherited from QCandlestickModelMapper
     ///
@@ -2379,11 +2907,15 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    /// ` firstSetSection: i32 `
+    /// ` _firstSetSection: i32 `
     ///
-    pub fn SuperSetFirstSetSection(self: QVCandlestickModelMapper, firstSetSection: i32) void {
-        qtc.QVCandlestickModelMapper_SuperSetFirstSetSection(@ptrCast(self.ptr), @bitCast(firstSetSection));
+    pub fn superSetFirstSetSection(self: QVCandlestickModelMapper, _firstSetSection: i32) void {
+        qtc.QVCandlestickModelMapper_SuperSetFirstSetSection(@ptrCast(self.ptr), @bitCast(_firstSetSection));
     }
+
+    /// ### DEPRECATED: Use `onSetFirstSetSection` instead
+    ///
+    pub const OnSetFirstSetSection = onSetFirstSetSection;
 
     /// Inherited from QCandlestickModelMapper
     ///
@@ -2397,9 +2929,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVCandlestickModelMapper, firstSetSection: i32) callconv(.c) void `
     ///
-    pub fn OnSetFirstSetSection(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper, i32) callconv(.c) void) void {
+    pub fn onSetFirstSetSection(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper, i32) callconv(.c) void) void {
         qtc.QVCandlestickModelMapper_OnSetFirstSetSection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `firstSetSection` instead
+    ///
+    pub const FirstSetSection = firstSetSection;
 
     /// Inherited from QCandlestickModelMapper
     ///
@@ -2411,13 +2947,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    pub fn FirstSetSection(self: QVCandlestickModelMapper) i32 {
+    pub fn firstSetSection(self: QVCandlestickModelMapper) i32 {
         return qtc.QVCandlestickModelMapper_FirstSetSection(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFirstSetSection` instead
+    /// ### DEPRECATED: Use `superFirstSetSection` instead
     ///
-    pub const QBaseFirstSetSection = SuperFirstSetSection;
+    pub const SuperFirstSetSection = superFirstSetSection;
 
     /// Inherited from QCandlestickModelMapper
     ///
@@ -2429,9 +2965,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    pub fn SuperFirstSetSection(self: QVCandlestickModelMapper) i32 {
+    pub fn superFirstSetSection(self: QVCandlestickModelMapper) i32 {
         return qtc.QVCandlestickModelMapper_SuperFirstSetSection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFirstSetSection` instead
+    ///
+    pub const OnFirstSetSection = onFirstSetSection;
 
     /// Inherited from QCandlestickModelMapper
     ///
@@ -2445,9 +2985,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnFirstSetSection(self: QVCandlestickModelMapper, callback: *const fn () callconv(.c) i32) void {
+    pub fn onFirstSetSection(self: QVCandlestickModelMapper, callback: *const fn () callconv(.c) i32) void {
         qtc.QVCandlestickModelMapper_OnFirstSetSection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setLastSetSection` instead
+    ///
+    pub const SetLastSetSection = setLastSetSection;
 
     /// Inherited from QCandlestickModelMapper
     ///
@@ -2459,15 +3003,15 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    /// ` lastSetSection: i32 `
+    /// ` _lastSetSection: i32 `
     ///
-    pub fn SetLastSetSection(self: QVCandlestickModelMapper, lastSetSection: i32) void {
-        qtc.QVCandlestickModelMapper_SetLastSetSection(@ptrCast(self.ptr), @bitCast(lastSetSection));
+    pub fn setLastSetSection(self: QVCandlestickModelMapper, _lastSetSection: i32) void {
+        qtc.QVCandlestickModelMapper_SetLastSetSection(@ptrCast(self.ptr), @bitCast(_lastSetSection));
     }
 
-    /// ### DEPRECATED: Use `SuperSetLastSetSection` instead
+    /// ### DEPRECATED: Use `superSetLastSetSection` instead
     ///
-    pub const QBaseSetLastSetSection = SuperSetLastSetSection;
+    pub const SuperSetLastSetSection = superSetLastSetSection;
 
     /// Inherited from QCandlestickModelMapper
     ///
@@ -2479,11 +3023,15 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    /// ` lastSetSection: i32 `
+    /// ` _lastSetSection: i32 `
     ///
-    pub fn SuperSetLastSetSection(self: QVCandlestickModelMapper, lastSetSection: i32) void {
-        qtc.QVCandlestickModelMapper_SuperSetLastSetSection(@ptrCast(self.ptr), @bitCast(lastSetSection));
+    pub fn superSetLastSetSection(self: QVCandlestickModelMapper, _lastSetSection: i32) void {
+        qtc.QVCandlestickModelMapper_SuperSetLastSetSection(@ptrCast(self.ptr), @bitCast(_lastSetSection));
     }
+
+    /// ### DEPRECATED: Use `onSetLastSetSection` instead
+    ///
+    pub const OnSetLastSetSection = onSetLastSetSection;
 
     /// Inherited from QCandlestickModelMapper
     ///
@@ -2497,9 +3045,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVCandlestickModelMapper, lastSetSection: i32) callconv(.c) void `
     ///
-    pub fn OnSetLastSetSection(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper, i32) callconv(.c) void) void {
+    pub fn onSetLastSetSection(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper, i32) callconv(.c) void) void {
         qtc.QVCandlestickModelMapper_OnSetLastSetSection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `lastSetSection` instead
+    ///
+    pub const LastSetSection = lastSetSection;
 
     /// Inherited from QCandlestickModelMapper
     ///
@@ -2511,13 +3063,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    pub fn LastSetSection(self: QVCandlestickModelMapper) i32 {
+    pub fn lastSetSection(self: QVCandlestickModelMapper) i32 {
         return qtc.QVCandlestickModelMapper_LastSetSection(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLastSetSection` instead
+    /// ### DEPRECATED: Use `superLastSetSection` instead
     ///
-    pub const QBaseLastSetSection = SuperLastSetSection;
+    pub const SuperLastSetSection = superLastSetSection;
 
     /// Inherited from QCandlestickModelMapper
     ///
@@ -2529,9 +3081,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    pub fn SuperLastSetSection(self: QVCandlestickModelMapper) i32 {
+    pub fn superLastSetSection(self: QVCandlestickModelMapper) i32 {
         return qtc.QVCandlestickModelMapper_SuperLastSetSection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLastSetSection` instead
+    ///
+    pub const OnLastSetSection = onLastSetSection;
 
     /// Inherited from QCandlestickModelMapper
     ///
@@ -2545,9 +3101,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnLastSetSection(self: QVCandlestickModelMapper, callback: *const fn () callconv(.c) i32) void {
+    pub fn onLastSetSection(self: QVCandlestickModelMapper, callback: *const fn () callconv(.c) i32) void {
         qtc.QVCandlestickModelMapper_OnLastSetSection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -2559,13 +3119,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    pub fn Sender(self: QVCandlestickModelMapper) QObject {
+    pub fn sender(self: QVCandlestickModelMapper) QObject {
         return .{ .ptr = qtc.QVCandlestickModelMapper_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -2577,9 +3137,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    pub fn SuperSender(self: QVCandlestickModelMapper) QObject {
+    pub fn superSender(self: QVCandlestickModelMapper) QObject {
         return .{ .ptr = qtc.QVCandlestickModelMapper_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -2593,9 +3157,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QVCandlestickModelMapper, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QVCandlestickModelMapper, callback: *const fn () callconv(.c) QObject) void {
         qtc.QVCandlestickModelMapper_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2607,13 +3175,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    pub fn SenderSignalIndex(self: QVCandlestickModelMapper) i32 {
+    pub fn senderSignalIndex(self: QVCandlestickModelMapper) i32 {
         return qtc.QVCandlestickModelMapper_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2625,9 +3193,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    pub fn SuperSenderSignalIndex(self: QVCandlestickModelMapper) i32 {
+    pub fn superSenderSignalIndex(self: QVCandlestickModelMapper) i32 {
         return qtc.QVCandlestickModelMapper_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2641,9 +3213,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QVCandlestickModelMapper, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QVCandlestickModelMapper, callback: *const fn () callconv(.c) i32) void {
         qtc.QVCandlestickModelMapper_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -2657,14 +3233,14 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QVCandlestickModelMapper, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QVCandlestickModelMapper, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QVCandlestickModelMapper_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -2678,10 +3254,14 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QVCandlestickModelMapper, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QVCandlestickModelMapper, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QVCandlestickModelMapper_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -2695,9 +3275,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVCandlestickModelMapper, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper, [*:0]const u8) callconv(.c) i32) void {
         qtc.QVCandlestickModelMapper_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2711,14 +3295,14 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QVCandlestickModelMapper, signal: anytype) bool {
+    pub fn isSignalConnected(self: QVCandlestickModelMapper, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QVCandlestickModelMapper_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2732,10 +3316,14 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QVCandlestickModelMapper, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QVCandlestickModelMapper, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QVCandlestickModelMapper_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2749,9 +3337,13 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVCandlestickModelMapper, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper, QMetaMethod) callconv(.c) bool) void {
         qtc.QVCandlestickModelMapper_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -2765,23 +3357,23 @@ pub const QVCandlestickModelMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QVCandlestickModelMapper, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QVCandlestickModelMapper, callback: *const fn (QVCandlestickModelMapper, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#dtor.QVCandlestickModelMapper)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QVCandlestickModelMapper `
     ///
-    pub fn Delete(self: QVCandlestickModelMapper) void {
+    pub fn delete(self: QVCandlestickModelMapper) void {
         qtc.QVCandlestickModelMapper_Delete(@ptrCast(self.ptr));
     }
 };

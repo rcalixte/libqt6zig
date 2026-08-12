@@ -12,100 +12,139 @@ pub const QKeyCombination = extern struct {
 
     pub const _is_QKeyCombination = {};
 
-    /// New constructs a new QKeyCombination object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QKeyCombination object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QKeyCombination `
     ///
-    pub fn New(other: anytype) QKeyCombination {
+    pub fn new(other: anytype) QKeyCombination {
         comptime _ = @TypeOf(other)._is_QKeyCombination;
         return .{ .ptr = qtc.QKeyCombination_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new QKeyCombination object and invalidates the source QKeyCombination object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QKeyCombination object and invalidate the source QKeyCombination object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QKeyCombination `
     ///
-    pub fn New2(other: anytype) QKeyCombination {
+    pub fn new2(other: anytype) QKeyCombination {
         comptime _ = @TypeOf(other)._is_QKeyCombination;
         return .{ .ptr = qtc.QKeyCombination_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QKeyCombination object.
+    /// ### DEPRECATED: Use `new3` instead
     ///
-    pub fn New3() QKeyCombination {
+    pub const New3 = new3;
+
+    /// Allocate a new QKeyCombination object in C++ memory
+    ///
+    pub fn new3() QKeyCombination {
         return .{ .ptr = qtc.QKeyCombination_new3() };
     }
 
-    /// New4 constructs a new QKeyCombination object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QKeyCombination object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` modifiers: flag of qnamespace_enums.Modifier `
     ///
-    pub fn New4(modifiers: i32) QKeyCombination {
+    pub fn new4(modifiers: i32) QKeyCombination {
         return .{ .ptr = qtc.QKeyCombination_new4(@bitCast(modifiers)) };
     }
 
-    /// New5 constructs a new QKeyCombination object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new QKeyCombination object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn New5(modifiers: i32) QKeyCombination {
+    pub fn new5(modifiers: i32) QKeyCombination {
         return .{ .ptr = qtc.QKeyCombination_new5(@bitCast(modifiers)) };
     }
 
-    /// New6 constructs a new QKeyCombination object.
+    /// ### DEPRECATED: Use `new6` instead
+    ///
+    pub const New6 = new6;
+
+    /// Allocate a new QKeyCombination object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QKeyCombination `
     ///
-    pub fn New6(param1: anytype) QKeyCombination {
+    pub fn new6(param1: anytype) QKeyCombination {
         comptime _ = @TypeOf(param1)._is_QKeyCombination;
         return .{ .ptr = qtc.QKeyCombination_new6(@ptrCast(param1.ptr)) };
     }
 
-    /// New7 constructs a new QKeyCombination object.
+    /// ### DEPRECATED: Use `new7` instead
+    ///
+    pub const New7 = new7;
+
+    /// Allocate a new QKeyCombination object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` key: qnamespace_enums.Key `
+    /// ` _key: qnamespace_enums.Key `
     ///
-    pub fn New7(key: i32) QKeyCombination {
-        return .{ .ptr = qtc.QKeyCombination_new7(@bitCast(key)) };
+    pub fn new7(_key: i32) QKeyCombination {
+        return .{ .ptr = qtc.QKeyCombination_new7(@bitCast(_key)) };
     }
 
-    /// New8 constructs a new QKeyCombination object.
+    /// ### DEPRECATED: Use `new8` instead
+    ///
+    pub const New8 = new8;
+
+    /// Allocate a new QKeyCombination object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` modifiers: flag of qnamespace_enums.Modifier `
     ///
-    /// ` key: qnamespace_enums.Key `
+    /// ` _key: qnamespace_enums.Key `
     ///
-    pub fn New8(modifiers: i32, key: i32) QKeyCombination {
-        return .{ .ptr = qtc.QKeyCombination_new8(@bitCast(modifiers), @bitCast(key)) };
+    pub fn new8(modifiers: i32, _key: i32) QKeyCombination {
+        return .{ .ptr = qtc.QKeyCombination_new8(@bitCast(modifiers), @bitCast(_key)) };
     }
 
-    /// New9 constructs a new QKeyCombination object.
+    /// ### DEPRECATED: Use `new9` instead
+    ///
+    pub const New9 = new9;
+
+    /// Allocate a new QKeyCombination object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
-    /// ` key: qnamespace_enums.Key `
+    /// ` _key: qnamespace_enums.Key `
     ///
-    pub fn New9(modifiers: i32, key: i32) QKeyCombination {
-        return .{ .ptr = qtc.QKeyCombination_new9(@bitCast(modifiers), @bitCast(key)) };
+    pub fn new9(modifiers: i32, _key: i32) QKeyCombination {
+        return .{ .ptr = qtc.QKeyCombination_new9(@bitCast(modifiers), @bitCast(_key)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -113,11 +152,14 @@ pub const QKeyCombination = extern struct {
     ///
     /// ` other: QKeyCombination `
     ///
-    pub fn CopyAssign(self: QKeyCombination, other: QKeyCombination) void {
+    pub fn copyAssign(self: QKeyCombination, other: QKeyCombination) void {
         qtc.QKeyCombination_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -125,9 +167,13 @@ pub const QKeyCombination = extern struct {
     ///
     /// ` other: QKeyCombination `
     ///
-    pub fn MoveAssign(self: QKeyCombination, other: QKeyCombination) void {
+    pub fn moveAssign(self: QKeyCombination, other: QKeyCombination) void {
         qtc.QKeyCombination_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `keyboardModifiers` instead
+    ///
+    pub const KeyboardModifiers = keyboardModifiers;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeycombination.html#keyboardModifiers)
     ///
@@ -139,9 +185,13 @@ pub const QKeyCombination = extern struct {
     ///
     /// ` flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn KeyboardModifiers(self: QKeyCombination) i32 {
+    pub fn keyboardModifiers(self: QKeyCombination) i32 {
         return qtc.QKeyCombination_KeyboardModifiers(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `key` instead
+    ///
+    pub const Key = key;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeycombination.html#key)
     ///
@@ -153,9 +203,13 @@ pub const QKeyCombination = extern struct {
     ///
     /// ` qnamespace_enums.Key `
     ///
-    pub fn Key(self: QKeyCombination) i32 {
+    pub fn key(self: QKeyCombination) i32 {
         return qtc.QKeyCombination_Key(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `fromCombined` instead
+    ///
+    pub const FromCombined = fromCombined;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeycombination.html#fromCombined)
     ///
@@ -163,9 +217,13 @@ pub const QKeyCombination = extern struct {
     ///
     /// ` combined: i32 `
     ///
-    pub fn FromCombined(combined: i32) QKeyCombination {
+    pub fn fromCombined(combined: i32) QKeyCombination {
         return .{ .ptr = qtc.QKeyCombination_FromCombined(@bitCast(combined)) };
     }
+
+    /// ### DEPRECATED: Use `toCombined` instead
+    ///
+    pub const ToCombined = toCombined;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeycombination.html#toCombined)
     ///
@@ -173,9 +231,13 @@ pub const QKeyCombination = extern struct {
     ///
     /// ` self: QKeyCombination `
     ///
-    pub fn ToCombined(self: QKeyCombination) i32 {
+    pub fn toCombined(self: QKeyCombination) i32 {
         return qtc.QKeyCombination_ToCombined(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toInt` instead
+    ///
+    pub const ToInt = toInt;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeycombination.html#operator)
     ///
@@ -183,23 +245,23 @@ pub const QKeyCombination = extern struct {
     ///
     /// ` self: QKeyCombination `
     ///
-    pub fn ToInt(self: QKeyCombination) i32 {
+    pub fn toInt(self: QKeyCombination) i32 {
         return qtc.QKeyCombination_ToInt(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeycombination.html#dtor.QKeyCombination)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QKeyCombination `
     ///
-    pub fn Delete(self: QKeyCombination) void {
+    pub fn delete(self: QKeyCombination) void {
         qtc.QKeyCombination_Delete(@ptrCast(self.ptr));
     }
 };

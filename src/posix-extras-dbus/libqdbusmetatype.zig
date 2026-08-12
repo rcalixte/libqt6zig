@@ -14,29 +14,40 @@ pub const QDBusMetaType = extern struct {
 
     pub const _is_QDBusMetaType = {};
 
-    /// New constructs a new QDBusMetaType object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QDBusMetaType object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QDBusMetaType `
     ///
-    pub fn New(other: anytype) QDBusMetaType {
+    pub fn new(other: anytype) QDBusMetaType {
         comptime _ = @TypeOf(other)._is_QDBusMetaType;
         return .{ .ptr = qtc.QDBusMetaType_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new QDBusMetaType object and invalidates the source QDBusMetaType object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QDBusMetaType object and invalidate the source QDBusMetaType object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QDBusMetaType `
     ///
-    pub fn New2(other: anytype) QDBusMetaType {
+    pub fn new2(other: anytype) QDBusMetaType {
         comptime _ = @TypeOf(other)._is_QDBusMetaType;
         return .{ .ptr = qtc.QDBusMetaType_new2(@ptrCast(other.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -44,11 +55,14 @@ pub const QDBusMetaType = extern struct {
     ///
     /// ` other: QDBusMetaType `
     ///
-    pub fn CopyAssign(self: QDBusMetaType, other: QDBusMetaType) void {
+    pub fn copyAssign(self: QDBusMetaType, other: QDBusMetaType) void {
         qtc.QDBusMetaType_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -56,9 +70,13 @@ pub const QDBusMetaType = extern struct {
     ///
     /// ` other: QDBusMetaType `
     ///
-    pub fn MoveAssign(self: QDBusMetaType, other: QDBusMetaType) void {
+    pub fn moveAssign(self: QDBusMetaType, other: QDBusMetaType) void {
         qtc.QDBusMetaType_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `registerMarshallOperators` instead
+    ///
+    pub const RegisterMarshallOperators = registerMarshallOperators;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusmetatype.html#registerMarshallOperators)
     ///
@@ -70,10 +88,14 @@ pub const QDBusMetaType = extern struct {
     ///
     /// ` param3: *const fn (funcparam1: QDBusArgument, funcparam2: ?*anyopaque) callconv(.c) void `
     ///
-    pub fn RegisterMarshallOperators(typeId: anytype, param2: *const fn (QDBusArgument, ?*const anyopaque) callconv(.c) void, param3: *const fn (QDBusArgument, ?*anyopaque) callconv(.c) void) void {
+    pub fn registerMarshallOperators(typeId: anytype, param2: *const fn (QDBusArgument, ?*const anyopaque) callconv(.c) void, param3: *const fn (QDBusArgument, ?*anyopaque) callconv(.c) void) void {
         comptime _ = @TypeOf(typeId)._is_QMetaType;
         qtc.QDBusMetaType_RegisterMarshallOperators(@ptrCast(typeId.ptr), @bitCast(@intFromPtr(param2)), @bitCast(@intFromPtr(param3)));
     }
+
+    /// ### DEPRECATED: Use `marshall` instead
+    ///
+    pub const Marshall = marshall;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusmetatype.html#marshall)
     ///
@@ -85,11 +107,15 @@ pub const QDBusMetaType = extern struct {
     ///
     /// ` data: ?*const anyopaque `
     ///
-    pub fn Marshall(param1: anytype, id: anytype, data: ?*const anyopaque) bool {
+    pub fn marshall(param1: anytype, id: anytype, data: ?*const anyopaque) bool {
         comptime _ = @TypeOf(param1)._is_QDBusArgument;
         comptime _ = @TypeOf(id)._is_QMetaType;
         return qtc.QDBusMetaType_Marshall(@ptrCast(param1.ptr), @ptrCast(id.ptr), @ptrCast(data));
     }
+
+    /// ### DEPRECATED: Use `demarshall` instead
+    ///
+    pub const Demarshall = demarshall;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusmetatype.html#demarshall)
     ///
@@ -101,11 +127,15 @@ pub const QDBusMetaType = extern struct {
     ///
     /// ` data: ?*anyopaque `
     ///
-    pub fn Demarshall(param1: anytype, id: anytype, data: ?*anyopaque) bool {
+    pub fn demarshall(param1: anytype, id: anytype, data: ?*anyopaque) bool {
         comptime _ = @TypeOf(param1)._is_QDBusArgument;
         comptime _ = @TypeOf(id)._is_QMetaType;
         return qtc.QDBusMetaType_Demarshall(@ptrCast(param1.ptr), @ptrCast(id.ptr), @ptrCast(data));
     }
+
+    /// ### DEPRECATED: Use `registerCustomType` instead
+    ///
+    pub const RegisterCustomType = registerCustomType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusmetatype.html#registerCustomType)
     ///
@@ -115,7 +145,7 @@ pub const QDBusMetaType = extern struct {
     ///
     /// ` signature: []u8 `
     ///
-    pub fn RegisterCustomType(typeVal: anytype, signature: []u8) void {
+    pub fn registerCustomType(typeVal: anytype, signature: []u8) void {
         comptime _ = @TypeOf(typeVal)._is_QMetaType;
         const signature_str = qtc.libqt_string{
             .len = signature.len,
@@ -124,16 +154,24 @@ pub const QDBusMetaType = extern struct {
         qtc.QDBusMetaType_RegisterCustomType(@ptrCast(typeVal.ptr), signature_str);
     }
 
+    /// ### DEPRECATED: Use `signatureToMetaType` instead
+    ///
+    pub const SignatureToMetaType = signatureToMetaType;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusmetatype.html#signatureToMetaType)
     ///
     /// ## Parameter(s):
     ///
     /// ` signature: [:0]const u8 `
     ///
-    pub fn SignatureToMetaType(signature: [:0]const u8) QMetaType {
+    pub fn signatureToMetaType(signature: [:0]const u8) QMetaType {
         const signature_Cstring = signature.ptr;
         return .{ .ptr = qtc.QDBusMetaType_SignatureToMetaType(signature_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `typeToSignature` instead
+    ///
+    pub const TypeToSignature = typeToSignature;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusmetatype.html#typeToSignature)
     ///
@@ -141,25 +179,25 @@ pub const QDBusMetaType = extern struct {
     ///
     /// ` typeVal: QMetaType `
     ///
-    pub fn TypeToSignature(typeVal: anytype) [:0]const u8 {
+    pub fn typeToSignature(typeVal: anytype) [:0]const u8 {
         comptime _ = @TypeOf(typeVal)._is_QMetaType;
         const _ret = qtc.QDBusMetaType_TypeToSignature(@ptrCast(typeVal.ptr));
         return std.mem.span(_ret);
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusmetatype.html#dtor.QDBusMetaType)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDBusMetaType `
     ///
-    pub fn Delete(self: QDBusMetaType) void {
+    pub fn delete(self: QDBusMetaType) void {
         qtc.QDBusMetaType_Delete(@ptrCast(self.ptr));
     }
 };

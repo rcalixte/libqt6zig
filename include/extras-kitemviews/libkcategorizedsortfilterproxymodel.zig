@@ -40,22 +40,34 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     pub const _is_QAbstractItemModel = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new KCategorizedSortFilterProxyModel object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() KCategorizedSortFilterProxyModel {
+    pub const New = new;
+
+    /// Allocate a new KCategorizedSortFilterProxyModel object in C++ memory
+    ///
+    pub fn new() KCategorizedSortFilterProxyModel {
         return .{ .ptr = qtc.KCategorizedSortFilterProxyModel_new() };
     }
 
-    /// New2 constructs a new KCategorizedSortFilterProxyModel object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KCategorizedSortFilterProxyModel object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) KCategorizedSortFilterProxyModel {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.KCategorizedSortFilterProxyModel_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) KCategorizedSortFilterProxyModel {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.KCategorizedSortFilterProxyModel_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -63,9 +75,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn MetaObject(self: KCategorizedSortFilterProxyModel) QMetaObject {
+    pub fn metaObject(self: KCategorizedSortFilterProxyModel) QMetaObject {
         return .{ .ptr = qtc.KCategorizedSortFilterProxyModel_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -77,13 +93,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KCategorizedSortFilterProxyModel, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KCategorizedSortFilterProxyModel, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KCategorizedSortFilterProxyModel_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -93,9 +109,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn SuperMetaObject(self: KCategorizedSortFilterProxyModel) QMetaObject {
+    pub fn superMetaObject(self: KCategorizedSortFilterProxyModel) QMetaObject {
         return .{ .ptr = qtc.KCategorizedSortFilterProxyModel_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -103,10 +123,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KCategorizedSortFilterProxyModel, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KCategorizedSortFilterProxyModel, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KCategorizedSortFilterProxyModel_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -116,13 +140,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KCategorizedSortFilterProxyModel_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -132,10 +156,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KCategorizedSortFilterProxyModel, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KCategorizedSortFilterProxyModel, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KCategorizedSortFilterProxyModel_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -147,9 +175,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KCategorizedSortFilterProxyModel, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KCategorizedSortFilterProxyModel, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KCategorizedSortFilterProxyModel_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -159,13 +191,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KCategorizedSortFilterProxyModel_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -179,9 +211,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KCategorizedSortFilterProxyModel, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KCategorizedSortFilterProxyModel, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KCategorizedSortFilterProxyModel_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -191,14 +227,18 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCategorizedSortFilterProxyModel.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCategorizedSortFilterProxyModel.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `sort` instead
+    ///
+    pub const Sort = sort;
 
     /// ### [Upstream resources](https://api.kde.org/kcategorizedsortfilterproxymodel.html#sort)
     ///
@@ -210,9 +250,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` order: qnamespace_enums.SortOrder `
     ///
-    pub fn Sort(self: KCategorizedSortFilterProxyModel, column: i32, order: i32) void {
+    pub fn sort(self: KCategorizedSortFilterProxyModel, column: i32, order: i32) void {
         qtc.KCategorizedSortFilterProxyModel_Sort(@ptrCast(self.ptr), @bitCast(column), @bitCast(order));
     }
+
+    /// ### DEPRECATED: Use `onSort` instead
+    ///
+    pub const OnSort = onSort;
 
     /// ### [Upstream resources](https://api.kde.org/kcategorizedsortfilterproxymodel.html#sort)
     ///
@@ -224,13 +268,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, column: i32, order: qnamespace_enums.SortOrder) callconv(.c) void `
     ///
-    pub fn OnSort(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, i32, i32) callconv(.c) void) void {
+    pub fn onSort(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, i32, i32) callconv(.c) void) void {
         qtc.KCategorizedSortFilterProxyModel_OnSort(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSort` instead
+    /// ### DEPRECATED: Use `superSort` instead
     ///
-    pub const QBaseSort = SuperSort;
+    pub const SuperSort = superSort;
 
     /// ### [Upstream resources](https://api.kde.org/kcategorizedsortfilterproxymodel.html#sort)
     ///
@@ -244,9 +288,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` order: qnamespace_enums.SortOrder `
     ///
-    pub fn SuperSort(self: KCategorizedSortFilterProxyModel, column: i32, order: i32) void {
+    pub fn superSort(self: KCategorizedSortFilterProxyModel, column: i32, order: i32) void {
         qtc.KCategorizedSortFilterProxyModel_SuperSort(@ptrCast(self.ptr), @bitCast(column), @bitCast(order));
     }
+
+    /// ### DEPRECATED: Use `isCategorizedModel` instead
+    ///
+    pub const IsCategorizedModel = isCategorizedModel;
 
     /// ### [Upstream resources](https://api.kde.org/kcategorizedsortfilterproxymodel.html#isCategorizedModel)
     ///
@@ -254,9 +302,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn IsCategorizedModel(self: KCategorizedSortFilterProxyModel) bool {
+    pub fn isCategorizedModel(self: KCategorizedSortFilterProxyModel) bool {
         return qtc.KCategorizedSortFilterProxyModel_IsCategorizedModel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCategorizedModel` instead
+    ///
+    pub const SetCategorizedModel = setCategorizedModel;
 
     /// ### [Upstream resources](https://api.kde.org/kcategorizedsortfilterproxymodel.html#setCategorizedModel)
     ///
@@ -266,9 +318,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` categorizedModel: bool `
     ///
-    pub fn SetCategorizedModel(self: KCategorizedSortFilterProxyModel, categorizedModel: bool) void {
+    pub fn setCategorizedModel(self: KCategorizedSortFilterProxyModel, categorizedModel: bool) void {
         qtc.KCategorizedSortFilterProxyModel_SetCategorizedModel(@ptrCast(self.ptr), categorizedModel);
     }
+
+    /// ### DEPRECATED: Use `sortColumn` instead
+    ///
+    pub const SortColumn = sortColumn;
 
     /// ### [Upstream resources](https://api.kde.org/kcategorizedsortfilterproxymodel.html#sortColumn)
     ///
@@ -276,9 +332,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn SortColumn(self: KCategorizedSortFilterProxyModel) i32 {
+    pub fn sortColumn(self: KCategorizedSortFilterProxyModel) i32 {
         return qtc.KCategorizedSortFilterProxyModel_SortColumn(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `sortOrder` instead
+    ///
+    pub const SortOrder = sortOrder;
 
     /// ### [Upstream resources](https://api.kde.org/kcategorizedsortfilterproxymodel.html#sortOrder)
     ///
@@ -290,9 +350,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` qnamespace_enums.SortOrder `
     ///
-    pub fn SortOrder(self: KCategorizedSortFilterProxyModel) i32 {
+    pub fn sortOrder(self: KCategorizedSortFilterProxyModel) i32 {
         return qtc.KCategorizedSortFilterProxyModel_SortOrder(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSortCategoriesByNaturalComparison` instead
+    ///
+    pub const SetSortCategoriesByNaturalComparison = setSortCategoriesByNaturalComparison;
 
     /// ### [Upstream resources](https://api.kde.org/kcategorizedsortfilterproxymodel.html#setSortCategoriesByNaturalComparison)
     ///
@@ -300,11 +364,15 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` sortCategoriesByNaturalComparison: bool `
+    /// ` _sortCategoriesByNaturalComparison: bool `
     ///
-    pub fn SetSortCategoriesByNaturalComparison(self: KCategorizedSortFilterProxyModel, sortCategoriesByNaturalComparison: bool) void {
-        qtc.KCategorizedSortFilterProxyModel_SetSortCategoriesByNaturalComparison(@ptrCast(self.ptr), sortCategoriesByNaturalComparison);
+    pub fn setSortCategoriesByNaturalComparison(self: KCategorizedSortFilterProxyModel, _sortCategoriesByNaturalComparison: bool) void {
+        qtc.KCategorizedSortFilterProxyModel_SetSortCategoriesByNaturalComparison(@ptrCast(self.ptr), _sortCategoriesByNaturalComparison);
     }
+
+    /// ### DEPRECATED: Use `sortCategoriesByNaturalComparison` instead
+    ///
+    pub const SortCategoriesByNaturalComparison = sortCategoriesByNaturalComparison;
 
     /// ### [Upstream resources](https://api.kde.org/kcategorizedsortfilterproxymodel.html#sortCategoriesByNaturalComparison)
     ///
@@ -312,9 +380,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn SortCategoriesByNaturalComparison(self: KCategorizedSortFilterProxyModel) bool {
+    pub fn sortCategoriesByNaturalComparison(self: KCategorizedSortFilterProxyModel) bool {
         return qtc.KCategorizedSortFilterProxyModel_SortCategoriesByNaturalComparison(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lessThan` instead
+    ///
+    pub const LessThan = lessThan;
 
     /// ### [Upstream resources](https://api.kde.org/kcategorizedsortfilterproxymodel.html#lessThan)
     ///
@@ -326,12 +398,16 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` right: QModelIndex `
     ///
-    pub fn LessThan(self: KCategorizedSortFilterProxyModel, left: anytype, right: anytype) bool {
+    pub fn lessThan(self: KCategorizedSortFilterProxyModel, left: anytype, right: anytype) bool {
         comptime _ = @TypeOf(left)._is_QModelIndex;
         comptime _ = @TypeOf(right)._is_QModelIndex;
         return qtc.KCategorizedSortFilterProxyModel_LessThan(@ptrCast(self.ptr), @ptrCast(left.ptr), @ptrCast(right.ptr));
     }
 
+    /// ### DEPRECATED: Use `onLessThan` instead
+    ///
+    pub const OnLessThan = onLessThan;
+
     /// ### [Upstream resources](https://api.kde.org/kcategorizedsortfilterproxymodel.html#lessThan)
     ///
     /// Allows for overriding the related default method
@@ -342,13 +418,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, left: QModelIndex, right: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnLessThan(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, QModelIndex) callconv(.c) bool) void {
+    pub fn onLessThan(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, QModelIndex) callconv(.c) bool) void {
         qtc.KCategorizedSortFilterProxyModel_OnLessThan(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperLessThan` instead
+    /// ### DEPRECATED: Use `superLessThan` instead
     ///
-    pub const QBaseLessThan = SuperLessThan;
+    pub const SuperLessThan = superLessThan;
 
     /// ### [Upstream resources](https://api.kde.org/kcategorizedsortfilterproxymodel.html#lessThan)
     ///
@@ -362,12 +438,16 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` right: QModelIndex `
     ///
-    pub fn SuperLessThan(self: KCategorizedSortFilterProxyModel, left: anytype, right: anytype) bool {
+    pub fn superLessThan(self: KCategorizedSortFilterProxyModel, left: anytype, right: anytype) bool {
         comptime _ = @TypeOf(left)._is_QModelIndex;
         comptime _ = @TypeOf(right)._is_QModelIndex;
         return qtc.KCategorizedSortFilterProxyModel_SuperLessThan(@ptrCast(self.ptr), @ptrCast(left.ptr), @ptrCast(right.ptr));
     }
 
+    /// ### DEPRECATED: Use `subSortLessThan` instead
+    ///
+    pub const SubSortLessThan = subSortLessThan;
+
     /// ### [Upstream resources](https://api.kde.org/kcategorizedsortfilterproxymodel.html#subSortLessThan)
     ///
     /// ## Parameter(s):
@@ -378,11 +458,15 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` right: QModelIndex `
     ///
-    pub fn SubSortLessThan(self: KCategorizedSortFilterProxyModel, left: anytype, right: anytype) bool {
+    pub fn subSortLessThan(self: KCategorizedSortFilterProxyModel, left: anytype, right: anytype) bool {
         comptime _ = @TypeOf(left)._is_QModelIndex;
         comptime _ = @TypeOf(right)._is_QModelIndex;
         return qtc.KCategorizedSortFilterProxyModel_SubSortLessThan(@ptrCast(self.ptr), @ptrCast(left.ptr), @ptrCast(right.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSubSortLessThan` instead
+    ///
+    pub const OnSubSortLessThan = onSubSortLessThan;
 
     /// ### [Upstream resources](https://api.kde.org/kcategorizedsortfilterproxymodel.html#subSortLessThan)
     ///
@@ -394,13 +478,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, left: QModelIndex, right: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnSubSortLessThan(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, QModelIndex) callconv(.c) bool) void {
+    pub fn onSubSortLessThan(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, QModelIndex) callconv(.c) bool) void {
         qtc.KCategorizedSortFilterProxyModel_OnSubSortLessThan(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSubSortLessThan` instead
+    /// ### DEPRECATED: Use `superSubSortLessThan` instead
     ///
-    pub const QBaseSubSortLessThan = SuperSubSortLessThan;
+    pub const SuperSubSortLessThan = superSubSortLessThan;
 
     /// ### [Upstream resources](https://api.kde.org/kcategorizedsortfilterproxymodel.html#subSortLessThan)
     ///
@@ -414,11 +498,15 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` right: QModelIndex `
     ///
-    pub fn SuperSubSortLessThan(self: KCategorizedSortFilterProxyModel, left: anytype, right: anytype) bool {
+    pub fn superSubSortLessThan(self: KCategorizedSortFilterProxyModel, left: anytype, right: anytype) bool {
         comptime _ = @TypeOf(left)._is_QModelIndex;
         comptime _ = @TypeOf(right)._is_QModelIndex;
         return qtc.KCategorizedSortFilterProxyModel_SuperSubSortLessThan(@ptrCast(self.ptr), @ptrCast(left.ptr), @ptrCast(right.ptr));
     }
+
+    /// ### DEPRECATED: Use `compareCategories` instead
+    ///
+    pub const CompareCategories = compareCategories;
 
     /// ### [Upstream resources](https://api.kde.org/kcategorizedsortfilterproxymodel.html#compareCategories)
     ///
@@ -430,11 +518,15 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` right: QModelIndex `
     ///
-    pub fn CompareCategories(self: KCategorizedSortFilterProxyModel, left: anytype, right: anytype) i32 {
+    pub fn compareCategories(self: KCategorizedSortFilterProxyModel, left: anytype, right: anytype) i32 {
         comptime _ = @TypeOf(left)._is_QModelIndex;
         comptime _ = @TypeOf(right)._is_QModelIndex;
         return qtc.KCategorizedSortFilterProxyModel_CompareCategories(@ptrCast(self.ptr), @ptrCast(left.ptr), @ptrCast(right.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCompareCategories` instead
+    ///
+    pub const OnCompareCategories = onCompareCategories;
 
     /// ### [Upstream resources](https://api.kde.org/kcategorizedsortfilterproxymodel.html#compareCategories)
     ///
@@ -446,13 +538,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, left: QModelIndex, right: QModelIndex) callconv(.c) i32 `
     ///
-    pub fn OnCompareCategories(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, QModelIndex) callconv(.c) i32) void {
+    pub fn onCompareCategories(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, QModelIndex) callconv(.c) i32) void {
         qtc.KCategorizedSortFilterProxyModel_OnCompareCategories(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperCompareCategories` instead
+    /// ### DEPRECATED: Use `superCompareCategories` instead
     ///
-    pub const QBaseCompareCategories = SuperCompareCategories;
+    pub const SuperCompareCategories = superCompareCategories;
 
     /// ### [Upstream resources](https://api.kde.org/kcategorizedsortfilterproxymodel.html#compareCategories)
     ///
@@ -466,11 +558,15 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` right: QModelIndex `
     ///
-    pub fn SuperCompareCategories(self: KCategorizedSortFilterProxyModel, left: anytype, right: anytype) i32 {
+    pub fn superCompareCategories(self: KCategorizedSortFilterProxyModel, left: anytype, right: anytype) i32 {
         comptime _ = @TypeOf(left)._is_QModelIndex;
         comptime _ = @TypeOf(right)._is_QModelIndex;
         return qtc.KCategorizedSortFilterProxyModel_SuperCompareCategories(@ptrCast(self.ptr), @ptrCast(left.ptr), @ptrCast(right.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -482,15 +578,19 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCategorizedSortFilterProxyModel.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCategorizedSortFilterProxyModel.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -504,15 +604,19 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCategorizedSortFilterProxyModel.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCategorizedSortFilterProxyModel.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `filterRegularExpression` instead
+    ///
+    pub const FilterRegularExpression = filterRegularExpression;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -522,9 +626,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn FilterRegularExpression(self: KCategorizedSortFilterProxyModel) QRegularExpression {
+    pub fn filterRegularExpression(self: KCategorizedSortFilterProxyModel) QRegularExpression {
         return .{ .ptr = qtc.QSortFilterProxyModel_FilterRegularExpression(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `filterKeyColumn` instead
+    ///
+    pub const FilterKeyColumn = filterKeyColumn;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -534,9 +642,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn FilterKeyColumn(self: KCategorizedSortFilterProxyModel) i32 {
+    pub fn filterKeyColumn(self: KCategorizedSortFilterProxyModel) i32 {
         return qtc.QSortFilterProxyModel_FilterKeyColumn(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFilterKeyColumn` instead
+    ///
+    pub const SetFilterKeyColumn = setFilterKeyColumn;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -548,9 +660,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn SetFilterKeyColumn(self: KCategorizedSortFilterProxyModel, column: i32) void {
+    pub fn setFilterKeyColumn(self: KCategorizedSortFilterProxyModel, column: i32) void {
         qtc.QSortFilterProxyModel_SetFilterKeyColumn(@ptrCast(self.ptr), @bitCast(column));
     }
+
+    /// ### DEPRECATED: Use `filterCaseSensitivity` instead
+    ///
+    pub const FilterCaseSensitivity = filterCaseSensitivity;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -564,9 +680,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` qnamespace_enums.CaseSensitivity `
     ///
-    pub fn FilterCaseSensitivity(self: KCategorizedSortFilterProxyModel) i32 {
+    pub fn filterCaseSensitivity(self: KCategorizedSortFilterProxyModel) i32 {
         return qtc.QSortFilterProxyModel_FilterCaseSensitivity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFilterCaseSensitivity` instead
+    ///
+    pub const SetFilterCaseSensitivity = setFilterCaseSensitivity;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -578,9 +698,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` cs: qnamespace_enums.CaseSensitivity `
     ///
-    pub fn SetFilterCaseSensitivity(self: KCategorizedSortFilterProxyModel, cs: i32) void {
+    pub fn setFilterCaseSensitivity(self: KCategorizedSortFilterProxyModel, cs: i32) void {
         qtc.QSortFilterProxyModel_SetFilterCaseSensitivity(@ptrCast(self.ptr), @bitCast(cs));
     }
+
+    /// ### DEPRECATED: Use `sortCaseSensitivity` instead
+    ///
+    pub const SortCaseSensitivity = sortCaseSensitivity;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -594,9 +718,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` qnamespace_enums.CaseSensitivity `
     ///
-    pub fn SortCaseSensitivity(self: KCategorizedSortFilterProxyModel) i32 {
+    pub fn sortCaseSensitivity(self: KCategorizedSortFilterProxyModel) i32 {
         return qtc.QSortFilterProxyModel_SortCaseSensitivity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSortCaseSensitivity` instead
+    ///
+    pub const SetSortCaseSensitivity = setSortCaseSensitivity;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -608,9 +736,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` cs: qnamespace_enums.CaseSensitivity `
     ///
-    pub fn SetSortCaseSensitivity(self: KCategorizedSortFilterProxyModel, cs: i32) void {
+    pub fn setSortCaseSensitivity(self: KCategorizedSortFilterProxyModel, cs: i32) void {
         qtc.QSortFilterProxyModel_SetSortCaseSensitivity(@ptrCast(self.ptr), @bitCast(cs));
     }
+
+    /// ### DEPRECATED: Use `isSortLocaleAware` instead
+    ///
+    pub const IsSortLocaleAware = isSortLocaleAware;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -620,9 +752,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn IsSortLocaleAware(self: KCategorizedSortFilterProxyModel) bool {
+    pub fn isSortLocaleAware(self: KCategorizedSortFilterProxyModel) bool {
         return qtc.QSortFilterProxyModel_IsSortLocaleAware(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSortLocaleAware` instead
+    ///
+    pub const SetSortLocaleAware = setSortLocaleAware;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -634,9 +770,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetSortLocaleAware(self: KCategorizedSortFilterProxyModel, on: bool) void {
+    pub fn setSortLocaleAware(self: KCategorizedSortFilterProxyModel, on: bool) void {
         qtc.QSortFilterProxyModel_SetSortLocaleAware(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `dynamicSortFilter` instead
+    ///
+    pub const DynamicSortFilter = dynamicSortFilter;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -646,9 +786,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn DynamicSortFilter(self: KCategorizedSortFilterProxyModel) bool {
+    pub fn dynamicSortFilter(self: KCategorizedSortFilterProxyModel) bool {
         return qtc.QSortFilterProxyModel_DynamicSortFilter(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDynamicSortFilter` instead
+    ///
+    pub const SetDynamicSortFilter = setDynamicSortFilter;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -660,9 +804,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetDynamicSortFilter(self: KCategorizedSortFilterProxyModel, enable: bool) void {
+    pub fn setDynamicSortFilter(self: KCategorizedSortFilterProxyModel, enable: bool) void {
         qtc.QSortFilterProxyModel_SetDynamicSortFilter(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `sortRole` instead
+    ///
+    pub const SortRole = sortRole;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -672,9 +820,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn SortRole(self: KCategorizedSortFilterProxyModel) i32 {
+    pub fn sortRole(self: KCategorizedSortFilterProxyModel) i32 {
         return qtc.QSortFilterProxyModel_SortRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSortRole` instead
+    ///
+    pub const SetSortRole = setSortRole;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -686,9 +838,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn SetSortRole(self: KCategorizedSortFilterProxyModel, role: i32) void {
+    pub fn setSortRole(self: KCategorizedSortFilterProxyModel, role: i32) void {
         qtc.QSortFilterProxyModel_SetSortRole(@ptrCast(self.ptr), @bitCast(role));
     }
+
+    /// ### DEPRECATED: Use `filterRole` instead
+    ///
+    pub const FilterRole = filterRole;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -698,9 +854,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn FilterRole(self: KCategorizedSortFilterProxyModel) i32 {
+    pub fn filterRole(self: KCategorizedSortFilterProxyModel) i32 {
         return qtc.QSortFilterProxyModel_FilterRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFilterRole` instead
+    ///
+    pub const SetFilterRole = setFilterRole;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -712,9 +872,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn SetFilterRole(self: KCategorizedSortFilterProxyModel, role: i32) void {
+    pub fn setFilterRole(self: KCategorizedSortFilterProxyModel, role: i32) void {
         qtc.QSortFilterProxyModel_SetFilterRole(@ptrCast(self.ptr), @bitCast(role));
     }
+
+    /// ### DEPRECATED: Use `isRecursiveFilteringEnabled` instead
+    ///
+    pub const IsRecursiveFilteringEnabled = isRecursiveFilteringEnabled;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -724,9 +888,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn IsRecursiveFilteringEnabled(self: KCategorizedSortFilterProxyModel) bool {
+    pub fn isRecursiveFilteringEnabled(self: KCategorizedSortFilterProxyModel) bool {
         return qtc.QSortFilterProxyModel_IsRecursiveFilteringEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setRecursiveFilteringEnabled` instead
+    ///
+    pub const SetRecursiveFilteringEnabled = setRecursiveFilteringEnabled;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -738,9 +906,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` recursive: bool `
     ///
-    pub fn SetRecursiveFilteringEnabled(self: KCategorizedSortFilterProxyModel, recursive: bool) void {
+    pub fn setRecursiveFilteringEnabled(self: KCategorizedSortFilterProxyModel, recursive: bool) void {
         qtc.QSortFilterProxyModel_SetRecursiveFilteringEnabled(@ptrCast(self.ptr), recursive);
     }
+
+    /// ### DEPRECATED: Use `autoAcceptChildRows` instead
+    ///
+    pub const AutoAcceptChildRows = autoAcceptChildRows;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -750,9 +922,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn AutoAcceptChildRows(self: KCategorizedSortFilterProxyModel) bool {
+    pub fn autoAcceptChildRows(self: KCategorizedSortFilterProxyModel) bool {
         return qtc.QSortFilterProxyModel_AutoAcceptChildRows(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoAcceptChildRows` instead
+    ///
+    pub const SetAutoAcceptChildRows = setAutoAcceptChildRows;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -764,9 +940,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` accept: bool `
     ///
-    pub fn SetAutoAcceptChildRows(self: KCategorizedSortFilterProxyModel, accept: bool) void {
+    pub fn setAutoAcceptChildRows(self: KCategorizedSortFilterProxyModel, accept: bool) void {
         qtc.QSortFilterProxyModel_SetAutoAcceptChildRows(@ptrCast(self.ptr), accept);
     }
+
+    /// ### DEPRECATED: Use `setFilterRegularExpression` instead
+    ///
+    pub const SetFilterRegularExpression = setFilterRegularExpression;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -778,13 +958,17 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` pattern: []const u8 `
     ///
-    pub fn SetFilterRegularExpression(self: KCategorizedSortFilterProxyModel, pattern: []const u8) void {
+    pub fn setFilterRegularExpression(self: KCategorizedSortFilterProxyModel, pattern: []const u8) void {
         const pattern_str = qtc.libqt_string{
             .len = pattern.len,
             .data = pattern.ptr,
         };
         qtc.QSortFilterProxyModel_SetFilterRegularExpression(@ptrCast(self.ptr), pattern_str);
     }
+
+    /// ### DEPRECATED: Use `setFilterRegularExpression2` instead
+    ///
+    pub const SetFilterRegularExpression2 = setFilterRegularExpression2;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -796,10 +980,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` regularExpression: QRegularExpression `
     ///
-    pub fn SetFilterRegularExpression2(self: KCategorizedSortFilterProxyModel, regularExpression: anytype) void {
+    pub fn setFilterRegularExpression2(self: KCategorizedSortFilterProxyModel, regularExpression: anytype) void {
         comptime _ = @TypeOf(regularExpression)._is_QRegularExpression;
         qtc.QSortFilterProxyModel_SetFilterRegularExpression2(@ptrCast(self.ptr), @ptrCast(regularExpression.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFilterWildcard` instead
+    ///
+    pub const SetFilterWildcard = setFilterWildcard;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -811,13 +999,17 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` pattern: []const u8 `
     ///
-    pub fn SetFilterWildcard(self: KCategorizedSortFilterProxyModel, pattern: []const u8) void {
+    pub fn setFilterWildcard(self: KCategorizedSortFilterProxyModel, pattern: []const u8) void {
         const pattern_str = qtc.libqt_string{
             .len = pattern.len,
             .data = pattern.ptr,
         };
         qtc.QSortFilterProxyModel_SetFilterWildcard(@ptrCast(self.ptr), pattern_str);
     }
+
+    /// ### DEPRECATED: Use `setFilterFixedString` instead
+    ///
+    pub const SetFilterFixedString = setFilterFixedString;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -829,13 +1021,17 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` pattern: []const u8 `
     ///
-    pub fn SetFilterFixedString(self: KCategorizedSortFilterProxyModel, pattern: []const u8) void {
+    pub fn setFilterFixedString(self: KCategorizedSortFilterProxyModel, pattern: []const u8) void {
         const pattern_str = qtc.libqt_string{
             .len = pattern.len,
             .data = pattern.ptr,
         };
         qtc.QSortFilterProxyModel_SetFilterFixedString(@ptrCast(self.ptr), pattern_str);
     }
+
+    /// ### DEPRECATED: Use `invalidate` instead
+    ///
+    pub const Invalidate = invalidate;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -845,9 +1041,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn Invalidate(self: KCategorizedSortFilterProxyModel) void {
+    pub fn invalidate(self: KCategorizedSortFilterProxyModel) void {
         qtc.QSortFilterProxyModel_Invalidate(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dynamicSortFilterChanged` instead
+    ///
+    pub const DynamicSortFilterChanged = dynamicSortFilterChanged;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -857,11 +1057,15 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` dynamicSortFilter: bool `
+    /// ` _dynamicSortFilter: bool `
     ///
-    pub fn DynamicSortFilterChanged(self: KCategorizedSortFilterProxyModel, dynamicSortFilter: bool) void {
-        qtc.QSortFilterProxyModel_DynamicSortFilterChanged(@ptrCast(self.ptr), dynamicSortFilter);
+    pub fn dynamicSortFilterChanged(self: KCategorizedSortFilterProxyModel, _dynamicSortFilter: bool) void {
+        qtc.QSortFilterProxyModel_DynamicSortFilterChanged(@ptrCast(self.ptr), _dynamicSortFilter);
     }
+
+    /// ### DEPRECATED: Use `onDynamicSortFilterChanged` instead
+    ///
+    pub const OnDynamicSortFilterChanged = onDynamicSortFilterChanged;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -873,9 +1077,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, dynamicSortFilter: bool) callconv(.c) void `
     ///
-    pub fn OnDynamicSortFilterChanged(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, bool) callconv(.c) void) void {
+    pub fn onDynamicSortFilterChanged(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, bool) callconv(.c) void) void {
         qtc.QSortFilterProxyModel_Connect_DynamicSortFilterChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `filterCaseSensitivityChanged` instead
+    ///
+    pub const FilterCaseSensitivityChanged = filterCaseSensitivityChanged;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -885,11 +1093,15 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` filterCaseSensitivity: qnamespace_enums.CaseSensitivity `
+    /// ` _filterCaseSensitivity: qnamespace_enums.CaseSensitivity `
     ///
-    pub fn FilterCaseSensitivityChanged(self: KCategorizedSortFilterProxyModel, filterCaseSensitivity: i32) void {
-        qtc.QSortFilterProxyModel_FilterCaseSensitivityChanged(@ptrCast(self.ptr), @bitCast(filterCaseSensitivity));
+    pub fn filterCaseSensitivityChanged(self: KCategorizedSortFilterProxyModel, _filterCaseSensitivity: i32) void {
+        qtc.QSortFilterProxyModel_FilterCaseSensitivityChanged(@ptrCast(self.ptr), @bitCast(_filterCaseSensitivity));
     }
+
+    /// ### DEPRECATED: Use `onFilterCaseSensitivityChanged` instead
+    ///
+    pub const OnFilterCaseSensitivityChanged = onFilterCaseSensitivityChanged;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -901,9 +1113,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, filterCaseSensitivity: qnamespace_enums.CaseSensitivity) callconv(.c) void `
     ///
-    pub fn OnFilterCaseSensitivityChanged(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, i32) callconv(.c) void) void {
+    pub fn onFilterCaseSensitivityChanged(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, i32) callconv(.c) void) void {
         qtc.QSortFilterProxyModel_Connect_FilterCaseSensitivityChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sortCaseSensitivityChanged` instead
+    ///
+    pub const SortCaseSensitivityChanged = sortCaseSensitivityChanged;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -913,11 +1129,15 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` sortCaseSensitivity: qnamespace_enums.CaseSensitivity `
+    /// ` _sortCaseSensitivity: qnamespace_enums.CaseSensitivity `
     ///
-    pub fn SortCaseSensitivityChanged(self: KCategorizedSortFilterProxyModel, sortCaseSensitivity: i32) void {
-        qtc.QSortFilterProxyModel_SortCaseSensitivityChanged(@ptrCast(self.ptr), @bitCast(sortCaseSensitivity));
+    pub fn sortCaseSensitivityChanged(self: KCategorizedSortFilterProxyModel, _sortCaseSensitivity: i32) void {
+        qtc.QSortFilterProxyModel_SortCaseSensitivityChanged(@ptrCast(self.ptr), @bitCast(_sortCaseSensitivity));
     }
+
+    /// ### DEPRECATED: Use `onSortCaseSensitivityChanged` instead
+    ///
+    pub const OnSortCaseSensitivityChanged = onSortCaseSensitivityChanged;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -929,9 +1149,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, sortCaseSensitivity: qnamespace_enums.CaseSensitivity) callconv(.c) void `
     ///
-    pub fn OnSortCaseSensitivityChanged(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, i32) callconv(.c) void) void {
+    pub fn onSortCaseSensitivityChanged(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, i32) callconv(.c) void) void {
         qtc.QSortFilterProxyModel_Connect_SortCaseSensitivityChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sortLocaleAwareChanged` instead
+    ///
+    pub const SortLocaleAwareChanged = sortLocaleAwareChanged;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -943,9 +1167,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` sortLocaleAware: bool `
     ///
-    pub fn SortLocaleAwareChanged(self: KCategorizedSortFilterProxyModel, sortLocaleAware: bool) void {
+    pub fn sortLocaleAwareChanged(self: KCategorizedSortFilterProxyModel, sortLocaleAware: bool) void {
         qtc.QSortFilterProxyModel_SortLocaleAwareChanged(@ptrCast(self.ptr), sortLocaleAware);
     }
+
+    /// ### DEPRECATED: Use `onSortLocaleAwareChanged` instead
+    ///
+    pub const OnSortLocaleAwareChanged = onSortLocaleAwareChanged;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -957,9 +1185,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, sortLocaleAware: bool) callconv(.c) void `
     ///
-    pub fn OnSortLocaleAwareChanged(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, bool) callconv(.c) void) void {
+    pub fn onSortLocaleAwareChanged(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, bool) callconv(.c) void) void {
         qtc.QSortFilterProxyModel_Connect_SortLocaleAwareChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sortRoleChanged` instead
+    ///
+    pub const SortRoleChanged = sortRoleChanged;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -969,11 +1201,15 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` sortRole: i32 `
+    /// ` _sortRole: i32 `
     ///
-    pub fn SortRoleChanged(self: KCategorizedSortFilterProxyModel, sortRole: i32) void {
-        qtc.QSortFilterProxyModel_SortRoleChanged(@ptrCast(self.ptr), @bitCast(sortRole));
+    pub fn sortRoleChanged(self: KCategorizedSortFilterProxyModel, _sortRole: i32) void {
+        qtc.QSortFilterProxyModel_SortRoleChanged(@ptrCast(self.ptr), @bitCast(_sortRole));
     }
+
+    /// ### DEPRECATED: Use `onSortRoleChanged` instead
+    ///
+    pub const OnSortRoleChanged = onSortRoleChanged;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -985,9 +1221,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, sortRole: i32) callconv(.c) void `
     ///
-    pub fn OnSortRoleChanged(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, i32) callconv(.c) void) void {
+    pub fn onSortRoleChanged(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, i32) callconv(.c) void) void {
         qtc.QSortFilterProxyModel_Connect_SortRoleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `filterRoleChanged` instead
+    ///
+    pub const FilterRoleChanged = filterRoleChanged;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -997,11 +1237,15 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` filterRole: i32 `
+    /// ` _filterRole: i32 `
     ///
-    pub fn FilterRoleChanged(self: KCategorizedSortFilterProxyModel, filterRole: i32) void {
-        qtc.QSortFilterProxyModel_FilterRoleChanged(@ptrCast(self.ptr), @bitCast(filterRole));
+    pub fn filterRoleChanged(self: KCategorizedSortFilterProxyModel, _filterRole: i32) void {
+        qtc.QSortFilterProxyModel_FilterRoleChanged(@ptrCast(self.ptr), @bitCast(_filterRole));
     }
+
+    /// ### DEPRECATED: Use `onFilterRoleChanged` instead
+    ///
+    pub const OnFilterRoleChanged = onFilterRoleChanged;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -1013,9 +1257,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, filterRole: i32) callconv(.c) void `
     ///
-    pub fn OnFilterRoleChanged(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, i32) callconv(.c) void) void {
+    pub fn onFilterRoleChanged(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, i32) callconv(.c) void) void {
         qtc.QSortFilterProxyModel_Connect_FilterRoleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `recursiveFilteringEnabledChanged` instead
+    ///
+    pub const RecursiveFilteringEnabledChanged = recursiveFilteringEnabledChanged;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -1027,9 +1275,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` recursiveFilteringEnabled: bool `
     ///
-    pub fn RecursiveFilteringEnabledChanged(self: KCategorizedSortFilterProxyModel, recursiveFilteringEnabled: bool) void {
+    pub fn recursiveFilteringEnabledChanged(self: KCategorizedSortFilterProxyModel, recursiveFilteringEnabled: bool) void {
         qtc.QSortFilterProxyModel_RecursiveFilteringEnabledChanged(@ptrCast(self.ptr), recursiveFilteringEnabled);
     }
+
+    /// ### DEPRECATED: Use `onRecursiveFilteringEnabledChanged` instead
+    ///
+    pub const OnRecursiveFilteringEnabledChanged = onRecursiveFilteringEnabledChanged;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -1041,9 +1293,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, recursiveFilteringEnabled: bool) callconv(.c) void `
     ///
-    pub fn OnRecursiveFilteringEnabledChanged(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, bool) callconv(.c) void) void {
+    pub fn onRecursiveFilteringEnabledChanged(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, bool) callconv(.c) void) void {
         qtc.QSortFilterProxyModel_Connect_RecursiveFilteringEnabledChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `autoAcceptChildRowsChanged` instead
+    ///
+    pub const AutoAcceptChildRowsChanged = autoAcceptChildRowsChanged;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -1053,11 +1309,15 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` autoAcceptChildRows: bool `
+    /// ` _autoAcceptChildRows: bool `
     ///
-    pub fn AutoAcceptChildRowsChanged(self: KCategorizedSortFilterProxyModel, autoAcceptChildRows: bool) void {
-        qtc.QSortFilterProxyModel_AutoAcceptChildRowsChanged(@ptrCast(self.ptr), autoAcceptChildRows);
+    pub fn autoAcceptChildRowsChanged(self: KCategorizedSortFilterProxyModel, _autoAcceptChildRows: bool) void {
+        qtc.QSortFilterProxyModel_AutoAcceptChildRowsChanged(@ptrCast(self.ptr), _autoAcceptChildRows);
     }
+
+    /// ### DEPRECATED: Use `onAutoAcceptChildRowsChanged` instead
+    ///
+    pub const OnAutoAcceptChildRowsChanged = onAutoAcceptChildRowsChanged;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -1069,9 +1329,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, autoAcceptChildRows: bool) callconv(.c) void `
     ///
-    pub fn OnAutoAcceptChildRowsChanged(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, bool) callconv(.c) void) void {
+    pub fn onAutoAcceptChildRowsChanged(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, bool) callconv(.c) void) void {
         qtc.QSortFilterProxyModel_Connect_AutoAcceptChildRowsChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sourceModel` instead
+    ///
+    pub const SourceModel = sourceModel;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -1081,9 +1345,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn SourceModel(self: KCategorizedSortFilterProxyModel) QAbstractItemModel {
+    pub fn sourceModel(self: KCategorizedSortFilterProxyModel) QAbstractItemModel {
         return .{ .ptr = qtc.QAbstractProxyModel_SourceModel(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `hasIndex` instead
+    ///
+    pub const HasIndex = hasIndex;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1097,9 +1365,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn HasIndex(self: KCategorizedSortFilterProxyModel, row: i32, column: i32) bool {
+    pub fn hasIndex(self: KCategorizedSortFilterProxyModel, row: i32, column: i32) bool {
         return qtc.QAbstractItemModel_HasIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(column));
     }
+
+    /// ### DEPRECATED: Use `insertRow` instead
+    ///
+    pub const InsertRow = insertRow;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1111,9 +1383,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` row: i32 `
     ///
-    pub fn InsertRow(self: KCategorizedSortFilterProxyModel, row: i32) bool {
+    pub fn insertRow(self: KCategorizedSortFilterProxyModel, row: i32) bool {
         return qtc.QAbstractItemModel_InsertRow(@ptrCast(self.ptr), @bitCast(row));
     }
+
+    /// ### DEPRECATED: Use `insertColumn` instead
+    ///
+    pub const InsertColumn = insertColumn;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1125,9 +1401,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn InsertColumn(self: KCategorizedSortFilterProxyModel, column: i32) bool {
+    pub fn insertColumn(self: KCategorizedSortFilterProxyModel, column: i32) bool {
         return qtc.QAbstractItemModel_InsertColumn(@ptrCast(self.ptr), @bitCast(column));
     }
+
+    /// ### DEPRECATED: Use `removeRow` instead
+    ///
+    pub const RemoveRow = removeRow;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1139,9 +1419,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` row: i32 `
     ///
-    pub fn RemoveRow(self: KCategorizedSortFilterProxyModel, row: i32) bool {
+    pub fn removeRow(self: KCategorizedSortFilterProxyModel, row: i32) bool {
         return qtc.QAbstractItemModel_RemoveRow(@ptrCast(self.ptr), @bitCast(row));
     }
+
+    /// ### DEPRECATED: Use `removeColumn` instead
+    ///
+    pub const RemoveColumn = removeColumn;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1153,9 +1437,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn RemoveColumn(self: KCategorizedSortFilterProxyModel, column: i32) bool {
+    pub fn removeColumn(self: KCategorizedSortFilterProxyModel, column: i32) bool {
         return qtc.QAbstractItemModel_RemoveColumn(@ptrCast(self.ptr), @bitCast(column));
     }
+
+    /// ### DEPRECATED: Use `moveRow` instead
+    ///
+    pub const MoveRow = moveRow;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1173,11 +1461,15 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn MoveRow(self: KCategorizedSortFilterProxyModel, sourceParent: anytype, sourceRow: i32, destinationParent: anytype, destinationChild: i32) bool {
+    pub fn moveRow(self: KCategorizedSortFilterProxyModel, sourceParent: anytype, sourceRow: i32, destinationParent: anytype, destinationChild: i32) bool {
         comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
         comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
         return qtc.QAbstractItemModel_MoveRow(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceRow), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
+
+    /// ### DEPRECATED: Use `moveColumn` instead
+    ///
+    pub const MoveColumn = moveColumn;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1195,11 +1487,15 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn MoveColumn(self: KCategorizedSortFilterProxyModel, sourceParent: anytype, sourceColumn: i32, destinationParent: anytype, destinationChild: i32) bool {
+    pub fn moveColumn(self: KCategorizedSortFilterProxyModel, sourceParent: anytype, sourceColumn: i32, destinationParent: anytype, destinationChild: i32) bool {
         comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
         comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
         return qtc.QAbstractItemModel_MoveColumn(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceColumn), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
+
+    /// ### DEPRECATED: Use `checkIndex` instead
+    ///
+    pub const CheckIndex = checkIndex;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1209,12 +1505,16 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
-    pub fn CheckIndex(self: KCategorizedSortFilterProxyModel, index: anytype) bool {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return qtc.QAbstractItemModel_CheckIndex(@ptrCast(self.ptr), @ptrCast(index.ptr));
+    pub fn checkIndex(self: KCategorizedSortFilterProxyModel, _index: anytype) bool {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return qtc.QAbstractItemModel_CheckIndex(@ptrCast(self.ptr), @ptrCast(_index.ptr));
     }
+
+    /// ### DEPRECATED: Use `dataChanged` instead
+    ///
+    pub const DataChanged = dataChanged;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1228,11 +1528,15 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` bottomRight: QModelIndex `
     ///
-    pub fn DataChanged(self: KCategorizedSortFilterProxyModel, topLeft: anytype, bottomRight: anytype) void {
+    pub fn dataChanged(self: KCategorizedSortFilterProxyModel, topLeft: anytype, bottomRight: anytype) void {
         comptime _ = @TypeOf(topLeft)._is_QModelIndex;
         comptime _ = @TypeOf(bottomRight)._is_QModelIndex;
         qtc.QAbstractItemModel_DataChanged(@ptrCast(self.ptr), @ptrCast(topLeft.ptr), @ptrCast(bottomRight.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDataChanged` instead
+    ///
+    pub const OnDataChanged = onDataChanged;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1244,9 +1548,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, topLeft: QModelIndex, bottomRight: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnDataChanged(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, QModelIndex) callconv(.c) void) void {
+    pub fn onDataChanged(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, QModelIndex) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_DataChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `headerDataChanged` instead
+    ///
+    pub const HeaderDataChanged = headerDataChanged;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1262,9 +1570,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` last: i32 `
     ///
-    pub fn HeaderDataChanged(self: KCategorizedSortFilterProxyModel, orientation: i32, first: i32, last: i32) void {
+    pub fn headerDataChanged(self: KCategorizedSortFilterProxyModel, orientation: i32, first: i32, last: i32) void {
         qtc.QAbstractItemModel_HeaderDataChanged(@ptrCast(self.ptr), @bitCast(orientation), @bitCast(first), @bitCast(last));
     }
+
+    /// ### DEPRECATED: Use `onHeaderDataChanged` instead
+    ///
+    pub const OnHeaderDataChanged = onHeaderDataChanged;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1276,10 +1588,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, orientation: qnamespace_enums.Orientation, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnHeaderDataChanged(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, i32, i32, i32) callconv(.c) void) void {
+    pub fn onHeaderDataChanged(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, i32, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_HeaderDataChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `layoutChanged` instead
+    ///
+    pub const LayoutChanged = layoutChanged;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
@@ -1288,10 +1604,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn LayoutChanged(self: KCategorizedSortFilterProxyModel) void {
+    pub fn layoutChanged(self: KCategorizedSortFilterProxyModel) void {
         qtc.QAbstractItemModel_LayoutChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onLayoutChanged` instead
+    ///
+    pub const OnLayoutChanged = onLayoutChanged;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
@@ -1302,9 +1622,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel) callconv(.c) void `
     ///
-    pub fn OnLayoutChanged(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel) callconv(.c) void) void {
+    pub fn onLayoutChanged(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `layoutAboutToBeChanged` instead
+    ///
+    pub const LayoutAboutToBeChanged = layoutAboutToBeChanged;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1314,9 +1638,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn LayoutAboutToBeChanged(self: KCategorizedSortFilterProxyModel) void {
+    pub fn layoutAboutToBeChanged(self: KCategorizedSortFilterProxyModel) void {
         qtc.QAbstractItemModel_LayoutAboutToBeChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLayoutAboutToBeChanged` instead
+    ///
+    pub const OnLayoutAboutToBeChanged = onLayoutAboutToBeChanged;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1328,9 +1656,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel) callconv(.c) void `
     ///
-    pub fn OnLayoutAboutToBeChanged(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel) callconv(.c) void) void {
+    pub fn onLayoutAboutToBeChanged(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasIndex3` instead
+    ///
+    pub const HasIndex3 = hasIndex3;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1344,12 +1676,16 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn HasIndex3(self: KCategorizedSortFilterProxyModel, row: i32, column: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QAbstractItemModel_HasIndex3(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
+    pub fn hasIndex3(self: KCategorizedSortFilterProxyModel, row: i32, column: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_HasIndex3(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertRow2` instead
+    ///
+    pub const InsertRow2 = insertRow2;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1361,12 +1697,16 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` row: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn InsertRow2(self: KCategorizedSortFilterProxyModel, row: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QAbstractItemModel_InsertRow2(@ptrCast(self.ptr), @bitCast(row), @ptrCast(parent.ptr));
+    pub fn insertRow2(self: KCategorizedSortFilterProxyModel, row: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_InsertRow2(@ptrCast(self.ptr), @bitCast(row), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertColumn2` instead
+    ///
+    pub const InsertColumn2 = insertColumn2;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1378,12 +1718,16 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn InsertColumn2(self: KCategorizedSortFilterProxyModel, column: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QAbstractItemModel_InsertColumn2(@ptrCast(self.ptr), @bitCast(column), @ptrCast(parent.ptr));
+    pub fn insertColumn2(self: KCategorizedSortFilterProxyModel, column: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_InsertColumn2(@ptrCast(self.ptr), @bitCast(column), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeRow2` instead
+    ///
+    pub const RemoveRow2 = removeRow2;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1395,12 +1739,16 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` row: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn RemoveRow2(self: KCategorizedSortFilterProxyModel, row: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QAbstractItemModel_RemoveRow2(@ptrCast(self.ptr), @bitCast(row), @ptrCast(parent.ptr));
+    pub fn removeRow2(self: KCategorizedSortFilterProxyModel, row: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_RemoveRow2(@ptrCast(self.ptr), @bitCast(row), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeColumn2` instead
+    ///
+    pub const RemoveColumn2 = removeColumn2;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1412,12 +1760,16 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn RemoveColumn2(self: KCategorizedSortFilterProxyModel, column: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QAbstractItemModel_RemoveColumn2(@ptrCast(self.ptr), @bitCast(column), @ptrCast(parent.ptr));
+    pub fn removeColumn2(self: KCategorizedSortFilterProxyModel, column: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_RemoveColumn2(@ptrCast(self.ptr), @bitCast(column), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `checkIndex2` instead
+    ///
+    pub const CheckIndex2 = checkIndex2;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1427,14 +1779,18 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
     /// ` options: flag of qabstractitemmodel_enums.CheckIndexOption `
     ///
-    pub fn CheckIndex2(self: KCategorizedSortFilterProxyModel, index: anytype, options: i32) bool {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return qtc.QAbstractItemModel_CheckIndex2(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(options));
+    pub fn checkIndex2(self: KCategorizedSortFilterProxyModel, _index: anytype, options: i32) bool {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return qtc.QAbstractItemModel_CheckIndex2(@ptrCast(self.ptr), @ptrCast(_index.ptr), @bitCast(options));
     }
+
+    /// ### DEPRECATED: Use `dataChanged3` instead
+    ///
+    pub const DataChanged3 = dataChanged3;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1450,7 +1806,7 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` roles: []i32 `
     ///
-    pub fn DataChanged3(self: KCategorizedSortFilterProxyModel, topLeft: anytype, bottomRight: anytype, roles: []i32) void {
+    pub fn dataChanged3(self: KCategorizedSortFilterProxyModel, topLeft: anytype, bottomRight: anytype, roles: []i32) void {
         comptime _ = @TypeOf(topLeft)._is_QModelIndex;
         comptime _ = @TypeOf(bottomRight)._is_QModelIndex;
         const roles_list = qtc.libqt_list{
@@ -1459,6 +1815,10 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
         };
         qtc.QAbstractItemModel_DataChanged3(@ptrCast(self.ptr), @ptrCast(topLeft.ptr), @ptrCast(bottomRight.ptr), roles_list);
     }
+
+    /// ### DEPRECATED: Use `onDataChanged3` instead
+    ///
+    pub const OnDataChanged3 = onDataChanged3;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1470,9 +1830,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, topLeft: QModelIndex, bottomRight: QModelIndex, roles: qtc.libqt_list ([]i32)) callconv(.c) void `
     ///
-    pub fn OnDataChanged3(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, QModelIndex, qtc.libqt_list) callconv(.c) void) void {
+    pub fn onDataChanged3(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, QModelIndex, qtc.libqt_list) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_DataChanged3(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `layoutChanged1` instead
+    ///
+    pub const LayoutChanged1 = layoutChanged1;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1484,7 +1848,7 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` parents: []QPersistentModelIndex `
     ///
-    pub fn LayoutChanged1(self: KCategorizedSortFilterProxyModel, parents: []QPersistentModelIndex) void {
+    pub fn layoutChanged1(self: KCategorizedSortFilterProxyModel, parents: []QPersistentModelIndex) void {
         const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
@@ -1492,6 +1856,10 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
         qtc.QAbstractItemModel_LayoutChanged1(@ptrCast(self.ptr), parents_list);
     }
 
+    /// ### DEPRECATED: Use `onLayoutChanged1` instead
+    ///
+    pub const OnLayoutChanged1 = onLayoutChanged1;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
@@ -1502,9 +1870,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, parents: qtc.libqt_list ([]QPersistentModelIndex)) callconv(.c) void `
     ///
-    pub fn OnLayoutChanged1(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, qtc.libqt_list) callconv(.c) void) void {
+    pub fn onLayoutChanged1(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, qtc.libqt_list) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutChanged1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `layoutChanged2` instead
+    ///
+    pub const LayoutChanged2 = layoutChanged2;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1518,7 +1890,7 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` hint: qabstractitemmodel_enums.LayoutChangeHint `
     ///
-    pub fn LayoutChanged2(self: KCategorizedSortFilterProxyModel, parents: []QPersistentModelIndex, hint: i32) void {
+    pub fn layoutChanged2(self: KCategorizedSortFilterProxyModel, parents: []QPersistentModelIndex, hint: i32) void {
         const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
@@ -1526,6 +1898,10 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
         qtc.QAbstractItemModel_LayoutChanged2(@ptrCast(self.ptr), parents_list, @bitCast(hint));
     }
 
+    /// ### DEPRECATED: Use `onLayoutChanged2` instead
+    ///
+    pub const OnLayoutChanged2 = onLayoutChanged2;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
@@ -1536,9 +1912,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, parents: qtc.libqt_list ([]QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
     ///
-    pub fn OnLayoutChanged2(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, qtc.libqt_list, i32) callconv(.c) void) void {
+    pub fn onLayoutChanged2(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, qtc.libqt_list, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutChanged2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `layoutAboutToBeChanged1` instead
+    ///
+    pub const LayoutAboutToBeChanged1 = layoutAboutToBeChanged1;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1550,13 +1930,17 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` parents: []QPersistentModelIndex `
     ///
-    pub fn LayoutAboutToBeChanged1(self: KCategorizedSortFilterProxyModel, parents: []QPersistentModelIndex) void {
+    pub fn layoutAboutToBeChanged1(self: KCategorizedSortFilterProxyModel, parents: []QPersistentModelIndex) void {
         const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
         qtc.QAbstractItemModel_LayoutAboutToBeChanged1(@ptrCast(self.ptr), parents_list);
     }
+
+    /// ### DEPRECATED: Use `onLayoutAboutToBeChanged1` instead
+    ///
+    pub const OnLayoutAboutToBeChanged1 = onLayoutAboutToBeChanged1;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1568,9 +1952,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, parents: qtc.libqt_list ([]QPersistentModelIndex)) callconv(.c) void `
     ///
-    pub fn OnLayoutAboutToBeChanged1(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, qtc.libqt_list) callconv(.c) void) void {
+    pub fn onLayoutAboutToBeChanged1(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, qtc.libqt_list) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `layoutAboutToBeChanged2` instead
+    ///
+    pub const LayoutAboutToBeChanged2 = layoutAboutToBeChanged2;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1584,13 +1972,17 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` hint: qabstractitemmodel_enums.LayoutChangeHint `
     ///
-    pub fn LayoutAboutToBeChanged2(self: KCategorizedSortFilterProxyModel, parents: []QPersistentModelIndex, hint: i32) void {
+    pub fn layoutAboutToBeChanged2(self: KCategorizedSortFilterProxyModel, parents: []QPersistentModelIndex, hint: i32) void {
         const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
         qtc.QAbstractItemModel_LayoutAboutToBeChanged2(@ptrCast(self.ptr), parents_list, @bitCast(hint));
     }
+
+    /// ### DEPRECATED: Use `onLayoutAboutToBeChanged2` instead
+    ///
+    pub const OnLayoutAboutToBeChanged2 = onLayoutAboutToBeChanged2;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1602,9 +1994,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, parents: qtc.libqt_list ([]QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
     ///
-    pub fn OnLayoutAboutToBeChanged2(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, qtc.libqt_list, i32) callconv(.c) void) void {
+    pub fn onLayoutAboutToBeChanged2(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, qtc.libqt_list, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -1616,13 +2012,17 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KCategorizedSortFilterProxyModel, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KCategorizedSortFilterProxyModel, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCategorizedSortFilterProxyModel.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCategorizedSortFilterProxyModel.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -1634,13 +2034,17 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KCategorizedSortFilterProxyModel, name: []const u8) void {
+    pub fn setObjectName(self: KCategorizedSortFilterProxyModel, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -1650,9 +2054,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn IsWidgetType(self: KCategorizedSortFilterProxyModel) bool {
+    pub fn isWidgetType(self: KCategorizedSortFilterProxyModel) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -1662,9 +2070,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn IsWindowType(self: KCategorizedSortFilterProxyModel) bool {
+    pub fn isWindowType(self: KCategorizedSortFilterProxyModel) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -1674,9 +2086,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn IsQuickItemType(self: KCategorizedSortFilterProxyModel) bool {
+    pub fn isQuickItemType(self: KCategorizedSortFilterProxyModel) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -1686,9 +2102,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn SignalsBlocked(self: KCategorizedSortFilterProxyModel) bool {
+    pub fn signalsBlocked(self: KCategorizedSortFilterProxyModel) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -1700,9 +2120,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KCategorizedSortFilterProxyModel, b: bool) bool {
+    pub fn blockSignals(self: KCategorizedSortFilterProxyModel, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -1712,9 +2136,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn Thread(self: KCategorizedSortFilterProxyModel) QThread {
+    pub fn thread(self: KCategorizedSortFilterProxyModel) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -1724,12 +2152,16 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KCategorizedSortFilterProxyModel, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KCategorizedSortFilterProxyModel, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -1741,9 +2173,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KCategorizedSortFilterProxyModel, interval: i32) i32 {
+    pub fn startTimer(self: KCategorizedSortFilterProxyModel, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -1755,9 +2191,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KCategorizedSortFilterProxyModel, time: i64) i32 {
+    pub fn startTimer2(self: KCategorizedSortFilterProxyModel, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -1769,9 +2209,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KCategorizedSortFilterProxyModel, id: i32) void {
+    pub fn killTimer(self: KCategorizedSortFilterProxyModel, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -1783,9 +2227,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KCategorizedSortFilterProxyModel, id: i32) void {
+    pub fn killTimer2(self: KCategorizedSortFilterProxyModel, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -1797,15 +2245,19 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KCategorizedSortFilterProxyModel, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KCategorizedSortFilterProxyModel, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KCategorizedSortFilterProxyModel.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KCategorizedSortFilterProxyModel.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -1815,12 +2267,16 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: KCategorizedSortFilterProxyModel, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: KCategorizedSortFilterProxyModel, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1832,10 +2288,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KCategorizedSortFilterProxyModel, filterObj: anytype) void {
+    pub fn installEventFilter(self: KCategorizedSortFilterProxyModel, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1847,10 +2307,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KCategorizedSortFilterProxyModel, obj: anytype) void {
+    pub fn removeEventFilter(self: KCategorizedSortFilterProxyModel, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -1858,7 +2322,7 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1866,13 +2330,17 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -1880,7 +2348,7 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1888,13 +2356,17 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -1904,18 +2376,22 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KCategorizedSortFilterProxyModel, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KCategorizedSortFilterProxyModel, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -1923,7 +2399,7 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1931,13 +2407,17 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -1945,7 +2425,7 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1953,13 +2433,17 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -1969,9 +2453,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn Disconnect3(self: KCategorizedSortFilterProxyModel) bool {
+    pub fn disconnect3(self: KCategorizedSortFilterProxyModel) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1983,10 +2471,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KCategorizedSortFilterProxyModel, receiver: anytype) bool {
+    pub fn disconnect4(self: KCategorizedSortFilterProxyModel, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1996,10 +2488,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -2009,9 +2505,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn DumpObjectTree(self: KCategorizedSortFilterProxyModel) void {
+    pub fn dumpObjectTree(self: KCategorizedSortFilterProxyModel) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -2021,9 +2521,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn DumpObjectInfo(self: KCategorizedSortFilterProxyModel) void {
+    pub fn dumpObjectInfo(self: KCategorizedSortFilterProxyModel) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -2037,11 +2541,15 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KCategorizedSortFilterProxyModel, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KCategorizedSortFilterProxyModel, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -2053,10 +2561,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KCategorizedSortFilterProxyModel, name: [:0]const u8) QVariant {
+    pub fn property(self: KCategorizedSortFilterProxyModel, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -2068,7 +2580,7 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KCategorizedSortFilterProxyModel, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KCategorizedSortFilterProxyModel, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -2076,27 +2588,19 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KCategorizedSortFilterProxyModel.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KCategorizedSortFilterProxyModel.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KCategorizedSortFilterProxyModel.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KCategorizedSortFilterProxyModel.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCategorizedSortFilterProxyModel `
-    ///
-    pub fn BindingStorage(self: KCategorizedSortFilterProxyModel) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -2106,9 +2610,29 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn BindingStorage2(self: KCategorizedSortFilterProxyModel) QBindingStorage {
+    pub fn bindingStorage(self: KCategorizedSortFilterProxyModel) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KCategorizedSortFilterProxyModel `
+    ///
+    pub fn bindingStorage2(self: KCategorizedSortFilterProxyModel) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -2118,9 +2642,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn Destroyed(self: KCategorizedSortFilterProxyModel) void {
+    pub fn destroyed(self: KCategorizedSortFilterProxyModel) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -2132,9 +2660,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel) callconv(.c) void) void {
+    pub fn onDestroyed(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -2146,10 +2678,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KCategorizedSortFilterProxyModel, classname: [:0]const u8) bool {
+    pub fn inherits(self: KCategorizedSortFilterProxyModel, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -2159,9 +2695,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn DeleteLater(self: KCategorizedSortFilterProxyModel) void {
+    pub fn deleteLater(self: KCategorizedSortFilterProxyModel) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -2175,9 +2715,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KCategorizedSortFilterProxyModel, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KCategorizedSortFilterProxyModel, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -2191,9 +2735,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KCategorizedSortFilterProxyModel, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KCategorizedSortFilterProxyModel, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -2201,7 +2749,7 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2211,13 +2759,17 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -2225,7 +2777,7 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2235,13 +2787,17 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -2251,7 +2807,7 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2259,12 +2815,16 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KCategorizedSortFilterProxyModel, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KCategorizedSortFilterProxyModel, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -2276,10 +2836,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KCategorizedSortFilterProxyModel, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KCategorizedSortFilterProxyModel, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -2293,11 +2857,15 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KCategorizedSortFilterProxyModel, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KCategorizedSortFilterProxyModel, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -2313,13 +2881,17 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KCategorizedSortFilterProxyModel, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KCategorizedSortFilterProxyModel, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -2332,11 +2904,15 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KCategorizedSortFilterProxyModel, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KCategorizedSortFilterProxyModel, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -2348,10 +2924,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KCategorizedSortFilterProxyModel, param1: anytype) void {
+    pub fn destroyed1(self: KCategorizedSortFilterProxyModel, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -2363,9 +2943,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setSourceModel` instead
+    ///
+    pub const SetSourceModel = setSourceModel;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -2377,16 +2961,16 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` sourceModel: QAbstractItemModel `
+    /// ` _sourceModel: QAbstractItemModel `
     ///
-    pub fn SetSourceModel(self: KCategorizedSortFilterProxyModel, sourceModel: anytype) void {
-        comptime _ = @TypeOf(sourceModel)._is_QAbstractItemModel;
-        qtc.KCategorizedSortFilterProxyModel_SetSourceModel(@ptrCast(self.ptr), @ptrCast(sourceModel.ptr));
+    pub fn setSourceModel(self: KCategorizedSortFilterProxyModel, _sourceModel: anytype) void {
+        comptime _ = @TypeOf(_sourceModel)._is_QAbstractItemModel;
+        qtc.KCategorizedSortFilterProxyModel_SetSourceModel(@ptrCast(self.ptr), @ptrCast(_sourceModel.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetSourceModel` instead
+    /// ### DEPRECATED: Use `superSetSourceModel` instead
     ///
-    pub const QBaseSetSourceModel = SuperSetSourceModel;
+    pub const SuperSetSourceModel = superSetSourceModel;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -2398,12 +2982,16 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` sourceModel: QAbstractItemModel `
+    /// ` _sourceModel: QAbstractItemModel `
     ///
-    pub fn SuperSetSourceModel(self: KCategorizedSortFilterProxyModel, sourceModel: anytype) void {
-        comptime _ = @TypeOf(sourceModel)._is_QAbstractItemModel;
-        qtc.KCategorizedSortFilterProxyModel_SuperSetSourceModel(@ptrCast(self.ptr), @ptrCast(sourceModel.ptr));
+    pub fn superSetSourceModel(self: KCategorizedSortFilterProxyModel, _sourceModel: anytype) void {
+        comptime _ = @TypeOf(_sourceModel)._is_QAbstractItemModel;
+        qtc.KCategorizedSortFilterProxyModel_SuperSetSourceModel(@ptrCast(self.ptr), @ptrCast(_sourceModel.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetSourceModel` instead
+    ///
+    pub const OnSetSourceModel = onSetSourceModel;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -2417,9 +3005,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, sourceModel: QAbstractItemModel) callconv(.c) void `
     ///
-    pub fn OnSetSourceModel(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QAbstractItemModel) callconv(.c) void) void {
+    pub fn onSetSourceModel(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QAbstractItemModel) callconv(.c) void) void {
         qtc.KCategorizedSortFilterProxyModel_OnSetSourceModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mapToSource` instead
+    ///
+    pub const MapToSource = mapToSource;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -2433,14 +3025,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` proxyIndex: QModelIndex `
     ///
-    pub fn MapToSource(self: KCategorizedSortFilterProxyModel, proxyIndex: anytype) QModelIndex {
+    pub fn mapToSource(self: KCategorizedSortFilterProxyModel, proxyIndex: anytype) QModelIndex {
         comptime _ = @TypeOf(proxyIndex)._is_QModelIndex;
         return .{ .ptr = qtc.KCategorizedSortFilterProxyModel_MapToSource(@ptrCast(self.ptr), @ptrCast(proxyIndex.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMapToSource` instead
+    /// ### DEPRECATED: Use `superMapToSource` instead
     ///
-    pub const QBaseMapToSource = SuperMapToSource;
+    pub const SuperMapToSource = superMapToSource;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -2454,10 +3046,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` proxyIndex: QModelIndex `
     ///
-    pub fn SuperMapToSource(self: KCategorizedSortFilterProxyModel, proxyIndex: anytype) QModelIndex {
+    pub fn superMapToSource(self: KCategorizedSortFilterProxyModel, proxyIndex: anytype) QModelIndex {
         comptime _ = @TypeOf(proxyIndex)._is_QModelIndex;
         return .{ .ptr = qtc.KCategorizedSortFilterProxyModel_SuperMapToSource(@ptrCast(self.ptr), @ptrCast(proxyIndex.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMapToSource` instead
+    ///
+    pub const OnMapToSource = onMapToSource;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -2473,9 +3069,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMapToSource(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
+    pub fn onMapToSource(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KCategorizedSortFilterProxyModel_OnMapToSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mapFromSource` instead
+    ///
+    pub const MapFromSource = mapFromSource;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -2489,14 +3089,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` sourceIndex: QModelIndex `
     ///
-    pub fn MapFromSource(self: KCategorizedSortFilterProxyModel, sourceIndex: anytype) QModelIndex {
+    pub fn mapFromSource(self: KCategorizedSortFilterProxyModel, sourceIndex: anytype) QModelIndex {
         comptime _ = @TypeOf(sourceIndex)._is_QModelIndex;
         return .{ .ptr = qtc.KCategorizedSortFilterProxyModel_MapFromSource(@ptrCast(self.ptr), @ptrCast(sourceIndex.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMapFromSource` instead
+    /// ### DEPRECATED: Use `superMapFromSource` instead
     ///
-    pub const QBaseMapFromSource = SuperMapFromSource;
+    pub const SuperMapFromSource = superMapFromSource;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -2510,10 +3110,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` sourceIndex: QModelIndex `
     ///
-    pub fn SuperMapFromSource(self: KCategorizedSortFilterProxyModel, sourceIndex: anytype) QModelIndex {
+    pub fn superMapFromSource(self: KCategorizedSortFilterProxyModel, sourceIndex: anytype) QModelIndex {
         comptime _ = @TypeOf(sourceIndex)._is_QModelIndex;
         return .{ .ptr = qtc.KCategorizedSortFilterProxyModel_SuperMapFromSource(@ptrCast(self.ptr), @ptrCast(sourceIndex.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMapFromSource` instead
+    ///
+    pub const OnMapFromSource = onMapFromSource;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -2529,9 +3133,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMapFromSource(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
+    pub fn onMapFromSource(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KCategorizedSortFilterProxyModel_OnMapFromSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mapSelectionToSource` instead
+    ///
+    pub const MapSelectionToSource = mapSelectionToSource;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -2545,14 +3153,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` proxySelection: QItemSelection `
     ///
-    pub fn MapSelectionToSource(self: KCategorizedSortFilterProxyModel, proxySelection: anytype) QItemSelection {
+    pub fn mapSelectionToSource(self: KCategorizedSortFilterProxyModel, proxySelection: anytype) QItemSelection {
         comptime _ = @TypeOf(proxySelection)._is_QItemSelection;
         return .{ .ptr = qtc.KCategorizedSortFilterProxyModel_MapSelectionToSource(@ptrCast(self.ptr), @ptrCast(proxySelection.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMapSelectionToSource` instead
+    /// ### DEPRECATED: Use `superMapSelectionToSource` instead
     ///
-    pub const QBaseMapSelectionToSource = SuperMapSelectionToSource;
+    pub const SuperMapSelectionToSource = superMapSelectionToSource;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -2566,10 +3174,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` proxySelection: QItemSelection `
     ///
-    pub fn SuperMapSelectionToSource(self: KCategorizedSortFilterProxyModel, proxySelection: anytype) QItemSelection {
+    pub fn superMapSelectionToSource(self: KCategorizedSortFilterProxyModel, proxySelection: anytype) QItemSelection {
         comptime _ = @TypeOf(proxySelection)._is_QItemSelection;
         return .{ .ptr = qtc.KCategorizedSortFilterProxyModel_SuperMapSelectionToSource(@ptrCast(self.ptr), @ptrCast(proxySelection.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMapSelectionToSource` instead
+    ///
+    pub const OnMapSelectionToSource = onMapSelectionToSource;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -2585,9 +3197,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMapSelectionToSource(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QItemSelection) callconv(.c) QItemSelection) void {
+    pub fn onMapSelectionToSource(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QItemSelection) callconv(.c) QItemSelection) void {
         qtc.KCategorizedSortFilterProxyModel_OnMapSelectionToSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mapSelectionFromSource` instead
+    ///
+    pub const MapSelectionFromSource = mapSelectionFromSource;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -2601,14 +3217,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` sourceSelection: QItemSelection `
     ///
-    pub fn MapSelectionFromSource(self: KCategorizedSortFilterProxyModel, sourceSelection: anytype) QItemSelection {
+    pub fn mapSelectionFromSource(self: KCategorizedSortFilterProxyModel, sourceSelection: anytype) QItemSelection {
         comptime _ = @TypeOf(sourceSelection)._is_QItemSelection;
         return .{ .ptr = qtc.KCategorizedSortFilterProxyModel_MapSelectionFromSource(@ptrCast(self.ptr), @ptrCast(sourceSelection.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMapSelectionFromSource` instead
+    /// ### DEPRECATED: Use `superMapSelectionFromSource` instead
     ///
-    pub const QBaseMapSelectionFromSource = SuperMapSelectionFromSource;
+    pub const SuperMapSelectionFromSource = superMapSelectionFromSource;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -2622,10 +3238,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` sourceSelection: QItemSelection `
     ///
-    pub fn SuperMapSelectionFromSource(self: KCategorizedSortFilterProxyModel, sourceSelection: anytype) QItemSelection {
+    pub fn superMapSelectionFromSource(self: KCategorizedSortFilterProxyModel, sourceSelection: anytype) QItemSelection {
         comptime _ = @TypeOf(sourceSelection)._is_QItemSelection;
         return .{ .ptr = qtc.KCategorizedSortFilterProxyModel_SuperMapSelectionFromSource(@ptrCast(self.ptr), @ptrCast(sourceSelection.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMapSelectionFromSource` instead
+    ///
+    pub const OnMapSelectionFromSource = onMapSelectionFromSource;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -2641,9 +3261,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMapSelectionFromSource(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QItemSelection) callconv(.c) QItemSelection) void {
+    pub fn onMapSelectionFromSource(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QItemSelection) callconv(.c) QItemSelection) void {
         qtc.KCategorizedSortFilterProxyModel_OnMapSelectionFromSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `filterAcceptsRow` instead
+    ///
+    pub const FilterAcceptsRow = filterAcceptsRow;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -2659,14 +3283,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` source_parent: QModelIndex `
     ///
-    pub fn FilterAcceptsRow(self: KCategorizedSortFilterProxyModel, source_row: i32, source_parent: anytype) bool {
+    pub fn filterAcceptsRow(self: KCategorizedSortFilterProxyModel, source_row: i32, source_parent: anytype) bool {
         comptime _ = @TypeOf(source_parent)._is_QModelIndex;
         return qtc.KCategorizedSortFilterProxyModel_FilterAcceptsRow(@ptrCast(self.ptr), @bitCast(source_row), @ptrCast(source_parent.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFilterAcceptsRow` instead
+    /// ### DEPRECATED: Use `superFilterAcceptsRow` instead
     ///
-    pub const QBaseFilterAcceptsRow = SuperFilterAcceptsRow;
+    pub const SuperFilterAcceptsRow = superFilterAcceptsRow;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -2682,10 +3306,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` source_parent: QModelIndex `
     ///
-    pub fn SuperFilterAcceptsRow(self: KCategorizedSortFilterProxyModel, source_row: i32, source_parent: anytype) bool {
+    pub fn superFilterAcceptsRow(self: KCategorizedSortFilterProxyModel, source_row: i32, source_parent: anytype) bool {
         comptime _ = @TypeOf(source_parent)._is_QModelIndex;
         return qtc.KCategorizedSortFilterProxyModel_SuperFilterAcceptsRow(@ptrCast(self.ptr), @bitCast(source_row), @ptrCast(source_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFilterAcceptsRow` instead
+    ///
+    pub const OnFilterAcceptsRow = onFilterAcceptsRow;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -2699,9 +3327,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, source_row: i32, source_parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnFilterAcceptsRow(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, i32, QModelIndex) callconv(.c) bool) void {
+    pub fn onFilterAcceptsRow(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, i32, QModelIndex) callconv(.c) bool) void {
         qtc.KCategorizedSortFilterProxyModel_OnFilterAcceptsRow(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `filterAcceptsColumn` instead
+    ///
+    pub const FilterAcceptsColumn = filterAcceptsColumn;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -2717,14 +3349,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` source_parent: QModelIndex `
     ///
-    pub fn FilterAcceptsColumn(self: KCategorizedSortFilterProxyModel, source_column: i32, source_parent: anytype) bool {
+    pub fn filterAcceptsColumn(self: KCategorizedSortFilterProxyModel, source_column: i32, source_parent: anytype) bool {
         comptime _ = @TypeOf(source_parent)._is_QModelIndex;
         return qtc.KCategorizedSortFilterProxyModel_FilterAcceptsColumn(@ptrCast(self.ptr), @bitCast(source_column), @ptrCast(source_parent.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFilterAcceptsColumn` instead
+    /// ### DEPRECATED: Use `superFilterAcceptsColumn` instead
     ///
-    pub const QBaseFilterAcceptsColumn = SuperFilterAcceptsColumn;
+    pub const SuperFilterAcceptsColumn = superFilterAcceptsColumn;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -2740,10 +3372,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` source_parent: QModelIndex `
     ///
-    pub fn SuperFilterAcceptsColumn(self: KCategorizedSortFilterProxyModel, source_column: i32, source_parent: anytype) bool {
+    pub fn superFilterAcceptsColumn(self: KCategorizedSortFilterProxyModel, source_column: i32, source_parent: anytype) bool {
         comptime _ = @TypeOf(source_parent)._is_QModelIndex;
         return qtc.KCategorizedSortFilterProxyModel_SuperFilterAcceptsColumn(@ptrCast(self.ptr), @bitCast(source_column), @ptrCast(source_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFilterAcceptsColumn` instead
+    ///
+    pub const OnFilterAcceptsColumn = onFilterAcceptsColumn;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -2757,9 +3393,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, source_column: i32, source_parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnFilterAcceptsColumn(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, i32, QModelIndex) callconv(.c) bool) void {
+    pub fn onFilterAcceptsColumn(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, i32, QModelIndex) callconv(.c) bool) void {
         qtc.KCategorizedSortFilterProxyModel_OnFilterAcceptsColumn(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `index` instead
+    ///
+    pub const Index = index;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -2775,16 +3415,16 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn Index(self: KCategorizedSortFilterProxyModel, row: i32, column: i32, parent: anytype) QModelIndex {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return .{ .ptr = qtc.KCategorizedSortFilterProxyModel_Index(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr)) };
+    pub fn index(self: KCategorizedSortFilterProxyModel, row: i32, column: i32, _parent: anytype) QModelIndex {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return .{ .ptr = qtc.KCategorizedSortFilterProxyModel_Index(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(_parent.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperIndex` instead
+    /// ### DEPRECATED: Use `superIndex` instead
     ///
-    pub const QBaseIndex = SuperIndex;
+    pub const SuperIndex = superIndex;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -2800,12 +3440,16 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn SuperIndex(self: KCategorizedSortFilterProxyModel, row: i32, column: i32, parent: anytype) QModelIndex {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return .{ .ptr = qtc.KCategorizedSortFilterProxyModel_SuperIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr)) };
+    pub fn superIndex(self: KCategorizedSortFilterProxyModel, row: i32, column: i32, _parent: anytype) QModelIndex {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return .{ .ptr = qtc.KCategorizedSortFilterProxyModel_SuperIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onIndex` instead
+    ///
+    pub const OnIndex = onIndex;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -2821,9 +3465,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnIndex(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
+    pub fn onIndex(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KCategorizedSortFilterProxyModel_OnIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -2837,14 +3485,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` child: QModelIndex `
     ///
-    pub fn Parent(self: KCategorizedSortFilterProxyModel, child: anytype) QModelIndex {
+    pub fn parent(self: KCategorizedSortFilterProxyModel, child: anytype) QModelIndex {
         comptime _ = @TypeOf(child)._is_QModelIndex;
         return .{ .ptr = qtc.KCategorizedSortFilterProxyModel_Parent(@ptrCast(self.ptr), @ptrCast(child.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperParent` instead
+    /// ### DEPRECATED: Use `superParent` instead
     ///
-    pub const QBaseParent = SuperParent;
+    pub const SuperParent = superParent;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -2858,10 +3506,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` child: QModelIndex `
     ///
-    pub fn SuperParent(self: KCategorizedSortFilterProxyModel, child: anytype) QModelIndex {
+    pub fn superParent(self: KCategorizedSortFilterProxyModel, child: anytype) QModelIndex {
         comptime _ = @TypeOf(child)._is_QModelIndex;
         return .{ .ptr = qtc.KCategorizedSortFilterProxyModel_SuperParent(@ptrCast(self.ptr), @ptrCast(child.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onParent` instead
+    ///
+    pub const OnParent = onParent;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -2877,9 +3529,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnParent(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
+    pub fn onParent(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KCategorizedSortFilterProxyModel_OnParent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sibling` instead
+    ///
+    pub const Sibling = sibling;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -2897,14 +3553,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` idx: QModelIndex `
     ///
-    pub fn Sibling(self: KCategorizedSortFilterProxyModel, row: i32, column: i32, idx: anytype) QModelIndex {
+    pub fn sibling(self: KCategorizedSortFilterProxyModel, row: i32, column: i32, idx: anytype) QModelIndex {
         comptime _ = @TypeOf(idx)._is_QModelIndex;
         return .{ .ptr = qtc.KCategorizedSortFilterProxyModel_Sibling(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(idx.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSibling` instead
+    /// ### DEPRECATED: Use `superSibling` instead
     ///
-    pub const QBaseSibling = SuperSibling;
+    pub const SuperSibling = superSibling;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -2922,10 +3578,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` idx: QModelIndex `
     ///
-    pub fn SuperSibling(self: KCategorizedSortFilterProxyModel, row: i32, column: i32, idx: anytype) QModelIndex {
+    pub fn superSibling(self: KCategorizedSortFilterProxyModel, row: i32, column: i32, idx: anytype) QModelIndex {
         comptime _ = @TypeOf(idx)._is_QModelIndex;
         return .{ .ptr = qtc.KCategorizedSortFilterProxyModel_SuperSibling(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(idx.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSibling` instead
+    ///
+    pub const OnSibling = onSibling;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -2941,10 +3601,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSibling(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
+    pub fn onSibling(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KCategorizedSortFilterProxyModel_OnSibling(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `rowCount` instead
+    ///
+    pub const RowCount = rowCount;
+
     /// Inherited from QSortFilterProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsortfilterproxymodel.html#rowCount)
@@ -2955,16 +3619,16 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn RowCount(self: KCategorizedSortFilterProxyModel, parent: anytype) i32 {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.KCategorizedSortFilterProxyModel_RowCount(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn rowCount(self: KCategorizedSortFilterProxyModel, _parent: anytype) i32 {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.KCategorizedSortFilterProxyModel_RowCount(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperRowCount` instead
+    /// ### DEPRECATED: Use `superRowCount` instead
     ///
-    pub const QBaseRowCount = SuperRowCount;
+    pub const SuperRowCount = superRowCount;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -2976,12 +3640,16 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn SuperRowCount(self: KCategorizedSortFilterProxyModel, parent: anytype) i32 {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.KCategorizedSortFilterProxyModel_SuperRowCount(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn superRowCount(self: KCategorizedSortFilterProxyModel, _parent: anytype) i32 {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.KCategorizedSortFilterProxyModel_SuperRowCount(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `onRowCount` instead
+    ///
+    pub const OnRowCount = onRowCount;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -2995,10 +3663,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, parent: QModelIndex) callconv(.c) i32 `
     ///
-    pub fn OnRowCount(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex) callconv(.c) i32) void {
+    pub fn onRowCount(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex) callconv(.c) i32) void {
         qtc.KCategorizedSortFilterProxyModel_OnRowCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `columnCount` instead
+    ///
+    pub const ColumnCount = columnCount;
+
     /// Inherited from QSortFilterProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsortfilterproxymodel.html#columnCount)
@@ -3009,16 +3681,16 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn ColumnCount(self: KCategorizedSortFilterProxyModel, parent: anytype) i32 {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.KCategorizedSortFilterProxyModel_ColumnCount(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn columnCount(self: KCategorizedSortFilterProxyModel, _parent: anytype) i32 {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.KCategorizedSortFilterProxyModel_ColumnCount(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperColumnCount` instead
+    /// ### DEPRECATED: Use `superColumnCount` instead
     ///
-    pub const QBaseColumnCount = SuperColumnCount;
+    pub const SuperColumnCount = superColumnCount;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -3030,12 +3702,16 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn SuperColumnCount(self: KCategorizedSortFilterProxyModel, parent: anytype) i32 {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.KCategorizedSortFilterProxyModel_SuperColumnCount(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn superColumnCount(self: KCategorizedSortFilterProxyModel, _parent: anytype) i32 {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.KCategorizedSortFilterProxyModel_SuperColumnCount(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `onColumnCount` instead
+    ///
+    pub const OnColumnCount = onColumnCount;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -3049,9 +3725,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, parent: QModelIndex) callconv(.c) i32 `
     ///
-    pub fn OnColumnCount(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex) callconv(.c) i32) void {
+    pub fn onColumnCount(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex) callconv(.c) i32) void {
         qtc.KCategorizedSortFilterProxyModel_OnColumnCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasChildren` instead
+    ///
+    pub const HasChildren = hasChildren;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -3063,16 +3743,16 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn HasChildren(self: KCategorizedSortFilterProxyModel, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.KCategorizedSortFilterProxyModel_HasChildren(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn hasChildren(self: KCategorizedSortFilterProxyModel, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.KCategorizedSortFilterProxyModel_HasChildren(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasChildren` instead
+    /// ### DEPRECATED: Use `superHasChildren` instead
     ///
-    pub const QBaseHasChildren = SuperHasChildren;
+    pub const SuperHasChildren = superHasChildren;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -3084,12 +3764,16 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn SuperHasChildren(self: KCategorizedSortFilterProxyModel, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.KCategorizedSortFilterProxyModel_SuperHasChildren(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn superHasChildren(self: KCategorizedSortFilterProxyModel, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.KCategorizedSortFilterProxyModel_SuperHasChildren(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasChildren` instead
+    ///
+    pub const OnHasChildren = onHasChildren;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -3103,9 +3787,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnHasChildren(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex) callconv(.c) bool) void {
+    pub fn onHasChildren(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex) callconv(.c) bool) void {
         qtc.KCategorizedSortFilterProxyModel_OnHasChildren(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `data` instead
+    ///
+    pub const Data = data;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -3117,18 +3805,18 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
     /// ` role: i32 `
     ///
-    pub fn Data(self: KCategorizedSortFilterProxyModel, index: anytype, role: i32) QVariant {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return .{ .ptr = qtc.KCategorizedSortFilterProxyModel_Data(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(role)) };
+    pub fn data(self: KCategorizedSortFilterProxyModel, _index: anytype, role: i32) QVariant {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return .{ .ptr = qtc.KCategorizedSortFilterProxyModel_Data(@ptrCast(self.ptr), @ptrCast(_index.ptr), @bitCast(role)) };
     }
 
-    /// ### DEPRECATED: Use `SuperData` instead
+    /// ### DEPRECATED: Use `superData` instead
     ///
-    pub const QBaseData = SuperData;
+    pub const SuperData = superData;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -3140,14 +3828,18 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
     /// ` role: i32 `
     ///
-    pub fn SuperData(self: KCategorizedSortFilterProxyModel, index: anytype, role: i32) QVariant {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return .{ .ptr = qtc.KCategorizedSortFilterProxyModel_SuperData(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(role)) };
+    pub fn superData(self: KCategorizedSortFilterProxyModel, _index: anytype, role: i32) QVariant {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return .{ .ptr = qtc.KCategorizedSortFilterProxyModel_SuperData(@ptrCast(self.ptr), @ptrCast(_index.ptr), @bitCast(role)) };
     }
+
+    /// ### DEPRECATED: Use `onData` instead
+    ///
+    pub const OnData = onData;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -3163,9 +3855,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnData(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, i32) callconv(.c) QVariant) void {
+    pub fn onData(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, i32) callconv(.c) QVariant) void {
         qtc.KCategorizedSortFilterProxyModel_OnData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setData` instead
+    ///
+    pub const SetData = setData;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -3177,21 +3873,21 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
     /// ` value: QVariant `
     ///
     /// ` role: i32 `
     ///
-    pub fn SetData(self: KCategorizedSortFilterProxyModel, index: anytype, value: anytype, role: i32) bool {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
+    pub fn setData(self: KCategorizedSortFilterProxyModel, _index: anytype, value: anytype, role: i32) bool {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
         comptime _ = @TypeOf(value)._is_QVariant;
-        return qtc.KCategorizedSortFilterProxyModel_SetData(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(value.ptr), @bitCast(role));
+        return qtc.KCategorizedSortFilterProxyModel_SetData(@ptrCast(self.ptr), @ptrCast(_index.ptr), @ptrCast(value.ptr), @bitCast(role));
     }
 
-    /// ### DEPRECATED: Use `SuperSetData` instead
+    /// ### DEPRECATED: Use `superSetData` instead
     ///
-    pub const QBaseSetData = SuperSetData;
+    pub const SuperSetData = superSetData;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -3203,17 +3899,21 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
     /// ` value: QVariant `
     ///
     /// ` role: i32 `
     ///
-    pub fn SuperSetData(self: KCategorizedSortFilterProxyModel, index: anytype, value: anytype, role: i32) bool {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
+    pub fn superSetData(self: KCategorizedSortFilterProxyModel, _index: anytype, value: anytype, role: i32) bool {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
         comptime _ = @TypeOf(value)._is_QVariant;
-        return qtc.KCategorizedSortFilterProxyModel_SuperSetData(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(value.ptr), @bitCast(role));
+        return qtc.KCategorizedSortFilterProxyModel_SuperSetData(@ptrCast(self.ptr), @ptrCast(_index.ptr), @ptrCast(value.ptr), @bitCast(role));
     }
+
+    /// ### DEPRECATED: Use `onSetData` instead
+    ///
+    pub const OnSetData = onSetData;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -3227,9 +3927,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, index: QModelIndex, value: QVariant, role: i32) callconv(.c) bool `
     ///
-    pub fn OnSetData(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, QVariant, i32) callconv(.c) bool) void {
+    pub fn onSetData(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, QVariant, i32) callconv(.c) bool) void {
         qtc.KCategorizedSortFilterProxyModel_OnSetData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `headerData` instead
+    ///
+    pub const HeaderData = headerData;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -3247,13 +3951,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn HeaderData(self: KCategorizedSortFilterProxyModel, section: i32, orientation: i32, role: i32) QVariant {
+    pub fn headerData(self: KCategorizedSortFilterProxyModel, section: i32, orientation: i32, role: i32) QVariant {
         return .{ .ptr = qtc.KCategorizedSortFilterProxyModel_HeaderData(@ptrCast(self.ptr), @bitCast(section), @bitCast(orientation), @bitCast(role)) };
     }
 
-    /// ### DEPRECATED: Use `SuperHeaderData` instead
+    /// ### DEPRECATED: Use `superHeaderData` instead
     ///
-    pub const QBaseHeaderData = SuperHeaderData;
+    pub const SuperHeaderData = superHeaderData;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -3271,9 +3975,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn SuperHeaderData(self: KCategorizedSortFilterProxyModel, section: i32, orientation: i32, role: i32) QVariant {
+    pub fn superHeaderData(self: KCategorizedSortFilterProxyModel, section: i32, orientation: i32, role: i32) QVariant {
         return .{ .ptr = qtc.KCategorizedSortFilterProxyModel_SuperHeaderData(@ptrCast(self.ptr), @bitCast(section), @bitCast(orientation), @bitCast(role)) };
     }
+
+    /// ### DEPRECATED: Use `onHeaderData` instead
+    ///
+    pub const OnHeaderData = onHeaderData;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -3289,9 +3997,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnHeaderData(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, i32, i32, i32) callconv(.c) QVariant) void {
+    pub fn onHeaderData(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, i32, i32, i32) callconv(.c) QVariant) void {
         qtc.KCategorizedSortFilterProxyModel_OnHeaderData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setHeaderData` instead
+    ///
+    pub const SetHeaderData = setHeaderData;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -3311,14 +4023,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn SetHeaderData(self: KCategorizedSortFilterProxyModel, section: i32, orientation: i32, value: anytype, role: i32) bool {
+    pub fn setHeaderData(self: KCategorizedSortFilterProxyModel, section: i32, orientation: i32, value: anytype, role: i32) bool {
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.KCategorizedSortFilterProxyModel_SetHeaderData(@ptrCast(self.ptr), @bitCast(section), @bitCast(orientation), @ptrCast(value.ptr), @bitCast(role));
     }
 
-    /// ### DEPRECATED: Use `SuperSetHeaderData` instead
+    /// ### DEPRECATED: Use `superSetHeaderData` instead
     ///
-    pub const QBaseSetHeaderData = SuperSetHeaderData;
+    pub const SuperSetHeaderData = superSetHeaderData;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -3338,10 +4050,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn SuperSetHeaderData(self: KCategorizedSortFilterProxyModel, section: i32, orientation: i32, value: anytype, role: i32) bool {
+    pub fn superSetHeaderData(self: KCategorizedSortFilterProxyModel, section: i32, orientation: i32, value: anytype, role: i32) bool {
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.KCategorizedSortFilterProxyModel_SuperSetHeaderData(@ptrCast(self.ptr), @bitCast(section), @bitCast(orientation), @ptrCast(value.ptr), @bitCast(role));
     }
+
+    /// ### DEPRECATED: Use `onSetHeaderData` instead
+    ///
+    pub const OnSetHeaderData = onSetHeaderData;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -3355,9 +4071,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, section: i32, orientation: qnamespace_enums.Orientation, value: QVariant, role: i32) callconv(.c) bool `
     ///
-    pub fn OnSetHeaderData(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, i32, i32, QVariant, i32) callconv(.c) bool) void {
+    pub fn onSetHeaderData(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, i32, i32, QVariant, i32) callconv(.c) bool) void {
         qtc.KCategorizedSortFilterProxyModel_OnSetHeaderData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mimeData` instead
+    ///
+    pub const MimeData = mimeData;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -3371,7 +4091,7 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` indexes: []QModelIndex `
     ///
-    pub fn MimeData(self: KCategorizedSortFilterProxyModel, indexes: []QModelIndex) QMimeData {
+    pub fn mimeData(self: KCategorizedSortFilterProxyModel, indexes: []QModelIndex) QMimeData {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
@@ -3379,9 +4099,9 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
         return .{ .ptr = qtc.KCategorizedSortFilterProxyModel_MimeData(@ptrCast(self.ptr), indexes_list) };
     }
 
-    /// ### DEPRECATED: Use `SuperMimeData` instead
+    /// ### DEPRECATED: Use `superMimeData` instead
     ///
-    pub const QBaseMimeData = SuperMimeData;
+    pub const SuperMimeData = superMimeData;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -3395,13 +4115,17 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` indexes: []QModelIndex `
     ///
-    pub fn SuperMimeData(self: KCategorizedSortFilterProxyModel, indexes: []QModelIndex) QMimeData {
+    pub fn superMimeData(self: KCategorizedSortFilterProxyModel, indexes: []QModelIndex) QMimeData {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
         return .{ .ptr = qtc.KCategorizedSortFilterProxyModel_SuperMimeData(@ptrCast(self.ptr), indexes_list) };
     }
+
+    /// ### DEPRECATED: Use `onMimeData` instead
+    ///
+    pub const OnMimeData = onMimeData;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -3415,9 +4139,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, indexes: qtc.libqt_list ([]QModelIndex)) callconv(.c) QMimeData `
     ///
-    pub fn OnMimeData(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, qtc.libqt_list) callconv(.c) QMimeData) void {
+    pub fn onMimeData(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, qtc.libqt_list) callconv(.c) QMimeData) void {
         qtc.KCategorizedSortFilterProxyModel_OnMimeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropMimeData` instead
+    ///
+    pub const DropMimeData = dropMimeData;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -3429,7 +4157,7 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` data: QMimeData `
+    /// ` _data: QMimeData `
     ///
     /// ` action: qnamespace_enums.DropAction `
     ///
@@ -3437,17 +4165,17 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn DropMimeData(self: KCategorizedSortFilterProxyModel, data: anytype, action: i32, row: i32, column: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(data)._is_QMimeData;
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.KCategorizedSortFilterProxyModel_DropMimeData(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
+    pub fn dropMimeData(self: KCategorizedSortFilterProxyModel, _data: anytype, action: i32, row: i32, column: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_data)._is_QMimeData;
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.KCategorizedSortFilterProxyModel_DropMimeData(@ptrCast(self.ptr), @ptrCast(_data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(_parent.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropMimeData` instead
+    /// ### DEPRECATED: Use `superDropMimeData` instead
     ///
-    pub const QBaseDropMimeData = SuperDropMimeData;
+    pub const SuperDropMimeData = superDropMimeData;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -3459,7 +4187,7 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` data: QMimeData `
+    /// ` _data: QMimeData `
     ///
     /// ` action: qnamespace_enums.DropAction `
     ///
@@ -3467,13 +4195,17 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn SuperDropMimeData(self: KCategorizedSortFilterProxyModel, data: anytype, action: i32, row: i32, column: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(data)._is_QMimeData;
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.KCategorizedSortFilterProxyModel_SuperDropMimeData(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
+    pub fn superDropMimeData(self: KCategorizedSortFilterProxyModel, _data: anytype, action: i32, row: i32, column: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_data)._is_QMimeData;
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.KCategorizedSortFilterProxyModel_SuperDropMimeData(@ptrCast(self.ptr), @ptrCast(_data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropMimeData` instead
+    ///
+    pub const OnDropMimeData = onDropMimeData;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -3487,10 +4219,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, data: QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnDropMimeData(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QMimeData, i32, i32, i32, QModelIndex) callconv(.c) bool) void {
+    pub fn onDropMimeData(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QMimeData, i32, i32, i32, QModelIndex) callconv(.c) bool) void {
         qtc.KCategorizedSortFilterProxyModel_OnDropMimeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `insertRows` instead
+    ///
+    pub const InsertRows = insertRows;
+
     /// Inherited from QSortFilterProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsortfilterproxymodel.html#insertRows)
@@ -3505,16 +4241,16 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn InsertRows(self: KCategorizedSortFilterProxyModel, row: i32, count: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.KCategorizedSortFilterProxyModel_InsertRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(parent.ptr));
+    pub fn insertRows(self: KCategorizedSortFilterProxyModel, row: i32, count: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.KCategorizedSortFilterProxyModel_InsertRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(_parent.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInsertRows` instead
+    /// ### DEPRECATED: Use `superInsertRows` instead
     ///
-    pub const QBaseInsertRows = SuperInsertRows;
+    pub const SuperInsertRows = superInsertRows;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -3530,12 +4266,16 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn SuperInsertRows(self: KCategorizedSortFilterProxyModel, row: i32, count: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.KCategorizedSortFilterProxyModel_SuperInsertRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(parent.ptr));
+    pub fn superInsertRows(self: KCategorizedSortFilterProxyModel, row: i32, count: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.KCategorizedSortFilterProxyModel_SuperInsertRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInsertRows` instead
+    ///
+    pub const OnInsertRows = onInsertRows;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -3549,10 +4289,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, row: i32, count: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnInsertRows(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, i32, i32, QModelIndex) callconv(.c) bool) void {
+    pub fn onInsertRows(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, i32, i32, QModelIndex) callconv(.c) bool) void {
         qtc.KCategorizedSortFilterProxyModel_OnInsertRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `insertColumns` instead
+    ///
+    pub const InsertColumns = insertColumns;
+
     /// Inherited from QSortFilterProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsortfilterproxymodel.html#insertColumns)
@@ -3567,16 +4311,16 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn InsertColumns(self: KCategorizedSortFilterProxyModel, column: i32, count: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.KCategorizedSortFilterProxyModel_InsertColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(parent.ptr));
+    pub fn insertColumns(self: KCategorizedSortFilterProxyModel, column: i32, count: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.KCategorizedSortFilterProxyModel_InsertColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(_parent.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInsertColumns` instead
+    /// ### DEPRECATED: Use `superInsertColumns` instead
     ///
-    pub const QBaseInsertColumns = SuperInsertColumns;
+    pub const SuperInsertColumns = superInsertColumns;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -3592,12 +4336,16 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn SuperInsertColumns(self: KCategorizedSortFilterProxyModel, column: i32, count: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.KCategorizedSortFilterProxyModel_SuperInsertColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(parent.ptr));
+    pub fn superInsertColumns(self: KCategorizedSortFilterProxyModel, column: i32, count: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.KCategorizedSortFilterProxyModel_SuperInsertColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInsertColumns` instead
+    ///
+    pub const OnInsertColumns = onInsertColumns;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -3611,9 +4359,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, column: i32, count: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnInsertColumns(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, i32, i32, QModelIndex) callconv(.c) bool) void {
+    pub fn onInsertColumns(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, i32, i32, QModelIndex) callconv(.c) bool) void {
         qtc.KCategorizedSortFilterProxyModel_OnInsertColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `removeRows` instead
+    ///
+    pub const RemoveRows = removeRows;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -3629,16 +4381,16 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn RemoveRows(self: KCategorizedSortFilterProxyModel, row: i32, count: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.KCategorizedSortFilterProxyModel_RemoveRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(parent.ptr));
+    pub fn removeRows(self: KCategorizedSortFilterProxyModel, row: i32, count: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.KCategorizedSortFilterProxyModel_RemoveRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(_parent.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperRemoveRows` instead
+    /// ### DEPRECATED: Use `superRemoveRows` instead
     ///
-    pub const QBaseRemoveRows = SuperRemoveRows;
+    pub const SuperRemoveRows = superRemoveRows;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -3654,12 +4406,16 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn SuperRemoveRows(self: KCategorizedSortFilterProxyModel, row: i32, count: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.KCategorizedSortFilterProxyModel_SuperRemoveRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(parent.ptr));
+    pub fn superRemoveRows(self: KCategorizedSortFilterProxyModel, row: i32, count: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.KCategorizedSortFilterProxyModel_SuperRemoveRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `onRemoveRows` instead
+    ///
+    pub const OnRemoveRows = onRemoveRows;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -3673,9 +4429,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, row: i32, count: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnRemoveRows(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, i32, i32, QModelIndex) callconv(.c) bool) void {
+    pub fn onRemoveRows(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, i32, i32, QModelIndex) callconv(.c) bool) void {
         qtc.KCategorizedSortFilterProxyModel_OnRemoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `removeColumns` instead
+    ///
+    pub const RemoveColumns = removeColumns;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -3691,16 +4451,16 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn RemoveColumns(self: KCategorizedSortFilterProxyModel, column: i32, count: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.KCategorizedSortFilterProxyModel_RemoveColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(parent.ptr));
+    pub fn removeColumns(self: KCategorizedSortFilterProxyModel, column: i32, count: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.KCategorizedSortFilterProxyModel_RemoveColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(_parent.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperRemoveColumns` instead
+    /// ### DEPRECATED: Use `superRemoveColumns` instead
     ///
-    pub const QBaseRemoveColumns = SuperRemoveColumns;
+    pub const SuperRemoveColumns = superRemoveColumns;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -3716,12 +4476,16 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn SuperRemoveColumns(self: KCategorizedSortFilterProxyModel, column: i32, count: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.KCategorizedSortFilterProxyModel_SuperRemoveColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(parent.ptr));
+    pub fn superRemoveColumns(self: KCategorizedSortFilterProxyModel, column: i32, count: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.KCategorizedSortFilterProxyModel_SuperRemoveColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `onRemoveColumns` instead
+    ///
+    pub const OnRemoveColumns = onRemoveColumns;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -3735,9 +4499,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, column: i32, count: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnRemoveColumns(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, i32, i32, QModelIndex) callconv(.c) bool) void {
+    pub fn onRemoveColumns(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, i32, i32, QModelIndex) callconv(.c) bool) void {
         qtc.KCategorizedSortFilterProxyModel_OnRemoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `fetchMore` instead
+    ///
+    pub const FetchMore = fetchMore;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -3749,16 +4517,16 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn FetchMore(self: KCategorizedSortFilterProxyModel, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.KCategorizedSortFilterProxyModel_FetchMore(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn fetchMore(self: KCategorizedSortFilterProxyModel, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.KCategorizedSortFilterProxyModel_FetchMore(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFetchMore` instead
+    /// ### DEPRECATED: Use `superFetchMore` instead
     ///
-    pub const QBaseFetchMore = SuperFetchMore;
+    pub const SuperFetchMore = superFetchMore;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -3770,12 +4538,16 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn SuperFetchMore(self: KCategorizedSortFilterProxyModel, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.KCategorizedSortFilterProxyModel_SuperFetchMore(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn superFetchMore(self: KCategorizedSortFilterProxyModel, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.KCategorizedSortFilterProxyModel_SuperFetchMore(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFetchMore` instead
+    ///
+    pub const OnFetchMore = onFetchMore;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -3789,9 +4561,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, parent: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnFetchMore(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex) callconv(.c) void) void {
+    pub fn onFetchMore(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex) callconv(.c) void) void {
         qtc.KCategorizedSortFilterProxyModel_OnFetchMore(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `canFetchMore` instead
+    ///
+    pub const CanFetchMore = canFetchMore;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -3803,16 +4579,16 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn CanFetchMore(self: KCategorizedSortFilterProxyModel, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.KCategorizedSortFilterProxyModel_CanFetchMore(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn canFetchMore(self: KCategorizedSortFilterProxyModel, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.KCategorizedSortFilterProxyModel_CanFetchMore(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCanFetchMore` instead
+    /// ### DEPRECATED: Use `superCanFetchMore` instead
     ///
-    pub const QBaseCanFetchMore = SuperCanFetchMore;
+    pub const SuperCanFetchMore = superCanFetchMore;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -3824,12 +4600,16 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn SuperCanFetchMore(self: KCategorizedSortFilterProxyModel, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.KCategorizedSortFilterProxyModel_SuperCanFetchMore(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn superCanFetchMore(self: KCategorizedSortFilterProxyModel, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.KCategorizedSortFilterProxyModel_SuperCanFetchMore(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCanFetchMore` instead
+    ///
+    pub const OnCanFetchMore = onCanFetchMore;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -3843,9 +4623,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnCanFetchMore(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex) callconv(.c) bool) void {
+    pub fn onCanFetchMore(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex) callconv(.c) bool) void {
         qtc.KCategorizedSortFilterProxyModel_OnCanFetchMore(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `flags` instead
+    ///
+    pub const Flags = flags;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -3857,20 +4641,20 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.ItemFlag `
     ///
-    pub fn Flags(self: KCategorizedSortFilterProxyModel, index: anytype) i32 {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return qtc.KCategorizedSortFilterProxyModel_Flags(@ptrCast(self.ptr), @ptrCast(index.ptr));
+    pub fn flags(self: KCategorizedSortFilterProxyModel, _index: anytype) i32 {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return qtc.KCategorizedSortFilterProxyModel_Flags(@ptrCast(self.ptr), @ptrCast(_index.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFlags` instead
+    /// ### DEPRECATED: Use `superFlags` instead
     ///
-    pub const QBaseFlags = SuperFlags;
+    pub const SuperFlags = superFlags;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -3882,16 +4666,20 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.ItemFlag `
     ///
-    pub fn SuperFlags(self: KCategorizedSortFilterProxyModel, index: anytype) i32 {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return qtc.KCategorizedSortFilterProxyModel_SuperFlags(@ptrCast(self.ptr), @ptrCast(index.ptr));
+    pub fn superFlags(self: KCategorizedSortFilterProxyModel, _index: anytype) i32 {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return qtc.KCategorizedSortFilterProxyModel_SuperFlags(@ptrCast(self.ptr), @ptrCast(_index.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFlags` instead
+    ///
+    pub const OnFlags = onFlags;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -3905,9 +4693,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, index: QModelIndex) callconv(.c) i32 `
     ///
-    pub fn OnFlags(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex) callconv(.c) i32) void {
+    pub fn onFlags(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex) callconv(.c) i32) void {
         qtc.KCategorizedSortFilterProxyModel_OnFlags(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `buddy` instead
+    ///
+    pub const Buddy = buddy;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -3919,16 +4711,16 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
-    pub fn Buddy(self: KCategorizedSortFilterProxyModel, index: anytype) QModelIndex {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return .{ .ptr = qtc.KCategorizedSortFilterProxyModel_Buddy(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
+    pub fn buddy(self: KCategorizedSortFilterProxyModel, _index: anytype) QModelIndex {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return .{ .ptr = qtc.KCategorizedSortFilterProxyModel_Buddy(@ptrCast(self.ptr), @ptrCast(_index.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperBuddy` instead
+    /// ### DEPRECATED: Use `superBuddy` instead
     ///
-    pub const QBaseBuddy = SuperBuddy;
+    pub const SuperBuddy = superBuddy;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -3940,12 +4732,16 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
-    pub fn SuperBuddy(self: KCategorizedSortFilterProxyModel, index: anytype) QModelIndex {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return .{ .ptr = qtc.KCategorizedSortFilterProxyModel_SuperBuddy(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
+    pub fn superBuddy(self: KCategorizedSortFilterProxyModel, _index: anytype) QModelIndex {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return .{ .ptr = qtc.KCategorizedSortFilterProxyModel_SuperBuddy(@ptrCast(self.ptr), @ptrCast(_index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onBuddy` instead
+    ///
+    pub const OnBuddy = onBuddy;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -3961,9 +4757,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnBuddy(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
+    pub fn onBuddy(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KCategorizedSortFilterProxyModel_OnBuddy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `match` instead
+    ///
+    pub const Match = match;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -3985,23 +4785,23 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` hits: i32 `
     ///
-    /// ` flags: flag of qnamespace_enums.MatchFlag `
+    /// ` _flags: flag of qnamespace_enums.MatchFlag `
     ///
-    pub fn Match(self: KCategorizedSortFilterProxyModel, allocator: std.mem.Allocator, start: anytype, role: i32, value: anytype, hits: i32, flags: i32) []QModelIndex {
+    pub fn match(self: KCategorizedSortFilterProxyModel, allocator: std.mem.Allocator, start: anytype, role: i32, value: anytype, hits: i32, _flags: i32) []QModelIndex {
         comptime _ = @TypeOf(start)._is_QModelIndex;
         comptime _ = @TypeOf(value)._is_QVariant;
-        const _arr: qtc.libqt_list = qtc.KCategorizedSortFilterProxyModel_Match(@ptrCast(self.ptr), @ptrCast(start.ptr), @bitCast(role), @ptrCast(value.ptr), @bitCast(hits), @bitCast(flags));
+        const _arr: qtc.libqt_list = qtc.KCategorizedSortFilterProxyModel_Match(@ptrCast(self.ptr), @ptrCast(start.ptr), @bitCast(role), @ptrCast(value.ptr), @bitCast(hits), @bitCast(_flags));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("KCategorizedSortFilterProxyModel.Match: Memory allocation failed");
-        const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("KCategorizedSortFilterProxyModel.match: Memory allocation failed");
+        const _data_val: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `SuperMatch` instead
+    /// ### DEPRECATED: Use `superMatch` instead
     ///
-    pub const QBaseMatch = SuperMatch;
+    pub const SuperMatch = superMatch;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -4023,19 +4823,23 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` hits: i32 `
     ///
-    /// ` flags: flag of qnamespace_enums.MatchFlag `
+    /// ` _flags: flag of qnamespace_enums.MatchFlag `
     ///
-    pub fn SuperMatch(self: KCategorizedSortFilterProxyModel, allocator: std.mem.Allocator, start: anytype, role: i32, value: anytype, hits: i32, flags: i32) []QModelIndex {
+    pub fn superMatch(self: KCategorizedSortFilterProxyModel, allocator: std.mem.Allocator, start: anytype, role: i32, value: anytype, hits: i32, _flags: i32) []QModelIndex {
         comptime _ = @TypeOf(start)._is_QModelIndex;
         comptime _ = @TypeOf(value)._is_QVariant;
-        const _arr: qtc.libqt_list = qtc.KCategorizedSortFilterProxyModel_SuperMatch(@ptrCast(self.ptr), @ptrCast(start.ptr), @bitCast(role), @ptrCast(value.ptr), @bitCast(hits), @bitCast(flags));
+        const _arr: qtc.libqt_list = qtc.KCategorizedSortFilterProxyModel_SuperMatch(@ptrCast(self.ptr), @ptrCast(start.ptr), @bitCast(role), @ptrCast(value.ptr), @bitCast(hits), @bitCast(_flags));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("KCategorizedSortFilterProxyModel.Match: Memory allocation failed");
-        const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("KCategorizedSortFilterProxyModel.match: Memory allocation failed");
+        const _data_val: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onMatch` instead
+    ///
+    pub const OnMatch = onMatch;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -4055,9 +4859,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` C ABI representation of []QModelIndex `
     ///
-    pub fn OnMatch(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, i32, QVariant, i32, i32) callconv(.c) qtc.libqt_list) void {
+    pub fn onMatch(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, i32, QVariant, i32, i32) callconv(.c) qtc.libqt_list) void {
         qtc.KCategorizedSortFilterProxyModel_OnMatch(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `span` instead
+    ///
+    pub const Span = span;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -4069,16 +4877,16 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
-    pub fn Span(self: KCategorizedSortFilterProxyModel, index: anytype) QSize {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return .{ .ptr = qtc.KCategorizedSortFilterProxyModel_Span(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
+    pub fn span(self: KCategorizedSortFilterProxyModel, _index: anytype) QSize {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return .{ .ptr = qtc.KCategorizedSortFilterProxyModel_Span(@ptrCast(self.ptr), @ptrCast(_index.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSpan` instead
+    /// ### DEPRECATED: Use `superSpan` instead
     ///
-    pub const QBaseSpan = SuperSpan;
+    pub const SuperSpan = superSpan;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -4090,12 +4898,16 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
-    pub fn SuperSpan(self: KCategorizedSortFilterProxyModel, index: anytype) QSize {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return .{ .ptr = qtc.KCategorizedSortFilterProxyModel_SuperSpan(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
+    pub fn superSpan(self: KCategorizedSortFilterProxyModel, _index: anytype) QSize {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return .{ .ptr = qtc.KCategorizedSortFilterProxyModel_SuperSpan(@ptrCast(self.ptr), @ptrCast(_index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSpan` instead
+    ///
+    pub const OnSpan = onSpan;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -4111,9 +4923,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSpan(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex) callconv(.c) QSize) void {
+    pub fn onSpan(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex) callconv(.c) QSize) void {
         qtc.KCategorizedSortFilterProxyModel_OnSpan(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mimeTypes` instead
+    ///
+    pub const MimeTypes = mimeTypes;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -4127,7 +4943,7 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MimeTypes(self: KCategorizedSortFilterProxyModel, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn mimeTypes(self: KCategorizedSortFilterProxyModel, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KCategorizedSortFilterProxyModel_MimeTypes(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -4135,19 +4951,19 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KCategorizedSortFilterProxyModel.MimeTypes: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KCategorizedSortFilterProxyModel.mimeTypes: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KCategorizedSortFilterProxyModel.MimeTypes: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KCategorizedSortFilterProxyModel.mimeTypes: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `SuperMimeTypes` instead
+    /// ### DEPRECATED: Use `superMimeTypes` instead
     ///
-    pub const QBaseMimeTypes = SuperMimeTypes;
+    pub const SuperMimeTypes = superMimeTypes;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -4161,7 +4977,7 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperMimeTypes(self: KCategorizedSortFilterProxyModel, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn superMimeTypes(self: KCategorizedSortFilterProxyModel, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KCategorizedSortFilterProxyModel_SuperMimeTypes(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -4169,15 +4985,19 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KCategorizedSortFilterProxyModel.MimeTypes: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KCategorizedSortFilterProxyModel.mimeTypes: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KCategorizedSortFilterProxyModel.MimeTypes: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KCategorizedSortFilterProxyModel.mimeTypes: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onMimeTypes` instead
+    ///
+    pub const OnMimeTypes = onMimeTypes;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -4193,9 +5013,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn OnMimeTypes(self: KCategorizedSortFilterProxyModel, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
+    pub fn onMimeTypes(self: KCategorizedSortFilterProxyModel, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.KCategorizedSortFilterProxyModel_OnMimeTypes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `supportedDropActions` instead
+    ///
+    pub const SupportedDropActions = supportedDropActions;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -4211,13 +5035,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn SupportedDropActions(self: KCategorizedSortFilterProxyModel) i32 {
+    pub fn supportedDropActions(self: KCategorizedSortFilterProxyModel) i32 {
         return qtc.KCategorizedSortFilterProxyModel_SupportedDropActions(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSupportedDropActions` instead
+    /// ### DEPRECATED: Use `superSupportedDropActions` instead
     ///
-    pub const QBaseSupportedDropActions = SuperSupportedDropActions;
+    pub const SuperSupportedDropActions = superSupportedDropActions;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -4233,9 +5057,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn SuperSupportedDropActions(self: KCategorizedSortFilterProxyModel) i32 {
+    pub fn superSupportedDropActions(self: KCategorizedSortFilterProxyModel) i32 {
         return qtc.KCategorizedSortFilterProxyModel_SuperSupportedDropActions(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSupportedDropActions` instead
+    ///
+    pub const OnSupportedDropActions = onSupportedDropActions;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -4249,9 +5077,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSupportedDropActions(self: KCategorizedSortFilterProxyModel, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSupportedDropActions(self: KCategorizedSortFilterProxyModel, callback: *const fn () callconv(.c) i32) void {
         qtc.KCategorizedSortFilterProxyModel_OnSupportedDropActions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `submit` instead
+    ///
+    pub const Submit = submit;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -4263,13 +5095,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn Submit(self: KCategorizedSortFilterProxyModel) bool {
+    pub fn submit(self: KCategorizedSortFilterProxyModel) bool {
         return qtc.KCategorizedSortFilterProxyModel_Submit(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSubmit` instead
+    /// ### DEPRECATED: Use `superSubmit` instead
     ///
-    pub const QBaseSubmit = SuperSubmit;
+    pub const SuperSubmit = superSubmit;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -4281,9 +5113,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn SuperSubmit(self: KCategorizedSortFilterProxyModel) bool {
+    pub fn superSubmit(self: KCategorizedSortFilterProxyModel) bool {
         return qtc.KCategorizedSortFilterProxyModel_SuperSubmit(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSubmit` instead
+    ///
+    pub const OnSubmit = onSubmit;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -4297,9 +5133,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnSubmit(self: KCategorizedSortFilterProxyModel, callback: *const fn () callconv(.c) bool) void {
+    pub fn onSubmit(self: KCategorizedSortFilterProxyModel, callback: *const fn () callconv(.c) bool) void {
         qtc.KCategorizedSortFilterProxyModel_OnSubmit(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `revert` instead
+    ///
+    pub const Revert = revert;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -4311,13 +5151,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn Revert(self: KCategorizedSortFilterProxyModel) void {
+    pub fn revert(self: KCategorizedSortFilterProxyModel) void {
         qtc.KCategorizedSortFilterProxyModel_Revert(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperRevert` instead
+    /// ### DEPRECATED: Use `superRevert` instead
     ///
-    pub const QBaseRevert = SuperRevert;
+    pub const SuperRevert = superRevert;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -4329,9 +5169,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn SuperRevert(self: KCategorizedSortFilterProxyModel) void {
+    pub fn superRevert(self: KCategorizedSortFilterProxyModel) void {
         qtc.KCategorizedSortFilterProxyModel_SuperRevert(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onRevert` instead
+    ///
+    pub const OnRevert = onRevert;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -4345,9 +5189,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnRevert(self: KCategorizedSortFilterProxyModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onRevert(self: KCategorizedSortFilterProxyModel, callback: *const fn () callconv(.c) void) void {
         qtc.KCategorizedSortFilterProxyModel_OnRevert(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `itemData` instead
+    ///
+    pub const ItemData = itemData;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -4361,13 +5209,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
-    pub fn ItemData(self: KCategorizedSortFilterProxyModel, allocator: std.mem.Allocator, index: anytype) ArrayMap_i32_QVariant {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        const _map: qtc.libqt_map = qtc.KCategorizedSortFilterProxyModel_ItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
+    pub fn itemData(self: KCategorizedSortFilterProxyModel, allocator: std.mem.Allocator, _index: anytype) ArrayMap_i32_QVariant {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        const _map: qtc.libqt_map = qtc.KCategorizedSortFilterProxyModel_ItemData(@ptrCast(self.ptr), @ptrCast(_index.ptr));
         var _ret: ArrayMap_i32_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KCategorizedSortFilterProxyModel.ItemData: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KCategorizedSortFilterProxyModel.itemData: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -4383,9 +5231,9 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `SuperItemData` instead
+    /// ### DEPRECATED: Use `superItemData` instead
     ///
-    pub const QBaseItemData = SuperItemData;
+    pub const SuperItemData = superItemData;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -4399,13 +5247,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
-    pub fn SuperItemData(self: KCategorizedSortFilterProxyModel, allocator: std.mem.Allocator, index: anytype) ArrayMap_i32_QVariant {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        const _map: qtc.libqt_map = qtc.KCategorizedSortFilterProxyModel_SuperItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
+    pub fn superItemData(self: KCategorizedSortFilterProxyModel, allocator: std.mem.Allocator, _index: anytype) ArrayMap_i32_QVariant {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        const _map: qtc.libqt_map = qtc.KCategorizedSortFilterProxyModel_SuperItemData(@ptrCast(self.ptr), @ptrCast(_index.ptr));
         var _ret: ArrayMap_i32_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KCategorizedSortFilterProxyModel.ItemData: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KCategorizedSortFilterProxyModel.itemData: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -4420,6 +5268,10 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onItemData` instead
+    ///
+    pub const OnItemData = onItemData;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -4437,9 +5289,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` C ABI representation of ArrayMap_i32_QVariant `
     ///
-    pub fn OnItemData(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex) callconv(.c) qtc.libqt_map) void {
+    pub fn onItemData(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex) callconv(.c) qtc.libqt_map) void {
         qtc.KCategorizedSortFilterProxyModel_OnItemData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setItemData` instead
+    ///
+    pub const SetItemData = setItemData;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -4453,16 +5309,16 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
     /// ` roles: ArrayMap_i32_QVariant `
     ///
-    pub fn SetItemData(self: KCategorizedSortFilterProxyModel, allocator: std.mem.Allocator, index: anytype, roles: ArrayMap_i32_QVariant) bool {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
+    pub fn setItemData(self: KCategorizedSortFilterProxyModel, allocator: std.mem.Allocator, _index: anytype, roles: ArrayMap_i32_QVariant) bool {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
         const roles_count = roles.count();
-        const roles_keys = allocator.alloc(i32, roles_count) catch @panic("KCategorizedSortFilterProxyModel.SetItemData: Memory allocation failed");
+        const roles_keys = allocator.alloc(i32, roles_count) catch @panic("KCategorizedSortFilterProxyModel.setItemData: Memory allocation failed");
         defer allocator.free(roles_keys);
-        const roles_values = allocator.alloc(QtC.QVariant, roles_count) catch @panic("KCategorizedSortFilterProxyModel.SetItemData: Memory allocation failed");
+        const roles_values = allocator.alloc(QtC.QVariant, roles_count) catch @panic("KCategorizedSortFilterProxyModel.setItemData: Memory allocation failed");
         defer allocator.free(roles_values);
         var i: usize = 0;
         var roles_it = roles.iterator();
@@ -4476,12 +5332,12 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
             .keys = @ptrCast(roles_keys.ptr),
             .values = @ptrCast(roles_values.ptr),
         };
-        return qtc.KCategorizedSortFilterProxyModel_SetItemData(@ptrCast(self.ptr), @ptrCast(index.ptr), roles_map);
+        return qtc.KCategorizedSortFilterProxyModel_SetItemData(@ptrCast(self.ptr), @ptrCast(_index.ptr), roles_map);
     }
 
-    /// ### DEPRECATED: Use `SuperSetItemData` instead
+    /// ### DEPRECATED: Use `superSetItemData` instead
     ///
-    pub const QBaseSetItemData = SuperSetItemData;
+    pub const SuperSetItemData = superSetItemData;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -4495,16 +5351,16 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
     /// ` roles: ArrayMap_i32_QVariant `
     ///
-    pub fn SuperSetItemData(self: KCategorizedSortFilterProxyModel, allocator: std.mem.Allocator, index: anytype, roles: ArrayMap_i32_QVariant) bool {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
+    pub fn superSetItemData(self: KCategorizedSortFilterProxyModel, allocator: std.mem.Allocator, _index: anytype, roles: ArrayMap_i32_QVariant) bool {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
         const roles_count = roles.count();
-        const roles_keys = allocator.alloc(i32, roles_count) catch @panic("KCategorizedSortFilterProxyModel.SetItemData: Memory allocation failed");
+        const roles_keys = allocator.alloc(i32, roles_count) catch @panic("KCategorizedSortFilterProxyModel.setItemData: Memory allocation failed");
         defer allocator.free(roles_keys);
-        const roles_values = allocator.alloc(QtC.QVariant, roles_count) catch @panic("KCategorizedSortFilterProxyModel.SetItemData: Memory allocation failed");
+        const roles_values = allocator.alloc(QtC.QVariant, roles_count) catch @panic("KCategorizedSortFilterProxyModel.setItemData: Memory allocation failed");
         defer allocator.free(roles_values);
         var i: usize = 0;
         var roles_it = roles.iterator();
@@ -4518,8 +5374,12 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
             .keys = @ptrCast(roles_keys.ptr),
             .values = @ptrCast(roles_values.ptr),
         };
-        return qtc.KCategorizedSortFilterProxyModel_SuperSetItemData(@ptrCast(self.ptr), @ptrCast(index.ptr), roles_map);
+        return qtc.KCategorizedSortFilterProxyModel_SuperSetItemData(@ptrCast(self.ptr), @ptrCast(_index.ptr), roles_map);
     }
+
+    /// ### DEPRECATED: Use `onSetItemData` instead
+    ///
+    pub const OnSetItemData = onSetItemData;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -4533,9 +5393,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, index: QModelIndex, roles: qtc.libqt_map (ArrayMap_i32_QVariant)) callconv(.c) bool `
     ///
-    pub fn OnSetItemData(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, qtc.libqt_map) callconv(.c) bool) void {
+    pub fn onSetItemData(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, qtc.libqt_map) callconv(.c) bool) void {
         qtc.KCategorizedSortFilterProxyModel_OnSetItemData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `clearItemData` instead
+    ///
+    pub const ClearItemData = clearItemData;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -4547,16 +5411,16 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
-    pub fn ClearItemData(self: KCategorizedSortFilterProxyModel, index: anytype) bool {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return qtc.KCategorizedSortFilterProxyModel_ClearItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
+    pub fn clearItemData(self: KCategorizedSortFilterProxyModel, _index: anytype) bool {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return qtc.KCategorizedSortFilterProxyModel_ClearItemData(@ptrCast(self.ptr), @ptrCast(_index.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperClearItemData` instead
+    /// ### DEPRECATED: Use `superClearItemData` instead
     ///
-    pub const QBaseClearItemData = SuperClearItemData;
+    pub const SuperClearItemData = superClearItemData;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -4568,12 +5432,16 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
-    pub fn SuperClearItemData(self: KCategorizedSortFilterProxyModel, index: anytype) bool {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return qtc.KCategorizedSortFilterProxyModel_SuperClearItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
+    pub fn superClearItemData(self: KCategorizedSortFilterProxyModel, _index: anytype) bool {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return qtc.KCategorizedSortFilterProxyModel_SuperClearItemData(@ptrCast(self.ptr), @ptrCast(_index.ptr));
     }
+
+    /// ### DEPRECATED: Use `onClearItemData` instead
+    ///
+    pub const OnClearItemData = onClearItemData;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -4587,9 +5455,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, index: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnClearItemData(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex) callconv(.c) bool) void {
+    pub fn onClearItemData(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex) callconv(.c) bool) void {
         qtc.KCategorizedSortFilterProxyModel_OnClearItemData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `canDropMimeData` instead
+    ///
+    pub const CanDropMimeData = canDropMimeData;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -4601,7 +5473,7 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` data: QMimeData `
+    /// ` _data: QMimeData `
     ///
     /// ` action: qnamespace_enums.DropAction `
     ///
@@ -4609,17 +5481,17 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn CanDropMimeData(self: KCategorizedSortFilterProxyModel, data: anytype, action: i32, row: i32, column: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(data)._is_QMimeData;
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.KCategorizedSortFilterProxyModel_CanDropMimeData(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
+    pub fn canDropMimeData(self: KCategorizedSortFilterProxyModel, _data: anytype, action: i32, row: i32, column: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_data)._is_QMimeData;
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.KCategorizedSortFilterProxyModel_CanDropMimeData(@ptrCast(self.ptr), @ptrCast(_data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(_parent.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCanDropMimeData` instead
+    /// ### DEPRECATED: Use `superCanDropMimeData` instead
     ///
-    pub const QBaseCanDropMimeData = SuperCanDropMimeData;
+    pub const SuperCanDropMimeData = superCanDropMimeData;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -4631,7 +5503,7 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` data: QMimeData `
+    /// ` _data: QMimeData `
     ///
     /// ` action: qnamespace_enums.DropAction `
     ///
@@ -4639,13 +5511,17 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn SuperCanDropMimeData(self: KCategorizedSortFilterProxyModel, data: anytype, action: i32, row: i32, column: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(data)._is_QMimeData;
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.KCategorizedSortFilterProxyModel_SuperCanDropMimeData(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
+    pub fn superCanDropMimeData(self: KCategorizedSortFilterProxyModel, _data: anytype, action: i32, row: i32, column: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_data)._is_QMimeData;
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.KCategorizedSortFilterProxyModel_SuperCanDropMimeData(@ptrCast(self.ptr), @ptrCast(_data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCanDropMimeData` instead
+    ///
+    pub const OnCanDropMimeData = onCanDropMimeData;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -4659,9 +5535,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, data: QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnCanDropMimeData(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QMimeData, i32, i32, i32, QModelIndex) callconv(.c) bool) void {
+    pub fn onCanDropMimeData(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QMimeData, i32, i32, i32, QModelIndex) callconv(.c) bool) void {
         qtc.KCategorizedSortFilterProxyModel_OnCanDropMimeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `supportedDragActions` instead
+    ///
+    pub const SupportedDragActions = supportedDragActions;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -4677,13 +5557,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn SupportedDragActions(self: KCategorizedSortFilterProxyModel) i32 {
+    pub fn supportedDragActions(self: KCategorizedSortFilterProxyModel) i32 {
         return qtc.KCategorizedSortFilterProxyModel_SupportedDragActions(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSupportedDragActions` instead
+    /// ### DEPRECATED: Use `superSupportedDragActions` instead
     ///
-    pub const QBaseSupportedDragActions = SuperSupportedDragActions;
+    pub const SuperSupportedDragActions = superSupportedDragActions;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -4699,9 +5579,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn SuperSupportedDragActions(self: KCategorizedSortFilterProxyModel) i32 {
+    pub fn superSupportedDragActions(self: KCategorizedSortFilterProxyModel) i32 {
         return qtc.KCategorizedSortFilterProxyModel_SuperSupportedDragActions(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSupportedDragActions` instead
+    ///
+    pub const OnSupportedDragActions = onSupportedDragActions;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -4715,9 +5599,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSupportedDragActions(self: KCategorizedSortFilterProxyModel, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSupportedDragActions(self: KCategorizedSortFilterProxyModel, callback: *const fn () callconv(.c) i32) void {
         qtc.KCategorizedSortFilterProxyModel_OnSupportedDragActions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `roleNames` instead
+    ///
+    pub const RoleNames = roleNames;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -4731,10 +5619,10 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn RoleNames(self: KCategorizedSortFilterProxyModel, allocator: std.mem.Allocator) Map_i32_u8 {
+    pub fn roleNames(self: KCategorizedSortFilterProxyModel, allocator: std.mem.Allocator) Map_i32_u8 {
         const _map: qtc.libqt_map = qtc.KCategorizedSortFilterProxyModel_RoleNames(@ptrCast(self.ptr));
         var _ret: Map_i32_u8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KCategorizedSortFilterProxyModel.RoleNames: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KCategorizedSortFilterProxyModel.roleNames: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -4749,16 +5637,16 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("KCategorizedSortFilterProxyModel.RoleNames: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("KCategorizedSortFilterProxyModel.roleNames: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
             _ret.putAssumeCapacity(_key, _value_slice);
         }
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `SuperRoleNames` instead
+    /// ### DEPRECATED: Use `superRoleNames` instead
     ///
-    pub const QBaseRoleNames = SuperRoleNames;
+    pub const SuperRoleNames = superRoleNames;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -4772,10 +5660,10 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperRoleNames(self: KCategorizedSortFilterProxyModel, allocator: std.mem.Allocator) Map_i32_u8 {
+    pub fn superRoleNames(self: KCategorizedSortFilterProxyModel, allocator: std.mem.Allocator) Map_i32_u8 {
         const _map: qtc.libqt_map = qtc.KCategorizedSortFilterProxyModel_SuperRoleNames(@ptrCast(self.ptr));
         var _ret: Map_i32_u8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KCategorizedSortFilterProxyModel.RoleNames: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KCategorizedSortFilterProxyModel.roleNames: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -4790,12 +5678,16 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("KCategorizedSortFilterProxyModel.RoleNames: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("KCategorizedSortFilterProxyModel.roleNames: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
             _ret.putAssumeCapacity(_key, _value_slice);
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onRoleNames` instead
+    ///
+    pub const OnRoleNames = onRoleNames;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -4813,9 +5705,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` C ABI representation of Map_i32_u8 `
     ///
-    pub fn OnRoleNames(self: KCategorizedSortFilterProxyModel, callback: *const fn () callconv(.c) qtc.libqt_map) void {
+    pub fn onRoleNames(self: KCategorizedSortFilterProxyModel, callback: *const fn () callconv(.c) qtc.libqt_map) void {
         qtc.KCategorizedSortFilterProxyModel_OnRoleNames(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveRows` instead
+    ///
+    pub const MoveRows = moveRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4837,15 +5733,15 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn MoveRows(self: KCategorizedSortFilterProxyModel, sourceParent: anytype, sourceRow: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
+    pub fn moveRows(self: KCategorizedSortFilterProxyModel, sourceParent: anytype, sourceRow: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
         comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
         comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
         return qtc.KCategorizedSortFilterProxyModel_MoveRows(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveRows` instead
+    /// ### DEPRECATED: Use `superMoveRows` instead
     ///
-    pub const QBaseMoveRows = SuperMoveRows;
+    pub const SuperMoveRows = superMoveRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4867,11 +5763,15 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn SuperMoveRows(self: KCategorizedSortFilterProxyModel, sourceParent: anytype, sourceRow: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
+    pub fn superMoveRows(self: KCategorizedSortFilterProxyModel, sourceParent: anytype, sourceRow: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
         comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
         comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
         return qtc.KCategorizedSortFilterProxyModel_SuperMoveRows(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
+
+    /// ### DEPRECATED: Use `onMoveRows` instead
+    ///
+    pub const OnMoveRows = onMoveRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4885,9 +5785,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, sourceParent: QModelIndex, sourceRow: i32, count: i32, destinationParent: QModelIndex, destinationChild: i32) callconv(.c) bool `
     ///
-    pub fn OnMoveRows(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
+    pub fn onMoveRows(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
         qtc.KCategorizedSortFilterProxyModel_OnMoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveColumns` instead
+    ///
+    pub const MoveColumns = moveColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4909,15 +5813,15 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn MoveColumns(self: KCategorizedSortFilterProxyModel, sourceParent: anytype, sourceColumn: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
+    pub fn moveColumns(self: KCategorizedSortFilterProxyModel, sourceParent: anytype, sourceColumn: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
         comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
         comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
         return qtc.KCategorizedSortFilterProxyModel_MoveColumns(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveColumns` instead
+    /// ### DEPRECATED: Use `superMoveColumns` instead
     ///
-    pub const QBaseMoveColumns = SuperMoveColumns;
+    pub const SuperMoveColumns = superMoveColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4939,11 +5843,15 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn SuperMoveColumns(self: KCategorizedSortFilterProxyModel, sourceParent: anytype, sourceColumn: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
+    pub fn superMoveColumns(self: KCategorizedSortFilterProxyModel, sourceParent: anytype, sourceColumn: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
         comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
         comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
         return qtc.KCategorizedSortFilterProxyModel_SuperMoveColumns(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
+
+    /// ### DEPRECATED: Use `onMoveColumns` instead
+    ///
+    pub const OnMoveColumns = onMoveColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4957,9 +5865,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, sourceParent: QModelIndex, sourceColumn: i32, count: i32, destinationParent: QModelIndex, destinationChild: i32) callconv(.c) bool `
     ///
-    pub fn OnMoveColumns(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
+    pub fn onMoveColumns(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
         qtc.KCategorizedSortFilterProxyModel_OnMoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `multiData` instead
+    ///
+    pub const MultiData = multiData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4971,19 +5883,19 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
     /// ` roleDataSpan: QModelRoleDataSpan `
     ///
-    pub fn MultiData(self: KCategorizedSortFilterProxyModel, index: anytype, roleDataSpan: anytype) void {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
+    pub fn multiData(self: KCategorizedSortFilterProxyModel, _index: anytype, roleDataSpan: anytype) void {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
         comptime _ = @TypeOf(roleDataSpan)._is_QModelRoleDataSpan;
-        qtc.KCategorizedSortFilterProxyModel_MultiData(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(roleDataSpan.ptr));
+        qtc.KCategorizedSortFilterProxyModel_MultiData(@ptrCast(self.ptr), @ptrCast(_index.ptr), @ptrCast(roleDataSpan.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMultiData` instead
+    /// ### DEPRECATED: Use `superMultiData` instead
     ///
-    pub const QBaseMultiData = SuperMultiData;
+    pub const SuperMultiData = superMultiData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4995,15 +5907,19 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
     /// ` roleDataSpan: QModelRoleDataSpan `
     ///
-    pub fn SuperMultiData(self: KCategorizedSortFilterProxyModel, index: anytype, roleDataSpan: anytype) void {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
+    pub fn superMultiData(self: KCategorizedSortFilterProxyModel, _index: anytype, roleDataSpan: anytype) void {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
         comptime _ = @TypeOf(roleDataSpan)._is_QModelRoleDataSpan;
-        qtc.KCategorizedSortFilterProxyModel_SuperMultiData(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(roleDataSpan.ptr));
+        qtc.KCategorizedSortFilterProxyModel_SuperMultiData(@ptrCast(self.ptr), @ptrCast(_index.ptr), @ptrCast(roleDataSpan.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMultiData` instead
+    ///
+    pub const OnMultiData = onMultiData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5017,9 +5933,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, index: QModelIndex, roleDataSpan: QModelRoleDataSpan) callconv(.c) void `
     ///
-    pub fn OnMultiData(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, QModelRoleDataSpan) callconv(.c) void) void {
+    pub fn onMultiData(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, QModelRoleDataSpan) callconv(.c) void) void {
         qtc.KCategorizedSortFilterProxyModel_OnMultiData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resetInternalData` instead
+    ///
+    pub const ResetInternalData = resetInternalData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5031,13 +5951,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn ResetInternalData(self: KCategorizedSortFilterProxyModel) void {
+    pub fn resetInternalData(self: KCategorizedSortFilterProxyModel) void {
         qtc.KCategorizedSortFilterProxyModel_ResetInternalData(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResetInternalData` instead
+    /// ### DEPRECATED: Use `superResetInternalData` instead
     ///
-    pub const QBaseResetInternalData = SuperResetInternalData;
+    pub const SuperResetInternalData = superResetInternalData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5049,9 +5969,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn SuperResetInternalData(self: KCategorizedSortFilterProxyModel) void {
+    pub fn superResetInternalData(self: KCategorizedSortFilterProxyModel) void {
         qtc.KCategorizedSortFilterProxyModel_SuperResetInternalData(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResetInternalData` instead
+    ///
+    pub const OnResetInternalData = onResetInternalData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5065,9 +5989,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnResetInternalData(self: KCategorizedSortFilterProxyModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onResetInternalData(self: KCategorizedSortFilterProxyModel, callback: *const fn () callconv(.c) void) void {
         qtc.KCategorizedSortFilterProxyModel_OnResetInternalData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -5079,16 +6007,16 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: KCategorizedSortFilterProxyModel, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KCategorizedSortFilterProxyModel_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: KCategorizedSortFilterProxyModel, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KCategorizedSortFilterProxyModel_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -5100,12 +6028,16 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: KCategorizedSortFilterProxyModel, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KCategorizedSortFilterProxyModel_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: KCategorizedSortFilterProxyModel, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KCategorizedSortFilterProxyModel_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -5119,9 +6051,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QEvent) callconv(.c) bool) void {
         qtc.KCategorizedSortFilterProxyModel_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -5135,17 +6071,17 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: KCategorizedSortFilterProxyModel, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: KCategorizedSortFilterProxyModel, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KCategorizedSortFilterProxyModel_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KCategorizedSortFilterProxyModel_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5159,13 +6095,17 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: KCategorizedSortFilterProxyModel, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: KCategorizedSortFilterProxyModel, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KCategorizedSortFilterProxyModel_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KCategorizedSortFilterProxyModel_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5179,9 +6119,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QObject, QEvent) callconv(.c) bool) void {
         qtc.KCategorizedSortFilterProxyModel_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -5193,16 +6137,16 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KCategorizedSortFilterProxyModel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KCategorizedSortFilterProxyModel_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: KCategorizedSortFilterProxyModel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KCategorizedSortFilterProxyModel_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -5214,12 +6158,16 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KCategorizedSortFilterProxyModel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KCategorizedSortFilterProxyModel_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: KCategorizedSortFilterProxyModel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KCategorizedSortFilterProxyModel_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -5233,9 +6181,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QTimerEvent) callconv(.c) void) void {
         qtc.KCategorizedSortFilterProxyModel_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -5247,16 +6199,16 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KCategorizedSortFilterProxyModel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KCategorizedSortFilterProxyModel_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KCategorizedSortFilterProxyModel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KCategorizedSortFilterProxyModel_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -5268,12 +6220,16 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KCategorizedSortFilterProxyModel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KCategorizedSortFilterProxyModel_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KCategorizedSortFilterProxyModel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KCategorizedSortFilterProxyModel_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -5287,9 +6243,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QChildEvent) callconv(.c) void) void {
         qtc.KCategorizedSortFilterProxyModel_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -5301,16 +6261,16 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KCategorizedSortFilterProxyModel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KCategorizedSortFilterProxyModel_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KCategorizedSortFilterProxyModel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KCategorizedSortFilterProxyModel_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -5322,12 +6282,16 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KCategorizedSortFilterProxyModel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KCategorizedSortFilterProxyModel_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KCategorizedSortFilterProxyModel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KCategorizedSortFilterProxyModel_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -5341,9 +6305,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QEvent) callconv(.c) void) void {
         qtc.KCategorizedSortFilterProxyModel_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -5357,14 +6325,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KCategorizedSortFilterProxyModel, signal: anytype) void {
+    pub fn connectNotify(self: KCategorizedSortFilterProxyModel, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KCategorizedSortFilterProxyModel_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -5378,11 +6346,15 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KCategorizedSortFilterProxyModel, signal: anytype) void {
+    pub fn superConnectNotify(self: KCategorizedSortFilterProxyModel, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KCategorizedSortFilterProxyModel_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -5395,9 +6367,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QMetaMethod) callconv(.c) void) void {
         qtc.KCategorizedSortFilterProxyModel_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -5411,14 +6387,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KCategorizedSortFilterProxyModel, signal: anytype) void {
+    pub fn disconnectNotify(self: KCategorizedSortFilterProxyModel, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KCategorizedSortFilterProxyModel_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -5432,10 +6408,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KCategorizedSortFilterProxyModel, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KCategorizedSortFilterProxyModel, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KCategorizedSortFilterProxyModel_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -5449,10 +6429,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QMetaMethod) callconv(.c) void) void {
         qtc.KCategorizedSortFilterProxyModel_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `invalidateFilter` instead
+    ///
+    pub const InvalidateFilter = invalidateFilter;
+
     /// Inherited from QSortFilterProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsortfilterproxymodel.html#invalidateFilter)
@@ -5463,13 +6447,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn InvalidateFilter(self: KCategorizedSortFilterProxyModel) void {
+    pub fn invalidateFilter(self: KCategorizedSortFilterProxyModel) void {
         qtc.KCategorizedSortFilterProxyModel_InvalidateFilter(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInvalidateFilter` instead
+    /// ### DEPRECATED: Use `superInvalidateFilter` instead
     ///
-    pub const QBaseInvalidateFilter = SuperInvalidateFilter;
+    pub const SuperInvalidateFilter = superInvalidateFilter;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -5481,10 +6465,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn SuperInvalidateFilter(self: KCategorizedSortFilterProxyModel) void {
+    pub fn superInvalidateFilter(self: KCategorizedSortFilterProxyModel) void {
         qtc.KCategorizedSortFilterProxyModel_SuperInvalidateFilter(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onInvalidateFilter` instead
+    ///
+    pub const OnInvalidateFilter = onInvalidateFilter;
+
     /// Inherited from QSortFilterProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsortfilterproxymodel.html#invalidateFilter)
@@ -5497,10 +6485,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnInvalidateFilter(self: KCategorizedSortFilterProxyModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onInvalidateFilter(self: KCategorizedSortFilterProxyModel, callback: *const fn () callconv(.c) void) void {
         qtc.KCategorizedSortFilterProxyModel_OnInvalidateFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `invalidateRowsFilter` instead
+    ///
+    pub const InvalidateRowsFilter = invalidateRowsFilter;
+
     /// Inherited from QSortFilterProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsortfilterproxymodel.html#invalidateRowsFilter)
@@ -5511,13 +6503,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn InvalidateRowsFilter(self: KCategorizedSortFilterProxyModel) void {
+    pub fn invalidateRowsFilter(self: KCategorizedSortFilterProxyModel) void {
         qtc.KCategorizedSortFilterProxyModel_InvalidateRowsFilter(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInvalidateRowsFilter` instead
+    /// ### DEPRECATED: Use `superInvalidateRowsFilter` instead
     ///
-    pub const QBaseInvalidateRowsFilter = SuperInvalidateRowsFilter;
+    pub const SuperInvalidateRowsFilter = superInvalidateRowsFilter;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -5529,10 +6521,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn SuperInvalidateRowsFilter(self: KCategorizedSortFilterProxyModel) void {
+    pub fn superInvalidateRowsFilter(self: KCategorizedSortFilterProxyModel) void {
         qtc.KCategorizedSortFilterProxyModel_SuperInvalidateRowsFilter(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onInvalidateRowsFilter` instead
+    ///
+    pub const OnInvalidateRowsFilter = onInvalidateRowsFilter;
+
     /// Inherited from QSortFilterProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsortfilterproxymodel.html#invalidateRowsFilter)
@@ -5545,9 +6541,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnInvalidateRowsFilter(self: KCategorizedSortFilterProxyModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onInvalidateRowsFilter(self: KCategorizedSortFilterProxyModel, callback: *const fn () callconv(.c) void) void {
         qtc.KCategorizedSortFilterProxyModel_OnInvalidateRowsFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `invalidateColumnsFilter` instead
+    ///
+    pub const InvalidateColumnsFilter = invalidateColumnsFilter;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -5559,13 +6559,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn InvalidateColumnsFilter(self: KCategorizedSortFilterProxyModel) void {
+    pub fn invalidateColumnsFilter(self: KCategorizedSortFilterProxyModel) void {
         qtc.KCategorizedSortFilterProxyModel_InvalidateColumnsFilter(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInvalidateColumnsFilter` instead
+    /// ### DEPRECATED: Use `superInvalidateColumnsFilter` instead
     ///
-    pub const QBaseInvalidateColumnsFilter = SuperInvalidateColumnsFilter;
+    pub const SuperInvalidateColumnsFilter = superInvalidateColumnsFilter;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -5577,9 +6577,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn SuperInvalidateColumnsFilter(self: KCategorizedSortFilterProxyModel) void {
+    pub fn superInvalidateColumnsFilter(self: KCategorizedSortFilterProxyModel) void {
         qtc.KCategorizedSortFilterProxyModel_SuperInvalidateColumnsFilter(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInvalidateColumnsFilter` instead
+    ///
+    pub const OnInvalidateColumnsFilter = onInvalidateColumnsFilter;
 
     /// Inherited from QSortFilterProxyModel
     ///
@@ -5593,9 +6597,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnInvalidateColumnsFilter(self: KCategorizedSortFilterProxyModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onInvalidateColumnsFilter(self: KCategorizedSortFilterProxyModel, callback: *const fn () callconv(.c) void) void {
         qtc.KCategorizedSortFilterProxyModel_OnInvalidateColumnsFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `createSourceIndex` instead
+    ///
+    pub const CreateSourceIndex = createSourceIndex;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -5613,13 +6621,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` internalPtr: ?*anyopaque `
     ///
-    pub fn CreateSourceIndex(self: KCategorizedSortFilterProxyModel, row: i32, col: i32, internalPtr: ?*anyopaque) QModelIndex {
+    pub fn createSourceIndex(self: KCategorizedSortFilterProxyModel, row: i32, col: i32, internalPtr: ?*anyopaque) QModelIndex {
         return .{ .ptr = qtc.KCategorizedSortFilterProxyModel_CreateSourceIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(col), @ptrCast(internalPtr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperCreateSourceIndex` instead
+    /// ### DEPRECATED: Use `superCreateSourceIndex` instead
     ///
-    pub const QBaseCreateSourceIndex = SuperCreateSourceIndex;
+    pub const SuperCreateSourceIndex = superCreateSourceIndex;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -5637,9 +6645,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` internalPtr: ?*anyopaque `
     ///
-    pub fn SuperCreateSourceIndex(self: KCategorizedSortFilterProxyModel, row: i32, col: i32, internalPtr: ?*anyopaque) QModelIndex {
+    pub fn superCreateSourceIndex(self: KCategorizedSortFilterProxyModel, row: i32, col: i32, internalPtr: ?*anyopaque) QModelIndex {
         return .{ .ptr = qtc.KCategorizedSortFilterProxyModel_SuperCreateSourceIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(col), @ptrCast(internalPtr)) };
     }
+
+    /// ### DEPRECATED: Use `onCreateSourceIndex` instead
+    ///
+    pub const OnCreateSourceIndex = onCreateSourceIndex;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -5655,9 +6667,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnCreateSourceIndex(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, i32, i32, ?*anyopaque) callconv(.c) QModelIndex) void {
+    pub fn onCreateSourceIndex(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, i32, i32, ?*anyopaque) callconv(.c) QModelIndex) void {
         qtc.KCategorizedSortFilterProxyModel_OnCreateSourceIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `createIndex` instead
+    ///
+    pub const CreateIndex = createIndex;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5673,13 +6689,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn CreateIndex(self: KCategorizedSortFilterProxyModel, row: i32, column: i32) QModelIndex {
+    pub fn createIndex(self: KCategorizedSortFilterProxyModel, row: i32, column: i32) QModelIndex {
         return .{ .ptr = qtc.KCategorizedSortFilterProxyModel_CreateIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(column)) };
     }
 
-    /// ### DEPRECATED: Use `SuperCreateIndex` instead
+    /// ### DEPRECATED: Use `superCreateIndex` instead
     ///
-    pub const QBaseCreateIndex = SuperCreateIndex;
+    pub const SuperCreateIndex = superCreateIndex;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5695,9 +6711,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn SuperCreateIndex(self: KCategorizedSortFilterProxyModel, row: i32, column: i32) QModelIndex {
+    pub fn superCreateIndex(self: KCategorizedSortFilterProxyModel, row: i32, column: i32) QModelIndex {
         return .{ .ptr = qtc.KCategorizedSortFilterProxyModel_SuperCreateIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(column)) };
     }
+
+    /// ### DEPRECATED: Use `onCreateIndex` instead
+    ///
+    pub const OnCreateIndex = onCreateIndex;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5713,9 +6733,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnCreateIndex(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, i32, i32) callconv(.c) QModelIndex) void {
+    pub fn onCreateIndex(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, i32, i32) callconv(.c) QModelIndex) void {
         qtc.KCategorizedSortFilterProxyModel_OnCreateIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `encodeData` instead
+    ///
+    pub const EncodeData = encodeData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5731,7 +6755,7 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` stream: QDataStream `
     ///
-    pub fn EncodeData(self: KCategorizedSortFilterProxyModel, indexes: []QModelIndex, stream: anytype) void {
+    pub fn encodeData(self: KCategorizedSortFilterProxyModel, indexes: []QModelIndex, stream: anytype) void {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
@@ -5740,9 +6764,9 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
         qtc.KCategorizedSortFilterProxyModel_EncodeData(@ptrCast(self.ptr), indexes_list, @ptrCast(stream.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEncodeData` instead
+    /// ### DEPRECATED: Use `superEncodeData` instead
     ///
-    pub const QBaseEncodeData = SuperEncodeData;
+    pub const SuperEncodeData = superEncodeData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5758,7 +6782,7 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` stream: QDataStream `
     ///
-    pub fn SuperEncodeData(self: KCategorizedSortFilterProxyModel, indexes: []QModelIndex, stream: anytype) void {
+    pub fn superEncodeData(self: KCategorizedSortFilterProxyModel, indexes: []QModelIndex, stream: anytype) void {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
@@ -5766,6 +6790,10 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
         comptime _ = @TypeOf(stream)._is_QDataStream;
         qtc.KCategorizedSortFilterProxyModel_SuperEncodeData(@ptrCast(self.ptr), indexes_list, @ptrCast(stream.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEncodeData` instead
+    ///
+    pub const OnEncodeData = onEncodeData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5779,9 +6807,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, indexes: qtc.libqt_list ([]QModelIndex), stream: QDataStream) callconv(.c) void `
     ///
-    pub fn OnEncodeData(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, qtc.libqt_list, QDataStream) callconv(.c) void) void {
+    pub fn onEncodeData(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, qtc.libqt_list, QDataStream) callconv(.c) void) void {
         qtc.KCategorizedSortFilterProxyModel_OnEncodeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `decodeData` instead
+    ///
+    pub const DecodeData = decodeData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5797,19 +6829,19 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` stream: QDataStream `
     ///
-    pub fn DecodeData(self: KCategorizedSortFilterProxyModel, row: i32, column: i32, parent: anytype, stream: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
+    pub fn decodeData(self: KCategorizedSortFilterProxyModel, row: i32, column: i32, _parent: anytype, stream: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
         comptime _ = @TypeOf(stream)._is_QDataStream;
-        return qtc.KCategorizedSortFilterProxyModel_DecodeData(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr), @ptrCast(stream.ptr));
+        return qtc.KCategorizedSortFilterProxyModel_DecodeData(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(_parent.ptr), @ptrCast(stream.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDecodeData` instead
+    /// ### DEPRECATED: Use `superDecodeData` instead
     ///
-    pub const QBaseDecodeData = SuperDecodeData;
+    pub const SuperDecodeData = superDecodeData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5825,15 +6857,19 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` stream: QDataStream `
     ///
-    pub fn SuperDecodeData(self: KCategorizedSortFilterProxyModel, row: i32, column: i32, parent: anytype, stream: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
+    pub fn superDecodeData(self: KCategorizedSortFilterProxyModel, row: i32, column: i32, _parent: anytype, stream: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
         comptime _ = @TypeOf(stream)._is_QDataStream;
-        return qtc.KCategorizedSortFilterProxyModel_SuperDecodeData(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr), @ptrCast(stream.ptr));
+        return qtc.KCategorizedSortFilterProxyModel_SuperDecodeData(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(_parent.ptr), @ptrCast(stream.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDecodeData` instead
+    ///
+    pub const OnDecodeData = onDecodeData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5847,10 +6883,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, row: i32, column: i32, parent: QModelIndex, stream: QDataStream) callconv(.c) bool `
     ///
-    pub fn OnDecodeData(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, i32, i32, QModelIndex, QDataStream) callconv(.c) bool) void {
+    pub fn onDecodeData(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, i32, i32, QModelIndex, QDataStream) callconv(.c) bool) void {
         qtc.KCategorizedSortFilterProxyModel_OnDecodeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `beginInsertRows` instead
+    ///
+    pub const BeginInsertRows = beginInsertRows;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
@@ -5861,20 +6901,20 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn BeginInsertRows(self: KCategorizedSortFilterProxyModel, parent: anytype, first: i32, last: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.KCategorizedSortFilterProxyModel_BeginInsertRows(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
+    pub fn beginInsertRows(self: KCategorizedSortFilterProxyModel, _parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.KCategorizedSortFilterProxyModel_BeginInsertRows(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
     }
 
-    /// ### DEPRECATED: Use `SuperBeginInsertRows` instead
+    /// ### DEPRECATED: Use `superBeginInsertRows` instead
     ///
-    pub const QBaseBeginInsertRows = SuperBeginInsertRows;
+    pub const SuperBeginInsertRows = superBeginInsertRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5886,16 +6926,20 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn SuperBeginInsertRows(self: KCategorizedSortFilterProxyModel, parent: anytype, first: i32, last: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.KCategorizedSortFilterProxyModel_SuperBeginInsertRows(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
+    pub fn superBeginInsertRows(self: KCategorizedSortFilterProxyModel, _parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.KCategorizedSortFilterProxyModel_SuperBeginInsertRows(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
     }
+
+    /// ### DEPRECATED: Use `onBeginInsertRows` instead
+    ///
+    pub const OnBeginInsertRows = onBeginInsertRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5909,10 +6953,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnBeginInsertRows(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onBeginInsertRows(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.KCategorizedSortFilterProxyModel_OnBeginInsertRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `endInsertRows` instead
+    ///
+    pub const EndInsertRows = endInsertRows;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows)
@@ -5923,13 +6971,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn EndInsertRows(self: KCategorizedSortFilterProxyModel) void {
+    pub fn endInsertRows(self: KCategorizedSortFilterProxyModel) void {
         qtc.KCategorizedSortFilterProxyModel_EndInsertRows(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEndInsertRows` instead
+    /// ### DEPRECATED: Use `superEndInsertRows` instead
     ///
-    pub const QBaseEndInsertRows = SuperEndInsertRows;
+    pub const SuperEndInsertRows = superEndInsertRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5941,9 +6989,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn SuperEndInsertRows(self: KCategorizedSortFilterProxyModel) void {
+    pub fn superEndInsertRows(self: KCategorizedSortFilterProxyModel) void {
         qtc.KCategorizedSortFilterProxyModel_SuperEndInsertRows(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEndInsertRows` instead
+    ///
+    pub const OnEndInsertRows = onEndInsertRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5957,9 +7009,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndInsertRows(self: KCategorizedSortFilterProxyModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onEndInsertRows(self: KCategorizedSortFilterProxyModel, callback: *const fn () callconv(.c) void) void {
         qtc.KCategorizedSortFilterProxyModel_OnEndInsertRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `beginRemoveRows` instead
+    ///
+    pub const BeginRemoveRows = beginRemoveRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5971,20 +7027,20 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn BeginRemoveRows(self: KCategorizedSortFilterProxyModel, parent: anytype, first: i32, last: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.KCategorizedSortFilterProxyModel_BeginRemoveRows(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
+    pub fn beginRemoveRows(self: KCategorizedSortFilterProxyModel, _parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.KCategorizedSortFilterProxyModel_BeginRemoveRows(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
     }
 
-    /// ### DEPRECATED: Use `SuperBeginRemoveRows` instead
+    /// ### DEPRECATED: Use `superBeginRemoveRows` instead
     ///
-    pub const QBaseBeginRemoveRows = SuperBeginRemoveRows;
+    pub const SuperBeginRemoveRows = superBeginRemoveRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5996,16 +7052,20 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn SuperBeginRemoveRows(self: KCategorizedSortFilterProxyModel, parent: anytype, first: i32, last: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.KCategorizedSortFilterProxyModel_SuperBeginRemoveRows(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
+    pub fn superBeginRemoveRows(self: KCategorizedSortFilterProxyModel, _parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.KCategorizedSortFilterProxyModel_SuperBeginRemoveRows(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
     }
+
+    /// ### DEPRECATED: Use `onBeginRemoveRows` instead
+    ///
+    pub const OnBeginRemoveRows = onBeginRemoveRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6019,9 +7079,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnBeginRemoveRows(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onBeginRemoveRows(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.KCategorizedSortFilterProxyModel_OnBeginRemoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `endRemoveRows` instead
+    ///
+    pub const EndRemoveRows = endRemoveRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6033,13 +7097,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn EndRemoveRows(self: KCategorizedSortFilterProxyModel) void {
+    pub fn endRemoveRows(self: KCategorizedSortFilterProxyModel) void {
         qtc.KCategorizedSortFilterProxyModel_EndRemoveRows(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEndRemoveRows` instead
+    /// ### DEPRECATED: Use `superEndRemoveRows` instead
     ///
-    pub const QBaseEndRemoveRows = SuperEndRemoveRows;
+    pub const SuperEndRemoveRows = superEndRemoveRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6051,9 +7115,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn SuperEndRemoveRows(self: KCategorizedSortFilterProxyModel) void {
+    pub fn superEndRemoveRows(self: KCategorizedSortFilterProxyModel) void {
         qtc.KCategorizedSortFilterProxyModel_SuperEndRemoveRows(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEndRemoveRows` instead
+    ///
+    pub const OnEndRemoveRows = onEndRemoveRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6067,9 +7135,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndRemoveRows(self: KCategorizedSortFilterProxyModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onEndRemoveRows(self: KCategorizedSortFilterProxyModel, callback: *const fn () callconv(.c) void) void {
         qtc.KCategorizedSortFilterProxyModel_OnEndRemoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `beginMoveRows` instead
+    ///
+    pub const BeginMoveRows = beginMoveRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6091,15 +7163,15 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` destinationRow: i32 `
     ///
-    pub fn BeginMoveRows(self: KCategorizedSortFilterProxyModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationRow: i32) bool {
+    pub fn beginMoveRows(self: KCategorizedSortFilterProxyModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationRow: i32) bool {
         comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
         comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
         return qtc.KCategorizedSortFilterProxyModel_BeginMoveRows(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationRow));
     }
 
-    /// ### DEPRECATED: Use `SuperBeginMoveRows` instead
+    /// ### DEPRECATED: Use `superBeginMoveRows` instead
     ///
-    pub const QBaseBeginMoveRows = SuperBeginMoveRows;
+    pub const SuperBeginMoveRows = superBeginMoveRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6121,11 +7193,15 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` destinationRow: i32 `
     ///
-    pub fn SuperBeginMoveRows(self: KCategorizedSortFilterProxyModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationRow: i32) bool {
+    pub fn superBeginMoveRows(self: KCategorizedSortFilterProxyModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationRow: i32) bool {
         comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
         comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
         return qtc.KCategorizedSortFilterProxyModel_SuperBeginMoveRows(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationRow));
     }
+
+    /// ### DEPRECATED: Use `onBeginMoveRows` instead
+    ///
+    pub const OnBeginMoveRows = onBeginMoveRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6139,10 +7215,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, sourceParent: QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QModelIndex, destinationRow: i32) callconv(.c) bool `
     ///
-    pub fn OnBeginMoveRows(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
+    pub fn onBeginMoveRows(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
         qtc.KCategorizedSortFilterProxyModel_OnBeginMoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `endMoveRows` instead
+    ///
+    pub const EndMoveRows = endMoveRows;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
@@ -6153,13 +7233,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn EndMoveRows(self: KCategorizedSortFilterProxyModel) void {
+    pub fn endMoveRows(self: KCategorizedSortFilterProxyModel) void {
         qtc.KCategorizedSortFilterProxyModel_EndMoveRows(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEndMoveRows` instead
+    /// ### DEPRECATED: Use `superEndMoveRows` instead
     ///
-    pub const QBaseEndMoveRows = SuperEndMoveRows;
+    pub const SuperEndMoveRows = superEndMoveRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6171,10 +7251,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn SuperEndMoveRows(self: KCategorizedSortFilterProxyModel) void {
+    pub fn superEndMoveRows(self: KCategorizedSortFilterProxyModel) void {
         qtc.KCategorizedSortFilterProxyModel_SuperEndMoveRows(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onEndMoveRows` instead
+    ///
+    pub const OnEndMoveRows = onEndMoveRows;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
@@ -6187,10 +7271,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndMoveRows(self: KCategorizedSortFilterProxyModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onEndMoveRows(self: KCategorizedSortFilterProxyModel, callback: *const fn () callconv(.c) void) void {
         qtc.KCategorizedSortFilterProxyModel_OnEndMoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `beginInsertColumns` instead
+    ///
+    pub const BeginInsertColumns = beginInsertColumns;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns)
@@ -6201,20 +7289,20 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn BeginInsertColumns(self: KCategorizedSortFilterProxyModel, parent: anytype, first: i32, last: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.KCategorizedSortFilterProxyModel_BeginInsertColumns(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
+    pub fn beginInsertColumns(self: KCategorizedSortFilterProxyModel, _parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.KCategorizedSortFilterProxyModel_BeginInsertColumns(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
     }
 
-    /// ### DEPRECATED: Use `SuperBeginInsertColumns` instead
+    /// ### DEPRECATED: Use `superBeginInsertColumns` instead
     ///
-    pub const QBaseBeginInsertColumns = SuperBeginInsertColumns;
+    pub const SuperBeginInsertColumns = superBeginInsertColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6226,16 +7314,20 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn SuperBeginInsertColumns(self: KCategorizedSortFilterProxyModel, parent: anytype, first: i32, last: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.KCategorizedSortFilterProxyModel_SuperBeginInsertColumns(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
+    pub fn superBeginInsertColumns(self: KCategorizedSortFilterProxyModel, _parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.KCategorizedSortFilterProxyModel_SuperBeginInsertColumns(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
     }
+
+    /// ### DEPRECATED: Use `onBeginInsertColumns` instead
+    ///
+    pub const OnBeginInsertColumns = onBeginInsertColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6249,10 +7341,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnBeginInsertColumns(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onBeginInsertColumns(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.KCategorizedSortFilterProxyModel_OnBeginInsertColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `endInsertColumns` instead
+    ///
+    pub const EndInsertColumns = endInsertColumns;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns)
@@ -6263,13 +7359,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn EndInsertColumns(self: KCategorizedSortFilterProxyModel) void {
+    pub fn endInsertColumns(self: KCategorizedSortFilterProxyModel) void {
         qtc.KCategorizedSortFilterProxyModel_EndInsertColumns(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEndInsertColumns` instead
+    /// ### DEPRECATED: Use `superEndInsertColumns` instead
     ///
-    pub const QBaseEndInsertColumns = SuperEndInsertColumns;
+    pub const SuperEndInsertColumns = superEndInsertColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6281,9 +7377,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn SuperEndInsertColumns(self: KCategorizedSortFilterProxyModel) void {
+    pub fn superEndInsertColumns(self: KCategorizedSortFilterProxyModel) void {
         qtc.KCategorizedSortFilterProxyModel_SuperEndInsertColumns(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEndInsertColumns` instead
+    ///
+    pub const OnEndInsertColumns = onEndInsertColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6297,9 +7397,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndInsertColumns(self: KCategorizedSortFilterProxyModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onEndInsertColumns(self: KCategorizedSortFilterProxyModel, callback: *const fn () callconv(.c) void) void {
         qtc.KCategorizedSortFilterProxyModel_OnEndInsertColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `beginRemoveColumns` instead
+    ///
+    pub const BeginRemoveColumns = beginRemoveColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6311,20 +7415,20 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn BeginRemoveColumns(self: KCategorizedSortFilterProxyModel, parent: anytype, first: i32, last: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.KCategorizedSortFilterProxyModel_BeginRemoveColumns(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
+    pub fn beginRemoveColumns(self: KCategorizedSortFilterProxyModel, _parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.KCategorizedSortFilterProxyModel_BeginRemoveColumns(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
     }
 
-    /// ### DEPRECATED: Use `SuperBeginRemoveColumns` instead
+    /// ### DEPRECATED: Use `superBeginRemoveColumns` instead
     ///
-    pub const QBaseBeginRemoveColumns = SuperBeginRemoveColumns;
+    pub const SuperBeginRemoveColumns = superBeginRemoveColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6336,16 +7440,20 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn SuperBeginRemoveColumns(self: KCategorizedSortFilterProxyModel, parent: anytype, first: i32, last: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.KCategorizedSortFilterProxyModel_SuperBeginRemoveColumns(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
+    pub fn superBeginRemoveColumns(self: KCategorizedSortFilterProxyModel, _parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.KCategorizedSortFilterProxyModel_SuperBeginRemoveColumns(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
     }
+
+    /// ### DEPRECATED: Use `onBeginRemoveColumns` instead
+    ///
+    pub const OnBeginRemoveColumns = onBeginRemoveColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6359,9 +7467,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnBeginRemoveColumns(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onBeginRemoveColumns(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.KCategorizedSortFilterProxyModel_OnBeginRemoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `endRemoveColumns` instead
+    ///
+    pub const EndRemoveColumns = endRemoveColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6373,13 +7485,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn EndRemoveColumns(self: KCategorizedSortFilterProxyModel) void {
+    pub fn endRemoveColumns(self: KCategorizedSortFilterProxyModel) void {
         qtc.KCategorizedSortFilterProxyModel_EndRemoveColumns(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEndRemoveColumns` instead
+    /// ### DEPRECATED: Use `superEndRemoveColumns` instead
     ///
-    pub const QBaseEndRemoveColumns = SuperEndRemoveColumns;
+    pub const SuperEndRemoveColumns = superEndRemoveColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6391,9 +7503,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn SuperEndRemoveColumns(self: KCategorizedSortFilterProxyModel) void {
+    pub fn superEndRemoveColumns(self: KCategorizedSortFilterProxyModel) void {
         qtc.KCategorizedSortFilterProxyModel_SuperEndRemoveColumns(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEndRemoveColumns` instead
+    ///
+    pub const OnEndRemoveColumns = onEndRemoveColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6407,9 +7523,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndRemoveColumns(self: KCategorizedSortFilterProxyModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onEndRemoveColumns(self: KCategorizedSortFilterProxyModel, callback: *const fn () callconv(.c) void) void {
         qtc.KCategorizedSortFilterProxyModel_OnEndRemoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `beginMoveColumns` instead
+    ///
+    pub const BeginMoveColumns = beginMoveColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6431,15 +7551,15 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` destinationColumn: i32 `
     ///
-    pub fn BeginMoveColumns(self: KCategorizedSortFilterProxyModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationColumn: i32) bool {
+    pub fn beginMoveColumns(self: KCategorizedSortFilterProxyModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationColumn: i32) bool {
         comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
         comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
         return qtc.KCategorizedSortFilterProxyModel_BeginMoveColumns(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationColumn));
     }
 
-    /// ### DEPRECATED: Use `SuperBeginMoveColumns` instead
+    /// ### DEPRECATED: Use `superBeginMoveColumns` instead
     ///
-    pub const QBaseBeginMoveColumns = SuperBeginMoveColumns;
+    pub const SuperBeginMoveColumns = superBeginMoveColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6461,11 +7581,15 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` destinationColumn: i32 `
     ///
-    pub fn SuperBeginMoveColumns(self: KCategorizedSortFilterProxyModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationColumn: i32) bool {
+    pub fn superBeginMoveColumns(self: KCategorizedSortFilterProxyModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationColumn: i32) bool {
         comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
         comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
         return qtc.KCategorizedSortFilterProxyModel_SuperBeginMoveColumns(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationColumn));
     }
+
+    /// ### DEPRECATED: Use `onBeginMoveColumns` instead
+    ///
+    pub const OnBeginMoveColumns = onBeginMoveColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6479,10 +7603,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, sourceParent: QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QModelIndex, destinationColumn: i32) callconv(.c) bool `
     ///
-    pub fn OnBeginMoveColumns(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
+    pub fn onBeginMoveColumns(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
         qtc.KCategorizedSortFilterProxyModel_OnBeginMoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `endMoveColumns` instead
+    ///
+    pub const EndMoveColumns = endMoveColumns;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
@@ -6493,13 +7621,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn EndMoveColumns(self: KCategorizedSortFilterProxyModel) void {
+    pub fn endMoveColumns(self: KCategorizedSortFilterProxyModel) void {
         qtc.KCategorizedSortFilterProxyModel_EndMoveColumns(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEndMoveColumns` instead
+    /// ### DEPRECATED: Use `superEndMoveColumns` instead
     ///
-    pub const QBaseEndMoveColumns = SuperEndMoveColumns;
+    pub const SuperEndMoveColumns = superEndMoveColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6511,10 +7639,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn SuperEndMoveColumns(self: KCategorizedSortFilterProxyModel) void {
+    pub fn superEndMoveColumns(self: KCategorizedSortFilterProxyModel) void {
         qtc.KCategorizedSortFilterProxyModel_SuperEndMoveColumns(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onEndMoveColumns` instead
+    ///
+    pub const OnEndMoveColumns = onEndMoveColumns;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
@@ -6527,10 +7659,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndMoveColumns(self: KCategorizedSortFilterProxyModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onEndMoveColumns(self: KCategorizedSortFilterProxyModel, callback: *const fn () callconv(.c) void) void {
         qtc.KCategorizedSortFilterProxyModel_OnEndMoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `beginResetModel` instead
+    ///
+    pub const BeginResetModel = beginResetModel;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginResetModel)
@@ -6541,13 +7677,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn BeginResetModel(self: KCategorizedSortFilterProxyModel) void {
+    pub fn beginResetModel(self: KCategorizedSortFilterProxyModel) void {
         qtc.KCategorizedSortFilterProxyModel_BeginResetModel(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperBeginResetModel` instead
+    /// ### DEPRECATED: Use `superBeginResetModel` instead
     ///
-    pub const QBaseBeginResetModel = SuperBeginResetModel;
+    pub const SuperBeginResetModel = superBeginResetModel;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6559,9 +7695,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn SuperBeginResetModel(self: KCategorizedSortFilterProxyModel) void {
+    pub fn superBeginResetModel(self: KCategorizedSortFilterProxyModel) void {
         qtc.KCategorizedSortFilterProxyModel_SuperBeginResetModel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onBeginResetModel` instead
+    ///
+    pub const OnBeginResetModel = onBeginResetModel;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6575,9 +7715,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnBeginResetModel(self: KCategorizedSortFilterProxyModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onBeginResetModel(self: KCategorizedSortFilterProxyModel, callback: *const fn () callconv(.c) void) void {
         qtc.KCategorizedSortFilterProxyModel_OnBeginResetModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `endResetModel` instead
+    ///
+    pub const EndResetModel = endResetModel;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6589,13 +7733,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn EndResetModel(self: KCategorizedSortFilterProxyModel) void {
+    pub fn endResetModel(self: KCategorizedSortFilterProxyModel) void {
         qtc.KCategorizedSortFilterProxyModel_EndResetModel(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEndResetModel` instead
+    /// ### DEPRECATED: Use `superEndResetModel` instead
     ///
-    pub const QBaseEndResetModel = SuperEndResetModel;
+    pub const SuperEndResetModel = superEndResetModel;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6607,9 +7751,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn SuperEndResetModel(self: KCategorizedSortFilterProxyModel) void {
+    pub fn superEndResetModel(self: KCategorizedSortFilterProxyModel) void {
         qtc.KCategorizedSortFilterProxyModel_SuperEndResetModel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEndResetModel` instead
+    ///
+    pub const OnEndResetModel = onEndResetModel;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6623,9 +7771,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndResetModel(self: KCategorizedSortFilterProxyModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onEndResetModel(self: KCategorizedSortFilterProxyModel, callback: *const fn () callconv(.c) void) void {
         qtc.KCategorizedSortFilterProxyModel_OnEndResetModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changePersistentIndex` instead
+    ///
+    pub const ChangePersistentIndex = changePersistentIndex;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6641,15 +7793,15 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` to: QModelIndex `
     ///
-    pub fn ChangePersistentIndex(self: KCategorizedSortFilterProxyModel, from: anytype, to: anytype) void {
+    pub fn changePersistentIndex(self: KCategorizedSortFilterProxyModel, from: anytype, to: anytype) void {
         comptime _ = @TypeOf(from)._is_QModelIndex;
         comptime _ = @TypeOf(to)._is_QModelIndex;
         qtc.KCategorizedSortFilterProxyModel_ChangePersistentIndex(@ptrCast(self.ptr), @ptrCast(from.ptr), @ptrCast(to.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangePersistentIndex` instead
+    /// ### DEPRECATED: Use `superChangePersistentIndex` instead
     ///
-    pub const QBaseChangePersistentIndex = SuperChangePersistentIndex;
+    pub const SuperChangePersistentIndex = superChangePersistentIndex;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6665,11 +7817,15 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` to: QModelIndex `
     ///
-    pub fn SuperChangePersistentIndex(self: KCategorizedSortFilterProxyModel, from: anytype, to: anytype) void {
+    pub fn superChangePersistentIndex(self: KCategorizedSortFilterProxyModel, from: anytype, to: anytype) void {
         comptime _ = @TypeOf(from)._is_QModelIndex;
         comptime _ = @TypeOf(to)._is_QModelIndex;
         qtc.KCategorizedSortFilterProxyModel_SuperChangePersistentIndex(@ptrCast(self.ptr), @ptrCast(from.ptr), @ptrCast(to.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangePersistentIndex` instead
+    ///
+    pub const OnChangePersistentIndex = onChangePersistentIndex;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6683,9 +7839,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, from: QModelIndex, to: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnChangePersistentIndex(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, QModelIndex) callconv(.c) void) void {
+    pub fn onChangePersistentIndex(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, QModelIndex) callconv(.c) void) void {
         qtc.KCategorizedSortFilterProxyModel_OnChangePersistentIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changePersistentIndexList` instead
+    ///
+    pub const ChangePersistentIndexList = changePersistentIndexList;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6701,7 +7861,7 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` to: []QModelIndex `
     ///
-    pub fn ChangePersistentIndexList(self: KCategorizedSortFilterProxyModel, from: []QModelIndex, to: []QModelIndex) void {
+    pub fn changePersistentIndexList(self: KCategorizedSortFilterProxyModel, from: []QModelIndex, to: []QModelIndex) void {
         const from_list = qtc.libqt_list{
             .len = from.len,
             .data = @ptrCast(from.ptr),
@@ -6713,9 +7873,9 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
         qtc.KCategorizedSortFilterProxyModel_ChangePersistentIndexList(@ptrCast(self.ptr), from_list, to_list);
     }
 
-    /// ### DEPRECATED: Use `SuperChangePersistentIndexList` instead
+    /// ### DEPRECATED: Use `superChangePersistentIndexList` instead
     ///
-    pub const QBaseChangePersistentIndexList = SuperChangePersistentIndexList;
+    pub const SuperChangePersistentIndexList = superChangePersistentIndexList;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6731,7 +7891,7 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` to: []QModelIndex `
     ///
-    pub fn SuperChangePersistentIndexList(self: KCategorizedSortFilterProxyModel, from: []QModelIndex, to: []QModelIndex) void {
+    pub fn superChangePersistentIndexList(self: KCategorizedSortFilterProxyModel, from: []QModelIndex, to: []QModelIndex) void {
         const from_list = qtc.libqt_list{
             .len = from.len,
             .data = @ptrCast(from.ptr),
@@ -6742,6 +7902,10 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
         };
         qtc.KCategorizedSortFilterProxyModel_SuperChangePersistentIndexList(@ptrCast(self.ptr), from_list, to_list);
     }
+
+    /// ### DEPRECATED: Use `onChangePersistentIndexList` instead
+    ///
+    pub const OnChangePersistentIndexList = onChangePersistentIndexList;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6755,9 +7919,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, from: qtc.libqt_list ([]QModelIndex), to: qtc.libqt_list ([]QModelIndex)) callconv(.c) void `
     ///
-    pub fn OnChangePersistentIndexList(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, qtc.libqt_list, qtc.libqt_list) callconv(.c) void) void {
+    pub fn onChangePersistentIndexList(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, qtc.libqt_list, qtc.libqt_list) callconv(.c) void) void {
         qtc.KCategorizedSortFilterProxyModel_OnChangePersistentIndexList(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `persistentIndexList` instead
+    ///
+    pub const PersistentIndexList = persistentIndexList;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6771,19 +7939,19 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PersistentIndexList(self: KCategorizedSortFilterProxyModel, allocator: std.mem.Allocator) []QModelIndex {
+    pub fn persistentIndexList(self: KCategorizedSortFilterProxyModel, allocator: std.mem.Allocator) []QModelIndex {
         const _arr: qtc.libqt_list = qtc.KCategorizedSortFilterProxyModel_PersistentIndexList(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("KCategorizedSortFilterProxyModel.PersistentIndexList: Memory allocation failed");
-        const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("KCategorizedSortFilterProxyModel.persistentIndexList: Memory allocation failed");
+        const _data_val: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `SuperPersistentIndexList` instead
+    /// ### DEPRECATED: Use `superPersistentIndexList` instead
     ///
-    pub const QBasePersistentIndexList = SuperPersistentIndexList;
+    pub const SuperPersistentIndexList = superPersistentIndexList;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6797,15 +7965,19 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperPersistentIndexList(self: KCategorizedSortFilterProxyModel, allocator: std.mem.Allocator) []QModelIndex {
+    pub fn superPersistentIndexList(self: KCategorizedSortFilterProxyModel, allocator: std.mem.Allocator) []QModelIndex {
         const _arr: qtc.libqt_list = qtc.KCategorizedSortFilterProxyModel_SuperPersistentIndexList(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("KCategorizedSortFilterProxyModel.PersistentIndexList: Memory allocation failed");
-        const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("KCategorizedSortFilterProxyModel.persistentIndexList: Memory allocation failed");
+        const _data_val: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onPersistentIndexList` instead
+    ///
+    pub const OnPersistentIndexList = onPersistentIndexList;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6825,9 +7997,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` C ABI representation of []QModelIndex `
     ///
-    pub fn OnPersistentIndexList(self: KCategorizedSortFilterProxyModel, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+    pub fn onPersistentIndexList(self: KCategorizedSortFilterProxyModel, callback: *const fn () callconv(.c) qtc.libqt_list) void {
         qtc.KCategorizedSortFilterProxyModel_OnPersistentIndexList(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -6839,13 +8015,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn Sender(self: KCategorizedSortFilterProxyModel) QObject {
+    pub fn sender(self: KCategorizedSortFilterProxyModel) QObject {
         return .{ .ptr = qtc.KCategorizedSortFilterProxyModel_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -6857,9 +8033,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn SuperSender(self: KCategorizedSortFilterProxyModel) QObject {
+    pub fn superSender(self: KCategorizedSortFilterProxyModel) QObject {
         return .{ .ptr = qtc.KCategorizedSortFilterProxyModel_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -6873,9 +8053,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KCategorizedSortFilterProxyModel, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KCategorizedSortFilterProxyModel, callback: *const fn () callconv(.c) QObject) void {
         qtc.KCategorizedSortFilterProxyModel_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -6887,13 +8071,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn SenderSignalIndex(self: KCategorizedSortFilterProxyModel) i32 {
+    pub fn senderSignalIndex(self: KCategorizedSortFilterProxyModel) i32 {
         return qtc.KCategorizedSortFilterProxyModel_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -6905,9 +8089,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn SuperSenderSignalIndex(self: KCategorizedSortFilterProxyModel) i32 {
+    pub fn superSenderSignalIndex(self: KCategorizedSortFilterProxyModel) i32 {
         return qtc.KCategorizedSortFilterProxyModel_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -6921,9 +8109,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KCategorizedSortFilterProxyModel, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KCategorizedSortFilterProxyModel, callback: *const fn () callconv(.c) i32) void {
         qtc.KCategorizedSortFilterProxyModel_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -6937,14 +8129,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KCategorizedSortFilterProxyModel, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KCategorizedSortFilterProxyModel, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KCategorizedSortFilterProxyModel_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -6958,10 +8150,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KCategorizedSortFilterProxyModel, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KCategorizedSortFilterProxyModel, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KCategorizedSortFilterProxyModel_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -6975,9 +8171,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, [*:0]const u8) callconv(.c) i32) void {
         qtc.KCategorizedSortFilterProxyModel_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -6991,14 +8191,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KCategorizedSortFilterProxyModel, signal: anytype) bool {
+    pub fn isSignalConnected(self: KCategorizedSortFilterProxyModel, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KCategorizedSortFilterProxyModel_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -7012,10 +8212,14 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KCategorizedSortFilterProxyModel, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KCategorizedSortFilterProxyModel, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KCategorizedSortFilterProxyModel_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -7029,9 +8233,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QMetaMethod) callconv(.c) bool) void {
         qtc.KCategorizedSortFilterProxyModel_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onSourceModelChanged` instead
+    ///
+    pub const OnSourceModelChanged = onSourceModelChanged;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -7045,9 +8253,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel) callconv(.c) void `
     ///
-    pub fn OnSourceModelChanged(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel) callconv(.c) void) void {
+    pub fn onSourceModelChanged(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel) callconv(.c) void) void {
         qtc.QAbstractProxyModel_Connect_SourceModelChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onRowsAboutToBeInserted` instead
+    ///
+    pub const OnRowsAboutToBeInserted = onRowsAboutToBeInserted;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -7061,9 +8273,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnRowsAboutToBeInserted(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onRowsAboutToBeInserted(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_RowsAboutToBeInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onRowsInserted` instead
+    ///
+    pub const OnRowsInserted = onRowsInserted;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -7077,9 +8293,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnRowsInserted(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onRowsInserted(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_RowsInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onRowsAboutToBeRemoved` instead
+    ///
+    pub const OnRowsAboutToBeRemoved = onRowsAboutToBeRemoved;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -7093,9 +8313,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnRowsAboutToBeRemoved(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onRowsAboutToBeRemoved(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_RowsAboutToBeRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onRowsRemoved` instead
+    ///
+    pub const OnRowsRemoved = onRowsRemoved;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -7109,9 +8333,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnRowsRemoved(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onRowsRemoved(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_RowsRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onColumnsAboutToBeInserted` instead
+    ///
+    pub const OnColumnsAboutToBeInserted = onColumnsAboutToBeInserted;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -7125,9 +8353,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsAboutToBeInserted(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onColumnsAboutToBeInserted(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ColumnsAboutToBeInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onColumnsInserted` instead
+    ///
+    pub const OnColumnsInserted = onColumnsInserted;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -7141,9 +8373,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsInserted(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onColumnsInserted(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ColumnsInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onColumnsAboutToBeRemoved` instead
+    ///
+    pub const OnColumnsAboutToBeRemoved = onColumnsAboutToBeRemoved;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -7157,9 +8393,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsAboutToBeRemoved(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onColumnsAboutToBeRemoved(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ColumnsAboutToBeRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onColumnsRemoved` instead
+    ///
+    pub const OnColumnsRemoved = onColumnsRemoved;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -7173,9 +8413,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsRemoved(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onColumnsRemoved(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ColumnsRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onModelAboutToBeReset` instead
+    ///
+    pub const OnModelAboutToBeReset = onModelAboutToBeReset;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -7189,9 +8433,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel) callconv(.c) void `
     ///
-    pub fn OnModelAboutToBeReset(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel) callconv(.c) void) void {
+    pub fn onModelAboutToBeReset(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ModelAboutToBeReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onModelReset` instead
+    ///
+    pub const OnModelReset = onModelReset;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -7205,9 +8453,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel) callconv(.c) void `
     ///
-    pub fn OnModelReset(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel) callconv(.c) void) void {
+    pub fn onModelReset(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ModelReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onRowsAboutToBeMoved` instead
+    ///
+    pub const OnRowsAboutToBeMoved = onRowsAboutToBeMoved;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -7221,9 +8473,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, sourceParent: QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QModelIndex, destinationRow: i32) callconv(.c) void `
     ///
-    pub fn OnRowsAboutToBeMoved(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
+    pub fn onRowsAboutToBeMoved(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_RowsAboutToBeMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onRowsMoved` instead
+    ///
+    pub const OnRowsMoved = onRowsMoved;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -7237,9 +8493,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, sourceParent: QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QModelIndex, destinationRow: i32) callconv(.c) void `
     ///
-    pub fn OnRowsMoved(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
+    pub fn onRowsMoved(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_RowsMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onColumnsAboutToBeMoved` instead
+    ///
+    pub const OnColumnsAboutToBeMoved = onColumnsAboutToBeMoved;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -7253,9 +8513,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, sourceParent: QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QModelIndex, destinationColumn: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsAboutToBeMoved(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
+    pub fn onColumnsAboutToBeMoved(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ColumnsAboutToBeMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onColumnsMoved` instead
+    ///
+    pub const OnColumnsMoved = onColumnsMoved;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -7269,9 +8533,13 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, sourceParent: QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QModelIndex, destinationColumn: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsMoved(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
+    pub fn onColumnsMoved(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ColumnsMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -7285,23 +8553,23 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kcategorizedsortfilterproxymodel.html#dtor.KCategorizedSortFilterProxyModel)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KCategorizedSortFilterProxyModel `
     ///
-    pub fn Delete(self: KCategorizedSortFilterProxyModel) void {
+    pub fn delete(self: KCategorizedSortFilterProxyModel) void {
         qtc.KCategorizedSortFilterProxyModel_Delete(@ptrCast(self.ptr));
     }
 };

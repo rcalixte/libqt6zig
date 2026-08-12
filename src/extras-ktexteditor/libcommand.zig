@@ -28,54 +28,66 @@ pub const KTextEditor__Command = extern struct {
     pub const _is_KTextEditor__Command = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new KTextEditor::Command object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KTextEditor::Command object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` cmds: []const []const u8 `
+    /// ` _cmds: []const []const u8 `
     ///
-    pub fn New(allocator: std.mem.Allocator, cmds: []const []const u8) KTextEditor__Command {
-        const cmds_arr = allocator.alloc(qtc.libqt_string, cmds.len) catch @panic("KTextEditor__Command.New: Memory allocation failed");
+    pub fn new(allocator: std.mem.Allocator, _cmds: []const []const u8) KTextEditor__Command {
+        const cmds_arr = allocator.alloc(qtc.libqt_string, _cmds.len) catch @panic("KTextEditor__Command.new: Memory allocation failed");
         defer allocator.free(cmds_arr);
-        for (cmds, 0..cmds.len) |item, i|
+        for (_cmds, 0.._cmds.len) |str_item, i|
             cmds_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const cmds_list = qtc.libqt_list{
-            .len = cmds.len,
+            .len = _cmds.len,
             .data = cmds_arr.ptr,
         };
         return .{ .ptr = qtc.KTextEditor__Command_new(cmds_list) };
     }
 
-    /// New2 constructs a new KTextEditor::Command object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KTextEditor::Command object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` cmds: []const []const u8 `
+    /// ` _cmds: []const []const u8 `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(allocator: std.mem.Allocator, cmds: []const []const u8, parent: anytype) KTextEditor__Command {
-        const cmds_arr = allocator.alloc(qtc.libqt_string, cmds.len) catch @panic("KTextEditor__Command.New2: Memory allocation failed");
+    pub fn new2(allocator: std.mem.Allocator, _cmds: []const []const u8, _parent: anytype) KTextEditor__Command {
+        const cmds_arr = allocator.alloc(qtc.libqt_string, _cmds.len) catch @panic("KTextEditor__Command.new2: Memory allocation failed");
         defer allocator.free(cmds_arr);
-        for (cmds, 0..cmds.len) |item, i|
+        for (_cmds, 0.._cmds.len) |str_item, i|
             cmds_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const cmds_list = qtc.libqt_list{
-            .len = cmds.len,
+            .len = _cmds.len,
             .data = cmds_arr.ptr,
         };
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.KTextEditor__Command_new2(cmds_list, @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.KTextEditor__Command_new2(cmds_list, @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -83,9 +95,13 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` self: KTextEditor__Command `
     ///
-    pub fn MetaObject(self: KTextEditor__Command) QMetaObject {
+    pub fn metaObject(self: KTextEditor__Command) QMetaObject {
         return .{ .ptr = qtc.KTextEditor__Command_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -97,13 +113,13 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KTextEditor__Command, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KTextEditor__Command, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KTextEditor__Command_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -113,9 +129,13 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` self: KTextEditor__Command `
     ///
-    pub fn SuperMetaObject(self: KTextEditor__Command) QMetaObject {
+    pub fn superMetaObject(self: KTextEditor__Command) QMetaObject {
         return .{ .ptr = qtc.KTextEditor__Command_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -123,10 +143,14 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KTextEditor__Command, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KTextEditor__Command, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KTextEditor__Command_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -136,13 +160,13 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Command, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KTextEditor__Command, callback: *const fn (KTextEditor__Command, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KTextEditor__Command, callback: *const fn (KTextEditor__Command, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KTextEditor__Command_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -152,10 +176,14 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KTextEditor__Command, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KTextEditor__Command, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KTextEditor__Command_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -167,9 +195,13 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KTextEditor__Command, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KTextEditor__Command, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KTextEditor__Command_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -179,13 +211,13 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Command, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KTextEditor__Command, callback: *const fn (KTextEditor__Command, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KTextEditor__Command, callback: *const fn (KTextEditor__Command, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KTextEditor__Command_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -199,9 +231,13 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KTextEditor__Command, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KTextEditor__Command, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KTextEditor__Command_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -211,14 +247,18 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Command.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Command.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `cmds` instead
+    ///
+    pub const Cmds = cmds;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-command.html#cmds)
     ///
@@ -228,7 +268,7 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Cmds(self: KTextEditor__Command, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn cmds(self: KTextEditor__Command, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KTextEditor__Command_Cmds(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -236,15 +276,19 @@ pub const KTextEditor__Command = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KTextEditor__Command.Cmds: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KTextEditor__Command.cmds: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KTextEditor__Command.Cmds: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KTextEditor__Command.cmds: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `supportsRange` instead
+    ///
+    pub const SupportsRange = supportsRange;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-command.html#supportsRange)
     ///
@@ -254,13 +298,17 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` cmd: []const u8 `
     ///
-    pub fn SupportsRange(self: KTextEditor__Command, cmd: []const u8) bool {
+    pub fn supportsRange(self: KTextEditor__Command, cmd: []const u8) bool {
         const cmd_str = qtc.libqt_string{
             .len = cmd.len,
             .data = cmd.ptr,
         };
         return qtc.KTextEditor__Command_SupportsRange(@ptrCast(self.ptr), cmd_str);
     }
+
+    /// ### DEPRECATED: Use `onSupportsRange` instead
+    ///
+    pub const OnSupportsRange = onSupportsRange;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-command.html#supportsRange)
     ///
@@ -272,13 +320,13 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Command, cmd: [*:0]const u8) callconv(.c) bool `
     ///
-    pub fn OnSupportsRange(self: KTextEditor__Command, callback: *const fn (KTextEditor__Command, [*:0]const u8) callconv(.c) bool) void {
+    pub fn onSupportsRange(self: KTextEditor__Command, callback: *const fn (KTextEditor__Command, [*:0]const u8) callconv(.c) bool) void {
         qtc.KTextEditor__Command_OnSupportsRange(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSupportsRange` instead
+    /// ### DEPRECATED: Use `superSupportsRange` instead
     ///
-    pub const QBaseSupportsRange = SuperSupportsRange;
+    pub const SuperSupportsRange = superSupportsRange;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-command.html#supportsRange)
     ///
@@ -290,13 +338,17 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` cmd: []const u8 `
     ///
-    pub fn SuperSupportsRange(self: KTextEditor__Command, cmd: []const u8) bool {
+    pub fn superSupportsRange(self: KTextEditor__Command, cmd: []const u8) bool {
         const cmd_str = qtc.libqt_string{
             .len = cmd.len,
             .data = cmd.ptr,
         };
         return qtc.KTextEditor__Command_SuperSupportsRange(@ptrCast(self.ptr), cmd_str);
     }
+
+    /// ### DEPRECATED: Use `exec` instead
+    ///
+    pub const Exec = exec;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-command.html#exec)
     ///
@@ -312,7 +364,7 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` range: KTextEditor__Range `
     ///
-    pub fn Exec(self: KTextEditor__Command, view: anytype, cmd: []const u8, msg: []const u8, range: anytype) bool {
+    pub fn exec(self: KTextEditor__Command, view: anytype, cmd: []const u8, msg: []const u8, range: anytype) bool {
         comptime _ = @TypeOf(view)._is_KTextEditor__View;
         const cmd_str = qtc.libqt_string{
             .len = cmd.len,
@@ -326,6 +378,10 @@ pub const KTextEditor__Command = extern struct {
         return qtc.KTextEditor__Command_Exec(@ptrCast(self.ptr), @ptrCast(view.ptr), cmd_str, msg_str, @ptrCast(range.ptr));
     }
 
+    /// ### DEPRECATED: Use `onExec` instead
+    ///
+    pub const OnExec = onExec;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-command.html#exec)
     ///
     /// Allows for overriding the related default method
@@ -336,13 +392,13 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Command, view: KTextEditor__View, cmd: [*:0]const u8, msg: [*:0]const u8, range: KTextEditor__Range) callconv(.c) bool `
     ///
-    pub fn OnExec(self: KTextEditor__Command, callback: *const fn (KTextEditor__Command, KTextEditor__View, [*:0]const u8, [*:0]const u8, KTextEditor__Range) callconv(.c) bool) void {
+    pub fn onExec(self: KTextEditor__Command, callback: *const fn (KTextEditor__Command, KTextEditor__View, [*:0]const u8, [*:0]const u8, KTextEditor__Range) callconv(.c) bool) void {
         qtc.KTextEditor__Command_OnExec(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperExec` instead
+    /// ### DEPRECATED: Use `superExec` instead
     ///
-    pub const QBaseExec = SuperExec;
+    pub const SuperExec = superExec;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-command.html#exec)
     ///
@@ -360,7 +416,7 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` range: KTextEditor__Range `
     ///
-    pub fn SuperExec(self: KTextEditor__Command, view: anytype, cmd: []const u8, msg: []const u8, range: anytype) bool {
+    pub fn superExec(self: KTextEditor__Command, view: anytype, cmd: []const u8, msg: []const u8, range: anytype) bool {
         comptime _ = @TypeOf(view)._is_KTextEditor__View;
         const cmd_str = qtc.libqt_string{
             .len = cmd.len,
@@ -374,6 +430,10 @@ pub const KTextEditor__Command = extern struct {
         return qtc.KTextEditor__Command_SuperExec(@ptrCast(self.ptr), @ptrCast(view.ptr), cmd_str, msg_str, @ptrCast(range.ptr));
     }
 
+    /// ### DEPRECATED: Use `help` instead
+    ///
+    pub const Help = help;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-command.html#help)
     ///
     /// ## Parameter(s):
@@ -386,7 +446,7 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` msg: []const u8 `
     ///
-    pub fn Help(self: KTextEditor__Command, view: anytype, cmd: []const u8, msg: []const u8) bool {
+    pub fn help(self: KTextEditor__Command, view: anytype, cmd: []const u8, msg: []const u8) bool {
         comptime _ = @TypeOf(view)._is_KTextEditor__View;
         const cmd_str = qtc.libqt_string{
             .len = cmd.len,
@@ -399,6 +459,10 @@ pub const KTextEditor__Command = extern struct {
         return qtc.KTextEditor__Command_Help(@ptrCast(self.ptr), @ptrCast(view.ptr), cmd_str, msg_str);
     }
 
+    /// ### DEPRECATED: Use `onHelp` instead
+    ///
+    pub const OnHelp = onHelp;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-command.html#help)
     ///
     /// Allows for overriding the related default method
@@ -409,13 +473,13 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Command, view: KTextEditor__View, cmd: [*:0]const u8, msg: [*:0]const u8) callconv(.c) bool `
     ///
-    pub fn OnHelp(self: KTextEditor__Command, callback: *const fn (KTextEditor__Command, KTextEditor__View, [*:0]const u8, [*:0]const u8) callconv(.c) bool) void {
+    pub fn onHelp(self: KTextEditor__Command, callback: *const fn (KTextEditor__Command, KTextEditor__View, [*:0]const u8, [*:0]const u8) callconv(.c) bool) void {
         qtc.KTextEditor__Command_OnHelp(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperHelp` instead
+    /// ### DEPRECATED: Use `superHelp` instead
     ///
-    pub const QBaseHelp = SuperHelp;
+    pub const SuperHelp = superHelp;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-command.html#help)
     ///
@@ -431,7 +495,7 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` msg: []const u8 `
     ///
-    pub fn SuperHelp(self: KTextEditor__Command, view: anytype, cmd: []const u8, msg: []const u8) bool {
+    pub fn superHelp(self: KTextEditor__Command, view: anytype, cmd: []const u8, msg: []const u8) bool {
         comptime _ = @TypeOf(view)._is_KTextEditor__View;
         const cmd_str = qtc.libqt_string{
             .len = cmd.len,
@@ -444,6 +508,10 @@ pub const KTextEditor__Command = extern struct {
         return qtc.KTextEditor__Command_SuperHelp(@ptrCast(self.ptr), @ptrCast(view.ptr), cmd_str, msg_str);
     }
 
+    /// ### DEPRECATED: Use `completionObject` instead
+    ///
+    pub const CompletionObject = completionObject;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-command.html#completionObject)
     ///
     /// ## Parameter(s):
@@ -454,7 +522,7 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` cmdname: []const u8 `
     ///
-    pub fn CompletionObject(self: KTextEditor__Command, view: anytype, cmdname: []const u8) KCompletion {
+    pub fn completionObject(self: KTextEditor__Command, view: anytype, cmdname: []const u8) KCompletion {
         comptime _ = @TypeOf(view)._is_KTextEditor__View;
         const cmdname_str = qtc.libqt_string{
             .len = cmdname.len,
@@ -462,6 +530,10 @@ pub const KTextEditor__Command = extern struct {
         };
         return .{ .ptr = qtc.KTextEditor__Command_CompletionObject(@ptrCast(self.ptr), @ptrCast(view.ptr), cmdname_str) };
     }
+
+    /// ### DEPRECATED: Use `onCompletionObject` instead
+    ///
+    pub const OnCompletionObject = onCompletionObject;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-command.html#completionObject)
     ///
@@ -473,13 +545,13 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Command, view: KTextEditor__View, cmdname: [*:0]const u8) callconv(.c) KCompletion `
     ///
-    pub fn OnCompletionObject(self: KTextEditor__Command, callback: *const fn (KTextEditor__Command, KTextEditor__View, [*:0]const u8) callconv(.c) KCompletion) void {
+    pub fn onCompletionObject(self: KTextEditor__Command, callback: *const fn (KTextEditor__Command, KTextEditor__View, [*:0]const u8) callconv(.c) KCompletion) void {
         qtc.KTextEditor__Command_OnCompletionObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperCompletionObject` instead
+    /// ### DEPRECATED: Use `superCompletionObject` instead
     ///
-    pub const QBaseCompletionObject = SuperCompletionObject;
+    pub const SuperCompletionObject = superCompletionObject;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-command.html#completionObject)
     ///
@@ -493,7 +565,7 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` cmdname: []const u8 `
     ///
-    pub fn SuperCompletionObject(self: KTextEditor__Command, view: anytype, cmdname: []const u8) KCompletion {
+    pub fn superCompletionObject(self: KTextEditor__Command, view: anytype, cmdname: []const u8) KCompletion {
         comptime _ = @TypeOf(view)._is_KTextEditor__View;
         const cmdname_str = qtc.libqt_string{
             .len = cmdname.len,
@@ -501,6 +573,10 @@ pub const KTextEditor__Command = extern struct {
         };
         return .{ .ptr = qtc.KTextEditor__Command_SuperCompletionObject(@ptrCast(self.ptr), @ptrCast(view.ptr), cmdname_str) };
     }
+
+    /// ### DEPRECATED: Use `wantsToProcessText` instead
+    ///
+    pub const WantsToProcessText = wantsToProcessText;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-command.html#wantsToProcessText)
     ///
@@ -510,13 +586,17 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` cmdname: []const u8 `
     ///
-    pub fn WantsToProcessText(self: KTextEditor__Command, cmdname: []const u8) bool {
+    pub fn wantsToProcessText(self: KTextEditor__Command, cmdname: []const u8) bool {
         const cmdname_str = qtc.libqt_string{
             .len = cmdname.len,
             .data = cmdname.ptr,
         };
         return qtc.KTextEditor__Command_WantsToProcessText(@ptrCast(self.ptr), cmdname_str);
     }
+
+    /// ### DEPRECATED: Use `onWantsToProcessText` instead
+    ///
+    pub const OnWantsToProcessText = onWantsToProcessText;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-command.html#wantsToProcessText)
     ///
@@ -528,13 +608,13 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Command, cmdname: [*:0]const u8) callconv(.c) bool `
     ///
-    pub fn OnWantsToProcessText(self: KTextEditor__Command, callback: *const fn (KTextEditor__Command, [*:0]const u8) callconv(.c) bool) void {
+    pub fn onWantsToProcessText(self: KTextEditor__Command, callback: *const fn (KTextEditor__Command, [*:0]const u8) callconv(.c) bool) void {
         qtc.KTextEditor__Command_OnWantsToProcessText(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperWantsToProcessText` instead
+    /// ### DEPRECATED: Use `superWantsToProcessText` instead
     ///
-    pub const QBaseWantsToProcessText = SuperWantsToProcessText;
+    pub const SuperWantsToProcessText = superWantsToProcessText;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-command.html#wantsToProcessText)
     ///
@@ -546,13 +626,17 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` cmdname: []const u8 `
     ///
-    pub fn SuperWantsToProcessText(self: KTextEditor__Command, cmdname: []const u8) bool {
+    pub fn superWantsToProcessText(self: KTextEditor__Command, cmdname: []const u8) bool {
         const cmdname_str = qtc.libqt_string{
             .len = cmdname.len,
             .data = cmdname.ptr,
         };
         return qtc.KTextEditor__Command_SuperWantsToProcessText(@ptrCast(self.ptr), cmdname_str);
     }
+
+    /// ### DEPRECATED: Use `processText` instead
+    ///
+    pub const ProcessText = processText;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-command.html#processText)
     ///
@@ -564,7 +648,7 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn ProcessText(self: KTextEditor__Command, view: anytype, text: []const u8) void {
+    pub fn processText(self: KTextEditor__Command, view: anytype, text: []const u8) void {
         comptime _ = @TypeOf(view)._is_KTextEditor__View;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -572,6 +656,10 @@ pub const KTextEditor__Command = extern struct {
         };
         qtc.KTextEditor__Command_ProcessText(@ptrCast(self.ptr), @ptrCast(view.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `onProcessText` instead
+    ///
+    pub const OnProcessText = onProcessText;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-command.html#processText)
     ///
@@ -583,13 +671,13 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Command, view: KTextEditor__View, text: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnProcessText(self: KTextEditor__Command, callback: *const fn (KTextEditor__Command, KTextEditor__View, [*:0]const u8) callconv(.c) void) void {
+    pub fn onProcessText(self: KTextEditor__Command, callback: *const fn (KTextEditor__Command, KTextEditor__View, [*:0]const u8) callconv(.c) void) void {
         qtc.KTextEditor__Command_OnProcessText(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperProcessText` instead
+    /// ### DEPRECATED: Use `superProcessText` instead
     ///
-    pub const QBaseProcessText = SuperProcessText;
+    pub const SuperProcessText = superProcessText;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-command.html#processText)
     ///
@@ -603,7 +691,7 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SuperProcessText(self: KTextEditor__Command, view: anytype, text: []const u8) void {
+    pub fn superProcessText(self: KTextEditor__Command, view: anytype, text: []const u8) void {
         comptime _ = @TypeOf(view)._is_KTextEditor__View;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -611,6 +699,10 @@ pub const KTextEditor__Command = extern struct {
         };
         qtc.KTextEditor__Command_SuperProcessText(@ptrCast(self.ptr), @ptrCast(view.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -622,15 +714,19 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Command.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Command.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -644,15 +740,19 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Command.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Command.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -664,13 +764,17 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KTextEditor__Command, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KTextEditor__Command, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Command.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__Command.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -682,13 +786,17 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KTextEditor__Command, name: []const u8) void {
+    pub fn setObjectName(self: KTextEditor__Command, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -698,9 +806,13 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` self: KTextEditor__Command `
     ///
-    pub fn IsWidgetType(self: KTextEditor__Command) bool {
+    pub fn isWidgetType(self: KTextEditor__Command) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -710,9 +822,13 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` self: KTextEditor__Command `
     ///
-    pub fn IsWindowType(self: KTextEditor__Command) bool {
+    pub fn isWindowType(self: KTextEditor__Command) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -722,9 +838,13 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` self: KTextEditor__Command `
     ///
-    pub fn IsQuickItemType(self: KTextEditor__Command) bool {
+    pub fn isQuickItemType(self: KTextEditor__Command) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -734,9 +854,13 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` self: KTextEditor__Command `
     ///
-    pub fn SignalsBlocked(self: KTextEditor__Command) bool {
+    pub fn signalsBlocked(self: KTextEditor__Command) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -748,9 +872,13 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KTextEditor__Command, b: bool) bool {
+    pub fn blockSignals(self: KTextEditor__Command, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -760,9 +888,13 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` self: KTextEditor__Command `
     ///
-    pub fn Thread(self: KTextEditor__Command) QThread {
+    pub fn thread(self: KTextEditor__Command) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -772,12 +904,16 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` self: KTextEditor__Command `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KTextEditor__Command, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KTextEditor__Command, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -789,9 +925,13 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KTextEditor__Command, interval: i32) i32 {
+    pub fn startTimer(self: KTextEditor__Command, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -803,9 +943,13 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KTextEditor__Command, time: i64) i32 {
+    pub fn startTimer2(self: KTextEditor__Command, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -817,9 +961,13 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KTextEditor__Command, id: i32) void {
+    pub fn killTimer(self: KTextEditor__Command, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -831,9 +979,13 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KTextEditor__Command, id: i32) void {
+    pub fn killTimer2(self: KTextEditor__Command, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -845,15 +997,19 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KTextEditor__Command, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KTextEditor__Command, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KTextEditor__Command.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KTextEditor__Command.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -863,12 +1019,16 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` self: KTextEditor__Command `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: KTextEditor__Command, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: KTextEditor__Command, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -880,10 +1040,14 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KTextEditor__Command, filterObj: anytype) void {
+    pub fn installEventFilter(self: KTextEditor__Command, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -895,10 +1059,14 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KTextEditor__Command, obj: anytype) void {
+    pub fn removeEventFilter(self: KTextEditor__Command, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -906,7 +1074,7 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -914,13 +1082,17 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -928,7 +1100,7 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -936,13 +1108,17 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -952,18 +1128,22 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` self: KTextEditor__Command `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KTextEditor__Command, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KTextEditor__Command, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -971,7 +1151,7 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -979,13 +1159,17 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -993,7 +1177,7 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1001,13 +1185,17 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -1017,9 +1205,13 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` self: KTextEditor__Command `
     ///
-    pub fn Disconnect3(self: KTextEditor__Command) bool {
+    pub fn disconnect3(self: KTextEditor__Command) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1031,10 +1223,14 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KTextEditor__Command, receiver: anytype) bool {
+    pub fn disconnect4(self: KTextEditor__Command, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1044,10 +1240,14 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1057,9 +1257,13 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` self: KTextEditor__Command `
     ///
-    pub fn DumpObjectTree(self: KTextEditor__Command) void {
+    pub fn dumpObjectTree(self: KTextEditor__Command) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1069,9 +1273,13 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` self: KTextEditor__Command `
     ///
-    pub fn DumpObjectInfo(self: KTextEditor__Command) void {
+    pub fn dumpObjectInfo(self: KTextEditor__Command) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1085,11 +1293,15 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KTextEditor__Command, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KTextEditor__Command, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1101,10 +1313,14 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KTextEditor__Command, name: [:0]const u8) QVariant {
+    pub fn property(self: KTextEditor__Command, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1116,7 +1332,7 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KTextEditor__Command, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KTextEditor__Command, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1124,27 +1340,19 @@ pub const KTextEditor__Command = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KTextEditor__Command.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KTextEditor__Command.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KTextEditor__Command.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KTextEditor__Command.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTextEditor__Command `
-    ///
-    pub fn BindingStorage(self: KTextEditor__Command) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1154,9 +1362,29 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` self: KTextEditor__Command `
     ///
-    pub fn BindingStorage2(self: KTextEditor__Command) QBindingStorage {
+    pub fn bindingStorage(self: KTextEditor__Command) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KTextEditor__Command `
+    ///
+    pub fn bindingStorage2(self: KTextEditor__Command) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1166,9 +1394,13 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` self: KTextEditor__Command `
     ///
-    pub fn Destroyed(self: KTextEditor__Command) void {
+    pub fn destroyed(self: KTextEditor__Command) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1180,9 +1412,13 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Command) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KTextEditor__Command, callback: *const fn (KTextEditor__Command) callconv(.c) void) void {
+    pub fn onDestroyed(self: KTextEditor__Command, callback: *const fn (KTextEditor__Command) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1192,9 +1428,13 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` self: KTextEditor__Command `
     ///
-    pub fn Parent(self: KTextEditor__Command) QObject {
+    pub fn parent(self: KTextEditor__Command) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1206,10 +1446,14 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KTextEditor__Command, classname: [:0]const u8) bool {
+    pub fn inherits(self: KTextEditor__Command, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1219,9 +1463,13 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` self: KTextEditor__Command `
     ///
-    pub fn DeleteLater(self: KTextEditor__Command) void {
+    pub fn deleteLater(self: KTextEditor__Command) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1235,9 +1483,13 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KTextEditor__Command, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KTextEditor__Command, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1251,9 +1503,13 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KTextEditor__Command, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KTextEditor__Command, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1261,7 +1517,7 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1271,13 +1527,17 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1285,7 +1545,7 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1295,13 +1555,17 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1311,7 +1575,7 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` self: KTextEditor__Command `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1319,12 +1583,16 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KTextEditor__Command, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KTextEditor__Command, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1336,10 +1604,14 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KTextEditor__Command, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KTextEditor__Command, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1353,11 +1625,15 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KTextEditor__Command, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KTextEditor__Command, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1373,13 +1649,17 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KTextEditor__Command, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KTextEditor__Command, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1392,11 +1672,15 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KTextEditor__Command, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KTextEditor__Command, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1408,10 +1692,14 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KTextEditor__Command, param1: anytype) void {
+    pub fn destroyed1(self: KTextEditor__Command, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1423,9 +1711,13 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Command, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KTextEditor__Command, callback: *const fn (KTextEditor__Command, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KTextEditor__Command, callback: *const fn (KTextEditor__Command, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -1437,16 +1729,16 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` self: KTextEditor__Command `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: KTextEditor__Command, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KTextEditor__Command_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: KTextEditor__Command, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KTextEditor__Command_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -1458,12 +1750,16 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` self: KTextEditor__Command `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: KTextEditor__Command, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KTextEditor__Command_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: KTextEditor__Command, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KTextEditor__Command_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -1477,9 +1773,13 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Command, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KTextEditor__Command, callback: *const fn (KTextEditor__Command, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KTextEditor__Command, callback: *const fn (KTextEditor__Command, QEvent) callconv(.c) bool) void {
         qtc.KTextEditor__Command_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1493,17 +1793,17 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: KTextEditor__Command, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: KTextEditor__Command, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KTextEditor__Command_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KTextEditor__Command_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1517,13 +1817,17 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: KTextEditor__Command, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: KTextEditor__Command, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KTextEditor__Command_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KTextEditor__Command_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1537,9 +1841,13 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Command, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KTextEditor__Command, callback: *const fn (KTextEditor__Command, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KTextEditor__Command, callback: *const fn (KTextEditor__Command, QObject, QEvent) callconv(.c) bool) void {
         qtc.KTextEditor__Command_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -1551,16 +1859,16 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` self: KTextEditor__Command `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KTextEditor__Command, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KTextEditor__Command_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: KTextEditor__Command, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KTextEditor__Command_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1572,12 +1880,16 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` self: KTextEditor__Command `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KTextEditor__Command, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KTextEditor__Command_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: KTextEditor__Command, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KTextEditor__Command_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1591,9 +1903,13 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Command, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KTextEditor__Command, callback: *const fn (KTextEditor__Command, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KTextEditor__Command, callback: *const fn (KTextEditor__Command, QTimerEvent) callconv(.c) void) void {
         qtc.KTextEditor__Command_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -1605,16 +1921,16 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` self: KTextEditor__Command `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KTextEditor__Command, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KTextEditor__Command_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KTextEditor__Command, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KTextEditor__Command_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1626,12 +1942,16 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` self: KTextEditor__Command `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KTextEditor__Command, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KTextEditor__Command_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KTextEditor__Command, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KTextEditor__Command_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1645,9 +1965,13 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Command, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KTextEditor__Command, callback: *const fn (KTextEditor__Command, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KTextEditor__Command, callback: *const fn (KTextEditor__Command, QChildEvent) callconv(.c) void) void {
         qtc.KTextEditor__Command_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -1659,16 +1983,16 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` self: KTextEditor__Command `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KTextEditor__Command, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KTextEditor__Command_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KTextEditor__Command, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KTextEditor__Command_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1680,12 +2004,16 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` self: KTextEditor__Command `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KTextEditor__Command, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KTextEditor__Command_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KTextEditor__Command, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KTextEditor__Command_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1699,9 +2027,13 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Command, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KTextEditor__Command, callback: *const fn (KTextEditor__Command, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KTextEditor__Command, callback: *const fn (KTextEditor__Command, QEvent) callconv(.c) void) void {
         qtc.KTextEditor__Command_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -1715,14 +2047,14 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KTextEditor__Command, signal: anytype) void {
+    pub fn connectNotify(self: KTextEditor__Command, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KTextEditor__Command_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1736,11 +2068,15 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KTextEditor__Command, signal: anytype) void {
+    pub fn superConnectNotify(self: KTextEditor__Command, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KTextEditor__Command_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1753,9 +2089,13 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Command, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KTextEditor__Command, callback: *const fn (KTextEditor__Command, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KTextEditor__Command, callback: *const fn (KTextEditor__Command, QMetaMethod) callconv(.c) void) void {
         qtc.KTextEditor__Command_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1769,14 +2109,14 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KTextEditor__Command, signal: anytype) void {
+    pub fn disconnectNotify(self: KTextEditor__Command, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KTextEditor__Command_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1790,10 +2130,14 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KTextEditor__Command, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KTextEditor__Command, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KTextEditor__Command_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1807,9 +2151,13 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Command, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KTextEditor__Command, callback: *const fn (KTextEditor__Command, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KTextEditor__Command, callback: *const fn (KTextEditor__Command, QMetaMethod) callconv(.c) void) void {
         qtc.KTextEditor__Command_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -1821,13 +2169,13 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` self: KTextEditor__Command `
     ///
-    pub fn Sender(self: KTextEditor__Command) QObject {
+    pub fn sender(self: KTextEditor__Command) QObject {
         return .{ .ptr = qtc.KTextEditor__Command_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -1839,9 +2187,13 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` self: KTextEditor__Command `
     ///
-    pub fn SuperSender(self: KTextEditor__Command) QObject {
+    pub fn superSender(self: KTextEditor__Command) QObject {
         return .{ .ptr = qtc.KTextEditor__Command_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -1855,9 +2207,13 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KTextEditor__Command, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KTextEditor__Command, callback: *const fn () callconv(.c) QObject) void {
         qtc.KTextEditor__Command_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1869,13 +2225,13 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` self: KTextEditor__Command `
     ///
-    pub fn SenderSignalIndex(self: KTextEditor__Command) i32 {
+    pub fn senderSignalIndex(self: KTextEditor__Command) i32 {
         return qtc.KTextEditor__Command_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1887,9 +2243,13 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` self: KTextEditor__Command `
     ///
-    pub fn SuperSenderSignalIndex(self: KTextEditor__Command) i32 {
+    pub fn superSenderSignalIndex(self: KTextEditor__Command) i32 {
         return qtc.KTextEditor__Command_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1903,9 +2263,13 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KTextEditor__Command, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KTextEditor__Command, callback: *const fn () callconv(.c) i32) void {
         qtc.KTextEditor__Command_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -1919,14 +2283,14 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KTextEditor__Command, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KTextEditor__Command, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KTextEditor__Command_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -1940,10 +2304,14 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KTextEditor__Command, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KTextEditor__Command, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KTextEditor__Command_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -1957,9 +2325,13 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Command, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KTextEditor__Command, callback: *const fn (KTextEditor__Command, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KTextEditor__Command, callback: *const fn (KTextEditor__Command, [*:0]const u8) callconv(.c) i32) void {
         qtc.KTextEditor__Command_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1973,14 +2345,14 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KTextEditor__Command, signal: anytype) bool {
+    pub fn isSignalConnected(self: KTextEditor__Command, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KTextEditor__Command_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1994,10 +2366,14 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KTextEditor__Command, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KTextEditor__Command, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KTextEditor__Command_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2011,9 +2387,13 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Command, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KTextEditor__Command, callback: *const fn (KTextEditor__Command, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KTextEditor__Command, callback: *const fn (KTextEditor__Command, QMetaMethod) callconv(.c) bool) void {
         qtc.KTextEditor__Command_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -2027,21 +2407,21 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__Command, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KTextEditor__Command, callback: *const fn (KTextEditor__Command, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KTextEditor__Command, callback: *const fn (KTextEditor__Command, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KTextEditor__Command `
     ///
-    pub fn Delete(self: KTextEditor__Command) void {
+    pub fn delete(self: KTextEditor__Command) void {
         qtc.KTextEditor__Command_Delete(@ptrCast(self.ptr));
     }
 };

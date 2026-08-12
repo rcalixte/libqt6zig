@@ -13,11 +13,19 @@ pub const QDesignerFormEditorPluginInterface = extern struct {
 
     pub const _is_QDesignerFormEditorPluginInterface = {};
 
-    /// New constructs a new QDesignerFormEditorPluginInterface object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QDesignerFormEditorPluginInterface {
+    pub const New = new;
+
+    /// Allocate a new QDesignerFormEditorPluginInterface object in C++ memory
+    ///
+    pub fn new() QDesignerFormEditorPluginInterface {
         return .{ .ptr = qtc.QDesignerFormEditorPluginInterface_new() };
     }
+
+    /// ### DEPRECATED: Use `isInitialized` instead
+    ///
+    pub const IsInitialized = isInitialized;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorplugininterface.html#isInitialized)
     ///
@@ -25,9 +33,13 @@ pub const QDesignerFormEditorPluginInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorPluginInterface `
     ///
-    pub fn IsInitialized(self: QDesignerFormEditorPluginInterface) bool {
+    pub fn isInitialized(self: QDesignerFormEditorPluginInterface) bool {
         return qtc.QDesignerFormEditorPluginInterface_IsInitialized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsInitialized` instead
+    ///
+    pub const OnIsInitialized = onIsInitialized;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorplugininterface.html#isInitialized)
     ///
@@ -39,13 +51,13 @@ pub const QDesignerFormEditorPluginInterface = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnIsInitialized(self: QDesignerFormEditorPluginInterface, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsInitialized(self: QDesignerFormEditorPluginInterface, callback: *const fn () callconv(.c) bool) void {
         qtc.QDesignerFormEditorPluginInterface_OnIsInitialized(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperIsInitialized` instead
+    /// ### DEPRECATED: Use `superIsInitialized` instead
     ///
-    pub const QBaseIsInitialized = SuperIsInitialized;
+    pub const SuperIsInitialized = superIsInitialized;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorplugininterface.html#isInitialized)
     ///
@@ -55,9 +67,13 @@ pub const QDesignerFormEditorPluginInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorPluginInterface `
     ///
-    pub fn SuperIsInitialized(self: QDesignerFormEditorPluginInterface) bool {
+    pub fn superIsInitialized(self: QDesignerFormEditorPluginInterface) bool {
         return qtc.QDesignerFormEditorPluginInterface_SuperIsInitialized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `initialize` instead
+    ///
+    pub const Initialize = initialize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorplugininterface.html#initialize)
     ///
@@ -65,12 +81,16 @@ pub const QDesignerFormEditorPluginInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorPluginInterface `
     ///
-    /// ` core: QDesignerFormEditorInterface `
+    /// ` _core: QDesignerFormEditorInterface `
     ///
-    pub fn Initialize(self: QDesignerFormEditorPluginInterface, core: anytype) void {
-        comptime _ = @TypeOf(core)._is_QDesignerFormEditorInterface;
-        qtc.QDesignerFormEditorPluginInterface_Initialize(@ptrCast(self.ptr), @ptrCast(core.ptr));
+    pub fn initialize(self: QDesignerFormEditorPluginInterface, _core: anytype) void {
+        comptime _ = @TypeOf(_core)._is_QDesignerFormEditorInterface;
+        qtc.QDesignerFormEditorPluginInterface_Initialize(@ptrCast(self.ptr), @ptrCast(_core.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitialize` instead
+    ///
+    pub const OnInitialize = onInitialize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorplugininterface.html#initialize)
     ///
@@ -82,13 +102,13 @@ pub const QDesignerFormEditorPluginInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerFormEditorPluginInterface, core: QDesignerFormEditorInterface) callconv(.c) void `
     ///
-    pub fn OnInitialize(self: QDesignerFormEditorPluginInterface, callback: *const fn (QDesignerFormEditorPluginInterface, QDesignerFormEditorInterface) callconv(.c) void) void {
+    pub fn onInitialize(self: QDesignerFormEditorPluginInterface, callback: *const fn (QDesignerFormEditorPluginInterface, QDesignerFormEditorInterface) callconv(.c) void) void {
         qtc.QDesignerFormEditorPluginInterface_OnInitialize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperInitialize` instead
+    /// ### DEPRECATED: Use `superInitialize` instead
     ///
-    pub const QBaseInitialize = SuperInitialize;
+    pub const SuperInitialize = superInitialize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorplugininterface.html#initialize)
     ///
@@ -98,12 +118,16 @@ pub const QDesignerFormEditorPluginInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorPluginInterface `
     ///
-    /// ` core: QDesignerFormEditorInterface `
+    /// ` _core: QDesignerFormEditorInterface `
     ///
-    pub fn SuperInitialize(self: QDesignerFormEditorPluginInterface, core: anytype) void {
-        comptime _ = @TypeOf(core)._is_QDesignerFormEditorInterface;
-        qtc.QDesignerFormEditorPluginInterface_SuperInitialize(@ptrCast(self.ptr), @ptrCast(core.ptr));
+    pub fn superInitialize(self: QDesignerFormEditorPluginInterface, _core: anytype) void {
+        comptime _ = @TypeOf(_core)._is_QDesignerFormEditorInterface;
+        qtc.QDesignerFormEditorPluginInterface_SuperInitialize(@ptrCast(self.ptr), @ptrCast(_core.ptr));
     }
+
+    /// ### DEPRECATED: Use `action` instead
+    ///
+    pub const Action = action;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorplugininterface.html#action)
     ///
@@ -111,9 +135,13 @@ pub const QDesignerFormEditorPluginInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorPluginInterface `
     ///
-    pub fn Action(self: QDesignerFormEditorPluginInterface) QAction {
+    pub fn action(self: QDesignerFormEditorPluginInterface) QAction {
         return .{ .ptr = qtc.QDesignerFormEditorPluginInterface_Action(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onAction` instead
+    ///
+    pub const OnAction = onAction;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorplugininterface.html#action)
     ///
@@ -125,13 +153,13 @@ pub const QDesignerFormEditorPluginInterface = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QAction `
     ///
-    pub fn OnAction(self: QDesignerFormEditorPluginInterface, callback: *const fn () callconv(.c) QAction) void {
+    pub fn onAction(self: QDesignerFormEditorPluginInterface, callback: *const fn () callconv(.c) QAction) void {
         qtc.QDesignerFormEditorPluginInterface_OnAction(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperAction` instead
+    /// ### DEPRECATED: Use `superAction` instead
     ///
-    pub const QBaseAction = SuperAction;
+    pub const SuperAction = superAction;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorplugininterface.html#action)
     ///
@@ -141,9 +169,13 @@ pub const QDesignerFormEditorPluginInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorPluginInterface `
     ///
-    pub fn SuperAction(self: QDesignerFormEditorPluginInterface) QAction {
+    pub fn superAction(self: QDesignerFormEditorPluginInterface) QAction {
         return .{ .ptr = qtc.QDesignerFormEditorPluginInterface_SuperAction(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `core` instead
+    ///
+    pub const Core = core;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorplugininterface.html#core)
     ///
@@ -151,9 +183,13 @@ pub const QDesignerFormEditorPluginInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorPluginInterface `
     ///
-    pub fn Core(self: QDesignerFormEditorPluginInterface) QDesignerFormEditorInterface {
+    pub fn core(self: QDesignerFormEditorPluginInterface) QDesignerFormEditorInterface {
         return .{ .ptr = qtc.QDesignerFormEditorPluginInterface_Core(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onCore` instead
+    ///
+    pub const OnCore = onCore;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorplugininterface.html#core)
     ///
@@ -165,13 +201,13 @@ pub const QDesignerFormEditorPluginInterface = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QDesignerFormEditorInterface `
     ///
-    pub fn OnCore(self: QDesignerFormEditorPluginInterface, callback: *const fn () callconv(.c) QDesignerFormEditorInterface) void {
+    pub fn onCore(self: QDesignerFormEditorPluginInterface, callback: *const fn () callconv(.c) QDesignerFormEditorInterface) void {
         qtc.QDesignerFormEditorPluginInterface_OnCore(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperCore` instead
+    /// ### DEPRECATED: Use `superCore` instead
     ///
-    pub const QBaseCore = SuperCore;
+    pub const SuperCore = superCore;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorplugininterface.html#core)
     ///
@@ -181,23 +217,23 @@ pub const QDesignerFormEditorPluginInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorPluginInterface `
     ///
-    pub fn SuperCore(self: QDesignerFormEditorPluginInterface) QDesignerFormEditorInterface {
+    pub fn superCore(self: QDesignerFormEditorPluginInterface) QDesignerFormEditorInterface {
         return .{ .ptr = qtc.QDesignerFormEditorPluginInterface_SuperCore(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorplugininterface.html#dtor.QDesignerFormEditorPluginInterface)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDesignerFormEditorPluginInterface `
     ///
-    pub fn Delete(self: QDesignerFormEditorPluginInterface) void {
+    pub fn delete(self: QDesignerFormEditorPluginInterface) void {
         qtc.QDesignerFormEditorPluginInterface_Delete(@ptrCast(self.ptr));
     }
 };

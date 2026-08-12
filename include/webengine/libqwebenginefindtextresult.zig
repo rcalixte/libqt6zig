@@ -11,22 +11,34 @@ pub const QWebEngineFindTextResult = extern struct {
 
     pub const _is_QWebEngineFindTextResult = {};
 
-    /// New constructs a new QWebEngineFindTextResult object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QWebEngineFindTextResult {
+    pub const New = new;
+
+    /// Allocate a new QWebEngineFindTextResult object in C++ memory
+    ///
+    pub fn new() QWebEngineFindTextResult {
         return .{ .ptr = qtc.QWebEngineFindTextResult_new() };
     }
 
-    /// New2 constructs a new QWebEngineFindTextResult object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QWebEngineFindTextResult object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QWebEngineFindTextResult `
     ///
-    pub fn New2(other: anytype) QWebEngineFindTextResult {
+    pub fn new2(other: anytype) QWebEngineFindTextResult {
         comptime _ = @TypeOf(other)._is_QWebEngineFindTextResult;
         return .{ .ptr = qtc.QWebEngineFindTextResult_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `numberOfMatches` instead
+    ///
+    pub const NumberOfMatches = numberOfMatches;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginefindtextresult.html#numberOfMatches)
     ///
@@ -34,9 +46,13 @@ pub const QWebEngineFindTextResult = extern struct {
     ///
     /// ` self: QWebEngineFindTextResult `
     ///
-    pub fn NumberOfMatches(self: QWebEngineFindTextResult) i32 {
+    pub fn numberOfMatches(self: QWebEngineFindTextResult) i32 {
         return qtc.QWebEngineFindTextResult_NumberOfMatches(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activeMatch` instead
+    ///
+    pub const ActiveMatch = activeMatch;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginefindtextresult.html#activeMatch)
     ///
@@ -44,9 +60,13 @@ pub const QWebEngineFindTextResult = extern struct {
     ///
     /// ` self: QWebEngineFindTextResult `
     ///
-    pub fn ActiveMatch(self: QWebEngineFindTextResult) i32 {
+    pub fn activeMatch(self: QWebEngineFindTextResult) i32 {
         return qtc.QWebEngineFindTextResult_ActiveMatch(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginefindtextresult.html#operator-eq)
     ///
@@ -56,24 +76,24 @@ pub const QWebEngineFindTextResult = extern struct {
     ///
     /// ` other: QWebEngineFindTextResult `
     ///
-    pub fn OperatorAssign(self: QWebEngineFindTextResult, other: anytype) void {
+    pub fn operatorAssign(self: QWebEngineFindTextResult, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QWebEngineFindTextResult;
         qtc.QWebEngineFindTextResult_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginefindtextresult.html#dtor.QWebEngineFindTextResult)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QWebEngineFindTextResult `
     ///
-    pub fn Delete(self: QWebEngineFindTextResult) void {
+    pub fn delete(self: QWebEngineFindTextResult) void {
         qtc.QWebEngineFindTextResult_Delete(@ptrCast(self.ptr));
     }
 };

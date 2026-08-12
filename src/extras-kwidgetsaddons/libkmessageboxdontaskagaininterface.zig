@@ -13,11 +13,19 @@ pub const KMessageBoxDontAskAgainInterface = extern struct {
 
     pub const _is_KMessageBoxDontAskAgainInterface = {};
 
-    /// New constructs a new KMessageBoxDontAskAgainInterface object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() KMessageBoxDontAskAgainInterface {
+    pub const New = new;
+
+    /// Allocate a new KMessageBoxDontAskAgainInterface object in C++ memory
+    ///
+    pub fn new() KMessageBoxDontAskAgainInterface {
         return .{ .ptr = qtc.KMessageBoxDontAskAgainInterface_new() };
     }
+
+    /// ### DEPRECATED: Use `shouldBeShownTwoActions` instead
+    ///
+    pub const ShouldBeShownTwoActions = shouldBeShownTwoActions;
 
     /// ### [Upstream resources](https://api.kde.org/kmessageboxdontaskagaininterface.html#shouldBeShownTwoActions)
     ///
@@ -29,13 +37,17 @@ pub const KMessageBoxDontAskAgainInterface = extern struct {
     ///
     /// ` result: *kmessagebox_enums.ButtonCode `
     ///
-    pub fn ShouldBeShownTwoActions(self: KMessageBoxDontAskAgainInterface, dontShowAgainName: []const u8, result: *i32) bool {
+    pub fn shouldBeShownTwoActions(self: KMessageBoxDontAskAgainInterface, dontShowAgainName: []const u8, result: *i32) bool {
         const dontShowAgainName_str = qtc.libqt_string{
             .len = dontShowAgainName.len,
             .data = dontShowAgainName.ptr,
         };
         return qtc.KMessageBoxDontAskAgainInterface_ShouldBeShownTwoActions(@ptrCast(self.ptr), dontShowAgainName_str, @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onShouldBeShownTwoActions` instead
+    ///
+    pub const OnShouldBeShownTwoActions = onShouldBeShownTwoActions;
 
     /// ### [Upstream resources](https://api.kde.org/kmessageboxdontaskagaininterface.html#shouldBeShownTwoActions)
     ///
@@ -47,13 +59,13 @@ pub const KMessageBoxDontAskAgainInterface = extern struct {
     ///
     /// ` callback: *const fn (self: KMessageBoxDontAskAgainInterface, dontShowAgainName: [*:0]const u8, result: *kmessagebox_enums.ButtonCode) callconv(.c) bool `
     ///
-    pub fn OnShouldBeShownTwoActions(self: KMessageBoxDontAskAgainInterface, callback: *const fn (KMessageBoxDontAskAgainInterface, [*:0]const u8, *i32) callconv(.c) bool) void {
+    pub fn onShouldBeShownTwoActions(self: KMessageBoxDontAskAgainInterface, callback: *const fn (KMessageBoxDontAskAgainInterface, [*:0]const u8, *i32) callconv(.c) bool) void {
         qtc.KMessageBoxDontAskAgainInterface_OnShouldBeShownTwoActions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperShouldBeShownTwoActions` instead
+    /// ### DEPRECATED: Use `superShouldBeShownTwoActions` instead
     ///
-    pub const QBaseShouldBeShownTwoActions = SuperShouldBeShownTwoActions;
+    pub const SuperShouldBeShownTwoActions = superShouldBeShownTwoActions;
 
     /// ### [Upstream resources](https://api.kde.org/kmessageboxdontaskagaininterface.html#shouldBeShownTwoActions)
     ///
@@ -67,13 +79,17 @@ pub const KMessageBoxDontAskAgainInterface = extern struct {
     ///
     /// ` result: *kmessagebox_enums.ButtonCode `
     ///
-    pub fn SuperShouldBeShownTwoActions(self: KMessageBoxDontAskAgainInterface, dontShowAgainName: []const u8, result: *i32) bool {
+    pub fn superShouldBeShownTwoActions(self: KMessageBoxDontAskAgainInterface, dontShowAgainName: []const u8, result: *i32) bool {
         const dontShowAgainName_str = qtc.libqt_string{
             .len = dontShowAgainName.len,
             .data = dontShowAgainName.ptr,
         };
         return qtc.KMessageBoxDontAskAgainInterface_SuperShouldBeShownTwoActions(@ptrCast(self.ptr), dontShowAgainName_str, @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `shouldBeShownContinue` instead
+    ///
+    pub const ShouldBeShownContinue = shouldBeShownContinue;
 
     /// ### [Upstream resources](https://api.kde.org/kmessageboxdontaskagaininterface.html#shouldBeShownContinue)
     ///
@@ -83,13 +99,17 @@ pub const KMessageBoxDontAskAgainInterface = extern struct {
     ///
     /// ` dontShowAgainName: []const u8 `
     ///
-    pub fn ShouldBeShownContinue(self: KMessageBoxDontAskAgainInterface, dontShowAgainName: []const u8) bool {
+    pub fn shouldBeShownContinue(self: KMessageBoxDontAskAgainInterface, dontShowAgainName: []const u8) bool {
         const dontShowAgainName_str = qtc.libqt_string{
             .len = dontShowAgainName.len,
             .data = dontShowAgainName.ptr,
         };
         return qtc.KMessageBoxDontAskAgainInterface_ShouldBeShownContinue(@ptrCast(self.ptr), dontShowAgainName_str);
     }
+
+    /// ### DEPRECATED: Use `onShouldBeShownContinue` instead
+    ///
+    pub const OnShouldBeShownContinue = onShouldBeShownContinue;
 
     /// ### [Upstream resources](https://api.kde.org/kmessageboxdontaskagaininterface.html#shouldBeShownContinue)
     ///
@@ -101,13 +121,13 @@ pub const KMessageBoxDontAskAgainInterface = extern struct {
     ///
     /// ` callback: *const fn (self: KMessageBoxDontAskAgainInterface, dontShowAgainName: [*:0]const u8) callconv(.c) bool `
     ///
-    pub fn OnShouldBeShownContinue(self: KMessageBoxDontAskAgainInterface, callback: *const fn (KMessageBoxDontAskAgainInterface, [*:0]const u8) callconv(.c) bool) void {
+    pub fn onShouldBeShownContinue(self: KMessageBoxDontAskAgainInterface, callback: *const fn (KMessageBoxDontAskAgainInterface, [*:0]const u8) callconv(.c) bool) void {
         qtc.KMessageBoxDontAskAgainInterface_OnShouldBeShownContinue(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperShouldBeShownContinue` instead
+    /// ### DEPRECATED: Use `superShouldBeShownContinue` instead
     ///
-    pub const QBaseShouldBeShownContinue = SuperShouldBeShownContinue;
+    pub const SuperShouldBeShownContinue = superShouldBeShownContinue;
 
     /// ### [Upstream resources](https://api.kde.org/kmessageboxdontaskagaininterface.html#shouldBeShownContinue)
     ///
@@ -119,13 +139,17 @@ pub const KMessageBoxDontAskAgainInterface = extern struct {
     ///
     /// ` dontShowAgainName: []const u8 `
     ///
-    pub fn SuperShouldBeShownContinue(self: KMessageBoxDontAskAgainInterface, dontShowAgainName: []const u8) bool {
+    pub fn superShouldBeShownContinue(self: KMessageBoxDontAskAgainInterface, dontShowAgainName: []const u8) bool {
         const dontShowAgainName_str = qtc.libqt_string{
             .len = dontShowAgainName.len,
             .data = dontShowAgainName.ptr,
         };
         return qtc.KMessageBoxDontAskAgainInterface_SuperShouldBeShownContinue(@ptrCast(self.ptr), dontShowAgainName_str);
     }
+
+    /// ### DEPRECATED: Use `saveDontShowAgainTwoActions` instead
+    ///
+    pub const SaveDontShowAgainTwoActions = saveDontShowAgainTwoActions;
 
     /// ### [Upstream resources](https://api.kde.org/kmessageboxdontaskagaininterface.html#saveDontShowAgainTwoActions)
     ///
@@ -137,13 +161,17 @@ pub const KMessageBoxDontAskAgainInterface = extern struct {
     ///
     /// ` result: kmessagebox_enums.ButtonCode `
     ///
-    pub fn SaveDontShowAgainTwoActions(self: KMessageBoxDontAskAgainInterface, dontShowAgainName: []const u8, result: i32) void {
+    pub fn saveDontShowAgainTwoActions(self: KMessageBoxDontAskAgainInterface, dontShowAgainName: []const u8, result: i32) void {
         const dontShowAgainName_str = qtc.libqt_string{
             .len = dontShowAgainName.len,
             .data = dontShowAgainName.ptr,
         };
         qtc.KMessageBoxDontAskAgainInterface_SaveDontShowAgainTwoActions(@ptrCast(self.ptr), dontShowAgainName_str, @bitCast(result));
     }
+
+    /// ### DEPRECATED: Use `onSaveDontShowAgainTwoActions` instead
+    ///
+    pub const OnSaveDontShowAgainTwoActions = onSaveDontShowAgainTwoActions;
 
     /// ### [Upstream resources](https://api.kde.org/kmessageboxdontaskagaininterface.html#saveDontShowAgainTwoActions)
     ///
@@ -155,13 +183,13 @@ pub const KMessageBoxDontAskAgainInterface = extern struct {
     ///
     /// ` callback: *const fn (self: KMessageBoxDontAskAgainInterface, dontShowAgainName: [*:0]const u8, result: kmessagebox_enums.ButtonCode) callconv(.c) void `
     ///
-    pub fn OnSaveDontShowAgainTwoActions(self: KMessageBoxDontAskAgainInterface, callback: *const fn (KMessageBoxDontAskAgainInterface, [*:0]const u8, i32) callconv(.c) void) void {
+    pub fn onSaveDontShowAgainTwoActions(self: KMessageBoxDontAskAgainInterface, callback: *const fn (KMessageBoxDontAskAgainInterface, [*:0]const u8, i32) callconv(.c) void) void {
         qtc.KMessageBoxDontAskAgainInterface_OnSaveDontShowAgainTwoActions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSaveDontShowAgainTwoActions` instead
+    /// ### DEPRECATED: Use `superSaveDontShowAgainTwoActions` instead
     ///
-    pub const QBaseSaveDontShowAgainTwoActions = SuperSaveDontShowAgainTwoActions;
+    pub const SuperSaveDontShowAgainTwoActions = superSaveDontShowAgainTwoActions;
 
     /// ### [Upstream resources](https://api.kde.org/kmessageboxdontaskagaininterface.html#saveDontShowAgainTwoActions)
     ///
@@ -175,13 +203,17 @@ pub const KMessageBoxDontAskAgainInterface = extern struct {
     ///
     /// ` result: kmessagebox_enums.ButtonCode `
     ///
-    pub fn SuperSaveDontShowAgainTwoActions(self: KMessageBoxDontAskAgainInterface, dontShowAgainName: []const u8, result: i32) void {
+    pub fn superSaveDontShowAgainTwoActions(self: KMessageBoxDontAskAgainInterface, dontShowAgainName: []const u8, result: i32) void {
         const dontShowAgainName_str = qtc.libqt_string{
             .len = dontShowAgainName.len,
             .data = dontShowAgainName.ptr,
         };
         qtc.KMessageBoxDontAskAgainInterface_SuperSaveDontShowAgainTwoActions(@ptrCast(self.ptr), dontShowAgainName_str, @bitCast(result));
     }
+
+    /// ### DEPRECATED: Use `saveDontShowAgainContinue` instead
+    ///
+    pub const SaveDontShowAgainContinue = saveDontShowAgainContinue;
 
     /// ### [Upstream resources](https://api.kde.org/kmessageboxdontaskagaininterface.html#saveDontShowAgainContinue)
     ///
@@ -191,13 +223,17 @@ pub const KMessageBoxDontAskAgainInterface = extern struct {
     ///
     /// ` dontShowAgainName: []const u8 `
     ///
-    pub fn SaveDontShowAgainContinue(self: KMessageBoxDontAskAgainInterface, dontShowAgainName: []const u8) void {
+    pub fn saveDontShowAgainContinue(self: KMessageBoxDontAskAgainInterface, dontShowAgainName: []const u8) void {
         const dontShowAgainName_str = qtc.libqt_string{
             .len = dontShowAgainName.len,
             .data = dontShowAgainName.ptr,
         };
         qtc.KMessageBoxDontAskAgainInterface_SaveDontShowAgainContinue(@ptrCast(self.ptr), dontShowAgainName_str);
     }
+
+    /// ### DEPRECATED: Use `onSaveDontShowAgainContinue` instead
+    ///
+    pub const OnSaveDontShowAgainContinue = onSaveDontShowAgainContinue;
 
     /// ### [Upstream resources](https://api.kde.org/kmessageboxdontaskagaininterface.html#saveDontShowAgainContinue)
     ///
@@ -209,13 +245,13 @@ pub const KMessageBoxDontAskAgainInterface = extern struct {
     ///
     /// ` callback: *const fn (self: KMessageBoxDontAskAgainInterface, dontShowAgainName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSaveDontShowAgainContinue(self: KMessageBoxDontAskAgainInterface, callback: *const fn (KMessageBoxDontAskAgainInterface, [*:0]const u8) callconv(.c) void) void {
+    pub fn onSaveDontShowAgainContinue(self: KMessageBoxDontAskAgainInterface, callback: *const fn (KMessageBoxDontAskAgainInterface, [*:0]const u8) callconv(.c) void) void {
         qtc.KMessageBoxDontAskAgainInterface_OnSaveDontShowAgainContinue(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSaveDontShowAgainContinue` instead
+    /// ### DEPRECATED: Use `superSaveDontShowAgainContinue` instead
     ///
-    pub const QBaseSaveDontShowAgainContinue = SuperSaveDontShowAgainContinue;
+    pub const SuperSaveDontShowAgainContinue = superSaveDontShowAgainContinue;
 
     /// ### [Upstream resources](https://api.kde.org/kmessageboxdontaskagaininterface.html#saveDontShowAgainContinue)
     ///
@@ -227,7 +263,7 @@ pub const KMessageBoxDontAskAgainInterface = extern struct {
     ///
     /// ` dontShowAgainName: []const u8 `
     ///
-    pub fn SuperSaveDontShowAgainContinue(self: KMessageBoxDontAskAgainInterface, dontShowAgainName: []const u8) void {
+    pub fn superSaveDontShowAgainContinue(self: KMessageBoxDontAskAgainInterface, dontShowAgainName: []const u8) void {
         const dontShowAgainName_str = qtc.libqt_string{
             .len = dontShowAgainName.len,
             .data = dontShowAgainName.ptr,
@@ -235,15 +271,23 @@ pub const KMessageBoxDontAskAgainInterface = extern struct {
         qtc.KMessageBoxDontAskAgainInterface_SuperSaveDontShowAgainContinue(@ptrCast(self.ptr), dontShowAgainName_str);
     }
 
+    /// ### DEPRECATED: Use `enableAllMessages` instead
+    ///
+    pub const EnableAllMessages = enableAllMessages;
+
     /// ### [Upstream resources](https://api.kde.org/kmessageboxdontaskagaininterface.html#enableAllMessages)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KMessageBoxDontAskAgainInterface `
     ///
-    pub fn EnableAllMessages(self: KMessageBoxDontAskAgainInterface) void {
+    pub fn enableAllMessages(self: KMessageBoxDontAskAgainInterface) void {
         qtc.KMessageBoxDontAskAgainInterface_EnableAllMessages(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnableAllMessages` instead
+    ///
+    pub const OnEnableAllMessages = onEnableAllMessages;
 
     /// ### [Upstream resources](https://api.kde.org/kmessageboxdontaskagaininterface.html#enableAllMessages)
     ///
@@ -255,13 +299,13 @@ pub const KMessageBoxDontAskAgainInterface = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEnableAllMessages(self: KMessageBoxDontAskAgainInterface, callback: *const fn () callconv(.c) void) void {
+    pub fn onEnableAllMessages(self: KMessageBoxDontAskAgainInterface, callback: *const fn () callconv(.c) void) void {
         qtc.KMessageBoxDontAskAgainInterface_OnEnableAllMessages(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEnableAllMessages` instead
+    /// ### DEPRECATED: Use `superEnableAllMessages` instead
     ///
-    pub const QBaseEnableAllMessages = SuperEnableAllMessages;
+    pub const SuperEnableAllMessages = superEnableAllMessages;
 
     /// ### [Upstream resources](https://api.kde.org/kmessageboxdontaskagaininterface.html#enableAllMessages)
     ///
@@ -271,9 +315,13 @@ pub const KMessageBoxDontAskAgainInterface = extern struct {
     ///
     /// ` self: KMessageBoxDontAskAgainInterface `
     ///
-    pub fn SuperEnableAllMessages(self: KMessageBoxDontAskAgainInterface) void {
+    pub fn superEnableAllMessages(self: KMessageBoxDontAskAgainInterface) void {
         qtc.KMessageBoxDontAskAgainInterface_SuperEnableAllMessages(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `enableMessage` instead
+    ///
+    pub const EnableMessage = enableMessage;
 
     /// ### [Upstream resources](https://api.kde.org/kmessageboxdontaskagaininterface.html#enableMessage)
     ///
@@ -283,13 +331,17 @@ pub const KMessageBoxDontAskAgainInterface = extern struct {
     ///
     /// ` dontShowAgainName: []const u8 `
     ///
-    pub fn EnableMessage(self: KMessageBoxDontAskAgainInterface, dontShowAgainName: []const u8) void {
+    pub fn enableMessage(self: KMessageBoxDontAskAgainInterface, dontShowAgainName: []const u8) void {
         const dontShowAgainName_str = qtc.libqt_string{
             .len = dontShowAgainName.len,
             .data = dontShowAgainName.ptr,
         };
         qtc.KMessageBoxDontAskAgainInterface_EnableMessage(@ptrCast(self.ptr), dontShowAgainName_str);
     }
+
+    /// ### DEPRECATED: Use `onEnableMessage` instead
+    ///
+    pub const OnEnableMessage = onEnableMessage;
 
     /// ### [Upstream resources](https://api.kde.org/kmessageboxdontaskagaininterface.html#enableMessage)
     ///
@@ -301,13 +353,13 @@ pub const KMessageBoxDontAskAgainInterface = extern struct {
     ///
     /// ` callback: *const fn (self: KMessageBoxDontAskAgainInterface, dontShowAgainName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnEnableMessage(self: KMessageBoxDontAskAgainInterface, callback: *const fn (KMessageBoxDontAskAgainInterface, [*:0]const u8) callconv(.c) void) void {
+    pub fn onEnableMessage(self: KMessageBoxDontAskAgainInterface, callback: *const fn (KMessageBoxDontAskAgainInterface, [*:0]const u8) callconv(.c) void) void {
         qtc.KMessageBoxDontAskAgainInterface_OnEnableMessage(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEnableMessage` instead
+    /// ### DEPRECATED: Use `superEnableMessage` instead
     ///
-    pub const QBaseEnableMessage = SuperEnableMessage;
+    pub const SuperEnableMessage = superEnableMessage;
 
     /// ### [Upstream resources](https://api.kde.org/kmessageboxdontaskagaininterface.html#enableMessage)
     ///
@@ -319,13 +371,17 @@ pub const KMessageBoxDontAskAgainInterface = extern struct {
     ///
     /// ` dontShowAgainName: []const u8 `
     ///
-    pub fn SuperEnableMessage(self: KMessageBoxDontAskAgainInterface, dontShowAgainName: []const u8) void {
+    pub fn superEnableMessage(self: KMessageBoxDontAskAgainInterface, dontShowAgainName: []const u8) void {
         const dontShowAgainName_str = qtc.libqt_string{
             .len = dontShowAgainName.len,
             .data = dontShowAgainName.ptr,
         };
         qtc.KMessageBoxDontAskAgainInterface_SuperEnableMessage(@ptrCast(self.ptr), dontShowAgainName_str);
     }
+
+    /// ### DEPRECATED: Use `setConfig` instead
+    ///
+    pub const SetConfig = setConfig;
 
     /// ### [Upstream resources](https://api.kde.org/kmessageboxdontaskagaininterface.html#setConfig)
     ///
@@ -335,10 +391,14 @@ pub const KMessageBoxDontAskAgainInterface = extern struct {
     ///
     /// ` config: KConfig `
     ///
-    pub fn SetConfig(self: KMessageBoxDontAskAgainInterface, config: anytype) void {
+    pub fn setConfig(self: KMessageBoxDontAskAgainInterface, config: anytype) void {
         comptime _ = @TypeOf(config)._is_KConfig;
         qtc.KMessageBoxDontAskAgainInterface_SetConfig(@ptrCast(self.ptr), @ptrCast(config.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetConfig` instead
+    ///
+    pub const OnSetConfig = onSetConfig;
 
     /// ### [Upstream resources](https://api.kde.org/kmessageboxdontaskagaininterface.html#setConfig)
     ///
@@ -350,13 +410,13 @@ pub const KMessageBoxDontAskAgainInterface = extern struct {
     ///
     /// ` callback: *const fn (self: KMessageBoxDontAskAgainInterface, config: KConfig) callconv(.c) void `
     ///
-    pub fn OnSetConfig(self: KMessageBoxDontAskAgainInterface, callback: *const fn (KMessageBoxDontAskAgainInterface, KConfig) callconv(.c) void) void {
+    pub fn onSetConfig(self: KMessageBoxDontAskAgainInterface, callback: *const fn (KMessageBoxDontAskAgainInterface, KConfig) callconv(.c) void) void {
         qtc.KMessageBoxDontAskAgainInterface_OnSetConfig(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetConfig` instead
+    /// ### DEPRECATED: Use `superSetConfig` instead
     ///
-    pub const QBaseSetConfig = SuperSetConfig;
+    pub const SuperSetConfig = superSetConfig;
 
     /// ### [Upstream resources](https://api.kde.org/kmessageboxdontaskagaininterface.html#setConfig)
     ///
@@ -368,10 +428,14 @@ pub const KMessageBoxDontAskAgainInterface = extern struct {
     ///
     /// ` config: KConfig `
     ///
-    pub fn SuperSetConfig(self: KMessageBoxDontAskAgainInterface, config: anytype) void {
+    pub fn superSetConfig(self: KMessageBoxDontAskAgainInterface, config: anytype) void {
         comptime _ = @TypeOf(config)._is_KConfig;
         qtc.KMessageBoxDontAskAgainInterface_SuperSetConfig(@ptrCast(self.ptr), @ptrCast(config.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://api.kde.org/kmessageboxdontaskagaininterface.html#operator-eq)
     ///
@@ -381,24 +445,24 @@ pub const KMessageBoxDontAskAgainInterface = extern struct {
     ///
     /// ` param1: KMessageBoxDontAskAgainInterface `
     ///
-    pub fn OperatorAssign(self: KMessageBoxDontAskAgainInterface, param1: anytype) void {
+    pub fn operatorAssign(self: KMessageBoxDontAskAgainInterface, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_KMessageBoxDontAskAgainInterface;
         qtc.KMessageBoxDontAskAgainInterface_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kmessageboxdontaskagaininterface.html#dtor.KMessageBoxDontAskAgainInterface)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KMessageBoxDontAskAgainInterface `
     ///
-    pub fn Delete(self: KMessageBoxDontAskAgainInterface) void {
+    pub fn delete(self: KMessageBoxDontAskAgainInterface) void {
         qtc.KMessageBoxDontAskAgainInterface_Delete(@ptrCast(self.ptr));
     }
 };

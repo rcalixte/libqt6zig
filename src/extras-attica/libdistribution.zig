@@ -12,22 +12,34 @@ pub const Attica__Distribution = extern struct {
 
     pub const _is_Attica__Distribution = {};
 
-    /// New constructs a new Attica::Distribution object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() Attica__Distribution {
+    pub const New = new;
+
+    /// Allocate a new Attica::Distribution object in C++ memory
+    ///
+    pub fn new() Attica__Distribution {
         return .{ .ptr = qtc.Attica__Distribution_new() };
     }
 
-    /// New2 constructs a new Attica::Distribution object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new Attica::Distribution object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: Attica__Distribution `
     ///
-    pub fn New2(other: anytype) Attica__Distribution {
+    pub fn new2(other: anytype) Attica__Distribution {
         comptime _ = @TypeOf(other)._is_Attica__Distribution;
         return .{ .ptr = qtc.Attica__Distribution_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://api.kde.org/attica-distribution.html#operator-eq)
     ///
@@ -37,10 +49,14 @@ pub const Attica__Distribution = extern struct {
     ///
     /// ` other: Attica__Distribution `
     ///
-    pub fn OperatorAssign(self: Attica__Distribution, other: anytype) void {
+    pub fn operatorAssign(self: Attica__Distribution, other: anytype) void {
         comptime _ = @TypeOf(other)._is_Attica__Distribution;
         qtc.Attica__Distribution_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `id` instead
+    ///
+    pub const Id = id;
 
     /// ### [Upstream resources](https://api.kde.org/attica-distribution.html#id)
     ///
@@ -48,9 +64,13 @@ pub const Attica__Distribution = extern struct {
     ///
     /// ` self: Attica__Distribution `
     ///
-    pub fn Id(self: Attica__Distribution) u32 {
+    pub fn id(self: Attica__Distribution) u32 {
         return qtc.Attica__Distribution_Id(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setId` instead
+    ///
+    pub const SetId = setId;
 
     /// ### [Upstream resources](https://api.kde.org/attica-distribution.html#setId)
     ///
@@ -58,11 +78,15 @@ pub const Attica__Distribution = extern struct {
     ///
     /// ` self: Attica__Distribution `
     ///
-    /// ` id: u32 `
+    /// ` _id: u32 `
     ///
-    pub fn SetId(self: Attica__Distribution, id: u32) void {
-        qtc.Attica__Distribution_SetId(@ptrCast(self.ptr), @bitCast(id));
+    pub fn setId(self: Attica__Distribution, _id: u32) void {
+        qtc.Attica__Distribution_SetId(@ptrCast(self.ptr), @bitCast(_id));
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// ### [Upstream resources](https://api.kde.org/attica-distribution.html#name)
     ///
@@ -72,13 +96,17 @@ pub const Attica__Distribution = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: Attica__Distribution, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: Attica__Distribution, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Distribution_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Distribution.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Distribution.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setName` instead
+    ///
+    pub const SetName = setName;
 
     /// ### [Upstream resources](https://api.kde.org/attica-distribution.html#setName)
     ///
@@ -86,27 +114,27 @@ pub const Attica__Distribution = extern struct {
     ///
     /// ` self: Attica__Distribution `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn SetName(self: Attica__Distribution, name: []const u8) void {
+    pub fn setName(self: Attica__Distribution, _name: []const u8) void {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         qtc.Attica__Distribution_SetName(@ptrCast(self.ptr), name_str);
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Attica__Distribution `
     ///
-    pub fn Delete(self: Attica__Distribution) void {
+    pub fn delete(self: Attica__Distribution) void {
         qtc.Attica__Distribution_Delete(@ptrCast(self.ptr));
     }
 };

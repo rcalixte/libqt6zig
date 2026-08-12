@@ -31,11 +31,19 @@ pub const KShellCompletion = extern struct {
     pub const _is_KCompletion = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new KShellCompletion object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() KShellCompletion {
+    pub const New = new;
+
+    /// Allocate a new KShellCompletion object in C++ memory
+    ///
+    pub fn new() KShellCompletion {
         return .{ .ptr = qtc.KShellCompletion_new() };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -43,9 +51,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    pub fn MetaObject(self: KShellCompletion) QMetaObject {
+    pub fn metaObject(self: KShellCompletion) QMetaObject {
         return .{ .ptr = qtc.KShellCompletion_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -57,13 +69,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KShellCompletion, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KShellCompletion, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KShellCompletion_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -73,9 +85,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    pub fn SuperMetaObject(self: KShellCompletion) QMetaObject {
+    pub fn superMetaObject(self: KShellCompletion) QMetaObject {
         return .{ .ptr = qtc.KShellCompletion_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -83,10 +99,14 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KShellCompletion, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KShellCompletion, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KShellCompletion_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -96,13 +116,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KShellCompletion, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KShellCompletion, callback: *const fn (KShellCompletion, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KShellCompletion, callback: *const fn (KShellCompletion, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KShellCompletion_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -112,10 +132,14 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KShellCompletion, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KShellCompletion, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KShellCompletion_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -127,9 +151,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KShellCompletion, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KShellCompletion, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KShellCompletion_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -139,13 +167,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KShellCompletion, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KShellCompletion, callback: *const fn (KShellCompletion, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KShellCompletion, callback: *const fn (KShellCompletion, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KShellCompletion_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -159,9 +187,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KShellCompletion, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KShellCompletion, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KShellCompletion_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -171,14 +203,18 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KShellCompletion.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KShellCompletion.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `makeCompletion` instead
+    ///
+    pub const MakeCompletion = makeCompletion;
 
     /// ### [Upstream resources](https://api.kde.org/kshellcompletion.html#makeCompletion)
     ///
@@ -190,17 +226,21 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn MakeCompletion(self: KShellCompletion, allocator: std.mem.Allocator, text: []const u8) []const u8 {
+    pub fn makeCompletion(self: KShellCompletion, allocator: std.mem.Allocator, text: []const u8) []const u8 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         var _str = qtc.KShellCompletion_MakeCompletion(@ptrCast(self.ptr), text_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KShellCompletion.MakeCompletion: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KShellCompletion.makeCompletion: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onMakeCompletion` instead
+    ///
+    pub const OnMakeCompletion = onMakeCompletion;
 
     /// ### [Upstream resources](https://api.kde.org/kshellcompletion.html#makeCompletion)
     ///
@@ -212,13 +252,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KShellCompletion, text: [*:0]const u8) callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnMakeCompletion(self: KShellCompletion, callback: *const fn (KShellCompletion, [*:0]const u8) callconv(.c) [*:0]const u8) void {
+    pub fn onMakeCompletion(self: KShellCompletion, callback: *const fn (KShellCompletion, [*:0]const u8) callconv(.c) [*:0]const u8) void {
         qtc.KShellCompletion_OnMakeCompletion(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMakeCompletion` instead
+    /// ### DEPRECATED: Use `superMakeCompletion` instead
     ///
-    pub const QBaseMakeCompletion = SuperMakeCompletion;
+    pub const SuperMakeCompletion = superMakeCompletion;
 
     /// ### [Upstream resources](https://api.kde.org/kshellcompletion.html#makeCompletion)
     ///
@@ -232,17 +272,21 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SuperMakeCompletion(self: KShellCompletion, allocator: std.mem.Allocator, text: []const u8) []const u8 {
+    pub fn superMakeCompletion(self: KShellCompletion, allocator: std.mem.Allocator, text: []const u8) []const u8 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         var _str = qtc.KShellCompletion_SuperMakeCompletion(@ptrCast(self.ptr), text_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KShellCompletion.MakeCompletion: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KShellCompletion.makeCompletion: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `postProcessMatches` instead
+    ///
+    pub const PostProcessMatches = postProcessMatches;
 
     /// ### [Upstream resources](https://api.kde.org/kshellcompletion.html#postProcessMatches)
     ///
@@ -252,22 +296,26 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` matches: []const []const u8 `
+    /// ` _matches: []const []const u8 `
     ///
-    pub fn PostProcessMatches(self: KShellCompletion, allocator: std.mem.Allocator, matches: []const []const u8) void {
-        const matches_arr = allocator.alloc(qtc.libqt_string, matches.len) catch @panic("KShellCompletion.PostProcessMatches: Memory allocation failed");
+    pub fn postProcessMatches(self: KShellCompletion, allocator: std.mem.Allocator, _matches: []const []const u8) void {
+        const matches_arr = allocator.alloc(qtc.libqt_string, _matches.len) catch @panic("KShellCompletion.postProcessMatches: Memory allocation failed");
         defer allocator.free(matches_arr);
-        for (matches, 0..matches.len) |item, i|
+        for (_matches, 0.._matches.len) |str_item, i|
             matches_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const matches_list = qtc.libqt_list{
-            .len = matches.len,
+            .len = _matches.len,
             .data = matches_arr.ptr,
         };
         qtc.KShellCompletion_PostProcessMatches(@ptrCast(self.ptr), matches_list);
     }
+
+    /// ### DEPRECATED: Use `onPostProcessMatches` instead
+    ///
+    pub const OnPostProcessMatches = onPostProcessMatches;
 
     /// ### [Upstream resources](https://api.kde.org/kshellcompletion.html#postProcessMatches)
     ///
@@ -279,13 +327,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KShellCompletion, matches: ?[*:null]?[*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnPostProcessMatches(self: KShellCompletion, callback: *const fn (KShellCompletion, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
+    pub fn onPostProcessMatches(self: KShellCompletion, callback: *const fn (KShellCompletion, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
         qtc.KShellCompletion_OnPostProcessMatches(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperPostProcessMatches` instead
+    /// ### DEPRECATED: Use `superPostProcessMatches` instead
     ///
-    pub const QBasePostProcessMatches = SuperPostProcessMatches;
+    pub const SuperPostProcessMatches = superPostProcessMatches;
 
     /// ### [Upstream resources](https://api.kde.org/kshellcompletion.html#postProcessMatches)
     ///
@@ -297,22 +345,26 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` matches: []const []const u8 `
+    /// ` _matches: []const []const u8 `
     ///
-    pub fn SuperPostProcessMatches(self: KShellCompletion, allocator: std.mem.Allocator, matches: []const []const u8) void {
-        const matches_arr = allocator.alloc(qtc.libqt_string, matches.len) catch @panic("KShellCompletion.PostProcessMatches: Memory allocation failed");
+    pub fn superPostProcessMatches(self: KShellCompletion, allocator: std.mem.Allocator, _matches: []const []const u8) void {
+        const matches_arr = allocator.alloc(qtc.libqt_string, _matches.len) catch @panic("KShellCompletion.postProcessMatches: Memory allocation failed");
         defer allocator.free(matches_arr);
-        for (matches, 0..matches.len) |item, i|
+        for (_matches, 0.._matches.len) |str_item, i|
             matches_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const matches_list = qtc.libqt_list{
-            .len = matches.len,
+            .len = _matches.len,
             .data = matches_arr.ptr,
         };
         qtc.KShellCompletion_SuperPostProcessMatches(@ptrCast(self.ptr), matches_list);
     }
+
+    /// ### DEPRECATED: Use `postProcessMatches2` instead
+    ///
+    pub const PostProcessMatches2 = postProcessMatches2;
 
     /// ### [Upstream resources](https://api.kde.org/kshellcompletion.html#postProcessMatches)
     ///
@@ -320,12 +372,16 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    /// ` matches: KCompletionMatches `
+    /// ` _matches: KCompletionMatches `
     ///
-    pub fn PostProcessMatches2(self: KShellCompletion, matches: anytype) void {
-        comptime _ = @TypeOf(matches)._is_KCompletionMatches;
-        qtc.KShellCompletion_PostProcessMatches2(@ptrCast(self.ptr), @ptrCast(matches.ptr));
+    pub fn postProcessMatches2(self: KShellCompletion, _matches: anytype) void {
+        comptime _ = @TypeOf(_matches)._is_KCompletionMatches;
+        qtc.KShellCompletion_PostProcessMatches2(@ptrCast(self.ptr), @ptrCast(_matches.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPostProcessMatches2` instead
+    ///
+    pub const OnPostProcessMatches2 = onPostProcessMatches2;
 
     /// ### [Upstream resources](https://api.kde.org/kshellcompletion.html#postProcessMatches)
     ///
@@ -337,13 +393,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KShellCompletion, matches: KCompletionMatches) callconv(.c) void `
     ///
-    pub fn OnPostProcessMatches2(self: KShellCompletion, callback: *const fn (KShellCompletion, KCompletionMatches) callconv(.c) void) void {
+    pub fn onPostProcessMatches2(self: KShellCompletion, callback: *const fn (KShellCompletion, KCompletionMatches) callconv(.c) void) void {
         qtc.KShellCompletion_OnPostProcessMatches2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperPostProcessMatches2` instead
+    /// ### DEPRECATED: Use `superPostProcessMatches2` instead
     ///
-    pub const QBasePostProcessMatches2 = SuperPostProcessMatches2;
+    pub const SuperPostProcessMatches2 = superPostProcessMatches2;
 
     /// ### [Upstream resources](https://api.kde.org/kshellcompletion.html#postProcessMatches)
     ///
@@ -353,12 +409,16 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    /// ` matches: KCompletionMatches `
+    /// ` _matches: KCompletionMatches `
     ///
-    pub fn SuperPostProcessMatches2(self: KShellCompletion, matches: anytype) void {
-        comptime _ = @TypeOf(matches)._is_KCompletionMatches;
-        qtc.KShellCompletion_SuperPostProcessMatches2(@ptrCast(self.ptr), @ptrCast(matches.ptr));
+    pub fn superPostProcessMatches2(self: KShellCompletion, _matches: anytype) void {
+        comptime _ = @TypeOf(_matches)._is_KCompletionMatches;
+        qtc.KShellCompletion_SuperPostProcessMatches2(@ptrCast(self.ptr), @ptrCast(_matches.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -370,15 +430,19 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KShellCompletion.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KShellCompletion.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -392,15 +456,19 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KShellCompletion.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KShellCompletion.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `replacedPath` instead
+    ///
+    pub const ReplacedPath = replacedPath;
 
     /// Inherited from KUrlCompletion
     ///
@@ -414,17 +482,21 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn ReplacedPath(self: KShellCompletion, allocator: std.mem.Allocator, text: []const u8) []const u8 {
+    pub fn replacedPath(self: KShellCompletion, allocator: std.mem.Allocator, text: []const u8) []const u8 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         var _str = qtc.KUrlCompletion_ReplacedPath(@ptrCast(self.ptr), text_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KShellCompletion.ReplacedPath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KShellCompletion.replacedPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `replacedPath2` instead
+    ///
+    pub const ReplacedPath2 = replacedPath2;
 
     /// Inherited from KUrlCompletion
     ///
@@ -436,19 +508,23 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    /// ` replaceHome: bool `
+    /// ` _replaceHome: bool `
     ///
-    pub fn ReplacedPath2(allocator: std.mem.Allocator, text: []const u8, replaceHome: bool) []const u8 {
+    pub fn replacedPath2(allocator: std.mem.Allocator, text: []const u8, _replaceHome: bool) []const u8 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        var _str = qtc.KUrlCompletion_ReplacedPath2(text_str, replaceHome);
+        var _str = qtc.KUrlCompletion_ReplacedPath2(text_str, _replaceHome);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KShellCompletion.ReplacedPath2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KShellCompletion.replacedPath2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setMimeTypeFilters` instead
+    ///
+    pub const SetMimeTypeFilters = setMimeTypeFilters;
 
     /// Inherited from KUrlCompletion
     ///
@@ -462,13 +538,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` mimeTypes: []const []const u8 `
     ///
-    pub fn SetMimeTypeFilters(self: KShellCompletion, allocator: std.mem.Allocator, mimeTypes: []const []const u8) void {
-        const mimeTypes_arr = allocator.alloc(qtc.libqt_string, mimeTypes.len) catch @panic("KShellCompletion.SetMimeTypeFilters: Memory allocation failed");
+    pub fn setMimeTypeFilters(self: KShellCompletion, allocator: std.mem.Allocator, mimeTypes: []const []const u8) void {
+        const mimeTypes_arr = allocator.alloc(qtc.libqt_string, mimeTypes.len) catch @panic("KShellCompletion.setMimeTypeFilters: Memory allocation failed");
         defer allocator.free(mimeTypes_arr);
-        for (mimeTypes, 0..mimeTypes.len) |item, i|
+        for (mimeTypes, 0..mimeTypes.len) |str_item, i|
             mimeTypes_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const mimeTypes_list = qtc.libqt_list{
             .len = mimeTypes.len,
@@ -476,6 +552,10 @@ pub const KShellCompletion = extern struct {
         };
         qtc.KUrlCompletion_SetMimeTypeFilters(@ptrCast(self.ptr), mimeTypes_list);
     }
+
+    /// ### DEPRECATED: Use `mimeTypeFilters` instead
+    ///
+    pub const MimeTypeFilters = mimeTypeFilters;
 
     /// Inherited from KUrlCompletion
     ///
@@ -487,7 +567,7 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MimeTypeFilters(self: KShellCompletion, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn mimeTypeFilters(self: KShellCompletion, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KUrlCompletion_MimeTypeFilters(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -495,15 +575,19 @@ pub const KShellCompletion = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KShellCompletion.MimeTypeFilters: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KShellCompletion.mimeTypeFilters: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KShellCompletion.MimeTypeFilters: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KShellCompletion.mimeTypeFilters: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `replacedPath3` instead
+    ///
+    pub const ReplacedPath3 = replacedPath3;
 
     /// Inherited from KUrlCompletion
     ///
@@ -515,21 +599,25 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    /// ` replaceHome: bool `
+    /// ` _replaceHome: bool `
     ///
-    /// ` replaceEnv: bool `
+    /// ` _replaceEnv: bool `
     ///
-    pub fn ReplacedPath3(allocator: std.mem.Allocator, text: []const u8, replaceHome: bool, replaceEnv: bool) []const u8 {
+    pub fn replacedPath3(allocator: std.mem.Allocator, text: []const u8, _replaceHome: bool, _replaceEnv: bool) []const u8 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        var _str = qtc.KUrlCompletion_ReplacedPath3(text_str, replaceHome, replaceEnv);
+        var _str = qtc.KUrlCompletion_ReplacedPath3(text_str, _replaceHome, _replaceEnv);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KShellCompletion.ReplacedPath3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KShellCompletion.replacedPath3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `substringCompletion` instead
+    ///
+    pub const SubstringCompletion = substringCompletion;
 
     /// Inherited from KCompletion
     ///
@@ -543,7 +631,7 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` string: []const u8 `
     ///
-    pub fn SubstringCompletion(self: KShellCompletion, allocator: std.mem.Allocator, string: []const u8) []const []const u8 {
+    pub fn substringCompletion(self: KShellCompletion, allocator: std.mem.Allocator, string: []const u8) []const []const u8 {
         const string_str = qtc.libqt_string{
             .len = string.len,
             .data = string.ptr,
@@ -555,15 +643,19 @@ pub const KShellCompletion = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KShellCompletion.SubstringCompletion: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KShellCompletion.substringCompletion: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KShellCompletion.SubstringCompletion: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KShellCompletion.substringCompletion: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `items` instead
+    ///
+    pub const Items = items;
 
     /// Inherited from KCompletion
     ///
@@ -575,7 +667,7 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Items(self: KShellCompletion, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn items(self: KShellCompletion, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KCompletion_Items(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -583,15 +675,19 @@ pub const KShellCompletion = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KShellCompletion.Items: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KShellCompletion.items: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KShellCompletion.Items: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KShellCompletion.items: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isEmpty` instead
+    ///
+    pub const IsEmpty = isEmpty;
 
     /// Inherited from KCompletion
     ///
@@ -601,9 +697,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    pub fn IsEmpty(self: KShellCompletion) bool {
+    pub fn isEmpty(self: KShellCompletion) bool {
         return qtc.KCompletion_IsEmpty(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `completionMode` instead
+    ///
+    pub const CompletionMode = completionMode;
 
     /// Inherited from KCompletion
     ///
@@ -617,9 +717,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` kcompletion_enums.CompletionMode `
     ///
-    pub fn CompletionMode(self: KShellCompletion) i32 {
+    pub fn completionMode(self: KShellCompletion) i32 {
         return qtc.KCompletion_CompletionMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `order` instead
+    ///
+    pub const Order = order;
 
     /// Inherited from KCompletion
     ///
@@ -633,9 +737,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` kcompletion_enums.CompOrder `
     ///
-    pub fn Order(self: KShellCompletion) i32 {
+    pub fn order(self: KShellCompletion) i32 {
         return qtc.KCompletion_Order(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `ignoreCase` instead
+    ///
+    pub const IgnoreCase = ignoreCase;
 
     /// Inherited from KCompletion
     ///
@@ -645,9 +753,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    pub fn IgnoreCase(self: KShellCompletion) bool {
+    pub fn ignoreCase(self: KShellCompletion) bool {
         return qtc.KCompletion_IgnoreCase(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `shouldAutoSuggest` instead
+    ///
+    pub const ShouldAutoSuggest = shouldAutoSuggest;
 
     /// Inherited from KCompletion
     ///
@@ -657,9 +769,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    pub fn ShouldAutoSuggest(self: KShellCompletion) bool {
+    pub fn shouldAutoSuggest(self: KShellCompletion) bool {
         return qtc.KCompletion_ShouldAutoSuggest(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `allMatches` instead
+    ///
+    pub const AllMatches = allMatches;
 
     /// Inherited from KCompletion
     ///
@@ -671,7 +787,7 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AllMatches(self: KShellCompletion, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn allMatches(self: KShellCompletion, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KCompletion_AllMatches(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -679,15 +795,19 @@ pub const KShellCompletion = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KShellCompletion.AllMatches: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KShellCompletion.allMatches: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KShellCompletion.AllMatches: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KShellCompletion.allMatches: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `allMatches2` instead
+    ///
+    pub const AllMatches2 = allMatches2;
 
     /// Inherited from KCompletion
     ///
@@ -701,7 +821,7 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` string: []const u8 `
     ///
-    pub fn AllMatches2(self: KShellCompletion, allocator: std.mem.Allocator, string: []const u8) []const []const u8 {
+    pub fn allMatches2(self: KShellCompletion, allocator: std.mem.Allocator, string: []const u8) []const []const u8 {
         const string_str = qtc.libqt_string{
             .len = string.len,
             .data = string.ptr,
@@ -713,15 +833,19 @@ pub const KShellCompletion = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KShellCompletion.AllMatches2: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KShellCompletion.allMatches2: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KShellCompletion.AllMatches2: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KShellCompletion.allMatches2: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `allWeightedMatches` instead
+    ///
+    pub const AllWeightedMatches = allWeightedMatches;
 
     /// Inherited from KCompletion
     ///
@@ -731,9 +855,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    pub fn AllWeightedMatches(self: KShellCompletion) KCompletionMatches {
+    pub fn allWeightedMatches(self: KShellCompletion) KCompletionMatches {
         return .{ .ptr = qtc.KCompletion_AllWeightedMatches(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `allWeightedMatches2` instead
+    ///
+    pub const AllWeightedMatches2 = allWeightedMatches2;
 
     /// Inherited from KCompletion
     ///
@@ -745,13 +873,17 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` string: []const u8 `
     ///
-    pub fn AllWeightedMatches2(self: KShellCompletion, string: []const u8) KCompletionMatches {
+    pub fn allWeightedMatches2(self: KShellCompletion, string: []const u8) KCompletionMatches {
         const string_str = qtc.libqt_string{
             .len = string.len,
             .data = string.ptr,
         };
         return .{ .ptr = qtc.KCompletion_AllWeightedMatches2(@ptrCast(self.ptr), string_str) };
     }
+
+    /// ### DEPRECATED: Use `soundsEnabled` instead
+    ///
+    pub const SoundsEnabled = soundsEnabled;
 
     /// Inherited from KCompletion
     ///
@@ -761,9 +893,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    pub fn SoundsEnabled(self: KShellCompletion) bool {
+    pub fn soundsEnabled(self: KShellCompletion) bool {
         return qtc.KCompletion_SoundsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hasMultipleMatches` instead
+    ///
+    pub const HasMultipleMatches = hasMultipleMatches;
 
     /// Inherited from KCompletion
     ///
@@ -773,9 +909,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    pub fn HasMultipleMatches(self: KShellCompletion) bool {
+    pub fn hasMultipleMatches(self: KShellCompletion) bool {
         return qtc.KCompletion_HasMultipleMatches(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `previousMatch` instead
+    ///
+    pub const PreviousMatch = previousMatch;
 
     /// Inherited from KCompletion
     ///
@@ -787,13 +927,17 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PreviousMatch(self: KShellCompletion, allocator: std.mem.Allocator) []const u8 {
+    pub fn previousMatch(self: KShellCompletion, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KCompletion_PreviousMatch(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KShellCompletion.PreviousMatch: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KShellCompletion.previousMatch: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `nextMatch` instead
+    ///
+    pub const NextMatch = nextMatch;
 
     /// Inherited from KCompletion
     ///
@@ -805,13 +949,17 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NextMatch(self: KShellCompletion, allocator: std.mem.Allocator) []const u8 {
+    pub fn nextMatch(self: KShellCompletion, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KCompletion_NextMatch(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KShellCompletion.NextMatch: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KShellCompletion.nextMatch: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `insertItems` instead
+    ///
+    pub const InsertItems = insertItems;
 
     /// Inherited from KCompletion
     ///
@@ -823,22 +971,26 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` items: []const []const u8 `
+    /// ` _items: []const []const u8 `
     ///
-    pub fn InsertItems(self: KShellCompletion, allocator: std.mem.Allocator, items: []const []const u8) void {
-        const items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("KShellCompletion.InsertItems: Memory allocation failed");
+    pub fn insertItems(self: KShellCompletion, allocator: std.mem.Allocator, _items: []const []const u8) void {
+        const items_arr = allocator.alloc(qtc.libqt_string, _items.len) catch @panic("KShellCompletion.insertItems: Memory allocation failed");
         defer allocator.free(items_arr);
-        for (items, 0..items.len) |item, i|
+        for (_items, 0.._items.len) |str_item, i|
             items_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const items_list = qtc.libqt_list{
-            .len = items.len,
+            .len = _items.len,
             .data = items_arr.ptr,
         };
         qtc.KCompletion_InsertItems(@ptrCast(self.ptr), items_list);
     }
+
+    /// ### DEPRECATED: Use `addItem` instead
+    ///
+    pub const AddItem = addItem;
 
     /// Inherited from KCompletion
     ///
@@ -850,13 +1002,17 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` item: []const u8 `
     ///
-    pub fn AddItem(self: KShellCompletion, item: []const u8) void {
+    pub fn addItem(self: KShellCompletion, item: []const u8) void {
         const item_str = qtc.libqt_string{
             .len = item.len,
             .data = item.ptr,
         };
         qtc.KCompletion_AddItem(@ptrCast(self.ptr), item_str);
     }
+
+    /// ### DEPRECATED: Use `addItem2` instead
+    ///
+    pub const AddItem2 = addItem2;
 
     /// Inherited from KCompletion
     ///
@@ -870,13 +1026,17 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` weight: u32 `
     ///
-    pub fn AddItem2(self: KShellCompletion, item: []const u8, weight: u32) void {
+    pub fn addItem2(self: KShellCompletion, item: []const u8, weight: u32) void {
         const item_str = qtc.libqt_string{
             .len = item.len,
             .data = item.ptr,
         };
         qtc.KCompletion_AddItem2(@ptrCast(self.ptr), item_str, @bitCast(weight));
     }
+
+    /// ### DEPRECATED: Use `removeItem` instead
+    ///
+    pub const RemoveItem = removeItem;
 
     /// Inherited from KCompletion
     ///
@@ -888,13 +1048,17 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` item: []const u8 `
     ///
-    pub fn RemoveItem(self: KShellCompletion, item: []const u8) void {
+    pub fn removeItem(self: KShellCompletion, item: []const u8) void {
         const item_str = qtc.libqt_string{
             .len = item.len,
             .data = item.ptr,
         };
         qtc.KCompletion_RemoveItem(@ptrCast(self.ptr), item_str);
     }
+
+    /// ### DEPRECATED: Use `match` instead
+    ///
+    pub const Match = match;
 
     /// Inherited from KCompletion
     ///
@@ -906,13 +1070,17 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` item: []const u8 `
     ///
-    pub fn Match(self: KShellCompletion, item: []const u8) void {
+    pub fn match(self: KShellCompletion, item: []const u8) void {
         const item_str = qtc.libqt_string{
             .len = item.len,
             .data = item.ptr,
         };
         qtc.KCompletion_Match(@ptrCast(self.ptr), item_str);
     }
+
+    /// ### DEPRECATED: Use `onMatch` instead
+    ///
+    pub const OnMatch = onMatch;
 
     /// Inherited from KCompletion
     ///
@@ -924,9 +1092,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KShellCompletion, item: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnMatch(self: KShellCompletion, callback: *const fn (KShellCompletion, [*:0]const u8) callconv(.c) void) void {
+    pub fn onMatch(self: KShellCompletion, callback: *const fn (KShellCompletion, [*:0]const u8) callconv(.c) void) void {
         qtc.KCompletion_Connect_Match(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `matches` instead
+    ///
+    pub const Matches = matches;
 
     /// Inherited from KCompletion
     ///
@@ -940,13 +1112,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` matchlist: []const []const u8 `
     ///
-    pub fn Matches(self: KShellCompletion, allocator: std.mem.Allocator, matchlist: []const []const u8) void {
-        const matchlist_arr = allocator.alloc(qtc.libqt_string, matchlist.len) catch @panic("KShellCompletion.Matches: Memory allocation failed");
+    pub fn matches(self: KShellCompletion, allocator: std.mem.Allocator, matchlist: []const []const u8) void {
+        const matchlist_arr = allocator.alloc(qtc.libqt_string, matchlist.len) catch @panic("KShellCompletion.matches: Memory allocation failed");
         defer allocator.free(matchlist_arr);
-        for (matchlist, 0..matchlist.len) |item, i|
+        for (matchlist, 0..matchlist.len) |str_item, i|
             matchlist_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const matchlist_list = qtc.libqt_list{
             .len = matchlist.len,
@@ -954,6 +1126,10 @@ pub const KShellCompletion = extern struct {
         };
         qtc.KCompletion_Matches(@ptrCast(self.ptr), matchlist_list);
     }
+
+    /// ### DEPRECATED: Use `onMatches` instead
+    ///
+    pub const OnMatches = onMatches;
 
     /// Inherited from KCompletion
     ///
@@ -965,9 +1141,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KShellCompletion, matchlist: ?[*:null]?[*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnMatches(self: KShellCompletion, callback: *const fn (KShellCompletion, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
+    pub fn onMatches(self: KShellCompletion, callback: *const fn (KShellCompletion, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
         qtc.KCompletion_Connect_Matches(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `multipleMatches` instead
+    ///
+    pub const MultipleMatches = multipleMatches;
 
     /// Inherited from KCompletion
     ///
@@ -977,9 +1157,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    pub fn MultipleMatches(self: KShellCompletion) void {
+    pub fn multipleMatches(self: KShellCompletion) void {
         qtc.KCompletion_MultipleMatches(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMultipleMatches` instead
+    ///
+    pub const OnMultipleMatches = onMultipleMatches;
 
     /// Inherited from KCompletion
     ///
@@ -991,9 +1175,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KShellCompletion) callconv(.c) void `
     ///
-    pub fn OnMultipleMatches(self: KShellCompletion, callback: *const fn (KShellCompletion) callconv(.c) void) void {
+    pub fn onMultipleMatches(self: KShellCompletion, callback: *const fn (KShellCompletion) callconv(.c) void) void {
         qtc.KCompletion_Connect_MultipleMatches(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -1005,13 +1193,17 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KShellCompletion, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KShellCompletion, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KShellCompletion.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KShellCompletion.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -1023,13 +1215,17 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KShellCompletion, name: []const u8) void {
+    pub fn setObjectName(self: KShellCompletion, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -1039,9 +1235,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    pub fn IsWidgetType(self: KShellCompletion) bool {
+    pub fn isWidgetType(self: KShellCompletion) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -1051,9 +1251,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    pub fn IsWindowType(self: KShellCompletion) bool {
+    pub fn isWindowType(self: KShellCompletion) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -1063,9 +1267,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    pub fn IsQuickItemType(self: KShellCompletion) bool {
+    pub fn isQuickItemType(self: KShellCompletion) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -1075,9 +1283,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    pub fn SignalsBlocked(self: KShellCompletion) bool {
+    pub fn signalsBlocked(self: KShellCompletion) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -1089,9 +1301,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KShellCompletion, b: bool) bool {
+    pub fn blockSignals(self: KShellCompletion, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -1101,9 +1317,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    pub fn Thread(self: KShellCompletion) QThread {
+    pub fn thread(self: KShellCompletion) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -1113,12 +1333,16 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KShellCompletion, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KShellCompletion, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -1130,9 +1354,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KShellCompletion, interval: i32) i32 {
+    pub fn startTimer(self: KShellCompletion, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -1144,9 +1372,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KShellCompletion, time: i64) i32 {
+    pub fn startTimer2(self: KShellCompletion, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -1158,9 +1390,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KShellCompletion, id: i32) void {
+    pub fn killTimer(self: KShellCompletion, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -1172,9 +1408,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KShellCompletion, id: i32) void {
+    pub fn killTimer2(self: KShellCompletion, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -1186,15 +1426,19 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KShellCompletion, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KShellCompletion, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KShellCompletion.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KShellCompletion.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -1204,12 +1448,16 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: KShellCompletion, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: KShellCompletion, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1221,10 +1469,14 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KShellCompletion, filterObj: anytype) void {
+    pub fn installEventFilter(self: KShellCompletion, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1236,10 +1488,14 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KShellCompletion, obj: anytype) void {
+    pub fn removeEventFilter(self: KShellCompletion, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -1247,7 +1503,7 @@ pub const KShellCompletion = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1255,13 +1511,17 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -1269,7 +1529,7 @@ pub const KShellCompletion = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1277,13 +1537,17 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -1293,18 +1557,22 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KShellCompletion, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KShellCompletion, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -1312,7 +1580,7 @@ pub const KShellCompletion = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1320,13 +1588,17 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -1334,7 +1606,7 @@ pub const KShellCompletion = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1342,13 +1614,17 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -1358,9 +1634,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    pub fn Disconnect3(self: KShellCompletion) bool {
+    pub fn disconnect3(self: KShellCompletion) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1372,10 +1652,14 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KShellCompletion, receiver: anytype) bool {
+    pub fn disconnect4(self: KShellCompletion, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1385,10 +1669,14 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1398,9 +1686,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    pub fn DumpObjectTree(self: KShellCompletion) void {
+    pub fn dumpObjectTree(self: KShellCompletion) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1410,9 +1702,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    pub fn DumpObjectInfo(self: KShellCompletion) void {
+    pub fn dumpObjectInfo(self: KShellCompletion) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1426,11 +1722,15 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KShellCompletion, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KShellCompletion, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1442,10 +1742,14 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KShellCompletion, name: [:0]const u8) QVariant {
+    pub fn property(self: KShellCompletion, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1457,7 +1761,7 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KShellCompletion, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KShellCompletion, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1465,27 +1769,19 @@ pub const KShellCompletion = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KShellCompletion.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KShellCompletion.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KShellCompletion.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KShellCompletion.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KShellCompletion `
-    ///
-    pub fn BindingStorage(self: KShellCompletion) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1495,9 +1791,29 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    pub fn BindingStorage2(self: KShellCompletion) QBindingStorage {
+    pub fn bindingStorage(self: KShellCompletion) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KShellCompletion `
+    ///
+    pub fn bindingStorage2(self: KShellCompletion) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1507,9 +1823,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    pub fn Destroyed(self: KShellCompletion) void {
+    pub fn destroyed(self: KShellCompletion) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1521,9 +1841,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KShellCompletion) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KShellCompletion, callback: *const fn (KShellCompletion) callconv(.c) void) void {
+    pub fn onDestroyed(self: KShellCompletion, callback: *const fn (KShellCompletion) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1533,9 +1857,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    pub fn Parent(self: KShellCompletion) QObject {
+    pub fn parent(self: KShellCompletion) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1547,10 +1875,14 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KShellCompletion, classname: [:0]const u8) bool {
+    pub fn inherits(self: KShellCompletion, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1560,9 +1892,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    pub fn DeleteLater(self: KShellCompletion) void {
+    pub fn deleteLater(self: KShellCompletion) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1576,9 +1912,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KShellCompletion, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KShellCompletion, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1592,9 +1932,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KShellCompletion, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KShellCompletion, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1602,7 +1946,7 @@ pub const KShellCompletion = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1612,13 +1956,17 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1626,7 +1974,7 @@ pub const KShellCompletion = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1636,13 +1984,17 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1652,7 +2004,7 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1660,12 +2012,16 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KShellCompletion, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KShellCompletion, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1677,10 +2033,14 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KShellCompletion, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KShellCompletion, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1694,11 +2054,15 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KShellCompletion, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KShellCompletion, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1714,13 +2078,17 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KShellCompletion, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KShellCompletion, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1733,11 +2101,15 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KShellCompletion, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KShellCompletion, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1749,10 +2121,14 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KShellCompletion, param1: anytype) void {
+    pub fn destroyed1(self: KShellCompletion, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1764,9 +2140,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KShellCompletion, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KShellCompletion, callback: *const fn (KShellCompletion, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KShellCompletion, callback: *const fn (KShellCompletion, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setDir` instead
+    ///
+    pub const SetDir = setDir;
 
     /// Inherited from KUrlCompletion
     ///
@@ -1778,16 +2158,16 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    /// ` dir: QUrl `
+    /// ` _dir: QUrl `
     ///
-    pub fn SetDir(self: KShellCompletion, dir: anytype) void {
-        comptime _ = @TypeOf(dir)._is_QUrl;
-        qtc.KShellCompletion_SetDir(@ptrCast(self.ptr), @ptrCast(dir.ptr));
+    pub fn setDir(self: KShellCompletion, _dir: anytype) void {
+        comptime _ = @TypeOf(_dir)._is_QUrl;
+        qtc.KShellCompletion_SetDir(@ptrCast(self.ptr), @ptrCast(_dir.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetDir` instead
+    /// ### DEPRECATED: Use `superSetDir` instead
     ///
-    pub const QBaseSetDir = SuperSetDir;
+    pub const SuperSetDir = superSetDir;
 
     /// Inherited from KUrlCompletion
     ///
@@ -1799,12 +2179,16 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    /// ` dir: QUrl `
+    /// ` _dir: QUrl `
     ///
-    pub fn SuperSetDir(self: KShellCompletion, dir: anytype) void {
-        comptime _ = @TypeOf(dir)._is_QUrl;
-        qtc.KShellCompletion_SuperSetDir(@ptrCast(self.ptr), @ptrCast(dir.ptr));
+    pub fn superSetDir(self: KShellCompletion, _dir: anytype) void {
+        comptime _ = @TypeOf(_dir)._is_QUrl;
+        qtc.KShellCompletion_SuperSetDir(@ptrCast(self.ptr), @ptrCast(_dir.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetDir` instead
+    ///
+    pub const OnSetDir = onSetDir;
 
     /// Inherited from KUrlCompletion
     ///
@@ -1818,9 +2202,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KShellCompletion, dir: QUrl) callconv(.c) void `
     ///
-    pub fn OnSetDir(self: KShellCompletion, callback: *const fn (KShellCompletion, QUrl) callconv(.c) void) void {
+    pub fn onSetDir(self: KShellCompletion, callback: *const fn (KShellCompletion, QUrl) callconv(.c) void) void {
         qtc.KShellCompletion_OnSetDir(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dir` instead
+    ///
+    pub const Dir = dir;
 
     /// Inherited from KUrlCompletion
     ///
@@ -1832,13 +2220,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    pub fn Dir(self: KShellCompletion) QUrl {
+    pub fn dir(self: KShellCompletion) QUrl {
         return .{ .ptr = qtc.KShellCompletion_Dir(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperDir` instead
+    /// ### DEPRECATED: Use `superDir` instead
     ///
-    pub const QBaseDir = SuperDir;
+    pub const SuperDir = superDir;
 
     /// Inherited from KUrlCompletion
     ///
@@ -1850,9 +2238,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    pub fn SuperDir(self: KShellCompletion) QUrl {
+    pub fn superDir(self: KShellCompletion) QUrl {
         return .{ .ptr = qtc.KShellCompletion_SuperDir(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onDir` instead
+    ///
+    pub const OnDir = onDir;
 
     /// Inherited from KUrlCompletion
     ///
@@ -1868,9 +2260,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnDir(self: KShellCompletion, callback: *const fn () callconv(.c) QUrl) void {
+    pub fn onDir(self: KShellCompletion, callback: *const fn () callconv(.c) QUrl) void {
         qtc.KShellCompletion_OnDir(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isRunning` instead
+    ///
+    pub const IsRunning = isRunning;
 
     /// Inherited from KUrlCompletion
     ///
@@ -1882,13 +2278,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    pub fn IsRunning(self: KShellCompletion) bool {
+    pub fn isRunning(self: KShellCompletion) bool {
         return qtc.KShellCompletion_IsRunning(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsRunning` instead
+    /// ### DEPRECATED: Use `superIsRunning` instead
     ///
-    pub const QBaseIsRunning = SuperIsRunning;
+    pub const SuperIsRunning = superIsRunning;
 
     /// Inherited from KUrlCompletion
     ///
@@ -1900,9 +2296,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    pub fn SuperIsRunning(self: KShellCompletion) bool {
+    pub fn superIsRunning(self: KShellCompletion) bool {
         return qtc.KShellCompletion_SuperIsRunning(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsRunning` instead
+    ///
+    pub const OnIsRunning = onIsRunning;
 
     /// Inherited from KUrlCompletion
     ///
@@ -1916,9 +2316,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnIsRunning(self: KShellCompletion, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsRunning(self: KShellCompletion, callback: *const fn () callconv(.c) bool) void {
         qtc.KShellCompletion_OnIsRunning(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `stop` instead
+    ///
+    pub const Stop = stop;
 
     /// Inherited from KUrlCompletion
     ///
@@ -1930,13 +2334,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    pub fn Stop(self: KShellCompletion) void {
+    pub fn stop(self: KShellCompletion) void {
         qtc.KShellCompletion_Stop(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperStop` instead
+    /// ### DEPRECATED: Use `superStop` instead
     ///
-    pub const QBaseStop = SuperStop;
+    pub const SuperStop = superStop;
 
     /// Inherited from KUrlCompletion
     ///
@@ -1948,9 +2352,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    pub fn SuperStop(self: KShellCompletion) void {
+    pub fn superStop(self: KShellCompletion) void {
         qtc.KShellCompletion_SuperStop(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onStop` instead
+    ///
+    pub const OnStop = onStop;
 
     /// Inherited from KUrlCompletion
     ///
@@ -1964,9 +2372,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnStop(self: KShellCompletion, callback: *const fn () callconv(.c) void) void {
+    pub fn onStop(self: KShellCompletion, callback: *const fn () callconv(.c) void) void {
         qtc.KShellCompletion_OnStop(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mode` instead
+    ///
+    pub const Mode = mode;
 
     /// Inherited from KUrlCompletion
     ///
@@ -1982,13 +2394,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` kurlcompletion_enums.Mode `
     ///
-    pub fn Mode(self: KShellCompletion) i32 {
+    pub fn mode(self: KShellCompletion) i32 {
         return qtc.KShellCompletion_Mode(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMode` instead
+    /// ### DEPRECATED: Use `superMode` instead
     ///
-    pub const QBaseMode = SuperMode;
+    pub const SuperMode = superMode;
 
     /// Inherited from KUrlCompletion
     ///
@@ -2004,9 +2416,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` kurlcompletion_enums.Mode `
     ///
-    pub fn SuperMode(self: KShellCompletion) i32 {
+    pub fn superMode(self: KShellCompletion) i32 {
         return qtc.KShellCompletion_SuperMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMode` instead
+    ///
+    pub const OnMode = onMode;
 
     /// Inherited from KUrlCompletion
     ///
@@ -2020,9 +2436,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnMode(self: KShellCompletion, callback: *const fn () callconv(.c) i32) void {
+    pub fn onMode(self: KShellCompletion, callback: *const fn () callconv(.c) i32) void {
         qtc.KShellCompletion_OnMode(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setMode` instead
+    ///
+    pub const SetMode = setMode;
 
     /// Inherited from KUrlCompletion
     ///
@@ -2034,15 +2454,15 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    /// ` mode: kurlcompletion_enums.Mode `
+    /// ` _mode: kurlcompletion_enums.Mode `
     ///
-    pub fn SetMode(self: KShellCompletion, mode: i32) void {
-        qtc.KShellCompletion_SetMode(@ptrCast(self.ptr), @bitCast(mode));
+    pub fn setMode(self: KShellCompletion, _mode: i32) void {
+        qtc.KShellCompletion_SetMode(@ptrCast(self.ptr), @bitCast(_mode));
     }
 
-    /// ### DEPRECATED: Use `SuperSetMode` instead
+    /// ### DEPRECATED: Use `superSetMode` instead
     ///
-    pub const QBaseSetMode = SuperSetMode;
+    pub const SuperSetMode = superSetMode;
 
     /// Inherited from KUrlCompletion
     ///
@@ -2054,11 +2474,15 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    /// ` mode: kurlcompletion_enums.Mode `
+    /// ` _mode: kurlcompletion_enums.Mode `
     ///
-    pub fn SuperSetMode(self: KShellCompletion, mode: i32) void {
-        qtc.KShellCompletion_SuperSetMode(@ptrCast(self.ptr), @bitCast(mode));
+    pub fn superSetMode(self: KShellCompletion, _mode: i32) void {
+        qtc.KShellCompletion_SuperSetMode(@ptrCast(self.ptr), @bitCast(_mode));
     }
+
+    /// ### DEPRECATED: Use `onSetMode` instead
+    ///
+    pub const OnSetMode = onSetMode;
 
     /// Inherited from KUrlCompletion
     ///
@@ -2072,10 +2496,14 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KShellCompletion, mode: kurlcompletion_enums.Mode) callconv(.c) void `
     ///
-    pub fn OnSetMode(self: KShellCompletion, callback: *const fn (KShellCompletion, i32) callconv(.c) void) void {
+    pub fn onSetMode(self: KShellCompletion, callback: *const fn (KShellCompletion, i32) callconv(.c) void) void {
         qtc.KShellCompletion_OnSetMode(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `replaceEnv` instead
+    ///
+    pub const ReplaceEnv = replaceEnv;
+
     /// Inherited from KUrlCompletion
     ///
     /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html#replaceEnv)
@@ -2086,13 +2514,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    pub fn ReplaceEnv(self: KShellCompletion) bool {
+    pub fn replaceEnv(self: KShellCompletion) bool {
         return qtc.KShellCompletion_ReplaceEnv(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperReplaceEnv` instead
+    /// ### DEPRECATED: Use `superReplaceEnv` instead
     ///
-    pub const QBaseReplaceEnv = SuperReplaceEnv;
+    pub const SuperReplaceEnv = superReplaceEnv;
 
     /// Inherited from KUrlCompletion
     ///
@@ -2104,10 +2532,14 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    pub fn SuperReplaceEnv(self: KShellCompletion) bool {
+    pub fn superReplaceEnv(self: KShellCompletion) bool {
         return qtc.KShellCompletion_SuperReplaceEnv(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onReplaceEnv` instead
+    ///
+    pub const OnReplaceEnv = onReplaceEnv;
+
     /// Inherited from KUrlCompletion
     ///
     /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html#replaceEnv)
@@ -2120,9 +2552,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnReplaceEnv(self: KShellCompletion, callback: *const fn () callconv(.c) bool) void {
+    pub fn onReplaceEnv(self: KShellCompletion, callback: *const fn () callconv(.c) bool) void {
         qtc.KShellCompletion_OnReplaceEnv(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setReplaceEnv` instead
+    ///
+    pub const SetReplaceEnv = setReplaceEnv;
 
     /// Inherited from KUrlCompletion
     ///
@@ -2136,13 +2572,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` replace: bool `
     ///
-    pub fn SetReplaceEnv(self: KShellCompletion, replace: bool) void {
+    pub fn setReplaceEnv(self: KShellCompletion, replace: bool) void {
         qtc.KShellCompletion_SetReplaceEnv(@ptrCast(self.ptr), replace);
     }
 
-    /// ### DEPRECATED: Use `SuperSetReplaceEnv` instead
+    /// ### DEPRECATED: Use `superSetReplaceEnv` instead
     ///
-    pub const QBaseSetReplaceEnv = SuperSetReplaceEnv;
+    pub const SuperSetReplaceEnv = superSetReplaceEnv;
 
     /// Inherited from KUrlCompletion
     ///
@@ -2156,9 +2592,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` replace: bool `
     ///
-    pub fn SuperSetReplaceEnv(self: KShellCompletion, replace: bool) void {
+    pub fn superSetReplaceEnv(self: KShellCompletion, replace: bool) void {
         qtc.KShellCompletion_SuperSetReplaceEnv(@ptrCast(self.ptr), replace);
     }
+
+    /// ### DEPRECATED: Use `onSetReplaceEnv` instead
+    ///
+    pub const OnSetReplaceEnv = onSetReplaceEnv;
 
     /// Inherited from KUrlCompletion
     ///
@@ -2172,9 +2612,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KShellCompletion, replace: bool) callconv(.c) void `
     ///
-    pub fn OnSetReplaceEnv(self: KShellCompletion, callback: *const fn (KShellCompletion, bool) callconv(.c) void) void {
+    pub fn onSetReplaceEnv(self: KShellCompletion, callback: *const fn (KShellCompletion, bool) callconv(.c) void) void {
         qtc.KShellCompletion_OnSetReplaceEnv(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `replaceHome` instead
+    ///
+    pub const ReplaceHome = replaceHome;
 
     /// Inherited from KUrlCompletion
     ///
@@ -2186,13 +2630,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    pub fn ReplaceHome(self: KShellCompletion) bool {
+    pub fn replaceHome(self: KShellCompletion) bool {
         return qtc.KShellCompletion_ReplaceHome(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperReplaceHome` instead
+    /// ### DEPRECATED: Use `superReplaceHome` instead
     ///
-    pub const QBaseReplaceHome = SuperReplaceHome;
+    pub const SuperReplaceHome = superReplaceHome;
 
     /// Inherited from KUrlCompletion
     ///
@@ -2204,9 +2648,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    pub fn SuperReplaceHome(self: KShellCompletion) bool {
+    pub fn superReplaceHome(self: KShellCompletion) bool {
         return qtc.KShellCompletion_SuperReplaceHome(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onReplaceHome` instead
+    ///
+    pub const OnReplaceHome = onReplaceHome;
 
     /// Inherited from KUrlCompletion
     ///
@@ -2220,9 +2668,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnReplaceHome(self: KShellCompletion, callback: *const fn () callconv(.c) bool) void {
+    pub fn onReplaceHome(self: KShellCompletion, callback: *const fn () callconv(.c) bool) void {
         qtc.KShellCompletion_OnReplaceHome(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setReplaceHome` instead
+    ///
+    pub const SetReplaceHome = setReplaceHome;
 
     /// Inherited from KUrlCompletion
     ///
@@ -2236,13 +2688,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` replace: bool `
     ///
-    pub fn SetReplaceHome(self: KShellCompletion, replace: bool) void {
+    pub fn setReplaceHome(self: KShellCompletion, replace: bool) void {
         qtc.KShellCompletion_SetReplaceHome(@ptrCast(self.ptr), replace);
     }
 
-    /// ### DEPRECATED: Use `SuperSetReplaceHome` instead
+    /// ### DEPRECATED: Use `superSetReplaceHome` instead
     ///
-    pub const QBaseSetReplaceHome = SuperSetReplaceHome;
+    pub const SuperSetReplaceHome = superSetReplaceHome;
 
     /// Inherited from KUrlCompletion
     ///
@@ -2256,9 +2708,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` replace: bool `
     ///
-    pub fn SuperSetReplaceHome(self: KShellCompletion, replace: bool) void {
+    pub fn superSetReplaceHome(self: KShellCompletion, replace: bool) void {
         qtc.KShellCompletion_SuperSetReplaceHome(@ptrCast(self.ptr), replace);
     }
+
+    /// ### DEPRECATED: Use `onSetReplaceHome` instead
+    ///
+    pub const OnSetReplaceHome = onSetReplaceHome;
 
     /// Inherited from KUrlCompletion
     ///
@@ -2272,9 +2728,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KShellCompletion, replace: bool) callconv(.c) void `
     ///
-    pub fn OnSetReplaceHome(self: KShellCompletion, callback: *const fn (KShellCompletion, bool) callconv(.c) void) void {
+    pub fn onSetReplaceHome(self: KShellCompletion, callback: *const fn (KShellCompletion, bool) callconv(.c) void) void {
         qtc.KShellCompletion_OnSetReplaceHome(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `lastMatch` instead
+    ///
+    pub const LastMatch = lastMatch;
 
     /// Inherited from KCompletion
     ///
@@ -2288,17 +2748,17 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LastMatch(self: KShellCompletion, allocator: std.mem.Allocator) []const u8 {
+    pub fn lastMatch(self: KShellCompletion, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KShellCompletion_LastMatch(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KShellCompletion.LastMatch: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KShellCompletion.lastMatch: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `SuperLastMatch` instead
+    /// ### DEPRECATED: Use `superLastMatch` instead
     ///
-    pub const QBaseLastMatch = SuperLastMatch;
+    pub const SuperLastMatch = superLastMatch;
 
     /// Inherited from KCompletion
     ///
@@ -2312,13 +2772,17 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperLastMatch(self: KShellCompletion, allocator: std.mem.Allocator) []const u8 {
+    pub fn superLastMatch(self: KShellCompletion, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KShellCompletion_SuperLastMatch(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KShellCompletion.LastMatch: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KShellCompletion.lastMatch: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onLastMatch` instead
+    ///
+    pub const OnLastMatch = onLastMatch;
 
     /// Inherited from KCompletion
     ///
@@ -2332,9 +2796,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnLastMatch(self: KShellCompletion, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onLastMatch(self: KShellCompletion, callback: *const fn () callconv(.c) [*:0]const u8) void {
         qtc.KShellCompletion_OnLastMatch(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setCompletionMode` instead
+    ///
+    pub const SetCompletionMode = setCompletionMode;
 
     /// Inherited from KCompletion
     ///
@@ -2346,15 +2814,15 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    /// ` mode: kcompletion_enums.CompletionMode `
+    /// ` _mode: kcompletion_enums.CompletionMode `
     ///
-    pub fn SetCompletionMode(self: KShellCompletion, mode: i32) void {
-        qtc.KShellCompletion_SetCompletionMode(@ptrCast(self.ptr), @bitCast(mode));
+    pub fn setCompletionMode(self: KShellCompletion, _mode: i32) void {
+        qtc.KShellCompletion_SetCompletionMode(@ptrCast(self.ptr), @bitCast(_mode));
     }
 
-    /// ### DEPRECATED: Use `SuperSetCompletionMode` instead
+    /// ### DEPRECATED: Use `superSetCompletionMode` instead
     ///
-    pub const QBaseSetCompletionMode = SuperSetCompletionMode;
+    pub const SuperSetCompletionMode = superSetCompletionMode;
 
     /// Inherited from KCompletion
     ///
@@ -2366,11 +2834,15 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    /// ` mode: kcompletion_enums.CompletionMode `
+    /// ` _mode: kcompletion_enums.CompletionMode `
     ///
-    pub fn SuperSetCompletionMode(self: KShellCompletion, mode: i32) void {
-        qtc.KShellCompletion_SuperSetCompletionMode(@ptrCast(self.ptr), @bitCast(mode));
+    pub fn superSetCompletionMode(self: KShellCompletion, _mode: i32) void {
+        qtc.KShellCompletion_SuperSetCompletionMode(@ptrCast(self.ptr), @bitCast(_mode));
     }
+
+    /// ### DEPRECATED: Use `onSetCompletionMode` instead
+    ///
+    pub const OnSetCompletionMode = onSetCompletionMode;
 
     /// Inherited from KCompletion
     ///
@@ -2384,9 +2856,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KShellCompletion, mode: kcompletion_enums.CompletionMode) callconv(.c) void `
     ///
-    pub fn OnSetCompletionMode(self: KShellCompletion, callback: *const fn (KShellCompletion, i32) callconv(.c) void) void {
+    pub fn onSetCompletionMode(self: KShellCompletion, callback: *const fn (KShellCompletion, i32) callconv(.c) void) void {
         qtc.KShellCompletion_OnSetCompletionMode(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setOrder` instead
+    ///
+    pub const SetOrder = setOrder;
 
     /// Inherited from KCompletion
     ///
@@ -2398,15 +2874,15 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    /// ` order: kcompletion_enums.CompOrder `
+    /// ` _order: kcompletion_enums.CompOrder `
     ///
-    pub fn SetOrder(self: KShellCompletion, order: i32) void {
-        qtc.KShellCompletion_SetOrder(@ptrCast(self.ptr), @bitCast(order));
+    pub fn setOrder(self: KShellCompletion, _order: i32) void {
+        qtc.KShellCompletion_SetOrder(@ptrCast(self.ptr), @bitCast(_order));
     }
 
-    /// ### DEPRECATED: Use `SuperSetOrder` instead
+    /// ### DEPRECATED: Use `superSetOrder` instead
     ///
-    pub const QBaseSetOrder = SuperSetOrder;
+    pub const SuperSetOrder = superSetOrder;
 
     /// Inherited from KCompletion
     ///
@@ -2418,11 +2894,15 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    /// ` order: kcompletion_enums.CompOrder `
+    /// ` _order: kcompletion_enums.CompOrder `
     ///
-    pub fn SuperSetOrder(self: KShellCompletion, order: i32) void {
-        qtc.KShellCompletion_SuperSetOrder(@ptrCast(self.ptr), @bitCast(order));
+    pub fn superSetOrder(self: KShellCompletion, _order: i32) void {
+        qtc.KShellCompletion_SuperSetOrder(@ptrCast(self.ptr), @bitCast(_order));
     }
+
+    /// ### DEPRECATED: Use `onSetOrder` instead
+    ///
+    pub const OnSetOrder = onSetOrder;
 
     /// Inherited from KCompletion
     ///
@@ -2436,9 +2916,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KShellCompletion, order: kcompletion_enums.CompOrder) callconv(.c) void `
     ///
-    pub fn OnSetOrder(self: KShellCompletion, callback: *const fn (KShellCompletion, i32) callconv(.c) void) void {
+    pub fn onSetOrder(self: KShellCompletion, callback: *const fn (KShellCompletion, i32) callconv(.c) void) void {
         qtc.KShellCompletion_OnSetOrder(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setIgnoreCase` instead
+    ///
+    pub const SetIgnoreCase = setIgnoreCase;
 
     /// Inherited from KCompletion
     ///
@@ -2450,15 +2934,15 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    /// ` ignoreCase: bool `
+    /// ` _ignoreCase: bool `
     ///
-    pub fn SetIgnoreCase(self: KShellCompletion, ignoreCase: bool) void {
-        qtc.KShellCompletion_SetIgnoreCase(@ptrCast(self.ptr), ignoreCase);
+    pub fn setIgnoreCase(self: KShellCompletion, _ignoreCase: bool) void {
+        qtc.KShellCompletion_SetIgnoreCase(@ptrCast(self.ptr), _ignoreCase);
     }
 
-    /// ### DEPRECATED: Use `SuperSetIgnoreCase` instead
+    /// ### DEPRECATED: Use `superSetIgnoreCase` instead
     ///
-    pub const QBaseSetIgnoreCase = SuperSetIgnoreCase;
+    pub const SuperSetIgnoreCase = superSetIgnoreCase;
 
     /// Inherited from KCompletion
     ///
@@ -2470,11 +2954,15 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    /// ` ignoreCase: bool `
+    /// ` _ignoreCase: bool `
     ///
-    pub fn SuperSetIgnoreCase(self: KShellCompletion, ignoreCase: bool) void {
-        qtc.KShellCompletion_SuperSetIgnoreCase(@ptrCast(self.ptr), ignoreCase);
+    pub fn superSetIgnoreCase(self: KShellCompletion, _ignoreCase: bool) void {
+        qtc.KShellCompletion_SuperSetIgnoreCase(@ptrCast(self.ptr), _ignoreCase);
     }
+
+    /// ### DEPRECATED: Use `onSetIgnoreCase` instead
+    ///
+    pub const OnSetIgnoreCase = onSetIgnoreCase;
 
     /// Inherited from KCompletion
     ///
@@ -2488,9 +2976,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KShellCompletion, ignoreCase: bool) callconv(.c) void `
     ///
-    pub fn OnSetIgnoreCase(self: KShellCompletion, callback: *const fn (KShellCompletion, bool) callconv(.c) void) void {
+    pub fn onSetIgnoreCase(self: KShellCompletion, callback: *const fn (KShellCompletion, bool) callconv(.c) void) void {
         qtc.KShellCompletion_OnSetIgnoreCase(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setSoundsEnabled` instead
+    ///
+    pub const SetSoundsEnabled = setSoundsEnabled;
 
     /// Inherited from KCompletion
     ///
@@ -2504,13 +2996,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetSoundsEnabled(self: KShellCompletion, enable: bool) void {
+    pub fn setSoundsEnabled(self: KShellCompletion, enable: bool) void {
         qtc.KShellCompletion_SetSoundsEnabled(@ptrCast(self.ptr), enable);
     }
 
-    /// ### DEPRECATED: Use `SuperSetSoundsEnabled` instead
+    /// ### DEPRECATED: Use `superSetSoundsEnabled` instead
     ///
-    pub const QBaseSetSoundsEnabled = SuperSetSoundsEnabled;
+    pub const SuperSetSoundsEnabled = superSetSoundsEnabled;
 
     /// Inherited from KCompletion
     ///
@@ -2524,9 +3016,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SuperSetSoundsEnabled(self: KShellCompletion, enable: bool) void {
+    pub fn superSetSoundsEnabled(self: KShellCompletion, enable: bool) void {
         qtc.KShellCompletion_SuperSetSoundsEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `onSetSoundsEnabled` instead
+    ///
+    pub const OnSetSoundsEnabled = onSetSoundsEnabled;
 
     /// Inherited from KCompletion
     ///
@@ -2540,9 +3036,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KShellCompletion, enable: bool) callconv(.c) void `
     ///
-    pub fn OnSetSoundsEnabled(self: KShellCompletion, callback: *const fn (KShellCompletion, bool) callconv(.c) void) void {
+    pub fn onSetSoundsEnabled(self: KShellCompletion, callback: *const fn (KShellCompletion, bool) callconv(.c) void) void {
         qtc.KShellCompletion_OnSetSoundsEnabled(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setItems` instead
+    ///
+    pub const SetItems = setItems;
 
     /// Inherited from KCompletion
     ///
@@ -2558,13 +3058,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` itemList: []const []const u8 `
     ///
-    pub fn SetItems(self: KShellCompletion, allocator: std.mem.Allocator, itemList: []const []const u8) void {
-        const itemList_arr = allocator.alloc(qtc.libqt_string, itemList.len) catch @panic("KShellCompletion.SetItems: Memory allocation failed");
+    pub fn setItems(self: KShellCompletion, allocator: std.mem.Allocator, itemList: []const []const u8) void {
+        const itemList_arr = allocator.alloc(qtc.libqt_string, itemList.len) catch @panic("KShellCompletion.setItems: Memory allocation failed");
         defer allocator.free(itemList_arr);
-        for (itemList, 0..itemList.len) |item, i|
+        for (itemList, 0..itemList.len) |str_item, i|
             itemList_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const itemList_list = qtc.libqt_list{
             .len = itemList.len,
@@ -2573,9 +3073,9 @@ pub const KShellCompletion = extern struct {
         qtc.KShellCompletion_SetItems(@ptrCast(self.ptr), itemList_list);
     }
 
-    /// ### DEPRECATED: Use `SuperSetItems` instead
+    /// ### DEPRECATED: Use `superSetItems` instead
     ///
-    pub const QBaseSetItems = SuperSetItems;
+    pub const SuperSetItems = superSetItems;
 
     /// Inherited from KCompletion
     ///
@@ -2591,13 +3091,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` itemList: []const []const u8 `
     ///
-    pub fn SuperSetItems(self: KShellCompletion, allocator: std.mem.Allocator, itemList: []const []const u8) void {
-        const itemList_arr = allocator.alloc(qtc.libqt_string, itemList.len) catch @panic("KShellCompletion.SetItems: Memory allocation failed");
+    pub fn superSetItems(self: KShellCompletion, allocator: std.mem.Allocator, itemList: []const []const u8) void {
+        const itemList_arr = allocator.alloc(qtc.libqt_string, itemList.len) catch @panic("KShellCompletion.setItems: Memory allocation failed");
         defer allocator.free(itemList_arr);
-        for (itemList, 0..itemList.len) |item, i|
+        for (itemList, 0..itemList.len) |str_item, i|
             itemList_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const itemList_list = qtc.libqt_list{
             .len = itemList.len,
@@ -2605,6 +3105,10 @@ pub const KShellCompletion = extern struct {
         };
         qtc.KShellCompletion_SuperSetItems(@ptrCast(self.ptr), itemList_list);
     }
+
+    /// ### DEPRECATED: Use `onSetItems` instead
+    ///
+    pub const OnSetItems = onSetItems;
 
     /// Inherited from KCompletion
     ///
@@ -2618,9 +3122,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KShellCompletion, itemList: ?[*:null]?[*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetItems(self: KShellCompletion, callback: *const fn (KShellCompletion, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
+    pub fn onSetItems(self: KShellCompletion, callback: *const fn (KShellCompletion, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
         qtc.KShellCompletion_OnSetItems(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// Inherited from KCompletion
     ///
@@ -2632,13 +3140,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    pub fn Clear(self: KShellCompletion) void {
+    pub fn clear(self: KShellCompletion) void {
         qtc.KShellCompletion_Clear(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperClear` instead
+    /// ### DEPRECATED: Use `superClear` instead
     ///
-    pub const QBaseClear = SuperClear;
+    pub const SuperClear = superClear;
 
     /// Inherited from KCompletion
     ///
@@ -2650,9 +3158,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    pub fn SuperClear(self: KShellCompletion) void {
+    pub fn superClear(self: KShellCompletion) void {
         qtc.KShellCompletion_SuperClear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onClear` instead
+    ///
+    pub const OnClear = onClear;
 
     /// Inherited from KCompletion
     ///
@@ -2666,9 +3178,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnClear(self: KShellCompletion, callback: *const fn () callconv(.c) void) void {
+    pub fn onClear(self: KShellCompletion, callback: *const fn () callconv(.c) void) void {
         qtc.KShellCompletion_OnClear(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -2680,16 +3196,16 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: KShellCompletion, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KShellCompletion_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: KShellCompletion, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KShellCompletion_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -2701,12 +3217,16 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: KShellCompletion, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KShellCompletion_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: KShellCompletion, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KShellCompletion_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -2720,9 +3240,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KShellCompletion, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KShellCompletion, callback: *const fn (KShellCompletion, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KShellCompletion, callback: *const fn (KShellCompletion, QEvent) callconv(.c) bool) void {
         qtc.KShellCompletion_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -2736,17 +3260,17 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: KShellCompletion, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: KShellCompletion, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KShellCompletion_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KShellCompletion_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2760,13 +3284,17 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: KShellCompletion, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: KShellCompletion, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KShellCompletion_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KShellCompletion_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2780,9 +3308,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KShellCompletion, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KShellCompletion, callback: *const fn (KShellCompletion, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KShellCompletion, callback: *const fn (KShellCompletion, QObject, QEvent) callconv(.c) bool) void {
         qtc.KShellCompletion_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -2794,16 +3326,16 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KShellCompletion, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KShellCompletion_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: KShellCompletion, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KShellCompletion_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -2815,12 +3347,16 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KShellCompletion, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KShellCompletion_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: KShellCompletion, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KShellCompletion_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -2834,9 +3370,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KShellCompletion, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KShellCompletion, callback: *const fn (KShellCompletion, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KShellCompletion, callback: *const fn (KShellCompletion, QTimerEvent) callconv(.c) void) void {
         qtc.KShellCompletion_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -2848,16 +3388,16 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KShellCompletion, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KShellCompletion_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KShellCompletion, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KShellCompletion_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -2869,12 +3409,16 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KShellCompletion, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KShellCompletion_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KShellCompletion, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KShellCompletion_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -2888,9 +3432,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KShellCompletion, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KShellCompletion, callback: *const fn (KShellCompletion, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KShellCompletion, callback: *const fn (KShellCompletion, QChildEvent) callconv(.c) void) void {
         qtc.KShellCompletion_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -2902,16 +3450,16 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KShellCompletion, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KShellCompletion_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KShellCompletion, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KShellCompletion_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -2923,12 +3471,16 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KShellCompletion, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KShellCompletion_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KShellCompletion, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KShellCompletion_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -2942,9 +3494,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KShellCompletion, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KShellCompletion, callback: *const fn (KShellCompletion, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KShellCompletion, callback: *const fn (KShellCompletion, QEvent) callconv(.c) void) void {
         qtc.KShellCompletion_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -2958,14 +3514,14 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KShellCompletion, signal: anytype) void {
+    pub fn connectNotify(self: KShellCompletion, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KShellCompletion_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2979,11 +3535,15 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KShellCompletion, signal: anytype) void {
+    pub fn superConnectNotify(self: KShellCompletion, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KShellCompletion_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -2996,9 +3556,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KShellCompletion, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KShellCompletion, callback: *const fn (KShellCompletion, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KShellCompletion, callback: *const fn (KShellCompletion, QMetaMethod) callconv(.c) void) void {
         qtc.KShellCompletion_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3012,14 +3576,14 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KShellCompletion, signal: anytype) void {
+    pub fn disconnectNotify(self: KShellCompletion, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KShellCompletion_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3033,10 +3597,14 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KShellCompletion, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KShellCompletion, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KShellCompletion_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3050,9 +3618,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KShellCompletion, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KShellCompletion, callback: *const fn (KShellCompletion, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KShellCompletion, callback: *const fn (KShellCompletion, QMetaMethod) callconv(.c) void) void {
         qtc.KShellCompletion_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setShouldAutoSuggest` instead
+    ///
+    pub const SetShouldAutoSuggest = setShouldAutoSuggest;
 
     /// Inherited from KCompletion
     ///
@@ -3066,13 +3638,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` shouldAutosuggest: bool `
     ///
-    pub fn SetShouldAutoSuggest(self: KShellCompletion, shouldAutosuggest: bool) void {
+    pub fn setShouldAutoSuggest(self: KShellCompletion, shouldAutosuggest: bool) void {
         qtc.KShellCompletion_SetShouldAutoSuggest(@ptrCast(self.ptr), shouldAutosuggest);
     }
 
-    /// ### DEPRECATED: Use `SuperSetShouldAutoSuggest` instead
+    /// ### DEPRECATED: Use `superSetShouldAutoSuggest` instead
     ///
-    pub const QBaseSetShouldAutoSuggest = SuperSetShouldAutoSuggest;
+    pub const SuperSetShouldAutoSuggest = superSetShouldAutoSuggest;
 
     /// Inherited from KCompletion
     ///
@@ -3086,9 +3658,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` shouldAutosuggest: bool `
     ///
-    pub fn SuperSetShouldAutoSuggest(self: KShellCompletion, shouldAutosuggest: bool) void {
+    pub fn superSetShouldAutoSuggest(self: KShellCompletion, shouldAutosuggest: bool) void {
         qtc.KShellCompletion_SuperSetShouldAutoSuggest(@ptrCast(self.ptr), shouldAutosuggest);
     }
+
+    /// ### DEPRECATED: Use `onSetShouldAutoSuggest` instead
+    ///
+    pub const OnSetShouldAutoSuggest = onSetShouldAutoSuggest;
 
     /// Inherited from KCompletion
     ///
@@ -3102,9 +3678,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KShellCompletion, shouldAutosuggest: bool) callconv(.c) void `
     ///
-    pub fn OnSetShouldAutoSuggest(self: KShellCompletion, callback: *const fn (KShellCompletion, bool) callconv(.c) void) void {
+    pub fn onSetShouldAutoSuggest(self: KShellCompletion, callback: *const fn (KShellCompletion, bool) callconv(.c) void) void {
         qtc.KShellCompletion_OnSetShouldAutoSuggest(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -3116,13 +3696,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    pub fn Sender(self: KShellCompletion) QObject {
+    pub fn sender(self: KShellCompletion) QObject {
         return .{ .ptr = qtc.KShellCompletion_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -3134,9 +3714,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    pub fn SuperSender(self: KShellCompletion) QObject {
+    pub fn superSender(self: KShellCompletion) QObject {
         return .{ .ptr = qtc.KShellCompletion_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -3150,9 +3734,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KShellCompletion, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KShellCompletion, callback: *const fn () callconv(.c) QObject) void {
         qtc.KShellCompletion_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -3164,13 +3752,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    pub fn SenderSignalIndex(self: KShellCompletion) i32 {
+    pub fn senderSignalIndex(self: KShellCompletion) i32 {
         return qtc.KShellCompletion_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -3182,9 +3770,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    pub fn SuperSenderSignalIndex(self: KShellCompletion) i32 {
+    pub fn superSenderSignalIndex(self: KShellCompletion) i32 {
         return qtc.KShellCompletion_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -3198,9 +3790,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KShellCompletion, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KShellCompletion, callback: *const fn () callconv(.c) i32) void {
         qtc.KShellCompletion_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -3214,14 +3810,14 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KShellCompletion, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KShellCompletion, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KShellCompletion_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -3235,10 +3831,14 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KShellCompletion, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KShellCompletion, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KShellCompletion_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -3252,9 +3852,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KShellCompletion, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KShellCompletion, callback: *const fn (KShellCompletion, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KShellCompletion, callback: *const fn (KShellCompletion, [*:0]const u8) callconv(.c) i32) void {
         qtc.KShellCompletion_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -3268,14 +3872,14 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KShellCompletion, signal: anytype) bool {
+    pub fn isSignalConnected(self: KShellCompletion, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KShellCompletion_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -3289,10 +3893,14 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KShellCompletion, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KShellCompletion, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KShellCompletion_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -3306,9 +3914,13 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KShellCompletion, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KShellCompletion, callback: *const fn (KShellCompletion, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KShellCompletion, callback: *const fn (KShellCompletion, QMetaMethod) callconv(.c) bool) void {
         qtc.KShellCompletion_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -3322,23 +3934,23 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` callback: *const fn (self: KShellCompletion, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KShellCompletion, callback: *const fn (KShellCompletion, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KShellCompletion, callback: *const fn (KShellCompletion, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kshellcompletion.html#dtor.KShellCompletion)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KShellCompletion `
     ///
-    pub fn Delete(self: KShellCompletion) void {
+    pub fn delete(self: KShellCompletion) void {
         qtc.KShellCompletion_Delete(@ptrCast(self.ptr));
     }
 };

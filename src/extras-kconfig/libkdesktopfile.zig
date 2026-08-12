@@ -21,35 +21,47 @@ pub const KDesktopFile = extern struct {
     pub const _is_KConfig = {};
     pub const _is_KConfigBase = {};
 
-    /// New constructs a new KDesktopFile object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KDesktopFile object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` resourceType: qstandardpaths_enums.StandardLocation `
     ///
-    /// ` fileName: []const u8 `
+    /// ` _fileName: []const u8 `
     ///
-    pub fn New(resourceType: i32, fileName: []const u8) KDesktopFile {
+    pub fn new(resourceType: i32, _fileName: []const u8) KDesktopFile {
         const fileName_str = qtc.libqt_string{
-            .len = fileName.len,
-            .data = fileName.ptr,
+            .len = _fileName.len,
+            .data = _fileName.ptr,
         };
         return .{ .ptr = qtc.KDesktopFile_new(@bitCast(resourceType), fileName_str) };
     }
 
-    /// New2 constructs a new KDesktopFile object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KDesktopFile object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` fileName: []const u8 `
+    /// ` _fileName: []const u8 `
     ///
-    pub fn New2(fileName: []const u8) KDesktopFile {
+    pub fn new2(_fileName: []const u8) KDesktopFile {
         const fileName_str = qtc.libqt_string{
-            .len = fileName.len,
-            .data = fileName.ptr,
+            .len = _fileName.len,
+            .data = _fileName.ptr,
         };
         return .{ .ptr = qtc.KDesktopFile_new2(fileName_str) };
     }
+
+    /// ### DEPRECATED: Use `isDesktopFile` instead
+    ///
+    pub const IsDesktopFile = isDesktopFile;
 
     /// ### [Upstream resources](https://api.kde.org/kdesktopfile.html#isDesktopFile)
     ///
@@ -57,7 +69,7 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` path: []const u8 `
     ///
-    pub fn IsDesktopFile(path: []const u8) bool {
+    pub fn isDesktopFile(path: []const u8) bool {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
@@ -65,19 +77,27 @@ pub const KDesktopFile = extern struct {
         return qtc.KDesktopFile_IsDesktopFile(path_str);
     }
 
+    /// ### DEPRECATED: Use `isAuthorizedDesktopFile` instead
+    ///
+    pub const IsAuthorizedDesktopFile = isAuthorizedDesktopFile;
+
     /// ### [Upstream resources](https://api.kde.org/kdesktopfile.html#isAuthorizedDesktopFile)
     ///
     /// ## Parameter(s):
     ///
     /// ` path: []const u8 `
     ///
-    pub fn IsAuthorizedDesktopFile(path: []const u8) bool {
+    pub fn isAuthorizedDesktopFile(path: []const u8) bool {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
         return qtc.KDesktopFile_IsAuthorizedDesktopFile(path_str);
     }
+
+    /// ### DEPRECATED: Use `locateLocal` instead
+    ///
+    pub const LocateLocal = locateLocal;
 
     /// ### [Upstream resources](https://api.kde.org/kdesktopfile.html#locateLocal)
     ///
@@ -87,17 +107,21 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` path: []const u8 `
     ///
-    pub fn LocateLocal(allocator: std.mem.Allocator, path: []const u8) []const u8 {
+    pub fn locateLocal(allocator: std.mem.Allocator, path: []const u8) []const u8 {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
         var _str = qtc.KDesktopFile_LocateLocal(path_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDesktopFile.LocateLocal: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDesktopFile.locateLocal: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `desktopGroup` instead
+    ///
+    pub const DesktopGroup = desktopGroup;
 
     /// ### [Upstream resources](https://api.kde.org/kdesktopfile.html#desktopGroup)
     ///
@@ -105,9 +129,13 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` self: KDesktopFile `
     ///
-    pub fn DesktopGroup(self: KDesktopFile) KConfigGroup {
+    pub fn desktopGroup(self: KDesktopFile) KConfigGroup {
         return .{ .ptr = qtc.KDesktopFile_DesktopGroup(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `readType` instead
+    ///
+    pub const ReadType = readType;
 
     /// ### [Upstream resources](https://api.kde.org/kdesktopfile.html#readType)
     ///
@@ -117,13 +145,17 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadType(self: KDesktopFile, allocator: std.mem.Allocator) []const u8 {
+    pub fn readType(self: KDesktopFile, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KDesktopFile_ReadType(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDesktopFile.ReadType: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDesktopFile.readType: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `readIcon` instead
+    ///
+    pub const ReadIcon = readIcon;
 
     /// ### [Upstream resources](https://api.kde.org/kdesktopfile.html#readIcon)
     ///
@@ -133,13 +165,17 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadIcon(self: KDesktopFile, allocator: std.mem.Allocator) []const u8 {
+    pub fn readIcon(self: KDesktopFile, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KDesktopFile_ReadIcon(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDesktopFile.ReadIcon: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDesktopFile.readIcon: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `readName` instead
+    ///
+    pub const ReadName = readName;
 
     /// ### [Upstream resources](https://api.kde.org/kdesktopfile.html#readName)
     ///
@@ -149,13 +185,17 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadName(self: KDesktopFile, allocator: std.mem.Allocator) []const u8 {
+    pub fn readName(self: KDesktopFile, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KDesktopFile_ReadName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDesktopFile.ReadName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDesktopFile.readName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `readComment` instead
+    ///
+    pub const ReadComment = readComment;
 
     /// ### [Upstream resources](https://api.kde.org/kdesktopfile.html#readComment)
     ///
@@ -165,13 +205,17 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadComment(self: KDesktopFile, allocator: std.mem.Allocator) []const u8 {
+    pub fn readComment(self: KDesktopFile, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KDesktopFile_ReadComment(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDesktopFile.ReadComment: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDesktopFile.readComment: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `readGenericName` instead
+    ///
+    pub const ReadGenericName = readGenericName;
 
     /// ### [Upstream resources](https://api.kde.org/kdesktopfile.html#readGenericName)
     ///
@@ -181,13 +225,17 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadGenericName(self: KDesktopFile, allocator: std.mem.Allocator) []const u8 {
+    pub fn readGenericName(self: KDesktopFile, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KDesktopFile_ReadGenericName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDesktopFile.ReadGenericName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDesktopFile.readGenericName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `readPath` instead
+    ///
+    pub const ReadPath = readPath;
 
     /// ### [Upstream resources](https://api.kde.org/kdesktopfile.html#readPath)
     ///
@@ -197,13 +245,17 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadPath(self: KDesktopFile, allocator: std.mem.Allocator) []const u8 {
+    pub fn readPath(self: KDesktopFile, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KDesktopFile_ReadPath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDesktopFile.ReadPath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDesktopFile.readPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `readUrl` instead
+    ///
+    pub const ReadUrl = readUrl;
 
     /// ### [Upstream resources](https://api.kde.org/kdesktopfile.html#readUrl)
     ///
@@ -213,13 +265,17 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadUrl(self: KDesktopFile, allocator: std.mem.Allocator) []const u8 {
+    pub fn readUrl(self: KDesktopFile, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KDesktopFile_ReadUrl(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDesktopFile.ReadUrl: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDesktopFile.readUrl: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `readActions` instead
+    ///
+    pub const ReadActions = readActions;
 
     /// ### [Upstream resources](https://api.kde.org/kdesktopfile.html#readActions)
     ///
@@ -229,7 +285,7 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadActions(self: KDesktopFile, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn readActions(self: KDesktopFile, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KDesktopFile_ReadActions(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -237,15 +293,19 @@ pub const KDesktopFile = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KDesktopFile.ReadActions: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KDesktopFile.readActions: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KDesktopFile.ReadActions: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KDesktopFile.readActions: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `readMimeTypes` instead
+    ///
+    pub const ReadMimeTypes = readMimeTypes;
 
     /// ### [Upstream resources](https://api.kde.org/kdesktopfile.html#readMimeTypes)
     ///
@@ -255,7 +315,7 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadMimeTypes(self: KDesktopFile, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn readMimeTypes(self: KDesktopFile, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KDesktopFile_ReadMimeTypes(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -263,31 +323,19 @@ pub const KDesktopFile = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KDesktopFile.ReadMimeTypes: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KDesktopFile.readMimeTypes: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KDesktopFile.ReadMimeTypes: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KDesktopFile.readMimeTypes: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// ### [Upstream resources](https://api.kde.org/kdesktopfile.html#actionGroup)
+    /// ### DEPRECATED: Use `actionGroup` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDesktopFile `
-    ///
-    /// ` group: []const u8 `
-    ///
-    pub fn ActionGroup(self: KDesktopFile, group: []const u8) KConfigGroup {
-        const group_str = qtc.libqt_string{
-            .len = group.len,
-            .data = group.ptr,
-        };
-        return .{ .ptr = qtc.KDesktopFile_ActionGroup(@ptrCast(self.ptr), group_str) };
-    }
+    pub const ActionGroup = actionGroup;
 
     /// ### [Upstream resources](https://api.kde.org/kdesktopfile.html#actionGroup)
     ///
@@ -295,15 +343,39 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` self: KDesktopFile `
     ///
-    /// ` group: []const u8 `
+    /// ` _group: []const u8 `
     ///
-    pub fn ActionGroup2(self: KDesktopFile, group: []const u8) KConfigGroup {
+    pub fn actionGroup(self: KDesktopFile, _group: []const u8) KConfigGroup {
         const group_str = qtc.libqt_string{
-            .len = group.len,
-            .data = group.ptr,
+            .len = _group.len,
+            .data = _group.ptr,
+        };
+        return .{ .ptr = qtc.KDesktopFile_ActionGroup(@ptrCast(self.ptr), group_str) };
+    }
+
+    /// ### DEPRECATED: Use `actionGroup2` instead
+    ///
+    pub const ActionGroup2 = actionGroup2;
+
+    /// ### [Upstream resources](https://api.kde.org/kdesktopfile.html#actionGroup)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KDesktopFile `
+    ///
+    /// ` _group: []const u8 `
+    ///
+    pub fn actionGroup2(self: KDesktopFile, _group: []const u8) KConfigGroup {
+        const group_str = qtc.libqt_string{
+            .len = _group.len,
+            .data = _group.ptr,
         };
         return .{ .ptr = qtc.KDesktopFile_ActionGroup2(@ptrCast(self.ptr), group_str) };
     }
+
+    /// ### DEPRECATED: Use `hasActionGroup` instead
+    ///
+    pub const HasActionGroup = hasActionGroup;
 
     /// ### [Upstream resources](https://api.kde.org/kdesktopfile.html#hasActionGroup)
     ///
@@ -311,15 +383,19 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` self: KDesktopFile `
     ///
-    /// ` group: []const u8 `
+    /// ` _group: []const u8 `
     ///
-    pub fn HasActionGroup(self: KDesktopFile, group: []const u8) bool {
+    pub fn hasActionGroup(self: KDesktopFile, _group: []const u8) bool {
         const group_str = qtc.libqt_string{
-            .len = group.len,
-            .data = group.ptr,
+            .len = _group.len,
+            .data = _group.ptr,
         };
         return qtc.KDesktopFile_HasActionGroup(@ptrCast(self.ptr), group_str);
     }
+
+    /// ### DEPRECATED: Use `hasLinkType` instead
+    ///
+    pub const HasLinkType = hasLinkType;
 
     /// ### [Upstream resources](https://api.kde.org/kdesktopfile.html#hasLinkType)
     ///
@@ -327,9 +403,13 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` self: KDesktopFile `
     ///
-    pub fn HasLinkType(self: KDesktopFile) bool {
+    pub fn hasLinkType(self: KDesktopFile) bool {
         return qtc.KDesktopFile_HasLinkType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hasApplicationType` instead
+    ///
+    pub const HasApplicationType = hasApplicationType;
 
     /// ### [Upstream resources](https://api.kde.org/kdesktopfile.html#hasApplicationType)
     ///
@@ -337,9 +417,13 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` self: KDesktopFile `
     ///
-    pub fn HasApplicationType(self: KDesktopFile) bool {
+    pub fn hasApplicationType(self: KDesktopFile) bool {
         return qtc.KDesktopFile_HasApplicationType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hasDeviceType` instead
+    ///
+    pub const HasDeviceType = hasDeviceType;
 
     /// ### [Upstream resources](https://api.kde.org/kdesktopfile.html#hasDeviceType)
     ///
@@ -347,9 +431,13 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` self: KDesktopFile `
     ///
-    pub fn HasDeviceType(self: KDesktopFile) bool {
+    pub fn hasDeviceType(self: KDesktopFile) bool {
         return qtc.KDesktopFile_HasDeviceType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `tryExec` instead
+    ///
+    pub const TryExec = tryExec;
 
     /// ### [Upstream resources](https://api.kde.org/kdesktopfile.html#tryExec)
     ///
@@ -357,9 +445,13 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` self: KDesktopFile `
     ///
-    pub fn TryExec(self: KDesktopFile) bool {
+    pub fn tryExec(self: KDesktopFile) bool {
         return qtc.KDesktopFile_TryExec(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `readDocPath` instead
+    ///
+    pub const ReadDocPath = readDocPath;
 
     /// ### [Upstream resources](https://api.kde.org/kdesktopfile.html#readDocPath)
     ///
@@ -369,13 +461,17 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadDocPath(self: KDesktopFile, allocator: std.mem.Allocator) []const u8 {
+    pub fn readDocPath(self: KDesktopFile, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KDesktopFile_ReadDocPath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDesktopFile.ReadDocPath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDesktopFile.readDocPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `noDisplay` instead
+    ///
+    pub const NoDisplay = noDisplay;
 
     /// ### [Upstream resources](https://api.kde.org/kdesktopfile.html#noDisplay)
     ///
@@ -383,9 +479,13 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` self: KDesktopFile `
     ///
-    pub fn NoDisplay(self: KDesktopFile) bool {
+    pub fn noDisplay(self: KDesktopFile) bool {
         return qtc.KDesktopFile_NoDisplay(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `copyTo` instead
+    ///
+    pub const CopyTo = copyTo;
 
     /// ### [Upstream resources](https://api.kde.org/kdesktopfile.html#copyTo)
     ///
@@ -395,13 +495,17 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` file: []const u8 `
     ///
-    pub fn CopyTo(self: KDesktopFile, file: []const u8) KDesktopFile {
+    pub fn copyTo(self: KDesktopFile, file: []const u8) KDesktopFile {
         const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
         };
         return .{ .ptr = qtc.KDesktopFile_CopyTo(@ptrCast(self.ptr), file_str) };
     }
+
+    /// ### DEPRECATED: Use `fileName` instead
+    ///
+    pub const FileName = fileName;
 
     /// ### [Upstream resources](https://api.kde.org/kdesktopfile.html#fileName)
     ///
@@ -411,13 +515,17 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FileName(self: KDesktopFile, allocator: std.mem.Allocator) []const u8 {
+    pub fn fileName(self: KDesktopFile, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KDesktopFile_FileName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDesktopFile.FileName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDesktopFile.fileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// ### [Upstream resources](https://api.kde.org/kdesktopfile.html#actions)
     ///
@@ -427,15 +535,19 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: KDesktopFile, allocator: std.mem.Allocator) []KDesktopFileAction {
+    pub fn actions(self: KDesktopFile, allocator: std.mem.Allocator) []KDesktopFileAction {
         const _arr: qtc.libqt_list = qtc.KDesktopFile_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KDesktopFileAction, _arr.len) catch @panic("KDesktopFile.Actions: Memory allocation failed");
-        const _data: [*]QtC.KDesktopFileAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(KDesktopFileAction, _arr.len) catch @panic("KDesktopFile.actions: Memory allocation failed");
+        const _data_val: [*]QtC.KDesktopFileAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `locationType` instead
+    ///
+    pub const LocationType = locationType;
 
     /// Inherited from KConfig
     ///
@@ -449,9 +561,13 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` qstandardpaths_enums.StandardLocation `
     ///
-    pub fn LocationType(self: KDesktopFile) i32 {
+    pub fn locationType(self: KDesktopFile) i32 {
         return qtc.KConfig_LocationType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// Inherited from KConfig
     ///
@@ -463,13 +579,17 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: KDesktopFile, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: KDesktopFile, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KConfig_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDesktopFile.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDesktopFile.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `openFlags` instead
+    ///
+    pub const OpenFlags = openFlags;
 
     /// Inherited from KConfig
     ///
@@ -483,9 +603,13 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` flag of kconfig_enums.OpenFlag `
     ///
-    pub fn OpenFlags(self: KDesktopFile) i32 {
+    pub fn openFlags(self: KDesktopFile) i32 {
         return qtc.KConfig_OpenFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDirty` instead
+    ///
+    pub const IsDirty = isDirty;
 
     /// Inherited from KConfig
     ///
@@ -495,9 +619,13 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` self: KDesktopFile `
     ///
-    pub fn IsDirty(self: KDesktopFile) bool {
+    pub fn isDirty(self: KDesktopFile) bool {
         return qtc.KConfig_IsDirty(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isConfigWritable` instead
+    ///
+    pub const IsConfigWritable = isConfigWritable;
 
     /// Inherited from KConfig
     ///
@@ -509,9 +637,13 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` warnUser: bool `
     ///
-    pub fn IsConfigWritable(self: KDesktopFile, warnUser: bool) bool {
+    pub fn isConfigWritable(self: KDesktopFile, warnUser: bool) bool {
         return qtc.KConfig_IsConfigWritable(@ptrCast(self.ptr), warnUser);
     }
+
+    /// ### DEPRECATED: Use `checkUpdate` instead
+    ///
+    pub const CheckUpdate = checkUpdate;
 
     /// Inherited from KConfig
     ///
@@ -525,7 +657,7 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` updateFile: []const u8 `
     ///
-    pub fn CheckUpdate(self: KDesktopFile, id: []const u8, updateFile: []const u8) void {
+    pub fn checkUpdate(self: KDesktopFile, id: []const u8, updateFile: []const u8) void {
         const id_str = qtc.libqt_string{
             .len = id.len,
             .data = id.ptr,
@@ -537,6 +669,10 @@ pub const KDesktopFile = extern struct {
         qtc.KConfig_CheckUpdate(@ptrCast(self.ptr), id_str, updateFile_str);
     }
 
+    /// ### DEPRECATED: Use `reparseConfiguration` instead
+    ///
+    pub const ReparseConfiguration = reparseConfiguration;
+
     /// Inherited from KConfig
     ///
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#reparseConfiguration)
@@ -545,9 +681,13 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` self: KDesktopFile `
     ///
-    pub fn ReparseConfiguration(self: KDesktopFile) void {
+    pub fn reparseConfiguration(self: KDesktopFile) void {
         qtc.KConfig_ReparseConfiguration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `addConfigSources` instead
+    ///
+    pub const AddConfigSources = addConfigSources;
 
     /// Inherited from KConfig
     ///
@@ -561,13 +701,13 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` sources: []const []const u8 `
     ///
-    pub fn AddConfigSources(self: KDesktopFile, allocator: std.mem.Allocator, sources: []const []const u8) void {
-        const sources_arr = allocator.alloc(qtc.libqt_string, sources.len) catch @panic("KDesktopFile.AddConfigSources: Memory allocation failed");
+    pub fn addConfigSources(self: KDesktopFile, allocator: std.mem.Allocator, sources: []const []const u8) void {
+        const sources_arr = allocator.alloc(qtc.libqt_string, sources.len) catch @panic("KDesktopFile.addConfigSources: Memory allocation failed");
         defer allocator.free(sources_arr);
-        for (sources, 0..sources.len) |item, i|
+        for (sources, 0..sources.len) |str_item, i|
             sources_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const sources_list = qtc.libqt_list{
             .len = sources.len,
@@ -575,6 +715,10 @@ pub const KDesktopFile = extern struct {
         };
         qtc.KConfig_AddConfigSources(@ptrCast(self.ptr), sources_list);
     }
+
+    /// ### DEPRECATED: Use `additionalConfigSources` instead
+    ///
+    pub const AdditionalConfigSources = additionalConfigSources;
 
     /// Inherited from KConfig
     ///
@@ -586,7 +730,7 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AdditionalConfigSources(self: KDesktopFile, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn additionalConfigSources(self: KDesktopFile, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KConfig_AdditionalConfigSources(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -594,15 +738,19 @@ pub const KDesktopFile = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KDesktopFile.AdditionalConfigSources: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KDesktopFile.additionalConfigSources: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KDesktopFile.AdditionalConfigSources: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KDesktopFile.additionalConfigSources: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from KConfig
     ///
@@ -614,13 +762,17 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Locale(self: KDesktopFile, allocator: std.mem.Allocator) []const u8 {
+    pub fn locale(self: KDesktopFile, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KConfig_Locale(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDesktopFile.Locale: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDesktopFile.locale: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from KConfig
     ///
@@ -632,13 +784,17 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` aLocale: []const u8 `
     ///
-    pub fn SetLocale(self: KDesktopFile, aLocale: []const u8) bool {
+    pub fn setLocale(self: KDesktopFile, aLocale: []const u8) bool {
         const aLocale_str = qtc.libqt_string{
             .len = aLocale.len,
             .data = aLocale.ptr,
         };
         return qtc.KConfig_SetLocale(@ptrCast(self.ptr), aLocale_str);
     }
+
+    /// ### DEPRECATED: Use `setReadDefaults` instead
+    ///
+    pub const SetReadDefaults = setReadDefaults;
 
     /// Inherited from KConfig
     ///
@@ -650,9 +806,13 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetReadDefaults(self: KDesktopFile, b: bool) void {
+    pub fn setReadDefaults(self: KDesktopFile, b: bool) void {
         qtc.KConfig_SetReadDefaults(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `readDefaults` instead
+    ///
+    pub const ReadDefaults = readDefaults;
 
     /// Inherited from KConfig
     ///
@@ -662,9 +822,13 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` self: KDesktopFile `
     ///
-    pub fn ReadDefaults(self: KDesktopFile) bool {
+    pub fn readDefaults(self: KDesktopFile) bool {
         return qtc.KConfig_ReadDefaults(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `entryMap` instead
+    ///
+    pub const EntryMap = entryMap;
 
     /// Inherited from KConfig
     ///
@@ -676,10 +840,10 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn EntryMap(self: KDesktopFile, allocator: std.mem.Allocator) ArrayMap_constu8_constu8 {
+    pub fn entryMap(self: KDesktopFile, allocator: std.mem.Allocator) ArrayMap_constu8_constu8 {
         const _map: qtc.libqt_map = qtc.KConfig_EntryMap(@ptrCast(self.ptr));
         var _ret: ArrayMap_constu8_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KDesktopFile.EntryMap: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KDesktopFile.entryMap: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
@@ -695,15 +859,19 @@ pub const KDesktopFile = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("KDesktopFile.EntryMap: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("KDesktopFile.entryMap: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("KDesktopFile.EntryMap: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("KDesktopFile.entryMap: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
             _ret.putAssumeCapacity(_entry_slice, _value_slice);
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setMainConfigName` instead
+    ///
+    pub const SetMainConfigName = setMainConfigName;
 
     /// Inherited from KConfig
     ///
@@ -713,13 +881,17 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` str: []const u8 `
     ///
-    pub fn SetMainConfigName(str: []const u8) void {
+    pub fn setMainConfigName(str: []const u8) void {
         const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
         };
         qtc.KConfig_SetMainConfigName(str_str);
     }
+
+    /// ### DEPRECATED: Use `mainConfigName` instead
+    ///
+    pub const MainConfigName = mainConfigName;
 
     /// Inherited from KConfig
     ///
@@ -729,13 +901,17 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MainConfigName(allocator: std.mem.Allocator) []const u8 {
+    pub fn mainConfigName(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KConfig_MainConfigName();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDesktopFile.MainConfigName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDesktopFile.mainConfigName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `copyTo2` instead
+    ///
+    pub const CopyTo2 = copyTo2;
 
     /// Inherited from KConfig
     ///
@@ -749,7 +925,7 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` config: KConfig `
     ///
-    pub fn CopyTo2(self: KDesktopFile, file: []const u8, config: anytype) KConfig {
+    pub fn copyTo2(self: KDesktopFile, file: []const u8, config: anytype) KConfig {
         const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
@@ -757,6 +933,10 @@ pub const KDesktopFile = extern struct {
         comptime _ = @TypeOf(config)._is_KConfig;
         return .{ .ptr = qtc.KConfig_CopyTo2(@ptrCast(self.ptr), file_str, @ptrCast(config.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `entryMap1` instead
+    ///
+    pub const EntryMap1 = entryMap1;
 
     /// Inherited from KConfig
     ///
@@ -770,14 +950,14 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` aGroup: []const u8 `
     ///
-    pub fn EntryMap1(self: KDesktopFile, allocator: std.mem.Allocator, aGroup: []const u8) ArrayMap_constu8_constu8 {
+    pub fn entryMap1(self: KDesktopFile, allocator: std.mem.Allocator, aGroup: []const u8) ArrayMap_constu8_constu8 {
         const aGroup_str = qtc.libqt_string{
             .len = aGroup.len,
             .data = aGroup.ptr,
         };
         const _map: qtc.libqt_map = qtc.KConfig_EntryMap1(@ptrCast(self.ptr), aGroup_str);
         var _ret: ArrayMap_constu8_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KDesktopFile.EntryMap1: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KDesktopFile.entryMap1: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
@@ -793,15 +973,19 @@ pub const KDesktopFile = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("KDesktopFile.EntryMap1: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("KDesktopFile.entryMap1: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("KDesktopFile.EntryMap1: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("KDesktopFile.entryMap1: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
             _ret.putAssumeCapacity(_entry_slice, _value_slice);
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `hasGroup` instead
+    ///
+    pub const HasGroup = hasGroup;
 
     /// Inherited from KConfigBase
     ///
@@ -811,33 +995,19 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` self: KDesktopFile `
     ///
-    /// ` group: []const u8 `
+    /// ` _group: []const u8 `
     ///
-    pub fn HasGroup(self: KDesktopFile, group: []const u8) bool {
+    pub fn hasGroup(self: KDesktopFile, _group: []const u8) bool {
         const group_str = qtc.libqt_string{
-            .len = group.len,
-            .data = group.ptr,
+            .len = _group.len,
+            .data = _group.ptr,
         };
         return qtc.KConfigBase_HasGroup(@ptrCast(self.ptr), group_str);
     }
 
-    /// Inherited from KConfigBase
+    /// ### DEPRECATED: Use `group` instead
     ///
-    /// ### [Upstream resources](https://api.kde.org/kconfigbase.html#group)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDesktopFile `
-    ///
-    /// ` group: []const u8 `
-    ///
-    pub fn Group(self: KDesktopFile, group: []const u8) KConfigGroup {
-        const group_str = qtc.libqt_string{
-            .len = group.len,
-            .data = group.ptr,
-        };
-        return .{ .ptr = qtc.KConfigBase_Group(@ptrCast(self.ptr), group_str) };
-    }
+    pub const Group = group;
 
     /// Inherited from KConfigBase
     ///
@@ -847,15 +1017,41 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` self: KDesktopFile `
     ///
-    /// ` group: []const u8 `
+    /// ` _group: []const u8 `
     ///
-    pub fn Group2(self: KDesktopFile, group: []const u8) KConfigGroup {
+    pub fn group(self: KDesktopFile, _group: []const u8) KConfigGroup {
         const group_str = qtc.libqt_string{
-            .len = group.len,
-            .data = group.ptr,
+            .len = _group.len,
+            .data = _group.ptr,
+        };
+        return .{ .ptr = qtc.KConfigBase_Group(@ptrCast(self.ptr), group_str) };
+    }
+
+    /// ### DEPRECATED: Use `group2` instead
+    ///
+    pub const Group2 = group2;
+
+    /// Inherited from KConfigBase
+    ///
+    /// ### [Upstream resources](https://api.kde.org/kconfigbase.html#group)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KDesktopFile `
+    ///
+    /// ` _group: []const u8 `
+    ///
+    pub fn group2(self: KDesktopFile, _group: []const u8) KConfigGroup {
+        const group_str = qtc.libqt_string{
+            .len = _group.len,
+            .data = _group.ptr,
         };
         return .{ .ptr = qtc.KConfigBase_Group2(@ptrCast(self.ptr), group_str) };
     }
+
+    /// ### DEPRECATED: Use `deleteGroup` instead
+    ///
+    pub const DeleteGroup = deleteGroup;
 
     /// Inherited from KConfigBase
     ///
@@ -865,15 +1061,19 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` self: KDesktopFile `
     ///
-    /// ` group: []const u8 `
+    /// ` _group: []const u8 `
     ///
-    pub fn DeleteGroup(self: KDesktopFile, group: []const u8) void {
+    pub fn deleteGroup(self: KDesktopFile, _group: []const u8) void {
         const group_str = qtc.libqt_string{
-            .len = group.len,
-            .data = group.ptr,
+            .len = _group.len,
+            .data = _group.ptr,
         };
         qtc.KConfigBase_DeleteGroup(@ptrCast(self.ptr), group_str);
     }
+
+    /// ### DEPRECATED: Use `isGroupImmutable` instead
+    ///
+    pub const IsGroupImmutable = isGroupImmutable;
 
     /// Inherited from KConfigBase
     ///
@@ -883,15 +1083,19 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` self: KDesktopFile `
     ///
-    /// ` group: []const u8 `
+    /// ` _group: []const u8 `
     ///
-    pub fn IsGroupImmutable(self: KDesktopFile, group: []const u8) bool {
+    pub fn isGroupImmutable(self: KDesktopFile, _group: []const u8) bool {
         const group_str = qtc.libqt_string{
-            .len = group.len,
-            .data = group.ptr,
+            .len = _group.len,
+            .data = _group.ptr,
         };
         return qtc.KConfigBase_IsGroupImmutable(@ptrCast(self.ptr), group_str);
     }
+
+    /// ### DEPRECATED: Use `deleteGroup2` instead
+    ///
+    pub const DeleteGroup2 = deleteGroup2;
 
     /// Inherited from KConfigBase
     ///
@@ -901,17 +1105,21 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` self: KDesktopFile `
     ///
-    /// ` group: []const u8 `
+    /// ` _group: []const u8 `
     ///
     /// ` flags: flag of kconfigbase_enums.WriteConfigFlag `
     ///
-    pub fn DeleteGroup2(self: KDesktopFile, group: []const u8, flags: i32) void {
+    pub fn deleteGroup2(self: KDesktopFile, _group: []const u8, flags: i32) void {
         const group_str = qtc.libqt_string{
-            .len = group.len,
-            .data = group.ptr,
+            .len = _group.len,
+            .data = _group.ptr,
         };
         qtc.KConfigBase_DeleteGroup2(@ptrCast(self.ptr), group_str, @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `sync` instead
+    ///
+    pub const Sync = sync;
 
     /// Inherited from KConfig
     ///
@@ -923,13 +1131,13 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` self: KDesktopFile `
     ///
-    pub fn Sync(self: KDesktopFile) bool {
+    pub fn sync(self: KDesktopFile) bool {
         return qtc.KDesktopFile_Sync(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSync` instead
+    /// ### DEPRECATED: Use `superSync` instead
     ///
-    pub const QBaseSync = SuperSync;
+    pub const SuperSync = superSync;
 
     /// Inherited from KConfig
     ///
@@ -941,9 +1149,13 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` self: KDesktopFile `
     ///
-    pub fn SuperSync(self: KDesktopFile) bool {
+    pub fn superSync(self: KDesktopFile) bool {
         return qtc.KDesktopFile_SuperSync(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSync` instead
+    ///
+    pub const OnSync = onSync;
 
     /// Inherited from KConfig
     ///
@@ -957,9 +1169,13 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnSync(self: KDesktopFile, callback: *const fn () callconv(.c) bool) void {
+    pub fn onSync(self: KDesktopFile, callback: *const fn () callconv(.c) bool) void {
         qtc.KDesktopFile_OnSync(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `markAsClean` instead
+    ///
+    pub const MarkAsClean = markAsClean;
 
     /// Inherited from KConfig
     ///
@@ -971,13 +1187,13 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` self: KDesktopFile `
     ///
-    pub fn MarkAsClean(self: KDesktopFile) void {
+    pub fn markAsClean(self: KDesktopFile) void {
         qtc.KDesktopFile_MarkAsClean(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMarkAsClean` instead
+    /// ### DEPRECATED: Use `superMarkAsClean` instead
     ///
-    pub const QBaseMarkAsClean = SuperMarkAsClean;
+    pub const SuperMarkAsClean = superMarkAsClean;
 
     /// Inherited from KConfig
     ///
@@ -989,9 +1205,13 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` self: KDesktopFile `
     ///
-    pub fn SuperMarkAsClean(self: KDesktopFile) void {
+    pub fn superMarkAsClean(self: KDesktopFile) void {
         qtc.KDesktopFile_SuperMarkAsClean(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMarkAsClean` instead
+    ///
+    pub const OnMarkAsClean = onMarkAsClean;
 
     /// Inherited from KConfig
     ///
@@ -1005,9 +1225,13 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnMarkAsClean(self: KDesktopFile, callback: *const fn () callconv(.c) void) void {
+    pub fn onMarkAsClean(self: KDesktopFile, callback: *const fn () callconv(.c) void) void {
         qtc.KDesktopFile_OnMarkAsClean(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `accessMode` instead
+    ///
+    pub const AccessMode = accessMode;
 
     /// Inherited from KConfig
     ///
@@ -1023,13 +1247,13 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` kconfigbase_enums.AccessMode `
     ///
-    pub fn AccessMode(self: KDesktopFile) i32 {
+    pub fn accessMode(self: KDesktopFile) i32 {
         return qtc.KDesktopFile_AccessMode(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperAccessMode` instead
+    /// ### DEPRECATED: Use `superAccessMode` instead
     ///
-    pub const QBaseAccessMode = SuperAccessMode;
+    pub const SuperAccessMode = superAccessMode;
 
     /// Inherited from KConfig
     ///
@@ -1045,9 +1269,13 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` kconfigbase_enums.AccessMode `
     ///
-    pub fn SuperAccessMode(self: KDesktopFile) i32 {
+    pub fn superAccessMode(self: KDesktopFile) i32 {
         return qtc.KDesktopFile_SuperAccessMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onAccessMode` instead
+    ///
+    pub const OnAccessMode = onAccessMode;
 
     /// Inherited from KConfig
     ///
@@ -1061,9 +1289,13 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnAccessMode(self: KDesktopFile, callback: *const fn () callconv(.c) i32) void {
+    pub fn onAccessMode(self: KDesktopFile, callback: *const fn () callconv(.c) i32) void {
         qtc.KDesktopFile_OnAccessMode(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isImmutable` instead
+    ///
+    pub const IsImmutable = isImmutable;
 
     /// Inherited from KConfig
     ///
@@ -1075,13 +1307,13 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` self: KDesktopFile `
     ///
-    pub fn IsImmutable(self: KDesktopFile) bool {
+    pub fn isImmutable(self: KDesktopFile) bool {
         return qtc.KDesktopFile_IsImmutable(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsImmutable` instead
+    /// ### DEPRECATED: Use `superIsImmutable` instead
     ///
-    pub const QBaseIsImmutable = SuperIsImmutable;
+    pub const SuperIsImmutable = superIsImmutable;
 
     /// Inherited from KConfig
     ///
@@ -1093,9 +1325,13 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` self: KDesktopFile `
     ///
-    pub fn SuperIsImmutable(self: KDesktopFile) bool {
+    pub fn superIsImmutable(self: KDesktopFile) bool {
         return qtc.KDesktopFile_SuperIsImmutable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsImmutable` instead
+    ///
+    pub const OnIsImmutable = onIsImmutable;
 
     /// Inherited from KConfig
     ///
@@ -1109,9 +1345,13 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnIsImmutable(self: KDesktopFile, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsImmutable(self: KDesktopFile, callback: *const fn () callconv(.c) bool) void {
         qtc.KDesktopFile_OnIsImmutable(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `groupList` instead
+    ///
+    pub const GroupList = groupList;
 
     /// Inherited from KConfig
     ///
@@ -1125,7 +1365,7 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GroupList(self: KDesktopFile, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn groupList(self: KDesktopFile, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KDesktopFile_GroupList(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1133,19 +1373,19 @@ pub const KDesktopFile = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KDesktopFile.GroupList: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KDesktopFile.groupList: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KDesktopFile.GroupList: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KDesktopFile.groupList: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `SuperGroupList` instead
+    /// ### DEPRECATED: Use `superGroupList` instead
     ///
-    pub const QBaseGroupList = SuperGroupList;
+    pub const SuperGroupList = superGroupList;
 
     /// Inherited from KConfig
     ///
@@ -1159,7 +1399,7 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperGroupList(self: KDesktopFile, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn superGroupList(self: KDesktopFile, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KDesktopFile_SuperGroupList(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1167,15 +1407,19 @@ pub const KDesktopFile = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KDesktopFile.GroupList: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KDesktopFile.groupList: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KDesktopFile.GroupList: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KDesktopFile.groupList: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onGroupList` instead
+    ///
+    pub const OnGroupList = onGroupList;
 
     /// Inherited from KConfig
     ///
@@ -1191,9 +1435,13 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn OnGroupList(self: KDesktopFile, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
+    pub fn onGroupList(self: KDesktopFile, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.KDesktopFile_OnGroupList(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasGroupImpl` instead
+    ///
+    pub const HasGroupImpl = hasGroupImpl;
 
     /// Inherited from KConfig
     ///
@@ -1207,7 +1455,7 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` groupName: []const u8 `
     ///
-    pub fn HasGroupImpl(self: KDesktopFile, groupName: []const u8) bool {
+    pub fn hasGroupImpl(self: KDesktopFile, groupName: []const u8) bool {
         const groupName_str = qtc.libqt_string{
             .len = groupName.len,
             .data = groupName.ptr,
@@ -1215,9 +1463,9 @@ pub const KDesktopFile = extern struct {
         return qtc.KDesktopFile_HasGroupImpl(@ptrCast(self.ptr), groupName_str);
     }
 
-    /// ### DEPRECATED: Use `SuperHasGroupImpl` instead
+    /// ### DEPRECATED: Use `superHasGroupImpl` instead
     ///
-    pub const QBaseHasGroupImpl = SuperHasGroupImpl;
+    pub const SuperHasGroupImpl = superHasGroupImpl;
 
     /// Inherited from KConfig
     ///
@@ -1231,13 +1479,17 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` groupName: []const u8 `
     ///
-    pub fn SuperHasGroupImpl(self: KDesktopFile, groupName: []const u8) bool {
+    pub fn superHasGroupImpl(self: KDesktopFile, groupName: []const u8) bool {
         const groupName_str = qtc.libqt_string{
             .len = groupName.len,
             .data = groupName.ptr,
         };
         return qtc.KDesktopFile_SuperHasGroupImpl(@ptrCast(self.ptr), groupName_str);
     }
+
+    /// ### DEPRECATED: Use `onHasGroupImpl` instead
+    ///
+    pub const OnHasGroupImpl = onHasGroupImpl;
 
     /// Inherited from KConfig
     ///
@@ -1251,9 +1503,13 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` callback: *const fn (self: KDesktopFile, groupName: [*:0]const u8) callconv(.c) bool `
     ///
-    pub fn OnHasGroupImpl(self: KDesktopFile, callback: *const fn (KDesktopFile, [*:0]const u8) callconv(.c) bool) void {
+    pub fn onHasGroupImpl(self: KDesktopFile, callback: *const fn (KDesktopFile, [*:0]const u8) callconv(.c) bool) void {
         qtc.KDesktopFile_OnHasGroupImpl(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `groupImpl` instead
+    ///
+    pub const GroupImpl = groupImpl;
 
     /// Inherited from KConfig
     ///
@@ -1267,7 +1523,7 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` groupName: []const u8 `
     ///
-    pub fn GroupImpl(self: KDesktopFile, groupName: []const u8) KConfigGroup {
+    pub fn groupImpl(self: KDesktopFile, groupName: []const u8) KConfigGroup {
         const groupName_str = qtc.libqt_string{
             .len = groupName.len,
             .data = groupName.ptr,
@@ -1275,9 +1531,9 @@ pub const KDesktopFile = extern struct {
         return .{ .ptr = qtc.KDesktopFile_GroupImpl(@ptrCast(self.ptr), groupName_str) };
     }
 
-    /// ### DEPRECATED: Use `SuperGroupImpl` instead
+    /// ### DEPRECATED: Use `superGroupImpl` instead
     ///
-    pub const QBaseGroupImpl = SuperGroupImpl;
+    pub const SuperGroupImpl = superGroupImpl;
 
     /// Inherited from KConfig
     ///
@@ -1291,13 +1547,17 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` groupName: []const u8 `
     ///
-    pub fn SuperGroupImpl(self: KDesktopFile, groupName: []const u8) KConfigGroup {
+    pub fn superGroupImpl(self: KDesktopFile, groupName: []const u8) KConfigGroup {
         const groupName_str = qtc.libqt_string{
             .len = groupName.len,
             .data = groupName.ptr,
         };
         return .{ .ptr = qtc.KDesktopFile_SuperGroupImpl(@ptrCast(self.ptr), groupName_str) };
     }
+
+    /// ### DEPRECATED: Use `onGroupImpl` instead
+    ///
+    pub const OnGroupImpl = onGroupImpl;
 
     /// Inherited from KConfig
     ///
@@ -1313,9 +1573,13 @@ pub const KDesktopFile = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnGroupImpl(self: KDesktopFile, callback: *const fn (KDesktopFile, [*:0]const u8) callconv(.c) KConfigGroup) void {
+    pub fn onGroupImpl(self: KDesktopFile, callback: *const fn (KDesktopFile, [*:0]const u8) callconv(.c) KConfigGroup) void {
         qtc.KDesktopFile_OnGroupImpl(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `deleteGroupImpl` instead
+    ///
+    pub const DeleteGroupImpl = deleteGroupImpl;
 
     /// Inherited from KConfig
     ///
@@ -1331,7 +1595,7 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` flags: flag of kconfigbase_enums.WriteConfigFlag `
     ///
-    pub fn DeleteGroupImpl(self: KDesktopFile, groupName: []const u8, flags: i32) void {
+    pub fn deleteGroupImpl(self: KDesktopFile, groupName: []const u8, flags: i32) void {
         const groupName_str = qtc.libqt_string{
             .len = groupName.len,
             .data = groupName.ptr,
@@ -1339,9 +1603,9 @@ pub const KDesktopFile = extern struct {
         qtc.KDesktopFile_DeleteGroupImpl(@ptrCast(self.ptr), groupName_str, @bitCast(flags));
     }
 
-    /// ### DEPRECATED: Use `SuperDeleteGroupImpl` instead
+    /// ### DEPRECATED: Use `superDeleteGroupImpl` instead
     ///
-    pub const QBaseDeleteGroupImpl = SuperDeleteGroupImpl;
+    pub const SuperDeleteGroupImpl = superDeleteGroupImpl;
 
     /// Inherited from KConfig
     ///
@@ -1357,13 +1621,17 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` flags: flag of kconfigbase_enums.WriteConfigFlag `
     ///
-    pub fn SuperDeleteGroupImpl(self: KDesktopFile, groupName: []const u8, flags: i32) void {
+    pub fn superDeleteGroupImpl(self: KDesktopFile, groupName: []const u8, flags: i32) void {
         const groupName_str = qtc.libqt_string{
             .len = groupName.len,
             .data = groupName.ptr,
         };
         qtc.KDesktopFile_SuperDeleteGroupImpl(@ptrCast(self.ptr), groupName_str, @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `onDeleteGroupImpl` instead
+    ///
+    pub const OnDeleteGroupImpl = onDeleteGroupImpl;
 
     /// Inherited from KConfig
     ///
@@ -1377,9 +1645,13 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` callback: *const fn (self: KDesktopFile, groupName: [*:0]const u8, flags: flag of kconfigbase_enums.WriteConfigFlag) callconv(.c) void `
     ///
-    pub fn OnDeleteGroupImpl(self: KDesktopFile, callback: *const fn (KDesktopFile, [*:0]const u8, i32) callconv(.c) void) void {
+    pub fn onDeleteGroupImpl(self: KDesktopFile, callback: *const fn (KDesktopFile, [*:0]const u8, i32) callconv(.c) void) void {
         qtc.KDesktopFile_OnDeleteGroupImpl(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isGroupImmutableImpl` instead
+    ///
+    pub const IsGroupImmutableImpl = isGroupImmutableImpl;
 
     /// Inherited from KConfig
     ///
@@ -1393,7 +1665,7 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` groupName: []const u8 `
     ///
-    pub fn IsGroupImmutableImpl(self: KDesktopFile, groupName: []const u8) bool {
+    pub fn isGroupImmutableImpl(self: KDesktopFile, groupName: []const u8) bool {
         const groupName_str = qtc.libqt_string{
             .len = groupName.len,
             .data = groupName.ptr,
@@ -1401,9 +1673,9 @@ pub const KDesktopFile = extern struct {
         return qtc.KDesktopFile_IsGroupImmutableImpl(@ptrCast(self.ptr), groupName_str);
     }
 
-    /// ### DEPRECATED: Use `SuperIsGroupImmutableImpl` instead
+    /// ### DEPRECATED: Use `superIsGroupImmutableImpl` instead
     ///
-    pub const QBaseIsGroupImmutableImpl = SuperIsGroupImmutableImpl;
+    pub const SuperIsGroupImmutableImpl = superIsGroupImmutableImpl;
 
     /// Inherited from KConfig
     ///
@@ -1417,13 +1689,17 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` groupName: []const u8 `
     ///
-    pub fn SuperIsGroupImmutableImpl(self: KDesktopFile, groupName: []const u8) bool {
+    pub fn superIsGroupImmutableImpl(self: KDesktopFile, groupName: []const u8) bool {
         const groupName_str = qtc.libqt_string{
             .len = groupName.len,
             .data = groupName.ptr,
         };
         return qtc.KDesktopFile_SuperIsGroupImmutableImpl(@ptrCast(self.ptr), groupName_str);
     }
+
+    /// ### DEPRECATED: Use `onIsGroupImmutableImpl` instead
+    ///
+    pub const OnIsGroupImmutableImpl = onIsGroupImmutableImpl;
 
     /// Inherited from KConfig
     ///
@@ -1437,9 +1713,13 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` callback: *const fn (self: KDesktopFile, groupName: [*:0]const u8) callconv(.c) bool `
     ///
-    pub fn OnIsGroupImmutableImpl(self: KDesktopFile, callback: *const fn (KDesktopFile, [*:0]const u8) callconv(.c) bool) void {
+    pub fn onIsGroupImmutableImpl(self: KDesktopFile, callback: *const fn (KDesktopFile, [*:0]const u8) callconv(.c) bool) void {
         qtc.KDesktopFile_OnIsGroupImmutableImpl(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `virtualHook` instead
+    ///
+    pub const VirtualHook = virtualHook;
 
     /// Inherited from KConfig
     ///
@@ -1455,13 +1735,13 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` data: ?*anyopaque `
     ///
-    pub fn VirtualHook(self: KDesktopFile, id: i32, data: ?*anyopaque) void {
+    pub fn virtualHook(self: KDesktopFile, id: i32, data: ?*anyopaque) void {
         qtc.KDesktopFile_VirtualHook(@ptrCast(self.ptr), @bitCast(id), @ptrCast(data));
     }
 
-    /// ### DEPRECATED: Use `SuperVirtualHook` instead
+    /// ### DEPRECATED: Use `superVirtualHook` instead
     ///
-    pub const QBaseVirtualHook = SuperVirtualHook;
+    pub const SuperVirtualHook = superVirtualHook;
 
     /// Inherited from KConfig
     ///
@@ -1477,9 +1757,13 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` data: ?*anyopaque `
     ///
-    pub fn SuperVirtualHook(self: KDesktopFile, id: i32, data: ?*anyopaque) void {
+    pub fn superVirtualHook(self: KDesktopFile, id: i32, data: ?*anyopaque) void {
         qtc.KDesktopFile_SuperVirtualHook(@ptrCast(self.ptr), @bitCast(id), @ptrCast(data));
     }
+
+    /// ### DEPRECATED: Use `onVirtualHook` instead
+    ///
+    pub const OnVirtualHook = onVirtualHook;
 
     /// Inherited from KConfig
     ///
@@ -1493,23 +1777,23 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` callback: *const fn (self: KDesktopFile, id: i32, data: ?*anyopaque) callconv(.c) void `
     ///
-    pub fn OnVirtualHook(self: KDesktopFile, callback: *const fn (KDesktopFile, i32, ?*anyopaque) callconv(.c) void) void {
+    pub fn onVirtualHook(self: KDesktopFile, callback: *const fn (KDesktopFile, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.KDesktopFile_OnVirtualHook(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kdesktopfile.html#dtor.KDesktopFile)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KDesktopFile `
     ///
-    pub fn Delete(self: KDesktopFile) void {
+    pub fn delete(self: KDesktopFile) void {
         qtc.KDesktopFile_Delete(@ptrCast(self.ptr));
     }
 };

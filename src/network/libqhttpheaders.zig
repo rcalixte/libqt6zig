@@ -16,22 +16,34 @@ pub const QHttpHeaders = extern struct {
 
     pub const _is_QHttpHeaders = {};
 
-    /// New constructs a new QHttpHeaders object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QHttpHeaders {
+    pub const New = new;
+
+    /// Allocate a new QHttpHeaders object in C++ memory
+    ///
+    pub fn new() QHttpHeaders {
         return .{ .ptr = qtc.QHttpHeaders_new() };
     }
 
-    /// New2 constructs a new QHttpHeaders object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QHttpHeaders object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QHttpHeaders `
     ///
-    pub fn New2(other: anytype) QHttpHeaders {
+    pub fn new2(other: anytype) QHttpHeaders {
         comptime _ = @TypeOf(other)._is_QHttpHeaders;
         return .{ .ptr = qtc.QHttpHeaders_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#operator-eq)
     ///
@@ -41,10 +53,14 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` other: QHttpHeaders `
     ///
-    pub fn OperatorAssign(self: QHttpHeaders, other: anytype) void {
+    pub fn operatorAssign(self: QHttpHeaders, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QHttpHeaders;
         qtc.QHttpHeaders_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#swap)
     ///
@@ -54,11 +70,15 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` other: QHttpHeaders `
     ///
-    pub fn Swap(self: QHttpHeaders, other: anytype) void {
+    pub fn swap(self: QHttpHeaders, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QHttpHeaders;
         qtc.QHttpHeaders_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
+    /// ### DEPRECATED: Use `append` instead
+    ///
+    pub const Append = append;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#append)
     ///
     /// ## Parameter(s):
@@ -67,20 +87,24 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    /// ` value: []const u8 `
+    /// ` _value: []const u8 `
     ///
-    pub fn Append(self: QHttpHeaders, name: []const u8, value: []const u8) bool {
+    pub fn append(self: QHttpHeaders, name: []const u8, _value: []const u8) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         const value_str = qtc.libqt_string{
-            .len = value.len,
-            .data = value.ptr,
+            .len = _value.len,
+            .data = _value.ptr,
         };
         return qtc.QHttpHeaders_Append(@ptrCast(self.ptr), name_str, value_str);
     }
 
+    /// ### DEPRECATED: Use `append2` instead
+    ///
+    pub const Append2 = append2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#append)
     ///
     /// ## Parameter(s):
@@ -89,15 +113,19 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` name: qhttpheaders_enums.WellKnownHeader `
     ///
-    /// ` value: []const u8 `
+    /// ` _value: []const u8 `
     ///
-    pub fn Append2(self: QHttpHeaders, name: i32, value: []const u8) bool {
+    pub fn append2(self: QHttpHeaders, name: i32, _value: []const u8) bool {
         const value_str = qtc.libqt_string{
-            .len = value.len,
-            .data = value.ptr,
+            .len = _value.len,
+            .data = _value.ptr,
         };
         return qtc.QHttpHeaders_Append2(@ptrCast(self.ptr), @bitCast(name), value_str);
     }
+
+    /// ### DEPRECATED: Use `insert` instead
+    ///
+    pub const Insert = insert;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#insert)
     ///
@@ -109,19 +137,23 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    /// ` value: []const u8 `
+    /// ` _value: []const u8 `
     ///
-    pub fn Insert(self: QHttpHeaders, i: isize, name: []const u8, value: []const u8) bool {
+    pub fn insert(self: QHttpHeaders, i: isize, name: []const u8, _value: []const u8) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         const value_str = qtc.libqt_string{
-            .len = value.len,
-            .data = value.ptr,
+            .len = _value.len,
+            .data = _value.ptr,
         };
         return qtc.QHttpHeaders_Insert(@ptrCast(self.ptr), @bitCast(i), name_str, value_str);
     }
+
+    /// ### DEPRECATED: Use `insert2` instead
+    ///
+    pub const Insert2 = insert2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#insert)
     ///
@@ -133,15 +165,19 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` name: qhttpheaders_enums.WellKnownHeader `
     ///
-    /// ` value: []const u8 `
+    /// ` _value: []const u8 `
     ///
-    pub fn Insert2(self: QHttpHeaders, i: isize, name: i32, value: []const u8) bool {
+    pub fn insert2(self: QHttpHeaders, i: isize, name: i32, _value: []const u8) bool {
         const value_str = qtc.libqt_string{
-            .len = value.len,
-            .data = value.ptr,
+            .len = _value.len,
+            .data = _value.ptr,
         };
         return qtc.QHttpHeaders_Insert2(@ptrCast(self.ptr), @bitCast(i), @bitCast(name), value_str);
     }
+
+    /// ### DEPRECATED: Use `replace` instead
+    ///
+    pub const Replace = replace;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#replace)
     ///
@@ -155,7 +191,7 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` newValue: []const u8 `
     ///
-    pub fn Replace(self: QHttpHeaders, i: isize, name: []const u8, newValue: []const u8) bool {
+    pub fn replace(self: QHttpHeaders, i: isize, name: []const u8, newValue: []const u8) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -167,6 +203,10 @@ pub const QHttpHeaders = extern struct {
         return qtc.QHttpHeaders_Replace(@ptrCast(self.ptr), @bitCast(i), name_str, newValue_str);
     }
 
+    /// ### DEPRECATED: Use `replace2` instead
+    ///
+    pub const Replace2 = replace2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#replace)
     ///
     /// ## Parameter(s):
@@ -179,13 +219,17 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` newValue: []const u8 `
     ///
-    pub fn Replace2(self: QHttpHeaders, i: isize, name: i32, newValue: []const u8) bool {
+    pub fn replace2(self: QHttpHeaders, i: isize, name: i32, newValue: []const u8) bool {
         const newValue_str = qtc.libqt_string{
             .len = newValue.len,
             .data = newValue.ptr,
         };
         return qtc.QHttpHeaders_Replace2(@ptrCast(self.ptr), @bitCast(i), @bitCast(name), newValue_str);
     }
+
+    /// ### DEPRECATED: Use `replaceOrAppend` instead
+    ///
+    pub const ReplaceOrAppend = replaceOrAppend;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#replaceOrAppend)
     ///
@@ -197,7 +241,7 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` newValue: []const u8 `
     ///
-    pub fn ReplaceOrAppend(self: QHttpHeaders, name: []const u8, newValue: []const u8) bool {
+    pub fn replaceOrAppend(self: QHttpHeaders, name: []const u8, newValue: []const u8) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -209,6 +253,10 @@ pub const QHttpHeaders = extern struct {
         return qtc.QHttpHeaders_ReplaceOrAppend(@ptrCast(self.ptr), name_str, newValue_str);
     }
 
+    /// ### DEPRECATED: Use `replaceOrAppend2` instead
+    ///
+    pub const ReplaceOrAppend2 = replaceOrAppend2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#replaceOrAppend)
     ///
     /// ## Parameter(s):
@@ -219,7 +267,7 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` newValue: []const u8 `
     ///
-    pub fn ReplaceOrAppend2(self: QHttpHeaders, name: i32, newValue: []const u8) bool {
+    pub fn replaceOrAppend2(self: QHttpHeaders, name: i32, newValue: []const u8) bool {
         const newValue_str = qtc.libqt_string{
             .len = newValue.len,
             .data = newValue.ptr,
@@ -227,6 +275,10 @@ pub const QHttpHeaders = extern struct {
         return qtc.QHttpHeaders_ReplaceOrAppend2(@ptrCast(self.ptr), @bitCast(name), newValue_str);
     }
 
+    /// ### DEPRECATED: Use `contains` instead
+    ///
+    pub const Contains = contains;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#contains)
     ///
     /// ## Parameter(s):
@@ -235,7 +287,7 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn Contains(self: QHttpHeaders, name: []const u8) bool {
+    pub fn contains(self: QHttpHeaders, name: []const u8) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -243,6 +295,10 @@ pub const QHttpHeaders = extern struct {
         return qtc.QHttpHeaders_Contains(@ptrCast(self.ptr), name_str);
     }
 
+    /// ### DEPRECATED: Use `contains2` instead
+    ///
+    pub const Contains2 = contains2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#contains)
     ///
     /// ## Parameter(s):
@@ -251,9 +307,13 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` name: qhttpheaders_enums.WellKnownHeader `
     ///
-    pub fn Contains2(self: QHttpHeaders, name: i32) bool {
+    pub fn contains2(self: QHttpHeaders, name: i32) bool {
         return qtc.QHttpHeaders_Contains2(@ptrCast(self.ptr), @bitCast(name));
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#clear)
     ///
@@ -261,9 +321,13 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` self: QHttpHeaders `
     ///
-    pub fn Clear(self: QHttpHeaders) void {
+    pub fn clear(self: QHttpHeaders) void {
         qtc.QHttpHeaders_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAll` instead
+    ///
+    pub const RemoveAll = removeAll;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#removeAll)
     ///
@@ -273,13 +337,17 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn RemoveAll(self: QHttpHeaders, name: []const u8) void {
+    pub fn removeAll(self: QHttpHeaders, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QHttpHeaders_RemoveAll(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `removeAll2` instead
+    ///
+    pub const RemoveAll2 = removeAll2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#removeAll)
     ///
@@ -289,9 +357,13 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` name: qhttpheaders_enums.WellKnownHeader `
     ///
-    pub fn RemoveAll2(self: QHttpHeaders, name: i32) void {
+    pub fn removeAll2(self: QHttpHeaders, name: i32) void {
         qtc.QHttpHeaders_RemoveAll2(@ptrCast(self.ptr), @bitCast(name));
     }
+
+    /// ### DEPRECATED: Use `removeAt` instead
+    ///
+    pub const RemoveAt = removeAt;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#removeAt)
     ///
@@ -301,9 +373,13 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` i: isize `
     ///
-    pub fn RemoveAt(self: QHttpHeaders, i: isize) void {
+    pub fn removeAt(self: QHttpHeaders, i: isize) void {
         qtc.QHttpHeaders_RemoveAt(@ptrCast(self.ptr), @bitCast(i));
     }
+
+    /// ### DEPRECATED: Use `value` instead
+    ///
+    pub const Value = value;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#value)
     ///
@@ -315,17 +391,21 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn Value(self: QHttpHeaders, allocator: std.mem.Allocator, name: []const u8) []u8 {
+    pub fn value(self: QHttpHeaders, allocator: std.mem.Allocator, name: []const u8) []u8 {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         var _bytearray: qtc.libqt_string = qtc.QHttpHeaders_Value(@ptrCast(self.ptr), name_str);
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QHttpHeaders.Value: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QHttpHeaders.value: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `value2` instead
+    ///
+    pub const Value2 = value2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#value)
     ///
@@ -337,13 +417,17 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` name: qhttpheaders_enums.WellKnownHeader `
     ///
-    pub fn Value2(self: QHttpHeaders, allocator: std.mem.Allocator, name: i32) []u8 {
+    pub fn value2(self: QHttpHeaders, allocator: std.mem.Allocator, name: i32) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QHttpHeaders_Value2(@ptrCast(self.ptr), @bitCast(name));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QHttpHeaders.Value2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QHttpHeaders.value2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `values` instead
+    ///
+    pub const Values = values;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#values)
     ///
@@ -355,7 +439,7 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn Values(self: QHttpHeaders, allocator: std.mem.Allocator, name: []const u8) [][]u8 {
+    pub fn values(self: QHttpHeaders, allocator: std.mem.Allocator, name: []const u8) [][]u8 {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -367,15 +451,19 @@ pub const QHttpHeaders = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QHttpHeaders.Values: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QHttpHeaders.values: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QHttpHeaders.Values: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QHttpHeaders.values: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `values2` instead
+    ///
+    pub const Values2 = values2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#values)
     ///
@@ -387,7 +475,7 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` name: qhttpheaders_enums.WellKnownHeader `
     ///
-    pub fn Values2(self: QHttpHeaders, allocator: std.mem.Allocator, name: i32) [][]u8 {
+    pub fn values2(self: QHttpHeaders, allocator: std.mem.Allocator, name: i32) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QHttpHeaders_Values2(@ptrCast(self.ptr), @bitCast(name));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -395,15 +483,19 @@ pub const QHttpHeaders = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QHttpHeaders.Values2: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QHttpHeaders.values2: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QHttpHeaders.Values2: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QHttpHeaders.values2: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `valueAt` instead
+    ///
+    pub const ValueAt = valueAt;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#valueAt)
     ///
@@ -415,13 +507,17 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` i: isize `
     ///
-    pub fn ValueAt(self: QHttpHeaders, allocator: std.mem.Allocator, i: isize) []u8 {
+    pub fn valueAt(self: QHttpHeaders, allocator: std.mem.Allocator, i: isize) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QHttpHeaders_ValueAt(@ptrCast(self.ptr), @bitCast(i));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QHttpHeaders.ValueAt: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QHttpHeaders.valueAt: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `nameAt` instead
+    ///
+    pub const NameAt = nameAt;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#nameAt)
     ///
@@ -433,13 +529,17 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` i: isize `
     ///
-    pub fn NameAt(self: QHttpHeaders, allocator: std.mem.Allocator, i: isize) []u8 {
+    pub fn nameAt(self: QHttpHeaders, allocator: std.mem.Allocator, i: isize) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QHttpHeaders_NameAt(@ptrCast(self.ptr), @bitCast(i));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QHttpHeaders.NameAt: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QHttpHeaders.nameAt: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `combinedValue` instead
+    ///
+    pub const CombinedValue = combinedValue;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#combinedValue)
     ///
@@ -451,17 +551,21 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn CombinedValue(self: QHttpHeaders, allocator: std.mem.Allocator, name: []const u8) []u8 {
+    pub fn combinedValue(self: QHttpHeaders, allocator: std.mem.Allocator, name: []const u8) []u8 {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         var _bytearray: qtc.libqt_string = qtc.QHttpHeaders_CombinedValue(@ptrCast(self.ptr), name_str);
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QHttpHeaders.CombinedValue: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QHttpHeaders.combinedValue: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `combinedValue2` instead
+    ///
+    pub const CombinedValue2 = combinedValue2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#combinedValue)
     ///
@@ -473,13 +577,17 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` name: qhttpheaders_enums.WellKnownHeader `
     ///
-    pub fn CombinedValue2(self: QHttpHeaders, allocator: std.mem.Allocator, name: i32) []u8 {
+    pub fn combinedValue2(self: QHttpHeaders, allocator: std.mem.Allocator, name: i32) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QHttpHeaders_CombinedValue2(@ptrCast(self.ptr), @bitCast(name));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QHttpHeaders.CombinedValue2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QHttpHeaders.combinedValue2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#size)
     ///
@@ -487,9 +595,13 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` self: QHttpHeaders `
     ///
-    pub fn Size(self: QHttpHeaders) isize {
+    pub fn size(self: QHttpHeaders) isize {
         return qtc.QHttpHeaders_Size(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `reserve` instead
+    ///
+    pub const Reserve = reserve;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#reserve)
     ///
@@ -497,11 +609,15 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` self: QHttpHeaders `
     ///
-    /// ` size: isize `
+    /// ` _size: isize `
     ///
-    pub fn Reserve(self: QHttpHeaders, size: isize) void {
-        qtc.QHttpHeaders_Reserve(@ptrCast(self.ptr), @bitCast(size));
+    pub fn reserve(self: QHttpHeaders, _size: isize) void {
+        qtc.QHttpHeaders_Reserve(@ptrCast(self.ptr), @bitCast(_size));
     }
+
+    /// ### DEPRECATED: Use `isEmpty` instead
+    ///
+    pub const IsEmpty = isEmpty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#isEmpty)
     ///
@@ -509,9 +625,13 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` self: QHttpHeaders `
     ///
-    pub fn IsEmpty(self: QHttpHeaders) bool {
+    pub fn isEmpty(self: QHttpHeaders) bool {
         return qtc.QHttpHeaders_IsEmpty(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `wellKnownHeaderName` instead
+    ///
+    pub const WellKnownHeaderName = wellKnownHeaderName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#wellKnownHeaderName)
     ///
@@ -521,13 +641,17 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` name: qhttpheaders_enums.WellKnownHeader `
     ///
-    pub fn WellKnownHeaderName(allocator: std.mem.Allocator, name: i32) []u8 {
+    pub fn wellKnownHeaderName(allocator: std.mem.Allocator, name: i32) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QHttpHeaders_WellKnownHeaderName(@bitCast(name));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QHttpHeaders.WellKnownHeaderName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QHttpHeaders.wellKnownHeaderName: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `fromListOfPairs` instead
+    ///
+    pub const FromListOfPairs = fromListOfPairs;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#fromListOfPairs)
     ///
@@ -537,10 +661,10 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` headers: []Struct_u8_u8 `
     ///
-    pub fn FromListOfPairs(allocator: std.mem.Allocator, headers: []Struct_u8_u8) QHttpHeaders {
-        const headers_pairs = allocator.alloc(qtc.libqt_pair, headers.len) catch @panic("QHttpHeaders.FromListOfPairs: Memory allocation failed");
+    pub fn fromListOfPairs(allocator: std.mem.Allocator, headers: []Struct_u8_u8) QHttpHeaders {
+        const headers_pairs = allocator.alloc(qtc.libqt_pair, headers.len) catch @panic("QHttpHeaders.fromListOfPairs: Memory allocation failed");
         defer allocator.free(headers_pairs);
-        const headers_str = allocator.alloc(qtc.libqt_string, headers.len * 2) catch @panic("QHttpHeaders.FromListOfPairs: Memory allocation failed");
+        const headers_str = allocator.alloc(qtc.libqt_string, headers.len * 2) catch @panic("QHttpHeaders.fromListOfPairs: Memory allocation failed");
         defer allocator.free(headers_str);
         for (headers, 0..) |headers_item, i| {
             headers_str[i * 2] = qtc.libqt_string{
@@ -563,6 +687,10 @@ pub const QHttpHeaders = extern struct {
         return .{ .ptr = qtc.QHttpHeaders_FromListOfPairs(headers_list) };
     }
 
+    /// ### DEPRECATED: Use `fromMultiMap` instead
+    ///
+    pub const FromMultiMap = fromMultiMap;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#fromMultiMap)
     ///
     /// ## Parameter(s):
@@ -571,13 +699,13 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` headers: ArrayMap_u8_Sliceu8 `
     ///
-    pub fn FromMultiMap(allocator: std.mem.Allocator, headers: ArrayMap_u8_Sliceu8) QHttpHeaders {
+    pub fn fromMultiMap(allocator: std.mem.Allocator, headers: ArrayMap_u8_Sliceu8) QHttpHeaders {
         const headers_count = headers.count();
-        const headers_keys = allocator.alloc(qtc.libqt_string, headers_count) catch @panic("QHttpHeaders.FromMultiMap: Memory allocation failed");
+        const headers_keys = allocator.alloc(qtc.libqt_string, headers_count) catch @panic("QHttpHeaders.fromMultiMap: Memory allocation failed");
         defer allocator.free(headers_keys);
-        const headers_values = allocator.alloc(qtc.libqt_list, headers_count) catch @panic("QHttpHeaders.FromMultiMap: Memory allocation failed");
+        const headers_values = allocator.alloc(qtc.libqt_list, headers_count) catch @panic("QHttpHeaders.fromMultiMap: Memory allocation failed");
         defer allocator.free(headers_values);
-        const headers_inners = allocator.alloc([]qtc.libqt_string, headers_count) catch @panic("QHttpHeaders.FromMultiMap: Memory allocation failed");
+        const headers_inners = allocator.alloc([]qtc.libqt_string, headers_count) catch @panic("QHttpHeaders.fromMultiMap: Memory allocation failed");
         defer {
             for (headers_inners) |headers_inner|
                 allocator.free(headers_inner);
@@ -592,12 +720,12 @@ pub const QHttpHeaders = extern struct {
                 .data = headers_key.ptr,
             };
             headers_values[i].len = it_entry.value_ptr.*.len;
-            const headers_val = allocator.alloc(qtc.libqt_string, it_entry.value_ptr.len) catch @panic("QHttpHeaders.FromMultiMap: Memory allocation failed");
+            const headers_val = allocator.alloc(qtc.libqt_string, it_entry.value_ptr.len) catch @panic("QHttpHeaders.fromMultiMap: Memory allocation failed");
             headers_inners[i] = headers_val;
-            for (it_entry.value_ptr.*, 0..) |value, j|
+            for (it_entry.value_ptr.*, 0..) |str_item, j|
                 headers_val[j] = qtc.libqt_string{
-                    .len = value.len,
-                    .data = value.ptr,
+                    .len = str_item.len,
+                    .data = str_item.ptr,
                 };
             headers_values[i].data = @ptrCast(headers_val.ptr);
         }
@@ -609,6 +737,10 @@ pub const QHttpHeaders = extern struct {
         return .{ .ptr = qtc.QHttpHeaders_FromMultiMap(headers_map) };
     }
 
+    /// ### DEPRECATED: Use `fromMultiHash` instead
+    ///
+    pub const FromMultiHash = fromMultiHash;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#fromMultiHash)
     ///
     /// ## Parameter(s):
@@ -617,13 +749,13 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` headers: Map_u8_Sliceu8 `
     ///
-    pub fn FromMultiHash(allocator: std.mem.Allocator, headers: Map_u8_Sliceu8) QHttpHeaders {
+    pub fn fromMultiHash(allocator: std.mem.Allocator, headers: Map_u8_Sliceu8) QHttpHeaders {
         const headers_count = headers.count();
-        const headers_keys = allocator.alloc(qtc.libqt_string, headers_count) catch @panic("QHttpHeaders.FromMultiHash: Memory allocation failed");
+        const headers_keys = allocator.alloc(qtc.libqt_string, headers_count) catch @panic("QHttpHeaders.fromMultiHash: Memory allocation failed");
         defer allocator.free(headers_keys);
-        const headers_values = allocator.alloc(qtc.libqt_list, headers_count) catch @panic("QHttpHeaders.FromMultiHash: Memory allocation failed");
+        const headers_values = allocator.alloc(qtc.libqt_list, headers_count) catch @panic("QHttpHeaders.fromMultiHash: Memory allocation failed");
         defer allocator.free(headers_values);
-        const headers_inners = allocator.alloc([]qtc.libqt_string, headers_count) catch @panic("QHttpHeaders.FromMultiHash: Memory allocation failed");
+        const headers_inners = allocator.alloc([]qtc.libqt_string, headers_count) catch @panic("QHttpHeaders.fromMultiHash: Memory allocation failed");
         defer {
             for (headers_inners) |headers_inner|
                 allocator.free(headers_inner);
@@ -638,12 +770,12 @@ pub const QHttpHeaders = extern struct {
                 .data = headers_key.ptr,
             };
             headers_values[i].len = it_entry.value_ptr.*.len;
-            const headers_val = allocator.alloc(qtc.libqt_string, it_entry.value_ptr.len) catch @panic("QHttpHeaders.FromMultiHash: Memory allocation failed");
+            const headers_val = allocator.alloc(qtc.libqt_string, it_entry.value_ptr.len) catch @panic("QHttpHeaders.fromMultiHash: Memory allocation failed");
             headers_inners[i] = headers_val;
-            for (it_entry.value_ptr.*, 0..) |value, j|
+            for (it_entry.value_ptr.*, 0..) |str_item, j|
                 headers_val[j] = qtc.libqt_string{
-                    .len = value.len,
-                    .data = value.ptr,
+                    .len = str_item.len,
+                    .data = str_item.ptr,
                 };
             headers_values[i].data = @ptrCast(headers_val.ptr);
         }
@@ -655,6 +787,10 @@ pub const QHttpHeaders = extern struct {
         return .{ .ptr = qtc.QHttpHeaders_FromMultiHash(headers_map) };
     }
 
+    /// ### DEPRECATED: Use `toListOfPairs` instead
+    ///
+    pub const ToListOfPairs = toListOfPairs;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#toListOfPairs)
     ///
     /// ## Parameter(s):
@@ -663,23 +799,23 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToListOfPairs(self: QHttpHeaders, allocator: std.mem.Allocator) []Struct_u8_u8 {
+    pub fn toListOfPairs(self: QHttpHeaders, allocator: std.mem.Allocator) []Struct_u8_u8 {
         const _arr: qtc.libqt_list = qtc.QHttpHeaders_ToListOfPairs(@ptrCast(self.ptr));
-        const _data: [*]qtc.libqt_pair = @ptrCast(@alignCast(_arr.data));
+        const _data_val: [*]qtc.libqt_pair = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
-                qtc.libqt_string_free(@ptrCast(@alignCast(_data[i].first)));
-                qtc.libqt_string_free(@ptrCast(@alignCast(_data[i].second)));
+                qtc.libqt_string_free(@ptrCast(@alignCast(_data_val[i].first)));
+                qtc.libqt_string_free(@ptrCast(@alignCast(_data_val[i].second)));
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc(Struct_u8_u8, _arr.len) catch @panic("QHttpHeaders.ToListOfPairs: Memory allocation failed");
+        const _ret = allocator.alloc(Struct_u8_u8, _arr.len) catch @panic("QHttpHeaders.toListOfPairs: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _first_str: *qtc.libqt_string = @ptrCast(@alignCast(_data[i].first));
-            const _first_slice = allocator.alloc(u8, _first_str.len) catch @panic("QHttpHeaders.ToListOfPairs: Memory allocation failed");
+            const _first_str: *qtc.libqt_string = @ptrCast(@alignCast(_data_val[i].first));
+            const _first_slice = allocator.alloc(u8, _first_str.len) catch @panic("QHttpHeaders.toListOfPairs: Memory allocation failed");
             @memcpy(_first_slice, _first_str.data[0.._first_str.len]);
-            const _second_str: *qtc.libqt_string = @ptrCast(@alignCast(_data[i].second));
-            const _second_slice = allocator.alloc(u8, _second_str.len) catch @panic("QHttpHeaders.ToListOfPairs: Memory allocation failed");
+            const _second_str: *qtc.libqt_string = @ptrCast(@alignCast(_data_val[i].second));
+            const _second_slice = allocator.alloc(u8, _second_str.len) catch @panic("QHttpHeaders.toListOfPairs: Memory allocation failed");
             @memcpy(_second_slice, _second_str.data[0.._second_str.len]);
             _ret[i] = Struct_u8_u8{
                 .first = _first_slice,
@@ -689,6 +825,10 @@ pub const QHttpHeaders = extern struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `toMultiMap` instead
+    ///
+    pub const ToMultiMap = toMultiMap;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#toMultiMap)
     ///
     /// ## Parameter(s):
@@ -697,10 +837,10 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToMultiMap(self: QHttpHeaders, allocator: std.mem.Allocator) ArrayMap_u8_Sliceu8 {
+    pub fn toMultiMap(self: QHttpHeaders, allocator: std.mem.Allocator) ArrayMap_u8_Sliceu8 {
         const _map: qtc.libqt_map = qtc.QHttpHeaders_ToMultiMap(@ptrCast(self.ptr));
         var _ret: ArrayMap_u8_Sliceu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QHttpHeaders.ToMultiMap: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QHttpHeaders.toMultiMap: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
@@ -720,13 +860,13 @@ pub const QHttpHeaders = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("QHttpHeaders.ToMultiMap: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("QHttpHeaders.toMultiMap: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
             const _value_strings: [*]qtc.libqt_string = @ptrCast(@alignCast(_value.data));
-            const _value_slice = allocator.alloc([]u8, _value.len) catch @panic("QHttpHeaders.ToMultiMap: Memory allocation failed");
+            const _value_slice = allocator.alloc([]u8, _value.len) catch @panic("QHttpHeaders.toMultiMap: Memory allocation failed");
             for (0.._value.len) |j| {
-                const _vslice = allocator.alloc(u8, _value_strings[j].len) catch @panic("QHttpHeaders.ToMultiMap: Memory allocation failed");
+                const _vslice = allocator.alloc(u8, _value_strings[j].len) catch @panic("QHttpHeaders.toMultiMap: Memory allocation failed");
                 @memcpy(_vslice, _value_strings[j].data);
                 _value_slice[j] = _vslice;
             }
@@ -734,6 +874,10 @@ pub const QHttpHeaders = extern struct {
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `toMultiHash` instead
+    ///
+    pub const ToMultiHash = toMultiHash;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#toMultiHash)
     ///
@@ -743,10 +887,10 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToMultiHash(self: QHttpHeaders, allocator: std.mem.Allocator) Map_u8_Sliceu8 {
+    pub fn toMultiHash(self: QHttpHeaders, allocator: std.mem.Allocator) Map_u8_Sliceu8 {
         const _map: qtc.libqt_map = qtc.QHttpHeaders_ToMultiHash(@ptrCast(self.ptr));
         var _ret: Map_u8_Sliceu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QHttpHeaders.ToMultiHash: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QHttpHeaders.toMultiHash: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
@@ -766,13 +910,13 @@ pub const QHttpHeaders = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("QHttpHeaders.ToMultiHash: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("QHttpHeaders.toMultiHash: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
             const _value_strings: [*]qtc.libqt_string = @ptrCast(@alignCast(_value.data));
-            const _value_slice = allocator.alloc([]u8, _value.len) catch @panic("QHttpHeaders.ToMultiHash: Memory allocation failed");
+            const _value_slice = allocator.alloc([]u8, _value.len) catch @panic("QHttpHeaders.toMultiHash: Memory allocation failed");
             for (0.._value.len) |j| {
-                const _vslice = allocator.alloc(u8, _value_strings[j].len) catch @panic("QHttpHeaders.ToMultiHash: Memory allocation failed");
+                const _vslice = allocator.alloc(u8, _value_strings[j].len) catch @panic("QHttpHeaders.toMultiHash: Memory allocation failed");
                 @memcpy(_vslice, _value_strings[j].data);
                 _value_slice[j] = _vslice;
             }
@@ -780,6 +924,10 @@ pub const QHttpHeaders = extern struct {
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `value22` instead
+    ///
+    pub const Value22 = value22;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#value)
     ///
@@ -793,7 +941,7 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` defaultValue: []u8 `
     ///
-    pub fn Value22(self: QHttpHeaders, allocator: std.mem.Allocator, name: []const u8, defaultValue: []u8) []u8 {
+    pub fn value22(self: QHttpHeaders, allocator: std.mem.Allocator, name: []const u8, defaultValue: []u8) []u8 {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -804,10 +952,14 @@ pub const QHttpHeaders = extern struct {
         };
         var _bytearray: qtc.libqt_string = qtc.QHttpHeaders_Value22(@ptrCast(self.ptr), name_str, defaultValue_str);
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QHttpHeaders.Value22: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QHttpHeaders.value22: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `value23` instead
+    ///
+    pub const Value23 = value23;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#value)
     ///
@@ -821,31 +973,31 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` defaultValue: []u8 `
     ///
-    pub fn Value23(self: QHttpHeaders, allocator: std.mem.Allocator, name: i32, defaultValue: []u8) []u8 {
+    pub fn value23(self: QHttpHeaders, allocator: std.mem.Allocator, name: i32, defaultValue: []u8) []u8 {
         const defaultValue_str = qtc.libqt_string{
             .len = defaultValue.len,
             .data = defaultValue.ptr,
         };
         var _bytearray: qtc.libqt_string = qtc.QHttpHeaders_Value23(@ptrCast(self.ptr), @bitCast(name), defaultValue_str);
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QHttpHeaders.Value23: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QHttpHeaders.value23: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#dtor.QHttpHeaders)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QHttpHeaders `
     ///
-    pub fn Delete(self: QHttpHeaders) void {
+    pub fn delete(self: QHttpHeaders) void {
         qtc.QHttpHeaders_Delete(@ptrCast(self.ptr));
     }
 };

@@ -86,34 +86,50 @@ pub const kColorPicker__KColorPicker = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new kColorPicker::KColorPicker object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() kColorPicker__KColorPicker {
+    pub const New = new;
+
+    /// Allocate a new kColorPicker::KColorPicker object in C++ memory
+    ///
+    pub fn new() kColorPicker__KColorPicker {
         return .{ .ptr = qtc.kColorPicker__KColorPicker_new() };
     }
 
-    /// New2 constructs a new kColorPicker::KColorPicker object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new kColorPicker::KColorPicker object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` showAlphaChannel: bool `
     ///
-    pub fn New2(showAlphaChannel: bool) kColorPicker__KColorPicker {
+    pub fn new2(showAlphaChannel: bool) kColorPicker__KColorPicker {
         return .{ .ptr = qtc.kColorPicker__KColorPicker_new2(showAlphaChannel) };
     }
 
-    /// New3 constructs a new kColorPicker::KColorPicker object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new kColorPicker::KColorPicker object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` showAlphaChannel: bool `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New3(showAlphaChannel: bool, parent: anytype) kColorPicker__KColorPicker {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.kColorPicker__KColorPicker_new3(showAlphaChannel, @ptrCast(parent.ptr)) };
+    pub fn new3(showAlphaChannel: bool, _parent: anytype) kColorPicker__KColorPicker {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.kColorPicker__KColorPicker_new3(showAlphaChannel, @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -121,9 +137,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn MetaObject(self: kColorPicker__KColorPicker) QMetaObject {
+    pub fn metaObject(self: kColorPicker__KColorPicker) QMetaObject {
         return .{ .ptr = qtc.kColorPicker__KColorPicker_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -135,13 +155,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: kColorPicker__KColorPicker, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: kColorPicker__KColorPicker, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.kColorPicker__KColorPicker_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -151,9 +171,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn SuperMetaObject(self: kColorPicker__KColorPicker) QMetaObject {
+    pub fn superMetaObject(self: kColorPicker__KColorPicker) QMetaObject {
         return .{ .ptr = qtc.kColorPicker__KColorPicker_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -161,10 +185,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: kColorPicker__KColorPicker, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: kColorPicker__KColorPicker, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.kColorPicker__KColorPicker_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -174,13 +202,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.kColorPicker__KColorPicker_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -190,10 +218,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: kColorPicker__KColorPicker, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: kColorPicker__KColorPicker, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.kColorPicker__KColorPicker_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -205,9 +237,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: kColorPicker__KColorPicker, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: kColorPicker__KColorPicker, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.kColorPicker__KColorPicker_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -217,13 +253,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.kColorPicker__KColorPicker_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -237,9 +273,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: kColorPicker__KColorPicker, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: kColorPicker__KColorPicker, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.kColorPicker__KColorPicker_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -249,27 +289,18 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kColorPicker__KColorPicker.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("kColorPicker__KColorPicker.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
-    /// ### [Upstream resources](https://github.com/ksnip/kcolorpicker)
+    /// ### DEPRECATED: Use `setFixedSize` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: kColorPicker__KColorPicker `
-    ///
-    /// ` size: QSize `
-    ///
-    pub fn SetFixedSize(self: kColorPicker__KColorPicker, size: anytype) void {
-        comptime _ = @TypeOf(size)._is_QSize;
-        qtc.kColorPicker__KColorPicker_SetFixedSize(@ptrCast(self.ptr), @ptrCast(size.ptr));
-    }
+    pub const SetFixedSize = setFixedSize;
 
     /// ### [Upstream resources](https://github.com/ksnip/kcolorpicker)
     ///
@@ -277,13 +308,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` width: i32 `
+    /// ` _size: QSize `
     ///
-    /// ` height: i32 `
-    ///
-    pub fn SetFixedSize2(self: kColorPicker__KColorPicker, width: i32, height: i32) void {
-        qtc.kColorPicker__KColorPicker_SetFixedSize2(@ptrCast(self.ptr), @bitCast(width), @bitCast(height));
+    pub fn setFixedSize(self: kColorPicker__KColorPicker, _size: anytype) void {
+        comptime _ = @TypeOf(_size)._is_QSize;
+        qtc.kColorPicker__KColorPicker_SetFixedSize(@ptrCast(self.ptr), @ptrCast(_size.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// ### [Upstream resources](https://github.com/ksnip/kcolorpicker)
     ///
@@ -291,32 +325,45 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn Color(self: kColorPicker__KColorPicker) QColor {
+    /// ` _width: i32 `
+    ///
+    /// ` _height: i32 `
+    ///
+    pub fn setFixedSize2(self: kColorPicker__KColorPicker, _width: i32, _height: i32) void {
+        qtc.kColorPicker__KColorPicker_SetFixedSize2(@ptrCast(self.ptr), @bitCast(_width), @bitCast(_height));
+    }
+
+    /// ### DEPRECATED: Use `color` instead
+    ///
+    pub const Color = color;
+
+    /// ### [Upstream resources](https://github.com/ksnip/kcolorpicker)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: kColorPicker__KColorPicker `
+    ///
+    pub fn color(self: kColorPicker__KColorPicker) QColor {
         return .{ .ptr = qtc.kColorPicker__KColorPicker_Color(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `resetColors` instead
+    ///
+    pub const ResetColors = resetColors;
+
     /// ### [Upstream resources](https://github.com/ksnip/kcolorpicker)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn ResetColors(self: kColorPicker__KColorPicker) void {
+    pub fn resetColors(self: kColorPicker__KColorPicker) void {
         qtc.kColorPicker__KColorPicker_ResetColors(@ptrCast(self.ptr));
     }
 
-    /// ### [Upstream resources](https://github.com/ksnip/kcolorpicker)
+    /// ### DEPRECATED: Use `setColor` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: kColorPicker__KColorPicker `
-    ///
-    /// ` color: QColor `
-    ///
-    pub fn SetColor(self: kColorPicker__KColorPicker, color: anytype) void {
-        comptime _ = @TypeOf(color)._is_QColor;
-        qtc.kColorPicker__KColorPicker_SetColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
-    }
+    pub const SetColor = setColor;
 
     /// ### [Upstream resources](https://github.com/ksnip/kcolorpicker)
     ///
@@ -324,12 +371,33 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` color: QColor `
+    /// ` _color: QColor `
     ///
-    pub fn ColorChanged(self: kColorPicker__KColorPicker, color: anytype) void {
-        comptime _ = @TypeOf(color)._is_QColor;
-        qtc.kColorPicker__KColorPicker_ColorChanged(@ptrCast(self.ptr), @ptrCast(color.ptr));
+    pub fn setColor(self: kColorPicker__KColorPicker, _color: anytype) void {
+        comptime _ = @TypeOf(_color)._is_QColor;
+        qtc.kColorPicker__KColorPicker_SetColor(@ptrCast(self.ptr), @ptrCast(_color.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorChanged` instead
+    ///
+    pub const ColorChanged = colorChanged;
+
+    /// ### [Upstream resources](https://github.com/ksnip/kcolorpicker)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: kColorPicker__KColorPicker `
+    ///
+    /// ` _color: QColor `
+    ///
+    pub fn colorChanged(self: kColorPicker__KColorPicker, _color: anytype) void {
+        comptime _ = @TypeOf(_color)._is_QColor;
+        qtc.kColorPicker__KColorPicker_ColorChanged(@ptrCast(self.ptr), @ptrCast(_color.ptr));
+    }
+
+    /// ### DEPRECATED: Use `onColorChanged` instead
+    ///
+    pub const OnColorChanged = onColorChanged;
 
     /// ### [Upstream resources](https://github.com/ksnip/kcolorpicker)
     ///
@@ -339,9 +407,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, color: QColor) callconv(.c) void `
     ///
-    pub fn OnColorChanged(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QColor) callconv(.c) void) void {
+    pub fn onColorChanged(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QColor) callconv(.c) void) void {
         qtc.kColorPicker__KColorPicker_Connect_ColorChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -353,15 +425,19 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kColorPicker__KColorPicker.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("kColorPicker__KColorPicker.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -375,15 +451,19 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kColorPicker__KColorPicker.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("kColorPicker__KColorPicker.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `resetColors1` instead
+    ///
+    pub const ResetColors1 = resetColors1;
 
     /// ### [Upstream resources](https://github.com/ksnip/kcolorpicker)
     ///
@@ -393,9 +473,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` showAlphaChannel: bool `
     ///
-    pub fn ResetColors1(self: kColorPicker__KColorPicker, showAlphaChannel: bool) void {
+    pub fn resetColors1(self: kColorPicker__KColorPicker, showAlphaChannel: bool) void {
         qtc.kColorPicker__KColorPicker_ResetColors1(@ptrCast(self.ptr), showAlphaChannel);
     }
+
+    /// ### DEPRECATED: Use `toolButtonStyle` instead
+    ///
+    pub const ToolButtonStyle = toolButtonStyle;
 
     /// Inherited from QToolButton
     ///
@@ -409,9 +493,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` qnamespace_enums.ToolButtonStyle `
     ///
-    pub fn ToolButtonStyle(self: kColorPicker__KColorPicker) i32 {
+    pub fn toolButtonStyle(self: kColorPicker__KColorPicker) i32 {
         return qtc.QToolButton_ToolButtonStyle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `arrowType` instead
+    ///
+    pub const ArrowType = arrowType;
 
     /// Inherited from QToolButton
     ///
@@ -425,9 +513,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` qnamespace_enums.ArrowType `
     ///
-    pub fn ArrowType(self: kColorPicker__KColorPicker) i32 {
+    pub fn arrowType(self: kColorPicker__KColorPicker) i32 {
         return qtc.QToolButton_ArrowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setArrowType` instead
+    ///
+    pub const SetArrowType = setArrowType;
 
     /// Inherited from QToolButton
     ///
@@ -439,9 +531,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ArrowType `
     ///
-    pub fn SetArrowType(self: kColorPicker__KColorPicker, typeVal: i32) void {
+    pub fn setArrowType(self: kColorPicker__KColorPicker, typeVal: i32) void {
         qtc.QToolButton_SetArrowType(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setMenu` instead
+    ///
+    pub const SetMenu = setMenu;
 
     /// Inherited from QToolButton
     ///
@@ -451,12 +547,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` menu: QMenu `
+    /// ` _menu: QMenu `
     ///
-    pub fn SetMenu(self: kColorPicker__KColorPicker, menu: anytype) void {
-        comptime _ = @TypeOf(menu)._is_QMenu;
-        qtc.QToolButton_SetMenu(@ptrCast(self.ptr), @ptrCast(menu.ptr));
+    pub fn setMenu(self: kColorPicker__KColorPicker, _menu: anytype) void {
+        comptime _ = @TypeOf(_menu)._is_QMenu;
+        qtc.QToolButton_SetMenu(@ptrCast(self.ptr), @ptrCast(_menu.ptr));
     }
+
+    /// ### DEPRECATED: Use `menu` instead
+    ///
+    pub const Menu = menu;
 
     /// Inherited from QToolButton
     ///
@@ -466,9 +566,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn Menu(self: kColorPicker__KColorPicker) QMenu {
+    pub fn menu(self: kColorPicker__KColorPicker) QMenu {
         return .{ .ptr = qtc.QToolButton_Menu(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPopupMode` instead
+    ///
+    pub const SetPopupMode = setPopupMode;
 
     /// Inherited from QToolButton
     ///
@@ -480,9 +584,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` mode: qtoolbutton_enums.ToolButtonPopupMode `
     ///
-    pub fn SetPopupMode(self: kColorPicker__KColorPicker, mode: i32) void {
+    pub fn setPopupMode(self: kColorPicker__KColorPicker, mode: i32) void {
         qtc.QToolButton_SetPopupMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `popupMode` instead
+    ///
+    pub const PopupMode = popupMode;
 
     /// Inherited from QToolButton
     ///
@@ -496,9 +604,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` qtoolbutton_enums.ToolButtonPopupMode `
     ///
-    pub fn PopupMode(self: kColorPicker__KColorPicker) i32 {
+    pub fn popupMode(self: kColorPicker__KColorPicker) i32 {
         return qtc.QToolButton_PopupMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `defaultAction` instead
+    ///
+    pub const DefaultAction = defaultAction;
 
     /// Inherited from QToolButton
     ///
@@ -508,9 +620,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn DefaultAction(self: kColorPicker__KColorPicker) QAction {
+    pub fn defaultAction(self: kColorPicker__KColorPicker) QAction {
         return .{ .ptr = qtc.QToolButton_DefaultAction(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAutoRaise` instead
+    ///
+    pub const SetAutoRaise = setAutoRaise;
 
     /// Inherited from QToolButton
     ///
@@ -522,9 +638,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetAutoRaise(self: kColorPicker__KColorPicker, enable: bool) void {
+    pub fn setAutoRaise(self: kColorPicker__KColorPicker, enable: bool) void {
         qtc.QToolButton_SetAutoRaise(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `autoRaise` instead
+    ///
+    pub const AutoRaise = autoRaise;
 
     /// Inherited from QToolButton
     ///
@@ -534,9 +654,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn AutoRaise(self: kColorPicker__KColorPicker) bool {
+    pub fn autoRaise(self: kColorPicker__KColorPicker) bool {
         return qtc.QToolButton_AutoRaise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMenu` instead
+    ///
+    pub const ShowMenu = showMenu;
 
     /// Inherited from QToolButton
     ///
@@ -546,9 +670,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn ShowMenu(self: kColorPicker__KColorPicker) void {
+    pub fn showMenu(self: kColorPicker__KColorPicker) void {
         qtc.QToolButton_ShowMenu(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolButtonStyle` instead
+    ///
+    pub const SetToolButtonStyle = setToolButtonStyle;
 
     /// Inherited from QToolButton
     ///
@@ -558,11 +686,15 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` style: qnamespace_enums.ToolButtonStyle `
+    /// ` _style: qnamespace_enums.ToolButtonStyle `
     ///
-    pub fn SetToolButtonStyle(self: kColorPicker__KColorPicker, style: i32) void {
-        qtc.QToolButton_SetToolButtonStyle(@ptrCast(self.ptr), @bitCast(style));
+    pub fn setToolButtonStyle(self: kColorPicker__KColorPicker, _style: i32) void {
+        qtc.QToolButton_SetToolButtonStyle(@ptrCast(self.ptr), @bitCast(_style));
     }
+
+    /// ### DEPRECATED: Use `setDefaultAction` instead
+    ///
+    pub const SetDefaultAction = setDefaultAction;
 
     /// Inherited from QToolButton
     ///
@@ -572,12 +704,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` defaultAction: QAction `
+    /// ` _defaultAction: QAction `
     ///
-    pub fn SetDefaultAction(self: kColorPicker__KColorPicker, defaultAction: anytype) void {
-        comptime _ = @TypeOf(defaultAction)._is_QAction;
-        qtc.QToolButton_SetDefaultAction(@ptrCast(self.ptr), @ptrCast(defaultAction.ptr));
+    pub fn setDefaultAction(self: kColorPicker__KColorPicker, _defaultAction: anytype) void {
+        comptime _ = @TypeOf(_defaultAction)._is_QAction;
+        qtc.QToolButton_SetDefaultAction(@ptrCast(self.ptr), @ptrCast(_defaultAction.ptr));
     }
+
+    /// ### DEPRECATED: Use `triggered` instead
+    ///
+    pub const Triggered = triggered;
 
     /// Inherited from QToolButton
     ///
@@ -589,10 +725,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param1: QAction `
     ///
-    pub fn Triggered(self: kColorPicker__KColorPicker, param1: anytype) void {
+    pub fn triggered(self: kColorPicker__KColorPicker, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QAction;
         qtc.QToolButton_Triggered(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTriggered` instead
+    ///
+    pub const OnTriggered = onTriggered;
 
     /// Inherited from QToolButton
     ///
@@ -604,9 +744,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, param1: QAction) callconv(.c) void `
     ///
-    pub fn OnTriggered(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QAction) callconv(.c) void) void {
+    pub fn onTriggered(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QAction) callconv(.c) void) void {
         qtc.QToolButton_Connect_Triggered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setText` instead
+    ///
+    pub const SetText = setText;
 
     /// Inherited from QAbstractButton
     ///
@@ -616,15 +760,19 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn SetText(self: kColorPicker__KColorPicker, text: []const u8) void {
+    pub fn setText(self: kColorPicker__KColorPicker, _text: []const u8) void {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         qtc.QAbstractButton_SetText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `text` instead
+    ///
+    pub const Text = text;
 
     /// Inherited from QAbstractButton
     ///
@@ -636,13 +784,17 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: kColorPicker__KColorPicker, allocator: std.mem.Allocator) []const u8 {
+    pub fn text(self: kColorPicker__KColorPicker, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAbstractButton_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kColorPicker__KColorPicker.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("kColorPicker__KColorPicker.text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setIcon` instead
+    ///
+    pub const SetIcon = setIcon;
 
     /// Inherited from QAbstractButton
     ///
@@ -652,12 +804,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
-    pub fn SetIcon(self: kColorPicker__KColorPicker, icon: anytype) void {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        qtc.QAbstractButton_SetIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
+    pub fn setIcon(self: kColorPicker__KColorPicker, _icon: anytype) void {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        qtc.QAbstractButton_SetIcon(@ptrCast(self.ptr), @ptrCast(_icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `icon` instead
+    ///
+    pub const Icon = icon;
 
     /// Inherited from QAbstractButton
     ///
@@ -667,9 +823,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn Icon(self: kColorPicker__KColorPicker) QIcon {
+    pub fn icon(self: kColorPicker__KColorPicker) QIcon {
         return .{ .ptr = qtc.QAbstractButton_Icon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `iconSize` instead
+    ///
+    pub const IconSize = iconSize;
 
     /// Inherited from QAbstractButton
     ///
@@ -679,9 +839,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn IconSize(self: kColorPicker__KColorPicker) QSize {
+    pub fn iconSize(self: kColorPicker__KColorPicker) QSize {
         return .{ .ptr = qtc.QAbstractButton_IconSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setShortcut` instead
+    ///
+    pub const SetShortcut = setShortcut;
 
     /// Inherited from QAbstractButton
     ///
@@ -693,10 +857,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn SetShortcut(self: kColorPicker__KColorPicker, key: anytype) void {
+    pub fn setShortcut(self: kColorPicker__KColorPicker, key: anytype) void {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         qtc.QAbstractButton_SetShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `shortcut` instead
+    ///
+    pub const Shortcut = shortcut;
 
     /// Inherited from QAbstractButton
     ///
@@ -706,9 +874,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn Shortcut(self: kColorPicker__KColorPicker) QKeySequence {
+    pub fn shortcut(self: kColorPicker__KColorPicker) QKeySequence {
         return .{ .ptr = qtc.QAbstractButton_Shortcut(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCheckable` instead
+    ///
+    pub const SetCheckable = setCheckable;
 
     /// Inherited from QAbstractButton
     ///
@@ -720,9 +892,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` checkable: bool `
     ///
-    pub fn SetCheckable(self: kColorPicker__KColorPicker, checkable: bool) void {
+    pub fn setCheckable(self: kColorPicker__KColorPicker, checkable: bool) void {
         qtc.QAbstractButton_SetCheckable(@ptrCast(self.ptr), checkable);
     }
+
+    /// ### DEPRECATED: Use `isCheckable` instead
+    ///
+    pub const IsCheckable = isCheckable;
 
     /// Inherited from QAbstractButton
     ///
@@ -732,9 +908,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn IsCheckable(self: kColorPicker__KColorPicker) bool {
+    pub fn isCheckable(self: kColorPicker__KColorPicker) bool {
         return qtc.QAbstractButton_IsCheckable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isChecked` instead
+    ///
+    pub const IsChecked = isChecked;
 
     /// Inherited from QAbstractButton
     ///
@@ -744,9 +924,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn IsChecked(self: kColorPicker__KColorPicker) bool {
+    pub fn isChecked(self: kColorPicker__KColorPicker) bool {
         return qtc.QAbstractButton_IsChecked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDown` instead
+    ///
+    pub const SetDown = setDown;
 
     /// Inherited from QAbstractButton
     ///
@@ -758,9 +942,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` down: bool `
     ///
-    pub fn SetDown(self: kColorPicker__KColorPicker, down: bool) void {
+    pub fn setDown(self: kColorPicker__KColorPicker, down: bool) void {
         qtc.QAbstractButton_SetDown(@ptrCast(self.ptr), down);
     }
+
+    /// ### DEPRECATED: Use `isDown` instead
+    ///
+    pub const IsDown = isDown;
 
     /// Inherited from QAbstractButton
     ///
@@ -770,9 +958,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn IsDown(self: kColorPicker__KColorPicker) bool {
+    pub fn isDown(self: kColorPicker__KColorPicker) bool {
         return qtc.QAbstractButton_IsDown(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoRepeat` instead
+    ///
+    pub const SetAutoRepeat = setAutoRepeat;
 
     /// Inherited from QAbstractButton
     ///
@@ -782,11 +974,15 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` autoRepeat: bool `
+    /// ` _autoRepeat: bool `
     ///
-    pub fn SetAutoRepeat(self: kColorPicker__KColorPicker, autoRepeat: bool) void {
-        qtc.QAbstractButton_SetAutoRepeat(@ptrCast(self.ptr), autoRepeat);
+    pub fn setAutoRepeat(self: kColorPicker__KColorPicker, _autoRepeat: bool) void {
+        qtc.QAbstractButton_SetAutoRepeat(@ptrCast(self.ptr), _autoRepeat);
     }
+
+    /// ### DEPRECATED: Use `autoRepeat` instead
+    ///
+    pub const AutoRepeat = autoRepeat;
 
     /// Inherited from QAbstractButton
     ///
@@ -796,9 +992,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn AutoRepeat(self: kColorPicker__KColorPicker) bool {
+    pub fn autoRepeat(self: kColorPicker__KColorPicker) bool {
         return qtc.QAbstractButton_AutoRepeat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoRepeatDelay` instead
+    ///
+    pub const SetAutoRepeatDelay = setAutoRepeatDelay;
 
     /// Inherited from QAbstractButton
     ///
@@ -808,11 +1008,15 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` autoRepeatDelay: i32 `
+    /// ` _autoRepeatDelay: i32 `
     ///
-    pub fn SetAutoRepeatDelay(self: kColorPicker__KColorPicker, autoRepeatDelay: i32) void {
-        qtc.QAbstractButton_SetAutoRepeatDelay(@ptrCast(self.ptr), @bitCast(autoRepeatDelay));
+    pub fn setAutoRepeatDelay(self: kColorPicker__KColorPicker, _autoRepeatDelay: i32) void {
+        qtc.QAbstractButton_SetAutoRepeatDelay(@ptrCast(self.ptr), @bitCast(_autoRepeatDelay));
     }
+
+    /// ### DEPRECATED: Use `autoRepeatDelay` instead
+    ///
+    pub const AutoRepeatDelay = autoRepeatDelay;
 
     /// Inherited from QAbstractButton
     ///
@@ -822,9 +1026,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn AutoRepeatDelay(self: kColorPicker__KColorPicker) i32 {
+    pub fn autoRepeatDelay(self: kColorPicker__KColorPicker) i32 {
         return qtc.QAbstractButton_AutoRepeatDelay(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoRepeatInterval` instead
+    ///
+    pub const SetAutoRepeatInterval = setAutoRepeatInterval;
 
     /// Inherited from QAbstractButton
     ///
@@ -834,11 +1042,15 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` autoRepeatInterval: i32 `
+    /// ` _autoRepeatInterval: i32 `
     ///
-    pub fn SetAutoRepeatInterval(self: kColorPicker__KColorPicker, autoRepeatInterval: i32) void {
-        qtc.QAbstractButton_SetAutoRepeatInterval(@ptrCast(self.ptr), @bitCast(autoRepeatInterval));
+    pub fn setAutoRepeatInterval(self: kColorPicker__KColorPicker, _autoRepeatInterval: i32) void {
+        qtc.QAbstractButton_SetAutoRepeatInterval(@ptrCast(self.ptr), @bitCast(_autoRepeatInterval));
     }
+
+    /// ### DEPRECATED: Use `autoRepeatInterval` instead
+    ///
+    pub const AutoRepeatInterval = autoRepeatInterval;
 
     /// Inherited from QAbstractButton
     ///
@@ -848,9 +1060,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn AutoRepeatInterval(self: kColorPicker__KColorPicker) i32 {
+    pub fn autoRepeatInterval(self: kColorPicker__KColorPicker) i32 {
         return qtc.QAbstractButton_AutoRepeatInterval(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoExclusive` instead
+    ///
+    pub const SetAutoExclusive = setAutoExclusive;
 
     /// Inherited from QAbstractButton
     ///
@@ -860,11 +1076,15 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` autoExclusive: bool `
+    /// ` _autoExclusive: bool `
     ///
-    pub fn SetAutoExclusive(self: kColorPicker__KColorPicker, autoExclusive: bool) void {
-        qtc.QAbstractButton_SetAutoExclusive(@ptrCast(self.ptr), autoExclusive);
+    pub fn setAutoExclusive(self: kColorPicker__KColorPicker, _autoExclusive: bool) void {
+        qtc.QAbstractButton_SetAutoExclusive(@ptrCast(self.ptr), _autoExclusive);
     }
+
+    /// ### DEPRECATED: Use `autoExclusive` instead
+    ///
+    pub const AutoExclusive = autoExclusive;
 
     /// Inherited from QAbstractButton
     ///
@@ -874,9 +1094,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn AutoExclusive(self: kColorPicker__KColorPicker) bool {
+    pub fn autoExclusive(self: kColorPicker__KColorPicker) bool {
         return qtc.QAbstractButton_AutoExclusive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `group` instead
+    ///
+    pub const Group = group;
 
     /// Inherited from QAbstractButton
     ///
@@ -886,9 +1110,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn Group(self: kColorPicker__KColorPicker) QButtonGroup {
+    pub fn group(self: kColorPicker__KColorPicker) QButtonGroup {
         return .{ .ptr = qtc.QAbstractButton_Group(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setIconSize` instead
+    ///
+    pub const SetIconSize = setIconSize;
 
     /// Inherited from QAbstractButton
     ///
@@ -898,12 +1126,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` size: QSize `
+    /// ` _size: QSize `
     ///
-    pub fn SetIconSize(self: kColorPicker__KColorPicker, size: anytype) void {
-        comptime _ = @TypeOf(size)._is_QSize;
-        qtc.QAbstractButton_SetIconSize(@ptrCast(self.ptr), @ptrCast(size.ptr));
+    pub fn setIconSize(self: kColorPicker__KColorPicker, _size: anytype) void {
+        comptime _ = @TypeOf(_size)._is_QSize;
+        qtc.QAbstractButton_SetIconSize(@ptrCast(self.ptr), @ptrCast(_size.ptr));
     }
+
+    /// ### DEPRECATED: Use `animateClick` instead
+    ///
+    pub const AnimateClick = animateClick;
 
     /// Inherited from QAbstractButton
     ///
@@ -913,9 +1145,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn AnimateClick(self: kColorPicker__KColorPicker) void {
+    pub fn animateClick(self: kColorPicker__KColorPicker) void {
         qtc.QAbstractButton_AnimateClick(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `click` instead
+    ///
+    pub const Click = click;
 
     /// Inherited from QAbstractButton
     ///
@@ -925,9 +1161,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn Click(self: kColorPicker__KColorPicker) void {
+    pub fn click(self: kColorPicker__KColorPicker) void {
         qtc.QAbstractButton_Click(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toggle` instead
+    ///
+    pub const Toggle = toggle;
 
     /// Inherited from QAbstractButton
     ///
@@ -937,9 +1177,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn Toggle(self: kColorPicker__KColorPicker) void {
+    pub fn toggle(self: kColorPicker__KColorPicker) void {
         qtc.QAbstractButton_Toggle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setChecked` instead
+    ///
+    pub const SetChecked = setChecked;
 
     /// Inherited from QAbstractButton
     ///
@@ -951,10 +1195,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` checked: bool `
     ///
-    pub fn SetChecked(self: kColorPicker__KColorPicker, checked: bool) void {
+    pub fn setChecked(self: kColorPicker__KColorPicker, checked: bool) void {
         qtc.QAbstractButton_SetChecked(@ptrCast(self.ptr), checked);
     }
 
+    /// ### DEPRECATED: Use `pressed` instead
+    ///
+    pub const Pressed = pressed;
+
     /// Inherited from QAbstractButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbutton.html#pressed)
@@ -963,10 +1211,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn Pressed(self: kColorPicker__KColorPicker) void {
+    pub fn pressed(self: kColorPicker__KColorPicker) void {
         qtc.QAbstractButton_Pressed(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onPressed` instead
+    ///
+    pub const OnPressed = onPressed;
+
     /// Inherited from QAbstractButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbutton.html#pressed)
@@ -977,10 +1229,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker) callconv(.c) void `
     ///
-    pub fn OnPressed(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker) callconv(.c) void) void {
+    pub fn onPressed(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker) callconv(.c) void) void {
         qtc.QAbstractButton_Connect_Pressed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `released` instead
+    ///
+    pub const Released = released;
+
     /// Inherited from QAbstractButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbutton.html#released)
@@ -989,10 +1245,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn Released(self: kColorPicker__KColorPicker) void {
+    pub fn released(self: kColorPicker__KColorPicker) void {
         qtc.QAbstractButton_Released(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onReleased` instead
+    ///
+    pub const OnReleased = onReleased;
+
     /// Inherited from QAbstractButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbutton.html#released)
@@ -1003,9 +1263,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker) callconv(.c) void `
     ///
-    pub fn OnReleased(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker) callconv(.c) void) void {
+    pub fn onReleased(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker) callconv(.c) void) void {
         qtc.QAbstractButton_Connect_Released(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `clicked` instead
+    ///
+    pub const Clicked = clicked;
 
     /// Inherited from QAbstractButton
     ///
@@ -1015,9 +1279,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn Clicked(self: kColorPicker__KColorPicker) void {
+    pub fn clicked(self: kColorPicker__KColorPicker) void {
         qtc.QAbstractButton_Clicked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onClicked` instead
+    ///
+    pub const OnClicked = onClicked;
 
     /// Inherited from QAbstractButton
     ///
@@ -1029,10 +1297,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker) callconv(.c) void `
     ///
-    pub fn OnClicked(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker) callconv(.c) void) void {
+    pub fn onClicked(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker) callconv(.c) void) void {
         qtc.QAbstractButton_Connect_Clicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `toggled` instead
+    ///
+    pub const Toggled = toggled;
+
     /// Inherited from QAbstractButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbutton.html#toggled)
@@ -1043,10 +1315,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` checked: bool `
     ///
-    pub fn Toggled(self: kColorPicker__KColorPicker, checked: bool) void {
+    pub fn toggled(self: kColorPicker__KColorPicker, checked: bool) void {
         qtc.QAbstractButton_Toggled(@ptrCast(self.ptr), checked);
     }
 
+    /// ### DEPRECATED: Use `onToggled` instead
+    ///
+    pub const OnToggled = onToggled;
+
     /// Inherited from QAbstractButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbutton.html#toggled)
@@ -1057,9 +1333,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, checked: bool) callconv(.c) void `
     ///
-    pub fn OnToggled(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, bool) callconv(.c) void) void {
+    pub fn onToggled(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, bool) callconv(.c) void) void {
         qtc.QAbstractButton_Connect_Toggled(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `clicked1` instead
+    ///
+    pub const Clicked1 = clicked1;
 
     /// Inherited from QAbstractButton
     ///
@@ -1071,9 +1351,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` checked: bool `
     ///
-    pub fn Clicked1(self: kColorPicker__KColorPicker, checked: bool) void {
+    pub fn clicked1(self: kColorPicker__KColorPicker, checked: bool) void {
         qtc.QAbstractButton_Clicked1(@ptrCast(self.ptr), checked);
     }
+
+    /// ### DEPRECATED: Use `onClicked1` instead
+    ///
+    pub const OnClicked1 = onClicked1;
 
     /// Inherited from QAbstractButton
     ///
@@ -1085,9 +1369,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, checked: bool) callconv(.c) void `
     ///
-    pub fn OnClicked1(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, bool) callconv(.c) void) void {
+    pub fn onClicked1(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, bool) callconv(.c) void) void {
         qtc.QAbstractButton_Connect_Clicked1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -1097,9 +1385,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn WinId(self: kColorPicker__KColorPicker) usize {
+    pub fn winId(self: kColorPicker__KColorPicker) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -1109,9 +1401,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn CreateWinId(self: kColorPicker__KColorPicker) void {
+    pub fn createWinId(self: kColorPicker__KColorPicker) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -1121,9 +1417,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn InternalWinId(self: kColorPicker__KColorPicker) usize {
+    pub fn internalWinId(self: kColorPicker__KColorPicker) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -1133,9 +1433,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn EffectiveWinId(self: kColorPicker__KColorPicker) usize {
+    pub fn effectiveWinId(self: kColorPicker__KColorPicker) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -1145,9 +1449,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn Style(self: kColorPicker__KColorPicker) QStyle {
+    pub fn style(self: kColorPicker__KColorPicker) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -1157,12 +1465,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: kColorPicker__KColorPicker, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: kColorPicker__KColorPicker, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -1172,9 +1484,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn IsTopLevel(self: kColorPicker__KColorPicker) bool {
+    pub fn isTopLevel(self: kColorPicker__KColorPicker) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -1184,9 +1500,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn IsWindow(self: kColorPicker__KColorPicker) bool {
+    pub fn isWindow(self: kColorPicker__KColorPicker) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -1196,9 +1516,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn IsModal(self: kColorPicker__KColorPicker) bool {
+    pub fn isModal(self: kColorPicker__KColorPicker) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -1212,9 +1536,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: kColorPicker__KColorPicker) i32 {
+    pub fn windowModality(self: kColorPicker__KColorPicker) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -1224,11 +1552,15 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: kColorPicker__KColorPicker, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: kColorPicker__KColorPicker, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1238,9 +1570,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn IsEnabled(self: kColorPicker__KColorPicker) bool {
+    pub fn isEnabled(self: kColorPicker__KColorPicker) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -1252,10 +1588,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: kColorPicker__KColorPicker, param1: anytype) bool {
+    pub fn isEnabledTo(self: kColorPicker__KColorPicker, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1267,9 +1607,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: kColorPicker__KColorPicker, enabled: bool) void {
+    pub fn setEnabled(self: kColorPicker__KColorPicker, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -1281,9 +1625,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: kColorPicker__KColorPicker, disabled: bool) void {
+    pub fn setDisabled(self: kColorPicker__KColorPicker, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -1295,9 +1643,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: kColorPicker__KColorPicker, windowModified: bool) void {
+    pub fn setWindowModified(self: kColorPicker__KColorPicker, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1307,9 +1659,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn FrameGeometry(self: kColorPicker__KColorPicker) QRect {
+    pub fn frameGeometry(self: kColorPicker__KColorPicker) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -1319,9 +1675,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn Geometry(self: kColorPicker__KColorPicker) QRect {
+    pub fn geometry(self: kColorPicker__KColorPicker) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1331,9 +1691,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn NormalGeometry(self: kColorPicker__KColorPicker) QRect {
+    pub fn normalGeometry(self: kColorPicker__KColorPicker) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -1343,9 +1707,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn X(self: kColorPicker__KColorPicker) i32 {
+    pub fn x(self: kColorPicker__KColorPicker) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -1355,9 +1723,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn Y(self: kColorPicker__KColorPicker) i32 {
+    pub fn y(self: kColorPicker__KColorPicker) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -1367,9 +1739,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn Pos(self: kColorPicker__KColorPicker) QPoint {
+    pub fn pos(self: kColorPicker__KColorPicker) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -1379,9 +1755,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn FrameSize(self: kColorPicker__KColorPicker) QSize {
+    pub fn frameSize(self: kColorPicker__KColorPicker) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -1391,9 +1771,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn Size(self: kColorPicker__KColorPicker) QSize {
+    pub fn size(self: kColorPicker__KColorPicker) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -1403,9 +1787,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn Width(self: kColorPicker__KColorPicker) i32 {
+    pub fn width(self: kColorPicker__KColorPicker) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -1415,9 +1803,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn Height(self: kColorPicker__KColorPicker) i32 {
+    pub fn height(self: kColorPicker__KColorPicker) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -1427,9 +1819,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn Rect(self: kColorPicker__KColorPicker) QRect {
+    pub fn rect(self: kColorPicker__KColorPicker) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -1439,9 +1835,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn ChildrenRect(self: kColorPicker__KColorPicker) QRect {
+    pub fn childrenRect(self: kColorPicker__KColorPicker) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -1451,9 +1851,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn ChildrenRegion(self: kColorPicker__KColorPicker) QRegion {
+    pub fn childrenRegion(self: kColorPicker__KColorPicker) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1463,9 +1867,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn MinimumSize(self: kColorPicker__KColorPicker) QSize {
+    pub fn minimumSize(self: kColorPicker__KColorPicker) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1475,9 +1883,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn MaximumSize(self: kColorPicker__KColorPicker) QSize {
+    pub fn maximumSize(self: kColorPicker__KColorPicker) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1487,9 +1899,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn MinimumWidth(self: kColorPicker__KColorPicker) i32 {
+    pub fn minimumWidth(self: kColorPicker__KColorPicker) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1499,9 +1915,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn MinimumHeight(self: kColorPicker__KColorPicker) i32 {
+    pub fn minimumHeight(self: kColorPicker__KColorPicker) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1511,9 +1931,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn MaximumWidth(self: kColorPicker__KColorPicker) i32 {
+    pub fn maximumWidth(self: kColorPicker__KColorPicker) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1523,9 +1947,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn MaximumHeight(self: kColorPicker__KColorPicker) i32 {
+    pub fn maximumHeight(self: kColorPicker__KColorPicker) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1535,12 +1963,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: kColorPicker__KColorPicker, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: kColorPicker__KColorPicker, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1554,9 +1986,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: kColorPicker__KColorPicker, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: kColorPicker__KColorPicker, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1566,12 +2002,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: kColorPicker__KColorPicker, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: kColorPicker__KColorPicker, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1585,9 +2025,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: kColorPicker__KColorPicker, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: kColorPicker__KColorPicker, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1599,9 +2043,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: kColorPicker__KColorPicker, minw: i32) void {
+    pub fn setMinimumWidth(self: kColorPicker__KColorPicker, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1613,9 +2061,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: kColorPicker__KColorPicker, minh: i32) void {
+    pub fn setMinimumHeight(self: kColorPicker__KColorPicker, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1627,9 +2079,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: kColorPicker__KColorPicker, maxw: i32) void {
+    pub fn setMaximumWidth(self: kColorPicker__KColorPicker, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1641,9 +2097,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: kColorPicker__KColorPicker, maxh: i32) void {
+    pub fn setMaximumHeight(self: kColorPicker__KColorPicker, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1653,9 +2113,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn SizeIncrement(self: kColorPicker__KColorPicker) QSize {
+    pub fn sizeIncrement(self: kColorPicker__KColorPicker) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1665,12 +2129,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: kColorPicker__KColorPicker, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: kColorPicker__KColorPicker, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -1684,9 +2152,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: kColorPicker__KColorPicker, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: kColorPicker__KColorPicker, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -1696,9 +2168,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn BaseSize(self: kColorPicker__KColorPicker) QSize {
+    pub fn baseSize(self: kColorPicker__KColorPicker) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -1708,12 +2184,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: kColorPicker__KColorPicker, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: kColorPicker__KColorPicker, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -1727,9 +2207,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: kColorPicker__KColorPicker, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: kColorPicker__KColorPicker, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -1741,9 +2225,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: kColorPicker__KColorPicker, w: i32) void {
+    pub fn setFixedWidth(self: kColorPicker__KColorPicker, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -1755,9 +2243,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: kColorPicker__KColorPicker, h: i32) void {
+    pub fn setFixedHeight(self: kColorPicker__KColorPicker, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -1769,11 +2261,15 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: kColorPicker__KColorPicker, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: kColorPicker__KColorPicker, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -1784,11 +2280,15 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: kColorPicker__KColorPicker, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: kColorPicker__KColorPicker, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1799,11 +2299,15 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: kColorPicker__KColorPicker, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: kColorPicker__KColorPicker, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1814,11 +2318,15 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: kColorPicker__KColorPicker, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: kColorPicker__KColorPicker, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1829,11 +2337,15 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: kColorPicker__KColorPicker, param1: anytype) QPointF {
+    pub fn mapToParent(self: kColorPicker__KColorPicker, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1844,10 +2356,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: kColorPicker__KColorPicker, param1: anytype) QPoint {
+    pub fn mapToParent2(self: kColorPicker__KColorPicker, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -1859,10 +2375,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: kColorPicker__KColorPicker, param1: anytype) QPointF {
+    pub fn mapFromParent(self: kColorPicker__KColorPicker, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -1874,10 +2394,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: kColorPicker__KColorPicker, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: kColorPicker__KColorPicker, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -1891,12 +2415,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: kColorPicker__KColorPicker, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: kColorPicker__KColorPicker, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -1909,11 +2437,15 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: kColorPicker__KColorPicker, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: kColorPicker__KColorPicker, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -1927,11 +2459,15 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: kColorPicker__KColorPicker, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: kColorPicker__KColorPicker, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -1945,11 +2481,15 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: kColorPicker__KColorPicker, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: kColorPicker__KColorPicker, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -1959,9 +2499,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn Window(self: kColorPicker__KColorPicker) QWidget {
+    pub fn window(self: kColorPicker__KColorPicker) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -1971,9 +2515,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn NativeParentWidget(self: kColorPicker__KColorPicker) QWidget {
+    pub fn nativeParentWidget(self: kColorPicker__KColorPicker) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -1983,9 +2531,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn TopLevelWidget(self: kColorPicker__KColorPicker) QWidget {
+    pub fn topLevelWidget(self: kColorPicker__KColorPicker) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -1995,9 +2547,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn Palette(self: kColorPicker__KColorPicker) QPalette {
+    pub fn palette(self: kColorPicker__KColorPicker) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -2007,12 +2563,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: kColorPicker__KColorPicker, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: kColorPicker__KColorPicker, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2022,11 +2582,15 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: kColorPicker__KColorPicker, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: kColorPicker__KColorPicker, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2040,9 +2604,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: kColorPicker__KColorPicker) i32 {
+    pub fn backgroundRole(self: kColorPicker__KColorPicker) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2052,11 +2620,15 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: kColorPicker__KColorPicker, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: kColorPicker__KColorPicker, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2070,9 +2642,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: kColorPicker__KColorPicker) i32 {
+    pub fn foregroundRole(self: kColorPicker__KColorPicker) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -2082,9 +2658,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn Font(self: kColorPicker__KColorPicker) QFont {
+    pub fn font(self: kColorPicker__KColorPicker) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -2094,12 +2674,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: kColorPicker__KColorPicker, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: kColorPicker__KColorPicker, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -2109,9 +2693,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn FontMetrics(self: kColorPicker__KColorPicker) QFontMetrics {
+    pub fn fontMetrics(self: kColorPicker__KColorPicker) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -2121,9 +2709,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn FontInfo(self: kColorPicker__KColorPicker) QFontInfo {
+    pub fn fontInfo(self: kColorPicker__KColorPicker) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -2133,9 +2725,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn Cursor(self: kColorPicker__KColorPicker) QCursor {
+    pub fn cursor(self: kColorPicker__KColorPicker) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -2145,12 +2741,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: kColorPicker__KColorPicker, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: kColorPicker__KColorPicker, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -2160,9 +2760,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn UnsetCursor(self: kColorPicker__KColorPicker) void {
+    pub fn unsetCursor(self: kColorPicker__KColorPicker) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -2174,9 +2778,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: kColorPicker__KColorPicker, enable: bool) void {
+    pub fn setMouseTracking(self: kColorPicker__KColorPicker, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -2186,9 +2794,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn HasMouseTracking(self: kColorPicker__KColorPicker) bool {
+    pub fn hasMouseTracking(self: kColorPicker__KColorPicker) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -2198,9 +2810,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn UnderMouse(self: kColorPicker__KColorPicker) bool {
+    pub fn underMouse(self: kColorPicker__KColorPicker) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2212,9 +2828,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: kColorPicker__KColorPicker, enable: bool) void {
+    pub fn setTabletTracking(self: kColorPicker__KColorPicker, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2224,24 +2844,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn HasTabletTracking(self: kColorPicker__KColorPicker) bool {
+    pub fn hasTabletTracking(self: kColorPicker__KColorPicker) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: kColorPicker__KColorPicker `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: kColorPicker__KColorPicker, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -2251,12 +2860,35 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: kColorPicker__KColorPicker, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: kColorPicker__KColorPicker, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: kColorPicker__KColorPicker `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: kColorPicker__KColorPicker, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -2266,9 +2898,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn Mask(self: kColorPicker__KColorPicker) QRegion {
+    pub fn mask(self: kColorPicker__KColorPicker) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -2278,9 +2914,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn ClearMask(self: kColorPicker__KColorPicker) void {
+    pub fn clearMask(self: kColorPicker__KColorPicker) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -2292,10 +2932,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: kColorPicker__KColorPicker, target: anytype) void {
+    pub fn render(self: kColorPicker__KColorPicker, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -2307,10 +2951,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: kColorPicker__KColorPicker, painter: anytype) void {
+    pub fn render2(self: kColorPicker__KColorPicker, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -2320,9 +2968,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn Grab(self: kColorPicker__KColorPicker) QPixmap {
+    pub fn grab(self: kColorPicker__KColorPicker) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2332,9 +2984,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn GraphicsEffect(self: kColorPicker__KColorPicker) QGraphicsEffect {
+    pub fn graphicsEffect(self: kColorPicker__KColorPicker) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2346,10 +3002,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: kColorPicker__KColorPicker, effect: anytype) void {
+    pub fn setGraphicsEffect(self: kColorPicker__KColorPicker, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2361,9 +3021,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: kColorPicker__KColorPicker, typeVal: i32) void {
+    pub fn grabGesture(self: kColorPicker__KColorPicker, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2375,9 +3039,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: kColorPicker__KColorPicker, typeVal: i32) void {
+    pub fn ungrabGesture(self: kColorPicker__KColorPicker, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2387,15 +3055,19 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: kColorPicker__KColorPicker, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: kColorPicker__KColorPicker, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2405,15 +3077,19 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: kColorPicker__KColorPicker, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: kColorPicker__KColorPicker, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2425,13 +3101,17 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: kColorPicker__KColorPicker, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: kColorPicker__KColorPicker, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kColorPicker__KColorPicker.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("kColorPicker__KColorPicker.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2443,13 +3123,17 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: kColorPicker__KColorPicker, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: kColorPicker__KColorPicker, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kColorPicker__KColorPicker.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("kColorPicker__KColorPicker.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2459,12 +3143,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: kColorPicker__KColorPicker, icon: anytype) void {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
+    pub fn setWindowIcon(self: kColorPicker__KColorPicker, _icon: anytype) void {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(_icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2474,9 +3162,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn WindowIcon(self: kColorPicker__KColorPicker) QIcon {
+    pub fn windowIcon(self: kColorPicker__KColorPicker) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2486,15 +3178,19 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: kColorPicker__KColorPicker, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: kColorPicker__KColorPicker, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2506,13 +3202,17 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: kColorPicker__KColorPicker, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: kColorPicker__KColorPicker, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kColorPicker__KColorPicker.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("kColorPicker__KColorPicker.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -2522,15 +3222,19 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: kColorPicker__KColorPicker, windowRole: []const u8) void {
+    pub fn setWindowRole(self: kColorPicker__KColorPicker, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -2542,13 +3246,17 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: kColorPicker__KColorPicker, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: kColorPicker__KColorPicker, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kColorPicker__KColorPicker.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("kColorPicker__KColorPicker.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2560,13 +3268,17 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: kColorPicker__KColorPicker, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: kColorPicker__KColorPicker, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2578,13 +3290,17 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: kColorPicker__KColorPicker, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: kColorPicker__KColorPicker, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kColorPicker__KColorPicker.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("kColorPicker__KColorPicker.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2596,9 +3312,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: kColorPicker__KColorPicker, level: f64) void {
+    pub fn setWindowOpacity(self: kColorPicker__KColorPicker, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2608,9 +3328,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn WindowOpacity(self: kColorPicker__KColorPicker) f64 {
+    pub fn windowOpacity(self: kColorPicker__KColorPicker) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -2620,9 +3344,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn IsWindowModified(self: kColorPicker__KColorPicker) bool {
+    pub fn isWindowModified(self: kColorPicker__KColorPicker) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -2632,15 +3360,19 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: kColorPicker__KColorPicker, toolTip: []const u8) void {
+    pub fn setToolTip(self: kColorPicker__KColorPicker, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -2652,13 +3384,17 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: kColorPicker__KColorPicker, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: kColorPicker__KColorPicker, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kColorPicker__KColorPicker.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("kColorPicker__KColorPicker.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2670,9 +3406,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: kColorPicker__KColorPicker, msec: i32) void {
+    pub fn setToolTipDuration(self: kColorPicker__KColorPicker, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2682,9 +3422,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn ToolTipDuration(self: kColorPicker__KColorPicker) i32 {
+    pub fn toolTipDuration(self: kColorPicker__KColorPicker) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -2694,15 +3438,19 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: kColorPicker__KColorPicker, statusTip: []const u8) void {
+    pub fn setStatusTip(self: kColorPicker__KColorPicker, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -2714,13 +3462,17 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: kColorPicker__KColorPicker, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: kColorPicker__KColorPicker, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kColorPicker__KColorPicker.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("kColorPicker__KColorPicker.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2730,15 +3482,19 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: kColorPicker__KColorPicker, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: kColorPicker__KColorPicker, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2750,13 +3506,17 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: kColorPicker__KColorPicker, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: kColorPicker__KColorPicker, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kColorPicker__KColorPicker.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("kColorPicker__KColorPicker.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2768,13 +3528,17 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: kColorPicker__KColorPicker, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: kColorPicker__KColorPicker, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kColorPicker__KColorPicker.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("kColorPicker__KColorPicker.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2786,13 +3550,17 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: kColorPicker__KColorPicker, name: []const u8) void {
+    pub fn setAccessibleName(self: kColorPicker__KColorPicker, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2804,13 +3572,17 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: kColorPicker__KColorPicker, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: kColorPicker__KColorPicker, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kColorPicker__KColorPicker.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("kColorPicker__KColorPicker.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2822,13 +3594,17 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: kColorPicker__KColorPicker, description: []const u8) void {
+    pub fn setAccessibleDescription(self: kColorPicker__KColorPicker, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2840,9 +3616,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: kColorPicker__KColorPicker, direction: i32) void {
+    pub fn setLayoutDirection(self: kColorPicker__KColorPicker, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2856,9 +3636,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: kColorPicker__KColorPicker) i32 {
+    pub fn layoutDirection(self: kColorPicker__KColorPicker) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2868,9 +3652,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn UnsetLayoutDirection(self: kColorPicker__KColorPicker) void {
+    pub fn unsetLayoutDirection(self: kColorPicker__KColorPicker) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -2880,12 +3668,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: kColorPicker__KColorPicker, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: kColorPicker__KColorPicker, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -2895,9 +3687,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn Locale(self: kColorPicker__KColorPicker) QLocale {
+    pub fn locale(self: kColorPicker__KColorPicker) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -2907,9 +3703,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn UnsetLocale(self: kColorPicker__KColorPicker) void {
+    pub fn unsetLocale(self: kColorPicker__KColorPicker) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -2919,9 +3719,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn IsRightToLeft(self: kColorPicker__KColorPicker) bool {
+    pub fn isRightToLeft(self: kColorPicker__KColorPicker) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -2931,9 +3735,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn IsLeftToRight(self: kColorPicker__KColorPicker) bool {
+    pub fn isLeftToRight(self: kColorPicker__KColorPicker) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -2943,9 +3751,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn SetFocus(self: kColorPicker__KColorPicker) void {
+    pub fn setFocus(self: kColorPicker__KColorPicker) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -2955,9 +3767,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn IsActiveWindow(self: kColorPicker__KColorPicker) bool {
+    pub fn isActiveWindow(self: kColorPicker__KColorPicker) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -2967,9 +3783,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn ActivateWindow(self: kColorPicker__KColorPicker) void {
+    pub fn activateWindow(self: kColorPicker__KColorPicker) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -2979,9 +3799,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn ClearFocus(self: kColorPicker__KColorPicker) void {
+    pub fn clearFocus(self: kColorPicker__KColorPicker) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -2993,9 +3817,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: kColorPicker__KColorPicker, reason: i32) void {
+    pub fn setFocus2(self: kColorPicker__KColorPicker, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3009,9 +3837,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: kColorPicker__KColorPicker) i32 {
+    pub fn focusPolicy(self: kColorPicker__KColorPicker) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3023,9 +3855,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: kColorPicker__KColorPicker, policy: i32) void {
+    pub fn setFocusPolicy(self: kColorPicker__KColorPicker, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -3035,9 +3871,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn HasFocus(self: kColorPicker__KColorPicker) bool {
+    pub fn hasFocus(self: kColorPicker__KColorPicker) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -3049,11 +3889,15 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -3063,12 +3907,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: kColorPicker__KColorPicker, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: kColorPicker__KColorPicker, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -3078,9 +3926,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn FocusProxy(self: kColorPicker__KColorPicker) QWidget {
+    pub fn focusProxy(self: kColorPicker__KColorPicker) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3094,9 +3946,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: kColorPicker__KColorPicker) i32 {
+    pub fn contextMenuPolicy(self: kColorPicker__KColorPicker) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3108,9 +3964,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: kColorPicker__KColorPicker, policy: i32) void {
+    pub fn setContextMenuPolicy(self: kColorPicker__KColorPicker, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -3120,9 +3980,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn GrabMouse(self: kColorPicker__KColorPicker) void {
+    pub fn grabMouse(self: kColorPicker__KColorPicker) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -3134,10 +3998,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: kColorPicker__KColorPicker, param1: anytype) void {
+    pub fn grabMouse2(self: kColorPicker__KColorPicker, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -3147,9 +4015,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn ReleaseMouse(self: kColorPicker__KColorPicker) void {
+    pub fn releaseMouse(self: kColorPicker__KColorPicker) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -3159,9 +4031,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn GrabKeyboard(self: kColorPicker__KColorPicker) void {
+    pub fn grabKeyboard(self: kColorPicker__KColorPicker) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -3171,9 +4047,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn ReleaseKeyboard(self: kColorPicker__KColorPicker) void {
+    pub fn releaseKeyboard(self: kColorPicker__KColorPicker) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3185,10 +4065,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: kColorPicker__KColorPicker, key: anytype) i32 {
+    pub fn grabShortcut(self: kColorPicker__KColorPicker, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3200,9 +4084,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: kColorPicker__KColorPicker, id: i32) void {
+    pub fn releaseShortcut(self: kColorPicker__KColorPicker, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3214,9 +4102,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: kColorPicker__KColorPicker, id: i32) void {
+    pub fn setShortcutEnabled(self: kColorPicker__KColorPicker, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -3228,25 +4120,37 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: kColorPicker__KColorPicker, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: kColorPicker__KColorPicker, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3256,9 +4160,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn UpdatesEnabled(self: kColorPicker__KColorPicker) bool {
+    pub fn updatesEnabled(self: kColorPicker__KColorPicker) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3270,9 +4178,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: kColorPicker__KColorPicker, enable: bool) void {
+    pub fn setUpdatesEnabled(self: kColorPicker__KColorPicker, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -3282,9 +4194,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn GraphicsProxyWidget(self: kColorPicker__KColorPicker) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: kColorPicker__KColorPicker) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -3294,9 +4210,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn Update(self: kColorPicker__KColorPicker) void {
+    pub fn update(self: kColorPicker__KColorPicker) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -3306,9 +4226,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn Repaint(self: kColorPicker__KColorPicker) void {
+    pub fn repaint(self: kColorPicker__KColorPicker) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -3318,17 +4242,21 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: kColorPicker__KColorPicker, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: kColorPicker__KColorPicker, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -3340,11 +4268,15 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: kColorPicker__KColorPicker, param1: anytype) void {
+    pub fn update3(self: kColorPicker__KColorPicker, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -3355,10 +4287,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: kColorPicker__KColorPicker, param1: anytype) void {
+    pub fn update4(self: kColorPicker__KColorPicker, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -3368,17 +4304,21 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: kColorPicker__KColorPicker, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: kColorPicker__KColorPicker, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -3390,10 +4330,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: kColorPicker__KColorPicker, param1: anytype) void {
+    pub fn repaint3(self: kColorPicker__KColorPicker, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -3405,10 +4349,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: kColorPicker__KColorPicker, param1: anytype) void {
+    pub fn repaint4(self: kColorPicker__KColorPicker, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -3420,9 +4368,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: kColorPicker__KColorPicker, hidden: bool) void {
+    pub fn setHidden(self: kColorPicker__KColorPicker, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -3432,9 +4384,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn Show(self: kColorPicker__KColorPicker) void {
+    pub fn show(self: kColorPicker__KColorPicker) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -3444,9 +4400,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn Hide(self: kColorPicker__KColorPicker) void {
+    pub fn hide(self: kColorPicker__KColorPicker) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3456,9 +4416,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn ShowMinimized(self: kColorPicker__KColorPicker) void {
+    pub fn showMinimized(self: kColorPicker__KColorPicker) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3468,9 +4432,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn ShowMaximized(self: kColorPicker__KColorPicker) void {
+    pub fn showMaximized(self: kColorPicker__KColorPicker) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3480,9 +4448,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn ShowFullScreen(self: kColorPicker__KColorPicker) void {
+    pub fn showFullScreen(self: kColorPicker__KColorPicker) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -3492,9 +4464,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn ShowNormal(self: kColorPicker__KColorPicker) void {
+    pub fn showNormal(self: kColorPicker__KColorPicker) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -3504,9 +4480,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn Close(self: kColorPicker__KColorPicker) bool {
+    pub fn close(self: kColorPicker__KColorPicker) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -3516,9 +4496,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn Raise(self: kColorPicker__KColorPicker) void {
+    pub fn raise(self: kColorPicker__KColorPicker) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -3528,9 +4512,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn Lower(self: kColorPicker__KColorPicker) void {
+    pub fn lower(self: kColorPicker__KColorPicker) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -3542,10 +4530,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: kColorPicker__KColorPicker, param1: anytype) void {
+    pub fn stackUnder(self: kColorPicker__KColorPicker, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -3555,13 +4547,17 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: kColorPicker__KColorPicker, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: kColorPicker__KColorPicker, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -3573,10 +4569,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: kColorPicker__KColorPicker, param1: anytype) void {
+    pub fn move2(self: kColorPicker__KColorPicker, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -3590,9 +4590,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: kColorPicker__KColorPicker, w: i32, h: i32) void {
+    pub fn resize(self: kColorPicker__KColorPicker, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -3604,10 +4608,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: kColorPicker__KColorPicker, param1: anytype) void {
+    pub fn resize2(self: kColorPicker__KColorPicker, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3617,17 +4625,21 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: kColorPicker__KColorPicker, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: kColorPicker__KColorPicker, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -3637,12 +4649,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: kColorPicker__KColorPicker, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: kColorPicker__KColorPicker, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3654,13 +4670,17 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: kColorPicker__KColorPicker, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: kColorPicker__KColorPicker, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kColorPicker__KColorPicker.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kColorPicker__KColorPicker.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3670,15 +4690,19 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: kColorPicker__KColorPicker, geometry: []u8) bool {
+    pub fn restoreGeometry(self: kColorPicker__KColorPicker, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -3688,9 +4712,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn AdjustSize(self: kColorPicker__KColorPicker) void {
+    pub fn adjustSize(self: kColorPicker__KColorPicker) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -3700,9 +4728,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn IsVisible(self: kColorPicker__KColorPicker) bool {
+    pub fn isVisible(self: kColorPicker__KColorPicker) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -3714,10 +4746,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: kColorPicker__KColorPicker, param1: anytype) bool {
+    pub fn isVisibleTo(self: kColorPicker__KColorPicker, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -3727,9 +4763,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn IsHidden(self: kColorPicker__KColorPicker) bool {
+    pub fn isHidden(self: kColorPicker__KColorPicker) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3739,9 +4779,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn IsMinimized(self: kColorPicker__KColorPicker) bool {
+    pub fn isMinimized(self: kColorPicker__KColorPicker) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3751,9 +4795,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn IsMaximized(self: kColorPicker__KColorPicker) bool {
+    pub fn isMaximized(self: kColorPicker__KColorPicker) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3763,9 +4811,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn IsFullScreen(self: kColorPicker__KColorPicker) bool {
+    pub fn isFullScreen(self: kColorPicker__KColorPicker) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -3779,9 +4831,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: kColorPicker__KColorPicker) i32 {
+    pub fn windowState(self: kColorPicker__KColorPicker) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3793,9 +4849,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: kColorPicker__KColorPicker, state: i32) void {
+    pub fn setWindowState(self: kColorPicker__KColorPicker, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3807,9 +4867,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: kColorPicker__KColorPicker, state: i32) void {
+    pub fn overrideWindowState(self: kColorPicker__KColorPicker, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3819,9 +4883,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn SizePolicy(self: kColorPicker__KColorPicker) QSizePolicy {
+    pub fn sizePolicy(self: kColorPicker__KColorPicker) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3831,12 +4899,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: kColorPicker__KColorPicker, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: kColorPicker__KColorPicker, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -3850,9 +4922,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: kColorPicker__KColorPicker, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: kColorPicker__KColorPicker, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -3862,9 +4938,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn VisibleRegion(self: kColorPicker__KColorPicker) QRegion {
+    pub fn visibleRegion(self: kColorPicker__KColorPicker) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3882,9 +4962,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: kColorPicker__KColorPicker, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: kColorPicker__KColorPicker, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -3896,10 +4980,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: kColorPicker__KColorPicker, margins: anytype) void {
+    pub fn setContentsMargins2(self: kColorPicker__KColorPicker, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3909,9 +4997,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn ContentsMargins(self: kColorPicker__KColorPicker) QMargins {
+    pub fn contentsMargins(self: kColorPicker__KColorPicker) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -3921,9 +5013,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn ContentsRect(self: kColorPicker__KColorPicker) QRect {
+    pub fn contentsRect(self: kColorPicker__KColorPicker) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -3933,9 +5029,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn Layout(self: kColorPicker__KColorPicker) QLayout {
+    pub fn layout(self: kColorPicker__KColorPicker) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -3945,12 +5045,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: kColorPicker__KColorPicker, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: kColorPicker__KColorPicker, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3960,24 +5064,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn UpdateGeometry(self: kColorPicker__KColorPicker) void {
+    pub fn updateGeometry(self: kColorPicker__KColorPicker) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: kColorPicker__KColorPicker `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: kColorPicker__KColorPicker, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -3987,14 +5080,37 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: kColorPicker__KColorPicker, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: kColorPicker__KColorPicker `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: kColorPicker__KColorPicker, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: kColorPicker__KColorPicker, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -4008,9 +5124,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: kColorPicker__KColorPicker, dx: i32, dy: i32) void {
+    pub fn scroll(self: kColorPicker__KColorPicker, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -4026,10 +5146,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: kColorPicker__KColorPicker, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: kColorPicker__KColorPicker, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -4039,9 +5163,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn FocusWidget(self: kColorPicker__KColorPicker) QWidget {
+    pub fn focusWidget(self: kColorPicker__KColorPicker) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -4051,9 +5179,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn NextInFocusChain(self: kColorPicker__KColorPicker) QWidget {
+    pub fn nextInFocusChain(self: kColorPicker__KColorPicker) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -4063,9 +5195,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn PreviousInFocusChain(self: kColorPicker__KColorPicker) QWidget {
+    pub fn previousInFocusChain(self: kColorPicker__KColorPicker) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -4075,9 +5211,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn AcceptDrops(self: kColorPicker__KColorPicker) bool {
+    pub fn acceptDrops(self: kColorPicker__KColorPicker) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -4089,9 +5229,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: kColorPicker__KColorPicker, on: bool) void {
+    pub fn setAcceptDrops(self: kColorPicker__KColorPicker, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -4103,10 +5247,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: kColorPicker__KColorPicker, action: anytype) void {
+    pub fn addAction(self: kColorPicker__KColorPicker, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -4116,15 +5264,19 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: kColorPicker__KColorPicker, actions: []QAction) void {
+    pub fn addActions(self: kColorPicker__KColorPicker, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -4136,16 +5288,20 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: kColorPicker__KColorPicker, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: kColorPicker__KColorPicker, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -4159,11 +5315,15 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: kColorPicker__KColorPicker, before: anytype, action: anytype) void {
+    pub fn insertAction(self: kColorPicker__KColorPicker, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -4175,10 +5335,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: kColorPicker__KColorPicker, action: anytype) void {
+    pub fn removeAction(self: kColorPicker__KColorPicker, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -4190,15 +5354,19 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: kColorPicker__KColorPicker, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: kColorPicker__KColorPicker, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("kColorPicker__KColorPicker.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("kColorPicker__KColorPicker.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -4208,36 +5376,19 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn AddAction2(self: kColorPicker__KColorPicker, text: []const u8) QAction {
+    pub fn addAction2(self: kColorPicker__KColorPicker, _text: []const u8) QAction {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `addAction3` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: kColorPicker__KColorPicker `
-    ///
-    /// ` icon: QIcon `
-    ///
-    /// ` text: []const u8 `
-    ///
-    pub fn AddAction3(self: kColorPicker__KColorPicker, icon: anytype, text: []const u8) QAction {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
-        };
-        return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
-    }
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -4247,18 +5398,22 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` text: []const u8 `
+    /// ` _icon: QIcon `
     ///
-    /// ` shortcut: QKeySequence `
+    /// ` _text: []const u8 `
     ///
-    pub fn AddAction4(self: kColorPicker__KColorPicker, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction3(self: kColorPicker__KColorPicker, _icon: anytype, _text: []const u8) QAction {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
-        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
-        return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
+        return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(_icon.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
 
     /// Inherited from QWidget
     ///
@@ -4268,21 +5423,50 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` icon: QIcon `
+    /// ` _text: []const u8 `
     ///
-    /// ` text: []const u8 `
+    /// ` _shortcut: QKeySequence `
     ///
-    /// ` shortcut: QKeySequence `
-    ///
-    pub fn AddAction5(self: kColorPicker__KColorPicker, icon: anytype, text: []const u8, shortcut: anytype) QAction {
-        comptime _ = @TypeOf(icon)._is_QIcon;
+    pub fn addAction4(self: kColorPicker__KColorPicker, _text: []const u8, _shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
-        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
-        return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
+        comptime _ = @TypeOf(_shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(_shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: kColorPicker__KColorPicker `
+    ///
+    /// ` _icon: QIcon `
+    ///
+    /// ` _text: []const u8 `
+    ///
+    /// ` _shortcut: QKeySequence `
+    ///
+    pub fn addAction5(self: kColorPicker__KColorPicker, _icon: anytype, _text: []const u8, _shortcut: anytype) QAction {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        const text_str = qtc.libqt_string{
+            .len = _text.len,
+            .data = _text.ptr,
+        };
+        comptime _ = @TypeOf(_shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(_icon.ptr), text_str, @ptrCast(_shortcut.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
 
     /// Inherited from QWidget
     ///
@@ -4292,9 +5476,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn ParentWidget(self: kColorPicker__KColorPicker) QWidget {
+    pub fn parentWidget(self: kColorPicker__KColorPicker) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4306,9 +5494,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: kColorPicker__KColorPicker, typeVal: i32) void {
+    pub fn setWindowFlags(self: kColorPicker__KColorPicker, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4322,9 +5514,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: kColorPicker__KColorPicker) i32 {
+    pub fn windowFlags(self: kColorPicker__KColorPicker) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -4336,9 +5532,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: kColorPicker__KColorPicker, param1: i32) void {
+    pub fn setWindowFlag(self: kColorPicker__KColorPicker, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4350,9 +5550,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: kColorPicker__KColorPicker, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: kColorPicker__KColorPicker, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -4366,9 +5570,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: kColorPicker__KColorPicker) i32 {
+    pub fn windowType(self: kColorPicker__KColorPicker) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -4378,9 +5586,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -4390,13 +5602,17 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: kColorPicker__KColorPicker, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: kColorPicker__KColorPicker, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -4408,10 +5624,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: kColorPicker__KColorPicker, p: anytype) QWidget {
+    pub fn childAt2(self: kColorPicker__KColorPicker, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -4423,10 +5643,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: kColorPicker__KColorPicker, p: anytype) QWidget {
+    pub fn childAt3(self: kColorPicker__KColorPicker, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4438,9 +5662,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: kColorPicker__KColorPicker, param1: i32) void {
+    pub fn setAttribute(self: kColorPicker__KColorPicker, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4452,9 +5680,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: kColorPicker__KColorPicker, param1: i32) bool {
+    pub fn testAttribute(self: kColorPicker__KColorPicker, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -4464,9 +5696,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn EnsurePolished(self: kColorPicker__KColorPicker) void {
+    pub fn ensurePolished(self: kColorPicker__KColorPicker) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -4478,10 +5714,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: kColorPicker__KColorPicker, child: anytype) bool {
+    pub fn isAncestorOf(self: kColorPicker__KColorPicker, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4491,9 +5731,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn AutoFillBackground(self: kColorPicker__KColorPicker) bool {
+    pub fn autoFillBackground(self: kColorPicker__KColorPicker) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4505,9 +5749,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: kColorPicker__KColorPicker, enabled: bool) void {
+    pub fn setAutoFillBackground(self: kColorPicker__KColorPicker, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -4517,9 +5765,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn BackingStore(self: kColorPicker__KColorPicker) QBackingStore {
+    pub fn backingStore(self: kColorPicker__KColorPicker) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -4529,9 +5781,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn WindowHandle(self: kColorPicker__KColorPicker) QWindow {
+    pub fn windowHandle(self: kColorPicker__KColorPicker) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -4541,9 +5797,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn Screen(self: kColorPicker__KColorPicker) QScreen {
+    pub fn screen(self: kColorPicker__KColorPicker) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -4553,12 +5813,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: kColorPicker__KColorPicker, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: kColorPicker__KColorPicker, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -4566,12 +5830,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4583,13 +5851,17 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: kColorPicker__KColorPicker, title: []const u8) void {
+    pub fn windowTitleChanged(self: kColorPicker__KColorPicker, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4601,9 +5873,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4613,12 +5889,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: kColorPicker__KColorPicker, icon: anytype) void {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
+    pub fn windowIconChanged(self: kColorPicker__KColorPicker, _icon: anytype) void {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(_icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4630,9 +5910,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4644,13 +5928,17 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: kColorPicker__KColorPicker, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: kColorPicker__KColorPicker, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4662,9 +5950,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4674,12 +5966,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: kColorPicker__KColorPicker, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: kColorPicker__KColorPicker, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4691,9 +5987,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4707,9 +6007,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: kColorPicker__KColorPicker) i32 {
+    pub fn inputMethodHints(self: kColorPicker__KColorPicker) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4721,9 +6025,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: kColorPicker__KColorPicker, hints: i32) void {
+    pub fn setInputMethodHints(self: kColorPicker__KColorPicker, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -4737,11 +6045,15 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: kColorPicker__KColorPicker, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: kColorPicker__KColorPicker, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -4757,13 +6069,17 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: kColorPicker__KColorPicker, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: kColorPicker__KColorPicker, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -4780,12 +6096,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: kColorPicker__KColorPicker, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: kColorPicker__KColorPicker, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -4799,11 +6119,15 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: kColorPicker__KColorPicker, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: kColorPicker__KColorPicker, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -4819,12 +6143,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: kColorPicker__KColorPicker, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: kColorPicker__KColorPicker, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -4842,12 +6170,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: kColorPicker__KColorPicker, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: kColorPicker__KColorPicker, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -4859,10 +6191,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: kColorPicker__KColorPicker, rectangle: anytype) QPixmap {
+    pub fn grab1(self: kColorPicker__KColorPicker, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -4876,9 +6212,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: kColorPicker__KColorPicker, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: kColorPicker__KColorPicker, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -4892,10 +6232,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: kColorPicker__KColorPicker, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: kColorPicker__KColorPicker, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -4909,9 +6253,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: kColorPicker__KColorPicker, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: kColorPicker__KColorPicker, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -4925,9 +6273,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: kColorPicker__KColorPicker, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: kColorPicker__KColorPicker, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -4941,9 +6293,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: kColorPicker__KColorPicker, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: kColorPicker__KColorPicker, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -4957,25 +6313,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: kColorPicker__KColorPicker, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: kColorPicker__KColorPicker, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -4983,17 +6327,41 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -5005,13 +6373,17 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: kColorPicker__KColorPicker, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: kColorPicker__KColorPicker, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kColorPicker__KColorPicker.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("kColorPicker__KColorPicker.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -5023,13 +6395,17 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: kColorPicker__KColorPicker, name: []const u8) void {
+    pub fn setObjectName(self: kColorPicker__KColorPicker, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -5039,9 +6415,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn IsWidgetType(self: kColorPicker__KColorPicker) bool {
+    pub fn isWidgetType(self: kColorPicker__KColorPicker) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -5051,9 +6431,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn IsWindowType(self: kColorPicker__KColorPicker) bool {
+    pub fn isWindowType(self: kColorPicker__KColorPicker) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -5063,9 +6447,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn IsQuickItemType(self: kColorPicker__KColorPicker) bool {
+    pub fn isQuickItemType(self: kColorPicker__KColorPicker) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -5075,9 +6463,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn SignalsBlocked(self: kColorPicker__KColorPicker) bool {
+    pub fn signalsBlocked(self: kColorPicker__KColorPicker) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -5089,9 +6481,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: kColorPicker__KColorPicker, b: bool) bool {
+    pub fn blockSignals(self: kColorPicker__KColorPicker, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -5101,9 +6497,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn Thread(self: kColorPicker__KColorPicker) QThread {
+    pub fn thread(self: kColorPicker__KColorPicker) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -5113,12 +6513,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: kColorPicker__KColorPicker, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: kColorPicker__KColorPicker, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -5130,9 +6534,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: kColorPicker__KColorPicker, interval: i32) i32 {
+    pub fn startTimer(self: kColorPicker__KColorPicker, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -5144,9 +6552,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: kColorPicker__KColorPicker, time: i64) i32 {
+    pub fn startTimer2(self: kColorPicker__KColorPicker, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -5158,9 +6570,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: kColorPicker__KColorPicker, id: i32) void {
+    pub fn killTimer(self: kColorPicker__KColorPicker, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -5172,9 +6588,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: kColorPicker__KColorPicker, id: i32) void {
+    pub fn killTimer2(self: kColorPicker__KColorPicker, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -5186,15 +6606,19 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: kColorPicker__KColorPicker, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: kColorPicker__KColorPicker, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("kColorPicker__KColorPicker.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("kColorPicker__KColorPicker.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5206,10 +6630,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: kColorPicker__KColorPicker, filterObj: anytype) void {
+    pub fn installEventFilter(self: kColorPicker__KColorPicker, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5221,10 +6649,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: kColorPicker__KColorPicker, obj: anytype) void {
+    pub fn removeEventFilter(self: kColorPicker__KColorPicker, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -5232,7 +6664,7 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5240,13 +6672,17 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -5254,7 +6690,7 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5262,13 +6698,17 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -5278,18 +6718,22 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: kColorPicker__KColorPicker, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: kColorPicker__KColorPicker, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -5297,7 +6741,7 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5305,13 +6749,17 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -5319,7 +6767,7 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5327,13 +6775,17 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -5343,9 +6795,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn Disconnect3(self: kColorPicker__KColorPicker) bool {
+    pub fn disconnect3(self: kColorPicker__KColorPicker) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -5357,10 +6813,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: kColorPicker__KColorPicker, receiver: anytype) bool {
+    pub fn disconnect4(self: kColorPicker__KColorPicker, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -5370,10 +6830,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -5383,9 +6847,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn DumpObjectTree(self: kColorPicker__KColorPicker) void {
+    pub fn dumpObjectTree(self: kColorPicker__KColorPicker) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -5395,9 +6863,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn DumpObjectInfo(self: kColorPicker__KColorPicker) void {
+    pub fn dumpObjectInfo(self: kColorPicker__KColorPicker) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -5411,11 +6883,15 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: kColorPicker__KColorPicker, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: kColorPicker__KColorPicker, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -5427,10 +6903,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: kColorPicker__KColorPicker, name: [:0]const u8) QVariant {
+    pub fn property(self: kColorPicker__KColorPicker, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -5442,7 +6922,7 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: kColorPicker__KColorPicker, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: kColorPicker__KColorPicker, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -5450,27 +6930,19 @@ pub const kColorPicker__KColorPicker = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("kColorPicker__KColorPicker.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("kColorPicker__KColorPicker.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kColorPicker__KColorPicker.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("kColorPicker__KColorPicker.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: kColorPicker__KColorPicker `
-    ///
-    pub fn BindingStorage(self: kColorPicker__KColorPicker) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -5480,9 +6952,29 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn BindingStorage2(self: kColorPicker__KColorPicker) QBindingStorage {
+    pub fn bindingStorage(self: kColorPicker__KColorPicker) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: kColorPicker__KColorPicker `
+    ///
+    pub fn bindingStorage2(self: kColorPicker__KColorPicker) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -5492,9 +6984,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn Destroyed(self: kColorPicker__KColorPicker) void {
+    pub fn destroyed(self: kColorPicker__KColorPicker) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -5506,9 +7002,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker) callconv(.c) void) void {
+    pub fn onDestroyed(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -5518,9 +7018,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn Parent(self: kColorPicker__KColorPicker) QObject {
+    pub fn parent(self: kColorPicker__KColorPicker) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -5532,10 +7036,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: kColorPicker__KColorPicker, classname: [:0]const u8) bool {
+    pub fn inherits(self: kColorPicker__KColorPicker, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -5545,9 +7053,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn DeleteLater(self: kColorPicker__KColorPicker) void {
+    pub fn deleteLater(self: kColorPicker__KColorPicker) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -5561,9 +7073,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: kColorPicker__KColorPicker, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: kColorPicker__KColorPicker, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -5577,9 +7093,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: kColorPicker__KColorPicker, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: kColorPicker__KColorPicker, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -5587,7 +7107,7 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5597,13 +7117,17 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -5611,7 +7135,7 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5621,13 +7145,17 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -5637,7 +7165,7 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5645,12 +7173,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: kColorPicker__KColorPicker, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: kColorPicker__KColorPicker, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -5662,10 +7194,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: kColorPicker__KColorPicker, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: kColorPicker__KColorPicker, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -5679,11 +7215,15 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: kColorPicker__KColorPicker, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: kColorPicker__KColorPicker, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -5699,13 +7239,17 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: kColorPicker__KColorPicker, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: kColorPicker__KColorPicker, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -5718,11 +7262,15 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: kColorPicker__KColorPicker, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: kColorPicker__KColorPicker, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -5734,10 +7282,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: kColorPicker__KColorPicker, param1: anytype) void {
+    pub fn destroyed1(self: kColorPicker__KColorPicker, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -5749,9 +7301,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -5761,9 +7317,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn PaintingActive(self: kColorPicker__KColorPicker) bool {
+    pub fn paintingActive(self: kColorPicker__KColorPicker) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5773,9 +7333,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn WidthMM(self: kColorPicker__KColorPicker) i32 {
+    pub fn widthMM(self: kColorPicker__KColorPicker) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5785,9 +7349,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn HeightMM(self: kColorPicker__KColorPicker) i32 {
+    pub fn heightMM(self: kColorPicker__KColorPicker) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5797,9 +7365,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn LogicalDpiX(self: kColorPicker__KColorPicker) i32 {
+    pub fn logicalDpiX(self: kColorPicker__KColorPicker) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5809,9 +7381,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn LogicalDpiY(self: kColorPicker__KColorPicker) i32 {
+    pub fn logicalDpiY(self: kColorPicker__KColorPicker) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5821,9 +7397,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn PhysicalDpiX(self: kColorPicker__KColorPicker) i32 {
+    pub fn physicalDpiX(self: kColorPicker__KColorPicker) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5833,9 +7413,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn PhysicalDpiY(self: kColorPicker__KColorPicker) i32 {
+    pub fn physicalDpiY(self: kColorPicker__KColorPicker) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -5845,9 +7429,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn DevicePixelRatio(self: kColorPicker__KColorPicker) f64 {
+    pub fn devicePixelRatio(self: kColorPicker__KColorPicker) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5857,9 +7445,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn DevicePixelRatioF(self: kColorPicker__KColorPicker) f64 {
+    pub fn devicePixelRatioF(self: kColorPicker__KColorPicker) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -5869,9 +7461,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn ColorCount(self: kColorPicker__KColorPicker) i32 {
+    pub fn colorCount(self: kColorPicker__KColorPicker) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -5881,17 +7477,25 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn Depth(self: kColorPicker__KColorPicker) i32 {
+    pub fn depth(self: kColorPicker__KColorPicker) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5899,13 +7503,17 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
 
     /// Inherited from QToolButton
     ///
@@ -5917,13 +7525,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn SizeHint(self: kColorPicker__KColorPicker) QSize {
+    pub fn sizeHint(self: kColorPicker__KColorPicker) QSize {
         return .{ .ptr = qtc.kColorPicker__KColorPicker_SizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// Inherited from QToolButton
     ///
@@ -5935,9 +7543,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn SuperSizeHint(self: kColorPicker__KColorPicker) QSize {
+    pub fn superSizeHint(self: kColorPicker__KColorPicker) QSize {
         return .{ .ptr = qtc.kColorPicker__KColorPicker_SuperSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
 
     /// Inherited from QToolButton
     ///
@@ -5953,9 +7565,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: kColorPicker__KColorPicker, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: kColorPicker__KColorPicker, callback: *const fn () callconv(.c) QSize) void {
         qtc.kColorPicker__KColorPicker_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QToolButton
     ///
@@ -5967,13 +7583,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn MinimumSizeHint(self: kColorPicker__KColorPicker) QSize {
+    pub fn minimumSizeHint(self: kColorPicker__KColorPicker) QSize {
         return .{ .ptr = qtc.kColorPicker__KColorPicker_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QToolButton
     ///
@@ -5985,9 +7601,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn SuperMinimumSizeHint(self: kColorPicker__KColorPicker) QSize {
+    pub fn superMinimumSizeHint(self: kColorPicker__KColorPicker) QSize {
         return .{ .ptr = qtc.kColorPicker__KColorPicker_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QToolButton
     ///
@@ -6003,9 +7623,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: kColorPicker__KColorPicker, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: kColorPicker__KColorPicker, callback: *const fn () callconv(.c) QSize) void {
         qtc.kColorPicker__KColorPicker_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QToolButton
     ///
@@ -6019,14 +7643,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn Event(self: kColorPicker__KColorPicker, e: anytype) bool {
+    pub fn event(self: kColorPicker__KColorPicker, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.kColorPicker__KColorPicker_Event(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6040,10 +7664,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn SuperEvent(self: kColorPicker__KColorPicker, e: anytype) bool {
+    pub fn superEvent(self: kColorPicker__KColorPicker, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.kColorPicker__KColorPicker_SuperEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6057,9 +7685,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, e: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QEvent) callconv(.c) bool) void {
         qtc.kColorPicker__KColorPicker_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6073,14 +7705,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param1: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: kColorPicker__KColorPicker, param1: anytype) void {
+    pub fn mousePressEvent(self: kColorPicker__KColorPicker, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QMouseEvent;
         qtc.kColorPicker__KColorPicker_MousePressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6094,11 +7726,15 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param1: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: kColorPicker__KColorPicker, param1: anytype) void {
+    pub fn superMousePressEvent(self: kColorPicker__KColorPicker, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QMouseEvent;
         qtc.kColorPicker__KColorPicker_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
+
     /// Inherited from QToolButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtoolbutton.html#mousePressEvent)
@@ -6111,9 +7747,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, param1: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QMouseEvent) callconv(.c) void) void {
         qtc.kColorPicker__KColorPicker_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6127,14 +7767,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param1: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: kColorPicker__KColorPicker, param1: anytype) void {
+    pub fn mouseReleaseEvent(self: kColorPicker__KColorPicker, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QMouseEvent;
         qtc.kColorPicker__KColorPicker_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6148,10 +7788,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param1: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: kColorPicker__KColorPicker, param1: anytype) void {
+    pub fn superMouseReleaseEvent(self: kColorPicker__KColorPicker, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QMouseEvent;
         qtc.kColorPicker__KColorPicker_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6165,9 +7809,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, param1: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QMouseEvent) callconv(.c) void) void {
         qtc.kColorPicker__KColorPicker_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6181,14 +7829,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param1: QPaintEvent `
     ///
-    pub fn PaintEvent(self: kColorPicker__KColorPicker, param1: anytype) void {
+    pub fn paintEvent(self: kColorPicker__KColorPicker, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPaintEvent;
         qtc.kColorPicker__KColorPicker_PaintEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6202,10 +7850,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param1: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: kColorPicker__KColorPicker, param1: anytype) void {
+    pub fn superPaintEvent(self: kColorPicker__KColorPicker, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPaintEvent;
         qtc.kColorPicker__KColorPicker_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6219,9 +7871,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, param1: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QPaintEvent) callconv(.c) void) void {
         qtc.kColorPicker__KColorPicker_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6235,14 +7891,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param1: QActionEvent `
     ///
-    pub fn ActionEvent(self: kColorPicker__KColorPicker, param1: anytype) void {
+    pub fn actionEvent(self: kColorPicker__KColorPicker, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QActionEvent;
         qtc.kColorPicker__KColorPicker_ActionEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6256,10 +7912,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param1: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: kColorPicker__KColorPicker, param1: anytype) void {
+    pub fn superActionEvent(self: kColorPicker__KColorPicker, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QActionEvent;
         qtc.kColorPicker__KColorPicker_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6273,9 +7933,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, param1: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QActionEvent) callconv(.c) void) void {
         qtc.kColorPicker__KColorPicker_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6289,14 +7953,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param1: QEnterEvent `
     ///
-    pub fn EnterEvent(self: kColorPicker__KColorPicker, param1: anytype) void {
+    pub fn enterEvent(self: kColorPicker__KColorPicker, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEnterEvent;
         qtc.kColorPicker__KColorPicker_EnterEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6310,10 +7974,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param1: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: kColorPicker__KColorPicker, param1: anytype) void {
+    pub fn superEnterEvent(self: kColorPicker__KColorPicker, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEnterEvent;
         qtc.kColorPicker__KColorPicker_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6327,9 +7995,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, param1: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QEnterEvent) callconv(.c) void) void {
         qtc.kColorPicker__KColorPicker_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6343,14 +8015,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn LeaveEvent(self: kColorPicker__KColorPicker, param1: anytype) void {
+    pub fn leaveEvent(self: kColorPicker__KColorPicker, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.kColorPicker__KColorPicker_LeaveEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6364,10 +8036,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: kColorPicker__KColorPicker, param1: anytype) void {
+    pub fn superLeaveEvent(self: kColorPicker__KColorPicker, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.kColorPicker__KColorPicker_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6381,9 +8057,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QEvent) callconv(.c) void) void {
         qtc.kColorPicker__KColorPicker_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6397,14 +8077,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param1: QTimerEvent `
     ///
-    pub fn TimerEvent(self: kColorPicker__KColorPicker, param1: anytype) void {
+    pub fn timerEvent(self: kColorPicker__KColorPicker, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QTimerEvent;
         qtc.kColorPicker__KColorPicker_TimerEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6418,10 +8098,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param1: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: kColorPicker__KColorPicker, param1: anytype) void {
+    pub fn superTimerEvent(self: kColorPicker__KColorPicker, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QTimerEvent;
         qtc.kColorPicker__KColorPicker_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6435,9 +8119,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, param1: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QTimerEvent) callconv(.c) void) void {
         qtc.kColorPicker__KColorPicker_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6451,14 +8139,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: kColorPicker__KColorPicker, param1: anytype) void {
+    pub fn changeEvent(self: kColorPicker__KColorPicker, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.kColorPicker__KColorPicker_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6472,10 +8160,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: kColorPicker__KColorPicker, param1: anytype) void {
+    pub fn superChangeEvent(self: kColorPicker__KColorPicker, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.kColorPicker__KColorPicker_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6489,9 +8181,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QEvent) callconv(.c) void) void {
         qtc.kColorPicker__KColorPicker_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hitButton` instead
+    ///
+    pub const HitButton = hitButton;
 
     /// Inherited from QToolButton
     ///
@@ -6503,16 +8199,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn HitButton(self: kColorPicker__KColorPicker, pos: anytype) bool {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        return qtc.kColorPicker__KColorPicker_HitButton(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn hitButton(self: kColorPicker__KColorPicker, _pos: anytype) bool {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        return qtc.kColorPicker__KColorPicker_HitButton(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHitButton` instead
+    /// ### DEPRECATED: Use `superHitButton` instead
     ///
-    pub const QBaseHitButton = SuperHitButton;
+    pub const SuperHitButton = superHitButton;
 
     /// Inherited from QToolButton
     ///
@@ -6524,12 +8220,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn SuperHitButton(self: kColorPicker__KColorPicker, pos: anytype) bool {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        return qtc.kColorPicker__KColorPicker_SuperHitButton(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn superHitButton(self: kColorPicker__KColorPicker, _pos: anytype) bool {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        return qtc.kColorPicker__KColorPicker_SuperHitButton(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHitButton` instead
+    ///
+    pub const OnHitButton = onHitButton;
 
     /// Inherited from QToolButton
     ///
@@ -6543,10 +8243,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, pos: QPoint) callconv(.c) bool `
     ///
-    pub fn OnHitButton(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QPoint) callconv(.c) bool) void {
+    pub fn onHitButton(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QPoint) callconv(.c) bool) void {
         qtc.kColorPicker__KColorPicker_OnHitButton(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `checkStateSet` instead
+    ///
+    pub const CheckStateSet = checkStateSet;
+
     /// Inherited from QToolButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtoolbutton.html#checkStateSet)
@@ -6557,13 +8261,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn CheckStateSet(self: kColorPicker__KColorPicker) void {
+    pub fn checkStateSet(self: kColorPicker__KColorPicker) void {
         qtc.kColorPicker__KColorPicker_CheckStateSet(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCheckStateSet` instead
+    /// ### DEPRECATED: Use `superCheckStateSet` instead
     ///
-    pub const QBaseCheckStateSet = SuperCheckStateSet;
+    pub const SuperCheckStateSet = superCheckStateSet;
 
     /// Inherited from QToolButton
     ///
@@ -6575,9 +8279,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn SuperCheckStateSet(self: kColorPicker__KColorPicker) void {
+    pub fn superCheckStateSet(self: kColorPicker__KColorPicker) void {
         qtc.kColorPicker__KColorPicker_SuperCheckStateSet(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCheckStateSet` instead
+    ///
+    pub const OnCheckStateSet = onCheckStateSet;
 
     /// Inherited from QToolButton
     ///
@@ -6591,9 +8299,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCheckStateSet(self: kColorPicker__KColorPicker, callback: *const fn () callconv(.c) void) void {
+    pub fn onCheckStateSet(self: kColorPicker__KColorPicker, callback: *const fn () callconv(.c) void) void {
         qtc.kColorPicker__KColorPicker_OnCheckStateSet(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nextCheckState` instead
+    ///
+    pub const NextCheckState = nextCheckState;
 
     /// Inherited from QToolButton
     ///
@@ -6605,13 +8317,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn NextCheckState(self: kColorPicker__KColorPicker) void {
+    pub fn nextCheckState(self: kColorPicker__KColorPicker) void {
         qtc.kColorPicker__KColorPicker_NextCheckState(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperNextCheckState` instead
+    /// ### DEPRECATED: Use `superNextCheckState` instead
     ///
-    pub const QBaseNextCheckState = SuperNextCheckState;
+    pub const SuperNextCheckState = superNextCheckState;
 
     /// Inherited from QToolButton
     ///
@@ -6623,9 +8335,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn SuperNextCheckState(self: kColorPicker__KColorPicker) void {
+    pub fn superNextCheckState(self: kColorPicker__KColorPicker) void {
         qtc.kColorPicker__KColorPicker_SuperNextCheckState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onNextCheckState` instead
+    ///
+    pub const OnNextCheckState = onNextCheckState;
 
     /// Inherited from QToolButton
     ///
@@ -6639,9 +8355,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnNextCheckState(self: kColorPicker__KColorPicker, callback: *const fn () callconv(.c) void) void {
+    pub fn onNextCheckState(self: kColorPicker__KColorPicker, callback: *const fn () callconv(.c) void) void {
         qtc.kColorPicker__KColorPicker_OnNextCheckState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initStyleOption` instead
+    ///
+    pub const InitStyleOption = initStyleOption;
 
     /// Inherited from QToolButton
     ///
@@ -6655,14 +8375,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` option: QStyleOptionToolButton `
     ///
-    pub fn InitStyleOption(self: kColorPicker__KColorPicker, option: anytype) void {
+    pub fn initStyleOption(self: kColorPicker__KColorPicker, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionToolButton;
         qtc.kColorPicker__KColorPicker_InitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitStyleOption` instead
+    /// ### DEPRECATED: Use `superInitStyleOption` instead
     ///
-    pub const QBaseInitStyleOption = SuperInitStyleOption;
+    pub const SuperInitStyleOption = superInitStyleOption;
 
     /// Inherited from QToolButton
     ///
@@ -6676,10 +8396,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` option: QStyleOptionToolButton `
     ///
-    pub fn SuperInitStyleOption(self: kColorPicker__KColorPicker, option: anytype) void {
+    pub fn superInitStyleOption(self: kColorPicker__KColorPicker, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionToolButton;
         qtc.kColorPicker__KColorPicker_SuperInitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitStyleOption` instead
+    ///
+    pub const OnInitStyleOption = onInitStyleOption;
 
     /// Inherited from QToolButton
     ///
@@ -6693,9 +8417,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, option: QStyleOptionToolButton) callconv(.c) void `
     ///
-    pub fn OnInitStyleOption(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QStyleOptionToolButton) callconv(.c) void) void {
+    pub fn onInitStyleOption(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QStyleOptionToolButton) callconv(.c) void) void {
         qtc.kColorPicker__KColorPicker_OnInitStyleOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6709,14 +8437,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: kColorPicker__KColorPicker, e: anytype) void {
+    pub fn keyPressEvent(self: kColorPicker__KColorPicker, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.kColorPicker__KColorPicker_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6730,11 +8458,15 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: kColorPicker__KColorPicker, e: anytype) void {
+    pub fn superKeyPressEvent(self: kColorPicker__KColorPicker, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.kColorPicker__KColorPicker_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
+
     /// Inherited from QAbstractButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbutton.html#keyPressEvent)
@@ -6747,9 +8479,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, e: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QKeyEvent) callconv(.c) void) void {
         qtc.kColorPicker__KColorPicker_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6763,14 +8499,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: kColorPicker__KColorPicker, e: anytype) void {
+    pub fn keyReleaseEvent(self: kColorPicker__KColorPicker, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.kColorPicker__KColorPicker_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6784,10 +8520,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: kColorPicker__KColorPicker, e: anytype) void {
+    pub fn superKeyReleaseEvent(self: kColorPicker__KColorPicker, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.kColorPicker__KColorPicker_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6801,9 +8541,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, e: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QKeyEvent) callconv(.c) void) void {
         qtc.kColorPicker__KColorPicker_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6817,14 +8561,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: kColorPicker__KColorPicker, e: anytype) void {
+    pub fn mouseMoveEvent(self: kColorPicker__KColorPicker, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.kColorPicker__KColorPicker_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6838,10 +8582,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: kColorPicker__KColorPicker, e: anytype) void {
+    pub fn superMouseMoveEvent(self: kColorPicker__KColorPicker, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.kColorPicker__KColorPicker_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6855,9 +8603,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, e: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QMouseEvent) callconv(.c) void) void {
         qtc.kColorPicker__KColorPicker_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6871,14 +8623,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` e: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: kColorPicker__KColorPicker, e: anytype) void {
+    pub fn focusInEvent(self: kColorPicker__KColorPicker, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QFocusEvent;
         qtc.kColorPicker__KColorPicker_FocusInEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6892,11 +8644,15 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` e: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: kColorPicker__KColorPicker, e: anytype) void {
+    pub fn superFocusInEvent(self: kColorPicker__KColorPicker, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QFocusEvent;
         qtc.kColorPicker__KColorPicker_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
+
     /// Inherited from QAbstractButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbutton.html#focusInEvent)
@@ -6909,9 +8665,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, e: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QFocusEvent) callconv(.c) void) void {
         qtc.kColorPicker__KColorPicker_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6925,14 +8685,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` e: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: kColorPicker__KColorPicker, e: anytype) void {
+    pub fn focusOutEvent(self: kColorPicker__KColorPicker, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QFocusEvent;
         qtc.kColorPicker__KColorPicker_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6946,10 +8706,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` e: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: kColorPicker__KColorPicker, e: anytype) void {
+    pub fn superFocusOutEvent(self: kColorPicker__KColorPicker, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QFocusEvent;
         qtc.kColorPicker__KColorPicker_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6963,9 +8727,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, e: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QFocusEvent) callconv(.c) void) void {
         qtc.kColorPicker__KColorPicker_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -6977,13 +8745,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn DevType(self: kColorPicker__KColorPicker) i32 {
+    pub fn devType(self: kColorPicker__KColorPicker) i32 {
         return qtc.kColorPicker__KColorPicker_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -6995,9 +8763,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn SuperDevType(self: kColorPicker__KColorPicker) i32 {
+    pub fn superDevType(self: kColorPicker__KColorPicker) i32 {
         return qtc.kColorPicker__KColorPicker_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -7011,9 +8783,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: kColorPicker__KColorPicker, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: kColorPicker__KColorPicker, callback: *const fn () callconv(.c) i32) void {
         qtc.kColorPicker__KColorPicker_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -7027,13 +8803,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: kColorPicker__KColorPicker, visible: bool) void {
+    pub fn setVisible(self: kColorPicker__KColorPicker, visible: bool) void {
         qtc.kColorPicker__KColorPicker_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -7047,9 +8823,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: kColorPicker__KColorPicker, visible: bool) void {
+    pub fn superSetVisible(self: kColorPicker__KColorPicker, visible: bool) void {
         qtc.kColorPicker__KColorPicker_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -7063,9 +8843,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, bool) callconv(.c) void) void {
         qtc.kColorPicker__KColorPicker_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7079,13 +8863,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: kColorPicker__KColorPicker, param1: i32) i32 {
+    pub fn heightForWidth(self: kColorPicker__KColorPicker, param1: i32) i32 {
         return qtc.kColorPicker__KColorPicker_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7099,9 +8883,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: kColorPicker__KColorPicker, param1: i32) i32 {
+    pub fn superHeightForWidth(self: kColorPicker__KColorPicker, param1: i32) i32 {
         return qtc.kColorPicker__KColorPicker_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7115,9 +8903,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, i32) callconv(.c) i32) void {
         qtc.kColorPicker__KColorPicker_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7129,13 +8921,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn HasHeightForWidth(self: kColorPicker__KColorPicker) bool {
+    pub fn hasHeightForWidth(self: kColorPicker__KColorPicker) bool {
         return qtc.kColorPicker__KColorPicker_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7147,9 +8939,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn SuperHasHeightForWidth(self: kColorPicker__KColorPicker) bool {
+    pub fn superHasHeightForWidth(self: kColorPicker__KColorPicker) bool {
         return qtc.kColorPicker__KColorPicker_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7163,9 +8959,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: kColorPicker__KColorPicker, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: kColorPicker__KColorPicker, callback: *const fn () callconv(.c) bool) void {
         qtc.kColorPicker__KColorPicker_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -7177,13 +8977,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn PaintEngine(self: kColorPicker__KColorPicker) QPaintEngine {
+    pub fn paintEngine(self: kColorPicker__KColorPicker) QPaintEngine {
         return .{ .ptr = qtc.kColorPicker__KColorPicker_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -7195,9 +8995,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn SuperPaintEngine(self: kColorPicker__KColorPicker) QPaintEngine {
+    pub fn superPaintEngine(self: kColorPicker__KColorPicker) QPaintEngine {
         return .{ .ptr = qtc.kColorPicker__KColorPicker_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -7211,9 +9015,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: kColorPicker__KColorPicker, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: kColorPicker__KColorPicker, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.kColorPicker__KColorPicker_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -7225,16 +9033,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: kColorPicker__KColorPicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.kColorPicker__KColorPicker_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: kColorPicker__KColorPicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.kColorPicker__KColorPicker_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -7246,12 +9054,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: kColorPicker__KColorPicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.kColorPicker__KColorPicker_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: kColorPicker__KColorPicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.kColorPicker__KColorPicker_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -7265,9 +9077,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QMouseEvent) callconv(.c) void) void {
         qtc.kColorPicker__KColorPicker_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -7279,16 +9095,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: kColorPicker__KColorPicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.kColorPicker__KColorPicker_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn wheelEvent(self: kColorPicker__KColorPicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.kColorPicker__KColorPicker_WheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -7300,12 +9116,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: kColorPicker__KColorPicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.kColorPicker__KColorPicker_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superWheelEvent(self: kColorPicker__KColorPicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.kColorPicker__KColorPicker_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -7319,9 +9139,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QWheelEvent) callconv(.c) void) void {
         qtc.kColorPicker__KColorPicker_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7333,16 +9157,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: kColorPicker__KColorPicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.kColorPicker__KColorPicker_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: kColorPicker__KColorPicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.kColorPicker__KColorPicker_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7354,12 +9178,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: kColorPicker__KColorPicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.kColorPicker__KColorPicker_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: kColorPicker__KColorPicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.kColorPicker__KColorPicker_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7373,9 +9201,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QMoveEvent) callconv(.c) void) void {
         qtc.kColorPicker__KColorPicker_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7387,16 +9219,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: kColorPicker__KColorPicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.kColorPicker__KColorPicker_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn resizeEvent(self: kColorPicker__KColorPicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.kColorPicker__KColorPicker_ResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7408,12 +9240,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: kColorPicker__KColorPicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.kColorPicker__KColorPicker_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superResizeEvent(self: kColorPicker__KColorPicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.kColorPicker__KColorPicker_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7427,9 +9263,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QResizeEvent) callconv(.c) void) void {
         qtc.kColorPicker__KColorPicker_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7441,16 +9281,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: kColorPicker__KColorPicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.kColorPicker__KColorPicker_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: kColorPicker__KColorPicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.kColorPicker__KColorPicker_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -7462,12 +9302,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: kColorPicker__KColorPicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.kColorPicker__KColorPicker_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: kColorPicker__KColorPicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.kColorPicker__KColorPicker_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -7481,9 +9325,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QCloseEvent) callconv(.c) void) void {
         qtc.kColorPicker__KColorPicker_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -7495,16 +9343,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: kColorPicker__KColorPicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.kColorPicker__KColorPicker_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn contextMenuEvent(self: kColorPicker__KColorPicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.kColorPicker__KColorPicker_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -7516,12 +9364,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: kColorPicker__KColorPicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.kColorPicker__KColorPicker_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superContextMenuEvent(self: kColorPicker__KColorPicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.kColorPicker__KColorPicker_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -7535,9 +9387,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, event: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QContextMenuEvent) callconv(.c) void) void {
         qtc.kColorPicker__KColorPicker_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7549,16 +9405,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: kColorPicker__KColorPicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.kColorPicker__KColorPicker_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: kColorPicker__KColorPicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.kColorPicker__KColorPicker_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7570,12 +9426,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: kColorPicker__KColorPicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.kColorPicker__KColorPicker_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: kColorPicker__KColorPicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.kColorPicker__KColorPicker_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7589,9 +9449,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QTabletEvent) callconv(.c) void) void {
         qtc.kColorPicker__KColorPicker_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7603,16 +9467,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: kColorPicker__KColorPicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.kColorPicker__KColorPicker_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: kColorPicker__KColorPicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.kColorPicker__KColorPicker_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7624,12 +9488,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: kColorPicker__KColorPicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.kColorPicker__KColorPicker_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: kColorPicker__KColorPicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.kColorPicker__KColorPicker_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7643,9 +9511,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QDragEnterEvent) callconv(.c) void) void {
         qtc.kColorPicker__KColorPicker_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7657,16 +9529,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: kColorPicker__KColorPicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.kColorPicker__KColorPicker_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: kColorPicker__KColorPicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.kColorPicker__KColorPicker_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7678,12 +9550,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: kColorPicker__KColorPicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.kColorPicker__KColorPicker_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: kColorPicker__KColorPicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.kColorPicker__KColorPicker_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7697,9 +9573,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QDragMoveEvent) callconv(.c) void) void {
         qtc.kColorPicker__KColorPicker_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7711,16 +9591,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: kColorPicker__KColorPicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.kColorPicker__KColorPicker_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: kColorPicker__KColorPicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.kColorPicker__KColorPicker_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7732,12 +9612,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: kColorPicker__KColorPicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.kColorPicker__KColorPicker_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: kColorPicker__KColorPicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.kColorPicker__KColorPicker_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7751,9 +9635,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QDragLeaveEvent) callconv(.c) void) void {
         qtc.kColorPicker__KColorPicker_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7765,16 +9653,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: kColorPicker__KColorPicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.kColorPicker__KColorPicker_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: kColorPicker__KColorPicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.kColorPicker__KColorPicker_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7786,12 +9674,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: kColorPicker__KColorPicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.kColorPicker__KColorPicker_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: kColorPicker__KColorPicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.kColorPicker__KColorPicker_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7805,9 +9697,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QDropEvent) callconv(.c) void) void {
         qtc.kColorPicker__KColorPicker_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QWidget
     ///
@@ -7819,16 +9715,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn ShowEvent(self: kColorPicker__KColorPicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.kColorPicker__KColorPicker_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn showEvent(self: kColorPicker__KColorPicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.kColorPicker__KColorPicker_ShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -7840,12 +9736,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: kColorPicker__KColorPicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.kColorPicker__KColorPicker_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superShowEvent(self: kColorPicker__KColorPicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.kColorPicker__KColorPicker_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -7859,9 +9759,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QShowEvent) callconv(.c) void) void {
         qtc.kColorPicker__KColorPicker_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7873,16 +9777,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: kColorPicker__KColorPicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.kColorPicker__KColorPicker_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: kColorPicker__KColorPicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.kColorPicker__KColorPicker_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7894,12 +9798,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: kColorPicker__KColorPicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.kColorPicker__KColorPicker_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: kColorPicker__KColorPicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.kColorPicker__KColorPicker_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7913,9 +9821,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QHideEvent) callconv(.c) void) void {
         qtc.kColorPicker__KColorPicker_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7933,7 +9845,7 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: kColorPicker__KColorPicker, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: kColorPicker__KColorPicker, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -7941,9 +9853,9 @@ pub const kColorPicker__KColorPicker = extern struct {
         return qtc.kColorPicker__KColorPicker_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7961,13 +9873,17 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: kColorPicker__KColorPicker, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: kColorPicker__KColorPicker, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.kColorPicker__KColorPicker_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7981,9 +9897,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.kColorPicker__KColorPicker_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -7997,13 +9917,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: kColorPicker__KColorPicker, param1: i32) i32 {
+    pub fn metric(self: kColorPicker__KColorPicker, param1: i32) i32 {
         return qtc.kColorPicker__KColorPicker_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -8017,9 +9937,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: kColorPicker__KColorPicker, param1: i32) i32 {
+    pub fn superMetric(self: kColorPicker__KColorPicker, param1: i32) i32 {
         return qtc.kColorPicker__KColorPicker_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -8033,9 +9957,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, i32) callconv(.c) i32) void {
         qtc.kColorPicker__KColorPicker_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -8049,14 +9977,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: kColorPicker__KColorPicker, painter: anytype) void {
+    pub fn initPainter(self: kColorPicker__KColorPicker, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.kColorPicker__KColorPicker_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -8070,10 +9998,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: kColorPicker__KColorPicker, painter: anytype) void {
+    pub fn superInitPainter(self: kColorPicker__KColorPicker, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.kColorPicker__KColorPicker_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -8087,9 +10019,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QPainter) callconv(.c) void) void {
         qtc.kColorPicker__KColorPicker_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -8103,14 +10039,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: kColorPicker__KColorPicker, offset: anytype) QPaintDevice {
+    pub fn redirected(self: kColorPicker__KColorPicker, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.kColorPicker__KColorPicker_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -8124,10 +10060,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: kColorPicker__KColorPicker, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: kColorPicker__KColorPicker, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.kColorPicker__KColorPicker_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -8141,9 +10081,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QPoint) callconv(.c) QPaintDevice) void {
         qtc.kColorPicker__KColorPicker_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -8155,13 +10099,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn SharedPainter(self: kColorPicker__KColorPicker) QPainter {
+    pub fn sharedPainter(self: kColorPicker__KColorPicker) QPainter {
         return .{ .ptr = qtc.kColorPicker__KColorPicker_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -8173,9 +10117,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn SuperSharedPainter(self: kColorPicker__KColorPicker) QPainter {
+    pub fn superSharedPainter(self: kColorPicker__KColorPicker) QPainter {
         return .{ .ptr = qtc.kColorPicker__KColorPicker_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -8189,9 +10137,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: kColorPicker__KColorPicker, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: kColorPicker__KColorPicker, callback: *const fn () callconv(.c) QPainter) void {
         qtc.kColorPicker__KColorPicker_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -8205,14 +10157,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: kColorPicker__KColorPicker, param1: anytype) void {
+    pub fn inputMethodEvent(self: kColorPicker__KColorPicker, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.kColorPicker__KColorPicker_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -8226,10 +10178,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: kColorPicker__KColorPicker, param1: anytype) void {
+    pub fn superInputMethodEvent(self: kColorPicker__KColorPicker, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.kColorPicker__KColorPicker_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -8243,9 +10199,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QInputMethodEvent) callconv(.c) void) void {
         qtc.kColorPicker__KColorPicker_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -8259,13 +10219,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: kColorPicker__KColorPicker, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: kColorPicker__KColorPicker, param1: i32) QVariant {
         return .{ .ptr = qtc.kColorPicker__KColorPicker_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -8279,9 +10239,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: kColorPicker__KColorPicker, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: kColorPicker__KColorPicker, param1: i32) QVariant {
         return .{ .ptr = qtc.kColorPicker__KColorPicker_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -8297,9 +10261,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, i32) callconv(.c) QVariant) void {
         qtc.kColorPicker__KColorPicker_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8313,13 +10281,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: kColorPicker__KColorPicker, next: bool) bool {
+    pub fn focusNextPrevChild(self: kColorPicker__KColorPicker, next: bool) bool {
         return qtc.kColorPicker__KColorPicker_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8333,9 +10301,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: kColorPicker__KColorPicker, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: kColorPicker__KColorPicker, next: bool) bool {
         return qtc.kColorPicker__KColorPicker_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8349,9 +10321,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, bool) callconv(.c) bool) void {
         qtc.kColorPicker__KColorPicker_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -8365,17 +10341,17 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: kColorPicker__KColorPicker, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: kColorPicker__KColorPicker, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.kColorPicker__KColorPicker_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.kColorPicker__KColorPicker_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -8389,13 +10365,17 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: kColorPicker__KColorPicker, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: kColorPicker__KColorPicker, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.kColorPicker__KColorPicker_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.kColorPicker__KColorPicker_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -8409,9 +10389,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QObject, QEvent) callconv(.c) bool) void {
         qtc.kColorPicker__KColorPicker_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -8423,16 +10407,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: kColorPicker__KColorPicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.kColorPicker__KColorPicker_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: kColorPicker__KColorPicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.kColorPicker__KColorPicker_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -8444,12 +10428,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: kColorPicker__KColorPicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.kColorPicker__KColorPicker_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: kColorPicker__KColorPicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.kColorPicker__KColorPicker_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -8463,9 +10451,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QChildEvent) callconv(.c) void) void {
         qtc.kColorPicker__KColorPicker_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -8477,16 +10469,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: kColorPicker__KColorPicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.kColorPicker__KColorPicker_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: kColorPicker__KColorPicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.kColorPicker__KColorPicker_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8498,12 +10490,16 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: kColorPicker__KColorPicker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.kColorPicker__KColorPicker_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: kColorPicker__KColorPicker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.kColorPicker__KColorPicker_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8517,9 +10513,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QEvent) callconv(.c) void) void {
         qtc.kColorPicker__KColorPicker_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -8533,14 +10533,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: kColorPicker__KColorPicker, signal: anytype) void {
+    pub fn connectNotify(self: kColorPicker__KColorPicker, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.kColorPicker__KColorPicker_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8554,11 +10554,15 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: kColorPicker__KColorPicker, signal: anytype) void {
+    pub fn superConnectNotify(self: kColorPicker__KColorPicker, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.kColorPicker__KColorPicker_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -8571,9 +10575,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QMetaMethod) callconv(.c) void) void {
         qtc.kColorPicker__KColorPicker_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8587,14 +10595,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: kColorPicker__KColorPicker, signal: anytype) void {
+    pub fn disconnectNotify(self: kColorPicker__KColorPicker, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.kColorPicker__KColorPicker_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8608,10 +10616,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: kColorPicker__KColorPicker, signal: anytype) void {
+    pub fn superDisconnectNotify(self: kColorPicker__KColorPicker, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.kColorPicker__KColorPicker_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8625,10 +10637,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QMetaMethod) callconv(.c) void) void {
         qtc.kColorPicker__KColorPicker_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8639,13 +10655,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn UpdateMicroFocus(self: kColorPicker__KColorPicker) void {
+    pub fn updateMicroFocus(self: kColorPicker__KColorPicker) void {
         qtc.kColorPicker__KColorPicker_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -8657,10 +10673,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn SuperUpdateMicroFocus(self: kColorPicker__KColorPicker) void {
+    pub fn superUpdateMicroFocus(self: kColorPicker__KColorPicker) void {
         qtc.kColorPicker__KColorPicker_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8673,10 +10693,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: kColorPicker__KColorPicker, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: kColorPicker__KColorPicker, callback: *const fn () callconv(.c) void) void {
         qtc.kColorPicker__KColorPicker_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8687,13 +10711,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn Create(self: kColorPicker__KColorPicker) void {
+    pub fn create(self: kColorPicker__KColorPicker) void {
         qtc.kColorPicker__KColorPicker_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -8705,10 +10729,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn SuperCreate(self: kColorPicker__KColorPicker) void {
+    pub fn superCreate(self: kColorPicker__KColorPicker) void {
         qtc.kColorPicker__KColorPicker_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8721,9 +10749,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: kColorPicker__KColorPicker, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: kColorPicker__KColorPicker, callback: *const fn () callconv(.c) void) void {
         qtc.kColorPicker__KColorPicker_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -8735,13 +10767,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn Destroy(self: kColorPicker__KColorPicker) void {
+    pub fn destroy(self: kColorPicker__KColorPicker) void {
         qtc.kColorPicker__KColorPicker_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8753,9 +10785,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn SuperDestroy(self: kColorPicker__KColorPicker) void {
+    pub fn superDestroy(self: kColorPicker__KColorPicker) void {
         qtc.kColorPicker__KColorPicker_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8769,10 +10805,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: kColorPicker__KColorPicker, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: kColorPicker__KColorPicker, callback: *const fn () callconv(.c) void) void {
         qtc.kColorPicker__KColorPicker_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8783,13 +10823,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn FocusNextChild(self: kColorPicker__KColorPicker) bool {
+    pub fn focusNextChild(self: kColorPicker__KColorPicker) bool {
         return qtc.kColorPicker__KColorPicker_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -8801,10 +10841,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn SuperFocusNextChild(self: kColorPicker__KColorPicker) bool {
+    pub fn superFocusNextChild(self: kColorPicker__KColorPicker) bool {
         return qtc.kColorPicker__KColorPicker_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8817,9 +10861,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: kColorPicker__KColorPicker, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: kColorPicker__KColorPicker, callback: *const fn () callconv(.c) bool) void {
         qtc.kColorPicker__KColorPicker_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8831,13 +10879,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn FocusPreviousChild(self: kColorPicker__KColorPicker) bool {
+    pub fn focusPreviousChild(self: kColorPicker__KColorPicker) bool {
         return qtc.kColorPicker__KColorPicker_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8849,9 +10897,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn SuperFocusPreviousChild(self: kColorPicker__KColorPicker) bool {
+    pub fn superFocusPreviousChild(self: kColorPicker__KColorPicker) bool {
         return qtc.kColorPicker__KColorPicker_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8865,9 +10917,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: kColorPicker__KColorPicker, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: kColorPicker__KColorPicker, callback: *const fn () callconv(.c) bool) void {
         qtc.kColorPicker__KColorPicker_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -8879,13 +10935,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn Sender(self: kColorPicker__KColorPicker) QObject {
+    pub fn sender(self: kColorPicker__KColorPicker) QObject {
         return .{ .ptr = qtc.kColorPicker__KColorPicker_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -8897,9 +10953,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn SuperSender(self: kColorPicker__KColorPicker) QObject {
+    pub fn superSender(self: kColorPicker__KColorPicker) QObject {
         return .{ .ptr = qtc.kColorPicker__KColorPicker_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -8913,9 +10973,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: kColorPicker__KColorPicker, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: kColorPicker__KColorPicker, callback: *const fn () callconv(.c) QObject) void {
         qtc.kColorPicker__KColorPicker_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8927,13 +10991,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn SenderSignalIndex(self: kColorPicker__KColorPicker) i32 {
+    pub fn senderSignalIndex(self: kColorPicker__KColorPicker) i32 {
         return qtc.kColorPicker__KColorPicker_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8945,9 +11009,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn SuperSenderSignalIndex(self: kColorPicker__KColorPicker) i32 {
+    pub fn superSenderSignalIndex(self: kColorPicker__KColorPicker) i32 {
         return qtc.kColorPicker__KColorPicker_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8961,9 +11029,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: kColorPicker__KColorPicker, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: kColorPicker__KColorPicker, callback: *const fn () callconv(.c) i32) void {
         qtc.kColorPicker__KColorPicker_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -8977,14 +11049,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: kColorPicker__KColorPicker, signal: [:0]const u8) i32 {
+    pub fn receivers(self: kColorPicker__KColorPicker, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.kColorPicker__KColorPicker_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -8998,10 +11070,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: kColorPicker__KColorPicker, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: kColorPicker__KColorPicker, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.kColorPicker__KColorPicker_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -9015,9 +11091,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, [*:0]const u8) callconv(.c) i32) void {
         qtc.kColorPicker__KColorPicker_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -9031,14 +11111,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: kColorPicker__KColorPicker, signal: anytype) bool {
+    pub fn isSignalConnected(self: kColorPicker__KColorPicker, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.kColorPicker__KColorPicker_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -9052,10 +11132,14 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: kColorPicker__KColorPicker, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: kColorPicker__KColorPicker, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.kColorPicker__KColorPicker_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -9069,9 +11153,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, QMetaMethod) callconv(.c) bool) void {
         qtc.kColorPicker__KColorPicker_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9087,13 +11175,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: kColorPicker__KColorPicker, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: kColorPicker__KColorPicker, metricA: i32, metricB: i32) f64 {
         return qtc.kColorPicker__KColorPicker_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9109,9 +11197,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: kColorPicker__KColorPicker, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: kColorPicker__KColorPicker, metricA: i32, metricB: i32) f64 {
         return qtc.kColorPicker__KColorPicker_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9125,9 +11217,13 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, i32, i32) callconv(.c) f64) void {
         qtc.kColorPicker__KColorPicker_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -9141,23 +11237,23 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://github.com/ksnip/kcolorpicker)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: kColorPicker__KColorPicker `
     ///
-    pub fn Delete(self: kColorPicker__KColorPicker) void {
+    pub fn delete(self: kColorPicker__KColorPicker) void {
         qtc.kColorPicker__KColorPicker_Delete(@ptrCast(self.ptr));
     }
 };

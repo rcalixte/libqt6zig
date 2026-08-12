@@ -89,22 +89,34 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new Sonnet::DictionaryComboBox object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new Sonnet::DictionaryComboBox object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) Sonnet__DictionaryComboBox {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.Sonnet__DictionaryComboBox_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) Sonnet__DictionaryComboBox {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.Sonnet__DictionaryComboBox_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new Sonnet::DictionaryComboBox object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() Sonnet__DictionaryComboBox {
+    pub const New2 = new2;
+
+    /// Allocate a new Sonnet::DictionaryComboBox object in C++ memory
+    ///
+    pub fn new2() Sonnet__DictionaryComboBox {
         return .{ .ptr = qtc.Sonnet__DictionaryComboBox_new2() };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -112,9 +124,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn MetaObject(self: Sonnet__DictionaryComboBox) QMetaObject {
+    pub fn metaObject(self: Sonnet__DictionaryComboBox) QMetaObject {
         return .{ .ptr = qtc.Sonnet__DictionaryComboBox_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -126,13 +142,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: Sonnet__DictionaryComboBox, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: Sonnet__DictionaryComboBox, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.Sonnet__DictionaryComboBox_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -142,9 +158,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn SuperMetaObject(self: Sonnet__DictionaryComboBox) QMetaObject {
+    pub fn superMetaObject(self: Sonnet__DictionaryComboBox) QMetaObject {
         return .{ .ptr = qtc.Sonnet__DictionaryComboBox_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -152,10 +172,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: Sonnet__DictionaryComboBox, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: Sonnet__DictionaryComboBox, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.Sonnet__DictionaryComboBox_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -165,13 +189,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.Sonnet__DictionaryComboBox_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -181,10 +205,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: Sonnet__DictionaryComboBox, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: Sonnet__DictionaryComboBox, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.Sonnet__DictionaryComboBox_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -196,9 +224,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: Sonnet__DictionaryComboBox, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: Sonnet__DictionaryComboBox, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.Sonnet__DictionaryComboBox_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -208,13 +240,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.Sonnet__DictionaryComboBox_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -228,9 +260,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: Sonnet__DictionaryComboBox, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: Sonnet__DictionaryComboBox, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.Sonnet__DictionaryComboBox_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -240,14 +276,18 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `reloadCombo` instead
+    ///
+    pub const ReloadCombo = reloadCombo;
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-dictionarycombobox.html#reloadCombo)
     ///
@@ -255,9 +295,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn ReloadCombo(self: Sonnet__DictionaryComboBox) void {
+    pub fn reloadCombo(self: Sonnet__DictionaryComboBox) void {
         qtc.Sonnet__DictionaryComboBox_ReloadCombo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `currentDictionaryName` instead
+    ///
+    pub const CurrentDictionaryName = currentDictionaryName;
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-dictionarycombobox.html#currentDictionaryName)
     ///
@@ -267,13 +311,17 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CurrentDictionaryName(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn currentDictionaryName(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Sonnet__DictionaryComboBox_CurrentDictionaryName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.CurrentDictionaryName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.currentDictionaryName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `currentDictionary` instead
+    ///
+    pub const CurrentDictionary = currentDictionary;
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-dictionarycombobox.html#currentDictionary)
     ///
@@ -283,13 +331,17 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CurrentDictionary(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn currentDictionary(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Sonnet__DictionaryComboBox_CurrentDictionary(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.CurrentDictionary: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.currentDictionary: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setCurrentByDictionaryName` instead
+    ///
+    pub const SetCurrentByDictionaryName = setCurrentByDictionaryName;
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-dictionarycombobox.html#setCurrentByDictionaryName)
     ///
@@ -299,13 +351,17 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` dictionaryName: []const u8 `
     ///
-    pub fn SetCurrentByDictionaryName(self: Sonnet__DictionaryComboBox, dictionaryName: []const u8) void {
+    pub fn setCurrentByDictionaryName(self: Sonnet__DictionaryComboBox, dictionaryName: []const u8) void {
         const dictionaryName_str = qtc.libqt_string{
             .len = dictionaryName.len,
             .data = dictionaryName.ptr,
         };
         qtc.Sonnet__DictionaryComboBox_SetCurrentByDictionaryName(@ptrCast(self.ptr), dictionaryName_str);
     }
+
+    /// ### DEPRECATED: Use `assignByDictionnary` instead
+    ///
+    pub const AssignByDictionnary = assignByDictionnary;
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-dictionarycombobox.html#assignByDictionnary)
     ///
@@ -315,13 +371,17 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` dictionary: []const u8 `
     ///
-    pub fn AssignByDictionnary(self: Sonnet__DictionaryComboBox, dictionary: []const u8) bool {
+    pub fn assignByDictionnary(self: Sonnet__DictionaryComboBox, dictionary: []const u8) bool {
         const dictionary_str = qtc.libqt_string{
             .len = dictionary.len,
             .data = dictionary.ptr,
         };
         return qtc.Sonnet__DictionaryComboBox_AssignByDictionnary(@ptrCast(self.ptr), dictionary_str);
     }
+
+    /// ### DEPRECATED: Use `assignDictionnaryName` instead
+    ///
+    pub const AssignDictionnaryName = assignDictionnaryName;
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-dictionarycombobox.html#assignDictionnaryName)
     ///
@@ -331,13 +391,17 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn AssignDictionnaryName(self: Sonnet__DictionaryComboBox, name: []const u8) bool {
+    pub fn assignDictionnaryName(self: Sonnet__DictionaryComboBox, name: []const u8) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         return qtc.Sonnet__DictionaryComboBox_AssignDictionnaryName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `setCurrentByDictionary` instead
+    ///
+    pub const SetCurrentByDictionary = setCurrentByDictionary;
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-dictionarycombobox.html#setCurrentByDictionary)
     ///
@@ -347,13 +411,17 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` dictionary: []const u8 `
     ///
-    pub fn SetCurrentByDictionary(self: Sonnet__DictionaryComboBox, dictionary: []const u8) void {
+    pub fn setCurrentByDictionary(self: Sonnet__DictionaryComboBox, dictionary: []const u8) void {
         const dictionary_str = qtc.libqt_string{
             .len = dictionary.len,
             .data = dictionary.ptr,
         };
         qtc.Sonnet__DictionaryComboBox_SetCurrentByDictionary(@ptrCast(self.ptr), dictionary_str);
     }
+
+    /// ### DEPRECATED: Use `dictionaryChanged` instead
+    ///
+    pub const DictionaryChanged = dictionaryChanged;
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-dictionarycombobox.html#dictionaryChanged)
     ///
@@ -363,13 +431,17 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` dictionary: []const u8 `
     ///
-    pub fn DictionaryChanged(self: Sonnet__DictionaryComboBox, dictionary: []const u8) void {
+    pub fn dictionaryChanged(self: Sonnet__DictionaryComboBox, dictionary: []const u8) void {
         const dictionary_str = qtc.libqt_string{
             .len = dictionary.len,
             .data = dictionary.ptr,
         };
         qtc.Sonnet__DictionaryComboBox_DictionaryChanged(@ptrCast(self.ptr), dictionary_str);
     }
+
+    /// ### DEPRECATED: Use `onDictionaryChanged` instead
+    ///
+    pub const OnDictionaryChanged = onDictionaryChanged;
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-dictionarycombobox.html#dictionaryChanged)
     ///
@@ -379,9 +451,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, dictionary: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnDictionaryChanged(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onDictionaryChanged(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, [*:0]const u8) callconv(.c) void) void {
         qtc.Sonnet__DictionaryComboBox_Connect_DictionaryChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dictionaryNameChanged` instead
+    ///
+    pub const DictionaryNameChanged = dictionaryNameChanged;
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-dictionarycombobox.html#dictionaryNameChanged)
     ///
@@ -391,13 +467,17 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` dictionaryName: []const u8 `
     ///
-    pub fn DictionaryNameChanged(self: Sonnet__DictionaryComboBox, dictionaryName: []const u8) void {
+    pub fn dictionaryNameChanged(self: Sonnet__DictionaryComboBox, dictionaryName: []const u8) void {
         const dictionaryName_str = qtc.libqt_string{
             .len = dictionaryName.len,
             .data = dictionaryName.ptr,
         };
         qtc.Sonnet__DictionaryComboBox_DictionaryNameChanged(@ptrCast(self.ptr), dictionaryName_str);
     }
+
+    /// ### DEPRECATED: Use `onDictionaryNameChanged` instead
+    ///
+    pub const OnDictionaryNameChanged = onDictionaryNameChanged;
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-dictionarycombobox.html#dictionaryNameChanged)
     ///
@@ -407,9 +487,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, dictionaryName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnDictionaryNameChanged(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onDictionaryNameChanged(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, [*:0]const u8) callconv(.c) void) void {
         qtc.Sonnet__DictionaryComboBox_Connect_DictionaryNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -421,15 +505,19 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -443,15 +531,19 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `maxVisibleItems` instead
+    ///
+    pub const MaxVisibleItems = maxVisibleItems;
 
     /// Inherited from QComboBox
     ///
@@ -461,9 +553,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn MaxVisibleItems(self: Sonnet__DictionaryComboBox) i32 {
+    pub fn maxVisibleItems(self: Sonnet__DictionaryComboBox) i32 {
         return qtc.QComboBox_MaxVisibleItems(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaxVisibleItems` instead
+    ///
+    pub const SetMaxVisibleItems = setMaxVisibleItems;
 
     /// Inherited from QComboBox
     ///
@@ -475,9 +571,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` maxItems: i32 `
     ///
-    pub fn SetMaxVisibleItems(self: Sonnet__DictionaryComboBox, maxItems: i32) void {
+    pub fn setMaxVisibleItems(self: Sonnet__DictionaryComboBox, maxItems: i32) void {
         qtc.QComboBox_SetMaxVisibleItems(@ptrCast(self.ptr), @bitCast(maxItems));
     }
+
+    /// ### DEPRECATED: Use `count` instead
+    ///
+    pub const Count = count;
 
     /// Inherited from QComboBox
     ///
@@ -487,9 +587,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn Count(self: Sonnet__DictionaryComboBox) i32 {
+    pub fn count(self: Sonnet__DictionaryComboBox) i32 {
         return qtc.QComboBox_Count(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaxCount` instead
+    ///
+    pub const SetMaxCount = setMaxCount;
 
     /// Inherited from QComboBox
     ///
@@ -501,9 +605,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` max: i32 `
     ///
-    pub fn SetMaxCount(self: Sonnet__DictionaryComboBox, max: i32) void {
+    pub fn setMaxCount(self: Sonnet__DictionaryComboBox, max: i32) void {
         qtc.QComboBox_SetMaxCount(@ptrCast(self.ptr), @bitCast(max));
     }
+
+    /// ### DEPRECATED: Use `maxCount` instead
+    ///
+    pub const MaxCount = maxCount;
 
     /// Inherited from QComboBox
     ///
@@ -513,9 +621,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn MaxCount(self: Sonnet__DictionaryComboBox) i32 {
+    pub fn maxCount(self: Sonnet__DictionaryComboBox) i32 {
         return qtc.QComboBox_MaxCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `duplicatesEnabled` instead
+    ///
+    pub const DuplicatesEnabled = duplicatesEnabled;
 
     /// Inherited from QComboBox
     ///
@@ -525,9 +637,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn DuplicatesEnabled(self: Sonnet__DictionaryComboBox) bool {
+    pub fn duplicatesEnabled(self: Sonnet__DictionaryComboBox) bool {
         return qtc.QComboBox_DuplicatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDuplicatesEnabled` instead
+    ///
+    pub const SetDuplicatesEnabled = setDuplicatesEnabled;
 
     /// Inherited from QComboBox
     ///
@@ -539,9 +655,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetDuplicatesEnabled(self: Sonnet__DictionaryComboBox, enable: bool) void {
+    pub fn setDuplicatesEnabled(self: Sonnet__DictionaryComboBox, enable: bool) void {
         qtc.QComboBox_SetDuplicatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `setFrame` instead
+    ///
+    pub const SetFrame = setFrame;
 
     /// Inherited from QComboBox
     ///
@@ -553,9 +673,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` frame: bool `
     ///
-    pub fn SetFrame(self: Sonnet__DictionaryComboBox, frame: bool) void {
+    pub fn setFrame(self: Sonnet__DictionaryComboBox, frame: bool) void {
         qtc.QComboBox_SetFrame(@ptrCast(self.ptr), frame);
     }
+
+    /// ### DEPRECATED: Use `hasFrame` instead
+    ///
+    pub const HasFrame = hasFrame;
 
     /// Inherited from QComboBox
     ///
@@ -565,9 +689,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn HasFrame(self: Sonnet__DictionaryComboBox) bool {
+    pub fn hasFrame(self: Sonnet__DictionaryComboBox) bool {
         return qtc.QComboBox_HasFrame(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `findText` instead
+    ///
+    pub const FindText = findText;
 
     /// Inherited from QComboBox
     ///
@@ -579,13 +707,17 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn FindText(self: Sonnet__DictionaryComboBox, text: []const u8) i32 {
+    pub fn findText(self: Sonnet__DictionaryComboBox, text: []const u8) i32 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return qtc.QComboBox_FindText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `findData` instead
+    ///
+    pub const FindData = findData;
 
     /// Inherited from QComboBox
     ///
@@ -597,10 +729,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` data: QVariant `
     ///
-    pub fn FindData(self: Sonnet__DictionaryComboBox, data: anytype) i32 {
+    pub fn findData(self: Sonnet__DictionaryComboBox, data: anytype) i32 {
         comptime _ = @TypeOf(data)._is_QVariant;
         return qtc.QComboBox_FindData(@ptrCast(self.ptr), @ptrCast(data.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertPolicy` instead
+    ///
+    pub const InsertPolicy = insertPolicy;
 
     /// Inherited from QComboBox
     ///
@@ -614,9 +750,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` qcombobox_enums.InsertPolicy `
     ///
-    pub fn InsertPolicy(self: Sonnet__DictionaryComboBox) i32 {
+    pub fn insertPolicy(self: Sonnet__DictionaryComboBox) i32 {
         return qtc.QComboBox_InsertPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInsertPolicy` instead
+    ///
+    pub const SetInsertPolicy = setInsertPolicy;
 
     /// Inherited from QComboBox
     ///
@@ -628,9 +768,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` policy: qcombobox_enums.InsertPolicy `
     ///
-    pub fn SetInsertPolicy(self: Sonnet__DictionaryComboBox, policy: i32) void {
+    pub fn setInsertPolicy(self: Sonnet__DictionaryComboBox, policy: i32) void {
         qtc.QComboBox_SetInsertPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `sizeAdjustPolicy` instead
+    ///
+    pub const SizeAdjustPolicy = sizeAdjustPolicy;
 
     /// Inherited from QComboBox
     ///
@@ -644,9 +788,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` qcombobox_enums.SizeAdjustPolicy `
     ///
-    pub fn SizeAdjustPolicy(self: Sonnet__DictionaryComboBox) i32 {
+    pub fn sizeAdjustPolicy(self: Sonnet__DictionaryComboBox) i32 {
         return qtc.QComboBox_SizeAdjustPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeAdjustPolicy` instead
+    ///
+    pub const SetSizeAdjustPolicy = setSizeAdjustPolicy;
 
     /// Inherited from QComboBox
     ///
@@ -658,9 +806,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` policy: qcombobox_enums.SizeAdjustPolicy `
     ///
-    pub fn SetSizeAdjustPolicy(self: Sonnet__DictionaryComboBox, policy: i32) void {
+    pub fn setSizeAdjustPolicy(self: Sonnet__DictionaryComboBox, policy: i32) void {
         qtc.QComboBox_SetSizeAdjustPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `minimumContentsLength` instead
+    ///
+    pub const MinimumContentsLength = minimumContentsLength;
 
     /// Inherited from QComboBox
     ///
@@ -670,9 +822,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn MinimumContentsLength(self: Sonnet__DictionaryComboBox) i32 {
+    pub fn minimumContentsLength(self: Sonnet__DictionaryComboBox) i32 {
         return qtc.QComboBox_MinimumContentsLength(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumContentsLength` instead
+    ///
+    pub const SetMinimumContentsLength = setMinimumContentsLength;
 
     /// Inherited from QComboBox
     ///
@@ -684,9 +840,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` characters: i32 `
     ///
-    pub fn SetMinimumContentsLength(self: Sonnet__DictionaryComboBox, characters: i32) void {
+    pub fn setMinimumContentsLength(self: Sonnet__DictionaryComboBox, characters: i32) void {
         qtc.QComboBox_SetMinimumContentsLength(@ptrCast(self.ptr), @bitCast(characters));
     }
+
+    /// ### DEPRECATED: Use `iconSize` instead
+    ///
+    pub const IconSize = iconSize;
 
     /// Inherited from QComboBox
     ///
@@ -696,9 +856,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn IconSize(self: Sonnet__DictionaryComboBox) QSize {
+    pub fn iconSize(self: Sonnet__DictionaryComboBox) QSize {
         return .{ .ptr = qtc.QComboBox_IconSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setIconSize` instead
+    ///
+    pub const SetIconSize = setIconSize;
 
     /// Inherited from QComboBox
     ///
@@ -708,12 +872,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` size: QSize `
+    /// ` _size: QSize `
     ///
-    pub fn SetIconSize(self: Sonnet__DictionaryComboBox, size: anytype) void {
-        comptime _ = @TypeOf(size)._is_QSize;
-        qtc.QComboBox_SetIconSize(@ptrCast(self.ptr), @ptrCast(size.ptr));
+    pub fn setIconSize(self: Sonnet__DictionaryComboBox, _size: anytype) void {
+        comptime _ = @TypeOf(_size)._is_QSize;
+        qtc.QComboBox_SetIconSize(@ptrCast(self.ptr), @ptrCast(_size.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPlaceholderText` instead
+    ///
+    pub const SetPlaceholderText = setPlaceholderText;
 
     /// Inherited from QComboBox
     ///
@@ -723,15 +891,19 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` placeholderText: []const u8 `
+    /// ` _placeholderText: []const u8 `
     ///
-    pub fn SetPlaceholderText(self: Sonnet__DictionaryComboBox, placeholderText: []const u8) void {
+    pub fn setPlaceholderText(self: Sonnet__DictionaryComboBox, _placeholderText: []const u8) void {
         const placeholderText_str = qtc.libqt_string{
-            .len = placeholderText.len,
-            .data = placeholderText.ptr,
+            .len = _placeholderText.len,
+            .data = _placeholderText.ptr,
         };
         qtc.QComboBox_SetPlaceholderText(@ptrCast(self.ptr), placeholderText_str);
     }
+
+    /// ### DEPRECATED: Use `placeholderText` instead
+    ///
+    pub const PlaceholderText = placeholderText;
 
     /// Inherited from QComboBox
     ///
@@ -743,13 +915,17 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PlaceholderText(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn placeholderText(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QComboBox_PlaceholderText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.PlaceholderText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.placeholderText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isEditable` instead
+    ///
+    pub const IsEditable = isEditable;
 
     /// Inherited from QComboBox
     ///
@@ -759,9 +935,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn IsEditable(self: Sonnet__DictionaryComboBox) bool {
+    pub fn isEditable(self: Sonnet__DictionaryComboBox) bool {
         return qtc.QComboBox_IsEditable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEditable` instead
+    ///
+    pub const SetEditable = setEditable;
 
     /// Inherited from QComboBox
     ///
@@ -773,9 +953,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` editable: bool `
     ///
-    pub fn SetEditable(self: Sonnet__DictionaryComboBox, editable: bool) void {
+    pub fn setEditable(self: Sonnet__DictionaryComboBox, editable: bool) void {
         qtc.QComboBox_SetEditable(@ptrCast(self.ptr), editable);
     }
+
+    /// ### DEPRECATED: Use `setLineEdit` instead
+    ///
+    pub const SetLineEdit = setLineEdit;
 
     /// Inherited from QComboBox
     ///
@@ -787,10 +971,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` edit: QLineEdit `
     ///
-    pub fn SetLineEdit(self: Sonnet__DictionaryComboBox, edit: anytype) void {
+    pub fn setLineEdit(self: Sonnet__DictionaryComboBox, edit: anytype) void {
         comptime _ = @TypeOf(edit)._is_QLineEdit;
         qtc.QComboBox_SetLineEdit(@ptrCast(self.ptr), @ptrCast(edit.ptr));
     }
+
+    /// ### DEPRECATED: Use `lineEdit` instead
+    ///
+    pub const LineEdit = lineEdit;
 
     /// Inherited from QComboBox
     ///
@@ -800,9 +988,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn LineEdit(self: Sonnet__DictionaryComboBox) QLineEdit {
+    pub fn lineEdit(self: Sonnet__DictionaryComboBox) QLineEdit {
         return .{ .ptr = qtc.QComboBox_LineEdit(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setValidator` instead
+    ///
+    pub const SetValidator = setValidator;
 
     /// Inherited from QComboBox
     ///
@@ -814,10 +1006,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` v: QValidator `
     ///
-    pub fn SetValidator(self: Sonnet__DictionaryComboBox, v: anytype) void {
+    pub fn setValidator(self: Sonnet__DictionaryComboBox, v: anytype) void {
         comptime _ = @TypeOf(v)._is_QValidator;
         qtc.QComboBox_SetValidator(@ptrCast(self.ptr), @ptrCast(v.ptr));
     }
+
+    /// ### DEPRECATED: Use `validator` instead
+    ///
+    pub const Validator = validator;
 
     /// Inherited from QComboBox
     ///
@@ -827,9 +1023,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn Validator(self: Sonnet__DictionaryComboBox) QValidator {
+    pub fn validator(self: Sonnet__DictionaryComboBox) QValidator {
         return .{ .ptr = qtc.QComboBox_Validator(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCompleter` instead
+    ///
+    pub const SetCompleter = setCompleter;
 
     /// Inherited from QComboBox
     ///
@@ -841,10 +1041,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` c: QCompleter `
     ///
-    pub fn SetCompleter(self: Sonnet__DictionaryComboBox, c: anytype) void {
+    pub fn setCompleter(self: Sonnet__DictionaryComboBox, c: anytype) void {
         comptime _ = @TypeOf(c)._is_QCompleter;
         qtc.QComboBox_SetCompleter(@ptrCast(self.ptr), @ptrCast(c.ptr));
     }
+
+    /// ### DEPRECATED: Use `completer` instead
+    ///
+    pub const Completer = completer;
 
     /// Inherited from QComboBox
     ///
@@ -854,9 +1058,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn Completer(self: Sonnet__DictionaryComboBox) QCompleter {
+    pub fn completer(self: Sonnet__DictionaryComboBox) QCompleter {
         return .{ .ptr = qtc.QComboBox_Completer(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `itemDelegate` instead
+    ///
+    pub const ItemDelegate = itemDelegate;
 
     /// Inherited from QComboBox
     ///
@@ -866,9 +1074,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn ItemDelegate(self: Sonnet__DictionaryComboBox) QAbstractItemDelegate {
+    pub fn itemDelegate(self: Sonnet__DictionaryComboBox) QAbstractItemDelegate {
         return .{ .ptr = qtc.QComboBox_ItemDelegate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setItemDelegate` instead
+    ///
+    pub const SetItemDelegate = setItemDelegate;
 
     /// Inherited from QComboBox
     ///
@@ -880,10 +1092,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` delegate: QAbstractItemDelegate `
     ///
-    pub fn SetItemDelegate(self: Sonnet__DictionaryComboBox, delegate: anytype) void {
+    pub fn setItemDelegate(self: Sonnet__DictionaryComboBox, delegate: anytype) void {
         comptime _ = @TypeOf(delegate)._is_QAbstractItemDelegate;
         qtc.QComboBox_SetItemDelegate(@ptrCast(self.ptr), @ptrCast(delegate.ptr));
     }
+
+    /// ### DEPRECATED: Use `model` instead
+    ///
+    pub const Model = model;
 
     /// Inherited from QComboBox
     ///
@@ -893,9 +1109,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn Model(self: Sonnet__DictionaryComboBox) QAbstractItemModel {
+    pub fn model(self: Sonnet__DictionaryComboBox) QAbstractItemModel {
         return .{ .ptr = qtc.QComboBox_Model(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `rootModelIndex` instead
+    ///
+    pub const RootModelIndex = rootModelIndex;
 
     /// Inherited from QComboBox
     ///
@@ -905,9 +1125,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn RootModelIndex(self: Sonnet__DictionaryComboBox) QModelIndex {
+    pub fn rootModelIndex(self: Sonnet__DictionaryComboBox) QModelIndex {
         return .{ .ptr = qtc.QComboBox_RootModelIndex(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setRootModelIndex` instead
+    ///
+    pub const SetRootModelIndex = setRootModelIndex;
 
     /// Inherited from QComboBox
     ///
@@ -919,10 +1143,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SetRootModelIndex(self: Sonnet__DictionaryComboBox, index: anytype) void {
+    pub fn setRootModelIndex(self: Sonnet__DictionaryComboBox, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QComboBox_SetRootModelIndex(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `modelColumn` instead
+    ///
+    pub const ModelColumn = modelColumn;
 
     /// Inherited from QComboBox
     ///
@@ -932,9 +1160,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn ModelColumn(self: Sonnet__DictionaryComboBox) i32 {
+    pub fn modelColumn(self: Sonnet__DictionaryComboBox) i32 {
         return qtc.QComboBox_ModelColumn(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setModelColumn` instead
+    ///
+    pub const SetModelColumn = setModelColumn;
 
     /// Inherited from QComboBox
     ///
@@ -946,9 +1178,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` visibleColumn: i32 `
     ///
-    pub fn SetModelColumn(self: Sonnet__DictionaryComboBox, visibleColumn: i32) void {
+    pub fn setModelColumn(self: Sonnet__DictionaryComboBox, visibleColumn: i32) void {
         qtc.QComboBox_SetModelColumn(@ptrCast(self.ptr), @bitCast(visibleColumn));
     }
+
+    /// ### DEPRECATED: Use `currentIndex` instead
+    ///
+    pub const CurrentIndex = currentIndex;
 
     /// Inherited from QComboBox
     ///
@@ -958,9 +1194,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn CurrentIndex(self: Sonnet__DictionaryComboBox) i32 {
+    pub fn currentIndex(self: Sonnet__DictionaryComboBox) i32 {
         return qtc.QComboBox_CurrentIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `currentText` instead
+    ///
+    pub const CurrentText = currentText;
 
     /// Inherited from QComboBox
     ///
@@ -972,13 +1212,17 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CurrentText(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn currentText(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QComboBox_CurrentText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.CurrentText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.currentText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `currentData` instead
+    ///
+    pub const CurrentData = currentData;
 
     /// Inherited from QComboBox
     ///
@@ -988,9 +1232,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn CurrentData(self: Sonnet__DictionaryComboBox) QVariant {
+    pub fn currentData(self: Sonnet__DictionaryComboBox) QVariant {
         return .{ .ptr = qtc.QComboBox_CurrentData(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `itemText` instead
+    ///
+    pub const ItemText = itemText;
 
     /// Inherited from QComboBox
     ///
@@ -1004,13 +1252,17 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn ItemText(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator, index: i32) []const u8 {
+    pub fn itemText(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator, index: i32) []const u8 {
         var _str = qtc.QComboBox_ItemText(@ptrCast(self.ptr), @bitCast(index));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.ItemText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.itemText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `itemIcon` instead
+    ///
+    pub const ItemIcon = itemIcon;
 
     /// Inherited from QComboBox
     ///
@@ -1022,9 +1274,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn ItemIcon(self: Sonnet__DictionaryComboBox, index: i32) QIcon {
+    pub fn itemIcon(self: Sonnet__DictionaryComboBox, index: i32) QIcon {
         return .{ .ptr = qtc.QComboBox_ItemIcon(@ptrCast(self.ptr), @bitCast(index)) };
     }
+
+    /// ### DEPRECATED: Use `itemData` instead
+    ///
+    pub const ItemData = itemData;
 
     /// Inherited from QComboBox
     ///
@@ -1036,9 +1292,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn ItemData(self: Sonnet__DictionaryComboBox, index: i32) QVariant {
+    pub fn itemData(self: Sonnet__DictionaryComboBox, index: i32) QVariant {
         return .{ .ptr = qtc.QComboBox_ItemData(@ptrCast(self.ptr), @bitCast(index)) };
     }
+
+    /// ### DEPRECATED: Use `addItem` instead
+    ///
+    pub const AddItem = addItem;
 
     /// Inherited from QComboBox
     ///
@@ -1050,13 +1310,17 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddItem(self: Sonnet__DictionaryComboBox, text: []const u8) void {
+    pub fn addItem(self: Sonnet__DictionaryComboBox, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QComboBox_AddItem(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `addItem2` instead
+    ///
+    pub const AddItem2 = addItem2;
 
     /// Inherited from QComboBox
     ///
@@ -1070,7 +1334,7 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddItem2(self: Sonnet__DictionaryComboBox, icon: anytype, text: []const u8) void {
+    pub fn addItem2(self: Sonnet__DictionaryComboBox, icon: anytype, text: []const u8) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -1078,6 +1342,10 @@ pub const Sonnet__DictionaryComboBox = extern struct {
         };
         qtc.QComboBox_AddItem2(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `addItems` instead
+    ///
+    pub const AddItems = addItems;
 
     /// Inherited from QComboBox
     ///
@@ -1091,13 +1359,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` texts: []const []const u8 `
     ///
-    pub fn AddItems(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator, texts: []const []const u8) void {
-        const texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("Sonnet__DictionaryComboBox.AddItems: Memory allocation failed");
+    pub fn addItems(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator, texts: []const []const u8) void {
+        const texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("Sonnet__DictionaryComboBox.addItems: Memory allocation failed");
         defer allocator.free(texts_arr);
-        for (texts, 0..texts.len) |item, i|
+        for (texts, 0..texts.len) |str_item, i|
             texts_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const texts_list = qtc.libqt_list{
             .len = texts.len,
@@ -1105,6 +1373,10 @@ pub const Sonnet__DictionaryComboBox = extern struct {
         };
         qtc.QComboBox_AddItems(@ptrCast(self.ptr), texts_list);
     }
+
+    /// ### DEPRECATED: Use `insertItem` instead
+    ///
+    pub const InsertItem = insertItem;
 
     /// Inherited from QComboBox
     ///
@@ -1118,13 +1390,17 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn InsertItem(self: Sonnet__DictionaryComboBox, index: i32, text: []const u8) void {
+    pub fn insertItem(self: Sonnet__DictionaryComboBox, index: i32, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QComboBox_InsertItem(@ptrCast(self.ptr), @bitCast(index), text_str);
     }
+
+    /// ### DEPRECATED: Use `insertItem2` instead
+    ///
+    pub const InsertItem2 = insertItem2;
 
     /// Inherited from QComboBox
     ///
@@ -1140,7 +1416,7 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn InsertItem2(self: Sonnet__DictionaryComboBox, index: i32, icon: anytype, text: []const u8) void {
+    pub fn insertItem2(self: Sonnet__DictionaryComboBox, index: i32, icon: anytype, text: []const u8) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -1148,6 +1424,10 @@ pub const Sonnet__DictionaryComboBox = extern struct {
         };
         qtc.QComboBox_InsertItem2(@ptrCast(self.ptr), @bitCast(index), @ptrCast(icon.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `insertItems` instead
+    ///
+    pub const InsertItems = insertItems;
 
     /// Inherited from QComboBox
     ///
@@ -1163,13 +1443,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` texts: []const []const u8 `
     ///
-    pub fn InsertItems(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator, index: i32, texts: []const []const u8) void {
-        const texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("Sonnet__DictionaryComboBox.InsertItems: Memory allocation failed");
+    pub fn insertItems(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator, index: i32, texts: []const []const u8) void {
+        const texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("Sonnet__DictionaryComboBox.insertItems: Memory allocation failed");
         defer allocator.free(texts_arr);
-        for (texts, 0..texts.len) |item, i|
+        for (texts, 0..texts.len) |str_item, i|
             texts_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const texts_list = qtc.libqt_list{
             .len = texts.len,
@@ -1177,6 +1457,10 @@ pub const Sonnet__DictionaryComboBox = extern struct {
         };
         qtc.QComboBox_InsertItems(@ptrCast(self.ptr), @bitCast(index), texts_list);
     }
+
+    /// ### DEPRECATED: Use `insertSeparator` instead
+    ///
+    pub const InsertSeparator = insertSeparator;
 
     /// Inherited from QComboBox
     ///
@@ -1188,9 +1472,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn InsertSeparator(self: Sonnet__DictionaryComboBox, index: i32) void {
+    pub fn insertSeparator(self: Sonnet__DictionaryComboBox, index: i32) void {
         qtc.QComboBox_InsertSeparator(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `removeItem` instead
+    ///
+    pub const RemoveItem = removeItem;
 
     /// Inherited from QComboBox
     ///
@@ -1202,9 +1490,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn RemoveItem(self: Sonnet__DictionaryComboBox, index: i32) void {
+    pub fn removeItem(self: Sonnet__DictionaryComboBox, index: i32) void {
         qtc.QComboBox_RemoveItem(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `setItemText` instead
+    ///
+    pub const SetItemText = setItemText;
 
     /// Inherited from QComboBox
     ///
@@ -1218,13 +1510,17 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetItemText(self: Sonnet__DictionaryComboBox, index: i32, text: []const u8) void {
+    pub fn setItemText(self: Sonnet__DictionaryComboBox, index: i32, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QComboBox_SetItemText(@ptrCast(self.ptr), @bitCast(index), text_str);
     }
+
+    /// ### DEPRECATED: Use `setItemIcon` instead
+    ///
+    pub const SetItemIcon = setItemIcon;
 
     /// Inherited from QComboBox
     ///
@@ -1238,10 +1534,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetItemIcon(self: Sonnet__DictionaryComboBox, index: i32, icon: anytype) void {
+    pub fn setItemIcon(self: Sonnet__DictionaryComboBox, index: i32, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QComboBox_SetItemIcon(@ptrCast(self.ptr), @bitCast(index), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `setItemData` instead
+    ///
+    pub const SetItemData = setItemData;
 
     /// Inherited from QComboBox
     ///
@@ -1255,10 +1555,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetItemData(self: Sonnet__DictionaryComboBox, index: i32, value: anytype) void {
+    pub fn setItemData(self: Sonnet__DictionaryComboBox, index: i32, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QVariant;
         qtc.QComboBox_SetItemData(@ptrCast(self.ptr), @bitCast(index), @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `view` instead
+    ///
+    pub const View = view;
 
     /// Inherited from QComboBox
     ///
@@ -1268,9 +1572,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn View(self: Sonnet__DictionaryComboBox) QAbstractItemView {
+    pub fn view(self: Sonnet__DictionaryComboBox) QAbstractItemView {
         return .{ .ptr = qtc.QComboBox_View(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setView` instead
+    ///
+    pub const SetView = setView;
 
     /// Inherited from QComboBox
     ///
@@ -1282,10 +1590,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` itemView: QAbstractItemView `
     ///
-    pub fn SetView(self: Sonnet__DictionaryComboBox, itemView: anytype) void {
+    pub fn setView(self: Sonnet__DictionaryComboBox, itemView: anytype) void {
         comptime _ = @TypeOf(itemView)._is_QAbstractItemView;
         qtc.QComboBox_SetView(@ptrCast(self.ptr), @ptrCast(itemView.ptr));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery2` instead
+    ///
+    pub const InputMethodQuery2 = inputMethodQuery2;
 
     /// Inherited from QComboBox
     ///
@@ -1299,10 +1611,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` argument: QVariant `
     ///
-    pub fn InputMethodQuery2(self: Sonnet__DictionaryComboBox, query: i32, argument: anytype) QVariant {
+    pub fn inputMethodQuery2(self: Sonnet__DictionaryComboBox, query: i32, argument: anytype) QVariant {
         comptime _ = @TypeOf(argument)._is_QVariant;
         return .{ .ptr = qtc.QComboBox_InputMethodQuery2(@ptrCast(self.ptr), @bitCast(query), @ptrCast(argument.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// Inherited from QComboBox
     ///
@@ -1312,9 +1628,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn Clear(self: Sonnet__DictionaryComboBox) void {
+    pub fn clear(self: Sonnet__DictionaryComboBox) void {
         qtc.QComboBox_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearEditText` instead
+    ///
+    pub const ClearEditText = clearEditText;
 
     /// Inherited from QComboBox
     ///
@@ -1324,9 +1644,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn ClearEditText(self: Sonnet__DictionaryComboBox) void {
+    pub fn clearEditText(self: Sonnet__DictionaryComboBox) void {
         qtc.QComboBox_ClearEditText(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEditText` instead
+    ///
+    pub const SetEditText = setEditText;
 
     /// Inherited from QComboBox
     ///
@@ -1338,13 +1662,17 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetEditText(self: Sonnet__DictionaryComboBox, text: []const u8) void {
+    pub fn setEditText(self: Sonnet__DictionaryComboBox, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QComboBox_SetEditText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `setCurrentIndex` instead
+    ///
+    pub const SetCurrentIndex = setCurrentIndex;
 
     /// Inherited from QComboBox
     ///
@@ -1356,9 +1684,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn SetCurrentIndex(self: Sonnet__DictionaryComboBox, index: i32) void {
+    pub fn setCurrentIndex(self: Sonnet__DictionaryComboBox, index: i32) void {
         qtc.QComboBox_SetCurrentIndex(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `setCurrentText` instead
+    ///
+    pub const SetCurrentText = setCurrentText;
 
     /// Inherited from QComboBox
     ///
@@ -1370,7 +1702,7 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetCurrentText(self: Sonnet__DictionaryComboBox, text: []const u8) void {
+    pub fn setCurrentText(self: Sonnet__DictionaryComboBox, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -1378,6 +1710,10 @@ pub const Sonnet__DictionaryComboBox = extern struct {
         qtc.QComboBox_SetCurrentText(@ptrCast(self.ptr), text_str);
     }
 
+    /// ### DEPRECATED: Use `editTextChanged` instead
+    ///
+    pub const EditTextChanged = editTextChanged;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#editTextChanged)
@@ -1388,7 +1724,7 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn EditTextChanged(self: Sonnet__DictionaryComboBox, param1: []const u8) void {
+    pub fn editTextChanged(self: Sonnet__DictionaryComboBox, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -1396,6 +1732,10 @@ pub const Sonnet__DictionaryComboBox = extern struct {
         qtc.QComboBox_EditTextChanged(@ptrCast(self.ptr), param1_str);
     }
 
+    /// ### DEPRECATED: Use `onEditTextChanged` instead
+    ///
+    pub const OnEditTextChanged = onEditTextChanged;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#editTextChanged)
@@ -1406,9 +1746,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, param1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnEditTextChanged(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onEditTextChanged(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, [*:0]const u8) callconv(.c) void) void {
         qtc.QComboBox_Connect_EditTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `activated` instead
+    ///
+    pub const Activated = activated;
 
     /// Inherited from QComboBox
     ///
@@ -1420,9 +1764,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn Activated(self: Sonnet__DictionaryComboBox, index: i32) void {
+    pub fn activated(self: Sonnet__DictionaryComboBox, index: i32) void {
         qtc.QComboBox_Activated(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `onActivated` instead
+    ///
+    pub const OnActivated = onActivated;
 
     /// Inherited from QComboBox
     ///
@@ -1434,9 +1782,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, index: i32) callconv(.c) void `
     ///
-    pub fn OnActivated(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, i32) callconv(.c) void) void {
+    pub fn onActivated(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, i32) callconv(.c) void) void {
         qtc.QComboBox_Connect_Activated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `textActivated` instead
+    ///
+    pub const TextActivated = textActivated;
 
     /// Inherited from QComboBox
     ///
@@ -1448,7 +1800,7 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn TextActivated(self: Sonnet__DictionaryComboBox, param1: []const u8) void {
+    pub fn textActivated(self: Sonnet__DictionaryComboBox, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -1456,6 +1808,10 @@ pub const Sonnet__DictionaryComboBox = extern struct {
         qtc.QComboBox_TextActivated(@ptrCast(self.ptr), param1_str);
     }
 
+    /// ### DEPRECATED: Use `onTextActivated` instead
+    ///
+    pub const OnTextActivated = onTextActivated;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#textActivated)
@@ -1466,9 +1822,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, param1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnTextActivated(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onTextActivated(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, [*:0]const u8) callconv(.c) void) void {
         qtc.QComboBox_Connect_TextActivated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `highlighted` instead
+    ///
+    pub const Highlighted = highlighted;
 
     /// Inherited from QComboBox
     ///
@@ -1480,9 +1840,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn Highlighted(self: Sonnet__DictionaryComboBox, index: i32) void {
+    pub fn highlighted(self: Sonnet__DictionaryComboBox, index: i32) void {
         qtc.QComboBox_Highlighted(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `onHighlighted` instead
+    ///
+    pub const OnHighlighted = onHighlighted;
 
     /// Inherited from QComboBox
     ///
@@ -1494,9 +1858,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, index: i32) callconv(.c) void `
     ///
-    pub fn OnHighlighted(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, i32) callconv(.c) void) void {
+    pub fn onHighlighted(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, i32) callconv(.c) void) void {
         qtc.QComboBox_Connect_Highlighted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `textHighlighted` instead
+    ///
+    pub const TextHighlighted = textHighlighted;
 
     /// Inherited from QComboBox
     ///
@@ -1508,7 +1876,7 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn TextHighlighted(self: Sonnet__DictionaryComboBox, param1: []const u8) void {
+    pub fn textHighlighted(self: Sonnet__DictionaryComboBox, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -1516,6 +1884,10 @@ pub const Sonnet__DictionaryComboBox = extern struct {
         qtc.QComboBox_TextHighlighted(@ptrCast(self.ptr), param1_str);
     }
 
+    /// ### DEPRECATED: Use `onTextHighlighted` instead
+    ///
+    pub const OnTextHighlighted = onTextHighlighted;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#textHighlighted)
@@ -1526,9 +1898,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, param1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnTextHighlighted(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onTextHighlighted(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, [*:0]const u8) callconv(.c) void) void {
         qtc.QComboBox_Connect_TextHighlighted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `currentIndexChanged` instead
+    ///
+    pub const CurrentIndexChanged = currentIndexChanged;
 
     /// Inherited from QComboBox
     ///
@@ -1540,9 +1916,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn CurrentIndexChanged(self: Sonnet__DictionaryComboBox, index: i32) void {
+    pub fn currentIndexChanged(self: Sonnet__DictionaryComboBox, index: i32) void {
         qtc.QComboBox_CurrentIndexChanged(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `onCurrentIndexChanged` instead
+    ///
+    pub const OnCurrentIndexChanged = onCurrentIndexChanged;
 
     /// Inherited from QComboBox
     ///
@@ -1554,9 +1934,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, index: i32) callconv(.c) void `
     ///
-    pub fn OnCurrentIndexChanged(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, i32) callconv(.c) void) void {
+    pub fn onCurrentIndexChanged(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, i32) callconv(.c) void) void {
         qtc.QComboBox_Connect_CurrentIndexChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `currentTextChanged` instead
+    ///
+    pub const CurrentTextChanged = currentTextChanged;
 
     /// Inherited from QComboBox
     ///
@@ -1568,13 +1952,17 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn CurrentTextChanged(self: Sonnet__DictionaryComboBox, param1: []const u8) void {
+    pub fn currentTextChanged(self: Sonnet__DictionaryComboBox, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
         qtc.QComboBox_CurrentTextChanged(@ptrCast(self.ptr), param1_str);
     }
+
+    /// ### DEPRECATED: Use `onCurrentTextChanged` instead
+    ///
+    pub const OnCurrentTextChanged = onCurrentTextChanged;
 
     /// Inherited from QComboBox
     ///
@@ -1586,9 +1974,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, param1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnCurrentTextChanged(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onCurrentTextChanged(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, [*:0]const u8) callconv(.c) void) void {
         qtc.QComboBox_Connect_CurrentTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `findText2` instead
+    ///
+    pub const FindText2 = findText2;
 
     /// Inherited from QComboBox
     ///
@@ -1602,13 +1994,17 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.MatchFlag `
     ///
-    pub fn FindText2(self: Sonnet__DictionaryComboBox, text: []const u8, flags: i32) i32 {
+    pub fn findText2(self: Sonnet__DictionaryComboBox, text: []const u8, flags: i32) i32 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return qtc.QComboBox_FindText2(@ptrCast(self.ptr), text_str, @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `findData2` instead
+    ///
+    pub const FindData2 = findData2;
 
     /// Inherited from QComboBox
     ///
@@ -1622,10 +2018,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn FindData2(self: Sonnet__DictionaryComboBox, data: anytype, role: i32) i32 {
+    pub fn findData2(self: Sonnet__DictionaryComboBox, data: anytype, role: i32) i32 {
         comptime _ = @TypeOf(data)._is_QVariant;
         return qtc.QComboBox_FindData2(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(role));
     }
+
+    /// ### DEPRECATED: Use `findData3` instead
+    ///
+    pub const FindData3 = findData3;
 
     /// Inherited from QComboBox
     ///
@@ -1641,10 +2041,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.MatchFlag `
     ///
-    pub fn FindData3(self: Sonnet__DictionaryComboBox, data: anytype, role: i32, flags: i32) i32 {
+    pub fn findData3(self: Sonnet__DictionaryComboBox, data: anytype, role: i32, flags: i32) i32 {
         comptime _ = @TypeOf(data)._is_QVariant;
         return qtc.QComboBox_FindData3(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(role), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `currentData1` instead
+    ///
+    pub const CurrentData1 = currentData1;
 
     /// Inherited from QComboBox
     ///
@@ -1656,9 +2060,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn CurrentData1(self: Sonnet__DictionaryComboBox, role: i32) QVariant {
+    pub fn currentData1(self: Sonnet__DictionaryComboBox, role: i32) QVariant {
         return .{ .ptr = qtc.QComboBox_CurrentData1(@ptrCast(self.ptr), @bitCast(role)) };
     }
+
+    /// ### DEPRECATED: Use `itemData2` instead
+    ///
+    pub const ItemData2 = itemData2;
 
     /// Inherited from QComboBox
     ///
@@ -1672,9 +2080,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn ItemData2(self: Sonnet__DictionaryComboBox, index: i32, role: i32) QVariant {
+    pub fn itemData2(self: Sonnet__DictionaryComboBox, index: i32, role: i32) QVariant {
         return .{ .ptr = qtc.QComboBox_ItemData2(@ptrCast(self.ptr), @bitCast(index), @bitCast(role)) };
     }
+
+    /// ### DEPRECATED: Use `addItem22` instead
+    ///
+    pub const AddItem22 = addItem22;
 
     /// Inherited from QComboBox
     ///
@@ -1688,7 +2100,7 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` userData: QVariant `
     ///
-    pub fn AddItem22(self: Sonnet__DictionaryComboBox, text: []const u8, userData: anytype) void {
+    pub fn addItem22(self: Sonnet__DictionaryComboBox, text: []const u8, userData: anytype) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -1696,6 +2108,10 @@ pub const Sonnet__DictionaryComboBox = extern struct {
         comptime _ = @TypeOf(userData)._is_QVariant;
         qtc.QComboBox_AddItem22(@ptrCast(self.ptr), text_str, @ptrCast(userData.ptr));
     }
+
+    /// ### DEPRECATED: Use `addItem3` instead
+    ///
+    pub const AddItem3 = addItem3;
 
     /// Inherited from QComboBox
     ///
@@ -1711,7 +2127,7 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` userData: QVariant `
     ///
-    pub fn AddItem3(self: Sonnet__DictionaryComboBox, icon: anytype, text: []const u8, userData: anytype) void {
+    pub fn addItem3(self: Sonnet__DictionaryComboBox, icon: anytype, text: []const u8, userData: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -1721,6 +2137,10 @@ pub const Sonnet__DictionaryComboBox = extern struct {
         qtc.QComboBox_AddItem3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(userData.ptr));
     }
 
+    /// ### DEPRECATED: Use `insertItem3` instead
+    ///
+    pub const InsertItem3 = insertItem3;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#insertItem)
@@ -1735,7 +2155,7 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` userData: QVariant `
     ///
-    pub fn InsertItem3(self: Sonnet__DictionaryComboBox, index: i32, text: []const u8, userData: anytype) void {
+    pub fn insertItem3(self: Sonnet__DictionaryComboBox, index: i32, text: []const u8, userData: anytype) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -1743,6 +2163,10 @@ pub const Sonnet__DictionaryComboBox = extern struct {
         comptime _ = @TypeOf(userData)._is_QVariant;
         qtc.QComboBox_InsertItem3(@ptrCast(self.ptr), @bitCast(index), text_str, @ptrCast(userData.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertItem4` instead
+    ///
+    pub const InsertItem4 = insertItem4;
 
     /// Inherited from QComboBox
     ///
@@ -1760,7 +2184,7 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` userData: QVariant `
     ///
-    pub fn InsertItem4(self: Sonnet__DictionaryComboBox, index: i32, icon: anytype, text: []const u8, userData: anytype) void {
+    pub fn insertItem4(self: Sonnet__DictionaryComboBox, index: i32, icon: anytype, text: []const u8, userData: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -1769,6 +2193,10 @@ pub const Sonnet__DictionaryComboBox = extern struct {
         comptime _ = @TypeOf(userData)._is_QVariant;
         qtc.QComboBox_InsertItem4(@ptrCast(self.ptr), @bitCast(index), @ptrCast(icon.ptr), text_str, @ptrCast(userData.ptr));
     }
+
+    /// ### DEPRECATED: Use `setItemData3` instead
+    ///
+    pub const SetItemData3 = setItemData3;
 
     /// Inherited from QComboBox
     ///
@@ -1784,10 +2212,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn SetItemData3(self: Sonnet__DictionaryComboBox, index: i32, value: anytype, role: i32) void {
+    pub fn setItemData3(self: Sonnet__DictionaryComboBox, index: i32, value: anytype, role: i32) void {
         comptime _ = @TypeOf(value)._is_QVariant;
         qtc.QComboBox_SetItemData3(@ptrCast(self.ptr), @bitCast(index), @ptrCast(value.ptr), @bitCast(role));
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -1797,9 +2229,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn WinId(self: Sonnet__DictionaryComboBox) usize {
+    pub fn winId(self: Sonnet__DictionaryComboBox) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -1809,9 +2245,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn CreateWinId(self: Sonnet__DictionaryComboBox) void {
+    pub fn createWinId(self: Sonnet__DictionaryComboBox) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -1821,9 +2261,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn InternalWinId(self: Sonnet__DictionaryComboBox) usize {
+    pub fn internalWinId(self: Sonnet__DictionaryComboBox) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -1833,9 +2277,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn EffectiveWinId(self: Sonnet__DictionaryComboBox) usize {
+    pub fn effectiveWinId(self: Sonnet__DictionaryComboBox) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -1845,9 +2293,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn Style(self: Sonnet__DictionaryComboBox) QStyle {
+    pub fn style(self: Sonnet__DictionaryComboBox) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -1857,12 +2309,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: Sonnet__DictionaryComboBox, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: Sonnet__DictionaryComboBox, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -1872,9 +2328,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn IsTopLevel(self: Sonnet__DictionaryComboBox) bool {
+    pub fn isTopLevel(self: Sonnet__DictionaryComboBox) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -1884,9 +2344,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn IsWindow(self: Sonnet__DictionaryComboBox) bool {
+    pub fn isWindow(self: Sonnet__DictionaryComboBox) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -1896,9 +2360,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn IsModal(self: Sonnet__DictionaryComboBox) bool {
+    pub fn isModal(self: Sonnet__DictionaryComboBox) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -1912,9 +2380,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: Sonnet__DictionaryComboBox) i32 {
+    pub fn windowModality(self: Sonnet__DictionaryComboBox) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -1924,11 +2396,15 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: Sonnet__DictionaryComboBox, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: Sonnet__DictionaryComboBox, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1938,9 +2414,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn IsEnabled(self: Sonnet__DictionaryComboBox) bool {
+    pub fn isEnabled(self: Sonnet__DictionaryComboBox) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -1952,10 +2432,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: Sonnet__DictionaryComboBox, param1: anytype) bool {
+    pub fn isEnabledTo(self: Sonnet__DictionaryComboBox, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1967,9 +2451,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: Sonnet__DictionaryComboBox, enabled: bool) void {
+    pub fn setEnabled(self: Sonnet__DictionaryComboBox, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -1981,9 +2469,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: Sonnet__DictionaryComboBox, disabled: bool) void {
+    pub fn setDisabled(self: Sonnet__DictionaryComboBox, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -1995,9 +2487,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: Sonnet__DictionaryComboBox, windowModified: bool) void {
+    pub fn setWindowModified(self: Sonnet__DictionaryComboBox, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -2007,9 +2503,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn FrameGeometry(self: Sonnet__DictionaryComboBox) QRect {
+    pub fn frameGeometry(self: Sonnet__DictionaryComboBox) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -2019,9 +2519,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn Geometry(self: Sonnet__DictionaryComboBox) QRect {
+    pub fn geometry(self: Sonnet__DictionaryComboBox) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -2031,9 +2535,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn NormalGeometry(self: Sonnet__DictionaryComboBox) QRect {
+    pub fn normalGeometry(self: Sonnet__DictionaryComboBox) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -2043,9 +2551,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn X(self: Sonnet__DictionaryComboBox) i32 {
+    pub fn x(self: Sonnet__DictionaryComboBox) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -2055,9 +2567,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn Y(self: Sonnet__DictionaryComboBox) i32 {
+    pub fn y(self: Sonnet__DictionaryComboBox) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -2067,9 +2583,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn Pos(self: Sonnet__DictionaryComboBox) QPoint {
+    pub fn pos(self: Sonnet__DictionaryComboBox) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -2079,9 +2599,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn FrameSize(self: Sonnet__DictionaryComboBox) QSize {
+    pub fn frameSize(self: Sonnet__DictionaryComboBox) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -2091,9 +2615,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn Size(self: Sonnet__DictionaryComboBox) QSize {
+    pub fn size(self: Sonnet__DictionaryComboBox) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -2103,9 +2631,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn Width(self: Sonnet__DictionaryComboBox) i32 {
+    pub fn width(self: Sonnet__DictionaryComboBox) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -2115,9 +2647,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn Height(self: Sonnet__DictionaryComboBox) i32 {
+    pub fn height(self: Sonnet__DictionaryComboBox) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -2127,9 +2663,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn Rect(self: Sonnet__DictionaryComboBox) QRect {
+    pub fn rect(self: Sonnet__DictionaryComboBox) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -2139,9 +2679,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn ChildrenRect(self: Sonnet__DictionaryComboBox) QRect {
+    pub fn childrenRect(self: Sonnet__DictionaryComboBox) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -2151,9 +2695,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn ChildrenRegion(self: Sonnet__DictionaryComboBox) QRegion {
+    pub fn childrenRegion(self: Sonnet__DictionaryComboBox) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -2163,9 +2711,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn MinimumSize(self: Sonnet__DictionaryComboBox) QSize {
+    pub fn minimumSize(self: Sonnet__DictionaryComboBox) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -2175,9 +2727,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn MaximumSize(self: Sonnet__DictionaryComboBox) QSize {
+    pub fn maximumSize(self: Sonnet__DictionaryComboBox) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2187,9 +2743,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn MinimumWidth(self: Sonnet__DictionaryComboBox) i32 {
+    pub fn minimumWidth(self: Sonnet__DictionaryComboBox) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2199,9 +2759,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn MinimumHeight(self: Sonnet__DictionaryComboBox) i32 {
+    pub fn minimumHeight(self: Sonnet__DictionaryComboBox) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2211,9 +2775,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn MaximumWidth(self: Sonnet__DictionaryComboBox) i32 {
+    pub fn maximumWidth(self: Sonnet__DictionaryComboBox) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2223,9 +2791,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn MaximumHeight(self: Sonnet__DictionaryComboBox) i32 {
+    pub fn maximumHeight(self: Sonnet__DictionaryComboBox) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -2235,12 +2807,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: Sonnet__DictionaryComboBox, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: Sonnet__DictionaryComboBox, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -2254,9 +2830,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: Sonnet__DictionaryComboBox, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: Sonnet__DictionaryComboBox, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -2266,12 +2846,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: Sonnet__DictionaryComboBox, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: Sonnet__DictionaryComboBox, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -2285,9 +2869,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: Sonnet__DictionaryComboBox, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: Sonnet__DictionaryComboBox, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2299,9 +2887,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: Sonnet__DictionaryComboBox, minw: i32) void {
+    pub fn setMinimumWidth(self: Sonnet__DictionaryComboBox, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2313,9 +2905,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: Sonnet__DictionaryComboBox, minh: i32) void {
+    pub fn setMinimumHeight(self: Sonnet__DictionaryComboBox, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2327,9 +2923,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: Sonnet__DictionaryComboBox, maxw: i32) void {
+    pub fn setMaximumWidth(self: Sonnet__DictionaryComboBox, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2341,9 +2941,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: Sonnet__DictionaryComboBox, maxh: i32) void {
+    pub fn setMaximumHeight(self: Sonnet__DictionaryComboBox, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -2353,9 +2957,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn SizeIncrement(self: Sonnet__DictionaryComboBox) QSize {
+    pub fn sizeIncrement(self: Sonnet__DictionaryComboBox) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -2365,12 +2973,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: Sonnet__DictionaryComboBox, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: Sonnet__DictionaryComboBox, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -2384,9 +2996,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: Sonnet__DictionaryComboBox, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: Sonnet__DictionaryComboBox, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -2396,9 +3012,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn BaseSize(self: Sonnet__DictionaryComboBox) QSize {
+    pub fn baseSize(self: Sonnet__DictionaryComboBox) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -2408,12 +3028,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: Sonnet__DictionaryComboBox, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: Sonnet__DictionaryComboBox, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -2427,9 +3051,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: Sonnet__DictionaryComboBox, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: Sonnet__DictionaryComboBox, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -2441,10 +3069,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: Sonnet__DictionaryComboBox, fixedSize: anytype) void {
+    pub fn setFixedSize(self: Sonnet__DictionaryComboBox, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -2458,9 +3090,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: Sonnet__DictionaryComboBox, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: Sonnet__DictionaryComboBox, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -2472,9 +3108,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: Sonnet__DictionaryComboBox, w: i32) void {
+    pub fn setFixedWidth(self: Sonnet__DictionaryComboBox, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -2486,9 +3126,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: Sonnet__DictionaryComboBox, h: i32) void {
+    pub fn setFixedHeight(self: Sonnet__DictionaryComboBox, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -2500,11 +3144,15 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: Sonnet__DictionaryComboBox, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: Sonnet__DictionaryComboBox, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -2515,11 +3163,15 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: Sonnet__DictionaryComboBox, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: Sonnet__DictionaryComboBox, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -2530,11 +3182,15 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: Sonnet__DictionaryComboBox, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: Sonnet__DictionaryComboBox, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -2545,11 +3201,15 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: Sonnet__DictionaryComboBox, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: Sonnet__DictionaryComboBox, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -2560,11 +3220,15 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: Sonnet__DictionaryComboBox, param1: anytype) QPointF {
+    pub fn mapToParent(self: Sonnet__DictionaryComboBox, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -2575,10 +3239,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: Sonnet__DictionaryComboBox, param1: anytype) QPoint {
+    pub fn mapToParent2(self: Sonnet__DictionaryComboBox, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -2590,10 +3258,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: Sonnet__DictionaryComboBox, param1: anytype) QPointF {
+    pub fn mapFromParent(self: Sonnet__DictionaryComboBox, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -2605,10 +3277,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: Sonnet__DictionaryComboBox, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: Sonnet__DictionaryComboBox, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -2622,12 +3298,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: Sonnet__DictionaryComboBox, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: Sonnet__DictionaryComboBox, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -2640,11 +3320,15 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: Sonnet__DictionaryComboBox, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: Sonnet__DictionaryComboBox, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -2658,11 +3342,15 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: Sonnet__DictionaryComboBox, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: Sonnet__DictionaryComboBox, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -2676,11 +3364,15 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: Sonnet__DictionaryComboBox, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: Sonnet__DictionaryComboBox, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -2690,9 +3382,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn Window(self: Sonnet__DictionaryComboBox) QWidget {
+    pub fn window(self: Sonnet__DictionaryComboBox) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -2702,9 +3398,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn NativeParentWidget(self: Sonnet__DictionaryComboBox) QWidget {
+    pub fn nativeParentWidget(self: Sonnet__DictionaryComboBox) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -2714,9 +3414,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn TopLevelWidget(self: Sonnet__DictionaryComboBox) QWidget {
+    pub fn topLevelWidget(self: Sonnet__DictionaryComboBox) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -2726,9 +3430,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn Palette(self: Sonnet__DictionaryComboBox) QPalette {
+    pub fn palette(self: Sonnet__DictionaryComboBox) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -2738,12 +3446,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: Sonnet__DictionaryComboBox, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: Sonnet__DictionaryComboBox, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2753,11 +3465,15 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: Sonnet__DictionaryComboBox, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: Sonnet__DictionaryComboBox, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2771,9 +3487,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: Sonnet__DictionaryComboBox) i32 {
+    pub fn backgroundRole(self: Sonnet__DictionaryComboBox) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2783,11 +3503,15 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: Sonnet__DictionaryComboBox, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: Sonnet__DictionaryComboBox, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2801,9 +3525,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: Sonnet__DictionaryComboBox) i32 {
+    pub fn foregroundRole(self: Sonnet__DictionaryComboBox) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -2813,9 +3541,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn Font(self: Sonnet__DictionaryComboBox) QFont {
+    pub fn font(self: Sonnet__DictionaryComboBox) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -2825,12 +3557,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: Sonnet__DictionaryComboBox, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: Sonnet__DictionaryComboBox, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -2840,9 +3576,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn FontMetrics(self: Sonnet__DictionaryComboBox) QFontMetrics {
+    pub fn fontMetrics(self: Sonnet__DictionaryComboBox) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -2852,9 +3592,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn FontInfo(self: Sonnet__DictionaryComboBox) QFontInfo {
+    pub fn fontInfo(self: Sonnet__DictionaryComboBox) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -2864,9 +3608,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn Cursor(self: Sonnet__DictionaryComboBox) QCursor {
+    pub fn cursor(self: Sonnet__DictionaryComboBox) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -2876,12 +3624,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: Sonnet__DictionaryComboBox, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: Sonnet__DictionaryComboBox, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -2891,9 +3643,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn UnsetCursor(self: Sonnet__DictionaryComboBox) void {
+    pub fn unsetCursor(self: Sonnet__DictionaryComboBox) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -2905,9 +3661,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: Sonnet__DictionaryComboBox, enable: bool) void {
+    pub fn setMouseTracking(self: Sonnet__DictionaryComboBox, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -2917,9 +3677,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn HasMouseTracking(self: Sonnet__DictionaryComboBox) bool {
+    pub fn hasMouseTracking(self: Sonnet__DictionaryComboBox) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -2929,9 +3693,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn UnderMouse(self: Sonnet__DictionaryComboBox) bool {
+    pub fn underMouse(self: Sonnet__DictionaryComboBox) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2943,9 +3711,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: Sonnet__DictionaryComboBox, enable: bool) void {
+    pub fn setTabletTracking(self: Sonnet__DictionaryComboBox, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2955,24 +3727,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn HasTabletTracking(self: Sonnet__DictionaryComboBox) bool {
+    pub fn hasTabletTracking(self: Sonnet__DictionaryComboBox) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Sonnet__DictionaryComboBox `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: Sonnet__DictionaryComboBox, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -2982,12 +3743,35 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: Sonnet__DictionaryComboBox, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: Sonnet__DictionaryComboBox, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Sonnet__DictionaryComboBox `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: Sonnet__DictionaryComboBox, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -2997,9 +3781,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn Mask(self: Sonnet__DictionaryComboBox) QRegion {
+    pub fn mask(self: Sonnet__DictionaryComboBox) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -3009,9 +3797,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn ClearMask(self: Sonnet__DictionaryComboBox) void {
+    pub fn clearMask(self: Sonnet__DictionaryComboBox) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -3023,10 +3815,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: Sonnet__DictionaryComboBox, target: anytype) void {
+    pub fn render(self: Sonnet__DictionaryComboBox, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -3038,10 +3834,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: Sonnet__DictionaryComboBox, painter: anytype) void {
+    pub fn render2(self: Sonnet__DictionaryComboBox, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -3051,9 +3851,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn Grab(self: Sonnet__DictionaryComboBox) QPixmap {
+    pub fn grab(self: Sonnet__DictionaryComboBox) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -3063,9 +3867,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn GraphicsEffect(self: Sonnet__DictionaryComboBox) QGraphicsEffect {
+    pub fn graphicsEffect(self: Sonnet__DictionaryComboBox) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -3077,10 +3885,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: Sonnet__DictionaryComboBox, effect: anytype) void {
+    pub fn setGraphicsEffect(self: Sonnet__DictionaryComboBox, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -3092,9 +3904,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: Sonnet__DictionaryComboBox, typeVal: i32) void {
+    pub fn grabGesture(self: Sonnet__DictionaryComboBox, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -3106,9 +3922,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: Sonnet__DictionaryComboBox, typeVal: i32) void {
+    pub fn ungrabGesture(self: Sonnet__DictionaryComboBox, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -3118,15 +3938,19 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: Sonnet__DictionaryComboBox, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: Sonnet__DictionaryComboBox, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -3136,15 +3960,19 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: Sonnet__DictionaryComboBox, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: Sonnet__DictionaryComboBox, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -3156,13 +3984,17 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -3174,13 +4006,17 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -3192,10 +4028,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: Sonnet__DictionaryComboBox, icon: anytype) void {
+    pub fn setWindowIcon(self: Sonnet__DictionaryComboBox, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -3205,9 +4045,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn WindowIcon(self: Sonnet__DictionaryComboBox) QIcon {
+    pub fn windowIcon(self: Sonnet__DictionaryComboBox) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -3217,15 +4061,19 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: Sonnet__DictionaryComboBox, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: Sonnet__DictionaryComboBox, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -3237,13 +4085,17 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -3253,15 +4105,19 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: Sonnet__DictionaryComboBox, windowRole: []const u8) void {
+    pub fn setWindowRole(self: Sonnet__DictionaryComboBox, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -3273,13 +4129,17 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -3291,13 +4151,17 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: Sonnet__DictionaryComboBox, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: Sonnet__DictionaryComboBox, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -3309,13 +4173,17 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -3327,9 +4195,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: Sonnet__DictionaryComboBox, level: f64) void {
+    pub fn setWindowOpacity(self: Sonnet__DictionaryComboBox, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -3339,9 +4211,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn WindowOpacity(self: Sonnet__DictionaryComboBox) f64 {
+    pub fn windowOpacity(self: Sonnet__DictionaryComboBox) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -3351,9 +4227,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn IsWindowModified(self: Sonnet__DictionaryComboBox) bool {
+    pub fn isWindowModified(self: Sonnet__DictionaryComboBox) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -3363,15 +4243,19 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: Sonnet__DictionaryComboBox, toolTip: []const u8) void {
+    pub fn setToolTip(self: Sonnet__DictionaryComboBox, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -3383,13 +4267,17 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -3401,9 +4289,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: Sonnet__DictionaryComboBox, msec: i32) void {
+    pub fn setToolTipDuration(self: Sonnet__DictionaryComboBox, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -3413,9 +4305,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn ToolTipDuration(self: Sonnet__DictionaryComboBox) i32 {
+    pub fn toolTipDuration(self: Sonnet__DictionaryComboBox) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -3425,15 +4321,19 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: Sonnet__DictionaryComboBox, statusTip: []const u8) void {
+    pub fn setStatusTip(self: Sonnet__DictionaryComboBox, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -3445,13 +4345,17 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -3461,15 +4365,19 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: Sonnet__DictionaryComboBox, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: Sonnet__DictionaryComboBox, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -3481,13 +4389,17 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -3499,13 +4411,17 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -3517,13 +4433,17 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: Sonnet__DictionaryComboBox, name: []const u8) void {
+    pub fn setAccessibleName(self: Sonnet__DictionaryComboBox, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -3535,13 +4455,17 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -3553,13 +4477,17 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: Sonnet__DictionaryComboBox, description: []const u8) void {
+    pub fn setAccessibleDescription(self: Sonnet__DictionaryComboBox, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3571,9 +4499,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: Sonnet__DictionaryComboBox, direction: i32) void {
+    pub fn setLayoutDirection(self: Sonnet__DictionaryComboBox, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3587,9 +4519,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: Sonnet__DictionaryComboBox) i32 {
+    pub fn layoutDirection(self: Sonnet__DictionaryComboBox) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3599,9 +4535,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn UnsetLayoutDirection(self: Sonnet__DictionaryComboBox) void {
+    pub fn unsetLayoutDirection(self: Sonnet__DictionaryComboBox) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -3611,12 +4551,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: Sonnet__DictionaryComboBox, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: Sonnet__DictionaryComboBox, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -3626,9 +4570,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn Locale(self: Sonnet__DictionaryComboBox) QLocale {
+    pub fn locale(self: Sonnet__DictionaryComboBox) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -3638,9 +4586,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn UnsetLocale(self: Sonnet__DictionaryComboBox) void {
+    pub fn unsetLocale(self: Sonnet__DictionaryComboBox) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -3650,9 +4602,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn IsRightToLeft(self: Sonnet__DictionaryComboBox) bool {
+    pub fn isRightToLeft(self: Sonnet__DictionaryComboBox) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -3662,9 +4618,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn IsLeftToRight(self: Sonnet__DictionaryComboBox) bool {
+    pub fn isLeftToRight(self: Sonnet__DictionaryComboBox) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -3674,9 +4634,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn SetFocus(self: Sonnet__DictionaryComboBox) void {
+    pub fn setFocus(self: Sonnet__DictionaryComboBox) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -3686,9 +4650,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn IsActiveWindow(self: Sonnet__DictionaryComboBox) bool {
+    pub fn isActiveWindow(self: Sonnet__DictionaryComboBox) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -3698,9 +4666,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn ActivateWindow(self: Sonnet__DictionaryComboBox) void {
+    pub fn activateWindow(self: Sonnet__DictionaryComboBox) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -3710,9 +4682,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn ClearFocus(self: Sonnet__DictionaryComboBox) void {
+    pub fn clearFocus(self: Sonnet__DictionaryComboBox) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -3724,9 +4700,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: Sonnet__DictionaryComboBox, reason: i32) void {
+    pub fn setFocus2(self: Sonnet__DictionaryComboBox, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3740,9 +4720,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: Sonnet__DictionaryComboBox) i32 {
+    pub fn focusPolicy(self: Sonnet__DictionaryComboBox) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3754,9 +4738,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: Sonnet__DictionaryComboBox, policy: i32) void {
+    pub fn setFocusPolicy(self: Sonnet__DictionaryComboBox, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -3766,9 +4754,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn HasFocus(self: Sonnet__DictionaryComboBox) bool {
+    pub fn hasFocus(self: Sonnet__DictionaryComboBox) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -3780,11 +4772,15 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -3794,12 +4790,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: Sonnet__DictionaryComboBox, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: Sonnet__DictionaryComboBox, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -3809,9 +4809,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn FocusProxy(self: Sonnet__DictionaryComboBox) QWidget {
+    pub fn focusProxy(self: Sonnet__DictionaryComboBox) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3825,9 +4829,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: Sonnet__DictionaryComboBox) i32 {
+    pub fn contextMenuPolicy(self: Sonnet__DictionaryComboBox) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3839,9 +4847,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: Sonnet__DictionaryComboBox, policy: i32) void {
+    pub fn setContextMenuPolicy(self: Sonnet__DictionaryComboBox, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -3851,9 +4863,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn GrabMouse(self: Sonnet__DictionaryComboBox) void {
+    pub fn grabMouse(self: Sonnet__DictionaryComboBox) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -3865,10 +4881,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: Sonnet__DictionaryComboBox, param1: anytype) void {
+    pub fn grabMouse2(self: Sonnet__DictionaryComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -3878,9 +4898,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn ReleaseMouse(self: Sonnet__DictionaryComboBox) void {
+    pub fn releaseMouse(self: Sonnet__DictionaryComboBox) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -3890,9 +4914,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn GrabKeyboard(self: Sonnet__DictionaryComboBox) void {
+    pub fn grabKeyboard(self: Sonnet__DictionaryComboBox) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -3902,9 +4930,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn ReleaseKeyboard(self: Sonnet__DictionaryComboBox) void {
+    pub fn releaseKeyboard(self: Sonnet__DictionaryComboBox) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3916,10 +4948,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: Sonnet__DictionaryComboBox, key: anytype) i32 {
+    pub fn grabShortcut(self: Sonnet__DictionaryComboBox, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3931,9 +4967,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: Sonnet__DictionaryComboBox, id: i32) void {
+    pub fn releaseShortcut(self: Sonnet__DictionaryComboBox, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3945,9 +4985,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: Sonnet__DictionaryComboBox, id: i32) void {
+    pub fn setShortcutEnabled(self: Sonnet__DictionaryComboBox, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -3959,25 +5003,37 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: Sonnet__DictionaryComboBox, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: Sonnet__DictionaryComboBox, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3987,9 +5043,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn UpdatesEnabled(self: Sonnet__DictionaryComboBox) bool {
+    pub fn updatesEnabled(self: Sonnet__DictionaryComboBox) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -4001,9 +5061,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: Sonnet__DictionaryComboBox, enable: bool) void {
+    pub fn setUpdatesEnabled(self: Sonnet__DictionaryComboBox, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -4013,9 +5077,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn GraphicsProxyWidget(self: Sonnet__DictionaryComboBox) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: Sonnet__DictionaryComboBox) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -4025,9 +5093,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn Update(self: Sonnet__DictionaryComboBox) void {
+    pub fn update(self: Sonnet__DictionaryComboBox) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -4037,9 +5109,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn Repaint(self: Sonnet__DictionaryComboBox) void {
+    pub fn repaint(self: Sonnet__DictionaryComboBox) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -4049,17 +5125,21 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: Sonnet__DictionaryComboBox, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: Sonnet__DictionaryComboBox, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -4071,11 +5151,15 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: Sonnet__DictionaryComboBox, param1: anytype) void {
+    pub fn update3(self: Sonnet__DictionaryComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -4086,10 +5170,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: Sonnet__DictionaryComboBox, param1: anytype) void {
+    pub fn update4(self: Sonnet__DictionaryComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -4099,17 +5187,21 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: Sonnet__DictionaryComboBox, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: Sonnet__DictionaryComboBox, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -4121,10 +5213,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: Sonnet__DictionaryComboBox, param1: anytype) void {
+    pub fn repaint3(self: Sonnet__DictionaryComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -4136,10 +5232,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: Sonnet__DictionaryComboBox, param1: anytype) void {
+    pub fn repaint4(self: Sonnet__DictionaryComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -4151,9 +5251,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: Sonnet__DictionaryComboBox, hidden: bool) void {
+    pub fn setHidden(self: Sonnet__DictionaryComboBox, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -4163,9 +5267,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn Show(self: Sonnet__DictionaryComboBox) void {
+    pub fn show(self: Sonnet__DictionaryComboBox) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -4175,9 +5283,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn Hide(self: Sonnet__DictionaryComboBox) void {
+    pub fn hide(self: Sonnet__DictionaryComboBox) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -4187,9 +5299,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn ShowMinimized(self: Sonnet__DictionaryComboBox) void {
+    pub fn showMinimized(self: Sonnet__DictionaryComboBox) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -4199,9 +5315,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn ShowMaximized(self: Sonnet__DictionaryComboBox) void {
+    pub fn showMaximized(self: Sonnet__DictionaryComboBox) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -4211,9 +5331,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn ShowFullScreen(self: Sonnet__DictionaryComboBox) void {
+    pub fn showFullScreen(self: Sonnet__DictionaryComboBox) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -4223,9 +5347,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn ShowNormal(self: Sonnet__DictionaryComboBox) void {
+    pub fn showNormal(self: Sonnet__DictionaryComboBox) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -4235,9 +5363,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn Close(self: Sonnet__DictionaryComboBox) bool {
+    pub fn close(self: Sonnet__DictionaryComboBox) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -4247,9 +5379,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn Raise(self: Sonnet__DictionaryComboBox) void {
+    pub fn raise(self: Sonnet__DictionaryComboBox) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -4259,9 +5395,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn Lower(self: Sonnet__DictionaryComboBox) void {
+    pub fn lower(self: Sonnet__DictionaryComboBox) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -4273,10 +5413,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: Sonnet__DictionaryComboBox, param1: anytype) void {
+    pub fn stackUnder(self: Sonnet__DictionaryComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -4286,13 +5430,17 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: Sonnet__DictionaryComboBox, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: Sonnet__DictionaryComboBox, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -4304,10 +5452,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: Sonnet__DictionaryComboBox, param1: anytype) void {
+    pub fn move2(self: Sonnet__DictionaryComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -4321,9 +5473,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: Sonnet__DictionaryComboBox, w: i32, h: i32) void {
+    pub fn resize(self: Sonnet__DictionaryComboBox, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -4335,10 +5491,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: Sonnet__DictionaryComboBox, param1: anytype) void {
+    pub fn resize2(self: Sonnet__DictionaryComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4348,17 +5508,21 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: Sonnet__DictionaryComboBox, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: Sonnet__DictionaryComboBox, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -4368,12 +5532,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: Sonnet__DictionaryComboBox, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: Sonnet__DictionaryComboBox, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4385,13 +5553,17 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("Sonnet__DictionaryComboBox.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("Sonnet__DictionaryComboBox.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4401,15 +5573,19 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: Sonnet__DictionaryComboBox, geometry: []u8) bool {
+    pub fn restoreGeometry(self: Sonnet__DictionaryComboBox, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -4419,9 +5595,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn AdjustSize(self: Sonnet__DictionaryComboBox) void {
+    pub fn adjustSize(self: Sonnet__DictionaryComboBox) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -4431,9 +5611,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn IsVisible(self: Sonnet__DictionaryComboBox) bool {
+    pub fn isVisible(self: Sonnet__DictionaryComboBox) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -4445,10 +5629,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: Sonnet__DictionaryComboBox, param1: anytype) bool {
+    pub fn isVisibleTo(self: Sonnet__DictionaryComboBox, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -4458,9 +5646,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn IsHidden(self: Sonnet__DictionaryComboBox) bool {
+    pub fn isHidden(self: Sonnet__DictionaryComboBox) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -4470,9 +5662,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn IsMinimized(self: Sonnet__DictionaryComboBox) bool {
+    pub fn isMinimized(self: Sonnet__DictionaryComboBox) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -4482,9 +5678,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn IsMaximized(self: Sonnet__DictionaryComboBox) bool {
+    pub fn isMaximized(self: Sonnet__DictionaryComboBox) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -4494,9 +5694,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn IsFullScreen(self: Sonnet__DictionaryComboBox) bool {
+    pub fn isFullScreen(self: Sonnet__DictionaryComboBox) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -4510,9 +5714,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: Sonnet__DictionaryComboBox) i32 {
+    pub fn windowState(self: Sonnet__DictionaryComboBox) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -4524,9 +5732,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: Sonnet__DictionaryComboBox, state: i32) void {
+    pub fn setWindowState(self: Sonnet__DictionaryComboBox, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -4538,9 +5750,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: Sonnet__DictionaryComboBox, state: i32) void {
+    pub fn overrideWindowState(self: Sonnet__DictionaryComboBox, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -4550,9 +5766,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn SizePolicy(self: Sonnet__DictionaryComboBox) QSizePolicy {
+    pub fn sizePolicy(self: Sonnet__DictionaryComboBox) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -4562,12 +5782,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: Sonnet__DictionaryComboBox, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: Sonnet__DictionaryComboBox, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -4581,9 +5805,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: Sonnet__DictionaryComboBox, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: Sonnet__DictionaryComboBox, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -4593,9 +5821,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn VisibleRegion(self: Sonnet__DictionaryComboBox) QRegion {
+    pub fn visibleRegion(self: Sonnet__DictionaryComboBox) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -4613,9 +5845,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: Sonnet__DictionaryComboBox, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: Sonnet__DictionaryComboBox, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -4627,10 +5863,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: Sonnet__DictionaryComboBox, margins: anytype) void {
+    pub fn setContentsMargins2(self: Sonnet__DictionaryComboBox, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -4640,9 +5880,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn ContentsMargins(self: Sonnet__DictionaryComboBox) QMargins {
+    pub fn contentsMargins(self: Sonnet__DictionaryComboBox) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -4652,9 +5896,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn ContentsRect(self: Sonnet__DictionaryComboBox) QRect {
+    pub fn contentsRect(self: Sonnet__DictionaryComboBox) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -4664,9 +5912,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn Layout(self: Sonnet__DictionaryComboBox) QLayout {
+    pub fn layout(self: Sonnet__DictionaryComboBox) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -4676,12 +5928,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: Sonnet__DictionaryComboBox, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: Sonnet__DictionaryComboBox, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4691,24 +5947,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn UpdateGeometry(self: Sonnet__DictionaryComboBox) void {
+    pub fn updateGeometry(self: Sonnet__DictionaryComboBox) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Sonnet__DictionaryComboBox `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: Sonnet__DictionaryComboBox, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -4718,14 +5963,37 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: Sonnet__DictionaryComboBox, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Sonnet__DictionaryComboBox `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: Sonnet__DictionaryComboBox, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: Sonnet__DictionaryComboBox, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -4739,9 +6007,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: Sonnet__DictionaryComboBox, dx: i32, dy: i32) void {
+    pub fn scroll(self: Sonnet__DictionaryComboBox, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -4757,10 +6029,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: Sonnet__DictionaryComboBox, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: Sonnet__DictionaryComboBox, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -4770,9 +6046,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn FocusWidget(self: Sonnet__DictionaryComboBox) QWidget {
+    pub fn focusWidget(self: Sonnet__DictionaryComboBox) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -4782,9 +6062,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn NextInFocusChain(self: Sonnet__DictionaryComboBox) QWidget {
+    pub fn nextInFocusChain(self: Sonnet__DictionaryComboBox) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -4794,9 +6078,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn PreviousInFocusChain(self: Sonnet__DictionaryComboBox) QWidget {
+    pub fn previousInFocusChain(self: Sonnet__DictionaryComboBox) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -4806,9 +6094,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn AcceptDrops(self: Sonnet__DictionaryComboBox) bool {
+    pub fn acceptDrops(self: Sonnet__DictionaryComboBox) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -4820,9 +6112,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: Sonnet__DictionaryComboBox, on: bool) void {
+    pub fn setAcceptDrops(self: Sonnet__DictionaryComboBox, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -4834,10 +6130,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: Sonnet__DictionaryComboBox, action: anytype) void {
+    pub fn addAction(self: Sonnet__DictionaryComboBox, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -4847,15 +6147,19 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: Sonnet__DictionaryComboBox, actions: []QAction) void {
+    pub fn addActions(self: Sonnet__DictionaryComboBox, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -4867,16 +6171,20 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: Sonnet__DictionaryComboBox, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: Sonnet__DictionaryComboBox, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -4890,11 +6198,15 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: Sonnet__DictionaryComboBox, before: anytype, action: anytype) void {
+    pub fn insertAction(self: Sonnet__DictionaryComboBox, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -4906,10 +6218,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: Sonnet__DictionaryComboBox, action: anytype) void {
+    pub fn removeAction(self: Sonnet__DictionaryComboBox, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -4921,15 +6237,19 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("Sonnet__DictionaryComboBox.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("Sonnet__DictionaryComboBox.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -4941,13 +6261,17 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: Sonnet__DictionaryComboBox, text: []const u8) QAction {
+    pub fn addAction2(self: Sonnet__DictionaryComboBox, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -4961,7 +6285,7 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: Sonnet__DictionaryComboBox, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: Sonnet__DictionaryComboBox, icon: anytype, text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -4970,6 +6294,10 @@ pub const Sonnet__DictionaryComboBox = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -4982,7 +6310,7 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: Sonnet__DictionaryComboBox, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: Sonnet__DictionaryComboBox, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -4990,6 +6318,10 @@ pub const Sonnet__DictionaryComboBox = extern struct {
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
 
     /// Inherited from QWidget
     ///
@@ -5005,7 +6337,7 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: Sonnet__DictionaryComboBox, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: Sonnet__DictionaryComboBox, icon: anytype, text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -5015,6 +6347,10 @@ pub const Sonnet__DictionaryComboBox = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
@@ -5023,9 +6359,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn ParentWidget(self: Sonnet__DictionaryComboBox) QWidget {
+    pub fn parentWidget(self: Sonnet__DictionaryComboBox) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -5037,9 +6377,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: Sonnet__DictionaryComboBox, typeVal: i32) void {
+    pub fn setWindowFlags(self: Sonnet__DictionaryComboBox, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -5053,9 +6397,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: Sonnet__DictionaryComboBox) i32 {
+    pub fn windowFlags(self: Sonnet__DictionaryComboBox) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -5067,9 +6415,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: Sonnet__DictionaryComboBox, param1: i32) void {
+    pub fn setWindowFlag(self: Sonnet__DictionaryComboBox, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -5081,9 +6433,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: Sonnet__DictionaryComboBox, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: Sonnet__DictionaryComboBox, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -5097,9 +6453,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: Sonnet__DictionaryComboBox) i32 {
+    pub fn windowType(self: Sonnet__DictionaryComboBox) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -5109,9 +6469,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -5121,13 +6485,17 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: Sonnet__DictionaryComboBox, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: Sonnet__DictionaryComboBox, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -5139,10 +6507,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: Sonnet__DictionaryComboBox, p: anytype) QWidget {
+    pub fn childAt2(self: Sonnet__DictionaryComboBox, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -5154,10 +6526,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: Sonnet__DictionaryComboBox, p: anytype) QWidget {
+    pub fn childAt3(self: Sonnet__DictionaryComboBox, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -5169,9 +6545,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: Sonnet__DictionaryComboBox, param1: i32) void {
+    pub fn setAttribute(self: Sonnet__DictionaryComboBox, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -5183,9 +6563,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: Sonnet__DictionaryComboBox, param1: i32) bool {
+    pub fn testAttribute(self: Sonnet__DictionaryComboBox, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -5195,9 +6579,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn EnsurePolished(self: Sonnet__DictionaryComboBox) void {
+    pub fn ensurePolished(self: Sonnet__DictionaryComboBox) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -5209,10 +6597,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: Sonnet__DictionaryComboBox, child: anytype) bool {
+    pub fn isAncestorOf(self: Sonnet__DictionaryComboBox, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -5222,9 +6614,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn AutoFillBackground(self: Sonnet__DictionaryComboBox) bool {
+    pub fn autoFillBackground(self: Sonnet__DictionaryComboBox) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -5236,9 +6632,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: Sonnet__DictionaryComboBox, enabled: bool) void {
+    pub fn setAutoFillBackground(self: Sonnet__DictionaryComboBox, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -5248,9 +6648,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn BackingStore(self: Sonnet__DictionaryComboBox) QBackingStore {
+    pub fn backingStore(self: Sonnet__DictionaryComboBox) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -5260,9 +6664,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn WindowHandle(self: Sonnet__DictionaryComboBox) QWindow {
+    pub fn windowHandle(self: Sonnet__DictionaryComboBox) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -5272,9 +6680,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn Screen(self: Sonnet__DictionaryComboBox) QScreen {
+    pub fn screen(self: Sonnet__DictionaryComboBox) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -5284,12 +6696,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: Sonnet__DictionaryComboBox, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: Sonnet__DictionaryComboBox, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -5297,12 +6713,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -5314,13 +6734,17 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: Sonnet__DictionaryComboBox, title: []const u8) void {
+    pub fn windowTitleChanged(self: Sonnet__DictionaryComboBox, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -5332,9 +6756,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -5346,10 +6774,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: Sonnet__DictionaryComboBox, icon: anytype) void {
+    pub fn windowIconChanged(self: Sonnet__DictionaryComboBox, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -5361,9 +6793,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -5375,13 +6811,17 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: Sonnet__DictionaryComboBox, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: Sonnet__DictionaryComboBox, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -5393,9 +6833,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -5405,12 +6849,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: Sonnet__DictionaryComboBox, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: Sonnet__DictionaryComboBox, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -5422,9 +6870,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -5438,9 +6890,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: Sonnet__DictionaryComboBox) i32 {
+    pub fn inputMethodHints(self: Sonnet__DictionaryComboBox) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -5452,9 +6908,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: Sonnet__DictionaryComboBox, hints: i32) void {
+    pub fn setInputMethodHints(self: Sonnet__DictionaryComboBox, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -5468,11 +6928,15 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: Sonnet__DictionaryComboBox, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: Sonnet__DictionaryComboBox, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -5488,13 +6952,17 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: Sonnet__DictionaryComboBox, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: Sonnet__DictionaryComboBox, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -5511,12 +6979,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: Sonnet__DictionaryComboBox, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: Sonnet__DictionaryComboBox, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -5530,11 +7002,15 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: Sonnet__DictionaryComboBox, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: Sonnet__DictionaryComboBox, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -5550,12 +7026,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: Sonnet__DictionaryComboBox, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: Sonnet__DictionaryComboBox, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -5573,12 +7053,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: Sonnet__DictionaryComboBox, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: Sonnet__DictionaryComboBox, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -5590,10 +7074,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: Sonnet__DictionaryComboBox, rectangle: anytype) QPixmap {
+    pub fn grab1(self: Sonnet__DictionaryComboBox, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -5607,9 +7095,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: Sonnet__DictionaryComboBox, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: Sonnet__DictionaryComboBox, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -5623,10 +7115,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: Sonnet__DictionaryComboBox, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: Sonnet__DictionaryComboBox, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -5640,9 +7136,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: Sonnet__DictionaryComboBox, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: Sonnet__DictionaryComboBox, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -5656,9 +7156,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: Sonnet__DictionaryComboBox, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: Sonnet__DictionaryComboBox, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -5672,9 +7176,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: Sonnet__DictionaryComboBox, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: Sonnet__DictionaryComboBox, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -5688,25 +7196,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: Sonnet__DictionaryComboBox, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: Sonnet__DictionaryComboBox, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -5714,17 +7210,41 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -5736,13 +7256,17 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -5754,13 +7278,17 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: Sonnet__DictionaryComboBox, name: []const u8) void {
+    pub fn setObjectName(self: Sonnet__DictionaryComboBox, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -5770,9 +7298,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn IsWidgetType(self: Sonnet__DictionaryComboBox) bool {
+    pub fn isWidgetType(self: Sonnet__DictionaryComboBox) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -5782,9 +7314,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn IsWindowType(self: Sonnet__DictionaryComboBox) bool {
+    pub fn isWindowType(self: Sonnet__DictionaryComboBox) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -5794,9 +7330,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn IsQuickItemType(self: Sonnet__DictionaryComboBox) bool {
+    pub fn isQuickItemType(self: Sonnet__DictionaryComboBox) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -5806,9 +7346,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn SignalsBlocked(self: Sonnet__DictionaryComboBox) bool {
+    pub fn signalsBlocked(self: Sonnet__DictionaryComboBox) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -5820,9 +7364,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: Sonnet__DictionaryComboBox, b: bool) bool {
+    pub fn blockSignals(self: Sonnet__DictionaryComboBox, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -5832,9 +7380,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn Thread(self: Sonnet__DictionaryComboBox) QThread {
+    pub fn thread(self: Sonnet__DictionaryComboBox) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -5844,12 +7396,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: Sonnet__DictionaryComboBox, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: Sonnet__DictionaryComboBox, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -5861,9 +7417,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: Sonnet__DictionaryComboBox, interval: i32) i32 {
+    pub fn startTimer(self: Sonnet__DictionaryComboBox, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -5875,9 +7435,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: Sonnet__DictionaryComboBox, time: i64) i32 {
+    pub fn startTimer2(self: Sonnet__DictionaryComboBox, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -5889,9 +7453,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: Sonnet__DictionaryComboBox, id: i32) void {
+    pub fn killTimer(self: Sonnet__DictionaryComboBox, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -5903,9 +7471,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: Sonnet__DictionaryComboBox, id: i32) void {
+    pub fn killTimer2(self: Sonnet__DictionaryComboBox, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -5917,15 +7489,19 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("Sonnet__DictionaryComboBox.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("Sonnet__DictionaryComboBox.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5937,10 +7513,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: Sonnet__DictionaryComboBox, filterObj: anytype) void {
+    pub fn installEventFilter(self: Sonnet__DictionaryComboBox, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5952,10 +7532,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: Sonnet__DictionaryComboBox, obj: anytype) void {
+    pub fn removeEventFilter(self: Sonnet__DictionaryComboBox, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -5963,7 +7547,7 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5971,13 +7555,17 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -5985,7 +7573,7 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5993,13 +7581,17 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -6009,18 +7601,22 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: Sonnet__DictionaryComboBox, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: Sonnet__DictionaryComboBox, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -6028,7 +7624,7 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6036,13 +7632,17 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -6050,7 +7650,7 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -6058,13 +7658,17 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -6074,9 +7678,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn Disconnect3(self: Sonnet__DictionaryComboBox) bool {
+    pub fn disconnect3(self: Sonnet__DictionaryComboBox) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -6088,10 +7696,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: Sonnet__DictionaryComboBox, receiver: anytype) bool {
+    pub fn disconnect4(self: Sonnet__DictionaryComboBox, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -6101,10 +7713,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -6114,9 +7730,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn DumpObjectTree(self: Sonnet__DictionaryComboBox) void {
+    pub fn dumpObjectTree(self: Sonnet__DictionaryComboBox) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -6126,9 +7746,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn DumpObjectInfo(self: Sonnet__DictionaryComboBox) void {
+    pub fn dumpObjectInfo(self: Sonnet__DictionaryComboBox) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -6142,11 +7766,15 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: Sonnet__DictionaryComboBox, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: Sonnet__DictionaryComboBox, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -6158,10 +7786,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: Sonnet__DictionaryComboBox, name: [:0]const u8) QVariant {
+    pub fn property(self: Sonnet__DictionaryComboBox, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -6173,7 +7805,7 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -6181,27 +7813,19 @@ pub const Sonnet__DictionaryComboBox = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("Sonnet__DictionaryComboBox.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("Sonnet__DictionaryComboBox.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("Sonnet__DictionaryComboBox.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("Sonnet__DictionaryComboBox.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Sonnet__DictionaryComboBox `
-    ///
-    pub fn BindingStorage(self: Sonnet__DictionaryComboBox) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -6211,9 +7835,29 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn BindingStorage2(self: Sonnet__DictionaryComboBox) QBindingStorage {
+    pub fn bindingStorage(self: Sonnet__DictionaryComboBox) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Sonnet__DictionaryComboBox `
+    ///
+    pub fn bindingStorage2(self: Sonnet__DictionaryComboBox) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -6223,9 +7867,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn Destroyed(self: Sonnet__DictionaryComboBox) void {
+    pub fn destroyed(self: Sonnet__DictionaryComboBox) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -6237,9 +7885,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox) callconv(.c) void) void {
+    pub fn onDestroyed(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -6249,9 +7901,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn Parent(self: Sonnet__DictionaryComboBox) QObject {
+    pub fn parent(self: Sonnet__DictionaryComboBox) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -6263,10 +7919,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: Sonnet__DictionaryComboBox, classname: [:0]const u8) bool {
+    pub fn inherits(self: Sonnet__DictionaryComboBox, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -6276,9 +7936,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn DeleteLater(self: Sonnet__DictionaryComboBox) void {
+    pub fn deleteLater(self: Sonnet__DictionaryComboBox) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -6292,9 +7956,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: Sonnet__DictionaryComboBox, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: Sonnet__DictionaryComboBox, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -6308,9 +7976,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: Sonnet__DictionaryComboBox, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: Sonnet__DictionaryComboBox, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -6318,7 +7990,7 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6328,13 +8000,17 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -6342,7 +8018,7 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -6352,13 +8028,17 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -6368,7 +8048,7 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6376,12 +8056,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: Sonnet__DictionaryComboBox, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: Sonnet__DictionaryComboBox, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -6393,10 +8077,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: Sonnet__DictionaryComboBox, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: Sonnet__DictionaryComboBox, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -6410,11 +8098,15 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: Sonnet__DictionaryComboBox, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: Sonnet__DictionaryComboBox, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -6430,13 +8122,17 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: Sonnet__DictionaryComboBox, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: Sonnet__DictionaryComboBox, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -6449,11 +8145,15 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: Sonnet__DictionaryComboBox, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: Sonnet__DictionaryComboBox, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -6465,10 +8165,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: Sonnet__DictionaryComboBox, param1: anytype) void {
+    pub fn destroyed1(self: Sonnet__DictionaryComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -6480,9 +8184,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -6492,9 +8200,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn PaintingActive(self: Sonnet__DictionaryComboBox) bool {
+    pub fn paintingActive(self: Sonnet__DictionaryComboBox) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -6504,9 +8216,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn WidthMM(self: Sonnet__DictionaryComboBox) i32 {
+    pub fn widthMM(self: Sonnet__DictionaryComboBox) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -6516,9 +8232,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn HeightMM(self: Sonnet__DictionaryComboBox) i32 {
+    pub fn heightMM(self: Sonnet__DictionaryComboBox) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -6528,9 +8248,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn LogicalDpiX(self: Sonnet__DictionaryComboBox) i32 {
+    pub fn logicalDpiX(self: Sonnet__DictionaryComboBox) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -6540,9 +8264,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn LogicalDpiY(self: Sonnet__DictionaryComboBox) i32 {
+    pub fn logicalDpiY(self: Sonnet__DictionaryComboBox) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -6552,9 +8280,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn PhysicalDpiX(self: Sonnet__DictionaryComboBox) i32 {
+    pub fn physicalDpiX(self: Sonnet__DictionaryComboBox) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -6564,9 +8296,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn PhysicalDpiY(self: Sonnet__DictionaryComboBox) i32 {
+    pub fn physicalDpiY(self: Sonnet__DictionaryComboBox) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -6576,9 +8312,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn DevicePixelRatio(self: Sonnet__DictionaryComboBox) f64 {
+    pub fn devicePixelRatio(self: Sonnet__DictionaryComboBox) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -6588,9 +8328,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn DevicePixelRatioF(self: Sonnet__DictionaryComboBox) f64 {
+    pub fn devicePixelRatioF(self: Sonnet__DictionaryComboBox) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -6600,9 +8344,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn ColorCount(self: Sonnet__DictionaryComboBox) i32 {
+    pub fn colorCount(self: Sonnet__DictionaryComboBox) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -6612,17 +8360,25 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn Depth(self: Sonnet__DictionaryComboBox) i32 {
+    pub fn depth(self: Sonnet__DictionaryComboBox) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -6630,13 +8386,17 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `setModel` instead
+    ///
+    pub const SetModel = setModel;
 
     /// Inherited from QComboBox
     ///
@@ -6648,16 +8408,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` model: QAbstractItemModel `
+    /// ` _model: QAbstractItemModel `
     ///
-    pub fn SetModel(self: Sonnet__DictionaryComboBox, model: anytype) void {
-        comptime _ = @TypeOf(model)._is_QAbstractItemModel;
-        qtc.Sonnet__DictionaryComboBox_SetModel(@ptrCast(self.ptr), @ptrCast(model.ptr));
+    pub fn setModel(self: Sonnet__DictionaryComboBox, _model: anytype) void {
+        comptime _ = @TypeOf(_model)._is_QAbstractItemModel;
+        qtc.Sonnet__DictionaryComboBox_SetModel(@ptrCast(self.ptr), @ptrCast(_model.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetModel` instead
+    /// ### DEPRECATED: Use `superSetModel` instead
     ///
-    pub const QBaseSetModel = SuperSetModel;
+    pub const SuperSetModel = superSetModel;
 
     /// Inherited from QComboBox
     ///
@@ -6669,12 +8429,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` model: QAbstractItemModel `
+    /// ` _model: QAbstractItemModel `
     ///
-    pub fn SuperSetModel(self: Sonnet__DictionaryComboBox, model: anytype) void {
-        comptime _ = @TypeOf(model)._is_QAbstractItemModel;
-        qtc.Sonnet__DictionaryComboBox_SuperSetModel(@ptrCast(self.ptr), @ptrCast(model.ptr));
+    pub fn superSetModel(self: Sonnet__DictionaryComboBox, _model: anytype) void {
+        comptime _ = @TypeOf(_model)._is_QAbstractItemModel;
+        qtc.Sonnet__DictionaryComboBox_SuperSetModel(@ptrCast(self.ptr), @ptrCast(_model.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetModel` instead
+    ///
+    pub const OnSetModel = onSetModel;
 
     /// Inherited from QComboBox
     ///
@@ -6688,10 +8452,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, model: QAbstractItemModel) callconv(.c) void `
     ///
-    pub fn OnSetModel(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QAbstractItemModel) callconv(.c) void) void {
+    pub fn onSetModel(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QAbstractItemModel) callconv(.c) void) void {
         qtc.Sonnet__DictionaryComboBox_OnSetModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#sizeHint)
@@ -6702,13 +8470,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn SizeHint(self: Sonnet__DictionaryComboBox) QSize {
+    pub fn sizeHint(self: Sonnet__DictionaryComboBox) QSize {
         return .{ .ptr = qtc.Sonnet__DictionaryComboBox_SizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// Inherited from QComboBox
     ///
@@ -6720,10 +8488,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn SuperSizeHint(self: Sonnet__DictionaryComboBox) QSize {
+    pub fn superSizeHint(self: Sonnet__DictionaryComboBox) QSize {
         return .{ .ptr = qtc.Sonnet__DictionaryComboBox_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#sizeHint)
@@ -6738,9 +8510,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: Sonnet__DictionaryComboBox, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: Sonnet__DictionaryComboBox, callback: *const fn () callconv(.c) QSize) void {
         qtc.Sonnet__DictionaryComboBox_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QComboBox
     ///
@@ -6752,13 +8528,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn MinimumSizeHint(self: Sonnet__DictionaryComboBox) QSize {
+    pub fn minimumSizeHint(self: Sonnet__DictionaryComboBox) QSize {
         return .{ .ptr = qtc.Sonnet__DictionaryComboBox_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QComboBox
     ///
@@ -6770,9 +8546,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn SuperMinimumSizeHint(self: Sonnet__DictionaryComboBox) QSize {
+    pub fn superMinimumSizeHint(self: Sonnet__DictionaryComboBox) QSize {
         return .{ .ptr = qtc.Sonnet__DictionaryComboBox_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QComboBox
     ///
@@ -6788,10 +8568,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: Sonnet__DictionaryComboBox, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: Sonnet__DictionaryComboBox, callback: *const fn () callconv(.c) QSize) void {
         qtc.Sonnet__DictionaryComboBox_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `showPopup` instead
+    ///
+    pub const ShowPopup = showPopup;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#showPopup)
@@ -6802,13 +8586,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn ShowPopup(self: Sonnet__DictionaryComboBox) void {
+    pub fn showPopup(self: Sonnet__DictionaryComboBox) void {
         qtc.Sonnet__DictionaryComboBox_ShowPopup(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowPopup` instead
+    /// ### DEPRECATED: Use `superShowPopup` instead
     ///
-    pub const QBaseShowPopup = SuperShowPopup;
+    pub const SuperShowPopup = superShowPopup;
 
     /// Inherited from QComboBox
     ///
@@ -6820,10 +8604,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn SuperShowPopup(self: Sonnet__DictionaryComboBox) void {
+    pub fn superShowPopup(self: Sonnet__DictionaryComboBox) void {
         qtc.Sonnet__DictionaryComboBox_SuperShowPopup(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onShowPopup` instead
+    ///
+    pub const OnShowPopup = onShowPopup;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#showPopup)
@@ -6836,9 +8624,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnShowPopup(self: Sonnet__DictionaryComboBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onShowPopup(self: Sonnet__DictionaryComboBox, callback: *const fn () callconv(.c) void) void {
         qtc.Sonnet__DictionaryComboBox_OnShowPopup(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hidePopup` instead
+    ///
+    pub const HidePopup = hidePopup;
 
     /// Inherited from QComboBox
     ///
@@ -6850,13 +8642,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn HidePopup(self: Sonnet__DictionaryComboBox) void {
+    pub fn hidePopup(self: Sonnet__DictionaryComboBox) void {
         qtc.Sonnet__DictionaryComboBox_HidePopup(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHidePopup` instead
+    /// ### DEPRECATED: Use `superHidePopup` instead
     ///
-    pub const QBaseHidePopup = SuperHidePopup;
+    pub const SuperHidePopup = superHidePopup;
 
     /// Inherited from QComboBox
     ///
@@ -6868,9 +8660,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn SuperHidePopup(self: Sonnet__DictionaryComboBox) void {
+    pub fn superHidePopup(self: Sonnet__DictionaryComboBox) void {
         qtc.Sonnet__DictionaryComboBox_SuperHidePopup(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHidePopup` instead
+    ///
+    pub const OnHidePopup = onHidePopup;
 
     /// Inherited from QComboBox
     ///
@@ -6884,9 +8680,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnHidePopup(self: Sonnet__DictionaryComboBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onHidePopup(self: Sonnet__DictionaryComboBox, callback: *const fn () callconv(.c) void) void {
         qtc.Sonnet__DictionaryComboBox_OnHidePopup(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QComboBox
     ///
@@ -6898,16 +8698,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: Sonnet__DictionaryComboBox, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.Sonnet__DictionaryComboBox_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: Sonnet__DictionaryComboBox, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.Sonnet__DictionaryComboBox_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QComboBox
     ///
@@ -6919,12 +8719,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: Sonnet__DictionaryComboBox, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.Sonnet__DictionaryComboBox_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: Sonnet__DictionaryComboBox, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.Sonnet__DictionaryComboBox_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QComboBox
     ///
@@ -6938,9 +8742,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QEvent) callconv(.c) bool) void {
         qtc.Sonnet__DictionaryComboBox_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QComboBox
     ///
@@ -6954,13 +8762,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: Sonnet__DictionaryComboBox, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: Sonnet__DictionaryComboBox, param1: i32) QVariant {
         return .{ .ptr = qtc.Sonnet__DictionaryComboBox_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QComboBox
     ///
@@ -6974,9 +8782,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: Sonnet__DictionaryComboBox, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: Sonnet__DictionaryComboBox, param1: i32) QVariant {
         return .{ .ptr = qtc.Sonnet__DictionaryComboBox_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QComboBox
     ///
@@ -6992,9 +8804,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, i32) callconv(.c) QVariant) void {
         qtc.Sonnet__DictionaryComboBox_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7008,14 +8824,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` e: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: Sonnet__DictionaryComboBox, e: anytype) void {
+    pub fn focusInEvent(self: Sonnet__DictionaryComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QFocusEvent;
         qtc.Sonnet__DictionaryComboBox_FocusInEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7029,11 +8845,15 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` e: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: Sonnet__DictionaryComboBox, e: anytype) void {
+    pub fn superFocusInEvent(self: Sonnet__DictionaryComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QFocusEvent;
         qtc.Sonnet__DictionaryComboBox_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#focusInEvent)
@@ -7046,9 +8866,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, e: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QFocusEvent) callconv(.c) void) void {
         qtc.Sonnet__DictionaryComboBox_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7062,14 +8886,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` e: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: Sonnet__DictionaryComboBox, e: anytype) void {
+    pub fn focusOutEvent(self: Sonnet__DictionaryComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QFocusEvent;
         qtc.Sonnet__DictionaryComboBox_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7083,10 +8907,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` e: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: Sonnet__DictionaryComboBox, e: anytype) void {
+    pub fn superFocusOutEvent(self: Sonnet__DictionaryComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QFocusEvent;
         qtc.Sonnet__DictionaryComboBox_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7100,9 +8928,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, e: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QFocusEvent) callconv(.c) void) void {
         qtc.Sonnet__DictionaryComboBox_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7116,14 +8948,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn ChangeEvent(self: Sonnet__DictionaryComboBox, e: anytype) void {
+    pub fn changeEvent(self: Sonnet__DictionaryComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QEvent;
         qtc.Sonnet__DictionaryComboBox_ChangeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7137,10 +8969,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn SuperChangeEvent(self: Sonnet__DictionaryComboBox, e: anytype) void {
+    pub fn superChangeEvent(self: Sonnet__DictionaryComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QEvent;
         qtc.Sonnet__DictionaryComboBox_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7154,9 +8990,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, e: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QEvent) callconv(.c) void) void {
         qtc.Sonnet__DictionaryComboBox_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7170,14 +9010,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` e: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: Sonnet__DictionaryComboBox, e: anytype) void {
+    pub fn resizeEvent(self: Sonnet__DictionaryComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QResizeEvent;
         qtc.Sonnet__DictionaryComboBox_ResizeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7191,10 +9031,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` e: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: Sonnet__DictionaryComboBox, e: anytype) void {
+    pub fn superResizeEvent(self: Sonnet__DictionaryComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QResizeEvent;
         qtc.Sonnet__DictionaryComboBox_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7208,9 +9052,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, e: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QResizeEvent) callconv(.c) void) void {
         qtc.Sonnet__DictionaryComboBox_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7224,14 +9072,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` e: QPaintEvent `
     ///
-    pub fn PaintEvent(self: Sonnet__DictionaryComboBox, e: anytype) void {
+    pub fn paintEvent(self: Sonnet__DictionaryComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QPaintEvent;
         qtc.Sonnet__DictionaryComboBox_PaintEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7245,10 +9093,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` e: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: Sonnet__DictionaryComboBox, e: anytype) void {
+    pub fn superPaintEvent(self: Sonnet__DictionaryComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QPaintEvent;
         qtc.Sonnet__DictionaryComboBox_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7262,9 +9114,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, e: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QPaintEvent) callconv(.c) void) void {
         qtc.Sonnet__DictionaryComboBox_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7278,14 +9134,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` e: QShowEvent `
     ///
-    pub fn ShowEvent(self: Sonnet__DictionaryComboBox, e: anytype) void {
+    pub fn showEvent(self: Sonnet__DictionaryComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QShowEvent;
         qtc.Sonnet__DictionaryComboBox_ShowEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7299,10 +9155,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` e: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: Sonnet__DictionaryComboBox, e: anytype) void {
+    pub fn superShowEvent(self: Sonnet__DictionaryComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QShowEvent;
         qtc.Sonnet__DictionaryComboBox_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7316,9 +9176,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, e: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QShowEvent) callconv(.c) void) void {
         qtc.Sonnet__DictionaryComboBox_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7332,14 +9196,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` e: QHideEvent `
     ///
-    pub fn HideEvent(self: Sonnet__DictionaryComboBox, e: anytype) void {
+    pub fn hideEvent(self: Sonnet__DictionaryComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QHideEvent;
         qtc.Sonnet__DictionaryComboBox_HideEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7353,10 +9217,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` e: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: Sonnet__DictionaryComboBox, e: anytype) void {
+    pub fn superHideEvent(self: Sonnet__DictionaryComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QHideEvent;
         qtc.Sonnet__DictionaryComboBox_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7370,9 +9238,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, e: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QHideEvent) callconv(.c) void) void {
         qtc.Sonnet__DictionaryComboBox_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7386,14 +9258,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: Sonnet__DictionaryComboBox, e: anytype) void {
+    pub fn mousePressEvent(self: Sonnet__DictionaryComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.Sonnet__DictionaryComboBox_MousePressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7407,11 +9279,15 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: Sonnet__DictionaryComboBox, e: anytype) void {
+    pub fn superMousePressEvent(self: Sonnet__DictionaryComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.Sonnet__DictionaryComboBox_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#mousePressEvent)
@@ -7424,9 +9300,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, e: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QMouseEvent) callconv(.c) void) void {
         qtc.Sonnet__DictionaryComboBox_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7440,14 +9320,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: Sonnet__DictionaryComboBox, e: anytype) void {
+    pub fn mouseReleaseEvent(self: Sonnet__DictionaryComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.Sonnet__DictionaryComboBox_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7461,10 +9341,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: Sonnet__DictionaryComboBox, e: anytype) void {
+    pub fn superMouseReleaseEvent(self: Sonnet__DictionaryComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.Sonnet__DictionaryComboBox_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7478,9 +9362,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, e: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QMouseEvent) callconv(.c) void) void {
         qtc.Sonnet__DictionaryComboBox_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7494,14 +9382,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: Sonnet__DictionaryComboBox, e: anytype) void {
+    pub fn keyPressEvent(self: Sonnet__DictionaryComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.Sonnet__DictionaryComboBox_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7515,11 +9403,15 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: Sonnet__DictionaryComboBox, e: anytype) void {
+    pub fn superKeyPressEvent(self: Sonnet__DictionaryComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.Sonnet__DictionaryComboBox_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#keyPressEvent)
@@ -7532,9 +9424,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, e: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QKeyEvent) callconv(.c) void) void {
         qtc.Sonnet__DictionaryComboBox_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7548,14 +9444,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: Sonnet__DictionaryComboBox, e: anytype) void {
+    pub fn keyReleaseEvent(self: Sonnet__DictionaryComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.Sonnet__DictionaryComboBox_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7569,10 +9465,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: Sonnet__DictionaryComboBox, e: anytype) void {
+    pub fn superKeyReleaseEvent(self: Sonnet__DictionaryComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.Sonnet__DictionaryComboBox_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7586,9 +9486,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, e: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QKeyEvent) callconv(.c) void) void {
         qtc.Sonnet__DictionaryComboBox_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7602,14 +9506,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` e: QWheelEvent `
     ///
-    pub fn WheelEvent(self: Sonnet__DictionaryComboBox, e: anytype) void {
+    pub fn wheelEvent(self: Sonnet__DictionaryComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QWheelEvent;
         qtc.Sonnet__DictionaryComboBox_WheelEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7623,10 +9527,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` e: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: Sonnet__DictionaryComboBox, e: anytype) void {
+    pub fn superWheelEvent(self: Sonnet__DictionaryComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QWheelEvent;
         qtc.Sonnet__DictionaryComboBox_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7640,9 +9548,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, e: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QWheelEvent) callconv(.c) void) void {
         qtc.Sonnet__DictionaryComboBox_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7656,14 +9568,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` e: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: Sonnet__DictionaryComboBox, e: anytype) void {
+    pub fn contextMenuEvent(self: Sonnet__DictionaryComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QContextMenuEvent;
         qtc.Sonnet__DictionaryComboBox_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7677,10 +9589,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` e: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: Sonnet__DictionaryComboBox, e: anytype) void {
+    pub fn superContextMenuEvent(self: Sonnet__DictionaryComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QContextMenuEvent;
         qtc.Sonnet__DictionaryComboBox_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7694,9 +9610,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, e: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QContextMenuEvent) callconv(.c) void) void {
         qtc.Sonnet__DictionaryComboBox_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7710,14 +9630,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: Sonnet__DictionaryComboBox, param1: anytype) void {
+    pub fn inputMethodEvent(self: Sonnet__DictionaryComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.Sonnet__DictionaryComboBox_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7731,10 +9651,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: Sonnet__DictionaryComboBox, param1: anytype) void {
+    pub fn superInputMethodEvent(self: Sonnet__DictionaryComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.Sonnet__DictionaryComboBox_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7748,9 +9672,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QInputMethodEvent) callconv(.c) void) void {
         qtc.Sonnet__DictionaryComboBox_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initStyleOption` instead
+    ///
+    pub const InitStyleOption = initStyleOption;
 
     /// Inherited from QComboBox
     ///
@@ -7764,14 +9692,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` option: QStyleOptionComboBox `
     ///
-    pub fn InitStyleOption(self: Sonnet__DictionaryComboBox, option: anytype) void {
+    pub fn initStyleOption(self: Sonnet__DictionaryComboBox, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionComboBox;
         qtc.Sonnet__DictionaryComboBox_InitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitStyleOption` instead
+    /// ### DEPRECATED: Use `superInitStyleOption` instead
     ///
-    pub const QBaseInitStyleOption = SuperInitStyleOption;
+    pub const SuperInitStyleOption = superInitStyleOption;
 
     /// Inherited from QComboBox
     ///
@@ -7785,10 +9713,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` option: QStyleOptionComboBox `
     ///
-    pub fn SuperInitStyleOption(self: Sonnet__DictionaryComboBox, option: anytype) void {
+    pub fn superInitStyleOption(self: Sonnet__DictionaryComboBox, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionComboBox;
         qtc.Sonnet__DictionaryComboBox_SuperInitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitStyleOption` instead
+    ///
+    pub const OnInitStyleOption = onInitStyleOption;
 
     /// Inherited from QComboBox
     ///
@@ -7802,9 +9734,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, option: QStyleOptionComboBox) callconv(.c) void `
     ///
-    pub fn OnInitStyleOption(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QStyleOptionComboBox) callconv(.c) void) void {
+    pub fn onInitStyleOption(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QStyleOptionComboBox) callconv(.c) void) void {
         qtc.Sonnet__DictionaryComboBox_OnInitStyleOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -7816,13 +9752,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn DevType(self: Sonnet__DictionaryComboBox) i32 {
+    pub fn devType(self: Sonnet__DictionaryComboBox) i32 {
         return qtc.Sonnet__DictionaryComboBox_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -7834,9 +9770,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn SuperDevType(self: Sonnet__DictionaryComboBox) i32 {
+    pub fn superDevType(self: Sonnet__DictionaryComboBox) i32 {
         return qtc.Sonnet__DictionaryComboBox_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -7850,9 +9790,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: Sonnet__DictionaryComboBox, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: Sonnet__DictionaryComboBox, callback: *const fn () callconv(.c) i32) void {
         qtc.Sonnet__DictionaryComboBox_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -7866,13 +9810,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: Sonnet__DictionaryComboBox, visible: bool) void {
+    pub fn setVisible(self: Sonnet__DictionaryComboBox, visible: bool) void {
         qtc.Sonnet__DictionaryComboBox_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -7886,9 +9830,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: Sonnet__DictionaryComboBox, visible: bool) void {
+    pub fn superSetVisible(self: Sonnet__DictionaryComboBox, visible: bool) void {
         qtc.Sonnet__DictionaryComboBox_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -7902,9 +9850,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, bool) callconv(.c) void) void {
         qtc.Sonnet__DictionaryComboBox_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7918,13 +9870,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: Sonnet__DictionaryComboBox, param1: i32) i32 {
+    pub fn heightForWidth(self: Sonnet__DictionaryComboBox, param1: i32) i32 {
         return qtc.Sonnet__DictionaryComboBox_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7938,9 +9890,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: Sonnet__DictionaryComboBox, param1: i32) i32 {
+    pub fn superHeightForWidth(self: Sonnet__DictionaryComboBox, param1: i32) i32 {
         return qtc.Sonnet__DictionaryComboBox_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7954,9 +9910,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, i32) callconv(.c) i32) void {
         qtc.Sonnet__DictionaryComboBox_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7968,13 +9928,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn HasHeightForWidth(self: Sonnet__DictionaryComboBox) bool {
+    pub fn hasHeightForWidth(self: Sonnet__DictionaryComboBox) bool {
         return qtc.Sonnet__DictionaryComboBox_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7986,9 +9946,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn SuperHasHeightForWidth(self: Sonnet__DictionaryComboBox) bool {
+    pub fn superHasHeightForWidth(self: Sonnet__DictionaryComboBox) bool {
         return qtc.Sonnet__DictionaryComboBox_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -8002,9 +9966,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: Sonnet__DictionaryComboBox, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: Sonnet__DictionaryComboBox, callback: *const fn () callconv(.c) bool) void {
         qtc.Sonnet__DictionaryComboBox_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -8016,13 +9984,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn PaintEngine(self: Sonnet__DictionaryComboBox) QPaintEngine {
+    pub fn paintEngine(self: Sonnet__DictionaryComboBox) QPaintEngine {
         return .{ .ptr = qtc.Sonnet__DictionaryComboBox_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -8034,9 +10002,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn SuperPaintEngine(self: Sonnet__DictionaryComboBox) QPaintEngine {
+    pub fn superPaintEngine(self: Sonnet__DictionaryComboBox) QPaintEngine {
         return .{ .ptr = qtc.Sonnet__DictionaryComboBox_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -8050,10 +10022,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: Sonnet__DictionaryComboBox, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: Sonnet__DictionaryComboBox, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.Sonnet__DictionaryComboBox_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
@@ -8064,16 +10040,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: Sonnet__DictionaryComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.Sonnet__DictionaryComboBox_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: Sonnet__DictionaryComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.Sonnet__DictionaryComboBox_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -8085,12 +10061,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: Sonnet__DictionaryComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.Sonnet__DictionaryComboBox_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: Sonnet__DictionaryComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.Sonnet__DictionaryComboBox_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -8104,10 +10084,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QMouseEvent) callconv(.c) void) void {
         qtc.Sonnet__DictionaryComboBox_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
@@ -8118,16 +10102,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: Sonnet__DictionaryComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.Sonnet__DictionaryComboBox_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseMoveEvent(self: Sonnet__DictionaryComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.Sonnet__DictionaryComboBox_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8139,12 +10123,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: Sonnet__DictionaryComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.Sonnet__DictionaryComboBox_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseMoveEvent(self: Sonnet__DictionaryComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.Sonnet__DictionaryComboBox_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8158,9 +10146,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QMouseEvent) callconv(.c) void) void {
         qtc.Sonnet__DictionaryComboBox_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -8172,16 +10164,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: Sonnet__DictionaryComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.Sonnet__DictionaryComboBox_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: Sonnet__DictionaryComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.Sonnet__DictionaryComboBox_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -8193,12 +10185,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: Sonnet__DictionaryComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.Sonnet__DictionaryComboBox_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: Sonnet__DictionaryComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.Sonnet__DictionaryComboBox_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -8212,9 +10208,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QEnterEvent) callconv(.c) void) void {
         qtc.Sonnet__DictionaryComboBox_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8226,16 +10226,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: Sonnet__DictionaryComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.Sonnet__DictionaryComboBox_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: Sonnet__DictionaryComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.Sonnet__DictionaryComboBox_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8247,12 +10247,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: Sonnet__DictionaryComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.Sonnet__DictionaryComboBox_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: Sonnet__DictionaryComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.Sonnet__DictionaryComboBox_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8266,9 +10270,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QEvent) callconv(.c) void) void {
         qtc.Sonnet__DictionaryComboBox_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8280,16 +10288,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: Sonnet__DictionaryComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.Sonnet__DictionaryComboBox_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: Sonnet__DictionaryComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.Sonnet__DictionaryComboBox_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8301,12 +10309,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: Sonnet__DictionaryComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.Sonnet__DictionaryComboBox_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: Sonnet__DictionaryComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.Sonnet__DictionaryComboBox_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8320,9 +10332,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QMoveEvent) callconv(.c) void) void {
         qtc.Sonnet__DictionaryComboBox_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -8334,16 +10350,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: Sonnet__DictionaryComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.Sonnet__DictionaryComboBox_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: Sonnet__DictionaryComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.Sonnet__DictionaryComboBox_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -8355,12 +10371,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: Sonnet__DictionaryComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.Sonnet__DictionaryComboBox_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: Sonnet__DictionaryComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.Sonnet__DictionaryComboBox_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -8374,9 +10394,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QCloseEvent) callconv(.c) void) void {
         qtc.Sonnet__DictionaryComboBox_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -8388,16 +10412,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: Sonnet__DictionaryComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.Sonnet__DictionaryComboBox_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: Sonnet__DictionaryComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.Sonnet__DictionaryComboBox_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -8409,12 +10433,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: Sonnet__DictionaryComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.Sonnet__DictionaryComboBox_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: Sonnet__DictionaryComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.Sonnet__DictionaryComboBox_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -8428,9 +10456,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QTabletEvent) callconv(.c) void) void {
         qtc.Sonnet__DictionaryComboBox_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -8442,16 +10474,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: Sonnet__DictionaryComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.Sonnet__DictionaryComboBox_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: Sonnet__DictionaryComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.Sonnet__DictionaryComboBox_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -8463,12 +10495,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: Sonnet__DictionaryComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.Sonnet__DictionaryComboBox_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: Sonnet__DictionaryComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.Sonnet__DictionaryComboBox_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -8482,9 +10518,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QActionEvent) callconv(.c) void) void {
         qtc.Sonnet__DictionaryComboBox_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -8496,16 +10536,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: Sonnet__DictionaryComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.Sonnet__DictionaryComboBox_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: Sonnet__DictionaryComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.Sonnet__DictionaryComboBox_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -8517,12 +10557,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: Sonnet__DictionaryComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.Sonnet__DictionaryComboBox_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: Sonnet__DictionaryComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.Sonnet__DictionaryComboBox_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -8536,9 +10580,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QDragEnterEvent) callconv(.c) void) void {
         qtc.Sonnet__DictionaryComboBox_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8550,16 +10598,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: Sonnet__DictionaryComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.Sonnet__DictionaryComboBox_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: Sonnet__DictionaryComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.Sonnet__DictionaryComboBox_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8571,12 +10619,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: Sonnet__DictionaryComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.Sonnet__DictionaryComboBox_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: Sonnet__DictionaryComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.Sonnet__DictionaryComboBox_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8590,9 +10642,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QDragMoveEvent) callconv(.c) void) void {
         qtc.Sonnet__DictionaryComboBox_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8604,16 +10660,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: Sonnet__DictionaryComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.Sonnet__DictionaryComboBox_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: Sonnet__DictionaryComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.Sonnet__DictionaryComboBox_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8625,12 +10681,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: Sonnet__DictionaryComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.Sonnet__DictionaryComboBox_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: Sonnet__DictionaryComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.Sonnet__DictionaryComboBox_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8644,9 +10704,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QDragLeaveEvent) callconv(.c) void) void {
         qtc.Sonnet__DictionaryComboBox_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QWidget
     ///
@@ -8658,16 +10722,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: Sonnet__DictionaryComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.Sonnet__DictionaryComboBox_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: Sonnet__DictionaryComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.Sonnet__DictionaryComboBox_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -8679,12 +10743,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: Sonnet__DictionaryComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.Sonnet__DictionaryComboBox_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: Sonnet__DictionaryComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.Sonnet__DictionaryComboBox_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -8698,9 +10766,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QDropEvent) callconv(.c) void) void {
         qtc.Sonnet__DictionaryComboBox_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -8718,7 +10790,7 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: Sonnet__DictionaryComboBox, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: Sonnet__DictionaryComboBox, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -8726,9 +10798,9 @@ pub const Sonnet__DictionaryComboBox = extern struct {
         return qtc.Sonnet__DictionaryComboBox_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -8746,13 +10818,17 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: Sonnet__DictionaryComboBox, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: Sonnet__DictionaryComboBox, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.Sonnet__DictionaryComboBox_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -8766,9 +10842,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.Sonnet__DictionaryComboBox_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -8782,13 +10862,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: Sonnet__DictionaryComboBox, param1: i32) i32 {
+    pub fn metric(self: Sonnet__DictionaryComboBox, param1: i32) i32 {
         return qtc.Sonnet__DictionaryComboBox_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -8802,9 +10882,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: Sonnet__DictionaryComboBox, param1: i32) i32 {
+    pub fn superMetric(self: Sonnet__DictionaryComboBox, param1: i32) i32 {
         return qtc.Sonnet__DictionaryComboBox_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -8818,9 +10902,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, i32) callconv(.c) i32) void {
         qtc.Sonnet__DictionaryComboBox_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -8834,14 +10922,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: Sonnet__DictionaryComboBox, painter: anytype) void {
+    pub fn initPainter(self: Sonnet__DictionaryComboBox, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.Sonnet__DictionaryComboBox_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -8855,10 +10943,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: Sonnet__DictionaryComboBox, painter: anytype) void {
+    pub fn superInitPainter(self: Sonnet__DictionaryComboBox, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.Sonnet__DictionaryComboBox_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -8872,9 +10964,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QPainter) callconv(.c) void) void {
         qtc.Sonnet__DictionaryComboBox_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -8888,14 +10984,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: Sonnet__DictionaryComboBox, offset: anytype) QPaintDevice {
+    pub fn redirected(self: Sonnet__DictionaryComboBox, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.Sonnet__DictionaryComboBox_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -8909,10 +11005,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: Sonnet__DictionaryComboBox, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: Sonnet__DictionaryComboBox, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.Sonnet__DictionaryComboBox_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -8926,9 +11026,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QPoint) callconv(.c) QPaintDevice) void {
         qtc.Sonnet__DictionaryComboBox_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -8940,13 +11044,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn SharedPainter(self: Sonnet__DictionaryComboBox) QPainter {
+    pub fn sharedPainter(self: Sonnet__DictionaryComboBox) QPainter {
         return .{ .ptr = qtc.Sonnet__DictionaryComboBox_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -8958,9 +11062,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn SuperSharedPainter(self: Sonnet__DictionaryComboBox) QPainter {
+    pub fn superSharedPainter(self: Sonnet__DictionaryComboBox) QPainter {
         return .{ .ptr = qtc.Sonnet__DictionaryComboBox_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -8974,9 +11082,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: Sonnet__DictionaryComboBox, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: Sonnet__DictionaryComboBox, callback: *const fn () callconv(.c) QPainter) void {
         qtc.Sonnet__DictionaryComboBox_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8990,13 +11102,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: Sonnet__DictionaryComboBox, next: bool) bool {
+    pub fn focusNextPrevChild(self: Sonnet__DictionaryComboBox, next: bool) bool {
         return qtc.Sonnet__DictionaryComboBox_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -9010,9 +11122,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: Sonnet__DictionaryComboBox, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: Sonnet__DictionaryComboBox, next: bool) bool {
         return qtc.Sonnet__DictionaryComboBox_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -9026,9 +11142,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, bool) callconv(.c) bool) void {
         qtc.Sonnet__DictionaryComboBox_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -9042,17 +11162,17 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: Sonnet__DictionaryComboBox, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: Sonnet__DictionaryComboBox, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.Sonnet__DictionaryComboBox_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.Sonnet__DictionaryComboBox_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -9066,13 +11186,17 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: Sonnet__DictionaryComboBox, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: Sonnet__DictionaryComboBox, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.Sonnet__DictionaryComboBox_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.Sonnet__DictionaryComboBox_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -9086,9 +11210,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QObject, QEvent) callconv(.c) bool) void {
         qtc.Sonnet__DictionaryComboBox_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -9100,16 +11228,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: Sonnet__DictionaryComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.Sonnet__DictionaryComboBox_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: Sonnet__DictionaryComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.Sonnet__DictionaryComboBox_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -9121,12 +11249,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: Sonnet__DictionaryComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.Sonnet__DictionaryComboBox_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: Sonnet__DictionaryComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.Sonnet__DictionaryComboBox_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -9140,9 +11272,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QTimerEvent) callconv(.c) void) void {
         qtc.Sonnet__DictionaryComboBox_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -9154,16 +11290,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: Sonnet__DictionaryComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.Sonnet__DictionaryComboBox_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: Sonnet__DictionaryComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.Sonnet__DictionaryComboBox_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -9175,12 +11311,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: Sonnet__DictionaryComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.Sonnet__DictionaryComboBox_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: Sonnet__DictionaryComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.Sonnet__DictionaryComboBox_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -9194,9 +11334,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QChildEvent) callconv(.c) void) void {
         qtc.Sonnet__DictionaryComboBox_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -9208,16 +11352,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: Sonnet__DictionaryComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.Sonnet__DictionaryComboBox_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: Sonnet__DictionaryComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.Sonnet__DictionaryComboBox_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -9229,12 +11373,16 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: Sonnet__DictionaryComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.Sonnet__DictionaryComboBox_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: Sonnet__DictionaryComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.Sonnet__DictionaryComboBox_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -9248,9 +11396,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QEvent) callconv(.c) void) void {
         qtc.Sonnet__DictionaryComboBox_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -9264,14 +11416,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: Sonnet__DictionaryComboBox, signal: anytype) void {
+    pub fn connectNotify(self: Sonnet__DictionaryComboBox, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.Sonnet__DictionaryComboBox_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -9285,11 +11437,15 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: Sonnet__DictionaryComboBox, signal: anytype) void {
+    pub fn superConnectNotify(self: Sonnet__DictionaryComboBox, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.Sonnet__DictionaryComboBox_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -9302,9 +11458,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QMetaMethod) callconv(.c) void) void {
         qtc.Sonnet__DictionaryComboBox_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -9318,14 +11478,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: Sonnet__DictionaryComboBox, signal: anytype) void {
+    pub fn disconnectNotify(self: Sonnet__DictionaryComboBox, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.Sonnet__DictionaryComboBox_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -9339,10 +11499,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: Sonnet__DictionaryComboBox, signal: anytype) void {
+    pub fn superDisconnectNotify(self: Sonnet__DictionaryComboBox, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.Sonnet__DictionaryComboBox_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -9356,10 +11520,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QMetaMethod) callconv(.c) void) void {
         qtc.Sonnet__DictionaryComboBox_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -9370,13 +11538,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn UpdateMicroFocus(self: Sonnet__DictionaryComboBox) void {
+    pub fn updateMicroFocus(self: Sonnet__DictionaryComboBox) void {
         qtc.Sonnet__DictionaryComboBox_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -9388,10 +11556,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn SuperUpdateMicroFocus(self: Sonnet__DictionaryComboBox) void {
+    pub fn superUpdateMicroFocus(self: Sonnet__DictionaryComboBox) void {
         qtc.Sonnet__DictionaryComboBox_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -9404,10 +11576,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: Sonnet__DictionaryComboBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: Sonnet__DictionaryComboBox, callback: *const fn () callconv(.c) void) void {
         qtc.Sonnet__DictionaryComboBox_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -9418,13 +11594,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn Create(self: Sonnet__DictionaryComboBox) void {
+    pub fn create(self: Sonnet__DictionaryComboBox) void {
         qtc.Sonnet__DictionaryComboBox_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -9436,10 +11612,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn SuperCreate(self: Sonnet__DictionaryComboBox) void {
+    pub fn superCreate(self: Sonnet__DictionaryComboBox) void {
         qtc.Sonnet__DictionaryComboBox_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -9452,9 +11632,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: Sonnet__DictionaryComboBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: Sonnet__DictionaryComboBox, callback: *const fn () callconv(.c) void) void {
         qtc.Sonnet__DictionaryComboBox_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -9466,13 +11650,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn Destroy(self: Sonnet__DictionaryComboBox) void {
+    pub fn destroy(self: Sonnet__DictionaryComboBox) void {
         qtc.Sonnet__DictionaryComboBox_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -9484,9 +11668,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn SuperDestroy(self: Sonnet__DictionaryComboBox) void {
+    pub fn superDestroy(self: Sonnet__DictionaryComboBox) void {
         qtc.Sonnet__DictionaryComboBox_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -9500,10 +11688,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: Sonnet__DictionaryComboBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: Sonnet__DictionaryComboBox, callback: *const fn () callconv(.c) void) void {
         qtc.Sonnet__DictionaryComboBox_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -9514,13 +11706,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn FocusNextChild(self: Sonnet__DictionaryComboBox) bool {
+    pub fn focusNextChild(self: Sonnet__DictionaryComboBox) bool {
         return qtc.Sonnet__DictionaryComboBox_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -9532,10 +11724,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn SuperFocusNextChild(self: Sonnet__DictionaryComboBox) bool {
+    pub fn superFocusNextChild(self: Sonnet__DictionaryComboBox) bool {
         return qtc.Sonnet__DictionaryComboBox_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -9548,9 +11744,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: Sonnet__DictionaryComboBox, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: Sonnet__DictionaryComboBox, callback: *const fn () callconv(.c) bool) void {
         qtc.Sonnet__DictionaryComboBox_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -9562,13 +11762,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn FocusPreviousChild(self: Sonnet__DictionaryComboBox) bool {
+    pub fn focusPreviousChild(self: Sonnet__DictionaryComboBox) bool {
         return qtc.Sonnet__DictionaryComboBox_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -9580,9 +11780,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn SuperFocusPreviousChild(self: Sonnet__DictionaryComboBox) bool {
+    pub fn superFocusPreviousChild(self: Sonnet__DictionaryComboBox) bool {
         return qtc.Sonnet__DictionaryComboBox_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -9596,9 +11800,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: Sonnet__DictionaryComboBox, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: Sonnet__DictionaryComboBox, callback: *const fn () callconv(.c) bool) void {
         qtc.Sonnet__DictionaryComboBox_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -9610,13 +11818,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn Sender(self: Sonnet__DictionaryComboBox) QObject {
+    pub fn sender(self: Sonnet__DictionaryComboBox) QObject {
         return .{ .ptr = qtc.Sonnet__DictionaryComboBox_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -9628,9 +11836,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn SuperSender(self: Sonnet__DictionaryComboBox) QObject {
+    pub fn superSender(self: Sonnet__DictionaryComboBox) QObject {
         return .{ .ptr = qtc.Sonnet__DictionaryComboBox_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -9644,9 +11856,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: Sonnet__DictionaryComboBox, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: Sonnet__DictionaryComboBox, callback: *const fn () callconv(.c) QObject) void {
         qtc.Sonnet__DictionaryComboBox_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -9658,13 +11874,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn SenderSignalIndex(self: Sonnet__DictionaryComboBox) i32 {
+    pub fn senderSignalIndex(self: Sonnet__DictionaryComboBox) i32 {
         return qtc.Sonnet__DictionaryComboBox_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -9676,9 +11892,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn SuperSenderSignalIndex(self: Sonnet__DictionaryComboBox) i32 {
+    pub fn superSenderSignalIndex(self: Sonnet__DictionaryComboBox) i32 {
         return qtc.Sonnet__DictionaryComboBox_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -9692,9 +11912,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: Sonnet__DictionaryComboBox, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: Sonnet__DictionaryComboBox, callback: *const fn () callconv(.c) i32) void {
         qtc.Sonnet__DictionaryComboBox_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -9708,14 +11932,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: Sonnet__DictionaryComboBox, signal: [:0]const u8) i32 {
+    pub fn receivers(self: Sonnet__DictionaryComboBox, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.Sonnet__DictionaryComboBox_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -9729,10 +11953,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: Sonnet__DictionaryComboBox, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: Sonnet__DictionaryComboBox, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.Sonnet__DictionaryComboBox_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -9746,9 +11974,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, [*:0]const u8) callconv(.c) i32) void {
         qtc.Sonnet__DictionaryComboBox_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -9762,14 +11994,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: Sonnet__DictionaryComboBox, signal: anytype) bool {
+    pub fn isSignalConnected(self: Sonnet__DictionaryComboBox, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.Sonnet__DictionaryComboBox_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -9783,10 +12015,14 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: Sonnet__DictionaryComboBox, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: Sonnet__DictionaryComboBox, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.Sonnet__DictionaryComboBox_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -9800,9 +12036,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, QMetaMethod) callconv(.c) bool) void {
         qtc.Sonnet__DictionaryComboBox_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9818,13 +12058,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: Sonnet__DictionaryComboBox, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: Sonnet__DictionaryComboBox, metricA: i32, metricB: i32) f64 {
         return qtc.Sonnet__DictionaryComboBox_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9840,9 +12080,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: Sonnet__DictionaryComboBox, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: Sonnet__DictionaryComboBox, metricA: i32, metricB: i32) f64 {
         return qtc.Sonnet__DictionaryComboBox_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9856,9 +12100,13 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, i32, i32) callconv(.c) f64) void {
         qtc.Sonnet__DictionaryComboBox_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -9872,21 +12120,21 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Sonnet__DictionaryComboBox `
     ///
-    pub fn Delete(self: Sonnet__DictionaryComboBox) void {
+    pub fn delete(self: Sonnet__DictionaryComboBox) void {
         qtc.Sonnet__DictionaryComboBox_Delete(@ptrCast(self.ptr));
     }
 };

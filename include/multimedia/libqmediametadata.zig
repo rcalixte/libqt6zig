@@ -14,22 +14,34 @@ pub const QMediaMetaData = extern struct {
 
     pub const _is_QMediaMetaData = {};
 
-    /// New constructs a new QMediaMetaData object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QMediaMetaData {
+    pub const New = new;
+
+    /// Allocate a new QMediaMetaData object in C++ memory
+    ///
+    pub fn new() QMediaMetaData {
         return .{ .ptr = qtc.QMediaMetaData_new() };
     }
 
-    /// New2 constructs a new QMediaMetaData object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QMediaMetaData object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QMediaMetaData `
     ///
-    pub fn New2(param1: anytype) QMediaMetaData {
+    pub fn new2(param1: anytype) QMediaMetaData {
         comptime _ = @TypeOf(param1)._is_QMediaMetaData;
         return .{ .ptr = qtc.QMediaMetaData_new2(@ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `value` instead
+    ///
+    pub const Value = value;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediametadata.html#value)
     ///
@@ -39,9 +51,13 @@ pub const QMediaMetaData = extern struct {
     ///
     /// ` k: qmediametadata_enums.Key `
     ///
-    pub fn Value(self: QMediaMetaData, k: i32) QVariant {
+    pub fn value(self: QMediaMetaData, k: i32) QVariant {
         return .{ .ptr = qtc.QMediaMetaData_Value(@ptrCast(self.ptr), @bitCast(k)) };
     }
+
+    /// ### DEPRECATED: Use `insert` instead
+    ///
+    pub const Insert = insert;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediametadata.html#insert)
     ///
@@ -51,12 +67,16 @@ pub const QMediaMetaData = extern struct {
     ///
     /// ` k: qmediametadata_enums.Key `
     ///
-    /// ` value: QVariant `
+    /// ` _value: QVariant `
     ///
-    pub fn Insert(self: QMediaMetaData, k: i32, value: anytype) void {
-        comptime _ = @TypeOf(value)._is_QVariant;
-        qtc.QMediaMetaData_Insert(@ptrCast(self.ptr), @bitCast(k), @ptrCast(value.ptr));
+    pub fn insert(self: QMediaMetaData, k: i32, _value: anytype) void {
+        comptime _ = @TypeOf(_value)._is_QVariant;
+        qtc.QMediaMetaData_Insert(@ptrCast(self.ptr), @bitCast(k), @ptrCast(_value.ptr));
     }
+
+    /// ### DEPRECATED: Use `remove` instead
+    ///
+    pub const Remove = remove;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediametadata.html#remove)
     ///
@@ -66,9 +86,13 @@ pub const QMediaMetaData = extern struct {
     ///
     /// ` k: qmediametadata_enums.Key `
     ///
-    pub fn Remove(self: QMediaMetaData, k: i32) void {
+    pub fn remove(self: QMediaMetaData, k: i32) void {
         qtc.QMediaMetaData_Remove(@ptrCast(self.ptr), @bitCast(k));
     }
+
+    /// ### DEPRECATED: Use `keys` instead
+    ///
+    pub const Keys = keys;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediametadata.html#keys)
     ///
@@ -82,14 +106,18 @@ pub const QMediaMetaData = extern struct {
     ///
     /// ` []qmediametadata_enums.Key `
     ///
-    pub fn Keys(self: QMediaMetaData, allocator: std.mem.Allocator) []i32 {
+    pub fn keys(self: QMediaMetaData, allocator: std.mem.Allocator) []i32 {
         const _arr: qtc.libqt_list = qtc.QMediaMetaData_Keys(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QMediaMetaData.Keys: Memory allocation failed");
-        const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QMediaMetaData.keys: Memory allocation failed");
+        const _data_val: [*]i32 = @ptrCast(@alignCast(_arr.data));
+        @memcpy(_ret, _data_val[0.._arr.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `operatorSubscript` instead
+    ///
+    pub const OperatorSubscript = operatorSubscript;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediametadata.html#operator-5b-5d)
     ///
@@ -99,9 +127,13 @@ pub const QMediaMetaData = extern struct {
     ///
     /// ` k: qmediametadata_enums.Key `
     ///
-    pub fn OperatorSubscript(self: QMediaMetaData, k: i32) QVariant {
+    pub fn operatorSubscript(self: QMediaMetaData, k: i32) QVariant {
         return .{ .ptr = qtc.QMediaMetaData_OperatorSubscript(@ptrCast(self.ptr), @bitCast(k)) };
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediametadata.html#clear)
     ///
@@ -109,9 +141,13 @@ pub const QMediaMetaData = extern struct {
     ///
     /// ` self: QMediaMetaData `
     ///
-    pub fn Clear(self: QMediaMetaData) void {
+    pub fn clear(self: QMediaMetaData) void {
         qtc.QMediaMetaData_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEmpty` instead
+    ///
+    pub const IsEmpty = isEmpty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediametadata.html#isEmpty)
     ///
@@ -119,9 +155,13 @@ pub const QMediaMetaData = extern struct {
     ///
     /// ` self: QMediaMetaData `
     ///
-    pub fn IsEmpty(self: QMediaMetaData) bool {
+    pub fn isEmpty(self: QMediaMetaData) bool {
         return qtc.QMediaMetaData_IsEmpty(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stringValue` instead
+    ///
+    pub const StringValue = stringValue;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediametadata.html#stringValue)
     ///
@@ -133,13 +173,17 @@ pub const QMediaMetaData = extern struct {
     ///
     /// ` k: qmediametadata_enums.Key `
     ///
-    pub fn StringValue(self: QMediaMetaData, allocator: std.mem.Allocator, k: i32) []const u8 {
+    pub fn stringValue(self: QMediaMetaData, allocator: std.mem.Allocator, k: i32) []const u8 {
         var _str = qtc.QMediaMetaData_StringValue(@ptrCast(self.ptr), @bitCast(k));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMediaMetaData.StringValue: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMediaMetaData.stringValue: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `metaDataKeyToString` instead
+    ///
+    pub const MetaDataKeyToString = metaDataKeyToString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediametadata.html#metaDataKeyToString)
     ///
@@ -149,27 +193,27 @@ pub const QMediaMetaData = extern struct {
     ///
     /// ` k: qmediametadata_enums.Key `
     ///
-    pub fn MetaDataKeyToString(allocator: std.mem.Allocator, k: i32) []const u8 {
+    pub fn metaDataKeyToString(allocator: std.mem.Allocator, k: i32) []const u8 {
         var _str = qtc.QMediaMetaData_MetaDataKeyToString(@bitCast(k));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMediaMetaData.MetaDataKeyToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMediaMetaData.metaDataKeyToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediametadata.html#dtor.QMediaMetaData)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QMediaMetaData `
     ///
-    pub fn Delete(self: QMediaMetaData) void {
+    pub fn delete(self: QMediaMetaData) void {
         qtc.QMediaMetaData_Delete(@ptrCast(self.ptr));
     }
 };

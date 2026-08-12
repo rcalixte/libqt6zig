@@ -17,56 +17,79 @@ pub const QMetaType = extern struct {
 
     pub const _is_QMetaType = {};
 
-    /// New constructs a new QMetaType object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QMetaType {
+    pub const New = new;
+
+    /// Allocate a new QMetaType object in C++ memory
+    ///
+    pub fn new() QMetaType {
         return .{ .ptr = qtc.QMetaType_new() };
     }
 
-    /// New2 constructs a new QMetaType object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QMetaType object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QMetaType `
     ///
-    pub fn New2(other: anytype) QMetaType {
+    pub fn new2(other: anytype) QMetaType {
         comptime _ = @TypeOf(other)._is_QMetaType;
         return .{ .ptr = qtc.QMetaType_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QMetaType object and invalidates the source QMetaType object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QMetaType object and invalidate the source QMetaType object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QMetaType `
     ///
-    pub fn New3(other: anytype) QMetaType {
+    pub fn new3(other: anytype) QMetaType {
         comptime _ = @TypeOf(other)._is_QMetaType;
         return .{ .ptr = qtc.QMetaType_new3(@ptrCast(other.ptr)) };
     }
 
-    /// New4 constructs a new QMetaType object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QMetaType object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` typeVal: i32 `
     ///
-    pub fn New4(typeVal: i32) QMetaType {
+    pub fn new4(typeVal: i32) QMetaType {
         return .{ .ptr = qtc.QMetaType_new4(@bitCast(typeVal)) };
     }
 
-    /// New5 constructs a new QMetaType object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new QMetaType object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QMetaType `
     ///
-    pub fn New5(param1: anytype) QMetaType {
+    pub fn new5(param1: anytype) QMetaType {
         comptime _ = @TypeOf(param1)._is_QMetaType;
         return .{ .ptr = qtc.QMetaType_new5(@ptrCast(param1.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -74,11 +97,14 @@ pub const QMetaType = extern struct {
     ///
     /// ` other: QMetaType `
     ///
-    pub fn CopyAssign(self: QMetaType, other: QMetaType) void {
+    pub fn copyAssign(self: QMetaType, other: QMetaType) void {
         qtc.QMetaType_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -86,9 +112,13 @@ pub const QMetaType = extern struct {
     ///
     /// ` other: QMetaType `
     ///
-    pub fn MoveAssign(self: QMetaType, other: QMetaType) void {
+    pub fn moveAssign(self: QMetaType, other: QMetaType) void {
         qtc.QMetaType_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `registerNormalizedTypedef` instead
+    ///
+    pub const RegisterNormalizedTypedef = registerNormalizedTypedef;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#registerNormalizedTypedef)
     ///
@@ -98,7 +128,7 @@ pub const QMetaType = extern struct {
     ///
     /// ` typeVal: QMetaType `
     ///
-    pub fn RegisterNormalizedTypedef(normalizedTypeName: []u8, typeVal: anytype) void {
+    pub fn registerNormalizedTypedef(normalizedTypeName: []u8, typeVal: anytype) void {
         const normalizedTypeName_str = qtc.libqt_string{
             .len = normalizedTypeName.len,
             .data = normalizedTypeName.ptr,
@@ -107,30 +137,44 @@ pub const QMetaType = extern struct {
         qtc.QMetaType_RegisterNormalizedTypedef(normalizedTypeName_str, @ptrCast(typeVal.ptr));
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#type)
+    /// ### DEPRECATED: Use `type0` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` typeName: [:0]const u8 `
-    ///
-    pub fn Type(typeName: [:0]const u8) i32 {
-        const typeName_Cstring = typeName.ptr;
-        return qtc.QMetaType_Type(typeName_Cstring);
-    }
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#type)
     ///
     /// ## Parameter(s):
     ///
-    /// ` typeName: []u8 `
+    /// ` _typeName: [:0]const u8 `
     ///
-    pub fn Type2(typeName: []u8) i32 {
+    pub fn type0(_typeName: [:0]const u8) i32 {
+        const typeName_Cstring = _typeName.ptr;
+        return qtc.QMetaType_Type(typeName_Cstring);
+    }
+
+    /// ### DEPRECATED: Use `type2` instead
+    ///
+    pub const Type2 = type2;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#type)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _typeName: []u8 `
+    ///
+    pub fn type2(_typeName: []u8) i32 {
         const typeName_str = qtc.libqt_string{
-            .len = typeName.len,
-            .data = typeName.ptr,
+            .len = _typeName.len,
+            .data = _typeName.ptr,
         };
         return qtc.QMetaType_Type2(typeName_str);
     }
+
+    /// ### DEPRECATED: Use `typeName` instead
+    ///
+    pub const TypeName = typeName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#typeName)
     ///
@@ -138,10 +182,14 @@ pub const QMetaType = extern struct {
     ///
     /// ` typeVal: i32 `
     ///
-    pub fn TypeName(typeVal: i32) [:0]const u8 {
+    pub fn typeName(typeVal: i32) [:0]const u8 {
         const _ret = qtc.QMetaType_TypeName(@bitCast(typeVal));
         return std.mem.span(_ret);
     }
+
+    /// ### DEPRECATED: Use `sizeOf` instead
+    ///
+    pub const SizeOf = sizeOf;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#sizeOf)
     ///
@@ -149,9 +197,13 @@ pub const QMetaType = extern struct {
     ///
     /// ` typeVal: i32 `
     ///
-    pub fn SizeOf(typeVal: i32) i32 {
+    pub fn sizeOf(typeVal: i32) i32 {
         return qtc.QMetaType_SizeOf(@bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `typeFlags` instead
+    ///
+    pub const TypeFlags = typeFlags;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#typeFlags)
     ///
@@ -163,9 +215,13 @@ pub const QMetaType = extern struct {
     ///
     /// ` flag of qmetatype_enums.TypeFlag `
     ///
-    pub fn TypeFlags(typeVal: i32) i32 {
+    pub fn typeFlags(typeVal: i32) i32 {
         return qtc.QMetaType_TypeFlags(@bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `metaObjectForType` instead
+    ///
+    pub const MetaObjectForType = metaObjectForType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#metaObjectForType)
     ///
@@ -173,9 +229,13 @@ pub const QMetaType = extern struct {
     ///
     /// ` typeVal: i32 `
     ///
-    pub fn MetaObjectForType(typeVal: i32) QMetaObject {
+    pub fn metaObjectForType(typeVal: i32) QMetaObject {
         return .{ .ptr = qtc.QMetaType_MetaObjectForType(@bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#create)
     ///
@@ -183,9 +243,13 @@ pub const QMetaType = extern struct {
     ///
     /// ` typeVal: i32 `
     ///
-    pub fn Create(typeVal: i32) ?*anyopaque {
+    pub fn create(typeVal: i32) ?*anyopaque {
         return qtc.QMetaType_Create(@bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#destroy)
     ///
@@ -195,9 +259,13 @@ pub const QMetaType = extern struct {
     ///
     /// ` data: ?*anyopaque `
     ///
-    pub fn Destroy(typeVal: i32, data: ?*anyopaque) void {
+    pub fn destroy(typeVal: i32, data: ?*anyopaque) void {
         qtc.QMetaType_Destroy(@bitCast(typeVal), @ptrCast(data));
     }
+
+    /// ### DEPRECATED: Use `construct` instead
+    ///
+    pub const Construct = construct;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#construct)
     ///
@@ -207,11 +275,15 @@ pub const QMetaType = extern struct {
     ///
     /// ` where: ?*anyopaque `
     ///
-    /// ` copyVal: ?*const anyopaque `
+    /// ` copy: ?*const anyopaque `
     ///
-    pub fn Construct(typeVal: i32, where: ?*anyopaque, copyVal: ?*const anyopaque) ?*anyopaque {
-        return qtc.QMetaType_Construct(@bitCast(typeVal), @ptrCast(where), @ptrCast(copyVal));
+    pub fn construct(typeVal: i32, where: ?*anyopaque, copy: ?*const anyopaque) ?*anyopaque {
+        return qtc.QMetaType_Construct(@bitCast(typeVal), @ptrCast(where), @ptrCast(copy));
     }
+
+    /// ### DEPRECATED: Use `destruct` instead
+    ///
+    pub const Destruct = destruct;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#destruct)
     ///
@@ -221,9 +293,13 @@ pub const QMetaType = extern struct {
     ///
     /// ` where: ?*anyopaque `
     ///
-    pub fn Destruct(typeVal: i32, where: ?*anyopaque) void {
+    pub fn destruct(typeVal: i32, where: ?*anyopaque) void {
         qtc.QMetaType_Destruct(@bitCast(typeVal), @ptrCast(where));
     }
+
+    /// ### DEPRECATED: Use `isRegistered` instead
+    ///
+    pub const IsRegistered = isRegistered;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#isRegistered)
     ///
@@ -231,9 +307,13 @@ pub const QMetaType = extern struct {
     ///
     /// ` typeVal: i32 `
     ///
-    pub fn IsRegistered(typeVal: i32) bool {
+    pub fn isRegistered(typeVal: i32) bool {
         return qtc.QMetaType_IsRegistered(@bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#isValid)
     ///
@@ -241,9 +321,13 @@ pub const QMetaType = extern struct {
     ///
     /// ` self: QMetaType `
     ///
-    pub fn IsValid(self: QMetaType) bool {
+    pub fn isValid(self: QMetaType) bool {
         return qtc.QMetaType_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRegistered2` instead
+    ///
+    pub const IsRegistered2 = isRegistered2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#isRegistered)
     ///
@@ -251,9 +335,13 @@ pub const QMetaType = extern struct {
     ///
     /// ` self: QMetaType `
     ///
-    pub fn IsRegistered2(self: QMetaType) bool {
+    pub fn isRegistered2(self: QMetaType) bool {
         return qtc.QMetaType_IsRegistered2(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `registerType` instead
+    ///
+    pub const RegisterType = registerType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#registerType)
     ///
@@ -261,9 +349,13 @@ pub const QMetaType = extern struct {
     ///
     /// ` self: QMetaType `
     ///
-    pub fn RegisterType(self: QMetaType) void {
+    pub fn registerType(self: QMetaType) void {
         qtc.QMetaType_RegisterType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `id` instead
+    ///
+    pub const Id = id;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#id)
     ///
@@ -271,9 +363,13 @@ pub const QMetaType = extern struct {
     ///
     /// ` self: QMetaType `
     ///
-    pub fn Id(self: QMetaType) i32 {
+    pub fn id(self: QMetaType) i32 {
         return qtc.QMetaType_Id(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `sizeOf2` instead
+    ///
+    pub const SizeOf2 = sizeOf2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#sizeOf)
     ///
@@ -281,9 +377,13 @@ pub const QMetaType = extern struct {
     ///
     /// ` self: QMetaType `
     ///
-    pub fn SizeOf2(self: QMetaType) isize {
+    pub fn sizeOf2(self: QMetaType) isize {
         return qtc.QMetaType_SizeOf2(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `alignOf` instead
+    ///
+    pub const AlignOf = alignOf;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#alignOf)
     ///
@@ -291,9 +391,13 @@ pub const QMetaType = extern struct {
     ///
     /// ` self: QMetaType `
     ///
-    pub fn AlignOf(self: QMetaType) isize {
+    pub fn alignOf(self: QMetaType) isize {
         return qtc.QMetaType_AlignOf(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `flags` instead
+    ///
+    pub const Flags = flags;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#flags)
     ///
@@ -305,9 +409,13 @@ pub const QMetaType = extern struct {
     ///
     /// ` flag of qmetatype_enums.TypeFlag `
     ///
-    pub fn Flags(self: QMetaType) i32 {
+    pub fn flags(self: QMetaType) i32 {
         return qtc.QMetaType_Flags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -315,9 +423,13 @@ pub const QMetaType = extern struct {
     ///
     /// ` self: QMetaType `
     ///
-    pub fn MetaObject(self: QMetaType) QMetaObject {
+    pub fn metaObject(self: QMetaType) QMetaObject {
         return .{ .ptr = qtc.QMetaType_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#name)
     ///
@@ -325,10 +437,14 @@ pub const QMetaType = extern struct {
     ///
     /// ` self: QMetaType `
     ///
-    pub fn Name(self: QMetaType) [:0]const u8 {
+    pub fn name(self: QMetaType) [:0]const u8 {
         const _ret = qtc.QMetaType_Name(@ptrCast(self.ptr));
         return std.mem.span(_ret);
     }
+
+    /// ### DEPRECATED: Use `create2` instead
+    ///
+    pub const Create2 = create2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#create)
     ///
@@ -336,9 +452,13 @@ pub const QMetaType = extern struct {
     ///
     /// ` self: QMetaType `
     ///
-    pub fn Create2(self: QMetaType) ?*anyopaque {
+    pub fn create2(self: QMetaType) ?*anyopaque {
         return qtc.QMetaType_Create2(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `destroy2` instead
+    ///
+    pub const Destroy2 = destroy2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#destroy)
     ///
@@ -348,9 +468,13 @@ pub const QMetaType = extern struct {
     ///
     /// ` data: ?*anyopaque `
     ///
-    pub fn Destroy2(self: QMetaType, data: ?*anyopaque) void {
+    pub fn destroy2(self: QMetaType, data: ?*anyopaque) void {
         qtc.QMetaType_Destroy2(@ptrCast(self.ptr), @ptrCast(data));
     }
+
+    /// ### DEPRECATED: Use `construct2` instead
+    ///
+    pub const Construct2 = construct2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#construct)
     ///
@@ -360,9 +484,13 @@ pub const QMetaType = extern struct {
     ///
     /// ` where: ?*anyopaque `
     ///
-    pub fn Construct2(self: QMetaType, where: ?*anyopaque) ?*anyopaque {
+    pub fn construct2(self: QMetaType, where: ?*anyopaque) ?*anyopaque {
         return qtc.QMetaType_Construct2(@ptrCast(self.ptr), @ptrCast(where));
     }
+
+    /// ### DEPRECATED: Use `destruct2` instead
+    ///
+    pub const Destruct2 = destruct2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#destruct)
     ///
@@ -372,9 +500,13 @@ pub const QMetaType = extern struct {
     ///
     /// ` data: ?*anyopaque `
     ///
-    pub fn Destruct2(self: QMetaType, data: ?*anyopaque) void {
+    pub fn destruct2(self: QMetaType, data: ?*anyopaque) void {
         qtc.QMetaType_Destruct2(@ptrCast(self.ptr), @ptrCast(data));
     }
+
+    /// ### DEPRECATED: Use `compare` instead
+    ///
+    pub const Compare = compare;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#compare)
     ///
@@ -386,9 +518,13 @@ pub const QMetaType = extern struct {
     ///
     /// ` rhs: ?*const anyopaque `
     ///
-    pub fn Compare(self: QMetaType, lhs: ?*const anyopaque, rhs: ?*const anyopaque) QPartialOrdering {
+    pub fn compare(self: QMetaType, lhs: ?*const anyopaque, rhs: ?*const anyopaque) QPartialOrdering {
         return .{ .ptr = qtc.QMetaType_Compare(@ptrCast(self.ptr), @ptrCast(lhs), @ptrCast(rhs)) };
     }
+
+    /// ### DEPRECATED: Use `equals` instead
+    ///
+    pub const Equals = equals;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#equals)
     ///
@@ -400,9 +536,13 @@ pub const QMetaType = extern struct {
     ///
     /// ` rhs: ?*const anyopaque `
     ///
-    pub fn Equals(self: QMetaType, lhs: ?*const anyopaque, rhs: ?*const anyopaque) bool {
+    pub fn equals(self: QMetaType, lhs: ?*const anyopaque, rhs: ?*const anyopaque) bool {
         return qtc.QMetaType_Equals(@ptrCast(self.ptr), @ptrCast(lhs), @ptrCast(rhs));
     }
+
+    /// ### DEPRECATED: Use `isDefaultConstructible` instead
+    ///
+    pub const IsDefaultConstructible = isDefaultConstructible;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#isDefaultConstructible)
     ///
@@ -410,9 +550,13 @@ pub const QMetaType = extern struct {
     ///
     /// ` self: QMetaType `
     ///
-    pub fn IsDefaultConstructible(self: QMetaType) bool {
+    pub fn isDefaultConstructible(self: QMetaType) bool {
         return qtc.QMetaType_IsDefaultConstructible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isCopyConstructible` instead
+    ///
+    pub const IsCopyConstructible = isCopyConstructible;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#isCopyConstructible)
     ///
@@ -420,9 +564,13 @@ pub const QMetaType = extern struct {
     ///
     /// ` self: QMetaType `
     ///
-    pub fn IsCopyConstructible(self: QMetaType) bool {
+    pub fn isCopyConstructible(self: QMetaType) bool {
         return qtc.QMetaType_IsCopyConstructible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMoveConstructible` instead
+    ///
+    pub const IsMoveConstructible = isMoveConstructible;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#isMoveConstructible)
     ///
@@ -430,9 +578,13 @@ pub const QMetaType = extern struct {
     ///
     /// ` self: QMetaType `
     ///
-    pub fn IsMoveConstructible(self: QMetaType) bool {
+    pub fn isMoveConstructible(self: QMetaType) bool {
         return qtc.QMetaType_IsMoveConstructible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDestructible` instead
+    ///
+    pub const IsDestructible = isDestructible;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#isDestructible)
     ///
@@ -440,9 +592,13 @@ pub const QMetaType = extern struct {
     ///
     /// ` self: QMetaType `
     ///
-    pub fn IsDestructible(self: QMetaType) bool {
+    pub fn isDestructible(self: QMetaType) bool {
         return qtc.QMetaType_IsDestructible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEqualityComparable` instead
+    ///
+    pub const IsEqualityComparable = isEqualityComparable;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#isEqualityComparable)
     ///
@@ -450,9 +606,13 @@ pub const QMetaType = extern struct {
     ///
     /// ` self: QMetaType `
     ///
-    pub fn IsEqualityComparable(self: QMetaType) bool {
+    pub fn isEqualityComparable(self: QMetaType) bool {
         return qtc.QMetaType_IsEqualityComparable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isOrdered` instead
+    ///
+    pub const IsOrdered = isOrdered;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#isOrdered)
     ///
@@ -460,9 +620,13 @@ pub const QMetaType = extern struct {
     ///
     /// ` self: QMetaType `
     ///
-    pub fn IsOrdered(self: QMetaType) bool {
+    pub fn isOrdered(self: QMetaType) bool {
         return qtc.QMetaType_IsOrdered(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `save` instead
+    ///
+    pub const Save = save;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#save)
     ///
@@ -474,10 +638,14 @@ pub const QMetaType = extern struct {
     ///
     /// ` data: ?*const anyopaque `
     ///
-    pub fn Save(self: QMetaType, stream: anytype, data: ?*const anyopaque) bool {
+    pub fn save(self: QMetaType, stream: anytype, data: ?*const anyopaque) bool {
         comptime _ = @TypeOf(stream)._is_QDataStream;
         return qtc.QMetaType_Save(@ptrCast(self.ptr), @ptrCast(stream.ptr), @ptrCast(data));
     }
+
+    /// ### DEPRECATED: Use `load` instead
+    ///
+    pub const Load = load;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#load)
     ///
@@ -489,10 +657,14 @@ pub const QMetaType = extern struct {
     ///
     /// ` data: ?*anyopaque `
     ///
-    pub fn Load(self: QMetaType, stream: anytype, data: ?*anyopaque) bool {
+    pub fn load(self: QMetaType, stream: anytype, data: ?*anyopaque) bool {
         comptime _ = @TypeOf(stream)._is_QDataStream;
         return qtc.QMetaType_Load(@ptrCast(self.ptr), @ptrCast(stream.ptr), @ptrCast(data));
     }
+
+    /// ### DEPRECATED: Use `hasRegisteredDataStreamOperators` instead
+    ///
+    pub const HasRegisteredDataStreamOperators = hasRegisteredDataStreamOperators;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#hasRegisteredDataStreamOperators)
     ///
@@ -500,9 +672,13 @@ pub const QMetaType = extern struct {
     ///
     /// ` self: QMetaType `
     ///
-    pub fn HasRegisteredDataStreamOperators(self: QMetaType) bool {
+    pub fn hasRegisteredDataStreamOperators(self: QMetaType) bool {
         return qtc.QMetaType_HasRegisteredDataStreamOperators(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `save2` instead
+    ///
+    pub const Save2 = save2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#save)
     ///
@@ -514,10 +690,14 @@ pub const QMetaType = extern struct {
     ///
     /// ` data: ?*const anyopaque `
     ///
-    pub fn Save2(stream: anytype, typeVal: i32, data: ?*const anyopaque) bool {
+    pub fn save2(stream: anytype, typeVal: i32, data: ?*const anyopaque) bool {
         comptime _ = @TypeOf(stream)._is_QDataStream;
         return qtc.QMetaType_Save2(@ptrCast(stream.ptr), @bitCast(typeVal), @ptrCast(data));
     }
+
+    /// ### DEPRECATED: Use `load2` instead
+    ///
+    pub const Load2 = load2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#load)
     ///
@@ -529,10 +709,14 @@ pub const QMetaType = extern struct {
     ///
     /// ` data: ?*anyopaque `
     ///
-    pub fn Load2(stream: anytype, typeVal: i32, data: ?*anyopaque) bool {
+    pub fn load2(stream: anytype, typeVal: i32, data: ?*anyopaque) bool {
         comptime _ = @TypeOf(stream)._is_QDataStream;
         return qtc.QMetaType_Load2(@ptrCast(stream.ptr), @bitCast(typeVal), @ptrCast(data));
     }
+
+    /// ### DEPRECATED: Use `underlyingType` instead
+    ///
+    pub const UnderlyingType = underlyingType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#underlyingType)
     ///
@@ -540,24 +724,32 @@ pub const QMetaType = extern struct {
     ///
     /// ` self: QMetaType `
     ///
-    pub fn UnderlyingType(self: QMetaType) QMetaType {
+    pub fn underlyingType(self: QMetaType) QMetaType {
         return .{ .ptr = qtc.QMetaType_UnderlyingType(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fromName` instead
+    ///
+    pub const FromName = fromName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#fromName)
     ///
     /// ## Parameter(s):
     ///
-    /// ` name: []u8 `
+    /// ` _name: []u8 `
     ///
-    pub fn FromName(name: []u8) QMetaType {
+    pub fn fromName(_name: []u8) QMetaType {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         return .{ .ptr = qtc.QMetaType_FromName(name_str) };
     }
 
+    /// ### DEPRECATED: Use `debugStream` instead
+    ///
+    pub const DebugStream = debugStream;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#debugStream)
     ///
     /// ## Parameter(s):
@@ -568,20 +760,28 @@ pub const QMetaType = extern struct {
     ///
     /// ` rhs: ?*const anyopaque `
     ///
-    pub fn DebugStream(self: QMetaType, dbg: anytype, rhs: ?*const anyopaque) bool {
+    pub fn debugStream(self: QMetaType, dbg: anytype, rhs: ?*const anyopaque) bool {
         comptime _ = @TypeOf(dbg)._is_QDebug;
         return qtc.QMetaType_DebugStream(@ptrCast(self.ptr), @ptrCast(dbg.ptr), @ptrCast(rhs));
     }
 
+    /// ### DEPRECATED: Use `hasRegisteredDebugStreamOperator` instead
+    ///
+    pub const HasRegisteredDebugStreamOperator = hasRegisteredDebugStreamOperator;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#hasRegisteredDebugStreamOperator)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QMetaType `
     ///
-    pub fn HasRegisteredDebugStreamOperator(self: QMetaType) bool {
+    pub fn hasRegisteredDebugStreamOperator(self: QMetaType) bool {
         return qtc.QMetaType_HasRegisteredDebugStreamOperator(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `debugStream2` instead
+    ///
+    pub const DebugStream2 = debugStream2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#debugStream)
     ///
@@ -593,10 +793,14 @@ pub const QMetaType = extern struct {
     ///
     /// ` typeId: i32 `
     ///
-    pub fn DebugStream2(dbg: anytype, rhs: ?*const anyopaque, typeId: i32) bool {
+    pub fn debugStream2(dbg: anytype, rhs: ?*const anyopaque, typeId: i32) bool {
         comptime _ = @TypeOf(dbg)._is_QDebug;
         return qtc.QMetaType_DebugStream2(@ptrCast(dbg.ptr), @ptrCast(rhs), @bitCast(typeId));
     }
+
+    /// ### DEPRECATED: Use `hasRegisteredDebugStreamOperator2` instead
+    ///
+    pub const HasRegisteredDebugStreamOperator2 = hasRegisteredDebugStreamOperator2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#hasRegisteredDebugStreamOperator)
     ///
@@ -604,9 +808,13 @@ pub const QMetaType = extern struct {
     ///
     /// ` typeId: i32 `
     ///
-    pub fn HasRegisteredDebugStreamOperator2(typeId: i32) bool {
+    pub fn hasRegisteredDebugStreamOperator2(typeId: i32) bool {
         return qtc.QMetaType_HasRegisteredDebugStreamOperator2(@bitCast(typeId));
     }
+
+    /// ### DEPRECATED: Use `convert` instead
+    ///
+    pub const Convert = convert;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#convert)
     ///
@@ -620,11 +828,15 @@ pub const QMetaType = extern struct {
     ///
     /// ` to: ?*anyopaque `
     ///
-    pub fn Convert(fromType: anytype, from: ?*const anyopaque, toType: anytype, to: ?*anyopaque) bool {
+    pub fn convert(fromType: anytype, from: ?*const anyopaque, toType: anytype, to: ?*anyopaque) bool {
         comptime _ = @TypeOf(fromType)._is_QMetaType;
         comptime _ = @TypeOf(toType)._is_QMetaType;
         return qtc.QMetaType_Convert(@ptrCast(fromType.ptr), @ptrCast(from), @ptrCast(toType.ptr), @ptrCast(to));
     }
+
+    /// ### DEPRECATED: Use `canConvert` instead
+    ///
+    pub const CanConvert = canConvert;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#canConvert)
     ///
@@ -634,11 +846,15 @@ pub const QMetaType = extern struct {
     ///
     /// ` toType: QMetaType `
     ///
-    pub fn CanConvert(fromType: anytype, toType: anytype) bool {
+    pub fn canConvert(fromType: anytype, toType: anytype) bool {
         comptime _ = @TypeOf(fromType)._is_QMetaType;
         comptime _ = @TypeOf(toType)._is_QMetaType;
         return qtc.QMetaType_CanConvert(@ptrCast(fromType.ptr), @ptrCast(toType.ptr));
     }
+
+    /// ### DEPRECATED: Use `view` instead
+    ///
+    pub const View = view;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#view)
     ///
@@ -652,11 +868,15 @@ pub const QMetaType = extern struct {
     ///
     /// ` to: ?*anyopaque `
     ///
-    pub fn View(fromType: anytype, from: ?*anyopaque, toType: anytype, to: ?*anyopaque) bool {
+    pub fn view(fromType: anytype, from: ?*anyopaque, toType: anytype, to: ?*anyopaque) bool {
         comptime _ = @TypeOf(fromType)._is_QMetaType;
         comptime _ = @TypeOf(toType)._is_QMetaType;
         return qtc.QMetaType_View(@ptrCast(fromType.ptr), @ptrCast(from), @ptrCast(toType.ptr), @ptrCast(to));
     }
+
+    /// ### DEPRECATED: Use `canView` instead
+    ///
+    pub const CanView = canView;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#canView)
     ///
@@ -666,11 +886,15 @@ pub const QMetaType = extern struct {
     ///
     /// ` toType: QMetaType `
     ///
-    pub fn CanView(fromType: anytype, toType: anytype) bool {
+    pub fn canView(fromType: anytype, toType: anytype) bool {
         comptime _ = @TypeOf(fromType)._is_QMetaType;
         comptime _ = @TypeOf(toType)._is_QMetaType;
         return qtc.QMetaType_CanView(@ptrCast(fromType.ptr), @ptrCast(toType.ptr));
     }
+
+    /// ### DEPRECATED: Use `convert2` instead
+    ///
+    pub const Convert2 = convert2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#convert)
     ///
@@ -684,9 +908,13 @@ pub const QMetaType = extern struct {
     ///
     /// ` toTypeId: i32 `
     ///
-    pub fn Convert2(from: ?*const anyopaque, fromTypeId: i32, to: ?*anyopaque, toTypeId: i32) bool {
+    pub fn convert2(from: ?*const anyopaque, fromTypeId: i32, to: ?*anyopaque, toTypeId: i32) bool {
         return qtc.QMetaType_Convert2(@ptrCast(from), @bitCast(fromTypeId), @ptrCast(to), @bitCast(toTypeId));
     }
+
+    /// ### DEPRECATED: Use `compare2` instead
+    ///
+    pub const Compare2 = compare2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#compare)
     ///
@@ -700,9 +928,13 @@ pub const QMetaType = extern struct {
     ///
     /// ` result: *i32 `
     ///
-    pub fn Compare2(lhs: ?*const anyopaque, rhs: ?*const anyopaque, typeId: i32, result: *i32) bool {
+    pub fn compare2(lhs: ?*const anyopaque, rhs: ?*const anyopaque, typeId: i32, result: *i32) bool {
         return qtc.QMetaType_Compare2(@ptrCast(lhs), @ptrCast(rhs), @bitCast(typeId), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `equals2` instead
+    ///
+    pub const Equals2 = equals2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#equals)
     ///
@@ -716,9 +948,13 @@ pub const QMetaType = extern struct {
     ///
     /// ` result: *i32 `
     ///
-    pub fn Equals2(lhs: ?*const anyopaque, rhs: ?*const anyopaque, typeId: i32, result: *i32) bool {
+    pub fn equals2(lhs: ?*const anyopaque, rhs: ?*const anyopaque, typeId: i32, result: *i32) bool {
         return qtc.QMetaType_Equals2(@ptrCast(lhs), @ptrCast(rhs), @bitCast(typeId), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `hasRegisteredConverterFunction` instead
+    ///
+    pub const HasRegisteredConverterFunction = hasRegisteredConverterFunction;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#hasRegisteredConverterFunction)
     ///
@@ -728,11 +964,15 @@ pub const QMetaType = extern struct {
     ///
     /// ` toType: QMetaType `
     ///
-    pub fn HasRegisteredConverterFunction(fromType: anytype, toType: anytype) bool {
+    pub fn hasRegisteredConverterFunction(fromType: anytype, toType: anytype) bool {
         comptime _ = @TypeOf(fromType)._is_QMetaType;
         comptime _ = @TypeOf(toType)._is_QMetaType;
         return qtc.QMetaType_HasRegisteredConverterFunction(@ptrCast(fromType.ptr), @ptrCast(toType.ptr));
     }
+
+    /// ### DEPRECATED: Use `hasRegisteredMutableViewFunction` instead
+    ///
+    pub const HasRegisteredMutableViewFunction = hasRegisteredMutableViewFunction;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#hasRegisteredMutableViewFunction)
     ///
@@ -742,11 +982,15 @@ pub const QMetaType = extern struct {
     ///
     /// ` toType: QMetaType `
     ///
-    pub fn HasRegisteredMutableViewFunction(fromType: anytype, toType: anytype) bool {
+    pub fn hasRegisteredMutableViewFunction(fromType: anytype, toType: anytype) bool {
         comptime _ = @TypeOf(fromType)._is_QMetaType;
         comptime _ = @TypeOf(toType)._is_QMetaType;
         return qtc.QMetaType_HasRegisteredMutableViewFunction(@ptrCast(fromType.ptr), @ptrCast(toType.ptr));
     }
+
+    /// ### DEPRECATED: Use `registerConverterFunction` instead
+    ///
+    pub const RegisterConverterFunction = registerConverterFunction;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#registerConverterFunction)
     ///
@@ -758,11 +1002,15 @@ pub const QMetaType = extern struct {
     ///
     /// ` to: QMetaType `
     ///
-    pub fn RegisterConverterFunction(f: *const fn (?*const anyopaque, ?*anyopaque) callconv(.c) bool, from: anytype, to: anytype) bool {
+    pub fn registerConverterFunction(f: *const fn (?*const anyopaque, ?*anyopaque) callconv(.c) bool, from: anytype, to: anytype) bool {
         comptime _ = @TypeOf(from)._is_QMetaType;
         comptime _ = @TypeOf(to)._is_QMetaType;
         return qtc.QMetaType_RegisterConverterFunction(@bitCast(@intFromPtr(f)), @ptrCast(from.ptr), @ptrCast(to.ptr));
     }
+
+    /// ### DEPRECATED: Use `unregisterConverterFunction` instead
+    ///
+    pub const UnregisterConverterFunction = unregisterConverterFunction;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#unregisterConverterFunction)
     ///
@@ -772,11 +1020,15 @@ pub const QMetaType = extern struct {
     ///
     /// ` to: QMetaType `
     ///
-    pub fn UnregisterConverterFunction(from: anytype, to: anytype) void {
+    pub fn unregisterConverterFunction(from: anytype, to: anytype) void {
         comptime _ = @TypeOf(from)._is_QMetaType;
         comptime _ = @TypeOf(to)._is_QMetaType;
         qtc.QMetaType_UnregisterConverterFunction(@ptrCast(from.ptr), @ptrCast(to.ptr));
     }
+
+    /// ### DEPRECATED: Use `registerMutableViewFunction` instead
+    ///
+    pub const RegisterMutableViewFunction = registerMutableViewFunction;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#registerMutableViewFunction)
     ///
@@ -788,11 +1040,15 @@ pub const QMetaType = extern struct {
     ///
     /// ` to: QMetaType `
     ///
-    pub fn RegisterMutableViewFunction(f: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool, from: anytype, to: anytype) bool {
+    pub fn registerMutableViewFunction(f: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool, from: anytype, to: anytype) bool {
         comptime _ = @TypeOf(from)._is_QMetaType;
         comptime _ = @TypeOf(to)._is_QMetaType;
         return qtc.QMetaType_RegisterMutableViewFunction(@bitCast(@intFromPtr(f)), @ptrCast(from.ptr), @ptrCast(to.ptr));
     }
+
+    /// ### DEPRECATED: Use `unregisterMutableViewFunction` instead
+    ///
+    pub const UnregisterMutableViewFunction = unregisterMutableViewFunction;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#unregisterMutableViewFunction)
     ///
@@ -802,11 +1058,15 @@ pub const QMetaType = extern struct {
     ///
     /// ` to: QMetaType `
     ///
-    pub fn UnregisterMutableViewFunction(from: anytype, to: anytype) void {
+    pub fn unregisterMutableViewFunction(from: anytype, to: anytype) void {
         comptime _ = @TypeOf(from)._is_QMetaType;
         comptime _ = @TypeOf(to)._is_QMetaType;
         qtc.QMetaType_UnregisterMutableViewFunction(@ptrCast(from.ptr), @ptrCast(to.ptr));
     }
+
+    /// ### DEPRECATED: Use `unregisterMetaType` instead
+    ///
+    pub const UnregisterMetaType = unregisterMetaType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#unregisterMetaType)
     ///
@@ -814,10 +1074,14 @@ pub const QMetaType = extern struct {
     ///
     /// ` typeVal: QMetaType `
     ///
-    pub fn UnregisterMetaType(typeVal: anytype) void {
+    pub fn unregisterMetaType(typeVal: anytype) void {
         comptime _ = @TypeOf(typeVal)._is_QMetaType;
         qtc.QMetaType_UnregisterMetaType(@ptrCast(typeVal.ptr));
     }
+
+    /// ### DEPRECATED: Use `create22` instead
+    ///
+    pub const Create22 = create22;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#create)
     ///
@@ -825,11 +1089,15 @@ pub const QMetaType = extern struct {
     ///
     /// ` typeVal: i32 `
     ///
-    /// ` copyVal: ?*const anyopaque `
+    /// ` copy: ?*const anyopaque `
     ///
-    pub fn Create22(typeVal: i32, copyVal: ?*const anyopaque) ?*anyopaque {
-        return qtc.QMetaType_Create22(@bitCast(typeVal), @ptrCast(copyVal));
+    pub fn create22(typeVal: i32, copy: ?*const anyopaque) ?*anyopaque {
+        return qtc.QMetaType_Create22(@bitCast(typeVal), @ptrCast(copy));
     }
+
+    /// ### DEPRECATED: Use `id1` instead
+    ///
+    pub const Id1 = id1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#id)
     ///
@@ -839,9 +1107,13 @@ pub const QMetaType = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn Id1(self: QMetaType, param1: i32) i32 {
+    pub fn id1(self: QMetaType, param1: i32) i32 {
         return qtc.QMetaType_Id1(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `create1` instead
+    ///
+    pub const Create1 = create1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#create)
     ///
@@ -849,11 +1121,15 @@ pub const QMetaType = extern struct {
     ///
     /// ` self: QMetaType `
     ///
-    /// ` copyVal: ?*const anyopaque `
+    /// ` copy: ?*const anyopaque `
     ///
-    pub fn Create1(self: QMetaType, copyVal: ?*const anyopaque) ?*anyopaque {
-        return qtc.QMetaType_Create1(@ptrCast(self.ptr), @ptrCast(copyVal));
+    pub fn create1(self: QMetaType, copy: ?*const anyopaque) ?*anyopaque {
+        return qtc.QMetaType_Create1(@ptrCast(self.ptr), @ptrCast(copy));
     }
+
+    /// ### DEPRECATED: Use `construct22` instead
+    ///
+    pub const Construct22 = construct22;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#construct)
     ///
@@ -863,25 +1139,25 @@ pub const QMetaType = extern struct {
     ///
     /// ` where: ?*anyopaque `
     ///
-    /// ` copyVal: ?*const anyopaque `
+    /// ` copy: ?*const anyopaque `
     ///
-    pub fn Construct22(self: QMetaType, where: ?*anyopaque, copyVal: ?*const anyopaque) ?*anyopaque {
-        return qtc.QMetaType_Construct22(@ptrCast(self.ptr), @ptrCast(where), @ptrCast(copyVal));
+    pub fn construct22(self: QMetaType, where: ?*anyopaque, copy: ?*const anyopaque) ?*anyopaque {
+        return qtc.QMetaType_Construct22(@ptrCast(self.ptr), @ptrCast(where), @ptrCast(copy));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#dtor.QMetaType)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QMetaType `
     ///
-    pub fn Delete(self: QMetaType) void {
+    pub fn delete(self: QMetaType) void {
         qtc.QMetaType_Delete(@ptrCast(self.ptr));
     }
 };

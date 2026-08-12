@@ -13,21 +13,33 @@ pub const KEncodingProber = extern struct {
 
     pub const _is_KEncodingProber = {};
 
-    /// New constructs a new KEncodingProber object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() KEncodingProber {
+    pub const New = new;
+
+    /// Allocate a new KEncodingProber object in C++ memory
+    ///
+    pub fn new() KEncodingProber {
         return .{ .ptr = qtc.KEncodingProber_new() };
     }
 
-    /// New2 constructs a new KEncodingProber object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KEncodingProber object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` proberType: kencodingprober_enums.ProberType `
+    /// ` _proberType: kencodingprober_enums.ProberType `
     ///
-    pub fn New2(proberType: i32) KEncodingProber {
-        return .{ .ptr = qtc.KEncodingProber_new2(@bitCast(proberType)) };
+    pub fn new2(_proberType: i32) KEncodingProber {
+        return .{ .ptr = qtc.KEncodingProber_new2(@bitCast(_proberType)) };
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -37,14 +49,18 @@ pub const KEncodingProber = extern struct {
     ///
     /// ` sourceText: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, sourceText: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, sourceText: [:0]const u8) []const u8 {
         const sourceText_Cstring = sourceText.ptr;
         var _str = qtc.QObject_Tr(sourceText_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEncodingProber.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEncodingProber.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `reset` instead
+    ///
+    pub const Reset = reset;
 
     /// ### [Upstream resources](https://api.kde.org/kencodingprober.html#reset)
     ///
@@ -52,9 +68,13 @@ pub const KEncodingProber = extern struct {
     ///
     /// ` self: KEncodingProber `
     ///
-    pub fn Reset(self: KEncodingProber) void {
+    pub fn reset(self: KEncodingProber) void {
         qtc.KEncodingProber_Reset(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `feed` instead
+    ///
+    pub const Feed = feed;
 
     /// ### [Upstream resources](https://api.kde.org/kencodingprober.html#feed)
     ///
@@ -68,13 +88,17 @@ pub const KEncodingProber = extern struct {
     ///
     /// ` kencodingprober_enums.ProberState `
     ///
-    pub fn Feed(self: KEncodingProber, data: []u8) i32 {
+    pub fn feed(self: KEncodingProber, data: []u8) i32 {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
         return qtc.KEncodingProber_Feed(@ptrCast(self.ptr), data_str);
     }
+
+    /// ### DEPRECATED: Use `feed2` instead
+    ///
+    pub const Feed2 = feed2;
 
     /// ### [Upstream resources](https://api.kde.org/kencodingprober.html#feed)
     ///
@@ -90,10 +114,14 @@ pub const KEncodingProber = extern struct {
     ///
     /// ` kencodingprober_enums.ProberState `
     ///
-    pub fn Feed2(self: KEncodingProber, data: [:0]const u8, len: isize) i32 {
+    pub fn feed2(self: KEncodingProber, data: [:0]const u8, len: isize) i32 {
         const data_Cstring = data.ptr;
         return qtc.KEncodingProber_Feed2(@ptrCast(self.ptr), data_Cstring, @bitCast(len));
     }
+
+    /// ### DEPRECATED: Use `state` instead
+    ///
+    pub const State = state;
 
     /// ### [Upstream resources](https://api.kde.org/kencodingprober.html#state)
     ///
@@ -105,9 +133,13 @@ pub const KEncodingProber = extern struct {
     ///
     /// ` kencodingprober_enums.ProberState `
     ///
-    pub fn State(self: KEncodingProber) i32 {
+    pub fn state(self: KEncodingProber) i32 {
         return qtc.KEncodingProber_State(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `encoding` instead
+    ///
+    pub const Encoding = encoding;
 
     /// ### [Upstream resources](https://api.kde.org/kencodingprober.html#encoding)
     ///
@@ -117,13 +149,17 @@ pub const KEncodingProber = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Encoding(self: KEncodingProber, allocator: std.mem.Allocator) []u8 {
+    pub fn encoding(self: KEncodingProber, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.KEncodingProber_Encoding(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KEncodingProber.Encoding: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KEncodingProber.encoding: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `confidence` instead
+    ///
+    pub const Confidence = confidence;
 
     /// ### [Upstream resources](https://api.kde.org/kencodingprober.html#confidence)
     ///
@@ -131,9 +167,13 @@ pub const KEncodingProber = extern struct {
     ///
     /// ` self: KEncodingProber `
     ///
-    pub fn Confidence(self: KEncodingProber) f32 {
+    pub fn confidence(self: KEncodingProber) f32 {
         return qtc.KEncodingProber_Confidence(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `proberType` instead
+    ///
+    pub const ProberType = proberType;
 
     /// ### [Upstream resources](https://api.kde.org/kencodingprober.html#proberType)
     ///
@@ -145,9 +185,13 @@ pub const KEncodingProber = extern struct {
     ///
     /// ` kencodingprober_enums.ProberType `
     ///
-    pub fn ProberType(self: KEncodingProber) i32 {
+    pub fn proberType(self: KEncodingProber) i32 {
         return qtc.KEncodingProber_ProberType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProberType` instead
+    ///
+    pub const SetProberType = setProberType;
 
     /// ### [Upstream resources](https://api.kde.org/kencodingprober.html#setProberType)
     ///
@@ -155,11 +199,15 @@ pub const KEncodingProber = extern struct {
     ///
     /// ` self: KEncodingProber `
     ///
-    /// ` proberType: kencodingprober_enums.ProberType `
+    /// ` _proberType: kencodingprober_enums.ProberType `
     ///
-    pub fn SetProberType(self: KEncodingProber, proberType: i32) void {
-        qtc.KEncodingProber_SetProberType(@ptrCast(self.ptr), @bitCast(proberType));
+    pub fn setProberType(self: KEncodingProber, _proberType: i32) void {
+        qtc.KEncodingProber_SetProberType(@ptrCast(self.ptr), @bitCast(_proberType));
     }
+
+    /// ### DEPRECATED: Use `proberTypeForName` instead
+    ///
+    pub const ProberTypeForName = proberTypeForName;
 
     /// ### [Upstream resources](https://api.kde.org/kencodingprober.html#proberTypeForName)
     ///
@@ -171,7 +219,7 @@ pub const KEncodingProber = extern struct {
     ///
     /// ` kencodingprober_enums.ProberType `
     ///
-    pub fn ProberTypeForName(lang: []const u8) i32 {
+    pub fn proberTypeForName(lang: []const u8) i32 {
         const lang_str = qtc.libqt_string{
             .len = lang.len,
             .data = lang.ptr,
@@ -179,21 +227,29 @@ pub const KEncodingProber = extern struct {
         return qtc.KEncodingProber_ProberTypeForName(lang_str);
     }
 
+    /// ### DEPRECATED: Use `nameForProberType` instead
+    ///
+    pub const NameForProberType = nameForProberType;
+
     /// ### [Upstream resources](https://api.kde.org/kencodingprober.html#nameForProberType)
     ///
     /// ## Parameter(s):
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` proberType: kencodingprober_enums.ProberType `
+    /// ` _proberType: kencodingprober_enums.ProberType `
     ///
-    pub fn NameForProberType(allocator: std.mem.Allocator, proberType: i32) []const u8 {
-        var _str = qtc.KEncodingProber_NameForProberType(@bitCast(proberType));
+    pub fn nameForProberType(allocator: std.mem.Allocator, _proberType: i32) []const u8 {
+        var _str = qtc.KEncodingProber_NameForProberType(@bitCast(_proberType));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEncodingProber.NameForProberType: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEncodingProber.nameForProberType: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -205,15 +261,19 @@ pub const KEncodingProber = extern struct {
     ///
     /// ` disambiguation: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, sourceText: [:0]const u8, disambiguation: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, sourceText: [:0]const u8, disambiguation: [:0]const u8) []const u8 {
         const sourceText_Cstring = sourceText.ptr;
         const disambiguation_Cstring = disambiguation.ptr;
         var _str = qtc.QObject_Tr2(sourceText_Cstring, disambiguation_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEncodingProber.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEncodingProber.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -227,29 +287,29 @@ pub const KEncodingProber = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, sourceText: [:0]const u8, disambiguation: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, sourceText: [:0]const u8, disambiguation: [:0]const u8, n: i32) []const u8 {
         const sourceText_Cstring = sourceText.ptr;
         const disambiguation_Cstring = disambiguation.ptr;
         var _str = qtc.QObject_Tr3(sourceText_Cstring, disambiguation_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEncodingProber.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEncodingProber.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kencodingprober.html#dtor.KEncodingProber)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KEncodingProber `
     ///
-    pub fn Delete(self: KEncodingProber) void {
+    pub fn delete(self: KEncodingProber) void {
         qtc.KEncodingProber_Delete(@ptrCast(self.ptr));
     }
 };

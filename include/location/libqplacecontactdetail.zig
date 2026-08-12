@@ -12,22 +12,34 @@ pub const QPlaceContactDetail = extern struct {
 
     pub const _is_QPlaceContactDetail = {};
 
-    /// New constructs a new QPlaceContactDetail object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QPlaceContactDetail {
+    pub const New = new;
+
+    /// Allocate a new QPlaceContactDetail object in C++ memory
+    ///
+    pub fn new() QPlaceContactDetail {
         return .{ .ptr = qtc.QPlaceContactDetail_new() };
     }
 
-    /// New2 constructs a new QPlaceContactDetail object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QPlaceContactDetail object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QPlaceContactDetail `
     ///
-    pub fn New2(other: anytype) QPlaceContactDetail {
+    pub fn new2(other: anytype) QPlaceContactDetail {
         comptime _ = @TypeOf(other)._is_QPlaceContactDetail;
         return .{ .ptr = qtc.QPlaceContactDetail_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontactdetail.html#operator-eq)
     ///
@@ -37,10 +49,14 @@ pub const QPlaceContactDetail = extern struct {
     ///
     /// ` other: QPlaceContactDetail `
     ///
-    pub fn OperatorAssign(self: QPlaceContactDetail, other: anytype) void {
+    pub fn operatorAssign(self: QPlaceContactDetail, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QPlaceContactDetail;
         qtc.QPlaceContactDetail_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontactdetail.html#swap)
     ///
@@ -50,10 +66,14 @@ pub const QPlaceContactDetail = extern struct {
     ///
     /// ` other: QPlaceContactDetail `
     ///
-    pub fn Swap(self: QPlaceContactDetail, other: anytype) void {
+    pub fn swap(self: QPlaceContactDetail, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QPlaceContactDetail;
         qtc.QPlaceContactDetail_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `label` instead
+    ///
+    pub const Label = label;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontactdetail.html#label)
     ///
@@ -63,13 +83,17 @@ pub const QPlaceContactDetail = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Label(self: QPlaceContactDetail, allocator: std.mem.Allocator) []const u8 {
+    pub fn label(self: QPlaceContactDetail, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QPlaceContactDetail_Label(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceContactDetail.Label: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceContactDetail.label: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setLabel` instead
+    ///
+    pub const SetLabel = setLabel;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontactdetail.html#setLabel)
     ///
@@ -77,15 +101,19 @@ pub const QPlaceContactDetail = extern struct {
     ///
     /// ` self: QPlaceContactDetail `
     ///
-    /// ` label: []const u8 `
+    /// ` _label: []const u8 `
     ///
-    pub fn SetLabel(self: QPlaceContactDetail, label: []const u8) void {
+    pub fn setLabel(self: QPlaceContactDetail, _label: []const u8) void {
         const label_str = qtc.libqt_string{
-            .len = label.len,
-            .data = label.ptr,
+            .len = _label.len,
+            .data = _label.ptr,
         };
         qtc.QPlaceContactDetail_SetLabel(@ptrCast(self.ptr), label_str);
     }
+
+    /// ### DEPRECATED: Use `value` instead
+    ///
+    pub const Value = value;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontactdetail.html#value)
     ///
@@ -95,13 +123,17 @@ pub const QPlaceContactDetail = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Value(self: QPlaceContactDetail, allocator: std.mem.Allocator) []const u8 {
+    pub fn value(self: QPlaceContactDetail, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QPlaceContactDetail_Value(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceContactDetail.Value: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceContactDetail.value: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setValue` instead
+    ///
+    pub const SetValue = setValue;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontactdetail.html#setValue)
     ///
@@ -109,15 +141,19 @@ pub const QPlaceContactDetail = extern struct {
     ///
     /// ` self: QPlaceContactDetail `
     ///
-    /// ` value: []const u8 `
+    /// ` _value: []const u8 `
     ///
-    pub fn SetValue(self: QPlaceContactDetail, value: []const u8) void {
+    pub fn setValue(self: QPlaceContactDetail, _value: []const u8) void {
         const value_str = qtc.libqt_string{
-            .len = value.len,
-            .data = value.ptr,
+            .len = _value.len,
+            .data = _value.ptr,
         };
         qtc.QPlaceContactDetail_SetValue(@ptrCast(self.ptr), value_str);
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontactdetail.html#clear)
     ///
@@ -125,23 +161,23 @@ pub const QPlaceContactDetail = extern struct {
     ///
     /// ` self: QPlaceContactDetail `
     ///
-    pub fn Clear(self: QPlaceContactDetail) void {
+    pub fn clear(self: QPlaceContactDetail) void {
         qtc.QPlaceContactDetail_Clear(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontactdetail.html#dtor.QPlaceContactDetail)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QPlaceContactDetail `
     ///
-    pub fn Delete(self: QPlaceContactDetail) void {
+    pub fn delete(self: QPlaceContactDetail) void {
         qtc.QPlaceContactDetail_Delete(@ptrCast(self.ptr));
     }
 };

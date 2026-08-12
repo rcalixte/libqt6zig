@@ -14,6 +14,10 @@ pub const KColorSchemeMenu = extern struct {
 
     pub const _is_KColorSchemeMenu = {};
 
+    /// ### DEPRECATED: Use `createMenu` instead
+    ///
+    pub const CreateMenu = createMenu;
+
     /// ### [Upstream resources](https://api.kde.org/kcolorschememenu.html#createMenu)
     ///
     /// ## Parameter(s):
@@ -22,7 +26,7 @@ pub const KColorSchemeMenu = extern struct {
     ///
     /// ` parent: QObject `
     ///
-    pub fn CreateMenu(manager: anytype, parent: anytype) KActionMenu {
+    pub fn createMenu(manager: anytype, parent: anytype) KActionMenu {
         comptime _ = @TypeOf(manager)._is_KColorSchemeManager;
         comptime _ = @TypeOf(parent)._is_QObject;
         return .{ .ptr = qtc.KColorSchemeMenu_CreateMenu(@ptrCast(manager.ptr), @ptrCast(parent.ptr)) };

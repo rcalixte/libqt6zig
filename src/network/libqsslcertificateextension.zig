@@ -13,22 +13,34 @@ pub const QSslCertificateExtension = extern struct {
 
     pub const _is_QSslCertificateExtension = {};
 
-    /// New constructs a new QSslCertificateExtension object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QSslCertificateExtension {
+    pub const New = new;
+
+    /// Allocate a new QSslCertificateExtension object in C++ memory
+    ///
+    pub fn new() QSslCertificateExtension {
         return .{ .ptr = qtc.QSslCertificateExtension_new() };
     }
 
-    /// New2 constructs a new QSslCertificateExtension object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QSslCertificateExtension object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QSslCertificateExtension `
     ///
-    pub fn New2(other: anytype) QSslCertificateExtension {
+    pub fn new2(other: anytype) QSslCertificateExtension {
         comptime _ = @TypeOf(other)._is_QSslCertificateExtension;
         return .{ .ptr = qtc.QSslCertificateExtension_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificateextension.html#operator-eq)
     ///
@@ -38,10 +50,14 @@ pub const QSslCertificateExtension = extern struct {
     ///
     /// ` other: QSslCertificateExtension `
     ///
-    pub fn OperatorAssign(self: QSslCertificateExtension, other: anytype) void {
+    pub fn operatorAssign(self: QSslCertificateExtension, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QSslCertificateExtension;
         qtc.QSslCertificateExtension_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificateextension.html#swap)
     ///
@@ -51,10 +67,14 @@ pub const QSslCertificateExtension = extern struct {
     ///
     /// ` other: QSslCertificateExtension `
     ///
-    pub fn Swap(self: QSslCertificateExtension, other: anytype) void {
+    pub fn swap(self: QSslCertificateExtension, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QSslCertificateExtension;
         qtc.QSslCertificateExtension_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `oid` instead
+    ///
+    pub const Oid = oid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificateextension.html#oid)
     ///
@@ -64,13 +84,17 @@ pub const QSslCertificateExtension = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Oid(self: QSslCertificateExtension, allocator: std.mem.Allocator) []const u8 {
+    pub fn oid(self: QSslCertificateExtension, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSslCertificateExtension_Oid(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSslCertificateExtension.Oid: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSslCertificateExtension.oid: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificateextension.html#name)
     ///
@@ -80,13 +104,17 @@ pub const QSslCertificateExtension = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: QSslCertificateExtension, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: QSslCertificateExtension, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSslCertificateExtension_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSslCertificateExtension.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSslCertificateExtension.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `value` instead
+    ///
+    pub const Value = value;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificateextension.html#value)
     ///
@@ -94,9 +122,13 @@ pub const QSslCertificateExtension = extern struct {
     ///
     /// ` self: QSslCertificateExtension `
     ///
-    pub fn Value(self: QSslCertificateExtension) QVariant {
+    pub fn value(self: QSslCertificateExtension) QVariant {
         return .{ .ptr = qtc.QSslCertificateExtension_Value(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isCritical` instead
+    ///
+    pub const IsCritical = isCritical;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificateextension.html#isCritical)
     ///
@@ -104,9 +136,13 @@ pub const QSslCertificateExtension = extern struct {
     ///
     /// ` self: QSslCertificateExtension `
     ///
-    pub fn IsCritical(self: QSslCertificateExtension) bool {
+    pub fn isCritical(self: QSslCertificateExtension) bool {
         return qtc.QSslCertificateExtension_IsCritical(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isSupported` instead
+    ///
+    pub const IsSupported = isSupported;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificateextension.html#isSupported)
     ///
@@ -114,23 +150,23 @@ pub const QSslCertificateExtension = extern struct {
     ///
     /// ` self: QSslCertificateExtension `
     ///
-    pub fn IsSupported(self: QSslCertificateExtension) bool {
+    pub fn isSupported(self: QSslCertificateExtension) bool {
         return qtc.QSslCertificateExtension_IsSupported(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificateextension.html#dtor.QSslCertificateExtension)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QSslCertificateExtension `
     ///
-    pub fn Delete(self: QSslCertificateExtension) void {
+    pub fn delete(self: QSslCertificateExtension) void {
         qtc.QSslCertificateExtension_Delete(@ptrCast(self.ptr));
     }
 };

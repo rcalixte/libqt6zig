@@ -12,22 +12,34 @@ pub const Attica__Config = extern struct {
 
     pub const _is_Attica__Config = {};
 
-    /// New constructs a new Attica::Config object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() Attica__Config {
+    pub const New = new;
+
+    /// Allocate a new Attica::Config object in C++ memory
+    ///
+    pub fn new() Attica__Config {
         return .{ .ptr = qtc.Attica__Config_new() };
     }
 
-    /// New2 constructs a new Attica::Config object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new Attica::Config object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: Attica__Config `
     ///
-    pub fn New2(other: anytype) Attica__Config {
+    pub fn new2(other: anytype) Attica__Config {
         comptime _ = @TypeOf(other)._is_Attica__Config;
         return .{ .ptr = qtc.Attica__Config_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://api.kde.org/attica-config.html#operator-eq)
     ///
@@ -37,10 +49,14 @@ pub const Attica__Config = extern struct {
     ///
     /// ` other: Attica__Config `
     ///
-    pub fn OperatorAssign(self: Attica__Config, other: anytype) void {
+    pub fn operatorAssign(self: Attica__Config, other: anytype) void {
         comptime _ = @TypeOf(other)._is_Attica__Config;
         qtc.Attica__Config_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `contact` instead
+    ///
+    pub const Contact = contact;
 
     /// ### [Upstream resources](https://api.kde.org/attica-config.html#contact)
     ///
@@ -50,13 +66,17 @@ pub const Attica__Config = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Contact(self: Attica__Config, allocator: std.mem.Allocator) []const u8 {
+    pub fn contact(self: Attica__Config, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Config_Contact(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Config.Contact: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Config.contact: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `host` instead
+    ///
+    pub const Host = host;
 
     /// ### [Upstream resources](https://api.kde.org/attica-config.html#host)
     ///
@@ -66,13 +86,17 @@ pub const Attica__Config = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Host(self: Attica__Config, allocator: std.mem.Allocator) []const u8 {
+    pub fn host(self: Attica__Config, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Config_Host(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Config.Host: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Config.host: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `version` instead
+    ///
+    pub const Version = version;
 
     /// ### [Upstream resources](https://api.kde.org/attica-config.html#version)
     ///
@@ -82,13 +106,17 @@ pub const Attica__Config = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Version(self: Attica__Config, allocator: std.mem.Allocator) []const u8 {
+    pub fn version(self: Attica__Config, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Config_Version(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Config.Version: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Config.version: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `ssl` instead
+    ///
+    pub const Ssl = ssl;
 
     /// ### [Upstream resources](https://api.kde.org/attica-config.html#ssl)
     ///
@@ -96,9 +124,13 @@ pub const Attica__Config = extern struct {
     ///
     /// ` self: Attica__Config `
     ///
-    pub fn Ssl(self: Attica__Config) bool {
+    pub fn ssl(self: Attica__Config) bool {
         return qtc.Attica__Config_Ssl(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `website` instead
+    ///
+    pub const Website = website;
 
     /// ### [Upstream resources](https://api.kde.org/attica-config.html#website)
     ///
@@ -108,13 +140,17 @@ pub const Attica__Config = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Website(self: Attica__Config, allocator: std.mem.Allocator) []const u8 {
+    pub fn website(self: Attica__Config, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Config_Website(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Config.Website: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Config.website: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setContact` instead
+    ///
+    pub const SetContact = setContact;
 
     /// ### [Upstream resources](https://api.kde.org/attica-config.html#setContact)
     ///
@@ -122,15 +158,19 @@ pub const Attica__Config = extern struct {
     ///
     /// ` self: Attica__Config `
     ///
-    /// ` contact: []const u8 `
+    /// ` _contact: []const u8 `
     ///
-    pub fn SetContact(self: Attica__Config, contact: []const u8) void {
+    pub fn setContact(self: Attica__Config, _contact: []const u8) void {
         const contact_str = qtc.libqt_string{
-            .len = contact.len,
-            .data = contact.ptr,
+            .len = _contact.len,
+            .data = _contact.ptr,
         };
         qtc.Attica__Config_SetContact(@ptrCast(self.ptr), contact_str);
     }
+
+    /// ### DEPRECATED: Use `setHost` instead
+    ///
+    pub const SetHost = setHost;
 
     /// ### [Upstream resources](https://api.kde.org/attica-config.html#setHost)
     ///
@@ -138,15 +178,19 @@ pub const Attica__Config = extern struct {
     ///
     /// ` self: Attica__Config `
     ///
-    /// ` host: []const u8 `
+    /// ` _host: []const u8 `
     ///
-    pub fn SetHost(self: Attica__Config, host: []const u8) void {
+    pub fn setHost(self: Attica__Config, _host: []const u8) void {
         const host_str = qtc.libqt_string{
-            .len = host.len,
-            .data = host.ptr,
+            .len = _host.len,
+            .data = _host.ptr,
         };
         qtc.Attica__Config_SetHost(@ptrCast(self.ptr), host_str);
     }
+
+    /// ### DEPRECATED: Use `setSsl` instead
+    ///
+    pub const SetSsl = setSsl;
 
     /// ### [Upstream resources](https://api.kde.org/attica-config.html#setSsl)
     ///
@@ -154,11 +198,15 @@ pub const Attica__Config = extern struct {
     ///
     /// ` self: Attica__Config `
     ///
-    /// ` ssl: bool `
+    /// ` _ssl: bool `
     ///
-    pub fn SetSsl(self: Attica__Config, ssl: bool) void {
-        qtc.Attica__Config_SetSsl(@ptrCast(self.ptr), ssl);
+    pub fn setSsl(self: Attica__Config, _ssl: bool) void {
+        qtc.Attica__Config_SetSsl(@ptrCast(self.ptr), _ssl);
     }
+
+    /// ### DEPRECATED: Use `setVersion` instead
+    ///
+    pub const SetVersion = setVersion;
 
     /// ### [Upstream resources](https://api.kde.org/attica-config.html#setVersion)
     ///
@@ -166,15 +214,19 @@ pub const Attica__Config = extern struct {
     ///
     /// ` self: Attica__Config `
     ///
-    /// ` version: []const u8 `
+    /// ` _version: []const u8 `
     ///
-    pub fn SetVersion(self: Attica__Config, version: []const u8) void {
+    pub fn setVersion(self: Attica__Config, _version: []const u8) void {
         const version_str = qtc.libqt_string{
-            .len = version.len,
-            .data = version.ptr,
+            .len = _version.len,
+            .data = _version.ptr,
         };
         qtc.Attica__Config_SetVersion(@ptrCast(self.ptr), version_str);
     }
+
+    /// ### DEPRECATED: Use `setWebsite` instead
+    ///
+    pub const SetWebsite = setWebsite;
 
     /// ### [Upstream resources](https://api.kde.org/attica-config.html#setWebsite)
     ///
@@ -182,15 +234,19 @@ pub const Attica__Config = extern struct {
     ///
     /// ` self: Attica__Config `
     ///
-    /// ` website: []const u8 `
+    /// ` _website: []const u8 `
     ///
-    pub fn SetWebsite(self: Attica__Config, website: []const u8) void {
+    pub fn setWebsite(self: Attica__Config, _website: []const u8) void {
         const website_str = qtc.libqt_string{
-            .len = website.len,
-            .data = website.ptr,
+            .len = _website.len,
+            .data = _website.ptr,
         };
         qtc.Attica__Config_SetWebsite(@ptrCast(self.ptr), website_str);
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://api.kde.org/attica-config.html#isValid)
     ///
@@ -198,21 +254,21 @@ pub const Attica__Config = extern struct {
     ///
     /// ` self: Attica__Config `
     ///
-    pub fn IsValid(self: Attica__Config) bool {
+    pub fn isValid(self: Attica__Config) bool {
         return qtc.Attica__Config_IsValid(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Attica__Config `
     ///
-    pub fn Delete(self: Attica__Config) void {
+    pub fn delete(self: Attica__Config) void {
         qtc.Attica__Config_Delete(@ptrCast(self.ptr));
     }
 };

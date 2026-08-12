@@ -91,46 +91,62 @@ pub const KPropertiesDialog = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new KPropertiesDialog object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KPropertiesDialog object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` item: KFileItem `
+    /// ` _item: KFileItem `
     ///
-    pub fn New(item: anytype) KPropertiesDialog {
-        comptime _ = @TypeOf(item)._is_KFileItem;
-        return .{ .ptr = qtc.KPropertiesDialog_new(@ptrCast(item.ptr)) };
+    pub fn new(_item: anytype) KPropertiesDialog {
+        comptime _ = @TypeOf(_item)._is_KFileItem;
+        return .{ .ptr = qtc.KPropertiesDialog_new(@ptrCast(_item.ptr)) };
     }
 
-    /// New2 constructs a new KPropertiesDialog object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KPropertiesDialog object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` _items: KFileItemList `
     ///
-    pub fn New2(_items: anytype) KPropertiesDialog {
+    pub fn new2(_items: anytype) KPropertiesDialog {
         comptime _ = @TypeOf(_items)._is_KFileItemList;
         return .{ .ptr = qtc.KPropertiesDialog_new2(@ptrCast(_items.ptr)) };
     }
 
-    /// New3 constructs a new KPropertiesDialog object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new KPropertiesDialog object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` url: QUrl `
+    /// ` _url: QUrl `
     ///
-    pub fn New3(url: anytype) KPropertiesDialog {
-        comptime _ = @TypeOf(url)._is_QUrl;
-        return .{ .ptr = qtc.KPropertiesDialog_new3(@ptrCast(url.ptr)) };
+    pub fn new3(_url: anytype) KPropertiesDialog {
+        comptime _ = @TypeOf(_url)._is_QUrl;
+        return .{ .ptr = qtc.KPropertiesDialog_new3(@ptrCast(_url.ptr)) };
     }
 
-    /// New4 constructs a new KPropertiesDialog object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new KPropertiesDialog object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` urls: []QUrl `
     ///
-    pub fn New4(urls: []QUrl) KPropertiesDialog {
+    pub fn new4(urls: []QUrl) KPropertiesDialog {
         const urls_list = qtc.libqt_list{
             .len = urls.len,
             .data = @ptrCast(urls.ptr),
@@ -138,7 +154,11 @@ pub const KPropertiesDialog = extern struct {
         return .{ .ptr = qtc.KPropertiesDialog_new4(urls_list) };
     }
 
-    /// New5 constructs a new KPropertiesDialog object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new KPropertiesDialog object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -148,7 +168,7 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` _defaultName: []const u8 `
     ///
-    pub fn New5(_tempUrl: anytype, _currentDir: anytype, _defaultName: []const u8) KPropertiesDialog {
+    pub fn new5(_tempUrl: anytype, _currentDir: anytype, _defaultName: []const u8) KPropertiesDialog {
         comptime _ = @TypeOf(_tempUrl)._is_QUrl;
         comptime _ = @TypeOf(_currentDir)._is_QUrl;
         const _defaultName_str = qtc.libqt_string{
@@ -158,13 +178,17 @@ pub const KPropertiesDialog = extern struct {
         return .{ .ptr = qtc.KPropertiesDialog_new5(@ptrCast(_tempUrl.ptr), @ptrCast(_currentDir.ptr), _defaultName_str) };
     }
 
-    /// New6 constructs a new KPropertiesDialog object.
+    /// ### DEPRECATED: Use `new6` instead
+    ///
+    pub const New6 = new6;
+
+    /// Allocate a new KPropertiesDialog object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` title: []const u8 `
     ///
-    pub fn New6(title: []const u8) KPropertiesDialog {
+    pub fn new6(title: []const u8) KPropertiesDialog {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -172,66 +196,86 @@ pub const KPropertiesDialog = extern struct {
         return .{ .ptr = qtc.KPropertiesDialog_new6(title_str) };
     }
 
-    /// New7 constructs a new KPropertiesDialog object.
+    /// ### DEPRECATED: Use `new7` instead
+    ///
+    pub const New7 = new7;
+
+    /// Allocate a new KPropertiesDialog object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` item: KFileItem `
+    /// ` _item: KFileItem `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New7(item: anytype, parent: anytype) KPropertiesDialog {
-        comptime _ = @TypeOf(item)._is_KFileItem;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KPropertiesDialog_new7(@ptrCast(item.ptr), @ptrCast(parent.ptr)) };
+    pub fn new7(_item: anytype, _parent: anytype) KPropertiesDialog {
+        comptime _ = @TypeOf(_item)._is_KFileItem;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KPropertiesDialog_new7(@ptrCast(_item.ptr), @ptrCast(_parent.ptr)) };
     }
 
-    /// New8 constructs a new KPropertiesDialog object.
+    /// ### DEPRECATED: Use `new8` instead
+    ///
+    pub const New8 = new8;
+
+    /// Allocate a new KPropertiesDialog object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` _items: KFileItemList `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New8(_items: anytype, parent: anytype) KPropertiesDialog {
+    pub fn new8(_items: anytype, _parent: anytype) KPropertiesDialog {
         comptime _ = @TypeOf(_items)._is_KFileItemList;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KPropertiesDialog_new8(@ptrCast(_items.ptr), @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KPropertiesDialog_new8(@ptrCast(_items.ptr), @ptrCast(_parent.ptr)) };
     }
 
-    /// New9 constructs a new KPropertiesDialog object.
+    /// ### DEPRECATED: Use `new9` instead
+    ///
+    pub const New9 = new9;
+
+    /// Allocate a new KPropertiesDialog object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` url: QUrl `
+    /// ` _url: QUrl `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New9(url: anytype, parent: anytype) KPropertiesDialog {
-        comptime _ = @TypeOf(url)._is_QUrl;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KPropertiesDialog_new9(@ptrCast(url.ptr), @ptrCast(parent.ptr)) };
+    pub fn new9(_url: anytype, _parent: anytype) KPropertiesDialog {
+        comptime _ = @TypeOf(_url)._is_QUrl;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KPropertiesDialog_new9(@ptrCast(_url.ptr), @ptrCast(_parent.ptr)) };
     }
 
-    /// New10 constructs a new KPropertiesDialog object.
+    /// ### DEPRECATED: Use `new10` instead
+    ///
+    pub const New10 = new10;
+
+    /// Allocate a new KPropertiesDialog object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` urls: []QUrl `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New10(urls: []QUrl, parent: anytype) KPropertiesDialog {
+    pub fn new10(urls: []QUrl, _parent: anytype) KPropertiesDialog {
         const urls_list = qtc.libqt_list{
             .len = urls.len,
             .data = @ptrCast(urls.ptr),
         };
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KPropertiesDialog_new10(urls_list, @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KPropertiesDialog_new10(urls_list, @ptrCast(_parent.ptr)) };
     }
 
-    /// New11 constructs a new KPropertiesDialog object.
+    /// ### DEPRECATED: Use `new11` instead
+    ///
+    pub const New11 = new11;
+
+    /// Allocate a new KPropertiesDialog object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -241,35 +285,43 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` _defaultName: []const u8 `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New11(_tempUrl: anytype, _currentDir: anytype, _defaultName: []const u8, parent: anytype) KPropertiesDialog {
+    pub fn new11(_tempUrl: anytype, _currentDir: anytype, _defaultName: []const u8, _parent: anytype) KPropertiesDialog {
         comptime _ = @TypeOf(_tempUrl)._is_QUrl;
         comptime _ = @TypeOf(_currentDir)._is_QUrl;
         const _defaultName_str = qtc.libqt_string{
             .len = _defaultName.len,
             .data = _defaultName.ptr,
         };
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KPropertiesDialog_new11(@ptrCast(_tempUrl.ptr), @ptrCast(_currentDir.ptr), _defaultName_str, @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KPropertiesDialog_new11(@ptrCast(_tempUrl.ptr), @ptrCast(_currentDir.ptr), _defaultName_str, @ptrCast(_parent.ptr)) };
     }
 
-    /// New12 constructs a new KPropertiesDialog object.
+    /// ### DEPRECATED: Use `new12` instead
+    ///
+    pub const New12 = new12;
+
+    /// Allocate a new KPropertiesDialog object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` title: []const u8 `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New12(title: []const u8, parent: anytype) KPropertiesDialog {
+    pub fn new12(title: []const u8, _parent: anytype) KPropertiesDialog {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KPropertiesDialog_new12(title_str, @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KPropertiesDialog_new12(title_str, @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -277,9 +329,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn MetaObject(self: KPropertiesDialog) QMetaObject {
+    pub fn metaObject(self: KPropertiesDialog) QMetaObject {
         return .{ .ptr = qtc.KPropertiesDialog_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -291,13 +347,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KPropertiesDialog, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KPropertiesDialog, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KPropertiesDialog_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -307,9 +363,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn SuperMetaObject(self: KPropertiesDialog) QMetaObject {
+    pub fn superMetaObject(self: KPropertiesDialog) QMetaObject {
         return .{ .ptr = qtc.KPropertiesDialog_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -317,10 +377,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KPropertiesDialog, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KPropertiesDialog, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KPropertiesDialog_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -330,13 +394,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KPropertiesDialog_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -346,10 +410,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KPropertiesDialog, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KPropertiesDialog, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KPropertiesDialog_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -361,9 +429,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KPropertiesDialog, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KPropertiesDialog, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KPropertiesDialog_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -373,13 +445,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KPropertiesDialog_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -393,9 +465,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KPropertiesDialog, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KPropertiesDialog, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KPropertiesDialog_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -405,14 +481,18 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPropertiesDialog.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPropertiesDialog.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `canDisplay` instead
+    ///
+    pub const CanDisplay = canDisplay;
 
     /// ### [Upstream resources](https://api.kde.org/kpropertiesdialog.html#canDisplay)
     ///
@@ -420,21 +500,29 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` _items: KFileItemList `
     ///
-    pub fn CanDisplay(_items: anytype) bool {
+    pub fn canDisplay(_items: anytype) bool {
         comptime _ = @TypeOf(_items)._is_KFileItemList;
         return qtc.KPropertiesDialog_CanDisplay(@ptrCast(_items.ptr));
     }
+
+    /// ### DEPRECATED: Use `showDialog` instead
+    ///
+    pub const ShowDialog = showDialog;
 
     /// ### [Upstream resources](https://api.kde.org/kpropertiesdialog.html#showDialog)
     ///
     /// ## Parameter(s):
     ///
-    /// ` item: KFileItem `
+    /// ` _item: KFileItem `
     ///
-    pub fn ShowDialog(item: anytype) bool {
-        comptime _ = @TypeOf(item)._is_KFileItem;
-        return qtc.KPropertiesDialog_ShowDialog(@ptrCast(item.ptr));
+    pub fn showDialog(_item: anytype) bool {
+        comptime _ = @TypeOf(_item)._is_KFileItem;
+        return qtc.KPropertiesDialog_ShowDialog(@ptrCast(_item.ptr));
     }
+
+    /// ### DEPRECATED: Use `showDialog2` instead
+    ///
+    pub const ShowDialog2 = showDialog2;
 
     /// ### [Upstream resources](https://api.kde.org/kpropertiesdialog.html#showDialog)
     ///
@@ -442,10 +530,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` _url: QUrl `
     ///
-    pub fn ShowDialog2(_url: anytype) bool {
+    pub fn showDialog2(_url: anytype) bool {
         comptime _ = @TypeOf(_url)._is_QUrl;
         return qtc.KPropertiesDialog_ShowDialog2(@ptrCast(_url.ptr));
     }
+
+    /// ### DEPRECATED: Use `showDialog3` instead
+    ///
+    pub const ShowDialog3 = showDialog3;
 
     /// ### [Upstream resources](https://api.kde.org/kpropertiesdialog.html#showDialog)
     ///
@@ -453,10 +545,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` _items: KFileItemList `
     ///
-    pub fn ShowDialog3(_items: anytype) bool {
+    pub fn showDialog3(_items: anytype) bool {
         comptime _ = @TypeOf(_items)._is_KFileItemList;
         return qtc.KPropertiesDialog_ShowDialog3(@ptrCast(_items.ptr));
     }
+
+    /// ### DEPRECATED: Use `showDialog4` instead
+    ///
+    pub const ShowDialog4 = showDialog4;
 
     /// ### [Upstream resources](https://api.kde.org/kpropertiesdialog.html#showDialog)
     ///
@@ -464,7 +560,7 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` urls: []QUrl `
     ///
-    pub fn ShowDialog4(urls: []QUrl) bool {
+    pub fn showDialog4(urls: []QUrl) bool {
         const urls_list = qtc.libqt_list{
             .len = urls.len,
             .data = @ptrCast(urls.ptr),
@@ -472,15 +568,23 @@ pub const KPropertiesDialog = extern struct {
         return qtc.KPropertiesDialog_ShowDialog4(urls_list);
     }
 
+    /// ### DEPRECATED: Use `url` instead
+    ///
+    pub const Url = url;
+
     /// ### [Upstream resources](https://api.kde.org/kpropertiesdialog.html#url)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn Url(self: KPropertiesDialog) QUrl {
+    pub fn url(self: KPropertiesDialog) QUrl {
         return .{ .ptr = qtc.KPropertiesDialog_Url(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `item` instead
+    ///
+    pub const Item = item;
 
     /// ### [Upstream resources](https://api.kde.org/kpropertiesdialog.html#item)
     ///
@@ -488,9 +592,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn Item(self: KPropertiesDialog) KFileItem {
+    pub fn item(self: KPropertiesDialog) KFileItem {
         return .{ .ptr = qtc.KPropertiesDialog_Item(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `items` instead
+    ///
+    pub const Items = items;
 
     /// ### [Upstream resources](https://api.kde.org/kpropertiesdialog.html#items)
     ///
@@ -498,9 +606,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn Items(self: KPropertiesDialog) KFileItemList {
+    pub fn items(self: KPropertiesDialog) KFileItemList {
         return .{ .ptr = qtc.KPropertiesDialog_Items(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `currentDir` instead
+    ///
+    pub const CurrentDir = currentDir;
 
     /// ### [Upstream resources](https://api.kde.org/kpropertiesdialog.html#currentDir)
     ///
@@ -508,9 +620,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn CurrentDir(self: KPropertiesDialog) QUrl {
+    pub fn currentDir(self: KPropertiesDialog) QUrl {
         return .{ .ptr = qtc.KPropertiesDialog_CurrentDir(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `defaultName` instead
+    ///
+    pub const DefaultName = defaultName;
 
     /// ### [Upstream resources](https://api.kde.org/kpropertiesdialog.html#defaultName)
     ///
@@ -520,13 +636,17 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DefaultName(self: KPropertiesDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn defaultName(self: KPropertiesDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KPropertiesDialog_DefaultName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPropertiesDialog.DefaultName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPropertiesDialog.defaultName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `updateUrl` instead
+    ///
+    pub const UpdateUrl = updateUrl;
 
     /// ### [Upstream resources](https://api.kde.org/kpropertiesdialog.html#updateUrl)
     ///
@@ -536,10 +656,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` newUrl: QUrl `
     ///
-    pub fn UpdateUrl(self: KPropertiesDialog, newUrl: anytype) void {
+    pub fn updateUrl(self: KPropertiesDialog, newUrl: anytype) void {
         comptime _ = @TypeOf(newUrl)._is_QUrl;
         qtc.KPropertiesDialog_UpdateUrl(@ptrCast(self.ptr), @ptrCast(newUrl.ptr));
     }
+
+    /// ### DEPRECATED: Use `rename` instead
+    ///
+    pub const Rename = rename;
 
     /// ### [Upstream resources](https://api.kde.org/kpropertiesdialog.html#rename)
     ///
@@ -549,7 +673,7 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` _name: []const u8 `
     ///
-    pub fn Rename(self: KPropertiesDialog, _name: []const u8) void {
+    pub fn rename(self: KPropertiesDialog, _name: []const u8) void {
         const _name_str = qtc.libqt_string{
             .len = _name.len,
             .data = _name.ptr,
@@ -557,15 +681,23 @@ pub const KPropertiesDialog = extern struct {
         qtc.KPropertiesDialog_Rename(@ptrCast(self.ptr), _name_str);
     }
 
+    /// ### DEPRECATED: Use `abortApplying` instead
+    ///
+    pub const AbortApplying = abortApplying;
+
     /// ### [Upstream resources](https://api.kde.org/kpropertiesdialog.html#abortApplying)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn AbortApplying(self: KPropertiesDialog) void {
+    pub fn abortApplying(self: KPropertiesDialog) void {
         qtc.KPropertiesDialog_AbortApplying(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFileSharingPage` instead
+    ///
+    pub const ShowFileSharingPage = showFileSharingPage;
 
     /// ### [Upstream resources](https://api.kde.org/kpropertiesdialog.html#showFileSharingPage)
     ///
@@ -573,9 +705,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn ShowFileSharingPage(self: KPropertiesDialog) void {
+    pub fn showFileSharingPage(self: KPropertiesDialog) void {
         qtc.KPropertiesDialog_ShowFileSharingPage(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFileSharingPage` instead
+    ///
+    pub const SetFileSharingPage = setFileSharingPage;
 
     /// ### [Upstream resources](https://api.kde.org/kpropertiesdialog.html#setFileSharingPage)
     ///
@@ -585,10 +721,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` page: QWidget `
     ///
-    pub fn SetFileSharingPage(self: KPropertiesDialog, page: anytype) void {
+    pub fn setFileSharingPage(self: KPropertiesDialog, page: anytype) void {
         comptime _ = @TypeOf(page)._is_QWidget;
         qtc.KPropertiesDialog_SetFileSharingPage(@ptrCast(self.ptr), @ptrCast(page.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFileNameReadOnly` instead
+    ///
+    pub const SetFileNameReadOnly = setFileNameReadOnly;
 
     /// ### [Upstream resources](https://api.kde.org/kpropertiesdialog.html#setFileNameReadOnly)
     ///
@@ -598,20 +738,28 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` ro: bool `
     ///
-    pub fn SetFileNameReadOnly(self: KPropertiesDialog, ro: bool) void {
+    pub fn setFileNameReadOnly(self: KPropertiesDialog, ro: bool) void {
         qtc.KPropertiesDialog_SetFileNameReadOnly(@ptrCast(self.ptr), ro);
     }
 
+    /// ### DEPRECATED: Use `accept` instead
+    ///
+    pub const Accept = accept;
+
     /// ### [Upstream resources](https://api.kde.org/kpropertiesdialog.html#accept)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn Accept(self: KPropertiesDialog) void {
+    pub fn accept(self: KPropertiesDialog) void {
         qtc.KPropertiesDialog_Accept(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onAccept` instead
+    ///
+    pub const OnAccept = onAccept;
+
     /// ### [Upstream resources](https://api.kde.org/kpropertiesdialog.html#accept)
     ///
     /// Allows for overriding the related default method
@@ -622,13 +770,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnAccept(self: KPropertiesDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onAccept(self: KPropertiesDialog, callback: *const fn () callconv(.c) void) void {
         qtc.KPropertiesDialog_OnAccept(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperAccept` instead
+    /// ### DEPRECATED: Use `superAccept` instead
     ///
-    pub const QBaseAccept = SuperAccept;
+    pub const SuperAccept = superAccept;
 
     /// ### [Upstream resources](https://api.kde.org/kpropertiesdialog.html#accept)
     ///
@@ -638,9 +786,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn SuperAccept(self: KPropertiesDialog) void {
+    pub fn superAccept(self: KPropertiesDialog) void {
         qtc.KPropertiesDialog_SuperAccept(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `reject` instead
+    ///
+    pub const Reject = reject;
 
     /// ### [Upstream resources](https://api.kde.org/kpropertiesdialog.html#reject)
     ///
@@ -648,9 +800,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn Reject(self: KPropertiesDialog) void {
+    pub fn reject(self: KPropertiesDialog) void {
         qtc.KPropertiesDialog_Reject(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onReject` instead
+    ///
+    pub const OnReject = onReject;
 
     /// ### [Upstream resources](https://api.kde.org/kpropertiesdialog.html#reject)
     ///
@@ -662,13 +818,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnReject(self: KPropertiesDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onReject(self: KPropertiesDialog, callback: *const fn () callconv(.c) void) void {
         qtc.KPropertiesDialog_OnReject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperReject` instead
+    /// ### DEPRECATED: Use `superReject` instead
     ///
-    pub const QBaseReject = SuperReject;
+    pub const SuperReject = superReject;
 
     /// ### [Upstream resources](https://api.kde.org/kpropertiesdialog.html#reject)
     ///
@@ -678,20 +834,28 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn SuperReject(self: KPropertiesDialog) void {
+    pub fn superReject(self: KPropertiesDialog) void {
         qtc.KPropertiesDialog_SuperReject(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `propertiesClosed` instead
+    ///
+    pub const PropertiesClosed = propertiesClosed;
+
     /// ### [Upstream resources](https://api.kde.org/kpropertiesdialog.html#propertiesClosed)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn PropertiesClosed(self: KPropertiesDialog) void {
+    pub fn propertiesClosed(self: KPropertiesDialog) void {
         qtc.KPropertiesDialog_PropertiesClosed(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onPropertiesClosed` instead
+    ///
+    pub const OnPropertiesClosed = onPropertiesClosed;
+
     /// ### [Upstream resources](https://api.kde.org/kpropertiesdialog.html#propertiesClosed)
     ///
     /// ## Parameters:
@@ -700,20 +864,28 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog) callconv(.c) void `
     ///
-    pub fn OnPropertiesClosed(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog) callconv(.c) void) void {
+    pub fn onPropertiesClosed(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog) callconv(.c) void) void {
         qtc.KPropertiesDialog_Connect_PropertiesClosed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `applied` instead
+    ///
+    pub const Applied = applied;
+
     /// ### [Upstream resources](https://api.kde.org/kpropertiesdialog.html#applied)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn Applied(self: KPropertiesDialog) void {
+    pub fn applied(self: KPropertiesDialog) void {
         qtc.KPropertiesDialog_Applied(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onApplied` instead
+    ///
+    pub const OnApplied = onApplied;
+
     /// ### [Upstream resources](https://api.kde.org/kpropertiesdialog.html#applied)
     ///
     /// ## Parameters:
@@ -722,9 +894,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog) callconv(.c) void `
     ///
-    pub fn OnApplied(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog) callconv(.c) void) void {
+    pub fn onApplied(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog) callconv(.c) void) void {
         qtc.KPropertiesDialog_Connect_Applied(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `canceled` instead
+    ///
+    pub const Canceled = canceled;
 
     /// ### [Upstream resources](https://api.kde.org/kpropertiesdialog.html#canceled)
     ///
@@ -732,9 +908,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn Canceled(self: KPropertiesDialog) void {
+    pub fn canceled(self: KPropertiesDialog) void {
         qtc.KPropertiesDialog_Canceled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCanceled` instead
+    ///
+    pub const OnCanceled = onCanceled;
 
     /// ### [Upstream resources](https://api.kde.org/kpropertiesdialog.html#canceled)
     ///
@@ -744,9 +924,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog) callconv(.c) void `
     ///
-    pub fn OnCanceled(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog) callconv(.c) void) void {
+    pub fn onCanceled(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog) callconv(.c) void) void {
         qtc.KPropertiesDialog_Connect_Canceled(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `saveAs` instead
+    ///
+    pub const SaveAs = saveAs;
 
     /// ### [Upstream resources](https://api.kde.org/kpropertiesdialog.html#saveAs)
     ///
@@ -758,11 +942,15 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` newUrl: QUrl `
     ///
-    pub fn SaveAs(self: KPropertiesDialog, oldUrl: anytype, newUrl: anytype) void {
+    pub fn saveAs(self: KPropertiesDialog, oldUrl: anytype, newUrl: anytype) void {
         comptime _ = @TypeOf(oldUrl)._is_QUrl;
         comptime _ = @TypeOf(newUrl)._is_QUrl;
         qtc.KPropertiesDialog_SaveAs(@ptrCast(self.ptr), @ptrCast(oldUrl.ptr), @ptrCast(newUrl.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSaveAs` instead
+    ///
+    pub const OnSaveAs = onSaveAs;
 
     /// ### [Upstream resources](https://api.kde.org/kpropertiesdialog.html#saveAs)
     ///
@@ -772,9 +960,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, oldUrl: QUrl, newUrl: QUrl) callconv(.c) void `
     ///
-    pub fn OnSaveAs(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QUrl, QUrl) callconv(.c) void) void {
+    pub fn onSaveAs(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QUrl, QUrl) callconv(.c) void) void {
         qtc.KPropertiesDialog_Connect_SaveAs(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -786,15 +978,19 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPropertiesDialog.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPropertiesDialog.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -808,45 +1004,57 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPropertiesDialog.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPropertiesDialog.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
-    /// ### [Upstream resources](https://api.kde.org/kpropertiesdialog.html#showDialog)
+    /// ### DEPRECATED: Use `showDialog22` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` item: KFileItem `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn ShowDialog22(item: anytype, parent: anytype) bool {
-        comptime _ = @TypeOf(item)._is_KFileItem;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return qtc.KPropertiesDialog_ShowDialog22(@ptrCast(item.ptr), @ptrCast(parent.ptr));
-    }
+    pub const ShowDialog22 = showDialog22;
 
     /// ### [Upstream resources](https://api.kde.org/kpropertiesdialog.html#showDialog)
     ///
     /// ## Parameter(s):
     ///
-    /// ` item: KFileItem `
+    /// ` _item: KFileItem `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn showDialog22(_item: anytype, _parent: anytype) bool {
+        comptime _ = @TypeOf(_item)._is_KFileItem;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return qtc.KPropertiesDialog_ShowDialog22(@ptrCast(_item.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `showDialog32` instead
+    ///
+    pub const ShowDialog32 = showDialog32;
+
+    /// ### [Upstream resources](https://api.kde.org/kpropertiesdialog.html#showDialog)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _item: KFileItem `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` modal: bool `
     ///
-    pub fn ShowDialog32(item: anytype, parent: anytype, modal: bool) bool {
-        comptime _ = @TypeOf(item)._is_KFileItem;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return qtc.KPropertiesDialog_ShowDialog32(@ptrCast(item.ptr), @ptrCast(parent.ptr), modal);
+    pub fn showDialog32(_item: anytype, _parent: anytype, modal: bool) bool {
+        comptime _ = @TypeOf(_item)._is_KFileItem;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return qtc.KPropertiesDialog_ShowDialog32(@ptrCast(_item.ptr), @ptrCast(_parent.ptr), modal);
     }
+
+    /// ### DEPRECATED: Use `showDialog23` instead
+    ///
+    pub const ShowDialog23 = showDialog23;
 
     /// ### [Upstream resources](https://api.kde.org/kpropertiesdialog.html#showDialog)
     ///
@@ -854,13 +1062,17 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` _url: QUrl `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn ShowDialog23(_url: anytype, parent: anytype) bool {
+    pub fn showDialog23(_url: anytype, _parent: anytype) bool {
         comptime _ = @TypeOf(_url)._is_QUrl;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return qtc.KPropertiesDialog_ShowDialog23(@ptrCast(_url.ptr), @ptrCast(parent.ptr));
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return qtc.KPropertiesDialog_ShowDialog23(@ptrCast(_url.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `showDialog33` instead
+    ///
+    pub const ShowDialog33 = showDialog33;
 
     /// ### [Upstream resources](https://api.kde.org/kpropertiesdialog.html#showDialog)
     ///
@@ -868,15 +1080,19 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` _url: QUrl `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
     /// ` modal: bool `
     ///
-    pub fn ShowDialog33(_url: anytype, parent: anytype, modal: bool) bool {
+    pub fn showDialog33(_url: anytype, _parent: anytype, modal: bool) bool {
         comptime _ = @TypeOf(_url)._is_QUrl;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return qtc.KPropertiesDialog_ShowDialog33(@ptrCast(_url.ptr), @ptrCast(parent.ptr), modal);
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return qtc.KPropertiesDialog_ShowDialog33(@ptrCast(_url.ptr), @ptrCast(_parent.ptr), modal);
     }
+
+    /// ### DEPRECATED: Use `showDialog24` instead
+    ///
+    pub const ShowDialog24 = showDialog24;
 
     /// ### [Upstream resources](https://api.kde.org/kpropertiesdialog.html#showDialog)
     ///
@@ -884,13 +1100,17 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` _items: KFileItemList `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn ShowDialog24(_items: anytype, parent: anytype) bool {
+    pub fn showDialog24(_items: anytype, _parent: anytype) bool {
         comptime _ = @TypeOf(_items)._is_KFileItemList;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return qtc.KPropertiesDialog_ShowDialog24(@ptrCast(_items.ptr), @ptrCast(parent.ptr));
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return qtc.KPropertiesDialog_ShowDialog24(@ptrCast(_items.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `showDialog34` instead
+    ///
+    pub const ShowDialog34 = showDialog34;
 
     /// ### [Upstream resources](https://api.kde.org/kpropertiesdialog.html#showDialog)
     ///
@@ -898,15 +1118,19 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` _items: KFileItemList `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
     /// ` modal: bool `
     ///
-    pub fn ShowDialog34(_items: anytype, parent: anytype, modal: bool) bool {
+    pub fn showDialog34(_items: anytype, _parent: anytype, modal: bool) bool {
         comptime _ = @TypeOf(_items)._is_KFileItemList;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return qtc.KPropertiesDialog_ShowDialog34(@ptrCast(_items.ptr), @ptrCast(parent.ptr), modal);
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return qtc.KPropertiesDialog_ShowDialog34(@ptrCast(_items.ptr), @ptrCast(_parent.ptr), modal);
     }
+
+    /// ### DEPRECATED: Use `showDialog25` instead
+    ///
+    pub const ShowDialog25 = showDialog25;
 
     /// ### [Upstream resources](https://api.kde.org/kpropertiesdialog.html#showDialog)
     ///
@@ -914,16 +1138,20 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` urls: []QUrl `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn ShowDialog25(urls: []QUrl, parent: anytype) bool {
+    pub fn showDialog25(urls: []QUrl, _parent: anytype) bool {
         const urls_list = qtc.libqt_list{
             .len = urls.len,
             .data = @ptrCast(urls.ptr),
         };
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return qtc.KPropertiesDialog_ShowDialog25(urls_list, @ptrCast(parent.ptr));
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return qtc.KPropertiesDialog_ShowDialog25(urls_list, @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `showDialog35` instead
+    ///
+    pub const ShowDialog35 = showDialog35;
 
     /// ### [Upstream resources](https://api.kde.org/kpropertiesdialog.html#showDialog)
     ///
@@ -931,18 +1159,22 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` urls: []QUrl `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
     /// ` modal: bool `
     ///
-    pub fn ShowDialog35(urls: []QUrl, parent: anytype, modal: bool) bool {
+    pub fn showDialog35(urls: []QUrl, _parent: anytype, modal: bool) bool {
         const urls_list = qtc.libqt_list{
             .len = urls.len,
             .data = @ptrCast(urls.ptr),
         };
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return qtc.KPropertiesDialog_ShowDialog35(urls_list, @ptrCast(parent.ptr), modal);
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return qtc.KPropertiesDialog_ShowDialog35(urls_list, @ptrCast(_parent.ptr), modal);
     }
+
+    /// ### DEPRECATED: Use `setFaceType` instead
+    ///
+    pub const SetFaceType = setFaceType;
 
     /// Inherited from KPageDialog
     ///
@@ -954,9 +1186,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` faceType: kpagedialog_enums.FaceType `
     ///
-    pub fn SetFaceType(self: KPropertiesDialog, faceType: i32) void {
+    pub fn setFaceType(self: KPropertiesDialog, faceType: i32) void {
         qtc.KPageDialog_SetFaceType(@ptrCast(self.ptr), @bitCast(faceType));
     }
+
+    /// ### DEPRECATED: Use `addPage` instead
+    ///
+    pub const AddPage = addPage;
 
     /// Inherited from KPageDialog
     ///
@@ -970,7 +1206,7 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn AddPage(self: KPropertiesDialog, widget: anytype, name: []const u8) KPageWidgetItem {
+    pub fn addPage(self: KPropertiesDialog, widget: anytype, name: []const u8) KPageWidgetItem {
         comptime _ = @TypeOf(widget)._is_QWidget;
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -978,6 +1214,10 @@ pub const KPropertiesDialog = extern struct {
         };
         return .{ .ptr = qtc.KPageDialog_AddPage(@ptrCast(self.ptr), @ptrCast(widget.ptr), name_str) };
     }
+
+    /// ### DEPRECATED: Use `addPage2` instead
+    ///
+    pub const AddPage2 = addPage2;
 
     /// Inherited from KPageDialog
     ///
@@ -987,12 +1227,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` item: KPageWidgetItem `
+    /// ` _item: KPageWidgetItem `
     ///
-    pub fn AddPage2(self: KPropertiesDialog, item: anytype) void {
-        comptime _ = @TypeOf(item)._is_KPageWidgetItem;
-        qtc.KPageDialog_AddPage2(@ptrCast(self.ptr), @ptrCast(item.ptr));
+    pub fn addPage2(self: KPropertiesDialog, _item: anytype) void {
+        comptime _ = @TypeOf(_item)._is_KPageWidgetItem;
+        qtc.KPageDialog_AddPage2(@ptrCast(self.ptr), @ptrCast(_item.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertPage` instead
+    ///
+    pub const InsertPage = insertPage;
 
     /// Inherited from KPageDialog
     ///
@@ -1008,7 +1252,7 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn InsertPage(self: KPropertiesDialog, before: anytype, widget: anytype, name: []const u8) KPageWidgetItem {
+    pub fn insertPage(self: KPropertiesDialog, before: anytype, widget: anytype, name: []const u8) KPageWidgetItem {
         comptime _ = @TypeOf(before)._is_KPageWidgetItem;
         comptime _ = @TypeOf(widget)._is_QWidget;
         const name_str = qtc.libqt_string{
@@ -1018,6 +1262,10 @@ pub const KPropertiesDialog = extern struct {
         return .{ .ptr = qtc.KPageDialog_InsertPage(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(widget.ptr), name_str) };
     }
 
+    /// ### DEPRECATED: Use `insertPage2` instead
+    ///
+    pub const InsertPage2 = insertPage2;
+
     /// Inherited from KPageDialog
     ///
     /// ### [Upstream resources](https://api.kde.org/kpagedialog.html#insertPage)
@@ -1028,13 +1276,17 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` before: KPageWidgetItem `
     ///
-    /// ` item: KPageWidgetItem `
+    /// ` _item: KPageWidgetItem `
     ///
-    pub fn InsertPage2(self: KPropertiesDialog, before: anytype, item: anytype) void {
+    pub fn insertPage2(self: KPropertiesDialog, before: anytype, _item: anytype) void {
         comptime _ = @TypeOf(before)._is_KPageWidgetItem;
-        comptime _ = @TypeOf(item)._is_KPageWidgetItem;
-        qtc.KPageDialog_InsertPage2(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(item.ptr));
+        comptime _ = @TypeOf(_item)._is_KPageWidgetItem;
+        qtc.KPageDialog_InsertPage2(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(_item.ptr));
     }
+
+    /// ### DEPRECATED: Use `addSubPage` instead
+    ///
+    pub const AddSubPage = addSubPage;
 
     /// Inherited from KPageDialog
     ///
@@ -1044,21 +1296,25 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` parent: KPageWidgetItem `
+    /// ` _parent: KPageWidgetItem `
     ///
     /// ` widget: QWidget `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn AddSubPage(self: KPropertiesDialog, parent: anytype, widget: anytype, name: []const u8) KPageWidgetItem {
-        comptime _ = @TypeOf(parent)._is_KPageWidgetItem;
+    pub fn addSubPage(self: KPropertiesDialog, _parent: anytype, widget: anytype, name: []const u8) KPageWidgetItem {
+        comptime _ = @TypeOf(_parent)._is_KPageWidgetItem;
         comptime _ = @TypeOf(widget)._is_QWidget;
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        return .{ .ptr = qtc.KPageDialog_AddSubPage(@ptrCast(self.ptr), @ptrCast(parent.ptr), @ptrCast(widget.ptr), name_str) };
+        return .{ .ptr = qtc.KPageDialog_AddSubPage(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @ptrCast(widget.ptr), name_str) };
     }
+
+    /// ### DEPRECATED: Use `addSubPage2` instead
+    ///
+    pub const AddSubPage2 = addSubPage2;
 
     /// Inherited from KPageDialog
     ///
@@ -1068,15 +1324,19 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` parent: KPageWidgetItem `
+    /// ` _parent: KPageWidgetItem `
     ///
-    /// ` item: KPageWidgetItem `
+    /// ` _item: KPageWidgetItem `
     ///
-    pub fn AddSubPage2(self: KPropertiesDialog, parent: anytype, item: anytype) void {
-        comptime _ = @TypeOf(parent)._is_KPageWidgetItem;
-        comptime _ = @TypeOf(item)._is_KPageWidgetItem;
-        qtc.KPageDialog_AddSubPage2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @ptrCast(item.ptr));
+    pub fn addSubPage2(self: KPropertiesDialog, _parent: anytype, _item: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_KPageWidgetItem;
+        comptime _ = @TypeOf(_item)._is_KPageWidgetItem;
+        qtc.KPageDialog_AddSubPage2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @ptrCast(_item.ptr));
     }
+
+    /// ### DEPRECATED: Use `removePage` instead
+    ///
+    pub const RemovePage = removePage;
 
     /// Inherited from KPageDialog
     ///
@@ -1086,12 +1346,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` item: KPageWidgetItem `
+    /// ` _item: KPageWidgetItem `
     ///
-    pub fn RemovePage(self: KPropertiesDialog, item: anytype) void {
-        comptime _ = @TypeOf(item)._is_KPageWidgetItem;
-        qtc.KPageDialog_RemovePage(@ptrCast(self.ptr), @ptrCast(item.ptr));
+    pub fn removePage(self: KPropertiesDialog, _item: anytype) void {
+        comptime _ = @TypeOf(_item)._is_KPageWidgetItem;
+        qtc.KPageDialog_RemovePage(@ptrCast(self.ptr), @ptrCast(_item.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCurrentPage` instead
+    ///
+    pub const SetCurrentPage = setCurrentPage;
 
     /// Inherited from KPageDialog
     ///
@@ -1101,12 +1365,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` item: KPageWidgetItem `
+    /// ` _item: KPageWidgetItem `
     ///
-    pub fn SetCurrentPage(self: KPropertiesDialog, item: anytype) void {
-        comptime _ = @TypeOf(item)._is_KPageWidgetItem;
-        qtc.KPageDialog_SetCurrentPage(@ptrCast(self.ptr), @ptrCast(item.ptr));
+    pub fn setCurrentPage(self: KPropertiesDialog, _item: anytype) void {
+        comptime _ = @TypeOf(_item)._is_KPageWidgetItem;
+        qtc.KPageDialog_SetCurrentPage(@ptrCast(self.ptr), @ptrCast(_item.ptr));
     }
+
+    /// ### DEPRECATED: Use `currentPage` instead
+    ///
+    pub const CurrentPage = currentPage;
 
     /// Inherited from KPageDialog
     ///
@@ -1116,9 +1384,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn CurrentPage(self: KPropertiesDialog) KPageWidgetItem {
+    pub fn currentPage(self: KPropertiesDialog) KPageWidgetItem {
         return .{ .ptr = qtc.KPageDialog_CurrentPage(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStandardButtons` instead
+    ///
+    pub const SetStandardButtons = setStandardButtons;
 
     /// Inherited from KPageDialog
     ///
@@ -1130,9 +1402,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` buttons: flag of qdialogbuttonbox_enums.StandardButton `
     ///
-    pub fn SetStandardButtons(self: KPropertiesDialog, buttons: i32) void {
+    pub fn setStandardButtons(self: KPropertiesDialog, buttons: i32) void {
         qtc.KPageDialog_SetStandardButtons(@ptrCast(self.ptr), @bitCast(buttons));
     }
+
+    /// ### DEPRECATED: Use `button` instead
+    ///
+    pub const Button = button;
 
     /// Inherited from KPageDialog
     ///
@@ -1144,9 +1420,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` which: qdialogbuttonbox_enums.StandardButton `
     ///
-    pub fn Button(self: KPropertiesDialog, which: i32) QPushButton {
+    pub fn button(self: KPropertiesDialog, which: i32) QPushButton {
         return .{ .ptr = qtc.KPageDialog_Button(@ptrCast(self.ptr), @bitCast(which)) };
     }
+
+    /// ### DEPRECATED: Use `addActionButton` instead
+    ///
+    pub const AddActionButton = addActionButton;
 
     /// Inherited from KPageDialog
     ///
@@ -1156,12 +1436,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` button: QAbstractButton `
+    /// ` _button: QAbstractButton `
     ///
-    pub fn AddActionButton(self: KPropertiesDialog, button: anytype) void {
-        comptime _ = @TypeOf(button)._is_QAbstractButton;
-        qtc.KPageDialog_AddActionButton(@ptrCast(self.ptr), @ptrCast(button.ptr));
+    pub fn addActionButton(self: KPropertiesDialog, _button: anytype) void {
+        comptime _ = @TypeOf(_button)._is_QAbstractButton;
+        qtc.KPageDialog_AddActionButton(@ptrCast(self.ptr), @ptrCast(_button.ptr));
     }
+
+    /// ### DEPRECATED: Use `currentPageChanged` instead
+    ///
+    pub const CurrentPageChanged = currentPageChanged;
 
     /// Inherited from KPageDialog
     ///
@@ -1175,11 +1459,15 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` before: KPageWidgetItem `
     ///
-    pub fn CurrentPageChanged(self: KPropertiesDialog, current: anytype, before: anytype) void {
+    pub fn currentPageChanged(self: KPropertiesDialog, current: anytype, before: anytype) void {
         comptime _ = @TypeOf(current)._is_KPageWidgetItem;
         comptime _ = @TypeOf(before)._is_KPageWidgetItem;
         qtc.KPageDialog_CurrentPageChanged(@ptrCast(self.ptr), @ptrCast(current.ptr), @ptrCast(before.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCurrentPageChanged` instead
+    ///
+    pub const OnCurrentPageChanged = onCurrentPageChanged;
 
     /// Inherited from KPageDialog
     ///
@@ -1191,9 +1479,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, current: KPageWidgetItem, before: KPageWidgetItem) callconv(.c) void `
     ///
-    pub fn OnCurrentPageChanged(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, KPageWidgetItem, KPageWidgetItem) callconv(.c) void) void {
+    pub fn onCurrentPageChanged(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, KPageWidgetItem, KPageWidgetItem) callconv(.c) void) void {
         qtc.KPageDialog_Connect_CurrentPageChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `pageRemoved` instead
+    ///
+    pub const PageRemoved = pageRemoved;
 
     /// Inherited from KPageDialog
     ///
@@ -1205,10 +1497,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` page: KPageWidgetItem `
     ///
-    pub fn PageRemoved(self: KPropertiesDialog, page: anytype) void {
+    pub fn pageRemoved(self: KPropertiesDialog, page: anytype) void {
         comptime _ = @TypeOf(page)._is_KPageWidgetItem;
         qtc.KPageDialog_PageRemoved(@ptrCast(self.ptr), @ptrCast(page.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPageRemoved` instead
+    ///
+    pub const OnPageRemoved = onPageRemoved;
 
     /// Inherited from KPageDialog
     ///
@@ -1220,9 +1516,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, page: KPageWidgetItem) callconv(.c) void `
     ///
-    pub fn OnPageRemoved(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, KPageWidgetItem) callconv(.c) void) void {
+    pub fn onPageRemoved(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, KPageWidgetItem) callconv(.c) void) void {
         qtc.KPageDialog_Connect_PageRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `result` instead
+    ///
+    pub const Result = result;
 
     /// Inherited from QDialog
     ///
@@ -1232,9 +1532,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn Result(self: KPropertiesDialog) i32 {
+    pub fn result(self: KPropertiesDialog) i32 {
         return qtc.QDialog_Result(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeGripEnabled` instead
+    ///
+    pub const SetSizeGripEnabled = setSizeGripEnabled;
 
     /// Inherited from QDialog
     ///
@@ -1246,9 +1550,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` sizeGripEnabled: bool `
     ///
-    pub fn SetSizeGripEnabled(self: KPropertiesDialog, sizeGripEnabled: bool) void {
+    pub fn setSizeGripEnabled(self: KPropertiesDialog, sizeGripEnabled: bool) void {
         qtc.QDialog_SetSizeGripEnabled(@ptrCast(self.ptr), sizeGripEnabled);
     }
+
+    /// ### DEPRECATED: Use `isSizeGripEnabled` instead
+    ///
+    pub const IsSizeGripEnabled = isSizeGripEnabled;
 
     /// Inherited from QDialog
     ///
@@ -1258,9 +1566,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn IsSizeGripEnabled(self: KPropertiesDialog) bool {
+    pub fn isSizeGripEnabled(self: KPropertiesDialog) bool {
         return qtc.QDialog_IsSizeGripEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setModal` instead
+    ///
+    pub const SetModal = setModal;
 
     /// Inherited from QDialog
     ///
@@ -1272,9 +1584,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` modal: bool `
     ///
-    pub fn SetModal(self: KPropertiesDialog, modal: bool) void {
+    pub fn setModal(self: KPropertiesDialog, modal: bool) void {
         qtc.QDialog_SetModal(@ptrCast(self.ptr), modal);
     }
+
+    /// ### DEPRECATED: Use `setResult` instead
+    ///
+    pub const SetResult = setResult;
 
     /// Inherited from QDialog
     ///
@@ -1286,9 +1602,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` r: i32 `
     ///
-    pub fn SetResult(self: KPropertiesDialog, r: i32) void {
+    pub fn setResult(self: KPropertiesDialog, r: i32) void {
         qtc.QDialog_SetResult(@ptrCast(self.ptr), @bitCast(r));
     }
+
+    /// ### DEPRECATED: Use `finished` instead
+    ///
+    pub const Finished = finished;
 
     /// Inherited from QDialog
     ///
@@ -1298,11 +1618,15 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` result: i32 `
+    /// ` _result: i32 `
     ///
-    pub fn Finished(self: KPropertiesDialog, result: i32) void {
-        qtc.QDialog_Finished(@ptrCast(self.ptr), @bitCast(result));
+    pub fn finished(self: KPropertiesDialog, _result: i32) void {
+        qtc.QDialog_Finished(@ptrCast(self.ptr), @bitCast(_result));
     }
+
+    /// ### DEPRECATED: Use `onFinished` instead
+    ///
+    pub const OnFinished = onFinished;
 
     /// Inherited from QDialog
     ///
@@ -1314,10 +1638,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, result: i32) callconv(.c) void `
     ///
-    pub fn OnFinished(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, i32) callconv(.c) void) void {
+    pub fn onFinished(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, i32) callconv(.c) void) void {
         qtc.QDialog_Connect_Finished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `accepted` instead
+    ///
+    pub const Accepted = accepted;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#accepted)
@@ -1326,10 +1654,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn Accepted(self: KPropertiesDialog) void {
+    pub fn accepted(self: KPropertiesDialog) void {
         qtc.QDialog_Accepted(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onAccepted` instead
+    ///
+    pub const OnAccepted = onAccepted;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#accepted)
@@ -1340,9 +1672,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog) callconv(.c) void `
     ///
-    pub fn OnAccepted(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog) callconv(.c) void) void {
+    pub fn onAccepted(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog) callconv(.c) void) void {
         qtc.QDialog_Connect_Accepted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `rejected` instead
+    ///
+    pub const Rejected = rejected;
 
     /// Inherited from QDialog
     ///
@@ -1352,9 +1688,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn Rejected(self: KPropertiesDialog) void {
+    pub fn rejected(self: KPropertiesDialog) void {
         qtc.QDialog_Rejected(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onRejected` instead
+    ///
+    pub const OnRejected = onRejected;
 
     /// Inherited from QDialog
     ///
@@ -1366,9 +1706,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog) callconv(.c) void `
     ///
-    pub fn OnRejected(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog) callconv(.c) void) void {
+    pub fn onRejected(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog) callconv(.c) void) void {
         qtc.QDialog_Connect_Rejected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -1378,9 +1722,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn WinId(self: KPropertiesDialog) usize {
+    pub fn winId(self: KPropertiesDialog) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -1390,9 +1738,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn CreateWinId(self: KPropertiesDialog) void {
+    pub fn createWinId(self: KPropertiesDialog) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -1402,9 +1754,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn InternalWinId(self: KPropertiesDialog) usize {
+    pub fn internalWinId(self: KPropertiesDialog) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -1414,9 +1770,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn EffectiveWinId(self: KPropertiesDialog) usize {
+    pub fn effectiveWinId(self: KPropertiesDialog) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -1426,9 +1786,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn Style(self: KPropertiesDialog) QStyle {
+    pub fn style(self: KPropertiesDialog) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -1438,12 +1802,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: KPropertiesDialog, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: KPropertiesDialog, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -1453,9 +1821,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn IsTopLevel(self: KPropertiesDialog) bool {
+    pub fn isTopLevel(self: KPropertiesDialog) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -1465,9 +1837,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn IsWindow(self: KPropertiesDialog) bool {
+    pub fn isWindow(self: KPropertiesDialog) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -1477,9 +1853,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn IsModal(self: KPropertiesDialog) bool {
+    pub fn isModal(self: KPropertiesDialog) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -1493,9 +1873,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: KPropertiesDialog) i32 {
+    pub fn windowModality(self: KPropertiesDialog) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -1505,11 +1889,15 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: KPropertiesDialog, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: KPropertiesDialog, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1519,9 +1907,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn IsEnabled(self: KPropertiesDialog) bool {
+    pub fn isEnabled(self: KPropertiesDialog) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -1533,10 +1925,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: KPropertiesDialog, param1: anytype) bool {
+    pub fn isEnabledTo(self: KPropertiesDialog, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1548,9 +1944,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: KPropertiesDialog, enabled: bool) void {
+    pub fn setEnabled(self: KPropertiesDialog, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -1562,9 +1962,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: KPropertiesDialog, disabled: bool) void {
+    pub fn setDisabled(self: KPropertiesDialog, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -1576,9 +1980,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: KPropertiesDialog, windowModified: bool) void {
+    pub fn setWindowModified(self: KPropertiesDialog, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1588,9 +1996,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn FrameGeometry(self: KPropertiesDialog) QRect {
+    pub fn frameGeometry(self: KPropertiesDialog) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -1600,9 +2012,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn Geometry(self: KPropertiesDialog) QRect {
+    pub fn geometry(self: KPropertiesDialog) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1612,9 +2028,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn NormalGeometry(self: KPropertiesDialog) QRect {
+    pub fn normalGeometry(self: KPropertiesDialog) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -1624,9 +2044,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn X(self: KPropertiesDialog) i32 {
+    pub fn x(self: KPropertiesDialog) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -1636,9 +2060,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn Y(self: KPropertiesDialog) i32 {
+    pub fn y(self: KPropertiesDialog) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -1648,9 +2076,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn Pos(self: KPropertiesDialog) QPoint {
+    pub fn pos(self: KPropertiesDialog) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -1660,9 +2092,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn FrameSize(self: KPropertiesDialog) QSize {
+    pub fn frameSize(self: KPropertiesDialog) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -1672,9 +2108,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn Size(self: KPropertiesDialog) QSize {
+    pub fn size(self: KPropertiesDialog) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -1684,9 +2124,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn Width(self: KPropertiesDialog) i32 {
+    pub fn width(self: KPropertiesDialog) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -1696,9 +2140,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn Height(self: KPropertiesDialog) i32 {
+    pub fn height(self: KPropertiesDialog) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -1708,9 +2156,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn Rect(self: KPropertiesDialog) QRect {
+    pub fn rect(self: KPropertiesDialog) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -1720,9 +2172,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn ChildrenRect(self: KPropertiesDialog) QRect {
+    pub fn childrenRect(self: KPropertiesDialog) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -1732,9 +2188,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn ChildrenRegion(self: KPropertiesDialog) QRegion {
+    pub fn childrenRegion(self: KPropertiesDialog) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1744,9 +2204,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn MinimumSize(self: KPropertiesDialog) QSize {
+    pub fn minimumSize(self: KPropertiesDialog) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1756,9 +2220,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn MaximumSize(self: KPropertiesDialog) QSize {
+    pub fn maximumSize(self: KPropertiesDialog) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1768,9 +2236,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn MinimumWidth(self: KPropertiesDialog) i32 {
+    pub fn minimumWidth(self: KPropertiesDialog) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1780,9 +2252,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn MinimumHeight(self: KPropertiesDialog) i32 {
+    pub fn minimumHeight(self: KPropertiesDialog) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1792,9 +2268,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn MaximumWidth(self: KPropertiesDialog) i32 {
+    pub fn maximumWidth(self: KPropertiesDialog) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1804,9 +2284,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn MaximumHeight(self: KPropertiesDialog) i32 {
+    pub fn maximumHeight(self: KPropertiesDialog) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1816,12 +2300,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: KPropertiesDialog, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: KPropertiesDialog, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1835,9 +2323,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: KPropertiesDialog, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: KPropertiesDialog, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1847,12 +2339,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: KPropertiesDialog, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: KPropertiesDialog, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1866,9 +2362,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: KPropertiesDialog, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: KPropertiesDialog, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1880,9 +2380,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: KPropertiesDialog, minw: i32) void {
+    pub fn setMinimumWidth(self: KPropertiesDialog, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1894,9 +2398,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: KPropertiesDialog, minh: i32) void {
+    pub fn setMinimumHeight(self: KPropertiesDialog, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1908,9 +2416,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: KPropertiesDialog, maxw: i32) void {
+    pub fn setMaximumWidth(self: KPropertiesDialog, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1922,9 +2434,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: KPropertiesDialog, maxh: i32) void {
+    pub fn setMaximumHeight(self: KPropertiesDialog, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1934,9 +2450,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn SizeIncrement(self: KPropertiesDialog) QSize {
+    pub fn sizeIncrement(self: KPropertiesDialog) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1946,12 +2466,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: KPropertiesDialog, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: KPropertiesDialog, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -1965,9 +2489,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: KPropertiesDialog, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: KPropertiesDialog, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -1977,9 +2505,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn BaseSize(self: KPropertiesDialog) QSize {
+    pub fn baseSize(self: KPropertiesDialog) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -1989,12 +2521,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: KPropertiesDialog, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: KPropertiesDialog, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -2008,9 +2544,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: KPropertiesDialog, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: KPropertiesDialog, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -2022,10 +2562,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: KPropertiesDialog, fixedSize: anytype) void {
+    pub fn setFixedSize(self: KPropertiesDialog, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -2039,9 +2583,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: KPropertiesDialog, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: KPropertiesDialog, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -2053,9 +2601,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: KPropertiesDialog, w: i32) void {
+    pub fn setFixedWidth(self: KPropertiesDialog, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -2067,9 +2619,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: KPropertiesDialog, h: i32) void {
+    pub fn setFixedHeight(self: KPropertiesDialog, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -2081,11 +2637,15 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: KPropertiesDialog, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: KPropertiesDialog, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -2096,11 +2656,15 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: KPropertiesDialog, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: KPropertiesDialog, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -2111,11 +2675,15 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: KPropertiesDialog, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: KPropertiesDialog, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -2126,11 +2694,15 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: KPropertiesDialog, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: KPropertiesDialog, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -2141,11 +2713,15 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: KPropertiesDialog, param1: anytype) QPointF {
+    pub fn mapToParent(self: KPropertiesDialog, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -2156,10 +2732,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: KPropertiesDialog, param1: anytype) QPoint {
+    pub fn mapToParent2(self: KPropertiesDialog, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -2171,10 +2751,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: KPropertiesDialog, param1: anytype) QPointF {
+    pub fn mapFromParent(self: KPropertiesDialog, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -2186,10 +2770,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: KPropertiesDialog, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: KPropertiesDialog, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -2203,12 +2791,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: KPropertiesDialog, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: KPropertiesDialog, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -2221,11 +2813,15 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: KPropertiesDialog, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: KPropertiesDialog, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -2239,11 +2835,15 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: KPropertiesDialog, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: KPropertiesDialog, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -2257,11 +2857,15 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: KPropertiesDialog, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: KPropertiesDialog, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -2271,9 +2875,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn Window(self: KPropertiesDialog) QWidget {
+    pub fn window(self: KPropertiesDialog) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -2283,9 +2891,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn NativeParentWidget(self: KPropertiesDialog) QWidget {
+    pub fn nativeParentWidget(self: KPropertiesDialog) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -2295,9 +2907,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn TopLevelWidget(self: KPropertiesDialog) QWidget {
+    pub fn topLevelWidget(self: KPropertiesDialog) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -2307,9 +2923,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn Palette(self: KPropertiesDialog) QPalette {
+    pub fn palette(self: KPropertiesDialog) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -2319,12 +2939,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: KPropertiesDialog, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: KPropertiesDialog, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2334,11 +2958,15 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: KPropertiesDialog, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: KPropertiesDialog, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2352,9 +2980,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: KPropertiesDialog) i32 {
+    pub fn backgroundRole(self: KPropertiesDialog) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2364,11 +2996,15 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: KPropertiesDialog, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: KPropertiesDialog, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2382,9 +3018,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: KPropertiesDialog) i32 {
+    pub fn foregroundRole(self: KPropertiesDialog) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -2394,9 +3034,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn Font(self: KPropertiesDialog) QFont {
+    pub fn font(self: KPropertiesDialog) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -2406,12 +3050,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: KPropertiesDialog, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: KPropertiesDialog, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -2421,9 +3069,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn FontMetrics(self: KPropertiesDialog) QFontMetrics {
+    pub fn fontMetrics(self: KPropertiesDialog) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -2433,9 +3085,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn FontInfo(self: KPropertiesDialog) QFontInfo {
+    pub fn fontInfo(self: KPropertiesDialog) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -2445,9 +3101,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn Cursor(self: KPropertiesDialog) QCursor {
+    pub fn cursor(self: KPropertiesDialog) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -2457,12 +3117,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: KPropertiesDialog, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: KPropertiesDialog, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -2472,9 +3136,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn UnsetCursor(self: KPropertiesDialog) void {
+    pub fn unsetCursor(self: KPropertiesDialog) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -2486,9 +3154,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: KPropertiesDialog, enable: bool) void {
+    pub fn setMouseTracking(self: KPropertiesDialog, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -2498,9 +3170,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn HasMouseTracking(self: KPropertiesDialog) bool {
+    pub fn hasMouseTracking(self: KPropertiesDialog) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -2510,9 +3186,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn UnderMouse(self: KPropertiesDialog) bool {
+    pub fn underMouse(self: KPropertiesDialog) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2524,9 +3204,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: KPropertiesDialog, enable: bool) void {
+    pub fn setTabletTracking(self: KPropertiesDialog, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2536,24 +3220,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn HasTabletTracking(self: KPropertiesDialog) bool {
+    pub fn hasTabletTracking(self: KPropertiesDialog) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPropertiesDialog `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: KPropertiesDialog, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -2563,12 +3236,35 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: KPropertiesDialog, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: KPropertiesDialog, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KPropertiesDialog `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: KPropertiesDialog, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -2578,9 +3274,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn Mask(self: KPropertiesDialog) QRegion {
+    pub fn mask(self: KPropertiesDialog) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -2590,9 +3290,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn ClearMask(self: KPropertiesDialog) void {
+    pub fn clearMask(self: KPropertiesDialog) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -2604,10 +3308,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: KPropertiesDialog, target: anytype) void {
+    pub fn render(self: KPropertiesDialog, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -2619,10 +3327,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: KPropertiesDialog, painter: anytype) void {
+    pub fn render2(self: KPropertiesDialog, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -2632,9 +3344,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn Grab(self: KPropertiesDialog) QPixmap {
+    pub fn grab(self: KPropertiesDialog) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2644,9 +3360,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn GraphicsEffect(self: KPropertiesDialog) QGraphicsEffect {
+    pub fn graphicsEffect(self: KPropertiesDialog) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2658,10 +3378,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: KPropertiesDialog, effect: anytype) void {
+    pub fn setGraphicsEffect(self: KPropertiesDialog, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2673,9 +3397,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: KPropertiesDialog, typeVal: i32) void {
+    pub fn grabGesture(self: KPropertiesDialog, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2687,9 +3415,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: KPropertiesDialog, typeVal: i32) void {
+    pub fn ungrabGesture(self: KPropertiesDialog, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2699,15 +3431,19 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: KPropertiesDialog, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: KPropertiesDialog, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2717,15 +3453,19 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: KPropertiesDialog, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: KPropertiesDialog, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2737,13 +3477,17 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: KPropertiesDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: KPropertiesDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPropertiesDialog.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPropertiesDialog.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2755,13 +3499,17 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: KPropertiesDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: KPropertiesDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPropertiesDialog.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPropertiesDialog.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2773,10 +3521,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: KPropertiesDialog, icon: anytype) void {
+    pub fn setWindowIcon(self: KPropertiesDialog, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2786,9 +3538,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn WindowIcon(self: KPropertiesDialog) QIcon {
+    pub fn windowIcon(self: KPropertiesDialog) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2798,15 +3554,19 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: KPropertiesDialog, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: KPropertiesDialog, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2818,13 +3578,17 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: KPropertiesDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: KPropertiesDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPropertiesDialog.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPropertiesDialog.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -2834,15 +3598,19 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: KPropertiesDialog, windowRole: []const u8) void {
+    pub fn setWindowRole(self: KPropertiesDialog, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -2854,13 +3622,17 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: KPropertiesDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: KPropertiesDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPropertiesDialog.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPropertiesDialog.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2872,13 +3644,17 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: KPropertiesDialog, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: KPropertiesDialog, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2890,13 +3666,17 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: KPropertiesDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: KPropertiesDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPropertiesDialog.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPropertiesDialog.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2908,9 +3688,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: KPropertiesDialog, level: f64) void {
+    pub fn setWindowOpacity(self: KPropertiesDialog, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2920,9 +3704,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn WindowOpacity(self: KPropertiesDialog) f64 {
+    pub fn windowOpacity(self: KPropertiesDialog) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -2932,9 +3720,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn IsWindowModified(self: KPropertiesDialog) bool {
+    pub fn isWindowModified(self: KPropertiesDialog) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -2944,15 +3736,19 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: KPropertiesDialog, toolTip: []const u8) void {
+    pub fn setToolTip(self: KPropertiesDialog, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -2964,13 +3760,17 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: KPropertiesDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: KPropertiesDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPropertiesDialog.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPropertiesDialog.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2982,9 +3782,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: KPropertiesDialog, msec: i32) void {
+    pub fn setToolTipDuration(self: KPropertiesDialog, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2994,9 +3798,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn ToolTipDuration(self: KPropertiesDialog) i32 {
+    pub fn toolTipDuration(self: KPropertiesDialog) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -3006,15 +3814,19 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: KPropertiesDialog, statusTip: []const u8) void {
+    pub fn setStatusTip(self: KPropertiesDialog, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -3026,13 +3838,17 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: KPropertiesDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: KPropertiesDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPropertiesDialog.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPropertiesDialog.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -3042,15 +3858,19 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: KPropertiesDialog, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: KPropertiesDialog, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -3062,13 +3882,17 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: KPropertiesDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: KPropertiesDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPropertiesDialog.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPropertiesDialog.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -3080,13 +3904,17 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: KPropertiesDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: KPropertiesDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPropertiesDialog.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPropertiesDialog.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -3098,13 +3926,17 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: KPropertiesDialog, name: []const u8) void {
+    pub fn setAccessibleName(self: KPropertiesDialog, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -3116,13 +3948,17 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: KPropertiesDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: KPropertiesDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPropertiesDialog.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPropertiesDialog.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -3134,13 +3970,17 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: KPropertiesDialog, description: []const u8) void {
+    pub fn setAccessibleDescription(self: KPropertiesDialog, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3152,9 +3992,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: KPropertiesDialog, direction: i32) void {
+    pub fn setLayoutDirection(self: KPropertiesDialog, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3168,9 +4012,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: KPropertiesDialog) i32 {
+    pub fn layoutDirection(self: KPropertiesDialog) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3180,9 +4028,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn UnsetLayoutDirection(self: KPropertiesDialog) void {
+    pub fn unsetLayoutDirection(self: KPropertiesDialog) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -3192,12 +4044,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: KPropertiesDialog, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: KPropertiesDialog, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -3207,9 +4063,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn Locale(self: KPropertiesDialog) QLocale {
+    pub fn locale(self: KPropertiesDialog) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -3219,9 +4079,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn UnsetLocale(self: KPropertiesDialog) void {
+    pub fn unsetLocale(self: KPropertiesDialog) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -3231,9 +4095,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn IsRightToLeft(self: KPropertiesDialog) bool {
+    pub fn isRightToLeft(self: KPropertiesDialog) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -3243,9 +4111,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn IsLeftToRight(self: KPropertiesDialog) bool {
+    pub fn isLeftToRight(self: KPropertiesDialog) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -3255,9 +4127,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn SetFocus(self: KPropertiesDialog) void {
+    pub fn setFocus(self: KPropertiesDialog) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -3267,9 +4143,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn IsActiveWindow(self: KPropertiesDialog) bool {
+    pub fn isActiveWindow(self: KPropertiesDialog) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -3279,9 +4159,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn ActivateWindow(self: KPropertiesDialog) void {
+    pub fn activateWindow(self: KPropertiesDialog) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -3291,9 +4175,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn ClearFocus(self: KPropertiesDialog) void {
+    pub fn clearFocus(self: KPropertiesDialog) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -3305,9 +4193,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: KPropertiesDialog, reason: i32) void {
+    pub fn setFocus2(self: KPropertiesDialog, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3321,9 +4213,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: KPropertiesDialog) i32 {
+    pub fn focusPolicy(self: KPropertiesDialog) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3335,9 +4231,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: KPropertiesDialog, policy: i32) void {
+    pub fn setFocusPolicy(self: KPropertiesDialog, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -3347,9 +4247,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn HasFocus(self: KPropertiesDialog) bool {
+    pub fn hasFocus(self: KPropertiesDialog) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -3361,11 +4265,15 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -3375,12 +4283,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: KPropertiesDialog, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: KPropertiesDialog, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -3390,9 +4302,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn FocusProxy(self: KPropertiesDialog) QWidget {
+    pub fn focusProxy(self: KPropertiesDialog) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3406,9 +4322,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: KPropertiesDialog) i32 {
+    pub fn contextMenuPolicy(self: KPropertiesDialog) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3420,9 +4340,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: KPropertiesDialog, policy: i32) void {
+    pub fn setContextMenuPolicy(self: KPropertiesDialog, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -3432,9 +4356,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn GrabMouse(self: KPropertiesDialog) void {
+    pub fn grabMouse(self: KPropertiesDialog) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -3446,10 +4374,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: KPropertiesDialog, param1: anytype) void {
+    pub fn grabMouse2(self: KPropertiesDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -3459,9 +4391,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn ReleaseMouse(self: KPropertiesDialog) void {
+    pub fn releaseMouse(self: KPropertiesDialog) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -3471,9 +4407,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn GrabKeyboard(self: KPropertiesDialog) void {
+    pub fn grabKeyboard(self: KPropertiesDialog) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -3483,9 +4423,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn ReleaseKeyboard(self: KPropertiesDialog) void {
+    pub fn releaseKeyboard(self: KPropertiesDialog) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3497,10 +4441,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: KPropertiesDialog, key: anytype) i32 {
+    pub fn grabShortcut(self: KPropertiesDialog, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3512,9 +4460,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: KPropertiesDialog, id: i32) void {
+    pub fn releaseShortcut(self: KPropertiesDialog, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3526,9 +4478,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: KPropertiesDialog, id: i32) void {
+    pub fn setShortcutEnabled(self: KPropertiesDialog, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -3540,25 +4496,37 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: KPropertiesDialog, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: KPropertiesDialog, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3568,9 +4536,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn UpdatesEnabled(self: KPropertiesDialog) bool {
+    pub fn updatesEnabled(self: KPropertiesDialog) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3582,9 +4554,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: KPropertiesDialog, enable: bool) void {
+    pub fn setUpdatesEnabled(self: KPropertiesDialog, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -3594,9 +4570,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn GraphicsProxyWidget(self: KPropertiesDialog) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: KPropertiesDialog) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -3606,9 +4586,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn Update(self: KPropertiesDialog) void {
+    pub fn update(self: KPropertiesDialog) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -3618,9 +4602,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn Repaint(self: KPropertiesDialog) void {
+    pub fn repaint(self: KPropertiesDialog) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -3630,17 +4618,21 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: KPropertiesDialog, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: KPropertiesDialog, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -3652,11 +4644,15 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: KPropertiesDialog, param1: anytype) void {
+    pub fn update3(self: KPropertiesDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -3667,10 +4663,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: KPropertiesDialog, param1: anytype) void {
+    pub fn update4(self: KPropertiesDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -3680,17 +4680,21 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: KPropertiesDialog, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: KPropertiesDialog, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -3702,10 +4706,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: KPropertiesDialog, param1: anytype) void {
+    pub fn repaint3(self: KPropertiesDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -3717,10 +4725,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: KPropertiesDialog, param1: anytype) void {
+    pub fn repaint4(self: KPropertiesDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -3732,9 +4744,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: KPropertiesDialog, hidden: bool) void {
+    pub fn setHidden(self: KPropertiesDialog, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -3744,9 +4760,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn Show(self: KPropertiesDialog) void {
+    pub fn show(self: KPropertiesDialog) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -3756,9 +4776,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn Hide(self: KPropertiesDialog) void {
+    pub fn hide(self: KPropertiesDialog) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3768,9 +4792,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn ShowMinimized(self: KPropertiesDialog) void {
+    pub fn showMinimized(self: KPropertiesDialog) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3780,9 +4808,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn ShowMaximized(self: KPropertiesDialog) void {
+    pub fn showMaximized(self: KPropertiesDialog) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3792,9 +4824,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn ShowFullScreen(self: KPropertiesDialog) void {
+    pub fn showFullScreen(self: KPropertiesDialog) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -3804,9 +4840,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn ShowNormal(self: KPropertiesDialog) void {
+    pub fn showNormal(self: KPropertiesDialog) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -3816,9 +4856,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn Close(self: KPropertiesDialog) bool {
+    pub fn close(self: KPropertiesDialog) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -3828,9 +4872,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn Raise(self: KPropertiesDialog) void {
+    pub fn raise(self: KPropertiesDialog) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -3840,9 +4888,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn Lower(self: KPropertiesDialog) void {
+    pub fn lower(self: KPropertiesDialog) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -3854,10 +4906,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: KPropertiesDialog, param1: anytype) void {
+    pub fn stackUnder(self: KPropertiesDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -3867,13 +4923,17 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: KPropertiesDialog, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: KPropertiesDialog, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -3885,10 +4945,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: KPropertiesDialog, param1: anytype) void {
+    pub fn move2(self: KPropertiesDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -3902,9 +4966,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: KPropertiesDialog, w: i32, h: i32) void {
+    pub fn resize(self: KPropertiesDialog, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -3916,10 +4984,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: KPropertiesDialog, param1: anytype) void {
+    pub fn resize2(self: KPropertiesDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3929,17 +5001,21 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: KPropertiesDialog, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: KPropertiesDialog, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -3949,12 +5025,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: KPropertiesDialog, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: KPropertiesDialog, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3966,13 +5046,17 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: KPropertiesDialog, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: KPropertiesDialog, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KPropertiesDialog.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KPropertiesDialog.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3982,15 +5066,19 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: KPropertiesDialog, geometry: []u8) bool {
+    pub fn restoreGeometry(self: KPropertiesDialog, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -4000,9 +5088,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn AdjustSize(self: KPropertiesDialog) void {
+    pub fn adjustSize(self: KPropertiesDialog) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -4012,9 +5104,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn IsVisible(self: KPropertiesDialog) bool {
+    pub fn isVisible(self: KPropertiesDialog) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -4026,10 +5122,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: KPropertiesDialog, param1: anytype) bool {
+    pub fn isVisibleTo(self: KPropertiesDialog, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -4039,9 +5139,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn IsHidden(self: KPropertiesDialog) bool {
+    pub fn isHidden(self: KPropertiesDialog) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -4051,9 +5155,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn IsMinimized(self: KPropertiesDialog) bool {
+    pub fn isMinimized(self: KPropertiesDialog) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -4063,9 +5171,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn IsMaximized(self: KPropertiesDialog) bool {
+    pub fn isMaximized(self: KPropertiesDialog) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -4075,9 +5187,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn IsFullScreen(self: KPropertiesDialog) bool {
+    pub fn isFullScreen(self: KPropertiesDialog) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -4091,9 +5207,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: KPropertiesDialog) i32 {
+    pub fn windowState(self: KPropertiesDialog) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -4105,9 +5225,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: KPropertiesDialog, state: i32) void {
+    pub fn setWindowState(self: KPropertiesDialog, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -4119,9 +5243,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: KPropertiesDialog, state: i32) void {
+    pub fn overrideWindowState(self: KPropertiesDialog, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -4131,9 +5259,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn SizePolicy(self: KPropertiesDialog) QSizePolicy {
+    pub fn sizePolicy(self: KPropertiesDialog) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -4143,12 +5275,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: KPropertiesDialog, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: KPropertiesDialog, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -4162,9 +5298,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: KPropertiesDialog, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: KPropertiesDialog, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -4174,9 +5314,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn VisibleRegion(self: KPropertiesDialog) QRegion {
+    pub fn visibleRegion(self: KPropertiesDialog) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -4194,9 +5338,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: KPropertiesDialog, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: KPropertiesDialog, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -4208,10 +5356,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: KPropertiesDialog, margins: anytype) void {
+    pub fn setContentsMargins2(self: KPropertiesDialog, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -4221,9 +5373,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn ContentsMargins(self: KPropertiesDialog) QMargins {
+    pub fn contentsMargins(self: KPropertiesDialog) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -4233,9 +5389,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn ContentsRect(self: KPropertiesDialog) QRect {
+    pub fn contentsRect(self: KPropertiesDialog) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -4245,9 +5405,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn Layout(self: KPropertiesDialog) QLayout {
+    pub fn layout(self: KPropertiesDialog) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -4257,12 +5421,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: KPropertiesDialog, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: KPropertiesDialog, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4272,24 +5440,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn UpdateGeometry(self: KPropertiesDialog) void {
+    pub fn updateGeometry(self: KPropertiesDialog) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPropertiesDialog `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: KPropertiesDialog, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -4299,14 +5456,37 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: KPropertiesDialog, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KPropertiesDialog `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: KPropertiesDialog, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: KPropertiesDialog, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -4320,9 +5500,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: KPropertiesDialog, dx: i32, dy: i32) void {
+    pub fn scroll(self: KPropertiesDialog, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -4338,10 +5522,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: KPropertiesDialog, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: KPropertiesDialog, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -4351,9 +5539,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn FocusWidget(self: KPropertiesDialog) QWidget {
+    pub fn focusWidget(self: KPropertiesDialog) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -4363,9 +5555,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn NextInFocusChain(self: KPropertiesDialog) QWidget {
+    pub fn nextInFocusChain(self: KPropertiesDialog) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -4375,9 +5571,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn PreviousInFocusChain(self: KPropertiesDialog) QWidget {
+    pub fn previousInFocusChain(self: KPropertiesDialog) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -4387,9 +5587,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn AcceptDrops(self: KPropertiesDialog) bool {
+    pub fn acceptDrops(self: KPropertiesDialog) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -4401,9 +5605,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: KPropertiesDialog, on: bool) void {
+    pub fn setAcceptDrops(self: KPropertiesDialog, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -4415,10 +5623,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: KPropertiesDialog, action: anytype) void {
+    pub fn addAction(self: KPropertiesDialog, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -4428,15 +5640,19 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: KPropertiesDialog, actions: []QAction) void {
+    pub fn addActions(self: KPropertiesDialog, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -4448,16 +5664,20 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: KPropertiesDialog, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: KPropertiesDialog, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -4471,11 +5691,15 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: KPropertiesDialog, before: anytype, action: anytype) void {
+    pub fn insertAction(self: KPropertiesDialog, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -4487,10 +5711,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: KPropertiesDialog, action: anytype) void {
+    pub fn removeAction(self: KPropertiesDialog, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -4502,15 +5730,19 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: KPropertiesDialog, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: KPropertiesDialog, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KPropertiesDialog.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KPropertiesDialog.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -4522,13 +5754,17 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: KPropertiesDialog, text: []const u8) QAction {
+    pub fn addAction2(self: KPropertiesDialog, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -4542,7 +5778,7 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: KPropertiesDialog, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: KPropertiesDialog, icon: anytype, text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -4551,6 +5787,10 @@ pub const KPropertiesDialog = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -4563,7 +5803,7 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: KPropertiesDialog, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: KPropertiesDialog, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -4571,6 +5811,10 @@ pub const KPropertiesDialog = extern struct {
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
 
     /// Inherited from QWidget
     ///
@@ -4586,7 +5830,7 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: KPropertiesDialog, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: KPropertiesDialog, icon: anytype, text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -4596,6 +5840,10 @@ pub const KPropertiesDialog = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
@@ -4604,9 +5852,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn ParentWidget(self: KPropertiesDialog) QWidget {
+    pub fn parentWidget(self: KPropertiesDialog) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4618,9 +5870,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: KPropertiesDialog, typeVal: i32) void {
+    pub fn setWindowFlags(self: KPropertiesDialog, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4634,9 +5890,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: KPropertiesDialog) i32 {
+    pub fn windowFlags(self: KPropertiesDialog) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -4648,9 +5908,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: KPropertiesDialog, param1: i32) void {
+    pub fn setWindowFlag(self: KPropertiesDialog, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4662,9 +5926,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: KPropertiesDialog, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: KPropertiesDialog, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -4678,9 +5946,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: KPropertiesDialog) i32 {
+    pub fn windowType(self: KPropertiesDialog) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -4690,9 +5962,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -4702,13 +5978,17 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: KPropertiesDialog, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: KPropertiesDialog, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -4720,10 +6000,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: KPropertiesDialog, p: anytype) QWidget {
+    pub fn childAt2(self: KPropertiesDialog, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -4735,10 +6019,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: KPropertiesDialog, p: anytype) QWidget {
+    pub fn childAt3(self: KPropertiesDialog, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4750,9 +6038,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: KPropertiesDialog, param1: i32) void {
+    pub fn setAttribute(self: KPropertiesDialog, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4764,9 +6056,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: KPropertiesDialog, param1: i32) bool {
+    pub fn testAttribute(self: KPropertiesDialog, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -4776,9 +6072,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn EnsurePolished(self: KPropertiesDialog) void {
+    pub fn ensurePolished(self: KPropertiesDialog) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -4790,10 +6090,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: KPropertiesDialog, child: anytype) bool {
+    pub fn isAncestorOf(self: KPropertiesDialog, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4803,9 +6107,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn AutoFillBackground(self: KPropertiesDialog) bool {
+    pub fn autoFillBackground(self: KPropertiesDialog) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4817,9 +6125,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: KPropertiesDialog, enabled: bool) void {
+    pub fn setAutoFillBackground(self: KPropertiesDialog, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -4829,9 +6141,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn BackingStore(self: KPropertiesDialog) QBackingStore {
+    pub fn backingStore(self: KPropertiesDialog) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -4841,9 +6157,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn WindowHandle(self: KPropertiesDialog) QWindow {
+    pub fn windowHandle(self: KPropertiesDialog) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -4853,9 +6173,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn Screen(self: KPropertiesDialog) QScreen {
+    pub fn screen(self: KPropertiesDialog) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -4865,12 +6189,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: KPropertiesDialog, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: KPropertiesDialog, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -4878,12 +6206,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4895,13 +6227,17 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: KPropertiesDialog, title: []const u8) void {
+    pub fn windowTitleChanged(self: KPropertiesDialog, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4913,9 +6249,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4927,10 +6267,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: KPropertiesDialog, icon: anytype) void {
+    pub fn windowIconChanged(self: KPropertiesDialog, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4942,9 +6286,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4956,13 +6304,17 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: KPropertiesDialog, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: KPropertiesDialog, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4974,9 +6326,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4986,12 +6342,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: KPropertiesDialog, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: KPropertiesDialog, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -5003,9 +6363,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -5019,9 +6383,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: KPropertiesDialog) i32 {
+    pub fn inputMethodHints(self: KPropertiesDialog) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -5033,9 +6401,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: KPropertiesDialog, hints: i32) void {
+    pub fn setInputMethodHints(self: KPropertiesDialog, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -5049,11 +6421,15 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: KPropertiesDialog, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: KPropertiesDialog, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -5069,13 +6445,17 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: KPropertiesDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: KPropertiesDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -5092,12 +6472,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: KPropertiesDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: KPropertiesDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -5111,11 +6495,15 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: KPropertiesDialog, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: KPropertiesDialog, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -5131,12 +6519,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: KPropertiesDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: KPropertiesDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -5154,12 +6546,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: KPropertiesDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: KPropertiesDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -5171,10 +6567,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: KPropertiesDialog, rectangle: anytype) QPixmap {
+    pub fn grab1(self: KPropertiesDialog, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -5188,9 +6588,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: KPropertiesDialog, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: KPropertiesDialog, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -5204,10 +6608,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: KPropertiesDialog, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: KPropertiesDialog, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -5221,9 +6629,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: KPropertiesDialog, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: KPropertiesDialog, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -5237,9 +6649,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: KPropertiesDialog, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: KPropertiesDialog, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -5253,9 +6669,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: KPropertiesDialog, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: KPropertiesDialog, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -5269,25 +6689,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: KPropertiesDialog, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: KPropertiesDialog, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -5295,17 +6703,41 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -5317,13 +6749,17 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KPropertiesDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KPropertiesDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPropertiesDialog.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPropertiesDialog.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -5335,13 +6771,17 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KPropertiesDialog, name: []const u8) void {
+    pub fn setObjectName(self: KPropertiesDialog, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -5351,9 +6791,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn IsWidgetType(self: KPropertiesDialog) bool {
+    pub fn isWidgetType(self: KPropertiesDialog) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -5363,9 +6807,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn IsWindowType(self: KPropertiesDialog) bool {
+    pub fn isWindowType(self: KPropertiesDialog) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -5375,9 +6823,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn IsQuickItemType(self: KPropertiesDialog) bool {
+    pub fn isQuickItemType(self: KPropertiesDialog) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -5387,9 +6839,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn SignalsBlocked(self: KPropertiesDialog) bool {
+    pub fn signalsBlocked(self: KPropertiesDialog) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -5401,9 +6857,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KPropertiesDialog, b: bool) bool {
+    pub fn blockSignals(self: KPropertiesDialog, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -5413,9 +6873,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn Thread(self: KPropertiesDialog) QThread {
+    pub fn thread(self: KPropertiesDialog) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -5425,12 +6889,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KPropertiesDialog, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KPropertiesDialog, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -5442,9 +6910,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KPropertiesDialog, interval: i32) i32 {
+    pub fn startTimer(self: KPropertiesDialog, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -5456,9 +6928,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KPropertiesDialog, time: i64) i32 {
+    pub fn startTimer2(self: KPropertiesDialog, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -5470,9 +6946,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KPropertiesDialog, id: i32) void {
+    pub fn killTimer(self: KPropertiesDialog, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -5484,9 +6964,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KPropertiesDialog, id: i32) void {
+    pub fn killTimer2(self: KPropertiesDialog, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -5498,15 +6982,19 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KPropertiesDialog, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KPropertiesDialog, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KPropertiesDialog.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KPropertiesDialog.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5518,10 +7006,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KPropertiesDialog, filterObj: anytype) void {
+    pub fn installEventFilter(self: KPropertiesDialog, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5533,10 +7025,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KPropertiesDialog, obj: anytype) void {
+    pub fn removeEventFilter(self: KPropertiesDialog, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -5544,7 +7040,7 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5552,13 +7048,17 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -5566,7 +7066,7 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5574,13 +7074,17 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -5590,18 +7094,22 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KPropertiesDialog, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KPropertiesDialog, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -5609,7 +7117,7 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5617,13 +7125,17 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -5631,7 +7143,7 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5639,13 +7151,17 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -5655,9 +7171,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn Disconnect3(self: KPropertiesDialog) bool {
+    pub fn disconnect3(self: KPropertiesDialog) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -5669,10 +7189,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KPropertiesDialog, receiver: anytype) bool {
+    pub fn disconnect4(self: KPropertiesDialog, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -5682,10 +7206,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -5695,9 +7223,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn DumpObjectTree(self: KPropertiesDialog) void {
+    pub fn dumpObjectTree(self: KPropertiesDialog) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -5707,9 +7239,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn DumpObjectInfo(self: KPropertiesDialog) void {
+    pub fn dumpObjectInfo(self: KPropertiesDialog) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -5723,11 +7259,15 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KPropertiesDialog, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KPropertiesDialog, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -5739,10 +7279,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KPropertiesDialog, name: [:0]const u8) QVariant {
+    pub fn property(self: KPropertiesDialog, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -5754,7 +7298,7 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KPropertiesDialog, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KPropertiesDialog, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -5762,27 +7306,19 @@ pub const KPropertiesDialog = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KPropertiesDialog.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KPropertiesDialog.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KPropertiesDialog.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KPropertiesDialog.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPropertiesDialog `
-    ///
-    pub fn BindingStorage(self: KPropertiesDialog) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -5792,9 +7328,29 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn BindingStorage2(self: KPropertiesDialog) QBindingStorage {
+    pub fn bindingStorage(self: KPropertiesDialog) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KPropertiesDialog `
+    ///
+    pub fn bindingStorage2(self: KPropertiesDialog) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -5804,9 +7360,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn Destroyed(self: KPropertiesDialog) void {
+    pub fn destroyed(self: KPropertiesDialog) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -5818,9 +7378,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog) callconv(.c) void) void {
+    pub fn onDestroyed(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -5830,9 +7394,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn Parent(self: KPropertiesDialog) QObject {
+    pub fn parent(self: KPropertiesDialog) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -5844,10 +7412,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KPropertiesDialog, classname: [:0]const u8) bool {
+    pub fn inherits(self: KPropertiesDialog, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -5857,9 +7429,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn DeleteLater(self: KPropertiesDialog) void {
+    pub fn deleteLater(self: KPropertiesDialog) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -5873,9 +7449,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KPropertiesDialog, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KPropertiesDialog, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -5889,9 +7469,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KPropertiesDialog, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KPropertiesDialog, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -5899,7 +7483,7 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5909,13 +7493,17 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -5923,7 +7511,7 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5933,13 +7521,17 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -5949,7 +7541,7 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5957,12 +7549,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KPropertiesDialog, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KPropertiesDialog, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -5974,10 +7570,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KPropertiesDialog, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KPropertiesDialog, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -5991,11 +7591,15 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KPropertiesDialog, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KPropertiesDialog, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -6011,13 +7615,17 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KPropertiesDialog, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KPropertiesDialog, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -6030,11 +7638,15 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KPropertiesDialog, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KPropertiesDialog, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -6046,10 +7658,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KPropertiesDialog, param1: anytype) void {
+    pub fn destroyed1(self: KPropertiesDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -6061,9 +7677,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -6073,9 +7693,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn PaintingActive(self: KPropertiesDialog) bool {
+    pub fn paintingActive(self: KPropertiesDialog) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -6085,9 +7709,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn WidthMM(self: KPropertiesDialog) i32 {
+    pub fn widthMM(self: KPropertiesDialog) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -6097,9 +7725,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn HeightMM(self: KPropertiesDialog) i32 {
+    pub fn heightMM(self: KPropertiesDialog) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -6109,9 +7741,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn LogicalDpiX(self: KPropertiesDialog) i32 {
+    pub fn logicalDpiX(self: KPropertiesDialog) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -6121,9 +7757,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn LogicalDpiY(self: KPropertiesDialog) i32 {
+    pub fn logicalDpiY(self: KPropertiesDialog) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -6133,9 +7773,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn PhysicalDpiX(self: KPropertiesDialog) i32 {
+    pub fn physicalDpiX(self: KPropertiesDialog) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -6145,9 +7789,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn PhysicalDpiY(self: KPropertiesDialog) i32 {
+    pub fn physicalDpiY(self: KPropertiesDialog) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -6157,9 +7805,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn DevicePixelRatio(self: KPropertiesDialog) f64 {
+    pub fn devicePixelRatio(self: KPropertiesDialog) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -6169,9 +7821,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn DevicePixelRatioF(self: KPropertiesDialog) f64 {
+    pub fn devicePixelRatioF(self: KPropertiesDialog) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -6181,9 +7837,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn ColorCount(self: KPropertiesDialog) i32 {
+    pub fn colorCount(self: KPropertiesDialog) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -6193,17 +7853,25 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn Depth(self: KPropertiesDialog) i32 {
+    pub fn depth(self: KPropertiesDialog) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -6211,13 +7879,17 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QDialog
     ///
@@ -6231,13 +7903,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: KPropertiesDialog, visible: bool) void {
+    pub fn setVisible(self: KPropertiesDialog, visible: bool) void {
         qtc.KPropertiesDialog_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QDialog
     ///
@@ -6251,9 +7923,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: KPropertiesDialog, visible: bool) void {
+    pub fn superSetVisible(self: KPropertiesDialog, visible: bool) void {
         qtc.KPropertiesDialog_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QDialog
     ///
@@ -6267,10 +7943,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, bool) callconv(.c) void) void {
         qtc.KPropertiesDialog_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#sizeHint)
@@ -6281,13 +7961,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn SizeHint(self: KPropertiesDialog) QSize {
+    pub fn sizeHint(self: KPropertiesDialog) QSize {
         return .{ .ptr = qtc.KPropertiesDialog_SizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// Inherited from QDialog
     ///
@@ -6299,10 +7979,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn SuperSizeHint(self: KPropertiesDialog) QSize {
+    pub fn superSizeHint(self: KPropertiesDialog) QSize {
         return .{ .ptr = qtc.KPropertiesDialog_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#sizeHint)
@@ -6317,9 +8001,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: KPropertiesDialog, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KPropertiesDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.KPropertiesDialog_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QDialog
     ///
@@ -6331,13 +8019,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn MinimumSizeHint(self: KPropertiesDialog) QSize {
+    pub fn minimumSizeHint(self: KPropertiesDialog) QSize {
         return .{ .ptr = qtc.KPropertiesDialog_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QDialog
     ///
@@ -6349,9 +8037,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn SuperMinimumSizeHint(self: KPropertiesDialog) QSize {
+    pub fn superMinimumSizeHint(self: KPropertiesDialog) QSize {
         return .{ .ptr = qtc.KPropertiesDialog_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QDialog
     ///
@@ -6367,9 +8059,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: KPropertiesDialog, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KPropertiesDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.KPropertiesDialog_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `open` instead
+    ///
+    pub const Open = open;
 
     /// Inherited from QDialog
     ///
@@ -6381,13 +8077,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn Open(self: KPropertiesDialog) void {
+    pub fn open(self: KPropertiesDialog) void {
         qtc.KPropertiesDialog_Open(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperOpen` instead
+    /// ### DEPRECATED: Use `superOpen` instead
     ///
-    pub const QBaseOpen = SuperOpen;
+    pub const SuperOpen = superOpen;
 
     /// Inherited from QDialog
     ///
@@ -6399,9 +8095,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn SuperOpen(self: KPropertiesDialog) void {
+    pub fn superOpen(self: KPropertiesDialog) void {
         qtc.KPropertiesDialog_SuperOpen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onOpen` instead
+    ///
+    pub const OnOpen = onOpen;
 
     /// Inherited from QDialog
     ///
@@ -6415,9 +8115,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnOpen(self: KPropertiesDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onOpen(self: KPropertiesDialog, callback: *const fn () callconv(.c) void) void {
         qtc.KPropertiesDialog_OnOpen(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `exec` instead
+    ///
+    pub const Exec = exec;
 
     /// Inherited from QDialog
     ///
@@ -6429,13 +8133,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn Exec(self: KPropertiesDialog) i32 {
+    pub fn exec(self: KPropertiesDialog) i32 {
         return qtc.KPropertiesDialog_Exec(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperExec` instead
+    /// ### DEPRECATED: Use `superExec` instead
     ///
-    pub const QBaseExec = SuperExec;
+    pub const SuperExec = superExec;
 
     /// Inherited from QDialog
     ///
@@ -6447,9 +8151,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn SuperExec(self: KPropertiesDialog) i32 {
+    pub fn superExec(self: KPropertiesDialog) i32 {
         return qtc.KPropertiesDialog_SuperExec(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onExec` instead
+    ///
+    pub const OnExec = onExec;
 
     /// Inherited from QDialog
     ///
@@ -6463,9 +8171,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnExec(self: KPropertiesDialog, callback: *const fn () callconv(.c) i32) void {
+    pub fn onExec(self: KPropertiesDialog, callback: *const fn () callconv(.c) i32) void {
         qtc.KPropertiesDialog_OnExec(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `done` instead
+    ///
+    pub const Done = done;
 
     /// Inherited from QDialog
     ///
@@ -6479,13 +8191,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn Done(self: KPropertiesDialog, param1: i32) void {
+    pub fn done(self: KPropertiesDialog, param1: i32) void {
         qtc.KPropertiesDialog_Done(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperDone` instead
+    /// ### DEPRECATED: Use `superDone` instead
     ///
-    pub const QBaseDone = SuperDone;
+    pub const SuperDone = superDone;
 
     /// Inherited from QDialog
     ///
@@ -6499,9 +8211,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperDone(self: KPropertiesDialog, param1: i32) void {
+    pub fn superDone(self: KPropertiesDialog, param1: i32) void {
         qtc.KPropertiesDialog_SuperDone(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onDone` instead
+    ///
+    pub const OnDone = onDone;
 
     /// Inherited from QDialog
     ///
@@ -6515,9 +8231,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, param1: i32) callconv(.c) void `
     ///
-    pub fn OnDone(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, i32) callconv(.c) void) void {
+    pub fn onDone(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, i32) callconv(.c) void) void {
         qtc.KPropertiesDialog_OnDone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
 
     /// Inherited from QDialog
     ///
@@ -6531,14 +8251,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param1: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: KPropertiesDialog, param1: anytype) void {
+    pub fn keyPressEvent(self: KPropertiesDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QKeyEvent;
         qtc.KPropertiesDialog_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QDialog
     ///
@@ -6552,10 +8272,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param1: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: KPropertiesDialog, param1: anytype) void {
+    pub fn superKeyPressEvent(self: KPropertiesDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QKeyEvent;
         qtc.KPropertiesDialog_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// Inherited from QDialog
     ///
@@ -6569,9 +8293,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, param1: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QKeyEvent) callconv(.c) void) void {
         qtc.KPropertiesDialog_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QDialog
     ///
@@ -6585,14 +8313,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param1: QCloseEvent `
     ///
-    pub fn CloseEvent(self: KPropertiesDialog, param1: anytype) void {
+    pub fn closeEvent(self: KPropertiesDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCloseEvent;
         qtc.KPropertiesDialog_CloseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QDialog
     ///
@@ -6606,10 +8334,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param1: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: KPropertiesDialog, param1: anytype) void {
+    pub fn superCloseEvent(self: KPropertiesDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCloseEvent;
         qtc.KPropertiesDialog_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QDialog
     ///
@@ -6623,9 +8355,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, param1: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QCloseEvent) callconv(.c) void) void {
         qtc.KPropertiesDialog_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QDialog
     ///
@@ -6639,14 +8375,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param1: QShowEvent `
     ///
-    pub fn ShowEvent(self: KPropertiesDialog, param1: anytype) void {
+    pub fn showEvent(self: KPropertiesDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QShowEvent;
         qtc.KPropertiesDialog_ShowEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QDialog
     ///
@@ -6660,10 +8396,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param1: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: KPropertiesDialog, param1: anytype) void {
+    pub fn superShowEvent(self: KPropertiesDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QShowEvent;
         qtc.KPropertiesDialog_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QDialog
     ///
@@ -6677,9 +8417,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, param1: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QShowEvent) callconv(.c) void) void {
         qtc.KPropertiesDialog_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// Inherited from QDialog
     ///
@@ -6693,14 +8437,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param1: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: KPropertiesDialog, param1: anytype) void {
+    pub fn resizeEvent(self: KPropertiesDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QResizeEvent;
         qtc.KPropertiesDialog_ResizeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// Inherited from QDialog
     ///
@@ -6714,10 +8458,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param1: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: KPropertiesDialog, param1: anytype) void {
+    pub fn superResizeEvent(self: KPropertiesDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QResizeEvent;
         qtc.KPropertiesDialog_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// Inherited from QDialog
     ///
@@ -6731,9 +8479,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, param1: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QResizeEvent) callconv(.c) void) void {
         qtc.KPropertiesDialog_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QDialog
     ///
@@ -6747,14 +8499,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param1: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: KPropertiesDialog, param1: anytype) void {
+    pub fn contextMenuEvent(self: KPropertiesDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
         qtc.KPropertiesDialog_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QDialog
     ///
@@ -6768,10 +8520,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param1: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: KPropertiesDialog, param1: anytype) void {
+    pub fn superContextMenuEvent(self: KPropertiesDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
         qtc.KPropertiesDialog_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QDialog
     ///
@@ -6785,9 +8541,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, param1: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QContextMenuEvent) callconv(.c) void) void {
         qtc.KPropertiesDialog_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QDialog
     ///
@@ -6803,15 +8563,15 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param2: QEvent `
     ///
-    pub fn EventFilter(self: KPropertiesDialog, param1: anytype, param2: anytype) bool {
+    pub fn eventFilter(self: KPropertiesDialog, param1: anytype, param2: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QObject;
         comptime _ = @TypeOf(param2)._is_QEvent;
         return qtc.KPropertiesDialog_EventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QDialog
     ///
@@ -6827,11 +8587,15 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param2: QEvent `
     ///
-    pub fn SuperEventFilter(self: KPropertiesDialog, param1: anytype, param2: anytype) bool {
+    pub fn superEventFilter(self: KPropertiesDialog, param1: anytype, param2: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QObject;
         comptime _ = @TypeOf(param2)._is_QEvent;
         return qtc.KPropertiesDialog_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QDialog
     ///
@@ -6845,9 +8609,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, param1: QObject, param2: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QObject, QEvent) callconv(.c) bool) void {
         qtc.KPropertiesDialog_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -6859,13 +8627,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn DevType(self: KPropertiesDialog) i32 {
+    pub fn devType(self: KPropertiesDialog) i32 {
         return qtc.KPropertiesDialog_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -6877,9 +8645,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn SuperDevType(self: KPropertiesDialog) i32 {
+    pub fn superDevType(self: KPropertiesDialog) i32 {
         return qtc.KPropertiesDialog_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -6893,9 +8665,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: KPropertiesDialog, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KPropertiesDialog, callback: *const fn () callconv(.c) i32) void {
         qtc.KPropertiesDialog_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6909,13 +8685,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: KPropertiesDialog, param1: i32) i32 {
+    pub fn heightForWidth(self: KPropertiesDialog, param1: i32) i32 {
         return qtc.KPropertiesDialog_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6929,9 +8705,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: KPropertiesDialog, param1: i32) i32 {
+    pub fn superHeightForWidth(self: KPropertiesDialog, param1: i32) i32 {
         return qtc.KPropertiesDialog_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6945,9 +8725,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, i32) callconv(.c) i32) void {
         qtc.KPropertiesDialog_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6959,13 +8743,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn HasHeightForWidth(self: KPropertiesDialog) bool {
+    pub fn hasHeightForWidth(self: KPropertiesDialog) bool {
         return qtc.KPropertiesDialog_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6977,9 +8761,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn SuperHasHeightForWidth(self: KPropertiesDialog) bool {
+    pub fn superHasHeightForWidth(self: KPropertiesDialog) bool {
         return qtc.KPropertiesDialog_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6993,9 +8781,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: KPropertiesDialog, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KPropertiesDialog, callback: *const fn () callconv(.c) bool) void {
         qtc.KPropertiesDialog_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -7007,13 +8799,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn PaintEngine(self: KPropertiesDialog) QPaintEngine {
+    pub fn paintEngine(self: KPropertiesDialog) QPaintEngine {
         return .{ .ptr = qtc.KPropertiesDialog_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -7025,9 +8817,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn SuperPaintEngine(self: KPropertiesDialog) QPaintEngine {
+    pub fn superPaintEngine(self: KPropertiesDialog) QPaintEngine {
         return .{ .ptr = qtc.KPropertiesDialog_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -7041,9 +8837,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: KPropertiesDialog, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KPropertiesDialog, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.KPropertiesDialog_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QWidget
     ///
@@ -7055,16 +8855,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: KPropertiesDialog, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KPropertiesDialog_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: KPropertiesDialog, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KPropertiesDialog_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QWidget
     ///
@@ -7076,12 +8876,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: KPropertiesDialog, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KPropertiesDialog_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: KPropertiesDialog, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KPropertiesDialog_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QWidget
     ///
@@ -7095,10 +8899,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QEvent) callconv(.c) bool) void {
         qtc.KPropertiesDialog_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
@@ -7109,16 +8917,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: KPropertiesDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KPropertiesDialog_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mousePressEvent(self: KPropertiesDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KPropertiesDialog_MousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -7130,12 +8938,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: KPropertiesDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KPropertiesDialog_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMousePressEvent(self: KPropertiesDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KPropertiesDialog_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -7149,10 +8961,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QMouseEvent) callconv(.c) void) void {
         qtc.KPropertiesDialog_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
@@ -7163,16 +8979,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: KPropertiesDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KPropertiesDialog_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseReleaseEvent(self: KPropertiesDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KPropertiesDialog_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -7184,12 +9000,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: KPropertiesDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KPropertiesDialog_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseReleaseEvent(self: KPropertiesDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KPropertiesDialog_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -7203,10 +9023,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QMouseEvent) callconv(.c) void) void {
         qtc.KPropertiesDialog_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
@@ -7217,16 +9041,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: KPropertiesDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KPropertiesDialog_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: KPropertiesDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KPropertiesDialog_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -7238,12 +9062,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: KPropertiesDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KPropertiesDialog_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: KPropertiesDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KPropertiesDialog_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -7257,10 +9085,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QMouseEvent) callconv(.c) void) void {
         qtc.KPropertiesDialog_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
@@ -7271,16 +9103,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: KPropertiesDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KPropertiesDialog_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseMoveEvent(self: KPropertiesDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KPropertiesDialog_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7292,12 +9124,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: KPropertiesDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KPropertiesDialog_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseMoveEvent(self: KPropertiesDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KPropertiesDialog_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7311,9 +9147,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QMouseEvent) callconv(.c) void) void {
         qtc.KPropertiesDialog_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -7325,16 +9165,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: KPropertiesDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.KPropertiesDialog_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn wheelEvent(self: KPropertiesDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.KPropertiesDialog_WheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -7346,12 +9186,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: KPropertiesDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.KPropertiesDialog_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superWheelEvent(self: KPropertiesDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.KPropertiesDialog_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -7365,9 +9209,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QWheelEvent) callconv(.c) void) void {
         qtc.KPropertiesDialog_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -7379,16 +9227,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: KPropertiesDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KPropertiesDialog_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyReleaseEvent(self: KPropertiesDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KPropertiesDialog_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -7400,12 +9248,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: KPropertiesDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KPropertiesDialog_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyReleaseEvent(self: KPropertiesDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KPropertiesDialog_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -7419,10 +9271,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QKeyEvent) callconv(.c) void) void {
         qtc.KPropertiesDialog_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
@@ -7433,16 +9289,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: KPropertiesDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KPropertiesDialog_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusInEvent(self: KPropertiesDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KPropertiesDialog_FocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -7454,12 +9310,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: KPropertiesDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KPropertiesDialog_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusInEvent(self: KPropertiesDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KPropertiesDialog_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -7473,10 +9333,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QFocusEvent) callconv(.c) void) void {
         qtc.KPropertiesDialog_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
@@ -7487,16 +9351,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: KPropertiesDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KPropertiesDialog_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusOutEvent(self: KPropertiesDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KPropertiesDialog_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -7508,12 +9372,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: KPropertiesDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KPropertiesDialog_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusOutEvent(self: KPropertiesDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KPropertiesDialog_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -7527,9 +9395,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QFocusEvent) callconv(.c) void) void {
         qtc.KPropertiesDialog_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7541,16 +9413,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: KPropertiesDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KPropertiesDialog_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: KPropertiesDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KPropertiesDialog_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7562,12 +9434,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: KPropertiesDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KPropertiesDialog_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: KPropertiesDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KPropertiesDialog_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7581,9 +9457,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QEnterEvent) callconv(.c) void) void {
         qtc.KPropertiesDialog_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7595,16 +9475,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: KPropertiesDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KPropertiesDialog_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: KPropertiesDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KPropertiesDialog_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7616,12 +9496,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: KPropertiesDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KPropertiesDialog_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: KPropertiesDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KPropertiesDialog_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7635,9 +9519,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QEvent) callconv(.c) void) void {
         qtc.KPropertiesDialog_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// Inherited from QWidget
     ///
@@ -7649,16 +9537,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn PaintEvent(self: KPropertiesDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.KPropertiesDialog_PaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn paintEvent(self: KPropertiesDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.KPropertiesDialog_PaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -7670,12 +9558,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: KPropertiesDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.KPropertiesDialog_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superPaintEvent(self: KPropertiesDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.KPropertiesDialog_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -7689,9 +9581,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, event: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QPaintEvent) callconv(.c) void) void {
         qtc.KPropertiesDialog_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7703,16 +9599,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: KPropertiesDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KPropertiesDialog_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: KPropertiesDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KPropertiesDialog_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7724,12 +9620,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: KPropertiesDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KPropertiesDialog_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: KPropertiesDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KPropertiesDialog_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7743,9 +9643,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QMoveEvent) callconv(.c) void) void {
         qtc.KPropertiesDialog_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7757,16 +9661,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: KPropertiesDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KPropertiesDialog_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: KPropertiesDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KPropertiesDialog_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7778,12 +9682,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: KPropertiesDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KPropertiesDialog_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: KPropertiesDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KPropertiesDialog_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7797,9 +9705,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QTabletEvent) callconv(.c) void) void {
         qtc.KPropertiesDialog_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7811,16 +9723,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: KPropertiesDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KPropertiesDialog_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: KPropertiesDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KPropertiesDialog_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7832,12 +9744,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: KPropertiesDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KPropertiesDialog_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: KPropertiesDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KPropertiesDialog_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7851,9 +9767,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QActionEvent) callconv(.c) void) void {
         qtc.KPropertiesDialog_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7865,16 +9785,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: KPropertiesDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KPropertiesDialog_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: KPropertiesDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KPropertiesDialog_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7886,12 +9806,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: KPropertiesDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KPropertiesDialog_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: KPropertiesDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KPropertiesDialog_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7905,9 +9829,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QDragEnterEvent) callconv(.c) void) void {
         qtc.KPropertiesDialog_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7919,16 +9847,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: KPropertiesDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KPropertiesDialog_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: KPropertiesDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KPropertiesDialog_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7940,12 +9868,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: KPropertiesDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KPropertiesDialog_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: KPropertiesDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KPropertiesDialog_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7959,9 +9891,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QDragMoveEvent) callconv(.c) void) void {
         qtc.KPropertiesDialog_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7973,16 +9909,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: KPropertiesDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KPropertiesDialog_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: KPropertiesDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KPropertiesDialog_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7994,12 +9930,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: KPropertiesDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KPropertiesDialog_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: KPropertiesDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KPropertiesDialog_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8013,9 +9953,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QDragLeaveEvent) callconv(.c) void) void {
         qtc.KPropertiesDialog_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QWidget
     ///
@@ -8027,16 +9971,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: KPropertiesDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KPropertiesDialog_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: KPropertiesDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KPropertiesDialog_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -8048,12 +9992,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: KPropertiesDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KPropertiesDialog_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: KPropertiesDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KPropertiesDialog_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -8067,9 +10015,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QDropEvent) callconv(.c) void) void {
         qtc.KPropertiesDialog_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -8081,16 +10033,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: KPropertiesDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KPropertiesDialog_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: KPropertiesDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KPropertiesDialog_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -8102,12 +10054,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: KPropertiesDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KPropertiesDialog_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: KPropertiesDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KPropertiesDialog_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -8121,9 +10077,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QHideEvent) callconv(.c) void) void {
         qtc.KPropertiesDialog_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -8139,19 +10099,19 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` message: ?*anyopaque `
     ///
-    /// ` result: *isize `
+    /// ` _result: *isize `
     ///
-    pub fn NativeEvent(self: KPropertiesDialog, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: KPropertiesDialog, eventType: []u8, message: ?*anyopaque, _result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.KPropertiesDialog_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.KPropertiesDialog_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(_result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -8167,15 +10127,19 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` message: ?*anyopaque `
     ///
-    /// ` result: *isize `
+    /// ` _result: *isize `
     ///
-    pub fn SuperNativeEvent(self: KPropertiesDialog, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: KPropertiesDialog, eventType: []u8, message: ?*anyopaque, _result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.KPropertiesDialog_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.KPropertiesDialog_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(_result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -8189,9 +10153,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KPropertiesDialog_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QWidget
     ///
@@ -8205,14 +10173,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: KPropertiesDialog, param1: anytype) void {
+    pub fn changeEvent(self: KPropertiesDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.KPropertiesDialog_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QWidget
     ///
@@ -8226,10 +10194,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: KPropertiesDialog, param1: anytype) void {
+    pub fn superChangeEvent(self: KPropertiesDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.KPropertiesDialog_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QWidget
     ///
@@ -8243,9 +10215,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QEvent) callconv(.c) void) void {
         qtc.KPropertiesDialog_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -8259,13 +10235,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: KPropertiesDialog, param1: i32) i32 {
+    pub fn metric(self: KPropertiesDialog, param1: i32) i32 {
         return qtc.KPropertiesDialog_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -8279,9 +10255,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: KPropertiesDialog, param1: i32) i32 {
+    pub fn superMetric(self: KPropertiesDialog, param1: i32) i32 {
         return qtc.KPropertiesDialog_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -8295,9 +10275,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, i32) callconv(.c) i32) void {
         qtc.KPropertiesDialog_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -8311,14 +10295,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: KPropertiesDialog, painter: anytype) void {
+    pub fn initPainter(self: KPropertiesDialog, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KPropertiesDialog_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -8332,10 +10316,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: KPropertiesDialog, painter: anytype) void {
+    pub fn superInitPainter(self: KPropertiesDialog, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KPropertiesDialog_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -8349,9 +10337,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QPainter) callconv(.c) void) void {
         qtc.KPropertiesDialog_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -8365,14 +10357,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: KPropertiesDialog, offset: anytype) QPaintDevice {
+    pub fn redirected(self: KPropertiesDialog, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KPropertiesDialog_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -8386,10 +10378,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: KPropertiesDialog, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: KPropertiesDialog, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KPropertiesDialog_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -8403,9 +10399,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QPoint) callconv(.c) QPaintDevice) void {
         qtc.KPropertiesDialog_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -8417,13 +10417,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn SharedPainter(self: KPropertiesDialog) QPainter {
+    pub fn sharedPainter(self: KPropertiesDialog) QPainter {
         return .{ .ptr = qtc.KPropertiesDialog_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -8435,9 +10435,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn SuperSharedPainter(self: KPropertiesDialog) QPainter {
+    pub fn superSharedPainter(self: KPropertiesDialog) QPainter {
         return .{ .ptr = qtc.KPropertiesDialog_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -8451,9 +10455,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: KPropertiesDialog, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KPropertiesDialog, callback: *const fn () callconv(.c) QPainter) void {
         qtc.KPropertiesDialog_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -8467,14 +10475,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: KPropertiesDialog, param1: anytype) void {
+    pub fn inputMethodEvent(self: KPropertiesDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KPropertiesDialog_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -8488,10 +10496,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: KPropertiesDialog, param1: anytype) void {
+    pub fn superInputMethodEvent(self: KPropertiesDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KPropertiesDialog_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -8505,9 +10517,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QInputMethodEvent) callconv(.c) void) void {
         qtc.KPropertiesDialog_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -8521,13 +10537,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: KPropertiesDialog, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: KPropertiesDialog, param1: i32) QVariant {
         return .{ .ptr = qtc.KPropertiesDialog_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -8541,9 +10557,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: KPropertiesDialog, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: KPropertiesDialog, param1: i32) QVariant {
         return .{ .ptr = qtc.KPropertiesDialog_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -8559,9 +10579,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, i32) callconv(.c) QVariant) void {
         qtc.KPropertiesDialog_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8575,13 +10599,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: KPropertiesDialog, next: bool) bool {
+    pub fn focusNextPrevChild(self: KPropertiesDialog, next: bool) bool {
         return qtc.KPropertiesDialog_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8595,9 +10619,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: KPropertiesDialog, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: KPropertiesDialog, next: bool) bool {
         return qtc.KPropertiesDialog_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8611,9 +10639,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, bool) callconv(.c) bool) void {
         qtc.KPropertiesDialog_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -8625,16 +10657,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KPropertiesDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KPropertiesDialog_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: KPropertiesDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KPropertiesDialog_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -8646,12 +10678,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KPropertiesDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KPropertiesDialog_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: KPropertiesDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KPropertiesDialog_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -8665,9 +10701,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QTimerEvent) callconv(.c) void) void {
         qtc.KPropertiesDialog_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -8679,16 +10719,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KPropertiesDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KPropertiesDialog_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KPropertiesDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KPropertiesDialog_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -8700,12 +10740,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KPropertiesDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KPropertiesDialog_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KPropertiesDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KPropertiesDialog_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -8719,9 +10763,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QChildEvent) callconv(.c) void) void {
         qtc.KPropertiesDialog_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -8733,16 +10781,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KPropertiesDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KPropertiesDialog_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KPropertiesDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KPropertiesDialog_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8754,12 +10802,16 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KPropertiesDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KPropertiesDialog_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KPropertiesDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KPropertiesDialog_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8773,9 +10825,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QEvent) callconv(.c) void) void {
         qtc.KPropertiesDialog_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -8789,14 +10845,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KPropertiesDialog, signal: anytype) void {
+    pub fn connectNotify(self: KPropertiesDialog, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KPropertiesDialog_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8810,11 +10866,15 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KPropertiesDialog, signal: anytype) void {
+    pub fn superConnectNotify(self: KPropertiesDialog, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KPropertiesDialog_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -8827,9 +10887,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QMetaMethod) callconv(.c) void) void {
         qtc.KPropertiesDialog_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8843,14 +10907,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KPropertiesDialog, signal: anytype) void {
+    pub fn disconnectNotify(self: KPropertiesDialog, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KPropertiesDialog_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8864,10 +10928,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KPropertiesDialog, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KPropertiesDialog, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KPropertiesDialog_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8881,9 +10949,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QMetaMethod) callconv(.c) void) void {
         qtc.KPropertiesDialog_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `pageWidget` instead
+    ///
+    pub const PageWidget = pageWidget;
 
     /// Inherited from KPageDialog
     ///
@@ -8895,13 +10967,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn PageWidget(self: KPropertiesDialog) KPageWidget {
+    pub fn pageWidget(self: KPropertiesDialog) KPageWidget {
         return .{ .ptr = qtc.KPropertiesDialog_PageWidget(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPageWidget` instead
+    /// ### DEPRECATED: Use `superPageWidget` instead
     ///
-    pub const QBasePageWidget = SuperPageWidget;
+    pub const SuperPageWidget = superPageWidget;
 
     /// Inherited from KPageDialog
     ///
@@ -8913,9 +10985,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn SuperPageWidget(self: KPropertiesDialog) KPageWidget {
+    pub fn superPageWidget(self: KPropertiesDialog) KPageWidget {
         return .{ .ptr = qtc.KPropertiesDialog_SuperPageWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPageWidget` instead
+    ///
+    pub const OnPageWidget = onPageWidget;
 
     /// Inherited from KPageDialog
     ///
@@ -8929,9 +11005,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) KPageWidget `
     ///
-    pub fn OnPageWidget(self: KPropertiesDialog, callback: *const fn () callconv(.c) KPageWidget) void {
+    pub fn onPageWidget(self: KPropertiesDialog, callback: *const fn () callconv(.c) KPageWidget) void {
         qtc.KPropertiesDialog_OnPageWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setPageWidget` instead
+    ///
+    pub const SetPageWidget = setPageWidget;
 
     /// Inherited from KPageDialog
     ///
@@ -8945,14 +11025,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` widget: KPageWidget `
     ///
-    pub fn SetPageWidget(self: KPropertiesDialog, widget: anytype) void {
+    pub fn setPageWidget(self: KPropertiesDialog, widget: anytype) void {
         comptime _ = @TypeOf(widget)._is_KPageWidget;
         qtc.KPropertiesDialog_SetPageWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetPageWidget` instead
+    /// ### DEPRECATED: Use `superSetPageWidget` instead
     ///
-    pub const QBaseSetPageWidget = SuperSetPageWidget;
+    pub const SuperSetPageWidget = superSetPageWidget;
 
     /// Inherited from KPageDialog
     ///
@@ -8966,10 +11046,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` widget: KPageWidget `
     ///
-    pub fn SuperSetPageWidget(self: KPropertiesDialog, widget: anytype) void {
+    pub fn superSetPageWidget(self: KPropertiesDialog, widget: anytype) void {
         comptime _ = @TypeOf(widget)._is_KPageWidget;
         qtc.KPropertiesDialog_SuperSetPageWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetPageWidget` instead
+    ///
+    pub const OnSetPageWidget = onSetPageWidget;
 
     /// Inherited from KPageDialog
     ///
@@ -8983,9 +11067,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, widget: KPageWidget) callconv(.c) void `
     ///
-    pub fn OnSetPageWidget(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, KPageWidget) callconv(.c) void) void {
+    pub fn onSetPageWidget(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, KPageWidget) callconv(.c) void) void {
         qtc.KPropertiesDialog_OnSetPageWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `buttonBox` instead
+    ///
+    pub const ButtonBox = buttonBox;
 
     /// Inherited from KPageDialog
     ///
@@ -8997,13 +11085,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn ButtonBox(self: KPropertiesDialog) QDialogButtonBox {
+    pub fn buttonBox(self: KPropertiesDialog) QDialogButtonBox {
         return .{ .ptr = qtc.KPropertiesDialog_ButtonBox(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperButtonBox` instead
+    /// ### DEPRECATED: Use `superButtonBox` instead
     ///
-    pub const QBaseButtonBox = SuperButtonBox;
+    pub const SuperButtonBox = superButtonBox;
 
     /// Inherited from KPageDialog
     ///
@@ -9015,9 +11103,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn SuperButtonBox(self: KPropertiesDialog) QDialogButtonBox {
+    pub fn superButtonBox(self: KPropertiesDialog) QDialogButtonBox {
         return .{ .ptr = qtc.KPropertiesDialog_SuperButtonBox(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onButtonBox` instead
+    ///
+    pub const OnButtonBox = onButtonBox;
 
     /// Inherited from KPageDialog
     ///
@@ -9031,9 +11123,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QDialogButtonBox `
     ///
-    pub fn OnButtonBox(self: KPropertiesDialog, callback: *const fn () callconv(.c) QDialogButtonBox) void {
+    pub fn onButtonBox(self: KPropertiesDialog, callback: *const fn () callconv(.c) QDialogButtonBox) void {
         qtc.KPropertiesDialog_OnButtonBox(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setButtonBox` instead
+    ///
+    pub const SetButtonBox = setButtonBox;
 
     /// Inherited from KPageDialog
     ///
@@ -9047,14 +11143,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` box: QDialogButtonBox `
     ///
-    pub fn SetButtonBox(self: KPropertiesDialog, box: anytype) void {
+    pub fn setButtonBox(self: KPropertiesDialog, box: anytype) void {
         comptime _ = @TypeOf(box)._is_QDialogButtonBox;
         qtc.KPropertiesDialog_SetButtonBox(@ptrCast(self.ptr), @ptrCast(box.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetButtonBox` instead
+    /// ### DEPRECATED: Use `superSetButtonBox` instead
     ///
-    pub const QBaseSetButtonBox = SuperSetButtonBox;
+    pub const SuperSetButtonBox = superSetButtonBox;
 
     /// Inherited from KPageDialog
     ///
@@ -9068,10 +11164,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` box: QDialogButtonBox `
     ///
-    pub fn SuperSetButtonBox(self: KPropertiesDialog, box: anytype) void {
+    pub fn superSetButtonBox(self: KPropertiesDialog, box: anytype) void {
         comptime _ = @TypeOf(box)._is_QDialogButtonBox;
         qtc.KPropertiesDialog_SuperSetButtonBox(@ptrCast(self.ptr), @ptrCast(box.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetButtonBox` instead
+    ///
+    pub const OnSetButtonBox = onSetButtonBox;
 
     /// Inherited from KPageDialog
     ///
@@ -9085,9 +11185,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, box: QDialogButtonBox) callconv(.c) void `
     ///
-    pub fn OnSetButtonBox(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QDialogButtonBox) callconv(.c) void) void {
+    pub fn onSetButtonBox(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QDialogButtonBox) callconv(.c) void) void {
         qtc.KPropertiesDialog_OnSetButtonBox(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `adjustPosition` instead
+    ///
+    pub const AdjustPosition = adjustPosition;
 
     /// Inherited from QDialog
     ///
@@ -9101,14 +11205,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn AdjustPosition(self: KPropertiesDialog, param1: anytype) void {
+    pub fn adjustPosition(self: KPropertiesDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.KPropertiesDialog_AdjustPosition(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperAdjustPosition` instead
+    /// ### DEPRECATED: Use `superAdjustPosition` instead
     ///
-    pub const QBaseAdjustPosition = SuperAdjustPosition;
+    pub const SuperAdjustPosition = superAdjustPosition;
 
     /// Inherited from QDialog
     ///
@@ -9122,10 +11226,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn SuperAdjustPosition(self: KPropertiesDialog, param1: anytype) void {
+    pub fn superAdjustPosition(self: KPropertiesDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.KPropertiesDialog_SuperAdjustPosition(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onAdjustPosition` instead
+    ///
+    pub const OnAdjustPosition = onAdjustPosition;
 
     /// Inherited from QDialog
     ///
@@ -9139,10 +11247,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, param1: QWidget) callconv(.c) void `
     ///
-    pub fn OnAdjustPosition(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QWidget) callconv(.c) void) void {
+    pub fn onAdjustPosition(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QWidget) callconv(.c) void) void {
         qtc.KPropertiesDialog_OnAdjustPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -9153,13 +11265,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn UpdateMicroFocus(self: KPropertiesDialog) void {
+    pub fn updateMicroFocus(self: KPropertiesDialog) void {
         qtc.KPropertiesDialog_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -9171,10 +11283,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn SuperUpdateMicroFocus(self: KPropertiesDialog) void {
+    pub fn superUpdateMicroFocus(self: KPropertiesDialog) void {
         qtc.KPropertiesDialog_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -9187,10 +11303,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: KPropertiesDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: KPropertiesDialog, callback: *const fn () callconv(.c) void) void {
         qtc.KPropertiesDialog_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -9201,13 +11321,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn Create(self: KPropertiesDialog) void {
+    pub fn create(self: KPropertiesDialog) void {
         qtc.KPropertiesDialog_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -9219,10 +11339,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn SuperCreate(self: KPropertiesDialog) void {
+    pub fn superCreate(self: KPropertiesDialog) void {
         qtc.KPropertiesDialog_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -9235,9 +11359,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: KPropertiesDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: KPropertiesDialog, callback: *const fn () callconv(.c) void) void {
         qtc.KPropertiesDialog_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -9249,13 +11377,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn Destroy(self: KPropertiesDialog) void {
+    pub fn destroy(self: KPropertiesDialog) void {
         qtc.KPropertiesDialog_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -9267,9 +11395,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn SuperDestroy(self: KPropertiesDialog) void {
+    pub fn superDestroy(self: KPropertiesDialog) void {
         qtc.KPropertiesDialog_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -9283,10 +11415,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: KPropertiesDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: KPropertiesDialog, callback: *const fn () callconv(.c) void) void {
         qtc.KPropertiesDialog_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -9297,13 +11433,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn FocusNextChild(self: KPropertiesDialog) bool {
+    pub fn focusNextChild(self: KPropertiesDialog) bool {
         return qtc.KPropertiesDialog_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -9315,10 +11451,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn SuperFocusNextChild(self: KPropertiesDialog) bool {
+    pub fn superFocusNextChild(self: KPropertiesDialog) bool {
         return qtc.KPropertiesDialog_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -9331,9 +11471,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: KPropertiesDialog, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: KPropertiesDialog, callback: *const fn () callconv(.c) bool) void {
         qtc.KPropertiesDialog_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -9345,13 +11489,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn FocusPreviousChild(self: KPropertiesDialog) bool {
+    pub fn focusPreviousChild(self: KPropertiesDialog) bool {
         return qtc.KPropertiesDialog_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -9363,9 +11507,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn SuperFocusPreviousChild(self: KPropertiesDialog) bool {
+    pub fn superFocusPreviousChild(self: KPropertiesDialog) bool {
         return qtc.KPropertiesDialog_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -9379,9 +11527,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: KPropertiesDialog, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: KPropertiesDialog, callback: *const fn () callconv(.c) bool) void {
         qtc.KPropertiesDialog_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -9393,13 +11545,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn Sender(self: KPropertiesDialog) QObject {
+    pub fn sender(self: KPropertiesDialog) QObject {
         return .{ .ptr = qtc.KPropertiesDialog_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -9411,9 +11563,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn SuperSender(self: KPropertiesDialog) QObject {
+    pub fn superSender(self: KPropertiesDialog) QObject {
         return .{ .ptr = qtc.KPropertiesDialog_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -9427,9 +11583,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KPropertiesDialog, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KPropertiesDialog, callback: *const fn () callconv(.c) QObject) void {
         qtc.KPropertiesDialog_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -9441,13 +11601,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn SenderSignalIndex(self: KPropertiesDialog) i32 {
+    pub fn senderSignalIndex(self: KPropertiesDialog) i32 {
         return qtc.KPropertiesDialog_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -9459,9 +11619,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn SuperSenderSignalIndex(self: KPropertiesDialog) i32 {
+    pub fn superSenderSignalIndex(self: KPropertiesDialog) i32 {
         return qtc.KPropertiesDialog_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -9475,9 +11639,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KPropertiesDialog, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KPropertiesDialog, callback: *const fn () callconv(.c) i32) void {
         qtc.KPropertiesDialog_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -9491,14 +11659,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KPropertiesDialog, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KPropertiesDialog, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KPropertiesDialog_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -9512,10 +11680,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KPropertiesDialog, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KPropertiesDialog, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KPropertiesDialog_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -9529,9 +11701,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, [*:0]const u8) callconv(.c) i32) void {
         qtc.KPropertiesDialog_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -9545,14 +11721,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KPropertiesDialog, signal: anytype) bool {
+    pub fn isSignalConnected(self: KPropertiesDialog, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KPropertiesDialog_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -9566,10 +11742,14 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KPropertiesDialog, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KPropertiesDialog, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KPropertiesDialog_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -9583,9 +11763,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, QMetaMethod) callconv(.c) bool) void {
         qtc.KPropertiesDialog_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9601,13 +11785,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: KPropertiesDialog, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: KPropertiesDialog, metricA: i32, metricB: i32) f64 {
         return qtc.KPropertiesDialog_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9623,9 +11807,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: KPropertiesDialog, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: KPropertiesDialog, metricA: i32, metricB: i32) f64 {
         return qtc.KPropertiesDialog_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9639,9 +11827,13 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, i32, i32) callconv(.c) f64) void {
         qtc.KPropertiesDialog_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -9655,23 +11847,23 @@ pub const KPropertiesDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KPropertiesDialog, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KPropertiesDialog, callback: *const fn (KPropertiesDialog, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kpropertiesdialog.html#dtor.KPropertiesDialog)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KPropertiesDialog `
     ///
-    pub fn Delete(self: KPropertiesDialog) void {
+    pub fn delete(self: KPropertiesDialog) void {
         qtc.KPropertiesDialog_Delete(@ptrCast(self.ptr));
     }
 };

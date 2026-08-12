@@ -32,21 +32,33 @@ pub const QsciPrinter = extern struct {
     pub const _is_QPagedPaintDevice = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new QsciPrinter object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QsciPrinter {
+    pub const New = new;
+
+    /// Allocate a new QsciPrinter object in C++ memory
+    ///
+    pub fn new() QsciPrinter {
         return .{ .ptr = qtc.QsciPrinter_new() };
     }
 
-    /// New2 constructs a new QsciPrinter object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QsciPrinter object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` mode: qprinter_enums.PrinterMode `
     ///
-    pub fn New2(mode: i32) QsciPrinter {
+    pub fn new2(mode: i32) QsciPrinter {
         return .{ .ptr = qtc.QsciPrinter_new2(@bitCast(mode)) };
     }
+
+    /// ### DEPRECATED: Use `formatPage` instead
+    ///
+    pub const FormatPage = formatPage;
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciPrinter.html)
     ///
@@ -62,11 +74,15 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` pagenr: i32 `
     ///
-    pub fn FormatPage(self: QsciPrinter, painter: anytype, drawing: bool, area: anytype, pagenr: i32) void {
+    pub fn formatPage(self: QsciPrinter, painter: anytype, drawing: bool, area: anytype, pagenr: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(area)._is_QRect;
         qtc.QsciPrinter_FormatPage(@ptrCast(self.ptr), @ptrCast(painter.ptr), drawing, @ptrCast(area.ptr), @bitCast(pagenr));
     }
+
+    /// ### DEPRECATED: Use `onFormatPage` instead
+    ///
+    pub const OnFormatPage = onFormatPage;
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciPrinter.html)
     ///
@@ -78,13 +94,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` callback: *const fn (self: QsciPrinter, painter: QPainter, drawing: bool, area: QRect, pagenr: i32) callconv(.c) void `
     ///
-    pub fn OnFormatPage(self: QsciPrinter, callback: *const fn (QsciPrinter, QPainter, bool, QRect, i32) callconv(.c) void) void {
+    pub fn onFormatPage(self: QsciPrinter, callback: *const fn (QsciPrinter, QPainter, bool, QRect, i32) callconv(.c) void) void {
         qtc.QsciPrinter_OnFormatPage(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperFormatPage` instead
+    /// ### DEPRECATED: Use `superFormatPage` instead
     ///
-    pub const QBaseFormatPage = SuperFormatPage;
+    pub const SuperFormatPage = superFormatPage;
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciPrinter.html)
     ///
@@ -102,21 +118,15 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` pagenr: i32 `
     ///
-    pub fn SuperFormatPage(self: QsciPrinter, painter: anytype, drawing: bool, area: anytype, pagenr: i32) void {
+    pub fn superFormatPage(self: QsciPrinter, painter: anytype, drawing: bool, area: anytype, pagenr: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(area)._is_QRect;
         qtc.QsciPrinter_SuperFormatPage(@ptrCast(self.ptr), @ptrCast(painter.ptr), drawing, @ptrCast(area.ptr), @bitCast(pagenr));
     }
 
-    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciPrinter.html)
+    /// ### DEPRECATED: Use `magnification` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciPrinter `
-    ///
-    pub fn Magnification(self: QsciPrinter) i32 {
-        return qtc.QsciPrinter_Magnification(@ptrCast(self.ptr));
-    }
+    pub const Magnification = magnification;
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciPrinter.html)
     ///
@@ -124,11 +134,29 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    /// ` magnification: i32 `
-    ///
-    pub fn SetMagnification(self: QsciPrinter, magnification: i32) void {
-        qtc.QsciPrinter_SetMagnification(@ptrCast(self.ptr), @bitCast(magnification));
+    pub fn magnification(self: QsciPrinter) i32 {
+        return qtc.QsciPrinter_Magnification(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMagnification` instead
+    ///
+    pub const SetMagnification = setMagnification;
+
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciPrinter.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QsciPrinter `
+    ///
+    /// ` _magnification: i32 `
+    ///
+    pub fn setMagnification(self: QsciPrinter, _magnification: i32) void {
+        qtc.QsciPrinter_SetMagnification(@ptrCast(self.ptr), @bitCast(_magnification));
+    }
+
+    /// ### DEPRECATED: Use `onSetMagnification` instead
+    ///
+    pub const OnSetMagnification = onSetMagnification;
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciPrinter.html)
     ///
@@ -140,13 +168,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` callback: *const fn (self: QsciPrinter, magnification: i32) callconv(.c) void `
     ///
-    pub fn OnSetMagnification(self: QsciPrinter, callback: *const fn (QsciPrinter, i32) callconv(.c) void) void {
+    pub fn onSetMagnification(self: QsciPrinter, callback: *const fn (QsciPrinter, i32) callconv(.c) void) void {
         qtc.QsciPrinter_OnSetMagnification(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetMagnification` instead
+    /// ### DEPRECATED: Use `superSetMagnification` instead
     ///
-    pub const QBaseSetMagnification = SuperSetMagnification;
+    pub const SuperSetMagnification = superSetMagnification;
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciPrinter.html)
     ///
@@ -156,11 +184,15 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    /// ` magnification: i32 `
+    /// ` _magnification: i32 `
     ///
-    pub fn SuperSetMagnification(self: QsciPrinter, magnification: i32) void {
-        qtc.QsciPrinter_SuperSetMagnification(@ptrCast(self.ptr), @bitCast(magnification));
+    pub fn superSetMagnification(self: QsciPrinter, _magnification: i32) void {
+        qtc.QsciPrinter_SuperSetMagnification(@ptrCast(self.ptr), @bitCast(_magnification));
     }
+
+    /// ### DEPRECATED: Use `printRange` instead
+    ///
+    pub const PrintRange = printRange;
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciPrinter.html)
     ///
@@ -176,11 +208,15 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` to: i32 `
     ///
-    pub fn PrintRange(self: QsciPrinter, qsb: anytype, painter: anytype, from: i32, to: i32) i32 {
+    pub fn printRange(self: QsciPrinter, qsb: anytype, painter: anytype, from: i32, to: i32) i32 {
         comptime _ = @TypeOf(qsb)._is_QsciScintillaBase;
         comptime _ = @TypeOf(painter)._is_QPainter;
         return qtc.QsciPrinter_PrintRange(@ptrCast(self.ptr), @ptrCast(qsb.ptr), @ptrCast(painter.ptr), @bitCast(from), @bitCast(to));
     }
+
+    /// ### DEPRECATED: Use `onPrintRange` instead
+    ///
+    pub const OnPrintRange = onPrintRange;
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciPrinter.html)
     ///
@@ -192,13 +228,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` callback: *const fn (self: QsciPrinter, qsb: QsciScintillaBase, painter: QPainter, from: i32, to: i32) callconv(.c) i32 `
     ///
-    pub fn OnPrintRange(self: QsciPrinter, callback: *const fn (QsciPrinter, QsciScintillaBase, QPainter, i32, i32) callconv(.c) i32) void {
+    pub fn onPrintRange(self: QsciPrinter, callback: *const fn (QsciPrinter, QsciScintillaBase, QPainter, i32, i32) callconv(.c) i32) void {
         qtc.QsciPrinter_OnPrintRange(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperPrintRange` instead
+    /// ### DEPRECATED: Use `superPrintRange` instead
     ///
-    pub const QBasePrintRange = SuperPrintRange;
+    pub const SuperPrintRange = superPrintRange;
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciPrinter.html)
     ///
@@ -216,11 +252,15 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` to: i32 `
     ///
-    pub fn SuperPrintRange(self: QsciPrinter, qsb: anytype, painter: anytype, from: i32, to: i32) i32 {
+    pub fn superPrintRange(self: QsciPrinter, qsb: anytype, painter: anytype, from: i32, to: i32) i32 {
         comptime _ = @TypeOf(qsb)._is_QsciScintillaBase;
         comptime _ = @TypeOf(painter)._is_QPainter;
         return qtc.QsciPrinter_SuperPrintRange(@ptrCast(self.ptr), @ptrCast(qsb.ptr), @ptrCast(painter.ptr), @bitCast(from), @bitCast(to));
     }
+
+    /// ### DEPRECATED: Use `printRange2` instead
+    ///
+    pub const PrintRange2 = printRange2;
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciPrinter.html)
     ///
@@ -234,10 +274,14 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` to: i32 `
     ///
-    pub fn PrintRange2(self: QsciPrinter, qsb: anytype, from: i32, to: i32) i32 {
+    pub fn printRange2(self: QsciPrinter, qsb: anytype, from: i32, to: i32) i32 {
         comptime _ = @TypeOf(qsb)._is_QsciScintillaBase;
         return qtc.QsciPrinter_PrintRange2(@ptrCast(self.ptr), @ptrCast(qsb.ptr), @bitCast(from), @bitCast(to));
     }
+
+    /// ### DEPRECATED: Use `onPrintRange2` instead
+    ///
+    pub const OnPrintRange2 = onPrintRange2;
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciPrinter.html)
     ///
@@ -249,13 +293,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` callback: *const fn (self: QsciPrinter, qsb: QsciScintillaBase, from: i32, to: i32) callconv(.c) i32 `
     ///
-    pub fn OnPrintRange2(self: QsciPrinter, callback: *const fn (QsciPrinter, QsciScintillaBase, i32, i32) callconv(.c) i32) void {
+    pub fn onPrintRange2(self: QsciPrinter, callback: *const fn (QsciPrinter, QsciScintillaBase, i32, i32) callconv(.c) i32) void {
         qtc.QsciPrinter_OnPrintRange2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperPrintRange2` instead
+    /// ### DEPRECATED: Use `superPrintRange2` instead
     ///
-    pub const QBasePrintRange2 = SuperPrintRange2;
+    pub const SuperPrintRange2 = superPrintRange2;
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciPrinter.html)
     ///
@@ -271,10 +315,14 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` to: i32 `
     ///
-    pub fn SuperPrintRange2(self: QsciPrinter, qsb: anytype, from: i32, to: i32) i32 {
+    pub fn superPrintRange2(self: QsciPrinter, qsb: anytype, from: i32, to: i32) i32 {
         comptime _ = @TypeOf(qsb)._is_QsciScintillaBase;
         return qtc.QsciPrinter_SuperPrintRange2(@ptrCast(self.ptr), @ptrCast(qsb.ptr), @bitCast(from), @bitCast(to));
     }
+
+    /// ### DEPRECATED: Use `wrapMode` instead
+    ///
+    pub const WrapMode = wrapMode;
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciPrinter.html)
     ///
@@ -286,9 +334,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` qsciscintilla_enums.WrapMode `
     ///
-    pub fn WrapMode(self: QsciPrinter) i32 {
+    pub fn wrapMode(self: QsciPrinter) i32 {
         return qtc.QsciPrinter_WrapMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWrapMode` instead
+    ///
+    pub const SetWrapMode = setWrapMode;
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciPrinter.html)
     ///
@@ -298,9 +350,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` wmode: qsciscintilla_enums.WrapMode `
     ///
-    pub fn SetWrapMode(self: QsciPrinter, wmode: i32) void {
+    pub fn setWrapMode(self: QsciPrinter, wmode: i32) void {
         qtc.QsciPrinter_SetWrapMode(@ptrCast(self.ptr), @bitCast(wmode));
     }
+
+    /// ### DEPRECATED: Use `onSetWrapMode` instead
+    ///
+    pub const OnSetWrapMode = onSetWrapMode;
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciPrinter.html)
     ///
@@ -312,13 +368,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` callback: *const fn (self: QsciPrinter, wmode: qsciscintilla_enums.WrapMode) callconv(.c) void `
     ///
-    pub fn OnSetWrapMode(self: QsciPrinter, callback: *const fn (QsciPrinter, i32) callconv(.c) void) void {
+    pub fn onSetWrapMode(self: QsciPrinter, callback: *const fn (QsciPrinter, i32) callconv(.c) void) void {
         qtc.QsciPrinter_OnSetWrapMode(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetWrapMode` instead
+    /// ### DEPRECATED: Use `superSetWrapMode` instead
     ///
-    pub const QBaseSetWrapMode = SuperSetWrapMode;
+    pub const SuperSetWrapMode = superSetWrapMode;
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciPrinter.html)
     ///
@@ -330,9 +386,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` wmode: qsciscintilla_enums.WrapMode `
     ///
-    pub fn SuperSetWrapMode(self: QsciPrinter, wmode: i32) void {
+    pub fn superSetWrapMode(self: QsciPrinter, wmode: i32) void {
         qtc.QsciPrinter_SuperSetWrapMode(@ptrCast(self.ptr), @bitCast(wmode));
     }
+
+    /// ### DEPRECATED: Use `setOutputFormat` instead
+    ///
+    pub const SetOutputFormat = setOutputFormat;
 
     /// Inherited from QPrinter
     ///
@@ -344,9 +404,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` format: qprinter_enums.OutputFormat `
     ///
-    pub fn SetOutputFormat(self: QsciPrinter, format: i32) void {
+    pub fn setOutputFormat(self: QsciPrinter, format: i32) void {
         qtc.QPrinter_SetOutputFormat(@ptrCast(self.ptr), @bitCast(format));
     }
+
+    /// ### DEPRECATED: Use `outputFormat` instead
+    ///
+    pub const OutputFormat = outputFormat;
 
     /// Inherited from QPrinter
     ///
@@ -360,9 +424,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` qprinter_enums.OutputFormat `
     ///
-    pub fn OutputFormat(self: QsciPrinter) i32 {
+    pub fn outputFormat(self: QsciPrinter) i32 {
         return qtc.QPrinter_OutputFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPdfVersion` instead
+    ///
+    pub const SetPdfVersion = setPdfVersion;
 
     /// Inherited from QPrinter
     ///
@@ -374,9 +442,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` version: qpagedpaintdevice_enums.PdfVersion `
     ///
-    pub fn SetPdfVersion(self: QsciPrinter, version: i32) void {
+    pub fn setPdfVersion(self: QsciPrinter, version: i32) void {
         qtc.QPrinter_SetPdfVersion(@ptrCast(self.ptr), @bitCast(version));
     }
+
+    /// ### DEPRECATED: Use `pdfVersion` instead
+    ///
+    pub const PdfVersion = pdfVersion;
 
     /// Inherited from QPrinter
     ///
@@ -390,9 +462,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` qpagedpaintdevice_enums.PdfVersion `
     ///
-    pub fn PdfVersion(self: QsciPrinter) i32 {
+    pub fn pdfVersion(self: QsciPrinter) i32 {
         return qtc.QPrinter_PdfVersion(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPrinterName` instead
+    ///
+    pub const SetPrinterName = setPrinterName;
 
     /// Inherited from QPrinter
     ///
@@ -402,15 +478,19 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    /// ` printerName: []const u8 `
+    /// ` _printerName: []const u8 `
     ///
-    pub fn SetPrinterName(self: QsciPrinter, printerName: []const u8) void {
+    pub fn setPrinterName(self: QsciPrinter, _printerName: []const u8) void {
         const printerName_str = qtc.libqt_string{
-            .len = printerName.len,
-            .data = printerName.ptr,
+            .len = _printerName.len,
+            .data = _printerName.ptr,
         };
         qtc.QPrinter_SetPrinterName(@ptrCast(self.ptr), printerName_str);
     }
+
+    /// ### DEPRECATED: Use `printerName` instead
+    ///
+    pub const PrinterName = printerName;
 
     /// Inherited from QPrinter
     ///
@@ -422,13 +502,17 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PrinterName(self: QsciPrinter, allocator: std.mem.Allocator) []const u8 {
+    pub fn printerName(self: QsciPrinter, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QPrinter_PrinterName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciPrinter.PrinterName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciPrinter.printerName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// Inherited from QPrinter
     ///
@@ -438,9 +522,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    pub fn IsValid(self: QsciPrinter) bool {
+    pub fn isValid(self: QsciPrinter) bool {
         return qtc.QPrinter_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setOutputFileName` instead
+    ///
+    pub const SetOutputFileName = setOutputFileName;
 
     /// Inherited from QPrinter
     ///
@@ -450,15 +538,19 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    /// ` outputFileName: []const u8 `
+    /// ` _outputFileName: []const u8 `
     ///
-    pub fn SetOutputFileName(self: QsciPrinter, outputFileName: []const u8) void {
+    pub fn setOutputFileName(self: QsciPrinter, _outputFileName: []const u8) void {
         const outputFileName_str = qtc.libqt_string{
-            .len = outputFileName.len,
-            .data = outputFileName.ptr,
+            .len = _outputFileName.len,
+            .data = _outputFileName.ptr,
         };
         qtc.QPrinter_SetOutputFileName(@ptrCast(self.ptr), outputFileName_str);
     }
+
+    /// ### DEPRECATED: Use `outputFileName` instead
+    ///
+    pub const OutputFileName = outputFileName;
 
     /// Inherited from QPrinter
     ///
@@ -470,13 +562,17 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn OutputFileName(self: QsciPrinter, allocator: std.mem.Allocator) []const u8 {
+    pub fn outputFileName(self: QsciPrinter, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QPrinter_OutputFileName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciPrinter.OutputFileName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciPrinter.outputFileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setPrintProgram` instead
+    ///
+    pub const SetPrintProgram = setPrintProgram;
 
     /// Inherited from QPrinter
     ///
@@ -486,15 +582,19 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    /// ` printProgram: []const u8 `
+    /// ` _printProgram: []const u8 `
     ///
-    pub fn SetPrintProgram(self: QsciPrinter, printProgram: []const u8) void {
+    pub fn setPrintProgram(self: QsciPrinter, _printProgram: []const u8) void {
         const printProgram_str = qtc.libqt_string{
-            .len = printProgram.len,
-            .data = printProgram.ptr,
+            .len = _printProgram.len,
+            .data = _printProgram.ptr,
         };
         qtc.QPrinter_SetPrintProgram(@ptrCast(self.ptr), printProgram_str);
     }
+
+    /// ### DEPRECATED: Use `printProgram` instead
+    ///
+    pub const PrintProgram = printProgram;
 
     /// Inherited from QPrinter
     ///
@@ -506,13 +606,17 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PrintProgram(self: QsciPrinter, allocator: std.mem.Allocator) []const u8 {
+    pub fn printProgram(self: QsciPrinter, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QPrinter_PrintProgram(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciPrinter.PrintProgram: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciPrinter.printProgram: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setDocName` instead
+    ///
+    pub const SetDocName = setDocName;
 
     /// Inherited from QPrinter
     ///
@@ -522,15 +626,19 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    /// ` docName: []const u8 `
+    /// ` _docName: []const u8 `
     ///
-    pub fn SetDocName(self: QsciPrinter, docName: []const u8) void {
+    pub fn setDocName(self: QsciPrinter, _docName: []const u8) void {
         const docName_str = qtc.libqt_string{
-            .len = docName.len,
-            .data = docName.ptr,
+            .len = _docName.len,
+            .data = _docName.ptr,
         };
         qtc.QPrinter_SetDocName(@ptrCast(self.ptr), docName_str);
     }
+
+    /// ### DEPRECATED: Use `docName` instead
+    ///
+    pub const DocName = docName;
 
     /// Inherited from QPrinter
     ///
@@ -542,13 +650,17 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DocName(self: QsciPrinter, allocator: std.mem.Allocator) []const u8 {
+    pub fn docName(self: QsciPrinter, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QPrinter_DocName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciPrinter.DocName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciPrinter.docName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setCreator` instead
+    ///
+    pub const SetCreator = setCreator;
 
     /// Inherited from QPrinter
     ///
@@ -558,15 +670,19 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    /// ` creator: []const u8 `
+    /// ` _creator: []const u8 `
     ///
-    pub fn SetCreator(self: QsciPrinter, creator: []const u8) void {
+    pub fn setCreator(self: QsciPrinter, _creator: []const u8) void {
         const creator_str = qtc.libqt_string{
-            .len = creator.len,
-            .data = creator.ptr,
+            .len = _creator.len,
+            .data = _creator.ptr,
         };
         qtc.QPrinter_SetCreator(@ptrCast(self.ptr), creator_str);
     }
+
+    /// ### DEPRECATED: Use `creator` instead
+    ///
+    pub const Creator = creator;
 
     /// Inherited from QPrinter
     ///
@@ -578,13 +694,17 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Creator(self: QsciPrinter, allocator: std.mem.Allocator) []const u8 {
+    pub fn creator(self: QsciPrinter, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QPrinter_Creator(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciPrinter.Creator: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciPrinter.creator: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setPageOrder` instead
+    ///
+    pub const SetPageOrder = setPageOrder;
 
     /// Inherited from QPrinter
     ///
@@ -594,11 +714,15 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    /// ` pageOrder: qprinter_enums.PageOrder `
+    /// ` _pageOrder: qprinter_enums.PageOrder `
     ///
-    pub fn SetPageOrder(self: QsciPrinter, pageOrder: i32) void {
-        qtc.QPrinter_SetPageOrder(@ptrCast(self.ptr), @bitCast(pageOrder));
+    pub fn setPageOrder(self: QsciPrinter, _pageOrder: i32) void {
+        qtc.QPrinter_SetPageOrder(@ptrCast(self.ptr), @bitCast(_pageOrder));
     }
+
+    /// ### DEPRECATED: Use `pageOrder` instead
+    ///
+    pub const PageOrder = pageOrder;
 
     /// Inherited from QPrinter
     ///
@@ -612,9 +736,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` qprinter_enums.PageOrder `
     ///
-    pub fn PageOrder(self: QsciPrinter) i32 {
+    pub fn pageOrder(self: QsciPrinter) i32 {
         return qtc.QPrinter_PageOrder(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setResolution` instead
+    ///
+    pub const SetResolution = setResolution;
 
     /// Inherited from QPrinter
     ///
@@ -624,11 +752,15 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    /// ` resolution: i32 `
+    /// ` _resolution: i32 `
     ///
-    pub fn SetResolution(self: QsciPrinter, resolution: i32) void {
-        qtc.QPrinter_SetResolution(@ptrCast(self.ptr), @bitCast(resolution));
+    pub fn setResolution(self: QsciPrinter, _resolution: i32) void {
+        qtc.QPrinter_SetResolution(@ptrCast(self.ptr), @bitCast(_resolution));
     }
+
+    /// ### DEPRECATED: Use `resolution` instead
+    ///
+    pub const Resolution = resolution;
 
     /// Inherited from QPrinter
     ///
@@ -638,9 +770,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    pub fn Resolution(self: QsciPrinter) i32 {
+    pub fn resolution(self: QsciPrinter) i32 {
         return qtc.QPrinter_Resolution(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setColorMode` instead
+    ///
+    pub const SetColorMode = setColorMode;
 
     /// Inherited from QPrinter
     ///
@@ -650,11 +786,15 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    /// ` colorMode: qprinter_enums.ColorMode `
+    /// ` _colorMode: qprinter_enums.ColorMode `
     ///
-    pub fn SetColorMode(self: QsciPrinter, colorMode: i32) void {
-        qtc.QPrinter_SetColorMode(@ptrCast(self.ptr), @bitCast(colorMode));
+    pub fn setColorMode(self: QsciPrinter, _colorMode: i32) void {
+        qtc.QPrinter_SetColorMode(@ptrCast(self.ptr), @bitCast(_colorMode));
     }
+
+    /// ### DEPRECATED: Use `colorMode` instead
+    ///
+    pub const ColorMode = colorMode;
 
     /// Inherited from QPrinter
     ///
@@ -668,9 +808,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` qprinter_enums.ColorMode `
     ///
-    pub fn ColorMode(self: QsciPrinter) i32 {
+    pub fn colorMode(self: QsciPrinter) i32 {
         return qtc.QPrinter_ColorMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCollateCopies` instead
+    ///
+    pub const SetCollateCopies = setCollateCopies;
 
     /// Inherited from QPrinter
     ///
@@ -682,9 +826,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` collate: bool `
     ///
-    pub fn SetCollateCopies(self: QsciPrinter, collate: bool) void {
+    pub fn setCollateCopies(self: QsciPrinter, collate: bool) void {
         qtc.QPrinter_SetCollateCopies(@ptrCast(self.ptr), collate);
     }
+
+    /// ### DEPRECATED: Use `collateCopies` instead
+    ///
+    pub const CollateCopies = collateCopies;
 
     /// Inherited from QPrinter
     ///
@@ -694,9 +842,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    pub fn CollateCopies(self: QsciPrinter) bool {
+    pub fn collateCopies(self: QsciPrinter) bool {
         return qtc.QPrinter_CollateCopies(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFullPage` instead
+    ///
+    pub const SetFullPage = setFullPage;
 
     /// Inherited from QPrinter
     ///
@@ -706,11 +858,15 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    /// ` fullPage: bool `
+    /// ` _fullPage: bool `
     ///
-    pub fn SetFullPage(self: QsciPrinter, fullPage: bool) void {
-        qtc.QPrinter_SetFullPage(@ptrCast(self.ptr), fullPage);
+    pub fn setFullPage(self: QsciPrinter, _fullPage: bool) void {
+        qtc.QPrinter_SetFullPage(@ptrCast(self.ptr), _fullPage);
     }
+
+    /// ### DEPRECATED: Use `fullPage` instead
+    ///
+    pub const FullPage = fullPage;
 
     /// Inherited from QPrinter
     ///
@@ -720,9 +876,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    pub fn FullPage(self: QsciPrinter) bool {
+    pub fn fullPage(self: QsciPrinter) bool {
         return qtc.QPrinter_FullPage(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCopyCount` instead
+    ///
+    pub const SetCopyCount = setCopyCount;
 
     /// Inherited from QPrinter
     ///
@@ -732,11 +892,15 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    /// ` copyCount: i32 `
+    /// ` _copyCount: i32 `
     ///
-    pub fn SetCopyCount(self: QsciPrinter, copyCount: i32) void {
-        qtc.QPrinter_SetCopyCount(@ptrCast(self.ptr), @bitCast(copyCount));
+    pub fn setCopyCount(self: QsciPrinter, _copyCount: i32) void {
+        qtc.QPrinter_SetCopyCount(@ptrCast(self.ptr), @bitCast(_copyCount));
     }
+
+    /// ### DEPRECATED: Use `copyCount` instead
+    ///
+    pub const CopyCount = copyCount;
 
     /// Inherited from QPrinter
     ///
@@ -746,9 +910,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    pub fn CopyCount(self: QsciPrinter) i32 {
+    pub fn copyCount(self: QsciPrinter) i32 {
         return qtc.QPrinter_CopyCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `supportsMultipleCopies` instead
+    ///
+    pub const SupportsMultipleCopies = supportsMultipleCopies;
 
     /// Inherited from QPrinter
     ///
@@ -758,9 +926,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    pub fn SupportsMultipleCopies(self: QsciPrinter) bool {
+    pub fn supportsMultipleCopies(self: QsciPrinter) bool {
         return qtc.QPrinter_SupportsMultipleCopies(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPaperSource` instead
+    ///
+    pub const SetPaperSource = setPaperSource;
 
     /// Inherited from QPrinter
     ///
@@ -770,11 +942,15 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    /// ` paperSource: qprinter_enums.PaperSource `
+    /// ` _paperSource: qprinter_enums.PaperSource `
     ///
-    pub fn SetPaperSource(self: QsciPrinter, paperSource: i32) void {
-        qtc.QPrinter_SetPaperSource(@ptrCast(self.ptr), @bitCast(paperSource));
+    pub fn setPaperSource(self: QsciPrinter, _paperSource: i32) void {
+        qtc.QPrinter_SetPaperSource(@ptrCast(self.ptr), @bitCast(_paperSource));
     }
+
+    /// ### DEPRECATED: Use `paperSource` instead
+    ///
+    pub const PaperSource = paperSource;
 
     /// Inherited from QPrinter
     ///
@@ -788,9 +964,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` qprinter_enums.PaperSource `
     ///
-    pub fn PaperSource(self: QsciPrinter) i32 {
+    pub fn paperSource(self: QsciPrinter) i32 {
         return qtc.QPrinter_PaperSource(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDuplex` instead
+    ///
+    pub const SetDuplex = setDuplex;
 
     /// Inherited from QPrinter
     ///
@@ -800,11 +980,15 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    /// ` duplex: qprinter_enums.DuplexMode `
+    /// ` _duplex: qprinter_enums.DuplexMode `
     ///
-    pub fn SetDuplex(self: QsciPrinter, duplex: i32) void {
-        qtc.QPrinter_SetDuplex(@ptrCast(self.ptr), @bitCast(duplex));
+    pub fn setDuplex(self: QsciPrinter, _duplex: i32) void {
+        qtc.QPrinter_SetDuplex(@ptrCast(self.ptr), @bitCast(_duplex));
     }
+
+    /// ### DEPRECATED: Use `duplex` instead
+    ///
+    pub const Duplex = duplex;
 
     /// Inherited from QPrinter
     ///
@@ -818,9 +1002,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` qprinter_enums.DuplexMode `
     ///
-    pub fn Duplex(self: QsciPrinter) i32 {
+    pub fn duplex(self: QsciPrinter) i32 {
         return qtc.QPrinter_Duplex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `supportedResolutions` instead
+    ///
+    pub const SupportedResolutions = supportedResolutions;
 
     /// Inherited from QPrinter
     ///
@@ -832,14 +1020,18 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SupportedResolutions(self: QsciPrinter, allocator: std.mem.Allocator) []i32 {
+    pub fn supportedResolutions(self: QsciPrinter, allocator: std.mem.Allocator) []i32 {
         const _arr: qtc.libqt_list = qtc.QPrinter_SupportedResolutions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QsciPrinter.SupportedResolutions: Memory allocation failed");
-        const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QsciPrinter.supportedResolutions: Memory allocation failed");
+        const _data_val: [*]i32 = @ptrCast(@alignCast(_arr.data));
+        @memcpy(_ret, _data_val[0.._arr.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setFontEmbeddingEnabled` instead
+    ///
+    pub const SetFontEmbeddingEnabled = setFontEmbeddingEnabled;
 
     /// Inherited from QPrinter
     ///
@@ -851,9 +1043,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetFontEmbeddingEnabled(self: QsciPrinter, enable: bool) void {
+    pub fn setFontEmbeddingEnabled(self: QsciPrinter, enable: bool) void {
         qtc.QPrinter_SetFontEmbeddingEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `fontEmbeddingEnabled` instead
+    ///
+    pub const FontEmbeddingEnabled = fontEmbeddingEnabled;
 
     /// Inherited from QPrinter
     ///
@@ -863,9 +1059,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    pub fn FontEmbeddingEnabled(self: QsciPrinter) bool {
+    pub fn fontEmbeddingEnabled(self: QsciPrinter) bool {
         return qtc.QPrinter_FontEmbeddingEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `paperRect` instead
+    ///
+    pub const PaperRect = paperRect;
 
     /// Inherited from QPrinter
     ///
@@ -877,9 +1077,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` param1: qprinter_enums.Unit `
     ///
-    pub fn PaperRect(self: QsciPrinter, param1: i32) QRectF {
+    pub fn paperRect(self: QsciPrinter, param1: i32) QRectF {
         return .{ .ptr = qtc.QPrinter_PaperRect(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `pageRect` instead
+    ///
+    pub const PageRect = pageRect;
 
     /// Inherited from QPrinter
     ///
@@ -891,9 +1095,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` param1: qprinter_enums.Unit `
     ///
-    pub fn PageRect(self: QsciPrinter, param1: i32) QRectF {
+    pub fn pageRect(self: QsciPrinter, param1: i32) QRectF {
         return .{ .ptr = qtc.QPrinter_PageRect(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `printerSelectionOption` instead
+    ///
+    pub const PrinterSelectionOption = printerSelectionOption;
 
     /// Inherited from QPrinter
     ///
@@ -905,13 +1113,17 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PrinterSelectionOption(self: QsciPrinter, allocator: std.mem.Allocator) []const u8 {
+    pub fn printerSelectionOption(self: QsciPrinter, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QPrinter_PrinterSelectionOption(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciPrinter.PrinterSelectionOption: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciPrinter.printerSelectionOption: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setPrinterSelectionOption` instead
+    ///
+    pub const SetPrinterSelectionOption = setPrinterSelectionOption;
 
     /// Inherited from QPrinter
     ///
@@ -921,15 +1133,19 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    /// ` printerSelectionOption: []const u8 `
+    /// ` _printerSelectionOption: []const u8 `
     ///
-    pub fn SetPrinterSelectionOption(self: QsciPrinter, printerSelectionOption: []const u8) void {
+    pub fn setPrinterSelectionOption(self: QsciPrinter, _printerSelectionOption: []const u8) void {
         const printerSelectionOption_str = qtc.libqt_string{
-            .len = printerSelectionOption.len,
-            .data = printerSelectionOption.ptr,
+            .len = _printerSelectionOption.len,
+            .data = _printerSelectionOption.ptr,
         };
         qtc.QPrinter_SetPrinterSelectionOption(@ptrCast(self.ptr), printerSelectionOption_str);
     }
+
+    /// ### DEPRECATED: Use `abort` instead
+    ///
+    pub const Abort = abort;
 
     /// Inherited from QPrinter
     ///
@@ -939,9 +1155,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    pub fn Abort(self: QsciPrinter) bool {
+    pub fn abort(self: QsciPrinter) bool {
         return qtc.QPrinter_Abort(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `printerState` instead
+    ///
+    pub const PrinterState = printerState;
 
     /// Inherited from QPrinter
     ///
@@ -955,9 +1175,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` qprinter_enums.PrinterState `
     ///
-    pub fn PrinterState(self: QsciPrinter) i32 {
+    pub fn printerState(self: QsciPrinter) i32 {
         return qtc.QPrinter_PrinterState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `printEngine` instead
+    ///
+    pub const PrintEngine = printEngine;
 
     /// Inherited from QPrinter
     ///
@@ -967,9 +1191,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    pub fn PrintEngine(self: QsciPrinter) QPrintEngine {
+    pub fn printEngine(self: QsciPrinter) QPrintEngine {
         return .{ .ptr = qtc.QPrinter_PrintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFromTo` instead
+    ///
+    pub const SetFromTo = setFromTo;
 
     /// Inherited from QPrinter
     ///
@@ -979,13 +1207,17 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    /// ` fromPage: i32 `
+    /// ` _fromPage: i32 `
     ///
-    /// ` toPage: i32 `
+    /// ` _toPage: i32 `
     ///
-    pub fn SetFromTo(self: QsciPrinter, fromPage: i32, toPage: i32) void {
-        qtc.QPrinter_SetFromTo(@ptrCast(self.ptr), @bitCast(fromPage), @bitCast(toPage));
+    pub fn setFromTo(self: QsciPrinter, _fromPage: i32, _toPage: i32) void {
+        qtc.QPrinter_SetFromTo(@ptrCast(self.ptr), @bitCast(_fromPage), @bitCast(_toPage));
     }
+
+    /// ### DEPRECATED: Use `fromPage` instead
+    ///
+    pub const FromPage = fromPage;
 
     /// Inherited from QPrinter
     ///
@@ -995,9 +1227,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    pub fn FromPage(self: QsciPrinter) i32 {
+    pub fn fromPage(self: QsciPrinter) i32 {
         return qtc.QPrinter_FromPage(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toPage` instead
+    ///
+    pub const ToPage = toPage;
 
     /// Inherited from QPrinter
     ///
@@ -1007,9 +1243,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    pub fn ToPage(self: QsciPrinter) i32 {
+    pub fn toPage(self: QsciPrinter) i32 {
         return qtc.QPrinter_ToPage(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPrintRange` instead
+    ///
+    pub const SetPrintRange = setPrintRange;
 
     /// Inherited from QPrinter
     ///
@@ -1021,9 +1261,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` range: qprinter_enums.PrintRange `
     ///
-    pub fn SetPrintRange(self: QsciPrinter, range: i32) void {
+    pub fn setPrintRange(self: QsciPrinter, range: i32) void {
         qtc.QPrinter_SetPrintRange(@ptrCast(self.ptr), @bitCast(range));
     }
+
+    /// ### DEPRECATED: Use `pageLayout` instead
+    ///
+    pub const PageLayout = pageLayout;
 
     /// Inherited from QPagedPaintDevice
     ///
@@ -1033,9 +1277,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    pub fn PageLayout(self: QsciPrinter) QPageLayout {
+    pub fn pageLayout(self: QsciPrinter) QPageLayout {
         return .{ .ptr = qtc.QPagedPaintDevice_PageLayout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `pageRanges` instead
+    ///
+    pub const PageRanges = pageRanges;
 
     /// Inherited from QPagedPaintDevice
     ///
@@ -1045,9 +1293,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    pub fn PageRanges(self: QsciPrinter) QPageRanges {
+    pub fn pageRanges(self: QsciPrinter) QPageRanges {
         return .{ .ptr = qtc.QPagedPaintDevice_PageRanges(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -1057,9 +1309,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    pub fn PaintingActive(self: QsciPrinter) bool {
+    pub fn paintingActive(self: QsciPrinter) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QPaintDevice
     ///
@@ -1069,9 +1325,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    pub fn Width(self: QsciPrinter) i32 {
+    pub fn width(self: QsciPrinter) i32 {
         return qtc.QPaintDevice_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QPaintDevice
     ///
@@ -1081,9 +1341,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    pub fn Height(self: QsciPrinter) i32 {
+    pub fn height(self: QsciPrinter) i32 {
         return qtc.QPaintDevice_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -1093,9 +1357,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    pub fn WidthMM(self: QsciPrinter) i32 {
+    pub fn widthMM(self: QsciPrinter) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -1105,9 +1373,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    pub fn HeightMM(self: QsciPrinter) i32 {
+    pub fn heightMM(self: QsciPrinter) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -1117,9 +1389,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    pub fn LogicalDpiX(self: QsciPrinter) i32 {
+    pub fn logicalDpiX(self: QsciPrinter) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -1129,9 +1405,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    pub fn LogicalDpiY(self: QsciPrinter) i32 {
+    pub fn logicalDpiY(self: QsciPrinter) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -1141,9 +1421,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    pub fn PhysicalDpiX(self: QsciPrinter) i32 {
+    pub fn physicalDpiX(self: QsciPrinter) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -1153,9 +1437,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    pub fn PhysicalDpiY(self: QsciPrinter) i32 {
+    pub fn physicalDpiY(self: QsciPrinter) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -1165,9 +1453,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    pub fn DevicePixelRatio(self: QsciPrinter) f64 {
+    pub fn devicePixelRatio(self: QsciPrinter) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -1177,9 +1469,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    pub fn DevicePixelRatioF(self: QsciPrinter) f64 {
+    pub fn devicePixelRatioF(self: QsciPrinter) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -1189,9 +1485,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    pub fn ColorCount(self: QsciPrinter) i32 {
+    pub fn colorCount(self: QsciPrinter) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -1201,17 +1501,25 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    pub fn Depth(self: QsciPrinter) i32 {
+    pub fn depth(self: QsciPrinter) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -1219,13 +1527,17 @@ pub const QsciPrinter = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QPrinter
     ///
@@ -1237,13 +1549,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    pub fn DevType(self: QsciPrinter) i32 {
+    pub fn devType(self: QsciPrinter) i32 {
         return qtc.QsciPrinter_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QPrinter
     ///
@@ -1255,9 +1567,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    pub fn SuperDevType(self: QsciPrinter) i32 {
+    pub fn superDevType(self: QsciPrinter) i32 {
         return qtc.QsciPrinter_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QPrinter
     ///
@@ -1271,9 +1587,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: QsciPrinter, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QsciPrinter, callback: *const fn () callconv(.c) i32) void {
         qtc.QsciPrinter_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `newPage` instead
+    ///
+    pub const NewPage = newPage;
 
     /// Inherited from QPrinter
     ///
@@ -1285,13 +1605,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    pub fn NewPage(self: QsciPrinter) bool {
+    pub fn newPage(self: QsciPrinter) bool {
         return qtc.QsciPrinter_NewPage(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperNewPage` instead
+    /// ### DEPRECATED: Use `superNewPage` instead
     ///
-    pub const QBaseNewPage = SuperNewPage;
+    pub const SuperNewPage = superNewPage;
 
     /// Inherited from QPrinter
     ///
@@ -1303,9 +1623,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    pub fn SuperNewPage(self: QsciPrinter) bool {
+    pub fn superNewPage(self: QsciPrinter) bool {
         return qtc.QsciPrinter_SuperNewPage(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onNewPage` instead
+    ///
+    pub const OnNewPage = onNewPage;
 
     /// Inherited from QPrinter
     ///
@@ -1319,9 +1643,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnNewPage(self: QsciPrinter, callback: *const fn () callconv(.c) bool) void {
+    pub fn onNewPage(self: QsciPrinter, callback: *const fn () callconv(.c) bool) void {
         qtc.QsciPrinter_OnNewPage(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QPrinter
     ///
@@ -1333,13 +1661,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    pub fn PaintEngine(self: QsciPrinter) QPaintEngine {
+    pub fn paintEngine(self: QsciPrinter) QPaintEngine {
         return .{ .ptr = qtc.QsciPrinter_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QPrinter
     ///
@@ -1351,9 +1679,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    pub fn SuperPaintEngine(self: QsciPrinter) QPaintEngine {
+    pub fn superPaintEngine(self: QsciPrinter) QPaintEngine {
         return .{ .ptr = qtc.QsciPrinter_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QPrinter
     ///
@@ -1367,9 +1699,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: QsciPrinter, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QsciPrinter, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.QsciPrinter_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QPrinter
     ///
@@ -1383,13 +1719,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: QsciPrinter, param1: i32) i32 {
+    pub fn metric(self: QsciPrinter, param1: i32) i32 {
         return qtc.QsciPrinter_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QPrinter
     ///
@@ -1403,9 +1739,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: QsciPrinter, param1: i32) i32 {
+    pub fn superMetric(self: QsciPrinter, param1: i32) i32 {
         return qtc.QsciPrinter_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QPrinter
     ///
@@ -1419,9 +1759,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` callback: *const fn (self: QsciPrinter, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: QsciPrinter, callback: *const fn (QsciPrinter, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: QsciPrinter, callback: *const fn (QsciPrinter, i32) callconv(.c) i32) void {
         qtc.QsciPrinter_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setPageLayout` instead
+    ///
+    pub const SetPageLayout = setPageLayout;
 
     /// Inherited from QPagedPaintDevice
     ///
@@ -1433,16 +1777,16 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    /// ` pageLayout: QPageLayout `
+    /// ` _pageLayout: QPageLayout `
     ///
-    pub fn SetPageLayout(self: QsciPrinter, pageLayout: anytype) bool {
-        comptime _ = @TypeOf(pageLayout)._is_QPageLayout;
-        return qtc.QsciPrinter_SetPageLayout(@ptrCast(self.ptr), @ptrCast(pageLayout.ptr));
+    pub fn setPageLayout(self: QsciPrinter, _pageLayout: anytype) bool {
+        comptime _ = @TypeOf(_pageLayout)._is_QPageLayout;
+        return qtc.QsciPrinter_SetPageLayout(@ptrCast(self.ptr), @ptrCast(_pageLayout.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetPageLayout` instead
+    /// ### DEPRECATED: Use `superSetPageLayout` instead
     ///
-    pub const QBaseSetPageLayout = SuperSetPageLayout;
+    pub const SuperSetPageLayout = superSetPageLayout;
 
     /// Inherited from QPagedPaintDevice
     ///
@@ -1454,12 +1798,16 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    /// ` pageLayout: QPageLayout `
+    /// ` _pageLayout: QPageLayout `
     ///
-    pub fn SuperSetPageLayout(self: QsciPrinter, pageLayout: anytype) bool {
-        comptime _ = @TypeOf(pageLayout)._is_QPageLayout;
-        return qtc.QsciPrinter_SuperSetPageLayout(@ptrCast(self.ptr), @ptrCast(pageLayout.ptr));
+    pub fn superSetPageLayout(self: QsciPrinter, _pageLayout: anytype) bool {
+        comptime _ = @TypeOf(_pageLayout)._is_QPageLayout;
+        return qtc.QsciPrinter_SuperSetPageLayout(@ptrCast(self.ptr), @ptrCast(_pageLayout.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetPageLayout` instead
+    ///
+    pub const OnSetPageLayout = onSetPageLayout;
 
     /// Inherited from QPagedPaintDevice
     ///
@@ -1473,9 +1821,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` callback: *const fn (self: QsciPrinter, pageLayout: QPageLayout) callconv(.c) bool `
     ///
-    pub fn OnSetPageLayout(self: QsciPrinter, callback: *const fn (QsciPrinter, QPageLayout) callconv(.c) bool) void {
+    pub fn onSetPageLayout(self: QsciPrinter, callback: *const fn (QsciPrinter, QPageLayout) callconv(.c) bool) void {
         qtc.QsciPrinter_OnSetPageLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setPageSize` instead
+    ///
+    pub const SetPageSize = setPageSize;
 
     /// Inherited from QPagedPaintDevice
     ///
@@ -1489,14 +1841,14 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` pageSize: QPageSize `
     ///
-    pub fn SetPageSize(self: QsciPrinter, pageSize: anytype) bool {
+    pub fn setPageSize(self: QsciPrinter, pageSize: anytype) bool {
         comptime _ = @TypeOf(pageSize)._is_QPageSize;
         return qtc.QsciPrinter_SetPageSize(@ptrCast(self.ptr), @ptrCast(pageSize.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetPageSize` instead
+    /// ### DEPRECATED: Use `superSetPageSize` instead
     ///
-    pub const QBaseSetPageSize = SuperSetPageSize;
+    pub const SuperSetPageSize = superSetPageSize;
 
     /// Inherited from QPagedPaintDevice
     ///
@@ -1510,10 +1862,14 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` pageSize: QPageSize `
     ///
-    pub fn SuperSetPageSize(self: QsciPrinter, pageSize: anytype) bool {
+    pub fn superSetPageSize(self: QsciPrinter, pageSize: anytype) bool {
         comptime _ = @TypeOf(pageSize)._is_QPageSize;
         return qtc.QsciPrinter_SuperSetPageSize(@ptrCast(self.ptr), @ptrCast(pageSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetPageSize` instead
+    ///
+    pub const OnSetPageSize = onSetPageSize;
 
     /// Inherited from QPagedPaintDevice
     ///
@@ -1527,9 +1883,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` callback: *const fn (self: QsciPrinter, pageSize: QPageSize) callconv(.c) bool `
     ///
-    pub fn OnSetPageSize(self: QsciPrinter, callback: *const fn (QsciPrinter, QPageSize) callconv(.c) bool) void {
+    pub fn onSetPageSize(self: QsciPrinter, callback: *const fn (QsciPrinter, QPageSize) callconv(.c) bool) void {
         qtc.QsciPrinter_OnSetPageSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setPageOrientation` instead
+    ///
+    pub const SetPageOrientation = setPageOrientation;
 
     /// Inherited from QPagedPaintDevice
     ///
@@ -1543,13 +1903,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` orientation: qpagelayout_enums.Orientation `
     ///
-    pub fn SetPageOrientation(self: QsciPrinter, orientation: i32) bool {
+    pub fn setPageOrientation(self: QsciPrinter, orientation: i32) bool {
         return qtc.QsciPrinter_SetPageOrientation(@ptrCast(self.ptr), @bitCast(orientation));
     }
 
-    /// ### DEPRECATED: Use `SuperSetPageOrientation` instead
+    /// ### DEPRECATED: Use `superSetPageOrientation` instead
     ///
-    pub const QBaseSetPageOrientation = SuperSetPageOrientation;
+    pub const SuperSetPageOrientation = superSetPageOrientation;
 
     /// Inherited from QPagedPaintDevice
     ///
@@ -1563,9 +1923,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` orientation: qpagelayout_enums.Orientation `
     ///
-    pub fn SuperSetPageOrientation(self: QsciPrinter, orientation: i32) bool {
+    pub fn superSetPageOrientation(self: QsciPrinter, orientation: i32) bool {
         return qtc.QsciPrinter_SuperSetPageOrientation(@ptrCast(self.ptr), @bitCast(orientation));
     }
+
+    /// ### DEPRECATED: Use `onSetPageOrientation` instead
+    ///
+    pub const OnSetPageOrientation = onSetPageOrientation;
 
     /// Inherited from QPagedPaintDevice
     ///
@@ -1579,9 +1943,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` callback: *const fn (self: QsciPrinter, orientation: qpagelayout_enums.Orientation) callconv(.c) bool `
     ///
-    pub fn OnSetPageOrientation(self: QsciPrinter, callback: *const fn (QsciPrinter, i32) callconv(.c) bool) void {
+    pub fn onSetPageOrientation(self: QsciPrinter, callback: *const fn (QsciPrinter, i32) callconv(.c) bool) void {
         qtc.QsciPrinter_OnSetPageOrientation(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setPageMargins` instead
+    ///
+    pub const SetPageMargins = setPageMargins;
 
     /// Inherited from QPagedPaintDevice
     ///
@@ -1597,14 +1965,14 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` units: qpagelayout_enums.Unit `
     ///
-    pub fn SetPageMargins(self: QsciPrinter, margins: anytype, units: i32) bool {
+    pub fn setPageMargins(self: QsciPrinter, margins: anytype, units: i32) bool {
         comptime _ = @TypeOf(margins)._is_QMarginsF;
         return qtc.QsciPrinter_SetPageMargins(@ptrCast(self.ptr), @ptrCast(margins.ptr), @bitCast(units));
     }
 
-    /// ### DEPRECATED: Use `SuperSetPageMargins` instead
+    /// ### DEPRECATED: Use `superSetPageMargins` instead
     ///
-    pub const QBaseSetPageMargins = SuperSetPageMargins;
+    pub const SuperSetPageMargins = superSetPageMargins;
 
     /// Inherited from QPagedPaintDevice
     ///
@@ -1620,10 +1988,14 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` units: qpagelayout_enums.Unit `
     ///
-    pub fn SuperSetPageMargins(self: QsciPrinter, margins: anytype, units: i32) bool {
+    pub fn superSetPageMargins(self: QsciPrinter, margins: anytype, units: i32) bool {
         comptime _ = @TypeOf(margins)._is_QMarginsF;
         return qtc.QsciPrinter_SuperSetPageMargins(@ptrCast(self.ptr), @ptrCast(margins.ptr), @bitCast(units));
     }
+
+    /// ### DEPRECATED: Use `onSetPageMargins` instead
+    ///
+    pub const OnSetPageMargins = onSetPageMargins;
 
     /// Inherited from QPagedPaintDevice
     ///
@@ -1637,9 +2009,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` callback: *const fn (self: QsciPrinter, margins: QMarginsF, units: qpagelayout_enums.Unit) callconv(.c) bool `
     ///
-    pub fn OnSetPageMargins(self: QsciPrinter, callback: *const fn (QsciPrinter, QMarginsF, i32) callconv(.c) bool) void {
+    pub fn onSetPageMargins(self: QsciPrinter, callback: *const fn (QsciPrinter, QMarginsF, i32) callconv(.c) bool) void {
         qtc.QsciPrinter_OnSetPageMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setPageRanges` instead
+    ///
+    pub const SetPageRanges = setPageRanges;
 
     /// Inherited from QPagedPaintDevice
     ///
@@ -1653,14 +2029,14 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` ranges: QPageRanges `
     ///
-    pub fn SetPageRanges(self: QsciPrinter, ranges: anytype) void {
+    pub fn setPageRanges(self: QsciPrinter, ranges: anytype) void {
         comptime _ = @TypeOf(ranges)._is_QPageRanges;
         qtc.QsciPrinter_SetPageRanges(@ptrCast(self.ptr), @ptrCast(ranges.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetPageRanges` instead
+    /// ### DEPRECATED: Use `superSetPageRanges` instead
     ///
-    pub const QBaseSetPageRanges = SuperSetPageRanges;
+    pub const SuperSetPageRanges = superSetPageRanges;
 
     /// Inherited from QPagedPaintDevice
     ///
@@ -1674,10 +2050,14 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` ranges: QPageRanges `
     ///
-    pub fn SuperSetPageRanges(self: QsciPrinter, ranges: anytype) void {
+    pub fn superSetPageRanges(self: QsciPrinter, ranges: anytype) void {
         comptime _ = @TypeOf(ranges)._is_QPageRanges;
         qtc.QsciPrinter_SuperSetPageRanges(@ptrCast(self.ptr), @ptrCast(ranges.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetPageRanges` instead
+    ///
+    pub const OnSetPageRanges = onSetPageRanges;
 
     /// Inherited from QPagedPaintDevice
     ///
@@ -1691,9 +2071,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` callback: *const fn (self: QsciPrinter, ranges: QPageRanges) callconv(.c) void `
     ///
-    pub fn OnSetPageRanges(self: QsciPrinter, callback: *const fn (QsciPrinter, QPageRanges) callconv(.c) void) void {
+    pub fn onSetPageRanges(self: QsciPrinter, callback: *const fn (QsciPrinter, QPageRanges) callconv(.c) void) void {
         qtc.QsciPrinter_OnSetPageRanges(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QPaintDevice
     ///
@@ -1707,14 +2091,14 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: QsciPrinter, painter: anytype) void {
+    pub fn initPainter(self: QsciPrinter, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QsciPrinter_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QPaintDevice
     ///
@@ -1728,10 +2112,14 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: QsciPrinter, painter: anytype) void {
+    pub fn superInitPainter(self: QsciPrinter, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QsciPrinter_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QPaintDevice
     ///
@@ -1745,9 +2133,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` callback: *const fn (self: QsciPrinter, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: QsciPrinter, callback: *const fn (QsciPrinter, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: QsciPrinter, callback: *const fn (QsciPrinter, QPainter) callconv(.c) void) void {
         qtc.QsciPrinter_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QPaintDevice
     ///
@@ -1761,14 +2153,14 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: QsciPrinter, offset: anytype) QPaintDevice {
+    pub fn redirected(self: QsciPrinter, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.QsciPrinter_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QPaintDevice
     ///
@@ -1782,10 +2174,14 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: QsciPrinter, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: QsciPrinter, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.QsciPrinter_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QPaintDevice
     ///
@@ -1799,9 +2195,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` callback: *const fn (self: QsciPrinter, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: QsciPrinter, callback: *const fn (QsciPrinter, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: QsciPrinter, callback: *const fn (QsciPrinter, QPoint) callconv(.c) QPaintDevice) void {
         qtc.QsciPrinter_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QPaintDevice
     ///
@@ -1813,13 +2213,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    pub fn SharedPainter(self: QsciPrinter) QPainter {
+    pub fn sharedPainter(self: QsciPrinter) QPainter {
         return .{ .ptr = qtc.QsciPrinter_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QPaintDevice
     ///
@@ -1831,9 +2231,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    pub fn SuperSharedPainter(self: QsciPrinter) QPainter {
+    pub fn superSharedPainter(self: QsciPrinter) QPainter {
         return .{ .ptr = qtc.QsciPrinter_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QPaintDevice
     ///
@@ -1847,9 +2251,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: QsciPrinter, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QsciPrinter, callback: *const fn () callconv(.c) QPainter) void {
         qtc.QsciPrinter_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setEngines` instead
+    ///
+    pub const SetEngines = setEngines;
 
     /// Inherited from QPrinter
     ///
@@ -1861,19 +2269,19 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    /// ` printEngine: QPrintEngine `
+    /// ` _printEngine: QPrintEngine `
     ///
-    /// ` paintEngine: QPaintEngine `
+    /// ` _paintEngine: QPaintEngine `
     ///
-    pub fn SetEngines(self: QsciPrinter, printEngine: anytype, paintEngine: anytype) void {
-        comptime _ = @TypeOf(printEngine)._is_QPrintEngine;
-        comptime _ = @TypeOf(paintEngine)._is_QPaintEngine;
-        qtc.QsciPrinter_SetEngines(@ptrCast(self.ptr), @ptrCast(printEngine.ptr), @ptrCast(paintEngine.ptr));
+    pub fn setEngines(self: QsciPrinter, _printEngine: anytype, _paintEngine: anytype) void {
+        comptime _ = @TypeOf(_printEngine)._is_QPrintEngine;
+        comptime _ = @TypeOf(_paintEngine)._is_QPaintEngine;
+        qtc.QsciPrinter_SetEngines(@ptrCast(self.ptr), @ptrCast(_printEngine.ptr), @ptrCast(_paintEngine.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetEngines` instead
+    /// ### DEPRECATED: Use `superSetEngines` instead
     ///
-    pub const QBaseSetEngines = SuperSetEngines;
+    pub const SuperSetEngines = superSetEngines;
 
     /// Inherited from QPrinter
     ///
@@ -1885,15 +2293,19 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` self: QsciPrinter `
     ///
-    /// ` printEngine: QPrintEngine `
+    /// ` _printEngine: QPrintEngine `
     ///
-    /// ` paintEngine: QPaintEngine `
+    /// ` _paintEngine: QPaintEngine `
     ///
-    pub fn SuperSetEngines(self: QsciPrinter, printEngine: anytype, paintEngine: anytype) void {
-        comptime _ = @TypeOf(printEngine)._is_QPrintEngine;
-        comptime _ = @TypeOf(paintEngine)._is_QPaintEngine;
-        qtc.QsciPrinter_SuperSetEngines(@ptrCast(self.ptr), @ptrCast(printEngine.ptr), @ptrCast(paintEngine.ptr));
+    pub fn superSetEngines(self: QsciPrinter, _printEngine: anytype, _paintEngine: anytype) void {
+        comptime _ = @TypeOf(_printEngine)._is_QPrintEngine;
+        comptime _ = @TypeOf(_paintEngine)._is_QPaintEngine;
+        qtc.QsciPrinter_SuperSetEngines(@ptrCast(self.ptr), @ptrCast(_printEngine.ptr), @ptrCast(_paintEngine.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetEngines` instead
+    ///
+    pub const OnSetEngines = onSetEngines;
 
     /// Inherited from QPrinter
     ///
@@ -1907,9 +2319,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` callback: *const fn (self: QsciPrinter, printEngine: QPrintEngine, paintEngine: QPaintEngine) callconv(.c) void `
     ///
-    pub fn OnSetEngines(self: QsciPrinter, callback: *const fn (QsciPrinter, QPrintEngine, QPaintEngine) callconv(.c) void) void {
+    pub fn onSetEngines(self: QsciPrinter, callback: *const fn (QsciPrinter, QPrintEngine, QPaintEngine) callconv(.c) void) void {
         qtc.QsciPrinter_OnSetEngines(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -1925,13 +2341,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: QsciPrinter, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: QsciPrinter, metricA: i32, metricB: i32) f64 {
         return qtc.QsciPrinter_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -1947,9 +2363,13 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: QsciPrinter, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: QsciPrinter, metricA: i32, metricB: i32) f64 {
         return qtc.QsciPrinter_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -1963,23 +2383,23 @@ pub const QsciPrinter = extern struct {
     ///
     /// ` callback: *const fn (self: QsciPrinter, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: QsciPrinter, callback: *const fn (QsciPrinter, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: QsciPrinter, callback: *const fn (QsciPrinter, i32, i32) callconv(.c) f64) void {
         qtc.QsciPrinter_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciPrinter.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QsciPrinter `
     ///
-    pub fn Delete(self: QsciPrinter) void {
+    pub fn delete(self: QsciPrinter) void {
         qtc.QsciPrinter_Delete(@ptrCast(self.ptr));
     }
 };

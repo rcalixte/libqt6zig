@@ -37,22 +37,34 @@ pub const QFormLayout = extern struct {
     pub const _is_QObject = {};
     pub const _is_QLayoutItem = {};
 
-    /// New constructs a new QFormLayout object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QFormLayout object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) QFormLayout {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QFormLayout_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) QFormLayout {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QFormLayout_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new QFormLayout object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() QFormLayout {
+    pub const New2 = new2;
+
+    /// Allocate a new QFormLayout object in C++ memory
+    ///
+    pub fn new2() QFormLayout {
         return .{ .ptr = qtc.QFormLayout_new2() };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -60,9 +72,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn MetaObject(self: QFormLayout) QMetaObject {
+    pub fn metaObject(self: QFormLayout) QMetaObject {
         return .{ .ptr = qtc.QFormLayout_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -74,13 +90,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QFormLayout, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QFormLayout, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QFormLayout_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -90,9 +106,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn SuperMetaObject(self: QFormLayout) QMetaObject {
+    pub fn superMetaObject(self: QFormLayout) QMetaObject {
         return .{ .ptr = qtc.QFormLayout_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -100,10 +120,14 @@ pub const QFormLayout = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QFormLayout, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QFormLayout, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QFormLayout_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -113,13 +137,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QFormLayout, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QFormLayout, callback: *const fn (QFormLayout, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QFormLayout, callback: *const fn (QFormLayout, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QFormLayout_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -129,10 +153,14 @@ pub const QFormLayout = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QFormLayout, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QFormLayout, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QFormLayout_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -144,9 +172,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QFormLayout, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QFormLayout, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QFormLayout_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -156,13 +188,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QFormLayout, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QFormLayout, callback: *const fn (QFormLayout, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QFormLayout, callback: *const fn (QFormLayout, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QFormLayout_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -176,9 +208,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QFormLayout, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QFormLayout, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QFormLayout_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -188,14 +224,18 @@ pub const QFormLayout = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFormLayout.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFormLayout.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setFieldGrowthPolicy` instead
+    ///
+    pub const SetFieldGrowthPolicy = setFieldGrowthPolicy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#setFieldGrowthPolicy)
     ///
@@ -205,9 +245,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` policy: qformlayout_enums.FieldGrowthPolicy `
     ///
-    pub fn SetFieldGrowthPolicy(self: QFormLayout, policy: i32) void {
+    pub fn setFieldGrowthPolicy(self: QFormLayout, policy: i32) void {
         qtc.QFormLayout_SetFieldGrowthPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `fieldGrowthPolicy` instead
+    ///
+    pub const FieldGrowthPolicy = fieldGrowthPolicy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#fieldGrowthPolicy)
     ///
@@ -219,9 +263,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` qformlayout_enums.FieldGrowthPolicy `
     ///
-    pub fn FieldGrowthPolicy(self: QFormLayout) i32 {
+    pub fn fieldGrowthPolicy(self: QFormLayout) i32 {
         return qtc.QFormLayout_FieldGrowthPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setRowWrapPolicy` instead
+    ///
+    pub const SetRowWrapPolicy = setRowWrapPolicy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#setRowWrapPolicy)
     ///
@@ -231,9 +279,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` policy: qformlayout_enums.RowWrapPolicy `
     ///
-    pub fn SetRowWrapPolicy(self: QFormLayout, policy: i32) void {
+    pub fn setRowWrapPolicy(self: QFormLayout, policy: i32) void {
         qtc.QFormLayout_SetRowWrapPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `rowWrapPolicy` instead
+    ///
+    pub const RowWrapPolicy = rowWrapPolicy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#rowWrapPolicy)
     ///
@@ -245,9 +297,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` qformlayout_enums.RowWrapPolicy `
     ///
-    pub fn RowWrapPolicy(self: QFormLayout) i32 {
+    pub fn rowWrapPolicy(self: QFormLayout) i32 {
         return qtc.QFormLayout_RowWrapPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLabelAlignment` instead
+    ///
+    pub const SetLabelAlignment = setLabelAlignment;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#setLabelAlignment)
     ///
@@ -255,11 +311,15 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
+    /// ` _alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn SetLabelAlignment(self: QFormLayout, alignment: i32) void {
-        qtc.QFormLayout_SetLabelAlignment(@ptrCast(self.ptr), @bitCast(alignment));
+    pub fn setLabelAlignment(self: QFormLayout, _alignment: i32) void {
+        qtc.QFormLayout_SetLabelAlignment(@ptrCast(self.ptr), @bitCast(_alignment));
     }
+
+    /// ### DEPRECATED: Use `labelAlignment` instead
+    ///
+    pub const LabelAlignment = labelAlignment;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#labelAlignment)
     ///
@@ -271,9 +331,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn LabelAlignment(self: QFormLayout) i32 {
+    pub fn labelAlignment(self: QFormLayout) i32 {
         return qtc.QFormLayout_LabelAlignment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFormAlignment` instead
+    ///
+    pub const SetFormAlignment = setFormAlignment;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#setFormAlignment)
     ///
@@ -281,11 +345,15 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
+    /// ` _alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn SetFormAlignment(self: QFormLayout, alignment: i32) void {
-        qtc.QFormLayout_SetFormAlignment(@ptrCast(self.ptr), @bitCast(alignment));
+    pub fn setFormAlignment(self: QFormLayout, _alignment: i32) void {
+        qtc.QFormLayout_SetFormAlignment(@ptrCast(self.ptr), @bitCast(_alignment));
     }
+
+    /// ### DEPRECATED: Use `formAlignment` instead
+    ///
+    pub const FormAlignment = formAlignment;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#formAlignment)
     ///
@@ -297,9 +365,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn FormAlignment(self: QFormLayout) i32 {
+    pub fn formAlignment(self: QFormLayout) i32 {
         return qtc.QFormLayout_FormAlignment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHorizontalSpacing` instead
+    ///
+    pub const SetHorizontalSpacing = setHorizontalSpacing;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#setHorizontalSpacing)
     ///
@@ -307,11 +379,15 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    /// ` spacing: i32 `
+    /// ` _spacing: i32 `
     ///
-    pub fn SetHorizontalSpacing(self: QFormLayout, spacing: i32) void {
-        qtc.QFormLayout_SetHorizontalSpacing(@ptrCast(self.ptr), @bitCast(spacing));
+    pub fn setHorizontalSpacing(self: QFormLayout, _spacing: i32) void {
+        qtc.QFormLayout_SetHorizontalSpacing(@ptrCast(self.ptr), @bitCast(_spacing));
     }
+
+    /// ### DEPRECATED: Use `horizontalSpacing` instead
+    ///
+    pub const HorizontalSpacing = horizontalSpacing;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#horizontalSpacing)
     ///
@@ -319,9 +395,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn HorizontalSpacing(self: QFormLayout) i32 {
+    pub fn horizontalSpacing(self: QFormLayout) i32 {
         return qtc.QFormLayout_HorizontalSpacing(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setVerticalSpacing` instead
+    ///
+    pub const SetVerticalSpacing = setVerticalSpacing;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#setVerticalSpacing)
     ///
@@ -329,11 +409,15 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    /// ` spacing: i32 `
+    /// ` _spacing: i32 `
     ///
-    pub fn SetVerticalSpacing(self: QFormLayout, spacing: i32) void {
-        qtc.QFormLayout_SetVerticalSpacing(@ptrCast(self.ptr), @bitCast(spacing));
+    pub fn setVerticalSpacing(self: QFormLayout, _spacing: i32) void {
+        qtc.QFormLayout_SetVerticalSpacing(@ptrCast(self.ptr), @bitCast(_spacing));
     }
+
+    /// ### DEPRECATED: Use `verticalSpacing` instead
+    ///
+    pub const VerticalSpacing = verticalSpacing;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#verticalSpacing)
     ///
@@ -341,9 +425,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn VerticalSpacing(self: QFormLayout) i32 {
+    pub fn verticalSpacing(self: QFormLayout) i32 {
         return qtc.QFormLayout_VerticalSpacing(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `spacing` instead
+    ///
+    pub const Spacing = spacing;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#spacing)
     ///
@@ -351,9 +439,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn Spacing(self: QFormLayout) i32 {
+    pub fn spacing(self: QFormLayout) i32 {
         return qtc.QFormLayout_Spacing(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSpacing` instead
+    ///
+    pub const OnSpacing = onSpacing;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#spacing)
     ///
@@ -365,13 +457,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSpacing(self: QFormLayout, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSpacing(self: QFormLayout, callback: *const fn () callconv(.c) i32) void {
         qtc.QFormLayout_OnSpacing(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSpacing` instead
+    /// ### DEPRECATED: Use `superSpacing` instead
     ///
-    pub const QBaseSpacing = SuperSpacing;
+    pub const SuperSpacing = superSpacing;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#spacing)
     ///
@@ -381,9 +473,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn SuperSpacing(self: QFormLayout) i32 {
+    pub fn superSpacing(self: QFormLayout) i32 {
         return qtc.QFormLayout_SuperSpacing(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSpacing` instead
+    ///
+    pub const SetSpacing = setSpacing;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#setSpacing)
     ///
@@ -391,11 +487,15 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    /// ` spacing: i32 `
+    /// ` _spacing: i32 `
     ///
-    pub fn SetSpacing(self: QFormLayout, spacing: i32) void {
-        qtc.QFormLayout_SetSpacing(@ptrCast(self.ptr), @bitCast(spacing));
+    pub fn setSpacing(self: QFormLayout, _spacing: i32) void {
+        qtc.QFormLayout_SetSpacing(@ptrCast(self.ptr), @bitCast(_spacing));
     }
+
+    /// ### DEPRECATED: Use `onSetSpacing` instead
+    ///
+    pub const OnSetSpacing = onSetSpacing;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#setSpacing)
     ///
@@ -407,13 +507,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QFormLayout, spacing: i32) callconv(.c) void `
     ///
-    pub fn OnSetSpacing(self: QFormLayout, callback: *const fn (QFormLayout, i32) callconv(.c) void) void {
+    pub fn onSetSpacing(self: QFormLayout, callback: *const fn (QFormLayout, i32) callconv(.c) void) void {
         qtc.QFormLayout_OnSetSpacing(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetSpacing` instead
+    /// ### DEPRECATED: Use `superSetSpacing` instead
     ///
-    pub const QBaseSetSpacing = SuperSetSpacing;
+    pub const SuperSetSpacing = superSetSpacing;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#setSpacing)
     ///
@@ -423,11 +523,15 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    /// ` spacing: i32 `
+    /// ` _spacing: i32 `
     ///
-    pub fn SuperSetSpacing(self: QFormLayout, spacing: i32) void {
-        qtc.QFormLayout_SuperSetSpacing(@ptrCast(self.ptr), @bitCast(spacing));
+    pub fn superSetSpacing(self: QFormLayout, _spacing: i32) void {
+        qtc.QFormLayout_SuperSetSpacing(@ptrCast(self.ptr), @bitCast(_spacing));
     }
+
+    /// ### DEPRECATED: Use `addRow` instead
+    ///
+    pub const AddRow = addRow;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#addRow)
     ///
@@ -439,11 +543,15 @@ pub const QFormLayout = extern struct {
     ///
     /// ` field: QWidget `
     ///
-    pub fn AddRow(self: QFormLayout, label: anytype, field: anytype) void {
+    pub fn addRow(self: QFormLayout, label: anytype, field: anytype) void {
         comptime _ = @TypeOf(label)._is_QWidget;
         comptime _ = @TypeOf(field)._is_QWidget;
         qtc.QFormLayout_AddRow(@ptrCast(self.ptr), @ptrCast(label.ptr), @ptrCast(field.ptr));
     }
+
+    /// ### DEPRECATED: Use `addRow2` instead
+    ///
+    pub const AddRow2 = addRow2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#addRow)
     ///
@@ -455,11 +563,15 @@ pub const QFormLayout = extern struct {
     ///
     /// ` field: QLayout `
     ///
-    pub fn AddRow2(self: QFormLayout, label: anytype, field: anytype) void {
+    pub fn addRow2(self: QFormLayout, label: anytype, field: anytype) void {
         comptime _ = @TypeOf(label)._is_QWidget;
         comptime _ = @TypeOf(field)._is_QLayout;
         qtc.QFormLayout_AddRow2(@ptrCast(self.ptr), @ptrCast(label.ptr), @ptrCast(field.ptr));
     }
+
+    /// ### DEPRECATED: Use `addRow3` instead
+    ///
+    pub const AddRow3 = addRow3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#addRow)
     ///
@@ -471,7 +583,7 @@ pub const QFormLayout = extern struct {
     ///
     /// ` field: QWidget `
     ///
-    pub fn AddRow3(self: QFormLayout, labelText: []const u8, field: anytype) void {
+    pub fn addRow3(self: QFormLayout, labelText: []const u8, field: anytype) void {
         const labelText_str = qtc.libqt_string{
             .len = labelText.len,
             .data = labelText.ptr,
@@ -480,6 +592,10 @@ pub const QFormLayout = extern struct {
         qtc.QFormLayout_AddRow3(@ptrCast(self.ptr), labelText_str, @ptrCast(field.ptr));
     }
 
+    /// ### DEPRECATED: Use `addRow4` instead
+    ///
+    pub const AddRow4 = addRow4;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#addRow)
     ///
     /// ## Parameter(s):
@@ -490,7 +606,7 @@ pub const QFormLayout = extern struct {
     ///
     /// ` field: QLayout `
     ///
-    pub fn AddRow4(self: QFormLayout, labelText: []const u8, field: anytype) void {
+    pub fn addRow4(self: QFormLayout, labelText: []const u8, field: anytype) void {
         const labelText_str = qtc.libqt_string{
             .len = labelText.len,
             .data = labelText.ptr,
@@ -499,18 +615,9 @@ pub const QFormLayout = extern struct {
         qtc.QFormLayout_AddRow4(@ptrCast(self.ptr), labelText_str, @ptrCast(field.ptr));
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#addRow)
+    /// ### DEPRECATED: Use `addRow5` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QFormLayout `
-    ///
-    /// ` widget: QWidget `
-    ///
-    pub fn AddRow5(self: QFormLayout, widget: anytype) void {
-        comptime _ = @TypeOf(widget)._is_QWidget;
-        qtc.QFormLayout_AddRow5(@ptrCast(self.ptr), @ptrCast(widget.ptr));
-    }
+    pub const AddRow5 = addRow5;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#addRow)
     ///
@@ -518,12 +625,33 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    /// ` layout: QLayout `
+    /// ` _widget: QWidget `
     ///
-    pub fn AddRow6(self: QFormLayout, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QFormLayout_AddRow6(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn addRow5(self: QFormLayout, _widget: anytype) void {
+        comptime _ = @TypeOf(_widget)._is_QWidget;
+        qtc.QFormLayout_AddRow5(@ptrCast(self.ptr), @ptrCast(_widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `addRow6` instead
+    ///
+    pub const AddRow6 = addRow6;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#addRow)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QFormLayout `
+    ///
+    /// ` _layout: QLayout `
+    ///
+    pub fn addRow6(self: QFormLayout, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QFormLayout_AddRow6(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
+    }
+
+    /// ### DEPRECATED: Use `insertRow` instead
+    ///
+    pub const InsertRow = insertRow;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#insertRow)
     ///
@@ -537,11 +665,15 @@ pub const QFormLayout = extern struct {
     ///
     /// ` field: QWidget `
     ///
-    pub fn InsertRow(self: QFormLayout, row: i32, label: anytype, field: anytype) void {
+    pub fn insertRow(self: QFormLayout, row: i32, label: anytype, field: anytype) void {
         comptime _ = @TypeOf(label)._is_QWidget;
         comptime _ = @TypeOf(field)._is_QWidget;
         qtc.QFormLayout_InsertRow(@ptrCast(self.ptr), @bitCast(row), @ptrCast(label.ptr), @ptrCast(field.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertRow2` instead
+    ///
+    pub const InsertRow2 = insertRow2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#insertRow)
     ///
@@ -555,11 +687,15 @@ pub const QFormLayout = extern struct {
     ///
     /// ` field: QLayout `
     ///
-    pub fn InsertRow2(self: QFormLayout, row: i32, label: anytype, field: anytype) void {
+    pub fn insertRow2(self: QFormLayout, row: i32, label: anytype, field: anytype) void {
         comptime _ = @TypeOf(label)._is_QWidget;
         comptime _ = @TypeOf(field)._is_QLayout;
         qtc.QFormLayout_InsertRow2(@ptrCast(self.ptr), @bitCast(row), @ptrCast(label.ptr), @ptrCast(field.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertRow3` instead
+    ///
+    pub const InsertRow3 = insertRow3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#insertRow)
     ///
@@ -573,7 +709,7 @@ pub const QFormLayout = extern struct {
     ///
     /// ` field: QWidget `
     ///
-    pub fn InsertRow3(self: QFormLayout, row: i32, labelText: []const u8, field: anytype) void {
+    pub fn insertRow3(self: QFormLayout, row: i32, labelText: []const u8, field: anytype) void {
         const labelText_str = qtc.libqt_string{
             .len = labelText.len,
             .data = labelText.ptr,
@@ -582,6 +718,10 @@ pub const QFormLayout = extern struct {
         qtc.QFormLayout_InsertRow3(@ptrCast(self.ptr), @bitCast(row), labelText_str, @ptrCast(field.ptr));
     }
 
+    /// ### DEPRECATED: Use `insertRow4` instead
+    ///
+    pub const InsertRow4 = insertRow4;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#insertRow)
     ///
     /// ## Parameter(s):
@@ -594,7 +734,7 @@ pub const QFormLayout = extern struct {
     ///
     /// ` field: QLayout `
     ///
-    pub fn InsertRow4(self: QFormLayout, row: i32, labelText: []const u8, field: anytype) void {
+    pub fn insertRow4(self: QFormLayout, row: i32, labelText: []const u8, field: anytype) void {
         const labelText_str = qtc.libqt_string{
             .len = labelText.len,
             .data = labelText.ptr,
@@ -603,20 +743,9 @@ pub const QFormLayout = extern struct {
         qtc.QFormLayout_InsertRow4(@ptrCast(self.ptr), @bitCast(row), labelText_str, @ptrCast(field.ptr));
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#insertRow)
+    /// ### DEPRECATED: Use `insertRow5` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QFormLayout `
-    ///
-    /// ` row: i32 `
-    ///
-    /// ` widget: QWidget `
-    ///
-    pub fn InsertRow5(self: QFormLayout, row: i32, widget: anytype) void {
-        comptime _ = @TypeOf(widget)._is_QWidget;
-        qtc.QFormLayout_InsertRow5(@ptrCast(self.ptr), @bitCast(row), @ptrCast(widget.ptr));
-    }
+    pub const InsertRow5 = insertRow5;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#insertRow)
     ///
@@ -626,12 +755,35 @@ pub const QFormLayout = extern struct {
     ///
     /// ` row: i32 `
     ///
-    /// ` layout: QLayout `
+    /// ` _widget: QWidget `
     ///
-    pub fn InsertRow6(self: QFormLayout, row: i32, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QFormLayout_InsertRow6(@ptrCast(self.ptr), @bitCast(row), @ptrCast(layout.ptr));
+    pub fn insertRow5(self: QFormLayout, row: i32, _widget: anytype) void {
+        comptime _ = @TypeOf(_widget)._is_QWidget;
+        qtc.QFormLayout_InsertRow5(@ptrCast(self.ptr), @bitCast(row), @ptrCast(_widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertRow6` instead
+    ///
+    pub const InsertRow6 = insertRow6;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#insertRow)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QFormLayout `
+    ///
+    /// ` row: i32 `
+    ///
+    /// ` _layout: QLayout `
+    ///
+    pub fn insertRow6(self: QFormLayout, row: i32, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QFormLayout_InsertRow6(@ptrCast(self.ptr), @bitCast(row), @ptrCast(_layout.ptr));
+    }
+
+    /// ### DEPRECATED: Use `removeRow` instead
+    ///
+    pub const RemoveRow = removeRow;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#removeRow)
     ///
@@ -641,22 +793,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` row: i32 `
     ///
-    pub fn RemoveRow(self: QFormLayout, row: i32) void {
+    pub fn removeRow(self: QFormLayout, row: i32) void {
         qtc.QFormLayout_RemoveRow(@ptrCast(self.ptr), @bitCast(row));
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#removeRow)
+    /// ### DEPRECATED: Use `removeRow2` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QFormLayout `
-    ///
-    /// ` widget: QWidget `
-    ///
-    pub fn RemoveRow2(self: QFormLayout, widget: anytype) void {
-        comptime _ = @TypeOf(widget)._is_QWidget;
-        qtc.QFormLayout_RemoveRow2(@ptrCast(self.ptr), @ptrCast(widget.ptr));
-    }
+    pub const RemoveRow2 = removeRow2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#removeRow)
     ///
@@ -664,12 +807,33 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    /// ` layout: QLayout `
+    /// ` _widget: QWidget `
     ///
-    pub fn RemoveRow3(self: QFormLayout, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QFormLayout_RemoveRow3(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn removeRow2(self: QFormLayout, _widget: anytype) void {
+        comptime _ = @TypeOf(_widget)._is_QWidget;
+        qtc.QFormLayout_RemoveRow2(@ptrCast(self.ptr), @ptrCast(_widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeRow3` instead
+    ///
+    pub const RemoveRow3 = removeRow3;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#removeRow)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QFormLayout `
+    ///
+    /// ` _layout: QLayout `
+    ///
+    pub fn removeRow3(self: QFormLayout, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QFormLayout_RemoveRow3(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
+    }
+
+    /// ### DEPRECATED: Use `takeRow` instead
+    ///
+    pub const TakeRow = takeRow;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#takeRow)
     ///
@@ -679,22 +843,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` row: i32 `
     ///
-    pub fn TakeRow(self: QFormLayout, row: i32) QFormLayout__TakeRowResult {
+    pub fn takeRow(self: QFormLayout, row: i32) QFormLayout__TakeRowResult {
         return .{ .ptr = qtc.QFormLayout_TakeRow(@ptrCast(self.ptr), @bitCast(row)) };
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#takeRow)
+    /// ### DEPRECATED: Use `takeRow2` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QFormLayout `
-    ///
-    /// ` widget: QWidget `
-    ///
-    pub fn TakeRow2(self: QFormLayout, widget: anytype) QFormLayout__TakeRowResult {
-        comptime _ = @TypeOf(widget)._is_QWidget;
-        return .{ .ptr = qtc.QFormLayout_TakeRow2(@ptrCast(self.ptr), @ptrCast(widget.ptr)) };
-    }
+    pub const TakeRow2 = takeRow2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#takeRow)
     ///
@@ -702,12 +857,33 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    /// ` layout: QLayout `
+    /// ` _widget: QWidget `
     ///
-    pub fn TakeRow3(self: QFormLayout, layout: anytype) QFormLayout__TakeRowResult {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        return .{ .ptr = qtc.QFormLayout_TakeRow3(@ptrCast(self.ptr), @ptrCast(layout.ptr)) };
+    pub fn takeRow2(self: QFormLayout, _widget: anytype) QFormLayout__TakeRowResult {
+        comptime _ = @TypeOf(_widget)._is_QWidget;
+        return .{ .ptr = qtc.QFormLayout_TakeRow2(@ptrCast(self.ptr), @ptrCast(_widget.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `takeRow3` instead
+    ///
+    pub const TakeRow3 = takeRow3;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#takeRow)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QFormLayout `
+    ///
+    /// ` _layout: QLayout `
+    ///
+    pub fn takeRow3(self: QFormLayout, _layout: anytype) QFormLayout__TakeRowResult {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        return .{ .ptr = qtc.QFormLayout_TakeRow3(@ptrCast(self.ptr), @ptrCast(_layout.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `setItem` instead
+    ///
+    pub const SetItem = setItem;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#setItem)
     ///
@@ -721,10 +897,14 @@ pub const QFormLayout = extern struct {
     ///
     /// ` item: QLayoutItem `
     ///
-    pub fn SetItem(self: QFormLayout, row: i32, role: i32, item: anytype) void {
+    pub fn setItem(self: QFormLayout, row: i32, role: i32, item: anytype) void {
         comptime _ = @TypeOf(item)._is_QLayoutItem;
         qtc.QFormLayout_SetItem(@ptrCast(self.ptr), @bitCast(row), @bitCast(role), @ptrCast(item.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWidget` instead
+    ///
+    pub const SetWidget = setWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#setWidget)
     ///
@@ -736,12 +916,16 @@ pub const QFormLayout = extern struct {
     ///
     /// ` role: qformlayout_enums.ItemRole `
     ///
-    /// ` widget: QWidget `
+    /// ` _widget: QWidget `
     ///
-    pub fn SetWidget(self: QFormLayout, row: i32, role: i32, widget: anytype) void {
-        comptime _ = @TypeOf(widget)._is_QWidget;
-        qtc.QFormLayout_SetWidget(@ptrCast(self.ptr), @bitCast(row), @bitCast(role), @ptrCast(widget.ptr));
+    pub fn setWidget(self: QFormLayout, row: i32, role: i32, _widget: anytype) void {
+        comptime _ = @TypeOf(_widget)._is_QWidget;
+        qtc.QFormLayout_SetWidget(@ptrCast(self.ptr), @bitCast(row), @bitCast(role), @ptrCast(_widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#setLayout)
     ///
@@ -753,12 +937,16 @@ pub const QFormLayout = extern struct {
     ///
     /// ` role: qformlayout_enums.ItemRole `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: QFormLayout, row: i32, role: i32, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QFormLayout_SetLayout(@ptrCast(self.ptr), @bitCast(row), @bitCast(role), @ptrCast(layout.ptr));
+    pub fn setLayout(self: QFormLayout, row: i32, role: i32, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QFormLayout_SetLayout(@ptrCast(self.ptr), @bitCast(row), @bitCast(role), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `setRowVisible` instead
+    ///
+    pub const SetRowVisible = setRowVisible;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#setRowVisible)
     ///
@@ -770,24 +958,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetRowVisible(self: QFormLayout, row: i32, on: bool) void {
+    pub fn setRowVisible(self: QFormLayout, row: i32, on: bool) void {
         qtc.QFormLayout_SetRowVisible(@ptrCast(self.ptr), @bitCast(row), on);
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#setRowVisible)
+    /// ### DEPRECATED: Use `setRowVisible2` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QFormLayout `
-    ///
-    /// ` widget: QWidget `
-    ///
-    /// ` on: bool `
-    ///
-    pub fn SetRowVisible2(self: QFormLayout, widget: anytype, on: bool) void {
-        comptime _ = @TypeOf(widget)._is_QWidget;
-        qtc.QFormLayout_SetRowVisible2(@ptrCast(self.ptr), @ptrCast(widget.ptr), on);
-    }
+    pub const SetRowVisible2 = setRowVisible2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#setRowVisible)
     ///
@@ -795,14 +972,37 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    /// ` layout: QLayout `
+    /// ` _widget: QWidget `
     ///
     /// ` on: bool `
     ///
-    pub fn SetRowVisible3(self: QFormLayout, layout: anytype, on: bool) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QFormLayout_SetRowVisible3(@ptrCast(self.ptr), @ptrCast(layout.ptr), on);
+    pub fn setRowVisible2(self: QFormLayout, _widget: anytype, on: bool) void {
+        comptime _ = @TypeOf(_widget)._is_QWidget;
+        qtc.QFormLayout_SetRowVisible2(@ptrCast(self.ptr), @ptrCast(_widget.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `setRowVisible3` instead
+    ///
+    pub const SetRowVisible3 = setRowVisible3;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#setRowVisible)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QFormLayout `
+    ///
+    /// ` _layout: QLayout `
+    ///
+    /// ` on: bool `
+    ///
+    pub fn setRowVisible3(self: QFormLayout, _layout: anytype, on: bool) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QFormLayout_SetRowVisible3(@ptrCast(self.ptr), @ptrCast(_layout.ptr), on);
+    }
+
+    /// ### DEPRECATED: Use `isRowVisible` instead
+    ///
+    pub const IsRowVisible = isRowVisible;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#isRowVisible)
     ///
@@ -812,22 +1012,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` row: i32 `
     ///
-    pub fn IsRowVisible(self: QFormLayout, row: i32) bool {
+    pub fn isRowVisible(self: QFormLayout, row: i32) bool {
         return qtc.QFormLayout_IsRowVisible(@ptrCast(self.ptr), @bitCast(row));
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#isRowVisible)
+    /// ### DEPRECATED: Use `isRowVisible2` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QFormLayout `
-    ///
-    /// ` widget: QWidget `
-    ///
-    pub fn IsRowVisible2(self: QFormLayout, widget: anytype) bool {
-        comptime _ = @TypeOf(widget)._is_QWidget;
-        return qtc.QFormLayout_IsRowVisible2(@ptrCast(self.ptr), @ptrCast(widget.ptr));
-    }
+    pub const IsRowVisible2 = isRowVisible2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#isRowVisible)
     ///
@@ -835,12 +1026,33 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    /// ` layout: QLayout `
+    /// ` _widget: QWidget `
     ///
-    pub fn IsRowVisible3(self: QFormLayout, layout: anytype) bool {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        return qtc.QFormLayout_IsRowVisible3(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn isRowVisible2(self: QFormLayout, _widget: anytype) bool {
+        comptime _ = @TypeOf(_widget)._is_QWidget;
+        return qtc.QFormLayout_IsRowVisible2(@ptrCast(self.ptr), @ptrCast(_widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRowVisible3` instead
+    ///
+    pub const IsRowVisible3 = isRowVisible3;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#isRowVisible)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QFormLayout `
+    ///
+    /// ` _layout: QLayout `
+    ///
+    pub fn isRowVisible3(self: QFormLayout, _layout: anytype) bool {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        return qtc.QFormLayout_IsRowVisible3(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
+    }
+
+    /// ### DEPRECATED: Use `itemAt` instead
+    ///
+    pub const ItemAt = itemAt;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#itemAt)
     ///
@@ -852,9 +1064,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` role: qformlayout_enums.ItemRole `
     ///
-    pub fn ItemAt(self: QFormLayout, row: i32, role: i32) QLayoutItem {
+    pub fn itemAt(self: QFormLayout, row: i32, role: i32) QLayoutItem {
         return .{ .ptr = qtc.QFormLayout_ItemAt(@ptrCast(self.ptr), @bitCast(row), @bitCast(role)) };
     }
+
+    /// ### DEPRECATED: Use `getItemPosition` instead
+    ///
+    pub const GetItemPosition = getItemPosition;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#getItemPosition)
     ///
@@ -868,9 +1084,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` rolePtr: *qformlayout_enums.ItemRole `
     ///
-    pub fn GetItemPosition(self: QFormLayout, index: i32, rowPtr: *i32, rolePtr: *i32) void {
+    pub fn getItemPosition(self: QFormLayout, index: i32, rowPtr: *i32, rolePtr: *i32) void {
         qtc.QFormLayout_GetItemPosition(@ptrCast(self.ptr), @bitCast(index), @ptrCast(rowPtr), @ptrCast(rolePtr));
     }
+
+    /// ### DEPRECATED: Use `getWidgetPosition` instead
+    ///
+    pub const GetWidgetPosition = getWidgetPosition;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#getWidgetPosition)
     ///
@@ -878,16 +1098,20 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    /// ` widget: QWidget `
+    /// ` _widget: QWidget `
     ///
     /// ` rowPtr: *i32 `
     ///
     /// ` rolePtr: *qformlayout_enums.ItemRole `
     ///
-    pub fn GetWidgetPosition(self: QFormLayout, widget: anytype, rowPtr: *i32, rolePtr: *i32) void {
-        comptime _ = @TypeOf(widget)._is_QWidget;
-        qtc.QFormLayout_GetWidgetPosition(@ptrCast(self.ptr), @ptrCast(widget.ptr), @ptrCast(rowPtr), @ptrCast(rolePtr));
+    pub fn getWidgetPosition(self: QFormLayout, _widget: anytype, rowPtr: *i32, rolePtr: *i32) void {
+        comptime _ = @TypeOf(_widget)._is_QWidget;
+        qtc.QFormLayout_GetWidgetPosition(@ptrCast(self.ptr), @ptrCast(_widget.ptr), @ptrCast(rowPtr), @ptrCast(rolePtr));
     }
+
+    /// ### DEPRECATED: Use `getLayoutPosition` instead
+    ///
+    pub const GetLayoutPosition = getLayoutPosition;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#getLayoutPosition)
     ///
@@ -895,16 +1119,20 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
     /// ` rowPtr: *i32 `
     ///
     /// ` rolePtr: *qformlayout_enums.ItemRole `
     ///
-    pub fn GetLayoutPosition(self: QFormLayout, layout: anytype, rowPtr: *i32, rolePtr: *i32) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QFormLayout_GetLayoutPosition(@ptrCast(self.ptr), @ptrCast(layout.ptr), @ptrCast(rowPtr), @ptrCast(rolePtr));
+    pub fn getLayoutPosition(self: QFormLayout, _layout: anytype, rowPtr: *i32, rolePtr: *i32) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QFormLayout_GetLayoutPosition(@ptrCast(self.ptr), @ptrCast(_layout.ptr), @ptrCast(rowPtr), @ptrCast(rolePtr));
     }
+
+    /// ### DEPRECATED: Use `labelForField` instead
+    ///
+    pub const LabelForField = labelForField;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#labelForField)
     ///
@@ -914,10 +1142,14 @@ pub const QFormLayout = extern struct {
     ///
     /// ` field: QWidget `
     ///
-    pub fn LabelForField(self: QFormLayout, field: anytype) QWidget {
+    pub fn labelForField(self: QFormLayout, field: anytype) QWidget {
         comptime _ = @TypeOf(field)._is_QWidget;
         return .{ .ptr = qtc.QFormLayout_LabelForField(@ptrCast(self.ptr), @ptrCast(field.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `labelForField2` instead
+    ///
+    pub const LabelForField2 = labelForField2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#labelForField)
     ///
@@ -927,10 +1159,14 @@ pub const QFormLayout = extern struct {
     ///
     /// ` field: QLayout `
     ///
-    pub fn LabelForField2(self: QFormLayout, field: anytype) QWidget {
+    pub fn labelForField2(self: QFormLayout, field: anytype) QWidget {
         comptime _ = @TypeOf(field)._is_QLayout;
         return .{ .ptr = qtc.QFormLayout_LabelForField2(@ptrCast(self.ptr), @ptrCast(field.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addItem` instead
+    ///
+    pub const AddItem = addItem;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#addItem)
     ///
@@ -940,10 +1176,14 @@ pub const QFormLayout = extern struct {
     ///
     /// ` item: QLayoutItem `
     ///
-    pub fn AddItem(self: QFormLayout, item: anytype) void {
+    pub fn addItem(self: QFormLayout, item: anytype) void {
         comptime _ = @TypeOf(item)._is_QLayoutItem;
         qtc.QFormLayout_AddItem(@ptrCast(self.ptr), @ptrCast(item.ptr));
     }
+
+    /// ### DEPRECATED: Use `onAddItem` instead
+    ///
+    pub const OnAddItem = onAddItem;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#addItem)
     ///
@@ -955,13 +1195,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QFormLayout, item: QLayoutItem) callconv(.c) void `
     ///
-    pub fn OnAddItem(self: QFormLayout, callback: *const fn (QFormLayout, QLayoutItem) callconv(.c) void) void {
+    pub fn onAddItem(self: QFormLayout, callback: *const fn (QFormLayout, QLayoutItem) callconv(.c) void) void {
         qtc.QFormLayout_OnAddItem(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperAddItem` instead
+    /// ### DEPRECATED: Use `superAddItem` instead
     ///
-    pub const QBaseAddItem = SuperAddItem;
+    pub const SuperAddItem = superAddItem;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#addItem)
     ///
@@ -973,11 +1213,15 @@ pub const QFormLayout = extern struct {
     ///
     /// ` item: QLayoutItem `
     ///
-    pub fn SuperAddItem(self: QFormLayout, item: anytype) void {
+    pub fn superAddItem(self: QFormLayout, item: anytype) void {
         comptime _ = @TypeOf(item)._is_QLayoutItem;
         qtc.QFormLayout_SuperAddItem(@ptrCast(self.ptr), @ptrCast(item.ptr));
     }
 
+    /// ### DEPRECATED: Use `itemAt2` instead
+    ///
+    pub const ItemAt2 = itemAt2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#itemAt)
     ///
     /// ## Parameter(s):
@@ -986,10 +1230,14 @@ pub const QFormLayout = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn ItemAt2(self: QFormLayout, index: i32) QLayoutItem {
+    pub fn itemAt2(self: QFormLayout, index: i32) QLayoutItem {
         return .{ .ptr = qtc.QFormLayout_ItemAt2(@ptrCast(self.ptr), @bitCast(index)) };
     }
 
+    /// ### DEPRECATED: Use `onItemAt2` instead
+    ///
+    pub const OnItemAt2 = onItemAt2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#itemAt)
     ///
     /// Allows for overriding the related default method
@@ -1000,13 +1248,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QFormLayout, index: i32) callconv(.c) QLayoutItem `
     ///
-    pub fn OnItemAt2(self: QFormLayout, callback: *const fn (QFormLayout, i32) callconv(.c) QLayoutItem) void {
+    pub fn onItemAt2(self: QFormLayout, callback: *const fn (QFormLayout, i32) callconv(.c) QLayoutItem) void {
         qtc.QFormLayout_OnItemAt2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperItemAt2` instead
+    /// ### DEPRECATED: Use `superItemAt2` instead
     ///
-    pub const QBaseItemAt2 = SuperItemAt2;
+    pub const SuperItemAt2 = superItemAt2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#itemAt)
     ///
@@ -1018,9 +1266,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn SuperItemAt2(self: QFormLayout, index: i32) QLayoutItem {
+    pub fn superItemAt2(self: QFormLayout, index: i32) QLayoutItem {
         return .{ .ptr = qtc.QFormLayout_SuperItemAt2(@ptrCast(self.ptr), @bitCast(index)) };
     }
+
+    /// ### DEPRECATED: Use `takeAt` instead
+    ///
+    pub const TakeAt = takeAt;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#takeAt)
     ///
@@ -1030,9 +1282,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn TakeAt(self: QFormLayout, index: i32) QLayoutItem {
+    pub fn takeAt(self: QFormLayout, index: i32) QLayoutItem {
         return .{ .ptr = qtc.QFormLayout_TakeAt(@ptrCast(self.ptr), @bitCast(index)) };
     }
+
+    /// ### DEPRECATED: Use `onTakeAt` instead
+    ///
+    pub const OnTakeAt = onTakeAt;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#takeAt)
     ///
@@ -1044,13 +1300,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QFormLayout, index: i32) callconv(.c) QLayoutItem `
     ///
-    pub fn OnTakeAt(self: QFormLayout, callback: *const fn (QFormLayout, i32) callconv(.c) QLayoutItem) void {
+    pub fn onTakeAt(self: QFormLayout, callback: *const fn (QFormLayout, i32) callconv(.c) QLayoutItem) void {
         qtc.QFormLayout_OnTakeAt(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperTakeAt` instead
+    /// ### DEPRECATED: Use `superTakeAt` instead
     ///
-    pub const QBaseTakeAt = SuperTakeAt;
+    pub const SuperTakeAt = superTakeAt;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#takeAt)
     ///
@@ -1062,9 +1318,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn SuperTakeAt(self: QFormLayout, index: i32) QLayoutItem {
+    pub fn superTakeAt(self: QFormLayout, index: i32) QLayoutItem {
         return .{ .ptr = qtc.QFormLayout_SuperTakeAt(@ptrCast(self.ptr), @bitCast(index)) };
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#setGeometry)
     ///
@@ -1074,10 +1334,14 @@ pub const QFormLayout = extern struct {
     ///
     /// ` rect: QRect `
     ///
-    pub fn SetGeometry(self: QFormLayout, rect: anytype) void {
+    pub fn setGeometry(self: QFormLayout, rect: anytype) void {
         comptime _ = @TypeOf(rect)._is_QRect;
         qtc.QFormLayout_SetGeometry(@ptrCast(self.ptr), @ptrCast(rect.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetGeometry` instead
+    ///
+    pub const OnSetGeometry = onSetGeometry;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#setGeometry)
     ///
@@ -1089,13 +1353,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QFormLayout, rect: QRect) callconv(.c) void `
     ///
-    pub fn OnSetGeometry(self: QFormLayout, callback: *const fn (QFormLayout, QRect) callconv(.c) void) void {
+    pub fn onSetGeometry(self: QFormLayout, callback: *const fn (QFormLayout, QRect) callconv(.c) void) void {
         qtc.QFormLayout_OnSetGeometry(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetGeometry` instead
+    /// ### DEPRECATED: Use `superSetGeometry` instead
     ///
-    pub const QBaseSetGeometry = SuperSetGeometry;
+    pub const SuperSetGeometry = superSetGeometry;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#setGeometry)
     ///
@@ -1107,21 +1371,29 @@ pub const QFormLayout = extern struct {
     ///
     /// ` rect: QRect `
     ///
-    pub fn SuperSetGeometry(self: QFormLayout, rect: anytype) void {
+    pub fn superSetGeometry(self: QFormLayout, rect: anytype) void {
         comptime _ = @TypeOf(rect)._is_QRect;
         qtc.QFormLayout_SuperSetGeometry(@ptrCast(self.ptr), @ptrCast(rect.ptr));
     }
 
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#minimumSize)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn MinimumSize(self: QFormLayout) QSize {
+    pub fn minimumSize(self: QFormLayout) QSize {
         return .{ .ptr = qtc.QFormLayout_MinimumSize(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onMinimumSize` instead
+    ///
+    pub const OnMinimumSize = onMinimumSize;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#minimumSize)
     ///
     /// Allows for overriding the related default method
@@ -1134,13 +1406,13 @@ pub const QFormLayout = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSize(self: QFormLayout, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSize(self: QFormLayout, callback: *const fn () callconv(.c) QSize) void {
         qtc.QFormLayout_OnMinimumSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSize` instead
+    /// ### DEPRECATED: Use `superMinimumSize` instead
     ///
-    pub const QBaseMinimumSize = SuperMinimumSize;
+    pub const SuperMinimumSize = superMinimumSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#minimumSize)
     ///
@@ -1150,9 +1422,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn SuperMinimumSize(self: QFormLayout) QSize {
+    pub fn superMinimumSize(self: QFormLayout) QSize {
         return .{ .ptr = qtc.QFormLayout_SuperMinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#sizeHint)
     ///
@@ -1160,9 +1436,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn SizeHint(self: QFormLayout) QSize {
+    pub fn sizeHint(self: QFormLayout) QSize {
         return .{ .ptr = qtc.QFormLayout_SizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#sizeHint)
     ///
@@ -1176,13 +1456,13 @@ pub const QFormLayout = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: QFormLayout, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QFormLayout, callback: *const fn () callconv(.c) QSize) void {
         qtc.QFormLayout_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#sizeHint)
     ///
@@ -1192,9 +1472,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn SuperSizeHint(self: QFormLayout) QSize {
+    pub fn superSizeHint(self: QFormLayout) QSize {
         return .{ .ptr = qtc.QFormLayout_SuperSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `invalidate` instead
+    ///
+    pub const Invalidate = invalidate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#invalidate)
     ///
@@ -1202,9 +1486,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn Invalidate(self: QFormLayout) void {
+    pub fn invalidate(self: QFormLayout) void {
         qtc.QFormLayout_Invalidate(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInvalidate` instead
+    ///
+    pub const OnInvalidate = onInvalidate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#invalidate)
     ///
@@ -1216,13 +1504,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnInvalidate(self: QFormLayout, callback: *const fn () callconv(.c) void) void {
+    pub fn onInvalidate(self: QFormLayout, callback: *const fn () callconv(.c) void) void {
         qtc.QFormLayout_OnInvalidate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperInvalidate` instead
+    /// ### DEPRECATED: Use `superInvalidate` instead
     ///
-    pub const QBaseInvalidate = SuperInvalidate;
+    pub const SuperInvalidate = superInvalidate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#invalidate)
     ///
@@ -1232,9 +1520,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn SuperInvalidate(self: QFormLayout) void {
+    pub fn superInvalidate(self: QFormLayout) void {
         qtc.QFormLayout_SuperInvalidate(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#hasHeightForWidth)
     ///
@@ -1242,9 +1534,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn HasHeightForWidth(self: QFormLayout) bool {
+    pub fn hasHeightForWidth(self: QFormLayout) bool {
         return qtc.QFormLayout_HasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#hasHeightForWidth)
     ///
@@ -1256,13 +1552,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: QFormLayout, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QFormLayout, callback: *const fn () callconv(.c) bool) void {
         qtc.QFormLayout_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#hasHeightForWidth)
     ///
@@ -1272,9 +1568,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn SuperHasHeightForWidth(self: QFormLayout) bool {
+    pub fn superHasHeightForWidth(self: QFormLayout) bool {
         return qtc.QFormLayout_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#heightForWidth)
     ///
@@ -1284,9 +1584,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` width: i32 `
     ///
-    pub fn HeightForWidth(self: QFormLayout, width: i32) i32 {
+    pub fn heightForWidth(self: QFormLayout, width: i32) i32 {
         return qtc.QFormLayout_HeightForWidth(@ptrCast(self.ptr), @bitCast(width));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#heightForWidth)
     ///
@@ -1298,13 +1602,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QFormLayout, width: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: QFormLayout, callback: *const fn (QFormLayout, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: QFormLayout, callback: *const fn (QFormLayout, i32) callconv(.c) i32) void {
         qtc.QFormLayout_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#heightForWidth)
     ///
@@ -1316,10 +1620,14 @@ pub const QFormLayout = extern struct {
     ///
     /// ` width: i32 `
     ///
-    pub fn SuperHeightForWidth(self: QFormLayout, width: i32) i32 {
+    pub fn superHeightForWidth(self: QFormLayout, width: i32) i32 {
         return qtc.QFormLayout_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(width));
     }
 
+    /// ### DEPRECATED: Use `expandingDirections` instead
+    ///
+    pub const ExpandingDirections = expandingDirections;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#expandingDirections)
     ///
     /// ## Parameter(s):
@@ -1330,10 +1638,14 @@ pub const QFormLayout = extern struct {
     ///
     /// ` flag of qnamespace_enums.Orientation `
     ///
-    pub fn ExpandingDirections(self: QFormLayout) i32 {
+    pub fn expandingDirections(self: QFormLayout) i32 {
         return qtc.QFormLayout_ExpandingDirections(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onExpandingDirections` instead
+    ///
+    pub const OnExpandingDirections = onExpandingDirections;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#expandingDirections)
     ///
     /// Allows for overriding the related default method
@@ -1344,13 +1656,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnExpandingDirections(self: QFormLayout, callback: *const fn () callconv(.c) i32) void {
+    pub fn onExpandingDirections(self: QFormLayout, callback: *const fn () callconv(.c) i32) void {
         qtc.QFormLayout_OnExpandingDirections(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperExpandingDirections` instead
+    /// ### DEPRECATED: Use `superExpandingDirections` instead
     ///
-    pub const QBaseExpandingDirections = SuperExpandingDirections;
+    pub const SuperExpandingDirections = superExpandingDirections;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#expandingDirections)
     ///
@@ -1364,9 +1676,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` flag of qnamespace_enums.Orientation `
     ///
-    pub fn SuperExpandingDirections(self: QFormLayout) i32 {
+    pub fn superExpandingDirections(self: QFormLayout) i32 {
         return qtc.QFormLayout_SuperExpandingDirections(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `count` instead
+    ///
+    pub const Count = count;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#count)
     ///
@@ -1374,9 +1690,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn Count(self: QFormLayout) i32 {
+    pub fn count(self: QFormLayout) i32 {
         return qtc.QFormLayout_Count(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCount` instead
+    ///
+    pub const OnCount = onCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#count)
     ///
@@ -1388,13 +1708,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnCount(self: QFormLayout, callback: *const fn () callconv(.c) i32) void {
+    pub fn onCount(self: QFormLayout, callback: *const fn () callconv(.c) i32) void {
         qtc.QFormLayout_OnCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperCount` instead
+    /// ### DEPRECATED: Use `superCount` instead
     ///
-    pub const QBaseCount = SuperCount;
+    pub const SuperCount = superCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#count)
     ///
@@ -1404,9 +1724,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn SuperCount(self: QFormLayout) i32 {
+    pub fn superCount(self: QFormLayout) i32 {
         return qtc.QFormLayout_SuperCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rowCount` instead
+    ///
+    pub const RowCount = rowCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#rowCount)
     ///
@@ -1414,9 +1738,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn RowCount(self: QFormLayout) i32 {
+    pub fn rowCount(self: QFormLayout) i32 {
         return qtc.QFormLayout_RowCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1428,15 +1756,19 @@ pub const QFormLayout = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFormLayout.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFormLayout.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1450,15 +1782,19 @@ pub const QFormLayout = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFormLayout.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFormLayout.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QLayout
     ///
@@ -1476,9 +1812,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: QFormLayout, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: QFormLayout, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QLayout_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QLayout
     ///
@@ -1490,10 +1830,14 @@ pub const QFormLayout = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: QFormLayout, margins: anytype) void {
+    pub fn setContentsMargins2(self: QFormLayout, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QLayout_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetContentsMargins` instead
+    ///
+    pub const UnsetContentsMargins = unsetContentsMargins;
 
     /// Inherited from QLayout
     ///
@@ -1503,9 +1847,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn UnsetContentsMargins(self: QFormLayout) void {
+    pub fn unsetContentsMargins(self: QFormLayout) void {
         qtc.QLayout_UnsetContentsMargins(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `getContentsMargins` instead
+    ///
+    pub const GetContentsMargins = getContentsMargins;
 
     /// Inherited from QLayout
     ///
@@ -1523,9 +1871,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` bottom: *i32 `
     ///
-    pub fn GetContentsMargins(self: QFormLayout, left: *i32, top: *i32, right: *i32, bottom: *i32) void {
+    pub fn getContentsMargins(self: QFormLayout, left: *i32, top: *i32, right: *i32, bottom: *i32) void {
         qtc.QLayout_GetContentsMargins(@ptrCast(self.ptr), @ptrCast(left), @ptrCast(top), @ptrCast(right), @ptrCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QLayout
     ///
@@ -1535,9 +1887,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn ContentsMargins(self: QFormLayout) QMargins {
+    pub fn contentsMargins(self: QFormLayout) QMargins {
         return .{ .ptr = qtc.QLayout_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QLayout
     ///
@@ -1547,9 +1903,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn ContentsRect(self: QFormLayout) QRect {
+    pub fn contentsRect(self: QFormLayout) QRect {
         return .{ .ptr = qtc.QLayout_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAlignment` instead
+    ///
+    pub const SetAlignment = setAlignment;
 
     /// Inherited from QLayout
     ///
@@ -1561,12 +1921,16 @@ pub const QFormLayout = extern struct {
     ///
     /// ` w: QWidget `
     ///
-    /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
+    /// ` _alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn SetAlignment(self: QFormLayout, w: anytype, alignment: i32) bool {
+    pub fn setAlignment(self: QFormLayout, w: anytype, _alignment: i32) bool {
         comptime _ = @TypeOf(w)._is_QWidget;
-        return qtc.QLayout_SetAlignment(@ptrCast(self.ptr), @ptrCast(w.ptr), @bitCast(alignment));
+        return qtc.QLayout_SetAlignment(@ptrCast(self.ptr), @ptrCast(w.ptr), @bitCast(_alignment));
     }
+
+    /// ### DEPRECATED: Use `setAlignment2` instead
+    ///
+    pub const SetAlignment2 = setAlignment2;
 
     /// Inherited from QLayout
     ///
@@ -1578,12 +1942,16 @@ pub const QFormLayout = extern struct {
     ///
     /// ` l: QLayout `
     ///
-    /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
+    /// ` _alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn SetAlignment2(self: QFormLayout, l: anytype, alignment: i32) bool {
+    pub fn setAlignment2(self: QFormLayout, l: anytype, _alignment: i32) bool {
         comptime _ = @TypeOf(l)._is_QLayout;
-        return qtc.QLayout_SetAlignment2(@ptrCast(self.ptr), @ptrCast(l.ptr), @bitCast(alignment));
+        return qtc.QLayout_SetAlignment2(@ptrCast(self.ptr), @ptrCast(l.ptr), @bitCast(_alignment));
     }
+
+    /// ### DEPRECATED: Use `setSizeConstraint` instead
+    ///
+    pub const SetSizeConstraint = setSizeConstraint;
 
     /// Inherited from QLayout
     ///
@@ -1593,11 +1961,15 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    /// ` sizeConstraint: qlayout_enums.SizeConstraint `
+    /// ` _sizeConstraint: qlayout_enums.SizeConstraint `
     ///
-    pub fn SetSizeConstraint(self: QFormLayout, sizeConstraint: i32) void {
-        qtc.QLayout_SetSizeConstraint(@ptrCast(self.ptr), @bitCast(sizeConstraint));
+    pub fn setSizeConstraint(self: QFormLayout, _sizeConstraint: i32) void {
+        qtc.QLayout_SetSizeConstraint(@ptrCast(self.ptr), @bitCast(_sizeConstraint));
     }
+
+    /// ### DEPRECATED: Use `sizeConstraint` instead
+    ///
+    pub const SizeConstraint = sizeConstraint;
 
     /// Inherited from QLayout
     ///
@@ -1611,9 +1983,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` qlayout_enums.SizeConstraint `
     ///
-    pub fn SizeConstraint(self: QFormLayout) i32 {
+    pub fn sizeConstraint(self: QFormLayout) i32 {
         return qtc.QLayout_SizeConstraint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMenuBar` instead
+    ///
+    pub const SetMenuBar = setMenuBar;
 
     /// Inherited from QLayout
     ///
@@ -1625,10 +2001,14 @@ pub const QFormLayout = extern struct {
     ///
     /// ` w: QWidget `
     ///
-    pub fn SetMenuBar(self: QFormLayout, w: anytype) void {
+    pub fn setMenuBar(self: QFormLayout, w: anytype) void {
         comptime _ = @TypeOf(w)._is_QWidget;
         qtc.QLayout_SetMenuBar(@ptrCast(self.ptr), @ptrCast(w.ptr));
     }
+
+    /// ### DEPRECATED: Use `menuBar` instead
+    ///
+    pub const MenuBar = menuBar;
 
     /// Inherited from QLayout
     ///
@@ -1638,9 +2018,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn MenuBar(self: QFormLayout) QWidget {
+    pub fn menuBar(self: QFormLayout) QWidget {
         return .{ .ptr = qtc.QLayout_MenuBar(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
 
     /// Inherited from QLayout
     ///
@@ -1650,9 +2034,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn ParentWidget(self: QFormLayout) QWidget {
+    pub fn parentWidget(self: QFormLayout) QWidget {
         return .{ .ptr = qtc.QLayout_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `activate` instead
+    ///
+    pub const Activate = activate;
 
     /// Inherited from QLayout
     ///
@@ -1662,9 +2050,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn Activate(self: QFormLayout) bool {
+    pub fn activate(self: QFormLayout) bool {
         return qtc.QLayout_Activate(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QLayout
     ///
@@ -1674,9 +2066,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn Update(self: QFormLayout) void {
+    pub fn update(self: QFormLayout) void {
         qtc.QLayout_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `addWidget` instead
+    ///
+    pub const AddWidget = addWidget;
 
     /// Inherited from QLayout
     ///
@@ -1688,10 +2084,14 @@ pub const QFormLayout = extern struct {
     ///
     /// ` w: QWidget `
     ///
-    pub fn AddWidget(self: QFormLayout, w: anytype) void {
+    pub fn addWidget(self: QFormLayout, w: anytype) void {
         comptime _ = @TypeOf(w)._is_QWidget;
         qtc.QLayout_AddWidget(@ptrCast(self.ptr), @ptrCast(w.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeWidget` instead
+    ///
+    pub const RemoveWidget = removeWidget;
 
     /// Inherited from QLayout
     ///
@@ -1703,10 +2103,14 @@ pub const QFormLayout = extern struct {
     ///
     /// ` w: QWidget `
     ///
-    pub fn RemoveWidget(self: QFormLayout, w: anytype) void {
+    pub fn removeWidget(self: QFormLayout, w: anytype) void {
         comptime _ = @TypeOf(w)._is_QWidget;
         qtc.QLayout_RemoveWidget(@ptrCast(self.ptr), @ptrCast(w.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeItem` instead
+    ///
+    pub const RemoveItem = removeItem;
 
     /// Inherited from QLayout
     ///
@@ -1718,10 +2122,14 @@ pub const QFormLayout = extern struct {
     ///
     /// ` param1: QLayoutItem `
     ///
-    pub fn RemoveItem(self: QFormLayout, param1: anytype) void {
+    pub fn removeItem(self: QFormLayout, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QLayoutItem;
         qtc.QLayout_RemoveItem(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `indexOf2` instead
+    ///
+    pub const IndexOf2 = indexOf2;
 
     /// Inherited from QLayout
     ///
@@ -1733,10 +2141,14 @@ pub const QFormLayout = extern struct {
     ///
     /// ` param1: QLayoutItem `
     ///
-    pub fn IndexOf2(self: QFormLayout, param1: anytype) i32 {
+    pub fn indexOf2(self: QFormLayout, param1: anytype) i32 {
         comptime _ = @TypeOf(param1)._is_QLayoutItem;
         return qtc.QLayout_IndexOf2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIndexOf2` instead
+    ///
+    pub const OnIndexOf2 = onIndexOf2;
 
     /// Inherited from QLayout
     ///
@@ -1750,13 +2162,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QFormLayout, param1: QLayoutItem) callconv(.c) i32 `
     ///
-    pub fn OnIndexOf2(self: QFormLayout, callback: *const fn (QFormLayout, QLayoutItem) callconv(.c) i32) void {
+    pub fn onIndexOf2(self: QFormLayout, callback: *const fn (QFormLayout, QLayoutItem) callconv(.c) i32) void {
         qtc.QLayout_OnIndexOf2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperIndexOf2` instead
+    /// ### DEPRECATED: Use `superIndexOf2` instead
     ///
-    pub const QBaseIndexOf2 = SuperIndexOf2;
+    pub const SuperIndexOf2 = superIndexOf2;
 
     /// Inherited from QLayout
     ///
@@ -1770,10 +2182,14 @@ pub const QFormLayout = extern struct {
     ///
     /// ` param1: QLayoutItem `
     ///
-    pub fn SuperIndexOf2(self: QFormLayout, param1: anytype) i32 {
+    pub fn superIndexOf2(self: QFormLayout, param1: anytype) i32 {
         comptime _ = @TypeOf(param1)._is_QLayoutItem;
         return qtc.QLayout_SuperIndexOf2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `totalMinimumHeightForWidth` instead
+    ///
+    pub const TotalMinimumHeightForWidth = totalMinimumHeightForWidth;
 
     /// Inherited from QLayout
     ///
@@ -1785,9 +2201,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn TotalMinimumHeightForWidth(self: QFormLayout, w: i32) i32 {
+    pub fn totalMinimumHeightForWidth(self: QFormLayout, w: i32) i32 {
         return qtc.QLayout_TotalMinimumHeightForWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `totalHeightForWidth` instead
+    ///
+    pub const TotalHeightForWidth = totalHeightForWidth;
 
     /// Inherited from QLayout
     ///
@@ -1799,9 +2219,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn TotalHeightForWidth(self: QFormLayout, w: i32) i32 {
+    pub fn totalHeightForWidth(self: QFormLayout, w: i32) i32 {
         return qtc.QLayout_TotalHeightForWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `totalMinimumSize` instead
+    ///
+    pub const TotalMinimumSize = totalMinimumSize;
 
     /// Inherited from QLayout
     ///
@@ -1811,9 +2235,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn TotalMinimumSize(self: QFormLayout) QSize {
+    pub fn totalMinimumSize(self: QFormLayout) QSize {
         return .{ .ptr = qtc.QLayout_TotalMinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `totalMaximumSize` instead
+    ///
+    pub const TotalMaximumSize = totalMaximumSize;
 
     /// Inherited from QLayout
     ///
@@ -1823,9 +2251,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn TotalMaximumSize(self: QFormLayout) QSize {
+    pub fn totalMaximumSize(self: QFormLayout) QSize {
         return .{ .ptr = qtc.QLayout_TotalMaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `totalSizeHint` instead
+    ///
+    pub const TotalSizeHint = totalSizeHint;
 
     /// Inherited from QLayout
     ///
@@ -1835,9 +2267,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn TotalSizeHint(self: QFormLayout) QSize {
+    pub fn totalSizeHint(self: QFormLayout) QSize {
         return .{ .ptr = qtc.QLayout_TotalSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QLayout
     ///
@@ -1849,9 +2285,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: QFormLayout, enabled: bool) void {
+    pub fn setEnabled(self: QFormLayout, enabled: bool) void {
         qtc.QLayout_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QLayout
     ///
@@ -1861,9 +2301,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn IsEnabled(self: QFormLayout) bool {
+    pub fn isEnabled(self: QFormLayout) bool {
         return qtc.QLayout_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `closestAcceptableSize` instead
+    ///
+    pub const ClosestAcceptableSize = closestAcceptableSize;
 
     /// Inherited from QLayout
     ///
@@ -1875,11 +2319,15 @@ pub const QFormLayout = extern struct {
     ///
     /// ` s: QSize `
     ///
-    pub fn ClosestAcceptableSize(w: anytype, s: anytype) QSize {
+    pub fn closestAcceptableSize(w: anytype, s: anytype) QSize {
         comptime _ = @TypeOf(w)._is_QWidget;
         comptime _ = @TypeOf(s)._is_QSize;
         return .{ .ptr = qtc.QLayout_ClosestAcceptableSize(@ptrCast(w.ptr), @ptrCast(s.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -1891,13 +2339,17 @@ pub const QFormLayout = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QFormLayout, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QFormLayout, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFormLayout.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFormLayout.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -1909,13 +2361,17 @@ pub const QFormLayout = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QFormLayout, name: []const u8) void {
+    pub fn setObjectName(self: QFormLayout, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -1925,9 +2381,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn IsWidgetType(self: QFormLayout) bool {
+    pub fn isWidgetType(self: QFormLayout) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -1937,9 +2397,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn IsWindowType(self: QFormLayout) bool {
+    pub fn isWindowType(self: QFormLayout) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -1949,9 +2413,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn IsQuickItemType(self: QFormLayout) bool {
+    pub fn isQuickItemType(self: QFormLayout) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -1961,9 +2429,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn SignalsBlocked(self: QFormLayout) bool {
+    pub fn signalsBlocked(self: QFormLayout) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -1975,9 +2447,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QFormLayout, b: bool) bool {
+    pub fn blockSignals(self: QFormLayout, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -1987,9 +2463,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn Thread(self: QFormLayout) QThread {
+    pub fn thread(self: QFormLayout) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -1999,12 +2479,16 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QFormLayout, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QFormLayout, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -2016,9 +2500,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QFormLayout, interval: i32) i32 {
+    pub fn startTimer(self: QFormLayout, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -2030,9 +2518,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QFormLayout, time: i64) i32 {
+    pub fn startTimer2(self: QFormLayout, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -2044,9 +2536,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QFormLayout, id: i32) void {
+    pub fn killTimer(self: QFormLayout, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -2058,9 +2554,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QFormLayout, id: i32) void {
+    pub fn killTimer2(self: QFormLayout, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -2072,15 +2572,19 @@ pub const QFormLayout = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QFormLayout, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QFormLayout, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QFormLayout.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QFormLayout.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -2090,12 +2594,16 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QFormLayout, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QFormLayout, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2107,10 +2615,14 @@ pub const QFormLayout = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QFormLayout, filterObj: anytype) void {
+    pub fn installEventFilter(self: QFormLayout, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2122,10 +2634,14 @@ pub const QFormLayout = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QFormLayout, obj: anytype) void {
+    pub fn removeEventFilter(self: QFormLayout, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -2133,7 +2649,7 @@ pub const QFormLayout = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2141,13 +2657,17 @@ pub const QFormLayout = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -2155,7 +2675,7 @@ pub const QFormLayout = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2163,13 +2683,17 @@ pub const QFormLayout = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -2179,18 +2703,22 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QFormLayout, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QFormLayout, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -2198,7 +2726,7 @@ pub const QFormLayout = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2206,13 +2734,17 @@ pub const QFormLayout = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -2220,7 +2752,7 @@ pub const QFormLayout = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2228,13 +2760,17 @@ pub const QFormLayout = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -2244,9 +2780,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn Disconnect3(self: QFormLayout) bool {
+    pub fn disconnect3(self: QFormLayout) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -2258,10 +2798,14 @@ pub const QFormLayout = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QFormLayout, receiver: anytype) bool {
+    pub fn disconnect4(self: QFormLayout, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -2271,10 +2815,14 @@ pub const QFormLayout = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -2284,9 +2832,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn DumpObjectTree(self: QFormLayout) void {
+    pub fn dumpObjectTree(self: QFormLayout) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -2296,9 +2848,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn DumpObjectInfo(self: QFormLayout) void {
+    pub fn dumpObjectInfo(self: QFormLayout) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -2312,11 +2868,15 @@ pub const QFormLayout = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QFormLayout, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QFormLayout, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -2328,10 +2888,14 @@ pub const QFormLayout = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QFormLayout, name: [:0]const u8) QVariant {
+    pub fn property(self: QFormLayout, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -2343,7 +2907,7 @@ pub const QFormLayout = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QFormLayout, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QFormLayout, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -2351,27 +2915,19 @@ pub const QFormLayout = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QFormLayout.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QFormLayout.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QFormLayout.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QFormLayout.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QFormLayout `
-    ///
-    pub fn BindingStorage(self: QFormLayout) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -2381,9 +2937,29 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn BindingStorage2(self: QFormLayout) QBindingStorage {
+    pub fn bindingStorage(self: QFormLayout) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QFormLayout `
+    ///
+    pub fn bindingStorage2(self: QFormLayout) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -2393,9 +2969,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn Destroyed(self: QFormLayout) void {
+    pub fn destroyed(self: QFormLayout) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -2407,9 +2987,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QFormLayout) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QFormLayout, callback: *const fn (QFormLayout) callconv(.c) void) void {
+    pub fn onDestroyed(self: QFormLayout, callback: *const fn (QFormLayout) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -2419,9 +3003,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn Parent(self: QFormLayout) QObject {
+    pub fn parent(self: QFormLayout) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -2433,10 +3021,14 @@ pub const QFormLayout = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QFormLayout, classname: [:0]const u8) bool {
+    pub fn inherits(self: QFormLayout, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -2446,9 +3038,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn DeleteLater(self: QFormLayout) void {
+    pub fn deleteLater(self: QFormLayout) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -2462,9 +3058,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QFormLayout, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QFormLayout, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -2478,9 +3078,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QFormLayout, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QFormLayout, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -2488,7 +3092,7 @@ pub const QFormLayout = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2498,13 +3102,17 @@ pub const QFormLayout = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -2512,7 +3120,7 @@ pub const QFormLayout = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2522,13 +3130,17 @@ pub const QFormLayout = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -2538,7 +3150,7 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2546,12 +3158,16 @@ pub const QFormLayout = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QFormLayout, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QFormLayout, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -2563,10 +3179,14 @@ pub const QFormLayout = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QFormLayout, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QFormLayout, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -2580,11 +3200,15 @@ pub const QFormLayout = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QFormLayout, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QFormLayout, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -2600,13 +3224,17 @@ pub const QFormLayout = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QFormLayout, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QFormLayout, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -2619,11 +3247,15 @@ pub const QFormLayout = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QFormLayout, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QFormLayout, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -2635,10 +3267,14 @@ pub const QFormLayout = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QFormLayout, param1: anytype) void {
+    pub fn destroyed1(self: QFormLayout, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -2650,9 +3286,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QFormLayout, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QFormLayout, callback: *const fn (QFormLayout, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QFormLayout, callback: *const fn (QFormLayout, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `alignment` instead
+    ///
+    pub const Alignment = alignment;
 
     /// Inherited from QLayoutItem
     ///
@@ -2666,9 +3306,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn Alignment(self: QFormLayout) i32 {
+    pub fn alignment(self: QFormLayout) i32 {
         return qtc.QLayoutItem_Alignment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QLayout
     ///
@@ -2680,13 +3324,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn Geometry(self: QFormLayout) QRect {
+    pub fn geometry(self: QFormLayout) QRect {
         return .{ .ptr = qtc.QFormLayout_Geometry(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperGeometry` instead
+    /// ### DEPRECATED: Use `superGeometry` instead
     ///
-    pub const QBaseGeometry = SuperGeometry;
+    pub const SuperGeometry = superGeometry;
 
     /// Inherited from QLayout
     ///
@@ -2698,9 +3342,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn SuperGeometry(self: QFormLayout) QRect {
+    pub fn superGeometry(self: QFormLayout) QRect {
         return .{ .ptr = qtc.QFormLayout_SuperGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onGeometry` instead
+    ///
+    pub const OnGeometry = onGeometry;
 
     /// Inherited from QLayout
     ///
@@ -2716,9 +3364,13 @@ pub const QFormLayout = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnGeometry(self: QFormLayout, callback: *const fn () callconv(.c) QRect) void {
+    pub fn onGeometry(self: QFormLayout, callback: *const fn () callconv(.c) QRect) void {
         qtc.QFormLayout_OnGeometry(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QLayout
     ///
@@ -2730,13 +3382,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn MaximumSize(self: QFormLayout) QSize {
+    pub fn maximumSize(self: QFormLayout) QSize {
         return .{ .ptr = qtc.QFormLayout_MaximumSize(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMaximumSize` instead
+    /// ### DEPRECATED: Use `superMaximumSize` instead
     ///
-    pub const QBaseMaximumSize = SuperMaximumSize;
+    pub const SuperMaximumSize = superMaximumSize;
 
     /// Inherited from QLayout
     ///
@@ -2748,9 +3400,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn SuperMaximumSize(self: QFormLayout) QSize {
+    pub fn superMaximumSize(self: QFormLayout) QSize {
         return .{ .ptr = qtc.QFormLayout_SuperMaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMaximumSize` instead
+    ///
+    pub const OnMaximumSize = onMaximumSize;
 
     /// Inherited from QLayout
     ///
@@ -2766,9 +3422,13 @@ pub const QFormLayout = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMaximumSize(self: QFormLayout, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMaximumSize(self: QFormLayout, callback: *const fn () callconv(.c) QSize) void {
         qtc.QFormLayout_OnMaximumSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `indexOf` instead
+    ///
+    pub const IndexOf = indexOf;
 
     /// Inherited from QLayout
     ///
@@ -2782,14 +3442,14 @@ pub const QFormLayout = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IndexOf(self: QFormLayout, param1: anytype) i32 {
+    pub fn indexOf(self: QFormLayout, param1: anytype) i32 {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QFormLayout_IndexOf(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIndexOf` instead
+    /// ### DEPRECATED: Use `superIndexOf` instead
     ///
-    pub const QBaseIndexOf = SuperIndexOf;
+    pub const SuperIndexOf = superIndexOf;
 
     /// Inherited from QLayout
     ///
@@ -2803,10 +3463,14 @@ pub const QFormLayout = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn SuperIndexOf(self: QFormLayout, param1: anytype) i32 {
+    pub fn superIndexOf(self: QFormLayout, param1: anytype) i32 {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QFormLayout_SuperIndexOf(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIndexOf` instead
+    ///
+    pub const OnIndexOf = onIndexOf;
 
     /// Inherited from QLayout
     ///
@@ -2820,9 +3484,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QFormLayout, param1: QWidget) callconv(.c) i32 `
     ///
-    pub fn OnIndexOf(self: QFormLayout, callback: *const fn (QFormLayout, QWidget) callconv(.c) i32) void {
+    pub fn onIndexOf(self: QFormLayout, callback: *const fn (QFormLayout, QWidget) callconv(.c) i32) void {
         qtc.QFormLayout_OnIndexOf(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isEmpty` instead
+    ///
+    pub const IsEmpty = isEmpty;
 
     /// Inherited from QLayout
     ///
@@ -2834,13 +3502,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn IsEmpty(self: QFormLayout) bool {
+    pub fn isEmpty(self: QFormLayout) bool {
         return qtc.QFormLayout_IsEmpty(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsEmpty` instead
+    /// ### DEPRECATED: Use `superIsEmpty` instead
     ///
-    pub const QBaseIsEmpty = SuperIsEmpty;
+    pub const SuperIsEmpty = superIsEmpty;
 
     /// Inherited from QLayout
     ///
@@ -2852,9 +3520,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn SuperIsEmpty(self: QFormLayout) bool {
+    pub fn superIsEmpty(self: QFormLayout) bool {
         return qtc.QFormLayout_SuperIsEmpty(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsEmpty` instead
+    ///
+    pub const OnIsEmpty = onIsEmpty;
 
     /// Inherited from QLayout
     ///
@@ -2868,9 +3540,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnIsEmpty(self: QFormLayout, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsEmpty(self: QFormLayout, callback: *const fn () callconv(.c) bool) void {
         qtc.QFormLayout_OnIsEmpty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `controlTypes` instead
+    ///
+    pub const ControlTypes = controlTypes;
 
     /// Inherited from QLayout
     ///
@@ -2886,13 +3562,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` flag of qsizepolicy_enums.ControlType `
     ///
-    pub fn ControlTypes(self: QFormLayout) i32 {
+    pub fn controlTypes(self: QFormLayout) i32 {
         return qtc.QFormLayout_ControlTypes(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperControlTypes` instead
+    /// ### DEPRECATED: Use `superControlTypes` instead
     ///
-    pub const QBaseControlTypes = SuperControlTypes;
+    pub const SuperControlTypes = superControlTypes;
 
     /// Inherited from QLayout
     ///
@@ -2908,9 +3584,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` flag of qsizepolicy_enums.ControlType `
     ///
-    pub fn SuperControlTypes(self: QFormLayout) i32 {
+    pub fn superControlTypes(self: QFormLayout) i32 {
         return qtc.QFormLayout_SuperControlTypes(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onControlTypes` instead
+    ///
+    pub const OnControlTypes = onControlTypes;
 
     /// Inherited from QLayout
     ///
@@ -2924,9 +3604,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnControlTypes(self: QFormLayout, callback: *const fn () callconv(.c) i32) void {
+    pub fn onControlTypes(self: QFormLayout, callback: *const fn () callconv(.c) i32) void {
         qtc.QFormLayout_OnControlTypes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `replaceWidget` instead
+    ///
+    pub const ReplaceWidget = replaceWidget;
 
     /// Inherited from QLayout
     ///
@@ -2944,15 +3628,15 @@ pub const QFormLayout = extern struct {
     ///
     /// ` options: flag of qnamespace_enums.FindChildOption `
     ///
-    pub fn ReplaceWidget(self: QFormLayout, from: anytype, to: anytype, options: i32) QLayoutItem {
+    pub fn replaceWidget(self: QFormLayout, from: anytype, to: anytype, options: i32) QLayoutItem {
         comptime _ = @TypeOf(from)._is_QWidget;
         comptime _ = @TypeOf(to)._is_QWidget;
         return .{ .ptr = qtc.QFormLayout_ReplaceWidget(@ptrCast(self.ptr), @ptrCast(from.ptr), @ptrCast(to.ptr), @bitCast(options)) };
     }
 
-    /// ### DEPRECATED: Use `SuperReplaceWidget` instead
+    /// ### DEPRECATED: Use `superReplaceWidget` instead
     ///
-    pub const QBaseReplaceWidget = SuperReplaceWidget;
+    pub const SuperReplaceWidget = superReplaceWidget;
 
     /// Inherited from QLayout
     ///
@@ -2970,11 +3654,15 @@ pub const QFormLayout = extern struct {
     ///
     /// ` options: flag of qnamespace_enums.FindChildOption `
     ///
-    pub fn SuperReplaceWidget(self: QFormLayout, from: anytype, to: anytype, options: i32) QLayoutItem {
+    pub fn superReplaceWidget(self: QFormLayout, from: anytype, to: anytype, options: i32) QLayoutItem {
         comptime _ = @TypeOf(from)._is_QWidget;
         comptime _ = @TypeOf(to)._is_QWidget;
         return .{ .ptr = qtc.QFormLayout_SuperReplaceWidget(@ptrCast(self.ptr), @ptrCast(from.ptr), @ptrCast(to.ptr), @bitCast(options)) };
     }
+
+    /// ### DEPRECATED: Use `onReplaceWidget` instead
+    ///
+    pub const OnReplaceWidget = onReplaceWidget;
 
     /// Inherited from QLayout
     ///
@@ -2988,9 +3676,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QFormLayout, from: QWidget, to: QWidget, options: flag of qnamespace_enums.FindChildOption) callconv(.c) QLayoutItem `
     ///
-    pub fn OnReplaceWidget(self: QFormLayout, callback: *const fn (QFormLayout, QWidget, QWidget, i32) callconv(.c) QLayoutItem) void {
+    pub fn onReplaceWidget(self: QFormLayout, callback: *const fn (QFormLayout, QWidget, QWidget, i32) callconv(.c) QLayoutItem) void {
         qtc.QFormLayout_OnReplaceWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QLayout
     ///
@@ -3002,13 +3694,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn Layout(self: QFormLayout) QLayout {
+    pub fn layout(self: QFormLayout) QLayout {
         return .{ .ptr = qtc.QFormLayout_Layout(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperLayout` instead
+    /// ### DEPRECATED: Use `superLayout` instead
     ///
-    pub const QBaseLayout = SuperLayout;
+    pub const SuperLayout = superLayout;
 
     /// Inherited from QLayout
     ///
@@ -3020,9 +3712,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn SuperLayout(self: QFormLayout) QLayout {
+    pub fn superLayout(self: QFormLayout) QLayout {
         return .{ .ptr = qtc.QFormLayout_SuperLayout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onLayout` instead
+    ///
+    pub const OnLayout = onLayout;
 
     /// Inherited from QLayout
     ///
@@ -3036,9 +3732,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QLayout `
     ///
-    pub fn OnLayout(self: QFormLayout, callback: *const fn () callconv(.c) QLayout) void {
+    pub fn onLayout(self: QFormLayout, callback: *const fn () callconv(.c) QLayout) void {
         qtc.QFormLayout_OnLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QLayout
     ///
@@ -3052,14 +3752,14 @@ pub const QFormLayout = extern struct {
     ///
     /// ` e: QChildEvent `
     ///
-    pub fn ChildEvent(self: QFormLayout, e: anytype) void {
+    pub fn childEvent(self: QFormLayout, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QChildEvent;
         qtc.QFormLayout_ChildEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QLayout
     ///
@@ -3073,10 +3773,14 @@ pub const QFormLayout = extern struct {
     ///
     /// ` e: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QFormLayout, e: anytype) void {
+    pub fn superChildEvent(self: QFormLayout, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QChildEvent;
         qtc.QFormLayout_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QLayout
     ///
@@ -3090,9 +3794,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QFormLayout, e: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QFormLayout, callback: *const fn (QFormLayout, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QFormLayout, callback: *const fn (QFormLayout, QChildEvent) callconv(.c) void) void {
         qtc.QFormLayout_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -3104,16 +3812,16 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QFormLayout, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QFormLayout_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QFormLayout, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QFormLayout_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -3125,12 +3833,16 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QFormLayout, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QFormLayout_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QFormLayout, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QFormLayout_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -3144,9 +3856,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QFormLayout, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QFormLayout, callback: *const fn (QFormLayout, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QFormLayout, callback: *const fn (QFormLayout, QEvent) callconv(.c) bool) void {
         qtc.QFormLayout_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -3160,17 +3876,17 @@ pub const QFormLayout = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QFormLayout, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QFormLayout, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QFormLayout_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QFormLayout_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -3184,13 +3900,17 @@ pub const QFormLayout = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QFormLayout, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QFormLayout, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QFormLayout_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QFormLayout_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -3204,9 +3924,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QFormLayout, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QFormLayout, callback: *const fn (QFormLayout, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QFormLayout, callback: *const fn (QFormLayout, QObject, QEvent) callconv(.c) bool) void {
         qtc.QFormLayout_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -3218,16 +3942,16 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QFormLayout, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QFormLayout_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QFormLayout, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QFormLayout_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -3239,12 +3963,16 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QFormLayout, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QFormLayout_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QFormLayout, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QFormLayout_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -3258,9 +3986,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QFormLayout, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QFormLayout, callback: *const fn (QFormLayout, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QFormLayout, callback: *const fn (QFormLayout, QTimerEvent) callconv(.c) void) void {
         qtc.QFormLayout_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -3272,16 +4004,16 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QFormLayout, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QFormLayout_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QFormLayout, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QFormLayout_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -3293,12 +4025,16 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QFormLayout, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QFormLayout_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QFormLayout, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QFormLayout_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -3312,9 +4048,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QFormLayout, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QFormLayout, callback: *const fn (QFormLayout, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QFormLayout, callback: *const fn (QFormLayout, QEvent) callconv(.c) void) void {
         qtc.QFormLayout_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -3328,14 +4068,14 @@ pub const QFormLayout = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QFormLayout, signal: anytype) void {
+    pub fn connectNotify(self: QFormLayout, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QFormLayout_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3349,11 +4089,15 @@ pub const QFormLayout = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QFormLayout, signal: anytype) void {
+    pub fn superConnectNotify(self: QFormLayout, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QFormLayout_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -3366,9 +4110,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QFormLayout, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QFormLayout, callback: *const fn (QFormLayout, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QFormLayout, callback: *const fn (QFormLayout, QMetaMethod) callconv(.c) void) void {
         qtc.QFormLayout_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3382,14 +4130,14 @@ pub const QFormLayout = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QFormLayout, signal: anytype) void {
+    pub fn disconnectNotify(self: QFormLayout, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QFormLayout_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3403,10 +4151,14 @@ pub const QFormLayout = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QFormLayout, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QFormLayout, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QFormLayout_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3420,9 +4172,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QFormLayout, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QFormLayout, callback: *const fn (QFormLayout, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QFormLayout, callback: *const fn (QFormLayout, QMetaMethod) callconv(.c) void) void {
         qtc.QFormLayout_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumHeightForWidth` instead
+    ///
+    pub const MinimumHeightForWidth = minimumHeightForWidth;
 
     /// Inherited from QLayoutItem
     ///
@@ -3436,13 +4192,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn MinimumHeightForWidth(self: QFormLayout, param1: i32) i32 {
+    pub fn minimumHeightForWidth(self: QFormLayout, param1: i32) i32 {
         return qtc.QFormLayout_MinimumHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumHeightForWidth` instead
+    /// ### DEPRECATED: Use `superMinimumHeightForWidth` instead
     ///
-    pub const QBaseMinimumHeightForWidth = SuperMinimumHeightForWidth;
+    pub const SuperMinimumHeightForWidth = superMinimumHeightForWidth;
 
     /// Inherited from QLayoutItem
     ///
@@ -3456,9 +4212,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperMinimumHeightForWidth(self: QFormLayout, param1: i32) i32 {
+    pub fn superMinimumHeightForWidth(self: QFormLayout, param1: i32) i32 {
         return qtc.QFormLayout_SuperMinimumHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMinimumHeightForWidth` instead
+    ///
+    pub const OnMinimumHeightForWidth = onMinimumHeightForWidth;
 
     /// Inherited from QLayoutItem
     ///
@@ -3472,9 +4232,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QFormLayout, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnMinimumHeightForWidth(self: QFormLayout, callback: *const fn (QFormLayout, i32) callconv(.c) i32) void {
+    pub fn onMinimumHeightForWidth(self: QFormLayout, callback: *const fn (QFormLayout, i32) callconv(.c) i32) void {
         qtc.QFormLayout_OnMinimumHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `widget` instead
+    ///
+    pub const Widget = widget;
 
     /// Inherited from QLayoutItem
     ///
@@ -3486,13 +4250,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn Widget(self: QFormLayout) QWidget {
+    pub fn widget(self: QFormLayout) QWidget {
         return .{ .ptr = qtc.QFormLayout_Widget(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperWidget` instead
+    /// ### DEPRECATED: Use `superWidget` instead
     ///
-    pub const QBaseWidget = SuperWidget;
+    pub const SuperWidget = superWidget;
 
     /// Inherited from QLayoutItem
     ///
@@ -3504,9 +4268,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn SuperWidget(self: QFormLayout) QWidget {
+    pub fn superWidget(self: QFormLayout) QWidget {
         return .{ .ptr = qtc.QFormLayout_SuperWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onWidget` instead
+    ///
+    pub const OnWidget = onWidget;
 
     /// Inherited from QLayoutItem
     ///
@@ -3520,9 +4288,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QWidget `
     ///
-    pub fn OnWidget(self: QFormLayout, callback: *const fn () callconv(.c) QWidget) void {
+    pub fn onWidget(self: QFormLayout, callback: *const fn () callconv(.c) QWidget) void {
         qtc.QFormLayout_OnWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `spacerItem` instead
+    ///
+    pub const SpacerItem = spacerItem;
 
     /// Inherited from QLayoutItem
     ///
@@ -3534,13 +4306,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn SpacerItem(self: QFormLayout) QSpacerItem {
+    pub fn spacerItem(self: QFormLayout) QSpacerItem {
         return .{ .ptr = qtc.QFormLayout_SpacerItem(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSpacerItem` instead
+    /// ### DEPRECATED: Use `superSpacerItem` instead
     ///
-    pub const QBaseSpacerItem = SuperSpacerItem;
+    pub const SuperSpacerItem = superSpacerItem;
 
     /// Inherited from QLayoutItem
     ///
@@ -3552,9 +4324,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn SuperSpacerItem(self: QFormLayout) QSpacerItem {
+    pub fn superSpacerItem(self: QFormLayout) QSpacerItem {
         return .{ .ptr = qtc.QFormLayout_SuperSpacerItem(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSpacerItem` instead
+    ///
+    pub const OnSpacerItem = onSpacerItem;
 
     /// Inherited from QLayoutItem
     ///
@@ -3568,9 +4344,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSpacerItem `
     ///
-    pub fn OnSpacerItem(self: QFormLayout, callback: *const fn () callconv(.c) QSpacerItem) void {
+    pub fn onSpacerItem(self: QFormLayout, callback: *const fn () callconv(.c) QSpacerItem) void {
         qtc.QFormLayout_OnSpacerItem(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `widgetEvent` instead
+    ///
+    pub const WidgetEvent = widgetEvent;
 
     /// Inherited from QLayout
     ///
@@ -3584,14 +4364,14 @@ pub const QFormLayout = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn WidgetEvent(self: QFormLayout, param1: anytype) void {
+    pub fn widgetEvent(self: QFormLayout, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.QFormLayout_WidgetEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWidgetEvent` instead
+    /// ### DEPRECATED: Use `superWidgetEvent` instead
     ///
-    pub const QBaseWidgetEvent = SuperWidgetEvent;
+    pub const SuperWidgetEvent = superWidgetEvent;
 
     /// Inherited from QLayout
     ///
@@ -3605,10 +4385,14 @@ pub const QFormLayout = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperWidgetEvent(self: QFormLayout, param1: anytype) void {
+    pub fn superWidgetEvent(self: QFormLayout, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.QFormLayout_SuperWidgetEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWidgetEvent` instead
+    ///
+    pub const OnWidgetEvent = onWidgetEvent;
 
     /// Inherited from QLayout
     ///
@@ -3622,9 +4406,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QFormLayout, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnWidgetEvent(self: QFormLayout, callback: *const fn (QFormLayout, QEvent) callconv(.c) void) void {
+    pub fn onWidgetEvent(self: QFormLayout, callback: *const fn (QFormLayout, QEvent) callconv(.c) void) void {
         qtc.QFormLayout_OnWidgetEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `addChildLayout` instead
+    ///
+    pub const AddChildLayout = addChildLayout;
 
     /// Inherited from QLayout
     ///
@@ -3638,14 +4426,14 @@ pub const QFormLayout = extern struct {
     ///
     /// ` l: QLayout `
     ///
-    pub fn AddChildLayout(self: QFormLayout, l: anytype) void {
+    pub fn addChildLayout(self: QFormLayout, l: anytype) void {
         comptime _ = @TypeOf(l)._is_QLayout;
         qtc.QFormLayout_AddChildLayout(@ptrCast(self.ptr), @ptrCast(l.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperAddChildLayout` instead
+    /// ### DEPRECATED: Use `superAddChildLayout` instead
     ///
-    pub const QBaseAddChildLayout = SuperAddChildLayout;
+    pub const SuperAddChildLayout = superAddChildLayout;
 
     /// Inherited from QLayout
     ///
@@ -3659,10 +4447,14 @@ pub const QFormLayout = extern struct {
     ///
     /// ` l: QLayout `
     ///
-    pub fn SuperAddChildLayout(self: QFormLayout, l: anytype) void {
+    pub fn superAddChildLayout(self: QFormLayout, l: anytype) void {
         comptime _ = @TypeOf(l)._is_QLayout;
         qtc.QFormLayout_SuperAddChildLayout(@ptrCast(self.ptr), @ptrCast(l.ptr));
     }
+
+    /// ### DEPRECATED: Use `onAddChildLayout` instead
+    ///
+    pub const OnAddChildLayout = onAddChildLayout;
 
     /// Inherited from QLayout
     ///
@@ -3676,9 +4468,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QFormLayout, l: QLayout) callconv(.c) void `
     ///
-    pub fn OnAddChildLayout(self: QFormLayout, callback: *const fn (QFormLayout, QLayout) callconv(.c) void) void {
+    pub fn onAddChildLayout(self: QFormLayout, callback: *const fn (QFormLayout, QLayout) callconv(.c) void) void {
         qtc.QFormLayout_OnAddChildLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `addChildWidget` instead
+    ///
+    pub const AddChildWidget = addChildWidget;
 
     /// Inherited from QLayout
     ///
@@ -3692,14 +4488,14 @@ pub const QFormLayout = extern struct {
     ///
     /// ` w: QWidget `
     ///
-    pub fn AddChildWidget(self: QFormLayout, w: anytype) void {
+    pub fn addChildWidget(self: QFormLayout, w: anytype) void {
         comptime _ = @TypeOf(w)._is_QWidget;
         qtc.QFormLayout_AddChildWidget(@ptrCast(self.ptr), @ptrCast(w.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperAddChildWidget` instead
+    /// ### DEPRECATED: Use `superAddChildWidget` instead
     ///
-    pub const QBaseAddChildWidget = SuperAddChildWidget;
+    pub const SuperAddChildWidget = superAddChildWidget;
 
     /// Inherited from QLayout
     ///
@@ -3713,10 +4509,14 @@ pub const QFormLayout = extern struct {
     ///
     /// ` w: QWidget `
     ///
-    pub fn SuperAddChildWidget(self: QFormLayout, w: anytype) void {
+    pub fn superAddChildWidget(self: QFormLayout, w: anytype) void {
         comptime _ = @TypeOf(w)._is_QWidget;
         qtc.QFormLayout_SuperAddChildWidget(@ptrCast(self.ptr), @ptrCast(w.ptr));
     }
+
+    /// ### DEPRECATED: Use `onAddChildWidget` instead
+    ///
+    pub const OnAddChildWidget = onAddChildWidget;
 
     /// Inherited from QLayout
     ///
@@ -3730,9 +4530,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QFormLayout, w: QWidget) callconv(.c) void `
     ///
-    pub fn OnAddChildWidget(self: QFormLayout, callback: *const fn (QFormLayout, QWidget) callconv(.c) void) void {
+    pub fn onAddChildWidget(self: QFormLayout, callback: *const fn (QFormLayout, QWidget) callconv(.c) void) void {
         qtc.QFormLayout_OnAddChildWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `adoptLayout` instead
+    ///
+    pub const AdoptLayout = adoptLayout;
 
     /// Inherited from QLayout
     ///
@@ -3744,16 +4548,16 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn AdoptLayout(self: QFormLayout, layout: anytype) bool {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        return qtc.QFormLayout_AdoptLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn adoptLayout(self: QFormLayout, _layout: anytype) bool {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        return qtc.QFormLayout_AdoptLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperAdoptLayout` instead
+    /// ### DEPRECATED: Use `superAdoptLayout` instead
     ///
-    pub const QBaseAdoptLayout = SuperAdoptLayout;
+    pub const SuperAdoptLayout = superAdoptLayout;
 
     /// Inherited from QLayout
     ///
@@ -3765,12 +4569,16 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SuperAdoptLayout(self: QFormLayout, layout: anytype) bool {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        return qtc.QFormLayout_SuperAdoptLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn superAdoptLayout(self: QFormLayout, _layout: anytype) bool {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        return qtc.QFormLayout_SuperAdoptLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `onAdoptLayout` instead
+    ///
+    pub const OnAdoptLayout = onAdoptLayout;
 
     /// Inherited from QLayout
     ///
@@ -3784,9 +4592,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QFormLayout, layout: QLayout) callconv(.c) bool `
     ///
-    pub fn OnAdoptLayout(self: QFormLayout, callback: *const fn (QFormLayout, QLayout) callconv(.c) bool) void {
+    pub fn onAdoptLayout(self: QFormLayout, callback: *const fn (QFormLayout, QLayout) callconv(.c) bool) void {
         qtc.QFormLayout_OnAdoptLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `alignmentRect` instead
+    ///
+    pub const AlignmentRect = alignmentRect;
 
     /// Inherited from QLayout
     ///
@@ -3800,14 +4612,14 @@ pub const QFormLayout = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn AlignmentRect(self: QFormLayout, param1: anytype) QRect {
+    pub fn alignmentRect(self: QFormLayout, param1: anytype) QRect {
         comptime _ = @TypeOf(param1)._is_QRect;
         return .{ .ptr = qtc.QFormLayout_AlignmentRect(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperAlignmentRect` instead
+    /// ### DEPRECATED: Use `superAlignmentRect` instead
     ///
-    pub const QBaseAlignmentRect = SuperAlignmentRect;
+    pub const SuperAlignmentRect = superAlignmentRect;
 
     /// Inherited from QLayout
     ///
@@ -3821,10 +4633,14 @@ pub const QFormLayout = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn SuperAlignmentRect(self: QFormLayout, param1: anytype) QRect {
+    pub fn superAlignmentRect(self: QFormLayout, param1: anytype) QRect {
         comptime _ = @TypeOf(param1)._is_QRect;
         return .{ .ptr = qtc.QFormLayout_SuperAlignmentRect(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onAlignmentRect` instead
+    ///
+    pub const OnAlignmentRect = onAlignmentRect;
 
     /// Inherited from QLayout
     ///
@@ -3840,9 +4656,13 @@ pub const QFormLayout = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnAlignmentRect(self: QFormLayout, callback: *const fn (QFormLayout, QRect) callconv(.c) QRect) void {
+    pub fn onAlignmentRect(self: QFormLayout, callback: *const fn (QFormLayout, QRect) callconv(.c) QRect) void {
         qtc.QFormLayout_OnAlignmentRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -3854,13 +4674,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn Sender(self: QFormLayout) QObject {
+    pub fn sender(self: QFormLayout) QObject {
         return .{ .ptr = qtc.QFormLayout_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -3872,9 +4692,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn SuperSender(self: QFormLayout) QObject {
+    pub fn superSender(self: QFormLayout) QObject {
         return .{ .ptr = qtc.QFormLayout_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -3888,9 +4712,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QFormLayout, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QFormLayout, callback: *const fn () callconv(.c) QObject) void {
         qtc.QFormLayout_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -3902,13 +4730,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn SenderSignalIndex(self: QFormLayout) i32 {
+    pub fn senderSignalIndex(self: QFormLayout) i32 {
         return qtc.QFormLayout_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -3920,9 +4748,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn SuperSenderSignalIndex(self: QFormLayout) i32 {
+    pub fn superSenderSignalIndex(self: QFormLayout) i32 {
         return qtc.QFormLayout_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -3936,9 +4768,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QFormLayout, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QFormLayout, callback: *const fn () callconv(.c) i32) void {
         qtc.QFormLayout_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -3952,14 +4788,14 @@ pub const QFormLayout = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QFormLayout, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QFormLayout, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QFormLayout_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -3973,10 +4809,14 @@ pub const QFormLayout = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QFormLayout, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QFormLayout, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QFormLayout_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -3990,9 +4830,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QFormLayout, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QFormLayout, callback: *const fn (QFormLayout, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QFormLayout, callback: *const fn (QFormLayout, [*:0]const u8) callconv(.c) i32) void {
         qtc.QFormLayout_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -4006,14 +4850,14 @@ pub const QFormLayout = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QFormLayout, signal: anytype) bool {
+    pub fn isSignalConnected(self: QFormLayout, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QFormLayout_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -4027,10 +4871,14 @@ pub const QFormLayout = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QFormLayout, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QFormLayout, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QFormLayout_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -4044,9 +4892,13 @@ pub const QFormLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QFormLayout, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QFormLayout, callback: *const fn (QFormLayout, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QFormLayout, callback: *const fn (QFormLayout, QMetaMethod) callconv(.c) bool) void {
         qtc.QFormLayout_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -4060,23 +4912,23 @@ pub const QFormLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QFormLayout, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QFormLayout, callback: *const fn (QFormLayout, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QFormLayout, callback: *const fn (QFormLayout, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#dtor.QFormLayout)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QFormLayout `
     ///
-    pub fn Delete(self: QFormLayout) void {
+    pub fn delete(self: QFormLayout) void {
         qtc.QFormLayout_Delete(@ptrCast(self.ptr));
     }
 };
@@ -4091,45 +4943,65 @@ pub const QFormLayout__TakeRowResult = extern struct {
 
     pub const _is_QFormLayout__TakeRowResult = {};
 
-    /// New constructs a new QFormLayout::TakeRowResult object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QFormLayout__TakeRowResult {
+    pub const New = new;
+
+    /// Allocate a new QFormLayout::TakeRowResult object in C++ memory
+    ///
+    pub fn new() QFormLayout__TakeRowResult {
         return .{ .ptr = qtc.QFormLayout__TakeRowResult_new() };
     }
 
-    /// New2 constructs a new QFormLayout::TakeRowResult object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QFormLayout::TakeRowResult object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QFormLayout__TakeRowResult `
     ///
-    pub fn New2(param1: anytype) QFormLayout__TakeRowResult {
+    pub fn new2(param1: anytype) QFormLayout__TakeRowResult {
         comptime _ = @TypeOf(param1)._is_QFormLayout__TakeRowResult;
         return .{ .ptr = qtc.QFormLayout__TakeRowResult_new2(@ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `labelItem` instead
+    ///
+    pub const LabelItem = labelItem;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout-takerowresult.html#labelItem-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QFormLayout__TakeRowResult `
     ///
-    pub fn LabelItem(self: QFormLayout__TakeRowResult) QLayoutItem {
+    pub fn labelItem(self: QFormLayout__TakeRowResult) QLayoutItem {
         return .{ .ptr = qtc.QFormLayout__TakeRowResult_LabelItem(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setLabelItem` instead
+    ///
+    pub const SetLabelItem = setLabelItem;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout-takerowresult.html#labelItem-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QFormLayout__TakeRowResult `
     ///
-    /// ` labelItem: QLayoutItem `
+    /// ` _labelItem: QLayoutItem `
     ///
-    pub fn SetLabelItem(self: QFormLayout__TakeRowResult, labelItem: anytype) void {
-        comptime _ = @TypeOf(labelItem)._is_QLayoutItem;
-        qtc.QFormLayout__TakeRowResult_SetLabelItem(@ptrCast(self.ptr), @ptrCast(labelItem.ptr));
+    pub fn setLabelItem(self: QFormLayout__TakeRowResult, _labelItem: anytype) void {
+        comptime _ = @TypeOf(_labelItem)._is_QLayoutItem;
+        qtc.QFormLayout__TakeRowResult_SetLabelItem(@ptrCast(self.ptr), @ptrCast(_labelItem.ptr));
     }
+
+    /// ### DEPRECATED: Use `fieldItem` instead
+    ///
+    pub const FieldItem = fieldItem;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout-takerowresult.html#fieldItem-var)
     ///
@@ -4137,34 +5009,38 @@ pub const QFormLayout__TakeRowResult = extern struct {
     ///
     /// ` self: QFormLayout__TakeRowResult `
     ///
-    pub fn FieldItem(self: QFormLayout__TakeRowResult) QLayoutItem {
+    pub fn fieldItem(self: QFormLayout__TakeRowResult) QLayoutItem {
         return .{ .ptr = qtc.QFormLayout__TakeRowResult_FieldItem(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setFieldItem` instead
+    ///
+    pub const SetFieldItem = setFieldItem;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout-takerowresult.html#fieldItem-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QFormLayout__TakeRowResult `
     ///
-    /// ` fieldItem: QLayoutItem `
+    /// ` _fieldItem: QLayoutItem `
     ///
-    pub fn SetFieldItem(self: QFormLayout__TakeRowResult, fieldItem: anytype) void {
-        comptime _ = @TypeOf(fieldItem)._is_QLayoutItem;
-        qtc.QFormLayout__TakeRowResult_SetFieldItem(@ptrCast(self.ptr), @ptrCast(fieldItem.ptr));
+    pub fn setFieldItem(self: QFormLayout__TakeRowResult, _fieldItem: anytype) void {
+        comptime _ = @TypeOf(_fieldItem)._is_QLayoutItem;
+        qtc.QFormLayout__TakeRowResult_SetFieldItem(@ptrCast(self.ptr), @ptrCast(_fieldItem.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QFormLayout__TakeRowResult `
     ///
-    pub fn Delete(self: QFormLayout__TakeRowResult) void {
+    pub fn delete(self: QFormLayout__TakeRowResult) void {
         qtc.QFormLayout__TakeRowResult_Delete(@ptrCast(self.ptr));
     }
 };

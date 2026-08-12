@@ -87,79 +87,103 @@ pub const KUrlLabel = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new KUrlLabel object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KUrlLabel object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) KUrlLabel {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KUrlLabel_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) KUrlLabel {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KUrlLabel_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new KUrlLabel object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() KUrlLabel {
+    pub const New2 = new2;
+
+    /// Allocate a new KUrlLabel object in C++ memory
+    ///
+    pub fn new2() KUrlLabel {
         return .{ .ptr = qtc.KUrlLabel_new2() };
     }
 
-    /// New3 constructs a new KUrlLabel object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new KUrlLabel object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` url: []const u8 `
+    /// ` _url: []const u8 `
     ///
-    pub fn New3(url: []const u8) KUrlLabel {
+    pub fn new3(_url: []const u8) KUrlLabel {
         const url_str = qtc.libqt_string{
-            .len = url.len,
-            .data = url.ptr,
+            .len = _url.len,
+            .data = _url.ptr,
         };
         return .{ .ptr = qtc.KUrlLabel_new3(url_str) };
     }
 
-    /// New4 constructs a new KUrlLabel object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new KUrlLabel object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` url: []const u8 `
+    /// ` _url: []const u8 `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn New4(url: []const u8, text: []const u8) KUrlLabel {
+    pub fn new4(_url: []const u8, _text: []const u8) KUrlLabel {
         const url_str = qtc.libqt_string{
-            .len = url.len,
-            .data = url.ptr,
+            .len = _url.len,
+            .data = _url.ptr,
         };
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         return .{ .ptr = qtc.KUrlLabel_new4(url_str, text_str) };
     }
 
-    /// New5 constructs a new KUrlLabel object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new KUrlLabel object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` url: []const u8 `
+    /// ` _url: []const u8 `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New5(url: []const u8, text: []const u8, parent: anytype) KUrlLabel {
+    pub fn new5(_url: []const u8, _text: []const u8, _parent: anytype) KUrlLabel {
         const url_str = qtc.libqt_string{
-            .len = url.len,
-            .data = url.ptr,
+            .len = _url.len,
+            .data = _url.ptr,
         };
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KUrlLabel_new5(url_str, text_str, @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KUrlLabel_new5(url_str, text_str, @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -167,9 +191,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn MetaObject(self: KUrlLabel) QMetaObject {
+    pub fn metaObject(self: KUrlLabel) QMetaObject {
         return .{ .ptr = qtc.KUrlLabel_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -181,13 +209,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KUrlLabel, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KUrlLabel, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KUrlLabel_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -197,9 +225,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn SuperMetaObject(self: KUrlLabel) QMetaObject {
+    pub fn superMetaObject(self: KUrlLabel) QMetaObject {
         return .{ .ptr = qtc.KUrlLabel_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -207,10 +239,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KUrlLabel, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KUrlLabel, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KUrlLabel_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -220,13 +256,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KUrlLabel, callback: *const fn (KUrlLabel, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KUrlLabel, callback: *const fn (KUrlLabel, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KUrlLabel_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -236,10 +272,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KUrlLabel, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KUrlLabel, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KUrlLabel_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -251,9 +291,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KUrlLabel, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KUrlLabel, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KUrlLabel_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -263,13 +307,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KUrlLabel, callback: *const fn (KUrlLabel, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KUrlLabel, callback: *const fn (KUrlLabel, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KUrlLabel_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -283,9 +327,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KUrlLabel, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KUrlLabel, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KUrlLabel_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -295,14 +343,18 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlLabel.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlLabel.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `url` instead
+    ///
+    pub const Url = url;
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#url)
     ///
@@ -312,13 +364,17 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Url(self: KUrlLabel, allocator: std.mem.Allocator) []const u8 {
+    pub fn url(self: KUrlLabel, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KUrlLabel_Url(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlLabel.Url: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlLabel.url: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tipText` instead
+    ///
+    pub const TipText = tipText;
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#tipText)
     ///
@@ -328,13 +384,17 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TipText(self: KUrlLabel, allocator: std.mem.Allocator) []const u8 {
+    pub fn tipText(self: KUrlLabel, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KUrlLabel_TipText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlLabel.TipText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlLabel.tipText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `useTips` instead
+    ///
+    pub const UseTips = useTips;
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#useTips)
     ///
@@ -342,9 +402,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn UseTips(self: KUrlLabel) bool {
+    pub fn useTips(self: KUrlLabel) bool {
         return qtc.KUrlLabel_UseTips(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `useCursor` instead
+    ///
+    pub const UseCursor = useCursor;
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#useCursor)
     ///
@@ -352,9 +416,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn UseCursor(self: KUrlLabel) bool {
+    pub fn useCursor(self: KUrlLabel) bool {
         return qtc.KUrlLabel_UseCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isGlowEnabled` instead
+    ///
+    pub const IsGlowEnabled = isGlowEnabled;
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#isGlowEnabled)
     ///
@@ -362,9 +430,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn IsGlowEnabled(self: KUrlLabel) bool {
+    pub fn isGlowEnabled(self: KUrlLabel) bool {
         return qtc.KUrlLabel_IsGlowEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFloatEnabled` instead
+    ///
+    pub const IsFloatEnabled = isFloatEnabled;
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#isFloatEnabled)
     ///
@@ -372,9 +444,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn IsFloatEnabled(self: KUrlLabel) bool {
+    pub fn isFloatEnabled(self: KUrlLabel) bool {
         return qtc.KUrlLabel_IsFloatEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `alternatePixmap` instead
+    ///
+    pub const AlternatePixmap = alternatePixmap;
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#alternatePixmap)
     ///
@@ -382,9 +458,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn AlternatePixmap(self: KUrlLabel) QPixmap {
+    pub fn alternatePixmap(self: KUrlLabel) QPixmap {
         return .{ .ptr = qtc.KUrlLabel_AlternatePixmap(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setUnderline` instead
+    ///
+    pub const SetUnderline = setUnderline;
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#setUnderline)
     ///
@@ -392,9 +472,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn SetUnderline(self: KUrlLabel) void {
+    pub fn setUnderline(self: KUrlLabel) void {
         qtc.KUrlLabel_SetUnderline(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUrl` instead
+    ///
+    pub const SetUrl = setUrl;
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#setUrl)
     ///
@@ -402,15 +486,19 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` url: []const u8 `
+    /// ` _url: []const u8 `
     ///
-    pub fn SetUrl(self: KUrlLabel, url: []const u8) void {
+    pub fn setUrl(self: KUrlLabel, _url: []const u8) void {
         const url_str = qtc.libqt_string{
-            .len = url.len,
-            .data = url.ptr,
+            .len = _url.len,
+            .data = _url.ptr,
         };
         qtc.KUrlLabel_SetUrl(@ptrCast(self.ptr), url_str);
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#setFont)
     ///
@@ -418,12 +506,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: KUrlLabel, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.KUrlLabel_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: KUrlLabel, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.KUrlLabel_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetFont` instead
+    ///
+    pub const OnSetFont = onSetFont;
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#setFont)
     ///
@@ -435,13 +527,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, font: QFont) callconv(.c) void `
     ///
-    pub fn OnSetFont(self: KUrlLabel, callback: *const fn (KUrlLabel, QFont) callconv(.c) void) void {
+    pub fn onSetFont(self: KUrlLabel, callback: *const fn (KUrlLabel, QFont) callconv(.c) void) void {
         qtc.KUrlLabel_OnSetFont(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetFont` instead
+    /// ### DEPRECATED: Use `superSetFont` instead
     ///
-    pub const QBaseSetFont = SuperSetFont;
+    pub const SuperSetFont = superSetFont;
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#setFont)
     ///
@@ -451,12 +543,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SuperSetFont(self: KUrlLabel, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.KUrlLabel_SuperSetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn superSetFont(self: KUrlLabel, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.KUrlLabel_SuperSetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUseTips` instead
+    ///
+    pub const SetUseTips = setUseTips;
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#setUseTips)
     ///
@@ -464,9 +560,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn SetUseTips(self: KUrlLabel) void {
+    pub fn setUseTips(self: KUrlLabel) void {
         qtc.KUrlLabel_SetUseTips(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTipText` instead
+    ///
+    pub const SetTipText = setTipText;
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#setTipText)
     ///
@@ -476,13 +576,17 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` tip: []const u8 `
     ///
-    pub fn SetTipText(self: KUrlLabel, tip: []const u8) void {
+    pub fn setTipText(self: KUrlLabel, tip: []const u8) void {
         const tip_str = qtc.libqt_string{
             .len = tip.len,
             .data = tip.ptr,
         };
         qtc.KUrlLabel_SetTipText(@ptrCast(self.ptr), tip_str);
     }
+
+    /// ### DEPRECATED: Use `setHighlightedColor` instead
+    ///
+    pub const SetHighlightedColor = setHighlightedColor;
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#setHighlightedColor)
     ///
@@ -492,10 +596,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` highcolor: QColor `
     ///
-    pub fn SetHighlightedColor(self: KUrlLabel, highcolor: anytype) void {
+    pub fn setHighlightedColor(self: KUrlLabel, highcolor: anytype) void {
         comptime _ = @TypeOf(highcolor)._is_QColor;
         qtc.KUrlLabel_SetHighlightedColor(@ptrCast(self.ptr), @ptrCast(highcolor.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHighlightedColor2` instead
+    ///
+    pub const SetHighlightedColor2 = setHighlightedColor2;
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#setHighlightedColor)
     ///
@@ -505,13 +613,17 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` highcolor: []const u8 `
     ///
-    pub fn SetHighlightedColor2(self: KUrlLabel, highcolor: []const u8) void {
+    pub fn setHighlightedColor2(self: KUrlLabel, highcolor: []const u8) void {
         const highcolor_str = qtc.libqt_string{
             .len = highcolor.len,
             .data = highcolor.ptr,
         };
         qtc.KUrlLabel_SetHighlightedColor2(@ptrCast(self.ptr), highcolor_str);
     }
+
+    /// ### DEPRECATED: Use `setSelectedColor` instead
+    ///
+    pub const SetSelectedColor = setSelectedColor;
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#setSelectedColor)
     ///
@@ -521,10 +633,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` color: QColor `
     ///
-    pub fn SetSelectedColor(self: KUrlLabel, color: anytype) void {
+    pub fn setSelectedColor(self: KUrlLabel, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.KUrlLabel_SetSelectedColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSelectedColor2` instead
+    ///
+    pub const SetSelectedColor2 = setSelectedColor2;
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#setSelectedColor)
     ///
@@ -534,13 +650,17 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` color: []const u8 `
     ///
-    pub fn SetSelectedColor2(self: KUrlLabel, color: []const u8) void {
+    pub fn setSelectedColor2(self: KUrlLabel, color: []const u8) void {
         const color_str = qtc.libqt_string{
             .len = color.len,
             .data = color.ptr,
         };
         qtc.KUrlLabel_SetSelectedColor2(@ptrCast(self.ptr), color_str);
     }
+
+    /// ### DEPRECATED: Use `setUseCursor` instead
+    ///
+    pub const SetUseCursor = setUseCursor;
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#setUseCursor)
     ///
@@ -550,9 +670,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetUseCursor(self: KUrlLabel, on: bool) void {
+    pub fn setUseCursor(self: KUrlLabel, on: bool) void {
         qtc.KUrlLabel_SetUseCursor(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `setGlowEnabled` instead
+    ///
+    pub const SetGlowEnabled = setGlowEnabled;
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#setGlowEnabled)
     ///
@@ -560,9 +684,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn SetGlowEnabled(self: KUrlLabel) void {
+    pub fn setGlowEnabled(self: KUrlLabel) void {
         qtc.KUrlLabel_SetGlowEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFloatEnabled` instead
+    ///
+    pub const SetFloatEnabled = setFloatEnabled;
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#setFloatEnabled)
     ///
@@ -570,9 +698,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn SetFloatEnabled(self: KUrlLabel) void {
+    pub fn setFloatEnabled(self: KUrlLabel) void {
         qtc.KUrlLabel_SetFloatEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAlternatePixmap` instead
+    ///
+    pub const SetAlternatePixmap = setAlternatePixmap;
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#setAlternatePixmap)
     ///
@@ -580,12 +712,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` pixmap: QPixmap `
+    /// ` _pixmap: QPixmap `
     ///
-    pub fn SetAlternatePixmap(self: KUrlLabel, pixmap: anytype) void {
-        comptime _ = @TypeOf(pixmap)._is_QPixmap;
-        qtc.KUrlLabel_SetAlternatePixmap(@ptrCast(self.ptr), @ptrCast(pixmap.ptr));
+    pub fn setAlternatePixmap(self: KUrlLabel, _pixmap: anytype) void {
+        comptime _ = @TypeOf(_pixmap)._is_QPixmap;
+        qtc.KUrlLabel_SetAlternatePixmap(@ptrCast(self.ptr), @ptrCast(_pixmap.ptr));
     }
+
+    /// ### DEPRECATED: Use `enteredUrl` instead
+    ///
+    pub const EnteredUrl = enteredUrl;
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#enteredUrl)
     ///
@@ -593,10 +729,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn EnteredUrl(self: KUrlLabel) void {
+    pub fn enteredUrl(self: KUrlLabel) void {
         qtc.KUrlLabel_EnteredUrl(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onEnteredUrl` instead
+    ///
+    pub const OnEnteredUrl = onEnteredUrl;
+
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#enteredUrl)
     ///
     /// ## Parameters:
@@ -605,20 +745,28 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel) callconv(.c) void `
     ///
-    pub fn OnEnteredUrl(self: KUrlLabel, callback: *const fn (KUrlLabel) callconv(.c) void) void {
+    pub fn onEnteredUrl(self: KUrlLabel, callback: *const fn (KUrlLabel) callconv(.c) void) void {
         qtc.KUrlLabel_Connect_EnteredUrl(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `leftUrl` instead
+    ///
+    pub const LeftUrl = leftUrl;
+
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#leftUrl)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn LeftUrl(self: KUrlLabel) void {
+    pub fn leftUrl(self: KUrlLabel) void {
         qtc.KUrlLabel_LeftUrl(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onLeftUrl` instead
+    ///
+    pub const OnLeftUrl = onLeftUrl;
+
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#leftUrl)
     ///
     /// ## Parameters:
@@ -627,20 +775,28 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel) callconv(.c) void `
     ///
-    pub fn OnLeftUrl(self: KUrlLabel, callback: *const fn (KUrlLabel) callconv(.c) void) void {
+    pub fn onLeftUrl(self: KUrlLabel, callback: *const fn (KUrlLabel) callconv(.c) void) void {
         qtc.KUrlLabel_Connect_LeftUrl(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `leftClickedUrl` instead
+    ///
+    pub const LeftClickedUrl = leftClickedUrl;
+
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#leftClickedUrl)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn LeftClickedUrl(self: KUrlLabel) void {
+    pub fn leftClickedUrl(self: KUrlLabel) void {
         qtc.KUrlLabel_LeftClickedUrl(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onLeftClickedUrl` instead
+    ///
+    pub const OnLeftClickedUrl = onLeftClickedUrl;
+
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#leftClickedUrl)
     ///
     /// ## Parameters:
@@ -649,20 +805,28 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel) callconv(.c) void `
     ///
-    pub fn OnLeftClickedUrl(self: KUrlLabel, callback: *const fn (KUrlLabel) callconv(.c) void) void {
+    pub fn onLeftClickedUrl(self: KUrlLabel, callback: *const fn (KUrlLabel) callconv(.c) void) void {
         qtc.KUrlLabel_Connect_LeftClickedUrl(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `rightClickedUrl` instead
+    ///
+    pub const RightClickedUrl = rightClickedUrl;
+
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#rightClickedUrl)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn RightClickedUrl(self: KUrlLabel) void {
+    pub fn rightClickedUrl(self: KUrlLabel) void {
         qtc.KUrlLabel_RightClickedUrl(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onRightClickedUrl` instead
+    ///
+    pub const OnRightClickedUrl = onRightClickedUrl;
+
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#rightClickedUrl)
     ///
     /// ## Parameters:
@@ -671,9 +835,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel) callconv(.c) void `
     ///
-    pub fn OnRightClickedUrl(self: KUrlLabel, callback: *const fn (KUrlLabel) callconv(.c) void) void {
+    pub fn onRightClickedUrl(self: KUrlLabel, callback: *const fn (KUrlLabel) callconv(.c) void) void {
         qtc.KUrlLabel_Connect_RightClickedUrl(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `middleClickedUrl` instead
+    ///
+    pub const MiddleClickedUrl = middleClickedUrl;
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#middleClickedUrl)
     ///
@@ -681,9 +849,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn MiddleClickedUrl(self: KUrlLabel) void {
+    pub fn middleClickedUrl(self: KUrlLabel) void {
         qtc.KUrlLabel_MiddleClickedUrl(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMiddleClickedUrl` instead
+    ///
+    pub const OnMiddleClickedUrl = onMiddleClickedUrl;
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#middleClickedUrl)
     ///
@@ -693,9 +865,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel) callconv(.c) void `
     ///
-    pub fn OnMiddleClickedUrl(self: KUrlLabel, callback: *const fn (KUrlLabel) callconv(.c) void) void {
+    pub fn onMiddleClickedUrl(self: KUrlLabel, callback: *const fn (KUrlLabel) callconv(.c) void) void {
         qtc.KUrlLabel_Connect_MiddleClickedUrl(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#mouseReleaseEvent)
     ///
@@ -705,10 +881,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param1: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: KUrlLabel, param1: anytype) void {
+    pub fn mouseReleaseEvent(self: KUrlLabel, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QMouseEvent;
         qtc.KUrlLabel_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#mouseReleaseEvent)
     ///
@@ -720,13 +900,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, param1: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QMouseEvent) callconv(.c) void) void {
         qtc.KUrlLabel_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#mouseReleaseEvent)
     ///
@@ -738,10 +918,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param1: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: KUrlLabel, param1: anytype) void {
+    pub fn superMouseReleaseEvent(self: KUrlLabel, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QMouseEvent;
         qtc.KUrlLabel_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#enterEvent)
     ///
@@ -749,12 +933,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: KUrlLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KUrlLabel_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: KUrlLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KUrlLabel_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#enterEvent)
     ///
@@ -766,13 +954,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QEnterEvent) callconv(.c) void) void {
         qtc.KUrlLabel_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#enterEvent)
     ///
@@ -782,12 +970,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: KUrlLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KUrlLabel_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: KUrlLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KUrlLabel_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#leaveEvent)
     ///
@@ -797,10 +989,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn LeaveEvent(self: KUrlLabel, param1: anytype) void {
+    pub fn leaveEvent(self: KUrlLabel, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.KUrlLabel_LeaveEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#leaveEvent)
     ///
@@ -812,13 +1008,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QEvent) callconv(.c) void) void {
         qtc.KUrlLabel_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#leaveEvent)
     ///
@@ -830,10 +1026,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: KUrlLabel, param1: anytype) void {
+    pub fn superLeaveEvent(self: KUrlLabel, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.KUrlLabel_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#event)
     ///
@@ -843,10 +1043,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn Event(self: KUrlLabel, param1: anytype) bool {
+    pub fn event(self: KUrlLabel, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QEvent;
         return qtc.KUrlLabel_Event(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#event)
     ///
@@ -858,13 +1062,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, param1: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QEvent) callconv(.c) bool) void {
         qtc.KUrlLabel_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#event)
     ///
@@ -876,10 +1080,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperEvent(self: KUrlLabel, param1: anytype) bool {
+    pub fn superEvent(self: KUrlLabel, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QEvent;
         return qtc.KUrlLabel_SuperEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -891,15 +1099,19 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlLabel.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlLabel.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -913,15 +1125,19 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlLabel.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlLabel.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setUnderline1` instead
+    ///
+    pub const SetUnderline1 = setUnderline1;
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#setUnderline)
     ///
@@ -931,9 +1147,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetUnderline1(self: KUrlLabel, on: bool) void {
+    pub fn setUnderline1(self: KUrlLabel, on: bool) void {
         qtc.KUrlLabel_SetUnderline1(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `setUseTips1` instead
+    ///
+    pub const SetUseTips1 = setUseTips1;
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#setUseTips)
     ///
@@ -943,9 +1163,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetUseTips1(self: KUrlLabel, on: bool) void {
+    pub fn setUseTips1(self: KUrlLabel, on: bool) void {
         qtc.KUrlLabel_SetUseTips1(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `setUseCursor2` instead
+    ///
+    pub const SetUseCursor2 = setUseCursor2;
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#setUseCursor)
     ///
@@ -955,12 +1179,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` on: bool `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetUseCursor2(self: KUrlLabel, on: bool, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.KUrlLabel_SetUseCursor2(@ptrCast(self.ptr), on, @ptrCast(cursor.ptr));
+    pub fn setUseCursor2(self: KUrlLabel, on: bool, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.KUrlLabel_SetUseCursor2(@ptrCast(self.ptr), on, @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGlowEnabled1` instead
+    ///
+    pub const SetGlowEnabled1 = setGlowEnabled1;
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#setGlowEnabled)
     ///
@@ -970,9 +1198,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` glow: bool `
     ///
-    pub fn SetGlowEnabled1(self: KUrlLabel, glow: bool) void {
+    pub fn setGlowEnabled1(self: KUrlLabel, glow: bool) void {
         qtc.KUrlLabel_SetGlowEnabled1(@ptrCast(self.ptr), glow);
     }
+
+    /// ### DEPRECATED: Use `setFloatEnabled1` instead
+    ///
+    pub const SetFloatEnabled1 = setFloatEnabled1;
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#setFloatEnabled)
     ///
@@ -982,9 +1214,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` do_float: bool `
     ///
-    pub fn SetFloatEnabled1(self: KUrlLabel, do_float: bool) void {
+    pub fn setFloatEnabled1(self: KUrlLabel, do_float: bool) void {
         qtc.KUrlLabel_SetFloatEnabled1(@ptrCast(self.ptr), do_float);
     }
+
+    /// ### DEPRECATED: Use `text` instead
+    ///
+    pub const Text = text;
 
     /// Inherited from QLabel
     ///
@@ -996,14 +1232,18 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: KUrlLabel, allocator: std.mem.Allocator) []const u8 {
+    pub fn text(self: KUrlLabel, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QLabel_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlLabel.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlLabel.text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `pixmap` instead
+    ///
+    pub const Pixmap = pixmap;
+
     /// Inherited from QLabel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#pixmap)
@@ -1014,10 +1254,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param1: qnamespace_enums.ReturnByValueConstant `
     ///
-    pub fn Pixmap(self: KUrlLabel, param1: i32) QPixmap {
+    pub fn pixmap(self: KUrlLabel, param1: i32) QPixmap {
         return .{ .ptr = qtc.QLabel_Pixmap(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
+    /// ### DEPRECATED: Use `pixmap2` instead
+    ///
+    pub const Pixmap2 = pixmap2;
+
     /// Inherited from QLabel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#pixmap)
@@ -1026,9 +1270,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn Pixmap2(self: KUrlLabel) QPixmap {
+    pub fn pixmap2(self: KUrlLabel) QPixmap {
         return .{ .ptr = qtc.QLabel_Pixmap2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `picture` instead
+    ///
+    pub const Picture = picture;
 
     /// Inherited from QLabel
     ///
@@ -1040,9 +1288,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param1: qnamespace_enums.ReturnByValueConstant `
     ///
-    pub fn Picture(self: KUrlLabel, param1: i32) QPicture {
+    pub fn picture(self: KUrlLabel, param1: i32) QPicture {
         return .{ .ptr = qtc.QLabel_Picture(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `picture2` instead
+    ///
+    pub const Picture2 = picture2;
 
     /// Inherited from QLabel
     ///
@@ -1052,9 +1304,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn Picture2(self: KUrlLabel) QPicture {
+    pub fn picture2(self: KUrlLabel) QPicture {
         return .{ .ptr = qtc.QLabel_Picture2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `movie` instead
+    ///
+    pub const Movie = movie;
 
     /// Inherited from QLabel
     ///
@@ -1064,9 +1320,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn Movie(self: KUrlLabel) QMovie {
+    pub fn movie(self: KUrlLabel) QMovie {
         return .{ .ptr = qtc.QLabel_Movie(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `textFormat` instead
+    ///
+    pub const TextFormat = textFormat;
 
     /// Inherited from QLabel
     ///
@@ -1080,9 +1340,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` qnamespace_enums.TextFormat `
     ///
-    pub fn TextFormat(self: KUrlLabel) i32 {
+    pub fn textFormat(self: KUrlLabel) i32 {
         return qtc.QLabel_TextFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTextFormat` instead
+    ///
+    pub const SetTextFormat = setTextFormat;
 
     /// Inherited from QLabel
     ///
@@ -1092,11 +1356,15 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` textFormat: qnamespace_enums.TextFormat `
+    /// ` _textFormat: qnamespace_enums.TextFormat `
     ///
-    pub fn SetTextFormat(self: KUrlLabel, textFormat: i32) void {
-        qtc.QLabel_SetTextFormat(@ptrCast(self.ptr), @bitCast(textFormat));
+    pub fn setTextFormat(self: KUrlLabel, _textFormat: i32) void {
+        qtc.QLabel_SetTextFormat(@ptrCast(self.ptr), @bitCast(_textFormat));
     }
+
+    /// ### DEPRECATED: Use `setResourceProvider` instead
+    ///
+    pub const SetResourceProvider = setResourceProvider;
 
     /// Inherited from QLabel
     ///
@@ -1108,9 +1376,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` provider: *const fn (funcparam1: QUrl) callconv(.c) QVariant `
     ///
-    pub fn SetResourceProvider(self: KUrlLabel, provider: *const fn (QUrl) callconv(.c) QVariant) void {
+    pub fn setResourceProvider(self: KUrlLabel, provider: *const fn (QUrl) callconv(.c) QVariant) void {
         qtc.QLabel_SetResourceProvider(@ptrCast(self.ptr), @bitCast(@intFromPtr(provider)));
     }
+
+    /// ### DEPRECATED: Use `alignment` instead
+    ///
+    pub const Alignment = alignment;
 
     /// Inherited from QLabel
     ///
@@ -1124,9 +1396,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn Alignment(self: KUrlLabel) i32 {
+    pub fn alignment(self: KUrlLabel) i32 {
         return qtc.QLabel_Alignment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAlignment` instead
+    ///
+    pub const SetAlignment = setAlignment;
 
     /// Inherited from QLabel
     ///
@@ -1136,11 +1412,15 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
+    /// ` _alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn SetAlignment(self: KUrlLabel, alignment: i32) void {
-        qtc.QLabel_SetAlignment(@ptrCast(self.ptr), @bitCast(alignment));
+    pub fn setAlignment(self: KUrlLabel, _alignment: i32) void {
+        qtc.QLabel_SetAlignment(@ptrCast(self.ptr), @bitCast(_alignment));
     }
+
+    /// ### DEPRECATED: Use `setWordWrap` instead
+    ///
+    pub const SetWordWrap = setWordWrap;
 
     /// Inherited from QLabel
     ///
@@ -1152,9 +1432,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWordWrap(self: KUrlLabel, on: bool) void {
+    pub fn setWordWrap(self: KUrlLabel, on: bool) void {
         qtc.QLabel_SetWordWrap(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `wordWrap` instead
+    ///
+    pub const WordWrap = wordWrap;
 
     /// Inherited from QLabel
     ///
@@ -1164,9 +1448,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn WordWrap(self: KUrlLabel) bool {
+    pub fn wordWrap(self: KUrlLabel) bool {
         return qtc.QLabel_WordWrap(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `indent` instead
+    ///
+    pub const Indent = indent;
 
     /// Inherited from QLabel
     ///
@@ -1176,9 +1464,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn Indent(self: KUrlLabel) i32 {
+    pub fn indent(self: KUrlLabel) i32 {
         return qtc.QLabel_Indent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setIndent` instead
+    ///
+    pub const SetIndent = setIndent;
 
     /// Inherited from QLabel
     ///
@@ -1188,11 +1480,15 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` indent: i32 `
+    /// ` _indent: i32 `
     ///
-    pub fn SetIndent(self: KUrlLabel, indent: i32) void {
-        qtc.QLabel_SetIndent(@ptrCast(self.ptr), @bitCast(indent));
+    pub fn setIndent(self: KUrlLabel, _indent: i32) void {
+        qtc.QLabel_SetIndent(@ptrCast(self.ptr), @bitCast(_indent));
     }
+
+    /// ### DEPRECATED: Use `margin` instead
+    ///
+    pub const Margin = margin;
 
     /// Inherited from QLabel
     ///
@@ -1202,9 +1498,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn Margin(self: KUrlLabel) i32 {
+    pub fn margin(self: KUrlLabel) i32 {
         return qtc.QLabel_Margin(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMargin` instead
+    ///
+    pub const SetMargin = setMargin;
 
     /// Inherited from QLabel
     ///
@@ -1214,11 +1514,15 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` margin: i32 `
+    /// ` _margin: i32 `
     ///
-    pub fn SetMargin(self: KUrlLabel, margin: i32) void {
-        qtc.QLabel_SetMargin(@ptrCast(self.ptr), @bitCast(margin));
+    pub fn setMargin(self: KUrlLabel, _margin: i32) void {
+        qtc.QLabel_SetMargin(@ptrCast(self.ptr), @bitCast(_margin));
     }
+
+    /// ### DEPRECATED: Use `hasScaledContents` instead
+    ///
+    pub const HasScaledContents = hasScaledContents;
 
     /// Inherited from QLabel
     ///
@@ -1228,9 +1532,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn HasScaledContents(self: KUrlLabel) bool {
+    pub fn hasScaledContents(self: KUrlLabel) bool {
         return qtc.QLabel_HasScaledContents(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setScaledContents` instead
+    ///
+    pub const SetScaledContents = setScaledContents;
 
     /// Inherited from QLabel
     ///
@@ -1242,9 +1550,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` scaledContents: bool `
     ///
-    pub fn SetScaledContents(self: KUrlLabel, scaledContents: bool) void {
+    pub fn setScaledContents(self: KUrlLabel, scaledContents: bool) void {
         qtc.QLabel_SetScaledContents(@ptrCast(self.ptr), scaledContents);
     }
+
+    /// ### DEPRECATED: Use `setBuddy` instead
+    ///
+    pub const SetBuddy = setBuddy;
 
     /// Inherited from QLabel
     ///
@@ -1254,12 +1566,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` buddy: QWidget `
+    /// ` _buddy: QWidget `
     ///
-    pub fn SetBuddy(self: KUrlLabel, buddy: anytype) void {
-        comptime _ = @TypeOf(buddy)._is_QWidget;
-        qtc.QLabel_SetBuddy(@ptrCast(self.ptr), @ptrCast(buddy.ptr));
+    pub fn setBuddy(self: KUrlLabel, _buddy: anytype) void {
+        comptime _ = @TypeOf(_buddy)._is_QWidget;
+        qtc.QLabel_SetBuddy(@ptrCast(self.ptr), @ptrCast(_buddy.ptr));
     }
+
+    /// ### DEPRECATED: Use `buddy` instead
+    ///
+    pub const Buddy = buddy;
 
     /// Inherited from QLabel
     ///
@@ -1269,9 +1585,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn Buddy(self: KUrlLabel) QWidget {
+    pub fn buddy(self: KUrlLabel) QWidget {
         return .{ .ptr = qtc.QLabel_Buddy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `openExternalLinks` instead
+    ///
+    pub const OpenExternalLinks = openExternalLinks;
 
     /// Inherited from QLabel
     ///
@@ -1281,9 +1601,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn OpenExternalLinks(self: KUrlLabel) bool {
+    pub fn openExternalLinks(self: KUrlLabel) bool {
         return qtc.QLabel_OpenExternalLinks(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setOpenExternalLinks` instead
+    ///
+    pub const SetOpenExternalLinks = setOpenExternalLinks;
 
     /// Inherited from QLabel
     ///
@@ -1295,9 +1619,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` open: bool `
     ///
-    pub fn SetOpenExternalLinks(self: KUrlLabel, open: bool) void {
+    pub fn setOpenExternalLinks(self: KUrlLabel, open: bool) void {
         qtc.QLabel_SetOpenExternalLinks(@ptrCast(self.ptr), open);
     }
+
+    /// ### DEPRECATED: Use `setTextInteractionFlags` instead
+    ///
+    pub const SetTextInteractionFlags = setTextInteractionFlags;
 
     /// Inherited from QLabel
     ///
@@ -1309,9 +1637,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.TextInteractionFlag `
     ///
-    pub fn SetTextInteractionFlags(self: KUrlLabel, flags: i32) void {
+    pub fn setTextInteractionFlags(self: KUrlLabel, flags: i32) void {
         qtc.QLabel_SetTextInteractionFlags(@ptrCast(self.ptr), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `textInteractionFlags` instead
+    ///
+    pub const TextInteractionFlags = textInteractionFlags;
 
     /// Inherited from QLabel
     ///
@@ -1325,9 +1657,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` flag of qnamespace_enums.TextInteractionFlag `
     ///
-    pub fn TextInteractionFlags(self: KUrlLabel) i32 {
+    pub fn textInteractionFlags(self: KUrlLabel) i32 {
         return qtc.QLabel_TextInteractionFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSelection` instead
+    ///
+    pub const SetSelection = setSelection;
 
     /// Inherited from QLabel
     ///
@@ -1341,9 +1677,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param2: i32 `
     ///
-    pub fn SetSelection(self: KUrlLabel, param1: i32, param2: i32) void {
+    pub fn setSelection(self: KUrlLabel, param1: i32, param2: i32) void {
         qtc.QLabel_SetSelection(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2));
     }
+
+    /// ### DEPRECATED: Use `hasSelectedText` instead
+    ///
+    pub const HasSelectedText = hasSelectedText;
 
     /// Inherited from QLabel
     ///
@@ -1353,9 +1693,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn HasSelectedText(self: KUrlLabel) bool {
+    pub fn hasSelectedText(self: KUrlLabel) bool {
         return qtc.QLabel_HasSelectedText(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `selectedText` instead
+    ///
+    pub const SelectedText = selectedText;
 
     /// Inherited from QLabel
     ///
@@ -1367,13 +1711,17 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SelectedText(self: KUrlLabel, allocator: std.mem.Allocator) []const u8 {
+    pub fn selectedText(self: KUrlLabel, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QLabel_SelectedText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlLabel.SelectedText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlLabel.selectedText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `selectionStart` instead
+    ///
+    pub const SelectionStart = selectionStart;
 
     /// Inherited from QLabel
     ///
@@ -1383,9 +1731,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn SelectionStart(self: KUrlLabel) i32 {
+    pub fn selectionStart(self: KUrlLabel) i32 {
         return qtc.QLabel_SelectionStart(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setText` instead
+    ///
+    pub const SetText = setText;
 
     /// Inherited from QLabel
     ///
@@ -1395,15 +1747,19 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn SetText(self: KUrlLabel, text: []const u8) void {
+    pub fn setText(self: KUrlLabel, _text: []const u8) void {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         qtc.QLabel_SetText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `setPixmap` instead
+    ///
+    pub const SetPixmap = setPixmap;
 
     /// Inherited from QLabel
     ///
@@ -1413,12 +1769,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` pixmap: QPixmap `
+    /// ` _pixmap: QPixmap `
     ///
-    pub fn SetPixmap(self: KUrlLabel, pixmap: anytype) void {
-        comptime _ = @TypeOf(pixmap)._is_QPixmap;
-        qtc.QLabel_SetPixmap(@ptrCast(self.ptr), @ptrCast(pixmap.ptr));
+    pub fn setPixmap(self: KUrlLabel, _pixmap: anytype) void {
+        comptime _ = @TypeOf(_pixmap)._is_QPixmap;
+        qtc.QLabel_SetPixmap(@ptrCast(self.ptr), @ptrCast(_pixmap.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPicture` instead
+    ///
+    pub const SetPicture = setPicture;
 
     /// Inherited from QLabel
     ///
@@ -1428,12 +1788,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` picture: QPicture `
+    /// ` _picture: QPicture `
     ///
-    pub fn SetPicture(self: KUrlLabel, picture: anytype) void {
-        comptime _ = @TypeOf(picture)._is_QPicture;
-        qtc.QLabel_SetPicture(@ptrCast(self.ptr), @ptrCast(picture.ptr));
+    pub fn setPicture(self: KUrlLabel, _picture: anytype) void {
+        comptime _ = @TypeOf(_picture)._is_QPicture;
+        qtc.QLabel_SetPicture(@ptrCast(self.ptr), @ptrCast(_picture.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMovie` instead
+    ///
+    pub const SetMovie = setMovie;
 
     /// Inherited from QLabel
     ///
@@ -1443,12 +1807,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` movie: QMovie `
+    /// ` _movie: QMovie `
     ///
-    pub fn SetMovie(self: KUrlLabel, movie: anytype) void {
-        comptime _ = @TypeOf(movie)._is_QMovie;
-        qtc.QLabel_SetMovie(@ptrCast(self.ptr), @ptrCast(movie.ptr));
+    pub fn setMovie(self: KUrlLabel, _movie: anytype) void {
+        comptime _ = @TypeOf(_movie)._is_QMovie;
+        qtc.QLabel_SetMovie(@ptrCast(self.ptr), @ptrCast(_movie.ptr));
     }
+
+    /// ### DEPRECATED: Use `setNum` instead
+    ///
+    pub const SetNum = setNum;
 
     /// Inherited from QLabel
     ///
@@ -1460,9 +1828,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` num: i32 `
     ///
-    pub fn SetNum(self: KUrlLabel, num: i32) void {
+    pub fn setNum(self: KUrlLabel, num: i32) void {
         qtc.QLabel_SetNum(@ptrCast(self.ptr), @bitCast(num));
     }
+
+    /// ### DEPRECATED: Use `setNum2` instead
+    ///
+    pub const SetNum2 = setNum2;
 
     /// Inherited from QLabel
     ///
@@ -1474,9 +1846,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` num: f64 `
     ///
-    pub fn SetNum2(self: KUrlLabel, num: f64) void {
+    pub fn setNum2(self: KUrlLabel, num: f64) void {
         qtc.QLabel_SetNum2(@ptrCast(self.ptr), @bitCast(num));
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// Inherited from QLabel
     ///
@@ -1486,9 +1862,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn Clear(self: KUrlLabel) void {
+    pub fn clear(self: KUrlLabel) void {
         qtc.QLabel_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `linkActivated` instead
+    ///
+    pub const LinkActivated = linkActivated;
 
     /// Inherited from QLabel
     ///
@@ -1500,7 +1880,7 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` link: []const u8 `
     ///
-    pub fn LinkActivated(self: KUrlLabel, link: []const u8) void {
+    pub fn linkActivated(self: KUrlLabel, link: []const u8) void {
         const link_str = qtc.libqt_string{
             .len = link.len,
             .data = link.ptr,
@@ -1508,6 +1888,10 @@ pub const KUrlLabel = extern struct {
         qtc.QLabel_LinkActivated(@ptrCast(self.ptr), link_str);
     }
 
+    /// ### DEPRECATED: Use `onLinkActivated` instead
+    ///
+    pub const OnLinkActivated = onLinkActivated;
+
     /// Inherited from QLabel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#linkActivated)
@@ -1518,9 +1902,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, link: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnLinkActivated(self: KUrlLabel, callback: *const fn (KUrlLabel, [*:0]const u8) callconv(.c) void) void {
+    pub fn onLinkActivated(self: KUrlLabel, callback: *const fn (KUrlLabel, [*:0]const u8) callconv(.c) void) void {
         qtc.QLabel_Connect_LinkActivated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `linkHovered` instead
+    ///
+    pub const LinkHovered = linkHovered;
 
     /// Inherited from QLabel
     ///
@@ -1532,13 +1920,17 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` link: []const u8 `
     ///
-    pub fn LinkHovered(self: KUrlLabel, link: []const u8) void {
+    pub fn linkHovered(self: KUrlLabel, link: []const u8) void {
         const link_str = qtc.libqt_string{
             .len = link.len,
             .data = link.ptr,
         };
         qtc.QLabel_LinkHovered(@ptrCast(self.ptr), link_str);
     }
+
+    /// ### DEPRECATED: Use `onLinkHovered` instead
+    ///
+    pub const OnLinkHovered = onLinkHovered;
 
     /// Inherited from QLabel
     ///
@@ -1550,9 +1942,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, link: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnLinkHovered(self: KUrlLabel, callback: *const fn (KUrlLabel, [*:0]const u8) callconv(.c) void) void {
+    pub fn onLinkHovered(self: KUrlLabel, callback: *const fn (KUrlLabel, [*:0]const u8) callconv(.c) void) void {
         qtc.QLabel_Connect_LinkHovered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `frameStyle` instead
+    ///
+    pub const FrameStyle = frameStyle;
 
     /// Inherited from QFrame
     ///
@@ -1562,9 +1958,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn FrameStyle(self: KUrlLabel) i32 {
+    pub fn frameStyle(self: KUrlLabel) i32 {
         return qtc.QFrame_FrameStyle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFrameStyle` instead
+    ///
+    pub const SetFrameStyle = setFrameStyle;
 
     /// Inherited from QFrame
     ///
@@ -1574,11 +1974,15 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` frameStyle: i32 `
+    /// ` _frameStyle: i32 `
     ///
-    pub fn SetFrameStyle(self: KUrlLabel, frameStyle: i32) void {
-        qtc.QFrame_SetFrameStyle(@ptrCast(self.ptr), @bitCast(frameStyle));
+    pub fn setFrameStyle(self: KUrlLabel, _frameStyle: i32) void {
+        qtc.QFrame_SetFrameStyle(@ptrCast(self.ptr), @bitCast(_frameStyle));
     }
+
+    /// ### DEPRECATED: Use `frameWidth` instead
+    ///
+    pub const FrameWidth = frameWidth;
 
     /// Inherited from QFrame
     ///
@@ -1588,9 +1992,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn FrameWidth(self: KUrlLabel) i32 {
+    pub fn frameWidth(self: KUrlLabel) i32 {
         return qtc.QFrame_FrameWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `frameShape` instead
+    ///
+    pub const FrameShape = frameShape;
 
     /// Inherited from QFrame
     ///
@@ -1604,9 +2012,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` qframe_enums.Shape `
     ///
-    pub fn FrameShape(self: KUrlLabel) i32 {
+    pub fn frameShape(self: KUrlLabel) i32 {
         return qtc.QFrame_FrameShape(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFrameShape` instead
+    ///
+    pub const SetFrameShape = setFrameShape;
 
     /// Inherited from QFrame
     ///
@@ -1616,11 +2028,15 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` frameShape: qframe_enums.Shape `
+    /// ` _frameShape: qframe_enums.Shape `
     ///
-    pub fn SetFrameShape(self: KUrlLabel, frameShape: i32) void {
-        qtc.QFrame_SetFrameShape(@ptrCast(self.ptr), @bitCast(frameShape));
+    pub fn setFrameShape(self: KUrlLabel, _frameShape: i32) void {
+        qtc.QFrame_SetFrameShape(@ptrCast(self.ptr), @bitCast(_frameShape));
     }
+
+    /// ### DEPRECATED: Use `frameShadow` instead
+    ///
+    pub const FrameShadow = frameShadow;
 
     /// Inherited from QFrame
     ///
@@ -1634,9 +2050,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` qframe_enums.Shadow `
     ///
-    pub fn FrameShadow(self: KUrlLabel) i32 {
+    pub fn frameShadow(self: KUrlLabel) i32 {
         return qtc.QFrame_FrameShadow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFrameShadow` instead
+    ///
+    pub const SetFrameShadow = setFrameShadow;
 
     /// Inherited from QFrame
     ///
@@ -1646,11 +2066,15 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` frameShadow: qframe_enums.Shadow `
+    /// ` _frameShadow: qframe_enums.Shadow `
     ///
-    pub fn SetFrameShadow(self: KUrlLabel, frameShadow: i32) void {
-        qtc.QFrame_SetFrameShadow(@ptrCast(self.ptr), @bitCast(frameShadow));
+    pub fn setFrameShadow(self: KUrlLabel, _frameShadow: i32) void {
+        qtc.QFrame_SetFrameShadow(@ptrCast(self.ptr), @bitCast(_frameShadow));
     }
+
+    /// ### DEPRECATED: Use `lineWidth` instead
+    ///
+    pub const LineWidth = lineWidth;
 
     /// Inherited from QFrame
     ///
@@ -1660,9 +2084,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn LineWidth(self: KUrlLabel) i32 {
+    pub fn lineWidth(self: KUrlLabel) i32 {
         return qtc.QFrame_LineWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLineWidth` instead
+    ///
+    pub const SetLineWidth = setLineWidth;
 
     /// Inherited from QFrame
     ///
@@ -1672,11 +2100,15 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` lineWidth: i32 `
+    /// ` _lineWidth: i32 `
     ///
-    pub fn SetLineWidth(self: KUrlLabel, lineWidth: i32) void {
-        qtc.QFrame_SetLineWidth(@ptrCast(self.ptr), @bitCast(lineWidth));
+    pub fn setLineWidth(self: KUrlLabel, _lineWidth: i32) void {
+        qtc.QFrame_SetLineWidth(@ptrCast(self.ptr), @bitCast(_lineWidth));
     }
+
+    /// ### DEPRECATED: Use `midLineWidth` instead
+    ///
+    pub const MidLineWidth = midLineWidth;
 
     /// Inherited from QFrame
     ///
@@ -1686,9 +2118,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn MidLineWidth(self: KUrlLabel) i32 {
+    pub fn midLineWidth(self: KUrlLabel) i32 {
         return qtc.QFrame_MidLineWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMidLineWidth` instead
+    ///
+    pub const SetMidLineWidth = setMidLineWidth;
 
     /// Inherited from QFrame
     ///
@@ -1698,11 +2134,15 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` midLineWidth: i32 `
+    /// ` _midLineWidth: i32 `
     ///
-    pub fn SetMidLineWidth(self: KUrlLabel, midLineWidth: i32) void {
-        qtc.QFrame_SetMidLineWidth(@ptrCast(self.ptr), @bitCast(midLineWidth));
+    pub fn setMidLineWidth(self: KUrlLabel, _midLineWidth: i32) void {
+        qtc.QFrame_SetMidLineWidth(@ptrCast(self.ptr), @bitCast(_midLineWidth));
     }
+
+    /// ### DEPRECATED: Use `frameRect` instead
+    ///
+    pub const FrameRect = frameRect;
 
     /// Inherited from QFrame
     ///
@@ -1712,9 +2152,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn FrameRect(self: KUrlLabel) QRect {
+    pub fn frameRect(self: KUrlLabel) QRect {
         return .{ .ptr = qtc.QFrame_FrameRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFrameRect` instead
+    ///
+    pub const SetFrameRect = setFrameRect;
 
     /// Inherited from QFrame
     ///
@@ -1724,12 +2168,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` frameRect: QRect `
+    /// ` _frameRect: QRect `
     ///
-    pub fn SetFrameRect(self: KUrlLabel, frameRect: anytype) void {
-        comptime _ = @TypeOf(frameRect)._is_QRect;
-        qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(frameRect.ptr));
+    pub fn setFrameRect(self: KUrlLabel, _frameRect: anytype) void {
+        comptime _ = @TypeOf(_frameRect)._is_QRect;
+        qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(_frameRect.ptr));
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -1739,9 +2187,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn WinId(self: KUrlLabel) usize {
+    pub fn winId(self: KUrlLabel) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -1751,9 +2203,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn CreateWinId(self: KUrlLabel) void {
+    pub fn createWinId(self: KUrlLabel) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -1763,9 +2219,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn InternalWinId(self: KUrlLabel) usize {
+    pub fn internalWinId(self: KUrlLabel) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -1775,9 +2235,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn EffectiveWinId(self: KUrlLabel) usize {
+    pub fn effectiveWinId(self: KUrlLabel) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -1787,9 +2251,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn Style(self: KUrlLabel) QStyle {
+    pub fn style(self: KUrlLabel) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -1799,12 +2267,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: KUrlLabel, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: KUrlLabel, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -1814,9 +2286,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn IsTopLevel(self: KUrlLabel) bool {
+    pub fn isTopLevel(self: KUrlLabel) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -1826,9 +2302,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn IsWindow(self: KUrlLabel) bool {
+    pub fn isWindow(self: KUrlLabel) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -1838,9 +2318,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn IsModal(self: KUrlLabel) bool {
+    pub fn isModal(self: KUrlLabel) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -1854,9 +2338,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: KUrlLabel) i32 {
+    pub fn windowModality(self: KUrlLabel) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -1866,11 +2354,15 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: KUrlLabel, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: KUrlLabel, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1880,9 +2372,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn IsEnabled(self: KUrlLabel) bool {
+    pub fn isEnabled(self: KUrlLabel) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -1894,10 +2390,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: KUrlLabel, param1: anytype) bool {
+    pub fn isEnabledTo(self: KUrlLabel, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1909,9 +2409,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: KUrlLabel, enabled: bool) void {
+    pub fn setEnabled(self: KUrlLabel, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -1923,9 +2427,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: KUrlLabel, disabled: bool) void {
+    pub fn setDisabled(self: KUrlLabel, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -1937,9 +2445,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: KUrlLabel, windowModified: bool) void {
+    pub fn setWindowModified(self: KUrlLabel, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1949,9 +2461,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn FrameGeometry(self: KUrlLabel) QRect {
+    pub fn frameGeometry(self: KUrlLabel) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -1961,9 +2477,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn Geometry(self: KUrlLabel) QRect {
+    pub fn geometry(self: KUrlLabel) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1973,9 +2493,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn NormalGeometry(self: KUrlLabel) QRect {
+    pub fn normalGeometry(self: KUrlLabel) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -1985,9 +2509,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn X(self: KUrlLabel) i32 {
+    pub fn x(self: KUrlLabel) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -1997,9 +2525,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn Y(self: KUrlLabel) i32 {
+    pub fn y(self: KUrlLabel) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -2009,9 +2541,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn Pos(self: KUrlLabel) QPoint {
+    pub fn pos(self: KUrlLabel) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -2021,9 +2557,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn FrameSize(self: KUrlLabel) QSize {
+    pub fn frameSize(self: KUrlLabel) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -2033,9 +2573,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn Size(self: KUrlLabel) QSize {
+    pub fn size(self: KUrlLabel) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -2045,9 +2589,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn Width(self: KUrlLabel) i32 {
+    pub fn width(self: KUrlLabel) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -2057,9 +2605,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn Height(self: KUrlLabel) i32 {
+    pub fn height(self: KUrlLabel) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -2069,9 +2621,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn Rect(self: KUrlLabel) QRect {
+    pub fn rect(self: KUrlLabel) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -2081,9 +2637,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn ChildrenRect(self: KUrlLabel) QRect {
+    pub fn childrenRect(self: KUrlLabel) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -2093,9 +2653,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn ChildrenRegion(self: KUrlLabel) QRegion {
+    pub fn childrenRegion(self: KUrlLabel) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -2105,9 +2669,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn MinimumSize(self: KUrlLabel) QSize {
+    pub fn minimumSize(self: KUrlLabel) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -2117,9 +2685,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn MaximumSize(self: KUrlLabel) QSize {
+    pub fn maximumSize(self: KUrlLabel) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2129,9 +2701,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn MinimumWidth(self: KUrlLabel) i32 {
+    pub fn minimumWidth(self: KUrlLabel) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2141,9 +2717,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn MinimumHeight(self: KUrlLabel) i32 {
+    pub fn minimumHeight(self: KUrlLabel) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2153,9 +2733,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn MaximumWidth(self: KUrlLabel) i32 {
+    pub fn maximumWidth(self: KUrlLabel) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2165,9 +2749,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn MaximumHeight(self: KUrlLabel) i32 {
+    pub fn maximumHeight(self: KUrlLabel) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -2177,12 +2765,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: KUrlLabel, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: KUrlLabel, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -2196,9 +2788,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: KUrlLabel, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: KUrlLabel, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -2208,12 +2804,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: KUrlLabel, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: KUrlLabel, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -2227,9 +2827,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: KUrlLabel, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: KUrlLabel, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2241,9 +2845,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: KUrlLabel, minw: i32) void {
+    pub fn setMinimumWidth(self: KUrlLabel, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2255,9 +2863,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: KUrlLabel, minh: i32) void {
+    pub fn setMinimumHeight(self: KUrlLabel, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2269,9 +2881,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: KUrlLabel, maxw: i32) void {
+    pub fn setMaximumWidth(self: KUrlLabel, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2283,9 +2899,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: KUrlLabel, maxh: i32) void {
+    pub fn setMaximumHeight(self: KUrlLabel, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -2295,9 +2915,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn SizeIncrement(self: KUrlLabel) QSize {
+    pub fn sizeIncrement(self: KUrlLabel) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -2307,12 +2931,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: KUrlLabel, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: KUrlLabel, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -2326,9 +2954,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: KUrlLabel, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: KUrlLabel, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -2338,9 +2970,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn BaseSize(self: KUrlLabel) QSize {
+    pub fn baseSize(self: KUrlLabel) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -2350,12 +2986,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: KUrlLabel, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: KUrlLabel, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -2369,9 +3009,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: KUrlLabel, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: KUrlLabel, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -2383,10 +3027,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: KUrlLabel, fixedSize: anytype) void {
+    pub fn setFixedSize(self: KUrlLabel, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -2400,9 +3048,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: KUrlLabel, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: KUrlLabel, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -2414,9 +3066,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: KUrlLabel, w: i32) void {
+    pub fn setFixedWidth(self: KUrlLabel, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -2428,9 +3084,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: KUrlLabel, h: i32) void {
+    pub fn setFixedHeight(self: KUrlLabel, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -2442,11 +3102,15 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: KUrlLabel, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: KUrlLabel, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -2457,11 +3121,15 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: KUrlLabel, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: KUrlLabel, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -2472,11 +3140,15 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: KUrlLabel, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: KUrlLabel, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -2487,11 +3159,15 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: KUrlLabel, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: KUrlLabel, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -2502,11 +3178,15 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: KUrlLabel, param1: anytype) QPointF {
+    pub fn mapToParent(self: KUrlLabel, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -2517,10 +3197,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: KUrlLabel, param1: anytype) QPoint {
+    pub fn mapToParent2(self: KUrlLabel, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -2532,10 +3216,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: KUrlLabel, param1: anytype) QPointF {
+    pub fn mapFromParent(self: KUrlLabel, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -2547,10 +3235,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: KUrlLabel, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: KUrlLabel, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -2564,12 +3256,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: KUrlLabel, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: KUrlLabel, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -2582,11 +3278,15 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: KUrlLabel, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: KUrlLabel, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -2600,11 +3300,15 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: KUrlLabel, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: KUrlLabel, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -2618,11 +3322,15 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: KUrlLabel, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: KUrlLabel, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -2632,9 +3340,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn Window(self: KUrlLabel) QWidget {
+    pub fn window(self: KUrlLabel) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -2644,9 +3356,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn NativeParentWidget(self: KUrlLabel) QWidget {
+    pub fn nativeParentWidget(self: KUrlLabel) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -2656,9 +3372,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn TopLevelWidget(self: KUrlLabel) QWidget {
+    pub fn topLevelWidget(self: KUrlLabel) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -2668,9 +3388,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn Palette(self: KUrlLabel) QPalette {
+    pub fn palette(self: KUrlLabel) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -2680,12 +3404,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: KUrlLabel, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: KUrlLabel, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2695,11 +3423,15 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: KUrlLabel, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: KUrlLabel, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2713,9 +3445,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: KUrlLabel) i32 {
+    pub fn backgroundRole(self: KUrlLabel) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2725,11 +3461,15 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: KUrlLabel, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: KUrlLabel, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2743,9 +3483,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: KUrlLabel) i32 {
+    pub fn foregroundRole(self: KUrlLabel) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -2755,9 +3499,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn Font(self: KUrlLabel) QFont {
+    pub fn font(self: KUrlLabel) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -2767,9 +3515,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn FontMetrics(self: KUrlLabel) QFontMetrics {
+    pub fn fontMetrics(self: KUrlLabel) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -2779,9 +3531,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn FontInfo(self: KUrlLabel) QFontInfo {
+    pub fn fontInfo(self: KUrlLabel) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -2791,9 +3547,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn Cursor(self: KUrlLabel) QCursor {
+    pub fn cursor(self: KUrlLabel) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -2803,12 +3563,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: KUrlLabel, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: KUrlLabel, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -2818,9 +3582,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn UnsetCursor(self: KUrlLabel) void {
+    pub fn unsetCursor(self: KUrlLabel) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -2832,9 +3600,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: KUrlLabel, enable: bool) void {
+    pub fn setMouseTracking(self: KUrlLabel, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -2844,9 +3616,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn HasMouseTracking(self: KUrlLabel) bool {
+    pub fn hasMouseTracking(self: KUrlLabel) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -2856,9 +3632,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn UnderMouse(self: KUrlLabel) bool {
+    pub fn underMouse(self: KUrlLabel) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2870,9 +3650,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: KUrlLabel, enable: bool) void {
+    pub fn setTabletTracking(self: KUrlLabel, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2882,24 +3666,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn HasTabletTracking(self: KUrlLabel) bool {
+    pub fn hasTabletTracking(self: KUrlLabel) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlLabel `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: KUrlLabel, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -2909,12 +3682,35 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: KUrlLabel, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: KUrlLabel, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KUrlLabel `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: KUrlLabel, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -2924,9 +3720,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn Mask(self: KUrlLabel) QRegion {
+    pub fn mask(self: KUrlLabel) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -2936,9 +3736,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn ClearMask(self: KUrlLabel) void {
+    pub fn clearMask(self: KUrlLabel) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -2950,10 +3754,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: KUrlLabel, target: anytype) void {
+    pub fn render(self: KUrlLabel, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -2965,10 +3773,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: KUrlLabel, painter: anytype) void {
+    pub fn render2(self: KUrlLabel, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -2978,9 +3790,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn Grab(self: KUrlLabel) QPixmap {
+    pub fn grab(self: KUrlLabel) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2990,9 +3806,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn GraphicsEffect(self: KUrlLabel) QGraphicsEffect {
+    pub fn graphicsEffect(self: KUrlLabel) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -3004,10 +3824,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: KUrlLabel, effect: anytype) void {
+    pub fn setGraphicsEffect(self: KUrlLabel, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -3019,9 +3843,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: KUrlLabel, typeVal: i32) void {
+    pub fn grabGesture(self: KUrlLabel, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -3033,9 +3861,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: KUrlLabel, typeVal: i32) void {
+    pub fn ungrabGesture(self: KUrlLabel, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -3045,15 +3877,19 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: KUrlLabel, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: KUrlLabel, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -3063,15 +3899,19 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: KUrlLabel, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: KUrlLabel, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -3083,13 +3923,17 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: KUrlLabel, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: KUrlLabel, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlLabel.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlLabel.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -3101,13 +3945,17 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: KUrlLabel, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: KUrlLabel, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlLabel.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlLabel.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -3119,10 +3967,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: KUrlLabel, icon: anytype) void {
+    pub fn setWindowIcon(self: KUrlLabel, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -3132,9 +3984,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn WindowIcon(self: KUrlLabel) QIcon {
+    pub fn windowIcon(self: KUrlLabel) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -3144,15 +4000,19 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: KUrlLabel, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: KUrlLabel, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -3164,13 +4024,17 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: KUrlLabel, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: KUrlLabel, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlLabel.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlLabel.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -3180,15 +4044,19 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: KUrlLabel, windowRole: []const u8) void {
+    pub fn setWindowRole(self: KUrlLabel, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -3200,13 +4068,17 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: KUrlLabel, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: KUrlLabel, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlLabel.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlLabel.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -3218,13 +4090,17 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: KUrlLabel, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: KUrlLabel, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -3236,13 +4112,17 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: KUrlLabel, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: KUrlLabel, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlLabel.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlLabel.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -3254,9 +4134,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: KUrlLabel, level: f64) void {
+    pub fn setWindowOpacity(self: KUrlLabel, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -3266,9 +4150,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn WindowOpacity(self: KUrlLabel) f64 {
+    pub fn windowOpacity(self: KUrlLabel) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -3278,9 +4166,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn IsWindowModified(self: KUrlLabel) bool {
+    pub fn isWindowModified(self: KUrlLabel) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -3290,15 +4182,19 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: KUrlLabel, toolTip: []const u8) void {
+    pub fn setToolTip(self: KUrlLabel, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -3310,13 +4206,17 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: KUrlLabel, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: KUrlLabel, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlLabel.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlLabel.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -3328,9 +4228,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: KUrlLabel, msec: i32) void {
+    pub fn setToolTipDuration(self: KUrlLabel, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -3340,9 +4244,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn ToolTipDuration(self: KUrlLabel) i32 {
+    pub fn toolTipDuration(self: KUrlLabel) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -3352,15 +4260,19 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: KUrlLabel, statusTip: []const u8) void {
+    pub fn setStatusTip(self: KUrlLabel, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -3372,13 +4284,17 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: KUrlLabel, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: KUrlLabel, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlLabel.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlLabel.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -3388,15 +4304,19 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: KUrlLabel, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: KUrlLabel, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -3408,13 +4328,17 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: KUrlLabel, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: KUrlLabel, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlLabel.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlLabel.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -3426,13 +4350,17 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: KUrlLabel, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: KUrlLabel, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlLabel.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlLabel.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -3444,13 +4372,17 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: KUrlLabel, name: []const u8) void {
+    pub fn setAccessibleName(self: KUrlLabel, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -3462,13 +4394,17 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: KUrlLabel, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: KUrlLabel, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlLabel.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlLabel.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -3480,13 +4416,17 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: KUrlLabel, description: []const u8) void {
+    pub fn setAccessibleDescription(self: KUrlLabel, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3498,9 +4438,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: KUrlLabel, direction: i32) void {
+    pub fn setLayoutDirection(self: KUrlLabel, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3514,9 +4458,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: KUrlLabel) i32 {
+    pub fn layoutDirection(self: KUrlLabel) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3526,9 +4474,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn UnsetLayoutDirection(self: KUrlLabel) void {
+    pub fn unsetLayoutDirection(self: KUrlLabel) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -3538,12 +4490,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: KUrlLabel, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: KUrlLabel, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -3553,9 +4509,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn Locale(self: KUrlLabel) QLocale {
+    pub fn locale(self: KUrlLabel) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -3565,9 +4525,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn UnsetLocale(self: KUrlLabel) void {
+    pub fn unsetLocale(self: KUrlLabel) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -3577,9 +4541,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn IsRightToLeft(self: KUrlLabel) bool {
+    pub fn isRightToLeft(self: KUrlLabel) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -3589,9 +4557,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn IsLeftToRight(self: KUrlLabel) bool {
+    pub fn isLeftToRight(self: KUrlLabel) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -3601,9 +4573,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn SetFocus(self: KUrlLabel) void {
+    pub fn setFocus(self: KUrlLabel) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -3613,9 +4589,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn IsActiveWindow(self: KUrlLabel) bool {
+    pub fn isActiveWindow(self: KUrlLabel) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -3625,9 +4605,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn ActivateWindow(self: KUrlLabel) void {
+    pub fn activateWindow(self: KUrlLabel) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -3637,9 +4621,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn ClearFocus(self: KUrlLabel) void {
+    pub fn clearFocus(self: KUrlLabel) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -3651,9 +4639,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: KUrlLabel, reason: i32) void {
+    pub fn setFocus2(self: KUrlLabel, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3667,9 +4659,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: KUrlLabel) i32 {
+    pub fn focusPolicy(self: KUrlLabel) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3681,9 +4677,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: KUrlLabel, policy: i32) void {
+    pub fn setFocusPolicy(self: KUrlLabel, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -3693,9 +4693,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn HasFocus(self: KUrlLabel) bool {
+    pub fn hasFocus(self: KUrlLabel) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -3707,11 +4711,15 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -3721,12 +4729,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: KUrlLabel, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: KUrlLabel, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -3736,9 +4748,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn FocusProxy(self: KUrlLabel) QWidget {
+    pub fn focusProxy(self: KUrlLabel) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3752,9 +4768,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: KUrlLabel) i32 {
+    pub fn contextMenuPolicy(self: KUrlLabel) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3766,9 +4786,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: KUrlLabel, policy: i32) void {
+    pub fn setContextMenuPolicy(self: KUrlLabel, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -3778,9 +4802,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn GrabMouse(self: KUrlLabel) void {
+    pub fn grabMouse(self: KUrlLabel) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -3792,10 +4820,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: KUrlLabel, param1: anytype) void {
+    pub fn grabMouse2(self: KUrlLabel, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -3805,9 +4837,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn ReleaseMouse(self: KUrlLabel) void {
+    pub fn releaseMouse(self: KUrlLabel) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -3817,9 +4853,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn GrabKeyboard(self: KUrlLabel) void {
+    pub fn grabKeyboard(self: KUrlLabel) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -3829,9 +4869,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn ReleaseKeyboard(self: KUrlLabel) void {
+    pub fn releaseKeyboard(self: KUrlLabel) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3843,10 +4887,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: KUrlLabel, key: anytype) i32 {
+    pub fn grabShortcut(self: KUrlLabel, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3858,9 +4906,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: KUrlLabel, id: i32) void {
+    pub fn releaseShortcut(self: KUrlLabel, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3872,9 +4924,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: KUrlLabel, id: i32) void {
+    pub fn setShortcutEnabled(self: KUrlLabel, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -3886,25 +4942,37 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: KUrlLabel, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: KUrlLabel, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3914,9 +4982,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn UpdatesEnabled(self: KUrlLabel) bool {
+    pub fn updatesEnabled(self: KUrlLabel) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3928,9 +5000,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: KUrlLabel, enable: bool) void {
+    pub fn setUpdatesEnabled(self: KUrlLabel, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -3940,9 +5016,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn GraphicsProxyWidget(self: KUrlLabel) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: KUrlLabel) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -3952,9 +5032,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn Update(self: KUrlLabel) void {
+    pub fn update(self: KUrlLabel) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -3964,9 +5048,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn Repaint(self: KUrlLabel) void {
+    pub fn repaint(self: KUrlLabel) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -3976,17 +5064,21 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: KUrlLabel, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: KUrlLabel, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -3998,11 +5090,15 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: KUrlLabel, param1: anytype) void {
+    pub fn update3(self: KUrlLabel, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -4013,10 +5109,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: KUrlLabel, param1: anytype) void {
+    pub fn update4(self: KUrlLabel, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -4026,17 +5126,21 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: KUrlLabel, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: KUrlLabel, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -4048,10 +5152,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: KUrlLabel, param1: anytype) void {
+    pub fn repaint3(self: KUrlLabel, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -4063,10 +5171,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: KUrlLabel, param1: anytype) void {
+    pub fn repaint4(self: KUrlLabel, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -4078,9 +5190,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: KUrlLabel, hidden: bool) void {
+    pub fn setHidden(self: KUrlLabel, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -4090,9 +5206,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn Show(self: KUrlLabel) void {
+    pub fn show(self: KUrlLabel) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -4102,9 +5222,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn Hide(self: KUrlLabel) void {
+    pub fn hide(self: KUrlLabel) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -4114,9 +5238,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn ShowMinimized(self: KUrlLabel) void {
+    pub fn showMinimized(self: KUrlLabel) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -4126,9 +5254,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn ShowMaximized(self: KUrlLabel) void {
+    pub fn showMaximized(self: KUrlLabel) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -4138,9 +5270,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn ShowFullScreen(self: KUrlLabel) void {
+    pub fn showFullScreen(self: KUrlLabel) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -4150,9 +5286,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn ShowNormal(self: KUrlLabel) void {
+    pub fn showNormal(self: KUrlLabel) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -4162,9 +5302,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn Close(self: KUrlLabel) bool {
+    pub fn close(self: KUrlLabel) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -4174,9 +5318,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn Raise(self: KUrlLabel) void {
+    pub fn raise(self: KUrlLabel) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -4186,9 +5334,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn Lower(self: KUrlLabel) void {
+    pub fn lower(self: KUrlLabel) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -4200,10 +5352,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: KUrlLabel, param1: anytype) void {
+    pub fn stackUnder(self: KUrlLabel, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -4213,13 +5369,17 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: KUrlLabel, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: KUrlLabel, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -4231,10 +5391,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: KUrlLabel, param1: anytype) void {
+    pub fn move2(self: KUrlLabel, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -4248,9 +5412,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: KUrlLabel, w: i32, h: i32) void {
+    pub fn resize(self: KUrlLabel, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -4262,10 +5430,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: KUrlLabel, param1: anytype) void {
+    pub fn resize2(self: KUrlLabel, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4275,17 +5447,21 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: KUrlLabel, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: KUrlLabel, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -4295,12 +5471,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: KUrlLabel, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: KUrlLabel, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4312,13 +5492,17 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: KUrlLabel, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: KUrlLabel, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KUrlLabel.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KUrlLabel.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4328,15 +5512,19 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: KUrlLabel, geometry: []u8) bool {
+    pub fn restoreGeometry(self: KUrlLabel, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -4346,9 +5534,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn AdjustSize(self: KUrlLabel) void {
+    pub fn adjustSize(self: KUrlLabel) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -4358,9 +5550,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn IsVisible(self: KUrlLabel) bool {
+    pub fn isVisible(self: KUrlLabel) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -4372,10 +5568,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: KUrlLabel, param1: anytype) bool {
+    pub fn isVisibleTo(self: KUrlLabel, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -4385,9 +5585,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn IsHidden(self: KUrlLabel) bool {
+    pub fn isHidden(self: KUrlLabel) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -4397,9 +5601,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn IsMinimized(self: KUrlLabel) bool {
+    pub fn isMinimized(self: KUrlLabel) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -4409,9 +5617,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn IsMaximized(self: KUrlLabel) bool {
+    pub fn isMaximized(self: KUrlLabel) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -4421,9 +5633,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn IsFullScreen(self: KUrlLabel) bool {
+    pub fn isFullScreen(self: KUrlLabel) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -4437,9 +5653,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: KUrlLabel) i32 {
+    pub fn windowState(self: KUrlLabel) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -4451,9 +5671,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: KUrlLabel, state: i32) void {
+    pub fn setWindowState(self: KUrlLabel, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -4465,9 +5689,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: KUrlLabel, state: i32) void {
+    pub fn overrideWindowState(self: KUrlLabel, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -4477,9 +5705,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn SizePolicy(self: KUrlLabel) QSizePolicy {
+    pub fn sizePolicy(self: KUrlLabel) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -4489,12 +5721,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: KUrlLabel, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: KUrlLabel, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -4508,9 +5744,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: KUrlLabel, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: KUrlLabel, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -4520,9 +5760,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn VisibleRegion(self: KUrlLabel) QRegion {
+    pub fn visibleRegion(self: KUrlLabel) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -4540,9 +5784,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: KUrlLabel, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: KUrlLabel, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -4554,10 +5802,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: KUrlLabel, margins: anytype) void {
+    pub fn setContentsMargins2(self: KUrlLabel, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -4567,9 +5819,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn ContentsMargins(self: KUrlLabel) QMargins {
+    pub fn contentsMargins(self: KUrlLabel) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -4579,9 +5835,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn ContentsRect(self: KUrlLabel) QRect {
+    pub fn contentsRect(self: KUrlLabel) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -4591,9 +5851,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn Layout(self: KUrlLabel) QLayout {
+    pub fn layout(self: KUrlLabel) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -4603,12 +5867,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: KUrlLabel, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: KUrlLabel, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4618,24 +5886,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn UpdateGeometry(self: KUrlLabel) void {
+    pub fn updateGeometry(self: KUrlLabel) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlLabel `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: KUrlLabel, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -4645,14 +5902,37 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: KUrlLabel, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KUrlLabel `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: KUrlLabel, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: KUrlLabel, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -4666,9 +5946,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: KUrlLabel, dx: i32, dy: i32) void {
+    pub fn scroll(self: KUrlLabel, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -4684,10 +5968,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: KUrlLabel, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: KUrlLabel, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -4697,9 +5985,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn FocusWidget(self: KUrlLabel) QWidget {
+    pub fn focusWidget(self: KUrlLabel) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -4709,9 +6001,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn NextInFocusChain(self: KUrlLabel) QWidget {
+    pub fn nextInFocusChain(self: KUrlLabel) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -4721,9 +6017,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn PreviousInFocusChain(self: KUrlLabel) QWidget {
+    pub fn previousInFocusChain(self: KUrlLabel) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -4733,9 +6033,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn AcceptDrops(self: KUrlLabel) bool {
+    pub fn acceptDrops(self: KUrlLabel) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -4747,9 +6051,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: KUrlLabel, on: bool) void {
+    pub fn setAcceptDrops(self: KUrlLabel, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -4761,10 +6069,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: KUrlLabel, action: anytype) void {
+    pub fn addAction(self: KUrlLabel, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -4774,15 +6086,19 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: KUrlLabel, actions: []QAction) void {
+    pub fn addActions(self: KUrlLabel, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -4794,16 +6110,20 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: KUrlLabel, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: KUrlLabel, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -4817,11 +6137,15 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: KUrlLabel, before: anytype, action: anytype) void {
+    pub fn insertAction(self: KUrlLabel, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -4833,10 +6157,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: KUrlLabel, action: anytype) void {
+    pub fn removeAction(self: KUrlLabel, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -4848,15 +6176,19 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: KUrlLabel, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: KUrlLabel, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KUrlLabel.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KUrlLabel.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -4866,15 +6198,19 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn AddAction2(self: KUrlLabel, text: []const u8) QAction {
+    pub fn addAction2(self: KUrlLabel, _text: []const u8) QAction {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -4886,16 +6222,20 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn AddAction3(self: KUrlLabel, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: KUrlLabel, icon: anytype, _text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
 
     /// Inherited from QWidget
     ///
@@ -4905,19 +6245,23 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: KUrlLabel, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: KUrlLabel, _text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -4928,19 +6272,23 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: KUrlLabel, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: KUrlLabel, icon: anytype, _text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
 
     /// Inherited from QWidget
     ///
@@ -4950,9 +6298,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn ParentWidget(self: KUrlLabel) QWidget {
+    pub fn parentWidget(self: KUrlLabel) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4964,9 +6316,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: KUrlLabel, typeVal: i32) void {
+    pub fn setWindowFlags(self: KUrlLabel, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4980,9 +6336,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: KUrlLabel) i32 {
+    pub fn windowFlags(self: KUrlLabel) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -4994,9 +6354,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: KUrlLabel, param1: i32) void {
+    pub fn setWindowFlag(self: KUrlLabel, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -5008,9 +6372,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: KUrlLabel, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: KUrlLabel, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -5024,9 +6392,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: KUrlLabel) i32 {
+    pub fn windowType(self: KUrlLabel) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -5036,9 +6408,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -5048,13 +6424,17 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: KUrlLabel, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: KUrlLabel, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -5066,10 +6446,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: KUrlLabel, p: anytype) QWidget {
+    pub fn childAt2(self: KUrlLabel, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -5081,10 +6465,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: KUrlLabel, p: anytype) QWidget {
+    pub fn childAt3(self: KUrlLabel, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -5096,9 +6484,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: KUrlLabel, param1: i32) void {
+    pub fn setAttribute(self: KUrlLabel, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -5110,9 +6502,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: KUrlLabel, param1: i32) bool {
+    pub fn testAttribute(self: KUrlLabel, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -5122,9 +6518,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn EnsurePolished(self: KUrlLabel) void {
+    pub fn ensurePolished(self: KUrlLabel) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -5136,10 +6536,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: KUrlLabel, child: anytype) bool {
+    pub fn isAncestorOf(self: KUrlLabel, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -5149,9 +6553,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn AutoFillBackground(self: KUrlLabel) bool {
+    pub fn autoFillBackground(self: KUrlLabel) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -5163,9 +6571,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: KUrlLabel, enabled: bool) void {
+    pub fn setAutoFillBackground(self: KUrlLabel, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -5175,9 +6587,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn BackingStore(self: KUrlLabel) QBackingStore {
+    pub fn backingStore(self: KUrlLabel) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -5187,9 +6603,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn WindowHandle(self: KUrlLabel) QWindow {
+    pub fn windowHandle(self: KUrlLabel) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -5199,9 +6619,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn Screen(self: KUrlLabel) QScreen {
+    pub fn screen(self: KUrlLabel) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -5211,12 +6635,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: KUrlLabel, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: KUrlLabel, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -5224,12 +6652,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -5241,13 +6673,17 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: KUrlLabel, title: []const u8) void {
+    pub fn windowTitleChanged(self: KUrlLabel, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -5259,9 +6695,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: KUrlLabel, callback: *const fn (KUrlLabel, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: KUrlLabel, callback: *const fn (KUrlLabel, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -5273,10 +6713,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: KUrlLabel, icon: anytype) void {
+    pub fn windowIconChanged(self: KUrlLabel, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -5288,9 +6732,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: KUrlLabel, callback: *const fn (KUrlLabel, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: KUrlLabel, callback: *const fn (KUrlLabel, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -5302,13 +6750,17 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: KUrlLabel, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: KUrlLabel, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -5320,9 +6772,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: KUrlLabel, callback: *const fn (KUrlLabel, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: KUrlLabel, callback: *const fn (KUrlLabel, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -5332,12 +6788,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: KUrlLabel, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: KUrlLabel, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -5349,9 +6809,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: KUrlLabel, callback: *const fn (KUrlLabel, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: KUrlLabel, callback: *const fn (KUrlLabel, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -5365,9 +6829,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: KUrlLabel) i32 {
+    pub fn inputMethodHints(self: KUrlLabel) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -5379,9 +6847,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: KUrlLabel, hints: i32) void {
+    pub fn setInputMethodHints(self: KUrlLabel, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -5395,11 +6867,15 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: KUrlLabel, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: KUrlLabel, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -5415,13 +6891,17 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: KUrlLabel, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: KUrlLabel, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -5438,12 +6918,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: KUrlLabel, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: KUrlLabel, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -5457,11 +6941,15 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: KUrlLabel, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: KUrlLabel, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -5477,12 +6965,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: KUrlLabel, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: KUrlLabel, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -5500,12 +6992,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: KUrlLabel, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: KUrlLabel, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -5517,10 +7013,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: KUrlLabel, rectangle: anytype) QPixmap {
+    pub fn grab1(self: KUrlLabel, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -5534,9 +7034,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: KUrlLabel, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: KUrlLabel, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -5550,10 +7054,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: KUrlLabel, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: KUrlLabel, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -5567,9 +7075,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: KUrlLabel, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: KUrlLabel, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -5583,9 +7095,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: KUrlLabel, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: KUrlLabel, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -5599,9 +7115,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: KUrlLabel, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: KUrlLabel, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -5615,25 +7135,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: KUrlLabel, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: KUrlLabel, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -5641,17 +7149,41 @@ pub const KUrlLabel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -5663,13 +7195,17 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KUrlLabel, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KUrlLabel, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlLabel.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlLabel.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -5681,13 +7217,17 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KUrlLabel, name: []const u8) void {
+    pub fn setObjectName(self: KUrlLabel, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -5697,9 +7237,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn IsWidgetType(self: KUrlLabel) bool {
+    pub fn isWidgetType(self: KUrlLabel) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -5709,9 +7253,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn IsWindowType(self: KUrlLabel) bool {
+    pub fn isWindowType(self: KUrlLabel) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -5721,9 +7269,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn IsQuickItemType(self: KUrlLabel) bool {
+    pub fn isQuickItemType(self: KUrlLabel) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -5733,9 +7285,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn SignalsBlocked(self: KUrlLabel) bool {
+    pub fn signalsBlocked(self: KUrlLabel) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -5747,9 +7303,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KUrlLabel, b: bool) bool {
+    pub fn blockSignals(self: KUrlLabel, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -5759,9 +7319,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn Thread(self: KUrlLabel) QThread {
+    pub fn thread(self: KUrlLabel) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -5771,12 +7335,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KUrlLabel, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KUrlLabel, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -5788,9 +7356,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KUrlLabel, interval: i32) i32 {
+    pub fn startTimer(self: KUrlLabel, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -5802,9 +7374,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KUrlLabel, time: i64) i32 {
+    pub fn startTimer2(self: KUrlLabel, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -5816,9 +7392,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KUrlLabel, id: i32) void {
+    pub fn killTimer(self: KUrlLabel, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -5830,9 +7410,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KUrlLabel, id: i32) void {
+    pub fn killTimer2(self: KUrlLabel, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -5844,15 +7428,19 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KUrlLabel, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KUrlLabel, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KUrlLabel.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KUrlLabel.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5864,10 +7452,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KUrlLabel, filterObj: anytype) void {
+    pub fn installEventFilter(self: KUrlLabel, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5879,10 +7471,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KUrlLabel, obj: anytype) void {
+    pub fn removeEventFilter(self: KUrlLabel, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -5890,7 +7486,7 @@ pub const KUrlLabel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5898,13 +7494,17 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -5912,7 +7512,7 @@ pub const KUrlLabel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5920,13 +7520,17 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -5936,18 +7540,22 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KUrlLabel, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KUrlLabel, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -5955,7 +7563,7 @@ pub const KUrlLabel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5963,13 +7571,17 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -5977,7 +7589,7 @@ pub const KUrlLabel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5985,13 +7597,17 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -6001,9 +7617,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn Disconnect3(self: KUrlLabel) bool {
+    pub fn disconnect3(self: KUrlLabel) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -6015,10 +7635,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KUrlLabel, receiver: anytype) bool {
+    pub fn disconnect4(self: KUrlLabel, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -6028,10 +7652,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -6041,9 +7669,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn DumpObjectTree(self: KUrlLabel) void {
+    pub fn dumpObjectTree(self: KUrlLabel) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -6053,9 +7685,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn DumpObjectInfo(self: KUrlLabel) void {
+    pub fn dumpObjectInfo(self: KUrlLabel) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -6069,11 +7705,15 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KUrlLabel, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KUrlLabel, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -6085,10 +7725,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KUrlLabel, name: [:0]const u8) QVariant {
+    pub fn property(self: KUrlLabel, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -6100,7 +7744,7 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KUrlLabel, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KUrlLabel, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -6108,27 +7752,19 @@ pub const KUrlLabel = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KUrlLabel.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KUrlLabel.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KUrlLabel.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KUrlLabel.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlLabel `
-    ///
-    pub fn BindingStorage(self: KUrlLabel) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -6138,9 +7774,29 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn BindingStorage2(self: KUrlLabel) QBindingStorage {
+    pub fn bindingStorage(self: KUrlLabel) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KUrlLabel `
+    ///
+    pub fn bindingStorage2(self: KUrlLabel) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -6150,9 +7806,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn Destroyed(self: KUrlLabel) void {
+    pub fn destroyed(self: KUrlLabel) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -6164,9 +7824,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KUrlLabel, callback: *const fn (KUrlLabel) callconv(.c) void) void {
+    pub fn onDestroyed(self: KUrlLabel, callback: *const fn (KUrlLabel) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -6176,9 +7840,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn Parent(self: KUrlLabel) QObject {
+    pub fn parent(self: KUrlLabel) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -6190,10 +7858,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KUrlLabel, classname: [:0]const u8) bool {
+    pub fn inherits(self: KUrlLabel, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -6203,9 +7875,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn DeleteLater(self: KUrlLabel) void {
+    pub fn deleteLater(self: KUrlLabel) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -6219,9 +7895,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KUrlLabel, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KUrlLabel, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -6235,9 +7915,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KUrlLabel, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KUrlLabel, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -6245,7 +7929,7 @@ pub const KUrlLabel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6255,13 +7939,17 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -6269,7 +7957,7 @@ pub const KUrlLabel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -6279,13 +7967,17 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -6295,7 +7987,7 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6303,12 +7995,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KUrlLabel, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KUrlLabel, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -6320,10 +8016,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KUrlLabel, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KUrlLabel, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -6337,11 +8037,15 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KUrlLabel, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KUrlLabel, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -6357,13 +8061,17 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KUrlLabel, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KUrlLabel, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -6376,11 +8084,15 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KUrlLabel, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KUrlLabel, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -6392,10 +8104,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KUrlLabel, param1: anytype) void {
+    pub fn destroyed1(self: KUrlLabel, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -6407,9 +8123,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KUrlLabel, callback: *const fn (KUrlLabel, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KUrlLabel, callback: *const fn (KUrlLabel, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -6419,9 +8139,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn PaintingActive(self: KUrlLabel) bool {
+    pub fn paintingActive(self: KUrlLabel) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -6431,9 +8155,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn WidthMM(self: KUrlLabel) i32 {
+    pub fn widthMM(self: KUrlLabel) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -6443,9 +8171,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn HeightMM(self: KUrlLabel) i32 {
+    pub fn heightMM(self: KUrlLabel) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -6455,9 +8187,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn LogicalDpiX(self: KUrlLabel) i32 {
+    pub fn logicalDpiX(self: KUrlLabel) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -6467,9 +8203,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn LogicalDpiY(self: KUrlLabel) i32 {
+    pub fn logicalDpiY(self: KUrlLabel) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -6479,9 +8219,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn PhysicalDpiX(self: KUrlLabel) i32 {
+    pub fn physicalDpiX(self: KUrlLabel) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -6491,9 +8235,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn PhysicalDpiY(self: KUrlLabel) i32 {
+    pub fn physicalDpiY(self: KUrlLabel) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -6503,9 +8251,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn DevicePixelRatio(self: KUrlLabel) f64 {
+    pub fn devicePixelRatio(self: KUrlLabel) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -6515,9 +8267,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn DevicePixelRatioF(self: KUrlLabel) f64 {
+    pub fn devicePixelRatioF(self: KUrlLabel) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -6527,9 +8283,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn ColorCount(self: KUrlLabel) i32 {
+    pub fn colorCount(self: KUrlLabel) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -6539,17 +8299,25 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn Depth(self: KUrlLabel) i32 {
+    pub fn depth(self: KUrlLabel) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -6557,13 +8325,17 @@ pub const KUrlLabel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
 
     /// Inherited from QLabel
     ///
@@ -6575,13 +8347,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn SizeHint(self: KUrlLabel) QSize {
+    pub fn sizeHint(self: KUrlLabel) QSize {
         return .{ .ptr = qtc.KUrlLabel_SizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// Inherited from QLabel
     ///
@@ -6593,10 +8365,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn SuperSizeHint(self: KUrlLabel) QSize {
+    pub fn superSizeHint(self: KUrlLabel) QSize {
         return .{ .ptr = qtc.KUrlLabel_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
+
     /// Inherited from QLabel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#sizeHint)
@@ -6611,9 +8387,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: KUrlLabel, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KUrlLabel, callback: *const fn () callconv(.c) QSize) void {
         qtc.KUrlLabel_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QLabel
     ///
@@ -6625,13 +8405,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn MinimumSizeHint(self: KUrlLabel) QSize {
+    pub fn minimumSizeHint(self: KUrlLabel) QSize {
         return .{ .ptr = qtc.KUrlLabel_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QLabel
     ///
@@ -6643,9 +8423,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn SuperMinimumSizeHint(self: KUrlLabel) QSize {
+    pub fn superMinimumSizeHint(self: KUrlLabel) QSize {
         return .{ .ptr = qtc.KUrlLabel_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QLabel
     ///
@@ -6661,9 +8445,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: KUrlLabel, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KUrlLabel, callback: *const fn () callconv(.c) QSize) void {
         qtc.KUrlLabel_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QLabel
     ///
@@ -6677,13 +8465,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: KUrlLabel, param1: i32) i32 {
+    pub fn heightForWidth(self: KUrlLabel, param1: i32) i32 {
         return qtc.KUrlLabel_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QLabel
     ///
@@ -6697,9 +8485,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: KUrlLabel, param1: i32) i32 {
+    pub fn superHeightForWidth(self: KUrlLabel, param1: i32) i32 {
         return qtc.KUrlLabel_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QLabel
     ///
@@ -6713,9 +8505,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: KUrlLabel, callback: *const fn (KUrlLabel, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: KUrlLabel, callback: *const fn (KUrlLabel, i32) callconv(.c) i32) void {
         qtc.KUrlLabel_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
 
     /// Inherited from QLabel
     ///
@@ -6729,14 +8525,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` ev: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: KUrlLabel, ev: anytype) void {
+    pub fn keyPressEvent(self: KUrlLabel, ev: anytype) void {
         comptime _ = @TypeOf(ev)._is_QKeyEvent;
         qtc.KUrlLabel_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QLabel
     ///
@@ -6750,10 +8546,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` ev: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: KUrlLabel, ev: anytype) void {
+    pub fn superKeyPressEvent(self: KUrlLabel, ev: anytype) void {
         comptime _ = @TypeOf(ev)._is_QKeyEvent;
         qtc.KUrlLabel_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// Inherited from QLabel
     ///
@@ -6767,9 +8567,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, ev: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QKeyEvent) callconv(.c) void) void {
         qtc.KUrlLabel_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// Inherited from QLabel
     ///
@@ -6783,14 +8587,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param1: QPaintEvent `
     ///
-    pub fn PaintEvent(self: KUrlLabel, param1: anytype) void {
+    pub fn paintEvent(self: KUrlLabel, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPaintEvent;
         qtc.KUrlLabel_PaintEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// Inherited from QLabel
     ///
@@ -6804,10 +8608,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param1: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: KUrlLabel, param1: anytype) void {
+    pub fn superPaintEvent(self: KUrlLabel, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPaintEvent;
         qtc.KUrlLabel_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// Inherited from QLabel
     ///
@@ -6821,9 +8629,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, param1: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QPaintEvent) callconv(.c) void) void {
         qtc.KUrlLabel_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QLabel
     ///
@@ -6837,14 +8649,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: KUrlLabel, param1: anytype) void {
+    pub fn changeEvent(self: KUrlLabel, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.KUrlLabel_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QLabel
     ///
@@ -6858,10 +8670,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: KUrlLabel, param1: anytype) void {
+    pub fn superChangeEvent(self: KUrlLabel, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.KUrlLabel_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QLabel
     ///
@@ -6875,9 +8691,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QEvent) callconv(.c) void) void {
         qtc.KUrlLabel_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
 
     /// Inherited from QLabel
     ///
@@ -6891,14 +8711,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` ev: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: KUrlLabel, ev: anytype) void {
+    pub fn mousePressEvent(self: KUrlLabel, ev: anytype) void {
         comptime _ = @TypeOf(ev)._is_QMouseEvent;
         qtc.KUrlLabel_MousePressEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QLabel
     ///
@@ -6912,11 +8732,15 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` ev: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: KUrlLabel, ev: anytype) void {
+    pub fn superMousePressEvent(self: KUrlLabel, ev: anytype) void {
         comptime _ = @TypeOf(ev)._is_QMouseEvent;
         qtc.KUrlLabel_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
+
     /// Inherited from QLabel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#mousePressEvent)
@@ -6929,9 +8753,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, ev: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QMouseEvent) callconv(.c) void) void {
         qtc.KUrlLabel_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
 
     /// Inherited from QLabel
     ///
@@ -6945,14 +8773,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` ev: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: KUrlLabel, ev: anytype) void {
+    pub fn mouseMoveEvent(self: KUrlLabel, ev: anytype) void {
         comptime _ = @TypeOf(ev)._is_QMouseEvent;
         qtc.KUrlLabel_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QLabel
     ///
@@ -6966,10 +8794,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` ev: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: KUrlLabel, ev: anytype) void {
+    pub fn superMouseMoveEvent(self: KUrlLabel, ev: anytype) void {
         comptime _ = @TypeOf(ev)._is_QMouseEvent;
         qtc.KUrlLabel_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// Inherited from QLabel
     ///
@@ -6983,9 +8815,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, ev: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QMouseEvent) callconv(.c) void) void {
         qtc.KUrlLabel_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QLabel
     ///
@@ -6999,14 +8835,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` ev: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: KUrlLabel, ev: anytype) void {
+    pub fn contextMenuEvent(self: KUrlLabel, ev: anytype) void {
         comptime _ = @TypeOf(ev)._is_QContextMenuEvent;
         qtc.KUrlLabel_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QLabel
     ///
@@ -7020,10 +8856,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` ev: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: KUrlLabel, ev: anytype) void {
+    pub fn superContextMenuEvent(self: KUrlLabel, ev: anytype) void {
         comptime _ = @TypeOf(ev)._is_QContextMenuEvent;
         qtc.KUrlLabel_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QLabel
     ///
@@ -7037,9 +8877,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, ev: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QContextMenuEvent) callconv(.c) void) void {
         qtc.KUrlLabel_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
 
     /// Inherited from QLabel
     ///
@@ -7053,14 +8897,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` ev: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: KUrlLabel, ev: anytype) void {
+    pub fn focusInEvent(self: KUrlLabel, ev: anytype) void {
         comptime _ = @TypeOf(ev)._is_QFocusEvent;
         qtc.KUrlLabel_FocusInEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QLabel
     ///
@@ -7074,11 +8918,15 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` ev: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: KUrlLabel, ev: anytype) void {
+    pub fn superFocusInEvent(self: KUrlLabel, ev: anytype) void {
         comptime _ = @TypeOf(ev)._is_QFocusEvent;
         qtc.KUrlLabel_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
+
     /// Inherited from QLabel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#focusInEvent)
@@ -7091,9 +8939,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, ev: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QFocusEvent) callconv(.c) void) void {
         qtc.KUrlLabel_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
 
     /// Inherited from QLabel
     ///
@@ -7107,14 +8959,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` ev: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: KUrlLabel, ev: anytype) void {
+    pub fn focusOutEvent(self: KUrlLabel, ev: anytype) void {
         comptime _ = @TypeOf(ev)._is_QFocusEvent;
         qtc.KUrlLabel_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QLabel
     ///
@@ -7128,10 +8980,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` ev: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: KUrlLabel, ev: anytype) void {
+    pub fn superFocusOutEvent(self: KUrlLabel, ev: anytype) void {
         comptime _ = @TypeOf(ev)._is_QFocusEvent;
         qtc.KUrlLabel_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QLabel
     ///
@@ -7145,9 +9001,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, ev: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QFocusEvent) callconv(.c) void) void {
         qtc.KUrlLabel_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QLabel
     ///
@@ -7161,13 +9021,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: KUrlLabel, next: bool) bool {
+    pub fn focusNextPrevChild(self: KUrlLabel, next: bool) bool {
         return qtc.KUrlLabel_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QLabel
     ///
@@ -7181,9 +9041,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: KUrlLabel, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: KUrlLabel, next: bool) bool {
         return qtc.KUrlLabel_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QLabel
     ///
@@ -7197,9 +9061,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: KUrlLabel, callback: *const fn (KUrlLabel, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: KUrlLabel, callback: *const fn (KUrlLabel, bool) callconv(.c) bool) void {
         qtc.KUrlLabel_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initStyleOption` instead
+    ///
+    pub const InitStyleOption = initStyleOption;
 
     /// Inherited from QFrame
     ///
@@ -7213,14 +9081,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` option: QStyleOptionFrame `
     ///
-    pub fn InitStyleOption(self: KUrlLabel, option: anytype) void {
+    pub fn initStyleOption(self: KUrlLabel, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionFrame;
         qtc.KUrlLabel_InitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitStyleOption` instead
+    /// ### DEPRECATED: Use `superInitStyleOption` instead
     ///
-    pub const QBaseInitStyleOption = SuperInitStyleOption;
+    pub const SuperInitStyleOption = superInitStyleOption;
 
     /// Inherited from QFrame
     ///
@@ -7234,10 +9102,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` option: QStyleOptionFrame `
     ///
-    pub fn SuperInitStyleOption(self: KUrlLabel, option: anytype) void {
+    pub fn superInitStyleOption(self: KUrlLabel, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionFrame;
         qtc.KUrlLabel_SuperInitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitStyleOption` instead
+    ///
+    pub const OnInitStyleOption = onInitStyleOption;
 
     /// Inherited from QFrame
     ///
@@ -7251,9 +9123,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, option: QStyleOptionFrame) callconv(.c) void `
     ///
-    pub fn OnInitStyleOption(self: KUrlLabel, callback: *const fn (KUrlLabel, QStyleOptionFrame) callconv(.c) void) void {
+    pub fn onInitStyleOption(self: KUrlLabel, callback: *const fn (KUrlLabel, QStyleOptionFrame) callconv(.c) void) void {
         qtc.KUrlLabel_OnInitStyleOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -7265,13 +9141,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn DevType(self: KUrlLabel) i32 {
+    pub fn devType(self: KUrlLabel) i32 {
         return qtc.KUrlLabel_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -7283,9 +9159,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn SuperDevType(self: KUrlLabel) i32 {
+    pub fn superDevType(self: KUrlLabel) i32 {
         return qtc.KUrlLabel_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -7299,9 +9179,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: KUrlLabel, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KUrlLabel, callback: *const fn () callconv(.c) i32) void {
         qtc.KUrlLabel_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -7315,13 +9199,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: KUrlLabel, visible: bool) void {
+    pub fn setVisible(self: KUrlLabel, visible: bool) void {
         qtc.KUrlLabel_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -7335,9 +9219,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: KUrlLabel, visible: bool) void {
+    pub fn superSetVisible(self: KUrlLabel, visible: bool) void {
         qtc.KUrlLabel_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -7351,9 +9239,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: KUrlLabel, callback: *const fn (KUrlLabel, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: KUrlLabel, callback: *const fn (KUrlLabel, bool) callconv(.c) void) void {
         qtc.KUrlLabel_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7365,13 +9257,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn HasHeightForWidth(self: KUrlLabel) bool {
+    pub fn hasHeightForWidth(self: KUrlLabel) bool {
         return qtc.KUrlLabel_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7383,9 +9275,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn SuperHasHeightForWidth(self: KUrlLabel) bool {
+    pub fn superHasHeightForWidth(self: KUrlLabel) bool {
         return qtc.KUrlLabel_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7399,9 +9295,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: KUrlLabel, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KUrlLabel, callback: *const fn () callconv(.c) bool) void {
         qtc.KUrlLabel_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -7413,13 +9313,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn PaintEngine(self: KUrlLabel) QPaintEngine {
+    pub fn paintEngine(self: KUrlLabel) QPaintEngine {
         return .{ .ptr = qtc.KUrlLabel_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -7431,9 +9331,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn SuperPaintEngine(self: KUrlLabel) QPaintEngine {
+    pub fn superPaintEngine(self: KUrlLabel) QPaintEngine {
         return .{ .ptr = qtc.KUrlLabel_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -7447,9 +9351,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: KUrlLabel, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KUrlLabel, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.KUrlLabel_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -7461,16 +9369,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: KUrlLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KUrlLabel_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: KUrlLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KUrlLabel_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -7482,12 +9390,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: KUrlLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KUrlLabel_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: KUrlLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KUrlLabel_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -7501,9 +9413,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QMouseEvent) callconv(.c) void) void {
         qtc.KUrlLabel_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -7515,16 +9431,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: KUrlLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.KUrlLabel_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn wheelEvent(self: KUrlLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.KUrlLabel_WheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -7536,12 +9452,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: KUrlLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.KUrlLabel_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superWheelEvent(self: KUrlLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.KUrlLabel_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -7555,9 +9475,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QWheelEvent) callconv(.c) void) void {
         qtc.KUrlLabel_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -7569,16 +9493,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: KUrlLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KUrlLabel_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyReleaseEvent(self: KUrlLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KUrlLabel_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -7590,12 +9514,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: KUrlLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KUrlLabel_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyReleaseEvent(self: KUrlLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KUrlLabel_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -7609,9 +9537,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QKeyEvent) callconv(.c) void) void {
         qtc.KUrlLabel_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7623,16 +9555,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: KUrlLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KUrlLabel_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: KUrlLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KUrlLabel_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7644,12 +9576,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: KUrlLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KUrlLabel_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: KUrlLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KUrlLabel_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7663,9 +9599,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QMoveEvent) callconv(.c) void) void {
         qtc.KUrlLabel_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7677,16 +9617,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: KUrlLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.KUrlLabel_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn resizeEvent(self: KUrlLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.KUrlLabel_ResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7698,12 +9638,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: KUrlLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.KUrlLabel_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superResizeEvent(self: KUrlLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.KUrlLabel_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7717,9 +9661,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QResizeEvent) callconv(.c) void) void {
         qtc.KUrlLabel_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7731,16 +9679,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: KUrlLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.KUrlLabel_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: KUrlLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.KUrlLabel_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -7752,12 +9700,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: KUrlLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.KUrlLabel_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: KUrlLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.KUrlLabel_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -7771,9 +9723,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QCloseEvent) callconv(.c) void) void {
         qtc.KUrlLabel_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7785,16 +9741,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: KUrlLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KUrlLabel_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: KUrlLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KUrlLabel_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7806,12 +9762,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: KUrlLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KUrlLabel_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: KUrlLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KUrlLabel_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7825,9 +9785,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QTabletEvent) callconv(.c) void) void {
         qtc.KUrlLabel_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7839,16 +9803,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: KUrlLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KUrlLabel_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: KUrlLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KUrlLabel_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7860,12 +9824,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: KUrlLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KUrlLabel_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: KUrlLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KUrlLabel_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7879,9 +9847,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QActionEvent) callconv(.c) void) void {
         qtc.KUrlLabel_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7893,16 +9865,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: KUrlLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KUrlLabel_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: KUrlLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KUrlLabel_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7914,12 +9886,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: KUrlLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KUrlLabel_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: KUrlLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KUrlLabel_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7933,9 +9909,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QDragEnterEvent) callconv(.c) void) void {
         qtc.KUrlLabel_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7947,16 +9927,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: KUrlLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KUrlLabel_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: KUrlLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KUrlLabel_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7968,12 +9948,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: KUrlLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KUrlLabel_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: KUrlLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KUrlLabel_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7987,9 +9971,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QDragMoveEvent) callconv(.c) void) void {
         qtc.KUrlLabel_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8001,16 +9989,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: KUrlLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KUrlLabel_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: KUrlLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KUrlLabel_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8022,12 +10010,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: KUrlLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KUrlLabel_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: KUrlLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KUrlLabel_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8041,9 +10033,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QDragLeaveEvent) callconv(.c) void) void {
         qtc.KUrlLabel_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QWidget
     ///
@@ -8055,16 +10051,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: KUrlLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KUrlLabel_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: KUrlLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KUrlLabel_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -8076,12 +10072,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: KUrlLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KUrlLabel_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: KUrlLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KUrlLabel_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -8095,9 +10095,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QDropEvent) callconv(.c) void) void {
         qtc.KUrlLabel_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QWidget
     ///
@@ -8109,16 +10113,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn ShowEvent(self: KUrlLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.KUrlLabel_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn showEvent(self: KUrlLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.KUrlLabel_ShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -8130,12 +10134,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: KUrlLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.KUrlLabel_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superShowEvent(self: KUrlLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.KUrlLabel_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -8149,9 +10157,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QShowEvent) callconv(.c) void) void {
         qtc.KUrlLabel_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -8163,16 +10175,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: KUrlLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KUrlLabel_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: KUrlLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KUrlLabel_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -8184,12 +10196,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: KUrlLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KUrlLabel_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: KUrlLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KUrlLabel_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -8203,9 +10219,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QHideEvent) callconv(.c) void) void {
         qtc.KUrlLabel_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -8223,7 +10243,7 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: KUrlLabel, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: KUrlLabel, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -8231,9 +10251,9 @@ pub const KUrlLabel = extern struct {
         return qtc.KUrlLabel_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -8251,13 +10271,17 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: KUrlLabel, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: KUrlLabel, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.KUrlLabel_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -8271,9 +10295,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KUrlLabel_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -8287,13 +10315,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: KUrlLabel, param1: i32) i32 {
+    pub fn metric(self: KUrlLabel, param1: i32) i32 {
         return qtc.KUrlLabel_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -8307,9 +10335,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: KUrlLabel, param1: i32) i32 {
+    pub fn superMetric(self: KUrlLabel, param1: i32) i32 {
         return qtc.KUrlLabel_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -8323,9 +10355,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: KUrlLabel, callback: *const fn (KUrlLabel, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: KUrlLabel, callback: *const fn (KUrlLabel, i32) callconv(.c) i32) void {
         qtc.KUrlLabel_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -8339,14 +10375,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: KUrlLabel, painter: anytype) void {
+    pub fn initPainter(self: KUrlLabel, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KUrlLabel_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -8360,10 +10396,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: KUrlLabel, painter: anytype) void {
+    pub fn superInitPainter(self: KUrlLabel, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KUrlLabel_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -8377,9 +10417,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: KUrlLabel, callback: *const fn (KUrlLabel, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: KUrlLabel, callback: *const fn (KUrlLabel, QPainter) callconv(.c) void) void {
         qtc.KUrlLabel_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -8393,14 +10437,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: KUrlLabel, offset: anytype) QPaintDevice {
+    pub fn redirected(self: KUrlLabel, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KUrlLabel_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -8414,10 +10458,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: KUrlLabel, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: KUrlLabel, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KUrlLabel_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -8431,9 +10479,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: KUrlLabel, callback: *const fn (KUrlLabel, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: KUrlLabel, callback: *const fn (KUrlLabel, QPoint) callconv(.c) QPaintDevice) void {
         qtc.KUrlLabel_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -8445,13 +10497,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn SharedPainter(self: KUrlLabel) QPainter {
+    pub fn sharedPainter(self: KUrlLabel) QPainter {
         return .{ .ptr = qtc.KUrlLabel_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -8463,9 +10515,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn SuperSharedPainter(self: KUrlLabel) QPainter {
+    pub fn superSharedPainter(self: KUrlLabel) QPainter {
         return .{ .ptr = qtc.KUrlLabel_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -8479,9 +10535,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: KUrlLabel, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KUrlLabel, callback: *const fn () callconv(.c) QPainter) void {
         qtc.KUrlLabel_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -8495,14 +10555,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: KUrlLabel, param1: anytype) void {
+    pub fn inputMethodEvent(self: KUrlLabel, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KUrlLabel_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -8516,10 +10576,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: KUrlLabel, param1: anytype) void {
+    pub fn superInputMethodEvent(self: KUrlLabel, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KUrlLabel_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -8533,9 +10597,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QInputMethodEvent) callconv(.c) void) void {
         qtc.KUrlLabel_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -8549,13 +10617,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: KUrlLabel, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: KUrlLabel, param1: i32) QVariant {
         return .{ .ptr = qtc.KUrlLabel_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -8569,9 +10637,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: KUrlLabel, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: KUrlLabel, param1: i32) QVariant {
         return .{ .ptr = qtc.KUrlLabel_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -8587,9 +10659,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: KUrlLabel, callback: *const fn (KUrlLabel, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: KUrlLabel, callback: *const fn (KUrlLabel, i32) callconv(.c) QVariant) void {
         qtc.KUrlLabel_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -8603,17 +10679,17 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: KUrlLabel, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: KUrlLabel, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KUrlLabel_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KUrlLabel_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -8627,13 +10703,17 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: KUrlLabel, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: KUrlLabel, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KUrlLabel_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KUrlLabel_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -8647,9 +10727,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KUrlLabel, callback: *const fn (KUrlLabel, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KUrlLabel, callback: *const fn (KUrlLabel, QObject, QEvent) callconv(.c) bool) void {
         qtc.KUrlLabel_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -8661,16 +10745,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KUrlLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KUrlLabel_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: KUrlLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KUrlLabel_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -8682,12 +10766,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KUrlLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KUrlLabel_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: KUrlLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KUrlLabel_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -8701,9 +10789,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QTimerEvent) callconv(.c) void) void {
         qtc.KUrlLabel_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -8715,16 +10807,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KUrlLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KUrlLabel_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KUrlLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KUrlLabel_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -8736,12 +10828,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KUrlLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KUrlLabel_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KUrlLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KUrlLabel_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -8755,9 +10851,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QChildEvent) callconv(.c) void) void {
         qtc.KUrlLabel_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -8769,16 +10869,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KUrlLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KUrlLabel_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KUrlLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KUrlLabel_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8790,12 +10890,16 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KUrlLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KUrlLabel_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KUrlLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KUrlLabel_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8809,9 +10913,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QEvent) callconv(.c) void) void {
         qtc.KUrlLabel_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -8825,14 +10933,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KUrlLabel, signal: anytype) void {
+    pub fn connectNotify(self: KUrlLabel, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KUrlLabel_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8846,11 +10954,15 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KUrlLabel, signal: anytype) void {
+    pub fn superConnectNotify(self: KUrlLabel, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KUrlLabel_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -8863,9 +10975,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KUrlLabel, callback: *const fn (KUrlLabel, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KUrlLabel, callback: *const fn (KUrlLabel, QMetaMethod) callconv(.c) void) void {
         qtc.KUrlLabel_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8879,14 +10995,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KUrlLabel, signal: anytype) void {
+    pub fn disconnectNotify(self: KUrlLabel, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KUrlLabel_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8900,10 +11016,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KUrlLabel, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KUrlLabel, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KUrlLabel_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8917,9 +11037,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KUrlLabel, callback: *const fn (KUrlLabel, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KUrlLabel, callback: *const fn (KUrlLabel, QMetaMethod) callconv(.c) void) void {
         qtc.KUrlLabel_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `drawFrame` instead
+    ///
+    pub const DrawFrame = drawFrame;
 
     /// Inherited from QFrame
     ///
@@ -8933,14 +11057,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param1: QPainter `
     ///
-    pub fn DrawFrame(self: KUrlLabel, param1: anytype) void {
+    pub fn drawFrame(self: KUrlLabel, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPainter;
         qtc.KUrlLabel_DrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawFrame` instead
+    /// ### DEPRECATED: Use `superDrawFrame` instead
     ///
-    pub const QBaseDrawFrame = SuperDrawFrame;
+    pub const SuperDrawFrame = superDrawFrame;
 
     /// Inherited from QFrame
     ///
@@ -8954,10 +11078,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` param1: QPainter `
     ///
-    pub fn SuperDrawFrame(self: KUrlLabel, param1: anytype) void {
+    pub fn superDrawFrame(self: KUrlLabel, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPainter;
         qtc.KUrlLabel_SuperDrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDrawFrame` instead
+    ///
+    pub const OnDrawFrame = onDrawFrame;
 
     /// Inherited from QFrame
     ///
@@ -8971,10 +11099,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, param1: QPainter) callconv(.c) void `
     ///
-    pub fn OnDrawFrame(self: KUrlLabel, callback: *const fn (KUrlLabel, QPainter) callconv(.c) void) void {
+    pub fn onDrawFrame(self: KUrlLabel, callback: *const fn (KUrlLabel, QPainter) callconv(.c) void) void {
         qtc.KUrlLabel_OnDrawFrame(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8985,13 +11117,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn UpdateMicroFocus(self: KUrlLabel) void {
+    pub fn updateMicroFocus(self: KUrlLabel) void {
         qtc.KUrlLabel_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -9003,10 +11135,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn SuperUpdateMicroFocus(self: KUrlLabel) void {
+    pub fn superUpdateMicroFocus(self: KUrlLabel) void {
         qtc.KUrlLabel_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -9019,10 +11155,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: KUrlLabel, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: KUrlLabel, callback: *const fn () callconv(.c) void) void {
         qtc.KUrlLabel_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -9033,13 +11173,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn Create(self: KUrlLabel) void {
+    pub fn create(self: KUrlLabel) void {
         qtc.KUrlLabel_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -9051,10 +11191,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn SuperCreate(self: KUrlLabel) void {
+    pub fn superCreate(self: KUrlLabel) void {
         qtc.KUrlLabel_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -9067,9 +11211,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: KUrlLabel, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: KUrlLabel, callback: *const fn () callconv(.c) void) void {
         qtc.KUrlLabel_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -9081,13 +11229,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn Destroy(self: KUrlLabel) void {
+    pub fn destroy(self: KUrlLabel) void {
         qtc.KUrlLabel_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -9099,9 +11247,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn SuperDestroy(self: KUrlLabel) void {
+    pub fn superDestroy(self: KUrlLabel) void {
         qtc.KUrlLabel_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -9115,10 +11267,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: KUrlLabel, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: KUrlLabel, callback: *const fn () callconv(.c) void) void {
         qtc.KUrlLabel_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -9129,13 +11285,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn FocusNextChild(self: KUrlLabel) bool {
+    pub fn focusNextChild(self: KUrlLabel) bool {
         return qtc.KUrlLabel_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -9147,10 +11303,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn SuperFocusNextChild(self: KUrlLabel) bool {
+    pub fn superFocusNextChild(self: KUrlLabel) bool {
         return qtc.KUrlLabel_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -9163,9 +11323,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: KUrlLabel, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: KUrlLabel, callback: *const fn () callconv(.c) bool) void {
         qtc.KUrlLabel_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -9177,13 +11341,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn FocusPreviousChild(self: KUrlLabel) bool {
+    pub fn focusPreviousChild(self: KUrlLabel) bool {
         return qtc.KUrlLabel_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -9195,9 +11359,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn SuperFocusPreviousChild(self: KUrlLabel) bool {
+    pub fn superFocusPreviousChild(self: KUrlLabel) bool {
         return qtc.KUrlLabel_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -9211,9 +11379,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: KUrlLabel, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: KUrlLabel, callback: *const fn () callconv(.c) bool) void {
         qtc.KUrlLabel_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -9225,13 +11397,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn Sender(self: KUrlLabel) QObject {
+    pub fn sender(self: KUrlLabel) QObject {
         return .{ .ptr = qtc.KUrlLabel_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -9243,9 +11415,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn SuperSender(self: KUrlLabel) QObject {
+    pub fn superSender(self: KUrlLabel) QObject {
         return .{ .ptr = qtc.KUrlLabel_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -9259,9 +11435,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KUrlLabel, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KUrlLabel, callback: *const fn () callconv(.c) QObject) void {
         qtc.KUrlLabel_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -9273,13 +11453,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn SenderSignalIndex(self: KUrlLabel) i32 {
+    pub fn senderSignalIndex(self: KUrlLabel) i32 {
         return qtc.KUrlLabel_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -9291,9 +11471,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn SuperSenderSignalIndex(self: KUrlLabel) i32 {
+    pub fn superSenderSignalIndex(self: KUrlLabel) i32 {
         return qtc.KUrlLabel_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -9307,9 +11491,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KUrlLabel, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KUrlLabel, callback: *const fn () callconv(.c) i32) void {
         qtc.KUrlLabel_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -9323,14 +11511,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KUrlLabel, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KUrlLabel, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KUrlLabel_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -9344,10 +11532,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KUrlLabel, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KUrlLabel, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KUrlLabel_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -9361,9 +11553,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KUrlLabel, callback: *const fn (KUrlLabel, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KUrlLabel, callback: *const fn (KUrlLabel, [*:0]const u8) callconv(.c) i32) void {
         qtc.KUrlLabel_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -9377,14 +11573,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KUrlLabel, signal: anytype) bool {
+    pub fn isSignalConnected(self: KUrlLabel, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KUrlLabel_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -9398,10 +11594,14 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KUrlLabel, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KUrlLabel, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KUrlLabel_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -9415,9 +11615,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KUrlLabel, callback: *const fn (KUrlLabel, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KUrlLabel, callback: *const fn (KUrlLabel, QMetaMethod) callconv(.c) bool) void {
         qtc.KUrlLabel_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9433,13 +11637,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: KUrlLabel, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: KUrlLabel, metricA: i32, metricB: i32) f64 {
         return qtc.KUrlLabel_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9455,9 +11659,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: KUrlLabel, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: KUrlLabel, metricA: i32, metricB: i32) f64 {
         return qtc.KUrlLabel_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9471,9 +11679,13 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: KUrlLabel, callback: *const fn (KUrlLabel, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: KUrlLabel, callback: *const fn (KUrlLabel, i32, i32) callconv(.c) f64) void {
         qtc.KUrlLabel_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -9487,23 +11699,23 @@ pub const KUrlLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KUrlLabel, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KUrlLabel, callback: *const fn (KUrlLabel, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KUrlLabel, callback: *const fn (KUrlLabel, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#dtor.KUrlLabel)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KUrlLabel `
     ///
-    pub fn Delete(self: KUrlLabel) void {
+    pub fn delete(self: KUrlLabel) void {
         qtc.KUrlLabel_Delete(@ptrCast(self.ptr));
     }
 };

@@ -12,39 +12,55 @@ pub const QPixelFormat = extern struct {
 
     pub const _is_QPixelFormat = {};
 
-    /// New constructs a new QPixelFormat object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QPixelFormat object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QPixelFormat `
     ///
-    pub fn New(other: anytype) QPixelFormat {
+    pub fn new(other: anytype) QPixelFormat {
         comptime _ = @TypeOf(other)._is_QPixelFormat;
         return .{ .ptr = qtc.QPixelFormat_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new QPixelFormat object and invalidates the source QPixelFormat object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QPixelFormat object and invalidate the source QPixelFormat object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QPixelFormat `
     ///
-    pub fn New2(other: anytype) QPixelFormat {
+    pub fn new2(other: anytype) QPixelFormat {
         comptime _ = @TypeOf(other)._is_QPixelFormat;
         return .{ .ptr = qtc.QPixelFormat_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QPixelFormat object.
+    /// ### DEPRECATED: Use `new3` instead
     ///
-    pub fn New3() QPixelFormat {
+    pub const New3 = new3;
+
+    /// Allocate a new QPixelFormat object in C++ memory
+    ///
+    pub fn new3() QPixelFormat {
         return .{ .ptr = qtc.QPixelFormat_new3() };
     }
 
-    /// New4 constructs a new QPixelFormat object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QPixelFormat object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` colorModel: qpixelformat_enums.ColorModel `
+    /// ` _colorModel: qpixelformat_enums.ColorModel `
     ///
     /// ` firstSize: u8 `
     ///
@@ -56,36 +72,44 @@ pub const QPixelFormat = extern struct {
     ///
     /// ` fifthSize: u8 `
     ///
-    /// ` alphaSize: u8 `
+    /// ` _alphaSize: u8 `
     ///
-    /// ` alphaUsage: qpixelformat_enums.AlphaUsage `
+    /// ` _alphaUsage: qpixelformat_enums.AlphaUsage `
     ///
-    /// ` alphaPosition: qpixelformat_enums.AlphaPosition `
+    /// ` _alphaPosition: qpixelformat_enums.AlphaPosition `
     ///
-    /// ` premultiplied: qpixelformat_enums.AlphaPremultiplied `
+    /// ` _premultiplied: qpixelformat_enums.AlphaPremultiplied `
     ///
-    /// ` typeInterpretation: qpixelformat_enums.TypeInterpretation `
+    /// ` _typeInterpretation: qpixelformat_enums.TypeInterpretation `
     ///
-    pub fn New4(colorModel: i32, firstSize: u8, secondSize: u8, thirdSize: u8, fourthSize: u8, fifthSize: u8, alphaSize: u8, alphaUsage: i32, alphaPosition: i32, premultiplied: i32, typeInterpretation: i32) QPixelFormat {
-        return .{ .ptr = qtc.QPixelFormat_new4(@bitCast(colorModel), @bitCast(firstSize), @bitCast(secondSize), @bitCast(thirdSize), @bitCast(fourthSize), @bitCast(fifthSize), @bitCast(alphaSize), @bitCast(alphaUsage), @bitCast(alphaPosition), @bitCast(premultiplied), @bitCast(typeInterpretation)) };
+    pub fn new4(_colorModel: i32, firstSize: u8, secondSize: u8, thirdSize: u8, fourthSize: u8, fifthSize: u8, _alphaSize: u8, _alphaUsage: i32, _alphaPosition: i32, _premultiplied: i32, _typeInterpretation: i32) QPixelFormat {
+        return .{ .ptr = qtc.QPixelFormat_new4(@bitCast(_colorModel), @bitCast(firstSize), @bitCast(secondSize), @bitCast(thirdSize), @bitCast(fourthSize), @bitCast(fifthSize), @bitCast(_alphaSize), @bitCast(_alphaUsage), @bitCast(_alphaPosition), @bitCast(_premultiplied), @bitCast(_typeInterpretation)) };
     }
 
-    /// New5 constructs a new QPixelFormat object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new QPixelFormat object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QPixelFormat `
     ///
-    pub fn New5(param1: anytype) QPixelFormat {
+    pub fn new5(param1: anytype) QPixelFormat {
         comptime _ = @TypeOf(param1)._is_QPixelFormat;
         return .{ .ptr = qtc.QPixelFormat_new5(@ptrCast(param1.ptr)) };
     }
 
-    /// New6 constructs a new QPixelFormat object.
+    /// ### DEPRECATED: Use `new6` instead
+    ///
+    pub const New6 = new6;
+
+    /// Allocate a new QPixelFormat object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` colorModel: qpixelformat_enums.ColorModel `
+    /// ` _colorModel: qpixelformat_enums.ColorModel `
     ///
     /// ` firstSize: u8 `
     ///
@@ -97,27 +121,31 @@ pub const QPixelFormat = extern struct {
     ///
     /// ` fifthSize: u8 `
     ///
-    /// ` alphaSize: u8 `
+    /// ` _alphaSize: u8 `
     ///
-    /// ` alphaUsage: qpixelformat_enums.AlphaUsage `
+    /// ` _alphaUsage: qpixelformat_enums.AlphaUsage `
     ///
-    /// ` alphaPosition: qpixelformat_enums.AlphaPosition `
+    /// ` _alphaPosition: qpixelformat_enums.AlphaPosition `
     ///
-    /// ` premultiplied: qpixelformat_enums.AlphaPremultiplied `
+    /// ` _premultiplied: qpixelformat_enums.AlphaPremultiplied `
     ///
-    /// ` typeInterpretation: qpixelformat_enums.TypeInterpretation `
+    /// ` _typeInterpretation: qpixelformat_enums.TypeInterpretation `
     ///
-    /// ` byteOrder: qpixelformat_enums.ByteOrder `
+    /// ` _byteOrder: qpixelformat_enums.ByteOrder `
     ///
-    pub fn New6(colorModel: i32, firstSize: u8, secondSize: u8, thirdSize: u8, fourthSize: u8, fifthSize: u8, alphaSize: u8, alphaUsage: i32, alphaPosition: i32, premultiplied: i32, typeInterpretation: i32, byteOrder: i32) QPixelFormat {
-        return .{ .ptr = qtc.QPixelFormat_new6(@bitCast(colorModel), @bitCast(firstSize), @bitCast(secondSize), @bitCast(thirdSize), @bitCast(fourthSize), @bitCast(fifthSize), @bitCast(alphaSize), @bitCast(alphaUsage), @bitCast(alphaPosition), @bitCast(premultiplied), @bitCast(typeInterpretation), @bitCast(byteOrder)) };
+    pub fn new6(_colorModel: i32, firstSize: u8, secondSize: u8, thirdSize: u8, fourthSize: u8, fifthSize: u8, _alphaSize: u8, _alphaUsage: i32, _alphaPosition: i32, _premultiplied: i32, _typeInterpretation: i32, _byteOrder: i32) QPixelFormat {
+        return .{ .ptr = qtc.QPixelFormat_new6(@bitCast(_colorModel), @bitCast(firstSize), @bitCast(secondSize), @bitCast(thirdSize), @bitCast(fourthSize), @bitCast(fifthSize), @bitCast(_alphaSize), @bitCast(_alphaUsage), @bitCast(_alphaPosition), @bitCast(_premultiplied), @bitCast(_typeInterpretation), @bitCast(_byteOrder)) };
     }
 
-    /// New7 constructs a new QPixelFormat object.
+    /// ### DEPRECATED: Use `new7` instead
+    ///
+    pub const New7 = new7;
+
+    /// Allocate a new QPixelFormat object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` colorModel: qpixelformat_enums.ColorModel `
+    /// ` _colorModel: qpixelformat_enums.ColorModel `
     ///
     /// ` firstSize: u8 `
     ///
@@ -129,25 +157,28 @@ pub const QPixelFormat = extern struct {
     ///
     /// ` fifthSize: u8 `
     ///
-    /// ` alphaSize: u8 `
+    /// ` _alphaSize: u8 `
     ///
-    /// ` alphaUsage: qpixelformat_enums.AlphaUsage `
+    /// ` _alphaUsage: qpixelformat_enums.AlphaUsage `
     ///
-    /// ` alphaPosition: qpixelformat_enums.AlphaPosition `
+    /// ` _alphaPosition: qpixelformat_enums.AlphaPosition `
     ///
-    /// ` premultiplied: qpixelformat_enums.AlphaPremultiplied `
+    /// ` _premultiplied: qpixelformat_enums.AlphaPremultiplied `
     ///
-    /// ` typeInterpretation: qpixelformat_enums.TypeInterpretation `
+    /// ` _typeInterpretation: qpixelformat_enums.TypeInterpretation `
     ///
-    /// ` byteOrder: qpixelformat_enums.ByteOrder `
+    /// ` _byteOrder: qpixelformat_enums.ByteOrder `
     ///
-    /// ` subEnum: u8 `
+    /// ` _subEnum: u8 `
     ///
-    pub fn New7(colorModel: i32, firstSize: u8, secondSize: u8, thirdSize: u8, fourthSize: u8, fifthSize: u8, alphaSize: u8, alphaUsage: i32, alphaPosition: i32, premultiplied: i32, typeInterpretation: i32, byteOrder: i32, subEnum: u8) QPixelFormat {
-        return .{ .ptr = qtc.QPixelFormat_new7(@bitCast(colorModel), @bitCast(firstSize), @bitCast(secondSize), @bitCast(thirdSize), @bitCast(fourthSize), @bitCast(fifthSize), @bitCast(alphaSize), @bitCast(alphaUsage), @bitCast(alphaPosition), @bitCast(premultiplied), @bitCast(typeInterpretation), @bitCast(byteOrder), @bitCast(subEnum)) };
+    pub fn new7(_colorModel: i32, firstSize: u8, secondSize: u8, thirdSize: u8, fourthSize: u8, fifthSize: u8, _alphaSize: u8, _alphaUsage: i32, _alphaPosition: i32, _premultiplied: i32, _typeInterpretation: i32, _byteOrder: i32, _subEnum: u8) QPixelFormat {
+        return .{ .ptr = qtc.QPixelFormat_new7(@bitCast(_colorModel), @bitCast(firstSize), @bitCast(secondSize), @bitCast(thirdSize), @bitCast(fourthSize), @bitCast(fifthSize), @bitCast(_alphaSize), @bitCast(_alphaUsage), @bitCast(_alphaPosition), @bitCast(_premultiplied), @bitCast(_typeInterpretation), @bitCast(_byteOrder), @bitCast(_subEnum)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -155,11 +186,14 @@ pub const QPixelFormat = extern struct {
     ///
     /// ` other: QPixelFormat `
     ///
-    pub fn CopyAssign(self: QPixelFormat, other: QPixelFormat) void {
+    pub fn copyAssign(self: QPixelFormat, other: QPixelFormat) void {
         qtc.QPixelFormat_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -167,9 +201,13 @@ pub const QPixelFormat = extern struct {
     ///
     /// ` other: QPixelFormat `
     ///
-    pub fn MoveAssign(self: QPixelFormat, other: QPixelFormat) void {
+    pub fn moveAssign(self: QPixelFormat, other: QPixelFormat) void {
         qtc.QPixelFormat_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorModel` instead
+    ///
+    pub const ColorModel = colorModel;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixelformat.html#colorModel)
     ///
@@ -181,9 +219,13 @@ pub const QPixelFormat = extern struct {
     ///
     /// ` qpixelformat_enums.ColorModel `
     ///
-    pub fn ColorModel(self: QPixelFormat) i32 {
+    pub fn colorModel(self: QPixelFormat) i32 {
         return qtc.QPixelFormat_ColorModel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `channelCount` instead
+    ///
+    pub const ChannelCount = channelCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixelformat.html#channelCount)
     ///
@@ -191,9 +233,13 @@ pub const QPixelFormat = extern struct {
     ///
     /// ` self: QPixelFormat `
     ///
-    pub fn ChannelCount(self: QPixelFormat) u8 {
+    pub fn channelCount(self: QPixelFormat) u8 {
         return qtc.QPixelFormat_ChannelCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `redSize` instead
+    ///
+    pub const RedSize = redSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixelformat.html#redSize)
     ///
@@ -201,9 +247,13 @@ pub const QPixelFormat = extern struct {
     ///
     /// ` self: QPixelFormat `
     ///
-    pub fn RedSize(self: QPixelFormat) u8 {
+    pub fn redSize(self: QPixelFormat) u8 {
         return qtc.QPixelFormat_RedSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `greenSize` instead
+    ///
+    pub const GreenSize = greenSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixelformat.html#greenSize)
     ///
@@ -211,9 +261,13 @@ pub const QPixelFormat = extern struct {
     ///
     /// ` self: QPixelFormat `
     ///
-    pub fn GreenSize(self: QPixelFormat) u8 {
+    pub fn greenSize(self: QPixelFormat) u8 {
         return qtc.QPixelFormat_GreenSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blueSize` instead
+    ///
+    pub const BlueSize = blueSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixelformat.html#blueSize)
     ///
@@ -221,9 +275,13 @@ pub const QPixelFormat = extern struct {
     ///
     /// ` self: QPixelFormat `
     ///
-    pub fn BlueSize(self: QPixelFormat) u8 {
+    pub fn blueSize(self: QPixelFormat) u8 {
         return qtc.QPixelFormat_BlueSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `cyanSize` instead
+    ///
+    pub const CyanSize = cyanSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixelformat.html#cyanSize)
     ///
@@ -231,9 +289,13 @@ pub const QPixelFormat = extern struct {
     ///
     /// ` self: QPixelFormat `
     ///
-    pub fn CyanSize(self: QPixelFormat) u8 {
+    pub fn cyanSize(self: QPixelFormat) u8 {
         return qtc.QPixelFormat_CyanSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `magentaSize` instead
+    ///
+    pub const MagentaSize = magentaSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixelformat.html#magentaSize)
     ///
@@ -241,9 +303,13 @@ pub const QPixelFormat = extern struct {
     ///
     /// ` self: QPixelFormat `
     ///
-    pub fn MagentaSize(self: QPixelFormat) u8 {
+    pub fn magentaSize(self: QPixelFormat) u8 {
         return qtc.QPixelFormat_MagentaSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `yellowSize` instead
+    ///
+    pub const YellowSize = yellowSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixelformat.html#yellowSize)
     ///
@@ -251,9 +317,13 @@ pub const QPixelFormat = extern struct {
     ///
     /// ` self: QPixelFormat `
     ///
-    pub fn YellowSize(self: QPixelFormat) u8 {
+    pub fn yellowSize(self: QPixelFormat) u8 {
         return qtc.QPixelFormat_YellowSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blackSize` instead
+    ///
+    pub const BlackSize = blackSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixelformat.html#blackSize)
     ///
@@ -261,9 +331,13 @@ pub const QPixelFormat = extern struct {
     ///
     /// ` self: QPixelFormat `
     ///
-    pub fn BlackSize(self: QPixelFormat) u8 {
+    pub fn blackSize(self: QPixelFormat) u8 {
         return qtc.QPixelFormat_BlackSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hueSize` instead
+    ///
+    pub const HueSize = hueSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixelformat.html#hueSize)
     ///
@@ -271,9 +345,13 @@ pub const QPixelFormat = extern struct {
     ///
     /// ` self: QPixelFormat `
     ///
-    pub fn HueSize(self: QPixelFormat) u8 {
+    pub fn hueSize(self: QPixelFormat) u8 {
         return qtc.QPixelFormat_HueSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `saturationSize` instead
+    ///
+    pub const SaturationSize = saturationSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixelformat.html#saturationSize)
     ///
@@ -281,9 +359,13 @@ pub const QPixelFormat = extern struct {
     ///
     /// ` self: QPixelFormat `
     ///
-    pub fn SaturationSize(self: QPixelFormat) u8 {
+    pub fn saturationSize(self: QPixelFormat) u8 {
         return qtc.QPixelFormat_SaturationSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lightnessSize` instead
+    ///
+    pub const LightnessSize = lightnessSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixelformat.html#lightnessSize)
     ///
@@ -291,9 +373,13 @@ pub const QPixelFormat = extern struct {
     ///
     /// ` self: QPixelFormat `
     ///
-    pub fn LightnessSize(self: QPixelFormat) u8 {
+    pub fn lightnessSize(self: QPixelFormat) u8 {
         return qtc.QPixelFormat_LightnessSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `brightnessSize` instead
+    ///
+    pub const BrightnessSize = brightnessSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixelformat.html#brightnessSize)
     ///
@@ -301,9 +387,13 @@ pub const QPixelFormat = extern struct {
     ///
     /// ` self: QPixelFormat `
     ///
-    pub fn BrightnessSize(self: QPixelFormat) u8 {
+    pub fn brightnessSize(self: QPixelFormat) u8 {
         return qtc.QPixelFormat_BrightnessSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `alphaSize` instead
+    ///
+    pub const AlphaSize = alphaSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixelformat.html#alphaSize)
     ///
@@ -311,9 +401,13 @@ pub const QPixelFormat = extern struct {
     ///
     /// ` self: QPixelFormat `
     ///
-    pub fn AlphaSize(self: QPixelFormat) u8 {
+    pub fn alphaSize(self: QPixelFormat) u8 {
         return qtc.QPixelFormat_AlphaSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `bitsPerPixel` instead
+    ///
+    pub const BitsPerPixel = bitsPerPixel;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixelformat.html#bitsPerPixel)
     ///
@@ -321,9 +415,13 @@ pub const QPixelFormat = extern struct {
     ///
     /// ` self: QPixelFormat `
     ///
-    pub fn BitsPerPixel(self: QPixelFormat) u8 {
+    pub fn bitsPerPixel(self: QPixelFormat) u8 {
         return qtc.QPixelFormat_BitsPerPixel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `alphaUsage` instead
+    ///
+    pub const AlphaUsage = alphaUsage;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixelformat.html#alphaUsage)
     ///
@@ -335,9 +433,13 @@ pub const QPixelFormat = extern struct {
     ///
     /// ` qpixelformat_enums.AlphaUsage `
     ///
-    pub fn AlphaUsage(self: QPixelFormat) i32 {
+    pub fn alphaUsage(self: QPixelFormat) i32 {
         return qtc.QPixelFormat_AlphaUsage(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `alphaPosition` instead
+    ///
+    pub const AlphaPosition = alphaPosition;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixelformat.html#alphaPosition)
     ///
@@ -349,9 +451,13 @@ pub const QPixelFormat = extern struct {
     ///
     /// ` qpixelformat_enums.AlphaPosition `
     ///
-    pub fn AlphaPosition(self: QPixelFormat) i32 {
+    pub fn alphaPosition(self: QPixelFormat) i32 {
         return qtc.QPixelFormat_AlphaPosition(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `premultiplied` instead
+    ///
+    pub const Premultiplied = premultiplied;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixelformat.html#premultiplied)
     ///
@@ -363,9 +469,13 @@ pub const QPixelFormat = extern struct {
     ///
     /// ` qpixelformat_enums.AlphaPremultiplied `
     ///
-    pub fn Premultiplied(self: QPixelFormat) i32 {
+    pub fn premultiplied(self: QPixelFormat) i32 {
         return qtc.QPixelFormat_Premultiplied(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `typeInterpretation` instead
+    ///
+    pub const TypeInterpretation = typeInterpretation;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixelformat.html#typeInterpretation)
     ///
@@ -377,9 +487,13 @@ pub const QPixelFormat = extern struct {
     ///
     /// ` qpixelformat_enums.TypeInterpretation `
     ///
-    pub fn TypeInterpretation(self: QPixelFormat) i32 {
+    pub fn typeInterpretation(self: QPixelFormat) i32 {
         return qtc.QPixelFormat_TypeInterpretation(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `byteOrder` instead
+    ///
+    pub const ByteOrder = byteOrder;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixelformat.html#byteOrder)
     ///
@@ -391,9 +505,13 @@ pub const QPixelFormat = extern struct {
     ///
     /// ` qpixelformat_enums.ByteOrder `
     ///
-    pub fn ByteOrder(self: QPixelFormat) i32 {
+    pub fn byteOrder(self: QPixelFormat) i32 {
         return qtc.QPixelFormat_ByteOrder(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `yuvLayout` instead
+    ///
+    pub const YuvLayout = yuvLayout;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixelformat.html#yuvLayout)
     ///
@@ -405,9 +523,13 @@ pub const QPixelFormat = extern struct {
     ///
     /// ` qpixelformat_enums.YUVLayout `
     ///
-    pub fn YuvLayout(self: QPixelFormat) i32 {
+    pub fn yuvLayout(self: QPixelFormat) i32 {
         return qtc.QPixelFormat_YuvLayout(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `subEnum` instead
+    ///
+    pub const SubEnum = subEnum;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixelformat.html#subEnum)
     ///
@@ -415,23 +537,23 @@ pub const QPixelFormat = extern struct {
     ///
     /// ` self: QPixelFormat `
     ///
-    pub fn SubEnum(self: QPixelFormat) u8 {
+    pub fn subEnum(self: QPixelFormat) u8 {
         return qtc.QPixelFormat_SubEnum(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixelformat.html#dtor.QPixelFormat)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QPixelFormat `
     ///
-    pub fn Delete(self: QPixelFormat) void {
+    pub fn delete(self: QPixelFormat) void {
         qtc.QPixelFormat_Delete(@ptrCast(self.ptr));
     }
 };

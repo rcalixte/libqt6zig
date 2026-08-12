@@ -83,45 +83,65 @@ pub const KSelector = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new KSelector object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KSelector object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) KSelector {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KSelector_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) KSelector {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KSelector_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new KSelector object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() KSelector {
+    pub const New2 = new2;
+
+    /// Allocate a new KSelector object in C++ memory
+    ///
+    pub fn new2() KSelector {
         return .{ .ptr = qtc.KSelector_new2() };
     }
 
-    /// New3 constructs a new KSelector object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new KSelector object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` o: qnamespace_enums.Orientation `
     ///
-    pub fn New3(o: i32) KSelector {
+    pub fn new3(o: i32) KSelector {
         return .{ .ptr = qtc.KSelector_new3(@bitCast(o)) };
     }
 
-    /// New4 constructs a new KSelector object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new KSelector object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` o: qnamespace_enums.Orientation `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New4(o: i32, parent: anytype) KSelector {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KSelector_new4(@bitCast(o), @ptrCast(parent.ptr)) };
+    pub fn new4(o: i32, _parent: anytype) KSelector {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KSelector_new4(@bitCast(o), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -129,9 +149,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn MetaObject(self: KSelector) QMetaObject {
+    pub fn metaObject(self: KSelector) QMetaObject {
         return .{ .ptr = qtc.KSelector_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -143,13 +167,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KSelector, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KSelector, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KSelector_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -159,9 +183,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn SuperMetaObject(self: KSelector) QMetaObject {
+    pub fn superMetaObject(self: KSelector) QMetaObject {
         return .{ .ptr = qtc.KSelector_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -169,10 +197,14 @@ pub const KSelector = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KSelector, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KSelector, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KSelector_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -182,13 +214,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KSelector, callback: *const fn (KSelector, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KSelector, callback: *const fn (KSelector, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KSelector_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -198,10 +230,14 @@ pub const KSelector = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KSelector, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KSelector, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KSelector_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -213,9 +249,13 @@ pub const KSelector = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KSelector, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KSelector, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KSelector_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -225,13 +265,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KSelector, callback: *const fn (KSelector, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KSelector, callback: *const fn (KSelector, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KSelector_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -245,9 +285,13 @@ pub const KSelector = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KSelector, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KSelector, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KSelector_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -257,14 +301,18 @@ pub const KSelector = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSelector.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSelector.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// ### [Upstream resources](https://api.kde.org/kselector.html#contentsRect)
     ///
@@ -272,9 +320,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn ContentsRect(self: KSelector) QRect {
+    pub fn contentsRect(self: KSelector) QRect {
         return .{ .ptr = qtc.KSelector_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setIndent` instead
+    ///
+    pub const SetIndent = setIndent;
 
     /// ### [Upstream resources](https://api.kde.org/kselector.html#setIndent)
     ///
@@ -284,9 +336,13 @@ pub const KSelector = extern struct {
     ///
     /// ` i: bool `
     ///
-    pub fn SetIndent(self: KSelector, i: bool) void {
+    pub fn setIndent(self: KSelector, i: bool) void {
         qtc.KSelector_SetIndent(@ptrCast(self.ptr), i);
     }
+
+    /// ### DEPRECATED: Use `indent` instead
+    ///
+    pub const Indent = indent;
 
     /// ### [Upstream resources](https://api.kde.org/kselector.html#indent)
     ///
@@ -294,9 +350,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn Indent(self: KSelector) bool {
+    pub fn indent(self: KSelector) bool {
         return qtc.KSelector_Indent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setArrowDirection` instead
+    ///
+    pub const SetArrowDirection = setArrowDirection;
 
     /// ### [Upstream resources](https://api.kde.org/kselector.html#setArrowDirection)
     ///
@@ -306,9 +366,13 @@ pub const KSelector = extern struct {
     ///
     /// ` direction: qnamespace_enums.ArrowType `
     ///
-    pub fn SetArrowDirection(self: KSelector, direction: i32) void {
+    pub fn setArrowDirection(self: KSelector, direction: i32) void {
         qtc.KSelector_SetArrowDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `arrowDirection` instead
+    ///
+    pub const ArrowDirection = arrowDirection;
 
     /// ### [Upstream resources](https://api.kde.org/kselector.html#arrowDirection)
     ///
@@ -320,9 +384,13 @@ pub const KSelector = extern struct {
     ///
     /// ` qnamespace_enums.ArrowType `
     ///
-    pub fn ArrowDirection(self: KSelector) i32 {
+    pub fn arrowDirection(self: KSelector) i32 {
         return qtc.KSelector_ArrowDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawContents` instead
+    ///
+    pub const DrawContents = drawContents;
 
     /// ### [Upstream resources](https://api.kde.org/kselector.html#drawContents)
     ///
@@ -332,10 +400,14 @@ pub const KSelector = extern struct {
     ///
     /// ` param1: QPainter `
     ///
-    pub fn DrawContents(self: KSelector, param1: anytype) void {
+    pub fn drawContents(self: KSelector, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPainter;
         qtc.KSelector_DrawContents(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDrawContents` instead
+    ///
+    pub const OnDrawContents = onDrawContents;
 
     /// ### [Upstream resources](https://api.kde.org/kselector.html#drawContents)
     ///
@@ -347,13 +419,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, param1: QPainter) callconv(.c) void `
     ///
-    pub fn OnDrawContents(self: KSelector, callback: *const fn (KSelector, QPainter) callconv(.c) void) void {
+    pub fn onDrawContents(self: KSelector, callback: *const fn (KSelector, QPainter) callconv(.c) void) void {
         qtc.KSelector_OnDrawContents(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawContents` instead
+    /// ### DEPRECATED: Use `superDrawContents` instead
     ///
-    pub const QBaseDrawContents = SuperDrawContents;
+    pub const SuperDrawContents = superDrawContents;
 
     /// ### [Upstream resources](https://api.kde.org/kselector.html#drawContents)
     ///
@@ -365,10 +437,14 @@ pub const KSelector = extern struct {
     ///
     /// ` param1: QPainter `
     ///
-    pub fn SuperDrawContents(self: KSelector, param1: anytype) void {
+    pub fn superDrawContents(self: KSelector, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPainter;
         qtc.KSelector_SuperDrawContents(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawArrow` instead
+    ///
+    pub const DrawArrow = drawArrow;
 
     /// ### [Upstream resources](https://api.kde.org/kselector.html#drawArrow)
     ///
@@ -378,13 +454,17 @@ pub const KSelector = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn DrawArrow(self: KSelector, painter: anytype, pos: anytype) void {
+    pub fn drawArrow(self: KSelector, painter: anytype, _pos: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.KSelector_DrawArrow(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(pos.ptr));
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.KSelector_DrawArrow(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDrawArrow` instead
+    ///
+    pub const OnDrawArrow = onDrawArrow;
 
     /// ### [Upstream resources](https://api.kde.org/kselector.html#drawArrow)
     ///
@@ -396,13 +476,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, painter: QPainter, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnDrawArrow(self: KSelector, callback: *const fn (KSelector, QPainter, QPoint) callconv(.c) void) void {
+    pub fn onDrawArrow(self: KSelector, callback: *const fn (KSelector, QPainter, QPoint) callconv(.c) void) void {
         qtc.KSelector_OnDrawArrow(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawArrow` instead
+    /// ### DEPRECATED: Use `superDrawArrow` instead
     ///
-    pub const QBaseDrawArrow = SuperDrawArrow;
+    pub const SuperDrawArrow = superDrawArrow;
 
     /// ### [Upstream resources](https://api.kde.org/kselector.html#drawArrow)
     ///
@@ -414,13 +494,17 @@ pub const KSelector = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn SuperDrawArrow(self: KSelector, painter: anytype, pos: anytype) void {
+    pub fn superDrawArrow(self: KSelector, painter: anytype, _pos: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.KSelector_SuperDrawArrow(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(pos.ptr));
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.KSelector_SuperDrawArrow(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kselector.html#paintEvent)
     ///
@@ -430,10 +514,14 @@ pub const KSelector = extern struct {
     ///
     /// ` param1: QPaintEvent `
     ///
-    pub fn PaintEvent(self: KSelector, param1: anytype) void {
+    pub fn paintEvent(self: KSelector, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPaintEvent;
         qtc.KSelector_PaintEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kselector.html#paintEvent)
     ///
@@ -445,13 +533,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, param1: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: KSelector, callback: *const fn (KSelector, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: KSelector, callback: *const fn (KSelector, QPaintEvent) callconv(.c) void) void {
         qtc.KSelector_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kselector.html#paintEvent)
     ///
@@ -463,11 +551,15 @@ pub const KSelector = extern struct {
     ///
     /// ` param1: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: KSelector, param1: anytype) void {
+    pub fn superPaintEvent(self: KSelector, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPaintEvent;
         qtc.KSelector_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
+
     /// ### [Upstream resources](https://api.kde.org/kselector.html#mousePressEvent)
     ///
     /// ## Parameter(s):
@@ -476,11 +568,15 @@ pub const KSelector = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: KSelector, e: anytype) void {
+    pub fn mousePressEvent(self: KSelector, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.KSelector_MousePressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
+
     /// ### [Upstream resources](https://api.kde.org/kselector.html#mousePressEvent)
     ///
     /// Allows for overriding the related default method
@@ -491,13 +587,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, e: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: KSelector, callback: *const fn (KSelector, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: KSelector, callback: *const fn (KSelector, QMouseEvent) callconv(.c) void) void {
         qtc.KSelector_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kselector.html#mousePressEvent)
     ///
@@ -509,11 +605,15 @@ pub const KSelector = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: KSelector, e: anytype) void {
+    pub fn superMousePressEvent(self: KSelector, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.KSelector_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
+
     /// ### [Upstream resources](https://api.kde.org/kselector.html#mouseMoveEvent)
     ///
     /// ## Parameter(s):
@@ -522,11 +622,15 @@ pub const KSelector = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: KSelector, e: anytype) void {
+    pub fn mouseMoveEvent(self: KSelector, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.KSelector_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
+
     /// ### [Upstream resources](https://api.kde.org/kselector.html#mouseMoveEvent)
     ///
     /// Allows for overriding the related default method
@@ -537,13 +641,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, e: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: KSelector, callback: *const fn (KSelector, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: KSelector, callback: *const fn (KSelector, QMouseEvent) callconv(.c) void) void {
         qtc.KSelector_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kselector.html#mouseMoveEvent)
     ///
@@ -555,11 +659,15 @@ pub const KSelector = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: KSelector, e: anytype) void {
+    pub fn superMouseMoveEvent(self: KSelector, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.KSelector_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
+
     /// ### [Upstream resources](https://api.kde.org/kselector.html#mouseReleaseEvent)
     ///
     /// ## Parameter(s):
@@ -568,10 +676,14 @@ pub const KSelector = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: KSelector, e: anytype) void {
+    pub fn mouseReleaseEvent(self: KSelector, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.KSelector_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kselector.html#mouseReleaseEvent)
     ///
@@ -583,13 +695,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, e: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: KSelector, callback: *const fn (KSelector, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: KSelector, callback: *const fn (KSelector, QMouseEvent) callconv(.c) void) void {
         qtc.KSelector_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kselector.html#mouseReleaseEvent)
     ///
@@ -601,10 +713,14 @@ pub const KSelector = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: KSelector, e: anytype) void {
+    pub fn superMouseReleaseEvent(self: KSelector, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.KSelector_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kselector.html#wheelEvent)
     ///
@@ -614,10 +730,14 @@ pub const KSelector = extern struct {
     ///
     /// ` param1: QWheelEvent `
     ///
-    pub fn WheelEvent(self: KSelector, param1: anytype) void {
+    pub fn wheelEvent(self: KSelector, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWheelEvent;
         qtc.KSelector_WheelEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kselector.html#wheelEvent)
     ///
@@ -629,13 +749,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, param1: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: KSelector, callback: *const fn (KSelector, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: KSelector, callback: *const fn (KSelector, QWheelEvent) callconv(.c) void) void {
         qtc.KSelector_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kselector.html#wheelEvent)
     ///
@@ -647,10 +767,14 @@ pub const KSelector = extern struct {
     ///
     /// ` param1: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: KSelector, param1: anytype) void {
+    pub fn superWheelEvent(self: KSelector, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWheelEvent;
         qtc.KSelector_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -662,15 +786,19 @@ pub const KSelector = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSelector.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSelector.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -684,15 +812,19 @@ pub const KSelector = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSelector.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSelector.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `orientation` instead
+    ///
+    pub const Orientation = orientation;
 
     /// Inherited from QAbstractSlider
     ///
@@ -706,9 +838,13 @@ pub const KSelector = extern struct {
     ///
     /// ` qnamespace_enums.Orientation `
     ///
-    pub fn Orientation(self: KSelector) i32 {
+    pub fn orientation(self: KSelector) i32 {
         return qtc.QAbstractSlider_Orientation(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimum` instead
+    ///
+    pub const SetMinimum = setMinimum;
 
     /// Inherited from QAbstractSlider
     ///
@@ -718,11 +854,15 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` minimum: i32 `
+    /// ` _minimum: i32 `
     ///
-    pub fn SetMinimum(self: KSelector, minimum: i32) void {
-        qtc.QAbstractSlider_SetMinimum(@ptrCast(self.ptr), @bitCast(minimum));
+    pub fn setMinimum(self: KSelector, _minimum: i32) void {
+        qtc.QAbstractSlider_SetMinimum(@ptrCast(self.ptr), @bitCast(_minimum));
     }
+
+    /// ### DEPRECATED: Use `minimum` instead
+    ///
+    pub const Minimum = minimum;
 
     /// Inherited from QAbstractSlider
     ///
@@ -732,9 +872,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn Minimum(self: KSelector) i32 {
+    pub fn minimum(self: KSelector) i32 {
         return qtc.QAbstractSlider_Minimum(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximum` instead
+    ///
+    pub const SetMaximum = setMaximum;
 
     /// Inherited from QAbstractSlider
     ///
@@ -744,11 +888,15 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` maximum: i32 `
+    /// ` _maximum: i32 `
     ///
-    pub fn SetMaximum(self: KSelector, maximum: i32) void {
-        qtc.QAbstractSlider_SetMaximum(@ptrCast(self.ptr), @bitCast(maximum));
+    pub fn setMaximum(self: KSelector, _maximum: i32) void {
+        qtc.QAbstractSlider_SetMaximum(@ptrCast(self.ptr), @bitCast(_maximum));
     }
+
+    /// ### DEPRECATED: Use `maximum` instead
+    ///
+    pub const Maximum = maximum;
 
     /// Inherited from QAbstractSlider
     ///
@@ -758,9 +906,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn Maximum(self: KSelector) i32 {
+    pub fn maximum(self: KSelector) i32 {
         return qtc.QAbstractSlider_Maximum(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSingleStep` instead
+    ///
+    pub const SetSingleStep = setSingleStep;
 
     /// Inherited from QAbstractSlider
     ///
@@ -770,11 +922,15 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` singleStep: i32 `
+    /// ` _singleStep: i32 `
     ///
-    pub fn SetSingleStep(self: KSelector, singleStep: i32) void {
-        qtc.QAbstractSlider_SetSingleStep(@ptrCast(self.ptr), @bitCast(singleStep));
+    pub fn setSingleStep(self: KSelector, _singleStep: i32) void {
+        qtc.QAbstractSlider_SetSingleStep(@ptrCast(self.ptr), @bitCast(_singleStep));
     }
+
+    /// ### DEPRECATED: Use `singleStep` instead
+    ///
+    pub const SingleStep = singleStep;
 
     /// Inherited from QAbstractSlider
     ///
@@ -784,9 +940,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn SingleStep(self: KSelector) i32 {
+    pub fn singleStep(self: KSelector) i32 {
         return qtc.QAbstractSlider_SingleStep(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPageStep` instead
+    ///
+    pub const SetPageStep = setPageStep;
 
     /// Inherited from QAbstractSlider
     ///
@@ -796,11 +956,15 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` pageStep: i32 `
+    /// ` _pageStep: i32 `
     ///
-    pub fn SetPageStep(self: KSelector, pageStep: i32) void {
-        qtc.QAbstractSlider_SetPageStep(@ptrCast(self.ptr), @bitCast(pageStep));
+    pub fn setPageStep(self: KSelector, _pageStep: i32) void {
+        qtc.QAbstractSlider_SetPageStep(@ptrCast(self.ptr), @bitCast(_pageStep));
     }
+
+    /// ### DEPRECATED: Use `pageStep` instead
+    ///
+    pub const PageStep = pageStep;
 
     /// Inherited from QAbstractSlider
     ///
@@ -810,9 +974,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn PageStep(self: KSelector) i32 {
+    pub fn pageStep(self: KSelector) i32 {
         return qtc.QAbstractSlider_PageStep(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTracking` instead
+    ///
+    pub const SetTracking = setTracking;
 
     /// Inherited from QAbstractSlider
     ///
@@ -824,9 +992,13 @@ pub const KSelector = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTracking(self: KSelector, enable: bool) void {
+    pub fn setTracking(self: KSelector, enable: bool) void {
         qtc.QAbstractSlider_SetTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTracking` instead
+    ///
+    pub const HasTracking = hasTracking;
 
     /// Inherited from QAbstractSlider
     ///
@@ -836,9 +1008,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn HasTracking(self: KSelector) bool {
+    pub fn hasTracking(self: KSelector) bool {
         return qtc.QAbstractSlider_HasTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSliderDown` instead
+    ///
+    pub const SetSliderDown = setSliderDown;
 
     /// Inherited from QAbstractSlider
     ///
@@ -850,9 +1026,13 @@ pub const KSelector = extern struct {
     ///
     /// ` sliderDown: bool `
     ///
-    pub fn SetSliderDown(self: KSelector, sliderDown: bool) void {
+    pub fn setSliderDown(self: KSelector, sliderDown: bool) void {
         qtc.QAbstractSlider_SetSliderDown(@ptrCast(self.ptr), sliderDown);
     }
+
+    /// ### DEPRECATED: Use `isSliderDown` instead
+    ///
+    pub const IsSliderDown = isSliderDown;
 
     /// Inherited from QAbstractSlider
     ///
@@ -862,9 +1042,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn IsSliderDown(self: KSelector) bool {
+    pub fn isSliderDown(self: KSelector) bool {
         return qtc.QAbstractSlider_IsSliderDown(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSliderPosition` instead
+    ///
+    pub const SetSliderPosition = setSliderPosition;
 
     /// Inherited from QAbstractSlider
     ///
@@ -874,11 +1058,15 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` sliderPosition: i32 `
+    /// ` _sliderPosition: i32 `
     ///
-    pub fn SetSliderPosition(self: KSelector, sliderPosition: i32) void {
-        qtc.QAbstractSlider_SetSliderPosition(@ptrCast(self.ptr), @bitCast(sliderPosition));
+    pub fn setSliderPosition(self: KSelector, _sliderPosition: i32) void {
+        qtc.QAbstractSlider_SetSliderPosition(@ptrCast(self.ptr), @bitCast(_sliderPosition));
     }
+
+    /// ### DEPRECATED: Use `sliderPosition` instead
+    ///
+    pub const SliderPosition = sliderPosition;
 
     /// Inherited from QAbstractSlider
     ///
@@ -888,9 +1076,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn SliderPosition(self: KSelector) i32 {
+    pub fn sliderPosition(self: KSelector) i32 {
         return qtc.QAbstractSlider_SliderPosition(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInvertedAppearance` instead
+    ///
+    pub const SetInvertedAppearance = setInvertedAppearance;
 
     /// Inherited from QAbstractSlider
     ///
@@ -900,11 +1092,15 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` invertedAppearance: bool `
+    /// ` _invertedAppearance: bool `
     ///
-    pub fn SetInvertedAppearance(self: KSelector, invertedAppearance: bool) void {
-        qtc.QAbstractSlider_SetInvertedAppearance(@ptrCast(self.ptr), invertedAppearance);
+    pub fn setInvertedAppearance(self: KSelector, _invertedAppearance: bool) void {
+        qtc.QAbstractSlider_SetInvertedAppearance(@ptrCast(self.ptr), _invertedAppearance);
     }
+
+    /// ### DEPRECATED: Use `invertedAppearance` instead
+    ///
+    pub const InvertedAppearance = invertedAppearance;
 
     /// Inherited from QAbstractSlider
     ///
@@ -914,9 +1110,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn InvertedAppearance(self: KSelector) bool {
+    pub fn invertedAppearance(self: KSelector) bool {
         return qtc.QAbstractSlider_InvertedAppearance(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInvertedControls` instead
+    ///
+    pub const SetInvertedControls = setInvertedControls;
 
     /// Inherited from QAbstractSlider
     ///
@@ -926,11 +1126,15 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` invertedControls: bool `
+    /// ` _invertedControls: bool `
     ///
-    pub fn SetInvertedControls(self: KSelector, invertedControls: bool) void {
-        qtc.QAbstractSlider_SetInvertedControls(@ptrCast(self.ptr), invertedControls);
+    pub fn setInvertedControls(self: KSelector, _invertedControls: bool) void {
+        qtc.QAbstractSlider_SetInvertedControls(@ptrCast(self.ptr), _invertedControls);
     }
+
+    /// ### DEPRECATED: Use `invertedControls` instead
+    ///
+    pub const InvertedControls = invertedControls;
 
     /// Inherited from QAbstractSlider
     ///
@@ -940,9 +1144,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn InvertedControls(self: KSelector) bool {
+    pub fn invertedControls(self: KSelector) bool {
         return qtc.QAbstractSlider_InvertedControls(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `value` instead
+    ///
+    pub const Value = value;
 
     /// Inherited from QAbstractSlider
     ///
@@ -952,9 +1160,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn Value(self: KSelector) i32 {
+    pub fn value(self: KSelector) i32 {
         return qtc.QAbstractSlider_Value(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `triggerAction` instead
+    ///
+    pub const TriggerAction = triggerAction;
 
     /// Inherited from QAbstractSlider
     ///
@@ -966,9 +1178,13 @@ pub const KSelector = extern struct {
     ///
     /// ` action: qabstractslider_enums.SliderAction `
     ///
-    pub fn TriggerAction(self: KSelector, action: i32) void {
+    pub fn triggerAction(self: KSelector, action: i32) void {
         qtc.QAbstractSlider_TriggerAction(@ptrCast(self.ptr), @bitCast(action));
     }
+
+    /// ### DEPRECATED: Use `setValue` instead
+    ///
+    pub const SetValue = setValue;
 
     /// Inherited from QAbstractSlider
     ///
@@ -978,11 +1194,15 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` value: i32 `
+    /// ` _value: i32 `
     ///
-    pub fn SetValue(self: KSelector, value: i32) void {
-        qtc.QAbstractSlider_SetValue(@ptrCast(self.ptr), @bitCast(value));
+    pub fn setValue(self: KSelector, _value: i32) void {
+        qtc.QAbstractSlider_SetValue(@ptrCast(self.ptr), @bitCast(_value));
     }
+
+    /// ### DEPRECATED: Use `setOrientation` instead
+    ///
+    pub const SetOrientation = setOrientation;
 
     /// Inherited from QAbstractSlider
     ///
@@ -992,11 +1212,15 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` orientation: qnamespace_enums.Orientation `
+    /// ` _orientation: qnamespace_enums.Orientation `
     ///
-    pub fn SetOrientation(self: KSelector, orientation: i32) void {
-        qtc.QAbstractSlider_SetOrientation(@ptrCast(self.ptr), @bitCast(orientation));
+    pub fn setOrientation(self: KSelector, _orientation: i32) void {
+        qtc.QAbstractSlider_SetOrientation(@ptrCast(self.ptr), @bitCast(_orientation));
     }
+
+    /// ### DEPRECATED: Use `setRange` instead
+    ///
+    pub const SetRange = setRange;
 
     /// Inherited from QAbstractSlider
     ///
@@ -1010,9 +1234,13 @@ pub const KSelector = extern struct {
     ///
     /// ` max: i32 `
     ///
-    pub fn SetRange(self: KSelector, min: i32, max: i32) void {
+    pub fn setRange(self: KSelector, min: i32, max: i32) void {
         qtc.QAbstractSlider_SetRange(@ptrCast(self.ptr), @bitCast(min), @bitCast(max));
     }
+
+    /// ### DEPRECATED: Use `valueChanged` instead
+    ///
+    pub const ValueChanged = valueChanged;
 
     /// Inherited from QAbstractSlider
     ///
@@ -1022,11 +1250,15 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` value: i32 `
+    /// ` _value: i32 `
     ///
-    pub fn ValueChanged(self: KSelector, value: i32) void {
-        qtc.QAbstractSlider_ValueChanged(@ptrCast(self.ptr), @bitCast(value));
+    pub fn valueChanged(self: KSelector, _value: i32) void {
+        qtc.QAbstractSlider_ValueChanged(@ptrCast(self.ptr), @bitCast(_value));
     }
+
+    /// ### DEPRECATED: Use `onValueChanged` instead
+    ///
+    pub const OnValueChanged = onValueChanged;
 
     /// Inherited from QAbstractSlider
     ///
@@ -1038,9 +1270,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, value: i32) callconv(.c) void `
     ///
-    pub fn OnValueChanged(self: KSelector, callback: *const fn (KSelector, i32) callconv(.c) void) void {
+    pub fn onValueChanged(self: KSelector, callback: *const fn (KSelector, i32) callconv(.c) void) void {
         qtc.QAbstractSlider_Connect_ValueChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sliderPressed` instead
+    ///
+    pub const SliderPressed = sliderPressed;
 
     /// Inherited from QAbstractSlider
     ///
@@ -1050,9 +1286,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn SliderPressed(self: KSelector) void {
+    pub fn sliderPressed(self: KSelector) void {
         qtc.QAbstractSlider_SliderPressed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSliderPressed` instead
+    ///
+    pub const OnSliderPressed = onSliderPressed;
 
     /// Inherited from QAbstractSlider
     ///
@@ -1064,9 +1304,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector) callconv(.c) void `
     ///
-    pub fn OnSliderPressed(self: KSelector, callback: *const fn (KSelector) callconv(.c) void) void {
+    pub fn onSliderPressed(self: KSelector, callback: *const fn (KSelector) callconv(.c) void) void {
         qtc.QAbstractSlider_Connect_SliderPressed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sliderMoved` instead
+    ///
+    pub const SliderMoved = sliderMoved;
 
     /// Inherited from QAbstractSlider
     ///
@@ -1078,9 +1322,13 @@ pub const KSelector = extern struct {
     ///
     /// ` position: i32 `
     ///
-    pub fn SliderMoved(self: KSelector, position: i32) void {
+    pub fn sliderMoved(self: KSelector, position: i32) void {
         qtc.QAbstractSlider_SliderMoved(@ptrCast(self.ptr), @bitCast(position));
     }
+
+    /// ### DEPRECATED: Use `onSliderMoved` instead
+    ///
+    pub const OnSliderMoved = onSliderMoved;
 
     /// Inherited from QAbstractSlider
     ///
@@ -1092,9 +1340,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, position: i32) callconv(.c) void `
     ///
-    pub fn OnSliderMoved(self: KSelector, callback: *const fn (KSelector, i32) callconv(.c) void) void {
+    pub fn onSliderMoved(self: KSelector, callback: *const fn (KSelector, i32) callconv(.c) void) void {
         qtc.QAbstractSlider_Connect_SliderMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sliderReleased` instead
+    ///
+    pub const SliderReleased = sliderReleased;
 
     /// Inherited from QAbstractSlider
     ///
@@ -1104,9 +1356,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn SliderReleased(self: KSelector) void {
+    pub fn sliderReleased(self: KSelector) void {
         qtc.QAbstractSlider_SliderReleased(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSliderReleased` instead
+    ///
+    pub const OnSliderReleased = onSliderReleased;
 
     /// Inherited from QAbstractSlider
     ///
@@ -1118,9 +1374,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector) callconv(.c) void `
     ///
-    pub fn OnSliderReleased(self: KSelector, callback: *const fn (KSelector) callconv(.c) void) void {
+    pub fn onSliderReleased(self: KSelector, callback: *const fn (KSelector) callconv(.c) void) void {
         qtc.QAbstractSlider_Connect_SliderReleased(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `rangeChanged` instead
+    ///
+    pub const RangeChanged = rangeChanged;
 
     /// Inherited from QAbstractSlider
     ///
@@ -1134,9 +1394,13 @@ pub const KSelector = extern struct {
     ///
     /// ` max: i32 `
     ///
-    pub fn RangeChanged(self: KSelector, min: i32, max: i32) void {
+    pub fn rangeChanged(self: KSelector, min: i32, max: i32) void {
         qtc.QAbstractSlider_RangeChanged(@ptrCast(self.ptr), @bitCast(min), @bitCast(max));
     }
+
+    /// ### DEPRECATED: Use `onRangeChanged` instead
+    ///
+    pub const OnRangeChanged = onRangeChanged;
 
     /// Inherited from QAbstractSlider
     ///
@@ -1148,9 +1412,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, min: i32, max: i32) callconv(.c) void `
     ///
-    pub fn OnRangeChanged(self: KSelector, callback: *const fn (KSelector, i32, i32) callconv(.c) void) void {
+    pub fn onRangeChanged(self: KSelector, callback: *const fn (KSelector, i32, i32) callconv(.c) void) void {
         qtc.QAbstractSlider_Connect_RangeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionTriggered` instead
+    ///
+    pub const ActionTriggered = actionTriggered;
 
     /// Inherited from QAbstractSlider
     ///
@@ -1162,9 +1430,13 @@ pub const KSelector = extern struct {
     ///
     /// ` action: i32 `
     ///
-    pub fn ActionTriggered(self: KSelector, action: i32) void {
+    pub fn actionTriggered(self: KSelector, action: i32) void {
         qtc.QAbstractSlider_ActionTriggered(@ptrCast(self.ptr), @bitCast(action));
     }
+
+    /// ### DEPRECATED: Use `onActionTriggered` instead
+    ///
+    pub const OnActionTriggered = onActionTriggered;
 
     /// Inherited from QAbstractSlider
     ///
@@ -1176,9 +1448,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, action: i32) callconv(.c) void `
     ///
-    pub fn OnActionTriggered(self: KSelector, callback: *const fn (KSelector, i32) callconv(.c) void) void {
+    pub fn onActionTriggered(self: KSelector, callback: *const fn (KSelector, i32) callconv(.c) void) void {
         qtc.QAbstractSlider_Connect_ActionTriggered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -1188,9 +1464,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn WinId(self: KSelector) usize {
+    pub fn winId(self: KSelector) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -1200,9 +1480,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn CreateWinId(self: KSelector) void {
+    pub fn createWinId(self: KSelector) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -1212,9 +1496,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn InternalWinId(self: KSelector) usize {
+    pub fn internalWinId(self: KSelector) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -1224,9 +1512,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn EffectiveWinId(self: KSelector) usize {
+    pub fn effectiveWinId(self: KSelector) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -1236,9 +1528,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn Style(self: KSelector) QStyle {
+    pub fn style(self: KSelector) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -1248,12 +1544,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: KSelector, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: KSelector, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -1263,9 +1563,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn IsTopLevel(self: KSelector) bool {
+    pub fn isTopLevel(self: KSelector) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -1275,9 +1579,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn IsWindow(self: KSelector) bool {
+    pub fn isWindow(self: KSelector) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -1287,9 +1595,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn IsModal(self: KSelector) bool {
+    pub fn isModal(self: KSelector) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -1303,9 +1615,13 @@ pub const KSelector = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: KSelector) i32 {
+    pub fn windowModality(self: KSelector) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -1315,11 +1631,15 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: KSelector, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: KSelector, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1329,9 +1649,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn IsEnabled(self: KSelector) bool {
+    pub fn isEnabled(self: KSelector) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -1343,10 +1667,14 @@ pub const KSelector = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: KSelector, param1: anytype) bool {
+    pub fn isEnabledTo(self: KSelector, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1358,9 +1686,13 @@ pub const KSelector = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: KSelector, enabled: bool) void {
+    pub fn setEnabled(self: KSelector, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -1372,9 +1704,13 @@ pub const KSelector = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: KSelector, disabled: bool) void {
+    pub fn setDisabled(self: KSelector, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -1386,9 +1722,13 @@ pub const KSelector = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: KSelector, windowModified: bool) void {
+    pub fn setWindowModified(self: KSelector, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1398,9 +1738,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn FrameGeometry(self: KSelector) QRect {
+    pub fn frameGeometry(self: KSelector) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -1410,9 +1754,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn Geometry(self: KSelector) QRect {
+    pub fn geometry(self: KSelector) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1422,9 +1770,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn NormalGeometry(self: KSelector) QRect {
+    pub fn normalGeometry(self: KSelector) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -1434,9 +1786,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn X(self: KSelector) i32 {
+    pub fn x(self: KSelector) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -1446,9 +1802,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn Y(self: KSelector) i32 {
+    pub fn y(self: KSelector) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -1458,9 +1818,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn Pos(self: KSelector) QPoint {
+    pub fn pos(self: KSelector) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -1470,9 +1834,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn FrameSize(self: KSelector) QSize {
+    pub fn frameSize(self: KSelector) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -1482,9 +1850,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn Size(self: KSelector) QSize {
+    pub fn size(self: KSelector) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -1494,9 +1866,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn Width(self: KSelector) i32 {
+    pub fn width(self: KSelector) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -1506,9 +1882,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn Height(self: KSelector) i32 {
+    pub fn height(self: KSelector) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -1518,9 +1898,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn Rect(self: KSelector) QRect {
+    pub fn rect(self: KSelector) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -1530,9 +1914,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn ChildrenRect(self: KSelector) QRect {
+    pub fn childrenRect(self: KSelector) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -1542,9 +1930,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn ChildrenRegion(self: KSelector) QRegion {
+    pub fn childrenRegion(self: KSelector) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1554,9 +1946,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn MinimumSize(self: KSelector) QSize {
+    pub fn minimumSize(self: KSelector) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1566,9 +1962,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn MaximumSize(self: KSelector) QSize {
+    pub fn maximumSize(self: KSelector) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1578,9 +1978,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn MinimumWidth(self: KSelector) i32 {
+    pub fn minimumWidth(self: KSelector) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1590,9 +1994,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn MinimumHeight(self: KSelector) i32 {
+    pub fn minimumHeight(self: KSelector) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1602,9 +2010,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn MaximumWidth(self: KSelector) i32 {
+    pub fn maximumWidth(self: KSelector) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1614,9 +2026,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn MaximumHeight(self: KSelector) i32 {
+    pub fn maximumHeight(self: KSelector) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1626,12 +2042,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: KSelector, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: KSelector, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1645,9 +2065,13 @@ pub const KSelector = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: KSelector, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: KSelector, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1657,12 +2081,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: KSelector, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: KSelector, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1676,9 +2104,13 @@ pub const KSelector = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: KSelector, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: KSelector, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1690,9 +2122,13 @@ pub const KSelector = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: KSelector, minw: i32) void {
+    pub fn setMinimumWidth(self: KSelector, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1704,9 +2140,13 @@ pub const KSelector = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: KSelector, minh: i32) void {
+    pub fn setMinimumHeight(self: KSelector, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1718,9 +2158,13 @@ pub const KSelector = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: KSelector, maxw: i32) void {
+    pub fn setMaximumWidth(self: KSelector, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1732,9 +2176,13 @@ pub const KSelector = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: KSelector, maxh: i32) void {
+    pub fn setMaximumHeight(self: KSelector, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1744,9 +2192,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn SizeIncrement(self: KSelector) QSize {
+    pub fn sizeIncrement(self: KSelector) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1756,12 +2208,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: KSelector, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: KSelector, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -1775,9 +2231,13 @@ pub const KSelector = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: KSelector, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: KSelector, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -1787,9 +2247,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn BaseSize(self: KSelector) QSize {
+    pub fn baseSize(self: KSelector) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -1799,12 +2263,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: KSelector, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: KSelector, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -1818,9 +2286,13 @@ pub const KSelector = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: KSelector, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: KSelector, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -1832,10 +2304,14 @@ pub const KSelector = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: KSelector, fixedSize: anytype) void {
+    pub fn setFixedSize(self: KSelector, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -1849,9 +2325,13 @@ pub const KSelector = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: KSelector, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: KSelector, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -1863,9 +2343,13 @@ pub const KSelector = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: KSelector, w: i32) void {
+    pub fn setFixedWidth(self: KSelector, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -1877,9 +2361,13 @@ pub const KSelector = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: KSelector, h: i32) void {
+    pub fn setFixedHeight(self: KSelector, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -1891,11 +2379,15 @@ pub const KSelector = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: KSelector, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: KSelector, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -1906,11 +2398,15 @@ pub const KSelector = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: KSelector, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: KSelector, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1921,11 +2417,15 @@ pub const KSelector = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: KSelector, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: KSelector, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1936,11 +2436,15 @@ pub const KSelector = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: KSelector, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: KSelector, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1951,11 +2455,15 @@ pub const KSelector = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: KSelector, param1: anytype) QPointF {
+    pub fn mapToParent(self: KSelector, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1966,10 +2474,14 @@ pub const KSelector = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: KSelector, param1: anytype) QPoint {
+    pub fn mapToParent2(self: KSelector, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -1981,10 +2493,14 @@ pub const KSelector = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: KSelector, param1: anytype) QPointF {
+    pub fn mapFromParent(self: KSelector, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -1996,10 +2512,14 @@ pub const KSelector = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: KSelector, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: KSelector, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -2013,12 +2533,16 @@ pub const KSelector = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: KSelector, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: KSelector, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -2031,11 +2555,15 @@ pub const KSelector = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: KSelector, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: KSelector, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -2049,11 +2577,15 @@ pub const KSelector = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: KSelector, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: KSelector, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -2067,11 +2599,15 @@ pub const KSelector = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: KSelector, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: KSelector, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -2081,9 +2617,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn Window(self: KSelector) QWidget {
+    pub fn window(self: KSelector) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -2093,9 +2633,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn NativeParentWidget(self: KSelector) QWidget {
+    pub fn nativeParentWidget(self: KSelector) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -2105,9 +2649,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn TopLevelWidget(self: KSelector) QWidget {
+    pub fn topLevelWidget(self: KSelector) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -2117,9 +2665,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn Palette(self: KSelector) QPalette {
+    pub fn palette(self: KSelector) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -2129,12 +2681,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: KSelector, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: KSelector, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2144,11 +2700,15 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: KSelector, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: KSelector, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2162,9 +2722,13 @@ pub const KSelector = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: KSelector) i32 {
+    pub fn backgroundRole(self: KSelector) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2174,11 +2738,15 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: KSelector, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: KSelector, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2192,9 +2760,13 @@ pub const KSelector = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: KSelector) i32 {
+    pub fn foregroundRole(self: KSelector) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -2204,9 +2776,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn Font(self: KSelector) QFont {
+    pub fn font(self: KSelector) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -2216,12 +2792,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: KSelector, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: KSelector, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -2231,9 +2811,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn FontMetrics(self: KSelector) QFontMetrics {
+    pub fn fontMetrics(self: KSelector) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -2243,9 +2827,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn FontInfo(self: KSelector) QFontInfo {
+    pub fn fontInfo(self: KSelector) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -2255,9 +2843,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn Cursor(self: KSelector) QCursor {
+    pub fn cursor(self: KSelector) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -2267,12 +2859,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: KSelector, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: KSelector, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -2282,9 +2878,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn UnsetCursor(self: KSelector) void {
+    pub fn unsetCursor(self: KSelector) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -2296,9 +2896,13 @@ pub const KSelector = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: KSelector, enable: bool) void {
+    pub fn setMouseTracking(self: KSelector, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -2308,9 +2912,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn HasMouseTracking(self: KSelector) bool {
+    pub fn hasMouseTracking(self: KSelector) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -2320,9 +2928,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn UnderMouse(self: KSelector) bool {
+    pub fn underMouse(self: KSelector) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2334,9 +2946,13 @@ pub const KSelector = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: KSelector, enable: bool) void {
+    pub fn setTabletTracking(self: KSelector, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2346,24 +2962,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn HasTabletTracking(self: KSelector) bool {
+    pub fn hasTabletTracking(self: KSelector) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KSelector `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: KSelector, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -2373,12 +2978,35 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: KSelector, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: KSelector, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KSelector `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: KSelector, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -2388,9 +3016,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn Mask(self: KSelector) QRegion {
+    pub fn mask(self: KSelector) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -2400,9 +3032,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn ClearMask(self: KSelector) void {
+    pub fn clearMask(self: KSelector) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -2414,10 +3050,14 @@ pub const KSelector = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: KSelector, target: anytype) void {
+    pub fn render(self: KSelector, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -2429,10 +3069,14 @@ pub const KSelector = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: KSelector, painter: anytype) void {
+    pub fn render2(self: KSelector, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -2442,9 +3086,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn Grab(self: KSelector) QPixmap {
+    pub fn grab(self: KSelector) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2454,9 +3102,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn GraphicsEffect(self: KSelector) QGraphicsEffect {
+    pub fn graphicsEffect(self: KSelector) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2468,10 +3120,14 @@ pub const KSelector = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: KSelector, effect: anytype) void {
+    pub fn setGraphicsEffect(self: KSelector, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2483,9 +3139,13 @@ pub const KSelector = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: KSelector, typeVal: i32) void {
+    pub fn grabGesture(self: KSelector, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2497,9 +3157,13 @@ pub const KSelector = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: KSelector, typeVal: i32) void {
+    pub fn ungrabGesture(self: KSelector, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2509,15 +3173,19 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: KSelector, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: KSelector, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2527,15 +3195,19 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: KSelector, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: KSelector, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2547,13 +3219,17 @@ pub const KSelector = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: KSelector, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: KSelector, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSelector.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSelector.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2565,13 +3241,17 @@ pub const KSelector = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: KSelector, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: KSelector, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSelector.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSelector.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2583,10 +3263,14 @@ pub const KSelector = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: KSelector, icon: anytype) void {
+    pub fn setWindowIcon(self: KSelector, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2596,9 +3280,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn WindowIcon(self: KSelector) QIcon {
+    pub fn windowIcon(self: KSelector) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2608,15 +3296,19 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: KSelector, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: KSelector, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2628,13 +3320,17 @@ pub const KSelector = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: KSelector, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: KSelector, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSelector.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSelector.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -2644,15 +3340,19 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: KSelector, windowRole: []const u8) void {
+    pub fn setWindowRole(self: KSelector, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -2664,13 +3364,17 @@ pub const KSelector = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: KSelector, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: KSelector, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSelector.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSelector.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2682,13 +3386,17 @@ pub const KSelector = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: KSelector, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: KSelector, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2700,13 +3408,17 @@ pub const KSelector = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: KSelector, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: KSelector, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSelector.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSelector.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2718,9 +3430,13 @@ pub const KSelector = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: KSelector, level: f64) void {
+    pub fn setWindowOpacity(self: KSelector, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2730,9 +3446,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn WindowOpacity(self: KSelector) f64 {
+    pub fn windowOpacity(self: KSelector) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -2742,9 +3462,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn IsWindowModified(self: KSelector) bool {
+    pub fn isWindowModified(self: KSelector) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -2754,15 +3478,19 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: KSelector, toolTip: []const u8) void {
+    pub fn setToolTip(self: KSelector, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -2774,13 +3502,17 @@ pub const KSelector = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: KSelector, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: KSelector, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSelector.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSelector.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2792,9 +3524,13 @@ pub const KSelector = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: KSelector, msec: i32) void {
+    pub fn setToolTipDuration(self: KSelector, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2804,9 +3540,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn ToolTipDuration(self: KSelector) i32 {
+    pub fn toolTipDuration(self: KSelector) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -2816,15 +3556,19 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: KSelector, statusTip: []const u8) void {
+    pub fn setStatusTip(self: KSelector, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -2836,13 +3580,17 @@ pub const KSelector = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: KSelector, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: KSelector, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSelector.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSelector.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2852,15 +3600,19 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: KSelector, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: KSelector, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2872,13 +3624,17 @@ pub const KSelector = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: KSelector, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: KSelector, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSelector.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSelector.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2890,13 +3646,17 @@ pub const KSelector = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: KSelector, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: KSelector, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSelector.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSelector.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2908,13 +3668,17 @@ pub const KSelector = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: KSelector, name: []const u8) void {
+    pub fn setAccessibleName(self: KSelector, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2926,13 +3690,17 @@ pub const KSelector = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: KSelector, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: KSelector, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSelector.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSelector.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2944,13 +3712,17 @@ pub const KSelector = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: KSelector, description: []const u8) void {
+    pub fn setAccessibleDescription(self: KSelector, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2962,9 +3734,13 @@ pub const KSelector = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: KSelector, direction: i32) void {
+    pub fn setLayoutDirection(self: KSelector, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2978,9 +3754,13 @@ pub const KSelector = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: KSelector) i32 {
+    pub fn layoutDirection(self: KSelector) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2990,9 +3770,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn UnsetLayoutDirection(self: KSelector) void {
+    pub fn unsetLayoutDirection(self: KSelector) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -3002,12 +3786,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: KSelector, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: KSelector, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -3017,9 +3805,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn Locale(self: KSelector) QLocale {
+    pub fn locale(self: KSelector) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -3029,9 +3821,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn UnsetLocale(self: KSelector) void {
+    pub fn unsetLocale(self: KSelector) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -3041,9 +3837,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn IsRightToLeft(self: KSelector) bool {
+    pub fn isRightToLeft(self: KSelector) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -3053,9 +3853,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn IsLeftToRight(self: KSelector) bool {
+    pub fn isLeftToRight(self: KSelector) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -3065,9 +3869,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn SetFocus(self: KSelector) void {
+    pub fn setFocus(self: KSelector) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -3077,9 +3885,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn IsActiveWindow(self: KSelector) bool {
+    pub fn isActiveWindow(self: KSelector) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -3089,9 +3901,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn ActivateWindow(self: KSelector) void {
+    pub fn activateWindow(self: KSelector) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -3101,9 +3917,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn ClearFocus(self: KSelector) void {
+    pub fn clearFocus(self: KSelector) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -3115,9 +3935,13 @@ pub const KSelector = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: KSelector, reason: i32) void {
+    pub fn setFocus2(self: KSelector, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3131,9 +3955,13 @@ pub const KSelector = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: KSelector) i32 {
+    pub fn focusPolicy(self: KSelector) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3145,9 +3973,13 @@ pub const KSelector = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: KSelector, policy: i32) void {
+    pub fn setFocusPolicy(self: KSelector, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -3157,9 +3989,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn HasFocus(self: KSelector) bool {
+    pub fn hasFocus(self: KSelector) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -3171,11 +4007,15 @@ pub const KSelector = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -3185,12 +4025,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: KSelector, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: KSelector, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -3200,9 +4044,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn FocusProxy(self: KSelector) QWidget {
+    pub fn focusProxy(self: KSelector) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3216,9 +4064,13 @@ pub const KSelector = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: KSelector) i32 {
+    pub fn contextMenuPolicy(self: KSelector) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3230,9 +4082,13 @@ pub const KSelector = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: KSelector, policy: i32) void {
+    pub fn setContextMenuPolicy(self: KSelector, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -3242,9 +4098,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn GrabMouse(self: KSelector) void {
+    pub fn grabMouse(self: KSelector) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -3256,10 +4116,14 @@ pub const KSelector = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: KSelector, param1: anytype) void {
+    pub fn grabMouse2(self: KSelector, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -3269,9 +4133,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn ReleaseMouse(self: KSelector) void {
+    pub fn releaseMouse(self: KSelector) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -3281,9 +4149,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn GrabKeyboard(self: KSelector) void {
+    pub fn grabKeyboard(self: KSelector) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -3293,9 +4165,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn ReleaseKeyboard(self: KSelector) void {
+    pub fn releaseKeyboard(self: KSelector) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3307,10 +4183,14 @@ pub const KSelector = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: KSelector, key: anytype) i32 {
+    pub fn grabShortcut(self: KSelector, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3322,9 +4202,13 @@ pub const KSelector = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: KSelector, id: i32) void {
+    pub fn releaseShortcut(self: KSelector, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3336,9 +4220,13 @@ pub const KSelector = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: KSelector, id: i32) void {
+    pub fn setShortcutEnabled(self: KSelector, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -3350,25 +4238,37 @@ pub const KSelector = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: KSelector, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: KSelector, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3378,9 +4278,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn UpdatesEnabled(self: KSelector) bool {
+    pub fn updatesEnabled(self: KSelector) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3392,9 +4296,13 @@ pub const KSelector = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: KSelector, enable: bool) void {
+    pub fn setUpdatesEnabled(self: KSelector, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -3404,9 +4312,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn GraphicsProxyWidget(self: KSelector) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: KSelector) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -3416,9 +4328,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn Update(self: KSelector) void {
+    pub fn update(self: KSelector) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -3428,9 +4344,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn Repaint(self: KSelector) void {
+    pub fn repaint(self: KSelector) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -3440,17 +4360,21 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: KSelector, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: KSelector, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -3462,11 +4386,15 @@ pub const KSelector = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: KSelector, param1: anytype) void {
+    pub fn update3(self: KSelector, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -3477,10 +4405,14 @@ pub const KSelector = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: KSelector, param1: anytype) void {
+    pub fn update4(self: KSelector, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -3490,17 +4422,21 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: KSelector, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: KSelector, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -3512,10 +4448,14 @@ pub const KSelector = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: KSelector, param1: anytype) void {
+    pub fn repaint3(self: KSelector, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -3527,10 +4467,14 @@ pub const KSelector = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: KSelector, param1: anytype) void {
+    pub fn repaint4(self: KSelector, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -3542,9 +4486,13 @@ pub const KSelector = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: KSelector, hidden: bool) void {
+    pub fn setHidden(self: KSelector, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -3554,9 +4502,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn Show(self: KSelector) void {
+    pub fn show(self: KSelector) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -3566,9 +4518,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn Hide(self: KSelector) void {
+    pub fn hide(self: KSelector) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3578,9 +4534,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn ShowMinimized(self: KSelector) void {
+    pub fn showMinimized(self: KSelector) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3590,9 +4550,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn ShowMaximized(self: KSelector) void {
+    pub fn showMaximized(self: KSelector) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3602,9 +4566,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn ShowFullScreen(self: KSelector) void {
+    pub fn showFullScreen(self: KSelector) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -3614,9 +4582,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn ShowNormal(self: KSelector) void {
+    pub fn showNormal(self: KSelector) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -3626,9 +4598,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn Close(self: KSelector) bool {
+    pub fn close(self: KSelector) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -3638,9 +4614,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn Raise(self: KSelector) void {
+    pub fn raise(self: KSelector) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -3650,9 +4630,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn Lower(self: KSelector) void {
+    pub fn lower(self: KSelector) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -3664,10 +4648,14 @@ pub const KSelector = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: KSelector, param1: anytype) void {
+    pub fn stackUnder(self: KSelector, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -3677,13 +4665,17 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: KSelector, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: KSelector, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -3695,10 +4687,14 @@ pub const KSelector = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: KSelector, param1: anytype) void {
+    pub fn move2(self: KSelector, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -3712,9 +4708,13 @@ pub const KSelector = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: KSelector, w: i32, h: i32) void {
+    pub fn resize(self: KSelector, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -3726,10 +4726,14 @@ pub const KSelector = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: KSelector, param1: anytype) void {
+    pub fn resize2(self: KSelector, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3739,17 +4743,21 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: KSelector, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: KSelector, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -3759,12 +4767,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: KSelector, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: KSelector, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3776,13 +4788,17 @@ pub const KSelector = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: KSelector, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: KSelector, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KSelector.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KSelector.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3792,15 +4808,19 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: KSelector, geometry: []u8) bool {
+    pub fn restoreGeometry(self: KSelector, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -3810,9 +4830,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn AdjustSize(self: KSelector) void {
+    pub fn adjustSize(self: KSelector) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -3822,9 +4846,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn IsVisible(self: KSelector) bool {
+    pub fn isVisible(self: KSelector) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -3836,10 +4864,14 @@ pub const KSelector = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: KSelector, param1: anytype) bool {
+    pub fn isVisibleTo(self: KSelector, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -3849,9 +4881,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn IsHidden(self: KSelector) bool {
+    pub fn isHidden(self: KSelector) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3861,9 +4897,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn IsMinimized(self: KSelector) bool {
+    pub fn isMinimized(self: KSelector) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3873,9 +4913,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn IsMaximized(self: KSelector) bool {
+    pub fn isMaximized(self: KSelector) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3885,9 +4929,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn IsFullScreen(self: KSelector) bool {
+    pub fn isFullScreen(self: KSelector) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -3901,9 +4949,13 @@ pub const KSelector = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: KSelector) i32 {
+    pub fn windowState(self: KSelector) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3915,9 +4967,13 @@ pub const KSelector = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: KSelector, state: i32) void {
+    pub fn setWindowState(self: KSelector, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3929,9 +4985,13 @@ pub const KSelector = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: KSelector, state: i32) void {
+    pub fn overrideWindowState(self: KSelector, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3941,9 +5001,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn SizePolicy(self: KSelector) QSizePolicy {
+    pub fn sizePolicy(self: KSelector) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3953,12 +5017,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: KSelector, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: KSelector, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -3972,9 +5040,13 @@ pub const KSelector = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: KSelector, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: KSelector, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -3984,9 +5056,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn VisibleRegion(self: KSelector) QRegion {
+    pub fn visibleRegion(self: KSelector) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -4004,9 +5080,13 @@ pub const KSelector = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: KSelector, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: KSelector, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -4018,10 +5098,14 @@ pub const KSelector = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: KSelector, margins: anytype) void {
+    pub fn setContentsMargins2(self: KSelector, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -4031,9 +5115,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn ContentsMargins(self: KSelector) QMargins {
+    pub fn contentsMargins(self: KSelector) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -4043,9 +5131,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn Layout(self: KSelector) QLayout {
+    pub fn layout(self: KSelector) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -4055,12 +5147,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: KSelector, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: KSelector, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4070,24 +5166,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn UpdateGeometry(self: KSelector) void {
+    pub fn updateGeometry(self: KSelector) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KSelector `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: KSelector, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -4097,14 +5182,37 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: KSelector, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KSelector `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: KSelector, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: KSelector, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -4118,9 +5226,13 @@ pub const KSelector = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: KSelector, dx: i32, dy: i32) void {
+    pub fn scroll(self: KSelector, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -4136,10 +5248,14 @@ pub const KSelector = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: KSelector, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: KSelector, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -4149,9 +5265,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn FocusWidget(self: KSelector) QWidget {
+    pub fn focusWidget(self: KSelector) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -4161,9 +5281,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn NextInFocusChain(self: KSelector) QWidget {
+    pub fn nextInFocusChain(self: KSelector) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -4173,9 +5297,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn PreviousInFocusChain(self: KSelector) QWidget {
+    pub fn previousInFocusChain(self: KSelector) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -4185,9 +5313,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn AcceptDrops(self: KSelector) bool {
+    pub fn acceptDrops(self: KSelector) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -4199,9 +5331,13 @@ pub const KSelector = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: KSelector, on: bool) void {
+    pub fn setAcceptDrops(self: KSelector, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -4213,10 +5349,14 @@ pub const KSelector = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: KSelector, action: anytype) void {
+    pub fn addAction(self: KSelector, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -4226,15 +5366,19 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: KSelector, actions: []QAction) void {
+    pub fn addActions(self: KSelector, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -4246,16 +5390,20 @@ pub const KSelector = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: KSelector, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: KSelector, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -4269,11 +5417,15 @@ pub const KSelector = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: KSelector, before: anytype, action: anytype) void {
+    pub fn insertAction(self: KSelector, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -4285,10 +5437,14 @@ pub const KSelector = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: KSelector, action: anytype) void {
+    pub fn removeAction(self: KSelector, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -4300,15 +5456,19 @@ pub const KSelector = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: KSelector, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: KSelector, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KSelector.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KSelector.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -4320,13 +5480,17 @@ pub const KSelector = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: KSelector, text: []const u8) QAction {
+    pub fn addAction2(self: KSelector, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -4340,7 +5504,7 @@ pub const KSelector = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: KSelector, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: KSelector, icon: anytype, text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -4349,6 +5513,10 @@ pub const KSelector = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -4361,7 +5529,7 @@ pub const KSelector = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: KSelector, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: KSelector, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -4369,6 +5537,10 @@ pub const KSelector = extern struct {
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
 
     /// Inherited from QWidget
     ///
@@ -4384,7 +5556,7 @@ pub const KSelector = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: KSelector, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: KSelector, icon: anytype, text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -4394,6 +5566,10 @@ pub const KSelector = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
@@ -4402,9 +5578,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn ParentWidget(self: KSelector) QWidget {
+    pub fn parentWidget(self: KSelector) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4416,9 +5596,13 @@ pub const KSelector = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: KSelector, typeVal: i32) void {
+    pub fn setWindowFlags(self: KSelector, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4432,9 +5616,13 @@ pub const KSelector = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: KSelector) i32 {
+    pub fn windowFlags(self: KSelector) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -4446,9 +5634,13 @@ pub const KSelector = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: KSelector, param1: i32) void {
+    pub fn setWindowFlag(self: KSelector, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4460,9 +5652,13 @@ pub const KSelector = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: KSelector, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: KSelector, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -4476,9 +5672,13 @@ pub const KSelector = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: KSelector) i32 {
+    pub fn windowType(self: KSelector) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -4488,9 +5688,13 @@ pub const KSelector = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -4500,13 +5704,17 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: KSelector, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: KSelector, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -4518,10 +5726,14 @@ pub const KSelector = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: KSelector, p: anytype) QWidget {
+    pub fn childAt2(self: KSelector, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -4533,10 +5745,14 @@ pub const KSelector = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: KSelector, p: anytype) QWidget {
+    pub fn childAt3(self: KSelector, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4548,9 +5764,13 @@ pub const KSelector = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: KSelector, param1: i32) void {
+    pub fn setAttribute(self: KSelector, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4562,9 +5782,13 @@ pub const KSelector = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: KSelector, param1: i32) bool {
+    pub fn testAttribute(self: KSelector, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -4574,9 +5798,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn EnsurePolished(self: KSelector) void {
+    pub fn ensurePolished(self: KSelector) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -4588,10 +5816,14 @@ pub const KSelector = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: KSelector, child: anytype) bool {
+    pub fn isAncestorOf(self: KSelector, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4601,9 +5833,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn AutoFillBackground(self: KSelector) bool {
+    pub fn autoFillBackground(self: KSelector) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4615,9 +5851,13 @@ pub const KSelector = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: KSelector, enabled: bool) void {
+    pub fn setAutoFillBackground(self: KSelector, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -4627,9 +5867,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn BackingStore(self: KSelector) QBackingStore {
+    pub fn backingStore(self: KSelector) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -4639,9 +5883,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn WindowHandle(self: KSelector) QWindow {
+    pub fn windowHandle(self: KSelector) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -4651,9 +5899,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn Screen(self: KSelector) QScreen {
+    pub fn screen(self: KSelector) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -4663,12 +5915,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: KSelector, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: KSelector, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -4676,12 +5932,16 @@ pub const KSelector = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4693,13 +5953,17 @@ pub const KSelector = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: KSelector, title: []const u8) void {
+    pub fn windowTitleChanged(self: KSelector, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4711,9 +5975,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: KSelector, callback: *const fn (KSelector, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: KSelector, callback: *const fn (KSelector, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4725,10 +5993,14 @@ pub const KSelector = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: KSelector, icon: anytype) void {
+    pub fn windowIconChanged(self: KSelector, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4740,9 +6012,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: KSelector, callback: *const fn (KSelector, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: KSelector, callback: *const fn (KSelector, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4754,13 +6030,17 @@ pub const KSelector = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: KSelector, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: KSelector, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4772,9 +6052,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: KSelector, callback: *const fn (KSelector, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: KSelector, callback: *const fn (KSelector, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4784,12 +6068,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: KSelector, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: KSelector, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4801,9 +6089,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: KSelector, callback: *const fn (KSelector, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: KSelector, callback: *const fn (KSelector, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4817,9 +6109,13 @@ pub const KSelector = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: KSelector) i32 {
+    pub fn inputMethodHints(self: KSelector) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4831,9 +6127,13 @@ pub const KSelector = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: KSelector, hints: i32) void {
+    pub fn setInputMethodHints(self: KSelector, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -4847,11 +6147,15 @@ pub const KSelector = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: KSelector, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: KSelector, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -4867,13 +6171,17 @@ pub const KSelector = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: KSelector, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: KSelector, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -4890,12 +6198,16 @@ pub const KSelector = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: KSelector, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: KSelector, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -4909,11 +6221,15 @@ pub const KSelector = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: KSelector, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: KSelector, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -4929,12 +6245,16 @@ pub const KSelector = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: KSelector, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: KSelector, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -4952,12 +6272,16 @@ pub const KSelector = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: KSelector, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: KSelector, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -4969,10 +6293,14 @@ pub const KSelector = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: KSelector, rectangle: anytype) QPixmap {
+    pub fn grab1(self: KSelector, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -4986,9 +6314,13 @@ pub const KSelector = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: KSelector, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: KSelector, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -5002,10 +6334,14 @@ pub const KSelector = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: KSelector, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: KSelector, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -5019,9 +6355,13 @@ pub const KSelector = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: KSelector, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: KSelector, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -5035,9 +6375,13 @@ pub const KSelector = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: KSelector, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: KSelector, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -5051,9 +6395,13 @@ pub const KSelector = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: KSelector, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: KSelector, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -5067,25 +6415,13 @@ pub const KSelector = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: KSelector, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: KSelector, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -5093,17 +6429,41 @@ pub const KSelector = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -5115,13 +6475,17 @@ pub const KSelector = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KSelector, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KSelector, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSelector.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSelector.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -5133,13 +6497,17 @@ pub const KSelector = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KSelector, name: []const u8) void {
+    pub fn setObjectName(self: KSelector, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -5149,9 +6517,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn IsWidgetType(self: KSelector) bool {
+    pub fn isWidgetType(self: KSelector) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -5161,9 +6533,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn IsWindowType(self: KSelector) bool {
+    pub fn isWindowType(self: KSelector) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -5173,9 +6549,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn IsQuickItemType(self: KSelector) bool {
+    pub fn isQuickItemType(self: KSelector) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -5185,9 +6565,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn SignalsBlocked(self: KSelector) bool {
+    pub fn signalsBlocked(self: KSelector) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -5199,9 +6583,13 @@ pub const KSelector = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KSelector, b: bool) bool {
+    pub fn blockSignals(self: KSelector, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -5211,9 +6599,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn Thread(self: KSelector) QThread {
+    pub fn thread(self: KSelector) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -5223,12 +6615,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KSelector, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KSelector, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -5240,9 +6636,13 @@ pub const KSelector = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KSelector, interval: i32) i32 {
+    pub fn startTimer(self: KSelector, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -5254,9 +6654,13 @@ pub const KSelector = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KSelector, time: i64) i32 {
+    pub fn startTimer2(self: KSelector, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -5268,9 +6672,13 @@ pub const KSelector = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KSelector, id: i32) void {
+    pub fn killTimer(self: KSelector, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -5282,9 +6690,13 @@ pub const KSelector = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KSelector, id: i32) void {
+    pub fn killTimer2(self: KSelector, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -5296,15 +6708,19 @@ pub const KSelector = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KSelector, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KSelector, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KSelector.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KSelector.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5316,10 +6732,14 @@ pub const KSelector = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KSelector, filterObj: anytype) void {
+    pub fn installEventFilter(self: KSelector, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5331,10 +6751,14 @@ pub const KSelector = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KSelector, obj: anytype) void {
+    pub fn removeEventFilter(self: KSelector, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -5342,7 +6766,7 @@ pub const KSelector = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5350,13 +6774,17 @@ pub const KSelector = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -5364,7 +6792,7 @@ pub const KSelector = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5372,13 +6800,17 @@ pub const KSelector = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -5388,18 +6820,22 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KSelector, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KSelector, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -5407,7 +6843,7 @@ pub const KSelector = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5415,13 +6851,17 @@ pub const KSelector = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -5429,7 +6869,7 @@ pub const KSelector = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5437,13 +6877,17 @@ pub const KSelector = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -5453,9 +6897,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn Disconnect3(self: KSelector) bool {
+    pub fn disconnect3(self: KSelector) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -5467,10 +6915,14 @@ pub const KSelector = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KSelector, receiver: anytype) bool {
+    pub fn disconnect4(self: KSelector, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -5480,10 +6932,14 @@ pub const KSelector = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -5493,9 +6949,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn DumpObjectTree(self: KSelector) void {
+    pub fn dumpObjectTree(self: KSelector) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -5505,9 +6965,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn DumpObjectInfo(self: KSelector) void {
+    pub fn dumpObjectInfo(self: KSelector) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -5519,13 +6983,17 @@ pub const KSelector = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QVariant `
+    /// ` _value: QVariant `
     ///
-    pub fn SetProperty(self: KSelector, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KSelector, name: [:0]const u8, _value: anytype) bool {
         const name_Cstring = name.ptr;
-        comptime _ = @TypeOf(value)._is_QVariant;
-        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
+        comptime _ = @TypeOf(_value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(_value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -5537,10 +7005,14 @@ pub const KSelector = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KSelector, name: [:0]const u8) QVariant {
+    pub fn property(self: KSelector, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -5552,7 +7024,7 @@ pub const KSelector = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KSelector, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KSelector, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -5560,27 +7032,19 @@ pub const KSelector = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KSelector.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KSelector.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KSelector.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KSelector.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KSelector `
-    ///
-    pub fn BindingStorage(self: KSelector) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -5590,9 +7054,29 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn BindingStorage2(self: KSelector) QBindingStorage {
+    pub fn bindingStorage(self: KSelector) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KSelector `
+    ///
+    pub fn bindingStorage2(self: KSelector) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -5602,9 +7086,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn Destroyed(self: KSelector) void {
+    pub fn destroyed(self: KSelector) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -5616,9 +7104,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KSelector, callback: *const fn (KSelector) callconv(.c) void) void {
+    pub fn onDestroyed(self: KSelector, callback: *const fn (KSelector) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -5628,9 +7120,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn Parent(self: KSelector) QObject {
+    pub fn parent(self: KSelector) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -5642,10 +7138,14 @@ pub const KSelector = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KSelector, classname: [:0]const u8) bool {
+    pub fn inherits(self: KSelector, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -5655,9 +7155,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn DeleteLater(self: KSelector) void {
+    pub fn deleteLater(self: KSelector) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -5671,9 +7175,13 @@ pub const KSelector = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KSelector, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KSelector, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -5687,9 +7195,13 @@ pub const KSelector = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KSelector, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KSelector, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -5697,7 +7209,7 @@ pub const KSelector = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5707,13 +7219,17 @@ pub const KSelector = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -5721,7 +7237,7 @@ pub const KSelector = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5731,13 +7247,17 @@ pub const KSelector = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -5747,7 +7267,7 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5755,12 +7275,16 @@ pub const KSelector = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KSelector, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KSelector, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -5772,10 +7296,14 @@ pub const KSelector = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KSelector, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KSelector, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -5789,11 +7317,15 @@ pub const KSelector = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KSelector, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KSelector, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -5809,13 +7341,17 @@ pub const KSelector = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KSelector, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KSelector, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -5828,11 +7364,15 @@ pub const KSelector = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KSelector, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KSelector, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -5844,10 +7384,14 @@ pub const KSelector = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KSelector, param1: anytype) void {
+    pub fn destroyed1(self: KSelector, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -5859,9 +7403,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KSelector, callback: *const fn (KSelector, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KSelector, callback: *const fn (KSelector, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -5871,9 +7419,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn PaintingActive(self: KSelector) bool {
+    pub fn paintingActive(self: KSelector) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5883,9 +7435,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn WidthMM(self: KSelector) i32 {
+    pub fn widthMM(self: KSelector) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5895,9 +7451,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn HeightMM(self: KSelector) i32 {
+    pub fn heightMM(self: KSelector) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5907,9 +7467,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn LogicalDpiX(self: KSelector) i32 {
+    pub fn logicalDpiX(self: KSelector) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5919,9 +7483,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn LogicalDpiY(self: KSelector) i32 {
+    pub fn logicalDpiY(self: KSelector) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5931,9 +7499,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn PhysicalDpiX(self: KSelector) i32 {
+    pub fn physicalDpiX(self: KSelector) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5943,9 +7515,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn PhysicalDpiY(self: KSelector) i32 {
+    pub fn physicalDpiY(self: KSelector) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -5955,9 +7531,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn DevicePixelRatio(self: KSelector) f64 {
+    pub fn devicePixelRatio(self: KSelector) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5967,9 +7547,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn DevicePixelRatioF(self: KSelector) f64 {
+    pub fn devicePixelRatioF(self: KSelector) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -5979,9 +7563,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn ColorCount(self: KSelector) i32 {
+    pub fn colorCount(self: KSelector) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -5991,17 +7579,25 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn Depth(self: KSelector) i32 {
+    pub fn depth(self: KSelector) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -6009,13 +7605,17 @@ pub const KSelector = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    /// ` value: f64 `
+    /// ` _value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, _value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(_value));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QAbstractSlider
     ///
@@ -6029,14 +7629,14 @@ pub const KSelector = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn Event(self: KSelector, e: anytype) bool {
+    pub fn event(self: KSelector, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.KSelector_Event(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QAbstractSlider
     ///
@@ -6050,10 +7650,14 @@ pub const KSelector = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn SuperEvent(self: KSelector, e: anytype) bool {
+    pub fn superEvent(self: KSelector, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.KSelector_SuperEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QAbstractSlider
     ///
@@ -6067,9 +7671,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, e: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KSelector, callback: *const fn (KSelector, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KSelector, callback: *const fn (KSelector, QEvent) callconv(.c) bool) void {
         qtc.KSelector_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sliderChange` instead
+    ///
+    pub const SliderChange = sliderChange;
 
     /// Inherited from QAbstractSlider
     ///
@@ -6083,13 +7691,13 @@ pub const KSelector = extern struct {
     ///
     /// ` change: qabstractslider_enums.SliderChange `
     ///
-    pub fn SliderChange(self: KSelector, change: i32) void {
+    pub fn sliderChange(self: KSelector, change: i32) void {
         qtc.KSelector_SliderChange(@ptrCast(self.ptr), @bitCast(change));
     }
 
-    /// ### DEPRECATED: Use `SuperSliderChange` instead
+    /// ### DEPRECATED: Use `superSliderChange` instead
     ///
-    pub const QBaseSliderChange = SuperSliderChange;
+    pub const SuperSliderChange = superSliderChange;
 
     /// Inherited from QAbstractSlider
     ///
@@ -6103,9 +7711,13 @@ pub const KSelector = extern struct {
     ///
     /// ` change: qabstractslider_enums.SliderChange `
     ///
-    pub fn SuperSliderChange(self: KSelector, change: i32) void {
+    pub fn superSliderChange(self: KSelector, change: i32) void {
         qtc.KSelector_SuperSliderChange(@ptrCast(self.ptr), @bitCast(change));
     }
+
+    /// ### DEPRECATED: Use `onSliderChange` instead
+    ///
+    pub const OnSliderChange = onSliderChange;
 
     /// Inherited from QAbstractSlider
     ///
@@ -6119,9 +7731,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, change: qabstractslider_enums.SliderChange) callconv(.c) void `
     ///
-    pub fn OnSliderChange(self: KSelector, callback: *const fn (KSelector, i32) callconv(.c) void) void {
+    pub fn onSliderChange(self: KSelector, callback: *const fn (KSelector, i32) callconv(.c) void) void {
         qtc.KSelector_OnSliderChange(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
 
     /// Inherited from QAbstractSlider
     ///
@@ -6135,14 +7751,14 @@ pub const KSelector = extern struct {
     ///
     /// ` ev: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: KSelector, ev: anytype) void {
+    pub fn keyPressEvent(self: KSelector, ev: anytype) void {
         comptime _ = @TypeOf(ev)._is_QKeyEvent;
         qtc.KSelector_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QAbstractSlider
     ///
@@ -6156,10 +7772,14 @@ pub const KSelector = extern struct {
     ///
     /// ` ev: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: KSelector, ev: anytype) void {
+    pub fn superKeyPressEvent(self: KSelector, ev: anytype) void {
         comptime _ = @TypeOf(ev)._is_QKeyEvent;
         qtc.KSelector_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// Inherited from QAbstractSlider
     ///
@@ -6173,9 +7793,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, ev: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: KSelector, callback: *const fn (KSelector, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: KSelector, callback: *const fn (KSelector, QKeyEvent) callconv(.c) void) void {
         qtc.KSelector_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QAbstractSlider
     ///
@@ -6189,14 +7813,14 @@ pub const KSelector = extern struct {
     ///
     /// ` param1: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KSelector, param1: anytype) void {
+    pub fn timerEvent(self: KSelector, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QTimerEvent;
         qtc.KSelector_TimerEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QAbstractSlider
     ///
@@ -6210,10 +7834,14 @@ pub const KSelector = extern struct {
     ///
     /// ` param1: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KSelector, param1: anytype) void {
+    pub fn superTimerEvent(self: KSelector, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QTimerEvent;
         qtc.KSelector_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QAbstractSlider
     ///
@@ -6227,9 +7855,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, param1: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KSelector, callback: *const fn (KSelector, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KSelector, callback: *const fn (KSelector, QTimerEvent) callconv(.c) void) void {
         qtc.KSelector_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QAbstractSlider
     ///
@@ -6243,14 +7875,14 @@ pub const KSelector = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn ChangeEvent(self: KSelector, e: anytype) void {
+    pub fn changeEvent(self: KSelector, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QEvent;
         qtc.KSelector_ChangeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QAbstractSlider
     ///
@@ -6264,10 +7896,14 @@ pub const KSelector = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn SuperChangeEvent(self: KSelector, e: anytype) void {
+    pub fn superChangeEvent(self: KSelector, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QEvent;
         qtc.KSelector_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QAbstractSlider
     ///
@@ -6281,9 +7917,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, e: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: KSelector, callback: *const fn (KSelector, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: KSelector, callback: *const fn (KSelector, QEvent) callconv(.c) void) void {
         qtc.KSelector_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -6295,13 +7935,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn DevType(self: KSelector) i32 {
+    pub fn devType(self: KSelector) i32 {
         return qtc.KSelector_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -6313,9 +7953,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn SuperDevType(self: KSelector) i32 {
+    pub fn superDevType(self: KSelector) i32 {
         return qtc.KSelector_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -6329,9 +7973,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: KSelector, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KSelector, callback: *const fn () callconv(.c) i32) void {
         qtc.KSelector_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -6345,13 +7993,13 @@ pub const KSelector = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: KSelector, visible: bool) void {
+    pub fn setVisible(self: KSelector, visible: bool) void {
         qtc.KSelector_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -6365,9 +8013,13 @@ pub const KSelector = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: KSelector, visible: bool) void {
+    pub fn superSetVisible(self: KSelector, visible: bool) void {
         qtc.KSelector_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -6381,10 +8033,14 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: KSelector, callback: *const fn (KSelector, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: KSelector, callback: *const fn (KSelector, bool) callconv(.c) void) void {
         qtc.KSelector_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
@@ -6395,13 +8051,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn SizeHint(self: KSelector) QSize {
+    pub fn sizeHint(self: KSelector) QSize {
         return .{ .ptr = qtc.KSelector_SizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -6413,10 +8069,14 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn SuperSizeHint(self: KSelector) QSize {
+    pub fn superSizeHint(self: KSelector) QSize {
         return .{ .ptr = qtc.KSelector_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
@@ -6431,9 +8091,13 @@ pub const KSelector = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: KSelector, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KSelector, callback: *const fn () callconv(.c) QSize) void {
         qtc.KSelector_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -6445,13 +8109,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn MinimumSizeHint(self: KSelector) QSize {
+    pub fn minimumSizeHint(self: KSelector) QSize {
         return .{ .ptr = qtc.KSelector_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -6463,9 +8127,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn SuperMinimumSizeHint(self: KSelector) QSize {
+    pub fn superMinimumSizeHint(self: KSelector) QSize {
         return .{ .ptr = qtc.KSelector_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -6481,9 +8149,13 @@ pub const KSelector = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: KSelector, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KSelector, callback: *const fn () callconv(.c) QSize) void {
         qtc.KSelector_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6497,13 +8169,13 @@ pub const KSelector = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: KSelector, param1: i32) i32 {
+    pub fn heightForWidth(self: KSelector, param1: i32) i32 {
         return qtc.KSelector_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6517,9 +8189,13 @@ pub const KSelector = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: KSelector, param1: i32) i32 {
+    pub fn superHeightForWidth(self: KSelector, param1: i32) i32 {
         return qtc.KSelector_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6533,9 +8209,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: KSelector, callback: *const fn (KSelector, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: KSelector, callback: *const fn (KSelector, i32) callconv(.c) i32) void {
         qtc.KSelector_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6547,13 +8227,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn HasHeightForWidth(self: KSelector) bool {
+    pub fn hasHeightForWidth(self: KSelector) bool {
         return qtc.KSelector_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6565,9 +8245,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn SuperHasHeightForWidth(self: KSelector) bool {
+    pub fn superHasHeightForWidth(self: KSelector) bool {
         return qtc.KSelector_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6581,9 +8265,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: KSelector, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KSelector, callback: *const fn () callconv(.c) bool) void {
         qtc.KSelector_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6595,13 +8283,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn PaintEngine(self: KSelector) QPaintEngine {
+    pub fn paintEngine(self: KSelector) QPaintEngine {
         return .{ .ptr = qtc.KSelector_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6613,9 +8301,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn SuperPaintEngine(self: KSelector) QPaintEngine {
+    pub fn superPaintEngine(self: KSelector) QPaintEngine {
         return .{ .ptr = qtc.KSelector_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6629,9 +8321,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: KSelector, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KSelector, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.KSelector_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -6643,16 +8339,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: KSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KSelector_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: KSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KSelector_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -6664,12 +8360,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: KSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KSelector_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: KSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KSelector_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -6683,9 +8383,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: KSelector, callback: *const fn (KSelector, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: KSelector, callback: *const fn (KSelector, QMouseEvent) callconv(.c) void) void {
         qtc.KSelector_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6697,16 +8401,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: KSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KSelector_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyReleaseEvent(self: KSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KSelector_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6718,12 +8422,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: KSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KSelector_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyReleaseEvent(self: KSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KSelector_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6737,10 +8445,14 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: KSelector, callback: *const fn (KSelector, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: KSelector, callback: *const fn (KSelector, QKeyEvent) callconv(.c) void) void {
         qtc.KSelector_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
@@ -6751,16 +8463,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: KSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KSelector_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusInEvent(self: KSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KSelector_FocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -6772,12 +8484,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: KSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KSelector_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusInEvent(self: KSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KSelector_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -6791,10 +8507,14 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: KSelector, callback: *const fn (KSelector, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: KSelector, callback: *const fn (KSelector, QFocusEvent) callconv(.c) void) void {
         qtc.KSelector_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
@@ -6805,16 +8525,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: KSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KSelector_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusOutEvent(self: KSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KSelector_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -6826,12 +8546,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: KSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KSelector_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusOutEvent(self: KSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KSelector_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -6845,9 +8569,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: KSelector, callback: *const fn (KSelector, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: KSelector, callback: *const fn (KSelector, QFocusEvent) callconv(.c) void) void {
         qtc.KSelector_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6859,16 +8587,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: KSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KSelector_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: KSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KSelector_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6880,12 +8608,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: KSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KSelector_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: KSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KSelector_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6899,9 +8631,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: KSelector, callback: *const fn (KSelector, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: KSelector, callback: *const fn (KSelector, QEnterEvent) callconv(.c) void) void {
         qtc.KSelector_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6913,16 +8649,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: KSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KSelector_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: KSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KSelector_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6934,12 +8670,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: KSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KSelector_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: KSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KSelector_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6953,9 +8693,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: KSelector, callback: *const fn (KSelector, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: KSelector, callback: *const fn (KSelector, QEvent) callconv(.c) void) void {
         qtc.KSelector_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6967,16 +8711,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: KSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KSelector_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: KSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KSelector_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6988,12 +8732,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: KSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KSelector_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: KSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KSelector_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7007,9 +8755,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: KSelector, callback: *const fn (KSelector, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: KSelector, callback: *const fn (KSelector, QMoveEvent) callconv(.c) void) void {
         qtc.KSelector_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7021,16 +8773,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: KSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.KSelector_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn resizeEvent(self: KSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.KSelector_ResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7042,12 +8794,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: KSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.KSelector_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superResizeEvent(self: KSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.KSelector_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7061,9 +8817,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: KSelector, callback: *const fn (KSelector, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: KSelector, callback: *const fn (KSelector, QResizeEvent) callconv(.c) void) void {
         qtc.KSelector_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7075,16 +8835,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: KSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.KSelector_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: KSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.KSelector_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -7096,12 +8856,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: KSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.KSelector_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: KSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.KSelector_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -7115,9 +8879,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: KSelector, callback: *const fn (KSelector, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: KSelector, callback: *const fn (KSelector, QCloseEvent) callconv(.c) void) void {
         qtc.KSelector_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -7129,16 +8897,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: KSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.KSelector_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn contextMenuEvent(self: KSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.KSelector_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -7150,12 +8918,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: KSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.KSelector_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superContextMenuEvent(self: KSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.KSelector_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -7169,9 +8941,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, event: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: KSelector, callback: *const fn (KSelector, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: KSelector, callback: *const fn (KSelector, QContextMenuEvent) callconv(.c) void) void {
         qtc.KSelector_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7183,16 +8959,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: KSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KSelector_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: KSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KSelector_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7204,12 +8980,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: KSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KSelector_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: KSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KSelector_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7223,9 +9003,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: KSelector, callback: *const fn (KSelector, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: KSelector, callback: *const fn (KSelector, QTabletEvent) callconv(.c) void) void {
         qtc.KSelector_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7237,16 +9021,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: KSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KSelector_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: KSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KSelector_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7258,12 +9042,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: KSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KSelector_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: KSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KSelector_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7277,9 +9065,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: KSelector, callback: *const fn (KSelector, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: KSelector, callback: *const fn (KSelector, QActionEvent) callconv(.c) void) void {
         qtc.KSelector_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7291,16 +9083,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: KSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KSelector_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: KSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KSelector_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7312,12 +9104,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: KSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KSelector_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: KSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KSelector_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7331,9 +9127,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: KSelector, callback: *const fn (KSelector, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: KSelector, callback: *const fn (KSelector, QDragEnterEvent) callconv(.c) void) void {
         qtc.KSelector_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7345,16 +9145,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: KSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KSelector_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: KSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KSelector_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7366,12 +9166,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: KSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KSelector_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: KSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KSelector_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7385,9 +9189,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: KSelector, callback: *const fn (KSelector, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: KSelector, callback: *const fn (KSelector, QDragMoveEvent) callconv(.c) void) void {
         qtc.KSelector_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7399,16 +9207,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: KSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KSelector_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: KSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KSelector_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7420,12 +9228,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: KSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KSelector_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: KSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KSelector_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7439,9 +9251,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: KSelector, callback: *const fn (KSelector, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: KSelector, callback: *const fn (KSelector, QDragLeaveEvent) callconv(.c) void) void {
         qtc.KSelector_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7453,16 +9269,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: KSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KSelector_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: KSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KSelector_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7474,12 +9290,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: KSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KSelector_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: KSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KSelector_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7493,9 +9313,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: KSelector, callback: *const fn (KSelector, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: KSelector, callback: *const fn (KSelector, QDropEvent) callconv(.c) void) void {
         qtc.KSelector_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QWidget
     ///
@@ -7507,16 +9331,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn ShowEvent(self: KSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.KSelector_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn showEvent(self: KSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.KSelector_ShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -7528,12 +9352,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: KSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.KSelector_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superShowEvent(self: KSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.KSelector_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -7547,9 +9375,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: KSelector, callback: *const fn (KSelector, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: KSelector, callback: *const fn (KSelector, QShowEvent) callconv(.c) void) void {
         qtc.KSelector_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7561,16 +9393,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: KSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KSelector_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: KSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KSelector_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7582,12 +9414,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: KSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KSelector_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: KSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KSelector_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7601,9 +9437,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: KSelector, callback: *const fn (KSelector, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: KSelector, callback: *const fn (KSelector, QHideEvent) callconv(.c) void) void {
         qtc.KSelector_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7621,7 +9461,7 @@ pub const KSelector = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: KSelector, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: KSelector, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -7629,9 +9469,9 @@ pub const KSelector = extern struct {
         return qtc.KSelector_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7649,13 +9489,17 @@ pub const KSelector = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: KSelector, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: KSelector, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.KSelector_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7669,9 +9513,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: KSelector, callback: *const fn (KSelector, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: KSelector, callback: *const fn (KSelector, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KSelector_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -7685,13 +9533,13 @@ pub const KSelector = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: KSelector, param1: i32) i32 {
+    pub fn metric(self: KSelector, param1: i32) i32 {
         return qtc.KSelector_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -7705,9 +9553,13 @@ pub const KSelector = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: KSelector, param1: i32) i32 {
+    pub fn superMetric(self: KSelector, param1: i32) i32 {
         return qtc.KSelector_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -7721,9 +9573,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: KSelector, callback: *const fn (KSelector, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: KSelector, callback: *const fn (KSelector, i32) callconv(.c) i32) void {
         qtc.KSelector_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -7737,14 +9593,14 @@ pub const KSelector = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: KSelector, painter: anytype) void {
+    pub fn initPainter(self: KSelector, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KSelector_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7758,10 +9614,14 @@ pub const KSelector = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: KSelector, painter: anytype) void {
+    pub fn superInitPainter(self: KSelector, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KSelector_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7775,9 +9635,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: KSelector, callback: *const fn (KSelector, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: KSelector, callback: *const fn (KSelector, QPainter) callconv(.c) void) void {
         qtc.KSelector_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -7791,14 +9655,14 @@ pub const KSelector = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: KSelector, offset: anytype) QPaintDevice {
+    pub fn redirected(self: KSelector, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KSelector_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7812,10 +9676,14 @@ pub const KSelector = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: KSelector, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: KSelector, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KSelector_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7829,9 +9697,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: KSelector, callback: *const fn (KSelector, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: KSelector, callback: *const fn (KSelector, QPoint) callconv(.c) QPaintDevice) void {
         qtc.KSelector_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7843,13 +9715,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn SharedPainter(self: KSelector) QPainter {
+    pub fn sharedPainter(self: KSelector) QPainter {
         return .{ .ptr = qtc.KSelector_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7861,9 +9733,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn SuperSharedPainter(self: KSelector) QPainter {
+    pub fn superSharedPainter(self: KSelector) QPainter {
         return .{ .ptr = qtc.KSelector_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7877,9 +9753,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: KSelector, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KSelector, callback: *const fn () callconv(.c) QPainter) void {
         qtc.KSelector_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7893,14 +9773,14 @@ pub const KSelector = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: KSelector, param1: anytype) void {
+    pub fn inputMethodEvent(self: KSelector, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KSelector_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7914,10 +9794,14 @@ pub const KSelector = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: KSelector, param1: anytype) void {
+    pub fn superInputMethodEvent(self: KSelector, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KSelector_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7931,9 +9815,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: KSelector, callback: *const fn (KSelector, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: KSelector, callback: *const fn (KSelector, QInputMethodEvent) callconv(.c) void) void {
         qtc.KSelector_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7947,13 +9835,13 @@ pub const KSelector = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: KSelector, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: KSelector, param1: i32) QVariant {
         return .{ .ptr = qtc.KSelector_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7967,9 +9855,13 @@ pub const KSelector = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: KSelector, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: KSelector, param1: i32) QVariant {
         return .{ .ptr = qtc.KSelector_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7985,9 +9877,13 @@ pub const KSelector = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: KSelector, callback: *const fn (KSelector, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: KSelector, callback: *const fn (KSelector, i32) callconv(.c) QVariant) void {
         qtc.KSelector_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8001,13 +9897,13 @@ pub const KSelector = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: KSelector, next: bool) bool {
+    pub fn focusNextPrevChild(self: KSelector, next: bool) bool {
         return qtc.KSelector_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8021,9 +9917,13 @@ pub const KSelector = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: KSelector, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: KSelector, next: bool) bool {
         return qtc.KSelector_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8037,9 +9937,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: KSelector, callback: *const fn (KSelector, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: KSelector, callback: *const fn (KSelector, bool) callconv(.c) bool) void {
         qtc.KSelector_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -8053,17 +9957,17 @@ pub const KSelector = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: KSelector, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: KSelector, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KSelector_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KSelector_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -8077,13 +9981,17 @@ pub const KSelector = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: KSelector, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: KSelector, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KSelector_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KSelector_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -8097,9 +10005,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KSelector, callback: *const fn (KSelector, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KSelector, callback: *const fn (KSelector, QObject, QEvent) callconv(.c) bool) void {
         qtc.KSelector_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -8111,16 +10023,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KSelector_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KSelector_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -8132,12 +10044,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KSelector_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KSelector_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -8151,9 +10067,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KSelector, callback: *const fn (KSelector, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KSelector, callback: *const fn (KSelector, QChildEvent) callconv(.c) void) void {
         qtc.KSelector_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -8165,16 +10085,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KSelector_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KSelector_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8186,12 +10106,16 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KSelector_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KSelector_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8205,9 +10129,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KSelector, callback: *const fn (KSelector, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KSelector, callback: *const fn (KSelector, QEvent) callconv(.c) void) void {
         qtc.KSelector_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -8221,14 +10149,14 @@ pub const KSelector = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KSelector, signal: anytype) void {
+    pub fn connectNotify(self: KSelector, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KSelector_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8242,11 +10170,15 @@ pub const KSelector = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KSelector, signal: anytype) void {
+    pub fn superConnectNotify(self: KSelector, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KSelector_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -8259,9 +10191,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KSelector, callback: *const fn (KSelector, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KSelector, callback: *const fn (KSelector, QMetaMethod) callconv(.c) void) void {
         qtc.KSelector_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8275,14 +10211,14 @@ pub const KSelector = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KSelector, signal: anytype) void {
+    pub fn disconnectNotify(self: KSelector, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KSelector_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8296,10 +10232,14 @@ pub const KSelector = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KSelector, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KSelector, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KSelector_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8313,9 +10253,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KSelector, callback: *const fn (KSelector, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KSelector, callback: *const fn (KSelector, QMetaMethod) callconv(.c) void) void {
         qtc.KSelector_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setRepeatAction` instead
+    ///
+    pub const SetRepeatAction = setRepeatAction;
 
     /// Inherited from QAbstractSlider
     ///
@@ -8329,13 +10273,13 @@ pub const KSelector = extern struct {
     ///
     /// ` action: qabstractslider_enums.SliderAction `
     ///
-    pub fn SetRepeatAction(self: KSelector, action: i32) void {
+    pub fn setRepeatAction(self: KSelector, action: i32) void {
         qtc.KSelector_SetRepeatAction(@ptrCast(self.ptr), @bitCast(action));
     }
 
-    /// ### DEPRECATED: Use `SuperSetRepeatAction` instead
+    /// ### DEPRECATED: Use `superSetRepeatAction` instead
     ///
-    pub const QBaseSetRepeatAction = SuperSetRepeatAction;
+    pub const SuperSetRepeatAction = superSetRepeatAction;
 
     /// Inherited from QAbstractSlider
     ///
@@ -8349,9 +10293,13 @@ pub const KSelector = extern struct {
     ///
     /// ` action: qabstractslider_enums.SliderAction `
     ///
-    pub fn SuperSetRepeatAction(self: KSelector, action: i32) void {
+    pub fn superSetRepeatAction(self: KSelector, action: i32) void {
         qtc.KSelector_SuperSetRepeatAction(@ptrCast(self.ptr), @bitCast(action));
     }
+
+    /// ### DEPRECATED: Use `onSetRepeatAction` instead
+    ///
+    pub const OnSetRepeatAction = onSetRepeatAction;
 
     /// Inherited from QAbstractSlider
     ///
@@ -8365,9 +10313,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, action: qabstractslider_enums.SliderAction) callconv(.c) void `
     ///
-    pub fn OnSetRepeatAction(self: KSelector, callback: *const fn (KSelector, i32) callconv(.c) void) void {
+    pub fn onSetRepeatAction(self: KSelector, callback: *const fn (KSelector, i32) callconv(.c) void) void {
         qtc.KSelector_OnSetRepeatAction(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `repeatAction` instead
+    ///
+    pub const RepeatAction = repeatAction;
 
     /// Inherited from QAbstractSlider
     ///
@@ -8383,13 +10335,13 @@ pub const KSelector = extern struct {
     ///
     /// ` qabstractslider_enums.SliderAction `
     ///
-    pub fn RepeatAction(self: KSelector) i32 {
+    pub fn repeatAction(self: KSelector) i32 {
         return qtc.KSelector_RepeatAction(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperRepeatAction` instead
+    /// ### DEPRECATED: Use `superRepeatAction` instead
     ///
-    pub const QBaseRepeatAction = SuperRepeatAction;
+    pub const SuperRepeatAction = superRepeatAction;
 
     /// Inherited from QAbstractSlider
     ///
@@ -8405,9 +10357,13 @@ pub const KSelector = extern struct {
     ///
     /// ` qabstractslider_enums.SliderAction `
     ///
-    pub fn SuperRepeatAction(self: KSelector) i32 {
+    pub fn superRepeatAction(self: KSelector) i32 {
         return qtc.KSelector_SuperRepeatAction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onRepeatAction` instead
+    ///
+    pub const OnRepeatAction = onRepeatAction;
 
     /// Inherited from QAbstractSlider
     ///
@@ -8421,10 +10377,14 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnRepeatAction(self: KSelector, callback: *const fn () callconv(.c) i32) void {
+    pub fn onRepeatAction(self: KSelector, callback: *const fn () callconv(.c) i32) void {
         qtc.KSelector_OnRepeatAction(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8435,13 +10395,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn UpdateMicroFocus(self: KSelector) void {
+    pub fn updateMicroFocus(self: KSelector) void {
         qtc.KSelector_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -8453,10 +10413,14 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn SuperUpdateMicroFocus(self: KSelector) void {
+    pub fn superUpdateMicroFocus(self: KSelector) void {
         qtc.KSelector_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8469,10 +10433,14 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: KSelector, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: KSelector, callback: *const fn () callconv(.c) void) void {
         qtc.KSelector_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8483,13 +10451,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn Create(self: KSelector) void {
+    pub fn create(self: KSelector) void {
         qtc.KSelector_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -8501,10 +10469,14 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn SuperCreate(self: KSelector) void {
+    pub fn superCreate(self: KSelector) void {
         qtc.KSelector_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8517,9 +10489,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: KSelector, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: KSelector, callback: *const fn () callconv(.c) void) void {
         qtc.KSelector_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -8531,13 +10507,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn Destroy(self: KSelector) void {
+    pub fn destroy(self: KSelector) void {
         qtc.KSelector_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8549,9 +10525,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn SuperDestroy(self: KSelector) void {
+    pub fn superDestroy(self: KSelector) void {
         qtc.KSelector_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8565,10 +10545,14 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: KSelector, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: KSelector, callback: *const fn () callconv(.c) void) void {
         qtc.KSelector_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8579,13 +10563,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn FocusNextChild(self: KSelector) bool {
+    pub fn focusNextChild(self: KSelector) bool {
         return qtc.KSelector_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -8597,10 +10581,14 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn SuperFocusNextChild(self: KSelector) bool {
+    pub fn superFocusNextChild(self: KSelector) bool {
         return qtc.KSelector_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8613,9 +10601,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: KSelector, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: KSelector, callback: *const fn () callconv(.c) bool) void {
         qtc.KSelector_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8627,13 +10619,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn FocusPreviousChild(self: KSelector) bool {
+    pub fn focusPreviousChild(self: KSelector) bool {
         return qtc.KSelector_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8645,9 +10637,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn SuperFocusPreviousChild(self: KSelector) bool {
+    pub fn superFocusPreviousChild(self: KSelector) bool {
         return qtc.KSelector_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8661,9 +10657,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: KSelector, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: KSelector, callback: *const fn () callconv(.c) bool) void {
         qtc.KSelector_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -8675,13 +10675,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn Sender(self: KSelector) QObject {
+    pub fn sender(self: KSelector) QObject {
         return .{ .ptr = qtc.KSelector_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -8693,9 +10693,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn SuperSender(self: KSelector) QObject {
+    pub fn superSender(self: KSelector) QObject {
         return .{ .ptr = qtc.KSelector_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -8709,9 +10713,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KSelector, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KSelector, callback: *const fn () callconv(.c) QObject) void {
         qtc.KSelector_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8723,13 +10731,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn SenderSignalIndex(self: KSelector) i32 {
+    pub fn senderSignalIndex(self: KSelector) i32 {
         return qtc.KSelector_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8741,9 +10749,13 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector `
     ///
-    pub fn SuperSenderSignalIndex(self: KSelector) i32 {
+    pub fn superSenderSignalIndex(self: KSelector) i32 {
         return qtc.KSelector_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8757,9 +10769,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KSelector, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KSelector, callback: *const fn () callconv(.c) i32) void {
         qtc.KSelector_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -8773,14 +10789,14 @@ pub const KSelector = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KSelector, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KSelector, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KSelector_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -8794,10 +10810,14 @@ pub const KSelector = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KSelector, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KSelector, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KSelector_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -8811,9 +10831,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KSelector, callback: *const fn (KSelector, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KSelector, callback: *const fn (KSelector, [*:0]const u8) callconv(.c) i32) void {
         qtc.KSelector_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8827,14 +10851,14 @@ pub const KSelector = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KSelector, signal: anytype) bool {
+    pub fn isSignalConnected(self: KSelector, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KSelector_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8848,10 +10872,14 @@ pub const KSelector = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KSelector, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KSelector, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KSelector_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8865,9 +10893,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KSelector, callback: *const fn (KSelector, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KSelector, callback: *const fn (KSelector, QMetaMethod) callconv(.c) bool) void {
         qtc.KSelector_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8883,13 +10915,13 @@ pub const KSelector = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: KSelector, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: KSelector, metricA: i32, metricB: i32) f64 {
         return qtc.KSelector_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8905,9 +10937,13 @@ pub const KSelector = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: KSelector, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: KSelector, metricA: i32, metricB: i32) f64 {
         return qtc.KSelector_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8921,9 +10957,13 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: KSelector, callback: *const fn (KSelector, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: KSelector, callback: *const fn (KSelector, i32, i32) callconv(.c) f64) void {
         qtc.KSelector_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -8937,23 +10977,23 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KSelector, callback: *const fn (KSelector, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KSelector, callback: *const fn (KSelector, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kselector.html#dtor.KSelector)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KSelector `
     ///
-    pub fn Delete(self: KSelector) void {
+    pub fn delete(self: KSelector) void {
         qtc.KSelector_Delete(@ptrCast(self.ptr));
     }
 };
@@ -8973,45 +11013,65 @@ pub const KGradientSelector = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new KGradientSelector object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KGradientSelector object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) KGradientSelector {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KGradientSelector_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) KGradientSelector {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KGradientSelector_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new KGradientSelector object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() KGradientSelector {
+    pub const New2 = new2;
+
+    /// Allocate a new KGradientSelector object in C++ memory
+    ///
+    pub fn new2() KGradientSelector {
         return .{ .ptr = qtc.KGradientSelector_new2() };
     }
 
-    /// New3 constructs a new KGradientSelector object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new KGradientSelector object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` o: qnamespace_enums.Orientation `
     ///
-    pub fn New3(o: i32) KGradientSelector {
+    pub fn new3(o: i32) KGradientSelector {
         return .{ .ptr = qtc.KGradientSelector_new3(@bitCast(o)) };
     }
 
-    /// New4 constructs a new KGradientSelector object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new KGradientSelector object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` o: qnamespace_enums.Orientation `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New4(o: i32, parent: anytype) KGradientSelector {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KGradientSelector_new4(@bitCast(o), @ptrCast(parent.ptr)) };
+    pub fn new4(o: i32, _parent: anytype) KGradientSelector {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KGradientSelector_new4(@bitCast(o), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -9019,9 +11079,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn MetaObject(self: KGradientSelector) QMetaObject {
+    pub fn metaObject(self: KGradientSelector) QMetaObject {
         return .{ .ptr = qtc.KGradientSelector_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -9033,13 +11097,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KGradientSelector, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KGradientSelector, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KGradientSelector_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -9049,9 +11113,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn SuperMetaObject(self: KGradientSelector) QMetaObject {
+    pub fn superMetaObject(self: KGradientSelector) QMetaObject {
         return .{ .ptr = qtc.KGradientSelector_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -9059,10 +11127,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KGradientSelector, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KGradientSelector, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KGradientSelector_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -9072,13 +11144,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KGradientSelector, callback: *const fn (KGradientSelector, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KGradientSelector, callback: *const fn (KGradientSelector, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KGradientSelector_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -9088,10 +11160,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KGradientSelector, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KGradientSelector, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KGradientSelector_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -9103,9 +11179,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KGradientSelector, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KGradientSelector, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KGradientSelector_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -9115,13 +11195,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KGradientSelector, callback: *const fn (KGradientSelector, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KGradientSelector, callback: *const fn (KGradientSelector, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KGradientSelector_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -9135,9 +11215,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KGradientSelector, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KGradientSelector, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KGradientSelector_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -9147,14 +11231,18 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KGradientSelector.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KGradientSelector.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setStops` instead
+    ///
+    pub const SetStops = setStops;
 
     /// ### [Upstream resources](https://api.kde.org/kgradientselector.html#setStops)
     ///
@@ -9162,15 +11250,19 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` stops: []Struct_f64_QColor `
+    /// ` _stops: []Struct_f64_QColor `
     ///
-    pub fn SetStops(self: KGradientSelector, stops: []Struct_f64_QColor) void {
+    pub fn setStops(self: KGradientSelector, _stops: []Struct_f64_QColor) void {
         const stops_list = qtc.libqt_list{
-            .len = stops.len,
-            .data = @ptrCast(stops.ptr),
+            .len = _stops.len,
+            .data = @ptrCast(_stops.ptr),
         };
         qtc.KGradientSelector_SetStops(@ptrCast(self.ptr), stops_list);
     }
+
+    /// ### DEPRECATED: Use `stops` instead
+    ///
+    pub const Stops = stops;
 
     /// ### [Upstream resources](https://api.kde.org/kgradientselector.html#stops)
     ///
@@ -9180,14 +11272,18 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Stops(self: KGradientSelector, allocator: std.mem.Allocator) []Struct_f64_QColor {
+    pub fn stops(self: KGradientSelector, allocator: std.mem.Allocator) []Struct_f64_QColor {
         const _arr: qtc.libqt_list = qtc.KGradientSelector_Stops(@ptrCast(self.ptr));
-        const _data: [*]Struct_f64_QColor = @ptrCast(@alignCast(_arr.data));
+        const _data_val: [*]Struct_f64_QColor = @ptrCast(@alignCast(_arr.data));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Struct_f64_QColor, _arr.len) catch @panic("KGradientSelector.Stops: Memory allocation failed");
-        @memcpy(_ret, _data[0.._arr.len]);
+        const _ret = allocator.alloc(Struct_f64_QColor, _arr.len) catch @panic("KGradientSelector.stops: Memory allocation failed");
+        @memcpy(_ret, _data_val[0.._arr.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setColors` instead
+    ///
+    pub const SetColors = setColors;
 
     /// ### [Upstream resources](https://api.kde.org/kgradientselector.html#setColors)
     ///
@@ -9199,11 +11295,15 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` col2: QColor `
     ///
-    pub fn SetColors(self: KGradientSelector, col1: anytype, col2: anytype) void {
+    pub fn setColors(self: KGradientSelector, col1: anytype, col2: anytype) void {
         comptime _ = @TypeOf(col1)._is_QColor;
         comptime _ = @TypeOf(col2)._is_QColor;
         qtc.KGradientSelector_SetColors(@ptrCast(self.ptr), @ptrCast(col1.ptr), @ptrCast(col2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setText` instead
+    ///
+    pub const SetText = setText;
 
     /// ### [Upstream resources](https://api.kde.org/kgradientselector.html#setText)
     ///
@@ -9215,7 +11315,7 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` t2: []const u8 `
     ///
-    pub fn SetText(self: KGradientSelector, t1: []const u8, t2: []const u8) void {
+    pub fn setText(self: KGradientSelector, t1: []const u8, t2: []const u8) void {
         const t1_str = qtc.libqt_string{
             .len = t1.len,
             .data = t1.ptr,
@@ -9227,6 +11327,10 @@ pub const KGradientSelector = extern struct {
         qtc.KGradientSelector_SetText(@ptrCast(self.ptr), t1_str, t2_str);
     }
 
+    /// ### DEPRECATED: Use `setFirstColor` instead
+    ///
+    pub const SetFirstColor = setFirstColor;
+
     /// ### [Upstream resources](https://api.kde.org/kgradientselector.html#setFirstColor)
     ///
     /// ## Parameter(s):
@@ -9235,10 +11339,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` col: QColor `
     ///
-    pub fn SetFirstColor(self: KGradientSelector, col: anytype) void {
+    pub fn setFirstColor(self: KGradientSelector, col: anytype) void {
         comptime _ = @TypeOf(col)._is_QColor;
         qtc.KGradientSelector_SetFirstColor(@ptrCast(self.ptr), @ptrCast(col.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSecondColor` instead
+    ///
+    pub const SetSecondColor = setSecondColor;
 
     /// ### [Upstream resources](https://api.kde.org/kgradientselector.html#setSecondColor)
     ///
@@ -9248,10 +11356,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` col: QColor `
     ///
-    pub fn SetSecondColor(self: KGradientSelector, col: anytype) void {
+    pub fn setSecondColor(self: KGradientSelector, col: anytype) void {
         comptime _ = @TypeOf(col)._is_QColor;
         qtc.KGradientSelector_SetSecondColor(@ptrCast(self.ptr), @ptrCast(col.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFirstText` instead
+    ///
+    pub const SetFirstText = setFirstText;
 
     /// ### [Upstream resources](https://api.kde.org/kgradientselector.html#setFirstText)
     ///
@@ -9261,13 +11373,17 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` t: []const u8 `
     ///
-    pub fn SetFirstText(self: KGradientSelector, t: []const u8) void {
+    pub fn setFirstText(self: KGradientSelector, t: []const u8) void {
         const t_str = qtc.libqt_string{
             .len = t.len,
             .data = t.ptr,
         };
         qtc.KGradientSelector_SetFirstText(@ptrCast(self.ptr), t_str);
     }
+
+    /// ### DEPRECATED: Use `setSecondText` instead
+    ///
+    pub const SetSecondText = setSecondText;
 
     /// ### [Upstream resources](https://api.kde.org/kgradientselector.html#setSecondText)
     ///
@@ -9277,7 +11393,7 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` t: []const u8 `
     ///
-    pub fn SetSecondText(self: KGradientSelector, t: []const u8) void {
+    pub fn setSecondText(self: KGradientSelector, t: []const u8) void {
         const t_str = qtc.libqt_string{
             .len = t.len,
             .data = t.ptr,
@@ -9285,15 +11401,23 @@ pub const KGradientSelector = extern struct {
         qtc.KGradientSelector_SetSecondText(@ptrCast(self.ptr), t_str);
     }
 
+    /// ### DEPRECATED: Use `firstColor` instead
+    ///
+    pub const FirstColor = firstColor;
+
     /// ### [Upstream resources](https://api.kde.org/kgradientselector.html#firstColor)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn FirstColor(self: KGradientSelector) QColor {
+    pub fn firstColor(self: KGradientSelector) QColor {
         return .{ .ptr = qtc.KGradientSelector_FirstColor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `secondColor` instead
+    ///
+    pub const SecondColor = secondColor;
 
     /// ### [Upstream resources](https://api.kde.org/kgradientselector.html#secondColor)
     ///
@@ -9301,9 +11425,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn SecondColor(self: KGradientSelector) QColor {
+    pub fn secondColor(self: KGradientSelector) QColor {
         return .{ .ptr = qtc.KGradientSelector_SecondColor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `firstText` instead
+    ///
+    pub const FirstText = firstText;
 
     /// ### [Upstream resources](https://api.kde.org/kgradientselector.html#firstText)
     ///
@@ -9313,13 +11441,17 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FirstText(self: KGradientSelector, allocator: std.mem.Allocator) []const u8 {
+    pub fn firstText(self: KGradientSelector, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KGradientSelector_FirstText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KGradientSelector.FirstText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KGradientSelector.firstText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `secondText` instead
+    ///
+    pub const SecondText = secondText;
 
     /// ### [Upstream resources](https://api.kde.org/kgradientselector.html#secondText)
     ///
@@ -9329,13 +11461,17 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SecondText(self: KGradientSelector, allocator: std.mem.Allocator) []const u8 {
+    pub fn secondText(self: KGradientSelector, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KGradientSelector_SecondText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KGradientSelector.SecondText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KGradientSelector.secondText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `drawContents` instead
+    ///
+    pub const DrawContents = drawContents;
 
     /// ### [Upstream resources](https://api.kde.org/kgradientselector.html#drawContents)
     ///
@@ -9345,10 +11481,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` param1: QPainter `
     ///
-    pub fn DrawContents(self: KGradientSelector, param1: anytype) void {
+    pub fn drawContents(self: KGradientSelector, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPainter;
         qtc.KGradientSelector_DrawContents(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDrawContents` instead
+    ///
+    pub const OnDrawContents = onDrawContents;
 
     /// ### [Upstream resources](https://api.kde.org/kgradientselector.html#drawContents)
     ///
@@ -9360,13 +11500,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, param1: QPainter) callconv(.c) void `
     ///
-    pub fn OnDrawContents(self: KGradientSelector, callback: *const fn (KGradientSelector, QPainter) callconv(.c) void) void {
+    pub fn onDrawContents(self: KGradientSelector, callback: *const fn (KGradientSelector, QPainter) callconv(.c) void) void {
         qtc.KGradientSelector_OnDrawContents(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawContents` instead
+    /// ### DEPRECATED: Use `superDrawContents` instead
     ///
-    pub const QBaseDrawContents = SuperDrawContents;
+    pub const SuperDrawContents = superDrawContents;
 
     /// ### [Upstream resources](https://api.kde.org/kgradientselector.html#drawContents)
     ///
@@ -9378,10 +11518,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` param1: QPainter `
     ///
-    pub fn SuperDrawContents(self: KGradientSelector, param1: anytype) void {
+    pub fn superDrawContents(self: KGradientSelector, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPainter;
         qtc.KGradientSelector_SuperDrawContents(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// ### [Upstream resources](https://api.kde.org/kgradientselector.html#minimumSize)
     ///
@@ -9389,9 +11533,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn MinimumSize(self: KGradientSelector) QSize {
+    pub fn minimumSize(self: KGradientSelector) QSize {
         return .{ .ptr = qtc.KGradientSelector_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSize` instead
+    ///
+    pub const OnMinimumSize = onMinimumSize;
 
     /// ### [Upstream resources](https://api.kde.org/kgradientselector.html#minimumSize)
     ///
@@ -9405,13 +11553,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSize(self: KGradientSelector, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSize(self: KGradientSelector, callback: *const fn () callconv(.c) QSize) void {
         qtc.KGradientSelector_OnMinimumSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSize` instead
+    /// ### DEPRECATED: Use `superMinimumSize` instead
     ///
-    pub const QBaseMinimumSize = SuperMinimumSize;
+    pub const SuperMinimumSize = superMinimumSize;
 
     /// ### [Upstream resources](https://api.kde.org/kgradientselector.html#minimumSize)
     ///
@@ -9421,9 +11569,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn SuperMinimumSize(self: KGradientSelector) QSize {
+    pub fn superMinimumSize(self: KGradientSelector) QSize {
         return .{ .ptr = qtc.KGradientSelector_SuperMinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -9435,15 +11587,19 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KGradientSelector.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KGradientSelector.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -9457,15 +11613,19 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KGradientSelector.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KGradientSelector.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from KSelector
     ///
@@ -9475,9 +11635,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn ContentsRect(self: KGradientSelector) QRect {
+    pub fn contentsRect(self: KGradientSelector) QRect {
         return .{ .ptr = qtc.KSelector_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setIndent` instead
+    ///
+    pub const SetIndent = setIndent;
 
     /// Inherited from KSelector
     ///
@@ -9489,9 +11653,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` i: bool `
     ///
-    pub fn SetIndent(self: KGradientSelector, i: bool) void {
+    pub fn setIndent(self: KGradientSelector, i: bool) void {
         qtc.KSelector_SetIndent(@ptrCast(self.ptr), i);
     }
+
+    /// ### DEPRECATED: Use `indent` instead
+    ///
+    pub const Indent = indent;
 
     /// Inherited from KSelector
     ///
@@ -9501,9 +11669,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn Indent(self: KGradientSelector) bool {
+    pub fn indent(self: KGradientSelector) bool {
         return qtc.KSelector_Indent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setArrowDirection` instead
+    ///
+    pub const SetArrowDirection = setArrowDirection;
 
     /// Inherited from KSelector
     ///
@@ -9515,9 +11687,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` direction: qnamespace_enums.ArrowType `
     ///
-    pub fn SetArrowDirection(self: KGradientSelector, direction: i32) void {
+    pub fn setArrowDirection(self: KGradientSelector, direction: i32) void {
         qtc.KSelector_SetArrowDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `arrowDirection` instead
+    ///
+    pub const ArrowDirection = arrowDirection;
 
     /// Inherited from KSelector
     ///
@@ -9531,9 +11707,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` qnamespace_enums.ArrowType `
     ///
-    pub fn ArrowDirection(self: KGradientSelector) i32 {
+    pub fn arrowDirection(self: KGradientSelector) i32 {
         return qtc.KSelector_ArrowDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `orientation` instead
+    ///
+    pub const Orientation = orientation;
 
     /// Inherited from QAbstractSlider
     ///
@@ -9547,9 +11727,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` qnamespace_enums.Orientation `
     ///
-    pub fn Orientation(self: KGradientSelector) i32 {
+    pub fn orientation(self: KGradientSelector) i32 {
         return qtc.QAbstractSlider_Orientation(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimum` instead
+    ///
+    pub const SetMinimum = setMinimum;
 
     /// Inherited from QAbstractSlider
     ///
@@ -9559,11 +11743,15 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` minimum: i32 `
+    /// ` _minimum: i32 `
     ///
-    pub fn SetMinimum(self: KGradientSelector, minimum: i32) void {
-        qtc.QAbstractSlider_SetMinimum(@ptrCast(self.ptr), @bitCast(minimum));
+    pub fn setMinimum(self: KGradientSelector, _minimum: i32) void {
+        qtc.QAbstractSlider_SetMinimum(@ptrCast(self.ptr), @bitCast(_minimum));
     }
+
+    /// ### DEPRECATED: Use `minimum` instead
+    ///
+    pub const Minimum = minimum;
 
     /// Inherited from QAbstractSlider
     ///
@@ -9573,9 +11761,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn Minimum(self: KGradientSelector) i32 {
+    pub fn minimum(self: KGradientSelector) i32 {
         return qtc.QAbstractSlider_Minimum(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximum` instead
+    ///
+    pub const SetMaximum = setMaximum;
 
     /// Inherited from QAbstractSlider
     ///
@@ -9585,11 +11777,15 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` maximum: i32 `
+    /// ` _maximum: i32 `
     ///
-    pub fn SetMaximum(self: KGradientSelector, maximum: i32) void {
-        qtc.QAbstractSlider_SetMaximum(@ptrCast(self.ptr), @bitCast(maximum));
+    pub fn setMaximum(self: KGradientSelector, _maximum: i32) void {
+        qtc.QAbstractSlider_SetMaximum(@ptrCast(self.ptr), @bitCast(_maximum));
     }
+
+    /// ### DEPRECATED: Use `maximum` instead
+    ///
+    pub const Maximum = maximum;
 
     /// Inherited from QAbstractSlider
     ///
@@ -9599,9 +11795,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn Maximum(self: KGradientSelector) i32 {
+    pub fn maximum(self: KGradientSelector) i32 {
         return qtc.QAbstractSlider_Maximum(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSingleStep` instead
+    ///
+    pub const SetSingleStep = setSingleStep;
 
     /// Inherited from QAbstractSlider
     ///
@@ -9611,11 +11811,15 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` singleStep: i32 `
+    /// ` _singleStep: i32 `
     ///
-    pub fn SetSingleStep(self: KGradientSelector, singleStep: i32) void {
-        qtc.QAbstractSlider_SetSingleStep(@ptrCast(self.ptr), @bitCast(singleStep));
+    pub fn setSingleStep(self: KGradientSelector, _singleStep: i32) void {
+        qtc.QAbstractSlider_SetSingleStep(@ptrCast(self.ptr), @bitCast(_singleStep));
     }
+
+    /// ### DEPRECATED: Use `singleStep` instead
+    ///
+    pub const SingleStep = singleStep;
 
     /// Inherited from QAbstractSlider
     ///
@@ -9625,9 +11829,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn SingleStep(self: KGradientSelector) i32 {
+    pub fn singleStep(self: KGradientSelector) i32 {
         return qtc.QAbstractSlider_SingleStep(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPageStep` instead
+    ///
+    pub const SetPageStep = setPageStep;
 
     /// Inherited from QAbstractSlider
     ///
@@ -9637,11 +11845,15 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` pageStep: i32 `
+    /// ` _pageStep: i32 `
     ///
-    pub fn SetPageStep(self: KGradientSelector, pageStep: i32) void {
-        qtc.QAbstractSlider_SetPageStep(@ptrCast(self.ptr), @bitCast(pageStep));
+    pub fn setPageStep(self: KGradientSelector, _pageStep: i32) void {
+        qtc.QAbstractSlider_SetPageStep(@ptrCast(self.ptr), @bitCast(_pageStep));
     }
+
+    /// ### DEPRECATED: Use `pageStep` instead
+    ///
+    pub const PageStep = pageStep;
 
     /// Inherited from QAbstractSlider
     ///
@@ -9651,9 +11863,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn PageStep(self: KGradientSelector) i32 {
+    pub fn pageStep(self: KGradientSelector) i32 {
         return qtc.QAbstractSlider_PageStep(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTracking` instead
+    ///
+    pub const SetTracking = setTracking;
 
     /// Inherited from QAbstractSlider
     ///
@@ -9665,9 +11881,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTracking(self: KGradientSelector, enable: bool) void {
+    pub fn setTracking(self: KGradientSelector, enable: bool) void {
         qtc.QAbstractSlider_SetTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTracking` instead
+    ///
+    pub const HasTracking = hasTracking;
 
     /// Inherited from QAbstractSlider
     ///
@@ -9677,9 +11897,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn HasTracking(self: KGradientSelector) bool {
+    pub fn hasTracking(self: KGradientSelector) bool {
         return qtc.QAbstractSlider_HasTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSliderDown` instead
+    ///
+    pub const SetSliderDown = setSliderDown;
 
     /// Inherited from QAbstractSlider
     ///
@@ -9691,9 +11915,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` sliderDown: bool `
     ///
-    pub fn SetSliderDown(self: KGradientSelector, sliderDown: bool) void {
+    pub fn setSliderDown(self: KGradientSelector, sliderDown: bool) void {
         qtc.QAbstractSlider_SetSliderDown(@ptrCast(self.ptr), sliderDown);
     }
+
+    /// ### DEPRECATED: Use `isSliderDown` instead
+    ///
+    pub const IsSliderDown = isSliderDown;
 
     /// Inherited from QAbstractSlider
     ///
@@ -9703,9 +11931,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn IsSliderDown(self: KGradientSelector) bool {
+    pub fn isSliderDown(self: KGradientSelector) bool {
         return qtc.QAbstractSlider_IsSliderDown(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSliderPosition` instead
+    ///
+    pub const SetSliderPosition = setSliderPosition;
 
     /// Inherited from QAbstractSlider
     ///
@@ -9715,11 +11947,15 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` sliderPosition: i32 `
+    /// ` _sliderPosition: i32 `
     ///
-    pub fn SetSliderPosition(self: KGradientSelector, sliderPosition: i32) void {
-        qtc.QAbstractSlider_SetSliderPosition(@ptrCast(self.ptr), @bitCast(sliderPosition));
+    pub fn setSliderPosition(self: KGradientSelector, _sliderPosition: i32) void {
+        qtc.QAbstractSlider_SetSliderPosition(@ptrCast(self.ptr), @bitCast(_sliderPosition));
     }
+
+    /// ### DEPRECATED: Use `sliderPosition` instead
+    ///
+    pub const SliderPosition = sliderPosition;
 
     /// Inherited from QAbstractSlider
     ///
@@ -9729,9 +11965,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn SliderPosition(self: KGradientSelector) i32 {
+    pub fn sliderPosition(self: KGradientSelector) i32 {
         return qtc.QAbstractSlider_SliderPosition(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInvertedAppearance` instead
+    ///
+    pub const SetInvertedAppearance = setInvertedAppearance;
 
     /// Inherited from QAbstractSlider
     ///
@@ -9741,11 +11981,15 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` invertedAppearance: bool `
+    /// ` _invertedAppearance: bool `
     ///
-    pub fn SetInvertedAppearance(self: KGradientSelector, invertedAppearance: bool) void {
-        qtc.QAbstractSlider_SetInvertedAppearance(@ptrCast(self.ptr), invertedAppearance);
+    pub fn setInvertedAppearance(self: KGradientSelector, _invertedAppearance: bool) void {
+        qtc.QAbstractSlider_SetInvertedAppearance(@ptrCast(self.ptr), _invertedAppearance);
     }
+
+    /// ### DEPRECATED: Use `invertedAppearance` instead
+    ///
+    pub const InvertedAppearance = invertedAppearance;
 
     /// Inherited from QAbstractSlider
     ///
@@ -9755,9 +11999,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn InvertedAppearance(self: KGradientSelector) bool {
+    pub fn invertedAppearance(self: KGradientSelector) bool {
         return qtc.QAbstractSlider_InvertedAppearance(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInvertedControls` instead
+    ///
+    pub const SetInvertedControls = setInvertedControls;
 
     /// Inherited from QAbstractSlider
     ///
@@ -9767,11 +12015,15 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` invertedControls: bool `
+    /// ` _invertedControls: bool `
     ///
-    pub fn SetInvertedControls(self: KGradientSelector, invertedControls: bool) void {
-        qtc.QAbstractSlider_SetInvertedControls(@ptrCast(self.ptr), invertedControls);
+    pub fn setInvertedControls(self: KGradientSelector, _invertedControls: bool) void {
+        qtc.QAbstractSlider_SetInvertedControls(@ptrCast(self.ptr), _invertedControls);
     }
+
+    /// ### DEPRECATED: Use `invertedControls` instead
+    ///
+    pub const InvertedControls = invertedControls;
 
     /// Inherited from QAbstractSlider
     ///
@@ -9781,9 +12033,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn InvertedControls(self: KGradientSelector) bool {
+    pub fn invertedControls(self: KGradientSelector) bool {
         return qtc.QAbstractSlider_InvertedControls(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `value` instead
+    ///
+    pub const Value = value;
 
     /// Inherited from QAbstractSlider
     ///
@@ -9793,9 +12049,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn Value(self: KGradientSelector) i32 {
+    pub fn value(self: KGradientSelector) i32 {
         return qtc.QAbstractSlider_Value(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `triggerAction` instead
+    ///
+    pub const TriggerAction = triggerAction;
 
     /// Inherited from QAbstractSlider
     ///
@@ -9807,9 +12067,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` action: qabstractslider_enums.SliderAction `
     ///
-    pub fn TriggerAction(self: KGradientSelector, action: i32) void {
+    pub fn triggerAction(self: KGradientSelector, action: i32) void {
         qtc.QAbstractSlider_TriggerAction(@ptrCast(self.ptr), @bitCast(action));
     }
+
+    /// ### DEPRECATED: Use `setValue` instead
+    ///
+    pub const SetValue = setValue;
 
     /// Inherited from QAbstractSlider
     ///
@@ -9819,11 +12083,15 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` value: i32 `
+    /// ` _value: i32 `
     ///
-    pub fn SetValue(self: KGradientSelector, value: i32) void {
-        qtc.QAbstractSlider_SetValue(@ptrCast(self.ptr), @bitCast(value));
+    pub fn setValue(self: KGradientSelector, _value: i32) void {
+        qtc.QAbstractSlider_SetValue(@ptrCast(self.ptr), @bitCast(_value));
     }
+
+    /// ### DEPRECATED: Use `setOrientation` instead
+    ///
+    pub const SetOrientation = setOrientation;
 
     /// Inherited from QAbstractSlider
     ///
@@ -9833,11 +12101,15 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` orientation: qnamespace_enums.Orientation `
+    /// ` _orientation: qnamespace_enums.Orientation `
     ///
-    pub fn SetOrientation(self: KGradientSelector, orientation: i32) void {
-        qtc.QAbstractSlider_SetOrientation(@ptrCast(self.ptr), @bitCast(orientation));
+    pub fn setOrientation(self: KGradientSelector, _orientation: i32) void {
+        qtc.QAbstractSlider_SetOrientation(@ptrCast(self.ptr), @bitCast(_orientation));
     }
+
+    /// ### DEPRECATED: Use `setRange` instead
+    ///
+    pub const SetRange = setRange;
 
     /// Inherited from QAbstractSlider
     ///
@@ -9851,9 +12123,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` max: i32 `
     ///
-    pub fn SetRange(self: KGradientSelector, min: i32, max: i32) void {
+    pub fn setRange(self: KGradientSelector, min: i32, max: i32) void {
         qtc.QAbstractSlider_SetRange(@ptrCast(self.ptr), @bitCast(min), @bitCast(max));
     }
+
+    /// ### DEPRECATED: Use `valueChanged` instead
+    ///
+    pub const ValueChanged = valueChanged;
 
     /// Inherited from QAbstractSlider
     ///
@@ -9863,11 +12139,15 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` value: i32 `
+    /// ` _value: i32 `
     ///
-    pub fn ValueChanged(self: KGradientSelector, value: i32) void {
-        qtc.QAbstractSlider_ValueChanged(@ptrCast(self.ptr), @bitCast(value));
+    pub fn valueChanged(self: KGradientSelector, _value: i32) void {
+        qtc.QAbstractSlider_ValueChanged(@ptrCast(self.ptr), @bitCast(_value));
     }
+
+    /// ### DEPRECATED: Use `onValueChanged` instead
+    ///
+    pub const OnValueChanged = onValueChanged;
 
     /// Inherited from QAbstractSlider
     ///
@@ -9879,9 +12159,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, value: i32) callconv(.c) void `
     ///
-    pub fn OnValueChanged(self: KGradientSelector, callback: *const fn (KGradientSelector, i32) callconv(.c) void) void {
+    pub fn onValueChanged(self: KGradientSelector, callback: *const fn (KGradientSelector, i32) callconv(.c) void) void {
         qtc.QAbstractSlider_Connect_ValueChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sliderPressed` instead
+    ///
+    pub const SliderPressed = sliderPressed;
 
     /// Inherited from QAbstractSlider
     ///
@@ -9891,9 +12175,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn SliderPressed(self: KGradientSelector) void {
+    pub fn sliderPressed(self: KGradientSelector) void {
         qtc.QAbstractSlider_SliderPressed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSliderPressed` instead
+    ///
+    pub const OnSliderPressed = onSliderPressed;
 
     /// Inherited from QAbstractSlider
     ///
@@ -9905,9 +12193,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector) callconv(.c) void `
     ///
-    pub fn OnSliderPressed(self: KGradientSelector, callback: *const fn (KGradientSelector) callconv(.c) void) void {
+    pub fn onSliderPressed(self: KGradientSelector, callback: *const fn (KGradientSelector) callconv(.c) void) void {
         qtc.QAbstractSlider_Connect_SliderPressed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sliderMoved` instead
+    ///
+    pub const SliderMoved = sliderMoved;
 
     /// Inherited from QAbstractSlider
     ///
@@ -9919,9 +12211,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` position: i32 `
     ///
-    pub fn SliderMoved(self: KGradientSelector, position: i32) void {
+    pub fn sliderMoved(self: KGradientSelector, position: i32) void {
         qtc.QAbstractSlider_SliderMoved(@ptrCast(self.ptr), @bitCast(position));
     }
+
+    /// ### DEPRECATED: Use `onSliderMoved` instead
+    ///
+    pub const OnSliderMoved = onSliderMoved;
 
     /// Inherited from QAbstractSlider
     ///
@@ -9933,9 +12229,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, position: i32) callconv(.c) void `
     ///
-    pub fn OnSliderMoved(self: KGradientSelector, callback: *const fn (KGradientSelector, i32) callconv(.c) void) void {
+    pub fn onSliderMoved(self: KGradientSelector, callback: *const fn (KGradientSelector, i32) callconv(.c) void) void {
         qtc.QAbstractSlider_Connect_SliderMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sliderReleased` instead
+    ///
+    pub const SliderReleased = sliderReleased;
 
     /// Inherited from QAbstractSlider
     ///
@@ -9945,9 +12245,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn SliderReleased(self: KGradientSelector) void {
+    pub fn sliderReleased(self: KGradientSelector) void {
         qtc.QAbstractSlider_SliderReleased(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSliderReleased` instead
+    ///
+    pub const OnSliderReleased = onSliderReleased;
 
     /// Inherited from QAbstractSlider
     ///
@@ -9959,9 +12263,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector) callconv(.c) void `
     ///
-    pub fn OnSliderReleased(self: KGradientSelector, callback: *const fn (KGradientSelector) callconv(.c) void) void {
+    pub fn onSliderReleased(self: KGradientSelector, callback: *const fn (KGradientSelector) callconv(.c) void) void {
         qtc.QAbstractSlider_Connect_SliderReleased(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `rangeChanged` instead
+    ///
+    pub const RangeChanged = rangeChanged;
 
     /// Inherited from QAbstractSlider
     ///
@@ -9975,9 +12283,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` max: i32 `
     ///
-    pub fn RangeChanged(self: KGradientSelector, min: i32, max: i32) void {
+    pub fn rangeChanged(self: KGradientSelector, min: i32, max: i32) void {
         qtc.QAbstractSlider_RangeChanged(@ptrCast(self.ptr), @bitCast(min), @bitCast(max));
     }
+
+    /// ### DEPRECATED: Use `onRangeChanged` instead
+    ///
+    pub const OnRangeChanged = onRangeChanged;
 
     /// Inherited from QAbstractSlider
     ///
@@ -9989,9 +12301,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, min: i32, max: i32) callconv(.c) void `
     ///
-    pub fn OnRangeChanged(self: KGradientSelector, callback: *const fn (KGradientSelector, i32, i32) callconv(.c) void) void {
+    pub fn onRangeChanged(self: KGradientSelector, callback: *const fn (KGradientSelector, i32, i32) callconv(.c) void) void {
         qtc.QAbstractSlider_Connect_RangeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionTriggered` instead
+    ///
+    pub const ActionTriggered = actionTriggered;
 
     /// Inherited from QAbstractSlider
     ///
@@ -10003,9 +12319,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` action: i32 `
     ///
-    pub fn ActionTriggered(self: KGradientSelector, action: i32) void {
+    pub fn actionTriggered(self: KGradientSelector, action: i32) void {
         qtc.QAbstractSlider_ActionTriggered(@ptrCast(self.ptr), @bitCast(action));
     }
+
+    /// ### DEPRECATED: Use `onActionTriggered` instead
+    ///
+    pub const OnActionTriggered = onActionTriggered;
 
     /// Inherited from QAbstractSlider
     ///
@@ -10017,9 +12337,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, action: i32) callconv(.c) void `
     ///
-    pub fn OnActionTriggered(self: KGradientSelector, callback: *const fn (KGradientSelector, i32) callconv(.c) void) void {
+    pub fn onActionTriggered(self: KGradientSelector, callback: *const fn (KGradientSelector, i32) callconv(.c) void) void {
         qtc.QAbstractSlider_Connect_ActionTriggered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -10029,9 +12353,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn WinId(self: KGradientSelector) usize {
+    pub fn winId(self: KGradientSelector) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -10041,9 +12369,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn CreateWinId(self: KGradientSelector) void {
+    pub fn createWinId(self: KGradientSelector) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -10053,9 +12385,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn InternalWinId(self: KGradientSelector) usize {
+    pub fn internalWinId(self: KGradientSelector) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -10065,9 +12401,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn EffectiveWinId(self: KGradientSelector) usize {
+    pub fn effectiveWinId(self: KGradientSelector) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -10077,9 +12417,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn Style(self: KGradientSelector) QStyle {
+    pub fn style(self: KGradientSelector) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -10089,12 +12433,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: KGradientSelector, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: KGradientSelector, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -10104,9 +12452,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn IsTopLevel(self: KGradientSelector) bool {
+    pub fn isTopLevel(self: KGradientSelector) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -10116,9 +12468,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn IsWindow(self: KGradientSelector) bool {
+    pub fn isWindow(self: KGradientSelector) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -10128,9 +12484,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn IsModal(self: KGradientSelector) bool {
+    pub fn isModal(self: KGradientSelector) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -10144,9 +12504,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: KGradientSelector) i32 {
+    pub fn windowModality(self: KGradientSelector) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -10156,11 +12520,15 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: KGradientSelector, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: KGradientSelector, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -10170,9 +12538,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn IsEnabled(self: KGradientSelector) bool {
+    pub fn isEnabled(self: KGradientSelector) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -10184,10 +12556,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: KGradientSelector, param1: anytype) bool {
+    pub fn isEnabledTo(self: KGradientSelector, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -10199,9 +12575,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: KGradientSelector, enabled: bool) void {
+    pub fn setEnabled(self: KGradientSelector, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -10213,9 +12593,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: KGradientSelector, disabled: bool) void {
+    pub fn setDisabled(self: KGradientSelector, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -10227,9 +12611,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: KGradientSelector, windowModified: bool) void {
+    pub fn setWindowModified(self: KGradientSelector, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -10239,9 +12627,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn FrameGeometry(self: KGradientSelector) QRect {
+    pub fn frameGeometry(self: KGradientSelector) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -10251,9 +12643,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn Geometry(self: KGradientSelector) QRect {
+    pub fn geometry(self: KGradientSelector) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -10263,9 +12659,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn NormalGeometry(self: KGradientSelector) QRect {
+    pub fn normalGeometry(self: KGradientSelector) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -10275,9 +12675,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn X(self: KGradientSelector) i32 {
+    pub fn x(self: KGradientSelector) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -10287,9 +12691,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn Y(self: KGradientSelector) i32 {
+    pub fn y(self: KGradientSelector) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -10299,9 +12707,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn Pos(self: KGradientSelector) QPoint {
+    pub fn pos(self: KGradientSelector) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -10311,9 +12723,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn FrameSize(self: KGradientSelector) QSize {
+    pub fn frameSize(self: KGradientSelector) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -10323,9 +12739,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn Size(self: KGradientSelector) QSize {
+    pub fn size(self: KGradientSelector) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -10335,9 +12755,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn Width(self: KGradientSelector) i32 {
+    pub fn width(self: KGradientSelector) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -10347,9 +12771,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn Height(self: KGradientSelector) i32 {
+    pub fn height(self: KGradientSelector) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -10359,9 +12787,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn Rect(self: KGradientSelector) QRect {
+    pub fn rect(self: KGradientSelector) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -10371,9 +12803,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn ChildrenRect(self: KGradientSelector) QRect {
+    pub fn childrenRect(self: KGradientSelector) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -10383,9 +12819,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn ChildrenRegion(self: KGradientSelector) QRegion {
+    pub fn childrenRegion(self: KGradientSelector) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -10395,9 +12835,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn MaximumSize(self: KGradientSelector) QSize {
+    pub fn maximumSize(self: KGradientSelector) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -10407,9 +12851,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn MinimumWidth(self: KGradientSelector) i32 {
+    pub fn minimumWidth(self: KGradientSelector) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -10419,9 +12867,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn MinimumHeight(self: KGradientSelector) i32 {
+    pub fn minimumHeight(self: KGradientSelector) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -10431,9 +12883,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn MaximumWidth(self: KGradientSelector) i32 {
+    pub fn maximumWidth(self: KGradientSelector) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -10443,9 +12899,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn MaximumHeight(self: KGradientSelector) i32 {
+    pub fn maximumHeight(self: KGradientSelector) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -10455,12 +12915,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: KGradientSelector, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: KGradientSelector, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -10474,9 +12938,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: KGradientSelector, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: KGradientSelector, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -10486,12 +12954,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: KGradientSelector, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: KGradientSelector, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -10505,9 +12977,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: KGradientSelector, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: KGradientSelector, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -10519,9 +12995,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: KGradientSelector, minw: i32) void {
+    pub fn setMinimumWidth(self: KGradientSelector, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -10533,9 +13013,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: KGradientSelector, minh: i32) void {
+    pub fn setMinimumHeight(self: KGradientSelector, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -10547,9 +13031,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: KGradientSelector, maxw: i32) void {
+    pub fn setMaximumWidth(self: KGradientSelector, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -10561,9 +13049,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: KGradientSelector, maxh: i32) void {
+    pub fn setMaximumHeight(self: KGradientSelector, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -10573,9 +13065,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn SizeIncrement(self: KGradientSelector) QSize {
+    pub fn sizeIncrement(self: KGradientSelector) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -10585,12 +13081,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: KGradientSelector, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: KGradientSelector, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -10604,9 +13104,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: KGradientSelector, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: KGradientSelector, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -10616,9 +13120,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn BaseSize(self: KGradientSelector) QSize {
+    pub fn baseSize(self: KGradientSelector) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -10628,12 +13136,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: KGradientSelector, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: KGradientSelector, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -10647,9 +13159,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: KGradientSelector, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: KGradientSelector, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -10661,10 +13177,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: KGradientSelector, fixedSize: anytype) void {
+    pub fn setFixedSize(self: KGradientSelector, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -10678,9 +13198,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: KGradientSelector, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: KGradientSelector, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -10692,9 +13216,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: KGradientSelector, w: i32) void {
+    pub fn setFixedWidth(self: KGradientSelector, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -10706,9 +13234,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: KGradientSelector, h: i32) void {
+    pub fn setFixedHeight(self: KGradientSelector, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -10720,11 +13252,15 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: KGradientSelector, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: KGradientSelector, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -10735,11 +13271,15 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: KGradientSelector, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: KGradientSelector, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -10750,11 +13290,15 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: KGradientSelector, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: KGradientSelector, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -10765,11 +13309,15 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: KGradientSelector, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: KGradientSelector, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -10780,11 +13328,15 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: KGradientSelector, param1: anytype) QPointF {
+    pub fn mapToParent(self: KGradientSelector, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -10795,10 +13347,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: KGradientSelector, param1: anytype) QPoint {
+    pub fn mapToParent2(self: KGradientSelector, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -10810,10 +13366,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: KGradientSelector, param1: anytype) QPointF {
+    pub fn mapFromParent(self: KGradientSelector, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -10825,10 +13385,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: KGradientSelector, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: KGradientSelector, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -10842,12 +13406,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: KGradientSelector, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: KGradientSelector, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -10860,11 +13428,15 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: KGradientSelector, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: KGradientSelector, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -10878,11 +13450,15 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: KGradientSelector, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: KGradientSelector, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -10896,11 +13472,15 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: KGradientSelector, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: KGradientSelector, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -10910,9 +13490,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn Window(self: KGradientSelector) QWidget {
+    pub fn window(self: KGradientSelector) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -10922,9 +13506,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn NativeParentWidget(self: KGradientSelector) QWidget {
+    pub fn nativeParentWidget(self: KGradientSelector) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -10934,9 +13522,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn TopLevelWidget(self: KGradientSelector) QWidget {
+    pub fn topLevelWidget(self: KGradientSelector) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -10946,9 +13538,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn Palette(self: KGradientSelector) QPalette {
+    pub fn palette(self: KGradientSelector) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -10958,12 +13554,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: KGradientSelector, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: KGradientSelector, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -10973,11 +13573,15 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: KGradientSelector, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: KGradientSelector, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -10991,9 +13595,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: KGradientSelector) i32 {
+    pub fn backgroundRole(self: KGradientSelector) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -11003,11 +13611,15 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: KGradientSelector, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: KGradientSelector, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -11021,9 +13633,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: KGradientSelector) i32 {
+    pub fn foregroundRole(self: KGradientSelector) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -11033,9 +13649,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn Font(self: KGradientSelector) QFont {
+    pub fn font(self: KGradientSelector) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -11045,12 +13665,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: KGradientSelector, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: KGradientSelector, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -11060,9 +13684,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn FontMetrics(self: KGradientSelector) QFontMetrics {
+    pub fn fontMetrics(self: KGradientSelector) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -11072,9 +13700,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn FontInfo(self: KGradientSelector) QFontInfo {
+    pub fn fontInfo(self: KGradientSelector) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -11084,9 +13716,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn Cursor(self: KGradientSelector) QCursor {
+    pub fn cursor(self: KGradientSelector) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -11096,12 +13732,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: KGradientSelector, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: KGradientSelector, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -11111,9 +13751,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn UnsetCursor(self: KGradientSelector) void {
+    pub fn unsetCursor(self: KGradientSelector) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -11125,9 +13769,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: KGradientSelector, enable: bool) void {
+    pub fn setMouseTracking(self: KGradientSelector, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -11137,9 +13785,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn HasMouseTracking(self: KGradientSelector) bool {
+    pub fn hasMouseTracking(self: KGradientSelector) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -11149,9 +13801,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn UnderMouse(self: KGradientSelector) bool {
+    pub fn underMouse(self: KGradientSelector) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -11163,9 +13819,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: KGradientSelector, enable: bool) void {
+    pub fn setTabletTracking(self: KGradientSelector, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -11175,24 +13835,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn HasTabletTracking(self: KGradientSelector) bool {
+    pub fn hasTabletTracking(self: KGradientSelector) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KGradientSelector `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: KGradientSelector, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -11202,12 +13851,35 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: KGradientSelector, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: KGradientSelector, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KGradientSelector `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: KGradientSelector, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -11217,9 +13889,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn Mask(self: KGradientSelector) QRegion {
+    pub fn mask(self: KGradientSelector) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -11229,9 +13905,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn ClearMask(self: KGradientSelector) void {
+    pub fn clearMask(self: KGradientSelector) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -11243,10 +13923,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: KGradientSelector, target: anytype) void {
+    pub fn render(self: KGradientSelector, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -11258,10 +13942,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: KGradientSelector, painter: anytype) void {
+    pub fn render2(self: KGradientSelector, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -11271,9 +13959,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn Grab(self: KGradientSelector) QPixmap {
+    pub fn grab(self: KGradientSelector) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -11283,9 +13975,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn GraphicsEffect(self: KGradientSelector) QGraphicsEffect {
+    pub fn graphicsEffect(self: KGradientSelector) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -11297,10 +13993,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: KGradientSelector, effect: anytype) void {
+    pub fn setGraphicsEffect(self: KGradientSelector, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -11312,9 +14012,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: KGradientSelector, typeVal: i32) void {
+    pub fn grabGesture(self: KGradientSelector, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -11326,9 +14030,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: KGradientSelector, typeVal: i32) void {
+    pub fn ungrabGesture(self: KGradientSelector, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -11338,15 +14046,19 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: KGradientSelector, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: KGradientSelector, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -11356,15 +14068,19 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: KGradientSelector, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: KGradientSelector, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -11376,13 +14092,17 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: KGradientSelector, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: KGradientSelector, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KGradientSelector.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KGradientSelector.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -11394,13 +14114,17 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: KGradientSelector, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: KGradientSelector, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KGradientSelector.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KGradientSelector.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -11412,10 +14136,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: KGradientSelector, icon: anytype) void {
+    pub fn setWindowIcon(self: KGradientSelector, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -11425,9 +14153,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn WindowIcon(self: KGradientSelector) QIcon {
+    pub fn windowIcon(self: KGradientSelector) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -11437,15 +14169,19 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: KGradientSelector, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: KGradientSelector, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -11457,13 +14193,17 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: KGradientSelector, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: KGradientSelector, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KGradientSelector.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KGradientSelector.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -11473,15 +14213,19 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: KGradientSelector, windowRole: []const u8) void {
+    pub fn setWindowRole(self: KGradientSelector, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -11493,13 +14237,17 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: KGradientSelector, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: KGradientSelector, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KGradientSelector.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KGradientSelector.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -11511,13 +14259,17 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: KGradientSelector, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: KGradientSelector, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -11529,13 +14281,17 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: KGradientSelector, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: KGradientSelector, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KGradientSelector.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KGradientSelector.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -11547,9 +14303,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: KGradientSelector, level: f64) void {
+    pub fn setWindowOpacity(self: KGradientSelector, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -11559,9 +14319,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn WindowOpacity(self: KGradientSelector) f64 {
+    pub fn windowOpacity(self: KGradientSelector) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -11571,9 +14335,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn IsWindowModified(self: KGradientSelector) bool {
+    pub fn isWindowModified(self: KGradientSelector) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -11583,15 +14351,19 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: KGradientSelector, toolTip: []const u8) void {
+    pub fn setToolTip(self: KGradientSelector, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -11603,13 +14375,17 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: KGradientSelector, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: KGradientSelector, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KGradientSelector.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KGradientSelector.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -11621,9 +14397,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: KGradientSelector, msec: i32) void {
+    pub fn setToolTipDuration(self: KGradientSelector, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -11633,9 +14413,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn ToolTipDuration(self: KGradientSelector) i32 {
+    pub fn toolTipDuration(self: KGradientSelector) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -11645,15 +14429,19 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: KGradientSelector, statusTip: []const u8) void {
+    pub fn setStatusTip(self: KGradientSelector, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -11665,13 +14453,17 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: KGradientSelector, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: KGradientSelector, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KGradientSelector.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KGradientSelector.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -11681,15 +14473,19 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: KGradientSelector, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: KGradientSelector, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -11701,13 +14497,17 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: KGradientSelector, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: KGradientSelector, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KGradientSelector.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KGradientSelector.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -11719,13 +14519,17 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: KGradientSelector, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: KGradientSelector, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KGradientSelector.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KGradientSelector.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -11737,13 +14541,17 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: KGradientSelector, name: []const u8) void {
+    pub fn setAccessibleName(self: KGradientSelector, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -11755,13 +14563,17 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: KGradientSelector, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: KGradientSelector, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KGradientSelector.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KGradientSelector.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -11773,13 +14585,17 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: KGradientSelector, description: []const u8) void {
+    pub fn setAccessibleDescription(self: KGradientSelector, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -11791,9 +14607,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: KGradientSelector, direction: i32) void {
+    pub fn setLayoutDirection(self: KGradientSelector, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -11807,9 +14627,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: KGradientSelector) i32 {
+    pub fn layoutDirection(self: KGradientSelector) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -11819,9 +14643,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn UnsetLayoutDirection(self: KGradientSelector) void {
+    pub fn unsetLayoutDirection(self: KGradientSelector) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -11831,12 +14659,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: KGradientSelector, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: KGradientSelector, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -11846,9 +14678,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn Locale(self: KGradientSelector) QLocale {
+    pub fn locale(self: KGradientSelector) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -11858,9 +14694,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn UnsetLocale(self: KGradientSelector) void {
+    pub fn unsetLocale(self: KGradientSelector) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -11870,9 +14710,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn IsRightToLeft(self: KGradientSelector) bool {
+    pub fn isRightToLeft(self: KGradientSelector) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -11882,9 +14726,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn IsLeftToRight(self: KGradientSelector) bool {
+    pub fn isLeftToRight(self: KGradientSelector) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -11894,9 +14742,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn SetFocus(self: KGradientSelector) void {
+    pub fn setFocus(self: KGradientSelector) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -11906,9 +14758,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn IsActiveWindow(self: KGradientSelector) bool {
+    pub fn isActiveWindow(self: KGradientSelector) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -11918,9 +14774,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn ActivateWindow(self: KGradientSelector) void {
+    pub fn activateWindow(self: KGradientSelector) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -11930,9 +14790,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn ClearFocus(self: KGradientSelector) void {
+    pub fn clearFocus(self: KGradientSelector) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -11944,9 +14808,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: KGradientSelector, reason: i32) void {
+    pub fn setFocus2(self: KGradientSelector, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -11960,9 +14828,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: KGradientSelector) i32 {
+    pub fn focusPolicy(self: KGradientSelector) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -11974,9 +14846,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: KGradientSelector, policy: i32) void {
+    pub fn setFocusPolicy(self: KGradientSelector, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -11986,9 +14862,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn HasFocus(self: KGradientSelector) bool {
+    pub fn hasFocus(self: KGradientSelector) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -12000,11 +14880,15 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -12014,12 +14898,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: KGradientSelector, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: KGradientSelector, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -12029,9 +14917,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn FocusProxy(self: KGradientSelector) QWidget {
+    pub fn focusProxy(self: KGradientSelector) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -12045,9 +14937,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: KGradientSelector) i32 {
+    pub fn contextMenuPolicy(self: KGradientSelector) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -12059,9 +14955,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: KGradientSelector, policy: i32) void {
+    pub fn setContextMenuPolicy(self: KGradientSelector, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -12071,9 +14971,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn GrabMouse(self: KGradientSelector) void {
+    pub fn grabMouse(self: KGradientSelector) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -12085,10 +14989,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: KGradientSelector, param1: anytype) void {
+    pub fn grabMouse2(self: KGradientSelector, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -12098,9 +15006,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn ReleaseMouse(self: KGradientSelector) void {
+    pub fn releaseMouse(self: KGradientSelector) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -12110,9 +15022,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn GrabKeyboard(self: KGradientSelector) void {
+    pub fn grabKeyboard(self: KGradientSelector) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -12122,9 +15038,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn ReleaseKeyboard(self: KGradientSelector) void {
+    pub fn releaseKeyboard(self: KGradientSelector) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -12136,10 +15056,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: KGradientSelector, key: anytype) i32 {
+    pub fn grabShortcut(self: KGradientSelector, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -12151,9 +15075,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: KGradientSelector, id: i32) void {
+    pub fn releaseShortcut(self: KGradientSelector, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -12165,9 +15093,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: KGradientSelector, id: i32) void {
+    pub fn setShortcutEnabled(self: KGradientSelector, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -12179,25 +15111,37 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: KGradientSelector, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: KGradientSelector, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -12207,9 +15151,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn UpdatesEnabled(self: KGradientSelector) bool {
+    pub fn updatesEnabled(self: KGradientSelector) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -12221,9 +15169,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: KGradientSelector, enable: bool) void {
+    pub fn setUpdatesEnabled(self: KGradientSelector, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -12233,9 +15185,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn GraphicsProxyWidget(self: KGradientSelector) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: KGradientSelector) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -12245,9 +15201,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn Update(self: KGradientSelector) void {
+    pub fn update(self: KGradientSelector) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -12257,9 +15217,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn Repaint(self: KGradientSelector) void {
+    pub fn repaint(self: KGradientSelector) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -12269,17 +15233,21 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: KGradientSelector, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: KGradientSelector, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -12291,11 +15259,15 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: KGradientSelector, param1: anytype) void {
+    pub fn update3(self: KGradientSelector, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -12306,10 +15278,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: KGradientSelector, param1: anytype) void {
+    pub fn update4(self: KGradientSelector, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -12319,17 +15295,21 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: KGradientSelector, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: KGradientSelector, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -12341,10 +15321,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: KGradientSelector, param1: anytype) void {
+    pub fn repaint3(self: KGradientSelector, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -12356,10 +15340,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: KGradientSelector, param1: anytype) void {
+    pub fn repaint4(self: KGradientSelector, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -12371,9 +15359,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: KGradientSelector, hidden: bool) void {
+    pub fn setHidden(self: KGradientSelector, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -12383,9 +15375,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn Show(self: KGradientSelector) void {
+    pub fn show(self: KGradientSelector) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -12395,9 +15391,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn Hide(self: KGradientSelector) void {
+    pub fn hide(self: KGradientSelector) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -12407,9 +15407,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn ShowMinimized(self: KGradientSelector) void {
+    pub fn showMinimized(self: KGradientSelector) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -12419,9 +15423,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn ShowMaximized(self: KGradientSelector) void {
+    pub fn showMaximized(self: KGradientSelector) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -12431,9 +15439,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn ShowFullScreen(self: KGradientSelector) void {
+    pub fn showFullScreen(self: KGradientSelector) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -12443,9 +15455,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn ShowNormal(self: KGradientSelector) void {
+    pub fn showNormal(self: KGradientSelector) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -12455,9 +15471,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn Close(self: KGradientSelector) bool {
+    pub fn close(self: KGradientSelector) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -12467,9 +15487,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn Raise(self: KGradientSelector) void {
+    pub fn raise(self: KGradientSelector) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -12479,9 +15503,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn Lower(self: KGradientSelector) void {
+    pub fn lower(self: KGradientSelector) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -12493,10 +15521,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: KGradientSelector, param1: anytype) void {
+    pub fn stackUnder(self: KGradientSelector, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -12506,13 +15538,17 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: KGradientSelector, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: KGradientSelector, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -12524,10 +15560,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: KGradientSelector, param1: anytype) void {
+    pub fn move2(self: KGradientSelector, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -12541,9 +15581,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: KGradientSelector, w: i32, h: i32) void {
+    pub fn resize(self: KGradientSelector, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -12555,10 +15599,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: KGradientSelector, param1: anytype) void {
+    pub fn resize2(self: KGradientSelector, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -12568,17 +15616,21 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: KGradientSelector, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: KGradientSelector, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -12588,12 +15640,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: KGradientSelector, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: KGradientSelector, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -12605,13 +15661,17 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: KGradientSelector, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: KGradientSelector, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KGradientSelector.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KGradientSelector.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -12621,15 +15681,19 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: KGradientSelector, geometry: []u8) bool {
+    pub fn restoreGeometry(self: KGradientSelector, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -12639,9 +15703,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn AdjustSize(self: KGradientSelector) void {
+    pub fn adjustSize(self: KGradientSelector) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -12651,9 +15719,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn IsVisible(self: KGradientSelector) bool {
+    pub fn isVisible(self: KGradientSelector) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -12665,10 +15737,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: KGradientSelector, param1: anytype) bool {
+    pub fn isVisibleTo(self: KGradientSelector, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -12678,9 +15754,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn IsHidden(self: KGradientSelector) bool {
+    pub fn isHidden(self: KGradientSelector) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -12690,9 +15770,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn IsMinimized(self: KGradientSelector) bool {
+    pub fn isMinimized(self: KGradientSelector) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -12702,9 +15786,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn IsMaximized(self: KGradientSelector) bool {
+    pub fn isMaximized(self: KGradientSelector) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -12714,9 +15802,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn IsFullScreen(self: KGradientSelector) bool {
+    pub fn isFullScreen(self: KGradientSelector) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -12730,9 +15822,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: KGradientSelector) i32 {
+    pub fn windowState(self: KGradientSelector) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -12744,9 +15840,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: KGradientSelector, state: i32) void {
+    pub fn setWindowState(self: KGradientSelector, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -12758,9 +15858,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: KGradientSelector, state: i32) void {
+    pub fn overrideWindowState(self: KGradientSelector, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -12770,9 +15874,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn SizePolicy(self: KGradientSelector) QSizePolicy {
+    pub fn sizePolicy(self: KGradientSelector) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -12782,12 +15890,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: KGradientSelector, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: KGradientSelector, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -12801,9 +15913,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: KGradientSelector, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: KGradientSelector, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -12813,9 +15929,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn VisibleRegion(self: KGradientSelector) QRegion {
+    pub fn visibleRegion(self: KGradientSelector) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -12833,9 +15953,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: KGradientSelector, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: KGradientSelector, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -12847,10 +15971,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: KGradientSelector, margins: anytype) void {
+    pub fn setContentsMargins2(self: KGradientSelector, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -12860,9 +15988,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn ContentsMargins(self: KGradientSelector) QMargins {
+    pub fn contentsMargins(self: KGradientSelector) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -12872,9 +16004,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn Layout(self: KGradientSelector) QLayout {
+    pub fn layout(self: KGradientSelector) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -12884,12 +16020,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: KGradientSelector, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: KGradientSelector, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -12899,24 +16039,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn UpdateGeometry(self: KGradientSelector) void {
+    pub fn updateGeometry(self: KGradientSelector) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KGradientSelector `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: KGradientSelector, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -12926,14 +16055,37 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: KGradientSelector, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KGradientSelector `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: KGradientSelector, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: KGradientSelector, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -12947,9 +16099,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: KGradientSelector, dx: i32, dy: i32) void {
+    pub fn scroll(self: KGradientSelector, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -12965,10 +16121,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: KGradientSelector, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: KGradientSelector, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -12978,9 +16138,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn FocusWidget(self: KGradientSelector) QWidget {
+    pub fn focusWidget(self: KGradientSelector) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -12990,9 +16154,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn NextInFocusChain(self: KGradientSelector) QWidget {
+    pub fn nextInFocusChain(self: KGradientSelector) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -13002,9 +16170,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn PreviousInFocusChain(self: KGradientSelector) QWidget {
+    pub fn previousInFocusChain(self: KGradientSelector) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -13014,9 +16186,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn AcceptDrops(self: KGradientSelector) bool {
+    pub fn acceptDrops(self: KGradientSelector) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -13028,9 +16204,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: KGradientSelector, on: bool) void {
+    pub fn setAcceptDrops(self: KGradientSelector, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -13042,10 +16222,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: KGradientSelector, action: anytype) void {
+    pub fn addAction(self: KGradientSelector, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -13055,15 +16239,19 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: KGradientSelector, actions: []QAction) void {
+    pub fn addActions(self: KGradientSelector, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -13075,16 +16263,20 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: KGradientSelector, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: KGradientSelector, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -13098,11 +16290,15 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: KGradientSelector, before: anytype, action: anytype) void {
+    pub fn insertAction(self: KGradientSelector, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -13114,10 +16310,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: KGradientSelector, action: anytype) void {
+    pub fn removeAction(self: KGradientSelector, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -13129,15 +16329,19 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: KGradientSelector, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: KGradientSelector, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KGradientSelector.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KGradientSelector.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -13149,13 +16353,17 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: KGradientSelector, text: []const u8) QAction {
+    pub fn addAction2(self: KGradientSelector, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -13169,7 +16377,7 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: KGradientSelector, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: KGradientSelector, icon: anytype, text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -13178,6 +16386,10 @@ pub const KGradientSelector = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -13190,7 +16402,7 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: KGradientSelector, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: KGradientSelector, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -13198,6 +16410,10 @@ pub const KGradientSelector = extern struct {
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
 
     /// Inherited from QWidget
     ///
@@ -13213,7 +16429,7 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: KGradientSelector, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: KGradientSelector, icon: anytype, text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -13223,6 +16439,10 @@ pub const KGradientSelector = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
@@ -13231,9 +16451,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn ParentWidget(self: KGradientSelector) QWidget {
+    pub fn parentWidget(self: KGradientSelector) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -13245,9 +16469,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: KGradientSelector, typeVal: i32) void {
+    pub fn setWindowFlags(self: KGradientSelector, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -13261,9 +16489,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: KGradientSelector) i32 {
+    pub fn windowFlags(self: KGradientSelector) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -13275,9 +16507,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: KGradientSelector, param1: i32) void {
+    pub fn setWindowFlag(self: KGradientSelector, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -13289,9 +16525,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: KGradientSelector, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: KGradientSelector, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -13305,9 +16545,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: KGradientSelector) i32 {
+    pub fn windowType(self: KGradientSelector) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -13317,9 +16561,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -13329,13 +16577,17 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: KGradientSelector, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: KGradientSelector, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -13347,10 +16599,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: KGradientSelector, p: anytype) QWidget {
+    pub fn childAt2(self: KGradientSelector, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -13362,10 +16618,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: KGradientSelector, p: anytype) QWidget {
+    pub fn childAt3(self: KGradientSelector, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -13377,9 +16637,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: KGradientSelector, param1: i32) void {
+    pub fn setAttribute(self: KGradientSelector, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -13391,9 +16655,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: KGradientSelector, param1: i32) bool {
+    pub fn testAttribute(self: KGradientSelector, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -13403,9 +16671,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn EnsurePolished(self: KGradientSelector) void {
+    pub fn ensurePolished(self: KGradientSelector) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -13417,10 +16689,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: KGradientSelector, child: anytype) bool {
+    pub fn isAncestorOf(self: KGradientSelector, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -13430,9 +16706,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn AutoFillBackground(self: KGradientSelector) bool {
+    pub fn autoFillBackground(self: KGradientSelector) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -13444,9 +16724,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: KGradientSelector, enabled: bool) void {
+    pub fn setAutoFillBackground(self: KGradientSelector, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -13456,9 +16740,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn BackingStore(self: KGradientSelector) QBackingStore {
+    pub fn backingStore(self: KGradientSelector) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -13468,9 +16756,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn WindowHandle(self: KGradientSelector) QWindow {
+    pub fn windowHandle(self: KGradientSelector) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -13480,9 +16772,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn Screen(self: KGradientSelector) QScreen {
+    pub fn screen(self: KGradientSelector) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -13492,12 +16788,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: KGradientSelector, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: KGradientSelector, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -13505,12 +16805,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -13522,13 +16826,17 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: KGradientSelector, title: []const u8) void {
+    pub fn windowTitleChanged(self: KGradientSelector, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -13540,9 +16848,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: KGradientSelector, callback: *const fn (KGradientSelector, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: KGradientSelector, callback: *const fn (KGradientSelector, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -13554,10 +16866,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: KGradientSelector, icon: anytype) void {
+    pub fn windowIconChanged(self: KGradientSelector, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -13569,9 +16885,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: KGradientSelector, callback: *const fn (KGradientSelector, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: KGradientSelector, callback: *const fn (KGradientSelector, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -13583,13 +16903,17 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: KGradientSelector, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: KGradientSelector, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -13601,9 +16925,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: KGradientSelector, callback: *const fn (KGradientSelector, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: KGradientSelector, callback: *const fn (KGradientSelector, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -13613,12 +16941,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: KGradientSelector, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: KGradientSelector, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -13630,9 +16962,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: KGradientSelector, callback: *const fn (KGradientSelector, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: KGradientSelector, callback: *const fn (KGradientSelector, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -13646,9 +16982,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: KGradientSelector) i32 {
+    pub fn inputMethodHints(self: KGradientSelector) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -13660,9 +17000,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: KGradientSelector, hints: i32) void {
+    pub fn setInputMethodHints(self: KGradientSelector, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -13676,11 +17020,15 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: KGradientSelector, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: KGradientSelector, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -13696,13 +17044,17 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: KGradientSelector, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: KGradientSelector, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -13719,12 +17071,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: KGradientSelector, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: KGradientSelector, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -13738,11 +17094,15 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: KGradientSelector, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: KGradientSelector, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -13758,12 +17118,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: KGradientSelector, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: KGradientSelector, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -13781,12 +17145,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: KGradientSelector, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: KGradientSelector, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -13798,10 +17166,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: KGradientSelector, rectangle: anytype) QPixmap {
+    pub fn grab1(self: KGradientSelector, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -13815,9 +17187,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: KGradientSelector, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: KGradientSelector, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -13831,10 +17207,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: KGradientSelector, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: KGradientSelector, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -13848,9 +17228,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: KGradientSelector, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: KGradientSelector, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -13864,9 +17248,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: KGradientSelector, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: KGradientSelector, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -13880,9 +17268,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: KGradientSelector, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: KGradientSelector, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -13896,25 +17288,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: KGradientSelector, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: KGradientSelector, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -13922,17 +17302,41 @@ pub const KGradientSelector = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -13944,13 +17348,17 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KGradientSelector, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KGradientSelector, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KGradientSelector.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KGradientSelector.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -13962,13 +17370,17 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KGradientSelector, name: []const u8) void {
+    pub fn setObjectName(self: KGradientSelector, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -13978,9 +17390,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn IsWidgetType(self: KGradientSelector) bool {
+    pub fn isWidgetType(self: KGradientSelector) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -13990,9 +17406,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn IsWindowType(self: KGradientSelector) bool {
+    pub fn isWindowType(self: KGradientSelector) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -14002,9 +17422,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn IsQuickItemType(self: KGradientSelector) bool {
+    pub fn isQuickItemType(self: KGradientSelector) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -14014,9 +17438,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn SignalsBlocked(self: KGradientSelector) bool {
+    pub fn signalsBlocked(self: KGradientSelector) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -14028,9 +17456,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KGradientSelector, b: bool) bool {
+    pub fn blockSignals(self: KGradientSelector, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -14040,9 +17472,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn Thread(self: KGradientSelector) QThread {
+    pub fn thread(self: KGradientSelector) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -14052,12 +17488,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KGradientSelector, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KGradientSelector, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -14069,9 +17509,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KGradientSelector, interval: i32) i32 {
+    pub fn startTimer(self: KGradientSelector, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -14083,9 +17527,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KGradientSelector, time: i64) i32 {
+    pub fn startTimer2(self: KGradientSelector, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -14097,9 +17545,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KGradientSelector, id: i32) void {
+    pub fn killTimer(self: KGradientSelector, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -14111,9 +17563,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KGradientSelector, id: i32) void {
+    pub fn killTimer2(self: KGradientSelector, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -14125,15 +17581,19 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KGradientSelector, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KGradientSelector, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KGradientSelector.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KGradientSelector.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -14145,10 +17605,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KGradientSelector, filterObj: anytype) void {
+    pub fn installEventFilter(self: KGradientSelector, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -14160,10 +17624,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KGradientSelector, obj: anytype) void {
+    pub fn removeEventFilter(self: KGradientSelector, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -14171,7 +17639,7 @@ pub const KGradientSelector = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -14179,13 +17647,17 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -14193,7 +17665,7 @@ pub const KGradientSelector = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -14201,13 +17673,17 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -14217,18 +17693,22 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KGradientSelector, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KGradientSelector, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -14236,7 +17716,7 @@ pub const KGradientSelector = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -14244,13 +17724,17 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -14258,7 +17742,7 @@ pub const KGradientSelector = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -14266,13 +17750,17 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -14282,9 +17770,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn Disconnect3(self: KGradientSelector) bool {
+    pub fn disconnect3(self: KGradientSelector) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -14296,10 +17788,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KGradientSelector, receiver: anytype) bool {
+    pub fn disconnect4(self: KGradientSelector, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -14309,10 +17805,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -14322,9 +17822,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn DumpObjectTree(self: KGradientSelector) void {
+    pub fn dumpObjectTree(self: KGradientSelector) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -14334,9 +17838,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn DumpObjectInfo(self: KGradientSelector) void {
+    pub fn dumpObjectInfo(self: KGradientSelector) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -14348,13 +17856,17 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QVariant `
+    /// ` _value: QVariant `
     ///
-    pub fn SetProperty(self: KGradientSelector, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KGradientSelector, name: [:0]const u8, _value: anytype) bool {
         const name_Cstring = name.ptr;
-        comptime _ = @TypeOf(value)._is_QVariant;
-        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
+        comptime _ = @TypeOf(_value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(_value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -14366,10 +17878,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KGradientSelector, name: [:0]const u8) QVariant {
+    pub fn property(self: KGradientSelector, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -14381,7 +17897,7 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KGradientSelector, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KGradientSelector, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -14389,27 +17905,19 @@ pub const KGradientSelector = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KGradientSelector.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KGradientSelector.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KGradientSelector.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KGradientSelector.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KGradientSelector `
-    ///
-    pub fn BindingStorage(self: KGradientSelector) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -14419,9 +17927,29 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn BindingStorage2(self: KGradientSelector) QBindingStorage {
+    pub fn bindingStorage(self: KGradientSelector) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KGradientSelector `
+    ///
+    pub fn bindingStorage2(self: KGradientSelector) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -14431,9 +17959,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn Destroyed(self: KGradientSelector) void {
+    pub fn destroyed(self: KGradientSelector) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -14445,9 +17977,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KGradientSelector, callback: *const fn (KGradientSelector) callconv(.c) void) void {
+    pub fn onDestroyed(self: KGradientSelector, callback: *const fn (KGradientSelector) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -14457,9 +17993,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn Parent(self: KGradientSelector) QObject {
+    pub fn parent(self: KGradientSelector) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -14471,10 +18011,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KGradientSelector, classname: [:0]const u8) bool {
+    pub fn inherits(self: KGradientSelector, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -14484,9 +18028,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn DeleteLater(self: KGradientSelector) void {
+    pub fn deleteLater(self: KGradientSelector) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -14500,9 +18048,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KGradientSelector, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KGradientSelector, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -14516,9 +18068,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KGradientSelector, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KGradientSelector, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -14526,7 +18082,7 @@ pub const KGradientSelector = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -14536,13 +18092,17 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -14550,7 +18110,7 @@ pub const KGradientSelector = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -14560,13 +18120,17 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -14576,7 +18140,7 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -14584,12 +18148,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KGradientSelector, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KGradientSelector, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -14601,10 +18169,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KGradientSelector, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KGradientSelector, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -14618,11 +18190,15 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KGradientSelector, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KGradientSelector, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -14638,13 +18214,17 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KGradientSelector, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KGradientSelector, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -14657,11 +18237,15 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KGradientSelector, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KGradientSelector, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -14673,10 +18257,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KGradientSelector, param1: anytype) void {
+    pub fn destroyed1(self: KGradientSelector, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -14688,9 +18276,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KGradientSelector, callback: *const fn (KGradientSelector, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KGradientSelector, callback: *const fn (KGradientSelector, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -14700,9 +18292,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn PaintingActive(self: KGradientSelector) bool {
+    pub fn paintingActive(self: KGradientSelector) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -14712,9 +18308,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn WidthMM(self: KGradientSelector) i32 {
+    pub fn widthMM(self: KGradientSelector) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -14724,9 +18324,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn HeightMM(self: KGradientSelector) i32 {
+    pub fn heightMM(self: KGradientSelector) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -14736,9 +18340,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn LogicalDpiX(self: KGradientSelector) i32 {
+    pub fn logicalDpiX(self: KGradientSelector) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -14748,9 +18356,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn LogicalDpiY(self: KGradientSelector) i32 {
+    pub fn logicalDpiY(self: KGradientSelector) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -14760,9 +18372,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn PhysicalDpiX(self: KGradientSelector) i32 {
+    pub fn physicalDpiX(self: KGradientSelector) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -14772,9 +18388,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn PhysicalDpiY(self: KGradientSelector) i32 {
+    pub fn physicalDpiY(self: KGradientSelector) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -14784,9 +18404,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn DevicePixelRatio(self: KGradientSelector) f64 {
+    pub fn devicePixelRatio(self: KGradientSelector) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -14796,9 +18420,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn DevicePixelRatioF(self: KGradientSelector) f64 {
+    pub fn devicePixelRatioF(self: KGradientSelector) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -14808,9 +18436,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn ColorCount(self: KGradientSelector) i32 {
+    pub fn colorCount(self: KGradientSelector) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -14820,17 +18452,25 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn Depth(self: KGradientSelector) i32 {
+    pub fn depth(self: KGradientSelector) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -14838,13 +18478,17 @@ pub const KGradientSelector = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    /// ` value: f64 `
+    /// ` _value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, _value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(_value));
     }
+
+    /// ### DEPRECATED: Use `drawArrow` instead
+    ///
+    pub const DrawArrow = drawArrow;
 
     /// Inherited from KSelector
     ///
@@ -14858,17 +18502,17 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn DrawArrow(self: KGradientSelector, painter: anytype, pos: anytype) void {
+    pub fn drawArrow(self: KGradientSelector, painter: anytype, _pos: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.KGradientSelector_DrawArrow(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(pos.ptr));
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.KGradientSelector_DrawArrow(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(_pos.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawArrow` instead
+    /// ### DEPRECATED: Use `superDrawArrow` instead
     ///
-    pub const QBaseDrawArrow = SuperDrawArrow;
+    pub const SuperDrawArrow = superDrawArrow;
 
     /// Inherited from KSelector
     ///
@@ -14882,13 +18526,17 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn SuperDrawArrow(self: KGradientSelector, painter: anytype, pos: anytype) void {
+    pub fn superDrawArrow(self: KGradientSelector, painter: anytype, _pos: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.KGradientSelector_SuperDrawArrow(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(pos.ptr));
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.KGradientSelector_SuperDrawArrow(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDrawArrow` instead
+    ///
+    pub const OnDrawArrow = onDrawArrow;
 
     /// Inherited from KSelector
     ///
@@ -14902,9 +18550,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, painter: QPainter, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnDrawArrow(self: KGradientSelector, callback: *const fn (KGradientSelector, QPainter, QPoint) callconv(.c) void) void {
+    pub fn onDrawArrow(self: KGradientSelector, callback: *const fn (KGradientSelector, QPainter, QPoint) callconv(.c) void) void {
         qtc.KGradientSelector_OnDrawArrow(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// Inherited from KSelector
     ///
@@ -14918,14 +18570,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` param1: QPaintEvent `
     ///
-    pub fn PaintEvent(self: KGradientSelector, param1: anytype) void {
+    pub fn paintEvent(self: KGradientSelector, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPaintEvent;
         qtc.KGradientSelector_PaintEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// Inherited from KSelector
     ///
@@ -14939,10 +18591,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` param1: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: KGradientSelector, param1: anytype) void {
+    pub fn superPaintEvent(self: KGradientSelector, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPaintEvent;
         qtc.KGradientSelector_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// Inherited from KSelector
     ///
@@ -14956,9 +18612,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, param1: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QPaintEvent) callconv(.c) void) void {
         qtc.KGradientSelector_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
 
     /// Inherited from KSelector
     ///
@@ -14972,14 +18632,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: KGradientSelector, e: anytype) void {
+    pub fn mousePressEvent(self: KGradientSelector, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.KGradientSelector_MousePressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from KSelector
     ///
@@ -14993,11 +18653,15 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: KGradientSelector, e: anytype) void {
+    pub fn superMousePressEvent(self: KGradientSelector, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.KGradientSelector_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
+
     /// Inherited from KSelector
     ///
     /// ### [Upstream resources](https://api.kde.org/kselector.html#mousePressEvent)
@@ -15010,9 +18674,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, e: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QMouseEvent) callconv(.c) void) void {
         qtc.KGradientSelector_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
 
     /// Inherited from KSelector
     ///
@@ -15026,14 +18694,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: KGradientSelector, e: anytype) void {
+    pub fn mouseMoveEvent(self: KGradientSelector, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.KGradientSelector_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from KSelector
     ///
@@ -15047,11 +18715,15 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: KGradientSelector, e: anytype) void {
+    pub fn superMouseMoveEvent(self: KGradientSelector, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.KGradientSelector_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
+
     /// Inherited from KSelector
     ///
     /// ### [Upstream resources](https://api.kde.org/kselector.html#mouseMoveEvent)
@@ -15064,9 +18736,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, e: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QMouseEvent) callconv(.c) void) void {
         qtc.KGradientSelector_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
 
     /// Inherited from KSelector
     ///
@@ -15080,14 +18756,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: KGradientSelector, e: anytype) void {
+    pub fn mouseReleaseEvent(self: KGradientSelector, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.KGradientSelector_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from KSelector
     ///
@@ -15101,10 +18777,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: KGradientSelector, e: anytype) void {
+    pub fn superMouseReleaseEvent(self: KGradientSelector, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.KGradientSelector_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from KSelector
     ///
@@ -15118,9 +18798,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, e: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QMouseEvent) callconv(.c) void) void {
         qtc.KGradientSelector_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from KSelector
     ///
@@ -15134,14 +18818,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` param1: QWheelEvent `
     ///
-    pub fn WheelEvent(self: KGradientSelector, param1: anytype) void {
+    pub fn wheelEvent(self: KGradientSelector, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWheelEvent;
         qtc.KGradientSelector_WheelEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from KSelector
     ///
@@ -15155,10 +18839,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` param1: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: KGradientSelector, param1: anytype) void {
+    pub fn superWheelEvent(self: KGradientSelector, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWheelEvent;
         qtc.KGradientSelector_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from KSelector
     ///
@@ -15172,9 +18860,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, param1: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QWheelEvent) callconv(.c) void) void {
         qtc.KGradientSelector_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QAbstractSlider
     ///
@@ -15188,14 +18880,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn Event(self: KGradientSelector, e: anytype) bool {
+    pub fn event(self: KGradientSelector, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.KGradientSelector_Event(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QAbstractSlider
     ///
@@ -15209,10 +18901,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn SuperEvent(self: KGradientSelector, e: anytype) bool {
+    pub fn superEvent(self: KGradientSelector, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.KGradientSelector_SuperEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QAbstractSlider
     ///
@@ -15226,9 +18922,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, e: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QEvent) callconv(.c) bool) void {
         qtc.KGradientSelector_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sliderChange` instead
+    ///
+    pub const SliderChange = sliderChange;
 
     /// Inherited from QAbstractSlider
     ///
@@ -15242,13 +18942,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` change: qabstractslider_enums.SliderChange `
     ///
-    pub fn SliderChange(self: KGradientSelector, change: i32) void {
+    pub fn sliderChange(self: KGradientSelector, change: i32) void {
         qtc.KGradientSelector_SliderChange(@ptrCast(self.ptr), @bitCast(change));
     }
 
-    /// ### DEPRECATED: Use `SuperSliderChange` instead
+    /// ### DEPRECATED: Use `superSliderChange` instead
     ///
-    pub const QBaseSliderChange = SuperSliderChange;
+    pub const SuperSliderChange = superSliderChange;
 
     /// Inherited from QAbstractSlider
     ///
@@ -15262,9 +18962,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` change: qabstractslider_enums.SliderChange `
     ///
-    pub fn SuperSliderChange(self: KGradientSelector, change: i32) void {
+    pub fn superSliderChange(self: KGradientSelector, change: i32) void {
         qtc.KGradientSelector_SuperSliderChange(@ptrCast(self.ptr), @bitCast(change));
     }
+
+    /// ### DEPRECATED: Use `onSliderChange` instead
+    ///
+    pub const OnSliderChange = onSliderChange;
 
     /// Inherited from QAbstractSlider
     ///
@@ -15278,9 +18982,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, change: qabstractslider_enums.SliderChange) callconv(.c) void `
     ///
-    pub fn OnSliderChange(self: KGradientSelector, callback: *const fn (KGradientSelector, i32) callconv(.c) void) void {
+    pub fn onSliderChange(self: KGradientSelector, callback: *const fn (KGradientSelector, i32) callconv(.c) void) void {
         qtc.KGradientSelector_OnSliderChange(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
 
     /// Inherited from QAbstractSlider
     ///
@@ -15294,14 +19002,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` ev: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: KGradientSelector, ev: anytype) void {
+    pub fn keyPressEvent(self: KGradientSelector, ev: anytype) void {
         comptime _ = @TypeOf(ev)._is_QKeyEvent;
         qtc.KGradientSelector_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QAbstractSlider
     ///
@@ -15315,10 +19023,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` ev: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: KGradientSelector, ev: anytype) void {
+    pub fn superKeyPressEvent(self: KGradientSelector, ev: anytype) void {
         comptime _ = @TypeOf(ev)._is_QKeyEvent;
         qtc.KGradientSelector_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// Inherited from QAbstractSlider
     ///
@@ -15332,9 +19044,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, ev: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QKeyEvent) callconv(.c) void) void {
         qtc.KGradientSelector_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QAbstractSlider
     ///
@@ -15348,14 +19064,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` param1: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KGradientSelector, param1: anytype) void {
+    pub fn timerEvent(self: KGradientSelector, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QTimerEvent;
         qtc.KGradientSelector_TimerEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QAbstractSlider
     ///
@@ -15369,10 +19085,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` param1: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KGradientSelector, param1: anytype) void {
+    pub fn superTimerEvent(self: KGradientSelector, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QTimerEvent;
         qtc.KGradientSelector_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QAbstractSlider
     ///
@@ -15386,9 +19106,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, param1: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QTimerEvent) callconv(.c) void) void {
         qtc.KGradientSelector_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QAbstractSlider
     ///
@@ -15402,14 +19126,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn ChangeEvent(self: KGradientSelector, e: anytype) void {
+    pub fn changeEvent(self: KGradientSelector, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QEvent;
         qtc.KGradientSelector_ChangeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QAbstractSlider
     ///
@@ -15423,10 +19147,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn SuperChangeEvent(self: KGradientSelector, e: anytype) void {
+    pub fn superChangeEvent(self: KGradientSelector, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QEvent;
         qtc.KGradientSelector_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QAbstractSlider
     ///
@@ -15440,9 +19168,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, e: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QEvent) callconv(.c) void) void {
         qtc.KGradientSelector_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -15454,13 +19186,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn DevType(self: KGradientSelector) i32 {
+    pub fn devType(self: KGradientSelector) i32 {
         return qtc.KGradientSelector_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -15472,9 +19204,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn SuperDevType(self: KGradientSelector) i32 {
+    pub fn superDevType(self: KGradientSelector) i32 {
         return qtc.KGradientSelector_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -15488,9 +19224,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: KGradientSelector, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KGradientSelector, callback: *const fn () callconv(.c) i32) void {
         qtc.KGradientSelector_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -15504,13 +19244,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: KGradientSelector, visible: bool) void {
+    pub fn setVisible(self: KGradientSelector, visible: bool) void {
         qtc.KGradientSelector_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -15524,9 +19264,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: KGradientSelector, visible: bool) void {
+    pub fn superSetVisible(self: KGradientSelector, visible: bool) void {
         qtc.KGradientSelector_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -15540,10 +19284,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: KGradientSelector, callback: *const fn (KGradientSelector, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: KGradientSelector, callback: *const fn (KGradientSelector, bool) callconv(.c) void) void {
         qtc.KGradientSelector_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
@@ -15554,13 +19302,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn SizeHint(self: KGradientSelector) QSize {
+    pub fn sizeHint(self: KGradientSelector) QSize {
         return .{ .ptr = qtc.KGradientSelector_SizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -15572,10 +19320,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn SuperSizeHint(self: KGradientSelector) QSize {
+    pub fn superSizeHint(self: KGradientSelector) QSize {
         return .{ .ptr = qtc.KGradientSelector_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
@@ -15590,9 +19342,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: KGradientSelector, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KGradientSelector, callback: *const fn () callconv(.c) QSize) void {
         qtc.KGradientSelector_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -15604,13 +19360,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn MinimumSizeHint(self: KGradientSelector) QSize {
+    pub fn minimumSizeHint(self: KGradientSelector) QSize {
         return .{ .ptr = qtc.KGradientSelector_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -15622,9 +19378,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn SuperMinimumSizeHint(self: KGradientSelector) QSize {
+    pub fn superMinimumSizeHint(self: KGradientSelector) QSize {
         return .{ .ptr = qtc.KGradientSelector_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -15640,9 +19400,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: KGradientSelector, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KGradientSelector, callback: *const fn () callconv(.c) QSize) void {
         qtc.KGradientSelector_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -15656,13 +19420,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: KGradientSelector, param1: i32) i32 {
+    pub fn heightForWidth(self: KGradientSelector, param1: i32) i32 {
         return qtc.KGradientSelector_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -15676,9 +19440,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: KGradientSelector, param1: i32) i32 {
+    pub fn superHeightForWidth(self: KGradientSelector, param1: i32) i32 {
         return qtc.KGradientSelector_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -15692,9 +19460,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: KGradientSelector, callback: *const fn (KGradientSelector, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: KGradientSelector, callback: *const fn (KGradientSelector, i32) callconv(.c) i32) void {
         qtc.KGradientSelector_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -15706,13 +19478,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn HasHeightForWidth(self: KGradientSelector) bool {
+    pub fn hasHeightForWidth(self: KGradientSelector) bool {
         return qtc.KGradientSelector_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -15724,9 +19496,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn SuperHasHeightForWidth(self: KGradientSelector) bool {
+    pub fn superHasHeightForWidth(self: KGradientSelector) bool {
         return qtc.KGradientSelector_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -15740,9 +19516,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: KGradientSelector, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KGradientSelector, callback: *const fn () callconv(.c) bool) void {
         qtc.KGradientSelector_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -15754,13 +19534,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn PaintEngine(self: KGradientSelector) QPaintEngine {
+    pub fn paintEngine(self: KGradientSelector) QPaintEngine {
         return .{ .ptr = qtc.KGradientSelector_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -15772,9 +19552,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn SuperPaintEngine(self: KGradientSelector) QPaintEngine {
+    pub fn superPaintEngine(self: KGradientSelector) QPaintEngine {
         return .{ .ptr = qtc.KGradientSelector_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -15788,9 +19572,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: KGradientSelector, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KGradientSelector, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.KGradientSelector_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -15802,16 +19590,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: KGradientSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KGradientSelector_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: KGradientSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KGradientSelector_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -15823,12 +19611,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: KGradientSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KGradientSelector_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: KGradientSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KGradientSelector_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -15842,9 +19634,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QMouseEvent) callconv(.c) void) void {
         qtc.KGradientSelector_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -15856,16 +19652,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: KGradientSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KGradientSelector_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyReleaseEvent(self: KGradientSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KGradientSelector_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -15877,12 +19673,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: KGradientSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KGradientSelector_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyReleaseEvent(self: KGradientSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KGradientSelector_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -15896,10 +19696,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QKeyEvent) callconv(.c) void) void {
         qtc.KGradientSelector_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
@@ -15910,16 +19714,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: KGradientSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KGradientSelector_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusInEvent(self: KGradientSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KGradientSelector_FocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -15931,12 +19735,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: KGradientSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KGradientSelector_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusInEvent(self: KGradientSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KGradientSelector_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -15950,10 +19758,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QFocusEvent) callconv(.c) void) void {
         qtc.KGradientSelector_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
@@ -15964,16 +19776,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: KGradientSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KGradientSelector_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusOutEvent(self: KGradientSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KGradientSelector_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -15985,12 +19797,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: KGradientSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KGradientSelector_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusOutEvent(self: KGradientSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KGradientSelector_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -16004,9 +19820,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QFocusEvent) callconv(.c) void) void {
         qtc.KGradientSelector_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -16018,16 +19838,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: KGradientSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KGradientSelector_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: KGradientSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KGradientSelector_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -16039,12 +19859,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: KGradientSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KGradientSelector_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: KGradientSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KGradientSelector_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -16058,9 +19882,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QEnterEvent) callconv(.c) void) void {
         qtc.KGradientSelector_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -16072,16 +19900,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: KGradientSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KGradientSelector_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: KGradientSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KGradientSelector_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -16093,12 +19921,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: KGradientSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KGradientSelector_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: KGradientSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KGradientSelector_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -16112,9 +19944,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QEvent) callconv(.c) void) void {
         qtc.KGradientSelector_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -16126,16 +19962,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: KGradientSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KGradientSelector_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: KGradientSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KGradientSelector_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -16147,12 +19983,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: KGradientSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KGradientSelector_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: KGradientSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KGradientSelector_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -16166,9 +20006,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QMoveEvent) callconv(.c) void) void {
         qtc.KGradientSelector_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -16180,16 +20024,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: KGradientSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.KGradientSelector_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn resizeEvent(self: KGradientSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.KGradientSelector_ResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -16201,12 +20045,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: KGradientSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.KGradientSelector_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superResizeEvent(self: KGradientSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.KGradientSelector_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -16220,9 +20068,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QResizeEvent) callconv(.c) void) void {
         qtc.KGradientSelector_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -16234,16 +20086,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: KGradientSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.KGradientSelector_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: KGradientSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.KGradientSelector_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -16255,12 +20107,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: KGradientSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.KGradientSelector_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: KGradientSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.KGradientSelector_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -16274,9 +20130,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QCloseEvent) callconv(.c) void) void {
         qtc.KGradientSelector_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -16288,16 +20148,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: KGradientSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.KGradientSelector_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn contextMenuEvent(self: KGradientSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.KGradientSelector_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -16309,12 +20169,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: KGradientSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.KGradientSelector_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superContextMenuEvent(self: KGradientSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.KGradientSelector_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -16328,9 +20192,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, event: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QContextMenuEvent) callconv(.c) void) void {
         qtc.KGradientSelector_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -16342,16 +20210,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: KGradientSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KGradientSelector_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: KGradientSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KGradientSelector_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -16363,12 +20231,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: KGradientSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KGradientSelector_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: KGradientSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KGradientSelector_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -16382,9 +20254,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QTabletEvent) callconv(.c) void) void {
         qtc.KGradientSelector_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -16396,16 +20272,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: KGradientSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KGradientSelector_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: KGradientSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KGradientSelector_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -16417,12 +20293,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: KGradientSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KGradientSelector_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: KGradientSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KGradientSelector_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -16436,9 +20316,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QActionEvent) callconv(.c) void) void {
         qtc.KGradientSelector_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -16450,16 +20334,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: KGradientSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KGradientSelector_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: KGradientSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KGradientSelector_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -16471,12 +20355,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: KGradientSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KGradientSelector_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: KGradientSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KGradientSelector_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -16490,9 +20378,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QDragEnterEvent) callconv(.c) void) void {
         qtc.KGradientSelector_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -16504,16 +20396,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: KGradientSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KGradientSelector_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: KGradientSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KGradientSelector_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -16525,12 +20417,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: KGradientSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KGradientSelector_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: KGradientSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KGradientSelector_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -16544,9 +20440,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QDragMoveEvent) callconv(.c) void) void {
         qtc.KGradientSelector_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -16558,16 +20458,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: KGradientSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KGradientSelector_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: KGradientSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KGradientSelector_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -16579,12 +20479,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: KGradientSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KGradientSelector_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: KGradientSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KGradientSelector_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -16598,9 +20502,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QDragLeaveEvent) callconv(.c) void) void {
         qtc.KGradientSelector_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QWidget
     ///
@@ -16612,16 +20520,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: KGradientSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KGradientSelector_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: KGradientSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KGradientSelector_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -16633,12 +20541,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: KGradientSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KGradientSelector_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: KGradientSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KGradientSelector_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -16652,9 +20564,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QDropEvent) callconv(.c) void) void {
         qtc.KGradientSelector_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QWidget
     ///
@@ -16666,16 +20582,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn ShowEvent(self: KGradientSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.KGradientSelector_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn showEvent(self: KGradientSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.KGradientSelector_ShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -16687,12 +20603,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: KGradientSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.KGradientSelector_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superShowEvent(self: KGradientSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.KGradientSelector_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -16706,9 +20626,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QShowEvent) callconv(.c) void) void {
         qtc.KGradientSelector_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -16720,16 +20644,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: KGradientSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KGradientSelector_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: KGradientSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KGradientSelector_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -16741,12 +20665,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: KGradientSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KGradientSelector_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: KGradientSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KGradientSelector_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -16760,9 +20688,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QHideEvent) callconv(.c) void) void {
         qtc.KGradientSelector_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -16780,7 +20712,7 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: KGradientSelector, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: KGradientSelector, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -16788,9 +20720,9 @@ pub const KGradientSelector = extern struct {
         return qtc.KGradientSelector_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -16808,13 +20740,17 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: KGradientSelector, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: KGradientSelector, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.KGradientSelector_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -16828,9 +20764,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KGradientSelector_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -16844,13 +20784,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: KGradientSelector, param1: i32) i32 {
+    pub fn metric(self: KGradientSelector, param1: i32) i32 {
         return qtc.KGradientSelector_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -16864,9 +20804,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: KGradientSelector, param1: i32) i32 {
+    pub fn superMetric(self: KGradientSelector, param1: i32) i32 {
         return qtc.KGradientSelector_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -16880,9 +20824,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: KGradientSelector, callback: *const fn (KGradientSelector, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: KGradientSelector, callback: *const fn (KGradientSelector, i32) callconv(.c) i32) void {
         qtc.KGradientSelector_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -16896,14 +20844,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: KGradientSelector, painter: anytype) void {
+    pub fn initPainter(self: KGradientSelector, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KGradientSelector_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -16917,10 +20865,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: KGradientSelector, painter: anytype) void {
+    pub fn superInitPainter(self: KGradientSelector, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KGradientSelector_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -16934,9 +20886,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: KGradientSelector, callback: *const fn (KGradientSelector, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: KGradientSelector, callback: *const fn (KGradientSelector, QPainter) callconv(.c) void) void {
         qtc.KGradientSelector_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -16950,14 +20906,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: KGradientSelector, offset: anytype) QPaintDevice {
+    pub fn redirected(self: KGradientSelector, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KGradientSelector_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -16971,10 +20927,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: KGradientSelector, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: KGradientSelector, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KGradientSelector_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -16988,9 +20948,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: KGradientSelector, callback: *const fn (KGradientSelector, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: KGradientSelector, callback: *const fn (KGradientSelector, QPoint) callconv(.c) QPaintDevice) void {
         qtc.KGradientSelector_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -17002,13 +20966,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn SharedPainter(self: KGradientSelector) QPainter {
+    pub fn sharedPainter(self: KGradientSelector) QPainter {
         return .{ .ptr = qtc.KGradientSelector_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -17020,9 +20984,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn SuperSharedPainter(self: KGradientSelector) QPainter {
+    pub fn superSharedPainter(self: KGradientSelector) QPainter {
         return .{ .ptr = qtc.KGradientSelector_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -17036,9 +21004,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: KGradientSelector, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KGradientSelector, callback: *const fn () callconv(.c) QPainter) void {
         qtc.KGradientSelector_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -17052,14 +21024,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: KGradientSelector, param1: anytype) void {
+    pub fn inputMethodEvent(self: KGradientSelector, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KGradientSelector_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -17073,10 +21045,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: KGradientSelector, param1: anytype) void {
+    pub fn superInputMethodEvent(self: KGradientSelector, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KGradientSelector_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -17090,9 +21066,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QInputMethodEvent) callconv(.c) void) void {
         qtc.KGradientSelector_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -17106,13 +21086,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: KGradientSelector, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: KGradientSelector, param1: i32) QVariant {
         return .{ .ptr = qtc.KGradientSelector_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -17126,9 +21106,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: KGradientSelector, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: KGradientSelector, param1: i32) QVariant {
         return .{ .ptr = qtc.KGradientSelector_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -17144,9 +21128,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: KGradientSelector, callback: *const fn (KGradientSelector, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: KGradientSelector, callback: *const fn (KGradientSelector, i32) callconv(.c) QVariant) void {
         qtc.KGradientSelector_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -17160,13 +21148,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: KGradientSelector, next: bool) bool {
+    pub fn focusNextPrevChild(self: KGradientSelector, next: bool) bool {
         return qtc.KGradientSelector_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -17180,9 +21168,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: KGradientSelector, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: KGradientSelector, next: bool) bool {
         return qtc.KGradientSelector_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -17196,9 +21188,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: KGradientSelector, callback: *const fn (KGradientSelector, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: KGradientSelector, callback: *const fn (KGradientSelector, bool) callconv(.c) bool) void {
         qtc.KGradientSelector_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -17212,17 +21208,17 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: KGradientSelector, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: KGradientSelector, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KGradientSelector_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KGradientSelector_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -17236,13 +21232,17 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: KGradientSelector, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: KGradientSelector, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KGradientSelector_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KGradientSelector_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -17256,9 +21256,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KGradientSelector, callback: *const fn (KGradientSelector, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KGradientSelector, callback: *const fn (KGradientSelector, QObject, QEvent) callconv(.c) bool) void {
         qtc.KGradientSelector_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -17270,16 +21274,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KGradientSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KGradientSelector_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KGradientSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KGradientSelector_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -17291,12 +21295,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KGradientSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KGradientSelector_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KGradientSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KGradientSelector_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -17310,9 +21318,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QChildEvent) callconv(.c) void) void {
         qtc.KGradientSelector_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -17324,16 +21336,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KGradientSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KGradientSelector_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KGradientSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KGradientSelector_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -17345,12 +21357,16 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KGradientSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KGradientSelector_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KGradientSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KGradientSelector_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -17364,9 +21380,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, QEvent) callconv(.c) void) void {
         qtc.KGradientSelector_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -17380,14 +21400,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KGradientSelector, signal: anytype) void {
+    pub fn connectNotify(self: KGradientSelector, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KGradientSelector_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -17401,11 +21421,15 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KGradientSelector, signal: anytype) void {
+    pub fn superConnectNotify(self: KGradientSelector, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KGradientSelector_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -17418,9 +21442,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KGradientSelector, callback: *const fn (KGradientSelector, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KGradientSelector, callback: *const fn (KGradientSelector, QMetaMethod) callconv(.c) void) void {
         qtc.KGradientSelector_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -17434,14 +21462,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KGradientSelector, signal: anytype) void {
+    pub fn disconnectNotify(self: KGradientSelector, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KGradientSelector_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -17455,10 +21483,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KGradientSelector, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KGradientSelector, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KGradientSelector_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -17472,9 +21504,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KGradientSelector, callback: *const fn (KGradientSelector, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KGradientSelector, callback: *const fn (KGradientSelector, QMetaMethod) callconv(.c) void) void {
         qtc.KGradientSelector_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setRepeatAction` instead
+    ///
+    pub const SetRepeatAction = setRepeatAction;
 
     /// Inherited from QAbstractSlider
     ///
@@ -17488,13 +21524,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` action: qabstractslider_enums.SliderAction `
     ///
-    pub fn SetRepeatAction(self: KGradientSelector, action: i32) void {
+    pub fn setRepeatAction(self: KGradientSelector, action: i32) void {
         qtc.KGradientSelector_SetRepeatAction(@ptrCast(self.ptr), @bitCast(action));
     }
 
-    /// ### DEPRECATED: Use `SuperSetRepeatAction` instead
+    /// ### DEPRECATED: Use `superSetRepeatAction` instead
     ///
-    pub const QBaseSetRepeatAction = SuperSetRepeatAction;
+    pub const SuperSetRepeatAction = superSetRepeatAction;
 
     /// Inherited from QAbstractSlider
     ///
@@ -17508,9 +21544,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` action: qabstractslider_enums.SliderAction `
     ///
-    pub fn SuperSetRepeatAction(self: KGradientSelector, action: i32) void {
+    pub fn superSetRepeatAction(self: KGradientSelector, action: i32) void {
         qtc.KGradientSelector_SuperSetRepeatAction(@ptrCast(self.ptr), @bitCast(action));
     }
+
+    /// ### DEPRECATED: Use `onSetRepeatAction` instead
+    ///
+    pub const OnSetRepeatAction = onSetRepeatAction;
 
     /// Inherited from QAbstractSlider
     ///
@@ -17524,9 +21564,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, action: qabstractslider_enums.SliderAction) callconv(.c) void `
     ///
-    pub fn OnSetRepeatAction(self: KGradientSelector, callback: *const fn (KGradientSelector, i32) callconv(.c) void) void {
+    pub fn onSetRepeatAction(self: KGradientSelector, callback: *const fn (KGradientSelector, i32) callconv(.c) void) void {
         qtc.KGradientSelector_OnSetRepeatAction(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `repeatAction` instead
+    ///
+    pub const RepeatAction = repeatAction;
 
     /// Inherited from QAbstractSlider
     ///
@@ -17542,13 +21586,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` qabstractslider_enums.SliderAction `
     ///
-    pub fn RepeatAction(self: KGradientSelector) i32 {
+    pub fn repeatAction(self: KGradientSelector) i32 {
         return qtc.KGradientSelector_RepeatAction(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperRepeatAction` instead
+    /// ### DEPRECATED: Use `superRepeatAction` instead
     ///
-    pub const QBaseRepeatAction = SuperRepeatAction;
+    pub const SuperRepeatAction = superRepeatAction;
 
     /// Inherited from QAbstractSlider
     ///
@@ -17564,9 +21608,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` qabstractslider_enums.SliderAction `
     ///
-    pub fn SuperRepeatAction(self: KGradientSelector) i32 {
+    pub fn superRepeatAction(self: KGradientSelector) i32 {
         return qtc.KGradientSelector_SuperRepeatAction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onRepeatAction` instead
+    ///
+    pub const OnRepeatAction = onRepeatAction;
 
     /// Inherited from QAbstractSlider
     ///
@@ -17580,10 +21628,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnRepeatAction(self: KGradientSelector, callback: *const fn () callconv(.c) i32) void {
+    pub fn onRepeatAction(self: KGradientSelector, callback: *const fn () callconv(.c) i32) void {
         qtc.KGradientSelector_OnRepeatAction(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -17594,13 +21646,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn UpdateMicroFocus(self: KGradientSelector) void {
+    pub fn updateMicroFocus(self: KGradientSelector) void {
         qtc.KGradientSelector_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -17612,10 +21664,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn SuperUpdateMicroFocus(self: KGradientSelector) void {
+    pub fn superUpdateMicroFocus(self: KGradientSelector) void {
         qtc.KGradientSelector_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -17628,10 +21684,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: KGradientSelector, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: KGradientSelector, callback: *const fn () callconv(.c) void) void {
         qtc.KGradientSelector_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -17642,13 +21702,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn Create(self: KGradientSelector) void {
+    pub fn create(self: KGradientSelector) void {
         qtc.KGradientSelector_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -17660,10 +21720,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn SuperCreate(self: KGradientSelector) void {
+    pub fn superCreate(self: KGradientSelector) void {
         qtc.KGradientSelector_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -17676,9 +21740,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: KGradientSelector, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: KGradientSelector, callback: *const fn () callconv(.c) void) void {
         qtc.KGradientSelector_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -17690,13 +21758,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn Destroy(self: KGradientSelector) void {
+    pub fn destroy(self: KGradientSelector) void {
         qtc.KGradientSelector_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -17708,9 +21776,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn SuperDestroy(self: KGradientSelector) void {
+    pub fn superDestroy(self: KGradientSelector) void {
         qtc.KGradientSelector_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -17724,10 +21796,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: KGradientSelector, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: KGradientSelector, callback: *const fn () callconv(.c) void) void {
         qtc.KGradientSelector_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -17738,13 +21814,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn FocusNextChild(self: KGradientSelector) bool {
+    pub fn focusNextChild(self: KGradientSelector) bool {
         return qtc.KGradientSelector_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -17756,10 +21832,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn SuperFocusNextChild(self: KGradientSelector) bool {
+    pub fn superFocusNextChild(self: KGradientSelector) bool {
         return qtc.KGradientSelector_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -17772,9 +21852,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: KGradientSelector, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: KGradientSelector, callback: *const fn () callconv(.c) bool) void {
         qtc.KGradientSelector_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -17786,13 +21870,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn FocusPreviousChild(self: KGradientSelector) bool {
+    pub fn focusPreviousChild(self: KGradientSelector) bool {
         return qtc.KGradientSelector_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -17804,9 +21888,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn SuperFocusPreviousChild(self: KGradientSelector) bool {
+    pub fn superFocusPreviousChild(self: KGradientSelector) bool {
         return qtc.KGradientSelector_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -17820,9 +21908,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: KGradientSelector, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: KGradientSelector, callback: *const fn () callconv(.c) bool) void {
         qtc.KGradientSelector_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -17834,13 +21926,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn Sender(self: KGradientSelector) QObject {
+    pub fn sender(self: KGradientSelector) QObject {
         return .{ .ptr = qtc.KGradientSelector_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -17852,9 +21944,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn SuperSender(self: KGradientSelector) QObject {
+    pub fn superSender(self: KGradientSelector) QObject {
         return .{ .ptr = qtc.KGradientSelector_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -17868,9 +21964,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KGradientSelector, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KGradientSelector, callback: *const fn () callconv(.c) QObject) void {
         qtc.KGradientSelector_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -17882,13 +21982,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn SenderSignalIndex(self: KGradientSelector) i32 {
+    pub fn senderSignalIndex(self: KGradientSelector) i32 {
         return qtc.KGradientSelector_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -17900,9 +22000,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn SuperSenderSignalIndex(self: KGradientSelector) i32 {
+    pub fn superSenderSignalIndex(self: KGradientSelector) i32 {
         return qtc.KGradientSelector_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -17916,9 +22020,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KGradientSelector, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KGradientSelector, callback: *const fn () callconv(.c) i32) void {
         qtc.KGradientSelector_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -17932,14 +22040,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KGradientSelector, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KGradientSelector, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KGradientSelector_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -17953,10 +22061,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KGradientSelector, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KGradientSelector, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KGradientSelector_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -17970,9 +22082,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KGradientSelector, callback: *const fn (KGradientSelector, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KGradientSelector, callback: *const fn (KGradientSelector, [*:0]const u8) callconv(.c) i32) void {
         qtc.KGradientSelector_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -17986,14 +22102,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KGradientSelector, signal: anytype) bool {
+    pub fn isSignalConnected(self: KGradientSelector, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KGradientSelector_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -18007,10 +22123,14 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KGradientSelector, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KGradientSelector, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KGradientSelector_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -18024,9 +22144,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KGradientSelector, callback: *const fn (KGradientSelector, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KGradientSelector, callback: *const fn (KGradientSelector, QMetaMethod) callconv(.c) bool) void {
         qtc.KGradientSelector_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -18042,13 +22166,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: KGradientSelector, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: KGradientSelector, metricA: i32, metricB: i32) f64 {
         return qtc.KGradientSelector_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -18064,9 +22188,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: KGradientSelector, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: KGradientSelector, metricA: i32, metricB: i32) f64 {
         return qtc.KGradientSelector_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -18080,9 +22208,13 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: KGradientSelector, callback: *const fn (KGradientSelector, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: KGradientSelector, callback: *const fn (KGradientSelector, i32, i32) callconv(.c) f64) void {
         qtc.KGradientSelector_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -18096,23 +22228,23 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KGradientSelector, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KGradientSelector, callback: *const fn (KGradientSelector, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KGradientSelector, callback: *const fn (KGradientSelector, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kgradientselector.html#dtor.KGradientSelector)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KGradientSelector `
     ///
-    pub fn Delete(self: KGradientSelector) void {
+    pub fn delete(self: KGradientSelector) void {
         qtc.KGradientSelector_Delete(@ptrCast(self.ptr));
     }
 };

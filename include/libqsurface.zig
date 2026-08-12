@@ -14,6 +14,10 @@ pub const QSurface = extern struct {
 
     pub const _is_QSurface = {};
 
+    /// ### DEPRECATED: Use `surfaceClass` instead
+    ///
+    pub const SurfaceClass = surfaceClass;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurface.html#surfaceClass)
     ///
     /// ## Parameter(s):
@@ -24,9 +28,13 @@ pub const QSurface = extern struct {
     ///
     /// ` qsurface_enums.SurfaceClass `
     ///
-    pub fn SurfaceClass(self: QSurface) i32 {
+    pub fn surfaceClass(self: QSurface) i32 {
         return qtc.QSurface_SurfaceClass(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `format` instead
+    ///
+    pub const Format = format;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurface.html#format)
     ///
@@ -34,9 +42,13 @@ pub const QSurface = extern struct {
     ///
     /// ` self: QSurface `
     ///
-    pub fn Format(self: QSurface) QSurfaceFormat {
+    pub fn format(self: QSurface) QSurfaceFormat {
         return .{ .ptr = qtc.QSurface_Format(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `surfaceType` instead
+    ///
+    pub const SurfaceType = surfaceType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurface.html#surfaceType)
     ///
@@ -48,9 +60,13 @@ pub const QSurface = extern struct {
     ///
     /// ` qsurface_enums.SurfaceType `
     ///
-    pub fn SurfaceType(self: QSurface) i32 {
+    pub fn surfaceType(self: QSurface) i32 {
         return qtc.QSurface_SurfaceType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `supportsOpenGL` instead
+    ///
+    pub const SupportsOpenGL = supportsOpenGL;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurface.html#supportsOpenGL)
     ///
@@ -58,9 +74,13 @@ pub const QSurface = extern struct {
     ///
     /// ` self: QSurface `
     ///
-    pub fn SupportsOpenGL(self: QSurface) bool {
+    pub fn supportsOpenGL(self: QSurface) bool {
         return qtc.QSurface_SupportsOpenGL(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurface.html#size)
     ///
@@ -68,23 +88,23 @@ pub const QSurface = extern struct {
     ///
     /// ` self: QSurface `
     ///
-    pub fn Size(self: QSurface) QSize {
+    pub fn size(self: QSurface) QSize {
         return .{ .ptr = qtc.QSurface_Size(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurface.html#dtor.QSurface)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QSurface `
     ///
-    pub fn Delete(self: QSurface) void {
+    pub fn delete(self: QSurface) void {
         qtc.QSurface_Delete(@ptrCast(self.ptr));
     }
 };

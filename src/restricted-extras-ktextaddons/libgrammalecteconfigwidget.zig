@@ -79,35 +79,51 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new TextGrammarCheck::GrammalecteConfigWidget object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new TextGrammarCheck::GrammalecteConfigWidget object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) TextGrammarCheck__GrammalecteConfigWidget {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.TextGrammarCheck__GrammalecteConfigWidget_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) TextGrammarCheck__GrammalecteConfigWidget {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.TextGrammarCheck__GrammalecteConfigWidget_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new TextGrammarCheck::GrammalecteConfigWidget object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() TextGrammarCheck__GrammalecteConfigWidget {
+    pub const New2 = new2;
+
+    /// Allocate a new TextGrammarCheck::GrammalecteConfigWidget object in C++ memory
+    ///
+    pub fn new2() TextGrammarCheck__GrammalecteConfigWidget {
         return .{ .ptr = qtc.TextGrammarCheck__GrammalecteConfigWidget_new2() };
     }
 
-    /// New3 constructs a new TextGrammarCheck::GrammalecteConfigWidget object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new TextGrammarCheck::GrammalecteConfigWidget object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
     /// ` disableMessageBox: bool `
     ///
-    pub fn New3(parent: anytype, disableMessageBox: bool) TextGrammarCheck__GrammalecteConfigWidget {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.TextGrammarCheck__GrammalecteConfigWidget_new3(@ptrCast(parent.ptr), disableMessageBox) };
+    pub fn new3(_parent: anytype, disableMessageBox: bool) TextGrammarCheck__GrammalecteConfigWidget {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.TextGrammarCheck__GrammalecteConfigWidget_new3(@ptrCast(_parent.ptr), disableMessageBox) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextGrammarCheck_1_1GrammalecteConfigWidget.html)
     ///
@@ -115,9 +131,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn MetaObject(self: TextGrammarCheck__GrammalecteConfigWidget) QMetaObject {
+    pub fn metaObject(self: TextGrammarCheck__GrammalecteConfigWidget) QMetaObject {
         return .{ .ptr = qtc.TextGrammarCheck__GrammalecteConfigWidget_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextGrammarCheck_1_1GrammalecteConfigWidget.html)
     ///
@@ -129,13 +149,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextGrammarCheck_1_1GrammalecteConfigWidget.html)
     ///
@@ -145,9 +165,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn SuperMetaObject(self: TextGrammarCheck__GrammalecteConfigWidget) QMetaObject {
+    pub fn superMetaObject(self: TextGrammarCheck__GrammalecteConfigWidget) QMetaObject {
         return .{ .ptr = qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -155,10 +179,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: TextGrammarCheck__GrammalecteConfigWidget, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: TextGrammarCheck__GrammalecteConfigWidget, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.TextGrammarCheck__GrammalecteConfigWidget_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -168,13 +196,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigWidget, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -184,10 +212,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: TextGrammarCheck__GrammalecteConfigWidget, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: TextGrammarCheck__GrammalecteConfigWidget, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -199,9 +231,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: TextGrammarCheck__GrammalecteConfigWidget, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: TextGrammarCheck__GrammalecteConfigWidget, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.TextGrammarCheck__GrammalecteConfigWidget_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -211,13 +247,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigWidget, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -231,9 +267,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: TextGrammarCheck__GrammalecteConfigWidget, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: TextGrammarCheck__GrammalecteConfigWidget, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -243,24 +283,18 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__GrammalecteConfigWidget.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__GrammalecteConfigWidget.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextGrammarCheck_1_1GrammalecteConfigWidget.html)
+    /// ### DEPRECATED: Use `loadSettings` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
-    ///
-    pub fn LoadSettings(self: TextGrammarCheck__GrammalecteConfigWidget) void {
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_LoadSettings(@ptrCast(self.ptr));
-    }
+    pub const LoadSettings = loadSettings;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextGrammarCheck_1_1GrammalecteConfigWidget.html)
     ///
@@ -268,9 +302,27 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn SaveSettings(self: TextGrammarCheck__GrammalecteConfigWidget) void {
+    pub fn loadSettings(self: TextGrammarCheck__GrammalecteConfigWidget) void {
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_LoadSettings(@ptrCast(self.ptr));
+    }
+
+    /// ### DEPRECATED: Use `saveSettings` instead
+    ///
+    pub const SaveSettings = saveSettings;
+
+    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextGrammarCheck_1_1GrammalecteConfigWidget.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
+    ///
+    pub fn saveSettings(self: TextGrammarCheck__GrammalecteConfigWidget) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_SaveSettings(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -282,15 +334,19 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__GrammalecteConfigWidget.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__GrammalecteConfigWidget.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -304,15 +360,19 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__GrammalecteConfigWidget.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__GrammalecteConfigWidget.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -322,9 +382,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn WinId(self: TextGrammarCheck__GrammalecteConfigWidget) usize {
+    pub fn winId(self: TextGrammarCheck__GrammalecteConfigWidget) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -334,9 +398,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn CreateWinId(self: TextGrammarCheck__GrammalecteConfigWidget) void {
+    pub fn createWinId(self: TextGrammarCheck__GrammalecteConfigWidget) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -346,9 +414,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn InternalWinId(self: TextGrammarCheck__GrammalecteConfigWidget) usize {
+    pub fn internalWinId(self: TextGrammarCheck__GrammalecteConfigWidget) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -358,9 +430,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn EffectiveWinId(self: TextGrammarCheck__GrammalecteConfigWidget) usize {
+    pub fn effectiveWinId(self: TextGrammarCheck__GrammalecteConfigWidget) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -370,9 +446,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn Style(self: TextGrammarCheck__GrammalecteConfigWidget) QStyle {
+    pub fn style(self: TextGrammarCheck__GrammalecteConfigWidget) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -382,12 +462,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: TextGrammarCheck__GrammalecteConfigWidget, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: TextGrammarCheck__GrammalecteConfigWidget, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -397,9 +481,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn IsTopLevel(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
+    pub fn isTopLevel(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -409,9 +497,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn IsWindow(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
+    pub fn isWindow(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -421,9 +513,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn IsModal(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
+    pub fn isModal(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -437,9 +533,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
+    pub fn windowModality(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -449,11 +549,15 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: TextGrammarCheck__GrammalecteConfigWidget, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: TextGrammarCheck__GrammalecteConfigWidget, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -463,9 +567,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn IsEnabled(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
+    pub fn isEnabled(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -477,10 +585,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype) bool {
+    pub fn isEnabledTo(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -492,9 +604,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: TextGrammarCheck__GrammalecteConfigWidget, enabled: bool) void {
+    pub fn setEnabled(self: TextGrammarCheck__GrammalecteConfigWidget, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -506,9 +622,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: TextGrammarCheck__GrammalecteConfigWidget, disabled: bool) void {
+    pub fn setDisabled(self: TextGrammarCheck__GrammalecteConfigWidget, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -520,9 +640,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: TextGrammarCheck__GrammalecteConfigWidget, windowModified: bool) void {
+    pub fn setWindowModified(self: TextGrammarCheck__GrammalecteConfigWidget, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -532,9 +656,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn FrameGeometry(self: TextGrammarCheck__GrammalecteConfigWidget) QRect {
+    pub fn frameGeometry(self: TextGrammarCheck__GrammalecteConfigWidget) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -544,9 +672,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn Geometry(self: TextGrammarCheck__GrammalecteConfigWidget) QRect {
+    pub fn geometry(self: TextGrammarCheck__GrammalecteConfigWidget) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -556,9 +688,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn NormalGeometry(self: TextGrammarCheck__GrammalecteConfigWidget) QRect {
+    pub fn normalGeometry(self: TextGrammarCheck__GrammalecteConfigWidget) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -568,9 +704,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn X(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
+    pub fn x(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -580,9 +720,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn Y(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
+    pub fn y(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -592,9 +736,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn Pos(self: TextGrammarCheck__GrammalecteConfigWidget) QPoint {
+    pub fn pos(self: TextGrammarCheck__GrammalecteConfigWidget) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -604,9 +752,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn FrameSize(self: TextGrammarCheck__GrammalecteConfigWidget) QSize {
+    pub fn frameSize(self: TextGrammarCheck__GrammalecteConfigWidget) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -616,9 +768,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn Size(self: TextGrammarCheck__GrammalecteConfigWidget) QSize {
+    pub fn size(self: TextGrammarCheck__GrammalecteConfigWidget) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -628,9 +784,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn Width(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
+    pub fn width(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -640,9 +800,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn Height(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
+    pub fn height(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -652,9 +816,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn Rect(self: TextGrammarCheck__GrammalecteConfigWidget) QRect {
+    pub fn rect(self: TextGrammarCheck__GrammalecteConfigWidget) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -664,9 +832,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn ChildrenRect(self: TextGrammarCheck__GrammalecteConfigWidget) QRect {
+    pub fn childrenRect(self: TextGrammarCheck__GrammalecteConfigWidget) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -676,9 +848,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn ChildrenRegion(self: TextGrammarCheck__GrammalecteConfigWidget) QRegion {
+    pub fn childrenRegion(self: TextGrammarCheck__GrammalecteConfigWidget) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -688,9 +864,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn MinimumSize(self: TextGrammarCheck__GrammalecteConfigWidget) QSize {
+    pub fn minimumSize(self: TextGrammarCheck__GrammalecteConfigWidget) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -700,9 +880,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn MaximumSize(self: TextGrammarCheck__GrammalecteConfigWidget) QSize {
+    pub fn maximumSize(self: TextGrammarCheck__GrammalecteConfigWidget) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -712,9 +896,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn MinimumWidth(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
+    pub fn minimumWidth(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -724,9 +912,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn MinimumHeight(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
+    pub fn minimumHeight(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -736,9 +928,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn MaximumWidth(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
+    pub fn maximumWidth(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -748,9 +944,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn MaximumHeight(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
+    pub fn maximumHeight(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -760,12 +960,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: TextGrammarCheck__GrammalecteConfigWidget, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: TextGrammarCheck__GrammalecteConfigWidget, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -779,9 +983,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: TextGrammarCheck__GrammalecteConfigWidget, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: TextGrammarCheck__GrammalecteConfigWidget, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -791,12 +999,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: TextGrammarCheck__GrammalecteConfigWidget, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: TextGrammarCheck__GrammalecteConfigWidget, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -810,9 +1022,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: TextGrammarCheck__GrammalecteConfigWidget, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: TextGrammarCheck__GrammalecteConfigWidget, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -824,9 +1040,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: TextGrammarCheck__GrammalecteConfigWidget, minw: i32) void {
+    pub fn setMinimumWidth(self: TextGrammarCheck__GrammalecteConfigWidget, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -838,9 +1058,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: TextGrammarCheck__GrammalecteConfigWidget, minh: i32) void {
+    pub fn setMinimumHeight(self: TextGrammarCheck__GrammalecteConfigWidget, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -852,9 +1076,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: TextGrammarCheck__GrammalecteConfigWidget, maxw: i32) void {
+    pub fn setMaximumWidth(self: TextGrammarCheck__GrammalecteConfigWidget, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -866,9 +1094,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: TextGrammarCheck__GrammalecteConfigWidget, maxh: i32) void {
+    pub fn setMaximumHeight(self: TextGrammarCheck__GrammalecteConfigWidget, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -878,9 +1110,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn SizeIncrement(self: TextGrammarCheck__GrammalecteConfigWidget) QSize {
+    pub fn sizeIncrement(self: TextGrammarCheck__GrammalecteConfigWidget) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -890,12 +1126,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: TextGrammarCheck__GrammalecteConfigWidget, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: TextGrammarCheck__GrammalecteConfigWidget, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -909,9 +1149,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: TextGrammarCheck__GrammalecteConfigWidget, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: TextGrammarCheck__GrammalecteConfigWidget, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -921,9 +1165,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn BaseSize(self: TextGrammarCheck__GrammalecteConfigWidget) QSize {
+    pub fn baseSize(self: TextGrammarCheck__GrammalecteConfigWidget) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -933,12 +1181,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: TextGrammarCheck__GrammalecteConfigWidget, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: TextGrammarCheck__GrammalecteConfigWidget, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -952,9 +1204,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: TextGrammarCheck__GrammalecteConfigWidget, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: TextGrammarCheck__GrammalecteConfigWidget, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -966,10 +1222,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: TextGrammarCheck__GrammalecteConfigWidget, fixedSize: anytype) void {
+    pub fn setFixedSize(self: TextGrammarCheck__GrammalecteConfigWidget, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -983,9 +1243,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: TextGrammarCheck__GrammalecteConfigWidget, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: TextGrammarCheck__GrammalecteConfigWidget, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -997,9 +1261,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: TextGrammarCheck__GrammalecteConfigWidget, w: i32) void {
+    pub fn setFixedWidth(self: TextGrammarCheck__GrammalecteConfigWidget, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -1011,9 +1279,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: TextGrammarCheck__GrammalecteConfigWidget, h: i32) void {
+    pub fn setFixedHeight(self: TextGrammarCheck__GrammalecteConfigWidget, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -1025,11 +1297,15 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -1040,11 +1316,15 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1055,11 +1335,15 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1070,11 +1354,15 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1085,11 +1373,15 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype) QPointF {
+    pub fn mapToParent(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1100,10 +1392,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype) QPoint {
+    pub fn mapToParent2(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -1115,10 +1411,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype) QPointF {
+    pub fn mapFromParent(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -1130,10 +1430,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -1147,12 +1451,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -1165,11 +1473,15 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -1183,11 +1495,15 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -1201,11 +1517,15 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -1215,9 +1535,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn Window(self: TextGrammarCheck__GrammalecteConfigWidget) QWidget {
+    pub fn window(self: TextGrammarCheck__GrammalecteConfigWidget) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -1227,9 +1551,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn NativeParentWidget(self: TextGrammarCheck__GrammalecteConfigWidget) QWidget {
+    pub fn nativeParentWidget(self: TextGrammarCheck__GrammalecteConfigWidget) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -1239,9 +1567,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn TopLevelWidget(self: TextGrammarCheck__GrammalecteConfigWidget) QWidget {
+    pub fn topLevelWidget(self: TextGrammarCheck__GrammalecteConfigWidget) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -1251,9 +1583,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn Palette(self: TextGrammarCheck__GrammalecteConfigWidget) QPalette {
+    pub fn palette(self: TextGrammarCheck__GrammalecteConfigWidget) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -1263,12 +1599,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: TextGrammarCheck__GrammalecteConfigWidget, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: TextGrammarCheck__GrammalecteConfigWidget, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1278,11 +1618,15 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: TextGrammarCheck__GrammalecteConfigWidget, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: TextGrammarCheck__GrammalecteConfigWidget, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1296,9 +1640,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
+    pub fn backgroundRole(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1308,11 +1656,15 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: TextGrammarCheck__GrammalecteConfigWidget, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: TextGrammarCheck__GrammalecteConfigWidget, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1326,9 +1678,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
+    pub fn foregroundRole(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -1338,9 +1694,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn Font(self: TextGrammarCheck__GrammalecteConfigWidget) QFont {
+    pub fn font(self: TextGrammarCheck__GrammalecteConfigWidget) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -1350,12 +1710,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: TextGrammarCheck__GrammalecteConfigWidget, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: TextGrammarCheck__GrammalecteConfigWidget, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -1365,9 +1729,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn FontMetrics(self: TextGrammarCheck__GrammalecteConfigWidget) QFontMetrics {
+    pub fn fontMetrics(self: TextGrammarCheck__GrammalecteConfigWidget) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -1377,9 +1745,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn FontInfo(self: TextGrammarCheck__GrammalecteConfigWidget) QFontInfo {
+    pub fn fontInfo(self: TextGrammarCheck__GrammalecteConfigWidget) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -1389,9 +1761,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn Cursor(self: TextGrammarCheck__GrammalecteConfigWidget) QCursor {
+    pub fn cursor(self: TextGrammarCheck__GrammalecteConfigWidget) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -1401,12 +1777,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: TextGrammarCheck__GrammalecteConfigWidget, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: TextGrammarCheck__GrammalecteConfigWidget, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -1416,9 +1796,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn UnsetCursor(self: TextGrammarCheck__GrammalecteConfigWidget) void {
+    pub fn unsetCursor(self: TextGrammarCheck__GrammalecteConfigWidget) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -1430,9 +1814,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: TextGrammarCheck__GrammalecteConfigWidget, enable: bool) void {
+    pub fn setMouseTracking(self: TextGrammarCheck__GrammalecteConfigWidget, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -1442,9 +1830,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn HasMouseTracking(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
+    pub fn hasMouseTracking(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -1454,9 +1846,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn UnderMouse(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
+    pub fn underMouse(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -1468,9 +1864,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: TextGrammarCheck__GrammalecteConfigWidget, enable: bool) void {
+    pub fn setTabletTracking(self: TextGrammarCheck__GrammalecteConfigWidget, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -1480,24 +1880,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn HasTabletTracking(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
+    pub fn hasTabletTracking(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: TextGrammarCheck__GrammalecteConfigWidget, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -1507,12 +1896,35 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: TextGrammarCheck__GrammalecteConfigWidget, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: TextGrammarCheck__GrammalecteConfigWidget, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: TextGrammarCheck__GrammalecteConfigWidget, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -1522,9 +1934,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn Mask(self: TextGrammarCheck__GrammalecteConfigWidget) QRegion {
+    pub fn mask(self: TextGrammarCheck__GrammalecteConfigWidget) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -1534,9 +1950,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn ClearMask(self: TextGrammarCheck__GrammalecteConfigWidget) void {
+    pub fn clearMask(self: TextGrammarCheck__GrammalecteConfigWidget) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -1548,10 +1968,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: TextGrammarCheck__GrammalecteConfigWidget, target: anytype) void {
+    pub fn render(self: TextGrammarCheck__GrammalecteConfigWidget, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -1563,10 +1987,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: TextGrammarCheck__GrammalecteConfigWidget, painter: anytype) void {
+    pub fn render2(self: TextGrammarCheck__GrammalecteConfigWidget, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -1576,9 +2004,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn Grab(self: TextGrammarCheck__GrammalecteConfigWidget) QPixmap {
+    pub fn grab(self: TextGrammarCheck__GrammalecteConfigWidget) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -1588,9 +2020,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn GraphicsEffect(self: TextGrammarCheck__GrammalecteConfigWidget) QGraphicsEffect {
+    pub fn graphicsEffect(self: TextGrammarCheck__GrammalecteConfigWidget) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -1602,10 +2038,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: TextGrammarCheck__GrammalecteConfigWidget, effect: anytype) void {
+    pub fn setGraphicsEffect(self: TextGrammarCheck__GrammalecteConfigWidget, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -1617,9 +2057,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: TextGrammarCheck__GrammalecteConfigWidget, typeVal: i32) void {
+    pub fn grabGesture(self: TextGrammarCheck__GrammalecteConfigWidget, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -1631,9 +2075,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: TextGrammarCheck__GrammalecteConfigWidget, typeVal: i32) void {
+    pub fn ungrabGesture(self: TextGrammarCheck__GrammalecteConfigWidget, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -1643,15 +2091,19 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: TextGrammarCheck__GrammalecteConfigWidget, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: TextGrammarCheck__GrammalecteConfigWidget, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -1661,15 +2113,19 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: TextGrammarCheck__GrammalecteConfigWidget, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: TextGrammarCheck__GrammalecteConfigWidget, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -1681,13 +2137,17 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: TextGrammarCheck__GrammalecteConfigWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: TextGrammarCheck__GrammalecteConfigWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__GrammalecteConfigWidget.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__GrammalecteConfigWidget.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -1699,13 +2159,17 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: TextGrammarCheck__GrammalecteConfigWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: TextGrammarCheck__GrammalecteConfigWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__GrammalecteConfigWidget.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__GrammalecteConfigWidget.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -1717,10 +2181,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: TextGrammarCheck__GrammalecteConfigWidget, icon: anytype) void {
+    pub fn setWindowIcon(self: TextGrammarCheck__GrammalecteConfigWidget, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -1730,9 +2198,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn WindowIcon(self: TextGrammarCheck__GrammalecteConfigWidget) QIcon {
+    pub fn windowIcon(self: TextGrammarCheck__GrammalecteConfigWidget) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -1742,15 +2214,19 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: TextGrammarCheck__GrammalecteConfigWidget, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: TextGrammarCheck__GrammalecteConfigWidget, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -1762,13 +2238,17 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: TextGrammarCheck__GrammalecteConfigWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: TextGrammarCheck__GrammalecteConfigWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__GrammalecteConfigWidget.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__GrammalecteConfigWidget.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -1778,15 +2258,19 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: TextGrammarCheck__GrammalecteConfigWidget, windowRole: []const u8) void {
+    pub fn setWindowRole(self: TextGrammarCheck__GrammalecteConfigWidget, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -1798,13 +2282,17 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: TextGrammarCheck__GrammalecteConfigWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: TextGrammarCheck__GrammalecteConfigWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__GrammalecteConfigWidget.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__GrammalecteConfigWidget.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -1816,13 +2304,17 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: TextGrammarCheck__GrammalecteConfigWidget, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: TextGrammarCheck__GrammalecteConfigWidget, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -1834,13 +2326,17 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: TextGrammarCheck__GrammalecteConfigWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: TextGrammarCheck__GrammalecteConfigWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__GrammalecteConfigWidget.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__GrammalecteConfigWidget.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -1852,9 +2348,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: TextGrammarCheck__GrammalecteConfigWidget, level: f64) void {
+    pub fn setWindowOpacity(self: TextGrammarCheck__GrammalecteConfigWidget, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -1864,9 +2364,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn WindowOpacity(self: TextGrammarCheck__GrammalecteConfigWidget) f64 {
+    pub fn windowOpacity(self: TextGrammarCheck__GrammalecteConfigWidget) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -1876,9 +2380,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn IsWindowModified(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
+    pub fn isWindowModified(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -1888,15 +2396,19 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: TextGrammarCheck__GrammalecteConfigWidget, toolTip: []const u8) void {
+    pub fn setToolTip(self: TextGrammarCheck__GrammalecteConfigWidget, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -1908,13 +2420,17 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: TextGrammarCheck__GrammalecteConfigWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: TextGrammarCheck__GrammalecteConfigWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__GrammalecteConfigWidget.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__GrammalecteConfigWidget.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -1926,9 +2442,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: TextGrammarCheck__GrammalecteConfigWidget, msec: i32) void {
+    pub fn setToolTipDuration(self: TextGrammarCheck__GrammalecteConfigWidget, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -1938,9 +2458,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn ToolTipDuration(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
+    pub fn toolTipDuration(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -1950,15 +2474,19 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: TextGrammarCheck__GrammalecteConfigWidget, statusTip: []const u8) void {
+    pub fn setStatusTip(self: TextGrammarCheck__GrammalecteConfigWidget, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -1970,13 +2498,17 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: TextGrammarCheck__GrammalecteConfigWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: TextGrammarCheck__GrammalecteConfigWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__GrammalecteConfigWidget.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__GrammalecteConfigWidget.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -1986,15 +2518,19 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: TextGrammarCheck__GrammalecteConfigWidget, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: TextGrammarCheck__GrammalecteConfigWidget, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2006,13 +2542,17 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: TextGrammarCheck__GrammalecteConfigWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: TextGrammarCheck__GrammalecteConfigWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__GrammalecteConfigWidget.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__GrammalecteConfigWidget.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2024,13 +2564,17 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: TextGrammarCheck__GrammalecteConfigWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: TextGrammarCheck__GrammalecteConfigWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__GrammalecteConfigWidget.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__GrammalecteConfigWidget.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2042,13 +2586,17 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: TextGrammarCheck__GrammalecteConfigWidget, name: []const u8) void {
+    pub fn setAccessibleName(self: TextGrammarCheck__GrammalecteConfigWidget, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2060,13 +2608,17 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: TextGrammarCheck__GrammalecteConfigWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: TextGrammarCheck__GrammalecteConfigWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__GrammalecteConfigWidget.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__GrammalecteConfigWidget.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2078,13 +2630,17 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: TextGrammarCheck__GrammalecteConfigWidget, description: []const u8) void {
+    pub fn setAccessibleDescription(self: TextGrammarCheck__GrammalecteConfigWidget, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2096,9 +2652,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: TextGrammarCheck__GrammalecteConfigWidget, direction: i32) void {
+    pub fn setLayoutDirection(self: TextGrammarCheck__GrammalecteConfigWidget, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2112,9 +2672,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
+    pub fn layoutDirection(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2124,9 +2688,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn UnsetLayoutDirection(self: TextGrammarCheck__GrammalecteConfigWidget) void {
+    pub fn unsetLayoutDirection(self: TextGrammarCheck__GrammalecteConfigWidget) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -2136,12 +2704,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: TextGrammarCheck__GrammalecteConfigWidget, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: TextGrammarCheck__GrammalecteConfigWidget, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -2151,9 +2723,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn Locale(self: TextGrammarCheck__GrammalecteConfigWidget) QLocale {
+    pub fn locale(self: TextGrammarCheck__GrammalecteConfigWidget) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -2163,9 +2739,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn UnsetLocale(self: TextGrammarCheck__GrammalecteConfigWidget) void {
+    pub fn unsetLocale(self: TextGrammarCheck__GrammalecteConfigWidget) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -2175,9 +2755,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn IsRightToLeft(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
+    pub fn isRightToLeft(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -2187,9 +2771,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn IsLeftToRight(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
+    pub fn isLeftToRight(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -2199,9 +2787,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn SetFocus(self: TextGrammarCheck__GrammalecteConfigWidget) void {
+    pub fn setFocus(self: TextGrammarCheck__GrammalecteConfigWidget) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -2211,9 +2803,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn IsActiveWindow(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
+    pub fn isActiveWindow(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -2223,9 +2819,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn ActivateWindow(self: TextGrammarCheck__GrammalecteConfigWidget) void {
+    pub fn activateWindow(self: TextGrammarCheck__GrammalecteConfigWidget) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -2235,9 +2835,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn ClearFocus(self: TextGrammarCheck__GrammalecteConfigWidget) void {
+    pub fn clearFocus(self: TextGrammarCheck__GrammalecteConfigWidget) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -2249,9 +2853,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: TextGrammarCheck__GrammalecteConfigWidget, reason: i32) void {
+    pub fn setFocus2(self: TextGrammarCheck__GrammalecteConfigWidget, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2265,9 +2873,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
+    pub fn focusPolicy(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2279,9 +2891,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: TextGrammarCheck__GrammalecteConfigWidget, policy: i32) void {
+    pub fn setFocusPolicy(self: TextGrammarCheck__GrammalecteConfigWidget, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -2291,9 +2907,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn HasFocus(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
+    pub fn hasFocus(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -2305,11 +2925,15 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -2319,12 +2943,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: TextGrammarCheck__GrammalecteConfigWidget, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: TextGrammarCheck__GrammalecteConfigWidget, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -2334,9 +2962,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn FocusProxy(self: TextGrammarCheck__GrammalecteConfigWidget) QWidget {
+    pub fn focusProxy(self: TextGrammarCheck__GrammalecteConfigWidget) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2350,9 +2982,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
+    pub fn contextMenuPolicy(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2364,9 +3000,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: TextGrammarCheck__GrammalecteConfigWidget, policy: i32) void {
+    pub fn setContextMenuPolicy(self: TextGrammarCheck__GrammalecteConfigWidget, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -2376,9 +3016,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn GrabMouse(self: TextGrammarCheck__GrammalecteConfigWidget) void {
+    pub fn grabMouse(self: TextGrammarCheck__GrammalecteConfigWidget) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -2390,10 +3034,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype) void {
+    pub fn grabMouse2(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -2403,9 +3051,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn ReleaseMouse(self: TextGrammarCheck__GrammalecteConfigWidget) void {
+    pub fn releaseMouse(self: TextGrammarCheck__GrammalecteConfigWidget) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -2415,9 +3067,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn GrabKeyboard(self: TextGrammarCheck__GrammalecteConfigWidget) void {
+    pub fn grabKeyboard(self: TextGrammarCheck__GrammalecteConfigWidget) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -2427,9 +3083,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn ReleaseKeyboard(self: TextGrammarCheck__GrammalecteConfigWidget) void {
+    pub fn releaseKeyboard(self: TextGrammarCheck__GrammalecteConfigWidget) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -2441,10 +3101,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: TextGrammarCheck__GrammalecteConfigWidget, key: anytype) i32 {
+    pub fn grabShortcut(self: TextGrammarCheck__GrammalecteConfigWidget, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -2456,9 +3120,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: TextGrammarCheck__GrammalecteConfigWidget, id: i32) void {
+    pub fn releaseShortcut(self: TextGrammarCheck__GrammalecteConfigWidget, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2470,9 +3138,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: TextGrammarCheck__GrammalecteConfigWidget, id: i32) void {
+    pub fn setShortcutEnabled(self: TextGrammarCheck__GrammalecteConfigWidget, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -2484,25 +3156,37 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: TextGrammarCheck__GrammalecteConfigWidget, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: TextGrammarCheck__GrammalecteConfigWidget, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2512,9 +3196,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn UpdatesEnabled(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
+    pub fn updatesEnabled(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2526,9 +3214,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: TextGrammarCheck__GrammalecteConfigWidget, enable: bool) void {
+    pub fn setUpdatesEnabled(self: TextGrammarCheck__GrammalecteConfigWidget, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -2538,9 +3230,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn GraphicsProxyWidget(self: TextGrammarCheck__GrammalecteConfigWidget) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: TextGrammarCheck__GrammalecteConfigWidget) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -2550,9 +3246,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn Update(self: TextGrammarCheck__GrammalecteConfigWidget) void {
+    pub fn update(self: TextGrammarCheck__GrammalecteConfigWidget) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -2562,9 +3262,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn Repaint(self: TextGrammarCheck__GrammalecteConfigWidget) void {
+    pub fn repaint(self: TextGrammarCheck__GrammalecteConfigWidget) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -2574,17 +3278,21 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: TextGrammarCheck__GrammalecteConfigWidget, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: TextGrammarCheck__GrammalecteConfigWidget, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -2596,11 +3304,15 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype) void {
+    pub fn update3(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -2611,10 +3323,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype) void {
+    pub fn update4(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -2624,17 +3340,21 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: TextGrammarCheck__GrammalecteConfigWidget, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: TextGrammarCheck__GrammalecteConfigWidget, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -2646,10 +3366,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype) void {
+    pub fn repaint3(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -2661,10 +3385,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype) void {
+    pub fn repaint4(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -2676,9 +3404,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: TextGrammarCheck__GrammalecteConfigWidget, hidden: bool) void {
+    pub fn setHidden(self: TextGrammarCheck__GrammalecteConfigWidget, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -2688,9 +3420,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn Show(self: TextGrammarCheck__GrammalecteConfigWidget) void {
+    pub fn show(self: TextGrammarCheck__GrammalecteConfigWidget) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -2700,9 +3436,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn Hide(self: TextGrammarCheck__GrammalecteConfigWidget) void {
+    pub fn hide(self: TextGrammarCheck__GrammalecteConfigWidget) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -2712,9 +3452,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn ShowMinimized(self: TextGrammarCheck__GrammalecteConfigWidget) void {
+    pub fn showMinimized(self: TextGrammarCheck__GrammalecteConfigWidget) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -2724,9 +3468,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn ShowMaximized(self: TextGrammarCheck__GrammalecteConfigWidget) void {
+    pub fn showMaximized(self: TextGrammarCheck__GrammalecteConfigWidget) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -2736,9 +3484,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn ShowFullScreen(self: TextGrammarCheck__GrammalecteConfigWidget) void {
+    pub fn showFullScreen(self: TextGrammarCheck__GrammalecteConfigWidget) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -2748,9 +3500,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn ShowNormal(self: TextGrammarCheck__GrammalecteConfigWidget) void {
+    pub fn showNormal(self: TextGrammarCheck__GrammalecteConfigWidget) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -2760,9 +3516,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn Close(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
+    pub fn close(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -2772,9 +3532,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn Raise(self: TextGrammarCheck__GrammalecteConfigWidget) void {
+    pub fn raise(self: TextGrammarCheck__GrammalecteConfigWidget) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -2784,9 +3548,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn Lower(self: TextGrammarCheck__GrammalecteConfigWidget) void {
+    pub fn lower(self: TextGrammarCheck__GrammalecteConfigWidget) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -2798,10 +3566,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype) void {
+    pub fn stackUnder(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -2811,13 +3583,17 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: TextGrammarCheck__GrammalecteConfigWidget, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: TextGrammarCheck__GrammalecteConfigWidget, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -2829,10 +3605,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype) void {
+    pub fn move2(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -2846,9 +3626,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: TextGrammarCheck__GrammalecteConfigWidget, w: i32, h: i32) void {
+    pub fn resize(self: TextGrammarCheck__GrammalecteConfigWidget, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -2860,10 +3644,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype) void {
+    pub fn resize2(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -2873,17 +3661,21 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: TextGrammarCheck__GrammalecteConfigWidget, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: TextGrammarCheck__GrammalecteConfigWidget, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -2893,12 +3685,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: TextGrammarCheck__GrammalecteConfigWidget, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: TextGrammarCheck__GrammalecteConfigWidget, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -2910,13 +3706,17 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: TextGrammarCheck__GrammalecteConfigWidget, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: TextGrammarCheck__GrammalecteConfigWidget, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("TextGrammarCheck__GrammalecteConfigWidget.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("TextGrammarCheck__GrammalecteConfigWidget.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -2926,15 +3726,19 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: TextGrammarCheck__GrammalecteConfigWidget, geometry: []u8) bool {
+    pub fn restoreGeometry(self: TextGrammarCheck__GrammalecteConfigWidget, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -2944,9 +3748,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn AdjustSize(self: TextGrammarCheck__GrammalecteConfigWidget) void {
+    pub fn adjustSize(self: TextGrammarCheck__GrammalecteConfigWidget) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -2956,9 +3764,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn IsVisible(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
+    pub fn isVisible(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -2970,10 +3782,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype) bool {
+    pub fn isVisibleTo(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -2983,9 +3799,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn IsHidden(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
+    pub fn isHidden(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -2995,9 +3815,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn IsMinimized(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
+    pub fn isMinimized(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3007,9 +3831,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn IsMaximized(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
+    pub fn isMaximized(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3019,9 +3847,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn IsFullScreen(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
+    pub fn isFullScreen(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -3035,9 +3867,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
+    pub fn windowState(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3049,9 +3885,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: TextGrammarCheck__GrammalecteConfigWidget, state: i32) void {
+    pub fn setWindowState(self: TextGrammarCheck__GrammalecteConfigWidget, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3063,9 +3903,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: TextGrammarCheck__GrammalecteConfigWidget, state: i32) void {
+    pub fn overrideWindowState(self: TextGrammarCheck__GrammalecteConfigWidget, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3075,9 +3919,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn SizePolicy(self: TextGrammarCheck__GrammalecteConfigWidget) QSizePolicy {
+    pub fn sizePolicy(self: TextGrammarCheck__GrammalecteConfigWidget) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3087,12 +3935,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: TextGrammarCheck__GrammalecteConfigWidget, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: TextGrammarCheck__GrammalecteConfigWidget, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -3106,9 +3958,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: TextGrammarCheck__GrammalecteConfigWidget, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: TextGrammarCheck__GrammalecteConfigWidget, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -3118,9 +3974,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn VisibleRegion(self: TextGrammarCheck__GrammalecteConfigWidget) QRegion {
+    pub fn visibleRegion(self: TextGrammarCheck__GrammalecteConfigWidget) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3138,9 +3998,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: TextGrammarCheck__GrammalecteConfigWidget, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: TextGrammarCheck__GrammalecteConfigWidget, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -3152,10 +4016,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: TextGrammarCheck__GrammalecteConfigWidget, margins: anytype) void {
+    pub fn setContentsMargins2(self: TextGrammarCheck__GrammalecteConfigWidget, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3165,9 +4033,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn ContentsMargins(self: TextGrammarCheck__GrammalecteConfigWidget) QMargins {
+    pub fn contentsMargins(self: TextGrammarCheck__GrammalecteConfigWidget) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -3177,9 +4049,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn ContentsRect(self: TextGrammarCheck__GrammalecteConfigWidget) QRect {
+    pub fn contentsRect(self: TextGrammarCheck__GrammalecteConfigWidget) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -3189,9 +4065,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn Layout(self: TextGrammarCheck__GrammalecteConfigWidget) QLayout {
+    pub fn layout(self: TextGrammarCheck__GrammalecteConfigWidget) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -3201,12 +4081,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: TextGrammarCheck__GrammalecteConfigWidget, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: TextGrammarCheck__GrammalecteConfigWidget, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3216,24 +4100,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn UpdateGeometry(self: TextGrammarCheck__GrammalecteConfigWidget) void {
+    pub fn updateGeometry(self: TextGrammarCheck__GrammalecteConfigWidget) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: TextGrammarCheck__GrammalecteConfigWidget, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -3243,14 +4116,37 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: TextGrammarCheck__GrammalecteConfigWidget, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: TextGrammarCheck__GrammalecteConfigWidget, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: TextGrammarCheck__GrammalecteConfigWidget, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -3264,9 +4160,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: TextGrammarCheck__GrammalecteConfigWidget, dx: i32, dy: i32) void {
+    pub fn scroll(self: TextGrammarCheck__GrammalecteConfigWidget, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -3282,10 +4182,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: TextGrammarCheck__GrammalecteConfigWidget, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: TextGrammarCheck__GrammalecteConfigWidget, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -3295,9 +4199,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn FocusWidget(self: TextGrammarCheck__GrammalecteConfigWidget) QWidget {
+    pub fn focusWidget(self: TextGrammarCheck__GrammalecteConfigWidget) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -3307,9 +4215,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn NextInFocusChain(self: TextGrammarCheck__GrammalecteConfigWidget) QWidget {
+    pub fn nextInFocusChain(self: TextGrammarCheck__GrammalecteConfigWidget) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -3319,9 +4231,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn PreviousInFocusChain(self: TextGrammarCheck__GrammalecteConfigWidget) QWidget {
+    pub fn previousInFocusChain(self: TextGrammarCheck__GrammalecteConfigWidget) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -3331,9 +4247,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn AcceptDrops(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
+    pub fn acceptDrops(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -3345,9 +4265,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: TextGrammarCheck__GrammalecteConfigWidget, on: bool) void {
+    pub fn setAcceptDrops(self: TextGrammarCheck__GrammalecteConfigWidget, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -3359,10 +4283,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: TextGrammarCheck__GrammalecteConfigWidget, action: anytype) void {
+    pub fn addAction(self: TextGrammarCheck__GrammalecteConfigWidget, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -3372,15 +4300,19 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: TextGrammarCheck__GrammalecteConfigWidget, actions: []QAction) void {
+    pub fn addActions(self: TextGrammarCheck__GrammalecteConfigWidget, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -3392,16 +4324,20 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: TextGrammarCheck__GrammalecteConfigWidget, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: TextGrammarCheck__GrammalecteConfigWidget, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -3415,11 +4351,15 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: TextGrammarCheck__GrammalecteConfigWidget, before: anytype, action: anytype) void {
+    pub fn insertAction(self: TextGrammarCheck__GrammalecteConfigWidget, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -3431,10 +4371,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: TextGrammarCheck__GrammalecteConfigWidget, action: anytype) void {
+    pub fn removeAction(self: TextGrammarCheck__GrammalecteConfigWidget, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -3446,15 +4390,19 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: TextGrammarCheck__GrammalecteConfigWidget, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: TextGrammarCheck__GrammalecteConfigWidget, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("TextGrammarCheck__GrammalecteConfigWidget.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("TextGrammarCheck__GrammalecteConfigWidget.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -3466,13 +4414,17 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: TextGrammarCheck__GrammalecteConfigWidget, text: []const u8) QAction {
+    pub fn addAction2(self: TextGrammarCheck__GrammalecteConfigWidget, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -3486,7 +4438,7 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: TextGrammarCheck__GrammalecteConfigWidget, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: TextGrammarCheck__GrammalecteConfigWidget, icon: anytype, text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -3495,6 +4447,10 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -3507,7 +4463,7 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: TextGrammarCheck__GrammalecteConfigWidget, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: TextGrammarCheck__GrammalecteConfigWidget, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -3515,6 +4471,10 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
 
     /// Inherited from QWidget
     ///
@@ -3530,7 +4490,7 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: TextGrammarCheck__GrammalecteConfigWidget, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: TextGrammarCheck__GrammalecteConfigWidget, icon: anytype, text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -3540,6 +4500,10 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
@@ -3548,9 +4512,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn ParentWidget(self: TextGrammarCheck__GrammalecteConfigWidget) QWidget {
+    pub fn parentWidget(self: TextGrammarCheck__GrammalecteConfigWidget) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -3562,9 +4530,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: TextGrammarCheck__GrammalecteConfigWidget, typeVal: i32) void {
+    pub fn setWindowFlags(self: TextGrammarCheck__GrammalecteConfigWidget, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -3578,9 +4550,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
+    pub fn windowFlags(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -3592,9 +4568,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: TextGrammarCheck__GrammalecteConfigWidget, param1: i32) void {
+    pub fn setWindowFlag(self: TextGrammarCheck__GrammalecteConfigWidget, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -3606,9 +4586,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: TextGrammarCheck__GrammalecteConfigWidget, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: TextGrammarCheck__GrammalecteConfigWidget, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -3622,9 +4606,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
+    pub fn windowType(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -3634,9 +4622,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -3646,13 +4638,17 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: TextGrammarCheck__GrammalecteConfigWidget, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: TextGrammarCheck__GrammalecteConfigWidget, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -3664,10 +4660,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: TextGrammarCheck__GrammalecteConfigWidget, p: anytype) QWidget {
+    pub fn childAt2(self: TextGrammarCheck__GrammalecteConfigWidget, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -3679,10 +4679,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: TextGrammarCheck__GrammalecteConfigWidget, p: anytype) QWidget {
+    pub fn childAt3(self: TextGrammarCheck__GrammalecteConfigWidget, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -3694,9 +4698,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: TextGrammarCheck__GrammalecteConfigWidget, param1: i32) void {
+    pub fn setAttribute(self: TextGrammarCheck__GrammalecteConfigWidget, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -3708,9 +4716,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: TextGrammarCheck__GrammalecteConfigWidget, param1: i32) bool {
+    pub fn testAttribute(self: TextGrammarCheck__GrammalecteConfigWidget, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -3720,9 +4732,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn EnsurePolished(self: TextGrammarCheck__GrammalecteConfigWidget) void {
+    pub fn ensurePolished(self: TextGrammarCheck__GrammalecteConfigWidget) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -3734,10 +4750,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: TextGrammarCheck__GrammalecteConfigWidget, child: anytype) bool {
+    pub fn isAncestorOf(self: TextGrammarCheck__GrammalecteConfigWidget, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -3747,9 +4767,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn AutoFillBackground(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
+    pub fn autoFillBackground(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -3761,9 +4785,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: TextGrammarCheck__GrammalecteConfigWidget, enabled: bool) void {
+    pub fn setAutoFillBackground(self: TextGrammarCheck__GrammalecteConfigWidget, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -3773,9 +4801,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn BackingStore(self: TextGrammarCheck__GrammalecteConfigWidget) QBackingStore {
+    pub fn backingStore(self: TextGrammarCheck__GrammalecteConfigWidget) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -3785,9 +4817,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn WindowHandle(self: TextGrammarCheck__GrammalecteConfigWidget) QWindow {
+    pub fn windowHandle(self: TextGrammarCheck__GrammalecteConfigWidget) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -3797,9 +4833,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn Screen(self: TextGrammarCheck__GrammalecteConfigWidget) QScreen {
+    pub fn screen(self: TextGrammarCheck__GrammalecteConfigWidget) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -3809,12 +4849,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: TextGrammarCheck__GrammalecteConfigWidget, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: TextGrammarCheck__GrammalecteConfigWidget, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -3822,12 +4866,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -3839,13 +4887,17 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: TextGrammarCheck__GrammalecteConfigWidget, title: []const u8) void {
+    pub fn windowTitleChanged(self: TextGrammarCheck__GrammalecteConfigWidget, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -3857,9 +4909,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigWidget, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -3871,10 +4927,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: TextGrammarCheck__GrammalecteConfigWidget, icon: anytype) void {
+    pub fn windowIconChanged(self: TextGrammarCheck__GrammalecteConfigWidget, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -3886,9 +4946,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigWidget, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -3900,13 +4964,17 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: TextGrammarCheck__GrammalecteConfigWidget, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: TextGrammarCheck__GrammalecteConfigWidget, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -3918,9 +4986,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigWidget, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -3930,12 +5002,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: TextGrammarCheck__GrammalecteConfigWidget, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: TextGrammarCheck__GrammalecteConfigWidget, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -3947,9 +5023,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigWidget, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -3963,9 +5043,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
+    pub fn inputMethodHints(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -3977,9 +5061,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: TextGrammarCheck__GrammalecteConfigWidget, hints: i32) void {
+    pub fn setInputMethodHints(self: TextGrammarCheck__GrammalecteConfigWidget, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -3993,11 +5081,15 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: TextGrammarCheck__GrammalecteConfigWidget, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: TextGrammarCheck__GrammalecteConfigWidget, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -4013,13 +5105,17 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: TextGrammarCheck__GrammalecteConfigWidget, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: TextGrammarCheck__GrammalecteConfigWidget, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -4036,12 +5132,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: TextGrammarCheck__GrammalecteConfigWidget, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: TextGrammarCheck__GrammalecteConfigWidget, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -4055,11 +5155,15 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: TextGrammarCheck__GrammalecteConfigWidget, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: TextGrammarCheck__GrammalecteConfigWidget, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -4075,12 +5179,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: TextGrammarCheck__GrammalecteConfigWidget, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: TextGrammarCheck__GrammalecteConfigWidget, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -4098,12 +5206,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: TextGrammarCheck__GrammalecteConfigWidget, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: TextGrammarCheck__GrammalecteConfigWidget, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -4115,10 +5227,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: TextGrammarCheck__GrammalecteConfigWidget, rectangle: anytype) QPixmap {
+    pub fn grab1(self: TextGrammarCheck__GrammalecteConfigWidget, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -4132,9 +5248,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: TextGrammarCheck__GrammalecteConfigWidget, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: TextGrammarCheck__GrammalecteConfigWidget, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -4148,10 +5268,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: TextGrammarCheck__GrammalecteConfigWidget, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: TextGrammarCheck__GrammalecteConfigWidget, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -4165,9 +5289,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: TextGrammarCheck__GrammalecteConfigWidget, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: TextGrammarCheck__GrammalecteConfigWidget, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -4181,9 +5309,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: TextGrammarCheck__GrammalecteConfigWidget, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: TextGrammarCheck__GrammalecteConfigWidget, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -4197,9 +5329,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: TextGrammarCheck__GrammalecteConfigWidget, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: TextGrammarCheck__GrammalecteConfigWidget, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -4213,25 +5349,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: TextGrammarCheck__GrammalecteConfigWidget, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: TextGrammarCheck__GrammalecteConfigWidget, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -4239,17 +5363,41 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -4261,13 +5409,17 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: TextGrammarCheck__GrammalecteConfigWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: TextGrammarCheck__GrammalecteConfigWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__GrammalecteConfigWidget.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__GrammalecteConfigWidget.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -4279,13 +5431,17 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: TextGrammarCheck__GrammalecteConfigWidget, name: []const u8) void {
+    pub fn setObjectName(self: TextGrammarCheck__GrammalecteConfigWidget, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -4295,9 +5451,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn IsWidgetType(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
+    pub fn isWidgetType(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -4307,9 +5467,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn IsWindowType(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
+    pub fn isWindowType(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -4319,9 +5483,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn IsQuickItemType(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
+    pub fn isQuickItemType(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -4331,9 +5499,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn SignalsBlocked(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
+    pub fn signalsBlocked(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -4345,9 +5517,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: TextGrammarCheck__GrammalecteConfigWidget, b: bool) bool {
+    pub fn blockSignals(self: TextGrammarCheck__GrammalecteConfigWidget, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -4357,9 +5533,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn Thread(self: TextGrammarCheck__GrammalecteConfigWidget) QThread {
+    pub fn thread(self: TextGrammarCheck__GrammalecteConfigWidget) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -4369,12 +5549,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: TextGrammarCheck__GrammalecteConfigWidget, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: TextGrammarCheck__GrammalecteConfigWidget, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -4386,9 +5570,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: TextGrammarCheck__GrammalecteConfigWidget, interval: i32) i32 {
+    pub fn startTimer(self: TextGrammarCheck__GrammalecteConfigWidget, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -4400,9 +5588,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: TextGrammarCheck__GrammalecteConfigWidget, time: i64) i32 {
+    pub fn startTimer2(self: TextGrammarCheck__GrammalecteConfigWidget, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -4414,9 +5606,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: TextGrammarCheck__GrammalecteConfigWidget, id: i32) void {
+    pub fn killTimer(self: TextGrammarCheck__GrammalecteConfigWidget, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -4428,9 +5624,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: TextGrammarCheck__GrammalecteConfigWidget, id: i32) void {
+    pub fn killTimer2(self: TextGrammarCheck__GrammalecteConfigWidget, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -4442,15 +5642,19 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: TextGrammarCheck__GrammalecteConfigWidget, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: TextGrammarCheck__GrammalecteConfigWidget, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("TextGrammarCheck__GrammalecteConfigWidget.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("TextGrammarCheck__GrammalecteConfigWidget.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4462,10 +5666,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: TextGrammarCheck__GrammalecteConfigWidget, filterObj: anytype) void {
+    pub fn installEventFilter(self: TextGrammarCheck__GrammalecteConfigWidget, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4477,10 +5685,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: TextGrammarCheck__GrammalecteConfigWidget, obj: anytype) void {
+    pub fn removeEventFilter(self: TextGrammarCheck__GrammalecteConfigWidget, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -4488,7 +5700,7 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4496,13 +5708,17 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -4510,7 +5726,7 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -4518,13 +5734,17 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -4534,18 +5754,22 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: TextGrammarCheck__GrammalecteConfigWidget, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: TextGrammarCheck__GrammalecteConfigWidget, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -4553,7 +5777,7 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4561,13 +5785,17 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -4575,7 +5803,7 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -4583,13 +5811,17 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -4599,9 +5831,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn Disconnect3(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
+    pub fn disconnect3(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -4613,10 +5849,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: TextGrammarCheck__GrammalecteConfigWidget, receiver: anytype) bool {
+    pub fn disconnect4(self: TextGrammarCheck__GrammalecteConfigWidget, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -4626,10 +5866,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -4639,9 +5883,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn DumpObjectTree(self: TextGrammarCheck__GrammalecteConfigWidget) void {
+    pub fn dumpObjectTree(self: TextGrammarCheck__GrammalecteConfigWidget) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -4651,9 +5899,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn DumpObjectInfo(self: TextGrammarCheck__GrammalecteConfigWidget) void {
+    pub fn dumpObjectInfo(self: TextGrammarCheck__GrammalecteConfigWidget) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -4667,11 +5919,15 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: TextGrammarCheck__GrammalecteConfigWidget, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: TextGrammarCheck__GrammalecteConfigWidget, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -4683,10 +5939,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: TextGrammarCheck__GrammalecteConfigWidget, name: [:0]const u8) QVariant {
+    pub fn property(self: TextGrammarCheck__GrammalecteConfigWidget, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -4698,7 +5958,7 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: TextGrammarCheck__GrammalecteConfigWidget, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: TextGrammarCheck__GrammalecteConfigWidget, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -4706,27 +5966,19 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("TextGrammarCheck__GrammalecteConfigWidget.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("TextGrammarCheck__GrammalecteConfigWidget.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("TextGrammarCheck__GrammalecteConfigWidget.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("TextGrammarCheck__GrammalecteConfigWidget.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
-    ///
-    pub fn BindingStorage(self: TextGrammarCheck__GrammalecteConfigWidget) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -4736,9 +5988,29 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn BindingStorage2(self: TextGrammarCheck__GrammalecteConfigWidget) QBindingStorage {
+    pub fn bindingStorage(self: TextGrammarCheck__GrammalecteConfigWidget) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
+    ///
+    pub fn bindingStorage2(self: TextGrammarCheck__GrammalecteConfigWidget) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -4748,9 +6020,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn Destroyed(self: TextGrammarCheck__GrammalecteConfigWidget) void {
+    pub fn destroyed(self: TextGrammarCheck__GrammalecteConfigWidget) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -4762,9 +6038,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigWidget) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget) callconv(.c) void) void {
+    pub fn onDestroyed(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -4774,9 +6054,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn Parent(self: TextGrammarCheck__GrammalecteConfigWidget) QObject {
+    pub fn parent(self: TextGrammarCheck__GrammalecteConfigWidget) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -4788,10 +6072,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: TextGrammarCheck__GrammalecteConfigWidget, classname: [:0]const u8) bool {
+    pub fn inherits(self: TextGrammarCheck__GrammalecteConfigWidget, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -4801,9 +6089,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn DeleteLater(self: TextGrammarCheck__GrammalecteConfigWidget) void {
+    pub fn deleteLater(self: TextGrammarCheck__GrammalecteConfigWidget) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -4817,9 +6109,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: TextGrammarCheck__GrammalecteConfigWidget, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: TextGrammarCheck__GrammalecteConfigWidget, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -4833,9 +6129,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: TextGrammarCheck__GrammalecteConfigWidget, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: TextGrammarCheck__GrammalecteConfigWidget, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -4843,7 +6143,7 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4853,13 +6153,17 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -4867,7 +6171,7 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -4877,13 +6181,17 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -4893,7 +6201,7 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4901,12 +6209,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: TextGrammarCheck__GrammalecteConfigWidget, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: TextGrammarCheck__GrammalecteConfigWidget, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -4918,10 +6230,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: TextGrammarCheck__GrammalecteConfigWidget, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: TextGrammarCheck__GrammalecteConfigWidget, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -4935,11 +6251,15 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: TextGrammarCheck__GrammalecteConfigWidget, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: TextGrammarCheck__GrammalecteConfigWidget, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -4955,13 +6275,17 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: TextGrammarCheck__GrammalecteConfigWidget, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: TextGrammarCheck__GrammalecteConfigWidget, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -4974,11 +6298,15 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: TextGrammarCheck__GrammalecteConfigWidget, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: TextGrammarCheck__GrammalecteConfigWidget, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -4990,10 +6318,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype) void {
+    pub fn destroyed1(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -5005,9 +6337,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigWidget, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -5017,9 +6353,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn PaintingActive(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
+    pub fn paintingActive(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5029,9 +6369,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn WidthMM(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
+    pub fn widthMM(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5041,9 +6385,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn HeightMM(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
+    pub fn heightMM(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5053,9 +6401,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn LogicalDpiX(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
+    pub fn logicalDpiX(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5065,9 +6417,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn LogicalDpiY(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
+    pub fn logicalDpiY(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5077,9 +6433,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn PhysicalDpiX(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
+    pub fn physicalDpiX(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5089,9 +6449,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn PhysicalDpiY(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
+    pub fn physicalDpiY(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -5101,9 +6465,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn DevicePixelRatio(self: TextGrammarCheck__GrammalecteConfigWidget) f64 {
+    pub fn devicePixelRatio(self: TextGrammarCheck__GrammalecteConfigWidget) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5113,9 +6481,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn DevicePixelRatioF(self: TextGrammarCheck__GrammalecteConfigWidget) f64 {
+    pub fn devicePixelRatioF(self: TextGrammarCheck__GrammalecteConfigWidget) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -5125,9 +6497,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn ColorCount(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
+    pub fn colorCount(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -5137,17 +6513,25 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn Depth(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
+    pub fn depth(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5155,13 +6539,17 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -5173,13 +6561,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn DevType(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
+    pub fn devType(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
         return qtc.TextGrammarCheck__GrammalecteConfigWidget_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -5191,9 +6579,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn SuperDevType(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
+    pub fn superDevType(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
         return qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -5207,9 +6599,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn () callconv(.c) i32) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -5223,13 +6619,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: TextGrammarCheck__GrammalecteConfigWidget, visible: bool) void {
+    pub fn setVisible(self: TextGrammarCheck__GrammalecteConfigWidget, visible: bool) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -5243,9 +6639,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: TextGrammarCheck__GrammalecteConfigWidget, visible: bool) void {
+    pub fn superSetVisible(self: TextGrammarCheck__GrammalecteConfigWidget, visible: bool) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -5259,10 +6659,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigWidget, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, bool) callconv(.c) void) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
@@ -5273,13 +6677,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn SizeHint(self: TextGrammarCheck__GrammalecteConfigWidget) QSize {
+    pub fn sizeHint(self: TextGrammarCheck__GrammalecteConfigWidget) QSize {
         return .{ .ptr = qtc.TextGrammarCheck__GrammalecteConfigWidget_SizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5291,10 +6695,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn SuperSizeHint(self: TextGrammarCheck__GrammalecteConfigWidget) QSize {
+    pub fn superSizeHint(self: TextGrammarCheck__GrammalecteConfigWidget) QSize {
         return .{ .ptr = qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
@@ -5309,9 +6717,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5323,13 +6735,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn MinimumSizeHint(self: TextGrammarCheck__GrammalecteConfigWidget) QSize {
+    pub fn minimumSizeHint(self: TextGrammarCheck__GrammalecteConfigWidget) QSize {
         return .{ .ptr = qtc.TextGrammarCheck__GrammalecteConfigWidget_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5341,9 +6753,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn SuperMinimumSizeHint(self: TextGrammarCheck__GrammalecteConfigWidget) QSize {
+    pub fn superMinimumSizeHint(self: TextGrammarCheck__GrammalecteConfigWidget) QSize {
         return .{ .ptr = qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5359,9 +6775,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5375,13 +6795,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: TextGrammarCheck__GrammalecteConfigWidget, param1: i32) i32 {
+    pub fn heightForWidth(self: TextGrammarCheck__GrammalecteConfigWidget, param1: i32) i32 {
         return qtc.TextGrammarCheck__GrammalecteConfigWidget_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5395,9 +6815,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: TextGrammarCheck__GrammalecteConfigWidget, param1: i32) i32 {
+    pub fn superHeightForWidth(self: TextGrammarCheck__GrammalecteConfigWidget, param1: i32) i32 {
         return qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5411,9 +6835,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigWidget, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, i32) callconv(.c) i32) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5425,13 +6853,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn HasHeightForWidth(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
+    pub fn hasHeightForWidth(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
         return qtc.TextGrammarCheck__GrammalecteConfigWidget_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5443,9 +6871,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn SuperHasHeightForWidth(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
+    pub fn superHasHeightForWidth(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
         return qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5459,9 +6891,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn () callconv(.c) bool) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -5473,13 +6909,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn PaintEngine(self: TextGrammarCheck__GrammalecteConfigWidget) QPaintEngine {
+    pub fn paintEngine(self: TextGrammarCheck__GrammalecteConfigWidget) QPaintEngine {
         return .{ .ptr = qtc.TextGrammarCheck__GrammalecteConfigWidget_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -5491,9 +6927,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn SuperPaintEngine(self: TextGrammarCheck__GrammalecteConfigWidget) QPaintEngine {
+    pub fn superPaintEngine(self: TextGrammarCheck__GrammalecteConfigWidget) QPaintEngine {
         return .{ .ptr = qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -5507,9 +6947,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QWidget
     ///
@@ -5521,16 +6965,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.TextGrammarCheck__GrammalecteConfigWidget_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.TextGrammarCheck__GrammalecteConfigWidget_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QWidget
     ///
@@ -5542,12 +6986,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QWidget
     ///
@@ -5561,10 +7009,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigWidget, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QEvent) callconv(.c) bool) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
@@ -5575,16 +7027,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mousePressEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_MousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -5596,12 +7048,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMousePressEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -5615,10 +7071,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigWidget, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QMouseEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
@@ -5629,16 +7089,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseReleaseEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -5650,12 +7110,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseReleaseEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -5669,10 +7133,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigWidget, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QMouseEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
@@ -5683,16 +7151,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -5704,12 +7172,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -5723,10 +7195,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigWidget, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QMouseEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
@@ -5737,16 +7213,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseMoveEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -5758,12 +7234,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseMoveEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -5777,9 +7257,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigWidget, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QMouseEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -5791,16 +7275,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn wheelEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_WheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -5812,12 +7296,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superWheelEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -5831,10 +7319,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigWidget, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QWheelEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyPressEvent)
@@ -5845,16 +7337,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyPressEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QWidget
     ///
@@ -5866,12 +7358,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyPressEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// Inherited from QWidget
     ///
@@ -5885,10 +7381,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigWidget, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QKeyEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
@@ -5899,16 +7399,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyReleaseEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -5920,12 +7420,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyReleaseEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -5939,10 +7443,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigWidget, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QKeyEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
@@ -5953,16 +7461,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusInEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_FocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -5974,12 +7482,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusInEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -5993,10 +7505,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigWidget, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QFocusEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
@@ -6007,16 +7523,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusOutEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -6028,12 +7544,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusOutEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -6047,9 +7567,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigWidget, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QFocusEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6061,16 +7585,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6082,12 +7606,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6101,9 +7629,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigWidget, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QEnterEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6115,16 +7647,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6136,12 +7668,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6155,9 +7691,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigWidget, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// Inherited from QWidget
     ///
@@ -6169,16 +7709,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn PaintEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_PaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn paintEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_PaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -6190,12 +7730,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superPaintEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -6209,9 +7753,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigWidget, event: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QPaintEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6223,16 +7771,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6244,12 +7792,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6263,9 +7815,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigWidget, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QMoveEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6277,16 +7833,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn resizeEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_ResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6298,12 +7854,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superResizeEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6317,9 +7877,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigWidget, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QResizeEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6331,16 +7895,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6352,12 +7916,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6371,9 +7939,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigWidget, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QCloseEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -6385,16 +7957,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn contextMenuEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -6406,12 +7978,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superContextMenuEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -6425,9 +8001,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigWidget, event: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QContextMenuEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -6439,16 +8019,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -6460,12 +8040,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -6479,9 +8063,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigWidget, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QTabletEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -6493,16 +8081,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -6514,12 +8102,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -6533,9 +8125,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigWidget, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QActionEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6547,16 +8143,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6568,12 +8164,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6587,9 +8187,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigWidget, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QDragEnterEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6601,16 +8205,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6622,12 +8226,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6641,9 +8249,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigWidget, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QDragMoveEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6655,16 +8267,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6676,12 +8288,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6695,9 +8311,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigWidget, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QDragLeaveEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QWidget
     ///
@@ -6709,16 +8329,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -6730,12 +8350,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -6749,9 +8373,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigWidget, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QDropEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QWidget
     ///
@@ -6763,16 +8391,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn ShowEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn showEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_ShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -6784,12 +8412,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superShowEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -6803,9 +8435,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigWidget, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QShowEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -6817,16 +8453,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -6838,12 +8474,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -6857,9 +8497,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigWidget, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QHideEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6877,7 +8521,7 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: TextGrammarCheck__GrammalecteConfigWidget, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: TextGrammarCheck__GrammalecteConfigWidget, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -6885,9 +8529,9 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
         return qtc.TextGrammarCheck__GrammalecteConfigWidget_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6905,13 +8549,17 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: TextGrammarCheck__GrammalecteConfigWidget, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: TextGrammarCheck__GrammalecteConfigWidget, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6925,9 +8573,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigWidget, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6941,14 +8593,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype) void {
+    pub fn changeEvent(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.TextGrammarCheck__GrammalecteConfigWidget_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6962,10 +8614,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype) void {
+    pub fn superChangeEvent(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6979,9 +8635,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigWidget, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -6995,13 +8655,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: TextGrammarCheck__GrammalecteConfigWidget, param1: i32) i32 {
+    pub fn metric(self: TextGrammarCheck__GrammalecteConfigWidget, param1: i32) i32 {
         return qtc.TextGrammarCheck__GrammalecteConfigWidget_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -7015,9 +8675,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: TextGrammarCheck__GrammalecteConfigWidget, param1: i32) i32 {
+    pub fn superMetric(self: TextGrammarCheck__GrammalecteConfigWidget, param1: i32) i32 {
         return qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -7031,9 +8695,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigWidget, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, i32) callconv(.c) i32) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -7047,14 +8715,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: TextGrammarCheck__GrammalecteConfigWidget, painter: anytype) void {
+    pub fn initPainter(self: TextGrammarCheck__GrammalecteConfigWidget, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.TextGrammarCheck__GrammalecteConfigWidget_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7068,10 +8736,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: TextGrammarCheck__GrammalecteConfigWidget, painter: anytype) void {
+    pub fn superInitPainter(self: TextGrammarCheck__GrammalecteConfigWidget, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7085,9 +8757,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigWidget, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QPainter) callconv(.c) void) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -7101,14 +8777,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: TextGrammarCheck__GrammalecteConfigWidget, offset: anytype) QPaintDevice {
+    pub fn redirected(self: TextGrammarCheck__GrammalecteConfigWidget, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.TextGrammarCheck__GrammalecteConfigWidget_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7122,10 +8798,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: TextGrammarCheck__GrammalecteConfigWidget, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: TextGrammarCheck__GrammalecteConfigWidget, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7139,9 +8819,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigWidget, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QPoint) callconv(.c) QPaintDevice) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7153,13 +8837,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn SharedPainter(self: TextGrammarCheck__GrammalecteConfigWidget) QPainter {
+    pub fn sharedPainter(self: TextGrammarCheck__GrammalecteConfigWidget) QPainter {
         return .{ .ptr = qtc.TextGrammarCheck__GrammalecteConfigWidget_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7171,9 +8855,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn SuperSharedPainter(self: TextGrammarCheck__GrammalecteConfigWidget) QPainter {
+    pub fn superSharedPainter(self: TextGrammarCheck__GrammalecteConfigWidget) QPainter {
         return .{ .ptr = qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7187,9 +8875,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn () callconv(.c) QPainter) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7203,14 +8895,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype) void {
+    pub fn inputMethodEvent(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.TextGrammarCheck__GrammalecteConfigWidget_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7224,10 +8916,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype) void {
+    pub fn superInputMethodEvent(self: TextGrammarCheck__GrammalecteConfigWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7241,9 +8937,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigWidget, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QInputMethodEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7257,13 +8957,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: TextGrammarCheck__GrammalecteConfigWidget, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: TextGrammarCheck__GrammalecteConfigWidget, param1: i32) QVariant {
         return .{ .ptr = qtc.TextGrammarCheck__GrammalecteConfigWidget_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7277,9 +8977,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: TextGrammarCheck__GrammalecteConfigWidget, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: TextGrammarCheck__GrammalecteConfigWidget, param1: i32) QVariant {
         return .{ .ptr = qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7295,9 +8999,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, i32) callconv(.c) QVariant) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7311,13 +9019,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: TextGrammarCheck__GrammalecteConfigWidget, next: bool) bool {
+    pub fn focusNextPrevChild(self: TextGrammarCheck__GrammalecteConfigWidget, next: bool) bool {
         return qtc.TextGrammarCheck__GrammalecteConfigWidget_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7331,9 +9039,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: TextGrammarCheck__GrammalecteConfigWidget, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: TextGrammarCheck__GrammalecteConfigWidget, next: bool) bool {
         return qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7347,9 +9059,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigWidget, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, bool) callconv(.c) bool) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -7363,17 +9079,17 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: TextGrammarCheck__GrammalecteConfigWidget, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: TextGrammarCheck__GrammalecteConfigWidget, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.TextGrammarCheck__GrammalecteConfigWidget_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.TextGrammarCheck__GrammalecteConfigWidget_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -7387,13 +9103,17 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: TextGrammarCheck__GrammalecteConfigWidget, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: TextGrammarCheck__GrammalecteConfigWidget, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -7407,9 +9127,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigWidget, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QObject, QEvent) callconv(.c) bool) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -7421,16 +9145,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -7442,12 +9166,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -7461,9 +9189,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigWidget, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QTimerEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -7475,16 +9207,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -7496,12 +9228,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -7515,9 +9251,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigWidget, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QChildEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -7529,16 +9269,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -7550,12 +9290,16 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: TextGrammarCheck__GrammalecteConfigWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: TextGrammarCheck__GrammalecteConfigWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -7569,9 +9313,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigWidget, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -7585,14 +9333,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: TextGrammarCheck__GrammalecteConfigWidget, signal: anytype) void {
+    pub fn connectNotify(self: TextGrammarCheck__GrammalecteConfigWidget, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.TextGrammarCheck__GrammalecteConfigWidget_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7606,11 +9354,15 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: TextGrammarCheck__GrammalecteConfigWidget, signal: anytype) void {
+    pub fn superConnectNotify(self: TextGrammarCheck__GrammalecteConfigWidget, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -7623,9 +9375,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigWidget, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QMetaMethod) callconv(.c) void) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7639,14 +9395,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: TextGrammarCheck__GrammalecteConfigWidget, signal: anytype) void {
+    pub fn disconnectNotify(self: TextGrammarCheck__GrammalecteConfigWidget, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.TextGrammarCheck__GrammalecteConfigWidget_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7660,10 +9416,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: TextGrammarCheck__GrammalecteConfigWidget, signal: anytype) void {
+    pub fn superDisconnectNotify(self: TextGrammarCheck__GrammalecteConfigWidget, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7677,10 +9437,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigWidget, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QMetaMethod) callconv(.c) void) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -7691,13 +9455,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn UpdateMicroFocus(self: TextGrammarCheck__GrammalecteConfigWidget) void {
+    pub fn updateMicroFocus(self: TextGrammarCheck__GrammalecteConfigWidget) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -7709,10 +9473,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn SuperUpdateMicroFocus(self: TextGrammarCheck__GrammalecteConfigWidget) void {
+    pub fn superUpdateMicroFocus(self: TextGrammarCheck__GrammalecteConfigWidget) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -7725,10 +9493,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn () callconv(.c) void) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -7739,13 +9511,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn Create(self: TextGrammarCheck__GrammalecteConfigWidget) void {
+    pub fn create(self: TextGrammarCheck__GrammalecteConfigWidget) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -7757,10 +9529,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn SuperCreate(self: TextGrammarCheck__GrammalecteConfigWidget) void {
+    pub fn superCreate(self: TextGrammarCheck__GrammalecteConfigWidget) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -7773,9 +9549,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn () callconv(.c) void) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -7787,13 +9567,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn Destroy(self: TextGrammarCheck__GrammalecteConfigWidget) void {
+    pub fn destroy(self: TextGrammarCheck__GrammalecteConfigWidget) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -7805,9 +9585,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn SuperDestroy(self: TextGrammarCheck__GrammalecteConfigWidget) void {
+    pub fn superDestroy(self: TextGrammarCheck__GrammalecteConfigWidget) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -7821,10 +9605,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn () callconv(.c) void) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -7835,13 +9623,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn FocusNextChild(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
+    pub fn focusNextChild(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
         return qtc.TextGrammarCheck__GrammalecteConfigWidget_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -7853,10 +9641,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn SuperFocusNextChild(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
+    pub fn superFocusNextChild(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
         return qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -7869,9 +9661,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn () callconv(.c) bool) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -7883,13 +9679,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn FocusPreviousChild(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
+    pub fn focusPreviousChild(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
         return qtc.TextGrammarCheck__GrammalecteConfigWidget_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -7901,9 +9697,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn SuperFocusPreviousChild(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
+    pub fn superFocusPreviousChild(self: TextGrammarCheck__GrammalecteConfigWidget) bool {
         return qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -7917,9 +9717,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn () callconv(.c) bool) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -7931,13 +9735,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn Sender(self: TextGrammarCheck__GrammalecteConfigWidget) QObject {
+    pub fn sender(self: TextGrammarCheck__GrammalecteConfigWidget) QObject {
         return .{ .ptr = qtc.TextGrammarCheck__GrammalecteConfigWidget_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -7949,9 +9753,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn SuperSender(self: TextGrammarCheck__GrammalecteConfigWidget) QObject {
+    pub fn superSender(self: TextGrammarCheck__GrammalecteConfigWidget) QObject {
         return .{ .ptr = qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -7965,9 +9773,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn () callconv(.c) QObject) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -7979,13 +9791,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn SenderSignalIndex(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
+    pub fn senderSignalIndex(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
         return qtc.TextGrammarCheck__GrammalecteConfigWidget_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -7997,9 +9809,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn SuperSenderSignalIndex(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
+    pub fn superSenderSignalIndex(self: TextGrammarCheck__GrammalecteConfigWidget) i32 {
         return qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8013,9 +9829,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn () callconv(.c) i32) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -8029,14 +9849,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: TextGrammarCheck__GrammalecteConfigWidget, signal: [:0]const u8) i32 {
+    pub fn receivers(self: TextGrammarCheck__GrammalecteConfigWidget, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.TextGrammarCheck__GrammalecteConfigWidget_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -8050,10 +9870,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: TextGrammarCheck__GrammalecteConfigWidget, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: TextGrammarCheck__GrammalecteConfigWidget, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -8067,9 +9891,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigWidget, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, [*:0]const u8) callconv(.c) i32) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8083,14 +9911,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: TextGrammarCheck__GrammalecteConfigWidget, signal: anytype) bool {
+    pub fn isSignalConnected(self: TextGrammarCheck__GrammalecteConfigWidget, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.TextGrammarCheck__GrammalecteConfigWidget_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8104,10 +9932,14 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: TextGrammarCheck__GrammalecteConfigWidget, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: TextGrammarCheck__GrammalecteConfigWidget, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8121,9 +9953,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigWidget, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, QMetaMethod) callconv(.c) bool) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8139,13 +9975,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: TextGrammarCheck__GrammalecteConfigWidget, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: TextGrammarCheck__GrammalecteConfigWidget, metricA: i32, metricB: i32) f64 {
         return qtc.TextGrammarCheck__GrammalecteConfigWidget_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8161,9 +9997,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: TextGrammarCheck__GrammalecteConfigWidget, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: TextGrammarCheck__GrammalecteConfigWidget, metricA: i32, metricB: i32) f64 {
         return qtc.TextGrammarCheck__GrammalecteConfigWidget_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8177,9 +10017,13 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigWidget, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, i32, i32) callconv(.c) f64) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -8193,23 +10037,23 @@ pub const TextGrammarCheck__GrammalecteConfigWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigWidget, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: TextGrammarCheck__GrammalecteConfigWidget, callback: *const fn (TextGrammarCheck__GrammalecteConfigWidget, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextGrammarCheck_1_1GrammalecteConfigWidget.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigWidget `
     ///
-    pub fn Delete(self: TextGrammarCheck__GrammalecteConfigWidget) void {
+    pub fn delete(self: TextGrammarCheck__GrammalecteConfigWidget) void {
         qtc.TextGrammarCheck__GrammalecteConfigWidget_Delete(@ptrCast(self.ptr));
     }
 };

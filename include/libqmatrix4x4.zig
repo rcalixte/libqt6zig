@@ -22,55 +22,79 @@ pub const QMatrix4x4 = extern struct {
 
     pub const _is_QMatrix4x4 = {};
 
-    /// New constructs a new QMatrix4x4 object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QMatrix4x4 object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QMatrix4x4 `
     ///
-    pub fn New(other: anytype) QMatrix4x4 {
+    pub fn new(other: anytype) QMatrix4x4 {
         comptime _ = @TypeOf(other)._is_QMatrix4x4;
         return .{ .ptr = qtc.QMatrix4x4_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new QMatrix4x4 object and invalidates the source QMatrix4x4 object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QMatrix4x4 object and invalidate the source QMatrix4x4 object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QMatrix4x4 `
     ///
-    pub fn New2(other: anytype) QMatrix4x4 {
+    pub fn new2(other: anytype) QMatrix4x4 {
         comptime _ = @TypeOf(other)._is_QMatrix4x4;
         return .{ .ptr = qtc.QMatrix4x4_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QMatrix4x4 object.
+    /// ### DEPRECATED: Use `new3` instead
     ///
-    pub fn New3() QMatrix4x4 {
+    pub const New3 = new3;
+
+    /// Allocate a new QMatrix4x4 object in C++ memory
+    ///
+    pub fn new3() QMatrix4x4 {
         return .{ .ptr = qtc.QMatrix4x4_new3() };
     }
 
-    /// New4 constructs a new QMatrix4x4 object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QMatrix4x4 object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: qnamespace_enums.Initialization `
     ///
-    pub fn New4(param1: i32) QMatrix4x4 {
+    pub fn new4(param1: i32) QMatrix4x4 {
         return .{ .ptr = qtc.QMatrix4x4_new4(@bitCast(param1)) };
     }
 
-    /// New5 constructs a new QMatrix4x4 object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new QMatrix4x4 object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` values: *const f32 `
     ///
-    pub fn New5(values: *const f32) QMatrix4x4 {
+    pub fn new5(values: *const f32) QMatrix4x4 {
         return .{ .ptr = qtc.QMatrix4x4_new5(@ptrCast(values)) };
     }
 
-    /// New6 constructs a new QMatrix4x4 object.
+    /// ### DEPRECATED: Use `new6` instead
+    ///
+    pub const New6 = new6;
+
+    /// Allocate a new QMatrix4x4 object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -106,11 +130,15 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` m44: f32 `
     ///
-    pub fn New6(m11: f32, m12: f32, m13: f32, m14: f32, m21: f32, m22: f32, m23: f32, m24: f32, m31: f32, m32: f32, m33: f32, m34: f32, m41: f32, m42: f32, m43: f32, m44: f32) QMatrix4x4 {
+    pub fn new6(m11: f32, m12: f32, m13: f32, m14: f32, m21: f32, m22: f32, m23: f32, m24: f32, m31: f32, m32: f32, m33: f32, m34: f32, m41: f32, m42: f32, m43: f32, m44: f32) QMatrix4x4 {
         return .{ .ptr = qtc.QMatrix4x4_new6(@bitCast(m11), @bitCast(m12), @bitCast(m13), @bitCast(m14), @bitCast(m21), @bitCast(m22), @bitCast(m23), @bitCast(m24), @bitCast(m31), @bitCast(m32), @bitCast(m33), @bitCast(m34), @bitCast(m41), @bitCast(m42), @bitCast(m43), @bitCast(m44)) };
     }
 
-    /// New7 constructs a new QMatrix4x4 object.
+    /// ### DEPRECATED: Use `new7` instead
+    ///
+    pub const New7 = new7;
+
+    /// Allocate a new QMatrix4x4 object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -120,33 +148,44 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` rows: i32 `
     ///
-    pub fn New7(values: *const f32, cols: i32, rows: i32) QMatrix4x4 {
+    pub fn new7(values: *const f32, cols: i32, rows: i32) QMatrix4x4 {
         return .{ .ptr = qtc.QMatrix4x4_new7(@ptrCast(values), @bitCast(cols), @bitCast(rows)) };
     }
 
-    /// New8 constructs a new QMatrix4x4 object.
+    /// ### DEPRECATED: Use `new8` instead
+    ///
+    pub const New8 = new8;
+
+    /// Allocate a new QMatrix4x4 object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` transform: QTransform `
     ///
-    pub fn New8(transform: anytype) QMatrix4x4 {
+    pub fn new8(transform: anytype) QMatrix4x4 {
         comptime _ = @TypeOf(transform)._is_QTransform;
         return .{ .ptr = qtc.QMatrix4x4_new8(@ptrCast(transform.ptr)) };
     }
 
-    /// New9 constructs a new QMatrix4x4 object.
+    /// ### DEPRECATED: Use `new9` instead
+    ///
+    pub const New9 = new9;
+
+    /// Allocate a new QMatrix4x4 object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QMatrix4x4 `
     ///
-    pub fn New9(param1: anytype) QMatrix4x4 {
+    pub fn new9(param1: anytype) QMatrix4x4 {
         comptime _ = @TypeOf(param1)._is_QMatrix4x4;
         return .{ .ptr = qtc.QMatrix4x4_new9(@ptrCast(param1.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -154,11 +193,14 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` other: QMatrix4x4 `
     ///
-    pub fn CopyAssign(self: QMatrix4x4, other: QMatrix4x4) void {
+    pub fn copyAssign(self: QMatrix4x4, other: QMatrix4x4) void {
         qtc.QMatrix4x4_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -166,23 +208,13 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` other: QMatrix4x4 `
     ///
-    pub fn MoveAssign(self: QMatrix4x4, other: QMatrix4x4) void {
+    pub fn moveAssign(self: QMatrix4x4, other: QMatrix4x4) void {
         qtc.QMatrix4x4_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#operator-28-29)
+    /// ### DEPRECATED: Use `operatorCall` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QMatrix4x4 `
-    ///
-    /// ` row: i32 `
-    ///
-    /// ` column: i32 `
-    ///
-    pub fn OperatorCall(self: QMatrix4x4, row: i32, column: i32) ?*const f32 {
-        return @ptrCast(qtc.QMatrix4x4_OperatorCall(@ptrCast(self.ptr), @bitCast(row), @bitCast(column)));
-    }
+    pub const OperatorCall = operatorCall;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#operator-28-29)
     ///
@@ -190,13 +222,35 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` self: QMatrix4x4 `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
-    /// ` column: i32 `
+    /// ` _column: i32 `
     ///
-    pub fn OperatorCall2(self: QMatrix4x4, row: i32, column: i32) ?*f32 {
-        return @ptrCast(qtc.QMatrix4x4_OperatorCall2(@ptrCast(self.ptr), @bitCast(row), @bitCast(column)));
+    pub fn operatorCall(self: QMatrix4x4, _row: i32, _column: i32) ?*const f32 {
+        return @ptrCast(qtc.QMatrix4x4_OperatorCall(@ptrCast(self.ptr), @bitCast(_row), @bitCast(_column)));
     }
+
+    /// ### DEPRECATED: Use `operatorCall2` instead
+    ///
+    pub const OperatorCall2 = operatorCall2;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#operator-28-29)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QMatrix4x4 `
+    ///
+    /// ` _row: i32 `
+    ///
+    /// ` _column: i32 `
+    ///
+    pub fn operatorCall2(self: QMatrix4x4, _row: i32, _column: i32) ?*f32 {
+        return @ptrCast(qtc.QMatrix4x4_OperatorCall2(@ptrCast(self.ptr), @bitCast(_row), @bitCast(_column)));
+    }
+
+    /// ### DEPRECATED: Use `column` instead
+    ///
+    pub const Column = column;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#column)
     ///
@@ -206,9 +260,13 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn Column(self: QMatrix4x4, index: i32) QVector4D {
+    pub fn column(self: QMatrix4x4, index: i32) QVector4D {
         return .{ .ptr = qtc.QMatrix4x4_Column(@ptrCast(self.ptr), @bitCast(index)) };
     }
+
+    /// ### DEPRECATED: Use `setColumn` instead
+    ///
+    pub const SetColumn = setColumn;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#setColumn)
     ///
@@ -220,10 +278,14 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` value: QVector4D `
     ///
-    pub fn SetColumn(self: QMatrix4x4, index: i32, value: anytype) void {
+    pub fn setColumn(self: QMatrix4x4, index: i32, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QVector4D;
         qtc.QMatrix4x4_SetColumn(@ptrCast(self.ptr), @bitCast(index), @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `row` instead
+    ///
+    pub const Row = row;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#row)
     ///
@@ -233,9 +295,13 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn Row(self: QMatrix4x4, index: i32) QVector4D {
+    pub fn row(self: QMatrix4x4, index: i32) QVector4D {
         return .{ .ptr = qtc.QMatrix4x4_Row(@ptrCast(self.ptr), @bitCast(index)) };
     }
+
+    /// ### DEPRECATED: Use `setRow` instead
+    ///
+    pub const SetRow = setRow;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#setRow)
     ///
@@ -247,10 +313,14 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` value: QVector4D `
     ///
-    pub fn SetRow(self: QMatrix4x4, index: i32, value: anytype) void {
+    pub fn setRow(self: QMatrix4x4, index: i32, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QVector4D;
         qtc.QMatrix4x4_SetRow(@ptrCast(self.ptr), @bitCast(index), @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAffine` instead
+    ///
+    pub const IsAffine = isAffine;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#isAffine)
     ///
@@ -258,9 +328,13 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` self: QMatrix4x4 `
     ///
-    pub fn IsAffine(self: QMatrix4x4) bool {
+    pub fn isAffine(self: QMatrix4x4) bool {
         return qtc.QMatrix4x4_IsAffine(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isIdentity` instead
+    ///
+    pub const IsIdentity = isIdentity;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#isIdentity)
     ///
@@ -268,9 +342,13 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` self: QMatrix4x4 `
     ///
-    pub fn IsIdentity(self: QMatrix4x4) bool {
+    pub fn isIdentity(self: QMatrix4x4) bool {
         return qtc.QMatrix4x4_IsIdentity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToIdentity` instead
+    ///
+    pub const SetToIdentity = setToIdentity;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#setToIdentity)
     ///
@@ -278,9 +356,13 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` self: QMatrix4x4 `
     ///
-    pub fn SetToIdentity(self: QMatrix4x4) void {
+    pub fn setToIdentity(self: QMatrix4x4) void {
         qtc.QMatrix4x4_SetToIdentity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `fill` instead
+    ///
+    pub const Fill = fill;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#fill)
     ///
@@ -290,9 +372,13 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` value: f32 `
     ///
-    pub fn Fill(self: QMatrix4x4, value: f32) void {
+    pub fn fill(self: QMatrix4x4, value: f32) void {
         qtc.QMatrix4x4_Fill(@ptrCast(self.ptr), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `determinant` instead
+    ///
+    pub const Determinant = determinant;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#determinant)
     ///
@@ -300,9 +386,13 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` self: QMatrix4x4 `
     ///
-    pub fn Determinant(self: QMatrix4x4) f64 {
+    pub fn determinant(self: QMatrix4x4) f64 {
         return qtc.QMatrix4x4_Determinant(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `inverted` instead
+    ///
+    pub const Inverted = inverted;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#inverted)
     ///
@@ -310,9 +400,13 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` self: QMatrix4x4 `
     ///
-    pub fn Inverted(self: QMatrix4x4) QMatrix4x4 {
+    pub fn inverted(self: QMatrix4x4) QMatrix4x4 {
         return .{ .ptr = qtc.QMatrix4x4_Inverted(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `transposed` instead
+    ///
+    pub const Transposed = transposed;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#transposed)
     ///
@@ -320,9 +414,13 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` self: QMatrix4x4 `
     ///
-    pub fn Transposed(self: QMatrix4x4) QMatrix4x4 {
+    pub fn transposed(self: QMatrix4x4) QMatrix4x4 {
         return .{ .ptr = qtc.QMatrix4x4_Transposed(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorPlusAssign` instead
+    ///
+    pub const OperatorPlusAssign = operatorPlusAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#operator-2b-eq)
     ///
@@ -332,10 +430,14 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` other: QMatrix4x4 `
     ///
-    pub fn OperatorPlusAssign(self: QMatrix4x4, other: anytype) QMatrix4x4 {
+    pub fn operatorPlusAssign(self: QMatrix4x4, other: anytype) QMatrix4x4 {
         comptime _ = @TypeOf(other)._is_QMatrix4x4;
         return .{ .ptr = qtc.QMatrix4x4_OperatorPlusAssign(@ptrCast(self.ptr), @ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorMinusAssign` instead
+    ///
+    pub const OperatorMinusAssign = operatorMinusAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#operator--eq)
     ///
@@ -345,10 +447,14 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` other: QMatrix4x4 `
     ///
-    pub fn OperatorMinusAssign(self: QMatrix4x4, other: anytype) QMatrix4x4 {
+    pub fn operatorMinusAssign(self: QMatrix4x4, other: anytype) QMatrix4x4 {
         comptime _ = @TypeOf(other)._is_QMatrix4x4;
         return .{ .ptr = qtc.QMatrix4x4_OperatorMinusAssign(@ptrCast(self.ptr), @ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorMultiplyAssign` instead
+    ///
+    pub const OperatorMultiplyAssign = operatorMultiplyAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#operator-2a-eq)
     ///
@@ -358,10 +464,14 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` other: QMatrix4x4 `
     ///
-    pub fn OperatorMultiplyAssign(self: QMatrix4x4, other: anytype) QMatrix4x4 {
+    pub fn operatorMultiplyAssign(self: QMatrix4x4, other: anytype) QMatrix4x4 {
         comptime _ = @TypeOf(other)._is_QMatrix4x4;
         return .{ .ptr = qtc.QMatrix4x4_OperatorMultiplyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorMultiplyAssign2` instead
+    ///
+    pub const OperatorMultiplyAssign2 = operatorMultiplyAssign2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#operator-2a-eq)
     ///
@@ -371,9 +481,13 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` factor: f32 `
     ///
-    pub fn OperatorMultiplyAssign2(self: QMatrix4x4, factor: f32) QMatrix4x4 {
+    pub fn operatorMultiplyAssign2(self: QMatrix4x4, factor: f32) QMatrix4x4 {
         return .{ .ptr = qtc.QMatrix4x4_OperatorMultiplyAssign2(@ptrCast(self.ptr), @bitCast(factor)) };
     }
+
+    /// ### DEPRECATED: Use `operatorDivideAssign` instead
+    ///
+    pub const OperatorDivideAssign = operatorDivideAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#operator-2f-eq)
     ///
@@ -383,9 +497,13 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` divisor: f32 `
     ///
-    pub fn OperatorDivideAssign(self: QMatrix4x4, divisor: f32) QMatrix4x4 {
+    pub fn operatorDivideAssign(self: QMatrix4x4, divisor: f32) QMatrix4x4 {
         return .{ .ptr = qtc.QMatrix4x4_OperatorDivideAssign(@ptrCast(self.ptr), @bitCast(divisor)) };
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#operator-eq-eq)
     ///
@@ -395,10 +513,14 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` other: QMatrix4x4 `
     ///
-    pub fn OperatorEqual(self: QMatrix4x4, other: anytype) bool {
+    pub fn operatorEqual(self: QMatrix4x4, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QMatrix4x4;
         return qtc.QMatrix4x4_OperatorEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#operator-not-eq)
     ///
@@ -408,10 +530,14 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` other: QMatrix4x4 `
     ///
-    pub fn OperatorNotEqual(self: QMatrix4x4, other: anytype) bool {
+    pub fn operatorNotEqual(self: QMatrix4x4, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QMatrix4x4;
         return qtc.QMatrix4x4_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `scale` instead
+    ///
+    pub const Scale = scale;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#scale)
     ///
@@ -421,10 +547,14 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` vector: QVector3D `
     ///
-    pub fn Scale(self: QMatrix4x4, vector: anytype) void {
+    pub fn scale(self: QMatrix4x4, vector: anytype) void {
         comptime _ = @TypeOf(vector)._is_QVector3D;
         qtc.QMatrix4x4_Scale(@ptrCast(self.ptr), @ptrCast(vector.ptr));
     }
+
+    /// ### DEPRECATED: Use `translate` instead
+    ///
+    pub const Translate = translate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#translate)
     ///
@@ -434,10 +564,14 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` vector: QVector3D `
     ///
-    pub fn Translate(self: QMatrix4x4, vector: anytype) void {
+    pub fn translate(self: QMatrix4x4, vector: anytype) void {
         comptime _ = @TypeOf(vector)._is_QVector3D;
         qtc.QMatrix4x4_Translate(@ptrCast(self.ptr), @ptrCast(vector.ptr));
     }
+
+    /// ### DEPRECATED: Use `rotate` instead
+    ///
+    pub const Rotate = rotate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#rotate)
     ///
@@ -449,10 +583,14 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` vector: QVector3D `
     ///
-    pub fn Rotate(self: QMatrix4x4, angle: f32, vector: anytype) void {
+    pub fn rotate(self: QMatrix4x4, angle: f32, vector: anytype) void {
         comptime _ = @TypeOf(vector)._is_QVector3D;
         qtc.QMatrix4x4_Rotate(@ptrCast(self.ptr), @bitCast(angle), @ptrCast(vector.ptr));
     }
+
+    /// ### DEPRECATED: Use `scale2` instead
+    ///
+    pub const Scale2 = scale2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#scale)
     ///
@@ -464,9 +602,13 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` y: f32 `
     ///
-    pub fn Scale2(self: QMatrix4x4, x: f32, y: f32) void {
+    pub fn scale2(self: QMatrix4x4, x: f32, y: f32) void {
         qtc.QMatrix4x4_Scale2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
     }
+
+    /// ### DEPRECATED: Use `scale3` instead
+    ///
+    pub const Scale3 = scale3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#scale)
     ///
@@ -480,9 +622,13 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` z: f32 `
     ///
-    pub fn Scale3(self: QMatrix4x4, x: f32, y: f32, z: f32) void {
+    pub fn scale3(self: QMatrix4x4, x: f32, y: f32, z: f32) void {
         qtc.QMatrix4x4_Scale3(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(z));
     }
+
+    /// ### DEPRECATED: Use `scale4` instead
+    ///
+    pub const Scale4 = scale4;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#scale)
     ///
@@ -492,9 +638,13 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` factor: f32 `
     ///
-    pub fn Scale4(self: QMatrix4x4, factor: f32) void {
+    pub fn scale4(self: QMatrix4x4, factor: f32) void {
         qtc.QMatrix4x4_Scale4(@ptrCast(self.ptr), @bitCast(factor));
     }
+
+    /// ### DEPRECATED: Use `translate2` instead
+    ///
+    pub const Translate2 = translate2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#translate)
     ///
@@ -506,9 +656,13 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` y: f32 `
     ///
-    pub fn Translate2(self: QMatrix4x4, x: f32, y: f32) void {
+    pub fn translate2(self: QMatrix4x4, x: f32, y: f32) void {
         qtc.QMatrix4x4_Translate2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
     }
+
+    /// ### DEPRECATED: Use `translate3` instead
+    ///
+    pub const Translate3 = translate3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#translate)
     ///
@@ -522,9 +676,13 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` z: f32 `
     ///
-    pub fn Translate3(self: QMatrix4x4, x: f32, y: f32, z: f32) void {
+    pub fn translate3(self: QMatrix4x4, x: f32, y: f32, z: f32) void {
         qtc.QMatrix4x4_Translate3(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(z));
     }
+
+    /// ### DEPRECATED: Use `rotate2` instead
+    ///
+    pub const Rotate2 = rotate2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#rotate)
     ///
@@ -538,9 +696,13 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` y: f32 `
     ///
-    pub fn Rotate2(self: QMatrix4x4, angle: f32, x: f32, y: f32) void {
+    pub fn rotate2(self: QMatrix4x4, angle: f32, x: f32, y: f32) void {
         qtc.QMatrix4x4_Rotate2(@ptrCast(self.ptr), @bitCast(angle), @bitCast(x), @bitCast(y));
     }
+
+    /// ### DEPRECATED: Use `rotate3` instead
+    ///
+    pub const Rotate3 = rotate3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#rotate)
     ///
@@ -550,10 +712,14 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` quaternion: QQuaternion `
     ///
-    pub fn Rotate3(self: QMatrix4x4, quaternion: anytype) void {
+    pub fn rotate3(self: QMatrix4x4, quaternion: anytype) void {
         comptime _ = @TypeOf(quaternion)._is_QQuaternion;
         qtc.QMatrix4x4_Rotate3(@ptrCast(self.ptr), @ptrCast(quaternion.ptr));
     }
+
+    /// ### DEPRECATED: Use `ortho` instead
+    ///
+    pub const Ortho = ortho;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#ortho)
     ///
@@ -563,10 +729,14 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` rect: QRect `
     ///
-    pub fn Ortho(self: QMatrix4x4, rect: anytype) void {
+    pub fn ortho(self: QMatrix4x4, rect: anytype) void {
         comptime _ = @TypeOf(rect)._is_QRect;
         qtc.QMatrix4x4_Ortho(@ptrCast(self.ptr), @ptrCast(rect.ptr));
     }
+
+    /// ### DEPRECATED: Use `ortho2` instead
+    ///
+    pub const Ortho2 = ortho2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#ortho)
     ///
@@ -576,10 +746,14 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` rect: QRectF `
     ///
-    pub fn Ortho2(self: QMatrix4x4, rect: anytype) void {
+    pub fn ortho2(self: QMatrix4x4, rect: anytype) void {
         comptime _ = @TypeOf(rect)._is_QRectF;
         qtc.QMatrix4x4_Ortho2(@ptrCast(self.ptr), @ptrCast(rect.ptr));
     }
+
+    /// ### DEPRECATED: Use `ortho3` instead
+    ///
+    pub const Ortho3 = ortho3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#ortho)
     ///
@@ -599,9 +773,13 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` farPlane: f32 `
     ///
-    pub fn Ortho3(self: QMatrix4x4, left: f32, right: f32, bottom: f32, top: f32, nearPlane: f32, farPlane: f32) void {
+    pub fn ortho3(self: QMatrix4x4, left: f32, right: f32, bottom: f32, top: f32, nearPlane: f32, farPlane: f32) void {
         qtc.QMatrix4x4_Ortho3(@ptrCast(self.ptr), @bitCast(left), @bitCast(right), @bitCast(bottom), @bitCast(top), @bitCast(nearPlane), @bitCast(farPlane));
     }
+
+    /// ### DEPRECATED: Use `frustum` instead
+    ///
+    pub const Frustum = frustum;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#frustum)
     ///
@@ -621,9 +799,13 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` farPlane: f32 `
     ///
-    pub fn Frustum(self: QMatrix4x4, left: f32, right: f32, bottom: f32, top: f32, nearPlane: f32, farPlane: f32) void {
+    pub fn frustum(self: QMatrix4x4, left: f32, right: f32, bottom: f32, top: f32, nearPlane: f32, farPlane: f32) void {
         qtc.QMatrix4x4_Frustum(@ptrCast(self.ptr), @bitCast(left), @bitCast(right), @bitCast(bottom), @bitCast(top), @bitCast(nearPlane), @bitCast(farPlane));
     }
+
+    /// ### DEPRECATED: Use `perspective` instead
+    ///
+    pub const Perspective = perspective;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#perspective)
     ///
@@ -639,9 +821,13 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` farPlane: f32 `
     ///
-    pub fn Perspective(self: QMatrix4x4, verticalAngle: f32, aspectRatio: f32, nearPlane: f32, farPlane: f32) void {
+    pub fn perspective(self: QMatrix4x4, verticalAngle: f32, aspectRatio: f32, nearPlane: f32, farPlane: f32) void {
         qtc.QMatrix4x4_Perspective(@ptrCast(self.ptr), @bitCast(verticalAngle), @bitCast(aspectRatio), @bitCast(nearPlane), @bitCast(farPlane));
     }
+
+    /// ### DEPRECATED: Use `lookAt` instead
+    ///
+    pub const LookAt = lookAt;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#lookAt)
     ///
@@ -655,12 +841,16 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` up: QVector3D `
     ///
-    pub fn LookAt(self: QMatrix4x4, eye: anytype, center: anytype, up: anytype) void {
+    pub fn lookAt(self: QMatrix4x4, eye: anytype, center: anytype, up: anytype) void {
         comptime _ = @TypeOf(eye)._is_QVector3D;
         comptime _ = @TypeOf(center)._is_QVector3D;
         comptime _ = @TypeOf(up)._is_QVector3D;
         qtc.QMatrix4x4_LookAt(@ptrCast(self.ptr), @ptrCast(eye.ptr), @ptrCast(center.ptr), @ptrCast(up.ptr));
     }
+
+    /// ### DEPRECATED: Use `viewport` instead
+    ///
+    pub const Viewport = viewport;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#viewport)
     ///
@@ -670,10 +860,14 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` rect: QRectF `
     ///
-    pub fn Viewport(self: QMatrix4x4, rect: anytype) void {
+    pub fn viewport(self: QMatrix4x4, rect: anytype) void {
         comptime _ = @TypeOf(rect)._is_QRectF;
         qtc.QMatrix4x4_Viewport(@ptrCast(self.ptr), @ptrCast(rect.ptr));
     }
+
+    /// ### DEPRECATED: Use `viewport2` instead
+    ///
+    pub const Viewport2 = viewport2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#viewport)
     ///
@@ -689,9 +883,13 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` height: f32 `
     ///
-    pub fn Viewport2(self: QMatrix4x4, left: f32, bottom: f32, width: f32, height: f32) void {
+    pub fn viewport2(self: QMatrix4x4, left: f32, bottom: f32, width: f32, height: f32) void {
         qtc.QMatrix4x4_Viewport2(@ptrCast(self.ptr), @bitCast(left), @bitCast(bottom), @bitCast(width), @bitCast(height));
     }
+
+    /// ### DEPRECATED: Use `flipCoordinates` instead
+    ///
+    pub const FlipCoordinates = flipCoordinates;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#flipCoordinates)
     ///
@@ -699,9 +897,13 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` self: QMatrix4x4 `
     ///
-    pub fn FlipCoordinates(self: QMatrix4x4) void {
+    pub fn flipCoordinates(self: QMatrix4x4) void {
         qtc.QMatrix4x4_FlipCoordinates(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `copyDataTo` instead
+    ///
+    pub const CopyDataTo = copyDataTo;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#copyDataTo)
     ///
@@ -711,9 +913,13 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` values: *f32 `
     ///
-    pub fn CopyDataTo(self: QMatrix4x4, values: *f32) void {
+    pub fn copyDataTo(self: QMatrix4x4, values: *f32) void {
         qtc.QMatrix4x4_CopyDataTo(@ptrCast(self.ptr), @ptrCast(values));
     }
+
+    /// ### DEPRECATED: Use `toTransform` instead
+    ///
+    pub const ToTransform = toTransform;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#toTransform)
     ///
@@ -721,9 +927,13 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` self: QMatrix4x4 `
     ///
-    pub fn ToTransform(self: QMatrix4x4) QTransform {
+    pub fn toTransform(self: QMatrix4x4) QTransform {
         return .{ .ptr = qtc.QMatrix4x4_ToTransform(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toTransform2` instead
+    ///
+    pub const ToTransform2 = toTransform2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#toTransform)
     ///
@@ -733,9 +943,13 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` distanceToPlane: f32 `
     ///
-    pub fn ToTransform2(self: QMatrix4x4, distanceToPlane: f32) QTransform {
+    pub fn toTransform2(self: QMatrix4x4, distanceToPlane: f32) QTransform {
         return .{ .ptr = qtc.QMatrix4x4_ToTransform2(@ptrCast(self.ptr), @bitCast(distanceToPlane)) };
     }
+
+    /// ### DEPRECATED: Use `map` instead
+    ///
+    pub const Map = map;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#map)
     ///
@@ -745,10 +959,14 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` point: QPoint `
     ///
-    pub fn Map(self: QMatrix4x4, point: anytype) QPoint {
+    pub fn map(self: QMatrix4x4, point: anytype) QPoint {
         comptime _ = @TypeOf(point)._is_QPoint;
         return .{ .ptr = qtc.QMatrix4x4_Map(@ptrCast(self.ptr), @ptrCast(point.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `map2` instead
+    ///
+    pub const Map2 = map2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#map)
     ///
@@ -758,10 +976,14 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` point: QPointF `
     ///
-    pub fn Map2(self: QMatrix4x4, point: anytype) QPointF {
+    pub fn map2(self: QMatrix4x4, point: anytype) QPointF {
         comptime _ = @TypeOf(point)._is_QPointF;
         return .{ .ptr = qtc.QMatrix4x4_Map2(@ptrCast(self.ptr), @ptrCast(point.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `map3` instead
+    ///
+    pub const Map3 = map3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#map)
     ///
@@ -771,10 +993,14 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` point: QVector3D `
     ///
-    pub fn Map3(self: QMatrix4x4, point: anytype) QVector3D {
+    pub fn map3(self: QMatrix4x4, point: anytype) QVector3D {
         comptime _ = @TypeOf(point)._is_QVector3D;
         return .{ .ptr = qtc.QMatrix4x4_Map3(@ptrCast(self.ptr), @ptrCast(point.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapVector` instead
+    ///
+    pub const MapVector = mapVector;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#mapVector)
     ///
@@ -784,10 +1010,14 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` vector: QVector3D `
     ///
-    pub fn MapVector(self: QMatrix4x4, vector: anytype) QVector3D {
+    pub fn mapVector(self: QMatrix4x4, vector: anytype) QVector3D {
         comptime _ = @TypeOf(vector)._is_QVector3D;
         return .{ .ptr = qtc.QMatrix4x4_MapVector(@ptrCast(self.ptr), @ptrCast(vector.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `map4` instead
+    ///
+    pub const Map4 = map4;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#map)
     ///
@@ -797,10 +1027,14 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` point: QVector4D `
     ///
-    pub fn Map4(self: QMatrix4x4, point: anytype) QVector4D {
+    pub fn map4(self: QMatrix4x4, point: anytype) QVector4D {
         comptime _ = @TypeOf(point)._is_QVector4D;
         return .{ .ptr = qtc.QMatrix4x4_Map4(@ptrCast(self.ptr), @ptrCast(point.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapRect` instead
+    ///
+    pub const MapRect = mapRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#mapRect)
     ///
@@ -810,10 +1044,14 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` rect: QRect `
     ///
-    pub fn MapRect(self: QMatrix4x4, rect: anytype) QRect {
+    pub fn mapRect(self: QMatrix4x4, rect: anytype) QRect {
         comptime _ = @TypeOf(rect)._is_QRect;
         return .{ .ptr = qtc.QMatrix4x4_MapRect(@ptrCast(self.ptr), @ptrCast(rect.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapRect2` instead
+    ///
+    pub const MapRect2 = mapRect2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#mapRect)
     ///
@@ -823,20 +1061,14 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` rect: QRectF `
     ///
-    pub fn MapRect2(self: QMatrix4x4, rect: anytype) QRectF {
+    pub fn mapRect2(self: QMatrix4x4, rect: anytype) QRectF {
         comptime _ = @TypeOf(rect)._is_QRectF;
         return .{ .ptr = qtc.QMatrix4x4_MapRect2(@ptrCast(self.ptr), @ptrCast(rect.ptr)) };
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#data)
+    /// ### DEPRECATED: Use `data` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QMatrix4x4 `
-    ///
-    pub fn Data(self: QMatrix4x4) ?*f32 {
-        return @ptrCast(qtc.QMatrix4x4_Data(@ptrCast(self.ptr)));
-    }
+    pub const Data = data;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#data)
     ///
@@ -844,9 +1076,27 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` self: QMatrix4x4 `
     ///
-    pub fn Data2(self: QMatrix4x4) ?*const f32 {
+    pub fn data(self: QMatrix4x4) ?*f32 {
+        return @ptrCast(qtc.QMatrix4x4_Data(@ptrCast(self.ptr)));
+    }
+
+    /// ### DEPRECATED: Use `data2` instead
+    ///
+    pub const Data2 = data2;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#data)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QMatrix4x4 `
+    ///
+    pub fn data2(self: QMatrix4x4) ?*const f32 {
         return @ptrCast(qtc.QMatrix4x4_Data2(@ptrCast(self.ptr)));
     }
+
+    /// ### DEPRECATED: Use `constData` instead
+    ///
+    pub const ConstData = constData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#constData)
     ///
@@ -854,9 +1104,13 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` self: QMatrix4x4 `
     ///
-    pub fn ConstData(self: QMatrix4x4) ?*const f32 {
+    pub fn constData(self: QMatrix4x4) ?*const f32 {
         return @ptrCast(qtc.QMatrix4x4_ConstData(@ptrCast(self.ptr)));
     }
+
+    /// ### DEPRECATED: Use `optimize` instead
+    ///
+    pub const Optimize = optimize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#optimize)
     ///
@@ -864,9 +1118,13 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` self: QMatrix4x4 `
     ///
-    pub fn Optimize(self: QMatrix4x4) void {
+    pub fn optimize(self: QMatrix4x4) void {
         qtc.QMatrix4x4_Optimize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toQVariant` instead
+    ///
+    pub const ToQVariant = toQVariant;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#operator)
     ///
@@ -874,9 +1132,13 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` self: QMatrix4x4 `
     ///
-    pub fn ToQVariant(self: QMatrix4x4) QVariant {
+    pub fn toQVariant(self: QMatrix4x4) QVariant {
         return .{ .ptr = qtc.QMatrix4x4_ToQVariant(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `projectedRotate` instead
+    ///
+    pub const ProjectedRotate = projectedRotate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#projectedRotate)
     ///
@@ -894,9 +1156,13 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` distanceToPlane: f32 `
     ///
-    pub fn ProjectedRotate(self: QMatrix4x4, angle: f32, x: f32, y: f32, z: f32, distanceToPlane: f32) void {
+    pub fn projectedRotate(self: QMatrix4x4, angle: f32, x: f32, y: f32, z: f32, distanceToPlane: f32) void {
         qtc.QMatrix4x4_ProjectedRotate(@ptrCast(self.ptr), @bitCast(angle), @bitCast(x), @bitCast(y), @bitCast(z), @bitCast(distanceToPlane));
     }
+
+    /// ### DEPRECATED: Use `projectedRotate2` instead
+    ///
+    pub const ProjectedRotate2 = projectedRotate2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#projectedRotate)
     ///
@@ -912,9 +1178,13 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` z: f32 `
     ///
-    pub fn ProjectedRotate2(self: QMatrix4x4, angle: f32, x: f32, y: f32, z: f32) void {
+    pub fn projectedRotate2(self: QMatrix4x4, angle: f32, x: f32, y: f32, z: f32) void {
         qtc.QMatrix4x4_ProjectedRotate2(@ptrCast(self.ptr), @bitCast(angle), @bitCast(x), @bitCast(y), @bitCast(z));
     }
+
+    /// ### DEPRECATED: Use `flags` instead
+    ///
+    pub const Flags = flags;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#flags)
     ///
@@ -926,9 +1196,13 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` flag of qmatrix4x4_enums.Flag `
     ///
-    pub fn Flags(self: QMatrix4x4) i32 {
+    pub fn flags(self: QMatrix4x4) i32 {
         return qtc.QMatrix4x4_Flags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `inverted1` instead
+    ///
+    pub const Inverted1 = inverted1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#inverted)
     ///
@@ -938,9 +1212,13 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` invertible: *bool `
     ///
-    pub fn Inverted1(self: QMatrix4x4, invertible: *bool) QMatrix4x4 {
+    pub fn inverted1(self: QMatrix4x4, invertible: *bool) QMatrix4x4 {
         return .{ .ptr = qtc.QMatrix4x4_Inverted1(@ptrCast(self.ptr), @ptrCast(invertible)) };
     }
+
+    /// ### DEPRECATED: Use `rotate4` instead
+    ///
+    pub const Rotate4 = rotate4;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#rotate)
     ///
@@ -956,9 +1234,13 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` z: f32 `
     ///
-    pub fn Rotate4(self: QMatrix4x4, angle: f32, x: f32, y: f32, z: f32) void {
+    pub fn rotate4(self: QMatrix4x4, angle: f32, x: f32, y: f32, z: f32) void {
         qtc.QMatrix4x4_Rotate4(@ptrCast(self.ptr), @bitCast(angle), @bitCast(x), @bitCast(y), @bitCast(z));
     }
+
+    /// ### DEPRECATED: Use `viewport5` instead
+    ///
+    pub const Viewport5 = viewport5;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#viewport)
     ///
@@ -976,9 +1258,13 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` nearPlane: f32 `
     ///
-    pub fn Viewport5(self: QMatrix4x4, left: f32, bottom: f32, width: f32, height: f32, nearPlane: f32) void {
+    pub fn viewport5(self: QMatrix4x4, left: f32, bottom: f32, width: f32, height: f32, nearPlane: f32) void {
         qtc.QMatrix4x4_Viewport5(@ptrCast(self.ptr), @bitCast(left), @bitCast(bottom), @bitCast(width), @bitCast(height), @bitCast(nearPlane));
     }
+
+    /// ### DEPRECATED: Use `viewport6` instead
+    ///
+    pub const Viewport6 = viewport6;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#viewport)
     ///
@@ -998,23 +1284,23 @@ pub const QMatrix4x4 = extern struct {
     ///
     /// ` farPlane: f32 `
     ///
-    pub fn Viewport6(self: QMatrix4x4, left: f32, bottom: f32, width: f32, height: f32, nearPlane: f32, farPlane: f32) void {
+    pub fn viewport6(self: QMatrix4x4, left: f32, bottom: f32, width: f32, height: f32, nearPlane: f32, farPlane: f32) void {
         qtc.QMatrix4x4_Viewport6(@ptrCast(self.ptr), @bitCast(left), @bitCast(bottom), @bitCast(width), @bitCast(height), @bitCast(nearPlane), @bitCast(farPlane));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#dtor.QMatrix4x4)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QMatrix4x4 `
     ///
-    pub fn Delete(self: QMatrix4x4) void {
+    pub fn delete(self: QMatrix4x4) void {
         qtc.QMatrix4x4_Delete(@ptrCast(self.ptr));
     }
 };

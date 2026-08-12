@@ -82,16 +82,24 @@ pub const KCommandBar = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new KCommandBar object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KCommandBar object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) KCommandBar {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KCommandBar_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) KCommandBar {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KCommandBar_new(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -99,9 +107,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn MetaObject(self: KCommandBar) QMetaObject {
+    pub fn metaObject(self: KCommandBar) QMetaObject {
         return .{ .ptr = qtc.KCommandBar_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -113,13 +125,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KCommandBar, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KCommandBar, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KCommandBar_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -129,9 +141,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn SuperMetaObject(self: KCommandBar) QMetaObject {
+    pub fn superMetaObject(self: KCommandBar) QMetaObject {
         return .{ .ptr = qtc.KCommandBar_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -139,10 +155,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KCommandBar, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KCommandBar, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KCommandBar_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -152,13 +172,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KCommandBar, callback: *const fn (KCommandBar, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KCommandBar, callback: *const fn (KCommandBar, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KCommandBar_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -168,10 +188,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KCommandBar, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KCommandBar, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KCommandBar_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -183,9 +207,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KCommandBar, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KCommandBar, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KCommandBar_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -195,13 +223,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KCommandBar, callback: *const fn (KCommandBar, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KCommandBar, callback: *const fn (KCommandBar, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KCommandBar_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -215,9 +243,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KCommandBar, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KCommandBar, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KCommandBar_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -227,14 +259,18 @@ pub const KCommandBar = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCommandBar.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCommandBar.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setActions` instead
+    ///
+    pub const SetActions = setActions;
 
     /// ### [Upstream resources](https://api.kde.org/kcommandbar.html#setActions)
     ///
@@ -242,15 +278,19 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` actions: []KCommandBar__ActionGroup `
+    /// ` _actions: []KCommandBar__ActionGroup `
     ///
-    pub fn SetActions(self: KCommandBar, actions: []KCommandBar__ActionGroup) void {
+    pub fn setActions(self: KCommandBar, _actions: []KCommandBar__ActionGroup) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.KCommandBar_SetActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// ### [Upstream resources](https://api.kde.org/kcommandbar.html#show)
     ///
@@ -258,9 +298,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn Show(self: KCommandBar) void {
+    pub fn show(self: KCommandBar) void {
         qtc.KCommandBar_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// ### [Upstream resources](https://api.kde.org/kcommandbar.html#eventFilter)
     ///
@@ -270,13 +314,17 @@ pub const KCommandBar = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: KCommandBar, obj: anytype, event: anytype) bool {
+    pub fn eventFilter(self: KCommandBar, obj: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(obj)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KCommandBar_EventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KCommandBar_EventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// ### [Upstream resources](https://api.kde.org/kcommandbar.html#eventFilter)
     ///
@@ -288,13 +336,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, obj: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KCommandBar, callback: *const fn (KCommandBar, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KCommandBar, callback: *const fn (KCommandBar, QObject, QEvent) callconv(.c) bool) void {
         qtc.KCommandBar_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// ### [Upstream resources](https://api.kde.org/kcommandbar.html#eventFilter)
     ///
@@ -306,13 +354,17 @@ pub const KCommandBar = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: KCommandBar, obj: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: KCommandBar, obj: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(obj)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KCommandBar_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KCommandBar_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -324,15 +376,19 @@ pub const KCommandBar = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCommandBar.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCommandBar.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -346,15 +402,19 @@ pub const KCommandBar = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCommandBar.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCommandBar.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `frameStyle` instead
+    ///
+    pub const FrameStyle = frameStyle;
 
     /// Inherited from QFrame
     ///
@@ -364,9 +424,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn FrameStyle(self: KCommandBar) i32 {
+    pub fn frameStyle(self: KCommandBar) i32 {
         return qtc.QFrame_FrameStyle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFrameStyle` instead
+    ///
+    pub const SetFrameStyle = setFrameStyle;
 
     /// Inherited from QFrame
     ///
@@ -376,11 +440,15 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` frameStyle: i32 `
+    /// ` _frameStyle: i32 `
     ///
-    pub fn SetFrameStyle(self: KCommandBar, frameStyle: i32) void {
-        qtc.QFrame_SetFrameStyle(@ptrCast(self.ptr), @bitCast(frameStyle));
+    pub fn setFrameStyle(self: KCommandBar, _frameStyle: i32) void {
+        qtc.QFrame_SetFrameStyle(@ptrCast(self.ptr), @bitCast(_frameStyle));
     }
+
+    /// ### DEPRECATED: Use `frameWidth` instead
+    ///
+    pub const FrameWidth = frameWidth;
 
     /// Inherited from QFrame
     ///
@@ -390,9 +458,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn FrameWidth(self: KCommandBar) i32 {
+    pub fn frameWidth(self: KCommandBar) i32 {
         return qtc.QFrame_FrameWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `frameShape` instead
+    ///
+    pub const FrameShape = frameShape;
 
     /// Inherited from QFrame
     ///
@@ -406,9 +478,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` qframe_enums.Shape `
     ///
-    pub fn FrameShape(self: KCommandBar) i32 {
+    pub fn frameShape(self: KCommandBar) i32 {
         return qtc.QFrame_FrameShape(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFrameShape` instead
+    ///
+    pub const SetFrameShape = setFrameShape;
 
     /// Inherited from QFrame
     ///
@@ -418,11 +494,15 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` frameShape: qframe_enums.Shape `
+    /// ` _frameShape: qframe_enums.Shape `
     ///
-    pub fn SetFrameShape(self: KCommandBar, frameShape: i32) void {
-        qtc.QFrame_SetFrameShape(@ptrCast(self.ptr), @bitCast(frameShape));
+    pub fn setFrameShape(self: KCommandBar, _frameShape: i32) void {
+        qtc.QFrame_SetFrameShape(@ptrCast(self.ptr), @bitCast(_frameShape));
     }
+
+    /// ### DEPRECATED: Use `frameShadow` instead
+    ///
+    pub const FrameShadow = frameShadow;
 
     /// Inherited from QFrame
     ///
@@ -436,9 +516,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` qframe_enums.Shadow `
     ///
-    pub fn FrameShadow(self: KCommandBar) i32 {
+    pub fn frameShadow(self: KCommandBar) i32 {
         return qtc.QFrame_FrameShadow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFrameShadow` instead
+    ///
+    pub const SetFrameShadow = setFrameShadow;
 
     /// Inherited from QFrame
     ///
@@ -448,11 +532,15 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` frameShadow: qframe_enums.Shadow `
+    /// ` _frameShadow: qframe_enums.Shadow `
     ///
-    pub fn SetFrameShadow(self: KCommandBar, frameShadow: i32) void {
-        qtc.QFrame_SetFrameShadow(@ptrCast(self.ptr), @bitCast(frameShadow));
+    pub fn setFrameShadow(self: KCommandBar, _frameShadow: i32) void {
+        qtc.QFrame_SetFrameShadow(@ptrCast(self.ptr), @bitCast(_frameShadow));
     }
+
+    /// ### DEPRECATED: Use `lineWidth` instead
+    ///
+    pub const LineWidth = lineWidth;
 
     /// Inherited from QFrame
     ///
@@ -462,9 +550,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn LineWidth(self: KCommandBar) i32 {
+    pub fn lineWidth(self: KCommandBar) i32 {
         return qtc.QFrame_LineWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLineWidth` instead
+    ///
+    pub const SetLineWidth = setLineWidth;
 
     /// Inherited from QFrame
     ///
@@ -474,11 +566,15 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` lineWidth: i32 `
+    /// ` _lineWidth: i32 `
     ///
-    pub fn SetLineWidth(self: KCommandBar, lineWidth: i32) void {
-        qtc.QFrame_SetLineWidth(@ptrCast(self.ptr), @bitCast(lineWidth));
+    pub fn setLineWidth(self: KCommandBar, _lineWidth: i32) void {
+        qtc.QFrame_SetLineWidth(@ptrCast(self.ptr), @bitCast(_lineWidth));
     }
+
+    /// ### DEPRECATED: Use `midLineWidth` instead
+    ///
+    pub const MidLineWidth = midLineWidth;
 
     /// Inherited from QFrame
     ///
@@ -488,9 +584,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn MidLineWidth(self: KCommandBar) i32 {
+    pub fn midLineWidth(self: KCommandBar) i32 {
         return qtc.QFrame_MidLineWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMidLineWidth` instead
+    ///
+    pub const SetMidLineWidth = setMidLineWidth;
 
     /// Inherited from QFrame
     ///
@@ -500,11 +600,15 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` midLineWidth: i32 `
+    /// ` _midLineWidth: i32 `
     ///
-    pub fn SetMidLineWidth(self: KCommandBar, midLineWidth: i32) void {
-        qtc.QFrame_SetMidLineWidth(@ptrCast(self.ptr), @bitCast(midLineWidth));
+    pub fn setMidLineWidth(self: KCommandBar, _midLineWidth: i32) void {
+        qtc.QFrame_SetMidLineWidth(@ptrCast(self.ptr), @bitCast(_midLineWidth));
     }
+
+    /// ### DEPRECATED: Use `frameRect` instead
+    ///
+    pub const FrameRect = frameRect;
 
     /// Inherited from QFrame
     ///
@@ -514,9 +618,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn FrameRect(self: KCommandBar) QRect {
+    pub fn frameRect(self: KCommandBar) QRect {
         return .{ .ptr = qtc.QFrame_FrameRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFrameRect` instead
+    ///
+    pub const SetFrameRect = setFrameRect;
 
     /// Inherited from QFrame
     ///
@@ -526,12 +634,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` frameRect: QRect `
+    /// ` _frameRect: QRect `
     ///
-    pub fn SetFrameRect(self: KCommandBar, frameRect: anytype) void {
-        comptime _ = @TypeOf(frameRect)._is_QRect;
-        qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(frameRect.ptr));
+    pub fn setFrameRect(self: KCommandBar, _frameRect: anytype) void {
+        comptime _ = @TypeOf(_frameRect)._is_QRect;
+        qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(_frameRect.ptr));
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -541,9 +653,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn WinId(self: KCommandBar) usize {
+    pub fn winId(self: KCommandBar) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -553,9 +669,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn CreateWinId(self: KCommandBar) void {
+    pub fn createWinId(self: KCommandBar) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -565,9 +685,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn InternalWinId(self: KCommandBar) usize {
+    pub fn internalWinId(self: KCommandBar) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -577,9 +701,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn EffectiveWinId(self: KCommandBar) usize {
+    pub fn effectiveWinId(self: KCommandBar) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -589,9 +717,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn Style(self: KCommandBar) QStyle {
+    pub fn style(self: KCommandBar) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -601,12 +733,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: KCommandBar, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: KCommandBar, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -616,9 +752,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn IsTopLevel(self: KCommandBar) bool {
+    pub fn isTopLevel(self: KCommandBar) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -628,9 +768,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn IsWindow(self: KCommandBar) bool {
+    pub fn isWindow(self: KCommandBar) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -640,9 +784,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn IsModal(self: KCommandBar) bool {
+    pub fn isModal(self: KCommandBar) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -656,9 +804,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: KCommandBar) i32 {
+    pub fn windowModality(self: KCommandBar) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -668,11 +820,15 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: KCommandBar, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: KCommandBar, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -682,9 +838,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn IsEnabled(self: KCommandBar) bool {
+    pub fn isEnabled(self: KCommandBar) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -696,10 +856,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: KCommandBar, param1: anytype) bool {
+    pub fn isEnabledTo(self: KCommandBar, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -711,9 +875,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: KCommandBar, enabled: bool) void {
+    pub fn setEnabled(self: KCommandBar, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -725,9 +893,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: KCommandBar, disabled: bool) void {
+    pub fn setDisabled(self: KCommandBar, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -739,9 +911,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: KCommandBar, windowModified: bool) void {
+    pub fn setWindowModified(self: KCommandBar, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -751,9 +927,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn FrameGeometry(self: KCommandBar) QRect {
+    pub fn frameGeometry(self: KCommandBar) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -763,9 +943,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn Geometry(self: KCommandBar) QRect {
+    pub fn geometry(self: KCommandBar) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -775,9 +959,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn NormalGeometry(self: KCommandBar) QRect {
+    pub fn normalGeometry(self: KCommandBar) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -787,9 +975,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn X(self: KCommandBar) i32 {
+    pub fn x(self: KCommandBar) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -799,9 +991,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn Y(self: KCommandBar) i32 {
+    pub fn y(self: KCommandBar) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -811,9 +1007,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn Pos(self: KCommandBar) QPoint {
+    pub fn pos(self: KCommandBar) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -823,9 +1023,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn FrameSize(self: KCommandBar) QSize {
+    pub fn frameSize(self: KCommandBar) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -835,9 +1039,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn Size(self: KCommandBar) QSize {
+    pub fn size(self: KCommandBar) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -847,9 +1055,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn Width(self: KCommandBar) i32 {
+    pub fn width(self: KCommandBar) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -859,9 +1071,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn Height(self: KCommandBar) i32 {
+    pub fn height(self: KCommandBar) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -871,9 +1087,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn Rect(self: KCommandBar) QRect {
+    pub fn rect(self: KCommandBar) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -883,9 +1103,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn ChildrenRect(self: KCommandBar) QRect {
+    pub fn childrenRect(self: KCommandBar) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -895,9 +1119,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn ChildrenRegion(self: KCommandBar) QRegion {
+    pub fn childrenRegion(self: KCommandBar) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -907,9 +1135,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn MinimumSize(self: KCommandBar) QSize {
+    pub fn minimumSize(self: KCommandBar) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -919,9 +1151,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn MaximumSize(self: KCommandBar) QSize {
+    pub fn maximumSize(self: KCommandBar) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -931,9 +1167,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn MinimumWidth(self: KCommandBar) i32 {
+    pub fn minimumWidth(self: KCommandBar) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -943,9 +1183,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn MinimumHeight(self: KCommandBar) i32 {
+    pub fn minimumHeight(self: KCommandBar) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -955,9 +1199,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn MaximumWidth(self: KCommandBar) i32 {
+    pub fn maximumWidth(self: KCommandBar) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -967,9 +1215,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn MaximumHeight(self: KCommandBar) i32 {
+    pub fn maximumHeight(self: KCommandBar) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -979,12 +1231,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: KCommandBar, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: KCommandBar, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -998,9 +1254,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: KCommandBar, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: KCommandBar, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1010,12 +1270,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: KCommandBar, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: KCommandBar, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1029,9 +1293,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: KCommandBar, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: KCommandBar, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1043,9 +1311,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: KCommandBar, minw: i32) void {
+    pub fn setMinimumWidth(self: KCommandBar, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1057,9 +1329,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: KCommandBar, minh: i32) void {
+    pub fn setMinimumHeight(self: KCommandBar, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1071,9 +1347,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: KCommandBar, maxw: i32) void {
+    pub fn setMaximumWidth(self: KCommandBar, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1085,9 +1365,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: KCommandBar, maxh: i32) void {
+    pub fn setMaximumHeight(self: KCommandBar, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1097,9 +1381,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn SizeIncrement(self: KCommandBar) QSize {
+    pub fn sizeIncrement(self: KCommandBar) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1109,12 +1397,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: KCommandBar, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: KCommandBar, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -1128,9 +1420,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: KCommandBar, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: KCommandBar, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -1140,9 +1436,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn BaseSize(self: KCommandBar) QSize {
+    pub fn baseSize(self: KCommandBar) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -1152,12 +1452,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: KCommandBar, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: KCommandBar, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -1171,9 +1475,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: KCommandBar, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: KCommandBar, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -1185,10 +1493,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: KCommandBar, fixedSize: anytype) void {
+    pub fn setFixedSize(self: KCommandBar, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -1202,9 +1514,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: KCommandBar, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: KCommandBar, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -1216,9 +1532,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: KCommandBar, w: i32) void {
+    pub fn setFixedWidth(self: KCommandBar, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -1230,9 +1550,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: KCommandBar, h: i32) void {
+    pub fn setFixedHeight(self: KCommandBar, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -1244,11 +1568,15 @@ pub const KCommandBar = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: KCommandBar, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: KCommandBar, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -1259,11 +1587,15 @@ pub const KCommandBar = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: KCommandBar, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: KCommandBar, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1274,11 +1606,15 @@ pub const KCommandBar = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: KCommandBar, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: KCommandBar, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1289,11 +1625,15 @@ pub const KCommandBar = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: KCommandBar, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: KCommandBar, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1304,11 +1644,15 @@ pub const KCommandBar = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: KCommandBar, param1: anytype) QPointF {
+    pub fn mapToParent(self: KCommandBar, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1319,10 +1663,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: KCommandBar, param1: anytype) QPoint {
+    pub fn mapToParent2(self: KCommandBar, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -1334,10 +1682,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: KCommandBar, param1: anytype) QPointF {
+    pub fn mapFromParent(self: KCommandBar, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -1349,10 +1701,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: KCommandBar, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: KCommandBar, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -1366,12 +1722,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: KCommandBar, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: KCommandBar, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -1384,11 +1744,15 @@ pub const KCommandBar = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: KCommandBar, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: KCommandBar, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -1402,11 +1766,15 @@ pub const KCommandBar = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: KCommandBar, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: KCommandBar, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -1420,11 +1788,15 @@ pub const KCommandBar = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: KCommandBar, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: KCommandBar, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -1434,9 +1806,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn Window(self: KCommandBar) QWidget {
+    pub fn window(self: KCommandBar) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -1446,9 +1822,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn NativeParentWidget(self: KCommandBar) QWidget {
+    pub fn nativeParentWidget(self: KCommandBar) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -1458,9 +1838,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn TopLevelWidget(self: KCommandBar) QWidget {
+    pub fn topLevelWidget(self: KCommandBar) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -1470,9 +1854,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn Palette(self: KCommandBar) QPalette {
+    pub fn palette(self: KCommandBar) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -1482,12 +1870,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: KCommandBar, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: KCommandBar, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1497,11 +1889,15 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: KCommandBar, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: KCommandBar, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1515,9 +1911,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: KCommandBar) i32 {
+    pub fn backgroundRole(self: KCommandBar) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1527,11 +1927,15 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: KCommandBar, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: KCommandBar, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1545,9 +1949,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: KCommandBar) i32 {
+    pub fn foregroundRole(self: KCommandBar) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -1557,9 +1965,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn Font(self: KCommandBar) QFont {
+    pub fn font(self: KCommandBar) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -1569,12 +1981,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: KCommandBar, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: KCommandBar, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -1584,9 +2000,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn FontMetrics(self: KCommandBar) QFontMetrics {
+    pub fn fontMetrics(self: KCommandBar) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -1596,9 +2016,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn FontInfo(self: KCommandBar) QFontInfo {
+    pub fn fontInfo(self: KCommandBar) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -1608,9 +2032,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn Cursor(self: KCommandBar) QCursor {
+    pub fn cursor(self: KCommandBar) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -1620,12 +2048,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: KCommandBar, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: KCommandBar, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -1635,9 +2067,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn UnsetCursor(self: KCommandBar) void {
+    pub fn unsetCursor(self: KCommandBar) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -1649,9 +2085,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: KCommandBar, enable: bool) void {
+    pub fn setMouseTracking(self: KCommandBar, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -1661,9 +2101,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn HasMouseTracking(self: KCommandBar) bool {
+    pub fn hasMouseTracking(self: KCommandBar) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -1673,9 +2117,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn UnderMouse(self: KCommandBar) bool {
+    pub fn underMouse(self: KCommandBar) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -1687,9 +2135,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: KCommandBar, enable: bool) void {
+    pub fn setTabletTracking(self: KCommandBar, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -1699,24 +2151,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn HasTabletTracking(self: KCommandBar) bool {
+    pub fn hasTabletTracking(self: KCommandBar) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCommandBar `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: KCommandBar, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -1726,12 +2167,35 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: KCommandBar, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: KCommandBar, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KCommandBar `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: KCommandBar, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -1741,9 +2205,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn Mask(self: KCommandBar) QRegion {
+    pub fn mask(self: KCommandBar) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -1753,9 +2221,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn ClearMask(self: KCommandBar) void {
+    pub fn clearMask(self: KCommandBar) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -1767,10 +2239,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: KCommandBar, target: anytype) void {
+    pub fn render(self: KCommandBar, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -1782,10 +2258,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: KCommandBar, painter: anytype) void {
+    pub fn render2(self: KCommandBar, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -1795,9 +2275,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn Grab(self: KCommandBar) QPixmap {
+    pub fn grab(self: KCommandBar) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -1807,9 +2291,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn GraphicsEffect(self: KCommandBar) QGraphicsEffect {
+    pub fn graphicsEffect(self: KCommandBar) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -1821,10 +2309,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: KCommandBar, effect: anytype) void {
+    pub fn setGraphicsEffect(self: KCommandBar, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -1836,9 +2328,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: KCommandBar, typeVal: i32) void {
+    pub fn grabGesture(self: KCommandBar, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -1850,9 +2346,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: KCommandBar, typeVal: i32) void {
+    pub fn ungrabGesture(self: KCommandBar, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -1862,15 +2362,19 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: KCommandBar, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: KCommandBar, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -1880,15 +2384,19 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: KCommandBar, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: KCommandBar, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -1900,13 +2408,17 @@ pub const KCommandBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: KCommandBar, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: KCommandBar, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCommandBar.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCommandBar.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -1918,13 +2430,17 @@ pub const KCommandBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: KCommandBar, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: KCommandBar, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCommandBar.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCommandBar.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -1936,10 +2452,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: KCommandBar, icon: anytype) void {
+    pub fn setWindowIcon(self: KCommandBar, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -1949,9 +2469,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn WindowIcon(self: KCommandBar) QIcon {
+    pub fn windowIcon(self: KCommandBar) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -1961,15 +2485,19 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: KCommandBar, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: KCommandBar, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -1981,13 +2509,17 @@ pub const KCommandBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: KCommandBar, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: KCommandBar, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCommandBar.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCommandBar.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -1997,15 +2529,19 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: KCommandBar, windowRole: []const u8) void {
+    pub fn setWindowRole(self: KCommandBar, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -2017,13 +2553,17 @@ pub const KCommandBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: KCommandBar, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: KCommandBar, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCommandBar.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCommandBar.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2035,13 +2575,17 @@ pub const KCommandBar = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: KCommandBar, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: KCommandBar, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2053,13 +2597,17 @@ pub const KCommandBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: KCommandBar, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: KCommandBar, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCommandBar.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCommandBar.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2071,9 +2619,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: KCommandBar, level: f64) void {
+    pub fn setWindowOpacity(self: KCommandBar, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2083,9 +2635,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn WindowOpacity(self: KCommandBar) f64 {
+    pub fn windowOpacity(self: KCommandBar) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -2095,9 +2651,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn IsWindowModified(self: KCommandBar) bool {
+    pub fn isWindowModified(self: KCommandBar) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -2107,15 +2667,19 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: KCommandBar, toolTip: []const u8) void {
+    pub fn setToolTip(self: KCommandBar, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -2127,13 +2691,17 @@ pub const KCommandBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: KCommandBar, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: KCommandBar, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCommandBar.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCommandBar.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2145,9 +2713,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: KCommandBar, msec: i32) void {
+    pub fn setToolTipDuration(self: KCommandBar, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2157,9 +2729,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn ToolTipDuration(self: KCommandBar) i32 {
+    pub fn toolTipDuration(self: KCommandBar) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -2169,15 +2745,19 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: KCommandBar, statusTip: []const u8) void {
+    pub fn setStatusTip(self: KCommandBar, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -2189,13 +2769,17 @@ pub const KCommandBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: KCommandBar, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: KCommandBar, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCommandBar.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCommandBar.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2205,15 +2789,19 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: KCommandBar, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: KCommandBar, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2225,13 +2813,17 @@ pub const KCommandBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: KCommandBar, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: KCommandBar, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCommandBar.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCommandBar.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2243,13 +2835,17 @@ pub const KCommandBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: KCommandBar, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: KCommandBar, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCommandBar.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCommandBar.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2261,13 +2857,17 @@ pub const KCommandBar = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: KCommandBar, name: []const u8) void {
+    pub fn setAccessibleName(self: KCommandBar, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2279,13 +2879,17 @@ pub const KCommandBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: KCommandBar, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: KCommandBar, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCommandBar.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCommandBar.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2297,13 +2901,17 @@ pub const KCommandBar = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: KCommandBar, description: []const u8) void {
+    pub fn setAccessibleDescription(self: KCommandBar, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2315,9 +2923,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: KCommandBar, direction: i32) void {
+    pub fn setLayoutDirection(self: KCommandBar, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2331,9 +2943,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: KCommandBar) i32 {
+    pub fn layoutDirection(self: KCommandBar) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2343,9 +2959,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn UnsetLayoutDirection(self: KCommandBar) void {
+    pub fn unsetLayoutDirection(self: KCommandBar) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -2355,12 +2975,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: KCommandBar, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: KCommandBar, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -2370,9 +2994,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn Locale(self: KCommandBar) QLocale {
+    pub fn locale(self: KCommandBar) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -2382,9 +3010,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn UnsetLocale(self: KCommandBar) void {
+    pub fn unsetLocale(self: KCommandBar) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -2394,9 +3026,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn IsRightToLeft(self: KCommandBar) bool {
+    pub fn isRightToLeft(self: KCommandBar) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -2406,9 +3042,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn IsLeftToRight(self: KCommandBar) bool {
+    pub fn isLeftToRight(self: KCommandBar) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -2418,9 +3058,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn SetFocus(self: KCommandBar) void {
+    pub fn setFocus(self: KCommandBar) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -2430,9 +3074,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn IsActiveWindow(self: KCommandBar) bool {
+    pub fn isActiveWindow(self: KCommandBar) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -2442,9 +3090,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn ActivateWindow(self: KCommandBar) void {
+    pub fn activateWindow(self: KCommandBar) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -2454,9 +3106,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn ClearFocus(self: KCommandBar) void {
+    pub fn clearFocus(self: KCommandBar) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -2468,9 +3124,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: KCommandBar, reason: i32) void {
+    pub fn setFocus2(self: KCommandBar, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2484,9 +3144,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: KCommandBar) i32 {
+    pub fn focusPolicy(self: KCommandBar) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2498,9 +3162,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: KCommandBar, policy: i32) void {
+    pub fn setFocusPolicy(self: KCommandBar, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -2510,9 +3178,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn HasFocus(self: KCommandBar) bool {
+    pub fn hasFocus(self: KCommandBar) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -2524,11 +3196,15 @@ pub const KCommandBar = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -2538,12 +3214,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: KCommandBar, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: KCommandBar, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -2553,9 +3233,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn FocusProxy(self: KCommandBar) QWidget {
+    pub fn focusProxy(self: KCommandBar) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2569,9 +3253,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: KCommandBar) i32 {
+    pub fn contextMenuPolicy(self: KCommandBar) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2583,9 +3271,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: KCommandBar, policy: i32) void {
+    pub fn setContextMenuPolicy(self: KCommandBar, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -2595,9 +3287,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn GrabMouse(self: KCommandBar) void {
+    pub fn grabMouse(self: KCommandBar) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -2609,10 +3305,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: KCommandBar, param1: anytype) void {
+    pub fn grabMouse2(self: KCommandBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -2622,9 +3322,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn ReleaseMouse(self: KCommandBar) void {
+    pub fn releaseMouse(self: KCommandBar) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -2634,9 +3338,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn GrabKeyboard(self: KCommandBar) void {
+    pub fn grabKeyboard(self: KCommandBar) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -2646,9 +3354,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn ReleaseKeyboard(self: KCommandBar) void {
+    pub fn releaseKeyboard(self: KCommandBar) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -2660,10 +3372,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: KCommandBar, key: anytype) i32 {
+    pub fn grabShortcut(self: KCommandBar, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -2675,9 +3391,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: KCommandBar, id: i32) void {
+    pub fn releaseShortcut(self: KCommandBar, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2689,9 +3409,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: KCommandBar, id: i32) void {
+    pub fn setShortcutEnabled(self: KCommandBar, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -2703,25 +3427,37 @@ pub const KCommandBar = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: KCommandBar, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: KCommandBar, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2731,9 +3467,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn UpdatesEnabled(self: KCommandBar) bool {
+    pub fn updatesEnabled(self: KCommandBar) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2745,9 +3485,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: KCommandBar, enable: bool) void {
+    pub fn setUpdatesEnabled(self: KCommandBar, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -2757,9 +3501,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn GraphicsProxyWidget(self: KCommandBar) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: KCommandBar) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -2769,9 +3517,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn Update(self: KCommandBar) void {
+    pub fn update(self: KCommandBar) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -2781,9 +3533,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn Repaint(self: KCommandBar) void {
+    pub fn repaint(self: KCommandBar) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -2793,17 +3549,21 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: KCommandBar, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: KCommandBar, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -2815,11 +3575,15 @@ pub const KCommandBar = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: KCommandBar, param1: anytype) void {
+    pub fn update3(self: KCommandBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -2830,10 +3594,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: KCommandBar, param1: anytype) void {
+    pub fn update4(self: KCommandBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -2843,17 +3611,21 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: KCommandBar, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: KCommandBar, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -2865,10 +3637,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: KCommandBar, param1: anytype) void {
+    pub fn repaint3(self: KCommandBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -2880,10 +3656,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: KCommandBar, param1: anytype) void {
+    pub fn repaint4(self: KCommandBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -2895,9 +3675,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: KCommandBar, hidden: bool) void {
+    pub fn setHidden(self: KCommandBar, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -2907,9 +3691,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn Hide(self: KCommandBar) void {
+    pub fn hide(self: KCommandBar) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -2919,9 +3707,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn ShowMinimized(self: KCommandBar) void {
+    pub fn showMinimized(self: KCommandBar) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -2931,9 +3723,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn ShowMaximized(self: KCommandBar) void {
+    pub fn showMaximized(self: KCommandBar) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -2943,9 +3739,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn ShowFullScreen(self: KCommandBar) void {
+    pub fn showFullScreen(self: KCommandBar) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -2955,9 +3755,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn ShowNormal(self: KCommandBar) void {
+    pub fn showNormal(self: KCommandBar) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -2967,9 +3771,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn Close(self: KCommandBar) bool {
+    pub fn close(self: KCommandBar) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -2979,9 +3787,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn Raise(self: KCommandBar) void {
+    pub fn raise(self: KCommandBar) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -2991,9 +3803,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn Lower(self: KCommandBar) void {
+    pub fn lower(self: KCommandBar) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -3005,10 +3821,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: KCommandBar, param1: anytype) void {
+    pub fn stackUnder(self: KCommandBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -3018,13 +3838,17 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: KCommandBar, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: KCommandBar, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -3036,10 +3860,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: KCommandBar, param1: anytype) void {
+    pub fn move2(self: KCommandBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -3053,9 +3881,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: KCommandBar, w: i32, h: i32) void {
+    pub fn resize(self: KCommandBar, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -3067,10 +3899,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: KCommandBar, param1: anytype) void {
+    pub fn resize2(self: KCommandBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3080,17 +3916,21 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: KCommandBar, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: KCommandBar, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -3100,12 +3940,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: KCommandBar, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: KCommandBar, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3117,13 +3961,17 @@ pub const KCommandBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: KCommandBar, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: KCommandBar, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KCommandBar.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KCommandBar.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3133,15 +3981,19 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: KCommandBar, geometry: []u8) bool {
+    pub fn restoreGeometry(self: KCommandBar, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -3151,9 +4003,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn AdjustSize(self: KCommandBar) void {
+    pub fn adjustSize(self: KCommandBar) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -3163,9 +4019,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn IsVisible(self: KCommandBar) bool {
+    pub fn isVisible(self: KCommandBar) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -3177,10 +4037,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: KCommandBar, param1: anytype) bool {
+    pub fn isVisibleTo(self: KCommandBar, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -3190,9 +4054,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn IsHidden(self: KCommandBar) bool {
+    pub fn isHidden(self: KCommandBar) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3202,9 +4070,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn IsMinimized(self: KCommandBar) bool {
+    pub fn isMinimized(self: KCommandBar) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3214,9 +4086,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn IsMaximized(self: KCommandBar) bool {
+    pub fn isMaximized(self: KCommandBar) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3226,9 +4102,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn IsFullScreen(self: KCommandBar) bool {
+    pub fn isFullScreen(self: KCommandBar) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -3242,9 +4122,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: KCommandBar) i32 {
+    pub fn windowState(self: KCommandBar) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3256,9 +4140,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: KCommandBar, state: i32) void {
+    pub fn setWindowState(self: KCommandBar, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3270,9 +4158,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: KCommandBar, state: i32) void {
+    pub fn overrideWindowState(self: KCommandBar, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3282,9 +4174,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn SizePolicy(self: KCommandBar) QSizePolicy {
+    pub fn sizePolicy(self: KCommandBar) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3294,12 +4190,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: KCommandBar, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: KCommandBar, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -3313,9 +4213,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: KCommandBar, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: KCommandBar, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -3325,9 +4229,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn VisibleRegion(self: KCommandBar) QRegion {
+    pub fn visibleRegion(self: KCommandBar) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3345,9 +4253,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: KCommandBar, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: KCommandBar, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -3359,10 +4271,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: KCommandBar, margins: anytype) void {
+    pub fn setContentsMargins2(self: KCommandBar, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3372,9 +4288,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn ContentsMargins(self: KCommandBar) QMargins {
+    pub fn contentsMargins(self: KCommandBar) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -3384,9 +4304,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn ContentsRect(self: KCommandBar) QRect {
+    pub fn contentsRect(self: KCommandBar) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -3396,9 +4320,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn Layout(self: KCommandBar) QLayout {
+    pub fn layout(self: KCommandBar) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -3408,12 +4336,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: KCommandBar, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: KCommandBar, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3423,24 +4355,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn UpdateGeometry(self: KCommandBar) void {
+    pub fn updateGeometry(self: KCommandBar) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCommandBar `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: KCommandBar, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -3450,14 +4371,37 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: KCommandBar, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KCommandBar `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: KCommandBar, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: KCommandBar, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -3471,9 +4415,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: KCommandBar, dx: i32, dy: i32) void {
+    pub fn scroll(self: KCommandBar, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -3489,10 +4437,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: KCommandBar, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: KCommandBar, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -3502,9 +4454,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn FocusWidget(self: KCommandBar) QWidget {
+    pub fn focusWidget(self: KCommandBar) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -3514,9 +4470,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn NextInFocusChain(self: KCommandBar) QWidget {
+    pub fn nextInFocusChain(self: KCommandBar) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -3526,9 +4486,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn PreviousInFocusChain(self: KCommandBar) QWidget {
+    pub fn previousInFocusChain(self: KCommandBar) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -3538,9 +4502,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn AcceptDrops(self: KCommandBar) bool {
+    pub fn acceptDrops(self: KCommandBar) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -3552,9 +4520,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: KCommandBar, on: bool) void {
+    pub fn setAcceptDrops(self: KCommandBar, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -3566,10 +4538,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: KCommandBar, action: anytype) void {
+    pub fn addAction(self: KCommandBar, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -3579,15 +4555,19 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: KCommandBar, actions: []QAction) void {
+    pub fn addActions(self: KCommandBar, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -3599,16 +4579,20 @@ pub const KCommandBar = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: KCommandBar, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: KCommandBar, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -3622,11 +4606,15 @@ pub const KCommandBar = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: KCommandBar, before: anytype, action: anytype) void {
+    pub fn insertAction(self: KCommandBar, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -3638,10 +4626,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: KCommandBar, action: anytype) void {
+    pub fn removeAction(self: KCommandBar, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -3653,15 +4645,19 @@ pub const KCommandBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: KCommandBar, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: KCommandBar, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KCommandBar.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KCommandBar.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -3673,13 +4669,17 @@ pub const KCommandBar = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: KCommandBar, text: []const u8) QAction {
+    pub fn addAction2(self: KCommandBar, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -3693,7 +4693,7 @@ pub const KCommandBar = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: KCommandBar, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: KCommandBar, icon: anytype, text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -3702,6 +4702,10 @@ pub const KCommandBar = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -3714,7 +4718,7 @@ pub const KCommandBar = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: KCommandBar, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: KCommandBar, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -3722,6 +4726,10 @@ pub const KCommandBar = extern struct {
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
 
     /// Inherited from QWidget
     ///
@@ -3737,7 +4745,7 @@ pub const KCommandBar = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: KCommandBar, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: KCommandBar, icon: anytype, text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -3747,6 +4755,10 @@ pub const KCommandBar = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
@@ -3755,9 +4767,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn ParentWidget(self: KCommandBar) QWidget {
+    pub fn parentWidget(self: KCommandBar) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -3769,9 +4785,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: KCommandBar, typeVal: i32) void {
+    pub fn setWindowFlags(self: KCommandBar, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -3785,9 +4805,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: KCommandBar) i32 {
+    pub fn windowFlags(self: KCommandBar) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -3799,9 +4823,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: KCommandBar, param1: i32) void {
+    pub fn setWindowFlag(self: KCommandBar, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -3813,9 +4841,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: KCommandBar, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: KCommandBar, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -3829,9 +4861,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: KCommandBar) i32 {
+    pub fn windowType(self: KCommandBar) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -3841,9 +4877,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -3853,13 +4893,17 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: KCommandBar, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: KCommandBar, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -3871,10 +4915,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: KCommandBar, p: anytype) QWidget {
+    pub fn childAt2(self: KCommandBar, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -3886,10 +4934,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: KCommandBar, p: anytype) QWidget {
+    pub fn childAt3(self: KCommandBar, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -3901,9 +4953,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: KCommandBar, param1: i32) void {
+    pub fn setAttribute(self: KCommandBar, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -3915,9 +4971,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: KCommandBar, param1: i32) bool {
+    pub fn testAttribute(self: KCommandBar, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -3927,9 +4987,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn EnsurePolished(self: KCommandBar) void {
+    pub fn ensurePolished(self: KCommandBar) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -3941,10 +5005,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: KCommandBar, child: anytype) bool {
+    pub fn isAncestorOf(self: KCommandBar, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -3954,9 +5022,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn AutoFillBackground(self: KCommandBar) bool {
+    pub fn autoFillBackground(self: KCommandBar) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -3968,9 +5040,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: KCommandBar, enabled: bool) void {
+    pub fn setAutoFillBackground(self: KCommandBar, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -3980,9 +5056,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn BackingStore(self: KCommandBar) QBackingStore {
+    pub fn backingStore(self: KCommandBar) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -3992,9 +5072,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn WindowHandle(self: KCommandBar) QWindow {
+    pub fn windowHandle(self: KCommandBar) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -4004,9 +5088,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn Screen(self: KCommandBar) QScreen {
+    pub fn screen(self: KCommandBar) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -4016,12 +5104,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: KCommandBar, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: KCommandBar, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -4029,12 +5121,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4046,13 +5142,17 @@ pub const KCommandBar = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: KCommandBar, title: []const u8) void {
+    pub fn windowTitleChanged(self: KCommandBar, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4064,9 +5164,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: KCommandBar, callback: *const fn (KCommandBar, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: KCommandBar, callback: *const fn (KCommandBar, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4078,10 +5182,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: KCommandBar, icon: anytype) void {
+    pub fn windowIconChanged(self: KCommandBar, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4093,9 +5201,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: KCommandBar, callback: *const fn (KCommandBar, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: KCommandBar, callback: *const fn (KCommandBar, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4107,13 +5219,17 @@ pub const KCommandBar = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: KCommandBar, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: KCommandBar, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4125,9 +5241,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: KCommandBar, callback: *const fn (KCommandBar, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: KCommandBar, callback: *const fn (KCommandBar, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4137,12 +5257,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: KCommandBar, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: KCommandBar, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4154,9 +5278,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: KCommandBar, callback: *const fn (KCommandBar, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: KCommandBar, callback: *const fn (KCommandBar, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4170,9 +5298,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: KCommandBar) i32 {
+    pub fn inputMethodHints(self: KCommandBar) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4184,9 +5316,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: KCommandBar, hints: i32) void {
+    pub fn setInputMethodHints(self: KCommandBar, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -4200,11 +5336,15 @@ pub const KCommandBar = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: KCommandBar, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: KCommandBar, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -4220,13 +5360,17 @@ pub const KCommandBar = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: KCommandBar, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: KCommandBar, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -4243,12 +5387,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: KCommandBar, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: KCommandBar, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -4262,11 +5410,15 @@ pub const KCommandBar = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: KCommandBar, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: KCommandBar, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -4282,12 +5434,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: KCommandBar, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: KCommandBar, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -4305,12 +5461,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: KCommandBar, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: KCommandBar, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -4322,10 +5482,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: KCommandBar, rectangle: anytype) QPixmap {
+    pub fn grab1(self: KCommandBar, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -4339,9 +5503,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: KCommandBar, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: KCommandBar, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -4355,10 +5523,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: KCommandBar, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: KCommandBar, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -4372,9 +5544,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: KCommandBar, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: KCommandBar, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -4388,9 +5564,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: KCommandBar, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: KCommandBar, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -4404,9 +5584,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: KCommandBar, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: KCommandBar, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -4420,25 +5604,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: KCommandBar, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: KCommandBar, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -4446,17 +5618,41 @@ pub const KCommandBar = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -4468,13 +5664,17 @@ pub const KCommandBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KCommandBar, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KCommandBar, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCommandBar.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCommandBar.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -4486,13 +5686,17 @@ pub const KCommandBar = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KCommandBar, name: []const u8) void {
+    pub fn setObjectName(self: KCommandBar, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -4502,9 +5706,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn IsWidgetType(self: KCommandBar) bool {
+    pub fn isWidgetType(self: KCommandBar) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -4514,9 +5722,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn IsWindowType(self: KCommandBar) bool {
+    pub fn isWindowType(self: KCommandBar) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -4526,9 +5738,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn IsQuickItemType(self: KCommandBar) bool {
+    pub fn isQuickItemType(self: KCommandBar) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -4538,9 +5754,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn SignalsBlocked(self: KCommandBar) bool {
+    pub fn signalsBlocked(self: KCommandBar) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -4552,9 +5772,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KCommandBar, b: bool) bool {
+    pub fn blockSignals(self: KCommandBar, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -4564,9 +5788,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn Thread(self: KCommandBar) QThread {
+    pub fn thread(self: KCommandBar) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -4576,12 +5804,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KCommandBar, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KCommandBar, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -4593,9 +5825,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KCommandBar, interval: i32) i32 {
+    pub fn startTimer(self: KCommandBar, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -4607,9 +5843,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KCommandBar, time: i64) i32 {
+    pub fn startTimer2(self: KCommandBar, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -4621,9 +5861,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KCommandBar, id: i32) void {
+    pub fn killTimer(self: KCommandBar, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -4635,9 +5879,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KCommandBar, id: i32) void {
+    pub fn killTimer2(self: KCommandBar, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -4649,15 +5897,19 @@ pub const KCommandBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KCommandBar, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KCommandBar, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KCommandBar.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KCommandBar.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4669,10 +5921,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KCommandBar, filterObj: anytype) void {
+    pub fn installEventFilter(self: KCommandBar, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4684,10 +5940,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KCommandBar, obj: anytype) void {
+    pub fn removeEventFilter(self: KCommandBar, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -4695,7 +5955,7 @@ pub const KCommandBar = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4703,13 +5963,17 @@ pub const KCommandBar = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -4717,7 +5981,7 @@ pub const KCommandBar = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -4725,13 +5989,17 @@ pub const KCommandBar = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -4741,18 +6009,22 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KCommandBar, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KCommandBar, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -4760,7 +6032,7 @@ pub const KCommandBar = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4768,13 +6040,17 @@ pub const KCommandBar = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -4782,7 +6058,7 @@ pub const KCommandBar = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -4790,13 +6066,17 @@ pub const KCommandBar = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -4806,9 +6086,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn Disconnect3(self: KCommandBar) bool {
+    pub fn disconnect3(self: KCommandBar) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -4820,10 +6104,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KCommandBar, receiver: anytype) bool {
+    pub fn disconnect4(self: KCommandBar, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -4833,10 +6121,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -4846,9 +6138,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn DumpObjectTree(self: KCommandBar) void {
+    pub fn dumpObjectTree(self: KCommandBar) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -4858,9 +6154,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn DumpObjectInfo(self: KCommandBar) void {
+    pub fn dumpObjectInfo(self: KCommandBar) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -4874,11 +6174,15 @@ pub const KCommandBar = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KCommandBar, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KCommandBar, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -4890,10 +6194,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KCommandBar, name: [:0]const u8) QVariant {
+    pub fn property(self: KCommandBar, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -4905,7 +6213,7 @@ pub const KCommandBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KCommandBar, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KCommandBar, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -4913,27 +6221,19 @@ pub const KCommandBar = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KCommandBar.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KCommandBar.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KCommandBar.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KCommandBar.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCommandBar `
-    ///
-    pub fn BindingStorage(self: KCommandBar) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -4943,9 +6243,29 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn BindingStorage2(self: KCommandBar) QBindingStorage {
+    pub fn bindingStorage(self: KCommandBar) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KCommandBar `
+    ///
+    pub fn bindingStorage2(self: KCommandBar) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -4955,9 +6275,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn Destroyed(self: KCommandBar) void {
+    pub fn destroyed(self: KCommandBar) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -4969,9 +6293,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KCommandBar, callback: *const fn (KCommandBar) callconv(.c) void) void {
+    pub fn onDestroyed(self: KCommandBar, callback: *const fn (KCommandBar) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -4981,9 +6309,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn Parent(self: KCommandBar) QObject {
+    pub fn parent(self: KCommandBar) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -4995,10 +6327,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KCommandBar, classname: [:0]const u8) bool {
+    pub fn inherits(self: KCommandBar, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -5008,9 +6344,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn DeleteLater(self: KCommandBar) void {
+    pub fn deleteLater(self: KCommandBar) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -5024,9 +6364,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KCommandBar, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KCommandBar, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -5040,9 +6384,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KCommandBar, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KCommandBar, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -5050,7 +6398,7 @@ pub const KCommandBar = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5060,13 +6408,17 @@ pub const KCommandBar = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -5074,7 +6426,7 @@ pub const KCommandBar = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5084,13 +6436,17 @@ pub const KCommandBar = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -5100,7 +6456,7 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5108,12 +6464,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KCommandBar, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KCommandBar, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -5125,10 +6485,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KCommandBar, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KCommandBar, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -5142,11 +6506,15 @@ pub const KCommandBar = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KCommandBar, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KCommandBar, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -5162,13 +6530,17 @@ pub const KCommandBar = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KCommandBar, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KCommandBar, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -5181,11 +6553,15 @@ pub const KCommandBar = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KCommandBar, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KCommandBar, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -5197,10 +6573,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KCommandBar, param1: anytype) void {
+    pub fn destroyed1(self: KCommandBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -5212,9 +6592,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KCommandBar, callback: *const fn (KCommandBar, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KCommandBar, callback: *const fn (KCommandBar, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -5224,9 +6608,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn PaintingActive(self: KCommandBar) bool {
+    pub fn paintingActive(self: KCommandBar) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5236,9 +6624,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn WidthMM(self: KCommandBar) i32 {
+    pub fn widthMM(self: KCommandBar) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5248,9 +6640,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn HeightMM(self: KCommandBar) i32 {
+    pub fn heightMM(self: KCommandBar) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5260,9 +6656,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn LogicalDpiX(self: KCommandBar) i32 {
+    pub fn logicalDpiX(self: KCommandBar) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5272,9 +6672,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn LogicalDpiY(self: KCommandBar) i32 {
+    pub fn logicalDpiY(self: KCommandBar) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5284,9 +6688,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn PhysicalDpiX(self: KCommandBar) i32 {
+    pub fn physicalDpiX(self: KCommandBar) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5296,9 +6704,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn PhysicalDpiY(self: KCommandBar) i32 {
+    pub fn physicalDpiY(self: KCommandBar) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -5308,9 +6720,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn DevicePixelRatio(self: KCommandBar) f64 {
+    pub fn devicePixelRatio(self: KCommandBar) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5320,9 +6736,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn DevicePixelRatioF(self: KCommandBar) f64 {
+    pub fn devicePixelRatioF(self: KCommandBar) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -5332,9 +6752,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn ColorCount(self: KCommandBar) i32 {
+    pub fn colorCount(self: KCommandBar) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -5344,17 +6768,25 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn Depth(self: KCommandBar) i32 {
+    pub fn depth(self: KCommandBar) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5362,13 +6794,17 @@ pub const KCommandBar = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
 
     /// Inherited from QFrame
     ///
@@ -5380,13 +6816,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn SizeHint(self: KCommandBar) QSize {
+    pub fn sizeHint(self: KCommandBar) QSize {
         return .{ .ptr = qtc.KCommandBar_SizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// Inherited from QFrame
     ///
@@ -5398,9 +6834,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn SuperSizeHint(self: KCommandBar) QSize {
+    pub fn superSizeHint(self: KCommandBar) QSize {
         return .{ .ptr = qtc.KCommandBar_SuperSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
 
     /// Inherited from QFrame
     ///
@@ -5416,9 +6856,13 @@ pub const KCommandBar = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: KCommandBar, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KCommandBar, callback: *const fn () callconv(.c) QSize) void {
         qtc.KCommandBar_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QFrame
     ///
@@ -5432,14 +6876,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn Event(self: KCommandBar, e: anytype) bool {
+    pub fn event(self: KCommandBar, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.KCommandBar_Event(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QFrame
     ///
@@ -5453,10 +6897,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn SuperEvent(self: KCommandBar, e: anytype) bool {
+    pub fn superEvent(self: KCommandBar, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.KCommandBar_SuperEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QFrame
     ///
@@ -5470,9 +6918,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, e: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KCommandBar, callback: *const fn (KCommandBar, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KCommandBar, callback: *const fn (KCommandBar, QEvent) callconv(.c) bool) void {
         qtc.KCommandBar_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// Inherited from QFrame
     ///
@@ -5486,14 +6938,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` param1: QPaintEvent `
     ///
-    pub fn PaintEvent(self: KCommandBar, param1: anytype) void {
+    pub fn paintEvent(self: KCommandBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPaintEvent;
         qtc.KCommandBar_PaintEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// Inherited from QFrame
     ///
@@ -5507,10 +6959,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` param1: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: KCommandBar, param1: anytype) void {
+    pub fn superPaintEvent(self: KCommandBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPaintEvent;
         qtc.KCommandBar_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// Inherited from QFrame
     ///
@@ -5524,9 +6980,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, param1: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: KCommandBar, callback: *const fn (KCommandBar, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: KCommandBar, callback: *const fn (KCommandBar, QPaintEvent) callconv(.c) void) void {
         qtc.KCommandBar_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QFrame
     ///
@@ -5540,14 +7000,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: KCommandBar, param1: anytype) void {
+    pub fn changeEvent(self: KCommandBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.KCommandBar_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QFrame
     ///
@@ -5561,10 +7021,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: KCommandBar, param1: anytype) void {
+    pub fn superChangeEvent(self: KCommandBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.KCommandBar_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QFrame
     ///
@@ -5578,9 +7042,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: KCommandBar, callback: *const fn (KCommandBar, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: KCommandBar, callback: *const fn (KCommandBar, QEvent) callconv(.c) void) void {
         qtc.KCommandBar_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initStyleOption` instead
+    ///
+    pub const InitStyleOption = initStyleOption;
 
     /// Inherited from QFrame
     ///
@@ -5594,14 +7062,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` option: QStyleOptionFrame `
     ///
-    pub fn InitStyleOption(self: KCommandBar, option: anytype) void {
+    pub fn initStyleOption(self: KCommandBar, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionFrame;
         qtc.KCommandBar_InitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitStyleOption` instead
+    /// ### DEPRECATED: Use `superInitStyleOption` instead
     ///
-    pub const QBaseInitStyleOption = SuperInitStyleOption;
+    pub const SuperInitStyleOption = superInitStyleOption;
 
     /// Inherited from QFrame
     ///
@@ -5615,10 +7083,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` option: QStyleOptionFrame `
     ///
-    pub fn SuperInitStyleOption(self: KCommandBar, option: anytype) void {
+    pub fn superInitStyleOption(self: KCommandBar, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionFrame;
         qtc.KCommandBar_SuperInitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitStyleOption` instead
+    ///
+    pub const OnInitStyleOption = onInitStyleOption;
 
     /// Inherited from QFrame
     ///
@@ -5632,9 +7104,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, option: QStyleOptionFrame) callconv(.c) void `
     ///
-    pub fn OnInitStyleOption(self: KCommandBar, callback: *const fn (KCommandBar, QStyleOptionFrame) callconv(.c) void) void {
+    pub fn onInitStyleOption(self: KCommandBar, callback: *const fn (KCommandBar, QStyleOptionFrame) callconv(.c) void) void {
         qtc.KCommandBar_OnInitStyleOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -5646,13 +7122,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn DevType(self: KCommandBar) i32 {
+    pub fn devType(self: KCommandBar) i32 {
         return qtc.KCommandBar_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -5664,9 +7140,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn SuperDevType(self: KCommandBar) i32 {
+    pub fn superDevType(self: KCommandBar) i32 {
         return qtc.KCommandBar_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -5680,9 +7160,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: KCommandBar, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KCommandBar, callback: *const fn () callconv(.c) i32) void {
         qtc.KCommandBar_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -5696,13 +7180,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: KCommandBar, visible: bool) void {
+    pub fn setVisible(self: KCommandBar, visible: bool) void {
         qtc.KCommandBar_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -5716,9 +7200,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: KCommandBar, visible: bool) void {
+    pub fn superSetVisible(self: KCommandBar, visible: bool) void {
         qtc.KCommandBar_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -5732,9 +7220,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: KCommandBar, callback: *const fn (KCommandBar, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: KCommandBar, callback: *const fn (KCommandBar, bool) callconv(.c) void) void {
         qtc.KCommandBar_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5746,13 +7238,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn MinimumSizeHint(self: KCommandBar) QSize {
+    pub fn minimumSizeHint(self: KCommandBar) QSize {
         return .{ .ptr = qtc.KCommandBar_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5764,9 +7256,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn SuperMinimumSizeHint(self: KCommandBar) QSize {
+    pub fn superMinimumSizeHint(self: KCommandBar) QSize {
         return .{ .ptr = qtc.KCommandBar_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5782,9 +7278,13 @@ pub const KCommandBar = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: KCommandBar, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KCommandBar, callback: *const fn () callconv(.c) QSize) void {
         qtc.KCommandBar_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5798,13 +7298,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: KCommandBar, param1: i32) i32 {
+    pub fn heightForWidth(self: KCommandBar, param1: i32) i32 {
         return qtc.KCommandBar_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5818,9 +7318,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: KCommandBar, param1: i32) i32 {
+    pub fn superHeightForWidth(self: KCommandBar, param1: i32) i32 {
         return qtc.KCommandBar_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5834,9 +7338,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: KCommandBar, callback: *const fn (KCommandBar, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: KCommandBar, callback: *const fn (KCommandBar, i32) callconv(.c) i32) void {
         qtc.KCommandBar_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5848,13 +7356,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn HasHeightForWidth(self: KCommandBar) bool {
+    pub fn hasHeightForWidth(self: KCommandBar) bool {
         return qtc.KCommandBar_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5866,9 +7374,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn SuperHasHeightForWidth(self: KCommandBar) bool {
+    pub fn superHasHeightForWidth(self: KCommandBar) bool {
         return qtc.KCommandBar_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5882,9 +7394,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: KCommandBar, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KCommandBar, callback: *const fn () callconv(.c) bool) void {
         qtc.KCommandBar_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -5896,13 +7412,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn PaintEngine(self: KCommandBar) QPaintEngine {
+    pub fn paintEngine(self: KCommandBar) QPaintEngine {
         return .{ .ptr = qtc.KCommandBar_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -5914,9 +7430,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn SuperPaintEngine(self: KCommandBar) QPaintEngine {
+    pub fn superPaintEngine(self: KCommandBar) QPaintEngine {
         return .{ .ptr = qtc.KCommandBar_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -5930,10 +7450,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: KCommandBar, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KCommandBar, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.KCommandBar_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
@@ -5944,16 +7468,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: KCommandBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KCommandBar_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mousePressEvent(self: KCommandBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KCommandBar_MousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -5965,12 +7489,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: KCommandBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KCommandBar_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMousePressEvent(self: KCommandBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KCommandBar_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -5984,10 +7512,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: KCommandBar, callback: *const fn (KCommandBar, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: KCommandBar, callback: *const fn (KCommandBar, QMouseEvent) callconv(.c) void) void {
         qtc.KCommandBar_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
@@ -5998,16 +7530,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: KCommandBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KCommandBar_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseReleaseEvent(self: KCommandBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KCommandBar_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6019,12 +7551,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: KCommandBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KCommandBar_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseReleaseEvent(self: KCommandBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KCommandBar_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6038,10 +7574,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: KCommandBar, callback: *const fn (KCommandBar, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: KCommandBar, callback: *const fn (KCommandBar, QMouseEvent) callconv(.c) void) void {
         qtc.KCommandBar_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
@@ -6052,16 +7592,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: KCommandBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KCommandBar_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: KCommandBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KCommandBar_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -6073,12 +7613,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: KCommandBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KCommandBar_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: KCommandBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KCommandBar_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -6092,10 +7636,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: KCommandBar, callback: *const fn (KCommandBar, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: KCommandBar, callback: *const fn (KCommandBar, QMouseEvent) callconv(.c) void) void {
         qtc.KCommandBar_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
@@ -6106,16 +7654,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: KCommandBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KCommandBar_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseMoveEvent(self: KCommandBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KCommandBar_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6127,12 +7675,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: KCommandBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KCommandBar_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseMoveEvent(self: KCommandBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KCommandBar_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6146,9 +7698,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: KCommandBar, callback: *const fn (KCommandBar, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: KCommandBar, callback: *const fn (KCommandBar, QMouseEvent) callconv(.c) void) void {
         qtc.KCommandBar_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6160,16 +7716,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: KCommandBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.KCommandBar_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn wheelEvent(self: KCommandBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.KCommandBar_WheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6181,12 +7737,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: KCommandBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.KCommandBar_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superWheelEvent(self: KCommandBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.KCommandBar_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6200,10 +7760,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: KCommandBar, callback: *const fn (KCommandBar, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: KCommandBar, callback: *const fn (KCommandBar, QWheelEvent) callconv(.c) void) void {
         qtc.KCommandBar_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyPressEvent)
@@ -6214,16 +7778,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: KCommandBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KCommandBar_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyPressEvent(self: KCommandBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KCommandBar_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6235,12 +7799,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: KCommandBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KCommandBar_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyPressEvent(self: KCommandBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KCommandBar_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6254,10 +7822,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: KCommandBar, callback: *const fn (KCommandBar, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: KCommandBar, callback: *const fn (KCommandBar, QKeyEvent) callconv(.c) void) void {
         qtc.KCommandBar_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
@@ -6268,16 +7840,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: KCommandBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KCommandBar_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyReleaseEvent(self: KCommandBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KCommandBar_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6289,12 +7861,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: KCommandBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KCommandBar_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyReleaseEvent(self: KCommandBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KCommandBar_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6308,10 +7884,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: KCommandBar, callback: *const fn (KCommandBar, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: KCommandBar, callback: *const fn (KCommandBar, QKeyEvent) callconv(.c) void) void {
         qtc.KCommandBar_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
@@ -6322,16 +7902,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: KCommandBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KCommandBar_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusInEvent(self: KCommandBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KCommandBar_FocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -6343,12 +7923,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: KCommandBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KCommandBar_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusInEvent(self: KCommandBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KCommandBar_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -6362,10 +7946,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: KCommandBar, callback: *const fn (KCommandBar, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: KCommandBar, callback: *const fn (KCommandBar, QFocusEvent) callconv(.c) void) void {
         qtc.KCommandBar_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
@@ -6376,16 +7964,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: KCommandBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KCommandBar_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusOutEvent(self: KCommandBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KCommandBar_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -6397,12 +7985,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: KCommandBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KCommandBar_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusOutEvent(self: KCommandBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KCommandBar_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -6416,9 +8008,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: KCommandBar, callback: *const fn (KCommandBar, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: KCommandBar, callback: *const fn (KCommandBar, QFocusEvent) callconv(.c) void) void {
         qtc.KCommandBar_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6430,16 +8026,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: KCommandBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KCommandBar_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: KCommandBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KCommandBar_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6451,12 +8047,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: KCommandBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KCommandBar_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: KCommandBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KCommandBar_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6470,9 +8070,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: KCommandBar, callback: *const fn (KCommandBar, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: KCommandBar, callback: *const fn (KCommandBar, QEnterEvent) callconv(.c) void) void {
         qtc.KCommandBar_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6484,16 +8088,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: KCommandBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KCommandBar_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: KCommandBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KCommandBar_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6505,12 +8109,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: KCommandBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KCommandBar_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: KCommandBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KCommandBar_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6524,9 +8132,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: KCommandBar, callback: *const fn (KCommandBar, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: KCommandBar, callback: *const fn (KCommandBar, QEvent) callconv(.c) void) void {
         qtc.KCommandBar_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6538,16 +8150,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: KCommandBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KCommandBar_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: KCommandBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KCommandBar_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6559,12 +8171,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: KCommandBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KCommandBar_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: KCommandBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KCommandBar_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6578,9 +8194,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: KCommandBar, callback: *const fn (KCommandBar, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: KCommandBar, callback: *const fn (KCommandBar, QMoveEvent) callconv(.c) void) void {
         qtc.KCommandBar_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6592,16 +8212,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: KCommandBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.KCommandBar_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn resizeEvent(self: KCommandBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.KCommandBar_ResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6613,12 +8233,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: KCommandBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.KCommandBar_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superResizeEvent(self: KCommandBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.KCommandBar_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6632,9 +8256,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: KCommandBar, callback: *const fn (KCommandBar, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: KCommandBar, callback: *const fn (KCommandBar, QResizeEvent) callconv(.c) void) void {
         qtc.KCommandBar_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6646,16 +8274,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: KCommandBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.KCommandBar_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: KCommandBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.KCommandBar_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6667,12 +8295,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: KCommandBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.KCommandBar_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: KCommandBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.KCommandBar_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6686,9 +8318,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: KCommandBar, callback: *const fn (KCommandBar, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: KCommandBar, callback: *const fn (KCommandBar, QCloseEvent) callconv(.c) void) void {
         qtc.KCommandBar_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -6700,16 +8336,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: KCommandBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.KCommandBar_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn contextMenuEvent(self: KCommandBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.KCommandBar_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -6721,12 +8357,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: KCommandBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.KCommandBar_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superContextMenuEvent(self: KCommandBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.KCommandBar_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -6740,9 +8380,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, event: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: KCommandBar, callback: *const fn (KCommandBar, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: KCommandBar, callback: *const fn (KCommandBar, QContextMenuEvent) callconv(.c) void) void {
         qtc.KCommandBar_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -6754,16 +8398,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: KCommandBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KCommandBar_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: KCommandBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KCommandBar_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -6775,12 +8419,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: KCommandBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KCommandBar_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: KCommandBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KCommandBar_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -6794,9 +8442,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: KCommandBar, callback: *const fn (KCommandBar, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: KCommandBar, callback: *const fn (KCommandBar, QTabletEvent) callconv(.c) void) void {
         qtc.KCommandBar_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -6808,16 +8460,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: KCommandBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KCommandBar_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: KCommandBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KCommandBar_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -6829,12 +8481,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: KCommandBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KCommandBar_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: KCommandBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KCommandBar_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -6848,9 +8504,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: KCommandBar, callback: *const fn (KCommandBar, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: KCommandBar, callback: *const fn (KCommandBar, QActionEvent) callconv(.c) void) void {
         qtc.KCommandBar_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6862,16 +8522,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: KCommandBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KCommandBar_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: KCommandBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KCommandBar_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6883,12 +8543,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: KCommandBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KCommandBar_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: KCommandBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KCommandBar_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6902,9 +8566,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: KCommandBar, callback: *const fn (KCommandBar, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: KCommandBar, callback: *const fn (KCommandBar, QDragEnterEvent) callconv(.c) void) void {
         qtc.KCommandBar_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6916,16 +8584,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: KCommandBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KCommandBar_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: KCommandBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KCommandBar_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6937,12 +8605,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: KCommandBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KCommandBar_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: KCommandBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KCommandBar_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6956,9 +8628,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: KCommandBar, callback: *const fn (KCommandBar, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: KCommandBar, callback: *const fn (KCommandBar, QDragMoveEvent) callconv(.c) void) void {
         qtc.KCommandBar_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6970,16 +8646,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: KCommandBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KCommandBar_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: KCommandBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KCommandBar_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6991,12 +8667,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: KCommandBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KCommandBar_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: KCommandBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KCommandBar_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7010,9 +8690,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: KCommandBar, callback: *const fn (KCommandBar, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: KCommandBar, callback: *const fn (KCommandBar, QDragLeaveEvent) callconv(.c) void) void {
         qtc.KCommandBar_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7024,16 +8708,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: KCommandBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KCommandBar_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: KCommandBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KCommandBar_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7045,12 +8729,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: KCommandBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KCommandBar_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: KCommandBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KCommandBar_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7064,9 +8752,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: KCommandBar, callback: *const fn (KCommandBar, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: KCommandBar, callback: *const fn (KCommandBar, QDropEvent) callconv(.c) void) void {
         qtc.KCommandBar_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QWidget
     ///
@@ -7078,16 +8770,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn ShowEvent(self: KCommandBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.KCommandBar_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn showEvent(self: KCommandBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.KCommandBar_ShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -7099,12 +8791,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: KCommandBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.KCommandBar_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superShowEvent(self: KCommandBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.KCommandBar_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -7118,9 +8814,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: KCommandBar, callback: *const fn (KCommandBar, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: KCommandBar, callback: *const fn (KCommandBar, QShowEvent) callconv(.c) void) void {
         qtc.KCommandBar_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7132,16 +8832,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: KCommandBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KCommandBar_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: KCommandBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KCommandBar_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7153,12 +8853,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: KCommandBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KCommandBar_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: KCommandBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KCommandBar_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7172,9 +8876,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: KCommandBar, callback: *const fn (KCommandBar, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: KCommandBar, callback: *const fn (KCommandBar, QHideEvent) callconv(.c) void) void {
         qtc.KCommandBar_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7192,7 +8900,7 @@ pub const KCommandBar = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: KCommandBar, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: KCommandBar, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -7200,9 +8908,9 @@ pub const KCommandBar = extern struct {
         return qtc.KCommandBar_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7220,13 +8928,17 @@ pub const KCommandBar = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: KCommandBar, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: KCommandBar, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.KCommandBar_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7240,9 +8952,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: KCommandBar, callback: *const fn (KCommandBar, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: KCommandBar, callback: *const fn (KCommandBar, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KCommandBar_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -7256,13 +8972,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: KCommandBar, param1: i32) i32 {
+    pub fn metric(self: KCommandBar, param1: i32) i32 {
         return qtc.KCommandBar_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -7276,9 +8992,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: KCommandBar, param1: i32) i32 {
+    pub fn superMetric(self: KCommandBar, param1: i32) i32 {
         return qtc.KCommandBar_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -7292,9 +9012,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: KCommandBar, callback: *const fn (KCommandBar, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: KCommandBar, callback: *const fn (KCommandBar, i32) callconv(.c) i32) void {
         qtc.KCommandBar_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -7308,14 +9032,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: KCommandBar, painter: anytype) void {
+    pub fn initPainter(self: KCommandBar, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KCommandBar_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7329,10 +9053,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: KCommandBar, painter: anytype) void {
+    pub fn superInitPainter(self: KCommandBar, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KCommandBar_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7346,9 +9074,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: KCommandBar, callback: *const fn (KCommandBar, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: KCommandBar, callback: *const fn (KCommandBar, QPainter) callconv(.c) void) void {
         qtc.KCommandBar_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -7362,14 +9094,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: KCommandBar, offset: anytype) QPaintDevice {
+    pub fn redirected(self: KCommandBar, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KCommandBar_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7383,10 +9115,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: KCommandBar, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: KCommandBar, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KCommandBar_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7400,9 +9136,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: KCommandBar, callback: *const fn (KCommandBar, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: KCommandBar, callback: *const fn (KCommandBar, QPoint) callconv(.c) QPaintDevice) void {
         qtc.KCommandBar_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7414,13 +9154,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn SharedPainter(self: KCommandBar) QPainter {
+    pub fn sharedPainter(self: KCommandBar) QPainter {
         return .{ .ptr = qtc.KCommandBar_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7432,9 +9172,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn SuperSharedPainter(self: KCommandBar) QPainter {
+    pub fn superSharedPainter(self: KCommandBar) QPainter {
         return .{ .ptr = qtc.KCommandBar_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7448,9 +9192,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: KCommandBar, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KCommandBar, callback: *const fn () callconv(.c) QPainter) void {
         qtc.KCommandBar_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7464,14 +9212,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: KCommandBar, param1: anytype) void {
+    pub fn inputMethodEvent(self: KCommandBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KCommandBar_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7485,10 +9233,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: KCommandBar, param1: anytype) void {
+    pub fn superInputMethodEvent(self: KCommandBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KCommandBar_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7502,9 +9254,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: KCommandBar, callback: *const fn (KCommandBar, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: KCommandBar, callback: *const fn (KCommandBar, QInputMethodEvent) callconv(.c) void) void {
         qtc.KCommandBar_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7518,13 +9274,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: KCommandBar, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: KCommandBar, param1: i32) QVariant {
         return .{ .ptr = qtc.KCommandBar_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7538,9 +9294,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: KCommandBar, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: KCommandBar, param1: i32) QVariant {
         return .{ .ptr = qtc.KCommandBar_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7556,9 +9316,13 @@ pub const KCommandBar = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: KCommandBar, callback: *const fn (KCommandBar, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: KCommandBar, callback: *const fn (KCommandBar, i32) callconv(.c) QVariant) void {
         qtc.KCommandBar_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7572,13 +9336,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: KCommandBar, next: bool) bool {
+    pub fn focusNextPrevChild(self: KCommandBar, next: bool) bool {
         return qtc.KCommandBar_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7592,9 +9356,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: KCommandBar, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: KCommandBar, next: bool) bool {
         return qtc.KCommandBar_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7608,9 +9376,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: KCommandBar, callback: *const fn (KCommandBar, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: KCommandBar, callback: *const fn (KCommandBar, bool) callconv(.c) bool) void {
         qtc.KCommandBar_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -7622,16 +9394,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KCommandBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KCommandBar_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: KCommandBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KCommandBar_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -7643,12 +9415,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KCommandBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KCommandBar_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: KCommandBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KCommandBar_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -7662,9 +9438,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KCommandBar, callback: *const fn (KCommandBar, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KCommandBar, callback: *const fn (KCommandBar, QTimerEvent) callconv(.c) void) void {
         qtc.KCommandBar_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -7676,16 +9456,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KCommandBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KCommandBar_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KCommandBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KCommandBar_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -7697,12 +9477,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KCommandBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KCommandBar_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KCommandBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KCommandBar_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -7716,9 +9500,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KCommandBar, callback: *const fn (KCommandBar, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KCommandBar, callback: *const fn (KCommandBar, QChildEvent) callconv(.c) void) void {
         qtc.KCommandBar_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -7730,16 +9518,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KCommandBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KCommandBar_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KCommandBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KCommandBar_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -7751,12 +9539,16 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KCommandBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KCommandBar_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KCommandBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KCommandBar_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -7770,9 +9562,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KCommandBar, callback: *const fn (KCommandBar, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KCommandBar, callback: *const fn (KCommandBar, QEvent) callconv(.c) void) void {
         qtc.KCommandBar_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -7786,14 +9582,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KCommandBar, signal: anytype) void {
+    pub fn connectNotify(self: KCommandBar, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KCommandBar_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7807,11 +9603,15 @@ pub const KCommandBar = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KCommandBar, signal: anytype) void {
+    pub fn superConnectNotify(self: KCommandBar, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KCommandBar_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -7824,9 +9624,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KCommandBar, callback: *const fn (KCommandBar, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KCommandBar, callback: *const fn (KCommandBar, QMetaMethod) callconv(.c) void) void {
         qtc.KCommandBar_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7840,14 +9644,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KCommandBar, signal: anytype) void {
+    pub fn disconnectNotify(self: KCommandBar, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KCommandBar_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7861,10 +9665,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KCommandBar, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KCommandBar, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KCommandBar_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7878,9 +9686,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KCommandBar, callback: *const fn (KCommandBar, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KCommandBar, callback: *const fn (KCommandBar, QMetaMethod) callconv(.c) void) void {
         qtc.KCommandBar_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `drawFrame` instead
+    ///
+    pub const DrawFrame = drawFrame;
 
     /// Inherited from QFrame
     ///
@@ -7894,14 +9706,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` param1: QPainter `
     ///
-    pub fn DrawFrame(self: KCommandBar, param1: anytype) void {
+    pub fn drawFrame(self: KCommandBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPainter;
         qtc.KCommandBar_DrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawFrame` instead
+    /// ### DEPRECATED: Use `superDrawFrame` instead
     ///
-    pub const QBaseDrawFrame = SuperDrawFrame;
+    pub const SuperDrawFrame = superDrawFrame;
 
     /// Inherited from QFrame
     ///
@@ -7915,10 +9727,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` param1: QPainter `
     ///
-    pub fn SuperDrawFrame(self: KCommandBar, param1: anytype) void {
+    pub fn superDrawFrame(self: KCommandBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPainter;
         qtc.KCommandBar_SuperDrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDrawFrame` instead
+    ///
+    pub const OnDrawFrame = onDrawFrame;
 
     /// Inherited from QFrame
     ///
@@ -7932,10 +9748,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, param1: QPainter) callconv(.c) void `
     ///
-    pub fn OnDrawFrame(self: KCommandBar, callback: *const fn (KCommandBar, QPainter) callconv(.c) void) void {
+    pub fn onDrawFrame(self: KCommandBar, callback: *const fn (KCommandBar, QPainter) callconv(.c) void) void {
         qtc.KCommandBar_OnDrawFrame(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -7946,13 +9766,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn UpdateMicroFocus(self: KCommandBar) void {
+    pub fn updateMicroFocus(self: KCommandBar) void {
         qtc.KCommandBar_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -7964,10 +9784,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn SuperUpdateMicroFocus(self: KCommandBar) void {
+    pub fn superUpdateMicroFocus(self: KCommandBar) void {
         qtc.KCommandBar_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -7980,10 +9804,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: KCommandBar, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: KCommandBar, callback: *const fn () callconv(.c) void) void {
         qtc.KCommandBar_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -7994,13 +9822,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn Create(self: KCommandBar) void {
+    pub fn create(self: KCommandBar) void {
         qtc.KCommandBar_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -8012,10 +9840,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn SuperCreate(self: KCommandBar) void {
+    pub fn superCreate(self: KCommandBar) void {
         qtc.KCommandBar_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8028,9 +9860,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: KCommandBar, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: KCommandBar, callback: *const fn () callconv(.c) void) void {
         qtc.KCommandBar_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -8042,13 +9878,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn Destroy(self: KCommandBar) void {
+    pub fn destroy(self: KCommandBar) void {
         qtc.KCommandBar_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8060,9 +9896,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn SuperDestroy(self: KCommandBar) void {
+    pub fn superDestroy(self: KCommandBar) void {
         qtc.KCommandBar_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8076,10 +9916,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: KCommandBar, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: KCommandBar, callback: *const fn () callconv(.c) void) void {
         qtc.KCommandBar_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8090,13 +9934,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn FocusNextChild(self: KCommandBar) bool {
+    pub fn focusNextChild(self: KCommandBar) bool {
         return qtc.KCommandBar_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -8108,10 +9952,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn SuperFocusNextChild(self: KCommandBar) bool {
+    pub fn superFocusNextChild(self: KCommandBar) bool {
         return qtc.KCommandBar_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8124,9 +9972,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: KCommandBar, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: KCommandBar, callback: *const fn () callconv(.c) bool) void {
         qtc.KCommandBar_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8138,13 +9990,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn FocusPreviousChild(self: KCommandBar) bool {
+    pub fn focusPreviousChild(self: KCommandBar) bool {
         return qtc.KCommandBar_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8156,9 +10008,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn SuperFocusPreviousChild(self: KCommandBar) bool {
+    pub fn superFocusPreviousChild(self: KCommandBar) bool {
         return qtc.KCommandBar_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8172,9 +10028,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: KCommandBar, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: KCommandBar, callback: *const fn () callconv(.c) bool) void {
         qtc.KCommandBar_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -8186,13 +10046,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn Sender(self: KCommandBar) QObject {
+    pub fn sender(self: KCommandBar) QObject {
         return .{ .ptr = qtc.KCommandBar_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -8204,9 +10064,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn SuperSender(self: KCommandBar) QObject {
+    pub fn superSender(self: KCommandBar) QObject {
         return .{ .ptr = qtc.KCommandBar_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -8220,9 +10084,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KCommandBar, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KCommandBar, callback: *const fn () callconv(.c) QObject) void {
         qtc.KCommandBar_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8234,13 +10102,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn SenderSignalIndex(self: KCommandBar) i32 {
+    pub fn senderSignalIndex(self: KCommandBar) i32 {
         return qtc.KCommandBar_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8252,9 +10120,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn SuperSenderSignalIndex(self: KCommandBar) i32 {
+    pub fn superSenderSignalIndex(self: KCommandBar) i32 {
         return qtc.KCommandBar_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8268,9 +10140,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KCommandBar, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KCommandBar, callback: *const fn () callconv(.c) i32) void {
         qtc.KCommandBar_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -8284,14 +10160,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KCommandBar, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KCommandBar, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KCommandBar_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -8305,10 +10181,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KCommandBar, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KCommandBar, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KCommandBar_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -8322,9 +10202,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KCommandBar, callback: *const fn (KCommandBar, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KCommandBar, callback: *const fn (KCommandBar, [*:0]const u8) callconv(.c) i32) void {
         qtc.KCommandBar_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8338,14 +10222,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KCommandBar, signal: anytype) bool {
+    pub fn isSignalConnected(self: KCommandBar, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KCommandBar_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8359,10 +10243,14 @@ pub const KCommandBar = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KCommandBar, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KCommandBar, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KCommandBar_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8376,9 +10264,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KCommandBar, callback: *const fn (KCommandBar, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KCommandBar, callback: *const fn (KCommandBar, QMetaMethod) callconv(.c) bool) void {
         qtc.KCommandBar_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8394,13 +10286,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: KCommandBar, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: KCommandBar, metricA: i32, metricB: i32) f64 {
         return qtc.KCommandBar_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8416,9 +10308,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: KCommandBar, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: KCommandBar, metricA: i32, metricB: i32) f64 {
         return qtc.KCommandBar_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8432,9 +10328,13 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: KCommandBar, callback: *const fn (KCommandBar, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: KCommandBar, callback: *const fn (KCommandBar, i32, i32) callconv(.c) f64) void {
         qtc.KCommandBar_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -8448,23 +10348,23 @@ pub const KCommandBar = extern struct {
     ///
     /// ` callback: *const fn (self: KCommandBar, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KCommandBar, callback: *const fn (KCommandBar, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KCommandBar, callback: *const fn (KCommandBar, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kcommandbar.html#dtor.KCommandBar)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KCommandBar `
     ///
-    pub fn Delete(self: KCommandBar) void {
+    pub fn delete(self: KCommandBar) void {
         qtc.KCommandBar_Delete(@ptrCast(self.ptr));
     }
 };
@@ -8479,23 +10379,35 @@ pub const KCommandBar__ActionGroup = extern struct {
 
     pub const _is_KCommandBar__ActionGroup = {};
 
-    /// New constructs a new KCommandBar::ActionGroup object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() KCommandBar__ActionGroup {
+    pub const New = new;
+
+    /// Allocate a new KCommandBar::ActionGroup object in C++ memory
+    ///
+    pub fn new() KCommandBar__ActionGroup {
         return .{ .ptr = qtc.KCommandBar__ActionGroup_new() };
     }
 
-    /// New2 constructs a new KCommandBar::ActionGroup object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KCommandBar::ActionGroup object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: KCommandBar__ActionGroup `
     ///
-    pub fn New2(param1: anytype) KCommandBar__ActionGroup {
+    pub fn new2(param1: anytype) KCommandBar__ActionGroup {
         comptime _ = @TypeOf(param1)._is_KCommandBar__ActionGroup;
         return .{ .ptr = qtc.KCommandBar__ActionGroup_new2(@ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
+
     /// ### [Upstream resources](https://api.kde.org/kcommandbar-actiongroup.html#name-var)
     ///
     /// ## Parameter(s):
@@ -8504,29 +10416,37 @@ pub const KCommandBar__ActionGroup = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: KCommandBar__ActionGroup, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: KCommandBar__ActionGroup, allocator: std.mem.Allocator) []const u8 {
         var name_str = qtc.KCommandBar__ActionGroup_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&name_str);
-        const name_ret = allocator.alloc(u8, name_str.len) catch @panic("KCommandBar__ActionGroup.Name: Memory allocation failed");
+        const name_ret = allocator.alloc(u8, name_str.len) catch @panic("KCommandBar__ActionGroup.name: Memory allocation failed");
         @memcpy(name_ret, name_str.data[0..name_str.len]);
         return name_ret;
     }
 
+    /// ### DEPRECATED: Use `setName` instead
+    ///
+    pub const SetName = setName;
+
     /// ### [Upstream resources](https://api.kde.org/kcommandbar-actiongroup.html#name-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KCommandBar__ActionGroup `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn SetName(self: KCommandBar__ActionGroup, name: []const u8) void {
+    pub fn setName(self: KCommandBar__ActionGroup, _name: []const u8) void {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         qtc.KCommandBar__ActionGroup_SetName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// ### [Upstream resources](https://api.kde.org/kcommandbar-actiongroup.html#actions-var)
     ///
@@ -8536,15 +10456,19 @@ pub const KCommandBar__ActionGroup = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: KCommandBar__ActionGroup, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: KCommandBar__ActionGroup, allocator: std.mem.Allocator) []QAction {
         const actions_arr: qtc.libqt_list = qtc.KCommandBar__ActionGroup_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(actions_arr.data);
-        const actions_ret = allocator.alloc(QAction, actions_arr.len) catch @panic("KCommandBar__ActionGroup.Actions: Memory allocation failed");
-        const actions_data: [*]QtC.QAction = @ptrCast(@alignCast(actions_arr.data));
-        for (0..actions_arr.len) |ii|
-            actions_ret[ii] = .{ .ptr = actions_data[ii] };
+        const actions_ret = allocator.alloc(QAction, actions_arr.len) catch @panic("KCommandBar__ActionGroup.actions: Memory allocation failed");
+        const actions_data_val: [*]QtC.QAction = @ptrCast(@alignCast(actions_arr.data));
+        for (0..actions_arr.len) |j|
+            actions_ret[j] = .{ .ptr = actions_data_val[j] };
         return actions_ret;
     }
+
+    /// ### DEPRECATED: Use `setActions` instead
+    ///
+    pub const SetActions = setActions;
 
     /// ### [Upstream resources](https://api.kde.org/kcommandbar-actiongroup.html#actions-var)
     ///
@@ -8552,15 +10476,19 @@ pub const KCommandBar__ActionGroup = extern struct {
     ///
     /// ` self: KCommandBar__ActionGroup `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn SetActions(self: KCommandBar__ActionGroup, actions: []QAction) void {
+    pub fn setActions(self: KCommandBar__ActionGroup, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.KCommandBar__ActionGroup_SetActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://api.kde.org/kcommandbar-actiongroup.html#operator-eq)
     ///
@@ -8570,22 +10498,22 @@ pub const KCommandBar__ActionGroup = extern struct {
     ///
     /// ` param1: KCommandBar__ActionGroup `
     ///
-    pub fn OperatorAssign(self: KCommandBar__ActionGroup, param1: anytype) void {
+    pub fn operatorAssign(self: KCommandBar__ActionGroup, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_KCommandBar__ActionGroup;
         qtc.KCommandBar__ActionGroup_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KCommandBar__ActionGroup `
     ///
-    pub fn Delete(self: KCommandBar__ActionGroup) void {
+    pub fn delete(self: KCommandBar__ActionGroup) void {
         qtc.KCommandBar__ActionGroup_Delete(@ptrCast(self.ptr));
     }
 };

@@ -28,16 +28,24 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     pub const _is_KAbstractFileItemActionPlugin = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new KAbstractFileItemActionPlugin object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KAbstractFileItemActionPlugin object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New(parent: anytype) KAbstractFileItemActionPlugin {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.KAbstractFileItemActionPlugin_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) KAbstractFileItemActionPlugin {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.KAbstractFileItemActionPlugin_new(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -45,9 +53,13 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` self: KAbstractFileItemActionPlugin `
     ///
-    pub fn MetaObject(self: KAbstractFileItemActionPlugin) QMetaObject {
+    pub fn metaObject(self: KAbstractFileItemActionPlugin) QMetaObject {
         return .{ .ptr = qtc.KAbstractFileItemActionPlugin_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -59,13 +71,13 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KAbstractFileItemActionPlugin, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KAbstractFileItemActionPlugin, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KAbstractFileItemActionPlugin_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -75,9 +87,13 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` self: KAbstractFileItemActionPlugin `
     ///
-    pub fn SuperMetaObject(self: KAbstractFileItemActionPlugin) QMetaObject {
+    pub fn superMetaObject(self: KAbstractFileItemActionPlugin) QMetaObject {
         return .{ .ptr = qtc.KAbstractFileItemActionPlugin_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -85,10 +101,14 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KAbstractFileItemActionPlugin, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KAbstractFileItemActionPlugin, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KAbstractFileItemActionPlugin_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -98,13 +118,13 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` callback: *const fn (self: KAbstractFileItemActionPlugin, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KAbstractFileItemActionPlugin, callback: *const fn (KAbstractFileItemActionPlugin, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KAbstractFileItemActionPlugin, callback: *const fn (KAbstractFileItemActionPlugin, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KAbstractFileItemActionPlugin_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -114,10 +134,14 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KAbstractFileItemActionPlugin, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KAbstractFileItemActionPlugin, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KAbstractFileItemActionPlugin_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -129,9 +153,13 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KAbstractFileItemActionPlugin, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KAbstractFileItemActionPlugin, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KAbstractFileItemActionPlugin_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -141,13 +169,13 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` callback: *const fn (self: KAbstractFileItemActionPlugin, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KAbstractFileItemActionPlugin, callback: *const fn (KAbstractFileItemActionPlugin, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KAbstractFileItemActionPlugin, callback: *const fn (KAbstractFileItemActionPlugin, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KAbstractFileItemActionPlugin_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -161,9 +189,13 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KAbstractFileItemActionPlugin, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KAbstractFileItemActionPlugin, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KAbstractFileItemActionPlugin_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -173,14 +205,18 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KAbstractFileItemActionPlugin.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KAbstractFileItemActionPlugin.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// ### [Upstream resources](https://api.kde.org/kabstractfileitemactionplugin.html#actions)
     ///
@@ -194,17 +230,21 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` parentWidget: QWidget `
     ///
-    pub fn Actions(self: KAbstractFileItemActionPlugin, allocator: std.mem.Allocator, fileItemInfos: anytype, parentWidget: anytype) []QAction {
+    pub fn actions(self: KAbstractFileItemActionPlugin, allocator: std.mem.Allocator, fileItemInfos: anytype, parentWidget: anytype) []QAction {
         comptime _ = @TypeOf(fileItemInfos)._is_KFileItemListProperties;
         comptime _ = @TypeOf(parentWidget)._is_QWidget;
         const _arr: qtc.libqt_list = qtc.KAbstractFileItemActionPlugin_Actions(@ptrCast(self.ptr), @ptrCast(fileItemInfos.ptr), @ptrCast(parentWidget.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KAbstractFileItemActionPlugin.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KAbstractFileItemActionPlugin.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onActions` instead
+    ///
+    pub const OnActions = onActions;
 
     /// ### [Upstream resources](https://api.kde.org/kabstractfileitemactionplugin.html#actions)
     ///
@@ -222,13 +262,13 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` C ABI representation of []QAction `
     ///
-    pub fn OnActions(self: KAbstractFileItemActionPlugin, callback: *const fn (KAbstractFileItemActionPlugin, KFileItemListProperties, QWidget) callconv(.c) qtc.libqt_list) void {
+    pub fn onActions(self: KAbstractFileItemActionPlugin, callback: *const fn (KAbstractFileItemActionPlugin, KFileItemListProperties, QWidget) callconv(.c) qtc.libqt_list) void {
         qtc.KAbstractFileItemActionPlugin_OnActions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperActions` instead
+    /// ### DEPRECATED: Use `superActions` instead
     ///
-    pub const QBaseActions = SuperActions;
+    pub const SuperActions = superActions;
 
     /// ### [Upstream resources](https://api.kde.org/kabstractfileitemactionplugin.html#actions)
     ///
@@ -244,17 +284,23 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` parentWidget: QWidget `
     ///
-    pub fn SuperActions(self: KAbstractFileItemActionPlugin, allocator: std.mem.Allocator, fileItemInfos: anytype, parentWidget: anytype) []QAction {
+    pub fn superActions(self: KAbstractFileItemActionPlugin, allocator: std.mem.Allocator, fileItemInfos: anytype, parentWidget: anytype) []QAction {
         comptime _ = @TypeOf(fileItemInfos)._is_KFileItemListProperties;
         comptime _ = @TypeOf(parentWidget)._is_QWidget;
         const _arr: qtc.libqt_list = qtc.KAbstractFileItemActionPlugin_SuperActions(@ptrCast(self.ptr), @ptrCast(fileItemInfos.ptr), @ptrCast(parentWidget.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KAbstractFileItemActionPlugin.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KAbstractFileItemActionPlugin.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `error0` instead
+    ///
+    pub const Error = error0;
+
+    pub const @"error" = error0;
 
     /// ### [Upstream resources](https://api.kde.org/kabstractfileitemactionplugin.html#error)
     ///
@@ -264,13 +310,17 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` errorMessage: []const u8 `
     ///
-    pub fn Error(self: KAbstractFileItemActionPlugin, errorMessage: []const u8) void {
+    pub fn error0(self: KAbstractFileItemActionPlugin, errorMessage: []const u8) void {
         const errorMessage_str = qtc.libqt_string{
             .len = errorMessage.len,
             .data = errorMessage.ptr,
         };
         qtc.KAbstractFileItemActionPlugin_Error(@ptrCast(self.ptr), errorMessage_str);
     }
+
+    /// ### DEPRECATED: Use `onError` instead
+    ///
+    pub const OnError = onError;
 
     /// ### [Upstream resources](https://api.kde.org/kabstractfileitemactionplugin.html#error)
     ///
@@ -280,9 +330,13 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` callback: *const fn (self: KAbstractFileItemActionPlugin, errorMessage: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnError(self: KAbstractFileItemActionPlugin, callback: *const fn (KAbstractFileItemActionPlugin, [*:0]const u8) callconv(.c) void) void {
+    pub fn onError(self: KAbstractFileItemActionPlugin, callback: *const fn (KAbstractFileItemActionPlugin, [*:0]const u8) callconv(.c) void) void {
         qtc.KAbstractFileItemActionPlugin_Connect_Error(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -294,15 +348,19 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KAbstractFileItemActionPlugin.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KAbstractFileItemActionPlugin.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -316,15 +374,19 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KAbstractFileItemActionPlugin.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KAbstractFileItemActionPlugin.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -336,13 +398,17 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KAbstractFileItemActionPlugin, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KAbstractFileItemActionPlugin, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KAbstractFileItemActionPlugin.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KAbstractFileItemActionPlugin.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -354,13 +420,17 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KAbstractFileItemActionPlugin, name: []const u8) void {
+    pub fn setObjectName(self: KAbstractFileItemActionPlugin, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -370,9 +440,13 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` self: KAbstractFileItemActionPlugin `
     ///
-    pub fn IsWidgetType(self: KAbstractFileItemActionPlugin) bool {
+    pub fn isWidgetType(self: KAbstractFileItemActionPlugin) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -382,9 +456,13 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` self: KAbstractFileItemActionPlugin `
     ///
-    pub fn IsWindowType(self: KAbstractFileItemActionPlugin) bool {
+    pub fn isWindowType(self: KAbstractFileItemActionPlugin) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -394,9 +472,13 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` self: KAbstractFileItemActionPlugin `
     ///
-    pub fn IsQuickItemType(self: KAbstractFileItemActionPlugin) bool {
+    pub fn isQuickItemType(self: KAbstractFileItemActionPlugin) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -406,9 +488,13 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` self: KAbstractFileItemActionPlugin `
     ///
-    pub fn SignalsBlocked(self: KAbstractFileItemActionPlugin) bool {
+    pub fn signalsBlocked(self: KAbstractFileItemActionPlugin) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -420,9 +506,13 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KAbstractFileItemActionPlugin, b: bool) bool {
+    pub fn blockSignals(self: KAbstractFileItemActionPlugin, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -432,9 +522,13 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` self: KAbstractFileItemActionPlugin `
     ///
-    pub fn Thread(self: KAbstractFileItemActionPlugin) QThread {
+    pub fn thread(self: KAbstractFileItemActionPlugin) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -444,12 +538,16 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` self: KAbstractFileItemActionPlugin `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KAbstractFileItemActionPlugin, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KAbstractFileItemActionPlugin, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -461,9 +559,13 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KAbstractFileItemActionPlugin, interval: i32) i32 {
+    pub fn startTimer(self: KAbstractFileItemActionPlugin, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -475,9 +577,13 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KAbstractFileItemActionPlugin, time: i64) i32 {
+    pub fn startTimer2(self: KAbstractFileItemActionPlugin, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -489,9 +595,13 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KAbstractFileItemActionPlugin, id: i32) void {
+    pub fn killTimer(self: KAbstractFileItemActionPlugin, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -503,9 +613,13 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KAbstractFileItemActionPlugin, id: i32) void {
+    pub fn killTimer2(self: KAbstractFileItemActionPlugin, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -517,15 +631,19 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KAbstractFileItemActionPlugin, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KAbstractFileItemActionPlugin, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KAbstractFileItemActionPlugin.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KAbstractFileItemActionPlugin.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -535,12 +653,16 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` self: KAbstractFileItemActionPlugin `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: KAbstractFileItemActionPlugin, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: KAbstractFileItemActionPlugin, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -552,10 +674,14 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KAbstractFileItemActionPlugin, filterObj: anytype) void {
+    pub fn installEventFilter(self: KAbstractFileItemActionPlugin, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -567,10 +693,14 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KAbstractFileItemActionPlugin, obj: anytype) void {
+    pub fn removeEventFilter(self: KAbstractFileItemActionPlugin, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -578,7 +708,7 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -586,13 +716,17 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -600,7 +734,7 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -608,13 +742,17 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -624,18 +762,22 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` self: KAbstractFileItemActionPlugin `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KAbstractFileItemActionPlugin, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KAbstractFileItemActionPlugin, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -643,7 +785,7 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -651,13 +793,17 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -665,7 +811,7 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -673,13 +819,17 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -689,9 +839,13 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` self: KAbstractFileItemActionPlugin `
     ///
-    pub fn Disconnect3(self: KAbstractFileItemActionPlugin) bool {
+    pub fn disconnect3(self: KAbstractFileItemActionPlugin) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -703,10 +857,14 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KAbstractFileItemActionPlugin, receiver: anytype) bool {
+    pub fn disconnect4(self: KAbstractFileItemActionPlugin, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -716,10 +874,14 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -729,9 +891,13 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` self: KAbstractFileItemActionPlugin `
     ///
-    pub fn DumpObjectTree(self: KAbstractFileItemActionPlugin) void {
+    pub fn dumpObjectTree(self: KAbstractFileItemActionPlugin) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -741,9 +907,13 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` self: KAbstractFileItemActionPlugin `
     ///
-    pub fn DumpObjectInfo(self: KAbstractFileItemActionPlugin) void {
+    pub fn dumpObjectInfo(self: KAbstractFileItemActionPlugin) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -757,11 +927,15 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KAbstractFileItemActionPlugin, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KAbstractFileItemActionPlugin, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -773,10 +947,14 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KAbstractFileItemActionPlugin, name: [:0]const u8) QVariant {
+    pub fn property(self: KAbstractFileItemActionPlugin, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -788,7 +966,7 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KAbstractFileItemActionPlugin, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KAbstractFileItemActionPlugin, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -796,27 +974,19 @@ pub const KAbstractFileItemActionPlugin = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KAbstractFileItemActionPlugin.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KAbstractFileItemActionPlugin.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KAbstractFileItemActionPlugin.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KAbstractFileItemActionPlugin.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KAbstractFileItemActionPlugin `
-    ///
-    pub fn BindingStorage(self: KAbstractFileItemActionPlugin) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -826,9 +996,29 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` self: KAbstractFileItemActionPlugin `
     ///
-    pub fn BindingStorage2(self: KAbstractFileItemActionPlugin) QBindingStorage {
+    pub fn bindingStorage(self: KAbstractFileItemActionPlugin) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KAbstractFileItemActionPlugin `
+    ///
+    pub fn bindingStorage2(self: KAbstractFileItemActionPlugin) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -838,9 +1028,13 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` self: KAbstractFileItemActionPlugin `
     ///
-    pub fn Destroyed(self: KAbstractFileItemActionPlugin) void {
+    pub fn destroyed(self: KAbstractFileItemActionPlugin) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -852,9 +1046,13 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` callback: *const fn (self: KAbstractFileItemActionPlugin) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KAbstractFileItemActionPlugin, callback: *const fn (KAbstractFileItemActionPlugin) callconv(.c) void) void {
+    pub fn onDestroyed(self: KAbstractFileItemActionPlugin, callback: *const fn (KAbstractFileItemActionPlugin) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -864,9 +1062,13 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` self: KAbstractFileItemActionPlugin `
     ///
-    pub fn Parent(self: KAbstractFileItemActionPlugin) QObject {
+    pub fn parent(self: KAbstractFileItemActionPlugin) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -878,10 +1080,14 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KAbstractFileItemActionPlugin, classname: [:0]const u8) bool {
+    pub fn inherits(self: KAbstractFileItemActionPlugin, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -891,9 +1097,13 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` self: KAbstractFileItemActionPlugin `
     ///
-    pub fn DeleteLater(self: KAbstractFileItemActionPlugin) void {
+    pub fn deleteLater(self: KAbstractFileItemActionPlugin) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -907,9 +1117,13 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KAbstractFileItemActionPlugin, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KAbstractFileItemActionPlugin, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -923,9 +1137,13 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KAbstractFileItemActionPlugin, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KAbstractFileItemActionPlugin, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -933,7 +1151,7 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -943,13 +1161,17 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -957,7 +1179,7 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -967,13 +1189,17 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -983,7 +1209,7 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` self: KAbstractFileItemActionPlugin `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -991,12 +1217,16 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KAbstractFileItemActionPlugin, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KAbstractFileItemActionPlugin, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1008,10 +1238,14 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KAbstractFileItemActionPlugin, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KAbstractFileItemActionPlugin, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1025,11 +1259,15 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KAbstractFileItemActionPlugin, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KAbstractFileItemActionPlugin, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1045,13 +1283,17 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KAbstractFileItemActionPlugin, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KAbstractFileItemActionPlugin, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1064,11 +1306,15 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KAbstractFileItemActionPlugin, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KAbstractFileItemActionPlugin, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1080,10 +1326,14 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KAbstractFileItemActionPlugin, param1: anytype) void {
+    pub fn destroyed1(self: KAbstractFileItemActionPlugin, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1095,9 +1345,13 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` callback: *const fn (self: KAbstractFileItemActionPlugin, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KAbstractFileItemActionPlugin, callback: *const fn (KAbstractFileItemActionPlugin, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KAbstractFileItemActionPlugin, callback: *const fn (KAbstractFileItemActionPlugin, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -1109,16 +1363,16 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` self: KAbstractFileItemActionPlugin `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: KAbstractFileItemActionPlugin, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KAbstractFileItemActionPlugin_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: KAbstractFileItemActionPlugin, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KAbstractFileItemActionPlugin_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -1130,12 +1384,16 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` self: KAbstractFileItemActionPlugin `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: KAbstractFileItemActionPlugin, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KAbstractFileItemActionPlugin_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: KAbstractFileItemActionPlugin, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KAbstractFileItemActionPlugin_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -1149,9 +1407,13 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` callback: *const fn (self: KAbstractFileItemActionPlugin, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KAbstractFileItemActionPlugin, callback: *const fn (KAbstractFileItemActionPlugin, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KAbstractFileItemActionPlugin, callback: *const fn (KAbstractFileItemActionPlugin, QEvent) callconv(.c) bool) void {
         qtc.KAbstractFileItemActionPlugin_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1165,17 +1427,17 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: KAbstractFileItemActionPlugin, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: KAbstractFileItemActionPlugin, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KAbstractFileItemActionPlugin_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KAbstractFileItemActionPlugin_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1189,13 +1451,17 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: KAbstractFileItemActionPlugin, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: KAbstractFileItemActionPlugin, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KAbstractFileItemActionPlugin_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KAbstractFileItemActionPlugin_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1209,9 +1475,13 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` callback: *const fn (self: KAbstractFileItemActionPlugin, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KAbstractFileItemActionPlugin, callback: *const fn (KAbstractFileItemActionPlugin, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KAbstractFileItemActionPlugin, callback: *const fn (KAbstractFileItemActionPlugin, QObject, QEvent) callconv(.c) bool) void {
         qtc.KAbstractFileItemActionPlugin_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -1223,16 +1493,16 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` self: KAbstractFileItemActionPlugin `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KAbstractFileItemActionPlugin, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KAbstractFileItemActionPlugin_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: KAbstractFileItemActionPlugin, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KAbstractFileItemActionPlugin_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1244,12 +1514,16 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` self: KAbstractFileItemActionPlugin `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KAbstractFileItemActionPlugin, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KAbstractFileItemActionPlugin_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: KAbstractFileItemActionPlugin, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KAbstractFileItemActionPlugin_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1263,9 +1537,13 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` callback: *const fn (self: KAbstractFileItemActionPlugin, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KAbstractFileItemActionPlugin, callback: *const fn (KAbstractFileItemActionPlugin, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KAbstractFileItemActionPlugin, callback: *const fn (KAbstractFileItemActionPlugin, QTimerEvent) callconv(.c) void) void {
         qtc.KAbstractFileItemActionPlugin_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -1277,16 +1555,16 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` self: KAbstractFileItemActionPlugin `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KAbstractFileItemActionPlugin, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KAbstractFileItemActionPlugin_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KAbstractFileItemActionPlugin, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KAbstractFileItemActionPlugin_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1298,12 +1576,16 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` self: KAbstractFileItemActionPlugin `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KAbstractFileItemActionPlugin, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KAbstractFileItemActionPlugin_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KAbstractFileItemActionPlugin, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KAbstractFileItemActionPlugin_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1317,9 +1599,13 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` callback: *const fn (self: KAbstractFileItemActionPlugin, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KAbstractFileItemActionPlugin, callback: *const fn (KAbstractFileItemActionPlugin, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KAbstractFileItemActionPlugin, callback: *const fn (KAbstractFileItemActionPlugin, QChildEvent) callconv(.c) void) void {
         qtc.KAbstractFileItemActionPlugin_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -1331,16 +1617,16 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` self: KAbstractFileItemActionPlugin `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KAbstractFileItemActionPlugin, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KAbstractFileItemActionPlugin_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KAbstractFileItemActionPlugin, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KAbstractFileItemActionPlugin_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1352,12 +1638,16 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` self: KAbstractFileItemActionPlugin `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KAbstractFileItemActionPlugin, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KAbstractFileItemActionPlugin_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KAbstractFileItemActionPlugin, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KAbstractFileItemActionPlugin_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1371,9 +1661,13 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` callback: *const fn (self: KAbstractFileItemActionPlugin, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KAbstractFileItemActionPlugin, callback: *const fn (KAbstractFileItemActionPlugin, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KAbstractFileItemActionPlugin, callback: *const fn (KAbstractFileItemActionPlugin, QEvent) callconv(.c) void) void {
         qtc.KAbstractFileItemActionPlugin_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -1387,14 +1681,14 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KAbstractFileItemActionPlugin, signal: anytype) void {
+    pub fn connectNotify(self: KAbstractFileItemActionPlugin, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KAbstractFileItemActionPlugin_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1408,11 +1702,15 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KAbstractFileItemActionPlugin, signal: anytype) void {
+    pub fn superConnectNotify(self: KAbstractFileItemActionPlugin, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KAbstractFileItemActionPlugin_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1425,9 +1723,13 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` callback: *const fn (self: KAbstractFileItemActionPlugin, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KAbstractFileItemActionPlugin, callback: *const fn (KAbstractFileItemActionPlugin, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KAbstractFileItemActionPlugin, callback: *const fn (KAbstractFileItemActionPlugin, QMetaMethod) callconv(.c) void) void {
         qtc.KAbstractFileItemActionPlugin_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1441,14 +1743,14 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KAbstractFileItemActionPlugin, signal: anytype) void {
+    pub fn disconnectNotify(self: KAbstractFileItemActionPlugin, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KAbstractFileItemActionPlugin_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1462,10 +1764,14 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KAbstractFileItemActionPlugin, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KAbstractFileItemActionPlugin, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KAbstractFileItemActionPlugin_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1479,9 +1785,13 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` callback: *const fn (self: KAbstractFileItemActionPlugin, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KAbstractFileItemActionPlugin, callback: *const fn (KAbstractFileItemActionPlugin, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KAbstractFileItemActionPlugin, callback: *const fn (KAbstractFileItemActionPlugin, QMetaMethod) callconv(.c) void) void {
         qtc.KAbstractFileItemActionPlugin_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -1493,13 +1803,13 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` self: KAbstractFileItemActionPlugin `
     ///
-    pub fn Sender(self: KAbstractFileItemActionPlugin) QObject {
+    pub fn sender(self: KAbstractFileItemActionPlugin) QObject {
         return .{ .ptr = qtc.KAbstractFileItemActionPlugin_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -1511,9 +1821,13 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` self: KAbstractFileItemActionPlugin `
     ///
-    pub fn SuperSender(self: KAbstractFileItemActionPlugin) QObject {
+    pub fn superSender(self: KAbstractFileItemActionPlugin) QObject {
         return .{ .ptr = qtc.KAbstractFileItemActionPlugin_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -1527,9 +1841,13 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KAbstractFileItemActionPlugin, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KAbstractFileItemActionPlugin, callback: *const fn () callconv(.c) QObject) void {
         qtc.KAbstractFileItemActionPlugin_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1541,13 +1859,13 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` self: KAbstractFileItemActionPlugin `
     ///
-    pub fn SenderSignalIndex(self: KAbstractFileItemActionPlugin) i32 {
+    pub fn senderSignalIndex(self: KAbstractFileItemActionPlugin) i32 {
         return qtc.KAbstractFileItemActionPlugin_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1559,9 +1877,13 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` self: KAbstractFileItemActionPlugin `
     ///
-    pub fn SuperSenderSignalIndex(self: KAbstractFileItemActionPlugin) i32 {
+    pub fn superSenderSignalIndex(self: KAbstractFileItemActionPlugin) i32 {
         return qtc.KAbstractFileItemActionPlugin_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1575,9 +1897,13 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KAbstractFileItemActionPlugin, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KAbstractFileItemActionPlugin, callback: *const fn () callconv(.c) i32) void {
         qtc.KAbstractFileItemActionPlugin_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -1591,14 +1917,14 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KAbstractFileItemActionPlugin, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KAbstractFileItemActionPlugin, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KAbstractFileItemActionPlugin_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -1612,10 +1938,14 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KAbstractFileItemActionPlugin, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KAbstractFileItemActionPlugin, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KAbstractFileItemActionPlugin_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -1629,9 +1959,13 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` callback: *const fn (self: KAbstractFileItemActionPlugin, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KAbstractFileItemActionPlugin, callback: *const fn (KAbstractFileItemActionPlugin, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KAbstractFileItemActionPlugin, callback: *const fn (KAbstractFileItemActionPlugin, [*:0]const u8) callconv(.c) i32) void {
         qtc.KAbstractFileItemActionPlugin_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1645,14 +1979,14 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KAbstractFileItemActionPlugin, signal: anytype) bool {
+    pub fn isSignalConnected(self: KAbstractFileItemActionPlugin, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KAbstractFileItemActionPlugin_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1666,10 +2000,14 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KAbstractFileItemActionPlugin, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KAbstractFileItemActionPlugin, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KAbstractFileItemActionPlugin_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1683,9 +2021,13 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` callback: *const fn (self: KAbstractFileItemActionPlugin, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KAbstractFileItemActionPlugin, callback: *const fn (KAbstractFileItemActionPlugin, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KAbstractFileItemActionPlugin, callback: *const fn (KAbstractFileItemActionPlugin, QMetaMethod) callconv(.c) bool) void {
         qtc.KAbstractFileItemActionPlugin_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -1699,23 +2041,23 @@ pub const KAbstractFileItemActionPlugin = extern struct {
     ///
     /// ` callback: *const fn (self: KAbstractFileItemActionPlugin, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KAbstractFileItemActionPlugin, callback: *const fn (KAbstractFileItemActionPlugin, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KAbstractFileItemActionPlugin, callback: *const fn (KAbstractFileItemActionPlugin, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kabstractfileitemactionplugin.html#dtor.KAbstractFileItemActionPlugin)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KAbstractFileItemActionPlugin `
     ///
-    pub fn Delete(self: KAbstractFileItemActionPlugin) void {
+    pub fn delete(self: KAbstractFileItemActionPlugin) void {
         qtc.KAbstractFileItemActionPlugin_Delete(@ptrCast(self.ptr));
     }
 };

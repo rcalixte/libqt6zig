@@ -11,22 +11,34 @@ pub const QsciDocument = extern struct {
 
     pub const _is_QsciDocument = {};
 
-    /// New constructs a new QsciDocument object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QsciDocument {
+    pub const New = new;
+
+    /// Allocate a new QsciDocument object in C++ memory
+    ///
+    pub fn new() QsciDocument {
         return .{ .ptr = qtc.QsciDocument_new() };
     }
 
-    /// New2 constructs a new QsciDocument object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QsciDocument object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QsciDocument `
     ///
-    pub fn New2(param1: anytype) QsciDocument {
+    pub fn new2(param1: anytype) QsciDocument {
         comptime _ = @TypeOf(param1)._is_QsciDocument;
         return .{ .ptr = qtc.QsciDocument_new2(@ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciDocument.html)
     ///
@@ -36,24 +48,24 @@ pub const QsciDocument = extern struct {
     ///
     /// ` param1: QsciDocument `
     ///
-    pub fn OperatorAssign(self: QsciDocument, param1: anytype) void {
+    pub fn operatorAssign(self: QsciDocument, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QsciDocument;
         qtc.QsciDocument_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciDocument.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QsciDocument `
     ///
-    pub fn Delete(self: QsciDocument) void {
+    pub fn delete(self: QsciDocument) void {
         qtc.QsciDocument_Delete(@ptrCast(self.ptr));
     }
 };

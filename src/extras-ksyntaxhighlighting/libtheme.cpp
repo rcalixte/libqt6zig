@@ -8,8 +8,8 @@ KSyntaxHighlighting__Theme* KSyntaxHighlighting__Theme_new() {
     return new KSyntaxHighlighting::Theme();
 }
 
-KSyntaxHighlighting__Theme* KSyntaxHighlighting__Theme_new2(const KSyntaxHighlighting__Theme* copyVal) {
-    return new KSyntaxHighlighting::Theme(*copyVal);
+KSyntaxHighlighting__Theme* KSyntaxHighlighting__Theme_new2(const KSyntaxHighlighting__Theme* copy) {
+    return new KSyntaxHighlighting::Theme(*copy);
 }
 
 void KSyntaxHighlighting__Theme_OperatorAssign(KSyntaxHighlighting__Theme* self, const KSyntaxHighlighting__Theme* other) {

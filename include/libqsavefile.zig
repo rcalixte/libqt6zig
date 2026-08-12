@@ -31,13 +31,17 @@ pub const QSaveFile = extern struct {
     pub const _is_QObject = {};
     pub const _is_QIODeviceBase = {};
 
-    /// New constructs a new QSaveFile object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QSaveFile object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` name: []const u8 `
     ///
-    pub fn New(name: []const u8) QSaveFile {
+    pub fn new(name: []const u8) QSaveFile {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -45,39 +49,55 @@ pub const QSaveFile = extern struct {
         return .{ .ptr = qtc.QSaveFile_new(name_str) };
     }
 
-    /// New2 constructs a new QSaveFile object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() QSaveFile {
+    pub const New2 = new2;
+
+    /// Allocate a new QSaveFile object in C++ memory
+    ///
+    pub fn new2() QSaveFile {
         return .{ .ptr = qtc.QSaveFile_new2() };
     }
 
-    /// New3 constructs a new QSaveFile object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QSaveFile object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` name: []const u8 `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New3(name: []const u8, parent: anytype) QSaveFile {
+    pub fn new3(name: []const u8, _parent: anytype) QSaveFile {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QSaveFile_new3(name_str, @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QSaveFile_new3(name_str, @ptrCast(_parent.ptr)) };
     }
 
-    /// New4 constructs a new QSaveFile object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QSaveFile object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New4(parent: anytype) QSaveFile {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QSaveFile_new4(@ptrCast(parent.ptr)) };
+    pub fn new4(_parent: anytype) QSaveFile {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QSaveFile_new4(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -85,9 +105,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn MetaObject(self: QSaveFile) QMetaObject {
+    pub fn metaObject(self: QSaveFile) QMetaObject {
         return .{ .ptr = qtc.QSaveFile_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -99,13 +123,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QSaveFile, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QSaveFile, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QSaveFile_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -115,9 +139,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn SuperMetaObject(self: QSaveFile) QMetaObject {
+    pub fn superMetaObject(self: QSaveFile) QMetaObject {
         return .{ .ptr = qtc.QSaveFile_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -125,10 +153,14 @@ pub const QSaveFile = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QSaveFile, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QSaveFile, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QSaveFile_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -138,13 +170,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` callback: *const fn (self: QSaveFile, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QSaveFile, callback: *const fn (QSaveFile, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QSaveFile, callback: *const fn (QSaveFile, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QSaveFile_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -154,10 +186,14 @@ pub const QSaveFile = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QSaveFile, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QSaveFile, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QSaveFile_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -169,9 +205,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QSaveFile, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QSaveFile, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QSaveFile_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -181,13 +221,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` callback: *const fn (self: QSaveFile, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QSaveFile, callback: *const fn (QSaveFile, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QSaveFile, callback: *const fn (QSaveFile, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QSaveFile_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -201,9 +241,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QSaveFile, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QSaveFile, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QSaveFile_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -213,14 +257,18 @@ pub const QSaveFile = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSaveFile.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSaveFile.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `fileName` instead
+    ///
+    pub const FileName = fileName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsavefile.html#fileName)
     ///
@@ -230,13 +278,17 @@ pub const QSaveFile = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FileName(self: QSaveFile, allocator: std.mem.Allocator) []const u8 {
+    pub fn fileName(self: QSaveFile, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSaveFile_FileName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSaveFile.FileName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSaveFile.fileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onFileName` instead
+    ///
+    pub const OnFileName = onFileName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsavefile.html#fileName)
     ///
@@ -248,13 +300,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnFileName(self: QSaveFile, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onFileName(self: QSaveFile, callback: *const fn () callconv(.c) [*:0]const u8) void {
         qtc.QSaveFile_OnFileName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperFileName` instead
+    /// ### DEPRECATED: Use `superFileName` instead
     ///
-    pub const QBaseFileName = SuperFileName;
+    pub const SuperFileName = superFileName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsavefile.html#fileName)
     ///
@@ -266,13 +318,17 @@ pub const QSaveFile = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperFileName(self: QSaveFile, allocator: std.mem.Allocator) []const u8 {
+    pub fn superFileName(self: QSaveFile, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSaveFile_SuperFileName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSaveFile.FileName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSaveFile.fileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setFileName` instead
+    ///
+    pub const SetFileName = setFileName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsavefile.html#setFileName)
     ///
@@ -282,13 +338,17 @@ pub const QSaveFile = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetFileName(self: QSaveFile, name: []const u8) void {
+    pub fn setFileName(self: QSaveFile, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QSaveFile_SetFileName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `open` instead
+    ///
+    pub const Open = open;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsavefile.html#open)
     ///
@@ -298,9 +358,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` flags: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn Open(self: QSaveFile, flags: i32) bool {
+    pub fn open(self: QSaveFile, flags: i32) bool {
         return qtc.QSaveFile_Open(@ptrCast(self.ptr), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `onOpen` instead
+    ///
+    pub const OnOpen = onOpen;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsavefile.html#open)
     ///
@@ -312,13 +376,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` callback: *const fn (self: QSaveFile, flags: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool `
     ///
-    pub fn OnOpen(self: QSaveFile, callback: *const fn (QSaveFile, i32) callconv(.c) bool) void {
+    pub fn onOpen(self: QSaveFile, callback: *const fn (QSaveFile, i32) callconv(.c) bool) void {
         qtc.QSaveFile_OnOpen(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperOpen` instead
+    /// ### DEPRECATED: Use `superOpen` instead
     ///
-    pub const QBaseOpen = SuperOpen;
+    pub const SuperOpen = superOpen;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsavefile.html#open)
     ///
@@ -330,9 +394,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` flags: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn SuperOpen(self: QSaveFile, flags: i32) bool {
+    pub fn superOpen(self: QSaveFile, flags: i32) bool {
         return qtc.QSaveFile_SuperOpen(@ptrCast(self.ptr), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `commit` instead
+    ///
+    pub const Commit = commit;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsavefile.html#commit)
     ///
@@ -340,9 +408,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn Commit(self: QSaveFile) bool {
+    pub fn commit(self: QSaveFile) bool {
         return qtc.QSaveFile_Commit(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `cancelWriting` instead
+    ///
+    pub const CancelWriting = cancelWriting;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsavefile.html#cancelWriting)
     ///
@@ -350,9 +422,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn CancelWriting(self: QSaveFile) void {
+    pub fn cancelWriting(self: QSaveFile) void {
         qtc.QSaveFile_CancelWriting(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDirectWriteFallback` instead
+    ///
+    pub const SetDirectWriteFallback = setDirectWriteFallback;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsavefile.html#setDirectWriteFallback)
     ///
@@ -362,9 +438,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetDirectWriteFallback(self: QSaveFile, enabled: bool) void {
+    pub fn setDirectWriteFallback(self: QSaveFile, enabled: bool) void {
         qtc.QSaveFile_SetDirectWriteFallback(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `directWriteFallback` instead
+    ///
+    pub const DirectWriteFallback = directWriteFallback;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsavefile.html#directWriteFallback)
     ///
@@ -372,9 +452,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn DirectWriteFallback(self: QSaveFile) bool {
+    pub fn directWriteFallback(self: QSaveFile) bool {
         return qtc.QSaveFile_DirectWriteFallback(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `writeData` instead
+    ///
+    pub const WriteData = writeData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsavefile.html#writeData)
     ///
@@ -386,10 +470,14 @@ pub const QSaveFile = extern struct {
     ///
     /// ` len: i64 `
     ///
-    pub fn WriteData(self: QSaveFile, data: [:0]const u8, len: i64) i64 {
+    pub fn writeData(self: QSaveFile, data: [:0]const u8, len: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.QSaveFile_WriteData(@ptrCast(self.ptr), data_Cstring, @bitCast(len));
     }
+
+    /// ### DEPRECATED: Use `onWriteData` instead
+    ///
+    pub const OnWriteData = onWriteData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsavefile.html#writeData)
     ///
@@ -401,13 +489,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` callback: *const fn (self: QSaveFile, data: [*:0]const u8, len: i64) callconv(.c) i64 `
     ///
-    pub fn OnWriteData(self: QSaveFile, callback: *const fn (QSaveFile, [*:0]const u8, i64) callconv(.c) i64) void {
+    pub fn onWriteData(self: QSaveFile, callback: *const fn (QSaveFile, [*:0]const u8, i64) callconv(.c) i64) void {
         qtc.QSaveFile_OnWriteData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperWriteData` instead
+    /// ### DEPRECATED: Use `superWriteData` instead
     ///
-    pub const QBaseWriteData = SuperWriteData;
+    pub const SuperWriteData = superWriteData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsavefile.html#writeData)
     ///
@@ -421,10 +509,14 @@ pub const QSaveFile = extern struct {
     ///
     /// ` len: i64 `
     ///
-    pub fn SuperWriteData(self: QSaveFile, data: [:0]const u8, len: i64) i64 {
+    pub fn superWriteData(self: QSaveFile, data: [:0]const u8, len: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.QSaveFile_SuperWriteData(@ptrCast(self.ptr), data_Cstring, @bitCast(len));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -436,15 +528,19 @@ pub const QSaveFile = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSaveFile.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSaveFile.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -458,15 +554,21 @@ pub const QSaveFile = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSaveFile.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSaveFile.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `error0` instead
+    ///
+    pub const Error = error0;
+
+    pub const @"error" = error0;
 
     /// Inherited from QFileDevice
     ///
@@ -480,9 +582,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` qfiledevice_enums.FileError `
     ///
-    pub fn Error(self: QSaveFile) i32 {
+    pub fn error0(self: QSaveFile) i32 {
         return qtc.QFileDevice_Error(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetError` instead
+    ///
+    pub const UnsetError = unsetError;
 
     /// Inherited from QFileDevice
     ///
@@ -492,9 +598,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn UnsetError(self: QSaveFile) void {
+    pub fn unsetError(self: QSaveFile) void {
         qtc.QFileDevice_UnsetError(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QFileDevice
     ///
@@ -504,9 +614,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn Close(self: QSaveFile) void {
+    pub fn close(self: QSaveFile) void {
         qtc.QFileDevice_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `handle` instead
+    ///
+    pub const Handle = handle;
 
     /// Inherited from QFileDevice
     ///
@@ -516,9 +630,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn Handle(self: QSaveFile) i32 {
+    pub fn handle(self: QSaveFile) i32 {
         return qtc.QFileDevice_Handle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `flush` instead
+    ///
+    pub const Flush = flush;
 
     /// Inherited from QFileDevice
     ///
@@ -528,9 +646,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn Flush(self: QSaveFile) bool {
+    pub fn flush(self: QSaveFile) bool {
         return qtc.QFileDevice_Flush(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `map` instead
+    ///
+    pub const Map = map;
 
     /// Inherited from QFileDevice
     ///
@@ -542,11 +664,15 @@ pub const QSaveFile = extern struct {
     ///
     /// ` offset: i64 `
     ///
-    /// ` size: i64 `
+    /// ` _size: i64 `
     ///
-    pub fn Map(self: QSaveFile, offset: i64, size: i64) ?*u8 {
-        return @ptrCast(qtc.QFileDevice_Map(@ptrCast(self.ptr), @bitCast(offset), @bitCast(size)));
+    pub fn map(self: QSaveFile, offset: i64, _size: i64) ?*u8 {
+        return @ptrCast(qtc.QFileDevice_Map(@ptrCast(self.ptr), @bitCast(offset), @bitCast(_size)));
     }
+
+    /// ### DEPRECATED: Use `unmap` instead
+    ///
+    pub const Unmap = unmap;
 
     /// Inherited from QFileDevice
     ///
@@ -558,9 +684,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` address: *u8 `
     ///
-    pub fn Unmap(self: QSaveFile, address: *u8) bool {
+    pub fn unmap(self: QSaveFile, address: *u8) bool {
         return qtc.QFileDevice_Unmap(@ptrCast(self.ptr), @ptrCast(address));
     }
+
+    /// ### DEPRECATED: Use `fileTime` instead
+    ///
+    pub const FileTime = fileTime;
 
     /// Inherited from QFileDevice
     ///
@@ -572,9 +702,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` time: qfiledevice_enums.FileTime `
     ///
-    pub fn FileTime(self: QSaveFile, time: i32) QDateTime {
+    pub fn fileTime(self: QSaveFile, time: i32) QDateTime {
         return .{ .ptr = qtc.QFileDevice_FileTime(@ptrCast(self.ptr), @bitCast(time)) };
     }
+
+    /// ### DEPRECATED: Use `setFileTime` instead
+    ///
+    pub const SetFileTime = setFileTime;
 
     /// Inherited from QFileDevice
     ///
@@ -586,12 +720,16 @@ pub const QSaveFile = extern struct {
     ///
     /// ` newDate: QDateTime `
     ///
-    /// ` fileTime: qfiledevice_enums.FileTime `
+    /// ` _fileTime: qfiledevice_enums.FileTime `
     ///
-    pub fn SetFileTime(self: QSaveFile, newDate: anytype, fileTime: i32) bool {
+    pub fn setFileTime(self: QSaveFile, newDate: anytype, _fileTime: i32) bool {
         comptime _ = @TypeOf(newDate)._is_QDateTime;
-        return qtc.QFileDevice_SetFileTime(@ptrCast(self.ptr), @ptrCast(newDate.ptr), @bitCast(fileTime));
+        return qtc.QFileDevice_SetFileTime(@ptrCast(self.ptr), @ptrCast(newDate.ptr), @bitCast(_fileTime));
     }
+
+    /// ### DEPRECATED: Use `map3` instead
+    ///
+    pub const Map3 = map3;
 
     /// Inherited from QFileDevice
     ///
@@ -603,13 +741,17 @@ pub const QSaveFile = extern struct {
     ///
     /// ` offset: i64 `
     ///
-    /// ` size: i64 `
+    /// ` _size: i64 `
     ///
     /// ` flags: flag of qfiledevice_enums.MemoryMapFlag `
     ///
-    pub fn Map3(self: QSaveFile, offset: i64, size: i64, flags: i32) ?*u8 {
-        return @ptrCast(qtc.QFileDevice_Map3(@ptrCast(self.ptr), @bitCast(offset), @bitCast(size), @bitCast(flags)));
+    pub fn map3(self: QSaveFile, offset: i64, _size: i64, flags: i32) ?*u8 {
+        return @ptrCast(qtc.QFileDevice_Map3(@ptrCast(self.ptr), @bitCast(offset), @bitCast(_size), @bitCast(flags)));
     }
+
+    /// ### DEPRECATED: Use `openMode` instead
+    ///
+    pub const OpenMode = openMode;
 
     /// Inherited from QIODevice
     ///
@@ -623,9 +765,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn OpenMode(self: QSaveFile) i32 {
+    pub fn openMode(self: QSaveFile) i32 {
         return qtc.QIODevice_OpenMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTextModeEnabled` instead
+    ///
+    pub const SetTextModeEnabled = setTextModeEnabled;
 
     /// Inherited from QIODevice
     ///
@@ -637,9 +783,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetTextModeEnabled(self: QSaveFile, enabled: bool) void {
+    pub fn setTextModeEnabled(self: QSaveFile, enabled: bool) void {
         qtc.QIODevice_SetTextModeEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `isTextModeEnabled` instead
+    ///
+    pub const IsTextModeEnabled = isTextModeEnabled;
 
     /// Inherited from QIODevice
     ///
@@ -649,9 +799,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn IsTextModeEnabled(self: QSaveFile) bool {
+    pub fn isTextModeEnabled(self: QSaveFile) bool {
         return qtc.QIODevice_IsTextModeEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isOpen` instead
+    ///
+    pub const IsOpen = isOpen;
 
     /// Inherited from QIODevice
     ///
@@ -661,9 +815,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn IsOpen(self: QSaveFile) bool {
+    pub fn isOpen(self: QSaveFile) bool {
         return qtc.QIODevice_IsOpen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isReadable` instead
+    ///
+    pub const IsReadable = isReadable;
 
     /// Inherited from QIODevice
     ///
@@ -673,9 +831,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn IsReadable(self: QSaveFile) bool {
+    pub fn isReadable(self: QSaveFile) bool {
         return qtc.QIODevice_IsReadable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWritable` instead
+    ///
+    pub const IsWritable = isWritable;
 
     /// Inherited from QIODevice
     ///
@@ -685,9 +847,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn IsWritable(self: QSaveFile) bool {
+    pub fn isWritable(self: QSaveFile) bool {
         return qtc.QIODevice_IsWritable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `readChannelCount` instead
+    ///
+    pub const ReadChannelCount = readChannelCount;
 
     /// Inherited from QIODevice
     ///
@@ -697,9 +863,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn ReadChannelCount(self: QSaveFile) i32 {
+    pub fn readChannelCount(self: QSaveFile) i32 {
         return qtc.QIODevice_ReadChannelCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `writeChannelCount` instead
+    ///
+    pub const WriteChannelCount = writeChannelCount;
 
     /// Inherited from QIODevice
     ///
@@ -709,9 +879,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn WriteChannelCount(self: QSaveFile) i32 {
+    pub fn writeChannelCount(self: QSaveFile) i32 {
         return qtc.QIODevice_WriteChannelCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `currentReadChannel` instead
+    ///
+    pub const CurrentReadChannel = currentReadChannel;
 
     /// Inherited from QIODevice
     ///
@@ -721,9 +895,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn CurrentReadChannel(self: QSaveFile) i32 {
+    pub fn currentReadChannel(self: QSaveFile) i32 {
         return qtc.QIODevice_CurrentReadChannel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCurrentReadChannel` instead
+    ///
+    pub const SetCurrentReadChannel = setCurrentReadChannel;
 
     /// Inherited from QIODevice
     ///
@@ -735,9 +913,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` channel: i32 `
     ///
-    pub fn SetCurrentReadChannel(self: QSaveFile, channel: i32) void {
+    pub fn setCurrentReadChannel(self: QSaveFile, channel: i32) void {
         qtc.QIODevice_SetCurrentReadChannel(@ptrCast(self.ptr), @bitCast(channel));
     }
+
+    /// ### DEPRECATED: Use `currentWriteChannel` instead
+    ///
+    pub const CurrentWriteChannel = currentWriteChannel;
 
     /// Inherited from QIODevice
     ///
@@ -747,9 +929,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn CurrentWriteChannel(self: QSaveFile) i32 {
+    pub fn currentWriteChannel(self: QSaveFile) i32 {
         return qtc.QIODevice_CurrentWriteChannel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCurrentWriteChannel` instead
+    ///
+    pub const SetCurrentWriteChannel = setCurrentWriteChannel;
 
     /// Inherited from QIODevice
     ///
@@ -761,9 +947,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` channel: i32 `
     ///
-    pub fn SetCurrentWriteChannel(self: QSaveFile, channel: i32) void {
+    pub fn setCurrentWriteChannel(self: QSaveFile, channel: i32) void {
         qtc.QIODevice_SetCurrentWriteChannel(@ptrCast(self.ptr), @bitCast(channel));
     }
+
+    /// ### DEPRECATED: Use `read` instead
+    ///
+    pub const Read = read;
 
     /// Inherited from QIODevice
     ///
@@ -777,10 +967,14 @@ pub const QSaveFile = extern struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn Read(self: QSaveFile, data: [:0]u8, maxlen: i64) i64 {
+    pub fn read(self: QSaveFile, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.QIODevice_Read(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
+
+    /// ### DEPRECATED: Use `read2` instead
+    ///
+    pub const Read2 = read2;
 
     /// Inherited from QIODevice
     ///
@@ -794,13 +988,17 @@ pub const QSaveFile = extern struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn Read2(self: QSaveFile, allocator: std.mem.Allocator, maxlen: i64) []u8 {
+    pub fn read2(self: QSaveFile, allocator: std.mem.Allocator, maxlen: i64) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QIODevice_Read2(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QSaveFile.Read2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QSaveFile.read2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `readAll` instead
+    ///
+    pub const ReadAll = readAll;
 
     /// Inherited from QIODevice
     ///
@@ -812,13 +1010,17 @@ pub const QSaveFile = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadAll(self: QSaveFile, allocator: std.mem.Allocator) []u8 {
+    pub fn readAll(self: QSaveFile, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadAll(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QSaveFile.ReadAll: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QSaveFile.readAll: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `readLine` instead
+    ///
+    pub const ReadLine = readLine;
 
     /// Inherited from QIODevice
     ///
@@ -832,10 +1034,14 @@ pub const QSaveFile = extern struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn ReadLine(self: QSaveFile, data: [:0]u8, maxlen: i64) i64 {
+    pub fn readLine(self: QSaveFile, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.QIODevice_ReadLine(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
+
+    /// ### DEPRECATED: Use `readLine2` instead
+    ///
+    pub const ReadLine2 = readLine2;
 
     /// Inherited from QIODevice
     ///
@@ -847,13 +1053,17 @@ pub const QSaveFile = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadLine2(self: QSaveFile, allocator: std.mem.Allocator) []u8 {
+    pub fn readLine2(self: QSaveFile, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine2(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QSaveFile.ReadLine2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QSaveFile.readLine2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `startTransaction` instead
+    ///
+    pub const StartTransaction = startTransaction;
 
     /// Inherited from QIODevice
     ///
@@ -863,9 +1073,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn StartTransaction(self: QSaveFile) void {
+    pub fn startTransaction(self: QSaveFile) void {
         qtc.QIODevice_StartTransaction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `commitTransaction` instead
+    ///
+    pub const CommitTransaction = commitTransaction;
 
     /// Inherited from QIODevice
     ///
@@ -875,9 +1089,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn CommitTransaction(self: QSaveFile) void {
+    pub fn commitTransaction(self: QSaveFile) void {
         qtc.QIODevice_CommitTransaction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rollbackTransaction` instead
+    ///
+    pub const RollbackTransaction = rollbackTransaction;
 
     /// Inherited from QIODevice
     ///
@@ -887,9 +1105,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn RollbackTransaction(self: QSaveFile) void {
+    pub fn rollbackTransaction(self: QSaveFile) void {
         qtc.QIODevice_RollbackTransaction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTransactionStarted` instead
+    ///
+    pub const IsTransactionStarted = isTransactionStarted;
 
     /// Inherited from QIODevice
     ///
@@ -899,9 +1121,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn IsTransactionStarted(self: QSaveFile) bool {
+    pub fn isTransactionStarted(self: QSaveFile) bool {
         return qtc.QIODevice_IsTransactionStarted(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `write` instead
+    ///
+    pub const Write = write;
 
     /// Inherited from QIODevice
     ///
@@ -915,10 +1141,14 @@ pub const QSaveFile = extern struct {
     ///
     /// ` len: i64 `
     ///
-    pub fn Write(self: QSaveFile, data: [:0]const u8, len: i64) i64 {
+    pub fn write(self: QSaveFile, data: [:0]const u8, len: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.QIODevice_Write(@ptrCast(self.ptr), data_Cstring, @bitCast(len));
     }
+
+    /// ### DEPRECATED: Use `write2` instead
+    ///
+    pub const Write2 = write2;
 
     /// Inherited from QIODevice
     ///
@@ -930,10 +1160,14 @@ pub const QSaveFile = extern struct {
     ///
     /// ` data: [:0]const u8 `
     ///
-    pub fn Write2(self: QSaveFile, data: [:0]const u8) i64 {
+    pub fn write2(self: QSaveFile, data: [:0]const u8) i64 {
         const data_Cstring = data.ptr;
         return qtc.QIODevice_Write2(@ptrCast(self.ptr), data_Cstring);
     }
+
+    /// ### DEPRECATED: Use `write3` instead
+    ///
+    pub const Write3 = write3;
 
     /// Inherited from QIODevice
     ///
@@ -945,13 +1179,17 @@ pub const QSaveFile = extern struct {
     ///
     /// ` data: []u8 `
     ///
-    pub fn Write3(self: QSaveFile, data: []u8) i64 {
+    pub fn write3(self: QSaveFile, data: []u8) i64 {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
         return qtc.QIODevice_Write3(@ptrCast(self.ptr), data_str);
     }
+
+    /// ### DEPRECATED: Use `peek` instead
+    ///
+    pub const Peek = peek;
 
     /// Inherited from QIODevice
     ///
@@ -965,10 +1203,14 @@ pub const QSaveFile = extern struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn Peek(self: QSaveFile, data: [:0]u8, maxlen: i64) i64 {
+    pub fn peek(self: QSaveFile, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.QIODevice_Peek(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
+
+    /// ### DEPRECATED: Use `peek2` instead
+    ///
+    pub const Peek2 = peek2;
 
     /// Inherited from QIODevice
     ///
@@ -982,13 +1224,17 @@ pub const QSaveFile = extern struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn Peek2(self: QSaveFile, allocator: std.mem.Allocator, maxlen: i64) []u8 {
+    pub fn peek2(self: QSaveFile, allocator: std.mem.Allocator, maxlen: i64) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QIODevice_Peek2(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QSaveFile.Peek2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QSaveFile.peek2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `skip` instead
+    ///
+    pub const Skip = skip;
 
     /// Inherited from QIODevice
     ///
@@ -1000,9 +1246,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` maxSize: i64 `
     ///
-    pub fn Skip(self: QSaveFile, maxSize: i64) i64 {
+    pub fn skip(self: QSaveFile, maxSize: i64) i64 {
         return qtc.QIODevice_Skip(@ptrCast(self.ptr), @bitCast(maxSize));
     }
+
+    /// ### DEPRECATED: Use `ungetChar` instead
+    ///
+    pub const UngetChar = ungetChar;
 
     /// Inherited from QIODevice
     ///
@@ -1014,9 +1264,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` c: u8 `
     ///
-    pub fn UngetChar(self: QSaveFile, c: u8) void {
+    pub fn ungetChar(self: QSaveFile, c: u8) void {
         qtc.QIODevice_UngetChar(@ptrCast(self.ptr), @bitCast(c));
     }
+
+    /// ### DEPRECATED: Use `putChar` instead
+    ///
+    pub const PutChar = putChar;
 
     /// Inherited from QIODevice
     ///
@@ -1028,9 +1282,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` c: u8 `
     ///
-    pub fn PutChar(self: QSaveFile, c: u8) bool {
+    pub fn putChar(self: QSaveFile, c: u8) bool {
         return qtc.QIODevice_PutChar(@ptrCast(self.ptr), @bitCast(c));
     }
+
+    /// ### DEPRECATED: Use `getChar` instead
+    ///
+    pub const GetChar = getChar;
 
     /// Inherited from QIODevice
     ///
@@ -1042,10 +1300,14 @@ pub const QSaveFile = extern struct {
     ///
     /// ` c: [:0]u8 `
     ///
-    pub fn GetChar(self: QSaveFile, c: [:0]u8) bool {
+    pub fn getChar(self: QSaveFile, c: [:0]u8) bool {
         const c_Cstring = c.ptr;
         return qtc.QIODevice_GetChar(@ptrCast(self.ptr), c_Cstring);
     }
+
+    /// ### DEPRECATED: Use `errorString` instead
+    ///
+    pub const ErrorString = errorString;
 
     /// Inherited from QIODevice
     ///
@@ -1057,13 +1319,17 @@ pub const QSaveFile = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ErrorString(self: QSaveFile, allocator: std.mem.Allocator) []const u8 {
+    pub fn errorString(self: QSaveFile, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QIODevice_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSaveFile.ErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSaveFile.errorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `readyRead` instead
+    ///
+    pub const ReadyRead = readyRead;
 
     /// Inherited from QIODevice
     ///
@@ -1073,9 +1339,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn ReadyRead(self: QSaveFile) void {
+    pub fn readyRead(self: QSaveFile) void {
         qtc.QIODevice_ReadyRead(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onReadyRead` instead
+    ///
+    pub const OnReadyRead = onReadyRead;
 
     /// Inherited from QIODevice
     ///
@@ -1087,9 +1357,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` callback: *const fn (self: QSaveFile) callconv(.c) void `
     ///
-    pub fn OnReadyRead(self: QSaveFile, callback: *const fn (QSaveFile) callconv(.c) void) void {
+    pub fn onReadyRead(self: QSaveFile, callback: *const fn (QSaveFile) callconv(.c) void) void {
         qtc.QIODevice_Connect_ReadyRead(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `channelReadyRead` instead
+    ///
+    pub const ChannelReadyRead = channelReadyRead;
 
     /// Inherited from QIODevice
     ///
@@ -1101,9 +1375,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` channel: i32 `
     ///
-    pub fn ChannelReadyRead(self: QSaveFile, channel: i32) void {
+    pub fn channelReadyRead(self: QSaveFile, channel: i32) void {
         qtc.QIODevice_ChannelReadyRead(@ptrCast(self.ptr), @bitCast(channel));
     }
+
+    /// ### DEPRECATED: Use `onChannelReadyRead` instead
+    ///
+    pub const OnChannelReadyRead = onChannelReadyRead;
 
     /// Inherited from QIODevice
     ///
@@ -1115,9 +1393,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` callback: *const fn (self: QSaveFile, channel: i32) callconv(.c) void `
     ///
-    pub fn OnChannelReadyRead(self: QSaveFile, callback: *const fn (QSaveFile, i32) callconv(.c) void) void {
+    pub fn onChannelReadyRead(self: QSaveFile, callback: *const fn (QSaveFile, i32) callconv(.c) void) void {
         qtc.QIODevice_Connect_ChannelReadyRead(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `bytesWritten` instead
+    ///
+    pub const BytesWritten = bytesWritten;
 
     /// Inherited from QIODevice
     ///
@@ -1129,9 +1411,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` bytes: i64 `
     ///
-    pub fn BytesWritten(self: QSaveFile, bytes: i64) void {
+    pub fn bytesWritten(self: QSaveFile, bytes: i64) void {
         qtc.QIODevice_BytesWritten(@ptrCast(self.ptr), @bitCast(bytes));
     }
+
+    /// ### DEPRECATED: Use `onBytesWritten` instead
+    ///
+    pub const OnBytesWritten = onBytesWritten;
 
     /// Inherited from QIODevice
     ///
@@ -1143,9 +1429,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` callback: *const fn (self: QSaveFile, bytes: i64) callconv(.c) void `
     ///
-    pub fn OnBytesWritten(self: QSaveFile, callback: *const fn (QSaveFile, i64) callconv(.c) void) void {
+    pub fn onBytesWritten(self: QSaveFile, callback: *const fn (QSaveFile, i64) callconv(.c) void) void {
         qtc.QIODevice_Connect_BytesWritten(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `channelBytesWritten` instead
+    ///
+    pub const ChannelBytesWritten = channelBytesWritten;
 
     /// Inherited from QIODevice
     ///
@@ -1159,9 +1449,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` bytes: i64 `
     ///
-    pub fn ChannelBytesWritten(self: QSaveFile, channel: i32, bytes: i64) void {
+    pub fn channelBytesWritten(self: QSaveFile, channel: i32, bytes: i64) void {
         qtc.QIODevice_ChannelBytesWritten(@ptrCast(self.ptr), @bitCast(channel), @bitCast(bytes));
     }
+
+    /// ### DEPRECATED: Use `onChannelBytesWritten` instead
+    ///
+    pub const OnChannelBytesWritten = onChannelBytesWritten;
 
     /// Inherited from QIODevice
     ///
@@ -1173,10 +1467,14 @@ pub const QSaveFile = extern struct {
     ///
     /// ` callback: *const fn (self: QSaveFile, channel: i32, bytes: i64) callconv(.c) void `
     ///
-    pub fn OnChannelBytesWritten(self: QSaveFile, callback: *const fn (QSaveFile, i32, i64) callconv(.c) void) void {
+    pub fn onChannelBytesWritten(self: QSaveFile, callback: *const fn (QSaveFile, i32, i64) callconv(.c) void) void {
         qtc.QIODevice_Connect_ChannelBytesWritten(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `aboutToClose` instead
+    ///
+    pub const AboutToClose = aboutToClose;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#aboutToClose)
@@ -1185,10 +1483,14 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn AboutToClose(self: QSaveFile) void {
+    pub fn aboutToClose(self: QSaveFile) void {
         qtc.QIODevice_AboutToClose(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onAboutToClose` instead
+    ///
+    pub const OnAboutToClose = onAboutToClose;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#aboutToClose)
@@ -1199,9 +1501,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` callback: *const fn (self: QSaveFile) callconv(.c) void `
     ///
-    pub fn OnAboutToClose(self: QSaveFile, callback: *const fn (QSaveFile) callconv(.c) void) void {
+    pub fn onAboutToClose(self: QSaveFile, callback: *const fn (QSaveFile) callconv(.c) void) void {
         qtc.QIODevice_Connect_AboutToClose(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `readChannelFinished` instead
+    ///
+    pub const ReadChannelFinished = readChannelFinished;
 
     /// Inherited from QIODevice
     ///
@@ -1211,9 +1517,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn ReadChannelFinished(self: QSaveFile) void {
+    pub fn readChannelFinished(self: QSaveFile) void {
         qtc.QIODevice_ReadChannelFinished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onReadChannelFinished` instead
+    ///
+    pub const OnReadChannelFinished = onReadChannelFinished;
 
     /// Inherited from QIODevice
     ///
@@ -1225,9 +1535,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` callback: *const fn (self: QSaveFile) callconv(.c) void `
     ///
-    pub fn OnReadChannelFinished(self: QSaveFile, callback: *const fn (QSaveFile) callconv(.c) void) void {
+    pub fn onReadChannelFinished(self: QSaveFile, callback: *const fn (QSaveFile) callconv(.c) void) void {
         qtc.QIODevice_Connect_ReadChannelFinished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `readLine1` instead
+    ///
+    pub const ReadLine1 = readLine1;
 
     /// Inherited from QIODevice
     ///
@@ -1241,13 +1555,17 @@ pub const QSaveFile = extern struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn ReadLine1(self: QSaveFile, allocator: std.mem.Allocator, maxlen: i64) []u8 {
+    pub fn readLine1(self: QSaveFile, allocator: std.mem.Allocator, maxlen: i64) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine1(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QSaveFile.ReadLine1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QSaveFile.readLine1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -1259,13 +1577,17 @@ pub const QSaveFile = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QSaveFile, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QSaveFile, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSaveFile.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSaveFile.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -1277,13 +1599,17 @@ pub const QSaveFile = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QSaveFile, name: []const u8) void {
+    pub fn setObjectName(self: QSaveFile, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -1293,9 +1619,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn IsWidgetType(self: QSaveFile) bool {
+    pub fn isWidgetType(self: QSaveFile) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -1305,9 +1635,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn IsWindowType(self: QSaveFile) bool {
+    pub fn isWindowType(self: QSaveFile) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -1317,9 +1651,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn IsQuickItemType(self: QSaveFile) bool {
+    pub fn isQuickItemType(self: QSaveFile) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -1329,9 +1667,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn SignalsBlocked(self: QSaveFile) bool {
+    pub fn signalsBlocked(self: QSaveFile) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -1343,9 +1685,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QSaveFile, b: bool) bool {
+    pub fn blockSignals(self: QSaveFile, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -1355,9 +1701,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn Thread(self: QSaveFile) QThread {
+    pub fn thread(self: QSaveFile) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -1367,12 +1717,16 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QSaveFile, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QSaveFile, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -1384,9 +1738,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QSaveFile, interval: i32) i32 {
+    pub fn startTimer(self: QSaveFile, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -1398,9 +1756,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QSaveFile, time: i64) i32 {
+    pub fn startTimer2(self: QSaveFile, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -1412,9 +1774,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QSaveFile, id: i32) void {
+    pub fn killTimer(self: QSaveFile, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -1426,9 +1792,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QSaveFile, id: i32) void {
+    pub fn killTimer2(self: QSaveFile, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -1440,15 +1810,19 @@ pub const QSaveFile = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QSaveFile, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QSaveFile, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QSaveFile.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QSaveFile.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -1458,12 +1832,16 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QSaveFile, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QSaveFile, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1475,10 +1853,14 @@ pub const QSaveFile = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QSaveFile, filterObj: anytype) void {
+    pub fn installEventFilter(self: QSaveFile, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1490,10 +1872,14 @@ pub const QSaveFile = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QSaveFile, obj: anytype) void {
+    pub fn removeEventFilter(self: QSaveFile, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -1501,7 +1887,7 @@ pub const QSaveFile = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1509,13 +1895,17 @@ pub const QSaveFile = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -1523,7 +1913,7 @@ pub const QSaveFile = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1531,13 +1921,17 @@ pub const QSaveFile = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -1547,18 +1941,22 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QSaveFile, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QSaveFile, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -1566,7 +1964,7 @@ pub const QSaveFile = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1574,13 +1972,17 @@ pub const QSaveFile = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -1588,7 +1990,7 @@ pub const QSaveFile = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1596,13 +1998,17 @@ pub const QSaveFile = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -1612,9 +2018,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn Disconnect3(self: QSaveFile) bool {
+    pub fn disconnect3(self: QSaveFile) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1626,10 +2036,14 @@ pub const QSaveFile = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QSaveFile, receiver: anytype) bool {
+    pub fn disconnect4(self: QSaveFile, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1639,10 +2053,14 @@ pub const QSaveFile = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1652,9 +2070,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn DumpObjectTree(self: QSaveFile) void {
+    pub fn dumpObjectTree(self: QSaveFile) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1664,9 +2086,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn DumpObjectInfo(self: QSaveFile) void {
+    pub fn dumpObjectInfo(self: QSaveFile) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1680,11 +2106,15 @@ pub const QSaveFile = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QSaveFile, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QSaveFile, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1696,10 +2126,14 @@ pub const QSaveFile = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QSaveFile, name: [:0]const u8) QVariant {
+    pub fn property(self: QSaveFile, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1711,7 +2145,7 @@ pub const QSaveFile = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QSaveFile, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QSaveFile, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1719,27 +2153,19 @@ pub const QSaveFile = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QSaveFile.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QSaveFile.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QSaveFile.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QSaveFile.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSaveFile `
-    ///
-    pub fn BindingStorage(self: QSaveFile) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1749,9 +2175,29 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn BindingStorage2(self: QSaveFile) QBindingStorage {
+    pub fn bindingStorage(self: QSaveFile) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QSaveFile `
+    ///
+    pub fn bindingStorage2(self: QSaveFile) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1761,9 +2207,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn Destroyed(self: QSaveFile) void {
+    pub fn destroyed(self: QSaveFile) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1775,9 +2225,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` callback: *const fn (self: QSaveFile) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QSaveFile, callback: *const fn (QSaveFile) callconv(.c) void) void {
+    pub fn onDestroyed(self: QSaveFile, callback: *const fn (QSaveFile) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1787,9 +2241,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn Parent(self: QSaveFile) QObject {
+    pub fn parent(self: QSaveFile) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1801,10 +2259,14 @@ pub const QSaveFile = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QSaveFile, classname: [:0]const u8) bool {
+    pub fn inherits(self: QSaveFile, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1814,9 +2276,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn DeleteLater(self: QSaveFile) void {
+    pub fn deleteLater(self: QSaveFile) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1830,9 +2296,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QSaveFile, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QSaveFile, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1846,9 +2316,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QSaveFile, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QSaveFile, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1856,7 +2330,7 @@ pub const QSaveFile = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1866,13 +2340,17 @@ pub const QSaveFile = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1880,7 +2358,7 @@ pub const QSaveFile = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1890,13 +2368,17 @@ pub const QSaveFile = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1906,7 +2388,7 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1914,12 +2396,16 @@ pub const QSaveFile = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QSaveFile, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QSaveFile, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1931,10 +2417,14 @@ pub const QSaveFile = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QSaveFile, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QSaveFile, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1948,11 +2438,15 @@ pub const QSaveFile = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QSaveFile, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QSaveFile, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1968,13 +2462,17 @@ pub const QSaveFile = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QSaveFile, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QSaveFile, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1987,11 +2485,15 @@ pub const QSaveFile = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QSaveFile, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QSaveFile, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -2003,10 +2505,14 @@ pub const QSaveFile = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QSaveFile, param1: anytype) void {
+    pub fn destroyed1(self: QSaveFile, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -2018,9 +2524,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` callback: *const fn (self: QSaveFile, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QSaveFile, callback: *const fn (QSaveFile, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QSaveFile, callback: *const fn (QSaveFile, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSequential` instead
+    ///
+    pub const IsSequential = isSequential;
 
     /// Inherited from QFileDevice
     ///
@@ -2032,13 +2542,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn IsSequential(self: QSaveFile) bool {
+    pub fn isSequential(self: QSaveFile) bool {
         return qtc.QSaveFile_IsSequential(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSequential` instead
+    /// ### DEPRECATED: Use `superIsSequential` instead
     ///
-    pub const QBaseIsSequential = SuperIsSequential;
+    pub const SuperIsSequential = superIsSequential;
 
     /// Inherited from QFileDevice
     ///
@@ -2050,9 +2560,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn SuperIsSequential(self: QSaveFile) bool {
+    pub fn superIsSequential(self: QSaveFile) bool {
         return qtc.QSaveFile_SuperIsSequential(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSequential` instead
+    ///
+    pub const OnIsSequential = onIsSequential;
 
     /// Inherited from QFileDevice
     ///
@@ -2066,9 +2580,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnIsSequential(self: QSaveFile, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsSequential(self: QSaveFile, callback: *const fn () callconv(.c) bool) void {
         qtc.QSaveFile_OnIsSequential(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QFileDevice
     ///
@@ -2080,13 +2598,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn Pos(self: QSaveFile) i64 {
+    pub fn pos(self: QSaveFile) i64 {
         return qtc.QSaveFile_Pos(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPos` instead
+    /// ### DEPRECATED: Use `superPos` instead
     ///
-    pub const QBasePos = SuperPos;
+    pub const SuperPos = superPos;
 
     /// Inherited from QFileDevice
     ///
@@ -2098,9 +2616,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn SuperPos(self: QSaveFile) i64 {
+    pub fn superPos(self: QSaveFile) i64 {
         return qtc.QSaveFile_SuperPos(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPos` instead
+    ///
+    pub const OnPos = onPos;
 
     /// Inherited from QFileDevice
     ///
@@ -2114,9 +2636,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i64 `
     ///
-    pub fn OnPos(self: QSaveFile, callback: *const fn () callconv(.c) i64) void {
+    pub fn onPos(self: QSaveFile, callback: *const fn () callconv(.c) i64) void {
         qtc.QSaveFile_OnPos(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `seek` instead
+    ///
+    pub const Seek = seek;
 
     /// Inherited from QFileDevice
     ///
@@ -2130,13 +2656,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` offset: i64 `
     ///
-    pub fn Seek(self: QSaveFile, offset: i64) bool {
+    pub fn seek(self: QSaveFile, offset: i64) bool {
         return qtc.QSaveFile_Seek(@ptrCast(self.ptr), @bitCast(offset));
     }
 
-    /// ### DEPRECATED: Use `SuperSeek` instead
+    /// ### DEPRECATED: Use `superSeek` instead
     ///
-    pub const QBaseSeek = SuperSeek;
+    pub const SuperSeek = superSeek;
 
     /// Inherited from QFileDevice
     ///
@@ -2150,9 +2676,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` offset: i64 `
     ///
-    pub fn SuperSeek(self: QSaveFile, offset: i64) bool {
+    pub fn superSeek(self: QSaveFile, offset: i64) bool {
         return qtc.QSaveFile_SuperSeek(@ptrCast(self.ptr), @bitCast(offset));
     }
+
+    /// ### DEPRECATED: Use `onSeek` instead
+    ///
+    pub const OnSeek = onSeek;
 
     /// Inherited from QFileDevice
     ///
@@ -2166,9 +2696,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` callback: *const fn (self: QSaveFile, offset: i64) callconv(.c) bool `
     ///
-    pub fn OnSeek(self: QSaveFile, callback: *const fn (QSaveFile, i64) callconv(.c) bool) void {
+    pub fn onSeek(self: QSaveFile, callback: *const fn (QSaveFile, i64) callconv(.c) bool) void {
         qtc.QSaveFile_OnSeek(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `atEnd` instead
+    ///
+    pub const AtEnd = atEnd;
 
     /// Inherited from QFileDevice
     ///
@@ -2180,13 +2714,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn AtEnd(self: QSaveFile) bool {
+    pub fn atEnd(self: QSaveFile) bool {
         return qtc.QSaveFile_AtEnd(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperAtEnd` instead
+    /// ### DEPRECATED: Use `superAtEnd` instead
     ///
-    pub const QBaseAtEnd = SuperAtEnd;
+    pub const SuperAtEnd = superAtEnd;
 
     /// Inherited from QFileDevice
     ///
@@ -2198,9 +2732,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn SuperAtEnd(self: QSaveFile) bool {
+    pub fn superAtEnd(self: QSaveFile) bool {
         return qtc.QSaveFile_SuperAtEnd(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onAtEnd` instead
+    ///
+    pub const OnAtEnd = onAtEnd;
 
     /// Inherited from QFileDevice
     ///
@@ -2214,9 +2752,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnAtEnd(self: QSaveFile, callback: *const fn () callconv(.c) bool) void {
+    pub fn onAtEnd(self: QSaveFile, callback: *const fn () callconv(.c) bool) void {
         qtc.QSaveFile_OnAtEnd(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QFileDevice
     ///
@@ -2228,13 +2770,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn Size(self: QSaveFile) i64 {
+    pub fn size(self: QSaveFile) i64 {
         return qtc.QSaveFile_Size(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSize` instead
+    /// ### DEPRECATED: Use `superSize` instead
     ///
-    pub const QBaseSize = SuperSize;
+    pub const SuperSize = superSize;
 
     /// Inherited from QFileDevice
     ///
@@ -2246,9 +2788,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn SuperSize(self: QSaveFile) i64 {
+    pub fn superSize(self: QSaveFile) i64 {
         return qtc.QSaveFile_SuperSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSize` instead
+    ///
+    pub const OnSize = onSize;
 
     /// Inherited from QFileDevice
     ///
@@ -2262,9 +2808,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i64 `
     ///
-    pub fn OnSize(self: QSaveFile, callback: *const fn () callconv(.c) i64) void {
+    pub fn onSize(self: QSaveFile, callback: *const fn () callconv(.c) i64) void {
         qtc.QSaveFile_OnSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QFileDevice
     ///
@@ -2278,13 +2828,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` sz: i64 `
     ///
-    pub fn Resize(self: QSaveFile, sz: i64) bool {
+    pub fn resize(self: QSaveFile, sz: i64) bool {
         return qtc.QSaveFile_Resize(@ptrCast(self.ptr), @bitCast(sz));
     }
 
-    /// ### DEPRECATED: Use `SuperResize` instead
+    /// ### DEPRECATED: Use `superResize` instead
     ///
-    pub const QBaseResize = SuperResize;
+    pub const SuperResize = superResize;
 
     /// Inherited from QFileDevice
     ///
@@ -2298,9 +2848,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` sz: i64 `
     ///
-    pub fn SuperResize(self: QSaveFile, sz: i64) bool {
+    pub fn superResize(self: QSaveFile, sz: i64) bool {
         return qtc.QSaveFile_SuperResize(@ptrCast(self.ptr), @bitCast(sz));
     }
+
+    /// ### DEPRECATED: Use `onResize` instead
+    ///
+    pub const OnResize = onResize;
 
     /// Inherited from QFileDevice
     ///
@@ -2314,9 +2868,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` callback: *const fn (self: QSaveFile, sz: i64) callconv(.c) bool `
     ///
-    pub fn OnResize(self: QSaveFile, callback: *const fn (QSaveFile, i64) callconv(.c) bool) void {
+    pub fn onResize(self: QSaveFile, callback: *const fn (QSaveFile, i64) callconv(.c) bool) void {
         qtc.QSaveFile_OnResize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `permissions` instead
+    ///
+    pub const Permissions = permissions;
 
     /// Inherited from QFileDevice
     ///
@@ -2332,13 +2890,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` flag of qfiledevice_enums.Permission `
     ///
-    pub fn Permissions(self: QSaveFile) i32 {
+    pub fn permissions(self: QSaveFile) i32 {
         return qtc.QSaveFile_Permissions(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPermissions` instead
+    /// ### DEPRECATED: Use `superPermissions` instead
     ///
-    pub const QBasePermissions = SuperPermissions;
+    pub const SuperPermissions = superPermissions;
 
     /// Inherited from QFileDevice
     ///
@@ -2354,9 +2912,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` flag of qfiledevice_enums.Permission `
     ///
-    pub fn SuperPermissions(self: QSaveFile) i32 {
+    pub fn superPermissions(self: QSaveFile) i32 {
         return qtc.QSaveFile_SuperPermissions(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPermissions` instead
+    ///
+    pub const OnPermissions = onPermissions;
 
     /// Inherited from QFileDevice
     ///
@@ -2370,9 +2932,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnPermissions(self: QSaveFile, callback: *const fn () callconv(.c) i32) void {
+    pub fn onPermissions(self: QSaveFile, callback: *const fn () callconv(.c) i32) void {
         qtc.QSaveFile_OnPermissions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setPermissions` instead
+    ///
+    pub const SetPermissions = setPermissions;
 
     /// Inherited from QFileDevice
     ///
@@ -2386,13 +2952,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` permissionSpec: flag of qfiledevice_enums.Permission `
     ///
-    pub fn SetPermissions(self: QSaveFile, permissionSpec: i32) bool {
+    pub fn setPermissions(self: QSaveFile, permissionSpec: i32) bool {
         return qtc.QSaveFile_SetPermissions(@ptrCast(self.ptr), @bitCast(permissionSpec));
     }
 
-    /// ### DEPRECATED: Use `SuperSetPermissions` instead
+    /// ### DEPRECATED: Use `superSetPermissions` instead
     ///
-    pub const QBaseSetPermissions = SuperSetPermissions;
+    pub const SuperSetPermissions = superSetPermissions;
 
     /// Inherited from QFileDevice
     ///
@@ -2406,9 +2972,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` permissionSpec: flag of qfiledevice_enums.Permission `
     ///
-    pub fn SuperSetPermissions(self: QSaveFile, permissionSpec: i32) bool {
+    pub fn superSetPermissions(self: QSaveFile, permissionSpec: i32) bool {
         return qtc.QSaveFile_SuperSetPermissions(@ptrCast(self.ptr), @bitCast(permissionSpec));
     }
+
+    /// ### DEPRECATED: Use `onSetPermissions` instead
+    ///
+    pub const OnSetPermissions = onSetPermissions;
 
     /// Inherited from QFileDevice
     ///
@@ -2422,9 +2992,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` callback: *const fn (self: QSaveFile, permissionSpec: flag of qfiledevice_enums.Permission) callconv(.c) bool `
     ///
-    pub fn OnSetPermissions(self: QSaveFile, callback: *const fn (QSaveFile, i32) callconv(.c) bool) void {
+    pub fn onSetPermissions(self: QSaveFile, callback: *const fn (QSaveFile, i32) callconv(.c) bool) void {
         qtc.QSaveFile_OnSetPermissions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `readData` instead
+    ///
+    pub const ReadData = readData;
 
     /// Inherited from QFileDevice
     ///
@@ -2440,14 +3014,14 @@ pub const QSaveFile = extern struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn ReadData(self: QSaveFile, data: [:0]u8, maxlen: i64) i64 {
+    pub fn readData(self: QSaveFile, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.QSaveFile_ReadData(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
 
-    /// ### DEPRECATED: Use `SuperReadData` instead
+    /// ### DEPRECATED: Use `superReadData` instead
     ///
-    pub const QBaseReadData = SuperReadData;
+    pub const SuperReadData = superReadData;
 
     /// Inherited from QFileDevice
     ///
@@ -2463,11 +3037,15 @@ pub const QSaveFile = extern struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn SuperReadData(self: QSaveFile, data: [:0]u8, maxlen: i64) i64 {
+    pub fn superReadData(self: QSaveFile, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.QSaveFile_SuperReadData(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
 
+    /// ### DEPRECATED: Use `onReadData` instead
+    ///
+    pub const OnReadData = onReadData;
+
     /// Inherited from QFileDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#readData)
@@ -2480,9 +3058,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` callback: *const fn (self: QSaveFile, data: qtc.libqt_string, maxlen: i64) callconv(.c) i64 `
     ///
-    pub fn OnReadData(self: QSaveFile, callback: *const fn (QSaveFile, qtc.libqt_string, i64) callconv(.c) i64) void {
+    pub fn onReadData(self: QSaveFile, callback: *const fn (QSaveFile, qtc.libqt_string, i64) callconv(.c) i64) void {
         qtc.QSaveFile_OnReadData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `readLineData` instead
+    ///
+    pub const ReadLineData = readLineData;
 
     /// Inherited from QFileDevice
     ///
@@ -2498,14 +3080,14 @@ pub const QSaveFile = extern struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn ReadLineData(self: QSaveFile, data: [:0]u8, maxlen: i64) i64 {
+    pub fn readLineData(self: QSaveFile, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.QSaveFile_ReadLineData(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
 
-    /// ### DEPRECATED: Use `SuperReadLineData` instead
+    /// ### DEPRECATED: Use `superReadLineData` instead
     ///
-    pub const QBaseReadLineData = SuperReadLineData;
+    pub const SuperReadLineData = superReadLineData;
 
     /// Inherited from QFileDevice
     ///
@@ -2521,10 +3103,14 @@ pub const QSaveFile = extern struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn SuperReadLineData(self: QSaveFile, data: [:0]u8, maxlen: i64) i64 {
+    pub fn superReadLineData(self: QSaveFile, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.QSaveFile_SuperReadLineData(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
+
+    /// ### DEPRECATED: Use `onReadLineData` instead
+    ///
+    pub const OnReadLineData = onReadLineData;
 
     /// Inherited from QFileDevice
     ///
@@ -2538,10 +3124,14 @@ pub const QSaveFile = extern struct {
     ///
     /// ` callback: *const fn (self: QSaveFile, data: qtc.libqt_string, maxlen: i64) callconv(.c) i64 `
     ///
-    pub fn OnReadLineData(self: QSaveFile, callback: *const fn (QSaveFile, qtc.libqt_string, i64) callconv(.c) i64) void {
+    pub fn onReadLineData(self: QSaveFile, callback: *const fn (QSaveFile, qtc.libqt_string, i64) callconv(.c) i64) void {
         qtc.QSaveFile_OnReadLineData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `reset` instead
+    ///
+    pub const Reset = reset;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#reset)
@@ -2552,13 +3142,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn Reset(self: QSaveFile) bool {
+    pub fn reset(self: QSaveFile) bool {
         return qtc.QSaveFile_Reset(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperReset` instead
+    /// ### DEPRECATED: Use `superReset` instead
     ///
-    pub const QBaseReset = SuperReset;
+    pub const SuperReset = superReset;
 
     /// Inherited from QIODevice
     ///
@@ -2570,10 +3160,14 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn SuperReset(self: QSaveFile) bool {
+    pub fn superReset(self: QSaveFile) bool {
         return qtc.QSaveFile_SuperReset(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onReset` instead
+    ///
+    pub const OnReset = onReset;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#reset)
@@ -2586,10 +3180,14 @@ pub const QSaveFile = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnReset(self: QSaveFile, callback: *const fn () callconv(.c) bool) void {
+    pub fn onReset(self: QSaveFile, callback: *const fn () callconv(.c) bool) void {
         qtc.QSaveFile_OnReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `bytesAvailable` instead
+    ///
+    pub const BytesAvailable = bytesAvailable;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesAvailable)
@@ -2600,13 +3198,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn BytesAvailable(self: QSaveFile) i64 {
+    pub fn bytesAvailable(self: QSaveFile) i64 {
         return qtc.QSaveFile_BytesAvailable(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperBytesAvailable` instead
+    /// ### DEPRECATED: Use `superBytesAvailable` instead
     ///
-    pub const QBaseBytesAvailable = SuperBytesAvailable;
+    pub const SuperBytesAvailable = superBytesAvailable;
 
     /// Inherited from QIODevice
     ///
@@ -2618,10 +3216,14 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn SuperBytesAvailable(self: QSaveFile) i64 {
+    pub fn superBytesAvailable(self: QSaveFile) i64 {
         return qtc.QSaveFile_SuperBytesAvailable(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onBytesAvailable` instead
+    ///
+    pub const OnBytesAvailable = onBytesAvailable;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesAvailable)
@@ -2634,9 +3236,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i64 `
     ///
-    pub fn OnBytesAvailable(self: QSaveFile, callback: *const fn () callconv(.c) i64) void {
+    pub fn onBytesAvailable(self: QSaveFile, callback: *const fn () callconv(.c) i64) void {
         qtc.QSaveFile_OnBytesAvailable(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `bytesToWrite` instead
+    ///
+    pub const BytesToWrite = bytesToWrite;
 
     /// Inherited from QIODevice
     ///
@@ -2648,13 +3254,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn BytesToWrite(self: QSaveFile) i64 {
+    pub fn bytesToWrite(self: QSaveFile) i64 {
         return qtc.QSaveFile_BytesToWrite(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperBytesToWrite` instead
+    /// ### DEPRECATED: Use `superBytesToWrite` instead
     ///
-    pub const QBaseBytesToWrite = SuperBytesToWrite;
+    pub const SuperBytesToWrite = superBytesToWrite;
 
     /// Inherited from QIODevice
     ///
@@ -2666,9 +3272,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn SuperBytesToWrite(self: QSaveFile) i64 {
+    pub fn superBytesToWrite(self: QSaveFile) i64 {
         return qtc.QSaveFile_SuperBytesToWrite(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onBytesToWrite` instead
+    ///
+    pub const OnBytesToWrite = onBytesToWrite;
 
     /// Inherited from QIODevice
     ///
@@ -2682,9 +3292,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i64 `
     ///
-    pub fn OnBytesToWrite(self: QSaveFile, callback: *const fn () callconv(.c) i64) void {
+    pub fn onBytesToWrite(self: QSaveFile, callback: *const fn () callconv(.c) i64) void {
         qtc.QSaveFile_OnBytesToWrite(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `canReadLine` instead
+    ///
+    pub const CanReadLine = canReadLine;
 
     /// Inherited from QIODevice
     ///
@@ -2696,13 +3310,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn CanReadLine(self: QSaveFile) bool {
+    pub fn canReadLine(self: QSaveFile) bool {
         return qtc.QSaveFile_CanReadLine(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCanReadLine` instead
+    /// ### DEPRECATED: Use `superCanReadLine` instead
     ///
-    pub const QBaseCanReadLine = SuperCanReadLine;
+    pub const SuperCanReadLine = superCanReadLine;
 
     /// Inherited from QIODevice
     ///
@@ -2714,9 +3328,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn SuperCanReadLine(self: QSaveFile) bool {
+    pub fn superCanReadLine(self: QSaveFile) bool {
         return qtc.QSaveFile_SuperCanReadLine(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCanReadLine` instead
+    ///
+    pub const OnCanReadLine = onCanReadLine;
 
     /// Inherited from QIODevice
     ///
@@ -2730,10 +3348,14 @@ pub const QSaveFile = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnCanReadLine(self: QSaveFile, callback: *const fn () callconv(.c) bool) void {
+    pub fn onCanReadLine(self: QSaveFile, callback: *const fn () callconv(.c) bool) void {
         qtc.QSaveFile_OnCanReadLine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `waitForReadyRead` instead
+    ///
+    pub const WaitForReadyRead = waitForReadyRead;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#waitForReadyRead)
@@ -2746,13 +3368,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` msecs: i32 `
     ///
-    pub fn WaitForReadyRead(self: QSaveFile, msecs: i32) bool {
+    pub fn waitForReadyRead(self: QSaveFile, msecs: i32) bool {
         return qtc.QSaveFile_WaitForReadyRead(@ptrCast(self.ptr), @bitCast(msecs));
     }
 
-    /// ### DEPRECATED: Use `SuperWaitForReadyRead` instead
+    /// ### DEPRECATED: Use `superWaitForReadyRead` instead
     ///
-    pub const QBaseWaitForReadyRead = SuperWaitForReadyRead;
+    pub const SuperWaitForReadyRead = superWaitForReadyRead;
 
     /// Inherited from QIODevice
     ///
@@ -2766,10 +3388,14 @@ pub const QSaveFile = extern struct {
     ///
     /// ` msecs: i32 `
     ///
-    pub fn SuperWaitForReadyRead(self: QSaveFile, msecs: i32) bool {
+    pub fn superWaitForReadyRead(self: QSaveFile, msecs: i32) bool {
         return qtc.QSaveFile_SuperWaitForReadyRead(@ptrCast(self.ptr), @bitCast(msecs));
     }
 
+    /// ### DEPRECATED: Use `onWaitForReadyRead` instead
+    ///
+    pub const OnWaitForReadyRead = onWaitForReadyRead;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#waitForReadyRead)
@@ -2782,9 +3408,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` callback: *const fn (self: QSaveFile, msecs: i32) callconv(.c) bool `
     ///
-    pub fn OnWaitForReadyRead(self: QSaveFile, callback: *const fn (QSaveFile, i32) callconv(.c) bool) void {
+    pub fn onWaitForReadyRead(self: QSaveFile, callback: *const fn (QSaveFile, i32) callconv(.c) bool) void {
         qtc.QSaveFile_OnWaitForReadyRead(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `waitForBytesWritten` instead
+    ///
+    pub const WaitForBytesWritten = waitForBytesWritten;
 
     /// Inherited from QIODevice
     ///
@@ -2798,13 +3428,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` msecs: i32 `
     ///
-    pub fn WaitForBytesWritten(self: QSaveFile, msecs: i32) bool {
+    pub fn waitForBytesWritten(self: QSaveFile, msecs: i32) bool {
         return qtc.QSaveFile_WaitForBytesWritten(@ptrCast(self.ptr), @bitCast(msecs));
     }
 
-    /// ### DEPRECATED: Use `SuperWaitForBytesWritten` instead
+    /// ### DEPRECATED: Use `superWaitForBytesWritten` instead
     ///
-    pub const QBaseWaitForBytesWritten = SuperWaitForBytesWritten;
+    pub const SuperWaitForBytesWritten = superWaitForBytesWritten;
 
     /// Inherited from QIODevice
     ///
@@ -2818,9 +3448,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` msecs: i32 `
     ///
-    pub fn SuperWaitForBytesWritten(self: QSaveFile, msecs: i32) bool {
+    pub fn superWaitForBytesWritten(self: QSaveFile, msecs: i32) bool {
         return qtc.QSaveFile_SuperWaitForBytesWritten(@ptrCast(self.ptr), @bitCast(msecs));
     }
+
+    /// ### DEPRECATED: Use `onWaitForBytesWritten` instead
+    ///
+    pub const OnWaitForBytesWritten = onWaitForBytesWritten;
 
     /// Inherited from QIODevice
     ///
@@ -2834,9 +3468,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` callback: *const fn (self: QSaveFile, msecs: i32) callconv(.c) bool `
     ///
-    pub fn OnWaitForBytesWritten(self: QSaveFile, callback: *const fn (QSaveFile, i32) callconv(.c) bool) void {
+    pub fn onWaitForBytesWritten(self: QSaveFile, callback: *const fn (QSaveFile, i32) callconv(.c) bool) void {
         qtc.QSaveFile_OnWaitForBytesWritten(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `skipData` instead
+    ///
+    pub const SkipData = skipData;
 
     /// Inherited from QIODevice
     ///
@@ -2850,13 +3488,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` maxSize: i64 `
     ///
-    pub fn SkipData(self: QSaveFile, maxSize: i64) i64 {
+    pub fn skipData(self: QSaveFile, maxSize: i64) i64 {
         return qtc.QSaveFile_SkipData(@ptrCast(self.ptr), @bitCast(maxSize));
     }
 
-    /// ### DEPRECATED: Use `SuperSkipData` instead
+    /// ### DEPRECATED: Use `superSkipData` instead
     ///
-    pub const QBaseSkipData = SuperSkipData;
+    pub const SuperSkipData = superSkipData;
 
     /// Inherited from QIODevice
     ///
@@ -2870,9 +3508,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` maxSize: i64 `
     ///
-    pub fn SuperSkipData(self: QSaveFile, maxSize: i64) i64 {
+    pub fn superSkipData(self: QSaveFile, maxSize: i64) i64 {
         return qtc.QSaveFile_SuperSkipData(@ptrCast(self.ptr), @bitCast(maxSize));
     }
+
+    /// ### DEPRECATED: Use `onSkipData` instead
+    ///
+    pub const OnSkipData = onSkipData;
 
     /// Inherited from QIODevice
     ///
@@ -2886,9 +3528,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` callback: *const fn (self: QSaveFile, maxSize: i64) callconv(.c) i64 `
     ///
-    pub fn OnSkipData(self: QSaveFile, callback: *const fn (QSaveFile, i64) callconv(.c) i64) void {
+    pub fn onSkipData(self: QSaveFile, callback: *const fn (QSaveFile, i64) callconv(.c) i64) void {
         qtc.QSaveFile_OnSkipData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -2900,16 +3546,16 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QSaveFile, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QSaveFile_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QSaveFile, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QSaveFile_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -2921,12 +3567,16 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QSaveFile, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QSaveFile_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QSaveFile, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QSaveFile_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -2940,9 +3590,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` callback: *const fn (self: QSaveFile, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QSaveFile, callback: *const fn (QSaveFile, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QSaveFile, callback: *const fn (QSaveFile, QEvent) callconv(.c) bool) void {
         qtc.QSaveFile_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -2956,17 +3610,17 @@ pub const QSaveFile = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QSaveFile, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QSaveFile, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QSaveFile_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QSaveFile_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2980,13 +3634,17 @@ pub const QSaveFile = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QSaveFile, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QSaveFile, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QSaveFile_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QSaveFile_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -3000,9 +3658,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` callback: *const fn (self: QSaveFile, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QSaveFile, callback: *const fn (QSaveFile, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QSaveFile, callback: *const fn (QSaveFile, QObject, QEvent) callconv(.c) bool) void {
         qtc.QSaveFile_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -3014,16 +3676,16 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QSaveFile, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QSaveFile_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QSaveFile, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QSaveFile_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -3035,12 +3697,16 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QSaveFile, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QSaveFile_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QSaveFile, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QSaveFile_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -3054,9 +3720,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` callback: *const fn (self: QSaveFile, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QSaveFile, callback: *const fn (QSaveFile, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QSaveFile, callback: *const fn (QSaveFile, QTimerEvent) callconv(.c) void) void {
         qtc.QSaveFile_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -3068,16 +3738,16 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QSaveFile, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QSaveFile_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QSaveFile, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QSaveFile_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -3089,12 +3759,16 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QSaveFile, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QSaveFile_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QSaveFile, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QSaveFile_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -3108,9 +3782,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` callback: *const fn (self: QSaveFile, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QSaveFile, callback: *const fn (QSaveFile, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QSaveFile, callback: *const fn (QSaveFile, QChildEvent) callconv(.c) void) void {
         qtc.QSaveFile_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -3122,16 +3800,16 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QSaveFile, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QSaveFile_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QSaveFile, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QSaveFile_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -3143,12 +3821,16 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QSaveFile, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QSaveFile_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QSaveFile, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QSaveFile_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -3162,9 +3844,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` callback: *const fn (self: QSaveFile, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QSaveFile, callback: *const fn (QSaveFile, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QSaveFile, callback: *const fn (QSaveFile, QEvent) callconv(.c) void) void {
         qtc.QSaveFile_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -3178,14 +3864,14 @@ pub const QSaveFile = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QSaveFile, signal: anytype) void {
+    pub fn connectNotify(self: QSaveFile, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QSaveFile_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3199,11 +3885,15 @@ pub const QSaveFile = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QSaveFile, signal: anytype) void {
+    pub fn superConnectNotify(self: QSaveFile, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QSaveFile_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -3216,9 +3906,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` callback: *const fn (self: QSaveFile, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QSaveFile, callback: *const fn (QSaveFile, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QSaveFile, callback: *const fn (QSaveFile, QMetaMethod) callconv(.c) void) void {
         qtc.QSaveFile_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3232,14 +3926,14 @@ pub const QSaveFile = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QSaveFile, signal: anytype) void {
+    pub fn disconnectNotify(self: QSaveFile, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QSaveFile_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3253,10 +3947,14 @@ pub const QSaveFile = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QSaveFile, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QSaveFile, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QSaveFile_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3270,9 +3968,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` callback: *const fn (self: QSaveFile, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QSaveFile, callback: *const fn (QSaveFile, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QSaveFile, callback: *const fn (QSaveFile, QMetaMethod) callconv(.c) void) void {
         qtc.QSaveFile_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setOpenMode` instead
+    ///
+    pub const SetOpenMode = setOpenMode;
 
     /// Inherited from QIODevice
     ///
@@ -3284,15 +3986,15 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    /// ` openMode: flag of qiodevicebase_enums.OpenModeFlag `
+    /// ` _openMode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn SetOpenMode(self: QSaveFile, openMode: i32) void {
-        qtc.QSaveFile_SetOpenMode(@ptrCast(self.ptr), @bitCast(openMode));
+    pub fn setOpenMode(self: QSaveFile, _openMode: i32) void {
+        qtc.QSaveFile_SetOpenMode(@ptrCast(self.ptr), @bitCast(_openMode));
     }
 
-    /// ### DEPRECATED: Use `SuperSetOpenMode` instead
+    /// ### DEPRECATED: Use `superSetOpenMode` instead
     ///
-    pub const QBaseSetOpenMode = SuperSetOpenMode;
+    pub const SuperSetOpenMode = superSetOpenMode;
 
     /// Inherited from QIODevice
     ///
@@ -3304,11 +4006,15 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    /// ` openMode: flag of qiodevicebase_enums.OpenModeFlag `
+    /// ` _openMode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn SuperSetOpenMode(self: QSaveFile, openMode: i32) void {
-        qtc.QSaveFile_SuperSetOpenMode(@ptrCast(self.ptr), @bitCast(openMode));
+    pub fn superSetOpenMode(self: QSaveFile, _openMode: i32) void {
+        qtc.QSaveFile_SuperSetOpenMode(@ptrCast(self.ptr), @bitCast(_openMode));
     }
+
+    /// ### DEPRECATED: Use `onSetOpenMode` instead
+    ///
+    pub const OnSetOpenMode = onSetOpenMode;
 
     /// Inherited from QIODevice
     ///
@@ -3322,9 +4028,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` callback: *const fn (self: QSaveFile, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) void `
     ///
-    pub fn OnSetOpenMode(self: QSaveFile, callback: *const fn (QSaveFile, i32) callconv(.c) void) void {
+    pub fn onSetOpenMode(self: QSaveFile, callback: *const fn (QSaveFile, i32) callconv(.c) void) void {
         qtc.QSaveFile_OnSetOpenMode(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setErrorString` instead
+    ///
+    pub const SetErrorString = setErrorString;
 
     /// Inherited from QIODevice
     ///
@@ -3336,19 +4046,19 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    /// ` errorString: []const u8 `
+    /// ` _errorString: []const u8 `
     ///
-    pub fn SetErrorString(self: QSaveFile, errorString: []const u8) void {
+    pub fn setErrorString(self: QSaveFile, _errorString: []const u8) void {
         const errorString_str = qtc.libqt_string{
-            .len = errorString.len,
-            .data = errorString.ptr,
+            .len = _errorString.len,
+            .data = _errorString.ptr,
         };
         qtc.QSaveFile_SetErrorString(@ptrCast(self.ptr), errorString_str);
     }
 
-    /// ### DEPRECATED: Use `SuperSetErrorString` instead
+    /// ### DEPRECATED: Use `superSetErrorString` instead
     ///
-    pub const QBaseSetErrorString = SuperSetErrorString;
+    pub const SuperSetErrorString = superSetErrorString;
 
     /// Inherited from QIODevice
     ///
@@ -3360,15 +4070,19 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    /// ` errorString: []const u8 `
+    /// ` _errorString: []const u8 `
     ///
-    pub fn SuperSetErrorString(self: QSaveFile, errorString: []const u8) void {
+    pub fn superSetErrorString(self: QSaveFile, _errorString: []const u8) void {
         const errorString_str = qtc.libqt_string{
-            .len = errorString.len,
-            .data = errorString.ptr,
+            .len = _errorString.len,
+            .data = _errorString.ptr,
         };
         qtc.QSaveFile_SuperSetErrorString(@ptrCast(self.ptr), errorString_str);
     }
+
+    /// ### DEPRECATED: Use `onSetErrorString` instead
+    ///
+    pub const OnSetErrorString = onSetErrorString;
 
     /// Inherited from QIODevice
     ///
@@ -3382,9 +4096,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` callback: *const fn (self: QSaveFile, errorString: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetErrorString(self: QSaveFile, callback: *const fn (QSaveFile, [*:0]const u8) callconv(.c) void) void {
+    pub fn onSetErrorString(self: QSaveFile, callback: *const fn (QSaveFile, [*:0]const u8) callconv(.c) void) void {
         qtc.QSaveFile_OnSetErrorString(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -3396,13 +4114,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn Sender(self: QSaveFile) QObject {
+    pub fn sender(self: QSaveFile) QObject {
         return .{ .ptr = qtc.QSaveFile_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -3414,9 +4132,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn SuperSender(self: QSaveFile) QObject {
+    pub fn superSender(self: QSaveFile) QObject {
         return .{ .ptr = qtc.QSaveFile_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -3430,9 +4152,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QSaveFile, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QSaveFile, callback: *const fn () callconv(.c) QObject) void {
         qtc.QSaveFile_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -3444,13 +4170,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn SenderSignalIndex(self: QSaveFile) i32 {
+    pub fn senderSignalIndex(self: QSaveFile) i32 {
         return qtc.QSaveFile_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -3462,9 +4188,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn SuperSenderSignalIndex(self: QSaveFile) i32 {
+    pub fn superSenderSignalIndex(self: QSaveFile) i32 {
         return qtc.QSaveFile_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -3478,9 +4208,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QSaveFile, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QSaveFile, callback: *const fn () callconv(.c) i32) void {
         qtc.QSaveFile_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -3494,14 +4228,14 @@ pub const QSaveFile = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QSaveFile, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QSaveFile, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QSaveFile_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -3515,10 +4249,14 @@ pub const QSaveFile = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QSaveFile, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QSaveFile, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QSaveFile_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -3532,9 +4270,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` callback: *const fn (self: QSaveFile, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QSaveFile, callback: *const fn (QSaveFile, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QSaveFile, callback: *const fn (QSaveFile, [*:0]const u8) callconv(.c) i32) void {
         qtc.QSaveFile_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -3548,14 +4290,14 @@ pub const QSaveFile = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QSaveFile, signal: anytype) bool {
+    pub fn isSignalConnected(self: QSaveFile, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QSaveFile_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -3569,10 +4311,14 @@ pub const QSaveFile = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QSaveFile, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QSaveFile, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QSaveFile_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -3586,9 +4332,13 @@ pub const QSaveFile = extern struct {
     ///
     /// ` callback: *const fn (self: QSaveFile, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QSaveFile, callback: *const fn (QSaveFile, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QSaveFile, callback: *const fn (QSaveFile, QMetaMethod) callconv(.c) bool) void {
         qtc.QSaveFile_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -3602,23 +4352,23 @@ pub const QSaveFile = extern struct {
     ///
     /// ` callback: *const fn (self: QSaveFile, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QSaveFile, callback: *const fn (QSaveFile, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QSaveFile, callback: *const fn (QSaveFile, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsavefile.html#dtor.QSaveFile)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QSaveFile `
     ///
-    pub fn Delete(self: QSaveFile) void {
+    pub fn delete(self: QSaveFile) void {
         qtc.QSaveFile_Delete(@ptrCast(self.ptr));
     }
 };

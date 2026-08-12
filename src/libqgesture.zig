@@ -29,22 +29,34 @@ pub const QGesture = extern struct {
     pub const _is_QGesture = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QGesture object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QGesture {
+    pub const New = new;
+
+    /// Allocate a new QGesture object in C++ memory
+    ///
+    pub fn new() QGesture {
         return .{ .ptr = qtc.QGesture_new() };
     }
 
-    /// New2 constructs a new QGesture object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QGesture object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) QGesture {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QGesture_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) QGesture {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QGesture_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -52,9 +64,13 @@ pub const QGesture = extern struct {
     ///
     /// ` self: QGesture `
     ///
-    pub fn MetaObject(self: QGesture) QMetaObject {
+    pub fn metaObject(self: QGesture) QMetaObject {
         return .{ .ptr = qtc.QGesture_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -66,13 +82,13 @@ pub const QGesture = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QGesture, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QGesture, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QGesture_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -82,9 +98,13 @@ pub const QGesture = extern struct {
     ///
     /// ` self: QGesture `
     ///
-    pub fn SuperMetaObject(self: QGesture) QMetaObject {
+    pub fn superMetaObject(self: QGesture) QMetaObject {
         return .{ .ptr = qtc.QGesture_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -92,10 +112,14 @@ pub const QGesture = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QGesture, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QGesture, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QGesture_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -105,13 +129,13 @@ pub const QGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QGesture, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QGesture, callback: *const fn (QGesture, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QGesture, callback: *const fn (QGesture, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QGesture_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -121,10 +145,14 @@ pub const QGesture = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QGesture, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QGesture, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QGesture_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -136,9 +164,13 @@ pub const QGesture = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QGesture, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QGesture, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QGesture_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -148,13 +180,13 @@ pub const QGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QGesture, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QGesture, callback: *const fn (QGesture, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QGesture, callback: *const fn (QGesture, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QGesture_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -168,9 +200,13 @@ pub const QGesture = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QGesture, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QGesture, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QGesture_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -180,14 +216,18 @@ pub const QGesture = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGesture.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGesture.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `gestureType` instead
+    ///
+    pub const GestureType = gestureType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#gestureType)
     ///
@@ -199,9 +239,13 @@ pub const QGesture = extern struct {
     ///
     /// ` qnamespace_enums.GestureType `
     ///
-    pub fn GestureType(self: QGesture) i32 {
+    pub fn gestureType(self: QGesture) i32 {
         return qtc.QGesture_GestureType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `state` instead
+    ///
+    pub const State = state;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#state)
     ///
@@ -213,9 +257,13 @@ pub const QGesture = extern struct {
     ///
     /// ` qnamespace_enums.GestureState `
     ///
-    pub fn State(self: QGesture) i32 {
+    pub fn state(self: QGesture) i32 {
         return qtc.QGesture_State(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hotSpot` instead
+    ///
+    pub const HotSpot = hotSpot;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#hotSpot)
     ///
@@ -223,9 +271,13 @@ pub const QGesture = extern struct {
     ///
     /// ` self: QGesture `
     ///
-    pub fn HotSpot(self: QGesture) QPointF {
+    pub fn hotSpot(self: QGesture) QPointF {
         return .{ .ptr = qtc.QGesture_HotSpot(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setHotSpot` instead
+    ///
+    pub const SetHotSpot = setHotSpot;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#setHotSpot)
     ///
@@ -235,10 +287,14 @@ pub const QGesture = extern struct {
     ///
     /// ` value: QPointF `
     ///
-    pub fn SetHotSpot(self: QGesture, value: anytype) void {
+    pub fn setHotSpot(self: QGesture, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QPointF;
         qtc.QGesture_SetHotSpot(@ptrCast(self.ptr), @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `hasHotSpot` instead
+    ///
+    pub const HasHotSpot = hasHotSpot;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#hasHotSpot)
     ///
@@ -246,9 +302,13 @@ pub const QGesture = extern struct {
     ///
     /// ` self: QGesture `
     ///
-    pub fn HasHotSpot(self: QGesture) bool {
+    pub fn hasHotSpot(self: QGesture) bool {
         return qtc.QGesture_HasHotSpot(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetHotSpot` instead
+    ///
+    pub const UnsetHotSpot = unsetHotSpot;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#unsetHotSpot)
     ///
@@ -256,9 +316,13 @@ pub const QGesture = extern struct {
     ///
     /// ` self: QGesture `
     ///
-    pub fn UnsetHotSpot(self: QGesture) void {
+    pub fn unsetHotSpot(self: QGesture) void {
         qtc.QGesture_UnsetHotSpot(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGestureCancelPolicy` instead
+    ///
+    pub const SetGestureCancelPolicy = setGestureCancelPolicy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#setGestureCancelPolicy)
     ///
@@ -268,9 +332,13 @@ pub const QGesture = extern struct {
     ///
     /// ` policy: qgesture_enums.GestureCancelPolicy `
     ///
-    pub fn SetGestureCancelPolicy(self: QGesture, policy: i32) void {
+    pub fn setGestureCancelPolicy(self: QGesture, policy: i32) void {
         qtc.QGesture_SetGestureCancelPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `gestureCancelPolicy` instead
+    ///
+    pub const GestureCancelPolicy = gestureCancelPolicy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#gestureCancelPolicy)
     ///
@@ -282,9 +350,13 @@ pub const QGesture = extern struct {
     ///
     /// ` qgesture_enums.GestureCancelPolicy `
     ///
-    pub fn GestureCancelPolicy(self: QGesture) i32 {
+    pub fn gestureCancelPolicy(self: QGesture) i32 {
         return qtc.QGesture_GestureCancelPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -296,15 +368,19 @@ pub const QGesture = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGesture.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGesture.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -318,15 +394,19 @@ pub const QGesture = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGesture.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGesture.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -338,13 +418,17 @@ pub const QGesture = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QGesture, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QGesture, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGesture.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGesture.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -356,13 +440,17 @@ pub const QGesture = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QGesture, name: []const u8) void {
+    pub fn setObjectName(self: QGesture, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -372,9 +460,13 @@ pub const QGesture = extern struct {
     ///
     /// ` self: QGesture `
     ///
-    pub fn IsWidgetType(self: QGesture) bool {
+    pub fn isWidgetType(self: QGesture) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -384,9 +476,13 @@ pub const QGesture = extern struct {
     ///
     /// ` self: QGesture `
     ///
-    pub fn IsWindowType(self: QGesture) bool {
+    pub fn isWindowType(self: QGesture) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -396,9 +492,13 @@ pub const QGesture = extern struct {
     ///
     /// ` self: QGesture `
     ///
-    pub fn IsQuickItemType(self: QGesture) bool {
+    pub fn isQuickItemType(self: QGesture) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -408,9 +508,13 @@ pub const QGesture = extern struct {
     ///
     /// ` self: QGesture `
     ///
-    pub fn SignalsBlocked(self: QGesture) bool {
+    pub fn signalsBlocked(self: QGesture) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -422,9 +526,13 @@ pub const QGesture = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QGesture, b: bool) bool {
+    pub fn blockSignals(self: QGesture, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -434,9 +542,13 @@ pub const QGesture = extern struct {
     ///
     /// ` self: QGesture `
     ///
-    pub fn Thread(self: QGesture) QThread {
+    pub fn thread(self: QGesture) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -446,12 +558,16 @@ pub const QGesture = extern struct {
     ///
     /// ` self: QGesture `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QGesture, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QGesture, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -463,9 +579,13 @@ pub const QGesture = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QGesture, interval: i32) i32 {
+    pub fn startTimer(self: QGesture, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -477,9 +597,13 @@ pub const QGesture = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QGesture, time: i64) i32 {
+    pub fn startTimer2(self: QGesture, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -491,9 +615,13 @@ pub const QGesture = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QGesture, id: i32) void {
+    pub fn killTimer(self: QGesture, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -505,9 +633,13 @@ pub const QGesture = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QGesture, id: i32) void {
+    pub fn killTimer2(self: QGesture, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -519,15 +651,19 @@ pub const QGesture = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QGesture, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QGesture, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QGesture.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QGesture.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -537,12 +673,16 @@ pub const QGesture = extern struct {
     ///
     /// ` self: QGesture `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QGesture, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QGesture, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -554,10 +694,14 @@ pub const QGesture = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QGesture, filterObj: anytype) void {
+    pub fn installEventFilter(self: QGesture, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -569,10 +713,14 @@ pub const QGesture = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QGesture, obj: anytype) void {
+    pub fn removeEventFilter(self: QGesture, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -580,7 +728,7 @@ pub const QGesture = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -588,13 +736,17 @@ pub const QGesture = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -602,7 +754,7 @@ pub const QGesture = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -610,13 +762,17 @@ pub const QGesture = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -626,18 +782,22 @@ pub const QGesture = extern struct {
     ///
     /// ` self: QGesture `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QGesture, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QGesture, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -645,7 +805,7 @@ pub const QGesture = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -653,13 +813,17 @@ pub const QGesture = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -667,7 +831,7 @@ pub const QGesture = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -675,13 +839,17 @@ pub const QGesture = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -691,9 +859,13 @@ pub const QGesture = extern struct {
     ///
     /// ` self: QGesture `
     ///
-    pub fn Disconnect3(self: QGesture) bool {
+    pub fn disconnect3(self: QGesture) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -705,10 +877,14 @@ pub const QGesture = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QGesture, receiver: anytype) bool {
+    pub fn disconnect4(self: QGesture, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -718,10 +894,14 @@ pub const QGesture = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -731,9 +911,13 @@ pub const QGesture = extern struct {
     ///
     /// ` self: QGesture `
     ///
-    pub fn DumpObjectTree(self: QGesture) void {
+    pub fn dumpObjectTree(self: QGesture) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -743,9 +927,13 @@ pub const QGesture = extern struct {
     ///
     /// ` self: QGesture `
     ///
-    pub fn DumpObjectInfo(self: QGesture) void {
+    pub fn dumpObjectInfo(self: QGesture) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -759,11 +947,15 @@ pub const QGesture = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QGesture, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QGesture, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -775,10 +967,14 @@ pub const QGesture = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QGesture, name: [:0]const u8) QVariant {
+    pub fn property(self: QGesture, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -790,7 +986,7 @@ pub const QGesture = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QGesture, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QGesture, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -798,27 +994,19 @@ pub const QGesture = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QGesture.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QGesture.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QGesture.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QGesture.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGesture `
-    ///
-    pub fn BindingStorage(self: QGesture) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -828,9 +1016,29 @@ pub const QGesture = extern struct {
     ///
     /// ` self: QGesture `
     ///
-    pub fn BindingStorage2(self: QGesture) QBindingStorage {
+    pub fn bindingStorage(self: QGesture) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGesture `
+    ///
+    pub fn bindingStorage2(self: QGesture) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -840,9 +1048,13 @@ pub const QGesture = extern struct {
     ///
     /// ` self: QGesture `
     ///
-    pub fn Destroyed(self: QGesture) void {
+    pub fn destroyed(self: QGesture) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -854,9 +1066,13 @@ pub const QGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QGesture) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QGesture, callback: *const fn (QGesture) callconv(.c) void) void {
+    pub fn onDestroyed(self: QGesture, callback: *const fn (QGesture) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -866,9 +1082,13 @@ pub const QGesture = extern struct {
     ///
     /// ` self: QGesture `
     ///
-    pub fn Parent(self: QGesture) QObject {
+    pub fn parent(self: QGesture) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -880,10 +1100,14 @@ pub const QGesture = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QGesture, classname: [:0]const u8) bool {
+    pub fn inherits(self: QGesture, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -893,9 +1117,13 @@ pub const QGesture = extern struct {
     ///
     /// ` self: QGesture `
     ///
-    pub fn DeleteLater(self: QGesture) void {
+    pub fn deleteLater(self: QGesture) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -909,9 +1137,13 @@ pub const QGesture = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QGesture, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QGesture, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -925,9 +1157,13 @@ pub const QGesture = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QGesture, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QGesture, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -935,7 +1171,7 @@ pub const QGesture = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -945,13 +1181,17 @@ pub const QGesture = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -959,7 +1199,7 @@ pub const QGesture = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -969,13 +1209,17 @@ pub const QGesture = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -985,7 +1229,7 @@ pub const QGesture = extern struct {
     ///
     /// ` self: QGesture `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -993,12 +1237,16 @@ pub const QGesture = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QGesture, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QGesture, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1010,10 +1258,14 @@ pub const QGesture = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QGesture, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QGesture, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1027,11 +1279,15 @@ pub const QGesture = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QGesture, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QGesture, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1047,13 +1303,17 @@ pub const QGesture = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QGesture, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QGesture, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1066,11 +1326,15 @@ pub const QGesture = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QGesture, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QGesture, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1082,10 +1346,14 @@ pub const QGesture = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QGesture, param1: anytype) void {
+    pub fn destroyed1(self: QGesture, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1097,9 +1365,13 @@ pub const QGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QGesture, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QGesture, callback: *const fn (QGesture, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QGesture, callback: *const fn (QGesture, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -1111,16 +1383,16 @@ pub const QGesture = extern struct {
     ///
     /// ` self: QGesture `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QGesture, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QGesture_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QGesture, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QGesture_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -1132,12 +1404,16 @@ pub const QGesture = extern struct {
     ///
     /// ` self: QGesture `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QGesture, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QGesture_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QGesture, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QGesture_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -1151,9 +1427,13 @@ pub const QGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QGesture, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QGesture, callback: *const fn (QGesture, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QGesture, callback: *const fn (QGesture, QEvent) callconv(.c) bool) void {
         qtc.QGesture_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1167,17 +1447,17 @@ pub const QGesture = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QGesture, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QGesture, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QGesture_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QGesture_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1191,13 +1471,17 @@ pub const QGesture = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QGesture, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QGesture, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QGesture_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QGesture_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1211,9 +1495,13 @@ pub const QGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QGesture, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QGesture, callback: *const fn (QGesture, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QGesture, callback: *const fn (QGesture, QObject, QEvent) callconv(.c) bool) void {
         qtc.QGesture_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -1225,16 +1513,16 @@ pub const QGesture = extern struct {
     ///
     /// ` self: QGesture `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QGesture, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QGesture_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QGesture, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QGesture_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1246,12 +1534,16 @@ pub const QGesture = extern struct {
     ///
     /// ` self: QGesture `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QGesture, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QGesture_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QGesture, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QGesture_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1265,9 +1557,13 @@ pub const QGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QGesture, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QGesture, callback: *const fn (QGesture, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QGesture, callback: *const fn (QGesture, QTimerEvent) callconv(.c) void) void {
         qtc.QGesture_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -1279,16 +1575,16 @@ pub const QGesture = extern struct {
     ///
     /// ` self: QGesture `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QGesture, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QGesture_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QGesture, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QGesture_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1300,12 +1596,16 @@ pub const QGesture = extern struct {
     ///
     /// ` self: QGesture `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QGesture, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QGesture_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QGesture, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QGesture_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1319,9 +1619,13 @@ pub const QGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QGesture, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QGesture, callback: *const fn (QGesture, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QGesture, callback: *const fn (QGesture, QChildEvent) callconv(.c) void) void {
         qtc.QGesture_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -1333,16 +1637,16 @@ pub const QGesture = extern struct {
     ///
     /// ` self: QGesture `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QGesture, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QGesture_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QGesture, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QGesture_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1354,12 +1658,16 @@ pub const QGesture = extern struct {
     ///
     /// ` self: QGesture `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QGesture, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QGesture_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QGesture, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QGesture_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1373,9 +1681,13 @@ pub const QGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QGesture, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QGesture, callback: *const fn (QGesture, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QGesture, callback: *const fn (QGesture, QEvent) callconv(.c) void) void {
         qtc.QGesture_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -1389,14 +1701,14 @@ pub const QGesture = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QGesture, signal: anytype) void {
+    pub fn connectNotify(self: QGesture, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QGesture_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1410,11 +1722,15 @@ pub const QGesture = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QGesture, signal: anytype) void {
+    pub fn superConnectNotify(self: QGesture, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QGesture_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1427,9 +1743,13 @@ pub const QGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QGesture, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QGesture, callback: *const fn (QGesture, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QGesture, callback: *const fn (QGesture, QMetaMethod) callconv(.c) void) void {
         qtc.QGesture_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1443,14 +1763,14 @@ pub const QGesture = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QGesture, signal: anytype) void {
+    pub fn disconnectNotify(self: QGesture, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QGesture_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1464,10 +1784,14 @@ pub const QGesture = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QGesture, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QGesture, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QGesture_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1481,9 +1805,13 @@ pub const QGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QGesture, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QGesture, callback: *const fn (QGesture, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QGesture, callback: *const fn (QGesture, QMetaMethod) callconv(.c) void) void {
         qtc.QGesture_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -1495,13 +1823,13 @@ pub const QGesture = extern struct {
     ///
     /// ` self: QGesture `
     ///
-    pub fn Sender(self: QGesture) QObject {
+    pub fn sender(self: QGesture) QObject {
         return .{ .ptr = qtc.QGesture_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -1513,9 +1841,13 @@ pub const QGesture = extern struct {
     ///
     /// ` self: QGesture `
     ///
-    pub fn SuperSender(self: QGesture) QObject {
+    pub fn superSender(self: QGesture) QObject {
         return .{ .ptr = qtc.QGesture_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -1529,9 +1861,13 @@ pub const QGesture = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QGesture, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QGesture, callback: *const fn () callconv(.c) QObject) void {
         qtc.QGesture_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1543,13 +1879,13 @@ pub const QGesture = extern struct {
     ///
     /// ` self: QGesture `
     ///
-    pub fn SenderSignalIndex(self: QGesture) i32 {
+    pub fn senderSignalIndex(self: QGesture) i32 {
         return qtc.QGesture_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1561,9 +1897,13 @@ pub const QGesture = extern struct {
     ///
     /// ` self: QGesture `
     ///
-    pub fn SuperSenderSignalIndex(self: QGesture) i32 {
+    pub fn superSenderSignalIndex(self: QGesture) i32 {
         return qtc.QGesture_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1577,9 +1917,13 @@ pub const QGesture = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QGesture, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QGesture, callback: *const fn () callconv(.c) i32) void {
         qtc.QGesture_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -1593,14 +1937,14 @@ pub const QGesture = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QGesture, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QGesture, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QGesture_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -1614,10 +1958,14 @@ pub const QGesture = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QGesture, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QGesture, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QGesture_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -1631,9 +1979,13 @@ pub const QGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QGesture, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QGesture, callback: *const fn (QGesture, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QGesture, callback: *const fn (QGesture, [*:0]const u8) callconv(.c) i32) void {
         qtc.QGesture_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1647,14 +1999,14 @@ pub const QGesture = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QGesture, signal: anytype) bool {
+    pub fn isSignalConnected(self: QGesture, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QGesture_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1668,10 +2020,14 @@ pub const QGesture = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QGesture, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QGesture, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QGesture_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1685,9 +2041,13 @@ pub const QGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QGesture, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QGesture, callback: *const fn (QGesture, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QGesture, callback: *const fn (QGesture, QMetaMethod) callconv(.c) bool) void {
         qtc.QGesture_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -1701,23 +2061,23 @@ pub const QGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QGesture, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QGesture, callback: *const fn (QGesture, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QGesture, callback: *const fn (QGesture, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#dtor.QGesture)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QGesture `
     ///
-    pub fn Delete(self: QGesture) void {
+    pub fn delete(self: QGesture) void {
         qtc.QGesture_Delete(@ptrCast(self.ptr));
     }
 };
@@ -1734,22 +2094,34 @@ pub const QPanGesture = extern struct {
     pub const _is_QGesture = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QPanGesture object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QPanGesture {
+    pub const New = new;
+
+    /// Allocate a new QPanGesture object in C++ memory
+    ///
+    pub fn new() QPanGesture {
         return .{ .ptr = qtc.QPanGesture_new() };
     }
 
-    /// New2 constructs a new QPanGesture object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QPanGesture object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) QPanGesture {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QPanGesture_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) QPanGesture {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QPanGesture_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -1757,9 +2129,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` self: QPanGesture `
     ///
-    pub fn MetaObject(self: QPanGesture) QMetaObject {
+    pub fn metaObject(self: QPanGesture) QMetaObject {
         return .{ .ptr = qtc.QPanGesture_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -1771,13 +2147,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QPanGesture, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QPanGesture, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QPanGesture_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -1787,9 +2163,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` self: QPanGesture `
     ///
-    pub fn SuperMetaObject(self: QPanGesture) QMetaObject {
+    pub fn superMetaObject(self: QPanGesture) QMetaObject {
         return .{ .ptr = qtc.QPanGesture_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -1797,10 +2177,14 @@ pub const QPanGesture = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QPanGesture, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QPanGesture, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QPanGesture_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -1810,13 +2194,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QPanGesture, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QPanGesture, callback: *const fn (QPanGesture, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QPanGesture, callback: *const fn (QPanGesture, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QPanGesture_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -1826,10 +2210,14 @@ pub const QPanGesture = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QPanGesture, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QPanGesture, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QPanGesture_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -1841,9 +2229,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QPanGesture, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QPanGesture, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QPanGesture_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -1853,13 +2245,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QPanGesture, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QPanGesture, callback: *const fn (QPanGesture, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QPanGesture, callback: *const fn (QPanGesture, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QPanGesture_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -1873,9 +2265,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QPanGesture, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QPanGesture, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QPanGesture_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1885,14 +2281,18 @@ pub const QPanGesture = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPanGesture.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPanGesture.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `lastOffset` instead
+    ///
+    pub const LastOffset = lastOffset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpangesture.html#lastOffset)
     ///
@@ -1900,9 +2300,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` self: QPanGesture `
     ///
-    pub fn LastOffset(self: QPanGesture) QPointF {
+    pub fn lastOffset(self: QPanGesture) QPointF {
         return .{ .ptr = qtc.QPanGesture_LastOffset(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `offset` instead
+    ///
+    pub const Offset = offset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpangesture.html#offset)
     ///
@@ -1910,9 +2314,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` self: QPanGesture `
     ///
-    pub fn Offset(self: QPanGesture) QPointF {
+    pub fn offset(self: QPanGesture) QPointF {
         return .{ .ptr = qtc.QPanGesture_Offset(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `delta` instead
+    ///
+    pub const Delta = delta;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpangesture.html#delta)
     ///
@@ -1920,9 +2328,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` self: QPanGesture `
     ///
-    pub fn Delta(self: QPanGesture) QPointF {
+    pub fn delta(self: QPanGesture) QPointF {
         return .{ .ptr = qtc.QPanGesture_Delta(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceleration` instead
+    ///
+    pub const Acceleration = acceleration;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpangesture.html#acceleration)
     ///
@@ -1930,9 +2342,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` self: QPanGesture `
     ///
-    pub fn Acceleration(self: QPanGesture) f64 {
+    pub fn acceleration(self: QPanGesture) f64 {
         return qtc.QPanGesture_Acceleration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLastOffset` instead
+    ///
+    pub const SetLastOffset = setLastOffset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpangesture.html#setLastOffset)
     ///
@@ -1942,10 +2358,14 @@ pub const QPanGesture = extern struct {
     ///
     /// ` value: QPointF `
     ///
-    pub fn SetLastOffset(self: QPanGesture, value: anytype) void {
+    pub fn setLastOffset(self: QPanGesture, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QPointF;
         qtc.QPanGesture_SetLastOffset(@ptrCast(self.ptr), @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `setOffset` instead
+    ///
+    pub const SetOffset = setOffset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpangesture.html#setOffset)
     ///
@@ -1955,10 +2375,14 @@ pub const QPanGesture = extern struct {
     ///
     /// ` value: QPointF `
     ///
-    pub fn SetOffset(self: QPanGesture, value: anytype) void {
+    pub fn setOffset(self: QPanGesture, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QPointF;
         qtc.QPanGesture_SetOffset(@ptrCast(self.ptr), @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceleration` instead
+    ///
+    pub const SetAcceleration = setAcceleration;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpangesture.html#setAcceleration)
     ///
@@ -1968,9 +2392,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` value: f64 `
     ///
-    pub fn SetAcceleration(self: QPanGesture, value: f64) void {
+    pub fn setAcceleration(self: QPanGesture, value: f64) void {
         qtc.QPanGesture_SetAcceleration(@ptrCast(self.ptr), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1982,15 +2410,19 @@ pub const QPanGesture = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPanGesture.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPanGesture.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -2004,15 +2436,19 @@ pub const QPanGesture = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPanGesture.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPanGesture.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `gestureType` instead
+    ///
+    pub const GestureType = gestureType;
 
     /// Inherited from QGesture
     ///
@@ -2026,9 +2462,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` qnamespace_enums.GestureType `
     ///
-    pub fn GestureType(self: QPanGesture) i32 {
+    pub fn gestureType(self: QPanGesture) i32 {
         return qtc.QGesture_GestureType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `state` instead
+    ///
+    pub const State = state;
 
     /// Inherited from QGesture
     ///
@@ -2042,9 +2482,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` qnamespace_enums.GestureState `
     ///
-    pub fn State(self: QPanGesture) i32 {
+    pub fn state(self: QPanGesture) i32 {
         return qtc.QGesture_State(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hotSpot` instead
+    ///
+    pub const HotSpot = hotSpot;
 
     /// Inherited from QGesture
     ///
@@ -2054,9 +2498,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` self: QPanGesture `
     ///
-    pub fn HotSpot(self: QPanGesture) QPointF {
+    pub fn hotSpot(self: QPanGesture) QPointF {
         return .{ .ptr = qtc.QGesture_HotSpot(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setHotSpot` instead
+    ///
+    pub const SetHotSpot = setHotSpot;
 
     /// Inherited from QGesture
     ///
@@ -2068,10 +2516,14 @@ pub const QPanGesture = extern struct {
     ///
     /// ` value: QPointF `
     ///
-    pub fn SetHotSpot(self: QPanGesture, value: anytype) void {
+    pub fn setHotSpot(self: QPanGesture, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QPointF;
         qtc.QGesture_SetHotSpot(@ptrCast(self.ptr), @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `hasHotSpot` instead
+    ///
+    pub const HasHotSpot = hasHotSpot;
 
     /// Inherited from QGesture
     ///
@@ -2081,9 +2533,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` self: QPanGesture `
     ///
-    pub fn HasHotSpot(self: QPanGesture) bool {
+    pub fn hasHotSpot(self: QPanGesture) bool {
         return qtc.QGesture_HasHotSpot(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetHotSpot` instead
+    ///
+    pub const UnsetHotSpot = unsetHotSpot;
 
     /// Inherited from QGesture
     ///
@@ -2093,9 +2549,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` self: QPanGesture `
     ///
-    pub fn UnsetHotSpot(self: QPanGesture) void {
+    pub fn unsetHotSpot(self: QPanGesture) void {
         qtc.QGesture_UnsetHotSpot(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGestureCancelPolicy` instead
+    ///
+    pub const SetGestureCancelPolicy = setGestureCancelPolicy;
 
     /// Inherited from QGesture
     ///
@@ -2107,9 +2567,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` policy: qgesture_enums.GestureCancelPolicy `
     ///
-    pub fn SetGestureCancelPolicy(self: QPanGesture, policy: i32) void {
+    pub fn setGestureCancelPolicy(self: QPanGesture, policy: i32) void {
         qtc.QGesture_SetGestureCancelPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `gestureCancelPolicy` instead
+    ///
+    pub const GestureCancelPolicy = gestureCancelPolicy;
 
     /// Inherited from QGesture
     ///
@@ -2123,9 +2587,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` qgesture_enums.GestureCancelPolicy `
     ///
-    pub fn GestureCancelPolicy(self: QPanGesture) i32 {
+    pub fn gestureCancelPolicy(self: QPanGesture) i32 {
         return qtc.QGesture_GestureCancelPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -2137,13 +2605,17 @@ pub const QPanGesture = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QPanGesture, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QPanGesture, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPanGesture.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPanGesture.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -2155,13 +2627,17 @@ pub const QPanGesture = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QPanGesture, name: []const u8) void {
+    pub fn setObjectName(self: QPanGesture, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -2171,9 +2647,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` self: QPanGesture `
     ///
-    pub fn IsWidgetType(self: QPanGesture) bool {
+    pub fn isWidgetType(self: QPanGesture) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -2183,9 +2663,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` self: QPanGesture `
     ///
-    pub fn IsWindowType(self: QPanGesture) bool {
+    pub fn isWindowType(self: QPanGesture) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -2195,9 +2679,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` self: QPanGesture `
     ///
-    pub fn IsQuickItemType(self: QPanGesture) bool {
+    pub fn isQuickItemType(self: QPanGesture) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -2207,9 +2695,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` self: QPanGesture `
     ///
-    pub fn SignalsBlocked(self: QPanGesture) bool {
+    pub fn signalsBlocked(self: QPanGesture) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -2221,9 +2713,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QPanGesture, b: bool) bool {
+    pub fn blockSignals(self: QPanGesture, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -2233,9 +2729,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` self: QPanGesture `
     ///
-    pub fn Thread(self: QPanGesture) QThread {
+    pub fn thread(self: QPanGesture) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -2245,12 +2745,16 @@ pub const QPanGesture = extern struct {
     ///
     /// ` self: QPanGesture `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QPanGesture, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QPanGesture, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -2262,9 +2766,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QPanGesture, interval: i32) i32 {
+    pub fn startTimer(self: QPanGesture, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -2276,9 +2784,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QPanGesture, time: i64) i32 {
+    pub fn startTimer2(self: QPanGesture, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -2290,9 +2802,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QPanGesture, id: i32) void {
+    pub fn killTimer(self: QPanGesture, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -2304,9 +2820,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QPanGesture, id: i32) void {
+    pub fn killTimer2(self: QPanGesture, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -2318,15 +2838,19 @@ pub const QPanGesture = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QPanGesture, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QPanGesture, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QPanGesture.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QPanGesture.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -2336,12 +2860,16 @@ pub const QPanGesture = extern struct {
     ///
     /// ` self: QPanGesture `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QPanGesture, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QPanGesture, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2353,10 +2881,14 @@ pub const QPanGesture = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QPanGesture, filterObj: anytype) void {
+    pub fn installEventFilter(self: QPanGesture, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2368,10 +2900,14 @@ pub const QPanGesture = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QPanGesture, obj: anytype) void {
+    pub fn removeEventFilter(self: QPanGesture, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -2379,7 +2915,7 @@ pub const QPanGesture = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2387,13 +2923,17 @@ pub const QPanGesture = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -2401,7 +2941,7 @@ pub const QPanGesture = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2409,13 +2949,17 @@ pub const QPanGesture = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -2425,18 +2969,22 @@ pub const QPanGesture = extern struct {
     ///
     /// ` self: QPanGesture `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QPanGesture, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QPanGesture, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -2444,7 +2992,7 @@ pub const QPanGesture = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2452,13 +3000,17 @@ pub const QPanGesture = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -2466,7 +3018,7 @@ pub const QPanGesture = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2474,13 +3026,17 @@ pub const QPanGesture = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -2490,9 +3046,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` self: QPanGesture `
     ///
-    pub fn Disconnect3(self: QPanGesture) bool {
+    pub fn disconnect3(self: QPanGesture) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -2504,10 +3064,14 @@ pub const QPanGesture = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QPanGesture, receiver: anytype) bool {
+    pub fn disconnect4(self: QPanGesture, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -2517,10 +3081,14 @@ pub const QPanGesture = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -2530,9 +3098,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` self: QPanGesture `
     ///
-    pub fn DumpObjectTree(self: QPanGesture) void {
+    pub fn dumpObjectTree(self: QPanGesture) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -2542,9 +3114,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` self: QPanGesture `
     ///
-    pub fn DumpObjectInfo(self: QPanGesture) void {
+    pub fn dumpObjectInfo(self: QPanGesture) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -2558,11 +3134,15 @@ pub const QPanGesture = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QPanGesture, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QPanGesture, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -2574,10 +3154,14 @@ pub const QPanGesture = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QPanGesture, name: [:0]const u8) QVariant {
+    pub fn property(self: QPanGesture, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -2589,7 +3173,7 @@ pub const QPanGesture = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QPanGesture, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QPanGesture, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -2597,27 +3181,19 @@ pub const QPanGesture = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QPanGesture.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QPanGesture.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QPanGesture.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QPanGesture.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPanGesture `
-    ///
-    pub fn BindingStorage(self: QPanGesture) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -2627,9 +3203,29 @@ pub const QPanGesture = extern struct {
     ///
     /// ` self: QPanGesture `
     ///
-    pub fn BindingStorage2(self: QPanGesture) QBindingStorage {
+    pub fn bindingStorage(self: QPanGesture) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QPanGesture `
+    ///
+    pub fn bindingStorage2(self: QPanGesture) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -2639,9 +3235,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` self: QPanGesture `
     ///
-    pub fn Destroyed(self: QPanGesture) void {
+    pub fn destroyed(self: QPanGesture) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -2653,9 +3253,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QPanGesture) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QPanGesture, callback: *const fn (QPanGesture) callconv(.c) void) void {
+    pub fn onDestroyed(self: QPanGesture, callback: *const fn (QPanGesture) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -2665,9 +3269,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` self: QPanGesture `
     ///
-    pub fn Parent(self: QPanGesture) QObject {
+    pub fn parent(self: QPanGesture) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -2679,10 +3287,14 @@ pub const QPanGesture = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QPanGesture, classname: [:0]const u8) bool {
+    pub fn inherits(self: QPanGesture, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -2692,9 +3304,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` self: QPanGesture `
     ///
-    pub fn DeleteLater(self: QPanGesture) void {
+    pub fn deleteLater(self: QPanGesture) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -2708,9 +3324,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QPanGesture, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QPanGesture, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -2724,9 +3344,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QPanGesture, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QPanGesture, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -2734,7 +3358,7 @@ pub const QPanGesture = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2744,13 +3368,17 @@ pub const QPanGesture = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -2758,7 +3386,7 @@ pub const QPanGesture = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2768,13 +3396,17 @@ pub const QPanGesture = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -2784,7 +3416,7 @@ pub const QPanGesture = extern struct {
     ///
     /// ` self: QPanGesture `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2792,12 +3424,16 @@ pub const QPanGesture = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QPanGesture, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QPanGesture, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -2809,10 +3445,14 @@ pub const QPanGesture = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QPanGesture, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QPanGesture, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -2826,11 +3466,15 @@ pub const QPanGesture = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QPanGesture, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QPanGesture, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -2846,13 +3490,17 @@ pub const QPanGesture = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QPanGesture, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QPanGesture, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -2865,11 +3513,15 @@ pub const QPanGesture = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QPanGesture, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QPanGesture, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -2881,10 +3533,14 @@ pub const QPanGesture = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QPanGesture, param1: anytype) void {
+    pub fn destroyed1(self: QPanGesture, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -2896,9 +3552,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QPanGesture, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QPanGesture, callback: *const fn (QPanGesture, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QPanGesture, callback: *const fn (QPanGesture, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -2910,16 +3570,16 @@ pub const QPanGesture = extern struct {
     ///
     /// ` self: QPanGesture `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QPanGesture, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QPanGesture_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QPanGesture, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QPanGesture_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -2931,12 +3591,16 @@ pub const QPanGesture = extern struct {
     ///
     /// ` self: QPanGesture `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QPanGesture, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QPanGesture_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QPanGesture, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QPanGesture_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -2950,9 +3614,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QPanGesture, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QPanGesture, callback: *const fn (QPanGesture, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QPanGesture, callback: *const fn (QPanGesture, QEvent) callconv(.c) bool) void {
         qtc.QPanGesture_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -2966,17 +3634,17 @@ pub const QPanGesture = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QPanGesture, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QPanGesture, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QPanGesture_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QPanGesture_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2990,13 +3658,17 @@ pub const QPanGesture = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QPanGesture, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QPanGesture, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QPanGesture_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QPanGesture_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -3010,9 +3682,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QPanGesture, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QPanGesture, callback: *const fn (QPanGesture, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QPanGesture, callback: *const fn (QPanGesture, QObject, QEvent) callconv(.c) bool) void {
         qtc.QPanGesture_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -3024,16 +3700,16 @@ pub const QPanGesture = extern struct {
     ///
     /// ` self: QPanGesture `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QPanGesture, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QPanGesture_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QPanGesture, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QPanGesture_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -3045,12 +3721,16 @@ pub const QPanGesture = extern struct {
     ///
     /// ` self: QPanGesture `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QPanGesture, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QPanGesture_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QPanGesture, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QPanGesture_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -3064,9 +3744,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QPanGesture, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QPanGesture, callback: *const fn (QPanGesture, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QPanGesture, callback: *const fn (QPanGesture, QTimerEvent) callconv(.c) void) void {
         qtc.QPanGesture_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -3078,16 +3762,16 @@ pub const QPanGesture = extern struct {
     ///
     /// ` self: QPanGesture `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QPanGesture, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QPanGesture_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QPanGesture, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QPanGesture_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -3099,12 +3783,16 @@ pub const QPanGesture = extern struct {
     ///
     /// ` self: QPanGesture `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QPanGesture, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QPanGesture_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QPanGesture, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QPanGesture_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -3118,9 +3806,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QPanGesture, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QPanGesture, callback: *const fn (QPanGesture, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QPanGesture, callback: *const fn (QPanGesture, QChildEvent) callconv(.c) void) void {
         qtc.QPanGesture_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -3132,16 +3824,16 @@ pub const QPanGesture = extern struct {
     ///
     /// ` self: QPanGesture `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QPanGesture, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QPanGesture_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QPanGesture, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QPanGesture_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -3153,12 +3845,16 @@ pub const QPanGesture = extern struct {
     ///
     /// ` self: QPanGesture `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QPanGesture, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QPanGesture_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QPanGesture, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QPanGesture_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -3172,9 +3868,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QPanGesture, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QPanGesture, callback: *const fn (QPanGesture, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QPanGesture, callback: *const fn (QPanGesture, QEvent) callconv(.c) void) void {
         qtc.QPanGesture_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -3188,14 +3888,14 @@ pub const QPanGesture = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QPanGesture, signal: anytype) void {
+    pub fn connectNotify(self: QPanGesture, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QPanGesture_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3209,11 +3909,15 @@ pub const QPanGesture = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QPanGesture, signal: anytype) void {
+    pub fn superConnectNotify(self: QPanGesture, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QPanGesture_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -3226,9 +3930,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QPanGesture, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QPanGesture, callback: *const fn (QPanGesture, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QPanGesture, callback: *const fn (QPanGesture, QMetaMethod) callconv(.c) void) void {
         qtc.QPanGesture_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3242,14 +3950,14 @@ pub const QPanGesture = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QPanGesture, signal: anytype) void {
+    pub fn disconnectNotify(self: QPanGesture, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QPanGesture_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3263,10 +3971,14 @@ pub const QPanGesture = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QPanGesture, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QPanGesture, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QPanGesture_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3280,9 +3992,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QPanGesture, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QPanGesture, callback: *const fn (QPanGesture, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QPanGesture, callback: *const fn (QPanGesture, QMetaMethod) callconv(.c) void) void {
         qtc.QPanGesture_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -3294,13 +4010,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` self: QPanGesture `
     ///
-    pub fn Sender(self: QPanGesture) QObject {
+    pub fn sender(self: QPanGesture) QObject {
         return .{ .ptr = qtc.QPanGesture_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -3312,9 +4028,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` self: QPanGesture `
     ///
-    pub fn SuperSender(self: QPanGesture) QObject {
+    pub fn superSender(self: QPanGesture) QObject {
         return .{ .ptr = qtc.QPanGesture_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -3328,9 +4048,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QPanGesture, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QPanGesture, callback: *const fn () callconv(.c) QObject) void {
         qtc.QPanGesture_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -3342,13 +4066,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` self: QPanGesture `
     ///
-    pub fn SenderSignalIndex(self: QPanGesture) i32 {
+    pub fn senderSignalIndex(self: QPanGesture) i32 {
         return qtc.QPanGesture_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -3360,9 +4084,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` self: QPanGesture `
     ///
-    pub fn SuperSenderSignalIndex(self: QPanGesture) i32 {
+    pub fn superSenderSignalIndex(self: QPanGesture) i32 {
         return qtc.QPanGesture_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -3376,9 +4104,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QPanGesture, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QPanGesture, callback: *const fn () callconv(.c) i32) void {
         qtc.QPanGesture_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -3392,14 +4124,14 @@ pub const QPanGesture = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QPanGesture, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QPanGesture, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QPanGesture_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -3413,10 +4145,14 @@ pub const QPanGesture = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QPanGesture, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QPanGesture, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QPanGesture_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -3430,9 +4166,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QPanGesture, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QPanGesture, callback: *const fn (QPanGesture, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QPanGesture, callback: *const fn (QPanGesture, [*:0]const u8) callconv(.c) i32) void {
         qtc.QPanGesture_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -3446,14 +4186,14 @@ pub const QPanGesture = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QPanGesture, signal: anytype) bool {
+    pub fn isSignalConnected(self: QPanGesture, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QPanGesture_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -3467,10 +4207,14 @@ pub const QPanGesture = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QPanGesture, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QPanGesture, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QPanGesture_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -3484,9 +4228,13 @@ pub const QPanGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QPanGesture, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QPanGesture, callback: *const fn (QPanGesture, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QPanGesture, callback: *const fn (QPanGesture, QMetaMethod) callconv(.c) bool) void {
         qtc.QPanGesture_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -3500,23 +4248,23 @@ pub const QPanGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QPanGesture, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QPanGesture, callback: *const fn (QPanGesture, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QPanGesture, callback: *const fn (QPanGesture, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpangesture.html#dtor.QPanGesture)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QPanGesture `
     ///
-    pub fn Delete(self: QPanGesture) void {
+    pub fn delete(self: QPanGesture) void {
         qtc.QPanGesture_Delete(@ptrCast(self.ptr));
     }
 };
@@ -3533,22 +4281,34 @@ pub const QPinchGesture = extern struct {
     pub const _is_QGesture = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QPinchGesture object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QPinchGesture {
+    pub const New = new;
+
+    /// Allocate a new QPinchGesture object in C++ memory
+    ///
+    pub fn new() QPinchGesture {
         return .{ .ptr = qtc.QPinchGesture_new() };
     }
 
-    /// New2 constructs a new QPinchGesture object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QPinchGesture object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) QPinchGesture {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QPinchGesture_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) QPinchGesture {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QPinchGesture_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -3556,9 +4316,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` self: QPinchGesture `
     ///
-    pub fn MetaObject(self: QPinchGesture) QMetaObject {
+    pub fn metaObject(self: QPinchGesture) QMetaObject {
         return .{ .ptr = qtc.QPinchGesture_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -3570,13 +4334,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QPinchGesture, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QPinchGesture, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QPinchGesture_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -3586,9 +4350,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` self: QPinchGesture `
     ///
-    pub fn SuperMetaObject(self: QPinchGesture) QMetaObject {
+    pub fn superMetaObject(self: QPinchGesture) QMetaObject {
         return .{ .ptr = qtc.QPinchGesture_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -3596,10 +4364,14 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QPinchGesture, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QPinchGesture, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QPinchGesture_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -3609,13 +4381,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QPinchGesture, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QPinchGesture, callback: *const fn (QPinchGesture, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QPinchGesture, callback: *const fn (QPinchGesture, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QPinchGesture_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -3625,10 +4397,14 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QPinchGesture, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QPinchGesture, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QPinchGesture_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -3640,9 +4416,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QPinchGesture, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QPinchGesture, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QPinchGesture_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -3652,13 +4432,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QPinchGesture, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QPinchGesture, callback: *const fn (QPinchGesture, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QPinchGesture, callback: *const fn (QPinchGesture, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QPinchGesture_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -3672,9 +4452,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QPinchGesture, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QPinchGesture, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QPinchGesture_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -3684,14 +4468,18 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPinchGesture.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPinchGesture.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `totalChangeFlags` instead
+    ///
+    pub const TotalChangeFlags = totalChangeFlags;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpinchgesture.html#totalChangeFlags)
     ///
@@ -3703,9 +4491,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` flag of qgesture_enums.ChangeFlag `
     ///
-    pub fn TotalChangeFlags(self: QPinchGesture) i32 {
+    pub fn totalChangeFlags(self: QPinchGesture) i32 {
         return qtc.QPinchGesture_TotalChangeFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTotalChangeFlags` instead
+    ///
+    pub const SetTotalChangeFlags = setTotalChangeFlags;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpinchgesture.html#setTotalChangeFlags)
     ///
@@ -3715,9 +4507,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` value: flag of qgesture_enums.ChangeFlag `
     ///
-    pub fn SetTotalChangeFlags(self: QPinchGesture, value: i32) void {
+    pub fn setTotalChangeFlags(self: QPinchGesture, value: i32) void {
         qtc.QPinchGesture_SetTotalChangeFlags(@ptrCast(self.ptr), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `changeFlags` instead
+    ///
+    pub const ChangeFlags = changeFlags;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpinchgesture.html#changeFlags)
     ///
@@ -3729,9 +4525,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` flag of qgesture_enums.ChangeFlag `
     ///
-    pub fn ChangeFlags(self: QPinchGesture) i32 {
+    pub fn changeFlags(self: QPinchGesture) i32 {
         return qtc.QPinchGesture_ChangeFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setChangeFlags` instead
+    ///
+    pub const SetChangeFlags = setChangeFlags;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpinchgesture.html#setChangeFlags)
     ///
@@ -3741,9 +4541,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` value: flag of qgesture_enums.ChangeFlag `
     ///
-    pub fn SetChangeFlags(self: QPinchGesture, value: i32) void {
+    pub fn setChangeFlags(self: QPinchGesture, value: i32) void {
         qtc.QPinchGesture_SetChangeFlags(@ptrCast(self.ptr), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `startCenterPoint` instead
+    ///
+    pub const StartCenterPoint = startCenterPoint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpinchgesture.html#startCenterPoint)
     ///
@@ -3751,9 +4555,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` self: QPinchGesture `
     ///
-    pub fn StartCenterPoint(self: QPinchGesture) QPointF {
+    pub fn startCenterPoint(self: QPinchGesture) QPointF {
         return .{ .ptr = qtc.QPinchGesture_StartCenterPoint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `lastCenterPoint` instead
+    ///
+    pub const LastCenterPoint = lastCenterPoint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpinchgesture.html#lastCenterPoint)
     ///
@@ -3761,9 +4569,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` self: QPinchGesture `
     ///
-    pub fn LastCenterPoint(self: QPinchGesture) QPointF {
+    pub fn lastCenterPoint(self: QPinchGesture) QPointF {
         return .{ .ptr = qtc.QPinchGesture_LastCenterPoint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `centerPoint` instead
+    ///
+    pub const CenterPoint = centerPoint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpinchgesture.html#centerPoint)
     ///
@@ -3771,9 +4583,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` self: QPinchGesture `
     ///
-    pub fn CenterPoint(self: QPinchGesture) QPointF {
+    pub fn centerPoint(self: QPinchGesture) QPointF {
         return .{ .ptr = qtc.QPinchGesture_CenterPoint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStartCenterPoint` instead
+    ///
+    pub const SetStartCenterPoint = setStartCenterPoint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpinchgesture.html#setStartCenterPoint)
     ///
@@ -3783,10 +4599,14 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` value: QPointF `
     ///
-    pub fn SetStartCenterPoint(self: QPinchGesture, value: anytype) void {
+    pub fn setStartCenterPoint(self: QPinchGesture, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QPointF;
         qtc.QPinchGesture_SetStartCenterPoint(@ptrCast(self.ptr), @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLastCenterPoint` instead
+    ///
+    pub const SetLastCenterPoint = setLastCenterPoint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpinchgesture.html#setLastCenterPoint)
     ///
@@ -3796,10 +4616,14 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` value: QPointF `
     ///
-    pub fn SetLastCenterPoint(self: QPinchGesture, value: anytype) void {
+    pub fn setLastCenterPoint(self: QPinchGesture, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QPointF;
         qtc.QPinchGesture_SetLastCenterPoint(@ptrCast(self.ptr), @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCenterPoint` instead
+    ///
+    pub const SetCenterPoint = setCenterPoint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpinchgesture.html#setCenterPoint)
     ///
@@ -3809,10 +4633,14 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` value: QPointF `
     ///
-    pub fn SetCenterPoint(self: QPinchGesture, value: anytype) void {
+    pub fn setCenterPoint(self: QPinchGesture, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QPointF;
         qtc.QPinchGesture_SetCenterPoint(@ptrCast(self.ptr), @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `totalScaleFactor` instead
+    ///
+    pub const TotalScaleFactor = totalScaleFactor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpinchgesture.html#totalScaleFactor)
     ///
@@ -3820,9 +4648,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` self: QPinchGesture `
     ///
-    pub fn TotalScaleFactor(self: QPinchGesture) f64 {
+    pub fn totalScaleFactor(self: QPinchGesture) f64 {
         return qtc.QPinchGesture_TotalScaleFactor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lastScaleFactor` instead
+    ///
+    pub const LastScaleFactor = lastScaleFactor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpinchgesture.html#lastScaleFactor)
     ///
@@ -3830,9 +4662,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` self: QPinchGesture `
     ///
-    pub fn LastScaleFactor(self: QPinchGesture) f64 {
+    pub fn lastScaleFactor(self: QPinchGesture) f64 {
         return qtc.QPinchGesture_LastScaleFactor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `scaleFactor` instead
+    ///
+    pub const ScaleFactor = scaleFactor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpinchgesture.html#scaleFactor)
     ///
@@ -3840,9 +4676,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` self: QPinchGesture `
     ///
-    pub fn ScaleFactor(self: QPinchGesture) f64 {
+    pub fn scaleFactor(self: QPinchGesture) f64 {
         return qtc.QPinchGesture_ScaleFactor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTotalScaleFactor` instead
+    ///
+    pub const SetTotalScaleFactor = setTotalScaleFactor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpinchgesture.html#setTotalScaleFactor)
     ///
@@ -3852,9 +4692,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` value: f64 `
     ///
-    pub fn SetTotalScaleFactor(self: QPinchGesture, value: f64) void {
+    pub fn setTotalScaleFactor(self: QPinchGesture, value: f64) void {
         qtc.QPinchGesture_SetTotalScaleFactor(@ptrCast(self.ptr), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `setLastScaleFactor` instead
+    ///
+    pub const SetLastScaleFactor = setLastScaleFactor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpinchgesture.html#setLastScaleFactor)
     ///
@@ -3864,9 +4708,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` value: f64 `
     ///
-    pub fn SetLastScaleFactor(self: QPinchGesture, value: f64) void {
+    pub fn setLastScaleFactor(self: QPinchGesture, value: f64) void {
         qtc.QPinchGesture_SetLastScaleFactor(@ptrCast(self.ptr), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `setScaleFactor` instead
+    ///
+    pub const SetScaleFactor = setScaleFactor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpinchgesture.html#setScaleFactor)
     ///
@@ -3876,9 +4724,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` value: f64 `
     ///
-    pub fn SetScaleFactor(self: QPinchGesture, value: f64) void {
+    pub fn setScaleFactor(self: QPinchGesture, value: f64) void {
         qtc.QPinchGesture_SetScaleFactor(@ptrCast(self.ptr), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `totalRotationAngle` instead
+    ///
+    pub const TotalRotationAngle = totalRotationAngle;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpinchgesture.html#totalRotationAngle)
     ///
@@ -3886,9 +4738,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` self: QPinchGesture `
     ///
-    pub fn TotalRotationAngle(self: QPinchGesture) f64 {
+    pub fn totalRotationAngle(self: QPinchGesture) f64 {
         return qtc.QPinchGesture_TotalRotationAngle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lastRotationAngle` instead
+    ///
+    pub const LastRotationAngle = lastRotationAngle;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpinchgesture.html#lastRotationAngle)
     ///
@@ -3896,9 +4752,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` self: QPinchGesture `
     ///
-    pub fn LastRotationAngle(self: QPinchGesture) f64 {
+    pub fn lastRotationAngle(self: QPinchGesture) f64 {
         return qtc.QPinchGesture_LastRotationAngle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rotationAngle` instead
+    ///
+    pub const RotationAngle = rotationAngle;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpinchgesture.html#rotationAngle)
     ///
@@ -3906,9 +4766,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` self: QPinchGesture `
     ///
-    pub fn RotationAngle(self: QPinchGesture) f64 {
+    pub fn rotationAngle(self: QPinchGesture) f64 {
         return qtc.QPinchGesture_RotationAngle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTotalRotationAngle` instead
+    ///
+    pub const SetTotalRotationAngle = setTotalRotationAngle;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpinchgesture.html#setTotalRotationAngle)
     ///
@@ -3918,9 +4782,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` value: f64 `
     ///
-    pub fn SetTotalRotationAngle(self: QPinchGesture, value: f64) void {
+    pub fn setTotalRotationAngle(self: QPinchGesture, value: f64) void {
         qtc.QPinchGesture_SetTotalRotationAngle(@ptrCast(self.ptr), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `setLastRotationAngle` instead
+    ///
+    pub const SetLastRotationAngle = setLastRotationAngle;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpinchgesture.html#setLastRotationAngle)
     ///
@@ -3930,9 +4798,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` value: f64 `
     ///
-    pub fn SetLastRotationAngle(self: QPinchGesture, value: f64) void {
+    pub fn setLastRotationAngle(self: QPinchGesture, value: f64) void {
         qtc.QPinchGesture_SetLastRotationAngle(@ptrCast(self.ptr), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `setRotationAngle` instead
+    ///
+    pub const SetRotationAngle = setRotationAngle;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpinchgesture.html#setRotationAngle)
     ///
@@ -3942,9 +4814,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` value: f64 `
     ///
-    pub fn SetRotationAngle(self: QPinchGesture, value: f64) void {
+    pub fn setRotationAngle(self: QPinchGesture, value: f64) void {
         qtc.QPinchGesture_SetRotationAngle(@ptrCast(self.ptr), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -3956,15 +4832,19 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPinchGesture.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPinchGesture.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -3978,15 +4858,19 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPinchGesture.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPinchGesture.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `gestureType` instead
+    ///
+    pub const GestureType = gestureType;
 
     /// Inherited from QGesture
     ///
@@ -4000,9 +4884,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` qnamespace_enums.GestureType `
     ///
-    pub fn GestureType(self: QPinchGesture) i32 {
+    pub fn gestureType(self: QPinchGesture) i32 {
         return qtc.QGesture_GestureType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `state` instead
+    ///
+    pub const State = state;
 
     /// Inherited from QGesture
     ///
@@ -4016,9 +4904,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` qnamespace_enums.GestureState `
     ///
-    pub fn State(self: QPinchGesture) i32 {
+    pub fn state(self: QPinchGesture) i32 {
         return qtc.QGesture_State(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hotSpot` instead
+    ///
+    pub const HotSpot = hotSpot;
 
     /// Inherited from QGesture
     ///
@@ -4028,9 +4920,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` self: QPinchGesture `
     ///
-    pub fn HotSpot(self: QPinchGesture) QPointF {
+    pub fn hotSpot(self: QPinchGesture) QPointF {
         return .{ .ptr = qtc.QGesture_HotSpot(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setHotSpot` instead
+    ///
+    pub const SetHotSpot = setHotSpot;
 
     /// Inherited from QGesture
     ///
@@ -4042,10 +4938,14 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` value: QPointF `
     ///
-    pub fn SetHotSpot(self: QPinchGesture, value: anytype) void {
+    pub fn setHotSpot(self: QPinchGesture, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QPointF;
         qtc.QGesture_SetHotSpot(@ptrCast(self.ptr), @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `hasHotSpot` instead
+    ///
+    pub const HasHotSpot = hasHotSpot;
 
     /// Inherited from QGesture
     ///
@@ -4055,9 +4955,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` self: QPinchGesture `
     ///
-    pub fn HasHotSpot(self: QPinchGesture) bool {
+    pub fn hasHotSpot(self: QPinchGesture) bool {
         return qtc.QGesture_HasHotSpot(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetHotSpot` instead
+    ///
+    pub const UnsetHotSpot = unsetHotSpot;
 
     /// Inherited from QGesture
     ///
@@ -4067,9 +4971,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` self: QPinchGesture `
     ///
-    pub fn UnsetHotSpot(self: QPinchGesture) void {
+    pub fn unsetHotSpot(self: QPinchGesture) void {
         qtc.QGesture_UnsetHotSpot(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGestureCancelPolicy` instead
+    ///
+    pub const SetGestureCancelPolicy = setGestureCancelPolicy;
 
     /// Inherited from QGesture
     ///
@@ -4081,9 +4989,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` policy: qgesture_enums.GestureCancelPolicy `
     ///
-    pub fn SetGestureCancelPolicy(self: QPinchGesture, policy: i32) void {
+    pub fn setGestureCancelPolicy(self: QPinchGesture, policy: i32) void {
         qtc.QGesture_SetGestureCancelPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `gestureCancelPolicy` instead
+    ///
+    pub const GestureCancelPolicy = gestureCancelPolicy;
 
     /// Inherited from QGesture
     ///
@@ -4097,9 +5009,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` qgesture_enums.GestureCancelPolicy `
     ///
-    pub fn GestureCancelPolicy(self: QPinchGesture) i32 {
+    pub fn gestureCancelPolicy(self: QPinchGesture) i32 {
         return qtc.QGesture_GestureCancelPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -4111,13 +5027,17 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QPinchGesture, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QPinchGesture, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPinchGesture.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPinchGesture.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -4129,13 +5049,17 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QPinchGesture, name: []const u8) void {
+    pub fn setObjectName(self: QPinchGesture, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -4145,9 +5069,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` self: QPinchGesture `
     ///
-    pub fn IsWidgetType(self: QPinchGesture) bool {
+    pub fn isWidgetType(self: QPinchGesture) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -4157,9 +5085,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` self: QPinchGesture `
     ///
-    pub fn IsWindowType(self: QPinchGesture) bool {
+    pub fn isWindowType(self: QPinchGesture) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -4169,9 +5101,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` self: QPinchGesture `
     ///
-    pub fn IsQuickItemType(self: QPinchGesture) bool {
+    pub fn isQuickItemType(self: QPinchGesture) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -4181,9 +5117,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` self: QPinchGesture `
     ///
-    pub fn SignalsBlocked(self: QPinchGesture) bool {
+    pub fn signalsBlocked(self: QPinchGesture) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -4195,9 +5135,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QPinchGesture, b: bool) bool {
+    pub fn blockSignals(self: QPinchGesture, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -4207,9 +5151,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` self: QPinchGesture `
     ///
-    pub fn Thread(self: QPinchGesture) QThread {
+    pub fn thread(self: QPinchGesture) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -4219,12 +5167,16 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` self: QPinchGesture `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QPinchGesture, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QPinchGesture, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -4236,9 +5188,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QPinchGesture, interval: i32) i32 {
+    pub fn startTimer(self: QPinchGesture, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -4250,9 +5206,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QPinchGesture, time: i64) i32 {
+    pub fn startTimer2(self: QPinchGesture, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -4264,9 +5224,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QPinchGesture, id: i32) void {
+    pub fn killTimer(self: QPinchGesture, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -4278,9 +5242,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QPinchGesture, id: i32) void {
+    pub fn killTimer2(self: QPinchGesture, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -4292,15 +5260,19 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QPinchGesture, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QPinchGesture, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QPinchGesture.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QPinchGesture.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -4310,12 +5282,16 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` self: QPinchGesture `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QPinchGesture, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QPinchGesture, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4327,10 +5303,14 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QPinchGesture, filterObj: anytype) void {
+    pub fn installEventFilter(self: QPinchGesture, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4342,10 +5322,14 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QPinchGesture, obj: anytype) void {
+    pub fn removeEventFilter(self: QPinchGesture, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -4353,7 +5337,7 @@ pub const QPinchGesture = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4361,13 +5345,17 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -4375,7 +5363,7 @@ pub const QPinchGesture = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -4383,13 +5371,17 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -4399,18 +5391,22 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` self: QPinchGesture `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QPinchGesture, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QPinchGesture, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -4418,7 +5414,7 @@ pub const QPinchGesture = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4426,13 +5422,17 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -4440,7 +5440,7 @@ pub const QPinchGesture = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -4448,13 +5448,17 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -4464,9 +5468,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` self: QPinchGesture `
     ///
-    pub fn Disconnect3(self: QPinchGesture) bool {
+    pub fn disconnect3(self: QPinchGesture) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -4478,10 +5486,14 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QPinchGesture, receiver: anytype) bool {
+    pub fn disconnect4(self: QPinchGesture, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -4491,10 +5503,14 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -4504,9 +5520,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` self: QPinchGesture `
     ///
-    pub fn DumpObjectTree(self: QPinchGesture) void {
+    pub fn dumpObjectTree(self: QPinchGesture) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -4516,9 +5536,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` self: QPinchGesture `
     ///
-    pub fn DumpObjectInfo(self: QPinchGesture) void {
+    pub fn dumpObjectInfo(self: QPinchGesture) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -4532,11 +5556,15 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QPinchGesture, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QPinchGesture, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -4548,10 +5576,14 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QPinchGesture, name: [:0]const u8) QVariant {
+    pub fn property(self: QPinchGesture, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -4563,7 +5595,7 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QPinchGesture, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QPinchGesture, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -4571,27 +5603,19 @@ pub const QPinchGesture = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QPinchGesture.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QPinchGesture.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QPinchGesture.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QPinchGesture.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPinchGesture `
-    ///
-    pub fn BindingStorage(self: QPinchGesture) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -4601,9 +5625,29 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` self: QPinchGesture `
     ///
-    pub fn BindingStorage2(self: QPinchGesture) QBindingStorage {
+    pub fn bindingStorage(self: QPinchGesture) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QPinchGesture `
+    ///
+    pub fn bindingStorage2(self: QPinchGesture) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -4613,9 +5657,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` self: QPinchGesture `
     ///
-    pub fn Destroyed(self: QPinchGesture) void {
+    pub fn destroyed(self: QPinchGesture) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -4627,9 +5675,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QPinchGesture) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QPinchGesture, callback: *const fn (QPinchGesture) callconv(.c) void) void {
+    pub fn onDestroyed(self: QPinchGesture, callback: *const fn (QPinchGesture) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -4639,9 +5691,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` self: QPinchGesture `
     ///
-    pub fn Parent(self: QPinchGesture) QObject {
+    pub fn parent(self: QPinchGesture) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -4653,10 +5709,14 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QPinchGesture, classname: [:0]const u8) bool {
+    pub fn inherits(self: QPinchGesture, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -4666,9 +5726,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` self: QPinchGesture `
     ///
-    pub fn DeleteLater(self: QPinchGesture) void {
+    pub fn deleteLater(self: QPinchGesture) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -4682,9 +5746,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QPinchGesture, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QPinchGesture, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -4698,9 +5766,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QPinchGesture, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QPinchGesture, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -4708,7 +5780,7 @@ pub const QPinchGesture = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4718,13 +5790,17 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -4732,7 +5808,7 @@ pub const QPinchGesture = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -4742,13 +5818,17 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -4758,7 +5838,7 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` self: QPinchGesture `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4766,12 +5846,16 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QPinchGesture, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QPinchGesture, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -4783,10 +5867,14 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QPinchGesture, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QPinchGesture, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -4800,11 +5888,15 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QPinchGesture, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QPinchGesture, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -4820,13 +5912,17 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QPinchGesture, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QPinchGesture, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -4839,11 +5935,15 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QPinchGesture, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QPinchGesture, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -4855,10 +5955,14 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QPinchGesture, param1: anytype) void {
+    pub fn destroyed1(self: QPinchGesture, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -4870,9 +5974,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QPinchGesture, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QPinchGesture, callback: *const fn (QPinchGesture, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QPinchGesture, callback: *const fn (QPinchGesture, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -4884,16 +5992,16 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` self: QPinchGesture `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QPinchGesture, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QPinchGesture_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QPinchGesture, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QPinchGesture_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -4905,12 +6013,16 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` self: QPinchGesture `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QPinchGesture, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QPinchGesture_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QPinchGesture, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QPinchGesture_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -4924,9 +6036,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QPinchGesture, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QPinchGesture, callback: *const fn (QPinchGesture, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QPinchGesture, callback: *const fn (QPinchGesture, QEvent) callconv(.c) bool) void {
         qtc.QPinchGesture_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -4940,17 +6056,17 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QPinchGesture, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QPinchGesture, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QPinchGesture_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QPinchGesture_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4964,13 +6080,17 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QPinchGesture, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QPinchGesture, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QPinchGesture_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QPinchGesture_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4984,9 +6104,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QPinchGesture, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QPinchGesture, callback: *const fn (QPinchGesture, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QPinchGesture, callback: *const fn (QPinchGesture, QObject, QEvent) callconv(.c) bool) void {
         qtc.QPinchGesture_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -4998,16 +6122,16 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` self: QPinchGesture `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QPinchGesture, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QPinchGesture_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QPinchGesture, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QPinchGesture_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -5019,12 +6143,16 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` self: QPinchGesture `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QPinchGesture, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QPinchGesture_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QPinchGesture, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QPinchGesture_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -5038,9 +6166,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QPinchGesture, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QPinchGesture, callback: *const fn (QPinchGesture, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QPinchGesture, callback: *const fn (QPinchGesture, QTimerEvent) callconv(.c) void) void {
         qtc.QPinchGesture_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -5052,16 +6184,16 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` self: QPinchGesture `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QPinchGesture, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QPinchGesture_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QPinchGesture, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QPinchGesture_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -5073,12 +6205,16 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` self: QPinchGesture `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QPinchGesture, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QPinchGesture_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QPinchGesture, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QPinchGesture_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -5092,9 +6228,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QPinchGesture, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QPinchGesture, callback: *const fn (QPinchGesture, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QPinchGesture, callback: *const fn (QPinchGesture, QChildEvent) callconv(.c) void) void {
         qtc.QPinchGesture_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -5106,16 +6246,16 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` self: QPinchGesture `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QPinchGesture, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QPinchGesture_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QPinchGesture, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QPinchGesture_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -5127,12 +6267,16 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` self: QPinchGesture `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QPinchGesture, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QPinchGesture_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QPinchGesture, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QPinchGesture_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -5146,9 +6290,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QPinchGesture, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QPinchGesture, callback: *const fn (QPinchGesture, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QPinchGesture, callback: *const fn (QPinchGesture, QEvent) callconv(.c) void) void {
         qtc.QPinchGesture_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -5162,14 +6310,14 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QPinchGesture, signal: anytype) void {
+    pub fn connectNotify(self: QPinchGesture, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QPinchGesture_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -5183,11 +6331,15 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QPinchGesture, signal: anytype) void {
+    pub fn superConnectNotify(self: QPinchGesture, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QPinchGesture_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -5200,9 +6352,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QPinchGesture, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QPinchGesture, callback: *const fn (QPinchGesture, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QPinchGesture, callback: *const fn (QPinchGesture, QMetaMethod) callconv(.c) void) void {
         qtc.QPinchGesture_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -5216,14 +6372,14 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QPinchGesture, signal: anytype) void {
+    pub fn disconnectNotify(self: QPinchGesture, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QPinchGesture_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -5237,10 +6393,14 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QPinchGesture, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QPinchGesture, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QPinchGesture_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -5254,9 +6414,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QPinchGesture, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QPinchGesture, callback: *const fn (QPinchGesture, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QPinchGesture, callback: *const fn (QPinchGesture, QMetaMethod) callconv(.c) void) void {
         qtc.QPinchGesture_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -5268,13 +6432,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` self: QPinchGesture `
     ///
-    pub fn Sender(self: QPinchGesture) QObject {
+    pub fn sender(self: QPinchGesture) QObject {
         return .{ .ptr = qtc.QPinchGesture_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -5286,9 +6450,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` self: QPinchGesture `
     ///
-    pub fn SuperSender(self: QPinchGesture) QObject {
+    pub fn superSender(self: QPinchGesture) QObject {
         return .{ .ptr = qtc.QPinchGesture_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -5302,9 +6470,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QPinchGesture, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QPinchGesture, callback: *const fn () callconv(.c) QObject) void {
         qtc.QPinchGesture_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -5316,13 +6488,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` self: QPinchGesture `
     ///
-    pub fn SenderSignalIndex(self: QPinchGesture) i32 {
+    pub fn senderSignalIndex(self: QPinchGesture) i32 {
         return qtc.QPinchGesture_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -5334,9 +6506,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` self: QPinchGesture `
     ///
-    pub fn SuperSenderSignalIndex(self: QPinchGesture) i32 {
+    pub fn superSenderSignalIndex(self: QPinchGesture) i32 {
         return qtc.QPinchGesture_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -5350,9 +6526,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QPinchGesture, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QPinchGesture, callback: *const fn () callconv(.c) i32) void {
         qtc.QPinchGesture_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -5366,14 +6546,14 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QPinchGesture, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QPinchGesture, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QPinchGesture_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -5387,10 +6567,14 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QPinchGesture, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QPinchGesture, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QPinchGesture_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -5404,9 +6588,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QPinchGesture, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QPinchGesture, callback: *const fn (QPinchGesture, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QPinchGesture, callback: *const fn (QPinchGesture, [*:0]const u8) callconv(.c) i32) void {
         qtc.QPinchGesture_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -5420,14 +6608,14 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QPinchGesture, signal: anytype) bool {
+    pub fn isSignalConnected(self: QPinchGesture, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QPinchGesture_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -5441,10 +6629,14 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QPinchGesture, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QPinchGesture, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QPinchGesture_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -5458,9 +6650,13 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QPinchGesture, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QPinchGesture, callback: *const fn (QPinchGesture, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QPinchGesture, callback: *const fn (QPinchGesture, QMetaMethod) callconv(.c) bool) void {
         qtc.QPinchGesture_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -5474,23 +6670,23 @@ pub const QPinchGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QPinchGesture, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QPinchGesture, callback: *const fn (QPinchGesture, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QPinchGesture, callback: *const fn (QPinchGesture, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpinchgesture.html#dtor.QPinchGesture)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QPinchGesture `
     ///
-    pub fn Delete(self: QPinchGesture) void {
+    pub fn delete(self: QPinchGesture) void {
         qtc.QPinchGesture_Delete(@ptrCast(self.ptr));
     }
 };
@@ -5507,22 +6703,34 @@ pub const QSwipeGesture = extern struct {
     pub const _is_QGesture = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QSwipeGesture object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QSwipeGesture {
+    pub const New = new;
+
+    /// Allocate a new QSwipeGesture object in C++ memory
+    ///
+    pub fn new() QSwipeGesture {
         return .{ .ptr = qtc.QSwipeGesture_new() };
     }
 
-    /// New2 constructs a new QSwipeGesture object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QSwipeGesture object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) QSwipeGesture {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QSwipeGesture_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) QSwipeGesture {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QSwipeGesture_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -5530,9 +6738,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` self: QSwipeGesture `
     ///
-    pub fn MetaObject(self: QSwipeGesture) QMetaObject {
+    pub fn metaObject(self: QSwipeGesture) QMetaObject {
         return .{ .ptr = qtc.QSwipeGesture_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -5544,13 +6756,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QSwipeGesture, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QSwipeGesture, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QSwipeGesture_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -5560,9 +6772,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` self: QSwipeGesture `
     ///
-    pub fn SuperMetaObject(self: QSwipeGesture) QMetaObject {
+    pub fn superMetaObject(self: QSwipeGesture) QMetaObject {
         return .{ .ptr = qtc.QSwipeGesture_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -5570,10 +6786,14 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QSwipeGesture, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QSwipeGesture, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QSwipeGesture_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -5583,13 +6803,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QSwipeGesture, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QSwipeGesture, callback: *const fn (QSwipeGesture, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QSwipeGesture, callback: *const fn (QSwipeGesture, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QSwipeGesture_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -5599,10 +6819,14 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QSwipeGesture, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QSwipeGesture, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QSwipeGesture_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -5614,9 +6838,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QSwipeGesture, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QSwipeGesture, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QSwipeGesture_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -5626,13 +6854,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QSwipeGesture, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QSwipeGesture, callback: *const fn (QSwipeGesture, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QSwipeGesture, callback: *const fn (QSwipeGesture, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QSwipeGesture_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -5646,9 +6874,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QSwipeGesture, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QSwipeGesture, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QSwipeGesture_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -5658,14 +6890,18 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSwipeGesture.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSwipeGesture.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `horizontalDirection` instead
+    ///
+    pub const HorizontalDirection = horizontalDirection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qswipegesture.html#horizontalDirection)
     ///
@@ -5677,9 +6913,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` qgesture_enums.SwipeDirection `
     ///
-    pub fn HorizontalDirection(self: QSwipeGesture) i32 {
+    pub fn horizontalDirection(self: QSwipeGesture) i32 {
         return qtc.QSwipeGesture_HorizontalDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `verticalDirection` instead
+    ///
+    pub const VerticalDirection = verticalDirection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qswipegesture.html#verticalDirection)
     ///
@@ -5691,9 +6931,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` qgesture_enums.SwipeDirection `
     ///
-    pub fn VerticalDirection(self: QSwipeGesture) i32 {
+    pub fn verticalDirection(self: QSwipeGesture) i32 {
         return qtc.QSwipeGesture_VerticalDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `swipeAngle` instead
+    ///
+    pub const SwipeAngle = swipeAngle;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qswipegesture.html#swipeAngle)
     ///
@@ -5701,9 +6945,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` self: QSwipeGesture `
     ///
-    pub fn SwipeAngle(self: QSwipeGesture) f64 {
+    pub fn swipeAngle(self: QSwipeGesture) f64 {
         return qtc.QSwipeGesture_SwipeAngle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSwipeAngle` instead
+    ///
+    pub const SetSwipeAngle = setSwipeAngle;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qswipegesture.html#setSwipeAngle)
     ///
@@ -5713,9 +6961,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` value: f64 `
     ///
-    pub fn SetSwipeAngle(self: QSwipeGesture, value: f64) void {
+    pub fn setSwipeAngle(self: QSwipeGesture, value: f64) void {
         qtc.QSwipeGesture_SetSwipeAngle(@ptrCast(self.ptr), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -5727,15 +6979,19 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSwipeGesture.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSwipeGesture.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -5749,15 +7005,19 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSwipeGesture.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSwipeGesture.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `gestureType` instead
+    ///
+    pub const GestureType = gestureType;
 
     /// Inherited from QGesture
     ///
@@ -5771,9 +7031,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` qnamespace_enums.GestureType `
     ///
-    pub fn GestureType(self: QSwipeGesture) i32 {
+    pub fn gestureType(self: QSwipeGesture) i32 {
         return qtc.QGesture_GestureType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `state` instead
+    ///
+    pub const State = state;
 
     /// Inherited from QGesture
     ///
@@ -5787,9 +7051,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` qnamespace_enums.GestureState `
     ///
-    pub fn State(self: QSwipeGesture) i32 {
+    pub fn state(self: QSwipeGesture) i32 {
         return qtc.QGesture_State(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hotSpot` instead
+    ///
+    pub const HotSpot = hotSpot;
 
     /// Inherited from QGesture
     ///
@@ -5799,9 +7067,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` self: QSwipeGesture `
     ///
-    pub fn HotSpot(self: QSwipeGesture) QPointF {
+    pub fn hotSpot(self: QSwipeGesture) QPointF {
         return .{ .ptr = qtc.QGesture_HotSpot(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setHotSpot` instead
+    ///
+    pub const SetHotSpot = setHotSpot;
 
     /// Inherited from QGesture
     ///
@@ -5813,10 +7085,14 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` value: QPointF `
     ///
-    pub fn SetHotSpot(self: QSwipeGesture, value: anytype) void {
+    pub fn setHotSpot(self: QSwipeGesture, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QPointF;
         qtc.QGesture_SetHotSpot(@ptrCast(self.ptr), @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `hasHotSpot` instead
+    ///
+    pub const HasHotSpot = hasHotSpot;
 
     /// Inherited from QGesture
     ///
@@ -5826,9 +7102,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` self: QSwipeGesture `
     ///
-    pub fn HasHotSpot(self: QSwipeGesture) bool {
+    pub fn hasHotSpot(self: QSwipeGesture) bool {
         return qtc.QGesture_HasHotSpot(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetHotSpot` instead
+    ///
+    pub const UnsetHotSpot = unsetHotSpot;
 
     /// Inherited from QGesture
     ///
@@ -5838,9 +7118,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` self: QSwipeGesture `
     ///
-    pub fn UnsetHotSpot(self: QSwipeGesture) void {
+    pub fn unsetHotSpot(self: QSwipeGesture) void {
         qtc.QGesture_UnsetHotSpot(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGestureCancelPolicy` instead
+    ///
+    pub const SetGestureCancelPolicy = setGestureCancelPolicy;
 
     /// Inherited from QGesture
     ///
@@ -5852,9 +7136,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` policy: qgesture_enums.GestureCancelPolicy `
     ///
-    pub fn SetGestureCancelPolicy(self: QSwipeGesture, policy: i32) void {
+    pub fn setGestureCancelPolicy(self: QSwipeGesture, policy: i32) void {
         qtc.QGesture_SetGestureCancelPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `gestureCancelPolicy` instead
+    ///
+    pub const GestureCancelPolicy = gestureCancelPolicy;
 
     /// Inherited from QGesture
     ///
@@ -5868,9 +7156,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` qgesture_enums.GestureCancelPolicy `
     ///
-    pub fn GestureCancelPolicy(self: QSwipeGesture) i32 {
+    pub fn gestureCancelPolicy(self: QSwipeGesture) i32 {
         return qtc.QGesture_GestureCancelPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -5882,13 +7174,17 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QSwipeGesture, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QSwipeGesture, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSwipeGesture.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSwipeGesture.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -5900,13 +7196,17 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QSwipeGesture, name: []const u8) void {
+    pub fn setObjectName(self: QSwipeGesture, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -5916,9 +7216,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` self: QSwipeGesture `
     ///
-    pub fn IsWidgetType(self: QSwipeGesture) bool {
+    pub fn isWidgetType(self: QSwipeGesture) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -5928,9 +7232,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` self: QSwipeGesture `
     ///
-    pub fn IsWindowType(self: QSwipeGesture) bool {
+    pub fn isWindowType(self: QSwipeGesture) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -5940,9 +7248,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` self: QSwipeGesture `
     ///
-    pub fn IsQuickItemType(self: QSwipeGesture) bool {
+    pub fn isQuickItemType(self: QSwipeGesture) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -5952,9 +7264,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` self: QSwipeGesture `
     ///
-    pub fn SignalsBlocked(self: QSwipeGesture) bool {
+    pub fn signalsBlocked(self: QSwipeGesture) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -5966,9 +7282,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QSwipeGesture, b: bool) bool {
+    pub fn blockSignals(self: QSwipeGesture, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -5978,9 +7298,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` self: QSwipeGesture `
     ///
-    pub fn Thread(self: QSwipeGesture) QThread {
+    pub fn thread(self: QSwipeGesture) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -5990,12 +7314,16 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` self: QSwipeGesture `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QSwipeGesture, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QSwipeGesture, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -6007,9 +7335,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QSwipeGesture, interval: i32) i32 {
+    pub fn startTimer(self: QSwipeGesture, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -6021,9 +7353,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QSwipeGesture, time: i64) i32 {
+    pub fn startTimer2(self: QSwipeGesture, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -6035,9 +7371,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QSwipeGesture, id: i32) void {
+    pub fn killTimer(self: QSwipeGesture, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -6049,9 +7389,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QSwipeGesture, id: i32) void {
+    pub fn killTimer2(self: QSwipeGesture, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -6063,15 +7407,19 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QSwipeGesture, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QSwipeGesture, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QSwipeGesture.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QSwipeGesture.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -6081,12 +7429,16 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` self: QSwipeGesture `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QSwipeGesture, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QSwipeGesture, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -6098,10 +7450,14 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QSwipeGesture, filterObj: anytype) void {
+    pub fn installEventFilter(self: QSwipeGesture, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -6113,10 +7469,14 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QSwipeGesture, obj: anytype) void {
+    pub fn removeEventFilter(self: QSwipeGesture, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -6124,7 +7484,7 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6132,13 +7492,17 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -6146,7 +7510,7 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -6154,13 +7518,17 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -6170,18 +7538,22 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` self: QSwipeGesture `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QSwipeGesture, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QSwipeGesture, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -6189,7 +7561,7 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6197,13 +7569,17 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -6211,7 +7587,7 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -6219,13 +7595,17 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -6235,9 +7615,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` self: QSwipeGesture `
     ///
-    pub fn Disconnect3(self: QSwipeGesture) bool {
+    pub fn disconnect3(self: QSwipeGesture) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -6249,10 +7633,14 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QSwipeGesture, receiver: anytype) bool {
+    pub fn disconnect4(self: QSwipeGesture, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -6262,10 +7650,14 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -6275,9 +7667,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` self: QSwipeGesture `
     ///
-    pub fn DumpObjectTree(self: QSwipeGesture) void {
+    pub fn dumpObjectTree(self: QSwipeGesture) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -6287,9 +7683,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` self: QSwipeGesture `
     ///
-    pub fn DumpObjectInfo(self: QSwipeGesture) void {
+    pub fn dumpObjectInfo(self: QSwipeGesture) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -6303,11 +7703,15 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QSwipeGesture, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QSwipeGesture, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -6319,10 +7723,14 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QSwipeGesture, name: [:0]const u8) QVariant {
+    pub fn property(self: QSwipeGesture, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -6334,7 +7742,7 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QSwipeGesture, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QSwipeGesture, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -6342,27 +7750,19 @@ pub const QSwipeGesture = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QSwipeGesture.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QSwipeGesture.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QSwipeGesture.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QSwipeGesture.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSwipeGesture `
-    ///
-    pub fn BindingStorage(self: QSwipeGesture) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -6372,9 +7772,29 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` self: QSwipeGesture `
     ///
-    pub fn BindingStorage2(self: QSwipeGesture) QBindingStorage {
+    pub fn bindingStorage(self: QSwipeGesture) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QSwipeGesture `
+    ///
+    pub fn bindingStorage2(self: QSwipeGesture) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -6384,9 +7804,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` self: QSwipeGesture `
     ///
-    pub fn Destroyed(self: QSwipeGesture) void {
+    pub fn destroyed(self: QSwipeGesture) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -6398,9 +7822,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QSwipeGesture) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QSwipeGesture, callback: *const fn (QSwipeGesture) callconv(.c) void) void {
+    pub fn onDestroyed(self: QSwipeGesture, callback: *const fn (QSwipeGesture) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -6410,9 +7838,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` self: QSwipeGesture `
     ///
-    pub fn Parent(self: QSwipeGesture) QObject {
+    pub fn parent(self: QSwipeGesture) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -6424,10 +7856,14 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QSwipeGesture, classname: [:0]const u8) bool {
+    pub fn inherits(self: QSwipeGesture, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -6437,9 +7873,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` self: QSwipeGesture `
     ///
-    pub fn DeleteLater(self: QSwipeGesture) void {
+    pub fn deleteLater(self: QSwipeGesture) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -6453,9 +7893,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QSwipeGesture, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QSwipeGesture, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -6469,9 +7913,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QSwipeGesture, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QSwipeGesture, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -6479,7 +7927,7 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6489,13 +7937,17 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -6503,7 +7955,7 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -6513,13 +7965,17 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -6529,7 +7985,7 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` self: QSwipeGesture `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6537,12 +7993,16 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QSwipeGesture, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QSwipeGesture, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -6554,10 +8014,14 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QSwipeGesture, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QSwipeGesture, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -6571,11 +8035,15 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QSwipeGesture, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QSwipeGesture, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -6591,13 +8059,17 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QSwipeGesture, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QSwipeGesture, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -6610,11 +8082,15 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QSwipeGesture, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QSwipeGesture, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -6626,10 +8102,14 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QSwipeGesture, param1: anytype) void {
+    pub fn destroyed1(self: QSwipeGesture, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -6641,9 +8121,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QSwipeGesture, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QSwipeGesture, callback: *const fn (QSwipeGesture, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QSwipeGesture, callback: *const fn (QSwipeGesture, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -6655,16 +8139,16 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` self: QSwipeGesture `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QSwipeGesture, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QSwipeGesture_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QSwipeGesture, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QSwipeGesture_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -6676,12 +8160,16 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` self: QSwipeGesture `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QSwipeGesture, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QSwipeGesture_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QSwipeGesture, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QSwipeGesture_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -6695,9 +8183,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QSwipeGesture, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QSwipeGesture, callback: *const fn (QSwipeGesture, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QSwipeGesture, callback: *const fn (QSwipeGesture, QEvent) callconv(.c) bool) void {
         qtc.QSwipeGesture_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -6711,17 +8203,17 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QSwipeGesture, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QSwipeGesture, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QSwipeGesture_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QSwipeGesture_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -6735,13 +8227,17 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QSwipeGesture, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QSwipeGesture, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QSwipeGesture_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QSwipeGesture_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -6755,9 +8251,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QSwipeGesture, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QSwipeGesture, callback: *const fn (QSwipeGesture, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QSwipeGesture, callback: *const fn (QSwipeGesture, QObject, QEvent) callconv(.c) bool) void {
         qtc.QSwipeGesture_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -6769,16 +8269,16 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` self: QSwipeGesture `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QSwipeGesture, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QSwipeGesture_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QSwipeGesture, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QSwipeGesture_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -6790,12 +8290,16 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` self: QSwipeGesture `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QSwipeGesture, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QSwipeGesture_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QSwipeGesture, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QSwipeGesture_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -6809,9 +8313,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QSwipeGesture, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QSwipeGesture, callback: *const fn (QSwipeGesture, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QSwipeGesture, callback: *const fn (QSwipeGesture, QTimerEvent) callconv(.c) void) void {
         qtc.QSwipeGesture_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -6823,16 +8331,16 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` self: QSwipeGesture `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QSwipeGesture, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QSwipeGesture_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QSwipeGesture, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QSwipeGesture_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -6844,12 +8352,16 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` self: QSwipeGesture `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QSwipeGesture, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QSwipeGesture_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QSwipeGesture, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QSwipeGesture_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -6863,9 +8375,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QSwipeGesture, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QSwipeGesture, callback: *const fn (QSwipeGesture, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QSwipeGesture, callback: *const fn (QSwipeGesture, QChildEvent) callconv(.c) void) void {
         qtc.QSwipeGesture_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -6877,16 +8393,16 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` self: QSwipeGesture `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QSwipeGesture, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QSwipeGesture_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QSwipeGesture, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QSwipeGesture_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -6898,12 +8414,16 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` self: QSwipeGesture `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QSwipeGesture, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QSwipeGesture_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QSwipeGesture, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QSwipeGesture_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -6917,9 +8437,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QSwipeGesture, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QSwipeGesture, callback: *const fn (QSwipeGesture, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QSwipeGesture, callback: *const fn (QSwipeGesture, QEvent) callconv(.c) void) void {
         qtc.QSwipeGesture_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -6933,14 +8457,14 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QSwipeGesture, signal: anytype) void {
+    pub fn connectNotify(self: QSwipeGesture, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QSwipeGesture_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -6954,11 +8478,15 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QSwipeGesture, signal: anytype) void {
+    pub fn superConnectNotify(self: QSwipeGesture, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QSwipeGesture_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -6971,9 +8499,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QSwipeGesture, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QSwipeGesture, callback: *const fn (QSwipeGesture, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QSwipeGesture, callback: *const fn (QSwipeGesture, QMetaMethod) callconv(.c) void) void {
         qtc.QSwipeGesture_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -6987,14 +8519,14 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QSwipeGesture, signal: anytype) void {
+    pub fn disconnectNotify(self: QSwipeGesture, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QSwipeGesture_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7008,10 +8540,14 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QSwipeGesture, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QSwipeGesture, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QSwipeGesture_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7025,9 +8561,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QSwipeGesture, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QSwipeGesture, callback: *const fn (QSwipeGesture, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QSwipeGesture, callback: *const fn (QSwipeGesture, QMetaMethod) callconv(.c) void) void {
         qtc.QSwipeGesture_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -7039,13 +8579,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` self: QSwipeGesture `
     ///
-    pub fn Sender(self: QSwipeGesture) QObject {
+    pub fn sender(self: QSwipeGesture) QObject {
         return .{ .ptr = qtc.QSwipeGesture_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -7057,9 +8597,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` self: QSwipeGesture `
     ///
-    pub fn SuperSender(self: QSwipeGesture) QObject {
+    pub fn superSender(self: QSwipeGesture) QObject {
         return .{ .ptr = qtc.QSwipeGesture_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -7073,9 +8617,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QSwipeGesture, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QSwipeGesture, callback: *const fn () callconv(.c) QObject) void {
         qtc.QSwipeGesture_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -7087,13 +8635,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` self: QSwipeGesture `
     ///
-    pub fn SenderSignalIndex(self: QSwipeGesture) i32 {
+    pub fn senderSignalIndex(self: QSwipeGesture) i32 {
         return qtc.QSwipeGesture_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -7105,9 +8653,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` self: QSwipeGesture `
     ///
-    pub fn SuperSenderSignalIndex(self: QSwipeGesture) i32 {
+    pub fn superSenderSignalIndex(self: QSwipeGesture) i32 {
         return qtc.QSwipeGesture_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -7121,9 +8673,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QSwipeGesture, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QSwipeGesture, callback: *const fn () callconv(.c) i32) void {
         qtc.QSwipeGesture_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -7137,14 +8693,14 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QSwipeGesture, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QSwipeGesture, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QSwipeGesture_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -7158,10 +8714,14 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QSwipeGesture, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QSwipeGesture, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QSwipeGesture_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -7175,9 +8735,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QSwipeGesture, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QSwipeGesture, callback: *const fn (QSwipeGesture, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QSwipeGesture, callback: *const fn (QSwipeGesture, [*:0]const u8) callconv(.c) i32) void {
         qtc.QSwipeGesture_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -7191,14 +8755,14 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QSwipeGesture, signal: anytype) bool {
+    pub fn isSignalConnected(self: QSwipeGesture, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QSwipeGesture_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -7212,10 +8776,14 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QSwipeGesture, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QSwipeGesture, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QSwipeGesture_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -7229,9 +8797,13 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QSwipeGesture, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QSwipeGesture, callback: *const fn (QSwipeGesture, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QSwipeGesture, callback: *const fn (QSwipeGesture, QMetaMethod) callconv(.c) bool) void {
         qtc.QSwipeGesture_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -7245,23 +8817,23 @@ pub const QSwipeGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QSwipeGesture, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QSwipeGesture, callback: *const fn (QSwipeGesture, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QSwipeGesture, callback: *const fn (QSwipeGesture, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qswipegesture.html#dtor.QSwipeGesture)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QSwipeGesture `
     ///
-    pub fn Delete(self: QSwipeGesture) void {
+    pub fn delete(self: QSwipeGesture) void {
         qtc.QSwipeGesture_Delete(@ptrCast(self.ptr));
     }
 };
@@ -7278,22 +8850,34 @@ pub const QTapGesture = extern struct {
     pub const _is_QGesture = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QTapGesture object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QTapGesture {
+    pub const New = new;
+
+    /// Allocate a new QTapGesture object in C++ memory
+    ///
+    pub fn new() QTapGesture {
         return .{ .ptr = qtc.QTapGesture_new() };
     }
 
-    /// New2 constructs a new QTapGesture object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QTapGesture object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) QTapGesture {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QTapGesture_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) QTapGesture {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QTapGesture_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -7301,9 +8885,13 @@ pub const QTapGesture = extern struct {
     ///
     /// ` self: QTapGesture `
     ///
-    pub fn MetaObject(self: QTapGesture) QMetaObject {
+    pub fn metaObject(self: QTapGesture) QMetaObject {
         return .{ .ptr = qtc.QTapGesture_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -7315,13 +8903,13 @@ pub const QTapGesture = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QTapGesture, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QTapGesture, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QTapGesture_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -7331,9 +8919,13 @@ pub const QTapGesture = extern struct {
     ///
     /// ` self: QTapGesture `
     ///
-    pub fn SuperMetaObject(self: QTapGesture) QMetaObject {
+    pub fn superMetaObject(self: QTapGesture) QMetaObject {
         return .{ .ptr = qtc.QTapGesture_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -7341,10 +8933,14 @@ pub const QTapGesture = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QTapGesture, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QTapGesture, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QTapGesture_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -7354,13 +8950,13 @@ pub const QTapGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QTapGesture, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QTapGesture, callback: *const fn (QTapGesture, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QTapGesture, callback: *const fn (QTapGesture, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QTapGesture_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -7370,10 +8966,14 @@ pub const QTapGesture = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QTapGesture, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QTapGesture, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QTapGesture_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -7385,9 +8985,13 @@ pub const QTapGesture = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QTapGesture, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QTapGesture, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QTapGesture_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -7397,13 +9001,13 @@ pub const QTapGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QTapGesture, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QTapGesture, callback: *const fn (QTapGesture, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QTapGesture, callback: *const fn (QTapGesture, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QTapGesture_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -7417,9 +9021,13 @@ pub const QTapGesture = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QTapGesture, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QTapGesture, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QTapGesture_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -7429,14 +9037,18 @@ pub const QTapGesture = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTapGesture.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTapGesture.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `position` instead
+    ///
+    pub const Position = position;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtapgesture.html#position)
     ///
@@ -7444,9 +9056,13 @@ pub const QTapGesture = extern struct {
     ///
     /// ` self: QTapGesture `
     ///
-    pub fn Position(self: QTapGesture) QPointF {
+    pub fn position(self: QTapGesture) QPointF {
         return .{ .ptr = qtc.QTapGesture_Position(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPosition` instead
+    ///
+    pub const SetPosition = setPosition;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtapgesture.html#setPosition)
     ///
@@ -7456,10 +9072,14 @@ pub const QTapGesture = extern struct {
     ///
     /// ` pos: QPointF `
     ///
-    pub fn SetPosition(self: QTapGesture, pos: anytype) void {
+    pub fn setPosition(self: QTapGesture, pos: anytype) void {
         comptime _ = @TypeOf(pos)._is_QPointF;
         qtc.QTapGesture_SetPosition(@ptrCast(self.ptr), @ptrCast(pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -7471,15 +9091,19 @@ pub const QTapGesture = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTapGesture.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTapGesture.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -7493,15 +9117,19 @@ pub const QTapGesture = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTapGesture.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTapGesture.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `gestureType` instead
+    ///
+    pub const GestureType = gestureType;
 
     /// Inherited from QGesture
     ///
@@ -7515,9 +9143,13 @@ pub const QTapGesture = extern struct {
     ///
     /// ` qnamespace_enums.GestureType `
     ///
-    pub fn GestureType(self: QTapGesture) i32 {
+    pub fn gestureType(self: QTapGesture) i32 {
         return qtc.QGesture_GestureType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `state` instead
+    ///
+    pub const State = state;
 
     /// Inherited from QGesture
     ///
@@ -7531,9 +9163,13 @@ pub const QTapGesture = extern struct {
     ///
     /// ` qnamespace_enums.GestureState `
     ///
-    pub fn State(self: QTapGesture) i32 {
+    pub fn state(self: QTapGesture) i32 {
         return qtc.QGesture_State(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hotSpot` instead
+    ///
+    pub const HotSpot = hotSpot;
 
     /// Inherited from QGesture
     ///
@@ -7543,9 +9179,13 @@ pub const QTapGesture = extern struct {
     ///
     /// ` self: QTapGesture `
     ///
-    pub fn HotSpot(self: QTapGesture) QPointF {
+    pub fn hotSpot(self: QTapGesture) QPointF {
         return .{ .ptr = qtc.QGesture_HotSpot(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setHotSpot` instead
+    ///
+    pub const SetHotSpot = setHotSpot;
 
     /// Inherited from QGesture
     ///
@@ -7557,10 +9197,14 @@ pub const QTapGesture = extern struct {
     ///
     /// ` value: QPointF `
     ///
-    pub fn SetHotSpot(self: QTapGesture, value: anytype) void {
+    pub fn setHotSpot(self: QTapGesture, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QPointF;
         qtc.QGesture_SetHotSpot(@ptrCast(self.ptr), @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `hasHotSpot` instead
+    ///
+    pub const HasHotSpot = hasHotSpot;
 
     /// Inherited from QGesture
     ///
@@ -7570,9 +9214,13 @@ pub const QTapGesture = extern struct {
     ///
     /// ` self: QTapGesture `
     ///
-    pub fn HasHotSpot(self: QTapGesture) bool {
+    pub fn hasHotSpot(self: QTapGesture) bool {
         return qtc.QGesture_HasHotSpot(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetHotSpot` instead
+    ///
+    pub const UnsetHotSpot = unsetHotSpot;
 
     /// Inherited from QGesture
     ///
@@ -7582,9 +9230,13 @@ pub const QTapGesture = extern struct {
     ///
     /// ` self: QTapGesture `
     ///
-    pub fn UnsetHotSpot(self: QTapGesture) void {
+    pub fn unsetHotSpot(self: QTapGesture) void {
         qtc.QGesture_UnsetHotSpot(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGestureCancelPolicy` instead
+    ///
+    pub const SetGestureCancelPolicy = setGestureCancelPolicy;
 
     /// Inherited from QGesture
     ///
@@ -7596,9 +9248,13 @@ pub const QTapGesture = extern struct {
     ///
     /// ` policy: qgesture_enums.GestureCancelPolicy `
     ///
-    pub fn SetGestureCancelPolicy(self: QTapGesture, policy: i32) void {
+    pub fn setGestureCancelPolicy(self: QTapGesture, policy: i32) void {
         qtc.QGesture_SetGestureCancelPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `gestureCancelPolicy` instead
+    ///
+    pub const GestureCancelPolicy = gestureCancelPolicy;
 
     /// Inherited from QGesture
     ///
@@ -7612,9 +9268,13 @@ pub const QTapGesture = extern struct {
     ///
     /// ` qgesture_enums.GestureCancelPolicy `
     ///
-    pub fn GestureCancelPolicy(self: QTapGesture) i32 {
+    pub fn gestureCancelPolicy(self: QTapGesture) i32 {
         return qtc.QGesture_GestureCancelPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -7626,13 +9286,17 @@ pub const QTapGesture = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QTapGesture, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QTapGesture, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTapGesture.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTapGesture.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -7644,13 +9308,17 @@ pub const QTapGesture = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QTapGesture, name: []const u8) void {
+    pub fn setObjectName(self: QTapGesture, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -7660,9 +9328,13 @@ pub const QTapGesture = extern struct {
     ///
     /// ` self: QTapGesture `
     ///
-    pub fn IsWidgetType(self: QTapGesture) bool {
+    pub fn isWidgetType(self: QTapGesture) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -7672,9 +9344,13 @@ pub const QTapGesture = extern struct {
     ///
     /// ` self: QTapGesture `
     ///
-    pub fn IsWindowType(self: QTapGesture) bool {
+    pub fn isWindowType(self: QTapGesture) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -7684,9 +9360,13 @@ pub const QTapGesture = extern struct {
     ///
     /// ` self: QTapGesture `
     ///
-    pub fn IsQuickItemType(self: QTapGesture) bool {
+    pub fn isQuickItemType(self: QTapGesture) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -7696,9 +9376,13 @@ pub const QTapGesture = extern struct {
     ///
     /// ` self: QTapGesture `
     ///
-    pub fn SignalsBlocked(self: QTapGesture) bool {
+    pub fn signalsBlocked(self: QTapGesture) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -7710,9 +9394,13 @@ pub const QTapGesture = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QTapGesture, b: bool) bool {
+    pub fn blockSignals(self: QTapGesture, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -7722,9 +9410,13 @@ pub const QTapGesture = extern struct {
     ///
     /// ` self: QTapGesture `
     ///
-    pub fn Thread(self: QTapGesture) QThread {
+    pub fn thread(self: QTapGesture) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -7734,12 +9426,16 @@ pub const QTapGesture = extern struct {
     ///
     /// ` self: QTapGesture `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QTapGesture, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QTapGesture, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -7751,9 +9447,13 @@ pub const QTapGesture = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QTapGesture, interval: i32) i32 {
+    pub fn startTimer(self: QTapGesture, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -7765,9 +9465,13 @@ pub const QTapGesture = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QTapGesture, time: i64) i32 {
+    pub fn startTimer2(self: QTapGesture, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -7779,9 +9483,13 @@ pub const QTapGesture = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QTapGesture, id: i32) void {
+    pub fn killTimer(self: QTapGesture, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -7793,9 +9501,13 @@ pub const QTapGesture = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QTapGesture, id: i32) void {
+    pub fn killTimer2(self: QTapGesture, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -7807,15 +9519,19 @@ pub const QTapGesture = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QTapGesture, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QTapGesture, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QTapGesture.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QTapGesture.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -7825,12 +9541,16 @@ pub const QTapGesture = extern struct {
     ///
     /// ` self: QTapGesture `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QTapGesture, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QTapGesture, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -7842,10 +9562,14 @@ pub const QTapGesture = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QTapGesture, filterObj: anytype) void {
+    pub fn installEventFilter(self: QTapGesture, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -7857,10 +9581,14 @@ pub const QTapGesture = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QTapGesture, obj: anytype) void {
+    pub fn removeEventFilter(self: QTapGesture, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -7868,7 +9596,7 @@ pub const QTapGesture = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -7876,13 +9604,17 @@ pub const QTapGesture = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -7890,7 +9622,7 @@ pub const QTapGesture = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -7898,13 +9630,17 @@ pub const QTapGesture = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -7914,18 +9650,22 @@ pub const QTapGesture = extern struct {
     ///
     /// ` self: QTapGesture `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QTapGesture, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QTapGesture, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -7933,7 +9673,7 @@ pub const QTapGesture = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -7941,13 +9681,17 @@ pub const QTapGesture = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -7955,7 +9699,7 @@ pub const QTapGesture = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -7963,13 +9707,17 @@ pub const QTapGesture = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -7979,9 +9727,13 @@ pub const QTapGesture = extern struct {
     ///
     /// ` self: QTapGesture `
     ///
-    pub fn Disconnect3(self: QTapGesture) bool {
+    pub fn disconnect3(self: QTapGesture) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -7993,10 +9745,14 @@ pub const QTapGesture = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QTapGesture, receiver: anytype) bool {
+    pub fn disconnect4(self: QTapGesture, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -8006,10 +9762,14 @@ pub const QTapGesture = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -8019,9 +9779,13 @@ pub const QTapGesture = extern struct {
     ///
     /// ` self: QTapGesture `
     ///
-    pub fn DumpObjectTree(self: QTapGesture) void {
+    pub fn dumpObjectTree(self: QTapGesture) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -8031,9 +9795,13 @@ pub const QTapGesture = extern struct {
     ///
     /// ` self: QTapGesture `
     ///
-    pub fn DumpObjectInfo(self: QTapGesture) void {
+    pub fn dumpObjectInfo(self: QTapGesture) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -8047,11 +9815,15 @@ pub const QTapGesture = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QTapGesture, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QTapGesture, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -8063,10 +9835,14 @@ pub const QTapGesture = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QTapGesture, name: [:0]const u8) QVariant {
+    pub fn property(self: QTapGesture, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -8078,7 +9854,7 @@ pub const QTapGesture = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QTapGesture, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QTapGesture, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -8086,27 +9862,19 @@ pub const QTapGesture = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QTapGesture.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QTapGesture.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QTapGesture.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QTapGesture.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTapGesture `
-    ///
-    pub fn BindingStorage(self: QTapGesture) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -8116,9 +9884,29 @@ pub const QTapGesture = extern struct {
     ///
     /// ` self: QTapGesture `
     ///
-    pub fn BindingStorage2(self: QTapGesture) QBindingStorage {
+    pub fn bindingStorage(self: QTapGesture) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QTapGesture `
+    ///
+    pub fn bindingStorage2(self: QTapGesture) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -8128,9 +9916,13 @@ pub const QTapGesture = extern struct {
     ///
     /// ` self: QTapGesture `
     ///
-    pub fn Destroyed(self: QTapGesture) void {
+    pub fn destroyed(self: QTapGesture) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -8142,9 +9934,13 @@ pub const QTapGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QTapGesture) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QTapGesture, callback: *const fn (QTapGesture) callconv(.c) void) void {
+    pub fn onDestroyed(self: QTapGesture, callback: *const fn (QTapGesture) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -8154,9 +9950,13 @@ pub const QTapGesture = extern struct {
     ///
     /// ` self: QTapGesture `
     ///
-    pub fn Parent(self: QTapGesture) QObject {
+    pub fn parent(self: QTapGesture) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -8168,10 +9968,14 @@ pub const QTapGesture = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QTapGesture, classname: [:0]const u8) bool {
+    pub fn inherits(self: QTapGesture, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -8181,9 +9985,13 @@ pub const QTapGesture = extern struct {
     ///
     /// ` self: QTapGesture `
     ///
-    pub fn DeleteLater(self: QTapGesture) void {
+    pub fn deleteLater(self: QTapGesture) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -8197,9 +10005,13 @@ pub const QTapGesture = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QTapGesture, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QTapGesture, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -8213,9 +10025,13 @@ pub const QTapGesture = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QTapGesture, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QTapGesture, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -8223,7 +10039,7 @@ pub const QTapGesture = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -8233,13 +10049,17 @@ pub const QTapGesture = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -8247,7 +10067,7 @@ pub const QTapGesture = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -8257,13 +10077,17 @@ pub const QTapGesture = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -8273,7 +10097,7 @@ pub const QTapGesture = extern struct {
     ///
     /// ` self: QTapGesture `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -8281,12 +10105,16 @@ pub const QTapGesture = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QTapGesture, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QTapGesture, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -8298,10 +10126,14 @@ pub const QTapGesture = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QTapGesture, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QTapGesture, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -8315,11 +10147,15 @@ pub const QTapGesture = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QTapGesture, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QTapGesture, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -8335,13 +10171,17 @@ pub const QTapGesture = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QTapGesture, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QTapGesture, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -8354,11 +10194,15 @@ pub const QTapGesture = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QTapGesture, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QTapGesture, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -8370,10 +10214,14 @@ pub const QTapGesture = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QTapGesture, param1: anytype) void {
+    pub fn destroyed1(self: QTapGesture, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -8385,9 +10233,13 @@ pub const QTapGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QTapGesture, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QTapGesture, callback: *const fn (QTapGesture, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QTapGesture, callback: *const fn (QTapGesture, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -8399,16 +10251,16 @@ pub const QTapGesture = extern struct {
     ///
     /// ` self: QTapGesture `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QTapGesture, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QTapGesture_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QTapGesture, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QTapGesture_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -8420,12 +10272,16 @@ pub const QTapGesture = extern struct {
     ///
     /// ` self: QTapGesture `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QTapGesture, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QTapGesture_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QTapGesture, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QTapGesture_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -8439,9 +10295,13 @@ pub const QTapGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QTapGesture, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QTapGesture, callback: *const fn (QTapGesture, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QTapGesture, callback: *const fn (QTapGesture, QEvent) callconv(.c) bool) void {
         qtc.QTapGesture_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -8455,17 +10315,17 @@ pub const QTapGesture = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QTapGesture, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QTapGesture, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QTapGesture_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QTapGesture_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -8479,13 +10339,17 @@ pub const QTapGesture = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QTapGesture, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QTapGesture, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QTapGesture_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QTapGesture_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -8499,9 +10363,13 @@ pub const QTapGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QTapGesture, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QTapGesture, callback: *const fn (QTapGesture, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QTapGesture, callback: *const fn (QTapGesture, QObject, QEvent) callconv(.c) bool) void {
         qtc.QTapGesture_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -8513,16 +10381,16 @@ pub const QTapGesture = extern struct {
     ///
     /// ` self: QTapGesture `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QTapGesture, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QTapGesture_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QTapGesture, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QTapGesture_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -8534,12 +10402,16 @@ pub const QTapGesture = extern struct {
     ///
     /// ` self: QTapGesture `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QTapGesture, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QTapGesture_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QTapGesture, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QTapGesture_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -8553,9 +10425,13 @@ pub const QTapGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QTapGesture, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QTapGesture, callback: *const fn (QTapGesture, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QTapGesture, callback: *const fn (QTapGesture, QTimerEvent) callconv(.c) void) void {
         qtc.QTapGesture_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -8567,16 +10443,16 @@ pub const QTapGesture = extern struct {
     ///
     /// ` self: QTapGesture `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QTapGesture, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QTapGesture_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QTapGesture, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QTapGesture_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -8588,12 +10464,16 @@ pub const QTapGesture = extern struct {
     ///
     /// ` self: QTapGesture `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QTapGesture, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QTapGesture_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QTapGesture, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QTapGesture_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -8607,9 +10487,13 @@ pub const QTapGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QTapGesture, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QTapGesture, callback: *const fn (QTapGesture, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QTapGesture, callback: *const fn (QTapGesture, QChildEvent) callconv(.c) void) void {
         qtc.QTapGesture_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -8621,16 +10505,16 @@ pub const QTapGesture = extern struct {
     ///
     /// ` self: QTapGesture `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QTapGesture, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QTapGesture_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QTapGesture, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QTapGesture_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8642,12 +10526,16 @@ pub const QTapGesture = extern struct {
     ///
     /// ` self: QTapGesture `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QTapGesture, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QTapGesture_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QTapGesture, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QTapGesture_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8661,9 +10549,13 @@ pub const QTapGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QTapGesture, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QTapGesture, callback: *const fn (QTapGesture, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QTapGesture, callback: *const fn (QTapGesture, QEvent) callconv(.c) void) void {
         qtc.QTapGesture_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -8677,14 +10569,14 @@ pub const QTapGesture = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QTapGesture, signal: anytype) void {
+    pub fn connectNotify(self: QTapGesture, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QTapGesture_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8698,11 +10590,15 @@ pub const QTapGesture = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QTapGesture, signal: anytype) void {
+    pub fn superConnectNotify(self: QTapGesture, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QTapGesture_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -8715,9 +10611,13 @@ pub const QTapGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QTapGesture, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QTapGesture, callback: *const fn (QTapGesture, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QTapGesture, callback: *const fn (QTapGesture, QMetaMethod) callconv(.c) void) void {
         qtc.QTapGesture_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8731,14 +10631,14 @@ pub const QTapGesture = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QTapGesture, signal: anytype) void {
+    pub fn disconnectNotify(self: QTapGesture, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QTapGesture_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8752,10 +10652,14 @@ pub const QTapGesture = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QTapGesture, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QTapGesture, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QTapGesture_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8769,9 +10673,13 @@ pub const QTapGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QTapGesture, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QTapGesture, callback: *const fn (QTapGesture, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QTapGesture, callback: *const fn (QTapGesture, QMetaMethod) callconv(.c) void) void {
         qtc.QTapGesture_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -8783,13 +10691,13 @@ pub const QTapGesture = extern struct {
     ///
     /// ` self: QTapGesture `
     ///
-    pub fn Sender(self: QTapGesture) QObject {
+    pub fn sender(self: QTapGesture) QObject {
         return .{ .ptr = qtc.QTapGesture_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -8801,9 +10709,13 @@ pub const QTapGesture = extern struct {
     ///
     /// ` self: QTapGesture `
     ///
-    pub fn SuperSender(self: QTapGesture) QObject {
+    pub fn superSender(self: QTapGesture) QObject {
         return .{ .ptr = qtc.QTapGesture_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -8817,9 +10729,13 @@ pub const QTapGesture = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QTapGesture, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QTapGesture, callback: *const fn () callconv(.c) QObject) void {
         qtc.QTapGesture_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8831,13 +10747,13 @@ pub const QTapGesture = extern struct {
     ///
     /// ` self: QTapGesture `
     ///
-    pub fn SenderSignalIndex(self: QTapGesture) i32 {
+    pub fn senderSignalIndex(self: QTapGesture) i32 {
         return qtc.QTapGesture_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8849,9 +10765,13 @@ pub const QTapGesture = extern struct {
     ///
     /// ` self: QTapGesture `
     ///
-    pub fn SuperSenderSignalIndex(self: QTapGesture) i32 {
+    pub fn superSenderSignalIndex(self: QTapGesture) i32 {
         return qtc.QTapGesture_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8865,9 +10785,13 @@ pub const QTapGesture = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QTapGesture, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QTapGesture, callback: *const fn () callconv(.c) i32) void {
         qtc.QTapGesture_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -8881,14 +10805,14 @@ pub const QTapGesture = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QTapGesture, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QTapGesture, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QTapGesture_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -8902,10 +10826,14 @@ pub const QTapGesture = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QTapGesture, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QTapGesture, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QTapGesture_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -8919,9 +10847,13 @@ pub const QTapGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QTapGesture, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QTapGesture, callback: *const fn (QTapGesture, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QTapGesture, callback: *const fn (QTapGesture, [*:0]const u8) callconv(.c) i32) void {
         qtc.QTapGesture_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8935,14 +10867,14 @@ pub const QTapGesture = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QTapGesture, signal: anytype) bool {
+    pub fn isSignalConnected(self: QTapGesture, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QTapGesture_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8956,10 +10888,14 @@ pub const QTapGesture = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QTapGesture, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QTapGesture, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QTapGesture_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8973,9 +10909,13 @@ pub const QTapGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QTapGesture, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QTapGesture, callback: *const fn (QTapGesture, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QTapGesture, callback: *const fn (QTapGesture, QMetaMethod) callconv(.c) bool) void {
         qtc.QTapGesture_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -8989,23 +10929,23 @@ pub const QTapGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QTapGesture, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QTapGesture, callback: *const fn (QTapGesture, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QTapGesture, callback: *const fn (QTapGesture, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtapgesture.html#dtor.QTapGesture)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QTapGesture `
     ///
-    pub fn Delete(self: QTapGesture) void {
+    pub fn delete(self: QTapGesture) void {
         qtc.QTapGesture_Delete(@ptrCast(self.ptr));
     }
 };
@@ -9022,22 +10962,34 @@ pub const QTapAndHoldGesture = extern struct {
     pub const _is_QGesture = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QTapAndHoldGesture object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QTapAndHoldGesture {
+    pub const New = new;
+
+    /// Allocate a new QTapAndHoldGesture object in C++ memory
+    ///
+    pub fn new() QTapAndHoldGesture {
         return .{ .ptr = qtc.QTapAndHoldGesture_new() };
     }
 
-    /// New2 constructs a new QTapAndHoldGesture object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QTapAndHoldGesture object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) QTapAndHoldGesture {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QTapAndHoldGesture_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) QTapAndHoldGesture {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QTapAndHoldGesture_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -9045,9 +10997,13 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` self: QTapAndHoldGesture `
     ///
-    pub fn MetaObject(self: QTapAndHoldGesture) QMetaObject {
+    pub fn metaObject(self: QTapAndHoldGesture) QMetaObject {
         return .{ .ptr = qtc.QTapAndHoldGesture_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -9059,13 +11015,13 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QTapAndHoldGesture, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QTapAndHoldGesture, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QTapAndHoldGesture_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -9075,9 +11031,13 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` self: QTapAndHoldGesture `
     ///
-    pub fn SuperMetaObject(self: QTapAndHoldGesture) QMetaObject {
+    pub fn superMetaObject(self: QTapAndHoldGesture) QMetaObject {
         return .{ .ptr = qtc.QTapAndHoldGesture_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -9085,10 +11045,14 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QTapAndHoldGesture, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QTapAndHoldGesture, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QTapAndHoldGesture_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -9098,13 +11062,13 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QTapAndHoldGesture, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QTapAndHoldGesture, callback: *const fn (QTapAndHoldGesture, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QTapAndHoldGesture, callback: *const fn (QTapAndHoldGesture, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QTapAndHoldGesture_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -9114,10 +11078,14 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QTapAndHoldGesture, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QTapAndHoldGesture, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QTapAndHoldGesture_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -9129,9 +11097,13 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QTapAndHoldGesture, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QTapAndHoldGesture, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QTapAndHoldGesture_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -9141,13 +11113,13 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QTapAndHoldGesture, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QTapAndHoldGesture, callback: *const fn (QTapAndHoldGesture, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QTapAndHoldGesture, callback: *const fn (QTapAndHoldGesture, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QTapAndHoldGesture_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -9161,9 +11133,13 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QTapAndHoldGesture, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QTapAndHoldGesture, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QTapAndHoldGesture_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -9173,14 +11149,18 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTapAndHoldGesture.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTapAndHoldGesture.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `position` instead
+    ///
+    pub const Position = position;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtapandholdgesture.html#position)
     ///
@@ -9188,9 +11168,13 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` self: QTapAndHoldGesture `
     ///
-    pub fn Position(self: QTapAndHoldGesture) QPointF {
+    pub fn position(self: QTapAndHoldGesture) QPointF {
         return .{ .ptr = qtc.QTapAndHoldGesture_Position(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPosition` instead
+    ///
+    pub const SetPosition = setPosition;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtapandholdgesture.html#setPosition)
     ///
@@ -9200,10 +11184,14 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` pos: QPointF `
     ///
-    pub fn SetPosition(self: QTapAndHoldGesture, pos: anytype) void {
+    pub fn setPosition(self: QTapAndHoldGesture, pos: anytype) void {
         comptime _ = @TypeOf(pos)._is_QPointF;
         qtc.QTapAndHoldGesture_SetPosition(@ptrCast(self.ptr), @ptrCast(pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTimeout` instead
+    ///
+    pub const SetTimeout = setTimeout;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtapandholdgesture.html#setTimeout)
     ///
@@ -9211,15 +11199,23 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` msecs: i32 `
     ///
-    pub fn SetTimeout(msecs: i32) void {
+    pub fn setTimeout(msecs: i32) void {
         qtc.QTapAndHoldGesture_SetTimeout(@bitCast(msecs));
     }
 
+    /// ### DEPRECATED: Use `timeout` instead
+    ///
+    pub const Timeout = timeout;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtapandholdgesture.html#timeout)
     ///
-    pub fn Timeout() i32 {
+    pub fn timeout() i32 {
         return qtc.QTapAndHoldGesture_Timeout();
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -9231,15 +11227,19 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTapAndHoldGesture.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTapAndHoldGesture.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -9253,15 +11253,19 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTapAndHoldGesture.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTapAndHoldGesture.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `gestureType` instead
+    ///
+    pub const GestureType = gestureType;
 
     /// Inherited from QGesture
     ///
@@ -9275,9 +11279,13 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` qnamespace_enums.GestureType `
     ///
-    pub fn GestureType(self: QTapAndHoldGesture) i32 {
+    pub fn gestureType(self: QTapAndHoldGesture) i32 {
         return qtc.QGesture_GestureType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `state` instead
+    ///
+    pub const State = state;
 
     /// Inherited from QGesture
     ///
@@ -9291,9 +11299,13 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` qnamespace_enums.GestureState `
     ///
-    pub fn State(self: QTapAndHoldGesture) i32 {
+    pub fn state(self: QTapAndHoldGesture) i32 {
         return qtc.QGesture_State(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hotSpot` instead
+    ///
+    pub const HotSpot = hotSpot;
 
     /// Inherited from QGesture
     ///
@@ -9303,9 +11315,13 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` self: QTapAndHoldGesture `
     ///
-    pub fn HotSpot(self: QTapAndHoldGesture) QPointF {
+    pub fn hotSpot(self: QTapAndHoldGesture) QPointF {
         return .{ .ptr = qtc.QGesture_HotSpot(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setHotSpot` instead
+    ///
+    pub const SetHotSpot = setHotSpot;
 
     /// Inherited from QGesture
     ///
@@ -9317,10 +11333,14 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` value: QPointF `
     ///
-    pub fn SetHotSpot(self: QTapAndHoldGesture, value: anytype) void {
+    pub fn setHotSpot(self: QTapAndHoldGesture, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QPointF;
         qtc.QGesture_SetHotSpot(@ptrCast(self.ptr), @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `hasHotSpot` instead
+    ///
+    pub const HasHotSpot = hasHotSpot;
 
     /// Inherited from QGesture
     ///
@@ -9330,9 +11350,13 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` self: QTapAndHoldGesture `
     ///
-    pub fn HasHotSpot(self: QTapAndHoldGesture) bool {
+    pub fn hasHotSpot(self: QTapAndHoldGesture) bool {
         return qtc.QGesture_HasHotSpot(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetHotSpot` instead
+    ///
+    pub const UnsetHotSpot = unsetHotSpot;
 
     /// Inherited from QGesture
     ///
@@ -9342,9 +11366,13 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` self: QTapAndHoldGesture `
     ///
-    pub fn UnsetHotSpot(self: QTapAndHoldGesture) void {
+    pub fn unsetHotSpot(self: QTapAndHoldGesture) void {
         qtc.QGesture_UnsetHotSpot(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGestureCancelPolicy` instead
+    ///
+    pub const SetGestureCancelPolicy = setGestureCancelPolicy;
 
     /// Inherited from QGesture
     ///
@@ -9356,9 +11384,13 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` policy: qgesture_enums.GestureCancelPolicy `
     ///
-    pub fn SetGestureCancelPolicy(self: QTapAndHoldGesture, policy: i32) void {
+    pub fn setGestureCancelPolicy(self: QTapAndHoldGesture, policy: i32) void {
         qtc.QGesture_SetGestureCancelPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `gestureCancelPolicy` instead
+    ///
+    pub const GestureCancelPolicy = gestureCancelPolicy;
 
     /// Inherited from QGesture
     ///
@@ -9372,9 +11404,13 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` qgesture_enums.GestureCancelPolicy `
     ///
-    pub fn GestureCancelPolicy(self: QTapAndHoldGesture) i32 {
+    pub fn gestureCancelPolicy(self: QTapAndHoldGesture) i32 {
         return qtc.QGesture_GestureCancelPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -9386,13 +11422,17 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QTapAndHoldGesture, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QTapAndHoldGesture, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTapAndHoldGesture.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTapAndHoldGesture.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -9404,13 +11444,17 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QTapAndHoldGesture, name: []const u8) void {
+    pub fn setObjectName(self: QTapAndHoldGesture, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -9420,9 +11464,13 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` self: QTapAndHoldGesture `
     ///
-    pub fn IsWidgetType(self: QTapAndHoldGesture) bool {
+    pub fn isWidgetType(self: QTapAndHoldGesture) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -9432,9 +11480,13 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` self: QTapAndHoldGesture `
     ///
-    pub fn IsWindowType(self: QTapAndHoldGesture) bool {
+    pub fn isWindowType(self: QTapAndHoldGesture) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -9444,9 +11496,13 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` self: QTapAndHoldGesture `
     ///
-    pub fn IsQuickItemType(self: QTapAndHoldGesture) bool {
+    pub fn isQuickItemType(self: QTapAndHoldGesture) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -9456,9 +11512,13 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` self: QTapAndHoldGesture `
     ///
-    pub fn SignalsBlocked(self: QTapAndHoldGesture) bool {
+    pub fn signalsBlocked(self: QTapAndHoldGesture) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -9470,9 +11530,13 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QTapAndHoldGesture, b: bool) bool {
+    pub fn blockSignals(self: QTapAndHoldGesture, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -9482,9 +11546,13 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` self: QTapAndHoldGesture `
     ///
-    pub fn Thread(self: QTapAndHoldGesture) QThread {
+    pub fn thread(self: QTapAndHoldGesture) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -9494,12 +11562,16 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` self: QTapAndHoldGesture `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QTapAndHoldGesture, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QTapAndHoldGesture, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -9511,9 +11583,13 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QTapAndHoldGesture, interval: i32) i32 {
+    pub fn startTimer(self: QTapAndHoldGesture, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -9525,9 +11601,13 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QTapAndHoldGesture, time: i64) i32 {
+    pub fn startTimer2(self: QTapAndHoldGesture, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -9539,9 +11619,13 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QTapAndHoldGesture, id: i32) void {
+    pub fn killTimer(self: QTapAndHoldGesture, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -9553,9 +11637,13 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QTapAndHoldGesture, id: i32) void {
+    pub fn killTimer2(self: QTapAndHoldGesture, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -9567,15 +11655,19 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QTapAndHoldGesture, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QTapAndHoldGesture, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QTapAndHoldGesture.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QTapAndHoldGesture.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -9585,12 +11677,16 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` self: QTapAndHoldGesture `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QTapAndHoldGesture, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QTapAndHoldGesture, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -9602,10 +11698,14 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QTapAndHoldGesture, filterObj: anytype) void {
+    pub fn installEventFilter(self: QTapAndHoldGesture, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -9617,10 +11717,14 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QTapAndHoldGesture, obj: anytype) void {
+    pub fn removeEventFilter(self: QTapAndHoldGesture, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -9628,7 +11732,7 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -9636,13 +11740,17 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -9650,7 +11758,7 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -9658,13 +11766,17 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -9674,18 +11786,22 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` self: QTapAndHoldGesture `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QTapAndHoldGesture, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QTapAndHoldGesture, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -9693,7 +11809,7 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -9701,13 +11817,17 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -9715,7 +11835,7 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -9723,13 +11843,17 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -9739,9 +11863,13 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` self: QTapAndHoldGesture `
     ///
-    pub fn Disconnect3(self: QTapAndHoldGesture) bool {
+    pub fn disconnect3(self: QTapAndHoldGesture) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -9753,10 +11881,14 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QTapAndHoldGesture, receiver: anytype) bool {
+    pub fn disconnect4(self: QTapAndHoldGesture, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -9766,10 +11898,14 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -9779,9 +11915,13 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` self: QTapAndHoldGesture `
     ///
-    pub fn DumpObjectTree(self: QTapAndHoldGesture) void {
+    pub fn dumpObjectTree(self: QTapAndHoldGesture) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -9791,9 +11931,13 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` self: QTapAndHoldGesture `
     ///
-    pub fn DumpObjectInfo(self: QTapAndHoldGesture) void {
+    pub fn dumpObjectInfo(self: QTapAndHoldGesture) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -9807,11 +11951,15 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QTapAndHoldGesture, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QTapAndHoldGesture, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -9823,10 +11971,14 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QTapAndHoldGesture, name: [:0]const u8) QVariant {
+    pub fn property(self: QTapAndHoldGesture, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -9838,7 +11990,7 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QTapAndHoldGesture, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QTapAndHoldGesture, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -9846,27 +11998,19 @@ pub const QTapAndHoldGesture = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QTapAndHoldGesture.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QTapAndHoldGesture.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QTapAndHoldGesture.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QTapAndHoldGesture.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTapAndHoldGesture `
-    ///
-    pub fn BindingStorage(self: QTapAndHoldGesture) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -9876,9 +12020,29 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` self: QTapAndHoldGesture `
     ///
-    pub fn BindingStorage2(self: QTapAndHoldGesture) QBindingStorage {
+    pub fn bindingStorage(self: QTapAndHoldGesture) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QTapAndHoldGesture `
+    ///
+    pub fn bindingStorage2(self: QTapAndHoldGesture) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -9888,9 +12052,13 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` self: QTapAndHoldGesture `
     ///
-    pub fn Destroyed(self: QTapAndHoldGesture) void {
+    pub fn destroyed(self: QTapAndHoldGesture) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -9902,9 +12070,13 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QTapAndHoldGesture) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QTapAndHoldGesture, callback: *const fn (QTapAndHoldGesture) callconv(.c) void) void {
+    pub fn onDestroyed(self: QTapAndHoldGesture, callback: *const fn (QTapAndHoldGesture) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -9914,9 +12086,13 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` self: QTapAndHoldGesture `
     ///
-    pub fn Parent(self: QTapAndHoldGesture) QObject {
+    pub fn parent(self: QTapAndHoldGesture) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -9928,10 +12104,14 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QTapAndHoldGesture, classname: [:0]const u8) bool {
+    pub fn inherits(self: QTapAndHoldGesture, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -9941,9 +12121,13 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` self: QTapAndHoldGesture `
     ///
-    pub fn DeleteLater(self: QTapAndHoldGesture) void {
+    pub fn deleteLater(self: QTapAndHoldGesture) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -9957,9 +12141,13 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QTapAndHoldGesture, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QTapAndHoldGesture, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -9973,9 +12161,13 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QTapAndHoldGesture, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QTapAndHoldGesture, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -9983,7 +12175,7 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -9993,13 +12185,17 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -10007,7 +12203,7 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -10017,13 +12213,17 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -10033,7 +12233,7 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` self: QTapAndHoldGesture `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -10041,12 +12241,16 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QTapAndHoldGesture, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QTapAndHoldGesture, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -10058,10 +12262,14 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QTapAndHoldGesture, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QTapAndHoldGesture, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -10075,11 +12283,15 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QTapAndHoldGesture, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QTapAndHoldGesture, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -10095,13 +12307,17 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QTapAndHoldGesture, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QTapAndHoldGesture, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -10114,11 +12330,15 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QTapAndHoldGesture, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QTapAndHoldGesture, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -10130,10 +12350,14 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QTapAndHoldGesture, param1: anytype) void {
+    pub fn destroyed1(self: QTapAndHoldGesture, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -10145,9 +12369,13 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QTapAndHoldGesture, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QTapAndHoldGesture, callback: *const fn (QTapAndHoldGesture, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QTapAndHoldGesture, callback: *const fn (QTapAndHoldGesture, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -10159,16 +12387,16 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` self: QTapAndHoldGesture `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QTapAndHoldGesture, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QTapAndHoldGesture_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QTapAndHoldGesture, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QTapAndHoldGesture_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -10180,12 +12408,16 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` self: QTapAndHoldGesture `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QTapAndHoldGesture, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QTapAndHoldGesture_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QTapAndHoldGesture, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QTapAndHoldGesture_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -10199,9 +12431,13 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QTapAndHoldGesture, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QTapAndHoldGesture, callback: *const fn (QTapAndHoldGesture, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QTapAndHoldGesture, callback: *const fn (QTapAndHoldGesture, QEvent) callconv(.c) bool) void {
         qtc.QTapAndHoldGesture_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -10215,17 +12451,17 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QTapAndHoldGesture, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QTapAndHoldGesture, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QTapAndHoldGesture_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QTapAndHoldGesture_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -10239,13 +12475,17 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QTapAndHoldGesture, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QTapAndHoldGesture, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QTapAndHoldGesture_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QTapAndHoldGesture_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -10259,9 +12499,13 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QTapAndHoldGesture, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QTapAndHoldGesture, callback: *const fn (QTapAndHoldGesture, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QTapAndHoldGesture, callback: *const fn (QTapAndHoldGesture, QObject, QEvent) callconv(.c) bool) void {
         qtc.QTapAndHoldGesture_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -10273,16 +12517,16 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` self: QTapAndHoldGesture `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QTapAndHoldGesture, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QTapAndHoldGesture_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QTapAndHoldGesture, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QTapAndHoldGesture_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -10294,12 +12538,16 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` self: QTapAndHoldGesture `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QTapAndHoldGesture, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QTapAndHoldGesture_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QTapAndHoldGesture, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QTapAndHoldGesture_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -10313,9 +12561,13 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QTapAndHoldGesture, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QTapAndHoldGesture, callback: *const fn (QTapAndHoldGesture, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QTapAndHoldGesture, callback: *const fn (QTapAndHoldGesture, QTimerEvent) callconv(.c) void) void {
         qtc.QTapAndHoldGesture_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -10327,16 +12579,16 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` self: QTapAndHoldGesture `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QTapAndHoldGesture, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QTapAndHoldGesture_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QTapAndHoldGesture, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QTapAndHoldGesture_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -10348,12 +12600,16 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` self: QTapAndHoldGesture `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QTapAndHoldGesture, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QTapAndHoldGesture_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QTapAndHoldGesture, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QTapAndHoldGesture_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -10367,9 +12623,13 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QTapAndHoldGesture, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QTapAndHoldGesture, callback: *const fn (QTapAndHoldGesture, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QTapAndHoldGesture, callback: *const fn (QTapAndHoldGesture, QChildEvent) callconv(.c) void) void {
         qtc.QTapAndHoldGesture_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -10381,16 +12641,16 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` self: QTapAndHoldGesture `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QTapAndHoldGesture, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QTapAndHoldGesture_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QTapAndHoldGesture, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QTapAndHoldGesture_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -10402,12 +12662,16 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` self: QTapAndHoldGesture `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QTapAndHoldGesture, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QTapAndHoldGesture_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QTapAndHoldGesture, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QTapAndHoldGesture_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -10421,9 +12685,13 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QTapAndHoldGesture, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QTapAndHoldGesture, callback: *const fn (QTapAndHoldGesture, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QTapAndHoldGesture, callback: *const fn (QTapAndHoldGesture, QEvent) callconv(.c) void) void {
         qtc.QTapAndHoldGesture_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -10437,14 +12705,14 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QTapAndHoldGesture, signal: anytype) void {
+    pub fn connectNotify(self: QTapAndHoldGesture, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QTapAndHoldGesture_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -10458,11 +12726,15 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QTapAndHoldGesture, signal: anytype) void {
+    pub fn superConnectNotify(self: QTapAndHoldGesture, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QTapAndHoldGesture_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -10475,9 +12747,13 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QTapAndHoldGesture, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QTapAndHoldGesture, callback: *const fn (QTapAndHoldGesture, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QTapAndHoldGesture, callback: *const fn (QTapAndHoldGesture, QMetaMethod) callconv(.c) void) void {
         qtc.QTapAndHoldGesture_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -10491,14 +12767,14 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QTapAndHoldGesture, signal: anytype) void {
+    pub fn disconnectNotify(self: QTapAndHoldGesture, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QTapAndHoldGesture_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -10512,10 +12788,14 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QTapAndHoldGesture, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QTapAndHoldGesture, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QTapAndHoldGesture_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -10529,9 +12809,13 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QTapAndHoldGesture, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QTapAndHoldGesture, callback: *const fn (QTapAndHoldGesture, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QTapAndHoldGesture, callback: *const fn (QTapAndHoldGesture, QMetaMethod) callconv(.c) void) void {
         qtc.QTapAndHoldGesture_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -10543,13 +12827,13 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` self: QTapAndHoldGesture `
     ///
-    pub fn Sender(self: QTapAndHoldGesture) QObject {
+    pub fn sender(self: QTapAndHoldGesture) QObject {
         return .{ .ptr = qtc.QTapAndHoldGesture_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -10561,9 +12845,13 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` self: QTapAndHoldGesture `
     ///
-    pub fn SuperSender(self: QTapAndHoldGesture) QObject {
+    pub fn superSender(self: QTapAndHoldGesture) QObject {
         return .{ .ptr = qtc.QTapAndHoldGesture_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -10577,9 +12865,13 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QTapAndHoldGesture, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QTapAndHoldGesture, callback: *const fn () callconv(.c) QObject) void {
         qtc.QTapAndHoldGesture_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -10591,13 +12883,13 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` self: QTapAndHoldGesture `
     ///
-    pub fn SenderSignalIndex(self: QTapAndHoldGesture) i32 {
+    pub fn senderSignalIndex(self: QTapAndHoldGesture) i32 {
         return qtc.QTapAndHoldGesture_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -10609,9 +12901,13 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` self: QTapAndHoldGesture `
     ///
-    pub fn SuperSenderSignalIndex(self: QTapAndHoldGesture) i32 {
+    pub fn superSenderSignalIndex(self: QTapAndHoldGesture) i32 {
         return qtc.QTapAndHoldGesture_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -10625,9 +12921,13 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QTapAndHoldGesture, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QTapAndHoldGesture, callback: *const fn () callconv(.c) i32) void {
         qtc.QTapAndHoldGesture_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -10641,14 +12941,14 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QTapAndHoldGesture, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QTapAndHoldGesture, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QTapAndHoldGesture_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -10662,10 +12962,14 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QTapAndHoldGesture, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QTapAndHoldGesture, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QTapAndHoldGesture_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -10679,9 +12983,13 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QTapAndHoldGesture, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QTapAndHoldGesture, callback: *const fn (QTapAndHoldGesture, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QTapAndHoldGesture, callback: *const fn (QTapAndHoldGesture, [*:0]const u8) callconv(.c) i32) void {
         qtc.QTapAndHoldGesture_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -10695,14 +13003,14 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QTapAndHoldGesture, signal: anytype) bool {
+    pub fn isSignalConnected(self: QTapAndHoldGesture, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QTapAndHoldGesture_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -10716,10 +13024,14 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QTapAndHoldGesture, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QTapAndHoldGesture, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QTapAndHoldGesture_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -10733,9 +13045,13 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QTapAndHoldGesture, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QTapAndHoldGesture, callback: *const fn (QTapAndHoldGesture, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QTapAndHoldGesture, callback: *const fn (QTapAndHoldGesture, QMetaMethod) callconv(.c) bool) void {
         qtc.QTapAndHoldGesture_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -10749,23 +13065,23 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     /// ` callback: *const fn (self: QTapAndHoldGesture, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QTapAndHoldGesture, callback: *const fn (QTapAndHoldGesture, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QTapAndHoldGesture, callback: *const fn (QTapAndHoldGesture, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtapandholdgesture.html#dtor.QTapAndHoldGesture)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QTapAndHoldGesture `
     ///
-    pub fn Delete(self: QTapAndHoldGesture) void {
+    pub fn delete(self: QTapAndHoldGesture) void {
         qtc.QTapAndHoldGesture_Delete(@ptrCast(self.ptr));
     }
 };
@@ -10781,30 +13097,42 @@ pub const QGestureEvent = extern struct {
     pub const _is_QGestureEvent = {};
     pub const _is_QEvent = {};
 
-    /// New constructs a new QGestureEvent object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QGestureEvent object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` gestures: []QGesture `
+    /// ` _gestures: []QGesture `
     ///
-    pub fn New(gestures: []QGesture) QGestureEvent {
+    pub fn new(_gestures: []QGesture) QGestureEvent {
         const gestures_list = qtc.libqt_list{
-            .len = gestures.len,
-            .data = @ptrCast(gestures.ptr),
+            .len = _gestures.len,
+            .data = @ptrCast(_gestures.ptr),
         };
         return .{ .ptr = qtc.QGestureEvent_new(gestures_list) };
     }
 
-    /// New2 constructs a new QGestureEvent object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QGestureEvent object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QGestureEvent `
     ///
-    pub fn New2(param1: anytype) QGestureEvent {
+    pub fn new2(param1: anytype) QGestureEvent {
         comptime _ = @TypeOf(param1)._is_QGestureEvent;
         return .{ .ptr = qtc.QGestureEvent_new2(@ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `gestures` instead
+    ///
+    pub const Gestures = gestures;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgestureevent.html#gestures)
     ///
@@ -10814,15 +13142,19 @@ pub const QGestureEvent = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Gestures(self: QGestureEvent, allocator: std.mem.Allocator) []QGesture {
+    pub fn gestures(self: QGestureEvent, allocator: std.mem.Allocator) []QGesture {
         const _arr: qtc.libqt_list = qtc.QGestureEvent_Gestures(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGesture, _arr.len) catch @panic("QGestureEvent.Gestures: Memory allocation failed");
-        const _data: [*]QtC.QGesture = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QGesture, _arr.len) catch @panic("QGestureEvent.gestures: Memory allocation failed");
+        const _data_val: [*]QtC.QGesture = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `gesture` instead
+    ///
+    pub const Gesture = gesture;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgestureevent.html#gesture)
     ///
@@ -10832,9 +13164,13 @@ pub const QGestureEvent = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn Gesture(self: QGestureEvent, typeVal: i32) QGesture {
+    pub fn gesture(self: QGestureEvent, typeVal: i32) QGesture {
         return .{ .ptr = qtc.QGestureEvent_Gesture(@ptrCast(self.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `activeGestures` instead
+    ///
+    pub const ActiveGestures = activeGestures;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgestureevent.html#activeGestures)
     ///
@@ -10844,15 +13180,19 @@ pub const QGestureEvent = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ActiveGestures(self: QGestureEvent, allocator: std.mem.Allocator) []QGesture {
+    pub fn activeGestures(self: QGestureEvent, allocator: std.mem.Allocator) []QGesture {
         const _arr: qtc.libqt_list = qtc.QGestureEvent_ActiveGestures(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGesture, _arr.len) catch @panic("QGestureEvent.ActiveGestures: Memory allocation failed");
-        const _data: [*]QtC.QGesture = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QGesture, _arr.len) catch @panic("QGestureEvent.activeGestures: Memory allocation failed");
+        const _data_val: [*]QtC.QGesture = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `canceledGestures` instead
+    ///
+    pub const CanceledGestures = canceledGestures;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgestureevent.html#canceledGestures)
     ///
@@ -10862,15 +13202,19 @@ pub const QGestureEvent = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CanceledGestures(self: QGestureEvent, allocator: std.mem.Allocator) []QGesture {
+    pub fn canceledGestures(self: QGestureEvent, allocator: std.mem.Allocator) []QGesture {
         const _arr: qtc.libqt_list = qtc.QGestureEvent_CanceledGestures(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGesture, _arr.len) catch @panic("QGestureEvent.CanceledGestures: Memory allocation failed");
-        const _data: [*]QtC.QGesture = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QGesture, _arr.len) catch @panic("QGestureEvent.canceledGestures: Memory allocation failed");
+        const _data_val: [*]QtC.QGesture = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccepted` instead
+    ///
+    pub const SetAccepted = setAccepted;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgestureevent.html#setAccepted)
     ///
@@ -10882,11 +13226,15 @@ pub const QGestureEvent = extern struct {
     ///
     /// ` param2: bool `
     ///
-    pub fn SetAccepted(self: QGestureEvent, param1: anytype, param2: bool) void {
+    pub fn setAccepted(self: QGestureEvent, param1: anytype, param2: bool) void {
         comptime _ = @TypeOf(param1)._is_QGesture;
         qtc.QGestureEvent_SetAccepted(@ptrCast(self.ptr), @ptrCast(param1.ptr), param2);
     }
 
+    /// ### DEPRECATED: Use `accept` instead
+    ///
+    pub const Accept = accept;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgestureevent.html#accept)
     ///
     /// ## Parameter(s):
@@ -10895,10 +13243,14 @@ pub const QGestureEvent = extern struct {
     ///
     /// ` param1: QGesture `
     ///
-    pub fn Accept(self: QGestureEvent, param1: anytype) void {
+    pub fn accept(self: QGestureEvent, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QGesture;
         qtc.QGestureEvent_Accept(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `ignore` instead
+    ///
+    pub const Ignore = ignore;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgestureevent.html#ignore)
     ///
@@ -10908,10 +13260,14 @@ pub const QGestureEvent = extern struct {
     ///
     /// ` param1: QGesture `
     ///
-    pub fn Ignore(self: QGestureEvent, param1: anytype) void {
+    pub fn ignore(self: QGestureEvent, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QGesture;
         qtc.QGestureEvent_Ignore(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAccepted` instead
+    ///
+    pub const IsAccepted = isAccepted;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgestureevent.html#isAccepted)
     ///
@@ -10921,10 +13277,14 @@ pub const QGestureEvent = extern struct {
     ///
     /// ` param1: QGesture `
     ///
-    pub fn IsAccepted(self: QGestureEvent, param1: anytype) bool {
+    pub fn isAccepted(self: QGestureEvent, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QGesture;
         return qtc.QGestureEvent_IsAccepted(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAccepted2` instead
+    ///
+    pub const SetAccepted2 = setAccepted2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgestureevent.html#setAccepted)
     ///
@@ -10936,9 +13296,13 @@ pub const QGestureEvent = extern struct {
     ///
     /// ` param2: bool `
     ///
-    pub fn SetAccepted2(self: QGestureEvent, param1: i32, param2: bool) void {
+    pub fn setAccepted2(self: QGestureEvent, param1: i32, param2: bool) void {
         qtc.QGestureEvent_SetAccepted2(@ptrCast(self.ptr), @bitCast(param1), param2);
     }
+
+    /// ### DEPRECATED: Use `accept2` instead
+    ///
+    pub const Accept2 = accept2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgestureevent.html#accept)
     ///
@@ -10948,9 +13312,13 @@ pub const QGestureEvent = extern struct {
     ///
     /// ` param1: qnamespace_enums.GestureType `
     ///
-    pub fn Accept2(self: QGestureEvent, param1: i32) void {
+    pub fn accept2(self: QGestureEvent, param1: i32) void {
         qtc.QGestureEvent_Accept2(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ignore2` instead
+    ///
+    pub const Ignore2 = ignore2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgestureevent.html#ignore)
     ///
@@ -10960,9 +13328,13 @@ pub const QGestureEvent = extern struct {
     ///
     /// ` param1: qnamespace_enums.GestureType `
     ///
-    pub fn Ignore2(self: QGestureEvent, param1: i32) void {
+    pub fn ignore2(self: QGestureEvent, param1: i32) void {
         qtc.QGestureEvent_Ignore2(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `isAccepted2` instead
+    ///
+    pub const IsAccepted2 = isAccepted2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgestureevent.html#isAccepted)
     ///
@@ -10972,9 +13344,13 @@ pub const QGestureEvent = extern struct {
     ///
     /// ` param1: qnamespace_enums.GestureType `
     ///
-    pub fn IsAccepted2(self: QGestureEvent, param1: i32) bool {
+    pub fn isAccepted2(self: QGestureEvent, param1: i32) bool {
         return qtc.QGestureEvent_IsAccepted2(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `setWidget` instead
+    ///
+    pub const SetWidget = setWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgestureevent.html#setWidget)
     ///
@@ -10982,12 +13358,16 @@ pub const QGestureEvent = extern struct {
     ///
     /// ` self: QGestureEvent `
     ///
-    /// ` widget: QWidget `
+    /// ` _widget: QWidget `
     ///
-    pub fn SetWidget(self: QGestureEvent, widget: anytype) void {
-        comptime _ = @TypeOf(widget)._is_QWidget;
-        qtc.QGestureEvent_SetWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr));
+    pub fn setWidget(self: QGestureEvent, _widget: anytype) void {
+        comptime _ = @TypeOf(_widget)._is_QWidget;
+        qtc.QGestureEvent_SetWidget(@ptrCast(self.ptr), @ptrCast(_widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `widget` instead
+    ///
+    pub const Widget = widget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgestureevent.html#widget)
     ///
@@ -10995,9 +13375,13 @@ pub const QGestureEvent = extern struct {
     ///
     /// ` self: QGestureEvent `
     ///
-    pub fn Widget(self: QGestureEvent) QWidget {
+    pub fn widget(self: QGestureEvent) QWidget {
         return .{ .ptr = qtc.QGestureEvent_Widget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapToGraphicsScene` instead
+    ///
+    pub const MapToGraphicsScene = mapToGraphicsScene;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgestureevent.html#mapToGraphicsScene)
     ///
@@ -11007,10 +13391,16 @@ pub const QGestureEvent = extern struct {
     ///
     /// ` gesturePoint: QPointF `
     ///
-    pub fn MapToGraphicsScene(self: QGestureEvent, gesturePoint: anytype) QPointF {
+    pub fn mapToGraphicsScene(self: QGestureEvent, gesturePoint: anytype) QPointF {
         comptime _ = @TypeOf(gesturePoint)._is_QPointF;
         return .{ .ptr = qtc.QGestureEvent_MapToGraphicsScene(@ptrCast(self.ptr), @ptrCast(gesturePoint.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QEvent
     ///
@@ -11024,9 +13414,13 @@ pub const QGestureEvent = extern struct {
     ///
     /// ` qcoreevent_enums.Type `
     ///
-    pub fn Type(self: QGestureEvent) i32 {
+    pub fn type0(self: QGestureEvent) i32 {
         return qtc.QEvent_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `spontaneous` instead
+    ///
+    pub const Spontaneous = spontaneous;
 
     /// Inherited from QEvent
     ///
@@ -11036,9 +13430,13 @@ pub const QGestureEvent = extern struct {
     ///
     /// ` self: QGestureEvent `
     ///
-    pub fn Spontaneous(self: QGestureEvent) bool {
+    pub fn spontaneous(self: QGestureEvent) bool {
         return qtc.QEvent_Spontaneous(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isInputEvent` instead
+    ///
+    pub const IsInputEvent = isInputEvent;
 
     /// Inherited from QEvent
     ///
@@ -11048,9 +13446,13 @@ pub const QGestureEvent = extern struct {
     ///
     /// ` self: QGestureEvent `
     ///
-    pub fn IsInputEvent(self: QGestureEvent) bool {
+    pub fn isInputEvent(self: QGestureEvent) bool {
         return qtc.QEvent_IsInputEvent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isPointerEvent` instead
+    ///
+    pub const IsPointerEvent = isPointerEvent;
 
     /// Inherited from QEvent
     ///
@@ -11060,9 +13462,13 @@ pub const QGestureEvent = extern struct {
     ///
     /// ` self: QGestureEvent `
     ///
-    pub fn IsPointerEvent(self: QGestureEvent) bool {
+    pub fn isPointerEvent(self: QGestureEvent) bool {
         return qtc.QEvent_IsPointerEvent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isSinglePointEvent` instead
+    ///
+    pub const IsSinglePointEvent = isSinglePointEvent;
 
     /// Inherited from QEvent
     ///
@@ -11072,17 +13478,25 @@ pub const QGestureEvent = extern struct {
     ///
     /// ` self: QGestureEvent `
     ///
-    pub fn IsSinglePointEvent(self: QGestureEvent) bool {
+    pub fn isSinglePointEvent(self: QGestureEvent) bool {
         return qtc.QEvent_IsSinglePointEvent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `registerEventType` instead
+    ///
+    pub const RegisterEventType = registerEventType;
 
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#registerEventType)
     ///
-    pub fn RegisterEventType() i32 {
+    pub fn registerEventType() i32 {
         return qtc.QEvent_RegisterEventType();
     }
+
+    /// ### DEPRECATED: Use `registerEventType1` instead
+    ///
+    pub const RegisterEventType1 = registerEventType1;
 
     /// Inherited from QEvent
     ///
@@ -11092,9 +13506,13 @@ pub const QGestureEvent = extern struct {
     ///
     /// ` hint: i32 `
     ///
-    pub fn RegisterEventType1(hint: i32) i32 {
+    pub fn registerEventType1(hint: i32) i32 {
         return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
+
+    /// ### DEPRECATED: Use `clone` instead
+    ///
+    pub const Clone = clone;
 
     /// Inherited from QEvent
     ///
@@ -11106,13 +13524,13 @@ pub const QGestureEvent = extern struct {
     ///
     /// ` self: QGestureEvent `
     ///
-    pub fn Clone(self: QGestureEvent) QEvent {
+    pub fn clone(self: QGestureEvent) QEvent {
         return .{ .ptr = qtc.QGestureEvent_Clone(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperClone` instead
+    /// ### DEPRECATED: Use `superClone` instead
     ///
-    pub const QBaseClone = SuperClone;
+    pub const SuperClone = superClone;
 
     /// Inherited from QEvent
     ///
@@ -11124,9 +13542,13 @@ pub const QGestureEvent = extern struct {
     ///
     /// ` self: QGestureEvent `
     ///
-    pub fn SuperClone(self: QGestureEvent) QEvent {
+    pub fn superClone(self: QGestureEvent) QEvent {
         return .{ .ptr = qtc.QGestureEvent_SuperClone(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onClone` instead
+    ///
+    pub const OnClone = onClone;
 
     /// Inherited from QEvent
     ///
@@ -11140,23 +13562,23 @@ pub const QGestureEvent = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QEvent `
     ///
-    pub fn OnClone(self: QGestureEvent, callback: *const fn () callconv(.c) QEvent) void {
+    pub fn onClone(self: QGestureEvent, callback: *const fn () callconv(.c) QEvent) void {
         qtc.QGestureEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgestureevent.html#dtor.QGestureEvent)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QGestureEvent `
     ///
-    pub fn Delete(self: QGestureEvent) void {
+    pub fn delete(self: QGestureEvent) void {
         qtc.QGestureEvent_Delete(@ptrCast(self.ptr));
     }
 };

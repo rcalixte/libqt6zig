@@ -12,58 +12,81 @@ pub const KTextEditor__LineRange = extern struct {
 
     pub const _is_KTextEditor__LineRange = {};
 
-    /// New constructs a new KTextEditor::LineRange object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() KTextEditor__LineRange {
+    pub const New = new;
+
+    /// Allocate a new KTextEditor::LineRange object in C++ memory
+    ///
+    pub fn new() KTextEditor__LineRange {
         return .{ .ptr = qtc.KTextEditor__LineRange_new() };
     }
 
-    /// New2 constructs a new KTextEditor::LineRange object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KTextEditor::LineRange object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: KTextEditor__LineRange `
     ///
-    pub fn New2(other: anytype) KTextEditor__LineRange {
+    pub fn new2(other: anytype) KTextEditor__LineRange {
         comptime _ = @TypeOf(other)._is_KTextEditor__LineRange;
         return .{ .ptr = qtc.KTextEditor__LineRange_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new KTextEditor::LineRange object and invalidates the source KTextEditor::LineRange object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new KTextEditor::LineRange object and invalidate the source KTextEditor::LineRange object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: KTextEditor__LineRange `
     ///
-    pub fn New3(other: anytype) KTextEditor__LineRange {
+    pub fn new3(other: anytype) KTextEditor__LineRange {
         comptime _ = @TypeOf(other)._is_KTextEditor__LineRange;
         return .{ .ptr = qtc.KTextEditor__LineRange_new3(@ptrCast(other.ptr)) };
     }
 
-    /// New4 constructs a new KTextEditor::LineRange object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new KTextEditor::LineRange object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` start: i32 `
+    /// ` _start: i32 `
     ///
-    /// ` end: i32 `
+    /// ` _end: i32 `
     ///
-    pub fn New4(start: i32, end: i32) KTextEditor__LineRange {
-        return .{ .ptr = qtc.KTextEditor__LineRange_new4(@bitCast(start), @bitCast(end)) };
+    pub fn new4(_start: i32, _end: i32) KTextEditor__LineRange {
+        return .{ .ptr = qtc.KTextEditor__LineRange_new4(@bitCast(_start), @bitCast(_end)) };
     }
 
-    /// New5 constructs a new KTextEditor::LineRange object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new KTextEditor::LineRange object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: KTextEditor__LineRange `
     ///
-    pub fn New5(param1: anytype) KTextEditor__LineRange {
+    pub fn new5(param1: anytype) KTextEditor__LineRange {
         comptime _ = @TypeOf(param1)._is_KTextEditor__LineRange;
         return .{ .ptr = qtc.KTextEditor__LineRange_new5(@ptrCast(param1.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -71,11 +94,14 @@ pub const KTextEditor__LineRange = extern struct {
     ///
     /// ` other: KTextEditor__LineRange `
     ///
-    pub fn CopyAssign(self: KTextEditor__LineRange, other: KTextEditor__LineRange) void {
+    pub fn copyAssign(self: KTextEditor__LineRange, other: KTextEditor__LineRange) void {
         qtc.KTextEditor__LineRange_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -83,9 +109,13 @@ pub const KTextEditor__LineRange = extern struct {
     ///
     /// ` other: KTextEditor__LineRange `
     ///
-    pub fn MoveAssign(self: KTextEditor__LineRange, other: KTextEditor__LineRange) void {
+    pub fn moveAssign(self: KTextEditor__LineRange, other: KTextEditor__LineRange) void {
         qtc.KTextEditor__LineRange_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-linerange.html#isValid)
     ///
@@ -93,15 +123,23 @@ pub const KTextEditor__LineRange = extern struct {
     ///
     /// ` self: KTextEditor__LineRange `
     ///
-    pub fn IsValid(self: KTextEditor__LineRange) bool {
+    pub fn isValid(self: KTextEditor__LineRange) bool {
         return qtc.KTextEditor__LineRange_IsValid(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `invalid` instead
+    ///
+    pub const Invalid = invalid;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-linerange.html#invalid)
     ///
-    pub fn Invalid() KTextEditor__LineRange {
+    pub fn invalid() KTextEditor__LineRange {
         return .{ .ptr = qtc.KTextEditor__LineRange_Invalid() };
     }
+
+    /// ### DEPRECATED: Use `toString` instead
+    ///
+    pub const ToString = toString;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-linerange.html#toString)
     ///
@@ -111,13 +149,17 @@ pub const KTextEditor__LineRange = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToString(self: KTextEditor__LineRange, allocator: std.mem.Allocator) []const u8 {
+    pub fn toString(self: KTextEditor__LineRange, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KTextEditor__LineRange_ToString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__LineRange.ToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__LineRange.toString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `fromString` instead
+    ///
+    pub const FromString = fromString;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-linerange.html#fromString)
     ///
@@ -125,7 +167,7 @@ pub const KTextEditor__LineRange = extern struct {
     ///
     /// ` str: []const u8 `
     ///
-    pub fn FromString(str: []const u8) KTextEditor__LineRange {
+    pub fn fromString(str: []const u8) KTextEditor__LineRange {
         const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
@@ -133,15 +175,23 @@ pub const KTextEditor__LineRange = extern struct {
         return .{ .ptr = qtc.KTextEditor__LineRange_FromString(str_str) };
     }
 
+    /// ### DEPRECATED: Use `start` instead
+    ///
+    pub const Start = start;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-linerange.html#start)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__LineRange `
     ///
-    pub fn Start(self: KTextEditor__LineRange) i32 {
+    pub fn start(self: KTextEditor__LineRange) i32 {
         return qtc.KTextEditor__LineRange_Start(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `end` instead
+    ///
+    pub const End = end;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-linerange.html#end)
     ///
@@ -149,9 +199,13 @@ pub const KTextEditor__LineRange = extern struct {
     ///
     /// ` self: KTextEditor__LineRange `
     ///
-    pub fn End(self: KTextEditor__LineRange) i32 {
+    pub fn end(self: KTextEditor__LineRange) i32 {
         return qtc.KTextEditor__LineRange_End(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setRange` instead
+    ///
+    pub const SetRange = setRange;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-linerange.html#setRange)
     ///
@@ -161,10 +215,14 @@ pub const KTextEditor__LineRange = extern struct {
     ///
     /// ` range: KTextEditor__LineRange `
     ///
-    pub fn SetRange(self: KTextEditor__LineRange, range: anytype) void {
+    pub fn setRange(self: KTextEditor__LineRange, range: anytype) void {
         comptime _ = @TypeOf(range)._is_KTextEditor__LineRange;
         qtc.KTextEditor__LineRange_SetRange(@ptrCast(self.ptr), @ptrCast(range.ptr));
     }
+
+    /// ### DEPRECATED: Use `setRange2` instead
+    ///
+    pub const SetRange2 = setRange2;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-linerange.html#setRange)
     ///
@@ -172,13 +230,17 @@ pub const KTextEditor__LineRange = extern struct {
     ///
     /// ` self: KTextEditor__LineRange `
     ///
-    /// ` start: i32 `
+    /// ` _start: i32 `
     ///
-    /// ` end: i32 `
+    /// ` _end: i32 `
     ///
-    pub fn SetRange2(self: KTextEditor__LineRange, start: i32, end: i32) void {
-        qtc.KTextEditor__LineRange_SetRange2(@ptrCast(self.ptr), @bitCast(start), @bitCast(end));
+    pub fn setRange2(self: KTextEditor__LineRange, _start: i32, _end: i32) void {
+        qtc.KTextEditor__LineRange_SetRange2(@ptrCast(self.ptr), @bitCast(_start), @bitCast(_end));
     }
+
+    /// ### DEPRECATED: Use `setBothLines` instead
+    ///
+    pub const SetBothLines = setBothLines;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-linerange.html#setBothLines)
     ///
@@ -188,9 +250,13 @@ pub const KTextEditor__LineRange = extern struct {
     ///
     /// ` line: i32 `
     ///
-    pub fn SetBothLines(self: KTextEditor__LineRange, line: i32) void {
+    pub fn setBothLines(self: KTextEditor__LineRange, line: i32) void {
         qtc.KTextEditor__LineRange_SetBothLines(@ptrCast(self.ptr), @bitCast(line));
     }
+
+    /// ### DEPRECATED: Use `setStart` instead
+    ///
+    pub const SetStart = setStart;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-linerange.html#setStart)
     ///
@@ -198,11 +264,15 @@ pub const KTextEditor__LineRange = extern struct {
     ///
     /// ` self: KTextEditor__LineRange `
     ///
-    /// ` start: i32 `
+    /// ` _start: i32 `
     ///
-    pub fn SetStart(self: KTextEditor__LineRange, start: i32) void {
-        qtc.KTextEditor__LineRange_SetStart(@ptrCast(self.ptr), @bitCast(start));
+    pub fn setStart(self: KTextEditor__LineRange, _start: i32) void {
+        qtc.KTextEditor__LineRange_SetStart(@ptrCast(self.ptr), @bitCast(_start));
     }
+
+    /// ### DEPRECATED: Use `setEnd` instead
+    ///
+    pub const SetEnd = setEnd;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-linerange.html#setEnd)
     ///
@@ -210,11 +280,15 @@ pub const KTextEditor__LineRange = extern struct {
     ///
     /// ` self: KTextEditor__LineRange `
     ///
-    /// ` end: i32 `
+    /// ` _end: i32 `
     ///
-    pub fn SetEnd(self: KTextEditor__LineRange, end: i32) void {
-        qtc.KTextEditor__LineRange_SetEnd(@ptrCast(self.ptr), @bitCast(end));
+    pub fn setEnd(self: KTextEditor__LineRange, _end: i32) void {
+        qtc.KTextEditor__LineRange_SetEnd(@ptrCast(self.ptr), @bitCast(_end));
     }
+
+    /// ### DEPRECATED: Use `expandToRange` instead
+    ///
+    pub const ExpandToRange = expandToRange;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-linerange.html#expandToRange)
     ///
@@ -224,10 +298,14 @@ pub const KTextEditor__LineRange = extern struct {
     ///
     /// ` range: KTextEditor__LineRange `
     ///
-    pub fn ExpandToRange(self: KTextEditor__LineRange, range: anytype) bool {
+    pub fn expandToRange(self: KTextEditor__LineRange, range: anytype) bool {
         comptime _ = @TypeOf(range)._is_KTextEditor__LineRange;
         return qtc.KTextEditor__LineRange_ExpandToRange(@ptrCast(self.ptr), @ptrCast(range.ptr));
     }
+
+    /// ### DEPRECATED: Use `confineToRange` instead
+    ///
+    pub const ConfineToRange = confineToRange;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-linerange.html#confineToRange)
     ///
@@ -237,10 +315,14 @@ pub const KTextEditor__LineRange = extern struct {
     ///
     /// ` range: KTextEditor__LineRange `
     ///
-    pub fn ConfineToRange(self: KTextEditor__LineRange, range: anytype) bool {
+    pub fn confineToRange(self: KTextEditor__LineRange, range: anytype) bool {
         comptime _ = @TypeOf(range)._is_KTextEditor__LineRange;
         return qtc.KTextEditor__LineRange_ConfineToRange(@ptrCast(self.ptr), @ptrCast(range.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSingleLine` instead
+    ///
+    pub const OnSingleLine = onSingleLine;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-linerange.html#onSingleLine)
     ///
@@ -248,9 +330,13 @@ pub const KTextEditor__LineRange = extern struct {
     ///
     /// ` self: KTextEditor__LineRange `
     ///
-    pub fn OnSingleLine(self: KTextEditor__LineRange) bool {
+    pub fn onSingleLine(self: KTextEditor__LineRange) bool {
         return qtc.KTextEditor__LineRange_OnSingleLine(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `numberOfLines` instead
+    ///
+    pub const NumberOfLines = numberOfLines;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-linerange.html#numberOfLines)
     ///
@@ -258,9 +344,13 @@ pub const KTextEditor__LineRange = extern struct {
     ///
     /// ` self: KTextEditor__LineRange `
     ///
-    pub fn NumberOfLines(self: KTextEditor__LineRange) i32 {
+    pub fn numberOfLines(self: KTextEditor__LineRange) i32 {
         return qtc.KTextEditor__LineRange_NumberOfLines(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `contains` instead
+    ///
+    pub const Contains = contains;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-linerange.html#contains)
     ///
@@ -270,10 +360,14 @@ pub const KTextEditor__LineRange = extern struct {
     ///
     /// ` range: KTextEditor__LineRange `
     ///
-    pub fn Contains(self: KTextEditor__LineRange, range: anytype) bool {
+    pub fn contains(self: KTextEditor__LineRange, range: anytype) bool {
         comptime _ = @TypeOf(range)._is_KTextEditor__LineRange;
         return qtc.KTextEditor__LineRange_Contains(@ptrCast(self.ptr), @ptrCast(range.ptr));
     }
+
+    /// ### DEPRECATED: Use `containsLine` instead
+    ///
+    pub const ContainsLine = containsLine;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-linerange.html#containsLine)
     ///
@@ -283,9 +377,13 @@ pub const KTextEditor__LineRange = extern struct {
     ///
     /// ` line: i32 `
     ///
-    pub fn ContainsLine(self: KTextEditor__LineRange, line: i32) bool {
+    pub fn containsLine(self: KTextEditor__LineRange, line: i32) bool {
         return qtc.KTextEditor__LineRange_ContainsLine(@ptrCast(self.ptr), @bitCast(line));
     }
+
+    /// ### DEPRECATED: Use `overlaps` instead
+    ///
+    pub const Overlaps = overlaps;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-linerange.html#overlaps)
     ///
@@ -295,10 +393,14 @@ pub const KTextEditor__LineRange = extern struct {
     ///
     /// ` range: KTextEditor__LineRange `
     ///
-    pub fn Overlaps(self: KTextEditor__LineRange, range: anytype) bool {
+    pub fn overlaps(self: KTextEditor__LineRange, range: anytype) bool {
         comptime _ = @TypeOf(range)._is_KTextEditor__LineRange;
         return qtc.KTextEditor__LineRange_Overlaps(@ptrCast(self.ptr), @ptrCast(range.ptr));
     }
+
+    /// ### DEPRECATED: Use `overlapsLine` instead
+    ///
+    pub const OverlapsLine = overlapsLine;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-linerange.html#overlapsLine)
     ///
@@ -308,9 +410,13 @@ pub const KTextEditor__LineRange = extern struct {
     ///
     /// ` line: i32 `
     ///
-    pub fn OverlapsLine(self: KTextEditor__LineRange, line: i32) bool {
+    pub fn overlapsLine(self: KTextEditor__LineRange, line: i32) bool {
         return qtc.KTextEditor__LineRange_OverlapsLine(@ptrCast(self.ptr), @bitCast(line));
     }
+
+    /// ### DEPRECATED: Use `intersect` instead
+    ///
+    pub const Intersect = intersect;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-linerange.html#intersect)
     ///
@@ -320,10 +426,14 @@ pub const KTextEditor__LineRange = extern struct {
     ///
     /// ` range: KTextEditor__LineRange `
     ///
-    pub fn Intersect(self: KTextEditor__LineRange, range: anytype) KTextEditor__LineRange {
+    pub fn intersect(self: KTextEditor__LineRange, range: anytype) KTextEditor__LineRange {
         comptime _ = @TypeOf(range)._is_KTextEditor__LineRange;
         return .{ .ptr = qtc.KTextEditor__LineRange_Intersect(@ptrCast(self.ptr), @ptrCast(range.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `encompass` instead
+    ///
+    pub const Encompass = encompass;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-linerange.html#encompass)
     ///
@@ -333,22 +443,22 @@ pub const KTextEditor__LineRange = extern struct {
     ///
     /// ` range: KTextEditor__LineRange `
     ///
-    pub fn Encompass(self: KTextEditor__LineRange, range: anytype) KTextEditor__LineRange {
+    pub fn encompass(self: KTextEditor__LineRange, range: anytype) KTextEditor__LineRange {
         comptime _ = @TypeOf(range)._is_KTextEditor__LineRange;
         return .{ .ptr = qtc.KTextEditor__LineRange_Encompass(@ptrCast(self.ptr), @ptrCast(range.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KTextEditor__LineRange `
     ///
-    pub fn Delete(self: KTextEditor__LineRange) void {
+    pub fn delete(self: KTextEditor__LineRange) void {
         qtc.KTextEditor__LineRange_Delete(@ptrCast(self.ptr));
     }
 };

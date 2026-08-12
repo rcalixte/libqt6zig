@@ -20,57 +20,81 @@ pub const QGenericArgument = extern struct {
 
     pub const _is_QGenericArgument = {};
 
-    /// New constructs a new QGenericArgument object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QGenericArgument object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QGenericArgument `
     ///
-    pub fn New(other: anytype) QGenericArgument {
+    pub fn new(other: anytype) QGenericArgument {
         comptime _ = @TypeOf(other)._is_QGenericArgument;
         return .{ .ptr = qtc.QGenericArgument_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new QGenericArgument object and invalidates the source QGenericArgument object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QGenericArgument object and invalidate the source QGenericArgument object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QGenericArgument `
     ///
-    pub fn New2(other: anytype) QGenericArgument {
+    pub fn new2(other: anytype) QGenericArgument {
         comptime _ = @TypeOf(other)._is_QGenericArgument;
         return .{ .ptr = qtc.QGenericArgument_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QGenericArgument object.
+    /// ### DEPRECATED: Use `new3` instead
     ///
-    pub fn New3() QGenericArgument {
+    pub const New3 = new3;
+
+    /// Allocate a new QGenericArgument object in C++ memory
+    ///
+    pub fn new3() QGenericArgument {
         return .{ .ptr = qtc.QGenericArgument_new3() };
     }
 
-    /// New4 constructs a new QGenericArgument object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QGenericArgument object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QGenericArgument `
     ///
-    pub fn New4(param1: anytype) QGenericArgument {
+    pub fn new4(param1: anytype) QGenericArgument {
         comptime _ = @TypeOf(param1)._is_QGenericArgument;
         return .{ .ptr = qtc.QGenericArgument_new4(@ptrCast(param1.ptr)) };
     }
 
-    /// New5 constructs a new QGenericArgument object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new QGenericArgument object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` aName: [:0]const u8 `
     ///
-    pub fn New5(aName: [:0]const u8) QGenericArgument {
+    pub fn new5(aName: [:0]const u8) QGenericArgument {
         const aName_Cstring = aName.ptr;
         return .{ .ptr = qtc.QGenericArgument_new5(aName_Cstring) };
     }
 
-    /// New6 constructs a new QGenericArgument object.
+    /// ### DEPRECATED: Use `new6` instead
+    ///
+    pub const New6 = new6;
+
+    /// Allocate a new QGenericArgument object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -78,12 +102,15 @@ pub const QGenericArgument = extern struct {
     ///
     /// ` aData: ?*const anyopaque `
     ///
-    pub fn New6(aName: [:0]const u8, aData: ?*const anyopaque) QGenericArgument {
+    pub fn new6(aName: [:0]const u8, aData: ?*const anyopaque) QGenericArgument {
         const aName_Cstring = aName.ptr;
         return .{ .ptr = qtc.QGenericArgument_new6(aName_Cstring, @ptrCast(aData)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -91,11 +118,14 @@ pub const QGenericArgument = extern struct {
     ///
     /// ` other: QGenericArgument `
     ///
-    pub fn CopyAssign(self: QGenericArgument, other: QGenericArgument) void {
+    pub fn copyAssign(self: QGenericArgument, other: QGenericArgument) void {
         qtc.QGenericArgument_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -103,9 +133,13 @@ pub const QGenericArgument = extern struct {
     ///
     /// ` other: QGenericArgument `
     ///
-    pub fn MoveAssign(self: QGenericArgument, other: QGenericArgument) void {
+    pub fn moveAssign(self: QGenericArgument, other: QGenericArgument) void {
         qtc.QGenericArgument_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `data` instead
+    ///
+    pub const Data = data;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgenericargument.html#data)
     ///
@@ -113,9 +147,13 @@ pub const QGenericArgument = extern struct {
     ///
     /// ` self: QGenericArgument `
     ///
-    pub fn Data(self: QGenericArgument) ?*anyopaque {
+    pub fn data(self: QGenericArgument) ?*anyopaque {
         return qtc.QGenericArgument_Data(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgenericargument.html#name)
     ///
@@ -123,24 +161,24 @@ pub const QGenericArgument = extern struct {
     ///
     /// ` self: QGenericArgument `
     ///
-    pub fn Name(self: QGenericArgument) [:0]const u8 {
+    pub fn name(self: QGenericArgument) [:0]const u8 {
         const _ret = qtc.QGenericArgument_Name(@ptrCast(self.ptr));
         return std.mem.span(_ret);
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgenericargument.html#dtor.QGenericArgument)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QGenericArgument `
     ///
-    pub fn Delete(self: QGenericArgument) void {
+    pub fn delete(self: QGenericArgument) void {
         qtc.QGenericArgument_Delete(@ptrCast(self.ptr));
     }
 };
@@ -156,57 +194,81 @@ pub const QGenericReturnArgument = extern struct {
     pub const _is_QGenericReturnArgument = {};
     pub const _is_QGenericArgument = {};
 
-    /// New constructs a new QGenericReturnArgument object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QGenericReturnArgument object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QGenericReturnArgument `
     ///
-    pub fn New(other: anytype) QGenericReturnArgument {
+    pub fn new(other: anytype) QGenericReturnArgument {
         comptime _ = @TypeOf(other)._is_QGenericReturnArgument;
         return .{ .ptr = qtc.QGenericReturnArgument_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new QGenericReturnArgument object and invalidates the source QGenericReturnArgument object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QGenericReturnArgument object and invalidate the source QGenericReturnArgument object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QGenericReturnArgument `
     ///
-    pub fn New2(other: anytype) QGenericReturnArgument {
+    pub fn new2(other: anytype) QGenericReturnArgument {
         comptime _ = @TypeOf(other)._is_QGenericReturnArgument;
         return .{ .ptr = qtc.QGenericReturnArgument_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QGenericReturnArgument object.
+    /// ### DEPRECATED: Use `new3` instead
     ///
-    pub fn New3() QGenericReturnArgument {
+    pub const New3 = new3;
+
+    /// Allocate a new QGenericReturnArgument object in C++ memory
+    ///
+    pub fn new3() QGenericReturnArgument {
         return .{ .ptr = qtc.QGenericReturnArgument_new3() };
     }
 
-    /// New4 constructs a new QGenericReturnArgument object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QGenericReturnArgument object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QGenericReturnArgument `
     ///
-    pub fn New4(param1: anytype) QGenericReturnArgument {
+    pub fn new4(param1: anytype) QGenericReturnArgument {
         comptime _ = @TypeOf(param1)._is_QGenericReturnArgument;
         return .{ .ptr = qtc.QGenericReturnArgument_new4(@ptrCast(param1.ptr)) };
     }
 
-    /// New5 constructs a new QGenericReturnArgument object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new QGenericReturnArgument object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` aName: [:0]const u8 `
     ///
-    pub fn New5(aName: [:0]const u8) QGenericReturnArgument {
+    pub fn new5(aName: [:0]const u8) QGenericReturnArgument {
         const aName_Cstring = aName.ptr;
         return .{ .ptr = qtc.QGenericReturnArgument_new5(aName_Cstring) };
     }
 
-    /// New6 constructs a new QGenericReturnArgument object.
+    /// ### DEPRECATED: Use `new6` instead
+    ///
+    pub const New6 = new6;
+
+    /// Allocate a new QGenericReturnArgument object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -214,12 +276,15 @@ pub const QGenericReturnArgument = extern struct {
     ///
     /// ` aData: ?*anyopaque `
     ///
-    pub fn New6(aName: [:0]const u8, aData: ?*anyopaque) QGenericReturnArgument {
+    pub fn new6(aName: [:0]const u8, aData: ?*anyopaque) QGenericReturnArgument {
         const aName_Cstring = aName.ptr;
         return .{ .ptr = qtc.QGenericReturnArgument_new6(aName_Cstring, @ptrCast(aData)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -227,11 +292,14 @@ pub const QGenericReturnArgument = extern struct {
     ///
     /// ` other: QGenericReturnArgument `
     ///
-    pub fn CopyAssign(self: QGenericReturnArgument, other: QGenericReturnArgument) void {
+    pub fn copyAssign(self: QGenericReturnArgument, other: QGenericReturnArgument) void {
         qtc.QGenericReturnArgument_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -239,9 +307,13 @@ pub const QGenericReturnArgument = extern struct {
     ///
     /// ` other: QGenericReturnArgument `
     ///
-    pub fn MoveAssign(self: QGenericReturnArgument, other: QGenericReturnArgument) void {
+    pub fn moveAssign(self: QGenericReturnArgument, other: QGenericReturnArgument) void {
         qtc.QGenericReturnArgument_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `data` instead
+    ///
+    pub const Data = data;
 
     /// Inherited from QGenericArgument
     ///
@@ -251,9 +323,13 @@ pub const QGenericReturnArgument = extern struct {
     ///
     /// ` self: QGenericReturnArgument `
     ///
-    pub fn Data(self: QGenericReturnArgument) ?*anyopaque {
+    pub fn data(self: QGenericReturnArgument) ?*anyopaque {
         return qtc.QGenericArgument_Data(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// Inherited from QGenericArgument
     ///
@@ -263,24 +339,24 @@ pub const QGenericReturnArgument = extern struct {
     ///
     /// ` self: QGenericReturnArgument `
     ///
-    pub fn Name(self: QGenericReturnArgument) [:0]const u8 {
+    pub fn name(self: QGenericReturnArgument) [:0]const u8 {
         const _ret = qtc.QGenericArgument_Name(@ptrCast(self.ptr));
         return std.mem.span(_ret);
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgenericreturnargument.html#dtor.QGenericReturnArgument)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QGenericReturnArgument `
     ///
-    pub fn Delete(self: QGenericReturnArgument) void {
+    pub fn delete(self: QGenericReturnArgument) void {
         qtc.QGenericReturnArgument_Delete(@ptrCast(self.ptr));
     }
 };
@@ -295,43 +371,51 @@ pub const QMetaMethodArgument = extern struct {
 
     pub const _is_QMetaMethodArgument = {};
 
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetamethodargument.html#name-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QMetaMethodArgument `
     ///
-    pub fn Name(self: QMetaMethodArgument) [:0]const u8 {
+    pub fn name(self: QMetaMethodArgument) [:0]const u8 {
         const name_ret = qtc.QMetaMethodArgument_Name(@ptrCast(self.ptr));
         return std.mem.span(name_ret);
     }
 
+    /// ### DEPRECATED: Use `setName` instead
+    ///
+    pub const SetName = setName;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetamethodargument.html#name-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QMetaMethodArgument `
     ///
-    /// ` name: [:0]const u8 `
+    /// ` _name: [:0]const u8 `
     ///
-    pub fn SetName(self: QMetaMethodArgument, name: [:0]const u8) void {
-        const name_Cstring = name.ptr;
+    pub fn setName(self: QMetaMethodArgument, _name: [:0]const u8) void {
+        const name_Cstring = _name.ptr;
         qtc.QMetaMethodArgument_SetName(@ptrCast(self.ptr), name_Cstring);
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetamethodargument.html#dtor.QMetaMethodArgument)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QMetaMethodArgument `
     ///
-    pub fn Delete(self: QMetaMethodArgument) void {
+    pub fn delete(self: QMetaMethodArgument) void {
         qtc.QMetaMethodArgument_Delete(@ptrCast(self.ptr));
     }
 };
@@ -346,43 +430,51 @@ pub const QMetaMethodReturnArgument = extern struct {
 
     pub const _is_QMetaMethodReturnArgument = {};
 
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetamethodreturnargument.html#name-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QMetaMethodReturnArgument `
     ///
-    pub fn Name(self: QMetaMethodReturnArgument) [:0]const u8 {
+    pub fn name(self: QMetaMethodReturnArgument) [:0]const u8 {
         const name_ret = qtc.QMetaMethodReturnArgument_Name(@ptrCast(self.ptr));
         return std.mem.span(name_ret);
     }
 
+    /// ### DEPRECATED: Use `setName` instead
+    ///
+    pub const SetName = setName;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetamethodreturnargument.html#name-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QMetaMethodReturnArgument `
     ///
-    /// ` name: [:0]const u8 `
+    /// ` _name: [:0]const u8 `
     ///
-    pub fn SetName(self: QMetaMethodReturnArgument, name: [:0]const u8) void {
-        const name_Cstring = name.ptr;
+    pub fn setName(self: QMetaMethodReturnArgument, _name: [:0]const u8) void {
+        const name_Cstring = _name.ptr;
         qtc.QMetaMethodReturnArgument_SetName(@ptrCast(self.ptr), name_Cstring);
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetamethodreturnargument.html#dtor.QMetaMethodReturnArgument)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QMetaMethodReturnArgument `
     ///
-    pub fn Delete(self: QMetaMethodReturnArgument) void {
+    pub fn delete(self: QMetaMethodReturnArgument) void {
         qtc.QMetaMethodReturnArgument_Delete(@ptrCast(self.ptr));
     }
 };
@@ -397,22 +489,34 @@ pub const QMetaObject = extern struct {
 
     pub const _is_QMetaObject = {};
 
-    /// New constructs a new QMetaObject object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QMetaObject {
+    pub const New = new;
+
+    /// Allocate a new QMetaObject object in C++ memory
+    ///
+    pub fn new() QMetaObject {
         return .{ .ptr = qtc.QMetaObject_new() };
     }
 
-    /// New2 constructs a new QMetaObject object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QMetaObject object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QMetaObject `
     ///
-    pub fn New2(param1: anytype) QMetaObject {
+    pub fn new2(param1: anytype) QMetaObject {
         comptime _ = @TypeOf(param1)._is_QMetaObject;
         return .{ .ptr = qtc.QMetaObject_new2(@ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `className` instead
+    ///
+    pub const ClassName = className;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#className)
     ///
@@ -420,10 +524,14 @@ pub const QMetaObject = extern struct {
     ///
     /// ` self: QMetaObject `
     ///
-    pub fn ClassName(self: QMetaObject) [:0]const u8 {
+    pub fn className(self: QMetaObject) [:0]const u8 {
         const _ret = qtc.QMetaObject_ClassName(@ptrCast(self.ptr));
         return std.mem.span(_ret);
     }
+
+    /// ### DEPRECATED: Use `superClass` instead
+    ///
+    pub const SuperClass = superClass;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#superClass)
     ///
@@ -431,9 +539,13 @@ pub const QMetaObject = extern struct {
     ///
     /// ` self: QMetaObject `
     ///
-    pub fn SuperClass(self: QMetaObject) QMetaObject {
+    pub fn superClass(self: QMetaObject) QMetaObject {
         return .{ .ptr = qtc.QMetaObject_SuperClass(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#inherits)
     ///
@@ -443,23 +555,14 @@ pub const QMetaObject = extern struct {
     ///
     /// ` metaObject: QMetaObject `
     ///
-    pub fn Inherits(self: QMetaObject, metaObject: anytype) bool {
+    pub fn inherits(self: QMetaObject, metaObject: anytype) bool {
         comptime _ = @TypeOf(metaObject)._is_QMetaObject;
         return qtc.QMetaObject_Inherits(@ptrCast(self.ptr), @ptrCast(metaObject.ptr));
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#cast)
+    /// ### DEPRECATED: Use `cast` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QMetaObject `
-    ///
-    /// ` obj: QObject `
-    ///
-    pub fn Cast(self: QMetaObject, obj: anytype) QObject {
-        comptime _ = @TypeOf(obj)._is_QObject;
-        return .{ .ptr = qtc.QMetaObject_Cast(@ptrCast(self.ptr), @ptrCast(obj.ptr)) };
-    }
+    pub const Cast = cast;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#cast)
     ///
@@ -469,10 +572,31 @@ pub const QMetaObject = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn Cast2(self: QMetaObject, obj: anytype) QObject {
+    pub fn cast(self: QMetaObject, obj: anytype) QObject {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        return .{ .ptr = qtc.QMetaObject_Cast(@ptrCast(self.ptr), @ptrCast(obj.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `cast2` instead
+    ///
+    pub const Cast2 = cast2;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#cast)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QMetaObject `
+    ///
+    /// ` obj: QObject `
+    ///
+    pub fn cast2(self: QMetaObject, obj: anytype) QObject {
         comptime _ = @TypeOf(obj)._is_QObject;
         return .{ .ptr = qtc.QMetaObject_Cast2(@ptrCast(self.ptr), @ptrCast(obj.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#tr)
     ///
@@ -486,15 +610,19 @@ pub const QMetaObject = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr(self: QMetaObject, allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr(self: QMetaObject, allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QMetaObject_Tr(@ptrCast(self.ptr), s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMetaObject.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMetaObject.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `metaType` instead
+    ///
+    pub const MetaType = metaType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#metaType)
     ///
@@ -502,9 +630,13 @@ pub const QMetaObject = extern struct {
     ///
     /// ` self: QMetaObject `
     ///
-    pub fn MetaType(self: QMetaObject) QMetaType {
+    pub fn metaType(self: QMetaObject) QMetaType {
         return .{ .ptr = qtc.QMetaObject_MetaType(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `methodOffset` instead
+    ///
+    pub const MethodOffset = methodOffset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#methodOffset)
     ///
@@ -512,9 +644,13 @@ pub const QMetaObject = extern struct {
     ///
     /// ` self: QMetaObject `
     ///
-    pub fn MethodOffset(self: QMetaObject) i32 {
+    pub fn methodOffset(self: QMetaObject) i32 {
         return qtc.QMetaObject_MethodOffset(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `enumeratorOffset` instead
+    ///
+    pub const EnumeratorOffset = enumeratorOffset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#enumeratorOffset)
     ///
@@ -522,9 +658,13 @@ pub const QMetaObject = extern struct {
     ///
     /// ` self: QMetaObject `
     ///
-    pub fn EnumeratorOffset(self: QMetaObject) i32 {
+    pub fn enumeratorOffset(self: QMetaObject) i32 {
         return qtc.QMetaObject_EnumeratorOffset(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `propertyOffset` instead
+    ///
+    pub const PropertyOffset = propertyOffset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#propertyOffset)
     ///
@@ -532,9 +672,13 @@ pub const QMetaObject = extern struct {
     ///
     /// ` self: QMetaObject `
     ///
-    pub fn PropertyOffset(self: QMetaObject) i32 {
+    pub fn propertyOffset(self: QMetaObject) i32 {
         return qtc.QMetaObject_PropertyOffset(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `classInfoOffset` instead
+    ///
+    pub const ClassInfoOffset = classInfoOffset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#classInfoOffset)
     ///
@@ -542,9 +686,13 @@ pub const QMetaObject = extern struct {
     ///
     /// ` self: QMetaObject `
     ///
-    pub fn ClassInfoOffset(self: QMetaObject) i32 {
+    pub fn classInfoOffset(self: QMetaObject) i32 {
         return qtc.QMetaObject_ClassInfoOffset(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `constructorCount` instead
+    ///
+    pub const ConstructorCount = constructorCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#constructorCount)
     ///
@@ -552,9 +700,13 @@ pub const QMetaObject = extern struct {
     ///
     /// ` self: QMetaObject `
     ///
-    pub fn ConstructorCount(self: QMetaObject) i32 {
+    pub fn constructorCount(self: QMetaObject) i32 {
         return qtc.QMetaObject_ConstructorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `methodCount` instead
+    ///
+    pub const MethodCount = methodCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#methodCount)
     ///
@@ -562,9 +714,13 @@ pub const QMetaObject = extern struct {
     ///
     /// ` self: QMetaObject `
     ///
-    pub fn MethodCount(self: QMetaObject) i32 {
+    pub fn methodCount(self: QMetaObject) i32 {
         return qtc.QMetaObject_MethodCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `enumeratorCount` instead
+    ///
+    pub const EnumeratorCount = enumeratorCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#enumeratorCount)
     ///
@@ -572,9 +728,13 @@ pub const QMetaObject = extern struct {
     ///
     /// ` self: QMetaObject `
     ///
-    pub fn EnumeratorCount(self: QMetaObject) i32 {
+    pub fn enumeratorCount(self: QMetaObject) i32 {
         return qtc.QMetaObject_EnumeratorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `propertyCount` instead
+    ///
+    pub const PropertyCount = propertyCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#propertyCount)
     ///
@@ -582,9 +742,13 @@ pub const QMetaObject = extern struct {
     ///
     /// ` self: QMetaObject `
     ///
-    pub fn PropertyCount(self: QMetaObject) i32 {
+    pub fn propertyCount(self: QMetaObject) i32 {
         return qtc.QMetaObject_PropertyCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `classInfoCount` instead
+    ///
+    pub const ClassInfoCount = classInfoCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#classInfoCount)
     ///
@@ -592,9 +756,13 @@ pub const QMetaObject = extern struct {
     ///
     /// ` self: QMetaObject `
     ///
-    pub fn ClassInfoCount(self: QMetaObject) i32 {
+    pub fn classInfoCount(self: QMetaObject) i32 {
         return qtc.QMetaObject_ClassInfoCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `indexOfConstructor` instead
+    ///
+    pub const IndexOfConstructor = indexOfConstructor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#indexOfConstructor)
     ///
@@ -602,12 +770,16 @@ pub const QMetaObject = extern struct {
     ///
     /// ` self: QMetaObject `
     ///
-    /// ` constructor: [:0]const u8 `
+    /// ` _constructor: [:0]const u8 `
     ///
-    pub fn IndexOfConstructor(self: QMetaObject, constructor: [:0]const u8) i32 {
-        const constructor_Cstring = constructor.ptr;
+    pub fn indexOfConstructor(self: QMetaObject, _constructor: [:0]const u8) i32 {
+        const constructor_Cstring = _constructor.ptr;
         return qtc.QMetaObject_IndexOfConstructor(@ptrCast(self.ptr), constructor_Cstring);
     }
+
+    /// ### DEPRECATED: Use `indexOfMethod` instead
+    ///
+    pub const IndexOfMethod = indexOfMethod;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#indexOfMethod)
     ///
@@ -615,12 +787,16 @@ pub const QMetaObject = extern struct {
     ///
     /// ` self: QMetaObject `
     ///
-    /// ` method: [:0]const u8 `
+    /// ` _method: [:0]const u8 `
     ///
-    pub fn IndexOfMethod(self: QMetaObject, method: [:0]const u8) i32 {
-        const method_Cstring = method.ptr;
+    pub fn indexOfMethod(self: QMetaObject, _method: [:0]const u8) i32 {
+        const method_Cstring = _method.ptr;
         return qtc.QMetaObject_IndexOfMethod(@ptrCast(self.ptr), method_Cstring);
     }
+
+    /// ### DEPRECATED: Use `indexOfSignal` instead
+    ///
+    pub const IndexOfSignal = indexOfSignal;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#indexOfSignal)
     ///
@@ -630,10 +806,14 @@ pub const QMetaObject = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn IndexOfSignal(self: QMetaObject, signal: [:0]const u8) i32 {
+    pub fn indexOfSignal(self: QMetaObject, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QMetaObject_IndexOfSignal(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `indexOfSlot` instead
+    ///
+    pub const IndexOfSlot = indexOfSlot;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#indexOfSlot)
     ///
@@ -643,10 +823,14 @@ pub const QMetaObject = extern struct {
     ///
     /// ` slot: [:0]const u8 `
     ///
-    pub fn IndexOfSlot(self: QMetaObject, slot: [:0]const u8) i32 {
+    pub fn indexOfSlot(self: QMetaObject, slot: [:0]const u8) i32 {
         const slot_Cstring = slot.ptr;
         return qtc.QMetaObject_IndexOfSlot(@ptrCast(self.ptr), slot_Cstring);
     }
+
+    /// ### DEPRECATED: Use `indexOfEnumerator` instead
+    ///
+    pub const IndexOfEnumerator = indexOfEnumerator;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#indexOfEnumerator)
     ///
@@ -654,12 +838,16 @@ pub const QMetaObject = extern struct {
     ///
     /// ` self: QMetaObject `
     ///
-    /// ` name: [:0]const u8 `
+    /// ` _name: [:0]const u8 `
     ///
-    pub fn IndexOfEnumerator(self: QMetaObject, name: [:0]const u8) i32 {
-        const name_Cstring = name.ptr;
+    pub fn indexOfEnumerator(self: QMetaObject, _name: [:0]const u8) i32 {
+        const name_Cstring = _name.ptr;
         return qtc.QMetaObject_IndexOfEnumerator(@ptrCast(self.ptr), name_Cstring);
     }
+
+    /// ### DEPRECATED: Use `indexOfProperty` instead
+    ///
+    pub const IndexOfProperty = indexOfProperty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#indexOfProperty)
     ///
@@ -667,12 +855,16 @@ pub const QMetaObject = extern struct {
     ///
     /// ` self: QMetaObject `
     ///
-    /// ` name: [:0]const u8 `
+    /// ` _name: [:0]const u8 `
     ///
-    pub fn IndexOfProperty(self: QMetaObject, name: [:0]const u8) i32 {
-        const name_Cstring = name.ptr;
+    pub fn indexOfProperty(self: QMetaObject, _name: [:0]const u8) i32 {
+        const name_Cstring = _name.ptr;
         return qtc.QMetaObject_IndexOfProperty(@ptrCast(self.ptr), name_Cstring);
     }
+
+    /// ### DEPRECATED: Use `indexOfClassInfo` instead
+    ///
+    pub const IndexOfClassInfo = indexOfClassInfo;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#indexOfClassInfo)
     ///
@@ -680,12 +872,16 @@ pub const QMetaObject = extern struct {
     ///
     /// ` self: QMetaObject `
     ///
-    /// ` name: [:0]const u8 `
+    /// ` _name: [:0]const u8 `
     ///
-    pub fn IndexOfClassInfo(self: QMetaObject, name: [:0]const u8) i32 {
-        const name_Cstring = name.ptr;
+    pub fn indexOfClassInfo(self: QMetaObject, _name: [:0]const u8) i32 {
+        const name_Cstring = _name.ptr;
         return qtc.QMetaObject_IndexOfClassInfo(@ptrCast(self.ptr), name_Cstring);
     }
+
+    /// ### DEPRECATED: Use `constructor` instead
+    ///
+    pub const Constructor = constructor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#constructor)
     ///
@@ -695,9 +891,13 @@ pub const QMetaObject = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn Constructor(self: QMetaObject, index: i32) QMetaMethod {
+    pub fn constructor(self: QMetaObject, index: i32) QMetaMethod {
         return .{ .ptr = qtc.QMetaObject_Constructor(@ptrCast(self.ptr), @bitCast(index)) };
     }
+
+    /// ### DEPRECATED: Use `method` instead
+    ///
+    pub const Method = method;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#method)
     ///
@@ -707,9 +907,13 @@ pub const QMetaObject = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn Method(self: QMetaObject, index: i32) QMetaMethod {
+    pub fn method(self: QMetaObject, index: i32) QMetaMethod {
         return .{ .ptr = qtc.QMetaObject_Method(@ptrCast(self.ptr), @bitCast(index)) };
     }
+
+    /// ### DEPRECATED: Use `enumerator` instead
+    ///
+    pub const Enumerator = enumerator;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#enumerator)
     ///
@@ -719,9 +923,13 @@ pub const QMetaObject = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn Enumerator(self: QMetaObject, index: i32) QMetaEnum {
+    pub fn enumerator(self: QMetaObject, index: i32) QMetaEnum {
         return .{ .ptr = qtc.QMetaObject_Enumerator(@ptrCast(self.ptr), @bitCast(index)) };
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#property)
     ///
@@ -731,9 +939,13 @@ pub const QMetaObject = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn Property(self: QMetaObject, index: i32) QMetaProperty {
+    pub fn property(self: QMetaObject, index: i32) QMetaProperty {
         return .{ .ptr = qtc.QMetaObject_Property(@ptrCast(self.ptr), @bitCast(index)) };
     }
+
+    /// ### DEPRECATED: Use `classInfo` instead
+    ///
+    pub const ClassInfo = classInfo;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#classInfo)
     ///
@@ -743,9 +955,13 @@ pub const QMetaObject = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn ClassInfo(self: QMetaObject, index: i32) QMetaClassInfo {
+    pub fn classInfo(self: QMetaObject, index: i32) QMetaClassInfo {
         return .{ .ptr = qtc.QMetaObject_ClassInfo(@ptrCast(self.ptr), @bitCast(index)) };
     }
+
+    /// ### DEPRECATED: Use `userProperty` instead
+    ///
+    pub const UserProperty = userProperty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#userProperty)
     ///
@@ -753,9 +969,13 @@ pub const QMetaObject = extern struct {
     ///
     /// ` self: QMetaObject `
     ///
-    pub fn UserProperty(self: QMetaObject) QMetaProperty {
+    pub fn userProperty(self: QMetaObject) QMetaProperty {
         return .{ .ptr = qtc.QMetaObject_UserProperty(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `checkConnectArgs` instead
+    ///
+    pub const CheckConnectArgs = checkConnectArgs;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#checkConnectArgs)
     ///
@@ -763,13 +983,17 @@ pub const QMetaObject = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` method: [:0]const u8 `
+    /// ` _method: [:0]const u8 `
     ///
-    pub fn CheckConnectArgs(signal: [:0]const u8, method: [:0]const u8) bool {
+    pub fn checkConnectArgs(signal: [:0]const u8, _method: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        const method_Cstring = method.ptr;
+        const method_Cstring = _method.ptr;
         return qtc.QMetaObject_CheckConnectArgs(signal_Cstring, method_Cstring);
     }
+
+    /// ### DEPRECATED: Use `checkConnectArgs2` instead
+    ///
+    pub const CheckConnectArgs2 = checkConnectArgs2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#checkConnectArgs)
     ///
@@ -777,13 +1001,17 @@ pub const QMetaObject = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    /// ` method: QMetaMethod `
+    /// ` _method: QMetaMethod `
     ///
-    pub fn CheckConnectArgs2(signal: anytype, method: anytype) bool {
+    pub fn checkConnectArgs2(signal: anytype, _method: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return qtc.QMetaObject_CheckConnectArgs2(@ptrCast(signal.ptr), @ptrCast(method.ptr));
+        comptime _ = @TypeOf(_method)._is_QMetaMethod;
+        return qtc.QMetaObject_CheckConnectArgs2(@ptrCast(signal.ptr), @ptrCast(_method.ptr));
     }
+
+    /// ### DEPRECATED: Use `normalizedSignature` instead
+    ///
+    pub const NormalizedSignature = normalizedSignature;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#normalizedSignature)
     ///
@@ -791,16 +1019,20 @@ pub const QMetaObject = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` method: [:0]const u8 `
+    /// ` _method: [:0]const u8 `
     ///
-    pub fn NormalizedSignature(allocator: std.mem.Allocator, method: [:0]const u8) []u8 {
-        const method_Cstring = method.ptr;
+    pub fn normalizedSignature(allocator: std.mem.Allocator, _method: [:0]const u8) []u8 {
+        const method_Cstring = _method.ptr;
         var _bytearray: qtc.libqt_string = qtc.QMetaObject_NormalizedSignature(method_Cstring);
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QMetaObject.NormalizedSignature: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QMetaObject.normalizedSignature: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `normalizedType` instead
+    ///
+    pub const NormalizedType = normalizedType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#normalizedType)
     ///
@@ -810,14 +1042,18 @@ pub const QMetaObject = extern struct {
     ///
     /// ` typeVal: [:0]const u8 `
     ///
-    pub fn NormalizedType(allocator: std.mem.Allocator, typeVal: [:0]const u8) []u8 {
+    pub fn normalizedType(allocator: std.mem.Allocator, typeVal: [:0]const u8) []u8 {
         const typeVal_Cstring = typeVal.ptr;
         var _bytearray: qtc.libqt_string = qtc.QMetaObject_NormalizedType(typeVal_Cstring);
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QMetaObject.NormalizedType: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QMetaObject.normalizedType: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#connect)
     ///
@@ -831,11 +1067,15 @@ pub const QMetaObject = extern struct {
     ///
     /// ` method_index: i32 `
     ///
-    pub fn Connect(sender: anytype, signal_index: i32, receiver: anytype, method_index: i32) QMetaObject__Connection {
+    pub fn connect(sender: anytype, signal_index: i32, receiver: anytype, method_index: i32) QMetaObject__Connection {
         comptime _ = @TypeOf(sender)._is_QObject;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return .{ .ptr = qtc.QMetaObject_Connect(@ptrCast(sender.ptr), @bitCast(signal_index), @ptrCast(receiver.ptr), @bitCast(method_index)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#disconnect)
     ///
@@ -849,11 +1089,15 @@ pub const QMetaObject = extern struct {
     ///
     /// ` method_index: i32 `
     ///
-    pub fn Disconnect(sender: anytype, signal_index: i32, receiver: anytype, method_index: i32) bool {
+    pub fn disconnect(sender: anytype, signal_index: i32, receiver: anytype, method_index: i32) bool {
         comptime _ = @TypeOf(sender)._is_QObject;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QMetaObject_Disconnect(@ptrCast(sender.ptr), @bitCast(signal_index), @ptrCast(receiver.ptr), @bitCast(method_index));
     }
+
+    /// ### DEPRECATED: Use `disconnectOne` instead
+    ///
+    pub const DisconnectOne = disconnectOne;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#disconnectOne)
     ///
@@ -867,11 +1111,15 @@ pub const QMetaObject = extern struct {
     ///
     /// ` method_index: i32 `
     ///
-    pub fn DisconnectOne(sender: anytype, signal_index: i32, receiver: anytype, method_index: i32) bool {
+    pub fn disconnectOne(sender: anytype, signal_index: i32, receiver: anytype, method_index: i32) bool {
         comptime _ = @TypeOf(sender)._is_QObject;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QMetaObject_DisconnectOne(@ptrCast(sender.ptr), @bitCast(signal_index), @ptrCast(receiver.ptr), @bitCast(method_index));
     }
+
+    /// ### DEPRECATED: Use `connectSlotsByName` instead
+    ///
+    pub const ConnectSlotsByName = connectSlotsByName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#connectSlotsByName)
     ///
@@ -879,10 +1127,14 @@ pub const QMetaObject = extern struct {
     ///
     /// ` o: QObject `
     ///
-    pub fn ConnectSlotsByName(o: anytype) void {
+    pub fn connectSlotsByName(o: anytype) void {
         comptime _ = @TypeOf(o)._is_QObject;
         qtc.QMetaObject_ConnectSlotsByName(@ptrCast(o.ptr));
     }
+
+    /// ### DEPRECATED: Use `activate` instead
+    ///
+    pub const Activate = activate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#activate)
     ///
@@ -894,10 +1146,14 @@ pub const QMetaObject = extern struct {
     ///
     /// ` argv: *?*anyopaque `
     ///
-    pub fn Activate(sender: anytype, signal_index: i32, argv: *?*anyopaque) void {
+    pub fn activate(sender: anytype, signal_index: i32, argv: *?*anyopaque) void {
         comptime _ = @TypeOf(sender)._is_QObject;
         qtc.QMetaObject_Activate(@ptrCast(sender.ptr), @bitCast(signal_index), @ptrCast(argv));
     }
+
+    /// ### DEPRECATED: Use `activate2` instead
+    ///
+    pub const Activate2 = activate2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#activate)
     ///
@@ -911,11 +1167,15 @@ pub const QMetaObject = extern struct {
     ///
     /// ` argv: *?*anyopaque `
     ///
-    pub fn Activate2(sender: anytype, param2: anytype, local_signal_index: i32, argv: *?*anyopaque) void {
+    pub fn activate2(sender: anytype, param2: anytype, local_signal_index: i32, argv: *?*anyopaque) void {
         comptime _ = @TypeOf(sender)._is_QObject;
         comptime _ = @TypeOf(param2)._is_QMetaObject;
         qtc.QMetaObject_Activate2(@ptrCast(sender.ptr), @ptrCast(param2.ptr), @bitCast(local_signal_index), @ptrCast(argv));
     }
+
+    /// ### DEPRECATED: Use `activate3` instead
+    ///
+    pub const Activate3 = activate3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#activate)
     ///
@@ -929,10 +1189,14 @@ pub const QMetaObject = extern struct {
     ///
     /// ` argv: *?*anyopaque `
     ///
-    pub fn Activate3(sender: anytype, signal_offset: i32, local_signal_index: i32, argv: *?*anyopaque) void {
+    pub fn activate3(sender: anytype, signal_offset: i32, local_signal_index: i32, argv: *?*anyopaque) void {
         comptime _ = @TypeOf(sender)._is_QObject;
         qtc.QMetaObject_Activate3(@ptrCast(sender.ptr), @bitCast(signal_offset), @bitCast(local_signal_index), @ptrCast(argv));
     }
+
+    /// ### DEPRECATED: Use `invokeMethod` instead
+    ///
+    pub const InvokeMethod = invokeMethod;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
     ///
@@ -944,14 +1208,18 @@ pub const QMetaObject = extern struct {
     ///
     /// ` param3: qnamespace_enums.ConnectionType `
     ///
-    /// ` retVal: QGenericReturnArgument `
+    /// ` ret: QGenericReturnArgument `
     ///
-    pub fn InvokeMethod(obj: anytype, member: [:0]const u8, param3: i32, retVal: anytype) bool {
+    pub fn invokeMethod(obj: anytype, member: [:0]const u8, param3: i32, ret: anytype) bool {
         comptime _ = @TypeOf(obj)._is_QObject;
         const member_Cstring = member.ptr;
-        comptime _ = @TypeOf(retVal)._is_QGenericReturnArgument;
-        return qtc.QMetaObject_InvokeMethod(@ptrCast(obj.ptr), member_Cstring, @bitCast(param3), @ptrCast(retVal.ptr));
+        comptime _ = @TypeOf(ret)._is_QGenericReturnArgument;
+        return qtc.QMetaObject_InvokeMethod(@ptrCast(obj.ptr), member_Cstring, @bitCast(param3), @ptrCast(ret.ptr));
     }
+
+    /// ### DEPRECATED: Use `invokeMethod2` instead
+    ///
+    pub const InvokeMethod2 = invokeMethod2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
     ///
@@ -961,14 +1229,18 @@ pub const QMetaObject = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    /// ` retVal: QGenericReturnArgument `
+    /// ` ret: QGenericReturnArgument `
     ///
-    pub fn InvokeMethod2(obj: anytype, member: [:0]const u8, retVal: anytype) bool {
+    pub fn invokeMethod2(obj: anytype, member: [:0]const u8, ret: anytype) bool {
         comptime _ = @TypeOf(obj)._is_QObject;
         const member_Cstring = member.ptr;
-        comptime _ = @TypeOf(retVal)._is_QGenericReturnArgument;
-        return qtc.QMetaObject_InvokeMethod2(@ptrCast(obj.ptr), member_Cstring, @ptrCast(retVal.ptr));
+        comptime _ = @TypeOf(ret)._is_QGenericReturnArgument;
+        return qtc.QMetaObject_InvokeMethod2(@ptrCast(obj.ptr), member_Cstring, @ptrCast(ret.ptr));
     }
+
+    /// ### DEPRECATED: Use `invokeMethod3` instead
+    ///
+    pub const InvokeMethod3 = invokeMethod3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
     ///
@@ -982,12 +1254,16 @@ pub const QMetaObject = extern struct {
     ///
     /// ` val0: QGenericArgument `
     ///
-    pub fn InvokeMethod3(obj: anytype, member: [:0]const u8, typeVal: i32, val0: anytype) bool {
+    pub fn invokeMethod3(obj: anytype, member: [:0]const u8, typeVal: i32, val0: anytype) bool {
         comptime _ = @TypeOf(obj)._is_QObject;
         const member_Cstring = member.ptr;
         comptime _ = @TypeOf(val0)._is_QGenericArgument;
         return qtc.QMetaObject_InvokeMethod3(@ptrCast(obj.ptr), member_Cstring, @bitCast(typeVal), @ptrCast(val0.ptr));
     }
+
+    /// ### DEPRECATED: Use `invokeMethod4` instead
+    ///
+    pub const InvokeMethod4 = invokeMethod4;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
     ///
@@ -999,12 +1275,16 @@ pub const QMetaObject = extern struct {
     ///
     /// ` val0: QGenericArgument `
     ///
-    pub fn InvokeMethod4(obj: anytype, member: [:0]const u8, val0: anytype) bool {
+    pub fn invokeMethod4(obj: anytype, member: [:0]const u8, val0: anytype) bool {
         comptime _ = @TypeOf(obj)._is_QObject;
         const member_Cstring = member.ptr;
         comptime _ = @TypeOf(val0)._is_QGenericArgument;
         return qtc.QMetaObject_InvokeMethod4(@ptrCast(obj.ptr), member_Cstring, @ptrCast(val0.ptr));
     }
+
+    /// ### DEPRECATED: Use `newInstance` instead
+    ///
+    pub const NewInstance = newInstance;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#newInstance)
     ///
@@ -1014,10 +1294,14 @@ pub const QMetaObject = extern struct {
     ///
     /// ` val0: QGenericArgument `
     ///
-    pub fn NewInstance(self: QMetaObject, val0: anytype) QObject {
+    pub fn newInstance(self: QMetaObject, val0: anytype) QObject {
         comptime _ = @TypeOf(val0)._is_QGenericArgument;
         return .{ .ptr = qtc.QMetaObject_NewInstance(@ptrCast(self.ptr), @ptrCast(val0.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `staticMetacall` instead
+    ///
+    pub const StaticMetacall = staticMetacall;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#static_metacall)
     ///
@@ -1031,9 +1315,13 @@ pub const QMetaObject = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn StaticMetacall(self: QMetaObject, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn staticMetacall(self: QMetaObject, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QMetaObject_StaticMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#metacall)
     ///
@@ -1047,20 +1335,14 @@ pub const QMetaObject = extern struct {
     ///
     /// ` param4: *?*anyopaque `
     ///
-    pub fn Metacall(param1: anytype, param2: i32, param3: i32, param4: *?*anyopaque) i32 {
+    pub fn metacall(param1: anytype, param2: i32, param3: i32, param4: *?*anyopaque) i32 {
         comptime _ = @TypeOf(param1)._is_QObject;
         return qtc.QMetaObject_Metacall(@ptrCast(param1.ptr), @bitCast(param2), @bitCast(param3), @ptrCast(param4));
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#d-var)
+    /// ### DEPRECATED: Use `d` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QMetaObject `
-    ///
-    pub fn D(self: QMetaObject) QMetaObject__Data {
-        return .{ .ptr = qtc.QMetaObject_D(@ptrCast(self.ptr)) };
-    }
+    pub const D = d;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#d-var)
     ///
@@ -1068,12 +1350,30 @@ pub const QMetaObject = extern struct {
     ///
     /// ` self: QMetaObject `
     ///
-    /// ` d: QMetaObject__Data `
-    ///
-    pub fn SetD(self: QMetaObject, d: anytype) void {
-        comptime _ = @TypeOf(d)._is_QMetaObject__Data;
-        qtc.QMetaObject_SetD(@ptrCast(self.ptr), @ptrCast(d.ptr));
+    pub fn d(self: QMetaObject) QMetaObject__Data {
+        return .{ .ptr = qtc.QMetaObject_D(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setD` instead
+    ///
+    pub const SetD = setD;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#d-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QMetaObject `
+    ///
+    /// ` _d: QMetaObject__Data `
+    ///
+    pub fn setD(self: QMetaObject, _d: anytype) void {
+        comptime _ = @TypeOf(_d)._is_QMetaObject__Data;
+        qtc.QMetaObject_SetD(@ptrCast(self.ptr), @ptrCast(_d.ptr));
+    }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#tr)
     ///
@@ -1089,15 +1389,19 @@ pub const QMetaObject = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(self: QMetaObject, allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(self: QMetaObject, allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QMetaObject_Tr3(@ptrCast(self.ptr), s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMetaObject.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMetaObject.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#connect)
     ///
@@ -1113,11 +1417,15 @@ pub const QMetaObject = extern struct {
     ///
     /// ` typeVal: i32 `
     ///
-    pub fn Connect5(sender: anytype, signal_index: i32, receiver: anytype, method_index: i32, typeVal: i32) QMetaObject__Connection {
+    pub fn connect5(sender: anytype, signal_index: i32, receiver: anytype, method_index: i32, typeVal: i32) QMetaObject__Connection {
         comptime _ = @TypeOf(sender)._is_QObject;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return .{ .ptr = qtc.QMetaObject_Connect5(@ptrCast(sender.ptr), @bitCast(signal_index), @ptrCast(receiver.ptr), @bitCast(method_index), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect6` instead
+    ///
+    pub const Connect6 = connect6;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#connect)
     ///
@@ -1135,33 +1443,15 @@ pub const QMetaObject = extern struct {
     ///
     /// ` types: *i32 `
     ///
-    pub fn Connect6(sender: anytype, signal_index: i32, receiver: anytype, method_index: i32, typeVal: i32, types: *i32) QMetaObject__Connection {
+    pub fn connect6(sender: anytype, signal_index: i32, receiver: anytype, method_index: i32, typeVal: i32, types: *i32) QMetaObject__Connection {
         comptime _ = @TypeOf(sender)._is_QObject;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return .{ .ptr = qtc.QMetaObject_Connect6(@ptrCast(sender.ptr), @bitCast(signal_index), @ptrCast(receiver.ptr), @bitCast(method_index), @bitCast(typeVal), @ptrCast(types)) };
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
+    /// ### DEPRECATED: Use `invokeMethod5` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` obj: QObject `
-    ///
-    /// ` member: [:0]const u8 `
-    ///
-    /// ` param3: qnamespace_enums.ConnectionType `
-    ///
-    /// ` retVal: QGenericReturnArgument `
-    ///
-    /// ` val0: QGenericArgument `
-    ///
-    pub fn InvokeMethod5(obj: anytype, member: [:0]const u8, param3: i32, retVal: anytype, val0: anytype) bool {
-        comptime _ = @TypeOf(obj)._is_QObject;
-        const member_Cstring = member.ptr;
-        comptime _ = @TypeOf(retVal)._is_QGenericReturnArgument;
-        comptime _ = @TypeOf(val0)._is_QGenericArgument;
-        return qtc.QMetaObject_InvokeMethod5(@ptrCast(obj.ptr), member_Cstring, @bitCast(param3), @ptrCast(retVal.ptr), @ptrCast(val0.ptr));
-    }
+    pub const InvokeMethod5 = invokeMethod5;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
     ///
@@ -1173,20 +1463,21 @@ pub const QMetaObject = extern struct {
     ///
     /// ` param3: qnamespace_enums.ConnectionType `
     ///
-    /// ` retVal: QGenericReturnArgument `
+    /// ` ret: QGenericReturnArgument `
     ///
     /// ` val0: QGenericArgument `
     ///
-    /// ` val1: QGenericArgument `
-    ///
-    pub fn InvokeMethod6(obj: anytype, member: [:0]const u8, param3: i32, retVal: anytype, val0: anytype, val1: anytype) bool {
+    pub fn invokeMethod5(obj: anytype, member: [:0]const u8, param3: i32, ret: anytype, val0: anytype) bool {
         comptime _ = @TypeOf(obj)._is_QObject;
         const member_Cstring = member.ptr;
-        comptime _ = @TypeOf(retVal)._is_QGenericReturnArgument;
+        comptime _ = @TypeOf(ret)._is_QGenericReturnArgument;
         comptime _ = @TypeOf(val0)._is_QGenericArgument;
-        comptime _ = @TypeOf(val1)._is_QGenericArgument;
-        return qtc.QMetaObject_InvokeMethod6(@ptrCast(obj.ptr), member_Cstring, @bitCast(param3), @ptrCast(retVal.ptr), @ptrCast(val0.ptr), @ptrCast(val1.ptr));
+        return qtc.QMetaObject_InvokeMethod5(@ptrCast(obj.ptr), member_Cstring, @bitCast(param3), @ptrCast(ret.ptr), @ptrCast(val0.ptr));
     }
+
+    /// ### DEPRECATED: Use `invokeMethod6` instead
+    ///
+    pub const InvokeMethod6 = invokeMethod6;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
     ///
@@ -1198,23 +1489,24 @@ pub const QMetaObject = extern struct {
     ///
     /// ` param3: qnamespace_enums.ConnectionType `
     ///
-    /// ` retVal: QGenericReturnArgument `
+    /// ` ret: QGenericReturnArgument `
     ///
     /// ` val0: QGenericArgument `
     ///
     /// ` val1: QGenericArgument `
     ///
-    /// ` val2: QGenericArgument `
-    ///
-    pub fn InvokeMethod7(obj: anytype, member: [:0]const u8, param3: i32, retVal: anytype, val0: anytype, val1: anytype, val2: anytype) bool {
+    pub fn invokeMethod6(obj: anytype, member: [:0]const u8, param3: i32, ret: anytype, val0: anytype, val1: anytype) bool {
         comptime _ = @TypeOf(obj)._is_QObject;
         const member_Cstring = member.ptr;
-        comptime _ = @TypeOf(retVal)._is_QGenericReturnArgument;
+        comptime _ = @TypeOf(ret)._is_QGenericReturnArgument;
         comptime _ = @TypeOf(val0)._is_QGenericArgument;
         comptime _ = @TypeOf(val1)._is_QGenericArgument;
-        comptime _ = @TypeOf(val2)._is_QGenericArgument;
-        return qtc.QMetaObject_InvokeMethod7(@ptrCast(obj.ptr), member_Cstring, @bitCast(param3), @ptrCast(retVal.ptr), @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr));
+        return qtc.QMetaObject_InvokeMethod6(@ptrCast(obj.ptr), member_Cstring, @bitCast(param3), @ptrCast(ret.ptr), @ptrCast(val0.ptr), @ptrCast(val1.ptr));
     }
+
+    /// ### DEPRECATED: Use `invokeMethod7` instead
+    ///
+    pub const InvokeMethod7 = invokeMethod7;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
     ///
@@ -1226,7 +1518,7 @@ pub const QMetaObject = extern struct {
     ///
     /// ` param3: qnamespace_enums.ConnectionType `
     ///
-    /// ` retVal: QGenericReturnArgument `
+    /// ` ret: QGenericReturnArgument `
     ///
     /// ` val0: QGenericArgument `
     ///
@@ -1234,18 +1526,19 @@ pub const QMetaObject = extern struct {
     ///
     /// ` val2: QGenericArgument `
     ///
-    /// ` val3: QGenericArgument `
-    ///
-    pub fn InvokeMethod8(obj: anytype, member: [:0]const u8, param3: i32, retVal: anytype, val0: anytype, val1: anytype, val2: anytype, val3: anytype) bool {
+    pub fn invokeMethod7(obj: anytype, member: [:0]const u8, param3: i32, ret: anytype, val0: anytype, val1: anytype, val2: anytype) bool {
         comptime _ = @TypeOf(obj)._is_QObject;
         const member_Cstring = member.ptr;
-        comptime _ = @TypeOf(retVal)._is_QGenericReturnArgument;
+        comptime _ = @TypeOf(ret)._is_QGenericReturnArgument;
         comptime _ = @TypeOf(val0)._is_QGenericArgument;
         comptime _ = @TypeOf(val1)._is_QGenericArgument;
         comptime _ = @TypeOf(val2)._is_QGenericArgument;
-        comptime _ = @TypeOf(val3)._is_QGenericArgument;
-        return qtc.QMetaObject_InvokeMethod8(@ptrCast(obj.ptr), member_Cstring, @bitCast(param3), @ptrCast(retVal.ptr), @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr), @ptrCast(val3.ptr));
+        return qtc.QMetaObject_InvokeMethod7(@ptrCast(obj.ptr), member_Cstring, @bitCast(param3), @ptrCast(ret.ptr), @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr));
     }
+
+    /// ### DEPRECATED: Use `invokeMethod8` instead
+    ///
+    pub const InvokeMethod8 = invokeMethod8;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
     ///
@@ -1257,7 +1550,7 @@ pub const QMetaObject = extern struct {
     ///
     /// ` param3: qnamespace_enums.ConnectionType `
     ///
-    /// ` retVal: QGenericReturnArgument `
+    /// ` ret: QGenericReturnArgument `
     ///
     /// ` val0: QGenericArgument `
     ///
@@ -1267,19 +1560,20 @@ pub const QMetaObject = extern struct {
     ///
     /// ` val3: QGenericArgument `
     ///
-    /// ` val4: QGenericArgument `
-    ///
-    pub fn InvokeMethod9(obj: anytype, member: [:0]const u8, param3: i32, retVal: anytype, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype) bool {
+    pub fn invokeMethod8(obj: anytype, member: [:0]const u8, param3: i32, ret: anytype, val0: anytype, val1: anytype, val2: anytype, val3: anytype) bool {
         comptime _ = @TypeOf(obj)._is_QObject;
         const member_Cstring = member.ptr;
-        comptime _ = @TypeOf(retVal)._is_QGenericReturnArgument;
+        comptime _ = @TypeOf(ret)._is_QGenericReturnArgument;
         comptime _ = @TypeOf(val0)._is_QGenericArgument;
         comptime _ = @TypeOf(val1)._is_QGenericArgument;
         comptime _ = @TypeOf(val2)._is_QGenericArgument;
         comptime _ = @TypeOf(val3)._is_QGenericArgument;
-        comptime _ = @TypeOf(val4)._is_QGenericArgument;
-        return qtc.QMetaObject_InvokeMethod9(@ptrCast(obj.ptr), member_Cstring, @bitCast(param3), @ptrCast(retVal.ptr), @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr), @ptrCast(val3.ptr), @ptrCast(val4.ptr));
+        return qtc.QMetaObject_InvokeMethod8(@ptrCast(obj.ptr), member_Cstring, @bitCast(param3), @ptrCast(ret.ptr), @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr), @ptrCast(val3.ptr));
     }
+
+    /// ### DEPRECATED: Use `invokeMethod9` instead
+    ///
+    pub const InvokeMethod9 = invokeMethod9;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
     ///
@@ -1291,7 +1585,7 @@ pub const QMetaObject = extern struct {
     ///
     /// ` param3: qnamespace_enums.ConnectionType `
     ///
-    /// ` retVal: QGenericReturnArgument `
+    /// ` ret: QGenericReturnArgument `
     ///
     /// ` val0: QGenericArgument `
     ///
@@ -1303,20 +1597,21 @@ pub const QMetaObject = extern struct {
     ///
     /// ` val4: QGenericArgument `
     ///
-    /// ` val5: QGenericArgument `
-    ///
-    pub fn InvokeMethod10(obj: anytype, member: [:0]const u8, param3: i32, retVal: anytype, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype, val5: anytype) bool {
+    pub fn invokeMethod9(obj: anytype, member: [:0]const u8, param3: i32, ret: anytype, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype) bool {
         comptime _ = @TypeOf(obj)._is_QObject;
         const member_Cstring = member.ptr;
-        comptime _ = @TypeOf(retVal)._is_QGenericReturnArgument;
+        comptime _ = @TypeOf(ret)._is_QGenericReturnArgument;
         comptime _ = @TypeOf(val0)._is_QGenericArgument;
         comptime _ = @TypeOf(val1)._is_QGenericArgument;
         comptime _ = @TypeOf(val2)._is_QGenericArgument;
         comptime _ = @TypeOf(val3)._is_QGenericArgument;
         comptime _ = @TypeOf(val4)._is_QGenericArgument;
-        comptime _ = @TypeOf(val5)._is_QGenericArgument;
-        return qtc.QMetaObject_InvokeMethod10(@ptrCast(obj.ptr), member_Cstring, @bitCast(param3), @ptrCast(retVal.ptr), @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr), @ptrCast(val3.ptr), @ptrCast(val4.ptr), @ptrCast(val5.ptr));
+        return qtc.QMetaObject_InvokeMethod9(@ptrCast(obj.ptr), member_Cstring, @bitCast(param3), @ptrCast(ret.ptr), @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr), @ptrCast(val3.ptr), @ptrCast(val4.ptr));
     }
+
+    /// ### DEPRECATED: Use `invokeMethod10` instead
+    ///
+    pub const InvokeMethod10 = invokeMethod10;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
     ///
@@ -1328,7 +1623,7 @@ pub const QMetaObject = extern struct {
     ///
     /// ` param3: qnamespace_enums.ConnectionType `
     ///
-    /// ` retVal: QGenericReturnArgument `
+    /// ` ret: QGenericReturnArgument `
     ///
     /// ` val0: QGenericArgument `
     ///
@@ -1342,21 +1637,22 @@ pub const QMetaObject = extern struct {
     ///
     /// ` val5: QGenericArgument `
     ///
-    /// ` val6: QGenericArgument `
-    ///
-    pub fn InvokeMethod11(obj: anytype, member: [:0]const u8, param3: i32, retVal: anytype, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype, val5: anytype, val6: anytype) bool {
+    pub fn invokeMethod10(obj: anytype, member: [:0]const u8, param3: i32, ret: anytype, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype, val5: anytype) bool {
         comptime _ = @TypeOf(obj)._is_QObject;
         const member_Cstring = member.ptr;
-        comptime _ = @TypeOf(retVal)._is_QGenericReturnArgument;
+        comptime _ = @TypeOf(ret)._is_QGenericReturnArgument;
         comptime _ = @TypeOf(val0)._is_QGenericArgument;
         comptime _ = @TypeOf(val1)._is_QGenericArgument;
         comptime _ = @TypeOf(val2)._is_QGenericArgument;
         comptime _ = @TypeOf(val3)._is_QGenericArgument;
         comptime _ = @TypeOf(val4)._is_QGenericArgument;
         comptime _ = @TypeOf(val5)._is_QGenericArgument;
-        comptime _ = @TypeOf(val6)._is_QGenericArgument;
-        return qtc.QMetaObject_InvokeMethod11(@ptrCast(obj.ptr), member_Cstring, @bitCast(param3), @ptrCast(retVal.ptr), @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr), @ptrCast(val3.ptr), @ptrCast(val4.ptr), @ptrCast(val5.ptr), @ptrCast(val6.ptr));
+        return qtc.QMetaObject_InvokeMethod10(@ptrCast(obj.ptr), member_Cstring, @bitCast(param3), @ptrCast(ret.ptr), @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr), @ptrCast(val3.ptr), @ptrCast(val4.ptr), @ptrCast(val5.ptr));
     }
+
+    /// ### DEPRECATED: Use `invokeMethod11` instead
+    ///
+    pub const InvokeMethod11 = invokeMethod11;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
     ///
@@ -1368,7 +1664,7 @@ pub const QMetaObject = extern struct {
     ///
     /// ` param3: qnamespace_enums.ConnectionType `
     ///
-    /// ` retVal: QGenericReturnArgument `
+    /// ` ret: QGenericReturnArgument `
     ///
     /// ` val0: QGenericArgument `
     ///
@@ -1384,12 +1680,10 @@ pub const QMetaObject = extern struct {
     ///
     /// ` val6: QGenericArgument `
     ///
-    /// ` val7: QGenericArgument `
-    ///
-    pub fn InvokeMethod12(obj: anytype, member: [:0]const u8, param3: i32, retVal: anytype, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype, val5: anytype, val6: anytype, val7: anytype) bool {
+    pub fn invokeMethod11(obj: anytype, member: [:0]const u8, param3: i32, ret: anytype, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype, val5: anytype, val6: anytype) bool {
         comptime _ = @TypeOf(obj)._is_QObject;
         const member_Cstring = member.ptr;
-        comptime _ = @TypeOf(retVal)._is_QGenericReturnArgument;
+        comptime _ = @TypeOf(ret)._is_QGenericReturnArgument;
         comptime _ = @TypeOf(val0)._is_QGenericArgument;
         comptime _ = @TypeOf(val1)._is_QGenericArgument;
         comptime _ = @TypeOf(val2)._is_QGenericArgument;
@@ -1397,9 +1691,12 @@ pub const QMetaObject = extern struct {
         comptime _ = @TypeOf(val4)._is_QGenericArgument;
         comptime _ = @TypeOf(val5)._is_QGenericArgument;
         comptime _ = @TypeOf(val6)._is_QGenericArgument;
-        comptime _ = @TypeOf(val7)._is_QGenericArgument;
-        return qtc.QMetaObject_InvokeMethod12(@ptrCast(obj.ptr), member_Cstring, @bitCast(param3), @ptrCast(retVal.ptr), @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr), @ptrCast(val3.ptr), @ptrCast(val4.ptr), @ptrCast(val5.ptr), @ptrCast(val6.ptr), @ptrCast(val7.ptr));
+        return qtc.QMetaObject_InvokeMethod11(@ptrCast(obj.ptr), member_Cstring, @bitCast(param3), @ptrCast(ret.ptr), @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr), @ptrCast(val3.ptr), @ptrCast(val4.ptr), @ptrCast(val5.ptr), @ptrCast(val6.ptr));
     }
+
+    /// ### DEPRECATED: Use `invokeMethod12` instead
+    ///
+    pub const InvokeMethod12 = invokeMethod12;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
     ///
@@ -1411,7 +1708,7 @@ pub const QMetaObject = extern struct {
     ///
     /// ` param3: qnamespace_enums.ConnectionType `
     ///
-    /// ` retVal: QGenericReturnArgument `
+    /// ` ret: QGenericReturnArgument `
     ///
     /// ` val0: QGenericArgument `
     ///
@@ -1429,12 +1726,10 @@ pub const QMetaObject = extern struct {
     ///
     /// ` val7: QGenericArgument `
     ///
-    /// ` val8: QGenericArgument `
-    ///
-    pub fn InvokeMethod13(obj: anytype, member: [:0]const u8, param3: i32, retVal: anytype, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype, val5: anytype, val6: anytype, val7: anytype, val8: anytype) bool {
+    pub fn invokeMethod12(obj: anytype, member: [:0]const u8, param3: i32, ret: anytype, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype, val5: anytype, val6: anytype, val7: anytype) bool {
         comptime _ = @TypeOf(obj)._is_QObject;
         const member_Cstring = member.ptr;
-        comptime _ = @TypeOf(retVal)._is_QGenericReturnArgument;
+        comptime _ = @TypeOf(ret)._is_QGenericReturnArgument;
         comptime _ = @TypeOf(val0)._is_QGenericArgument;
         comptime _ = @TypeOf(val1)._is_QGenericArgument;
         comptime _ = @TypeOf(val2)._is_QGenericArgument;
@@ -1443,9 +1738,12 @@ pub const QMetaObject = extern struct {
         comptime _ = @TypeOf(val5)._is_QGenericArgument;
         comptime _ = @TypeOf(val6)._is_QGenericArgument;
         comptime _ = @TypeOf(val7)._is_QGenericArgument;
-        comptime _ = @TypeOf(val8)._is_QGenericArgument;
-        return qtc.QMetaObject_InvokeMethod13(@ptrCast(obj.ptr), member_Cstring, @bitCast(param3), @ptrCast(retVal.ptr), @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr), @ptrCast(val3.ptr), @ptrCast(val4.ptr), @ptrCast(val5.ptr), @ptrCast(val6.ptr), @ptrCast(val7.ptr), @ptrCast(val8.ptr));
+        return qtc.QMetaObject_InvokeMethod12(@ptrCast(obj.ptr), member_Cstring, @bitCast(param3), @ptrCast(ret.ptr), @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr), @ptrCast(val3.ptr), @ptrCast(val4.ptr), @ptrCast(val5.ptr), @ptrCast(val6.ptr), @ptrCast(val7.ptr));
     }
+
+    /// ### DEPRECATED: Use `invokeMethod13` instead
+    ///
+    pub const InvokeMethod13 = invokeMethod13;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
     ///
@@ -1457,7 +1755,7 @@ pub const QMetaObject = extern struct {
     ///
     /// ` param3: qnamespace_enums.ConnectionType `
     ///
-    /// ` retVal: QGenericReturnArgument `
+    /// ` ret: QGenericReturnArgument `
     ///
     /// ` val0: QGenericArgument `
     ///
@@ -1477,12 +1775,10 @@ pub const QMetaObject = extern struct {
     ///
     /// ` val8: QGenericArgument `
     ///
-    /// ` val9: QGenericArgument `
-    ///
-    pub fn InvokeMethod14(obj: anytype, member: [:0]const u8, param3: i32, retVal: anytype, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype, val5: anytype, val6: anytype, val7: anytype, val8: anytype, val9: anytype) bool {
+    pub fn invokeMethod13(obj: anytype, member: [:0]const u8, param3: i32, ret: anytype, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype, val5: anytype, val6: anytype, val7: anytype, val8: anytype) bool {
         comptime _ = @TypeOf(obj)._is_QObject;
         const member_Cstring = member.ptr;
-        comptime _ = @TypeOf(retVal)._is_QGenericReturnArgument;
+        comptime _ = @TypeOf(ret)._is_QGenericReturnArgument;
         comptime _ = @TypeOf(val0)._is_QGenericArgument;
         comptime _ = @TypeOf(val1)._is_QGenericArgument;
         comptime _ = @TypeOf(val2)._is_QGenericArgument;
@@ -1492,9 +1788,12 @@ pub const QMetaObject = extern struct {
         comptime _ = @TypeOf(val6)._is_QGenericArgument;
         comptime _ = @TypeOf(val7)._is_QGenericArgument;
         comptime _ = @TypeOf(val8)._is_QGenericArgument;
-        comptime _ = @TypeOf(val9)._is_QGenericArgument;
-        return qtc.QMetaObject_InvokeMethod14(@ptrCast(obj.ptr), member_Cstring, @bitCast(param3), @ptrCast(retVal.ptr), @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr), @ptrCast(val3.ptr), @ptrCast(val4.ptr), @ptrCast(val5.ptr), @ptrCast(val6.ptr), @ptrCast(val7.ptr), @ptrCast(val8.ptr), @ptrCast(val9.ptr));
+        return qtc.QMetaObject_InvokeMethod13(@ptrCast(obj.ptr), member_Cstring, @bitCast(param3), @ptrCast(ret.ptr), @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr), @ptrCast(val3.ptr), @ptrCast(val4.ptr), @ptrCast(val5.ptr), @ptrCast(val6.ptr), @ptrCast(val7.ptr), @ptrCast(val8.ptr));
     }
+
+    /// ### DEPRECATED: Use `invokeMethod14` instead
+    ///
+    pub const InvokeMethod14 = invokeMethod14;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
     ///
@@ -1504,295 +1803,9 @@ pub const QMetaObject = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    /// ` retVal: QGenericReturnArgument `
+    /// ` param3: qnamespace_enums.ConnectionType `
     ///
-    /// ` val0: QGenericArgument `
-    ///
-    pub fn InvokeMethod42(obj: anytype, member: [:0]const u8, retVal: anytype, val0: anytype) bool {
-        comptime _ = @TypeOf(obj)._is_QObject;
-        const member_Cstring = member.ptr;
-        comptime _ = @TypeOf(retVal)._is_QGenericReturnArgument;
-        comptime _ = @TypeOf(val0)._is_QGenericArgument;
-        return qtc.QMetaObject_InvokeMethod42(@ptrCast(obj.ptr), member_Cstring, @ptrCast(retVal.ptr), @ptrCast(val0.ptr));
-    }
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` obj: QObject `
-    ///
-    /// ` member: [:0]const u8 `
-    ///
-    /// ` retVal: QGenericReturnArgument `
-    ///
-    /// ` val0: QGenericArgument `
-    ///
-    /// ` val1: QGenericArgument `
-    ///
-    pub fn InvokeMethod52(obj: anytype, member: [:0]const u8, retVal: anytype, val0: anytype, val1: anytype) bool {
-        comptime _ = @TypeOf(obj)._is_QObject;
-        const member_Cstring = member.ptr;
-        comptime _ = @TypeOf(retVal)._is_QGenericReturnArgument;
-        comptime _ = @TypeOf(val0)._is_QGenericArgument;
-        comptime _ = @TypeOf(val1)._is_QGenericArgument;
-        return qtc.QMetaObject_InvokeMethod52(@ptrCast(obj.ptr), member_Cstring, @ptrCast(retVal.ptr), @ptrCast(val0.ptr), @ptrCast(val1.ptr));
-    }
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` obj: QObject `
-    ///
-    /// ` member: [:0]const u8 `
-    ///
-    /// ` retVal: QGenericReturnArgument `
-    ///
-    /// ` val0: QGenericArgument `
-    ///
-    /// ` val1: QGenericArgument `
-    ///
-    /// ` val2: QGenericArgument `
-    ///
-    pub fn InvokeMethod62(obj: anytype, member: [:0]const u8, retVal: anytype, val0: anytype, val1: anytype, val2: anytype) bool {
-        comptime _ = @TypeOf(obj)._is_QObject;
-        const member_Cstring = member.ptr;
-        comptime _ = @TypeOf(retVal)._is_QGenericReturnArgument;
-        comptime _ = @TypeOf(val0)._is_QGenericArgument;
-        comptime _ = @TypeOf(val1)._is_QGenericArgument;
-        comptime _ = @TypeOf(val2)._is_QGenericArgument;
-        return qtc.QMetaObject_InvokeMethod62(@ptrCast(obj.ptr), member_Cstring, @ptrCast(retVal.ptr), @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr));
-    }
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` obj: QObject `
-    ///
-    /// ` member: [:0]const u8 `
-    ///
-    /// ` retVal: QGenericReturnArgument `
-    ///
-    /// ` val0: QGenericArgument `
-    ///
-    /// ` val1: QGenericArgument `
-    ///
-    /// ` val2: QGenericArgument `
-    ///
-    /// ` val3: QGenericArgument `
-    ///
-    pub fn InvokeMethod72(obj: anytype, member: [:0]const u8, retVal: anytype, val0: anytype, val1: anytype, val2: anytype, val3: anytype) bool {
-        comptime _ = @TypeOf(obj)._is_QObject;
-        const member_Cstring = member.ptr;
-        comptime _ = @TypeOf(retVal)._is_QGenericReturnArgument;
-        comptime _ = @TypeOf(val0)._is_QGenericArgument;
-        comptime _ = @TypeOf(val1)._is_QGenericArgument;
-        comptime _ = @TypeOf(val2)._is_QGenericArgument;
-        comptime _ = @TypeOf(val3)._is_QGenericArgument;
-        return qtc.QMetaObject_InvokeMethod72(@ptrCast(obj.ptr), member_Cstring, @ptrCast(retVal.ptr), @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr), @ptrCast(val3.ptr));
-    }
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` obj: QObject `
-    ///
-    /// ` member: [:0]const u8 `
-    ///
-    /// ` retVal: QGenericReturnArgument `
-    ///
-    /// ` val0: QGenericArgument `
-    ///
-    /// ` val1: QGenericArgument `
-    ///
-    /// ` val2: QGenericArgument `
-    ///
-    /// ` val3: QGenericArgument `
-    ///
-    /// ` val4: QGenericArgument `
-    ///
-    pub fn InvokeMethod82(obj: anytype, member: [:0]const u8, retVal: anytype, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype) bool {
-        comptime _ = @TypeOf(obj)._is_QObject;
-        const member_Cstring = member.ptr;
-        comptime _ = @TypeOf(retVal)._is_QGenericReturnArgument;
-        comptime _ = @TypeOf(val0)._is_QGenericArgument;
-        comptime _ = @TypeOf(val1)._is_QGenericArgument;
-        comptime _ = @TypeOf(val2)._is_QGenericArgument;
-        comptime _ = @TypeOf(val3)._is_QGenericArgument;
-        comptime _ = @TypeOf(val4)._is_QGenericArgument;
-        return qtc.QMetaObject_InvokeMethod82(@ptrCast(obj.ptr), member_Cstring, @ptrCast(retVal.ptr), @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr), @ptrCast(val3.ptr), @ptrCast(val4.ptr));
-    }
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` obj: QObject `
-    ///
-    /// ` member: [:0]const u8 `
-    ///
-    /// ` retVal: QGenericReturnArgument `
-    ///
-    /// ` val0: QGenericArgument `
-    ///
-    /// ` val1: QGenericArgument `
-    ///
-    /// ` val2: QGenericArgument `
-    ///
-    /// ` val3: QGenericArgument `
-    ///
-    /// ` val4: QGenericArgument `
-    ///
-    /// ` val5: QGenericArgument `
-    ///
-    pub fn InvokeMethod92(obj: anytype, member: [:0]const u8, retVal: anytype, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype, val5: anytype) bool {
-        comptime _ = @TypeOf(obj)._is_QObject;
-        const member_Cstring = member.ptr;
-        comptime _ = @TypeOf(retVal)._is_QGenericReturnArgument;
-        comptime _ = @TypeOf(val0)._is_QGenericArgument;
-        comptime _ = @TypeOf(val1)._is_QGenericArgument;
-        comptime _ = @TypeOf(val2)._is_QGenericArgument;
-        comptime _ = @TypeOf(val3)._is_QGenericArgument;
-        comptime _ = @TypeOf(val4)._is_QGenericArgument;
-        comptime _ = @TypeOf(val5)._is_QGenericArgument;
-        return qtc.QMetaObject_InvokeMethod92(@ptrCast(obj.ptr), member_Cstring, @ptrCast(retVal.ptr), @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr), @ptrCast(val3.ptr), @ptrCast(val4.ptr), @ptrCast(val5.ptr));
-    }
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` obj: QObject `
-    ///
-    /// ` member: [:0]const u8 `
-    ///
-    /// ` retVal: QGenericReturnArgument `
-    ///
-    /// ` val0: QGenericArgument `
-    ///
-    /// ` val1: QGenericArgument `
-    ///
-    /// ` val2: QGenericArgument `
-    ///
-    /// ` val3: QGenericArgument `
-    ///
-    /// ` val4: QGenericArgument `
-    ///
-    /// ` val5: QGenericArgument `
-    ///
-    /// ` val6: QGenericArgument `
-    ///
-    pub fn InvokeMethod102(obj: anytype, member: [:0]const u8, retVal: anytype, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype, val5: anytype, val6: anytype) bool {
-        comptime _ = @TypeOf(obj)._is_QObject;
-        const member_Cstring = member.ptr;
-        comptime _ = @TypeOf(retVal)._is_QGenericReturnArgument;
-        comptime _ = @TypeOf(val0)._is_QGenericArgument;
-        comptime _ = @TypeOf(val1)._is_QGenericArgument;
-        comptime _ = @TypeOf(val2)._is_QGenericArgument;
-        comptime _ = @TypeOf(val3)._is_QGenericArgument;
-        comptime _ = @TypeOf(val4)._is_QGenericArgument;
-        comptime _ = @TypeOf(val5)._is_QGenericArgument;
-        comptime _ = @TypeOf(val6)._is_QGenericArgument;
-        return qtc.QMetaObject_InvokeMethod102(@ptrCast(obj.ptr), member_Cstring, @ptrCast(retVal.ptr), @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr), @ptrCast(val3.ptr), @ptrCast(val4.ptr), @ptrCast(val5.ptr), @ptrCast(val6.ptr));
-    }
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` obj: QObject `
-    ///
-    /// ` member: [:0]const u8 `
-    ///
-    /// ` retVal: QGenericReturnArgument `
-    ///
-    /// ` val0: QGenericArgument `
-    ///
-    /// ` val1: QGenericArgument `
-    ///
-    /// ` val2: QGenericArgument `
-    ///
-    /// ` val3: QGenericArgument `
-    ///
-    /// ` val4: QGenericArgument `
-    ///
-    /// ` val5: QGenericArgument `
-    ///
-    /// ` val6: QGenericArgument `
-    ///
-    /// ` val7: QGenericArgument `
-    ///
-    pub fn InvokeMethod112(obj: anytype, member: [:0]const u8, retVal: anytype, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype, val5: anytype, val6: anytype, val7: anytype) bool {
-        comptime _ = @TypeOf(obj)._is_QObject;
-        const member_Cstring = member.ptr;
-        comptime _ = @TypeOf(retVal)._is_QGenericReturnArgument;
-        comptime _ = @TypeOf(val0)._is_QGenericArgument;
-        comptime _ = @TypeOf(val1)._is_QGenericArgument;
-        comptime _ = @TypeOf(val2)._is_QGenericArgument;
-        comptime _ = @TypeOf(val3)._is_QGenericArgument;
-        comptime _ = @TypeOf(val4)._is_QGenericArgument;
-        comptime _ = @TypeOf(val5)._is_QGenericArgument;
-        comptime _ = @TypeOf(val6)._is_QGenericArgument;
-        comptime _ = @TypeOf(val7)._is_QGenericArgument;
-        return qtc.QMetaObject_InvokeMethod112(@ptrCast(obj.ptr), member_Cstring, @ptrCast(retVal.ptr), @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr), @ptrCast(val3.ptr), @ptrCast(val4.ptr), @ptrCast(val5.ptr), @ptrCast(val6.ptr), @ptrCast(val7.ptr));
-    }
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` obj: QObject `
-    ///
-    /// ` member: [:0]const u8 `
-    ///
-    /// ` retVal: QGenericReturnArgument `
-    ///
-    /// ` val0: QGenericArgument `
-    ///
-    /// ` val1: QGenericArgument `
-    ///
-    /// ` val2: QGenericArgument `
-    ///
-    /// ` val3: QGenericArgument `
-    ///
-    /// ` val4: QGenericArgument `
-    ///
-    /// ` val5: QGenericArgument `
-    ///
-    /// ` val6: QGenericArgument `
-    ///
-    /// ` val7: QGenericArgument `
-    ///
-    /// ` val8: QGenericArgument `
-    ///
-    pub fn InvokeMethod122(obj: anytype, member: [:0]const u8, retVal: anytype, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype, val5: anytype, val6: anytype, val7: anytype, val8: anytype) bool {
-        comptime _ = @TypeOf(obj)._is_QObject;
-        const member_Cstring = member.ptr;
-        comptime _ = @TypeOf(retVal)._is_QGenericReturnArgument;
-        comptime _ = @TypeOf(val0)._is_QGenericArgument;
-        comptime _ = @TypeOf(val1)._is_QGenericArgument;
-        comptime _ = @TypeOf(val2)._is_QGenericArgument;
-        comptime _ = @TypeOf(val3)._is_QGenericArgument;
-        comptime _ = @TypeOf(val4)._is_QGenericArgument;
-        comptime _ = @TypeOf(val5)._is_QGenericArgument;
-        comptime _ = @TypeOf(val6)._is_QGenericArgument;
-        comptime _ = @TypeOf(val7)._is_QGenericArgument;
-        comptime _ = @TypeOf(val8)._is_QGenericArgument;
-        return qtc.QMetaObject_InvokeMethod122(@ptrCast(obj.ptr), member_Cstring, @ptrCast(retVal.ptr), @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr), @ptrCast(val3.ptr), @ptrCast(val4.ptr), @ptrCast(val5.ptr), @ptrCast(val6.ptr), @ptrCast(val7.ptr), @ptrCast(val8.ptr));
-    }
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` obj: QObject `
-    ///
-    /// ` member: [:0]const u8 `
-    ///
-    /// ` retVal: QGenericReturnArgument `
+    /// ` ret: QGenericReturnArgument `
     ///
     /// ` val0: QGenericArgument `
     ///
@@ -1814,10 +1827,10 @@ pub const QMetaObject = extern struct {
     ///
     /// ` val9: QGenericArgument `
     ///
-    pub fn InvokeMethod132(obj: anytype, member: [:0]const u8, retVal: anytype, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype, val5: anytype, val6: anytype, val7: anytype, val8: anytype, val9: anytype) bool {
+    pub fn invokeMethod14(obj: anytype, member: [:0]const u8, param3: i32, ret: anytype, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype, val5: anytype, val6: anytype, val7: anytype, val8: anytype, val9: anytype) bool {
         comptime _ = @TypeOf(obj)._is_QObject;
         const member_Cstring = member.ptr;
-        comptime _ = @TypeOf(retVal)._is_QGenericReturnArgument;
+        comptime _ = @TypeOf(ret)._is_QGenericReturnArgument;
         comptime _ = @TypeOf(val0)._is_QGenericArgument;
         comptime _ = @TypeOf(val1)._is_QGenericArgument;
         comptime _ = @TypeOf(val2)._is_QGenericArgument;
@@ -1828,8 +1841,387 @@ pub const QMetaObject = extern struct {
         comptime _ = @TypeOf(val7)._is_QGenericArgument;
         comptime _ = @TypeOf(val8)._is_QGenericArgument;
         comptime _ = @TypeOf(val9)._is_QGenericArgument;
-        return qtc.QMetaObject_InvokeMethod132(@ptrCast(obj.ptr), member_Cstring, @ptrCast(retVal.ptr), @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr), @ptrCast(val3.ptr), @ptrCast(val4.ptr), @ptrCast(val5.ptr), @ptrCast(val6.ptr), @ptrCast(val7.ptr), @ptrCast(val8.ptr), @ptrCast(val9.ptr));
+        return qtc.QMetaObject_InvokeMethod14(@ptrCast(obj.ptr), member_Cstring, @bitCast(param3), @ptrCast(ret.ptr), @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr), @ptrCast(val3.ptr), @ptrCast(val4.ptr), @ptrCast(val5.ptr), @ptrCast(val6.ptr), @ptrCast(val7.ptr), @ptrCast(val8.ptr), @ptrCast(val9.ptr));
     }
+
+    /// ### DEPRECATED: Use `invokeMethod42` instead
+    ///
+    pub const InvokeMethod42 = invokeMethod42;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` obj: QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    /// ` ret: QGenericReturnArgument `
+    ///
+    /// ` val0: QGenericArgument `
+    ///
+    pub fn invokeMethod42(obj: anytype, member: [:0]const u8, ret: anytype, val0: anytype) bool {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        const member_Cstring = member.ptr;
+        comptime _ = @TypeOf(ret)._is_QGenericReturnArgument;
+        comptime _ = @TypeOf(val0)._is_QGenericArgument;
+        return qtc.QMetaObject_InvokeMethod42(@ptrCast(obj.ptr), member_Cstring, @ptrCast(ret.ptr), @ptrCast(val0.ptr));
+    }
+
+    /// ### DEPRECATED: Use `invokeMethod52` instead
+    ///
+    pub const InvokeMethod52 = invokeMethod52;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` obj: QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    /// ` ret: QGenericReturnArgument `
+    ///
+    /// ` val0: QGenericArgument `
+    ///
+    /// ` val1: QGenericArgument `
+    ///
+    pub fn invokeMethod52(obj: anytype, member: [:0]const u8, ret: anytype, val0: anytype, val1: anytype) bool {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        const member_Cstring = member.ptr;
+        comptime _ = @TypeOf(ret)._is_QGenericReturnArgument;
+        comptime _ = @TypeOf(val0)._is_QGenericArgument;
+        comptime _ = @TypeOf(val1)._is_QGenericArgument;
+        return qtc.QMetaObject_InvokeMethod52(@ptrCast(obj.ptr), member_Cstring, @ptrCast(ret.ptr), @ptrCast(val0.ptr), @ptrCast(val1.ptr));
+    }
+
+    /// ### DEPRECATED: Use `invokeMethod62` instead
+    ///
+    pub const InvokeMethod62 = invokeMethod62;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` obj: QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    /// ` ret: QGenericReturnArgument `
+    ///
+    /// ` val0: QGenericArgument `
+    ///
+    /// ` val1: QGenericArgument `
+    ///
+    /// ` val2: QGenericArgument `
+    ///
+    pub fn invokeMethod62(obj: anytype, member: [:0]const u8, ret: anytype, val0: anytype, val1: anytype, val2: anytype) bool {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        const member_Cstring = member.ptr;
+        comptime _ = @TypeOf(ret)._is_QGenericReturnArgument;
+        comptime _ = @TypeOf(val0)._is_QGenericArgument;
+        comptime _ = @TypeOf(val1)._is_QGenericArgument;
+        comptime _ = @TypeOf(val2)._is_QGenericArgument;
+        return qtc.QMetaObject_InvokeMethod62(@ptrCast(obj.ptr), member_Cstring, @ptrCast(ret.ptr), @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr));
+    }
+
+    /// ### DEPRECATED: Use `invokeMethod72` instead
+    ///
+    pub const InvokeMethod72 = invokeMethod72;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` obj: QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    /// ` ret: QGenericReturnArgument `
+    ///
+    /// ` val0: QGenericArgument `
+    ///
+    /// ` val1: QGenericArgument `
+    ///
+    /// ` val2: QGenericArgument `
+    ///
+    /// ` val3: QGenericArgument `
+    ///
+    pub fn invokeMethod72(obj: anytype, member: [:0]const u8, ret: anytype, val0: anytype, val1: anytype, val2: anytype, val3: anytype) bool {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        const member_Cstring = member.ptr;
+        comptime _ = @TypeOf(ret)._is_QGenericReturnArgument;
+        comptime _ = @TypeOf(val0)._is_QGenericArgument;
+        comptime _ = @TypeOf(val1)._is_QGenericArgument;
+        comptime _ = @TypeOf(val2)._is_QGenericArgument;
+        comptime _ = @TypeOf(val3)._is_QGenericArgument;
+        return qtc.QMetaObject_InvokeMethod72(@ptrCast(obj.ptr), member_Cstring, @ptrCast(ret.ptr), @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr), @ptrCast(val3.ptr));
+    }
+
+    /// ### DEPRECATED: Use `invokeMethod82` instead
+    ///
+    pub const InvokeMethod82 = invokeMethod82;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` obj: QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    /// ` ret: QGenericReturnArgument `
+    ///
+    /// ` val0: QGenericArgument `
+    ///
+    /// ` val1: QGenericArgument `
+    ///
+    /// ` val2: QGenericArgument `
+    ///
+    /// ` val3: QGenericArgument `
+    ///
+    /// ` val4: QGenericArgument `
+    ///
+    pub fn invokeMethod82(obj: anytype, member: [:0]const u8, ret: anytype, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype) bool {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        const member_Cstring = member.ptr;
+        comptime _ = @TypeOf(ret)._is_QGenericReturnArgument;
+        comptime _ = @TypeOf(val0)._is_QGenericArgument;
+        comptime _ = @TypeOf(val1)._is_QGenericArgument;
+        comptime _ = @TypeOf(val2)._is_QGenericArgument;
+        comptime _ = @TypeOf(val3)._is_QGenericArgument;
+        comptime _ = @TypeOf(val4)._is_QGenericArgument;
+        return qtc.QMetaObject_InvokeMethod82(@ptrCast(obj.ptr), member_Cstring, @ptrCast(ret.ptr), @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr), @ptrCast(val3.ptr), @ptrCast(val4.ptr));
+    }
+
+    /// ### DEPRECATED: Use `invokeMethod92` instead
+    ///
+    pub const InvokeMethod92 = invokeMethod92;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` obj: QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    /// ` ret: QGenericReturnArgument `
+    ///
+    /// ` val0: QGenericArgument `
+    ///
+    /// ` val1: QGenericArgument `
+    ///
+    /// ` val2: QGenericArgument `
+    ///
+    /// ` val3: QGenericArgument `
+    ///
+    /// ` val4: QGenericArgument `
+    ///
+    /// ` val5: QGenericArgument `
+    ///
+    pub fn invokeMethod92(obj: anytype, member: [:0]const u8, ret: anytype, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype, val5: anytype) bool {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        const member_Cstring = member.ptr;
+        comptime _ = @TypeOf(ret)._is_QGenericReturnArgument;
+        comptime _ = @TypeOf(val0)._is_QGenericArgument;
+        comptime _ = @TypeOf(val1)._is_QGenericArgument;
+        comptime _ = @TypeOf(val2)._is_QGenericArgument;
+        comptime _ = @TypeOf(val3)._is_QGenericArgument;
+        comptime _ = @TypeOf(val4)._is_QGenericArgument;
+        comptime _ = @TypeOf(val5)._is_QGenericArgument;
+        return qtc.QMetaObject_InvokeMethod92(@ptrCast(obj.ptr), member_Cstring, @ptrCast(ret.ptr), @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr), @ptrCast(val3.ptr), @ptrCast(val4.ptr), @ptrCast(val5.ptr));
+    }
+
+    /// ### DEPRECATED: Use `invokeMethod102` instead
+    ///
+    pub const InvokeMethod102 = invokeMethod102;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` obj: QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    /// ` ret: QGenericReturnArgument `
+    ///
+    /// ` val0: QGenericArgument `
+    ///
+    /// ` val1: QGenericArgument `
+    ///
+    /// ` val2: QGenericArgument `
+    ///
+    /// ` val3: QGenericArgument `
+    ///
+    /// ` val4: QGenericArgument `
+    ///
+    /// ` val5: QGenericArgument `
+    ///
+    /// ` val6: QGenericArgument `
+    ///
+    pub fn invokeMethod102(obj: anytype, member: [:0]const u8, ret: anytype, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype, val5: anytype, val6: anytype) bool {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        const member_Cstring = member.ptr;
+        comptime _ = @TypeOf(ret)._is_QGenericReturnArgument;
+        comptime _ = @TypeOf(val0)._is_QGenericArgument;
+        comptime _ = @TypeOf(val1)._is_QGenericArgument;
+        comptime _ = @TypeOf(val2)._is_QGenericArgument;
+        comptime _ = @TypeOf(val3)._is_QGenericArgument;
+        comptime _ = @TypeOf(val4)._is_QGenericArgument;
+        comptime _ = @TypeOf(val5)._is_QGenericArgument;
+        comptime _ = @TypeOf(val6)._is_QGenericArgument;
+        return qtc.QMetaObject_InvokeMethod102(@ptrCast(obj.ptr), member_Cstring, @ptrCast(ret.ptr), @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr), @ptrCast(val3.ptr), @ptrCast(val4.ptr), @ptrCast(val5.ptr), @ptrCast(val6.ptr));
+    }
+
+    /// ### DEPRECATED: Use `invokeMethod112` instead
+    ///
+    pub const InvokeMethod112 = invokeMethod112;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` obj: QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    /// ` ret: QGenericReturnArgument `
+    ///
+    /// ` val0: QGenericArgument `
+    ///
+    /// ` val1: QGenericArgument `
+    ///
+    /// ` val2: QGenericArgument `
+    ///
+    /// ` val3: QGenericArgument `
+    ///
+    /// ` val4: QGenericArgument `
+    ///
+    /// ` val5: QGenericArgument `
+    ///
+    /// ` val6: QGenericArgument `
+    ///
+    /// ` val7: QGenericArgument `
+    ///
+    pub fn invokeMethod112(obj: anytype, member: [:0]const u8, ret: anytype, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype, val5: anytype, val6: anytype, val7: anytype) bool {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        const member_Cstring = member.ptr;
+        comptime _ = @TypeOf(ret)._is_QGenericReturnArgument;
+        comptime _ = @TypeOf(val0)._is_QGenericArgument;
+        comptime _ = @TypeOf(val1)._is_QGenericArgument;
+        comptime _ = @TypeOf(val2)._is_QGenericArgument;
+        comptime _ = @TypeOf(val3)._is_QGenericArgument;
+        comptime _ = @TypeOf(val4)._is_QGenericArgument;
+        comptime _ = @TypeOf(val5)._is_QGenericArgument;
+        comptime _ = @TypeOf(val6)._is_QGenericArgument;
+        comptime _ = @TypeOf(val7)._is_QGenericArgument;
+        return qtc.QMetaObject_InvokeMethod112(@ptrCast(obj.ptr), member_Cstring, @ptrCast(ret.ptr), @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr), @ptrCast(val3.ptr), @ptrCast(val4.ptr), @ptrCast(val5.ptr), @ptrCast(val6.ptr), @ptrCast(val7.ptr));
+    }
+
+    /// ### DEPRECATED: Use `invokeMethod122` instead
+    ///
+    pub const InvokeMethod122 = invokeMethod122;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` obj: QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    /// ` ret: QGenericReturnArgument `
+    ///
+    /// ` val0: QGenericArgument `
+    ///
+    /// ` val1: QGenericArgument `
+    ///
+    /// ` val2: QGenericArgument `
+    ///
+    /// ` val3: QGenericArgument `
+    ///
+    /// ` val4: QGenericArgument `
+    ///
+    /// ` val5: QGenericArgument `
+    ///
+    /// ` val6: QGenericArgument `
+    ///
+    /// ` val7: QGenericArgument `
+    ///
+    /// ` val8: QGenericArgument `
+    ///
+    pub fn invokeMethod122(obj: anytype, member: [:0]const u8, ret: anytype, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype, val5: anytype, val6: anytype, val7: anytype, val8: anytype) bool {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        const member_Cstring = member.ptr;
+        comptime _ = @TypeOf(ret)._is_QGenericReturnArgument;
+        comptime _ = @TypeOf(val0)._is_QGenericArgument;
+        comptime _ = @TypeOf(val1)._is_QGenericArgument;
+        comptime _ = @TypeOf(val2)._is_QGenericArgument;
+        comptime _ = @TypeOf(val3)._is_QGenericArgument;
+        comptime _ = @TypeOf(val4)._is_QGenericArgument;
+        comptime _ = @TypeOf(val5)._is_QGenericArgument;
+        comptime _ = @TypeOf(val6)._is_QGenericArgument;
+        comptime _ = @TypeOf(val7)._is_QGenericArgument;
+        comptime _ = @TypeOf(val8)._is_QGenericArgument;
+        return qtc.QMetaObject_InvokeMethod122(@ptrCast(obj.ptr), member_Cstring, @ptrCast(ret.ptr), @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr), @ptrCast(val3.ptr), @ptrCast(val4.ptr), @ptrCast(val5.ptr), @ptrCast(val6.ptr), @ptrCast(val7.ptr), @ptrCast(val8.ptr));
+    }
+
+    /// ### DEPRECATED: Use `invokeMethod132` instead
+    ///
+    pub const InvokeMethod132 = invokeMethod132;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` obj: QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    /// ` ret: QGenericReturnArgument `
+    ///
+    /// ` val0: QGenericArgument `
+    ///
+    /// ` val1: QGenericArgument `
+    ///
+    /// ` val2: QGenericArgument `
+    ///
+    /// ` val3: QGenericArgument `
+    ///
+    /// ` val4: QGenericArgument `
+    ///
+    /// ` val5: QGenericArgument `
+    ///
+    /// ` val6: QGenericArgument `
+    ///
+    /// ` val7: QGenericArgument `
+    ///
+    /// ` val8: QGenericArgument `
+    ///
+    /// ` val9: QGenericArgument `
+    ///
+    pub fn invokeMethod132(obj: anytype, member: [:0]const u8, ret: anytype, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype, val5: anytype, val6: anytype, val7: anytype, val8: anytype, val9: anytype) bool {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        const member_Cstring = member.ptr;
+        comptime _ = @TypeOf(ret)._is_QGenericReturnArgument;
+        comptime _ = @TypeOf(val0)._is_QGenericArgument;
+        comptime _ = @TypeOf(val1)._is_QGenericArgument;
+        comptime _ = @TypeOf(val2)._is_QGenericArgument;
+        comptime _ = @TypeOf(val3)._is_QGenericArgument;
+        comptime _ = @TypeOf(val4)._is_QGenericArgument;
+        comptime _ = @TypeOf(val5)._is_QGenericArgument;
+        comptime _ = @TypeOf(val6)._is_QGenericArgument;
+        comptime _ = @TypeOf(val7)._is_QGenericArgument;
+        comptime _ = @TypeOf(val8)._is_QGenericArgument;
+        comptime _ = @TypeOf(val9)._is_QGenericArgument;
+        return qtc.QMetaObject_InvokeMethod132(@ptrCast(obj.ptr), member_Cstring, @ptrCast(ret.ptr), @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr), @ptrCast(val3.ptr), @ptrCast(val4.ptr), @ptrCast(val5.ptr), @ptrCast(val6.ptr), @ptrCast(val7.ptr), @ptrCast(val8.ptr), @ptrCast(val9.ptr));
+    }
+
+    /// ### DEPRECATED: Use `invokeMethod53` instead
+    ///
+    pub const InvokeMethod53 = invokeMethod53;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
     ///
@@ -1845,7 +2237,7 @@ pub const QMetaObject = extern struct {
     ///
     /// ` val1: QGenericArgument `
     ///
-    pub fn InvokeMethod53(obj: anytype, member: [:0]const u8, typeVal: i32, val0: anytype, val1: anytype) bool {
+    pub fn invokeMethod53(obj: anytype, member: [:0]const u8, typeVal: i32, val0: anytype, val1: anytype) bool {
         comptime _ = @TypeOf(obj)._is_QObject;
         const member_Cstring = member.ptr;
         comptime _ = @TypeOf(val0)._is_QGenericArgument;
@@ -1853,6 +2245,10 @@ pub const QMetaObject = extern struct {
         return qtc.QMetaObject_InvokeMethod53(@ptrCast(obj.ptr), member_Cstring, @bitCast(typeVal), @ptrCast(val0.ptr), @ptrCast(val1.ptr));
     }
 
+    /// ### DEPRECATED: Use `invokeMethod63` instead
+    ///
+    pub const InvokeMethod63 = invokeMethod63;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
     ///
     /// ## Parameter(s):
@@ -1869,7 +2265,7 @@ pub const QMetaObject = extern struct {
     ///
     /// ` val2: QGenericArgument `
     ///
-    pub fn InvokeMethod63(obj: anytype, member: [:0]const u8, typeVal: i32, val0: anytype, val1: anytype, val2: anytype) bool {
+    pub fn invokeMethod63(obj: anytype, member: [:0]const u8, typeVal: i32, val0: anytype, val1: anytype, val2: anytype) bool {
         comptime _ = @TypeOf(obj)._is_QObject;
         const member_Cstring = member.ptr;
         comptime _ = @TypeOf(val0)._is_QGenericArgument;
@@ -1878,6 +2274,10 @@ pub const QMetaObject = extern struct {
         return qtc.QMetaObject_InvokeMethod63(@ptrCast(obj.ptr), member_Cstring, @bitCast(typeVal), @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr));
     }
 
+    /// ### DEPRECATED: Use `invokeMethod73` instead
+    ///
+    pub const InvokeMethod73 = invokeMethod73;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
     ///
     /// ## Parameter(s):
@@ -1896,7 +2296,7 @@ pub const QMetaObject = extern struct {
     ///
     /// ` val3: QGenericArgument `
     ///
-    pub fn InvokeMethod73(obj: anytype, member: [:0]const u8, typeVal: i32, val0: anytype, val1: anytype, val2: anytype, val3: anytype) bool {
+    pub fn invokeMethod73(obj: anytype, member: [:0]const u8, typeVal: i32, val0: anytype, val1: anytype, val2: anytype, val3: anytype) bool {
         comptime _ = @TypeOf(obj)._is_QObject;
         const member_Cstring = member.ptr;
         comptime _ = @TypeOf(val0)._is_QGenericArgument;
@@ -1906,6 +2306,10 @@ pub const QMetaObject = extern struct {
         return qtc.QMetaObject_InvokeMethod73(@ptrCast(obj.ptr), member_Cstring, @bitCast(typeVal), @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr), @ptrCast(val3.ptr));
     }
 
+    /// ### DEPRECATED: Use `invokeMethod83` instead
+    ///
+    pub const InvokeMethod83 = invokeMethod83;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
     ///
     /// ## Parameter(s):
@@ -1926,7 +2330,7 @@ pub const QMetaObject = extern struct {
     ///
     /// ` val4: QGenericArgument `
     ///
-    pub fn InvokeMethod83(obj: anytype, member: [:0]const u8, typeVal: i32, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype) bool {
+    pub fn invokeMethod83(obj: anytype, member: [:0]const u8, typeVal: i32, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype) bool {
         comptime _ = @TypeOf(obj)._is_QObject;
         const member_Cstring = member.ptr;
         comptime _ = @TypeOf(val0)._is_QGenericArgument;
@@ -1937,6 +2341,10 @@ pub const QMetaObject = extern struct {
         return qtc.QMetaObject_InvokeMethod83(@ptrCast(obj.ptr), member_Cstring, @bitCast(typeVal), @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr), @ptrCast(val3.ptr), @ptrCast(val4.ptr));
     }
 
+    /// ### DEPRECATED: Use `invokeMethod93` instead
+    ///
+    pub const InvokeMethod93 = invokeMethod93;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
     ///
     /// ## Parameter(s):
@@ -1959,7 +2367,7 @@ pub const QMetaObject = extern struct {
     ///
     /// ` val5: QGenericArgument `
     ///
-    pub fn InvokeMethod93(obj: anytype, member: [:0]const u8, typeVal: i32, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype, val5: anytype) bool {
+    pub fn invokeMethod93(obj: anytype, member: [:0]const u8, typeVal: i32, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype, val5: anytype) bool {
         comptime _ = @TypeOf(obj)._is_QObject;
         const member_Cstring = member.ptr;
         comptime _ = @TypeOf(val0)._is_QGenericArgument;
@@ -1971,6 +2379,10 @@ pub const QMetaObject = extern struct {
         return qtc.QMetaObject_InvokeMethod93(@ptrCast(obj.ptr), member_Cstring, @bitCast(typeVal), @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr), @ptrCast(val3.ptr), @ptrCast(val4.ptr), @ptrCast(val5.ptr));
     }
 
+    /// ### DEPRECATED: Use `invokeMethod103` instead
+    ///
+    pub const InvokeMethod103 = invokeMethod103;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
     ///
     /// ## Parameter(s):
@@ -1995,7 +2407,7 @@ pub const QMetaObject = extern struct {
     ///
     /// ` val6: QGenericArgument `
     ///
-    pub fn InvokeMethod103(obj: anytype, member: [:0]const u8, typeVal: i32, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype, val5: anytype, val6: anytype) bool {
+    pub fn invokeMethod103(obj: anytype, member: [:0]const u8, typeVal: i32, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype, val5: anytype, val6: anytype) bool {
         comptime _ = @TypeOf(obj)._is_QObject;
         const member_Cstring = member.ptr;
         comptime _ = @TypeOf(val0)._is_QGenericArgument;
@@ -2008,6 +2420,10 @@ pub const QMetaObject = extern struct {
         return qtc.QMetaObject_InvokeMethod103(@ptrCast(obj.ptr), member_Cstring, @bitCast(typeVal), @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr), @ptrCast(val3.ptr), @ptrCast(val4.ptr), @ptrCast(val5.ptr), @ptrCast(val6.ptr));
     }
 
+    /// ### DEPRECATED: Use `invokeMethod113` instead
+    ///
+    pub const InvokeMethod113 = invokeMethod113;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
     ///
     /// ## Parameter(s):
@@ -2034,7 +2450,7 @@ pub const QMetaObject = extern struct {
     ///
     /// ` val7: QGenericArgument `
     ///
-    pub fn InvokeMethod113(obj: anytype, member: [:0]const u8, typeVal: i32, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype, val5: anytype, val6: anytype, val7: anytype) bool {
+    pub fn invokeMethod113(obj: anytype, member: [:0]const u8, typeVal: i32, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype, val5: anytype, val6: anytype, val7: anytype) bool {
         comptime _ = @TypeOf(obj)._is_QObject;
         const member_Cstring = member.ptr;
         comptime _ = @TypeOf(val0)._is_QGenericArgument;
@@ -2048,6 +2464,10 @@ pub const QMetaObject = extern struct {
         return qtc.QMetaObject_InvokeMethod113(@ptrCast(obj.ptr), member_Cstring, @bitCast(typeVal), @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr), @ptrCast(val3.ptr), @ptrCast(val4.ptr), @ptrCast(val5.ptr), @ptrCast(val6.ptr), @ptrCast(val7.ptr));
     }
 
+    /// ### DEPRECATED: Use `invokeMethod123` instead
+    ///
+    pub const InvokeMethod123 = invokeMethod123;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
     ///
     /// ## Parameter(s):
@@ -2076,7 +2496,7 @@ pub const QMetaObject = extern struct {
     ///
     /// ` val8: QGenericArgument `
     ///
-    pub fn InvokeMethod123(obj: anytype, member: [:0]const u8, typeVal: i32, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype, val5: anytype, val6: anytype, val7: anytype, val8: anytype) bool {
+    pub fn invokeMethod123(obj: anytype, member: [:0]const u8, typeVal: i32, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype, val5: anytype, val6: anytype, val7: anytype, val8: anytype) bool {
         comptime _ = @TypeOf(obj)._is_QObject;
         const member_Cstring = member.ptr;
         comptime _ = @TypeOf(val0)._is_QGenericArgument;
@@ -2091,6 +2511,10 @@ pub const QMetaObject = extern struct {
         return qtc.QMetaObject_InvokeMethod123(@ptrCast(obj.ptr), member_Cstring, @bitCast(typeVal), @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr), @ptrCast(val3.ptr), @ptrCast(val4.ptr), @ptrCast(val5.ptr), @ptrCast(val6.ptr), @ptrCast(val7.ptr), @ptrCast(val8.ptr));
     }
 
+    /// ### DEPRECATED: Use `invokeMethod133` instead
+    ///
+    pub const InvokeMethod133 = invokeMethod133;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
     ///
     /// ## Parameter(s):
@@ -2121,7 +2545,7 @@ pub const QMetaObject = extern struct {
     ///
     /// ` val9: QGenericArgument `
     ///
-    pub fn InvokeMethod133(obj: anytype, member: [:0]const u8, typeVal: i32, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype, val5: anytype, val6: anytype, val7: anytype, val8: anytype, val9: anytype) bool {
+    pub fn invokeMethod133(obj: anytype, member: [:0]const u8, typeVal: i32, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype, val5: anytype, val6: anytype, val7: anytype, val8: anytype, val9: anytype) bool {
         comptime _ = @TypeOf(obj)._is_QObject;
         const member_Cstring = member.ptr;
         comptime _ = @TypeOf(val0)._is_QGenericArgument;
@@ -2137,6 +2561,10 @@ pub const QMetaObject = extern struct {
         return qtc.QMetaObject_InvokeMethod133(@ptrCast(obj.ptr), member_Cstring, @bitCast(typeVal), @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr), @ptrCast(val3.ptr), @ptrCast(val4.ptr), @ptrCast(val5.ptr), @ptrCast(val6.ptr), @ptrCast(val7.ptr), @ptrCast(val8.ptr), @ptrCast(val9.ptr));
     }
 
+    /// ### DEPRECATED: Use `invokeMethod43` instead
+    ///
+    pub const InvokeMethod43 = invokeMethod43;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
     ///
     /// ## Parameter(s):
@@ -2149,13 +2577,17 @@ pub const QMetaObject = extern struct {
     ///
     /// ` val1: QGenericArgument `
     ///
-    pub fn InvokeMethod43(obj: anytype, member: [:0]const u8, val0: anytype, val1: anytype) bool {
+    pub fn invokeMethod43(obj: anytype, member: [:0]const u8, val0: anytype, val1: anytype) bool {
         comptime _ = @TypeOf(obj)._is_QObject;
         const member_Cstring = member.ptr;
         comptime _ = @TypeOf(val0)._is_QGenericArgument;
         comptime _ = @TypeOf(val1)._is_QGenericArgument;
         return qtc.QMetaObject_InvokeMethod43(@ptrCast(obj.ptr), member_Cstring, @ptrCast(val0.ptr), @ptrCast(val1.ptr));
     }
+
+    /// ### DEPRECATED: Use `invokeMethod54` instead
+    ///
+    pub const InvokeMethod54 = invokeMethod54;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
     ///
@@ -2171,7 +2603,7 @@ pub const QMetaObject = extern struct {
     ///
     /// ` val2: QGenericArgument `
     ///
-    pub fn InvokeMethod54(obj: anytype, member: [:0]const u8, val0: anytype, val1: anytype, val2: anytype) bool {
+    pub fn invokeMethod54(obj: anytype, member: [:0]const u8, val0: anytype, val1: anytype, val2: anytype) bool {
         comptime _ = @TypeOf(obj)._is_QObject;
         const member_Cstring = member.ptr;
         comptime _ = @TypeOf(val0)._is_QGenericArgument;
@@ -2179,6 +2611,10 @@ pub const QMetaObject = extern struct {
         comptime _ = @TypeOf(val2)._is_QGenericArgument;
         return qtc.QMetaObject_InvokeMethod54(@ptrCast(obj.ptr), member_Cstring, @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr));
     }
+
+    /// ### DEPRECATED: Use `invokeMethod64` instead
+    ///
+    pub const InvokeMethod64 = invokeMethod64;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
     ///
@@ -2196,7 +2632,7 @@ pub const QMetaObject = extern struct {
     ///
     /// ` val3: QGenericArgument `
     ///
-    pub fn InvokeMethod64(obj: anytype, member: [:0]const u8, val0: anytype, val1: anytype, val2: anytype, val3: anytype) bool {
+    pub fn invokeMethod64(obj: anytype, member: [:0]const u8, val0: anytype, val1: anytype, val2: anytype, val3: anytype) bool {
         comptime _ = @TypeOf(obj)._is_QObject;
         const member_Cstring = member.ptr;
         comptime _ = @TypeOf(val0)._is_QGenericArgument;
@@ -2205,6 +2641,10 @@ pub const QMetaObject = extern struct {
         comptime _ = @TypeOf(val3)._is_QGenericArgument;
         return qtc.QMetaObject_InvokeMethod64(@ptrCast(obj.ptr), member_Cstring, @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr), @ptrCast(val3.ptr));
     }
+
+    /// ### DEPRECATED: Use `invokeMethod74` instead
+    ///
+    pub const InvokeMethod74 = invokeMethod74;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
     ///
@@ -2224,7 +2664,7 @@ pub const QMetaObject = extern struct {
     ///
     /// ` val4: QGenericArgument `
     ///
-    pub fn InvokeMethod74(obj: anytype, member: [:0]const u8, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype) bool {
+    pub fn invokeMethod74(obj: anytype, member: [:0]const u8, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype) bool {
         comptime _ = @TypeOf(obj)._is_QObject;
         const member_Cstring = member.ptr;
         comptime _ = @TypeOf(val0)._is_QGenericArgument;
@@ -2234,6 +2674,10 @@ pub const QMetaObject = extern struct {
         comptime _ = @TypeOf(val4)._is_QGenericArgument;
         return qtc.QMetaObject_InvokeMethod74(@ptrCast(obj.ptr), member_Cstring, @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr), @ptrCast(val3.ptr), @ptrCast(val4.ptr));
     }
+
+    /// ### DEPRECATED: Use `invokeMethod84` instead
+    ///
+    pub const InvokeMethod84 = invokeMethod84;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
     ///
@@ -2255,7 +2699,7 @@ pub const QMetaObject = extern struct {
     ///
     /// ` val5: QGenericArgument `
     ///
-    pub fn InvokeMethod84(obj: anytype, member: [:0]const u8, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype, val5: anytype) bool {
+    pub fn invokeMethod84(obj: anytype, member: [:0]const u8, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype, val5: anytype) bool {
         comptime _ = @TypeOf(obj)._is_QObject;
         const member_Cstring = member.ptr;
         comptime _ = @TypeOf(val0)._is_QGenericArgument;
@@ -2266,6 +2710,10 @@ pub const QMetaObject = extern struct {
         comptime _ = @TypeOf(val5)._is_QGenericArgument;
         return qtc.QMetaObject_InvokeMethod84(@ptrCast(obj.ptr), member_Cstring, @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr), @ptrCast(val3.ptr), @ptrCast(val4.ptr), @ptrCast(val5.ptr));
     }
+
+    /// ### DEPRECATED: Use `invokeMethod94` instead
+    ///
+    pub const InvokeMethod94 = invokeMethod94;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
     ///
@@ -2289,7 +2737,7 @@ pub const QMetaObject = extern struct {
     ///
     /// ` val6: QGenericArgument `
     ///
-    pub fn InvokeMethod94(obj: anytype, member: [:0]const u8, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype, val5: anytype, val6: anytype) bool {
+    pub fn invokeMethod94(obj: anytype, member: [:0]const u8, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype, val5: anytype, val6: anytype) bool {
         comptime _ = @TypeOf(obj)._is_QObject;
         const member_Cstring = member.ptr;
         comptime _ = @TypeOf(val0)._is_QGenericArgument;
@@ -2301,6 +2749,10 @@ pub const QMetaObject = extern struct {
         comptime _ = @TypeOf(val6)._is_QGenericArgument;
         return qtc.QMetaObject_InvokeMethod94(@ptrCast(obj.ptr), member_Cstring, @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr), @ptrCast(val3.ptr), @ptrCast(val4.ptr), @ptrCast(val5.ptr), @ptrCast(val6.ptr));
     }
+
+    /// ### DEPRECATED: Use `invokeMethod104` instead
+    ///
+    pub const InvokeMethod104 = invokeMethod104;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
     ///
@@ -2326,7 +2778,7 @@ pub const QMetaObject = extern struct {
     ///
     /// ` val7: QGenericArgument `
     ///
-    pub fn InvokeMethod104(obj: anytype, member: [:0]const u8, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype, val5: anytype, val6: anytype, val7: anytype) bool {
+    pub fn invokeMethod104(obj: anytype, member: [:0]const u8, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype, val5: anytype, val6: anytype, val7: anytype) bool {
         comptime _ = @TypeOf(obj)._is_QObject;
         const member_Cstring = member.ptr;
         comptime _ = @TypeOf(val0)._is_QGenericArgument;
@@ -2339,6 +2791,10 @@ pub const QMetaObject = extern struct {
         comptime _ = @TypeOf(val7)._is_QGenericArgument;
         return qtc.QMetaObject_InvokeMethod104(@ptrCast(obj.ptr), member_Cstring, @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr), @ptrCast(val3.ptr), @ptrCast(val4.ptr), @ptrCast(val5.ptr), @ptrCast(val6.ptr), @ptrCast(val7.ptr));
     }
+
+    /// ### DEPRECATED: Use `invokeMethod114` instead
+    ///
+    pub const InvokeMethod114 = invokeMethod114;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
     ///
@@ -2366,7 +2822,7 @@ pub const QMetaObject = extern struct {
     ///
     /// ` val8: QGenericArgument `
     ///
-    pub fn InvokeMethod114(obj: anytype, member: [:0]const u8, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype, val5: anytype, val6: anytype, val7: anytype, val8: anytype) bool {
+    pub fn invokeMethod114(obj: anytype, member: [:0]const u8, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype, val5: anytype, val6: anytype, val7: anytype, val8: anytype) bool {
         comptime _ = @TypeOf(obj)._is_QObject;
         const member_Cstring = member.ptr;
         comptime _ = @TypeOf(val0)._is_QGenericArgument;
@@ -2380,6 +2836,10 @@ pub const QMetaObject = extern struct {
         comptime _ = @TypeOf(val8)._is_QGenericArgument;
         return qtc.QMetaObject_InvokeMethod114(@ptrCast(obj.ptr), member_Cstring, @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr), @ptrCast(val3.ptr), @ptrCast(val4.ptr), @ptrCast(val5.ptr), @ptrCast(val6.ptr), @ptrCast(val7.ptr), @ptrCast(val8.ptr));
     }
+
+    /// ### DEPRECATED: Use `invokeMethod124` instead
+    ///
+    pub const InvokeMethod124 = invokeMethod124;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
     ///
@@ -2409,7 +2869,7 @@ pub const QMetaObject = extern struct {
     ///
     /// ` val9: QGenericArgument `
     ///
-    pub fn InvokeMethod124(obj: anytype, member: [:0]const u8, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype, val5: anytype, val6: anytype, val7: anytype, val8: anytype, val9: anytype) bool {
+    pub fn invokeMethod124(obj: anytype, member: [:0]const u8, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype, val5: anytype, val6: anytype, val7: anytype, val8: anytype, val9: anytype) bool {
         comptime _ = @TypeOf(obj)._is_QObject;
         const member_Cstring = member.ptr;
         comptime _ = @TypeOf(val0)._is_QGenericArgument;
@@ -2425,6 +2885,10 @@ pub const QMetaObject = extern struct {
         return qtc.QMetaObject_InvokeMethod124(@ptrCast(obj.ptr), member_Cstring, @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr), @ptrCast(val3.ptr), @ptrCast(val4.ptr), @ptrCast(val5.ptr), @ptrCast(val6.ptr), @ptrCast(val7.ptr), @ptrCast(val8.ptr), @ptrCast(val9.ptr));
     }
 
+    /// ### DEPRECATED: Use `newInstance2` instead
+    ///
+    pub const NewInstance2 = newInstance2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#newInstance)
     ///
     /// ## Parameter(s):
@@ -2435,11 +2899,15 @@ pub const QMetaObject = extern struct {
     ///
     /// ` val1: QGenericArgument `
     ///
-    pub fn NewInstance2(self: QMetaObject, val0: anytype, val1: anytype) QObject {
+    pub fn newInstance2(self: QMetaObject, val0: anytype, val1: anytype) QObject {
         comptime _ = @TypeOf(val0)._is_QGenericArgument;
         comptime _ = @TypeOf(val1)._is_QGenericArgument;
         return .{ .ptr = qtc.QMetaObject_NewInstance2(@ptrCast(self.ptr), @ptrCast(val0.ptr), @ptrCast(val1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `newInstance3` instead
+    ///
+    pub const NewInstance3 = newInstance3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#newInstance)
     ///
@@ -2453,12 +2921,16 @@ pub const QMetaObject = extern struct {
     ///
     /// ` val2: QGenericArgument `
     ///
-    pub fn NewInstance3(self: QMetaObject, val0: anytype, val1: anytype, val2: anytype) QObject {
+    pub fn newInstance3(self: QMetaObject, val0: anytype, val1: anytype, val2: anytype) QObject {
         comptime _ = @TypeOf(val0)._is_QGenericArgument;
         comptime _ = @TypeOf(val1)._is_QGenericArgument;
         comptime _ = @TypeOf(val2)._is_QGenericArgument;
         return .{ .ptr = qtc.QMetaObject_NewInstance3(@ptrCast(self.ptr), @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `newInstance4` instead
+    ///
+    pub const NewInstance4 = newInstance4;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#newInstance)
     ///
@@ -2474,13 +2946,17 @@ pub const QMetaObject = extern struct {
     ///
     /// ` val3: QGenericArgument `
     ///
-    pub fn NewInstance4(self: QMetaObject, val0: anytype, val1: anytype, val2: anytype, val3: anytype) QObject {
+    pub fn newInstance4(self: QMetaObject, val0: anytype, val1: anytype, val2: anytype, val3: anytype) QObject {
         comptime _ = @TypeOf(val0)._is_QGenericArgument;
         comptime _ = @TypeOf(val1)._is_QGenericArgument;
         comptime _ = @TypeOf(val2)._is_QGenericArgument;
         comptime _ = @TypeOf(val3)._is_QGenericArgument;
         return .{ .ptr = qtc.QMetaObject_NewInstance4(@ptrCast(self.ptr), @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr), @ptrCast(val3.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `newInstance5` instead
+    ///
+    pub const NewInstance5 = newInstance5;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#newInstance)
     ///
@@ -2498,7 +2974,7 @@ pub const QMetaObject = extern struct {
     ///
     /// ` val4: QGenericArgument `
     ///
-    pub fn NewInstance5(self: QMetaObject, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype) QObject {
+    pub fn newInstance5(self: QMetaObject, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype) QObject {
         comptime _ = @TypeOf(val0)._is_QGenericArgument;
         comptime _ = @TypeOf(val1)._is_QGenericArgument;
         comptime _ = @TypeOf(val2)._is_QGenericArgument;
@@ -2506,6 +2982,10 @@ pub const QMetaObject = extern struct {
         comptime _ = @TypeOf(val4)._is_QGenericArgument;
         return .{ .ptr = qtc.QMetaObject_NewInstance5(@ptrCast(self.ptr), @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr), @ptrCast(val3.ptr), @ptrCast(val4.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `newInstance6` instead
+    ///
+    pub const NewInstance6 = newInstance6;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#newInstance)
     ///
@@ -2525,7 +3005,7 @@ pub const QMetaObject = extern struct {
     ///
     /// ` val5: QGenericArgument `
     ///
-    pub fn NewInstance6(self: QMetaObject, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype, val5: anytype) QObject {
+    pub fn newInstance6(self: QMetaObject, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype, val5: anytype) QObject {
         comptime _ = @TypeOf(val0)._is_QGenericArgument;
         comptime _ = @TypeOf(val1)._is_QGenericArgument;
         comptime _ = @TypeOf(val2)._is_QGenericArgument;
@@ -2534,6 +3014,10 @@ pub const QMetaObject = extern struct {
         comptime _ = @TypeOf(val5)._is_QGenericArgument;
         return .{ .ptr = qtc.QMetaObject_NewInstance6(@ptrCast(self.ptr), @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr), @ptrCast(val3.ptr), @ptrCast(val4.ptr), @ptrCast(val5.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `newInstance7` instead
+    ///
+    pub const NewInstance7 = newInstance7;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#newInstance)
     ///
@@ -2555,7 +3039,7 @@ pub const QMetaObject = extern struct {
     ///
     /// ` val6: QGenericArgument `
     ///
-    pub fn NewInstance7(self: QMetaObject, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype, val5: anytype, val6: anytype) QObject {
+    pub fn newInstance7(self: QMetaObject, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype, val5: anytype, val6: anytype) QObject {
         comptime _ = @TypeOf(val0)._is_QGenericArgument;
         comptime _ = @TypeOf(val1)._is_QGenericArgument;
         comptime _ = @TypeOf(val2)._is_QGenericArgument;
@@ -2565,6 +3049,10 @@ pub const QMetaObject = extern struct {
         comptime _ = @TypeOf(val6)._is_QGenericArgument;
         return .{ .ptr = qtc.QMetaObject_NewInstance7(@ptrCast(self.ptr), @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr), @ptrCast(val3.ptr), @ptrCast(val4.ptr), @ptrCast(val5.ptr), @ptrCast(val6.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `newInstance8` instead
+    ///
+    pub const NewInstance8 = newInstance8;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#newInstance)
     ///
@@ -2588,7 +3076,7 @@ pub const QMetaObject = extern struct {
     ///
     /// ` val7: QGenericArgument `
     ///
-    pub fn NewInstance8(self: QMetaObject, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype, val5: anytype, val6: anytype, val7: anytype) QObject {
+    pub fn newInstance8(self: QMetaObject, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype, val5: anytype, val6: anytype, val7: anytype) QObject {
         comptime _ = @TypeOf(val0)._is_QGenericArgument;
         comptime _ = @TypeOf(val1)._is_QGenericArgument;
         comptime _ = @TypeOf(val2)._is_QGenericArgument;
@@ -2599,6 +3087,10 @@ pub const QMetaObject = extern struct {
         comptime _ = @TypeOf(val7)._is_QGenericArgument;
         return .{ .ptr = qtc.QMetaObject_NewInstance8(@ptrCast(self.ptr), @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr), @ptrCast(val3.ptr), @ptrCast(val4.ptr), @ptrCast(val5.ptr), @ptrCast(val6.ptr), @ptrCast(val7.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `newInstance9` instead
+    ///
+    pub const NewInstance9 = newInstance9;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#newInstance)
     ///
@@ -2624,7 +3116,7 @@ pub const QMetaObject = extern struct {
     ///
     /// ` val8: QGenericArgument `
     ///
-    pub fn NewInstance9(self: QMetaObject, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype, val5: anytype, val6: anytype, val7: anytype, val8: anytype) QObject {
+    pub fn newInstance9(self: QMetaObject, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype, val5: anytype, val6: anytype, val7: anytype, val8: anytype) QObject {
         comptime _ = @TypeOf(val0)._is_QGenericArgument;
         comptime _ = @TypeOf(val1)._is_QGenericArgument;
         comptime _ = @TypeOf(val2)._is_QGenericArgument;
@@ -2636,6 +3128,10 @@ pub const QMetaObject = extern struct {
         comptime _ = @TypeOf(val8)._is_QGenericArgument;
         return .{ .ptr = qtc.QMetaObject_NewInstance9(@ptrCast(self.ptr), @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr), @ptrCast(val3.ptr), @ptrCast(val4.ptr), @ptrCast(val5.ptr), @ptrCast(val6.ptr), @ptrCast(val7.ptr), @ptrCast(val8.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `newInstance10` instead
+    ///
+    pub const NewInstance10 = newInstance10;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#newInstance)
     ///
@@ -2663,7 +3159,7 @@ pub const QMetaObject = extern struct {
     ///
     /// ` val9: QGenericArgument `
     ///
-    pub fn NewInstance10(self: QMetaObject, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype, val5: anytype, val6: anytype, val7: anytype, val8: anytype, val9: anytype) QObject {
+    pub fn newInstance10(self: QMetaObject, val0: anytype, val1: anytype, val2: anytype, val3: anytype, val4: anytype, val5: anytype, val6: anytype, val7: anytype, val8: anytype, val9: anytype) QObject {
         comptime _ = @TypeOf(val0)._is_QGenericArgument;
         comptime _ = @TypeOf(val1)._is_QGenericArgument;
         comptime _ = @TypeOf(val2)._is_QGenericArgument;
@@ -2677,19 +3173,19 @@ pub const QMetaObject = extern struct {
         return .{ .ptr = qtc.QMetaObject_NewInstance10(@ptrCast(self.ptr), @ptrCast(val0.ptr), @ptrCast(val1.ptr), @ptrCast(val2.ptr), @ptrCast(val3.ptr), @ptrCast(val4.ptr), @ptrCast(val5.ptr), @ptrCast(val6.ptr), @ptrCast(val7.ptr), @ptrCast(val8.ptr), @ptrCast(val9.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#dtor.QMetaObject)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QMetaObject `
     ///
-    pub fn Delete(self: QMetaObject) void {
+    pub fn delete(self: QMetaObject) void {
         qtc.QMetaObject_Delete(@ptrCast(self.ptr));
     }
 };
@@ -2704,22 +3200,34 @@ pub const QMetaObject__Connection = extern struct {
 
     pub const _is_QMetaObject__Connection = {};
 
-    /// New constructs a new QMetaObject::Connection object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QMetaObject__Connection {
+    pub const New = new;
+
+    /// Allocate a new QMetaObject::Connection object in C++ memory
+    ///
+    pub fn new() QMetaObject__Connection {
         return .{ .ptr = qtc.QMetaObject__Connection_new() };
     }
 
-    /// New2 constructs a new QMetaObject::Connection object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QMetaObject::Connection object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QMetaObject__Connection `
     ///
-    pub fn New2(other: anytype) QMetaObject__Connection {
+    pub fn new2(other: anytype) QMetaObject__Connection {
         comptime _ = @TypeOf(other)._is_QMetaObject__Connection;
         return .{ .ptr = qtc.QMetaObject__Connection_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject-connection.html#operator-eq)
     ///
@@ -2729,10 +3237,14 @@ pub const QMetaObject__Connection = extern struct {
     ///
     /// ` other: QMetaObject__Connection `
     ///
-    pub fn OperatorAssign(self: QMetaObject__Connection, other: anytype) void {
+    pub fn operatorAssign(self: QMetaObject__Connection, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QMetaObject__Connection;
         qtc.QMetaObject__Connection_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject-connection.html#swap)
     ///
@@ -2742,22 +3254,22 @@ pub const QMetaObject__Connection = extern struct {
     ///
     /// ` other: QMetaObject__Connection `
     ///
-    pub fn Swap(self: QMetaObject__Connection, other: anytype) void {
+    pub fn swap(self: QMetaObject__Connection, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QMetaObject__Connection;
         qtc.QMetaObject__Connection_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QMetaObject__Connection `
     ///
-    pub fn Delete(self: QMetaObject__Connection) void {
+    pub fn delete(self: QMetaObject__Connection) void {
         qtc.QMetaObject__Connection_Delete(@ptrCast(self.ptr));
     }
 };
@@ -2772,53 +3284,63 @@ pub const QMetaObject__SuperData = extern struct {
 
     pub const _is_QMetaObject__SuperData = {};
 
-    /// New constructs a new QMetaObject::SuperData object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QMetaObject__SuperData {
+    pub const New = new;
+
+    /// Allocate a new QMetaObject::SuperData object in C++ memory
+    ///
+    pub fn new() QMetaObject__SuperData {
         return .{ .ptr = qtc.QMetaObject__SuperData_new() };
     }
 
-    /// New2 constructs a new QMetaObject::SuperData object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QMetaObject::SuperData object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` mo: QMetaObject `
     ///
-    pub fn New2(mo: anytype) QMetaObject__SuperData {
+    pub fn new2(mo: anytype) QMetaObject__SuperData {
         comptime _ = @TypeOf(mo)._is_QMetaObject;
         return .{ .ptr = qtc.QMetaObject__SuperData_new2(@ptrCast(mo.ptr)) };
     }
 
-    /// New3 constructs a new QMetaObject::SuperData object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QMetaObject::SuperData object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` g: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn New3(g: *const fn () callconv(.c) QMetaObject) QMetaObject__SuperData {
+    pub fn new3(g: *const fn () callconv(.c) QMetaObject) QMetaObject__SuperData {
         return .{ .ptr = qtc.QMetaObject__SuperData_new3(@bitCast(@intFromPtr(g))) };
     }
 
-    /// New4 constructs a new QMetaObject::SuperData object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QMetaObject::SuperData object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QMetaObject__SuperData `
     ///
-    pub fn New4(param1: anytype) QMetaObject__SuperData {
+    pub fn new4(param1: anytype) QMetaObject__SuperData {
         comptime _ = @TypeOf(param1)._is_QMetaObject__SuperData;
         return .{ .ptr = qtc.QMetaObject__SuperData_new4(@ptrCast(param1.ptr)) };
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject-superdata.html#direct-var)
+    /// ### DEPRECATED: Use `direct` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QMetaObject__SuperData `
-    ///
-    pub fn Direct(self: QMetaObject__SuperData) QMetaObject {
-        return .{ .ptr = qtc.QMetaObject__SuperData_Direct(@ptrCast(self.ptr)) };
-    }
+    pub const Direct = direct;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject-superdata.html#direct-var)
     ///
@@ -2826,12 +3348,30 @@ pub const QMetaObject__SuperData = extern struct {
     ///
     /// ` self: QMetaObject__SuperData `
     ///
-    /// ` direct: QMetaObject `
-    ///
-    pub fn SetDirect(self: QMetaObject__SuperData, direct: anytype) void {
-        comptime _ = @TypeOf(direct)._is_QMetaObject;
-        qtc.QMetaObject__SuperData_SetDirect(@ptrCast(self.ptr), @ptrCast(direct.ptr));
+    pub fn direct(self: QMetaObject__SuperData) QMetaObject {
+        return .{ .ptr = qtc.QMetaObject__SuperData_Direct(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setDirect` instead
+    ///
+    pub const SetDirect = setDirect;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject-superdata.html#direct-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QMetaObject__SuperData `
+    ///
+    /// ` _direct: QMetaObject `
+    ///
+    pub fn setDirect(self: QMetaObject__SuperData, _direct: anytype) void {
+        comptime _ = @TypeOf(_direct)._is_QMetaObject;
+        qtc.QMetaObject__SuperData_SetDirect(@ptrCast(self.ptr), @ptrCast(_direct.ptr));
+    }
+
+    /// ### DEPRECATED: Use `operatorMinusGreater` instead
+    ///
+    pub const OperatorMinusGreater = operatorMinusGreater;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject-superdata.html#operator--gt)
     ///
@@ -2839,9 +3379,13 @@ pub const QMetaObject__SuperData = extern struct {
     ///
     /// ` self: QMetaObject__SuperData `
     ///
-    pub fn OperatorMinusGreater(self: QMetaObject__SuperData) QMetaObject {
+    pub fn operatorMinusGreater(self: QMetaObject__SuperData) QMetaObject {
         return .{ .ptr = qtc.QMetaObject__SuperData_OperatorMinusGreater(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toConstQMetaObjectMultiply` instead
+    ///
+    pub const ToConstQMetaObjectMultiply = toConstQMetaObjectMultiply;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject-superdata.html#operator-2a)
     ///
@@ -2849,9 +3393,13 @@ pub const QMetaObject__SuperData = extern struct {
     ///
     /// ` self: QMetaObject__SuperData `
     ///
-    pub fn ToConstQMetaObjectMultiply(self: QMetaObject__SuperData) QMetaObject {
+    pub fn toConstQMetaObjectMultiply(self: QMetaObject__SuperData) QMetaObject {
         return .{ .ptr = qtc.QMetaObject__SuperData_ToConstQMetaObjectMultiply(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject-superdata.html#operator-eq)
     ///
@@ -2861,22 +3409,22 @@ pub const QMetaObject__SuperData = extern struct {
     ///
     /// ` param1: QMetaObject__SuperData `
     ///
-    pub fn OperatorAssign(self: QMetaObject__SuperData, param1: anytype) void {
+    pub fn operatorAssign(self: QMetaObject__SuperData, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QMetaObject__SuperData;
         qtc.QMetaObject__SuperData_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QMetaObject__SuperData `
     ///
-    pub fn Delete(self: QMetaObject__SuperData) void {
+    pub fn delete(self: QMetaObject__SuperData) void {
         qtc.QMetaObject__SuperData_Delete(@ptrCast(self.ptr));
     }
 };
@@ -2891,45 +3439,65 @@ pub const QMetaObject__Data = extern struct {
 
     pub const _is_QMetaObject__Data = {};
 
-    /// New constructs a new QMetaObject::Data object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QMetaObject__Data {
+    pub const New = new;
+
+    /// Allocate a new QMetaObject::Data object in C++ memory
+    ///
+    pub fn new() QMetaObject__Data {
         return .{ .ptr = qtc.QMetaObject__Data_new() };
     }
 
-    /// New2 constructs a new QMetaObject::Data object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QMetaObject::Data object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QMetaObject__Data `
     ///
-    pub fn New2(param1: anytype) QMetaObject__Data {
+    pub fn new2(param1: anytype) QMetaObject__Data {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Data;
         return .{ .ptr = qtc.QMetaObject__Data_new2(@ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `superdata` instead
+    ///
+    pub const Superdata = superdata;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject-data.html#superdata-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QMetaObject__Data `
     ///
-    pub fn Superdata(self: QMetaObject__Data) QMetaObject__SuperData {
+    pub fn superdata(self: QMetaObject__Data) QMetaObject__SuperData {
         return .{ .ptr = qtc.QMetaObject__Data_Superdata(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setSuperdata` instead
+    ///
+    pub const SetSuperdata = setSuperdata;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject-data.html#superdata-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QMetaObject__Data `
     ///
-    /// ` superdata: QMetaObject__SuperData `
+    /// ` _superdata: QMetaObject__SuperData `
     ///
-    pub fn SetSuperdata(self: QMetaObject__Data, superdata: anytype) void {
-        comptime _ = @TypeOf(superdata)._is_QMetaObject__SuperData;
-        qtc.QMetaObject__Data_SetSuperdata(@ptrCast(self.ptr), @ptrCast(superdata.ptr));
+    pub fn setSuperdata(self: QMetaObject__Data, _superdata: anytype) void {
+        comptime _ = @TypeOf(_superdata)._is_QMetaObject__SuperData;
+        qtc.QMetaObject__Data_SetSuperdata(@ptrCast(self.ptr), @ptrCast(_superdata.ptr));
     }
+
+    /// ### DEPRECATED: Use `stringdata` instead
+    ///
+    pub const Stringdata = stringdata;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject-data.html#stringdata-var)
     ///
@@ -2937,21 +3505,29 @@ pub const QMetaObject__Data = extern struct {
     ///
     /// ` self: QMetaObject__Data `
     ///
-    pub fn Stringdata(self: QMetaObject__Data) ?*const u32 {
+    pub fn stringdata(self: QMetaObject__Data) ?*const u32 {
         return @ptrCast(qtc.QMetaObject__Data_Stringdata(@ptrCast(self.ptr)));
     }
 
+    /// ### DEPRECATED: Use `setStringdata` instead
+    ///
+    pub const SetStringdata = setStringdata;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject-data.html#stringdata-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QMetaObject__Data `
     ///
-    /// ` stringdata: *const u32 `
+    /// ` _stringdata: *const u32 `
     ///
-    pub fn SetStringdata(self: QMetaObject__Data, stringdata: *const u32) void {
-        qtc.QMetaObject__Data_SetStringdata(@ptrCast(self.ptr), @ptrCast(stringdata));
+    pub fn setStringdata(self: QMetaObject__Data, _stringdata: *const u32) void {
+        qtc.QMetaObject__Data_SetStringdata(@ptrCast(self.ptr), @ptrCast(_stringdata));
     }
+
+    /// ### DEPRECATED: Use `data` instead
+    ///
+    pub const Data = data;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject-data.html#data-var)
     ///
@@ -2959,21 +3535,29 @@ pub const QMetaObject__Data = extern struct {
     ///
     /// ` self: QMetaObject__Data `
     ///
-    pub fn Data(self: QMetaObject__Data) ?*const u32 {
+    pub fn data(self: QMetaObject__Data) ?*const u32 {
         return @ptrCast(qtc.QMetaObject__Data_Data(@ptrCast(self.ptr)));
     }
 
+    /// ### DEPRECATED: Use `setData` instead
+    ///
+    pub const SetData = setData;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject-data.html#data-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QMetaObject__Data `
     ///
-    /// ` data: *const u32 `
+    /// ` _data: *const u32 `
     ///
-    pub fn SetData(self: QMetaObject__Data, data: *const u32) void {
-        qtc.QMetaObject__Data_SetData(@ptrCast(self.ptr), @ptrCast(data));
+    pub fn setData(self: QMetaObject__Data, _data: *const u32) void {
+        qtc.QMetaObject__Data_SetData(@ptrCast(self.ptr), @ptrCast(_data));
     }
+
+    /// ### DEPRECATED: Use `relatedMetaObjects` instead
+    ///
+    pub const RelatedMetaObjects = relatedMetaObjects;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject-data.html#relatedMetaObjects-var)
     ///
@@ -2981,22 +3565,30 @@ pub const QMetaObject__Data = extern struct {
     ///
     /// ` self: QMetaObject__Data `
     ///
-    pub fn RelatedMetaObjects(self: QMetaObject__Data) QMetaObject__SuperData {
+    pub fn relatedMetaObjects(self: QMetaObject__Data) QMetaObject__SuperData {
         return .{ .ptr = qtc.QMetaObject__Data_RelatedMetaObjects(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setRelatedMetaObjects` instead
+    ///
+    pub const SetRelatedMetaObjects = setRelatedMetaObjects;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject-data.html#relatedMetaObjects-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QMetaObject__Data `
     ///
-    /// ` relatedMetaObjects: QMetaObject__SuperData `
+    /// ` _relatedMetaObjects: QMetaObject__SuperData `
     ///
-    pub fn SetRelatedMetaObjects(self: QMetaObject__Data, relatedMetaObjects: anytype) void {
-        comptime _ = @TypeOf(relatedMetaObjects)._is_QMetaObject__SuperData;
-        qtc.QMetaObject__Data_SetRelatedMetaObjects(@ptrCast(self.ptr), @ptrCast(relatedMetaObjects.ptr));
+    pub fn setRelatedMetaObjects(self: QMetaObject__Data, _relatedMetaObjects: anytype) void {
+        comptime _ = @TypeOf(_relatedMetaObjects)._is_QMetaObject__SuperData;
+        qtc.QMetaObject__Data_SetRelatedMetaObjects(@ptrCast(self.ptr), @ptrCast(_relatedMetaObjects.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject-data.html#operator-eq)
     ///
@@ -3006,22 +3598,22 @@ pub const QMetaObject__Data = extern struct {
     ///
     /// ` param1: QMetaObject__Data `
     ///
-    pub fn OperatorAssign(self: QMetaObject__Data, param1: anytype) void {
+    pub fn operatorAssign(self: QMetaObject__Data, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Data;
         qtc.QMetaObject__Data_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QMetaObject__Data `
     ///
-    pub fn Delete(self: QMetaObject__Data) void {
+    pub fn delete(self: QMetaObject__Data) void {
         qtc.QMetaObject__Data_Delete(@ptrCast(self.ptr));
     }
 };

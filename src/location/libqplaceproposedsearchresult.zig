@@ -17,33 +17,49 @@ pub const QPlaceProposedSearchResult = extern struct {
     pub const _is_QPlaceProposedSearchResult = {};
     pub const _is_QPlaceSearchResult = {};
 
-    /// New constructs a new QPlaceProposedSearchResult object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QPlaceProposedSearchResult {
+    pub const New = new;
+
+    /// Allocate a new QPlaceProposedSearchResult object in C++ memory
+    ///
+    pub fn new() QPlaceProposedSearchResult {
         return .{ .ptr = qtc.QPlaceProposedSearchResult_new() };
     }
 
-    /// New2 constructs a new QPlaceProposedSearchResult object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QPlaceProposedSearchResult object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QPlaceSearchResult `
     ///
-    pub fn New2(other: anytype) QPlaceProposedSearchResult {
+    pub fn new2(other: anytype) QPlaceProposedSearchResult {
         comptime _ = @TypeOf(other)._is_QPlaceSearchResult;
         return .{ .ptr = qtc.QPlaceProposedSearchResult_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QPlaceProposedSearchResult object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QPlaceProposedSearchResult object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QPlaceProposedSearchResult `
     ///
-    pub fn New3(param1: anytype) QPlaceProposedSearchResult {
+    pub fn new3(param1: anytype) QPlaceProposedSearchResult {
         comptime _ = @TypeOf(param1)._is_QPlaceProposedSearchResult;
         return .{ .ptr = qtc.QPlaceProposedSearchResult_new3(@ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `searchRequest` instead
+    ///
+    pub const SearchRequest = searchRequest;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceproposedsearchresult.html#searchRequest)
     ///
@@ -51,9 +67,13 @@ pub const QPlaceProposedSearchResult = extern struct {
     ///
     /// ` self: QPlaceProposedSearchResult `
     ///
-    pub fn SearchRequest(self: QPlaceProposedSearchResult) QPlaceSearchRequest {
+    pub fn searchRequest(self: QPlaceProposedSearchResult) QPlaceSearchRequest {
         return .{ .ptr = qtc.QPlaceProposedSearchResult_SearchRequest(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSearchRequest` instead
+    ///
+    pub const SetSearchRequest = setSearchRequest;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceproposedsearchresult.html#setSearchRequest)
     ///
@@ -63,10 +83,14 @@ pub const QPlaceProposedSearchResult = extern struct {
     ///
     /// ` request: QPlaceSearchRequest `
     ///
-    pub fn SetSearchRequest(self: QPlaceProposedSearchResult, request: anytype) void {
+    pub fn setSearchRequest(self: QPlaceProposedSearchResult, request: anytype) void {
         comptime _ = @TypeOf(request)._is_QPlaceSearchRequest;
         qtc.QPlaceProposedSearchResult_SetSearchRequest(@ptrCast(self.ptr), @ptrCast(request.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// Inherited from QPlaceSearchResult
     ///
@@ -78,10 +102,14 @@ pub const QPlaceProposedSearchResult = extern struct {
     ///
     /// ` other: QPlaceSearchResult `
     ///
-    pub fn OperatorAssign(self: QPlaceProposedSearchResult, other: anytype) void {
+    pub fn operatorAssign(self: QPlaceProposedSearchResult, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QPlaceSearchResult;
         qtc.QPlaceSearchResult_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// Inherited from QPlaceSearchResult
     ///
@@ -93,10 +121,14 @@ pub const QPlaceProposedSearchResult = extern struct {
     ///
     /// ` other: QPlaceSearchResult `
     ///
-    pub fn OperatorEqual(self: QPlaceProposedSearchResult, other: anytype) bool {
+    pub fn operatorEqual(self: QPlaceProposedSearchResult, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QPlaceSearchResult;
         return qtc.QPlaceSearchResult_OperatorEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// Inherited from QPlaceSearchResult
     ///
@@ -108,10 +140,16 @@ pub const QPlaceProposedSearchResult = extern struct {
     ///
     /// ` other: QPlaceSearchResult `
     ///
-    pub fn OperatorNotEqual(self: QPlaceProposedSearchResult, other: anytype) bool {
+    pub fn operatorNotEqual(self: QPlaceProposedSearchResult, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QPlaceSearchResult;
         return qtc.QPlaceSearchResult_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QPlaceSearchResult
     ///
@@ -125,9 +163,13 @@ pub const QPlaceProposedSearchResult = extern struct {
     ///
     /// ` qplacesearchresult_enums.SearchResultType `
     ///
-    pub fn Type(self: QPlaceProposedSearchResult) i32 {
+    pub fn type0(self: QPlaceProposedSearchResult) i32 {
         return qtc.QPlaceSearchResult_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `title` instead
+    ///
+    pub const Title = title;
 
     /// Inherited from QPlaceSearchResult
     ///
@@ -139,13 +181,17 @@ pub const QPlaceProposedSearchResult = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Title(self: QPlaceProposedSearchResult, allocator: std.mem.Allocator) []const u8 {
+    pub fn title(self: QPlaceProposedSearchResult, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QPlaceSearchResult_Title(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceProposedSearchResult.Title: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceProposedSearchResult.title: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setTitle` instead
+    ///
+    pub const SetTitle = setTitle;
 
     /// Inherited from QPlaceSearchResult
     ///
@@ -155,15 +201,19 @@ pub const QPlaceProposedSearchResult = extern struct {
     ///
     /// ` self: QPlaceProposedSearchResult `
     ///
-    /// ` title: []const u8 `
+    /// ` _title: []const u8 `
     ///
-    pub fn SetTitle(self: QPlaceProposedSearchResult, title: []const u8) void {
+    pub fn setTitle(self: QPlaceProposedSearchResult, _title: []const u8) void {
         const title_str = qtc.libqt_string{
-            .len = title.len,
-            .data = title.ptr,
+            .len = _title.len,
+            .data = _title.ptr,
         };
         qtc.QPlaceSearchResult_SetTitle(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `icon` instead
+    ///
+    pub const Icon = icon;
 
     /// Inherited from QPlaceSearchResult
     ///
@@ -173,9 +223,13 @@ pub const QPlaceProposedSearchResult = extern struct {
     ///
     /// ` self: QPlaceProposedSearchResult `
     ///
-    pub fn Icon(self: QPlaceProposedSearchResult) QPlaceIcon {
+    pub fn icon(self: QPlaceProposedSearchResult) QPlaceIcon {
         return .{ .ptr = qtc.QPlaceSearchResult_Icon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setIcon` instead
+    ///
+    pub const SetIcon = setIcon;
 
     /// Inherited from QPlaceSearchResult
     ///
@@ -185,26 +239,26 @@ pub const QPlaceProposedSearchResult = extern struct {
     ///
     /// ` self: QPlaceProposedSearchResult `
     ///
-    /// ` icon: QPlaceIcon `
+    /// ` _icon: QPlaceIcon `
     ///
-    pub fn SetIcon(self: QPlaceProposedSearchResult, icon: anytype) void {
-        comptime _ = @TypeOf(icon)._is_QPlaceIcon;
-        qtc.QPlaceSearchResult_SetIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
+    pub fn setIcon(self: QPlaceProposedSearchResult, _icon: anytype) void {
+        comptime _ = @TypeOf(_icon)._is_QPlaceIcon;
+        qtc.QPlaceSearchResult_SetIcon(@ptrCast(self.ptr), @ptrCast(_icon.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceproposedsearchresult.html#dtor.QPlaceProposedSearchResult)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QPlaceProposedSearchResult `
     ///
-    pub fn Delete(self: QPlaceProposedSearchResult) void {
+    pub fn delete(self: QPlaceProposedSearchResult) void {
         qtc.QPlaceProposedSearchResult_Delete(@ptrCast(self.ptr));
     }
 };

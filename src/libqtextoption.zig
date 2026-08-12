@@ -15,32 +15,48 @@ pub const QTextOption = extern struct {
 
     pub const _is_QTextOption = {};
 
-    /// New constructs a new QTextOption object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QTextOption {
+    pub const New = new;
+
+    /// Allocate a new QTextOption object in C++ memory
+    ///
+    pub fn new() QTextOption {
         return .{ .ptr = qtc.QTextOption_new() };
     }
 
-    /// New2 constructs a new QTextOption object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QTextOption object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
+    /// ` _alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn New2(alignment: i32) QTextOption {
-        return .{ .ptr = qtc.QTextOption_new2(@bitCast(alignment)) };
+    pub fn new2(_alignment: i32) QTextOption {
+        return .{ .ptr = qtc.QTextOption_new2(@bitCast(_alignment)) };
     }
 
-    /// New3 constructs a new QTextOption object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QTextOption object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` o: QTextOption `
     ///
-    pub fn New3(o: anytype) QTextOption {
+    pub fn new3(o: anytype) QTextOption {
         comptime _ = @TypeOf(o)._is_QTextOption;
         return .{ .ptr = qtc.QTextOption_new3(@ptrCast(o.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextoption.html#operator-eq)
     ///
@@ -50,10 +66,14 @@ pub const QTextOption = extern struct {
     ///
     /// ` o: QTextOption `
     ///
-    pub fn OperatorAssign(self: QTextOption, o: anytype) void {
+    pub fn operatorAssign(self: QTextOption, o: anytype) void {
         comptime _ = @TypeOf(o)._is_QTextOption;
         qtc.QTextOption_OperatorAssign(@ptrCast(self.ptr), @ptrCast(o.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAlignment` instead
+    ///
+    pub const SetAlignment = setAlignment;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextoption.html#setAlignment)
     ///
@@ -61,11 +81,15 @@ pub const QTextOption = extern struct {
     ///
     /// ` self: QTextOption `
     ///
-    /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
+    /// ` _alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn SetAlignment(self: QTextOption, alignment: i32) void {
-        qtc.QTextOption_SetAlignment(@ptrCast(self.ptr), @bitCast(alignment));
+    pub fn setAlignment(self: QTextOption, _alignment: i32) void {
+        qtc.QTextOption_SetAlignment(@ptrCast(self.ptr), @bitCast(_alignment));
     }
+
+    /// ### DEPRECATED: Use `alignment` instead
+    ///
+    pub const Alignment = alignment;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextoption.html#alignment)
     ///
@@ -77,9 +101,13 @@ pub const QTextOption = extern struct {
     ///
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn Alignment(self: QTextOption) i32 {
+    pub fn alignment(self: QTextOption) i32 {
         return qtc.QTextOption_Alignment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTextDirection` instead
+    ///
+    pub const SetTextDirection = setTextDirection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextoption.html#setTextDirection)
     ///
@@ -89,9 +117,13 @@ pub const QTextOption = extern struct {
     ///
     /// ` aDirection: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetTextDirection(self: QTextOption, aDirection: i32) void {
+    pub fn setTextDirection(self: QTextOption, aDirection: i32) void {
         qtc.QTextOption_SetTextDirection(@ptrCast(self.ptr), @bitCast(aDirection));
     }
+
+    /// ### DEPRECATED: Use `textDirection` instead
+    ///
+    pub const TextDirection = textDirection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextoption.html#textDirection)
     ///
@@ -103,9 +135,13 @@ pub const QTextOption = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn TextDirection(self: QTextOption) i32 {
+    pub fn textDirection(self: QTextOption) i32 {
         return qtc.QTextOption_TextDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWrapMode` instead
+    ///
+    pub const SetWrapMode = setWrapMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextoption.html#setWrapMode)
     ///
@@ -115,9 +151,13 @@ pub const QTextOption = extern struct {
     ///
     /// ` wrap: qtextoption_enums.WrapMode `
     ///
-    pub fn SetWrapMode(self: QTextOption, wrap: i32) void {
+    pub fn setWrapMode(self: QTextOption, wrap: i32) void {
         qtc.QTextOption_SetWrapMode(@ptrCast(self.ptr), @bitCast(wrap));
     }
+
+    /// ### DEPRECATED: Use `wrapMode` instead
+    ///
+    pub const WrapMode = wrapMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextoption.html#wrapMode)
     ///
@@ -129,9 +169,13 @@ pub const QTextOption = extern struct {
     ///
     /// ` qtextoption_enums.WrapMode `
     ///
-    pub fn WrapMode(self: QTextOption) i32 {
+    pub fn wrapMode(self: QTextOption) i32 {
         return qtc.QTextOption_WrapMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFlags` instead
+    ///
+    pub const SetFlags = setFlags;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextoption.html#setFlags)
     ///
@@ -139,11 +183,15 @@ pub const QTextOption = extern struct {
     ///
     /// ` self: QTextOption `
     ///
-    /// ` flags: flag of qtextoption_enums.Flag `
+    /// ` _flags: flag of qtextoption_enums.Flag `
     ///
-    pub fn SetFlags(self: QTextOption, flags: i32) void {
-        qtc.QTextOption_SetFlags(@ptrCast(self.ptr), @bitCast(flags));
+    pub fn setFlags(self: QTextOption, _flags: i32) void {
+        qtc.QTextOption_SetFlags(@ptrCast(self.ptr), @bitCast(_flags));
     }
+
+    /// ### DEPRECATED: Use `flags` instead
+    ///
+    pub const Flags = flags;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextoption.html#flags)
     ///
@@ -155,9 +203,13 @@ pub const QTextOption = extern struct {
     ///
     /// ` flag of qtextoption_enums.Flag `
     ///
-    pub fn Flags(self: QTextOption) i32 {
+    pub fn flags(self: QTextOption) i32 {
         return qtc.QTextOption_Flags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabStopDistance` instead
+    ///
+    pub const SetTabStopDistance = setTabStopDistance;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextoption.html#setTabStopDistance)
     ///
@@ -165,11 +217,15 @@ pub const QTextOption = extern struct {
     ///
     /// ` self: QTextOption `
     ///
-    /// ` tabStopDistance: f64 `
+    /// ` _tabStopDistance: f64 `
     ///
-    pub fn SetTabStopDistance(self: QTextOption, tabStopDistance: f64) void {
-        qtc.QTextOption_SetTabStopDistance(@ptrCast(self.ptr), @bitCast(tabStopDistance));
+    pub fn setTabStopDistance(self: QTextOption, _tabStopDistance: f64) void {
+        qtc.QTextOption_SetTabStopDistance(@ptrCast(self.ptr), @bitCast(_tabStopDistance));
     }
+
+    /// ### DEPRECATED: Use `tabStopDistance` instead
+    ///
+    pub const TabStopDistance = tabStopDistance;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextoption.html#tabStopDistance)
     ///
@@ -177,9 +233,13 @@ pub const QTextOption = extern struct {
     ///
     /// ` self: QTextOption `
     ///
-    pub fn TabStopDistance(self: QTextOption) f64 {
+    pub fn tabStopDistance(self: QTextOption) f64 {
         return qtc.QTextOption_TabStopDistance(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabArray` instead
+    ///
+    pub const SetTabArray = setTabArray;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextoption.html#setTabArray)
     ///
@@ -189,13 +249,17 @@ pub const QTextOption = extern struct {
     ///
     /// ` tabStops: []f64 `
     ///
-    pub fn SetTabArray(self: QTextOption, tabStops: []f64) void {
+    pub fn setTabArray(self: QTextOption, tabStops: []f64) void {
         const tabStops_list = qtc.libqt_list{
             .len = tabStops.len,
             .data = tabStops.ptr,
         };
         qtc.QTextOption_SetTabArray(@ptrCast(self.ptr), tabStops_list);
     }
+
+    /// ### DEPRECATED: Use `tabArray` instead
+    ///
+    pub const TabArray = tabArray;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextoption.html#tabArray)
     ///
@@ -205,14 +269,18 @@ pub const QTextOption = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TabArray(self: QTextOption, allocator: std.mem.Allocator) []f64 {
+    pub fn tabArray(self: QTextOption, allocator: std.mem.Allocator) []f64 {
         const _arr: qtc.libqt_list = qtc.QTextOption_TabArray(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(f64, _arr.len) catch @panic("QTextOption.TabArray: Memory allocation failed");
-        const _data: [*]f64 = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        const _ret = allocator.alloc(f64, _arr.len) catch @panic("QTextOption.tabArray: Memory allocation failed");
+        const _data_val: [*]f64 = @ptrCast(@alignCast(_arr.data));
+        @memcpy(_ret, _data_val[0.._arr.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setTabs` instead
+    ///
+    pub const SetTabs = setTabs;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextoption.html#setTabs)
     ///
@@ -222,13 +290,17 @@ pub const QTextOption = extern struct {
     ///
     /// ` tabStops: []QTextOption__Tab `
     ///
-    pub fn SetTabs(self: QTextOption, tabStops: []QTextOption__Tab) void {
+    pub fn setTabs(self: QTextOption, tabStops: []QTextOption__Tab) void {
         const tabStops_list = qtc.libqt_list{
             .len = tabStops.len,
             .data = @ptrCast(tabStops.ptr),
         };
         qtc.QTextOption_SetTabs(@ptrCast(self.ptr), tabStops_list);
     }
+
+    /// ### DEPRECATED: Use `tabs` instead
+    ///
+    pub const Tabs = tabs;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextoption.html#tabs)
     ///
@@ -238,15 +310,19 @@ pub const QTextOption = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tabs(self: QTextOption, allocator: std.mem.Allocator) []QTextOption__Tab {
+    pub fn tabs(self: QTextOption, allocator: std.mem.Allocator) []QTextOption__Tab {
         const _arr: qtc.libqt_list = qtc.QTextOption_Tabs(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QTextOption__Tab, _arr.len) catch @panic("QTextOption.Tabs: Memory allocation failed");
-        const _data: [*]QtC.QTextOption__Tab = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QTextOption__Tab, _arr.len) catch @panic("QTextOption.tabs: Memory allocation failed");
+        const _data_val: [*]QtC.QTextOption__Tab = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setUseDesignMetrics` instead
+    ///
+    pub const SetUseDesignMetrics = setUseDesignMetrics;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextoption.html#setUseDesignMetrics)
     ///
@@ -256,9 +332,13 @@ pub const QTextOption = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetUseDesignMetrics(self: QTextOption, b: bool) void {
+    pub fn setUseDesignMetrics(self: QTextOption, b: bool) void {
         qtc.QTextOption_SetUseDesignMetrics(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `useDesignMetrics` instead
+    ///
+    pub const UseDesignMetrics = useDesignMetrics;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextoption.html#useDesignMetrics)
     ///
@@ -266,23 +346,23 @@ pub const QTextOption = extern struct {
     ///
     /// ` self: QTextOption `
     ///
-    pub fn UseDesignMetrics(self: QTextOption) bool {
+    pub fn useDesignMetrics(self: QTextOption) bool {
         return qtc.QTextOption_UseDesignMetrics(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextoption.html#dtor.QTextOption)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QTextOption `
     ///
-    pub fn Delete(self: QTextOption) void {
+    pub fn delete(self: QTextOption) void {
         qtc.QTextOption_Delete(@ptrCast(self.ptr));
     }
 };
@@ -297,35 +377,51 @@ pub const QTextOption__Tab = extern struct {
 
     pub const _is_QTextOption__Tab = {};
 
-    /// New constructs a new QTextOption::Tab object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QTextOption::Tab object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QTextOption__Tab `
     ///
-    pub fn New(other: anytype) QTextOption__Tab {
+    pub fn new(other: anytype) QTextOption__Tab {
         comptime _ = @TypeOf(other)._is_QTextOption__Tab;
         return .{ .ptr = qtc.QTextOption__Tab_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new QTextOption::Tab object and invalidates the source QTextOption::Tab object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QTextOption::Tab object and invalidate the source QTextOption::Tab object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QTextOption__Tab `
     ///
-    pub fn New2(other: anytype) QTextOption__Tab {
+    pub fn new2(other: anytype) QTextOption__Tab {
         comptime _ = @TypeOf(other)._is_QTextOption__Tab;
         return .{ .ptr = qtc.QTextOption__Tab_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QTextOption::Tab object.
+    /// ### DEPRECATED: Use `new3` instead
     ///
-    pub fn New3() QTextOption__Tab {
+    pub const New3 = new3;
+
+    /// Allocate a new QTextOption::Tab object in C++ memory
+    ///
+    pub fn new3() QTextOption__Tab {
         return .{ .ptr = qtc.QTextOption__Tab_new3() };
     }
 
-    /// New4 constructs a new QTextOption::Tab object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QTextOption::Tab object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -333,11 +429,15 @@ pub const QTextOption__Tab = extern struct {
     ///
     /// ` tabType: qtextoption_enums.TabType `
     ///
-    pub fn New4(pos: f64, tabType: i32) QTextOption__Tab {
+    pub fn new4(pos: f64, tabType: i32) QTextOption__Tab {
         return .{ .ptr = qtc.QTextOption__Tab_new4(@bitCast(pos), @bitCast(tabType)) };
     }
 
-    /// New5 constructs a new QTextOption::Tab object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new QTextOption::Tab object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -347,12 +447,15 @@ pub const QTextOption__Tab = extern struct {
     ///
     /// ` delim: QChar `
     ///
-    pub fn New5(pos: f64, tabType: i32, delim: anytype) QTextOption__Tab {
+    pub fn new5(pos: f64, tabType: i32, delim: anytype) QTextOption__Tab {
         comptime _ = @TypeOf(delim)._is_QChar;
         return .{ .ptr = qtc.QTextOption__Tab_new5(@bitCast(pos), @bitCast(tabType), @ptrCast(delim.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -360,11 +463,14 @@ pub const QTextOption__Tab = extern struct {
     ///
     /// ` other: QTextOption__Tab `
     ///
-    pub fn CopyAssign(self: QTextOption__Tab, other: QTextOption__Tab) void {
+    pub fn copyAssign(self: QTextOption__Tab, other: QTextOption__Tab) void {
         qtc.QTextOption__Tab_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -372,9 +478,13 @@ pub const QTextOption__Tab = extern struct {
     ///
     /// ` other: QTextOption__Tab `
     ///
-    pub fn MoveAssign(self: QTextOption__Tab, other: QTextOption__Tab) void {
+    pub fn moveAssign(self: QTextOption__Tab, other: QTextOption__Tab) void {
         qtc.QTextOption__Tab_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextoption-tab.html#operator-eq-eq)
     ///
@@ -384,10 +494,14 @@ pub const QTextOption__Tab = extern struct {
     ///
     /// ` other: QTextOption__Tab `
     ///
-    pub fn OperatorEqual(self: QTextOption__Tab, other: anytype) bool {
+    pub fn operatorEqual(self: QTextOption__Tab, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QTextOption__Tab;
         return qtc.QTextOption__Tab_OperatorEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextoption-tab.html#operator-not-eq)
     ///
@@ -397,20 +511,14 @@ pub const QTextOption__Tab = extern struct {
     ///
     /// ` other: QTextOption__Tab `
     ///
-    pub fn OperatorNotEqual(self: QTextOption__Tab, other: anytype) bool {
+    pub fn operatorNotEqual(self: QTextOption__Tab, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QTextOption__Tab;
         return qtc.QTextOption__Tab_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextoption-tab.html#position-var)
+    /// ### DEPRECATED: Use `position` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextOption__Tab `
-    ///
-    pub fn Position(self: QTextOption__Tab) f64 {
-        return qtc.QTextOption__Tab_Position(@ptrCast(self.ptr));
-    }
+    pub const Position = position;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextoption-tab.html#position-var)
     ///
@@ -418,11 +526,31 @@ pub const QTextOption__Tab = extern struct {
     ///
     /// ` self: QTextOption__Tab `
     ///
-    /// ` position: f64 `
-    ///
-    pub fn SetPosition(self: QTextOption__Tab, position: f64) void {
-        qtc.QTextOption__Tab_SetPosition(@ptrCast(self.ptr), @bitCast(position));
+    pub fn position(self: QTextOption__Tab) f64 {
+        return qtc.QTextOption__Tab_Position(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPosition` instead
+    ///
+    pub const SetPosition = setPosition;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextoption-tab.html#position-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QTextOption__Tab `
+    ///
+    /// ` _position: f64 `
+    ///
+    pub fn setPosition(self: QTextOption__Tab, _position: f64) void {
+        qtc.QTextOption__Tab_SetPosition(@ptrCast(self.ptr), @bitCast(_position));
+    }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextoption-tab.html#type-var)
     ///
@@ -434,9 +562,13 @@ pub const QTextOption__Tab = extern struct {
     ///
     /// ` qtextoption_enums.TabType `
     ///
-    pub fn Type(self: QTextOption__Tab) i32 {
+    pub fn type0(self: QTextOption__Tab) i32 {
         return qtc.QTextOption__Tab_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setType` instead
+    ///
+    pub const SetType = setType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextoption-tab.html#type-var)
     ///
@@ -444,46 +576,54 @@ pub const QTextOption__Tab = extern struct {
     ///
     /// ` self: QTextOption__Tab `
     ///
-    /// ` type: qtextoption_enums.TabType `
+    /// ` _type: qtextoption_enums.TabType `
     ///
-    pub fn SetType(self: QTextOption__Tab, _type: i32) void {
+    pub fn setType(self: QTextOption__Tab, _type: i32) void {
         qtc.QTextOption__Tab_SetType(@ptrCast(self.ptr), @bitCast(_type));
     }
 
+    /// ### DEPRECATED: Use `delimiter` instead
+    ///
+    pub const Delimiter = delimiter;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextoption-tab.html#delimiter-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QTextOption__Tab `
     ///
-    pub fn Delimiter(self: QTextOption__Tab) QChar {
+    pub fn delimiter(self: QTextOption__Tab) QChar {
         return .{ .ptr = qtc.QTextOption__Tab_Delimiter(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setDelimiter` instead
+    ///
+    pub const SetDelimiter = setDelimiter;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextoption-tab.html#delimiter-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QTextOption__Tab `
     ///
-    /// ` delimiter: QChar `
+    /// ` _delimiter: QChar `
     ///
-    pub fn SetDelimiter(self: QTextOption__Tab, delimiter: anytype) void {
-        comptime _ = @TypeOf(delimiter)._is_QChar;
-        qtc.QTextOption__Tab_SetDelimiter(@ptrCast(self.ptr), @ptrCast(delimiter.ptr));
+    pub fn setDelimiter(self: QTextOption__Tab, _delimiter: anytype) void {
+        comptime _ = @TypeOf(_delimiter)._is_QChar;
+        qtc.QTextOption__Tab_SetDelimiter(@ptrCast(self.ptr), @ptrCast(_delimiter.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QTextOption__Tab `
     ///
-    pub fn Delete(self: QTextOption__Tab) void {
+    pub fn delete(self: QTextOption__Tab) void {
         qtc.QTextOption__Tab_Delete(@ptrCast(self.ptr));
     }
 };

@@ -27,22 +27,34 @@ pub const KDirWatch = extern struct {
     pub const _is_KDirWatch = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new KDirWatch object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() KDirWatch {
+    pub const New = new;
+
+    /// Allocate a new KDirWatch object in C++ memory
+    ///
+    pub fn new() KDirWatch {
         return .{ .ptr = qtc.KDirWatch_new() };
     }
 
-    /// New2 constructs a new KDirWatch object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KDirWatch object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) KDirWatch {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.KDirWatch_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) KDirWatch {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.KDirWatch_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -50,9 +62,13 @@ pub const KDirWatch = extern struct {
     ///
     /// ` self: KDirWatch `
     ///
-    pub fn MetaObject(self: KDirWatch) QMetaObject {
+    pub fn metaObject(self: KDirWatch) QMetaObject {
         return .{ .ptr = qtc.KDirWatch_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -64,13 +80,13 @@ pub const KDirWatch = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KDirWatch, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KDirWatch, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KDirWatch_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -80,9 +96,13 @@ pub const KDirWatch = extern struct {
     ///
     /// ` self: KDirWatch `
     ///
-    pub fn SuperMetaObject(self: KDirWatch) QMetaObject {
+    pub fn superMetaObject(self: KDirWatch) QMetaObject {
         return .{ .ptr = qtc.KDirWatch_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -90,10 +110,14 @@ pub const KDirWatch = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KDirWatch, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KDirWatch, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KDirWatch_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -103,13 +127,13 @@ pub const KDirWatch = extern struct {
     ///
     /// ` callback: *const fn (self: KDirWatch, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KDirWatch, callback: *const fn (KDirWatch, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KDirWatch, callback: *const fn (KDirWatch, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KDirWatch_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -119,10 +143,14 @@ pub const KDirWatch = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KDirWatch, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KDirWatch, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KDirWatch_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -134,9 +162,13 @@ pub const KDirWatch = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KDirWatch, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KDirWatch, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KDirWatch_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -146,13 +178,13 @@ pub const KDirWatch = extern struct {
     ///
     /// ` callback: *const fn (self: KDirWatch, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KDirWatch, callback: *const fn (KDirWatch, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KDirWatch, callback: *const fn (KDirWatch, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KDirWatch_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -166,9 +198,13 @@ pub const KDirWatch = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KDirWatch, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KDirWatch, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KDirWatch_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -178,14 +214,18 @@ pub const KDirWatch = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDirWatch.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDirWatch.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addDir` instead
+    ///
+    pub const AddDir = addDir;
 
     /// ### [Upstream resources](https://api.kde.org/kdirwatch.html#addDir)
     ///
@@ -195,13 +235,17 @@ pub const KDirWatch = extern struct {
     ///
     /// ` path: []const u8 `
     ///
-    pub fn AddDir(self: KDirWatch, path: []const u8) void {
+    pub fn addDir(self: KDirWatch, path: []const u8) void {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
         qtc.KDirWatch_AddDir(@ptrCast(self.ptr), path_str);
     }
+
+    /// ### DEPRECATED: Use `addFile` instead
+    ///
+    pub const AddFile = addFile;
 
     /// ### [Upstream resources](https://api.kde.org/kdirwatch.html#addFile)
     ///
@@ -211,13 +255,17 @@ pub const KDirWatch = extern struct {
     ///
     /// ` file: []const u8 `
     ///
-    pub fn AddFile(self: KDirWatch, file: []const u8) void {
+    pub fn addFile(self: KDirWatch, file: []const u8) void {
         const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
         };
         qtc.KDirWatch_AddFile(@ptrCast(self.ptr), file_str);
     }
+
+    /// ### DEPRECATED: Use `ctime` instead
+    ///
+    pub const Ctime = ctime;
 
     /// ### [Upstream resources](https://api.kde.org/kdirwatch.html#ctime)
     ///
@@ -227,13 +275,17 @@ pub const KDirWatch = extern struct {
     ///
     /// ` path: []const u8 `
     ///
-    pub fn Ctime(self: KDirWatch, path: []const u8) QDateTime {
+    pub fn ctime(self: KDirWatch, path: []const u8) QDateTime {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
         return .{ .ptr = qtc.KDirWatch_Ctime(@ptrCast(self.ptr), path_str) };
     }
+
+    /// ### DEPRECATED: Use `removeDir` instead
+    ///
+    pub const RemoveDir = removeDir;
 
     /// ### [Upstream resources](https://api.kde.org/kdirwatch.html#removeDir)
     ///
@@ -243,13 +295,17 @@ pub const KDirWatch = extern struct {
     ///
     /// ` path: []const u8 `
     ///
-    pub fn RemoveDir(self: KDirWatch, path: []const u8) void {
+    pub fn removeDir(self: KDirWatch, path: []const u8) void {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
         qtc.KDirWatch_RemoveDir(@ptrCast(self.ptr), path_str);
     }
+
+    /// ### DEPRECATED: Use `removeFile` instead
+    ///
+    pub const RemoveFile = removeFile;
 
     /// ### [Upstream resources](https://api.kde.org/kdirwatch.html#removeFile)
     ///
@@ -259,13 +315,17 @@ pub const KDirWatch = extern struct {
     ///
     /// ` file: []const u8 `
     ///
-    pub fn RemoveFile(self: KDirWatch, file: []const u8) void {
+    pub fn removeFile(self: KDirWatch, file: []const u8) void {
         const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
         };
         qtc.KDirWatch_RemoveFile(@ptrCast(self.ptr), file_str);
     }
+
+    /// ### DEPRECATED: Use `stopDirScan` instead
+    ///
+    pub const StopDirScan = stopDirScan;
 
     /// ### [Upstream resources](https://api.kde.org/kdirwatch.html#stopDirScan)
     ///
@@ -275,13 +335,17 @@ pub const KDirWatch = extern struct {
     ///
     /// ` path: []const u8 `
     ///
-    pub fn StopDirScan(self: KDirWatch, path: []const u8) bool {
+    pub fn stopDirScan(self: KDirWatch, path: []const u8) bool {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
         return qtc.KDirWatch_StopDirScan(@ptrCast(self.ptr), path_str);
     }
+
+    /// ### DEPRECATED: Use `restartDirScan` instead
+    ///
+    pub const RestartDirScan = restartDirScan;
 
     /// ### [Upstream resources](https://api.kde.org/kdirwatch.html#restartDirScan)
     ///
@@ -291,7 +355,7 @@ pub const KDirWatch = extern struct {
     ///
     /// ` path: []const u8 `
     ///
-    pub fn RestartDirScan(self: KDirWatch, path: []const u8) bool {
+    pub fn restartDirScan(self: KDirWatch, path: []const u8) bool {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
@@ -299,15 +363,23 @@ pub const KDirWatch = extern struct {
         return qtc.KDirWatch_RestartDirScan(@ptrCast(self.ptr), path_str);
     }
 
+    /// ### DEPRECATED: Use `startScan` instead
+    ///
+    pub const StartScan = startScan;
+
     /// ### [Upstream resources](https://api.kde.org/kdirwatch.html#startScan)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KDirWatch `
     ///
-    pub fn StartScan(self: KDirWatch) void {
+    pub fn startScan(self: KDirWatch) void {
         qtc.KDirWatch_StartScan(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stopScan` instead
+    ///
+    pub const StopScan = stopScan;
 
     /// ### [Upstream resources](https://api.kde.org/kdirwatch.html#stopScan)
     ///
@@ -315,9 +387,13 @@ pub const KDirWatch = extern struct {
     ///
     /// ` self: KDirWatch `
     ///
-    pub fn StopScan(self: KDirWatch) void {
+    pub fn stopScan(self: KDirWatch) void {
         qtc.KDirWatch_StopScan(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isStopped` instead
+    ///
+    pub const IsStopped = isStopped;
 
     /// ### [Upstream resources](https://api.kde.org/kdirwatch.html#isStopped)
     ///
@@ -325,9 +401,13 @@ pub const KDirWatch = extern struct {
     ///
     /// ` self: KDirWatch `
     ///
-    pub fn IsStopped(self: KDirWatch) bool {
+    pub fn isStopped(self: KDirWatch) bool {
         return qtc.KDirWatch_IsStopped(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `contains` instead
+    ///
+    pub const Contains = contains;
 
     /// ### [Upstream resources](https://api.kde.org/kdirwatch.html#contains)
     ///
@@ -337,13 +417,17 @@ pub const KDirWatch = extern struct {
     ///
     /// ` path: []const u8 `
     ///
-    pub fn Contains(self: KDirWatch, path: []const u8) bool {
+    pub fn contains(self: KDirWatch, path: []const u8) bool {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
         return qtc.KDirWatch_Contains(@ptrCast(self.ptr), path_str);
     }
+
+    /// ### DEPRECATED: Use `internalMethod` instead
+    ///
+    pub const InternalMethod = internalMethod;
 
     /// ### [Upstream resources](https://api.kde.org/kdirwatch.html#internalMethod)
     ///
@@ -355,21 +439,33 @@ pub const KDirWatch = extern struct {
     ///
     /// ` kdirwatch_enums.Method `
     ///
-    pub fn InternalMethod(self: KDirWatch) i32 {
+    pub fn internalMethod(self: KDirWatch) i32 {
         return qtc.KDirWatch_InternalMethod(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `self0` instead
+    ///
+    pub const Self = self0;
+
     /// ### [Upstream resources](https://api.kde.org/kdirwatch.html#self)
     ///
-    pub fn Self() KDirWatch {
+    pub fn self0() KDirWatch {
         return .{ .ptr = qtc.KDirWatch_Self() };
     }
 
+    /// ### DEPRECATED: Use `exists` instead
+    ///
+    pub const Exists = exists;
+
     /// ### [Upstream resources](https://api.kde.org/kdirwatch.html#exists)
     ///
-    pub fn Exists() bool {
+    pub fn exists() bool {
         return qtc.KDirWatch_Exists();
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// ### [Upstream resources](https://api.kde.org/kdirwatch.html#event)
     ///
@@ -377,12 +473,16 @@ pub const KDirWatch = extern struct {
     ///
     /// ` self: KDirWatch `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: KDirWatch, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KDirWatch_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: KDirWatch, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KDirWatch_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kdirwatch.html#event)
     ///
@@ -394,13 +494,13 @@ pub const KDirWatch = extern struct {
     ///
     /// ` callback: *const fn (self: KDirWatch, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KDirWatch, callback: *const fn (KDirWatch, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KDirWatch, callback: *const fn (KDirWatch, QEvent) callconv(.c) bool) void {
         qtc.KDirWatch_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kdirwatch.html#event)
     ///
@@ -410,12 +510,16 @@ pub const KDirWatch = extern struct {
     ///
     /// ` self: KDirWatch `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: KDirWatch, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KDirWatch_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: KDirWatch, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KDirWatch_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCreated` instead
+    ///
+    pub const SetCreated = setCreated;
 
     /// ### [Upstream resources](https://api.kde.org/kdirwatch.html#setCreated)
     ///
@@ -425,13 +529,17 @@ pub const KDirWatch = extern struct {
     ///
     /// ` path: []const u8 `
     ///
-    pub fn SetCreated(self: KDirWatch, path: []const u8) void {
+    pub fn setCreated(self: KDirWatch, path: []const u8) void {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
         qtc.KDirWatch_SetCreated(@ptrCast(self.ptr), path_str);
     }
+
+    /// ### DEPRECATED: Use `setDirty` instead
+    ///
+    pub const SetDirty = setDirty;
 
     /// ### [Upstream resources](https://api.kde.org/kdirwatch.html#setDirty)
     ///
@@ -441,13 +549,17 @@ pub const KDirWatch = extern struct {
     ///
     /// ` path: []const u8 `
     ///
-    pub fn SetDirty(self: KDirWatch, path: []const u8) void {
+    pub fn setDirty(self: KDirWatch, path: []const u8) void {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
         qtc.KDirWatch_SetDirty(@ptrCast(self.ptr), path_str);
     }
+
+    /// ### DEPRECATED: Use `setDeleted` instead
+    ///
+    pub const SetDeleted = setDeleted;
 
     /// ### [Upstream resources](https://api.kde.org/kdirwatch.html#setDeleted)
     ///
@@ -457,7 +569,7 @@ pub const KDirWatch = extern struct {
     ///
     /// ` path: []const u8 `
     ///
-    pub fn SetDeleted(self: KDirWatch, path: []const u8) void {
+    pub fn setDeleted(self: KDirWatch, path: []const u8) void {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
@@ -465,6 +577,10 @@ pub const KDirWatch = extern struct {
         qtc.KDirWatch_SetDeleted(@ptrCast(self.ptr), path_str);
     }
 
+    /// ### DEPRECATED: Use `dirty` instead
+    ///
+    pub const Dirty = dirty;
+
     /// ### [Upstream resources](https://api.kde.org/kdirwatch.html#dirty)
     ///
     /// ## Parameter(s):
@@ -473,7 +589,7 @@ pub const KDirWatch = extern struct {
     ///
     /// ` path: []const u8 `
     ///
-    pub fn Dirty(self: KDirWatch, path: []const u8) void {
+    pub fn dirty(self: KDirWatch, path: []const u8) void {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
@@ -481,6 +597,10 @@ pub const KDirWatch = extern struct {
         qtc.KDirWatch_Dirty(@ptrCast(self.ptr), path_str);
     }
 
+    /// ### DEPRECATED: Use `onDirty` instead
+    ///
+    pub const OnDirty = onDirty;
+
     /// ### [Upstream resources](https://api.kde.org/kdirwatch.html#dirty)
     ///
     /// ## Parameters:
@@ -489,9 +609,13 @@ pub const KDirWatch = extern struct {
     ///
     /// ` callback: *const fn (self: KDirWatch, path: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnDirty(self: KDirWatch, callback: *const fn (KDirWatch, [*:0]const u8) callconv(.c) void) void {
+    pub fn onDirty(self: KDirWatch, callback: *const fn (KDirWatch, [*:0]const u8) callconv(.c) void) void {
         qtc.KDirWatch_Connect_Dirty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `created` instead
+    ///
+    pub const Created = created;
 
     /// ### [Upstream resources](https://api.kde.org/kdirwatch.html#created)
     ///
@@ -501,7 +625,7 @@ pub const KDirWatch = extern struct {
     ///
     /// ` path: []const u8 `
     ///
-    pub fn Created(self: KDirWatch, path: []const u8) void {
+    pub fn created(self: KDirWatch, path: []const u8) void {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
@@ -509,6 +633,10 @@ pub const KDirWatch = extern struct {
         qtc.KDirWatch_Created(@ptrCast(self.ptr), path_str);
     }
 
+    /// ### DEPRECATED: Use `onCreated` instead
+    ///
+    pub const OnCreated = onCreated;
+
     /// ### [Upstream resources](https://api.kde.org/kdirwatch.html#created)
     ///
     /// ## Parameters:
@@ -517,9 +645,13 @@ pub const KDirWatch = extern struct {
     ///
     /// ` callback: *const fn (self: KDirWatch, path: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnCreated(self: KDirWatch, callback: *const fn (KDirWatch, [*:0]const u8) callconv(.c) void) void {
+    pub fn onCreated(self: KDirWatch, callback: *const fn (KDirWatch, [*:0]const u8) callconv(.c) void) void {
         qtc.KDirWatch_Connect_Created(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `deleted` instead
+    ///
+    pub const Deleted = deleted;
 
     /// ### [Upstream resources](https://api.kde.org/kdirwatch.html#deleted)
     ///
@@ -529,13 +661,17 @@ pub const KDirWatch = extern struct {
     ///
     /// ` path: []const u8 `
     ///
-    pub fn Deleted(self: KDirWatch, path: []const u8) void {
+    pub fn deleted(self: KDirWatch, path: []const u8) void {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
         qtc.KDirWatch_Deleted(@ptrCast(self.ptr), path_str);
     }
+
+    /// ### DEPRECATED: Use `onDeleted` instead
+    ///
+    pub const OnDeleted = onDeleted;
 
     /// ### [Upstream resources](https://api.kde.org/kdirwatch.html#deleted)
     ///
@@ -545,9 +681,13 @@ pub const KDirWatch = extern struct {
     ///
     /// ` callback: *const fn (self: KDirWatch, path: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnDeleted(self: KDirWatch, callback: *const fn (KDirWatch, [*:0]const u8) callconv(.c) void) void {
+    pub fn onDeleted(self: KDirWatch, callback: *const fn (KDirWatch, [*:0]const u8) callconv(.c) void) void {
         qtc.KDirWatch_Connect_Deleted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -559,15 +699,19 @@ pub const KDirWatch = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDirWatch.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDirWatch.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -581,15 +725,19 @@ pub const KDirWatch = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDirWatch.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDirWatch.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addDir2` instead
+    ///
+    pub const AddDir2 = addDir2;
 
     /// ### [Upstream resources](https://api.kde.org/kdirwatch.html#addDir)
     ///
@@ -601,13 +749,17 @@ pub const KDirWatch = extern struct {
     ///
     /// ` watchModes: flag of kdirwatch_enums.WatchMode `
     ///
-    pub fn AddDir2(self: KDirWatch, path: []const u8, watchModes: i32) void {
+    pub fn addDir2(self: KDirWatch, path: []const u8, watchModes: i32) void {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
         qtc.KDirWatch_AddDir2(@ptrCast(self.ptr), path_str, @bitCast(watchModes));
     }
+
+    /// ### DEPRECATED: Use `startScan1` instead
+    ///
+    pub const StartScan1 = startScan1;
 
     /// ### [Upstream resources](https://api.kde.org/kdirwatch.html#startScan)
     ///
@@ -617,9 +769,13 @@ pub const KDirWatch = extern struct {
     ///
     /// ` notify: bool `
     ///
-    pub fn StartScan1(self: KDirWatch, notify: bool) void {
+    pub fn startScan1(self: KDirWatch, notify: bool) void {
         qtc.KDirWatch_StartScan1(@ptrCast(self.ptr), notify);
     }
+
+    /// ### DEPRECATED: Use `startScan2` instead
+    ///
+    pub const StartScan2 = startScan2;
 
     /// ### [Upstream resources](https://api.kde.org/kdirwatch.html#startScan)
     ///
@@ -631,9 +787,13 @@ pub const KDirWatch = extern struct {
     ///
     /// ` skippedToo: bool `
     ///
-    pub fn StartScan2(self: KDirWatch, notify: bool, skippedToo: bool) void {
+    pub fn startScan2(self: KDirWatch, notify: bool, skippedToo: bool) void {
         qtc.KDirWatch_StartScan2(@ptrCast(self.ptr), notify, skippedToo);
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -645,13 +805,17 @@ pub const KDirWatch = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KDirWatch, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KDirWatch, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDirWatch.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDirWatch.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -663,13 +827,17 @@ pub const KDirWatch = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KDirWatch, name: []const u8) void {
+    pub fn setObjectName(self: KDirWatch, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -679,9 +847,13 @@ pub const KDirWatch = extern struct {
     ///
     /// ` self: KDirWatch `
     ///
-    pub fn IsWidgetType(self: KDirWatch) bool {
+    pub fn isWidgetType(self: KDirWatch) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -691,9 +863,13 @@ pub const KDirWatch = extern struct {
     ///
     /// ` self: KDirWatch `
     ///
-    pub fn IsWindowType(self: KDirWatch) bool {
+    pub fn isWindowType(self: KDirWatch) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -703,9 +879,13 @@ pub const KDirWatch = extern struct {
     ///
     /// ` self: KDirWatch `
     ///
-    pub fn IsQuickItemType(self: KDirWatch) bool {
+    pub fn isQuickItemType(self: KDirWatch) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -715,9 +895,13 @@ pub const KDirWatch = extern struct {
     ///
     /// ` self: KDirWatch `
     ///
-    pub fn SignalsBlocked(self: KDirWatch) bool {
+    pub fn signalsBlocked(self: KDirWatch) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -729,9 +913,13 @@ pub const KDirWatch = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KDirWatch, b: bool) bool {
+    pub fn blockSignals(self: KDirWatch, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -741,9 +929,13 @@ pub const KDirWatch = extern struct {
     ///
     /// ` self: KDirWatch `
     ///
-    pub fn Thread(self: KDirWatch) QThread {
+    pub fn thread(self: KDirWatch) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -753,12 +945,16 @@ pub const KDirWatch = extern struct {
     ///
     /// ` self: KDirWatch `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KDirWatch, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KDirWatch, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -770,9 +966,13 @@ pub const KDirWatch = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KDirWatch, interval: i32) i32 {
+    pub fn startTimer(self: KDirWatch, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -784,9 +984,13 @@ pub const KDirWatch = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KDirWatch, time: i64) i32 {
+    pub fn startTimer2(self: KDirWatch, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -798,9 +1002,13 @@ pub const KDirWatch = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KDirWatch, id: i32) void {
+    pub fn killTimer(self: KDirWatch, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -812,9 +1020,13 @@ pub const KDirWatch = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KDirWatch, id: i32) void {
+    pub fn killTimer2(self: KDirWatch, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -826,15 +1038,19 @@ pub const KDirWatch = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KDirWatch, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KDirWatch, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KDirWatch.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KDirWatch.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -844,12 +1060,16 @@ pub const KDirWatch = extern struct {
     ///
     /// ` self: KDirWatch `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: KDirWatch, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: KDirWatch, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -861,10 +1081,14 @@ pub const KDirWatch = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KDirWatch, filterObj: anytype) void {
+    pub fn installEventFilter(self: KDirWatch, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -876,10 +1100,14 @@ pub const KDirWatch = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KDirWatch, obj: anytype) void {
+    pub fn removeEventFilter(self: KDirWatch, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -887,7 +1115,7 @@ pub const KDirWatch = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -895,13 +1123,17 @@ pub const KDirWatch = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -909,7 +1141,7 @@ pub const KDirWatch = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -917,13 +1149,17 @@ pub const KDirWatch = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -933,18 +1169,22 @@ pub const KDirWatch = extern struct {
     ///
     /// ` self: KDirWatch `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KDirWatch, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KDirWatch, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -952,7 +1192,7 @@ pub const KDirWatch = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -960,13 +1200,17 @@ pub const KDirWatch = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -974,7 +1218,7 @@ pub const KDirWatch = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -982,13 +1226,17 @@ pub const KDirWatch = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -998,9 +1246,13 @@ pub const KDirWatch = extern struct {
     ///
     /// ` self: KDirWatch `
     ///
-    pub fn Disconnect3(self: KDirWatch) bool {
+    pub fn disconnect3(self: KDirWatch) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1012,10 +1264,14 @@ pub const KDirWatch = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KDirWatch, receiver: anytype) bool {
+    pub fn disconnect4(self: KDirWatch, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1025,10 +1281,14 @@ pub const KDirWatch = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1038,9 +1298,13 @@ pub const KDirWatch = extern struct {
     ///
     /// ` self: KDirWatch `
     ///
-    pub fn DumpObjectTree(self: KDirWatch) void {
+    pub fn dumpObjectTree(self: KDirWatch) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1050,9 +1314,13 @@ pub const KDirWatch = extern struct {
     ///
     /// ` self: KDirWatch `
     ///
-    pub fn DumpObjectInfo(self: KDirWatch) void {
+    pub fn dumpObjectInfo(self: KDirWatch) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1066,11 +1334,15 @@ pub const KDirWatch = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KDirWatch, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KDirWatch, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1082,10 +1354,14 @@ pub const KDirWatch = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KDirWatch, name: [:0]const u8) QVariant {
+    pub fn property(self: KDirWatch, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1097,7 +1373,7 @@ pub const KDirWatch = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KDirWatch, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KDirWatch, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1105,27 +1381,19 @@ pub const KDirWatch = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KDirWatch.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KDirWatch.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KDirWatch.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KDirWatch.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDirWatch `
-    ///
-    pub fn BindingStorage(self: KDirWatch) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1135,9 +1403,29 @@ pub const KDirWatch = extern struct {
     ///
     /// ` self: KDirWatch `
     ///
-    pub fn BindingStorage2(self: KDirWatch) QBindingStorage {
+    pub fn bindingStorage(self: KDirWatch) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KDirWatch `
+    ///
+    pub fn bindingStorage2(self: KDirWatch) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1147,9 +1435,13 @@ pub const KDirWatch = extern struct {
     ///
     /// ` self: KDirWatch `
     ///
-    pub fn Destroyed(self: KDirWatch) void {
+    pub fn destroyed(self: KDirWatch) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1161,9 +1453,13 @@ pub const KDirWatch = extern struct {
     ///
     /// ` callback: *const fn (self: KDirWatch) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KDirWatch, callback: *const fn (KDirWatch) callconv(.c) void) void {
+    pub fn onDestroyed(self: KDirWatch, callback: *const fn (KDirWatch) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1173,9 +1469,13 @@ pub const KDirWatch = extern struct {
     ///
     /// ` self: KDirWatch `
     ///
-    pub fn Parent(self: KDirWatch) QObject {
+    pub fn parent(self: KDirWatch) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1187,10 +1487,14 @@ pub const KDirWatch = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KDirWatch, classname: [:0]const u8) bool {
+    pub fn inherits(self: KDirWatch, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1200,9 +1504,13 @@ pub const KDirWatch = extern struct {
     ///
     /// ` self: KDirWatch `
     ///
-    pub fn DeleteLater(self: KDirWatch) void {
+    pub fn deleteLater(self: KDirWatch) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1216,9 +1524,13 @@ pub const KDirWatch = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KDirWatch, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KDirWatch, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1232,9 +1544,13 @@ pub const KDirWatch = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KDirWatch, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KDirWatch, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1242,7 +1558,7 @@ pub const KDirWatch = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1252,13 +1568,17 @@ pub const KDirWatch = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1266,7 +1586,7 @@ pub const KDirWatch = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1276,13 +1596,17 @@ pub const KDirWatch = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1292,7 +1616,7 @@ pub const KDirWatch = extern struct {
     ///
     /// ` self: KDirWatch `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1300,12 +1624,16 @@ pub const KDirWatch = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KDirWatch, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KDirWatch, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1317,10 +1645,14 @@ pub const KDirWatch = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KDirWatch, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KDirWatch, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1334,11 +1666,15 @@ pub const KDirWatch = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KDirWatch, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KDirWatch, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1354,13 +1690,17 @@ pub const KDirWatch = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KDirWatch, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KDirWatch, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1373,11 +1713,15 @@ pub const KDirWatch = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KDirWatch, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KDirWatch, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1389,10 +1733,14 @@ pub const KDirWatch = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KDirWatch, param1: anytype) void {
+    pub fn destroyed1(self: KDirWatch, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1404,9 +1752,13 @@ pub const KDirWatch = extern struct {
     ///
     /// ` callback: *const fn (self: KDirWatch, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KDirWatch, callback: *const fn (KDirWatch, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KDirWatch, callback: *const fn (KDirWatch, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1420,17 +1772,17 @@ pub const KDirWatch = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: KDirWatch, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: KDirWatch, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KDirWatch_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KDirWatch_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1444,13 +1796,17 @@ pub const KDirWatch = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: KDirWatch, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: KDirWatch, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KDirWatch_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KDirWatch_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1464,9 +1820,13 @@ pub const KDirWatch = extern struct {
     ///
     /// ` callback: *const fn (self: KDirWatch, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KDirWatch, callback: *const fn (KDirWatch, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KDirWatch, callback: *const fn (KDirWatch, QObject, QEvent) callconv(.c) bool) void {
         qtc.KDirWatch_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -1478,16 +1838,16 @@ pub const KDirWatch = extern struct {
     ///
     /// ` self: KDirWatch `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KDirWatch, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KDirWatch_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: KDirWatch, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KDirWatch_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1499,12 +1859,16 @@ pub const KDirWatch = extern struct {
     ///
     /// ` self: KDirWatch `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KDirWatch, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KDirWatch_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: KDirWatch, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KDirWatch_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1518,9 +1882,13 @@ pub const KDirWatch = extern struct {
     ///
     /// ` callback: *const fn (self: KDirWatch, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KDirWatch, callback: *const fn (KDirWatch, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KDirWatch, callback: *const fn (KDirWatch, QTimerEvent) callconv(.c) void) void {
         qtc.KDirWatch_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -1532,16 +1900,16 @@ pub const KDirWatch = extern struct {
     ///
     /// ` self: KDirWatch `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KDirWatch, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KDirWatch_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KDirWatch, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KDirWatch_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1553,12 +1921,16 @@ pub const KDirWatch = extern struct {
     ///
     /// ` self: KDirWatch `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KDirWatch, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KDirWatch_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KDirWatch, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KDirWatch_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1572,9 +1944,13 @@ pub const KDirWatch = extern struct {
     ///
     /// ` callback: *const fn (self: KDirWatch, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KDirWatch, callback: *const fn (KDirWatch, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KDirWatch, callback: *const fn (KDirWatch, QChildEvent) callconv(.c) void) void {
         qtc.KDirWatch_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -1586,16 +1962,16 @@ pub const KDirWatch = extern struct {
     ///
     /// ` self: KDirWatch `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KDirWatch, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KDirWatch_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KDirWatch, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KDirWatch_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1607,12 +1983,16 @@ pub const KDirWatch = extern struct {
     ///
     /// ` self: KDirWatch `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KDirWatch, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KDirWatch_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KDirWatch, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KDirWatch_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1626,9 +2006,13 @@ pub const KDirWatch = extern struct {
     ///
     /// ` callback: *const fn (self: KDirWatch, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KDirWatch, callback: *const fn (KDirWatch, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KDirWatch, callback: *const fn (KDirWatch, QEvent) callconv(.c) void) void {
         qtc.KDirWatch_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -1642,14 +2026,14 @@ pub const KDirWatch = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KDirWatch, signal: anytype) void {
+    pub fn connectNotify(self: KDirWatch, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KDirWatch_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1663,11 +2047,15 @@ pub const KDirWatch = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KDirWatch, signal: anytype) void {
+    pub fn superConnectNotify(self: KDirWatch, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KDirWatch_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1680,9 +2068,13 @@ pub const KDirWatch = extern struct {
     ///
     /// ` callback: *const fn (self: KDirWatch, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KDirWatch, callback: *const fn (KDirWatch, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KDirWatch, callback: *const fn (KDirWatch, QMetaMethod) callconv(.c) void) void {
         qtc.KDirWatch_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1696,14 +2088,14 @@ pub const KDirWatch = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KDirWatch, signal: anytype) void {
+    pub fn disconnectNotify(self: KDirWatch, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KDirWatch_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1717,10 +2109,14 @@ pub const KDirWatch = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KDirWatch, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KDirWatch, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KDirWatch_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1734,9 +2130,13 @@ pub const KDirWatch = extern struct {
     ///
     /// ` callback: *const fn (self: KDirWatch, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KDirWatch, callback: *const fn (KDirWatch, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KDirWatch, callback: *const fn (KDirWatch, QMetaMethod) callconv(.c) void) void {
         qtc.KDirWatch_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -1748,13 +2148,13 @@ pub const KDirWatch = extern struct {
     ///
     /// ` self: KDirWatch `
     ///
-    pub fn Sender(self: KDirWatch) QObject {
+    pub fn sender(self: KDirWatch) QObject {
         return .{ .ptr = qtc.KDirWatch_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -1766,9 +2166,13 @@ pub const KDirWatch = extern struct {
     ///
     /// ` self: KDirWatch `
     ///
-    pub fn SuperSender(self: KDirWatch) QObject {
+    pub fn superSender(self: KDirWatch) QObject {
         return .{ .ptr = qtc.KDirWatch_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -1782,9 +2186,13 @@ pub const KDirWatch = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KDirWatch, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KDirWatch, callback: *const fn () callconv(.c) QObject) void {
         qtc.KDirWatch_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1796,13 +2204,13 @@ pub const KDirWatch = extern struct {
     ///
     /// ` self: KDirWatch `
     ///
-    pub fn SenderSignalIndex(self: KDirWatch) i32 {
+    pub fn senderSignalIndex(self: KDirWatch) i32 {
         return qtc.KDirWatch_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1814,9 +2222,13 @@ pub const KDirWatch = extern struct {
     ///
     /// ` self: KDirWatch `
     ///
-    pub fn SuperSenderSignalIndex(self: KDirWatch) i32 {
+    pub fn superSenderSignalIndex(self: KDirWatch) i32 {
         return qtc.KDirWatch_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1830,9 +2242,13 @@ pub const KDirWatch = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KDirWatch, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KDirWatch, callback: *const fn () callconv(.c) i32) void {
         qtc.KDirWatch_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -1846,14 +2262,14 @@ pub const KDirWatch = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KDirWatch, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KDirWatch, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KDirWatch_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -1867,10 +2283,14 @@ pub const KDirWatch = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KDirWatch, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KDirWatch, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KDirWatch_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -1884,9 +2304,13 @@ pub const KDirWatch = extern struct {
     ///
     /// ` callback: *const fn (self: KDirWatch, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KDirWatch, callback: *const fn (KDirWatch, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KDirWatch, callback: *const fn (KDirWatch, [*:0]const u8) callconv(.c) i32) void {
         qtc.KDirWatch_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1900,14 +2324,14 @@ pub const KDirWatch = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KDirWatch, signal: anytype) bool {
+    pub fn isSignalConnected(self: KDirWatch, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KDirWatch_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1921,10 +2345,14 @@ pub const KDirWatch = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KDirWatch, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KDirWatch, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KDirWatch_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1938,9 +2366,13 @@ pub const KDirWatch = extern struct {
     ///
     /// ` callback: *const fn (self: KDirWatch, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KDirWatch, callback: *const fn (KDirWatch, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KDirWatch, callback: *const fn (KDirWatch, QMetaMethod) callconv(.c) bool) void {
         qtc.KDirWatch_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -1954,23 +2386,23 @@ pub const KDirWatch = extern struct {
     ///
     /// ` callback: *const fn (self: KDirWatch, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KDirWatch, callback: *const fn (KDirWatch, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KDirWatch, callback: *const fn (KDirWatch, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kdirwatch.html#dtor.KDirWatch)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KDirWatch `
     ///
-    pub fn Delete(self: KDirWatch) void {
+    pub fn delete(self: KDirWatch) void {
         qtc.KDirWatch_Delete(@ptrCast(self.ptr));
     }
 };

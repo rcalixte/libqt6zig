@@ -23,22 +23,34 @@ pub const QObject = extern struct {
 
     pub const _is_QObject = {};
 
-    /// New constructs a new QObject object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QObject {
+    pub const New = new;
+
+    /// Allocate a new QObject object in C++ memory
+    ///
+    pub fn new() QObject {
         return .{ .ptr = qtc.QObject_new() };
     }
 
-    /// New2 constructs a new QObject object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QObject object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) QObject {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QObject_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) QObject {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QObject_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -46,9 +58,13 @@ pub const QObject = extern struct {
     ///
     /// ` self: QObject `
     ///
-    pub fn MetaObject(self: QObject) QMetaObject {
+    pub fn metaObject(self: QObject) QMetaObject {
         return .{ .ptr = qtc.QObject_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -60,13 +76,13 @@ pub const QObject = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QObject, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QObject, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QObject_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -76,9 +92,13 @@ pub const QObject = extern struct {
     ///
     /// ` self: QObject `
     ///
-    pub fn SuperMetaObject(self: QObject) QMetaObject {
+    pub fn superMetaObject(self: QObject) QMetaObject {
         return .{ .ptr = qtc.QObject_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -86,10 +106,14 @@ pub const QObject = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QObject, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QObject, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QObject_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -99,13 +123,13 @@ pub const QObject = extern struct {
     ///
     /// ` callback: *const fn (self: QObject, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QObject, callback: *const fn (QObject, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QObject, callback: *const fn (QObject, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QObject_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -115,10 +139,14 @@ pub const QObject = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QObject, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QObject, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QObject_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -130,9 +158,13 @@ pub const QObject = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QObject, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QObject, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QObject_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -142,13 +174,13 @@ pub const QObject = extern struct {
     ///
     /// ` callback: *const fn (self: QObject, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QObject, callback: *const fn (QObject, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QObject, callback: *const fn (QObject, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QObject_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -162,9 +194,13 @@ pub const QObject = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QObject, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QObject, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QObject_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -174,14 +210,18 @@ pub const QObject = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QObject.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QObject.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
@@ -189,12 +229,16 @@ pub const QObject = extern struct {
     ///
     /// ` self: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QObject, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QObject_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QObject, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QObject_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
@@ -206,13 +250,13 @@ pub const QObject = extern struct {
     ///
     /// ` callback: *const fn (self: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QObject, callback: *const fn (QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QObject, callback: *const fn (QObject, QEvent) callconv(.c) bool) void {
         qtc.QObject_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
@@ -222,12 +266,16 @@ pub const QObject = extern struct {
     ///
     /// ` self: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QObject, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QObject_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QObject, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QObject_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
@@ -237,13 +285,17 @@ pub const QObject = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QObject, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QObject, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
@@ -255,13 +307,13 @@ pub const QObject = extern struct {
     ///
     /// ` callback: *const fn (self: QObject, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QObject, callback: *const fn (QObject, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QObject, callback: *const fn (QObject, QObject, QEvent) callconv(.c) bool) void {
         qtc.QObject_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
@@ -273,13 +325,17 @@ pub const QObject = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QObject, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QObject, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QObject_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QObject_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
@@ -289,13 +345,17 @@ pub const QObject = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QObject, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QObject, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QObject.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QObject.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
@@ -305,7 +365,7 @@ pub const QObject = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QObject, name: []const u8) void {
+    pub fn setObjectName(self: QObject, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -313,15 +373,23 @@ pub const QObject = extern struct {
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QObject `
     ///
-    pub fn IsWidgetType(self: QObject) bool {
+    pub fn isWidgetType(self: QObject) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
@@ -329,9 +397,13 @@ pub const QObject = extern struct {
     ///
     /// ` self: QObject `
     ///
-    pub fn IsWindowType(self: QObject) bool {
+    pub fn isWindowType(self: QObject) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
@@ -339,9 +411,13 @@ pub const QObject = extern struct {
     ///
     /// ` self: QObject `
     ///
-    pub fn IsQuickItemType(self: QObject) bool {
+    pub fn isQuickItemType(self: QObject) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
@@ -349,9 +425,13 @@ pub const QObject = extern struct {
     ///
     /// ` self: QObject `
     ///
-    pub fn SignalsBlocked(self: QObject) bool {
+    pub fn signalsBlocked(self: QObject) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
@@ -361,9 +441,13 @@ pub const QObject = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QObject, b: bool) bool {
+    pub fn blockSignals(self: QObject, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
@@ -371,9 +455,13 @@ pub const QObject = extern struct {
     ///
     /// ` self: QObject `
     ///
-    pub fn Thread(self: QObject) QThread {
+    pub fn thread(self: QObject) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
@@ -381,12 +469,16 @@ pub const QObject = extern struct {
     ///
     /// ` self: QObject `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QObject, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QObject, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
@@ -396,9 +488,13 @@ pub const QObject = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QObject, interval: i32) i32 {
+    pub fn startTimer(self: QObject, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
@@ -408,9 +504,13 @@ pub const QObject = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QObject, time: i64) i32 {
+    pub fn startTimer2(self: QObject, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
@@ -420,9 +520,13 @@ pub const QObject = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QObject, id: i32) void {
+    pub fn killTimer(self: QObject, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
@@ -432,9 +536,13 @@ pub const QObject = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QObject, id: i32) void {
+    pub fn killTimer2(self: QObject, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
@@ -444,15 +552,19 @@ pub const QObject = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QObject, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QObject, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QObject.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QObject.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
@@ -460,12 +572,16 @@ pub const QObject = extern struct {
     ///
     /// ` self: QObject `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QObject, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QObject, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
@@ -475,10 +591,14 @@ pub const QObject = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QObject, filterObj: anytype) void {
+    pub fn installEventFilter(self: QObject, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
@@ -488,16 +608,20 @@ pub const QObject = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QObject, obj: anytype) void {
+    pub fn removeEventFilter(self: QObject, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -505,19 +629,23 @@ pub const QObject = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -525,13 +653,17 @@ pub const QObject = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
@@ -539,24 +671,28 @@ pub const QObject = extern struct {
     ///
     /// ` self: QObject `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QObject, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QObject, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -564,19 +700,23 @@ pub const QObject = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -584,13 +724,17 @@ pub const QObject = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
@@ -598,9 +742,13 @@ pub const QObject = extern struct {
     ///
     /// ` self: QObject `
     ///
-    pub fn Disconnect3(self: QObject) bool {
+    pub fn disconnect3(self: QObject) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
@@ -610,10 +758,14 @@ pub const QObject = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QObject, receiver: anytype) bool {
+    pub fn disconnect4(self: QObject, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
@@ -621,10 +773,14 @@ pub const QObject = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
@@ -632,9 +788,13 @@ pub const QObject = extern struct {
     ///
     /// ` self: QObject `
     ///
-    pub fn DumpObjectTree(self: QObject) void {
+    pub fn dumpObjectTree(self: QObject) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
@@ -642,9 +802,13 @@ pub const QObject = extern struct {
     ///
     /// ` self: QObject `
     ///
-    pub fn DumpObjectInfo(self: QObject) void {
+    pub fn dumpObjectInfo(self: QObject) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
@@ -656,11 +820,15 @@ pub const QObject = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QObject, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QObject, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
@@ -670,10 +838,14 @@ pub const QObject = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QObject, name: [:0]const u8) QVariant {
+    pub fn property(self: QObject, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
@@ -683,7 +855,7 @@ pub const QObject = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QObject, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QObject, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -691,25 +863,19 @@ pub const QObject = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QObject.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QObject.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QObject.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QObject.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QObject `
-    ///
-    pub fn BindingStorage(self: QObject) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
@@ -717,9 +883,27 @@ pub const QObject = extern struct {
     ///
     /// ` self: QObject `
     ///
-    pub fn BindingStorage2(self: QObject) QBindingStorage {
+    pub fn bindingStorage(self: QObject) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QObject `
+    ///
+    pub fn bindingStorage2(self: QObject) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
@@ -727,9 +911,13 @@ pub const QObject = extern struct {
     ///
     /// ` self: QObject `
     ///
-    pub fn Destroyed(self: QObject) void {
+    pub fn destroyed(self: QObject) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
@@ -739,9 +927,13 @@ pub const QObject = extern struct {
     ///
     /// ` callback: *const fn (self: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QObject, callback: *const fn (QObject) callconv(.c) void) void {
+    pub fn onDestroyed(self: QObject, callback: *const fn (QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
@@ -749,9 +941,13 @@ pub const QObject = extern struct {
     ///
     /// ` self: QObject `
     ///
-    pub fn Parent(self: QObject) QObject {
+    pub fn parent(self: QObject) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
@@ -761,10 +957,14 @@ pub const QObject = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QObject, classname: [:0]const u8) bool {
+    pub fn inherits(self: QObject, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
@@ -772,9 +972,13 @@ pub const QObject = extern struct {
     ///
     /// ` self: QObject `
     ///
-    pub fn DeleteLater(self: QObject) void {
+    pub fn deleteLater(self: QObject) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
@@ -782,9 +986,13 @@ pub const QObject = extern struct {
     ///
     /// ` self: QObject `
     ///
-    pub fn Sender(self: QObject) QObject {
+    pub fn sender(self: QObject) QObject {
         return .{ .ptr = qtc.QObject_Sender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
@@ -796,13 +1004,13 @@ pub const QObject = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QObject, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QObject, callback: *const fn () callconv(.c) QObject) void {
         qtc.QObject_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
@@ -812,9 +1020,13 @@ pub const QObject = extern struct {
     ///
     /// ` self: QObject `
     ///
-    pub fn SuperSender(self: QObject) QObject {
+    pub fn superSender(self: QObject) QObject {
         return .{ .ptr = qtc.QObject_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
@@ -822,9 +1034,13 @@ pub const QObject = extern struct {
     ///
     /// ` self: QObject `
     ///
-    pub fn SenderSignalIndex(self: QObject) i32 {
+    pub fn senderSignalIndex(self: QObject) i32 {
         return qtc.QObject_SenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
@@ -836,13 +1052,13 @@ pub const QObject = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QObject, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QObject, callback: *const fn () callconv(.c) i32) void {
         qtc.QObject_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
@@ -852,9 +1068,13 @@ pub const QObject = extern struct {
     ///
     /// ` self: QObject `
     ///
-    pub fn SuperSenderSignalIndex(self: QObject) i32 {
+    pub fn superSenderSignalIndex(self: QObject) i32 {
         return qtc.QObject_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
@@ -864,10 +1084,14 @@ pub const QObject = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QObject, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QObject, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
@@ -879,13 +1103,13 @@ pub const QObject = extern struct {
     ///
     /// ` callback: *const fn (self: QObject, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QObject, callback: *const fn (QObject, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QObject, callback: *const fn (QObject, [*:0]const u8) callconv(.c) i32) void {
         qtc.QObject_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
@@ -897,10 +1121,14 @@ pub const QObject = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QObject, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QObject, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
@@ -910,10 +1138,14 @@ pub const QObject = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QObject, signal: anytype) bool {
+    pub fn isSignalConnected(self: QObject, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QObject_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
@@ -925,13 +1157,13 @@ pub const QObject = extern struct {
     ///
     /// ` callback: *const fn (self: QObject, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QObject, callback: *const fn (QObject, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QObject, callback: *const fn (QObject, QMetaMethod) callconv(.c) bool) void {
         qtc.QObject_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
@@ -943,10 +1175,14 @@ pub const QObject = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QObject, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QObject, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QObject_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
@@ -954,12 +1190,16 @@ pub const QObject = extern struct {
     ///
     /// ` self: QObject `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QObject, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QObject_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QObject, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QObject_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
@@ -971,13 +1211,13 @@ pub const QObject = extern struct {
     ///
     /// ` callback: *const fn (self: QObject, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QObject, callback: *const fn (QObject, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QObject, callback: *const fn (QObject, QTimerEvent) callconv(.c) void) void {
         qtc.QObject_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
@@ -987,12 +1227,16 @@ pub const QObject = extern struct {
     ///
     /// ` self: QObject `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QObject, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QObject_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QObject, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QObject_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
@@ -1000,12 +1244,16 @@ pub const QObject = extern struct {
     ///
     /// ` self: QObject `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QObject, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QObject_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QObject, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QObject_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
@@ -1017,13 +1265,13 @@ pub const QObject = extern struct {
     ///
     /// ` callback: *const fn (self: QObject, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QObject, callback: *const fn (QObject, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QObject, callback: *const fn (QObject, QChildEvent) callconv(.c) void) void {
         qtc.QObject_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
@@ -1033,12 +1281,16 @@ pub const QObject = extern struct {
     ///
     /// ` self: QObject `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QObject, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QObject_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QObject, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QObject_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
@@ -1046,12 +1298,16 @@ pub const QObject = extern struct {
     ///
     /// ` self: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QObject, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QObject_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QObject, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QObject_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
@@ -1063,13 +1319,13 @@ pub const QObject = extern struct {
     ///
     /// ` callback: *const fn (self: QObject, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QObject, callback: *const fn (QObject, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QObject, callback: *const fn (QObject, QEvent) callconv(.c) void) void {
         qtc.QObject_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
@@ -1079,12 +1335,16 @@ pub const QObject = extern struct {
     ///
     /// ` self: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QObject, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QObject_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QObject, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QObject_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
@@ -1094,11 +1354,15 @@ pub const QObject = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QObject, signal: anytype) void {
+    pub fn connectNotify(self: QObject, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QObject_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Allows for overriding the related default method
@@ -1109,13 +1373,13 @@ pub const QObject = extern struct {
     ///
     /// ` callback: *const fn (self: QObject, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QObject, callback: *const fn (QObject, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QObject, callback: *const fn (QObject, QMetaMethod) callconv(.c) void) void {
         qtc.QObject_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
@@ -1127,11 +1391,15 @@ pub const QObject = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QObject, signal: anytype) void {
+    pub fn superConnectNotify(self: QObject, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QObject_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// ## Parameter(s):
@@ -1140,10 +1408,14 @@ pub const QObject = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QObject, signal: anytype) void {
+    pub fn disconnectNotify(self: QObject, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QObject_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
@@ -1155,13 +1427,13 @@ pub const QObject = extern struct {
     ///
     /// ` callback: *const fn (self: QObject, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QObject, callback: *const fn (QObject, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QObject, callback: *const fn (QObject, QMetaMethod) callconv(.c) void) void {
         qtc.QObject_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
@@ -1173,10 +1445,14 @@ pub const QObject = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QObject, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QObject, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QObject_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1188,15 +1464,19 @@ pub const QObject = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QObject.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QObject.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1210,15 +1490,19 @@ pub const QObject = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QObject.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QObject.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
@@ -1230,9 +1514,13 @@ pub const QObject = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QObject, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QObject, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
@@ -1244,15 +1532,19 @@ pub const QObject = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QObject, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QObject, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1262,19 +1554,23 @@ pub const QObject = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1284,13 +1580,17 @@ pub const QObject = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
@@ -1298,7 +1598,7 @@ pub const QObject = extern struct {
     ///
     /// ` self: QObject `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1306,12 +1606,16 @@ pub const QObject = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QObject, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QObject, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
@@ -1321,10 +1625,14 @@ pub const QObject = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QObject, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QObject, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
@@ -1336,11 +1644,15 @@ pub const QObject = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QObject, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QObject, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
@@ -1354,13 +1666,17 @@ pub const QObject = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QObject, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QObject, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ## Parameter(s):
@@ -1371,11 +1687,15 @@ pub const QObject = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QObject, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QObject, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
@@ -1385,10 +1705,14 @@ pub const QObject = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QObject, param1: anytype) void {
+    pub fn destroyed1(self: QObject, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
@@ -1398,9 +1722,13 @@ pub const QObject = extern struct {
     ///
     /// ` callback: *const fn (self: QObject, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QObject, callback: *const fn (QObject, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QObject, callback: *const fn (QObject, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
@@ -1412,23 +1740,23 @@ pub const QObject = extern struct {
     ///
     /// ` callback: *const fn (self: QObject, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QObject, callback: *const fn (QObject, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QObject, callback: *const fn (QObject, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dtor.QObject)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QObject `
     ///
-    pub fn Delete(self: QObject) void {
+    pub fn delete(self: QObject) void {
         qtc.QObject_Delete(@ptrCast(self.ptr));
     }
 };
@@ -1443,27 +1771,39 @@ pub const QSignalBlocker = extern struct {
 
     pub const _is_QSignalBlocker = {};
 
-    /// New constructs a new QSignalBlocker object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QSignalBlocker object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` o: QObject `
     ///
-    pub fn New(o: anytype) QSignalBlocker {
+    pub fn new(o: anytype) QSignalBlocker {
         comptime _ = @TypeOf(o)._is_QObject;
         return .{ .ptr = qtc.QSignalBlocker_new(@ptrCast(o.ptr)) };
     }
 
-    /// New2 constructs a new QSignalBlocker object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QSignalBlocker object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` o: QObject `
     ///
-    pub fn New2(o: anytype) QSignalBlocker {
+    pub fn new2(o: anytype) QSignalBlocker {
         comptime _ = @TypeOf(o)._is_QObject;
         return .{ .ptr = qtc.QSignalBlocker_new2(@ptrCast(o.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `reblock` instead
+    ///
+    pub const Reblock = reblock;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsignalblocker.html#reblock)
     ///
@@ -1471,9 +1811,13 @@ pub const QSignalBlocker = extern struct {
     ///
     /// ` self: QSignalBlocker `
     ///
-    pub fn Reblock(self: QSignalBlocker) void {
+    pub fn reblock(self: QSignalBlocker) void {
         qtc.QSignalBlocker_Reblock(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unblock` instead
+    ///
+    pub const Unblock = unblock;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsignalblocker.html#unblock)
     ///
@@ -1481,9 +1825,13 @@ pub const QSignalBlocker = extern struct {
     ///
     /// ` self: QSignalBlocker `
     ///
-    pub fn Unblock(self: QSignalBlocker) void {
+    pub fn unblock(self: QSignalBlocker) void {
         qtc.QSignalBlocker_Unblock(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dismiss` instead
+    ///
+    pub const Dismiss = dismiss;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsignalblocker.html#dismiss)
     ///
@@ -1491,23 +1839,23 @@ pub const QSignalBlocker = extern struct {
     ///
     /// ` self: QSignalBlocker `
     ///
-    pub fn Dismiss(self: QSignalBlocker) void {
+    pub fn dismiss(self: QSignalBlocker) void {
         qtc.QSignalBlocker_Dismiss(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsignalblocker.html#dtor.QSignalBlocker)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QSignalBlocker `
     ///
-    pub fn Delete(self: QSignalBlocker) void {
+    pub fn delete(self: QSignalBlocker) void {
         qtc.QSignalBlocker_Delete(@ptrCast(self.ptr));
     }
 };

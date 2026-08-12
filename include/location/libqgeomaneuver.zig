@@ -16,22 +16,34 @@ pub const QGeoManeuver = extern struct {
 
     pub const _is_QGeoManeuver = {};
 
-    /// New constructs a new QGeoManeuver object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QGeoManeuver {
+    pub const New = new;
+
+    /// Allocate a new QGeoManeuver object in C++ memory
+    ///
+    pub fn new() QGeoManeuver {
         return .{ .ptr = qtc.QGeoManeuver_new() };
     }
 
-    /// New2 constructs a new QGeoManeuver object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QGeoManeuver object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QGeoManeuver `
     ///
-    pub fn New2(other: anytype) QGeoManeuver {
+    pub fn new2(other: anytype) QGeoManeuver {
         comptime _ = @TypeOf(other)._is_QGeoManeuver;
         return .{ .ptr = qtc.QGeoManeuver_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeomaneuver.html#operator-eq)
     ///
@@ -41,10 +53,14 @@ pub const QGeoManeuver = extern struct {
     ///
     /// ` other: QGeoManeuver `
     ///
-    pub fn OperatorAssign(self: QGeoManeuver, other: anytype) void {
+    pub fn operatorAssign(self: QGeoManeuver, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QGeoManeuver;
         qtc.QGeoManeuver_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeomaneuver.html#swap)
     ///
@@ -54,10 +70,14 @@ pub const QGeoManeuver = extern struct {
     ///
     /// ` other: QGeoManeuver `
     ///
-    pub fn Swap(self: QGeoManeuver, other: anytype) void {
+    pub fn swap(self: QGeoManeuver, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QGeoManeuver;
         qtc.QGeoManeuver_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeomaneuver.html#isValid)
     ///
@@ -65,9 +85,13 @@ pub const QGeoManeuver = extern struct {
     ///
     /// ` self: QGeoManeuver `
     ///
-    pub fn IsValid(self: QGeoManeuver) bool {
+    pub fn isValid(self: QGeoManeuver) bool {
         return qtc.QGeoManeuver_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPosition` instead
+    ///
+    pub const SetPosition = setPosition;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeomaneuver.html#setPosition)
     ///
@@ -75,12 +99,16 @@ pub const QGeoManeuver = extern struct {
     ///
     /// ` self: QGeoManeuver `
     ///
-    /// ` position: QGeoCoordinate `
+    /// ` _position: QGeoCoordinate `
     ///
-    pub fn SetPosition(self: QGeoManeuver, position: anytype) void {
-        comptime _ = @TypeOf(position)._is_QGeoCoordinate;
-        qtc.QGeoManeuver_SetPosition(@ptrCast(self.ptr), @ptrCast(position.ptr));
+    pub fn setPosition(self: QGeoManeuver, _position: anytype) void {
+        comptime _ = @TypeOf(_position)._is_QGeoCoordinate;
+        qtc.QGeoManeuver_SetPosition(@ptrCast(self.ptr), @ptrCast(_position.ptr));
     }
+
+    /// ### DEPRECATED: Use `position` instead
+    ///
+    pub const Position = position;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeomaneuver.html#position)
     ///
@@ -88,9 +116,13 @@ pub const QGeoManeuver = extern struct {
     ///
     /// ` self: QGeoManeuver `
     ///
-    pub fn Position(self: QGeoManeuver) QGeoCoordinate {
+    pub fn position(self: QGeoManeuver) QGeoCoordinate {
         return .{ .ptr = qtc.QGeoManeuver_Position(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setInstructionText` instead
+    ///
+    pub const SetInstructionText = setInstructionText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeomaneuver.html#setInstructionText)
     ///
@@ -98,15 +130,19 @@ pub const QGeoManeuver = extern struct {
     ///
     /// ` self: QGeoManeuver `
     ///
-    /// ` instructionText: []const u8 `
+    /// ` _instructionText: []const u8 `
     ///
-    pub fn SetInstructionText(self: QGeoManeuver, instructionText: []const u8) void {
+    pub fn setInstructionText(self: QGeoManeuver, _instructionText: []const u8) void {
         const instructionText_str = qtc.libqt_string{
-            .len = instructionText.len,
-            .data = instructionText.ptr,
+            .len = _instructionText.len,
+            .data = _instructionText.ptr,
         };
         qtc.QGeoManeuver_SetInstructionText(@ptrCast(self.ptr), instructionText_str);
     }
+
+    /// ### DEPRECATED: Use `instructionText` instead
+    ///
+    pub const InstructionText = instructionText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeomaneuver.html#instructionText)
     ///
@@ -116,13 +152,17 @@ pub const QGeoManeuver = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn InstructionText(self: QGeoManeuver, allocator: std.mem.Allocator) []const u8 {
+    pub fn instructionText(self: QGeoManeuver, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGeoManeuver_InstructionText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoManeuver.InstructionText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoManeuver.instructionText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setDirection` instead
+    ///
+    pub const SetDirection = setDirection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeomaneuver.html#setDirection)
     ///
@@ -130,11 +170,15 @@ pub const QGeoManeuver = extern struct {
     ///
     /// ` self: QGeoManeuver `
     ///
-    /// ` direction: qgeomaneuver_enums.InstructionDirection `
+    /// ` _direction: qgeomaneuver_enums.InstructionDirection `
     ///
-    pub fn SetDirection(self: QGeoManeuver, direction: i32) void {
-        qtc.QGeoManeuver_SetDirection(@ptrCast(self.ptr), @bitCast(direction));
+    pub fn setDirection(self: QGeoManeuver, _direction: i32) void {
+        qtc.QGeoManeuver_SetDirection(@ptrCast(self.ptr), @bitCast(_direction));
     }
+
+    /// ### DEPRECATED: Use `direction` instead
+    ///
+    pub const Direction = direction;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeomaneuver.html#direction)
     ///
@@ -146,9 +190,13 @@ pub const QGeoManeuver = extern struct {
     ///
     /// ` qgeomaneuver_enums.InstructionDirection `
     ///
-    pub fn Direction(self: QGeoManeuver) i32 {
+    pub fn direction(self: QGeoManeuver) i32 {
         return qtc.QGeoManeuver_Direction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTimeToNextInstruction` instead
+    ///
+    pub const SetTimeToNextInstruction = setTimeToNextInstruction;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeomaneuver.html#setTimeToNextInstruction)
     ///
@@ -158,9 +206,13 @@ pub const QGeoManeuver = extern struct {
     ///
     /// ` secs: i32 `
     ///
-    pub fn SetTimeToNextInstruction(self: QGeoManeuver, secs: i32) void {
+    pub fn setTimeToNextInstruction(self: QGeoManeuver, secs: i32) void {
         qtc.QGeoManeuver_SetTimeToNextInstruction(@ptrCast(self.ptr), @bitCast(secs));
     }
+
+    /// ### DEPRECATED: Use `timeToNextInstruction` instead
+    ///
+    pub const TimeToNextInstruction = timeToNextInstruction;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeomaneuver.html#timeToNextInstruction)
     ///
@@ -168,9 +220,13 @@ pub const QGeoManeuver = extern struct {
     ///
     /// ` self: QGeoManeuver `
     ///
-    pub fn TimeToNextInstruction(self: QGeoManeuver) i32 {
+    pub fn timeToNextInstruction(self: QGeoManeuver) i32 {
         return qtc.QGeoManeuver_TimeToNextInstruction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDistanceToNextInstruction` instead
+    ///
+    pub const SetDistanceToNextInstruction = setDistanceToNextInstruction;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeomaneuver.html#setDistanceToNextInstruction)
     ///
@@ -180,9 +236,13 @@ pub const QGeoManeuver = extern struct {
     ///
     /// ` distance: f64 `
     ///
-    pub fn SetDistanceToNextInstruction(self: QGeoManeuver, distance: f64) void {
+    pub fn setDistanceToNextInstruction(self: QGeoManeuver, distance: f64) void {
         qtc.QGeoManeuver_SetDistanceToNextInstruction(@ptrCast(self.ptr), @bitCast(distance));
     }
+
+    /// ### DEPRECATED: Use `distanceToNextInstruction` instead
+    ///
+    pub const DistanceToNextInstruction = distanceToNextInstruction;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeomaneuver.html#distanceToNextInstruction)
     ///
@@ -190,9 +250,13 @@ pub const QGeoManeuver = extern struct {
     ///
     /// ` self: QGeoManeuver `
     ///
-    pub fn DistanceToNextInstruction(self: QGeoManeuver) f64 {
+    pub fn distanceToNextInstruction(self: QGeoManeuver) f64 {
         return qtc.QGeoManeuver_DistanceToNextInstruction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWaypoint` instead
+    ///
+    pub const SetWaypoint = setWaypoint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeomaneuver.html#setWaypoint)
     ///
@@ -202,10 +266,14 @@ pub const QGeoManeuver = extern struct {
     ///
     /// ` coordinate: QGeoCoordinate `
     ///
-    pub fn SetWaypoint(self: QGeoManeuver, coordinate: anytype) void {
+    pub fn setWaypoint(self: QGeoManeuver, coordinate: anytype) void {
         comptime _ = @TypeOf(coordinate)._is_QGeoCoordinate;
         qtc.QGeoManeuver_SetWaypoint(@ptrCast(self.ptr), @ptrCast(coordinate.ptr));
     }
+
+    /// ### DEPRECATED: Use `waypoint` instead
+    ///
+    pub const Waypoint = waypoint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeomaneuver.html#waypoint)
     ///
@@ -213,9 +281,13 @@ pub const QGeoManeuver = extern struct {
     ///
     /// ` self: QGeoManeuver `
     ///
-    pub fn Waypoint(self: QGeoManeuver) QGeoCoordinate {
+    pub fn waypoint(self: QGeoManeuver) QGeoCoordinate {
         return .{ .ptr = qtc.QGeoManeuver_Waypoint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setExtendedAttributes` instead
+    ///
+    pub const SetExtendedAttributes = setExtendedAttributes;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeomaneuver.html#setExtendedAttributes)
     ///
@@ -225,16 +297,16 @@ pub const QGeoManeuver = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` extendedAttributes: ArrayMap_constu8_QVariant `
+    /// ` _extendedAttributes: ArrayMap_constu8_QVariant `
     ///
-    pub fn SetExtendedAttributes(self: QGeoManeuver, allocator: std.mem.Allocator, extendedAttributes: ArrayMap_constu8_QVariant) void {
-        const extendedAttributes_count = extendedAttributes.count();
-        const extendedAttributes_keys = allocator.alloc(qtc.libqt_string, extendedAttributes_count) catch @panic("QGeoManeuver.SetExtendedAttributes: Memory allocation failed");
+    pub fn setExtendedAttributes(self: QGeoManeuver, allocator: std.mem.Allocator, _extendedAttributes: ArrayMap_constu8_QVariant) void {
+        const extendedAttributes_count = _extendedAttributes.count();
+        const extendedAttributes_keys = allocator.alloc(qtc.libqt_string, extendedAttributes_count) catch @panic("QGeoManeuver.setExtendedAttributes: Memory allocation failed");
         defer allocator.free(extendedAttributes_keys);
-        const extendedAttributes_values = allocator.alloc(QtC.QVariant, extendedAttributes_count) catch @panic("QGeoManeuver.SetExtendedAttributes: Memory allocation failed");
+        const extendedAttributes_values = allocator.alloc(QtC.QVariant, extendedAttributes_count) catch @panic("QGeoManeuver.setExtendedAttributes: Memory allocation failed");
         defer allocator.free(extendedAttributes_values);
         var i: usize = 0;
-        var extendedAttributes_it = extendedAttributes.iterator();
+        var extendedAttributes_it = _extendedAttributes.iterator();
         while (extendedAttributes_it.next()) |it_entry| : (i += 1) {
             const extendedAttributes_key = it_entry.key_ptr.*;
             extendedAttributes_keys[i] = qtc.libqt_string{
@@ -251,6 +323,10 @@ pub const QGeoManeuver = extern struct {
         qtc.QGeoManeuver_SetExtendedAttributes(@ptrCast(self.ptr), extendedAttributes_map);
     }
 
+    /// ### DEPRECATED: Use `extendedAttributes` instead
+    ///
+    pub const ExtendedAttributes = extendedAttributes;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeomaneuver.html#extendedAttributes)
     ///
     /// ## Parameter(s):
@@ -259,10 +335,10 @@ pub const QGeoManeuver = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ExtendedAttributes(self: QGeoManeuver, allocator: std.mem.Allocator) ArrayMap_constu8_QVariant {
+    pub fn extendedAttributes(self: QGeoManeuver, allocator: std.mem.Allocator) ArrayMap_constu8_QVariant {
         const _map: qtc.libqt_map = qtc.QGeoManeuver_ExtendedAttributes(@ptrCast(self.ptr));
         var _ret: ArrayMap_constu8_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QGeoManeuver.ExtendedAttributes: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QGeoManeuver.extendedAttributes: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {
@@ -276,7 +352,7 @@ pub const QGeoManeuver = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("QGeoManeuver.ExtendedAttributes: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("QGeoManeuver.extendedAttributes: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
             _ret.putAssumeCapacity(_entry_slice, .{ .ptr = @ptrCast(_value) });
@@ -284,19 +360,19 @@ pub const QGeoManeuver = extern struct {
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeomaneuver.html#dtor.QGeoManeuver)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QGeoManeuver `
     ///
-    pub fn Delete(self: QGeoManeuver) void {
+    pub fn delete(self: QGeoManeuver) void {
         qtc.QGeoManeuver_Delete(@ptrCast(self.ptr));
     }
 };

@@ -27,22 +27,34 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     pub const _is_TextGrammarCheck__LanguageToolManager = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new TextGrammarCheck::LanguageToolManager object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() TextGrammarCheck__LanguageToolManager {
+    pub const New = new;
+
+    /// Allocate a new TextGrammarCheck::LanguageToolManager object in C++ memory
+    ///
+    pub fn new() TextGrammarCheck__LanguageToolManager {
         return .{ .ptr = qtc.TextGrammarCheck__LanguageToolManager_new() };
     }
 
-    /// New2 constructs a new TextGrammarCheck::LanguageToolManager object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new TextGrammarCheck::LanguageToolManager object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) TextGrammarCheck__LanguageToolManager {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.TextGrammarCheck__LanguageToolManager_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) TextGrammarCheck__LanguageToolManager {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.TextGrammarCheck__LanguageToolManager_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextGrammarCheck_1_1LanguageToolManager.html)
     ///
@@ -50,9 +62,13 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolManager `
     ///
-    pub fn MetaObject(self: TextGrammarCheck__LanguageToolManager) QMetaObject {
+    pub fn metaObject(self: TextGrammarCheck__LanguageToolManager) QMetaObject {
         return .{ .ptr = qtc.TextGrammarCheck__LanguageToolManager_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextGrammarCheck_1_1LanguageToolManager.html)
     ///
@@ -64,13 +80,13 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: TextGrammarCheck__LanguageToolManager, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: TextGrammarCheck__LanguageToolManager, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.TextGrammarCheck__LanguageToolManager_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextGrammarCheck_1_1LanguageToolManager.html)
     ///
@@ -80,9 +96,13 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolManager `
     ///
-    pub fn SuperMetaObject(self: TextGrammarCheck__LanguageToolManager) QMetaObject {
+    pub fn superMetaObject(self: TextGrammarCheck__LanguageToolManager) QMetaObject {
         return .{ .ptr = qtc.TextGrammarCheck__LanguageToolManager_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -90,10 +110,14 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: TextGrammarCheck__LanguageToolManager, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: TextGrammarCheck__LanguageToolManager, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.TextGrammarCheck__LanguageToolManager_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -103,13 +127,13 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolManager, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: TextGrammarCheck__LanguageToolManager, callback: *const fn (TextGrammarCheck__LanguageToolManager, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: TextGrammarCheck__LanguageToolManager, callback: *const fn (TextGrammarCheck__LanguageToolManager, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.TextGrammarCheck__LanguageToolManager_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -119,10 +143,14 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: TextGrammarCheck__LanguageToolManager, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: TextGrammarCheck__LanguageToolManager, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.TextGrammarCheck__LanguageToolManager_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -134,9 +162,13 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: TextGrammarCheck__LanguageToolManager, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: TextGrammarCheck__LanguageToolManager, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.TextGrammarCheck__LanguageToolManager_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -146,13 +178,13 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolManager, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: TextGrammarCheck__LanguageToolManager, callback: *const fn (TextGrammarCheck__LanguageToolManager, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: TextGrammarCheck__LanguageToolManager, callback: *const fn (TextGrammarCheck__LanguageToolManager, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.TextGrammarCheck__LanguageToolManager_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -166,9 +198,13 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: TextGrammarCheck__LanguageToolManager, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: TextGrammarCheck__LanguageToolManager, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.TextGrammarCheck__LanguageToolManager_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -178,20 +214,28 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolManager.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolManager.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `self0` instead
+    ///
+    pub const Self = self0;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextGrammarCheck_1_1LanguageToolManager.html)
     ///
-    pub fn Self() TextGrammarCheck__LanguageToolManager {
+    pub fn self0() TextGrammarCheck__LanguageToolManager {
         return .{ .ptr = qtc.TextGrammarCheck__LanguageToolManager_Self() };
     }
+
+    /// ### DEPRECATED: Use `networkAccessManager` instead
+    ///
+    pub const NetworkAccessManager = networkAccessManager;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextGrammarCheck_1_1LanguageToolManager.html)
     ///
@@ -199,9 +243,13 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolManager `
     ///
-    pub fn NetworkAccessManager(self: TextGrammarCheck__LanguageToolManager) QNetworkAccessManager {
+    pub fn networkAccessManager(self: TextGrammarCheck__LanguageToolManager) QNetworkAccessManager {
         return .{ .ptr = qtc.TextGrammarCheck__LanguageToolManager_NetworkAccessManager(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `languageToolPath` instead
+    ///
+    pub const LanguageToolPath = languageToolPath;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextGrammarCheck_1_1LanguageToolManager.html)
     ///
@@ -211,13 +259,17 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LanguageToolPath(self: TextGrammarCheck__LanguageToolManager, allocator: std.mem.Allocator) []const u8 {
+    pub fn languageToolPath(self: TextGrammarCheck__LanguageToolManager, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextGrammarCheck__LanguageToolManager_LanguageToolPath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolManager.LanguageToolPath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolManager.languageToolPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setLanguageToolPath` instead
+    ///
+    pub const SetLanguageToolPath = setLanguageToolPath;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextGrammarCheck_1_1LanguageToolManager.html)
     ///
@@ -227,7 +279,7 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` path: []const u8 `
     ///
-    pub fn SetLanguageToolPath(self: TextGrammarCheck__LanguageToolManager, path: []const u8) void {
+    pub fn setLanguageToolPath(self: TextGrammarCheck__LanguageToolManager, path: []const u8) void {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
@@ -235,15 +287,9 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
         qtc.TextGrammarCheck__LanguageToolManager_SetLanguageToolPath(@ptrCast(self.ptr), path_str);
     }
 
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextGrammarCheck_1_1LanguageToolManager.html)
+    /// ### DEPRECATED: Use `loadSettings` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextGrammarCheck__LanguageToolManager `
-    ///
-    pub fn LoadSettings(self: TextGrammarCheck__LanguageToolManager) void {
-        qtc.TextGrammarCheck__LanguageToolManager_LoadSettings(@ptrCast(self.ptr));
-    }
+    pub const LoadSettings = loadSettings;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextGrammarCheck_1_1LanguageToolManager.html)
     ///
@@ -251,9 +297,27 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolManager `
     ///
-    pub fn SaveSettings(self: TextGrammarCheck__LanguageToolManager) void {
+    pub fn loadSettings(self: TextGrammarCheck__LanguageToolManager) void {
+        qtc.TextGrammarCheck__LanguageToolManager_LoadSettings(@ptrCast(self.ptr));
+    }
+
+    /// ### DEPRECATED: Use `saveSettings` instead
+    ///
+    pub const SaveSettings = saveSettings;
+
+    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextGrammarCheck_1_1LanguageToolManager.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextGrammarCheck__LanguageToolManager `
+    ///
+    pub fn saveSettings(self: TextGrammarCheck__LanguageToolManager) void {
         qtc.TextGrammarCheck__LanguageToolManager_SaveSettings(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `language` instead
+    ///
+    pub const Language = language;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextGrammarCheck_1_1LanguageToolManager.html)
     ///
@@ -263,13 +327,17 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Language(self: TextGrammarCheck__LanguageToolManager, allocator: std.mem.Allocator) []const u8 {
+    pub fn language(self: TextGrammarCheck__LanguageToolManager, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextGrammarCheck__LanguageToolManager_Language(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolManager.Language: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolManager.language: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setLanguage` instead
+    ///
+    pub const SetLanguage = setLanguage;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextGrammarCheck_1_1LanguageToolManager.html)
     ///
@@ -277,37 +345,49 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolManager `
     ///
-    /// ` language: []const u8 `
+    /// ` _language: []const u8 `
     ///
-    pub fn SetLanguage(self: TextGrammarCheck__LanguageToolManager, language: []const u8) void {
+    pub fn setLanguage(self: TextGrammarCheck__LanguageToolManager, _language: []const u8) void {
         const language_str = qtc.libqt_string{
-            .len = language.len,
-            .data = language.ptr,
+            .len = _language.len,
+            .data = _language.ptr,
         };
         qtc.TextGrammarCheck__LanguageToolManager_SetLanguage(@ptrCast(self.ptr), language_str);
     }
 
+    /// ### DEPRECATED: Use `useLocalInstance` instead
+    ///
+    pub const UseLocalInstance = useLocalInstance;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextGrammarCheck_1_1LanguageToolManager.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: TextGrammarCheck__LanguageToolManager `
     ///
-    pub fn UseLocalInstance(self: TextGrammarCheck__LanguageToolManager) bool {
+    pub fn useLocalInstance(self: TextGrammarCheck__LanguageToolManager) bool {
         return qtc.TextGrammarCheck__LanguageToolManager_UseLocalInstance(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setUseLocalInstance` instead
+    ///
+    pub const SetUseLocalInstance = setUseLocalInstance;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextGrammarCheck_1_1LanguageToolManager.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: TextGrammarCheck__LanguageToolManager `
     ///
-    /// ` useLocalInstance: bool `
+    /// ` _useLocalInstance: bool `
     ///
-    pub fn SetUseLocalInstance(self: TextGrammarCheck__LanguageToolManager, useLocalInstance: bool) void {
-        qtc.TextGrammarCheck__LanguageToolManager_SetUseLocalInstance(@ptrCast(self.ptr), useLocalInstance);
+    pub fn setUseLocalInstance(self: TextGrammarCheck__LanguageToolManager, _useLocalInstance: bool) void {
+        qtc.TextGrammarCheck__LanguageToolManager_SetUseLocalInstance(@ptrCast(self.ptr), _useLocalInstance);
     }
+
+    /// ### DEPRECATED: Use `languageToolCheckPath` instead
+    ///
+    pub const LanguageToolCheckPath = languageToolCheckPath;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextGrammarCheck_1_1LanguageToolManager.html)
     ///
@@ -317,13 +397,17 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LanguageToolCheckPath(self: TextGrammarCheck__LanguageToolManager, allocator: std.mem.Allocator) []const u8 {
+    pub fn languageToolCheckPath(self: TextGrammarCheck__LanguageToolManager, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextGrammarCheck__LanguageToolManager_LanguageToolCheckPath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolManager.LanguageToolCheckPath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolManager.languageToolCheckPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `languageToolLanguagesPath` instead
+    ///
+    pub const LanguageToolLanguagesPath = languageToolLanguagesPath;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextGrammarCheck_1_1LanguageToolManager.html)
     ///
@@ -333,13 +417,17 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LanguageToolLanguagesPath(self: TextGrammarCheck__LanguageToolManager, allocator: std.mem.Allocator) []const u8 {
+    pub fn languageToolLanguagesPath(self: TextGrammarCheck__LanguageToolManager, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextGrammarCheck__LanguageToolManager_LanguageToolLanguagesPath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolManager.LanguageToolLanguagesPath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolManager.languageToolLanguagesPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `convertToLanguagePath` instead
+    ///
+    pub const ConvertToLanguagePath = convertToLanguagePath;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextGrammarCheck_1_1LanguageToolManager.html)
     ///
@@ -349,17 +437,21 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` path: []const u8 `
     ///
-    pub fn ConvertToLanguagePath(allocator: std.mem.Allocator, path: []const u8) []const u8 {
+    pub fn convertToLanguagePath(allocator: std.mem.Allocator, path: []const u8) []const u8 {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
         var _str = qtc.TextGrammarCheck__LanguageToolManager_ConvertToLanguagePath(path_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolManager.ConvertToLanguagePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolManager.convertToLanguagePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `grammarColorForError` instead
+    ///
+    pub const GrammarColorForError = grammarColorForError;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextGrammarCheck_1_1LanguageToolManager.html)
     ///
@@ -369,7 +461,7 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` errorVal: []const u8 `
     ///
-    pub fn GrammarColorForError(self: TextGrammarCheck__LanguageToolManager, errorVal: []const u8) QColor {
+    pub fn grammarColorForError(self: TextGrammarCheck__LanguageToolManager, errorVal: []const u8) QColor {
         const errorVal_str = qtc.libqt_string{
             .len = errorVal.len,
             .data = errorVal.ptr,
@@ -377,15 +469,23 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
         return .{ .ptr = qtc.TextGrammarCheck__LanguageToolManager_GrammarColorForError(@ptrCast(self.ptr), errorVal_str) };
     }
 
+    /// ### DEPRECATED: Use `allowToGetListOfLanguages` instead
+    ///
+    pub const AllowToGetListOfLanguages = allowToGetListOfLanguages;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextGrammarCheck_1_1LanguageToolManager.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: TextGrammarCheck__LanguageToolManager `
     ///
-    pub fn AllowToGetListOfLanguages(self: TextGrammarCheck__LanguageToolManager) bool {
+    pub fn allowToGetListOfLanguages(self: TextGrammarCheck__LanguageToolManager) bool {
         return qtc.TextGrammarCheck__LanguageToolManager_AllowToGetListOfLanguages(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -397,15 +497,19 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolManager.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolManager.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -419,15 +523,19 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolManager.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolManager.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -439,13 +547,17 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: TextGrammarCheck__LanguageToolManager, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: TextGrammarCheck__LanguageToolManager, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolManager.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolManager.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -457,13 +569,17 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: TextGrammarCheck__LanguageToolManager, name: []const u8) void {
+    pub fn setObjectName(self: TextGrammarCheck__LanguageToolManager, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -473,9 +589,13 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolManager `
     ///
-    pub fn IsWidgetType(self: TextGrammarCheck__LanguageToolManager) bool {
+    pub fn isWidgetType(self: TextGrammarCheck__LanguageToolManager) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -485,9 +605,13 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolManager `
     ///
-    pub fn IsWindowType(self: TextGrammarCheck__LanguageToolManager) bool {
+    pub fn isWindowType(self: TextGrammarCheck__LanguageToolManager) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -497,9 +621,13 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolManager `
     ///
-    pub fn IsQuickItemType(self: TextGrammarCheck__LanguageToolManager) bool {
+    pub fn isQuickItemType(self: TextGrammarCheck__LanguageToolManager) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -509,9 +637,13 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolManager `
     ///
-    pub fn SignalsBlocked(self: TextGrammarCheck__LanguageToolManager) bool {
+    pub fn signalsBlocked(self: TextGrammarCheck__LanguageToolManager) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -523,9 +655,13 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: TextGrammarCheck__LanguageToolManager, b: bool) bool {
+    pub fn blockSignals(self: TextGrammarCheck__LanguageToolManager, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -535,9 +671,13 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolManager `
     ///
-    pub fn Thread(self: TextGrammarCheck__LanguageToolManager) QThread {
+    pub fn thread(self: TextGrammarCheck__LanguageToolManager) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -547,12 +687,16 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolManager `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: TextGrammarCheck__LanguageToolManager, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: TextGrammarCheck__LanguageToolManager, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -564,9 +708,13 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: TextGrammarCheck__LanguageToolManager, interval: i32) i32 {
+    pub fn startTimer(self: TextGrammarCheck__LanguageToolManager, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -578,9 +726,13 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: TextGrammarCheck__LanguageToolManager, time: i64) i32 {
+    pub fn startTimer2(self: TextGrammarCheck__LanguageToolManager, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -592,9 +744,13 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: TextGrammarCheck__LanguageToolManager, id: i32) void {
+    pub fn killTimer(self: TextGrammarCheck__LanguageToolManager, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -606,9 +762,13 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: TextGrammarCheck__LanguageToolManager, id: i32) void {
+    pub fn killTimer2(self: TextGrammarCheck__LanguageToolManager, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -620,15 +780,19 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: TextGrammarCheck__LanguageToolManager, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: TextGrammarCheck__LanguageToolManager, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("TextGrammarCheck__LanguageToolManager.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("TextGrammarCheck__LanguageToolManager.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -638,12 +802,16 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolManager `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: TextGrammarCheck__LanguageToolManager, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: TextGrammarCheck__LanguageToolManager, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -655,10 +823,14 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: TextGrammarCheck__LanguageToolManager, filterObj: anytype) void {
+    pub fn installEventFilter(self: TextGrammarCheck__LanguageToolManager, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -670,10 +842,14 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: TextGrammarCheck__LanguageToolManager, obj: anytype) void {
+    pub fn removeEventFilter(self: TextGrammarCheck__LanguageToolManager, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -681,7 +857,7 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -689,13 +865,17 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -703,7 +883,7 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -711,13 +891,17 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -727,18 +911,22 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolManager `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: TextGrammarCheck__LanguageToolManager, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: TextGrammarCheck__LanguageToolManager, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -746,7 +934,7 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -754,13 +942,17 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -768,7 +960,7 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -776,13 +968,17 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -792,9 +988,13 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolManager `
     ///
-    pub fn Disconnect3(self: TextGrammarCheck__LanguageToolManager) bool {
+    pub fn disconnect3(self: TextGrammarCheck__LanguageToolManager) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -806,10 +1006,14 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: TextGrammarCheck__LanguageToolManager, receiver: anytype) bool {
+    pub fn disconnect4(self: TextGrammarCheck__LanguageToolManager, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -819,10 +1023,14 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -832,9 +1040,13 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolManager `
     ///
-    pub fn DumpObjectTree(self: TextGrammarCheck__LanguageToolManager) void {
+    pub fn dumpObjectTree(self: TextGrammarCheck__LanguageToolManager) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -844,9 +1056,13 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolManager `
     ///
-    pub fn DumpObjectInfo(self: TextGrammarCheck__LanguageToolManager) void {
+    pub fn dumpObjectInfo(self: TextGrammarCheck__LanguageToolManager) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -860,11 +1076,15 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: TextGrammarCheck__LanguageToolManager, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: TextGrammarCheck__LanguageToolManager, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -876,10 +1096,14 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: TextGrammarCheck__LanguageToolManager, name: [:0]const u8) QVariant {
+    pub fn property(self: TextGrammarCheck__LanguageToolManager, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -891,7 +1115,7 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: TextGrammarCheck__LanguageToolManager, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: TextGrammarCheck__LanguageToolManager, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -899,27 +1123,19 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("TextGrammarCheck__LanguageToolManager.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("TextGrammarCheck__LanguageToolManager.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("TextGrammarCheck__LanguageToolManager.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("TextGrammarCheck__LanguageToolManager.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextGrammarCheck__LanguageToolManager `
-    ///
-    pub fn BindingStorage(self: TextGrammarCheck__LanguageToolManager) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -929,9 +1145,29 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolManager `
     ///
-    pub fn BindingStorage2(self: TextGrammarCheck__LanguageToolManager) QBindingStorage {
+    pub fn bindingStorage(self: TextGrammarCheck__LanguageToolManager) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextGrammarCheck__LanguageToolManager `
+    ///
+    pub fn bindingStorage2(self: TextGrammarCheck__LanguageToolManager) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -941,9 +1177,13 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolManager `
     ///
-    pub fn Destroyed(self: TextGrammarCheck__LanguageToolManager) void {
+    pub fn destroyed(self: TextGrammarCheck__LanguageToolManager) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -955,9 +1195,13 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolManager) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: TextGrammarCheck__LanguageToolManager, callback: *const fn (TextGrammarCheck__LanguageToolManager) callconv(.c) void) void {
+    pub fn onDestroyed(self: TextGrammarCheck__LanguageToolManager, callback: *const fn (TextGrammarCheck__LanguageToolManager) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -967,9 +1211,13 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolManager `
     ///
-    pub fn Parent(self: TextGrammarCheck__LanguageToolManager) QObject {
+    pub fn parent(self: TextGrammarCheck__LanguageToolManager) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -981,10 +1229,14 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: TextGrammarCheck__LanguageToolManager, classname: [:0]const u8) bool {
+    pub fn inherits(self: TextGrammarCheck__LanguageToolManager, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -994,9 +1246,13 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolManager `
     ///
-    pub fn DeleteLater(self: TextGrammarCheck__LanguageToolManager) void {
+    pub fn deleteLater(self: TextGrammarCheck__LanguageToolManager) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1010,9 +1266,13 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: TextGrammarCheck__LanguageToolManager, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: TextGrammarCheck__LanguageToolManager, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1026,9 +1286,13 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: TextGrammarCheck__LanguageToolManager, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: TextGrammarCheck__LanguageToolManager, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1036,7 +1300,7 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1046,13 +1310,17 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1060,7 +1328,7 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1070,13 +1338,17 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1086,7 +1358,7 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolManager `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1094,12 +1366,16 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: TextGrammarCheck__LanguageToolManager, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: TextGrammarCheck__LanguageToolManager, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1111,10 +1387,14 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: TextGrammarCheck__LanguageToolManager, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: TextGrammarCheck__LanguageToolManager, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1128,11 +1408,15 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: TextGrammarCheck__LanguageToolManager, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: TextGrammarCheck__LanguageToolManager, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1148,13 +1432,17 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: TextGrammarCheck__LanguageToolManager, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: TextGrammarCheck__LanguageToolManager, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1167,11 +1455,15 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: TextGrammarCheck__LanguageToolManager, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: TextGrammarCheck__LanguageToolManager, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1183,10 +1475,14 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: TextGrammarCheck__LanguageToolManager, param1: anytype) void {
+    pub fn destroyed1(self: TextGrammarCheck__LanguageToolManager, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1198,9 +1494,13 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolManager, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: TextGrammarCheck__LanguageToolManager, callback: *const fn (TextGrammarCheck__LanguageToolManager, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: TextGrammarCheck__LanguageToolManager, callback: *const fn (TextGrammarCheck__LanguageToolManager, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -1212,16 +1512,16 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolManager `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: TextGrammarCheck__LanguageToolManager, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.TextGrammarCheck__LanguageToolManager_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: TextGrammarCheck__LanguageToolManager, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.TextGrammarCheck__LanguageToolManager_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -1233,12 +1533,16 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolManager `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: TextGrammarCheck__LanguageToolManager, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.TextGrammarCheck__LanguageToolManager_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: TextGrammarCheck__LanguageToolManager, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.TextGrammarCheck__LanguageToolManager_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -1252,9 +1556,13 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolManager, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: TextGrammarCheck__LanguageToolManager, callback: *const fn (TextGrammarCheck__LanguageToolManager, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: TextGrammarCheck__LanguageToolManager, callback: *const fn (TextGrammarCheck__LanguageToolManager, QEvent) callconv(.c) bool) void {
         qtc.TextGrammarCheck__LanguageToolManager_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1268,17 +1576,17 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: TextGrammarCheck__LanguageToolManager, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: TextGrammarCheck__LanguageToolManager, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.TextGrammarCheck__LanguageToolManager_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.TextGrammarCheck__LanguageToolManager_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1292,13 +1600,17 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: TextGrammarCheck__LanguageToolManager, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: TextGrammarCheck__LanguageToolManager, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.TextGrammarCheck__LanguageToolManager_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.TextGrammarCheck__LanguageToolManager_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1312,9 +1624,13 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolManager, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: TextGrammarCheck__LanguageToolManager, callback: *const fn (TextGrammarCheck__LanguageToolManager, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: TextGrammarCheck__LanguageToolManager, callback: *const fn (TextGrammarCheck__LanguageToolManager, QObject, QEvent) callconv(.c) bool) void {
         qtc.TextGrammarCheck__LanguageToolManager_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -1326,16 +1642,16 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolManager `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: TextGrammarCheck__LanguageToolManager, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.TextGrammarCheck__LanguageToolManager_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: TextGrammarCheck__LanguageToolManager, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.TextGrammarCheck__LanguageToolManager_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1347,12 +1663,16 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolManager `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: TextGrammarCheck__LanguageToolManager, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.TextGrammarCheck__LanguageToolManager_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: TextGrammarCheck__LanguageToolManager, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.TextGrammarCheck__LanguageToolManager_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1366,9 +1686,13 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolManager, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: TextGrammarCheck__LanguageToolManager, callback: *const fn (TextGrammarCheck__LanguageToolManager, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: TextGrammarCheck__LanguageToolManager, callback: *const fn (TextGrammarCheck__LanguageToolManager, QTimerEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__LanguageToolManager_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -1380,16 +1704,16 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolManager `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: TextGrammarCheck__LanguageToolManager, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.TextGrammarCheck__LanguageToolManager_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: TextGrammarCheck__LanguageToolManager, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.TextGrammarCheck__LanguageToolManager_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1401,12 +1725,16 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolManager `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: TextGrammarCheck__LanguageToolManager, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.TextGrammarCheck__LanguageToolManager_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: TextGrammarCheck__LanguageToolManager, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.TextGrammarCheck__LanguageToolManager_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1420,9 +1748,13 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolManager, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: TextGrammarCheck__LanguageToolManager, callback: *const fn (TextGrammarCheck__LanguageToolManager, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: TextGrammarCheck__LanguageToolManager, callback: *const fn (TextGrammarCheck__LanguageToolManager, QChildEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__LanguageToolManager_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -1434,16 +1766,16 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolManager `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: TextGrammarCheck__LanguageToolManager, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.TextGrammarCheck__LanguageToolManager_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: TextGrammarCheck__LanguageToolManager, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.TextGrammarCheck__LanguageToolManager_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1455,12 +1787,16 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolManager `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: TextGrammarCheck__LanguageToolManager, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.TextGrammarCheck__LanguageToolManager_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: TextGrammarCheck__LanguageToolManager, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.TextGrammarCheck__LanguageToolManager_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1474,9 +1810,13 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolManager, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: TextGrammarCheck__LanguageToolManager, callback: *const fn (TextGrammarCheck__LanguageToolManager, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: TextGrammarCheck__LanguageToolManager, callback: *const fn (TextGrammarCheck__LanguageToolManager, QEvent) callconv(.c) void) void {
         qtc.TextGrammarCheck__LanguageToolManager_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -1490,14 +1830,14 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: TextGrammarCheck__LanguageToolManager, signal: anytype) void {
+    pub fn connectNotify(self: TextGrammarCheck__LanguageToolManager, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.TextGrammarCheck__LanguageToolManager_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1511,11 +1851,15 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: TextGrammarCheck__LanguageToolManager, signal: anytype) void {
+    pub fn superConnectNotify(self: TextGrammarCheck__LanguageToolManager, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.TextGrammarCheck__LanguageToolManager_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1528,9 +1872,13 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolManager, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: TextGrammarCheck__LanguageToolManager, callback: *const fn (TextGrammarCheck__LanguageToolManager, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: TextGrammarCheck__LanguageToolManager, callback: *const fn (TextGrammarCheck__LanguageToolManager, QMetaMethod) callconv(.c) void) void {
         qtc.TextGrammarCheck__LanguageToolManager_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1544,14 +1892,14 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: TextGrammarCheck__LanguageToolManager, signal: anytype) void {
+    pub fn disconnectNotify(self: TextGrammarCheck__LanguageToolManager, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.TextGrammarCheck__LanguageToolManager_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1565,10 +1913,14 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: TextGrammarCheck__LanguageToolManager, signal: anytype) void {
+    pub fn superDisconnectNotify(self: TextGrammarCheck__LanguageToolManager, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.TextGrammarCheck__LanguageToolManager_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1582,9 +1934,13 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolManager, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: TextGrammarCheck__LanguageToolManager, callback: *const fn (TextGrammarCheck__LanguageToolManager, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: TextGrammarCheck__LanguageToolManager, callback: *const fn (TextGrammarCheck__LanguageToolManager, QMetaMethod) callconv(.c) void) void {
         qtc.TextGrammarCheck__LanguageToolManager_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -1596,13 +1952,13 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolManager `
     ///
-    pub fn Sender(self: TextGrammarCheck__LanguageToolManager) QObject {
+    pub fn sender(self: TextGrammarCheck__LanguageToolManager) QObject {
         return .{ .ptr = qtc.TextGrammarCheck__LanguageToolManager_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -1614,9 +1970,13 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolManager `
     ///
-    pub fn SuperSender(self: TextGrammarCheck__LanguageToolManager) QObject {
+    pub fn superSender(self: TextGrammarCheck__LanguageToolManager) QObject {
         return .{ .ptr = qtc.TextGrammarCheck__LanguageToolManager_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -1630,9 +1990,13 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: TextGrammarCheck__LanguageToolManager, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: TextGrammarCheck__LanguageToolManager, callback: *const fn () callconv(.c) QObject) void {
         qtc.TextGrammarCheck__LanguageToolManager_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1644,13 +2008,13 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolManager `
     ///
-    pub fn SenderSignalIndex(self: TextGrammarCheck__LanguageToolManager) i32 {
+    pub fn senderSignalIndex(self: TextGrammarCheck__LanguageToolManager) i32 {
         return qtc.TextGrammarCheck__LanguageToolManager_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1662,9 +2026,13 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolManager `
     ///
-    pub fn SuperSenderSignalIndex(self: TextGrammarCheck__LanguageToolManager) i32 {
+    pub fn superSenderSignalIndex(self: TextGrammarCheck__LanguageToolManager) i32 {
         return qtc.TextGrammarCheck__LanguageToolManager_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1678,9 +2046,13 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: TextGrammarCheck__LanguageToolManager, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: TextGrammarCheck__LanguageToolManager, callback: *const fn () callconv(.c) i32) void {
         qtc.TextGrammarCheck__LanguageToolManager_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -1694,14 +2066,14 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: TextGrammarCheck__LanguageToolManager, signal: [:0]const u8) i32 {
+    pub fn receivers(self: TextGrammarCheck__LanguageToolManager, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.TextGrammarCheck__LanguageToolManager_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -1715,10 +2087,14 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: TextGrammarCheck__LanguageToolManager, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: TextGrammarCheck__LanguageToolManager, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.TextGrammarCheck__LanguageToolManager_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -1732,9 +2108,13 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolManager, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: TextGrammarCheck__LanguageToolManager, callback: *const fn (TextGrammarCheck__LanguageToolManager, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: TextGrammarCheck__LanguageToolManager, callback: *const fn (TextGrammarCheck__LanguageToolManager, [*:0]const u8) callconv(.c) i32) void {
         qtc.TextGrammarCheck__LanguageToolManager_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1748,14 +2128,14 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: TextGrammarCheck__LanguageToolManager, signal: anytype) bool {
+    pub fn isSignalConnected(self: TextGrammarCheck__LanguageToolManager, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.TextGrammarCheck__LanguageToolManager_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1769,10 +2149,14 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: TextGrammarCheck__LanguageToolManager, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: TextGrammarCheck__LanguageToolManager, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.TextGrammarCheck__LanguageToolManager_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1786,9 +2170,13 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolManager, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: TextGrammarCheck__LanguageToolManager, callback: *const fn (TextGrammarCheck__LanguageToolManager, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: TextGrammarCheck__LanguageToolManager, callback: *const fn (TextGrammarCheck__LanguageToolManager, QMetaMethod) callconv(.c) bool) void {
         qtc.TextGrammarCheck__LanguageToolManager_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -1802,23 +2190,23 @@ pub const TextGrammarCheck__LanguageToolManager = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolManager, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: TextGrammarCheck__LanguageToolManager, callback: *const fn (TextGrammarCheck__LanguageToolManager, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: TextGrammarCheck__LanguageToolManager, callback: *const fn (TextGrammarCheck__LanguageToolManager, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextGrammarCheck_1_1LanguageToolManager.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: TextGrammarCheck__LanguageToolManager `
     ///
-    pub fn Delete(self: TextGrammarCheck__LanguageToolManager) void {
+    pub fn delete(self: TextGrammarCheck__LanguageToolManager) void {
         qtc.TextGrammarCheck__LanguageToolManager_Delete(@ptrCast(self.ptr));
     }
 };

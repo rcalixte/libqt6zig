@@ -14,22 +14,34 @@ pub const Attica__DownloadItem = extern struct {
 
     pub const _is_Attica__DownloadItem = {};
 
-    /// New constructs a new Attica::DownloadItem object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() Attica__DownloadItem {
+    pub const New = new;
+
+    /// Allocate a new Attica::DownloadItem object in C++ memory
+    ///
+    pub fn new() Attica__DownloadItem {
         return .{ .ptr = qtc.Attica__DownloadItem_new() };
     }
 
-    /// New2 constructs a new Attica::DownloadItem object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new Attica::DownloadItem object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: Attica__DownloadItem `
     ///
-    pub fn New2(other: anytype) Attica__DownloadItem {
+    pub fn new2(other: anytype) Attica__DownloadItem {
         comptime _ = @TypeOf(other)._is_Attica__DownloadItem;
         return .{ .ptr = qtc.Attica__DownloadItem_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://api.kde.org/attica-downloaditem.html#operator-eq)
     ///
@@ -39,10 +51,14 @@ pub const Attica__DownloadItem = extern struct {
     ///
     /// ` other: Attica__DownloadItem `
     ///
-    pub fn OperatorAssign(self: Attica__DownloadItem, other: anytype) void {
+    pub fn operatorAssign(self: Attica__DownloadItem, other: anytype) void {
         comptime _ = @TypeOf(other)._is_Attica__DownloadItem;
         qtc.Attica__DownloadItem_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUrl` instead
+    ///
+    pub const SetUrl = setUrl;
 
     /// ### [Upstream resources](https://api.kde.org/attica-downloaditem.html#setUrl)
     ///
@@ -50,12 +66,16 @@ pub const Attica__DownloadItem = extern struct {
     ///
     /// ` self: Attica__DownloadItem `
     ///
-    /// ` url: QUrl `
+    /// ` _url: QUrl `
     ///
-    pub fn SetUrl(self: Attica__DownloadItem, url: anytype) void {
-        comptime _ = @TypeOf(url)._is_QUrl;
-        qtc.Attica__DownloadItem_SetUrl(@ptrCast(self.ptr), @ptrCast(url.ptr));
+    pub fn setUrl(self: Attica__DownloadItem, _url: anytype) void {
+        comptime _ = @TypeOf(_url)._is_QUrl;
+        qtc.Attica__DownloadItem_SetUrl(@ptrCast(self.ptr), @ptrCast(_url.ptr));
     }
+
+    /// ### DEPRECATED: Use `url` instead
+    ///
+    pub const Url = url;
 
     /// ### [Upstream resources](https://api.kde.org/attica-downloaditem.html#url)
     ///
@@ -63,9 +83,13 @@ pub const Attica__DownloadItem = extern struct {
     ///
     /// ` self: Attica__DownloadItem `
     ///
-    pub fn Url(self: Attica__DownloadItem) QUrl {
+    pub fn url(self: Attica__DownloadItem) QUrl {
         return .{ .ptr = qtc.Attica__DownloadItem_Url(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setMimeType` instead
+    ///
+    pub const SetMimeType = setMimeType;
 
     /// ### [Upstream resources](https://api.kde.org/attica-downloaditem.html#setMimeType)
     ///
@@ -73,15 +97,19 @@ pub const Attica__DownloadItem = extern struct {
     ///
     /// ` self: Attica__DownloadItem `
     ///
-    /// ` mimeType: []const u8 `
+    /// ` _mimeType: []const u8 `
     ///
-    pub fn SetMimeType(self: Attica__DownloadItem, mimeType: []const u8) void {
+    pub fn setMimeType(self: Attica__DownloadItem, _mimeType: []const u8) void {
         const mimeType_str = qtc.libqt_string{
-            .len = mimeType.len,
-            .data = mimeType.ptr,
+            .len = _mimeType.len,
+            .data = _mimeType.ptr,
         };
         qtc.Attica__DownloadItem_SetMimeType(@ptrCast(self.ptr), mimeType_str);
     }
+
+    /// ### DEPRECATED: Use `mimeType` instead
+    ///
+    pub const MimeType = mimeType;
 
     /// ### [Upstream resources](https://api.kde.org/attica-downloaditem.html#mimeType)
     ///
@@ -91,13 +119,17 @@ pub const Attica__DownloadItem = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MimeType(self: Attica__DownloadItem, allocator: std.mem.Allocator) []const u8 {
+    pub fn mimeType(self: Attica__DownloadItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__DownloadItem_MimeType(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__DownloadItem.MimeType: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__DownloadItem.mimeType: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setPackageName` instead
+    ///
+    pub const SetPackageName = setPackageName;
 
     /// ### [Upstream resources](https://api.kde.org/attica-downloaditem.html#setPackageName)
     ///
@@ -105,15 +137,19 @@ pub const Attica__DownloadItem = extern struct {
     ///
     /// ` self: Attica__DownloadItem `
     ///
-    /// ` packageName: []const u8 `
+    /// ` _packageName: []const u8 `
     ///
-    pub fn SetPackageName(self: Attica__DownloadItem, packageName: []const u8) void {
+    pub fn setPackageName(self: Attica__DownloadItem, _packageName: []const u8) void {
         const packageName_str = qtc.libqt_string{
-            .len = packageName.len,
-            .data = packageName.ptr,
+            .len = _packageName.len,
+            .data = _packageName.ptr,
         };
         qtc.Attica__DownloadItem_SetPackageName(@ptrCast(self.ptr), packageName_str);
     }
+
+    /// ### DEPRECATED: Use `packageName` instead
+    ///
+    pub const PackageName = packageName;
 
     /// ### [Upstream resources](https://api.kde.org/attica-downloaditem.html#packageName)
     ///
@@ -123,13 +159,17 @@ pub const Attica__DownloadItem = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PackageName(self: Attica__DownloadItem, allocator: std.mem.Allocator) []const u8 {
+    pub fn packageName(self: Attica__DownloadItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__DownloadItem_PackageName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__DownloadItem.PackageName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__DownloadItem.packageName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setPackageRepository` instead
+    ///
+    pub const SetPackageRepository = setPackageRepository;
 
     /// ### [Upstream resources](https://api.kde.org/attica-downloaditem.html#setPackageRepository)
     ///
@@ -137,15 +177,19 @@ pub const Attica__DownloadItem = extern struct {
     ///
     /// ` self: Attica__DownloadItem `
     ///
-    /// ` packageRepository: []const u8 `
+    /// ` _packageRepository: []const u8 `
     ///
-    pub fn SetPackageRepository(self: Attica__DownloadItem, packageRepository: []const u8) void {
+    pub fn setPackageRepository(self: Attica__DownloadItem, _packageRepository: []const u8) void {
         const packageRepository_str = qtc.libqt_string{
-            .len = packageRepository.len,
-            .data = packageRepository.ptr,
+            .len = _packageRepository.len,
+            .data = _packageRepository.ptr,
         };
         qtc.Attica__DownloadItem_SetPackageRepository(@ptrCast(self.ptr), packageRepository_str);
     }
+
+    /// ### DEPRECATED: Use `packageRepository` instead
+    ///
+    pub const PackageRepository = packageRepository;
 
     /// ### [Upstream resources](https://api.kde.org/attica-downloaditem.html#packageRepository)
     ///
@@ -155,13 +199,17 @@ pub const Attica__DownloadItem = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PackageRepository(self: Attica__DownloadItem, allocator: std.mem.Allocator) []const u8 {
+    pub fn packageRepository(self: Attica__DownloadItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__DownloadItem_PackageRepository(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__DownloadItem.PackageRepository: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__DownloadItem.packageRepository: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setGpgFingerprint` instead
+    ///
+    pub const SetGpgFingerprint = setGpgFingerprint;
 
     /// ### [Upstream resources](https://api.kde.org/attica-downloaditem.html#setGpgFingerprint)
     ///
@@ -169,15 +217,19 @@ pub const Attica__DownloadItem = extern struct {
     ///
     /// ` self: Attica__DownloadItem `
     ///
-    /// ` gpgFingerprint: []const u8 `
+    /// ` _gpgFingerprint: []const u8 `
     ///
-    pub fn SetGpgFingerprint(self: Attica__DownloadItem, gpgFingerprint: []const u8) void {
+    pub fn setGpgFingerprint(self: Attica__DownloadItem, _gpgFingerprint: []const u8) void {
         const gpgFingerprint_str = qtc.libqt_string{
-            .len = gpgFingerprint.len,
-            .data = gpgFingerprint.ptr,
+            .len = _gpgFingerprint.len,
+            .data = _gpgFingerprint.ptr,
         };
         qtc.Attica__DownloadItem_SetGpgFingerprint(@ptrCast(self.ptr), gpgFingerprint_str);
     }
+
+    /// ### DEPRECATED: Use `gpgFingerprint` instead
+    ///
+    pub const GpgFingerprint = gpgFingerprint;
 
     /// ### [Upstream resources](https://api.kde.org/attica-downloaditem.html#gpgFingerprint)
     ///
@@ -187,13 +239,17 @@ pub const Attica__DownloadItem = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GpgFingerprint(self: Attica__DownloadItem, allocator: std.mem.Allocator) []const u8 {
+    pub fn gpgFingerprint(self: Attica__DownloadItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__DownloadItem_GpgFingerprint(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__DownloadItem.GpgFingerprint: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__DownloadItem.gpgFingerprint: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setGpgSignature` instead
+    ///
+    pub const SetGpgSignature = setGpgSignature;
 
     /// ### [Upstream resources](https://api.kde.org/attica-downloaditem.html#setGpgSignature)
     ///
@@ -201,15 +257,19 @@ pub const Attica__DownloadItem = extern struct {
     ///
     /// ` self: Attica__DownloadItem `
     ///
-    /// ` gpgSignature: []const u8 `
+    /// ` _gpgSignature: []const u8 `
     ///
-    pub fn SetGpgSignature(self: Attica__DownloadItem, gpgSignature: []const u8) void {
+    pub fn setGpgSignature(self: Attica__DownloadItem, _gpgSignature: []const u8) void {
         const gpgSignature_str = qtc.libqt_string{
-            .len = gpgSignature.len,
-            .data = gpgSignature.ptr,
+            .len = _gpgSignature.len,
+            .data = _gpgSignature.ptr,
         };
         qtc.Attica__DownloadItem_SetGpgSignature(@ptrCast(self.ptr), gpgSignature_str);
     }
+
+    /// ### DEPRECATED: Use `gpgSignature` instead
+    ///
+    pub const GpgSignature = gpgSignature;
 
     /// ### [Upstream resources](https://api.kde.org/attica-downloaditem.html#gpgSignature)
     ///
@@ -219,13 +279,17 @@ pub const Attica__DownloadItem = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GpgSignature(self: Attica__DownloadItem, allocator: std.mem.Allocator) []const u8 {
+    pub fn gpgSignature(self: Attica__DownloadItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__DownloadItem_GpgSignature(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__DownloadItem.GpgSignature: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__DownloadItem.gpgSignature: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setType` instead
+    ///
+    pub const SetType = setType;
 
     /// ### [Upstream resources](https://api.kde.org/attica-downloaditem.html#setType)
     ///
@@ -235,9 +299,15 @@ pub const Attica__DownloadItem = extern struct {
     ///
     /// ` typeVal: downloaddescription_enums.Type `
     ///
-    pub fn SetType(self: Attica__DownloadItem, typeVal: i32) void {
+    pub fn setType(self: Attica__DownloadItem, typeVal: i32) void {
         qtc.Attica__DownloadItem_SetType(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// ### [Upstream resources](https://api.kde.org/attica-downloaditem.html#type)
     ///
@@ -249,21 +319,21 @@ pub const Attica__DownloadItem = extern struct {
     ///
     /// ` downloaddescription_enums.Type `
     ///
-    pub fn Type(self: Attica__DownloadItem) i32 {
+    pub fn type0(self: Attica__DownloadItem) i32 {
         return qtc.Attica__DownloadItem_Type(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Attica__DownloadItem `
     ///
-    pub fn Delete(self: Attica__DownloadItem) void {
+    pub fn delete(self: Attica__DownloadItem) void {
         qtc.Attica__DownloadItem_Delete(@ptrCast(self.ptr));
     }
 };

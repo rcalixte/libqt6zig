@@ -15,19 +15,27 @@ pub const QResource = extern struct {
 
     pub const _is_QResource = {};
 
-    /// New constructs a new QResource object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QResource {
+    pub const New = new;
+
+    /// Allocate a new QResource object in C++ memory
+    ///
+    pub fn new() QResource {
         return .{ .ptr = qtc.QResource_new() };
     }
 
-    /// New2 constructs a new QResource object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QResource object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` file: []const u8 `
     ///
-    pub fn New2(file: []const u8) QResource {
+    pub fn new2(file: []const u8) QResource {
         const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
@@ -35,22 +43,30 @@ pub const QResource = extern struct {
         return .{ .ptr = qtc.QResource_new2(file_str) };
     }
 
-    /// New3 constructs a new QResource object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QResource object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` file: []const u8 `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn New3(file: []const u8, locale: anytype) QResource {
+    pub fn new3(file: []const u8, _locale: anytype) QResource {
         const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
         };
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        return .{ .ptr = qtc.QResource_new3(file_str, @ptrCast(locale.ptr)) };
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        return .{ .ptr = qtc.QResource_new3(file_str, @ptrCast(_locale.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFileName` instead
+    ///
+    pub const SetFileName = setFileName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qresource.html#setFileName)
     ///
@@ -60,13 +76,17 @@ pub const QResource = extern struct {
     ///
     /// ` file: []const u8 `
     ///
-    pub fn SetFileName(self: QResource, file: []const u8) void {
+    pub fn setFileName(self: QResource, file: []const u8) void {
         const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
         };
         qtc.QResource_SetFileName(@ptrCast(self.ptr), file_str);
     }
+
+    /// ### DEPRECATED: Use `fileName` instead
+    ///
+    pub const FileName = fileName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qresource.html#fileName)
     ///
@@ -76,13 +96,17 @@ pub const QResource = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FileName(self: QResource, allocator: std.mem.Allocator) []const u8 {
+    pub fn fileName(self: QResource, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QResource_FileName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QResource.FileName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QResource.fileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `absoluteFilePath` instead
+    ///
+    pub const AbsoluteFilePath = absoluteFilePath;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qresource.html#absoluteFilePath)
     ///
@@ -92,13 +116,17 @@ pub const QResource = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AbsoluteFilePath(self: QResource, allocator: std.mem.Allocator) []const u8 {
+    pub fn absoluteFilePath(self: QResource, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QResource_AbsoluteFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QResource.AbsoluteFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QResource.absoluteFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qresource.html#setLocale)
     ///
@@ -106,12 +134,16 @@ pub const QResource = extern struct {
     ///
     /// ` self: QResource `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: QResource, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QResource_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: QResource, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QResource_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qresource.html#locale)
     ///
@@ -119,9 +151,13 @@ pub const QResource = extern struct {
     ///
     /// ` self: QResource `
     ///
-    pub fn Locale(self: QResource) QLocale {
+    pub fn locale(self: QResource) QLocale {
         return .{ .ptr = qtc.QResource_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qresource.html#isValid)
     ///
@@ -129,9 +165,13 @@ pub const QResource = extern struct {
     ///
     /// ` self: QResource `
     ///
-    pub fn IsValid(self: QResource) bool {
+    pub fn isValid(self: QResource) bool {
         return qtc.QResource_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `compressionAlgorithm` instead
+    ///
+    pub const CompressionAlgorithm = compressionAlgorithm;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qresource.html#compressionAlgorithm)
     ///
@@ -143,9 +183,13 @@ pub const QResource = extern struct {
     ///
     /// ` qresource_enums.Compression `
     ///
-    pub fn CompressionAlgorithm(self: QResource) i32 {
+    pub fn compressionAlgorithm(self: QResource) i32 {
         return qtc.QResource_CompressionAlgorithm(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qresource.html#size)
     ///
@@ -153,9 +197,13 @@ pub const QResource = extern struct {
     ///
     /// ` self: QResource `
     ///
-    pub fn Size(self: QResource) i64 {
+    pub fn size(self: QResource) i64 {
         return qtc.QResource_Size(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `data` instead
+    ///
+    pub const Data = data;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qresource.html#data)
     ///
@@ -163,9 +211,13 @@ pub const QResource = extern struct {
     ///
     /// ` self: QResource `
     ///
-    pub fn Data(self: QResource) ?*const u8 {
+    pub fn data(self: QResource) ?*const u8 {
         return @ptrCast(qtc.QResource_Data(@ptrCast(self.ptr)));
     }
+
+    /// ### DEPRECATED: Use `uncompressedSize` instead
+    ///
+    pub const UncompressedSize = uncompressedSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qresource.html#uncompressedSize)
     ///
@@ -173,9 +225,13 @@ pub const QResource = extern struct {
     ///
     /// ` self: QResource `
     ///
-    pub fn UncompressedSize(self: QResource) i64 {
+    pub fn uncompressedSize(self: QResource) i64 {
         return qtc.QResource_UncompressedSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `uncompressedData` instead
+    ///
+    pub const UncompressedData = uncompressedData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qresource.html#uncompressedData)
     ///
@@ -185,13 +241,17 @@ pub const QResource = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn UncompressedData(self: QResource, allocator: std.mem.Allocator) []u8 {
+    pub fn uncompressedData(self: QResource, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QResource_UncompressedData(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QResource.UncompressedData: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QResource.uncompressedData: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `lastModified` instead
+    ///
+    pub const LastModified = lastModified;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qresource.html#lastModified)
     ///
@@ -199,9 +259,13 @@ pub const QResource = extern struct {
     ///
     /// ` self: QResource `
     ///
-    pub fn LastModified(self: QResource) QDateTime {
+    pub fn lastModified(self: QResource) QDateTime {
         return .{ .ptr = qtc.QResource_LastModified(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `registerResource` instead
+    ///
+    pub const RegisterResource = registerResource;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qresource.html#registerResource)
     ///
@@ -209,7 +273,7 @@ pub const QResource = extern struct {
     ///
     /// ` rccFilename: []const u8 `
     ///
-    pub fn RegisterResource(rccFilename: []const u8) bool {
+    pub fn registerResource(rccFilename: []const u8) bool {
         const rccFilename_str = qtc.libqt_string{
             .len = rccFilename.len,
             .data = rccFilename.ptr,
@@ -217,13 +281,17 @@ pub const QResource = extern struct {
         return qtc.QResource_RegisterResource(rccFilename_str);
     }
 
+    /// ### DEPRECATED: Use `unregisterResource` instead
+    ///
+    pub const UnregisterResource = unregisterResource;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qresource.html#unregisterResource)
     ///
     /// ## Parameter(s):
     ///
     /// ` rccFilename: []const u8 `
     ///
-    pub fn UnregisterResource(rccFilename: []const u8) bool {
+    pub fn unregisterResource(rccFilename: []const u8) bool {
         const rccFilename_str = qtc.libqt_string{
             .len = rccFilename.len,
             .data = rccFilename.ptr,
@@ -231,15 +299,23 @@ pub const QResource = extern struct {
         return qtc.QResource_UnregisterResource(rccFilename_str);
     }
 
+    /// ### DEPRECATED: Use `registerResource2` instead
+    ///
+    pub const RegisterResource2 = registerResource2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qresource.html#registerResource)
     ///
     /// ## Parameter(s):
     ///
     /// ` rccData: *const u8 `
     ///
-    pub fn RegisterResource2(rccData: *const u8) bool {
+    pub fn registerResource2(rccData: *const u8) bool {
         return qtc.QResource_RegisterResource2(@ptrCast(rccData));
     }
+
+    /// ### DEPRECATED: Use `unregisterResource2` instead
+    ///
+    pub const UnregisterResource2 = unregisterResource2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qresource.html#unregisterResource)
     ///
@@ -247,9 +323,13 @@ pub const QResource = extern struct {
     ///
     /// ` rccData: *const u8 `
     ///
-    pub fn UnregisterResource2(rccData: *const u8) bool {
+    pub fn unregisterResource2(rccData: *const u8) bool {
         return qtc.QResource_UnregisterResource2(@ptrCast(rccData));
     }
+
+    /// ### DEPRECATED: Use `registerResource22` instead
+    ///
+    pub const RegisterResource22 = registerResource22;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qresource.html#registerResource)
     ///
@@ -259,7 +339,7 @@ pub const QResource = extern struct {
     ///
     /// ` resourceRoot: []const u8 `
     ///
-    pub fn RegisterResource22(rccFilename: []const u8, resourceRoot: []const u8) bool {
+    pub fn registerResource22(rccFilename: []const u8, resourceRoot: []const u8) bool {
         const rccFilename_str = qtc.libqt_string{
             .len = rccFilename.len,
             .data = rccFilename.ptr,
@@ -271,6 +351,10 @@ pub const QResource = extern struct {
         return qtc.QResource_RegisterResource22(rccFilename_str, resourceRoot_str);
     }
 
+    /// ### DEPRECATED: Use `unregisterResource22` instead
+    ///
+    pub const UnregisterResource22 = unregisterResource22;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qresource.html#unregisterResource)
     ///
     /// ## Parameter(s):
@@ -279,7 +363,7 @@ pub const QResource = extern struct {
     ///
     /// ` resourceRoot: []const u8 `
     ///
-    pub fn UnregisterResource22(rccFilename: []const u8, resourceRoot: []const u8) bool {
+    pub fn unregisterResource22(rccFilename: []const u8, resourceRoot: []const u8) bool {
         const rccFilename_str = qtc.libqt_string{
             .len = rccFilename.len,
             .data = rccFilename.ptr,
@@ -291,6 +375,10 @@ pub const QResource = extern struct {
         return qtc.QResource_UnregisterResource22(rccFilename_str, resourceRoot_str);
     }
 
+    /// ### DEPRECATED: Use `registerResource23` instead
+    ///
+    pub const RegisterResource23 = registerResource23;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qresource.html#registerResource)
     ///
     /// ## Parameter(s):
@@ -299,13 +387,17 @@ pub const QResource = extern struct {
     ///
     /// ` resourceRoot: []const u8 `
     ///
-    pub fn RegisterResource23(rccData: *const u8, resourceRoot: []const u8) bool {
+    pub fn registerResource23(rccData: *const u8, resourceRoot: []const u8) bool {
         const resourceRoot_str = qtc.libqt_string{
             .len = resourceRoot.len,
             .data = resourceRoot.ptr,
         };
         return qtc.QResource_RegisterResource23(@ptrCast(rccData), resourceRoot_str);
     }
+
+    /// ### DEPRECATED: Use `unregisterResource23` instead
+    ///
+    pub const UnregisterResource23 = unregisterResource23;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qresource.html#unregisterResource)
     ///
@@ -315,7 +407,7 @@ pub const QResource = extern struct {
     ///
     /// ` resourceRoot: []const u8 `
     ///
-    pub fn UnregisterResource23(rccData: *const u8, resourceRoot: []const u8) bool {
+    pub fn unregisterResource23(rccData: *const u8, resourceRoot: []const u8) bool {
         const resourceRoot_str = qtc.libqt_string{
             .len = resourceRoot.len,
             .data = resourceRoot.ptr,
@@ -323,19 +415,19 @@ pub const QResource = extern struct {
         return qtc.QResource_UnregisterResource23(@ptrCast(rccData), resourceRoot_str);
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qresource.html#dtor.QResource)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QResource `
     ///
-    pub fn Delete(self: QResource) void {
+    pub fn delete(self: QResource) void {
         qtc.QResource_Delete(@ptrCast(self.ptr));
     }
 };

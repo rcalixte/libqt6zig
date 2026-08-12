@@ -16,6 +16,10 @@ pub const Poppler__BaseConverter = extern struct {
 
     pub const _is_Poppler__BaseConverter = {};
 
+    /// ### DEPRECATED: Use `setOutputFileName` instead
+    ///
+    pub const SetOutputFileName = setOutputFileName;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1BaseConverter.html)
     ///
     /// ## Parameter(s):
@@ -24,13 +28,17 @@ pub const Poppler__BaseConverter = extern struct {
     ///
     /// ` outputFileName: []const u8 `
     ///
-    pub fn SetOutputFileName(self: Poppler__BaseConverter, outputFileName: []const u8) void {
+    pub fn setOutputFileName(self: Poppler__BaseConverter, outputFileName: []const u8) void {
         const outputFileName_str = qtc.libqt_string{
             .len = outputFileName.len,
             .data = outputFileName.ptr,
         };
         qtc.Poppler__BaseConverter_SetOutputFileName(@ptrCast(self.ptr), outputFileName_str);
     }
+
+    /// ### DEPRECATED: Use `setOutputDevice` instead
+    ///
+    pub const SetOutputDevice = setOutputDevice;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1BaseConverter.html)
     ///
@@ -40,10 +48,14 @@ pub const Poppler__BaseConverter = extern struct {
     ///
     /// ` device: QIODevice `
     ///
-    pub fn SetOutputDevice(self: Poppler__BaseConverter, device: anytype) void {
+    pub fn setOutputDevice(self: Poppler__BaseConverter, device: anytype) void {
         comptime _ = @TypeOf(device)._is_QIODevice;
         qtc.Poppler__BaseConverter_SetOutputDevice(@ptrCast(self.ptr), @ptrCast(device.ptr));
     }
+
+    /// ### DEPRECATED: Use `convert` instead
+    ///
+    pub const Convert = convert;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1BaseConverter.html)
     ///
@@ -51,9 +63,13 @@ pub const Poppler__BaseConverter = extern struct {
     ///
     /// ` self: Poppler__BaseConverter `
     ///
-    pub fn Convert(self: Poppler__BaseConverter) bool {
+    pub fn convert(self: Poppler__BaseConverter) bool {
         return qtc.Poppler__BaseConverter_Convert(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lastError` instead
+    ///
+    pub const LastError = lastError;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1BaseConverter.html)
     ///
@@ -65,23 +81,23 @@ pub const Poppler__BaseConverter = extern struct {
     ///
     /// ` poppler_converter_enums.Error `
     ///
-    pub fn LastError(self: Poppler__BaseConverter) i32 {
+    pub fn lastError(self: Poppler__BaseConverter) i32 {
         return qtc.Poppler__BaseConverter_LastError(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1BaseConverter.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Poppler__BaseConverter `
     ///
-    pub fn Delete(self: Poppler__BaseConverter) void {
+    pub fn delete(self: Poppler__BaseConverter) void {
         qtc.Poppler__BaseConverter_Delete(@ptrCast(self.ptr));
     }
 };
@@ -97,6 +113,10 @@ pub const Poppler__PSConverter = extern struct {
     pub const _is_Poppler__PSConverter = {};
     pub const _is_Poppler__BaseConverter = {};
 
+    /// ### DEPRECATED: Use `setPageList` instead
+    ///
+    pub const SetPageList = setPageList;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PSConverter.html)
     ///
     /// ## Parameter(s):
@@ -105,13 +125,17 @@ pub const Poppler__PSConverter = extern struct {
     ///
     /// ` pageList: []i32 `
     ///
-    pub fn SetPageList(self: Poppler__PSConverter, pageList: []i32) void {
+    pub fn setPageList(self: Poppler__PSConverter, pageList: []i32) void {
         const pageList_list = qtc.libqt_list{
             .len = pageList.len,
             .data = pageList.ptr,
         };
         qtc.Poppler__PSConverter_SetPageList(@ptrCast(self.ptr), pageList_list);
     }
+
+    /// ### DEPRECATED: Use `setTitle` instead
+    ///
+    pub const SetTitle = setTitle;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PSConverter.html)
     ///
@@ -121,13 +145,17 @@ pub const Poppler__PSConverter = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn SetTitle(self: Poppler__PSConverter, title: []const u8) void {
+    pub fn setTitle(self: Poppler__PSConverter, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.Poppler__PSConverter_SetTitle(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `setHDPI` instead
+    ///
+    pub const SetHDPI = setHDPI;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PSConverter.html)
     ///
@@ -137,9 +165,13 @@ pub const Poppler__PSConverter = extern struct {
     ///
     /// ` hDPI: f64 `
     ///
-    pub fn SetHDPI(self: Poppler__PSConverter, hDPI: f64) void {
+    pub fn setHDPI(self: Poppler__PSConverter, hDPI: f64) void {
         qtc.Poppler__PSConverter_SetHDPI(@ptrCast(self.ptr), @bitCast(hDPI));
     }
+
+    /// ### DEPRECATED: Use `setVDPI` instead
+    ///
+    pub const SetVDPI = setVDPI;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PSConverter.html)
     ///
@@ -149,9 +181,13 @@ pub const Poppler__PSConverter = extern struct {
     ///
     /// ` vDPI: f64 `
     ///
-    pub fn SetVDPI(self: Poppler__PSConverter, vDPI: f64) void {
+    pub fn setVDPI(self: Poppler__PSConverter, vDPI: f64) void {
         qtc.Poppler__PSConverter_SetVDPI(@ptrCast(self.ptr), @bitCast(vDPI));
     }
+
+    /// ### DEPRECATED: Use `setRotate` instead
+    ///
+    pub const SetRotate = setRotate;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PSConverter.html)
     ///
@@ -161,9 +197,13 @@ pub const Poppler__PSConverter = extern struct {
     ///
     /// ` rotate: i32 `
     ///
-    pub fn SetRotate(self: Poppler__PSConverter, rotate: i32) void {
+    pub fn setRotate(self: Poppler__PSConverter, rotate: i32) void {
         qtc.Poppler__PSConverter_SetRotate(@ptrCast(self.ptr), @bitCast(rotate));
     }
+
+    /// ### DEPRECATED: Use `setPaperWidth` instead
+    ///
+    pub const SetPaperWidth = setPaperWidth;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PSConverter.html)
     ///
@@ -173,9 +213,13 @@ pub const Poppler__PSConverter = extern struct {
     ///
     /// ` paperWidth: i32 `
     ///
-    pub fn SetPaperWidth(self: Poppler__PSConverter, paperWidth: i32) void {
+    pub fn setPaperWidth(self: Poppler__PSConverter, paperWidth: i32) void {
         qtc.Poppler__PSConverter_SetPaperWidth(@ptrCast(self.ptr), @bitCast(paperWidth));
     }
+
+    /// ### DEPRECATED: Use `setPaperHeight` instead
+    ///
+    pub const SetPaperHeight = setPaperHeight;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PSConverter.html)
     ///
@@ -185,9 +229,13 @@ pub const Poppler__PSConverter = extern struct {
     ///
     /// ` paperHeight: i32 `
     ///
-    pub fn SetPaperHeight(self: Poppler__PSConverter, paperHeight: i32) void {
+    pub fn setPaperHeight(self: Poppler__PSConverter, paperHeight: i32) void {
         qtc.Poppler__PSConverter_SetPaperHeight(@ptrCast(self.ptr), @bitCast(paperHeight));
     }
+
+    /// ### DEPRECATED: Use `setRightMargin` instead
+    ///
+    pub const SetRightMargin = setRightMargin;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PSConverter.html)
     ///
@@ -197,9 +245,13 @@ pub const Poppler__PSConverter = extern struct {
     ///
     /// ` marginRight: i32 `
     ///
-    pub fn SetRightMargin(self: Poppler__PSConverter, marginRight: i32) void {
+    pub fn setRightMargin(self: Poppler__PSConverter, marginRight: i32) void {
         qtc.Poppler__PSConverter_SetRightMargin(@ptrCast(self.ptr), @bitCast(marginRight));
     }
+
+    /// ### DEPRECATED: Use `setBottomMargin` instead
+    ///
+    pub const SetBottomMargin = setBottomMargin;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PSConverter.html)
     ///
@@ -209,9 +261,13 @@ pub const Poppler__PSConverter = extern struct {
     ///
     /// ` marginBottom: i32 `
     ///
-    pub fn SetBottomMargin(self: Poppler__PSConverter, marginBottom: i32) void {
+    pub fn setBottomMargin(self: Poppler__PSConverter, marginBottom: i32) void {
         qtc.Poppler__PSConverter_SetBottomMargin(@ptrCast(self.ptr), @bitCast(marginBottom));
     }
+
+    /// ### DEPRECATED: Use `setLeftMargin` instead
+    ///
+    pub const SetLeftMargin = setLeftMargin;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PSConverter.html)
     ///
@@ -221,9 +277,13 @@ pub const Poppler__PSConverter = extern struct {
     ///
     /// ` marginLeft: i32 `
     ///
-    pub fn SetLeftMargin(self: Poppler__PSConverter, marginLeft: i32) void {
+    pub fn setLeftMargin(self: Poppler__PSConverter, marginLeft: i32) void {
         qtc.Poppler__PSConverter_SetLeftMargin(@ptrCast(self.ptr), @bitCast(marginLeft));
     }
+
+    /// ### DEPRECATED: Use `setTopMargin` instead
+    ///
+    pub const SetTopMargin = setTopMargin;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PSConverter.html)
     ///
@@ -233,9 +293,13 @@ pub const Poppler__PSConverter = extern struct {
     ///
     /// ` marginTop: i32 `
     ///
-    pub fn SetTopMargin(self: Poppler__PSConverter, marginTop: i32) void {
+    pub fn setTopMargin(self: Poppler__PSConverter, marginTop: i32) void {
         qtc.Poppler__PSConverter_SetTopMargin(@ptrCast(self.ptr), @bitCast(marginTop));
     }
+
+    /// ### DEPRECATED: Use `setStrictMargins` instead
+    ///
+    pub const SetStrictMargins = setStrictMargins;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PSConverter.html)
     ///
@@ -245,9 +309,13 @@ pub const Poppler__PSConverter = extern struct {
     ///
     /// ` strictMargins: bool `
     ///
-    pub fn SetStrictMargins(self: Poppler__PSConverter, strictMargins: bool) void {
+    pub fn setStrictMargins(self: Poppler__PSConverter, strictMargins: bool) void {
         qtc.Poppler__PSConverter_SetStrictMargins(@ptrCast(self.ptr), strictMargins);
     }
+
+    /// ### DEPRECATED: Use `setForceOverprintPreview` instead
+    ///
+    pub const SetForceOverprintPreview = setForceOverprintPreview;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PSConverter.html)
     ///
@@ -257,9 +325,13 @@ pub const Poppler__PSConverter = extern struct {
     ///
     /// ` forceOverprintPreview: bool `
     ///
-    pub fn SetForceOverprintPreview(self: Poppler__PSConverter, forceOverprintPreview: bool) void {
+    pub fn setForceOverprintPreview(self: Poppler__PSConverter, forceOverprintPreview: bool) void {
         qtc.Poppler__PSConverter_SetForceOverprintPreview(@ptrCast(self.ptr), forceOverprintPreview);
     }
+
+    /// ### DEPRECATED: Use `setForceRasterize` instead
+    ///
+    pub const SetForceRasterize = setForceRasterize;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PSConverter.html)
     ///
@@ -269,9 +341,13 @@ pub const Poppler__PSConverter = extern struct {
     ///
     /// ` forceRasterize: bool `
     ///
-    pub fn SetForceRasterize(self: Poppler__PSConverter, forceRasterize: bool) void {
+    pub fn setForceRasterize(self: Poppler__PSConverter, forceRasterize: bool) void {
         qtc.Poppler__PSConverter_SetForceRasterize(@ptrCast(self.ptr), forceRasterize);
     }
+
+    /// ### DEPRECATED: Use `setPSOptions` instead
+    ///
+    pub const SetPSOptions = setPSOptions;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PSConverter.html)
     ///
@@ -281,9 +357,13 @@ pub const Poppler__PSConverter = extern struct {
     ///
     /// ` options: flag of poppler_converter_enums.PSOption `
     ///
-    pub fn SetPSOptions(self: Poppler__PSConverter, options: i32) void {
+    pub fn setPSOptions(self: Poppler__PSConverter, options: i32) void {
         qtc.Poppler__PSConverter_SetPSOptions(@ptrCast(self.ptr), @bitCast(options));
     }
+
+    /// ### DEPRECATED: Use `psOptions` instead
+    ///
+    pub const PsOptions = psOptions;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PSConverter.html)
     ///
@@ -295,9 +375,13 @@ pub const Poppler__PSConverter = extern struct {
     ///
     /// ` flag of poppler_converter_enums.PSOption `
     ///
-    pub fn PsOptions(self: Poppler__PSConverter) i32 {
+    pub fn psOptions(self: Poppler__PSConverter) i32 {
         return qtc.Poppler__PSConverter_PsOptions(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `convert` instead
+    ///
+    pub const Convert = convert;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PSConverter.html)
     ///
@@ -305,9 +389,13 @@ pub const Poppler__PSConverter = extern struct {
     ///
     /// ` self: Poppler__PSConverter `
     ///
-    pub fn Convert(self: Poppler__PSConverter) bool {
+    pub fn convert(self: Poppler__PSConverter) bool {
         return qtc.Poppler__PSConverter_Convert(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setOutputFileName` instead
+    ///
+    pub const SetOutputFileName = setOutputFileName;
 
     /// Inherited from Poppler::BaseConverter
     ///
@@ -319,13 +407,17 @@ pub const Poppler__PSConverter = extern struct {
     ///
     /// ` outputFileName: []const u8 `
     ///
-    pub fn SetOutputFileName(self: Poppler__PSConverter, outputFileName: []const u8) void {
+    pub fn setOutputFileName(self: Poppler__PSConverter, outputFileName: []const u8) void {
         const outputFileName_str = qtc.libqt_string{
             .len = outputFileName.len,
             .data = outputFileName.ptr,
         };
         qtc.Poppler__BaseConverter_SetOutputFileName(@ptrCast(self.ptr), outputFileName_str);
     }
+
+    /// ### DEPRECATED: Use `setOutputDevice` instead
+    ///
+    pub const SetOutputDevice = setOutputDevice;
 
     /// Inherited from Poppler::BaseConverter
     ///
@@ -337,10 +429,14 @@ pub const Poppler__PSConverter = extern struct {
     ///
     /// ` device: QIODevice `
     ///
-    pub fn SetOutputDevice(self: Poppler__PSConverter, device: anytype) void {
+    pub fn setOutputDevice(self: Poppler__PSConverter, device: anytype) void {
         comptime _ = @TypeOf(device)._is_QIODevice;
         qtc.Poppler__BaseConverter_SetOutputDevice(@ptrCast(self.ptr), @ptrCast(device.ptr));
     }
+
+    /// ### DEPRECATED: Use `lastError` instead
+    ///
+    pub const LastError = lastError;
 
     /// Inherited from Poppler::BaseConverter
     ///
@@ -354,23 +450,23 @@ pub const Poppler__PSConverter = extern struct {
     ///
     /// ` poppler_converter_enums.Error `
     ///
-    pub fn LastError(self: Poppler__PSConverter) i32 {
+    pub fn lastError(self: Poppler__PSConverter) i32 {
         return qtc.Poppler__BaseConverter_LastError(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PSConverter.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Poppler__PSConverter `
     ///
-    pub fn Delete(self: Poppler__PSConverter) void {
+    pub fn delete(self: Poppler__PSConverter) void {
         qtc.Poppler__PSConverter_Delete(@ptrCast(self.ptr));
     }
 };
@@ -386,6 +482,10 @@ pub const Poppler__PDFConverter = extern struct {
     pub const _is_Poppler__PDFConverter = {};
     pub const _is_Poppler__BaseConverter = {};
 
+    /// ### DEPRECATED: Use `setPDFOptions` instead
+    ///
+    pub const SetPDFOptions = setPDFOptions;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PDFConverter.html)
     ///
     /// ## Parameter(s):
@@ -394,9 +494,13 @@ pub const Poppler__PDFConverter = extern struct {
     ///
     /// ` options: flag of poppler_converter_enums.PDFOption `
     ///
-    pub fn SetPDFOptions(self: Poppler__PDFConverter, options: i32) void {
+    pub fn setPDFOptions(self: Poppler__PDFConverter, options: i32) void {
         qtc.Poppler__PDFConverter_SetPDFOptions(@ptrCast(self.ptr), @bitCast(options));
     }
+
+    /// ### DEPRECATED: Use `pdfOptions` instead
+    ///
+    pub const PdfOptions = pdfOptions;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PDFConverter.html)
     ///
@@ -408,9 +512,13 @@ pub const Poppler__PDFConverter = extern struct {
     ///
     /// ` flag of poppler_converter_enums.PDFOption `
     ///
-    pub fn PdfOptions(self: Poppler__PDFConverter) i32 {
+    pub fn pdfOptions(self: Poppler__PDFConverter) i32 {
         return qtc.Poppler__PDFConverter_PdfOptions(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `sign` instead
+    ///
+    pub const Sign = sign;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PDFConverter.html)
     ///
@@ -420,10 +528,14 @@ pub const Poppler__PDFConverter = extern struct {
     ///
     /// ` data: Poppler__PDFConverter__NewSignatureData `
     ///
-    pub fn Sign(self: Poppler__PDFConverter, data: anytype) bool {
+    pub fn sign(self: Poppler__PDFConverter, data: anytype) bool {
         comptime _ = @TypeOf(data)._is_Poppler__PDFConverter__NewSignatureData;
         return qtc.Poppler__PDFConverter_Sign(@ptrCast(self.ptr), @ptrCast(data.ptr));
     }
+
+    /// ### DEPRECATED: Use `convert` instead
+    ///
+    pub const Convert = convert;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PDFConverter.html)
     ///
@@ -431,9 +543,13 @@ pub const Poppler__PDFConverter = extern struct {
     ///
     /// ` self: Poppler__PDFConverter `
     ///
-    pub fn Convert(self: Poppler__PDFConverter) bool {
+    pub fn convert(self: Poppler__PDFConverter) bool {
         return qtc.Poppler__PDFConverter_Convert(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setOutputFileName` instead
+    ///
+    pub const SetOutputFileName = setOutputFileName;
 
     /// Inherited from Poppler::BaseConverter
     ///
@@ -445,13 +561,17 @@ pub const Poppler__PDFConverter = extern struct {
     ///
     /// ` outputFileName: []const u8 `
     ///
-    pub fn SetOutputFileName(self: Poppler__PDFConverter, outputFileName: []const u8) void {
+    pub fn setOutputFileName(self: Poppler__PDFConverter, outputFileName: []const u8) void {
         const outputFileName_str = qtc.libqt_string{
             .len = outputFileName.len,
             .data = outputFileName.ptr,
         };
         qtc.Poppler__BaseConverter_SetOutputFileName(@ptrCast(self.ptr), outputFileName_str);
     }
+
+    /// ### DEPRECATED: Use `setOutputDevice` instead
+    ///
+    pub const SetOutputDevice = setOutputDevice;
 
     /// Inherited from Poppler::BaseConverter
     ///
@@ -463,10 +583,14 @@ pub const Poppler__PDFConverter = extern struct {
     ///
     /// ` device: QIODevice `
     ///
-    pub fn SetOutputDevice(self: Poppler__PDFConverter, device: anytype) void {
+    pub fn setOutputDevice(self: Poppler__PDFConverter, device: anytype) void {
         comptime _ = @TypeOf(device)._is_QIODevice;
         qtc.Poppler__BaseConverter_SetOutputDevice(@ptrCast(self.ptr), @ptrCast(device.ptr));
     }
+
+    /// ### DEPRECATED: Use `lastError` instead
+    ///
+    pub const LastError = lastError;
 
     /// Inherited from Poppler::BaseConverter
     ///
@@ -480,23 +604,23 @@ pub const Poppler__PDFConverter = extern struct {
     ///
     /// ` poppler_converter_enums.Error `
     ///
-    pub fn LastError(self: Poppler__PDFConverter) i32 {
+    pub fn lastError(self: Poppler__PDFConverter) i32 {
         return qtc.Poppler__BaseConverter_LastError(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PDFConverter.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Poppler__PDFConverter `
     ///
-    pub fn Delete(self: Poppler__PDFConverter) void {
+    pub fn delete(self: Poppler__PDFConverter) void {
         qtc.Poppler__PDFConverter_Delete(@ptrCast(self.ptr));
     }
 };
@@ -511,11 +635,19 @@ pub const Poppler__PDFConverter__NewSignatureData = extern struct {
 
     pub const _is_Poppler__PDFConverter__NewSignatureData = {};
 
-    /// New constructs a new Poppler::PDFConverter::NewSignatureData object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() Poppler__PDFConverter__NewSignatureData {
+    pub const New = new;
+
+    /// Allocate a new Poppler::PDFConverter::NewSignatureData object in C++ memory
+    ///
+    pub fn new() Poppler__PDFConverter__NewSignatureData {
         return .{ .ptr = qtc.Poppler__PDFConverter__NewSignatureData_new() };
     }
+
+    /// ### DEPRECATED: Use `certNickname` instead
+    ///
+    pub const CertNickname = certNickname;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PDFConverter_1_1NewSignatureData.html)
     ///
@@ -525,13 +657,17 @@ pub const Poppler__PDFConverter__NewSignatureData = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CertNickname(self: Poppler__PDFConverter__NewSignatureData, allocator: std.mem.Allocator) []const u8 {
+    pub fn certNickname(self: Poppler__PDFConverter__NewSignatureData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__PDFConverter__NewSignatureData_CertNickname(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__PDFConverter__NewSignatureData.CertNickname: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__PDFConverter__NewSignatureData.certNickname: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setCertNickname` instead
+    ///
+    pub const SetCertNickname = setCertNickname;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PDFConverter_1_1NewSignatureData.html)
     ///
@@ -539,16 +675,20 @@ pub const Poppler__PDFConverter__NewSignatureData = extern struct {
     ///
     /// ` self: Poppler__PDFConverter__NewSignatureData `
     ///
-    /// ` certNickname: []const u8 `
+    /// ` _certNickname: []const u8 `
     ///
-    pub fn SetCertNickname(self: Poppler__PDFConverter__NewSignatureData, certNickname: []const u8) void {
+    pub fn setCertNickname(self: Poppler__PDFConverter__NewSignatureData, _certNickname: []const u8) void {
         const certNickname_str = qtc.libqt_string{
-            .len = certNickname.len,
-            .data = certNickname.ptr,
+            .len = _certNickname.len,
+            .data = _certNickname.ptr,
         };
         qtc.Poppler__PDFConverter__NewSignatureData_SetCertNickname(@ptrCast(self.ptr), certNickname_str);
     }
 
+    /// ### DEPRECATED: Use `password` instead
+    ///
+    pub const Password = password;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PDFConverter_1_1NewSignatureData.html)
     ///
     /// ## Parameter(s):
@@ -557,51 +697,51 @@ pub const Poppler__PDFConverter__NewSignatureData = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Password(self: Poppler__PDFConverter__NewSignatureData, allocator: std.mem.Allocator) []const u8 {
+    pub fn password(self: Poppler__PDFConverter__NewSignatureData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__PDFConverter__NewSignatureData_Password(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__PDFConverter__NewSignatureData.Password: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__PDFConverter__NewSignatureData.password: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `setPassword` instead
+    ///
+    pub const SetPassword = setPassword;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PDFConverter_1_1NewSignatureData.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Poppler__PDFConverter__NewSignatureData `
     ///
-    /// ` password: []const u8 `
+    /// ` _password: []const u8 `
     ///
-    pub fn SetPassword(self: Poppler__PDFConverter__NewSignatureData, password: []const u8) void {
+    pub fn setPassword(self: Poppler__PDFConverter__NewSignatureData, _password: []const u8) void {
         const password_str = qtc.libqt_string{
-            .len = password.len,
-            .data = password.ptr,
+            .len = _password.len,
+            .data = _password.ptr,
         };
         qtc.Poppler__PDFConverter__NewSignatureData_SetPassword(@ptrCast(self.ptr), password_str);
     }
 
+    /// ### DEPRECATED: Use `page` instead
+    ///
+    pub const Page = page;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PDFConverter_1_1NewSignatureData.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Poppler__PDFConverter__NewSignatureData `
     ///
-    pub fn Page(self: Poppler__PDFConverter__NewSignatureData) i32 {
+    pub fn page(self: Poppler__PDFConverter__NewSignatureData) i32 {
         return qtc.Poppler__PDFConverter__NewSignatureData_Page(@ptrCast(self.ptr));
     }
 
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PDFConverter_1_1NewSignatureData.html)
+    /// ### DEPRECATED: Use `setPage` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__PDFConverter__NewSignatureData `
-    ///
-    /// ` page: i32 `
-    ///
-    pub fn SetPage(self: Poppler__PDFConverter__NewSignatureData, page: i32) void {
-        qtc.Poppler__PDFConverter__NewSignatureData_SetPage(@ptrCast(self.ptr), @bitCast(page));
-    }
+    pub const SetPage = setPage;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PDFConverter_1_1NewSignatureData.html)
     ///
@@ -609,9 +749,29 @@ pub const Poppler__PDFConverter__NewSignatureData = extern struct {
     ///
     /// ` self: Poppler__PDFConverter__NewSignatureData `
     ///
-    pub fn BoundingRectangle(self: Poppler__PDFConverter__NewSignatureData) QRectF {
+    /// ` _page: i32 `
+    ///
+    pub fn setPage(self: Poppler__PDFConverter__NewSignatureData, _page: i32) void {
+        qtc.Poppler__PDFConverter__NewSignatureData_SetPage(@ptrCast(self.ptr), @bitCast(_page));
+    }
+
+    /// ### DEPRECATED: Use `boundingRectangle` instead
+    ///
+    pub const BoundingRectangle = boundingRectangle;
+
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PDFConverter_1_1NewSignatureData.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__PDFConverter__NewSignatureData `
+    ///
+    pub fn boundingRectangle(self: Poppler__PDFConverter__NewSignatureData) QRectF {
         return .{ .ptr = qtc.Poppler__PDFConverter__NewSignatureData_BoundingRectangle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBoundingRectangle` instead
+    ///
+    pub const SetBoundingRectangle = setBoundingRectangle;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PDFConverter_1_1NewSignatureData.html)
     ///
@@ -621,10 +781,14 @@ pub const Poppler__PDFConverter__NewSignatureData = extern struct {
     ///
     /// ` rect: QRectF `
     ///
-    pub fn SetBoundingRectangle(self: Poppler__PDFConverter__NewSignatureData, rect: anytype) void {
+    pub fn setBoundingRectangle(self: Poppler__PDFConverter__NewSignatureData, rect: anytype) void {
         comptime _ = @TypeOf(rect)._is_QRectF;
         qtc.Poppler__PDFConverter__NewSignatureData_SetBoundingRectangle(@ptrCast(self.ptr), @ptrCast(rect.ptr));
     }
+
+    /// ### DEPRECATED: Use `signatureText` instead
+    ///
+    pub const SignatureText = signatureText;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PDFConverter_1_1NewSignatureData.html)
     ///
@@ -634,13 +798,17 @@ pub const Poppler__PDFConverter__NewSignatureData = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SignatureText(self: Poppler__PDFConverter__NewSignatureData, allocator: std.mem.Allocator) []const u8 {
+    pub fn signatureText(self: Poppler__PDFConverter__NewSignatureData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__PDFConverter__NewSignatureData_SignatureText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__PDFConverter__NewSignatureData.SignatureText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__PDFConverter__NewSignatureData.signatureText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setSignatureText` instead
+    ///
+    pub const SetSignatureText = setSignatureText;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PDFConverter_1_1NewSignatureData.html)
     ///
@@ -650,7 +818,7 @@ pub const Poppler__PDFConverter__NewSignatureData = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetSignatureText(self: Poppler__PDFConverter__NewSignatureData, text: []const u8) void {
+    pub fn setSignatureText(self: Poppler__PDFConverter__NewSignatureData, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -658,6 +826,10 @@ pub const Poppler__PDFConverter__NewSignatureData = extern struct {
         qtc.Poppler__PDFConverter__NewSignatureData_SetSignatureText(@ptrCast(self.ptr), text_str);
     }
 
+    /// ### DEPRECATED: Use `signatureLeftText` instead
+    ///
+    pub const SignatureLeftText = signatureLeftText;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PDFConverter_1_1NewSignatureData.html)
     ///
     /// ## Parameter(s):
@@ -666,13 +838,17 @@ pub const Poppler__PDFConverter__NewSignatureData = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SignatureLeftText(self: Poppler__PDFConverter__NewSignatureData, allocator: std.mem.Allocator) []const u8 {
+    pub fn signatureLeftText(self: Poppler__PDFConverter__NewSignatureData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__PDFConverter__NewSignatureData_SignatureLeftText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__PDFConverter__NewSignatureData.SignatureLeftText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__PDFConverter__NewSignatureData.signatureLeftText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setSignatureLeftText` instead
+    ///
+    pub const SetSignatureLeftText = setSignatureLeftText;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PDFConverter_1_1NewSignatureData.html)
     ///
@@ -682,7 +858,7 @@ pub const Poppler__PDFConverter__NewSignatureData = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetSignatureLeftText(self: Poppler__PDFConverter__NewSignatureData, text: []const u8) void {
+    pub fn setSignatureLeftText(self: Poppler__PDFConverter__NewSignatureData, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -690,6 +866,10 @@ pub const Poppler__PDFConverter__NewSignatureData = extern struct {
         qtc.Poppler__PDFConverter__NewSignatureData_SetSignatureLeftText(@ptrCast(self.ptr), text_str);
     }
 
+    /// ### DEPRECATED: Use `reason` instead
+    ///
+    pub const Reason = reason;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PDFConverter_1_1NewSignatureData.html)
     ///
     /// ## Parameter(s):
@@ -698,13 +878,17 @@ pub const Poppler__PDFConverter__NewSignatureData = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Reason(self: Poppler__PDFConverter__NewSignatureData, allocator: std.mem.Allocator) []const u8 {
+    pub fn reason(self: Poppler__PDFConverter__NewSignatureData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__PDFConverter__NewSignatureData_Reason(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__PDFConverter__NewSignatureData.Reason: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__PDFConverter__NewSignatureData.reason: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setReason` instead
+    ///
+    pub const SetReason = setReason;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PDFConverter_1_1NewSignatureData.html)
     ///
@@ -712,16 +896,20 @@ pub const Poppler__PDFConverter__NewSignatureData = extern struct {
     ///
     /// ` self: Poppler__PDFConverter__NewSignatureData `
     ///
-    /// ` reason: []const u8 `
+    /// ` _reason: []const u8 `
     ///
-    pub fn SetReason(self: Poppler__PDFConverter__NewSignatureData, reason: []const u8) void {
+    pub fn setReason(self: Poppler__PDFConverter__NewSignatureData, _reason: []const u8) void {
         const reason_str = qtc.libqt_string{
-            .len = reason.len,
-            .data = reason.ptr,
+            .len = _reason.len,
+            .data = _reason.ptr,
         };
         qtc.Poppler__PDFConverter__NewSignatureData_SetReason(@ptrCast(self.ptr), reason_str);
     }
 
+    /// ### DEPRECATED: Use `location` instead
+    ///
+    pub const Location = location;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PDFConverter_1_1NewSignatureData.html)
     ///
     /// ## Parameter(s):
@@ -730,51 +918,51 @@ pub const Poppler__PDFConverter__NewSignatureData = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Location(self: Poppler__PDFConverter__NewSignatureData, allocator: std.mem.Allocator) []const u8 {
+    pub fn location(self: Poppler__PDFConverter__NewSignatureData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__PDFConverter__NewSignatureData_Location(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__PDFConverter__NewSignatureData.Location: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__PDFConverter__NewSignatureData.location: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `setLocation` instead
+    ///
+    pub const SetLocation = setLocation;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PDFConverter_1_1NewSignatureData.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Poppler__PDFConverter__NewSignatureData `
     ///
-    /// ` location: []const u8 `
+    /// ` _location: []const u8 `
     ///
-    pub fn SetLocation(self: Poppler__PDFConverter__NewSignatureData, location: []const u8) void {
+    pub fn setLocation(self: Poppler__PDFConverter__NewSignatureData, _location: []const u8) void {
         const location_str = qtc.libqt_string{
-            .len = location.len,
-            .data = location.ptr,
+            .len = _location.len,
+            .data = _location.ptr,
         };
         qtc.Poppler__PDFConverter__NewSignatureData_SetLocation(@ptrCast(self.ptr), location_str);
     }
 
+    /// ### DEPRECATED: Use `fontSize` instead
+    ///
+    pub const FontSize = fontSize;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PDFConverter_1_1NewSignatureData.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Poppler__PDFConverter__NewSignatureData `
     ///
-    pub fn FontSize(self: Poppler__PDFConverter__NewSignatureData) f64 {
+    pub fn fontSize(self: Poppler__PDFConverter__NewSignatureData) f64 {
         return qtc.Poppler__PDFConverter__NewSignatureData_FontSize(@ptrCast(self.ptr));
     }
 
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PDFConverter_1_1NewSignatureData.html)
+    /// ### DEPRECATED: Use `setFontSize` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__PDFConverter__NewSignatureData `
-    ///
-    /// ` fontSize: f64 `
-    ///
-    pub fn SetFontSize(self: Poppler__PDFConverter__NewSignatureData, fontSize: f64) void {
-        qtc.Poppler__PDFConverter__NewSignatureData_SetFontSize(@ptrCast(self.ptr), @bitCast(fontSize));
-    }
+    pub const SetFontSize = setFontSize;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PDFConverter_1_1NewSignatureData.html)
     ///
@@ -782,21 +970,29 @@ pub const Poppler__PDFConverter__NewSignatureData = extern struct {
     ///
     /// ` self: Poppler__PDFConverter__NewSignatureData `
     ///
-    pub fn LeftFontSize(self: Poppler__PDFConverter__NewSignatureData) f64 {
+    /// ` _fontSize: f64 `
+    ///
+    pub fn setFontSize(self: Poppler__PDFConverter__NewSignatureData, _fontSize: f64) void {
+        qtc.Poppler__PDFConverter__NewSignatureData_SetFontSize(@ptrCast(self.ptr), @bitCast(_fontSize));
+    }
+
+    /// ### DEPRECATED: Use `leftFontSize` instead
+    ///
+    pub const LeftFontSize = leftFontSize;
+
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PDFConverter_1_1NewSignatureData.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__PDFConverter__NewSignatureData `
+    ///
+    pub fn leftFontSize(self: Poppler__PDFConverter__NewSignatureData) f64 {
         return qtc.Poppler__PDFConverter__NewSignatureData_LeftFontSize(@ptrCast(self.ptr));
     }
 
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PDFConverter_1_1NewSignatureData.html)
+    /// ### DEPRECATED: Use `setLeftFontSize` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__PDFConverter__NewSignatureData `
-    ///
-    /// ` fontSize: f64 `
-    ///
-    pub fn SetLeftFontSize(self: Poppler__PDFConverter__NewSignatureData, fontSize: f64) void {
-        qtc.Poppler__PDFConverter__NewSignatureData_SetLeftFontSize(@ptrCast(self.ptr), @bitCast(fontSize));
-    }
+    pub const SetLeftFontSize = setLeftFontSize;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PDFConverter_1_1NewSignatureData.html)
     ///
@@ -804,9 +1000,29 @@ pub const Poppler__PDFConverter__NewSignatureData = extern struct {
     ///
     /// ` self: Poppler__PDFConverter__NewSignatureData `
     ///
-    pub fn FontColor(self: Poppler__PDFConverter__NewSignatureData) QColor {
+    /// ` _fontSize: f64 `
+    ///
+    pub fn setLeftFontSize(self: Poppler__PDFConverter__NewSignatureData, _fontSize: f64) void {
+        qtc.Poppler__PDFConverter__NewSignatureData_SetLeftFontSize(@ptrCast(self.ptr), @bitCast(_fontSize));
+    }
+
+    /// ### DEPRECATED: Use `fontColor` instead
+    ///
+    pub const FontColor = fontColor;
+
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PDFConverter_1_1NewSignatureData.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__PDFConverter__NewSignatureData `
+    ///
+    pub fn fontColor(self: Poppler__PDFConverter__NewSignatureData) QColor {
         return .{ .ptr = qtc.Poppler__PDFConverter__NewSignatureData_FontColor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFontColor` instead
+    ///
+    pub const SetFontColor = setFontColor;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PDFConverter_1_1NewSignatureData.html)
     ///
@@ -816,20 +1032,28 @@ pub const Poppler__PDFConverter__NewSignatureData = extern struct {
     ///
     /// ` color: QColor `
     ///
-    pub fn SetFontColor(self: Poppler__PDFConverter__NewSignatureData, color: anytype) void {
+    pub fn setFontColor(self: Poppler__PDFConverter__NewSignatureData, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.Poppler__PDFConverter__NewSignatureData_SetFontColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
+    /// ### DEPRECATED: Use `borderColor` instead
+    ///
+    pub const BorderColor = borderColor;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PDFConverter_1_1NewSignatureData.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Poppler__PDFConverter__NewSignatureData `
     ///
-    pub fn BorderColor(self: Poppler__PDFConverter__NewSignatureData) QColor {
+    pub fn borderColor(self: Poppler__PDFConverter__NewSignatureData) QColor {
         return .{ .ptr = qtc.Poppler__PDFConverter__NewSignatureData_BorderColor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBorderColor` instead
+    ///
+    pub const SetBorderColor = setBorderColor;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PDFConverter_1_1NewSignatureData.html)
     ///
@@ -839,10 +1063,14 @@ pub const Poppler__PDFConverter__NewSignatureData = extern struct {
     ///
     /// ` color: QColor `
     ///
-    pub fn SetBorderColor(self: Poppler__PDFConverter__NewSignatureData, color: anytype) void {
+    pub fn setBorderColor(self: Poppler__PDFConverter__NewSignatureData, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.Poppler__PDFConverter__NewSignatureData_SetBorderColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
+
+    /// ### DEPRECATED: Use `borderWidth` instead
+    ///
+    pub const BorderWidth = borderWidth;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PDFConverter_1_1NewSignatureData.html)
     ///
@@ -850,9 +1078,13 @@ pub const Poppler__PDFConverter__NewSignatureData = extern struct {
     ///
     /// ` self: Poppler__PDFConverter__NewSignatureData `
     ///
-    pub fn BorderWidth(self: Poppler__PDFConverter__NewSignatureData) f64 {
+    pub fn borderWidth(self: Poppler__PDFConverter__NewSignatureData) f64 {
         return qtc.Poppler__PDFConverter__NewSignatureData_BorderWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBorderWidth` instead
+    ///
+    pub const SetBorderWidth = setBorderWidth;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PDFConverter_1_1NewSignatureData.html)
     ///
@@ -862,9 +1094,13 @@ pub const Poppler__PDFConverter__NewSignatureData = extern struct {
     ///
     /// ` width: f64 `
     ///
-    pub fn SetBorderWidth(self: Poppler__PDFConverter__NewSignatureData, width: f64) void {
+    pub fn setBorderWidth(self: Poppler__PDFConverter__NewSignatureData, width: f64) void {
         qtc.Poppler__PDFConverter__NewSignatureData_SetBorderWidth(@ptrCast(self.ptr), @bitCast(width));
     }
+
+    /// ### DEPRECATED: Use `backgroundColor` instead
+    ///
+    pub const BackgroundColor = backgroundColor;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PDFConverter_1_1NewSignatureData.html)
     ///
@@ -872,9 +1108,13 @@ pub const Poppler__PDFConverter__NewSignatureData = extern struct {
     ///
     /// ` self: Poppler__PDFConverter__NewSignatureData `
     ///
-    pub fn BackgroundColor(self: Poppler__PDFConverter__NewSignatureData) QColor {
+    pub fn backgroundColor(self: Poppler__PDFConverter__NewSignatureData) QColor {
         return .{ .ptr = qtc.Poppler__PDFConverter__NewSignatureData_BackgroundColor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBackgroundColor` instead
+    ///
+    pub const SetBackgroundColor = setBackgroundColor;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PDFConverter_1_1NewSignatureData.html)
     ///
@@ -884,10 +1124,14 @@ pub const Poppler__PDFConverter__NewSignatureData = extern struct {
     ///
     /// ` color: QColor `
     ///
-    pub fn SetBackgroundColor(self: Poppler__PDFConverter__NewSignatureData, color: anytype) void {
+    pub fn setBackgroundColor(self: Poppler__PDFConverter__NewSignatureData, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.Poppler__PDFConverter__NewSignatureData_SetBackgroundColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
+
+    /// ### DEPRECATED: Use `fieldPartialName` instead
+    ///
+    pub const FieldPartialName = fieldPartialName;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PDFConverter_1_1NewSignatureData.html)
     ///
@@ -897,13 +1141,17 @@ pub const Poppler__PDFConverter__NewSignatureData = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FieldPartialName(self: Poppler__PDFConverter__NewSignatureData, allocator: std.mem.Allocator) []const u8 {
+    pub fn fieldPartialName(self: Poppler__PDFConverter__NewSignatureData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__PDFConverter__NewSignatureData_FieldPartialName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__PDFConverter__NewSignatureData.FieldPartialName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__PDFConverter__NewSignatureData.fieldPartialName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setFieldPartialName` instead
+    ///
+    pub const SetFieldPartialName = setFieldPartialName;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PDFConverter_1_1NewSignatureData.html)
     ///
@@ -913,7 +1161,7 @@ pub const Poppler__PDFConverter__NewSignatureData = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetFieldPartialName(self: Poppler__PDFConverter__NewSignatureData, name: []const u8) void {
+    pub fn setFieldPartialName(self: Poppler__PDFConverter__NewSignatureData, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -921,6 +1169,10 @@ pub const Poppler__PDFConverter__NewSignatureData = extern struct {
         qtc.Poppler__PDFConverter__NewSignatureData_SetFieldPartialName(@ptrCast(self.ptr), name_str);
     }
 
+    /// ### DEPRECATED: Use `documentOwnerPassword` instead
+    ///
+    pub const DocumentOwnerPassword = documentOwnerPassword;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PDFConverter_1_1NewSignatureData.html)
     ///
     /// ## Parameter(s):
@@ -929,13 +1181,17 @@ pub const Poppler__PDFConverter__NewSignatureData = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DocumentOwnerPassword(self: Poppler__PDFConverter__NewSignatureData, allocator: std.mem.Allocator) []u8 {
+    pub fn documentOwnerPassword(self: Poppler__PDFConverter__NewSignatureData, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.Poppler__PDFConverter__NewSignatureData_DocumentOwnerPassword(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("Poppler__PDFConverter__NewSignatureData.DocumentOwnerPassword: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("Poppler__PDFConverter__NewSignatureData.documentOwnerPassword: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setDocumentOwnerPassword` instead
+    ///
+    pub const SetDocumentOwnerPassword = setDocumentOwnerPassword;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PDFConverter_1_1NewSignatureData.html)
     ///
@@ -943,16 +1199,20 @@ pub const Poppler__PDFConverter__NewSignatureData = extern struct {
     ///
     /// ` self: Poppler__PDFConverter__NewSignatureData `
     ///
-    /// ` password: []u8 `
+    /// ` _password: []u8 `
     ///
-    pub fn SetDocumentOwnerPassword(self: Poppler__PDFConverter__NewSignatureData, password: []u8) void {
+    pub fn setDocumentOwnerPassword(self: Poppler__PDFConverter__NewSignatureData, _password: []u8) void {
         const password_str = qtc.libqt_string{
-            .len = password.len,
-            .data = password.ptr,
+            .len = _password.len,
+            .data = _password.ptr,
         };
         qtc.Poppler__PDFConverter__NewSignatureData_SetDocumentOwnerPassword(@ptrCast(self.ptr), password_str);
     }
 
+    /// ### DEPRECATED: Use `documentUserPassword` instead
+    ///
+    pub const DocumentUserPassword = documentUserPassword;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PDFConverter_1_1NewSignatureData.html)
     ///
     /// ## Parameter(s):
@@ -961,29 +1221,37 @@ pub const Poppler__PDFConverter__NewSignatureData = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DocumentUserPassword(self: Poppler__PDFConverter__NewSignatureData, allocator: std.mem.Allocator) []u8 {
+    pub fn documentUserPassword(self: Poppler__PDFConverter__NewSignatureData, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.Poppler__PDFConverter__NewSignatureData_DocumentUserPassword(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("Poppler__PDFConverter__NewSignatureData.DocumentUserPassword: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("Poppler__PDFConverter__NewSignatureData.documentUserPassword: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `setDocumentUserPassword` instead
+    ///
+    pub const SetDocumentUserPassword = setDocumentUserPassword;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PDFConverter_1_1NewSignatureData.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Poppler__PDFConverter__NewSignatureData `
     ///
-    /// ` password: []u8 `
+    /// ` _password: []u8 `
     ///
-    pub fn SetDocumentUserPassword(self: Poppler__PDFConverter__NewSignatureData, password: []u8) void {
+    pub fn setDocumentUserPassword(self: Poppler__PDFConverter__NewSignatureData, _password: []u8) void {
         const password_str = qtc.libqt_string{
-            .len = password.len,
-            .data = password.ptr,
+            .len = _password.len,
+            .data = _password.ptr,
         };
         qtc.Poppler__PDFConverter__NewSignatureData_SetDocumentUserPassword(@ptrCast(self.ptr), password_str);
     }
+
+    /// ### DEPRECATED: Use `imagePath` instead
+    ///
+    pub const ImagePath = imagePath;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PDFConverter_1_1NewSignatureData.html)
     ///
@@ -993,13 +1261,17 @@ pub const Poppler__PDFConverter__NewSignatureData = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ImagePath(self: Poppler__PDFConverter__NewSignatureData, allocator: std.mem.Allocator) []const u8 {
+    pub fn imagePath(self: Poppler__PDFConverter__NewSignatureData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__PDFConverter__NewSignatureData_ImagePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__PDFConverter__NewSignatureData.ImagePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__PDFConverter__NewSignatureData.imagePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setImagePath` instead
+    ///
+    pub const SetImagePath = setImagePath;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PDFConverter_1_1NewSignatureData.html)
     ///
@@ -1009,7 +1281,7 @@ pub const Poppler__PDFConverter__NewSignatureData = extern struct {
     ///
     /// ` path: []const u8 `
     ///
-    pub fn SetImagePath(self: Poppler__PDFConverter__NewSignatureData, path: []const u8) void {
+    pub fn setImagePath(self: Poppler__PDFConverter__NewSignatureData, path: []const u8) void {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
@@ -1017,19 +1289,19 @@ pub const Poppler__PDFConverter__NewSignatureData = extern struct {
         qtc.Poppler__PDFConverter__NewSignatureData_SetImagePath(@ptrCast(self.ptr), path_str);
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PDFConverter_1_1NewSignatureData.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Poppler__PDFConverter__NewSignatureData `
     ///
-    pub fn Delete(self: Poppler__PDFConverter__NewSignatureData) void {
+    pub fn delete(self: Poppler__PDFConverter__NewSignatureData) void {
         qtc.Poppler__PDFConverter__NewSignatureData_Delete(@ptrCast(self.ptr));
     }
 };

@@ -14,26 +14,38 @@ pub const KCompletionMatches = extern struct {
 
     pub const _is_KCompletionMatches = {};
 
-    /// New constructs a new KCompletionMatches object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KCompletionMatches object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` sort: bool `
     ///
-    pub fn New(sort: bool) KCompletionMatches {
+    pub fn new(sort: bool) KCompletionMatches {
         return .{ .ptr = qtc.KCompletionMatches_new(sort) };
     }
 
-    /// New2 constructs a new KCompletionMatches object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KCompletionMatches object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: KCompletionMatches `
     ///
-    pub fn New2(param1: anytype) KCompletionMatches {
+    pub fn new2(param1: anytype) KCompletionMatches {
         comptime _ = @TypeOf(param1)._is_KCompletionMatches;
         return .{ .ptr = qtc.KCompletionMatches_new2(@ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionmatches.html#operator-eq)
     ///
@@ -43,10 +55,14 @@ pub const KCompletionMatches = extern struct {
     ///
     /// ` param1: KCompletionMatches `
     ///
-    pub fn OperatorAssign(self: KCompletionMatches, param1: anytype) void {
+    pub fn operatorAssign(self: KCompletionMatches, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_KCompletionMatches;
         qtc.KCompletionMatches_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeDuplicates` instead
+    ///
+    pub const RemoveDuplicates = removeDuplicates;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionmatches.html#removeDuplicates)
     ///
@@ -54,9 +70,13 @@ pub const KCompletionMatches = extern struct {
     ///
     /// ` self: KCompletionMatches `
     ///
-    pub fn RemoveDuplicates(self: KCompletionMatches) void {
+    pub fn removeDuplicates(self: KCompletionMatches) void {
         qtc.KCompletionMatches_RemoveDuplicates(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `list` instead
+    ///
+    pub const List = list;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionmatches.html#list)
     ///
@@ -66,7 +86,7 @@ pub const KCompletionMatches = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn List(self: KCompletionMatches, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn list(self: KCompletionMatches, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KCompletionMatches_List(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -74,15 +94,19 @@ pub const KCompletionMatches = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KCompletionMatches.List: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KCompletionMatches.list: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KCompletionMatches.List: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KCompletionMatches.list: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `sorting` instead
+    ///
+    pub const Sorting = sorting;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionmatches.html#sorting)
     ///
@@ -90,9 +114,13 @@ pub const KCompletionMatches = extern struct {
     ///
     /// ` self: KCompletionMatches `
     ///
-    pub fn Sorting(self: KCompletionMatches) bool {
+    pub fn sorting(self: KCompletionMatches) bool {
         return qtc.KCompletionMatches_Sorting(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `list1` instead
+    ///
+    pub const List1 = list1;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionmatches.html#list)
     ///
@@ -104,7 +132,7 @@ pub const KCompletionMatches = extern struct {
     ///
     /// ` sort: bool `
     ///
-    pub fn List1(self: KCompletionMatches, allocator: std.mem.Allocator, sort: bool) []const []const u8 {
+    pub fn list1(self: KCompletionMatches, allocator: std.mem.Allocator, sort: bool) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KCompletionMatches_List1(@ptrCast(self.ptr), sort);
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -112,29 +140,29 @@ pub const KCompletionMatches = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KCompletionMatches.List1: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KCompletionMatches.list1: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KCompletionMatches.List1: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KCompletionMatches.list1: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionmatches.html#dtor.KCompletionMatches)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KCompletionMatches `
     ///
-    pub fn Delete(self: KCompletionMatches) void {
+    pub fn delete(self: KCompletionMatches) void {
         qtc.KCompletionMatches_Delete(@ptrCast(self.ptr));
     }
 };

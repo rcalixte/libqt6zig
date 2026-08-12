@@ -43,36 +43,52 @@ pub const QSqlTableModel = extern struct {
     pub const _is_QAbstractItemModel = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QSqlTableModel object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QSqlTableModel {
+    pub const New = new;
+
+    /// Allocate a new QSqlTableModel object in C++ memory
+    ///
+    pub fn new() QSqlTableModel {
         return .{ .ptr = qtc.QSqlTableModel_new() };
     }
 
-    /// New2 constructs a new QSqlTableModel object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QSqlTableModel object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) QSqlTableModel {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QSqlTableModel_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) QSqlTableModel {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QSqlTableModel_new2(@ptrCast(_parent.ptr)) };
     }
 
-    /// New3 constructs a new QSqlTableModel object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QSqlTableModel object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
     /// ` db: QSqlDatabase `
     ///
-    pub fn New3(parent: anytype, db: anytype) QSqlTableModel {
-        comptime _ = @TypeOf(parent)._is_QObject;
+    pub fn new3(_parent: anytype, db: anytype) QSqlTableModel {
+        comptime _ = @TypeOf(_parent)._is_QObject;
         comptime _ = @TypeOf(db)._is_QSqlDatabase;
-        return .{ .ptr = qtc.QSqlTableModel_new3(@ptrCast(parent.ptr), @ptrCast(db.ptr)) };
+        return .{ .ptr = qtc.QSqlTableModel_new3(@ptrCast(_parent.ptr), @ptrCast(db.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -80,9 +96,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn MetaObject(self: QSqlTableModel) QMetaObject {
+    pub fn metaObject(self: QSqlTableModel) QMetaObject {
         return .{ .ptr = qtc.QSqlTableModel_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -94,13 +114,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QSqlTableModel, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QSqlTableModel, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QSqlTableModel_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -110,9 +130,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn SuperMetaObject(self: QSqlTableModel) QMetaObject {
+    pub fn superMetaObject(self: QSqlTableModel) QMetaObject {
         return .{ .ptr = qtc.QSqlTableModel_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -120,10 +144,14 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QSqlTableModel, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QSqlTableModel, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QSqlTableModel_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -133,13 +161,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QSqlTableModel, callback: *const fn (QSqlTableModel, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QSqlTableModel, callback: *const fn (QSqlTableModel, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QSqlTableModel_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -149,10 +177,14 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QSqlTableModel, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QSqlTableModel, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QSqlTableModel_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -164,9 +196,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QSqlTableModel, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QSqlTableModel, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QSqlTableModel_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -176,13 +212,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QSqlTableModel, callback: *const fn (QSqlTableModel, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QSqlTableModel, callback: *const fn (QSqlTableModel, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QSqlTableModel_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -196,9 +232,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QSqlTableModel, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QSqlTableModel, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QSqlTableModel_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -208,14 +248,18 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlTableModel.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlTableModel.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setTable` instead
+    ///
+    pub const SetTable = setTable;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#setTable)
     ///
@@ -223,15 +267,19 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` tableName: []const u8 `
+    /// ` _tableName: []const u8 `
     ///
-    pub fn SetTable(self: QSqlTableModel, tableName: []const u8) void {
+    pub fn setTable(self: QSqlTableModel, _tableName: []const u8) void {
         const tableName_str = qtc.libqt_string{
-            .len = tableName.len,
-            .data = tableName.ptr,
+            .len = _tableName.len,
+            .data = _tableName.ptr,
         };
         qtc.QSqlTableModel_SetTable(@ptrCast(self.ptr), tableName_str);
     }
+
+    /// ### DEPRECATED: Use `onSetTable` instead
+    ///
+    pub const OnSetTable = onSetTable;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#setTable)
     ///
@@ -243,13 +291,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, tableName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetTable(self: QSqlTableModel, callback: *const fn (QSqlTableModel, [*:0]const u8) callconv(.c) void) void {
+    pub fn onSetTable(self: QSqlTableModel, callback: *const fn (QSqlTableModel, [*:0]const u8) callconv(.c) void) void {
         qtc.QSqlTableModel_OnSetTable(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetTable` instead
+    /// ### DEPRECATED: Use `superSetTable` instead
     ///
-    pub const QBaseSetTable = SuperSetTable;
+    pub const SuperSetTable = superSetTable;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#setTable)
     ///
@@ -259,15 +307,19 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` tableName: []const u8 `
+    /// ` _tableName: []const u8 `
     ///
-    pub fn SuperSetTable(self: QSqlTableModel, tableName: []const u8) void {
+    pub fn superSetTable(self: QSqlTableModel, _tableName: []const u8) void {
         const tableName_str = qtc.libqt_string{
-            .len = tableName.len,
-            .data = tableName.ptr,
+            .len = _tableName.len,
+            .data = _tableName.ptr,
         };
         qtc.QSqlTableModel_SuperSetTable(@ptrCast(self.ptr), tableName_str);
     }
+
+    /// ### DEPRECATED: Use `tableName` instead
+    ///
+    pub const TableName = tableName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#tableName)
     ///
@@ -277,13 +329,17 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TableName(self: QSqlTableModel, allocator: std.mem.Allocator) []const u8 {
+    pub fn tableName(self: QSqlTableModel, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSqlTableModel_TableName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlTableModel.TableName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlTableModel.tableName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `flags` instead
+    ///
+    pub const Flags = flags;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#flags)
     ///
@@ -291,16 +347,20 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.ItemFlag `
     ///
-    pub fn Flags(self: QSqlTableModel, index: anytype) i32 {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return qtc.QSqlTableModel_Flags(@ptrCast(self.ptr), @ptrCast(index.ptr));
+    pub fn flags(self: QSqlTableModel, _index: anytype) i32 {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return qtc.QSqlTableModel_Flags(@ptrCast(self.ptr), @ptrCast(_index.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFlags` instead
+    ///
+    pub const OnFlags = onFlags;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#flags)
     ///
@@ -312,13 +372,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, index: QModelIndex) callconv(.c) i32 `
     ///
-    pub fn OnFlags(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex) callconv(.c) i32) void {
+    pub fn onFlags(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex) callconv(.c) i32) void {
         qtc.QSqlTableModel_OnFlags(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperFlags` instead
+    /// ### DEPRECATED: Use `superFlags` instead
     ///
-    pub const QBaseFlags = SuperFlags;
+    pub const SuperFlags = superFlags;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#flags)
     ///
@@ -328,16 +388,20 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.ItemFlag `
     ///
-    pub fn SuperFlags(self: QSqlTableModel, index: anytype) i32 {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return qtc.QSqlTableModel_SuperFlags(@ptrCast(self.ptr), @ptrCast(index.ptr));
+    pub fn superFlags(self: QSqlTableModel, _index: anytype) i32 {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return qtc.QSqlTableModel_SuperFlags(@ptrCast(self.ptr), @ptrCast(_index.ptr));
     }
+
+    /// ### DEPRECATED: Use `record` instead
+    ///
+    pub const Record = record;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#record)
     ///
@@ -345,9 +409,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn Record(self: QSqlTableModel) QSqlRecord {
+    pub fn record(self: QSqlTableModel) QSqlRecord {
         return .{ .ptr = qtc.QSqlTableModel_Record(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `record2` instead
+    ///
+    pub const Record2 = record2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#record)
     ///
@@ -357,9 +425,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` row: i32 `
     ///
-    pub fn Record2(self: QSqlTableModel, row: i32) QSqlRecord {
+    pub fn record2(self: QSqlTableModel, row: i32) QSqlRecord {
         return .{ .ptr = qtc.QSqlTableModel_Record2(@ptrCast(self.ptr), @bitCast(row)) };
     }
+
+    /// ### DEPRECATED: Use `data` instead
+    ///
+    pub const Data = data;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#data)
     ///
@@ -371,10 +443,14 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn Data(self: QSqlTableModel, idx: anytype, role: i32) QVariant {
+    pub fn data(self: QSqlTableModel, idx: anytype, role: i32) QVariant {
         comptime _ = @TypeOf(idx)._is_QModelIndex;
         return .{ .ptr = qtc.QSqlTableModel_Data(@ptrCast(self.ptr), @ptrCast(idx.ptr), @bitCast(role)) };
     }
+
+    /// ### DEPRECATED: Use `onData` instead
+    ///
+    pub const OnData = onData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#data)
     ///
@@ -388,13 +464,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnData(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, i32) callconv(.c) QVariant) void {
+    pub fn onData(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, i32) callconv(.c) QVariant) void {
         qtc.QSqlTableModel_OnData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperData` instead
+    /// ### DEPRECATED: Use `superData` instead
     ///
-    pub const QBaseData = SuperData;
+    pub const SuperData = superData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#data)
     ///
@@ -408,10 +484,14 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn SuperData(self: QSqlTableModel, idx: anytype, role: i32) QVariant {
+    pub fn superData(self: QSqlTableModel, idx: anytype, role: i32) QVariant {
         comptime _ = @TypeOf(idx)._is_QModelIndex;
         return .{ .ptr = qtc.QSqlTableModel_SuperData(@ptrCast(self.ptr), @ptrCast(idx.ptr), @bitCast(role)) };
     }
+
+    /// ### DEPRECATED: Use `setData` instead
+    ///
+    pub const SetData = setData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#setData)
     ///
@@ -419,17 +499,21 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
     /// ` value: QVariant `
     ///
     /// ` role: i32 `
     ///
-    pub fn SetData(self: QSqlTableModel, index: anytype, value: anytype, role: i32) bool {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
+    pub fn setData(self: QSqlTableModel, _index: anytype, value: anytype, role: i32) bool {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
         comptime _ = @TypeOf(value)._is_QVariant;
-        return qtc.QSqlTableModel_SetData(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(value.ptr), @bitCast(role));
+        return qtc.QSqlTableModel_SetData(@ptrCast(self.ptr), @ptrCast(_index.ptr), @ptrCast(value.ptr), @bitCast(role));
     }
+
+    /// ### DEPRECATED: Use `onSetData` instead
+    ///
+    pub const OnSetData = onSetData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#setData)
     ///
@@ -441,13 +525,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, index: QModelIndex, value: QVariant, role: i32) callconv(.c) bool `
     ///
-    pub fn OnSetData(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, QVariant, i32) callconv(.c) bool) void {
+    pub fn onSetData(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, QVariant, i32) callconv(.c) bool) void {
         qtc.QSqlTableModel_OnSetData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetData` instead
+    /// ### DEPRECATED: Use `superSetData` instead
     ///
-    pub const QBaseSetData = SuperSetData;
+    pub const SuperSetData = superSetData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#setData)
     ///
@@ -457,17 +541,21 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
     /// ` value: QVariant `
     ///
     /// ` role: i32 `
     ///
-    pub fn SuperSetData(self: QSqlTableModel, index: anytype, value: anytype, role: i32) bool {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
+    pub fn superSetData(self: QSqlTableModel, _index: anytype, value: anytype, role: i32) bool {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
         comptime _ = @TypeOf(value)._is_QVariant;
-        return qtc.QSqlTableModel_SuperSetData(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(value.ptr), @bitCast(role));
+        return qtc.QSqlTableModel_SuperSetData(@ptrCast(self.ptr), @ptrCast(_index.ptr), @ptrCast(value.ptr), @bitCast(role));
     }
+
+    /// ### DEPRECATED: Use `clearItemData` instead
+    ///
+    pub const ClearItemData = clearItemData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#clearItemData)
     ///
@@ -475,12 +563,16 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
-    pub fn ClearItemData(self: QSqlTableModel, index: anytype) bool {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return qtc.QSqlTableModel_ClearItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
+    pub fn clearItemData(self: QSqlTableModel, _index: anytype) bool {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return qtc.QSqlTableModel_ClearItemData(@ptrCast(self.ptr), @ptrCast(_index.ptr));
     }
+
+    /// ### DEPRECATED: Use `onClearItemData` instead
+    ///
+    pub const OnClearItemData = onClearItemData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#clearItemData)
     ///
@@ -492,13 +584,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, index: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnClearItemData(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex) callconv(.c) bool) void {
+    pub fn onClearItemData(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex) callconv(.c) bool) void {
         qtc.QSqlTableModel_OnClearItemData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperClearItemData` instead
+    /// ### DEPRECATED: Use `superClearItemData` instead
     ///
-    pub const QBaseClearItemData = SuperClearItemData;
+    pub const SuperClearItemData = superClearItemData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#clearItemData)
     ///
@@ -508,12 +600,16 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
-    pub fn SuperClearItemData(self: QSqlTableModel, index: anytype) bool {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return qtc.QSqlTableModel_SuperClearItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
+    pub fn superClearItemData(self: QSqlTableModel, _index: anytype) bool {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return qtc.QSqlTableModel_SuperClearItemData(@ptrCast(self.ptr), @ptrCast(_index.ptr));
     }
+
+    /// ### DEPRECATED: Use `headerData` instead
+    ///
+    pub const HeaderData = headerData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#headerData)
     ///
@@ -527,9 +623,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn HeaderData(self: QSqlTableModel, section: i32, orientation: i32, role: i32) QVariant {
+    pub fn headerData(self: QSqlTableModel, section: i32, orientation: i32, role: i32) QVariant {
         return .{ .ptr = qtc.QSqlTableModel_HeaderData(@ptrCast(self.ptr), @bitCast(section), @bitCast(orientation), @bitCast(role)) };
     }
+
+    /// ### DEPRECATED: Use `onHeaderData` instead
+    ///
+    pub const OnHeaderData = onHeaderData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#headerData)
     ///
@@ -543,13 +643,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnHeaderData(self: QSqlTableModel, callback: *const fn (QSqlTableModel, i32, i32, i32) callconv(.c) QVariant) void {
+    pub fn onHeaderData(self: QSqlTableModel, callback: *const fn (QSqlTableModel, i32, i32, i32) callconv(.c) QVariant) void {
         qtc.QSqlTableModel_OnHeaderData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperHeaderData` instead
+    /// ### DEPRECATED: Use `superHeaderData` instead
     ///
-    pub const QBaseHeaderData = SuperHeaderData;
+    pub const SuperHeaderData = superHeaderData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#headerData)
     ///
@@ -565,19 +665,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn SuperHeaderData(self: QSqlTableModel, section: i32, orientation: i32, role: i32) QVariant {
+    pub fn superHeaderData(self: QSqlTableModel, section: i32, orientation: i32, role: i32) QVariant {
         return .{ .ptr = qtc.QSqlTableModel_SuperHeaderData(@ptrCast(self.ptr), @bitCast(section), @bitCast(orientation), @bitCast(role)) };
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#isDirty)
+    /// ### DEPRECATED: Use `isDirty` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSqlTableModel `
-    ///
-    pub fn IsDirty(self: QSqlTableModel) bool {
-        return qtc.QSqlTableModel_IsDirty(@ptrCast(self.ptr));
-    }
+    pub const IsDirty = isDirty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#isDirty)
     ///
@@ -585,12 +679,30 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` index: QModelIndex `
-    ///
-    pub fn IsDirty2(self: QSqlTableModel, index: anytype) bool {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return qtc.QSqlTableModel_IsDirty2(@ptrCast(self.ptr), @ptrCast(index.ptr));
+    pub fn isDirty(self: QSqlTableModel) bool {
+        return qtc.QSqlTableModel_IsDirty(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDirty2` instead
+    ///
+    pub const IsDirty2 = isDirty2;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#isDirty)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QSqlTableModel `
+    ///
+    /// ` _index: QModelIndex `
+    ///
+    pub fn isDirty2(self: QSqlTableModel, _index: anytype) bool {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return qtc.QSqlTableModel_IsDirty2(@ptrCast(self.ptr), @ptrCast(_index.ptr));
+    }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#clear)
     ///
@@ -598,9 +710,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn Clear(self: QSqlTableModel) void {
+    pub fn clear(self: QSqlTableModel) void {
         qtc.QSqlTableModel_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onClear` instead
+    ///
+    pub const OnClear = onClear;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#clear)
     ///
@@ -612,13 +728,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnClear(self: QSqlTableModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onClear(self: QSqlTableModel, callback: *const fn () callconv(.c) void) void {
         qtc.QSqlTableModel_OnClear(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperClear` instead
+    /// ### DEPRECATED: Use `superClear` instead
     ///
-    pub const QBaseClear = SuperClear;
+    pub const SuperClear = superClear;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#clear)
     ///
@@ -628,9 +744,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn SuperClear(self: QSqlTableModel) void {
+    pub fn superClear(self: QSqlTableModel) void {
         qtc.QSqlTableModel_SuperClear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEditStrategy` instead
+    ///
+    pub const SetEditStrategy = setEditStrategy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#setEditStrategy)
     ///
@@ -640,9 +760,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` strategy: qsqltablemodel_enums.EditStrategy `
     ///
-    pub fn SetEditStrategy(self: QSqlTableModel, strategy: i32) void {
+    pub fn setEditStrategy(self: QSqlTableModel, strategy: i32) void {
         qtc.QSqlTableModel_SetEditStrategy(@ptrCast(self.ptr), @bitCast(strategy));
     }
+
+    /// ### DEPRECATED: Use `onSetEditStrategy` instead
+    ///
+    pub const OnSetEditStrategy = onSetEditStrategy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#setEditStrategy)
     ///
@@ -654,13 +778,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, strategy: qsqltablemodel_enums.EditStrategy) callconv(.c) void `
     ///
-    pub fn OnSetEditStrategy(self: QSqlTableModel, callback: *const fn (QSqlTableModel, i32) callconv(.c) void) void {
+    pub fn onSetEditStrategy(self: QSqlTableModel, callback: *const fn (QSqlTableModel, i32) callconv(.c) void) void {
         qtc.QSqlTableModel_OnSetEditStrategy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetEditStrategy` instead
+    /// ### DEPRECATED: Use `superSetEditStrategy` instead
     ///
-    pub const QBaseSetEditStrategy = SuperSetEditStrategy;
+    pub const SuperSetEditStrategy = superSetEditStrategy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#setEditStrategy)
     ///
@@ -672,9 +796,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` strategy: qsqltablemodel_enums.EditStrategy `
     ///
-    pub fn SuperSetEditStrategy(self: QSqlTableModel, strategy: i32) void {
+    pub fn superSetEditStrategy(self: QSqlTableModel, strategy: i32) void {
         qtc.QSqlTableModel_SuperSetEditStrategy(@ptrCast(self.ptr), @bitCast(strategy));
     }
+
+    /// ### DEPRECATED: Use `editStrategy` instead
+    ///
+    pub const EditStrategy = editStrategy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#editStrategy)
     ///
@@ -686,9 +814,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` qsqltablemodel_enums.EditStrategy `
     ///
-    pub fn EditStrategy(self: QSqlTableModel) i32 {
+    pub fn editStrategy(self: QSqlTableModel) i32 {
         return qtc.QSqlTableModel_EditStrategy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `primaryKey` instead
+    ///
+    pub const PrimaryKey = primaryKey;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#primaryKey)
     ///
@@ -696,9 +828,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn PrimaryKey(self: QSqlTableModel) QSqlIndex {
+    pub fn primaryKey(self: QSqlTableModel) QSqlIndex {
         return .{ .ptr = qtc.QSqlTableModel_PrimaryKey(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `database` instead
+    ///
+    pub const Database = database;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#database)
     ///
@@ -706,9 +842,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn Database(self: QSqlTableModel) QSqlDatabase {
+    pub fn database(self: QSqlTableModel) QSqlDatabase {
         return .{ .ptr = qtc.QSqlTableModel_Database(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fieldIndex` instead
+    ///
+    pub const FieldIndex = fieldIndex;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#fieldIndex)
     ///
@@ -718,7 +858,7 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` fieldName: []const u8 `
     ///
-    pub fn FieldIndex(self: QSqlTableModel, fieldName: []const u8) i32 {
+    pub fn fieldIndex(self: QSqlTableModel, fieldName: []const u8) i32 {
         const fieldName_str = qtc.libqt_string{
             .len = fieldName.len,
             .data = fieldName.ptr,
@@ -726,6 +866,10 @@ pub const QSqlTableModel = extern struct {
         return qtc.QSqlTableModel_FieldIndex(@ptrCast(self.ptr), fieldName_str);
     }
 
+    /// ### DEPRECATED: Use `sort` instead
+    ///
+    pub const Sort = sort;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#sort)
     ///
     /// ## Parameter(s):
@@ -736,10 +880,14 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` order: qnamespace_enums.SortOrder `
     ///
-    pub fn Sort(self: QSqlTableModel, column: i32, order: i32) void {
+    pub fn sort(self: QSqlTableModel, column: i32, order: i32) void {
         qtc.QSqlTableModel_Sort(@ptrCast(self.ptr), @bitCast(column), @bitCast(order));
     }
 
+    /// ### DEPRECATED: Use `onSort` instead
+    ///
+    pub const OnSort = onSort;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#sort)
     ///
     /// Allows for overriding the related default method
@@ -750,13 +898,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, column: i32, order: qnamespace_enums.SortOrder) callconv(.c) void `
     ///
-    pub fn OnSort(self: QSqlTableModel, callback: *const fn (QSqlTableModel, i32, i32) callconv(.c) void) void {
+    pub fn onSort(self: QSqlTableModel, callback: *const fn (QSqlTableModel, i32, i32) callconv(.c) void) void {
         qtc.QSqlTableModel_OnSort(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSort` instead
+    /// ### DEPRECATED: Use `superSort` instead
     ///
-    pub const QBaseSort = SuperSort;
+    pub const SuperSort = superSort;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#sort)
     ///
@@ -770,9 +918,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` order: qnamespace_enums.SortOrder `
     ///
-    pub fn SuperSort(self: QSqlTableModel, column: i32, order: i32) void {
+    pub fn superSort(self: QSqlTableModel, column: i32, order: i32) void {
         qtc.QSqlTableModel_SuperSort(@ptrCast(self.ptr), @bitCast(column), @bitCast(order));
     }
+
+    /// ### DEPRECATED: Use `setSort` instead
+    ///
+    pub const SetSort = setSort;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#setSort)
     ///
@@ -784,9 +936,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` order: qnamespace_enums.SortOrder `
     ///
-    pub fn SetSort(self: QSqlTableModel, column: i32, order: i32) void {
+    pub fn setSort(self: QSqlTableModel, column: i32, order: i32) void {
         qtc.QSqlTableModel_SetSort(@ptrCast(self.ptr), @bitCast(column), @bitCast(order));
     }
+
+    /// ### DEPRECATED: Use `onSetSort` instead
+    ///
+    pub const OnSetSort = onSetSort;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#setSort)
     ///
@@ -798,13 +954,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, column: i32, order: qnamespace_enums.SortOrder) callconv(.c) void `
     ///
-    pub fn OnSetSort(self: QSqlTableModel, callback: *const fn (QSqlTableModel, i32, i32) callconv(.c) void) void {
+    pub fn onSetSort(self: QSqlTableModel, callback: *const fn (QSqlTableModel, i32, i32) callconv(.c) void) void {
         qtc.QSqlTableModel_OnSetSort(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetSort` instead
+    /// ### DEPRECATED: Use `superSetSort` instead
     ///
-    pub const QBaseSetSort = SuperSetSort;
+    pub const SuperSetSort = superSetSort;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#setSort)
     ///
@@ -818,9 +974,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` order: qnamespace_enums.SortOrder `
     ///
-    pub fn SuperSetSort(self: QSqlTableModel, column: i32, order: i32) void {
+    pub fn superSetSort(self: QSqlTableModel, column: i32, order: i32) void {
         qtc.QSqlTableModel_SuperSetSort(@ptrCast(self.ptr), @bitCast(column), @bitCast(order));
     }
+
+    /// ### DEPRECATED: Use `filter` instead
+    ///
+    pub const Filter = filter;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#filter)
     ///
@@ -830,13 +990,17 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Filter(self: QSqlTableModel, allocator: std.mem.Allocator) []const u8 {
+    pub fn filter(self: QSqlTableModel, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSqlTableModel_Filter(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlTableModel.Filter: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlTableModel.filter: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setFilter` instead
+    ///
+    pub const SetFilter = setFilter;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#setFilter)
     ///
@@ -844,15 +1008,19 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` filter: []const u8 `
+    /// ` _filter: []const u8 `
     ///
-    pub fn SetFilter(self: QSqlTableModel, filter: []const u8) void {
+    pub fn setFilter(self: QSqlTableModel, _filter: []const u8) void {
         const filter_str = qtc.libqt_string{
-            .len = filter.len,
-            .data = filter.ptr,
+            .len = _filter.len,
+            .data = _filter.ptr,
         };
         qtc.QSqlTableModel_SetFilter(@ptrCast(self.ptr), filter_str);
     }
+
+    /// ### DEPRECATED: Use `onSetFilter` instead
+    ///
+    pub const OnSetFilter = onSetFilter;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#setFilter)
     ///
@@ -864,13 +1032,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, filter: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetFilter(self: QSqlTableModel, callback: *const fn (QSqlTableModel, [*:0]const u8) callconv(.c) void) void {
+    pub fn onSetFilter(self: QSqlTableModel, callback: *const fn (QSqlTableModel, [*:0]const u8) callconv(.c) void) void {
         qtc.QSqlTableModel_OnSetFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetFilter` instead
+    /// ### DEPRECATED: Use `superSetFilter` instead
     ///
-    pub const QBaseSetFilter = SuperSetFilter;
+    pub const SuperSetFilter = superSetFilter;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#setFilter)
     ///
@@ -880,15 +1048,19 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` filter: []const u8 `
+    /// ` _filter: []const u8 `
     ///
-    pub fn SuperSetFilter(self: QSqlTableModel, filter: []const u8) void {
+    pub fn superSetFilter(self: QSqlTableModel, _filter: []const u8) void {
         const filter_str = qtc.libqt_string{
-            .len = filter.len,
-            .data = filter.ptr,
+            .len = _filter.len,
+            .data = _filter.ptr,
         };
         qtc.QSqlTableModel_SuperSetFilter(@ptrCast(self.ptr), filter_str);
     }
+
+    /// ### DEPRECATED: Use `rowCount` instead
+    ///
+    pub const RowCount = rowCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#rowCount)
     ///
@@ -896,12 +1068,16 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn RowCount(self: QSqlTableModel, parent: anytype) i32 {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QSqlTableModel_RowCount(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn rowCount(self: QSqlTableModel, _parent: anytype) i32 {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QSqlTableModel_RowCount(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `onRowCount` instead
+    ///
+    pub const OnRowCount = onRowCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#rowCount)
     ///
@@ -913,13 +1089,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, parent: QModelIndex) callconv(.c) i32 `
     ///
-    pub fn OnRowCount(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex) callconv(.c) i32) void {
+    pub fn onRowCount(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex) callconv(.c) i32) void {
         qtc.QSqlTableModel_OnRowCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperRowCount` instead
+    /// ### DEPRECATED: Use `superRowCount` instead
     ///
-    pub const QBaseRowCount = SuperRowCount;
+    pub const SuperRowCount = superRowCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#rowCount)
     ///
@@ -929,12 +1105,16 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn SuperRowCount(self: QSqlTableModel, parent: anytype) i32 {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QSqlTableModel_SuperRowCount(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn superRowCount(self: QSqlTableModel, _parent: anytype) i32 {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QSqlTableModel_SuperRowCount(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeColumns` instead
+    ///
+    pub const RemoveColumns = removeColumns;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#removeColumns)
     ///
@@ -946,12 +1126,16 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn RemoveColumns(self: QSqlTableModel, column: i32, count: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QSqlTableModel_RemoveColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(parent.ptr));
+    pub fn removeColumns(self: QSqlTableModel, column: i32, count: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QSqlTableModel_RemoveColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `onRemoveColumns` instead
+    ///
+    pub const OnRemoveColumns = onRemoveColumns;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#removeColumns)
     ///
@@ -963,13 +1147,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, column: i32, count: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnRemoveColumns(self: QSqlTableModel, callback: *const fn (QSqlTableModel, i32, i32, QModelIndex) callconv(.c) bool) void {
+    pub fn onRemoveColumns(self: QSqlTableModel, callback: *const fn (QSqlTableModel, i32, i32, QModelIndex) callconv(.c) bool) void {
         qtc.QSqlTableModel_OnRemoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperRemoveColumns` instead
+    /// ### DEPRECATED: Use `superRemoveColumns` instead
     ///
-    pub const QBaseRemoveColumns = SuperRemoveColumns;
+    pub const SuperRemoveColumns = superRemoveColumns;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#removeColumns)
     ///
@@ -983,12 +1167,16 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn SuperRemoveColumns(self: QSqlTableModel, column: i32, count: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QSqlTableModel_SuperRemoveColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(parent.ptr));
+    pub fn superRemoveColumns(self: QSqlTableModel, column: i32, count: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QSqlTableModel_SuperRemoveColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeRows` instead
+    ///
+    pub const RemoveRows = removeRows;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#removeRows)
     ///
@@ -1000,12 +1188,16 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn RemoveRows(self: QSqlTableModel, row: i32, count: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QSqlTableModel_RemoveRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(parent.ptr));
+    pub fn removeRows(self: QSqlTableModel, row: i32, count: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QSqlTableModel_RemoveRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `onRemoveRows` instead
+    ///
+    pub const OnRemoveRows = onRemoveRows;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#removeRows)
     ///
@@ -1017,13 +1209,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, row: i32, count: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnRemoveRows(self: QSqlTableModel, callback: *const fn (QSqlTableModel, i32, i32, QModelIndex) callconv(.c) bool) void {
+    pub fn onRemoveRows(self: QSqlTableModel, callback: *const fn (QSqlTableModel, i32, i32, QModelIndex) callconv(.c) bool) void {
         qtc.QSqlTableModel_OnRemoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperRemoveRows` instead
+    /// ### DEPRECATED: Use `superRemoveRows` instead
     ///
-    pub const QBaseRemoveRows = SuperRemoveRows;
+    pub const SuperRemoveRows = superRemoveRows;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#removeRows)
     ///
@@ -1037,12 +1229,16 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn SuperRemoveRows(self: QSqlTableModel, row: i32, count: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QSqlTableModel_SuperRemoveRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(parent.ptr));
+    pub fn superRemoveRows(self: QSqlTableModel, row: i32, count: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QSqlTableModel_SuperRemoveRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertRows` instead
+    ///
+    pub const InsertRows = insertRows;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#insertRows)
     ///
@@ -1054,12 +1250,16 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn InsertRows(self: QSqlTableModel, row: i32, count: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QSqlTableModel_InsertRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(parent.ptr));
+    pub fn insertRows(self: QSqlTableModel, row: i32, count: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QSqlTableModel_InsertRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInsertRows` instead
+    ///
+    pub const OnInsertRows = onInsertRows;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#insertRows)
     ///
@@ -1071,13 +1271,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, row: i32, count: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnInsertRows(self: QSqlTableModel, callback: *const fn (QSqlTableModel, i32, i32, QModelIndex) callconv(.c) bool) void {
+    pub fn onInsertRows(self: QSqlTableModel, callback: *const fn (QSqlTableModel, i32, i32, QModelIndex) callconv(.c) bool) void {
         qtc.QSqlTableModel_OnInsertRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperInsertRows` instead
+    /// ### DEPRECATED: Use `superInsertRows` instead
     ///
-    pub const QBaseInsertRows = SuperInsertRows;
+    pub const SuperInsertRows = superInsertRows;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#insertRows)
     ///
@@ -1091,12 +1291,16 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn SuperInsertRows(self: QSqlTableModel, row: i32, count: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QSqlTableModel_SuperInsertRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(parent.ptr));
+    pub fn superInsertRows(self: QSqlTableModel, row: i32, count: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QSqlTableModel_SuperInsertRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertRecord` instead
+    ///
+    pub const InsertRecord = insertRecord;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#insertRecord)
     ///
@@ -1106,12 +1310,16 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` row: i32 `
     ///
-    /// ` record: QSqlRecord `
+    /// ` _record: QSqlRecord `
     ///
-    pub fn InsertRecord(self: QSqlTableModel, row: i32, record: anytype) bool {
-        comptime _ = @TypeOf(record)._is_QSqlRecord;
-        return qtc.QSqlTableModel_InsertRecord(@ptrCast(self.ptr), @bitCast(row), @ptrCast(record.ptr));
+    pub fn insertRecord(self: QSqlTableModel, row: i32, _record: anytype) bool {
+        comptime _ = @TypeOf(_record)._is_QSqlRecord;
+        return qtc.QSqlTableModel_InsertRecord(@ptrCast(self.ptr), @bitCast(row), @ptrCast(_record.ptr));
     }
+
+    /// ### DEPRECATED: Use `setRecord` instead
+    ///
+    pub const SetRecord = setRecord;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#setRecord)
     ///
@@ -1121,12 +1329,16 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` row: i32 `
     ///
-    /// ` record: QSqlRecord `
+    /// ` _record: QSqlRecord `
     ///
-    pub fn SetRecord(self: QSqlTableModel, row: i32, record: anytype) bool {
-        comptime _ = @TypeOf(record)._is_QSqlRecord;
-        return qtc.QSqlTableModel_SetRecord(@ptrCast(self.ptr), @bitCast(row), @ptrCast(record.ptr));
+    pub fn setRecord(self: QSqlTableModel, row: i32, _record: anytype) bool {
+        comptime _ = @TypeOf(_record)._is_QSqlRecord;
+        return qtc.QSqlTableModel_SetRecord(@ptrCast(self.ptr), @bitCast(row), @ptrCast(_record.ptr));
     }
+
+    /// ### DEPRECATED: Use `revertRow` instead
+    ///
+    pub const RevertRow = revertRow;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#revertRow)
     ///
@@ -1136,9 +1348,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` row: i32 `
     ///
-    pub fn RevertRow(self: QSqlTableModel, row: i32) void {
+    pub fn revertRow(self: QSqlTableModel, row: i32) void {
         qtc.QSqlTableModel_RevertRow(@ptrCast(self.ptr), @bitCast(row));
     }
+
+    /// ### DEPRECATED: Use `onRevertRow` instead
+    ///
+    pub const OnRevertRow = onRevertRow;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#revertRow)
     ///
@@ -1150,13 +1366,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, row: i32) callconv(.c) void `
     ///
-    pub fn OnRevertRow(self: QSqlTableModel, callback: *const fn (QSqlTableModel, i32) callconv(.c) void) void {
+    pub fn onRevertRow(self: QSqlTableModel, callback: *const fn (QSqlTableModel, i32) callconv(.c) void) void {
         qtc.QSqlTableModel_OnRevertRow(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperRevertRow` instead
+    /// ### DEPRECATED: Use `superRevertRow` instead
     ///
-    pub const QBaseRevertRow = SuperRevertRow;
+    pub const SuperRevertRow = superRevertRow;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#revertRow)
     ///
@@ -1168,9 +1384,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` row: i32 `
     ///
-    pub fn SuperRevertRow(self: QSqlTableModel, row: i32) void {
+    pub fn superRevertRow(self: QSqlTableModel, row: i32) void {
         qtc.QSqlTableModel_SuperRevertRow(@ptrCast(self.ptr), @bitCast(row));
     }
+
+    /// ### DEPRECATED: Use `select` instead
+    ///
+    pub const Select = select;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#select)
     ///
@@ -1178,9 +1398,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn Select(self: QSqlTableModel) bool {
+    pub fn select(self: QSqlTableModel) bool {
         return qtc.QSqlTableModel_Select(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSelect` instead
+    ///
+    pub const OnSelect = onSelect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#select)
     ///
@@ -1192,13 +1416,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnSelect(self: QSqlTableModel, callback: *const fn () callconv(.c) bool) void {
+    pub fn onSelect(self: QSqlTableModel, callback: *const fn () callconv(.c) bool) void {
         qtc.QSqlTableModel_OnSelect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSelect` instead
+    /// ### DEPRECATED: Use `superSelect` instead
     ///
-    pub const QBaseSelect = SuperSelect;
+    pub const SuperSelect = superSelect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#select)
     ///
@@ -1208,9 +1432,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn SuperSelect(self: QSqlTableModel) bool {
+    pub fn superSelect(self: QSqlTableModel) bool {
         return qtc.QSqlTableModel_SuperSelect(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `selectRow` instead
+    ///
+    pub const SelectRow = selectRow;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#selectRow)
     ///
@@ -1220,9 +1448,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` row: i32 `
     ///
-    pub fn SelectRow(self: QSqlTableModel, row: i32) bool {
+    pub fn selectRow(self: QSqlTableModel, row: i32) bool {
         return qtc.QSqlTableModel_SelectRow(@ptrCast(self.ptr), @bitCast(row));
     }
+
+    /// ### DEPRECATED: Use `onSelectRow` instead
+    ///
+    pub const OnSelectRow = onSelectRow;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#selectRow)
     ///
@@ -1234,13 +1466,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, row: i32) callconv(.c) bool `
     ///
-    pub fn OnSelectRow(self: QSqlTableModel, callback: *const fn (QSqlTableModel, i32) callconv(.c) bool) void {
+    pub fn onSelectRow(self: QSqlTableModel, callback: *const fn (QSqlTableModel, i32) callconv(.c) bool) void {
         qtc.QSqlTableModel_OnSelectRow(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSelectRow` instead
+    /// ### DEPRECATED: Use `superSelectRow` instead
     ///
-    pub const QBaseSelectRow = SuperSelectRow;
+    pub const SuperSelectRow = superSelectRow;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#selectRow)
     ///
@@ -1252,9 +1484,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` row: i32 `
     ///
-    pub fn SuperSelectRow(self: QSqlTableModel, row: i32) bool {
+    pub fn superSelectRow(self: QSqlTableModel, row: i32) bool {
         return qtc.QSqlTableModel_SuperSelectRow(@ptrCast(self.ptr), @bitCast(row));
     }
+
+    /// ### DEPRECATED: Use `submit` instead
+    ///
+    pub const Submit = submit;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#submit)
     ///
@@ -1262,9 +1498,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn Submit(self: QSqlTableModel) bool {
+    pub fn submit(self: QSqlTableModel) bool {
         return qtc.QSqlTableModel_Submit(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSubmit` instead
+    ///
+    pub const OnSubmit = onSubmit;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#submit)
     ///
@@ -1276,13 +1516,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnSubmit(self: QSqlTableModel, callback: *const fn () callconv(.c) bool) void {
+    pub fn onSubmit(self: QSqlTableModel, callback: *const fn () callconv(.c) bool) void {
         qtc.QSqlTableModel_OnSubmit(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSubmit` instead
+    /// ### DEPRECATED: Use `superSubmit` instead
     ///
-    pub const QBaseSubmit = SuperSubmit;
+    pub const SuperSubmit = superSubmit;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#submit)
     ///
@@ -1292,9 +1532,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn SuperSubmit(self: QSqlTableModel) bool {
+    pub fn superSubmit(self: QSqlTableModel) bool {
         return qtc.QSqlTableModel_SuperSubmit(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `revert` instead
+    ///
+    pub const Revert = revert;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#revert)
     ///
@@ -1302,9 +1546,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn Revert(self: QSqlTableModel) void {
+    pub fn revert(self: QSqlTableModel) void {
         qtc.QSqlTableModel_Revert(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onRevert` instead
+    ///
+    pub const OnRevert = onRevert;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#revert)
     ///
@@ -1316,13 +1564,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnRevert(self: QSqlTableModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onRevert(self: QSqlTableModel, callback: *const fn () callconv(.c) void) void {
         qtc.QSqlTableModel_OnRevert(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperRevert` instead
+    /// ### DEPRECATED: Use `superRevert` instead
     ///
-    pub const QBaseRevert = SuperRevert;
+    pub const SuperRevert = superRevert;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#revert)
     ///
@@ -1332,9 +1580,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn SuperRevert(self: QSqlTableModel) void {
+    pub fn superRevert(self: QSqlTableModel) void {
         qtc.QSqlTableModel_SuperRevert(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `submitAll` instead
+    ///
+    pub const SubmitAll = submitAll;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#submitAll)
     ///
@@ -1342,9 +1594,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn SubmitAll(self: QSqlTableModel) bool {
+    pub fn submitAll(self: QSqlTableModel) bool {
         return qtc.QSqlTableModel_SubmitAll(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `revertAll` instead
+    ///
+    pub const RevertAll = revertAll;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#revertAll)
     ///
@@ -1352,9 +1608,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn RevertAll(self: QSqlTableModel) void {
+    pub fn revertAll(self: QSqlTableModel) void {
         qtc.QSqlTableModel_RevertAll(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `primeInsert` instead
+    ///
+    pub const PrimeInsert = primeInsert;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#primeInsert)
     ///
@@ -1364,12 +1624,16 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` row: i32 `
     ///
-    /// ` record: QSqlRecord `
+    /// ` _record: QSqlRecord `
     ///
-    pub fn PrimeInsert(self: QSqlTableModel, row: i32, record: anytype) void {
-        comptime _ = @TypeOf(record)._is_QSqlRecord;
-        qtc.QSqlTableModel_PrimeInsert(@ptrCast(self.ptr), @bitCast(row), @ptrCast(record.ptr));
+    pub fn primeInsert(self: QSqlTableModel, row: i32, _record: anytype) void {
+        comptime _ = @TypeOf(_record)._is_QSqlRecord;
+        qtc.QSqlTableModel_PrimeInsert(@ptrCast(self.ptr), @bitCast(row), @ptrCast(_record.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPrimeInsert` instead
+    ///
+    pub const OnPrimeInsert = onPrimeInsert;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#primeInsert)
     ///
@@ -1379,9 +1643,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, row: i32, record: QSqlRecord) callconv(.c) void `
     ///
-    pub fn OnPrimeInsert(self: QSqlTableModel, callback: *const fn (QSqlTableModel, i32, QSqlRecord) callconv(.c) void) void {
+    pub fn onPrimeInsert(self: QSqlTableModel, callback: *const fn (QSqlTableModel, i32, QSqlRecord) callconv(.c) void) void {
         qtc.QSqlTableModel_Connect_PrimeInsert(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `beforeInsert` instead
+    ///
+    pub const BeforeInsert = beforeInsert;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#beforeInsert)
     ///
@@ -1389,12 +1657,16 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` record: QSqlRecord `
+    /// ` _record: QSqlRecord `
     ///
-    pub fn BeforeInsert(self: QSqlTableModel, record: anytype) void {
-        comptime _ = @TypeOf(record)._is_QSqlRecord;
-        qtc.QSqlTableModel_BeforeInsert(@ptrCast(self.ptr), @ptrCast(record.ptr));
+    pub fn beforeInsert(self: QSqlTableModel, _record: anytype) void {
+        comptime _ = @TypeOf(_record)._is_QSqlRecord;
+        qtc.QSqlTableModel_BeforeInsert(@ptrCast(self.ptr), @ptrCast(_record.ptr));
     }
+
+    /// ### DEPRECATED: Use `onBeforeInsert` instead
+    ///
+    pub const OnBeforeInsert = onBeforeInsert;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#beforeInsert)
     ///
@@ -1404,9 +1676,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, record: QSqlRecord) callconv(.c) void `
     ///
-    pub fn OnBeforeInsert(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QSqlRecord) callconv(.c) void) void {
+    pub fn onBeforeInsert(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QSqlRecord) callconv(.c) void) void {
         qtc.QSqlTableModel_Connect_BeforeInsert(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `beforeUpdate` instead
+    ///
+    pub const BeforeUpdate = beforeUpdate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#beforeUpdate)
     ///
@@ -1416,12 +1692,16 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` row: i32 `
     ///
-    /// ` record: QSqlRecord `
+    /// ` _record: QSqlRecord `
     ///
-    pub fn BeforeUpdate(self: QSqlTableModel, row: i32, record: anytype) void {
-        comptime _ = @TypeOf(record)._is_QSqlRecord;
-        qtc.QSqlTableModel_BeforeUpdate(@ptrCast(self.ptr), @bitCast(row), @ptrCast(record.ptr));
+    pub fn beforeUpdate(self: QSqlTableModel, row: i32, _record: anytype) void {
+        comptime _ = @TypeOf(_record)._is_QSqlRecord;
+        qtc.QSqlTableModel_BeforeUpdate(@ptrCast(self.ptr), @bitCast(row), @ptrCast(_record.ptr));
     }
+
+    /// ### DEPRECATED: Use `onBeforeUpdate` instead
+    ///
+    pub const OnBeforeUpdate = onBeforeUpdate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#beforeUpdate)
     ///
@@ -1431,9 +1711,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, row: i32, record: QSqlRecord) callconv(.c) void `
     ///
-    pub fn OnBeforeUpdate(self: QSqlTableModel, callback: *const fn (QSqlTableModel, i32, QSqlRecord) callconv(.c) void) void {
+    pub fn onBeforeUpdate(self: QSqlTableModel, callback: *const fn (QSqlTableModel, i32, QSqlRecord) callconv(.c) void) void {
         qtc.QSqlTableModel_Connect_BeforeUpdate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `beforeDelete` instead
+    ///
+    pub const BeforeDelete = beforeDelete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#beforeDelete)
     ///
@@ -1443,9 +1727,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` row: i32 `
     ///
-    pub fn BeforeDelete(self: QSqlTableModel, row: i32) void {
+    pub fn beforeDelete(self: QSqlTableModel, row: i32) void {
         qtc.QSqlTableModel_BeforeDelete(@ptrCast(self.ptr), @bitCast(row));
     }
+
+    /// ### DEPRECATED: Use `onBeforeDelete` instead
+    ///
+    pub const OnBeforeDelete = onBeforeDelete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#beforeDelete)
     ///
@@ -1455,9 +1743,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, row: i32) callconv(.c) void `
     ///
-    pub fn OnBeforeDelete(self: QSqlTableModel, callback: *const fn (QSqlTableModel, i32) callconv(.c) void) void {
+    pub fn onBeforeDelete(self: QSqlTableModel, callback: *const fn (QSqlTableModel, i32) callconv(.c) void) void {
         qtc.QSqlTableModel_Connect_BeforeDelete(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `updateRowInTable` instead
+    ///
+    pub const UpdateRowInTable = updateRowInTable;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#updateRowInTable)
     ///
@@ -1469,10 +1761,14 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` values: QSqlRecord `
     ///
-    pub fn UpdateRowInTable(self: QSqlTableModel, row: i32, values: anytype) bool {
+    pub fn updateRowInTable(self: QSqlTableModel, row: i32, values: anytype) bool {
         comptime _ = @TypeOf(values)._is_QSqlRecord;
         return qtc.QSqlTableModel_UpdateRowInTable(@ptrCast(self.ptr), @bitCast(row), @ptrCast(values.ptr));
     }
+
+    /// ### DEPRECATED: Use `onUpdateRowInTable` instead
+    ///
+    pub const OnUpdateRowInTable = onUpdateRowInTable;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#updateRowInTable)
     ///
@@ -1484,13 +1780,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, row: i32, values: QSqlRecord) callconv(.c) bool `
     ///
-    pub fn OnUpdateRowInTable(self: QSqlTableModel, callback: *const fn (QSqlTableModel, i32, QSqlRecord) callconv(.c) bool) void {
+    pub fn onUpdateRowInTable(self: QSqlTableModel, callback: *const fn (QSqlTableModel, i32, QSqlRecord) callconv(.c) bool) void {
         qtc.QSqlTableModel_OnUpdateRowInTable(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateRowInTable` instead
+    /// ### DEPRECATED: Use `superUpdateRowInTable` instead
     ///
-    pub const QBaseUpdateRowInTable = SuperUpdateRowInTable;
+    pub const SuperUpdateRowInTable = superUpdateRowInTable;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#updateRowInTable)
     ///
@@ -1504,10 +1800,14 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` values: QSqlRecord `
     ///
-    pub fn SuperUpdateRowInTable(self: QSqlTableModel, row: i32, values: anytype) bool {
+    pub fn superUpdateRowInTable(self: QSqlTableModel, row: i32, values: anytype) bool {
         comptime _ = @TypeOf(values)._is_QSqlRecord;
         return qtc.QSqlTableModel_SuperUpdateRowInTable(@ptrCast(self.ptr), @bitCast(row), @ptrCast(values.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertRowIntoTable` instead
+    ///
+    pub const InsertRowIntoTable = insertRowIntoTable;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#insertRowIntoTable)
     ///
@@ -1517,10 +1817,14 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` values: QSqlRecord `
     ///
-    pub fn InsertRowIntoTable(self: QSqlTableModel, values: anytype) bool {
+    pub fn insertRowIntoTable(self: QSqlTableModel, values: anytype) bool {
         comptime _ = @TypeOf(values)._is_QSqlRecord;
         return qtc.QSqlTableModel_InsertRowIntoTable(@ptrCast(self.ptr), @ptrCast(values.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInsertRowIntoTable` instead
+    ///
+    pub const OnInsertRowIntoTable = onInsertRowIntoTable;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#insertRowIntoTable)
     ///
@@ -1532,13 +1836,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, values: QSqlRecord) callconv(.c) bool `
     ///
-    pub fn OnInsertRowIntoTable(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QSqlRecord) callconv(.c) bool) void {
+    pub fn onInsertRowIntoTable(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QSqlRecord) callconv(.c) bool) void {
         qtc.QSqlTableModel_OnInsertRowIntoTable(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperInsertRowIntoTable` instead
+    /// ### DEPRECATED: Use `superInsertRowIntoTable` instead
     ///
-    pub const QBaseInsertRowIntoTable = SuperInsertRowIntoTable;
+    pub const SuperInsertRowIntoTable = superInsertRowIntoTable;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#insertRowIntoTable)
     ///
@@ -1550,10 +1854,14 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` values: QSqlRecord `
     ///
-    pub fn SuperInsertRowIntoTable(self: QSqlTableModel, values: anytype) bool {
+    pub fn superInsertRowIntoTable(self: QSqlTableModel, values: anytype) bool {
         comptime _ = @TypeOf(values)._is_QSqlRecord;
         return qtc.QSqlTableModel_SuperInsertRowIntoTable(@ptrCast(self.ptr), @ptrCast(values.ptr));
     }
+
+    /// ### DEPRECATED: Use `deleteRowFromTable` instead
+    ///
+    pub const DeleteRowFromTable = deleteRowFromTable;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#deleteRowFromTable)
     ///
@@ -1563,9 +1871,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` row: i32 `
     ///
-    pub fn DeleteRowFromTable(self: QSqlTableModel, row: i32) bool {
+    pub fn deleteRowFromTable(self: QSqlTableModel, row: i32) bool {
         return qtc.QSqlTableModel_DeleteRowFromTable(@ptrCast(self.ptr), @bitCast(row));
     }
+
+    /// ### DEPRECATED: Use `onDeleteRowFromTable` instead
+    ///
+    pub const OnDeleteRowFromTable = onDeleteRowFromTable;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#deleteRowFromTable)
     ///
@@ -1577,13 +1889,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, row: i32) callconv(.c) bool `
     ///
-    pub fn OnDeleteRowFromTable(self: QSqlTableModel, callback: *const fn (QSqlTableModel, i32) callconv(.c) bool) void {
+    pub fn onDeleteRowFromTable(self: QSqlTableModel, callback: *const fn (QSqlTableModel, i32) callconv(.c) bool) void {
         qtc.QSqlTableModel_OnDeleteRowFromTable(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDeleteRowFromTable` instead
+    /// ### DEPRECATED: Use `superDeleteRowFromTable` instead
     ///
-    pub const QBaseDeleteRowFromTable = SuperDeleteRowFromTable;
+    pub const SuperDeleteRowFromTable = superDeleteRowFromTable;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#deleteRowFromTable)
     ///
@@ -1595,10 +1907,14 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` row: i32 `
     ///
-    pub fn SuperDeleteRowFromTable(self: QSqlTableModel, row: i32) bool {
+    pub fn superDeleteRowFromTable(self: QSqlTableModel, row: i32) bool {
         return qtc.QSqlTableModel_SuperDeleteRowFromTable(@ptrCast(self.ptr), @bitCast(row));
     }
 
+    /// ### DEPRECATED: Use `orderByClause` instead
+    ///
+    pub const OrderByClause = orderByClause;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#orderByClause)
     ///
     /// ## Parameter(s):
@@ -1607,13 +1923,17 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn OrderByClause(self: QSqlTableModel, allocator: std.mem.Allocator) []const u8 {
+    pub fn orderByClause(self: QSqlTableModel, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSqlTableModel_OrderByClause(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlTableModel.OrderByClause: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlTableModel.orderByClause: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onOrderByClause` instead
+    ///
+    pub const OnOrderByClause = onOrderByClause;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#orderByClause)
     ///
@@ -1625,13 +1945,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnOrderByClause(self: QSqlTableModel, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onOrderByClause(self: QSqlTableModel, callback: *const fn () callconv(.c) [*:0]const u8) void {
         qtc.QSqlTableModel_OnOrderByClause(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperOrderByClause` instead
+    /// ### DEPRECATED: Use `superOrderByClause` instead
     ///
-    pub const QBaseOrderByClause = SuperOrderByClause;
+    pub const SuperOrderByClause = superOrderByClause;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#orderByClause)
     ///
@@ -1643,13 +1963,17 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperOrderByClause(self: QSqlTableModel, allocator: std.mem.Allocator) []const u8 {
+    pub fn superOrderByClause(self: QSqlTableModel, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSqlTableModel_SuperOrderByClause(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlTableModel.OrderByClause: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlTableModel.orderByClause: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `selectStatement` instead
+    ///
+    pub const SelectStatement = selectStatement;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#selectStatement)
     ///
@@ -1659,13 +1983,17 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SelectStatement(self: QSqlTableModel, allocator: std.mem.Allocator) []const u8 {
+    pub fn selectStatement(self: QSqlTableModel, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSqlTableModel_SelectStatement(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlTableModel.SelectStatement: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlTableModel.selectStatement: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onSelectStatement` instead
+    ///
+    pub const OnSelectStatement = onSelectStatement;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#selectStatement)
     ///
@@ -1677,13 +2005,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnSelectStatement(self: QSqlTableModel, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onSelectStatement(self: QSqlTableModel, callback: *const fn () callconv(.c) [*:0]const u8) void {
         qtc.QSqlTableModel_OnSelectStatement(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSelectStatement` instead
+    /// ### DEPRECATED: Use `superSelectStatement` instead
     ///
-    pub const QBaseSelectStatement = SuperSelectStatement;
+    pub const SuperSelectStatement = superSelectStatement;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#selectStatement)
     ///
@@ -1695,13 +2023,17 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperSelectStatement(self: QSqlTableModel, allocator: std.mem.Allocator) []const u8 {
+    pub fn superSelectStatement(self: QSqlTableModel, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSqlTableModel_SuperSelectStatement(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlTableModel.SelectStatement: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlTableModel.selectStatement: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setPrimaryKey` instead
+    ///
+    pub const SetPrimaryKey = setPrimaryKey;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#setPrimaryKey)
     ///
@@ -1711,10 +2043,14 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` key: QSqlIndex `
     ///
-    pub fn SetPrimaryKey(self: QSqlTableModel, key: anytype) void {
+    pub fn setPrimaryKey(self: QSqlTableModel, key: anytype) void {
         comptime _ = @TypeOf(key)._is_QSqlIndex;
         qtc.QSqlTableModel_SetPrimaryKey(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetPrimaryKey` instead
+    ///
+    pub const OnSetPrimaryKey = onSetPrimaryKey;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#setPrimaryKey)
     ///
@@ -1726,13 +2062,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, key: QSqlIndex) callconv(.c) void `
     ///
-    pub fn OnSetPrimaryKey(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QSqlIndex) callconv(.c) void) void {
+    pub fn onSetPrimaryKey(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QSqlIndex) callconv(.c) void) void {
         qtc.QSqlTableModel_OnSetPrimaryKey(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetPrimaryKey` instead
+    /// ### DEPRECATED: Use `superSetPrimaryKey` instead
     ///
-    pub const QBaseSetPrimaryKey = SuperSetPrimaryKey;
+    pub const SuperSetPrimaryKey = superSetPrimaryKey;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#setPrimaryKey)
     ///
@@ -1744,10 +2080,14 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` key: QSqlIndex `
     ///
-    pub fn SuperSetPrimaryKey(self: QSqlTableModel, key: anytype) void {
+    pub fn superSetPrimaryKey(self: QSqlTableModel, key: anytype) void {
         comptime _ = @TypeOf(key)._is_QSqlIndex;
         qtc.QSqlTableModel_SuperSetPrimaryKey(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `indexInQuery` instead
+    ///
+    pub const IndexInQuery = indexInQuery;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#indexInQuery)
     ///
@@ -1757,10 +2097,14 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` item: QModelIndex `
     ///
-    pub fn IndexInQuery(self: QSqlTableModel, item: anytype) QModelIndex {
+    pub fn indexInQuery(self: QSqlTableModel, item: anytype) QModelIndex {
         comptime _ = @TypeOf(item)._is_QModelIndex;
         return .{ .ptr = qtc.QSqlTableModel_IndexInQuery(@ptrCast(self.ptr), @ptrCast(item.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onIndexInQuery` instead
+    ///
+    pub const OnIndexInQuery = onIndexInQuery;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#indexInQuery)
     ///
@@ -1774,13 +2118,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnIndexInQuery(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex) callconv(.c) QModelIndex) void {
+    pub fn onIndexInQuery(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QSqlTableModel_OnIndexInQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperIndexInQuery` instead
+    /// ### DEPRECATED: Use `superIndexInQuery` instead
     ///
-    pub const QBaseIndexInQuery = SuperIndexInQuery;
+    pub const SuperIndexInQuery = superIndexInQuery;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#indexInQuery)
     ///
@@ -1792,10 +2136,14 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` item: QModelIndex `
     ///
-    pub fn SuperIndexInQuery(self: QSqlTableModel, item: anytype) QModelIndex {
+    pub fn superIndexInQuery(self: QSqlTableModel, item: anytype) QModelIndex {
         comptime _ = @TypeOf(item)._is_QModelIndex;
         return .{ .ptr = qtc.QSqlTableModel_SuperIndexInQuery(@ptrCast(self.ptr), @ptrCast(item.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `primaryValues` instead
+    ///
+    pub const PrimaryValues = primaryValues;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#primaryValues)
     ///
@@ -1805,9 +2153,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` row: i32 `
     ///
-    pub fn PrimaryValues(self: QSqlTableModel, row: i32) QSqlRecord {
+    pub fn primaryValues(self: QSqlTableModel, row: i32) QSqlRecord {
         return .{ .ptr = qtc.QSqlTableModel_PrimaryValues(@ptrCast(self.ptr), @bitCast(row)) };
     }
+
+    /// ### DEPRECATED: Use `onPrimaryValues` instead
+    ///
+    pub const OnPrimaryValues = onPrimaryValues;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#primaryValues)
     ///
@@ -1821,13 +2173,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnPrimaryValues(self: QSqlTableModel, callback: *const fn (QSqlTableModel, i32) callconv(.c) QSqlRecord) void {
+    pub fn onPrimaryValues(self: QSqlTableModel, callback: *const fn (QSqlTableModel, i32) callconv(.c) QSqlRecord) void {
         qtc.QSqlTableModel_OnPrimaryValues(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperPrimaryValues` instead
+    /// ### DEPRECATED: Use `superPrimaryValues` instead
     ///
-    pub const QBasePrimaryValues = SuperPrimaryValues;
+    pub const SuperPrimaryValues = superPrimaryValues;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#primaryValues)
     ///
@@ -1839,9 +2191,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` row: i32 `
     ///
-    pub fn SuperPrimaryValues(self: QSqlTableModel, row: i32) QSqlRecord {
+    pub fn superPrimaryValues(self: QSqlTableModel, row: i32) QSqlRecord {
         return .{ .ptr = qtc.QSqlTableModel_SuperPrimaryValues(@ptrCast(self.ptr), @bitCast(row)) };
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1853,15 +2209,19 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlTableModel.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlTableModel.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1875,30 +2235,19 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlTableModel.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlTableModel.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
-    /// Inherited from QSqlQueryModel
+    /// ### DEPRECATED: Use `setQuery` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#setQuery)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSqlTableModel `
-    ///
-    /// ` query: QSqlQuery `
-    ///
-    pub fn SetQuery(self: QSqlTableModel, query: anytype) void {
-        comptime _ = @TypeOf(query)._is_QSqlQuery;
-        qtc.QSqlQueryModel_SetQuery(@ptrCast(self.ptr), @ptrCast(query.ptr));
-    }
+    pub const SetQuery = setQuery;
 
     /// Inherited from QSqlQueryModel
     ///
@@ -1908,15 +2257,38 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` query: []const u8 `
+    /// ` _query: QSqlQuery `
     ///
-    pub fn SetQuery2(self: QSqlTableModel, query: []const u8) void {
+    pub fn setQuery(self: QSqlTableModel, _query: anytype) void {
+        comptime _ = @TypeOf(_query)._is_QSqlQuery;
+        qtc.QSqlQueryModel_SetQuery(@ptrCast(self.ptr), @ptrCast(_query.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setQuery2` instead
+    ///
+    pub const SetQuery2 = setQuery2;
+
+    /// Inherited from QSqlQueryModel
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#setQuery)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QSqlTableModel `
+    ///
+    /// ` _query: []const u8 `
+    ///
+    pub fn setQuery2(self: QSqlTableModel, _query: []const u8) void {
         const query_str = qtc.libqt_string{
-            .len = query.len,
-            .data = query.ptr,
+            .len = _query.len,
+            .data = _query.ptr,
         };
         qtc.QSqlQueryModel_SetQuery2(@ptrCast(self.ptr), query_str);
     }
+
+    /// ### DEPRECATED: Use `query` instead
+    ///
+    pub const Query = query;
 
     /// Inherited from QSqlQueryModel
     ///
@@ -1926,9 +2298,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn Query(self: QSqlTableModel) QSqlQuery {
+    pub fn query(self: QSqlTableModel) QSqlQuery {
         return .{ .ptr = qtc.QSqlQueryModel_Query(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `lastError` instead
+    ///
+    pub const LastError = lastError;
 
     /// Inherited from QSqlQueryModel
     ///
@@ -1938,9 +2314,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn LastError(self: QSqlTableModel) QSqlError {
+    pub fn lastError(self: QSqlTableModel) QSqlError {
         return .{ .ptr = qtc.QSqlQueryModel_LastError(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setQuery22` instead
+    ///
+    pub const SetQuery22 = setQuery22;
 
     /// Inherited from QSqlQueryModel
     ///
@@ -1950,18 +2330,22 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` query: []const u8 `
+    /// ` _query: []const u8 `
     ///
     /// ` db: QSqlDatabase `
     ///
-    pub fn SetQuery22(self: QSqlTableModel, query: []const u8, db: anytype) void {
+    pub fn setQuery22(self: QSqlTableModel, _query: []const u8, db: anytype) void {
         const query_str = qtc.libqt_string{
-            .len = query.len,
-            .data = query.ptr,
+            .len = _query.len,
+            .data = _query.ptr,
         };
         comptime _ = @TypeOf(db)._is_QSqlDatabase;
         qtc.QSqlQueryModel_SetQuery22(@ptrCast(self.ptr), query_str, @ptrCast(db.ptr));
     }
+
+    /// ### DEPRECATED: Use `hasIndex` instead
+    ///
+    pub const HasIndex = hasIndex;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1975,9 +2359,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn HasIndex(self: QSqlTableModel, row: i32, column: i32) bool {
+    pub fn hasIndex(self: QSqlTableModel, row: i32, column: i32) bool {
         return qtc.QAbstractItemModel_HasIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(column));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1989,10 +2377,14 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` child: QModelIndex `
     ///
-    pub fn Parent(self: QSqlTableModel, child: anytype) QModelIndex {
+    pub fn parent(self: QSqlTableModel, child: anytype) QModelIndex {
         comptime _ = @TypeOf(child)._is_QModelIndex;
         return .{ .ptr = qtc.QAbstractItemModel_Parent(@ptrCast(self.ptr), @ptrCast(child.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onParent` instead
+    ///
+    pub const OnParent = onParent;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2008,13 +2400,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnParent(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex) callconv(.c) QModelIndex) void {
+    pub fn onParent(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QAbstractItemModel_OnParent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperParent` instead
+    /// ### DEPRECATED: Use `superParent` instead
     ///
-    pub const QBaseParent = SuperParent;
+    pub const SuperParent = superParent;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2028,10 +2420,14 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` child: QModelIndex `
     ///
-    pub fn SuperParent(self: QSqlTableModel, child: anytype) QModelIndex {
+    pub fn superParent(self: QSqlTableModel, child: anytype) QModelIndex {
         comptime _ = @TypeOf(child)._is_QModelIndex;
         return .{ .ptr = qtc.QAbstractItemModel_SuperParent(@ptrCast(self.ptr), @ptrCast(child.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `hasChildren` instead
+    ///
+    pub const HasChildren = hasChildren;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2041,12 +2437,16 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn HasChildren(self: QSqlTableModel, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QAbstractItemModel_HasChildren(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn hasChildren(self: QSqlTableModel, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_HasChildren(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasChildren` instead
+    ///
+    pub const OnHasChildren = onHasChildren;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2060,13 +2460,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnHasChildren(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex) callconv(.c) bool) void {
+    pub fn onHasChildren(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex) callconv(.c) bool) void {
         qtc.QAbstractItemModel_OnHasChildren(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperHasChildren` instead
+    /// ### DEPRECATED: Use `superHasChildren` instead
     ///
-    pub const QBaseHasChildren = SuperHasChildren;
+    pub const SuperHasChildren = superHasChildren;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2078,12 +2478,16 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn SuperHasChildren(self: QSqlTableModel, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QAbstractItemModel_SuperHasChildren(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn superHasChildren(self: QSqlTableModel, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_SuperHasChildren(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertRow` instead
+    ///
+    pub const InsertRow = insertRow;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2095,9 +2499,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` row: i32 `
     ///
-    pub fn InsertRow(self: QSqlTableModel, row: i32) bool {
+    pub fn insertRow(self: QSqlTableModel, row: i32) bool {
         return qtc.QAbstractItemModel_InsertRow(@ptrCast(self.ptr), @bitCast(row));
     }
+
+    /// ### DEPRECATED: Use `insertColumn` instead
+    ///
+    pub const InsertColumn = insertColumn;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2109,9 +2517,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn InsertColumn(self: QSqlTableModel, column: i32) bool {
+    pub fn insertColumn(self: QSqlTableModel, column: i32) bool {
         return qtc.QAbstractItemModel_InsertColumn(@ptrCast(self.ptr), @bitCast(column));
     }
+
+    /// ### DEPRECATED: Use `removeRow` instead
+    ///
+    pub const RemoveRow = removeRow;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2123,9 +2535,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` row: i32 `
     ///
-    pub fn RemoveRow(self: QSqlTableModel, row: i32) bool {
+    pub fn removeRow(self: QSqlTableModel, row: i32) bool {
         return qtc.QAbstractItemModel_RemoveRow(@ptrCast(self.ptr), @bitCast(row));
     }
+
+    /// ### DEPRECATED: Use `removeColumn` instead
+    ///
+    pub const RemoveColumn = removeColumn;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2137,9 +2553,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn RemoveColumn(self: QSqlTableModel, column: i32) bool {
+    pub fn removeColumn(self: QSqlTableModel, column: i32) bool {
         return qtc.QAbstractItemModel_RemoveColumn(@ptrCast(self.ptr), @bitCast(column));
     }
+
+    /// ### DEPRECATED: Use `moveRow` instead
+    ///
+    pub const MoveRow = moveRow;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2157,11 +2577,15 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn MoveRow(self: QSqlTableModel, sourceParent: anytype, sourceRow: i32, destinationParent: anytype, destinationChild: i32) bool {
+    pub fn moveRow(self: QSqlTableModel, sourceParent: anytype, sourceRow: i32, destinationParent: anytype, destinationChild: i32) bool {
         comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
         comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
         return qtc.QAbstractItemModel_MoveRow(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceRow), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
+
+    /// ### DEPRECATED: Use `moveColumn` instead
+    ///
+    pub const MoveColumn = moveColumn;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2179,11 +2603,15 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn MoveColumn(self: QSqlTableModel, sourceParent: anytype, sourceColumn: i32, destinationParent: anytype, destinationChild: i32) bool {
+    pub fn moveColumn(self: QSqlTableModel, sourceParent: anytype, sourceColumn: i32, destinationParent: anytype, destinationChild: i32) bool {
         comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
         comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
         return qtc.QAbstractItemModel_MoveColumn(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceColumn), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
+
+    /// ### DEPRECATED: Use `checkIndex` instead
+    ///
+    pub const CheckIndex = checkIndex;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2193,12 +2621,16 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
-    pub fn CheckIndex(self: QSqlTableModel, index: anytype) bool {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return qtc.QAbstractItemModel_CheckIndex(@ptrCast(self.ptr), @ptrCast(index.ptr));
+    pub fn checkIndex(self: QSqlTableModel, _index: anytype) bool {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return qtc.QAbstractItemModel_CheckIndex(@ptrCast(self.ptr), @ptrCast(_index.ptr));
     }
+
+    /// ### DEPRECATED: Use `dataChanged` instead
+    ///
+    pub const DataChanged = dataChanged;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2212,11 +2644,15 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` bottomRight: QModelIndex `
     ///
-    pub fn DataChanged(self: QSqlTableModel, topLeft: anytype, bottomRight: anytype) void {
+    pub fn dataChanged(self: QSqlTableModel, topLeft: anytype, bottomRight: anytype) void {
         comptime _ = @TypeOf(topLeft)._is_QModelIndex;
         comptime _ = @TypeOf(bottomRight)._is_QModelIndex;
         qtc.QAbstractItemModel_DataChanged(@ptrCast(self.ptr), @ptrCast(topLeft.ptr), @ptrCast(bottomRight.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDataChanged` instead
+    ///
+    pub const OnDataChanged = onDataChanged;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2228,9 +2664,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, topLeft: QModelIndex, bottomRight: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnDataChanged(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, QModelIndex) callconv(.c) void) void {
+    pub fn onDataChanged(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, QModelIndex) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_DataChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `headerDataChanged` instead
+    ///
+    pub const HeaderDataChanged = headerDataChanged;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2246,9 +2686,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` last: i32 `
     ///
-    pub fn HeaderDataChanged(self: QSqlTableModel, orientation: i32, first: i32, last: i32) void {
+    pub fn headerDataChanged(self: QSqlTableModel, orientation: i32, first: i32, last: i32) void {
         qtc.QAbstractItemModel_HeaderDataChanged(@ptrCast(self.ptr), @bitCast(orientation), @bitCast(first), @bitCast(last));
     }
+
+    /// ### DEPRECATED: Use `onHeaderDataChanged` instead
+    ///
+    pub const OnHeaderDataChanged = onHeaderDataChanged;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2260,10 +2704,14 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, orientation: qnamespace_enums.Orientation, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnHeaderDataChanged(self: QSqlTableModel, callback: *const fn (QSqlTableModel, i32, i32, i32) callconv(.c) void) void {
+    pub fn onHeaderDataChanged(self: QSqlTableModel, callback: *const fn (QSqlTableModel, i32, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_HeaderDataChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `layoutChanged` instead
+    ///
+    pub const LayoutChanged = layoutChanged;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
@@ -2272,10 +2720,14 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn LayoutChanged(self: QSqlTableModel) void {
+    pub fn layoutChanged(self: QSqlTableModel) void {
         qtc.QAbstractItemModel_LayoutChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onLayoutChanged` instead
+    ///
+    pub const OnLayoutChanged = onLayoutChanged;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
@@ -2286,9 +2738,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel) callconv(.c) void `
     ///
-    pub fn OnLayoutChanged(self: QSqlTableModel, callback: *const fn (QSqlTableModel) callconv(.c) void) void {
+    pub fn onLayoutChanged(self: QSqlTableModel, callback: *const fn (QSqlTableModel) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `layoutAboutToBeChanged` instead
+    ///
+    pub const LayoutAboutToBeChanged = layoutAboutToBeChanged;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2298,9 +2754,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn LayoutAboutToBeChanged(self: QSqlTableModel) void {
+    pub fn layoutAboutToBeChanged(self: QSqlTableModel) void {
         qtc.QAbstractItemModel_LayoutAboutToBeChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLayoutAboutToBeChanged` instead
+    ///
+    pub const OnLayoutAboutToBeChanged = onLayoutAboutToBeChanged;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2312,9 +2772,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel) callconv(.c) void `
     ///
-    pub fn OnLayoutAboutToBeChanged(self: QSqlTableModel, callback: *const fn (QSqlTableModel) callconv(.c) void) void {
+    pub fn onLayoutAboutToBeChanged(self: QSqlTableModel, callback: *const fn (QSqlTableModel) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasIndex3` instead
+    ///
+    pub const HasIndex3 = hasIndex3;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2328,12 +2792,16 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn HasIndex3(self: QSqlTableModel, row: i32, column: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QAbstractItemModel_HasIndex3(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
+    pub fn hasIndex3(self: QSqlTableModel, row: i32, column: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_HasIndex3(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertRow2` instead
+    ///
+    pub const InsertRow2 = insertRow2;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2345,12 +2813,16 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` row: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn InsertRow2(self: QSqlTableModel, row: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QAbstractItemModel_InsertRow2(@ptrCast(self.ptr), @bitCast(row), @ptrCast(parent.ptr));
+    pub fn insertRow2(self: QSqlTableModel, row: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_InsertRow2(@ptrCast(self.ptr), @bitCast(row), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertColumn2` instead
+    ///
+    pub const InsertColumn2 = insertColumn2;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2362,12 +2834,16 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn InsertColumn2(self: QSqlTableModel, column: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QAbstractItemModel_InsertColumn2(@ptrCast(self.ptr), @bitCast(column), @ptrCast(parent.ptr));
+    pub fn insertColumn2(self: QSqlTableModel, column: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_InsertColumn2(@ptrCast(self.ptr), @bitCast(column), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeRow2` instead
+    ///
+    pub const RemoveRow2 = removeRow2;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2379,12 +2855,16 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` row: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn RemoveRow2(self: QSqlTableModel, row: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QAbstractItemModel_RemoveRow2(@ptrCast(self.ptr), @bitCast(row), @ptrCast(parent.ptr));
+    pub fn removeRow2(self: QSqlTableModel, row: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_RemoveRow2(@ptrCast(self.ptr), @bitCast(row), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeColumn2` instead
+    ///
+    pub const RemoveColumn2 = removeColumn2;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2396,12 +2876,16 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn RemoveColumn2(self: QSqlTableModel, column: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QAbstractItemModel_RemoveColumn2(@ptrCast(self.ptr), @bitCast(column), @ptrCast(parent.ptr));
+    pub fn removeColumn2(self: QSqlTableModel, column: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_RemoveColumn2(@ptrCast(self.ptr), @bitCast(column), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `checkIndex2` instead
+    ///
+    pub const CheckIndex2 = checkIndex2;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2411,14 +2895,18 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
     /// ` options: flag of qabstractitemmodel_enums.CheckIndexOption `
     ///
-    pub fn CheckIndex2(self: QSqlTableModel, index: anytype, options: i32) bool {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return qtc.QAbstractItemModel_CheckIndex2(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(options));
+    pub fn checkIndex2(self: QSqlTableModel, _index: anytype, options: i32) bool {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return qtc.QAbstractItemModel_CheckIndex2(@ptrCast(self.ptr), @ptrCast(_index.ptr), @bitCast(options));
     }
+
+    /// ### DEPRECATED: Use `dataChanged3` instead
+    ///
+    pub const DataChanged3 = dataChanged3;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2434,7 +2922,7 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` roles: []i32 `
     ///
-    pub fn DataChanged3(self: QSqlTableModel, topLeft: anytype, bottomRight: anytype, roles: []i32) void {
+    pub fn dataChanged3(self: QSqlTableModel, topLeft: anytype, bottomRight: anytype, roles: []i32) void {
         comptime _ = @TypeOf(topLeft)._is_QModelIndex;
         comptime _ = @TypeOf(bottomRight)._is_QModelIndex;
         const roles_list = qtc.libqt_list{
@@ -2443,6 +2931,10 @@ pub const QSqlTableModel = extern struct {
         };
         qtc.QAbstractItemModel_DataChanged3(@ptrCast(self.ptr), @ptrCast(topLeft.ptr), @ptrCast(bottomRight.ptr), roles_list);
     }
+
+    /// ### DEPRECATED: Use `onDataChanged3` instead
+    ///
+    pub const OnDataChanged3 = onDataChanged3;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2454,9 +2946,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, topLeft: QModelIndex, bottomRight: QModelIndex, roles: qtc.libqt_list ([]i32)) callconv(.c) void `
     ///
-    pub fn OnDataChanged3(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, QModelIndex, qtc.libqt_list) callconv(.c) void) void {
+    pub fn onDataChanged3(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, QModelIndex, qtc.libqt_list) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_DataChanged3(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `layoutChanged1` instead
+    ///
+    pub const LayoutChanged1 = layoutChanged1;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2468,7 +2964,7 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` parents: []QPersistentModelIndex `
     ///
-    pub fn LayoutChanged1(self: QSqlTableModel, parents: []QPersistentModelIndex) void {
+    pub fn layoutChanged1(self: QSqlTableModel, parents: []QPersistentModelIndex) void {
         const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
@@ -2476,6 +2972,10 @@ pub const QSqlTableModel = extern struct {
         qtc.QAbstractItemModel_LayoutChanged1(@ptrCast(self.ptr), parents_list);
     }
 
+    /// ### DEPRECATED: Use `onLayoutChanged1` instead
+    ///
+    pub const OnLayoutChanged1 = onLayoutChanged1;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
@@ -2486,9 +2986,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, parents: qtc.libqt_list ([]QPersistentModelIndex)) callconv(.c) void `
     ///
-    pub fn OnLayoutChanged1(self: QSqlTableModel, callback: *const fn (QSqlTableModel, qtc.libqt_list) callconv(.c) void) void {
+    pub fn onLayoutChanged1(self: QSqlTableModel, callback: *const fn (QSqlTableModel, qtc.libqt_list) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutChanged1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `layoutChanged2` instead
+    ///
+    pub const LayoutChanged2 = layoutChanged2;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2502,7 +3006,7 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` hint: qabstractitemmodel_enums.LayoutChangeHint `
     ///
-    pub fn LayoutChanged2(self: QSqlTableModel, parents: []QPersistentModelIndex, hint: i32) void {
+    pub fn layoutChanged2(self: QSqlTableModel, parents: []QPersistentModelIndex, hint: i32) void {
         const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
@@ -2510,6 +3014,10 @@ pub const QSqlTableModel = extern struct {
         qtc.QAbstractItemModel_LayoutChanged2(@ptrCast(self.ptr), parents_list, @bitCast(hint));
     }
 
+    /// ### DEPRECATED: Use `onLayoutChanged2` instead
+    ///
+    pub const OnLayoutChanged2 = onLayoutChanged2;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
@@ -2520,9 +3028,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, parents: qtc.libqt_list ([]QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
     ///
-    pub fn OnLayoutChanged2(self: QSqlTableModel, callback: *const fn (QSqlTableModel, qtc.libqt_list, i32) callconv(.c) void) void {
+    pub fn onLayoutChanged2(self: QSqlTableModel, callback: *const fn (QSqlTableModel, qtc.libqt_list, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutChanged2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `layoutAboutToBeChanged1` instead
+    ///
+    pub const LayoutAboutToBeChanged1 = layoutAboutToBeChanged1;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2534,13 +3046,17 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` parents: []QPersistentModelIndex `
     ///
-    pub fn LayoutAboutToBeChanged1(self: QSqlTableModel, parents: []QPersistentModelIndex) void {
+    pub fn layoutAboutToBeChanged1(self: QSqlTableModel, parents: []QPersistentModelIndex) void {
         const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
         qtc.QAbstractItemModel_LayoutAboutToBeChanged1(@ptrCast(self.ptr), parents_list);
     }
+
+    /// ### DEPRECATED: Use `onLayoutAboutToBeChanged1` instead
+    ///
+    pub const OnLayoutAboutToBeChanged1 = onLayoutAboutToBeChanged1;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2552,9 +3068,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, parents: qtc.libqt_list ([]QPersistentModelIndex)) callconv(.c) void `
     ///
-    pub fn OnLayoutAboutToBeChanged1(self: QSqlTableModel, callback: *const fn (QSqlTableModel, qtc.libqt_list) callconv(.c) void) void {
+    pub fn onLayoutAboutToBeChanged1(self: QSqlTableModel, callback: *const fn (QSqlTableModel, qtc.libqt_list) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `layoutAboutToBeChanged2` instead
+    ///
+    pub const LayoutAboutToBeChanged2 = layoutAboutToBeChanged2;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2568,13 +3088,17 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` hint: qabstractitemmodel_enums.LayoutChangeHint `
     ///
-    pub fn LayoutAboutToBeChanged2(self: QSqlTableModel, parents: []QPersistentModelIndex, hint: i32) void {
+    pub fn layoutAboutToBeChanged2(self: QSqlTableModel, parents: []QPersistentModelIndex, hint: i32) void {
         const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
         qtc.QAbstractItemModel_LayoutAboutToBeChanged2(@ptrCast(self.ptr), parents_list, @bitCast(hint));
     }
+
+    /// ### DEPRECATED: Use `onLayoutAboutToBeChanged2` instead
+    ///
+    pub const OnLayoutAboutToBeChanged2 = onLayoutAboutToBeChanged2;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2586,9 +3110,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, parents: qtc.libqt_list ([]QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
     ///
-    pub fn OnLayoutAboutToBeChanged2(self: QSqlTableModel, callback: *const fn (QSqlTableModel, qtc.libqt_list, i32) callconv(.c) void) void {
+    pub fn onLayoutAboutToBeChanged2(self: QSqlTableModel, callback: *const fn (QSqlTableModel, qtc.libqt_list, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -2600,13 +3128,17 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QSqlTableModel, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QSqlTableModel, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlTableModel.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlTableModel.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -2618,13 +3150,17 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QSqlTableModel, name: []const u8) void {
+    pub fn setObjectName(self: QSqlTableModel, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -2634,9 +3170,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn IsWidgetType(self: QSqlTableModel) bool {
+    pub fn isWidgetType(self: QSqlTableModel) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -2646,9 +3186,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn IsWindowType(self: QSqlTableModel) bool {
+    pub fn isWindowType(self: QSqlTableModel) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -2658,9 +3202,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn IsQuickItemType(self: QSqlTableModel) bool {
+    pub fn isQuickItemType(self: QSqlTableModel) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -2670,9 +3218,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn SignalsBlocked(self: QSqlTableModel) bool {
+    pub fn signalsBlocked(self: QSqlTableModel) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -2684,9 +3236,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QSqlTableModel, b: bool) bool {
+    pub fn blockSignals(self: QSqlTableModel, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -2696,9 +3252,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn Thread(self: QSqlTableModel) QThread {
+    pub fn thread(self: QSqlTableModel) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -2708,12 +3268,16 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QSqlTableModel, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QSqlTableModel, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -2725,9 +3289,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QSqlTableModel, interval: i32) i32 {
+    pub fn startTimer(self: QSqlTableModel, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -2739,9 +3307,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QSqlTableModel, time: i64) i32 {
+    pub fn startTimer2(self: QSqlTableModel, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -2753,9 +3325,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QSqlTableModel, id: i32) void {
+    pub fn killTimer(self: QSqlTableModel, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -2767,9 +3343,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QSqlTableModel, id: i32) void {
+    pub fn killTimer2(self: QSqlTableModel, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -2781,15 +3361,19 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QSqlTableModel, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QSqlTableModel, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QSqlTableModel.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QSqlTableModel.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -2799,12 +3383,16 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QSqlTableModel, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QSqlTableModel, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2816,10 +3404,14 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QSqlTableModel, filterObj: anytype) void {
+    pub fn installEventFilter(self: QSqlTableModel, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2831,10 +3423,14 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QSqlTableModel, obj: anytype) void {
+    pub fn removeEventFilter(self: QSqlTableModel, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -2842,7 +3438,7 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2850,13 +3446,17 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -2864,7 +3464,7 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2872,13 +3472,17 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -2888,18 +3492,22 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QSqlTableModel, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QSqlTableModel, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -2907,7 +3515,7 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2915,13 +3523,17 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -2929,7 +3541,7 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2937,13 +3549,17 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -2953,9 +3569,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn Disconnect3(self: QSqlTableModel) bool {
+    pub fn disconnect3(self: QSqlTableModel) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -2967,10 +3587,14 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QSqlTableModel, receiver: anytype) bool {
+    pub fn disconnect4(self: QSqlTableModel, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -2980,10 +3604,14 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -2993,9 +3621,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn DumpObjectTree(self: QSqlTableModel) void {
+    pub fn dumpObjectTree(self: QSqlTableModel) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -3005,9 +3637,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn DumpObjectInfo(self: QSqlTableModel) void {
+    pub fn dumpObjectInfo(self: QSqlTableModel) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -3021,11 +3657,15 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QSqlTableModel, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QSqlTableModel, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -3037,10 +3677,14 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QSqlTableModel, name: [:0]const u8) QVariant {
+    pub fn property(self: QSqlTableModel, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -3052,7 +3696,7 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QSqlTableModel, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QSqlTableModel, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -3060,27 +3704,19 @@ pub const QSqlTableModel = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QSqlTableModel.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QSqlTableModel.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QSqlTableModel.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QSqlTableModel.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSqlTableModel `
-    ///
-    pub fn BindingStorage(self: QSqlTableModel) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -3090,9 +3726,29 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn BindingStorage2(self: QSqlTableModel) QBindingStorage {
+    pub fn bindingStorage(self: QSqlTableModel) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QSqlTableModel `
+    ///
+    pub fn bindingStorage2(self: QSqlTableModel) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -3102,9 +3758,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn Destroyed(self: QSqlTableModel) void {
+    pub fn destroyed(self: QSqlTableModel) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -3116,9 +3776,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QSqlTableModel, callback: *const fn (QSqlTableModel) callconv(.c) void) void {
+    pub fn onDestroyed(self: QSqlTableModel, callback: *const fn (QSqlTableModel) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -3130,10 +3794,14 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QSqlTableModel, classname: [:0]const u8) bool {
+    pub fn inherits(self: QSqlTableModel, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -3143,9 +3811,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn DeleteLater(self: QSqlTableModel) void {
+    pub fn deleteLater(self: QSqlTableModel) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -3159,9 +3831,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QSqlTableModel, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QSqlTableModel, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -3175,9 +3851,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QSqlTableModel, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QSqlTableModel, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -3185,7 +3865,7 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -3195,13 +3875,17 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -3209,7 +3893,7 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -3219,13 +3903,17 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -3235,7 +3923,7 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -3243,12 +3931,16 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QSqlTableModel, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QSqlTableModel, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -3260,10 +3952,14 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QSqlTableModel, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QSqlTableModel, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -3277,11 +3973,15 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QSqlTableModel, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QSqlTableModel, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -3297,13 +3997,17 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QSqlTableModel, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QSqlTableModel, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -3316,11 +4020,15 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QSqlTableModel, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QSqlTableModel, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -3332,10 +4040,14 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QSqlTableModel, param1: anytype) void {
+    pub fn destroyed1(self: QSqlTableModel, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -3347,9 +4059,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `columnCount` instead
+    ///
+    pub const ColumnCount = columnCount;
 
     /// Inherited from QSqlQueryModel
     ///
@@ -3361,16 +4077,16 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn ColumnCount(self: QSqlTableModel, parent: anytype) i32 {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QSqlTableModel_ColumnCount(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn columnCount(self: QSqlTableModel, _parent: anytype) i32 {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QSqlTableModel_ColumnCount(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperColumnCount` instead
+    /// ### DEPRECATED: Use `superColumnCount` instead
     ///
-    pub const QBaseColumnCount = SuperColumnCount;
+    pub const SuperColumnCount = superColumnCount;
 
     /// Inherited from QSqlQueryModel
     ///
@@ -3382,12 +4098,16 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn SuperColumnCount(self: QSqlTableModel, parent: anytype) i32 {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QSqlTableModel_SuperColumnCount(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn superColumnCount(self: QSqlTableModel, _parent: anytype) i32 {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QSqlTableModel_SuperColumnCount(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `onColumnCount` instead
+    ///
+    pub const OnColumnCount = onColumnCount;
 
     /// Inherited from QSqlQueryModel
     ///
@@ -3401,9 +4121,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, parent: QModelIndex) callconv(.c) i32 `
     ///
-    pub fn OnColumnCount(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex) callconv(.c) i32) void {
+    pub fn onColumnCount(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex) callconv(.c) i32) void {
         qtc.QSqlTableModel_OnColumnCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setHeaderData` instead
+    ///
+    pub const SetHeaderData = setHeaderData;
 
     /// Inherited from QSqlQueryModel
     ///
@@ -3423,14 +4147,14 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn SetHeaderData(self: QSqlTableModel, section: i32, orientation: i32, value: anytype, role: i32) bool {
+    pub fn setHeaderData(self: QSqlTableModel, section: i32, orientation: i32, value: anytype, role: i32) bool {
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QSqlTableModel_SetHeaderData(@ptrCast(self.ptr), @bitCast(section), @bitCast(orientation), @ptrCast(value.ptr), @bitCast(role));
     }
 
-    /// ### DEPRECATED: Use `SuperSetHeaderData` instead
+    /// ### DEPRECATED: Use `superSetHeaderData` instead
     ///
-    pub const QBaseSetHeaderData = SuperSetHeaderData;
+    pub const SuperSetHeaderData = superSetHeaderData;
 
     /// Inherited from QSqlQueryModel
     ///
@@ -3450,10 +4174,14 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn SuperSetHeaderData(self: QSqlTableModel, section: i32, orientation: i32, value: anytype, role: i32) bool {
+    pub fn superSetHeaderData(self: QSqlTableModel, section: i32, orientation: i32, value: anytype, role: i32) bool {
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QSqlTableModel_SuperSetHeaderData(@ptrCast(self.ptr), @bitCast(section), @bitCast(orientation), @ptrCast(value.ptr), @bitCast(role));
     }
+
+    /// ### DEPRECATED: Use `onSetHeaderData` instead
+    ///
+    pub const OnSetHeaderData = onSetHeaderData;
 
     /// Inherited from QSqlQueryModel
     ///
@@ -3467,9 +4195,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, section: i32, orientation: qnamespace_enums.Orientation, value: QVariant, role: i32) callconv(.c) bool `
     ///
-    pub fn OnSetHeaderData(self: QSqlTableModel, callback: *const fn (QSqlTableModel, i32, i32, QVariant, i32) callconv(.c) bool) void {
+    pub fn onSetHeaderData(self: QSqlTableModel, callback: *const fn (QSqlTableModel, i32, i32, QVariant, i32) callconv(.c) bool) void {
         qtc.QSqlTableModel_OnSetHeaderData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `insertColumns` instead
+    ///
+    pub const InsertColumns = insertColumns;
 
     /// Inherited from QSqlQueryModel
     ///
@@ -3485,16 +4217,16 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn InsertColumns(self: QSqlTableModel, column: i32, count: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QSqlTableModel_InsertColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(parent.ptr));
+    pub fn insertColumns(self: QSqlTableModel, column: i32, count: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QSqlTableModel_InsertColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(_parent.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInsertColumns` instead
+    /// ### DEPRECATED: Use `superInsertColumns` instead
     ///
-    pub const QBaseInsertColumns = SuperInsertColumns;
+    pub const SuperInsertColumns = superInsertColumns;
 
     /// Inherited from QSqlQueryModel
     ///
@@ -3510,12 +4242,16 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn SuperInsertColumns(self: QSqlTableModel, column: i32, count: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QSqlTableModel_SuperInsertColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(parent.ptr));
+    pub fn superInsertColumns(self: QSqlTableModel, column: i32, count: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QSqlTableModel_SuperInsertColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInsertColumns` instead
+    ///
+    pub const OnInsertColumns = onInsertColumns;
 
     /// Inherited from QSqlQueryModel
     ///
@@ -3529,9 +4265,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, column: i32, count: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnInsertColumns(self: QSqlTableModel, callback: *const fn (QSqlTableModel, i32, i32, QModelIndex) callconv(.c) bool) void {
+    pub fn onInsertColumns(self: QSqlTableModel, callback: *const fn (QSqlTableModel, i32, i32, QModelIndex) callconv(.c) bool) void {
         qtc.QSqlTableModel_OnInsertColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `fetchMore` instead
+    ///
+    pub const FetchMore = fetchMore;
 
     /// Inherited from QSqlQueryModel
     ///
@@ -3543,16 +4283,16 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn FetchMore(self: QSqlTableModel, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.QSqlTableModel_FetchMore(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn fetchMore(self: QSqlTableModel, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.QSqlTableModel_FetchMore(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFetchMore` instead
+    /// ### DEPRECATED: Use `superFetchMore` instead
     ///
-    pub const QBaseFetchMore = SuperFetchMore;
+    pub const SuperFetchMore = superFetchMore;
 
     /// Inherited from QSqlQueryModel
     ///
@@ -3564,12 +4304,16 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn SuperFetchMore(self: QSqlTableModel, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.QSqlTableModel_SuperFetchMore(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn superFetchMore(self: QSqlTableModel, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.QSqlTableModel_SuperFetchMore(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFetchMore` instead
+    ///
+    pub const OnFetchMore = onFetchMore;
 
     /// Inherited from QSqlQueryModel
     ///
@@ -3583,9 +4327,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, parent: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnFetchMore(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex) callconv(.c) void) void {
+    pub fn onFetchMore(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex) callconv(.c) void) void {
         qtc.QSqlTableModel_OnFetchMore(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `canFetchMore` instead
+    ///
+    pub const CanFetchMore = canFetchMore;
 
     /// Inherited from QSqlQueryModel
     ///
@@ -3597,16 +4345,16 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn CanFetchMore(self: QSqlTableModel, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QSqlTableModel_CanFetchMore(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn canFetchMore(self: QSqlTableModel, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QSqlTableModel_CanFetchMore(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCanFetchMore` instead
+    /// ### DEPRECATED: Use `superCanFetchMore` instead
     ///
-    pub const QBaseCanFetchMore = SuperCanFetchMore;
+    pub const SuperCanFetchMore = superCanFetchMore;
 
     /// Inherited from QSqlQueryModel
     ///
@@ -3618,12 +4366,16 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn SuperCanFetchMore(self: QSqlTableModel, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QSqlTableModel_SuperCanFetchMore(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn superCanFetchMore(self: QSqlTableModel, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QSqlTableModel_SuperCanFetchMore(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCanFetchMore` instead
+    ///
+    pub const OnCanFetchMore = onCanFetchMore;
 
     /// Inherited from QSqlQueryModel
     ///
@@ -3637,9 +4389,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnCanFetchMore(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex) callconv(.c) bool) void {
+    pub fn onCanFetchMore(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex) callconv(.c) bool) void {
         qtc.QSqlTableModel_OnCanFetchMore(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `roleNames` instead
+    ///
+    pub const RoleNames = roleNames;
 
     /// Inherited from QSqlQueryModel
     ///
@@ -3653,10 +4409,10 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn RoleNames(self: QSqlTableModel, allocator: std.mem.Allocator) Map_i32_u8 {
+    pub fn roleNames(self: QSqlTableModel, allocator: std.mem.Allocator) Map_i32_u8 {
         const _map: qtc.libqt_map = qtc.QSqlTableModel_RoleNames(@ptrCast(self.ptr));
         var _ret: Map_i32_u8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QSqlTableModel.RoleNames: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QSqlTableModel.roleNames: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -3671,16 +4427,16 @@ pub const QSqlTableModel = extern struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("QSqlTableModel.RoleNames: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("QSqlTableModel.roleNames: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
             _ret.putAssumeCapacity(_key, _value_slice);
         }
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `SuperRoleNames` instead
+    /// ### DEPRECATED: Use `superRoleNames` instead
     ///
-    pub const QBaseRoleNames = SuperRoleNames;
+    pub const SuperRoleNames = superRoleNames;
 
     /// Inherited from QSqlQueryModel
     ///
@@ -3694,10 +4450,10 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperRoleNames(self: QSqlTableModel, allocator: std.mem.Allocator) Map_i32_u8 {
+    pub fn superRoleNames(self: QSqlTableModel, allocator: std.mem.Allocator) Map_i32_u8 {
         const _map: qtc.libqt_map = qtc.QSqlTableModel_SuperRoleNames(@ptrCast(self.ptr));
         var _ret: Map_i32_u8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QSqlTableModel.RoleNames: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QSqlTableModel.roleNames: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -3712,12 +4468,16 @@ pub const QSqlTableModel = extern struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("QSqlTableModel.RoleNames: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("QSqlTableModel.roleNames: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
             _ret.putAssumeCapacity(_key, _value_slice);
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onRoleNames` instead
+    ///
+    pub const OnRoleNames = onRoleNames;
 
     /// Inherited from QSqlQueryModel
     ///
@@ -3735,9 +4495,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` C ABI representation of Map_i32_u8 `
     ///
-    pub fn OnRoleNames(self: QSqlTableModel, callback: *const fn () callconv(.c) qtc.libqt_map) void {
+    pub fn onRoleNames(self: QSqlTableModel, callback: *const fn () callconv(.c) qtc.libqt_map) void {
         qtc.QSqlTableModel_OnRoleNames(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `queryChange` instead
+    ///
+    pub const QueryChange = queryChange;
 
     /// Inherited from QSqlQueryModel
     ///
@@ -3749,13 +4513,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn QueryChange(self: QSqlTableModel) void {
+    pub fn queryChange(self: QSqlTableModel) void {
         qtc.QSqlTableModel_QueryChange(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperQueryChange` instead
+    /// ### DEPRECATED: Use `superQueryChange` instead
     ///
-    pub const QBaseQueryChange = SuperQueryChange;
+    pub const SuperQueryChange = superQueryChange;
 
     /// Inherited from QSqlQueryModel
     ///
@@ -3767,9 +4531,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn SuperQueryChange(self: QSqlTableModel) void {
+    pub fn superQueryChange(self: QSqlTableModel) void {
         qtc.QSqlTableModel_SuperQueryChange(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onQueryChange` instead
+    ///
+    pub const OnQueryChange = onQueryChange;
 
     /// Inherited from QSqlQueryModel
     ///
@@ -3783,9 +4551,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnQueryChange(self: QSqlTableModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onQueryChange(self: QSqlTableModel, callback: *const fn () callconv(.c) void) void {
         qtc.QSqlTableModel_OnQueryChange(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `index` instead
+    ///
+    pub const Index = index;
 
     /// Inherited from QAbstractTableModel
     ///
@@ -3801,16 +4573,16 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn Index(self: QSqlTableModel, row: i32, column: i32, parent: anytype) QModelIndex {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return .{ .ptr = qtc.QSqlTableModel_Index(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr)) };
+    pub fn index(self: QSqlTableModel, row: i32, column: i32, _parent: anytype) QModelIndex {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return .{ .ptr = qtc.QSqlTableModel_Index(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(_parent.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperIndex` instead
+    /// ### DEPRECATED: Use `superIndex` instead
     ///
-    pub const QBaseIndex = SuperIndex;
+    pub const SuperIndex = superIndex;
 
     /// Inherited from QAbstractTableModel
     ///
@@ -3826,12 +4598,16 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn SuperIndex(self: QSqlTableModel, row: i32, column: i32, parent: anytype) QModelIndex {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return .{ .ptr = qtc.QSqlTableModel_SuperIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr)) };
+    pub fn superIndex(self: QSqlTableModel, row: i32, column: i32, _parent: anytype) QModelIndex {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return .{ .ptr = qtc.QSqlTableModel_SuperIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onIndex` instead
+    ///
+    pub const OnIndex = onIndex;
 
     /// Inherited from QAbstractTableModel
     ///
@@ -3847,9 +4623,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnIndex(self: QSqlTableModel, callback: *const fn (QSqlTableModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
+    pub fn onIndex(self: QSqlTableModel, callback: *const fn (QSqlTableModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QSqlTableModel_OnIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sibling` instead
+    ///
+    pub const Sibling = sibling;
 
     /// Inherited from QAbstractTableModel
     ///
@@ -3867,14 +4647,14 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` idx: QModelIndex `
     ///
-    pub fn Sibling(self: QSqlTableModel, row: i32, column: i32, idx: anytype) QModelIndex {
+    pub fn sibling(self: QSqlTableModel, row: i32, column: i32, idx: anytype) QModelIndex {
         comptime _ = @TypeOf(idx)._is_QModelIndex;
         return .{ .ptr = qtc.QSqlTableModel_Sibling(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(idx.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSibling` instead
+    /// ### DEPRECATED: Use `superSibling` instead
     ///
-    pub const QBaseSibling = SuperSibling;
+    pub const SuperSibling = superSibling;
 
     /// Inherited from QAbstractTableModel
     ///
@@ -3892,10 +4672,14 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` idx: QModelIndex `
     ///
-    pub fn SuperSibling(self: QSqlTableModel, row: i32, column: i32, idx: anytype) QModelIndex {
+    pub fn superSibling(self: QSqlTableModel, row: i32, column: i32, idx: anytype) QModelIndex {
         comptime _ = @TypeOf(idx)._is_QModelIndex;
         return .{ .ptr = qtc.QSqlTableModel_SuperSibling(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(idx.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSibling` instead
+    ///
+    pub const OnSibling = onSibling;
 
     /// Inherited from QAbstractTableModel
     ///
@@ -3911,9 +4695,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSibling(self: QSqlTableModel, callback: *const fn (QSqlTableModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
+    pub fn onSibling(self: QSqlTableModel, callback: *const fn (QSqlTableModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QSqlTableModel_OnSibling(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropMimeData` instead
+    ///
+    pub const DropMimeData = dropMimeData;
 
     /// Inherited from QAbstractTableModel
     ///
@@ -3925,7 +4713,7 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` data: QMimeData `
+    /// ` _data: QMimeData `
     ///
     /// ` action: qnamespace_enums.DropAction `
     ///
@@ -3933,17 +4721,17 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn DropMimeData(self: QSqlTableModel, data: anytype, action: i32, row: i32, column: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(data)._is_QMimeData;
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QSqlTableModel_DropMimeData(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
+    pub fn dropMimeData(self: QSqlTableModel, _data: anytype, action: i32, row: i32, column: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_data)._is_QMimeData;
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QSqlTableModel_DropMimeData(@ptrCast(self.ptr), @ptrCast(_data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(_parent.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropMimeData` instead
+    /// ### DEPRECATED: Use `superDropMimeData` instead
     ///
-    pub const QBaseDropMimeData = SuperDropMimeData;
+    pub const SuperDropMimeData = superDropMimeData;
 
     /// Inherited from QAbstractTableModel
     ///
@@ -3955,7 +4743,7 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` data: QMimeData `
+    /// ` _data: QMimeData `
     ///
     /// ` action: qnamespace_enums.DropAction `
     ///
@@ -3963,13 +4751,17 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn SuperDropMimeData(self: QSqlTableModel, data: anytype, action: i32, row: i32, column: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(data)._is_QMimeData;
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QSqlTableModel_SuperDropMimeData(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
+    pub fn superDropMimeData(self: QSqlTableModel, _data: anytype, action: i32, row: i32, column: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_data)._is_QMimeData;
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QSqlTableModel_SuperDropMimeData(@ptrCast(self.ptr), @ptrCast(_data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropMimeData` instead
+    ///
+    pub const OnDropMimeData = onDropMimeData;
 
     /// Inherited from QAbstractTableModel
     ///
@@ -3983,9 +4775,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, data: QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnDropMimeData(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QMimeData, i32, i32, i32, QModelIndex) callconv(.c) bool) void {
+    pub fn onDropMimeData(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QMimeData, i32, i32, i32, QModelIndex) callconv(.c) bool) void {
         qtc.QSqlTableModel_OnDropMimeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `itemData` instead
+    ///
+    pub const ItemData = itemData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -3999,13 +4795,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
-    pub fn ItemData(self: QSqlTableModel, allocator: std.mem.Allocator, index: anytype) ArrayMap_i32_QVariant {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        const _map: qtc.libqt_map = qtc.QSqlTableModel_ItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
+    pub fn itemData(self: QSqlTableModel, allocator: std.mem.Allocator, _index: anytype) ArrayMap_i32_QVariant {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        const _map: qtc.libqt_map = qtc.QSqlTableModel_ItemData(@ptrCast(self.ptr), @ptrCast(_index.ptr));
         var _ret: ArrayMap_i32_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QSqlTableModel.ItemData: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QSqlTableModel.itemData: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -4021,9 +4817,9 @@ pub const QSqlTableModel = extern struct {
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `SuperItemData` instead
+    /// ### DEPRECATED: Use `superItemData` instead
     ///
-    pub const QBaseItemData = SuperItemData;
+    pub const SuperItemData = superItemData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4037,13 +4833,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
-    pub fn SuperItemData(self: QSqlTableModel, allocator: std.mem.Allocator, index: anytype) ArrayMap_i32_QVariant {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        const _map: qtc.libqt_map = qtc.QSqlTableModel_SuperItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
+    pub fn superItemData(self: QSqlTableModel, allocator: std.mem.Allocator, _index: anytype) ArrayMap_i32_QVariant {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        const _map: qtc.libqt_map = qtc.QSqlTableModel_SuperItemData(@ptrCast(self.ptr), @ptrCast(_index.ptr));
         var _ret: ArrayMap_i32_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QSqlTableModel.ItemData: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QSqlTableModel.itemData: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -4058,6 +4854,10 @@ pub const QSqlTableModel = extern struct {
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onItemData` instead
+    ///
+    pub const OnItemData = onItemData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4075,9 +4875,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` C ABI representation of ArrayMap_i32_QVariant `
     ///
-    pub fn OnItemData(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex) callconv(.c) qtc.libqt_map) void {
+    pub fn onItemData(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex) callconv(.c) qtc.libqt_map) void {
         qtc.QSqlTableModel_OnItemData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setItemData` instead
+    ///
+    pub const SetItemData = setItemData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4091,16 +4895,16 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
     /// ` roles: ArrayMap_i32_QVariant `
     ///
-    pub fn SetItemData(self: QSqlTableModel, allocator: std.mem.Allocator, index: anytype, roles: ArrayMap_i32_QVariant) bool {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
+    pub fn setItemData(self: QSqlTableModel, allocator: std.mem.Allocator, _index: anytype, roles: ArrayMap_i32_QVariant) bool {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
         const roles_count = roles.count();
-        const roles_keys = allocator.alloc(i32, roles_count) catch @panic("QSqlTableModel.SetItemData: Memory allocation failed");
+        const roles_keys = allocator.alloc(i32, roles_count) catch @panic("QSqlTableModel.setItemData: Memory allocation failed");
         defer allocator.free(roles_keys);
-        const roles_values = allocator.alloc(QtC.QVariant, roles_count) catch @panic("QSqlTableModel.SetItemData: Memory allocation failed");
+        const roles_values = allocator.alloc(QtC.QVariant, roles_count) catch @panic("QSqlTableModel.setItemData: Memory allocation failed");
         defer allocator.free(roles_values);
         var i: usize = 0;
         var roles_it = roles.iterator();
@@ -4114,12 +4918,12 @@ pub const QSqlTableModel = extern struct {
             .keys = @ptrCast(roles_keys.ptr),
             .values = @ptrCast(roles_values.ptr),
         };
-        return qtc.QSqlTableModel_SetItemData(@ptrCast(self.ptr), @ptrCast(index.ptr), roles_map);
+        return qtc.QSqlTableModel_SetItemData(@ptrCast(self.ptr), @ptrCast(_index.ptr), roles_map);
     }
 
-    /// ### DEPRECATED: Use `SuperSetItemData` instead
+    /// ### DEPRECATED: Use `superSetItemData` instead
     ///
-    pub const QBaseSetItemData = SuperSetItemData;
+    pub const SuperSetItemData = superSetItemData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4133,16 +4937,16 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
     /// ` roles: ArrayMap_i32_QVariant `
     ///
-    pub fn SuperSetItemData(self: QSqlTableModel, allocator: std.mem.Allocator, index: anytype, roles: ArrayMap_i32_QVariant) bool {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
+    pub fn superSetItemData(self: QSqlTableModel, allocator: std.mem.Allocator, _index: anytype, roles: ArrayMap_i32_QVariant) bool {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
         const roles_count = roles.count();
-        const roles_keys = allocator.alloc(i32, roles_count) catch @panic("QSqlTableModel.SetItemData: Memory allocation failed");
+        const roles_keys = allocator.alloc(i32, roles_count) catch @panic("QSqlTableModel.setItemData: Memory allocation failed");
         defer allocator.free(roles_keys);
-        const roles_values = allocator.alloc(QtC.QVariant, roles_count) catch @panic("QSqlTableModel.SetItemData: Memory allocation failed");
+        const roles_values = allocator.alloc(QtC.QVariant, roles_count) catch @panic("QSqlTableModel.setItemData: Memory allocation failed");
         defer allocator.free(roles_values);
         var i: usize = 0;
         var roles_it = roles.iterator();
@@ -4156,8 +4960,12 @@ pub const QSqlTableModel = extern struct {
             .keys = @ptrCast(roles_keys.ptr),
             .values = @ptrCast(roles_values.ptr),
         };
-        return qtc.QSqlTableModel_SuperSetItemData(@ptrCast(self.ptr), @ptrCast(index.ptr), roles_map);
+        return qtc.QSqlTableModel_SuperSetItemData(@ptrCast(self.ptr), @ptrCast(_index.ptr), roles_map);
     }
+
+    /// ### DEPRECATED: Use `onSetItemData` instead
+    ///
+    pub const OnSetItemData = onSetItemData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4171,9 +4979,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, index: QModelIndex, roles: qtc.libqt_map (ArrayMap_i32_QVariant)) callconv(.c) bool `
     ///
-    pub fn OnSetItemData(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, qtc.libqt_map) callconv(.c) bool) void {
+    pub fn onSetItemData(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, qtc.libqt_map) callconv(.c) bool) void {
         qtc.QSqlTableModel_OnSetItemData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mimeTypes` instead
+    ///
+    pub const MimeTypes = mimeTypes;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4187,7 +4999,7 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MimeTypes(self: QSqlTableModel, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn mimeTypes(self: QSqlTableModel, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QSqlTableModel_MimeTypes(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -4195,19 +5007,19 @@ pub const QSqlTableModel = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QSqlTableModel.MimeTypes: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QSqlTableModel.mimeTypes: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QSqlTableModel.MimeTypes: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QSqlTableModel.mimeTypes: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `SuperMimeTypes` instead
+    /// ### DEPRECATED: Use `superMimeTypes` instead
     ///
-    pub const QBaseMimeTypes = SuperMimeTypes;
+    pub const SuperMimeTypes = superMimeTypes;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4221,7 +5033,7 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperMimeTypes(self: QSqlTableModel, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn superMimeTypes(self: QSqlTableModel, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QSqlTableModel_SuperMimeTypes(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -4229,15 +5041,19 @@ pub const QSqlTableModel = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QSqlTableModel.MimeTypes: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QSqlTableModel.mimeTypes: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QSqlTableModel.MimeTypes: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QSqlTableModel.mimeTypes: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onMimeTypes` instead
+    ///
+    pub const OnMimeTypes = onMimeTypes;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4253,9 +5069,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn OnMimeTypes(self: QSqlTableModel, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
+    pub fn onMimeTypes(self: QSqlTableModel, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.QSqlTableModel_OnMimeTypes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mimeData` instead
+    ///
+    pub const MimeData = mimeData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4269,7 +5089,7 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` indexes: []QModelIndex `
     ///
-    pub fn MimeData(self: QSqlTableModel, indexes: []QModelIndex) QMimeData {
+    pub fn mimeData(self: QSqlTableModel, indexes: []QModelIndex) QMimeData {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
@@ -4277,9 +5097,9 @@ pub const QSqlTableModel = extern struct {
         return .{ .ptr = qtc.QSqlTableModel_MimeData(@ptrCast(self.ptr), indexes_list) };
     }
 
-    /// ### DEPRECATED: Use `SuperMimeData` instead
+    /// ### DEPRECATED: Use `superMimeData` instead
     ///
-    pub const QBaseMimeData = SuperMimeData;
+    pub const SuperMimeData = superMimeData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4293,13 +5113,17 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` indexes: []QModelIndex `
     ///
-    pub fn SuperMimeData(self: QSqlTableModel, indexes: []QModelIndex) QMimeData {
+    pub fn superMimeData(self: QSqlTableModel, indexes: []QModelIndex) QMimeData {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
         return .{ .ptr = qtc.QSqlTableModel_SuperMimeData(@ptrCast(self.ptr), indexes_list) };
     }
+
+    /// ### DEPRECATED: Use `onMimeData` instead
+    ///
+    pub const OnMimeData = onMimeData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4313,9 +5137,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, indexes: qtc.libqt_list ([]QModelIndex)) callconv(.c) QMimeData `
     ///
-    pub fn OnMimeData(self: QSqlTableModel, callback: *const fn (QSqlTableModel, qtc.libqt_list) callconv(.c) QMimeData) void {
+    pub fn onMimeData(self: QSqlTableModel, callback: *const fn (QSqlTableModel, qtc.libqt_list) callconv(.c) QMimeData) void {
         qtc.QSqlTableModel_OnMimeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `canDropMimeData` instead
+    ///
+    pub const CanDropMimeData = canDropMimeData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4327,7 +5155,7 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` data: QMimeData `
+    /// ` _data: QMimeData `
     ///
     /// ` action: qnamespace_enums.DropAction `
     ///
@@ -4335,17 +5163,17 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn CanDropMimeData(self: QSqlTableModel, data: anytype, action: i32, row: i32, column: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(data)._is_QMimeData;
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QSqlTableModel_CanDropMimeData(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
+    pub fn canDropMimeData(self: QSqlTableModel, _data: anytype, action: i32, row: i32, column: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_data)._is_QMimeData;
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QSqlTableModel_CanDropMimeData(@ptrCast(self.ptr), @ptrCast(_data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(_parent.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCanDropMimeData` instead
+    /// ### DEPRECATED: Use `superCanDropMimeData` instead
     ///
-    pub const QBaseCanDropMimeData = SuperCanDropMimeData;
+    pub const SuperCanDropMimeData = superCanDropMimeData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4357,7 +5185,7 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` data: QMimeData `
+    /// ` _data: QMimeData `
     ///
     /// ` action: qnamespace_enums.DropAction `
     ///
@@ -4365,13 +5193,17 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn SuperCanDropMimeData(self: QSqlTableModel, data: anytype, action: i32, row: i32, column: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(data)._is_QMimeData;
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QSqlTableModel_SuperCanDropMimeData(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
+    pub fn superCanDropMimeData(self: QSqlTableModel, _data: anytype, action: i32, row: i32, column: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_data)._is_QMimeData;
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QSqlTableModel_SuperCanDropMimeData(@ptrCast(self.ptr), @ptrCast(_data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCanDropMimeData` instead
+    ///
+    pub const OnCanDropMimeData = onCanDropMimeData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4385,10 +5217,14 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, data: QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnCanDropMimeData(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QMimeData, i32, i32, i32, QModelIndex) callconv(.c) bool) void {
+    pub fn onCanDropMimeData(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QMimeData, i32, i32, i32, QModelIndex) callconv(.c) bool) void {
         qtc.QSqlTableModel_OnCanDropMimeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `supportedDropActions` instead
+    ///
+    pub const SupportedDropActions = supportedDropActions;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDropActions)
@@ -4403,13 +5239,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn SupportedDropActions(self: QSqlTableModel) i32 {
+    pub fn supportedDropActions(self: QSqlTableModel) i32 {
         return qtc.QSqlTableModel_SupportedDropActions(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSupportedDropActions` instead
+    /// ### DEPRECATED: Use `superSupportedDropActions` instead
     ///
-    pub const QBaseSupportedDropActions = SuperSupportedDropActions;
+    pub const SuperSupportedDropActions = superSupportedDropActions;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4425,9 +5261,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn SuperSupportedDropActions(self: QSqlTableModel) i32 {
+    pub fn superSupportedDropActions(self: QSqlTableModel) i32 {
         return qtc.QSqlTableModel_SuperSupportedDropActions(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSupportedDropActions` instead
+    ///
+    pub const OnSupportedDropActions = onSupportedDropActions;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4441,9 +5281,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSupportedDropActions(self: QSqlTableModel, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSupportedDropActions(self: QSqlTableModel, callback: *const fn () callconv(.c) i32) void {
         qtc.QSqlTableModel_OnSupportedDropActions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `supportedDragActions` instead
+    ///
+    pub const SupportedDragActions = supportedDragActions;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4459,13 +5303,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn SupportedDragActions(self: QSqlTableModel) i32 {
+    pub fn supportedDragActions(self: QSqlTableModel) i32 {
         return qtc.QSqlTableModel_SupportedDragActions(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSupportedDragActions` instead
+    /// ### DEPRECATED: Use `superSupportedDragActions` instead
     ///
-    pub const QBaseSupportedDragActions = SuperSupportedDragActions;
+    pub const SuperSupportedDragActions = superSupportedDragActions;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4481,9 +5325,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn SuperSupportedDragActions(self: QSqlTableModel) i32 {
+    pub fn superSupportedDragActions(self: QSqlTableModel) i32 {
         return qtc.QSqlTableModel_SuperSupportedDragActions(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSupportedDragActions` instead
+    ///
+    pub const OnSupportedDragActions = onSupportedDragActions;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4497,9 +5345,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSupportedDragActions(self: QSqlTableModel, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSupportedDragActions(self: QSqlTableModel, callback: *const fn () callconv(.c) i32) void {
         qtc.QSqlTableModel_OnSupportedDragActions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveRows` instead
+    ///
+    pub const MoveRows = moveRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4521,15 +5373,15 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn MoveRows(self: QSqlTableModel, sourceParent: anytype, sourceRow: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
+    pub fn moveRows(self: QSqlTableModel, sourceParent: anytype, sourceRow: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
         comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
         comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
         return qtc.QSqlTableModel_MoveRows(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveRows` instead
+    /// ### DEPRECATED: Use `superMoveRows` instead
     ///
-    pub const QBaseMoveRows = SuperMoveRows;
+    pub const SuperMoveRows = superMoveRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4551,11 +5403,15 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn SuperMoveRows(self: QSqlTableModel, sourceParent: anytype, sourceRow: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
+    pub fn superMoveRows(self: QSqlTableModel, sourceParent: anytype, sourceRow: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
         comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
         comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
         return qtc.QSqlTableModel_SuperMoveRows(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
+
+    /// ### DEPRECATED: Use `onMoveRows` instead
+    ///
+    pub const OnMoveRows = onMoveRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4569,9 +5425,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, sourceParent: QModelIndex, sourceRow: i32, count: i32, destinationParent: QModelIndex, destinationChild: i32) callconv(.c) bool `
     ///
-    pub fn OnMoveRows(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
+    pub fn onMoveRows(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
         qtc.QSqlTableModel_OnMoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveColumns` instead
+    ///
+    pub const MoveColumns = moveColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4593,15 +5453,15 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn MoveColumns(self: QSqlTableModel, sourceParent: anytype, sourceColumn: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
+    pub fn moveColumns(self: QSqlTableModel, sourceParent: anytype, sourceColumn: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
         comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
         comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
         return qtc.QSqlTableModel_MoveColumns(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveColumns` instead
+    /// ### DEPRECATED: Use `superMoveColumns` instead
     ///
-    pub const QBaseMoveColumns = SuperMoveColumns;
+    pub const SuperMoveColumns = superMoveColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4623,11 +5483,15 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn SuperMoveColumns(self: QSqlTableModel, sourceParent: anytype, sourceColumn: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
+    pub fn superMoveColumns(self: QSqlTableModel, sourceParent: anytype, sourceColumn: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
         comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
         comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
         return qtc.QSqlTableModel_SuperMoveColumns(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
+
+    /// ### DEPRECATED: Use `onMoveColumns` instead
+    ///
+    pub const OnMoveColumns = onMoveColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4641,9 +5505,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, sourceParent: QModelIndex, sourceColumn: i32, count: i32, destinationParent: QModelIndex, destinationChild: i32) callconv(.c) bool `
     ///
-    pub fn OnMoveColumns(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
+    pub fn onMoveColumns(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
         qtc.QSqlTableModel_OnMoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `buddy` instead
+    ///
+    pub const Buddy = buddy;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4655,16 +5523,16 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
-    pub fn Buddy(self: QSqlTableModel, index: anytype) QModelIndex {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return .{ .ptr = qtc.QSqlTableModel_Buddy(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
+    pub fn buddy(self: QSqlTableModel, _index: anytype) QModelIndex {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return .{ .ptr = qtc.QSqlTableModel_Buddy(@ptrCast(self.ptr), @ptrCast(_index.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperBuddy` instead
+    /// ### DEPRECATED: Use `superBuddy` instead
     ///
-    pub const QBaseBuddy = SuperBuddy;
+    pub const SuperBuddy = superBuddy;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4676,12 +5544,16 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
-    pub fn SuperBuddy(self: QSqlTableModel, index: anytype) QModelIndex {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return .{ .ptr = qtc.QSqlTableModel_SuperBuddy(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
+    pub fn superBuddy(self: QSqlTableModel, _index: anytype) QModelIndex {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return .{ .ptr = qtc.QSqlTableModel_SuperBuddy(@ptrCast(self.ptr), @ptrCast(_index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onBuddy` instead
+    ///
+    pub const OnBuddy = onBuddy;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4697,9 +5569,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnBuddy(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex) callconv(.c) QModelIndex) void {
+    pub fn onBuddy(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QSqlTableModel_OnBuddy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `match` instead
+    ///
+    pub const Match = match;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4721,23 +5597,23 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` hits: i32 `
     ///
-    /// ` flags: flag of qnamespace_enums.MatchFlag `
+    /// ` _flags: flag of qnamespace_enums.MatchFlag `
     ///
-    pub fn Match(self: QSqlTableModel, allocator: std.mem.Allocator, start: anytype, role: i32, value: anytype, hits: i32, flags: i32) []QModelIndex {
+    pub fn match(self: QSqlTableModel, allocator: std.mem.Allocator, start: anytype, role: i32, value: anytype, hits: i32, _flags: i32) []QModelIndex {
         comptime _ = @TypeOf(start)._is_QModelIndex;
         comptime _ = @TypeOf(value)._is_QVariant;
-        const _arr: qtc.libqt_list = qtc.QSqlTableModel_Match(@ptrCast(self.ptr), @ptrCast(start.ptr), @bitCast(role), @ptrCast(value.ptr), @bitCast(hits), @bitCast(flags));
+        const _arr: qtc.libqt_list = qtc.QSqlTableModel_Match(@ptrCast(self.ptr), @ptrCast(start.ptr), @bitCast(role), @ptrCast(value.ptr), @bitCast(hits), @bitCast(_flags));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("QSqlTableModel.Match: Memory allocation failed");
-        const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("QSqlTableModel.match: Memory allocation failed");
+        const _data_val: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `SuperMatch` instead
+    /// ### DEPRECATED: Use `superMatch` instead
     ///
-    pub const QBaseMatch = SuperMatch;
+    pub const SuperMatch = superMatch;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4759,19 +5635,23 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` hits: i32 `
     ///
-    /// ` flags: flag of qnamespace_enums.MatchFlag `
+    /// ` _flags: flag of qnamespace_enums.MatchFlag `
     ///
-    pub fn SuperMatch(self: QSqlTableModel, allocator: std.mem.Allocator, start: anytype, role: i32, value: anytype, hits: i32, flags: i32) []QModelIndex {
+    pub fn superMatch(self: QSqlTableModel, allocator: std.mem.Allocator, start: anytype, role: i32, value: anytype, hits: i32, _flags: i32) []QModelIndex {
         comptime _ = @TypeOf(start)._is_QModelIndex;
         comptime _ = @TypeOf(value)._is_QVariant;
-        const _arr: qtc.libqt_list = qtc.QSqlTableModel_SuperMatch(@ptrCast(self.ptr), @ptrCast(start.ptr), @bitCast(role), @ptrCast(value.ptr), @bitCast(hits), @bitCast(flags));
+        const _arr: qtc.libqt_list = qtc.QSqlTableModel_SuperMatch(@ptrCast(self.ptr), @ptrCast(start.ptr), @bitCast(role), @ptrCast(value.ptr), @bitCast(hits), @bitCast(_flags));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("QSqlTableModel.Match: Memory allocation failed");
-        const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("QSqlTableModel.match: Memory allocation failed");
+        const _data_val: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onMatch` instead
+    ///
+    pub const OnMatch = onMatch;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4791,9 +5671,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` C ABI representation of []QModelIndex `
     ///
-    pub fn OnMatch(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, i32, QVariant, i32, i32) callconv(.c) qtc.libqt_list) void {
+    pub fn onMatch(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, i32, QVariant, i32, i32) callconv(.c) qtc.libqt_list) void {
         qtc.QSqlTableModel_OnMatch(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `span` instead
+    ///
+    pub const Span = span;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4805,16 +5689,16 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
-    pub fn Span(self: QSqlTableModel, index: anytype) QSize {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return .{ .ptr = qtc.QSqlTableModel_Span(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
+    pub fn span(self: QSqlTableModel, _index: anytype) QSize {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return .{ .ptr = qtc.QSqlTableModel_Span(@ptrCast(self.ptr), @ptrCast(_index.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSpan` instead
+    /// ### DEPRECATED: Use `superSpan` instead
     ///
-    pub const QBaseSpan = SuperSpan;
+    pub const SuperSpan = superSpan;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4826,12 +5710,16 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
-    pub fn SuperSpan(self: QSqlTableModel, index: anytype) QSize {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return .{ .ptr = qtc.QSqlTableModel_SuperSpan(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
+    pub fn superSpan(self: QSqlTableModel, _index: anytype) QSize {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return .{ .ptr = qtc.QSqlTableModel_SuperSpan(@ptrCast(self.ptr), @ptrCast(_index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSpan` instead
+    ///
+    pub const OnSpan = onSpan;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4847,9 +5735,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSpan(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex) callconv(.c) QSize) void {
+    pub fn onSpan(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex) callconv(.c) QSize) void {
         qtc.QSqlTableModel_OnSpan(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `multiData` instead
+    ///
+    pub const MultiData = multiData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4861,19 +5753,19 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
     /// ` roleDataSpan: QModelRoleDataSpan `
     ///
-    pub fn MultiData(self: QSqlTableModel, index: anytype, roleDataSpan: anytype) void {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
+    pub fn multiData(self: QSqlTableModel, _index: anytype, roleDataSpan: anytype) void {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
         comptime _ = @TypeOf(roleDataSpan)._is_QModelRoleDataSpan;
-        qtc.QSqlTableModel_MultiData(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(roleDataSpan.ptr));
+        qtc.QSqlTableModel_MultiData(@ptrCast(self.ptr), @ptrCast(_index.ptr), @ptrCast(roleDataSpan.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMultiData` instead
+    /// ### DEPRECATED: Use `superMultiData` instead
     ///
-    pub const QBaseMultiData = SuperMultiData;
+    pub const SuperMultiData = superMultiData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4885,15 +5777,19 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
     /// ` roleDataSpan: QModelRoleDataSpan `
     ///
-    pub fn SuperMultiData(self: QSqlTableModel, index: anytype, roleDataSpan: anytype) void {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
+    pub fn superMultiData(self: QSqlTableModel, _index: anytype, roleDataSpan: anytype) void {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
         comptime _ = @TypeOf(roleDataSpan)._is_QModelRoleDataSpan;
-        qtc.QSqlTableModel_SuperMultiData(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(roleDataSpan.ptr));
+        qtc.QSqlTableModel_SuperMultiData(@ptrCast(self.ptr), @ptrCast(_index.ptr), @ptrCast(roleDataSpan.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMultiData` instead
+    ///
+    pub const OnMultiData = onMultiData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4907,9 +5803,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, index: QModelIndex, roleDataSpan: QModelRoleDataSpan) callconv(.c) void `
     ///
-    pub fn OnMultiData(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, QModelRoleDataSpan) callconv(.c) void) void {
+    pub fn onMultiData(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, QModelRoleDataSpan) callconv(.c) void) void {
         qtc.QSqlTableModel_OnMultiData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resetInternalData` instead
+    ///
+    pub const ResetInternalData = resetInternalData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4921,13 +5821,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn ResetInternalData(self: QSqlTableModel) void {
+    pub fn resetInternalData(self: QSqlTableModel) void {
         qtc.QSqlTableModel_ResetInternalData(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResetInternalData` instead
+    /// ### DEPRECATED: Use `superResetInternalData` instead
     ///
-    pub const QBaseResetInternalData = SuperResetInternalData;
+    pub const SuperResetInternalData = superResetInternalData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4939,9 +5839,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn SuperResetInternalData(self: QSqlTableModel) void {
+    pub fn superResetInternalData(self: QSqlTableModel) void {
         qtc.QSqlTableModel_SuperResetInternalData(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResetInternalData` instead
+    ///
+    pub const OnResetInternalData = onResetInternalData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4955,9 +5859,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnResetInternalData(self: QSqlTableModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onResetInternalData(self: QSqlTableModel, callback: *const fn () callconv(.c) void) void {
         qtc.QSqlTableModel_OnResetInternalData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -4969,16 +5877,16 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QSqlTableModel, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QSqlTableModel_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QSqlTableModel, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QSqlTableModel_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -4990,12 +5898,16 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QSqlTableModel, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QSqlTableModel_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QSqlTableModel, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QSqlTableModel_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -5009,9 +5921,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QEvent) callconv(.c) bool) void {
         qtc.QSqlTableModel_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -5025,17 +5941,17 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QSqlTableModel, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QSqlTableModel, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QSqlTableModel_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QSqlTableModel_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5049,13 +5965,17 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QSqlTableModel, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QSqlTableModel, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QSqlTableModel_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QSqlTableModel_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5069,9 +5989,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QObject, QEvent) callconv(.c) bool) void {
         qtc.QSqlTableModel_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -5083,16 +6007,16 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QSqlTableModel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QSqlTableModel_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QSqlTableModel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QSqlTableModel_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -5104,12 +6028,16 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QSqlTableModel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QSqlTableModel_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QSqlTableModel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QSqlTableModel_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -5123,9 +6051,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QTimerEvent) callconv(.c) void) void {
         qtc.QSqlTableModel_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -5137,16 +6069,16 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QSqlTableModel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QSqlTableModel_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QSqlTableModel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QSqlTableModel_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -5158,12 +6090,16 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QSqlTableModel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QSqlTableModel_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QSqlTableModel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QSqlTableModel_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -5177,9 +6113,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QChildEvent) callconv(.c) void) void {
         qtc.QSqlTableModel_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -5191,16 +6131,16 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QSqlTableModel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QSqlTableModel_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QSqlTableModel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QSqlTableModel_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -5212,12 +6152,16 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QSqlTableModel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QSqlTableModel_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QSqlTableModel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QSqlTableModel_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -5231,9 +6175,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QEvent) callconv(.c) void) void {
         qtc.QSqlTableModel_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -5247,14 +6195,14 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QSqlTableModel, signal: anytype) void {
+    pub fn connectNotify(self: QSqlTableModel, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QSqlTableModel_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -5268,11 +6216,15 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QSqlTableModel, signal: anytype) void {
+    pub fn superConnectNotify(self: QSqlTableModel, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QSqlTableModel_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -5285,9 +6237,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QMetaMethod) callconv(.c) void) void {
         qtc.QSqlTableModel_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -5301,14 +6257,14 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QSqlTableModel, signal: anytype) void {
+    pub fn disconnectNotify(self: QSqlTableModel, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QSqlTableModel_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -5322,10 +6278,14 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QSqlTableModel, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QSqlTableModel, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QSqlTableModel_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -5339,10 +6299,14 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QMetaMethod) callconv(.c) void) void {
         qtc.QSqlTableModel_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `beginInsertRows` instead
+    ///
+    pub const BeginInsertRows = beginInsertRows;
+
     /// Inherited from QSqlQueryModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#beginInsertRows)
@@ -5353,20 +6317,20 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn BeginInsertRows(self: QSqlTableModel, parent: anytype, first: i32, last: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.QSqlTableModel_BeginInsertRows(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
+    pub fn beginInsertRows(self: QSqlTableModel, _parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.QSqlTableModel_BeginInsertRows(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
     }
 
-    /// ### DEPRECATED: Use `SuperBeginInsertRows` instead
+    /// ### DEPRECATED: Use `superBeginInsertRows` instead
     ///
-    pub const QBaseBeginInsertRows = SuperBeginInsertRows;
+    pub const SuperBeginInsertRows = superBeginInsertRows;
 
     /// Inherited from QSqlQueryModel
     ///
@@ -5378,16 +6342,20 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn SuperBeginInsertRows(self: QSqlTableModel, parent: anytype, first: i32, last: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.QSqlTableModel_SuperBeginInsertRows(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
+    pub fn superBeginInsertRows(self: QSqlTableModel, _parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.QSqlTableModel_SuperBeginInsertRows(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
     }
+
+    /// ### DEPRECATED: Use `onBeginInsertRows` instead
+    ///
+    pub const OnBeginInsertRows = onBeginInsertRows;
 
     /// Inherited from QSqlQueryModel
     ///
@@ -5401,10 +6369,14 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnBeginInsertRows(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onBeginInsertRows(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QSqlTableModel_OnBeginInsertRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `endInsertRows` instead
+    ///
+    pub const EndInsertRows = endInsertRows;
+
     /// Inherited from QSqlQueryModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#endInsertRows)
@@ -5415,13 +6387,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn EndInsertRows(self: QSqlTableModel) void {
+    pub fn endInsertRows(self: QSqlTableModel) void {
         qtc.QSqlTableModel_EndInsertRows(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEndInsertRows` instead
+    /// ### DEPRECATED: Use `superEndInsertRows` instead
     ///
-    pub const QBaseEndInsertRows = SuperEndInsertRows;
+    pub const SuperEndInsertRows = superEndInsertRows;
 
     /// Inherited from QSqlQueryModel
     ///
@@ -5433,10 +6405,14 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn SuperEndInsertRows(self: QSqlTableModel) void {
+    pub fn superEndInsertRows(self: QSqlTableModel) void {
         qtc.QSqlTableModel_SuperEndInsertRows(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onEndInsertRows` instead
+    ///
+    pub const OnEndInsertRows = onEndInsertRows;
+
     /// Inherited from QSqlQueryModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#endInsertRows)
@@ -5449,10 +6425,14 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndInsertRows(self: QSqlTableModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onEndInsertRows(self: QSqlTableModel, callback: *const fn () callconv(.c) void) void {
         qtc.QSqlTableModel_OnEndInsertRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `beginRemoveRows` instead
+    ///
+    pub const BeginRemoveRows = beginRemoveRows;
+
     /// Inherited from QSqlQueryModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#beginRemoveRows)
@@ -5463,20 +6443,20 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn BeginRemoveRows(self: QSqlTableModel, parent: anytype, first: i32, last: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.QSqlTableModel_BeginRemoveRows(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
+    pub fn beginRemoveRows(self: QSqlTableModel, _parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.QSqlTableModel_BeginRemoveRows(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
     }
 
-    /// ### DEPRECATED: Use `SuperBeginRemoveRows` instead
+    /// ### DEPRECATED: Use `superBeginRemoveRows` instead
     ///
-    pub const QBaseBeginRemoveRows = SuperBeginRemoveRows;
+    pub const SuperBeginRemoveRows = superBeginRemoveRows;
 
     /// Inherited from QSqlQueryModel
     ///
@@ -5488,16 +6468,20 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn SuperBeginRemoveRows(self: QSqlTableModel, parent: anytype, first: i32, last: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.QSqlTableModel_SuperBeginRemoveRows(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
+    pub fn superBeginRemoveRows(self: QSqlTableModel, _parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.QSqlTableModel_SuperBeginRemoveRows(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
     }
+
+    /// ### DEPRECATED: Use `onBeginRemoveRows` instead
+    ///
+    pub const OnBeginRemoveRows = onBeginRemoveRows;
 
     /// Inherited from QSqlQueryModel
     ///
@@ -5511,10 +6495,14 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnBeginRemoveRows(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onBeginRemoveRows(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QSqlTableModel_OnBeginRemoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `endRemoveRows` instead
+    ///
+    pub const EndRemoveRows = endRemoveRows;
+
     /// Inherited from QSqlQueryModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#endRemoveRows)
@@ -5525,13 +6513,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn EndRemoveRows(self: QSqlTableModel) void {
+    pub fn endRemoveRows(self: QSqlTableModel) void {
         qtc.QSqlTableModel_EndRemoveRows(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEndRemoveRows` instead
+    /// ### DEPRECATED: Use `superEndRemoveRows` instead
     ///
-    pub const QBaseEndRemoveRows = SuperEndRemoveRows;
+    pub const SuperEndRemoveRows = superEndRemoveRows;
 
     /// Inherited from QSqlQueryModel
     ///
@@ -5543,10 +6531,14 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn SuperEndRemoveRows(self: QSqlTableModel) void {
+    pub fn superEndRemoveRows(self: QSqlTableModel) void {
         qtc.QSqlTableModel_SuperEndRemoveRows(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onEndRemoveRows` instead
+    ///
+    pub const OnEndRemoveRows = onEndRemoveRows;
+
     /// Inherited from QSqlQueryModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#endRemoveRows)
@@ -5559,10 +6551,14 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndRemoveRows(self: QSqlTableModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onEndRemoveRows(self: QSqlTableModel, callback: *const fn () callconv(.c) void) void {
         qtc.QSqlTableModel_OnEndRemoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `beginInsertColumns` instead
+    ///
+    pub const BeginInsertColumns = beginInsertColumns;
+
     /// Inherited from QSqlQueryModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#beginInsertColumns)
@@ -5573,20 +6569,20 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn BeginInsertColumns(self: QSqlTableModel, parent: anytype, first: i32, last: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.QSqlTableModel_BeginInsertColumns(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
+    pub fn beginInsertColumns(self: QSqlTableModel, _parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.QSqlTableModel_BeginInsertColumns(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
     }
 
-    /// ### DEPRECATED: Use `SuperBeginInsertColumns` instead
+    /// ### DEPRECATED: Use `superBeginInsertColumns` instead
     ///
-    pub const QBaseBeginInsertColumns = SuperBeginInsertColumns;
+    pub const SuperBeginInsertColumns = superBeginInsertColumns;
 
     /// Inherited from QSqlQueryModel
     ///
@@ -5598,16 +6594,20 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn SuperBeginInsertColumns(self: QSqlTableModel, parent: anytype, first: i32, last: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.QSqlTableModel_SuperBeginInsertColumns(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
+    pub fn superBeginInsertColumns(self: QSqlTableModel, _parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.QSqlTableModel_SuperBeginInsertColumns(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
     }
+
+    /// ### DEPRECATED: Use `onBeginInsertColumns` instead
+    ///
+    pub const OnBeginInsertColumns = onBeginInsertColumns;
 
     /// Inherited from QSqlQueryModel
     ///
@@ -5621,10 +6621,14 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnBeginInsertColumns(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onBeginInsertColumns(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QSqlTableModel_OnBeginInsertColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `endInsertColumns` instead
+    ///
+    pub const EndInsertColumns = endInsertColumns;
+
     /// Inherited from QSqlQueryModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#endInsertColumns)
@@ -5635,13 +6639,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn EndInsertColumns(self: QSqlTableModel) void {
+    pub fn endInsertColumns(self: QSqlTableModel) void {
         qtc.QSqlTableModel_EndInsertColumns(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEndInsertColumns` instead
+    /// ### DEPRECATED: Use `superEndInsertColumns` instead
     ///
-    pub const QBaseEndInsertColumns = SuperEndInsertColumns;
+    pub const SuperEndInsertColumns = superEndInsertColumns;
 
     /// Inherited from QSqlQueryModel
     ///
@@ -5653,9 +6657,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn SuperEndInsertColumns(self: QSqlTableModel) void {
+    pub fn superEndInsertColumns(self: QSqlTableModel) void {
         qtc.QSqlTableModel_SuperEndInsertColumns(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEndInsertColumns` instead
+    ///
+    pub const OnEndInsertColumns = onEndInsertColumns;
 
     /// Inherited from QSqlQueryModel
     ///
@@ -5669,9 +6677,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndInsertColumns(self: QSqlTableModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onEndInsertColumns(self: QSqlTableModel, callback: *const fn () callconv(.c) void) void {
         qtc.QSqlTableModel_OnEndInsertColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `beginRemoveColumns` instead
+    ///
+    pub const BeginRemoveColumns = beginRemoveColumns;
 
     /// Inherited from QSqlQueryModel
     ///
@@ -5683,20 +6695,20 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn BeginRemoveColumns(self: QSqlTableModel, parent: anytype, first: i32, last: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.QSqlTableModel_BeginRemoveColumns(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
+    pub fn beginRemoveColumns(self: QSqlTableModel, _parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.QSqlTableModel_BeginRemoveColumns(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
     }
 
-    /// ### DEPRECATED: Use `SuperBeginRemoveColumns` instead
+    /// ### DEPRECATED: Use `superBeginRemoveColumns` instead
     ///
-    pub const QBaseBeginRemoveColumns = SuperBeginRemoveColumns;
+    pub const SuperBeginRemoveColumns = superBeginRemoveColumns;
 
     /// Inherited from QSqlQueryModel
     ///
@@ -5708,16 +6720,20 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn SuperBeginRemoveColumns(self: QSqlTableModel, parent: anytype, first: i32, last: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.QSqlTableModel_SuperBeginRemoveColumns(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
+    pub fn superBeginRemoveColumns(self: QSqlTableModel, _parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.QSqlTableModel_SuperBeginRemoveColumns(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
     }
+
+    /// ### DEPRECATED: Use `onBeginRemoveColumns` instead
+    ///
+    pub const OnBeginRemoveColumns = onBeginRemoveColumns;
 
     /// Inherited from QSqlQueryModel
     ///
@@ -5731,10 +6747,14 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnBeginRemoveColumns(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onBeginRemoveColumns(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QSqlTableModel_OnBeginRemoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `endRemoveColumns` instead
+    ///
+    pub const EndRemoveColumns = endRemoveColumns;
+
     /// Inherited from QSqlQueryModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#endRemoveColumns)
@@ -5745,13 +6765,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn EndRemoveColumns(self: QSqlTableModel) void {
+    pub fn endRemoveColumns(self: QSqlTableModel) void {
         qtc.QSqlTableModel_EndRemoveColumns(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEndRemoveColumns` instead
+    /// ### DEPRECATED: Use `superEndRemoveColumns` instead
     ///
-    pub const QBaseEndRemoveColumns = SuperEndRemoveColumns;
+    pub const SuperEndRemoveColumns = superEndRemoveColumns;
 
     /// Inherited from QSqlQueryModel
     ///
@@ -5763,10 +6783,14 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn SuperEndRemoveColumns(self: QSqlTableModel) void {
+    pub fn superEndRemoveColumns(self: QSqlTableModel) void {
         qtc.QSqlTableModel_SuperEndRemoveColumns(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onEndRemoveColumns` instead
+    ///
+    pub const OnEndRemoveColumns = onEndRemoveColumns;
+
     /// Inherited from QSqlQueryModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#endRemoveColumns)
@@ -5779,10 +6803,14 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndRemoveColumns(self: QSqlTableModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onEndRemoveColumns(self: QSqlTableModel, callback: *const fn () callconv(.c) void) void {
         qtc.QSqlTableModel_OnEndRemoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `beginResetModel` instead
+    ///
+    pub const BeginResetModel = beginResetModel;
+
     /// Inherited from QSqlQueryModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#beginResetModel)
@@ -5793,13 +6821,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn BeginResetModel(self: QSqlTableModel) void {
+    pub fn beginResetModel(self: QSqlTableModel) void {
         qtc.QSqlTableModel_BeginResetModel(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperBeginResetModel` instead
+    /// ### DEPRECATED: Use `superBeginResetModel` instead
     ///
-    pub const QBaseBeginResetModel = SuperBeginResetModel;
+    pub const SuperBeginResetModel = superBeginResetModel;
 
     /// Inherited from QSqlQueryModel
     ///
@@ -5811,9 +6839,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn SuperBeginResetModel(self: QSqlTableModel) void {
+    pub fn superBeginResetModel(self: QSqlTableModel) void {
         qtc.QSqlTableModel_SuperBeginResetModel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onBeginResetModel` instead
+    ///
+    pub const OnBeginResetModel = onBeginResetModel;
 
     /// Inherited from QSqlQueryModel
     ///
@@ -5827,9 +6859,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnBeginResetModel(self: QSqlTableModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onBeginResetModel(self: QSqlTableModel, callback: *const fn () callconv(.c) void) void {
         qtc.QSqlTableModel_OnBeginResetModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `endResetModel` instead
+    ///
+    pub const EndResetModel = endResetModel;
 
     /// Inherited from QSqlQueryModel
     ///
@@ -5841,13 +6877,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn EndResetModel(self: QSqlTableModel) void {
+    pub fn endResetModel(self: QSqlTableModel) void {
         qtc.QSqlTableModel_EndResetModel(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEndResetModel` instead
+    /// ### DEPRECATED: Use `superEndResetModel` instead
     ///
-    pub const QBaseEndResetModel = SuperEndResetModel;
+    pub const SuperEndResetModel = superEndResetModel;
 
     /// Inherited from QSqlQueryModel
     ///
@@ -5859,9 +6895,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn SuperEndResetModel(self: QSqlTableModel) void {
+    pub fn superEndResetModel(self: QSqlTableModel) void {
         qtc.QSqlTableModel_SuperEndResetModel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEndResetModel` instead
+    ///
+    pub const OnEndResetModel = onEndResetModel;
 
     /// Inherited from QSqlQueryModel
     ///
@@ -5875,9 +6915,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndResetModel(self: QSqlTableModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onEndResetModel(self: QSqlTableModel, callback: *const fn () callconv(.c) void) void {
         qtc.QSqlTableModel_OnEndResetModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setLastError` instead
+    ///
+    pub const SetLastError = setLastError;
 
     /// Inherited from QSqlQueryModel
     ///
@@ -5891,14 +6935,14 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` errorVal: QSqlError `
     ///
-    pub fn SetLastError(self: QSqlTableModel, errorVal: anytype) void {
+    pub fn setLastError(self: QSqlTableModel, errorVal: anytype) void {
         comptime _ = @TypeOf(errorVal)._is_QSqlError;
         qtc.QSqlTableModel_SetLastError(@ptrCast(self.ptr), @ptrCast(errorVal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetLastError` instead
+    /// ### DEPRECATED: Use `superSetLastError` instead
     ///
-    pub const QBaseSetLastError = SuperSetLastError;
+    pub const SuperSetLastError = superSetLastError;
 
     /// Inherited from QSqlQueryModel
     ///
@@ -5912,10 +6956,14 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` errorVal: QSqlError `
     ///
-    pub fn SuperSetLastError(self: QSqlTableModel, errorVal: anytype) void {
+    pub fn superSetLastError(self: QSqlTableModel, errorVal: anytype) void {
         comptime _ = @TypeOf(errorVal)._is_QSqlError;
         qtc.QSqlTableModel_SuperSetLastError(@ptrCast(self.ptr), @ptrCast(errorVal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetLastError` instead
+    ///
+    pub const OnSetLastError = onSetLastError;
 
     /// Inherited from QSqlQueryModel
     ///
@@ -5929,9 +6977,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, errorVal: QSqlError) callconv(.c) void `
     ///
-    pub fn OnSetLastError(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QSqlError) callconv(.c) void) void {
+    pub fn onSetLastError(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QSqlError) callconv(.c) void) void {
         qtc.QSqlTableModel_OnSetLastError(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `createIndex` instead
+    ///
+    pub const CreateIndex = createIndex;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5947,13 +6999,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn CreateIndex(self: QSqlTableModel, row: i32, column: i32) QModelIndex {
+    pub fn createIndex(self: QSqlTableModel, row: i32, column: i32) QModelIndex {
         return .{ .ptr = qtc.QSqlTableModel_CreateIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(column)) };
     }
 
-    /// ### DEPRECATED: Use `SuperCreateIndex` instead
+    /// ### DEPRECATED: Use `superCreateIndex` instead
     ///
-    pub const QBaseCreateIndex = SuperCreateIndex;
+    pub const SuperCreateIndex = superCreateIndex;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5969,9 +7021,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn SuperCreateIndex(self: QSqlTableModel, row: i32, column: i32) QModelIndex {
+    pub fn superCreateIndex(self: QSqlTableModel, row: i32, column: i32) QModelIndex {
         return .{ .ptr = qtc.QSqlTableModel_SuperCreateIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(column)) };
     }
+
+    /// ### DEPRECATED: Use `onCreateIndex` instead
+    ///
+    pub const OnCreateIndex = onCreateIndex;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5987,9 +7043,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnCreateIndex(self: QSqlTableModel, callback: *const fn (QSqlTableModel, i32, i32) callconv(.c) QModelIndex) void {
+    pub fn onCreateIndex(self: QSqlTableModel, callback: *const fn (QSqlTableModel, i32, i32) callconv(.c) QModelIndex) void {
         qtc.QSqlTableModel_OnCreateIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `encodeData` instead
+    ///
+    pub const EncodeData = encodeData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6005,7 +7065,7 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` stream: QDataStream `
     ///
-    pub fn EncodeData(self: QSqlTableModel, indexes: []QModelIndex, stream: anytype) void {
+    pub fn encodeData(self: QSqlTableModel, indexes: []QModelIndex, stream: anytype) void {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
@@ -6014,9 +7074,9 @@ pub const QSqlTableModel = extern struct {
         qtc.QSqlTableModel_EncodeData(@ptrCast(self.ptr), indexes_list, @ptrCast(stream.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEncodeData` instead
+    /// ### DEPRECATED: Use `superEncodeData` instead
     ///
-    pub const QBaseEncodeData = SuperEncodeData;
+    pub const SuperEncodeData = superEncodeData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6032,7 +7092,7 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` stream: QDataStream `
     ///
-    pub fn SuperEncodeData(self: QSqlTableModel, indexes: []QModelIndex, stream: anytype) void {
+    pub fn superEncodeData(self: QSqlTableModel, indexes: []QModelIndex, stream: anytype) void {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
@@ -6040,6 +7100,10 @@ pub const QSqlTableModel = extern struct {
         comptime _ = @TypeOf(stream)._is_QDataStream;
         qtc.QSqlTableModel_SuperEncodeData(@ptrCast(self.ptr), indexes_list, @ptrCast(stream.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEncodeData` instead
+    ///
+    pub const OnEncodeData = onEncodeData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6053,9 +7117,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, indexes: qtc.libqt_list ([]QModelIndex), stream: QDataStream) callconv(.c) void `
     ///
-    pub fn OnEncodeData(self: QSqlTableModel, callback: *const fn (QSqlTableModel, qtc.libqt_list, QDataStream) callconv(.c) void) void {
+    pub fn onEncodeData(self: QSqlTableModel, callback: *const fn (QSqlTableModel, qtc.libqt_list, QDataStream) callconv(.c) void) void {
         qtc.QSqlTableModel_OnEncodeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `decodeData` instead
+    ///
+    pub const DecodeData = decodeData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6071,19 +7139,19 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` stream: QDataStream `
     ///
-    pub fn DecodeData(self: QSqlTableModel, row: i32, column: i32, parent: anytype, stream: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
+    pub fn decodeData(self: QSqlTableModel, row: i32, column: i32, _parent: anytype, stream: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
         comptime _ = @TypeOf(stream)._is_QDataStream;
-        return qtc.QSqlTableModel_DecodeData(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr), @ptrCast(stream.ptr));
+        return qtc.QSqlTableModel_DecodeData(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(_parent.ptr), @ptrCast(stream.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDecodeData` instead
+    /// ### DEPRECATED: Use `superDecodeData` instead
     ///
-    pub const QBaseDecodeData = SuperDecodeData;
+    pub const SuperDecodeData = superDecodeData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6099,15 +7167,19 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` stream: QDataStream `
     ///
-    pub fn SuperDecodeData(self: QSqlTableModel, row: i32, column: i32, parent: anytype, stream: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
+    pub fn superDecodeData(self: QSqlTableModel, row: i32, column: i32, _parent: anytype, stream: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
         comptime _ = @TypeOf(stream)._is_QDataStream;
-        return qtc.QSqlTableModel_SuperDecodeData(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr), @ptrCast(stream.ptr));
+        return qtc.QSqlTableModel_SuperDecodeData(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(_parent.ptr), @ptrCast(stream.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDecodeData` instead
+    ///
+    pub const OnDecodeData = onDecodeData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6121,9 +7193,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, row: i32, column: i32, parent: QModelIndex, stream: QDataStream) callconv(.c) bool `
     ///
-    pub fn OnDecodeData(self: QSqlTableModel, callback: *const fn (QSqlTableModel, i32, i32, QModelIndex, QDataStream) callconv(.c) bool) void {
+    pub fn onDecodeData(self: QSqlTableModel, callback: *const fn (QSqlTableModel, i32, i32, QModelIndex, QDataStream) callconv(.c) bool) void {
         qtc.QSqlTableModel_OnDecodeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `beginMoveRows` instead
+    ///
+    pub const BeginMoveRows = beginMoveRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6145,15 +7221,15 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` destinationRow: i32 `
     ///
-    pub fn BeginMoveRows(self: QSqlTableModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationRow: i32) bool {
+    pub fn beginMoveRows(self: QSqlTableModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationRow: i32) bool {
         comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
         comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
         return qtc.QSqlTableModel_BeginMoveRows(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationRow));
     }
 
-    /// ### DEPRECATED: Use `SuperBeginMoveRows` instead
+    /// ### DEPRECATED: Use `superBeginMoveRows` instead
     ///
-    pub const QBaseBeginMoveRows = SuperBeginMoveRows;
+    pub const SuperBeginMoveRows = superBeginMoveRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6175,11 +7251,15 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` destinationRow: i32 `
     ///
-    pub fn SuperBeginMoveRows(self: QSqlTableModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationRow: i32) bool {
+    pub fn superBeginMoveRows(self: QSqlTableModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationRow: i32) bool {
         comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
         comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
         return qtc.QSqlTableModel_SuperBeginMoveRows(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationRow));
     }
+
+    /// ### DEPRECATED: Use `onBeginMoveRows` instead
+    ///
+    pub const OnBeginMoveRows = onBeginMoveRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6193,9 +7273,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, sourceParent: QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QModelIndex, destinationRow: i32) callconv(.c) bool `
     ///
-    pub fn OnBeginMoveRows(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
+    pub fn onBeginMoveRows(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
         qtc.QSqlTableModel_OnBeginMoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `endMoveRows` instead
+    ///
+    pub const EndMoveRows = endMoveRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6207,13 +7291,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn EndMoveRows(self: QSqlTableModel) void {
+    pub fn endMoveRows(self: QSqlTableModel) void {
         qtc.QSqlTableModel_EndMoveRows(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEndMoveRows` instead
+    /// ### DEPRECATED: Use `superEndMoveRows` instead
     ///
-    pub const QBaseEndMoveRows = SuperEndMoveRows;
+    pub const SuperEndMoveRows = superEndMoveRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6225,9 +7309,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn SuperEndMoveRows(self: QSqlTableModel) void {
+    pub fn superEndMoveRows(self: QSqlTableModel) void {
         qtc.QSqlTableModel_SuperEndMoveRows(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEndMoveRows` instead
+    ///
+    pub const OnEndMoveRows = onEndMoveRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6241,9 +7329,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndMoveRows(self: QSqlTableModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onEndMoveRows(self: QSqlTableModel, callback: *const fn () callconv(.c) void) void {
         qtc.QSqlTableModel_OnEndMoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `beginMoveColumns` instead
+    ///
+    pub const BeginMoveColumns = beginMoveColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6265,15 +7357,15 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` destinationColumn: i32 `
     ///
-    pub fn BeginMoveColumns(self: QSqlTableModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationColumn: i32) bool {
+    pub fn beginMoveColumns(self: QSqlTableModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationColumn: i32) bool {
         comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
         comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
         return qtc.QSqlTableModel_BeginMoveColumns(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationColumn));
     }
 
-    /// ### DEPRECATED: Use `SuperBeginMoveColumns` instead
+    /// ### DEPRECATED: Use `superBeginMoveColumns` instead
     ///
-    pub const QBaseBeginMoveColumns = SuperBeginMoveColumns;
+    pub const SuperBeginMoveColumns = superBeginMoveColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6295,11 +7387,15 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` destinationColumn: i32 `
     ///
-    pub fn SuperBeginMoveColumns(self: QSqlTableModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationColumn: i32) bool {
+    pub fn superBeginMoveColumns(self: QSqlTableModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationColumn: i32) bool {
         comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
         comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
         return qtc.QSqlTableModel_SuperBeginMoveColumns(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationColumn));
     }
+
+    /// ### DEPRECATED: Use `onBeginMoveColumns` instead
+    ///
+    pub const OnBeginMoveColumns = onBeginMoveColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6313,9 +7409,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, sourceParent: QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QModelIndex, destinationColumn: i32) callconv(.c) bool `
     ///
-    pub fn OnBeginMoveColumns(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
+    pub fn onBeginMoveColumns(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
         qtc.QSqlTableModel_OnBeginMoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `endMoveColumns` instead
+    ///
+    pub const EndMoveColumns = endMoveColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6327,13 +7427,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn EndMoveColumns(self: QSqlTableModel) void {
+    pub fn endMoveColumns(self: QSqlTableModel) void {
         qtc.QSqlTableModel_EndMoveColumns(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEndMoveColumns` instead
+    /// ### DEPRECATED: Use `superEndMoveColumns` instead
     ///
-    pub const QBaseEndMoveColumns = SuperEndMoveColumns;
+    pub const SuperEndMoveColumns = superEndMoveColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6345,9 +7445,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn SuperEndMoveColumns(self: QSqlTableModel) void {
+    pub fn superEndMoveColumns(self: QSqlTableModel) void {
         qtc.QSqlTableModel_SuperEndMoveColumns(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEndMoveColumns` instead
+    ///
+    pub const OnEndMoveColumns = onEndMoveColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6361,9 +7465,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndMoveColumns(self: QSqlTableModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onEndMoveColumns(self: QSqlTableModel, callback: *const fn () callconv(.c) void) void {
         qtc.QSqlTableModel_OnEndMoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changePersistentIndex` instead
+    ///
+    pub const ChangePersistentIndex = changePersistentIndex;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6379,15 +7487,15 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` to: QModelIndex `
     ///
-    pub fn ChangePersistentIndex(self: QSqlTableModel, from: anytype, to: anytype) void {
+    pub fn changePersistentIndex(self: QSqlTableModel, from: anytype, to: anytype) void {
         comptime _ = @TypeOf(from)._is_QModelIndex;
         comptime _ = @TypeOf(to)._is_QModelIndex;
         qtc.QSqlTableModel_ChangePersistentIndex(@ptrCast(self.ptr), @ptrCast(from.ptr), @ptrCast(to.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangePersistentIndex` instead
+    /// ### DEPRECATED: Use `superChangePersistentIndex` instead
     ///
-    pub const QBaseChangePersistentIndex = SuperChangePersistentIndex;
+    pub const SuperChangePersistentIndex = superChangePersistentIndex;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6403,11 +7511,15 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` to: QModelIndex `
     ///
-    pub fn SuperChangePersistentIndex(self: QSqlTableModel, from: anytype, to: anytype) void {
+    pub fn superChangePersistentIndex(self: QSqlTableModel, from: anytype, to: anytype) void {
         comptime _ = @TypeOf(from)._is_QModelIndex;
         comptime _ = @TypeOf(to)._is_QModelIndex;
         qtc.QSqlTableModel_SuperChangePersistentIndex(@ptrCast(self.ptr), @ptrCast(from.ptr), @ptrCast(to.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangePersistentIndex` instead
+    ///
+    pub const OnChangePersistentIndex = onChangePersistentIndex;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6421,9 +7533,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, from: QModelIndex, to: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnChangePersistentIndex(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, QModelIndex) callconv(.c) void) void {
+    pub fn onChangePersistentIndex(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, QModelIndex) callconv(.c) void) void {
         qtc.QSqlTableModel_OnChangePersistentIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changePersistentIndexList` instead
+    ///
+    pub const ChangePersistentIndexList = changePersistentIndexList;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6439,7 +7555,7 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` to: []QModelIndex `
     ///
-    pub fn ChangePersistentIndexList(self: QSqlTableModel, from: []QModelIndex, to: []QModelIndex) void {
+    pub fn changePersistentIndexList(self: QSqlTableModel, from: []QModelIndex, to: []QModelIndex) void {
         const from_list = qtc.libqt_list{
             .len = from.len,
             .data = @ptrCast(from.ptr),
@@ -6451,9 +7567,9 @@ pub const QSqlTableModel = extern struct {
         qtc.QSqlTableModel_ChangePersistentIndexList(@ptrCast(self.ptr), from_list, to_list);
     }
 
-    /// ### DEPRECATED: Use `SuperChangePersistentIndexList` instead
+    /// ### DEPRECATED: Use `superChangePersistentIndexList` instead
     ///
-    pub const QBaseChangePersistentIndexList = SuperChangePersistentIndexList;
+    pub const SuperChangePersistentIndexList = superChangePersistentIndexList;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6469,7 +7585,7 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` to: []QModelIndex `
     ///
-    pub fn SuperChangePersistentIndexList(self: QSqlTableModel, from: []QModelIndex, to: []QModelIndex) void {
+    pub fn superChangePersistentIndexList(self: QSqlTableModel, from: []QModelIndex, to: []QModelIndex) void {
         const from_list = qtc.libqt_list{
             .len = from.len,
             .data = @ptrCast(from.ptr),
@@ -6480,6 +7596,10 @@ pub const QSqlTableModel = extern struct {
         };
         qtc.QSqlTableModel_SuperChangePersistentIndexList(@ptrCast(self.ptr), from_list, to_list);
     }
+
+    /// ### DEPRECATED: Use `onChangePersistentIndexList` instead
+    ///
+    pub const OnChangePersistentIndexList = onChangePersistentIndexList;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6493,9 +7613,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, from: qtc.libqt_list ([]QModelIndex), to: qtc.libqt_list ([]QModelIndex)) callconv(.c) void `
     ///
-    pub fn OnChangePersistentIndexList(self: QSqlTableModel, callback: *const fn (QSqlTableModel, qtc.libqt_list, qtc.libqt_list) callconv(.c) void) void {
+    pub fn onChangePersistentIndexList(self: QSqlTableModel, callback: *const fn (QSqlTableModel, qtc.libqt_list, qtc.libqt_list) callconv(.c) void) void {
         qtc.QSqlTableModel_OnChangePersistentIndexList(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `persistentIndexList` instead
+    ///
+    pub const PersistentIndexList = persistentIndexList;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6509,19 +7633,19 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PersistentIndexList(self: QSqlTableModel, allocator: std.mem.Allocator) []QModelIndex {
+    pub fn persistentIndexList(self: QSqlTableModel, allocator: std.mem.Allocator) []QModelIndex {
         const _arr: qtc.libqt_list = qtc.QSqlTableModel_PersistentIndexList(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("QSqlTableModel.PersistentIndexList: Memory allocation failed");
-        const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("QSqlTableModel.persistentIndexList: Memory allocation failed");
+        const _data_val: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `SuperPersistentIndexList` instead
+    /// ### DEPRECATED: Use `superPersistentIndexList` instead
     ///
-    pub const QBasePersistentIndexList = SuperPersistentIndexList;
+    pub const SuperPersistentIndexList = superPersistentIndexList;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6535,15 +7659,19 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperPersistentIndexList(self: QSqlTableModel, allocator: std.mem.Allocator) []QModelIndex {
+    pub fn superPersistentIndexList(self: QSqlTableModel, allocator: std.mem.Allocator) []QModelIndex {
         const _arr: qtc.libqt_list = qtc.QSqlTableModel_SuperPersistentIndexList(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("QSqlTableModel.PersistentIndexList: Memory allocation failed");
-        const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("QSqlTableModel.persistentIndexList: Memory allocation failed");
+        const _data_val: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onPersistentIndexList` instead
+    ///
+    pub const OnPersistentIndexList = onPersistentIndexList;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6563,9 +7691,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` C ABI representation of []QModelIndex `
     ///
-    pub fn OnPersistentIndexList(self: QSqlTableModel, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+    pub fn onPersistentIndexList(self: QSqlTableModel, callback: *const fn () callconv(.c) qtc.libqt_list) void {
         qtc.QSqlTableModel_OnPersistentIndexList(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -6577,13 +7709,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn Sender(self: QSqlTableModel) QObject {
+    pub fn sender(self: QSqlTableModel) QObject {
         return .{ .ptr = qtc.QSqlTableModel_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -6595,9 +7727,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn SuperSender(self: QSqlTableModel) QObject {
+    pub fn superSender(self: QSqlTableModel) QObject {
         return .{ .ptr = qtc.QSqlTableModel_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -6611,9 +7747,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QSqlTableModel, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QSqlTableModel, callback: *const fn () callconv(.c) QObject) void {
         qtc.QSqlTableModel_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -6625,13 +7765,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn SenderSignalIndex(self: QSqlTableModel) i32 {
+    pub fn senderSignalIndex(self: QSqlTableModel) i32 {
         return qtc.QSqlTableModel_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -6643,9 +7783,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn SuperSenderSignalIndex(self: QSqlTableModel) i32 {
+    pub fn superSenderSignalIndex(self: QSqlTableModel) i32 {
         return qtc.QSqlTableModel_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -6659,9 +7803,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QSqlTableModel, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QSqlTableModel, callback: *const fn () callconv(.c) i32) void {
         qtc.QSqlTableModel_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -6675,14 +7823,14 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QSqlTableModel, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QSqlTableModel, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QSqlTableModel_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -6696,10 +7844,14 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QSqlTableModel, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QSqlTableModel, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QSqlTableModel_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -6713,9 +7865,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QSqlTableModel, callback: *const fn (QSqlTableModel, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QSqlTableModel, callback: *const fn (QSqlTableModel, [*:0]const u8) callconv(.c) i32) void {
         qtc.QSqlTableModel_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -6729,14 +7885,14 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QSqlTableModel, signal: anytype) bool {
+    pub fn isSignalConnected(self: QSqlTableModel, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QSqlTableModel_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -6750,10 +7906,14 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QSqlTableModel, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QSqlTableModel, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QSqlTableModel_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -6767,9 +7927,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QMetaMethod) callconv(.c) bool) void {
         qtc.QSqlTableModel_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onRowsAboutToBeInserted` instead
+    ///
+    pub const OnRowsAboutToBeInserted = onRowsAboutToBeInserted;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6783,9 +7947,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnRowsAboutToBeInserted(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onRowsAboutToBeInserted(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_RowsAboutToBeInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onRowsInserted` instead
+    ///
+    pub const OnRowsInserted = onRowsInserted;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6799,9 +7967,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnRowsInserted(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onRowsInserted(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_RowsInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onRowsAboutToBeRemoved` instead
+    ///
+    pub const OnRowsAboutToBeRemoved = onRowsAboutToBeRemoved;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6815,9 +7987,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnRowsAboutToBeRemoved(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onRowsAboutToBeRemoved(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_RowsAboutToBeRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onRowsRemoved` instead
+    ///
+    pub const OnRowsRemoved = onRowsRemoved;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6831,9 +8007,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnRowsRemoved(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onRowsRemoved(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_RowsRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onColumnsAboutToBeInserted` instead
+    ///
+    pub const OnColumnsAboutToBeInserted = onColumnsAboutToBeInserted;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6847,9 +8027,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsAboutToBeInserted(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onColumnsAboutToBeInserted(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ColumnsAboutToBeInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onColumnsInserted` instead
+    ///
+    pub const OnColumnsInserted = onColumnsInserted;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6863,9 +8047,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsInserted(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onColumnsInserted(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ColumnsInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onColumnsAboutToBeRemoved` instead
+    ///
+    pub const OnColumnsAboutToBeRemoved = onColumnsAboutToBeRemoved;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6879,9 +8067,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsAboutToBeRemoved(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onColumnsAboutToBeRemoved(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ColumnsAboutToBeRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onColumnsRemoved` instead
+    ///
+    pub const OnColumnsRemoved = onColumnsRemoved;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6895,9 +8087,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsRemoved(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onColumnsRemoved(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ColumnsRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onModelAboutToBeReset` instead
+    ///
+    pub const OnModelAboutToBeReset = onModelAboutToBeReset;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6911,9 +8107,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel) callconv(.c) void `
     ///
-    pub fn OnModelAboutToBeReset(self: QSqlTableModel, callback: *const fn (QSqlTableModel) callconv(.c) void) void {
+    pub fn onModelAboutToBeReset(self: QSqlTableModel, callback: *const fn (QSqlTableModel) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ModelAboutToBeReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onModelReset` instead
+    ///
+    pub const OnModelReset = onModelReset;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6927,9 +8127,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel) callconv(.c) void `
     ///
-    pub fn OnModelReset(self: QSqlTableModel, callback: *const fn (QSqlTableModel) callconv(.c) void) void {
+    pub fn onModelReset(self: QSqlTableModel, callback: *const fn (QSqlTableModel) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ModelReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onRowsAboutToBeMoved` instead
+    ///
+    pub const OnRowsAboutToBeMoved = onRowsAboutToBeMoved;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6943,9 +8147,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, sourceParent: QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QModelIndex, destinationRow: i32) callconv(.c) void `
     ///
-    pub fn OnRowsAboutToBeMoved(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
+    pub fn onRowsAboutToBeMoved(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_RowsAboutToBeMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onRowsMoved` instead
+    ///
+    pub const OnRowsMoved = onRowsMoved;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6959,9 +8167,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, sourceParent: QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QModelIndex, destinationRow: i32) callconv(.c) void `
     ///
-    pub fn OnRowsMoved(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
+    pub fn onRowsMoved(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_RowsMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onColumnsAboutToBeMoved` instead
+    ///
+    pub const OnColumnsAboutToBeMoved = onColumnsAboutToBeMoved;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6975,9 +8187,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, sourceParent: QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QModelIndex, destinationColumn: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsAboutToBeMoved(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
+    pub fn onColumnsAboutToBeMoved(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ColumnsAboutToBeMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onColumnsMoved` instead
+    ///
+    pub const OnColumnsMoved = onColumnsMoved;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6991,9 +8207,13 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, sourceParent: QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QModelIndex, destinationColumn: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsMoved(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
+    pub fn onColumnsMoved(self: QSqlTableModel, callback: *const fn (QSqlTableModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ColumnsMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -7007,23 +8227,23 @@ pub const QSqlTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlTableModel, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QSqlTableModel, callback: *const fn (QSqlTableModel, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QSqlTableModel, callback: *const fn (QSqlTableModel, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#dtor.QSqlTableModel)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QSqlTableModel `
     ///
-    pub fn Delete(self: QSqlTableModel) void {
+    pub fn delete(self: QSqlTableModel) void {
         qtc.QSqlTableModel_Delete(@ptrCast(self.ptr));
     }
 };

@@ -17,6 +17,10 @@ pub const Attica__PlatformDependent = extern struct {
 
     pub const _is_Attica__PlatformDependent = {};
 
+    /// ### DEPRECATED: Use `getDefaultProviderFiles` instead
+    ///
+    pub const GetDefaultProviderFiles = getDefaultProviderFiles;
+
     /// ### [Upstream resources](https://api.kde.org/attica-platformdependent.html#getDefaultProviderFiles)
     ///
     /// ## Parameter(s):
@@ -25,15 +29,19 @@ pub const Attica__PlatformDependent = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GetDefaultProviderFiles(self: Attica__PlatformDependent, allocator: std.mem.Allocator) []QUrl {
+    pub fn getDefaultProviderFiles(self: Attica__PlatformDependent, allocator: std.mem.Allocator) []QUrl {
         const _arr: qtc.libqt_list = qtc.Attica__PlatformDependent_GetDefaultProviderFiles(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("Attica__PlatformDependent.GetDefaultProviderFiles: Memory allocation failed");
-        const _data: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("Attica__PlatformDependent.getDefaultProviderFiles: Memory allocation failed");
+        const _data_val: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addDefaultProviderFile` instead
+    ///
+    pub const AddDefaultProviderFile = addDefaultProviderFile;
 
     /// ### [Upstream resources](https://api.kde.org/attica-platformdependent.html#addDefaultProviderFile)
     ///
@@ -43,10 +51,14 @@ pub const Attica__PlatformDependent = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn AddDefaultProviderFile(self: Attica__PlatformDependent, url: anytype) void {
+    pub fn addDefaultProviderFile(self: Attica__PlatformDependent, url: anytype) void {
         comptime _ = @TypeOf(url)._is_QUrl;
         qtc.Attica__PlatformDependent_AddDefaultProviderFile(@ptrCast(self.ptr), @ptrCast(url.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeDefaultProviderFile` instead
+    ///
+    pub const RemoveDefaultProviderFile = removeDefaultProviderFile;
 
     /// ### [Upstream resources](https://api.kde.org/attica-platformdependent.html#removeDefaultProviderFile)
     ///
@@ -56,10 +68,14 @@ pub const Attica__PlatformDependent = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn RemoveDefaultProviderFile(self: Attica__PlatformDependent, url: anytype) void {
+    pub fn removeDefaultProviderFile(self: Attica__PlatformDependent, url: anytype) void {
         comptime _ = @TypeOf(url)._is_QUrl;
         qtc.Attica__PlatformDependent_RemoveDefaultProviderFile(@ptrCast(self.ptr), @ptrCast(url.ptr));
     }
+
+    /// ### DEPRECATED: Use `enableProvider` instead
+    ///
+    pub const EnableProvider = enableProvider;
 
     /// ### [Upstream resources](https://api.kde.org/attica-platformdependent.html#enableProvider)
     ///
@@ -71,10 +87,14 @@ pub const Attica__PlatformDependent = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn EnableProvider(self: Attica__PlatformDependent, baseUrl: anytype, enabled: bool) void {
+    pub fn enableProvider(self: Attica__PlatformDependent, baseUrl: anytype, enabled: bool) void {
         comptime _ = @TypeOf(baseUrl)._is_QUrl;
         qtc.Attica__PlatformDependent_EnableProvider(@ptrCast(self.ptr), @ptrCast(baseUrl.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// ### [Upstream resources](https://api.kde.org/attica-platformdependent.html#isEnabled)
     ///
@@ -84,10 +104,14 @@ pub const Attica__PlatformDependent = extern struct {
     ///
     /// ` baseUrl: QUrl `
     ///
-    pub fn IsEnabled(self: Attica__PlatformDependent, baseUrl: anytype) bool {
+    pub fn isEnabled(self: Attica__PlatformDependent, baseUrl: anytype) bool {
         comptime _ = @TypeOf(baseUrl)._is_QUrl;
         return qtc.Attica__PlatformDependent_IsEnabled(@ptrCast(self.ptr), @ptrCast(baseUrl.ptr));
     }
+
+    /// ### DEPRECATED: Use `hasCredentials` instead
+    ///
+    pub const HasCredentials = hasCredentials;
 
     /// ### [Upstream resources](https://api.kde.org/attica-platformdependent.html#hasCredentials)
     ///
@@ -97,10 +121,14 @@ pub const Attica__PlatformDependent = extern struct {
     ///
     /// ` baseUrl: QUrl `
     ///
-    pub fn HasCredentials(self: Attica__PlatformDependent, baseUrl: anytype) bool {
+    pub fn hasCredentials(self: Attica__PlatformDependent, baseUrl: anytype) bool {
         comptime _ = @TypeOf(baseUrl)._is_QUrl;
         return qtc.Attica__PlatformDependent_HasCredentials(@ptrCast(self.ptr), @ptrCast(baseUrl.ptr));
     }
+
+    /// ### DEPRECATED: Use `loadCredentials` instead
+    ///
+    pub const LoadCredentials = loadCredentials;
 
     /// ### [Upstream resources](https://api.kde.org/attica-platformdependent.html#loadCredentials)
     ///
@@ -114,7 +142,7 @@ pub const Attica__PlatformDependent = extern struct {
     ///
     /// ` password: []const u8 `
     ///
-    pub fn LoadCredentials(self: Attica__PlatformDependent, baseUrl: anytype, user: []const u8, password: []const u8) bool {
+    pub fn loadCredentials(self: Attica__PlatformDependent, baseUrl: anytype, user: []const u8, password: []const u8) bool {
         comptime _ = @TypeOf(baseUrl)._is_QUrl;
         const user_str = qtc.libqt_string{
             .len = user.len,
@@ -126,6 +154,10 @@ pub const Attica__PlatformDependent = extern struct {
         };
         return qtc.Attica__PlatformDependent_LoadCredentials(@ptrCast(self.ptr), @ptrCast(baseUrl.ptr), user_str, password_str);
     }
+
+    /// ### DEPRECATED: Use `askForCredentials` instead
+    ///
+    pub const AskForCredentials = askForCredentials;
 
     /// ### [Upstream resources](https://api.kde.org/attica-platformdependent.html#askForCredentials)
     ///
@@ -139,7 +171,7 @@ pub const Attica__PlatformDependent = extern struct {
     ///
     /// ` password: []const u8 `
     ///
-    pub fn AskForCredentials(self: Attica__PlatformDependent, baseUrl: anytype, user: []const u8, password: []const u8) bool {
+    pub fn askForCredentials(self: Attica__PlatformDependent, baseUrl: anytype, user: []const u8, password: []const u8) bool {
         comptime _ = @TypeOf(baseUrl)._is_QUrl;
         const user_str = qtc.libqt_string{
             .len = user.len,
@@ -151,6 +183,10 @@ pub const Attica__PlatformDependent = extern struct {
         };
         return qtc.Attica__PlatformDependent_AskForCredentials(@ptrCast(self.ptr), @ptrCast(baseUrl.ptr), user_str, password_str);
     }
+
+    /// ### DEPRECATED: Use `saveCredentials` instead
+    ///
+    pub const SaveCredentials = saveCredentials;
 
     /// ### [Upstream resources](https://api.kde.org/attica-platformdependent.html#saveCredentials)
     ///
@@ -164,7 +200,7 @@ pub const Attica__PlatformDependent = extern struct {
     ///
     /// ` password: []const u8 `
     ///
-    pub fn SaveCredentials(self: Attica__PlatformDependent, baseUrl: anytype, user: []const u8, password: []const u8) bool {
+    pub fn saveCredentials(self: Attica__PlatformDependent, baseUrl: anytype, user: []const u8, password: []const u8) bool {
         comptime _ = @TypeOf(baseUrl)._is_QUrl;
         const user_str = qtc.libqt_string{
             .len = user.len,
@@ -177,6 +213,10 @@ pub const Attica__PlatformDependent = extern struct {
         return qtc.Attica__PlatformDependent_SaveCredentials(@ptrCast(self.ptr), @ptrCast(baseUrl.ptr), user_str, password_str);
     }
 
+    /// ### DEPRECATED: Use `get` instead
+    ///
+    pub const Get = get;
+
     /// ### [Upstream resources](https://api.kde.org/attica-platformdependent.html#get)
     ///
     /// ## Parameter(s):
@@ -185,10 +225,14 @@ pub const Attica__PlatformDependent = extern struct {
     ///
     /// ` request: QNetworkRequest `
     ///
-    pub fn Get(self: Attica__PlatformDependent, request: anytype) QNetworkReply {
+    pub fn get(self: Attica__PlatformDependent, request: anytype) QNetworkReply {
         comptime _ = @TypeOf(request)._is_QNetworkRequest;
         return .{ .ptr = qtc.Attica__PlatformDependent_Get(@ptrCast(self.ptr), @ptrCast(request.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `post` instead
+    ///
+    pub const Post = post;
 
     /// ### [Upstream resources](https://api.kde.org/attica-platformdependent.html#post)
     ///
@@ -200,11 +244,15 @@ pub const Attica__PlatformDependent = extern struct {
     ///
     /// ` data: QIODevice `
     ///
-    pub fn Post(self: Attica__PlatformDependent, request: anytype, data: anytype) QNetworkReply {
+    pub fn post(self: Attica__PlatformDependent, request: anytype, data: anytype) QNetworkReply {
         comptime _ = @TypeOf(request)._is_QNetworkRequest;
         comptime _ = @TypeOf(data)._is_QIODevice;
         return .{ .ptr = qtc.Attica__PlatformDependent_Post(@ptrCast(self.ptr), @ptrCast(request.ptr), @ptrCast(data.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `post2` instead
+    ///
+    pub const Post2 = post2;
 
     /// ### [Upstream resources](https://api.kde.org/attica-platformdependent.html#post)
     ///
@@ -216,7 +264,7 @@ pub const Attica__PlatformDependent = extern struct {
     ///
     /// ` data: []u8 `
     ///
-    pub fn Post2(self: Attica__PlatformDependent, request: anytype, data: []u8) QNetworkReply {
+    pub fn post2(self: Attica__PlatformDependent, request: anytype, data: []u8) QNetworkReply {
         comptime _ = @TypeOf(request)._is_QNetworkRequest;
         const data_str = qtc.libqt_string{
             .len = data.len,
@@ -225,18 +273,26 @@ pub const Attica__PlatformDependent = extern struct {
         return .{ .ptr = qtc.Attica__PlatformDependent_Post2(@ptrCast(self.ptr), @ptrCast(request.ptr), data_str) };
     }
 
+    /// ### DEPRECATED: Use `setNam` instead
+    ///
+    pub const SetNam = setNam;
+
     /// ### [Upstream resources](https://api.kde.org/attica-platformdependent.html#setNam)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Attica__PlatformDependent `
     ///
-    /// ` nam: QNetworkAccessManager `
+    /// ` _nam: QNetworkAccessManager `
     ///
-    pub fn SetNam(self: Attica__PlatformDependent, nam: anytype) void {
-        comptime _ = @TypeOf(nam)._is_QNetworkAccessManager;
-        qtc.Attica__PlatformDependent_SetNam(@ptrCast(self.ptr), @ptrCast(nam.ptr));
+    pub fn setNam(self: Attica__PlatformDependent, _nam: anytype) void {
+        comptime _ = @TypeOf(_nam)._is_QNetworkAccessManager;
+        qtc.Attica__PlatformDependent_SetNam(@ptrCast(self.ptr), @ptrCast(_nam.ptr));
     }
+
+    /// ### DEPRECATED: Use `nam` instead
+    ///
+    pub const Nam = nam;
 
     /// ### [Upstream resources](https://api.kde.org/attica-platformdependent.html#nam)
     ///
@@ -244,9 +300,13 @@ pub const Attica__PlatformDependent = extern struct {
     ///
     /// ` self: Attica__PlatformDependent `
     ///
-    pub fn Nam(self: Attica__PlatformDependent) QNetworkAccessManager {
+    pub fn nam(self: Attica__PlatformDependent) QNetworkAccessManager {
         return .{ .ptr = qtc.Attica__PlatformDependent_Nam(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://api.kde.org/attica-platformdependent.html#operator-eq)
     ///
@@ -256,22 +316,22 @@ pub const Attica__PlatformDependent = extern struct {
     ///
     /// ` param1: Attica__PlatformDependent `
     ///
-    pub fn OperatorAssign(self: Attica__PlatformDependent, param1: anytype) void {
+    pub fn operatorAssign(self: Attica__PlatformDependent, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_Attica__PlatformDependent;
         qtc.Attica__PlatformDependent_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Attica__PlatformDependent `
     ///
-    pub fn Delete(self: Attica__PlatformDependent) void {
+    pub fn delete(self: Attica__PlatformDependent) void {
         qtc.Attica__PlatformDependent_Delete(@ptrCast(self.ptr));
     }
 };

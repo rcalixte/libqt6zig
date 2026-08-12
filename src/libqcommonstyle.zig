@@ -44,11 +44,19 @@ pub const QCommonStyle = extern struct {
     pub const _is_QStyle = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QCommonStyle object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QCommonStyle {
+    pub const New = new;
+
+    /// Allocate a new QCommonStyle object in C++ memory
+    ///
+    pub fn new() QCommonStyle {
         return .{ .ptr = qtc.QCommonStyle_new() };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -56,9 +64,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` self: QCommonStyle `
     ///
-    pub fn MetaObject(self: QCommonStyle) QMetaObject {
+    pub fn metaObject(self: QCommonStyle) QMetaObject {
         return .{ .ptr = qtc.QCommonStyle_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -70,13 +82,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QCommonStyle, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QCommonStyle, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QCommonStyle_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -86,9 +98,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` self: QCommonStyle `
     ///
-    pub fn SuperMetaObject(self: QCommonStyle) QMetaObject {
+    pub fn superMetaObject(self: QCommonStyle) QMetaObject {
         return .{ .ptr = qtc.QCommonStyle_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -96,10 +112,14 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QCommonStyle, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QCommonStyle, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QCommonStyle_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -109,13 +129,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` callback: *const fn (self: QCommonStyle, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QCommonStyle, callback: *const fn (QCommonStyle, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QCommonStyle, callback: *const fn (QCommonStyle, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QCommonStyle_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -125,10 +145,14 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QCommonStyle, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QCommonStyle, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QCommonStyle_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -140,9 +164,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QCommonStyle, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QCommonStyle, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QCommonStyle_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -152,13 +180,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` callback: *const fn (self: QCommonStyle, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QCommonStyle, callback: *const fn (QCommonStyle, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QCommonStyle, callback: *const fn (QCommonStyle, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QCommonStyle_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -172,9 +200,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QCommonStyle, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QCommonStyle, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QCommonStyle_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -184,14 +216,18 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCommonStyle.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCommonStyle.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `drawPrimitive` instead
+    ///
+    pub const DrawPrimitive = drawPrimitive;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#drawPrimitive)
     ///
@@ -207,12 +243,16 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` w: QWidget `
     ///
-    pub fn DrawPrimitive(self: QCommonStyle, pe: i32, opt: anytype, p: anytype, w: anytype) void {
+    pub fn drawPrimitive(self: QCommonStyle, pe: i32, opt: anytype, p: anytype, w: anytype) void {
         comptime _ = @TypeOf(opt)._is_QStyleOption;
         comptime _ = @TypeOf(p)._is_QPainter;
         comptime _ = @TypeOf(w)._is_QWidget;
         qtc.QCommonStyle_DrawPrimitive(@ptrCast(self.ptr), @bitCast(pe), @ptrCast(opt.ptr), @ptrCast(p.ptr), @ptrCast(w.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDrawPrimitive` instead
+    ///
+    pub const OnDrawPrimitive = onDrawPrimitive;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#drawPrimitive)
     ///
@@ -224,13 +264,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` callback: *const fn (self: QCommonStyle, pe: qstyle_enums.PrimitiveElement, opt: QStyleOption, p: QPainter, w: QWidget) callconv(.c) void `
     ///
-    pub fn OnDrawPrimitive(self: QCommonStyle, callback: *const fn (QCommonStyle, i32, QStyleOption, QPainter, QWidget) callconv(.c) void) void {
+    pub fn onDrawPrimitive(self: QCommonStyle, callback: *const fn (QCommonStyle, i32, QStyleOption, QPainter, QWidget) callconv(.c) void) void {
         qtc.QCommonStyle_OnDrawPrimitive(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawPrimitive` instead
+    /// ### DEPRECATED: Use `superDrawPrimitive` instead
     ///
-    pub const QBaseDrawPrimitive = SuperDrawPrimitive;
+    pub const SuperDrawPrimitive = superDrawPrimitive;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#drawPrimitive)
     ///
@@ -248,12 +288,16 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` w: QWidget `
     ///
-    pub fn SuperDrawPrimitive(self: QCommonStyle, pe: i32, opt: anytype, p: anytype, w: anytype) void {
+    pub fn superDrawPrimitive(self: QCommonStyle, pe: i32, opt: anytype, p: anytype, w: anytype) void {
         comptime _ = @TypeOf(opt)._is_QStyleOption;
         comptime _ = @TypeOf(p)._is_QPainter;
         comptime _ = @TypeOf(w)._is_QWidget;
         qtc.QCommonStyle_SuperDrawPrimitive(@ptrCast(self.ptr), @bitCast(pe), @ptrCast(opt.ptr), @ptrCast(p.ptr), @ptrCast(w.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawControl` instead
+    ///
+    pub const DrawControl = drawControl;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#drawControl)
     ///
@@ -269,12 +313,16 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` w: QWidget `
     ///
-    pub fn DrawControl(self: QCommonStyle, element: i32, opt: anytype, p: anytype, w: anytype) void {
+    pub fn drawControl(self: QCommonStyle, element: i32, opt: anytype, p: anytype, w: anytype) void {
         comptime _ = @TypeOf(opt)._is_QStyleOption;
         comptime _ = @TypeOf(p)._is_QPainter;
         comptime _ = @TypeOf(w)._is_QWidget;
         qtc.QCommonStyle_DrawControl(@ptrCast(self.ptr), @bitCast(element), @ptrCast(opt.ptr), @ptrCast(p.ptr), @ptrCast(w.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDrawControl` instead
+    ///
+    pub const OnDrawControl = onDrawControl;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#drawControl)
     ///
@@ -286,13 +334,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` callback: *const fn (self: QCommonStyle, element: qstyle_enums.ControlElement, opt: QStyleOption, p: QPainter, w: QWidget) callconv(.c) void `
     ///
-    pub fn OnDrawControl(self: QCommonStyle, callback: *const fn (QCommonStyle, i32, QStyleOption, QPainter, QWidget) callconv(.c) void) void {
+    pub fn onDrawControl(self: QCommonStyle, callback: *const fn (QCommonStyle, i32, QStyleOption, QPainter, QWidget) callconv(.c) void) void {
         qtc.QCommonStyle_OnDrawControl(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawControl` instead
+    /// ### DEPRECATED: Use `superDrawControl` instead
     ///
-    pub const QBaseDrawControl = SuperDrawControl;
+    pub const SuperDrawControl = superDrawControl;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#drawControl)
     ///
@@ -310,12 +358,16 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` w: QWidget `
     ///
-    pub fn SuperDrawControl(self: QCommonStyle, element: i32, opt: anytype, p: anytype, w: anytype) void {
+    pub fn superDrawControl(self: QCommonStyle, element: i32, opt: anytype, p: anytype, w: anytype) void {
         comptime _ = @TypeOf(opt)._is_QStyleOption;
         comptime _ = @TypeOf(p)._is_QPainter;
         comptime _ = @TypeOf(w)._is_QWidget;
         qtc.QCommonStyle_SuperDrawControl(@ptrCast(self.ptr), @bitCast(element), @ptrCast(opt.ptr), @ptrCast(p.ptr), @ptrCast(w.ptr));
     }
+
+    /// ### DEPRECATED: Use `subElementRect` instead
+    ///
+    pub const SubElementRect = subElementRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#subElementRect)
     ///
@@ -329,11 +381,15 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn SubElementRect(self: QCommonStyle, r: i32, opt: anytype, widget: anytype) QRect {
+    pub fn subElementRect(self: QCommonStyle, r: i32, opt: anytype, widget: anytype) QRect {
         comptime _ = @TypeOf(opt)._is_QStyleOption;
         comptime _ = @TypeOf(widget)._is_QWidget;
         return .{ .ptr = qtc.QCommonStyle_SubElementRect(@ptrCast(self.ptr), @bitCast(r), @ptrCast(opt.ptr), @ptrCast(widget.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSubElementRect` instead
+    ///
+    pub const OnSubElementRect = onSubElementRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#subElementRect)
     ///
@@ -347,13 +403,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSubElementRect(self: QCommonStyle, callback: *const fn (QCommonStyle, i32, QStyleOption, QWidget) callconv(.c) QRect) void {
+    pub fn onSubElementRect(self: QCommonStyle, callback: *const fn (QCommonStyle, i32, QStyleOption, QWidget) callconv(.c) QRect) void {
         qtc.QCommonStyle_OnSubElementRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSubElementRect` instead
+    /// ### DEPRECATED: Use `superSubElementRect` instead
     ///
-    pub const QBaseSubElementRect = SuperSubElementRect;
+    pub const SuperSubElementRect = superSubElementRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#subElementRect)
     ///
@@ -369,11 +425,15 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn SuperSubElementRect(self: QCommonStyle, r: i32, opt: anytype, widget: anytype) QRect {
+    pub fn superSubElementRect(self: QCommonStyle, r: i32, opt: anytype, widget: anytype) QRect {
         comptime _ = @TypeOf(opt)._is_QStyleOption;
         comptime _ = @TypeOf(widget)._is_QWidget;
         return .{ .ptr = qtc.QCommonStyle_SuperSubElementRect(@ptrCast(self.ptr), @bitCast(r), @ptrCast(opt.ptr), @ptrCast(widget.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `drawComplexControl` instead
+    ///
+    pub const DrawComplexControl = drawComplexControl;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#drawComplexControl)
     ///
@@ -389,12 +449,16 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` w: QWidget `
     ///
-    pub fn DrawComplexControl(self: QCommonStyle, cc: i32, opt: anytype, p: anytype, w: anytype) void {
+    pub fn drawComplexControl(self: QCommonStyle, cc: i32, opt: anytype, p: anytype, w: anytype) void {
         comptime _ = @TypeOf(opt)._is_QStyleOptionComplex;
         comptime _ = @TypeOf(p)._is_QPainter;
         comptime _ = @TypeOf(w)._is_QWidget;
         qtc.QCommonStyle_DrawComplexControl(@ptrCast(self.ptr), @bitCast(cc), @ptrCast(opt.ptr), @ptrCast(p.ptr), @ptrCast(w.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDrawComplexControl` instead
+    ///
+    pub const OnDrawComplexControl = onDrawComplexControl;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#drawComplexControl)
     ///
@@ -406,13 +470,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` callback: *const fn (self: QCommonStyle, cc: qstyle_enums.ComplexControl, opt: QStyleOptionComplex, p: QPainter, w: QWidget) callconv(.c) void `
     ///
-    pub fn OnDrawComplexControl(self: QCommonStyle, callback: *const fn (QCommonStyle, i32, QStyleOptionComplex, QPainter, QWidget) callconv(.c) void) void {
+    pub fn onDrawComplexControl(self: QCommonStyle, callback: *const fn (QCommonStyle, i32, QStyleOptionComplex, QPainter, QWidget) callconv(.c) void) void {
         qtc.QCommonStyle_OnDrawComplexControl(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawComplexControl` instead
+    /// ### DEPRECATED: Use `superDrawComplexControl` instead
     ///
-    pub const QBaseDrawComplexControl = SuperDrawComplexControl;
+    pub const SuperDrawComplexControl = superDrawComplexControl;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#drawComplexControl)
     ///
@@ -430,12 +494,16 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` w: QWidget `
     ///
-    pub fn SuperDrawComplexControl(self: QCommonStyle, cc: i32, opt: anytype, p: anytype, w: anytype) void {
+    pub fn superDrawComplexControl(self: QCommonStyle, cc: i32, opt: anytype, p: anytype, w: anytype) void {
         comptime _ = @TypeOf(opt)._is_QStyleOptionComplex;
         comptime _ = @TypeOf(p)._is_QPainter;
         comptime _ = @TypeOf(w)._is_QWidget;
         qtc.QCommonStyle_SuperDrawComplexControl(@ptrCast(self.ptr), @bitCast(cc), @ptrCast(opt.ptr), @ptrCast(p.ptr), @ptrCast(w.ptr));
     }
+
+    /// ### DEPRECATED: Use `hitTestComplexControl` instead
+    ///
+    pub const HitTestComplexControl = hitTestComplexControl;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#hitTestComplexControl)
     ///
@@ -455,12 +523,16 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` qstyle_enums.SubControl `
     ///
-    pub fn HitTestComplexControl(self: QCommonStyle, cc: i32, opt: anytype, pt: anytype, w: anytype) i32 {
+    pub fn hitTestComplexControl(self: QCommonStyle, cc: i32, opt: anytype, pt: anytype, w: anytype) i32 {
         comptime _ = @TypeOf(opt)._is_QStyleOptionComplex;
         comptime _ = @TypeOf(pt)._is_QPoint;
         comptime _ = @TypeOf(w)._is_QWidget;
         return qtc.QCommonStyle_HitTestComplexControl(@ptrCast(self.ptr), @bitCast(cc), @ptrCast(opt.ptr), @ptrCast(pt.ptr), @ptrCast(w.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHitTestComplexControl` instead
+    ///
+    pub const OnHitTestComplexControl = onHitTestComplexControl;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#hitTestComplexControl)
     ///
@@ -472,13 +544,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` callback: *const fn (self: QCommonStyle, cc: qstyle_enums.ComplexControl, opt: QStyleOptionComplex, pt: QPoint, w: QWidget) callconv(.c) i32 `
     ///
-    pub fn OnHitTestComplexControl(self: QCommonStyle, callback: *const fn (QCommonStyle, i32, QStyleOptionComplex, QPoint, QWidget) callconv(.c) i32) void {
+    pub fn onHitTestComplexControl(self: QCommonStyle, callback: *const fn (QCommonStyle, i32, QStyleOptionComplex, QPoint, QWidget) callconv(.c) i32) void {
         qtc.QCommonStyle_OnHitTestComplexControl(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperHitTestComplexControl` instead
+    /// ### DEPRECATED: Use `superHitTestComplexControl` instead
     ///
-    pub const QBaseHitTestComplexControl = SuperHitTestComplexControl;
+    pub const SuperHitTestComplexControl = superHitTestComplexControl;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#hitTestComplexControl)
     ///
@@ -500,12 +572,16 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` qstyle_enums.SubControl `
     ///
-    pub fn SuperHitTestComplexControl(self: QCommonStyle, cc: i32, opt: anytype, pt: anytype, w: anytype) i32 {
+    pub fn superHitTestComplexControl(self: QCommonStyle, cc: i32, opt: anytype, pt: anytype, w: anytype) i32 {
         comptime _ = @TypeOf(opt)._is_QStyleOptionComplex;
         comptime _ = @TypeOf(pt)._is_QPoint;
         comptime _ = @TypeOf(w)._is_QWidget;
         return qtc.QCommonStyle_SuperHitTestComplexControl(@ptrCast(self.ptr), @bitCast(cc), @ptrCast(opt.ptr), @ptrCast(pt.ptr), @ptrCast(w.ptr));
     }
+
+    /// ### DEPRECATED: Use `subControlRect` instead
+    ///
+    pub const SubControlRect = subControlRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#subControlRect)
     ///
@@ -521,11 +597,15 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` w: QWidget `
     ///
-    pub fn SubControlRect(self: QCommonStyle, cc: i32, opt: anytype, sc: i32, w: anytype) QRect {
+    pub fn subControlRect(self: QCommonStyle, cc: i32, opt: anytype, sc: i32, w: anytype) QRect {
         comptime _ = @TypeOf(opt)._is_QStyleOptionComplex;
         comptime _ = @TypeOf(w)._is_QWidget;
         return .{ .ptr = qtc.QCommonStyle_SubControlRect(@ptrCast(self.ptr), @bitCast(cc), @ptrCast(opt.ptr), @bitCast(sc), @ptrCast(w.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSubControlRect` instead
+    ///
+    pub const OnSubControlRect = onSubControlRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#subControlRect)
     ///
@@ -539,13 +619,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSubControlRect(self: QCommonStyle, callback: *const fn (QCommonStyle, i32, QStyleOptionComplex, i32, QWidget) callconv(.c) QRect) void {
+    pub fn onSubControlRect(self: QCommonStyle, callback: *const fn (QCommonStyle, i32, QStyleOptionComplex, i32, QWidget) callconv(.c) QRect) void {
         qtc.QCommonStyle_OnSubControlRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSubControlRect` instead
+    /// ### DEPRECATED: Use `superSubControlRect` instead
     ///
-    pub const QBaseSubControlRect = SuperSubControlRect;
+    pub const SuperSubControlRect = superSubControlRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#subControlRect)
     ///
@@ -563,11 +643,15 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` w: QWidget `
     ///
-    pub fn SuperSubControlRect(self: QCommonStyle, cc: i32, opt: anytype, sc: i32, w: anytype) QRect {
+    pub fn superSubControlRect(self: QCommonStyle, cc: i32, opt: anytype, sc: i32, w: anytype) QRect {
         comptime _ = @TypeOf(opt)._is_QStyleOptionComplex;
         comptime _ = @TypeOf(w)._is_QWidget;
         return .{ .ptr = qtc.QCommonStyle_SuperSubControlRect(@ptrCast(self.ptr), @bitCast(cc), @ptrCast(opt.ptr), @bitCast(sc), @ptrCast(w.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `sizeFromContents` instead
+    ///
+    pub const SizeFromContents = sizeFromContents;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#sizeFromContents)
     ///
@@ -583,12 +667,16 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn SizeFromContents(self: QCommonStyle, ct: i32, opt: anytype, contentsSize: anytype, widget: anytype) QSize {
+    pub fn sizeFromContents(self: QCommonStyle, ct: i32, opt: anytype, contentsSize: anytype, widget: anytype) QSize {
         comptime _ = @TypeOf(opt)._is_QStyleOption;
         comptime _ = @TypeOf(contentsSize)._is_QSize;
         comptime _ = @TypeOf(widget)._is_QWidget;
         return .{ .ptr = qtc.QCommonStyle_SizeFromContents(@ptrCast(self.ptr), @bitCast(ct), @ptrCast(opt.ptr), @ptrCast(contentsSize.ptr), @ptrCast(widget.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSizeFromContents` instead
+    ///
+    pub const OnSizeFromContents = onSizeFromContents;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#sizeFromContents)
     ///
@@ -602,13 +690,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeFromContents(self: QCommonStyle, callback: *const fn (QCommonStyle, i32, QStyleOption, QSize, QWidget) callconv(.c) QSize) void {
+    pub fn onSizeFromContents(self: QCommonStyle, callback: *const fn (QCommonStyle, i32, QStyleOption, QSize, QWidget) callconv(.c) QSize) void {
         qtc.QCommonStyle_OnSizeFromContents(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSizeFromContents` instead
+    /// ### DEPRECATED: Use `superSizeFromContents` instead
     ///
-    pub const QBaseSizeFromContents = SuperSizeFromContents;
+    pub const SuperSizeFromContents = superSizeFromContents;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#sizeFromContents)
     ///
@@ -626,12 +714,16 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn SuperSizeFromContents(self: QCommonStyle, ct: i32, opt: anytype, contentsSize: anytype, widget: anytype) QSize {
+    pub fn superSizeFromContents(self: QCommonStyle, ct: i32, opt: anytype, contentsSize: anytype, widget: anytype) QSize {
         comptime _ = @TypeOf(opt)._is_QStyleOption;
         comptime _ = @TypeOf(contentsSize)._is_QSize;
         comptime _ = @TypeOf(widget)._is_QWidget;
         return .{ .ptr = qtc.QCommonStyle_SuperSizeFromContents(@ptrCast(self.ptr), @bitCast(ct), @ptrCast(opt.ptr), @ptrCast(contentsSize.ptr), @ptrCast(widget.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `pixelMetric` instead
+    ///
+    pub const PixelMetric = pixelMetric;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#pixelMetric)
     ///
@@ -645,11 +737,15 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn PixelMetric(self: QCommonStyle, m: i32, opt: anytype, widget: anytype) i32 {
+    pub fn pixelMetric(self: QCommonStyle, m: i32, opt: anytype, widget: anytype) i32 {
         comptime _ = @TypeOf(opt)._is_QStyleOption;
         comptime _ = @TypeOf(widget)._is_QWidget;
         return qtc.QCommonStyle_PixelMetric(@ptrCast(self.ptr), @bitCast(m), @ptrCast(opt.ptr), @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPixelMetric` instead
+    ///
+    pub const OnPixelMetric = onPixelMetric;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#pixelMetric)
     ///
@@ -661,13 +757,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` callback: *const fn (self: QCommonStyle, m: qstyle_enums.PixelMetric, opt: QStyleOption, widget: QWidget) callconv(.c) i32 `
     ///
-    pub fn OnPixelMetric(self: QCommonStyle, callback: *const fn (QCommonStyle, i32, QStyleOption, QWidget) callconv(.c) i32) void {
+    pub fn onPixelMetric(self: QCommonStyle, callback: *const fn (QCommonStyle, i32, QStyleOption, QWidget) callconv(.c) i32) void {
         qtc.QCommonStyle_OnPixelMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperPixelMetric` instead
+    /// ### DEPRECATED: Use `superPixelMetric` instead
     ///
-    pub const QBasePixelMetric = SuperPixelMetric;
+    pub const SuperPixelMetric = superPixelMetric;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#pixelMetric)
     ///
@@ -683,11 +779,15 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn SuperPixelMetric(self: QCommonStyle, m: i32, opt: anytype, widget: anytype) i32 {
+    pub fn superPixelMetric(self: QCommonStyle, m: i32, opt: anytype, widget: anytype) i32 {
         comptime _ = @TypeOf(opt)._is_QStyleOption;
         comptime _ = @TypeOf(widget)._is_QWidget;
         return qtc.QCommonStyle_SuperPixelMetric(@ptrCast(self.ptr), @bitCast(m), @ptrCast(opt.ptr), @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `styleHint` instead
+    ///
+    pub const StyleHint = styleHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#styleHint)
     ///
@@ -703,12 +803,16 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` shret: QStyleHintReturn `
     ///
-    pub fn StyleHint(self: QCommonStyle, sh: i32, opt: anytype, w: anytype, shret: anytype) i32 {
+    pub fn styleHint(self: QCommonStyle, sh: i32, opt: anytype, w: anytype, shret: anytype) i32 {
         comptime _ = @TypeOf(opt)._is_QStyleOption;
         comptime _ = @TypeOf(w)._is_QWidget;
         comptime _ = @TypeOf(shret)._is_QStyleHintReturn;
         return qtc.QCommonStyle_StyleHint(@ptrCast(self.ptr), @bitCast(sh), @ptrCast(opt.ptr), @ptrCast(w.ptr), @ptrCast(shret.ptr));
     }
+
+    /// ### DEPRECATED: Use `onStyleHint` instead
+    ///
+    pub const OnStyleHint = onStyleHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#styleHint)
     ///
@@ -720,13 +824,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` callback: *const fn (self: QCommonStyle, sh: qstyle_enums.StyleHint, opt: QStyleOption, w: QWidget, shret: QStyleHintReturn) callconv(.c) i32 `
     ///
-    pub fn OnStyleHint(self: QCommonStyle, callback: *const fn (QCommonStyle, i32, QStyleOption, QWidget, QStyleHintReturn) callconv(.c) i32) void {
+    pub fn onStyleHint(self: QCommonStyle, callback: *const fn (QCommonStyle, i32, QStyleOption, QWidget, QStyleHintReturn) callconv(.c) i32) void {
         qtc.QCommonStyle_OnStyleHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperStyleHint` instead
+    /// ### DEPRECATED: Use `superStyleHint` instead
     ///
-    pub const QBaseStyleHint = SuperStyleHint;
+    pub const SuperStyleHint = superStyleHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#styleHint)
     ///
@@ -744,12 +848,16 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` shret: QStyleHintReturn `
     ///
-    pub fn SuperStyleHint(self: QCommonStyle, sh: i32, opt: anytype, w: anytype, shret: anytype) i32 {
+    pub fn superStyleHint(self: QCommonStyle, sh: i32, opt: anytype, w: anytype, shret: anytype) i32 {
         comptime _ = @TypeOf(opt)._is_QStyleOption;
         comptime _ = @TypeOf(w)._is_QWidget;
         comptime _ = @TypeOf(shret)._is_QStyleHintReturn;
         return qtc.QCommonStyle_SuperStyleHint(@ptrCast(self.ptr), @bitCast(sh), @ptrCast(opt.ptr), @ptrCast(w.ptr), @ptrCast(shret.ptr));
     }
+
+    /// ### DEPRECATED: Use `standardIcon` instead
+    ///
+    pub const StandardIcon = standardIcon;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#standardIcon)
     ///
@@ -757,17 +865,21 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` self: QCommonStyle `
     ///
-    /// ` standardIcon: qstyle_enums.StandardPixmap `
+    /// ` _standardIcon: qstyle_enums.StandardPixmap `
     ///
     /// ` opt: QStyleOption `
     ///
     /// ` widget: QWidget `
     ///
-    pub fn StandardIcon(self: QCommonStyle, standardIcon: i32, opt: anytype, widget: anytype) QIcon {
+    pub fn standardIcon(self: QCommonStyle, _standardIcon: i32, opt: anytype, widget: anytype) QIcon {
         comptime _ = @TypeOf(opt)._is_QStyleOption;
         comptime _ = @TypeOf(widget)._is_QWidget;
-        return .{ .ptr = qtc.QCommonStyle_StandardIcon(@ptrCast(self.ptr), @bitCast(standardIcon), @ptrCast(opt.ptr), @ptrCast(widget.ptr)) };
+        return .{ .ptr = qtc.QCommonStyle_StandardIcon(@ptrCast(self.ptr), @bitCast(_standardIcon), @ptrCast(opt.ptr), @ptrCast(widget.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onStandardIcon` instead
+    ///
+    pub const OnStandardIcon = onStandardIcon;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#standardIcon)
     ///
@@ -781,13 +893,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnStandardIcon(self: QCommonStyle, callback: *const fn (QCommonStyle, i32, QStyleOption, QWidget) callconv(.c) QIcon) void {
+    pub fn onStandardIcon(self: QCommonStyle, callback: *const fn (QCommonStyle, i32, QStyleOption, QWidget) callconv(.c) QIcon) void {
         qtc.QCommonStyle_OnStandardIcon(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperStandardIcon` instead
+    /// ### DEPRECATED: Use `superStandardIcon` instead
     ///
-    pub const QBaseStandardIcon = SuperStandardIcon;
+    pub const SuperStandardIcon = superStandardIcon;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#standardIcon)
     ///
@@ -797,17 +909,21 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` self: QCommonStyle `
     ///
-    /// ` standardIcon: qstyle_enums.StandardPixmap `
+    /// ` _standardIcon: qstyle_enums.StandardPixmap `
     ///
     /// ` opt: QStyleOption `
     ///
     /// ` widget: QWidget `
     ///
-    pub fn SuperStandardIcon(self: QCommonStyle, standardIcon: i32, opt: anytype, widget: anytype) QIcon {
+    pub fn superStandardIcon(self: QCommonStyle, _standardIcon: i32, opt: anytype, widget: anytype) QIcon {
         comptime _ = @TypeOf(opt)._is_QStyleOption;
         comptime _ = @TypeOf(widget)._is_QWidget;
-        return .{ .ptr = qtc.QCommonStyle_SuperStandardIcon(@ptrCast(self.ptr), @bitCast(standardIcon), @ptrCast(opt.ptr), @ptrCast(widget.ptr)) };
+        return .{ .ptr = qtc.QCommonStyle_SuperStandardIcon(@ptrCast(self.ptr), @bitCast(_standardIcon), @ptrCast(opt.ptr), @ptrCast(widget.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `standardPixmap` instead
+    ///
+    pub const StandardPixmap = standardPixmap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#standardPixmap)
     ///
@@ -821,11 +937,15 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn StandardPixmap(self: QCommonStyle, sp: i32, opt: anytype, widget: anytype) QPixmap {
+    pub fn standardPixmap(self: QCommonStyle, sp: i32, opt: anytype, widget: anytype) QPixmap {
         comptime _ = @TypeOf(opt)._is_QStyleOption;
         comptime _ = @TypeOf(widget)._is_QWidget;
         return .{ .ptr = qtc.QCommonStyle_StandardPixmap(@ptrCast(self.ptr), @bitCast(sp), @ptrCast(opt.ptr), @ptrCast(widget.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onStandardPixmap` instead
+    ///
+    pub const OnStandardPixmap = onStandardPixmap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#standardPixmap)
     ///
@@ -839,13 +959,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnStandardPixmap(self: QCommonStyle, callback: *const fn (QCommonStyle, i32, QStyleOption, QWidget) callconv(.c) QPixmap) void {
+    pub fn onStandardPixmap(self: QCommonStyle, callback: *const fn (QCommonStyle, i32, QStyleOption, QWidget) callconv(.c) QPixmap) void {
         qtc.QCommonStyle_OnStandardPixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperStandardPixmap` instead
+    /// ### DEPRECATED: Use `superStandardPixmap` instead
     ///
-    pub const QBaseStandardPixmap = SuperStandardPixmap;
+    pub const SuperStandardPixmap = superStandardPixmap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#standardPixmap)
     ///
@@ -861,11 +981,15 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn SuperStandardPixmap(self: QCommonStyle, sp: i32, opt: anytype, widget: anytype) QPixmap {
+    pub fn superStandardPixmap(self: QCommonStyle, sp: i32, opt: anytype, widget: anytype) QPixmap {
         comptime _ = @TypeOf(opt)._is_QStyleOption;
         comptime _ = @TypeOf(widget)._is_QWidget;
         return .{ .ptr = qtc.QCommonStyle_SuperStandardPixmap(@ptrCast(self.ptr), @bitCast(sp), @ptrCast(opt.ptr), @ptrCast(widget.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `generatedIconPixmap` instead
+    ///
+    pub const GeneratedIconPixmap = generatedIconPixmap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#generatedIconPixmap)
     ///
@@ -879,11 +1003,15 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` opt: QStyleOption `
     ///
-    pub fn GeneratedIconPixmap(self: QCommonStyle, iconMode: i32, pixmap: anytype, opt: anytype) QPixmap {
+    pub fn generatedIconPixmap(self: QCommonStyle, iconMode: i32, pixmap: anytype, opt: anytype) QPixmap {
         comptime _ = @TypeOf(pixmap)._is_QPixmap;
         comptime _ = @TypeOf(opt)._is_QStyleOption;
         return .{ .ptr = qtc.QCommonStyle_GeneratedIconPixmap(@ptrCast(self.ptr), @bitCast(iconMode), @ptrCast(pixmap.ptr), @ptrCast(opt.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onGeneratedIconPixmap` instead
+    ///
+    pub const OnGeneratedIconPixmap = onGeneratedIconPixmap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#generatedIconPixmap)
     ///
@@ -897,13 +1025,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnGeneratedIconPixmap(self: QCommonStyle, callback: *const fn (QCommonStyle, i32, QPixmap, QStyleOption) callconv(.c) QPixmap) void {
+    pub fn onGeneratedIconPixmap(self: QCommonStyle, callback: *const fn (QCommonStyle, i32, QPixmap, QStyleOption) callconv(.c) QPixmap) void {
         qtc.QCommonStyle_OnGeneratedIconPixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperGeneratedIconPixmap` instead
+    /// ### DEPRECATED: Use `superGeneratedIconPixmap` instead
     ///
-    pub const QBaseGeneratedIconPixmap = SuperGeneratedIconPixmap;
+    pub const SuperGeneratedIconPixmap = superGeneratedIconPixmap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#generatedIconPixmap)
     ///
@@ -919,11 +1047,15 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` opt: QStyleOption `
     ///
-    pub fn SuperGeneratedIconPixmap(self: QCommonStyle, iconMode: i32, pixmap: anytype, opt: anytype) QPixmap {
+    pub fn superGeneratedIconPixmap(self: QCommonStyle, iconMode: i32, pixmap: anytype, opt: anytype) QPixmap {
         comptime _ = @TypeOf(pixmap)._is_QPixmap;
         comptime _ = @TypeOf(opt)._is_QStyleOption;
         return .{ .ptr = qtc.QCommonStyle_SuperGeneratedIconPixmap(@ptrCast(self.ptr), @bitCast(iconMode), @ptrCast(pixmap.ptr), @ptrCast(opt.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layoutSpacing` instead
+    ///
+    pub const LayoutSpacing = layoutSpacing;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#layoutSpacing)
     ///
@@ -941,11 +1073,15 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn LayoutSpacing(self: QCommonStyle, control1: i32, control2: i32, orientation: i32, option: anytype, widget: anytype) i32 {
+    pub fn layoutSpacing(self: QCommonStyle, control1: i32, control2: i32, orientation: i32, option: anytype, widget: anytype) i32 {
         comptime _ = @TypeOf(option)._is_QStyleOption;
         comptime _ = @TypeOf(widget)._is_QWidget;
         return qtc.QCommonStyle_LayoutSpacing(@ptrCast(self.ptr), @bitCast(control1), @bitCast(control2), @bitCast(orientation), @ptrCast(option.ptr), @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLayoutSpacing` instead
+    ///
+    pub const OnLayoutSpacing = onLayoutSpacing;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#layoutSpacing)
     ///
@@ -957,13 +1093,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` callback: *const fn (self: QCommonStyle, control1: qsizepolicy_enums.ControlType, control2: qsizepolicy_enums.ControlType, orientation: qnamespace_enums.Orientation, option: QStyleOption, widget: QWidget) callconv(.c) i32 `
     ///
-    pub fn OnLayoutSpacing(self: QCommonStyle, callback: *const fn (QCommonStyle, i32, i32, i32, QStyleOption, QWidget) callconv(.c) i32) void {
+    pub fn onLayoutSpacing(self: QCommonStyle, callback: *const fn (QCommonStyle, i32, i32, i32, QStyleOption, QWidget) callconv(.c) i32) void {
         qtc.QCommonStyle_OnLayoutSpacing(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperLayoutSpacing` instead
+    /// ### DEPRECATED: Use `superLayoutSpacing` instead
     ///
-    pub const QBaseLayoutSpacing = SuperLayoutSpacing;
+    pub const SuperLayoutSpacing = superLayoutSpacing;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#layoutSpacing)
     ///
@@ -983,11 +1119,15 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn SuperLayoutSpacing(self: QCommonStyle, control1: i32, control2: i32, orientation: i32, option: anytype, widget: anytype) i32 {
+    pub fn superLayoutSpacing(self: QCommonStyle, control1: i32, control2: i32, orientation: i32, option: anytype, widget: anytype) i32 {
         comptime _ = @TypeOf(option)._is_QStyleOption;
         comptime _ = @TypeOf(widget)._is_QWidget;
         return qtc.QCommonStyle_SuperLayoutSpacing(@ptrCast(self.ptr), @bitCast(control1), @bitCast(control2), @bitCast(orientation), @ptrCast(option.ptr), @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `polish` instead
+    ///
+    pub const Polish = polish;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#polish)
     ///
@@ -997,10 +1137,14 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` param1: QPalette `
     ///
-    pub fn Polish(self: QCommonStyle, param1: anytype) void {
+    pub fn polish(self: QCommonStyle, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPalette;
         qtc.QCommonStyle_Polish(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPolish` instead
+    ///
+    pub const OnPolish = onPolish;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#polish)
     ///
@@ -1012,13 +1156,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` callback: *const fn (self: QCommonStyle, param1: QPalette) callconv(.c) void `
     ///
-    pub fn OnPolish(self: QCommonStyle, callback: *const fn (QCommonStyle, QPalette) callconv(.c) void) void {
+    pub fn onPolish(self: QCommonStyle, callback: *const fn (QCommonStyle, QPalette) callconv(.c) void) void {
         qtc.QCommonStyle_OnPolish(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperPolish` instead
+    /// ### DEPRECATED: Use `superPolish` instead
     ///
-    pub const QBasePolish = SuperPolish;
+    pub const SuperPolish = superPolish;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#polish)
     ///
@@ -1030,10 +1174,14 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` param1: QPalette `
     ///
-    pub fn SuperPolish(self: QCommonStyle, param1: anytype) void {
+    pub fn superPolish(self: QCommonStyle, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPalette;
         qtc.QCommonStyle_SuperPolish(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `polish2` instead
+    ///
+    pub const Polish2 = polish2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#polish)
     ///
@@ -1043,10 +1191,14 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` app: QApplication `
     ///
-    pub fn Polish2(self: QCommonStyle, app: anytype) void {
+    pub fn polish2(self: QCommonStyle, app: anytype) void {
         comptime _ = @TypeOf(app)._is_QApplication;
         qtc.QCommonStyle_Polish2(@ptrCast(self.ptr), @ptrCast(app.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPolish2` instead
+    ///
+    pub const OnPolish2 = onPolish2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#polish)
     ///
@@ -1058,13 +1210,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` callback: *const fn (self: QCommonStyle, app: QApplication) callconv(.c) void `
     ///
-    pub fn OnPolish2(self: QCommonStyle, callback: *const fn (QCommonStyle, QApplication) callconv(.c) void) void {
+    pub fn onPolish2(self: QCommonStyle, callback: *const fn (QCommonStyle, QApplication) callconv(.c) void) void {
         qtc.QCommonStyle_OnPolish2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperPolish2` instead
+    /// ### DEPRECATED: Use `superPolish2` instead
     ///
-    pub const QBasePolish2 = SuperPolish2;
+    pub const SuperPolish2 = superPolish2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#polish)
     ///
@@ -1076,11 +1228,15 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` app: QApplication `
     ///
-    pub fn SuperPolish2(self: QCommonStyle, app: anytype) void {
+    pub fn superPolish2(self: QCommonStyle, app: anytype) void {
         comptime _ = @TypeOf(app)._is_QApplication;
         qtc.QCommonStyle_SuperPolish2(@ptrCast(self.ptr), @ptrCast(app.ptr));
     }
 
+    /// ### DEPRECATED: Use `polish3` instead
+    ///
+    pub const Polish3 = polish3;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#polish)
     ///
     /// ## Parameter(s):
@@ -1089,11 +1245,15 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn Polish3(self: QCommonStyle, widget: anytype) void {
+    pub fn polish3(self: QCommonStyle, widget: anytype) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QCommonStyle_Polish3(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
 
+    /// ### DEPRECATED: Use `onPolish3` instead
+    ///
+    pub const OnPolish3 = onPolish3;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#polish)
     ///
     /// Allows for overriding the related default method
@@ -1104,13 +1264,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` callback: *const fn (self: QCommonStyle, widget: QWidget) callconv(.c) void `
     ///
-    pub fn OnPolish3(self: QCommonStyle, callback: *const fn (QCommonStyle, QWidget) callconv(.c) void) void {
+    pub fn onPolish3(self: QCommonStyle, callback: *const fn (QCommonStyle, QWidget) callconv(.c) void) void {
         qtc.QCommonStyle_OnPolish3(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperPolish3` instead
+    /// ### DEPRECATED: Use `superPolish3` instead
     ///
-    pub const QBasePolish3 = SuperPolish3;
+    pub const SuperPolish3 = superPolish3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#polish)
     ///
@@ -1122,11 +1282,15 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn SuperPolish3(self: QCommonStyle, widget: anytype) void {
+    pub fn superPolish3(self: QCommonStyle, widget: anytype) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QCommonStyle_SuperPolish3(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
 
+    /// ### DEPRECATED: Use `unpolish` instead
+    ///
+    pub const Unpolish = unpolish;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#unpolish)
     ///
     /// ## Parameter(s):
@@ -1135,10 +1299,14 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn Unpolish(self: QCommonStyle, widget: anytype) void {
+    pub fn unpolish(self: QCommonStyle, widget: anytype) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QCommonStyle_Unpolish(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `onUnpolish` instead
+    ///
+    pub const OnUnpolish = onUnpolish;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#unpolish)
     ///
@@ -1150,13 +1318,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` callback: *const fn (self: QCommonStyle, widget: QWidget) callconv(.c) void `
     ///
-    pub fn OnUnpolish(self: QCommonStyle, callback: *const fn (QCommonStyle, QWidget) callconv(.c) void) void {
+    pub fn onUnpolish(self: QCommonStyle, callback: *const fn (QCommonStyle, QWidget) callconv(.c) void) void {
         qtc.QCommonStyle_OnUnpolish(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperUnpolish` instead
+    /// ### DEPRECATED: Use `superUnpolish` instead
     ///
-    pub const QBaseUnpolish = SuperUnpolish;
+    pub const SuperUnpolish = superUnpolish;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#unpolish)
     ///
@@ -1168,10 +1336,14 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn SuperUnpolish(self: QCommonStyle, widget: anytype) void {
+    pub fn superUnpolish(self: QCommonStyle, widget: anytype) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QCommonStyle_SuperUnpolish(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `unpolish2` instead
+    ///
+    pub const Unpolish2 = unpolish2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#unpolish)
     ///
@@ -1181,10 +1353,14 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` application: QApplication `
     ///
-    pub fn Unpolish2(self: QCommonStyle, application: anytype) void {
+    pub fn unpolish2(self: QCommonStyle, application: anytype) void {
         comptime _ = @TypeOf(application)._is_QApplication;
         qtc.QCommonStyle_Unpolish2(@ptrCast(self.ptr), @ptrCast(application.ptr));
     }
+
+    /// ### DEPRECATED: Use `onUnpolish2` instead
+    ///
+    pub const OnUnpolish2 = onUnpolish2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#unpolish)
     ///
@@ -1196,13 +1372,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` callback: *const fn (self: QCommonStyle, application: QApplication) callconv(.c) void `
     ///
-    pub fn OnUnpolish2(self: QCommonStyle, callback: *const fn (QCommonStyle, QApplication) callconv(.c) void) void {
+    pub fn onUnpolish2(self: QCommonStyle, callback: *const fn (QCommonStyle, QApplication) callconv(.c) void) void {
         qtc.QCommonStyle_OnUnpolish2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperUnpolish2` instead
+    /// ### DEPRECATED: Use `superUnpolish2` instead
     ///
-    pub const QBaseUnpolish2 = SuperUnpolish2;
+    pub const SuperUnpolish2 = superUnpolish2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#unpolish)
     ///
@@ -1214,10 +1390,14 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` application: QApplication `
     ///
-    pub fn SuperUnpolish2(self: QCommonStyle, application: anytype) void {
+    pub fn superUnpolish2(self: QCommonStyle, application: anytype) void {
         comptime _ = @TypeOf(application)._is_QApplication;
         qtc.QCommonStyle_SuperUnpolish2(@ptrCast(self.ptr), @ptrCast(application.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1229,15 +1409,19 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCommonStyle.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCommonStyle.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1251,15 +1435,19 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCommonStyle.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCommonStyle.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// Inherited from QStyle
     ///
@@ -1271,13 +1459,17 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: QCommonStyle, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: QCommonStyle, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QStyle_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCommonStyle.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCommonStyle.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `visualRect` instead
+    ///
+    pub const VisualRect = visualRect;
 
     /// Inherited from QStyle
     ///
@@ -1291,11 +1483,15 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` logicalRect: QRect `
     ///
-    pub fn VisualRect(direction: i32, boundingRect: anytype, logicalRect: anytype) QRect {
+    pub fn visualRect(direction: i32, boundingRect: anytype, logicalRect: anytype) QRect {
         comptime _ = @TypeOf(boundingRect)._is_QRect;
         comptime _ = @TypeOf(logicalRect)._is_QRect;
         return .{ .ptr = qtc.QStyle_VisualRect(@bitCast(direction), @ptrCast(boundingRect.ptr), @ptrCast(logicalRect.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `visualPos` instead
+    ///
+    pub const VisualPos = visualPos;
 
     /// Inherited from QStyle
     ///
@@ -1309,11 +1505,15 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` logicalPos: QPoint `
     ///
-    pub fn VisualPos(direction: i32, boundingRect: anytype, logicalPos: anytype) QPoint {
+    pub fn visualPos(direction: i32, boundingRect: anytype, logicalPos: anytype) QPoint {
         comptime _ = @TypeOf(boundingRect)._is_QRect;
         comptime _ = @TypeOf(logicalPos)._is_QPoint;
         return .{ .ptr = qtc.QStyle_VisualPos(@bitCast(direction), @ptrCast(boundingRect.ptr), @ptrCast(logicalPos.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `sliderPositionFromValue` instead
+    ///
+    pub const SliderPositionFromValue = sliderPositionFromValue;
 
     /// Inherited from QStyle
     ///
@@ -1329,9 +1529,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` space: i32 `
     ///
-    pub fn SliderPositionFromValue(min: i32, max: i32, val: i32, space: i32) i32 {
+    pub fn sliderPositionFromValue(min: i32, max: i32, val: i32, space: i32) i32 {
         return qtc.QStyle_SliderPositionFromValue(@bitCast(min), @bitCast(max), @bitCast(val), @bitCast(space));
     }
+
+    /// ### DEPRECATED: Use `sliderValueFromPosition` instead
+    ///
+    pub const SliderValueFromPosition = sliderValueFromPosition;
 
     /// Inherited from QStyle
     ///
@@ -1347,9 +1551,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` space: i32 `
     ///
-    pub fn SliderValueFromPosition(min: i32, max: i32, pos: i32, space: i32) i32 {
+    pub fn sliderValueFromPosition(min: i32, max: i32, pos: i32, space: i32) i32 {
         return qtc.QStyle_SliderValueFromPosition(@bitCast(min), @bitCast(max), @bitCast(pos), @bitCast(space));
     }
+
+    /// ### DEPRECATED: Use `visualAlignment` instead
+    ///
+    pub const VisualAlignment = visualAlignment;
 
     /// Inherited from QStyle
     ///
@@ -1365,9 +1573,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn VisualAlignment(direction: i32, alignment: i32) i32 {
+    pub fn visualAlignment(direction: i32, alignment: i32) i32 {
         return qtc.QStyle_VisualAlignment(@bitCast(direction), @bitCast(alignment));
     }
+
+    /// ### DEPRECATED: Use `alignedRect` instead
+    ///
+    pub const AlignedRect = alignedRect;
 
     /// Inherited from QStyle
     ///
@@ -1383,11 +1595,15 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn AlignedRect(direction: i32, alignment: i32, size: anytype, rectangle: anytype) QRect {
+    pub fn alignedRect(direction: i32, alignment: i32, size: anytype, rectangle: anytype) QRect {
         comptime _ = @TypeOf(size)._is_QSize;
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QStyle_AlignedRect(@bitCast(direction), @bitCast(alignment), @ptrCast(size.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `combinedLayoutSpacing` instead
+    ///
+    pub const CombinedLayoutSpacing = combinedLayoutSpacing;
 
     /// Inherited from QStyle
     ///
@@ -1403,9 +1619,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` orientation: qnamespace_enums.Orientation `
     ///
-    pub fn CombinedLayoutSpacing(self: QCommonStyle, controls1: i32, controls2: i32, orientation: i32) i32 {
+    pub fn combinedLayoutSpacing(self: QCommonStyle, controls1: i32, controls2: i32, orientation: i32) i32 {
         return qtc.QStyle_CombinedLayoutSpacing(@ptrCast(self.ptr), @bitCast(controls1), @bitCast(controls2), @bitCast(orientation));
     }
+
+    /// ### DEPRECATED: Use `proxy` instead
+    ///
+    pub const Proxy = proxy;
 
     /// Inherited from QStyle
     ///
@@ -1415,9 +1635,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` self: QCommonStyle `
     ///
-    pub fn Proxy(self: QCommonStyle) QStyle {
+    pub fn proxy(self: QCommonStyle) QStyle {
         return .{ .ptr = qtc.QStyle_Proxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `sliderPositionFromValue5` instead
+    ///
+    pub const SliderPositionFromValue5 = sliderPositionFromValue5;
 
     /// Inherited from QStyle
     ///
@@ -1435,9 +1659,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` upsideDown: bool `
     ///
-    pub fn SliderPositionFromValue5(min: i32, max: i32, val: i32, space: i32, upsideDown: bool) i32 {
+    pub fn sliderPositionFromValue5(min: i32, max: i32, val: i32, space: i32, upsideDown: bool) i32 {
         return qtc.QStyle_SliderPositionFromValue5(@bitCast(min), @bitCast(max), @bitCast(val), @bitCast(space), upsideDown);
     }
+
+    /// ### DEPRECATED: Use `sliderValueFromPosition5` instead
+    ///
+    pub const SliderValueFromPosition5 = sliderValueFromPosition5;
 
     /// Inherited from QStyle
     ///
@@ -1455,9 +1683,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` upsideDown: bool `
     ///
-    pub fn SliderValueFromPosition5(min: i32, max: i32, pos: i32, space: i32, upsideDown: bool) i32 {
+    pub fn sliderValueFromPosition5(min: i32, max: i32, pos: i32, space: i32, upsideDown: bool) i32 {
         return qtc.QStyle_SliderValueFromPosition5(@bitCast(min), @bitCast(max), @bitCast(pos), @bitCast(space), upsideDown);
     }
+
+    /// ### DEPRECATED: Use `combinedLayoutSpacing4` instead
+    ///
+    pub const CombinedLayoutSpacing4 = combinedLayoutSpacing4;
 
     /// Inherited from QStyle
     ///
@@ -1475,10 +1707,14 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` option: QStyleOption `
     ///
-    pub fn CombinedLayoutSpacing4(self: QCommonStyle, controls1: i32, controls2: i32, orientation: i32, option: anytype) i32 {
+    pub fn combinedLayoutSpacing4(self: QCommonStyle, controls1: i32, controls2: i32, orientation: i32, option: anytype) i32 {
         comptime _ = @TypeOf(option)._is_QStyleOption;
         return qtc.QStyle_CombinedLayoutSpacing4(@ptrCast(self.ptr), @bitCast(controls1), @bitCast(controls2), @bitCast(orientation), @ptrCast(option.ptr));
     }
+
+    /// ### DEPRECATED: Use `combinedLayoutSpacing5` instead
+    ///
+    pub const CombinedLayoutSpacing5 = combinedLayoutSpacing5;
 
     /// Inherited from QStyle
     ///
@@ -1498,11 +1734,15 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn CombinedLayoutSpacing5(self: QCommonStyle, controls1: i32, controls2: i32, orientation: i32, option: anytype, widget: anytype) i32 {
+    pub fn combinedLayoutSpacing5(self: QCommonStyle, controls1: i32, controls2: i32, orientation: i32, option: anytype, widget: anytype) i32 {
         comptime _ = @TypeOf(option)._is_QStyleOption;
         comptime _ = @TypeOf(widget)._is_QWidget;
         return qtc.QStyle_CombinedLayoutSpacing5(@ptrCast(self.ptr), @bitCast(controls1), @bitCast(controls2), @bitCast(orientation), @ptrCast(option.ptr), @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -1514,13 +1754,17 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QCommonStyle, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QCommonStyle, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCommonStyle.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCommonStyle.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -1530,15 +1774,19 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` self: QCommonStyle `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn SetObjectName(self: QCommonStyle, name: []const u8) void {
+    pub fn setObjectName(self: QCommonStyle, _name: []const u8) void {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -1548,9 +1796,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` self: QCommonStyle `
     ///
-    pub fn IsWidgetType(self: QCommonStyle) bool {
+    pub fn isWidgetType(self: QCommonStyle) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -1560,9 +1812,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` self: QCommonStyle `
     ///
-    pub fn IsWindowType(self: QCommonStyle) bool {
+    pub fn isWindowType(self: QCommonStyle) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -1572,9 +1828,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` self: QCommonStyle `
     ///
-    pub fn IsQuickItemType(self: QCommonStyle) bool {
+    pub fn isQuickItemType(self: QCommonStyle) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -1584,9 +1844,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` self: QCommonStyle `
     ///
-    pub fn SignalsBlocked(self: QCommonStyle) bool {
+    pub fn signalsBlocked(self: QCommonStyle) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -1598,9 +1862,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QCommonStyle, b: bool) bool {
+    pub fn blockSignals(self: QCommonStyle, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -1610,9 +1878,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` self: QCommonStyle `
     ///
-    pub fn Thread(self: QCommonStyle) QThread {
+    pub fn thread(self: QCommonStyle) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -1622,12 +1894,16 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` self: QCommonStyle `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QCommonStyle, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QCommonStyle, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -1639,9 +1915,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QCommonStyle, interval: i32) i32 {
+    pub fn startTimer(self: QCommonStyle, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -1653,9 +1933,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QCommonStyle, time: i64) i32 {
+    pub fn startTimer2(self: QCommonStyle, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -1667,9 +1951,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QCommonStyle, id: i32) void {
+    pub fn killTimer(self: QCommonStyle, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -1681,9 +1969,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QCommonStyle, id: i32) void {
+    pub fn killTimer2(self: QCommonStyle, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -1695,15 +1987,19 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QCommonStyle, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QCommonStyle, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QCommonStyle.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QCommonStyle.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -1713,12 +2009,16 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` self: QCommonStyle `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QCommonStyle, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QCommonStyle, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1730,10 +2030,14 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QCommonStyle, filterObj: anytype) void {
+    pub fn installEventFilter(self: QCommonStyle, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1745,10 +2049,14 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QCommonStyle, obj: anytype) void {
+    pub fn removeEventFilter(self: QCommonStyle, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -1756,7 +2064,7 @@ pub const QCommonStyle = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1764,13 +2072,17 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -1778,7 +2090,7 @@ pub const QCommonStyle = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1786,13 +2098,17 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -1802,18 +2118,22 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` self: QCommonStyle `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QCommonStyle, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QCommonStyle, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -1821,7 +2141,7 @@ pub const QCommonStyle = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1829,13 +2149,17 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -1843,7 +2167,7 @@ pub const QCommonStyle = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1851,13 +2175,17 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -1867,9 +2195,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` self: QCommonStyle `
     ///
-    pub fn Disconnect3(self: QCommonStyle) bool {
+    pub fn disconnect3(self: QCommonStyle) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1881,10 +2213,14 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QCommonStyle, receiver: anytype) bool {
+    pub fn disconnect4(self: QCommonStyle, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1894,10 +2230,14 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1907,9 +2247,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` self: QCommonStyle `
     ///
-    pub fn DumpObjectTree(self: QCommonStyle) void {
+    pub fn dumpObjectTree(self: QCommonStyle) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1919,9 +2263,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` self: QCommonStyle `
     ///
-    pub fn DumpObjectInfo(self: QCommonStyle) void {
+    pub fn dumpObjectInfo(self: QCommonStyle) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1931,15 +2279,19 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` self: QCommonStyle `
     ///
-    /// ` name: [:0]const u8 `
+    /// ` _name: [:0]const u8 `
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QCommonStyle, name: [:0]const u8, value: anytype) bool {
-        const name_Cstring = name.ptr;
+    pub fn setProperty(self: QCommonStyle, _name: [:0]const u8, value: anytype) bool {
+        const name_Cstring = _name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1949,12 +2301,16 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` self: QCommonStyle `
     ///
-    /// ` name: [:0]const u8 `
+    /// ` _name: [:0]const u8 `
     ///
-    pub fn Property(self: QCommonStyle, name: [:0]const u8) QVariant {
-        const name_Cstring = name.ptr;
+    pub fn property(self: QCommonStyle, _name: [:0]const u8) QVariant {
+        const name_Cstring = _name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1966,7 +2322,7 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QCommonStyle, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QCommonStyle, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1974,27 +2330,19 @@ pub const QCommonStyle = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCommonStyle.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCommonStyle.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCommonStyle.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QCommonStyle.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCommonStyle `
-    ///
-    pub fn BindingStorage(self: QCommonStyle) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -2004,9 +2352,29 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` self: QCommonStyle `
     ///
-    pub fn BindingStorage2(self: QCommonStyle) QBindingStorage {
+    pub fn bindingStorage(self: QCommonStyle) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QCommonStyle `
+    ///
+    pub fn bindingStorage2(self: QCommonStyle) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -2016,9 +2384,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` self: QCommonStyle `
     ///
-    pub fn Destroyed(self: QCommonStyle) void {
+    pub fn destroyed(self: QCommonStyle) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -2030,9 +2402,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` callback: *const fn (self: QCommonStyle) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QCommonStyle, callback: *const fn (QCommonStyle) callconv(.c) void) void {
+    pub fn onDestroyed(self: QCommonStyle, callback: *const fn (QCommonStyle) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -2042,9 +2418,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` self: QCommonStyle `
     ///
-    pub fn Parent(self: QCommonStyle) QObject {
+    pub fn parent(self: QCommonStyle) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -2056,10 +2436,14 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QCommonStyle, classname: [:0]const u8) bool {
+    pub fn inherits(self: QCommonStyle, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -2069,9 +2453,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` self: QCommonStyle `
     ///
-    pub fn DeleteLater(self: QCommonStyle) void {
+    pub fn deleteLater(self: QCommonStyle) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -2085,9 +2473,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QCommonStyle, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QCommonStyle, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -2101,9 +2493,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QCommonStyle, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QCommonStyle, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -2111,7 +2507,7 @@ pub const QCommonStyle = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2121,13 +2517,17 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -2135,7 +2535,7 @@ pub const QCommonStyle = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2145,13 +2545,17 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -2161,7 +2565,7 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` self: QCommonStyle `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2169,12 +2573,16 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QCommonStyle, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QCommonStyle, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -2186,10 +2594,14 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QCommonStyle, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QCommonStyle, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -2203,11 +2615,15 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QCommonStyle, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QCommonStyle, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -2223,13 +2639,17 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QCommonStyle, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QCommonStyle, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -2242,11 +2662,15 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QCommonStyle, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QCommonStyle, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -2258,10 +2682,14 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QCommonStyle, param1: anytype) void {
+    pub fn destroyed1(self: QCommonStyle, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -2273,9 +2701,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` callback: *const fn (self: QCommonStyle, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QCommonStyle, callback: *const fn (QCommonStyle, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QCommonStyle, callback: *const fn (QCommonStyle, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `itemTextRect` instead
+    ///
+    pub const ItemTextRect = itemTextRect;
 
     /// Inherited from QStyle
     ///
@@ -2297,7 +2729,7 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn ItemTextRect(self: QCommonStyle, fm: anytype, r: anytype, flags: i32, enabled: bool, text: []const u8) QRect {
+    pub fn itemTextRect(self: QCommonStyle, fm: anytype, r: anytype, flags: i32, enabled: bool, text: []const u8) QRect {
         comptime _ = @TypeOf(fm)._is_QFontMetrics;
         comptime _ = @TypeOf(r)._is_QRect;
         const text_str = qtc.libqt_string{
@@ -2307,9 +2739,9 @@ pub const QCommonStyle = extern struct {
         return .{ .ptr = qtc.QCommonStyle_ItemTextRect(@ptrCast(self.ptr), @ptrCast(fm.ptr), @ptrCast(r.ptr), @bitCast(flags), enabled, text_str) };
     }
 
-    /// ### DEPRECATED: Use `SuperItemTextRect` instead
+    /// ### DEPRECATED: Use `superItemTextRect` instead
     ///
-    pub const QBaseItemTextRect = SuperItemTextRect;
+    pub const SuperItemTextRect = superItemTextRect;
 
     /// Inherited from QStyle
     ///
@@ -2331,7 +2763,7 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SuperItemTextRect(self: QCommonStyle, fm: anytype, r: anytype, flags: i32, enabled: bool, text: []const u8) QRect {
+    pub fn superItemTextRect(self: QCommonStyle, fm: anytype, r: anytype, flags: i32, enabled: bool, text: []const u8) QRect {
         comptime _ = @TypeOf(fm)._is_QFontMetrics;
         comptime _ = @TypeOf(r)._is_QRect;
         const text_str = qtc.libqt_string{
@@ -2340,6 +2772,10 @@ pub const QCommonStyle = extern struct {
         };
         return .{ .ptr = qtc.QCommonStyle_SuperItemTextRect(@ptrCast(self.ptr), @ptrCast(fm.ptr), @ptrCast(r.ptr), @bitCast(flags), enabled, text_str) };
     }
+
+    /// ### DEPRECATED: Use `onItemTextRect` instead
+    ///
+    pub const OnItemTextRect = onItemTextRect;
 
     /// Inherited from QStyle
     ///
@@ -2355,9 +2791,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnItemTextRect(self: QCommonStyle, callback: *const fn (QCommonStyle, QFontMetrics, QRect, i32, bool, [*:0]const u8) callconv(.c) QRect) void {
+    pub fn onItemTextRect(self: QCommonStyle, callback: *const fn (QCommonStyle, QFontMetrics, QRect, i32, bool, [*:0]const u8) callconv(.c) QRect) void {
         qtc.QCommonStyle_OnItemTextRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `itemPixmapRect` instead
+    ///
+    pub const ItemPixmapRect = itemPixmapRect;
 
     /// Inherited from QStyle
     ///
@@ -2375,15 +2815,15 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` pixmap: QPixmap `
     ///
-    pub fn ItemPixmapRect(self: QCommonStyle, r: anytype, flags: i32, pixmap: anytype) QRect {
+    pub fn itemPixmapRect(self: QCommonStyle, r: anytype, flags: i32, pixmap: anytype) QRect {
         comptime _ = @TypeOf(r)._is_QRect;
         comptime _ = @TypeOf(pixmap)._is_QPixmap;
         return .{ .ptr = qtc.QCommonStyle_ItemPixmapRect(@ptrCast(self.ptr), @ptrCast(r.ptr), @bitCast(flags), @ptrCast(pixmap.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperItemPixmapRect` instead
+    /// ### DEPRECATED: Use `superItemPixmapRect` instead
     ///
-    pub const QBaseItemPixmapRect = SuperItemPixmapRect;
+    pub const SuperItemPixmapRect = superItemPixmapRect;
 
     /// Inherited from QStyle
     ///
@@ -2401,11 +2841,15 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` pixmap: QPixmap `
     ///
-    pub fn SuperItemPixmapRect(self: QCommonStyle, r: anytype, flags: i32, pixmap: anytype) QRect {
+    pub fn superItemPixmapRect(self: QCommonStyle, r: anytype, flags: i32, pixmap: anytype) QRect {
         comptime _ = @TypeOf(r)._is_QRect;
         comptime _ = @TypeOf(pixmap)._is_QPixmap;
         return .{ .ptr = qtc.QCommonStyle_SuperItemPixmapRect(@ptrCast(self.ptr), @ptrCast(r.ptr), @bitCast(flags), @ptrCast(pixmap.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onItemPixmapRect` instead
+    ///
+    pub const OnItemPixmapRect = onItemPixmapRect;
 
     /// Inherited from QStyle
     ///
@@ -2421,9 +2865,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnItemPixmapRect(self: QCommonStyle, callback: *const fn (QCommonStyle, QRect, i32, QPixmap) callconv(.c) QRect) void {
+    pub fn onItemPixmapRect(self: QCommonStyle, callback: *const fn (QCommonStyle, QRect, i32, QPixmap) callconv(.c) QRect) void {
         qtc.QCommonStyle_OnItemPixmapRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `drawItemText` instead
+    ///
+    pub const DrawItemText = drawItemText;
 
     /// Inherited from QStyle
     ///
@@ -2449,7 +2897,7 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` textRole: qpalette_enums.ColorRole `
     ///
-    pub fn DrawItemText(self: QCommonStyle, painter: anytype, rect: anytype, flags: i32, pal: anytype, enabled: bool, text: []const u8, textRole: i32) void {
+    pub fn drawItemText(self: QCommonStyle, painter: anytype, rect: anytype, flags: i32, pal: anytype, enabled: bool, text: []const u8, textRole: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(rect)._is_QRect;
         comptime _ = @TypeOf(pal)._is_QPalette;
@@ -2460,9 +2908,9 @@ pub const QCommonStyle = extern struct {
         qtc.QCommonStyle_DrawItemText(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(rect.ptr), @bitCast(flags), @ptrCast(pal.ptr), enabled, text_str, @bitCast(textRole));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawItemText` instead
+    /// ### DEPRECATED: Use `superDrawItemText` instead
     ///
-    pub const QBaseDrawItemText = SuperDrawItemText;
+    pub const SuperDrawItemText = superDrawItemText;
 
     /// Inherited from QStyle
     ///
@@ -2488,7 +2936,7 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` textRole: qpalette_enums.ColorRole `
     ///
-    pub fn SuperDrawItemText(self: QCommonStyle, painter: anytype, rect: anytype, flags: i32, pal: anytype, enabled: bool, text: []const u8, textRole: i32) void {
+    pub fn superDrawItemText(self: QCommonStyle, painter: anytype, rect: anytype, flags: i32, pal: anytype, enabled: bool, text: []const u8, textRole: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(rect)._is_QRect;
         comptime _ = @TypeOf(pal)._is_QPalette;
@@ -2498,6 +2946,10 @@ pub const QCommonStyle = extern struct {
         };
         qtc.QCommonStyle_SuperDrawItemText(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(rect.ptr), @bitCast(flags), @ptrCast(pal.ptr), enabled, text_str, @bitCast(textRole));
     }
+
+    /// ### DEPRECATED: Use `onDrawItemText` instead
+    ///
+    pub const OnDrawItemText = onDrawItemText;
 
     /// Inherited from QStyle
     ///
@@ -2511,9 +2963,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` callback: *const fn (self: QCommonStyle, painter: QPainter, rect: QRect, flags: i32, pal: QPalette, enabled: bool, text: [*:0]const u8, textRole: qpalette_enums.ColorRole) callconv(.c) void `
     ///
-    pub fn OnDrawItemText(self: QCommonStyle, callback: *const fn (QCommonStyle, QPainter, QRect, i32, QPalette, bool, [*:0]const u8, i32) callconv(.c) void) void {
+    pub fn onDrawItemText(self: QCommonStyle, callback: *const fn (QCommonStyle, QPainter, QRect, i32, QPalette, bool, [*:0]const u8, i32) callconv(.c) void) void {
         qtc.QCommonStyle_OnDrawItemText(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `drawItemPixmap` instead
+    ///
+    pub const DrawItemPixmap = drawItemPixmap;
 
     /// Inherited from QStyle
     ///
@@ -2533,16 +2989,16 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` pixmap: QPixmap `
     ///
-    pub fn DrawItemPixmap(self: QCommonStyle, painter: anytype, rect: anytype, alignment: i32, pixmap: anytype) void {
+    pub fn drawItemPixmap(self: QCommonStyle, painter: anytype, rect: anytype, alignment: i32, pixmap: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(rect)._is_QRect;
         comptime _ = @TypeOf(pixmap)._is_QPixmap;
         qtc.QCommonStyle_DrawItemPixmap(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(rect.ptr), @bitCast(alignment), @ptrCast(pixmap.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawItemPixmap` instead
+    /// ### DEPRECATED: Use `superDrawItemPixmap` instead
     ///
-    pub const QBaseDrawItemPixmap = SuperDrawItemPixmap;
+    pub const SuperDrawItemPixmap = superDrawItemPixmap;
 
     /// Inherited from QStyle
     ///
@@ -2562,12 +3018,16 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` pixmap: QPixmap `
     ///
-    pub fn SuperDrawItemPixmap(self: QCommonStyle, painter: anytype, rect: anytype, alignment: i32, pixmap: anytype) void {
+    pub fn superDrawItemPixmap(self: QCommonStyle, painter: anytype, rect: anytype, alignment: i32, pixmap: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(rect)._is_QRect;
         comptime _ = @TypeOf(pixmap)._is_QPixmap;
         qtc.QCommonStyle_SuperDrawItemPixmap(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(rect.ptr), @bitCast(alignment), @ptrCast(pixmap.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDrawItemPixmap` instead
+    ///
+    pub const OnDrawItemPixmap = onDrawItemPixmap;
 
     /// Inherited from QStyle
     ///
@@ -2581,9 +3041,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` callback: *const fn (self: QCommonStyle, painter: QPainter, rect: QRect, alignment: i32, pixmap: QPixmap) callconv(.c) void `
     ///
-    pub fn OnDrawItemPixmap(self: QCommonStyle, callback: *const fn (QCommonStyle, QPainter, QRect, i32, QPixmap) callconv(.c) void) void {
+    pub fn onDrawItemPixmap(self: QCommonStyle, callback: *const fn (QCommonStyle, QPainter, QRect, i32, QPixmap) callconv(.c) void) void {
         qtc.QCommonStyle_OnDrawItemPixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `standardPalette` instead
+    ///
+    pub const StandardPalette = standardPalette;
 
     /// Inherited from QStyle
     ///
@@ -2595,13 +3059,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` self: QCommonStyle `
     ///
-    pub fn StandardPalette(self: QCommonStyle) QPalette {
+    pub fn standardPalette(self: QCommonStyle) QPalette {
         return .{ .ptr = qtc.QCommonStyle_StandardPalette(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperStandardPalette` instead
+    /// ### DEPRECATED: Use `superStandardPalette` instead
     ///
-    pub const QBaseStandardPalette = SuperStandardPalette;
+    pub const SuperStandardPalette = superStandardPalette;
 
     /// Inherited from QStyle
     ///
@@ -2613,9 +3077,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` self: QCommonStyle `
     ///
-    pub fn SuperStandardPalette(self: QCommonStyle) QPalette {
+    pub fn superStandardPalette(self: QCommonStyle) QPalette {
         return .{ .ptr = qtc.QCommonStyle_SuperStandardPalette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onStandardPalette` instead
+    ///
+    pub const OnStandardPalette = onStandardPalette;
 
     /// Inherited from QStyle
     ///
@@ -2631,9 +3099,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnStandardPalette(self: QCommonStyle, callback: *const fn () callconv(.c) QPalette) void {
+    pub fn onStandardPalette(self: QCommonStyle, callback: *const fn () callconv(.c) QPalette) void {
         qtc.QCommonStyle_OnStandardPalette(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -2645,16 +3117,16 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` self: QCommonStyle `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QCommonStyle, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QCommonStyle_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QCommonStyle, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QCommonStyle_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -2666,12 +3138,16 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` self: QCommonStyle `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QCommonStyle, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QCommonStyle_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QCommonStyle, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QCommonStyle_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -2685,9 +3161,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` callback: *const fn (self: QCommonStyle, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QCommonStyle, callback: *const fn (QCommonStyle, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QCommonStyle, callback: *const fn (QCommonStyle, QEvent) callconv(.c) bool) void {
         qtc.QCommonStyle_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -2701,17 +3181,17 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QCommonStyle, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QCommonStyle, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QCommonStyle_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QCommonStyle_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2725,13 +3205,17 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QCommonStyle, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QCommonStyle, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QCommonStyle_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QCommonStyle_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2745,9 +3229,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` callback: *const fn (self: QCommonStyle, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QCommonStyle, callback: *const fn (QCommonStyle, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QCommonStyle, callback: *const fn (QCommonStyle, QObject, QEvent) callconv(.c) bool) void {
         qtc.QCommonStyle_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -2759,16 +3247,16 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` self: QCommonStyle `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QCommonStyle, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QCommonStyle_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QCommonStyle, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QCommonStyle_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -2780,12 +3268,16 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` self: QCommonStyle `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QCommonStyle, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QCommonStyle_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QCommonStyle, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QCommonStyle_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -2799,9 +3291,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` callback: *const fn (self: QCommonStyle, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QCommonStyle, callback: *const fn (QCommonStyle, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QCommonStyle, callback: *const fn (QCommonStyle, QTimerEvent) callconv(.c) void) void {
         qtc.QCommonStyle_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -2813,16 +3309,16 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` self: QCommonStyle `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QCommonStyle, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QCommonStyle_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QCommonStyle, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QCommonStyle_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -2834,12 +3330,16 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` self: QCommonStyle `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QCommonStyle, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QCommonStyle_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QCommonStyle, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QCommonStyle_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -2853,9 +3353,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` callback: *const fn (self: QCommonStyle, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QCommonStyle, callback: *const fn (QCommonStyle, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QCommonStyle, callback: *const fn (QCommonStyle, QChildEvent) callconv(.c) void) void {
         qtc.QCommonStyle_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -2867,16 +3371,16 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` self: QCommonStyle `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QCommonStyle, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QCommonStyle_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QCommonStyle, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QCommonStyle_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -2888,12 +3392,16 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` self: QCommonStyle `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QCommonStyle, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QCommonStyle_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QCommonStyle, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QCommonStyle_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -2907,9 +3415,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` callback: *const fn (self: QCommonStyle, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QCommonStyle, callback: *const fn (QCommonStyle, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QCommonStyle, callback: *const fn (QCommonStyle, QEvent) callconv(.c) void) void {
         qtc.QCommonStyle_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -2923,14 +3435,14 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QCommonStyle, signal: anytype) void {
+    pub fn connectNotify(self: QCommonStyle, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QCommonStyle_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2944,11 +3456,15 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QCommonStyle, signal: anytype) void {
+    pub fn superConnectNotify(self: QCommonStyle, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QCommonStyle_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -2961,9 +3477,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` callback: *const fn (self: QCommonStyle, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QCommonStyle, callback: *const fn (QCommonStyle, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QCommonStyle, callback: *const fn (QCommonStyle, QMetaMethod) callconv(.c) void) void {
         qtc.QCommonStyle_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2977,14 +3497,14 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QCommonStyle, signal: anytype) void {
+    pub fn disconnectNotify(self: QCommonStyle, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QCommonStyle_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2998,10 +3518,14 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QCommonStyle, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QCommonStyle, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QCommonStyle_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3015,9 +3539,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` callback: *const fn (self: QCommonStyle, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QCommonStyle, callback: *const fn (QCommonStyle, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QCommonStyle, callback: *const fn (QCommonStyle, QMetaMethod) callconv(.c) void) void {
         qtc.QCommonStyle_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -3029,13 +3557,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` self: QCommonStyle `
     ///
-    pub fn Sender(self: QCommonStyle) QObject {
+    pub fn sender(self: QCommonStyle) QObject {
         return .{ .ptr = qtc.QCommonStyle_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -3047,9 +3575,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` self: QCommonStyle `
     ///
-    pub fn SuperSender(self: QCommonStyle) QObject {
+    pub fn superSender(self: QCommonStyle) QObject {
         return .{ .ptr = qtc.QCommonStyle_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -3063,9 +3595,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QCommonStyle, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QCommonStyle, callback: *const fn () callconv(.c) QObject) void {
         qtc.QCommonStyle_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -3077,13 +3613,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` self: QCommonStyle `
     ///
-    pub fn SenderSignalIndex(self: QCommonStyle) i32 {
+    pub fn senderSignalIndex(self: QCommonStyle) i32 {
         return qtc.QCommonStyle_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -3095,9 +3631,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` self: QCommonStyle `
     ///
-    pub fn SuperSenderSignalIndex(self: QCommonStyle) i32 {
+    pub fn superSenderSignalIndex(self: QCommonStyle) i32 {
         return qtc.QCommonStyle_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -3111,9 +3651,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QCommonStyle, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QCommonStyle, callback: *const fn () callconv(.c) i32) void {
         qtc.QCommonStyle_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -3127,14 +3671,14 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QCommonStyle, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QCommonStyle, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QCommonStyle_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -3148,10 +3692,14 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QCommonStyle, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QCommonStyle, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QCommonStyle_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -3165,9 +3713,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` callback: *const fn (self: QCommonStyle, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QCommonStyle, callback: *const fn (QCommonStyle, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QCommonStyle, callback: *const fn (QCommonStyle, [*:0]const u8) callconv(.c) i32) void {
         qtc.QCommonStyle_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -3181,14 +3733,14 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QCommonStyle, signal: anytype) bool {
+    pub fn isSignalConnected(self: QCommonStyle, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QCommonStyle_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -3202,10 +3754,14 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QCommonStyle, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QCommonStyle, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QCommonStyle_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -3219,9 +3775,13 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` callback: *const fn (self: QCommonStyle, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QCommonStyle, callback: *const fn (QCommonStyle, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QCommonStyle, callback: *const fn (QCommonStyle, QMetaMethod) callconv(.c) bool) void {
         qtc.QCommonStyle_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -3235,23 +3795,23 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` callback: *const fn (self: QCommonStyle, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QCommonStyle, callback: *const fn (QCommonStyle, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QCommonStyle, callback: *const fn (QCommonStyle, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommonstyle.html#dtor.QCommonStyle)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QCommonStyle `
     ///
-    pub fn Delete(self: QCommonStyle) void {
+    pub fn delete(self: QCommonStyle) void {
         qtc.QCommonStyle_Delete(@ptrCast(self.ptr));
     }
 };

@@ -11,29 +11,40 @@ pub const QScopedPointerPodDeleter = extern struct {
 
     pub const _is_QScopedPointerPodDeleter = {};
 
-    /// New constructs a new QScopedPointerPodDeleter object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QScopedPointerPodDeleter object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QScopedPointerPodDeleter `
     ///
-    pub fn New(other: anytype) QScopedPointerPodDeleter {
+    pub fn new(other: anytype) QScopedPointerPodDeleter {
         comptime _ = @TypeOf(other)._is_QScopedPointerPodDeleter;
         return .{ .ptr = qtc.QScopedPointerPodDeleter_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new QScopedPointerPodDeleter object and invalidates the source QScopedPointerPodDeleter object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QScopedPointerPodDeleter object and invalidate the source QScopedPointerPodDeleter object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QScopedPointerPodDeleter `
     ///
-    pub fn New2(other: anytype) QScopedPointerPodDeleter {
+    pub fn new2(other: anytype) QScopedPointerPodDeleter {
         comptime _ = @TypeOf(other)._is_QScopedPointerPodDeleter;
         return .{ .ptr = qtc.QScopedPointerPodDeleter_new2(@ptrCast(other.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -41,11 +52,14 @@ pub const QScopedPointerPodDeleter = extern struct {
     ///
     /// ` other: QScopedPointerPodDeleter `
     ///
-    pub fn CopyAssign(self: QScopedPointerPodDeleter, other: QScopedPointerPodDeleter) void {
+    pub fn copyAssign(self: QScopedPointerPodDeleter, other: QScopedPointerPodDeleter) void {
         qtc.QScopedPointerPodDeleter_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -53,9 +67,13 @@ pub const QScopedPointerPodDeleter = extern struct {
     ///
     /// ` other: QScopedPointerPodDeleter `
     ///
-    pub fn MoveAssign(self: QScopedPointerPodDeleter, other: QScopedPointerPodDeleter) void {
+    pub fn moveAssign(self: QScopedPointerPodDeleter, other: QScopedPointerPodDeleter) void {
         qtc.QScopedPointerPodDeleter_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `cleanup` instead
+    ///
+    pub const Cleanup = cleanup;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscopedpointerpoddeleter.html#cleanup)
     ///
@@ -63,9 +81,13 @@ pub const QScopedPointerPodDeleter = extern struct {
     ///
     /// ` pointer: ?*anyopaque `
     ///
-    pub fn Cleanup(pointer: ?*anyopaque) void {
+    pub fn cleanup(pointer: ?*anyopaque) void {
         qtc.QScopedPointerPodDeleter_Cleanup(@ptrCast(pointer));
     }
+
+    /// ### DEPRECATED: Use `operatorCall` instead
+    ///
+    pub const OperatorCall = operatorCall;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscopedpointerpoddeleter.html#operator-28-29)
     ///
@@ -75,23 +97,23 @@ pub const QScopedPointerPodDeleter = extern struct {
     ///
     /// ` pointer: ?*anyopaque `
     ///
-    pub fn OperatorCall(self: QScopedPointerPodDeleter, pointer: ?*anyopaque) void {
+    pub fn operatorCall(self: QScopedPointerPodDeleter, pointer: ?*anyopaque) void {
         qtc.QScopedPointerPodDeleter_OperatorCall(@ptrCast(self.ptr), @ptrCast(pointer));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscopedpointerpoddeleter.html#dtor.QScopedPointerPodDeleter)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QScopedPointerPodDeleter `
     ///
-    pub fn Delete(self: QScopedPointerPodDeleter) void {
+    pub fn delete(self: QScopedPointerPodDeleter) void {
         qtc.QScopedPointerPodDeleter_Delete(@ptrCast(self.ptr));
     }
 };

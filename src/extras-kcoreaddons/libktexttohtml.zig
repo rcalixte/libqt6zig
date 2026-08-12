@@ -13,6 +13,10 @@ pub const KTextToHTML = extern struct {
 
     pub const _is_KTextToHTML = {};
 
+    /// ### DEPRECATED: Use `convertToHtml` instead
+    ///
+    pub const ConvertToHtml = convertToHtml;
+
     /// ### [Upstream resources](https://api.kde.org/ktexttohtml.html#convertToHtml)
     ///
     /// ## Parameter(s):
@@ -27,14 +31,14 @@ pub const KTextToHTML = extern struct {
     ///
     /// ` maxAddressLen: i32 `
     ///
-    pub fn ConvertToHtml(allocator: std.mem.Allocator, plainText: []const u8, options: *const i32, maxUrlLen: i32, maxAddressLen: i32) []const u8 {
+    pub fn convertToHtml(allocator: std.mem.Allocator, plainText: []const u8, options: *const i32, maxUrlLen: i32, maxAddressLen: i32) []const u8 {
         const plainText_str = qtc.libqt_string{
             .len = plainText.len,
             .data = plainText.ptr,
         };
         var _str = qtc.KTextToHTML_ConvertToHtml(plainText_str, @ptrCast(options), @bitCast(maxUrlLen), @bitCast(maxAddressLen));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextToHTML.ConvertToHtml: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextToHTML.convertToHtml: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

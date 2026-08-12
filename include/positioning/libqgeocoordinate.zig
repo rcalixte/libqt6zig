@@ -13,48 +13,68 @@ pub const QGeoCoordinate = extern struct {
 
     pub const _is_QGeoCoordinate = {};
 
-    /// New constructs a new QGeoCoordinate object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QGeoCoordinate {
+    pub const New = new;
+
+    /// Allocate a new QGeoCoordinate object in C++ memory
+    ///
+    pub fn new() QGeoCoordinate {
         return .{ .ptr = qtc.QGeoCoordinate_new() };
     }
 
-    /// New2 constructs a new QGeoCoordinate object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QGeoCoordinate object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` latitude: f64 `
+    /// ` _latitude: f64 `
     ///
-    /// ` longitude: f64 `
+    /// ` _longitude: f64 `
     ///
-    pub fn New2(latitude: f64, longitude: f64) QGeoCoordinate {
-        return .{ .ptr = qtc.QGeoCoordinate_new2(@bitCast(latitude), @bitCast(longitude)) };
+    pub fn new2(_latitude: f64, _longitude: f64) QGeoCoordinate {
+        return .{ .ptr = qtc.QGeoCoordinate_new2(@bitCast(_latitude), @bitCast(_longitude)) };
     }
 
-    /// New3 constructs a new QGeoCoordinate object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QGeoCoordinate object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` latitude: f64 `
+    /// ` _latitude: f64 `
     ///
-    /// ` longitude: f64 `
+    /// ` _longitude: f64 `
     ///
-    /// ` altitude: f64 `
+    /// ` _altitude: f64 `
     ///
-    pub fn New3(latitude: f64, longitude: f64, altitude: f64) QGeoCoordinate {
-        return .{ .ptr = qtc.QGeoCoordinate_new3(@bitCast(latitude), @bitCast(longitude), @bitCast(altitude)) };
+    pub fn new3(_latitude: f64, _longitude: f64, _altitude: f64) QGeoCoordinate {
+        return .{ .ptr = qtc.QGeoCoordinate_new3(@bitCast(_latitude), @bitCast(_longitude), @bitCast(_altitude)) };
     }
 
-    /// New4 constructs a new QGeoCoordinate object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QGeoCoordinate object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QGeoCoordinate `
     ///
-    pub fn New4(other: anytype) QGeoCoordinate {
+    pub fn new4(other: anytype) QGeoCoordinate {
         comptime _ = @TypeOf(other)._is_QGeoCoordinate;
         return .{ .ptr = qtc.QGeoCoordinate_new4(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocoordinate.html#operator-eq)
     ///
@@ -64,10 +84,14 @@ pub const QGeoCoordinate = extern struct {
     ///
     /// ` other: QGeoCoordinate `
     ///
-    pub fn OperatorAssign(self: QGeoCoordinate, other: anytype) void {
+    pub fn operatorAssign(self: QGeoCoordinate, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QGeoCoordinate;
         qtc.QGeoCoordinate_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocoordinate.html#swap)
     ///
@@ -77,10 +101,14 @@ pub const QGeoCoordinate = extern struct {
     ///
     /// ` other: QGeoCoordinate `
     ///
-    pub fn Swap(self: QGeoCoordinate, other: anytype) void {
+    pub fn swap(self: QGeoCoordinate, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QGeoCoordinate;
         qtc.QGeoCoordinate_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocoordinate.html#isValid)
     ///
@@ -88,9 +116,15 @@ pub const QGeoCoordinate = extern struct {
     ///
     /// ` self: QGeoCoordinate `
     ///
-    pub fn IsValid(self: QGeoCoordinate) bool {
+    pub fn isValid(self: QGeoCoordinate) bool {
         return qtc.QGeoCoordinate_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocoordinate.html#type)
     ///
@@ -102,9 +136,13 @@ pub const QGeoCoordinate = extern struct {
     ///
     /// ` qgeocoordinate_enums.CoordinateType `
     ///
-    pub fn Type(self: QGeoCoordinate) i32 {
+    pub fn type0(self: QGeoCoordinate) i32 {
         return qtc.QGeoCoordinate_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLatitude` instead
+    ///
+    pub const SetLatitude = setLatitude;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocoordinate.html#setLatitude)
     ///
@@ -112,11 +150,15 @@ pub const QGeoCoordinate = extern struct {
     ///
     /// ` self: QGeoCoordinate `
     ///
-    /// ` latitude: f64 `
+    /// ` _latitude: f64 `
     ///
-    pub fn SetLatitude(self: QGeoCoordinate, latitude: f64) void {
-        qtc.QGeoCoordinate_SetLatitude(@ptrCast(self.ptr), @bitCast(latitude));
+    pub fn setLatitude(self: QGeoCoordinate, _latitude: f64) void {
+        qtc.QGeoCoordinate_SetLatitude(@ptrCast(self.ptr), @bitCast(_latitude));
     }
+
+    /// ### DEPRECATED: Use `latitude` instead
+    ///
+    pub const Latitude = latitude;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocoordinate.html#latitude)
     ///
@@ -124,9 +166,13 @@ pub const QGeoCoordinate = extern struct {
     ///
     /// ` self: QGeoCoordinate `
     ///
-    pub fn Latitude(self: QGeoCoordinate) f64 {
+    pub fn latitude(self: QGeoCoordinate) f64 {
         return qtc.QGeoCoordinate_Latitude(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLongitude` instead
+    ///
+    pub const SetLongitude = setLongitude;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocoordinate.html#setLongitude)
     ///
@@ -134,11 +180,15 @@ pub const QGeoCoordinate = extern struct {
     ///
     /// ` self: QGeoCoordinate `
     ///
-    /// ` longitude: f64 `
+    /// ` _longitude: f64 `
     ///
-    pub fn SetLongitude(self: QGeoCoordinate, longitude: f64) void {
-        qtc.QGeoCoordinate_SetLongitude(@ptrCast(self.ptr), @bitCast(longitude));
+    pub fn setLongitude(self: QGeoCoordinate, _longitude: f64) void {
+        qtc.QGeoCoordinate_SetLongitude(@ptrCast(self.ptr), @bitCast(_longitude));
     }
+
+    /// ### DEPRECATED: Use `longitude` instead
+    ///
+    pub const Longitude = longitude;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocoordinate.html#longitude)
     ///
@@ -146,9 +196,13 @@ pub const QGeoCoordinate = extern struct {
     ///
     /// ` self: QGeoCoordinate `
     ///
-    pub fn Longitude(self: QGeoCoordinate) f64 {
+    pub fn longitude(self: QGeoCoordinate) f64 {
         return qtc.QGeoCoordinate_Longitude(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAltitude` instead
+    ///
+    pub const SetAltitude = setAltitude;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocoordinate.html#setAltitude)
     ///
@@ -156,11 +210,15 @@ pub const QGeoCoordinate = extern struct {
     ///
     /// ` self: QGeoCoordinate `
     ///
-    /// ` altitude: f64 `
+    /// ` _altitude: f64 `
     ///
-    pub fn SetAltitude(self: QGeoCoordinate, altitude: f64) void {
-        qtc.QGeoCoordinate_SetAltitude(@ptrCast(self.ptr), @bitCast(altitude));
+    pub fn setAltitude(self: QGeoCoordinate, _altitude: f64) void {
+        qtc.QGeoCoordinate_SetAltitude(@ptrCast(self.ptr), @bitCast(_altitude));
     }
+
+    /// ### DEPRECATED: Use `altitude` instead
+    ///
+    pub const Altitude = altitude;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocoordinate.html#altitude)
     ///
@@ -168,9 +226,13 @@ pub const QGeoCoordinate = extern struct {
     ///
     /// ` self: QGeoCoordinate `
     ///
-    pub fn Altitude(self: QGeoCoordinate) f64 {
+    pub fn altitude(self: QGeoCoordinate) f64 {
         return qtc.QGeoCoordinate_Altitude(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `distanceTo` instead
+    ///
+    pub const DistanceTo = distanceTo;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocoordinate.html#distanceTo)
     ///
@@ -180,10 +242,14 @@ pub const QGeoCoordinate = extern struct {
     ///
     /// ` other: QGeoCoordinate `
     ///
-    pub fn DistanceTo(self: QGeoCoordinate, other: anytype) f64 {
+    pub fn distanceTo(self: QGeoCoordinate, other: anytype) f64 {
         comptime _ = @TypeOf(other)._is_QGeoCoordinate;
         return qtc.QGeoCoordinate_DistanceTo(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `azimuthTo` instead
+    ///
+    pub const AzimuthTo = azimuthTo;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocoordinate.html#azimuthTo)
     ///
@@ -193,10 +259,14 @@ pub const QGeoCoordinate = extern struct {
     ///
     /// ` other: QGeoCoordinate `
     ///
-    pub fn AzimuthTo(self: QGeoCoordinate, other: anytype) f64 {
+    pub fn azimuthTo(self: QGeoCoordinate, other: anytype) f64 {
         comptime _ = @TypeOf(other)._is_QGeoCoordinate;
         return qtc.QGeoCoordinate_AzimuthTo(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `atDistanceAndAzimuth` instead
+    ///
+    pub const AtDistanceAndAzimuth = atDistanceAndAzimuth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocoordinate.html#atDistanceAndAzimuth)
     ///
@@ -208,9 +278,13 @@ pub const QGeoCoordinate = extern struct {
     ///
     /// ` azimuth: f64 `
     ///
-    pub fn AtDistanceAndAzimuth(self: QGeoCoordinate, distance: f64, azimuth: f64) QGeoCoordinate {
+    pub fn atDistanceAndAzimuth(self: QGeoCoordinate, distance: f64, azimuth: f64) QGeoCoordinate {
         return .{ .ptr = qtc.QGeoCoordinate_AtDistanceAndAzimuth(@ptrCast(self.ptr), @bitCast(distance), @bitCast(azimuth)) };
     }
+
+    /// ### DEPRECATED: Use `toString` instead
+    ///
+    pub const ToString = toString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocoordinate.html#toString)
     ///
@@ -220,13 +294,17 @@ pub const QGeoCoordinate = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToString(self: QGeoCoordinate, allocator: std.mem.Allocator) []const u8 {
+    pub fn toString(self: QGeoCoordinate, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGeoCoordinate_ToString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoCoordinate.ToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoCoordinate.toString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `atDistanceAndAzimuth3` instead
+    ///
+    pub const AtDistanceAndAzimuth3 = atDistanceAndAzimuth3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocoordinate.html#atDistanceAndAzimuth)
     ///
@@ -240,9 +318,13 @@ pub const QGeoCoordinate = extern struct {
     ///
     /// ` distanceUp: f64 `
     ///
-    pub fn AtDistanceAndAzimuth3(self: QGeoCoordinate, distance: f64, azimuth: f64, distanceUp: f64) QGeoCoordinate {
+    pub fn atDistanceAndAzimuth3(self: QGeoCoordinate, distance: f64, azimuth: f64, distanceUp: f64) QGeoCoordinate {
         return .{ .ptr = qtc.QGeoCoordinate_AtDistanceAndAzimuth3(@ptrCast(self.ptr), @bitCast(distance), @bitCast(azimuth), @bitCast(distanceUp)) };
     }
+
+    /// ### DEPRECATED: Use `toString1` instead
+    ///
+    pub const ToString1 = toString1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocoordinate.html#toString)
     ///
@@ -254,27 +336,27 @@ pub const QGeoCoordinate = extern struct {
     ///
     /// ` format: qgeocoordinate_enums.CoordinateFormat `
     ///
-    pub fn ToString1(self: QGeoCoordinate, allocator: std.mem.Allocator, format: i32) []const u8 {
+    pub fn toString1(self: QGeoCoordinate, allocator: std.mem.Allocator, format: i32) []const u8 {
         var _str = qtc.QGeoCoordinate_ToString1(@ptrCast(self.ptr), @bitCast(format));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoCoordinate.ToString1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoCoordinate.toString1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocoordinate.html#dtor.QGeoCoordinate)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QGeoCoordinate `
     ///
-    pub fn Delete(self: QGeoCoordinate) void {
+    pub fn delete(self: QGeoCoordinate) void {
         qtc.QGeoCoordinate_Delete(@ptrCast(self.ptr));
     }
 };

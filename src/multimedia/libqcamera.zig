@@ -31,70 +31,98 @@ pub const QCamera = extern struct {
     pub const _is_QCamera = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QCamera object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QCamera {
+    pub const New = new;
+
+    /// Allocate a new QCamera object in C++ memory
+    ///
+    pub fn new() QCamera {
         return .{ .ptr = qtc.QCamera_new() };
     }
 
-    /// New2 constructs a new QCamera object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QCamera object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` cameraDevice: QCameraDevice `
+    /// ` _cameraDevice: QCameraDevice `
     ///
-    pub fn New2(cameraDevice: anytype) QCamera {
-        comptime _ = @TypeOf(cameraDevice)._is_QCameraDevice;
-        return .{ .ptr = qtc.QCamera_new2(@ptrCast(cameraDevice.ptr)) };
+    pub fn new2(_cameraDevice: anytype) QCamera {
+        comptime _ = @TypeOf(_cameraDevice)._is_QCameraDevice;
+        return .{ .ptr = qtc.QCamera_new2(@ptrCast(_cameraDevice.ptr)) };
     }
 
-    /// New3 constructs a new QCamera object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QCamera object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` position: qcameradevice_enums.Position `
     ///
-    pub fn New3(position: i32) QCamera {
+    pub fn new3(position: i32) QCamera {
         return .{ .ptr = qtc.QCamera_new3(@bitCast(position)) };
     }
 
-    /// New4 constructs a new QCamera object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QCamera object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New4(parent: anytype) QCamera {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QCamera_new4(@ptrCast(parent.ptr)) };
+    pub fn new4(_parent: anytype) QCamera {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QCamera_new4(@ptrCast(_parent.ptr)) };
     }
 
-    /// New5 constructs a new QCamera object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new QCamera object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` cameraDevice: QCameraDevice `
+    /// ` _cameraDevice: QCameraDevice `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New5(cameraDevice: anytype, parent: anytype) QCamera {
-        comptime _ = @TypeOf(cameraDevice)._is_QCameraDevice;
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QCamera_new5(@ptrCast(cameraDevice.ptr), @ptrCast(parent.ptr)) };
+    pub fn new5(_cameraDevice: anytype, _parent: anytype) QCamera {
+        comptime _ = @TypeOf(_cameraDevice)._is_QCameraDevice;
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QCamera_new5(@ptrCast(_cameraDevice.ptr), @ptrCast(_parent.ptr)) };
     }
 
-    /// New6 constructs a new QCamera object.
+    /// ### DEPRECATED: Use `new6` instead
+    ///
+    pub const New6 = new6;
+
+    /// Allocate a new QCamera object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` position: qcameradevice_enums.Position `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New6(position: i32, parent: anytype) QCamera {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QCamera_new6(@bitCast(position), @ptrCast(parent.ptr)) };
+    pub fn new6(position: i32, _parent: anytype) QCamera {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QCamera_new6(@bitCast(position), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -102,9 +130,13 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    pub fn MetaObject(self: QCamera) QMetaObject {
+    pub fn metaObject(self: QCamera) QMetaObject {
         return .{ .ptr = qtc.QCamera_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -116,13 +148,13 @@ pub const QCamera = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QCamera, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QCamera, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QCamera_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -132,9 +164,13 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    pub fn SuperMetaObject(self: QCamera) QMetaObject {
+    pub fn superMetaObject(self: QCamera) QMetaObject {
         return .{ .ptr = qtc.QCamera_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -142,10 +178,14 @@ pub const QCamera = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QCamera, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QCamera, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QCamera_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -155,13 +195,13 @@ pub const QCamera = extern struct {
     ///
     /// ` callback: *const fn (self: QCamera, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QCamera, callback: *const fn (QCamera, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QCamera, callback: *const fn (QCamera, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QCamera_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -171,10 +211,14 @@ pub const QCamera = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QCamera, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QCamera, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QCamera_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -186,9 +230,13 @@ pub const QCamera = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QCamera, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QCamera, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QCamera_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -198,13 +246,13 @@ pub const QCamera = extern struct {
     ///
     /// ` callback: *const fn (self: QCamera, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QCamera, callback: *const fn (QCamera, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QCamera, callback: *const fn (QCamera, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QCamera_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -218,9 +266,13 @@ pub const QCamera = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QCamera, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QCamera, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QCamera_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -230,14 +282,18 @@ pub const QCamera = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCamera.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCamera.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isAvailable` instead
+    ///
+    pub const IsAvailable = isAvailable;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#isAvailable)
     ///
@@ -245,9 +301,13 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    pub fn IsAvailable(self: QCamera) bool {
+    pub fn isAvailable(self: QCamera) bool {
         return qtc.QCamera_IsAvailable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActive` instead
+    ///
+    pub const IsActive = isActive;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#isActive)
     ///
@@ -255,9 +315,13 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    pub fn IsActive(self: QCamera) bool {
+    pub fn isActive(self: QCamera) bool {
         return qtc.QCamera_IsActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `captureSession` instead
+    ///
+    pub const CaptureSession = captureSession;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#captureSession)
     ///
@@ -265,9 +329,13 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    pub fn CaptureSession(self: QCamera) QMediaCaptureSession {
+    pub fn captureSession(self: QCamera) QMediaCaptureSession {
         return .{ .ptr = qtc.QCamera_CaptureSession(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cameraDevice` instead
+    ///
+    pub const CameraDevice = cameraDevice;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#cameraDevice)
     ///
@@ -275,9 +343,13 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    pub fn CameraDevice(self: QCamera) QCameraDevice {
+    pub fn cameraDevice(self: QCamera) QCameraDevice {
         return .{ .ptr = qtc.QCamera_CameraDevice(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCameraDevice` instead
+    ///
+    pub const SetCameraDevice = setCameraDevice;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#setCameraDevice)
     ///
@@ -285,12 +357,16 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    /// ` cameraDevice: QCameraDevice `
+    /// ` _cameraDevice: QCameraDevice `
     ///
-    pub fn SetCameraDevice(self: QCamera, cameraDevice: anytype) void {
-        comptime _ = @TypeOf(cameraDevice)._is_QCameraDevice;
-        qtc.QCamera_SetCameraDevice(@ptrCast(self.ptr), @ptrCast(cameraDevice.ptr));
+    pub fn setCameraDevice(self: QCamera, _cameraDevice: anytype) void {
+        comptime _ = @TypeOf(_cameraDevice)._is_QCameraDevice;
+        qtc.QCamera_SetCameraDevice(@ptrCast(self.ptr), @ptrCast(_cameraDevice.ptr));
     }
+
+    /// ### DEPRECATED: Use `cameraFormat` instead
+    ///
+    pub const CameraFormat = cameraFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#cameraFormat)
     ///
@@ -298,9 +374,13 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    pub fn CameraFormat(self: QCamera) QCameraFormat {
+    pub fn cameraFormat(self: QCamera) QCameraFormat {
         return .{ .ptr = qtc.QCamera_CameraFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCameraFormat` instead
+    ///
+    pub const SetCameraFormat = setCameraFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#setCameraFormat)
     ///
@@ -310,10 +390,16 @@ pub const QCamera = extern struct {
     ///
     /// ` format: QCameraFormat `
     ///
-    pub fn SetCameraFormat(self: QCamera, format: anytype) void {
+    pub fn setCameraFormat(self: QCamera, format: anytype) void {
         comptime _ = @TypeOf(format)._is_QCameraFormat;
         qtc.QCamera_SetCameraFormat(@ptrCast(self.ptr), @ptrCast(format.ptr));
     }
+
+    /// ### DEPRECATED: Use `error0` instead
+    ///
+    pub const Error = error0;
+
+    pub const @"error" = error0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#error)
     ///
@@ -325,9 +411,13 @@ pub const QCamera = extern struct {
     ///
     /// ` qcamera_enums.Error `
     ///
-    pub fn Error(self: QCamera) i32 {
+    pub fn error0(self: QCamera) i32 {
         return qtc.QCamera_Error(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `errorString` instead
+    ///
+    pub const ErrorString = errorString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#errorString)
     ///
@@ -337,13 +427,17 @@ pub const QCamera = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ErrorString(self: QCamera, allocator: std.mem.Allocator) []const u8 {
+    pub fn errorString(self: QCamera, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QCamera_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCamera.ErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCamera.errorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `supportedFeatures` instead
+    ///
+    pub const SupportedFeatures = supportedFeatures;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#supportedFeatures)
     ///
@@ -355,9 +449,13 @@ pub const QCamera = extern struct {
     ///
     /// ` flag of qcamera_enums.Feature `
     ///
-    pub fn SupportedFeatures(self: QCamera) i32 {
+    pub fn supportedFeatures(self: QCamera) i32 {
         return qtc.QCamera_SupportedFeatures(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusMode` instead
+    ///
+    pub const FocusMode = focusMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#focusMode)
     ///
@@ -369,9 +467,13 @@ pub const QCamera = extern struct {
     ///
     /// ` qcamera_enums.FocusMode `
     ///
-    pub fn FocusMode(self: QCamera) i32 {
+    pub fn focusMode(self: QCamera) i32 {
         return qtc.QCamera_FocusMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusMode` instead
+    ///
+    pub const SetFocusMode = setFocusMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#setFocusMode)
     ///
@@ -381,9 +483,13 @@ pub const QCamera = extern struct {
     ///
     /// ` mode: qcamera_enums.FocusMode `
     ///
-    pub fn SetFocusMode(self: QCamera, mode: i32) void {
+    pub fn setFocusMode(self: QCamera, mode: i32) void {
         qtc.QCamera_SetFocusMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `isFocusModeSupported` instead
+    ///
+    pub const IsFocusModeSupported = isFocusModeSupported;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#isFocusModeSupported)
     ///
@@ -393,9 +499,13 @@ pub const QCamera = extern struct {
     ///
     /// ` mode: qcamera_enums.FocusMode `
     ///
-    pub fn IsFocusModeSupported(self: QCamera, mode: i32) bool {
+    pub fn isFocusModeSupported(self: QCamera, mode: i32) bool {
         return qtc.QCamera_IsFocusModeSupported(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `focusPoint` instead
+    ///
+    pub const FocusPoint = focusPoint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#focusPoint)
     ///
@@ -403,9 +513,13 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    pub fn FocusPoint(self: QCamera) QPointF {
+    pub fn focusPoint(self: QCamera) QPointF {
         return .{ .ptr = qtc.QCamera_FocusPoint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `customFocusPoint` instead
+    ///
+    pub const CustomFocusPoint = customFocusPoint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#customFocusPoint)
     ///
@@ -413,9 +527,13 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    pub fn CustomFocusPoint(self: QCamera) QPointF {
+    pub fn customFocusPoint(self: QCamera) QPointF {
         return .{ .ptr = qtc.QCamera_CustomFocusPoint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCustomFocusPoint` instead
+    ///
+    pub const SetCustomFocusPoint = setCustomFocusPoint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#setCustomFocusPoint)
     ///
@@ -425,10 +543,14 @@ pub const QCamera = extern struct {
     ///
     /// ` point: QPointF `
     ///
-    pub fn SetCustomFocusPoint(self: QCamera, point: anytype) void {
+    pub fn setCustomFocusPoint(self: QCamera, point: anytype) void {
         comptime _ = @TypeOf(point)._is_QPointF;
         qtc.QCamera_SetCustomFocusPoint(@ptrCast(self.ptr), @ptrCast(point.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusDistance` instead
+    ///
+    pub const SetFocusDistance = setFocusDistance;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#setFocusDistance)
     ///
@@ -438,9 +560,13 @@ pub const QCamera = extern struct {
     ///
     /// ` d: f32 `
     ///
-    pub fn SetFocusDistance(self: QCamera, d: f32) void {
+    pub fn setFocusDistance(self: QCamera, d: f32) void {
         qtc.QCamera_SetFocusDistance(@ptrCast(self.ptr), @bitCast(d));
     }
+
+    /// ### DEPRECATED: Use `focusDistance` instead
+    ///
+    pub const FocusDistance = focusDistance;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#focusDistance)
     ///
@@ -448,9 +574,13 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    pub fn FocusDistance(self: QCamera) f32 {
+    pub fn focusDistance(self: QCamera) f32 {
         return qtc.QCamera_FocusDistance(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumZoomFactor` instead
+    ///
+    pub const MinimumZoomFactor = minimumZoomFactor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#minimumZoomFactor)
     ///
@@ -458,9 +588,13 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    pub fn MinimumZoomFactor(self: QCamera) f32 {
+    pub fn minimumZoomFactor(self: QCamera) f32 {
         return qtc.QCamera_MinimumZoomFactor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumZoomFactor` instead
+    ///
+    pub const MaximumZoomFactor = maximumZoomFactor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#maximumZoomFactor)
     ///
@@ -468,9 +602,13 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    pub fn MaximumZoomFactor(self: QCamera) f32 {
+    pub fn maximumZoomFactor(self: QCamera) f32 {
         return qtc.QCamera_MaximumZoomFactor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `zoomFactor` instead
+    ///
+    pub const ZoomFactor = zoomFactor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#zoomFactor)
     ///
@@ -478,9 +616,13 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    pub fn ZoomFactor(self: QCamera) f32 {
+    pub fn zoomFactor(self: QCamera) f32 {
         return qtc.QCamera_ZoomFactor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setZoomFactor` instead
+    ///
+    pub const SetZoomFactor = setZoomFactor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#setZoomFactor)
     ///
@@ -490,9 +632,13 @@ pub const QCamera = extern struct {
     ///
     /// ` factor: f32 `
     ///
-    pub fn SetZoomFactor(self: QCamera, factor: f32) void {
+    pub fn setZoomFactor(self: QCamera, factor: f32) void {
         qtc.QCamera_SetZoomFactor(@ptrCast(self.ptr), @bitCast(factor));
     }
+
+    /// ### DEPRECATED: Use `flashMode` instead
+    ///
+    pub const FlashMode = flashMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#flashMode)
     ///
@@ -504,9 +650,13 @@ pub const QCamera = extern struct {
     ///
     /// ` qcamera_enums.FlashMode `
     ///
-    pub fn FlashMode(self: QCamera) i32 {
+    pub fn flashMode(self: QCamera) i32 {
         return qtc.QCamera_FlashMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFlashModeSupported` instead
+    ///
+    pub const IsFlashModeSupported = isFlashModeSupported;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#isFlashModeSupported)
     ///
@@ -516,9 +666,13 @@ pub const QCamera = extern struct {
     ///
     /// ` mode: qcamera_enums.FlashMode `
     ///
-    pub fn IsFlashModeSupported(self: QCamera, mode: i32) bool {
+    pub fn isFlashModeSupported(self: QCamera, mode: i32) bool {
         return qtc.QCamera_IsFlashModeSupported(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `isFlashReady` instead
+    ///
+    pub const IsFlashReady = isFlashReady;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#isFlashReady)
     ///
@@ -526,9 +680,13 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    pub fn IsFlashReady(self: QCamera) bool {
+    pub fn isFlashReady(self: QCamera) bool {
         return qtc.QCamera_IsFlashReady(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `torchMode` instead
+    ///
+    pub const TorchMode = torchMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#torchMode)
     ///
@@ -540,9 +698,13 @@ pub const QCamera = extern struct {
     ///
     /// ` qcamera_enums.TorchMode `
     ///
-    pub fn TorchMode(self: QCamera) i32 {
+    pub fn torchMode(self: QCamera) i32 {
         return qtc.QCamera_TorchMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTorchModeSupported` instead
+    ///
+    pub const IsTorchModeSupported = isTorchModeSupported;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#isTorchModeSupported)
     ///
@@ -552,9 +714,13 @@ pub const QCamera = extern struct {
     ///
     /// ` mode: qcamera_enums.TorchMode `
     ///
-    pub fn IsTorchModeSupported(self: QCamera, mode: i32) bool {
+    pub fn isTorchModeSupported(self: QCamera, mode: i32) bool {
         return qtc.QCamera_IsTorchModeSupported(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `exposureMode` instead
+    ///
+    pub const ExposureMode = exposureMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#exposureMode)
     ///
@@ -566,9 +732,13 @@ pub const QCamera = extern struct {
     ///
     /// ` qcamera_enums.ExposureMode `
     ///
-    pub fn ExposureMode(self: QCamera) i32 {
+    pub fn exposureMode(self: QCamera) i32 {
         return qtc.QCamera_ExposureMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isExposureModeSupported` instead
+    ///
+    pub const IsExposureModeSupported = isExposureModeSupported;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#isExposureModeSupported)
     ///
@@ -578,9 +748,13 @@ pub const QCamera = extern struct {
     ///
     /// ` mode: qcamera_enums.ExposureMode `
     ///
-    pub fn IsExposureModeSupported(self: QCamera, mode: i32) bool {
+    pub fn isExposureModeSupported(self: QCamera, mode: i32) bool {
         return qtc.QCamera_IsExposureModeSupported(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `exposureCompensation` instead
+    ///
+    pub const ExposureCompensation = exposureCompensation;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#exposureCompensation)
     ///
@@ -588,9 +762,13 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    pub fn ExposureCompensation(self: QCamera) f32 {
+    pub fn exposureCompensation(self: QCamera) f32 {
         return qtc.QCamera_ExposureCompensation(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isoSensitivity` instead
+    ///
+    pub const IsoSensitivity = isoSensitivity;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#isoSensitivity)
     ///
@@ -598,9 +776,13 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    pub fn IsoSensitivity(self: QCamera) i32 {
+    pub fn isoSensitivity(self: QCamera) i32 {
         return qtc.QCamera_IsoSensitivity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `manualIsoSensitivity` instead
+    ///
+    pub const ManualIsoSensitivity = manualIsoSensitivity;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#manualIsoSensitivity)
     ///
@@ -608,9 +790,13 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    pub fn ManualIsoSensitivity(self: QCamera) i32 {
+    pub fn manualIsoSensitivity(self: QCamera) i32 {
         return qtc.QCamera_ManualIsoSensitivity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `exposureTime` instead
+    ///
+    pub const ExposureTime = exposureTime;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#exposureTime)
     ///
@@ -618,9 +804,13 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    pub fn ExposureTime(self: QCamera) f32 {
+    pub fn exposureTime(self: QCamera) f32 {
         return qtc.QCamera_ExposureTime(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `manualExposureTime` instead
+    ///
+    pub const ManualExposureTime = manualExposureTime;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#manualExposureTime)
     ///
@@ -628,9 +818,13 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    pub fn ManualExposureTime(self: QCamera) f32 {
+    pub fn manualExposureTime(self: QCamera) f32 {
         return qtc.QCamera_ManualExposureTime(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumIsoSensitivity` instead
+    ///
+    pub const MinimumIsoSensitivity = minimumIsoSensitivity;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#minimumIsoSensitivity)
     ///
@@ -638,9 +832,13 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    pub fn MinimumIsoSensitivity(self: QCamera) i32 {
+    pub fn minimumIsoSensitivity(self: QCamera) i32 {
         return qtc.QCamera_MinimumIsoSensitivity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumIsoSensitivity` instead
+    ///
+    pub const MaximumIsoSensitivity = maximumIsoSensitivity;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#maximumIsoSensitivity)
     ///
@@ -648,9 +846,13 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    pub fn MaximumIsoSensitivity(self: QCamera) i32 {
+    pub fn maximumIsoSensitivity(self: QCamera) i32 {
         return qtc.QCamera_MaximumIsoSensitivity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumExposureTime` instead
+    ///
+    pub const MinimumExposureTime = minimumExposureTime;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#minimumExposureTime)
     ///
@@ -658,9 +860,13 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    pub fn MinimumExposureTime(self: QCamera) f32 {
+    pub fn minimumExposureTime(self: QCamera) f32 {
         return qtc.QCamera_MinimumExposureTime(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumExposureTime` instead
+    ///
+    pub const MaximumExposureTime = maximumExposureTime;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#maximumExposureTime)
     ///
@@ -668,9 +874,13 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    pub fn MaximumExposureTime(self: QCamera) f32 {
+    pub fn maximumExposureTime(self: QCamera) f32 {
         return qtc.QCamera_MaximumExposureTime(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `whiteBalanceMode` instead
+    ///
+    pub const WhiteBalanceMode = whiteBalanceMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#whiteBalanceMode)
     ///
@@ -682,9 +892,13 @@ pub const QCamera = extern struct {
     ///
     /// ` qcamera_enums.WhiteBalanceMode `
     ///
-    pub fn WhiteBalanceMode(self: QCamera) i32 {
+    pub fn whiteBalanceMode(self: QCamera) i32 {
         return qtc.QCamera_WhiteBalanceMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWhiteBalanceModeSupported` instead
+    ///
+    pub const IsWhiteBalanceModeSupported = isWhiteBalanceModeSupported;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#isWhiteBalanceModeSupported)
     ///
@@ -694,9 +908,13 @@ pub const QCamera = extern struct {
     ///
     /// ` mode: qcamera_enums.WhiteBalanceMode `
     ///
-    pub fn IsWhiteBalanceModeSupported(self: QCamera, mode: i32) bool {
+    pub fn isWhiteBalanceModeSupported(self: QCamera, mode: i32) bool {
         return qtc.QCamera_IsWhiteBalanceModeSupported(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `colorTemperature` instead
+    ///
+    pub const ColorTemperature = colorTemperature;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#colorTemperature)
     ///
@@ -704,9 +922,13 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    pub fn ColorTemperature(self: QCamera) i32 {
+    pub fn colorTemperature(self: QCamera) i32 {
         return qtc.QCamera_ColorTemperature(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setActive` instead
+    ///
+    pub const SetActive = setActive;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#setActive)
     ///
@@ -716,9 +938,13 @@ pub const QCamera = extern struct {
     ///
     /// ` active: bool `
     ///
-    pub fn SetActive(self: QCamera, active: bool) void {
+    pub fn setActive(self: QCamera, active: bool) void {
         qtc.QCamera_SetActive(@ptrCast(self.ptr), active);
     }
+
+    /// ### DEPRECATED: Use `start` instead
+    ///
+    pub const Start = start;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#start)
     ///
@@ -726,9 +952,13 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    pub fn Start(self: QCamera) void {
+    pub fn start(self: QCamera) void {
         qtc.QCamera_Start(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stop` instead
+    ///
+    pub const Stop = stop;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#stop)
     ///
@@ -736,9 +966,13 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    pub fn Stop(self: QCamera) void {
+    pub fn stop(self: QCamera) void {
         qtc.QCamera_Stop(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `zoomTo` instead
+    ///
+    pub const ZoomTo = zoomTo;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#zoomTo)
     ///
@@ -750,9 +984,13 @@ pub const QCamera = extern struct {
     ///
     /// ` rate: f32 `
     ///
-    pub fn ZoomTo(self: QCamera, zoom: f32, rate: f32) void {
+    pub fn zoomTo(self: QCamera, zoom: f32, rate: f32) void {
         qtc.QCamera_ZoomTo(@ptrCast(self.ptr), @bitCast(zoom), @bitCast(rate));
     }
+
+    /// ### DEPRECATED: Use `setFlashMode` instead
+    ///
+    pub const SetFlashMode = setFlashMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#setFlashMode)
     ///
@@ -762,9 +1000,13 @@ pub const QCamera = extern struct {
     ///
     /// ` mode: qcamera_enums.FlashMode `
     ///
-    pub fn SetFlashMode(self: QCamera, mode: i32) void {
+    pub fn setFlashMode(self: QCamera, mode: i32) void {
         qtc.QCamera_SetFlashMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `setTorchMode` instead
+    ///
+    pub const SetTorchMode = setTorchMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#setTorchMode)
     ///
@@ -774,9 +1016,13 @@ pub const QCamera = extern struct {
     ///
     /// ` mode: qcamera_enums.TorchMode `
     ///
-    pub fn SetTorchMode(self: QCamera, mode: i32) void {
+    pub fn setTorchMode(self: QCamera, mode: i32) void {
         qtc.QCamera_SetTorchMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `setExposureMode` instead
+    ///
+    pub const SetExposureMode = setExposureMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#setExposureMode)
     ///
@@ -786,9 +1032,13 @@ pub const QCamera = extern struct {
     ///
     /// ` mode: qcamera_enums.ExposureMode `
     ///
-    pub fn SetExposureMode(self: QCamera, mode: i32) void {
+    pub fn setExposureMode(self: QCamera, mode: i32) void {
         qtc.QCamera_SetExposureMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `setExposureCompensation` instead
+    ///
+    pub const SetExposureCompensation = setExposureCompensation;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#setExposureCompensation)
     ///
@@ -798,9 +1048,13 @@ pub const QCamera = extern struct {
     ///
     /// ` ev: f32 `
     ///
-    pub fn SetExposureCompensation(self: QCamera, ev: f32) void {
+    pub fn setExposureCompensation(self: QCamera, ev: f32) void {
         qtc.QCamera_SetExposureCompensation(@ptrCast(self.ptr), @bitCast(ev));
     }
+
+    /// ### DEPRECATED: Use `setManualIsoSensitivity` instead
+    ///
+    pub const SetManualIsoSensitivity = setManualIsoSensitivity;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#setManualIsoSensitivity)
     ///
@@ -810,9 +1064,13 @@ pub const QCamera = extern struct {
     ///
     /// ` iso: i32 `
     ///
-    pub fn SetManualIsoSensitivity(self: QCamera, iso: i32) void {
+    pub fn setManualIsoSensitivity(self: QCamera, iso: i32) void {
         qtc.QCamera_SetManualIsoSensitivity(@ptrCast(self.ptr), @bitCast(iso));
     }
+
+    /// ### DEPRECATED: Use `setAutoIsoSensitivity` instead
+    ///
+    pub const SetAutoIsoSensitivity = setAutoIsoSensitivity;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#setAutoIsoSensitivity)
     ///
@@ -820,9 +1078,13 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    pub fn SetAutoIsoSensitivity(self: QCamera) void {
+    pub fn setAutoIsoSensitivity(self: QCamera) void {
         qtc.QCamera_SetAutoIsoSensitivity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setManualExposureTime` instead
+    ///
+    pub const SetManualExposureTime = setManualExposureTime;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#setManualExposureTime)
     ///
@@ -832,9 +1094,13 @@ pub const QCamera = extern struct {
     ///
     /// ` seconds: f32 `
     ///
-    pub fn SetManualExposureTime(self: QCamera, seconds: f32) void {
+    pub fn setManualExposureTime(self: QCamera, seconds: f32) void {
         qtc.QCamera_SetManualExposureTime(@ptrCast(self.ptr), @bitCast(seconds));
     }
+
+    /// ### DEPRECATED: Use `setAutoExposureTime` instead
+    ///
+    pub const SetAutoExposureTime = setAutoExposureTime;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#setAutoExposureTime)
     ///
@@ -842,9 +1108,13 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    pub fn SetAutoExposureTime(self: QCamera) void {
+    pub fn setAutoExposureTime(self: QCamera) void {
         qtc.QCamera_SetAutoExposureTime(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWhiteBalanceMode` instead
+    ///
+    pub const SetWhiteBalanceMode = setWhiteBalanceMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#setWhiteBalanceMode)
     ///
@@ -854,9 +1124,13 @@ pub const QCamera = extern struct {
     ///
     /// ` mode: qcamera_enums.WhiteBalanceMode `
     ///
-    pub fn SetWhiteBalanceMode(self: QCamera, mode: i32) void {
+    pub fn setWhiteBalanceMode(self: QCamera, mode: i32) void {
         qtc.QCamera_SetWhiteBalanceMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `setColorTemperature` instead
+    ///
+    pub const SetColorTemperature = setColorTemperature;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#setColorTemperature)
     ///
@@ -864,11 +1138,15 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    /// ` colorTemperature: i32 `
+    /// ` _colorTemperature: i32 `
     ///
-    pub fn SetColorTemperature(self: QCamera, colorTemperature: i32) void {
-        qtc.QCamera_SetColorTemperature(@ptrCast(self.ptr), @bitCast(colorTemperature));
+    pub fn setColorTemperature(self: QCamera, _colorTemperature: i32) void {
+        qtc.QCamera_SetColorTemperature(@ptrCast(self.ptr), @bitCast(_colorTemperature));
     }
+
+    /// ### DEPRECATED: Use `activeChanged` instead
+    ///
+    pub const ActiveChanged = activeChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#activeChanged)
     ///
@@ -878,9 +1156,13 @@ pub const QCamera = extern struct {
     ///
     /// ` param1: bool `
     ///
-    pub fn ActiveChanged(self: QCamera, param1: bool) void {
+    pub fn activeChanged(self: QCamera, param1: bool) void {
         qtc.QCamera_ActiveChanged(@ptrCast(self.ptr), param1);
     }
+
+    /// ### DEPRECATED: Use `onActiveChanged` instead
+    ///
+    pub const OnActiveChanged = onActiveChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#activeChanged)
     ///
@@ -890,9 +1172,13 @@ pub const QCamera = extern struct {
     ///
     /// ` callback: *const fn (self: QCamera, param1: bool) callconv(.c) void `
     ///
-    pub fn OnActiveChanged(self: QCamera, callback: *const fn (QCamera, bool) callconv(.c) void) void {
+    pub fn onActiveChanged(self: QCamera, callback: *const fn (QCamera, bool) callconv(.c) void) void {
         qtc.QCamera_Connect_ActiveChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `errorChanged` instead
+    ///
+    pub const ErrorChanged = errorChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#errorChanged)
     ///
@@ -900,9 +1186,13 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    pub fn ErrorChanged(self: QCamera) void {
+    pub fn errorChanged(self: QCamera) void {
         qtc.QCamera_ErrorChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onErrorChanged` instead
+    ///
+    pub const OnErrorChanged = onErrorChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#errorChanged)
     ///
@@ -912,9 +1202,13 @@ pub const QCamera = extern struct {
     ///
     /// ` callback: *const fn (self: QCamera) callconv(.c) void `
     ///
-    pub fn OnErrorChanged(self: QCamera, callback: *const fn (QCamera) callconv(.c) void) void {
+    pub fn onErrorChanged(self: QCamera, callback: *const fn (QCamera) callconv(.c) void) void {
         qtc.QCamera_Connect_ErrorChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `errorOccurred` instead
+    ///
+    pub const ErrorOccurred = errorOccurred;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#errorOccurred)
     ///
@@ -924,15 +1218,19 @@ pub const QCamera = extern struct {
     ///
     /// ` errorVal: qcamera_enums.Error `
     ///
-    /// ` errorString: []const u8 `
+    /// ` _errorString: []const u8 `
     ///
-    pub fn ErrorOccurred(self: QCamera, errorVal: i32, errorString: []const u8) void {
+    pub fn errorOccurred(self: QCamera, errorVal: i32, _errorString: []const u8) void {
         const errorString_str = qtc.libqt_string{
-            .len = errorString.len,
-            .data = errorString.ptr,
+            .len = _errorString.len,
+            .data = _errorString.ptr,
         };
         qtc.QCamera_ErrorOccurred(@ptrCast(self.ptr), @bitCast(errorVal), errorString_str);
     }
+
+    /// ### DEPRECATED: Use `onErrorOccurred` instead
+    ///
+    pub const OnErrorOccurred = onErrorOccurred;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#errorOccurred)
     ///
@@ -942,20 +1240,28 @@ pub const QCamera = extern struct {
     ///
     /// ` callback: *const fn (self: QCamera, errorVal: qcamera_enums.Error, errorString: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnErrorOccurred(self: QCamera, callback: *const fn (QCamera, i32, [*:0]const u8) callconv(.c) void) void {
+    pub fn onErrorOccurred(self: QCamera, callback: *const fn (QCamera, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.QCamera_Connect_ErrorOccurred(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `cameraDeviceChanged` instead
+    ///
+    pub const CameraDeviceChanged = cameraDeviceChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#cameraDeviceChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QCamera `
     ///
-    pub fn CameraDeviceChanged(self: QCamera) void {
+    pub fn cameraDeviceChanged(self: QCamera) void {
         qtc.QCamera_CameraDeviceChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCameraDeviceChanged` instead
+    ///
+    pub const OnCameraDeviceChanged = onCameraDeviceChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#cameraDeviceChanged)
     ///
     /// ## Parameters:
@@ -964,20 +1270,28 @@ pub const QCamera = extern struct {
     ///
     /// ` callback: *const fn (self: QCamera) callconv(.c) void `
     ///
-    pub fn OnCameraDeviceChanged(self: QCamera, callback: *const fn (QCamera) callconv(.c) void) void {
+    pub fn onCameraDeviceChanged(self: QCamera, callback: *const fn (QCamera) callconv(.c) void) void {
         qtc.QCamera_Connect_CameraDeviceChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `cameraFormatChanged` instead
+    ///
+    pub const CameraFormatChanged = cameraFormatChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#cameraFormatChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QCamera `
     ///
-    pub fn CameraFormatChanged(self: QCamera) void {
+    pub fn cameraFormatChanged(self: QCamera) void {
         qtc.QCamera_CameraFormatChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCameraFormatChanged` instead
+    ///
+    pub const OnCameraFormatChanged = onCameraFormatChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#cameraFormatChanged)
     ///
     /// ## Parameters:
@@ -986,20 +1300,28 @@ pub const QCamera = extern struct {
     ///
     /// ` callback: *const fn (self: QCamera) callconv(.c) void `
     ///
-    pub fn OnCameraFormatChanged(self: QCamera, callback: *const fn (QCamera) callconv(.c) void) void {
+    pub fn onCameraFormatChanged(self: QCamera, callback: *const fn (QCamera) callconv(.c) void) void {
         qtc.QCamera_Connect_CameraFormatChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `supportedFeaturesChanged` instead
+    ///
+    pub const SupportedFeaturesChanged = supportedFeaturesChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#supportedFeaturesChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QCamera `
     ///
-    pub fn SupportedFeaturesChanged(self: QCamera) void {
+    pub fn supportedFeaturesChanged(self: QCamera) void {
         qtc.QCamera_SupportedFeaturesChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSupportedFeaturesChanged` instead
+    ///
+    pub const OnSupportedFeaturesChanged = onSupportedFeaturesChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#supportedFeaturesChanged)
     ///
     /// ## Parameters:
@@ -1008,20 +1330,28 @@ pub const QCamera = extern struct {
     ///
     /// ` callback: *const fn (self: QCamera) callconv(.c) void `
     ///
-    pub fn OnSupportedFeaturesChanged(self: QCamera, callback: *const fn (QCamera) callconv(.c) void) void {
+    pub fn onSupportedFeaturesChanged(self: QCamera, callback: *const fn (QCamera) callconv(.c) void) void {
         qtc.QCamera_Connect_SupportedFeaturesChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusModeChanged` instead
+    ///
+    pub const FocusModeChanged = focusModeChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#focusModeChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QCamera `
     ///
-    pub fn FocusModeChanged(self: QCamera) void {
+    pub fn focusModeChanged(self: QCamera) void {
         qtc.QCamera_FocusModeChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusModeChanged` instead
+    ///
+    pub const OnFocusModeChanged = onFocusModeChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#focusModeChanged)
     ///
     /// ## Parameters:
@@ -1030,10 +1360,14 @@ pub const QCamera = extern struct {
     ///
     /// ` callback: *const fn (self: QCamera) callconv(.c) void `
     ///
-    pub fn OnFocusModeChanged(self: QCamera, callback: *const fn (QCamera) callconv(.c) void) void {
+    pub fn onFocusModeChanged(self: QCamera, callback: *const fn (QCamera) callconv(.c) void) void {
         qtc.QCamera_Connect_FocusModeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `zoomFactorChanged` instead
+    ///
+    pub const ZoomFactorChanged = zoomFactorChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#zoomFactorChanged)
     ///
     /// ## Parameter(s):
@@ -1042,10 +1376,14 @@ pub const QCamera = extern struct {
     ///
     /// ` param1: f32 `
     ///
-    pub fn ZoomFactorChanged(self: QCamera, param1: f32) void {
+    pub fn zoomFactorChanged(self: QCamera, param1: f32) void {
         qtc.QCamera_ZoomFactorChanged(@ptrCast(self.ptr), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `onZoomFactorChanged` instead
+    ///
+    pub const OnZoomFactorChanged = onZoomFactorChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#zoomFactorChanged)
     ///
     /// ## Parameters:
@@ -1054,10 +1392,14 @@ pub const QCamera = extern struct {
     ///
     /// ` callback: *const fn (self: QCamera, param1: f32) callconv(.c) void `
     ///
-    pub fn OnZoomFactorChanged(self: QCamera, callback: *const fn (QCamera, f32) callconv(.c) void) void {
+    pub fn onZoomFactorChanged(self: QCamera, callback: *const fn (QCamera, f32) callconv(.c) void) void {
         qtc.QCamera_Connect_ZoomFactorChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `minimumZoomFactorChanged` instead
+    ///
+    pub const MinimumZoomFactorChanged = minimumZoomFactorChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#minimumZoomFactorChanged)
     ///
     /// ## Parameter(s):
@@ -1066,10 +1408,14 @@ pub const QCamera = extern struct {
     ///
     /// ` param1: f32 `
     ///
-    pub fn MinimumZoomFactorChanged(self: QCamera, param1: f32) void {
+    pub fn minimumZoomFactorChanged(self: QCamera, param1: f32) void {
         qtc.QCamera_MinimumZoomFactorChanged(@ptrCast(self.ptr), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `onMinimumZoomFactorChanged` instead
+    ///
+    pub const OnMinimumZoomFactorChanged = onMinimumZoomFactorChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#minimumZoomFactorChanged)
     ///
     /// ## Parameters:
@@ -1078,10 +1424,14 @@ pub const QCamera = extern struct {
     ///
     /// ` callback: *const fn (self: QCamera, param1: f32) callconv(.c) void `
     ///
-    pub fn OnMinimumZoomFactorChanged(self: QCamera, callback: *const fn (QCamera, f32) callconv(.c) void) void {
+    pub fn onMinimumZoomFactorChanged(self: QCamera, callback: *const fn (QCamera, f32) callconv(.c) void) void {
         qtc.QCamera_Connect_MinimumZoomFactorChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `maximumZoomFactorChanged` instead
+    ///
+    pub const MaximumZoomFactorChanged = maximumZoomFactorChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#maximumZoomFactorChanged)
     ///
     /// ## Parameter(s):
@@ -1090,10 +1440,14 @@ pub const QCamera = extern struct {
     ///
     /// ` param1: f32 `
     ///
-    pub fn MaximumZoomFactorChanged(self: QCamera, param1: f32) void {
+    pub fn maximumZoomFactorChanged(self: QCamera, param1: f32) void {
         qtc.QCamera_MaximumZoomFactorChanged(@ptrCast(self.ptr), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `onMaximumZoomFactorChanged` instead
+    ///
+    pub const OnMaximumZoomFactorChanged = onMaximumZoomFactorChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#maximumZoomFactorChanged)
     ///
     /// ## Parameters:
@@ -1102,9 +1456,13 @@ pub const QCamera = extern struct {
     ///
     /// ` callback: *const fn (self: QCamera, param1: f32) callconv(.c) void `
     ///
-    pub fn OnMaximumZoomFactorChanged(self: QCamera, callback: *const fn (QCamera, f32) callconv(.c) void) void {
+    pub fn onMaximumZoomFactorChanged(self: QCamera, callback: *const fn (QCamera, f32) callconv(.c) void) void {
         qtc.QCamera_Connect_MaximumZoomFactorChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusDistanceChanged` instead
+    ///
+    pub const FocusDistanceChanged = focusDistanceChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#focusDistanceChanged)
     ///
@@ -1114,9 +1472,13 @@ pub const QCamera = extern struct {
     ///
     /// ` param1: f32 `
     ///
-    pub fn FocusDistanceChanged(self: QCamera, param1: f32) void {
+    pub fn focusDistanceChanged(self: QCamera, param1: f32) void {
         qtc.QCamera_FocusDistanceChanged(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onFocusDistanceChanged` instead
+    ///
+    pub const OnFocusDistanceChanged = onFocusDistanceChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#focusDistanceChanged)
     ///
@@ -1126,20 +1488,28 @@ pub const QCamera = extern struct {
     ///
     /// ` callback: *const fn (self: QCamera, param1: f32) callconv(.c) void `
     ///
-    pub fn OnFocusDistanceChanged(self: QCamera, callback: *const fn (QCamera, f32) callconv(.c) void) void {
+    pub fn onFocusDistanceChanged(self: QCamera, callback: *const fn (QCamera, f32) callconv(.c) void) void {
         qtc.QCamera_Connect_FocusDistanceChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusPointChanged` instead
+    ///
+    pub const FocusPointChanged = focusPointChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#focusPointChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QCamera `
     ///
-    pub fn FocusPointChanged(self: QCamera) void {
+    pub fn focusPointChanged(self: QCamera) void {
         qtc.QCamera_FocusPointChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusPointChanged` instead
+    ///
+    pub const OnFocusPointChanged = onFocusPointChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#focusPointChanged)
     ///
     /// ## Parameters:
@@ -1148,9 +1518,13 @@ pub const QCamera = extern struct {
     ///
     /// ` callback: *const fn (self: QCamera) callconv(.c) void `
     ///
-    pub fn OnFocusPointChanged(self: QCamera, callback: *const fn (QCamera) callconv(.c) void) void {
+    pub fn onFocusPointChanged(self: QCamera, callback: *const fn (QCamera) callconv(.c) void) void {
         qtc.QCamera_Connect_FocusPointChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customFocusPointChanged` instead
+    ///
+    pub const CustomFocusPointChanged = customFocusPointChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#customFocusPointChanged)
     ///
@@ -1158,9 +1532,13 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    pub fn CustomFocusPointChanged(self: QCamera) void {
+    pub fn customFocusPointChanged(self: QCamera) void {
         qtc.QCamera_CustomFocusPointChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomFocusPointChanged` instead
+    ///
+    pub const OnCustomFocusPointChanged = onCustomFocusPointChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#customFocusPointChanged)
     ///
@@ -1170,9 +1548,13 @@ pub const QCamera = extern struct {
     ///
     /// ` callback: *const fn (self: QCamera) callconv(.c) void `
     ///
-    pub fn OnCustomFocusPointChanged(self: QCamera, callback: *const fn (QCamera) callconv(.c) void) void {
+    pub fn onCustomFocusPointChanged(self: QCamera, callback: *const fn (QCamera) callconv(.c) void) void {
         qtc.QCamera_Connect_CustomFocusPointChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `flashReady` instead
+    ///
+    pub const FlashReady = flashReady;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#flashReady)
     ///
@@ -1182,9 +1564,13 @@ pub const QCamera = extern struct {
     ///
     /// ` param1: bool `
     ///
-    pub fn FlashReady(self: QCamera, param1: bool) void {
+    pub fn flashReady(self: QCamera, param1: bool) void {
         qtc.QCamera_FlashReady(@ptrCast(self.ptr), param1);
     }
+
+    /// ### DEPRECATED: Use `onFlashReady` instead
+    ///
+    pub const OnFlashReady = onFlashReady;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#flashReady)
     ///
@@ -1194,20 +1580,28 @@ pub const QCamera = extern struct {
     ///
     /// ` callback: *const fn (self: QCamera, param1: bool) callconv(.c) void `
     ///
-    pub fn OnFlashReady(self: QCamera, callback: *const fn (QCamera, bool) callconv(.c) void) void {
+    pub fn onFlashReady(self: QCamera, callback: *const fn (QCamera, bool) callconv(.c) void) void {
         qtc.QCamera_Connect_FlashReady(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `flashModeChanged` instead
+    ///
+    pub const FlashModeChanged = flashModeChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#flashModeChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QCamera `
     ///
-    pub fn FlashModeChanged(self: QCamera) void {
+    pub fn flashModeChanged(self: QCamera) void {
         qtc.QCamera_FlashModeChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFlashModeChanged` instead
+    ///
+    pub const OnFlashModeChanged = onFlashModeChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#flashModeChanged)
     ///
     /// ## Parameters:
@@ -1216,9 +1610,13 @@ pub const QCamera = extern struct {
     ///
     /// ` callback: *const fn (self: QCamera) callconv(.c) void `
     ///
-    pub fn OnFlashModeChanged(self: QCamera, callback: *const fn (QCamera) callconv(.c) void) void {
+    pub fn onFlashModeChanged(self: QCamera, callback: *const fn (QCamera) callconv(.c) void) void {
         qtc.QCamera_Connect_FlashModeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `torchModeChanged` instead
+    ///
+    pub const TorchModeChanged = torchModeChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#torchModeChanged)
     ///
@@ -1226,9 +1624,13 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    pub fn TorchModeChanged(self: QCamera) void {
+    pub fn torchModeChanged(self: QCamera) void {
         qtc.QCamera_TorchModeChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTorchModeChanged` instead
+    ///
+    pub const OnTorchModeChanged = onTorchModeChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#torchModeChanged)
     ///
@@ -1238,10 +1640,14 @@ pub const QCamera = extern struct {
     ///
     /// ` callback: *const fn (self: QCamera) callconv(.c) void `
     ///
-    pub fn OnTorchModeChanged(self: QCamera, callback: *const fn (QCamera) callconv(.c) void) void {
+    pub fn onTorchModeChanged(self: QCamera, callback: *const fn (QCamera) callconv(.c) void) void {
         qtc.QCamera_Connect_TorchModeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `exposureTimeChanged` instead
+    ///
+    pub const ExposureTimeChanged = exposureTimeChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#exposureTimeChanged)
     ///
     /// ## Parameter(s):
@@ -1250,10 +1656,14 @@ pub const QCamera = extern struct {
     ///
     /// ` speed: f32 `
     ///
-    pub fn ExposureTimeChanged(self: QCamera, speed: f32) void {
+    pub fn exposureTimeChanged(self: QCamera, speed: f32) void {
         qtc.QCamera_ExposureTimeChanged(@ptrCast(self.ptr), @bitCast(speed));
     }
 
+    /// ### DEPRECATED: Use `onExposureTimeChanged` instead
+    ///
+    pub const OnExposureTimeChanged = onExposureTimeChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#exposureTimeChanged)
     ///
     /// ## Parameters:
@@ -1262,9 +1672,13 @@ pub const QCamera = extern struct {
     ///
     /// ` callback: *const fn (self: QCamera, speed: f32) callconv(.c) void `
     ///
-    pub fn OnExposureTimeChanged(self: QCamera, callback: *const fn (QCamera, f32) callconv(.c) void) void {
+    pub fn onExposureTimeChanged(self: QCamera, callback: *const fn (QCamera, f32) callconv(.c) void) void {
         qtc.QCamera_Connect_ExposureTimeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `manualExposureTimeChanged` instead
+    ///
+    pub const ManualExposureTimeChanged = manualExposureTimeChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#manualExposureTimeChanged)
     ///
@@ -1274,9 +1688,13 @@ pub const QCamera = extern struct {
     ///
     /// ` speed: f32 `
     ///
-    pub fn ManualExposureTimeChanged(self: QCamera, speed: f32) void {
+    pub fn manualExposureTimeChanged(self: QCamera, speed: f32) void {
         qtc.QCamera_ManualExposureTimeChanged(@ptrCast(self.ptr), @bitCast(speed));
     }
+
+    /// ### DEPRECATED: Use `onManualExposureTimeChanged` instead
+    ///
+    pub const OnManualExposureTimeChanged = onManualExposureTimeChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#manualExposureTimeChanged)
     ///
@@ -1286,10 +1704,14 @@ pub const QCamera = extern struct {
     ///
     /// ` callback: *const fn (self: QCamera, speed: f32) callconv(.c) void `
     ///
-    pub fn OnManualExposureTimeChanged(self: QCamera, callback: *const fn (QCamera, f32) callconv(.c) void) void {
+    pub fn onManualExposureTimeChanged(self: QCamera, callback: *const fn (QCamera, f32) callconv(.c) void) void {
         qtc.QCamera_Connect_ManualExposureTimeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `isoSensitivityChanged` instead
+    ///
+    pub const IsoSensitivityChanged = isoSensitivityChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#isoSensitivityChanged)
     ///
     /// ## Parameter(s):
@@ -1298,10 +1720,14 @@ pub const QCamera = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn IsoSensitivityChanged(self: QCamera, param1: i32) void {
+    pub fn isoSensitivityChanged(self: QCamera, param1: i32) void {
         qtc.QCamera_IsoSensitivityChanged(@ptrCast(self.ptr), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `onIsoSensitivityChanged` instead
+    ///
+    pub const OnIsoSensitivityChanged = onIsoSensitivityChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#isoSensitivityChanged)
     ///
     /// ## Parameters:
@@ -1310,9 +1736,13 @@ pub const QCamera = extern struct {
     ///
     /// ` callback: *const fn (self: QCamera, param1: i32) callconv(.c) void `
     ///
-    pub fn OnIsoSensitivityChanged(self: QCamera, callback: *const fn (QCamera, i32) callconv(.c) void) void {
+    pub fn onIsoSensitivityChanged(self: QCamera, callback: *const fn (QCamera, i32) callconv(.c) void) void {
         qtc.QCamera_Connect_IsoSensitivityChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `manualIsoSensitivityChanged` instead
+    ///
+    pub const ManualIsoSensitivityChanged = manualIsoSensitivityChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#manualIsoSensitivityChanged)
     ///
@@ -1322,9 +1752,13 @@ pub const QCamera = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn ManualIsoSensitivityChanged(self: QCamera, param1: i32) void {
+    pub fn manualIsoSensitivityChanged(self: QCamera, param1: i32) void {
         qtc.QCamera_ManualIsoSensitivityChanged(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onManualIsoSensitivityChanged` instead
+    ///
+    pub const OnManualIsoSensitivityChanged = onManualIsoSensitivityChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#manualIsoSensitivityChanged)
     ///
@@ -1334,9 +1768,13 @@ pub const QCamera = extern struct {
     ///
     /// ` callback: *const fn (self: QCamera, param1: i32) callconv(.c) void `
     ///
-    pub fn OnManualIsoSensitivityChanged(self: QCamera, callback: *const fn (QCamera, i32) callconv(.c) void) void {
+    pub fn onManualIsoSensitivityChanged(self: QCamera, callback: *const fn (QCamera, i32) callconv(.c) void) void {
         qtc.QCamera_Connect_ManualIsoSensitivityChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `exposureCompensationChanged` instead
+    ///
+    pub const ExposureCompensationChanged = exposureCompensationChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#exposureCompensationChanged)
     ///
@@ -1346,9 +1784,13 @@ pub const QCamera = extern struct {
     ///
     /// ` param1: f32 `
     ///
-    pub fn ExposureCompensationChanged(self: QCamera, param1: f32) void {
+    pub fn exposureCompensationChanged(self: QCamera, param1: f32) void {
         qtc.QCamera_ExposureCompensationChanged(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onExposureCompensationChanged` instead
+    ///
+    pub const OnExposureCompensationChanged = onExposureCompensationChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#exposureCompensationChanged)
     ///
@@ -1358,20 +1800,28 @@ pub const QCamera = extern struct {
     ///
     /// ` callback: *const fn (self: QCamera, param1: f32) callconv(.c) void `
     ///
-    pub fn OnExposureCompensationChanged(self: QCamera, callback: *const fn (QCamera, f32) callconv(.c) void) void {
+    pub fn onExposureCompensationChanged(self: QCamera, callback: *const fn (QCamera, f32) callconv(.c) void) void {
         qtc.QCamera_Connect_ExposureCompensationChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `exposureModeChanged` instead
+    ///
+    pub const ExposureModeChanged = exposureModeChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#exposureModeChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QCamera `
     ///
-    pub fn ExposureModeChanged(self: QCamera) void {
+    pub fn exposureModeChanged(self: QCamera) void {
         qtc.QCamera_ExposureModeChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onExposureModeChanged` instead
+    ///
+    pub const OnExposureModeChanged = onExposureModeChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#exposureModeChanged)
     ///
     /// ## Parameters:
@@ -1380,20 +1830,28 @@ pub const QCamera = extern struct {
     ///
     /// ` callback: *const fn (self: QCamera) callconv(.c) void `
     ///
-    pub fn OnExposureModeChanged(self: QCamera, callback: *const fn (QCamera) callconv(.c) void) void {
+    pub fn onExposureModeChanged(self: QCamera, callback: *const fn (QCamera) callconv(.c) void) void {
         qtc.QCamera_Connect_ExposureModeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `whiteBalanceModeChanged` instead
+    ///
+    pub const WhiteBalanceModeChanged = whiteBalanceModeChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#whiteBalanceModeChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QCamera `
     ///
-    pub fn WhiteBalanceModeChanged(self: QCamera) void {
+    pub fn whiteBalanceModeChanged(self: QCamera) void {
         qtc.QCamera_WhiteBalanceModeChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onWhiteBalanceModeChanged` instead
+    ///
+    pub const OnWhiteBalanceModeChanged = onWhiteBalanceModeChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#whiteBalanceModeChanged)
     ///
     /// ## Parameters:
@@ -1402,20 +1860,28 @@ pub const QCamera = extern struct {
     ///
     /// ` callback: *const fn (self: QCamera) callconv(.c) void `
     ///
-    pub fn OnWhiteBalanceModeChanged(self: QCamera, callback: *const fn (QCamera) callconv(.c) void) void {
+    pub fn onWhiteBalanceModeChanged(self: QCamera, callback: *const fn (QCamera) callconv(.c) void) void {
         qtc.QCamera_Connect_WhiteBalanceModeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `colorTemperatureChanged` instead
+    ///
+    pub const ColorTemperatureChanged = colorTemperatureChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#colorTemperatureChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QCamera `
     ///
-    pub fn ColorTemperatureChanged(self: QCamera) void {
+    pub fn colorTemperatureChanged(self: QCamera) void {
         qtc.QCamera_ColorTemperatureChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onColorTemperatureChanged` instead
+    ///
+    pub const OnColorTemperatureChanged = onColorTemperatureChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#colorTemperatureChanged)
     ///
     /// ## Parameters:
@@ -1424,20 +1890,28 @@ pub const QCamera = extern struct {
     ///
     /// ` callback: *const fn (self: QCamera) callconv(.c) void `
     ///
-    pub fn OnColorTemperatureChanged(self: QCamera, callback: *const fn (QCamera) callconv(.c) void) void {
+    pub fn onColorTemperatureChanged(self: QCamera, callback: *const fn (QCamera) callconv(.c) void) void {
         qtc.QCamera_Connect_ColorTemperatureChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `brightnessChanged` instead
+    ///
+    pub const BrightnessChanged = brightnessChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#brightnessChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QCamera `
     ///
-    pub fn BrightnessChanged(self: QCamera) void {
+    pub fn brightnessChanged(self: QCamera) void {
         qtc.QCamera_BrightnessChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onBrightnessChanged` instead
+    ///
+    pub const OnBrightnessChanged = onBrightnessChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#brightnessChanged)
     ///
     /// ## Parameters:
@@ -1446,20 +1920,28 @@ pub const QCamera = extern struct {
     ///
     /// ` callback: *const fn (self: QCamera) callconv(.c) void `
     ///
-    pub fn OnBrightnessChanged(self: QCamera, callback: *const fn (QCamera) callconv(.c) void) void {
+    pub fn onBrightnessChanged(self: QCamera, callback: *const fn (QCamera) callconv(.c) void) void {
         qtc.QCamera_Connect_BrightnessChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `contrastChanged` instead
+    ///
+    pub const ContrastChanged = contrastChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#contrastChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QCamera `
     ///
-    pub fn ContrastChanged(self: QCamera) void {
+    pub fn contrastChanged(self: QCamera) void {
         qtc.QCamera_ContrastChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onContrastChanged` instead
+    ///
+    pub const OnContrastChanged = onContrastChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#contrastChanged)
     ///
     /// ## Parameters:
@@ -1468,20 +1950,28 @@ pub const QCamera = extern struct {
     ///
     /// ` callback: *const fn (self: QCamera) callconv(.c) void `
     ///
-    pub fn OnContrastChanged(self: QCamera, callback: *const fn (QCamera) callconv(.c) void) void {
+    pub fn onContrastChanged(self: QCamera, callback: *const fn (QCamera) callconv(.c) void) void {
         qtc.QCamera_Connect_ContrastChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `saturationChanged` instead
+    ///
+    pub const SaturationChanged = saturationChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#saturationChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QCamera `
     ///
-    pub fn SaturationChanged(self: QCamera) void {
+    pub fn saturationChanged(self: QCamera) void {
         qtc.QCamera_SaturationChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSaturationChanged` instead
+    ///
+    pub const OnSaturationChanged = onSaturationChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#saturationChanged)
     ///
     /// ## Parameters:
@@ -1490,9 +1980,13 @@ pub const QCamera = extern struct {
     ///
     /// ` callback: *const fn (self: QCamera) callconv(.c) void `
     ///
-    pub fn OnSaturationChanged(self: QCamera, callback: *const fn (QCamera) callconv(.c) void) void {
+    pub fn onSaturationChanged(self: QCamera, callback: *const fn (QCamera) callconv(.c) void) void {
         qtc.QCamera_Connect_SaturationChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hueChanged` instead
+    ///
+    pub const HueChanged = hueChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#hueChanged)
     ///
@@ -1500,9 +1994,13 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    pub fn HueChanged(self: QCamera) void {
+    pub fn hueChanged(self: QCamera) void {
         qtc.QCamera_HueChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHueChanged` instead
+    ///
+    pub const OnHueChanged = onHueChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#hueChanged)
     ///
@@ -1512,9 +2010,13 @@ pub const QCamera = extern struct {
     ///
     /// ` callback: *const fn (self: QCamera) callconv(.c) void `
     ///
-    pub fn OnHueChanged(self: QCamera, callback: *const fn (QCamera) callconv(.c) void) void {
+    pub fn onHueChanged(self: QCamera, callback: *const fn (QCamera) callconv(.c) void) void {
         qtc.QCamera_Connect_HueChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1526,15 +2028,19 @@ pub const QCamera = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCamera.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCamera.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1548,15 +2054,19 @@ pub const QCamera = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCamera.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCamera.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -1568,13 +2078,17 @@ pub const QCamera = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QCamera, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QCamera, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCamera.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCamera.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -1586,13 +2100,17 @@ pub const QCamera = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QCamera, name: []const u8) void {
+    pub fn setObjectName(self: QCamera, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -1602,9 +2120,13 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    pub fn IsWidgetType(self: QCamera) bool {
+    pub fn isWidgetType(self: QCamera) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -1614,9 +2136,13 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    pub fn IsWindowType(self: QCamera) bool {
+    pub fn isWindowType(self: QCamera) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -1626,9 +2152,13 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    pub fn IsQuickItemType(self: QCamera) bool {
+    pub fn isQuickItemType(self: QCamera) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -1638,9 +2168,13 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    pub fn SignalsBlocked(self: QCamera) bool {
+    pub fn signalsBlocked(self: QCamera) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -1652,9 +2186,13 @@ pub const QCamera = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QCamera, b: bool) bool {
+    pub fn blockSignals(self: QCamera, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -1664,9 +2202,13 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    pub fn Thread(self: QCamera) QThread {
+    pub fn thread(self: QCamera) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -1676,12 +2218,16 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QCamera, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QCamera, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -1693,9 +2239,13 @@ pub const QCamera = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QCamera, interval: i32) i32 {
+    pub fn startTimer(self: QCamera, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -1707,9 +2257,13 @@ pub const QCamera = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QCamera, time: i64) i32 {
+    pub fn startTimer2(self: QCamera, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -1721,9 +2275,13 @@ pub const QCamera = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QCamera, id: i32) void {
+    pub fn killTimer(self: QCamera, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -1735,9 +2293,13 @@ pub const QCamera = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QCamera, id: i32) void {
+    pub fn killTimer2(self: QCamera, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -1749,15 +2311,19 @@ pub const QCamera = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QCamera, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QCamera, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QCamera.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QCamera.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -1767,12 +2333,16 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QCamera, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QCamera, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1784,10 +2354,14 @@ pub const QCamera = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QCamera, filterObj: anytype) void {
+    pub fn installEventFilter(self: QCamera, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1799,10 +2373,14 @@ pub const QCamera = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QCamera, obj: anytype) void {
+    pub fn removeEventFilter(self: QCamera, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -1810,7 +2388,7 @@ pub const QCamera = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1818,13 +2396,17 @@ pub const QCamera = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -1832,7 +2414,7 @@ pub const QCamera = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1840,13 +2422,17 @@ pub const QCamera = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -1856,18 +2442,22 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QCamera, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QCamera, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -1875,7 +2465,7 @@ pub const QCamera = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1883,13 +2473,17 @@ pub const QCamera = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -1897,7 +2491,7 @@ pub const QCamera = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1905,13 +2499,17 @@ pub const QCamera = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -1921,9 +2519,13 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    pub fn Disconnect3(self: QCamera) bool {
+    pub fn disconnect3(self: QCamera) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1935,10 +2537,14 @@ pub const QCamera = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QCamera, receiver: anytype) bool {
+    pub fn disconnect4(self: QCamera, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1948,10 +2554,14 @@ pub const QCamera = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1961,9 +2571,13 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    pub fn DumpObjectTree(self: QCamera) void {
+    pub fn dumpObjectTree(self: QCamera) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1973,9 +2587,13 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    pub fn DumpObjectInfo(self: QCamera) void {
+    pub fn dumpObjectInfo(self: QCamera) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1989,11 +2607,15 @@ pub const QCamera = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QCamera, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QCamera, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -2005,10 +2627,14 @@ pub const QCamera = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QCamera, name: [:0]const u8) QVariant {
+    pub fn property(self: QCamera, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -2020,7 +2646,7 @@ pub const QCamera = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QCamera, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QCamera, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -2028,27 +2654,19 @@ pub const QCamera = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCamera.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCamera.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCamera.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QCamera.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCamera `
-    ///
-    pub fn BindingStorage(self: QCamera) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -2058,9 +2676,29 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    pub fn BindingStorage2(self: QCamera) QBindingStorage {
+    pub fn bindingStorage(self: QCamera) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QCamera `
+    ///
+    pub fn bindingStorage2(self: QCamera) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -2070,9 +2708,13 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    pub fn Destroyed(self: QCamera) void {
+    pub fn destroyed(self: QCamera) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -2084,9 +2726,13 @@ pub const QCamera = extern struct {
     ///
     /// ` callback: *const fn (self: QCamera) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QCamera, callback: *const fn (QCamera) callconv(.c) void) void {
+    pub fn onDestroyed(self: QCamera, callback: *const fn (QCamera) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -2096,9 +2742,13 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    pub fn Parent(self: QCamera) QObject {
+    pub fn parent(self: QCamera) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -2110,10 +2760,14 @@ pub const QCamera = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QCamera, classname: [:0]const u8) bool {
+    pub fn inherits(self: QCamera, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -2123,9 +2777,13 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    pub fn DeleteLater(self: QCamera) void {
+    pub fn deleteLater(self: QCamera) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -2139,9 +2797,13 @@ pub const QCamera = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QCamera, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QCamera, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -2155,9 +2817,13 @@ pub const QCamera = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QCamera, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QCamera, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -2165,7 +2831,7 @@ pub const QCamera = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2175,13 +2841,17 @@ pub const QCamera = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -2189,7 +2859,7 @@ pub const QCamera = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2199,13 +2869,17 @@ pub const QCamera = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -2215,7 +2889,7 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2223,12 +2897,16 @@ pub const QCamera = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QCamera, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QCamera, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -2240,10 +2918,14 @@ pub const QCamera = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QCamera, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QCamera, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -2257,11 +2939,15 @@ pub const QCamera = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QCamera, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QCamera, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -2277,13 +2963,17 @@ pub const QCamera = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QCamera, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QCamera, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -2296,11 +2986,15 @@ pub const QCamera = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QCamera, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QCamera, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -2312,10 +3006,14 @@ pub const QCamera = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QCamera, param1: anytype) void {
+    pub fn destroyed1(self: QCamera, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -2327,9 +3025,13 @@ pub const QCamera = extern struct {
     ///
     /// ` callback: *const fn (self: QCamera, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QCamera, callback: *const fn (QCamera, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QCamera, callback: *const fn (QCamera, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -2341,16 +3043,16 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QCamera, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QCamera_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QCamera, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QCamera_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -2362,12 +3064,16 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QCamera, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QCamera_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QCamera, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QCamera_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -2381,9 +3087,13 @@ pub const QCamera = extern struct {
     ///
     /// ` callback: *const fn (self: QCamera, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QCamera, callback: *const fn (QCamera, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QCamera, callback: *const fn (QCamera, QEvent) callconv(.c) bool) void {
         qtc.QCamera_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -2397,17 +3107,17 @@ pub const QCamera = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QCamera, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QCamera, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QCamera_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QCamera_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2421,13 +3131,17 @@ pub const QCamera = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QCamera, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QCamera, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QCamera_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QCamera_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2441,9 +3155,13 @@ pub const QCamera = extern struct {
     ///
     /// ` callback: *const fn (self: QCamera, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QCamera, callback: *const fn (QCamera, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QCamera, callback: *const fn (QCamera, QObject, QEvent) callconv(.c) bool) void {
         qtc.QCamera_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -2455,16 +3173,16 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QCamera, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QCamera_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QCamera, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QCamera_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -2476,12 +3194,16 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QCamera, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QCamera_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QCamera, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QCamera_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -2495,9 +3217,13 @@ pub const QCamera = extern struct {
     ///
     /// ` callback: *const fn (self: QCamera, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QCamera, callback: *const fn (QCamera, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QCamera, callback: *const fn (QCamera, QTimerEvent) callconv(.c) void) void {
         qtc.QCamera_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -2509,16 +3235,16 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QCamera, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QCamera_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QCamera, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QCamera_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -2530,12 +3256,16 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QCamera, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QCamera_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QCamera, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QCamera_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -2549,9 +3279,13 @@ pub const QCamera = extern struct {
     ///
     /// ` callback: *const fn (self: QCamera, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QCamera, callback: *const fn (QCamera, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QCamera, callback: *const fn (QCamera, QChildEvent) callconv(.c) void) void {
         qtc.QCamera_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -2563,16 +3297,16 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QCamera, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QCamera_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QCamera, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QCamera_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -2584,12 +3318,16 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QCamera, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QCamera_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QCamera, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QCamera_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -2603,9 +3341,13 @@ pub const QCamera = extern struct {
     ///
     /// ` callback: *const fn (self: QCamera, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QCamera, callback: *const fn (QCamera, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QCamera, callback: *const fn (QCamera, QEvent) callconv(.c) void) void {
         qtc.QCamera_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -2619,14 +3361,14 @@ pub const QCamera = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QCamera, signal: anytype) void {
+    pub fn connectNotify(self: QCamera, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QCamera_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2640,11 +3382,15 @@ pub const QCamera = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QCamera, signal: anytype) void {
+    pub fn superConnectNotify(self: QCamera, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QCamera_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -2657,9 +3403,13 @@ pub const QCamera = extern struct {
     ///
     /// ` callback: *const fn (self: QCamera, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QCamera, callback: *const fn (QCamera, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QCamera, callback: *const fn (QCamera, QMetaMethod) callconv(.c) void) void {
         qtc.QCamera_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2673,14 +3423,14 @@ pub const QCamera = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QCamera, signal: anytype) void {
+    pub fn disconnectNotify(self: QCamera, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QCamera_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2694,10 +3444,14 @@ pub const QCamera = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QCamera, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QCamera, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QCamera_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2711,9 +3465,13 @@ pub const QCamera = extern struct {
     ///
     /// ` callback: *const fn (self: QCamera, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QCamera, callback: *const fn (QCamera, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QCamera, callback: *const fn (QCamera, QMetaMethod) callconv(.c) void) void {
         qtc.QCamera_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -2725,13 +3483,13 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    pub fn Sender(self: QCamera) QObject {
+    pub fn sender(self: QCamera) QObject {
         return .{ .ptr = qtc.QCamera_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -2743,9 +3501,13 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    pub fn SuperSender(self: QCamera) QObject {
+    pub fn superSender(self: QCamera) QObject {
         return .{ .ptr = qtc.QCamera_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -2759,9 +3521,13 @@ pub const QCamera = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QCamera, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QCamera, callback: *const fn () callconv(.c) QObject) void {
         qtc.QCamera_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2773,13 +3539,13 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    pub fn SenderSignalIndex(self: QCamera) i32 {
+    pub fn senderSignalIndex(self: QCamera) i32 {
         return qtc.QCamera_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2791,9 +3557,13 @@ pub const QCamera = extern struct {
     ///
     /// ` self: QCamera `
     ///
-    pub fn SuperSenderSignalIndex(self: QCamera) i32 {
+    pub fn superSenderSignalIndex(self: QCamera) i32 {
         return qtc.QCamera_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2807,9 +3577,13 @@ pub const QCamera = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QCamera, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QCamera, callback: *const fn () callconv(.c) i32) void {
         qtc.QCamera_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -2823,14 +3597,14 @@ pub const QCamera = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QCamera, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QCamera, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QCamera_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -2844,10 +3618,14 @@ pub const QCamera = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QCamera, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QCamera, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QCamera_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -2861,9 +3639,13 @@ pub const QCamera = extern struct {
     ///
     /// ` callback: *const fn (self: QCamera, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QCamera, callback: *const fn (QCamera, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QCamera, callback: *const fn (QCamera, [*:0]const u8) callconv(.c) i32) void {
         qtc.QCamera_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2877,14 +3659,14 @@ pub const QCamera = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QCamera, signal: anytype) bool {
+    pub fn isSignalConnected(self: QCamera, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QCamera_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2898,10 +3680,14 @@ pub const QCamera = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QCamera, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QCamera, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QCamera_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2915,9 +3701,13 @@ pub const QCamera = extern struct {
     ///
     /// ` callback: *const fn (self: QCamera, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QCamera, callback: *const fn (QCamera, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QCamera, callback: *const fn (QCamera, QMetaMethod) callconv(.c) bool) void {
         qtc.QCamera_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -2931,23 +3721,23 @@ pub const QCamera = extern struct {
     ///
     /// ` callback: *const fn (self: QCamera, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QCamera, callback: *const fn (QCamera, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QCamera, callback: *const fn (QCamera, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#dtor.QCamera)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QCamera `
     ///
-    pub fn Delete(self: QCamera) void {
+    pub fn delete(self: QCamera) void {
         qtc.QCamera_Delete(@ptrCast(self.ptr));
     }
 };

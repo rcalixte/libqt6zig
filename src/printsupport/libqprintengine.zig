@@ -15,6 +15,10 @@ pub const QPrintEngine = extern struct {
 
     pub const _is_QPrintEngine = {};
 
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprintengine.html#setProperty)
     ///
     /// ## Parameter(s):
@@ -25,10 +29,14 @@ pub const QPrintEngine = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QPrintEngine, key: i32, value: anytype) void {
+    pub fn setProperty(self: QPrintEngine, key: i32, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QVariant;
         qtc.QPrintEngine_SetProperty(@ptrCast(self.ptr), @bitCast(key), @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprintengine.html#property)
     ///
@@ -38,9 +46,13 @@ pub const QPrintEngine = extern struct {
     ///
     /// ` key: qprintengine_enums.PrintEnginePropertyKey `
     ///
-    pub fn Property(self: QPrintEngine, key: i32) QVariant {
+    pub fn property(self: QPrintEngine, key: i32) QVariant {
         return .{ .ptr = qtc.QPrintEngine_Property(@ptrCast(self.ptr), @bitCast(key)) };
     }
+
+    /// ### DEPRECATED: Use `newPage` instead
+    ///
+    pub const NewPage = newPage;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprintengine.html#newPage)
     ///
@@ -48,9 +60,13 @@ pub const QPrintEngine = extern struct {
     ///
     /// ` self: QPrintEngine `
     ///
-    pub fn NewPage(self: QPrintEngine) bool {
+    pub fn newPage(self: QPrintEngine) bool {
         return qtc.QPrintEngine_NewPage(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `abort` instead
+    ///
+    pub const Abort = abort;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprintengine.html#abort)
     ///
@@ -58,9 +74,13 @@ pub const QPrintEngine = extern struct {
     ///
     /// ` self: QPrintEngine `
     ///
-    pub fn Abort(self: QPrintEngine) bool {
+    pub fn abort(self: QPrintEngine) bool {
         return qtc.QPrintEngine_Abort(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprintengine.html#metric)
     ///
@@ -70,9 +90,13 @@ pub const QPrintEngine = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: QPrintEngine, param1: i32) i32 {
+    pub fn metric(self: QPrintEngine, param1: i32) i32 {
         return qtc.QPrintEngine_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `printerState` instead
+    ///
+    pub const PrinterState = printerState;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprintengine.html#printerState)
     ///
@@ -84,9 +108,13 @@ pub const QPrintEngine = extern struct {
     ///
     /// ` qprinter_enums.PrinterState `
     ///
-    pub fn PrinterState(self: QPrintEngine) i32 {
+    pub fn printerState(self: QPrintEngine) i32 {
         return qtc.QPrintEngine_PrinterState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprintengine.html#operator-eq)
     ///
@@ -96,24 +124,24 @@ pub const QPrintEngine = extern struct {
     ///
     /// ` param1: QPrintEngine `
     ///
-    pub fn OperatorAssign(self: QPrintEngine, param1: anytype) void {
+    pub fn operatorAssign(self: QPrintEngine, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPrintEngine;
         qtc.QPrintEngine_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprintengine.html#dtor.QPrintEngine)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QPrintEngine `
     ///
-    pub fn Delete(self: QPrintEngine) void {
+    pub fn delete(self: QPrintEngine) void {
         qtc.QPrintEngine_Delete(@ptrCast(self.ptr));
     }
 };

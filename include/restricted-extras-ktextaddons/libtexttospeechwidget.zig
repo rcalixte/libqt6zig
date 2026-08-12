@@ -82,22 +82,34 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new TextEditTextToSpeech::TextToSpeechWidget object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new TextEditTextToSpeech::TextToSpeechWidget object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) TextEditTextToSpeech__TextToSpeechWidget {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.TextEditTextToSpeech__TextToSpeechWidget_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) TextEditTextToSpeech__TextToSpeechWidget {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.TextEditTextToSpeech__TextToSpeechWidget_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new TextEditTextToSpeech::TextToSpeechWidget object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() TextEditTextToSpeech__TextToSpeechWidget {
+    pub const New2 = new2;
+
+    /// Allocate a new TextEditTextToSpeech::TextToSpeechWidget object in C++ memory
+    ///
+    pub fn new2() TextEditTextToSpeech__TextToSpeechWidget {
         return .{ .ptr = qtc.TextEditTextToSpeech__TextToSpeechWidget_new2() };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEditTextToSpeech_1_1TextToSpeechWidget.html)
     ///
@@ -105,9 +117,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn MetaObject(self: TextEditTextToSpeech__TextToSpeechWidget) QMetaObject {
+    pub fn metaObject(self: TextEditTextToSpeech__TextToSpeechWidget) QMetaObject {
         return .{ .ptr = qtc.TextEditTextToSpeech__TextToSpeechWidget_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEditTextToSpeech_1_1TextToSpeechWidget.html)
     ///
@@ -119,13 +135,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEditTextToSpeech_1_1TextToSpeechWidget.html)
     ///
@@ -135,9 +151,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn SuperMetaObject(self: TextEditTextToSpeech__TextToSpeechWidget) QMetaObject {
+    pub fn superMetaObject(self: TextEditTextToSpeech__TextToSpeechWidget) QMetaObject {
         return .{ .ptr = qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -145,10 +165,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: TextEditTextToSpeech__TextToSpeechWidget, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: TextEditTextToSpeech__TextToSpeechWidget, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.TextEditTextToSpeech__TextToSpeechWidget_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -158,13 +182,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -174,10 +198,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: TextEditTextToSpeech__TextToSpeechWidget, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: TextEditTextToSpeech__TextToSpeechWidget, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -189,9 +217,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: TextEditTextToSpeech__TextToSpeechWidget, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: TextEditTextToSpeech__TextToSpeechWidget, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.TextEditTextToSpeech__TextToSpeechWidget_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -201,13 +233,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -221,9 +253,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: TextEditTextToSpeech__TextToSpeechWidget, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: TextEditTextToSpeech__TextToSpeechWidget, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -233,14 +269,18 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEditTextToSpeech__TextToSpeechWidget.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEditTextToSpeech__TextToSpeechWidget.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `state` instead
+    ///
+    pub const State = state;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEditTextToSpeech_1_1TextToSpeechWidget.html)
     ///
@@ -252,9 +292,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` texttospeechwidget_enums.State `
     ///
-    pub fn State(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
+    pub fn state(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
         return qtc.TextEditTextToSpeech__TextToSpeechWidget_State(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setState` instead
+    ///
+    pub const SetState = setState;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEditTextToSpeech_1_1TextToSpeechWidget.html)
     ///
@@ -262,11 +306,15 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` state: texttospeechwidget_enums.State `
+    /// ` _state: texttospeechwidget_enums.State `
     ///
-    pub fn SetState(self: TextEditTextToSpeech__TextToSpeechWidget, state: i32) void {
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_SetState(@ptrCast(self.ptr), @bitCast(state));
+    pub fn setState(self: TextEditTextToSpeech__TextToSpeechWidget, _state: i32) void {
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_SetState(@ptrCast(self.ptr), @bitCast(_state));
     }
+
+    /// ### DEPRECATED: Use `setTextToSpeechInterface` instead
+    ///
+    pub const SetTextToSpeechInterface = setTextToSpeechInterface;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEditTextToSpeech_1_1TextToSpeechWidget.html)
     ///
@@ -276,20 +324,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` interface: TextEditTextToSpeech__TextToSpeechInterface `
     ///
-    pub fn SetTextToSpeechInterface(self: TextEditTextToSpeech__TextToSpeechWidget, interface: anytype) void {
+    pub fn setTextToSpeechInterface(self: TextEditTextToSpeech__TextToSpeechWidget, interface: anytype) void {
         comptime _ = @TypeOf(interface)._is_TextEditTextToSpeech__TextToSpeechInterface;
         qtc.TextEditTextToSpeech__TextToSpeechWidget_SetTextToSpeechInterface(@ptrCast(self.ptr), @ptrCast(interface.ptr));
     }
 
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEditTextToSpeech_1_1TextToSpeechWidget.html)
+    /// ### DEPRECATED: Use `isReady` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
-    ///
-    pub fn IsReady(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
-        return qtc.TextEditTextToSpeech__TextToSpeechWidget_IsReady(@ptrCast(self.ptr));
-    }
+    pub const IsReady = isReady;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEditTextToSpeech_1_1TextToSpeechWidget.html)
     ///
@@ -297,9 +339,27 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn ShowWidget(self: TextEditTextToSpeech__TextToSpeechWidget) void {
+    pub fn isReady(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
+        return qtc.TextEditTextToSpeech__TextToSpeechWidget_IsReady(@ptrCast(self.ptr));
+    }
+
+    /// ### DEPRECATED: Use `showWidget` instead
+    ///
+    pub const ShowWidget = showWidget;
+
+    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEditTextToSpeech_1_1TextToSpeechWidget.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
+    ///
+    pub fn showWidget(self: TextEditTextToSpeech__TextToSpeechWidget) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_ShowWidget(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `say` instead
+    ///
+    pub const Say = say;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEditTextToSpeech_1_1TextToSpeechWidget.html)
     ///
@@ -309,7 +369,7 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn Say(self: TextEditTextToSpeech__TextToSpeechWidget, text: []const u8) void {
+    pub fn say(self: TextEditTextToSpeech__TextToSpeechWidget, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -317,17 +377,9 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_Say(@ptrCast(self.ptr), text_str);
     }
 
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEditTextToSpeech_1_1TextToSpeechWidget.html)
+    /// ### DEPRECATED: Use `slotStateChanged` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
-    ///
-    /// ` state: texttospeech_enums.State `
-    ///
-    pub fn SlotStateChanged(self: TextEditTextToSpeech__TextToSpeechWidget, state: i32) void {
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_SlotStateChanged(@ptrCast(self.ptr), @bitCast(state));
-    }
+    pub const SlotStateChanged = slotStateChanged;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEditTextToSpeech_1_1TextToSpeechWidget.html)
     ///
@@ -335,11 +387,31 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` state: texttospeechwidget_enums.State `
+    /// ` _state: texttospeech_enums.State `
     ///
-    pub fn StateChanged(self: TextEditTextToSpeech__TextToSpeechWidget, state: i32) void {
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_StateChanged(@ptrCast(self.ptr), @bitCast(state));
+    pub fn slotStateChanged(self: TextEditTextToSpeech__TextToSpeechWidget, _state: i32) void {
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_SlotStateChanged(@ptrCast(self.ptr), @bitCast(_state));
     }
+
+    /// ### DEPRECATED: Use `stateChanged` instead
+    ///
+    pub const StateChanged = stateChanged;
+
+    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEditTextToSpeech_1_1TextToSpeechWidget.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
+    ///
+    /// ` _state: texttospeechwidget_enums.State `
+    ///
+    pub fn stateChanged(self: TextEditTextToSpeech__TextToSpeechWidget, _state: i32) void {
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_StateChanged(@ptrCast(self.ptr), @bitCast(_state));
+    }
+
+    /// ### DEPRECATED: Use `onStateChanged` instead
+    ///
+    pub const OnStateChanged = onStateChanged;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEditTextToSpeech_1_1TextToSpeechWidget.html)
     ///
@@ -349,9 +421,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, state: texttospeechwidget_enums.State) callconv(.c) void `
     ///
-    pub fn OnStateChanged(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, i32) callconv(.c) void) void {
+    pub fn onStateChanged(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, i32) callconv(.c) void) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_Connect_StateChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeVisibility` instead
+    ///
+    pub const ChangeVisibility = changeVisibility;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEditTextToSpeech_1_1TextToSpeechWidget.html)
     ///
@@ -359,11 +435,15 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` state: bool `
+    /// ` _state: bool `
     ///
-    pub fn ChangeVisibility(self: TextEditTextToSpeech__TextToSpeechWidget, state: bool) void {
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_ChangeVisibility(@ptrCast(self.ptr), state);
+    pub fn changeVisibility(self: TextEditTextToSpeech__TextToSpeechWidget, _state: bool) void {
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_ChangeVisibility(@ptrCast(self.ptr), _state);
     }
+
+    /// ### DEPRECATED: Use `onChangeVisibility` instead
+    ///
+    pub const OnChangeVisibility = onChangeVisibility;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEditTextToSpeech_1_1TextToSpeechWidget.html)
     ///
@@ -373,9 +453,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, state: bool) callconv(.c) void `
     ///
-    pub fn OnChangeVisibility(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, bool) callconv(.c) void) void {
+    pub fn onChangeVisibility(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, bool) callconv(.c) void) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_Connect_ChangeVisibility(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -387,15 +471,19 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEditTextToSpeech__TextToSpeechWidget.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEditTextToSpeech__TextToSpeechWidget.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -409,15 +497,19 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEditTextToSpeech__TextToSpeechWidget.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEditTextToSpeech__TextToSpeechWidget.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -427,9 +519,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn WinId(self: TextEditTextToSpeech__TextToSpeechWidget) usize {
+    pub fn winId(self: TextEditTextToSpeech__TextToSpeechWidget) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -439,9 +535,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn CreateWinId(self: TextEditTextToSpeech__TextToSpeechWidget) void {
+    pub fn createWinId(self: TextEditTextToSpeech__TextToSpeechWidget) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -451,9 +551,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn InternalWinId(self: TextEditTextToSpeech__TextToSpeechWidget) usize {
+    pub fn internalWinId(self: TextEditTextToSpeech__TextToSpeechWidget) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -463,9 +567,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn EffectiveWinId(self: TextEditTextToSpeech__TextToSpeechWidget) usize {
+    pub fn effectiveWinId(self: TextEditTextToSpeech__TextToSpeechWidget) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -475,9 +583,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn Style(self: TextEditTextToSpeech__TextToSpeechWidget) QStyle {
+    pub fn style(self: TextEditTextToSpeech__TextToSpeechWidget) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -487,12 +599,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: TextEditTextToSpeech__TextToSpeechWidget, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: TextEditTextToSpeech__TextToSpeechWidget, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -502,9 +618,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn IsTopLevel(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
+    pub fn isTopLevel(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -514,9 +634,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn IsWindow(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
+    pub fn isWindow(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -526,9 +650,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn IsModal(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
+    pub fn isModal(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -542,9 +670,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
+    pub fn windowModality(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -554,11 +686,15 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: TextEditTextToSpeech__TextToSpeechWidget, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: TextEditTextToSpeech__TextToSpeechWidget, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -568,9 +704,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn IsEnabled(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
+    pub fn isEnabled(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -582,10 +722,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype) bool {
+    pub fn isEnabledTo(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -597,9 +741,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: TextEditTextToSpeech__TextToSpeechWidget, enabled: bool) void {
+    pub fn setEnabled(self: TextEditTextToSpeech__TextToSpeechWidget, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -611,9 +759,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: TextEditTextToSpeech__TextToSpeechWidget, disabled: bool) void {
+    pub fn setDisabled(self: TextEditTextToSpeech__TextToSpeechWidget, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -625,9 +777,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: TextEditTextToSpeech__TextToSpeechWidget, windowModified: bool) void {
+    pub fn setWindowModified(self: TextEditTextToSpeech__TextToSpeechWidget, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -637,9 +793,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn FrameGeometry(self: TextEditTextToSpeech__TextToSpeechWidget) QRect {
+    pub fn frameGeometry(self: TextEditTextToSpeech__TextToSpeechWidget) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -649,9 +809,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn Geometry(self: TextEditTextToSpeech__TextToSpeechWidget) QRect {
+    pub fn geometry(self: TextEditTextToSpeech__TextToSpeechWidget) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -661,9 +825,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn NormalGeometry(self: TextEditTextToSpeech__TextToSpeechWidget) QRect {
+    pub fn normalGeometry(self: TextEditTextToSpeech__TextToSpeechWidget) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -673,9 +841,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn X(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
+    pub fn x(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -685,9 +857,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn Y(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
+    pub fn y(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -697,9 +873,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn Pos(self: TextEditTextToSpeech__TextToSpeechWidget) QPoint {
+    pub fn pos(self: TextEditTextToSpeech__TextToSpeechWidget) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -709,9 +889,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn FrameSize(self: TextEditTextToSpeech__TextToSpeechWidget) QSize {
+    pub fn frameSize(self: TextEditTextToSpeech__TextToSpeechWidget) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -721,9 +905,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn Size(self: TextEditTextToSpeech__TextToSpeechWidget) QSize {
+    pub fn size(self: TextEditTextToSpeech__TextToSpeechWidget) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -733,9 +921,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn Width(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
+    pub fn width(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -745,9 +937,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn Height(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
+    pub fn height(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -757,9 +953,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn Rect(self: TextEditTextToSpeech__TextToSpeechWidget) QRect {
+    pub fn rect(self: TextEditTextToSpeech__TextToSpeechWidget) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -769,9 +969,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn ChildrenRect(self: TextEditTextToSpeech__TextToSpeechWidget) QRect {
+    pub fn childrenRect(self: TextEditTextToSpeech__TextToSpeechWidget) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -781,9 +985,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn ChildrenRegion(self: TextEditTextToSpeech__TextToSpeechWidget) QRegion {
+    pub fn childrenRegion(self: TextEditTextToSpeech__TextToSpeechWidget) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -793,9 +1001,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn MinimumSize(self: TextEditTextToSpeech__TextToSpeechWidget) QSize {
+    pub fn minimumSize(self: TextEditTextToSpeech__TextToSpeechWidget) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -805,9 +1017,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn MaximumSize(self: TextEditTextToSpeech__TextToSpeechWidget) QSize {
+    pub fn maximumSize(self: TextEditTextToSpeech__TextToSpeechWidget) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -817,9 +1033,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn MinimumWidth(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
+    pub fn minimumWidth(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -829,9 +1049,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn MinimumHeight(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
+    pub fn minimumHeight(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -841,9 +1065,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn MaximumWidth(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
+    pub fn maximumWidth(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -853,9 +1081,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn MaximumHeight(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
+    pub fn maximumHeight(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -865,12 +1097,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: TextEditTextToSpeech__TextToSpeechWidget, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: TextEditTextToSpeech__TextToSpeechWidget, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -884,9 +1120,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: TextEditTextToSpeech__TextToSpeechWidget, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: TextEditTextToSpeech__TextToSpeechWidget, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -896,12 +1136,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: TextEditTextToSpeech__TextToSpeechWidget, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: TextEditTextToSpeech__TextToSpeechWidget, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -915,9 +1159,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: TextEditTextToSpeech__TextToSpeechWidget, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: TextEditTextToSpeech__TextToSpeechWidget, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -929,9 +1177,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: TextEditTextToSpeech__TextToSpeechWidget, minw: i32) void {
+    pub fn setMinimumWidth(self: TextEditTextToSpeech__TextToSpeechWidget, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -943,9 +1195,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: TextEditTextToSpeech__TextToSpeechWidget, minh: i32) void {
+    pub fn setMinimumHeight(self: TextEditTextToSpeech__TextToSpeechWidget, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -957,9 +1213,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: TextEditTextToSpeech__TextToSpeechWidget, maxw: i32) void {
+    pub fn setMaximumWidth(self: TextEditTextToSpeech__TextToSpeechWidget, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -971,9 +1231,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: TextEditTextToSpeech__TextToSpeechWidget, maxh: i32) void {
+    pub fn setMaximumHeight(self: TextEditTextToSpeech__TextToSpeechWidget, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -983,9 +1247,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn SizeIncrement(self: TextEditTextToSpeech__TextToSpeechWidget) QSize {
+    pub fn sizeIncrement(self: TextEditTextToSpeech__TextToSpeechWidget) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -995,12 +1263,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: TextEditTextToSpeech__TextToSpeechWidget, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: TextEditTextToSpeech__TextToSpeechWidget, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -1014,9 +1286,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: TextEditTextToSpeech__TextToSpeechWidget, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: TextEditTextToSpeech__TextToSpeechWidget, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -1026,9 +1302,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn BaseSize(self: TextEditTextToSpeech__TextToSpeechWidget) QSize {
+    pub fn baseSize(self: TextEditTextToSpeech__TextToSpeechWidget) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -1038,12 +1318,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: TextEditTextToSpeech__TextToSpeechWidget, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: TextEditTextToSpeech__TextToSpeechWidget, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -1057,9 +1341,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: TextEditTextToSpeech__TextToSpeechWidget, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: TextEditTextToSpeech__TextToSpeechWidget, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -1071,10 +1359,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: TextEditTextToSpeech__TextToSpeechWidget, fixedSize: anytype) void {
+    pub fn setFixedSize(self: TextEditTextToSpeech__TextToSpeechWidget, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -1088,9 +1380,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: TextEditTextToSpeech__TextToSpeechWidget, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: TextEditTextToSpeech__TextToSpeechWidget, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -1102,9 +1398,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: TextEditTextToSpeech__TextToSpeechWidget, w: i32) void {
+    pub fn setFixedWidth(self: TextEditTextToSpeech__TextToSpeechWidget, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -1116,9 +1416,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: TextEditTextToSpeech__TextToSpeechWidget, h: i32) void {
+    pub fn setFixedHeight(self: TextEditTextToSpeech__TextToSpeechWidget, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -1130,11 +1434,15 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -1145,11 +1453,15 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1160,11 +1472,15 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1175,11 +1491,15 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1190,11 +1510,15 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype) QPointF {
+    pub fn mapToParent(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1205,10 +1529,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype) QPoint {
+    pub fn mapToParent2(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -1220,10 +1548,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype) QPointF {
+    pub fn mapFromParent(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -1235,10 +1567,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -1252,12 +1588,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -1270,11 +1610,15 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -1288,11 +1632,15 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -1306,11 +1654,15 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -1320,9 +1672,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn Window(self: TextEditTextToSpeech__TextToSpeechWidget) QWidget {
+    pub fn window(self: TextEditTextToSpeech__TextToSpeechWidget) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -1332,9 +1688,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn NativeParentWidget(self: TextEditTextToSpeech__TextToSpeechWidget) QWidget {
+    pub fn nativeParentWidget(self: TextEditTextToSpeech__TextToSpeechWidget) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -1344,9 +1704,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn TopLevelWidget(self: TextEditTextToSpeech__TextToSpeechWidget) QWidget {
+    pub fn topLevelWidget(self: TextEditTextToSpeech__TextToSpeechWidget) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -1356,9 +1720,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn Palette(self: TextEditTextToSpeech__TextToSpeechWidget) QPalette {
+    pub fn palette(self: TextEditTextToSpeech__TextToSpeechWidget) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -1368,12 +1736,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: TextEditTextToSpeech__TextToSpeechWidget, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: TextEditTextToSpeech__TextToSpeechWidget, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1383,11 +1755,15 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: TextEditTextToSpeech__TextToSpeechWidget, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: TextEditTextToSpeech__TextToSpeechWidget, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1401,9 +1777,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
+    pub fn backgroundRole(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1413,11 +1793,15 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: TextEditTextToSpeech__TextToSpeechWidget, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: TextEditTextToSpeech__TextToSpeechWidget, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1431,9 +1815,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
+    pub fn foregroundRole(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -1443,9 +1831,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn Font(self: TextEditTextToSpeech__TextToSpeechWidget) QFont {
+    pub fn font(self: TextEditTextToSpeech__TextToSpeechWidget) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -1455,12 +1847,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: TextEditTextToSpeech__TextToSpeechWidget, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: TextEditTextToSpeech__TextToSpeechWidget, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -1470,9 +1866,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn FontMetrics(self: TextEditTextToSpeech__TextToSpeechWidget) QFontMetrics {
+    pub fn fontMetrics(self: TextEditTextToSpeech__TextToSpeechWidget) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -1482,9 +1882,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn FontInfo(self: TextEditTextToSpeech__TextToSpeechWidget) QFontInfo {
+    pub fn fontInfo(self: TextEditTextToSpeech__TextToSpeechWidget) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -1494,9 +1898,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn Cursor(self: TextEditTextToSpeech__TextToSpeechWidget) QCursor {
+    pub fn cursor(self: TextEditTextToSpeech__TextToSpeechWidget) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -1506,12 +1914,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: TextEditTextToSpeech__TextToSpeechWidget, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: TextEditTextToSpeech__TextToSpeechWidget, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -1521,9 +1933,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn UnsetCursor(self: TextEditTextToSpeech__TextToSpeechWidget) void {
+    pub fn unsetCursor(self: TextEditTextToSpeech__TextToSpeechWidget) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -1535,9 +1951,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: TextEditTextToSpeech__TextToSpeechWidget, enable: bool) void {
+    pub fn setMouseTracking(self: TextEditTextToSpeech__TextToSpeechWidget, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -1547,9 +1967,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn HasMouseTracking(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
+    pub fn hasMouseTracking(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -1559,9 +1983,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn UnderMouse(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
+    pub fn underMouse(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -1573,9 +2001,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: TextEditTextToSpeech__TextToSpeechWidget, enable: bool) void {
+    pub fn setTabletTracking(self: TextEditTextToSpeech__TextToSpeechWidget, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -1585,24 +2017,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn HasTabletTracking(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
+    pub fn hasTabletTracking(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: TextEditTextToSpeech__TextToSpeechWidget, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -1612,12 +2033,35 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: TextEditTextToSpeech__TextToSpeechWidget, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: TextEditTextToSpeech__TextToSpeechWidget, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: TextEditTextToSpeech__TextToSpeechWidget, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -1627,9 +2071,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn Mask(self: TextEditTextToSpeech__TextToSpeechWidget) QRegion {
+    pub fn mask(self: TextEditTextToSpeech__TextToSpeechWidget) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -1639,9 +2087,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn ClearMask(self: TextEditTextToSpeech__TextToSpeechWidget) void {
+    pub fn clearMask(self: TextEditTextToSpeech__TextToSpeechWidget) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -1653,10 +2105,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: TextEditTextToSpeech__TextToSpeechWidget, target: anytype) void {
+    pub fn render(self: TextEditTextToSpeech__TextToSpeechWidget, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -1668,10 +2124,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: TextEditTextToSpeech__TextToSpeechWidget, painter: anytype) void {
+    pub fn render2(self: TextEditTextToSpeech__TextToSpeechWidget, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -1681,9 +2141,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn Grab(self: TextEditTextToSpeech__TextToSpeechWidget) QPixmap {
+    pub fn grab(self: TextEditTextToSpeech__TextToSpeechWidget) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -1693,9 +2157,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn GraphicsEffect(self: TextEditTextToSpeech__TextToSpeechWidget) QGraphicsEffect {
+    pub fn graphicsEffect(self: TextEditTextToSpeech__TextToSpeechWidget) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -1707,10 +2175,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: TextEditTextToSpeech__TextToSpeechWidget, effect: anytype) void {
+    pub fn setGraphicsEffect(self: TextEditTextToSpeech__TextToSpeechWidget, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -1722,9 +2194,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: TextEditTextToSpeech__TextToSpeechWidget, typeVal: i32) void {
+    pub fn grabGesture(self: TextEditTextToSpeech__TextToSpeechWidget, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -1736,9 +2212,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: TextEditTextToSpeech__TextToSpeechWidget, typeVal: i32) void {
+    pub fn ungrabGesture(self: TextEditTextToSpeech__TextToSpeechWidget, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -1748,15 +2228,19 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: TextEditTextToSpeech__TextToSpeechWidget, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: TextEditTextToSpeech__TextToSpeechWidget, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -1766,15 +2250,19 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: TextEditTextToSpeech__TextToSpeechWidget, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: TextEditTextToSpeech__TextToSpeechWidget, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -1786,13 +2274,17 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: TextEditTextToSpeech__TextToSpeechWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: TextEditTextToSpeech__TextToSpeechWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEditTextToSpeech__TextToSpeechWidget.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEditTextToSpeech__TextToSpeechWidget.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -1804,13 +2296,17 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: TextEditTextToSpeech__TextToSpeechWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: TextEditTextToSpeech__TextToSpeechWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEditTextToSpeech__TextToSpeechWidget.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEditTextToSpeech__TextToSpeechWidget.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -1822,10 +2318,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: TextEditTextToSpeech__TextToSpeechWidget, icon: anytype) void {
+    pub fn setWindowIcon(self: TextEditTextToSpeech__TextToSpeechWidget, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -1835,9 +2335,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn WindowIcon(self: TextEditTextToSpeech__TextToSpeechWidget) QIcon {
+    pub fn windowIcon(self: TextEditTextToSpeech__TextToSpeechWidget) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -1847,15 +2351,19 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: TextEditTextToSpeech__TextToSpeechWidget, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: TextEditTextToSpeech__TextToSpeechWidget, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -1867,13 +2375,17 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: TextEditTextToSpeech__TextToSpeechWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: TextEditTextToSpeech__TextToSpeechWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEditTextToSpeech__TextToSpeechWidget.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEditTextToSpeech__TextToSpeechWidget.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -1883,15 +2395,19 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: TextEditTextToSpeech__TextToSpeechWidget, windowRole: []const u8) void {
+    pub fn setWindowRole(self: TextEditTextToSpeech__TextToSpeechWidget, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -1903,13 +2419,17 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: TextEditTextToSpeech__TextToSpeechWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: TextEditTextToSpeech__TextToSpeechWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEditTextToSpeech__TextToSpeechWidget.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEditTextToSpeech__TextToSpeechWidget.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -1921,13 +2441,17 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: TextEditTextToSpeech__TextToSpeechWidget, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: TextEditTextToSpeech__TextToSpeechWidget, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -1939,13 +2463,17 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: TextEditTextToSpeech__TextToSpeechWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: TextEditTextToSpeech__TextToSpeechWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEditTextToSpeech__TextToSpeechWidget.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEditTextToSpeech__TextToSpeechWidget.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -1957,9 +2485,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: TextEditTextToSpeech__TextToSpeechWidget, level: f64) void {
+    pub fn setWindowOpacity(self: TextEditTextToSpeech__TextToSpeechWidget, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -1969,9 +2501,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn WindowOpacity(self: TextEditTextToSpeech__TextToSpeechWidget) f64 {
+    pub fn windowOpacity(self: TextEditTextToSpeech__TextToSpeechWidget) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -1981,9 +2517,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn IsWindowModified(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
+    pub fn isWindowModified(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -1993,15 +2533,19 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: TextEditTextToSpeech__TextToSpeechWidget, toolTip: []const u8) void {
+    pub fn setToolTip(self: TextEditTextToSpeech__TextToSpeechWidget, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -2013,13 +2557,17 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: TextEditTextToSpeech__TextToSpeechWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: TextEditTextToSpeech__TextToSpeechWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEditTextToSpeech__TextToSpeechWidget.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEditTextToSpeech__TextToSpeechWidget.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2031,9 +2579,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: TextEditTextToSpeech__TextToSpeechWidget, msec: i32) void {
+    pub fn setToolTipDuration(self: TextEditTextToSpeech__TextToSpeechWidget, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2043,9 +2595,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn ToolTipDuration(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
+    pub fn toolTipDuration(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -2055,15 +2611,19 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: TextEditTextToSpeech__TextToSpeechWidget, statusTip: []const u8) void {
+    pub fn setStatusTip(self: TextEditTextToSpeech__TextToSpeechWidget, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -2075,13 +2635,17 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: TextEditTextToSpeech__TextToSpeechWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: TextEditTextToSpeech__TextToSpeechWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEditTextToSpeech__TextToSpeechWidget.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEditTextToSpeech__TextToSpeechWidget.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2091,15 +2655,19 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: TextEditTextToSpeech__TextToSpeechWidget, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: TextEditTextToSpeech__TextToSpeechWidget, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2111,13 +2679,17 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: TextEditTextToSpeech__TextToSpeechWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: TextEditTextToSpeech__TextToSpeechWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEditTextToSpeech__TextToSpeechWidget.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEditTextToSpeech__TextToSpeechWidget.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2129,13 +2701,17 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: TextEditTextToSpeech__TextToSpeechWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: TextEditTextToSpeech__TextToSpeechWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEditTextToSpeech__TextToSpeechWidget.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEditTextToSpeech__TextToSpeechWidget.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2147,13 +2723,17 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: TextEditTextToSpeech__TextToSpeechWidget, name: []const u8) void {
+    pub fn setAccessibleName(self: TextEditTextToSpeech__TextToSpeechWidget, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2165,13 +2745,17 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: TextEditTextToSpeech__TextToSpeechWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: TextEditTextToSpeech__TextToSpeechWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEditTextToSpeech__TextToSpeechWidget.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEditTextToSpeech__TextToSpeechWidget.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2183,13 +2767,17 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: TextEditTextToSpeech__TextToSpeechWidget, description: []const u8) void {
+    pub fn setAccessibleDescription(self: TextEditTextToSpeech__TextToSpeechWidget, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2201,9 +2789,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: TextEditTextToSpeech__TextToSpeechWidget, direction: i32) void {
+    pub fn setLayoutDirection(self: TextEditTextToSpeech__TextToSpeechWidget, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2217,9 +2809,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
+    pub fn layoutDirection(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2229,9 +2825,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn UnsetLayoutDirection(self: TextEditTextToSpeech__TextToSpeechWidget) void {
+    pub fn unsetLayoutDirection(self: TextEditTextToSpeech__TextToSpeechWidget) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -2241,12 +2841,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: TextEditTextToSpeech__TextToSpeechWidget, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: TextEditTextToSpeech__TextToSpeechWidget, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -2256,9 +2860,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn Locale(self: TextEditTextToSpeech__TextToSpeechWidget) QLocale {
+    pub fn locale(self: TextEditTextToSpeech__TextToSpeechWidget) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -2268,9 +2876,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn UnsetLocale(self: TextEditTextToSpeech__TextToSpeechWidget) void {
+    pub fn unsetLocale(self: TextEditTextToSpeech__TextToSpeechWidget) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -2280,9 +2892,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn IsRightToLeft(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
+    pub fn isRightToLeft(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -2292,9 +2908,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn IsLeftToRight(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
+    pub fn isLeftToRight(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -2304,9 +2924,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn SetFocus(self: TextEditTextToSpeech__TextToSpeechWidget) void {
+    pub fn setFocus(self: TextEditTextToSpeech__TextToSpeechWidget) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -2316,9 +2940,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn IsActiveWindow(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
+    pub fn isActiveWindow(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -2328,9 +2956,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn ActivateWindow(self: TextEditTextToSpeech__TextToSpeechWidget) void {
+    pub fn activateWindow(self: TextEditTextToSpeech__TextToSpeechWidget) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -2340,9 +2972,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn ClearFocus(self: TextEditTextToSpeech__TextToSpeechWidget) void {
+    pub fn clearFocus(self: TextEditTextToSpeech__TextToSpeechWidget) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -2354,9 +2990,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: TextEditTextToSpeech__TextToSpeechWidget, reason: i32) void {
+    pub fn setFocus2(self: TextEditTextToSpeech__TextToSpeechWidget, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2370,9 +3010,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
+    pub fn focusPolicy(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2384,9 +3028,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: TextEditTextToSpeech__TextToSpeechWidget, policy: i32) void {
+    pub fn setFocusPolicy(self: TextEditTextToSpeech__TextToSpeechWidget, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -2396,9 +3044,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn HasFocus(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
+    pub fn hasFocus(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -2410,11 +3062,15 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -2424,12 +3080,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: TextEditTextToSpeech__TextToSpeechWidget, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: TextEditTextToSpeech__TextToSpeechWidget, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -2439,9 +3099,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn FocusProxy(self: TextEditTextToSpeech__TextToSpeechWidget) QWidget {
+    pub fn focusProxy(self: TextEditTextToSpeech__TextToSpeechWidget) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2455,9 +3119,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
+    pub fn contextMenuPolicy(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2469,9 +3137,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: TextEditTextToSpeech__TextToSpeechWidget, policy: i32) void {
+    pub fn setContextMenuPolicy(self: TextEditTextToSpeech__TextToSpeechWidget, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -2481,9 +3153,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn GrabMouse(self: TextEditTextToSpeech__TextToSpeechWidget) void {
+    pub fn grabMouse(self: TextEditTextToSpeech__TextToSpeechWidget) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -2495,10 +3171,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype) void {
+    pub fn grabMouse2(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -2508,9 +3188,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn ReleaseMouse(self: TextEditTextToSpeech__TextToSpeechWidget) void {
+    pub fn releaseMouse(self: TextEditTextToSpeech__TextToSpeechWidget) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -2520,9 +3204,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn GrabKeyboard(self: TextEditTextToSpeech__TextToSpeechWidget) void {
+    pub fn grabKeyboard(self: TextEditTextToSpeech__TextToSpeechWidget) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -2532,9 +3220,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn ReleaseKeyboard(self: TextEditTextToSpeech__TextToSpeechWidget) void {
+    pub fn releaseKeyboard(self: TextEditTextToSpeech__TextToSpeechWidget) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -2546,10 +3238,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: TextEditTextToSpeech__TextToSpeechWidget, key: anytype) i32 {
+    pub fn grabShortcut(self: TextEditTextToSpeech__TextToSpeechWidget, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -2561,9 +3257,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: TextEditTextToSpeech__TextToSpeechWidget, id: i32) void {
+    pub fn releaseShortcut(self: TextEditTextToSpeech__TextToSpeechWidget, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2575,9 +3275,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: TextEditTextToSpeech__TextToSpeechWidget, id: i32) void {
+    pub fn setShortcutEnabled(self: TextEditTextToSpeech__TextToSpeechWidget, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -2589,25 +3293,37 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: TextEditTextToSpeech__TextToSpeechWidget, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: TextEditTextToSpeech__TextToSpeechWidget, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2617,9 +3333,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn UpdatesEnabled(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
+    pub fn updatesEnabled(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2631,9 +3351,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: TextEditTextToSpeech__TextToSpeechWidget, enable: bool) void {
+    pub fn setUpdatesEnabled(self: TextEditTextToSpeech__TextToSpeechWidget, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -2643,9 +3367,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn GraphicsProxyWidget(self: TextEditTextToSpeech__TextToSpeechWidget) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: TextEditTextToSpeech__TextToSpeechWidget) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -2655,9 +3383,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn Update(self: TextEditTextToSpeech__TextToSpeechWidget) void {
+    pub fn update(self: TextEditTextToSpeech__TextToSpeechWidget) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -2667,9 +3399,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn Repaint(self: TextEditTextToSpeech__TextToSpeechWidget) void {
+    pub fn repaint(self: TextEditTextToSpeech__TextToSpeechWidget) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -2679,17 +3415,21 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: TextEditTextToSpeech__TextToSpeechWidget, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: TextEditTextToSpeech__TextToSpeechWidget, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -2701,11 +3441,15 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype) void {
+    pub fn update3(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -2716,10 +3460,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype) void {
+    pub fn update4(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -2729,17 +3477,21 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: TextEditTextToSpeech__TextToSpeechWidget, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: TextEditTextToSpeech__TextToSpeechWidget, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -2751,10 +3503,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype) void {
+    pub fn repaint3(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -2766,10 +3522,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype) void {
+    pub fn repaint4(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -2781,9 +3541,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: TextEditTextToSpeech__TextToSpeechWidget, hidden: bool) void {
+    pub fn setHidden(self: TextEditTextToSpeech__TextToSpeechWidget, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -2793,9 +3557,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn Show(self: TextEditTextToSpeech__TextToSpeechWidget) void {
+    pub fn show(self: TextEditTextToSpeech__TextToSpeechWidget) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -2805,9 +3573,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn Hide(self: TextEditTextToSpeech__TextToSpeechWidget) void {
+    pub fn hide(self: TextEditTextToSpeech__TextToSpeechWidget) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -2817,9 +3589,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn ShowMinimized(self: TextEditTextToSpeech__TextToSpeechWidget) void {
+    pub fn showMinimized(self: TextEditTextToSpeech__TextToSpeechWidget) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -2829,9 +3605,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn ShowMaximized(self: TextEditTextToSpeech__TextToSpeechWidget) void {
+    pub fn showMaximized(self: TextEditTextToSpeech__TextToSpeechWidget) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -2841,9 +3621,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn ShowFullScreen(self: TextEditTextToSpeech__TextToSpeechWidget) void {
+    pub fn showFullScreen(self: TextEditTextToSpeech__TextToSpeechWidget) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -2853,9 +3637,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn ShowNormal(self: TextEditTextToSpeech__TextToSpeechWidget) void {
+    pub fn showNormal(self: TextEditTextToSpeech__TextToSpeechWidget) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -2865,9 +3653,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn Close(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
+    pub fn close(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -2877,9 +3669,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn Raise(self: TextEditTextToSpeech__TextToSpeechWidget) void {
+    pub fn raise(self: TextEditTextToSpeech__TextToSpeechWidget) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -2889,9 +3685,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn Lower(self: TextEditTextToSpeech__TextToSpeechWidget) void {
+    pub fn lower(self: TextEditTextToSpeech__TextToSpeechWidget) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -2903,10 +3703,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype) void {
+    pub fn stackUnder(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -2916,13 +3720,17 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: TextEditTextToSpeech__TextToSpeechWidget, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: TextEditTextToSpeech__TextToSpeechWidget, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -2934,10 +3742,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype) void {
+    pub fn move2(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -2951,9 +3763,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: TextEditTextToSpeech__TextToSpeechWidget, w: i32, h: i32) void {
+    pub fn resize(self: TextEditTextToSpeech__TextToSpeechWidget, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -2965,10 +3781,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype) void {
+    pub fn resize2(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -2978,17 +3798,21 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: TextEditTextToSpeech__TextToSpeechWidget, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: TextEditTextToSpeech__TextToSpeechWidget, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -2998,12 +3822,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: TextEditTextToSpeech__TextToSpeechWidget, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: TextEditTextToSpeech__TextToSpeechWidget, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3015,13 +3843,17 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: TextEditTextToSpeech__TextToSpeechWidget, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: TextEditTextToSpeech__TextToSpeechWidget, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("TextEditTextToSpeech__TextToSpeechWidget.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("TextEditTextToSpeech__TextToSpeechWidget.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3031,15 +3863,19 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: TextEditTextToSpeech__TextToSpeechWidget, geometry: []u8) bool {
+    pub fn restoreGeometry(self: TextEditTextToSpeech__TextToSpeechWidget, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -3049,9 +3885,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn AdjustSize(self: TextEditTextToSpeech__TextToSpeechWidget) void {
+    pub fn adjustSize(self: TextEditTextToSpeech__TextToSpeechWidget) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -3061,9 +3901,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn IsVisible(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
+    pub fn isVisible(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -3075,10 +3919,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype) bool {
+    pub fn isVisibleTo(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -3088,9 +3936,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn IsHidden(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
+    pub fn isHidden(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3100,9 +3952,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn IsMinimized(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
+    pub fn isMinimized(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3112,9 +3968,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn IsMaximized(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
+    pub fn isMaximized(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3124,9 +3984,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn IsFullScreen(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
+    pub fn isFullScreen(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -3140,9 +4004,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
+    pub fn windowState(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3152,11 +4020,15 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` state: flag of qnamespace_enums.WindowState `
+    /// ` _state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: TextEditTextToSpeech__TextToSpeechWidget, state: i32) void {
-        qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
+    pub fn setWindowState(self: TextEditTextToSpeech__TextToSpeechWidget, _state: i32) void {
+        qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(_state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3166,11 +4038,15 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` state: flag of qnamespace_enums.WindowState `
+    /// ` _state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: TextEditTextToSpeech__TextToSpeechWidget, state: i32) void {
-        qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
+    pub fn overrideWindowState(self: TextEditTextToSpeech__TextToSpeechWidget, _state: i32) void {
+        qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(_state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3180,9 +4056,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn SizePolicy(self: TextEditTextToSpeech__TextToSpeechWidget) QSizePolicy {
+    pub fn sizePolicy(self: TextEditTextToSpeech__TextToSpeechWidget) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3192,12 +4072,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: TextEditTextToSpeech__TextToSpeechWidget, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: TextEditTextToSpeech__TextToSpeechWidget, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -3211,9 +4095,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: TextEditTextToSpeech__TextToSpeechWidget, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: TextEditTextToSpeech__TextToSpeechWidget, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -3223,9 +4111,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn VisibleRegion(self: TextEditTextToSpeech__TextToSpeechWidget) QRegion {
+    pub fn visibleRegion(self: TextEditTextToSpeech__TextToSpeechWidget) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3243,9 +4135,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: TextEditTextToSpeech__TextToSpeechWidget, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: TextEditTextToSpeech__TextToSpeechWidget, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -3257,10 +4153,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: TextEditTextToSpeech__TextToSpeechWidget, margins: anytype) void {
+    pub fn setContentsMargins2(self: TextEditTextToSpeech__TextToSpeechWidget, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3270,9 +4170,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn ContentsMargins(self: TextEditTextToSpeech__TextToSpeechWidget) QMargins {
+    pub fn contentsMargins(self: TextEditTextToSpeech__TextToSpeechWidget) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -3282,9 +4186,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn ContentsRect(self: TextEditTextToSpeech__TextToSpeechWidget) QRect {
+    pub fn contentsRect(self: TextEditTextToSpeech__TextToSpeechWidget) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -3294,9 +4202,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn Layout(self: TextEditTextToSpeech__TextToSpeechWidget) QLayout {
+    pub fn layout(self: TextEditTextToSpeech__TextToSpeechWidget) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -3306,12 +4218,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: TextEditTextToSpeech__TextToSpeechWidget, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: TextEditTextToSpeech__TextToSpeechWidget, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3321,24 +4237,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn UpdateGeometry(self: TextEditTextToSpeech__TextToSpeechWidget) void {
+    pub fn updateGeometry(self: TextEditTextToSpeech__TextToSpeechWidget) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: TextEditTextToSpeech__TextToSpeechWidget, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -3348,14 +4253,37 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: TextEditTextToSpeech__TextToSpeechWidget, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: TextEditTextToSpeech__TextToSpeechWidget, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: TextEditTextToSpeech__TextToSpeechWidget, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -3369,9 +4297,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: TextEditTextToSpeech__TextToSpeechWidget, dx: i32, dy: i32) void {
+    pub fn scroll(self: TextEditTextToSpeech__TextToSpeechWidget, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -3387,10 +4319,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: TextEditTextToSpeech__TextToSpeechWidget, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: TextEditTextToSpeech__TextToSpeechWidget, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -3400,9 +4336,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn FocusWidget(self: TextEditTextToSpeech__TextToSpeechWidget) QWidget {
+    pub fn focusWidget(self: TextEditTextToSpeech__TextToSpeechWidget) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -3412,9 +4352,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn NextInFocusChain(self: TextEditTextToSpeech__TextToSpeechWidget) QWidget {
+    pub fn nextInFocusChain(self: TextEditTextToSpeech__TextToSpeechWidget) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -3424,9 +4368,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn PreviousInFocusChain(self: TextEditTextToSpeech__TextToSpeechWidget) QWidget {
+    pub fn previousInFocusChain(self: TextEditTextToSpeech__TextToSpeechWidget) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -3436,9 +4384,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn AcceptDrops(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
+    pub fn acceptDrops(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -3450,9 +4402,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: TextEditTextToSpeech__TextToSpeechWidget, on: bool) void {
+    pub fn setAcceptDrops(self: TextEditTextToSpeech__TextToSpeechWidget, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -3464,10 +4420,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: TextEditTextToSpeech__TextToSpeechWidget, action: anytype) void {
+    pub fn addAction(self: TextEditTextToSpeech__TextToSpeechWidget, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -3477,15 +4437,19 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: TextEditTextToSpeech__TextToSpeechWidget, actions: []QAction) void {
+    pub fn addActions(self: TextEditTextToSpeech__TextToSpeechWidget, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -3497,16 +4461,20 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: TextEditTextToSpeech__TextToSpeechWidget, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: TextEditTextToSpeech__TextToSpeechWidget, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -3520,11 +4488,15 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: TextEditTextToSpeech__TextToSpeechWidget, before: anytype, action: anytype) void {
+    pub fn insertAction(self: TextEditTextToSpeech__TextToSpeechWidget, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -3536,10 +4508,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: TextEditTextToSpeech__TextToSpeechWidget, action: anytype) void {
+    pub fn removeAction(self: TextEditTextToSpeech__TextToSpeechWidget, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -3551,15 +4527,19 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: TextEditTextToSpeech__TextToSpeechWidget, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: TextEditTextToSpeech__TextToSpeechWidget, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("TextEditTextToSpeech__TextToSpeechWidget.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("TextEditTextToSpeech__TextToSpeechWidget.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -3571,13 +4551,17 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: TextEditTextToSpeech__TextToSpeechWidget, text: []const u8) QAction {
+    pub fn addAction2(self: TextEditTextToSpeech__TextToSpeechWidget, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -3591,7 +4575,7 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: TextEditTextToSpeech__TextToSpeechWidget, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: TextEditTextToSpeech__TextToSpeechWidget, icon: anytype, text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -3600,6 +4584,10 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -3612,7 +4600,7 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: TextEditTextToSpeech__TextToSpeechWidget, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: TextEditTextToSpeech__TextToSpeechWidget, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -3620,6 +4608,10 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
 
     /// Inherited from QWidget
     ///
@@ -3635,7 +4627,7 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: TextEditTextToSpeech__TextToSpeechWidget, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: TextEditTextToSpeech__TextToSpeechWidget, icon: anytype, text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -3645,6 +4637,10 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
@@ -3653,9 +4649,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn ParentWidget(self: TextEditTextToSpeech__TextToSpeechWidget) QWidget {
+    pub fn parentWidget(self: TextEditTextToSpeech__TextToSpeechWidget) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -3667,9 +4667,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: TextEditTextToSpeech__TextToSpeechWidget, typeVal: i32) void {
+    pub fn setWindowFlags(self: TextEditTextToSpeech__TextToSpeechWidget, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -3683,9 +4687,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
+    pub fn windowFlags(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -3697,9 +4705,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: TextEditTextToSpeech__TextToSpeechWidget, param1: i32) void {
+    pub fn setWindowFlag(self: TextEditTextToSpeech__TextToSpeechWidget, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -3711,9 +4723,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: TextEditTextToSpeech__TextToSpeechWidget, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: TextEditTextToSpeech__TextToSpeechWidget, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -3727,9 +4743,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
+    pub fn windowType(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -3739,9 +4759,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -3751,13 +4775,17 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: TextEditTextToSpeech__TextToSpeechWidget, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: TextEditTextToSpeech__TextToSpeechWidget, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -3769,10 +4797,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: TextEditTextToSpeech__TextToSpeechWidget, p: anytype) QWidget {
+    pub fn childAt2(self: TextEditTextToSpeech__TextToSpeechWidget, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -3784,10 +4816,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: TextEditTextToSpeech__TextToSpeechWidget, p: anytype) QWidget {
+    pub fn childAt3(self: TextEditTextToSpeech__TextToSpeechWidget, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -3799,9 +4835,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: TextEditTextToSpeech__TextToSpeechWidget, param1: i32) void {
+    pub fn setAttribute(self: TextEditTextToSpeech__TextToSpeechWidget, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -3813,9 +4853,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: TextEditTextToSpeech__TextToSpeechWidget, param1: i32) bool {
+    pub fn testAttribute(self: TextEditTextToSpeech__TextToSpeechWidget, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -3825,9 +4869,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn EnsurePolished(self: TextEditTextToSpeech__TextToSpeechWidget) void {
+    pub fn ensurePolished(self: TextEditTextToSpeech__TextToSpeechWidget) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -3839,10 +4887,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: TextEditTextToSpeech__TextToSpeechWidget, child: anytype) bool {
+    pub fn isAncestorOf(self: TextEditTextToSpeech__TextToSpeechWidget, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -3852,9 +4904,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn AutoFillBackground(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
+    pub fn autoFillBackground(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -3866,9 +4922,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: TextEditTextToSpeech__TextToSpeechWidget, enabled: bool) void {
+    pub fn setAutoFillBackground(self: TextEditTextToSpeech__TextToSpeechWidget, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -3878,9 +4938,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn BackingStore(self: TextEditTextToSpeech__TextToSpeechWidget) QBackingStore {
+    pub fn backingStore(self: TextEditTextToSpeech__TextToSpeechWidget) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -3890,9 +4954,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn WindowHandle(self: TextEditTextToSpeech__TextToSpeechWidget) QWindow {
+    pub fn windowHandle(self: TextEditTextToSpeech__TextToSpeechWidget) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -3902,9 +4970,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn Screen(self: TextEditTextToSpeech__TextToSpeechWidget) QScreen {
+    pub fn screen(self: TextEditTextToSpeech__TextToSpeechWidget) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -3914,12 +4986,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: TextEditTextToSpeech__TextToSpeechWidget, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: TextEditTextToSpeech__TextToSpeechWidget, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -3927,12 +5003,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -3944,13 +5024,17 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: TextEditTextToSpeech__TextToSpeechWidget, title: []const u8) void {
+    pub fn windowTitleChanged(self: TextEditTextToSpeech__TextToSpeechWidget, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -3962,9 +5046,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -3976,10 +5064,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: TextEditTextToSpeech__TextToSpeechWidget, icon: anytype) void {
+    pub fn windowIconChanged(self: TextEditTextToSpeech__TextToSpeechWidget, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -3991,9 +5083,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4005,13 +5101,17 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: TextEditTextToSpeech__TextToSpeechWidget, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: TextEditTextToSpeech__TextToSpeechWidget, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4023,9 +5123,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4035,12 +5139,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: TextEditTextToSpeech__TextToSpeechWidget, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: TextEditTextToSpeech__TextToSpeechWidget, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4052,9 +5160,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4068,9 +5180,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
+    pub fn inputMethodHints(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4082,9 +5198,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: TextEditTextToSpeech__TextToSpeechWidget, hints: i32) void {
+    pub fn setInputMethodHints(self: TextEditTextToSpeech__TextToSpeechWidget, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -4098,11 +5218,15 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: TextEditTextToSpeech__TextToSpeechWidget, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: TextEditTextToSpeech__TextToSpeechWidget, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -4118,13 +5242,17 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: TextEditTextToSpeech__TextToSpeechWidget, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: TextEditTextToSpeech__TextToSpeechWidget, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -4141,12 +5269,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: TextEditTextToSpeech__TextToSpeechWidget, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: TextEditTextToSpeech__TextToSpeechWidget, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -4160,11 +5292,15 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: TextEditTextToSpeech__TextToSpeechWidget, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: TextEditTextToSpeech__TextToSpeechWidget, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -4180,12 +5316,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: TextEditTextToSpeech__TextToSpeechWidget, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: TextEditTextToSpeech__TextToSpeechWidget, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -4203,12 +5343,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: TextEditTextToSpeech__TextToSpeechWidget, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: TextEditTextToSpeech__TextToSpeechWidget, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -4220,10 +5364,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: TextEditTextToSpeech__TextToSpeechWidget, rectangle: anytype) QPixmap {
+    pub fn grab1(self: TextEditTextToSpeech__TextToSpeechWidget, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -4237,9 +5385,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: TextEditTextToSpeech__TextToSpeechWidget, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: TextEditTextToSpeech__TextToSpeechWidget, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -4253,10 +5405,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: TextEditTextToSpeech__TextToSpeechWidget, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: TextEditTextToSpeech__TextToSpeechWidget, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -4270,9 +5426,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: TextEditTextToSpeech__TextToSpeechWidget, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: TextEditTextToSpeech__TextToSpeechWidget, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -4286,9 +5446,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: TextEditTextToSpeech__TextToSpeechWidget, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: TextEditTextToSpeech__TextToSpeechWidget, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -4302,9 +5466,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: TextEditTextToSpeech__TextToSpeechWidget, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: TextEditTextToSpeech__TextToSpeechWidget, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -4318,25 +5486,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: TextEditTextToSpeech__TextToSpeechWidget, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: TextEditTextToSpeech__TextToSpeechWidget, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -4344,17 +5500,41 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -4366,13 +5546,17 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: TextEditTextToSpeech__TextToSpeechWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: TextEditTextToSpeech__TextToSpeechWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEditTextToSpeech__TextToSpeechWidget.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEditTextToSpeech__TextToSpeechWidget.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -4384,13 +5568,17 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: TextEditTextToSpeech__TextToSpeechWidget, name: []const u8) void {
+    pub fn setObjectName(self: TextEditTextToSpeech__TextToSpeechWidget, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -4400,9 +5588,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn IsWidgetType(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
+    pub fn isWidgetType(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -4412,9 +5604,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn IsWindowType(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
+    pub fn isWindowType(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -4424,9 +5620,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn IsQuickItemType(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
+    pub fn isQuickItemType(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -4436,9 +5636,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn SignalsBlocked(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
+    pub fn signalsBlocked(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -4450,9 +5654,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: TextEditTextToSpeech__TextToSpeechWidget, b: bool) bool {
+    pub fn blockSignals(self: TextEditTextToSpeech__TextToSpeechWidget, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -4462,9 +5670,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn Thread(self: TextEditTextToSpeech__TextToSpeechWidget) QThread {
+    pub fn thread(self: TextEditTextToSpeech__TextToSpeechWidget) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -4474,12 +5686,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: TextEditTextToSpeech__TextToSpeechWidget, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: TextEditTextToSpeech__TextToSpeechWidget, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -4491,9 +5707,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: TextEditTextToSpeech__TextToSpeechWidget, interval: i32) i32 {
+    pub fn startTimer(self: TextEditTextToSpeech__TextToSpeechWidget, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -4505,9 +5725,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: TextEditTextToSpeech__TextToSpeechWidget, time: i64) i32 {
+    pub fn startTimer2(self: TextEditTextToSpeech__TextToSpeechWidget, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -4519,9 +5743,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: TextEditTextToSpeech__TextToSpeechWidget, id: i32) void {
+    pub fn killTimer(self: TextEditTextToSpeech__TextToSpeechWidget, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -4533,9 +5761,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: TextEditTextToSpeech__TextToSpeechWidget, id: i32) void {
+    pub fn killTimer2(self: TextEditTextToSpeech__TextToSpeechWidget, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -4547,15 +5779,19 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: TextEditTextToSpeech__TextToSpeechWidget, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: TextEditTextToSpeech__TextToSpeechWidget, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("TextEditTextToSpeech__TextToSpeechWidget.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("TextEditTextToSpeech__TextToSpeechWidget.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4567,10 +5803,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: TextEditTextToSpeech__TextToSpeechWidget, filterObj: anytype) void {
+    pub fn installEventFilter(self: TextEditTextToSpeech__TextToSpeechWidget, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4582,10 +5822,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: TextEditTextToSpeech__TextToSpeechWidget, obj: anytype) void {
+    pub fn removeEventFilter(self: TextEditTextToSpeech__TextToSpeechWidget, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -4593,7 +5837,7 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4601,13 +5845,17 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -4615,7 +5863,7 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -4623,13 +5871,17 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -4639,18 +5891,22 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: TextEditTextToSpeech__TextToSpeechWidget, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: TextEditTextToSpeech__TextToSpeechWidget, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -4658,7 +5914,7 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4666,13 +5922,17 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -4680,7 +5940,7 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -4688,13 +5948,17 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -4704,9 +5968,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn Disconnect3(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
+    pub fn disconnect3(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -4718,10 +5986,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: TextEditTextToSpeech__TextToSpeechWidget, receiver: anytype) bool {
+    pub fn disconnect4(self: TextEditTextToSpeech__TextToSpeechWidget, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -4731,10 +6003,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -4744,9 +6020,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn DumpObjectTree(self: TextEditTextToSpeech__TextToSpeechWidget) void {
+    pub fn dumpObjectTree(self: TextEditTextToSpeech__TextToSpeechWidget) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -4756,9 +6036,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn DumpObjectInfo(self: TextEditTextToSpeech__TextToSpeechWidget) void {
+    pub fn dumpObjectInfo(self: TextEditTextToSpeech__TextToSpeechWidget) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -4772,11 +6056,15 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: TextEditTextToSpeech__TextToSpeechWidget, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: TextEditTextToSpeech__TextToSpeechWidget, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -4788,10 +6076,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: TextEditTextToSpeech__TextToSpeechWidget, name: [:0]const u8) QVariant {
+    pub fn property(self: TextEditTextToSpeech__TextToSpeechWidget, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -4803,7 +6095,7 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: TextEditTextToSpeech__TextToSpeechWidget, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: TextEditTextToSpeech__TextToSpeechWidget, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -4811,27 +6103,19 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("TextEditTextToSpeech__TextToSpeechWidget.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("TextEditTextToSpeech__TextToSpeechWidget.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("TextEditTextToSpeech__TextToSpeechWidget.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("TextEditTextToSpeech__TextToSpeechWidget.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
-    ///
-    pub fn BindingStorage(self: TextEditTextToSpeech__TextToSpeechWidget) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -4841,9 +6125,29 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn BindingStorage2(self: TextEditTextToSpeech__TextToSpeechWidget) QBindingStorage {
+    pub fn bindingStorage(self: TextEditTextToSpeech__TextToSpeechWidget) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
+    ///
+    pub fn bindingStorage2(self: TextEditTextToSpeech__TextToSpeechWidget) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -4853,9 +6157,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn Destroyed(self: TextEditTextToSpeech__TextToSpeechWidget) void {
+    pub fn destroyed(self: TextEditTextToSpeech__TextToSpeechWidget) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -4867,9 +6175,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget) callconv(.c) void) void {
+    pub fn onDestroyed(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -4879,9 +6191,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn Parent(self: TextEditTextToSpeech__TextToSpeechWidget) QObject {
+    pub fn parent(self: TextEditTextToSpeech__TextToSpeechWidget) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -4893,10 +6209,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: TextEditTextToSpeech__TextToSpeechWidget, classname: [:0]const u8) bool {
+    pub fn inherits(self: TextEditTextToSpeech__TextToSpeechWidget, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -4906,9 +6226,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn DeleteLater(self: TextEditTextToSpeech__TextToSpeechWidget) void {
+    pub fn deleteLater(self: TextEditTextToSpeech__TextToSpeechWidget) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -4922,9 +6246,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: TextEditTextToSpeech__TextToSpeechWidget, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: TextEditTextToSpeech__TextToSpeechWidget, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -4938,9 +6266,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: TextEditTextToSpeech__TextToSpeechWidget, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: TextEditTextToSpeech__TextToSpeechWidget, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -4948,7 +6280,7 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4958,13 +6290,17 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -4972,7 +6308,7 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -4982,13 +6318,17 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -4998,7 +6338,7 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5006,12 +6346,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: TextEditTextToSpeech__TextToSpeechWidget, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: TextEditTextToSpeech__TextToSpeechWidget, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -5023,10 +6367,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: TextEditTextToSpeech__TextToSpeechWidget, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: TextEditTextToSpeech__TextToSpeechWidget, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -5040,11 +6388,15 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: TextEditTextToSpeech__TextToSpeechWidget, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: TextEditTextToSpeech__TextToSpeechWidget, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -5060,13 +6412,17 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: TextEditTextToSpeech__TextToSpeechWidget, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: TextEditTextToSpeech__TextToSpeechWidget, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -5079,11 +6435,15 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: TextEditTextToSpeech__TextToSpeechWidget, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: TextEditTextToSpeech__TextToSpeechWidget, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -5095,10 +6455,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype) void {
+    pub fn destroyed1(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -5110,9 +6474,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -5122,9 +6490,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn PaintingActive(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
+    pub fn paintingActive(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5134,9 +6506,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn WidthMM(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
+    pub fn widthMM(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5146,9 +6522,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn HeightMM(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
+    pub fn heightMM(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5158,9 +6538,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn LogicalDpiX(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
+    pub fn logicalDpiX(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5170,9 +6554,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn LogicalDpiY(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
+    pub fn logicalDpiY(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5182,9 +6570,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn PhysicalDpiX(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
+    pub fn physicalDpiX(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5194,9 +6586,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn PhysicalDpiY(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
+    pub fn physicalDpiY(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -5206,9 +6602,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn DevicePixelRatio(self: TextEditTextToSpeech__TextToSpeechWidget) f64 {
+    pub fn devicePixelRatio(self: TextEditTextToSpeech__TextToSpeechWidget) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5218,9 +6618,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn DevicePixelRatioF(self: TextEditTextToSpeech__TextToSpeechWidget) f64 {
+    pub fn devicePixelRatioF(self: TextEditTextToSpeech__TextToSpeechWidget) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -5230,9 +6634,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn ColorCount(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
+    pub fn colorCount(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -5242,17 +6650,25 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn Depth(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
+    pub fn depth(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5260,13 +6676,17 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -5278,13 +6698,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn DevType(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
+    pub fn devType(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
         return qtc.TextEditTextToSpeech__TextToSpeechWidget_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -5296,9 +6716,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn SuperDevType(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
+    pub fn superDevType(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
         return qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -5312,9 +6736,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn () callconv(.c) i32) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -5328,13 +6756,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: TextEditTextToSpeech__TextToSpeechWidget, visible: bool) void {
+    pub fn setVisible(self: TextEditTextToSpeech__TextToSpeechWidget, visible: bool) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -5348,9 +6776,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: TextEditTextToSpeech__TextToSpeechWidget, visible: bool) void {
+    pub fn superSetVisible(self: TextEditTextToSpeech__TextToSpeechWidget, visible: bool) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -5364,10 +6796,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, bool) callconv(.c) void) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
@@ -5378,13 +6814,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn SizeHint(self: TextEditTextToSpeech__TextToSpeechWidget) QSize {
+    pub fn sizeHint(self: TextEditTextToSpeech__TextToSpeechWidget) QSize {
         return .{ .ptr = qtc.TextEditTextToSpeech__TextToSpeechWidget_SizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5396,10 +6832,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn SuperSizeHint(self: TextEditTextToSpeech__TextToSpeechWidget) QSize {
+    pub fn superSizeHint(self: TextEditTextToSpeech__TextToSpeechWidget) QSize {
         return .{ .ptr = qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
@@ -5414,9 +6854,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5428,13 +6872,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn MinimumSizeHint(self: TextEditTextToSpeech__TextToSpeechWidget) QSize {
+    pub fn minimumSizeHint(self: TextEditTextToSpeech__TextToSpeechWidget) QSize {
         return .{ .ptr = qtc.TextEditTextToSpeech__TextToSpeechWidget_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5446,9 +6890,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn SuperMinimumSizeHint(self: TextEditTextToSpeech__TextToSpeechWidget) QSize {
+    pub fn superMinimumSizeHint(self: TextEditTextToSpeech__TextToSpeechWidget) QSize {
         return .{ .ptr = qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5464,9 +6912,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5480,13 +6932,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: TextEditTextToSpeech__TextToSpeechWidget, param1: i32) i32 {
+    pub fn heightForWidth(self: TextEditTextToSpeech__TextToSpeechWidget, param1: i32) i32 {
         return qtc.TextEditTextToSpeech__TextToSpeechWidget_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5500,9 +6952,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: TextEditTextToSpeech__TextToSpeechWidget, param1: i32) i32 {
+    pub fn superHeightForWidth(self: TextEditTextToSpeech__TextToSpeechWidget, param1: i32) i32 {
         return qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5516,9 +6972,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, i32) callconv(.c) i32) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5530,13 +6990,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn HasHeightForWidth(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
+    pub fn hasHeightForWidth(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
         return qtc.TextEditTextToSpeech__TextToSpeechWidget_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5548,9 +7008,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn SuperHasHeightForWidth(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
+    pub fn superHasHeightForWidth(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
         return qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5564,9 +7028,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn () callconv(.c) bool) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -5578,13 +7046,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn PaintEngine(self: TextEditTextToSpeech__TextToSpeechWidget) QPaintEngine {
+    pub fn paintEngine(self: TextEditTextToSpeech__TextToSpeechWidget) QPaintEngine {
         return .{ .ptr = qtc.TextEditTextToSpeech__TextToSpeechWidget_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -5596,9 +7064,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn SuperPaintEngine(self: TextEditTextToSpeech__TextToSpeechWidget) QPaintEngine {
+    pub fn superPaintEngine(self: TextEditTextToSpeech__TextToSpeechWidget) QPaintEngine {
         return .{ .ptr = qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -5612,9 +7084,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QWidget
     ///
@@ -5626,16 +7102,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.TextEditTextToSpeech__TextToSpeechWidget_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.TextEditTextToSpeech__TextToSpeechWidget_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QWidget
     ///
@@ -5647,12 +7123,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QWidget
     ///
@@ -5666,10 +7146,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QEvent) callconv(.c) bool) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
@@ -5680,16 +7164,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mousePressEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_MousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -5701,12 +7185,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMousePressEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -5720,10 +7208,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QMouseEvent) callconv(.c) void) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
@@ -5734,16 +7226,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseReleaseEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -5755,12 +7247,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseReleaseEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -5774,10 +7270,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QMouseEvent) callconv(.c) void) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
@@ -5788,16 +7288,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -5809,12 +7309,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -5828,10 +7332,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QMouseEvent) callconv(.c) void) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
@@ -5842,16 +7350,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseMoveEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -5863,12 +7371,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseMoveEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -5882,9 +7394,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QMouseEvent) callconv(.c) void) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -5896,16 +7412,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn wheelEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_WheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -5917,12 +7433,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superWheelEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -5936,10 +7456,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QWheelEvent) callconv(.c) void) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyPressEvent)
@@ -5950,16 +7474,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyPressEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QWidget
     ///
@@ -5971,12 +7495,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyPressEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// Inherited from QWidget
     ///
@@ -5990,10 +7518,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QKeyEvent) callconv(.c) void) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
@@ -6004,16 +7536,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyReleaseEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6025,12 +7557,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyReleaseEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6044,10 +7580,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QKeyEvent) callconv(.c) void) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
@@ -6058,16 +7598,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusInEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_FocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -6079,12 +7619,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusInEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -6098,10 +7642,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QFocusEvent) callconv(.c) void) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
@@ -6112,16 +7660,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusOutEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -6133,12 +7681,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusOutEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -6152,9 +7704,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QFocusEvent) callconv(.c) void) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6166,16 +7722,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6187,12 +7743,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6206,9 +7766,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QEnterEvent) callconv(.c) void) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6220,16 +7784,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6241,12 +7805,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6260,9 +7828,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QEvent) callconv(.c) void) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// Inherited from QWidget
     ///
@@ -6274,16 +7846,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn PaintEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_PaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn paintEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_PaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -6295,12 +7867,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superPaintEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -6314,9 +7890,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, event: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QPaintEvent) callconv(.c) void) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6328,16 +7908,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6349,12 +7929,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6368,9 +7952,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QMoveEvent) callconv(.c) void) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6382,16 +7970,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn resizeEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_ResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6403,12 +7991,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superResizeEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6422,9 +8014,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QResizeEvent) callconv(.c) void) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6436,16 +8032,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6457,12 +8053,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6476,9 +8076,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QCloseEvent) callconv(.c) void) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -6490,16 +8094,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn contextMenuEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -6511,12 +8115,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superContextMenuEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -6530,9 +8138,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, event: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QContextMenuEvent) callconv(.c) void) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -6544,16 +8156,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -6565,12 +8177,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -6584,9 +8200,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QTabletEvent) callconv(.c) void) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -6598,16 +8218,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -6619,12 +8239,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -6638,9 +8262,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QActionEvent) callconv(.c) void) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6652,16 +8280,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6673,12 +8301,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6692,9 +8324,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QDragEnterEvent) callconv(.c) void) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6706,16 +8342,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6727,12 +8363,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6746,9 +8386,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QDragMoveEvent) callconv(.c) void) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6760,16 +8404,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6781,12 +8425,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6800,9 +8448,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QDragLeaveEvent) callconv(.c) void) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QWidget
     ///
@@ -6814,16 +8466,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -6835,12 +8487,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -6854,9 +8510,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QDropEvent) callconv(.c) void) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QWidget
     ///
@@ -6868,16 +8528,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn ShowEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn showEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_ShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -6889,12 +8549,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superShowEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -6908,9 +8572,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QShowEvent) callconv(.c) void) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -6922,16 +8590,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -6943,12 +8611,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -6962,9 +8634,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QHideEvent) callconv(.c) void) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6982,7 +8658,7 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: TextEditTextToSpeech__TextToSpeechWidget, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: TextEditTextToSpeech__TextToSpeechWidget, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -6990,9 +8666,9 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
         return qtc.TextEditTextToSpeech__TextToSpeechWidget_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7010,13 +8686,17 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: TextEditTextToSpeech__TextToSpeechWidget, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: TextEditTextToSpeech__TextToSpeechWidget, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7030,9 +8710,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7046,14 +8730,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype) void {
+    pub fn changeEvent(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.TextEditTextToSpeech__TextToSpeechWidget_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7067,10 +8751,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype) void {
+    pub fn superChangeEvent(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7084,9 +8772,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QEvent) callconv(.c) void) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -7100,13 +8792,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: TextEditTextToSpeech__TextToSpeechWidget, param1: i32) i32 {
+    pub fn metric(self: TextEditTextToSpeech__TextToSpeechWidget, param1: i32) i32 {
         return qtc.TextEditTextToSpeech__TextToSpeechWidget_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -7120,9 +8812,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: TextEditTextToSpeech__TextToSpeechWidget, param1: i32) i32 {
+    pub fn superMetric(self: TextEditTextToSpeech__TextToSpeechWidget, param1: i32) i32 {
         return qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -7136,9 +8832,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, i32) callconv(.c) i32) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -7152,14 +8852,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: TextEditTextToSpeech__TextToSpeechWidget, painter: anytype) void {
+    pub fn initPainter(self: TextEditTextToSpeech__TextToSpeechWidget, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.TextEditTextToSpeech__TextToSpeechWidget_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7173,10 +8873,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: TextEditTextToSpeech__TextToSpeechWidget, painter: anytype) void {
+    pub fn superInitPainter(self: TextEditTextToSpeech__TextToSpeechWidget, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7190,9 +8894,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QPainter) callconv(.c) void) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -7206,14 +8914,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: TextEditTextToSpeech__TextToSpeechWidget, offset: anytype) QPaintDevice {
+    pub fn redirected(self: TextEditTextToSpeech__TextToSpeechWidget, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.TextEditTextToSpeech__TextToSpeechWidget_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7227,10 +8935,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: TextEditTextToSpeech__TextToSpeechWidget, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: TextEditTextToSpeech__TextToSpeechWidget, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7244,9 +8956,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QPoint) callconv(.c) QPaintDevice) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7258,13 +8974,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn SharedPainter(self: TextEditTextToSpeech__TextToSpeechWidget) QPainter {
+    pub fn sharedPainter(self: TextEditTextToSpeech__TextToSpeechWidget) QPainter {
         return .{ .ptr = qtc.TextEditTextToSpeech__TextToSpeechWidget_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7276,9 +8992,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn SuperSharedPainter(self: TextEditTextToSpeech__TextToSpeechWidget) QPainter {
+    pub fn superSharedPainter(self: TextEditTextToSpeech__TextToSpeechWidget) QPainter {
         return .{ .ptr = qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7292,9 +9012,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn () callconv(.c) QPainter) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7308,14 +9032,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype) void {
+    pub fn inputMethodEvent(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.TextEditTextToSpeech__TextToSpeechWidget_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7329,10 +9053,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype) void {
+    pub fn superInputMethodEvent(self: TextEditTextToSpeech__TextToSpeechWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7346,9 +9074,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QInputMethodEvent) callconv(.c) void) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7362,13 +9094,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: TextEditTextToSpeech__TextToSpeechWidget, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: TextEditTextToSpeech__TextToSpeechWidget, param1: i32) QVariant {
         return .{ .ptr = qtc.TextEditTextToSpeech__TextToSpeechWidget_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7382,9 +9114,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: TextEditTextToSpeech__TextToSpeechWidget, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: TextEditTextToSpeech__TextToSpeechWidget, param1: i32) QVariant {
         return .{ .ptr = qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7400,9 +9136,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, i32) callconv(.c) QVariant) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7416,13 +9156,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: TextEditTextToSpeech__TextToSpeechWidget, next: bool) bool {
+    pub fn focusNextPrevChild(self: TextEditTextToSpeech__TextToSpeechWidget, next: bool) bool {
         return qtc.TextEditTextToSpeech__TextToSpeechWidget_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7436,9 +9176,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: TextEditTextToSpeech__TextToSpeechWidget, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: TextEditTextToSpeech__TextToSpeechWidget, next: bool) bool {
         return qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7452,9 +9196,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, bool) callconv(.c) bool) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -7468,17 +9216,17 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: TextEditTextToSpeech__TextToSpeechWidget, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: TextEditTextToSpeech__TextToSpeechWidget, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.TextEditTextToSpeech__TextToSpeechWidget_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.TextEditTextToSpeech__TextToSpeechWidget_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -7492,13 +9240,17 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: TextEditTextToSpeech__TextToSpeechWidget, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: TextEditTextToSpeech__TextToSpeechWidget, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -7512,9 +9264,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QObject, QEvent) callconv(.c) bool) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -7526,16 +9282,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -7547,12 +9303,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -7566,9 +9326,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QTimerEvent) callconv(.c) void) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -7580,16 +9344,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -7601,12 +9365,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -7620,9 +9388,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QChildEvent) callconv(.c) void) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -7634,16 +9406,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -7655,12 +9427,16 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: TextEditTextToSpeech__TextToSpeechWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: TextEditTextToSpeech__TextToSpeechWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -7674,9 +9450,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QEvent) callconv(.c) void) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -7690,14 +9470,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: TextEditTextToSpeech__TextToSpeechWidget, signal: anytype) void {
+    pub fn connectNotify(self: TextEditTextToSpeech__TextToSpeechWidget, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.TextEditTextToSpeech__TextToSpeechWidget_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7711,11 +9491,15 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: TextEditTextToSpeech__TextToSpeechWidget, signal: anytype) void {
+    pub fn superConnectNotify(self: TextEditTextToSpeech__TextToSpeechWidget, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -7728,9 +9512,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QMetaMethod) callconv(.c) void) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7744,14 +9532,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: TextEditTextToSpeech__TextToSpeechWidget, signal: anytype) void {
+    pub fn disconnectNotify(self: TextEditTextToSpeech__TextToSpeechWidget, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.TextEditTextToSpeech__TextToSpeechWidget_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7765,10 +9553,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: TextEditTextToSpeech__TextToSpeechWidget, signal: anytype) void {
+    pub fn superDisconnectNotify(self: TextEditTextToSpeech__TextToSpeechWidget, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7782,10 +9574,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QMetaMethod) callconv(.c) void) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -7796,13 +9592,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn UpdateMicroFocus(self: TextEditTextToSpeech__TextToSpeechWidget) void {
+    pub fn updateMicroFocus(self: TextEditTextToSpeech__TextToSpeechWidget) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -7814,10 +9610,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn SuperUpdateMicroFocus(self: TextEditTextToSpeech__TextToSpeechWidget) void {
+    pub fn superUpdateMicroFocus(self: TextEditTextToSpeech__TextToSpeechWidget) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -7830,10 +9630,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn () callconv(.c) void) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -7844,13 +9648,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn Create(self: TextEditTextToSpeech__TextToSpeechWidget) void {
+    pub fn create(self: TextEditTextToSpeech__TextToSpeechWidget) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -7862,10 +9666,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn SuperCreate(self: TextEditTextToSpeech__TextToSpeechWidget) void {
+    pub fn superCreate(self: TextEditTextToSpeech__TextToSpeechWidget) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -7878,9 +9686,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn () callconv(.c) void) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -7892,13 +9704,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn Destroy(self: TextEditTextToSpeech__TextToSpeechWidget) void {
+    pub fn destroy(self: TextEditTextToSpeech__TextToSpeechWidget) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -7910,9 +9722,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn SuperDestroy(self: TextEditTextToSpeech__TextToSpeechWidget) void {
+    pub fn superDestroy(self: TextEditTextToSpeech__TextToSpeechWidget) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -7926,10 +9742,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn () callconv(.c) void) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -7940,13 +9760,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn FocusNextChild(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
+    pub fn focusNextChild(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
         return qtc.TextEditTextToSpeech__TextToSpeechWidget_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -7958,10 +9778,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn SuperFocusNextChild(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
+    pub fn superFocusNextChild(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
         return qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -7974,9 +9798,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn () callconv(.c) bool) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -7988,13 +9816,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn FocusPreviousChild(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
+    pub fn focusPreviousChild(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
         return qtc.TextEditTextToSpeech__TextToSpeechWidget_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8006,9 +9834,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn SuperFocusPreviousChild(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
+    pub fn superFocusPreviousChild(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
         return qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8022,9 +9854,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn () callconv(.c) bool) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -8036,13 +9872,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn Sender(self: TextEditTextToSpeech__TextToSpeechWidget) QObject {
+    pub fn sender(self: TextEditTextToSpeech__TextToSpeechWidget) QObject {
         return .{ .ptr = qtc.TextEditTextToSpeech__TextToSpeechWidget_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -8054,9 +9890,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn SuperSender(self: TextEditTextToSpeech__TextToSpeechWidget) QObject {
+    pub fn superSender(self: TextEditTextToSpeech__TextToSpeechWidget) QObject {
         return .{ .ptr = qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -8070,9 +9910,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn () callconv(.c) QObject) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8084,13 +9928,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn SenderSignalIndex(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
+    pub fn senderSignalIndex(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
         return qtc.TextEditTextToSpeech__TextToSpeechWidget_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8102,9 +9946,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn SuperSenderSignalIndex(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
+    pub fn superSenderSignalIndex(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
         return qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8118,9 +9966,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn () callconv(.c) i32) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -8134,14 +9986,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: TextEditTextToSpeech__TextToSpeechWidget, signal: [:0]const u8) i32 {
+    pub fn receivers(self: TextEditTextToSpeech__TextToSpeechWidget, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.TextEditTextToSpeech__TextToSpeechWidget_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -8155,10 +10007,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: TextEditTextToSpeech__TextToSpeechWidget, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: TextEditTextToSpeech__TextToSpeechWidget, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -8172,9 +10028,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, [*:0]const u8) callconv(.c) i32) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8188,14 +10048,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: TextEditTextToSpeech__TextToSpeechWidget, signal: anytype) bool {
+    pub fn isSignalConnected(self: TextEditTextToSpeech__TextToSpeechWidget, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.TextEditTextToSpeech__TextToSpeechWidget_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8209,10 +10069,14 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: TextEditTextToSpeech__TextToSpeechWidget, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: TextEditTextToSpeech__TextToSpeechWidget, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8226,9 +10090,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, QMetaMethod) callconv(.c) bool) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8244,13 +10112,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: TextEditTextToSpeech__TextToSpeechWidget, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: TextEditTextToSpeech__TextToSpeechWidget, metricA: i32, metricB: i32) f64 {
         return qtc.TextEditTextToSpeech__TextToSpeechWidget_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8266,9 +10134,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: TextEditTextToSpeech__TextToSpeechWidget, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: TextEditTextToSpeech__TextToSpeechWidget, metricA: i32, metricB: i32) f64 {
         return qtc.TextEditTextToSpeech__TextToSpeechWidget_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8282,9 +10154,13 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, i32, i32) callconv(.c) f64) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -8298,23 +10174,23 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechWidget, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: TextEditTextToSpeech__TextToSpeechWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechWidget, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEditTextToSpeech_1_1TextToSpeechWidget.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
-    pub fn Delete(self: TextEditTextToSpeech__TextToSpeechWidget) void {
+    pub fn delete(self: TextEditTextToSpeech__TextToSpeechWidget) void {
         qtc.TextEditTextToSpeech__TextToSpeechWidget_Delete(@ptrCast(self.ptr));
     }
 };

@@ -29,22 +29,34 @@ pub const QNetworkCacheMetaData = extern struct {
 
     pub const _is_QNetworkCacheMetaData = {};
 
-    /// New constructs a new QNetworkCacheMetaData object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QNetworkCacheMetaData {
+    pub const New = new;
+
+    /// Allocate a new QNetworkCacheMetaData object in C++ memory
+    ///
+    pub fn new() QNetworkCacheMetaData {
         return .{ .ptr = qtc.QNetworkCacheMetaData_new() };
     }
 
-    /// New2 constructs a new QNetworkCacheMetaData object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QNetworkCacheMetaData object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QNetworkCacheMetaData `
     ///
-    pub fn New2(other: anytype) QNetworkCacheMetaData {
+    pub fn new2(other: anytype) QNetworkCacheMetaData {
         comptime _ = @TypeOf(other)._is_QNetworkCacheMetaData;
         return .{ .ptr = qtc.QNetworkCacheMetaData_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkcachemetadata.html#operator-eq)
     ///
@@ -54,10 +66,14 @@ pub const QNetworkCacheMetaData = extern struct {
     ///
     /// ` other: QNetworkCacheMetaData `
     ///
-    pub fn OperatorAssign(self: QNetworkCacheMetaData, other: anytype) void {
+    pub fn operatorAssign(self: QNetworkCacheMetaData, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QNetworkCacheMetaData;
         qtc.QNetworkCacheMetaData_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkcachemetadata.html#swap)
     ///
@@ -67,10 +83,14 @@ pub const QNetworkCacheMetaData = extern struct {
     ///
     /// ` other: QNetworkCacheMetaData `
     ///
-    pub fn Swap(self: QNetworkCacheMetaData, other: anytype) void {
+    pub fn swap(self: QNetworkCacheMetaData, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QNetworkCacheMetaData;
         qtc.QNetworkCacheMetaData_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkcachemetadata.html#operator-eq-eq)
     ///
@@ -80,10 +100,14 @@ pub const QNetworkCacheMetaData = extern struct {
     ///
     /// ` other: QNetworkCacheMetaData `
     ///
-    pub fn OperatorEqual(self: QNetworkCacheMetaData, other: anytype) bool {
+    pub fn operatorEqual(self: QNetworkCacheMetaData, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QNetworkCacheMetaData;
         return qtc.QNetworkCacheMetaData_OperatorEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkcachemetadata.html#operator-not-eq)
     ///
@@ -93,10 +117,14 @@ pub const QNetworkCacheMetaData = extern struct {
     ///
     /// ` other: QNetworkCacheMetaData `
     ///
-    pub fn OperatorNotEqual(self: QNetworkCacheMetaData, other: anytype) bool {
+    pub fn operatorNotEqual(self: QNetworkCacheMetaData, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QNetworkCacheMetaData;
         return qtc.QNetworkCacheMetaData_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkcachemetadata.html#isValid)
     ///
@@ -104,9 +132,13 @@ pub const QNetworkCacheMetaData = extern struct {
     ///
     /// ` self: QNetworkCacheMetaData `
     ///
-    pub fn IsValid(self: QNetworkCacheMetaData) bool {
+    pub fn isValid(self: QNetworkCacheMetaData) bool {
         return qtc.QNetworkCacheMetaData_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `url` instead
+    ///
+    pub const Url = url;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkcachemetadata.html#url)
     ///
@@ -114,9 +146,13 @@ pub const QNetworkCacheMetaData = extern struct {
     ///
     /// ` self: QNetworkCacheMetaData `
     ///
-    pub fn Url(self: QNetworkCacheMetaData) QUrl {
+    pub fn url(self: QNetworkCacheMetaData) QUrl {
         return .{ .ptr = qtc.QNetworkCacheMetaData_Url(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setUrl` instead
+    ///
+    pub const SetUrl = setUrl;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkcachemetadata.html#setUrl)
     ///
@@ -124,12 +160,16 @@ pub const QNetworkCacheMetaData = extern struct {
     ///
     /// ` self: QNetworkCacheMetaData `
     ///
-    /// ` url: QUrl `
+    /// ` _url: QUrl `
     ///
-    pub fn SetUrl(self: QNetworkCacheMetaData, url: anytype) void {
-        comptime _ = @TypeOf(url)._is_QUrl;
-        qtc.QNetworkCacheMetaData_SetUrl(@ptrCast(self.ptr), @ptrCast(url.ptr));
+    pub fn setUrl(self: QNetworkCacheMetaData, _url: anytype) void {
+        comptime _ = @TypeOf(_url)._is_QUrl;
+        qtc.QNetworkCacheMetaData_SetUrl(@ptrCast(self.ptr), @ptrCast(_url.ptr));
     }
+
+    /// ### DEPRECATED: Use `rawHeaders` instead
+    ///
+    pub const RawHeaders = rawHeaders;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkcachemetadata.html#rawHeaders)
     ///
@@ -139,23 +179,23 @@ pub const QNetworkCacheMetaData = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn RawHeaders(self: QNetworkCacheMetaData, allocator: std.mem.Allocator) []Struct_u8_u8 {
+    pub fn rawHeaders(self: QNetworkCacheMetaData, allocator: std.mem.Allocator) []Struct_u8_u8 {
         const _arr: qtc.libqt_list = qtc.QNetworkCacheMetaData_RawHeaders(@ptrCast(self.ptr));
-        const _data: [*]qtc.libqt_pair = @ptrCast(@alignCast(_arr.data));
+        const _data_val: [*]qtc.libqt_pair = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
-                qtc.libqt_string_free(@ptrCast(@alignCast(_data[i].first)));
-                qtc.libqt_string_free(@ptrCast(@alignCast(_data[i].second)));
+                qtc.libqt_string_free(@ptrCast(@alignCast(_data_val[i].first)));
+                qtc.libqt_string_free(@ptrCast(@alignCast(_data_val[i].second)));
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc(Struct_u8_u8, _arr.len) catch @panic("QNetworkCacheMetaData.RawHeaders: Memory allocation failed");
+        const _ret = allocator.alloc(Struct_u8_u8, _arr.len) catch @panic("QNetworkCacheMetaData.rawHeaders: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _first_str: *qtc.libqt_string = @ptrCast(@alignCast(_data[i].first));
-            const _first_slice = allocator.alloc(u8, _first_str.len) catch @panic("QNetworkCacheMetaData.RawHeaders: Memory allocation failed");
+            const _first_str: *qtc.libqt_string = @ptrCast(@alignCast(_data_val[i].first));
+            const _first_slice = allocator.alloc(u8, _first_str.len) catch @panic("QNetworkCacheMetaData.rawHeaders: Memory allocation failed");
             @memcpy(_first_slice, _first_str.data[0.._first_str.len]);
-            const _second_str: *qtc.libqt_string = @ptrCast(@alignCast(_data[i].second));
-            const _second_slice = allocator.alloc(u8, _second_str.len) catch @panic("QNetworkCacheMetaData.RawHeaders: Memory allocation failed");
+            const _second_str: *qtc.libqt_string = @ptrCast(@alignCast(_data_val[i].second));
+            const _second_slice = allocator.alloc(u8, _second_str.len) catch @panic("QNetworkCacheMetaData.rawHeaders: Memory allocation failed");
             @memcpy(_second_slice, _second_str.data[0.._second_str.len]);
             _ret[i] = Struct_u8_u8{
                 .first = _first_slice,
@@ -165,6 +205,10 @@ pub const QNetworkCacheMetaData = extern struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `setRawHeaders` instead
+    ///
+    pub const SetRawHeaders = setRawHeaders;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkcachemetadata.html#setRawHeaders)
     ///
     /// ## Parameter(s):
@@ -173,14 +217,14 @@ pub const QNetworkCacheMetaData = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` headers: []Struct_u8_u8 `
+    /// ` _headers: []Struct_u8_u8 `
     ///
-    pub fn SetRawHeaders(self: QNetworkCacheMetaData, allocator: std.mem.Allocator, headers: []Struct_u8_u8) void {
-        const headers_pairs = allocator.alloc(qtc.libqt_pair, headers.len) catch @panic("QNetworkCacheMetaData.SetRawHeaders: Memory allocation failed");
+    pub fn setRawHeaders(self: QNetworkCacheMetaData, allocator: std.mem.Allocator, _headers: []Struct_u8_u8) void {
+        const headers_pairs = allocator.alloc(qtc.libqt_pair, _headers.len) catch @panic("QNetworkCacheMetaData.setRawHeaders: Memory allocation failed");
         defer allocator.free(headers_pairs);
-        const headers_str = allocator.alloc(qtc.libqt_string, headers.len * 2) catch @panic("QNetworkCacheMetaData.SetRawHeaders: Memory allocation failed");
+        const headers_str = allocator.alloc(qtc.libqt_string, _headers.len * 2) catch @panic("QNetworkCacheMetaData.setRawHeaders: Memory allocation failed");
         defer allocator.free(headers_str);
-        for (headers, 0..) |headers_item, i| {
+        for (_headers, 0..) |headers_item, i| {
             headers_str[i * 2] = qtc.libqt_string{
                 .len = headers_item.first.len,
                 .data = headers_item.first.ptr,
@@ -195,11 +239,15 @@ pub const QNetworkCacheMetaData = extern struct {
             };
         }
         const headers_list = qtc.libqt_list{
-            .len = headers.len,
+            .len = _headers.len,
             .data = @ptrCast(headers_pairs.ptr),
         };
         qtc.QNetworkCacheMetaData_SetRawHeaders(@ptrCast(self.ptr), headers_list);
     }
+
+    /// ### DEPRECATED: Use `headers` instead
+    ///
+    pub const Headers = headers;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkcachemetadata.html#headers)
     ///
@@ -207,9 +255,13 @@ pub const QNetworkCacheMetaData = extern struct {
     ///
     /// ` self: QNetworkCacheMetaData `
     ///
-    pub fn Headers(self: QNetworkCacheMetaData) QHttpHeaders {
+    pub fn headers(self: QNetworkCacheMetaData) QHttpHeaders {
         return .{ .ptr = qtc.QNetworkCacheMetaData_Headers(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setHeaders` instead
+    ///
+    pub const SetHeaders = setHeaders;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkcachemetadata.html#setHeaders)
     ///
@@ -217,12 +269,16 @@ pub const QNetworkCacheMetaData = extern struct {
     ///
     /// ` self: QNetworkCacheMetaData `
     ///
-    /// ` headers: QHttpHeaders `
+    /// ` _headers: QHttpHeaders `
     ///
-    pub fn SetHeaders(self: QNetworkCacheMetaData, headers: anytype) void {
-        comptime _ = @TypeOf(headers)._is_QHttpHeaders;
-        qtc.QNetworkCacheMetaData_SetHeaders(@ptrCast(self.ptr), @ptrCast(headers.ptr));
+    pub fn setHeaders(self: QNetworkCacheMetaData, _headers: anytype) void {
+        comptime _ = @TypeOf(_headers)._is_QHttpHeaders;
+        qtc.QNetworkCacheMetaData_SetHeaders(@ptrCast(self.ptr), @ptrCast(_headers.ptr));
     }
+
+    /// ### DEPRECATED: Use `lastModified` instead
+    ///
+    pub const LastModified = lastModified;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkcachemetadata.html#lastModified)
     ///
@@ -230,9 +286,13 @@ pub const QNetworkCacheMetaData = extern struct {
     ///
     /// ` self: QNetworkCacheMetaData `
     ///
-    pub fn LastModified(self: QNetworkCacheMetaData) QDateTime {
+    pub fn lastModified(self: QNetworkCacheMetaData) QDateTime {
         return .{ .ptr = qtc.QNetworkCacheMetaData_LastModified(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLastModified` instead
+    ///
+    pub const SetLastModified = setLastModified;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkcachemetadata.html#setLastModified)
     ///
@@ -242,10 +302,14 @@ pub const QNetworkCacheMetaData = extern struct {
     ///
     /// ` dateTime: QDateTime `
     ///
-    pub fn SetLastModified(self: QNetworkCacheMetaData, dateTime: anytype) void {
+    pub fn setLastModified(self: QNetworkCacheMetaData, dateTime: anytype) void {
         comptime _ = @TypeOf(dateTime)._is_QDateTime;
         qtc.QNetworkCacheMetaData_SetLastModified(@ptrCast(self.ptr), @ptrCast(dateTime.ptr));
     }
+
+    /// ### DEPRECATED: Use `expirationDate` instead
+    ///
+    pub const ExpirationDate = expirationDate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkcachemetadata.html#expirationDate)
     ///
@@ -253,9 +317,13 @@ pub const QNetworkCacheMetaData = extern struct {
     ///
     /// ` self: QNetworkCacheMetaData `
     ///
-    pub fn ExpirationDate(self: QNetworkCacheMetaData) QDateTime {
+    pub fn expirationDate(self: QNetworkCacheMetaData) QDateTime {
         return .{ .ptr = qtc.QNetworkCacheMetaData_ExpirationDate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setExpirationDate` instead
+    ///
+    pub const SetExpirationDate = setExpirationDate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkcachemetadata.html#setExpirationDate)
     ///
@@ -265,10 +333,14 @@ pub const QNetworkCacheMetaData = extern struct {
     ///
     /// ` dateTime: QDateTime `
     ///
-    pub fn SetExpirationDate(self: QNetworkCacheMetaData, dateTime: anytype) void {
+    pub fn setExpirationDate(self: QNetworkCacheMetaData, dateTime: anytype) void {
         comptime _ = @TypeOf(dateTime)._is_QDateTime;
         qtc.QNetworkCacheMetaData_SetExpirationDate(@ptrCast(self.ptr), @ptrCast(dateTime.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveToDisk` instead
+    ///
+    pub const SaveToDisk = saveToDisk;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkcachemetadata.html#saveToDisk)
     ///
@@ -276,9 +348,13 @@ pub const QNetworkCacheMetaData = extern struct {
     ///
     /// ` self: QNetworkCacheMetaData `
     ///
-    pub fn SaveToDisk(self: QNetworkCacheMetaData) bool {
+    pub fn saveToDisk(self: QNetworkCacheMetaData) bool {
         return qtc.QNetworkCacheMetaData_SaveToDisk(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSaveToDisk` instead
+    ///
+    pub const SetSaveToDisk = setSaveToDisk;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkcachemetadata.html#setSaveToDisk)
     ///
@@ -288,9 +364,13 @@ pub const QNetworkCacheMetaData = extern struct {
     ///
     /// ` allow: bool `
     ///
-    pub fn SetSaveToDisk(self: QNetworkCacheMetaData, allow: bool) void {
+    pub fn setSaveToDisk(self: QNetworkCacheMetaData, allow: bool) void {
         qtc.QNetworkCacheMetaData_SetSaveToDisk(@ptrCast(self.ptr), allow);
     }
+
+    /// ### DEPRECATED: Use `attributes` instead
+    ///
+    pub const Attributes = attributes;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkcachemetadata.html#attributes)
     ///
@@ -304,10 +384,10 @@ pub const QNetworkCacheMetaData = extern struct {
     ///
     /// ` Map_i32_QVariant (key: qnetworkrequest_enums.Attribute) `
     ///
-    pub fn Attributes(self: QNetworkCacheMetaData, allocator: std.mem.Allocator) Map_i32_QVariant {
+    pub fn attributes(self: QNetworkCacheMetaData, allocator: std.mem.Allocator) Map_i32_QVariant {
         const _map: qtc.libqt_map = qtc.QNetworkCacheMetaData_Attributes(@ptrCast(self.ptr));
         var _ret: Map_i32_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QNetworkCacheMetaData.Attributes: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QNetworkCacheMetaData.attributes: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -323,6 +403,10 @@ pub const QNetworkCacheMetaData = extern struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `setAttributes` instead
+    ///
+    pub const SetAttributes = setAttributes;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkcachemetadata.html#setAttributes)
     ///
     /// ## Parameter(s):
@@ -331,16 +415,16 @@ pub const QNetworkCacheMetaData = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` attributes: Map_i32_QVariant (key: qnetworkrequest_enums.Attribute) `
+    /// ` _attributes: Map_i32_QVariant (key: qnetworkrequest_enums.Attribute) `
     ///
-    pub fn SetAttributes(self: QNetworkCacheMetaData, allocator: std.mem.Allocator, attributes: Map_i32_QVariant) void {
-        const attributes_count = attributes.count();
-        const attributes_keys = allocator.alloc(i32, attributes_count) catch @panic("QNetworkCacheMetaData.SetAttributes: Memory allocation failed");
+    pub fn setAttributes(self: QNetworkCacheMetaData, allocator: std.mem.Allocator, _attributes: Map_i32_QVariant) void {
+        const attributes_count = _attributes.count();
+        const attributes_keys = allocator.alloc(i32, attributes_count) catch @panic("QNetworkCacheMetaData.setAttributes: Memory allocation failed");
         defer allocator.free(attributes_keys);
-        const attributes_values = allocator.alloc(QtC.QVariant, attributes_count) catch @panic("QNetworkCacheMetaData.SetAttributes: Memory allocation failed");
+        const attributes_values = allocator.alloc(QtC.QVariant, attributes_count) catch @panic("QNetworkCacheMetaData.setAttributes: Memory allocation failed");
         defer allocator.free(attributes_values);
         var i: usize = 0;
-        var attributes_it = attributes.iterator();
+        var attributes_it = _attributes.iterator();
         while (attributes_it.next()) |it_entry| : (i += 1) {
             const attributes_key = it_entry.key_ptr.*;
             attributes_keys[i] = @bitCast(attributes_key);
@@ -354,19 +438,19 @@ pub const QNetworkCacheMetaData = extern struct {
         qtc.QNetworkCacheMetaData_SetAttributes(@ptrCast(self.ptr), attributes_map);
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkcachemetadata.html#dtor.QNetworkCacheMetaData)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QNetworkCacheMetaData `
     ///
-    pub fn Delete(self: QNetworkCacheMetaData) void {
+    pub fn delete(self: QNetworkCacheMetaData) void {
         qtc.QNetworkCacheMetaData_Delete(@ptrCast(self.ptr));
     }
 };
@@ -382,15 +466,23 @@ pub const QAbstractNetworkCache = extern struct {
     pub const _is_QAbstractNetworkCache = {};
     pub const _is_QObject = {};
 
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAbstractNetworkCache `
     ///
-    pub fn MetaObject(self: QAbstractNetworkCache) QMetaObject {
+    pub fn metaObject(self: QAbstractNetworkCache) QMetaObject {
         return .{ .ptr = qtc.QAbstractNetworkCache_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -398,10 +490,14 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QAbstractNetworkCache, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QAbstractNetworkCache, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QAbstractNetworkCache_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -413,9 +509,13 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QAbstractNetworkCache, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QAbstractNetworkCache, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QAbstractNetworkCache_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -425,14 +525,18 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractNetworkCache.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractNetworkCache.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `metaData` instead
+    ///
+    pub const MetaData = metaData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractnetworkcache.html#metaData)
     ///
@@ -440,12 +544,16 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` self: QAbstractNetworkCache `
     ///
-    /// ` url: QUrl `
+    /// ` _url: QUrl `
     ///
-    pub fn MetaData(self: QAbstractNetworkCache, url: anytype) QNetworkCacheMetaData {
-        comptime _ = @TypeOf(url)._is_QUrl;
-        return .{ .ptr = qtc.QAbstractNetworkCache_MetaData(@ptrCast(self.ptr), @ptrCast(url.ptr)) };
+    pub fn metaData(self: QAbstractNetworkCache, _url: anytype) QNetworkCacheMetaData {
+        comptime _ = @TypeOf(_url)._is_QUrl;
+        return .{ .ptr = qtc.QAbstractNetworkCache_MetaData(@ptrCast(self.ptr), @ptrCast(_url.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `updateMetaData` instead
+    ///
+    pub const UpdateMetaData = updateMetaData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractnetworkcache.html#updateMetaData)
     ///
@@ -453,12 +561,16 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` self: QAbstractNetworkCache `
     ///
-    /// ` metaData: QNetworkCacheMetaData `
+    /// ` _metaData: QNetworkCacheMetaData `
     ///
-    pub fn UpdateMetaData(self: QAbstractNetworkCache, metaData: anytype) void {
-        comptime _ = @TypeOf(metaData)._is_QNetworkCacheMetaData;
-        qtc.QAbstractNetworkCache_UpdateMetaData(@ptrCast(self.ptr), @ptrCast(metaData.ptr));
+    pub fn updateMetaData(self: QAbstractNetworkCache, _metaData: anytype) void {
+        comptime _ = @TypeOf(_metaData)._is_QNetworkCacheMetaData;
+        qtc.QAbstractNetworkCache_UpdateMetaData(@ptrCast(self.ptr), @ptrCast(_metaData.ptr));
     }
+
+    /// ### DEPRECATED: Use `data` instead
+    ///
+    pub const Data = data;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractnetworkcache.html#data)
     ///
@@ -466,12 +578,16 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` self: QAbstractNetworkCache `
     ///
-    /// ` url: QUrl `
+    /// ` _url: QUrl `
     ///
-    pub fn Data(self: QAbstractNetworkCache, url: anytype) QIODevice {
-        comptime _ = @TypeOf(url)._is_QUrl;
-        return .{ .ptr = qtc.QAbstractNetworkCache_Data(@ptrCast(self.ptr), @ptrCast(url.ptr)) };
+    pub fn data(self: QAbstractNetworkCache, _url: anytype) QIODevice {
+        comptime _ = @TypeOf(_url)._is_QUrl;
+        return .{ .ptr = qtc.QAbstractNetworkCache_Data(@ptrCast(self.ptr), @ptrCast(_url.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `remove` instead
+    ///
+    pub const Remove = remove;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractnetworkcache.html#remove)
     ///
@@ -479,12 +595,16 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` self: QAbstractNetworkCache `
     ///
-    /// ` url: QUrl `
+    /// ` _url: QUrl `
     ///
-    pub fn Remove(self: QAbstractNetworkCache, url: anytype) bool {
-        comptime _ = @TypeOf(url)._is_QUrl;
-        return qtc.QAbstractNetworkCache_Remove(@ptrCast(self.ptr), @ptrCast(url.ptr));
+    pub fn remove(self: QAbstractNetworkCache, _url: anytype) bool {
+        comptime _ = @TypeOf(_url)._is_QUrl;
+        return qtc.QAbstractNetworkCache_Remove(@ptrCast(self.ptr), @ptrCast(_url.ptr));
     }
+
+    /// ### DEPRECATED: Use `cacheSize` instead
+    ///
+    pub const CacheSize = cacheSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractnetworkcache.html#cacheSize)
     ///
@@ -492,9 +612,13 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` self: QAbstractNetworkCache `
     ///
-    pub fn CacheSize(self: QAbstractNetworkCache) i64 {
+    pub fn cacheSize(self: QAbstractNetworkCache) i64 {
         return qtc.QAbstractNetworkCache_CacheSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `prepare` instead
+    ///
+    pub const Prepare = prepare;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractnetworkcache.html#prepare)
     ///
@@ -502,12 +626,16 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` self: QAbstractNetworkCache `
     ///
-    /// ` metaData: QNetworkCacheMetaData `
+    /// ` _metaData: QNetworkCacheMetaData `
     ///
-    pub fn Prepare(self: QAbstractNetworkCache, metaData: anytype) QIODevice {
-        comptime _ = @TypeOf(metaData)._is_QNetworkCacheMetaData;
-        return .{ .ptr = qtc.QAbstractNetworkCache_Prepare(@ptrCast(self.ptr), @ptrCast(metaData.ptr)) };
+    pub fn prepare(self: QAbstractNetworkCache, _metaData: anytype) QIODevice {
+        comptime _ = @TypeOf(_metaData)._is_QNetworkCacheMetaData;
+        return .{ .ptr = qtc.QAbstractNetworkCache_Prepare(@ptrCast(self.ptr), @ptrCast(_metaData.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `insert` instead
+    ///
+    pub const Insert = insert;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractnetworkcache.html#insert)
     ///
@@ -517,10 +645,14 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` device: QIODevice `
     ///
-    pub fn Insert(self: QAbstractNetworkCache, device: anytype) void {
+    pub fn insert(self: QAbstractNetworkCache, device: anytype) void {
         comptime _ = @TypeOf(device)._is_QIODevice;
         qtc.QAbstractNetworkCache_Insert(@ptrCast(self.ptr), @ptrCast(device.ptr));
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractnetworkcache.html#clear)
     ///
@@ -528,9 +660,13 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` self: QAbstractNetworkCache `
     ///
-    pub fn Clear(self: QAbstractNetworkCache) void {
+    pub fn clear(self: QAbstractNetworkCache) void {
         qtc.QAbstractNetworkCache_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -542,15 +678,19 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractNetworkCache.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractNetworkCache.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -564,15 +704,19 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractNetworkCache.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractNetworkCache.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -582,12 +726,16 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` self: QAbstractNetworkCache `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QAbstractNetworkCache, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QObject_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QAbstractNetworkCache, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QObject_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -599,13 +747,17 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QAbstractNetworkCache, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QAbstractNetworkCache, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -617,13 +769,17 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QAbstractNetworkCache, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QAbstractNetworkCache, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractNetworkCache.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractNetworkCache.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -635,13 +791,17 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QAbstractNetworkCache, name: []const u8) void {
+    pub fn setObjectName(self: QAbstractNetworkCache, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -651,9 +811,13 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` self: QAbstractNetworkCache `
     ///
-    pub fn IsWidgetType(self: QAbstractNetworkCache) bool {
+    pub fn isWidgetType(self: QAbstractNetworkCache) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -663,9 +827,13 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` self: QAbstractNetworkCache `
     ///
-    pub fn IsWindowType(self: QAbstractNetworkCache) bool {
+    pub fn isWindowType(self: QAbstractNetworkCache) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -675,9 +843,13 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` self: QAbstractNetworkCache `
     ///
-    pub fn IsQuickItemType(self: QAbstractNetworkCache) bool {
+    pub fn isQuickItemType(self: QAbstractNetworkCache) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -687,9 +859,13 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` self: QAbstractNetworkCache `
     ///
-    pub fn SignalsBlocked(self: QAbstractNetworkCache) bool {
+    pub fn signalsBlocked(self: QAbstractNetworkCache) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -701,9 +877,13 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QAbstractNetworkCache, b: bool) bool {
+    pub fn blockSignals(self: QAbstractNetworkCache, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -713,9 +893,13 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` self: QAbstractNetworkCache `
     ///
-    pub fn Thread(self: QAbstractNetworkCache) QThread {
+    pub fn thread(self: QAbstractNetworkCache) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -725,12 +909,16 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` self: QAbstractNetworkCache `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QAbstractNetworkCache, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QAbstractNetworkCache, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -742,9 +930,13 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QAbstractNetworkCache, interval: i32) i32 {
+    pub fn startTimer(self: QAbstractNetworkCache, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -756,9 +948,13 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QAbstractNetworkCache, time: i64) i32 {
+    pub fn startTimer2(self: QAbstractNetworkCache, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -770,9 +966,13 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QAbstractNetworkCache, id: i32) void {
+    pub fn killTimer(self: QAbstractNetworkCache, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -784,9 +984,13 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QAbstractNetworkCache, id: i32) void {
+    pub fn killTimer2(self: QAbstractNetworkCache, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -798,15 +1002,19 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QAbstractNetworkCache, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QAbstractNetworkCache, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QAbstractNetworkCache.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QAbstractNetworkCache.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -816,12 +1024,16 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` self: QAbstractNetworkCache `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QAbstractNetworkCache, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QAbstractNetworkCache, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -833,10 +1045,14 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QAbstractNetworkCache, filterObj: anytype) void {
+    pub fn installEventFilter(self: QAbstractNetworkCache, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -848,10 +1064,14 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QAbstractNetworkCache, obj: anytype) void {
+    pub fn removeEventFilter(self: QAbstractNetworkCache, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -859,7 +1079,7 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -867,13 +1087,17 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -881,7 +1105,7 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -889,13 +1113,17 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -905,18 +1133,22 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` self: QAbstractNetworkCache `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QAbstractNetworkCache, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QAbstractNetworkCache, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -924,7 +1156,7 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -932,13 +1164,17 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -946,7 +1182,7 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -954,13 +1190,17 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -970,9 +1210,13 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` self: QAbstractNetworkCache `
     ///
-    pub fn Disconnect3(self: QAbstractNetworkCache) bool {
+    pub fn disconnect3(self: QAbstractNetworkCache) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -984,10 +1228,14 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QAbstractNetworkCache, receiver: anytype) bool {
+    pub fn disconnect4(self: QAbstractNetworkCache, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -997,10 +1245,14 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1010,9 +1262,13 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` self: QAbstractNetworkCache `
     ///
-    pub fn DumpObjectTree(self: QAbstractNetworkCache) void {
+    pub fn dumpObjectTree(self: QAbstractNetworkCache) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1022,9 +1278,13 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` self: QAbstractNetworkCache `
     ///
-    pub fn DumpObjectInfo(self: QAbstractNetworkCache) void {
+    pub fn dumpObjectInfo(self: QAbstractNetworkCache) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1038,11 +1298,15 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QAbstractNetworkCache, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QAbstractNetworkCache, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1054,10 +1318,14 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QAbstractNetworkCache, name: [:0]const u8) QVariant {
+    pub fn property(self: QAbstractNetworkCache, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1069,7 +1337,7 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QAbstractNetworkCache, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QAbstractNetworkCache, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1077,27 +1345,19 @@ pub const QAbstractNetworkCache = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QAbstractNetworkCache.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QAbstractNetworkCache.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QAbstractNetworkCache.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QAbstractNetworkCache.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractNetworkCache `
-    ///
-    pub fn BindingStorage(self: QAbstractNetworkCache) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1107,9 +1367,29 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` self: QAbstractNetworkCache `
     ///
-    pub fn BindingStorage2(self: QAbstractNetworkCache) QBindingStorage {
+    pub fn bindingStorage(self: QAbstractNetworkCache) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QAbstractNetworkCache `
+    ///
+    pub fn bindingStorage2(self: QAbstractNetworkCache) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1119,9 +1399,13 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` self: QAbstractNetworkCache `
     ///
-    pub fn Destroyed(self: QAbstractNetworkCache) void {
+    pub fn destroyed(self: QAbstractNetworkCache) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1133,9 +1417,13 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractNetworkCache) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QAbstractNetworkCache, callback: *const fn (QAbstractNetworkCache) callconv(.c) void) void {
+    pub fn onDestroyed(self: QAbstractNetworkCache, callback: *const fn (QAbstractNetworkCache) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1145,9 +1433,13 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` self: QAbstractNetworkCache `
     ///
-    pub fn Parent(self: QAbstractNetworkCache) QObject {
+    pub fn parent(self: QAbstractNetworkCache) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1159,10 +1451,14 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QAbstractNetworkCache, classname: [:0]const u8) bool {
+    pub fn inherits(self: QAbstractNetworkCache, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1172,9 +1468,13 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` self: QAbstractNetworkCache `
     ///
-    pub fn DeleteLater(self: QAbstractNetworkCache) void {
+    pub fn deleteLater(self: QAbstractNetworkCache) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1188,9 +1488,13 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QAbstractNetworkCache, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QAbstractNetworkCache, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1204,9 +1508,13 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QAbstractNetworkCache, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QAbstractNetworkCache, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1214,7 +1522,7 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1224,13 +1532,17 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1238,7 +1550,7 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1248,13 +1560,17 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1264,7 +1580,7 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` self: QAbstractNetworkCache `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1272,12 +1588,16 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QAbstractNetworkCache, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QAbstractNetworkCache, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1289,10 +1609,14 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QAbstractNetworkCache, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QAbstractNetworkCache, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1306,11 +1630,15 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QAbstractNetworkCache, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QAbstractNetworkCache, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1326,13 +1654,17 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QAbstractNetworkCache, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QAbstractNetworkCache, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1345,11 +1677,15 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QAbstractNetworkCache, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QAbstractNetworkCache, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1361,10 +1697,14 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QAbstractNetworkCache, param1: anytype) void {
+    pub fn destroyed1(self: QAbstractNetworkCache, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1376,9 +1716,13 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractNetworkCache, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QAbstractNetworkCache, callback: *const fn (QAbstractNetworkCache, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QAbstractNetworkCache, callback: *const fn (QAbstractNetworkCache, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -1392,23 +1736,23 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractNetworkCache, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QAbstractNetworkCache, callback: *const fn (QAbstractNetworkCache, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QAbstractNetworkCache, callback: *const fn (QAbstractNetworkCache, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractnetworkcache.html#dtor.QAbstractNetworkCache)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QAbstractNetworkCache `
     ///
-    pub fn Delete(self: QAbstractNetworkCache) void {
+    pub fn delete(self: QAbstractNetworkCache) void {
         qtc.QAbstractNetworkCache_Delete(@ptrCast(self.ptr));
     }
 };

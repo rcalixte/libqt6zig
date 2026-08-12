@@ -18,22 +18,34 @@ pub const QBluetoothServiceInfo = extern struct {
 
     pub const _is_QBluetoothServiceInfo = {};
 
-    /// New constructs a new QBluetoothServiceInfo object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QBluetoothServiceInfo {
+    pub const New = new;
+
+    /// Allocate a new QBluetoothServiceInfo object in C++ memory
+    ///
+    pub fn new() QBluetoothServiceInfo {
         return .{ .ptr = qtc.QBluetoothServiceInfo_new() };
     }
 
-    /// New2 constructs a new QBluetoothServiceInfo object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QBluetoothServiceInfo object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QBluetoothServiceInfo `
     ///
-    pub fn New2(other: anytype) QBluetoothServiceInfo {
+    pub fn new2(other: anytype) QBluetoothServiceInfo {
         comptime _ = @TypeOf(other)._is_QBluetoothServiceInfo;
         return .{ .ptr = qtc.QBluetoothServiceInfo_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothserviceinfo.html#isValid)
     ///
@@ -41,9 +53,13 @@ pub const QBluetoothServiceInfo = extern struct {
     ///
     /// ` self: QBluetoothServiceInfo `
     ///
-    pub fn IsValid(self: QBluetoothServiceInfo) bool {
+    pub fn isValid(self: QBluetoothServiceInfo) bool {
         return qtc.QBluetoothServiceInfo_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isComplete` instead
+    ///
+    pub const IsComplete = isComplete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothserviceinfo.html#isComplete)
     ///
@@ -51,9 +67,13 @@ pub const QBluetoothServiceInfo = extern struct {
     ///
     /// ` self: QBluetoothServiceInfo `
     ///
-    pub fn IsComplete(self: QBluetoothServiceInfo) bool {
+    pub fn isComplete(self: QBluetoothServiceInfo) bool {
         return qtc.QBluetoothServiceInfo_IsComplete(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDevice` instead
+    ///
+    pub const SetDevice = setDevice;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothserviceinfo.html#setDevice)
     ///
@@ -63,10 +83,14 @@ pub const QBluetoothServiceInfo = extern struct {
     ///
     /// ` info: QBluetoothDeviceInfo `
     ///
-    pub fn SetDevice(self: QBluetoothServiceInfo, info: anytype) void {
+    pub fn setDevice(self: QBluetoothServiceInfo, info: anytype) void {
         comptime _ = @TypeOf(info)._is_QBluetoothDeviceInfo;
         qtc.QBluetoothServiceInfo_SetDevice(@ptrCast(self.ptr), @ptrCast(info.ptr));
     }
+
+    /// ### DEPRECATED: Use `device` instead
+    ///
+    pub const Device = device;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothserviceinfo.html#device)
     ///
@@ -74,9 +98,13 @@ pub const QBluetoothServiceInfo = extern struct {
     ///
     /// ` self: QBluetoothServiceInfo `
     ///
-    pub fn Device(self: QBluetoothServiceInfo) QBluetoothDeviceInfo {
+    pub fn device(self: QBluetoothServiceInfo) QBluetoothDeviceInfo {
         return .{ .ptr = qtc.QBluetoothServiceInfo_Device(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothserviceinfo.html#setAttribute)
     ///
@@ -88,10 +116,14 @@ pub const QBluetoothServiceInfo = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetAttribute(self: QBluetoothServiceInfo, attributeId: u16, value: anytype) void {
+    pub fn setAttribute(self: QBluetoothServiceInfo, attributeId: u16, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QVariant;
         qtc.QBluetoothServiceInfo_SetAttribute(@ptrCast(self.ptr), @bitCast(attributeId), @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothserviceinfo.html#setAttribute)
     ///
@@ -103,10 +135,14 @@ pub const QBluetoothServiceInfo = extern struct {
     ///
     /// ` value: QBluetoothUuid `
     ///
-    pub fn SetAttribute2(self: QBluetoothServiceInfo, attributeId: u16, value: anytype) void {
+    pub fn setAttribute2(self: QBluetoothServiceInfo, attributeId: u16, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QBluetoothUuid;
         qtc.QBluetoothServiceInfo_SetAttribute2(@ptrCast(self.ptr), @bitCast(attributeId), @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAttribute3` instead
+    ///
+    pub const SetAttribute3 = setAttribute3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothserviceinfo.html#setAttribute)
     ///
@@ -118,10 +154,14 @@ pub const QBluetoothServiceInfo = extern struct {
     ///
     /// ` value: QBluetoothServiceInfo__Sequence `
     ///
-    pub fn SetAttribute3(self: QBluetoothServiceInfo, attributeId: u16, value: anytype) void {
+    pub fn setAttribute3(self: QBluetoothServiceInfo, attributeId: u16, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QBluetoothServiceInfo__Sequence;
         qtc.QBluetoothServiceInfo_SetAttribute3(@ptrCast(self.ptr), @bitCast(attributeId), @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAttribute4` instead
+    ///
+    pub const SetAttribute4 = setAttribute4;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothserviceinfo.html#setAttribute)
     ///
@@ -133,10 +173,14 @@ pub const QBluetoothServiceInfo = extern struct {
     ///
     /// ` value: QBluetoothServiceInfo__Alternative `
     ///
-    pub fn SetAttribute4(self: QBluetoothServiceInfo, attributeId: u16, value: anytype) void {
+    pub fn setAttribute4(self: QBluetoothServiceInfo, attributeId: u16, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QBluetoothServiceInfo__Alternative;
         qtc.QBluetoothServiceInfo_SetAttribute4(@ptrCast(self.ptr), @bitCast(attributeId), @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `attribute` instead
+    ///
+    pub const Attribute = attribute;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothserviceinfo.html#attribute)
     ///
@@ -146,9 +190,13 @@ pub const QBluetoothServiceInfo = extern struct {
     ///
     /// ` attributeId: u16 `
     ///
-    pub fn Attribute(self: QBluetoothServiceInfo, attributeId: u16) QVariant {
+    pub fn attribute(self: QBluetoothServiceInfo, attributeId: u16) QVariant {
         return .{ .ptr = qtc.QBluetoothServiceInfo_Attribute(@ptrCast(self.ptr), @bitCast(attributeId)) };
     }
+
+    /// ### DEPRECATED: Use `attributes` instead
+    ///
+    pub const Attributes = attributes;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothserviceinfo.html#attributes)
     ///
@@ -158,14 +206,18 @@ pub const QBluetoothServiceInfo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Attributes(self: QBluetoothServiceInfo, allocator: std.mem.Allocator) []u16 {
+    pub fn attributes(self: QBluetoothServiceInfo, allocator: std.mem.Allocator) []u16 {
         const _arr: qtc.libqt_list = qtc.QBluetoothServiceInfo_Attributes(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(u16, _arr.len) catch @panic("QBluetoothServiceInfo.Attributes: Memory allocation failed");
-        const _data: [*]u16 = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        const _ret = allocator.alloc(u16, _arr.len) catch @panic("QBluetoothServiceInfo.attributes: Memory allocation failed");
+        const _data_val: [*]u16 = @ptrCast(@alignCast(_arr.data));
+        @memcpy(_ret, _data_val[0.._arr.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `contains` instead
+    ///
+    pub const Contains = contains;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothserviceinfo.html#contains)
     ///
@@ -175,9 +227,13 @@ pub const QBluetoothServiceInfo = extern struct {
     ///
     /// ` attributeId: u16 `
     ///
-    pub fn Contains(self: QBluetoothServiceInfo, attributeId: u16) bool {
+    pub fn contains(self: QBluetoothServiceInfo, attributeId: u16) bool {
         return qtc.QBluetoothServiceInfo_Contains(@ptrCast(self.ptr), @bitCast(attributeId));
     }
+
+    /// ### DEPRECATED: Use `removeAttribute` instead
+    ///
+    pub const RemoveAttribute = removeAttribute;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothserviceinfo.html#removeAttribute)
     ///
@@ -187,9 +243,13 @@ pub const QBluetoothServiceInfo = extern struct {
     ///
     /// ` attributeId: u16 `
     ///
-    pub fn RemoveAttribute(self: QBluetoothServiceInfo, attributeId: u16) void {
+    pub fn removeAttribute(self: QBluetoothServiceInfo, attributeId: u16) void {
         qtc.QBluetoothServiceInfo_RemoveAttribute(@ptrCast(self.ptr), @bitCast(attributeId));
     }
+
+    /// ### DEPRECATED: Use `setServiceName` instead
+    ///
+    pub const SetServiceName = setServiceName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothserviceinfo.html#setServiceName)
     ///
@@ -199,13 +259,17 @@ pub const QBluetoothServiceInfo = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetServiceName(self: QBluetoothServiceInfo, name: []const u8) void {
+    pub fn setServiceName(self: QBluetoothServiceInfo, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QBluetoothServiceInfo_SetServiceName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `serviceName` instead
+    ///
+    pub const ServiceName = serviceName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothserviceinfo.html#serviceName)
     ///
@@ -215,13 +279,17 @@ pub const QBluetoothServiceInfo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ServiceName(self: QBluetoothServiceInfo, allocator: std.mem.Allocator) []const u8 {
+    pub fn serviceName(self: QBluetoothServiceInfo, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QBluetoothServiceInfo_ServiceName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBluetoothServiceInfo.ServiceName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBluetoothServiceInfo.serviceName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setServiceDescription` instead
+    ///
+    pub const SetServiceDescription = setServiceDescription;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothserviceinfo.html#setServiceDescription)
     ///
@@ -231,13 +299,17 @@ pub const QBluetoothServiceInfo = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetServiceDescription(self: QBluetoothServiceInfo, description: []const u8) void {
+    pub fn setServiceDescription(self: QBluetoothServiceInfo, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QBluetoothServiceInfo_SetServiceDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `serviceDescription` instead
+    ///
+    pub const ServiceDescription = serviceDescription;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothserviceinfo.html#serviceDescription)
     ///
@@ -247,13 +319,17 @@ pub const QBluetoothServiceInfo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ServiceDescription(self: QBluetoothServiceInfo, allocator: std.mem.Allocator) []const u8 {
+    pub fn serviceDescription(self: QBluetoothServiceInfo, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QBluetoothServiceInfo_ServiceDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBluetoothServiceInfo.ServiceDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBluetoothServiceInfo.serviceDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setServiceProvider` instead
+    ///
+    pub const SetServiceProvider = setServiceProvider;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothserviceinfo.html#setServiceProvider)
     ///
@@ -263,13 +339,17 @@ pub const QBluetoothServiceInfo = extern struct {
     ///
     /// ` provider: []const u8 `
     ///
-    pub fn SetServiceProvider(self: QBluetoothServiceInfo, provider: []const u8) void {
+    pub fn setServiceProvider(self: QBluetoothServiceInfo, provider: []const u8) void {
         const provider_str = qtc.libqt_string{
             .len = provider.len,
             .data = provider.ptr,
         };
         qtc.QBluetoothServiceInfo_SetServiceProvider(@ptrCast(self.ptr), provider_str);
     }
+
+    /// ### DEPRECATED: Use `serviceProvider` instead
+    ///
+    pub const ServiceProvider = serviceProvider;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothserviceinfo.html#serviceProvider)
     ///
@@ -279,13 +359,17 @@ pub const QBluetoothServiceInfo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ServiceProvider(self: QBluetoothServiceInfo, allocator: std.mem.Allocator) []const u8 {
+    pub fn serviceProvider(self: QBluetoothServiceInfo, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QBluetoothServiceInfo_ServiceProvider(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBluetoothServiceInfo.ServiceProvider: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBluetoothServiceInfo.serviceProvider: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `socketProtocol` instead
+    ///
+    pub const SocketProtocol = socketProtocol;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothserviceinfo.html#socketProtocol)
     ///
@@ -297,9 +381,13 @@ pub const QBluetoothServiceInfo = extern struct {
     ///
     /// ` qbluetoothserviceinfo_enums.Protocol `
     ///
-    pub fn SocketProtocol(self: QBluetoothServiceInfo) i32 {
+    pub fn socketProtocol(self: QBluetoothServiceInfo) i32 {
         return qtc.QBluetoothServiceInfo_SocketProtocol(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `protocolServiceMultiplexer` instead
+    ///
+    pub const ProtocolServiceMultiplexer = protocolServiceMultiplexer;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothserviceinfo.html#protocolServiceMultiplexer)
     ///
@@ -307,9 +395,13 @@ pub const QBluetoothServiceInfo = extern struct {
     ///
     /// ` self: QBluetoothServiceInfo `
     ///
-    pub fn ProtocolServiceMultiplexer(self: QBluetoothServiceInfo) i32 {
+    pub fn protocolServiceMultiplexer(self: QBluetoothServiceInfo) i32 {
         return qtc.QBluetoothServiceInfo_ProtocolServiceMultiplexer(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `serverChannel` instead
+    ///
+    pub const ServerChannel = serverChannel;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothserviceinfo.html#serverChannel)
     ///
@@ -317,9 +409,13 @@ pub const QBluetoothServiceInfo = extern struct {
     ///
     /// ` self: QBluetoothServiceInfo `
     ///
-    pub fn ServerChannel(self: QBluetoothServiceInfo) i32 {
+    pub fn serverChannel(self: QBluetoothServiceInfo) i32 {
         return qtc.QBluetoothServiceInfo_ServerChannel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `protocolDescriptor` instead
+    ///
+    pub const ProtocolDescriptor = protocolDescriptor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothserviceinfo.html#protocolDescriptor)
     ///
@@ -329,9 +425,13 @@ pub const QBluetoothServiceInfo = extern struct {
     ///
     /// ` protocol: qbluetoothuuid_enums.ProtocolUuid `
     ///
-    pub fn ProtocolDescriptor(self: QBluetoothServiceInfo, protocol: i32) QBluetoothServiceInfo__Sequence {
+    pub fn protocolDescriptor(self: QBluetoothServiceInfo, protocol: i32) QBluetoothServiceInfo__Sequence {
         return .{ .ptr = qtc.QBluetoothServiceInfo_ProtocolDescriptor(@ptrCast(self.ptr), @bitCast(protocol)) };
     }
+
+    /// ### DEPRECATED: Use `setServiceAvailability` instead
+    ///
+    pub const SetServiceAvailability = setServiceAvailability;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothserviceinfo.html#setServiceAvailability)
     ///
@@ -341,9 +441,13 @@ pub const QBluetoothServiceInfo = extern struct {
     ///
     /// ` availability: u8 `
     ///
-    pub fn SetServiceAvailability(self: QBluetoothServiceInfo, availability: u8) void {
+    pub fn setServiceAvailability(self: QBluetoothServiceInfo, availability: u8) void {
         qtc.QBluetoothServiceInfo_SetServiceAvailability(@ptrCast(self.ptr), @bitCast(availability));
     }
+
+    /// ### DEPRECATED: Use `serviceAvailability` instead
+    ///
+    pub const ServiceAvailability = serviceAvailability;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothserviceinfo.html#serviceAvailability)
     ///
@@ -351,9 +455,13 @@ pub const QBluetoothServiceInfo = extern struct {
     ///
     /// ` self: QBluetoothServiceInfo `
     ///
-    pub fn ServiceAvailability(self: QBluetoothServiceInfo) u8 {
+    pub fn serviceAvailability(self: QBluetoothServiceInfo) u8 {
         return qtc.QBluetoothServiceInfo_ServiceAvailability(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setServiceUuid` instead
+    ///
+    pub const SetServiceUuid = setServiceUuid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothserviceinfo.html#setServiceUuid)
     ///
@@ -363,10 +471,14 @@ pub const QBluetoothServiceInfo = extern struct {
     ///
     /// ` uuid: QBluetoothUuid `
     ///
-    pub fn SetServiceUuid(self: QBluetoothServiceInfo, uuid: anytype) void {
+    pub fn setServiceUuid(self: QBluetoothServiceInfo, uuid: anytype) void {
         comptime _ = @TypeOf(uuid)._is_QBluetoothUuid;
         qtc.QBluetoothServiceInfo_SetServiceUuid(@ptrCast(self.ptr), @ptrCast(uuid.ptr));
     }
+
+    /// ### DEPRECATED: Use `serviceUuid` instead
+    ///
+    pub const ServiceUuid = serviceUuid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothserviceinfo.html#serviceUuid)
     ///
@@ -374,9 +486,13 @@ pub const QBluetoothServiceInfo = extern struct {
     ///
     /// ` self: QBluetoothServiceInfo `
     ///
-    pub fn ServiceUuid(self: QBluetoothServiceInfo) QBluetoothUuid {
+    pub fn serviceUuid(self: QBluetoothServiceInfo) QBluetoothUuid {
         return .{ .ptr = qtc.QBluetoothServiceInfo_ServiceUuid(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `serviceClassUuids` instead
+    ///
+    pub const ServiceClassUuids = serviceClassUuids;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothserviceinfo.html#serviceClassUuids)
     ///
@@ -386,15 +502,19 @@ pub const QBluetoothServiceInfo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ServiceClassUuids(self: QBluetoothServiceInfo, allocator: std.mem.Allocator) []QBluetoothUuid {
+    pub fn serviceClassUuids(self: QBluetoothServiceInfo, allocator: std.mem.Allocator) []QBluetoothUuid {
         const _arr: qtc.libqt_list = qtc.QBluetoothServiceInfo_ServiceClassUuids(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QBluetoothUuid, _arr.len) catch @panic("QBluetoothServiceInfo.ServiceClassUuids: Memory allocation failed");
-        const _data: [*]QtC.QBluetoothUuid = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QBluetoothUuid, _arr.len) catch @panic("QBluetoothServiceInfo.serviceClassUuids: Memory allocation failed");
+        const _data_val: [*]QtC.QBluetoothUuid = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothserviceinfo.html#operator-eq)
     ///
@@ -404,10 +524,14 @@ pub const QBluetoothServiceInfo = extern struct {
     ///
     /// ` other: QBluetoothServiceInfo `
     ///
-    pub fn OperatorAssign(self: QBluetoothServiceInfo, other: anytype) void {
+    pub fn operatorAssign(self: QBluetoothServiceInfo, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QBluetoothServiceInfo;
         qtc.QBluetoothServiceInfo_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRegistered` instead
+    ///
+    pub const IsRegistered = isRegistered;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothserviceinfo.html#isRegistered)
     ///
@@ -415,9 +539,13 @@ pub const QBluetoothServiceInfo = extern struct {
     ///
     /// ` self: QBluetoothServiceInfo `
     ///
-    pub fn IsRegistered(self: QBluetoothServiceInfo) bool {
+    pub fn isRegistered(self: QBluetoothServiceInfo) bool {
         return qtc.QBluetoothServiceInfo_IsRegistered(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `registerService` instead
+    ///
+    pub const RegisterService = registerService;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothserviceinfo.html#registerService)
     ///
@@ -425,9 +553,13 @@ pub const QBluetoothServiceInfo = extern struct {
     ///
     /// ` self: QBluetoothServiceInfo `
     ///
-    pub fn RegisterService(self: QBluetoothServiceInfo) bool {
+    pub fn registerService(self: QBluetoothServiceInfo) bool {
         return qtc.QBluetoothServiceInfo_RegisterService(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unregisterService` instead
+    ///
+    pub const UnregisterService = unregisterService;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothserviceinfo.html#unregisterService)
     ///
@@ -435,9 +567,13 @@ pub const QBluetoothServiceInfo = extern struct {
     ///
     /// ` self: QBluetoothServiceInfo `
     ///
-    pub fn UnregisterService(self: QBluetoothServiceInfo) bool {
+    pub fn unregisterService(self: QBluetoothServiceInfo) bool {
         return qtc.QBluetoothServiceInfo_UnregisterService(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `registerService1` instead
+    ///
+    pub const RegisterService1 = registerService1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothserviceinfo.html#registerService)
     ///
@@ -447,24 +583,24 @@ pub const QBluetoothServiceInfo = extern struct {
     ///
     /// ` localAdapter: QBluetoothAddress `
     ///
-    pub fn RegisterService1(self: QBluetoothServiceInfo, localAdapter: anytype) bool {
+    pub fn registerService1(self: QBluetoothServiceInfo, localAdapter: anytype) bool {
         comptime _ = @TypeOf(localAdapter)._is_QBluetoothAddress;
         return qtc.QBluetoothServiceInfo_RegisterService1(@ptrCast(self.ptr), @ptrCast(localAdapter.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothserviceinfo.html#dtor.QBluetoothServiceInfo)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QBluetoothServiceInfo `
     ///
-    pub fn Delete(self: QBluetoothServiceInfo) void {
+    pub fn delete(self: QBluetoothServiceInfo) void {
         qtc.QBluetoothServiceInfo_Delete(@ptrCast(self.ptr));
     }
 };
@@ -481,19 +617,27 @@ pub const QBluetoothServiceInfo__Sequence = extern struct {
 
     pub const _is_QBluetoothServiceInfo__Sequence = {};
 
-    /// New constructs a new QBluetoothServiceInfo::Sequence object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QBluetoothServiceInfo__Sequence {
+    pub const New = new;
+
+    /// Allocate a new QBluetoothServiceInfo::Sequence object in C++ memory
+    ///
+    pub fn new() QBluetoothServiceInfo__Sequence {
         return .{ .ptr = qtc.QBluetoothServiceInfo__Sequence_new() };
     }
 
-    /// New2 constructs a new QBluetoothServiceInfo::Sequence object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QBluetoothServiceInfo::Sequence object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` list: []QVariant `
     ///
-    pub fn New2(list: []QVariant) QBluetoothServiceInfo__Sequence {
+    pub fn new2(list: []QVariant) QBluetoothServiceInfo__Sequence {
         const list_list = qtc.libqt_list{
             .len = list.len,
             .data = @ptrCast(list.ptr),
@@ -501,28 +645,32 @@ pub const QBluetoothServiceInfo__Sequence = extern struct {
         return .{ .ptr = qtc.QBluetoothServiceInfo__Sequence_new2(list_list) };
     }
 
-    /// New3 constructs a new QBluetoothServiceInfo::Sequence object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QBluetoothServiceInfo::Sequence object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QBluetoothServiceInfo__Sequence `
     ///
-    pub fn New3(param1: anytype) QBluetoothServiceInfo__Sequence {
+    pub fn new3(param1: anytype) QBluetoothServiceInfo__Sequence {
         comptime _ = @TypeOf(param1)._is_QBluetoothServiceInfo__Sequence;
         return .{ .ptr = qtc.QBluetoothServiceInfo__Sequence_new3(@ptrCast(param1.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QBluetoothServiceInfo__Sequence `
     ///
-    pub fn Delete(self: QBluetoothServiceInfo__Sequence) void {
+    pub fn delete(self: QBluetoothServiceInfo__Sequence) void {
         qtc.QBluetoothServiceInfo__Sequence_Delete(@ptrCast(self.ptr));
     }
 };
@@ -539,19 +687,27 @@ pub const QBluetoothServiceInfo__Alternative = extern struct {
 
     pub const _is_QBluetoothServiceInfo__Alternative = {};
 
-    /// New constructs a new QBluetoothServiceInfo::Alternative object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QBluetoothServiceInfo__Alternative {
+    pub const New = new;
+
+    /// Allocate a new QBluetoothServiceInfo::Alternative object in C++ memory
+    ///
+    pub fn new() QBluetoothServiceInfo__Alternative {
         return .{ .ptr = qtc.QBluetoothServiceInfo__Alternative_new() };
     }
 
-    /// New2 constructs a new QBluetoothServiceInfo::Alternative object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QBluetoothServiceInfo::Alternative object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` list: []QVariant `
     ///
-    pub fn New2(list: []QVariant) QBluetoothServiceInfo__Alternative {
+    pub fn new2(list: []QVariant) QBluetoothServiceInfo__Alternative {
         const list_list = qtc.libqt_list{
             .len = list.len,
             .data = @ptrCast(list.ptr),
@@ -559,28 +715,32 @@ pub const QBluetoothServiceInfo__Alternative = extern struct {
         return .{ .ptr = qtc.QBluetoothServiceInfo__Alternative_new2(list_list) };
     }
 
-    /// New3 constructs a new QBluetoothServiceInfo::Alternative object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QBluetoothServiceInfo::Alternative object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QBluetoothServiceInfo__Alternative `
     ///
-    pub fn New3(param1: anytype) QBluetoothServiceInfo__Alternative {
+    pub fn new3(param1: anytype) QBluetoothServiceInfo__Alternative {
         comptime _ = @TypeOf(param1)._is_QBluetoothServiceInfo__Alternative;
         return .{ .ptr = qtc.QBluetoothServiceInfo__Alternative_new3(@ptrCast(param1.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QBluetoothServiceInfo__Alternative `
     ///
-    pub fn Delete(self: QBluetoothServiceInfo__Alternative) void {
+    pub fn delete(self: QBluetoothServiceInfo__Alternative) void {
         qtc.QBluetoothServiceInfo__Alternative_Delete(@ptrCast(self.ptr));
     }
 };

@@ -14,35 +14,51 @@ pub const QSizePolicy = extern struct {
 
     pub const _is_QSizePolicy = {};
 
-    /// New constructs a new QSizePolicy object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QSizePolicy object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QSizePolicy `
     ///
-    pub fn New(other: anytype) QSizePolicy {
+    pub fn new(other: anytype) QSizePolicy {
         comptime _ = @TypeOf(other)._is_QSizePolicy;
         return .{ .ptr = qtc.QSizePolicy_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new QSizePolicy object and invalidates the source QSizePolicy object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QSizePolicy object and invalidate the source QSizePolicy object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QSizePolicy `
     ///
-    pub fn New2(other: anytype) QSizePolicy {
+    pub fn new2(other: anytype) QSizePolicy {
         comptime _ = @TypeOf(other)._is_QSizePolicy;
         return .{ .ptr = qtc.QSizePolicy_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QSizePolicy object.
+    /// ### DEPRECATED: Use `new3` instead
     ///
-    pub fn New3() QSizePolicy {
+    pub const New3 = new3;
+
+    /// Allocate a new QSizePolicy object in C++ memory
+    ///
+    pub fn new3() QSizePolicy {
         return .{ .ptr = qtc.QSizePolicy_new3() };
     }
 
-    /// New4 constructs a new QSizePolicy object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QSizePolicy object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -50,22 +66,30 @@ pub const QSizePolicy = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn New4(horizontal: i32, vertical: i32) QSizePolicy {
+    pub fn new4(horizontal: i32, vertical: i32) QSizePolicy {
         return .{ .ptr = qtc.QSizePolicy_new4(@bitCast(horizontal), @bitCast(vertical)) };
     }
 
-    /// New5 constructs a new QSizePolicy object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new QSizePolicy object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QSizePolicy `
     ///
-    pub fn New5(param1: anytype) QSizePolicy {
+    pub fn new5(param1: anytype) QSizePolicy {
         comptime _ = @TypeOf(param1)._is_QSizePolicy;
         return .{ .ptr = qtc.QSizePolicy_new5(@ptrCast(param1.ptr)) };
     }
 
-    /// New6 constructs a new QSizePolicy object.
+    /// ### DEPRECATED: Use `new6` instead
+    ///
+    pub const New6 = new6;
+
+    /// Allocate a new QSizePolicy object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -75,11 +99,14 @@ pub const QSizePolicy = extern struct {
     ///
     /// ` typeVal: qsizepolicy_enums.ControlType `
     ///
-    pub fn New6(horizontal: i32, vertical: i32, typeVal: i32) QSizePolicy {
+    pub fn new6(horizontal: i32, vertical: i32, typeVal: i32) QSizePolicy {
         return .{ .ptr = qtc.QSizePolicy_new6(@bitCast(horizontal), @bitCast(vertical), @bitCast(typeVal)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -87,11 +114,14 @@ pub const QSizePolicy = extern struct {
     ///
     /// ` other: QSizePolicy `
     ///
-    pub fn CopyAssign(self: QSizePolicy, other: QSizePolicy) void {
+    pub fn copyAssign(self: QSizePolicy, other: QSizePolicy) void {
         qtc.QSizePolicy_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -99,9 +129,13 @@ pub const QSizePolicy = extern struct {
     ///
     /// ` other: QSizePolicy `
     ///
-    pub fn MoveAssign(self: QSizePolicy, other: QSizePolicy) void {
+    pub fn moveAssign(self: QSizePolicy, other: QSizePolicy) void {
         qtc.QSizePolicy_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `horizontalPolicy` instead
+    ///
+    pub const HorizontalPolicy = horizontalPolicy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizepolicy.html#horizontalPolicy)
     ///
@@ -113,9 +147,13 @@ pub const QSizePolicy = extern struct {
     ///
     /// ` qsizepolicy_enums.Policy `
     ///
-    pub fn HorizontalPolicy(self: QSizePolicy) i32 {
+    pub fn horizontalPolicy(self: QSizePolicy) i32 {
         return qtc.QSizePolicy_HorizontalPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `verticalPolicy` instead
+    ///
+    pub const VerticalPolicy = verticalPolicy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizepolicy.html#verticalPolicy)
     ///
@@ -127,9 +165,13 @@ pub const QSizePolicy = extern struct {
     ///
     /// ` qsizepolicy_enums.Policy `
     ///
-    pub fn VerticalPolicy(self: QSizePolicy) i32 {
+    pub fn verticalPolicy(self: QSizePolicy) i32 {
         return qtc.QSizePolicy_VerticalPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `controlType` instead
+    ///
+    pub const ControlType = controlType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizepolicy.html#controlType)
     ///
@@ -141,9 +183,13 @@ pub const QSizePolicy = extern struct {
     ///
     /// ` qsizepolicy_enums.ControlType `
     ///
-    pub fn ControlType(self: QSizePolicy) i32 {
+    pub fn controlType(self: QSizePolicy) i32 {
         return qtc.QSizePolicy_ControlType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHorizontalPolicy` instead
+    ///
+    pub const SetHorizontalPolicy = setHorizontalPolicy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizepolicy.html#setHorizontalPolicy)
     ///
@@ -153,9 +199,13 @@ pub const QSizePolicy = extern struct {
     ///
     /// ` d: qsizepolicy_enums.Policy `
     ///
-    pub fn SetHorizontalPolicy(self: QSizePolicy, d: i32) void {
+    pub fn setHorizontalPolicy(self: QSizePolicy, d: i32) void {
         qtc.QSizePolicy_SetHorizontalPolicy(@ptrCast(self.ptr), @bitCast(d));
     }
+
+    /// ### DEPRECATED: Use `setVerticalPolicy` instead
+    ///
+    pub const SetVerticalPolicy = setVerticalPolicy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizepolicy.html#setVerticalPolicy)
     ///
@@ -165,9 +215,13 @@ pub const QSizePolicy = extern struct {
     ///
     /// ` d: qsizepolicy_enums.Policy `
     ///
-    pub fn SetVerticalPolicy(self: QSizePolicy, d: i32) void {
+    pub fn setVerticalPolicy(self: QSizePolicy, d: i32) void {
         qtc.QSizePolicy_SetVerticalPolicy(@ptrCast(self.ptr), @bitCast(d));
     }
+
+    /// ### DEPRECATED: Use `setControlType` instead
+    ///
+    pub const SetControlType = setControlType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizepolicy.html#setControlType)
     ///
@@ -177,9 +231,13 @@ pub const QSizePolicy = extern struct {
     ///
     /// ` typeVal: qsizepolicy_enums.ControlType `
     ///
-    pub fn SetControlType(self: QSizePolicy, typeVal: i32) void {
+    pub fn setControlType(self: QSizePolicy, typeVal: i32) void {
         qtc.QSizePolicy_SetControlType(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `expandingDirections` instead
+    ///
+    pub const ExpandingDirections = expandingDirections;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizepolicy.html#expandingDirections)
     ///
@@ -191,9 +249,13 @@ pub const QSizePolicy = extern struct {
     ///
     /// ` flag of qnamespace_enums.Orientation `
     ///
-    pub fn ExpandingDirections(self: QSizePolicy) i32 {
+    pub fn expandingDirections(self: QSizePolicy) i32 {
         return qtc.QSizePolicy_ExpandingDirections(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHeightForWidth` instead
+    ///
+    pub const SetHeightForWidth = setHeightForWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizepolicy.html#setHeightForWidth)
     ///
@@ -203,9 +265,13 @@ pub const QSizePolicy = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetHeightForWidth(self: QSizePolicy, b: bool) void {
+    pub fn setHeightForWidth(self: QSizePolicy, b: bool) void {
         qtc.QSizePolicy_SetHeightForWidth(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizepolicy.html#hasHeightForWidth)
     ///
@@ -213,9 +279,13 @@ pub const QSizePolicy = extern struct {
     ///
     /// ` self: QSizePolicy `
     ///
-    pub fn HasHeightForWidth(self: QSizePolicy) bool {
+    pub fn hasHeightForWidth(self: QSizePolicy) bool {
         return qtc.QSizePolicy_HasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWidthForHeight` instead
+    ///
+    pub const SetWidthForHeight = setWidthForHeight;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizepolicy.html#setWidthForHeight)
     ///
@@ -225,9 +295,13 @@ pub const QSizePolicy = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetWidthForHeight(self: QSizePolicy, b: bool) void {
+    pub fn setWidthForHeight(self: QSizePolicy, b: bool) void {
         qtc.QSizePolicy_SetWidthForHeight(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `hasWidthForHeight` instead
+    ///
+    pub const HasWidthForHeight = hasWidthForHeight;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizepolicy.html#hasWidthForHeight)
     ///
@@ -235,9 +309,13 @@ pub const QSizePolicy = extern struct {
     ///
     /// ` self: QSizePolicy `
     ///
-    pub fn HasWidthForHeight(self: QSizePolicy) bool {
+    pub fn hasWidthForHeight(self: QSizePolicy) bool {
         return qtc.QSizePolicy_HasWidthForHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizepolicy.html#operator-eq-eq)
     ///
@@ -247,10 +325,14 @@ pub const QSizePolicy = extern struct {
     ///
     /// ` s: QSizePolicy `
     ///
-    pub fn OperatorEqual(self: QSizePolicy, s: anytype) bool {
+    pub fn operatorEqual(self: QSizePolicy, s: anytype) bool {
         comptime _ = @TypeOf(s)._is_QSizePolicy;
         return qtc.QSizePolicy_OperatorEqual(@ptrCast(self.ptr), @ptrCast(s.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizepolicy.html#operator-not-eq)
     ///
@@ -260,10 +342,14 @@ pub const QSizePolicy = extern struct {
     ///
     /// ` s: QSizePolicy `
     ///
-    pub fn OperatorNotEqual(self: QSizePolicy, s: anytype) bool {
+    pub fn operatorNotEqual(self: QSizePolicy, s: anytype) bool {
         comptime _ = @TypeOf(s)._is_QSizePolicy;
         return qtc.QSizePolicy_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(s.ptr));
     }
+
+    /// ### DEPRECATED: Use `toQVariant` instead
+    ///
+    pub const ToQVariant = toQVariant;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizepolicy.html#operator)
     ///
@@ -271,9 +357,13 @@ pub const QSizePolicy = extern struct {
     ///
     /// ` self: QSizePolicy `
     ///
-    pub fn ToQVariant(self: QSizePolicy) QVariant {
+    pub fn toQVariant(self: QSizePolicy) QVariant {
         return .{ .ptr = qtc.QSizePolicy_ToQVariant(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `horizontalStretch` instead
+    ///
+    pub const HorizontalStretch = horizontalStretch;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizepolicy.html#horizontalStretch)
     ///
@@ -281,9 +371,13 @@ pub const QSizePolicy = extern struct {
     ///
     /// ` self: QSizePolicy `
     ///
-    pub fn HorizontalStretch(self: QSizePolicy) i32 {
+    pub fn horizontalStretch(self: QSizePolicy) i32 {
         return qtc.QSizePolicy_HorizontalStretch(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `verticalStretch` instead
+    ///
+    pub const VerticalStretch = verticalStretch;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizepolicy.html#verticalStretch)
     ///
@@ -291,9 +385,13 @@ pub const QSizePolicy = extern struct {
     ///
     /// ` self: QSizePolicy `
     ///
-    pub fn VerticalStretch(self: QSizePolicy) i32 {
+    pub fn verticalStretch(self: QSizePolicy) i32 {
         return qtc.QSizePolicy_VerticalStretch(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHorizontalStretch` instead
+    ///
+    pub const SetHorizontalStretch = setHorizontalStretch;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizepolicy.html#setHorizontalStretch)
     ///
@@ -303,9 +401,13 @@ pub const QSizePolicy = extern struct {
     ///
     /// ` stretchFactor: i32 `
     ///
-    pub fn SetHorizontalStretch(self: QSizePolicy, stretchFactor: i32) void {
+    pub fn setHorizontalStretch(self: QSizePolicy, stretchFactor: i32) void {
         qtc.QSizePolicy_SetHorizontalStretch(@ptrCast(self.ptr), @bitCast(stretchFactor));
     }
+
+    /// ### DEPRECATED: Use `setVerticalStretch` instead
+    ///
+    pub const SetVerticalStretch = setVerticalStretch;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizepolicy.html#setVerticalStretch)
     ///
@@ -315,9 +417,13 @@ pub const QSizePolicy = extern struct {
     ///
     /// ` stretchFactor: i32 `
     ///
-    pub fn SetVerticalStretch(self: QSizePolicy, stretchFactor: i32) void {
+    pub fn setVerticalStretch(self: QSizePolicy, stretchFactor: i32) void {
         qtc.QSizePolicy_SetVerticalStretch(@ptrCast(self.ptr), @bitCast(stretchFactor));
     }
+
+    /// ### DEPRECATED: Use `retainSizeWhenHidden` instead
+    ///
+    pub const RetainSizeWhenHidden = retainSizeWhenHidden;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizepolicy.html#retainSizeWhenHidden)
     ///
@@ -325,9 +431,13 @@ pub const QSizePolicy = extern struct {
     ///
     /// ` self: QSizePolicy `
     ///
-    pub fn RetainSizeWhenHidden(self: QSizePolicy) bool {
+    pub fn retainSizeWhenHidden(self: QSizePolicy) bool {
         return qtc.QSizePolicy_RetainSizeWhenHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setRetainSizeWhenHidden` instead
+    ///
+    pub const SetRetainSizeWhenHidden = setRetainSizeWhenHidden;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizepolicy.html#setRetainSizeWhenHidden)
     ///
@@ -337,9 +447,13 @@ pub const QSizePolicy = extern struct {
     ///
     /// ` retainSize: bool `
     ///
-    pub fn SetRetainSizeWhenHidden(self: QSizePolicy, retainSize: bool) void {
+    pub fn setRetainSizeWhenHidden(self: QSizePolicy, retainSize: bool) void {
         qtc.QSizePolicy_SetRetainSizeWhenHidden(@ptrCast(self.ptr), retainSize);
     }
+
+    /// ### DEPRECATED: Use `transpose` instead
+    ///
+    pub const Transpose = transpose;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizepolicy.html#transpose)
     ///
@@ -347,9 +461,13 @@ pub const QSizePolicy = extern struct {
     ///
     /// ` self: QSizePolicy `
     ///
-    pub fn Transpose(self: QSizePolicy) void {
+    pub fn transpose(self: QSizePolicy) void {
         qtc.QSizePolicy_Transpose(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `transposed` instead
+    ///
+    pub const Transposed = transposed;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizepolicy.html#transposed)
     ///
@@ -357,23 +475,23 @@ pub const QSizePolicy = extern struct {
     ///
     /// ` self: QSizePolicy `
     ///
-    pub fn Transposed(self: QSizePolicy) QSizePolicy {
+    pub fn transposed(self: QSizePolicy) QSizePolicy {
         return .{ .ptr = qtc.QSizePolicy_Transposed(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizepolicy.html#dtor.QSizePolicy)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QSizePolicy `
     ///
-    pub fn Delete(self: QSizePolicy) void {
+    pub fn delete(self: QSizePolicy) void {
         qtc.QSizePolicy_Delete(@ptrCast(self.ptr));
     }
 };

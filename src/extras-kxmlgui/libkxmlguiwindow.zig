@@ -103,35 +103,51 @@ pub const KXmlGuiWindow = extern struct {
     pub const _is_KXMLGUIBuilder = {};
     pub const _is_KXMLGUIClient = {};
 
-    /// New constructs a new KXmlGuiWindow object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KXmlGuiWindow object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) KXmlGuiWindow {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KXmlGuiWindow_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) KXmlGuiWindow {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KXmlGuiWindow_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new KXmlGuiWindow object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() KXmlGuiWindow {
+    pub const New2 = new2;
+
+    /// Allocate a new KXmlGuiWindow object in C++ memory
+    ///
+    pub fn new2() KXmlGuiWindow {
         return .{ .ptr = qtc.KXmlGuiWindow_new2() };
     }
 
-    /// New3 constructs a new KXmlGuiWindow object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new KXmlGuiWindow object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn New3(parent: anytype, flags: i32) KXmlGuiWindow {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KXmlGuiWindow_new3(@ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn new3(_parent: anytype, flags: i32) KXmlGuiWindow {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KXmlGuiWindow_new3(@ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -139,9 +155,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn MetaObject(self: KXmlGuiWindow) QMetaObject {
+    pub fn metaObject(self: KXmlGuiWindow) QMetaObject {
         return .{ .ptr = qtc.KXmlGuiWindow_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -153,13 +173,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KXmlGuiWindow, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KXmlGuiWindow, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KXmlGuiWindow_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -169,9 +189,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn SuperMetaObject(self: KXmlGuiWindow) QMetaObject {
+    pub fn superMetaObject(self: KXmlGuiWindow) QMetaObject {
         return .{ .ptr = qtc.KXmlGuiWindow_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -179,10 +203,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KXmlGuiWindow, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KXmlGuiWindow, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KXmlGuiWindow_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -192,13 +220,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KXmlGuiWindow_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -208,10 +236,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KXmlGuiWindow, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KXmlGuiWindow, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KXmlGuiWindow_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -223,9 +255,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KXmlGuiWindow, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KXmlGuiWindow, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KXmlGuiWindow_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -235,13 +271,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KXmlGuiWindow_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -255,9 +291,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KXmlGuiWindow, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KXmlGuiWindow, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KXmlGuiWindow_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -267,14 +307,18 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setHelpMenuEnabled` instead
+    ///
+    pub const SetHelpMenuEnabled = setHelpMenuEnabled;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#setHelpMenuEnabled)
     ///
@@ -282,9 +326,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn SetHelpMenuEnabled(self: KXmlGuiWindow) void {
+    pub fn setHelpMenuEnabled(self: KXmlGuiWindow) void {
         qtc.KXmlGuiWindow_SetHelpMenuEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHelpMenuEnabled` instead
+    ///
+    pub const IsHelpMenuEnabled = isHelpMenuEnabled;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#isHelpMenuEnabled)
     ///
@@ -292,9 +340,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn IsHelpMenuEnabled(self: KXmlGuiWindow) bool {
+    pub fn isHelpMenuEnabled(self: KXmlGuiWindow) bool {
         return qtc.KXmlGuiWindow_IsHelpMenuEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `guiFactory` instead
+    ///
+    pub const GuiFactory = guiFactory;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#guiFactory)
     ///
@@ -302,9 +354,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn GuiFactory(self: KXmlGuiWindow) KXMLGUIFactory {
+    pub fn guiFactory(self: KXmlGuiWindow) KXMLGUIFactory {
         return .{ .ptr = qtc.KXmlGuiWindow_GuiFactory(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onGuiFactory` instead
+    ///
+    pub const OnGuiFactory = onGuiFactory;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#guiFactory)
     ///
@@ -316,13 +372,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) KXMLGUIFactory `
     ///
-    pub fn OnGuiFactory(self: KXmlGuiWindow, callback: *const fn () callconv(.c) KXMLGUIFactory) void {
+    pub fn onGuiFactory(self: KXmlGuiWindow, callback: *const fn () callconv(.c) KXMLGUIFactory) void {
         qtc.KXmlGuiWindow_OnGuiFactory(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperGuiFactory` instead
+    /// ### DEPRECATED: Use `superGuiFactory` instead
     ///
-    pub const QBaseGuiFactory = SuperGuiFactory;
+    pub const SuperGuiFactory = superGuiFactory;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#guiFactory)
     ///
@@ -332,9 +388,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn SuperGuiFactory(self: KXmlGuiWindow) KXMLGUIFactory {
+    pub fn superGuiFactory(self: KXmlGuiWindow) KXMLGUIFactory {
         return .{ .ptr = qtc.KXmlGuiWindow_SuperGuiFactory(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `createGUI` instead
+    ///
+    pub const CreateGUI = createGUI;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#createGUI)
     ///
@@ -342,9 +402,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn CreateGUI(self: KXmlGuiWindow) void {
+    pub fn createGUI(self: KXmlGuiWindow) void {
         qtc.KXmlGuiWindow_CreateGUI(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStandardToolBarMenuEnabled` instead
+    ///
+    pub const SetStandardToolBarMenuEnabled = setStandardToolBarMenuEnabled;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#setStandardToolBarMenuEnabled)
     ///
@@ -354,9 +418,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` showToolBarMenu: bool `
     ///
-    pub fn SetStandardToolBarMenuEnabled(self: KXmlGuiWindow, showToolBarMenu: bool) void {
+    pub fn setStandardToolBarMenuEnabled(self: KXmlGuiWindow, showToolBarMenu: bool) void {
         qtc.KXmlGuiWindow_SetStandardToolBarMenuEnabled(@ptrCast(self.ptr), showToolBarMenu);
     }
+
+    /// ### DEPRECATED: Use `isStandardToolBarMenuEnabled` instead
+    ///
+    pub const IsStandardToolBarMenuEnabled = isStandardToolBarMenuEnabled;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#isStandardToolBarMenuEnabled)
     ///
@@ -364,9 +432,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn IsStandardToolBarMenuEnabled(self: KXmlGuiWindow) bool {
+    pub fn isStandardToolBarMenuEnabled(self: KXmlGuiWindow) bool {
         return qtc.KXmlGuiWindow_IsStandardToolBarMenuEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createStandardStatusBarAction` instead
+    ///
+    pub const CreateStandardStatusBarAction = createStandardStatusBarAction;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#createStandardStatusBarAction)
     ///
@@ -374,9 +446,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn CreateStandardStatusBarAction(self: KXmlGuiWindow) void {
+    pub fn createStandardStatusBarAction(self: KXmlGuiWindow) void {
         qtc.KXmlGuiWindow_CreateStandardStatusBarAction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setupGUI` instead
+    ///
+    pub const SetupGUI = setupGUI;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#setupGUI)
     ///
@@ -384,9 +460,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn SetupGUI(self: KXmlGuiWindow) void {
+    pub fn setupGUI(self: KXmlGuiWindow) void {
         qtc.KXmlGuiWindow_SetupGUI(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setupGUI2` instead
+    ///
+    pub const SetupGUI2 = setupGUI2;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#setupGUI)
     ///
@@ -396,10 +476,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` defaultSize: QSize `
     ///
-    pub fn SetupGUI2(self: KXmlGuiWindow, defaultSize: anytype) void {
+    pub fn setupGUI2(self: KXmlGuiWindow, defaultSize: anytype) void {
         comptime _ = @TypeOf(defaultSize)._is_QSize;
         qtc.KXmlGuiWindow_SetupGUI2(@ptrCast(self.ptr), @ptrCast(defaultSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `toolBarMenuAction` instead
+    ///
+    pub const ToolBarMenuAction = toolBarMenuAction;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#toolBarMenuAction)
     ///
@@ -407,9 +491,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn ToolBarMenuAction(self: KXmlGuiWindow) QAction {
+    pub fn toolBarMenuAction(self: KXmlGuiWindow) QAction {
         return .{ .ptr = qtc.KXmlGuiWindow_ToolBarMenuAction(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setupToolbarMenuActions` instead
+    ///
+    pub const SetupToolbarMenuActions = setupToolbarMenuActions;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#setupToolbarMenuActions)
     ///
@@ -417,9 +505,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn SetupToolbarMenuActions(self: KXmlGuiWindow) void {
+    pub fn setupToolbarMenuActions(self: KXmlGuiWindow) void {
         qtc.KXmlGuiWindow_SetupToolbarMenuActions(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toolBarNames` instead
+    ///
+    pub const ToolBarNames = toolBarNames;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#toolBarNames)
     ///
@@ -429,7 +521,7 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolBarNames(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn toolBarNames(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KXmlGuiWindow_ToolBarNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -437,15 +529,19 @@ pub const KXmlGuiWindow = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KXmlGuiWindow.ToolBarNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KXmlGuiWindow.toolBarNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KXmlGuiWindow.ToolBarNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KXmlGuiWindow.toolBarNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `finalizeGUI` instead
+    ///
+    pub const FinalizeGUI = finalizeGUI;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#finalizeGUI)
     ///
@@ -455,9 +551,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` force: bool `
     ///
-    pub fn FinalizeGUI(self: KXmlGuiWindow, force: bool) void {
+    pub fn finalizeGUI(self: KXmlGuiWindow, force: bool) void {
         qtc.KXmlGuiWindow_FinalizeGUI(@ptrCast(self.ptr), force);
     }
+
+    /// ### DEPRECATED: Use `applyMainWindowSettings` instead
+    ///
+    pub const ApplyMainWindowSettings = applyMainWindowSettings;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#applyMainWindowSettings)
     ///
@@ -467,10 +567,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` config: KConfigGroup `
     ///
-    pub fn ApplyMainWindowSettings(self: KXmlGuiWindow, config: anytype) void {
+    pub fn applyMainWindowSettings(self: KXmlGuiWindow, config: anytype) void {
         comptime _ = @TypeOf(config)._is_KConfigGroup;
         qtc.KXmlGuiWindow_ApplyMainWindowSettings(@ptrCast(self.ptr), @ptrCast(config.ptr));
     }
+
+    /// ### DEPRECATED: Use `onApplyMainWindowSettings` instead
+    ///
+    pub const OnApplyMainWindowSettings = onApplyMainWindowSettings;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#applyMainWindowSettings)
     ///
@@ -482,13 +586,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, config: KConfigGroup) callconv(.c) void `
     ///
-    pub fn OnApplyMainWindowSettings(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, KConfigGroup) callconv(.c) void) void {
+    pub fn onApplyMainWindowSettings(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, KConfigGroup) callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnApplyMainWindowSettings(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperApplyMainWindowSettings` instead
+    /// ### DEPRECATED: Use `superApplyMainWindowSettings` instead
     ///
-    pub const QBaseApplyMainWindowSettings = SuperApplyMainWindowSettings;
+    pub const SuperApplyMainWindowSettings = superApplyMainWindowSettings;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#applyMainWindowSettings)
     ///
@@ -500,10 +604,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` config: KConfigGroup `
     ///
-    pub fn SuperApplyMainWindowSettings(self: KXmlGuiWindow, config: anytype) void {
+    pub fn superApplyMainWindowSettings(self: KXmlGuiWindow, config: anytype) void {
         comptime _ = @TypeOf(config)._is_KConfigGroup;
         qtc.KXmlGuiWindow_SuperApplyMainWindowSettings(@ptrCast(self.ptr), @ptrCast(config.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCommandBarEnabled` instead
+    ///
+    pub const SetCommandBarEnabled = setCommandBarEnabled;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#setCommandBarEnabled)
     ///
@@ -513,9 +621,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` showCommandBar: bool `
     ///
-    pub fn SetCommandBarEnabled(self: KXmlGuiWindow, showCommandBar: bool) void {
+    pub fn setCommandBarEnabled(self: KXmlGuiWindow, showCommandBar: bool) void {
         qtc.KXmlGuiWindow_SetCommandBarEnabled(@ptrCast(self.ptr), showCommandBar);
     }
+
+    /// ### DEPRECATED: Use `isCommandBarEnabled` instead
+    ///
+    pub const IsCommandBarEnabled = isCommandBarEnabled;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#isCommandBarEnabled)
     ///
@@ -523,9 +635,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn IsCommandBarEnabled(self: KXmlGuiWindow) bool {
+    pub fn isCommandBarEnabled(self: KXmlGuiWindow) bool {
         return qtc.KXmlGuiWindow_IsCommandBarEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `configureToolbars` instead
+    ///
+    pub const ConfigureToolbars = configureToolbars;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#configureToolbars)
     ///
@@ -533,9 +649,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn ConfigureToolbars(self: KXmlGuiWindow) void {
+    pub fn configureToolbars(self: KXmlGuiWindow) void {
         qtc.KXmlGuiWindow_ConfigureToolbars(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onConfigureToolbars` instead
+    ///
+    pub const OnConfigureToolbars = onConfigureToolbars;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#configureToolbars)
     ///
@@ -547,13 +667,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnConfigureToolbars(self: KXmlGuiWindow, callback: *const fn () callconv(.c) void) void {
+    pub fn onConfigureToolbars(self: KXmlGuiWindow, callback: *const fn () callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnConfigureToolbars(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperConfigureToolbars` instead
+    /// ### DEPRECATED: Use `superConfigureToolbars` instead
     ///
-    pub const QBaseConfigureToolbars = SuperConfigureToolbars;
+    pub const SuperConfigureToolbars = superConfigureToolbars;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#configureToolbars)
     ///
@@ -563,9 +683,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn SuperConfigureToolbars(self: KXmlGuiWindow) void {
+    pub fn superConfigureToolbars(self: KXmlGuiWindow) void {
         qtc.KXmlGuiWindow_SuperConfigureToolbars(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `slotStateChanged` instead
+    ///
+    pub const SlotStateChanged = slotStateChanged;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#slotStateChanged)
     ///
@@ -575,13 +699,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` newstate: []const u8 `
     ///
-    pub fn SlotStateChanged(self: KXmlGuiWindow, newstate: []const u8) void {
+    pub fn slotStateChanged(self: KXmlGuiWindow, newstate: []const u8) void {
         const newstate_str = qtc.libqt_string{
             .len = newstate.len,
             .data = newstate.ptr,
         };
         qtc.KXmlGuiWindow_SlotStateChanged(@ptrCast(self.ptr), newstate_str);
     }
+
+    /// ### DEPRECATED: Use `onSlotStateChanged` instead
+    ///
+    pub const OnSlotStateChanged = onSlotStateChanged;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#slotStateChanged)
     ///
@@ -593,13 +721,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, newstate: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSlotStateChanged(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, [*:0]const u8) callconv(.c) void) void {
+    pub fn onSlotStateChanged(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, [*:0]const u8) callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnSlotStateChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSlotStateChanged` instead
+    /// ### DEPRECATED: Use `superSlotStateChanged` instead
     ///
-    pub const QBaseSlotStateChanged = SuperSlotStateChanged;
+    pub const SuperSlotStateChanged = superSlotStateChanged;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#slotStateChanged)
     ///
@@ -611,13 +739,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` newstate: []const u8 `
     ///
-    pub fn SuperSlotStateChanged(self: KXmlGuiWindow, newstate: []const u8) void {
+    pub fn superSlotStateChanged(self: KXmlGuiWindow, newstate: []const u8) void {
         const newstate_str = qtc.libqt_string{
             .len = newstate.len,
             .data = newstate.ptr,
         };
         qtc.KXmlGuiWindow_SuperSlotStateChanged(@ptrCast(self.ptr), newstate_str);
     }
+
+    /// ### DEPRECATED: Use `slotStateChanged2` instead
+    ///
+    pub const SlotStateChanged2 = slotStateChanged2;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#slotStateChanged)
     ///
@@ -629,13 +761,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` reverse: bool `
     ///
-    pub fn SlotStateChanged2(self: KXmlGuiWindow, newstate: []const u8, reverse: bool) void {
+    pub fn slotStateChanged2(self: KXmlGuiWindow, newstate: []const u8, reverse: bool) void {
         const newstate_str = qtc.libqt_string{
             .len = newstate.len,
             .data = newstate.ptr,
         };
         qtc.KXmlGuiWindow_SlotStateChanged2(@ptrCast(self.ptr), newstate_str, reverse);
     }
+
+    /// ### DEPRECATED: Use `isToolBarVisible` instead
+    ///
+    pub const IsToolBarVisible = isToolBarVisible;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#isToolBarVisible)
     ///
@@ -645,13 +781,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn IsToolBarVisible(self: KXmlGuiWindow, name: []const u8) bool {
+    pub fn isToolBarVisible(self: KXmlGuiWindow, name: []const u8) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         return qtc.KXmlGuiWindow_IsToolBarVisible(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `setToolBarVisible` instead
+    ///
+    pub const SetToolBarVisible = setToolBarVisible;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#setToolBarVisible)
     ///
@@ -663,7 +803,7 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetToolBarVisible(self: KXmlGuiWindow, name: []const u8, visible: bool) void {
+    pub fn setToolBarVisible(self: KXmlGuiWindow, name: []const u8, visible: bool) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -671,18 +811,26 @@ pub const KXmlGuiWindow = extern struct {
         qtc.KXmlGuiWindow_SetToolBarVisible(@ptrCast(self.ptr), name_str, visible);
     }
 
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
+
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#event)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: KXmlGuiWindow, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KXmlGuiWindow_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: KXmlGuiWindow, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KXmlGuiWindow_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#event)
     ///
@@ -694,13 +842,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QEvent) callconv(.c) bool) void {
         qtc.KXmlGuiWindow_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#event)
     ///
@@ -710,12 +858,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: KXmlGuiWindow, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KXmlGuiWindow_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: KXmlGuiWindow, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KXmlGuiWindow_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `checkAmbiguousShortcuts` instead
+    ///
+    pub const CheckAmbiguousShortcuts = checkAmbiguousShortcuts;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#checkAmbiguousShortcuts)
     ///
@@ -723,10 +875,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn CheckAmbiguousShortcuts(self: KXmlGuiWindow) void {
+    pub fn checkAmbiguousShortcuts(self: KXmlGuiWindow) void {
         qtc.KXmlGuiWindow_CheckAmbiguousShortcuts(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCheckAmbiguousShortcuts` instead
+    ///
+    pub const OnCheckAmbiguousShortcuts = onCheckAmbiguousShortcuts;
+
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#checkAmbiguousShortcuts)
     ///
     /// Allows for overriding the related default method
@@ -737,13 +893,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCheckAmbiguousShortcuts(self: KXmlGuiWindow, callback: *const fn () callconv(.c) void) void {
+    pub fn onCheckAmbiguousShortcuts(self: KXmlGuiWindow, callback: *const fn () callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnCheckAmbiguousShortcuts(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperCheckAmbiguousShortcuts` instead
+    /// ### DEPRECATED: Use `superCheckAmbiguousShortcuts` instead
     ///
-    pub const QBaseCheckAmbiguousShortcuts = SuperCheckAmbiguousShortcuts;
+    pub const SuperCheckAmbiguousShortcuts = superCheckAmbiguousShortcuts;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#checkAmbiguousShortcuts)
     ///
@@ -753,9 +909,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn SuperCheckAmbiguousShortcuts(self: KXmlGuiWindow) void {
+    pub fn superCheckAmbiguousShortcuts(self: KXmlGuiWindow) void {
         qtc.KXmlGuiWindow_SuperCheckAmbiguousShortcuts(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveNewToolbarConfig` instead
+    ///
+    pub const SaveNewToolbarConfig = saveNewToolbarConfig;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#saveNewToolbarConfig)
     ///
@@ -763,9 +923,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn SaveNewToolbarConfig(self: KXmlGuiWindow) void {
+    pub fn saveNewToolbarConfig(self: KXmlGuiWindow) void {
         qtc.KXmlGuiWindow_SaveNewToolbarConfig(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSaveNewToolbarConfig` instead
+    ///
+    pub const OnSaveNewToolbarConfig = onSaveNewToolbarConfig;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#saveNewToolbarConfig)
     ///
@@ -777,13 +941,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnSaveNewToolbarConfig(self: KXmlGuiWindow, callback: *const fn () callconv(.c) void) void {
+    pub fn onSaveNewToolbarConfig(self: KXmlGuiWindow, callback: *const fn () callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnSaveNewToolbarConfig(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSaveNewToolbarConfig` instead
+    /// ### DEPRECATED: Use `superSaveNewToolbarConfig` instead
     ///
-    pub const QBaseSaveNewToolbarConfig = SuperSaveNewToolbarConfig;
+    pub const SuperSaveNewToolbarConfig = superSaveNewToolbarConfig;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#saveNewToolbarConfig)
     ///
@@ -793,9 +957,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn SuperSaveNewToolbarConfig(self: KXmlGuiWindow) void {
+    pub fn superSaveNewToolbarConfig(self: KXmlGuiWindow) void {
         qtc.KXmlGuiWindow_SuperSaveNewToolbarConfig(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -807,15 +975,19 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -829,15 +1001,19 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setHelpMenuEnabled1` instead
+    ///
+    pub const SetHelpMenuEnabled1 = setHelpMenuEnabled1;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#setHelpMenuEnabled)
     ///
@@ -847,9 +1023,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` showHelpMenu: bool `
     ///
-    pub fn SetHelpMenuEnabled1(self: KXmlGuiWindow, showHelpMenu: bool) void {
+    pub fn setHelpMenuEnabled1(self: KXmlGuiWindow, showHelpMenu: bool) void {
         qtc.KXmlGuiWindow_SetHelpMenuEnabled1(@ptrCast(self.ptr), showHelpMenu);
     }
+
+    /// ### DEPRECATED: Use `createGUI1` instead
+    ///
+    pub const CreateGUI1 = createGUI1;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#createGUI)
     ///
@@ -859,7 +1039,7 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` xmlfile: []const u8 `
     ///
-    pub fn CreateGUI1(self: KXmlGuiWindow, xmlfile: []const u8) void {
+    pub fn createGUI1(self: KXmlGuiWindow, xmlfile: []const u8) void {
         const xmlfile_str = qtc.libqt_string{
             .len = xmlfile.len,
             .data = xmlfile.ptr,
@@ -867,6 +1047,10 @@ pub const KXmlGuiWindow = extern struct {
         qtc.KXmlGuiWindow_CreateGUI1(@ptrCast(self.ptr), xmlfile_str);
     }
 
+    /// ### DEPRECATED: Use `setupGUI1` instead
+    ///
+    pub const SetupGUI1 = setupGUI1;
+
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#setupGUI)
     ///
     /// ## Parameter(s):
@@ -875,9 +1059,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` options: flag of kxmlguiwindow_enums.StandardWindowOption `
     ///
-    pub fn SetupGUI1(self: KXmlGuiWindow, options: i32) void {
+    pub fn setupGUI1(self: KXmlGuiWindow, options: i32) void {
         qtc.KXmlGuiWindow_SetupGUI1(@ptrCast(self.ptr), @bitCast(options));
     }
+
+    /// ### DEPRECATED: Use `setupGUI22` instead
+    ///
+    pub const SetupGUI22 = setupGUI22;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#setupGUI)
     ///
@@ -889,7 +1077,7 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` xmlfile: []const u8 `
     ///
-    pub fn SetupGUI22(self: KXmlGuiWindow, options: i32, xmlfile: []const u8) void {
+    pub fn setupGUI22(self: KXmlGuiWindow, options: i32, xmlfile: []const u8) void {
         const xmlfile_str = qtc.libqt_string{
             .len = xmlfile.len,
             .data = xmlfile.ptr,
@@ -897,6 +1085,10 @@ pub const KXmlGuiWindow = extern struct {
         qtc.KXmlGuiWindow_SetupGUI22(@ptrCast(self.ptr), @bitCast(options), xmlfile_str);
     }
 
+    /// ### DEPRECATED: Use `setupGUI23` instead
+    ///
+    pub const SetupGUI23 = setupGUI23;
+
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#setupGUI)
     ///
     /// ## Parameter(s):
@@ -907,10 +1099,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` options: flag of kxmlguiwindow_enums.StandardWindowOption `
     ///
-    pub fn SetupGUI23(self: KXmlGuiWindow, defaultSize: anytype, options: i32) void {
+    pub fn setupGUI23(self: KXmlGuiWindow, defaultSize: anytype, options: i32) void {
         comptime _ = @TypeOf(defaultSize)._is_QSize;
         qtc.KXmlGuiWindow_SetupGUI23(@ptrCast(self.ptr), @ptrCast(defaultSize.ptr), @bitCast(options));
     }
+
+    /// ### DEPRECATED: Use `setupGUI3` instead
+    ///
+    pub const SetupGUI3 = setupGUI3;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#setupGUI)
     ///
@@ -924,7 +1120,7 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` xmlfile: []const u8 `
     ///
-    pub fn SetupGUI3(self: KXmlGuiWindow, defaultSize: anytype, options: i32, xmlfile: []const u8) void {
+    pub fn setupGUI3(self: KXmlGuiWindow, defaultSize: anytype, options: i32, xmlfile: []const u8) void {
         comptime _ = @TypeOf(defaultSize)._is_QSize;
         const xmlfile_str = qtc.libqt_string{
             .len = xmlfile.len,
@@ -932,6 +1128,10 @@ pub const KXmlGuiWindow = extern struct {
         };
         qtc.KXmlGuiWindow_SetupGUI3(@ptrCast(self.ptr), @ptrCast(defaultSize.ptr), @bitCast(options), xmlfile_str);
     }
+
+    /// ### DEPRECATED: Use `canBeRestored` instead
+    ///
+    pub const CanBeRestored = canBeRestored;
 
     /// Inherited from KMainWindow
     ///
@@ -941,9 +1141,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` numberOfInstances: i32 `
     ///
-    pub fn CanBeRestored(numberOfInstances: i32) bool {
+    pub fn canBeRestored(numberOfInstances: i32) bool {
         return qtc.KMainWindow_CanBeRestored(@bitCast(numberOfInstances));
     }
+
+    /// ### DEPRECATED: Use `classNameOfToplevel` instead
+    ///
+    pub const ClassNameOfToplevel = classNameOfToplevel;
 
     /// Inherited from KMainWindow
     ///
@@ -955,13 +1159,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` instanceNumber: i32 `
     ///
-    pub fn ClassNameOfToplevel(allocator: std.mem.Allocator, instanceNumber: i32) []const u8 {
+    pub fn classNameOfToplevel(allocator: std.mem.Allocator, instanceNumber: i32) []const u8 {
         var _str = qtc.KMainWindow_ClassNameOfToplevel(@bitCast(instanceNumber));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.ClassNameOfToplevel: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.classNameOfToplevel: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restore` instead
+    ///
+    pub const Restore = restore;
 
     /// Inherited from KMainWindow
     ///
@@ -973,9 +1181,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` numberOfInstances: i32 `
     ///
-    pub fn Restore(self: KXmlGuiWindow, numberOfInstances: i32) bool {
+    pub fn restore(self: KXmlGuiWindow, numberOfInstances: i32) bool {
         return qtc.KMainWindow_Restore(@ptrCast(self.ptr), @bitCast(numberOfInstances));
     }
+
+    /// ### DEPRECATED: Use `hasMenuBar` instead
+    ///
+    pub const HasMenuBar = hasMenuBar;
 
     /// Inherited from KMainWindow
     ///
@@ -985,9 +1197,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn HasMenuBar(self: KXmlGuiWindow) bool {
+    pub fn hasMenuBar(self: KXmlGuiWindow) bool {
         return qtc.KMainWindow_HasMenuBar(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `memberList` instead
+    ///
+    pub const MemberList = memberList;
 
     /// Inherited from KMainWindow
     ///
@@ -997,15 +1213,19 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MemberList(allocator: std.mem.Allocator) []KMainWindow {
+    pub fn memberList(allocator: std.mem.Allocator) []KMainWindow {
         const _arr: qtc.libqt_list = qtc.KMainWindow_MemberList();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KMainWindow, _arr.len) catch @panic("KXmlGuiWindow.MemberList: Memory allocation failed");
-        const _data: [*]QtC.KMainWindow = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(KMainWindow, _arr.len) catch @panic("KXmlGuiWindow.memberList: Memory allocation failed");
+        const _data_val: [*]QtC.KMainWindow = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `toolBar` instead
+    ///
+    pub const ToolBar = toolBar;
 
     /// Inherited from KMainWindow
     ///
@@ -1015,9 +1235,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn ToolBar(self: KXmlGuiWindow) KToolBar {
+    pub fn toolBar(self: KXmlGuiWindow) KToolBar {
         return .{ .ptr = qtc.KMainWindow_ToolBar(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toolBars` instead
+    ///
+    pub const ToolBars = toolBars;
 
     /// Inherited from KMainWindow
     ///
@@ -1029,15 +1253,19 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolBars(self: KXmlGuiWindow, allocator: std.mem.Allocator) []KToolBar {
+    pub fn toolBars(self: KXmlGuiWindow, allocator: std.mem.Allocator) []KToolBar {
         const _arr: qtc.libqt_list = qtc.KMainWindow_ToolBars(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KToolBar, _arr.len) catch @panic("KXmlGuiWindow.ToolBars: Memory allocation failed");
-        const _data: [*]QtC.KToolBar = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(KToolBar, _arr.len) catch @panic("KXmlGuiWindow.toolBars: Memory allocation failed");
+        const _data_val: [*]QtC.KToolBar = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAutoSaveSettings` instead
+    ///
+    pub const SetAutoSaveSettings = setAutoSaveSettings;
 
     /// Inherited from KMainWindow
     ///
@@ -1047,9 +1275,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn SetAutoSaveSettings(self: KXmlGuiWindow) void {
+    pub fn setAutoSaveSettings(self: KXmlGuiWindow) void {
         qtc.KMainWindow_SetAutoSaveSettings(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoSaveSettings2` instead
+    ///
+    pub const SetAutoSaveSettings2 = setAutoSaveSettings2;
 
     /// Inherited from KMainWindow
     ///
@@ -1061,10 +1293,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` group: KConfigGroup `
     ///
-    pub fn SetAutoSaveSettings2(self: KXmlGuiWindow, group: anytype) void {
+    pub fn setAutoSaveSettings2(self: KXmlGuiWindow, group: anytype) void {
         comptime _ = @TypeOf(group)._is_KConfigGroup;
         qtc.KMainWindow_SetAutoSaveSettings2(@ptrCast(self.ptr), @ptrCast(group.ptr));
     }
+
+    /// ### DEPRECATED: Use `resetAutoSaveSettings` instead
+    ///
+    pub const ResetAutoSaveSettings = resetAutoSaveSettings;
 
     /// Inherited from KMainWindow
     ///
@@ -1074,9 +1310,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn ResetAutoSaveSettings(self: KXmlGuiWindow) void {
+    pub fn resetAutoSaveSettings(self: KXmlGuiWindow) void {
         qtc.KMainWindow_ResetAutoSaveSettings(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoSaveSettings` instead
+    ///
+    pub const AutoSaveSettings = autoSaveSettings;
 
     /// Inherited from KMainWindow
     ///
@@ -1086,9 +1326,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn AutoSaveSettings(self: KXmlGuiWindow) bool {
+    pub fn autoSaveSettings(self: KXmlGuiWindow) bool {
         return qtc.KMainWindow_AutoSaveSettings(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoSaveGroup` instead
+    ///
+    pub const AutoSaveGroup = autoSaveGroup;
 
     /// Inherited from KMainWindow
     ///
@@ -1100,13 +1344,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AutoSaveGroup(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
+    pub fn autoSaveGroup(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KMainWindow_AutoSaveGroup(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.AutoSaveGroup: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.autoSaveGroup: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `autoSaveConfigGroup` instead
+    ///
+    pub const AutoSaveConfigGroup = autoSaveConfigGroup;
 
     /// Inherited from KMainWindow
     ///
@@ -1116,9 +1364,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn AutoSaveConfigGroup(self: KXmlGuiWindow) KConfigGroup {
+    pub fn autoSaveConfigGroup(self: KXmlGuiWindow) KConfigGroup {
         return .{ .ptr = qtc.KMainWindow_AutoSaveConfigGroup(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStateConfigGroup` instead
+    ///
+    pub const SetStateConfigGroup = setStateConfigGroup;
 
     /// Inherited from KMainWindow
     ///
@@ -1130,13 +1382,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` configGroup: []const u8 `
     ///
-    pub fn SetStateConfigGroup(self: KXmlGuiWindow, configGroup: []const u8) void {
+    pub fn setStateConfigGroup(self: KXmlGuiWindow, configGroup: []const u8) void {
         const configGroup_str = qtc.libqt_string{
             .len = configGroup.len,
             .data = configGroup.ptr,
         };
         qtc.KMainWindow_SetStateConfigGroup(@ptrCast(self.ptr), configGroup_str);
     }
+
+    /// ### DEPRECATED: Use `stateConfigGroup` instead
+    ///
+    pub const StateConfigGroup = stateConfigGroup;
 
     /// Inherited from KMainWindow
     ///
@@ -1146,9 +1402,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn StateConfigGroup(self: KXmlGuiWindow) KConfigGroup {
+    pub fn stateConfigGroup(self: KXmlGuiWindow) KConfigGroup {
         return .{ .ptr = qtc.KMainWindow_StateConfigGroup(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `saveMainWindowSettings` instead
+    ///
+    pub const SaveMainWindowSettings = saveMainWindowSettings;
 
     /// Inherited from KMainWindow
     ///
@@ -1160,10 +1420,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` config: KConfigGroup `
     ///
-    pub fn SaveMainWindowSettings(self: KXmlGuiWindow, config: anytype) void {
+    pub fn saveMainWindowSettings(self: KXmlGuiWindow, config: anytype) void {
         comptime _ = @TypeOf(config)._is_KConfigGroup;
         qtc.KMainWindow_SaveMainWindowSettings(@ptrCast(self.ptr), @ptrCast(config.ptr));
     }
+
+    /// ### DEPRECATED: Use `dbusName` instead
+    ///
+    pub const DbusName = dbusName;
 
     /// Inherited from KMainWindow
     ///
@@ -1175,13 +1439,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DbusName(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
+    pub fn dbusName(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KMainWindow_DbusName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.DbusName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.dbusName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setCaption2` instead
+    ///
+    pub const SetCaption2 = setCaption2;
 
     /// Inherited from KMainWindow
     ///
@@ -1195,13 +1463,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` modified: bool `
     ///
-    pub fn SetCaption2(self: KXmlGuiWindow, caption: []const u8, modified: bool) void {
+    pub fn setCaption2(self: KXmlGuiWindow, caption: []const u8, modified: bool) void {
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
         qtc.KMainWindow_SetCaption2(@ptrCast(self.ptr), caption_str, modified);
     }
+
+    /// ### DEPRECATED: Use `onSetCaption2` instead
+    ///
+    pub const OnSetCaption2 = onSetCaption2;
 
     /// Inherited from KMainWindow
     ///
@@ -1215,13 +1487,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, caption: [*:0]const u8, modified: bool) callconv(.c) void `
     ///
-    pub fn OnSetCaption2(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, [*:0]const u8, bool) callconv(.c) void) void {
+    pub fn onSetCaption2(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, [*:0]const u8, bool) callconv(.c) void) void {
         qtc.KMainWindow_OnSetCaption2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetCaption2` instead
+    /// ### DEPRECATED: Use `superSetCaption2` instead
     ///
-    pub const QBaseSetCaption2 = SuperSetCaption2;
+    pub const SuperSetCaption2 = superSetCaption2;
 
     /// Inherited from KMainWindow
     ///
@@ -1237,13 +1509,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` modified: bool `
     ///
-    pub fn SuperSetCaption2(self: KXmlGuiWindow, caption: []const u8, modified: bool) void {
+    pub fn superSetCaption2(self: KXmlGuiWindow, caption: []const u8, modified: bool) void {
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
         qtc.KMainWindow_SuperSetCaption2(@ptrCast(self.ptr), caption_str, modified);
     }
+
+    /// ### DEPRECATED: Use `appHelpActivated` instead
+    ///
+    pub const AppHelpActivated = appHelpActivated;
 
     /// Inherited from KMainWindow
     ///
@@ -1253,9 +1529,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn AppHelpActivated(self: KXmlGuiWindow) void {
+    pub fn appHelpActivated(self: KXmlGuiWindow) void {
         qtc.KMainWindow_AppHelpActivated(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSettingsDirty` instead
+    ///
+    pub const SetSettingsDirty = setSettingsDirty;
 
     /// Inherited from KMainWindow
     ///
@@ -1265,9 +1545,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn SetSettingsDirty(self: KXmlGuiWindow) void {
+    pub fn setSettingsDirty(self: KXmlGuiWindow) void {
         qtc.KMainWindow_SetSettingsDirty(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `restore2` instead
+    ///
+    pub const Restore2 = restore2;
 
     /// Inherited from KMainWindow
     ///
@@ -1279,11 +1563,15 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` numberOfInstances: i32 `
     ///
-    /// ` show: bool `
+    /// ` _show: bool `
     ///
-    pub fn Restore2(self: KXmlGuiWindow, numberOfInstances: i32, show: bool) bool {
-        return qtc.KMainWindow_Restore2(@ptrCast(self.ptr), @bitCast(numberOfInstances), show);
+    pub fn restore2(self: KXmlGuiWindow, numberOfInstances: i32, _show: bool) bool {
+        return qtc.KMainWindow_Restore2(@ptrCast(self.ptr), @bitCast(numberOfInstances), _show);
     }
+
+    /// ### DEPRECATED: Use `toolBar1` instead
+    ///
+    pub const ToolBar1 = toolBar1;
 
     /// Inherited from KMainWindow
     ///
@@ -1295,13 +1583,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn ToolBar1(self: KXmlGuiWindow, name: []const u8) KToolBar {
+    pub fn toolBar1(self: KXmlGuiWindow, name: []const u8) KToolBar {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         return .{ .ptr = qtc.KMainWindow_ToolBar1(@ptrCast(self.ptr), name_str) };
     }
+
+    /// ### DEPRECATED: Use `setAutoSaveSettings1` instead
+    ///
+    pub const SetAutoSaveSettings1 = setAutoSaveSettings1;
 
     /// Inherited from KMainWindow
     ///
@@ -1313,13 +1605,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` groupName: []const u8 `
     ///
-    pub fn SetAutoSaveSettings1(self: KXmlGuiWindow, groupName: []const u8) void {
+    pub fn setAutoSaveSettings1(self: KXmlGuiWindow, groupName: []const u8) void {
         const groupName_str = qtc.libqt_string{
             .len = groupName.len,
             .data = groupName.ptr,
         };
         qtc.KMainWindow_SetAutoSaveSettings1(@ptrCast(self.ptr), groupName_str);
     }
+
+    /// ### DEPRECATED: Use `setAutoSaveSettings22` instead
+    ///
+    pub const SetAutoSaveSettings22 = setAutoSaveSettings22;
 
     /// Inherited from KMainWindow
     ///
@@ -1333,13 +1629,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` saveWindowSize: bool `
     ///
-    pub fn SetAutoSaveSettings22(self: KXmlGuiWindow, groupName: []const u8, saveWindowSize: bool) void {
+    pub fn setAutoSaveSettings22(self: KXmlGuiWindow, groupName: []const u8, saveWindowSize: bool) void {
         const groupName_str = qtc.libqt_string{
             .len = groupName.len,
             .data = groupName.ptr,
         };
         qtc.KMainWindow_SetAutoSaveSettings22(@ptrCast(self.ptr), groupName_str, saveWindowSize);
     }
+
+    /// ### DEPRECATED: Use `setAutoSaveSettings23` instead
+    ///
+    pub const SetAutoSaveSettings23 = setAutoSaveSettings23;
 
     /// Inherited from KMainWindow
     ///
@@ -1353,10 +1653,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` saveWindowSize: bool `
     ///
-    pub fn SetAutoSaveSettings23(self: KXmlGuiWindow, group: anytype, saveWindowSize: bool) void {
+    pub fn setAutoSaveSettings23(self: KXmlGuiWindow, group: anytype, saveWindowSize: bool) void {
         comptime _ = @TypeOf(group)._is_KConfigGroup;
         qtc.KMainWindow_SetAutoSaveSettings23(@ptrCast(self.ptr), @ptrCast(group.ptr), saveWindowSize);
     }
+
+    /// ### DEPRECATED: Use `iconSize` instead
+    ///
+    pub const IconSize = iconSize;
 
     /// Inherited from QMainWindow
     ///
@@ -1366,9 +1670,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn IconSize(self: KXmlGuiWindow) QSize {
+    pub fn iconSize(self: KXmlGuiWindow) QSize {
         return .{ .ptr = qtc.QMainWindow_IconSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setIconSize` instead
+    ///
+    pub const SetIconSize = setIconSize;
 
     /// Inherited from QMainWindow
     ///
@@ -1378,12 +1686,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` iconSize: QSize `
+    /// ` _iconSize: QSize `
     ///
-    pub fn SetIconSize(self: KXmlGuiWindow, iconSize: anytype) void {
-        comptime _ = @TypeOf(iconSize)._is_QSize;
-        qtc.QMainWindow_SetIconSize(@ptrCast(self.ptr), @ptrCast(iconSize.ptr));
+    pub fn setIconSize(self: KXmlGuiWindow, _iconSize: anytype) void {
+        comptime _ = @TypeOf(_iconSize)._is_QSize;
+        qtc.QMainWindow_SetIconSize(@ptrCast(self.ptr), @ptrCast(_iconSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `toolButtonStyle` instead
+    ///
+    pub const ToolButtonStyle = toolButtonStyle;
 
     /// Inherited from QMainWindow
     ///
@@ -1397,9 +1709,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` qnamespace_enums.ToolButtonStyle `
     ///
-    pub fn ToolButtonStyle(self: KXmlGuiWindow) i32 {
+    pub fn toolButtonStyle(self: KXmlGuiWindow) i32 {
         return qtc.QMainWindow_ToolButtonStyle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolButtonStyle` instead
+    ///
+    pub const SetToolButtonStyle = setToolButtonStyle;
 
     /// Inherited from QMainWindow
     ///
@@ -1409,11 +1725,15 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` toolButtonStyle: qnamespace_enums.ToolButtonStyle `
+    /// ` _toolButtonStyle: qnamespace_enums.ToolButtonStyle `
     ///
-    pub fn SetToolButtonStyle(self: KXmlGuiWindow, toolButtonStyle: i32) void {
-        qtc.QMainWindow_SetToolButtonStyle(@ptrCast(self.ptr), @bitCast(toolButtonStyle));
+    pub fn setToolButtonStyle(self: KXmlGuiWindow, _toolButtonStyle: i32) void {
+        qtc.QMainWindow_SetToolButtonStyle(@ptrCast(self.ptr), @bitCast(_toolButtonStyle));
     }
+
+    /// ### DEPRECATED: Use `isAnimated` instead
+    ///
+    pub const IsAnimated = isAnimated;
 
     /// Inherited from QMainWindow
     ///
@@ -1423,9 +1743,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn IsAnimated(self: KXmlGuiWindow) bool {
+    pub fn isAnimated(self: KXmlGuiWindow) bool {
         return qtc.QMainWindow_IsAnimated(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDockNestingEnabled` instead
+    ///
+    pub const IsDockNestingEnabled = isDockNestingEnabled;
 
     /// Inherited from QMainWindow
     ///
@@ -1435,9 +1759,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn IsDockNestingEnabled(self: KXmlGuiWindow) bool {
+    pub fn isDockNestingEnabled(self: KXmlGuiWindow) bool {
         return qtc.QMainWindow_IsDockNestingEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `documentMode` instead
+    ///
+    pub const DocumentMode = documentMode;
 
     /// Inherited from QMainWindow
     ///
@@ -1447,9 +1775,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn DocumentMode(self: KXmlGuiWindow) bool {
+    pub fn documentMode(self: KXmlGuiWindow) bool {
         return qtc.QMainWindow_DocumentMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDocumentMode` instead
+    ///
+    pub const SetDocumentMode = setDocumentMode;
 
     /// Inherited from QMainWindow
     ///
@@ -1461,9 +1793,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetDocumentMode(self: KXmlGuiWindow, enabled: bool) void {
+    pub fn setDocumentMode(self: KXmlGuiWindow, enabled: bool) void {
         qtc.QMainWindow_SetDocumentMode(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `tabShape` instead
+    ///
+    pub const TabShape = tabShape;
 
     /// Inherited from QMainWindow
     ///
@@ -1477,9 +1813,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` qtabwidget_enums.TabShape `
     ///
-    pub fn TabShape(self: KXmlGuiWindow) i32 {
+    pub fn tabShape(self: KXmlGuiWindow) i32 {
         return qtc.QMainWindow_TabShape(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabShape` instead
+    ///
+    pub const SetTabShape = setTabShape;
 
     /// Inherited from QMainWindow
     ///
@@ -1489,11 +1829,15 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` tabShape: qtabwidget_enums.TabShape `
+    /// ` _tabShape: qtabwidget_enums.TabShape `
     ///
-    pub fn SetTabShape(self: KXmlGuiWindow, tabShape: i32) void {
-        qtc.QMainWindow_SetTabShape(@ptrCast(self.ptr), @bitCast(tabShape));
+    pub fn setTabShape(self: KXmlGuiWindow, _tabShape: i32) void {
+        qtc.QMainWindow_SetTabShape(@ptrCast(self.ptr), @bitCast(_tabShape));
     }
+
+    /// ### DEPRECATED: Use `tabPosition` instead
+    ///
+    pub const TabPosition = tabPosition;
 
     /// Inherited from QMainWindow
     ///
@@ -1509,9 +1853,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` qtabwidget_enums.TabPosition `
     ///
-    pub fn TabPosition(self: KXmlGuiWindow, area: i32) i32 {
+    pub fn tabPosition(self: KXmlGuiWindow, area: i32) i32 {
         return qtc.QMainWindow_TabPosition(@ptrCast(self.ptr), @bitCast(area));
     }
+
+    /// ### DEPRECATED: Use `setTabPosition` instead
+    ///
+    pub const SetTabPosition = setTabPosition;
 
     /// Inherited from QMainWindow
     ///
@@ -1523,11 +1871,15 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` areas: flag of qnamespace_enums.DockWidgetArea `
     ///
-    /// ` tabPosition: qtabwidget_enums.TabPosition `
+    /// ` _tabPosition: qtabwidget_enums.TabPosition `
     ///
-    pub fn SetTabPosition(self: KXmlGuiWindow, areas: i32, tabPosition: i32) void {
-        qtc.QMainWindow_SetTabPosition(@ptrCast(self.ptr), @bitCast(areas), @bitCast(tabPosition));
+    pub fn setTabPosition(self: KXmlGuiWindow, areas: i32, _tabPosition: i32) void {
+        qtc.QMainWindow_SetTabPosition(@ptrCast(self.ptr), @bitCast(areas), @bitCast(_tabPosition));
     }
+
+    /// ### DEPRECATED: Use `setDockOptions` instead
+    ///
+    pub const SetDockOptions = setDockOptions;
 
     /// Inherited from QMainWindow
     ///
@@ -1539,9 +1891,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` options: flag of qmainwindow_enums.DockOption `
     ///
-    pub fn SetDockOptions(self: KXmlGuiWindow, options: i32) void {
+    pub fn setDockOptions(self: KXmlGuiWindow, options: i32) void {
         qtc.QMainWindow_SetDockOptions(@ptrCast(self.ptr), @bitCast(options));
     }
+
+    /// ### DEPRECATED: Use `dockOptions` instead
+    ///
+    pub const DockOptions = dockOptions;
 
     /// Inherited from QMainWindow
     ///
@@ -1555,9 +1911,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` flag of qmainwindow_enums.DockOption `
     ///
-    pub fn DockOptions(self: KXmlGuiWindow) i32 {
+    pub fn dockOptions(self: KXmlGuiWindow) i32 {
         return qtc.QMainWindow_DockOptions(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isSeparator` instead
+    ///
+    pub const IsSeparator = isSeparator;
 
     /// Inherited from QMainWindow
     ///
@@ -1567,12 +1927,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn IsSeparator(self: KXmlGuiWindow, pos: anytype) bool {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        return qtc.QMainWindow_IsSeparator(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn isSeparator(self: KXmlGuiWindow, _pos: anytype) bool {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        return qtc.QMainWindow_IsSeparator(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `menuBar` instead
+    ///
+    pub const MenuBar = menuBar;
 
     /// Inherited from QMainWindow
     ///
@@ -1582,9 +1946,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn MenuBar(self: KXmlGuiWindow) QMenuBar {
+    pub fn menuBar(self: KXmlGuiWindow) QMenuBar {
         return .{ .ptr = qtc.QMainWindow_MenuBar(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setMenuBar` instead
+    ///
+    pub const SetMenuBar = setMenuBar;
 
     /// Inherited from QMainWindow
     ///
@@ -1596,10 +1964,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` menubar: QMenuBar `
     ///
-    pub fn SetMenuBar(self: KXmlGuiWindow, menubar: anytype) void {
+    pub fn setMenuBar(self: KXmlGuiWindow, menubar: anytype) void {
         comptime _ = @TypeOf(menubar)._is_QMenuBar;
         qtc.QMainWindow_SetMenuBar(@ptrCast(self.ptr), @ptrCast(menubar.ptr));
     }
+
+    /// ### DEPRECATED: Use `menuWidget` instead
+    ///
+    pub const MenuWidget = menuWidget;
 
     /// Inherited from QMainWindow
     ///
@@ -1609,9 +1981,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn MenuWidget(self: KXmlGuiWindow) QWidget {
+    pub fn menuWidget(self: KXmlGuiWindow) QWidget {
         return .{ .ptr = qtc.QMainWindow_MenuWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setMenuWidget` instead
+    ///
+    pub const SetMenuWidget = setMenuWidget;
 
     /// Inherited from QMainWindow
     ///
@@ -1623,10 +1999,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` menubar: QWidget `
     ///
-    pub fn SetMenuWidget(self: KXmlGuiWindow, menubar: anytype) void {
+    pub fn setMenuWidget(self: KXmlGuiWindow, menubar: anytype) void {
         comptime _ = @TypeOf(menubar)._is_QWidget;
         qtc.QMainWindow_SetMenuWidget(@ptrCast(self.ptr), @ptrCast(menubar.ptr));
     }
+
+    /// ### DEPRECATED: Use `statusBar` instead
+    ///
+    pub const StatusBar = statusBar;
 
     /// Inherited from QMainWindow
     ///
@@ -1636,9 +2016,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn StatusBar(self: KXmlGuiWindow) QStatusBar {
+    pub fn statusBar(self: KXmlGuiWindow) QStatusBar {
         return .{ .ptr = qtc.QMainWindow_StatusBar(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStatusBar` instead
+    ///
+    pub const SetStatusBar = setStatusBar;
 
     /// Inherited from QMainWindow
     ///
@@ -1650,10 +2034,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` statusbar: QStatusBar `
     ///
-    pub fn SetStatusBar(self: KXmlGuiWindow, statusbar: anytype) void {
+    pub fn setStatusBar(self: KXmlGuiWindow, statusbar: anytype) void {
         comptime _ = @TypeOf(statusbar)._is_QStatusBar;
         qtc.QMainWindow_SetStatusBar(@ptrCast(self.ptr), @ptrCast(statusbar.ptr));
     }
+
+    /// ### DEPRECATED: Use `centralWidget` instead
+    ///
+    pub const CentralWidget = centralWidget;
 
     /// Inherited from QMainWindow
     ///
@@ -1663,9 +2051,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn CentralWidget(self: KXmlGuiWindow) QWidget {
+    pub fn centralWidget(self: KXmlGuiWindow) QWidget {
         return .{ .ptr = qtc.QMainWindow_CentralWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCentralWidget` instead
+    ///
+    pub const SetCentralWidget = setCentralWidget;
 
     /// Inherited from QMainWindow
     ///
@@ -1675,12 +2067,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` widget: QWidget `
+    /// ` _widget: QWidget `
     ///
-    pub fn SetCentralWidget(self: KXmlGuiWindow, widget: anytype) void {
-        comptime _ = @TypeOf(widget)._is_QWidget;
-        qtc.QMainWindow_SetCentralWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr));
+    pub fn setCentralWidget(self: KXmlGuiWindow, _widget: anytype) void {
+        comptime _ = @TypeOf(_widget)._is_QWidget;
+        qtc.QMainWindow_SetCentralWidget(@ptrCast(self.ptr), @ptrCast(_widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `takeCentralWidget` instead
+    ///
+    pub const TakeCentralWidget = takeCentralWidget;
 
     /// Inherited from QMainWindow
     ///
@@ -1690,9 +2086,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn TakeCentralWidget(self: KXmlGuiWindow) QWidget {
+    pub fn takeCentralWidget(self: KXmlGuiWindow) QWidget {
         return .{ .ptr = qtc.QMainWindow_TakeCentralWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCorner` instead
+    ///
+    pub const SetCorner = setCorner;
 
     /// Inherited from QMainWindow
     ///
@@ -1702,13 +2102,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` corner: qnamespace_enums.Corner `
+    /// ` _corner: qnamespace_enums.Corner `
     ///
     /// ` area: qnamespace_enums.DockWidgetArea `
     ///
-    pub fn SetCorner(self: KXmlGuiWindow, corner: i32, area: i32) void {
-        qtc.QMainWindow_SetCorner(@ptrCast(self.ptr), @bitCast(corner), @bitCast(area));
+    pub fn setCorner(self: KXmlGuiWindow, _corner: i32, area: i32) void {
+        qtc.QMainWindow_SetCorner(@ptrCast(self.ptr), @bitCast(_corner), @bitCast(area));
     }
+
+    /// ### DEPRECATED: Use `corner` instead
+    ///
+    pub const Corner = corner;
 
     /// Inherited from QMainWindow
     ///
@@ -1718,15 +2122,19 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` corner: qnamespace_enums.Corner `
+    /// ` _corner: qnamespace_enums.Corner `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.DockWidgetArea `
     ///
-    pub fn Corner(self: KXmlGuiWindow, corner: i32) i32 {
-        return qtc.QMainWindow_Corner(@ptrCast(self.ptr), @bitCast(corner));
+    pub fn corner(self: KXmlGuiWindow, _corner: i32) i32 {
+        return qtc.QMainWindow_Corner(@ptrCast(self.ptr), @bitCast(_corner));
     }
+
+    /// ### DEPRECATED: Use `addToolBarBreak` instead
+    ///
+    pub const AddToolBarBreak = addToolBarBreak;
 
     /// Inherited from QMainWindow
     ///
@@ -1736,9 +2144,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn AddToolBarBreak(self: KXmlGuiWindow) void {
+    pub fn addToolBarBreak(self: KXmlGuiWindow) void {
         qtc.QMainWindow_AddToolBarBreak(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertToolBarBreak` instead
+    ///
+    pub const InsertToolBarBreak = insertToolBarBreak;
 
     /// Inherited from QMainWindow
     ///
@@ -1750,10 +2162,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` before: QToolBar `
     ///
-    pub fn InsertToolBarBreak(self: KXmlGuiWindow, before: anytype) void {
+    pub fn insertToolBarBreak(self: KXmlGuiWindow, before: anytype) void {
         comptime _ = @TypeOf(before)._is_QToolBar;
         qtc.QMainWindow_InsertToolBarBreak(@ptrCast(self.ptr), @ptrCast(before.ptr));
     }
+
+    /// ### DEPRECATED: Use `addToolBar` instead
+    ///
+    pub const AddToolBar = addToolBar;
 
     /// Inherited from QMainWindow
     ///
@@ -1767,10 +2183,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` toolbar: QToolBar `
     ///
-    pub fn AddToolBar(self: KXmlGuiWindow, area: i32, toolbar: anytype) void {
+    pub fn addToolBar(self: KXmlGuiWindow, area: i32, toolbar: anytype) void {
         comptime _ = @TypeOf(toolbar)._is_QToolBar;
         qtc.QMainWindow_AddToolBar(@ptrCast(self.ptr), @bitCast(area), @ptrCast(toolbar.ptr));
     }
+
+    /// ### DEPRECATED: Use `addToolBar2` instead
+    ///
+    pub const AddToolBar2 = addToolBar2;
 
     /// Inherited from QMainWindow
     ///
@@ -1782,10 +2202,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` toolbar: QToolBar `
     ///
-    pub fn AddToolBar2(self: KXmlGuiWindow, toolbar: anytype) void {
+    pub fn addToolBar2(self: KXmlGuiWindow, toolbar: anytype) void {
         comptime _ = @TypeOf(toolbar)._is_QToolBar;
         qtc.QMainWindow_AddToolBar2(@ptrCast(self.ptr), @ptrCast(toolbar.ptr));
     }
+
+    /// ### DEPRECATED: Use `addToolBar3` instead
+    ///
+    pub const AddToolBar3 = addToolBar3;
 
     /// Inherited from QMainWindow
     ///
@@ -1797,13 +2221,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn AddToolBar3(self: KXmlGuiWindow, title: []const u8) QToolBar {
+    pub fn addToolBar3(self: KXmlGuiWindow, title: []const u8) QToolBar {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         return .{ .ptr = qtc.QMainWindow_AddToolBar3(@ptrCast(self.ptr), title_str) };
     }
+
+    /// ### DEPRECATED: Use `insertToolBar` instead
+    ///
+    pub const InsertToolBar = insertToolBar;
 
     /// Inherited from QMainWindow
     ///
@@ -1817,11 +2245,15 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` toolbar: QToolBar `
     ///
-    pub fn InsertToolBar(self: KXmlGuiWindow, before: anytype, toolbar: anytype) void {
+    pub fn insertToolBar(self: KXmlGuiWindow, before: anytype, toolbar: anytype) void {
         comptime _ = @TypeOf(before)._is_QToolBar;
         comptime _ = @TypeOf(toolbar)._is_QToolBar;
         qtc.QMainWindow_InsertToolBar(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(toolbar.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeToolBar` instead
+    ///
+    pub const RemoveToolBar = removeToolBar;
 
     /// Inherited from QMainWindow
     ///
@@ -1833,10 +2265,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` toolbar: QToolBar `
     ///
-    pub fn RemoveToolBar(self: KXmlGuiWindow, toolbar: anytype) void {
+    pub fn removeToolBar(self: KXmlGuiWindow, toolbar: anytype) void {
         comptime _ = @TypeOf(toolbar)._is_QToolBar;
         qtc.QMainWindow_RemoveToolBar(@ptrCast(self.ptr), @ptrCast(toolbar.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeToolBarBreak` instead
+    ///
+    pub const RemoveToolBarBreak = removeToolBarBreak;
 
     /// Inherited from QMainWindow
     ///
@@ -1848,10 +2284,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` before: QToolBar `
     ///
-    pub fn RemoveToolBarBreak(self: KXmlGuiWindow, before: anytype) void {
+    pub fn removeToolBarBreak(self: KXmlGuiWindow, before: anytype) void {
         comptime _ = @TypeOf(before)._is_QToolBar;
         qtc.QMainWindow_RemoveToolBarBreak(@ptrCast(self.ptr), @ptrCast(before.ptr));
     }
+
+    /// ### DEPRECATED: Use `unifiedTitleAndToolBarOnMac` instead
+    ///
+    pub const UnifiedTitleAndToolBarOnMac = unifiedTitleAndToolBarOnMac;
 
     /// Inherited from QMainWindow
     ///
@@ -1861,9 +2301,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn UnifiedTitleAndToolBarOnMac(self: KXmlGuiWindow) bool {
+    pub fn unifiedTitleAndToolBarOnMac(self: KXmlGuiWindow) bool {
         return qtc.QMainWindow_UnifiedTitleAndToolBarOnMac(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toolBarArea` instead
+    ///
+    pub const ToolBarArea = toolBarArea;
 
     /// Inherited from QMainWindow
     ///
@@ -1879,10 +2323,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` qnamespace_enums.ToolBarArea `
     ///
-    pub fn ToolBarArea(self: KXmlGuiWindow, toolbar: anytype) i32 {
+    pub fn toolBarArea(self: KXmlGuiWindow, toolbar: anytype) i32 {
         comptime _ = @TypeOf(toolbar)._is_QToolBar;
         return qtc.QMainWindow_ToolBarArea(@ptrCast(self.ptr), @ptrCast(toolbar.ptr));
     }
+
+    /// ### DEPRECATED: Use `toolBarBreak` instead
+    ///
+    pub const ToolBarBreak = toolBarBreak;
 
     /// Inherited from QMainWindow
     ///
@@ -1894,10 +2342,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` toolbar: QToolBar `
     ///
-    pub fn ToolBarBreak(self: KXmlGuiWindow, toolbar: anytype) bool {
+    pub fn toolBarBreak(self: KXmlGuiWindow, toolbar: anytype) bool {
         comptime _ = @TypeOf(toolbar)._is_QToolBar;
         return qtc.QMainWindow_ToolBarBreak(@ptrCast(self.ptr), @ptrCast(toolbar.ptr));
     }
+
+    /// ### DEPRECATED: Use `addDockWidget` instead
+    ///
+    pub const AddDockWidget = addDockWidget;
 
     /// Inherited from QMainWindow
     ///
@@ -1911,10 +2363,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` dockwidget: QDockWidget `
     ///
-    pub fn AddDockWidget(self: KXmlGuiWindow, area: i32, dockwidget: anytype) void {
+    pub fn addDockWidget(self: KXmlGuiWindow, area: i32, dockwidget: anytype) void {
         comptime _ = @TypeOf(dockwidget)._is_QDockWidget;
         qtc.QMainWindow_AddDockWidget(@ptrCast(self.ptr), @bitCast(area), @ptrCast(dockwidget.ptr));
     }
+
+    /// ### DEPRECATED: Use `addDockWidget2` instead
+    ///
+    pub const AddDockWidget2 = addDockWidget2;
 
     /// Inherited from QMainWindow
     ///
@@ -1930,10 +2386,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` orientation: qnamespace_enums.Orientation `
     ///
-    pub fn AddDockWidget2(self: KXmlGuiWindow, area: i32, dockwidget: anytype, orientation: i32) void {
+    pub fn addDockWidget2(self: KXmlGuiWindow, area: i32, dockwidget: anytype, orientation: i32) void {
         comptime _ = @TypeOf(dockwidget)._is_QDockWidget;
         qtc.QMainWindow_AddDockWidget2(@ptrCast(self.ptr), @bitCast(area), @ptrCast(dockwidget.ptr), @bitCast(orientation));
     }
+
+    /// ### DEPRECATED: Use `splitDockWidget` instead
+    ///
+    pub const SplitDockWidget = splitDockWidget;
 
     /// Inherited from QMainWindow
     ///
@@ -1949,11 +2409,15 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` orientation: qnamespace_enums.Orientation `
     ///
-    pub fn SplitDockWidget(self: KXmlGuiWindow, after: anytype, dockwidget: anytype, orientation: i32) void {
+    pub fn splitDockWidget(self: KXmlGuiWindow, after: anytype, dockwidget: anytype, orientation: i32) void {
         comptime _ = @TypeOf(after)._is_QDockWidget;
         comptime _ = @TypeOf(dockwidget)._is_QDockWidget;
         qtc.QMainWindow_SplitDockWidget(@ptrCast(self.ptr), @ptrCast(after.ptr), @ptrCast(dockwidget.ptr), @bitCast(orientation));
     }
+
+    /// ### DEPRECATED: Use `tabifyDockWidget` instead
+    ///
+    pub const TabifyDockWidget = tabifyDockWidget;
 
     /// Inherited from QMainWindow
     ///
@@ -1967,11 +2431,15 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` second: QDockWidget `
     ///
-    pub fn TabifyDockWidget(self: KXmlGuiWindow, first: anytype, second: anytype) void {
+    pub fn tabifyDockWidget(self: KXmlGuiWindow, first: anytype, second: anytype) void {
         comptime _ = @TypeOf(first)._is_QDockWidget;
         comptime _ = @TypeOf(second)._is_QDockWidget;
         qtc.QMainWindow_TabifyDockWidget(@ptrCast(self.ptr), @ptrCast(first.ptr), @ptrCast(second.ptr));
     }
+
+    /// ### DEPRECATED: Use `tabifiedDockWidgets` instead
+    ///
+    pub const TabifiedDockWidgets = tabifiedDockWidgets;
 
     /// Inherited from QMainWindow
     ///
@@ -1985,16 +2453,20 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` dockwidget: QDockWidget `
     ///
-    pub fn TabifiedDockWidgets(self: KXmlGuiWindow, allocator: std.mem.Allocator, dockwidget: anytype) []QDockWidget {
+    pub fn tabifiedDockWidgets(self: KXmlGuiWindow, allocator: std.mem.Allocator, dockwidget: anytype) []QDockWidget {
         comptime _ = @TypeOf(dockwidget)._is_QDockWidget;
         const _arr: qtc.libqt_list = qtc.QMainWindow_TabifiedDockWidgets(@ptrCast(self.ptr), @ptrCast(dockwidget.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QDockWidget, _arr.len) catch @panic("KXmlGuiWindow.TabifiedDockWidgets: Memory allocation failed");
-        const _data: [*]QtC.QDockWidget = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QDockWidget, _arr.len) catch @panic("KXmlGuiWindow.tabifiedDockWidgets: Memory allocation failed");
+        const _data_val: [*]QtC.QDockWidget = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `removeDockWidget` instead
+    ///
+    pub const RemoveDockWidget = removeDockWidget;
 
     /// Inherited from QMainWindow
     ///
@@ -2006,10 +2478,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` dockwidget: QDockWidget `
     ///
-    pub fn RemoveDockWidget(self: KXmlGuiWindow, dockwidget: anytype) void {
+    pub fn removeDockWidget(self: KXmlGuiWindow, dockwidget: anytype) void {
         comptime _ = @TypeOf(dockwidget)._is_QDockWidget;
         qtc.QMainWindow_RemoveDockWidget(@ptrCast(self.ptr), @ptrCast(dockwidget.ptr));
     }
+
+    /// ### DEPRECATED: Use `restoreDockWidget` instead
+    ///
+    pub const RestoreDockWidget = restoreDockWidget;
 
     /// Inherited from QMainWindow
     ///
@@ -2021,10 +2497,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` dockwidget: QDockWidget `
     ///
-    pub fn RestoreDockWidget(self: KXmlGuiWindow, dockwidget: anytype) bool {
+    pub fn restoreDockWidget(self: KXmlGuiWindow, dockwidget: anytype) bool {
         comptime _ = @TypeOf(dockwidget)._is_QDockWidget;
         return qtc.QMainWindow_RestoreDockWidget(@ptrCast(self.ptr), @ptrCast(dockwidget.ptr));
     }
+
+    /// ### DEPRECATED: Use `dockWidgetArea` instead
+    ///
+    pub const DockWidgetArea = dockWidgetArea;
 
     /// Inherited from QMainWindow
     ///
@@ -2040,10 +2520,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` qnamespace_enums.DockWidgetArea `
     ///
-    pub fn DockWidgetArea(self: KXmlGuiWindow, dockwidget: anytype) i32 {
+    pub fn dockWidgetArea(self: KXmlGuiWindow, dockwidget: anytype) i32 {
         comptime _ = @TypeOf(dockwidget)._is_QDockWidget;
         return qtc.QMainWindow_DockWidgetArea(@ptrCast(self.ptr), @ptrCast(dockwidget.ptr));
     }
+
+    /// ### DEPRECATED: Use `resizeDocks` instead
+    ///
+    pub const ResizeDocks = resizeDocks;
 
     /// Inherited from QMainWindow
     ///
@@ -2059,7 +2543,7 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` orientation: qnamespace_enums.Orientation `
     ///
-    pub fn ResizeDocks(self: KXmlGuiWindow, docks: []QDockWidget, sizes: []i32, orientation: i32) void {
+    pub fn resizeDocks(self: KXmlGuiWindow, docks: []QDockWidget, sizes: []i32, orientation: i32) void {
         const docks_list = qtc.libqt_list{
             .len = docks.len,
             .data = @ptrCast(docks.ptr),
@@ -2071,6 +2555,10 @@ pub const KXmlGuiWindow = extern struct {
         qtc.QMainWindow_ResizeDocks(@ptrCast(self.ptr), docks_list, sizes_list, @bitCast(orientation));
     }
 
+    /// ### DEPRECATED: Use `saveState` instead
+    ///
+    pub const SaveState = saveState;
+
     /// Inherited from QMainWindow
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#saveState)
@@ -2081,13 +2569,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveState(self: KXmlGuiWindow, allocator: std.mem.Allocator) []u8 {
+    pub fn saveState(self: KXmlGuiWindow, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QMainWindow_SaveState(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KXmlGuiWindow.SaveState: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KXmlGuiWindow.saveState: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreState` instead
+    ///
+    pub const RestoreState = restoreState;
 
     /// Inherited from QMainWindow
     ///
@@ -2099,13 +2591,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` state: []u8 `
     ///
-    pub fn RestoreState(self: KXmlGuiWindow, state: []u8) bool {
+    pub fn restoreState(self: KXmlGuiWindow, state: []u8) bool {
         const state_str = qtc.libqt_string{
             .len = state.len,
             .data = state.ptr,
         };
         return qtc.QMainWindow_RestoreState(@ptrCast(self.ptr), state_str);
     }
+
+    /// ### DEPRECATED: Use `setAnimated` instead
+    ///
+    pub const SetAnimated = setAnimated;
 
     /// Inherited from QMainWindow
     ///
@@ -2117,9 +2613,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAnimated(self: KXmlGuiWindow, enabled: bool) void {
+    pub fn setAnimated(self: KXmlGuiWindow, enabled: bool) void {
         qtc.QMainWindow_SetAnimated(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDockNestingEnabled` instead
+    ///
+    pub const SetDockNestingEnabled = setDockNestingEnabled;
 
     /// Inherited from QMainWindow
     ///
@@ -2131,9 +2631,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetDockNestingEnabled(self: KXmlGuiWindow, enabled: bool) void {
+    pub fn setDockNestingEnabled(self: KXmlGuiWindow, enabled: bool) void {
         qtc.QMainWindow_SetDockNestingEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setUnifiedTitleAndToolBarOnMac` instead
+    ///
+    pub const SetUnifiedTitleAndToolBarOnMac = setUnifiedTitleAndToolBarOnMac;
 
     /// Inherited from QMainWindow
     ///
@@ -2145,9 +2649,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` set: bool `
     ///
-    pub fn SetUnifiedTitleAndToolBarOnMac(self: KXmlGuiWindow, set: bool) void {
+    pub fn setUnifiedTitleAndToolBarOnMac(self: KXmlGuiWindow, set: bool) void {
         qtc.QMainWindow_SetUnifiedTitleAndToolBarOnMac(@ptrCast(self.ptr), set);
     }
+
+    /// ### DEPRECATED: Use `iconSizeChanged` instead
+    ///
+    pub const IconSizeChanged = iconSizeChanged;
 
     /// Inherited from QMainWindow
     ///
@@ -2157,12 +2665,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` iconSize: QSize `
+    /// ` _iconSize: QSize `
     ///
-    pub fn IconSizeChanged(self: KXmlGuiWindow, iconSize: anytype) void {
-        comptime _ = @TypeOf(iconSize)._is_QSize;
-        qtc.QMainWindow_IconSizeChanged(@ptrCast(self.ptr), @ptrCast(iconSize.ptr));
+    pub fn iconSizeChanged(self: KXmlGuiWindow, _iconSize: anytype) void {
+        comptime _ = @TypeOf(_iconSize)._is_QSize;
+        qtc.QMainWindow_IconSizeChanged(@ptrCast(self.ptr), @ptrCast(_iconSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIconSizeChanged` instead
+    ///
+    pub const OnIconSizeChanged = onIconSizeChanged;
 
     /// Inherited from QMainWindow
     ///
@@ -2174,9 +2686,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, iconSize: QSize) callconv(.c) void `
     ///
-    pub fn OnIconSizeChanged(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QSize) callconv(.c) void) void {
+    pub fn onIconSizeChanged(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QSize) callconv(.c) void) void {
         qtc.QMainWindow_Connect_IconSizeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `toolButtonStyleChanged` instead
+    ///
+    pub const ToolButtonStyleChanged = toolButtonStyleChanged;
 
     /// Inherited from QMainWindow
     ///
@@ -2186,11 +2702,15 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` toolButtonStyle: qnamespace_enums.ToolButtonStyle `
+    /// ` _toolButtonStyle: qnamespace_enums.ToolButtonStyle `
     ///
-    pub fn ToolButtonStyleChanged(self: KXmlGuiWindow, toolButtonStyle: i32) void {
-        qtc.QMainWindow_ToolButtonStyleChanged(@ptrCast(self.ptr), @bitCast(toolButtonStyle));
+    pub fn toolButtonStyleChanged(self: KXmlGuiWindow, _toolButtonStyle: i32) void {
+        qtc.QMainWindow_ToolButtonStyleChanged(@ptrCast(self.ptr), @bitCast(_toolButtonStyle));
     }
+
+    /// ### DEPRECATED: Use `onToolButtonStyleChanged` instead
+    ///
+    pub const OnToolButtonStyleChanged = onToolButtonStyleChanged;
 
     /// Inherited from QMainWindow
     ///
@@ -2202,9 +2722,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, toolButtonStyle: qnamespace_enums.ToolButtonStyle) callconv(.c) void `
     ///
-    pub fn OnToolButtonStyleChanged(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, i32) callconv(.c) void) void {
+    pub fn onToolButtonStyleChanged(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, i32) callconv(.c) void) void {
         qtc.QMainWindow_Connect_ToolButtonStyleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabifiedDockWidgetActivated` instead
+    ///
+    pub const TabifiedDockWidgetActivated = tabifiedDockWidgetActivated;
 
     /// Inherited from QMainWindow
     ///
@@ -2216,10 +2740,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` dockWidget: QDockWidget `
     ///
-    pub fn TabifiedDockWidgetActivated(self: KXmlGuiWindow, dockWidget: anytype) void {
+    pub fn tabifiedDockWidgetActivated(self: KXmlGuiWindow, dockWidget: anytype) void {
         comptime _ = @TypeOf(dockWidget)._is_QDockWidget;
         qtc.QMainWindow_TabifiedDockWidgetActivated(@ptrCast(self.ptr), @ptrCast(dockWidget.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabifiedDockWidgetActivated` instead
+    ///
+    pub const OnTabifiedDockWidgetActivated = onTabifiedDockWidgetActivated;
 
     /// Inherited from QMainWindow
     ///
@@ -2231,9 +2759,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, dockWidget: QDockWidget) callconv(.c) void `
     ///
-    pub fn OnTabifiedDockWidgetActivated(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QDockWidget) callconv(.c) void) void {
+    pub fn onTabifiedDockWidgetActivated(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QDockWidget) callconv(.c) void) void {
         qtc.QMainWindow_Connect_TabifiedDockWidgetActivated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `addToolBarBreak1` instead
+    ///
+    pub const AddToolBarBreak1 = addToolBarBreak1;
 
     /// Inherited from QMainWindow
     ///
@@ -2245,9 +2777,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` area: qnamespace_enums.ToolBarArea `
     ///
-    pub fn AddToolBarBreak1(self: KXmlGuiWindow, area: i32) void {
+    pub fn addToolBarBreak1(self: KXmlGuiWindow, area: i32) void {
         qtc.QMainWindow_AddToolBarBreak1(@ptrCast(self.ptr), @bitCast(area));
     }
+
+    /// ### DEPRECATED: Use `saveState1` instead
+    ///
+    pub const SaveState1 = saveState1;
 
     /// Inherited from QMainWindow
     ///
@@ -2261,13 +2797,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` version: i32 `
     ///
-    pub fn SaveState1(self: KXmlGuiWindow, allocator: std.mem.Allocator, version: i32) []u8 {
+    pub fn saveState1(self: KXmlGuiWindow, allocator: std.mem.Allocator, version: i32) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QMainWindow_SaveState1(@ptrCast(self.ptr), @bitCast(version));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KXmlGuiWindow.SaveState1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KXmlGuiWindow.saveState1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreState2` instead
+    ///
+    pub const RestoreState2 = restoreState2;
 
     /// Inherited from QMainWindow
     ///
@@ -2281,13 +2821,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` version: i32 `
     ///
-    pub fn RestoreState2(self: KXmlGuiWindow, state: []u8, version: i32) bool {
+    pub fn restoreState2(self: KXmlGuiWindow, state: []u8, version: i32) bool {
         const state_str = qtc.libqt_string{
             .len = state.len,
             .data = state.ptr,
         };
         return qtc.QMainWindow_RestoreState2(@ptrCast(self.ptr), state_str, @bitCast(version));
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -2297,9 +2841,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn WinId(self: KXmlGuiWindow) usize {
+    pub fn winId(self: KXmlGuiWindow) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -2309,9 +2857,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn CreateWinId(self: KXmlGuiWindow) void {
+    pub fn createWinId(self: KXmlGuiWindow) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -2321,9 +2873,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn InternalWinId(self: KXmlGuiWindow) usize {
+    pub fn internalWinId(self: KXmlGuiWindow) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -2333,9 +2889,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn EffectiveWinId(self: KXmlGuiWindow) usize {
+    pub fn effectiveWinId(self: KXmlGuiWindow) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -2345,9 +2905,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn Style(self: KXmlGuiWindow) QStyle {
+    pub fn style(self: KXmlGuiWindow) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -2357,12 +2921,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: KXmlGuiWindow, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: KXmlGuiWindow, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -2372,9 +2940,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn IsTopLevel(self: KXmlGuiWindow) bool {
+    pub fn isTopLevel(self: KXmlGuiWindow) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -2384,9 +2956,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn IsWindow(self: KXmlGuiWindow) bool {
+    pub fn isWindow(self: KXmlGuiWindow) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -2396,9 +2972,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn IsModal(self: KXmlGuiWindow) bool {
+    pub fn isModal(self: KXmlGuiWindow) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -2412,9 +2992,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: KXmlGuiWindow) i32 {
+    pub fn windowModality(self: KXmlGuiWindow) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -2424,11 +3008,15 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: KXmlGuiWindow, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: KXmlGuiWindow, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2438,9 +3026,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn IsEnabled(self: KXmlGuiWindow) bool {
+    pub fn isEnabled(self: KXmlGuiWindow) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -2452,10 +3044,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: KXmlGuiWindow, param1: anytype) bool {
+    pub fn isEnabledTo(self: KXmlGuiWindow, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2467,9 +3063,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: KXmlGuiWindow, enabled: bool) void {
+    pub fn setEnabled(self: KXmlGuiWindow, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -2481,9 +3081,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: KXmlGuiWindow, disabled: bool) void {
+    pub fn setDisabled(self: KXmlGuiWindow, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -2495,9 +3099,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: KXmlGuiWindow, windowModified: bool) void {
+    pub fn setWindowModified(self: KXmlGuiWindow, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -2507,9 +3115,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn FrameGeometry(self: KXmlGuiWindow) QRect {
+    pub fn frameGeometry(self: KXmlGuiWindow) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -2519,9 +3131,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn Geometry(self: KXmlGuiWindow) QRect {
+    pub fn geometry(self: KXmlGuiWindow) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -2531,9 +3147,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn NormalGeometry(self: KXmlGuiWindow) QRect {
+    pub fn normalGeometry(self: KXmlGuiWindow) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -2543,9 +3163,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn X(self: KXmlGuiWindow) i32 {
+    pub fn x(self: KXmlGuiWindow) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -2555,9 +3179,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn Y(self: KXmlGuiWindow) i32 {
+    pub fn y(self: KXmlGuiWindow) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -2567,9 +3195,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn Pos(self: KXmlGuiWindow) QPoint {
+    pub fn pos(self: KXmlGuiWindow) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -2579,9 +3211,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn FrameSize(self: KXmlGuiWindow) QSize {
+    pub fn frameSize(self: KXmlGuiWindow) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -2591,9 +3227,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn Size(self: KXmlGuiWindow) QSize {
+    pub fn size(self: KXmlGuiWindow) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -2603,9 +3243,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn Width(self: KXmlGuiWindow) i32 {
+    pub fn width(self: KXmlGuiWindow) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -2615,9 +3259,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn Height(self: KXmlGuiWindow) i32 {
+    pub fn height(self: KXmlGuiWindow) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -2627,9 +3275,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn Rect(self: KXmlGuiWindow) QRect {
+    pub fn rect(self: KXmlGuiWindow) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -2639,9 +3291,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn ChildrenRect(self: KXmlGuiWindow) QRect {
+    pub fn childrenRect(self: KXmlGuiWindow) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -2651,9 +3307,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn ChildrenRegion(self: KXmlGuiWindow) QRegion {
+    pub fn childrenRegion(self: KXmlGuiWindow) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -2663,9 +3323,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn MinimumSize(self: KXmlGuiWindow) QSize {
+    pub fn minimumSize(self: KXmlGuiWindow) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -2675,9 +3339,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn MaximumSize(self: KXmlGuiWindow) QSize {
+    pub fn maximumSize(self: KXmlGuiWindow) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2687,9 +3355,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn MinimumWidth(self: KXmlGuiWindow) i32 {
+    pub fn minimumWidth(self: KXmlGuiWindow) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2699,9 +3371,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn MinimumHeight(self: KXmlGuiWindow) i32 {
+    pub fn minimumHeight(self: KXmlGuiWindow) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2711,9 +3387,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn MaximumWidth(self: KXmlGuiWindow) i32 {
+    pub fn maximumWidth(self: KXmlGuiWindow) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2723,9 +3403,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn MaximumHeight(self: KXmlGuiWindow) i32 {
+    pub fn maximumHeight(self: KXmlGuiWindow) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -2735,12 +3419,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: KXmlGuiWindow, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: KXmlGuiWindow, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -2754,9 +3442,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: KXmlGuiWindow, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: KXmlGuiWindow, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -2766,12 +3458,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: KXmlGuiWindow, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: KXmlGuiWindow, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -2785,9 +3481,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: KXmlGuiWindow, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: KXmlGuiWindow, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2799,9 +3499,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: KXmlGuiWindow, minw: i32) void {
+    pub fn setMinimumWidth(self: KXmlGuiWindow, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2813,9 +3517,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: KXmlGuiWindow, minh: i32) void {
+    pub fn setMinimumHeight(self: KXmlGuiWindow, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2827,9 +3535,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: KXmlGuiWindow, maxw: i32) void {
+    pub fn setMaximumWidth(self: KXmlGuiWindow, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2841,9 +3553,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: KXmlGuiWindow, maxh: i32) void {
+    pub fn setMaximumHeight(self: KXmlGuiWindow, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -2853,9 +3569,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn SizeIncrement(self: KXmlGuiWindow) QSize {
+    pub fn sizeIncrement(self: KXmlGuiWindow) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -2865,12 +3585,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: KXmlGuiWindow, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: KXmlGuiWindow, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -2884,9 +3608,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: KXmlGuiWindow, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: KXmlGuiWindow, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -2896,9 +3624,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn BaseSize(self: KXmlGuiWindow) QSize {
+    pub fn baseSize(self: KXmlGuiWindow) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -2908,12 +3640,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: KXmlGuiWindow, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: KXmlGuiWindow, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -2927,9 +3663,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: KXmlGuiWindow, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: KXmlGuiWindow, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -2941,10 +3681,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: KXmlGuiWindow, fixedSize: anytype) void {
+    pub fn setFixedSize(self: KXmlGuiWindow, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -2958,9 +3702,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: KXmlGuiWindow, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: KXmlGuiWindow, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -2972,9 +3720,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: KXmlGuiWindow, w: i32) void {
+    pub fn setFixedWidth(self: KXmlGuiWindow, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -2986,9 +3738,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: KXmlGuiWindow, h: i32) void {
+    pub fn setFixedHeight(self: KXmlGuiWindow, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -3000,11 +3756,15 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: KXmlGuiWindow, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: KXmlGuiWindow, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -3015,11 +3775,15 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: KXmlGuiWindow, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: KXmlGuiWindow, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -3030,11 +3794,15 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: KXmlGuiWindow, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: KXmlGuiWindow, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -3045,11 +3813,15 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: KXmlGuiWindow, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: KXmlGuiWindow, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -3060,11 +3832,15 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: KXmlGuiWindow, param1: anytype) QPointF {
+    pub fn mapToParent(self: KXmlGuiWindow, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -3075,10 +3851,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: KXmlGuiWindow, param1: anytype) QPoint {
+    pub fn mapToParent2(self: KXmlGuiWindow, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -3090,10 +3870,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: KXmlGuiWindow, param1: anytype) QPointF {
+    pub fn mapFromParent(self: KXmlGuiWindow, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -3105,10 +3889,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: KXmlGuiWindow, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: KXmlGuiWindow, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -3122,12 +3910,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: KXmlGuiWindow, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: KXmlGuiWindow, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -3140,11 +3932,15 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: KXmlGuiWindow, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: KXmlGuiWindow, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -3158,11 +3954,15 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: KXmlGuiWindow, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: KXmlGuiWindow, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -3176,11 +3976,15 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: KXmlGuiWindow, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: KXmlGuiWindow, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -3190,9 +3994,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn Window(self: KXmlGuiWindow) QWidget {
+    pub fn window(self: KXmlGuiWindow) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -3202,9 +4010,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn NativeParentWidget(self: KXmlGuiWindow) QWidget {
+    pub fn nativeParentWidget(self: KXmlGuiWindow) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -3214,9 +4026,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn TopLevelWidget(self: KXmlGuiWindow) QWidget {
+    pub fn topLevelWidget(self: KXmlGuiWindow) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -3226,9 +4042,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn Palette(self: KXmlGuiWindow) QPalette {
+    pub fn palette(self: KXmlGuiWindow) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -3238,12 +4058,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: KXmlGuiWindow, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: KXmlGuiWindow, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -3253,11 +4077,15 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: KXmlGuiWindow, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: KXmlGuiWindow, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -3271,9 +4099,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: KXmlGuiWindow) i32 {
+    pub fn backgroundRole(self: KXmlGuiWindow) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -3283,11 +4115,15 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: KXmlGuiWindow, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: KXmlGuiWindow, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -3301,9 +4137,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: KXmlGuiWindow) i32 {
+    pub fn foregroundRole(self: KXmlGuiWindow) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -3313,9 +4153,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn Font(self: KXmlGuiWindow) QFont {
+    pub fn font(self: KXmlGuiWindow) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -3325,12 +4169,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: KXmlGuiWindow, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: KXmlGuiWindow, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -3340,9 +4188,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn FontMetrics(self: KXmlGuiWindow) QFontMetrics {
+    pub fn fontMetrics(self: KXmlGuiWindow) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -3352,9 +4204,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn FontInfo(self: KXmlGuiWindow) QFontInfo {
+    pub fn fontInfo(self: KXmlGuiWindow) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -3364,9 +4220,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn Cursor(self: KXmlGuiWindow) QCursor {
+    pub fn cursor(self: KXmlGuiWindow) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -3376,12 +4236,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: KXmlGuiWindow, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: KXmlGuiWindow, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -3391,9 +4255,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn UnsetCursor(self: KXmlGuiWindow) void {
+    pub fn unsetCursor(self: KXmlGuiWindow) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -3405,9 +4273,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: KXmlGuiWindow, enable: bool) void {
+    pub fn setMouseTracking(self: KXmlGuiWindow, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -3417,9 +4289,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn HasMouseTracking(self: KXmlGuiWindow) bool {
+    pub fn hasMouseTracking(self: KXmlGuiWindow) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -3429,9 +4305,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn UnderMouse(self: KXmlGuiWindow) bool {
+    pub fn underMouse(self: KXmlGuiWindow) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -3443,9 +4323,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: KXmlGuiWindow, enable: bool) void {
+    pub fn setTabletTracking(self: KXmlGuiWindow, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -3455,24 +4339,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn HasTabletTracking(self: KXmlGuiWindow) bool {
+    pub fn hasTabletTracking(self: KXmlGuiWindow) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KXmlGuiWindow `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: KXmlGuiWindow, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -3482,12 +4355,35 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: KXmlGuiWindow, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: KXmlGuiWindow, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KXmlGuiWindow `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: KXmlGuiWindow, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -3497,9 +4393,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn Mask(self: KXmlGuiWindow) QRegion {
+    pub fn mask(self: KXmlGuiWindow) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -3509,9 +4409,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn ClearMask(self: KXmlGuiWindow) void {
+    pub fn clearMask(self: KXmlGuiWindow) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -3523,10 +4427,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: KXmlGuiWindow, target: anytype) void {
+    pub fn render(self: KXmlGuiWindow, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -3538,10 +4446,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: KXmlGuiWindow, painter: anytype) void {
+    pub fn render2(self: KXmlGuiWindow, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -3551,9 +4463,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn Grab(self: KXmlGuiWindow) QPixmap {
+    pub fn grab(self: KXmlGuiWindow) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -3563,9 +4479,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn GraphicsEffect(self: KXmlGuiWindow) QGraphicsEffect {
+    pub fn graphicsEffect(self: KXmlGuiWindow) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -3577,10 +4497,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: KXmlGuiWindow, effect: anytype) void {
+    pub fn setGraphicsEffect(self: KXmlGuiWindow, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -3592,9 +4516,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: KXmlGuiWindow, typeVal: i32) void {
+    pub fn grabGesture(self: KXmlGuiWindow, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -3606,9 +4534,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: KXmlGuiWindow, typeVal: i32) void {
+    pub fn ungrabGesture(self: KXmlGuiWindow, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -3618,15 +4550,19 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: KXmlGuiWindow, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: KXmlGuiWindow, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -3636,15 +4572,19 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: KXmlGuiWindow, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: KXmlGuiWindow, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -3656,13 +4596,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -3674,13 +4618,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -3692,10 +4640,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: KXmlGuiWindow, icon: anytype) void {
+    pub fn setWindowIcon(self: KXmlGuiWindow, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -3705,9 +4657,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn WindowIcon(self: KXmlGuiWindow) QIcon {
+    pub fn windowIcon(self: KXmlGuiWindow) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -3717,15 +4673,19 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: KXmlGuiWindow, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: KXmlGuiWindow, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -3737,13 +4697,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -3753,15 +4717,19 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: KXmlGuiWindow, windowRole: []const u8) void {
+    pub fn setWindowRole(self: KXmlGuiWindow, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -3773,13 +4741,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -3791,13 +4763,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: KXmlGuiWindow, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: KXmlGuiWindow, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -3809,13 +4785,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -3827,9 +4807,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: KXmlGuiWindow, level: f64) void {
+    pub fn setWindowOpacity(self: KXmlGuiWindow, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -3839,9 +4823,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn WindowOpacity(self: KXmlGuiWindow) f64 {
+    pub fn windowOpacity(self: KXmlGuiWindow) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -3851,9 +4839,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn IsWindowModified(self: KXmlGuiWindow) bool {
+    pub fn isWindowModified(self: KXmlGuiWindow) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -3863,15 +4855,19 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: KXmlGuiWindow, toolTip: []const u8) void {
+    pub fn setToolTip(self: KXmlGuiWindow, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -3883,13 +4879,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -3901,9 +4901,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: KXmlGuiWindow, msec: i32) void {
+    pub fn setToolTipDuration(self: KXmlGuiWindow, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -3913,9 +4917,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn ToolTipDuration(self: KXmlGuiWindow) i32 {
+    pub fn toolTipDuration(self: KXmlGuiWindow) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -3925,15 +4933,19 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: KXmlGuiWindow, statusTip: []const u8) void {
+    pub fn setStatusTip(self: KXmlGuiWindow, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -3945,13 +4957,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -3961,15 +4977,19 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: KXmlGuiWindow, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: KXmlGuiWindow, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -3981,13 +5001,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -3999,13 +5023,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -4017,13 +5045,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: KXmlGuiWindow, name: []const u8) void {
+    pub fn setAccessibleName(self: KXmlGuiWindow, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -4035,13 +5067,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -4053,13 +5089,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: KXmlGuiWindow, description: []const u8) void {
+    pub fn setAccessibleDescription(self: KXmlGuiWindow, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -4071,9 +5111,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: KXmlGuiWindow, direction: i32) void {
+    pub fn setLayoutDirection(self: KXmlGuiWindow, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -4087,9 +5131,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: KXmlGuiWindow) i32 {
+    pub fn layoutDirection(self: KXmlGuiWindow) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -4099,9 +5147,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn UnsetLayoutDirection(self: KXmlGuiWindow) void {
+    pub fn unsetLayoutDirection(self: KXmlGuiWindow) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -4111,12 +5163,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: KXmlGuiWindow, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: KXmlGuiWindow, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -4126,9 +5182,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn Locale(self: KXmlGuiWindow) QLocale {
+    pub fn locale(self: KXmlGuiWindow) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -4138,9 +5198,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn UnsetLocale(self: KXmlGuiWindow) void {
+    pub fn unsetLocale(self: KXmlGuiWindow) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -4150,9 +5214,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn IsRightToLeft(self: KXmlGuiWindow) bool {
+    pub fn isRightToLeft(self: KXmlGuiWindow) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -4162,9 +5230,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn IsLeftToRight(self: KXmlGuiWindow) bool {
+    pub fn isLeftToRight(self: KXmlGuiWindow) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -4174,9 +5246,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn SetFocus(self: KXmlGuiWindow) void {
+    pub fn setFocus(self: KXmlGuiWindow) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -4186,9 +5262,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn IsActiveWindow(self: KXmlGuiWindow) bool {
+    pub fn isActiveWindow(self: KXmlGuiWindow) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -4198,9 +5278,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn ActivateWindow(self: KXmlGuiWindow) void {
+    pub fn activateWindow(self: KXmlGuiWindow) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -4210,9 +5294,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn ClearFocus(self: KXmlGuiWindow) void {
+    pub fn clearFocus(self: KXmlGuiWindow) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -4224,9 +5312,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: KXmlGuiWindow, reason: i32) void {
+    pub fn setFocus2(self: KXmlGuiWindow, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -4240,9 +5332,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: KXmlGuiWindow) i32 {
+    pub fn focusPolicy(self: KXmlGuiWindow) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -4254,9 +5350,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: KXmlGuiWindow, policy: i32) void {
+    pub fn setFocusPolicy(self: KXmlGuiWindow, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -4266,9 +5366,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn HasFocus(self: KXmlGuiWindow) bool {
+    pub fn hasFocus(self: KXmlGuiWindow) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -4280,11 +5384,15 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -4294,12 +5402,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: KXmlGuiWindow, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: KXmlGuiWindow, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -4309,9 +5421,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn FocusProxy(self: KXmlGuiWindow) QWidget {
+    pub fn focusProxy(self: KXmlGuiWindow) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -4325,9 +5441,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: KXmlGuiWindow) i32 {
+    pub fn contextMenuPolicy(self: KXmlGuiWindow) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -4339,9 +5459,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: KXmlGuiWindow, policy: i32) void {
+    pub fn setContextMenuPolicy(self: KXmlGuiWindow, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -4351,9 +5475,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn GrabMouse(self: KXmlGuiWindow) void {
+    pub fn grabMouse(self: KXmlGuiWindow) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -4365,10 +5493,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: KXmlGuiWindow, param1: anytype) void {
+    pub fn grabMouse2(self: KXmlGuiWindow, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -4378,9 +5510,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn ReleaseMouse(self: KXmlGuiWindow) void {
+    pub fn releaseMouse(self: KXmlGuiWindow) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -4390,9 +5526,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn GrabKeyboard(self: KXmlGuiWindow) void {
+    pub fn grabKeyboard(self: KXmlGuiWindow) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -4402,9 +5542,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn ReleaseKeyboard(self: KXmlGuiWindow) void {
+    pub fn releaseKeyboard(self: KXmlGuiWindow) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -4416,10 +5560,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: KXmlGuiWindow, key: anytype) i32 {
+    pub fn grabShortcut(self: KXmlGuiWindow, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -4431,9 +5579,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: KXmlGuiWindow, id: i32) void {
+    pub fn releaseShortcut(self: KXmlGuiWindow, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -4445,9 +5597,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: KXmlGuiWindow, id: i32) void {
+    pub fn setShortcutEnabled(self: KXmlGuiWindow, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -4459,25 +5615,37 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: KXmlGuiWindow, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: KXmlGuiWindow, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -4487,9 +5655,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn UpdatesEnabled(self: KXmlGuiWindow) bool {
+    pub fn updatesEnabled(self: KXmlGuiWindow) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -4501,9 +5673,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: KXmlGuiWindow, enable: bool) void {
+    pub fn setUpdatesEnabled(self: KXmlGuiWindow, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -4513,9 +5689,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn GraphicsProxyWidget(self: KXmlGuiWindow) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: KXmlGuiWindow) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -4525,9 +5705,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn Update(self: KXmlGuiWindow) void {
+    pub fn update(self: KXmlGuiWindow) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -4537,9 +5721,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn Repaint(self: KXmlGuiWindow) void {
+    pub fn repaint(self: KXmlGuiWindow) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -4549,17 +5737,21 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: KXmlGuiWindow, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: KXmlGuiWindow, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -4571,11 +5763,15 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: KXmlGuiWindow, param1: anytype) void {
+    pub fn update3(self: KXmlGuiWindow, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -4586,10 +5782,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: KXmlGuiWindow, param1: anytype) void {
+    pub fn update4(self: KXmlGuiWindow, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -4599,17 +5799,21 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: KXmlGuiWindow, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: KXmlGuiWindow, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -4621,10 +5825,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: KXmlGuiWindow, param1: anytype) void {
+    pub fn repaint3(self: KXmlGuiWindow, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -4636,10 +5844,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: KXmlGuiWindow, param1: anytype) void {
+    pub fn repaint4(self: KXmlGuiWindow, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -4651,9 +5863,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: KXmlGuiWindow, hidden: bool) void {
+    pub fn setHidden(self: KXmlGuiWindow, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -4663,9 +5879,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn Show(self: KXmlGuiWindow) void {
+    pub fn show(self: KXmlGuiWindow) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -4675,9 +5895,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn Hide(self: KXmlGuiWindow) void {
+    pub fn hide(self: KXmlGuiWindow) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -4687,9 +5911,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn ShowMinimized(self: KXmlGuiWindow) void {
+    pub fn showMinimized(self: KXmlGuiWindow) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -4699,9 +5927,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn ShowMaximized(self: KXmlGuiWindow) void {
+    pub fn showMaximized(self: KXmlGuiWindow) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -4711,9 +5943,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn ShowFullScreen(self: KXmlGuiWindow) void {
+    pub fn showFullScreen(self: KXmlGuiWindow) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -4723,9 +5959,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn ShowNormal(self: KXmlGuiWindow) void {
+    pub fn showNormal(self: KXmlGuiWindow) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -4735,9 +5975,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn Close(self: KXmlGuiWindow) bool {
+    pub fn close(self: KXmlGuiWindow) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -4747,9 +5991,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn Raise(self: KXmlGuiWindow) void {
+    pub fn raise(self: KXmlGuiWindow) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -4759,9 +6007,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn Lower(self: KXmlGuiWindow) void {
+    pub fn lower(self: KXmlGuiWindow) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -4773,10 +6025,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: KXmlGuiWindow, param1: anytype) void {
+    pub fn stackUnder(self: KXmlGuiWindow, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -4786,13 +6042,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: KXmlGuiWindow, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: KXmlGuiWindow, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -4804,10 +6064,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: KXmlGuiWindow, param1: anytype) void {
+    pub fn move2(self: KXmlGuiWindow, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -4821,9 +6085,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: KXmlGuiWindow, w: i32, h: i32) void {
+    pub fn resize(self: KXmlGuiWindow, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -4835,10 +6103,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: KXmlGuiWindow, param1: anytype) void {
+    pub fn resize2(self: KXmlGuiWindow, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4848,17 +6120,21 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: KXmlGuiWindow, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: KXmlGuiWindow, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -4868,12 +6144,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: KXmlGuiWindow, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: KXmlGuiWindow, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4885,13 +6165,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: KXmlGuiWindow, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: KXmlGuiWindow, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KXmlGuiWindow.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KXmlGuiWindow.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4901,15 +6185,19 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: KXmlGuiWindow, geometry: []u8) bool {
+    pub fn restoreGeometry(self: KXmlGuiWindow, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -4919,9 +6207,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn AdjustSize(self: KXmlGuiWindow) void {
+    pub fn adjustSize(self: KXmlGuiWindow) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -4931,9 +6223,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn IsVisible(self: KXmlGuiWindow) bool {
+    pub fn isVisible(self: KXmlGuiWindow) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -4945,10 +6241,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: KXmlGuiWindow, param1: anytype) bool {
+    pub fn isVisibleTo(self: KXmlGuiWindow, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -4958,9 +6258,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn IsHidden(self: KXmlGuiWindow) bool {
+    pub fn isHidden(self: KXmlGuiWindow) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -4970,9 +6274,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn IsMinimized(self: KXmlGuiWindow) bool {
+    pub fn isMinimized(self: KXmlGuiWindow) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -4982,9 +6290,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn IsMaximized(self: KXmlGuiWindow) bool {
+    pub fn isMaximized(self: KXmlGuiWindow) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -4994,9 +6306,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn IsFullScreen(self: KXmlGuiWindow) bool {
+    pub fn isFullScreen(self: KXmlGuiWindow) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -5010,9 +6326,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: KXmlGuiWindow) i32 {
+    pub fn windowState(self: KXmlGuiWindow) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -5024,9 +6344,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: KXmlGuiWindow, state: i32) void {
+    pub fn setWindowState(self: KXmlGuiWindow, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -5038,9 +6362,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: KXmlGuiWindow, state: i32) void {
+    pub fn overrideWindowState(self: KXmlGuiWindow, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -5050,9 +6378,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn SizePolicy(self: KXmlGuiWindow) QSizePolicy {
+    pub fn sizePolicy(self: KXmlGuiWindow) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -5062,12 +6394,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: KXmlGuiWindow, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: KXmlGuiWindow, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -5081,9 +6417,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: KXmlGuiWindow, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: KXmlGuiWindow, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -5093,9 +6433,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn VisibleRegion(self: KXmlGuiWindow) QRegion {
+    pub fn visibleRegion(self: KXmlGuiWindow) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -5113,9 +6457,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: KXmlGuiWindow, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: KXmlGuiWindow, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -5127,10 +6475,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: KXmlGuiWindow, margins: anytype) void {
+    pub fn setContentsMargins2(self: KXmlGuiWindow, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -5140,9 +6492,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn ContentsMargins(self: KXmlGuiWindow) QMargins {
+    pub fn contentsMargins(self: KXmlGuiWindow) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -5152,9 +6508,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn ContentsRect(self: KXmlGuiWindow) QRect {
+    pub fn contentsRect(self: KXmlGuiWindow) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -5164,9 +6524,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn Layout(self: KXmlGuiWindow) QLayout {
+    pub fn layout(self: KXmlGuiWindow) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -5176,12 +6540,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: KXmlGuiWindow, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: KXmlGuiWindow, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -5191,24 +6559,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn UpdateGeometry(self: KXmlGuiWindow) void {
+    pub fn updateGeometry(self: KXmlGuiWindow) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KXmlGuiWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: KXmlGuiWindow, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -5218,14 +6575,37 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: KXmlGuiWindow, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KXmlGuiWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: KXmlGuiWindow, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: KXmlGuiWindow, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -5239,9 +6619,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: KXmlGuiWindow, dx: i32, dy: i32) void {
+    pub fn scroll(self: KXmlGuiWindow, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -5257,10 +6641,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: KXmlGuiWindow, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: KXmlGuiWindow, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -5270,9 +6658,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn FocusWidget(self: KXmlGuiWindow) QWidget {
+    pub fn focusWidget(self: KXmlGuiWindow) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -5282,9 +6674,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn NextInFocusChain(self: KXmlGuiWindow) QWidget {
+    pub fn nextInFocusChain(self: KXmlGuiWindow) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -5294,9 +6690,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn PreviousInFocusChain(self: KXmlGuiWindow) QWidget {
+    pub fn previousInFocusChain(self: KXmlGuiWindow) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -5306,9 +6706,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn AcceptDrops(self: KXmlGuiWindow) bool {
+    pub fn acceptDrops(self: KXmlGuiWindow) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -5320,9 +6724,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: KXmlGuiWindow, on: bool) void {
+    pub fn setAcceptDrops(self: KXmlGuiWindow, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -5332,12 +6740,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` action: QAction `
+    /// ` _action: QAction `
     ///
-    pub fn AddAction(self: KXmlGuiWindow, action: anytype) void {
-        comptime _ = @TypeOf(action)._is_QAction;
-        qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
+    pub fn addAction(self: KXmlGuiWindow, _action: anytype) void {
+        comptime _ = @TypeOf(_action)._is_QAction;
+        qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(_action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -5347,15 +6759,19 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: KXmlGuiWindow, actions: []QAction) void {
+    pub fn addActions(self: KXmlGuiWindow, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -5367,16 +6783,20 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: KXmlGuiWindow, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: KXmlGuiWindow, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -5388,13 +6808,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` action: QAction `
+    /// ` _action: QAction `
     ///
-    pub fn InsertAction(self: KXmlGuiWindow, before: anytype, action: anytype) void {
+    pub fn insertAction(self: KXmlGuiWindow, before: anytype, _action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
-        comptime _ = @TypeOf(action)._is_QAction;
-        qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
+        comptime _ = @TypeOf(_action)._is_QAction;
+        qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(_action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -5404,12 +6828,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` action: QAction `
+    /// ` _action: QAction `
     ///
-    pub fn RemoveAction(self: KXmlGuiWindow, action: anytype) void {
-        comptime _ = @TypeOf(action)._is_QAction;
-        qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
+    pub fn removeAction(self: KXmlGuiWindow, _action: anytype) void {
+        comptime _ = @TypeOf(_action)._is_QAction;
+        qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(_action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -5421,15 +6849,19 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: KXmlGuiWindow, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: KXmlGuiWindow, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KXmlGuiWindow.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KXmlGuiWindow.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -5441,13 +6873,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: KXmlGuiWindow, text: []const u8) QAction {
+    pub fn addAction2(self: KXmlGuiWindow, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -5461,7 +6897,7 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: KXmlGuiWindow, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: KXmlGuiWindow, icon: anytype, text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -5470,6 +6906,10 @@ pub const KXmlGuiWindow = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -5482,7 +6922,7 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: KXmlGuiWindow, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: KXmlGuiWindow, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -5490,6 +6930,10 @@ pub const KXmlGuiWindow = extern struct {
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
 
     /// Inherited from QWidget
     ///
@@ -5505,7 +6949,7 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: KXmlGuiWindow, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: KXmlGuiWindow, icon: anytype, text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -5515,6 +6959,10 @@ pub const KXmlGuiWindow = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
@@ -5523,9 +6971,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn ParentWidget(self: KXmlGuiWindow) QWidget {
+    pub fn parentWidget(self: KXmlGuiWindow) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -5537,9 +6989,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: KXmlGuiWindow, typeVal: i32) void {
+    pub fn setWindowFlags(self: KXmlGuiWindow, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -5553,9 +7009,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: KXmlGuiWindow) i32 {
+    pub fn windowFlags(self: KXmlGuiWindow) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -5567,9 +7027,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: KXmlGuiWindow, param1: i32) void {
+    pub fn setWindowFlag(self: KXmlGuiWindow, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -5581,9 +7045,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: KXmlGuiWindow, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: KXmlGuiWindow, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -5597,9 +7065,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: KXmlGuiWindow) i32 {
+    pub fn windowType(self: KXmlGuiWindow) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -5609,9 +7081,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -5621,13 +7097,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: KXmlGuiWindow, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: KXmlGuiWindow, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -5639,10 +7119,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: KXmlGuiWindow, p: anytype) QWidget {
+    pub fn childAt2(self: KXmlGuiWindow, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -5654,10 +7138,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: KXmlGuiWindow, p: anytype) QWidget {
+    pub fn childAt3(self: KXmlGuiWindow, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -5669,9 +7157,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: KXmlGuiWindow, param1: i32) void {
+    pub fn setAttribute(self: KXmlGuiWindow, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -5683,9 +7175,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: KXmlGuiWindow, param1: i32) bool {
+    pub fn testAttribute(self: KXmlGuiWindow, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -5695,9 +7191,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn EnsurePolished(self: KXmlGuiWindow) void {
+    pub fn ensurePolished(self: KXmlGuiWindow) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -5709,10 +7209,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: KXmlGuiWindow, child: anytype) bool {
+    pub fn isAncestorOf(self: KXmlGuiWindow, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -5722,9 +7226,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn AutoFillBackground(self: KXmlGuiWindow) bool {
+    pub fn autoFillBackground(self: KXmlGuiWindow) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -5736,9 +7244,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: KXmlGuiWindow, enabled: bool) void {
+    pub fn setAutoFillBackground(self: KXmlGuiWindow, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -5748,9 +7260,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn BackingStore(self: KXmlGuiWindow) QBackingStore {
+    pub fn backingStore(self: KXmlGuiWindow) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -5760,9 +7276,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn WindowHandle(self: KXmlGuiWindow) QWindow {
+    pub fn windowHandle(self: KXmlGuiWindow) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -5772,9 +7292,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn Screen(self: KXmlGuiWindow) QScreen {
+    pub fn screen(self: KXmlGuiWindow) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -5784,12 +7308,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: KXmlGuiWindow, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: KXmlGuiWindow, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -5797,12 +7325,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -5814,13 +7346,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: KXmlGuiWindow, title: []const u8) void {
+    pub fn windowTitleChanged(self: KXmlGuiWindow, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -5832,9 +7368,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -5846,10 +7386,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: KXmlGuiWindow, icon: anytype) void {
+    pub fn windowIconChanged(self: KXmlGuiWindow, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -5861,9 +7405,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -5875,13 +7423,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: KXmlGuiWindow, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: KXmlGuiWindow, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -5893,9 +7445,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -5905,12 +7461,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: KXmlGuiWindow, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: KXmlGuiWindow, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -5922,9 +7482,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -5938,9 +7502,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: KXmlGuiWindow) i32 {
+    pub fn inputMethodHints(self: KXmlGuiWindow) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -5952,9 +7520,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: KXmlGuiWindow, hints: i32) void {
+    pub fn setInputMethodHints(self: KXmlGuiWindow, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -5968,11 +7540,15 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: KXmlGuiWindow, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: KXmlGuiWindow, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -5988,13 +7564,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: KXmlGuiWindow, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: KXmlGuiWindow, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -6011,12 +7591,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: KXmlGuiWindow, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: KXmlGuiWindow, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -6030,11 +7614,15 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: KXmlGuiWindow, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: KXmlGuiWindow, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -6050,12 +7638,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: KXmlGuiWindow, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: KXmlGuiWindow, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -6073,12 +7665,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: KXmlGuiWindow, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: KXmlGuiWindow, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -6090,10 +7686,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: KXmlGuiWindow, rectangle: anytype) QPixmap {
+    pub fn grab1(self: KXmlGuiWindow, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -6107,9 +7707,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: KXmlGuiWindow, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: KXmlGuiWindow, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -6123,10 +7727,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: KXmlGuiWindow, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: KXmlGuiWindow, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -6140,9 +7748,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: KXmlGuiWindow, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: KXmlGuiWindow, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -6156,9 +7768,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: KXmlGuiWindow, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: KXmlGuiWindow, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -6172,9 +7788,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: KXmlGuiWindow, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: KXmlGuiWindow, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -6188,25 +7808,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: KXmlGuiWindow, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: KXmlGuiWindow, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -6214,17 +7822,41 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -6236,13 +7868,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -6254,13 +7890,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KXmlGuiWindow, name: []const u8) void {
+    pub fn setObjectName(self: KXmlGuiWindow, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -6270,9 +7910,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn IsWidgetType(self: KXmlGuiWindow) bool {
+    pub fn isWidgetType(self: KXmlGuiWindow) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -6282,9 +7926,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn IsWindowType(self: KXmlGuiWindow) bool {
+    pub fn isWindowType(self: KXmlGuiWindow) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -6294,9 +7942,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn IsQuickItemType(self: KXmlGuiWindow) bool {
+    pub fn isQuickItemType(self: KXmlGuiWindow) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -6306,9 +7958,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn SignalsBlocked(self: KXmlGuiWindow) bool {
+    pub fn signalsBlocked(self: KXmlGuiWindow) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -6320,9 +7976,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KXmlGuiWindow, b: bool) bool {
+    pub fn blockSignals(self: KXmlGuiWindow, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -6332,9 +7992,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn Thread(self: KXmlGuiWindow) QThread {
+    pub fn thread(self: KXmlGuiWindow) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -6344,12 +8008,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KXmlGuiWindow, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KXmlGuiWindow, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -6361,9 +8029,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KXmlGuiWindow, interval: i32) i32 {
+    pub fn startTimer(self: KXmlGuiWindow, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -6375,9 +8047,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KXmlGuiWindow, time: i64) i32 {
+    pub fn startTimer2(self: KXmlGuiWindow, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -6389,9 +8065,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KXmlGuiWindow, id: i32) void {
+    pub fn killTimer(self: KXmlGuiWindow, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -6403,9 +8083,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KXmlGuiWindow, id: i32) void {
+    pub fn killTimer2(self: KXmlGuiWindow, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -6417,15 +8101,19 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KXmlGuiWindow, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KXmlGuiWindow, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KXmlGuiWindow.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KXmlGuiWindow.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -6437,10 +8125,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KXmlGuiWindow, filterObj: anytype) void {
+    pub fn installEventFilter(self: KXmlGuiWindow, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -6452,10 +8144,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KXmlGuiWindow, obj: anytype) void {
+    pub fn removeEventFilter(self: KXmlGuiWindow, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -6463,7 +8159,7 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6471,13 +8167,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -6485,7 +8185,7 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -6493,13 +8193,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -6509,18 +8213,22 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KXmlGuiWindow, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KXmlGuiWindow, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -6528,7 +8236,7 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6536,13 +8244,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -6550,7 +8262,7 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -6558,13 +8270,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -6574,9 +8290,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn Disconnect3(self: KXmlGuiWindow) bool {
+    pub fn disconnect3(self: KXmlGuiWindow) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -6588,10 +8308,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KXmlGuiWindow, receiver: anytype) bool {
+    pub fn disconnect4(self: KXmlGuiWindow, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -6601,10 +8325,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -6614,9 +8342,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn DumpObjectTree(self: KXmlGuiWindow) void {
+    pub fn dumpObjectTree(self: KXmlGuiWindow) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -6626,9 +8358,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn DumpObjectInfo(self: KXmlGuiWindow) void {
+    pub fn dumpObjectInfo(self: KXmlGuiWindow) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -6642,11 +8378,15 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KXmlGuiWindow, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KXmlGuiWindow, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -6658,10 +8398,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KXmlGuiWindow, name: [:0]const u8) QVariant {
+    pub fn property(self: KXmlGuiWindow, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -6673,7 +8417,7 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KXmlGuiWindow, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KXmlGuiWindow, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -6681,27 +8425,19 @@ pub const KXmlGuiWindow = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KXmlGuiWindow.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KXmlGuiWindow.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KXmlGuiWindow.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KXmlGuiWindow.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KXmlGuiWindow `
-    ///
-    pub fn BindingStorage(self: KXmlGuiWindow) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -6711,9 +8447,29 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn BindingStorage2(self: KXmlGuiWindow) QBindingStorage {
+    pub fn bindingStorage(self: KXmlGuiWindow) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KXmlGuiWindow `
+    ///
+    pub fn bindingStorage2(self: KXmlGuiWindow) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -6723,9 +8479,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn Destroyed(self: KXmlGuiWindow) void {
+    pub fn destroyed(self: KXmlGuiWindow) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -6737,9 +8497,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow) callconv(.c) void) void {
+    pub fn onDestroyed(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -6749,9 +8513,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn Parent(self: KXmlGuiWindow) QObject {
+    pub fn parent(self: KXmlGuiWindow) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -6763,10 +8531,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KXmlGuiWindow, classname: [:0]const u8) bool {
+    pub fn inherits(self: KXmlGuiWindow, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -6776,9 +8548,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn DeleteLater(self: KXmlGuiWindow) void {
+    pub fn deleteLater(self: KXmlGuiWindow) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -6792,9 +8568,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KXmlGuiWindow, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KXmlGuiWindow, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -6808,9 +8588,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KXmlGuiWindow, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KXmlGuiWindow, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -6818,7 +8602,7 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6828,13 +8612,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -6842,7 +8630,7 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -6852,13 +8640,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -6868,7 +8660,7 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6876,12 +8668,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KXmlGuiWindow, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KXmlGuiWindow, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -6893,10 +8689,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KXmlGuiWindow, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KXmlGuiWindow, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -6910,11 +8710,15 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KXmlGuiWindow, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KXmlGuiWindow, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -6930,13 +8734,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KXmlGuiWindow, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KXmlGuiWindow, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -6949,11 +8757,15 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KXmlGuiWindow, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KXmlGuiWindow, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -6965,10 +8777,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KXmlGuiWindow, param1: anytype) void {
+    pub fn destroyed1(self: KXmlGuiWindow, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -6980,9 +8796,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -6992,9 +8812,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn PaintingActive(self: KXmlGuiWindow) bool {
+    pub fn paintingActive(self: KXmlGuiWindow) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -7004,9 +8828,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn WidthMM(self: KXmlGuiWindow) i32 {
+    pub fn widthMM(self: KXmlGuiWindow) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -7016,9 +8844,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn HeightMM(self: KXmlGuiWindow) i32 {
+    pub fn heightMM(self: KXmlGuiWindow) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -7028,9 +8860,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn LogicalDpiX(self: KXmlGuiWindow) i32 {
+    pub fn logicalDpiX(self: KXmlGuiWindow) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -7040,9 +8876,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn LogicalDpiY(self: KXmlGuiWindow) i32 {
+    pub fn logicalDpiY(self: KXmlGuiWindow) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -7052,9 +8892,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn PhysicalDpiX(self: KXmlGuiWindow) i32 {
+    pub fn physicalDpiX(self: KXmlGuiWindow) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -7064,9 +8908,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn PhysicalDpiY(self: KXmlGuiWindow) i32 {
+    pub fn physicalDpiY(self: KXmlGuiWindow) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -7076,9 +8924,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn DevicePixelRatio(self: KXmlGuiWindow) f64 {
+    pub fn devicePixelRatio(self: KXmlGuiWindow) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -7088,9 +8940,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn DevicePixelRatioF(self: KXmlGuiWindow) f64 {
+    pub fn devicePixelRatioF(self: KXmlGuiWindow) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -7100,9 +8956,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn ColorCount(self: KXmlGuiWindow) i32 {
+    pub fn colorCount(self: KXmlGuiWindow) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -7112,17 +8972,25 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn Depth(self: KXmlGuiWindow) i32 {
+    pub fn depth(self: KXmlGuiWindow) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -7130,13 +8998,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `builderClient` instead
+    ///
+    pub const BuilderClient = builderClient;
 
     /// Inherited from KXMLGUIBuilder
     ///
@@ -7146,9 +9018,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn BuilderClient(self: KXmlGuiWindow) KXMLGUIClient {
+    pub fn builderClient(self: KXmlGuiWindow) KXMLGUIClient {
         return .{ .ptr = qtc.KXMLGUIBuilder_BuilderClient(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBuilderClient` instead
+    ///
+    pub const SetBuilderClient = setBuilderClient;
 
     /// Inherited from KXMLGUIBuilder
     ///
@@ -7160,10 +9036,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` client: KXMLGUIClient `
     ///
-    pub fn SetBuilderClient(self: KXmlGuiWindow, client: anytype) void {
+    pub fn setBuilderClient(self: KXmlGuiWindow, client: anytype) void {
         comptime _ = @TypeOf(client)._is_KXMLGUIClient;
         qtc.KXMLGUIBuilder_SetBuilderClient(@ptrCast(self.ptr), @ptrCast(client.ptr));
     }
+
+    /// ### DEPRECATED: Use `widget` instead
+    ///
+    pub const Widget = widget;
 
     /// Inherited from KXMLGUIBuilder
     ///
@@ -7173,9 +9053,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn Widget(self: KXmlGuiWindow) QWidget {
+    pub fn widget(self: KXmlGuiWindow) QWidget {
         return .{ .ptr = qtc.KXMLGUIBuilder_Widget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `action` instead
+    ///
+    pub const Action = action;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -7187,13 +9071,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn Action(self: KXmlGuiWindow, name: []const u8) QAction {
+    pub fn action(self: KXmlGuiWindow, name: []const u8) QAction {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         return .{ .ptr = qtc.KXMLGUIClient_Action(@ptrCast(self.ptr), name_str) };
     }
+
+    /// ### DEPRECATED: Use `setXMLGUIBuildDocument` instead
+    ///
+    pub const SetXMLGUIBuildDocument = setXMLGUIBuildDocument;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -7205,10 +9093,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` doc: QDomDocument `
     ///
-    pub fn SetXMLGUIBuildDocument(self: KXmlGuiWindow, doc: anytype) void {
+    pub fn setXMLGUIBuildDocument(self: KXmlGuiWindow, doc: anytype) void {
         comptime _ = @TypeOf(doc)._is_QDomDocument;
         qtc.KXMLGUIClient_SetXMLGUIBuildDocument(@ptrCast(self.ptr), @ptrCast(doc.ptr));
     }
+
+    /// ### DEPRECATED: Use `xmlguiBuildDocument` instead
+    ///
+    pub const XmlguiBuildDocument = xmlguiBuildDocument;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -7218,9 +9110,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn XmlguiBuildDocument(self: KXmlGuiWindow) QDomDocument {
+    pub fn xmlguiBuildDocument(self: KXmlGuiWindow) QDomDocument {
         return .{ .ptr = qtc.KXMLGUIClient_XmlguiBuildDocument(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFactory` instead
+    ///
+    pub const SetFactory = setFactory;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -7230,12 +9126,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` factory: KXMLGUIFactory `
+    /// ` _factory: KXMLGUIFactory `
     ///
-    pub fn SetFactory(self: KXmlGuiWindow, factory: anytype) void {
-        comptime _ = @TypeOf(factory)._is_KXMLGUIFactory;
-        qtc.KXMLGUIClient_SetFactory(@ptrCast(self.ptr), @ptrCast(factory.ptr));
+    pub fn setFactory(self: KXmlGuiWindow, _factory: anytype) void {
+        comptime _ = @TypeOf(_factory)._is_KXMLGUIFactory;
+        qtc.KXMLGUIClient_SetFactory(@ptrCast(self.ptr), @ptrCast(_factory.ptr));
     }
+
+    /// ### DEPRECATED: Use `factory` instead
+    ///
+    pub const Factory = factory;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -7245,9 +9145,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn Factory(self: KXmlGuiWindow) KXMLGUIFactory {
+    pub fn factory(self: KXmlGuiWindow) KXMLGUIFactory {
         return .{ .ptr = qtc.KXMLGUIClient_Factory(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `parentClient` instead
+    ///
+    pub const ParentClient = parentClient;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -7257,9 +9161,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn ParentClient(self: KXmlGuiWindow) KXMLGUIClient {
+    pub fn parentClient(self: KXmlGuiWindow) KXMLGUIClient {
         return .{ .ptr = qtc.KXMLGUIClient_ParentClient(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `insertChildClient` instead
+    ///
+    pub const InsertChildClient = insertChildClient;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -7271,10 +9179,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` child: KXMLGUIClient `
     ///
-    pub fn InsertChildClient(self: KXmlGuiWindow, child: anytype) void {
+    pub fn insertChildClient(self: KXmlGuiWindow, child: anytype) void {
         comptime _ = @TypeOf(child)._is_KXMLGUIClient;
         qtc.KXMLGUIClient_InsertChildClient(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeChildClient` instead
+    ///
+    pub const RemoveChildClient = removeChildClient;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -7286,10 +9198,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` child: KXMLGUIClient `
     ///
-    pub fn RemoveChildClient(self: KXmlGuiWindow, child: anytype) void {
+    pub fn removeChildClient(self: KXmlGuiWindow, child: anytype) void {
         comptime _ = @TypeOf(child)._is_KXMLGUIClient;
         qtc.KXMLGUIClient_RemoveChildClient(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `childClients` instead
+    ///
+    pub const ChildClients = childClients;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -7301,15 +9217,19 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ChildClients(self: KXmlGuiWindow, allocator: std.mem.Allocator) []KXMLGUIClient {
+    pub fn childClients(self: KXmlGuiWindow, allocator: std.mem.Allocator) []KXMLGUIClient {
         const _arr: qtc.libqt_list = qtc.KXMLGUIClient_ChildClients(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KXMLGUIClient, _arr.len) catch @panic("KXmlGuiWindow.ChildClients: Memory allocation failed");
-        const _data: [*]QtC.KXMLGUIClient = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(KXMLGUIClient, _arr.len) catch @panic("KXmlGuiWindow.childClients: Memory allocation failed");
+        const _data_val: [*]QtC.KXMLGUIClient = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setClientBuilder` instead
+    ///
+    pub const SetClientBuilder = setClientBuilder;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -7321,10 +9241,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` builder: KXMLGUIBuilder `
     ///
-    pub fn SetClientBuilder(self: KXmlGuiWindow, builder: anytype) void {
+    pub fn setClientBuilder(self: KXmlGuiWindow, builder: anytype) void {
         comptime _ = @TypeOf(builder)._is_KXMLGUIBuilder;
         qtc.KXMLGUIClient_SetClientBuilder(@ptrCast(self.ptr), @ptrCast(builder.ptr));
     }
+
+    /// ### DEPRECATED: Use `clientBuilder` instead
+    ///
+    pub const ClientBuilder = clientBuilder;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -7334,9 +9258,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn ClientBuilder(self: KXmlGuiWindow) KXMLGUIBuilder {
+    pub fn clientBuilder(self: KXmlGuiWindow) KXMLGUIBuilder {
         return .{ .ptr = qtc.KXMLGUIClient_ClientBuilder(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `reloadXML` instead
+    ///
+    pub const ReloadXML = reloadXML;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -7346,9 +9274,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn ReloadXML(self: KXmlGuiWindow) void {
+    pub fn reloadXML(self: KXmlGuiWindow) void {
         qtc.KXMLGUIClient_ReloadXML(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `plugActionList` instead
+    ///
+    pub const PlugActionList = plugActionList;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -7362,7 +9294,7 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` actionList: []QAction `
     ///
-    pub fn PlugActionList(self: KXmlGuiWindow, name: []const u8, actionList: []QAction) void {
+    pub fn plugActionList(self: KXmlGuiWindow, name: []const u8, actionList: []QAction) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -7374,6 +9306,10 @@ pub const KXmlGuiWindow = extern struct {
         qtc.KXMLGUIClient_PlugActionList(@ptrCast(self.ptr), name_str, actionList_list);
     }
 
+    /// ### DEPRECATED: Use `unplugActionList` instead
+    ///
+    pub const UnplugActionList = unplugActionList;
+
     /// Inherited from KXMLGUIClient
     ///
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#unplugActionList)
@@ -7384,13 +9320,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn UnplugActionList(self: KXmlGuiWindow, name: []const u8) void {
+    pub fn unplugActionList(self: KXmlGuiWindow, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.KXMLGUIClient_UnplugActionList(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `findMostRecentXMLFile` instead
+    ///
+    pub const FindMostRecentXMLFile = findMostRecentXMLFile;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -7404,13 +9344,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` doc: []const u8 `
     ///
-    pub fn FindMostRecentXMLFile(allocator: std.mem.Allocator, files: []const []const u8, doc: []const u8) []const u8 {
-        const files_arr = allocator.alloc(qtc.libqt_string, files.len) catch @panic("KXmlGuiWindow.FindMostRecentXMLFile: Memory allocation failed");
+    pub fn findMostRecentXMLFile(allocator: std.mem.Allocator, files: []const []const u8, doc: []const u8) []const u8 {
+        const files_arr = allocator.alloc(qtc.libqt_string, files.len) catch @panic("KXmlGuiWindow.findMostRecentXMLFile: Memory allocation failed");
         defer allocator.free(files_arr);
-        for (files, 0..files.len) |item, i|
+        for (files, 0..files.len) |str_item, i|
             files_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const files_list = qtc.libqt_list{
             .len = files.len,
@@ -7422,10 +9362,14 @@ pub const KXmlGuiWindow = extern struct {
         };
         var _str = qtc.KXMLGUIClient_FindMostRecentXMLFile(files_list, doc_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.FindMostRecentXMLFile: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.findMostRecentXMLFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addStateActionEnabled` instead
+    ///
+    pub const AddStateActionEnabled = addStateActionEnabled;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -7437,19 +9381,23 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` state: []const u8 `
     ///
-    /// ` action: []const u8 `
+    /// ` _action: []const u8 `
     ///
-    pub fn AddStateActionEnabled(self: KXmlGuiWindow, state: []const u8, action: []const u8) void {
+    pub fn addStateActionEnabled(self: KXmlGuiWindow, state: []const u8, _action: []const u8) void {
         const state_str = qtc.libqt_string{
             .len = state.len,
             .data = state.ptr,
         };
         const action_str = qtc.libqt_string{
-            .len = action.len,
-            .data = action.ptr,
+            .len = _action.len,
+            .data = _action.ptr,
         };
         qtc.KXMLGUIClient_AddStateActionEnabled(@ptrCast(self.ptr), state_str, action_str);
     }
+
+    /// ### DEPRECATED: Use `addStateActionDisabled` instead
+    ///
+    pub const AddStateActionDisabled = addStateActionDisabled;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -7461,19 +9409,23 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` state: []const u8 `
     ///
-    /// ` action: []const u8 `
+    /// ` _action: []const u8 `
     ///
-    pub fn AddStateActionDisabled(self: KXmlGuiWindow, state: []const u8, action: []const u8) void {
+    pub fn addStateActionDisabled(self: KXmlGuiWindow, state: []const u8, _action: []const u8) void {
         const state_str = qtc.libqt_string{
             .len = state.len,
             .data = state.ptr,
         };
         const action_str = qtc.libqt_string{
-            .len = action.len,
-            .data = action.ptr,
+            .len = _action.len,
+            .data = _action.ptr,
         };
         qtc.KXMLGUIClient_AddStateActionDisabled(@ptrCast(self.ptr), state_str, action_str);
     }
+
+    /// ### DEPRECATED: Use `getActionsToChangeForState` instead
+    ///
+    pub const GetActionsToChangeForState = getActionsToChangeForState;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -7485,13 +9437,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` state: []const u8 `
     ///
-    pub fn GetActionsToChangeForState(self: KXmlGuiWindow, state: []const u8) KXMLGUIClient__StateChange {
+    pub fn getActionsToChangeForState(self: KXmlGuiWindow, state: []const u8) KXMLGUIClient__StateChange {
         const state_str = qtc.libqt_string{
             .len = state.len,
             .data = state.ptr,
         };
         return .{ .ptr = qtc.KXMLGUIClient_GetActionsToChangeForState(@ptrCast(self.ptr), state_str) };
     }
+
+    /// ### DEPRECATED: Use `beginXMLPlug` instead
+    ///
+    pub const BeginXMLPlug = beginXMLPlug;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -7503,10 +9459,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn BeginXMLPlug(self: KXmlGuiWindow, param1: anytype) void {
+    pub fn beginXMLPlug(self: KXmlGuiWindow, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.KXMLGUIClient_BeginXMLPlug(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `endXMLPlug` instead
+    ///
+    pub const EndXMLPlug = endXMLPlug;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -7516,9 +9476,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn EndXMLPlug(self: KXmlGuiWindow) void {
+    pub fn endXMLPlug(self: KXmlGuiWindow) void {
         qtc.KXMLGUIClient_EndXMLPlug(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `prepareXMLUnplug` instead
+    ///
+    pub const PrepareXMLUnplug = prepareXMLUnplug;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -7530,10 +9494,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn PrepareXMLUnplug(self: KXmlGuiWindow, param1: anytype) void {
+    pub fn prepareXMLUnplug(self: KXmlGuiWindow, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.KXMLGUIClient_PrepareXMLUnplug(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `replaceXMLFile` instead
+    ///
+    pub const ReplaceXMLFile = replaceXMLFile;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -7547,7 +9515,7 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` localxmlfile: []const u8 `
     ///
-    pub fn ReplaceXMLFile(self: KXmlGuiWindow, xmlfile: []const u8, localxmlfile: []const u8) void {
+    pub fn replaceXMLFile(self: KXmlGuiWindow, xmlfile: []const u8, localxmlfile: []const u8) void {
         const xmlfile_str = qtc.libqt_string{
             .len = xmlfile.len,
             .data = xmlfile.ptr,
@@ -7559,6 +9527,10 @@ pub const KXmlGuiWindow = extern struct {
         qtc.KXMLGUIClient_ReplaceXMLFile(@ptrCast(self.ptr), xmlfile_str, localxmlfile_str);
     }
 
+    /// ### DEPRECATED: Use `findVersionNumber` instead
+    ///
+    pub const FindVersionNumber = findVersionNumber;
+
     /// Inherited from KXMLGUIClient
     ///
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#findVersionNumber)
@@ -7569,17 +9541,21 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` xml: []const u8 `
     ///
-    pub fn FindVersionNumber(allocator: std.mem.Allocator, xml: []const u8) []const u8 {
+    pub fn findVersionNumber(allocator: std.mem.Allocator, xml: []const u8) []const u8 {
         const xml_str = qtc.libqt_string{
             .len = xml.len,
             .data = xml.ptr,
         };
         var _str = qtc.KXMLGUIClient_FindVersionNumber(xml_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.FindVersionNumber: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.findVersionNumber: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `replaceXMLFile3` instead
+    ///
+    pub const ReplaceXMLFile3 = replaceXMLFile3;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -7595,7 +9571,7 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` merge: bool `
     ///
-    pub fn ReplaceXMLFile3(self: KXmlGuiWindow, xmlfile: []const u8, localxmlfile: []const u8, merge: bool) void {
+    pub fn replaceXMLFile3(self: KXmlGuiWindow, xmlfile: []const u8, localxmlfile: []const u8, merge: bool) void {
         const xmlfile_str = qtc.libqt_string{
             .len = xmlfile.len,
             .data = xmlfile.ptr,
@@ -7607,6 +9583,10 @@ pub const KXmlGuiWindow = extern struct {
         qtc.KXMLGUIClient_ReplaceXMLFile3(@ptrCast(self.ptr), xmlfile_str, localxmlfile_str, merge);
     }
 
+    /// ### DEPRECATED: Use `setCaption` instead
+    ///
+    pub const SetCaption = setCaption;
+
     /// Inherited from KMainWindow
     ///
     /// ### [Upstream resources](https://api.kde.org/kmainwindow.html#setCaption)
@@ -7619,7 +9599,7 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` caption: []const u8 `
     ///
-    pub fn SetCaption(self: KXmlGuiWindow, caption: []const u8) void {
+    pub fn setCaption(self: KXmlGuiWindow, caption: []const u8) void {
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
@@ -7627,9 +9607,9 @@ pub const KXmlGuiWindow = extern struct {
         qtc.KXmlGuiWindow_SetCaption(@ptrCast(self.ptr), caption_str);
     }
 
-    /// ### DEPRECATED: Use `SuperSetCaption` instead
+    /// ### DEPRECATED: Use `superSetCaption` instead
     ///
-    pub const QBaseSetCaption = SuperSetCaption;
+    pub const SuperSetCaption = superSetCaption;
 
     /// Inherited from KMainWindow
     ///
@@ -7643,7 +9623,7 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` caption: []const u8 `
     ///
-    pub fn SuperSetCaption(self: KXmlGuiWindow, caption: []const u8) void {
+    pub fn superSetCaption(self: KXmlGuiWindow, caption: []const u8) void {
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
@@ -7651,6 +9631,10 @@ pub const KXmlGuiWindow = extern struct {
         qtc.KXmlGuiWindow_SuperSetCaption(@ptrCast(self.ptr), caption_str);
     }
 
+    /// ### DEPRECATED: Use `onSetCaption` instead
+    ///
+    pub const OnSetCaption = onSetCaption;
+
     /// Inherited from KMainWindow
     ///
     /// ### [Upstream resources](https://api.kde.org/kmainwindow.html#setCaption)
@@ -7663,9 +9647,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, caption: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetCaption(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, [*:0]const u8) callconv(.c) void) void {
+    pub fn onSetCaption(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, [*:0]const u8) callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnSetCaption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setPlainCaption` instead
+    ///
+    pub const SetPlainCaption = setPlainCaption;
 
     /// Inherited from KMainWindow
     ///
@@ -7679,7 +9667,7 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` caption: []const u8 `
     ///
-    pub fn SetPlainCaption(self: KXmlGuiWindow, caption: []const u8) void {
+    pub fn setPlainCaption(self: KXmlGuiWindow, caption: []const u8) void {
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
@@ -7687,9 +9675,9 @@ pub const KXmlGuiWindow = extern struct {
         qtc.KXmlGuiWindow_SetPlainCaption(@ptrCast(self.ptr), caption_str);
     }
 
-    /// ### DEPRECATED: Use `SuperSetPlainCaption` instead
+    /// ### DEPRECATED: Use `superSetPlainCaption` instead
     ///
-    pub const QBaseSetPlainCaption = SuperSetPlainCaption;
+    pub const SuperSetPlainCaption = superSetPlainCaption;
 
     /// Inherited from KMainWindow
     ///
@@ -7703,13 +9691,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` caption: []const u8 `
     ///
-    pub fn SuperSetPlainCaption(self: KXmlGuiWindow, caption: []const u8) void {
+    pub fn superSetPlainCaption(self: KXmlGuiWindow, caption: []const u8) void {
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
         qtc.KXmlGuiWindow_SuperSetPlainCaption(@ptrCast(self.ptr), caption_str);
     }
+
+    /// ### DEPRECATED: Use `onSetPlainCaption` instead
+    ///
+    pub const OnSetPlainCaption = onSetPlainCaption;
 
     /// Inherited from KMainWindow
     ///
@@ -7723,9 +9715,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, caption: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetPlainCaption(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, [*:0]const u8) callconv(.c) void) void {
+    pub fn onSetPlainCaption(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, [*:0]const u8) callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnSetPlainCaption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
 
     /// Inherited from KMainWindow
     ///
@@ -7739,14 +9735,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` keyEvent: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: KXmlGuiWindow, keyEvent: anytype) void {
+    pub fn keyPressEvent(self: KXmlGuiWindow, keyEvent: anytype) void {
         comptime _ = @TypeOf(keyEvent)._is_QKeyEvent;
         qtc.KXmlGuiWindow_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(keyEvent.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from KMainWindow
     ///
@@ -7760,10 +9756,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` keyEvent: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: KXmlGuiWindow, keyEvent: anytype) void {
+    pub fn superKeyPressEvent(self: KXmlGuiWindow, keyEvent: anytype) void {
         comptime _ = @TypeOf(keyEvent)._is_QKeyEvent;
         qtc.KXmlGuiWindow_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(keyEvent.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// Inherited from KMainWindow
     ///
@@ -7777,9 +9777,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, keyEvent: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QKeyEvent) callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from KMainWindow
     ///
@@ -7793,14 +9797,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param1: QCloseEvent `
     ///
-    pub fn CloseEvent(self: KXmlGuiWindow, param1: anytype) void {
+    pub fn closeEvent(self: KXmlGuiWindow, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCloseEvent;
         qtc.KXmlGuiWindow_CloseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from KMainWindow
     ///
@@ -7814,10 +9818,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param1: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: KXmlGuiWindow, param1: anytype) void {
+    pub fn superCloseEvent(self: KXmlGuiWindow, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCloseEvent;
         qtc.KXmlGuiWindow_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from KMainWindow
     ///
@@ -7831,9 +9839,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, param1: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QCloseEvent) callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `queryClose` instead
+    ///
+    pub const QueryClose = queryClose;
 
     /// Inherited from KMainWindow
     ///
@@ -7845,13 +9857,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn QueryClose(self: KXmlGuiWindow) bool {
+    pub fn queryClose(self: KXmlGuiWindow) bool {
         return qtc.KXmlGuiWindow_QueryClose(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperQueryClose` instead
+    /// ### DEPRECATED: Use `superQueryClose` instead
     ///
-    pub const QBaseQueryClose = SuperQueryClose;
+    pub const SuperQueryClose = superQueryClose;
 
     /// Inherited from KMainWindow
     ///
@@ -7863,9 +9875,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn SuperQueryClose(self: KXmlGuiWindow) bool {
+    pub fn superQueryClose(self: KXmlGuiWindow) bool {
         return qtc.KXmlGuiWindow_SuperQueryClose(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onQueryClose` instead
+    ///
+    pub const OnQueryClose = onQueryClose;
 
     /// Inherited from KMainWindow
     ///
@@ -7879,9 +9895,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnQueryClose(self: KXmlGuiWindow, callback: *const fn () callconv(.c) bool) void {
+    pub fn onQueryClose(self: KXmlGuiWindow, callback: *const fn () callconv(.c) bool) void {
         qtc.KXmlGuiWindow_OnQueryClose(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `saveProperties` instead
+    ///
+    pub const SaveProperties = saveProperties;
 
     /// Inherited from KMainWindow
     ///
@@ -7895,14 +9915,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param1: KConfigGroup `
     ///
-    pub fn SaveProperties(self: KXmlGuiWindow, param1: anytype) void {
+    pub fn saveProperties(self: KXmlGuiWindow, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_KConfigGroup;
         qtc.KXmlGuiWindow_SaveProperties(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSaveProperties` instead
+    /// ### DEPRECATED: Use `superSaveProperties` instead
     ///
-    pub const QBaseSaveProperties = SuperSaveProperties;
+    pub const SuperSaveProperties = superSaveProperties;
 
     /// Inherited from KMainWindow
     ///
@@ -7916,11 +9936,15 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param1: KConfigGroup `
     ///
-    pub fn SuperSaveProperties(self: KXmlGuiWindow, param1: anytype) void {
+    pub fn superSaveProperties(self: KXmlGuiWindow, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_KConfigGroup;
         qtc.KXmlGuiWindow_SuperSaveProperties(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSaveProperties` instead
+    ///
+    pub const OnSaveProperties = onSaveProperties;
+
     /// Inherited from KMainWindow
     ///
     /// ### [Upstream resources](https://api.kde.org/kmainwindow.html#saveProperties)
@@ -7933,9 +9957,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, param1: KConfigGroup) callconv(.c) void `
     ///
-    pub fn OnSaveProperties(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, KConfigGroup) callconv(.c) void) void {
+    pub fn onSaveProperties(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, KConfigGroup) callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnSaveProperties(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `readProperties` instead
+    ///
+    pub const ReadProperties = readProperties;
 
     /// Inherited from KMainWindow
     ///
@@ -7949,14 +9977,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param1: KConfigGroup `
     ///
-    pub fn ReadProperties(self: KXmlGuiWindow, param1: anytype) void {
+    pub fn readProperties(self: KXmlGuiWindow, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_KConfigGroup;
         qtc.KXmlGuiWindow_ReadProperties(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperReadProperties` instead
+    /// ### DEPRECATED: Use `superReadProperties` instead
     ///
-    pub const QBaseReadProperties = SuperReadProperties;
+    pub const SuperReadProperties = superReadProperties;
 
     /// Inherited from KMainWindow
     ///
@@ -7970,10 +9998,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param1: KConfigGroup `
     ///
-    pub fn SuperReadProperties(self: KXmlGuiWindow, param1: anytype) void {
+    pub fn superReadProperties(self: KXmlGuiWindow, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_KConfigGroup;
         qtc.KXmlGuiWindow_SuperReadProperties(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onReadProperties` instead
+    ///
+    pub const OnReadProperties = onReadProperties;
 
     /// Inherited from KMainWindow
     ///
@@ -7987,9 +10019,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, param1: KConfigGroup) callconv(.c) void `
     ///
-    pub fn OnReadProperties(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, KConfigGroup) callconv(.c) void) void {
+    pub fn onReadProperties(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, KConfigGroup) callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnReadProperties(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `saveGlobalProperties` instead
+    ///
+    pub const SaveGlobalProperties = saveGlobalProperties;
 
     /// Inherited from KMainWindow
     ///
@@ -8003,14 +10039,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` sessionConfig: KConfig `
     ///
-    pub fn SaveGlobalProperties(self: KXmlGuiWindow, sessionConfig: anytype) void {
+    pub fn saveGlobalProperties(self: KXmlGuiWindow, sessionConfig: anytype) void {
         comptime _ = @TypeOf(sessionConfig)._is_KConfig;
         qtc.KXmlGuiWindow_SaveGlobalProperties(@ptrCast(self.ptr), @ptrCast(sessionConfig.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSaveGlobalProperties` instead
+    /// ### DEPRECATED: Use `superSaveGlobalProperties` instead
     ///
-    pub const QBaseSaveGlobalProperties = SuperSaveGlobalProperties;
+    pub const SuperSaveGlobalProperties = superSaveGlobalProperties;
 
     /// Inherited from KMainWindow
     ///
@@ -8024,11 +10060,15 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` sessionConfig: KConfig `
     ///
-    pub fn SuperSaveGlobalProperties(self: KXmlGuiWindow, sessionConfig: anytype) void {
+    pub fn superSaveGlobalProperties(self: KXmlGuiWindow, sessionConfig: anytype) void {
         comptime _ = @TypeOf(sessionConfig)._is_KConfig;
         qtc.KXmlGuiWindow_SuperSaveGlobalProperties(@ptrCast(self.ptr), @ptrCast(sessionConfig.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSaveGlobalProperties` instead
+    ///
+    pub const OnSaveGlobalProperties = onSaveGlobalProperties;
+
     /// Inherited from KMainWindow
     ///
     /// ### [Upstream resources](https://api.kde.org/kmainwindow.html#saveGlobalProperties)
@@ -8041,9 +10081,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, sessionConfig: KConfig) callconv(.c) void `
     ///
-    pub fn OnSaveGlobalProperties(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, KConfig) callconv(.c) void) void {
+    pub fn onSaveGlobalProperties(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, KConfig) callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnSaveGlobalProperties(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `readGlobalProperties` instead
+    ///
+    pub const ReadGlobalProperties = readGlobalProperties;
 
     /// Inherited from KMainWindow
     ///
@@ -8057,14 +10101,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` sessionConfig: KConfig `
     ///
-    pub fn ReadGlobalProperties(self: KXmlGuiWindow, sessionConfig: anytype) void {
+    pub fn readGlobalProperties(self: KXmlGuiWindow, sessionConfig: anytype) void {
         comptime _ = @TypeOf(sessionConfig)._is_KConfig;
         qtc.KXmlGuiWindow_ReadGlobalProperties(@ptrCast(self.ptr), @ptrCast(sessionConfig.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperReadGlobalProperties` instead
+    /// ### DEPRECATED: Use `superReadGlobalProperties` instead
     ///
-    pub const QBaseReadGlobalProperties = SuperReadGlobalProperties;
+    pub const SuperReadGlobalProperties = superReadGlobalProperties;
 
     /// Inherited from KMainWindow
     ///
@@ -8078,10 +10122,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` sessionConfig: KConfig `
     ///
-    pub fn SuperReadGlobalProperties(self: KXmlGuiWindow, sessionConfig: anytype) void {
+    pub fn superReadGlobalProperties(self: KXmlGuiWindow, sessionConfig: anytype) void {
         comptime _ = @TypeOf(sessionConfig)._is_KConfig;
         qtc.KXmlGuiWindow_SuperReadGlobalProperties(@ptrCast(self.ptr), @ptrCast(sessionConfig.ptr));
     }
+
+    /// ### DEPRECATED: Use `onReadGlobalProperties` instead
+    ///
+    pub const OnReadGlobalProperties = onReadGlobalProperties;
 
     /// Inherited from KMainWindow
     ///
@@ -8095,9 +10143,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, sessionConfig: KConfig) callconv(.c) void `
     ///
-    pub fn OnReadGlobalProperties(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, KConfig) callconv(.c) void) void {
+    pub fn onReadGlobalProperties(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, KConfig) callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnReadGlobalProperties(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `createPopupMenu` instead
+    ///
+    pub const CreatePopupMenu = createPopupMenu;
 
     /// Inherited from QMainWindow
     ///
@@ -8109,13 +10161,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn CreatePopupMenu(self: KXmlGuiWindow) QMenu {
+    pub fn createPopupMenu(self: KXmlGuiWindow) QMenu {
         return .{ .ptr = qtc.KXmlGuiWindow_CreatePopupMenu(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperCreatePopupMenu` instead
+    /// ### DEPRECATED: Use `superCreatePopupMenu` instead
     ///
-    pub const QBaseCreatePopupMenu = SuperCreatePopupMenu;
+    pub const SuperCreatePopupMenu = superCreatePopupMenu;
 
     /// Inherited from QMainWindow
     ///
@@ -8127,9 +10179,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn SuperCreatePopupMenu(self: KXmlGuiWindow) QMenu {
+    pub fn superCreatePopupMenu(self: KXmlGuiWindow) QMenu {
         return .{ .ptr = qtc.KXmlGuiWindow_SuperCreatePopupMenu(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onCreatePopupMenu` instead
+    ///
+    pub const OnCreatePopupMenu = onCreatePopupMenu;
 
     /// Inherited from QMainWindow
     ///
@@ -8143,9 +10199,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMenu `
     ///
-    pub fn OnCreatePopupMenu(self: KXmlGuiWindow, callback: *const fn () callconv(.c) QMenu) void {
+    pub fn onCreatePopupMenu(self: KXmlGuiWindow, callback: *const fn () callconv(.c) QMenu) void {
         qtc.KXmlGuiWindow_OnCreatePopupMenu(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QMainWindow
     ///
@@ -8157,16 +10217,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: KXmlGuiWindow, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.KXmlGuiWindow_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn contextMenuEvent(self: KXmlGuiWindow, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.KXmlGuiWindow_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QMainWindow
     ///
@@ -8178,12 +10238,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: KXmlGuiWindow, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.KXmlGuiWindow_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superContextMenuEvent(self: KXmlGuiWindow, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.KXmlGuiWindow_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QMainWindow
     ///
@@ -8197,9 +10261,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, event: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QContextMenuEvent) callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -8211,13 +10279,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn DevType(self: KXmlGuiWindow) i32 {
+    pub fn devType(self: KXmlGuiWindow) i32 {
         return qtc.KXmlGuiWindow_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -8229,9 +10297,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn SuperDevType(self: KXmlGuiWindow) i32 {
+    pub fn superDevType(self: KXmlGuiWindow) i32 {
         return qtc.KXmlGuiWindow_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -8245,9 +10317,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: KXmlGuiWindow, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KXmlGuiWindow, callback: *const fn () callconv(.c) i32) void {
         qtc.KXmlGuiWindow_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -8261,13 +10337,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: KXmlGuiWindow, visible: bool) void {
+    pub fn setVisible(self: KXmlGuiWindow, visible: bool) void {
         qtc.KXmlGuiWindow_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -8281,9 +10357,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: KXmlGuiWindow, visible: bool) void {
+    pub fn superSetVisible(self: KXmlGuiWindow, visible: bool) void {
         qtc.KXmlGuiWindow_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -8297,10 +10377,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, bool) callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
@@ -8311,13 +10395,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn SizeHint(self: KXmlGuiWindow) QSize {
+    pub fn sizeHint(self: KXmlGuiWindow) QSize {
         return .{ .ptr = qtc.KXmlGuiWindow_SizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -8329,10 +10413,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn SuperSizeHint(self: KXmlGuiWindow) QSize {
+    pub fn superSizeHint(self: KXmlGuiWindow) QSize {
         return .{ .ptr = qtc.KXmlGuiWindow_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
@@ -8347,9 +10435,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: KXmlGuiWindow, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KXmlGuiWindow, callback: *const fn () callconv(.c) QSize) void {
         qtc.KXmlGuiWindow_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -8361,13 +10453,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn MinimumSizeHint(self: KXmlGuiWindow) QSize {
+    pub fn minimumSizeHint(self: KXmlGuiWindow) QSize {
         return .{ .ptr = qtc.KXmlGuiWindow_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -8379,9 +10471,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn SuperMinimumSizeHint(self: KXmlGuiWindow) QSize {
+    pub fn superMinimumSizeHint(self: KXmlGuiWindow) QSize {
         return .{ .ptr = qtc.KXmlGuiWindow_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -8397,9 +10493,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: KXmlGuiWindow, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KXmlGuiWindow, callback: *const fn () callconv(.c) QSize) void {
         qtc.KXmlGuiWindow_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -8413,13 +10513,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: KXmlGuiWindow, param1: i32) i32 {
+    pub fn heightForWidth(self: KXmlGuiWindow, param1: i32) i32 {
         return qtc.KXmlGuiWindow_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -8433,9 +10533,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: KXmlGuiWindow, param1: i32) i32 {
+    pub fn superHeightForWidth(self: KXmlGuiWindow, param1: i32) i32 {
         return qtc.KXmlGuiWindow_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -8449,9 +10553,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, i32) callconv(.c) i32) void {
         qtc.KXmlGuiWindow_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -8463,13 +10571,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn HasHeightForWidth(self: KXmlGuiWindow) bool {
+    pub fn hasHeightForWidth(self: KXmlGuiWindow) bool {
         return qtc.KXmlGuiWindow_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -8481,9 +10589,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn SuperHasHeightForWidth(self: KXmlGuiWindow) bool {
+    pub fn superHasHeightForWidth(self: KXmlGuiWindow) bool {
         return qtc.KXmlGuiWindow_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -8497,9 +10609,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: KXmlGuiWindow, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KXmlGuiWindow, callback: *const fn () callconv(.c) bool) void {
         qtc.KXmlGuiWindow_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -8511,13 +10627,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn PaintEngine(self: KXmlGuiWindow) QPaintEngine {
+    pub fn paintEngine(self: KXmlGuiWindow) QPaintEngine {
         return .{ .ptr = qtc.KXmlGuiWindow_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -8529,9 +10645,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn SuperPaintEngine(self: KXmlGuiWindow) QPaintEngine {
+    pub fn superPaintEngine(self: KXmlGuiWindow) QPaintEngine {
         return .{ .ptr = qtc.KXmlGuiWindow_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -8545,10 +10665,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: KXmlGuiWindow, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KXmlGuiWindow, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.KXmlGuiWindow_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
@@ -8559,16 +10683,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: KXmlGuiWindow, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KXmlGuiWindow_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mousePressEvent(self: KXmlGuiWindow, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KXmlGuiWindow_MousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -8580,12 +10704,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: KXmlGuiWindow, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KXmlGuiWindow_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMousePressEvent(self: KXmlGuiWindow, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KXmlGuiWindow_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -8599,10 +10727,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QMouseEvent) callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
@@ -8613,16 +10745,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: KXmlGuiWindow, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KXmlGuiWindow_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseReleaseEvent(self: KXmlGuiWindow, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KXmlGuiWindow_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -8634,12 +10766,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: KXmlGuiWindow, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KXmlGuiWindow_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseReleaseEvent(self: KXmlGuiWindow, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KXmlGuiWindow_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -8653,10 +10789,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QMouseEvent) callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
@@ -8667,16 +10807,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: KXmlGuiWindow, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KXmlGuiWindow_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: KXmlGuiWindow, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KXmlGuiWindow_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -8688,12 +10828,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: KXmlGuiWindow, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KXmlGuiWindow_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: KXmlGuiWindow, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KXmlGuiWindow_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -8707,10 +10851,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QMouseEvent) callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
@@ -8721,16 +10869,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: KXmlGuiWindow, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KXmlGuiWindow_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseMoveEvent(self: KXmlGuiWindow, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KXmlGuiWindow_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8742,12 +10890,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: KXmlGuiWindow, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KXmlGuiWindow_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseMoveEvent(self: KXmlGuiWindow, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KXmlGuiWindow_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8761,9 +10913,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QMouseEvent) callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -8775,16 +10931,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: KXmlGuiWindow, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.KXmlGuiWindow_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn wheelEvent(self: KXmlGuiWindow, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.KXmlGuiWindow_WheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -8796,12 +10952,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: KXmlGuiWindow, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.KXmlGuiWindow_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superWheelEvent(self: KXmlGuiWindow, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.KXmlGuiWindow_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -8815,9 +10975,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QWheelEvent) callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -8829,16 +10993,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: KXmlGuiWindow, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KXmlGuiWindow_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyReleaseEvent(self: KXmlGuiWindow, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KXmlGuiWindow_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -8850,12 +11014,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: KXmlGuiWindow, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KXmlGuiWindow_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyReleaseEvent(self: KXmlGuiWindow, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KXmlGuiWindow_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -8869,10 +11037,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QKeyEvent) callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
@@ -8883,16 +11055,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: KXmlGuiWindow, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KXmlGuiWindow_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusInEvent(self: KXmlGuiWindow, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KXmlGuiWindow_FocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -8904,12 +11076,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: KXmlGuiWindow, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KXmlGuiWindow_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusInEvent(self: KXmlGuiWindow, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KXmlGuiWindow_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -8923,10 +11099,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QFocusEvent) callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
@@ -8937,16 +11117,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: KXmlGuiWindow, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KXmlGuiWindow_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusOutEvent(self: KXmlGuiWindow, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KXmlGuiWindow_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -8958,12 +11138,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: KXmlGuiWindow, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KXmlGuiWindow_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusOutEvent(self: KXmlGuiWindow, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KXmlGuiWindow_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -8977,9 +11161,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QFocusEvent) callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -8991,16 +11179,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: KXmlGuiWindow, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KXmlGuiWindow_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: KXmlGuiWindow, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KXmlGuiWindow_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -9012,12 +11200,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: KXmlGuiWindow, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KXmlGuiWindow_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: KXmlGuiWindow, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KXmlGuiWindow_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -9031,9 +11223,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QEnterEvent) callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9045,16 +11241,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: KXmlGuiWindow, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KXmlGuiWindow_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: KXmlGuiWindow, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KXmlGuiWindow_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9066,12 +11262,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: KXmlGuiWindow, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KXmlGuiWindow_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: KXmlGuiWindow, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KXmlGuiWindow_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9085,9 +11285,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QEvent) callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// Inherited from QWidget
     ///
@@ -9099,16 +11303,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn PaintEvent(self: KXmlGuiWindow, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.KXmlGuiWindow_PaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn paintEvent(self: KXmlGuiWindow, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.KXmlGuiWindow_PaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -9120,12 +11324,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: KXmlGuiWindow, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.KXmlGuiWindow_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superPaintEvent(self: KXmlGuiWindow, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.KXmlGuiWindow_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -9139,9 +11347,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, event: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QPaintEvent) callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9153,16 +11365,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: KXmlGuiWindow, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KXmlGuiWindow_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: KXmlGuiWindow, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KXmlGuiWindow_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9174,12 +11386,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: KXmlGuiWindow, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KXmlGuiWindow_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: KXmlGuiWindow, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KXmlGuiWindow_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9193,9 +11409,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QMoveEvent) callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -9207,16 +11427,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: KXmlGuiWindow, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.KXmlGuiWindow_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn resizeEvent(self: KXmlGuiWindow, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.KXmlGuiWindow_ResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -9228,12 +11448,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: KXmlGuiWindow, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.KXmlGuiWindow_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superResizeEvent(self: KXmlGuiWindow, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.KXmlGuiWindow_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -9247,9 +11471,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QResizeEvent) callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -9261,16 +11489,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: KXmlGuiWindow, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KXmlGuiWindow_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: KXmlGuiWindow, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KXmlGuiWindow_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -9282,12 +11510,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: KXmlGuiWindow, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KXmlGuiWindow_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: KXmlGuiWindow, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KXmlGuiWindow_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -9301,9 +11533,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QTabletEvent) callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -9315,16 +11551,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: KXmlGuiWindow, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KXmlGuiWindow_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: KXmlGuiWindow, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KXmlGuiWindow_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -9336,12 +11572,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: KXmlGuiWindow, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KXmlGuiWindow_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: KXmlGuiWindow, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KXmlGuiWindow_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -9355,9 +11595,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QActionEvent) callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -9369,16 +11613,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: KXmlGuiWindow, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KXmlGuiWindow_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: KXmlGuiWindow, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KXmlGuiWindow_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -9390,12 +11634,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: KXmlGuiWindow, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KXmlGuiWindow_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: KXmlGuiWindow, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KXmlGuiWindow_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -9409,9 +11657,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QDragEnterEvent) callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9423,16 +11675,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: KXmlGuiWindow, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KXmlGuiWindow_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: KXmlGuiWindow, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KXmlGuiWindow_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9444,12 +11696,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: KXmlGuiWindow, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KXmlGuiWindow_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: KXmlGuiWindow, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KXmlGuiWindow_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9463,9 +11719,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QDragMoveEvent) callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9477,16 +11737,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: KXmlGuiWindow, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KXmlGuiWindow_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: KXmlGuiWindow, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KXmlGuiWindow_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9498,12 +11758,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: KXmlGuiWindow, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KXmlGuiWindow_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: KXmlGuiWindow, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KXmlGuiWindow_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9517,9 +11781,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QDragLeaveEvent) callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QWidget
     ///
@@ -9531,16 +11799,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: KXmlGuiWindow, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KXmlGuiWindow_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: KXmlGuiWindow, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KXmlGuiWindow_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -9552,12 +11820,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: KXmlGuiWindow, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KXmlGuiWindow_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: KXmlGuiWindow, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KXmlGuiWindow_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -9571,9 +11843,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QDropEvent) callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QWidget
     ///
@@ -9585,16 +11861,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn ShowEvent(self: KXmlGuiWindow, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.KXmlGuiWindow_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn showEvent(self: KXmlGuiWindow, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.KXmlGuiWindow_ShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -9606,12 +11882,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: KXmlGuiWindow, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.KXmlGuiWindow_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superShowEvent(self: KXmlGuiWindow, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.KXmlGuiWindow_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -9625,9 +11905,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QShowEvent) callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -9639,16 +11923,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: KXmlGuiWindow, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KXmlGuiWindow_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: KXmlGuiWindow, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KXmlGuiWindow_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -9660,12 +11944,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: KXmlGuiWindow, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KXmlGuiWindow_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: KXmlGuiWindow, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KXmlGuiWindow_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -9679,9 +11967,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QHideEvent) callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -9699,7 +11991,7 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: KXmlGuiWindow, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: KXmlGuiWindow, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -9707,9 +11999,9 @@ pub const KXmlGuiWindow = extern struct {
         return qtc.KXmlGuiWindow_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -9727,13 +12019,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: KXmlGuiWindow, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: KXmlGuiWindow, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.KXmlGuiWindow_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -9747,9 +12043,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KXmlGuiWindow_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QWidget
     ///
@@ -9763,14 +12063,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: KXmlGuiWindow, param1: anytype) void {
+    pub fn changeEvent(self: KXmlGuiWindow, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.KXmlGuiWindow_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QWidget
     ///
@@ -9784,10 +12084,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: KXmlGuiWindow, param1: anytype) void {
+    pub fn superChangeEvent(self: KXmlGuiWindow, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.KXmlGuiWindow_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QWidget
     ///
@@ -9801,9 +12105,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QEvent) callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -9817,13 +12125,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: KXmlGuiWindow, param1: i32) i32 {
+    pub fn metric(self: KXmlGuiWindow, param1: i32) i32 {
         return qtc.KXmlGuiWindow_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -9837,9 +12145,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: KXmlGuiWindow, param1: i32) i32 {
+    pub fn superMetric(self: KXmlGuiWindow, param1: i32) i32 {
         return qtc.KXmlGuiWindow_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -9853,9 +12165,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, i32) callconv(.c) i32) void {
         qtc.KXmlGuiWindow_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -9869,14 +12185,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: KXmlGuiWindow, painter: anytype) void {
+    pub fn initPainter(self: KXmlGuiWindow, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KXmlGuiWindow_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -9890,10 +12206,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: KXmlGuiWindow, painter: anytype) void {
+    pub fn superInitPainter(self: KXmlGuiWindow, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KXmlGuiWindow_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -9907,9 +12227,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QPainter) callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -9923,14 +12247,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: KXmlGuiWindow, offset: anytype) QPaintDevice {
+    pub fn redirected(self: KXmlGuiWindow, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KXmlGuiWindow_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -9944,10 +12268,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: KXmlGuiWindow, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: KXmlGuiWindow, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KXmlGuiWindow_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -9961,9 +12289,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QPoint) callconv(.c) QPaintDevice) void {
         qtc.KXmlGuiWindow_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -9975,13 +12307,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn SharedPainter(self: KXmlGuiWindow) QPainter {
+    pub fn sharedPainter(self: KXmlGuiWindow) QPainter {
         return .{ .ptr = qtc.KXmlGuiWindow_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -9993,9 +12325,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn SuperSharedPainter(self: KXmlGuiWindow) QPainter {
+    pub fn superSharedPainter(self: KXmlGuiWindow) QPainter {
         return .{ .ptr = qtc.KXmlGuiWindow_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -10009,9 +12345,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: KXmlGuiWindow, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KXmlGuiWindow, callback: *const fn () callconv(.c) QPainter) void {
         qtc.KXmlGuiWindow_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -10025,14 +12365,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: KXmlGuiWindow, param1: anytype) void {
+    pub fn inputMethodEvent(self: KXmlGuiWindow, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KXmlGuiWindow_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -10046,10 +12386,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: KXmlGuiWindow, param1: anytype) void {
+    pub fn superInputMethodEvent(self: KXmlGuiWindow, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KXmlGuiWindow_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -10063,9 +12407,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QInputMethodEvent) callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -10079,13 +12427,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: KXmlGuiWindow, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: KXmlGuiWindow, param1: i32) QVariant {
         return .{ .ptr = qtc.KXmlGuiWindow_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -10099,9 +12447,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: KXmlGuiWindow, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: KXmlGuiWindow, param1: i32) QVariant {
         return .{ .ptr = qtc.KXmlGuiWindow_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -10117,9 +12469,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, i32) callconv(.c) QVariant) void {
         qtc.KXmlGuiWindow_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -10133,13 +12489,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: KXmlGuiWindow, next: bool) bool {
+    pub fn focusNextPrevChild(self: KXmlGuiWindow, next: bool) bool {
         return qtc.KXmlGuiWindow_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -10153,9 +12509,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: KXmlGuiWindow, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: KXmlGuiWindow, next: bool) bool {
         return qtc.KXmlGuiWindow_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -10169,9 +12529,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, bool) callconv(.c) bool) void {
         qtc.KXmlGuiWindow_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -10185,17 +12549,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: KXmlGuiWindow, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: KXmlGuiWindow, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KXmlGuiWindow_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KXmlGuiWindow_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -10209,13 +12573,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: KXmlGuiWindow, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: KXmlGuiWindow, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KXmlGuiWindow_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KXmlGuiWindow_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -10229,9 +12597,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QObject, QEvent) callconv(.c) bool) void {
         qtc.KXmlGuiWindow_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -10243,16 +12615,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KXmlGuiWindow, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KXmlGuiWindow_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: KXmlGuiWindow, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KXmlGuiWindow_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -10264,12 +12636,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KXmlGuiWindow, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KXmlGuiWindow_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: KXmlGuiWindow, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KXmlGuiWindow_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -10283,9 +12659,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QTimerEvent) callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -10297,16 +12677,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KXmlGuiWindow, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KXmlGuiWindow_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KXmlGuiWindow, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KXmlGuiWindow_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -10318,12 +12698,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KXmlGuiWindow, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KXmlGuiWindow_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KXmlGuiWindow, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KXmlGuiWindow_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -10337,9 +12721,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QChildEvent) callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -10351,16 +12739,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KXmlGuiWindow, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KXmlGuiWindow_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KXmlGuiWindow, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KXmlGuiWindow_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -10372,12 +12760,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KXmlGuiWindow, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KXmlGuiWindow_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KXmlGuiWindow, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KXmlGuiWindow_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -10391,9 +12783,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QEvent) callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -10407,14 +12803,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KXmlGuiWindow, signal: anytype) void {
+    pub fn connectNotify(self: KXmlGuiWindow, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KXmlGuiWindow_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -10428,10 +12824,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KXmlGuiWindow, signal: anytype) void {
+    pub fn superConnectNotify(self: KXmlGuiWindow, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KXmlGuiWindow_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -10445,9 +12845,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QMetaMethod) callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -10461,14 +12865,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KXmlGuiWindow, signal: anytype) void {
+    pub fn disconnectNotify(self: KXmlGuiWindow, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KXmlGuiWindow_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -10482,10 +12886,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KXmlGuiWindow, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KXmlGuiWindow, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KXmlGuiWindow_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -10499,9 +12907,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QMetaMethod) callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `containerTags` instead
+    ///
+    pub const ContainerTags = containerTags;
 
     /// Inherited from KXMLGUIBuilder
     ///
@@ -10515,7 +12927,7 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ContainerTags(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn containerTags(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KXmlGuiWindow_ContainerTags(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -10523,19 +12935,19 @@ pub const KXmlGuiWindow = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KXmlGuiWindow.ContainerTags: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KXmlGuiWindow.containerTags: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KXmlGuiWindow.ContainerTags: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KXmlGuiWindow.containerTags: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `SuperContainerTags` instead
+    /// ### DEPRECATED: Use `superContainerTags` instead
     ///
-    pub const QBaseContainerTags = SuperContainerTags;
+    pub const SuperContainerTags = superContainerTags;
 
     /// Inherited from KXMLGUIBuilder
     ///
@@ -10549,7 +12961,7 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperContainerTags(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn superContainerTags(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KXmlGuiWindow_SuperContainerTags(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -10557,15 +12969,19 @@ pub const KXmlGuiWindow = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KXmlGuiWindow.ContainerTags: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KXmlGuiWindow.containerTags: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KXmlGuiWindow.ContainerTags: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KXmlGuiWindow.containerTags: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onContainerTags` instead
+    ///
+    pub const OnContainerTags = onContainerTags;
 
     /// Inherited from KXMLGUIBuilder
     ///
@@ -10581,9 +12997,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn OnContainerTags(self: KXmlGuiWindow, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
+    pub fn onContainerTags(self: KXmlGuiWindow, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.KXmlGuiWindow_OnContainerTags(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `createContainer` instead
+    ///
+    pub const CreateContainer = createContainer;
 
     /// Inherited from KXMLGUIBuilder
     ///
@@ -10595,7 +13015,7 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
     /// ` index: i32 `
     ///
@@ -10603,16 +13023,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` containerAction: QAction `
     ///
-    pub fn CreateContainer(self: KXmlGuiWindow, parent: anytype, index: i32, element: anytype, containerAction: anytype) QWidget {
-        comptime _ = @TypeOf(parent)._is_QWidget;
+    pub fn createContainer(self: KXmlGuiWindow, _parent: anytype, index: i32, element: anytype, containerAction: anytype) QWidget {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
         comptime _ = @TypeOf(element)._is_QDomElement;
         comptime _ = @TypeOf(containerAction)._is_QAction;
-        return .{ .ptr = qtc.KXmlGuiWindow_CreateContainer(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(index), @ptrCast(element.ptr), @ptrCast(containerAction.ptr)) };
+        return .{ .ptr = qtc.KXmlGuiWindow_CreateContainer(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(index), @ptrCast(element.ptr), @ptrCast(containerAction.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperCreateContainer` instead
+    /// ### DEPRECATED: Use `superCreateContainer` instead
     ///
-    pub const QBaseCreateContainer = SuperCreateContainer;
+    pub const SuperCreateContainer = superCreateContainer;
 
     /// Inherited from KXMLGUIBuilder
     ///
@@ -10624,7 +13044,7 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
     /// ` index: i32 `
     ///
@@ -10632,12 +13052,16 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` containerAction: QAction `
     ///
-    pub fn SuperCreateContainer(self: KXmlGuiWindow, parent: anytype, index: i32, element: anytype, containerAction: anytype) QWidget {
-        comptime _ = @TypeOf(parent)._is_QWidget;
+    pub fn superCreateContainer(self: KXmlGuiWindow, _parent: anytype, index: i32, element: anytype, containerAction: anytype) QWidget {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
         comptime _ = @TypeOf(element)._is_QDomElement;
         comptime _ = @TypeOf(containerAction)._is_QAction;
-        return .{ .ptr = qtc.KXmlGuiWindow_SuperCreateContainer(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(index), @ptrCast(element.ptr), @ptrCast(containerAction.ptr)) };
+        return .{ .ptr = qtc.KXmlGuiWindow_SuperCreateContainer(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(index), @ptrCast(element.ptr), @ptrCast(containerAction.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onCreateContainer` instead
+    ///
+    pub const OnCreateContainer = onCreateContainer;
 
     /// Inherited from KXMLGUIBuilder
     ///
@@ -10651,9 +13075,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, parent: QWidget, index: i32, element: QDomElement, containerAction: QAction) callconv(.c) QWidget `
     ///
-    pub fn OnCreateContainer(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QWidget, i32, QDomElement, QAction) callconv(.c) QWidget) void {
+    pub fn onCreateContainer(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QWidget, i32, QDomElement, QAction) callconv(.c) QWidget) void {
         qtc.KXmlGuiWindow_OnCreateContainer(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `removeContainer` instead
+    ///
+    pub const RemoveContainer = removeContainer;
 
     /// Inherited from KXMLGUIBuilder
     ///
@@ -10667,23 +13095,23 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` container: QWidget `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
     /// ` element: QDomElement `
     ///
     /// ` containerAction: QAction `
     ///
-    pub fn RemoveContainer(self: KXmlGuiWindow, container: anytype, parent: anytype, element: anytype, containerAction: anytype) void {
+    pub fn removeContainer(self: KXmlGuiWindow, container: anytype, _parent: anytype, element: anytype, containerAction: anytype) void {
         comptime _ = @TypeOf(container)._is_QWidget;
-        comptime _ = @TypeOf(parent)._is_QWidget;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
         comptime _ = @TypeOf(element)._is_QDomElement;
         comptime _ = @TypeOf(containerAction)._is_QAction;
-        qtc.KXmlGuiWindow_RemoveContainer(@ptrCast(self.ptr), @ptrCast(container.ptr), @ptrCast(parent.ptr), @ptrCast(element.ptr), @ptrCast(containerAction.ptr));
+        qtc.KXmlGuiWindow_RemoveContainer(@ptrCast(self.ptr), @ptrCast(container.ptr), @ptrCast(_parent.ptr), @ptrCast(element.ptr), @ptrCast(containerAction.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperRemoveContainer` instead
+    /// ### DEPRECATED: Use `superRemoveContainer` instead
     ///
-    pub const QBaseRemoveContainer = SuperRemoveContainer;
+    pub const SuperRemoveContainer = superRemoveContainer;
 
     /// Inherited from KXMLGUIBuilder
     ///
@@ -10697,19 +13125,23 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` container: QWidget `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
     /// ` element: QDomElement `
     ///
     /// ` containerAction: QAction `
     ///
-    pub fn SuperRemoveContainer(self: KXmlGuiWindow, container: anytype, parent: anytype, element: anytype, containerAction: anytype) void {
+    pub fn superRemoveContainer(self: KXmlGuiWindow, container: anytype, _parent: anytype, element: anytype, containerAction: anytype) void {
         comptime _ = @TypeOf(container)._is_QWidget;
-        comptime _ = @TypeOf(parent)._is_QWidget;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
         comptime _ = @TypeOf(element)._is_QDomElement;
         comptime _ = @TypeOf(containerAction)._is_QAction;
-        qtc.KXmlGuiWindow_SuperRemoveContainer(@ptrCast(self.ptr), @ptrCast(container.ptr), @ptrCast(parent.ptr), @ptrCast(element.ptr), @ptrCast(containerAction.ptr));
+        qtc.KXmlGuiWindow_SuperRemoveContainer(@ptrCast(self.ptr), @ptrCast(container.ptr), @ptrCast(_parent.ptr), @ptrCast(element.ptr), @ptrCast(containerAction.ptr));
     }
+
+    /// ### DEPRECATED: Use `onRemoveContainer` instead
+    ///
+    pub const OnRemoveContainer = onRemoveContainer;
 
     /// Inherited from KXMLGUIBuilder
     ///
@@ -10723,9 +13155,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, container: QWidget, parent: QWidget, element: QDomElement, containerAction: QAction) callconv(.c) void `
     ///
-    pub fn OnRemoveContainer(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QWidget, QWidget, QDomElement, QAction) callconv(.c) void) void {
+    pub fn onRemoveContainer(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QWidget, QWidget, QDomElement, QAction) callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnRemoveContainer(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customTags` instead
+    ///
+    pub const CustomTags = customTags;
 
     /// Inherited from KXMLGUIBuilder
     ///
@@ -10739,7 +13175,7 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CustomTags(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn customTags(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KXmlGuiWindow_CustomTags(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -10747,19 +13183,19 @@ pub const KXmlGuiWindow = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KXmlGuiWindow.CustomTags: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KXmlGuiWindow.customTags: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KXmlGuiWindow.CustomTags: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KXmlGuiWindow.customTags: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `SuperCustomTags` instead
+    /// ### DEPRECATED: Use `superCustomTags` instead
     ///
-    pub const QBaseCustomTags = SuperCustomTags;
+    pub const SuperCustomTags = superCustomTags;
 
     /// Inherited from KXMLGUIBuilder
     ///
@@ -10773,7 +13209,7 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperCustomTags(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn superCustomTags(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KXmlGuiWindow_SuperCustomTags(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -10781,15 +13217,19 @@ pub const KXmlGuiWindow = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KXmlGuiWindow.CustomTags: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KXmlGuiWindow.customTags: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KXmlGuiWindow.CustomTags: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KXmlGuiWindow.customTags: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onCustomTags` instead
+    ///
+    pub const OnCustomTags = onCustomTags;
 
     /// Inherited from KXMLGUIBuilder
     ///
@@ -10805,9 +13245,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn OnCustomTags(self: KXmlGuiWindow, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
+    pub fn onCustomTags(self: KXmlGuiWindow, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.KXmlGuiWindow_OnCustomTags(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `createCustomElement` instead
+    ///
+    pub const CreateCustomElement = createCustomElement;
 
     /// Inherited from KXMLGUIBuilder
     ///
@@ -10819,21 +13263,21 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
     /// ` index: i32 `
     ///
     /// ` element: QDomElement `
     ///
-    pub fn CreateCustomElement(self: KXmlGuiWindow, parent: anytype, index: i32, element: anytype) QAction {
-        comptime _ = @TypeOf(parent)._is_QWidget;
+    pub fn createCustomElement(self: KXmlGuiWindow, _parent: anytype, index: i32, element: anytype) QAction {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
         comptime _ = @TypeOf(element)._is_QDomElement;
-        return .{ .ptr = qtc.KXmlGuiWindow_CreateCustomElement(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(index), @ptrCast(element.ptr)) };
+        return .{ .ptr = qtc.KXmlGuiWindow_CreateCustomElement(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(index), @ptrCast(element.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperCreateCustomElement` instead
+    /// ### DEPRECATED: Use `superCreateCustomElement` instead
     ///
-    pub const QBaseCreateCustomElement = SuperCreateCustomElement;
+    pub const SuperCreateCustomElement = superCreateCustomElement;
 
     /// Inherited from KXMLGUIBuilder
     ///
@@ -10845,17 +13289,21 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
     /// ` index: i32 `
     ///
     /// ` element: QDomElement `
     ///
-    pub fn SuperCreateCustomElement(self: KXmlGuiWindow, parent: anytype, index: i32, element: anytype) QAction {
-        comptime _ = @TypeOf(parent)._is_QWidget;
+    pub fn superCreateCustomElement(self: KXmlGuiWindow, _parent: anytype, index: i32, element: anytype) QAction {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
         comptime _ = @TypeOf(element)._is_QDomElement;
-        return .{ .ptr = qtc.KXmlGuiWindow_SuperCreateCustomElement(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(index), @ptrCast(element.ptr)) };
+        return .{ .ptr = qtc.KXmlGuiWindow_SuperCreateCustomElement(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(index), @ptrCast(element.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onCreateCustomElement` instead
+    ///
+    pub const OnCreateCustomElement = onCreateCustomElement;
 
     /// Inherited from KXMLGUIBuilder
     ///
@@ -10869,9 +13317,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, parent: QWidget, index: i32, element: QDomElement) callconv(.c) QAction `
     ///
-    pub fn OnCreateCustomElement(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QWidget, i32, QDomElement) callconv(.c) QAction) void {
+    pub fn onCreateCustomElement(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QWidget, i32, QDomElement) callconv(.c) QAction) void {
         qtc.KXmlGuiWindow_OnCreateCustomElement(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `action2` instead
+    ///
+    pub const Action2 = action2;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -10885,14 +13337,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` element: QDomElement `
     ///
-    pub fn Action2(self: KXmlGuiWindow, element: anytype) QAction {
+    pub fn action2(self: KXmlGuiWindow, element: anytype) QAction {
         comptime _ = @TypeOf(element)._is_QDomElement;
         return .{ .ptr = qtc.KXmlGuiWindow_Action2(@ptrCast(self.ptr), @ptrCast(element.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperAction2` instead
+    /// ### DEPRECATED: Use `superAction2` instead
     ///
-    pub const QBaseAction2 = SuperAction2;
+    pub const SuperAction2 = superAction2;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -10906,10 +13358,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` element: QDomElement `
     ///
-    pub fn SuperAction2(self: KXmlGuiWindow, element: anytype) QAction {
+    pub fn superAction2(self: KXmlGuiWindow, element: anytype) QAction {
         comptime _ = @TypeOf(element)._is_QDomElement;
         return .{ .ptr = qtc.KXmlGuiWindow_SuperAction2(@ptrCast(self.ptr), @ptrCast(element.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onAction2` instead
+    ///
+    pub const OnAction2 = onAction2;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -10923,9 +13379,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, element: QDomElement) callconv(.c) QAction `
     ///
-    pub fn OnAction2(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QDomElement) callconv(.c) QAction) void {
+    pub fn onAction2(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QDomElement) callconv(.c) QAction) void {
         qtc.KXmlGuiWindow_OnAction2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionCollection` instead
+    ///
+    pub const ActionCollection = actionCollection;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -10937,13 +13397,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn ActionCollection(self: KXmlGuiWindow) KActionCollection {
+    pub fn actionCollection(self: KXmlGuiWindow) KActionCollection {
         return .{ .ptr = qtc.KXmlGuiWindow_ActionCollection(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperActionCollection` instead
+    /// ### DEPRECATED: Use `superActionCollection` instead
     ///
-    pub const QBaseActionCollection = SuperActionCollection;
+    pub const SuperActionCollection = superActionCollection;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -10955,9 +13415,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn SuperActionCollection(self: KXmlGuiWindow) KActionCollection {
+    pub fn superActionCollection(self: KXmlGuiWindow) KActionCollection {
         return .{ .ptr = qtc.KXmlGuiWindow_SuperActionCollection(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onActionCollection` instead
+    ///
+    pub const OnActionCollection = onActionCollection;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -10971,9 +13435,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) KActionCollection `
     ///
-    pub fn OnActionCollection(self: KXmlGuiWindow, callback: *const fn () callconv(.c) KActionCollection) void {
+    pub fn onActionCollection(self: KXmlGuiWindow, callback: *const fn () callconv(.c) KActionCollection) void {
         qtc.KXmlGuiWindow_OnActionCollection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `componentName` instead
+    ///
+    pub const ComponentName = componentName;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -10987,17 +13455,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ComponentName(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
+    pub fn componentName(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KXmlGuiWindow_ComponentName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.ComponentName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.componentName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `SuperComponentName` instead
+    /// ### DEPRECATED: Use `superComponentName` instead
     ///
-    pub const QBaseComponentName = SuperComponentName;
+    pub const SuperComponentName = superComponentName;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -11011,13 +13479,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperComponentName(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
+    pub fn superComponentName(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KXmlGuiWindow_SuperComponentName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.ComponentName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.componentName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onComponentName` instead
+    ///
+    pub const OnComponentName = onComponentName;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -11031,9 +13503,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnComponentName(self: KXmlGuiWindow, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onComponentName(self: KXmlGuiWindow, callback: *const fn () callconv(.c) [*:0]const u8) void {
         qtc.KXmlGuiWindow_OnComponentName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `domDocument` instead
+    ///
+    pub const DomDocument = domDocument;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -11045,13 +13521,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn DomDocument(self: KXmlGuiWindow) QDomDocument {
+    pub fn domDocument(self: KXmlGuiWindow) QDomDocument {
         return .{ .ptr = qtc.KXmlGuiWindow_DomDocument(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperDomDocument` instead
+    /// ### DEPRECATED: Use `superDomDocument` instead
     ///
-    pub const QBaseDomDocument = SuperDomDocument;
+    pub const SuperDomDocument = superDomDocument;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -11063,9 +13539,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn SuperDomDocument(self: KXmlGuiWindow) QDomDocument {
+    pub fn superDomDocument(self: KXmlGuiWindow) QDomDocument {
         return .{ .ptr = qtc.KXmlGuiWindow_SuperDomDocument(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onDomDocument` instead
+    ///
+    pub const OnDomDocument = onDomDocument;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -11081,10 +13561,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnDomDocument(self: KXmlGuiWindow, callback: *const fn () callconv(.c) QDomDocument) void {
+    pub fn onDomDocument(self: KXmlGuiWindow, callback: *const fn () callconv(.c) QDomDocument) void {
         qtc.KXmlGuiWindow_OnDomDocument(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `xmlFile` instead
+    ///
+    pub const XmlFile = xmlFile;
+
     /// Inherited from KXMLGUIClient
     ///
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#xmlFile)
@@ -11097,17 +13581,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn XmlFile(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
+    pub fn xmlFile(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KXmlGuiWindow_XmlFile(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.XmlFile: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.xmlFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `SuperXmlFile` instead
+    /// ### DEPRECATED: Use `superXmlFile` instead
     ///
-    pub const QBaseXmlFile = SuperXmlFile;
+    pub const SuperXmlFile = superXmlFile;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -11121,13 +13605,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperXmlFile(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
+    pub fn superXmlFile(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KXmlGuiWindow_SuperXmlFile(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.XmlFile: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.xmlFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onXmlFile` instead
+    ///
+    pub const OnXmlFile = onXmlFile;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -11141,10 +13629,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnXmlFile(self: KXmlGuiWindow, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onXmlFile(self: KXmlGuiWindow, callback: *const fn () callconv(.c) [*:0]const u8) void {
         qtc.KXmlGuiWindow_OnXmlFile(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `localXMLFile` instead
+    ///
+    pub const LocalXMLFile = localXMLFile;
+
     /// Inherited from KXMLGUIClient
     ///
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#localXMLFile)
@@ -11157,17 +13649,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LocalXMLFile(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
+    pub fn localXMLFile(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KXmlGuiWindow_LocalXMLFile(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.LocalXMLFile: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.localXMLFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `SuperLocalXMLFile` instead
+    /// ### DEPRECATED: Use `superLocalXMLFile` instead
     ///
-    pub const QBaseLocalXMLFile = SuperLocalXMLFile;
+    pub const SuperLocalXMLFile = superLocalXMLFile;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -11181,13 +13673,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperLocalXMLFile(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
+    pub fn superLocalXMLFile(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KXmlGuiWindow_SuperLocalXMLFile(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.LocalXMLFile: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.localXMLFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onLocalXMLFile` instead
+    ///
+    pub const OnLocalXMLFile = onLocalXMLFile;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -11201,9 +13697,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnLocalXMLFile(self: KXmlGuiWindow, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onLocalXMLFile(self: KXmlGuiWindow, callback: *const fn () callconv(.c) [*:0]const u8) void {
         qtc.KXmlGuiWindow_OnLocalXMLFile(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setComponentName` instead
+    ///
+    pub const SetComponentName = setComponentName;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -11215,14 +13715,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` componentName: []const u8 `
+    /// ` _componentName: []const u8 `
     ///
     /// ` componentDisplayName: []const u8 `
     ///
-    pub fn SetComponentName(self: KXmlGuiWindow, componentName: []const u8, componentDisplayName: []const u8) void {
+    pub fn setComponentName(self: KXmlGuiWindow, _componentName: []const u8, componentDisplayName: []const u8) void {
         const componentName_str = qtc.libqt_string{
-            .len = componentName.len,
-            .data = componentName.ptr,
+            .len = _componentName.len,
+            .data = _componentName.ptr,
         };
         const componentDisplayName_str = qtc.libqt_string{
             .len = componentDisplayName.len,
@@ -11231,9 +13731,9 @@ pub const KXmlGuiWindow = extern struct {
         qtc.KXmlGuiWindow_SetComponentName(@ptrCast(self.ptr), componentName_str, componentDisplayName_str);
     }
 
-    /// ### DEPRECATED: Use `SuperSetComponentName` instead
+    /// ### DEPRECATED: Use `superSetComponentName` instead
     ///
-    pub const QBaseSetComponentName = SuperSetComponentName;
+    pub const SuperSetComponentName = superSetComponentName;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -11245,14 +13745,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    /// ` componentName: []const u8 `
+    /// ` _componentName: []const u8 `
     ///
     /// ` componentDisplayName: []const u8 `
     ///
-    pub fn SuperSetComponentName(self: KXmlGuiWindow, componentName: []const u8, componentDisplayName: []const u8) void {
+    pub fn superSetComponentName(self: KXmlGuiWindow, _componentName: []const u8, componentDisplayName: []const u8) void {
         const componentName_str = qtc.libqt_string{
-            .len = componentName.len,
-            .data = componentName.ptr,
+            .len = _componentName.len,
+            .data = _componentName.ptr,
         };
         const componentDisplayName_str = qtc.libqt_string{
             .len = componentDisplayName.len,
@@ -11260,6 +13760,10 @@ pub const KXmlGuiWindow = extern struct {
         };
         qtc.KXmlGuiWindow_SuperSetComponentName(@ptrCast(self.ptr), componentName_str, componentDisplayName_str);
     }
+
+    /// ### DEPRECATED: Use `onSetComponentName` instead
+    ///
+    pub const OnSetComponentName = onSetComponentName;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -11273,9 +13777,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, componentName: [*:0]const u8, componentDisplayName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetComponentName(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
+    pub fn onSetComponentName(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnSetComponentName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setXMLFile` instead
+    ///
+    pub const SetXMLFile = setXMLFile;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -11293,7 +13801,7 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` setXMLDoc: bool `
     ///
-    pub fn SetXMLFile(self: KXmlGuiWindow, file: []const u8, merge: bool, setXMLDoc: bool) void {
+    pub fn setXMLFile(self: KXmlGuiWindow, file: []const u8, merge: bool, setXMLDoc: bool) void {
         const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
@@ -11301,9 +13809,9 @@ pub const KXmlGuiWindow = extern struct {
         qtc.KXmlGuiWindow_SetXMLFile(@ptrCast(self.ptr), file_str, merge, setXMLDoc);
     }
 
-    /// ### DEPRECATED: Use `SuperSetXMLFile` instead
+    /// ### DEPRECATED: Use `superSetXMLFile` instead
     ///
-    pub const QBaseSetXMLFile = SuperSetXMLFile;
+    pub const SuperSetXMLFile = superSetXMLFile;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -11321,13 +13829,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` setXMLDoc: bool `
     ///
-    pub fn SuperSetXMLFile(self: KXmlGuiWindow, file: []const u8, merge: bool, setXMLDoc: bool) void {
+    pub fn superSetXMLFile(self: KXmlGuiWindow, file: []const u8, merge: bool, setXMLDoc: bool) void {
         const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
         };
         qtc.KXmlGuiWindow_SuperSetXMLFile(@ptrCast(self.ptr), file_str, merge, setXMLDoc);
     }
+
+    /// ### DEPRECATED: Use `onSetXMLFile` instead
+    ///
+    pub const OnSetXMLFile = onSetXMLFile;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -11341,9 +13853,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, file: [*:0]const u8, merge: bool, setXMLDoc: bool) callconv(.c) void `
     ///
-    pub fn OnSetXMLFile(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, [*:0]const u8, bool, bool) callconv(.c) void) void {
+    pub fn onSetXMLFile(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, [*:0]const u8, bool, bool) callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnSetXMLFile(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setLocalXMLFile` instead
+    ///
+    pub const SetLocalXMLFile = setLocalXMLFile;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -11357,7 +13873,7 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` file: []const u8 `
     ///
-    pub fn SetLocalXMLFile(self: KXmlGuiWindow, file: []const u8) void {
+    pub fn setLocalXMLFile(self: KXmlGuiWindow, file: []const u8) void {
         const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
@@ -11365,9 +13881,9 @@ pub const KXmlGuiWindow = extern struct {
         qtc.KXmlGuiWindow_SetLocalXMLFile(@ptrCast(self.ptr), file_str);
     }
 
-    /// ### DEPRECATED: Use `SuperSetLocalXMLFile` instead
+    /// ### DEPRECATED: Use `superSetLocalXMLFile` instead
     ///
-    pub const QBaseSetLocalXMLFile = SuperSetLocalXMLFile;
+    pub const SuperSetLocalXMLFile = superSetLocalXMLFile;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -11381,13 +13897,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` file: []const u8 `
     ///
-    pub fn SuperSetLocalXMLFile(self: KXmlGuiWindow, file: []const u8) void {
+    pub fn superSetLocalXMLFile(self: KXmlGuiWindow, file: []const u8) void {
         const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
         };
         qtc.KXmlGuiWindow_SuperSetLocalXMLFile(@ptrCast(self.ptr), file_str);
     }
+
+    /// ### DEPRECATED: Use `onSetLocalXMLFile` instead
+    ///
+    pub const OnSetLocalXMLFile = onSetLocalXMLFile;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -11401,9 +13921,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, file: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetLocalXMLFile(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, [*:0]const u8) callconv(.c) void) void {
+    pub fn onSetLocalXMLFile(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, [*:0]const u8) callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnSetLocalXMLFile(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setXML` instead
+    ///
+    pub const SetXML = setXML;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -11419,7 +13943,7 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` merge: bool `
     ///
-    pub fn SetXML(self: KXmlGuiWindow, document: []const u8, merge: bool) void {
+    pub fn setXML(self: KXmlGuiWindow, document: []const u8, merge: bool) void {
         const document_str = qtc.libqt_string{
             .len = document.len,
             .data = document.ptr,
@@ -11427,9 +13951,9 @@ pub const KXmlGuiWindow = extern struct {
         qtc.KXmlGuiWindow_SetXML(@ptrCast(self.ptr), document_str, merge);
     }
 
-    /// ### DEPRECATED: Use `SuperSetXML` instead
+    /// ### DEPRECATED: Use `superSetXML` instead
     ///
-    pub const QBaseSetXML = SuperSetXML;
+    pub const SuperSetXML = superSetXML;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -11445,13 +13969,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` merge: bool `
     ///
-    pub fn SuperSetXML(self: KXmlGuiWindow, document: []const u8, merge: bool) void {
+    pub fn superSetXML(self: KXmlGuiWindow, document: []const u8, merge: bool) void {
         const document_str = qtc.libqt_string{
             .len = document.len,
             .data = document.ptr,
         };
         qtc.KXmlGuiWindow_SuperSetXML(@ptrCast(self.ptr), document_str, merge);
     }
+
+    /// ### DEPRECATED: Use `onSetXML` instead
+    ///
+    pub const OnSetXML = onSetXML;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -11465,9 +13993,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, document: [*:0]const u8, merge: bool) callconv(.c) void `
     ///
-    pub fn OnSetXML(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, [*:0]const u8, bool) callconv(.c) void) void {
+    pub fn onSetXML(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, [*:0]const u8, bool) callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnSetXML(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setDOMDocument` instead
+    ///
+    pub const SetDOMDocument = setDOMDocument;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -11483,14 +14015,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` merge: bool `
     ///
-    pub fn SetDOMDocument(self: KXmlGuiWindow, document: anytype, merge: bool) void {
+    pub fn setDOMDocument(self: KXmlGuiWindow, document: anytype, merge: bool) void {
         comptime _ = @TypeOf(document)._is_QDomDocument;
         qtc.KXmlGuiWindow_SetDOMDocument(@ptrCast(self.ptr), @ptrCast(document.ptr), merge);
     }
 
-    /// ### DEPRECATED: Use `SuperSetDOMDocument` instead
+    /// ### DEPRECATED: Use `superSetDOMDocument` instead
     ///
-    pub const QBaseSetDOMDocument = SuperSetDOMDocument;
+    pub const SuperSetDOMDocument = superSetDOMDocument;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -11506,10 +14038,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` merge: bool `
     ///
-    pub fn SuperSetDOMDocument(self: KXmlGuiWindow, document: anytype, merge: bool) void {
+    pub fn superSetDOMDocument(self: KXmlGuiWindow, document: anytype, merge: bool) void {
         comptime _ = @TypeOf(document)._is_QDomDocument;
         qtc.KXmlGuiWindow_SuperSetDOMDocument(@ptrCast(self.ptr), @ptrCast(document.ptr), merge);
     }
+
+    /// ### DEPRECATED: Use `onSetDOMDocument` instead
+    ///
+    pub const OnSetDOMDocument = onSetDOMDocument;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -11523,9 +14059,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, document: QDomDocument, merge: bool) callconv(.c) void `
     ///
-    pub fn OnSetDOMDocument(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QDomDocument, bool) callconv(.c) void) void {
+    pub fn onSetDOMDocument(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QDomDocument, bool) callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnSetDOMDocument(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `stateChanged` instead
+    ///
+    pub const StateChanged = stateChanged;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -11541,7 +14081,7 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` reverse: kxmlguiclient_enums.ReverseStateChange `
     ///
-    pub fn StateChanged(self: KXmlGuiWindow, newstate: []const u8, reverse: i32) void {
+    pub fn stateChanged(self: KXmlGuiWindow, newstate: []const u8, reverse: i32) void {
         const newstate_str = qtc.libqt_string{
             .len = newstate.len,
             .data = newstate.ptr,
@@ -11549,9 +14089,9 @@ pub const KXmlGuiWindow = extern struct {
         qtc.KXmlGuiWindow_StateChanged(@ptrCast(self.ptr), newstate_str, @bitCast(reverse));
     }
 
-    /// ### DEPRECATED: Use `SuperStateChanged` instead
+    /// ### DEPRECATED: Use `superStateChanged` instead
     ///
-    pub const QBaseStateChanged = SuperStateChanged;
+    pub const SuperStateChanged = superStateChanged;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -11567,13 +14107,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` reverse: kxmlguiclient_enums.ReverseStateChange `
     ///
-    pub fn SuperStateChanged(self: KXmlGuiWindow, newstate: []const u8, reverse: i32) void {
+    pub fn superStateChanged(self: KXmlGuiWindow, newstate: []const u8, reverse: i32) void {
         const newstate_str = qtc.libqt_string{
             .len = newstate.len,
             .data = newstate.ptr,
         };
         qtc.KXmlGuiWindow_SuperStateChanged(@ptrCast(self.ptr), newstate_str, @bitCast(reverse));
     }
+
+    /// ### DEPRECATED: Use `onStateChanged` instead
+    ///
+    pub const OnStateChanged = onStateChanged;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -11587,9 +14131,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, newstate: [*:0]const u8, reverse: kxmlguiclient_enums.ReverseStateChange) callconv(.c) void `
     ///
-    pub fn OnStateChanged(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, [*:0]const u8, i32) callconv(.c) void) void {
+    pub fn onStateChanged(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, [*:0]const u8, i32) callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnStateChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `savePropertiesInternal` instead
+    ///
+    pub const SavePropertiesInternal = savePropertiesInternal;
 
     /// Inherited from KMainWindow
     ///
@@ -11605,14 +14153,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param2: i32 `
     ///
-    pub fn SavePropertiesInternal(self: KXmlGuiWindow, param1: anytype, param2: i32) void {
+    pub fn savePropertiesInternal(self: KXmlGuiWindow, param1: anytype, param2: i32) void {
         comptime _ = @TypeOf(param1)._is_KConfig;
         qtc.KXmlGuiWindow_SavePropertiesInternal(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(param2));
     }
 
-    /// ### DEPRECATED: Use `SuperSavePropertiesInternal` instead
+    /// ### DEPRECATED: Use `superSavePropertiesInternal` instead
     ///
-    pub const QBaseSavePropertiesInternal = SuperSavePropertiesInternal;
+    pub const SuperSavePropertiesInternal = superSavePropertiesInternal;
 
     /// Inherited from KMainWindow
     ///
@@ -11628,10 +14176,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param2: i32 `
     ///
-    pub fn SuperSavePropertiesInternal(self: KXmlGuiWindow, param1: anytype, param2: i32) void {
+    pub fn superSavePropertiesInternal(self: KXmlGuiWindow, param1: anytype, param2: i32) void {
         comptime _ = @TypeOf(param1)._is_KConfig;
         qtc.KXmlGuiWindow_SuperSavePropertiesInternal(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(param2));
     }
+
+    /// ### DEPRECATED: Use `onSavePropertiesInternal` instead
+    ///
+    pub const OnSavePropertiesInternal = onSavePropertiesInternal;
 
     /// Inherited from KMainWindow
     ///
@@ -11645,9 +14197,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, param1: KConfig, param2: i32) callconv(.c) void `
     ///
-    pub fn OnSavePropertiesInternal(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, KConfig, i32) callconv(.c) void) void {
+    pub fn onSavePropertiesInternal(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, KConfig, i32) callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnSavePropertiesInternal(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `readPropertiesInternal` instead
+    ///
+    pub const ReadPropertiesInternal = readPropertiesInternal;
 
     /// Inherited from KMainWindow
     ///
@@ -11663,14 +14219,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param2: i32 `
     ///
-    pub fn ReadPropertiesInternal(self: KXmlGuiWindow, param1: anytype, param2: i32) bool {
+    pub fn readPropertiesInternal(self: KXmlGuiWindow, param1: anytype, param2: i32) bool {
         comptime _ = @TypeOf(param1)._is_KConfig;
         return qtc.KXmlGuiWindow_ReadPropertiesInternal(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(param2));
     }
 
-    /// ### DEPRECATED: Use `SuperReadPropertiesInternal` instead
+    /// ### DEPRECATED: Use `superReadPropertiesInternal` instead
     ///
-    pub const QBaseReadPropertiesInternal = SuperReadPropertiesInternal;
+    pub const SuperReadPropertiesInternal = superReadPropertiesInternal;
 
     /// Inherited from KMainWindow
     ///
@@ -11686,10 +14242,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` param2: i32 `
     ///
-    pub fn SuperReadPropertiesInternal(self: KXmlGuiWindow, param1: anytype, param2: i32) bool {
+    pub fn superReadPropertiesInternal(self: KXmlGuiWindow, param1: anytype, param2: i32) bool {
         comptime _ = @TypeOf(param1)._is_KConfig;
         return qtc.KXmlGuiWindow_SuperReadPropertiesInternal(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(param2));
     }
+
+    /// ### DEPRECATED: Use `onReadPropertiesInternal` instead
+    ///
+    pub const OnReadPropertiesInternal = onReadPropertiesInternal;
 
     /// Inherited from KMainWindow
     ///
@@ -11703,10 +14263,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, param1: KConfig, param2: i32) callconv(.c) bool `
     ///
-    pub fn OnReadPropertiesInternal(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, KConfig, i32) callconv(.c) bool) void {
+    pub fn onReadPropertiesInternal(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, KConfig, i32) callconv(.c) bool) void {
         qtc.KXmlGuiWindow_OnReadPropertiesInternal(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `settingsDirty` instead
+    ///
+    pub const SettingsDirty = settingsDirty;
+
     /// Inherited from KMainWindow
     ///
     /// ### [Upstream resources](https://api.kde.org/kmainwindow.html#settingsDirty)
@@ -11717,13 +14281,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn SettingsDirty(self: KXmlGuiWindow) bool {
+    pub fn settingsDirty(self: KXmlGuiWindow) bool {
         return qtc.KXmlGuiWindow_SettingsDirty(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSettingsDirty` instead
+    /// ### DEPRECATED: Use `superSettingsDirty` instead
     ///
-    pub const QBaseSettingsDirty = SuperSettingsDirty;
+    pub const SuperSettingsDirty = superSettingsDirty;
 
     /// Inherited from KMainWindow
     ///
@@ -11735,10 +14299,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn SuperSettingsDirty(self: KXmlGuiWindow) bool {
+    pub fn superSettingsDirty(self: KXmlGuiWindow) bool {
         return qtc.KXmlGuiWindow_SuperSettingsDirty(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSettingsDirty` instead
+    ///
+    pub const OnSettingsDirty = onSettingsDirty;
+
     /// Inherited from KMainWindow
     ///
     /// ### [Upstream resources](https://api.kde.org/kmainwindow.html#settingsDirty)
@@ -11751,10 +14319,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnSettingsDirty(self: KXmlGuiWindow, callback: *const fn () callconv(.c) bool) void {
+    pub fn onSettingsDirty(self: KXmlGuiWindow, callback: *const fn () callconv(.c) bool) void {
         qtc.KXmlGuiWindow_OnSettingsDirty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `saveAutoSaveSettings` instead
+    ///
+    pub const SaveAutoSaveSettings = saveAutoSaveSettings;
+
     /// Inherited from KMainWindow
     ///
     /// ### [Upstream resources](https://api.kde.org/kmainwindow.html#saveAutoSaveSettings)
@@ -11765,13 +14337,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn SaveAutoSaveSettings(self: KXmlGuiWindow) void {
+    pub fn saveAutoSaveSettings(self: KXmlGuiWindow) void {
         qtc.KXmlGuiWindow_SaveAutoSaveSettings(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSaveAutoSaveSettings` instead
+    /// ### DEPRECATED: Use `superSaveAutoSaveSettings` instead
     ///
-    pub const QBaseSaveAutoSaveSettings = SuperSaveAutoSaveSettings;
+    pub const SuperSaveAutoSaveSettings = superSaveAutoSaveSettings;
 
     /// Inherited from KMainWindow
     ///
@@ -11783,10 +14355,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn SuperSaveAutoSaveSettings(self: KXmlGuiWindow) void {
+    pub fn superSaveAutoSaveSettings(self: KXmlGuiWindow) void {
         qtc.KXmlGuiWindow_SuperSaveAutoSaveSettings(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSaveAutoSaveSettings` instead
+    ///
+    pub const OnSaveAutoSaveSettings = onSaveAutoSaveSettings;
+
     /// Inherited from KMainWindow
     ///
     /// ### [Upstream resources](https://api.kde.org/kmainwindow.html#saveAutoSaveSettings)
@@ -11799,10 +14375,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnSaveAutoSaveSettings(self: KXmlGuiWindow, callback: *const fn () callconv(.c) void) void {
+    pub fn onSaveAutoSaveSettings(self: KXmlGuiWindow, callback: *const fn () callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnSaveAutoSaveSettings(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -11813,13 +14393,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn UpdateMicroFocus(self: KXmlGuiWindow) void {
+    pub fn updateMicroFocus(self: KXmlGuiWindow) void {
         qtc.KXmlGuiWindow_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -11831,10 +14411,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn SuperUpdateMicroFocus(self: KXmlGuiWindow) void {
+    pub fn superUpdateMicroFocus(self: KXmlGuiWindow) void {
         qtc.KXmlGuiWindow_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -11847,10 +14431,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: KXmlGuiWindow, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: KXmlGuiWindow, callback: *const fn () callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -11861,13 +14449,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn Create(self: KXmlGuiWindow) void {
+    pub fn create(self: KXmlGuiWindow) void {
         qtc.KXmlGuiWindow_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -11879,10 +14467,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn SuperCreate(self: KXmlGuiWindow) void {
+    pub fn superCreate(self: KXmlGuiWindow) void {
         qtc.KXmlGuiWindow_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -11895,9 +14487,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: KXmlGuiWindow, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: KXmlGuiWindow, callback: *const fn () callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -11909,13 +14505,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn Destroy(self: KXmlGuiWindow) void {
+    pub fn destroy(self: KXmlGuiWindow) void {
         qtc.KXmlGuiWindow_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -11927,9 +14523,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn SuperDestroy(self: KXmlGuiWindow) void {
+    pub fn superDestroy(self: KXmlGuiWindow) void {
         qtc.KXmlGuiWindow_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -11943,10 +14543,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: KXmlGuiWindow, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: KXmlGuiWindow, callback: *const fn () callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -11957,13 +14561,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn FocusNextChild(self: KXmlGuiWindow) bool {
+    pub fn focusNextChild(self: KXmlGuiWindow) bool {
         return qtc.KXmlGuiWindow_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -11975,10 +14579,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn SuperFocusNextChild(self: KXmlGuiWindow) bool {
+    pub fn superFocusNextChild(self: KXmlGuiWindow) bool {
         return qtc.KXmlGuiWindow_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -11991,9 +14599,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: KXmlGuiWindow, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: KXmlGuiWindow, callback: *const fn () callconv(.c) bool) void {
         qtc.KXmlGuiWindow_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -12005,13 +14617,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn FocusPreviousChild(self: KXmlGuiWindow) bool {
+    pub fn focusPreviousChild(self: KXmlGuiWindow) bool {
         return qtc.KXmlGuiWindow_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -12023,9 +14635,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn SuperFocusPreviousChild(self: KXmlGuiWindow) bool {
+    pub fn superFocusPreviousChild(self: KXmlGuiWindow) bool {
         return qtc.KXmlGuiWindow_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -12039,9 +14655,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: KXmlGuiWindow, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: KXmlGuiWindow, callback: *const fn () callconv(.c) bool) void {
         qtc.KXmlGuiWindow_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -12053,13 +14673,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn Sender(self: KXmlGuiWindow) QObject {
+    pub fn sender(self: KXmlGuiWindow) QObject {
         return .{ .ptr = qtc.KXmlGuiWindow_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -12071,9 +14691,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn SuperSender(self: KXmlGuiWindow) QObject {
+    pub fn superSender(self: KXmlGuiWindow) QObject {
         return .{ .ptr = qtc.KXmlGuiWindow_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -12087,9 +14711,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KXmlGuiWindow, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KXmlGuiWindow, callback: *const fn () callconv(.c) QObject) void {
         qtc.KXmlGuiWindow_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -12101,13 +14729,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn SenderSignalIndex(self: KXmlGuiWindow) i32 {
+    pub fn senderSignalIndex(self: KXmlGuiWindow) i32 {
         return qtc.KXmlGuiWindow_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -12119,9 +14747,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn SuperSenderSignalIndex(self: KXmlGuiWindow) i32 {
+    pub fn superSenderSignalIndex(self: KXmlGuiWindow) i32 {
         return qtc.KXmlGuiWindow_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -12135,9 +14767,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KXmlGuiWindow, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KXmlGuiWindow, callback: *const fn () callconv(.c) i32) void {
         qtc.KXmlGuiWindow_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -12151,14 +14787,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KXmlGuiWindow, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KXmlGuiWindow, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KXmlGuiWindow_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -12172,10 +14808,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KXmlGuiWindow, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KXmlGuiWindow, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KXmlGuiWindow_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -12189,9 +14829,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, [*:0]const u8) callconv(.c) i32) void {
         qtc.KXmlGuiWindow_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -12205,14 +14849,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KXmlGuiWindow, signal: anytype) bool {
+    pub fn isSignalConnected(self: KXmlGuiWindow, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KXmlGuiWindow_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -12226,10 +14870,14 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KXmlGuiWindow, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KXmlGuiWindow, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KXmlGuiWindow_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -12243,9 +14891,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, QMetaMethod) callconv(.c) bool) void {
         qtc.KXmlGuiWindow_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -12261,13 +14913,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: KXmlGuiWindow, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: KXmlGuiWindow, metricA: i32, metricB: i32) f64 {
         return qtc.KXmlGuiWindow_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -12283,9 +14935,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: KXmlGuiWindow, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: KXmlGuiWindow, metricA: i32, metricB: i32) f64 {
         return qtc.KXmlGuiWindow_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -12299,9 +14955,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, i32, i32) callconv(.c) f64) void {
         qtc.KXmlGuiWindow_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `standardsXmlFileLocation` instead
+    ///
+    pub const StandardsXmlFileLocation = standardsXmlFileLocation;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -12315,17 +14975,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StandardsXmlFileLocation(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
+    pub fn standardsXmlFileLocation(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KXmlGuiWindow_StandardsXmlFileLocation(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.StandardsXmlFileLocation: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.standardsXmlFileLocation: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `SuperStandardsXmlFileLocation` instead
+    /// ### DEPRECATED: Use `superStandardsXmlFileLocation` instead
     ///
-    pub const QBaseStandardsXmlFileLocation = SuperStandardsXmlFileLocation;
+    pub const SuperStandardsXmlFileLocation = superStandardsXmlFileLocation;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -12339,13 +14999,17 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperStandardsXmlFileLocation(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
+    pub fn superStandardsXmlFileLocation(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KXmlGuiWindow_SuperStandardsXmlFileLocation(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.StandardsXmlFileLocation: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.standardsXmlFileLocation: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onStandardsXmlFileLocation` instead
+    ///
+    pub const OnStandardsXmlFileLocation = onStandardsXmlFileLocation;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -12359,9 +15023,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnStandardsXmlFileLocation(self: KXmlGuiWindow, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onStandardsXmlFileLocation(self: KXmlGuiWindow, callback: *const fn () callconv(.c) [*:0]const u8) void {
         qtc.KXmlGuiWindow_OnStandardsXmlFileLocation(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `loadStandardsXmlFile` instead
+    ///
+    pub const LoadStandardsXmlFile = loadStandardsXmlFile;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -12373,13 +15041,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn LoadStandardsXmlFile(self: KXmlGuiWindow) void {
+    pub fn loadStandardsXmlFile(self: KXmlGuiWindow) void {
         qtc.KXmlGuiWindow_LoadStandardsXmlFile(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLoadStandardsXmlFile` instead
+    /// ### DEPRECATED: Use `superLoadStandardsXmlFile` instead
     ///
-    pub const QBaseLoadStandardsXmlFile = SuperLoadStandardsXmlFile;
+    pub const SuperLoadStandardsXmlFile = superLoadStandardsXmlFile;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -12391,9 +15059,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn SuperLoadStandardsXmlFile(self: KXmlGuiWindow) void {
+    pub fn superLoadStandardsXmlFile(self: KXmlGuiWindow) void {
         qtc.KXmlGuiWindow_SuperLoadStandardsXmlFile(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLoadStandardsXmlFile` instead
+    ///
+    pub const OnLoadStandardsXmlFile = onLoadStandardsXmlFile;
 
     /// Inherited from KXMLGUIClient
     ///
@@ -12407,9 +15079,13 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnLoadStandardsXmlFile(self: KXmlGuiWindow, callback: *const fn () callconv(.c) void) void {
+    pub fn onLoadStandardsXmlFile(self: KXmlGuiWindow, callback: *const fn () callconv(.c) void) void {
         qtc.KXmlGuiWindow_OnLoadStandardsXmlFile(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -12423,23 +15099,23 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#dtor.KXmlGuiWindow)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KXmlGuiWindow `
     ///
-    pub fn Delete(self: KXmlGuiWindow) void {
+    pub fn delete(self: KXmlGuiWindow) void {
         qtc.KXmlGuiWindow_Delete(@ptrCast(self.ptr));
     }
 };

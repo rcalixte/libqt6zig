@@ -30,36 +30,52 @@ pub const QOffscreenSurface = extern struct {
     pub const _is_QObject = {};
     pub const _is_QSurface = {};
 
-    /// New constructs a new QOffscreenSurface object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QOffscreenSurface {
+    pub const New = new;
+
+    /// Allocate a new QOffscreenSurface object in C++ memory
+    ///
+    pub fn new() QOffscreenSurface {
         return .{ .ptr = qtc.QOffscreenSurface_new() };
     }
 
-    /// New2 constructs a new QOffscreenSurface object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QOffscreenSurface object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn New2(screen: anytype) QOffscreenSurface {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        return .{ .ptr = qtc.QOffscreenSurface_new2(@ptrCast(screen.ptr)) };
+    pub fn new2(_screen: anytype) QOffscreenSurface {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        return .{ .ptr = qtc.QOffscreenSurface_new2(@ptrCast(_screen.ptr)) };
     }
 
-    /// New3 constructs a new QOffscreenSurface object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QOffscreenSurface object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New3(screen: anytype, parent: anytype) QOffscreenSurface {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QOffscreenSurface_new3(@ptrCast(screen.ptr), @ptrCast(parent.ptr)) };
+    pub fn new3(_screen: anytype, _parent: anytype) QOffscreenSurface {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QOffscreenSurface_new3(@ptrCast(_screen.ptr), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -67,9 +83,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` self: QOffscreenSurface `
     ///
-    pub fn MetaObject(self: QOffscreenSurface) QMetaObject {
+    pub fn metaObject(self: QOffscreenSurface) QMetaObject {
         return .{ .ptr = qtc.QOffscreenSurface_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -81,13 +101,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QOffscreenSurface, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QOffscreenSurface, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QOffscreenSurface_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -97,9 +117,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` self: QOffscreenSurface `
     ///
-    pub fn SuperMetaObject(self: QOffscreenSurface) QMetaObject {
+    pub fn superMetaObject(self: QOffscreenSurface) QMetaObject {
         return .{ .ptr = qtc.QOffscreenSurface_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -107,10 +131,14 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QOffscreenSurface, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QOffscreenSurface, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QOffscreenSurface_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -120,13 +148,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` callback: *const fn (self: QOffscreenSurface, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QOffscreenSurface, callback: *const fn (QOffscreenSurface, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QOffscreenSurface, callback: *const fn (QOffscreenSurface, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QOffscreenSurface_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -136,10 +164,14 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QOffscreenSurface, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QOffscreenSurface, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QOffscreenSurface_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -151,9 +183,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QOffscreenSurface, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QOffscreenSurface, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QOffscreenSurface_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -163,13 +199,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` callback: *const fn (self: QOffscreenSurface, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QOffscreenSurface, callback: *const fn (QOffscreenSurface, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QOffscreenSurface, callback: *const fn (QOffscreenSurface, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QOffscreenSurface_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -183,9 +219,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QOffscreenSurface, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QOffscreenSurface, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QOffscreenSurface_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -195,14 +235,18 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOffscreenSurface.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOffscreenSurface.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `surfaceType` instead
+    ///
+    pub const SurfaceType = surfaceType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qoffscreensurface.html#surfaceType)
     ///
@@ -214,9 +258,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` qsurface_enums.SurfaceType `
     ///
-    pub fn SurfaceType(self: QOffscreenSurface) i32 {
+    pub fn surfaceType(self: QOffscreenSurface) i32 {
         return qtc.QOffscreenSurface_SurfaceType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSurfaceType` instead
+    ///
+    pub const OnSurfaceType = onSurfaceType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qoffscreensurface.html#surfaceType)
     ///
@@ -228,13 +276,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSurfaceType(self: QOffscreenSurface, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSurfaceType(self: QOffscreenSurface, callback: *const fn () callconv(.c) i32) void {
         qtc.QOffscreenSurface_OnSurfaceType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSurfaceType` instead
+    /// ### DEPRECATED: Use `superSurfaceType` instead
     ///
-    pub const QBaseSurfaceType = SuperSurfaceType;
+    pub const SuperSurfaceType = superSurfaceType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qoffscreensurface.html#surfaceType)
     ///
@@ -248,9 +296,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` qsurface_enums.SurfaceType `
     ///
-    pub fn SuperSurfaceType(self: QOffscreenSurface) i32 {
+    pub fn superSurfaceType(self: QOffscreenSurface) i32 {
         return qtc.QOffscreenSurface_SuperSurfaceType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qoffscreensurface.html#create)
     ///
@@ -258,9 +310,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` self: QOffscreenSurface `
     ///
-    pub fn Create(self: QOffscreenSurface) void {
+    pub fn create(self: QOffscreenSurface) void {
         qtc.QOffscreenSurface_Create(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qoffscreensurface.html#destroy)
     ///
@@ -268,9 +324,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` self: QOffscreenSurface `
     ///
-    pub fn Destroy(self: QOffscreenSurface) void {
+    pub fn destroy(self: QOffscreenSurface) void {
         qtc.QOffscreenSurface_Destroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qoffscreensurface.html#isValid)
     ///
@@ -278,9 +338,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` self: QOffscreenSurface `
     ///
-    pub fn IsValid(self: QOffscreenSurface) bool {
+    pub fn isValid(self: QOffscreenSurface) bool {
         return qtc.QOffscreenSurface_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFormat` instead
+    ///
+    pub const SetFormat = setFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qoffscreensurface.html#setFormat)
     ///
@@ -288,12 +352,16 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` self: QOffscreenSurface `
     ///
-    /// ` format: QSurfaceFormat `
+    /// ` _format: QSurfaceFormat `
     ///
-    pub fn SetFormat(self: QOffscreenSurface, format: anytype) void {
-        comptime _ = @TypeOf(format)._is_QSurfaceFormat;
-        qtc.QOffscreenSurface_SetFormat(@ptrCast(self.ptr), @ptrCast(format.ptr));
+    pub fn setFormat(self: QOffscreenSurface, _format: anytype) void {
+        comptime _ = @TypeOf(_format)._is_QSurfaceFormat;
+        qtc.QOffscreenSurface_SetFormat(@ptrCast(self.ptr), @ptrCast(_format.ptr));
     }
+
+    /// ### DEPRECATED: Use `format` instead
+    ///
+    pub const Format = format;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qoffscreensurface.html#format)
     ///
@@ -301,9 +369,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` self: QOffscreenSurface `
     ///
-    pub fn Format(self: QOffscreenSurface) QSurfaceFormat {
+    pub fn format(self: QOffscreenSurface) QSurfaceFormat {
         return .{ .ptr = qtc.QOffscreenSurface_Format(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onFormat` instead
+    ///
+    pub const OnFormat = onFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qoffscreensurface.html#format)
     ///
@@ -317,13 +389,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnFormat(self: QOffscreenSurface, callback: *const fn () callconv(.c) QSurfaceFormat) void {
+    pub fn onFormat(self: QOffscreenSurface, callback: *const fn () callconv(.c) QSurfaceFormat) void {
         qtc.QOffscreenSurface_OnFormat(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperFormat` instead
+    /// ### DEPRECATED: Use `superFormat` instead
     ///
-    pub const QBaseFormat = SuperFormat;
+    pub const SuperFormat = superFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qoffscreensurface.html#format)
     ///
@@ -333,9 +405,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` self: QOffscreenSurface `
     ///
-    pub fn SuperFormat(self: QOffscreenSurface) QSurfaceFormat {
+    pub fn superFormat(self: QOffscreenSurface) QSurfaceFormat {
         return .{ .ptr = qtc.QOffscreenSurface_SuperFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `requestedFormat` instead
+    ///
+    pub const RequestedFormat = requestedFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qoffscreensurface.html#requestedFormat)
     ///
@@ -343,9 +419,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` self: QOffscreenSurface `
     ///
-    pub fn RequestedFormat(self: QOffscreenSurface) QSurfaceFormat {
+    pub fn requestedFormat(self: QOffscreenSurface) QSurfaceFormat {
         return .{ .ptr = qtc.QOffscreenSurface_RequestedFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qoffscreensurface.html#size)
     ///
@@ -353,9 +433,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` self: QOffscreenSurface `
     ///
-    pub fn Size(self: QOffscreenSurface) QSize {
+    pub fn size(self: QOffscreenSurface) QSize {
         return .{ .ptr = qtc.QOffscreenSurface_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSize` instead
+    ///
+    pub const OnSize = onSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qoffscreensurface.html#size)
     ///
@@ -369,13 +453,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSize(self: QOffscreenSurface, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSize(self: QOffscreenSurface, callback: *const fn () callconv(.c) QSize) void {
         qtc.QOffscreenSurface_OnSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSize` instead
+    /// ### DEPRECATED: Use `superSize` instead
     ///
-    pub const QBaseSize = SuperSize;
+    pub const SuperSize = superSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qoffscreensurface.html#size)
     ///
@@ -385,9 +469,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` self: QOffscreenSurface `
     ///
-    pub fn SuperSize(self: QOffscreenSurface) QSize {
+    pub fn superSize(self: QOffscreenSurface) QSize {
         return .{ .ptr = qtc.QOffscreenSurface_SuperSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qoffscreensurface.html#screen)
     ///
@@ -395,9 +483,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` self: QOffscreenSurface `
     ///
-    pub fn Screen(self: QOffscreenSurface) QScreen {
+    pub fn screen(self: QOffscreenSurface) QScreen {
         return .{ .ptr = qtc.QOffscreenSurface_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qoffscreensurface.html#setScreen)
     ///
@@ -405,12 +497,16 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` self: QOffscreenSurface `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: QOffscreenSurface, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QOffscreenSurface_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: QOffscreenSurface, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QOffscreenSurface_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `resolveInterface` instead
+    ///
+    pub const ResolveInterface = resolveInterface;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qoffscreensurface.html#resolveInterface)
     ///
@@ -422,10 +518,14 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` revision: i32 `
     ///
-    pub fn ResolveInterface(self: QOffscreenSurface, name: [:0]const u8, revision: i32) ?*anyopaque {
+    pub fn resolveInterface(self: QOffscreenSurface, name: [:0]const u8, revision: i32) ?*anyopaque {
         const name_Cstring = name.ptr;
         return qtc.QOffscreenSurface_ResolveInterface(@ptrCast(self.ptr), name_Cstring, @bitCast(revision));
     }
+
+    /// ### DEPRECATED: Use `onResolveInterface` instead
+    ///
+    pub const OnResolveInterface = onResolveInterface;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qoffscreensurface.html#resolveInterface)
     ///
@@ -437,13 +537,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` callback: *const fn (self: QOffscreenSurface, name: [*:0]const u8, revision: i32) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnResolveInterface(self: QOffscreenSurface, callback: *const fn (QOffscreenSurface, [*:0]const u8, i32) callconv(.c) ?*anyopaque) void {
+    pub fn onResolveInterface(self: QOffscreenSurface, callback: *const fn (QOffscreenSurface, [*:0]const u8, i32) callconv(.c) ?*anyopaque) void {
         qtc.QOffscreenSurface_OnResolveInterface(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperResolveInterface` instead
+    /// ### DEPRECATED: Use `superResolveInterface` instead
     ///
-    pub const QBaseResolveInterface = SuperResolveInterface;
+    pub const SuperResolveInterface = superResolveInterface;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qoffscreensurface.html#resolveInterface)
     ///
@@ -457,10 +557,14 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` revision: i32 `
     ///
-    pub fn SuperResolveInterface(self: QOffscreenSurface, name: [:0]const u8, revision: i32) ?*anyopaque {
+    pub fn superResolveInterface(self: QOffscreenSurface, name: [:0]const u8, revision: i32) ?*anyopaque {
         const name_Cstring = name.ptr;
         return qtc.QOffscreenSurface_SuperResolveInterface(@ptrCast(self.ptr), name_Cstring, @bitCast(revision));
     }
+
+    /// ### DEPRECATED: Use `screenChanged` instead
+    ///
+    pub const ScreenChanged = screenChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qoffscreensurface.html#screenChanged)
     ///
@@ -468,12 +572,16 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` self: QOffscreenSurface `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn ScreenChanged(self: QOffscreenSurface, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QOffscreenSurface_ScreenChanged(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn screenChanged(self: QOffscreenSurface, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QOffscreenSurface_ScreenChanged(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `onScreenChanged` instead
+    ///
+    pub const OnScreenChanged = onScreenChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qoffscreensurface.html#screenChanged)
     ///
@@ -483,9 +591,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` callback: *const fn (self: QOffscreenSurface, screen: QScreen) callconv(.c) void `
     ///
-    pub fn OnScreenChanged(self: QOffscreenSurface, callback: *const fn (QOffscreenSurface, QScreen) callconv(.c) void) void {
+    pub fn onScreenChanged(self: QOffscreenSurface, callback: *const fn (QOffscreenSurface, QScreen) callconv(.c) void) void {
         qtc.QOffscreenSurface_Connect_ScreenChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -497,15 +609,19 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOffscreenSurface.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOffscreenSurface.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -519,15 +635,19 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOffscreenSurface.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOffscreenSurface.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -539,13 +659,17 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QOffscreenSurface, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QOffscreenSurface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOffscreenSurface.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOffscreenSurface.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -557,13 +681,17 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QOffscreenSurface, name: []const u8) void {
+    pub fn setObjectName(self: QOffscreenSurface, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -573,9 +701,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` self: QOffscreenSurface `
     ///
-    pub fn IsWidgetType(self: QOffscreenSurface) bool {
+    pub fn isWidgetType(self: QOffscreenSurface) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -585,9 +717,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` self: QOffscreenSurface `
     ///
-    pub fn IsWindowType(self: QOffscreenSurface) bool {
+    pub fn isWindowType(self: QOffscreenSurface) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -597,9 +733,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` self: QOffscreenSurface `
     ///
-    pub fn IsQuickItemType(self: QOffscreenSurface) bool {
+    pub fn isQuickItemType(self: QOffscreenSurface) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -609,9 +749,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` self: QOffscreenSurface `
     ///
-    pub fn SignalsBlocked(self: QOffscreenSurface) bool {
+    pub fn signalsBlocked(self: QOffscreenSurface) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -623,9 +767,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QOffscreenSurface, b: bool) bool {
+    pub fn blockSignals(self: QOffscreenSurface, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -635,9 +783,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` self: QOffscreenSurface `
     ///
-    pub fn Thread(self: QOffscreenSurface) QThread {
+    pub fn thread(self: QOffscreenSurface) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -647,12 +799,16 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` self: QOffscreenSurface `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QOffscreenSurface, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QOffscreenSurface, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -664,9 +820,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QOffscreenSurface, interval: i32) i32 {
+    pub fn startTimer(self: QOffscreenSurface, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -678,9 +838,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QOffscreenSurface, time: i64) i32 {
+    pub fn startTimer2(self: QOffscreenSurface, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -692,9 +856,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QOffscreenSurface, id: i32) void {
+    pub fn killTimer(self: QOffscreenSurface, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -706,9 +874,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QOffscreenSurface, id: i32) void {
+    pub fn killTimer2(self: QOffscreenSurface, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -720,15 +892,19 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QOffscreenSurface, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QOffscreenSurface, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QOffscreenSurface.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QOffscreenSurface.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -738,12 +914,16 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` self: QOffscreenSurface `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QOffscreenSurface, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QOffscreenSurface, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -755,10 +935,14 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QOffscreenSurface, filterObj: anytype) void {
+    pub fn installEventFilter(self: QOffscreenSurface, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -770,10 +954,14 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QOffscreenSurface, obj: anytype) void {
+    pub fn removeEventFilter(self: QOffscreenSurface, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -781,7 +969,7 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -789,13 +977,17 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -803,7 +995,7 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -811,13 +1003,17 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -827,18 +1023,22 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` self: QOffscreenSurface `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QOffscreenSurface, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QOffscreenSurface, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -846,7 +1046,7 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -854,13 +1054,17 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -868,7 +1072,7 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -876,13 +1080,17 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -892,9 +1100,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` self: QOffscreenSurface `
     ///
-    pub fn Disconnect3(self: QOffscreenSurface) bool {
+    pub fn disconnect3(self: QOffscreenSurface) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -906,10 +1118,14 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QOffscreenSurface, receiver: anytype) bool {
+    pub fn disconnect4(self: QOffscreenSurface, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -919,10 +1135,14 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -932,9 +1152,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` self: QOffscreenSurface `
     ///
-    pub fn DumpObjectTree(self: QOffscreenSurface) void {
+    pub fn dumpObjectTree(self: QOffscreenSurface) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -944,9 +1168,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` self: QOffscreenSurface `
     ///
-    pub fn DumpObjectInfo(self: QOffscreenSurface) void {
+    pub fn dumpObjectInfo(self: QOffscreenSurface) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -960,11 +1188,15 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QOffscreenSurface, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QOffscreenSurface, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -976,10 +1208,14 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QOffscreenSurface, name: [:0]const u8) QVariant {
+    pub fn property(self: QOffscreenSurface, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -991,7 +1227,7 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QOffscreenSurface, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QOffscreenSurface, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -999,27 +1235,19 @@ pub const QOffscreenSurface = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QOffscreenSurface.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QOffscreenSurface.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QOffscreenSurface.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QOffscreenSurface.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QOffscreenSurface `
-    ///
-    pub fn BindingStorage(self: QOffscreenSurface) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1029,9 +1257,29 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` self: QOffscreenSurface `
     ///
-    pub fn BindingStorage2(self: QOffscreenSurface) QBindingStorage {
+    pub fn bindingStorage(self: QOffscreenSurface) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QOffscreenSurface `
+    ///
+    pub fn bindingStorage2(self: QOffscreenSurface) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1041,9 +1289,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` self: QOffscreenSurface `
     ///
-    pub fn Destroyed(self: QOffscreenSurface) void {
+    pub fn destroyed(self: QOffscreenSurface) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1055,9 +1307,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` callback: *const fn (self: QOffscreenSurface) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QOffscreenSurface, callback: *const fn (QOffscreenSurface) callconv(.c) void) void {
+    pub fn onDestroyed(self: QOffscreenSurface, callback: *const fn (QOffscreenSurface) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1067,9 +1323,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` self: QOffscreenSurface `
     ///
-    pub fn Parent(self: QOffscreenSurface) QObject {
+    pub fn parent(self: QOffscreenSurface) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1081,10 +1341,14 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QOffscreenSurface, classname: [:0]const u8) bool {
+    pub fn inherits(self: QOffscreenSurface, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1094,9 +1358,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` self: QOffscreenSurface `
     ///
-    pub fn DeleteLater(self: QOffscreenSurface) void {
+    pub fn deleteLater(self: QOffscreenSurface) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1110,9 +1378,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QOffscreenSurface, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QOffscreenSurface, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1126,9 +1398,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QOffscreenSurface, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QOffscreenSurface, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1136,7 +1412,7 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1146,13 +1422,17 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1160,7 +1440,7 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1170,13 +1450,17 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1186,7 +1470,7 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` self: QOffscreenSurface `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1194,12 +1478,16 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QOffscreenSurface, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QOffscreenSurface, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1211,10 +1499,14 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QOffscreenSurface, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QOffscreenSurface, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1228,11 +1520,15 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QOffscreenSurface, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QOffscreenSurface, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1248,13 +1544,17 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QOffscreenSurface, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QOffscreenSurface, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1267,11 +1567,15 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QOffscreenSurface, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QOffscreenSurface, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1283,10 +1587,14 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QOffscreenSurface, param1: anytype) void {
+    pub fn destroyed1(self: QOffscreenSurface, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1298,9 +1606,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` callback: *const fn (self: QOffscreenSurface, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QOffscreenSurface, callback: *const fn (QOffscreenSurface, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QOffscreenSurface, callback: *const fn (QOffscreenSurface, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `surfaceClass` instead
+    ///
+    pub const SurfaceClass = surfaceClass;
 
     /// Inherited from QSurface
     ///
@@ -1314,9 +1626,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` qsurface_enums.SurfaceClass `
     ///
-    pub fn SurfaceClass(self: QOffscreenSurface) i32 {
+    pub fn surfaceClass(self: QOffscreenSurface) i32 {
         return qtc.QSurface_SurfaceClass(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `supportsOpenGL` instead
+    ///
+    pub const SupportsOpenGL = supportsOpenGL;
 
     /// Inherited from QSurface
     ///
@@ -1326,9 +1642,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` self: QOffscreenSurface `
     ///
-    pub fn SupportsOpenGL(self: QOffscreenSurface) bool {
+    pub fn supportsOpenGL(self: QOffscreenSurface) bool {
         return qtc.QSurface_SupportsOpenGL(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -1340,16 +1660,16 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` self: QOffscreenSurface `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QOffscreenSurface, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QOffscreenSurface_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QOffscreenSurface, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QOffscreenSurface_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -1361,12 +1681,16 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` self: QOffscreenSurface `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QOffscreenSurface, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QOffscreenSurface_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QOffscreenSurface, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QOffscreenSurface_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -1380,9 +1704,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` callback: *const fn (self: QOffscreenSurface, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QOffscreenSurface, callback: *const fn (QOffscreenSurface, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QOffscreenSurface, callback: *const fn (QOffscreenSurface, QEvent) callconv(.c) bool) void {
         qtc.QOffscreenSurface_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1396,17 +1724,17 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QOffscreenSurface, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QOffscreenSurface, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QOffscreenSurface_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QOffscreenSurface_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1420,13 +1748,17 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QOffscreenSurface, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QOffscreenSurface, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QOffscreenSurface_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QOffscreenSurface_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1440,9 +1772,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` callback: *const fn (self: QOffscreenSurface, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QOffscreenSurface, callback: *const fn (QOffscreenSurface, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QOffscreenSurface, callback: *const fn (QOffscreenSurface, QObject, QEvent) callconv(.c) bool) void {
         qtc.QOffscreenSurface_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -1454,16 +1790,16 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` self: QOffscreenSurface `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QOffscreenSurface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QOffscreenSurface_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QOffscreenSurface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QOffscreenSurface_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1475,12 +1811,16 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` self: QOffscreenSurface `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QOffscreenSurface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QOffscreenSurface_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QOffscreenSurface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QOffscreenSurface_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1494,9 +1834,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` callback: *const fn (self: QOffscreenSurface, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QOffscreenSurface, callback: *const fn (QOffscreenSurface, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QOffscreenSurface, callback: *const fn (QOffscreenSurface, QTimerEvent) callconv(.c) void) void {
         qtc.QOffscreenSurface_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -1508,16 +1852,16 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` self: QOffscreenSurface `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QOffscreenSurface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QOffscreenSurface_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QOffscreenSurface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QOffscreenSurface_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1529,12 +1873,16 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` self: QOffscreenSurface `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QOffscreenSurface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QOffscreenSurface_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QOffscreenSurface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QOffscreenSurface_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1548,9 +1896,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` callback: *const fn (self: QOffscreenSurface, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QOffscreenSurface, callback: *const fn (QOffscreenSurface, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QOffscreenSurface, callback: *const fn (QOffscreenSurface, QChildEvent) callconv(.c) void) void {
         qtc.QOffscreenSurface_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -1562,16 +1914,16 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` self: QOffscreenSurface `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QOffscreenSurface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QOffscreenSurface_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QOffscreenSurface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QOffscreenSurface_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1583,12 +1935,16 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` self: QOffscreenSurface `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QOffscreenSurface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QOffscreenSurface_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QOffscreenSurface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QOffscreenSurface_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1602,9 +1958,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` callback: *const fn (self: QOffscreenSurface, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QOffscreenSurface, callback: *const fn (QOffscreenSurface, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QOffscreenSurface, callback: *const fn (QOffscreenSurface, QEvent) callconv(.c) void) void {
         qtc.QOffscreenSurface_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -1618,14 +1978,14 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QOffscreenSurface, signal: anytype) void {
+    pub fn connectNotify(self: QOffscreenSurface, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QOffscreenSurface_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1639,11 +1999,15 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QOffscreenSurface, signal: anytype) void {
+    pub fn superConnectNotify(self: QOffscreenSurface, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QOffscreenSurface_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1656,9 +2020,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` callback: *const fn (self: QOffscreenSurface, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QOffscreenSurface, callback: *const fn (QOffscreenSurface, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QOffscreenSurface, callback: *const fn (QOffscreenSurface, QMetaMethod) callconv(.c) void) void {
         qtc.QOffscreenSurface_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1672,14 +2040,14 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QOffscreenSurface, signal: anytype) void {
+    pub fn disconnectNotify(self: QOffscreenSurface, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QOffscreenSurface_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1693,10 +2061,14 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QOffscreenSurface, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QOffscreenSurface, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QOffscreenSurface_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1710,9 +2082,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` callback: *const fn (self: QOffscreenSurface, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QOffscreenSurface, callback: *const fn (QOffscreenSurface, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QOffscreenSurface, callback: *const fn (QOffscreenSurface, QMetaMethod) callconv(.c) void) void {
         qtc.QOffscreenSurface_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -1724,13 +2100,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` self: QOffscreenSurface `
     ///
-    pub fn Sender(self: QOffscreenSurface) QObject {
+    pub fn sender(self: QOffscreenSurface) QObject {
         return .{ .ptr = qtc.QOffscreenSurface_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -1742,9 +2118,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` self: QOffscreenSurface `
     ///
-    pub fn SuperSender(self: QOffscreenSurface) QObject {
+    pub fn superSender(self: QOffscreenSurface) QObject {
         return .{ .ptr = qtc.QOffscreenSurface_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -1758,9 +2138,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QOffscreenSurface, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QOffscreenSurface, callback: *const fn () callconv(.c) QObject) void {
         qtc.QOffscreenSurface_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1772,13 +2156,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` self: QOffscreenSurface `
     ///
-    pub fn SenderSignalIndex(self: QOffscreenSurface) i32 {
+    pub fn senderSignalIndex(self: QOffscreenSurface) i32 {
         return qtc.QOffscreenSurface_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1790,9 +2174,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` self: QOffscreenSurface `
     ///
-    pub fn SuperSenderSignalIndex(self: QOffscreenSurface) i32 {
+    pub fn superSenderSignalIndex(self: QOffscreenSurface) i32 {
         return qtc.QOffscreenSurface_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1806,9 +2194,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QOffscreenSurface, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QOffscreenSurface, callback: *const fn () callconv(.c) i32) void {
         qtc.QOffscreenSurface_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -1822,14 +2214,14 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QOffscreenSurface, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QOffscreenSurface, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QOffscreenSurface_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -1843,10 +2235,14 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QOffscreenSurface, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QOffscreenSurface, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QOffscreenSurface_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -1860,9 +2256,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` callback: *const fn (self: QOffscreenSurface, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QOffscreenSurface, callback: *const fn (QOffscreenSurface, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QOffscreenSurface, callback: *const fn (QOffscreenSurface, [*:0]const u8) callconv(.c) i32) void {
         qtc.QOffscreenSurface_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1876,14 +2276,14 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QOffscreenSurface, signal: anytype) bool {
+    pub fn isSignalConnected(self: QOffscreenSurface, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QOffscreenSurface_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1897,10 +2297,14 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QOffscreenSurface, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QOffscreenSurface, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QOffscreenSurface_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1914,9 +2318,13 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` callback: *const fn (self: QOffscreenSurface, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QOffscreenSurface, callback: *const fn (QOffscreenSurface, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QOffscreenSurface, callback: *const fn (QOffscreenSurface, QMetaMethod) callconv(.c) bool) void {
         qtc.QOffscreenSurface_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -1930,23 +2338,23 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` callback: *const fn (self: QOffscreenSurface, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QOffscreenSurface, callback: *const fn (QOffscreenSurface, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QOffscreenSurface, callback: *const fn (QOffscreenSurface, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qoffscreensurface.html#dtor.QOffscreenSurface)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QOffscreenSurface `
     ///
-    pub fn Delete(self: QOffscreenSurface) void {
+    pub fn delete(self: QOffscreenSurface) void {
         qtc.QOffscreenSurface_Delete(@ptrCast(self.ptr));
     }
 };

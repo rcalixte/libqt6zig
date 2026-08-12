@@ -14,183 +14,223 @@ pub const KGuiItem = extern struct {
 
     pub const _is_KGuiItem = {};
 
-    /// New constructs a new KGuiItem object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() KGuiItem {
+    pub const New = new;
+
+    /// Allocate a new KGuiItem object in C++ memory
+    ///
+    pub fn new() KGuiItem {
         return .{ .ptr = qtc.KGuiItem_new() };
     }
 
-    /// New2 constructs a new KGuiItem object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KGuiItem object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn New2(text: []const u8) KGuiItem {
+    pub fn new2(_text: []const u8) KGuiItem {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         return .{ .ptr = qtc.KGuiItem_new2(text_str) };
     }
 
-    /// New3 constructs a new KGuiItem object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new KGuiItem object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
-    pub fn New3(text: []const u8, icon: anytype) KGuiItem {
+    pub fn new3(_text: []const u8, _icon: anytype) KGuiItem {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        return .{ .ptr = qtc.KGuiItem_new3(text_str, @ptrCast(icon.ptr)) };
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        return .{ .ptr = qtc.KGuiItem_new3(text_str, @ptrCast(_icon.ptr)) };
     }
 
-    /// New4 constructs a new KGuiItem object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new KGuiItem object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: KGuiItem `
     ///
-    pub fn New4(other: anytype) KGuiItem {
+    pub fn new4(other: anytype) KGuiItem {
         comptime _ = @TypeOf(other)._is_KGuiItem;
         return .{ .ptr = qtc.KGuiItem_new4(@ptrCast(other.ptr)) };
     }
 
-    /// New5 constructs a new KGuiItem object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new KGuiItem object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    /// ` iconName: []const u8 `
+    /// ` _iconName: []const u8 `
     ///
-    pub fn New5(text: []const u8, iconName: []const u8) KGuiItem {
+    pub fn new5(_text: []const u8, _iconName: []const u8) KGuiItem {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         const iconName_str = qtc.libqt_string{
-            .len = iconName.len,
-            .data = iconName.ptr,
+            .len = _iconName.len,
+            .data = _iconName.ptr,
         };
         return .{ .ptr = qtc.KGuiItem_new5(text_str, iconName_str) };
     }
 
-    /// New6 constructs a new KGuiItem object.
+    /// ### DEPRECATED: Use `new6` instead
+    ///
+    pub const New6 = new6;
+
+    /// Allocate a new KGuiItem object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    /// ` iconName: []const u8 `
+    /// ` _iconName: []const u8 `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn New6(text: []const u8, iconName: []const u8, toolTip: []const u8) KGuiItem {
+    pub fn new6(_text: []const u8, _iconName: []const u8, _toolTip: []const u8) KGuiItem {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         const iconName_str = qtc.libqt_string{
-            .len = iconName.len,
-            .data = iconName.ptr,
+            .len = _iconName.len,
+            .data = _iconName.ptr,
         };
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         return .{ .ptr = qtc.KGuiItem_new6(text_str, iconName_str, toolTip_str) };
     }
 
-    /// New7 constructs a new KGuiItem object.
+    /// ### DEPRECATED: Use `new7` instead
+    ///
+    pub const New7 = new7;
+
+    /// Allocate a new KGuiItem object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    /// ` iconName: []const u8 `
+    /// ` _iconName: []const u8 `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn New7(text: []const u8, iconName: []const u8, toolTip: []const u8, whatsThis: []const u8) KGuiItem {
+    pub fn new7(_text: []const u8, _iconName: []const u8, _toolTip: []const u8, _whatsThis: []const u8) KGuiItem {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         const iconName_str = qtc.libqt_string{
-            .len = iconName.len,
-            .data = iconName.ptr,
+            .len = _iconName.len,
+            .data = _iconName.ptr,
         };
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         return .{ .ptr = qtc.KGuiItem_new7(text_str, iconName_str, toolTip_str, whatsThis_str) };
     }
 
-    /// New8 constructs a new KGuiItem object.
+    /// ### DEPRECATED: Use `new8` instead
+    ///
+    pub const New8 = new8;
+
+    /// Allocate a new KGuiItem object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn New8(text: []const u8, icon: anytype, toolTip: []const u8) KGuiItem {
+    pub fn new8(_text: []const u8, _icon: anytype, _toolTip: []const u8) KGuiItem {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
-        comptime _ = @TypeOf(icon)._is_QIcon;
+        comptime _ = @TypeOf(_icon)._is_QIcon;
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
-        return .{ .ptr = qtc.KGuiItem_new8(text_str, @ptrCast(icon.ptr), toolTip_str) };
+        return .{ .ptr = qtc.KGuiItem_new8(text_str, @ptrCast(_icon.ptr), toolTip_str) };
     }
 
-    /// New9 constructs a new KGuiItem object.
+    /// ### DEPRECATED: Use `new9` instead
+    ///
+    pub const New9 = new9;
+
+    /// Allocate a new KGuiItem object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn New9(text: []const u8, icon: anytype, toolTip: []const u8, whatsThis: []const u8) KGuiItem {
+    pub fn new9(_text: []const u8, _icon: anytype, _toolTip: []const u8, _whatsThis: []const u8) KGuiItem {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
-        comptime _ = @TypeOf(icon)._is_QIcon;
+        comptime _ = @TypeOf(_icon)._is_QIcon;
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
-        return .{ .ptr = qtc.KGuiItem_new9(text_str, @ptrCast(icon.ptr), toolTip_str, whatsThis_str) };
+        return .{ .ptr = qtc.KGuiItem_new9(text_str, @ptrCast(_icon.ptr), toolTip_str, whatsThis_str) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://api.kde.org/kguiitem.html#operator-eq)
     ///
@@ -200,10 +240,14 @@ pub const KGuiItem = extern struct {
     ///
     /// ` other: KGuiItem `
     ///
-    pub fn OperatorAssign(self: KGuiItem, other: anytype) void {
+    pub fn operatorAssign(self: KGuiItem, other: anytype) void {
         comptime _ = @TypeOf(other)._is_KGuiItem;
         qtc.KGuiItem_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `setText` instead
+    ///
+    pub const SetText = setText;
 
     /// ### [Upstream resources](https://api.kde.org/kguiitem.html#setText)
     ///
@@ -211,15 +255,19 @@ pub const KGuiItem = extern struct {
     ///
     /// ` self: KGuiItem `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn SetText(self: KGuiItem, text: []const u8) void {
+    pub fn setText(self: KGuiItem, _text: []const u8) void {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         qtc.KGuiItem_SetText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `text` instead
+    ///
+    pub const Text = text;
 
     /// ### [Upstream resources](https://api.kde.org/kguiitem.html#text)
     ///
@@ -229,13 +277,17 @@ pub const KGuiItem = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: KGuiItem, allocator: std.mem.Allocator) []const u8 {
+    pub fn text(self: KGuiItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KGuiItem_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KGuiItem.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KGuiItem.text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `plainText` instead
+    ///
+    pub const PlainText = plainText;
 
     /// ### [Upstream resources](https://api.kde.org/kguiitem.html#plainText)
     ///
@@ -245,13 +297,17 @@ pub const KGuiItem = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PlainText(self: KGuiItem, allocator: std.mem.Allocator) []const u8 {
+    pub fn plainText(self: KGuiItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KGuiItem_PlainText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KGuiItem.PlainText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KGuiItem.plainText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setIcon` instead
+    ///
+    pub const SetIcon = setIcon;
 
     /// ### [Upstream resources](https://api.kde.org/kguiitem.html#setIcon)
     ///
@@ -261,10 +317,14 @@ pub const KGuiItem = extern struct {
     ///
     /// ` iconset: QIcon `
     ///
-    pub fn SetIcon(self: KGuiItem, iconset: anytype) void {
+    pub fn setIcon(self: KGuiItem, iconset: anytype) void {
         comptime _ = @TypeOf(iconset)._is_QIcon;
         qtc.KGuiItem_SetIcon(@ptrCast(self.ptr), @ptrCast(iconset.ptr));
     }
+
+    /// ### DEPRECATED: Use `icon` instead
+    ///
+    pub const Icon = icon;
 
     /// ### [Upstream resources](https://api.kde.org/kguiitem.html#icon)
     ///
@@ -272,9 +332,13 @@ pub const KGuiItem = extern struct {
     ///
     /// ` self: KGuiItem `
     ///
-    pub fn Icon(self: KGuiItem) QIcon {
+    pub fn icon(self: KGuiItem) QIcon {
         return .{ .ptr = qtc.KGuiItem_Icon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setIconName` instead
+    ///
+    pub const SetIconName = setIconName;
 
     /// ### [Upstream resources](https://api.kde.org/kguiitem.html#setIconName)
     ///
@@ -282,15 +346,19 @@ pub const KGuiItem = extern struct {
     ///
     /// ` self: KGuiItem `
     ///
-    /// ` iconName: []const u8 `
+    /// ` _iconName: []const u8 `
     ///
-    pub fn SetIconName(self: KGuiItem, iconName: []const u8) void {
+    pub fn setIconName(self: KGuiItem, _iconName: []const u8) void {
         const iconName_str = qtc.libqt_string{
-            .len = iconName.len,
-            .data = iconName.ptr,
+            .len = _iconName.len,
+            .data = _iconName.ptr,
         };
         qtc.KGuiItem_SetIconName(@ptrCast(self.ptr), iconName_str);
     }
+
+    /// ### DEPRECATED: Use `iconName` instead
+    ///
+    pub const IconName = iconName;
 
     /// ### [Upstream resources](https://api.kde.org/kguiitem.html#iconName)
     ///
@@ -300,13 +368,17 @@ pub const KGuiItem = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn IconName(self: KGuiItem, allocator: std.mem.Allocator) []const u8 {
+    pub fn iconName(self: KGuiItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KGuiItem_IconName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KGuiItem.IconName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KGuiItem.iconName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `hasIcon` instead
+    ///
+    pub const HasIcon = hasIcon;
 
     /// ### [Upstream resources](https://api.kde.org/kguiitem.html#hasIcon)
     ///
@@ -314,9 +386,13 @@ pub const KGuiItem = extern struct {
     ///
     /// ` self: KGuiItem `
     ///
-    pub fn HasIcon(self: KGuiItem) bool {
+    pub fn hasIcon(self: KGuiItem) bool {
         return qtc.KGuiItem_HasIcon(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// ### [Upstream resources](https://api.kde.org/kguiitem.html#setToolTip)
     ///
@@ -326,13 +402,17 @@ pub const KGuiItem = extern struct {
     ///
     /// ` tooltip: []const u8 `
     ///
-    pub fn SetToolTip(self: KGuiItem, tooltip: []const u8) void {
+    pub fn setToolTip(self: KGuiItem, tooltip: []const u8) void {
         const tooltip_str = qtc.libqt_string{
             .len = tooltip.len,
             .data = tooltip.ptr,
         };
         qtc.KGuiItem_SetToolTip(@ptrCast(self.ptr), tooltip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// ### [Upstream resources](https://api.kde.org/kguiitem.html#toolTip)
     ///
@@ -342,13 +422,17 @@ pub const KGuiItem = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: KGuiItem, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: KGuiItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KGuiItem_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KGuiItem.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KGuiItem.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// ### [Upstream resources](https://api.kde.org/kguiitem.html#setWhatsThis)
     ///
@@ -356,15 +440,19 @@ pub const KGuiItem = extern struct {
     ///
     /// ` self: KGuiItem `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: KGuiItem, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: KGuiItem, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.KGuiItem_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// ### [Upstream resources](https://api.kde.org/kguiitem.html#whatsThis)
     ///
@@ -374,13 +462,17 @@ pub const KGuiItem = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: KGuiItem, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: KGuiItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KGuiItem_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KGuiItem.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KGuiItem.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// ### [Upstream resources](https://api.kde.org/kguiitem.html#setEnabled)
     ///
@@ -390,9 +482,13 @@ pub const KGuiItem = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetEnabled(self: KGuiItem, enable: bool) void {
+    pub fn setEnabled(self: KGuiItem, enable: bool) void {
         qtc.KGuiItem_SetEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// ### [Upstream resources](https://api.kde.org/kguiitem.html#isEnabled)
     ///
@@ -400,9 +496,13 @@ pub const KGuiItem = extern struct {
     ///
     /// ` self: KGuiItem `
     ///
-    pub fn IsEnabled(self: KGuiItem) bool {
+    pub fn isEnabled(self: KGuiItem) bool {
         return qtc.KGuiItem_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `assign` instead
+    ///
+    pub const Assign = assign;
 
     /// ### [Upstream resources](https://api.kde.org/kguiitem.html#assign)
     ///
@@ -412,25 +512,25 @@ pub const KGuiItem = extern struct {
     ///
     /// ` item: KGuiItem `
     ///
-    pub fn Assign(button: anytype, item: anytype) void {
+    pub fn assign(button: anytype, item: anytype) void {
         comptime _ = @TypeOf(button)._is_QPushButton;
         comptime _ = @TypeOf(item)._is_KGuiItem;
         qtc.KGuiItem_Assign(@ptrCast(button.ptr), @ptrCast(item.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kguiitem.html#dtor.KGuiItem)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KGuiItem `
     ///
-    pub fn Delete(self: KGuiItem) void {
+    pub fn delete(self: KGuiItem) void {
         qtc.KGuiItem_Delete(@ptrCast(self.ptr));
     }
 };

@@ -42,15 +42,23 @@ pub const QPaintDeviceWindow = extern struct {
     pub const _is_QSurface = {};
     pub const _is_QPaintDevice = {};
 
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn MetaObject(self: QPaintDeviceWindow) QMetaObject {
+    pub fn metaObject(self: QPaintDeviceWindow) QMetaObject {
         return .{ .ptr = qtc.QPaintDeviceWindow_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -58,10 +66,14 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QPaintDeviceWindow, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QPaintDeviceWindow, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QPaintDeviceWindow_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -73,9 +85,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QPaintDeviceWindow, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QPaintDeviceWindow, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QPaintDeviceWindow_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -85,14 +101,18 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPaintDeviceWindow.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPaintDeviceWindow.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevicewindow.html#update)
     ///
@@ -102,10 +122,14 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` rect: QRect `
     ///
-    pub fn Update(self: QPaintDeviceWindow, rect: anytype) void {
+    pub fn update(self: QPaintDeviceWindow, rect: anytype) void {
         comptime _ = @TypeOf(rect)._is_QRect;
         qtc.QPaintDeviceWindow_Update(@ptrCast(self.ptr), @ptrCast(rect.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevicewindow.html#update)
     ///
@@ -115,10 +139,14 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` region: QRegion `
     ///
-    pub fn Update2(self: QPaintDeviceWindow, region: anytype) void {
+    pub fn update2(self: QPaintDeviceWindow, region: anytype) void {
         comptime _ = @TypeOf(region)._is_QRegion;
         qtc.QPaintDeviceWindow_Update2(@ptrCast(self.ptr), @ptrCast(region.ptr));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevicewindow.html#update)
     ///
@@ -126,9 +154,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn Update3(self: QPaintDeviceWindow) void {
+    pub fn update3(self: QPaintDeviceWindow) void {
         qtc.QPaintDeviceWindow_Update3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -140,15 +172,19 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPaintDeviceWindow.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPaintDeviceWindow.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -162,15 +198,19 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPaintDeviceWindow.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPaintDeviceWindow.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setSurfaceType` instead
+    ///
+    pub const SetSurfaceType = setSurfaceType;
 
     /// Inherited from QWindow
     ///
@@ -180,11 +220,15 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    /// ` surfaceType: qsurface_enums.SurfaceType `
+    /// ` _surfaceType: qsurface_enums.SurfaceType `
     ///
-    pub fn SetSurfaceType(self: QPaintDeviceWindow, surfaceType: i32) void {
-        qtc.QWindow_SetSurfaceType(@ptrCast(self.ptr), @bitCast(surfaceType));
+    pub fn setSurfaceType(self: QPaintDeviceWindow, _surfaceType: i32) void {
+        qtc.QWindow_SetSurfaceType(@ptrCast(self.ptr), @bitCast(_surfaceType));
     }
+
+    /// ### DEPRECATED: Use `surfaceType` instead
+    ///
+    pub const SurfaceType = surfaceType;
 
     /// Inherited from QWindow
     ///
@@ -198,9 +242,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` qsurface_enums.SurfaceType `
     ///
-    pub fn SurfaceType(self: QPaintDeviceWindow) i32 {
+    pub fn surfaceType(self: QPaintDeviceWindow) i32 {
         return qtc.QWindow_SurfaceType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWindow
     ///
@@ -210,9 +258,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn IsVisible(self: QPaintDeviceWindow) bool {
+    pub fn isVisible(self: QPaintDeviceWindow) bool {
         return qtc.QWindow_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `visibility` instead
+    ///
+    pub const Visibility = visibility;
 
     /// Inherited from QWindow
     ///
@@ -226,9 +278,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` qwindow_enums.Visibility `
     ///
-    pub fn Visibility(self: QPaintDeviceWindow) i32 {
+    pub fn visibility(self: QPaintDeviceWindow) i32 {
         return qtc.QWindow_Visibility(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setVisibility` instead
+    ///
+    pub const SetVisibility = setVisibility;
 
     /// Inherited from QWindow
     ///
@@ -240,9 +296,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` v: qwindow_enums.Visibility `
     ///
-    pub fn SetVisibility(self: QPaintDeviceWindow, v: i32) void {
+    pub fn setVisibility(self: QPaintDeviceWindow, v: i32) void {
         qtc.QWindow_SetVisibility(@ptrCast(self.ptr), @bitCast(v));
     }
+
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
 
     /// Inherited from QWindow
     ///
@@ -252,9 +312,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn Create(self: QPaintDeviceWindow) void {
+    pub fn create(self: QPaintDeviceWindow) void {
         qtc.QWindow_Create(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWindow
     ///
@@ -264,9 +328,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn WinId(self: QPaintDeviceWindow) usize {
+    pub fn winId(self: QPaintDeviceWindow) usize {
         return qtc.QWindow_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QWindow
     ///
@@ -276,9 +344,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn Parent(self: QPaintDeviceWindow) QWindow {
+    pub fn parent(self: QPaintDeviceWindow) QWindow {
         return .{ .ptr = qtc.QWindow_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QWindow
     ///
@@ -288,12 +360,16 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    /// ` parent: QWindow `
+    /// ` _parent: QWindow `
     ///
-    pub fn SetParent(self: QPaintDeviceWindow, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWindow;
-        qtc.QWindow_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QPaintDeviceWindow, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWindow;
+        qtc.QWindow_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWindow
     ///
@@ -303,9 +379,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn IsTopLevel(self: QPaintDeviceWindow) bool {
+    pub fn isTopLevel(self: QPaintDeviceWindow) bool {
         return qtc.QWindow_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWindow
     ///
@@ -315,9 +395,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn IsModal(self: QPaintDeviceWindow) bool {
+    pub fn isModal(self: QPaintDeviceWindow) bool {
         return qtc.QWindow_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `modality` instead
+    ///
+    pub const Modality = modality;
 
     /// Inherited from QWindow
     ///
@@ -331,9 +415,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn Modality(self: QPaintDeviceWindow) i32 {
+    pub fn modality(self: QPaintDeviceWindow) i32 {
         return qtc.QWindow_Modality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setModality` instead
+    ///
+    pub const SetModality = setModality;
 
     /// Inherited from QWindow
     ///
@@ -343,11 +431,15 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    /// ` modality: qnamespace_enums.WindowModality `
+    /// ` _modality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetModality(self: QPaintDeviceWindow, modality: i32) void {
-        qtc.QWindow_SetModality(@ptrCast(self.ptr), @bitCast(modality));
+    pub fn setModality(self: QPaintDeviceWindow, _modality: i32) void {
+        qtc.QWindow_SetModality(@ptrCast(self.ptr), @bitCast(_modality));
     }
+
+    /// ### DEPRECATED: Use `setFormat` instead
+    ///
+    pub const SetFormat = setFormat;
 
     /// Inherited from QWindow
     ///
@@ -357,12 +449,16 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    /// ` format: QSurfaceFormat `
+    /// ` _format: QSurfaceFormat `
     ///
-    pub fn SetFormat(self: QPaintDeviceWindow, format: anytype) void {
-        comptime _ = @TypeOf(format)._is_QSurfaceFormat;
-        qtc.QWindow_SetFormat(@ptrCast(self.ptr), @ptrCast(format.ptr));
+    pub fn setFormat(self: QPaintDeviceWindow, _format: anytype) void {
+        comptime _ = @TypeOf(_format)._is_QSurfaceFormat;
+        qtc.QWindow_SetFormat(@ptrCast(self.ptr), @ptrCast(_format.ptr));
     }
+
+    /// ### DEPRECATED: Use `format` instead
+    ///
+    pub const Format = format;
 
     /// Inherited from QWindow
     ///
@@ -372,9 +468,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn Format(self: QPaintDeviceWindow) QSurfaceFormat {
+    pub fn format(self: QPaintDeviceWindow) QSurfaceFormat {
         return .{ .ptr = qtc.QWindow_Format(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `requestedFormat` instead
+    ///
+    pub const RequestedFormat = requestedFormat;
 
     /// Inherited from QWindow
     ///
@@ -384,9 +484,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn RequestedFormat(self: QPaintDeviceWindow) QSurfaceFormat {
+    pub fn requestedFormat(self: QPaintDeviceWindow) QSurfaceFormat {
         return .{ .ptr = qtc.QWindow_RequestedFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFlags` instead
+    ///
+    pub const SetFlags = setFlags;
 
     /// Inherited from QWindow
     ///
@@ -396,11 +500,15 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    /// ` flags: flag of qnamespace_enums.WindowType `
+    /// ` _flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetFlags(self: QPaintDeviceWindow, flags: i32) void {
-        qtc.QWindow_SetFlags(@ptrCast(self.ptr), @bitCast(flags));
+    pub fn setFlags(self: QPaintDeviceWindow, _flags: i32) void {
+        qtc.QWindow_SetFlags(@ptrCast(self.ptr), @bitCast(_flags));
     }
+
+    /// ### DEPRECATED: Use `flags` instead
+    ///
+    pub const Flags = flags;
 
     /// Inherited from QWindow
     ///
@@ -414,9 +522,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn Flags(self: QPaintDeviceWindow) i32 {
+    pub fn flags(self: QPaintDeviceWindow) i32 {
         return qtc.QWindow_Flags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFlag` instead
+    ///
+    pub const SetFlag = setFlag;
 
     /// Inherited from QWindow
     ///
@@ -428,9 +540,15 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetFlag(self: QPaintDeviceWindow, param1: i32) void {
+    pub fn setFlag(self: QPaintDeviceWindow, param1: i32) void {
         qtc.QWindow_SetFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QWindow
     ///
@@ -444,9 +562,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn Type(self: QPaintDeviceWindow) i32 {
+    pub fn type0(self: QPaintDeviceWindow) i32 {
         return qtc.QWindow_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `title` instead
+    ///
+    pub const Title = title;
 
     /// Inherited from QWindow
     ///
@@ -458,13 +580,17 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Title(self: QPaintDeviceWindow, allocator: std.mem.Allocator) []const u8 {
+    pub fn title(self: QPaintDeviceWindow, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWindow_Title(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPaintDeviceWindow.Title: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPaintDeviceWindow.title: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setOpacity` instead
+    ///
+    pub const SetOpacity = setOpacity;
 
     /// Inherited from QWindow
     ///
@@ -476,9 +602,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetOpacity(self: QPaintDeviceWindow, level: f64) void {
+    pub fn setOpacity(self: QPaintDeviceWindow, level: f64) void {
         qtc.QWindow_SetOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `opacity` instead
+    ///
+    pub const Opacity = opacity;
 
     /// Inherited from QWindow
     ///
@@ -488,9 +618,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn Opacity(self: QPaintDeviceWindow) f64 {
+    pub fn opacity(self: QPaintDeviceWindow) f64 {
         return qtc.QWindow_Opacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask` instead
+    ///
+    pub const SetMask = setMask;
 
     /// Inherited from QWindow
     ///
@@ -502,10 +636,14 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` region: QRegion `
     ///
-    pub fn SetMask(self: QPaintDeviceWindow, region: anytype) void {
+    pub fn setMask(self: QPaintDeviceWindow, region: anytype) void {
         comptime _ = @TypeOf(region)._is_QRegion;
         qtc.QWindow_SetMask(@ptrCast(self.ptr), @ptrCast(region.ptr));
     }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWindow
     ///
@@ -515,9 +653,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn Mask(self: QPaintDeviceWindow) QRegion {
+    pub fn mask(self: QPaintDeviceWindow) QRegion {
         return .{ .ptr = qtc.QWindow_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isActive` instead
+    ///
+    pub const IsActive = isActive;
 
     /// Inherited from QWindow
     ///
@@ -527,9 +669,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn IsActive(self: QPaintDeviceWindow) bool {
+    pub fn isActive(self: QPaintDeviceWindow) bool {
         return qtc.QWindow_IsActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `reportContentOrientationChange` instead
+    ///
+    pub const ReportContentOrientationChange = reportContentOrientationChange;
 
     /// Inherited from QWindow
     ///
@@ -541,9 +687,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` orientation: qnamespace_enums.ScreenOrientation `
     ///
-    pub fn ReportContentOrientationChange(self: QPaintDeviceWindow, orientation: i32) void {
+    pub fn reportContentOrientationChange(self: QPaintDeviceWindow, orientation: i32) void {
         qtc.QWindow_ReportContentOrientationChange(@ptrCast(self.ptr), @bitCast(orientation));
     }
+
+    /// ### DEPRECATED: Use `contentOrientation` instead
+    ///
+    pub const ContentOrientation = contentOrientation;
 
     /// Inherited from QWindow
     ///
@@ -557,9 +707,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` qnamespace_enums.ScreenOrientation `
     ///
-    pub fn ContentOrientation(self: QPaintDeviceWindow) i32 {
+    pub fn contentOrientation(self: QPaintDeviceWindow) i32 {
         return qtc.QWindow_ContentOrientation(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QWindow
     ///
@@ -569,9 +723,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn DevicePixelRatio(self: QPaintDeviceWindow) f64 {
+    pub fn devicePixelRatio(self: QPaintDeviceWindow) f64 {
         return qtc.QWindow_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWindow
     ///
@@ -585,9 +743,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: QPaintDeviceWindow) i32 {
+    pub fn windowState(self: QPaintDeviceWindow) i32 {
         return qtc.QWindow_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowStates` instead
+    ///
+    pub const WindowStates = windowStates;
 
     /// Inherited from QWindow
     ///
@@ -601,9 +763,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowStates(self: QPaintDeviceWindow) i32 {
+    pub fn windowStates(self: QPaintDeviceWindow) i32 {
         return qtc.QWindow_WindowStates(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWindow
     ///
@@ -615,9 +781,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` state: qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: QPaintDeviceWindow, state: i32) void {
+    pub fn setWindowState(self: QPaintDeviceWindow, state: i32) void {
         qtc.QWindow_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `setWindowStates` instead
+    ///
+    pub const SetWindowStates = setWindowStates;
 
     /// Inherited from QWindow
     ///
@@ -629,9 +799,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` states: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowStates(self: QPaintDeviceWindow, states: i32) void {
+    pub fn setWindowStates(self: QPaintDeviceWindow, states: i32) void {
         qtc.QWindow_SetWindowStates(@ptrCast(self.ptr), @bitCast(states));
     }
+
+    /// ### DEPRECATED: Use `setTransientParent` instead
+    ///
+    pub const SetTransientParent = setTransientParent;
 
     /// Inherited from QWindow
     ///
@@ -641,12 +815,16 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    /// ` parent: QWindow `
+    /// ` _parent: QWindow `
     ///
-    pub fn SetTransientParent(self: QPaintDeviceWindow, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWindow;
-        qtc.QWindow_SetTransientParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setTransientParent(self: QPaintDeviceWindow, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWindow;
+        qtc.QWindow_SetTransientParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `transientParent` instead
+    ///
+    pub const TransientParent = transientParent;
 
     /// Inherited from QWindow
     ///
@@ -656,9 +834,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn TransientParent(self: QPaintDeviceWindow) QWindow {
+    pub fn transientParent(self: QPaintDeviceWindow) QWindow {
         return .{ .ptr = qtc.QWindow_TransientParent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWindow
     ///
@@ -670,10 +852,14 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` child: QWindow `
     ///
-    pub fn IsAncestorOf(self: QPaintDeviceWindow, child: anytype) bool {
+    pub fn isAncestorOf(self: QPaintDeviceWindow, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWindow;
         return qtc.QWindow_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `isExposed` instead
+    ///
+    pub const IsExposed = isExposed;
 
     /// Inherited from QWindow
     ///
@@ -683,9 +869,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn IsExposed(self: QPaintDeviceWindow) bool {
+    pub fn isExposed(self: QPaintDeviceWindow) bool {
         return qtc.QWindow_IsExposed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWindow
     ///
@@ -695,9 +885,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn MinimumWidth(self: QPaintDeviceWindow) i32 {
+    pub fn minimumWidth(self: QPaintDeviceWindow) i32 {
         return qtc.QWindow_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWindow
     ///
@@ -707,9 +901,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn MinimumHeight(self: QPaintDeviceWindow) i32 {
+    pub fn minimumHeight(self: QPaintDeviceWindow) i32 {
         return qtc.QWindow_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWindow
     ///
@@ -719,9 +917,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn MaximumWidth(self: QPaintDeviceWindow) i32 {
+    pub fn maximumWidth(self: QPaintDeviceWindow) i32 {
         return qtc.QWindow_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWindow
     ///
@@ -731,9 +933,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn MaximumHeight(self: QPaintDeviceWindow) i32 {
+    pub fn maximumHeight(self: QPaintDeviceWindow) i32 {
         return qtc.QWindow_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWindow
     ///
@@ -743,9 +949,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn MinimumSize(self: QPaintDeviceWindow) QSize {
+    pub fn minimumSize(self: QPaintDeviceWindow) QSize {
         return .{ .ptr = qtc.QWindow_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWindow
     ///
@@ -755,9 +965,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn MaximumSize(self: QPaintDeviceWindow) QSize {
+    pub fn maximumSize(self: QPaintDeviceWindow) QSize {
         return .{ .ptr = qtc.QWindow_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWindow
     ///
@@ -767,9 +981,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn BaseSize(self: QPaintDeviceWindow) QSize {
+    pub fn baseSize(self: QPaintDeviceWindow) QSize {
         return .{ .ptr = qtc.QWindow_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWindow
     ///
@@ -779,9 +997,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn SizeIncrement(self: QPaintDeviceWindow) QSize {
+    pub fn sizeIncrement(self: QPaintDeviceWindow) QSize {
         return .{ .ptr = qtc.QWindow_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWindow
     ///
@@ -791,12 +1013,16 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    /// ` size: QSize `
+    /// ` _size: QSize `
     ///
-    pub fn SetMinimumSize(self: QPaintDeviceWindow, size: anytype) void {
-        comptime _ = @TypeOf(size)._is_QSize;
-        qtc.QWindow_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(size.ptr));
+    pub fn setMinimumSize(self: QPaintDeviceWindow, _size: anytype) void {
+        comptime _ = @TypeOf(_size)._is_QSize;
+        qtc.QWindow_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_size.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWindow
     ///
@@ -806,12 +1032,16 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    /// ` size: QSize `
+    /// ` _size: QSize `
     ///
-    pub fn SetMaximumSize(self: QPaintDeviceWindow, size: anytype) void {
-        comptime _ = @TypeOf(size)._is_QSize;
-        qtc.QWindow_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(size.ptr));
+    pub fn setMaximumSize(self: QPaintDeviceWindow, _size: anytype) void {
+        comptime _ = @TypeOf(_size)._is_QSize;
+        qtc.QWindow_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_size.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWindow
     ///
@@ -821,12 +1051,16 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    /// ` size: QSize `
+    /// ` _size: QSize `
     ///
-    pub fn SetBaseSize(self: QPaintDeviceWindow, size: anytype) void {
-        comptime _ = @TypeOf(size)._is_QSize;
-        qtc.QWindow_SetBaseSize(@ptrCast(self.ptr), @ptrCast(size.ptr));
+    pub fn setBaseSize(self: QPaintDeviceWindow, _size: anytype) void {
+        comptime _ = @TypeOf(_size)._is_QSize;
+        qtc.QWindow_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_size.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWindow
     ///
@@ -836,12 +1070,16 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    /// ` size: QSize `
+    /// ` _size: QSize `
     ///
-    pub fn SetSizeIncrement(self: QPaintDeviceWindow, size: anytype) void {
-        comptime _ = @TypeOf(size)._is_QSize;
-        qtc.QWindow_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(size.ptr));
+    pub fn setSizeIncrement(self: QPaintDeviceWindow, _size: anytype) void {
+        comptime _ = @TypeOf(_size)._is_QSize;
+        qtc.QWindow_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_size.ptr));
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWindow
     ///
@@ -851,9 +1089,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn Geometry(self: QPaintDeviceWindow) QRect {
+    pub fn geometry(self: QPaintDeviceWindow) QRect {
         return .{ .ptr = qtc.QWindow_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameMargins` instead
+    ///
+    pub const FrameMargins = frameMargins;
 
     /// Inherited from QWindow
     ///
@@ -863,9 +1105,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn FrameMargins(self: QPaintDeviceWindow) QMargins {
+    pub fn frameMargins(self: QPaintDeviceWindow) QMargins {
         return .{ .ptr = qtc.QWindow_FrameMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWindow
     ///
@@ -875,9 +1121,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn FrameGeometry(self: QPaintDeviceWindow) QRect {
+    pub fn frameGeometry(self: QPaintDeviceWindow) QRect {
         return .{ .ptr = qtc.QWindow_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `framePosition` instead
+    ///
+    pub const FramePosition = framePosition;
 
     /// Inherited from QWindow
     ///
@@ -887,9 +1137,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn FramePosition(self: QPaintDeviceWindow) QPoint {
+    pub fn framePosition(self: QPaintDeviceWindow) QPoint {
         return .{ .ptr = qtc.QWindow_FramePosition(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFramePosition` instead
+    ///
+    pub const SetFramePosition = setFramePosition;
 
     /// Inherited from QWindow
     ///
@@ -901,10 +1155,14 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` point: QPoint `
     ///
-    pub fn SetFramePosition(self: QPaintDeviceWindow, point: anytype) void {
+    pub fn setFramePosition(self: QPaintDeviceWindow, point: anytype) void {
         comptime _ = @TypeOf(point)._is_QPoint;
         qtc.QWindow_SetFramePosition(@ptrCast(self.ptr), @ptrCast(point.ptr));
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWindow
     ///
@@ -914,9 +1172,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn Width(self: QPaintDeviceWindow) i32 {
+    pub fn width(self: QPaintDeviceWindow) i32 {
         return qtc.QWindow_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWindow
     ///
@@ -926,9 +1188,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn Height(self: QPaintDeviceWindow) i32 {
+    pub fn height(self: QPaintDeviceWindow) i32 {
         return qtc.QWindow_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWindow
     ///
@@ -938,9 +1204,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn X(self: QPaintDeviceWindow) i32 {
+    pub fn x(self: QPaintDeviceWindow) i32 {
         return qtc.QWindow_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWindow
     ///
@@ -950,9 +1220,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn Y(self: QPaintDeviceWindow) i32 {
+    pub fn y(self: QPaintDeviceWindow) i32 {
         return qtc.QWindow_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWindow
     ///
@@ -962,9 +1236,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn Size(self: QPaintDeviceWindow) QSize {
+    pub fn size(self: QPaintDeviceWindow) QSize {
         return .{ .ptr = qtc.QWindow_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `position` instead
+    ///
+    pub const Position = position;
 
     /// Inherited from QWindow
     ///
@@ -974,9 +1252,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn Position(self: QPaintDeviceWindow) QPoint {
+    pub fn position(self: QPaintDeviceWindow) QPoint {
         return .{ .ptr = qtc.QWindow_Position(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPosition` instead
+    ///
+    pub const SetPosition = setPosition;
 
     /// Inherited from QWindow
     ///
@@ -988,10 +1270,14 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` pt: QPoint `
     ///
-    pub fn SetPosition(self: QPaintDeviceWindow, pt: anytype) void {
+    pub fn setPosition(self: QPaintDeviceWindow, pt: anytype) void {
         comptime _ = @TypeOf(pt)._is_QPoint;
         qtc.QWindow_SetPosition(@ptrCast(self.ptr), @ptrCast(pt.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPosition2` instead
+    ///
+    pub const SetPosition2 = setPosition2;
 
     /// Inherited from QWindow
     ///
@@ -1005,9 +1291,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` posy: i32 `
     ///
-    pub fn SetPosition2(self: QPaintDeviceWindow, posx: i32, posy: i32) void {
+    pub fn setPosition2(self: QPaintDeviceWindow, posx: i32, posy: i32) void {
         qtc.QWindow_SetPosition2(@ptrCast(self.ptr), @bitCast(posx), @bitCast(posy));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWindow
     ///
@@ -1019,10 +1309,14 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` newSize: QSize `
     ///
-    pub fn Resize(self: QPaintDeviceWindow, newSize: anytype) void {
+    pub fn resize(self: QPaintDeviceWindow, newSize: anytype) void {
         comptime _ = @TypeOf(newSize)._is_QSize;
         qtc.QWindow_Resize(@ptrCast(self.ptr), @ptrCast(newSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWindow
     ///
@@ -1036,9 +1330,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize2(self: QPaintDeviceWindow, w: i32, h: i32) void {
+    pub fn resize2(self: QPaintDeviceWindow, w: i32, h: i32) void {
         qtc.QWindow_Resize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFilePath` instead
+    ///
+    pub const SetFilePath = setFilePath;
 
     /// Inherited from QWindow
     ///
@@ -1048,15 +1346,19 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    /// ` filePath: []const u8 `
+    /// ` _filePath: []const u8 `
     ///
-    pub fn SetFilePath(self: QPaintDeviceWindow, filePath: []const u8) void {
+    pub fn setFilePath(self: QPaintDeviceWindow, _filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
-            .len = filePath.len,
-            .data = filePath.ptr,
+            .len = _filePath.len,
+            .data = _filePath.ptr,
         };
         qtc.QWindow_SetFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `filePath` instead
+    ///
+    pub const FilePath = filePath;
 
     /// Inherited from QWindow
     ///
@@ -1068,13 +1370,17 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FilePath(self: QPaintDeviceWindow, allocator: std.mem.Allocator) []const u8 {
+    pub fn filePath(self: QPaintDeviceWindow, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWindow_FilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPaintDeviceWindow.FilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPaintDeviceWindow.filePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setIcon` instead
+    ///
+    pub const SetIcon = setIcon;
 
     /// Inherited from QWindow
     ///
@@ -1084,12 +1390,16 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
-    pub fn SetIcon(self: QPaintDeviceWindow, icon: anytype) void {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        qtc.QWindow_SetIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
+    pub fn setIcon(self: QPaintDeviceWindow, _icon: anytype) void {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        qtc.QWindow_SetIcon(@ptrCast(self.ptr), @ptrCast(_icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `icon` instead
+    ///
+    pub const Icon = icon;
 
     /// Inherited from QWindow
     ///
@@ -1099,9 +1409,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn Icon(self: QPaintDeviceWindow) QIcon {
+    pub fn icon(self: QPaintDeviceWindow) QIcon {
         return .{ .ptr = qtc.QWindow_Icon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWindow
     ///
@@ -1111,9 +1425,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn Destroy(self: QPaintDeviceWindow) void {
+    pub fn destroy(self: QPaintDeviceWindow) void {
         qtc.QWindow_Destroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setKeyboardGrabEnabled` instead
+    ///
+    pub const SetKeyboardGrabEnabled = setKeyboardGrabEnabled;
 
     /// Inherited from QWindow
     ///
@@ -1125,9 +1443,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` grab: bool `
     ///
-    pub fn SetKeyboardGrabEnabled(self: QPaintDeviceWindow, grab: bool) bool {
+    pub fn setKeyboardGrabEnabled(self: QPaintDeviceWindow, grab: bool) bool {
         return qtc.QWindow_SetKeyboardGrabEnabled(@ptrCast(self.ptr), grab);
     }
+
+    /// ### DEPRECATED: Use `setMouseGrabEnabled` instead
+    ///
+    pub const SetMouseGrabEnabled = setMouseGrabEnabled;
 
     /// Inherited from QWindow
     ///
@@ -1139,9 +1461,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` grab: bool `
     ///
-    pub fn SetMouseGrabEnabled(self: QPaintDeviceWindow, grab: bool) bool {
+    pub fn setMouseGrabEnabled(self: QPaintDeviceWindow, grab: bool) bool {
         return qtc.QWindow_SetMouseGrabEnabled(@ptrCast(self.ptr), grab);
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWindow
     ///
@@ -1151,9 +1477,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn Screen(self: QPaintDeviceWindow) QScreen {
+    pub fn screen(self: QPaintDeviceWindow) QScreen {
         return .{ .ptr = qtc.QWindow_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWindow
     ///
@@ -1163,12 +1493,16 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: QPaintDeviceWindow, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWindow_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: QPaintDeviceWindow, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWindow_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `accessibleRoot` instead
+    ///
+    pub const AccessibleRoot = accessibleRoot;
 
     /// Inherited from QWindow
     ///
@@ -1178,9 +1512,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn AccessibleRoot(self: QPaintDeviceWindow) QAccessibleInterface {
+    pub fn accessibleRoot(self: QPaintDeviceWindow) QAccessibleInterface {
         return .{ .ptr = qtc.QWindow_AccessibleRoot(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `focusObject` instead
+    ///
+    pub const FocusObject = focusObject;
 
     /// Inherited from QWindow
     ///
@@ -1190,9 +1528,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn FocusObject(self: QPaintDeviceWindow) QObject {
+    pub fn focusObject(self: QPaintDeviceWindow) QObject {
         return .{ .ptr = qtc.QWindow_FocusObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWindow
     ///
@@ -1204,11 +1546,15 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` pos: QPointF `
     ///
-    pub fn MapToGlobal(self: QPaintDeviceWindow, pos: anytype) QPointF {
+    pub fn mapToGlobal(self: QPaintDeviceWindow, pos: anytype) QPointF {
         comptime _ = @TypeOf(pos)._is_QPointF;
         return .{ .ptr = qtc.QWindow_MapToGlobal(@ptrCast(self.ptr), @ptrCast(pos.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWindow
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#mapFromGlobal)
@@ -1219,10 +1565,14 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` pos: QPointF `
     ///
-    pub fn MapFromGlobal(self: QPaintDeviceWindow, pos: anytype) QPointF {
+    pub fn mapFromGlobal(self: QPaintDeviceWindow, pos: anytype) QPointF {
         comptime _ = @TypeOf(pos)._is_QPointF;
         return .{ .ptr = qtc.QWindow_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(pos.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
 
     /// Inherited from QWindow
     ///
@@ -1234,10 +1584,14 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` pos: QPoint `
     ///
-    pub fn MapToGlobal2(self: QPaintDeviceWindow, pos: anytype) QPoint {
+    pub fn mapToGlobal2(self: QPaintDeviceWindow, pos: anytype) QPoint {
         comptime _ = @TypeOf(pos)._is_QPoint;
         return .{ .ptr = qtc.QWindow_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(pos.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
 
     /// Inherited from QWindow
     ///
@@ -1249,10 +1603,14 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` pos: QPoint `
     ///
-    pub fn MapFromGlobal2(self: QPaintDeviceWindow, pos: anytype) QPoint {
+    pub fn mapFromGlobal2(self: QPaintDeviceWindow, pos: anytype) QPoint {
         comptime _ = @TypeOf(pos)._is_QPoint;
         return .{ .ptr = qtc.QWindow_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(pos.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWindow
     ///
@@ -1262,9 +1620,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn Cursor(self: QPaintDeviceWindow) QCursor {
+    pub fn cursor(self: QPaintDeviceWindow) QCursor {
         return .{ .ptr = qtc.QWindow_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWindow
     ///
@@ -1274,12 +1636,16 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: QPaintDeviceWindow, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWindow_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: QPaintDeviceWindow, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWindow_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWindow
     ///
@@ -1289,9 +1655,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn UnsetCursor(self: QPaintDeviceWindow) void {
+    pub fn unsetCursor(self: QPaintDeviceWindow) void {
         qtc.QWindow_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `fromWinId` instead
+    ///
+    pub const FromWinId = fromWinId;
 
     /// Inherited from QWindow
     ///
@@ -1301,9 +1671,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` id: usize `
     ///
-    pub fn FromWinId(id: usize) QWindow {
+    pub fn fromWinId(id: usize) QWindow {
         return .{ .ptr = qtc.QWindow_FromWinId(@bitCast(id)) };
     }
+
+    /// ### DEPRECATED: Use `requestActivate` instead
+    ///
+    pub const RequestActivate = requestActivate;
 
     /// Inherited from QWindow
     ///
@@ -1313,9 +1687,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn RequestActivate(self: QPaintDeviceWindow) void {
+    pub fn requestActivate(self: QPaintDeviceWindow) void {
         qtc.QWindow_RequestActivate(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWindow
     ///
@@ -1327,9 +1705,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: QPaintDeviceWindow, visible: bool) void {
+    pub fn setVisible(self: QPaintDeviceWindow, visible: bool) void {
         qtc.QWindow_SetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWindow
     ///
@@ -1339,9 +1721,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn Show(self: QPaintDeviceWindow) void {
+    pub fn show(self: QPaintDeviceWindow) void {
         qtc.QWindow_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWindow
     ///
@@ -1351,9 +1737,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn Hide(self: QPaintDeviceWindow) void {
+    pub fn hide(self: QPaintDeviceWindow) void {
         qtc.QWindow_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWindow
     ///
@@ -1363,9 +1753,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn ShowMinimized(self: QPaintDeviceWindow) void {
+    pub fn showMinimized(self: QPaintDeviceWindow) void {
         qtc.QWindow_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWindow
     ///
@@ -1375,9 +1769,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn ShowMaximized(self: QPaintDeviceWindow) void {
+    pub fn showMaximized(self: QPaintDeviceWindow) void {
         qtc.QWindow_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWindow
     ///
@@ -1387,9 +1785,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn ShowFullScreen(self: QPaintDeviceWindow) void {
+    pub fn showFullScreen(self: QPaintDeviceWindow) void {
         qtc.QWindow_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWindow
     ///
@@ -1399,9 +1801,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn ShowNormal(self: QPaintDeviceWindow) void {
+    pub fn showNormal(self: QPaintDeviceWindow) void {
         qtc.QWindow_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWindow
     ///
@@ -1411,9 +1817,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn Close(self: QPaintDeviceWindow) bool {
+    pub fn close(self: QPaintDeviceWindow) bool {
         return qtc.QWindow_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWindow
     ///
@@ -1423,9 +1833,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn Raise(self: QPaintDeviceWindow) void {
+    pub fn raise(self: QPaintDeviceWindow) void {
         qtc.QWindow_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWindow
     ///
@@ -1435,9 +1849,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn Lower(self: QPaintDeviceWindow) void {
+    pub fn lower(self: QPaintDeviceWindow) void {
         qtc.QWindow_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startSystemResize` instead
+    ///
+    pub const StartSystemResize = startSystemResize;
 
     /// Inherited from QWindow
     ///
@@ -1449,9 +1867,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` edges: flag of qnamespace_enums.Edge `
     ///
-    pub fn StartSystemResize(self: QPaintDeviceWindow, edges: i32) bool {
+    pub fn startSystemResize(self: QPaintDeviceWindow, edges: i32) bool {
         return qtc.QWindow_StartSystemResize(@ptrCast(self.ptr), @bitCast(edges));
     }
+
+    /// ### DEPRECATED: Use `startSystemMove` instead
+    ///
+    pub const StartSystemMove = startSystemMove;
 
     /// Inherited from QWindow
     ///
@@ -1461,9 +1883,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn StartSystemMove(self: QPaintDeviceWindow) bool {
+    pub fn startSystemMove(self: QPaintDeviceWindow) bool {
         return qtc.QWindow_StartSystemMove(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTitle` instead
+    ///
+    pub const SetTitle = setTitle;
 
     /// Inherited from QWindow
     ///
@@ -1473,15 +1899,19 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    /// ` title: []const u8 `
+    /// ` _title: []const u8 `
     ///
-    pub fn SetTitle(self: QPaintDeviceWindow, title: []const u8) void {
+    pub fn setTitle(self: QPaintDeviceWindow, _title: []const u8) void {
         const title_str = qtc.libqt_string{
-            .len = title.len,
-            .data = title.ptr,
+            .len = _title.len,
+            .data = _title.ptr,
         };
         qtc.QWindow_SetTitle(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `setX` instead
+    ///
+    pub const SetX = setX;
 
     /// Inherited from QWindow
     ///
@@ -1493,9 +1923,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` arg: i32 `
     ///
-    pub fn SetX(self: QPaintDeviceWindow, arg: i32) void {
+    pub fn setX(self: QPaintDeviceWindow, arg: i32) void {
         qtc.QWindow_SetX(@ptrCast(self.ptr), @bitCast(arg));
     }
+
+    /// ### DEPRECATED: Use `setY` instead
+    ///
+    pub const SetY = setY;
 
     /// Inherited from QWindow
     ///
@@ -1507,9 +1941,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` arg: i32 `
     ///
-    pub fn SetY(self: QPaintDeviceWindow, arg: i32) void {
+    pub fn setY(self: QPaintDeviceWindow, arg: i32) void {
         qtc.QWindow_SetY(@ptrCast(self.ptr), @bitCast(arg));
     }
+
+    /// ### DEPRECATED: Use `setWidth` instead
+    ///
+    pub const SetWidth = setWidth;
 
     /// Inherited from QWindow
     ///
@@ -1521,9 +1959,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` arg: i32 `
     ///
-    pub fn SetWidth(self: QPaintDeviceWindow, arg: i32) void {
+    pub fn setWidth(self: QPaintDeviceWindow, arg: i32) void {
         qtc.QWindow_SetWidth(@ptrCast(self.ptr), @bitCast(arg));
     }
+
+    /// ### DEPRECATED: Use `setHeight` instead
+    ///
+    pub const SetHeight = setHeight;
 
     /// Inherited from QWindow
     ///
@@ -1535,9 +1977,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` arg: i32 `
     ///
-    pub fn SetHeight(self: QPaintDeviceWindow, arg: i32) void {
+    pub fn setHeight(self: QPaintDeviceWindow, arg: i32) void {
         qtc.QWindow_SetHeight(@ptrCast(self.ptr), @bitCast(arg));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWindow
     ///
@@ -1555,9 +2001,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: QPaintDeviceWindow, posx: i32, posy: i32, w: i32, h: i32) void {
+    pub fn setGeometry(self: QPaintDeviceWindow, posx: i32, posy: i32, w: i32, h: i32) void {
         qtc.QWindow_SetGeometry(@ptrCast(self.ptr), @bitCast(posx), @bitCast(posy), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWindow
     ///
@@ -1569,10 +2019,14 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` rect: QRect `
     ///
-    pub fn SetGeometry2(self: QPaintDeviceWindow, rect: anytype) void {
+    pub fn setGeometry2(self: QPaintDeviceWindow, rect: anytype) void {
         comptime _ = @TypeOf(rect)._is_QRect;
         qtc.QWindow_SetGeometry2(@ptrCast(self.ptr), @ptrCast(rect.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWindow
     ///
@@ -1584,9 +2038,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetMinimumWidth(self: QPaintDeviceWindow, w: i32) void {
+    pub fn setMinimumWidth(self: QPaintDeviceWindow, w: i32) void {
         qtc.QWindow_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWindow
     ///
@@ -1598,9 +2056,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetMinimumHeight(self: QPaintDeviceWindow, h: i32) void {
+    pub fn setMinimumHeight(self: QPaintDeviceWindow, h: i32) void {
         qtc.QWindow_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWindow
     ///
@@ -1612,9 +2074,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetMaximumWidth(self: QPaintDeviceWindow, w: i32) void {
+    pub fn setMaximumWidth(self: QPaintDeviceWindow, w: i32) void {
         qtc.QWindow_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWindow
     ///
@@ -1626,9 +2092,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetMaximumHeight(self: QPaintDeviceWindow, h: i32) void {
+    pub fn setMaximumHeight(self: QPaintDeviceWindow, h: i32) void {
         qtc.QWindow_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `alert` instead
+    ///
+    pub const Alert = alert;
 
     /// Inherited from QWindow
     ///
@@ -1640,9 +2110,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn Alert(self: QPaintDeviceWindow, msec: i32) void {
+    pub fn alert(self: QPaintDeviceWindow, msec: i32) void {
         qtc.QWindow_Alert(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `requestUpdate` instead
+    ///
+    pub const RequestUpdate = requestUpdate;
 
     /// Inherited from QWindow
     ///
@@ -1652,9 +2126,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn RequestUpdate(self: QPaintDeviceWindow) void {
+    pub fn requestUpdate(self: QPaintDeviceWindow) void {
         qtc.QWindow_RequestUpdate(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `screenChanged` instead
+    ///
+    pub const ScreenChanged = screenChanged;
 
     /// Inherited from QWindow
     ///
@@ -1664,12 +2142,16 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn ScreenChanged(self: QPaintDeviceWindow, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWindow_ScreenChanged(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn screenChanged(self: QPaintDeviceWindow, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWindow_ScreenChanged(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `onScreenChanged` instead
+    ///
+    pub const OnScreenChanged = onScreenChanged;
 
     /// Inherited from QWindow
     ///
@@ -1681,9 +2163,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` callback: *const fn (self: QPaintDeviceWindow, screen: QScreen) callconv(.c) void `
     ///
-    pub fn OnScreenChanged(self: QPaintDeviceWindow, callback: *const fn (QPaintDeviceWindow, QScreen) callconv(.c) void) void {
+    pub fn onScreenChanged(self: QPaintDeviceWindow, callback: *const fn (QPaintDeviceWindow, QScreen) callconv(.c) void) void {
         qtc.QWindow_Connect_ScreenChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `modalityChanged` instead
+    ///
+    pub const ModalityChanged = modalityChanged;
 
     /// Inherited from QWindow
     ///
@@ -1693,11 +2179,15 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    /// ` modality: qnamespace_enums.WindowModality `
+    /// ` _modality: qnamespace_enums.WindowModality `
     ///
-    pub fn ModalityChanged(self: QPaintDeviceWindow, modality: i32) void {
-        qtc.QWindow_ModalityChanged(@ptrCast(self.ptr), @bitCast(modality));
+    pub fn modalityChanged(self: QPaintDeviceWindow, _modality: i32) void {
+        qtc.QWindow_ModalityChanged(@ptrCast(self.ptr), @bitCast(_modality));
     }
+
+    /// ### DEPRECATED: Use `onModalityChanged` instead
+    ///
+    pub const OnModalityChanged = onModalityChanged;
 
     /// Inherited from QWindow
     ///
@@ -1709,9 +2199,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` callback: *const fn (self: QPaintDeviceWindow, modality: qnamespace_enums.WindowModality) callconv(.c) void `
     ///
-    pub fn OnModalityChanged(self: QPaintDeviceWindow, callback: *const fn (QPaintDeviceWindow, i32) callconv(.c) void) void {
+    pub fn onModalityChanged(self: QPaintDeviceWindow, callback: *const fn (QPaintDeviceWindow, i32) callconv(.c) void) void {
         qtc.QWindow_Connect_ModalityChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowStateChanged` instead
+    ///
+    pub const WindowStateChanged = windowStateChanged;
 
     /// Inherited from QWindow
     ///
@@ -1721,11 +2215,15 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    /// ` windowState: qnamespace_enums.WindowState `
+    /// ` _windowState: qnamespace_enums.WindowState `
     ///
-    pub fn WindowStateChanged(self: QPaintDeviceWindow, windowState: i32) void {
-        qtc.QWindow_WindowStateChanged(@ptrCast(self.ptr), @bitCast(windowState));
+    pub fn windowStateChanged(self: QPaintDeviceWindow, _windowState: i32) void {
+        qtc.QWindow_WindowStateChanged(@ptrCast(self.ptr), @bitCast(_windowState));
     }
+
+    /// ### DEPRECATED: Use `onWindowStateChanged` instead
+    ///
+    pub const OnWindowStateChanged = onWindowStateChanged;
 
     /// Inherited from QWindow
     ///
@@ -1737,9 +2235,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` callback: *const fn (self: QPaintDeviceWindow, windowState: qnamespace_enums.WindowState) callconv(.c) void `
     ///
-    pub fn OnWindowStateChanged(self: QPaintDeviceWindow, callback: *const fn (QPaintDeviceWindow, i32) callconv(.c) void) void {
+    pub fn onWindowStateChanged(self: QPaintDeviceWindow, callback: *const fn (QPaintDeviceWindow, i32) callconv(.c) void) void {
         qtc.QWindow_Connect_WindowStateChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWindow
     ///
@@ -1749,15 +2251,19 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    /// ` title: []const u8 `
+    /// ` _title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: QPaintDeviceWindow, title: []const u8) void {
+    pub fn windowTitleChanged(self: QPaintDeviceWindow, _title: []const u8) void {
         const title_str = qtc.libqt_string{
-            .len = title.len,
-            .data = title.ptr,
+            .len = _title.len,
+            .data = _title.ptr,
         };
         qtc.QWindow_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWindow
     ///
@@ -1769,10 +2275,14 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` callback: *const fn (self: QPaintDeviceWindow, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: QPaintDeviceWindow, callback: *const fn (QPaintDeviceWindow, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: QPaintDeviceWindow, callback: *const fn (QPaintDeviceWindow, [*:0]const u8) callconv(.c) void) void {
         qtc.QWindow_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `xChanged` instead
+    ///
+    pub const XChanged = xChanged;
+
     /// Inherited from QWindow
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#xChanged)
@@ -1783,10 +2293,14 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` arg: i32 `
     ///
-    pub fn XChanged(self: QPaintDeviceWindow, arg: i32) void {
+    pub fn xChanged(self: QPaintDeviceWindow, arg: i32) void {
         qtc.QWindow_XChanged(@ptrCast(self.ptr), @bitCast(arg));
     }
 
+    /// ### DEPRECATED: Use `onXChanged` instead
+    ///
+    pub const OnXChanged = onXChanged;
+
     /// Inherited from QWindow
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#xChanged)
@@ -1797,10 +2311,14 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` callback: *const fn (self: QPaintDeviceWindow, arg: i32) callconv(.c) void `
     ///
-    pub fn OnXChanged(self: QPaintDeviceWindow, callback: *const fn (QPaintDeviceWindow, i32) callconv(.c) void) void {
+    pub fn onXChanged(self: QPaintDeviceWindow, callback: *const fn (QPaintDeviceWindow, i32) callconv(.c) void) void {
         qtc.QWindow_Connect_XChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `yChanged` instead
+    ///
+    pub const YChanged = yChanged;
+
     /// Inherited from QWindow
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#yChanged)
@@ -1811,10 +2329,14 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` arg: i32 `
     ///
-    pub fn YChanged(self: QPaintDeviceWindow, arg: i32) void {
+    pub fn yChanged(self: QPaintDeviceWindow, arg: i32) void {
         qtc.QWindow_YChanged(@ptrCast(self.ptr), @bitCast(arg));
     }
 
+    /// ### DEPRECATED: Use `onYChanged` instead
+    ///
+    pub const OnYChanged = onYChanged;
+
     /// Inherited from QWindow
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#yChanged)
@@ -1825,10 +2347,14 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` callback: *const fn (self: QPaintDeviceWindow, arg: i32) callconv(.c) void `
     ///
-    pub fn OnYChanged(self: QPaintDeviceWindow, callback: *const fn (QPaintDeviceWindow, i32) callconv(.c) void) void {
+    pub fn onYChanged(self: QPaintDeviceWindow, callback: *const fn (QPaintDeviceWindow, i32) callconv(.c) void) void {
         qtc.QWindow_Connect_YChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `widthChanged` instead
+    ///
+    pub const WidthChanged = widthChanged;
+
     /// Inherited from QWindow
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#widthChanged)
@@ -1839,10 +2365,14 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` arg: i32 `
     ///
-    pub fn WidthChanged(self: QPaintDeviceWindow, arg: i32) void {
+    pub fn widthChanged(self: QPaintDeviceWindow, arg: i32) void {
         qtc.QWindow_WidthChanged(@ptrCast(self.ptr), @bitCast(arg));
     }
 
+    /// ### DEPRECATED: Use `onWidthChanged` instead
+    ///
+    pub const OnWidthChanged = onWidthChanged;
+
     /// Inherited from QWindow
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#widthChanged)
@@ -1853,10 +2383,14 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` callback: *const fn (self: QPaintDeviceWindow, arg: i32) callconv(.c) void `
     ///
-    pub fn OnWidthChanged(self: QPaintDeviceWindow, callback: *const fn (QPaintDeviceWindow, i32) callconv(.c) void) void {
+    pub fn onWidthChanged(self: QPaintDeviceWindow, callback: *const fn (QPaintDeviceWindow, i32) callconv(.c) void) void {
         qtc.QWindow_Connect_WidthChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `heightChanged` instead
+    ///
+    pub const HeightChanged = heightChanged;
+
     /// Inherited from QWindow
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#heightChanged)
@@ -1867,10 +2401,14 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` arg: i32 `
     ///
-    pub fn HeightChanged(self: QPaintDeviceWindow, arg: i32) void {
+    pub fn heightChanged(self: QPaintDeviceWindow, arg: i32) void {
         qtc.QWindow_HeightChanged(@ptrCast(self.ptr), @bitCast(arg));
     }
 
+    /// ### DEPRECATED: Use `onHeightChanged` instead
+    ///
+    pub const OnHeightChanged = onHeightChanged;
+
     /// Inherited from QWindow
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#heightChanged)
@@ -1881,10 +2419,14 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` callback: *const fn (self: QPaintDeviceWindow, arg: i32) callconv(.c) void `
     ///
-    pub fn OnHeightChanged(self: QPaintDeviceWindow, callback: *const fn (QPaintDeviceWindow, i32) callconv(.c) void) void {
+    pub fn onHeightChanged(self: QPaintDeviceWindow, callback: *const fn (QPaintDeviceWindow, i32) callconv(.c) void) void {
         qtc.QWindow_Connect_HeightChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `minimumWidthChanged` instead
+    ///
+    pub const MinimumWidthChanged = minimumWidthChanged;
+
     /// Inherited from QWindow
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#minimumWidthChanged)
@@ -1895,10 +2437,14 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` arg: i32 `
     ///
-    pub fn MinimumWidthChanged(self: QPaintDeviceWindow, arg: i32) void {
+    pub fn minimumWidthChanged(self: QPaintDeviceWindow, arg: i32) void {
         qtc.QWindow_MinimumWidthChanged(@ptrCast(self.ptr), @bitCast(arg));
     }
 
+    /// ### DEPRECATED: Use `onMinimumWidthChanged` instead
+    ///
+    pub const OnMinimumWidthChanged = onMinimumWidthChanged;
+
     /// Inherited from QWindow
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#minimumWidthChanged)
@@ -1909,10 +2455,14 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` callback: *const fn (self: QPaintDeviceWindow, arg: i32) callconv(.c) void `
     ///
-    pub fn OnMinimumWidthChanged(self: QPaintDeviceWindow, callback: *const fn (QPaintDeviceWindow, i32) callconv(.c) void) void {
+    pub fn onMinimumWidthChanged(self: QPaintDeviceWindow, callback: *const fn (QPaintDeviceWindow, i32) callconv(.c) void) void {
         qtc.QWindow_Connect_MinimumWidthChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `minimumHeightChanged` instead
+    ///
+    pub const MinimumHeightChanged = minimumHeightChanged;
+
     /// Inherited from QWindow
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#minimumHeightChanged)
@@ -1923,10 +2473,14 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` arg: i32 `
     ///
-    pub fn MinimumHeightChanged(self: QPaintDeviceWindow, arg: i32) void {
+    pub fn minimumHeightChanged(self: QPaintDeviceWindow, arg: i32) void {
         qtc.QWindow_MinimumHeightChanged(@ptrCast(self.ptr), @bitCast(arg));
     }
 
+    /// ### DEPRECATED: Use `onMinimumHeightChanged` instead
+    ///
+    pub const OnMinimumHeightChanged = onMinimumHeightChanged;
+
     /// Inherited from QWindow
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#minimumHeightChanged)
@@ -1937,10 +2491,14 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` callback: *const fn (self: QPaintDeviceWindow, arg: i32) callconv(.c) void `
     ///
-    pub fn OnMinimumHeightChanged(self: QPaintDeviceWindow, callback: *const fn (QPaintDeviceWindow, i32) callconv(.c) void) void {
+    pub fn onMinimumHeightChanged(self: QPaintDeviceWindow, callback: *const fn (QPaintDeviceWindow, i32) callconv(.c) void) void {
         qtc.QWindow_Connect_MinimumHeightChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `maximumWidthChanged` instead
+    ///
+    pub const MaximumWidthChanged = maximumWidthChanged;
+
     /// Inherited from QWindow
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#maximumWidthChanged)
@@ -1951,10 +2509,14 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` arg: i32 `
     ///
-    pub fn MaximumWidthChanged(self: QPaintDeviceWindow, arg: i32) void {
+    pub fn maximumWidthChanged(self: QPaintDeviceWindow, arg: i32) void {
         qtc.QWindow_MaximumWidthChanged(@ptrCast(self.ptr), @bitCast(arg));
     }
 
+    /// ### DEPRECATED: Use `onMaximumWidthChanged` instead
+    ///
+    pub const OnMaximumWidthChanged = onMaximumWidthChanged;
+
     /// Inherited from QWindow
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#maximumWidthChanged)
@@ -1965,9 +2527,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` callback: *const fn (self: QPaintDeviceWindow, arg: i32) callconv(.c) void `
     ///
-    pub fn OnMaximumWidthChanged(self: QPaintDeviceWindow, callback: *const fn (QPaintDeviceWindow, i32) callconv(.c) void) void {
+    pub fn onMaximumWidthChanged(self: QPaintDeviceWindow, callback: *const fn (QPaintDeviceWindow, i32) callconv(.c) void) void {
         qtc.QWindow_Connect_MaximumWidthChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `maximumHeightChanged` instead
+    ///
+    pub const MaximumHeightChanged = maximumHeightChanged;
 
     /// Inherited from QWindow
     ///
@@ -1979,9 +2545,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` arg: i32 `
     ///
-    pub fn MaximumHeightChanged(self: QPaintDeviceWindow, arg: i32) void {
+    pub fn maximumHeightChanged(self: QPaintDeviceWindow, arg: i32) void {
         qtc.QWindow_MaximumHeightChanged(@ptrCast(self.ptr), @bitCast(arg));
     }
+
+    /// ### DEPRECATED: Use `onMaximumHeightChanged` instead
+    ///
+    pub const OnMaximumHeightChanged = onMaximumHeightChanged;
 
     /// Inherited from QWindow
     ///
@@ -1993,9 +2563,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` callback: *const fn (self: QPaintDeviceWindow, arg: i32) callconv(.c) void `
     ///
-    pub fn OnMaximumHeightChanged(self: QPaintDeviceWindow, callback: *const fn (QPaintDeviceWindow, i32) callconv(.c) void) void {
+    pub fn onMaximumHeightChanged(self: QPaintDeviceWindow, callback: *const fn (QPaintDeviceWindow, i32) callconv(.c) void) void {
         qtc.QWindow_Connect_MaximumHeightChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `visibleChanged` instead
+    ///
+    pub const VisibleChanged = visibleChanged;
 
     /// Inherited from QWindow
     ///
@@ -2007,9 +2581,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` arg: bool `
     ///
-    pub fn VisibleChanged(self: QPaintDeviceWindow, arg: bool) void {
+    pub fn visibleChanged(self: QPaintDeviceWindow, arg: bool) void {
         qtc.QWindow_VisibleChanged(@ptrCast(self.ptr), arg);
     }
+
+    /// ### DEPRECATED: Use `onVisibleChanged` instead
+    ///
+    pub const OnVisibleChanged = onVisibleChanged;
 
     /// Inherited from QWindow
     ///
@@ -2021,9 +2599,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` callback: *const fn (self: QPaintDeviceWindow, arg: bool) callconv(.c) void `
     ///
-    pub fn OnVisibleChanged(self: QPaintDeviceWindow, callback: *const fn (QPaintDeviceWindow, bool) callconv(.c) void) void {
+    pub fn onVisibleChanged(self: QPaintDeviceWindow, callback: *const fn (QPaintDeviceWindow, bool) callconv(.c) void) void {
         qtc.QWindow_Connect_VisibleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `visibilityChanged` instead
+    ///
+    pub const VisibilityChanged = visibilityChanged;
 
     /// Inherited from QWindow
     ///
@@ -2033,11 +2615,15 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    /// ` visibility: qwindow_enums.Visibility `
+    /// ` _visibility: qwindow_enums.Visibility `
     ///
-    pub fn VisibilityChanged(self: QPaintDeviceWindow, visibility: i32) void {
-        qtc.QWindow_VisibilityChanged(@ptrCast(self.ptr), @bitCast(visibility));
+    pub fn visibilityChanged(self: QPaintDeviceWindow, _visibility: i32) void {
+        qtc.QWindow_VisibilityChanged(@ptrCast(self.ptr), @bitCast(_visibility));
     }
+
+    /// ### DEPRECATED: Use `onVisibilityChanged` instead
+    ///
+    pub const OnVisibilityChanged = onVisibilityChanged;
 
     /// Inherited from QWindow
     ///
@@ -2049,9 +2635,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` callback: *const fn (self: QPaintDeviceWindow, visibility: qwindow_enums.Visibility) callconv(.c) void `
     ///
-    pub fn OnVisibilityChanged(self: QPaintDeviceWindow, callback: *const fn (QPaintDeviceWindow, i32) callconv(.c) void) void {
+    pub fn onVisibilityChanged(self: QPaintDeviceWindow, callback: *const fn (QPaintDeviceWindow, i32) callconv(.c) void) void {
         qtc.QWindow_Connect_VisibilityChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `activeChanged` instead
+    ///
+    pub const ActiveChanged = activeChanged;
 
     /// Inherited from QWindow
     ///
@@ -2061,9 +2651,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn ActiveChanged(self: QPaintDeviceWindow) void {
+    pub fn activeChanged(self: QPaintDeviceWindow) void {
         qtc.QWindow_ActiveChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActiveChanged` instead
+    ///
+    pub const OnActiveChanged = onActiveChanged;
 
     /// Inherited from QWindow
     ///
@@ -2075,9 +2669,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` callback: *const fn (self: QPaintDeviceWindow) callconv(.c) void `
     ///
-    pub fn OnActiveChanged(self: QPaintDeviceWindow, callback: *const fn (QPaintDeviceWindow) callconv(.c) void) void {
+    pub fn onActiveChanged(self: QPaintDeviceWindow, callback: *const fn (QPaintDeviceWindow) callconv(.c) void) void {
         qtc.QWindow_Connect_ActiveChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contentOrientationChanged` instead
+    ///
+    pub const ContentOrientationChanged = contentOrientationChanged;
 
     /// Inherited from QWindow
     ///
@@ -2089,9 +2687,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` orientation: qnamespace_enums.ScreenOrientation `
     ///
-    pub fn ContentOrientationChanged(self: QPaintDeviceWindow, orientation: i32) void {
+    pub fn contentOrientationChanged(self: QPaintDeviceWindow, orientation: i32) void {
         qtc.QWindow_ContentOrientationChanged(@ptrCast(self.ptr), @bitCast(orientation));
     }
+
+    /// ### DEPRECATED: Use `onContentOrientationChanged` instead
+    ///
+    pub const OnContentOrientationChanged = onContentOrientationChanged;
 
     /// Inherited from QWindow
     ///
@@ -2103,9 +2705,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` callback: *const fn (self: QPaintDeviceWindow, orientation: qnamespace_enums.ScreenOrientation) callconv(.c) void `
     ///
-    pub fn OnContentOrientationChanged(self: QPaintDeviceWindow, callback: *const fn (QPaintDeviceWindow, i32) callconv(.c) void) void {
+    pub fn onContentOrientationChanged(self: QPaintDeviceWindow, callback: *const fn (QPaintDeviceWindow, i32) callconv(.c) void) void {
         qtc.QWindow_Connect_ContentOrientationChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusObjectChanged` instead
+    ///
+    pub const FocusObjectChanged = focusObjectChanged;
 
     /// Inherited from QWindow
     ///
@@ -2117,10 +2723,14 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` object: QObject `
     ///
-    pub fn FocusObjectChanged(self: QPaintDeviceWindow, object: anytype) void {
+    pub fn focusObjectChanged(self: QPaintDeviceWindow, object: anytype) void {
         comptime _ = @TypeOf(object)._is_QObject;
         qtc.QWindow_FocusObjectChanged(@ptrCast(self.ptr), @ptrCast(object.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusObjectChanged` instead
+    ///
+    pub const OnFocusObjectChanged = onFocusObjectChanged;
 
     /// Inherited from QWindow
     ///
@@ -2132,9 +2742,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` callback: *const fn (self: QPaintDeviceWindow, object: QObject) callconv(.c) void `
     ///
-    pub fn OnFocusObjectChanged(self: QPaintDeviceWindow, callback: *const fn (QPaintDeviceWindow, QObject) callconv(.c) void) void {
+    pub fn onFocusObjectChanged(self: QPaintDeviceWindow, callback: *const fn (QPaintDeviceWindow, QObject) callconv(.c) void) void {
         qtc.QWindow_Connect_FocusObjectChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `opacityChanged` instead
+    ///
+    pub const OpacityChanged = opacityChanged;
 
     /// Inherited from QWindow
     ///
@@ -2144,11 +2758,15 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    /// ` opacity: f64 `
+    /// ` _opacity: f64 `
     ///
-    pub fn OpacityChanged(self: QPaintDeviceWindow, opacity: f64) void {
-        qtc.QWindow_OpacityChanged(@ptrCast(self.ptr), @bitCast(opacity));
+    pub fn opacityChanged(self: QPaintDeviceWindow, _opacity: f64) void {
+        qtc.QWindow_OpacityChanged(@ptrCast(self.ptr), @bitCast(_opacity));
     }
+
+    /// ### DEPRECATED: Use `onOpacityChanged` instead
+    ///
+    pub const OnOpacityChanged = onOpacityChanged;
 
     /// Inherited from QWindow
     ///
@@ -2160,9 +2778,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` callback: *const fn (self: QPaintDeviceWindow, opacity: f64) callconv(.c) void `
     ///
-    pub fn OnOpacityChanged(self: QPaintDeviceWindow, callback: *const fn (QPaintDeviceWindow, f64) callconv(.c) void) void {
+    pub fn onOpacityChanged(self: QPaintDeviceWindow, callback: *const fn (QPaintDeviceWindow, f64) callconv(.c) void) void {
         qtc.QWindow_Connect_OpacityChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `transientParentChanged` instead
+    ///
+    pub const TransientParentChanged = transientParentChanged;
 
     /// Inherited from QWindow
     ///
@@ -2172,12 +2794,16 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    /// ` transientParent: QWindow `
+    /// ` _transientParent: QWindow `
     ///
-    pub fn TransientParentChanged(self: QPaintDeviceWindow, transientParent: anytype) void {
-        comptime _ = @TypeOf(transientParent)._is_QWindow;
-        qtc.QWindow_TransientParentChanged(@ptrCast(self.ptr), @ptrCast(transientParent.ptr));
+    pub fn transientParentChanged(self: QPaintDeviceWindow, _transientParent: anytype) void {
+        comptime _ = @TypeOf(_transientParent)._is_QWindow;
+        qtc.QWindow_TransientParentChanged(@ptrCast(self.ptr), @ptrCast(_transientParent.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTransientParentChanged` instead
+    ///
+    pub const OnTransientParentChanged = onTransientParentChanged;
 
     /// Inherited from QWindow
     ///
@@ -2189,9 +2815,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` callback: *const fn (self: QPaintDeviceWindow, transientParent: QWindow) callconv(.c) void `
     ///
-    pub fn OnTransientParentChanged(self: QPaintDeviceWindow, callback: *const fn (QPaintDeviceWindow, QWindow) callconv(.c) void) void {
+    pub fn onTransientParentChanged(self: QPaintDeviceWindow, callback: *const fn (QPaintDeviceWindow, QWindow) callconv(.c) void) void {
         qtc.QWindow_Connect_TransientParentChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent1` instead
+    ///
+    pub const Parent1 = parent1;
 
     /// Inherited from QWindow
     ///
@@ -2203,9 +2833,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` mode: qwindow_enums.AncestorMode `
     ///
-    pub fn Parent1(self: QPaintDeviceWindow, mode: i32) QWindow {
+    pub fn parent1(self: QPaintDeviceWindow, mode: i32) QWindow {
         return .{ .ptr = qtc.QWindow_Parent1(@ptrCast(self.ptr), @bitCast(mode)) };
     }
+
+    /// ### DEPRECATED: Use `setFlag2` instead
+    ///
+    pub const SetFlag2 = setFlag2;
 
     /// Inherited from QWindow
     ///
@@ -2219,9 +2853,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetFlag2(self: QPaintDeviceWindow, param1: i32, on: bool) void {
+    pub fn setFlag2(self: QPaintDeviceWindow, param1: i32, on: bool) void {
         qtc.QWindow_SetFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf2` instead
+    ///
+    pub const IsAncestorOf2 = isAncestorOf2;
 
     /// Inherited from QWindow
     ///
@@ -2235,10 +2873,14 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` mode: qwindow_enums.AncestorMode `
     ///
-    pub fn IsAncestorOf2(self: QPaintDeviceWindow, child: anytype, mode: i32) bool {
+    pub fn isAncestorOf2(self: QPaintDeviceWindow, child: anytype, mode: i32) bool {
         comptime _ = @TypeOf(child)._is_QWindow;
         return qtc.QWindow_IsAncestorOf2(@ptrCast(self.ptr), @ptrCast(child.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -2250,13 +2892,17 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QPaintDeviceWindow, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QPaintDeviceWindow, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -2268,13 +2914,17 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QPaintDeviceWindow, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QPaintDeviceWindow, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPaintDeviceWindow.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPaintDeviceWindow.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -2286,13 +2936,17 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QPaintDeviceWindow, name: []const u8) void {
+    pub fn setObjectName(self: QPaintDeviceWindow, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -2302,9 +2956,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn IsWidgetType(self: QPaintDeviceWindow) bool {
+    pub fn isWidgetType(self: QPaintDeviceWindow) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -2314,9 +2972,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn IsWindowType(self: QPaintDeviceWindow) bool {
+    pub fn isWindowType(self: QPaintDeviceWindow) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -2326,9 +2988,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn IsQuickItemType(self: QPaintDeviceWindow) bool {
+    pub fn isQuickItemType(self: QPaintDeviceWindow) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -2338,9 +3004,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn SignalsBlocked(self: QPaintDeviceWindow) bool {
+    pub fn signalsBlocked(self: QPaintDeviceWindow) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -2352,9 +3022,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QPaintDeviceWindow, b: bool) bool {
+    pub fn blockSignals(self: QPaintDeviceWindow, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -2364,9 +3038,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn Thread(self: QPaintDeviceWindow) QThread {
+    pub fn thread(self: QPaintDeviceWindow) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -2376,12 +3054,16 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QPaintDeviceWindow, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QPaintDeviceWindow, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -2393,9 +3075,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QPaintDeviceWindow, interval: i32) i32 {
+    pub fn startTimer(self: QPaintDeviceWindow, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -2407,9 +3093,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QPaintDeviceWindow, time: i64) i32 {
+    pub fn startTimer2(self: QPaintDeviceWindow, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -2421,9 +3111,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QPaintDeviceWindow, id: i32) void {
+    pub fn killTimer(self: QPaintDeviceWindow, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -2435,9 +3129,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QPaintDeviceWindow, id: i32) void {
+    pub fn killTimer2(self: QPaintDeviceWindow, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -2449,15 +3147,19 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QPaintDeviceWindow, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QPaintDeviceWindow, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QPaintDeviceWindow.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QPaintDeviceWindow.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2469,10 +3171,14 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QPaintDeviceWindow, filterObj: anytype) void {
+    pub fn installEventFilter(self: QPaintDeviceWindow, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2484,10 +3190,14 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QPaintDeviceWindow, obj: anytype) void {
+    pub fn removeEventFilter(self: QPaintDeviceWindow, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -2495,7 +3205,7 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2503,13 +3213,17 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -2517,7 +3231,7 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2525,13 +3239,17 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -2541,18 +3259,22 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QPaintDeviceWindow, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QPaintDeviceWindow, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -2560,7 +3282,7 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2568,13 +3290,17 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -2582,7 +3308,7 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2590,13 +3316,17 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -2606,9 +3336,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn Disconnect3(self: QPaintDeviceWindow) bool {
+    pub fn disconnect3(self: QPaintDeviceWindow) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -2620,10 +3354,14 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QPaintDeviceWindow, receiver: anytype) bool {
+    pub fn disconnect4(self: QPaintDeviceWindow, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -2633,10 +3371,14 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -2646,9 +3388,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn DumpObjectTree(self: QPaintDeviceWindow) void {
+    pub fn dumpObjectTree(self: QPaintDeviceWindow) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -2658,9 +3404,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn DumpObjectInfo(self: QPaintDeviceWindow) void {
+    pub fn dumpObjectInfo(self: QPaintDeviceWindow) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -2674,11 +3424,15 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QPaintDeviceWindow, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QPaintDeviceWindow, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -2690,10 +3444,14 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QPaintDeviceWindow, name: [:0]const u8) QVariant {
+    pub fn property(self: QPaintDeviceWindow, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -2705,7 +3463,7 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QPaintDeviceWindow, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QPaintDeviceWindow, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -2713,27 +3471,19 @@ pub const QPaintDeviceWindow = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QPaintDeviceWindow.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QPaintDeviceWindow.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QPaintDeviceWindow.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QPaintDeviceWindow.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPaintDeviceWindow `
-    ///
-    pub fn BindingStorage(self: QPaintDeviceWindow) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -2743,9 +3493,29 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn BindingStorage2(self: QPaintDeviceWindow) QBindingStorage {
+    pub fn bindingStorage(self: QPaintDeviceWindow) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QPaintDeviceWindow `
+    ///
+    pub fn bindingStorage2(self: QPaintDeviceWindow) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -2755,9 +3525,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn Destroyed(self: QPaintDeviceWindow) void {
+    pub fn destroyed(self: QPaintDeviceWindow) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -2769,9 +3543,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` callback: *const fn (self: QPaintDeviceWindow) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QPaintDeviceWindow, callback: *const fn (QPaintDeviceWindow) callconv(.c) void) void {
+    pub fn onDestroyed(self: QPaintDeviceWindow, callback: *const fn (QPaintDeviceWindow) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -2783,10 +3561,14 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QPaintDeviceWindow, classname: [:0]const u8) bool {
+    pub fn inherits(self: QPaintDeviceWindow, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -2796,9 +3578,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn DeleteLater(self: QPaintDeviceWindow) void {
+    pub fn deleteLater(self: QPaintDeviceWindow) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -2812,9 +3598,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QPaintDeviceWindow, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QPaintDeviceWindow, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -2828,9 +3618,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QPaintDeviceWindow, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QPaintDeviceWindow, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -2838,7 +3632,7 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2848,13 +3642,17 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -2862,7 +3660,7 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2872,13 +3670,17 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -2888,7 +3690,7 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2896,12 +3698,16 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QPaintDeviceWindow, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QPaintDeviceWindow, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -2913,10 +3719,14 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QPaintDeviceWindow, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QPaintDeviceWindow, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -2930,11 +3740,15 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QPaintDeviceWindow, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QPaintDeviceWindow, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -2950,13 +3764,17 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QPaintDeviceWindow, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QPaintDeviceWindow, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -2969,11 +3787,15 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QPaintDeviceWindow, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QPaintDeviceWindow, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -2985,10 +3807,14 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QPaintDeviceWindow, param1: anytype) void {
+    pub fn destroyed1(self: QPaintDeviceWindow, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -3000,9 +3826,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` callback: *const fn (self: QPaintDeviceWindow, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QPaintDeviceWindow, callback: *const fn (QPaintDeviceWindow, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QPaintDeviceWindow, callback: *const fn (QPaintDeviceWindow, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `surfaceClass` instead
+    ///
+    pub const SurfaceClass = surfaceClass;
 
     /// Inherited from QSurface
     ///
@@ -3016,9 +3846,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` qsurface_enums.SurfaceClass `
     ///
-    pub fn SurfaceClass(self: QPaintDeviceWindow) i32 {
+    pub fn surfaceClass(self: QPaintDeviceWindow) i32 {
         return qtc.QSurface_SurfaceClass(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `supportsOpenGL` instead
+    ///
+    pub const SupportsOpenGL = supportsOpenGL;
 
     /// Inherited from QSurface
     ///
@@ -3028,9 +3862,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn SupportsOpenGL(self: QPaintDeviceWindow) bool {
+    pub fn supportsOpenGL(self: QPaintDeviceWindow) bool {
         return qtc.QSurface_SupportsOpenGL(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QPaintDevice
     ///
@@ -3040,9 +3878,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn DevType(self: QPaintDeviceWindow) i32 {
+    pub fn devType(self: QPaintDeviceWindow) i32 {
         return qtc.QPaintDevice_DevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -3052,9 +3894,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn PaintingActive(self: QPaintDeviceWindow) bool {
+    pub fn paintingActive(self: QPaintDeviceWindow) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QPaintDevice
     ///
@@ -3064,9 +3910,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn PaintEngine(self: QPaintDeviceWindow) QPaintEngine {
+    pub fn paintEngine(self: QPaintDeviceWindow) QPaintEngine {
         return .{ .ptr = qtc.QPaintDevice_PaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -3076,9 +3926,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn WidthMM(self: QPaintDeviceWindow) i32 {
+    pub fn widthMM(self: QPaintDeviceWindow) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -3088,9 +3942,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn HeightMM(self: QPaintDeviceWindow) i32 {
+    pub fn heightMM(self: QPaintDeviceWindow) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -3100,9 +3958,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn LogicalDpiX(self: QPaintDeviceWindow) i32 {
+    pub fn logicalDpiX(self: QPaintDeviceWindow) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -3112,9 +3974,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn LogicalDpiY(self: QPaintDeviceWindow) i32 {
+    pub fn logicalDpiY(self: QPaintDeviceWindow) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -3124,9 +3990,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn PhysicalDpiX(self: QPaintDeviceWindow) i32 {
+    pub fn physicalDpiX(self: QPaintDeviceWindow) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -3136,9 +4006,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn PhysicalDpiY(self: QPaintDeviceWindow) i32 {
+    pub fn physicalDpiY(self: QPaintDeviceWindow) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -3148,9 +4022,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn DevicePixelRatioF(self: QPaintDeviceWindow) f64 {
+    pub fn devicePixelRatioF(self: QPaintDeviceWindow) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -3160,9 +4038,13 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn ColorCount(self: QPaintDeviceWindow) i32 {
+    pub fn colorCount(self: QPaintDeviceWindow) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -3172,17 +4054,25 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn Depth(self: QPaintDeviceWindow) i32 {
+    pub fn depth(self: QPaintDeviceWindow) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -3190,13 +4080,17 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -3210,23 +4104,23 @@ pub const QPaintDeviceWindow = extern struct {
     ///
     /// ` callback: *const fn (self: QPaintDeviceWindow, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QPaintDeviceWindow, callback: *const fn (QPaintDeviceWindow, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QPaintDeviceWindow, callback: *const fn (QPaintDeviceWindow, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevicewindow.html#dtor.QPaintDeviceWindow)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QPaintDeviceWindow `
     ///
-    pub fn Delete(self: QPaintDeviceWindow) void {
+    pub fn delete(self: QPaintDeviceWindow) void {
         qtc.QPaintDeviceWindow_Delete(@ptrCast(self.ptr));
     }
 };

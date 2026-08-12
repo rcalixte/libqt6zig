@@ -15,22 +15,34 @@ pub const QVoice = extern struct {
 
     pub const _is_QVoice = {};
 
-    /// New constructs a new QVoice object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QVoice {
+    pub const New = new;
+
+    /// Allocate a new QVoice object in C++ memory
+    ///
+    pub fn new() QVoice {
         return .{ .ptr = qtc.QVoice_new() };
     }
 
-    /// New2 constructs a new QVoice object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QVoice object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QVoice `
     ///
-    pub fn New2(other: anytype) QVoice {
+    pub fn new2(other: anytype) QVoice {
         comptime _ = @TypeOf(other)._is_QVoice;
         return .{ .ptr = qtc.QVoice_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvoice.html#operator-eq)
     ///
@@ -40,10 +52,14 @@ pub const QVoice = extern struct {
     ///
     /// ` other: QVoice `
     ///
-    pub fn OperatorAssign(self: QVoice, other: anytype) void {
+    pub fn operatorAssign(self: QVoice, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QVoice;
         qtc.QVoice_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvoice.html#swap)
     ///
@@ -53,10 +69,14 @@ pub const QVoice = extern struct {
     ///
     /// ` other: QVoice `
     ///
-    pub fn Swap(self: QVoice, other: anytype) void {
+    pub fn swap(self: QVoice, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QVoice;
         qtc.QVoice_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvoice.html#name)
     ///
@@ -66,13 +86,17 @@ pub const QVoice = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: QVoice, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: QVoice, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QVoice_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QVoice.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QVoice.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvoice.html#locale)
     ///
@@ -80,9 +104,13 @@ pub const QVoice = extern struct {
     ///
     /// ` self: QVoice `
     ///
-    pub fn Locale(self: QVoice) QLocale {
+    pub fn locale(self: QVoice) QLocale {
         return .{ .ptr = qtc.QVoice_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `gender` instead
+    ///
+    pub const Gender = gender;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvoice.html#gender)
     ///
@@ -94,9 +122,13 @@ pub const QVoice = extern struct {
     ///
     /// ` qvoice_enums.Gender `
     ///
-    pub fn Gender(self: QVoice) i32 {
+    pub fn gender(self: QVoice) i32 {
         return qtc.QVoice_Gender(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `age` instead
+    ///
+    pub const Age = age;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvoice.html#age)
     ///
@@ -108,9 +140,13 @@ pub const QVoice = extern struct {
     ///
     /// ` qvoice_enums.Age `
     ///
-    pub fn Age(self: QVoice) i32 {
+    pub fn age(self: QVoice) i32 {
         return qtc.QVoice_Age(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `language` instead
+    ///
+    pub const Language = language;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvoice.html#language)
     ///
@@ -122,9 +158,13 @@ pub const QVoice = extern struct {
     ///
     /// ` qlocale_enums.Language `
     ///
-    pub fn Language(self: QVoice) u16 {
+    pub fn language(self: QVoice) u16 {
         return qtc.QVoice_Language(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `genderName` instead
+    ///
+    pub const GenderName = genderName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvoice.html#genderName)
     ///
@@ -132,15 +172,19 @@ pub const QVoice = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` gender: qvoice_enums.Gender `
+    /// ` _gender: qvoice_enums.Gender `
     ///
-    pub fn GenderName(allocator: std.mem.Allocator, gender: i32) []const u8 {
-        var _str = qtc.QVoice_GenderName(@bitCast(gender));
+    pub fn genderName(allocator: std.mem.Allocator, _gender: i32) []const u8 {
+        var _str = qtc.QVoice_GenderName(@bitCast(_gender));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QVoice.GenderName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QVoice.genderName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `ageName` instead
+    ///
+    pub const AgeName = ageName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvoice.html#ageName)
     ///
@@ -148,29 +192,29 @@ pub const QVoice = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` age: qvoice_enums.Age `
+    /// ` _age: qvoice_enums.Age `
     ///
-    pub fn AgeName(allocator: std.mem.Allocator, age: i32) []const u8 {
-        var _str = qtc.QVoice_AgeName(@bitCast(age));
+    pub fn ageName(allocator: std.mem.Allocator, _age: i32) []const u8 {
+        var _str = qtc.QVoice_AgeName(@bitCast(_age));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QVoice.AgeName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QVoice.ageName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvoice.html#dtor.QVoice)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QVoice `
     ///
-    pub fn Delete(self: QVoice) void {
+    pub fn delete(self: QVoice) void {
         qtc.QVoice_Delete(@ptrCast(self.ptr));
     }
 };

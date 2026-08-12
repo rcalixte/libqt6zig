@@ -17,39 +17,47 @@ pub const KService = extern struct {
     pub const _is_KSycocaEntry = {};
     pub const _is_QSharedData = {};
 
-    /// New constructs a new KService object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KService object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    /// ` exec: []const u8 `
+    /// ` _exec: []const u8 `
     ///
-    /// ` icon: []const u8 `
+    /// ` _icon: []const u8 `
     ///
-    pub fn New(name: []const u8, exec: []const u8, icon: []const u8) KService {
+    pub fn new(_name: []const u8, _exec: []const u8, _icon: []const u8) KService {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         const exec_str = qtc.libqt_string{
-            .len = exec.len,
-            .data = exec.ptr,
+            .len = _exec.len,
+            .data = _exec.ptr,
         };
         const icon_str = qtc.libqt_string{
-            .len = icon.len,
-            .data = icon.ptr,
+            .len = _icon.len,
+            .data = _icon.ptr,
         };
         return .{ .ptr = qtc.KService_new(name_str, exec_str, icon_str) };
     }
 
-    /// New2 constructs a new KService object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KService object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` fullpath: []const u8 `
     ///
-    pub fn New2(fullpath: []const u8) KService {
+    pub fn new2(fullpath: []const u8) KService {
         const fullpath_str = qtc.libqt_string{
             .len = fullpath.len,
             .data = fullpath.ptr,
@@ -57,44 +65,60 @@ pub const KService = extern struct {
         return .{ .ptr = qtc.KService_new2(fullpath_str) };
     }
 
-    /// New3 constructs a new KService object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new KService object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` config: KDesktopFile `
     ///
-    pub fn New3(config: anytype) KService {
+    pub fn new3(config: anytype) KService {
         comptime _ = @TypeOf(config)._is_KDesktopFile;
         return .{ .ptr = qtc.KService_new3(@ptrCast(config.ptr)) };
     }
 
-    /// New4 constructs a new KService object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new KService object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: KService `
     ///
-    pub fn New4(other: anytype) KService {
+    pub fn new4(other: anytype) KService {
         comptime _ = @TypeOf(other)._is_KService;
         return .{ .ptr = qtc.KService_new4(@ptrCast(other.ptr)) };
     }
 
-    /// New5 constructs a new KService object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new KService object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` config: KDesktopFile `
     ///
-    /// ` entryPath: []const u8 `
+    /// ` _entryPath: []const u8 `
     ///
-    pub fn New5(config: anytype, entryPath: []const u8) KService {
+    pub fn new5(config: anytype, _entryPath: []const u8) KService {
         comptime _ = @TypeOf(config)._is_KDesktopFile;
         const entryPath_str = qtc.libqt_string{
-            .len = entryPath.len,
-            .data = entryPath.ptr,
+            .len = _entryPath.len,
+            .data = _entryPath.ptr,
         };
         return .{ .ptr = qtc.KService_new5(@ptrCast(config.ptr), entryPath_str) };
     }
+
+    /// ### DEPRECATED: Use `isApplication` instead
+    ///
+    pub const IsApplication = isApplication;
 
     /// ### [Upstream resources](https://api.kde.org/kservice.html#isApplication)
     ///
@@ -102,9 +126,13 @@ pub const KService = extern struct {
     ///
     /// ` self: KService `
     ///
-    pub fn IsApplication(self: KService) bool {
+    pub fn isApplication(self: KService) bool {
         return qtc.KService_IsApplication(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `exec` instead
+    ///
+    pub const Exec = exec;
 
     /// ### [Upstream resources](https://api.kde.org/kservice.html#exec)
     ///
@@ -114,13 +142,17 @@ pub const KService = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Exec(self: KService, allocator: std.mem.Allocator) []const u8 {
+    pub fn exec(self: KService, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KService_Exec(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.Exec: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.exec: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `icon` instead
+    ///
+    pub const Icon = icon;
 
     /// ### [Upstream resources](https://api.kde.org/kservice.html#icon)
     ///
@@ -130,13 +162,17 @@ pub const KService = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Icon(self: KService, allocator: std.mem.Allocator) []const u8 {
+    pub fn icon(self: KService, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KService_Icon(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.Icon: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.icon: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `terminal` instead
+    ///
+    pub const Terminal = terminal;
 
     /// ### [Upstream resources](https://api.kde.org/kservice.html#terminal)
     ///
@@ -144,9 +180,13 @@ pub const KService = extern struct {
     ///
     /// ` self: KService `
     ///
-    pub fn Terminal(self: KService) bool {
+    pub fn terminal(self: KService) bool {
         return qtc.KService_Terminal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `terminalOptions` instead
+    ///
+    pub const TerminalOptions = terminalOptions;
 
     /// ### [Upstream resources](https://api.kde.org/kservice.html#terminalOptions)
     ///
@@ -156,13 +196,17 @@ pub const KService = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TerminalOptions(self: KService, allocator: std.mem.Allocator) []const u8 {
+    pub fn terminalOptions(self: KService, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KService_TerminalOptions(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.TerminalOptions: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.terminalOptions: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `runOnDiscreteGpu` instead
+    ///
+    pub const RunOnDiscreteGpu = runOnDiscreteGpu;
 
     /// ### [Upstream resources](https://api.kde.org/kservice.html#runOnDiscreteGpu)
     ///
@@ -170,9 +214,13 @@ pub const KService = extern struct {
     ///
     /// ` self: KService `
     ///
-    pub fn RunOnDiscreteGpu(self: KService) bool {
+    pub fn runOnDiscreteGpu(self: KService) bool {
         return qtc.KService_RunOnDiscreteGpu(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `substituteUid` instead
+    ///
+    pub const SubstituteUid = substituteUid;
 
     /// ### [Upstream resources](https://api.kde.org/kservice.html#substituteUid)
     ///
@@ -180,9 +228,13 @@ pub const KService = extern struct {
     ///
     /// ` self: KService `
     ///
-    pub fn SubstituteUid(self: KService) bool {
+    pub fn substituteUid(self: KService) bool {
         return qtc.KService_SubstituteUid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `username` instead
+    ///
+    pub const Username = username;
 
     /// ### [Upstream resources](https://api.kde.org/kservice.html#username)
     ///
@@ -192,13 +244,17 @@ pub const KService = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Username(self: KService, allocator: std.mem.Allocator) []const u8 {
+    pub fn username(self: KService, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KService_Username(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.Username: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.username: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `desktopEntryName` instead
+    ///
+    pub const DesktopEntryName = desktopEntryName;
 
     /// ### [Upstream resources](https://api.kde.org/kservice.html#desktopEntryName)
     ///
@@ -208,13 +264,17 @@ pub const KService = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DesktopEntryName(self: KService, allocator: std.mem.Allocator) []const u8 {
+    pub fn desktopEntryName(self: KService, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KService_DesktopEntryName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.DesktopEntryName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.desktopEntryName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `menuId` instead
+    ///
+    pub const MenuId = menuId;
 
     /// ### [Upstream resources](https://api.kde.org/kservice.html#menuId)
     ///
@@ -224,13 +284,17 @@ pub const KService = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MenuId(self: KService, allocator: std.mem.Allocator) []const u8 {
+    pub fn menuId(self: KService, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KService_MenuId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.MenuId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.menuId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `storageId` instead
+    ///
+    pub const StorageId = storageId;
 
     /// ### [Upstream resources](https://api.kde.org/kservice.html#storageId)
     ///
@@ -240,13 +304,17 @@ pub const KService = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StorageId(self: KService, allocator: std.mem.Allocator) []const u8 {
+    pub fn storageId(self: KService, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KService_StorageId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.StorageId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.storageId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `workingDirectory` instead
+    ///
+    pub const WorkingDirectory = workingDirectory;
 
     /// ### [Upstream resources](https://api.kde.org/kservice.html#workingDirectory)
     ///
@@ -256,13 +324,17 @@ pub const KService = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WorkingDirectory(self: KService, allocator: std.mem.Allocator) []const u8 {
+    pub fn workingDirectory(self: KService, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KService_WorkingDirectory(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.WorkingDirectory: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.workingDirectory: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `comment` instead
+    ///
+    pub const Comment = comment;
 
     /// ### [Upstream resources](https://api.kde.org/kservice.html#comment)
     ///
@@ -272,13 +344,17 @@ pub const KService = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Comment(self: KService, allocator: std.mem.Allocator) []const u8 {
+    pub fn comment(self: KService, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KService_Comment(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.Comment: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.comment: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `genericName` instead
+    ///
+    pub const GenericName = genericName;
 
     /// ### [Upstream resources](https://api.kde.org/kservice.html#genericName)
     ///
@@ -288,13 +364,17 @@ pub const KService = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GenericName(self: KService, allocator: std.mem.Allocator) []const u8 {
+    pub fn genericName(self: KService, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KService_GenericName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.GenericName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.genericName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `untranslatedGenericName` instead
+    ///
+    pub const UntranslatedGenericName = untranslatedGenericName;
 
     /// ### [Upstream resources](https://api.kde.org/kservice.html#untranslatedGenericName)
     ///
@@ -304,13 +384,17 @@ pub const KService = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn UntranslatedGenericName(self: KService, allocator: std.mem.Allocator) []const u8 {
+    pub fn untranslatedGenericName(self: KService, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KService_UntranslatedGenericName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.UntranslatedGenericName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.untranslatedGenericName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `untranslatedName` instead
+    ///
+    pub const UntranslatedName = untranslatedName;
 
     /// ### [Upstream resources](https://api.kde.org/kservice.html#untranslatedName)
     ///
@@ -320,13 +404,17 @@ pub const KService = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn UntranslatedName(self: KService, allocator: std.mem.Allocator) []const u8 {
+    pub fn untranslatedName(self: KService, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KService_UntranslatedName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.UntranslatedName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.untranslatedName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `keywords` instead
+    ///
+    pub const Keywords = keywords;
 
     /// ### [Upstream resources](https://api.kde.org/kservice.html#keywords)
     ///
@@ -336,7 +424,7 @@ pub const KService = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Keywords(self: KService, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn keywords(self: KService, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KService_Keywords(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -344,15 +432,19 @@ pub const KService = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KService.Keywords: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KService.keywords: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KService.Keywords: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KService.keywords: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `categories` instead
+    ///
+    pub const Categories = categories;
 
     /// ### [Upstream resources](https://api.kde.org/kservice.html#categories)
     ///
@@ -362,7 +454,7 @@ pub const KService = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Categories(self: KService, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn categories(self: KService, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KService_Categories(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -370,15 +462,19 @@ pub const KService = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KService.Categories: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KService.categories: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KService.Categories: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KService.categories: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `mimeTypes` instead
+    ///
+    pub const MimeTypes = mimeTypes;
 
     /// ### [Upstream resources](https://api.kde.org/kservice.html#mimeTypes)
     ///
@@ -388,7 +484,7 @@ pub const KService = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MimeTypes(self: KService, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn mimeTypes(self: KService, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KService_MimeTypes(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -396,15 +492,19 @@ pub const KService = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KService.MimeTypes: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KService.mimeTypes: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KService.MimeTypes: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KService.mimeTypes: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `schemeHandlers` instead
+    ///
+    pub const SchemeHandlers = schemeHandlers;
 
     /// ### [Upstream resources](https://api.kde.org/kservice.html#schemeHandlers)
     ///
@@ -414,7 +514,7 @@ pub const KService = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SchemeHandlers(self: KService, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn schemeHandlers(self: KService, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KService_SchemeHandlers(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -422,15 +522,19 @@ pub const KService = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KService.SchemeHandlers: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KService.schemeHandlers: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KService.SchemeHandlers: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KService.schemeHandlers: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `supportedProtocols` instead
+    ///
+    pub const SupportedProtocols = supportedProtocols;
 
     /// ### [Upstream resources](https://api.kde.org/kservice.html#supportedProtocols)
     ///
@@ -440,7 +544,7 @@ pub const KService = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SupportedProtocols(self: KService, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn supportedProtocols(self: KService, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KService_SupportedProtocols(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -448,15 +552,19 @@ pub const KService = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KService.SupportedProtocols: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KService.supportedProtocols: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KService.SupportedProtocols: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KService.supportedProtocols: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `hasMimeType` instead
+    ///
+    pub const HasMimeType = hasMimeType;
 
     /// ### [Upstream resources](https://api.kde.org/kservice.html#hasMimeType)
     ///
@@ -466,13 +574,17 @@ pub const KService = extern struct {
     ///
     /// ` mimeType: []const u8 `
     ///
-    pub fn HasMimeType(self: KService, mimeType: []const u8) bool {
+    pub fn hasMimeType(self: KService, mimeType: []const u8) bool {
         const mimeType_str = qtc.libqt_string{
             .len = mimeType.len,
             .data = mimeType.ptr,
         };
         return qtc.KService_HasMimeType(@ptrCast(self.ptr), mimeType_str);
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// ### [Upstream resources](https://api.kde.org/kservice.html#actions)
     ///
@@ -482,15 +594,19 @@ pub const KService = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: KService, allocator: std.mem.Allocator) []KServiceAction {
+    pub fn actions(self: KService, allocator: std.mem.Allocator) []KServiceAction {
         const _arr: qtc.libqt_list = qtc.KService_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KServiceAction, _arr.len) catch @panic("KService.Actions: Memory allocation failed");
-        const _data: [*]QtC.KServiceAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(KServiceAction, _arr.len) catch @panic("KService.actions: Memory allocation failed");
+        const _data_val: [*]QtC.KServiceAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `allowMultipleFiles` instead
+    ///
+    pub const AllowMultipleFiles = allowMultipleFiles;
 
     /// ### [Upstream resources](https://api.kde.org/kservice.html#allowMultipleFiles)
     ///
@@ -498,9 +614,13 @@ pub const KService = extern struct {
     ///
     /// ` self: KService `
     ///
-    pub fn AllowMultipleFiles(self: KService) bool {
+    pub fn allowMultipleFiles(self: KService) bool {
         return qtc.KService_AllowMultipleFiles(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `noDisplay` instead
+    ///
+    pub const NoDisplay = noDisplay;
 
     /// ### [Upstream resources](https://api.kde.org/kservice.html#noDisplay)
     ///
@@ -508,9 +628,13 @@ pub const KService = extern struct {
     ///
     /// ` self: KService `
     ///
-    pub fn NoDisplay(self: KService) bool {
+    pub fn noDisplay(self: KService) bool {
         return qtc.KService_NoDisplay(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showInCurrentDesktop` instead
+    ///
+    pub const ShowInCurrentDesktop = showInCurrentDesktop;
 
     /// ### [Upstream resources](https://api.kde.org/kservice.html#showInCurrentDesktop)
     ///
@@ -518,9 +642,13 @@ pub const KService = extern struct {
     ///
     /// ` self: KService `
     ///
-    pub fn ShowInCurrentDesktop(self: KService) bool {
+    pub fn showInCurrentDesktop(self: KService) bool {
         return qtc.KService_ShowInCurrentDesktop(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showOnCurrentPlatform` instead
+    ///
+    pub const ShowOnCurrentPlatform = showOnCurrentPlatform;
 
     /// ### [Upstream resources](https://api.kde.org/kservice.html#showOnCurrentPlatform)
     ///
@@ -528,9 +656,13 @@ pub const KService = extern struct {
     ///
     /// ` self: KService `
     ///
-    pub fn ShowOnCurrentPlatform(self: KService) bool {
+    pub fn showOnCurrentPlatform(self: KService) bool {
         return qtc.KService_ShowOnCurrentPlatform(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `docPath` instead
+    ///
+    pub const DocPath = docPath;
 
     /// ### [Upstream resources](https://api.kde.org/kservice.html#docPath)
     ///
@@ -540,13 +672,17 @@ pub const KService = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DocPath(self: KService, allocator: std.mem.Allocator) []const u8 {
+    pub fn docPath(self: KService, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KService_DocPath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.DocPath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.docPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `locateLocal` instead
+    ///
+    pub const LocateLocal = locateLocal;
 
     /// ### [Upstream resources](https://api.kde.org/kservice.html#locateLocal)
     ///
@@ -556,13 +692,17 @@ pub const KService = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LocateLocal(self: KService, allocator: std.mem.Allocator) []const u8 {
+    pub fn locateLocal(self: KService, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KService_LocateLocal(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.LocateLocal: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.locateLocal: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setMenuId` instead
+    ///
+    pub const SetMenuId = setMenuId;
 
     /// ### [Upstream resources](https://api.kde.org/kservice.html#setMenuId)
     ///
@@ -570,15 +710,19 @@ pub const KService = extern struct {
     ///
     /// ` self: KService `
     ///
-    /// ` menuId: []const u8 `
+    /// ` _menuId: []const u8 `
     ///
-    pub fn SetMenuId(self: KService, menuId: []const u8) void {
+    pub fn setMenuId(self: KService, _menuId: []const u8) void {
         const menuId_str = qtc.libqt_string{
-            .len = menuId.len,
-            .data = menuId.ptr,
+            .len = _menuId.len,
+            .data = _menuId.ptr,
         };
         qtc.KService_SetMenuId(@ptrCast(self.ptr), menuId_str);
     }
+
+    /// ### DEPRECATED: Use `setTerminal` instead
+    ///
+    pub const SetTerminal = setTerminal;
 
     /// ### [Upstream resources](https://api.kde.org/kservice.html#setTerminal)
     ///
@@ -588,9 +732,13 @@ pub const KService = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetTerminal(self: KService, b: bool) void {
+    pub fn setTerminal(self: KService, b: bool) void {
         qtc.KService_SetTerminal(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `setTerminalOptions` instead
+    ///
+    pub const SetTerminalOptions = setTerminalOptions;
 
     /// ### [Upstream resources](https://api.kde.org/kservice.html#setTerminalOptions)
     ///
@@ -600,7 +748,7 @@ pub const KService = extern struct {
     ///
     /// ` options: []const u8 `
     ///
-    pub fn SetTerminalOptions(self: KService, options: []const u8) void {
+    pub fn setTerminalOptions(self: KService, options: []const u8) void {
         const options_str = qtc.libqt_string{
             .len = options.len,
             .data = options.ptr,
@@ -608,21 +756,29 @@ pub const KService = extern struct {
         qtc.KService_SetTerminalOptions(@ptrCast(self.ptr), options_str);
     }
 
+    /// ### DEPRECATED: Use `setExec` instead
+    ///
+    pub const SetExec = setExec;
+
     /// ### [Upstream resources](https://api.kde.org/kservice.html#setExec)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KService `
     ///
-    /// ` exec: []const u8 `
+    /// ` _exec: []const u8 `
     ///
-    pub fn SetExec(self: KService, exec: []const u8) void {
+    pub fn setExec(self: KService, _exec: []const u8) void {
         const exec_str = qtc.libqt_string{
-            .len = exec.len,
-            .data = exec.ptr,
+            .len = _exec.len,
+            .data = _exec.ptr,
         };
         qtc.KService_SetExec(@ptrCast(self.ptr), exec_str);
     }
+
+    /// ### DEPRECATED: Use `setWorkingDirectory` instead
+    ///
+    pub const SetWorkingDirectory = setWorkingDirectory;
 
     /// ### [Upstream resources](https://api.kde.org/kservice.html#setWorkingDirectory)
     ///
@@ -632,13 +788,17 @@ pub const KService = extern struct {
     ///
     /// ` workingDir: []const u8 `
     ///
-    pub fn SetWorkingDirectory(self: KService, workingDir: []const u8) void {
+    pub fn setWorkingDirectory(self: KService, workingDir: []const u8) void {
         const workingDir_str = qtc.libqt_string{
             .len = workingDir.len,
             .data = workingDir.ptr,
         };
         qtc.KService_SetWorkingDirectory(@ptrCast(self.ptr), workingDir_str);
     }
+
+    /// ### DEPRECATED: Use `newServicePath` instead
+    ///
+    pub const NewServicePath = newServicePath;
 
     /// ### [Upstream resources](https://api.kde.org/kservice.html#newServicePath)
     ///
@@ -650,17 +810,21 @@ pub const KService = extern struct {
     ///
     /// ` suggestedName: []const u8 `
     ///
-    pub fn NewServicePath(allocator: std.mem.Allocator, showInMenu: bool, suggestedName: []const u8) []const u8 {
+    pub fn newServicePath(allocator: std.mem.Allocator, showInMenu: bool, suggestedName: []const u8) []const u8 {
         const suggestedName_str = qtc.libqt_string{
             .len = suggestedName.len,
             .data = suggestedName.ptr,
         };
         var _str = qtc.KService_NewServicePath(showInMenu, suggestedName_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.NewServicePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.newServicePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `aliasFor` instead
+    ///
+    pub const AliasFor = aliasFor;
 
     /// ### [Upstream resources](https://api.kde.org/kservice.html#aliasFor)
     ///
@@ -670,13 +834,17 @@ pub const KService = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AliasFor(self: KService, allocator: std.mem.Allocator) []const u8 {
+    pub fn aliasFor(self: KService, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KService_AliasFor(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.AliasFor: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.aliasFor: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `startupNotify` instead
+    ///
+    pub const StartupNotify = startupNotify;
 
     /// ### [Upstream resources](https://api.kde.org/kservice.html#startupNotify)
     ///
@@ -684,9 +852,13 @@ pub const KService = extern struct {
     ///
     /// ` self: KService `
     ///
-    pub fn StartupNotify(self: KService) bool {
+    pub fn startupNotify(self: KService) bool {
         return qtc.KService_StartupNotify(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isType` instead
+    ///
+    pub const IsType = isType;
 
     /// Inherited from KSycocaEntry
     ///
@@ -698,9 +870,13 @@ pub const KService = extern struct {
     ///
     /// ` t: ksycocatype_enums.KSycocaType `
     ///
-    pub fn IsType(self: KService, t: i32) bool {
+    pub fn isType(self: KService, t: i32) bool {
         return qtc.KSycocaEntry_IsType(@ptrCast(self.ptr), @bitCast(t));
     }
+
+    /// ### DEPRECATED: Use `sycocaType` instead
+    ///
+    pub const SycocaType = sycocaType;
 
     /// Inherited from KSycocaEntry
     ///
@@ -714,9 +890,13 @@ pub const KService = extern struct {
     ///
     /// ` ksycocatype_enums.KSycocaType `
     ///
-    pub fn SycocaType(self: KService) i32 {
+    pub fn sycocaType(self: KService) i32 {
         return qtc.KSycocaEntry_SycocaType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// Inherited from KSycocaEntry
     ///
@@ -728,13 +908,17 @@ pub const KService = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: KService, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: KService, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KSycocaEntry_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `entryPath` instead
+    ///
+    pub const EntryPath = entryPath;
 
     /// Inherited from KSycocaEntry
     ///
@@ -746,13 +930,17 @@ pub const KService = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn EntryPath(self: KService, allocator: std.mem.Allocator) []const u8 {
+    pub fn entryPath(self: KService, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KSycocaEntry_EntryPath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.EntryPath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.entryPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// Inherited from KSycocaEntry
     ///
@@ -762,9 +950,13 @@ pub const KService = extern struct {
     ///
     /// ` self: KService `
     ///
-    pub fn IsValid(self: KService) bool {
+    pub fn isValid(self: KService) bool {
         return qtc.KSycocaEntry_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDeleted` instead
+    ///
+    pub const IsDeleted = isDeleted;
 
     /// Inherited from KSycocaEntry
     ///
@@ -774,9 +966,13 @@ pub const KService = extern struct {
     ///
     /// ` self: KService `
     ///
-    pub fn IsDeleted(self: KService) bool {
+    pub fn isDeleted(self: KService) bool {
         return qtc.KSycocaEntry_IsDeleted(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDeleted` instead
+    ///
+    pub const SetDeleted = setDeleted;
 
     /// Inherited from KSycocaEntry
     ///
@@ -788,9 +984,13 @@ pub const KService = extern struct {
     ///
     /// ` deleted: bool `
     ///
-    pub fn SetDeleted(self: KService, deleted: bool) void {
+    pub fn setDeleted(self: KService, deleted: bool) void {
         qtc.KSycocaEntry_SetDeleted(@ptrCast(self.ptr), deleted);
     }
+
+    /// ### DEPRECATED: Use `isSeparator` instead
+    ///
+    pub const IsSeparator = isSeparator;
 
     /// Inherited from KSycocaEntry
     ///
@@ -800,23 +1000,23 @@ pub const KService = extern struct {
     ///
     /// ` self: KService `
     ///
-    pub fn IsSeparator(self: KService) bool {
+    pub fn isSeparator(self: KService) bool {
         return qtc.KSycocaEntry_IsSeparator(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kservice.html#dtor.KService)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KService `
     ///
-    pub fn Delete(self: KService) void {
+    pub fn delete(self: KService) void {
         qtc.KService_Delete(@ptrCast(self.ptr));
     }
 };

@@ -13,15 +13,23 @@ pub const QPaintDevice = extern struct {
 
     pub const _is_QPaintDevice = {};
 
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devType)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QPaintDevice `
     ///
-    pub fn DevType(self: QPaintDevice) i32 {
+    pub fn devType(self: QPaintDevice) i32 {
         return qtc.QPaintDevice_DevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
     ///
@@ -29,9 +37,13 @@ pub const QPaintDevice = extern struct {
     ///
     /// ` self: QPaintDevice `
     ///
-    pub fn PaintingActive(self: QPaintDevice) bool {
+    pub fn paintingActive(self: QPaintDevice) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#paintEngine)
     ///
@@ -39,9 +51,13 @@ pub const QPaintDevice = extern struct {
     ///
     /// ` self: QPaintDevice `
     ///
-    pub fn PaintEngine(self: QPaintDevice) QPaintEngine {
+    pub fn paintEngine(self: QPaintDevice) QPaintEngine {
         return .{ .ptr = qtc.QPaintDevice_PaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#width)
     ///
@@ -49,9 +65,13 @@ pub const QPaintDevice = extern struct {
     ///
     /// ` self: QPaintDevice `
     ///
-    pub fn Width(self: QPaintDevice) i32 {
+    pub fn width(self: QPaintDevice) i32 {
         return qtc.QPaintDevice_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#height)
     ///
@@ -59,9 +79,13 @@ pub const QPaintDevice = extern struct {
     ///
     /// ` self: QPaintDevice `
     ///
-    pub fn Height(self: QPaintDevice) i32 {
+    pub fn height(self: QPaintDevice) i32 {
         return qtc.QPaintDevice_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
     ///
@@ -69,9 +93,13 @@ pub const QPaintDevice = extern struct {
     ///
     /// ` self: QPaintDevice `
     ///
-    pub fn WidthMM(self: QPaintDevice) i32 {
+    pub fn widthMM(self: QPaintDevice) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
     ///
@@ -79,9 +107,13 @@ pub const QPaintDevice = extern struct {
     ///
     /// ` self: QPaintDevice `
     ///
-    pub fn HeightMM(self: QPaintDevice) i32 {
+    pub fn heightMM(self: QPaintDevice) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
     ///
@@ -89,9 +121,13 @@ pub const QPaintDevice = extern struct {
     ///
     /// ` self: QPaintDevice `
     ///
-    pub fn LogicalDpiX(self: QPaintDevice) i32 {
+    pub fn logicalDpiX(self: QPaintDevice) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
     ///
@@ -99,9 +135,13 @@ pub const QPaintDevice = extern struct {
     ///
     /// ` self: QPaintDevice `
     ///
-    pub fn LogicalDpiY(self: QPaintDevice) i32 {
+    pub fn logicalDpiY(self: QPaintDevice) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
     ///
@@ -109,9 +149,13 @@ pub const QPaintDevice = extern struct {
     ///
     /// ` self: QPaintDevice `
     ///
-    pub fn PhysicalDpiX(self: QPaintDevice) i32 {
+    pub fn physicalDpiX(self: QPaintDevice) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
     ///
@@ -119,9 +163,13 @@ pub const QPaintDevice = extern struct {
     ///
     /// ` self: QPaintDevice `
     ///
-    pub fn PhysicalDpiY(self: QPaintDevice) i32 {
+    pub fn physicalDpiY(self: QPaintDevice) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio)
     ///
@@ -129,9 +177,13 @@ pub const QPaintDevice = extern struct {
     ///
     /// ` self: QPaintDevice `
     ///
-    pub fn DevicePixelRatio(self: QPaintDevice) f64 {
+    pub fn devicePixelRatio(self: QPaintDevice) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
     ///
@@ -139,9 +191,13 @@ pub const QPaintDevice = extern struct {
     ///
     /// ` self: QPaintDevice `
     ///
-    pub fn DevicePixelRatioF(self: QPaintDevice) f64 {
+    pub fn devicePixelRatioF(self: QPaintDevice) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
     ///
@@ -149,9 +205,13 @@ pub const QPaintDevice = extern struct {
     ///
     /// ` self: QPaintDevice `
     ///
-    pub fn ColorCount(self: QPaintDevice) i32 {
+    pub fn colorCount(self: QPaintDevice) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
     ///
@@ -159,41 +219,49 @@ pub const QPaintDevice = extern struct {
     ///
     /// ` self: QPaintDevice `
     ///
-    pub fn Depth(self: QPaintDevice) i32 {
+    pub fn depth(self: QPaintDevice) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#dtor.QPaintDevice)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QPaintDevice `
     ///
-    pub fn Delete(self: QPaintDevice) void {
+    pub fn delete(self: QPaintDevice) void {
         qtc.QPaintDevice_Delete(@ptrCast(self.ptr));
     }
 };

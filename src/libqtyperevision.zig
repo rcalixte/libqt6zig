@@ -11,46 +11,65 @@ pub const QTypeRevision = extern struct {
 
     pub const _is_QTypeRevision = {};
 
-    /// New constructs a new QTypeRevision object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QTypeRevision {
+    pub const New = new;
+
+    /// Allocate a new QTypeRevision object in C++ memory
+    ///
+    pub fn new() QTypeRevision {
         return .{ .ptr = qtc.QTypeRevision_new() };
     }
 
-    /// New2 constructs a new QTypeRevision object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QTypeRevision object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QTypeRevision `
     ///
-    pub fn New2(other: anytype) QTypeRevision {
+    pub fn new2(other: anytype) QTypeRevision {
         comptime _ = @TypeOf(other)._is_QTypeRevision;
         return .{ .ptr = qtc.QTypeRevision_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QTypeRevision object and invalidates the source QTypeRevision object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QTypeRevision object and invalidate the source QTypeRevision object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QTypeRevision `
     ///
-    pub fn New3(other: anytype) QTypeRevision {
+    pub fn new3(other: anytype) QTypeRevision {
         comptime _ = @TypeOf(other)._is_QTypeRevision;
         return .{ .ptr = qtc.QTypeRevision_new3(@ptrCast(other.ptr)) };
     }
 
-    /// New4 constructs a new QTypeRevision object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QTypeRevision object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QTypeRevision `
     ///
-    pub fn New4(param1: anytype) QTypeRevision {
+    pub fn new4(param1: anytype) QTypeRevision {
         comptime _ = @TypeOf(param1)._is_QTypeRevision;
         return .{ .ptr = qtc.QTypeRevision_new4(@ptrCast(param1.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -58,11 +77,14 @@ pub const QTypeRevision = extern struct {
     ///
     /// ` other: QTypeRevision `
     ///
-    pub fn CopyAssign(self: QTypeRevision, other: QTypeRevision) void {
+    pub fn copyAssign(self: QTypeRevision, other: QTypeRevision) void {
         qtc.QTypeRevision_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -70,15 +92,23 @@ pub const QTypeRevision = extern struct {
     ///
     /// ` other: QTypeRevision `
     ///
-    pub fn MoveAssign(self: QTypeRevision, other: QTypeRevision) void {
+    pub fn moveAssign(self: QTypeRevision, other: QTypeRevision) void {
         qtc.QTypeRevision_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
+    /// ### DEPRECATED: Use `zero` instead
+    ///
+    pub const Zero = zero;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtyperevision.html#zero)
     ///
-    pub fn Zero() QTypeRevision {
+    pub fn zero() QTypeRevision {
         return .{ .ptr = qtc.QTypeRevision_Zero() };
     }
+
+    /// ### DEPRECATED: Use `hasMajorVersion` instead
+    ///
+    pub const HasMajorVersion = hasMajorVersion;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtyperevision.html#hasMajorVersion)
     ///
@@ -86,9 +116,13 @@ pub const QTypeRevision = extern struct {
     ///
     /// ` self: QTypeRevision `
     ///
-    pub fn HasMajorVersion(self: QTypeRevision) bool {
+    pub fn hasMajorVersion(self: QTypeRevision) bool {
         return qtc.QTypeRevision_HasMajorVersion(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `majorVersion` instead
+    ///
+    pub const MajorVersion = majorVersion;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtyperevision.html#majorVersion)
     ///
@@ -96,9 +130,13 @@ pub const QTypeRevision = extern struct {
     ///
     /// ` self: QTypeRevision `
     ///
-    pub fn MajorVersion(self: QTypeRevision) u8 {
+    pub fn majorVersion(self: QTypeRevision) u8 {
         return qtc.QTypeRevision_MajorVersion(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hasMinorVersion` instead
+    ///
+    pub const HasMinorVersion = hasMinorVersion;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtyperevision.html#hasMinorVersion)
     ///
@@ -106,9 +144,13 @@ pub const QTypeRevision = extern struct {
     ///
     /// ` self: QTypeRevision `
     ///
-    pub fn HasMinorVersion(self: QTypeRevision) bool {
+    pub fn hasMinorVersion(self: QTypeRevision) bool {
         return qtc.QTypeRevision_HasMinorVersion(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minorVersion` instead
+    ///
+    pub const MinorVersion = minorVersion;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtyperevision.html#minorVersion)
     ///
@@ -116,9 +158,13 @@ pub const QTypeRevision = extern struct {
     ///
     /// ` self: QTypeRevision `
     ///
-    pub fn MinorVersion(self: QTypeRevision) u8 {
+    pub fn minorVersion(self: QTypeRevision) u8 {
         return qtc.QTypeRevision_MinorVersion(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtyperevision.html#isValid)
     ///
@@ -126,23 +172,23 @@ pub const QTypeRevision = extern struct {
     ///
     /// ` self: QTypeRevision `
     ///
-    pub fn IsValid(self: QTypeRevision) bool {
+    pub fn isValid(self: QTypeRevision) bool {
         return qtc.QTypeRevision_IsValid(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtyperevision.html#dtor.QTypeRevision)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QTypeRevision `
     ///
-    pub fn Delete(self: QTypeRevision) void {
+    pub fn delete(self: QTypeRevision) void {
         qtc.QTypeRevision_Delete(@ptrCast(self.ptr));
     }
 };

@@ -30,35 +30,51 @@ pub const KStatusBarJobTracker = extern struct {
     pub const _is_KJobTrackerInterface = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new KStatusBarJobTracker object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KStatusBarJobTracker object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) KStatusBarJobTracker {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KStatusBarJobTracker_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) KStatusBarJobTracker {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KStatusBarJobTracker_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new KStatusBarJobTracker object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() KStatusBarJobTracker {
+    pub const New2 = new2;
+
+    /// Allocate a new KStatusBarJobTracker object in C++ memory
+    ///
+    pub fn new2() KStatusBarJobTracker {
         return .{ .ptr = qtc.KStatusBarJobTracker_new2() };
     }
 
-    /// New3 constructs a new KStatusBarJobTracker object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new KStatusBarJobTracker object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
     /// ` button: bool `
     ///
-    pub fn New3(parent: anytype, button: bool) KStatusBarJobTracker {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KStatusBarJobTracker_new3(@ptrCast(parent.ptr), button) };
+    pub fn new3(_parent: anytype, button: bool) KStatusBarJobTracker {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KStatusBarJobTracker_new3(@ptrCast(_parent.ptr), button) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -66,9 +82,13 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` self: KStatusBarJobTracker `
     ///
-    pub fn MetaObject(self: KStatusBarJobTracker) QMetaObject {
+    pub fn metaObject(self: KStatusBarJobTracker) QMetaObject {
         return .{ .ptr = qtc.KStatusBarJobTracker_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -76,10 +96,14 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KStatusBarJobTracker, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KStatusBarJobTracker, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KStatusBarJobTracker_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -91,9 +115,13 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KStatusBarJobTracker, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KStatusBarJobTracker, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KStatusBarJobTracker_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -103,14 +131,18 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KStatusBarJobTracker.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KStatusBarJobTracker.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `registerJob` instead
+    ///
+    pub const RegisterJob = registerJob;
 
     /// ### [Upstream resources](https://api.kde.org/kstatusbarjobtracker.html#registerJob)
     ///
@@ -120,10 +152,14 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` job: KJob `
     ///
-    pub fn RegisterJob(self: KStatusBarJobTracker, job: anytype) void {
+    pub fn registerJob(self: KStatusBarJobTracker, job: anytype) void {
         comptime _ = @TypeOf(job)._is_KJob;
         qtc.KStatusBarJobTracker_RegisterJob(@ptrCast(self.ptr), @ptrCast(job.ptr));
     }
+
+    /// ### DEPRECATED: Use `unregisterJob` instead
+    ///
+    pub const UnregisterJob = unregisterJob;
 
     /// ### [Upstream resources](https://api.kde.org/kstatusbarjobtracker.html#unregisterJob)
     ///
@@ -133,10 +169,14 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` job: KJob `
     ///
-    pub fn UnregisterJob(self: KStatusBarJobTracker, job: anytype) void {
+    pub fn unregisterJob(self: KStatusBarJobTracker, job: anytype) void {
         comptime _ = @TypeOf(job)._is_KJob;
         qtc.KStatusBarJobTracker_UnregisterJob(@ptrCast(self.ptr), @ptrCast(job.ptr));
     }
+
+    /// ### DEPRECATED: Use `widget` instead
+    ///
+    pub const Widget = widget;
 
     /// ### [Upstream resources](https://api.kde.org/kstatusbarjobtracker.html#widget)
     ///
@@ -146,10 +186,14 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` job: KJob `
     ///
-    pub fn Widget(self: KStatusBarJobTracker, job: anytype) QWidget {
+    pub fn widget(self: KStatusBarJobTracker, job: anytype) QWidget {
         comptime _ = @TypeOf(job)._is_KJob;
         return .{ .ptr = qtc.KStatusBarJobTracker_Widget(@ptrCast(self.ptr), @ptrCast(job.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStatusBarMode` instead
+    ///
+    pub const SetStatusBarMode = setStatusBarMode;
 
     /// ### [Upstream resources](https://api.kde.org/kstatusbarjobtracker.html#setStatusBarMode)
     ///
@@ -159,9 +203,13 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` statusBarMode: flag of kstatusbarjobtracker_enums.StatusBarMode `
     ///
-    pub fn SetStatusBarMode(self: KStatusBarJobTracker, statusBarMode: i32) void {
+    pub fn setStatusBarMode(self: KStatusBarJobTracker, statusBarMode: i32) void {
         qtc.KStatusBarJobTracker_SetStatusBarMode(@ptrCast(self.ptr), @bitCast(statusBarMode));
     }
+
+    /// ### DEPRECATED: Use `description` instead
+    ///
+    pub const Description = description;
 
     /// ### [Upstream resources](https://api.kde.org/kstatusbarjobtracker.html#description)
     ///
@@ -177,7 +225,7 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` field2: Struct_constu8_constu8 `
     ///
-    pub fn Description(self: KStatusBarJobTracker, job: anytype, title: []const u8, field1: Struct_constu8_constu8, field2: Struct_constu8_constu8) void {
+    pub fn description(self: KStatusBarJobTracker, job: anytype, title: []const u8, field1: Struct_constu8_constu8, field2: Struct_constu8_constu8) void {
         comptime _ = @TypeOf(job)._is_KJob;
         const title_str = qtc.libqt_string{
             .len = title.len,
@@ -210,6 +258,10 @@ pub const KStatusBarJobTracker = extern struct {
         qtc.KStatusBarJobTracker_Description(@ptrCast(self.ptr), @ptrCast(job.ptr), title_str, field1_pair, field2_pair);
     }
 
+    /// ### DEPRECATED: Use `totalAmount` instead
+    ///
+    pub const TotalAmount = totalAmount;
+
     /// ### [Upstream resources](https://api.kde.org/kstatusbarjobtracker.html#totalAmount)
     ///
     /// ## Parameter(s):
@@ -222,10 +274,14 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` amount: usize `
     ///
-    pub fn TotalAmount(self: KStatusBarJobTracker, job: anytype, unit: i32, amount: usize) void {
+    pub fn totalAmount(self: KStatusBarJobTracker, job: anytype, unit: i32, amount: usize) void {
         comptime _ = @TypeOf(job)._is_KJob;
         qtc.KStatusBarJobTracker_TotalAmount(@ptrCast(self.ptr), @ptrCast(job.ptr), @bitCast(unit), @bitCast(amount));
     }
+
+    /// ### DEPRECATED: Use `percent` instead
+    ///
+    pub const Percent = percent;
 
     /// ### [Upstream resources](https://api.kde.org/kstatusbarjobtracker.html#percent)
     ///
@@ -235,12 +291,16 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` job: KJob `
     ///
-    /// ` percent: usize `
+    /// ` _percent: usize `
     ///
-    pub fn Percent(self: KStatusBarJobTracker, job: anytype, percent: usize) void {
+    pub fn percent(self: KStatusBarJobTracker, job: anytype, _percent: usize) void {
         comptime _ = @TypeOf(job)._is_KJob;
-        qtc.KStatusBarJobTracker_Percent(@ptrCast(self.ptr), @ptrCast(job.ptr), @bitCast(percent));
+        qtc.KStatusBarJobTracker_Percent(@ptrCast(self.ptr), @ptrCast(job.ptr), @bitCast(_percent));
     }
+
+    /// ### DEPRECATED: Use `speed` instead
+    ///
+    pub const Speed = speed;
 
     /// ### [Upstream resources](https://api.kde.org/kstatusbarjobtracker.html#speed)
     ///
@@ -252,10 +312,14 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` value: usize `
     ///
-    pub fn Speed(self: KStatusBarJobTracker, job: anytype, value: usize) void {
+    pub fn speed(self: KStatusBarJobTracker, job: anytype, value: usize) void {
         comptime _ = @TypeOf(job)._is_KJob;
         qtc.KStatusBarJobTracker_Speed(@ptrCast(self.ptr), @ptrCast(job.ptr), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `slotClean` instead
+    ///
+    pub const SlotClean = slotClean;
 
     /// ### [Upstream resources](https://api.kde.org/kstatusbarjobtracker.html#slotClean)
     ///
@@ -265,10 +329,14 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` job: KJob `
     ///
-    pub fn SlotClean(self: KStatusBarJobTracker, job: anytype) void {
+    pub fn slotClean(self: KStatusBarJobTracker, job: anytype) void {
         comptime _ = @TypeOf(job)._is_KJob;
         qtc.KStatusBarJobTracker_SlotClean(@ptrCast(self.ptr), @ptrCast(job.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -280,15 +348,19 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KStatusBarJobTracker.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KStatusBarJobTracker.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -302,15 +374,19 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KStatusBarJobTracker.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KStatusBarJobTracker.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setStopOnClose` instead
+    ///
+    pub const SetStopOnClose = setStopOnClose;
 
     /// Inherited from KAbstractWidgetJobTracker
     ///
@@ -322,12 +398,16 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` job: KJob `
     ///
-    /// ` stopOnClose: bool `
+    /// ` _stopOnClose: bool `
     ///
-    pub fn SetStopOnClose(self: KStatusBarJobTracker, job: anytype, stopOnClose: bool) void {
+    pub fn setStopOnClose(self: KStatusBarJobTracker, job: anytype, _stopOnClose: bool) void {
         comptime _ = @TypeOf(job)._is_KJob;
-        qtc.KAbstractWidgetJobTracker_SetStopOnClose(@ptrCast(self.ptr), @ptrCast(job.ptr), stopOnClose);
+        qtc.KAbstractWidgetJobTracker_SetStopOnClose(@ptrCast(self.ptr), @ptrCast(job.ptr), _stopOnClose);
     }
+
+    /// ### DEPRECATED: Use `stopOnClose` instead
+    ///
+    pub const StopOnClose = stopOnClose;
 
     /// Inherited from KAbstractWidgetJobTracker
     ///
@@ -339,10 +419,14 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` job: KJob `
     ///
-    pub fn StopOnClose(self: KStatusBarJobTracker, job: anytype) bool {
+    pub fn stopOnClose(self: KStatusBarJobTracker, job: anytype) bool {
         comptime _ = @TypeOf(job)._is_KJob;
         return qtc.KAbstractWidgetJobTracker_StopOnClose(@ptrCast(self.ptr), @ptrCast(job.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoDelete` instead
+    ///
+    pub const SetAutoDelete = setAutoDelete;
 
     /// Inherited from KAbstractWidgetJobTracker
     ///
@@ -354,12 +438,16 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` job: KJob `
     ///
-    /// ` autoDelete: bool `
+    /// ` _autoDelete: bool `
     ///
-    pub fn SetAutoDelete(self: KStatusBarJobTracker, job: anytype, autoDelete: bool) void {
+    pub fn setAutoDelete(self: KStatusBarJobTracker, job: anytype, _autoDelete: bool) void {
         comptime _ = @TypeOf(job)._is_KJob;
-        qtc.KAbstractWidgetJobTracker_SetAutoDelete(@ptrCast(self.ptr), @ptrCast(job.ptr), autoDelete);
+        qtc.KAbstractWidgetJobTracker_SetAutoDelete(@ptrCast(self.ptr), @ptrCast(job.ptr), _autoDelete);
     }
+
+    /// ### DEPRECATED: Use `autoDelete` instead
+    ///
+    pub const AutoDelete = autoDelete;
 
     /// Inherited from KAbstractWidgetJobTracker
     ///
@@ -371,11 +459,15 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` job: KJob `
     ///
-    pub fn AutoDelete(self: KStatusBarJobTracker, job: anytype) bool {
+    pub fn autoDelete(self: KStatusBarJobTracker, job: anytype) bool {
         comptime _ = @TypeOf(job)._is_KJob;
         return qtc.KAbstractWidgetJobTracker_AutoDelete(@ptrCast(self.ptr), @ptrCast(job.ptr));
     }
 
+    /// ### DEPRECATED: Use `stopped` instead
+    ///
+    pub const Stopped = stopped;
+
     /// Inherited from KAbstractWidgetJobTracker
     ///
     /// ### [Upstream resources](https://api.kde.org/kabstractwidgetjobtracker.html#stopped)
@@ -386,11 +478,15 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` job: KJob `
     ///
-    pub fn Stopped(self: KStatusBarJobTracker, job: anytype) void {
+    pub fn stopped(self: KStatusBarJobTracker, job: anytype) void {
         comptime _ = @TypeOf(job)._is_KJob;
         qtc.KAbstractWidgetJobTracker_Stopped(@ptrCast(self.ptr), @ptrCast(job.ptr));
     }
 
+    /// ### DEPRECATED: Use `onStopped` instead
+    ///
+    pub const OnStopped = onStopped;
+
     /// Inherited from KAbstractWidgetJobTracker
     ///
     /// ### [Upstream resources](https://api.kde.org/kabstractwidgetjobtracker.html#stopped)
@@ -401,9 +497,15 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` callback: *const fn (self: KStatusBarJobTracker, job: KJob) callconv(.c) void `
     ///
-    pub fn OnStopped(self: KStatusBarJobTracker, callback: *const fn (KStatusBarJobTracker, KJob) callconv(.c) void) void {
+    pub fn onStopped(self: KStatusBarJobTracker, callback: *const fn (KStatusBarJobTracker, KJob) callconv(.c) void) void {
         qtc.KAbstractWidgetJobTracker_Connect_Stopped(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `suspend0` instead
+    ///
+    pub const Suspend = suspend0;
+
+    pub const @"suspend" = suspend0;
 
     /// Inherited from KAbstractWidgetJobTracker
     ///
@@ -415,11 +517,15 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` job: KJob `
     ///
-    pub fn Suspend(self: KStatusBarJobTracker, job: anytype) void {
+    pub fn suspend0(self: KStatusBarJobTracker, job: anytype) void {
         comptime _ = @TypeOf(job)._is_KJob;
         qtc.KAbstractWidgetJobTracker_Suspend(@ptrCast(self.ptr), @ptrCast(job.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSuspend` instead
+    ///
+    pub const OnSuspend = onSuspend;
+
     /// Inherited from KAbstractWidgetJobTracker
     ///
     /// ### [Upstream resources](https://api.kde.org/kabstractwidgetjobtracker.html#suspend)
@@ -430,9 +536,15 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` callback: *const fn (self: KStatusBarJobTracker, job: KJob) callconv(.c) void `
     ///
-    pub fn OnSuspend(self: KStatusBarJobTracker, callback: *const fn (KStatusBarJobTracker, KJob) callconv(.c) void) void {
+    pub fn onSuspend(self: KStatusBarJobTracker, callback: *const fn (KStatusBarJobTracker, KJob) callconv(.c) void) void {
         qtc.KAbstractWidgetJobTracker_Connect_Suspend(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resume0` instead
+    ///
+    pub const Resume = resume0;
+
+    pub const @"resume" = resume0;
 
     /// Inherited from KAbstractWidgetJobTracker
     ///
@@ -444,10 +556,14 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` job: KJob `
     ///
-    pub fn Resume(self: KStatusBarJobTracker, job: anytype) void {
+    pub fn resume0(self: KStatusBarJobTracker, job: anytype) void {
         comptime _ = @TypeOf(job)._is_KJob;
         qtc.KAbstractWidgetJobTracker_Resume(@ptrCast(self.ptr), @ptrCast(job.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResume` instead
+    ///
+    pub const OnResume = onResume;
 
     /// Inherited from KAbstractWidgetJobTracker
     ///
@@ -459,9 +575,13 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` callback: *const fn (self: KStatusBarJobTracker, job: KJob) callconv(.c) void `
     ///
-    pub fn OnResume(self: KStatusBarJobTracker, callback: *const fn (KStatusBarJobTracker, KJob) callconv(.c) void) void {
+    pub fn onResume(self: KStatusBarJobTracker, callback: *const fn (KStatusBarJobTracker, KJob) callconv(.c) void) void {
         qtc.KAbstractWidgetJobTracker_Connect_Resume(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -471,12 +591,16 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` self: KStatusBarJobTracker `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: KStatusBarJobTracker, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QObject_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: KStatusBarJobTracker, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QObject_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -488,13 +612,17 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: KStatusBarJobTracker, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: KStatusBarJobTracker, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -506,13 +634,17 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KStatusBarJobTracker, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KStatusBarJobTracker, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KStatusBarJobTracker.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KStatusBarJobTracker.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -524,13 +656,17 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KStatusBarJobTracker, name: []const u8) void {
+    pub fn setObjectName(self: KStatusBarJobTracker, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -540,9 +676,13 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` self: KStatusBarJobTracker `
     ///
-    pub fn IsWidgetType(self: KStatusBarJobTracker) bool {
+    pub fn isWidgetType(self: KStatusBarJobTracker) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -552,9 +692,13 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` self: KStatusBarJobTracker `
     ///
-    pub fn IsWindowType(self: KStatusBarJobTracker) bool {
+    pub fn isWindowType(self: KStatusBarJobTracker) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -564,9 +708,13 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` self: KStatusBarJobTracker `
     ///
-    pub fn IsQuickItemType(self: KStatusBarJobTracker) bool {
+    pub fn isQuickItemType(self: KStatusBarJobTracker) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -576,9 +724,13 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` self: KStatusBarJobTracker `
     ///
-    pub fn SignalsBlocked(self: KStatusBarJobTracker) bool {
+    pub fn signalsBlocked(self: KStatusBarJobTracker) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -590,9 +742,13 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KStatusBarJobTracker, b: bool) bool {
+    pub fn blockSignals(self: KStatusBarJobTracker, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -602,9 +758,13 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` self: KStatusBarJobTracker `
     ///
-    pub fn Thread(self: KStatusBarJobTracker) QThread {
+    pub fn thread(self: KStatusBarJobTracker) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -614,12 +774,16 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` self: KStatusBarJobTracker `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KStatusBarJobTracker, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KStatusBarJobTracker, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -631,9 +795,13 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KStatusBarJobTracker, interval: i32) i32 {
+    pub fn startTimer(self: KStatusBarJobTracker, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -645,9 +813,13 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KStatusBarJobTracker, time: i64) i32 {
+    pub fn startTimer2(self: KStatusBarJobTracker, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -659,9 +831,13 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KStatusBarJobTracker, id: i32) void {
+    pub fn killTimer(self: KStatusBarJobTracker, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -673,9 +849,13 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KStatusBarJobTracker, id: i32) void {
+    pub fn killTimer2(self: KStatusBarJobTracker, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -687,15 +867,19 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KStatusBarJobTracker, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KStatusBarJobTracker, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KStatusBarJobTracker.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KStatusBarJobTracker.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -705,12 +889,16 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` self: KStatusBarJobTracker `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: KStatusBarJobTracker, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: KStatusBarJobTracker, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -722,10 +910,14 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KStatusBarJobTracker, filterObj: anytype) void {
+    pub fn installEventFilter(self: KStatusBarJobTracker, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -737,10 +929,14 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KStatusBarJobTracker, obj: anytype) void {
+    pub fn removeEventFilter(self: KStatusBarJobTracker, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -748,7 +944,7 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -756,13 +952,17 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -770,7 +970,7 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -778,13 +978,17 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -794,18 +998,22 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` self: KStatusBarJobTracker `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KStatusBarJobTracker, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KStatusBarJobTracker, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -813,7 +1021,7 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -821,13 +1029,17 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -835,7 +1047,7 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -843,13 +1055,17 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -859,9 +1075,13 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` self: KStatusBarJobTracker `
     ///
-    pub fn Disconnect3(self: KStatusBarJobTracker) bool {
+    pub fn disconnect3(self: KStatusBarJobTracker) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -873,10 +1093,14 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KStatusBarJobTracker, receiver: anytype) bool {
+    pub fn disconnect4(self: KStatusBarJobTracker, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -886,10 +1110,14 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -899,9 +1127,13 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` self: KStatusBarJobTracker `
     ///
-    pub fn DumpObjectTree(self: KStatusBarJobTracker) void {
+    pub fn dumpObjectTree(self: KStatusBarJobTracker) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -911,9 +1143,13 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` self: KStatusBarJobTracker `
     ///
-    pub fn DumpObjectInfo(self: KStatusBarJobTracker) void {
+    pub fn dumpObjectInfo(self: KStatusBarJobTracker) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -927,11 +1163,15 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KStatusBarJobTracker, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KStatusBarJobTracker, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -943,10 +1183,14 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KStatusBarJobTracker, name: [:0]const u8) QVariant {
+    pub fn property(self: KStatusBarJobTracker, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -958,7 +1202,7 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KStatusBarJobTracker, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KStatusBarJobTracker, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -966,27 +1210,19 @@ pub const KStatusBarJobTracker = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KStatusBarJobTracker.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KStatusBarJobTracker.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KStatusBarJobTracker.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KStatusBarJobTracker.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KStatusBarJobTracker `
-    ///
-    pub fn BindingStorage(self: KStatusBarJobTracker) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -996,9 +1232,29 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` self: KStatusBarJobTracker `
     ///
-    pub fn BindingStorage2(self: KStatusBarJobTracker) QBindingStorage {
+    pub fn bindingStorage(self: KStatusBarJobTracker) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KStatusBarJobTracker `
+    ///
+    pub fn bindingStorage2(self: KStatusBarJobTracker) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1008,9 +1264,13 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` self: KStatusBarJobTracker `
     ///
-    pub fn Destroyed(self: KStatusBarJobTracker) void {
+    pub fn destroyed(self: KStatusBarJobTracker) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1022,9 +1282,13 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` callback: *const fn (self: KStatusBarJobTracker) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KStatusBarJobTracker, callback: *const fn (KStatusBarJobTracker) callconv(.c) void) void {
+    pub fn onDestroyed(self: KStatusBarJobTracker, callback: *const fn (KStatusBarJobTracker) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1034,9 +1298,13 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` self: KStatusBarJobTracker `
     ///
-    pub fn Parent(self: KStatusBarJobTracker) QObject {
+    pub fn parent(self: KStatusBarJobTracker) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1048,10 +1316,14 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KStatusBarJobTracker, classname: [:0]const u8) bool {
+    pub fn inherits(self: KStatusBarJobTracker, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1061,9 +1333,13 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` self: KStatusBarJobTracker `
     ///
-    pub fn DeleteLater(self: KStatusBarJobTracker) void {
+    pub fn deleteLater(self: KStatusBarJobTracker) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1077,9 +1353,13 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KStatusBarJobTracker, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KStatusBarJobTracker, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1093,9 +1373,13 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KStatusBarJobTracker, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KStatusBarJobTracker, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1103,7 +1387,7 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1113,13 +1397,17 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1127,7 +1415,7 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1137,13 +1425,17 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1153,7 +1445,7 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` self: KStatusBarJobTracker `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1161,12 +1453,16 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KStatusBarJobTracker, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KStatusBarJobTracker, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1178,10 +1474,14 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KStatusBarJobTracker, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KStatusBarJobTracker, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1195,11 +1495,15 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KStatusBarJobTracker, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KStatusBarJobTracker, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1215,13 +1519,17 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KStatusBarJobTracker, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KStatusBarJobTracker, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1234,11 +1542,15 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KStatusBarJobTracker, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KStatusBarJobTracker, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1250,10 +1562,14 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KStatusBarJobTracker, param1: anytype) void {
+    pub fn destroyed1(self: KStatusBarJobTracker, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1265,9 +1581,13 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` callback: *const fn (self: KStatusBarJobTracker, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KStatusBarJobTracker, callback: *const fn (KStatusBarJobTracker, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KStatusBarJobTracker, callback: *const fn (KStatusBarJobTracker, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -1281,23 +1601,23 @@ pub const KStatusBarJobTracker = extern struct {
     ///
     /// ` callback: *const fn (self: KStatusBarJobTracker, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KStatusBarJobTracker, callback: *const fn (KStatusBarJobTracker, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KStatusBarJobTracker, callback: *const fn (KStatusBarJobTracker, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kstatusbarjobtracker.html#dtor.KStatusBarJobTracker)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KStatusBarJobTracker `
     ///
-    pub fn Delete(self: KStatusBarJobTracker) void {
+    pub fn delete(self: KStatusBarJobTracker) void {
         qtc.KStatusBarJobTracker_Delete(@ptrCast(self.ptr));
     }
 };

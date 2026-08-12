@@ -12,25 +12,37 @@ pub const KOSRelease = extern struct {
 
     pub const _is_KOSRelease = {};
 
-    /// New constructs a new KOSRelease object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() KOSRelease {
+    pub const New = new;
+
+    /// Allocate a new KOSRelease object in C++ memory
+    ///
+    pub fn new() KOSRelease {
         return .{ .ptr = qtc.KOSRelease_new() };
     }
 
-    /// New2 constructs a new KOSRelease object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KOSRelease object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn New2(filePath: []const u8) KOSRelease {
+    pub fn new2(filePath: []const u8) KOSRelease {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         return .{ .ptr = qtc.KOSRelease_new2(filePath_str) };
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// ### [Upstream resources](https://api.kde.org/kosrelease.html#name)
     ///
@@ -40,13 +52,17 @@ pub const KOSRelease = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: KOSRelease, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: KOSRelease, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KOSRelease_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KOSRelease.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KOSRelease.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `version` instead
+    ///
+    pub const Version = version;
 
     /// ### [Upstream resources](https://api.kde.org/kosrelease.html#version)
     ///
@@ -56,13 +72,17 @@ pub const KOSRelease = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Version(self: KOSRelease, allocator: std.mem.Allocator) []const u8 {
+    pub fn version(self: KOSRelease, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KOSRelease_Version(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KOSRelease.Version: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KOSRelease.version: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `id` instead
+    ///
+    pub const Id = id;
 
     /// ### [Upstream resources](https://api.kde.org/kosrelease.html#id)
     ///
@@ -72,13 +92,17 @@ pub const KOSRelease = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Id(self: KOSRelease, allocator: std.mem.Allocator) []const u8 {
+    pub fn id(self: KOSRelease, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KOSRelease_Id(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KOSRelease.Id: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KOSRelease.id: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `idLike` instead
+    ///
+    pub const IdLike = idLike;
 
     /// ### [Upstream resources](https://api.kde.org/kosrelease.html#idLike)
     ///
@@ -88,7 +112,7 @@ pub const KOSRelease = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn IdLike(self: KOSRelease, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn idLike(self: KOSRelease, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KOSRelease_IdLike(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -96,15 +120,19 @@ pub const KOSRelease = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KOSRelease.IdLike: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KOSRelease.idLike: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KOSRelease.IdLike: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KOSRelease.idLike: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `versionCodename` instead
+    ///
+    pub const VersionCodename = versionCodename;
 
     /// ### [Upstream resources](https://api.kde.org/kosrelease.html#versionCodename)
     ///
@@ -114,13 +142,17 @@ pub const KOSRelease = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn VersionCodename(self: KOSRelease, allocator: std.mem.Allocator) []const u8 {
+    pub fn versionCodename(self: KOSRelease, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KOSRelease_VersionCodename(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KOSRelease.VersionCodename: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KOSRelease.versionCodename: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `versionId` instead
+    ///
+    pub const VersionId = versionId;
 
     /// ### [Upstream resources](https://api.kde.org/kosrelease.html#versionId)
     ///
@@ -130,13 +162,17 @@ pub const KOSRelease = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn VersionId(self: KOSRelease, allocator: std.mem.Allocator) []const u8 {
+    pub fn versionId(self: KOSRelease, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KOSRelease_VersionId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KOSRelease.VersionId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KOSRelease.versionId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `prettyName` instead
+    ///
+    pub const PrettyName = prettyName;
 
     /// ### [Upstream resources](https://api.kde.org/kosrelease.html#prettyName)
     ///
@@ -146,13 +182,17 @@ pub const KOSRelease = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PrettyName(self: KOSRelease, allocator: std.mem.Allocator) []const u8 {
+    pub fn prettyName(self: KOSRelease, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KOSRelease_PrettyName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KOSRelease.PrettyName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KOSRelease.prettyName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `ansiColor` instead
+    ///
+    pub const AnsiColor = ansiColor;
 
     /// ### [Upstream resources](https://api.kde.org/kosrelease.html#ansiColor)
     ///
@@ -162,13 +202,17 @@ pub const KOSRelease = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AnsiColor(self: KOSRelease, allocator: std.mem.Allocator) []const u8 {
+    pub fn ansiColor(self: KOSRelease, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KOSRelease_AnsiColor(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KOSRelease.AnsiColor: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KOSRelease.ansiColor: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `cpeName` instead
+    ///
+    pub const CpeName = cpeName;
 
     /// ### [Upstream resources](https://api.kde.org/kosrelease.html#cpeName)
     ///
@@ -178,13 +222,17 @@ pub const KOSRelease = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CpeName(self: KOSRelease, allocator: std.mem.Allocator) []const u8 {
+    pub fn cpeName(self: KOSRelease, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KOSRelease_CpeName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KOSRelease.CpeName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KOSRelease.cpeName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `homeUrl` instead
+    ///
+    pub const HomeUrl = homeUrl;
 
     /// ### [Upstream resources](https://api.kde.org/kosrelease.html#homeUrl)
     ///
@@ -194,13 +242,17 @@ pub const KOSRelease = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn HomeUrl(self: KOSRelease, allocator: std.mem.Allocator) []const u8 {
+    pub fn homeUrl(self: KOSRelease, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KOSRelease_HomeUrl(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KOSRelease.HomeUrl: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KOSRelease.homeUrl: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `documentationUrl` instead
+    ///
+    pub const DocumentationUrl = documentationUrl;
 
     /// ### [Upstream resources](https://api.kde.org/kosrelease.html#documentationUrl)
     ///
@@ -210,13 +262,17 @@ pub const KOSRelease = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DocumentationUrl(self: KOSRelease, allocator: std.mem.Allocator) []const u8 {
+    pub fn documentationUrl(self: KOSRelease, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KOSRelease_DocumentationUrl(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KOSRelease.DocumentationUrl: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KOSRelease.documentationUrl: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `supportUrl` instead
+    ///
+    pub const SupportUrl = supportUrl;
 
     /// ### [Upstream resources](https://api.kde.org/kosrelease.html#supportUrl)
     ///
@@ -226,13 +282,17 @@ pub const KOSRelease = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SupportUrl(self: KOSRelease, allocator: std.mem.Allocator) []const u8 {
+    pub fn supportUrl(self: KOSRelease, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KOSRelease_SupportUrl(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KOSRelease.SupportUrl: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KOSRelease.supportUrl: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `bugReportUrl` instead
+    ///
+    pub const BugReportUrl = bugReportUrl;
 
     /// ### [Upstream resources](https://api.kde.org/kosrelease.html#bugReportUrl)
     ///
@@ -242,13 +302,17 @@ pub const KOSRelease = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn BugReportUrl(self: KOSRelease, allocator: std.mem.Allocator) []const u8 {
+    pub fn bugReportUrl(self: KOSRelease, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KOSRelease_BugReportUrl(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KOSRelease.BugReportUrl: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KOSRelease.bugReportUrl: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `privacyPolicyUrl` instead
+    ///
+    pub const PrivacyPolicyUrl = privacyPolicyUrl;
 
     /// ### [Upstream resources](https://api.kde.org/kosrelease.html#privacyPolicyUrl)
     ///
@@ -258,13 +322,17 @@ pub const KOSRelease = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PrivacyPolicyUrl(self: KOSRelease, allocator: std.mem.Allocator) []const u8 {
+    pub fn privacyPolicyUrl(self: KOSRelease, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KOSRelease_PrivacyPolicyUrl(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KOSRelease.PrivacyPolicyUrl: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KOSRelease.privacyPolicyUrl: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `buildId` instead
+    ///
+    pub const BuildId = buildId;
 
     /// ### [Upstream resources](https://api.kde.org/kosrelease.html#buildId)
     ///
@@ -274,13 +342,17 @@ pub const KOSRelease = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn BuildId(self: KOSRelease, allocator: std.mem.Allocator) []const u8 {
+    pub fn buildId(self: KOSRelease, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KOSRelease_BuildId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KOSRelease.BuildId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KOSRelease.buildId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `variant` instead
+    ///
+    pub const Variant = variant;
 
     /// ### [Upstream resources](https://api.kde.org/kosrelease.html#variant)
     ///
@@ -290,13 +362,17 @@ pub const KOSRelease = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Variant(self: KOSRelease, allocator: std.mem.Allocator) []const u8 {
+    pub fn variant(self: KOSRelease, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KOSRelease_Variant(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KOSRelease.Variant: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KOSRelease.variant: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `variantId` instead
+    ///
+    pub const VariantId = variantId;
 
     /// ### [Upstream resources](https://api.kde.org/kosrelease.html#variantId)
     ///
@@ -306,13 +382,17 @@ pub const KOSRelease = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn VariantId(self: KOSRelease, allocator: std.mem.Allocator) []const u8 {
+    pub fn variantId(self: KOSRelease, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KOSRelease_VariantId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KOSRelease.VariantId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KOSRelease.variantId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `logo` instead
+    ///
+    pub const Logo = logo;
 
     /// ### [Upstream resources](https://api.kde.org/kosrelease.html#logo)
     ///
@@ -322,13 +402,17 @@ pub const KOSRelease = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Logo(self: KOSRelease, allocator: std.mem.Allocator) []const u8 {
+    pub fn logo(self: KOSRelease, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KOSRelease_Logo(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KOSRelease.Logo: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KOSRelease.logo: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `extraKeys` instead
+    ///
+    pub const ExtraKeys = extraKeys;
 
     /// ### [Upstream resources](https://api.kde.org/kosrelease.html#extraKeys)
     ///
@@ -338,7 +422,7 @@ pub const KOSRelease = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ExtraKeys(self: KOSRelease, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn extraKeys(self: KOSRelease, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KOSRelease_ExtraKeys(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -346,15 +430,19 @@ pub const KOSRelease = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KOSRelease.ExtraKeys: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KOSRelease.extraKeys: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KOSRelease.ExtraKeys: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KOSRelease.extraKeys: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `extraValue` instead
+    ///
+    pub const ExtraValue = extraValue;
 
     /// ### [Upstream resources](https://api.kde.org/kosrelease.html#extraValue)
     ///
@@ -366,31 +454,31 @@ pub const KOSRelease = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn ExtraValue(self: KOSRelease, allocator: std.mem.Allocator, key: []const u8) []const u8 {
+    pub fn extraValue(self: KOSRelease, allocator: std.mem.Allocator, key: []const u8) []const u8 {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
         var _str = qtc.KOSRelease_ExtraValue(@ptrCast(self.ptr), key_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KOSRelease.ExtraValue: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KOSRelease.extraValue: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kosrelease.html#dtor.KOSRelease)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KOSRelease `
     ///
-    pub fn Delete(self: KOSRelease) void {
+    pub fn delete(self: KOSRelease) void {
         qtc.KOSRelease_Delete(@ptrCast(self.ptr));
     }
 };

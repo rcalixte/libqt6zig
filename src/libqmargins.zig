@@ -11,62 +11,85 @@ pub const QMargins = extern struct {
 
     pub const _is_QMargins = {};
 
-    /// New constructs a new QMargins object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QMargins object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QMargins `
     ///
-    pub fn New(other: anytype) QMargins {
+    pub fn new(other: anytype) QMargins {
         comptime _ = @TypeOf(other)._is_QMargins;
         return .{ .ptr = qtc.QMargins_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new QMargins object and invalidates the source QMargins object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QMargins object and invalidate the source QMargins object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QMargins `
     ///
-    pub fn New2(other: anytype) QMargins {
+    pub fn new2(other: anytype) QMargins {
         comptime _ = @TypeOf(other)._is_QMargins;
         return .{ .ptr = qtc.QMargins_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QMargins object.
+    /// ### DEPRECATED: Use `new3` instead
     ///
-    pub fn New3() QMargins {
+    pub const New3 = new3;
+
+    /// Allocate a new QMargins object in C++ memory
+    ///
+    pub fn new3() QMargins {
         return .{ .ptr = qtc.QMargins_new3() };
     }
 
-    /// New4 constructs a new QMargins object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QMargins object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` left: i32 `
+    /// ` _left: i32 `
     ///
-    /// ` top: i32 `
+    /// ` _top: i32 `
     ///
-    /// ` right: i32 `
+    /// ` _right: i32 `
     ///
-    /// ` bottom: i32 `
+    /// ` _bottom: i32 `
     ///
-    pub fn New4(left: i32, top: i32, right: i32, bottom: i32) QMargins {
-        return .{ .ptr = qtc.QMargins_new4(@bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom)) };
+    pub fn new4(_left: i32, _top: i32, _right: i32, _bottom: i32) QMargins {
+        return .{ .ptr = qtc.QMargins_new4(@bitCast(_left), @bitCast(_top), @bitCast(_right), @bitCast(_bottom)) };
     }
 
-    /// New5 constructs a new QMargins object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new QMargins object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QMargins `
     ///
-    pub fn New5(param1: anytype) QMargins {
+    pub fn new5(param1: anytype) QMargins {
         comptime _ = @TypeOf(param1)._is_QMargins;
         return .{ .ptr = qtc.QMargins_new5(@ptrCast(param1.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -74,11 +97,14 @@ pub const QMargins = extern struct {
     ///
     /// ` other: QMargins `
     ///
-    pub fn CopyAssign(self: QMargins, other: QMargins) void {
+    pub fn copyAssign(self: QMargins, other: QMargins) void {
         qtc.QMargins_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -86,9 +112,13 @@ pub const QMargins = extern struct {
     ///
     /// ` other: QMargins `
     ///
-    pub fn MoveAssign(self: QMargins, other: QMargins) void {
+    pub fn moveAssign(self: QMargins, other: QMargins) void {
         qtc.QMargins_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `isNull` instead
+    ///
+    pub const IsNull = isNull;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmargins.html#isNull)
     ///
@@ -96,9 +126,13 @@ pub const QMargins = extern struct {
     ///
     /// ` self: QMargins `
     ///
-    pub fn IsNull(self: QMargins) bool {
+    pub fn isNull(self: QMargins) bool {
         return qtc.QMargins_IsNull(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `left` instead
+    ///
+    pub const Left = left;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmargins.html#left)
     ///
@@ -106,9 +140,13 @@ pub const QMargins = extern struct {
     ///
     /// ` self: QMargins `
     ///
-    pub fn Left(self: QMargins) i32 {
+    pub fn left(self: QMargins) i32 {
         return qtc.QMargins_Left(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `top` instead
+    ///
+    pub const Top = top;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmargins.html#top)
     ///
@@ -116,9 +154,13 @@ pub const QMargins = extern struct {
     ///
     /// ` self: QMargins `
     ///
-    pub fn Top(self: QMargins) i32 {
+    pub fn top(self: QMargins) i32 {
         return qtc.QMargins_Top(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `right` instead
+    ///
+    pub const Right = right;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmargins.html#right)
     ///
@@ -126,9 +168,13 @@ pub const QMargins = extern struct {
     ///
     /// ` self: QMargins `
     ///
-    pub fn Right(self: QMargins) i32 {
+    pub fn right(self: QMargins) i32 {
         return qtc.QMargins_Right(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `bottom` instead
+    ///
+    pub const Bottom = bottom;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmargins.html#bottom)
     ///
@@ -136,9 +182,13 @@ pub const QMargins = extern struct {
     ///
     /// ` self: QMargins `
     ///
-    pub fn Bottom(self: QMargins) i32 {
+    pub fn bottom(self: QMargins) i32 {
         return qtc.QMargins_Bottom(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLeft` instead
+    ///
+    pub const SetLeft = setLeft;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmargins.html#setLeft)
     ///
@@ -146,11 +196,15 @@ pub const QMargins = extern struct {
     ///
     /// ` self: QMargins `
     ///
-    /// ` left: i32 `
+    /// ` _left: i32 `
     ///
-    pub fn SetLeft(self: QMargins, left: i32) void {
-        qtc.QMargins_SetLeft(@ptrCast(self.ptr), @bitCast(left));
+    pub fn setLeft(self: QMargins, _left: i32) void {
+        qtc.QMargins_SetLeft(@ptrCast(self.ptr), @bitCast(_left));
     }
+
+    /// ### DEPRECATED: Use `setTop` instead
+    ///
+    pub const SetTop = setTop;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmargins.html#setTop)
     ///
@@ -158,11 +212,15 @@ pub const QMargins = extern struct {
     ///
     /// ` self: QMargins `
     ///
-    /// ` top: i32 `
+    /// ` _top: i32 `
     ///
-    pub fn SetTop(self: QMargins, top: i32) void {
-        qtc.QMargins_SetTop(@ptrCast(self.ptr), @bitCast(top));
+    pub fn setTop(self: QMargins, _top: i32) void {
+        qtc.QMargins_SetTop(@ptrCast(self.ptr), @bitCast(_top));
     }
+
+    /// ### DEPRECATED: Use `setRight` instead
+    ///
+    pub const SetRight = setRight;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmargins.html#setRight)
     ///
@@ -170,11 +228,15 @@ pub const QMargins = extern struct {
     ///
     /// ` self: QMargins `
     ///
-    /// ` right: i32 `
+    /// ` _right: i32 `
     ///
-    pub fn SetRight(self: QMargins, right: i32) void {
-        qtc.QMargins_SetRight(@ptrCast(self.ptr), @bitCast(right));
+    pub fn setRight(self: QMargins, _right: i32) void {
+        qtc.QMargins_SetRight(@ptrCast(self.ptr), @bitCast(_right));
     }
+
+    /// ### DEPRECATED: Use `setBottom` instead
+    ///
+    pub const SetBottom = setBottom;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmargins.html#setBottom)
     ///
@@ -182,11 +244,15 @@ pub const QMargins = extern struct {
     ///
     /// ` self: QMargins `
     ///
-    /// ` bottom: i32 `
+    /// ` _bottom: i32 `
     ///
-    pub fn SetBottom(self: QMargins, bottom: i32) void {
-        qtc.QMargins_SetBottom(@ptrCast(self.ptr), @bitCast(bottom));
+    pub fn setBottom(self: QMargins, _bottom: i32) void {
+        qtc.QMargins_SetBottom(@ptrCast(self.ptr), @bitCast(_bottom));
     }
+
+    /// ### DEPRECATED: Use `operatorPlusAssign` instead
+    ///
+    pub const OperatorPlusAssign = operatorPlusAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmargins.html#operator-2b-eq)
     ///
@@ -196,11 +262,15 @@ pub const QMargins = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn OperatorPlusAssign(self: QMargins, margins: anytype) QMargins {
+    pub fn operatorPlusAssign(self: QMargins, margins: anytype) QMargins {
         comptime _ = @TypeOf(margins)._is_QMargins;
         return .{ .ptr = qtc.QMargins_OperatorPlusAssign(@ptrCast(self.ptr), @ptrCast(margins.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `operatorMinusAssign` instead
+    ///
+    pub const OperatorMinusAssign = operatorMinusAssign;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmargins.html#operator--eq)
     ///
     /// ## Parameter(s):
@@ -209,10 +279,14 @@ pub const QMargins = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn OperatorMinusAssign(self: QMargins, margins: anytype) QMargins {
+    pub fn operatorMinusAssign(self: QMargins, margins: anytype) QMargins {
         comptime _ = @TypeOf(margins)._is_QMargins;
         return .{ .ptr = qtc.QMargins_OperatorMinusAssign(@ptrCast(self.ptr), @ptrCast(margins.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorPlusAssign2` instead
+    ///
+    pub const OperatorPlusAssign2 = operatorPlusAssign2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmargins.html#operator-2b-eq)
     ///
@@ -222,9 +296,13 @@ pub const QMargins = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn OperatorPlusAssign2(self: QMargins, param1: i32) QMargins {
+    pub fn operatorPlusAssign2(self: QMargins, param1: i32) QMargins {
         return .{ .ptr = qtc.QMargins_OperatorPlusAssign2(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `operatorMinusAssign2` instead
+    ///
+    pub const OperatorMinusAssign2 = operatorMinusAssign2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmargins.html#operator--eq)
     ///
@@ -234,10 +312,14 @@ pub const QMargins = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn OperatorMinusAssign2(self: QMargins, param1: i32) QMargins {
+    pub fn operatorMinusAssign2(self: QMargins, param1: i32) QMargins {
         return .{ .ptr = qtc.QMargins_OperatorMinusAssign2(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
+    /// ### DEPRECATED: Use `operatorMultiplyAssign` instead
+    ///
+    pub const OperatorMultiplyAssign = operatorMultiplyAssign;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmargins.html#operator-2a-eq)
     ///
     /// ## Parameter(s):
@@ -246,10 +328,14 @@ pub const QMargins = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn OperatorMultiplyAssign(self: QMargins, param1: i32) QMargins {
+    pub fn operatorMultiplyAssign(self: QMargins, param1: i32) QMargins {
         return .{ .ptr = qtc.QMargins_OperatorMultiplyAssign(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
+    /// ### DEPRECATED: Use `operatorDivideAssign` instead
+    ///
+    pub const OperatorDivideAssign = operatorDivideAssign;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmargins.html#operator-2f-eq)
     ///
     /// ## Parameter(s):
@@ -258,9 +344,13 @@ pub const QMargins = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn OperatorDivideAssign(self: QMargins, param1: i32) QMargins {
+    pub fn operatorDivideAssign(self: QMargins, param1: i32) QMargins {
         return .{ .ptr = qtc.QMargins_OperatorDivideAssign(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `operatorMultiplyAssign2` instead
+    ///
+    pub const OperatorMultiplyAssign2 = operatorMultiplyAssign2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmargins.html#operator-2a-eq)
     ///
@@ -270,9 +360,13 @@ pub const QMargins = extern struct {
     ///
     /// ` param1: f64 `
     ///
-    pub fn OperatorMultiplyAssign2(self: QMargins, param1: f64) QMargins {
+    pub fn operatorMultiplyAssign2(self: QMargins, param1: f64) QMargins {
         return .{ .ptr = qtc.QMargins_OperatorMultiplyAssign2(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `operatorDivideAssign2` instead
+    ///
+    pub const OperatorDivideAssign2 = operatorDivideAssign2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmargins.html#operator-2f-eq)
     ///
@@ -282,9 +376,13 @@ pub const QMargins = extern struct {
     ///
     /// ` param1: f64 `
     ///
-    pub fn OperatorDivideAssign2(self: QMargins, param1: f64) QMargins {
+    pub fn operatorDivideAssign2(self: QMargins, param1: f64) QMargins {
         return .{ .ptr = qtc.QMargins_OperatorDivideAssign2(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `toMarginsF` instead
+    ///
+    pub const ToMarginsF = toMarginsF;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmargins.html#toMarginsF)
     ///
@@ -292,23 +390,23 @@ pub const QMargins = extern struct {
     ///
     /// ` self: QMargins `
     ///
-    pub fn ToMarginsF(self: QMargins) QMarginsF {
+    pub fn toMarginsF(self: QMargins) QMarginsF {
         return .{ .ptr = qtc.QMargins_ToMarginsF(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmargins.html#dtor.QMargins)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QMargins `
     ///
-    pub fn Delete(self: QMargins) void {
+    pub fn delete(self: QMargins) void {
         qtc.QMargins_Delete(@ptrCast(self.ptr));
     }
 };
@@ -323,73 +421,100 @@ pub const QMarginsF = extern struct {
 
     pub const _is_QMarginsF = {};
 
-    /// New constructs a new QMarginsF object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QMarginsF object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QMarginsF `
     ///
-    pub fn New(other: anytype) QMarginsF {
+    pub fn new(other: anytype) QMarginsF {
         comptime _ = @TypeOf(other)._is_QMarginsF;
         return .{ .ptr = qtc.QMarginsF_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new QMarginsF object and invalidates the source QMarginsF object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QMarginsF object and invalidate the source QMarginsF object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QMarginsF `
     ///
-    pub fn New2(other: anytype) QMarginsF {
+    pub fn new2(other: anytype) QMarginsF {
         comptime _ = @TypeOf(other)._is_QMarginsF;
         return .{ .ptr = qtc.QMarginsF_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QMarginsF object.
+    /// ### DEPRECATED: Use `new3` instead
     ///
-    pub fn New3() QMarginsF {
+    pub const New3 = new3;
+
+    /// Allocate a new QMarginsF object in C++ memory
+    ///
+    pub fn new3() QMarginsF {
         return .{ .ptr = qtc.QMarginsF_new3() };
     }
 
-    /// New4 constructs a new QMarginsF object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QMarginsF object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` left: f64 `
+    /// ` _left: f64 `
     ///
-    /// ` top: f64 `
+    /// ` _top: f64 `
     ///
-    /// ` right: f64 `
+    /// ` _right: f64 `
     ///
-    /// ` bottom: f64 `
+    /// ` _bottom: f64 `
     ///
-    pub fn New4(left: f64, top: f64, right: f64, bottom: f64) QMarginsF {
-        return .{ .ptr = qtc.QMarginsF_new4(@bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom)) };
+    pub fn new4(_left: f64, _top: f64, _right: f64, _bottom: f64) QMarginsF {
+        return .{ .ptr = qtc.QMarginsF_new4(@bitCast(_left), @bitCast(_top), @bitCast(_right), @bitCast(_bottom)) };
     }
 
-    /// New5 constructs a new QMarginsF object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new QMarginsF object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` margins: QMargins `
     ///
-    pub fn New5(margins: anytype) QMarginsF {
+    pub fn new5(margins: anytype) QMarginsF {
         comptime _ = @TypeOf(margins)._is_QMargins;
         return .{ .ptr = qtc.QMarginsF_new5(@ptrCast(margins.ptr)) };
     }
 
-    /// New6 constructs a new QMarginsF object.
+    /// ### DEPRECATED: Use `new6` instead
+    ///
+    pub const New6 = new6;
+
+    /// Allocate a new QMarginsF object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QMarginsF `
     ///
-    pub fn New6(param1: anytype) QMarginsF {
+    pub fn new6(param1: anytype) QMarginsF {
         comptime _ = @TypeOf(param1)._is_QMarginsF;
         return .{ .ptr = qtc.QMarginsF_new6(@ptrCast(param1.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -397,11 +522,14 @@ pub const QMarginsF = extern struct {
     ///
     /// ` other: QMarginsF `
     ///
-    pub fn CopyAssign(self: QMarginsF, other: QMarginsF) void {
+    pub fn copyAssign(self: QMarginsF, other: QMarginsF) void {
         qtc.QMarginsF_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -409,9 +537,13 @@ pub const QMarginsF = extern struct {
     ///
     /// ` other: QMarginsF `
     ///
-    pub fn MoveAssign(self: QMarginsF, other: QMarginsF) void {
+    pub fn moveAssign(self: QMarginsF, other: QMarginsF) void {
         qtc.QMarginsF_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `isNull` instead
+    ///
+    pub const IsNull = isNull;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmarginsf.html#isNull)
     ///
@@ -419,9 +551,13 @@ pub const QMarginsF = extern struct {
     ///
     /// ` self: QMarginsF `
     ///
-    pub fn IsNull(self: QMarginsF) bool {
+    pub fn isNull(self: QMarginsF) bool {
         return qtc.QMarginsF_IsNull(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `left` instead
+    ///
+    pub const Left = left;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmarginsf.html#left)
     ///
@@ -429,9 +565,13 @@ pub const QMarginsF = extern struct {
     ///
     /// ` self: QMarginsF `
     ///
-    pub fn Left(self: QMarginsF) f64 {
+    pub fn left(self: QMarginsF) f64 {
         return qtc.QMarginsF_Left(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `top` instead
+    ///
+    pub const Top = top;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmarginsf.html#top)
     ///
@@ -439,9 +579,13 @@ pub const QMarginsF = extern struct {
     ///
     /// ` self: QMarginsF `
     ///
-    pub fn Top(self: QMarginsF) f64 {
+    pub fn top(self: QMarginsF) f64 {
         return qtc.QMarginsF_Top(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `right` instead
+    ///
+    pub const Right = right;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmarginsf.html#right)
     ///
@@ -449,9 +593,13 @@ pub const QMarginsF = extern struct {
     ///
     /// ` self: QMarginsF `
     ///
-    pub fn Right(self: QMarginsF) f64 {
+    pub fn right(self: QMarginsF) f64 {
         return qtc.QMarginsF_Right(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `bottom` instead
+    ///
+    pub const Bottom = bottom;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmarginsf.html#bottom)
     ///
@@ -459,9 +607,13 @@ pub const QMarginsF = extern struct {
     ///
     /// ` self: QMarginsF `
     ///
-    pub fn Bottom(self: QMarginsF) f64 {
+    pub fn bottom(self: QMarginsF) f64 {
         return qtc.QMarginsF_Bottom(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLeft` instead
+    ///
+    pub const SetLeft = setLeft;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmarginsf.html#setLeft)
     ///
@@ -471,9 +623,13 @@ pub const QMarginsF = extern struct {
     ///
     /// ` aleft: f64 `
     ///
-    pub fn SetLeft(self: QMarginsF, aleft: f64) void {
+    pub fn setLeft(self: QMarginsF, aleft: f64) void {
         qtc.QMarginsF_SetLeft(@ptrCast(self.ptr), @bitCast(aleft));
     }
+
+    /// ### DEPRECATED: Use `setTop` instead
+    ///
+    pub const SetTop = setTop;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmarginsf.html#setTop)
     ///
@@ -483,9 +639,13 @@ pub const QMarginsF = extern struct {
     ///
     /// ` atop: f64 `
     ///
-    pub fn SetTop(self: QMarginsF, atop: f64) void {
+    pub fn setTop(self: QMarginsF, atop: f64) void {
         qtc.QMarginsF_SetTop(@ptrCast(self.ptr), @bitCast(atop));
     }
+
+    /// ### DEPRECATED: Use `setRight` instead
+    ///
+    pub const SetRight = setRight;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmarginsf.html#setRight)
     ///
@@ -495,9 +655,13 @@ pub const QMarginsF = extern struct {
     ///
     /// ` aright: f64 `
     ///
-    pub fn SetRight(self: QMarginsF, aright: f64) void {
+    pub fn setRight(self: QMarginsF, aright: f64) void {
         qtc.QMarginsF_SetRight(@ptrCast(self.ptr), @bitCast(aright));
     }
+
+    /// ### DEPRECATED: Use `setBottom` instead
+    ///
+    pub const SetBottom = setBottom;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmarginsf.html#setBottom)
     ///
@@ -507,9 +671,13 @@ pub const QMarginsF = extern struct {
     ///
     /// ` abottom: f64 `
     ///
-    pub fn SetBottom(self: QMarginsF, abottom: f64) void {
+    pub fn setBottom(self: QMarginsF, abottom: f64) void {
         qtc.QMarginsF_SetBottom(@ptrCast(self.ptr), @bitCast(abottom));
     }
+
+    /// ### DEPRECATED: Use `operatorPlusAssign` instead
+    ///
+    pub const OperatorPlusAssign = operatorPlusAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmarginsf.html#operator-2b-eq)
     ///
@@ -519,10 +687,14 @@ pub const QMarginsF = extern struct {
     ///
     /// ` margins: QMarginsF `
     ///
-    pub fn OperatorPlusAssign(self: QMarginsF, margins: anytype) QMarginsF {
+    pub fn operatorPlusAssign(self: QMarginsF, margins: anytype) QMarginsF {
         comptime _ = @TypeOf(margins)._is_QMarginsF;
         return .{ .ptr = qtc.QMarginsF_OperatorPlusAssign(@ptrCast(self.ptr), @ptrCast(margins.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorMinusAssign` instead
+    ///
+    pub const OperatorMinusAssign = operatorMinusAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmarginsf.html#operator--eq)
     ///
@@ -532,10 +704,14 @@ pub const QMarginsF = extern struct {
     ///
     /// ` margins: QMarginsF `
     ///
-    pub fn OperatorMinusAssign(self: QMarginsF, margins: anytype) QMarginsF {
+    pub fn operatorMinusAssign(self: QMarginsF, margins: anytype) QMarginsF {
         comptime _ = @TypeOf(margins)._is_QMarginsF;
         return .{ .ptr = qtc.QMarginsF_OperatorMinusAssign(@ptrCast(self.ptr), @ptrCast(margins.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorPlusAssign2` instead
+    ///
+    pub const OperatorPlusAssign2 = operatorPlusAssign2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmarginsf.html#operator-2b-eq)
     ///
@@ -545,9 +721,13 @@ pub const QMarginsF = extern struct {
     ///
     /// ` addend: f64 `
     ///
-    pub fn OperatorPlusAssign2(self: QMarginsF, addend: f64) QMarginsF {
+    pub fn operatorPlusAssign2(self: QMarginsF, addend: f64) QMarginsF {
         return .{ .ptr = qtc.QMarginsF_OperatorPlusAssign2(@ptrCast(self.ptr), @bitCast(addend)) };
     }
+
+    /// ### DEPRECATED: Use `operatorMinusAssign2` instead
+    ///
+    pub const OperatorMinusAssign2 = operatorMinusAssign2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmarginsf.html#operator--eq)
     ///
@@ -557,9 +737,13 @@ pub const QMarginsF = extern struct {
     ///
     /// ` subtrahend: f64 `
     ///
-    pub fn OperatorMinusAssign2(self: QMarginsF, subtrahend: f64) QMarginsF {
+    pub fn operatorMinusAssign2(self: QMarginsF, subtrahend: f64) QMarginsF {
         return .{ .ptr = qtc.QMarginsF_OperatorMinusAssign2(@ptrCast(self.ptr), @bitCast(subtrahend)) };
     }
+
+    /// ### DEPRECATED: Use `operatorMultiplyAssign` instead
+    ///
+    pub const OperatorMultiplyAssign = operatorMultiplyAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmarginsf.html#operator-2a-eq)
     ///
@@ -569,9 +753,13 @@ pub const QMarginsF = extern struct {
     ///
     /// ` factor: f64 `
     ///
-    pub fn OperatorMultiplyAssign(self: QMarginsF, factor: f64) QMarginsF {
+    pub fn operatorMultiplyAssign(self: QMarginsF, factor: f64) QMarginsF {
         return .{ .ptr = qtc.QMarginsF_OperatorMultiplyAssign(@ptrCast(self.ptr), @bitCast(factor)) };
     }
+
+    /// ### DEPRECATED: Use `operatorDivideAssign` instead
+    ///
+    pub const OperatorDivideAssign = operatorDivideAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmarginsf.html#operator-2f-eq)
     ///
@@ -581,9 +769,13 @@ pub const QMarginsF = extern struct {
     ///
     /// ` divisor: f64 `
     ///
-    pub fn OperatorDivideAssign(self: QMarginsF, divisor: f64) QMarginsF {
+    pub fn operatorDivideAssign(self: QMarginsF, divisor: f64) QMarginsF {
         return .{ .ptr = qtc.QMarginsF_OperatorDivideAssign(@ptrCast(self.ptr), @bitCast(divisor)) };
     }
+
+    /// ### DEPRECATED: Use `toMargins` instead
+    ///
+    pub const ToMargins = toMargins;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmarginsf.html#toMargins)
     ///
@@ -591,23 +783,23 @@ pub const QMarginsF = extern struct {
     ///
     /// ` self: QMarginsF `
     ///
-    pub fn ToMargins(self: QMarginsF) QMargins {
+    pub fn toMargins(self: QMarginsF) QMargins {
         return .{ .ptr = qtc.QMarginsF_ToMargins(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmarginsf.html#dtor.QMarginsF)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QMarginsF `
     ///
-    pub fn Delete(self: QMarginsF) void {
+    pub fn delete(self: QMarginsF) void {
         qtc.QMarginsF_Delete(@ptrCast(self.ptr));
     }
 };

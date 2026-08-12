@@ -22,58 +22,81 @@ pub const QTextLength = extern struct {
 
     pub const _is_QTextLength = {};
 
-    /// New constructs a new QTextLength object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QTextLength object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QTextLength `
     ///
-    pub fn New(other: anytype) QTextLength {
+    pub fn new(other: anytype) QTextLength {
         comptime _ = @TypeOf(other)._is_QTextLength;
         return .{ .ptr = qtc.QTextLength_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new QTextLength object and invalidates the source QTextLength object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QTextLength object and invalidate the source QTextLength object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QTextLength `
     ///
-    pub fn New2(other: anytype) QTextLength {
+    pub fn new2(other: anytype) QTextLength {
         comptime _ = @TypeOf(other)._is_QTextLength;
         return .{ .ptr = qtc.QTextLength_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QTextLength object.
+    /// ### DEPRECATED: Use `new3` instead
     ///
-    pub fn New3() QTextLength {
+    pub const New3 = new3;
+
+    /// Allocate a new QTextLength object in C++ memory
+    ///
+    pub fn new3() QTextLength {
         return .{ .ptr = qtc.QTextLength_new3() };
     }
 
-    /// New4 constructs a new QTextLength object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QTextLength object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` typeVal: qtextformat_enums.Type `
     ///
-    /// ` value: f64 `
+    /// ` _value: f64 `
     ///
-    pub fn New4(typeVal: i32, value: f64) QTextLength {
-        return .{ .ptr = qtc.QTextLength_new4(@bitCast(typeVal), @bitCast(value)) };
+    pub fn new4(typeVal: i32, _value: f64) QTextLength {
+        return .{ .ptr = qtc.QTextLength_new4(@bitCast(typeVal), @bitCast(_value)) };
     }
 
-    /// New5 constructs a new QTextLength object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new QTextLength object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QTextLength `
     ///
-    pub fn New5(param1: anytype) QTextLength {
+    pub fn new5(param1: anytype) QTextLength {
         comptime _ = @TypeOf(param1)._is_QTextLength;
         return .{ .ptr = qtc.QTextLength_new5(@ptrCast(param1.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -81,11 +104,14 @@ pub const QTextLength = extern struct {
     ///
     /// ` other: QTextLength `
     ///
-    pub fn CopyAssign(self: QTextLength, other: QTextLength) void {
+    pub fn copyAssign(self: QTextLength, other: QTextLength) void {
         qtc.QTextLength_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -93,9 +119,15 @@ pub const QTextLength = extern struct {
     ///
     /// ` other: QTextLength `
     ///
-    pub fn MoveAssign(self: QTextLength, other: QTextLength) void {
+    pub fn moveAssign(self: QTextLength, other: QTextLength) void {
         qtc.QTextLength_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlength.html#type)
     ///
@@ -107,9 +139,13 @@ pub const QTextLength = extern struct {
     ///
     /// ` qtextformat_enums.Type `
     ///
-    pub fn Type(self: QTextLength) i32 {
+    pub fn type0(self: QTextLength) i32 {
         return qtc.QTextLength_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `value` instead
+    ///
+    pub const Value = value;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlength.html#value)
     ///
@@ -119,9 +155,13 @@ pub const QTextLength = extern struct {
     ///
     /// ` maximumLength: f64 `
     ///
-    pub fn Value(self: QTextLength, maximumLength: f64) f64 {
+    pub fn value(self: QTextLength, maximumLength: f64) f64 {
         return qtc.QTextLength_Value(@ptrCast(self.ptr), @bitCast(maximumLength));
     }
+
+    /// ### DEPRECATED: Use `rawValue` instead
+    ///
+    pub const RawValue = rawValue;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlength.html#rawValue)
     ///
@@ -129,9 +169,13 @@ pub const QTextLength = extern struct {
     ///
     /// ` self: QTextLength `
     ///
-    pub fn RawValue(self: QTextLength) f64 {
+    pub fn rawValue(self: QTextLength) f64 {
         return qtc.QTextLength_RawValue(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlength.html#operator-eq-eq)
     ///
@@ -141,10 +185,14 @@ pub const QTextLength = extern struct {
     ///
     /// ` other: QTextLength `
     ///
-    pub fn OperatorEqual(self: QTextLength, other: anytype) bool {
+    pub fn operatorEqual(self: QTextLength, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QTextLength;
         return qtc.QTextLength_OperatorEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlength.html#operator-not-eq)
     ///
@@ -154,10 +202,14 @@ pub const QTextLength = extern struct {
     ///
     /// ` other: QTextLength `
     ///
-    pub fn OperatorNotEqual(self: QTextLength, other: anytype) bool {
+    pub fn operatorNotEqual(self: QTextLength, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QTextLength;
         return qtc.QTextLength_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `toQVariant` instead
+    ///
+    pub const ToQVariant = toQVariant;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlength.html#operator)
     ///
@@ -165,23 +217,23 @@ pub const QTextLength = extern struct {
     ///
     /// ` self: QTextLength `
     ///
-    pub fn ToQVariant(self: QTextLength) QVariant {
+    pub fn toQVariant(self: QTextLength) QVariant {
         return .{ .ptr = qtc.QTextLength_ToQVariant(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlength.html#dtor.QTextLength)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QTextLength `
     ///
-    pub fn Delete(self: QTextLength) void {
+    pub fn delete(self: QTextLength) void {
         qtc.QTextLength_Delete(@ptrCast(self.ptr));
     }
 };
@@ -196,32 +248,48 @@ pub const QTextFormat = extern struct {
 
     pub const _is_QTextFormat = {};
 
-    /// New constructs a new QTextFormat object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QTextFormat {
+    pub const New = new;
+
+    /// Allocate a new QTextFormat object in C++ memory
+    ///
+    pub fn new() QTextFormat {
         return .{ .ptr = qtc.QTextFormat_new() };
     }
 
-    /// New2 constructs a new QTextFormat object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QTextFormat object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` typeVal: i32 `
     ///
-    pub fn New2(typeVal: i32) QTextFormat {
+    pub fn new2(typeVal: i32) QTextFormat {
         return .{ .ptr = qtc.QTextFormat_new2(@bitCast(typeVal)) };
     }
 
-    /// New3 constructs a new QTextFormat object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QTextFormat object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` rhs: QTextFormat `
     ///
-    pub fn New3(rhs: anytype) QTextFormat {
+    pub fn new3(rhs: anytype) QTextFormat {
         comptime _ = @TypeOf(rhs)._is_QTextFormat;
         return .{ .ptr = qtc.QTextFormat_new3(@ptrCast(rhs.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#operator-eq)
     ///
@@ -231,10 +299,14 @@ pub const QTextFormat = extern struct {
     ///
     /// ` rhs: QTextFormat `
     ///
-    pub fn OperatorAssign(self: QTextFormat, rhs: anytype) void {
+    pub fn operatorAssign(self: QTextFormat, rhs: anytype) void {
         comptime _ = @TypeOf(rhs)._is_QTextFormat;
         qtc.QTextFormat_OperatorAssign(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#swap)
     ///
@@ -244,10 +316,14 @@ pub const QTextFormat = extern struct {
     ///
     /// ` other: QTextFormat `
     ///
-    pub fn Swap(self: QTextFormat, other: anytype) void {
+    pub fn swap(self: QTextFormat, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QTextFormat;
         qtc.QTextFormat_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `merge` instead
+    ///
+    pub const Merge = merge;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#merge)
     ///
@@ -257,10 +333,14 @@ pub const QTextFormat = extern struct {
     ///
     /// ` other: QTextFormat `
     ///
-    pub fn Merge(self: QTextFormat, other: anytype) void {
+    pub fn merge(self: QTextFormat, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QTextFormat;
         qtc.QTextFormat_Merge(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#isValid)
     ///
@@ -268,9 +348,13 @@ pub const QTextFormat = extern struct {
     ///
     /// ` self: QTextFormat `
     ///
-    pub fn IsValid(self: QTextFormat) bool {
+    pub fn isValid(self: QTextFormat) bool {
         return qtc.QTextFormat_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEmpty` instead
+    ///
+    pub const IsEmpty = isEmpty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#isEmpty)
     ///
@@ -278,9 +362,15 @@ pub const QTextFormat = extern struct {
     ///
     /// ` self: QTextFormat `
     ///
-    pub fn IsEmpty(self: QTextFormat) bool {
+    pub fn isEmpty(self: QTextFormat) bool {
         return qtc.QTextFormat_IsEmpty(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#type)
     ///
@@ -288,9 +378,13 @@ pub const QTextFormat = extern struct {
     ///
     /// ` self: QTextFormat `
     ///
-    pub fn Type(self: QTextFormat) i32 {
+    pub fn type0(self: QTextFormat) i32 {
         return qtc.QTextFormat_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `objectIndex` instead
+    ///
+    pub const ObjectIndex = objectIndex;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#objectIndex)
     ///
@@ -298,9 +392,13 @@ pub const QTextFormat = extern struct {
     ///
     /// ` self: QTextFormat `
     ///
-    pub fn ObjectIndex(self: QTextFormat) i32 {
+    pub fn objectIndex(self: QTextFormat) i32 {
         return qtc.QTextFormat_ObjectIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setObjectIndex` instead
+    ///
+    pub const SetObjectIndex = setObjectIndex;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#setObjectIndex)
     ///
@@ -310,9 +408,13 @@ pub const QTextFormat = extern struct {
     ///
     /// ` object: i32 `
     ///
-    pub fn SetObjectIndex(self: QTextFormat, object: i32) void {
+    pub fn setObjectIndex(self: QTextFormat, object: i32) void {
         qtc.QTextFormat_SetObjectIndex(@ptrCast(self.ptr), @bitCast(object));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#property)
     ///
@@ -322,9 +424,13 @@ pub const QTextFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn Property(self: QTextFormat, propertyId: i32) QVariant {
+    pub fn property(self: QTextFormat, propertyId: i32) QVariant {
         return .{ .ptr = qtc.QTextFormat_Property(@ptrCast(self.ptr), @bitCast(propertyId)) };
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#setProperty)
     ///
@@ -334,12 +440,16 @@ pub const QTextFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    /// ` value: QVariant `
+    /// ` _value: QVariant `
     ///
-    pub fn SetProperty(self: QTextFormat, propertyId: i32, value: anytype) void {
-        comptime _ = @TypeOf(value)._is_QVariant;
-        qtc.QTextFormat_SetProperty(@ptrCast(self.ptr), @bitCast(propertyId), @ptrCast(value.ptr));
+    pub fn setProperty(self: QTextFormat, propertyId: i32, _value: anytype) void {
+        comptime _ = @TypeOf(_value)._is_QVariant;
+        qtc.QTextFormat_SetProperty(@ptrCast(self.ptr), @bitCast(propertyId), @ptrCast(_value.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearProperty` instead
+    ///
+    pub const ClearProperty = clearProperty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#clearProperty)
     ///
@@ -349,9 +459,13 @@ pub const QTextFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn ClearProperty(self: QTextFormat, propertyId: i32) void {
+    pub fn clearProperty(self: QTextFormat, propertyId: i32) void {
         qtc.QTextFormat_ClearProperty(@ptrCast(self.ptr), @bitCast(propertyId));
     }
+
+    /// ### DEPRECATED: Use `hasProperty` instead
+    ///
+    pub const HasProperty = hasProperty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#hasProperty)
     ///
@@ -361,9 +475,13 @@ pub const QTextFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn HasProperty(self: QTextFormat, propertyId: i32) bool {
+    pub fn hasProperty(self: QTextFormat, propertyId: i32) bool {
         return qtc.QTextFormat_HasProperty(@ptrCast(self.ptr), @bitCast(propertyId));
     }
+
+    /// ### DEPRECATED: Use `boolProperty` instead
+    ///
+    pub const BoolProperty = boolProperty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#boolProperty)
     ///
@@ -373,9 +491,13 @@ pub const QTextFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn BoolProperty(self: QTextFormat, propertyId: i32) bool {
+    pub fn boolProperty(self: QTextFormat, propertyId: i32) bool {
         return qtc.QTextFormat_BoolProperty(@ptrCast(self.ptr), @bitCast(propertyId));
     }
+
+    /// ### DEPRECATED: Use `intProperty` instead
+    ///
+    pub const IntProperty = intProperty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#intProperty)
     ///
@@ -385,9 +507,13 @@ pub const QTextFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn IntProperty(self: QTextFormat, propertyId: i32) i32 {
+    pub fn intProperty(self: QTextFormat, propertyId: i32) i32 {
         return qtc.QTextFormat_IntProperty(@ptrCast(self.ptr), @bitCast(propertyId));
     }
+
+    /// ### DEPRECATED: Use `doubleProperty` instead
+    ///
+    pub const DoubleProperty = doubleProperty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#doubleProperty)
     ///
@@ -397,9 +523,13 @@ pub const QTextFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn DoubleProperty(self: QTextFormat, propertyId: i32) f64 {
+    pub fn doubleProperty(self: QTextFormat, propertyId: i32) f64 {
         return qtc.QTextFormat_DoubleProperty(@ptrCast(self.ptr), @bitCast(propertyId));
     }
+
+    /// ### DEPRECATED: Use `stringProperty` instead
+    ///
+    pub const StringProperty = stringProperty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#stringProperty)
     ///
@@ -411,13 +541,17 @@ pub const QTextFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn StringProperty(self: QTextFormat, allocator: std.mem.Allocator, propertyId: i32) []const u8 {
+    pub fn stringProperty(self: QTextFormat, allocator: std.mem.Allocator, propertyId: i32) []const u8 {
         var _str = qtc.QTextFormat_StringProperty(@ptrCast(self.ptr), @bitCast(propertyId));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextFormat.StringProperty: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextFormat.stringProperty: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `colorProperty` instead
+    ///
+    pub const ColorProperty = colorProperty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#colorProperty)
     ///
@@ -427,9 +561,13 @@ pub const QTextFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn ColorProperty(self: QTextFormat, propertyId: i32) QColor {
+    pub fn colorProperty(self: QTextFormat, propertyId: i32) QColor {
         return .{ .ptr = qtc.QTextFormat_ColorProperty(@ptrCast(self.ptr), @bitCast(propertyId)) };
     }
+
+    /// ### DEPRECATED: Use `penProperty` instead
+    ///
+    pub const PenProperty = penProperty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#penProperty)
     ///
@@ -439,9 +577,13 @@ pub const QTextFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn PenProperty(self: QTextFormat, propertyId: i32) QPen {
+    pub fn penProperty(self: QTextFormat, propertyId: i32) QPen {
         return .{ .ptr = qtc.QTextFormat_PenProperty(@ptrCast(self.ptr), @bitCast(propertyId)) };
     }
+
+    /// ### DEPRECATED: Use `brushProperty` instead
+    ///
+    pub const BrushProperty = brushProperty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#brushProperty)
     ///
@@ -451,9 +593,13 @@ pub const QTextFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn BrushProperty(self: QTextFormat, propertyId: i32) QBrush {
+    pub fn brushProperty(self: QTextFormat, propertyId: i32) QBrush {
         return .{ .ptr = qtc.QTextFormat_BrushProperty(@ptrCast(self.ptr), @bitCast(propertyId)) };
     }
+
+    /// ### DEPRECATED: Use `lengthProperty` instead
+    ///
+    pub const LengthProperty = lengthProperty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#lengthProperty)
     ///
@@ -463,9 +609,13 @@ pub const QTextFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn LengthProperty(self: QTextFormat, propertyId: i32) QTextLength {
+    pub fn lengthProperty(self: QTextFormat, propertyId: i32) QTextLength {
         return .{ .ptr = qtc.QTextFormat_LengthProperty(@ptrCast(self.ptr), @bitCast(propertyId)) };
     }
+
+    /// ### DEPRECATED: Use `lengthVectorProperty` instead
+    ///
+    pub const LengthVectorProperty = lengthVectorProperty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#lengthVectorProperty)
     ///
@@ -477,15 +627,19 @@ pub const QTextFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn LengthVectorProperty(self: QTextFormat, allocator: std.mem.Allocator, propertyId: i32) []QTextLength {
+    pub fn lengthVectorProperty(self: QTextFormat, allocator: std.mem.Allocator, propertyId: i32) []QTextLength {
         const _arr: qtc.libqt_list = qtc.QTextFormat_LengthVectorProperty(@ptrCast(self.ptr), @bitCast(propertyId));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QTextLength, _arr.len) catch @panic("QTextFormat.LengthVectorProperty: Memory allocation failed");
-        const _data: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QTextLength, _arr.len) catch @panic("QTextFormat.lengthVectorProperty: Memory allocation failed");
+        const _data_val: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setProperty2` instead
+    ///
+    pub const SetProperty2 = setProperty2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#setProperty)
     ///
@@ -497,13 +651,17 @@ pub const QTextFormat = extern struct {
     ///
     /// ` lengths: []QTextLength `
     ///
-    pub fn SetProperty2(self: QTextFormat, propertyId: i32, lengths: []QTextLength) void {
+    pub fn setProperty2(self: QTextFormat, propertyId: i32, lengths: []QTextLength) void {
         const lengths_list = qtc.libqt_list{
             .len = lengths.len,
             .data = @ptrCast(lengths.ptr),
         };
         qtc.QTextFormat_SetProperty2(@ptrCast(self.ptr), @bitCast(propertyId), lengths_list);
     }
+
+    /// ### DEPRECATED: Use `properties` instead
+    ///
+    pub const Properties = properties;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#properties)
     ///
@@ -513,10 +671,10 @@ pub const QTextFormat = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Properties(self: QTextFormat, allocator: std.mem.Allocator) ArrayMap_i32_QVariant {
+    pub fn properties(self: QTextFormat, allocator: std.mem.Allocator) ArrayMap_i32_QVariant {
         const _map: qtc.libqt_map = qtc.QTextFormat_Properties(@ptrCast(self.ptr));
         var _ret: ArrayMap_i32_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QTextFormat.Properties: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QTextFormat.properties: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -532,15 +690,23 @@ pub const QTextFormat = extern struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `propertyCount` instead
+    ///
+    pub const PropertyCount = propertyCount;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#propertyCount)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QTextFormat `
     ///
-    pub fn PropertyCount(self: QTextFormat) i32 {
+    pub fn propertyCount(self: QTextFormat) i32 {
         return qtc.QTextFormat_PropertyCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setObjectType` instead
+    ///
+    pub const SetObjectType = setObjectType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#setObjectType)
     ///
@@ -550,9 +716,13 @@ pub const QTextFormat = extern struct {
     ///
     /// ` typeVal: i32 `
     ///
-    pub fn SetObjectType(self: QTextFormat, typeVal: i32) void {
+    pub fn setObjectType(self: QTextFormat, typeVal: i32) void {
         qtc.QTextFormat_SetObjectType(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `objectType` instead
+    ///
+    pub const ObjectType = objectType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#objectType)
     ///
@@ -560,9 +730,13 @@ pub const QTextFormat = extern struct {
     ///
     /// ` self: QTextFormat `
     ///
-    pub fn ObjectType(self: QTextFormat) i32 {
+    pub fn objectType(self: QTextFormat) i32 {
         return qtc.QTextFormat_ObjectType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isCharFormat` instead
+    ///
+    pub const IsCharFormat = isCharFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#isCharFormat)
     ///
@@ -570,9 +744,13 @@ pub const QTextFormat = extern struct {
     ///
     /// ` self: QTextFormat `
     ///
-    pub fn IsCharFormat(self: QTextFormat) bool {
+    pub fn isCharFormat(self: QTextFormat) bool {
         return qtc.QTextFormat_IsCharFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isBlockFormat` instead
+    ///
+    pub const IsBlockFormat = isBlockFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#isBlockFormat)
     ///
@@ -580,9 +758,13 @@ pub const QTextFormat = extern struct {
     ///
     /// ` self: QTextFormat `
     ///
-    pub fn IsBlockFormat(self: QTextFormat) bool {
+    pub fn isBlockFormat(self: QTextFormat) bool {
         return qtc.QTextFormat_IsBlockFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isListFormat` instead
+    ///
+    pub const IsListFormat = isListFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#isListFormat)
     ///
@@ -590,9 +772,13 @@ pub const QTextFormat = extern struct {
     ///
     /// ` self: QTextFormat `
     ///
-    pub fn IsListFormat(self: QTextFormat) bool {
+    pub fn isListFormat(self: QTextFormat) bool {
         return qtc.QTextFormat_IsListFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFrameFormat` instead
+    ///
+    pub const IsFrameFormat = isFrameFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#isFrameFormat)
     ///
@@ -600,9 +786,13 @@ pub const QTextFormat = extern struct {
     ///
     /// ` self: QTextFormat `
     ///
-    pub fn IsFrameFormat(self: QTextFormat) bool {
+    pub fn isFrameFormat(self: QTextFormat) bool {
         return qtc.QTextFormat_IsFrameFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isImageFormat` instead
+    ///
+    pub const IsImageFormat = isImageFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#isImageFormat)
     ///
@@ -610,9 +800,13 @@ pub const QTextFormat = extern struct {
     ///
     /// ` self: QTextFormat `
     ///
-    pub fn IsImageFormat(self: QTextFormat) bool {
+    pub fn isImageFormat(self: QTextFormat) bool {
         return qtc.QTextFormat_IsImageFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTableFormat` instead
+    ///
+    pub const IsTableFormat = isTableFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#isTableFormat)
     ///
@@ -620,9 +814,13 @@ pub const QTextFormat = extern struct {
     ///
     /// ` self: QTextFormat `
     ///
-    pub fn IsTableFormat(self: QTextFormat) bool {
+    pub fn isTableFormat(self: QTextFormat) bool {
         return qtc.QTextFormat_IsTableFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTableCellFormat` instead
+    ///
+    pub const IsTableCellFormat = isTableCellFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#isTableCellFormat)
     ///
@@ -630,9 +828,13 @@ pub const QTextFormat = extern struct {
     ///
     /// ` self: QTextFormat `
     ///
-    pub fn IsTableCellFormat(self: QTextFormat) bool {
+    pub fn isTableCellFormat(self: QTextFormat) bool {
         return qtc.QTextFormat_IsTableCellFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toBlockFormat` instead
+    ///
+    pub const ToBlockFormat = toBlockFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#toBlockFormat)
     ///
@@ -640,9 +842,13 @@ pub const QTextFormat = extern struct {
     ///
     /// ` self: QTextFormat `
     ///
-    pub fn ToBlockFormat(self: QTextFormat) QTextBlockFormat {
+    pub fn toBlockFormat(self: QTextFormat) QTextBlockFormat {
         return .{ .ptr = qtc.QTextFormat_ToBlockFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toCharFormat` instead
+    ///
+    pub const ToCharFormat = toCharFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#toCharFormat)
     ///
@@ -650,9 +856,13 @@ pub const QTextFormat = extern struct {
     ///
     /// ` self: QTextFormat `
     ///
-    pub fn ToCharFormat(self: QTextFormat) QTextCharFormat {
+    pub fn toCharFormat(self: QTextFormat) QTextCharFormat {
         return .{ .ptr = qtc.QTextFormat_ToCharFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toListFormat` instead
+    ///
+    pub const ToListFormat = toListFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#toListFormat)
     ///
@@ -660,9 +870,13 @@ pub const QTextFormat = extern struct {
     ///
     /// ` self: QTextFormat `
     ///
-    pub fn ToListFormat(self: QTextFormat) QTextListFormat {
+    pub fn toListFormat(self: QTextFormat) QTextListFormat {
         return .{ .ptr = qtc.QTextFormat_ToListFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toTableFormat` instead
+    ///
+    pub const ToTableFormat = toTableFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#toTableFormat)
     ///
@@ -670,9 +884,13 @@ pub const QTextFormat = extern struct {
     ///
     /// ` self: QTextFormat `
     ///
-    pub fn ToTableFormat(self: QTextFormat) QTextTableFormat {
+    pub fn toTableFormat(self: QTextFormat) QTextTableFormat {
         return .{ .ptr = qtc.QTextFormat_ToTableFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toFrameFormat` instead
+    ///
+    pub const ToFrameFormat = toFrameFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#toFrameFormat)
     ///
@@ -680,9 +898,13 @@ pub const QTextFormat = extern struct {
     ///
     /// ` self: QTextFormat `
     ///
-    pub fn ToFrameFormat(self: QTextFormat) QTextFrameFormat {
+    pub fn toFrameFormat(self: QTextFormat) QTextFrameFormat {
         return .{ .ptr = qtc.QTextFormat_ToFrameFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toImageFormat` instead
+    ///
+    pub const ToImageFormat = toImageFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#toImageFormat)
     ///
@@ -690,9 +912,13 @@ pub const QTextFormat = extern struct {
     ///
     /// ` self: QTextFormat `
     ///
-    pub fn ToImageFormat(self: QTextFormat) QTextImageFormat {
+    pub fn toImageFormat(self: QTextFormat) QTextImageFormat {
         return .{ .ptr = qtc.QTextFormat_ToImageFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toTableCellFormat` instead
+    ///
+    pub const ToTableCellFormat = toTableCellFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#toTableCellFormat)
     ///
@@ -700,9 +926,13 @@ pub const QTextFormat = extern struct {
     ///
     /// ` self: QTextFormat `
     ///
-    pub fn ToTableCellFormat(self: QTextFormat) QTextTableCellFormat {
+    pub fn toTableCellFormat(self: QTextFormat) QTextTableCellFormat {
         return .{ .ptr = qtc.QTextFormat_ToTableCellFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#operator-eq-eq)
     ///
@@ -712,10 +942,14 @@ pub const QTextFormat = extern struct {
     ///
     /// ` rhs: QTextFormat `
     ///
-    pub fn OperatorEqual(self: QTextFormat, rhs: anytype) bool {
+    pub fn operatorEqual(self: QTextFormat, rhs: anytype) bool {
         comptime _ = @TypeOf(rhs)._is_QTextFormat;
         return qtc.QTextFormat_OperatorEqual(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#operator-not-eq)
     ///
@@ -725,10 +959,14 @@ pub const QTextFormat = extern struct {
     ///
     /// ` rhs: QTextFormat `
     ///
-    pub fn OperatorNotEqual(self: QTextFormat, rhs: anytype) bool {
+    pub fn operatorNotEqual(self: QTextFormat, rhs: anytype) bool {
         comptime _ = @TypeOf(rhs)._is_QTextFormat;
         return qtc.QTextFormat_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
     }
+
+    /// ### DEPRECATED: Use `toQVariant` instead
+    ///
+    pub const ToQVariant = toQVariant;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#operator)
     ///
@@ -736,9 +974,13 @@ pub const QTextFormat = extern struct {
     ///
     /// ` self: QTextFormat `
     ///
-    pub fn ToQVariant(self: QTextFormat) QVariant {
+    pub fn toQVariant(self: QTextFormat) QVariant {
         return .{ .ptr = qtc.QTextFormat_ToQVariant(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#setLayoutDirection)
     ///
@@ -748,9 +990,13 @@ pub const QTextFormat = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: QTextFormat, direction: i32) void {
+    pub fn setLayoutDirection(self: QTextFormat, direction: i32) void {
         qtc.QTextFormat_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#layoutDirection)
     ///
@@ -762,9 +1008,13 @@ pub const QTextFormat = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: QTextFormat) i32 {
+    pub fn layoutDirection(self: QTextFormat) i32 {
         return qtc.QTextFormat_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackground` instead
+    ///
+    pub const SetBackground = setBackground;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#setBackground)
     ///
@@ -774,10 +1024,14 @@ pub const QTextFormat = extern struct {
     ///
     /// ` brush: QBrush `
     ///
-    pub fn SetBackground(self: QTextFormat, brush: anytype) void {
+    pub fn setBackground(self: QTextFormat, brush: anytype) void {
         comptime _ = @TypeOf(brush)._is_QBrush;
         qtc.QTextFormat_SetBackground(@ptrCast(self.ptr), @ptrCast(brush.ptr));
     }
+
+    /// ### DEPRECATED: Use `background` instead
+    ///
+    pub const Background = background;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#background)
     ///
@@ -785,9 +1039,13 @@ pub const QTextFormat = extern struct {
     ///
     /// ` self: QTextFormat `
     ///
-    pub fn Background(self: QTextFormat) QBrush {
+    pub fn background(self: QTextFormat) QBrush {
         return .{ .ptr = qtc.QTextFormat_Background(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearBackground` instead
+    ///
+    pub const ClearBackground = clearBackground;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#clearBackground)
     ///
@@ -795,9 +1053,13 @@ pub const QTextFormat = extern struct {
     ///
     /// ` self: QTextFormat `
     ///
-    pub fn ClearBackground(self: QTextFormat) void {
+    pub fn clearBackground(self: QTextFormat) void {
         qtc.QTextFormat_ClearBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForeground` instead
+    ///
+    pub const SetForeground = setForeground;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#setForeground)
     ///
@@ -807,10 +1069,14 @@ pub const QTextFormat = extern struct {
     ///
     /// ` brush: QBrush `
     ///
-    pub fn SetForeground(self: QTextFormat, brush: anytype) void {
+    pub fn setForeground(self: QTextFormat, brush: anytype) void {
         comptime _ = @TypeOf(brush)._is_QBrush;
         qtc.QTextFormat_SetForeground(@ptrCast(self.ptr), @ptrCast(brush.ptr));
     }
+
+    /// ### DEPRECATED: Use `foreground` instead
+    ///
+    pub const Foreground = foreground;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#foreground)
     ///
@@ -818,9 +1084,13 @@ pub const QTextFormat = extern struct {
     ///
     /// ` self: QTextFormat `
     ///
-    pub fn Foreground(self: QTextFormat) QBrush {
+    pub fn foreground(self: QTextFormat) QBrush {
         return .{ .ptr = qtc.QTextFormat_Foreground(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearForeground` instead
+    ///
+    pub const ClearForeground = clearForeground;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#clearForeground)
     ///
@@ -828,23 +1098,23 @@ pub const QTextFormat = extern struct {
     ///
     /// ` self: QTextFormat `
     ///
-    pub fn ClearForeground(self: QTextFormat) void {
+    pub fn clearForeground(self: QTextFormat) void {
         qtc.QTextFormat_ClearForeground(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#dtor.QTextFormat)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QTextFormat `
     ///
-    pub fn Delete(self: QTextFormat) void {
+    pub fn delete(self: QTextFormat) void {
         qtc.QTextFormat_Delete(@ptrCast(self.ptr));
     }
 };
@@ -860,22 +1130,34 @@ pub const QTextCharFormat = extern struct {
     pub const _is_QTextCharFormat = {};
     pub const _is_QTextFormat = {};
 
-    /// New constructs a new QTextCharFormat object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QTextCharFormat {
+    pub const New = new;
+
+    /// Allocate a new QTextCharFormat object in C++ memory
+    ///
+    pub fn new() QTextCharFormat {
         return .{ .ptr = qtc.QTextCharFormat_new() };
     }
 
-    /// New2 constructs a new QTextCharFormat object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QTextCharFormat object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QTextCharFormat `
     ///
-    pub fn New2(param1: anytype) QTextCharFormat {
+    pub fn new2(param1: anytype) QTextCharFormat {
         comptime _ = @TypeOf(param1)._is_QTextCharFormat;
         return .{ .ptr = qtc.QTextCharFormat_new2(@ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#isValid)
     ///
@@ -883,9 +1165,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` self: QTextCharFormat `
     ///
-    pub fn IsValid(self: QTextCharFormat) bool {
+    pub fn isValid(self: QTextCharFormat) bool {
         return qtc.QTextCharFormat_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setFont)
     ///
@@ -893,12 +1179,16 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` self: QTextCharFormat `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: QTextCharFormat, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QTextCharFormat_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: QTextCharFormat, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QTextCharFormat_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#font)
     ///
@@ -906,9 +1196,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` self: QTextCharFormat `
     ///
-    pub fn Font(self: QTextCharFormat) QFont {
+    pub fn font(self: QTextCharFormat) QFont {
         return .{ .ptr = qtc.QTextCharFormat_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFontFamily` instead
+    ///
+    pub const SetFontFamily = setFontFamily;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setFontFamily)
     ///
@@ -918,13 +1212,17 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` family: []const u8 `
     ///
-    pub fn SetFontFamily(self: QTextCharFormat, family: []const u8) void {
+    pub fn setFontFamily(self: QTextCharFormat, family: []const u8) void {
         const family_str = qtc.libqt_string{
             .len = family.len,
             .data = family.ptr,
         };
         qtc.QTextCharFormat_SetFontFamily(@ptrCast(self.ptr), family_str);
     }
+
+    /// ### DEPRECATED: Use `fontFamily` instead
+    ///
+    pub const FontFamily = fontFamily;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#fontFamily)
     ///
@@ -934,13 +1232,17 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FontFamily(self: QTextCharFormat, allocator: std.mem.Allocator) []const u8 {
+    pub fn fontFamily(self: QTextCharFormat, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextCharFormat_FontFamily(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextCharFormat.FontFamily: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextCharFormat.fontFamily: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setFontFamilies` instead
+    ///
+    pub const SetFontFamilies = setFontFamilies;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setFontFamilies)
     ///
@@ -952,13 +1254,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` families: []const []const u8 `
     ///
-    pub fn SetFontFamilies(self: QTextCharFormat, allocator: std.mem.Allocator, families: []const []const u8) void {
-        const families_arr = allocator.alloc(qtc.libqt_string, families.len) catch @panic("QTextCharFormat.SetFontFamilies: Memory allocation failed");
+    pub fn setFontFamilies(self: QTextCharFormat, allocator: std.mem.Allocator, families: []const []const u8) void {
+        const families_arr = allocator.alloc(qtc.libqt_string, families.len) catch @panic("QTextCharFormat.setFontFamilies: Memory allocation failed");
         defer allocator.free(families_arr);
-        for (families, 0..families.len) |item, i|
+        for (families, 0..families.len) |str_item, i|
             families_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const families_list = qtc.libqt_list{
             .len = families.len,
@@ -967,15 +1269,23 @@ pub const QTextCharFormat = extern struct {
         qtc.QTextCharFormat_SetFontFamilies(@ptrCast(self.ptr), families_list);
     }
 
+    /// ### DEPRECATED: Use `fontFamilies` instead
+    ///
+    pub const FontFamilies = fontFamilies;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#fontFamilies)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QTextCharFormat `
     ///
-    pub fn FontFamilies(self: QTextCharFormat) QVariant {
+    pub fn fontFamilies(self: QTextCharFormat) QVariant {
         return .{ .ptr = qtc.QTextCharFormat_FontFamilies(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFontStyleName` instead
+    ///
+    pub const SetFontStyleName = setFontStyleName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setFontStyleName)
     ///
@@ -985,7 +1295,7 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` styleName: []const u8 `
     ///
-    pub fn SetFontStyleName(self: QTextCharFormat, styleName: []const u8) void {
+    pub fn setFontStyleName(self: QTextCharFormat, styleName: []const u8) void {
         const styleName_str = qtc.libqt_string{
             .len = styleName.len,
             .data = styleName.ptr,
@@ -993,15 +1303,23 @@ pub const QTextCharFormat = extern struct {
         qtc.QTextCharFormat_SetFontStyleName(@ptrCast(self.ptr), styleName_str);
     }
 
+    /// ### DEPRECATED: Use `fontStyleName` instead
+    ///
+    pub const FontStyleName = fontStyleName;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#fontStyleName)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QTextCharFormat `
     ///
-    pub fn FontStyleName(self: QTextCharFormat) QVariant {
+    pub fn fontStyleName(self: QTextCharFormat) QVariant {
         return .{ .ptr = qtc.QTextCharFormat_FontStyleName(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFontPointSize` instead
+    ///
+    pub const SetFontPointSize = setFontPointSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setFontPointSize)
     ///
@@ -1011,9 +1329,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` size: f64 `
     ///
-    pub fn SetFontPointSize(self: QTextCharFormat, size: f64) void {
+    pub fn setFontPointSize(self: QTextCharFormat, size: f64) void {
         qtc.QTextCharFormat_SetFontPointSize(@ptrCast(self.ptr), @bitCast(size));
     }
+
+    /// ### DEPRECATED: Use `fontPointSize` instead
+    ///
+    pub const FontPointSize = fontPointSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#fontPointSize)
     ///
@@ -1021,9 +1343,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` self: QTextCharFormat `
     ///
-    pub fn FontPointSize(self: QTextCharFormat) f64 {
+    pub fn fontPointSize(self: QTextCharFormat) f64 {
         return qtc.QTextCharFormat_FontPointSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFontWeight` instead
+    ///
+    pub const SetFontWeight = setFontWeight;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setFontWeight)
     ///
@@ -1033,9 +1359,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` weight: i32 `
     ///
-    pub fn SetFontWeight(self: QTextCharFormat, weight: i32) void {
+    pub fn setFontWeight(self: QTextCharFormat, weight: i32) void {
         qtc.QTextCharFormat_SetFontWeight(@ptrCast(self.ptr), @bitCast(weight));
     }
+
+    /// ### DEPRECATED: Use `fontWeight` instead
+    ///
+    pub const FontWeight = fontWeight;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#fontWeight)
     ///
@@ -1043,9 +1373,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` self: QTextCharFormat `
     ///
-    pub fn FontWeight(self: QTextCharFormat) i32 {
+    pub fn fontWeight(self: QTextCharFormat) i32 {
         return qtc.QTextCharFormat_FontWeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFontItalic` instead
+    ///
+    pub const SetFontItalic = setFontItalic;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setFontItalic)
     ///
@@ -1055,9 +1389,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` italic: bool `
     ///
-    pub fn SetFontItalic(self: QTextCharFormat, italic: bool) void {
+    pub fn setFontItalic(self: QTextCharFormat, italic: bool) void {
         qtc.QTextCharFormat_SetFontItalic(@ptrCast(self.ptr), italic);
     }
+
+    /// ### DEPRECATED: Use `fontItalic` instead
+    ///
+    pub const FontItalic = fontItalic;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#fontItalic)
     ///
@@ -1065,9 +1403,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` self: QTextCharFormat `
     ///
-    pub fn FontItalic(self: QTextCharFormat) bool {
+    pub fn fontItalic(self: QTextCharFormat) bool {
         return qtc.QTextCharFormat_FontItalic(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFontCapitalization` instead
+    ///
+    pub const SetFontCapitalization = setFontCapitalization;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setFontCapitalization)
     ///
@@ -1077,9 +1419,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` capitalization: qfont_enums.Capitalization `
     ///
-    pub fn SetFontCapitalization(self: QTextCharFormat, capitalization: i32) void {
+    pub fn setFontCapitalization(self: QTextCharFormat, capitalization: i32) void {
         qtc.QTextCharFormat_SetFontCapitalization(@ptrCast(self.ptr), @bitCast(capitalization));
     }
+
+    /// ### DEPRECATED: Use `fontCapitalization` instead
+    ///
+    pub const FontCapitalization = fontCapitalization;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#fontCapitalization)
     ///
@@ -1091,9 +1437,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` qfont_enums.Capitalization `
     ///
-    pub fn FontCapitalization(self: QTextCharFormat) i32 {
+    pub fn fontCapitalization(self: QTextCharFormat) i32 {
         return qtc.QTextCharFormat_FontCapitalization(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFontLetterSpacingType` instead
+    ///
+    pub const SetFontLetterSpacingType = setFontLetterSpacingType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setFontLetterSpacingType)
     ///
@@ -1103,9 +1453,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` letterSpacingType: qfont_enums.SpacingType `
     ///
-    pub fn SetFontLetterSpacingType(self: QTextCharFormat, letterSpacingType: i32) void {
+    pub fn setFontLetterSpacingType(self: QTextCharFormat, letterSpacingType: i32) void {
         qtc.QTextCharFormat_SetFontLetterSpacingType(@ptrCast(self.ptr), @bitCast(letterSpacingType));
     }
+
+    /// ### DEPRECATED: Use `fontLetterSpacingType` instead
+    ///
+    pub const FontLetterSpacingType = fontLetterSpacingType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#fontLetterSpacingType)
     ///
@@ -1117,9 +1471,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` qfont_enums.SpacingType `
     ///
-    pub fn FontLetterSpacingType(self: QTextCharFormat) i32 {
+    pub fn fontLetterSpacingType(self: QTextCharFormat) i32 {
         return qtc.QTextCharFormat_FontLetterSpacingType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFontLetterSpacing` instead
+    ///
+    pub const SetFontLetterSpacing = setFontLetterSpacing;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setFontLetterSpacing)
     ///
@@ -1129,9 +1487,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` spacing: f64 `
     ///
-    pub fn SetFontLetterSpacing(self: QTextCharFormat, spacing: f64) void {
+    pub fn setFontLetterSpacing(self: QTextCharFormat, spacing: f64) void {
         qtc.QTextCharFormat_SetFontLetterSpacing(@ptrCast(self.ptr), @bitCast(spacing));
     }
+
+    /// ### DEPRECATED: Use `fontLetterSpacing` instead
+    ///
+    pub const FontLetterSpacing = fontLetterSpacing;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#fontLetterSpacing)
     ///
@@ -1139,9 +1501,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` self: QTextCharFormat `
     ///
-    pub fn FontLetterSpacing(self: QTextCharFormat) f64 {
+    pub fn fontLetterSpacing(self: QTextCharFormat) f64 {
         return qtc.QTextCharFormat_FontLetterSpacing(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFontWordSpacing` instead
+    ///
+    pub const SetFontWordSpacing = setFontWordSpacing;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setFontWordSpacing)
     ///
@@ -1151,9 +1517,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` spacing: f64 `
     ///
-    pub fn SetFontWordSpacing(self: QTextCharFormat, spacing: f64) void {
+    pub fn setFontWordSpacing(self: QTextCharFormat, spacing: f64) void {
         qtc.QTextCharFormat_SetFontWordSpacing(@ptrCast(self.ptr), @bitCast(spacing));
     }
+
+    /// ### DEPRECATED: Use `fontWordSpacing` instead
+    ///
+    pub const FontWordSpacing = fontWordSpacing;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#fontWordSpacing)
     ///
@@ -1161,9 +1531,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` self: QTextCharFormat `
     ///
-    pub fn FontWordSpacing(self: QTextCharFormat) f64 {
+    pub fn fontWordSpacing(self: QTextCharFormat) f64 {
         return qtc.QTextCharFormat_FontWordSpacing(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFontUnderline` instead
+    ///
+    pub const SetFontUnderline = setFontUnderline;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setFontUnderline)
     ///
@@ -1173,9 +1547,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` underline: bool `
     ///
-    pub fn SetFontUnderline(self: QTextCharFormat, underline: bool) void {
+    pub fn setFontUnderline(self: QTextCharFormat, underline: bool) void {
         qtc.QTextCharFormat_SetFontUnderline(@ptrCast(self.ptr), underline);
     }
+
+    /// ### DEPRECATED: Use `fontUnderline` instead
+    ///
+    pub const FontUnderline = fontUnderline;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#fontUnderline)
     ///
@@ -1183,9 +1561,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` self: QTextCharFormat `
     ///
-    pub fn FontUnderline(self: QTextCharFormat) bool {
+    pub fn fontUnderline(self: QTextCharFormat) bool {
         return qtc.QTextCharFormat_FontUnderline(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFontOverline` instead
+    ///
+    pub const SetFontOverline = setFontOverline;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setFontOverline)
     ///
@@ -1195,9 +1577,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` overline: bool `
     ///
-    pub fn SetFontOverline(self: QTextCharFormat, overline: bool) void {
+    pub fn setFontOverline(self: QTextCharFormat, overline: bool) void {
         qtc.QTextCharFormat_SetFontOverline(@ptrCast(self.ptr), overline);
     }
+
+    /// ### DEPRECATED: Use `fontOverline` instead
+    ///
+    pub const FontOverline = fontOverline;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#fontOverline)
     ///
@@ -1205,9 +1591,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` self: QTextCharFormat `
     ///
-    pub fn FontOverline(self: QTextCharFormat) bool {
+    pub fn fontOverline(self: QTextCharFormat) bool {
         return qtc.QTextCharFormat_FontOverline(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFontStrikeOut` instead
+    ///
+    pub const SetFontStrikeOut = setFontStrikeOut;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setFontStrikeOut)
     ///
@@ -1217,9 +1607,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` strikeOut: bool `
     ///
-    pub fn SetFontStrikeOut(self: QTextCharFormat, strikeOut: bool) void {
+    pub fn setFontStrikeOut(self: QTextCharFormat, strikeOut: bool) void {
         qtc.QTextCharFormat_SetFontStrikeOut(@ptrCast(self.ptr), strikeOut);
     }
+
+    /// ### DEPRECATED: Use `fontStrikeOut` instead
+    ///
+    pub const FontStrikeOut = fontStrikeOut;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#fontStrikeOut)
     ///
@@ -1227,9 +1621,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` self: QTextCharFormat `
     ///
-    pub fn FontStrikeOut(self: QTextCharFormat) bool {
+    pub fn fontStrikeOut(self: QTextCharFormat) bool {
         return qtc.QTextCharFormat_FontStrikeOut(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUnderlineColor` instead
+    ///
+    pub const SetUnderlineColor = setUnderlineColor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setUnderlineColor)
     ///
@@ -1239,10 +1637,14 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` color: QColor `
     ///
-    pub fn SetUnderlineColor(self: QTextCharFormat, color: anytype) void {
+    pub fn setUnderlineColor(self: QTextCharFormat, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.QTextCharFormat_SetUnderlineColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
+
+    /// ### DEPRECATED: Use `underlineColor` instead
+    ///
+    pub const UnderlineColor = underlineColor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#underlineColor)
     ///
@@ -1250,9 +1652,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` self: QTextCharFormat `
     ///
-    pub fn UnderlineColor(self: QTextCharFormat) QColor {
+    pub fn underlineColor(self: QTextCharFormat) QColor {
         return .{ .ptr = qtc.QTextCharFormat_UnderlineColor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFontFixedPitch` instead
+    ///
+    pub const SetFontFixedPitch = setFontFixedPitch;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setFontFixedPitch)
     ///
@@ -1262,9 +1668,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` fixedPitch: bool `
     ///
-    pub fn SetFontFixedPitch(self: QTextCharFormat, fixedPitch: bool) void {
+    pub fn setFontFixedPitch(self: QTextCharFormat, fixedPitch: bool) void {
         qtc.QTextCharFormat_SetFontFixedPitch(@ptrCast(self.ptr), fixedPitch);
     }
+
+    /// ### DEPRECATED: Use `fontFixedPitch` instead
+    ///
+    pub const FontFixedPitch = fontFixedPitch;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#fontFixedPitch)
     ///
@@ -1272,9 +1682,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` self: QTextCharFormat `
     ///
-    pub fn FontFixedPitch(self: QTextCharFormat) bool {
+    pub fn fontFixedPitch(self: QTextCharFormat) bool {
         return qtc.QTextCharFormat_FontFixedPitch(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFontStretch` instead
+    ///
+    pub const SetFontStretch = setFontStretch;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setFontStretch)
     ///
@@ -1284,9 +1698,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` factor: i32 `
     ///
-    pub fn SetFontStretch(self: QTextCharFormat, factor: i32) void {
+    pub fn setFontStretch(self: QTextCharFormat, factor: i32) void {
         qtc.QTextCharFormat_SetFontStretch(@ptrCast(self.ptr), @bitCast(factor));
     }
+
+    /// ### DEPRECATED: Use `fontStretch` instead
+    ///
+    pub const FontStretch = fontStretch;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#fontStretch)
     ///
@@ -1294,9 +1712,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` self: QTextCharFormat `
     ///
-    pub fn FontStretch(self: QTextCharFormat) i32 {
+    pub fn fontStretch(self: QTextCharFormat) i32 {
         return qtc.QTextCharFormat_FontStretch(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFontStyleHint` instead
+    ///
+    pub const SetFontStyleHint = setFontStyleHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setFontStyleHint)
     ///
@@ -1306,9 +1728,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` hint: qfont_enums.StyleHint `
     ///
-    pub fn SetFontStyleHint(self: QTextCharFormat, hint: i32) void {
+    pub fn setFontStyleHint(self: QTextCharFormat, hint: i32) void {
         qtc.QTextCharFormat_SetFontStyleHint(@ptrCast(self.ptr), @bitCast(hint));
     }
+
+    /// ### DEPRECATED: Use `setFontStyleStrategy` instead
+    ///
+    pub const SetFontStyleStrategy = setFontStyleStrategy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setFontStyleStrategy)
     ///
@@ -1318,9 +1744,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` strategy: qfont_enums.StyleStrategy `
     ///
-    pub fn SetFontStyleStrategy(self: QTextCharFormat, strategy: i32) void {
+    pub fn setFontStyleStrategy(self: QTextCharFormat, strategy: i32) void {
         qtc.QTextCharFormat_SetFontStyleStrategy(@ptrCast(self.ptr), @bitCast(strategy));
     }
+
+    /// ### DEPRECATED: Use `fontStyleHint` instead
+    ///
+    pub const FontStyleHint = fontStyleHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#fontStyleHint)
     ///
@@ -1332,9 +1762,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` qfont_enums.StyleHint `
     ///
-    pub fn FontStyleHint(self: QTextCharFormat) i32 {
+    pub fn fontStyleHint(self: QTextCharFormat) i32 {
         return qtc.QTextCharFormat_FontStyleHint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontStyleStrategy` instead
+    ///
+    pub const FontStyleStrategy = fontStyleStrategy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#fontStyleStrategy)
     ///
@@ -1346,9 +1780,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` qfont_enums.StyleStrategy `
     ///
-    pub fn FontStyleStrategy(self: QTextCharFormat) i32 {
+    pub fn fontStyleStrategy(self: QTextCharFormat) i32 {
         return qtc.QTextCharFormat_FontStyleStrategy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFontHintingPreference` instead
+    ///
+    pub const SetFontHintingPreference = setFontHintingPreference;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setFontHintingPreference)
     ///
@@ -1358,9 +1796,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` hintingPreference: qfont_enums.HintingPreference `
     ///
-    pub fn SetFontHintingPreference(self: QTextCharFormat, hintingPreference: i32) void {
+    pub fn setFontHintingPreference(self: QTextCharFormat, hintingPreference: i32) void {
         qtc.QTextCharFormat_SetFontHintingPreference(@ptrCast(self.ptr), @bitCast(hintingPreference));
     }
+
+    /// ### DEPRECATED: Use `fontHintingPreference` instead
+    ///
+    pub const FontHintingPreference = fontHintingPreference;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#fontHintingPreference)
     ///
@@ -1372,9 +1814,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` qfont_enums.HintingPreference `
     ///
-    pub fn FontHintingPreference(self: QTextCharFormat) i32 {
+    pub fn fontHintingPreference(self: QTextCharFormat) i32 {
         return qtc.QTextCharFormat_FontHintingPreference(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFontKerning` instead
+    ///
+    pub const SetFontKerning = setFontKerning;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setFontKerning)
     ///
@@ -1384,9 +1830,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetFontKerning(self: QTextCharFormat, enable: bool) void {
+    pub fn setFontKerning(self: QTextCharFormat, enable: bool) void {
         qtc.QTextCharFormat_SetFontKerning(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `fontKerning` instead
+    ///
+    pub const FontKerning = fontKerning;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#fontKerning)
     ///
@@ -1394,9 +1844,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` self: QTextCharFormat `
     ///
-    pub fn FontKerning(self: QTextCharFormat) bool {
+    pub fn fontKerning(self: QTextCharFormat) bool {
         return qtc.QTextCharFormat_FontKerning(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUnderlineStyle` instead
+    ///
+    pub const SetUnderlineStyle = setUnderlineStyle;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setUnderlineStyle)
     ///
@@ -1406,9 +1860,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` style: qtextformat_enums.UnderlineStyle `
     ///
-    pub fn SetUnderlineStyle(self: QTextCharFormat, style: i32) void {
+    pub fn setUnderlineStyle(self: QTextCharFormat, style: i32) void {
         qtc.QTextCharFormat_SetUnderlineStyle(@ptrCast(self.ptr), @bitCast(style));
     }
+
+    /// ### DEPRECATED: Use `underlineStyle` instead
+    ///
+    pub const UnderlineStyle = underlineStyle;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#underlineStyle)
     ///
@@ -1420,9 +1878,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` qtextformat_enums.UnderlineStyle `
     ///
-    pub fn UnderlineStyle(self: QTextCharFormat) i32 {
+    pub fn underlineStyle(self: QTextCharFormat) i32 {
         return qtc.QTextCharFormat_UnderlineStyle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setVerticalAlignment` instead
+    ///
+    pub const SetVerticalAlignment = setVerticalAlignment;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setVerticalAlignment)
     ///
@@ -1432,9 +1894,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` alignment: qtextformat_enums.VerticalAlignment `
     ///
-    pub fn SetVerticalAlignment(self: QTextCharFormat, alignment: i32) void {
+    pub fn setVerticalAlignment(self: QTextCharFormat, alignment: i32) void {
         qtc.QTextCharFormat_SetVerticalAlignment(@ptrCast(self.ptr), @bitCast(alignment));
     }
+
+    /// ### DEPRECATED: Use `verticalAlignment` instead
+    ///
+    pub const VerticalAlignment = verticalAlignment;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#verticalAlignment)
     ///
@@ -1446,9 +1912,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` qtextformat_enums.VerticalAlignment `
     ///
-    pub fn VerticalAlignment(self: QTextCharFormat) i32 {
+    pub fn verticalAlignment(self: QTextCharFormat) i32 {
         return qtc.QTextCharFormat_VerticalAlignment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTextOutline` instead
+    ///
+    pub const SetTextOutline = setTextOutline;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setTextOutline)
     ///
@@ -1458,10 +1928,14 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` pen: QPen `
     ///
-    pub fn SetTextOutline(self: QTextCharFormat, pen: anytype) void {
+    pub fn setTextOutline(self: QTextCharFormat, pen: anytype) void {
         comptime _ = @TypeOf(pen)._is_QPen;
         qtc.QTextCharFormat_SetTextOutline(@ptrCast(self.ptr), @ptrCast(pen.ptr));
     }
+
+    /// ### DEPRECATED: Use `textOutline` instead
+    ///
+    pub const TextOutline = textOutline;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#textOutline)
     ///
@@ -1469,9 +1943,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` self: QTextCharFormat `
     ///
-    pub fn TextOutline(self: QTextCharFormat) QPen {
+    pub fn textOutline(self: QTextCharFormat) QPen {
         return .{ .ptr = qtc.QTextCharFormat_TextOutline(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setToolTip)
     ///
@@ -1481,13 +1959,17 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` tip: []const u8 `
     ///
-    pub fn SetToolTip(self: QTextCharFormat, tip: []const u8) void {
+    pub fn setToolTip(self: QTextCharFormat, tip: []const u8) void {
         const tip_str = qtc.libqt_string{
             .len = tip.len,
             .data = tip.ptr,
         };
         qtc.QTextCharFormat_SetToolTip(@ptrCast(self.ptr), tip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#toolTip)
     ///
@@ -1497,13 +1979,17 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: QTextCharFormat, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: QTextCharFormat, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextCharFormat_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextCharFormat.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextCharFormat.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setSuperScriptBaseline` instead
+    ///
+    pub const SetSuperScriptBaseline = setSuperScriptBaseline;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setSuperScriptBaseline)
     ///
@@ -1513,9 +1999,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` baseline: f64 `
     ///
-    pub fn SetSuperScriptBaseline(self: QTextCharFormat, baseline: f64) void {
+    pub fn setSuperScriptBaseline(self: QTextCharFormat, baseline: f64) void {
         qtc.QTextCharFormat_SetSuperScriptBaseline(@ptrCast(self.ptr), @bitCast(baseline));
     }
+
+    /// ### DEPRECATED: Use `superScriptBaseline` instead
+    ///
+    pub const SuperScriptBaseline = superScriptBaseline;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#superScriptBaseline)
     ///
@@ -1523,9 +2013,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` self: QTextCharFormat `
     ///
-    pub fn SuperScriptBaseline(self: QTextCharFormat) f64 {
+    pub fn superScriptBaseline(self: QTextCharFormat) f64 {
         return qtc.QTextCharFormat_SuperScriptBaseline(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSubScriptBaseline` instead
+    ///
+    pub const SetSubScriptBaseline = setSubScriptBaseline;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setSubScriptBaseline)
     ///
@@ -1535,9 +2029,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` baseline: f64 `
     ///
-    pub fn SetSubScriptBaseline(self: QTextCharFormat, baseline: f64) void {
+    pub fn setSubScriptBaseline(self: QTextCharFormat, baseline: f64) void {
         qtc.QTextCharFormat_SetSubScriptBaseline(@ptrCast(self.ptr), @bitCast(baseline));
     }
+
+    /// ### DEPRECATED: Use `subScriptBaseline` instead
+    ///
+    pub const SubScriptBaseline = subScriptBaseline;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#subScriptBaseline)
     ///
@@ -1545,9 +2043,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` self: QTextCharFormat `
     ///
-    pub fn SubScriptBaseline(self: QTextCharFormat) f64 {
+    pub fn subScriptBaseline(self: QTextCharFormat) f64 {
         return qtc.QTextCharFormat_SubScriptBaseline(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaselineOffset` instead
+    ///
+    pub const SetBaselineOffset = setBaselineOffset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setBaselineOffset)
     ///
@@ -1557,9 +2059,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` baseline: f64 `
     ///
-    pub fn SetBaselineOffset(self: QTextCharFormat, baseline: f64) void {
+    pub fn setBaselineOffset(self: QTextCharFormat, baseline: f64) void {
         qtc.QTextCharFormat_SetBaselineOffset(@ptrCast(self.ptr), @bitCast(baseline));
     }
+
+    /// ### DEPRECATED: Use `baselineOffset` instead
+    ///
+    pub const BaselineOffset = baselineOffset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#baselineOffset)
     ///
@@ -1567,9 +2073,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` self: QTextCharFormat `
     ///
-    pub fn BaselineOffset(self: QTextCharFormat) f64 {
+    pub fn baselineOffset(self: QTextCharFormat) f64 {
         return qtc.QTextCharFormat_BaselineOffset(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAnchor` instead
+    ///
+    pub const SetAnchor = setAnchor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setAnchor)
     ///
@@ -1579,9 +2089,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` anchor: bool `
     ///
-    pub fn SetAnchor(self: QTextCharFormat, anchor: bool) void {
+    pub fn setAnchor(self: QTextCharFormat, anchor: bool) void {
         qtc.QTextCharFormat_SetAnchor(@ptrCast(self.ptr), anchor);
     }
+
+    /// ### DEPRECATED: Use `isAnchor` instead
+    ///
+    pub const IsAnchor = isAnchor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#isAnchor)
     ///
@@ -1589,9 +2103,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` self: QTextCharFormat `
     ///
-    pub fn IsAnchor(self: QTextCharFormat) bool {
+    pub fn isAnchor(self: QTextCharFormat) bool {
         return qtc.QTextCharFormat_IsAnchor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAnchorHref` instead
+    ///
+    pub const SetAnchorHref = setAnchorHref;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setAnchorHref)
     ///
@@ -1599,15 +2117,19 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` self: QTextCharFormat `
     ///
-    /// ` value: []const u8 `
+    /// ` _value: []const u8 `
     ///
-    pub fn SetAnchorHref(self: QTextCharFormat, value: []const u8) void {
+    pub fn setAnchorHref(self: QTextCharFormat, _value: []const u8) void {
         const value_str = qtc.libqt_string{
-            .len = value.len,
-            .data = value.ptr,
+            .len = _value.len,
+            .data = _value.ptr,
         };
         qtc.QTextCharFormat_SetAnchorHref(@ptrCast(self.ptr), value_str);
     }
+
+    /// ### DEPRECATED: Use `anchorHref` instead
+    ///
+    pub const AnchorHref = anchorHref;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#anchorHref)
     ///
@@ -1617,13 +2139,17 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AnchorHref(self: QTextCharFormat, allocator: std.mem.Allocator) []const u8 {
+    pub fn anchorHref(self: QTextCharFormat, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextCharFormat_AnchorHref(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextCharFormat.AnchorHref: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextCharFormat.anchorHref: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAnchorNames` instead
+    ///
+    pub const SetAnchorNames = setAnchorNames;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setAnchorNames)
     ///
@@ -1635,13 +2161,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` names: []const []const u8 `
     ///
-    pub fn SetAnchorNames(self: QTextCharFormat, allocator: std.mem.Allocator, names: []const []const u8) void {
-        const names_arr = allocator.alloc(qtc.libqt_string, names.len) catch @panic("QTextCharFormat.SetAnchorNames: Memory allocation failed");
+    pub fn setAnchorNames(self: QTextCharFormat, allocator: std.mem.Allocator, names: []const []const u8) void {
+        const names_arr = allocator.alloc(qtc.libqt_string, names.len) catch @panic("QTextCharFormat.setAnchorNames: Memory allocation failed");
         defer allocator.free(names_arr);
-        for (names, 0..names.len) |item, i|
+        for (names, 0..names.len) |str_item, i|
             names_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const names_list = qtc.libqt_list{
             .len = names.len,
@@ -1649,6 +2175,10 @@ pub const QTextCharFormat = extern struct {
         };
         qtc.QTextCharFormat_SetAnchorNames(@ptrCast(self.ptr), names_list);
     }
+
+    /// ### DEPRECATED: Use `anchorNames` instead
+    ///
+    pub const AnchorNames = anchorNames;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#anchorNames)
     ///
@@ -1658,7 +2188,7 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AnchorNames(self: QTextCharFormat, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn anchorNames(self: QTextCharFormat, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QTextCharFormat_AnchorNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1666,15 +2196,19 @@ pub const QTextCharFormat = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QTextCharFormat.AnchorNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QTextCharFormat.anchorNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QTextCharFormat.AnchorNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QTextCharFormat.anchorNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setTableCellRowSpan` instead
+    ///
+    pub const SetTableCellRowSpan = setTableCellRowSpan;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setTableCellRowSpan)
     ///
@@ -1682,11 +2216,15 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` self: QTextCharFormat `
     ///
-    /// ` tableCellRowSpan: i32 `
+    /// ` _tableCellRowSpan: i32 `
     ///
-    pub fn SetTableCellRowSpan(self: QTextCharFormat, tableCellRowSpan: i32) void {
-        qtc.QTextCharFormat_SetTableCellRowSpan(@ptrCast(self.ptr), @bitCast(tableCellRowSpan));
+    pub fn setTableCellRowSpan(self: QTextCharFormat, _tableCellRowSpan: i32) void {
+        qtc.QTextCharFormat_SetTableCellRowSpan(@ptrCast(self.ptr), @bitCast(_tableCellRowSpan));
     }
+
+    /// ### DEPRECATED: Use `tableCellRowSpan` instead
+    ///
+    pub const TableCellRowSpan = tableCellRowSpan;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#tableCellRowSpan)
     ///
@@ -1694,9 +2232,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` self: QTextCharFormat `
     ///
-    pub fn TableCellRowSpan(self: QTextCharFormat) i32 {
+    pub fn tableCellRowSpan(self: QTextCharFormat) i32 {
         return qtc.QTextCharFormat_TableCellRowSpan(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTableCellColumnSpan` instead
+    ///
+    pub const SetTableCellColumnSpan = setTableCellColumnSpan;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setTableCellColumnSpan)
     ///
@@ -1704,11 +2246,15 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` self: QTextCharFormat `
     ///
-    /// ` tableCellColumnSpan: i32 `
+    /// ` _tableCellColumnSpan: i32 `
     ///
-    pub fn SetTableCellColumnSpan(self: QTextCharFormat, tableCellColumnSpan: i32) void {
-        qtc.QTextCharFormat_SetTableCellColumnSpan(@ptrCast(self.ptr), @bitCast(tableCellColumnSpan));
+    pub fn setTableCellColumnSpan(self: QTextCharFormat, _tableCellColumnSpan: i32) void {
+        qtc.QTextCharFormat_SetTableCellColumnSpan(@ptrCast(self.ptr), @bitCast(_tableCellColumnSpan));
     }
+
+    /// ### DEPRECATED: Use `tableCellColumnSpan` instead
+    ///
+    pub const TableCellColumnSpan = tableCellColumnSpan;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#tableCellColumnSpan)
     ///
@@ -1716,9 +2262,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` self: QTextCharFormat `
     ///
-    pub fn TableCellColumnSpan(self: QTextCharFormat) i32 {
+    pub fn tableCellColumnSpan(self: QTextCharFormat) i32 {
         return qtc.QTextCharFormat_TableCellColumnSpan(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFont2` instead
+    ///
+    pub const SetFont2 = setFont2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setFont)
     ///
@@ -1726,14 +2276,18 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` self: QTextCharFormat `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
     /// ` behavior: qtextformat_enums.FontPropertiesInheritanceBehavior `
     ///
-    pub fn SetFont2(self: QTextCharFormat, font: anytype, behavior: i32) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QTextCharFormat_SetFont2(@ptrCast(self.ptr), @ptrCast(font.ptr), @bitCast(behavior));
+    pub fn setFont2(self: QTextCharFormat, _font: anytype, behavior: i32) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QTextCharFormat_SetFont2(@ptrCast(self.ptr), @ptrCast(_font.ptr), @bitCast(behavior));
     }
+
+    /// ### DEPRECATED: Use `setFontStyleHint2` instead
+    ///
+    pub const SetFontStyleHint2 = setFontStyleHint2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setFontStyleHint)
     ///
@@ -1745,9 +2299,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` strategy: qfont_enums.StyleStrategy `
     ///
-    pub fn SetFontStyleHint2(self: QTextCharFormat, hint: i32, strategy: i32) void {
+    pub fn setFontStyleHint2(self: QTextCharFormat, hint: i32, strategy: i32) void {
         qtc.QTextCharFormat_SetFontStyleHint2(@ptrCast(self.ptr), @bitCast(hint), @bitCast(strategy));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// Inherited from QTextFormat
     ///
@@ -1759,10 +2317,14 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` rhs: QTextFormat `
     ///
-    pub fn OperatorAssign(self: QTextCharFormat, rhs: anytype) void {
+    pub fn operatorAssign(self: QTextCharFormat, rhs: anytype) void {
         comptime _ = @TypeOf(rhs)._is_QTextFormat;
         qtc.QTextFormat_OperatorAssign(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// Inherited from QTextFormat
     ///
@@ -1774,10 +2336,14 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` other: QTextFormat `
     ///
-    pub fn Swap(self: QTextCharFormat, other: anytype) void {
+    pub fn swap(self: QTextCharFormat, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QTextFormat;
         qtc.QTextFormat_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `merge` instead
+    ///
+    pub const Merge = merge;
 
     /// Inherited from QTextFormat
     ///
@@ -1789,10 +2355,14 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` other: QTextFormat `
     ///
-    pub fn Merge(self: QTextCharFormat, other: anytype) void {
+    pub fn merge(self: QTextCharFormat, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QTextFormat;
         qtc.QTextFormat_Merge(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEmpty` instead
+    ///
+    pub const IsEmpty = isEmpty;
 
     /// Inherited from QTextFormat
     ///
@@ -1802,9 +2372,15 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` self: QTextCharFormat `
     ///
-    pub fn IsEmpty(self: QTextCharFormat) bool {
+    pub fn isEmpty(self: QTextCharFormat) bool {
         return qtc.QTextFormat_IsEmpty(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QTextFormat
     ///
@@ -1814,9 +2390,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` self: QTextCharFormat `
     ///
-    pub fn Type(self: QTextCharFormat) i32 {
+    pub fn type0(self: QTextCharFormat) i32 {
         return qtc.QTextFormat_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `objectIndex` instead
+    ///
+    pub const ObjectIndex = objectIndex;
 
     /// Inherited from QTextFormat
     ///
@@ -1826,9 +2406,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` self: QTextCharFormat `
     ///
-    pub fn ObjectIndex(self: QTextCharFormat) i32 {
+    pub fn objectIndex(self: QTextCharFormat) i32 {
         return qtc.QTextFormat_ObjectIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setObjectIndex` instead
+    ///
+    pub const SetObjectIndex = setObjectIndex;
 
     /// Inherited from QTextFormat
     ///
@@ -1840,9 +2424,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` object: i32 `
     ///
-    pub fn SetObjectIndex(self: QTextCharFormat, object: i32) void {
+    pub fn setObjectIndex(self: QTextCharFormat, object: i32) void {
         qtc.QTextFormat_SetObjectIndex(@ptrCast(self.ptr), @bitCast(object));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QTextFormat
     ///
@@ -1854,9 +2442,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn Property(self: QTextCharFormat, propertyId: i32) QVariant {
+    pub fn property(self: QTextCharFormat, propertyId: i32) QVariant {
         return .{ .ptr = qtc.QTextFormat_Property(@ptrCast(self.ptr), @bitCast(propertyId)) };
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -1868,12 +2460,16 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    /// ` value: QVariant `
+    /// ` _value: QVariant `
     ///
-    pub fn SetProperty(self: QTextCharFormat, propertyId: i32, value: anytype) void {
-        comptime _ = @TypeOf(value)._is_QVariant;
-        qtc.QTextFormat_SetProperty(@ptrCast(self.ptr), @bitCast(propertyId), @ptrCast(value.ptr));
+    pub fn setProperty(self: QTextCharFormat, propertyId: i32, _value: anytype) void {
+        comptime _ = @TypeOf(_value)._is_QVariant;
+        qtc.QTextFormat_SetProperty(@ptrCast(self.ptr), @bitCast(propertyId), @ptrCast(_value.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearProperty` instead
+    ///
+    pub const ClearProperty = clearProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -1885,9 +2481,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn ClearProperty(self: QTextCharFormat, propertyId: i32) void {
+    pub fn clearProperty(self: QTextCharFormat, propertyId: i32) void {
         qtc.QTextFormat_ClearProperty(@ptrCast(self.ptr), @bitCast(propertyId));
     }
+
+    /// ### DEPRECATED: Use `hasProperty` instead
+    ///
+    pub const HasProperty = hasProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -1899,9 +2499,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn HasProperty(self: QTextCharFormat, propertyId: i32) bool {
+    pub fn hasProperty(self: QTextCharFormat, propertyId: i32) bool {
         return qtc.QTextFormat_HasProperty(@ptrCast(self.ptr), @bitCast(propertyId));
     }
+
+    /// ### DEPRECATED: Use `boolProperty` instead
+    ///
+    pub const BoolProperty = boolProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -1913,9 +2517,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn BoolProperty(self: QTextCharFormat, propertyId: i32) bool {
+    pub fn boolProperty(self: QTextCharFormat, propertyId: i32) bool {
         return qtc.QTextFormat_BoolProperty(@ptrCast(self.ptr), @bitCast(propertyId));
     }
+
+    /// ### DEPRECATED: Use `intProperty` instead
+    ///
+    pub const IntProperty = intProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -1927,9 +2535,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn IntProperty(self: QTextCharFormat, propertyId: i32) i32 {
+    pub fn intProperty(self: QTextCharFormat, propertyId: i32) i32 {
         return qtc.QTextFormat_IntProperty(@ptrCast(self.ptr), @bitCast(propertyId));
     }
+
+    /// ### DEPRECATED: Use `doubleProperty` instead
+    ///
+    pub const DoubleProperty = doubleProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -1941,9 +2553,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn DoubleProperty(self: QTextCharFormat, propertyId: i32) f64 {
+    pub fn doubleProperty(self: QTextCharFormat, propertyId: i32) f64 {
         return qtc.QTextFormat_DoubleProperty(@ptrCast(self.ptr), @bitCast(propertyId));
     }
+
+    /// ### DEPRECATED: Use `stringProperty` instead
+    ///
+    pub const StringProperty = stringProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -1957,13 +2573,17 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn StringProperty(self: QTextCharFormat, allocator: std.mem.Allocator, propertyId: i32) []const u8 {
+    pub fn stringProperty(self: QTextCharFormat, allocator: std.mem.Allocator, propertyId: i32) []const u8 {
         var _str = qtc.QTextFormat_StringProperty(@ptrCast(self.ptr), @bitCast(propertyId));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextCharFormat.StringProperty: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextCharFormat.stringProperty: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `colorProperty` instead
+    ///
+    pub const ColorProperty = colorProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -1975,9 +2595,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn ColorProperty(self: QTextCharFormat, propertyId: i32) QColor {
+    pub fn colorProperty(self: QTextCharFormat, propertyId: i32) QColor {
         return .{ .ptr = qtc.QTextFormat_ColorProperty(@ptrCast(self.ptr), @bitCast(propertyId)) };
     }
+
+    /// ### DEPRECATED: Use `penProperty` instead
+    ///
+    pub const PenProperty = penProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -1989,9 +2613,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn PenProperty(self: QTextCharFormat, propertyId: i32) QPen {
+    pub fn penProperty(self: QTextCharFormat, propertyId: i32) QPen {
         return .{ .ptr = qtc.QTextFormat_PenProperty(@ptrCast(self.ptr), @bitCast(propertyId)) };
     }
+
+    /// ### DEPRECATED: Use `brushProperty` instead
+    ///
+    pub const BrushProperty = brushProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -2003,9 +2631,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn BrushProperty(self: QTextCharFormat, propertyId: i32) QBrush {
+    pub fn brushProperty(self: QTextCharFormat, propertyId: i32) QBrush {
         return .{ .ptr = qtc.QTextFormat_BrushProperty(@ptrCast(self.ptr), @bitCast(propertyId)) };
     }
+
+    /// ### DEPRECATED: Use `lengthProperty` instead
+    ///
+    pub const LengthProperty = lengthProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -2017,9 +2649,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn LengthProperty(self: QTextCharFormat, propertyId: i32) QTextLength {
+    pub fn lengthProperty(self: QTextCharFormat, propertyId: i32) QTextLength {
         return .{ .ptr = qtc.QTextFormat_LengthProperty(@ptrCast(self.ptr), @bitCast(propertyId)) };
     }
+
+    /// ### DEPRECATED: Use `lengthVectorProperty` instead
+    ///
+    pub const LengthVectorProperty = lengthVectorProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -2033,15 +2669,19 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn LengthVectorProperty(self: QTextCharFormat, allocator: std.mem.Allocator, propertyId: i32) []QTextLength {
+    pub fn lengthVectorProperty(self: QTextCharFormat, allocator: std.mem.Allocator, propertyId: i32) []QTextLength {
         const _arr: qtc.libqt_list = qtc.QTextFormat_LengthVectorProperty(@ptrCast(self.ptr), @bitCast(propertyId));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QTextLength, _arr.len) catch @panic("QTextCharFormat.LengthVectorProperty: Memory allocation failed");
-        const _data: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QTextLength, _arr.len) catch @panic("QTextCharFormat.lengthVectorProperty: Memory allocation failed");
+        const _data_val: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setProperty2` instead
+    ///
+    pub const SetProperty2 = setProperty2;
 
     /// Inherited from QTextFormat
     ///
@@ -2055,13 +2695,17 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` lengths: []QTextLength `
     ///
-    pub fn SetProperty2(self: QTextCharFormat, propertyId: i32, lengths: []QTextLength) void {
+    pub fn setProperty2(self: QTextCharFormat, propertyId: i32, lengths: []QTextLength) void {
         const lengths_list = qtc.libqt_list{
             .len = lengths.len,
             .data = @ptrCast(lengths.ptr),
         };
         qtc.QTextFormat_SetProperty2(@ptrCast(self.ptr), @bitCast(propertyId), lengths_list);
     }
+
+    /// ### DEPRECATED: Use `properties` instead
+    ///
+    pub const Properties = properties;
 
     /// Inherited from QTextFormat
     ///
@@ -2073,10 +2717,10 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Properties(self: QTextCharFormat, allocator: std.mem.Allocator) ArrayMap_i32_QVariant {
+    pub fn properties(self: QTextCharFormat, allocator: std.mem.Allocator) ArrayMap_i32_QVariant {
         const _map: qtc.libqt_map = qtc.QTextFormat_Properties(@ptrCast(self.ptr));
         var _ret: ArrayMap_i32_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QTextCharFormat.Properties: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QTextCharFormat.properties: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -2092,6 +2736,10 @@ pub const QTextCharFormat = extern struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `propertyCount` instead
+    ///
+    pub const PropertyCount = propertyCount;
+
     /// Inherited from QTextFormat
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#propertyCount)
@@ -2100,9 +2748,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` self: QTextCharFormat `
     ///
-    pub fn PropertyCount(self: QTextCharFormat) i32 {
+    pub fn propertyCount(self: QTextCharFormat) i32 {
         return qtc.QTextFormat_PropertyCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setObjectType` instead
+    ///
+    pub const SetObjectType = setObjectType;
 
     /// Inherited from QTextFormat
     ///
@@ -2114,9 +2766,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` typeVal: i32 `
     ///
-    pub fn SetObjectType(self: QTextCharFormat, typeVal: i32) void {
+    pub fn setObjectType(self: QTextCharFormat, typeVal: i32) void {
         qtc.QTextFormat_SetObjectType(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `objectType` instead
+    ///
+    pub const ObjectType = objectType;
 
     /// Inherited from QTextFormat
     ///
@@ -2126,9 +2782,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` self: QTextCharFormat `
     ///
-    pub fn ObjectType(self: QTextCharFormat) i32 {
+    pub fn objectType(self: QTextCharFormat) i32 {
         return qtc.QTextFormat_ObjectType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isCharFormat` instead
+    ///
+    pub const IsCharFormat = isCharFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -2138,9 +2798,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` self: QTextCharFormat `
     ///
-    pub fn IsCharFormat(self: QTextCharFormat) bool {
+    pub fn isCharFormat(self: QTextCharFormat) bool {
         return qtc.QTextFormat_IsCharFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isBlockFormat` instead
+    ///
+    pub const IsBlockFormat = isBlockFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -2150,9 +2814,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` self: QTextCharFormat `
     ///
-    pub fn IsBlockFormat(self: QTextCharFormat) bool {
+    pub fn isBlockFormat(self: QTextCharFormat) bool {
         return qtc.QTextFormat_IsBlockFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isListFormat` instead
+    ///
+    pub const IsListFormat = isListFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -2162,9 +2830,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` self: QTextCharFormat `
     ///
-    pub fn IsListFormat(self: QTextCharFormat) bool {
+    pub fn isListFormat(self: QTextCharFormat) bool {
         return qtc.QTextFormat_IsListFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFrameFormat` instead
+    ///
+    pub const IsFrameFormat = isFrameFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -2174,9 +2846,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` self: QTextCharFormat `
     ///
-    pub fn IsFrameFormat(self: QTextCharFormat) bool {
+    pub fn isFrameFormat(self: QTextCharFormat) bool {
         return qtc.QTextFormat_IsFrameFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isImageFormat` instead
+    ///
+    pub const IsImageFormat = isImageFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -2186,9 +2862,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` self: QTextCharFormat `
     ///
-    pub fn IsImageFormat(self: QTextCharFormat) bool {
+    pub fn isImageFormat(self: QTextCharFormat) bool {
         return qtc.QTextFormat_IsImageFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTableFormat` instead
+    ///
+    pub const IsTableFormat = isTableFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -2198,9 +2878,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` self: QTextCharFormat `
     ///
-    pub fn IsTableFormat(self: QTextCharFormat) bool {
+    pub fn isTableFormat(self: QTextCharFormat) bool {
         return qtc.QTextFormat_IsTableFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTableCellFormat` instead
+    ///
+    pub const IsTableCellFormat = isTableCellFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -2210,9 +2894,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` self: QTextCharFormat `
     ///
-    pub fn IsTableCellFormat(self: QTextCharFormat) bool {
+    pub fn isTableCellFormat(self: QTextCharFormat) bool {
         return qtc.QTextFormat_IsTableCellFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toBlockFormat` instead
+    ///
+    pub const ToBlockFormat = toBlockFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -2222,9 +2910,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` self: QTextCharFormat `
     ///
-    pub fn ToBlockFormat(self: QTextCharFormat) QTextBlockFormat {
+    pub fn toBlockFormat(self: QTextCharFormat) QTextBlockFormat {
         return .{ .ptr = qtc.QTextFormat_ToBlockFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toCharFormat` instead
+    ///
+    pub const ToCharFormat = toCharFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -2234,9 +2926,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` self: QTextCharFormat `
     ///
-    pub fn ToCharFormat(self: QTextCharFormat) QTextCharFormat {
+    pub fn toCharFormat(self: QTextCharFormat) QTextCharFormat {
         return .{ .ptr = qtc.QTextFormat_ToCharFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toListFormat` instead
+    ///
+    pub const ToListFormat = toListFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -2246,9 +2942,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` self: QTextCharFormat `
     ///
-    pub fn ToListFormat(self: QTextCharFormat) QTextListFormat {
+    pub fn toListFormat(self: QTextCharFormat) QTextListFormat {
         return .{ .ptr = qtc.QTextFormat_ToListFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toTableFormat` instead
+    ///
+    pub const ToTableFormat = toTableFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -2258,9 +2958,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` self: QTextCharFormat `
     ///
-    pub fn ToTableFormat(self: QTextCharFormat) QTextTableFormat {
+    pub fn toTableFormat(self: QTextCharFormat) QTextTableFormat {
         return .{ .ptr = qtc.QTextFormat_ToTableFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toFrameFormat` instead
+    ///
+    pub const ToFrameFormat = toFrameFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -2270,9 +2974,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` self: QTextCharFormat `
     ///
-    pub fn ToFrameFormat(self: QTextCharFormat) QTextFrameFormat {
+    pub fn toFrameFormat(self: QTextCharFormat) QTextFrameFormat {
         return .{ .ptr = qtc.QTextFormat_ToFrameFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toImageFormat` instead
+    ///
+    pub const ToImageFormat = toImageFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -2282,9 +2990,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` self: QTextCharFormat `
     ///
-    pub fn ToImageFormat(self: QTextCharFormat) QTextImageFormat {
+    pub fn toImageFormat(self: QTextCharFormat) QTextImageFormat {
         return .{ .ptr = qtc.QTextFormat_ToImageFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toTableCellFormat` instead
+    ///
+    pub const ToTableCellFormat = toTableCellFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -2294,9 +3006,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` self: QTextCharFormat `
     ///
-    pub fn ToTableCellFormat(self: QTextCharFormat) QTextTableCellFormat {
+    pub fn toTableCellFormat(self: QTextCharFormat) QTextTableCellFormat {
         return .{ .ptr = qtc.QTextFormat_ToTableCellFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// Inherited from QTextFormat
     ///
@@ -2308,10 +3024,14 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` rhs: QTextFormat `
     ///
-    pub fn OperatorEqual(self: QTextCharFormat, rhs: anytype) bool {
+    pub fn operatorEqual(self: QTextCharFormat, rhs: anytype) bool {
         comptime _ = @TypeOf(rhs)._is_QTextFormat;
         return qtc.QTextFormat_OperatorEqual(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// Inherited from QTextFormat
     ///
@@ -2323,10 +3043,14 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` rhs: QTextFormat `
     ///
-    pub fn OperatorNotEqual(self: QTextCharFormat, rhs: anytype) bool {
+    pub fn operatorNotEqual(self: QTextCharFormat, rhs: anytype) bool {
         comptime _ = @TypeOf(rhs)._is_QTextFormat;
         return qtc.QTextFormat_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
     }
+
+    /// ### DEPRECATED: Use `toQVariant` instead
+    ///
+    pub const ToQVariant = toQVariant;
 
     /// Inherited from QTextFormat
     ///
@@ -2336,9 +3060,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` self: QTextCharFormat `
     ///
-    pub fn ToQVariant(self: QTextCharFormat) QVariant {
+    pub fn toQVariant(self: QTextCharFormat) QVariant {
         return .{ .ptr = qtc.QTextFormat_ToQVariant(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QTextFormat
     ///
@@ -2350,9 +3078,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: QTextCharFormat, direction: i32) void {
+    pub fn setLayoutDirection(self: QTextCharFormat, direction: i32) void {
         qtc.QTextFormat_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QTextFormat
     ///
@@ -2366,9 +3098,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: QTextCharFormat) i32 {
+    pub fn layoutDirection(self: QTextCharFormat) i32 {
         return qtc.QTextFormat_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackground` instead
+    ///
+    pub const SetBackground = setBackground;
 
     /// Inherited from QTextFormat
     ///
@@ -2380,10 +3116,14 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` brush: QBrush `
     ///
-    pub fn SetBackground(self: QTextCharFormat, brush: anytype) void {
+    pub fn setBackground(self: QTextCharFormat, brush: anytype) void {
         comptime _ = @TypeOf(brush)._is_QBrush;
         qtc.QTextFormat_SetBackground(@ptrCast(self.ptr), @ptrCast(brush.ptr));
     }
+
+    /// ### DEPRECATED: Use `background` instead
+    ///
+    pub const Background = background;
 
     /// Inherited from QTextFormat
     ///
@@ -2393,9 +3133,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` self: QTextCharFormat `
     ///
-    pub fn Background(self: QTextCharFormat) QBrush {
+    pub fn background(self: QTextCharFormat) QBrush {
         return .{ .ptr = qtc.QTextFormat_Background(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearBackground` instead
+    ///
+    pub const ClearBackground = clearBackground;
 
     /// Inherited from QTextFormat
     ///
@@ -2405,9 +3149,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` self: QTextCharFormat `
     ///
-    pub fn ClearBackground(self: QTextCharFormat) void {
+    pub fn clearBackground(self: QTextCharFormat) void {
         qtc.QTextFormat_ClearBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForeground` instead
+    ///
+    pub const SetForeground = setForeground;
 
     /// Inherited from QTextFormat
     ///
@@ -2419,10 +3167,14 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` brush: QBrush `
     ///
-    pub fn SetForeground(self: QTextCharFormat, brush: anytype) void {
+    pub fn setForeground(self: QTextCharFormat, brush: anytype) void {
         comptime _ = @TypeOf(brush)._is_QBrush;
         qtc.QTextFormat_SetForeground(@ptrCast(self.ptr), @ptrCast(brush.ptr));
     }
+
+    /// ### DEPRECATED: Use `foreground` instead
+    ///
+    pub const Foreground = foreground;
 
     /// Inherited from QTextFormat
     ///
@@ -2432,9 +3184,13 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` self: QTextCharFormat `
     ///
-    pub fn Foreground(self: QTextCharFormat) QBrush {
+    pub fn foreground(self: QTextCharFormat) QBrush {
         return .{ .ptr = qtc.QTextFormat_Foreground(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearForeground` instead
+    ///
+    pub const ClearForeground = clearForeground;
 
     /// Inherited from QTextFormat
     ///
@@ -2444,23 +3200,23 @@ pub const QTextCharFormat = extern struct {
     ///
     /// ` self: QTextCharFormat `
     ///
-    pub fn ClearForeground(self: QTextCharFormat) void {
+    pub fn clearForeground(self: QTextCharFormat) void {
         qtc.QTextFormat_ClearForeground(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#dtor.QTextCharFormat)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QTextCharFormat `
     ///
-    pub fn Delete(self: QTextCharFormat) void {
+    pub fn delete(self: QTextCharFormat) void {
         qtc.QTextCharFormat_Delete(@ptrCast(self.ptr));
     }
 };
@@ -2476,22 +3232,34 @@ pub const QTextBlockFormat = extern struct {
     pub const _is_QTextBlockFormat = {};
     pub const _is_QTextFormat = {};
 
-    /// New constructs a new QTextBlockFormat object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QTextBlockFormat {
+    pub const New = new;
+
+    /// Allocate a new QTextBlockFormat object in C++ memory
+    ///
+    pub fn new() QTextBlockFormat {
         return .{ .ptr = qtc.QTextBlockFormat_new() };
     }
 
-    /// New2 constructs a new QTextBlockFormat object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QTextBlockFormat object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QTextBlockFormat `
     ///
-    pub fn New2(param1: anytype) QTextBlockFormat {
+    pub fn new2(param1: anytype) QTextBlockFormat {
         comptime _ = @TypeOf(param1)._is_QTextBlockFormat;
         return .{ .ptr = qtc.QTextBlockFormat_new2(@ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblockformat.html#isValid)
     ///
@@ -2499,9 +3267,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` self: QTextBlockFormat `
     ///
-    pub fn IsValid(self: QTextBlockFormat) bool {
+    pub fn isValid(self: QTextBlockFormat) bool {
         return qtc.QTextBlockFormat_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAlignment` instead
+    ///
+    pub const SetAlignment = setAlignment;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblockformat.html#setAlignment)
     ///
@@ -2509,11 +3281,15 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` self: QTextBlockFormat `
     ///
-    /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
+    /// ` _alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn SetAlignment(self: QTextBlockFormat, alignment: i32) void {
-        qtc.QTextBlockFormat_SetAlignment(@ptrCast(self.ptr), @bitCast(alignment));
+    pub fn setAlignment(self: QTextBlockFormat, _alignment: i32) void {
+        qtc.QTextBlockFormat_SetAlignment(@ptrCast(self.ptr), @bitCast(_alignment));
     }
+
+    /// ### DEPRECATED: Use `alignment` instead
+    ///
+    pub const Alignment = alignment;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblockformat.html#alignment)
     ///
@@ -2525,9 +3301,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn Alignment(self: QTextBlockFormat) i32 {
+    pub fn alignment(self: QTextBlockFormat) i32 {
         return qtc.QTextBlockFormat_Alignment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTopMargin` instead
+    ///
+    pub const SetTopMargin = setTopMargin;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblockformat.html#setTopMargin)
     ///
@@ -2537,9 +3317,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` margin: f64 `
     ///
-    pub fn SetTopMargin(self: QTextBlockFormat, margin: f64) void {
+    pub fn setTopMargin(self: QTextBlockFormat, margin: f64) void {
         qtc.QTextBlockFormat_SetTopMargin(@ptrCast(self.ptr), @bitCast(margin));
     }
+
+    /// ### DEPRECATED: Use `topMargin` instead
+    ///
+    pub const TopMargin = topMargin;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblockformat.html#topMargin)
     ///
@@ -2547,9 +3331,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` self: QTextBlockFormat `
     ///
-    pub fn TopMargin(self: QTextBlockFormat) f64 {
+    pub fn topMargin(self: QTextBlockFormat) f64 {
         return qtc.QTextBlockFormat_TopMargin(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBottomMargin` instead
+    ///
+    pub const SetBottomMargin = setBottomMargin;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblockformat.html#setBottomMargin)
     ///
@@ -2559,9 +3347,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` margin: f64 `
     ///
-    pub fn SetBottomMargin(self: QTextBlockFormat, margin: f64) void {
+    pub fn setBottomMargin(self: QTextBlockFormat, margin: f64) void {
         qtc.QTextBlockFormat_SetBottomMargin(@ptrCast(self.ptr), @bitCast(margin));
     }
+
+    /// ### DEPRECATED: Use `bottomMargin` instead
+    ///
+    pub const BottomMargin = bottomMargin;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblockformat.html#bottomMargin)
     ///
@@ -2569,9 +3361,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` self: QTextBlockFormat `
     ///
-    pub fn BottomMargin(self: QTextBlockFormat) f64 {
+    pub fn bottomMargin(self: QTextBlockFormat) f64 {
         return qtc.QTextBlockFormat_BottomMargin(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLeftMargin` instead
+    ///
+    pub const SetLeftMargin = setLeftMargin;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblockformat.html#setLeftMargin)
     ///
@@ -2581,9 +3377,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` margin: f64 `
     ///
-    pub fn SetLeftMargin(self: QTextBlockFormat, margin: f64) void {
+    pub fn setLeftMargin(self: QTextBlockFormat, margin: f64) void {
         qtc.QTextBlockFormat_SetLeftMargin(@ptrCast(self.ptr), @bitCast(margin));
     }
+
+    /// ### DEPRECATED: Use `leftMargin` instead
+    ///
+    pub const LeftMargin = leftMargin;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblockformat.html#leftMargin)
     ///
@@ -2591,9 +3391,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` self: QTextBlockFormat `
     ///
-    pub fn LeftMargin(self: QTextBlockFormat) f64 {
+    pub fn leftMargin(self: QTextBlockFormat) f64 {
         return qtc.QTextBlockFormat_LeftMargin(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setRightMargin` instead
+    ///
+    pub const SetRightMargin = setRightMargin;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblockformat.html#setRightMargin)
     ///
@@ -2603,9 +3407,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` margin: f64 `
     ///
-    pub fn SetRightMargin(self: QTextBlockFormat, margin: f64) void {
+    pub fn setRightMargin(self: QTextBlockFormat, margin: f64) void {
         qtc.QTextBlockFormat_SetRightMargin(@ptrCast(self.ptr), @bitCast(margin));
     }
+
+    /// ### DEPRECATED: Use `rightMargin` instead
+    ///
+    pub const RightMargin = rightMargin;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblockformat.html#rightMargin)
     ///
@@ -2613,9 +3421,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` self: QTextBlockFormat `
     ///
-    pub fn RightMargin(self: QTextBlockFormat) f64 {
+    pub fn rightMargin(self: QTextBlockFormat) f64 {
         return qtc.QTextBlockFormat_RightMargin(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTextIndent` instead
+    ///
+    pub const SetTextIndent = setTextIndent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblockformat.html#setTextIndent)
     ///
@@ -2625,9 +3437,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` aindent: f64 `
     ///
-    pub fn SetTextIndent(self: QTextBlockFormat, aindent: f64) void {
+    pub fn setTextIndent(self: QTextBlockFormat, aindent: f64) void {
         qtc.QTextBlockFormat_SetTextIndent(@ptrCast(self.ptr), @bitCast(aindent));
     }
+
+    /// ### DEPRECATED: Use `textIndent` instead
+    ///
+    pub const TextIndent = textIndent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblockformat.html#textIndent)
     ///
@@ -2635,9 +3451,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` self: QTextBlockFormat `
     ///
-    pub fn TextIndent(self: QTextBlockFormat) f64 {
+    pub fn textIndent(self: QTextBlockFormat) f64 {
         return qtc.QTextBlockFormat_TextIndent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setIndent` instead
+    ///
+    pub const SetIndent = setIndent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblockformat.html#setIndent)
     ///
@@ -2645,11 +3465,15 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` self: QTextBlockFormat `
     ///
-    /// ` indent: i32 `
+    /// ` _indent: i32 `
     ///
-    pub fn SetIndent(self: QTextBlockFormat, indent: i32) void {
-        qtc.QTextBlockFormat_SetIndent(@ptrCast(self.ptr), @bitCast(indent));
+    pub fn setIndent(self: QTextBlockFormat, _indent: i32) void {
+        qtc.QTextBlockFormat_SetIndent(@ptrCast(self.ptr), @bitCast(_indent));
     }
+
+    /// ### DEPRECATED: Use `indent` instead
+    ///
+    pub const Indent = indent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblockformat.html#indent)
     ///
@@ -2657,9 +3481,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` self: QTextBlockFormat `
     ///
-    pub fn Indent(self: QTextBlockFormat) i32 {
+    pub fn indent(self: QTextBlockFormat) i32 {
         return qtc.QTextBlockFormat_Indent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHeadingLevel` instead
+    ///
+    pub const SetHeadingLevel = setHeadingLevel;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblockformat.html#setHeadingLevel)
     ///
@@ -2669,9 +3497,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` alevel: i32 `
     ///
-    pub fn SetHeadingLevel(self: QTextBlockFormat, alevel: i32) void {
+    pub fn setHeadingLevel(self: QTextBlockFormat, alevel: i32) void {
         qtc.QTextBlockFormat_SetHeadingLevel(@ptrCast(self.ptr), @bitCast(alevel));
     }
+
+    /// ### DEPRECATED: Use `headingLevel` instead
+    ///
+    pub const HeadingLevel = headingLevel;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblockformat.html#headingLevel)
     ///
@@ -2679,9 +3511,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` self: QTextBlockFormat `
     ///
-    pub fn HeadingLevel(self: QTextBlockFormat) i32 {
+    pub fn headingLevel(self: QTextBlockFormat) i32 {
         return qtc.QTextBlockFormat_HeadingLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLineHeight` instead
+    ///
+    pub const SetLineHeight = setLineHeight;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblockformat.html#setLineHeight)
     ///
@@ -2693,9 +3529,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` heightType: i32 `
     ///
-    pub fn SetLineHeight(self: QTextBlockFormat, height: f64, heightType: i32) void {
+    pub fn setLineHeight(self: QTextBlockFormat, height: f64, heightType: i32) void {
         qtc.QTextBlockFormat_SetLineHeight(@ptrCast(self.ptr), @bitCast(height), @bitCast(heightType));
     }
+
+    /// ### DEPRECATED: Use `lineHeight` instead
+    ///
+    pub const LineHeight = lineHeight;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblockformat.html#lineHeight)
     ///
@@ -2707,9 +3547,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` scaling: f64 `
     ///
-    pub fn LineHeight(self: QTextBlockFormat, scriptLineHeight: f64, scaling: f64) f64 {
+    pub fn lineHeight(self: QTextBlockFormat, scriptLineHeight: f64, scaling: f64) f64 {
         return qtc.QTextBlockFormat_LineHeight(@ptrCast(self.ptr), @bitCast(scriptLineHeight), @bitCast(scaling));
     }
+
+    /// ### DEPRECATED: Use `lineHeight2` instead
+    ///
+    pub const LineHeight2 = lineHeight2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblockformat.html#lineHeight)
     ///
@@ -2717,9 +3561,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` self: QTextBlockFormat `
     ///
-    pub fn LineHeight2(self: QTextBlockFormat) f64 {
+    pub fn lineHeight2(self: QTextBlockFormat) f64 {
         return qtc.QTextBlockFormat_LineHeight2(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lineHeightType` instead
+    ///
+    pub const LineHeightType = lineHeightType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblockformat.html#lineHeightType)
     ///
@@ -2727,9 +3575,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` self: QTextBlockFormat `
     ///
-    pub fn LineHeightType(self: QTextBlockFormat) i32 {
+    pub fn lineHeightType(self: QTextBlockFormat) i32 {
         return qtc.QTextBlockFormat_LineHeightType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setNonBreakableLines` instead
+    ///
+    pub const SetNonBreakableLines = setNonBreakableLines;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblockformat.html#setNonBreakableLines)
     ///
@@ -2739,9 +3591,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetNonBreakableLines(self: QTextBlockFormat, b: bool) void {
+    pub fn setNonBreakableLines(self: QTextBlockFormat, b: bool) void {
         qtc.QTextBlockFormat_SetNonBreakableLines(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `nonBreakableLines` instead
+    ///
+    pub const NonBreakableLines = nonBreakableLines;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblockformat.html#nonBreakableLines)
     ///
@@ -2749,9 +3605,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` self: QTextBlockFormat `
     ///
-    pub fn NonBreakableLines(self: QTextBlockFormat) bool {
+    pub fn nonBreakableLines(self: QTextBlockFormat) bool {
         return qtc.QTextBlockFormat_NonBreakableLines(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPageBreakPolicy` instead
+    ///
+    pub const SetPageBreakPolicy = setPageBreakPolicy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblockformat.html#setPageBreakPolicy)
     ///
@@ -2761,9 +3621,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` flags: flag of qtextformat_enums.PageBreakFlag `
     ///
-    pub fn SetPageBreakPolicy(self: QTextBlockFormat, flags: i32) void {
+    pub fn setPageBreakPolicy(self: QTextBlockFormat, flags: i32) void {
         qtc.QTextBlockFormat_SetPageBreakPolicy(@ptrCast(self.ptr), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `pageBreakPolicy` instead
+    ///
+    pub const PageBreakPolicy = pageBreakPolicy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblockformat.html#pageBreakPolicy)
     ///
@@ -2775,9 +3639,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` flag of qtextformat_enums.PageBreakFlag `
     ///
-    pub fn PageBreakPolicy(self: QTextBlockFormat) i32 {
+    pub fn pageBreakPolicy(self: QTextBlockFormat) i32 {
         return qtc.QTextBlockFormat_PageBreakPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabPositions` instead
+    ///
+    pub const SetTabPositions = setTabPositions;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblockformat.html#setTabPositions)
     ///
@@ -2787,13 +3655,17 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` tabs: []QTextOption__Tab `
     ///
-    pub fn SetTabPositions(self: QTextBlockFormat, tabs: []QTextOption__Tab) void {
+    pub fn setTabPositions(self: QTextBlockFormat, tabs: []QTextOption__Tab) void {
         const tabs_list = qtc.libqt_list{
             .len = tabs.len,
             .data = @ptrCast(tabs.ptr),
         };
         qtc.QTextBlockFormat_SetTabPositions(@ptrCast(self.ptr), tabs_list);
     }
+
+    /// ### DEPRECATED: Use `tabPositions` instead
+    ///
+    pub const TabPositions = tabPositions;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblockformat.html#tabPositions)
     ///
@@ -2803,15 +3675,19 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TabPositions(self: QTextBlockFormat, allocator: std.mem.Allocator) []QTextOption__Tab {
+    pub fn tabPositions(self: QTextBlockFormat, allocator: std.mem.Allocator) []QTextOption__Tab {
         const _arr: qtc.libqt_list = qtc.QTextBlockFormat_TabPositions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QTextOption__Tab, _arr.len) catch @panic("QTextBlockFormat.TabPositions: Memory allocation failed");
-        const _data: [*]QtC.QTextOption__Tab = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QTextOption__Tab, _arr.len) catch @panic("QTextBlockFormat.tabPositions: Memory allocation failed");
+        const _data_val: [*]QtC.QTextOption__Tab = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setMarker` instead
+    ///
+    pub const SetMarker = setMarker;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblockformat.html#setMarker)
     ///
@@ -2819,11 +3695,15 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` self: QTextBlockFormat `
     ///
-    /// ` marker: qtextformat_enums.MarkerType `
+    /// ` _marker: qtextformat_enums.MarkerType `
     ///
-    pub fn SetMarker(self: QTextBlockFormat, marker: i32) void {
-        qtc.QTextBlockFormat_SetMarker(@ptrCast(self.ptr), @bitCast(marker));
+    pub fn setMarker(self: QTextBlockFormat, _marker: i32) void {
+        qtc.QTextBlockFormat_SetMarker(@ptrCast(self.ptr), @bitCast(_marker));
     }
+
+    /// ### DEPRECATED: Use `marker` instead
+    ///
+    pub const Marker = marker;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblockformat.html#marker)
     ///
@@ -2835,9 +3715,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` qtextformat_enums.MarkerType `
     ///
-    pub fn Marker(self: QTextBlockFormat) i32 {
+    pub fn marker(self: QTextBlockFormat) i32 {
         return qtc.QTextBlockFormat_Marker(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// Inherited from QTextFormat
     ///
@@ -2849,10 +3733,14 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` rhs: QTextFormat `
     ///
-    pub fn OperatorAssign(self: QTextBlockFormat, rhs: anytype) void {
+    pub fn operatorAssign(self: QTextBlockFormat, rhs: anytype) void {
         comptime _ = @TypeOf(rhs)._is_QTextFormat;
         qtc.QTextFormat_OperatorAssign(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// Inherited from QTextFormat
     ///
@@ -2864,10 +3752,14 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` other: QTextFormat `
     ///
-    pub fn Swap(self: QTextBlockFormat, other: anytype) void {
+    pub fn swap(self: QTextBlockFormat, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QTextFormat;
         qtc.QTextFormat_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `merge` instead
+    ///
+    pub const Merge = merge;
 
     /// Inherited from QTextFormat
     ///
@@ -2879,10 +3771,14 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` other: QTextFormat `
     ///
-    pub fn Merge(self: QTextBlockFormat, other: anytype) void {
+    pub fn merge(self: QTextBlockFormat, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QTextFormat;
         qtc.QTextFormat_Merge(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEmpty` instead
+    ///
+    pub const IsEmpty = isEmpty;
 
     /// Inherited from QTextFormat
     ///
@@ -2892,9 +3788,15 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` self: QTextBlockFormat `
     ///
-    pub fn IsEmpty(self: QTextBlockFormat) bool {
+    pub fn isEmpty(self: QTextBlockFormat) bool {
         return qtc.QTextFormat_IsEmpty(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QTextFormat
     ///
@@ -2904,9 +3806,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` self: QTextBlockFormat `
     ///
-    pub fn Type(self: QTextBlockFormat) i32 {
+    pub fn type0(self: QTextBlockFormat) i32 {
         return qtc.QTextFormat_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `objectIndex` instead
+    ///
+    pub const ObjectIndex = objectIndex;
 
     /// Inherited from QTextFormat
     ///
@@ -2916,9 +3822,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` self: QTextBlockFormat `
     ///
-    pub fn ObjectIndex(self: QTextBlockFormat) i32 {
+    pub fn objectIndex(self: QTextBlockFormat) i32 {
         return qtc.QTextFormat_ObjectIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setObjectIndex` instead
+    ///
+    pub const SetObjectIndex = setObjectIndex;
 
     /// Inherited from QTextFormat
     ///
@@ -2930,9 +3840,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` object: i32 `
     ///
-    pub fn SetObjectIndex(self: QTextBlockFormat, object: i32) void {
+    pub fn setObjectIndex(self: QTextBlockFormat, object: i32) void {
         qtc.QTextFormat_SetObjectIndex(@ptrCast(self.ptr), @bitCast(object));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QTextFormat
     ///
@@ -2944,9 +3858,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn Property(self: QTextBlockFormat, propertyId: i32) QVariant {
+    pub fn property(self: QTextBlockFormat, propertyId: i32) QVariant {
         return .{ .ptr = qtc.QTextFormat_Property(@ptrCast(self.ptr), @bitCast(propertyId)) };
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -2958,12 +3876,16 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    /// ` value: QVariant `
+    /// ` _value: QVariant `
     ///
-    pub fn SetProperty(self: QTextBlockFormat, propertyId: i32, value: anytype) void {
-        comptime _ = @TypeOf(value)._is_QVariant;
-        qtc.QTextFormat_SetProperty(@ptrCast(self.ptr), @bitCast(propertyId), @ptrCast(value.ptr));
+    pub fn setProperty(self: QTextBlockFormat, propertyId: i32, _value: anytype) void {
+        comptime _ = @TypeOf(_value)._is_QVariant;
+        qtc.QTextFormat_SetProperty(@ptrCast(self.ptr), @bitCast(propertyId), @ptrCast(_value.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearProperty` instead
+    ///
+    pub const ClearProperty = clearProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -2975,9 +3897,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn ClearProperty(self: QTextBlockFormat, propertyId: i32) void {
+    pub fn clearProperty(self: QTextBlockFormat, propertyId: i32) void {
         qtc.QTextFormat_ClearProperty(@ptrCast(self.ptr), @bitCast(propertyId));
     }
+
+    /// ### DEPRECATED: Use `hasProperty` instead
+    ///
+    pub const HasProperty = hasProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -2989,9 +3915,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn HasProperty(self: QTextBlockFormat, propertyId: i32) bool {
+    pub fn hasProperty(self: QTextBlockFormat, propertyId: i32) bool {
         return qtc.QTextFormat_HasProperty(@ptrCast(self.ptr), @bitCast(propertyId));
     }
+
+    /// ### DEPRECATED: Use `boolProperty` instead
+    ///
+    pub const BoolProperty = boolProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -3003,9 +3933,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn BoolProperty(self: QTextBlockFormat, propertyId: i32) bool {
+    pub fn boolProperty(self: QTextBlockFormat, propertyId: i32) bool {
         return qtc.QTextFormat_BoolProperty(@ptrCast(self.ptr), @bitCast(propertyId));
     }
+
+    /// ### DEPRECATED: Use `intProperty` instead
+    ///
+    pub const IntProperty = intProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -3017,9 +3951,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn IntProperty(self: QTextBlockFormat, propertyId: i32) i32 {
+    pub fn intProperty(self: QTextBlockFormat, propertyId: i32) i32 {
         return qtc.QTextFormat_IntProperty(@ptrCast(self.ptr), @bitCast(propertyId));
     }
+
+    /// ### DEPRECATED: Use `doubleProperty` instead
+    ///
+    pub const DoubleProperty = doubleProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -3031,9 +3969,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn DoubleProperty(self: QTextBlockFormat, propertyId: i32) f64 {
+    pub fn doubleProperty(self: QTextBlockFormat, propertyId: i32) f64 {
         return qtc.QTextFormat_DoubleProperty(@ptrCast(self.ptr), @bitCast(propertyId));
     }
+
+    /// ### DEPRECATED: Use `stringProperty` instead
+    ///
+    pub const StringProperty = stringProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -3047,13 +3989,17 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn StringProperty(self: QTextBlockFormat, allocator: std.mem.Allocator, propertyId: i32) []const u8 {
+    pub fn stringProperty(self: QTextBlockFormat, allocator: std.mem.Allocator, propertyId: i32) []const u8 {
         var _str = qtc.QTextFormat_StringProperty(@ptrCast(self.ptr), @bitCast(propertyId));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextBlockFormat.StringProperty: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextBlockFormat.stringProperty: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `colorProperty` instead
+    ///
+    pub const ColorProperty = colorProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -3065,9 +4011,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn ColorProperty(self: QTextBlockFormat, propertyId: i32) QColor {
+    pub fn colorProperty(self: QTextBlockFormat, propertyId: i32) QColor {
         return .{ .ptr = qtc.QTextFormat_ColorProperty(@ptrCast(self.ptr), @bitCast(propertyId)) };
     }
+
+    /// ### DEPRECATED: Use `penProperty` instead
+    ///
+    pub const PenProperty = penProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -3079,9 +4029,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn PenProperty(self: QTextBlockFormat, propertyId: i32) QPen {
+    pub fn penProperty(self: QTextBlockFormat, propertyId: i32) QPen {
         return .{ .ptr = qtc.QTextFormat_PenProperty(@ptrCast(self.ptr), @bitCast(propertyId)) };
     }
+
+    /// ### DEPRECATED: Use `brushProperty` instead
+    ///
+    pub const BrushProperty = brushProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -3093,9 +4047,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn BrushProperty(self: QTextBlockFormat, propertyId: i32) QBrush {
+    pub fn brushProperty(self: QTextBlockFormat, propertyId: i32) QBrush {
         return .{ .ptr = qtc.QTextFormat_BrushProperty(@ptrCast(self.ptr), @bitCast(propertyId)) };
     }
+
+    /// ### DEPRECATED: Use `lengthProperty` instead
+    ///
+    pub const LengthProperty = lengthProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -3107,9 +4065,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn LengthProperty(self: QTextBlockFormat, propertyId: i32) QTextLength {
+    pub fn lengthProperty(self: QTextBlockFormat, propertyId: i32) QTextLength {
         return .{ .ptr = qtc.QTextFormat_LengthProperty(@ptrCast(self.ptr), @bitCast(propertyId)) };
     }
+
+    /// ### DEPRECATED: Use `lengthVectorProperty` instead
+    ///
+    pub const LengthVectorProperty = lengthVectorProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -3123,15 +4085,19 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn LengthVectorProperty(self: QTextBlockFormat, allocator: std.mem.Allocator, propertyId: i32) []QTextLength {
+    pub fn lengthVectorProperty(self: QTextBlockFormat, allocator: std.mem.Allocator, propertyId: i32) []QTextLength {
         const _arr: qtc.libqt_list = qtc.QTextFormat_LengthVectorProperty(@ptrCast(self.ptr), @bitCast(propertyId));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QTextLength, _arr.len) catch @panic("QTextBlockFormat.LengthVectorProperty: Memory allocation failed");
-        const _data: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QTextLength, _arr.len) catch @panic("QTextBlockFormat.lengthVectorProperty: Memory allocation failed");
+        const _data_val: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setProperty2` instead
+    ///
+    pub const SetProperty2 = setProperty2;
 
     /// Inherited from QTextFormat
     ///
@@ -3145,13 +4111,17 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` lengths: []QTextLength `
     ///
-    pub fn SetProperty2(self: QTextBlockFormat, propertyId: i32, lengths: []QTextLength) void {
+    pub fn setProperty2(self: QTextBlockFormat, propertyId: i32, lengths: []QTextLength) void {
         const lengths_list = qtc.libqt_list{
             .len = lengths.len,
             .data = @ptrCast(lengths.ptr),
         };
         qtc.QTextFormat_SetProperty2(@ptrCast(self.ptr), @bitCast(propertyId), lengths_list);
     }
+
+    /// ### DEPRECATED: Use `properties` instead
+    ///
+    pub const Properties = properties;
 
     /// Inherited from QTextFormat
     ///
@@ -3163,10 +4133,10 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Properties(self: QTextBlockFormat, allocator: std.mem.Allocator) ArrayMap_i32_QVariant {
+    pub fn properties(self: QTextBlockFormat, allocator: std.mem.Allocator) ArrayMap_i32_QVariant {
         const _map: qtc.libqt_map = qtc.QTextFormat_Properties(@ptrCast(self.ptr));
         var _ret: ArrayMap_i32_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QTextBlockFormat.Properties: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QTextBlockFormat.properties: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -3182,6 +4152,10 @@ pub const QTextBlockFormat = extern struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `propertyCount` instead
+    ///
+    pub const PropertyCount = propertyCount;
+
     /// Inherited from QTextFormat
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#propertyCount)
@@ -3190,9 +4164,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` self: QTextBlockFormat `
     ///
-    pub fn PropertyCount(self: QTextBlockFormat) i32 {
+    pub fn propertyCount(self: QTextBlockFormat) i32 {
         return qtc.QTextFormat_PropertyCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setObjectType` instead
+    ///
+    pub const SetObjectType = setObjectType;
 
     /// Inherited from QTextFormat
     ///
@@ -3204,9 +4182,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` typeVal: i32 `
     ///
-    pub fn SetObjectType(self: QTextBlockFormat, typeVal: i32) void {
+    pub fn setObjectType(self: QTextBlockFormat, typeVal: i32) void {
         qtc.QTextFormat_SetObjectType(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `objectType` instead
+    ///
+    pub const ObjectType = objectType;
 
     /// Inherited from QTextFormat
     ///
@@ -3216,9 +4198,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` self: QTextBlockFormat `
     ///
-    pub fn ObjectType(self: QTextBlockFormat) i32 {
+    pub fn objectType(self: QTextBlockFormat) i32 {
         return qtc.QTextFormat_ObjectType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isCharFormat` instead
+    ///
+    pub const IsCharFormat = isCharFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -3228,9 +4214,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` self: QTextBlockFormat `
     ///
-    pub fn IsCharFormat(self: QTextBlockFormat) bool {
+    pub fn isCharFormat(self: QTextBlockFormat) bool {
         return qtc.QTextFormat_IsCharFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isBlockFormat` instead
+    ///
+    pub const IsBlockFormat = isBlockFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -3240,9 +4230,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` self: QTextBlockFormat `
     ///
-    pub fn IsBlockFormat(self: QTextBlockFormat) bool {
+    pub fn isBlockFormat(self: QTextBlockFormat) bool {
         return qtc.QTextFormat_IsBlockFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isListFormat` instead
+    ///
+    pub const IsListFormat = isListFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -3252,9 +4246,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` self: QTextBlockFormat `
     ///
-    pub fn IsListFormat(self: QTextBlockFormat) bool {
+    pub fn isListFormat(self: QTextBlockFormat) bool {
         return qtc.QTextFormat_IsListFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFrameFormat` instead
+    ///
+    pub const IsFrameFormat = isFrameFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -3264,9 +4262,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` self: QTextBlockFormat `
     ///
-    pub fn IsFrameFormat(self: QTextBlockFormat) bool {
+    pub fn isFrameFormat(self: QTextBlockFormat) bool {
         return qtc.QTextFormat_IsFrameFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isImageFormat` instead
+    ///
+    pub const IsImageFormat = isImageFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -3276,9 +4278,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` self: QTextBlockFormat `
     ///
-    pub fn IsImageFormat(self: QTextBlockFormat) bool {
+    pub fn isImageFormat(self: QTextBlockFormat) bool {
         return qtc.QTextFormat_IsImageFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTableFormat` instead
+    ///
+    pub const IsTableFormat = isTableFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -3288,9 +4294,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` self: QTextBlockFormat `
     ///
-    pub fn IsTableFormat(self: QTextBlockFormat) bool {
+    pub fn isTableFormat(self: QTextBlockFormat) bool {
         return qtc.QTextFormat_IsTableFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTableCellFormat` instead
+    ///
+    pub const IsTableCellFormat = isTableCellFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -3300,9 +4310,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` self: QTextBlockFormat `
     ///
-    pub fn IsTableCellFormat(self: QTextBlockFormat) bool {
+    pub fn isTableCellFormat(self: QTextBlockFormat) bool {
         return qtc.QTextFormat_IsTableCellFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toBlockFormat` instead
+    ///
+    pub const ToBlockFormat = toBlockFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -3312,9 +4326,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` self: QTextBlockFormat `
     ///
-    pub fn ToBlockFormat(self: QTextBlockFormat) QTextBlockFormat {
+    pub fn toBlockFormat(self: QTextBlockFormat) QTextBlockFormat {
         return .{ .ptr = qtc.QTextFormat_ToBlockFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toCharFormat` instead
+    ///
+    pub const ToCharFormat = toCharFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -3324,9 +4342,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` self: QTextBlockFormat `
     ///
-    pub fn ToCharFormat(self: QTextBlockFormat) QTextCharFormat {
+    pub fn toCharFormat(self: QTextBlockFormat) QTextCharFormat {
         return .{ .ptr = qtc.QTextFormat_ToCharFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toListFormat` instead
+    ///
+    pub const ToListFormat = toListFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -3336,9 +4358,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` self: QTextBlockFormat `
     ///
-    pub fn ToListFormat(self: QTextBlockFormat) QTextListFormat {
+    pub fn toListFormat(self: QTextBlockFormat) QTextListFormat {
         return .{ .ptr = qtc.QTextFormat_ToListFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toTableFormat` instead
+    ///
+    pub const ToTableFormat = toTableFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -3348,9 +4374,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` self: QTextBlockFormat `
     ///
-    pub fn ToTableFormat(self: QTextBlockFormat) QTextTableFormat {
+    pub fn toTableFormat(self: QTextBlockFormat) QTextTableFormat {
         return .{ .ptr = qtc.QTextFormat_ToTableFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toFrameFormat` instead
+    ///
+    pub const ToFrameFormat = toFrameFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -3360,9 +4390,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` self: QTextBlockFormat `
     ///
-    pub fn ToFrameFormat(self: QTextBlockFormat) QTextFrameFormat {
+    pub fn toFrameFormat(self: QTextBlockFormat) QTextFrameFormat {
         return .{ .ptr = qtc.QTextFormat_ToFrameFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toImageFormat` instead
+    ///
+    pub const ToImageFormat = toImageFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -3372,9 +4406,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` self: QTextBlockFormat `
     ///
-    pub fn ToImageFormat(self: QTextBlockFormat) QTextImageFormat {
+    pub fn toImageFormat(self: QTextBlockFormat) QTextImageFormat {
         return .{ .ptr = qtc.QTextFormat_ToImageFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toTableCellFormat` instead
+    ///
+    pub const ToTableCellFormat = toTableCellFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -3384,9 +4422,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` self: QTextBlockFormat `
     ///
-    pub fn ToTableCellFormat(self: QTextBlockFormat) QTextTableCellFormat {
+    pub fn toTableCellFormat(self: QTextBlockFormat) QTextTableCellFormat {
         return .{ .ptr = qtc.QTextFormat_ToTableCellFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// Inherited from QTextFormat
     ///
@@ -3398,10 +4440,14 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` rhs: QTextFormat `
     ///
-    pub fn OperatorEqual(self: QTextBlockFormat, rhs: anytype) bool {
+    pub fn operatorEqual(self: QTextBlockFormat, rhs: anytype) bool {
         comptime _ = @TypeOf(rhs)._is_QTextFormat;
         return qtc.QTextFormat_OperatorEqual(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// Inherited from QTextFormat
     ///
@@ -3413,10 +4459,14 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` rhs: QTextFormat `
     ///
-    pub fn OperatorNotEqual(self: QTextBlockFormat, rhs: anytype) bool {
+    pub fn operatorNotEqual(self: QTextBlockFormat, rhs: anytype) bool {
         comptime _ = @TypeOf(rhs)._is_QTextFormat;
         return qtc.QTextFormat_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
     }
+
+    /// ### DEPRECATED: Use `toQVariant` instead
+    ///
+    pub const ToQVariant = toQVariant;
 
     /// Inherited from QTextFormat
     ///
@@ -3426,9 +4476,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` self: QTextBlockFormat `
     ///
-    pub fn ToQVariant(self: QTextBlockFormat) QVariant {
+    pub fn toQVariant(self: QTextBlockFormat) QVariant {
         return .{ .ptr = qtc.QTextFormat_ToQVariant(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QTextFormat
     ///
@@ -3440,9 +4494,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: QTextBlockFormat, direction: i32) void {
+    pub fn setLayoutDirection(self: QTextBlockFormat, direction: i32) void {
         qtc.QTextFormat_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QTextFormat
     ///
@@ -3456,9 +4514,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: QTextBlockFormat) i32 {
+    pub fn layoutDirection(self: QTextBlockFormat) i32 {
         return qtc.QTextFormat_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackground` instead
+    ///
+    pub const SetBackground = setBackground;
 
     /// Inherited from QTextFormat
     ///
@@ -3470,10 +4532,14 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` brush: QBrush `
     ///
-    pub fn SetBackground(self: QTextBlockFormat, brush: anytype) void {
+    pub fn setBackground(self: QTextBlockFormat, brush: anytype) void {
         comptime _ = @TypeOf(brush)._is_QBrush;
         qtc.QTextFormat_SetBackground(@ptrCast(self.ptr), @ptrCast(brush.ptr));
     }
+
+    /// ### DEPRECATED: Use `background` instead
+    ///
+    pub const Background = background;
 
     /// Inherited from QTextFormat
     ///
@@ -3483,9 +4549,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` self: QTextBlockFormat `
     ///
-    pub fn Background(self: QTextBlockFormat) QBrush {
+    pub fn background(self: QTextBlockFormat) QBrush {
         return .{ .ptr = qtc.QTextFormat_Background(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearBackground` instead
+    ///
+    pub const ClearBackground = clearBackground;
 
     /// Inherited from QTextFormat
     ///
@@ -3495,9 +4565,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` self: QTextBlockFormat `
     ///
-    pub fn ClearBackground(self: QTextBlockFormat) void {
+    pub fn clearBackground(self: QTextBlockFormat) void {
         qtc.QTextFormat_ClearBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForeground` instead
+    ///
+    pub const SetForeground = setForeground;
 
     /// Inherited from QTextFormat
     ///
@@ -3509,10 +4583,14 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` brush: QBrush `
     ///
-    pub fn SetForeground(self: QTextBlockFormat, brush: anytype) void {
+    pub fn setForeground(self: QTextBlockFormat, brush: anytype) void {
         comptime _ = @TypeOf(brush)._is_QBrush;
         qtc.QTextFormat_SetForeground(@ptrCast(self.ptr), @ptrCast(brush.ptr));
     }
+
+    /// ### DEPRECATED: Use `foreground` instead
+    ///
+    pub const Foreground = foreground;
 
     /// Inherited from QTextFormat
     ///
@@ -3522,9 +4600,13 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` self: QTextBlockFormat `
     ///
-    pub fn Foreground(self: QTextBlockFormat) QBrush {
+    pub fn foreground(self: QTextBlockFormat) QBrush {
         return .{ .ptr = qtc.QTextFormat_Foreground(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearForeground` instead
+    ///
+    pub const ClearForeground = clearForeground;
 
     /// Inherited from QTextFormat
     ///
@@ -3534,23 +4616,23 @@ pub const QTextBlockFormat = extern struct {
     ///
     /// ` self: QTextBlockFormat `
     ///
-    pub fn ClearForeground(self: QTextBlockFormat) void {
+    pub fn clearForeground(self: QTextBlockFormat) void {
         qtc.QTextFormat_ClearForeground(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblockformat.html#dtor.QTextBlockFormat)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QTextBlockFormat `
     ///
-    pub fn Delete(self: QTextBlockFormat) void {
+    pub fn delete(self: QTextBlockFormat) void {
         qtc.QTextBlockFormat_Delete(@ptrCast(self.ptr));
     }
 };
@@ -3566,22 +4648,34 @@ pub const QTextListFormat = extern struct {
     pub const _is_QTextListFormat = {};
     pub const _is_QTextFormat = {};
 
-    /// New constructs a new QTextListFormat object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QTextListFormat {
+    pub const New = new;
+
+    /// Allocate a new QTextListFormat object in C++ memory
+    ///
+    pub fn new() QTextListFormat {
         return .{ .ptr = qtc.QTextListFormat_new() };
     }
 
-    /// New2 constructs a new QTextListFormat object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QTextListFormat object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QTextListFormat `
     ///
-    pub fn New2(param1: anytype) QTextListFormat {
+    pub fn new2(param1: anytype) QTextListFormat {
         comptime _ = @TypeOf(param1)._is_QTextListFormat;
         return .{ .ptr = qtc.QTextListFormat_new2(@ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlistformat.html#isValid)
     ///
@@ -3589,9 +4683,13 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` self: QTextListFormat `
     ///
-    pub fn IsValid(self: QTextListFormat) bool {
+    pub fn isValid(self: QTextListFormat) bool {
         return qtc.QTextListFormat_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlistformat.html#setStyle)
     ///
@@ -3599,11 +4697,15 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` self: QTextListFormat `
     ///
-    /// ` style: qtextformat_enums.Style `
+    /// ` _style: qtextformat_enums.Style `
     ///
-    pub fn SetStyle(self: QTextListFormat, style: i32) void {
-        qtc.QTextListFormat_SetStyle(@ptrCast(self.ptr), @bitCast(style));
+    pub fn setStyle(self: QTextListFormat, _style: i32) void {
+        qtc.QTextListFormat_SetStyle(@ptrCast(self.ptr), @bitCast(_style));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlistformat.html#style)
     ///
@@ -3615,9 +4717,13 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` qtextformat_enums.Style `
     ///
-    pub fn Style(self: QTextListFormat) i32 {
+    pub fn style(self: QTextListFormat) i32 {
         return qtc.QTextListFormat_Style(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setIndent` instead
+    ///
+    pub const SetIndent = setIndent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlistformat.html#setIndent)
     ///
@@ -3625,11 +4731,15 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` self: QTextListFormat `
     ///
-    /// ` indent: i32 `
+    /// ` _indent: i32 `
     ///
-    pub fn SetIndent(self: QTextListFormat, indent: i32) void {
-        qtc.QTextListFormat_SetIndent(@ptrCast(self.ptr), @bitCast(indent));
+    pub fn setIndent(self: QTextListFormat, _indent: i32) void {
+        qtc.QTextListFormat_SetIndent(@ptrCast(self.ptr), @bitCast(_indent));
     }
+
+    /// ### DEPRECATED: Use `indent` instead
+    ///
+    pub const Indent = indent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlistformat.html#indent)
     ///
@@ -3637,9 +4747,13 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` self: QTextListFormat `
     ///
-    pub fn Indent(self: QTextListFormat) i32 {
+    pub fn indent(self: QTextListFormat) i32 {
         return qtc.QTextListFormat_Indent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setNumberPrefix` instead
+    ///
+    pub const SetNumberPrefix = setNumberPrefix;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlistformat.html#setNumberPrefix)
     ///
@@ -3647,15 +4761,19 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` self: QTextListFormat `
     ///
-    /// ` numberPrefix: []const u8 `
+    /// ` _numberPrefix: []const u8 `
     ///
-    pub fn SetNumberPrefix(self: QTextListFormat, numberPrefix: []const u8) void {
+    pub fn setNumberPrefix(self: QTextListFormat, _numberPrefix: []const u8) void {
         const numberPrefix_str = qtc.libqt_string{
-            .len = numberPrefix.len,
-            .data = numberPrefix.ptr,
+            .len = _numberPrefix.len,
+            .data = _numberPrefix.ptr,
         };
         qtc.QTextListFormat_SetNumberPrefix(@ptrCast(self.ptr), numberPrefix_str);
     }
+
+    /// ### DEPRECATED: Use `numberPrefix` instead
+    ///
+    pub const NumberPrefix = numberPrefix;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlistformat.html#numberPrefix)
     ///
@@ -3665,13 +4783,17 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NumberPrefix(self: QTextListFormat, allocator: std.mem.Allocator) []const u8 {
+    pub fn numberPrefix(self: QTextListFormat, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextListFormat_NumberPrefix(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextListFormat.NumberPrefix: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextListFormat.numberPrefix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setNumberSuffix` instead
+    ///
+    pub const SetNumberSuffix = setNumberSuffix;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlistformat.html#setNumberSuffix)
     ///
@@ -3679,15 +4801,19 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` self: QTextListFormat `
     ///
-    /// ` numberSuffix: []const u8 `
+    /// ` _numberSuffix: []const u8 `
     ///
-    pub fn SetNumberSuffix(self: QTextListFormat, numberSuffix: []const u8) void {
+    pub fn setNumberSuffix(self: QTextListFormat, _numberSuffix: []const u8) void {
         const numberSuffix_str = qtc.libqt_string{
-            .len = numberSuffix.len,
-            .data = numberSuffix.ptr,
+            .len = _numberSuffix.len,
+            .data = _numberSuffix.ptr,
         };
         qtc.QTextListFormat_SetNumberSuffix(@ptrCast(self.ptr), numberSuffix_str);
     }
+
+    /// ### DEPRECATED: Use `numberSuffix` instead
+    ///
+    pub const NumberSuffix = numberSuffix;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlistformat.html#numberSuffix)
     ///
@@ -3697,13 +4823,17 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NumberSuffix(self: QTextListFormat, allocator: std.mem.Allocator) []const u8 {
+    pub fn numberSuffix(self: QTextListFormat, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextListFormat_NumberSuffix(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextListFormat.NumberSuffix: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextListFormat.numberSuffix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setStart` instead
+    ///
+    pub const SetStart = setStart;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlistformat.html#setStart)
     ///
@@ -3711,11 +4841,15 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` self: QTextListFormat `
     ///
-    /// ` indent: i32 `
+    /// ` _indent: i32 `
     ///
-    pub fn SetStart(self: QTextListFormat, indent: i32) void {
-        qtc.QTextListFormat_SetStart(@ptrCast(self.ptr), @bitCast(indent));
+    pub fn setStart(self: QTextListFormat, _indent: i32) void {
+        qtc.QTextListFormat_SetStart(@ptrCast(self.ptr), @bitCast(_indent));
     }
+
+    /// ### DEPRECATED: Use `start` instead
+    ///
+    pub const Start = start;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlistformat.html#start)
     ///
@@ -3723,9 +4857,13 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` self: QTextListFormat `
     ///
-    pub fn Start(self: QTextListFormat) i32 {
+    pub fn start(self: QTextListFormat) i32 {
         return qtc.QTextListFormat_Start(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// Inherited from QTextFormat
     ///
@@ -3737,10 +4875,14 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` rhs: QTextFormat `
     ///
-    pub fn OperatorAssign(self: QTextListFormat, rhs: anytype) void {
+    pub fn operatorAssign(self: QTextListFormat, rhs: anytype) void {
         comptime _ = @TypeOf(rhs)._is_QTextFormat;
         qtc.QTextFormat_OperatorAssign(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// Inherited from QTextFormat
     ///
@@ -3752,10 +4894,14 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` other: QTextFormat `
     ///
-    pub fn Swap(self: QTextListFormat, other: anytype) void {
+    pub fn swap(self: QTextListFormat, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QTextFormat;
         qtc.QTextFormat_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `merge` instead
+    ///
+    pub const Merge = merge;
 
     /// Inherited from QTextFormat
     ///
@@ -3767,10 +4913,14 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` other: QTextFormat `
     ///
-    pub fn Merge(self: QTextListFormat, other: anytype) void {
+    pub fn merge(self: QTextListFormat, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QTextFormat;
         qtc.QTextFormat_Merge(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEmpty` instead
+    ///
+    pub const IsEmpty = isEmpty;
 
     /// Inherited from QTextFormat
     ///
@@ -3780,9 +4930,15 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` self: QTextListFormat `
     ///
-    pub fn IsEmpty(self: QTextListFormat) bool {
+    pub fn isEmpty(self: QTextListFormat) bool {
         return qtc.QTextFormat_IsEmpty(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QTextFormat
     ///
@@ -3792,9 +4948,13 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` self: QTextListFormat `
     ///
-    pub fn Type(self: QTextListFormat) i32 {
+    pub fn type0(self: QTextListFormat) i32 {
         return qtc.QTextFormat_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `objectIndex` instead
+    ///
+    pub const ObjectIndex = objectIndex;
 
     /// Inherited from QTextFormat
     ///
@@ -3804,9 +4964,13 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` self: QTextListFormat `
     ///
-    pub fn ObjectIndex(self: QTextListFormat) i32 {
+    pub fn objectIndex(self: QTextListFormat) i32 {
         return qtc.QTextFormat_ObjectIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setObjectIndex` instead
+    ///
+    pub const SetObjectIndex = setObjectIndex;
 
     /// Inherited from QTextFormat
     ///
@@ -3818,9 +4982,13 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` object: i32 `
     ///
-    pub fn SetObjectIndex(self: QTextListFormat, object: i32) void {
+    pub fn setObjectIndex(self: QTextListFormat, object: i32) void {
         qtc.QTextFormat_SetObjectIndex(@ptrCast(self.ptr), @bitCast(object));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QTextFormat
     ///
@@ -3832,9 +5000,13 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn Property(self: QTextListFormat, propertyId: i32) QVariant {
+    pub fn property(self: QTextListFormat, propertyId: i32) QVariant {
         return .{ .ptr = qtc.QTextFormat_Property(@ptrCast(self.ptr), @bitCast(propertyId)) };
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -3846,12 +5018,16 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    /// ` value: QVariant `
+    /// ` _value: QVariant `
     ///
-    pub fn SetProperty(self: QTextListFormat, propertyId: i32, value: anytype) void {
-        comptime _ = @TypeOf(value)._is_QVariant;
-        qtc.QTextFormat_SetProperty(@ptrCast(self.ptr), @bitCast(propertyId), @ptrCast(value.ptr));
+    pub fn setProperty(self: QTextListFormat, propertyId: i32, _value: anytype) void {
+        comptime _ = @TypeOf(_value)._is_QVariant;
+        qtc.QTextFormat_SetProperty(@ptrCast(self.ptr), @bitCast(propertyId), @ptrCast(_value.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearProperty` instead
+    ///
+    pub const ClearProperty = clearProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -3863,9 +5039,13 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn ClearProperty(self: QTextListFormat, propertyId: i32) void {
+    pub fn clearProperty(self: QTextListFormat, propertyId: i32) void {
         qtc.QTextFormat_ClearProperty(@ptrCast(self.ptr), @bitCast(propertyId));
     }
+
+    /// ### DEPRECATED: Use `hasProperty` instead
+    ///
+    pub const HasProperty = hasProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -3877,9 +5057,13 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn HasProperty(self: QTextListFormat, propertyId: i32) bool {
+    pub fn hasProperty(self: QTextListFormat, propertyId: i32) bool {
         return qtc.QTextFormat_HasProperty(@ptrCast(self.ptr), @bitCast(propertyId));
     }
+
+    /// ### DEPRECATED: Use `boolProperty` instead
+    ///
+    pub const BoolProperty = boolProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -3891,9 +5075,13 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn BoolProperty(self: QTextListFormat, propertyId: i32) bool {
+    pub fn boolProperty(self: QTextListFormat, propertyId: i32) bool {
         return qtc.QTextFormat_BoolProperty(@ptrCast(self.ptr), @bitCast(propertyId));
     }
+
+    /// ### DEPRECATED: Use `intProperty` instead
+    ///
+    pub const IntProperty = intProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -3905,9 +5093,13 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn IntProperty(self: QTextListFormat, propertyId: i32) i32 {
+    pub fn intProperty(self: QTextListFormat, propertyId: i32) i32 {
         return qtc.QTextFormat_IntProperty(@ptrCast(self.ptr), @bitCast(propertyId));
     }
+
+    /// ### DEPRECATED: Use `doubleProperty` instead
+    ///
+    pub const DoubleProperty = doubleProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -3919,9 +5111,13 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn DoubleProperty(self: QTextListFormat, propertyId: i32) f64 {
+    pub fn doubleProperty(self: QTextListFormat, propertyId: i32) f64 {
         return qtc.QTextFormat_DoubleProperty(@ptrCast(self.ptr), @bitCast(propertyId));
     }
+
+    /// ### DEPRECATED: Use `stringProperty` instead
+    ///
+    pub const StringProperty = stringProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -3935,13 +5131,17 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn StringProperty(self: QTextListFormat, allocator: std.mem.Allocator, propertyId: i32) []const u8 {
+    pub fn stringProperty(self: QTextListFormat, allocator: std.mem.Allocator, propertyId: i32) []const u8 {
         var _str = qtc.QTextFormat_StringProperty(@ptrCast(self.ptr), @bitCast(propertyId));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextListFormat.StringProperty: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextListFormat.stringProperty: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `colorProperty` instead
+    ///
+    pub const ColorProperty = colorProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -3953,9 +5153,13 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn ColorProperty(self: QTextListFormat, propertyId: i32) QColor {
+    pub fn colorProperty(self: QTextListFormat, propertyId: i32) QColor {
         return .{ .ptr = qtc.QTextFormat_ColorProperty(@ptrCast(self.ptr), @bitCast(propertyId)) };
     }
+
+    /// ### DEPRECATED: Use `penProperty` instead
+    ///
+    pub const PenProperty = penProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -3967,9 +5171,13 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn PenProperty(self: QTextListFormat, propertyId: i32) QPen {
+    pub fn penProperty(self: QTextListFormat, propertyId: i32) QPen {
         return .{ .ptr = qtc.QTextFormat_PenProperty(@ptrCast(self.ptr), @bitCast(propertyId)) };
     }
+
+    /// ### DEPRECATED: Use `brushProperty` instead
+    ///
+    pub const BrushProperty = brushProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -3981,9 +5189,13 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn BrushProperty(self: QTextListFormat, propertyId: i32) QBrush {
+    pub fn brushProperty(self: QTextListFormat, propertyId: i32) QBrush {
         return .{ .ptr = qtc.QTextFormat_BrushProperty(@ptrCast(self.ptr), @bitCast(propertyId)) };
     }
+
+    /// ### DEPRECATED: Use `lengthProperty` instead
+    ///
+    pub const LengthProperty = lengthProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -3995,9 +5207,13 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn LengthProperty(self: QTextListFormat, propertyId: i32) QTextLength {
+    pub fn lengthProperty(self: QTextListFormat, propertyId: i32) QTextLength {
         return .{ .ptr = qtc.QTextFormat_LengthProperty(@ptrCast(self.ptr), @bitCast(propertyId)) };
     }
+
+    /// ### DEPRECATED: Use `lengthVectorProperty` instead
+    ///
+    pub const LengthVectorProperty = lengthVectorProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -4011,15 +5227,19 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn LengthVectorProperty(self: QTextListFormat, allocator: std.mem.Allocator, propertyId: i32) []QTextLength {
+    pub fn lengthVectorProperty(self: QTextListFormat, allocator: std.mem.Allocator, propertyId: i32) []QTextLength {
         const _arr: qtc.libqt_list = qtc.QTextFormat_LengthVectorProperty(@ptrCast(self.ptr), @bitCast(propertyId));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QTextLength, _arr.len) catch @panic("QTextListFormat.LengthVectorProperty: Memory allocation failed");
-        const _data: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QTextLength, _arr.len) catch @panic("QTextListFormat.lengthVectorProperty: Memory allocation failed");
+        const _data_val: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setProperty2` instead
+    ///
+    pub const SetProperty2 = setProperty2;
 
     /// Inherited from QTextFormat
     ///
@@ -4033,13 +5253,17 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` lengths: []QTextLength `
     ///
-    pub fn SetProperty2(self: QTextListFormat, propertyId: i32, lengths: []QTextLength) void {
+    pub fn setProperty2(self: QTextListFormat, propertyId: i32, lengths: []QTextLength) void {
         const lengths_list = qtc.libqt_list{
             .len = lengths.len,
             .data = @ptrCast(lengths.ptr),
         };
         qtc.QTextFormat_SetProperty2(@ptrCast(self.ptr), @bitCast(propertyId), lengths_list);
     }
+
+    /// ### DEPRECATED: Use `properties` instead
+    ///
+    pub const Properties = properties;
 
     /// Inherited from QTextFormat
     ///
@@ -4051,10 +5275,10 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Properties(self: QTextListFormat, allocator: std.mem.Allocator) ArrayMap_i32_QVariant {
+    pub fn properties(self: QTextListFormat, allocator: std.mem.Allocator) ArrayMap_i32_QVariant {
         const _map: qtc.libqt_map = qtc.QTextFormat_Properties(@ptrCast(self.ptr));
         var _ret: ArrayMap_i32_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QTextListFormat.Properties: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QTextListFormat.properties: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -4070,6 +5294,10 @@ pub const QTextListFormat = extern struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `propertyCount` instead
+    ///
+    pub const PropertyCount = propertyCount;
+
     /// Inherited from QTextFormat
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#propertyCount)
@@ -4078,9 +5306,13 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` self: QTextListFormat `
     ///
-    pub fn PropertyCount(self: QTextListFormat) i32 {
+    pub fn propertyCount(self: QTextListFormat) i32 {
         return qtc.QTextFormat_PropertyCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setObjectType` instead
+    ///
+    pub const SetObjectType = setObjectType;
 
     /// Inherited from QTextFormat
     ///
@@ -4092,9 +5324,13 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` typeVal: i32 `
     ///
-    pub fn SetObjectType(self: QTextListFormat, typeVal: i32) void {
+    pub fn setObjectType(self: QTextListFormat, typeVal: i32) void {
         qtc.QTextFormat_SetObjectType(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `objectType` instead
+    ///
+    pub const ObjectType = objectType;
 
     /// Inherited from QTextFormat
     ///
@@ -4104,9 +5340,13 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` self: QTextListFormat `
     ///
-    pub fn ObjectType(self: QTextListFormat) i32 {
+    pub fn objectType(self: QTextListFormat) i32 {
         return qtc.QTextFormat_ObjectType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isCharFormat` instead
+    ///
+    pub const IsCharFormat = isCharFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -4116,9 +5356,13 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` self: QTextListFormat `
     ///
-    pub fn IsCharFormat(self: QTextListFormat) bool {
+    pub fn isCharFormat(self: QTextListFormat) bool {
         return qtc.QTextFormat_IsCharFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isBlockFormat` instead
+    ///
+    pub const IsBlockFormat = isBlockFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -4128,9 +5372,13 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` self: QTextListFormat `
     ///
-    pub fn IsBlockFormat(self: QTextListFormat) bool {
+    pub fn isBlockFormat(self: QTextListFormat) bool {
         return qtc.QTextFormat_IsBlockFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isListFormat` instead
+    ///
+    pub const IsListFormat = isListFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -4140,9 +5388,13 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` self: QTextListFormat `
     ///
-    pub fn IsListFormat(self: QTextListFormat) bool {
+    pub fn isListFormat(self: QTextListFormat) bool {
         return qtc.QTextFormat_IsListFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFrameFormat` instead
+    ///
+    pub const IsFrameFormat = isFrameFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -4152,9 +5404,13 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` self: QTextListFormat `
     ///
-    pub fn IsFrameFormat(self: QTextListFormat) bool {
+    pub fn isFrameFormat(self: QTextListFormat) bool {
         return qtc.QTextFormat_IsFrameFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isImageFormat` instead
+    ///
+    pub const IsImageFormat = isImageFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -4164,9 +5420,13 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` self: QTextListFormat `
     ///
-    pub fn IsImageFormat(self: QTextListFormat) bool {
+    pub fn isImageFormat(self: QTextListFormat) bool {
         return qtc.QTextFormat_IsImageFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTableFormat` instead
+    ///
+    pub const IsTableFormat = isTableFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -4176,9 +5436,13 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` self: QTextListFormat `
     ///
-    pub fn IsTableFormat(self: QTextListFormat) bool {
+    pub fn isTableFormat(self: QTextListFormat) bool {
         return qtc.QTextFormat_IsTableFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTableCellFormat` instead
+    ///
+    pub const IsTableCellFormat = isTableCellFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -4188,9 +5452,13 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` self: QTextListFormat `
     ///
-    pub fn IsTableCellFormat(self: QTextListFormat) bool {
+    pub fn isTableCellFormat(self: QTextListFormat) bool {
         return qtc.QTextFormat_IsTableCellFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toBlockFormat` instead
+    ///
+    pub const ToBlockFormat = toBlockFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -4200,9 +5468,13 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` self: QTextListFormat `
     ///
-    pub fn ToBlockFormat(self: QTextListFormat) QTextBlockFormat {
+    pub fn toBlockFormat(self: QTextListFormat) QTextBlockFormat {
         return .{ .ptr = qtc.QTextFormat_ToBlockFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toCharFormat` instead
+    ///
+    pub const ToCharFormat = toCharFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -4212,9 +5484,13 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` self: QTextListFormat `
     ///
-    pub fn ToCharFormat(self: QTextListFormat) QTextCharFormat {
+    pub fn toCharFormat(self: QTextListFormat) QTextCharFormat {
         return .{ .ptr = qtc.QTextFormat_ToCharFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toListFormat` instead
+    ///
+    pub const ToListFormat = toListFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -4224,9 +5500,13 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` self: QTextListFormat `
     ///
-    pub fn ToListFormat(self: QTextListFormat) QTextListFormat {
+    pub fn toListFormat(self: QTextListFormat) QTextListFormat {
         return .{ .ptr = qtc.QTextFormat_ToListFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toTableFormat` instead
+    ///
+    pub const ToTableFormat = toTableFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -4236,9 +5516,13 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` self: QTextListFormat `
     ///
-    pub fn ToTableFormat(self: QTextListFormat) QTextTableFormat {
+    pub fn toTableFormat(self: QTextListFormat) QTextTableFormat {
         return .{ .ptr = qtc.QTextFormat_ToTableFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toFrameFormat` instead
+    ///
+    pub const ToFrameFormat = toFrameFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -4248,9 +5532,13 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` self: QTextListFormat `
     ///
-    pub fn ToFrameFormat(self: QTextListFormat) QTextFrameFormat {
+    pub fn toFrameFormat(self: QTextListFormat) QTextFrameFormat {
         return .{ .ptr = qtc.QTextFormat_ToFrameFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toImageFormat` instead
+    ///
+    pub const ToImageFormat = toImageFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -4260,9 +5548,13 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` self: QTextListFormat `
     ///
-    pub fn ToImageFormat(self: QTextListFormat) QTextImageFormat {
+    pub fn toImageFormat(self: QTextListFormat) QTextImageFormat {
         return .{ .ptr = qtc.QTextFormat_ToImageFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toTableCellFormat` instead
+    ///
+    pub const ToTableCellFormat = toTableCellFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -4272,9 +5564,13 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` self: QTextListFormat `
     ///
-    pub fn ToTableCellFormat(self: QTextListFormat) QTextTableCellFormat {
+    pub fn toTableCellFormat(self: QTextListFormat) QTextTableCellFormat {
         return .{ .ptr = qtc.QTextFormat_ToTableCellFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// Inherited from QTextFormat
     ///
@@ -4286,10 +5582,14 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` rhs: QTextFormat `
     ///
-    pub fn OperatorEqual(self: QTextListFormat, rhs: anytype) bool {
+    pub fn operatorEqual(self: QTextListFormat, rhs: anytype) bool {
         comptime _ = @TypeOf(rhs)._is_QTextFormat;
         return qtc.QTextFormat_OperatorEqual(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// Inherited from QTextFormat
     ///
@@ -4301,10 +5601,14 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` rhs: QTextFormat `
     ///
-    pub fn OperatorNotEqual(self: QTextListFormat, rhs: anytype) bool {
+    pub fn operatorNotEqual(self: QTextListFormat, rhs: anytype) bool {
         comptime _ = @TypeOf(rhs)._is_QTextFormat;
         return qtc.QTextFormat_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
     }
+
+    /// ### DEPRECATED: Use `toQVariant` instead
+    ///
+    pub const ToQVariant = toQVariant;
 
     /// Inherited from QTextFormat
     ///
@@ -4314,9 +5618,13 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` self: QTextListFormat `
     ///
-    pub fn ToQVariant(self: QTextListFormat) QVariant {
+    pub fn toQVariant(self: QTextListFormat) QVariant {
         return .{ .ptr = qtc.QTextFormat_ToQVariant(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QTextFormat
     ///
@@ -4328,9 +5636,13 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: QTextListFormat, direction: i32) void {
+    pub fn setLayoutDirection(self: QTextListFormat, direction: i32) void {
         qtc.QTextFormat_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QTextFormat
     ///
@@ -4344,9 +5656,13 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: QTextListFormat) i32 {
+    pub fn layoutDirection(self: QTextListFormat) i32 {
         return qtc.QTextFormat_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackground` instead
+    ///
+    pub const SetBackground = setBackground;
 
     /// Inherited from QTextFormat
     ///
@@ -4358,10 +5674,14 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` brush: QBrush `
     ///
-    pub fn SetBackground(self: QTextListFormat, brush: anytype) void {
+    pub fn setBackground(self: QTextListFormat, brush: anytype) void {
         comptime _ = @TypeOf(brush)._is_QBrush;
         qtc.QTextFormat_SetBackground(@ptrCast(self.ptr), @ptrCast(brush.ptr));
     }
+
+    /// ### DEPRECATED: Use `background` instead
+    ///
+    pub const Background = background;
 
     /// Inherited from QTextFormat
     ///
@@ -4371,9 +5691,13 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` self: QTextListFormat `
     ///
-    pub fn Background(self: QTextListFormat) QBrush {
+    pub fn background(self: QTextListFormat) QBrush {
         return .{ .ptr = qtc.QTextFormat_Background(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearBackground` instead
+    ///
+    pub const ClearBackground = clearBackground;
 
     /// Inherited from QTextFormat
     ///
@@ -4383,9 +5707,13 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` self: QTextListFormat `
     ///
-    pub fn ClearBackground(self: QTextListFormat) void {
+    pub fn clearBackground(self: QTextListFormat) void {
         qtc.QTextFormat_ClearBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForeground` instead
+    ///
+    pub const SetForeground = setForeground;
 
     /// Inherited from QTextFormat
     ///
@@ -4397,10 +5725,14 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` brush: QBrush `
     ///
-    pub fn SetForeground(self: QTextListFormat, brush: anytype) void {
+    pub fn setForeground(self: QTextListFormat, brush: anytype) void {
         comptime _ = @TypeOf(brush)._is_QBrush;
         qtc.QTextFormat_SetForeground(@ptrCast(self.ptr), @ptrCast(brush.ptr));
     }
+
+    /// ### DEPRECATED: Use `foreground` instead
+    ///
+    pub const Foreground = foreground;
 
     /// Inherited from QTextFormat
     ///
@@ -4410,9 +5742,13 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` self: QTextListFormat `
     ///
-    pub fn Foreground(self: QTextListFormat) QBrush {
+    pub fn foreground(self: QTextListFormat) QBrush {
         return .{ .ptr = qtc.QTextFormat_Foreground(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearForeground` instead
+    ///
+    pub const ClearForeground = clearForeground;
 
     /// Inherited from QTextFormat
     ///
@@ -4422,23 +5758,23 @@ pub const QTextListFormat = extern struct {
     ///
     /// ` self: QTextListFormat `
     ///
-    pub fn ClearForeground(self: QTextListFormat) void {
+    pub fn clearForeground(self: QTextListFormat) void {
         qtc.QTextFormat_ClearForeground(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlistformat.html#dtor.QTextListFormat)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QTextListFormat `
     ///
-    pub fn Delete(self: QTextListFormat) void {
+    pub fn delete(self: QTextListFormat) void {
         qtc.QTextListFormat_Delete(@ptrCast(self.ptr));
     }
 };
@@ -4455,22 +5791,34 @@ pub const QTextImageFormat = extern struct {
     pub const _is_QTextCharFormat = {};
     pub const _is_QTextFormat = {};
 
-    /// New constructs a new QTextImageFormat object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QTextImageFormat {
+    pub const New = new;
+
+    /// Allocate a new QTextImageFormat object in C++ memory
+    ///
+    pub fn new() QTextImageFormat {
         return .{ .ptr = qtc.QTextImageFormat_new() };
     }
 
-    /// New2 constructs a new QTextImageFormat object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QTextImageFormat object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QTextImageFormat `
     ///
-    pub fn New2(param1: anytype) QTextImageFormat {
+    pub fn new2(param1: anytype) QTextImageFormat {
         comptime _ = @TypeOf(param1)._is_QTextImageFormat;
         return .{ .ptr = qtc.QTextImageFormat_new2(@ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextimageformat.html#isValid)
     ///
@@ -4478,9 +5826,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn IsValid(self: QTextImageFormat) bool {
+    pub fn isValid(self: QTextImageFormat) bool {
         return qtc.QTextImageFormat_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setName` instead
+    ///
+    pub const SetName = setName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextimageformat.html#setName)
     ///
@@ -4488,15 +5840,19 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn SetName(self: QTextImageFormat, name: []const u8) void {
+    pub fn setName(self: QTextImageFormat, _name: []const u8) void {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         qtc.QTextImageFormat_SetName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextimageformat.html#name)
     ///
@@ -4506,13 +5862,17 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: QTextImageFormat, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: QTextImageFormat, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextImageFormat_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextImageFormat.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextImageFormat.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWidth` instead
+    ///
+    pub const SetWidth = setWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextimageformat.html#setWidth)
     ///
@@ -4520,11 +5880,15 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    /// ` width: f64 `
+    /// ` _width: f64 `
     ///
-    pub fn SetWidth(self: QTextImageFormat, width: f64) void {
-        qtc.QTextImageFormat_SetWidth(@ptrCast(self.ptr), @bitCast(width));
+    pub fn setWidth(self: QTextImageFormat, _width: f64) void {
+        qtc.QTextImageFormat_SetWidth(@ptrCast(self.ptr), @bitCast(_width));
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextimageformat.html#width)
     ///
@@ -4532,9 +5896,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn Width(self: QTextImageFormat) f64 {
+    pub fn width(self: QTextImageFormat) f64 {
         return qtc.QTextImageFormat_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextimageformat.html#setMaximumWidth)
     ///
@@ -4544,10 +5912,14 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` maxWidth: QTextLength `
     ///
-    pub fn SetMaximumWidth(self: QTextImageFormat, maxWidth: anytype) void {
+    pub fn setMaximumWidth(self: QTextImageFormat, maxWidth: anytype) void {
         comptime _ = @TypeOf(maxWidth)._is_QTextLength;
         qtc.QTextImageFormat_SetMaximumWidth(@ptrCast(self.ptr), @ptrCast(maxWidth.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextimageformat.html#maximumWidth)
     ///
@@ -4555,9 +5927,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn MaximumWidth(self: QTextImageFormat) QTextLength {
+    pub fn maximumWidth(self: QTextImageFormat) QTextLength {
         return .{ .ptr = qtc.QTextImageFormat_MaximumWidth(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setHeight` instead
+    ///
+    pub const SetHeight = setHeight;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextimageformat.html#setHeight)
     ///
@@ -4565,11 +5941,15 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    /// ` height: f64 `
+    /// ` _height: f64 `
     ///
-    pub fn SetHeight(self: QTextImageFormat, height: f64) void {
-        qtc.QTextImageFormat_SetHeight(@ptrCast(self.ptr), @bitCast(height));
+    pub fn setHeight(self: QTextImageFormat, _height: f64) void {
+        qtc.QTextImageFormat_SetHeight(@ptrCast(self.ptr), @bitCast(_height));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextimageformat.html#height)
     ///
@@ -4577,21 +5957,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn Height(self: QTextImageFormat) f64 {
+    pub fn height(self: QTextImageFormat) f64 {
         return qtc.QTextImageFormat_Height(@ptrCast(self.ptr));
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextimageformat.html#setQuality)
+    /// ### DEPRECATED: Use `setQuality` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextImageFormat `
-    ///
-    /// ` quality: i32 `
-    ///
-    pub fn SetQuality(self: QTextImageFormat, quality: i32) void {
-        qtc.QTextImageFormat_SetQuality(@ptrCast(self.ptr), @bitCast(quality));
-    }
+    pub const SetQuality = setQuality;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextimageformat.html#setQuality)
     ///
@@ -4599,9 +5971,29 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn SetQuality2(self: QTextImageFormat) void {
+    /// ` _quality: i32 `
+    ///
+    pub fn setQuality(self: QTextImageFormat, _quality: i32) void {
+        qtc.QTextImageFormat_SetQuality(@ptrCast(self.ptr), @bitCast(_quality));
+    }
+
+    /// ### DEPRECATED: Use `setQuality2` instead
+    ///
+    pub const SetQuality2 = setQuality2;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextimageformat.html#setQuality)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QTextImageFormat `
+    ///
+    pub fn setQuality2(self: QTextImageFormat) void {
         qtc.QTextImageFormat_SetQuality2(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `quality` instead
+    ///
+    pub const Quality = quality;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextimageformat.html#quality)
     ///
@@ -4609,9 +6001,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn Quality(self: QTextImageFormat) i32 {
+    pub fn quality(self: QTextImageFormat) i32 {
         return qtc.QTextImageFormat_Quality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QTextCharFormat
     ///
@@ -4621,12 +6017,16 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: QTextImageFormat, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QTextCharFormat_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: QTextImageFormat, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QTextCharFormat_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QTextCharFormat
     ///
@@ -4636,9 +6036,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn Font(self: QTextImageFormat) QFont {
+    pub fn font(self: QTextImageFormat) QFont {
         return .{ .ptr = qtc.QTextCharFormat_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFontFamily` instead
+    ///
+    pub const SetFontFamily = setFontFamily;
 
     /// Inherited from QTextCharFormat
     ///
@@ -4650,13 +6054,17 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` family: []const u8 `
     ///
-    pub fn SetFontFamily(self: QTextImageFormat, family: []const u8) void {
+    pub fn setFontFamily(self: QTextImageFormat, family: []const u8) void {
         const family_str = qtc.libqt_string{
             .len = family.len,
             .data = family.ptr,
         };
         qtc.QTextCharFormat_SetFontFamily(@ptrCast(self.ptr), family_str);
     }
+
+    /// ### DEPRECATED: Use `fontFamily` instead
+    ///
+    pub const FontFamily = fontFamily;
 
     /// Inherited from QTextCharFormat
     ///
@@ -4668,13 +6076,17 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FontFamily(self: QTextImageFormat, allocator: std.mem.Allocator) []const u8 {
+    pub fn fontFamily(self: QTextImageFormat, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextCharFormat_FontFamily(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextImageFormat.FontFamily: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextImageFormat.fontFamily: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setFontFamilies` instead
+    ///
+    pub const SetFontFamilies = setFontFamilies;
 
     /// Inherited from QTextCharFormat
     ///
@@ -4688,13 +6100,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` families: []const []const u8 `
     ///
-    pub fn SetFontFamilies(self: QTextImageFormat, allocator: std.mem.Allocator, families: []const []const u8) void {
-        const families_arr = allocator.alloc(qtc.libqt_string, families.len) catch @panic("QTextImageFormat.SetFontFamilies: Memory allocation failed");
+    pub fn setFontFamilies(self: QTextImageFormat, allocator: std.mem.Allocator, families: []const []const u8) void {
+        const families_arr = allocator.alloc(qtc.libqt_string, families.len) catch @panic("QTextImageFormat.setFontFamilies: Memory allocation failed");
         defer allocator.free(families_arr);
-        for (families, 0..families.len) |item, i|
+        for (families, 0..families.len) |str_item, i|
             families_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const families_list = qtc.libqt_list{
             .len = families.len,
@@ -4702,6 +6114,10 @@ pub const QTextImageFormat = extern struct {
         };
         qtc.QTextCharFormat_SetFontFamilies(@ptrCast(self.ptr), families_list);
     }
+
+    /// ### DEPRECATED: Use `fontFamilies` instead
+    ///
+    pub const FontFamilies = fontFamilies;
 
     /// Inherited from QTextCharFormat
     ///
@@ -4711,9 +6127,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn FontFamilies(self: QTextImageFormat) QVariant {
+    pub fn fontFamilies(self: QTextImageFormat) QVariant {
         return .{ .ptr = qtc.QTextCharFormat_FontFamilies(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFontStyleName` instead
+    ///
+    pub const SetFontStyleName = setFontStyleName;
 
     /// Inherited from QTextCharFormat
     ///
@@ -4725,13 +6145,17 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` styleName: []const u8 `
     ///
-    pub fn SetFontStyleName(self: QTextImageFormat, styleName: []const u8) void {
+    pub fn setFontStyleName(self: QTextImageFormat, styleName: []const u8) void {
         const styleName_str = qtc.libqt_string{
             .len = styleName.len,
             .data = styleName.ptr,
         };
         qtc.QTextCharFormat_SetFontStyleName(@ptrCast(self.ptr), styleName_str);
     }
+
+    /// ### DEPRECATED: Use `fontStyleName` instead
+    ///
+    pub const FontStyleName = fontStyleName;
 
     /// Inherited from QTextCharFormat
     ///
@@ -4741,9 +6165,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn FontStyleName(self: QTextImageFormat) QVariant {
+    pub fn fontStyleName(self: QTextImageFormat) QVariant {
         return .{ .ptr = qtc.QTextCharFormat_FontStyleName(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFontPointSize` instead
+    ///
+    pub const SetFontPointSize = setFontPointSize;
 
     /// Inherited from QTextCharFormat
     ///
@@ -4755,9 +6183,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` size: f64 `
     ///
-    pub fn SetFontPointSize(self: QTextImageFormat, size: f64) void {
+    pub fn setFontPointSize(self: QTextImageFormat, size: f64) void {
         qtc.QTextCharFormat_SetFontPointSize(@ptrCast(self.ptr), @bitCast(size));
     }
+
+    /// ### DEPRECATED: Use `fontPointSize` instead
+    ///
+    pub const FontPointSize = fontPointSize;
 
     /// Inherited from QTextCharFormat
     ///
@@ -4767,9 +6199,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn FontPointSize(self: QTextImageFormat) f64 {
+    pub fn fontPointSize(self: QTextImageFormat) f64 {
         return qtc.QTextCharFormat_FontPointSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFontWeight` instead
+    ///
+    pub const SetFontWeight = setFontWeight;
 
     /// Inherited from QTextCharFormat
     ///
@@ -4781,9 +6217,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` weight: i32 `
     ///
-    pub fn SetFontWeight(self: QTextImageFormat, weight: i32) void {
+    pub fn setFontWeight(self: QTextImageFormat, weight: i32) void {
         qtc.QTextCharFormat_SetFontWeight(@ptrCast(self.ptr), @bitCast(weight));
     }
+
+    /// ### DEPRECATED: Use `fontWeight` instead
+    ///
+    pub const FontWeight = fontWeight;
 
     /// Inherited from QTextCharFormat
     ///
@@ -4793,9 +6233,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn FontWeight(self: QTextImageFormat) i32 {
+    pub fn fontWeight(self: QTextImageFormat) i32 {
         return qtc.QTextCharFormat_FontWeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFontItalic` instead
+    ///
+    pub const SetFontItalic = setFontItalic;
 
     /// Inherited from QTextCharFormat
     ///
@@ -4807,9 +6251,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` italic: bool `
     ///
-    pub fn SetFontItalic(self: QTextImageFormat, italic: bool) void {
+    pub fn setFontItalic(self: QTextImageFormat, italic: bool) void {
         qtc.QTextCharFormat_SetFontItalic(@ptrCast(self.ptr), italic);
     }
+
+    /// ### DEPRECATED: Use `fontItalic` instead
+    ///
+    pub const FontItalic = fontItalic;
 
     /// Inherited from QTextCharFormat
     ///
@@ -4819,9 +6267,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn FontItalic(self: QTextImageFormat) bool {
+    pub fn fontItalic(self: QTextImageFormat) bool {
         return qtc.QTextCharFormat_FontItalic(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFontCapitalization` instead
+    ///
+    pub const SetFontCapitalization = setFontCapitalization;
 
     /// Inherited from QTextCharFormat
     ///
@@ -4833,9 +6285,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` capitalization: qfont_enums.Capitalization `
     ///
-    pub fn SetFontCapitalization(self: QTextImageFormat, capitalization: i32) void {
+    pub fn setFontCapitalization(self: QTextImageFormat, capitalization: i32) void {
         qtc.QTextCharFormat_SetFontCapitalization(@ptrCast(self.ptr), @bitCast(capitalization));
     }
+
+    /// ### DEPRECATED: Use `fontCapitalization` instead
+    ///
+    pub const FontCapitalization = fontCapitalization;
 
     /// Inherited from QTextCharFormat
     ///
@@ -4849,9 +6305,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` qfont_enums.Capitalization `
     ///
-    pub fn FontCapitalization(self: QTextImageFormat) i32 {
+    pub fn fontCapitalization(self: QTextImageFormat) i32 {
         return qtc.QTextCharFormat_FontCapitalization(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFontLetterSpacingType` instead
+    ///
+    pub const SetFontLetterSpacingType = setFontLetterSpacingType;
 
     /// Inherited from QTextCharFormat
     ///
@@ -4863,9 +6323,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` letterSpacingType: qfont_enums.SpacingType `
     ///
-    pub fn SetFontLetterSpacingType(self: QTextImageFormat, letterSpacingType: i32) void {
+    pub fn setFontLetterSpacingType(self: QTextImageFormat, letterSpacingType: i32) void {
         qtc.QTextCharFormat_SetFontLetterSpacingType(@ptrCast(self.ptr), @bitCast(letterSpacingType));
     }
+
+    /// ### DEPRECATED: Use `fontLetterSpacingType` instead
+    ///
+    pub const FontLetterSpacingType = fontLetterSpacingType;
 
     /// Inherited from QTextCharFormat
     ///
@@ -4879,9 +6343,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` qfont_enums.SpacingType `
     ///
-    pub fn FontLetterSpacingType(self: QTextImageFormat) i32 {
+    pub fn fontLetterSpacingType(self: QTextImageFormat) i32 {
         return qtc.QTextCharFormat_FontLetterSpacingType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFontLetterSpacing` instead
+    ///
+    pub const SetFontLetterSpacing = setFontLetterSpacing;
 
     /// Inherited from QTextCharFormat
     ///
@@ -4893,9 +6361,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` spacing: f64 `
     ///
-    pub fn SetFontLetterSpacing(self: QTextImageFormat, spacing: f64) void {
+    pub fn setFontLetterSpacing(self: QTextImageFormat, spacing: f64) void {
         qtc.QTextCharFormat_SetFontLetterSpacing(@ptrCast(self.ptr), @bitCast(spacing));
     }
+
+    /// ### DEPRECATED: Use `fontLetterSpacing` instead
+    ///
+    pub const FontLetterSpacing = fontLetterSpacing;
 
     /// Inherited from QTextCharFormat
     ///
@@ -4905,9 +6377,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn FontLetterSpacing(self: QTextImageFormat) f64 {
+    pub fn fontLetterSpacing(self: QTextImageFormat) f64 {
         return qtc.QTextCharFormat_FontLetterSpacing(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFontWordSpacing` instead
+    ///
+    pub const SetFontWordSpacing = setFontWordSpacing;
 
     /// Inherited from QTextCharFormat
     ///
@@ -4919,9 +6395,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` spacing: f64 `
     ///
-    pub fn SetFontWordSpacing(self: QTextImageFormat, spacing: f64) void {
+    pub fn setFontWordSpacing(self: QTextImageFormat, spacing: f64) void {
         qtc.QTextCharFormat_SetFontWordSpacing(@ptrCast(self.ptr), @bitCast(spacing));
     }
+
+    /// ### DEPRECATED: Use `fontWordSpacing` instead
+    ///
+    pub const FontWordSpacing = fontWordSpacing;
 
     /// Inherited from QTextCharFormat
     ///
@@ -4931,9 +6411,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn FontWordSpacing(self: QTextImageFormat) f64 {
+    pub fn fontWordSpacing(self: QTextImageFormat) f64 {
         return qtc.QTextCharFormat_FontWordSpacing(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFontUnderline` instead
+    ///
+    pub const SetFontUnderline = setFontUnderline;
 
     /// Inherited from QTextCharFormat
     ///
@@ -4945,9 +6429,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` underline: bool `
     ///
-    pub fn SetFontUnderline(self: QTextImageFormat, underline: bool) void {
+    pub fn setFontUnderline(self: QTextImageFormat, underline: bool) void {
         qtc.QTextCharFormat_SetFontUnderline(@ptrCast(self.ptr), underline);
     }
+
+    /// ### DEPRECATED: Use `fontUnderline` instead
+    ///
+    pub const FontUnderline = fontUnderline;
 
     /// Inherited from QTextCharFormat
     ///
@@ -4957,9 +6445,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn FontUnderline(self: QTextImageFormat) bool {
+    pub fn fontUnderline(self: QTextImageFormat) bool {
         return qtc.QTextCharFormat_FontUnderline(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFontOverline` instead
+    ///
+    pub const SetFontOverline = setFontOverline;
 
     /// Inherited from QTextCharFormat
     ///
@@ -4971,9 +6463,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` overline: bool `
     ///
-    pub fn SetFontOverline(self: QTextImageFormat, overline: bool) void {
+    pub fn setFontOverline(self: QTextImageFormat, overline: bool) void {
         qtc.QTextCharFormat_SetFontOverline(@ptrCast(self.ptr), overline);
     }
+
+    /// ### DEPRECATED: Use `fontOverline` instead
+    ///
+    pub const FontOverline = fontOverline;
 
     /// Inherited from QTextCharFormat
     ///
@@ -4983,9 +6479,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn FontOverline(self: QTextImageFormat) bool {
+    pub fn fontOverline(self: QTextImageFormat) bool {
         return qtc.QTextCharFormat_FontOverline(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFontStrikeOut` instead
+    ///
+    pub const SetFontStrikeOut = setFontStrikeOut;
 
     /// Inherited from QTextCharFormat
     ///
@@ -4997,9 +6497,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` strikeOut: bool `
     ///
-    pub fn SetFontStrikeOut(self: QTextImageFormat, strikeOut: bool) void {
+    pub fn setFontStrikeOut(self: QTextImageFormat, strikeOut: bool) void {
         qtc.QTextCharFormat_SetFontStrikeOut(@ptrCast(self.ptr), strikeOut);
     }
+
+    /// ### DEPRECATED: Use `fontStrikeOut` instead
+    ///
+    pub const FontStrikeOut = fontStrikeOut;
 
     /// Inherited from QTextCharFormat
     ///
@@ -5009,9 +6513,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn FontStrikeOut(self: QTextImageFormat) bool {
+    pub fn fontStrikeOut(self: QTextImageFormat) bool {
         return qtc.QTextCharFormat_FontStrikeOut(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUnderlineColor` instead
+    ///
+    pub const SetUnderlineColor = setUnderlineColor;
 
     /// Inherited from QTextCharFormat
     ///
@@ -5023,10 +6531,14 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` color: QColor `
     ///
-    pub fn SetUnderlineColor(self: QTextImageFormat, color: anytype) void {
+    pub fn setUnderlineColor(self: QTextImageFormat, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.QTextCharFormat_SetUnderlineColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
+
+    /// ### DEPRECATED: Use `underlineColor` instead
+    ///
+    pub const UnderlineColor = underlineColor;
 
     /// Inherited from QTextCharFormat
     ///
@@ -5036,9 +6548,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn UnderlineColor(self: QTextImageFormat) QColor {
+    pub fn underlineColor(self: QTextImageFormat) QColor {
         return .{ .ptr = qtc.QTextCharFormat_UnderlineColor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFontFixedPitch` instead
+    ///
+    pub const SetFontFixedPitch = setFontFixedPitch;
 
     /// Inherited from QTextCharFormat
     ///
@@ -5050,9 +6566,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` fixedPitch: bool `
     ///
-    pub fn SetFontFixedPitch(self: QTextImageFormat, fixedPitch: bool) void {
+    pub fn setFontFixedPitch(self: QTextImageFormat, fixedPitch: bool) void {
         qtc.QTextCharFormat_SetFontFixedPitch(@ptrCast(self.ptr), fixedPitch);
     }
+
+    /// ### DEPRECATED: Use `fontFixedPitch` instead
+    ///
+    pub const FontFixedPitch = fontFixedPitch;
 
     /// Inherited from QTextCharFormat
     ///
@@ -5062,9 +6582,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn FontFixedPitch(self: QTextImageFormat) bool {
+    pub fn fontFixedPitch(self: QTextImageFormat) bool {
         return qtc.QTextCharFormat_FontFixedPitch(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFontStretch` instead
+    ///
+    pub const SetFontStretch = setFontStretch;
 
     /// Inherited from QTextCharFormat
     ///
@@ -5076,9 +6600,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` factor: i32 `
     ///
-    pub fn SetFontStretch(self: QTextImageFormat, factor: i32) void {
+    pub fn setFontStretch(self: QTextImageFormat, factor: i32) void {
         qtc.QTextCharFormat_SetFontStretch(@ptrCast(self.ptr), @bitCast(factor));
     }
+
+    /// ### DEPRECATED: Use `fontStretch` instead
+    ///
+    pub const FontStretch = fontStretch;
 
     /// Inherited from QTextCharFormat
     ///
@@ -5088,9 +6616,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn FontStretch(self: QTextImageFormat) i32 {
+    pub fn fontStretch(self: QTextImageFormat) i32 {
         return qtc.QTextCharFormat_FontStretch(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFontStyleHint` instead
+    ///
+    pub const SetFontStyleHint = setFontStyleHint;
 
     /// Inherited from QTextCharFormat
     ///
@@ -5102,9 +6634,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` hint: qfont_enums.StyleHint `
     ///
-    pub fn SetFontStyleHint(self: QTextImageFormat, hint: i32) void {
+    pub fn setFontStyleHint(self: QTextImageFormat, hint: i32) void {
         qtc.QTextCharFormat_SetFontStyleHint(@ptrCast(self.ptr), @bitCast(hint));
     }
+
+    /// ### DEPRECATED: Use `setFontStyleStrategy` instead
+    ///
+    pub const SetFontStyleStrategy = setFontStyleStrategy;
 
     /// Inherited from QTextCharFormat
     ///
@@ -5116,9 +6652,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` strategy: qfont_enums.StyleStrategy `
     ///
-    pub fn SetFontStyleStrategy(self: QTextImageFormat, strategy: i32) void {
+    pub fn setFontStyleStrategy(self: QTextImageFormat, strategy: i32) void {
         qtc.QTextCharFormat_SetFontStyleStrategy(@ptrCast(self.ptr), @bitCast(strategy));
     }
+
+    /// ### DEPRECATED: Use `fontStyleHint` instead
+    ///
+    pub const FontStyleHint = fontStyleHint;
 
     /// Inherited from QTextCharFormat
     ///
@@ -5132,9 +6672,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` qfont_enums.StyleHint `
     ///
-    pub fn FontStyleHint(self: QTextImageFormat) i32 {
+    pub fn fontStyleHint(self: QTextImageFormat) i32 {
         return qtc.QTextCharFormat_FontStyleHint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontStyleStrategy` instead
+    ///
+    pub const FontStyleStrategy = fontStyleStrategy;
 
     /// Inherited from QTextCharFormat
     ///
@@ -5148,9 +6692,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` qfont_enums.StyleStrategy `
     ///
-    pub fn FontStyleStrategy(self: QTextImageFormat) i32 {
+    pub fn fontStyleStrategy(self: QTextImageFormat) i32 {
         return qtc.QTextCharFormat_FontStyleStrategy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFontHintingPreference` instead
+    ///
+    pub const SetFontHintingPreference = setFontHintingPreference;
 
     /// Inherited from QTextCharFormat
     ///
@@ -5162,9 +6710,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` hintingPreference: qfont_enums.HintingPreference `
     ///
-    pub fn SetFontHintingPreference(self: QTextImageFormat, hintingPreference: i32) void {
+    pub fn setFontHintingPreference(self: QTextImageFormat, hintingPreference: i32) void {
         qtc.QTextCharFormat_SetFontHintingPreference(@ptrCast(self.ptr), @bitCast(hintingPreference));
     }
+
+    /// ### DEPRECATED: Use `fontHintingPreference` instead
+    ///
+    pub const FontHintingPreference = fontHintingPreference;
 
     /// Inherited from QTextCharFormat
     ///
@@ -5178,9 +6730,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` qfont_enums.HintingPreference `
     ///
-    pub fn FontHintingPreference(self: QTextImageFormat) i32 {
+    pub fn fontHintingPreference(self: QTextImageFormat) i32 {
         return qtc.QTextCharFormat_FontHintingPreference(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFontKerning` instead
+    ///
+    pub const SetFontKerning = setFontKerning;
 
     /// Inherited from QTextCharFormat
     ///
@@ -5192,9 +6748,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetFontKerning(self: QTextImageFormat, enable: bool) void {
+    pub fn setFontKerning(self: QTextImageFormat, enable: bool) void {
         qtc.QTextCharFormat_SetFontKerning(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `fontKerning` instead
+    ///
+    pub const FontKerning = fontKerning;
 
     /// Inherited from QTextCharFormat
     ///
@@ -5204,9 +6764,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn FontKerning(self: QTextImageFormat) bool {
+    pub fn fontKerning(self: QTextImageFormat) bool {
         return qtc.QTextCharFormat_FontKerning(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUnderlineStyle` instead
+    ///
+    pub const SetUnderlineStyle = setUnderlineStyle;
 
     /// Inherited from QTextCharFormat
     ///
@@ -5216,11 +6780,15 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    /// ` style: qtextformat_enums.UnderlineStyle `
+    /// ` _style: qtextformat_enums.UnderlineStyle `
     ///
-    pub fn SetUnderlineStyle(self: QTextImageFormat, style: i32) void {
-        qtc.QTextCharFormat_SetUnderlineStyle(@ptrCast(self.ptr), @bitCast(style));
+    pub fn setUnderlineStyle(self: QTextImageFormat, _style: i32) void {
+        qtc.QTextCharFormat_SetUnderlineStyle(@ptrCast(self.ptr), @bitCast(_style));
     }
+
+    /// ### DEPRECATED: Use `underlineStyle` instead
+    ///
+    pub const UnderlineStyle = underlineStyle;
 
     /// Inherited from QTextCharFormat
     ///
@@ -5234,9 +6802,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` qtextformat_enums.UnderlineStyle `
     ///
-    pub fn UnderlineStyle(self: QTextImageFormat) i32 {
+    pub fn underlineStyle(self: QTextImageFormat) i32 {
         return qtc.QTextCharFormat_UnderlineStyle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setVerticalAlignment` instead
+    ///
+    pub const SetVerticalAlignment = setVerticalAlignment;
 
     /// Inherited from QTextCharFormat
     ///
@@ -5246,11 +6818,15 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    /// ` alignment: qtextformat_enums.VerticalAlignment `
+    /// ` _alignment: qtextformat_enums.VerticalAlignment `
     ///
-    pub fn SetVerticalAlignment(self: QTextImageFormat, alignment: i32) void {
-        qtc.QTextCharFormat_SetVerticalAlignment(@ptrCast(self.ptr), @bitCast(alignment));
+    pub fn setVerticalAlignment(self: QTextImageFormat, _alignment: i32) void {
+        qtc.QTextCharFormat_SetVerticalAlignment(@ptrCast(self.ptr), @bitCast(_alignment));
     }
+
+    /// ### DEPRECATED: Use `verticalAlignment` instead
+    ///
+    pub const VerticalAlignment = verticalAlignment;
 
     /// Inherited from QTextCharFormat
     ///
@@ -5264,9 +6840,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` qtextformat_enums.VerticalAlignment `
     ///
-    pub fn VerticalAlignment(self: QTextImageFormat) i32 {
+    pub fn verticalAlignment(self: QTextImageFormat) i32 {
         return qtc.QTextCharFormat_VerticalAlignment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTextOutline` instead
+    ///
+    pub const SetTextOutline = setTextOutline;
 
     /// Inherited from QTextCharFormat
     ///
@@ -5278,10 +6858,14 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` pen: QPen `
     ///
-    pub fn SetTextOutline(self: QTextImageFormat, pen: anytype) void {
+    pub fn setTextOutline(self: QTextImageFormat, pen: anytype) void {
         comptime _ = @TypeOf(pen)._is_QPen;
         qtc.QTextCharFormat_SetTextOutline(@ptrCast(self.ptr), @ptrCast(pen.ptr));
     }
+
+    /// ### DEPRECATED: Use `textOutline` instead
+    ///
+    pub const TextOutline = textOutline;
 
     /// Inherited from QTextCharFormat
     ///
@@ -5291,9 +6875,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn TextOutline(self: QTextImageFormat) QPen {
+    pub fn textOutline(self: QTextImageFormat) QPen {
         return .{ .ptr = qtc.QTextCharFormat_TextOutline(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QTextCharFormat
     ///
@@ -5305,13 +6893,17 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` tip: []const u8 `
     ///
-    pub fn SetToolTip(self: QTextImageFormat, tip: []const u8) void {
+    pub fn setToolTip(self: QTextImageFormat, tip: []const u8) void {
         const tip_str = qtc.libqt_string{
             .len = tip.len,
             .data = tip.ptr,
         };
         qtc.QTextCharFormat_SetToolTip(@ptrCast(self.ptr), tip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QTextCharFormat
     ///
@@ -5323,13 +6915,17 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: QTextImageFormat, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: QTextImageFormat, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextCharFormat_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextImageFormat.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextImageFormat.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setSuperScriptBaseline` instead
+    ///
+    pub const SetSuperScriptBaseline = setSuperScriptBaseline;
 
     /// Inherited from QTextCharFormat
     ///
@@ -5341,9 +6937,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` baseline: f64 `
     ///
-    pub fn SetSuperScriptBaseline(self: QTextImageFormat, baseline: f64) void {
+    pub fn setSuperScriptBaseline(self: QTextImageFormat, baseline: f64) void {
         qtc.QTextCharFormat_SetSuperScriptBaseline(@ptrCast(self.ptr), @bitCast(baseline));
     }
+
+    /// ### DEPRECATED: Use `superScriptBaseline` instead
+    ///
+    pub const SuperScriptBaseline = superScriptBaseline;
 
     /// Inherited from QTextCharFormat
     ///
@@ -5353,9 +6953,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn SuperScriptBaseline(self: QTextImageFormat) f64 {
+    pub fn superScriptBaseline(self: QTextImageFormat) f64 {
         return qtc.QTextCharFormat_SuperScriptBaseline(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSubScriptBaseline` instead
+    ///
+    pub const SetSubScriptBaseline = setSubScriptBaseline;
 
     /// Inherited from QTextCharFormat
     ///
@@ -5367,9 +6971,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` baseline: f64 `
     ///
-    pub fn SetSubScriptBaseline(self: QTextImageFormat, baseline: f64) void {
+    pub fn setSubScriptBaseline(self: QTextImageFormat, baseline: f64) void {
         qtc.QTextCharFormat_SetSubScriptBaseline(@ptrCast(self.ptr), @bitCast(baseline));
     }
+
+    /// ### DEPRECATED: Use `subScriptBaseline` instead
+    ///
+    pub const SubScriptBaseline = subScriptBaseline;
 
     /// Inherited from QTextCharFormat
     ///
@@ -5379,9 +6987,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn SubScriptBaseline(self: QTextImageFormat) f64 {
+    pub fn subScriptBaseline(self: QTextImageFormat) f64 {
         return qtc.QTextCharFormat_SubScriptBaseline(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaselineOffset` instead
+    ///
+    pub const SetBaselineOffset = setBaselineOffset;
 
     /// Inherited from QTextCharFormat
     ///
@@ -5393,9 +7005,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` baseline: f64 `
     ///
-    pub fn SetBaselineOffset(self: QTextImageFormat, baseline: f64) void {
+    pub fn setBaselineOffset(self: QTextImageFormat, baseline: f64) void {
         qtc.QTextCharFormat_SetBaselineOffset(@ptrCast(self.ptr), @bitCast(baseline));
     }
+
+    /// ### DEPRECATED: Use `baselineOffset` instead
+    ///
+    pub const BaselineOffset = baselineOffset;
 
     /// Inherited from QTextCharFormat
     ///
@@ -5405,9 +7021,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn BaselineOffset(self: QTextImageFormat) f64 {
+    pub fn baselineOffset(self: QTextImageFormat) f64 {
         return qtc.QTextCharFormat_BaselineOffset(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAnchor` instead
+    ///
+    pub const SetAnchor = setAnchor;
 
     /// Inherited from QTextCharFormat
     ///
@@ -5419,9 +7039,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` anchor: bool `
     ///
-    pub fn SetAnchor(self: QTextImageFormat, anchor: bool) void {
+    pub fn setAnchor(self: QTextImageFormat, anchor: bool) void {
         qtc.QTextCharFormat_SetAnchor(@ptrCast(self.ptr), anchor);
     }
+
+    /// ### DEPRECATED: Use `isAnchor` instead
+    ///
+    pub const IsAnchor = isAnchor;
 
     /// Inherited from QTextCharFormat
     ///
@@ -5431,9 +7055,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn IsAnchor(self: QTextImageFormat) bool {
+    pub fn isAnchor(self: QTextImageFormat) bool {
         return qtc.QTextCharFormat_IsAnchor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAnchorHref` instead
+    ///
+    pub const SetAnchorHref = setAnchorHref;
 
     /// Inherited from QTextCharFormat
     ///
@@ -5443,15 +7071,19 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    /// ` value: []const u8 `
+    /// ` _value: []const u8 `
     ///
-    pub fn SetAnchorHref(self: QTextImageFormat, value: []const u8) void {
+    pub fn setAnchorHref(self: QTextImageFormat, _value: []const u8) void {
         const value_str = qtc.libqt_string{
-            .len = value.len,
-            .data = value.ptr,
+            .len = _value.len,
+            .data = _value.ptr,
         };
         qtc.QTextCharFormat_SetAnchorHref(@ptrCast(self.ptr), value_str);
     }
+
+    /// ### DEPRECATED: Use `anchorHref` instead
+    ///
+    pub const AnchorHref = anchorHref;
 
     /// Inherited from QTextCharFormat
     ///
@@ -5463,13 +7095,17 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AnchorHref(self: QTextImageFormat, allocator: std.mem.Allocator) []const u8 {
+    pub fn anchorHref(self: QTextImageFormat, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextCharFormat_AnchorHref(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextImageFormat.AnchorHref: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextImageFormat.anchorHref: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAnchorNames` instead
+    ///
+    pub const SetAnchorNames = setAnchorNames;
 
     /// Inherited from QTextCharFormat
     ///
@@ -5483,13 +7119,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` names: []const []const u8 `
     ///
-    pub fn SetAnchorNames(self: QTextImageFormat, allocator: std.mem.Allocator, names: []const []const u8) void {
-        const names_arr = allocator.alloc(qtc.libqt_string, names.len) catch @panic("QTextImageFormat.SetAnchorNames: Memory allocation failed");
+    pub fn setAnchorNames(self: QTextImageFormat, allocator: std.mem.Allocator, names: []const []const u8) void {
+        const names_arr = allocator.alloc(qtc.libqt_string, names.len) catch @panic("QTextImageFormat.setAnchorNames: Memory allocation failed");
         defer allocator.free(names_arr);
-        for (names, 0..names.len) |item, i|
+        for (names, 0..names.len) |str_item, i|
             names_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const names_list = qtc.libqt_list{
             .len = names.len,
@@ -5497,6 +7133,10 @@ pub const QTextImageFormat = extern struct {
         };
         qtc.QTextCharFormat_SetAnchorNames(@ptrCast(self.ptr), names_list);
     }
+
+    /// ### DEPRECATED: Use `anchorNames` instead
+    ///
+    pub const AnchorNames = anchorNames;
 
     /// Inherited from QTextCharFormat
     ///
@@ -5508,7 +7148,7 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AnchorNames(self: QTextImageFormat, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn anchorNames(self: QTextImageFormat, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QTextCharFormat_AnchorNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -5516,15 +7156,19 @@ pub const QTextImageFormat = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QTextImageFormat.AnchorNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QTextImageFormat.anchorNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QTextImageFormat.AnchorNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QTextImageFormat.anchorNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setTableCellRowSpan` instead
+    ///
+    pub const SetTableCellRowSpan = setTableCellRowSpan;
 
     /// Inherited from QTextCharFormat
     ///
@@ -5534,11 +7178,15 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    /// ` tableCellRowSpan: i32 `
+    /// ` _tableCellRowSpan: i32 `
     ///
-    pub fn SetTableCellRowSpan(self: QTextImageFormat, tableCellRowSpan: i32) void {
-        qtc.QTextCharFormat_SetTableCellRowSpan(@ptrCast(self.ptr), @bitCast(tableCellRowSpan));
+    pub fn setTableCellRowSpan(self: QTextImageFormat, _tableCellRowSpan: i32) void {
+        qtc.QTextCharFormat_SetTableCellRowSpan(@ptrCast(self.ptr), @bitCast(_tableCellRowSpan));
     }
+
+    /// ### DEPRECATED: Use `tableCellRowSpan` instead
+    ///
+    pub const TableCellRowSpan = tableCellRowSpan;
 
     /// Inherited from QTextCharFormat
     ///
@@ -5548,9 +7196,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn TableCellRowSpan(self: QTextImageFormat) i32 {
+    pub fn tableCellRowSpan(self: QTextImageFormat) i32 {
         return qtc.QTextCharFormat_TableCellRowSpan(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTableCellColumnSpan` instead
+    ///
+    pub const SetTableCellColumnSpan = setTableCellColumnSpan;
 
     /// Inherited from QTextCharFormat
     ///
@@ -5560,11 +7212,15 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    /// ` tableCellColumnSpan: i32 `
+    /// ` _tableCellColumnSpan: i32 `
     ///
-    pub fn SetTableCellColumnSpan(self: QTextImageFormat, tableCellColumnSpan: i32) void {
-        qtc.QTextCharFormat_SetTableCellColumnSpan(@ptrCast(self.ptr), @bitCast(tableCellColumnSpan));
+    pub fn setTableCellColumnSpan(self: QTextImageFormat, _tableCellColumnSpan: i32) void {
+        qtc.QTextCharFormat_SetTableCellColumnSpan(@ptrCast(self.ptr), @bitCast(_tableCellColumnSpan));
     }
+
+    /// ### DEPRECATED: Use `tableCellColumnSpan` instead
+    ///
+    pub const TableCellColumnSpan = tableCellColumnSpan;
 
     /// Inherited from QTextCharFormat
     ///
@@ -5574,9 +7230,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn TableCellColumnSpan(self: QTextImageFormat) i32 {
+    pub fn tableCellColumnSpan(self: QTextImageFormat) i32 {
         return qtc.QTextCharFormat_TableCellColumnSpan(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFont2` instead
+    ///
+    pub const SetFont2 = setFont2;
 
     /// Inherited from QTextCharFormat
     ///
@@ -5586,14 +7246,18 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
     /// ` behavior: qtextformat_enums.FontPropertiesInheritanceBehavior `
     ///
-    pub fn SetFont2(self: QTextImageFormat, font: anytype, behavior: i32) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QTextCharFormat_SetFont2(@ptrCast(self.ptr), @ptrCast(font.ptr), @bitCast(behavior));
+    pub fn setFont2(self: QTextImageFormat, _font: anytype, behavior: i32) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QTextCharFormat_SetFont2(@ptrCast(self.ptr), @ptrCast(_font.ptr), @bitCast(behavior));
     }
+
+    /// ### DEPRECATED: Use `setFontStyleHint2` instead
+    ///
+    pub const SetFontStyleHint2 = setFontStyleHint2;
 
     /// Inherited from QTextCharFormat
     ///
@@ -5607,9 +7271,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` strategy: qfont_enums.StyleStrategy `
     ///
-    pub fn SetFontStyleHint2(self: QTextImageFormat, hint: i32, strategy: i32) void {
+    pub fn setFontStyleHint2(self: QTextImageFormat, hint: i32, strategy: i32) void {
         qtc.QTextCharFormat_SetFontStyleHint2(@ptrCast(self.ptr), @bitCast(hint), @bitCast(strategy));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// Inherited from QTextFormat
     ///
@@ -5621,10 +7289,14 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` rhs: QTextFormat `
     ///
-    pub fn OperatorAssign(self: QTextImageFormat, rhs: anytype) void {
+    pub fn operatorAssign(self: QTextImageFormat, rhs: anytype) void {
         comptime _ = @TypeOf(rhs)._is_QTextFormat;
         qtc.QTextFormat_OperatorAssign(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// Inherited from QTextFormat
     ///
@@ -5636,10 +7308,14 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` other: QTextFormat `
     ///
-    pub fn Swap(self: QTextImageFormat, other: anytype) void {
+    pub fn swap(self: QTextImageFormat, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QTextFormat;
         qtc.QTextFormat_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `merge` instead
+    ///
+    pub const Merge = merge;
 
     /// Inherited from QTextFormat
     ///
@@ -5651,10 +7327,14 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` other: QTextFormat `
     ///
-    pub fn Merge(self: QTextImageFormat, other: anytype) void {
+    pub fn merge(self: QTextImageFormat, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QTextFormat;
         qtc.QTextFormat_Merge(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEmpty` instead
+    ///
+    pub const IsEmpty = isEmpty;
 
     /// Inherited from QTextFormat
     ///
@@ -5664,9 +7344,15 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn IsEmpty(self: QTextImageFormat) bool {
+    pub fn isEmpty(self: QTextImageFormat) bool {
         return qtc.QTextFormat_IsEmpty(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QTextFormat
     ///
@@ -5676,9 +7362,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn Type(self: QTextImageFormat) i32 {
+    pub fn type0(self: QTextImageFormat) i32 {
         return qtc.QTextFormat_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `objectIndex` instead
+    ///
+    pub const ObjectIndex = objectIndex;
 
     /// Inherited from QTextFormat
     ///
@@ -5688,9 +7378,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn ObjectIndex(self: QTextImageFormat) i32 {
+    pub fn objectIndex(self: QTextImageFormat) i32 {
         return qtc.QTextFormat_ObjectIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setObjectIndex` instead
+    ///
+    pub const SetObjectIndex = setObjectIndex;
 
     /// Inherited from QTextFormat
     ///
@@ -5702,9 +7396,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` object: i32 `
     ///
-    pub fn SetObjectIndex(self: QTextImageFormat, object: i32) void {
+    pub fn setObjectIndex(self: QTextImageFormat, object: i32) void {
         qtc.QTextFormat_SetObjectIndex(@ptrCast(self.ptr), @bitCast(object));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QTextFormat
     ///
@@ -5716,9 +7414,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn Property(self: QTextImageFormat, propertyId: i32) QVariant {
+    pub fn property(self: QTextImageFormat, propertyId: i32) QVariant {
         return .{ .ptr = qtc.QTextFormat_Property(@ptrCast(self.ptr), @bitCast(propertyId)) };
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -5730,12 +7432,16 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    /// ` value: QVariant `
+    /// ` _value: QVariant `
     ///
-    pub fn SetProperty(self: QTextImageFormat, propertyId: i32, value: anytype) void {
-        comptime _ = @TypeOf(value)._is_QVariant;
-        qtc.QTextFormat_SetProperty(@ptrCast(self.ptr), @bitCast(propertyId), @ptrCast(value.ptr));
+    pub fn setProperty(self: QTextImageFormat, propertyId: i32, _value: anytype) void {
+        comptime _ = @TypeOf(_value)._is_QVariant;
+        qtc.QTextFormat_SetProperty(@ptrCast(self.ptr), @bitCast(propertyId), @ptrCast(_value.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearProperty` instead
+    ///
+    pub const ClearProperty = clearProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -5747,9 +7453,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn ClearProperty(self: QTextImageFormat, propertyId: i32) void {
+    pub fn clearProperty(self: QTextImageFormat, propertyId: i32) void {
         qtc.QTextFormat_ClearProperty(@ptrCast(self.ptr), @bitCast(propertyId));
     }
+
+    /// ### DEPRECATED: Use `hasProperty` instead
+    ///
+    pub const HasProperty = hasProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -5761,9 +7471,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn HasProperty(self: QTextImageFormat, propertyId: i32) bool {
+    pub fn hasProperty(self: QTextImageFormat, propertyId: i32) bool {
         return qtc.QTextFormat_HasProperty(@ptrCast(self.ptr), @bitCast(propertyId));
     }
+
+    /// ### DEPRECATED: Use `boolProperty` instead
+    ///
+    pub const BoolProperty = boolProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -5775,9 +7489,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn BoolProperty(self: QTextImageFormat, propertyId: i32) bool {
+    pub fn boolProperty(self: QTextImageFormat, propertyId: i32) bool {
         return qtc.QTextFormat_BoolProperty(@ptrCast(self.ptr), @bitCast(propertyId));
     }
+
+    /// ### DEPRECATED: Use `intProperty` instead
+    ///
+    pub const IntProperty = intProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -5789,9 +7507,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn IntProperty(self: QTextImageFormat, propertyId: i32) i32 {
+    pub fn intProperty(self: QTextImageFormat, propertyId: i32) i32 {
         return qtc.QTextFormat_IntProperty(@ptrCast(self.ptr), @bitCast(propertyId));
     }
+
+    /// ### DEPRECATED: Use `doubleProperty` instead
+    ///
+    pub const DoubleProperty = doubleProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -5803,9 +7525,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn DoubleProperty(self: QTextImageFormat, propertyId: i32) f64 {
+    pub fn doubleProperty(self: QTextImageFormat, propertyId: i32) f64 {
         return qtc.QTextFormat_DoubleProperty(@ptrCast(self.ptr), @bitCast(propertyId));
     }
+
+    /// ### DEPRECATED: Use `stringProperty` instead
+    ///
+    pub const StringProperty = stringProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -5819,13 +7545,17 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn StringProperty(self: QTextImageFormat, allocator: std.mem.Allocator, propertyId: i32) []const u8 {
+    pub fn stringProperty(self: QTextImageFormat, allocator: std.mem.Allocator, propertyId: i32) []const u8 {
         var _str = qtc.QTextFormat_StringProperty(@ptrCast(self.ptr), @bitCast(propertyId));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextImageFormat.StringProperty: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextImageFormat.stringProperty: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `colorProperty` instead
+    ///
+    pub const ColorProperty = colorProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -5837,9 +7567,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn ColorProperty(self: QTextImageFormat, propertyId: i32) QColor {
+    pub fn colorProperty(self: QTextImageFormat, propertyId: i32) QColor {
         return .{ .ptr = qtc.QTextFormat_ColorProperty(@ptrCast(self.ptr), @bitCast(propertyId)) };
     }
+
+    /// ### DEPRECATED: Use `penProperty` instead
+    ///
+    pub const PenProperty = penProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -5851,9 +7585,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn PenProperty(self: QTextImageFormat, propertyId: i32) QPen {
+    pub fn penProperty(self: QTextImageFormat, propertyId: i32) QPen {
         return .{ .ptr = qtc.QTextFormat_PenProperty(@ptrCast(self.ptr), @bitCast(propertyId)) };
     }
+
+    /// ### DEPRECATED: Use `brushProperty` instead
+    ///
+    pub const BrushProperty = brushProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -5865,9 +7603,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn BrushProperty(self: QTextImageFormat, propertyId: i32) QBrush {
+    pub fn brushProperty(self: QTextImageFormat, propertyId: i32) QBrush {
         return .{ .ptr = qtc.QTextFormat_BrushProperty(@ptrCast(self.ptr), @bitCast(propertyId)) };
     }
+
+    /// ### DEPRECATED: Use `lengthProperty` instead
+    ///
+    pub const LengthProperty = lengthProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -5879,9 +7621,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn LengthProperty(self: QTextImageFormat, propertyId: i32) QTextLength {
+    pub fn lengthProperty(self: QTextImageFormat, propertyId: i32) QTextLength {
         return .{ .ptr = qtc.QTextFormat_LengthProperty(@ptrCast(self.ptr), @bitCast(propertyId)) };
     }
+
+    /// ### DEPRECATED: Use `lengthVectorProperty` instead
+    ///
+    pub const LengthVectorProperty = lengthVectorProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -5895,15 +7641,19 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn LengthVectorProperty(self: QTextImageFormat, allocator: std.mem.Allocator, propertyId: i32) []QTextLength {
+    pub fn lengthVectorProperty(self: QTextImageFormat, allocator: std.mem.Allocator, propertyId: i32) []QTextLength {
         const _arr: qtc.libqt_list = qtc.QTextFormat_LengthVectorProperty(@ptrCast(self.ptr), @bitCast(propertyId));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QTextLength, _arr.len) catch @panic("QTextImageFormat.LengthVectorProperty: Memory allocation failed");
-        const _data: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QTextLength, _arr.len) catch @panic("QTextImageFormat.lengthVectorProperty: Memory allocation failed");
+        const _data_val: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setProperty2` instead
+    ///
+    pub const SetProperty2 = setProperty2;
 
     /// Inherited from QTextFormat
     ///
@@ -5917,13 +7667,17 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` lengths: []QTextLength `
     ///
-    pub fn SetProperty2(self: QTextImageFormat, propertyId: i32, lengths: []QTextLength) void {
+    pub fn setProperty2(self: QTextImageFormat, propertyId: i32, lengths: []QTextLength) void {
         const lengths_list = qtc.libqt_list{
             .len = lengths.len,
             .data = @ptrCast(lengths.ptr),
         };
         qtc.QTextFormat_SetProperty2(@ptrCast(self.ptr), @bitCast(propertyId), lengths_list);
     }
+
+    /// ### DEPRECATED: Use `properties` instead
+    ///
+    pub const Properties = properties;
 
     /// Inherited from QTextFormat
     ///
@@ -5935,10 +7689,10 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Properties(self: QTextImageFormat, allocator: std.mem.Allocator) ArrayMap_i32_QVariant {
+    pub fn properties(self: QTextImageFormat, allocator: std.mem.Allocator) ArrayMap_i32_QVariant {
         const _map: qtc.libqt_map = qtc.QTextFormat_Properties(@ptrCast(self.ptr));
         var _ret: ArrayMap_i32_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QTextImageFormat.Properties: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QTextImageFormat.properties: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -5954,6 +7708,10 @@ pub const QTextImageFormat = extern struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `propertyCount` instead
+    ///
+    pub const PropertyCount = propertyCount;
+
     /// Inherited from QTextFormat
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#propertyCount)
@@ -5962,9 +7720,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn PropertyCount(self: QTextImageFormat) i32 {
+    pub fn propertyCount(self: QTextImageFormat) i32 {
         return qtc.QTextFormat_PropertyCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setObjectType` instead
+    ///
+    pub const SetObjectType = setObjectType;
 
     /// Inherited from QTextFormat
     ///
@@ -5976,9 +7738,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` typeVal: i32 `
     ///
-    pub fn SetObjectType(self: QTextImageFormat, typeVal: i32) void {
+    pub fn setObjectType(self: QTextImageFormat, typeVal: i32) void {
         qtc.QTextFormat_SetObjectType(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `objectType` instead
+    ///
+    pub const ObjectType = objectType;
 
     /// Inherited from QTextFormat
     ///
@@ -5988,9 +7754,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn ObjectType(self: QTextImageFormat) i32 {
+    pub fn objectType(self: QTextImageFormat) i32 {
         return qtc.QTextFormat_ObjectType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isCharFormat` instead
+    ///
+    pub const IsCharFormat = isCharFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -6000,9 +7770,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn IsCharFormat(self: QTextImageFormat) bool {
+    pub fn isCharFormat(self: QTextImageFormat) bool {
         return qtc.QTextFormat_IsCharFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isBlockFormat` instead
+    ///
+    pub const IsBlockFormat = isBlockFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -6012,9 +7786,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn IsBlockFormat(self: QTextImageFormat) bool {
+    pub fn isBlockFormat(self: QTextImageFormat) bool {
         return qtc.QTextFormat_IsBlockFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isListFormat` instead
+    ///
+    pub const IsListFormat = isListFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -6024,9 +7802,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn IsListFormat(self: QTextImageFormat) bool {
+    pub fn isListFormat(self: QTextImageFormat) bool {
         return qtc.QTextFormat_IsListFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFrameFormat` instead
+    ///
+    pub const IsFrameFormat = isFrameFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -6036,9 +7818,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn IsFrameFormat(self: QTextImageFormat) bool {
+    pub fn isFrameFormat(self: QTextImageFormat) bool {
         return qtc.QTextFormat_IsFrameFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isImageFormat` instead
+    ///
+    pub const IsImageFormat = isImageFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -6048,9 +7834,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn IsImageFormat(self: QTextImageFormat) bool {
+    pub fn isImageFormat(self: QTextImageFormat) bool {
         return qtc.QTextFormat_IsImageFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTableFormat` instead
+    ///
+    pub const IsTableFormat = isTableFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -6060,9 +7850,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn IsTableFormat(self: QTextImageFormat) bool {
+    pub fn isTableFormat(self: QTextImageFormat) bool {
         return qtc.QTextFormat_IsTableFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTableCellFormat` instead
+    ///
+    pub const IsTableCellFormat = isTableCellFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -6072,9 +7866,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn IsTableCellFormat(self: QTextImageFormat) bool {
+    pub fn isTableCellFormat(self: QTextImageFormat) bool {
         return qtc.QTextFormat_IsTableCellFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toBlockFormat` instead
+    ///
+    pub const ToBlockFormat = toBlockFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -6084,9 +7882,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn ToBlockFormat(self: QTextImageFormat) QTextBlockFormat {
+    pub fn toBlockFormat(self: QTextImageFormat) QTextBlockFormat {
         return .{ .ptr = qtc.QTextFormat_ToBlockFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toCharFormat` instead
+    ///
+    pub const ToCharFormat = toCharFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -6096,9 +7898,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn ToCharFormat(self: QTextImageFormat) QTextCharFormat {
+    pub fn toCharFormat(self: QTextImageFormat) QTextCharFormat {
         return .{ .ptr = qtc.QTextFormat_ToCharFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toListFormat` instead
+    ///
+    pub const ToListFormat = toListFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -6108,9 +7914,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn ToListFormat(self: QTextImageFormat) QTextListFormat {
+    pub fn toListFormat(self: QTextImageFormat) QTextListFormat {
         return .{ .ptr = qtc.QTextFormat_ToListFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toTableFormat` instead
+    ///
+    pub const ToTableFormat = toTableFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -6120,9 +7930,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn ToTableFormat(self: QTextImageFormat) QTextTableFormat {
+    pub fn toTableFormat(self: QTextImageFormat) QTextTableFormat {
         return .{ .ptr = qtc.QTextFormat_ToTableFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toFrameFormat` instead
+    ///
+    pub const ToFrameFormat = toFrameFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -6132,9 +7946,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn ToFrameFormat(self: QTextImageFormat) QTextFrameFormat {
+    pub fn toFrameFormat(self: QTextImageFormat) QTextFrameFormat {
         return .{ .ptr = qtc.QTextFormat_ToFrameFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toImageFormat` instead
+    ///
+    pub const ToImageFormat = toImageFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -6144,9 +7962,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn ToImageFormat(self: QTextImageFormat) QTextImageFormat {
+    pub fn toImageFormat(self: QTextImageFormat) QTextImageFormat {
         return .{ .ptr = qtc.QTextFormat_ToImageFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toTableCellFormat` instead
+    ///
+    pub const ToTableCellFormat = toTableCellFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -6156,9 +7978,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn ToTableCellFormat(self: QTextImageFormat) QTextTableCellFormat {
+    pub fn toTableCellFormat(self: QTextImageFormat) QTextTableCellFormat {
         return .{ .ptr = qtc.QTextFormat_ToTableCellFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// Inherited from QTextFormat
     ///
@@ -6170,10 +7996,14 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` rhs: QTextFormat `
     ///
-    pub fn OperatorEqual(self: QTextImageFormat, rhs: anytype) bool {
+    pub fn operatorEqual(self: QTextImageFormat, rhs: anytype) bool {
         comptime _ = @TypeOf(rhs)._is_QTextFormat;
         return qtc.QTextFormat_OperatorEqual(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// Inherited from QTextFormat
     ///
@@ -6185,10 +8015,14 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` rhs: QTextFormat `
     ///
-    pub fn OperatorNotEqual(self: QTextImageFormat, rhs: anytype) bool {
+    pub fn operatorNotEqual(self: QTextImageFormat, rhs: anytype) bool {
         comptime _ = @TypeOf(rhs)._is_QTextFormat;
         return qtc.QTextFormat_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
     }
+
+    /// ### DEPRECATED: Use `toQVariant` instead
+    ///
+    pub const ToQVariant = toQVariant;
 
     /// Inherited from QTextFormat
     ///
@@ -6198,9 +8032,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn ToQVariant(self: QTextImageFormat) QVariant {
+    pub fn toQVariant(self: QTextImageFormat) QVariant {
         return .{ .ptr = qtc.QTextFormat_ToQVariant(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QTextFormat
     ///
@@ -6212,9 +8050,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: QTextImageFormat, direction: i32) void {
+    pub fn setLayoutDirection(self: QTextImageFormat, direction: i32) void {
         qtc.QTextFormat_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QTextFormat
     ///
@@ -6228,9 +8070,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: QTextImageFormat) i32 {
+    pub fn layoutDirection(self: QTextImageFormat) i32 {
         return qtc.QTextFormat_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackground` instead
+    ///
+    pub const SetBackground = setBackground;
 
     /// Inherited from QTextFormat
     ///
@@ -6242,10 +8088,14 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` brush: QBrush `
     ///
-    pub fn SetBackground(self: QTextImageFormat, brush: anytype) void {
+    pub fn setBackground(self: QTextImageFormat, brush: anytype) void {
         comptime _ = @TypeOf(brush)._is_QBrush;
         qtc.QTextFormat_SetBackground(@ptrCast(self.ptr), @ptrCast(brush.ptr));
     }
+
+    /// ### DEPRECATED: Use `background` instead
+    ///
+    pub const Background = background;
 
     /// Inherited from QTextFormat
     ///
@@ -6255,9 +8105,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn Background(self: QTextImageFormat) QBrush {
+    pub fn background(self: QTextImageFormat) QBrush {
         return .{ .ptr = qtc.QTextFormat_Background(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearBackground` instead
+    ///
+    pub const ClearBackground = clearBackground;
 
     /// Inherited from QTextFormat
     ///
@@ -6267,9 +8121,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn ClearBackground(self: QTextImageFormat) void {
+    pub fn clearBackground(self: QTextImageFormat) void {
         qtc.QTextFormat_ClearBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForeground` instead
+    ///
+    pub const SetForeground = setForeground;
 
     /// Inherited from QTextFormat
     ///
@@ -6281,10 +8139,14 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` brush: QBrush `
     ///
-    pub fn SetForeground(self: QTextImageFormat, brush: anytype) void {
+    pub fn setForeground(self: QTextImageFormat, brush: anytype) void {
         comptime _ = @TypeOf(brush)._is_QBrush;
         qtc.QTextFormat_SetForeground(@ptrCast(self.ptr), @ptrCast(brush.ptr));
     }
+
+    /// ### DEPRECATED: Use `foreground` instead
+    ///
+    pub const Foreground = foreground;
 
     /// Inherited from QTextFormat
     ///
@@ -6294,9 +8156,13 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn Foreground(self: QTextImageFormat) QBrush {
+    pub fn foreground(self: QTextImageFormat) QBrush {
         return .{ .ptr = qtc.QTextFormat_Foreground(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearForeground` instead
+    ///
+    pub const ClearForeground = clearForeground;
 
     /// Inherited from QTextFormat
     ///
@@ -6306,23 +8172,23 @@ pub const QTextImageFormat = extern struct {
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn ClearForeground(self: QTextImageFormat) void {
+    pub fn clearForeground(self: QTextImageFormat) void {
         qtc.QTextFormat_ClearForeground(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextimageformat.html#dtor.QTextImageFormat)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QTextImageFormat `
     ///
-    pub fn Delete(self: QTextImageFormat) void {
+    pub fn delete(self: QTextImageFormat) void {
         qtc.QTextImageFormat_Delete(@ptrCast(self.ptr));
     }
 };
@@ -6338,22 +8204,34 @@ pub const QTextFrameFormat = extern struct {
     pub const _is_QTextFrameFormat = {};
     pub const _is_QTextFormat = {};
 
-    /// New constructs a new QTextFrameFormat object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QTextFrameFormat {
+    pub const New = new;
+
+    /// Allocate a new QTextFrameFormat object in C++ memory
+    ///
+    pub fn new() QTextFrameFormat {
         return .{ .ptr = qtc.QTextFrameFormat_new() };
     }
 
-    /// New2 constructs a new QTextFrameFormat object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QTextFrameFormat object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QTextFrameFormat `
     ///
-    pub fn New2(param1: anytype) QTextFrameFormat {
+    pub fn new2(param1: anytype) QTextFrameFormat {
         comptime _ = @TypeOf(param1)._is_QTextFrameFormat;
         return .{ .ptr = qtc.QTextFrameFormat_new2(@ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframeformat.html#isValid)
     ///
@@ -6361,9 +8239,13 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` self: QTextFrameFormat `
     ///
-    pub fn IsValid(self: QTextFrameFormat) bool {
+    pub fn isValid(self: QTextFrameFormat) bool {
         return qtc.QTextFrameFormat_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPosition` instead
+    ///
+    pub const SetPosition = setPosition;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframeformat.html#setPosition)
     ///
@@ -6373,9 +8255,13 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` f: qtextformat_enums.Position `
     ///
-    pub fn SetPosition(self: QTextFrameFormat, f: i32) void {
+    pub fn setPosition(self: QTextFrameFormat, f: i32) void {
         qtc.QTextFrameFormat_SetPosition(@ptrCast(self.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `position` instead
+    ///
+    pub const Position = position;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframeformat.html#position)
     ///
@@ -6387,9 +8273,13 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` qtextformat_enums.Position `
     ///
-    pub fn Position(self: QTextFrameFormat) i32 {
+    pub fn position(self: QTextFrameFormat) i32 {
         return qtc.QTextFrameFormat_Position(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBorder` instead
+    ///
+    pub const SetBorder = setBorder;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframeformat.html#setBorder)
     ///
@@ -6397,11 +8287,15 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` self: QTextFrameFormat `
     ///
-    /// ` border: f64 `
+    /// ` _border: f64 `
     ///
-    pub fn SetBorder(self: QTextFrameFormat, border: f64) void {
-        qtc.QTextFrameFormat_SetBorder(@ptrCast(self.ptr), @bitCast(border));
+    pub fn setBorder(self: QTextFrameFormat, _border: f64) void {
+        qtc.QTextFrameFormat_SetBorder(@ptrCast(self.ptr), @bitCast(_border));
     }
+
+    /// ### DEPRECATED: Use `border` instead
+    ///
+    pub const Border = border;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframeformat.html#border)
     ///
@@ -6409,9 +8303,13 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` self: QTextFrameFormat `
     ///
-    pub fn Border(self: QTextFrameFormat) f64 {
+    pub fn border(self: QTextFrameFormat) f64 {
         return qtc.QTextFrameFormat_Border(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBorderBrush` instead
+    ///
+    pub const SetBorderBrush = setBorderBrush;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframeformat.html#setBorderBrush)
     ///
@@ -6421,10 +8319,14 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` brush: QBrush `
     ///
-    pub fn SetBorderBrush(self: QTextFrameFormat, brush: anytype) void {
+    pub fn setBorderBrush(self: QTextFrameFormat, brush: anytype) void {
         comptime _ = @TypeOf(brush)._is_QBrush;
         qtc.QTextFrameFormat_SetBorderBrush(@ptrCast(self.ptr), @ptrCast(brush.ptr));
     }
+
+    /// ### DEPRECATED: Use `borderBrush` instead
+    ///
+    pub const BorderBrush = borderBrush;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframeformat.html#borderBrush)
     ///
@@ -6432,9 +8334,13 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` self: QTextFrameFormat `
     ///
-    pub fn BorderBrush(self: QTextFrameFormat) QBrush {
+    pub fn borderBrush(self: QTextFrameFormat) QBrush {
         return .{ .ptr = qtc.QTextFrameFormat_BorderBrush(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBorderStyle` instead
+    ///
+    pub const SetBorderStyle = setBorderStyle;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframeformat.html#setBorderStyle)
     ///
@@ -6442,11 +8348,15 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` self: QTextFrameFormat `
     ///
-    /// ` style: qtextformat_enums.BorderStyle `
+    /// ` _style: qtextformat_enums.BorderStyle `
     ///
-    pub fn SetBorderStyle(self: QTextFrameFormat, style: i32) void {
-        qtc.QTextFrameFormat_SetBorderStyle(@ptrCast(self.ptr), @bitCast(style));
+    pub fn setBorderStyle(self: QTextFrameFormat, _style: i32) void {
+        qtc.QTextFrameFormat_SetBorderStyle(@ptrCast(self.ptr), @bitCast(_style));
     }
+
+    /// ### DEPRECATED: Use `borderStyle` instead
+    ///
+    pub const BorderStyle = borderStyle;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframeformat.html#borderStyle)
     ///
@@ -6458,9 +8368,13 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` qtextformat_enums.BorderStyle `
     ///
-    pub fn BorderStyle(self: QTextFrameFormat) i32 {
+    pub fn borderStyle(self: QTextFrameFormat) i32 {
         return qtc.QTextFrameFormat_BorderStyle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMargin` instead
+    ///
+    pub const SetMargin = setMargin;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframeformat.html#setMargin)
     ///
@@ -6468,11 +8382,15 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` self: QTextFrameFormat `
     ///
-    /// ` margin: f64 `
+    /// ` _margin: f64 `
     ///
-    pub fn SetMargin(self: QTextFrameFormat, margin: f64) void {
-        qtc.QTextFrameFormat_SetMargin(@ptrCast(self.ptr), @bitCast(margin));
+    pub fn setMargin(self: QTextFrameFormat, _margin: f64) void {
+        qtc.QTextFrameFormat_SetMargin(@ptrCast(self.ptr), @bitCast(_margin));
     }
+
+    /// ### DEPRECATED: Use `margin` instead
+    ///
+    pub const Margin = margin;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframeformat.html#margin)
     ///
@@ -6480,9 +8398,13 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` self: QTextFrameFormat `
     ///
-    pub fn Margin(self: QTextFrameFormat) f64 {
+    pub fn margin(self: QTextFrameFormat) f64 {
         return qtc.QTextFrameFormat_Margin(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTopMargin` instead
+    ///
+    pub const SetTopMargin = setTopMargin;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframeformat.html#setTopMargin)
     ///
@@ -6490,11 +8412,15 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` self: QTextFrameFormat `
     ///
-    /// ` margin: f64 `
+    /// ` _margin: f64 `
     ///
-    pub fn SetTopMargin(self: QTextFrameFormat, margin: f64) void {
-        qtc.QTextFrameFormat_SetTopMargin(@ptrCast(self.ptr), @bitCast(margin));
+    pub fn setTopMargin(self: QTextFrameFormat, _margin: f64) void {
+        qtc.QTextFrameFormat_SetTopMargin(@ptrCast(self.ptr), @bitCast(_margin));
     }
+
+    /// ### DEPRECATED: Use `topMargin` instead
+    ///
+    pub const TopMargin = topMargin;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframeformat.html#topMargin)
     ///
@@ -6502,9 +8428,13 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` self: QTextFrameFormat `
     ///
-    pub fn TopMargin(self: QTextFrameFormat) f64 {
+    pub fn topMargin(self: QTextFrameFormat) f64 {
         return qtc.QTextFrameFormat_TopMargin(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBottomMargin` instead
+    ///
+    pub const SetBottomMargin = setBottomMargin;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframeformat.html#setBottomMargin)
     ///
@@ -6512,11 +8442,15 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` self: QTextFrameFormat `
     ///
-    /// ` margin: f64 `
+    /// ` _margin: f64 `
     ///
-    pub fn SetBottomMargin(self: QTextFrameFormat, margin: f64) void {
-        qtc.QTextFrameFormat_SetBottomMargin(@ptrCast(self.ptr), @bitCast(margin));
+    pub fn setBottomMargin(self: QTextFrameFormat, _margin: f64) void {
+        qtc.QTextFrameFormat_SetBottomMargin(@ptrCast(self.ptr), @bitCast(_margin));
     }
+
+    /// ### DEPRECATED: Use `bottomMargin` instead
+    ///
+    pub const BottomMargin = bottomMargin;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframeformat.html#bottomMargin)
     ///
@@ -6524,9 +8458,13 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` self: QTextFrameFormat `
     ///
-    pub fn BottomMargin(self: QTextFrameFormat) f64 {
+    pub fn bottomMargin(self: QTextFrameFormat) f64 {
         return qtc.QTextFrameFormat_BottomMargin(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLeftMargin` instead
+    ///
+    pub const SetLeftMargin = setLeftMargin;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframeformat.html#setLeftMargin)
     ///
@@ -6534,11 +8472,15 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` self: QTextFrameFormat `
     ///
-    /// ` margin: f64 `
+    /// ` _margin: f64 `
     ///
-    pub fn SetLeftMargin(self: QTextFrameFormat, margin: f64) void {
-        qtc.QTextFrameFormat_SetLeftMargin(@ptrCast(self.ptr), @bitCast(margin));
+    pub fn setLeftMargin(self: QTextFrameFormat, _margin: f64) void {
+        qtc.QTextFrameFormat_SetLeftMargin(@ptrCast(self.ptr), @bitCast(_margin));
     }
+
+    /// ### DEPRECATED: Use `leftMargin` instead
+    ///
+    pub const LeftMargin = leftMargin;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframeformat.html#leftMargin)
     ///
@@ -6546,9 +8488,13 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` self: QTextFrameFormat `
     ///
-    pub fn LeftMargin(self: QTextFrameFormat) f64 {
+    pub fn leftMargin(self: QTextFrameFormat) f64 {
         return qtc.QTextFrameFormat_LeftMargin(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setRightMargin` instead
+    ///
+    pub const SetRightMargin = setRightMargin;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframeformat.html#setRightMargin)
     ///
@@ -6556,11 +8502,15 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` self: QTextFrameFormat `
     ///
-    /// ` margin: f64 `
+    /// ` _margin: f64 `
     ///
-    pub fn SetRightMargin(self: QTextFrameFormat, margin: f64) void {
-        qtc.QTextFrameFormat_SetRightMargin(@ptrCast(self.ptr), @bitCast(margin));
+    pub fn setRightMargin(self: QTextFrameFormat, _margin: f64) void {
+        qtc.QTextFrameFormat_SetRightMargin(@ptrCast(self.ptr), @bitCast(_margin));
     }
+
+    /// ### DEPRECATED: Use `rightMargin` instead
+    ///
+    pub const RightMargin = rightMargin;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframeformat.html#rightMargin)
     ///
@@ -6568,9 +8518,13 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` self: QTextFrameFormat `
     ///
-    pub fn RightMargin(self: QTextFrameFormat) f64 {
+    pub fn rightMargin(self: QTextFrameFormat) f64 {
         return qtc.QTextFrameFormat_RightMargin(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPadding` instead
+    ///
+    pub const SetPadding = setPadding;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframeformat.html#setPadding)
     ///
@@ -6578,11 +8532,15 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` self: QTextFrameFormat `
     ///
-    /// ` padding: f64 `
+    /// ` _padding: f64 `
     ///
-    pub fn SetPadding(self: QTextFrameFormat, padding: f64) void {
-        qtc.QTextFrameFormat_SetPadding(@ptrCast(self.ptr), @bitCast(padding));
+    pub fn setPadding(self: QTextFrameFormat, _padding: f64) void {
+        qtc.QTextFrameFormat_SetPadding(@ptrCast(self.ptr), @bitCast(_padding));
     }
+
+    /// ### DEPRECATED: Use `padding` instead
+    ///
+    pub const Padding = padding;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframeformat.html#padding)
     ///
@@ -6590,9 +8548,13 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` self: QTextFrameFormat `
     ///
-    pub fn Padding(self: QTextFrameFormat) f64 {
+    pub fn padding(self: QTextFrameFormat) f64 {
         return qtc.QTextFrameFormat_Padding(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWidth` instead
+    ///
+    pub const SetWidth = setWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframeformat.html#setWidth)
     ///
@@ -6600,11 +8562,15 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` self: QTextFrameFormat `
     ///
-    /// ` width: f64 `
+    /// ` _width: f64 `
     ///
-    pub fn SetWidth(self: QTextFrameFormat, width: f64) void {
-        qtc.QTextFrameFormat_SetWidth(@ptrCast(self.ptr), @bitCast(width));
+    pub fn setWidth(self: QTextFrameFormat, _width: f64) void {
+        qtc.QTextFrameFormat_SetWidth(@ptrCast(self.ptr), @bitCast(_width));
     }
+
+    /// ### DEPRECATED: Use `setWidth2` instead
+    ///
+    pub const SetWidth2 = setWidth2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframeformat.html#setWidth)
     ///
@@ -6614,10 +8580,14 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` length: QTextLength `
     ///
-    pub fn SetWidth2(self: QTextFrameFormat, length: anytype) void {
+    pub fn setWidth2(self: QTextFrameFormat, length: anytype) void {
         comptime _ = @TypeOf(length)._is_QTextLength;
         qtc.QTextFrameFormat_SetWidth2(@ptrCast(self.ptr), @ptrCast(length.ptr));
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframeformat.html#width)
     ///
@@ -6625,21 +8595,13 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` self: QTextFrameFormat `
     ///
-    pub fn Width(self: QTextFrameFormat) QTextLength {
+    pub fn width(self: QTextFrameFormat) QTextLength {
         return .{ .ptr = qtc.QTextFrameFormat_Width(@ptrCast(self.ptr)) };
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframeformat.html#setHeight)
+    /// ### DEPRECATED: Use `setHeight` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextFrameFormat `
-    ///
-    /// ` height: f64 `
-    ///
-    pub fn SetHeight(self: QTextFrameFormat, height: f64) void {
-        qtc.QTextFrameFormat_SetHeight(@ptrCast(self.ptr), @bitCast(height));
-    }
+    pub const SetHeight = setHeight;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframeformat.html#setHeight)
     ///
@@ -6647,12 +8609,32 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` self: QTextFrameFormat `
     ///
-    /// ` height: QTextLength `
+    /// ` _height: f64 `
     ///
-    pub fn SetHeight2(self: QTextFrameFormat, height: anytype) void {
-        comptime _ = @TypeOf(height)._is_QTextLength;
-        qtc.QTextFrameFormat_SetHeight2(@ptrCast(self.ptr), @ptrCast(height.ptr));
+    pub fn setHeight(self: QTextFrameFormat, _height: f64) void {
+        qtc.QTextFrameFormat_SetHeight(@ptrCast(self.ptr), @bitCast(_height));
     }
+
+    /// ### DEPRECATED: Use `setHeight2` instead
+    ///
+    pub const SetHeight2 = setHeight2;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframeformat.html#setHeight)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QTextFrameFormat `
+    ///
+    /// ` _height: QTextLength `
+    ///
+    pub fn setHeight2(self: QTextFrameFormat, _height: anytype) void {
+        comptime _ = @TypeOf(_height)._is_QTextLength;
+        qtc.QTextFrameFormat_SetHeight2(@ptrCast(self.ptr), @ptrCast(_height.ptr));
+    }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframeformat.html#height)
     ///
@@ -6660,9 +8642,13 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` self: QTextFrameFormat `
     ///
-    pub fn Height(self: QTextFrameFormat) QTextLength {
+    pub fn height(self: QTextFrameFormat) QTextLength {
         return .{ .ptr = qtc.QTextFrameFormat_Height(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPageBreakPolicy` instead
+    ///
+    pub const SetPageBreakPolicy = setPageBreakPolicy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframeformat.html#setPageBreakPolicy)
     ///
@@ -6672,9 +8658,13 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` flags: flag of qtextformat_enums.PageBreakFlag `
     ///
-    pub fn SetPageBreakPolicy(self: QTextFrameFormat, flags: i32) void {
+    pub fn setPageBreakPolicy(self: QTextFrameFormat, flags: i32) void {
         qtc.QTextFrameFormat_SetPageBreakPolicy(@ptrCast(self.ptr), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `pageBreakPolicy` instead
+    ///
+    pub const PageBreakPolicy = pageBreakPolicy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframeformat.html#pageBreakPolicy)
     ///
@@ -6686,9 +8676,13 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` flag of qtextformat_enums.PageBreakFlag `
     ///
-    pub fn PageBreakPolicy(self: QTextFrameFormat) i32 {
+    pub fn pageBreakPolicy(self: QTextFrameFormat) i32 {
         return qtc.QTextFrameFormat_PageBreakPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// Inherited from QTextFormat
     ///
@@ -6700,10 +8694,14 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` rhs: QTextFormat `
     ///
-    pub fn OperatorAssign(self: QTextFrameFormat, rhs: anytype) void {
+    pub fn operatorAssign(self: QTextFrameFormat, rhs: anytype) void {
         comptime _ = @TypeOf(rhs)._is_QTextFormat;
         qtc.QTextFormat_OperatorAssign(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// Inherited from QTextFormat
     ///
@@ -6715,10 +8713,14 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` other: QTextFormat `
     ///
-    pub fn Swap(self: QTextFrameFormat, other: anytype) void {
+    pub fn swap(self: QTextFrameFormat, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QTextFormat;
         qtc.QTextFormat_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `merge` instead
+    ///
+    pub const Merge = merge;
 
     /// Inherited from QTextFormat
     ///
@@ -6730,10 +8732,14 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` other: QTextFormat `
     ///
-    pub fn Merge(self: QTextFrameFormat, other: anytype) void {
+    pub fn merge(self: QTextFrameFormat, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QTextFormat;
         qtc.QTextFormat_Merge(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEmpty` instead
+    ///
+    pub const IsEmpty = isEmpty;
 
     /// Inherited from QTextFormat
     ///
@@ -6743,9 +8749,15 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` self: QTextFrameFormat `
     ///
-    pub fn IsEmpty(self: QTextFrameFormat) bool {
+    pub fn isEmpty(self: QTextFrameFormat) bool {
         return qtc.QTextFormat_IsEmpty(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QTextFormat
     ///
@@ -6755,9 +8767,13 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` self: QTextFrameFormat `
     ///
-    pub fn Type(self: QTextFrameFormat) i32 {
+    pub fn type0(self: QTextFrameFormat) i32 {
         return qtc.QTextFormat_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `objectIndex` instead
+    ///
+    pub const ObjectIndex = objectIndex;
 
     /// Inherited from QTextFormat
     ///
@@ -6767,9 +8783,13 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` self: QTextFrameFormat `
     ///
-    pub fn ObjectIndex(self: QTextFrameFormat) i32 {
+    pub fn objectIndex(self: QTextFrameFormat) i32 {
         return qtc.QTextFormat_ObjectIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setObjectIndex` instead
+    ///
+    pub const SetObjectIndex = setObjectIndex;
 
     /// Inherited from QTextFormat
     ///
@@ -6781,9 +8801,13 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` object: i32 `
     ///
-    pub fn SetObjectIndex(self: QTextFrameFormat, object: i32) void {
+    pub fn setObjectIndex(self: QTextFrameFormat, object: i32) void {
         qtc.QTextFormat_SetObjectIndex(@ptrCast(self.ptr), @bitCast(object));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QTextFormat
     ///
@@ -6795,9 +8819,13 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn Property(self: QTextFrameFormat, propertyId: i32) QVariant {
+    pub fn property(self: QTextFrameFormat, propertyId: i32) QVariant {
         return .{ .ptr = qtc.QTextFormat_Property(@ptrCast(self.ptr), @bitCast(propertyId)) };
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -6809,12 +8837,16 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    /// ` value: QVariant `
+    /// ` _value: QVariant `
     ///
-    pub fn SetProperty(self: QTextFrameFormat, propertyId: i32, value: anytype) void {
-        comptime _ = @TypeOf(value)._is_QVariant;
-        qtc.QTextFormat_SetProperty(@ptrCast(self.ptr), @bitCast(propertyId), @ptrCast(value.ptr));
+    pub fn setProperty(self: QTextFrameFormat, propertyId: i32, _value: anytype) void {
+        comptime _ = @TypeOf(_value)._is_QVariant;
+        qtc.QTextFormat_SetProperty(@ptrCast(self.ptr), @bitCast(propertyId), @ptrCast(_value.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearProperty` instead
+    ///
+    pub const ClearProperty = clearProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -6826,9 +8858,13 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn ClearProperty(self: QTextFrameFormat, propertyId: i32) void {
+    pub fn clearProperty(self: QTextFrameFormat, propertyId: i32) void {
         qtc.QTextFormat_ClearProperty(@ptrCast(self.ptr), @bitCast(propertyId));
     }
+
+    /// ### DEPRECATED: Use `hasProperty` instead
+    ///
+    pub const HasProperty = hasProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -6840,9 +8876,13 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn HasProperty(self: QTextFrameFormat, propertyId: i32) bool {
+    pub fn hasProperty(self: QTextFrameFormat, propertyId: i32) bool {
         return qtc.QTextFormat_HasProperty(@ptrCast(self.ptr), @bitCast(propertyId));
     }
+
+    /// ### DEPRECATED: Use `boolProperty` instead
+    ///
+    pub const BoolProperty = boolProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -6854,9 +8894,13 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn BoolProperty(self: QTextFrameFormat, propertyId: i32) bool {
+    pub fn boolProperty(self: QTextFrameFormat, propertyId: i32) bool {
         return qtc.QTextFormat_BoolProperty(@ptrCast(self.ptr), @bitCast(propertyId));
     }
+
+    /// ### DEPRECATED: Use `intProperty` instead
+    ///
+    pub const IntProperty = intProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -6868,9 +8912,13 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn IntProperty(self: QTextFrameFormat, propertyId: i32) i32 {
+    pub fn intProperty(self: QTextFrameFormat, propertyId: i32) i32 {
         return qtc.QTextFormat_IntProperty(@ptrCast(self.ptr), @bitCast(propertyId));
     }
+
+    /// ### DEPRECATED: Use `doubleProperty` instead
+    ///
+    pub const DoubleProperty = doubleProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -6882,9 +8930,13 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn DoubleProperty(self: QTextFrameFormat, propertyId: i32) f64 {
+    pub fn doubleProperty(self: QTextFrameFormat, propertyId: i32) f64 {
         return qtc.QTextFormat_DoubleProperty(@ptrCast(self.ptr), @bitCast(propertyId));
     }
+
+    /// ### DEPRECATED: Use `stringProperty` instead
+    ///
+    pub const StringProperty = stringProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -6898,13 +8950,17 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn StringProperty(self: QTextFrameFormat, allocator: std.mem.Allocator, propertyId: i32) []const u8 {
+    pub fn stringProperty(self: QTextFrameFormat, allocator: std.mem.Allocator, propertyId: i32) []const u8 {
         var _str = qtc.QTextFormat_StringProperty(@ptrCast(self.ptr), @bitCast(propertyId));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextFrameFormat.StringProperty: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextFrameFormat.stringProperty: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `colorProperty` instead
+    ///
+    pub const ColorProperty = colorProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -6916,9 +8972,13 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn ColorProperty(self: QTextFrameFormat, propertyId: i32) QColor {
+    pub fn colorProperty(self: QTextFrameFormat, propertyId: i32) QColor {
         return .{ .ptr = qtc.QTextFormat_ColorProperty(@ptrCast(self.ptr), @bitCast(propertyId)) };
     }
+
+    /// ### DEPRECATED: Use `penProperty` instead
+    ///
+    pub const PenProperty = penProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -6930,9 +8990,13 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn PenProperty(self: QTextFrameFormat, propertyId: i32) QPen {
+    pub fn penProperty(self: QTextFrameFormat, propertyId: i32) QPen {
         return .{ .ptr = qtc.QTextFormat_PenProperty(@ptrCast(self.ptr), @bitCast(propertyId)) };
     }
+
+    /// ### DEPRECATED: Use `brushProperty` instead
+    ///
+    pub const BrushProperty = brushProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -6944,9 +9008,13 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn BrushProperty(self: QTextFrameFormat, propertyId: i32) QBrush {
+    pub fn brushProperty(self: QTextFrameFormat, propertyId: i32) QBrush {
         return .{ .ptr = qtc.QTextFormat_BrushProperty(@ptrCast(self.ptr), @bitCast(propertyId)) };
     }
+
+    /// ### DEPRECATED: Use `lengthProperty` instead
+    ///
+    pub const LengthProperty = lengthProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -6958,9 +9026,13 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn LengthProperty(self: QTextFrameFormat, propertyId: i32) QTextLength {
+    pub fn lengthProperty(self: QTextFrameFormat, propertyId: i32) QTextLength {
         return .{ .ptr = qtc.QTextFormat_LengthProperty(@ptrCast(self.ptr), @bitCast(propertyId)) };
     }
+
+    /// ### DEPRECATED: Use `lengthVectorProperty` instead
+    ///
+    pub const LengthVectorProperty = lengthVectorProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -6974,15 +9046,19 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn LengthVectorProperty(self: QTextFrameFormat, allocator: std.mem.Allocator, propertyId: i32) []QTextLength {
+    pub fn lengthVectorProperty(self: QTextFrameFormat, allocator: std.mem.Allocator, propertyId: i32) []QTextLength {
         const _arr: qtc.libqt_list = qtc.QTextFormat_LengthVectorProperty(@ptrCast(self.ptr), @bitCast(propertyId));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QTextLength, _arr.len) catch @panic("QTextFrameFormat.LengthVectorProperty: Memory allocation failed");
-        const _data: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QTextLength, _arr.len) catch @panic("QTextFrameFormat.lengthVectorProperty: Memory allocation failed");
+        const _data_val: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setProperty2` instead
+    ///
+    pub const SetProperty2 = setProperty2;
 
     /// Inherited from QTextFormat
     ///
@@ -6996,13 +9072,17 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` lengths: []QTextLength `
     ///
-    pub fn SetProperty2(self: QTextFrameFormat, propertyId: i32, lengths: []QTextLength) void {
+    pub fn setProperty2(self: QTextFrameFormat, propertyId: i32, lengths: []QTextLength) void {
         const lengths_list = qtc.libqt_list{
             .len = lengths.len,
             .data = @ptrCast(lengths.ptr),
         };
         qtc.QTextFormat_SetProperty2(@ptrCast(self.ptr), @bitCast(propertyId), lengths_list);
     }
+
+    /// ### DEPRECATED: Use `properties` instead
+    ///
+    pub const Properties = properties;
 
     /// Inherited from QTextFormat
     ///
@@ -7014,10 +9094,10 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Properties(self: QTextFrameFormat, allocator: std.mem.Allocator) ArrayMap_i32_QVariant {
+    pub fn properties(self: QTextFrameFormat, allocator: std.mem.Allocator) ArrayMap_i32_QVariant {
         const _map: qtc.libqt_map = qtc.QTextFormat_Properties(@ptrCast(self.ptr));
         var _ret: ArrayMap_i32_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QTextFrameFormat.Properties: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QTextFrameFormat.properties: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -7033,6 +9113,10 @@ pub const QTextFrameFormat = extern struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `propertyCount` instead
+    ///
+    pub const PropertyCount = propertyCount;
+
     /// Inherited from QTextFormat
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#propertyCount)
@@ -7041,9 +9125,13 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` self: QTextFrameFormat `
     ///
-    pub fn PropertyCount(self: QTextFrameFormat) i32 {
+    pub fn propertyCount(self: QTextFrameFormat) i32 {
         return qtc.QTextFormat_PropertyCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setObjectType` instead
+    ///
+    pub const SetObjectType = setObjectType;
 
     /// Inherited from QTextFormat
     ///
@@ -7055,9 +9143,13 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` typeVal: i32 `
     ///
-    pub fn SetObjectType(self: QTextFrameFormat, typeVal: i32) void {
+    pub fn setObjectType(self: QTextFrameFormat, typeVal: i32) void {
         qtc.QTextFormat_SetObjectType(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `objectType` instead
+    ///
+    pub const ObjectType = objectType;
 
     /// Inherited from QTextFormat
     ///
@@ -7067,9 +9159,13 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` self: QTextFrameFormat `
     ///
-    pub fn ObjectType(self: QTextFrameFormat) i32 {
+    pub fn objectType(self: QTextFrameFormat) i32 {
         return qtc.QTextFormat_ObjectType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isCharFormat` instead
+    ///
+    pub const IsCharFormat = isCharFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -7079,9 +9175,13 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` self: QTextFrameFormat `
     ///
-    pub fn IsCharFormat(self: QTextFrameFormat) bool {
+    pub fn isCharFormat(self: QTextFrameFormat) bool {
         return qtc.QTextFormat_IsCharFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isBlockFormat` instead
+    ///
+    pub const IsBlockFormat = isBlockFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -7091,9 +9191,13 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` self: QTextFrameFormat `
     ///
-    pub fn IsBlockFormat(self: QTextFrameFormat) bool {
+    pub fn isBlockFormat(self: QTextFrameFormat) bool {
         return qtc.QTextFormat_IsBlockFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isListFormat` instead
+    ///
+    pub const IsListFormat = isListFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -7103,9 +9207,13 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` self: QTextFrameFormat `
     ///
-    pub fn IsListFormat(self: QTextFrameFormat) bool {
+    pub fn isListFormat(self: QTextFrameFormat) bool {
         return qtc.QTextFormat_IsListFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFrameFormat` instead
+    ///
+    pub const IsFrameFormat = isFrameFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -7115,9 +9223,13 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` self: QTextFrameFormat `
     ///
-    pub fn IsFrameFormat(self: QTextFrameFormat) bool {
+    pub fn isFrameFormat(self: QTextFrameFormat) bool {
         return qtc.QTextFormat_IsFrameFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isImageFormat` instead
+    ///
+    pub const IsImageFormat = isImageFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -7127,9 +9239,13 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` self: QTextFrameFormat `
     ///
-    pub fn IsImageFormat(self: QTextFrameFormat) bool {
+    pub fn isImageFormat(self: QTextFrameFormat) bool {
         return qtc.QTextFormat_IsImageFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTableFormat` instead
+    ///
+    pub const IsTableFormat = isTableFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -7139,9 +9255,13 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` self: QTextFrameFormat `
     ///
-    pub fn IsTableFormat(self: QTextFrameFormat) bool {
+    pub fn isTableFormat(self: QTextFrameFormat) bool {
         return qtc.QTextFormat_IsTableFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTableCellFormat` instead
+    ///
+    pub const IsTableCellFormat = isTableCellFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -7151,9 +9271,13 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` self: QTextFrameFormat `
     ///
-    pub fn IsTableCellFormat(self: QTextFrameFormat) bool {
+    pub fn isTableCellFormat(self: QTextFrameFormat) bool {
         return qtc.QTextFormat_IsTableCellFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toBlockFormat` instead
+    ///
+    pub const ToBlockFormat = toBlockFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -7163,9 +9287,13 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` self: QTextFrameFormat `
     ///
-    pub fn ToBlockFormat(self: QTextFrameFormat) QTextBlockFormat {
+    pub fn toBlockFormat(self: QTextFrameFormat) QTextBlockFormat {
         return .{ .ptr = qtc.QTextFormat_ToBlockFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toCharFormat` instead
+    ///
+    pub const ToCharFormat = toCharFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -7175,9 +9303,13 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` self: QTextFrameFormat `
     ///
-    pub fn ToCharFormat(self: QTextFrameFormat) QTextCharFormat {
+    pub fn toCharFormat(self: QTextFrameFormat) QTextCharFormat {
         return .{ .ptr = qtc.QTextFormat_ToCharFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toListFormat` instead
+    ///
+    pub const ToListFormat = toListFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -7187,9 +9319,13 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` self: QTextFrameFormat `
     ///
-    pub fn ToListFormat(self: QTextFrameFormat) QTextListFormat {
+    pub fn toListFormat(self: QTextFrameFormat) QTextListFormat {
         return .{ .ptr = qtc.QTextFormat_ToListFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toTableFormat` instead
+    ///
+    pub const ToTableFormat = toTableFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -7199,9 +9335,13 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` self: QTextFrameFormat `
     ///
-    pub fn ToTableFormat(self: QTextFrameFormat) QTextTableFormat {
+    pub fn toTableFormat(self: QTextFrameFormat) QTextTableFormat {
         return .{ .ptr = qtc.QTextFormat_ToTableFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toFrameFormat` instead
+    ///
+    pub const ToFrameFormat = toFrameFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -7211,9 +9351,13 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` self: QTextFrameFormat `
     ///
-    pub fn ToFrameFormat(self: QTextFrameFormat) QTextFrameFormat {
+    pub fn toFrameFormat(self: QTextFrameFormat) QTextFrameFormat {
         return .{ .ptr = qtc.QTextFormat_ToFrameFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toImageFormat` instead
+    ///
+    pub const ToImageFormat = toImageFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -7223,9 +9367,13 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` self: QTextFrameFormat `
     ///
-    pub fn ToImageFormat(self: QTextFrameFormat) QTextImageFormat {
+    pub fn toImageFormat(self: QTextFrameFormat) QTextImageFormat {
         return .{ .ptr = qtc.QTextFormat_ToImageFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toTableCellFormat` instead
+    ///
+    pub const ToTableCellFormat = toTableCellFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -7235,9 +9383,13 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` self: QTextFrameFormat `
     ///
-    pub fn ToTableCellFormat(self: QTextFrameFormat) QTextTableCellFormat {
+    pub fn toTableCellFormat(self: QTextFrameFormat) QTextTableCellFormat {
         return .{ .ptr = qtc.QTextFormat_ToTableCellFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// Inherited from QTextFormat
     ///
@@ -7249,10 +9401,14 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` rhs: QTextFormat `
     ///
-    pub fn OperatorEqual(self: QTextFrameFormat, rhs: anytype) bool {
+    pub fn operatorEqual(self: QTextFrameFormat, rhs: anytype) bool {
         comptime _ = @TypeOf(rhs)._is_QTextFormat;
         return qtc.QTextFormat_OperatorEqual(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// Inherited from QTextFormat
     ///
@@ -7264,10 +9420,14 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` rhs: QTextFormat `
     ///
-    pub fn OperatorNotEqual(self: QTextFrameFormat, rhs: anytype) bool {
+    pub fn operatorNotEqual(self: QTextFrameFormat, rhs: anytype) bool {
         comptime _ = @TypeOf(rhs)._is_QTextFormat;
         return qtc.QTextFormat_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
     }
+
+    /// ### DEPRECATED: Use `toQVariant` instead
+    ///
+    pub const ToQVariant = toQVariant;
 
     /// Inherited from QTextFormat
     ///
@@ -7277,9 +9437,13 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` self: QTextFrameFormat `
     ///
-    pub fn ToQVariant(self: QTextFrameFormat) QVariant {
+    pub fn toQVariant(self: QTextFrameFormat) QVariant {
         return .{ .ptr = qtc.QTextFormat_ToQVariant(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QTextFormat
     ///
@@ -7291,9 +9455,13 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: QTextFrameFormat, direction: i32) void {
+    pub fn setLayoutDirection(self: QTextFrameFormat, direction: i32) void {
         qtc.QTextFormat_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QTextFormat
     ///
@@ -7307,9 +9475,13 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: QTextFrameFormat) i32 {
+    pub fn layoutDirection(self: QTextFrameFormat) i32 {
         return qtc.QTextFormat_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackground` instead
+    ///
+    pub const SetBackground = setBackground;
 
     /// Inherited from QTextFormat
     ///
@@ -7321,10 +9493,14 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` brush: QBrush `
     ///
-    pub fn SetBackground(self: QTextFrameFormat, brush: anytype) void {
+    pub fn setBackground(self: QTextFrameFormat, brush: anytype) void {
         comptime _ = @TypeOf(brush)._is_QBrush;
         qtc.QTextFormat_SetBackground(@ptrCast(self.ptr), @ptrCast(brush.ptr));
     }
+
+    /// ### DEPRECATED: Use `background` instead
+    ///
+    pub const Background = background;
 
     /// Inherited from QTextFormat
     ///
@@ -7334,9 +9510,13 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` self: QTextFrameFormat `
     ///
-    pub fn Background(self: QTextFrameFormat) QBrush {
+    pub fn background(self: QTextFrameFormat) QBrush {
         return .{ .ptr = qtc.QTextFormat_Background(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearBackground` instead
+    ///
+    pub const ClearBackground = clearBackground;
 
     /// Inherited from QTextFormat
     ///
@@ -7346,9 +9526,13 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` self: QTextFrameFormat `
     ///
-    pub fn ClearBackground(self: QTextFrameFormat) void {
+    pub fn clearBackground(self: QTextFrameFormat) void {
         qtc.QTextFormat_ClearBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForeground` instead
+    ///
+    pub const SetForeground = setForeground;
 
     /// Inherited from QTextFormat
     ///
@@ -7360,10 +9544,14 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` brush: QBrush `
     ///
-    pub fn SetForeground(self: QTextFrameFormat, brush: anytype) void {
+    pub fn setForeground(self: QTextFrameFormat, brush: anytype) void {
         comptime _ = @TypeOf(brush)._is_QBrush;
         qtc.QTextFormat_SetForeground(@ptrCast(self.ptr), @ptrCast(brush.ptr));
     }
+
+    /// ### DEPRECATED: Use `foreground` instead
+    ///
+    pub const Foreground = foreground;
 
     /// Inherited from QTextFormat
     ///
@@ -7373,9 +9561,13 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` self: QTextFrameFormat `
     ///
-    pub fn Foreground(self: QTextFrameFormat) QBrush {
+    pub fn foreground(self: QTextFrameFormat) QBrush {
         return .{ .ptr = qtc.QTextFormat_Foreground(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearForeground` instead
+    ///
+    pub const ClearForeground = clearForeground;
 
     /// Inherited from QTextFormat
     ///
@@ -7385,23 +9577,23 @@ pub const QTextFrameFormat = extern struct {
     ///
     /// ` self: QTextFrameFormat `
     ///
-    pub fn ClearForeground(self: QTextFrameFormat) void {
+    pub fn clearForeground(self: QTextFrameFormat) void {
         qtc.QTextFormat_ClearForeground(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframeformat.html#dtor.QTextFrameFormat)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QTextFrameFormat `
     ///
-    pub fn Delete(self: QTextFrameFormat) void {
+    pub fn delete(self: QTextFrameFormat) void {
         qtc.QTextFrameFormat_Delete(@ptrCast(self.ptr));
     }
 };
@@ -7418,22 +9610,34 @@ pub const QTextTableFormat = extern struct {
     pub const _is_QTextFrameFormat = {};
     pub const _is_QTextFormat = {};
 
-    /// New constructs a new QTextTableFormat object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QTextTableFormat {
+    pub const New = new;
+
+    /// Allocate a new QTextTableFormat object in C++ memory
+    ///
+    pub fn new() QTextTableFormat {
         return .{ .ptr = qtc.QTextTableFormat_new() };
     }
 
-    /// New2 constructs a new QTextTableFormat object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QTextTableFormat object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QTextTableFormat `
     ///
-    pub fn New2(param1: anytype) QTextTableFormat {
+    pub fn new2(param1: anytype) QTextTableFormat {
         comptime _ = @TypeOf(param1)._is_QTextTableFormat;
         return .{ .ptr = qtc.QTextTableFormat_new2(@ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttableformat.html#isValid)
     ///
@@ -7441,9 +9645,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    pub fn IsValid(self: QTextTableFormat) bool {
+    pub fn isValid(self: QTextTableFormat) bool {
         return qtc.QTextTableFormat_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `columns` instead
+    ///
+    pub const Columns = columns;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttableformat.html#columns)
     ///
@@ -7451,9 +9659,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    pub fn Columns(self: QTextTableFormat) i32 {
+    pub fn columns(self: QTextTableFormat) i32 {
         return qtc.QTextTableFormat_Columns(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setColumns` instead
+    ///
+    pub const SetColumns = setColumns;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttableformat.html#setColumns)
     ///
@@ -7461,11 +9673,15 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    /// ` columns: i32 `
+    /// ` _columns: i32 `
     ///
-    pub fn SetColumns(self: QTextTableFormat, columns: i32) void {
-        qtc.QTextTableFormat_SetColumns(@ptrCast(self.ptr), @bitCast(columns));
+    pub fn setColumns(self: QTextTableFormat, _columns: i32) void {
+        qtc.QTextTableFormat_SetColumns(@ptrCast(self.ptr), @bitCast(_columns));
     }
+
+    /// ### DEPRECATED: Use `setColumnWidthConstraints` instead
+    ///
+    pub const SetColumnWidthConstraints = setColumnWidthConstraints;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttableformat.html#setColumnWidthConstraints)
     ///
@@ -7475,13 +9691,17 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` constraints: []QTextLength `
     ///
-    pub fn SetColumnWidthConstraints(self: QTextTableFormat, constraints: []QTextLength) void {
+    pub fn setColumnWidthConstraints(self: QTextTableFormat, constraints: []QTextLength) void {
         const constraints_list = qtc.libqt_list{
             .len = constraints.len,
             .data = @ptrCast(constraints.ptr),
         };
         qtc.QTextTableFormat_SetColumnWidthConstraints(@ptrCast(self.ptr), constraints_list);
     }
+
+    /// ### DEPRECATED: Use `columnWidthConstraints` instead
+    ///
+    pub const ColumnWidthConstraints = columnWidthConstraints;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttableformat.html#columnWidthConstraints)
     ///
@@ -7491,15 +9711,19 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ColumnWidthConstraints(self: QTextTableFormat, allocator: std.mem.Allocator) []QTextLength {
+    pub fn columnWidthConstraints(self: QTextTableFormat, allocator: std.mem.Allocator) []QTextLength {
         const _arr: qtc.libqt_list = qtc.QTextTableFormat_ColumnWidthConstraints(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QTextLength, _arr.len) catch @panic("QTextTableFormat.ColumnWidthConstraints: Memory allocation failed");
-        const _data: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QTextLength, _arr.len) catch @panic("QTextTableFormat.columnWidthConstraints: Memory allocation failed");
+        const _data_val: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `clearColumnWidthConstraints` instead
+    ///
+    pub const ClearColumnWidthConstraints = clearColumnWidthConstraints;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttableformat.html#clearColumnWidthConstraints)
     ///
@@ -7507,9 +9731,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    pub fn ClearColumnWidthConstraints(self: QTextTableFormat) void {
+    pub fn clearColumnWidthConstraints(self: QTextTableFormat) void {
         qtc.QTextTableFormat_ClearColumnWidthConstraints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `cellSpacing` instead
+    ///
+    pub const CellSpacing = cellSpacing;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttableformat.html#cellSpacing)
     ///
@@ -7517,9 +9745,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    pub fn CellSpacing(self: QTextTableFormat) f64 {
+    pub fn cellSpacing(self: QTextTableFormat) f64 {
         return qtc.QTextTableFormat_CellSpacing(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCellSpacing` instead
+    ///
+    pub const SetCellSpacing = setCellSpacing;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttableformat.html#setCellSpacing)
     ///
@@ -7529,9 +9761,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` spacing: f64 `
     ///
-    pub fn SetCellSpacing(self: QTextTableFormat, spacing: f64) void {
+    pub fn setCellSpacing(self: QTextTableFormat, spacing: f64) void {
         qtc.QTextTableFormat_SetCellSpacing(@ptrCast(self.ptr), @bitCast(spacing));
     }
+
+    /// ### DEPRECATED: Use `cellPadding` instead
+    ///
+    pub const CellPadding = cellPadding;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttableformat.html#cellPadding)
     ///
@@ -7539,9 +9775,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    pub fn CellPadding(self: QTextTableFormat) f64 {
+    pub fn cellPadding(self: QTextTableFormat) f64 {
         return qtc.QTextTableFormat_CellPadding(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCellPadding` instead
+    ///
+    pub const SetCellPadding = setCellPadding;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttableformat.html#setCellPadding)
     ///
@@ -7549,11 +9789,15 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    /// ` padding: f64 `
+    /// ` _padding: f64 `
     ///
-    pub fn SetCellPadding(self: QTextTableFormat, padding: f64) void {
-        qtc.QTextTableFormat_SetCellPadding(@ptrCast(self.ptr), @bitCast(padding));
+    pub fn setCellPadding(self: QTextTableFormat, _padding: f64) void {
+        qtc.QTextTableFormat_SetCellPadding(@ptrCast(self.ptr), @bitCast(_padding));
     }
+
+    /// ### DEPRECATED: Use `setAlignment` instead
+    ///
+    pub const SetAlignment = setAlignment;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttableformat.html#setAlignment)
     ///
@@ -7561,11 +9805,15 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
+    /// ` _alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn SetAlignment(self: QTextTableFormat, alignment: i32) void {
-        qtc.QTextTableFormat_SetAlignment(@ptrCast(self.ptr), @bitCast(alignment));
+    pub fn setAlignment(self: QTextTableFormat, _alignment: i32) void {
+        qtc.QTextTableFormat_SetAlignment(@ptrCast(self.ptr), @bitCast(_alignment));
     }
+
+    /// ### DEPRECATED: Use `alignment` instead
+    ///
+    pub const Alignment = alignment;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttableformat.html#alignment)
     ///
@@ -7577,9 +9825,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn Alignment(self: QTextTableFormat) i32 {
+    pub fn alignment(self: QTextTableFormat) i32 {
         return qtc.QTextTableFormat_Alignment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHeaderRowCount` instead
+    ///
+    pub const SetHeaderRowCount = setHeaderRowCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttableformat.html#setHeaderRowCount)
     ///
@@ -7589,9 +9841,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` count: i32 `
     ///
-    pub fn SetHeaderRowCount(self: QTextTableFormat, count: i32) void {
+    pub fn setHeaderRowCount(self: QTextTableFormat, count: i32) void {
         qtc.QTextTableFormat_SetHeaderRowCount(@ptrCast(self.ptr), @bitCast(count));
     }
+
+    /// ### DEPRECATED: Use `headerRowCount` instead
+    ///
+    pub const HeaderRowCount = headerRowCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttableformat.html#headerRowCount)
     ///
@@ -7599,9 +9855,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    pub fn HeaderRowCount(self: QTextTableFormat) i32 {
+    pub fn headerRowCount(self: QTextTableFormat) i32 {
         return qtc.QTextTableFormat_HeaderRowCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBorderCollapse` instead
+    ///
+    pub const SetBorderCollapse = setBorderCollapse;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttableformat.html#setBorderCollapse)
     ///
@@ -7609,11 +9869,15 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    /// ` borderCollapse: bool `
+    /// ` _borderCollapse: bool `
     ///
-    pub fn SetBorderCollapse(self: QTextTableFormat, borderCollapse: bool) void {
-        qtc.QTextTableFormat_SetBorderCollapse(@ptrCast(self.ptr), borderCollapse);
+    pub fn setBorderCollapse(self: QTextTableFormat, _borderCollapse: bool) void {
+        qtc.QTextTableFormat_SetBorderCollapse(@ptrCast(self.ptr), _borderCollapse);
     }
+
+    /// ### DEPRECATED: Use `borderCollapse` instead
+    ///
+    pub const BorderCollapse = borderCollapse;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttableformat.html#borderCollapse)
     ///
@@ -7621,9 +9885,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    pub fn BorderCollapse(self: QTextTableFormat) bool {
+    pub fn borderCollapse(self: QTextTableFormat) bool {
         return qtc.QTextTableFormat_BorderCollapse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPosition` instead
+    ///
+    pub const SetPosition = setPosition;
 
     /// Inherited from QTextFrameFormat
     ///
@@ -7635,9 +9903,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` f: qtextformat_enums.Position `
     ///
-    pub fn SetPosition(self: QTextTableFormat, f: i32) void {
+    pub fn setPosition(self: QTextTableFormat, f: i32) void {
         qtc.QTextFrameFormat_SetPosition(@ptrCast(self.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `position` instead
+    ///
+    pub const Position = position;
 
     /// Inherited from QTextFrameFormat
     ///
@@ -7651,9 +9923,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` qtextformat_enums.Position `
     ///
-    pub fn Position(self: QTextTableFormat) i32 {
+    pub fn position(self: QTextTableFormat) i32 {
         return qtc.QTextFrameFormat_Position(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBorder` instead
+    ///
+    pub const SetBorder = setBorder;
 
     /// Inherited from QTextFrameFormat
     ///
@@ -7663,11 +9939,15 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    /// ` border: f64 `
+    /// ` _border: f64 `
     ///
-    pub fn SetBorder(self: QTextTableFormat, border: f64) void {
-        qtc.QTextFrameFormat_SetBorder(@ptrCast(self.ptr), @bitCast(border));
+    pub fn setBorder(self: QTextTableFormat, _border: f64) void {
+        qtc.QTextFrameFormat_SetBorder(@ptrCast(self.ptr), @bitCast(_border));
     }
+
+    /// ### DEPRECATED: Use `border` instead
+    ///
+    pub const Border = border;
 
     /// Inherited from QTextFrameFormat
     ///
@@ -7677,9 +9957,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    pub fn Border(self: QTextTableFormat) f64 {
+    pub fn border(self: QTextTableFormat) f64 {
         return qtc.QTextFrameFormat_Border(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBorderBrush` instead
+    ///
+    pub const SetBorderBrush = setBorderBrush;
 
     /// Inherited from QTextFrameFormat
     ///
@@ -7691,10 +9975,14 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` brush: QBrush `
     ///
-    pub fn SetBorderBrush(self: QTextTableFormat, brush: anytype) void {
+    pub fn setBorderBrush(self: QTextTableFormat, brush: anytype) void {
         comptime _ = @TypeOf(brush)._is_QBrush;
         qtc.QTextFrameFormat_SetBorderBrush(@ptrCast(self.ptr), @ptrCast(brush.ptr));
     }
+
+    /// ### DEPRECATED: Use `borderBrush` instead
+    ///
+    pub const BorderBrush = borderBrush;
 
     /// Inherited from QTextFrameFormat
     ///
@@ -7704,9 +9992,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    pub fn BorderBrush(self: QTextTableFormat) QBrush {
+    pub fn borderBrush(self: QTextTableFormat) QBrush {
         return .{ .ptr = qtc.QTextFrameFormat_BorderBrush(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBorderStyle` instead
+    ///
+    pub const SetBorderStyle = setBorderStyle;
 
     /// Inherited from QTextFrameFormat
     ///
@@ -7716,11 +10008,15 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    /// ` style: qtextformat_enums.BorderStyle `
+    /// ` _style: qtextformat_enums.BorderStyle `
     ///
-    pub fn SetBorderStyle(self: QTextTableFormat, style: i32) void {
-        qtc.QTextFrameFormat_SetBorderStyle(@ptrCast(self.ptr), @bitCast(style));
+    pub fn setBorderStyle(self: QTextTableFormat, _style: i32) void {
+        qtc.QTextFrameFormat_SetBorderStyle(@ptrCast(self.ptr), @bitCast(_style));
     }
+
+    /// ### DEPRECATED: Use `borderStyle` instead
+    ///
+    pub const BorderStyle = borderStyle;
 
     /// Inherited from QTextFrameFormat
     ///
@@ -7734,9 +10030,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` qtextformat_enums.BorderStyle `
     ///
-    pub fn BorderStyle(self: QTextTableFormat) i32 {
+    pub fn borderStyle(self: QTextTableFormat) i32 {
         return qtc.QTextFrameFormat_BorderStyle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMargin` instead
+    ///
+    pub const SetMargin = setMargin;
 
     /// Inherited from QTextFrameFormat
     ///
@@ -7746,11 +10046,15 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    /// ` margin: f64 `
+    /// ` _margin: f64 `
     ///
-    pub fn SetMargin(self: QTextTableFormat, margin: f64) void {
-        qtc.QTextFrameFormat_SetMargin(@ptrCast(self.ptr), @bitCast(margin));
+    pub fn setMargin(self: QTextTableFormat, _margin: f64) void {
+        qtc.QTextFrameFormat_SetMargin(@ptrCast(self.ptr), @bitCast(_margin));
     }
+
+    /// ### DEPRECATED: Use `margin` instead
+    ///
+    pub const Margin = margin;
 
     /// Inherited from QTextFrameFormat
     ///
@@ -7760,9 +10064,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    pub fn Margin(self: QTextTableFormat) f64 {
+    pub fn margin(self: QTextTableFormat) f64 {
         return qtc.QTextFrameFormat_Margin(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTopMargin` instead
+    ///
+    pub const SetTopMargin = setTopMargin;
 
     /// Inherited from QTextFrameFormat
     ///
@@ -7772,11 +10080,15 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    /// ` margin: f64 `
+    /// ` _margin: f64 `
     ///
-    pub fn SetTopMargin(self: QTextTableFormat, margin: f64) void {
-        qtc.QTextFrameFormat_SetTopMargin(@ptrCast(self.ptr), @bitCast(margin));
+    pub fn setTopMargin(self: QTextTableFormat, _margin: f64) void {
+        qtc.QTextFrameFormat_SetTopMargin(@ptrCast(self.ptr), @bitCast(_margin));
     }
+
+    /// ### DEPRECATED: Use `topMargin` instead
+    ///
+    pub const TopMargin = topMargin;
 
     /// Inherited from QTextFrameFormat
     ///
@@ -7786,9 +10098,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    pub fn TopMargin(self: QTextTableFormat) f64 {
+    pub fn topMargin(self: QTextTableFormat) f64 {
         return qtc.QTextFrameFormat_TopMargin(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBottomMargin` instead
+    ///
+    pub const SetBottomMargin = setBottomMargin;
 
     /// Inherited from QTextFrameFormat
     ///
@@ -7798,11 +10114,15 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    /// ` margin: f64 `
+    /// ` _margin: f64 `
     ///
-    pub fn SetBottomMargin(self: QTextTableFormat, margin: f64) void {
-        qtc.QTextFrameFormat_SetBottomMargin(@ptrCast(self.ptr), @bitCast(margin));
+    pub fn setBottomMargin(self: QTextTableFormat, _margin: f64) void {
+        qtc.QTextFrameFormat_SetBottomMargin(@ptrCast(self.ptr), @bitCast(_margin));
     }
+
+    /// ### DEPRECATED: Use `bottomMargin` instead
+    ///
+    pub const BottomMargin = bottomMargin;
 
     /// Inherited from QTextFrameFormat
     ///
@@ -7812,9 +10132,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    pub fn BottomMargin(self: QTextTableFormat) f64 {
+    pub fn bottomMargin(self: QTextTableFormat) f64 {
         return qtc.QTextFrameFormat_BottomMargin(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLeftMargin` instead
+    ///
+    pub const SetLeftMargin = setLeftMargin;
 
     /// Inherited from QTextFrameFormat
     ///
@@ -7824,11 +10148,15 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    /// ` margin: f64 `
+    /// ` _margin: f64 `
     ///
-    pub fn SetLeftMargin(self: QTextTableFormat, margin: f64) void {
-        qtc.QTextFrameFormat_SetLeftMargin(@ptrCast(self.ptr), @bitCast(margin));
+    pub fn setLeftMargin(self: QTextTableFormat, _margin: f64) void {
+        qtc.QTextFrameFormat_SetLeftMargin(@ptrCast(self.ptr), @bitCast(_margin));
     }
+
+    /// ### DEPRECATED: Use `leftMargin` instead
+    ///
+    pub const LeftMargin = leftMargin;
 
     /// Inherited from QTextFrameFormat
     ///
@@ -7838,9 +10166,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    pub fn LeftMargin(self: QTextTableFormat) f64 {
+    pub fn leftMargin(self: QTextTableFormat) f64 {
         return qtc.QTextFrameFormat_LeftMargin(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setRightMargin` instead
+    ///
+    pub const SetRightMargin = setRightMargin;
 
     /// Inherited from QTextFrameFormat
     ///
@@ -7850,11 +10182,15 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    /// ` margin: f64 `
+    /// ` _margin: f64 `
     ///
-    pub fn SetRightMargin(self: QTextTableFormat, margin: f64) void {
-        qtc.QTextFrameFormat_SetRightMargin(@ptrCast(self.ptr), @bitCast(margin));
+    pub fn setRightMargin(self: QTextTableFormat, _margin: f64) void {
+        qtc.QTextFrameFormat_SetRightMargin(@ptrCast(self.ptr), @bitCast(_margin));
     }
+
+    /// ### DEPRECATED: Use `rightMargin` instead
+    ///
+    pub const RightMargin = rightMargin;
 
     /// Inherited from QTextFrameFormat
     ///
@@ -7864,9 +10200,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    pub fn RightMargin(self: QTextTableFormat) f64 {
+    pub fn rightMargin(self: QTextTableFormat) f64 {
         return qtc.QTextFrameFormat_RightMargin(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPadding` instead
+    ///
+    pub const SetPadding = setPadding;
 
     /// Inherited from QTextFrameFormat
     ///
@@ -7876,11 +10216,15 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    /// ` padding: f64 `
+    /// ` _padding: f64 `
     ///
-    pub fn SetPadding(self: QTextTableFormat, padding: f64) void {
-        qtc.QTextFrameFormat_SetPadding(@ptrCast(self.ptr), @bitCast(padding));
+    pub fn setPadding(self: QTextTableFormat, _padding: f64) void {
+        qtc.QTextFrameFormat_SetPadding(@ptrCast(self.ptr), @bitCast(_padding));
     }
+
+    /// ### DEPRECATED: Use `padding` instead
+    ///
+    pub const Padding = padding;
 
     /// Inherited from QTextFrameFormat
     ///
@@ -7890,9 +10234,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    pub fn Padding(self: QTextTableFormat) f64 {
+    pub fn padding(self: QTextTableFormat) f64 {
         return qtc.QTextFrameFormat_Padding(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWidth` instead
+    ///
+    pub const SetWidth = setWidth;
 
     /// Inherited from QTextFrameFormat
     ///
@@ -7902,11 +10250,15 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    /// ` width: f64 `
+    /// ` _width: f64 `
     ///
-    pub fn SetWidth(self: QTextTableFormat, width: f64) void {
-        qtc.QTextFrameFormat_SetWidth(@ptrCast(self.ptr), @bitCast(width));
+    pub fn setWidth(self: QTextTableFormat, _width: f64) void {
+        qtc.QTextFrameFormat_SetWidth(@ptrCast(self.ptr), @bitCast(_width));
     }
+
+    /// ### DEPRECATED: Use `setWidth2` instead
+    ///
+    pub const SetWidth2 = setWidth2;
 
     /// Inherited from QTextFrameFormat
     ///
@@ -7918,10 +10270,14 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` length: QTextLength `
     ///
-    pub fn SetWidth2(self: QTextTableFormat, length: anytype) void {
+    pub fn setWidth2(self: QTextTableFormat, length: anytype) void {
         comptime _ = @TypeOf(length)._is_QTextLength;
         qtc.QTextFrameFormat_SetWidth2(@ptrCast(self.ptr), @ptrCast(length.ptr));
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QTextFrameFormat
     ///
@@ -7931,23 +10287,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    pub fn Width(self: QTextTableFormat) QTextLength {
+    pub fn width(self: QTextTableFormat) QTextLength {
         return .{ .ptr = qtc.QTextFrameFormat_Width(@ptrCast(self.ptr)) };
     }
 
-    /// Inherited from QTextFrameFormat
+    /// ### DEPRECATED: Use `setHeight` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframeformat.html#setHeight)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextTableFormat `
-    ///
-    /// ` height: f64 `
-    ///
-    pub fn SetHeight(self: QTextTableFormat, height: f64) void {
-        qtc.QTextFrameFormat_SetHeight(@ptrCast(self.ptr), @bitCast(height));
-    }
+    pub const SetHeight = setHeight;
 
     /// Inherited from QTextFrameFormat
     ///
@@ -7957,12 +10303,34 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    /// ` height: QTextLength `
+    /// ` _height: f64 `
     ///
-    pub fn SetHeight2(self: QTextTableFormat, height: anytype) void {
-        comptime _ = @TypeOf(height)._is_QTextLength;
-        qtc.QTextFrameFormat_SetHeight2(@ptrCast(self.ptr), @ptrCast(height.ptr));
+    pub fn setHeight(self: QTextTableFormat, _height: f64) void {
+        qtc.QTextFrameFormat_SetHeight(@ptrCast(self.ptr), @bitCast(_height));
     }
+
+    /// ### DEPRECATED: Use `setHeight2` instead
+    ///
+    pub const SetHeight2 = setHeight2;
+
+    /// Inherited from QTextFrameFormat
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframeformat.html#setHeight)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QTextTableFormat `
+    ///
+    /// ` _height: QTextLength `
+    ///
+    pub fn setHeight2(self: QTextTableFormat, _height: anytype) void {
+        comptime _ = @TypeOf(_height)._is_QTextLength;
+        qtc.QTextFrameFormat_SetHeight2(@ptrCast(self.ptr), @ptrCast(_height.ptr));
+    }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QTextFrameFormat
     ///
@@ -7972,9 +10340,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    pub fn Height(self: QTextTableFormat) QTextLength {
+    pub fn height(self: QTextTableFormat) QTextLength {
         return .{ .ptr = qtc.QTextFrameFormat_Height(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPageBreakPolicy` instead
+    ///
+    pub const SetPageBreakPolicy = setPageBreakPolicy;
 
     /// Inherited from QTextFrameFormat
     ///
@@ -7986,9 +10358,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` flags: flag of qtextformat_enums.PageBreakFlag `
     ///
-    pub fn SetPageBreakPolicy(self: QTextTableFormat, flags: i32) void {
+    pub fn setPageBreakPolicy(self: QTextTableFormat, flags: i32) void {
         qtc.QTextFrameFormat_SetPageBreakPolicy(@ptrCast(self.ptr), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `pageBreakPolicy` instead
+    ///
+    pub const PageBreakPolicy = pageBreakPolicy;
 
     /// Inherited from QTextFrameFormat
     ///
@@ -8002,9 +10378,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` flag of qtextformat_enums.PageBreakFlag `
     ///
-    pub fn PageBreakPolicy(self: QTextTableFormat) i32 {
+    pub fn pageBreakPolicy(self: QTextTableFormat) i32 {
         return qtc.QTextFrameFormat_PageBreakPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// Inherited from QTextFormat
     ///
@@ -8016,10 +10396,14 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` rhs: QTextFormat `
     ///
-    pub fn OperatorAssign(self: QTextTableFormat, rhs: anytype) void {
+    pub fn operatorAssign(self: QTextTableFormat, rhs: anytype) void {
         comptime _ = @TypeOf(rhs)._is_QTextFormat;
         qtc.QTextFormat_OperatorAssign(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// Inherited from QTextFormat
     ///
@@ -8031,10 +10415,14 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` other: QTextFormat `
     ///
-    pub fn Swap(self: QTextTableFormat, other: anytype) void {
+    pub fn swap(self: QTextTableFormat, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QTextFormat;
         qtc.QTextFormat_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `merge` instead
+    ///
+    pub const Merge = merge;
 
     /// Inherited from QTextFormat
     ///
@@ -8046,10 +10434,14 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` other: QTextFormat `
     ///
-    pub fn Merge(self: QTextTableFormat, other: anytype) void {
+    pub fn merge(self: QTextTableFormat, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QTextFormat;
         qtc.QTextFormat_Merge(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEmpty` instead
+    ///
+    pub const IsEmpty = isEmpty;
 
     /// Inherited from QTextFormat
     ///
@@ -8059,9 +10451,15 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    pub fn IsEmpty(self: QTextTableFormat) bool {
+    pub fn isEmpty(self: QTextTableFormat) bool {
         return qtc.QTextFormat_IsEmpty(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QTextFormat
     ///
@@ -8071,9 +10469,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    pub fn Type(self: QTextTableFormat) i32 {
+    pub fn type0(self: QTextTableFormat) i32 {
         return qtc.QTextFormat_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `objectIndex` instead
+    ///
+    pub const ObjectIndex = objectIndex;
 
     /// Inherited from QTextFormat
     ///
@@ -8083,9 +10485,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    pub fn ObjectIndex(self: QTextTableFormat) i32 {
+    pub fn objectIndex(self: QTextTableFormat) i32 {
         return qtc.QTextFormat_ObjectIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setObjectIndex` instead
+    ///
+    pub const SetObjectIndex = setObjectIndex;
 
     /// Inherited from QTextFormat
     ///
@@ -8097,9 +10503,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` object: i32 `
     ///
-    pub fn SetObjectIndex(self: QTextTableFormat, object: i32) void {
+    pub fn setObjectIndex(self: QTextTableFormat, object: i32) void {
         qtc.QTextFormat_SetObjectIndex(@ptrCast(self.ptr), @bitCast(object));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QTextFormat
     ///
@@ -8111,9 +10521,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn Property(self: QTextTableFormat, propertyId: i32) QVariant {
+    pub fn property(self: QTextTableFormat, propertyId: i32) QVariant {
         return .{ .ptr = qtc.QTextFormat_Property(@ptrCast(self.ptr), @bitCast(propertyId)) };
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -8125,12 +10539,16 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    /// ` value: QVariant `
+    /// ` _value: QVariant `
     ///
-    pub fn SetProperty(self: QTextTableFormat, propertyId: i32, value: anytype) void {
-        comptime _ = @TypeOf(value)._is_QVariant;
-        qtc.QTextFormat_SetProperty(@ptrCast(self.ptr), @bitCast(propertyId), @ptrCast(value.ptr));
+    pub fn setProperty(self: QTextTableFormat, propertyId: i32, _value: anytype) void {
+        comptime _ = @TypeOf(_value)._is_QVariant;
+        qtc.QTextFormat_SetProperty(@ptrCast(self.ptr), @bitCast(propertyId), @ptrCast(_value.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearProperty` instead
+    ///
+    pub const ClearProperty = clearProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -8142,9 +10560,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn ClearProperty(self: QTextTableFormat, propertyId: i32) void {
+    pub fn clearProperty(self: QTextTableFormat, propertyId: i32) void {
         qtc.QTextFormat_ClearProperty(@ptrCast(self.ptr), @bitCast(propertyId));
     }
+
+    /// ### DEPRECATED: Use `hasProperty` instead
+    ///
+    pub const HasProperty = hasProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -8156,9 +10578,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn HasProperty(self: QTextTableFormat, propertyId: i32) bool {
+    pub fn hasProperty(self: QTextTableFormat, propertyId: i32) bool {
         return qtc.QTextFormat_HasProperty(@ptrCast(self.ptr), @bitCast(propertyId));
     }
+
+    /// ### DEPRECATED: Use `boolProperty` instead
+    ///
+    pub const BoolProperty = boolProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -8170,9 +10596,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn BoolProperty(self: QTextTableFormat, propertyId: i32) bool {
+    pub fn boolProperty(self: QTextTableFormat, propertyId: i32) bool {
         return qtc.QTextFormat_BoolProperty(@ptrCast(self.ptr), @bitCast(propertyId));
     }
+
+    /// ### DEPRECATED: Use `intProperty` instead
+    ///
+    pub const IntProperty = intProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -8184,9 +10614,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn IntProperty(self: QTextTableFormat, propertyId: i32) i32 {
+    pub fn intProperty(self: QTextTableFormat, propertyId: i32) i32 {
         return qtc.QTextFormat_IntProperty(@ptrCast(self.ptr), @bitCast(propertyId));
     }
+
+    /// ### DEPRECATED: Use `doubleProperty` instead
+    ///
+    pub const DoubleProperty = doubleProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -8198,9 +10632,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn DoubleProperty(self: QTextTableFormat, propertyId: i32) f64 {
+    pub fn doubleProperty(self: QTextTableFormat, propertyId: i32) f64 {
         return qtc.QTextFormat_DoubleProperty(@ptrCast(self.ptr), @bitCast(propertyId));
     }
+
+    /// ### DEPRECATED: Use `stringProperty` instead
+    ///
+    pub const StringProperty = stringProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -8214,13 +10652,17 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn StringProperty(self: QTextTableFormat, allocator: std.mem.Allocator, propertyId: i32) []const u8 {
+    pub fn stringProperty(self: QTextTableFormat, allocator: std.mem.Allocator, propertyId: i32) []const u8 {
         var _str = qtc.QTextFormat_StringProperty(@ptrCast(self.ptr), @bitCast(propertyId));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextTableFormat.StringProperty: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextTableFormat.stringProperty: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `colorProperty` instead
+    ///
+    pub const ColorProperty = colorProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -8232,9 +10674,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn ColorProperty(self: QTextTableFormat, propertyId: i32) QColor {
+    pub fn colorProperty(self: QTextTableFormat, propertyId: i32) QColor {
         return .{ .ptr = qtc.QTextFormat_ColorProperty(@ptrCast(self.ptr), @bitCast(propertyId)) };
     }
+
+    /// ### DEPRECATED: Use `penProperty` instead
+    ///
+    pub const PenProperty = penProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -8246,9 +10692,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn PenProperty(self: QTextTableFormat, propertyId: i32) QPen {
+    pub fn penProperty(self: QTextTableFormat, propertyId: i32) QPen {
         return .{ .ptr = qtc.QTextFormat_PenProperty(@ptrCast(self.ptr), @bitCast(propertyId)) };
     }
+
+    /// ### DEPRECATED: Use `brushProperty` instead
+    ///
+    pub const BrushProperty = brushProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -8260,9 +10710,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn BrushProperty(self: QTextTableFormat, propertyId: i32) QBrush {
+    pub fn brushProperty(self: QTextTableFormat, propertyId: i32) QBrush {
         return .{ .ptr = qtc.QTextFormat_BrushProperty(@ptrCast(self.ptr), @bitCast(propertyId)) };
     }
+
+    /// ### DEPRECATED: Use `lengthProperty` instead
+    ///
+    pub const LengthProperty = lengthProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -8274,9 +10728,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn LengthProperty(self: QTextTableFormat, propertyId: i32) QTextLength {
+    pub fn lengthProperty(self: QTextTableFormat, propertyId: i32) QTextLength {
         return .{ .ptr = qtc.QTextFormat_LengthProperty(@ptrCast(self.ptr), @bitCast(propertyId)) };
     }
+
+    /// ### DEPRECATED: Use `lengthVectorProperty` instead
+    ///
+    pub const LengthVectorProperty = lengthVectorProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -8290,15 +10748,19 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn LengthVectorProperty(self: QTextTableFormat, allocator: std.mem.Allocator, propertyId: i32) []QTextLength {
+    pub fn lengthVectorProperty(self: QTextTableFormat, allocator: std.mem.Allocator, propertyId: i32) []QTextLength {
         const _arr: qtc.libqt_list = qtc.QTextFormat_LengthVectorProperty(@ptrCast(self.ptr), @bitCast(propertyId));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QTextLength, _arr.len) catch @panic("QTextTableFormat.LengthVectorProperty: Memory allocation failed");
-        const _data: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QTextLength, _arr.len) catch @panic("QTextTableFormat.lengthVectorProperty: Memory allocation failed");
+        const _data_val: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setProperty2` instead
+    ///
+    pub const SetProperty2 = setProperty2;
 
     /// Inherited from QTextFormat
     ///
@@ -8312,13 +10774,17 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` lengths: []QTextLength `
     ///
-    pub fn SetProperty2(self: QTextTableFormat, propertyId: i32, lengths: []QTextLength) void {
+    pub fn setProperty2(self: QTextTableFormat, propertyId: i32, lengths: []QTextLength) void {
         const lengths_list = qtc.libqt_list{
             .len = lengths.len,
             .data = @ptrCast(lengths.ptr),
         };
         qtc.QTextFormat_SetProperty2(@ptrCast(self.ptr), @bitCast(propertyId), lengths_list);
     }
+
+    /// ### DEPRECATED: Use `properties` instead
+    ///
+    pub const Properties = properties;
 
     /// Inherited from QTextFormat
     ///
@@ -8330,10 +10796,10 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Properties(self: QTextTableFormat, allocator: std.mem.Allocator) ArrayMap_i32_QVariant {
+    pub fn properties(self: QTextTableFormat, allocator: std.mem.Allocator) ArrayMap_i32_QVariant {
         const _map: qtc.libqt_map = qtc.QTextFormat_Properties(@ptrCast(self.ptr));
         var _ret: ArrayMap_i32_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QTextTableFormat.Properties: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QTextTableFormat.properties: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -8349,6 +10815,10 @@ pub const QTextTableFormat = extern struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `propertyCount` instead
+    ///
+    pub const PropertyCount = propertyCount;
+
     /// Inherited from QTextFormat
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#propertyCount)
@@ -8357,9 +10827,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    pub fn PropertyCount(self: QTextTableFormat) i32 {
+    pub fn propertyCount(self: QTextTableFormat) i32 {
         return qtc.QTextFormat_PropertyCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setObjectType` instead
+    ///
+    pub const SetObjectType = setObjectType;
 
     /// Inherited from QTextFormat
     ///
@@ -8371,9 +10845,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` typeVal: i32 `
     ///
-    pub fn SetObjectType(self: QTextTableFormat, typeVal: i32) void {
+    pub fn setObjectType(self: QTextTableFormat, typeVal: i32) void {
         qtc.QTextFormat_SetObjectType(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `objectType` instead
+    ///
+    pub const ObjectType = objectType;
 
     /// Inherited from QTextFormat
     ///
@@ -8383,9 +10861,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    pub fn ObjectType(self: QTextTableFormat) i32 {
+    pub fn objectType(self: QTextTableFormat) i32 {
         return qtc.QTextFormat_ObjectType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isCharFormat` instead
+    ///
+    pub const IsCharFormat = isCharFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -8395,9 +10877,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    pub fn IsCharFormat(self: QTextTableFormat) bool {
+    pub fn isCharFormat(self: QTextTableFormat) bool {
         return qtc.QTextFormat_IsCharFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isBlockFormat` instead
+    ///
+    pub const IsBlockFormat = isBlockFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -8407,9 +10893,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    pub fn IsBlockFormat(self: QTextTableFormat) bool {
+    pub fn isBlockFormat(self: QTextTableFormat) bool {
         return qtc.QTextFormat_IsBlockFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isListFormat` instead
+    ///
+    pub const IsListFormat = isListFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -8419,9 +10909,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    pub fn IsListFormat(self: QTextTableFormat) bool {
+    pub fn isListFormat(self: QTextTableFormat) bool {
         return qtc.QTextFormat_IsListFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFrameFormat` instead
+    ///
+    pub const IsFrameFormat = isFrameFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -8431,9 +10925,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    pub fn IsFrameFormat(self: QTextTableFormat) bool {
+    pub fn isFrameFormat(self: QTextTableFormat) bool {
         return qtc.QTextFormat_IsFrameFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isImageFormat` instead
+    ///
+    pub const IsImageFormat = isImageFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -8443,9 +10941,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    pub fn IsImageFormat(self: QTextTableFormat) bool {
+    pub fn isImageFormat(self: QTextTableFormat) bool {
         return qtc.QTextFormat_IsImageFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTableFormat` instead
+    ///
+    pub const IsTableFormat = isTableFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -8455,9 +10957,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    pub fn IsTableFormat(self: QTextTableFormat) bool {
+    pub fn isTableFormat(self: QTextTableFormat) bool {
         return qtc.QTextFormat_IsTableFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTableCellFormat` instead
+    ///
+    pub const IsTableCellFormat = isTableCellFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -8467,9 +10973,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    pub fn IsTableCellFormat(self: QTextTableFormat) bool {
+    pub fn isTableCellFormat(self: QTextTableFormat) bool {
         return qtc.QTextFormat_IsTableCellFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toBlockFormat` instead
+    ///
+    pub const ToBlockFormat = toBlockFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -8479,9 +10989,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    pub fn ToBlockFormat(self: QTextTableFormat) QTextBlockFormat {
+    pub fn toBlockFormat(self: QTextTableFormat) QTextBlockFormat {
         return .{ .ptr = qtc.QTextFormat_ToBlockFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toCharFormat` instead
+    ///
+    pub const ToCharFormat = toCharFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -8491,9 +11005,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    pub fn ToCharFormat(self: QTextTableFormat) QTextCharFormat {
+    pub fn toCharFormat(self: QTextTableFormat) QTextCharFormat {
         return .{ .ptr = qtc.QTextFormat_ToCharFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toListFormat` instead
+    ///
+    pub const ToListFormat = toListFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -8503,9 +11021,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    pub fn ToListFormat(self: QTextTableFormat) QTextListFormat {
+    pub fn toListFormat(self: QTextTableFormat) QTextListFormat {
         return .{ .ptr = qtc.QTextFormat_ToListFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toTableFormat` instead
+    ///
+    pub const ToTableFormat = toTableFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -8515,9 +11037,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    pub fn ToTableFormat(self: QTextTableFormat) QTextTableFormat {
+    pub fn toTableFormat(self: QTextTableFormat) QTextTableFormat {
         return .{ .ptr = qtc.QTextFormat_ToTableFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toFrameFormat` instead
+    ///
+    pub const ToFrameFormat = toFrameFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -8527,9 +11053,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    pub fn ToFrameFormat(self: QTextTableFormat) QTextFrameFormat {
+    pub fn toFrameFormat(self: QTextTableFormat) QTextFrameFormat {
         return .{ .ptr = qtc.QTextFormat_ToFrameFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toImageFormat` instead
+    ///
+    pub const ToImageFormat = toImageFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -8539,9 +11069,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    pub fn ToImageFormat(self: QTextTableFormat) QTextImageFormat {
+    pub fn toImageFormat(self: QTextTableFormat) QTextImageFormat {
         return .{ .ptr = qtc.QTextFormat_ToImageFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toTableCellFormat` instead
+    ///
+    pub const ToTableCellFormat = toTableCellFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -8551,9 +11085,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    pub fn ToTableCellFormat(self: QTextTableFormat) QTextTableCellFormat {
+    pub fn toTableCellFormat(self: QTextTableFormat) QTextTableCellFormat {
         return .{ .ptr = qtc.QTextFormat_ToTableCellFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// Inherited from QTextFormat
     ///
@@ -8565,10 +11103,14 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` rhs: QTextFormat `
     ///
-    pub fn OperatorEqual(self: QTextTableFormat, rhs: anytype) bool {
+    pub fn operatorEqual(self: QTextTableFormat, rhs: anytype) bool {
         comptime _ = @TypeOf(rhs)._is_QTextFormat;
         return qtc.QTextFormat_OperatorEqual(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// Inherited from QTextFormat
     ///
@@ -8580,10 +11122,14 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` rhs: QTextFormat `
     ///
-    pub fn OperatorNotEqual(self: QTextTableFormat, rhs: anytype) bool {
+    pub fn operatorNotEqual(self: QTextTableFormat, rhs: anytype) bool {
         comptime _ = @TypeOf(rhs)._is_QTextFormat;
         return qtc.QTextFormat_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
     }
+
+    /// ### DEPRECATED: Use `toQVariant` instead
+    ///
+    pub const ToQVariant = toQVariant;
 
     /// Inherited from QTextFormat
     ///
@@ -8593,9 +11139,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    pub fn ToQVariant(self: QTextTableFormat) QVariant {
+    pub fn toQVariant(self: QTextTableFormat) QVariant {
         return .{ .ptr = qtc.QTextFormat_ToQVariant(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QTextFormat
     ///
@@ -8607,9 +11157,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: QTextTableFormat, direction: i32) void {
+    pub fn setLayoutDirection(self: QTextTableFormat, direction: i32) void {
         qtc.QTextFormat_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QTextFormat
     ///
@@ -8623,9 +11177,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: QTextTableFormat) i32 {
+    pub fn layoutDirection(self: QTextTableFormat) i32 {
         return qtc.QTextFormat_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackground` instead
+    ///
+    pub const SetBackground = setBackground;
 
     /// Inherited from QTextFormat
     ///
@@ -8637,10 +11195,14 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` brush: QBrush `
     ///
-    pub fn SetBackground(self: QTextTableFormat, brush: anytype) void {
+    pub fn setBackground(self: QTextTableFormat, brush: anytype) void {
         comptime _ = @TypeOf(brush)._is_QBrush;
         qtc.QTextFormat_SetBackground(@ptrCast(self.ptr), @ptrCast(brush.ptr));
     }
+
+    /// ### DEPRECATED: Use `background` instead
+    ///
+    pub const Background = background;
 
     /// Inherited from QTextFormat
     ///
@@ -8650,9 +11212,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    pub fn Background(self: QTextTableFormat) QBrush {
+    pub fn background(self: QTextTableFormat) QBrush {
         return .{ .ptr = qtc.QTextFormat_Background(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearBackground` instead
+    ///
+    pub const ClearBackground = clearBackground;
 
     /// Inherited from QTextFormat
     ///
@@ -8662,9 +11228,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    pub fn ClearBackground(self: QTextTableFormat) void {
+    pub fn clearBackground(self: QTextTableFormat) void {
         qtc.QTextFormat_ClearBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForeground` instead
+    ///
+    pub const SetForeground = setForeground;
 
     /// Inherited from QTextFormat
     ///
@@ -8676,10 +11246,14 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` brush: QBrush `
     ///
-    pub fn SetForeground(self: QTextTableFormat, brush: anytype) void {
+    pub fn setForeground(self: QTextTableFormat, brush: anytype) void {
         comptime _ = @TypeOf(brush)._is_QBrush;
         qtc.QTextFormat_SetForeground(@ptrCast(self.ptr), @ptrCast(brush.ptr));
     }
+
+    /// ### DEPRECATED: Use `foreground` instead
+    ///
+    pub const Foreground = foreground;
 
     /// Inherited from QTextFormat
     ///
@@ -8689,9 +11263,13 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    pub fn Foreground(self: QTextTableFormat) QBrush {
+    pub fn foreground(self: QTextTableFormat) QBrush {
         return .{ .ptr = qtc.QTextFormat_Foreground(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearForeground` instead
+    ///
+    pub const ClearForeground = clearForeground;
 
     /// Inherited from QTextFormat
     ///
@@ -8701,23 +11279,23 @@ pub const QTextTableFormat = extern struct {
     ///
     /// ` self: QTextTableFormat `
     ///
-    pub fn ClearForeground(self: QTextTableFormat) void {
+    pub fn clearForeground(self: QTextTableFormat) void {
         qtc.QTextFormat_ClearForeground(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttableformat.html#dtor.QTextTableFormat)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QTextTableFormat `
     ///
-    pub fn Delete(self: QTextTableFormat) void {
+    pub fn delete(self: QTextTableFormat) void {
         qtc.QTextTableFormat_Delete(@ptrCast(self.ptr));
     }
 };
@@ -8734,22 +11312,34 @@ pub const QTextTableCellFormat = extern struct {
     pub const _is_QTextCharFormat = {};
     pub const _is_QTextFormat = {};
 
-    /// New constructs a new QTextTableCellFormat object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QTextTableCellFormat {
+    pub const New = new;
+
+    /// Allocate a new QTextTableCellFormat object in C++ memory
+    ///
+    pub fn new() QTextTableCellFormat {
         return .{ .ptr = qtc.QTextTableCellFormat_new() };
     }
 
-    /// New2 constructs a new QTextTableCellFormat object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QTextTableCellFormat object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QTextTableCellFormat `
     ///
-    pub fn New2(param1: anytype) QTextTableCellFormat {
+    pub fn new2(param1: anytype) QTextTableCellFormat {
         comptime _ = @TypeOf(param1)._is_QTextTableCellFormat;
         return .{ .ptr = qtc.QTextTableCellFormat_new2(@ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#isValid)
     ///
@@ -8757,9 +11347,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn IsValid(self: QTextTableCellFormat) bool {
+    pub fn isValid(self: QTextTableCellFormat) bool {
         return qtc.QTextTableCellFormat_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTopPadding` instead
+    ///
+    pub const SetTopPadding = setTopPadding;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#setTopPadding)
     ///
@@ -8767,11 +11361,15 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    /// ` padding: f64 `
+    /// ` _padding: f64 `
     ///
-    pub fn SetTopPadding(self: QTextTableCellFormat, padding: f64) void {
-        qtc.QTextTableCellFormat_SetTopPadding(@ptrCast(self.ptr), @bitCast(padding));
+    pub fn setTopPadding(self: QTextTableCellFormat, _padding: f64) void {
+        qtc.QTextTableCellFormat_SetTopPadding(@ptrCast(self.ptr), @bitCast(_padding));
     }
+
+    /// ### DEPRECATED: Use `topPadding` instead
+    ///
+    pub const TopPadding = topPadding;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#topPadding)
     ///
@@ -8779,9 +11377,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn TopPadding(self: QTextTableCellFormat) f64 {
+    pub fn topPadding(self: QTextTableCellFormat) f64 {
         return qtc.QTextTableCellFormat_TopPadding(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBottomPadding` instead
+    ///
+    pub const SetBottomPadding = setBottomPadding;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#setBottomPadding)
     ///
@@ -8789,11 +11391,15 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    /// ` padding: f64 `
+    /// ` _padding: f64 `
     ///
-    pub fn SetBottomPadding(self: QTextTableCellFormat, padding: f64) void {
-        qtc.QTextTableCellFormat_SetBottomPadding(@ptrCast(self.ptr), @bitCast(padding));
+    pub fn setBottomPadding(self: QTextTableCellFormat, _padding: f64) void {
+        qtc.QTextTableCellFormat_SetBottomPadding(@ptrCast(self.ptr), @bitCast(_padding));
     }
+
+    /// ### DEPRECATED: Use `bottomPadding` instead
+    ///
+    pub const BottomPadding = bottomPadding;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#bottomPadding)
     ///
@@ -8801,9 +11407,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn BottomPadding(self: QTextTableCellFormat) f64 {
+    pub fn bottomPadding(self: QTextTableCellFormat) f64 {
         return qtc.QTextTableCellFormat_BottomPadding(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLeftPadding` instead
+    ///
+    pub const SetLeftPadding = setLeftPadding;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#setLeftPadding)
     ///
@@ -8811,11 +11421,15 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    /// ` padding: f64 `
+    /// ` _padding: f64 `
     ///
-    pub fn SetLeftPadding(self: QTextTableCellFormat, padding: f64) void {
-        qtc.QTextTableCellFormat_SetLeftPadding(@ptrCast(self.ptr), @bitCast(padding));
+    pub fn setLeftPadding(self: QTextTableCellFormat, _padding: f64) void {
+        qtc.QTextTableCellFormat_SetLeftPadding(@ptrCast(self.ptr), @bitCast(_padding));
     }
+
+    /// ### DEPRECATED: Use `leftPadding` instead
+    ///
+    pub const LeftPadding = leftPadding;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#leftPadding)
     ///
@@ -8823,9 +11437,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn LeftPadding(self: QTextTableCellFormat) f64 {
+    pub fn leftPadding(self: QTextTableCellFormat) f64 {
         return qtc.QTextTableCellFormat_LeftPadding(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setRightPadding` instead
+    ///
+    pub const SetRightPadding = setRightPadding;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#setRightPadding)
     ///
@@ -8833,11 +11451,15 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    /// ` padding: f64 `
+    /// ` _padding: f64 `
     ///
-    pub fn SetRightPadding(self: QTextTableCellFormat, padding: f64) void {
-        qtc.QTextTableCellFormat_SetRightPadding(@ptrCast(self.ptr), @bitCast(padding));
+    pub fn setRightPadding(self: QTextTableCellFormat, _padding: f64) void {
+        qtc.QTextTableCellFormat_SetRightPadding(@ptrCast(self.ptr), @bitCast(_padding));
     }
+
+    /// ### DEPRECATED: Use `rightPadding` instead
+    ///
+    pub const RightPadding = rightPadding;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#rightPadding)
     ///
@@ -8845,9 +11467,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn RightPadding(self: QTextTableCellFormat) f64 {
+    pub fn rightPadding(self: QTextTableCellFormat) f64 {
         return qtc.QTextTableCellFormat_RightPadding(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPadding` instead
+    ///
+    pub const SetPadding = setPadding;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#setPadding)
     ///
@@ -8855,11 +11481,15 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    /// ` padding: f64 `
+    /// ` _padding: f64 `
     ///
-    pub fn SetPadding(self: QTextTableCellFormat, padding: f64) void {
-        qtc.QTextTableCellFormat_SetPadding(@ptrCast(self.ptr), @bitCast(padding));
+    pub fn setPadding(self: QTextTableCellFormat, _padding: f64) void {
+        qtc.QTextTableCellFormat_SetPadding(@ptrCast(self.ptr), @bitCast(_padding));
     }
+
+    /// ### DEPRECATED: Use `setTopBorder` instead
+    ///
+    pub const SetTopBorder = setTopBorder;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#setTopBorder)
     ///
@@ -8867,11 +11497,15 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    /// ` width: f64 `
+    /// ` _width: f64 `
     ///
-    pub fn SetTopBorder(self: QTextTableCellFormat, width: f64) void {
-        qtc.QTextTableCellFormat_SetTopBorder(@ptrCast(self.ptr), @bitCast(width));
+    pub fn setTopBorder(self: QTextTableCellFormat, _width: f64) void {
+        qtc.QTextTableCellFormat_SetTopBorder(@ptrCast(self.ptr), @bitCast(_width));
     }
+
+    /// ### DEPRECATED: Use `topBorder` instead
+    ///
+    pub const TopBorder = topBorder;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#topBorder)
     ///
@@ -8879,9 +11513,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn TopBorder(self: QTextTableCellFormat) f64 {
+    pub fn topBorder(self: QTextTableCellFormat) f64 {
         return qtc.QTextTableCellFormat_TopBorder(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBottomBorder` instead
+    ///
+    pub const SetBottomBorder = setBottomBorder;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#setBottomBorder)
     ///
@@ -8889,11 +11527,15 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    /// ` width: f64 `
+    /// ` _width: f64 `
     ///
-    pub fn SetBottomBorder(self: QTextTableCellFormat, width: f64) void {
-        qtc.QTextTableCellFormat_SetBottomBorder(@ptrCast(self.ptr), @bitCast(width));
+    pub fn setBottomBorder(self: QTextTableCellFormat, _width: f64) void {
+        qtc.QTextTableCellFormat_SetBottomBorder(@ptrCast(self.ptr), @bitCast(_width));
     }
+
+    /// ### DEPRECATED: Use `bottomBorder` instead
+    ///
+    pub const BottomBorder = bottomBorder;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#bottomBorder)
     ///
@@ -8901,9 +11543,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn BottomBorder(self: QTextTableCellFormat) f64 {
+    pub fn bottomBorder(self: QTextTableCellFormat) f64 {
         return qtc.QTextTableCellFormat_BottomBorder(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLeftBorder` instead
+    ///
+    pub const SetLeftBorder = setLeftBorder;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#setLeftBorder)
     ///
@@ -8911,11 +11557,15 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    /// ` width: f64 `
+    /// ` _width: f64 `
     ///
-    pub fn SetLeftBorder(self: QTextTableCellFormat, width: f64) void {
-        qtc.QTextTableCellFormat_SetLeftBorder(@ptrCast(self.ptr), @bitCast(width));
+    pub fn setLeftBorder(self: QTextTableCellFormat, _width: f64) void {
+        qtc.QTextTableCellFormat_SetLeftBorder(@ptrCast(self.ptr), @bitCast(_width));
     }
+
+    /// ### DEPRECATED: Use `leftBorder` instead
+    ///
+    pub const LeftBorder = leftBorder;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#leftBorder)
     ///
@@ -8923,9 +11573,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn LeftBorder(self: QTextTableCellFormat) f64 {
+    pub fn leftBorder(self: QTextTableCellFormat) f64 {
         return qtc.QTextTableCellFormat_LeftBorder(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setRightBorder` instead
+    ///
+    pub const SetRightBorder = setRightBorder;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#setRightBorder)
     ///
@@ -8933,11 +11587,15 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    /// ` width: f64 `
+    /// ` _width: f64 `
     ///
-    pub fn SetRightBorder(self: QTextTableCellFormat, width: f64) void {
-        qtc.QTextTableCellFormat_SetRightBorder(@ptrCast(self.ptr), @bitCast(width));
+    pub fn setRightBorder(self: QTextTableCellFormat, _width: f64) void {
+        qtc.QTextTableCellFormat_SetRightBorder(@ptrCast(self.ptr), @bitCast(_width));
     }
+
+    /// ### DEPRECATED: Use `rightBorder` instead
+    ///
+    pub const RightBorder = rightBorder;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#rightBorder)
     ///
@@ -8945,9 +11603,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn RightBorder(self: QTextTableCellFormat) f64 {
+    pub fn rightBorder(self: QTextTableCellFormat) f64 {
         return qtc.QTextTableCellFormat_RightBorder(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBorder` instead
+    ///
+    pub const SetBorder = setBorder;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#setBorder)
     ///
@@ -8955,11 +11617,15 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    /// ` width: f64 `
+    /// ` _width: f64 `
     ///
-    pub fn SetBorder(self: QTextTableCellFormat, width: f64) void {
-        qtc.QTextTableCellFormat_SetBorder(@ptrCast(self.ptr), @bitCast(width));
+    pub fn setBorder(self: QTextTableCellFormat, _width: f64) void {
+        qtc.QTextTableCellFormat_SetBorder(@ptrCast(self.ptr), @bitCast(_width));
     }
+
+    /// ### DEPRECATED: Use `setTopBorderStyle` instead
+    ///
+    pub const SetTopBorderStyle = setTopBorderStyle;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#setTopBorderStyle)
     ///
@@ -8967,11 +11633,15 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    /// ` style: qtextformat_enums.BorderStyle `
+    /// ` _style: qtextformat_enums.BorderStyle `
     ///
-    pub fn SetTopBorderStyle(self: QTextTableCellFormat, style: i32) void {
-        qtc.QTextTableCellFormat_SetTopBorderStyle(@ptrCast(self.ptr), @bitCast(style));
+    pub fn setTopBorderStyle(self: QTextTableCellFormat, _style: i32) void {
+        qtc.QTextTableCellFormat_SetTopBorderStyle(@ptrCast(self.ptr), @bitCast(_style));
     }
+
+    /// ### DEPRECATED: Use `topBorderStyle` instead
+    ///
+    pub const TopBorderStyle = topBorderStyle;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#topBorderStyle)
     ///
@@ -8983,9 +11653,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` qtextformat_enums.BorderStyle `
     ///
-    pub fn TopBorderStyle(self: QTextTableCellFormat) i32 {
+    pub fn topBorderStyle(self: QTextTableCellFormat) i32 {
         return qtc.QTextTableCellFormat_TopBorderStyle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBottomBorderStyle` instead
+    ///
+    pub const SetBottomBorderStyle = setBottomBorderStyle;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#setBottomBorderStyle)
     ///
@@ -8993,11 +11667,15 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    /// ` style: qtextformat_enums.BorderStyle `
+    /// ` _style: qtextformat_enums.BorderStyle `
     ///
-    pub fn SetBottomBorderStyle(self: QTextTableCellFormat, style: i32) void {
-        qtc.QTextTableCellFormat_SetBottomBorderStyle(@ptrCast(self.ptr), @bitCast(style));
+    pub fn setBottomBorderStyle(self: QTextTableCellFormat, _style: i32) void {
+        qtc.QTextTableCellFormat_SetBottomBorderStyle(@ptrCast(self.ptr), @bitCast(_style));
     }
+
+    /// ### DEPRECATED: Use `bottomBorderStyle` instead
+    ///
+    pub const BottomBorderStyle = bottomBorderStyle;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#bottomBorderStyle)
     ///
@@ -9009,9 +11687,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` qtextformat_enums.BorderStyle `
     ///
-    pub fn BottomBorderStyle(self: QTextTableCellFormat) i32 {
+    pub fn bottomBorderStyle(self: QTextTableCellFormat) i32 {
         return qtc.QTextTableCellFormat_BottomBorderStyle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLeftBorderStyle` instead
+    ///
+    pub const SetLeftBorderStyle = setLeftBorderStyle;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#setLeftBorderStyle)
     ///
@@ -9019,11 +11701,15 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    /// ` style: qtextformat_enums.BorderStyle `
+    /// ` _style: qtextformat_enums.BorderStyle `
     ///
-    pub fn SetLeftBorderStyle(self: QTextTableCellFormat, style: i32) void {
-        qtc.QTextTableCellFormat_SetLeftBorderStyle(@ptrCast(self.ptr), @bitCast(style));
+    pub fn setLeftBorderStyle(self: QTextTableCellFormat, _style: i32) void {
+        qtc.QTextTableCellFormat_SetLeftBorderStyle(@ptrCast(self.ptr), @bitCast(_style));
     }
+
+    /// ### DEPRECATED: Use `leftBorderStyle` instead
+    ///
+    pub const LeftBorderStyle = leftBorderStyle;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#leftBorderStyle)
     ///
@@ -9035,9 +11721,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` qtextformat_enums.BorderStyle `
     ///
-    pub fn LeftBorderStyle(self: QTextTableCellFormat) i32 {
+    pub fn leftBorderStyle(self: QTextTableCellFormat) i32 {
         return qtc.QTextTableCellFormat_LeftBorderStyle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setRightBorderStyle` instead
+    ///
+    pub const SetRightBorderStyle = setRightBorderStyle;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#setRightBorderStyle)
     ///
@@ -9045,11 +11735,15 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    /// ` style: qtextformat_enums.BorderStyle `
+    /// ` _style: qtextformat_enums.BorderStyle `
     ///
-    pub fn SetRightBorderStyle(self: QTextTableCellFormat, style: i32) void {
-        qtc.QTextTableCellFormat_SetRightBorderStyle(@ptrCast(self.ptr), @bitCast(style));
+    pub fn setRightBorderStyle(self: QTextTableCellFormat, _style: i32) void {
+        qtc.QTextTableCellFormat_SetRightBorderStyle(@ptrCast(self.ptr), @bitCast(_style));
     }
+
+    /// ### DEPRECATED: Use `rightBorderStyle` instead
+    ///
+    pub const RightBorderStyle = rightBorderStyle;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#rightBorderStyle)
     ///
@@ -9061,9 +11755,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` qtextformat_enums.BorderStyle `
     ///
-    pub fn RightBorderStyle(self: QTextTableCellFormat) i32 {
+    pub fn rightBorderStyle(self: QTextTableCellFormat) i32 {
         return qtc.QTextTableCellFormat_RightBorderStyle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBorderStyle` instead
+    ///
+    pub const SetBorderStyle = setBorderStyle;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#setBorderStyle)
     ///
@@ -9071,11 +11769,15 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    /// ` style: qtextformat_enums.BorderStyle `
+    /// ` _style: qtextformat_enums.BorderStyle `
     ///
-    pub fn SetBorderStyle(self: QTextTableCellFormat, style: i32) void {
-        qtc.QTextTableCellFormat_SetBorderStyle(@ptrCast(self.ptr), @bitCast(style));
+    pub fn setBorderStyle(self: QTextTableCellFormat, _style: i32) void {
+        qtc.QTextTableCellFormat_SetBorderStyle(@ptrCast(self.ptr), @bitCast(_style));
     }
+
+    /// ### DEPRECATED: Use `setTopBorderBrush` instead
+    ///
+    pub const SetTopBorderBrush = setTopBorderBrush;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#setTopBorderBrush)
     ///
@@ -9085,10 +11787,14 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` brush: QBrush `
     ///
-    pub fn SetTopBorderBrush(self: QTextTableCellFormat, brush: anytype) void {
+    pub fn setTopBorderBrush(self: QTextTableCellFormat, brush: anytype) void {
         comptime _ = @TypeOf(brush)._is_QBrush;
         qtc.QTextTableCellFormat_SetTopBorderBrush(@ptrCast(self.ptr), @ptrCast(brush.ptr));
     }
+
+    /// ### DEPRECATED: Use `topBorderBrush` instead
+    ///
+    pub const TopBorderBrush = topBorderBrush;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#topBorderBrush)
     ///
@@ -9096,9 +11802,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn TopBorderBrush(self: QTextTableCellFormat) QBrush {
+    pub fn topBorderBrush(self: QTextTableCellFormat) QBrush {
         return .{ .ptr = qtc.QTextTableCellFormat_TopBorderBrush(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBottomBorderBrush` instead
+    ///
+    pub const SetBottomBorderBrush = setBottomBorderBrush;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#setBottomBorderBrush)
     ///
@@ -9108,10 +11818,14 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` brush: QBrush `
     ///
-    pub fn SetBottomBorderBrush(self: QTextTableCellFormat, brush: anytype) void {
+    pub fn setBottomBorderBrush(self: QTextTableCellFormat, brush: anytype) void {
         comptime _ = @TypeOf(brush)._is_QBrush;
         qtc.QTextTableCellFormat_SetBottomBorderBrush(@ptrCast(self.ptr), @ptrCast(brush.ptr));
     }
+
+    /// ### DEPRECATED: Use `bottomBorderBrush` instead
+    ///
+    pub const BottomBorderBrush = bottomBorderBrush;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#bottomBorderBrush)
     ///
@@ -9119,9 +11833,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn BottomBorderBrush(self: QTextTableCellFormat) QBrush {
+    pub fn bottomBorderBrush(self: QTextTableCellFormat) QBrush {
         return .{ .ptr = qtc.QTextTableCellFormat_BottomBorderBrush(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLeftBorderBrush` instead
+    ///
+    pub const SetLeftBorderBrush = setLeftBorderBrush;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#setLeftBorderBrush)
     ///
@@ -9131,10 +11849,14 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` brush: QBrush `
     ///
-    pub fn SetLeftBorderBrush(self: QTextTableCellFormat, brush: anytype) void {
+    pub fn setLeftBorderBrush(self: QTextTableCellFormat, brush: anytype) void {
         comptime _ = @TypeOf(brush)._is_QBrush;
         qtc.QTextTableCellFormat_SetLeftBorderBrush(@ptrCast(self.ptr), @ptrCast(brush.ptr));
     }
+
+    /// ### DEPRECATED: Use `leftBorderBrush` instead
+    ///
+    pub const LeftBorderBrush = leftBorderBrush;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#leftBorderBrush)
     ///
@@ -9142,9 +11864,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn LeftBorderBrush(self: QTextTableCellFormat) QBrush {
+    pub fn leftBorderBrush(self: QTextTableCellFormat) QBrush {
         return .{ .ptr = qtc.QTextTableCellFormat_LeftBorderBrush(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setRightBorderBrush` instead
+    ///
+    pub const SetRightBorderBrush = setRightBorderBrush;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#setRightBorderBrush)
     ///
@@ -9154,10 +11880,14 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` brush: QBrush `
     ///
-    pub fn SetRightBorderBrush(self: QTextTableCellFormat, brush: anytype) void {
+    pub fn setRightBorderBrush(self: QTextTableCellFormat, brush: anytype) void {
         comptime _ = @TypeOf(brush)._is_QBrush;
         qtc.QTextTableCellFormat_SetRightBorderBrush(@ptrCast(self.ptr), @ptrCast(brush.ptr));
     }
+
+    /// ### DEPRECATED: Use `rightBorderBrush` instead
+    ///
+    pub const RightBorderBrush = rightBorderBrush;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#rightBorderBrush)
     ///
@@ -9165,9 +11895,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn RightBorderBrush(self: QTextTableCellFormat) QBrush {
+    pub fn rightBorderBrush(self: QTextTableCellFormat) QBrush {
         return .{ .ptr = qtc.QTextTableCellFormat_RightBorderBrush(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBorderBrush` instead
+    ///
+    pub const SetBorderBrush = setBorderBrush;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#setBorderBrush)
     ///
@@ -9177,10 +11911,14 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` brush: QBrush `
     ///
-    pub fn SetBorderBrush(self: QTextTableCellFormat, brush: anytype) void {
+    pub fn setBorderBrush(self: QTextTableCellFormat, brush: anytype) void {
         comptime _ = @TypeOf(brush)._is_QBrush;
         qtc.QTextTableCellFormat_SetBorderBrush(@ptrCast(self.ptr), @ptrCast(brush.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9190,12 +11928,16 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: QTextTableCellFormat, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QTextCharFormat_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: QTextTableCellFormat, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QTextCharFormat_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9205,9 +11947,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn Font(self: QTextTableCellFormat) QFont {
+    pub fn font(self: QTextTableCellFormat) QFont {
         return .{ .ptr = qtc.QTextCharFormat_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFontFamily` instead
+    ///
+    pub const SetFontFamily = setFontFamily;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9219,13 +11965,17 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` family: []const u8 `
     ///
-    pub fn SetFontFamily(self: QTextTableCellFormat, family: []const u8) void {
+    pub fn setFontFamily(self: QTextTableCellFormat, family: []const u8) void {
         const family_str = qtc.libqt_string{
             .len = family.len,
             .data = family.ptr,
         };
         qtc.QTextCharFormat_SetFontFamily(@ptrCast(self.ptr), family_str);
     }
+
+    /// ### DEPRECATED: Use `fontFamily` instead
+    ///
+    pub const FontFamily = fontFamily;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9237,13 +11987,17 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FontFamily(self: QTextTableCellFormat, allocator: std.mem.Allocator) []const u8 {
+    pub fn fontFamily(self: QTextTableCellFormat, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextCharFormat_FontFamily(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextTableCellFormat.FontFamily: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextTableCellFormat.fontFamily: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setFontFamilies` instead
+    ///
+    pub const SetFontFamilies = setFontFamilies;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9257,13 +12011,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` families: []const []const u8 `
     ///
-    pub fn SetFontFamilies(self: QTextTableCellFormat, allocator: std.mem.Allocator, families: []const []const u8) void {
-        const families_arr = allocator.alloc(qtc.libqt_string, families.len) catch @panic("QTextTableCellFormat.SetFontFamilies: Memory allocation failed");
+    pub fn setFontFamilies(self: QTextTableCellFormat, allocator: std.mem.Allocator, families: []const []const u8) void {
+        const families_arr = allocator.alloc(qtc.libqt_string, families.len) catch @panic("QTextTableCellFormat.setFontFamilies: Memory allocation failed");
         defer allocator.free(families_arr);
-        for (families, 0..families.len) |item, i|
+        for (families, 0..families.len) |str_item, i|
             families_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const families_list = qtc.libqt_list{
             .len = families.len,
@@ -9271,6 +12025,10 @@ pub const QTextTableCellFormat = extern struct {
         };
         qtc.QTextCharFormat_SetFontFamilies(@ptrCast(self.ptr), families_list);
     }
+
+    /// ### DEPRECATED: Use `fontFamilies` instead
+    ///
+    pub const FontFamilies = fontFamilies;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9280,9 +12038,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn FontFamilies(self: QTextTableCellFormat) QVariant {
+    pub fn fontFamilies(self: QTextTableCellFormat) QVariant {
         return .{ .ptr = qtc.QTextCharFormat_FontFamilies(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFontStyleName` instead
+    ///
+    pub const SetFontStyleName = setFontStyleName;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9294,13 +12056,17 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` styleName: []const u8 `
     ///
-    pub fn SetFontStyleName(self: QTextTableCellFormat, styleName: []const u8) void {
+    pub fn setFontStyleName(self: QTextTableCellFormat, styleName: []const u8) void {
         const styleName_str = qtc.libqt_string{
             .len = styleName.len,
             .data = styleName.ptr,
         };
         qtc.QTextCharFormat_SetFontStyleName(@ptrCast(self.ptr), styleName_str);
     }
+
+    /// ### DEPRECATED: Use `fontStyleName` instead
+    ///
+    pub const FontStyleName = fontStyleName;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9310,9 +12076,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn FontStyleName(self: QTextTableCellFormat) QVariant {
+    pub fn fontStyleName(self: QTextTableCellFormat) QVariant {
         return .{ .ptr = qtc.QTextCharFormat_FontStyleName(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFontPointSize` instead
+    ///
+    pub const SetFontPointSize = setFontPointSize;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9324,9 +12094,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` size: f64 `
     ///
-    pub fn SetFontPointSize(self: QTextTableCellFormat, size: f64) void {
+    pub fn setFontPointSize(self: QTextTableCellFormat, size: f64) void {
         qtc.QTextCharFormat_SetFontPointSize(@ptrCast(self.ptr), @bitCast(size));
     }
+
+    /// ### DEPRECATED: Use `fontPointSize` instead
+    ///
+    pub const FontPointSize = fontPointSize;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9336,9 +12110,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn FontPointSize(self: QTextTableCellFormat) f64 {
+    pub fn fontPointSize(self: QTextTableCellFormat) f64 {
         return qtc.QTextCharFormat_FontPointSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFontWeight` instead
+    ///
+    pub const SetFontWeight = setFontWeight;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9350,9 +12128,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` weight: i32 `
     ///
-    pub fn SetFontWeight(self: QTextTableCellFormat, weight: i32) void {
+    pub fn setFontWeight(self: QTextTableCellFormat, weight: i32) void {
         qtc.QTextCharFormat_SetFontWeight(@ptrCast(self.ptr), @bitCast(weight));
     }
+
+    /// ### DEPRECATED: Use `fontWeight` instead
+    ///
+    pub const FontWeight = fontWeight;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9362,9 +12144,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn FontWeight(self: QTextTableCellFormat) i32 {
+    pub fn fontWeight(self: QTextTableCellFormat) i32 {
         return qtc.QTextCharFormat_FontWeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFontItalic` instead
+    ///
+    pub const SetFontItalic = setFontItalic;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9376,9 +12162,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` italic: bool `
     ///
-    pub fn SetFontItalic(self: QTextTableCellFormat, italic: bool) void {
+    pub fn setFontItalic(self: QTextTableCellFormat, italic: bool) void {
         qtc.QTextCharFormat_SetFontItalic(@ptrCast(self.ptr), italic);
     }
+
+    /// ### DEPRECATED: Use `fontItalic` instead
+    ///
+    pub const FontItalic = fontItalic;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9388,9 +12178,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn FontItalic(self: QTextTableCellFormat) bool {
+    pub fn fontItalic(self: QTextTableCellFormat) bool {
         return qtc.QTextCharFormat_FontItalic(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFontCapitalization` instead
+    ///
+    pub const SetFontCapitalization = setFontCapitalization;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9402,9 +12196,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` capitalization: qfont_enums.Capitalization `
     ///
-    pub fn SetFontCapitalization(self: QTextTableCellFormat, capitalization: i32) void {
+    pub fn setFontCapitalization(self: QTextTableCellFormat, capitalization: i32) void {
         qtc.QTextCharFormat_SetFontCapitalization(@ptrCast(self.ptr), @bitCast(capitalization));
     }
+
+    /// ### DEPRECATED: Use `fontCapitalization` instead
+    ///
+    pub const FontCapitalization = fontCapitalization;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9418,9 +12216,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` qfont_enums.Capitalization `
     ///
-    pub fn FontCapitalization(self: QTextTableCellFormat) i32 {
+    pub fn fontCapitalization(self: QTextTableCellFormat) i32 {
         return qtc.QTextCharFormat_FontCapitalization(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFontLetterSpacingType` instead
+    ///
+    pub const SetFontLetterSpacingType = setFontLetterSpacingType;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9432,9 +12234,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` letterSpacingType: qfont_enums.SpacingType `
     ///
-    pub fn SetFontLetterSpacingType(self: QTextTableCellFormat, letterSpacingType: i32) void {
+    pub fn setFontLetterSpacingType(self: QTextTableCellFormat, letterSpacingType: i32) void {
         qtc.QTextCharFormat_SetFontLetterSpacingType(@ptrCast(self.ptr), @bitCast(letterSpacingType));
     }
+
+    /// ### DEPRECATED: Use `fontLetterSpacingType` instead
+    ///
+    pub const FontLetterSpacingType = fontLetterSpacingType;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9448,9 +12254,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` qfont_enums.SpacingType `
     ///
-    pub fn FontLetterSpacingType(self: QTextTableCellFormat) i32 {
+    pub fn fontLetterSpacingType(self: QTextTableCellFormat) i32 {
         return qtc.QTextCharFormat_FontLetterSpacingType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFontLetterSpacing` instead
+    ///
+    pub const SetFontLetterSpacing = setFontLetterSpacing;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9462,9 +12272,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` spacing: f64 `
     ///
-    pub fn SetFontLetterSpacing(self: QTextTableCellFormat, spacing: f64) void {
+    pub fn setFontLetterSpacing(self: QTextTableCellFormat, spacing: f64) void {
         qtc.QTextCharFormat_SetFontLetterSpacing(@ptrCast(self.ptr), @bitCast(spacing));
     }
+
+    /// ### DEPRECATED: Use `fontLetterSpacing` instead
+    ///
+    pub const FontLetterSpacing = fontLetterSpacing;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9474,9 +12288,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn FontLetterSpacing(self: QTextTableCellFormat) f64 {
+    pub fn fontLetterSpacing(self: QTextTableCellFormat) f64 {
         return qtc.QTextCharFormat_FontLetterSpacing(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFontWordSpacing` instead
+    ///
+    pub const SetFontWordSpacing = setFontWordSpacing;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9488,9 +12306,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` spacing: f64 `
     ///
-    pub fn SetFontWordSpacing(self: QTextTableCellFormat, spacing: f64) void {
+    pub fn setFontWordSpacing(self: QTextTableCellFormat, spacing: f64) void {
         qtc.QTextCharFormat_SetFontWordSpacing(@ptrCast(self.ptr), @bitCast(spacing));
     }
+
+    /// ### DEPRECATED: Use `fontWordSpacing` instead
+    ///
+    pub const FontWordSpacing = fontWordSpacing;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9500,9 +12322,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn FontWordSpacing(self: QTextTableCellFormat) f64 {
+    pub fn fontWordSpacing(self: QTextTableCellFormat) f64 {
         return qtc.QTextCharFormat_FontWordSpacing(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFontUnderline` instead
+    ///
+    pub const SetFontUnderline = setFontUnderline;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9514,9 +12340,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` underline: bool `
     ///
-    pub fn SetFontUnderline(self: QTextTableCellFormat, underline: bool) void {
+    pub fn setFontUnderline(self: QTextTableCellFormat, underline: bool) void {
         qtc.QTextCharFormat_SetFontUnderline(@ptrCast(self.ptr), underline);
     }
+
+    /// ### DEPRECATED: Use `fontUnderline` instead
+    ///
+    pub const FontUnderline = fontUnderline;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9526,9 +12356,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn FontUnderline(self: QTextTableCellFormat) bool {
+    pub fn fontUnderline(self: QTextTableCellFormat) bool {
         return qtc.QTextCharFormat_FontUnderline(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFontOverline` instead
+    ///
+    pub const SetFontOverline = setFontOverline;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9540,9 +12374,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` overline: bool `
     ///
-    pub fn SetFontOverline(self: QTextTableCellFormat, overline: bool) void {
+    pub fn setFontOverline(self: QTextTableCellFormat, overline: bool) void {
         qtc.QTextCharFormat_SetFontOverline(@ptrCast(self.ptr), overline);
     }
+
+    /// ### DEPRECATED: Use `fontOverline` instead
+    ///
+    pub const FontOverline = fontOverline;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9552,9 +12390,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn FontOverline(self: QTextTableCellFormat) bool {
+    pub fn fontOverline(self: QTextTableCellFormat) bool {
         return qtc.QTextCharFormat_FontOverline(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFontStrikeOut` instead
+    ///
+    pub const SetFontStrikeOut = setFontStrikeOut;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9566,9 +12408,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` strikeOut: bool `
     ///
-    pub fn SetFontStrikeOut(self: QTextTableCellFormat, strikeOut: bool) void {
+    pub fn setFontStrikeOut(self: QTextTableCellFormat, strikeOut: bool) void {
         qtc.QTextCharFormat_SetFontStrikeOut(@ptrCast(self.ptr), strikeOut);
     }
+
+    /// ### DEPRECATED: Use `fontStrikeOut` instead
+    ///
+    pub const FontStrikeOut = fontStrikeOut;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9578,9 +12424,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn FontStrikeOut(self: QTextTableCellFormat) bool {
+    pub fn fontStrikeOut(self: QTextTableCellFormat) bool {
         return qtc.QTextCharFormat_FontStrikeOut(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUnderlineColor` instead
+    ///
+    pub const SetUnderlineColor = setUnderlineColor;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9592,10 +12442,14 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` color: QColor `
     ///
-    pub fn SetUnderlineColor(self: QTextTableCellFormat, color: anytype) void {
+    pub fn setUnderlineColor(self: QTextTableCellFormat, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.QTextCharFormat_SetUnderlineColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
+
+    /// ### DEPRECATED: Use `underlineColor` instead
+    ///
+    pub const UnderlineColor = underlineColor;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9605,9 +12459,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn UnderlineColor(self: QTextTableCellFormat) QColor {
+    pub fn underlineColor(self: QTextTableCellFormat) QColor {
         return .{ .ptr = qtc.QTextCharFormat_UnderlineColor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFontFixedPitch` instead
+    ///
+    pub const SetFontFixedPitch = setFontFixedPitch;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9619,9 +12477,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` fixedPitch: bool `
     ///
-    pub fn SetFontFixedPitch(self: QTextTableCellFormat, fixedPitch: bool) void {
+    pub fn setFontFixedPitch(self: QTextTableCellFormat, fixedPitch: bool) void {
         qtc.QTextCharFormat_SetFontFixedPitch(@ptrCast(self.ptr), fixedPitch);
     }
+
+    /// ### DEPRECATED: Use `fontFixedPitch` instead
+    ///
+    pub const FontFixedPitch = fontFixedPitch;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9631,9 +12493,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn FontFixedPitch(self: QTextTableCellFormat) bool {
+    pub fn fontFixedPitch(self: QTextTableCellFormat) bool {
         return qtc.QTextCharFormat_FontFixedPitch(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFontStretch` instead
+    ///
+    pub const SetFontStretch = setFontStretch;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9645,9 +12511,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` factor: i32 `
     ///
-    pub fn SetFontStretch(self: QTextTableCellFormat, factor: i32) void {
+    pub fn setFontStretch(self: QTextTableCellFormat, factor: i32) void {
         qtc.QTextCharFormat_SetFontStretch(@ptrCast(self.ptr), @bitCast(factor));
     }
+
+    /// ### DEPRECATED: Use `fontStretch` instead
+    ///
+    pub const FontStretch = fontStretch;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9657,9 +12527,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn FontStretch(self: QTextTableCellFormat) i32 {
+    pub fn fontStretch(self: QTextTableCellFormat) i32 {
         return qtc.QTextCharFormat_FontStretch(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFontStyleHint` instead
+    ///
+    pub const SetFontStyleHint = setFontStyleHint;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9671,9 +12545,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` hint: qfont_enums.StyleHint `
     ///
-    pub fn SetFontStyleHint(self: QTextTableCellFormat, hint: i32) void {
+    pub fn setFontStyleHint(self: QTextTableCellFormat, hint: i32) void {
         qtc.QTextCharFormat_SetFontStyleHint(@ptrCast(self.ptr), @bitCast(hint));
     }
+
+    /// ### DEPRECATED: Use `setFontStyleStrategy` instead
+    ///
+    pub const SetFontStyleStrategy = setFontStyleStrategy;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9685,9 +12563,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` strategy: qfont_enums.StyleStrategy `
     ///
-    pub fn SetFontStyleStrategy(self: QTextTableCellFormat, strategy: i32) void {
+    pub fn setFontStyleStrategy(self: QTextTableCellFormat, strategy: i32) void {
         qtc.QTextCharFormat_SetFontStyleStrategy(@ptrCast(self.ptr), @bitCast(strategy));
     }
+
+    /// ### DEPRECATED: Use `fontStyleHint` instead
+    ///
+    pub const FontStyleHint = fontStyleHint;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9701,9 +12583,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` qfont_enums.StyleHint `
     ///
-    pub fn FontStyleHint(self: QTextTableCellFormat) i32 {
+    pub fn fontStyleHint(self: QTextTableCellFormat) i32 {
         return qtc.QTextCharFormat_FontStyleHint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontStyleStrategy` instead
+    ///
+    pub const FontStyleStrategy = fontStyleStrategy;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9717,9 +12603,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` qfont_enums.StyleStrategy `
     ///
-    pub fn FontStyleStrategy(self: QTextTableCellFormat) i32 {
+    pub fn fontStyleStrategy(self: QTextTableCellFormat) i32 {
         return qtc.QTextCharFormat_FontStyleStrategy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFontHintingPreference` instead
+    ///
+    pub const SetFontHintingPreference = setFontHintingPreference;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9731,9 +12621,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` hintingPreference: qfont_enums.HintingPreference `
     ///
-    pub fn SetFontHintingPreference(self: QTextTableCellFormat, hintingPreference: i32) void {
+    pub fn setFontHintingPreference(self: QTextTableCellFormat, hintingPreference: i32) void {
         qtc.QTextCharFormat_SetFontHintingPreference(@ptrCast(self.ptr), @bitCast(hintingPreference));
     }
+
+    /// ### DEPRECATED: Use `fontHintingPreference` instead
+    ///
+    pub const FontHintingPreference = fontHintingPreference;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9747,9 +12641,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` qfont_enums.HintingPreference `
     ///
-    pub fn FontHintingPreference(self: QTextTableCellFormat) i32 {
+    pub fn fontHintingPreference(self: QTextTableCellFormat) i32 {
         return qtc.QTextCharFormat_FontHintingPreference(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFontKerning` instead
+    ///
+    pub const SetFontKerning = setFontKerning;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9761,9 +12659,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetFontKerning(self: QTextTableCellFormat, enable: bool) void {
+    pub fn setFontKerning(self: QTextTableCellFormat, enable: bool) void {
         qtc.QTextCharFormat_SetFontKerning(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `fontKerning` instead
+    ///
+    pub const FontKerning = fontKerning;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9773,9 +12675,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn FontKerning(self: QTextTableCellFormat) bool {
+    pub fn fontKerning(self: QTextTableCellFormat) bool {
         return qtc.QTextCharFormat_FontKerning(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUnderlineStyle` instead
+    ///
+    pub const SetUnderlineStyle = setUnderlineStyle;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9785,11 +12691,15 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    /// ` style: qtextformat_enums.UnderlineStyle `
+    /// ` _style: qtextformat_enums.UnderlineStyle `
     ///
-    pub fn SetUnderlineStyle(self: QTextTableCellFormat, style: i32) void {
-        qtc.QTextCharFormat_SetUnderlineStyle(@ptrCast(self.ptr), @bitCast(style));
+    pub fn setUnderlineStyle(self: QTextTableCellFormat, _style: i32) void {
+        qtc.QTextCharFormat_SetUnderlineStyle(@ptrCast(self.ptr), @bitCast(_style));
     }
+
+    /// ### DEPRECATED: Use `underlineStyle` instead
+    ///
+    pub const UnderlineStyle = underlineStyle;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9803,9 +12713,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` qtextformat_enums.UnderlineStyle `
     ///
-    pub fn UnderlineStyle(self: QTextTableCellFormat) i32 {
+    pub fn underlineStyle(self: QTextTableCellFormat) i32 {
         return qtc.QTextCharFormat_UnderlineStyle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setVerticalAlignment` instead
+    ///
+    pub const SetVerticalAlignment = setVerticalAlignment;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9815,11 +12729,15 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    /// ` alignment: qtextformat_enums.VerticalAlignment `
+    /// ` _alignment: qtextformat_enums.VerticalAlignment `
     ///
-    pub fn SetVerticalAlignment(self: QTextTableCellFormat, alignment: i32) void {
-        qtc.QTextCharFormat_SetVerticalAlignment(@ptrCast(self.ptr), @bitCast(alignment));
+    pub fn setVerticalAlignment(self: QTextTableCellFormat, _alignment: i32) void {
+        qtc.QTextCharFormat_SetVerticalAlignment(@ptrCast(self.ptr), @bitCast(_alignment));
     }
+
+    /// ### DEPRECATED: Use `verticalAlignment` instead
+    ///
+    pub const VerticalAlignment = verticalAlignment;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9833,9 +12751,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` qtextformat_enums.VerticalAlignment `
     ///
-    pub fn VerticalAlignment(self: QTextTableCellFormat) i32 {
+    pub fn verticalAlignment(self: QTextTableCellFormat) i32 {
         return qtc.QTextCharFormat_VerticalAlignment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTextOutline` instead
+    ///
+    pub const SetTextOutline = setTextOutline;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9847,10 +12769,14 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` pen: QPen `
     ///
-    pub fn SetTextOutline(self: QTextTableCellFormat, pen: anytype) void {
+    pub fn setTextOutline(self: QTextTableCellFormat, pen: anytype) void {
         comptime _ = @TypeOf(pen)._is_QPen;
         qtc.QTextCharFormat_SetTextOutline(@ptrCast(self.ptr), @ptrCast(pen.ptr));
     }
+
+    /// ### DEPRECATED: Use `textOutline` instead
+    ///
+    pub const TextOutline = textOutline;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9860,9 +12786,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn TextOutline(self: QTextTableCellFormat) QPen {
+    pub fn textOutline(self: QTextTableCellFormat) QPen {
         return .{ .ptr = qtc.QTextCharFormat_TextOutline(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9874,13 +12804,17 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` tip: []const u8 `
     ///
-    pub fn SetToolTip(self: QTextTableCellFormat, tip: []const u8) void {
+    pub fn setToolTip(self: QTextTableCellFormat, tip: []const u8) void {
         const tip_str = qtc.libqt_string{
             .len = tip.len,
             .data = tip.ptr,
         };
         qtc.QTextCharFormat_SetToolTip(@ptrCast(self.ptr), tip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9892,13 +12826,17 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: QTextTableCellFormat, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: QTextTableCellFormat, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextCharFormat_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextTableCellFormat.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextTableCellFormat.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setSuperScriptBaseline` instead
+    ///
+    pub const SetSuperScriptBaseline = setSuperScriptBaseline;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9910,9 +12848,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` baseline: f64 `
     ///
-    pub fn SetSuperScriptBaseline(self: QTextTableCellFormat, baseline: f64) void {
+    pub fn setSuperScriptBaseline(self: QTextTableCellFormat, baseline: f64) void {
         qtc.QTextCharFormat_SetSuperScriptBaseline(@ptrCast(self.ptr), @bitCast(baseline));
     }
+
+    /// ### DEPRECATED: Use `superScriptBaseline` instead
+    ///
+    pub const SuperScriptBaseline = superScriptBaseline;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9922,9 +12864,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn SuperScriptBaseline(self: QTextTableCellFormat) f64 {
+    pub fn superScriptBaseline(self: QTextTableCellFormat) f64 {
         return qtc.QTextCharFormat_SuperScriptBaseline(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSubScriptBaseline` instead
+    ///
+    pub const SetSubScriptBaseline = setSubScriptBaseline;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9936,9 +12882,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` baseline: f64 `
     ///
-    pub fn SetSubScriptBaseline(self: QTextTableCellFormat, baseline: f64) void {
+    pub fn setSubScriptBaseline(self: QTextTableCellFormat, baseline: f64) void {
         qtc.QTextCharFormat_SetSubScriptBaseline(@ptrCast(self.ptr), @bitCast(baseline));
     }
+
+    /// ### DEPRECATED: Use `subScriptBaseline` instead
+    ///
+    pub const SubScriptBaseline = subScriptBaseline;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9948,9 +12898,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn SubScriptBaseline(self: QTextTableCellFormat) f64 {
+    pub fn subScriptBaseline(self: QTextTableCellFormat) f64 {
         return qtc.QTextCharFormat_SubScriptBaseline(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaselineOffset` instead
+    ///
+    pub const SetBaselineOffset = setBaselineOffset;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9962,9 +12916,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` baseline: f64 `
     ///
-    pub fn SetBaselineOffset(self: QTextTableCellFormat, baseline: f64) void {
+    pub fn setBaselineOffset(self: QTextTableCellFormat, baseline: f64) void {
         qtc.QTextCharFormat_SetBaselineOffset(@ptrCast(self.ptr), @bitCast(baseline));
     }
+
+    /// ### DEPRECATED: Use `baselineOffset` instead
+    ///
+    pub const BaselineOffset = baselineOffset;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9974,9 +12932,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn BaselineOffset(self: QTextTableCellFormat) f64 {
+    pub fn baselineOffset(self: QTextTableCellFormat) f64 {
         return qtc.QTextCharFormat_BaselineOffset(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAnchor` instead
+    ///
+    pub const SetAnchor = setAnchor;
 
     /// Inherited from QTextCharFormat
     ///
@@ -9988,9 +12950,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` anchor: bool `
     ///
-    pub fn SetAnchor(self: QTextTableCellFormat, anchor: bool) void {
+    pub fn setAnchor(self: QTextTableCellFormat, anchor: bool) void {
         qtc.QTextCharFormat_SetAnchor(@ptrCast(self.ptr), anchor);
     }
+
+    /// ### DEPRECATED: Use `isAnchor` instead
+    ///
+    pub const IsAnchor = isAnchor;
 
     /// Inherited from QTextCharFormat
     ///
@@ -10000,9 +12966,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn IsAnchor(self: QTextTableCellFormat) bool {
+    pub fn isAnchor(self: QTextTableCellFormat) bool {
         return qtc.QTextCharFormat_IsAnchor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAnchorHref` instead
+    ///
+    pub const SetAnchorHref = setAnchorHref;
 
     /// Inherited from QTextCharFormat
     ///
@@ -10012,15 +12982,19 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    /// ` value: []const u8 `
+    /// ` _value: []const u8 `
     ///
-    pub fn SetAnchorHref(self: QTextTableCellFormat, value: []const u8) void {
+    pub fn setAnchorHref(self: QTextTableCellFormat, _value: []const u8) void {
         const value_str = qtc.libqt_string{
-            .len = value.len,
-            .data = value.ptr,
+            .len = _value.len,
+            .data = _value.ptr,
         };
         qtc.QTextCharFormat_SetAnchorHref(@ptrCast(self.ptr), value_str);
     }
+
+    /// ### DEPRECATED: Use `anchorHref` instead
+    ///
+    pub const AnchorHref = anchorHref;
 
     /// Inherited from QTextCharFormat
     ///
@@ -10032,13 +13006,17 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AnchorHref(self: QTextTableCellFormat, allocator: std.mem.Allocator) []const u8 {
+    pub fn anchorHref(self: QTextTableCellFormat, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextCharFormat_AnchorHref(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextTableCellFormat.AnchorHref: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextTableCellFormat.anchorHref: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAnchorNames` instead
+    ///
+    pub const SetAnchorNames = setAnchorNames;
 
     /// Inherited from QTextCharFormat
     ///
@@ -10052,13 +13030,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` names: []const []const u8 `
     ///
-    pub fn SetAnchorNames(self: QTextTableCellFormat, allocator: std.mem.Allocator, names: []const []const u8) void {
-        const names_arr = allocator.alloc(qtc.libqt_string, names.len) catch @panic("QTextTableCellFormat.SetAnchorNames: Memory allocation failed");
+    pub fn setAnchorNames(self: QTextTableCellFormat, allocator: std.mem.Allocator, names: []const []const u8) void {
+        const names_arr = allocator.alloc(qtc.libqt_string, names.len) catch @panic("QTextTableCellFormat.setAnchorNames: Memory allocation failed");
         defer allocator.free(names_arr);
-        for (names, 0..names.len) |item, i|
+        for (names, 0..names.len) |str_item, i|
             names_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const names_list = qtc.libqt_list{
             .len = names.len,
@@ -10066,6 +13044,10 @@ pub const QTextTableCellFormat = extern struct {
         };
         qtc.QTextCharFormat_SetAnchorNames(@ptrCast(self.ptr), names_list);
     }
+
+    /// ### DEPRECATED: Use `anchorNames` instead
+    ///
+    pub const AnchorNames = anchorNames;
 
     /// Inherited from QTextCharFormat
     ///
@@ -10077,7 +13059,7 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AnchorNames(self: QTextTableCellFormat, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn anchorNames(self: QTextTableCellFormat, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QTextCharFormat_AnchorNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -10085,15 +13067,19 @@ pub const QTextTableCellFormat = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QTextTableCellFormat.AnchorNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QTextTableCellFormat.anchorNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QTextTableCellFormat.AnchorNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QTextTableCellFormat.anchorNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setTableCellRowSpan` instead
+    ///
+    pub const SetTableCellRowSpan = setTableCellRowSpan;
 
     /// Inherited from QTextCharFormat
     ///
@@ -10103,11 +13089,15 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    /// ` tableCellRowSpan: i32 `
+    /// ` _tableCellRowSpan: i32 `
     ///
-    pub fn SetTableCellRowSpan(self: QTextTableCellFormat, tableCellRowSpan: i32) void {
-        qtc.QTextCharFormat_SetTableCellRowSpan(@ptrCast(self.ptr), @bitCast(tableCellRowSpan));
+    pub fn setTableCellRowSpan(self: QTextTableCellFormat, _tableCellRowSpan: i32) void {
+        qtc.QTextCharFormat_SetTableCellRowSpan(@ptrCast(self.ptr), @bitCast(_tableCellRowSpan));
     }
+
+    /// ### DEPRECATED: Use `tableCellRowSpan` instead
+    ///
+    pub const TableCellRowSpan = tableCellRowSpan;
 
     /// Inherited from QTextCharFormat
     ///
@@ -10117,9 +13107,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn TableCellRowSpan(self: QTextTableCellFormat) i32 {
+    pub fn tableCellRowSpan(self: QTextTableCellFormat) i32 {
         return qtc.QTextCharFormat_TableCellRowSpan(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTableCellColumnSpan` instead
+    ///
+    pub const SetTableCellColumnSpan = setTableCellColumnSpan;
 
     /// Inherited from QTextCharFormat
     ///
@@ -10129,11 +13123,15 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    /// ` tableCellColumnSpan: i32 `
+    /// ` _tableCellColumnSpan: i32 `
     ///
-    pub fn SetTableCellColumnSpan(self: QTextTableCellFormat, tableCellColumnSpan: i32) void {
-        qtc.QTextCharFormat_SetTableCellColumnSpan(@ptrCast(self.ptr), @bitCast(tableCellColumnSpan));
+    pub fn setTableCellColumnSpan(self: QTextTableCellFormat, _tableCellColumnSpan: i32) void {
+        qtc.QTextCharFormat_SetTableCellColumnSpan(@ptrCast(self.ptr), @bitCast(_tableCellColumnSpan));
     }
+
+    /// ### DEPRECATED: Use `tableCellColumnSpan` instead
+    ///
+    pub const TableCellColumnSpan = tableCellColumnSpan;
 
     /// Inherited from QTextCharFormat
     ///
@@ -10143,9 +13141,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn TableCellColumnSpan(self: QTextTableCellFormat) i32 {
+    pub fn tableCellColumnSpan(self: QTextTableCellFormat) i32 {
         return qtc.QTextCharFormat_TableCellColumnSpan(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFont2` instead
+    ///
+    pub const SetFont2 = setFont2;
 
     /// Inherited from QTextCharFormat
     ///
@@ -10155,14 +13157,18 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
     /// ` behavior: qtextformat_enums.FontPropertiesInheritanceBehavior `
     ///
-    pub fn SetFont2(self: QTextTableCellFormat, font: anytype, behavior: i32) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QTextCharFormat_SetFont2(@ptrCast(self.ptr), @ptrCast(font.ptr), @bitCast(behavior));
+    pub fn setFont2(self: QTextTableCellFormat, _font: anytype, behavior: i32) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QTextCharFormat_SetFont2(@ptrCast(self.ptr), @ptrCast(_font.ptr), @bitCast(behavior));
     }
+
+    /// ### DEPRECATED: Use `setFontStyleHint2` instead
+    ///
+    pub const SetFontStyleHint2 = setFontStyleHint2;
 
     /// Inherited from QTextCharFormat
     ///
@@ -10176,9 +13182,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` strategy: qfont_enums.StyleStrategy `
     ///
-    pub fn SetFontStyleHint2(self: QTextTableCellFormat, hint: i32, strategy: i32) void {
+    pub fn setFontStyleHint2(self: QTextTableCellFormat, hint: i32, strategy: i32) void {
         qtc.QTextCharFormat_SetFontStyleHint2(@ptrCast(self.ptr), @bitCast(hint), @bitCast(strategy));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// Inherited from QTextFormat
     ///
@@ -10190,10 +13200,14 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` rhs: QTextFormat `
     ///
-    pub fn OperatorAssign(self: QTextTableCellFormat, rhs: anytype) void {
+    pub fn operatorAssign(self: QTextTableCellFormat, rhs: anytype) void {
         comptime _ = @TypeOf(rhs)._is_QTextFormat;
         qtc.QTextFormat_OperatorAssign(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// Inherited from QTextFormat
     ///
@@ -10205,10 +13219,14 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` other: QTextFormat `
     ///
-    pub fn Swap(self: QTextTableCellFormat, other: anytype) void {
+    pub fn swap(self: QTextTableCellFormat, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QTextFormat;
         qtc.QTextFormat_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `merge` instead
+    ///
+    pub const Merge = merge;
 
     /// Inherited from QTextFormat
     ///
@@ -10220,10 +13238,14 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` other: QTextFormat `
     ///
-    pub fn Merge(self: QTextTableCellFormat, other: anytype) void {
+    pub fn merge(self: QTextTableCellFormat, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QTextFormat;
         qtc.QTextFormat_Merge(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEmpty` instead
+    ///
+    pub const IsEmpty = isEmpty;
 
     /// Inherited from QTextFormat
     ///
@@ -10233,9 +13255,15 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn IsEmpty(self: QTextTableCellFormat) bool {
+    pub fn isEmpty(self: QTextTableCellFormat) bool {
         return qtc.QTextFormat_IsEmpty(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QTextFormat
     ///
@@ -10245,9 +13273,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn Type(self: QTextTableCellFormat) i32 {
+    pub fn type0(self: QTextTableCellFormat) i32 {
         return qtc.QTextFormat_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `objectIndex` instead
+    ///
+    pub const ObjectIndex = objectIndex;
 
     /// Inherited from QTextFormat
     ///
@@ -10257,9 +13289,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn ObjectIndex(self: QTextTableCellFormat) i32 {
+    pub fn objectIndex(self: QTextTableCellFormat) i32 {
         return qtc.QTextFormat_ObjectIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setObjectIndex` instead
+    ///
+    pub const SetObjectIndex = setObjectIndex;
 
     /// Inherited from QTextFormat
     ///
@@ -10271,9 +13307,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` object: i32 `
     ///
-    pub fn SetObjectIndex(self: QTextTableCellFormat, object: i32) void {
+    pub fn setObjectIndex(self: QTextTableCellFormat, object: i32) void {
         qtc.QTextFormat_SetObjectIndex(@ptrCast(self.ptr), @bitCast(object));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QTextFormat
     ///
@@ -10285,9 +13325,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn Property(self: QTextTableCellFormat, propertyId: i32) QVariant {
+    pub fn property(self: QTextTableCellFormat, propertyId: i32) QVariant {
         return .{ .ptr = qtc.QTextFormat_Property(@ptrCast(self.ptr), @bitCast(propertyId)) };
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -10299,12 +13343,16 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    /// ` value: QVariant `
+    /// ` _value: QVariant `
     ///
-    pub fn SetProperty(self: QTextTableCellFormat, propertyId: i32, value: anytype) void {
-        comptime _ = @TypeOf(value)._is_QVariant;
-        qtc.QTextFormat_SetProperty(@ptrCast(self.ptr), @bitCast(propertyId), @ptrCast(value.ptr));
+    pub fn setProperty(self: QTextTableCellFormat, propertyId: i32, _value: anytype) void {
+        comptime _ = @TypeOf(_value)._is_QVariant;
+        qtc.QTextFormat_SetProperty(@ptrCast(self.ptr), @bitCast(propertyId), @ptrCast(_value.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearProperty` instead
+    ///
+    pub const ClearProperty = clearProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -10316,9 +13364,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn ClearProperty(self: QTextTableCellFormat, propertyId: i32) void {
+    pub fn clearProperty(self: QTextTableCellFormat, propertyId: i32) void {
         qtc.QTextFormat_ClearProperty(@ptrCast(self.ptr), @bitCast(propertyId));
     }
+
+    /// ### DEPRECATED: Use `hasProperty` instead
+    ///
+    pub const HasProperty = hasProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -10330,9 +13382,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn HasProperty(self: QTextTableCellFormat, propertyId: i32) bool {
+    pub fn hasProperty(self: QTextTableCellFormat, propertyId: i32) bool {
         return qtc.QTextFormat_HasProperty(@ptrCast(self.ptr), @bitCast(propertyId));
     }
+
+    /// ### DEPRECATED: Use `boolProperty` instead
+    ///
+    pub const BoolProperty = boolProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -10344,9 +13400,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn BoolProperty(self: QTextTableCellFormat, propertyId: i32) bool {
+    pub fn boolProperty(self: QTextTableCellFormat, propertyId: i32) bool {
         return qtc.QTextFormat_BoolProperty(@ptrCast(self.ptr), @bitCast(propertyId));
     }
+
+    /// ### DEPRECATED: Use `intProperty` instead
+    ///
+    pub const IntProperty = intProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -10358,9 +13418,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn IntProperty(self: QTextTableCellFormat, propertyId: i32) i32 {
+    pub fn intProperty(self: QTextTableCellFormat, propertyId: i32) i32 {
         return qtc.QTextFormat_IntProperty(@ptrCast(self.ptr), @bitCast(propertyId));
     }
+
+    /// ### DEPRECATED: Use `doubleProperty` instead
+    ///
+    pub const DoubleProperty = doubleProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -10372,9 +13436,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn DoubleProperty(self: QTextTableCellFormat, propertyId: i32) f64 {
+    pub fn doubleProperty(self: QTextTableCellFormat, propertyId: i32) f64 {
         return qtc.QTextFormat_DoubleProperty(@ptrCast(self.ptr), @bitCast(propertyId));
     }
+
+    /// ### DEPRECATED: Use `stringProperty` instead
+    ///
+    pub const StringProperty = stringProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -10388,13 +13456,17 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn StringProperty(self: QTextTableCellFormat, allocator: std.mem.Allocator, propertyId: i32) []const u8 {
+    pub fn stringProperty(self: QTextTableCellFormat, allocator: std.mem.Allocator, propertyId: i32) []const u8 {
         var _str = qtc.QTextFormat_StringProperty(@ptrCast(self.ptr), @bitCast(propertyId));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextTableCellFormat.StringProperty: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextTableCellFormat.stringProperty: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `colorProperty` instead
+    ///
+    pub const ColorProperty = colorProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -10406,9 +13478,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn ColorProperty(self: QTextTableCellFormat, propertyId: i32) QColor {
+    pub fn colorProperty(self: QTextTableCellFormat, propertyId: i32) QColor {
         return .{ .ptr = qtc.QTextFormat_ColorProperty(@ptrCast(self.ptr), @bitCast(propertyId)) };
     }
+
+    /// ### DEPRECATED: Use `penProperty` instead
+    ///
+    pub const PenProperty = penProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -10420,9 +13496,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn PenProperty(self: QTextTableCellFormat, propertyId: i32) QPen {
+    pub fn penProperty(self: QTextTableCellFormat, propertyId: i32) QPen {
         return .{ .ptr = qtc.QTextFormat_PenProperty(@ptrCast(self.ptr), @bitCast(propertyId)) };
     }
+
+    /// ### DEPRECATED: Use `brushProperty` instead
+    ///
+    pub const BrushProperty = brushProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -10434,9 +13514,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn BrushProperty(self: QTextTableCellFormat, propertyId: i32) QBrush {
+    pub fn brushProperty(self: QTextTableCellFormat, propertyId: i32) QBrush {
         return .{ .ptr = qtc.QTextFormat_BrushProperty(@ptrCast(self.ptr), @bitCast(propertyId)) };
     }
+
+    /// ### DEPRECATED: Use `lengthProperty` instead
+    ///
+    pub const LengthProperty = lengthProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -10448,9 +13532,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn LengthProperty(self: QTextTableCellFormat, propertyId: i32) QTextLength {
+    pub fn lengthProperty(self: QTextTableCellFormat, propertyId: i32) QTextLength {
         return .{ .ptr = qtc.QTextFormat_LengthProperty(@ptrCast(self.ptr), @bitCast(propertyId)) };
     }
+
+    /// ### DEPRECATED: Use `lengthVectorProperty` instead
+    ///
+    pub const LengthVectorProperty = lengthVectorProperty;
 
     /// Inherited from QTextFormat
     ///
@@ -10464,15 +13552,19 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` propertyId: i32 `
     ///
-    pub fn LengthVectorProperty(self: QTextTableCellFormat, allocator: std.mem.Allocator, propertyId: i32) []QTextLength {
+    pub fn lengthVectorProperty(self: QTextTableCellFormat, allocator: std.mem.Allocator, propertyId: i32) []QTextLength {
         const _arr: qtc.libqt_list = qtc.QTextFormat_LengthVectorProperty(@ptrCast(self.ptr), @bitCast(propertyId));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QTextLength, _arr.len) catch @panic("QTextTableCellFormat.LengthVectorProperty: Memory allocation failed");
-        const _data: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QTextLength, _arr.len) catch @panic("QTextTableCellFormat.lengthVectorProperty: Memory allocation failed");
+        const _data_val: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setProperty2` instead
+    ///
+    pub const SetProperty2 = setProperty2;
 
     /// Inherited from QTextFormat
     ///
@@ -10486,13 +13578,17 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` lengths: []QTextLength `
     ///
-    pub fn SetProperty2(self: QTextTableCellFormat, propertyId: i32, lengths: []QTextLength) void {
+    pub fn setProperty2(self: QTextTableCellFormat, propertyId: i32, lengths: []QTextLength) void {
         const lengths_list = qtc.libqt_list{
             .len = lengths.len,
             .data = @ptrCast(lengths.ptr),
         };
         qtc.QTextFormat_SetProperty2(@ptrCast(self.ptr), @bitCast(propertyId), lengths_list);
     }
+
+    /// ### DEPRECATED: Use `properties` instead
+    ///
+    pub const Properties = properties;
 
     /// Inherited from QTextFormat
     ///
@@ -10504,10 +13600,10 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Properties(self: QTextTableCellFormat, allocator: std.mem.Allocator) ArrayMap_i32_QVariant {
+    pub fn properties(self: QTextTableCellFormat, allocator: std.mem.Allocator) ArrayMap_i32_QVariant {
         const _map: qtc.libqt_map = qtc.QTextFormat_Properties(@ptrCast(self.ptr));
         var _ret: ArrayMap_i32_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QTextTableCellFormat.Properties: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QTextTableCellFormat.properties: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -10523,6 +13619,10 @@ pub const QTextTableCellFormat = extern struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `propertyCount` instead
+    ///
+    pub const PropertyCount = propertyCount;
+
     /// Inherited from QTextFormat
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#propertyCount)
@@ -10531,9 +13631,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn PropertyCount(self: QTextTableCellFormat) i32 {
+    pub fn propertyCount(self: QTextTableCellFormat) i32 {
         return qtc.QTextFormat_PropertyCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setObjectType` instead
+    ///
+    pub const SetObjectType = setObjectType;
 
     /// Inherited from QTextFormat
     ///
@@ -10545,9 +13649,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` typeVal: i32 `
     ///
-    pub fn SetObjectType(self: QTextTableCellFormat, typeVal: i32) void {
+    pub fn setObjectType(self: QTextTableCellFormat, typeVal: i32) void {
         qtc.QTextFormat_SetObjectType(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `objectType` instead
+    ///
+    pub const ObjectType = objectType;
 
     /// Inherited from QTextFormat
     ///
@@ -10557,9 +13665,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn ObjectType(self: QTextTableCellFormat) i32 {
+    pub fn objectType(self: QTextTableCellFormat) i32 {
         return qtc.QTextFormat_ObjectType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isCharFormat` instead
+    ///
+    pub const IsCharFormat = isCharFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -10569,9 +13681,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn IsCharFormat(self: QTextTableCellFormat) bool {
+    pub fn isCharFormat(self: QTextTableCellFormat) bool {
         return qtc.QTextFormat_IsCharFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isBlockFormat` instead
+    ///
+    pub const IsBlockFormat = isBlockFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -10581,9 +13697,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn IsBlockFormat(self: QTextTableCellFormat) bool {
+    pub fn isBlockFormat(self: QTextTableCellFormat) bool {
         return qtc.QTextFormat_IsBlockFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isListFormat` instead
+    ///
+    pub const IsListFormat = isListFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -10593,9 +13713,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn IsListFormat(self: QTextTableCellFormat) bool {
+    pub fn isListFormat(self: QTextTableCellFormat) bool {
         return qtc.QTextFormat_IsListFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFrameFormat` instead
+    ///
+    pub const IsFrameFormat = isFrameFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -10605,9 +13729,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn IsFrameFormat(self: QTextTableCellFormat) bool {
+    pub fn isFrameFormat(self: QTextTableCellFormat) bool {
         return qtc.QTextFormat_IsFrameFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isImageFormat` instead
+    ///
+    pub const IsImageFormat = isImageFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -10617,9 +13745,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn IsImageFormat(self: QTextTableCellFormat) bool {
+    pub fn isImageFormat(self: QTextTableCellFormat) bool {
         return qtc.QTextFormat_IsImageFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTableFormat` instead
+    ///
+    pub const IsTableFormat = isTableFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -10629,9 +13761,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn IsTableFormat(self: QTextTableCellFormat) bool {
+    pub fn isTableFormat(self: QTextTableCellFormat) bool {
         return qtc.QTextFormat_IsTableFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTableCellFormat` instead
+    ///
+    pub const IsTableCellFormat = isTableCellFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -10641,9 +13777,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn IsTableCellFormat(self: QTextTableCellFormat) bool {
+    pub fn isTableCellFormat(self: QTextTableCellFormat) bool {
         return qtc.QTextFormat_IsTableCellFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toBlockFormat` instead
+    ///
+    pub const ToBlockFormat = toBlockFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -10653,9 +13793,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn ToBlockFormat(self: QTextTableCellFormat) QTextBlockFormat {
+    pub fn toBlockFormat(self: QTextTableCellFormat) QTextBlockFormat {
         return .{ .ptr = qtc.QTextFormat_ToBlockFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toCharFormat` instead
+    ///
+    pub const ToCharFormat = toCharFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -10665,9 +13809,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn ToCharFormat(self: QTextTableCellFormat) QTextCharFormat {
+    pub fn toCharFormat(self: QTextTableCellFormat) QTextCharFormat {
         return .{ .ptr = qtc.QTextFormat_ToCharFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toListFormat` instead
+    ///
+    pub const ToListFormat = toListFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -10677,9 +13825,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn ToListFormat(self: QTextTableCellFormat) QTextListFormat {
+    pub fn toListFormat(self: QTextTableCellFormat) QTextListFormat {
         return .{ .ptr = qtc.QTextFormat_ToListFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toTableFormat` instead
+    ///
+    pub const ToTableFormat = toTableFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -10689,9 +13841,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn ToTableFormat(self: QTextTableCellFormat) QTextTableFormat {
+    pub fn toTableFormat(self: QTextTableCellFormat) QTextTableFormat {
         return .{ .ptr = qtc.QTextFormat_ToTableFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toFrameFormat` instead
+    ///
+    pub const ToFrameFormat = toFrameFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -10701,9 +13857,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn ToFrameFormat(self: QTextTableCellFormat) QTextFrameFormat {
+    pub fn toFrameFormat(self: QTextTableCellFormat) QTextFrameFormat {
         return .{ .ptr = qtc.QTextFormat_ToFrameFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toImageFormat` instead
+    ///
+    pub const ToImageFormat = toImageFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -10713,9 +13873,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn ToImageFormat(self: QTextTableCellFormat) QTextImageFormat {
+    pub fn toImageFormat(self: QTextTableCellFormat) QTextImageFormat {
         return .{ .ptr = qtc.QTextFormat_ToImageFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toTableCellFormat` instead
+    ///
+    pub const ToTableCellFormat = toTableCellFormat;
 
     /// Inherited from QTextFormat
     ///
@@ -10725,9 +13889,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn ToTableCellFormat(self: QTextTableCellFormat) QTextTableCellFormat {
+    pub fn toTableCellFormat(self: QTextTableCellFormat) QTextTableCellFormat {
         return .{ .ptr = qtc.QTextFormat_ToTableCellFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// Inherited from QTextFormat
     ///
@@ -10739,10 +13907,14 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` rhs: QTextFormat `
     ///
-    pub fn OperatorEqual(self: QTextTableCellFormat, rhs: anytype) bool {
+    pub fn operatorEqual(self: QTextTableCellFormat, rhs: anytype) bool {
         comptime _ = @TypeOf(rhs)._is_QTextFormat;
         return qtc.QTextFormat_OperatorEqual(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// Inherited from QTextFormat
     ///
@@ -10754,10 +13926,14 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` rhs: QTextFormat `
     ///
-    pub fn OperatorNotEqual(self: QTextTableCellFormat, rhs: anytype) bool {
+    pub fn operatorNotEqual(self: QTextTableCellFormat, rhs: anytype) bool {
         comptime _ = @TypeOf(rhs)._is_QTextFormat;
         return qtc.QTextFormat_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
     }
+
+    /// ### DEPRECATED: Use `toQVariant` instead
+    ///
+    pub const ToQVariant = toQVariant;
 
     /// Inherited from QTextFormat
     ///
@@ -10767,9 +13943,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn ToQVariant(self: QTextTableCellFormat) QVariant {
+    pub fn toQVariant(self: QTextTableCellFormat) QVariant {
         return .{ .ptr = qtc.QTextFormat_ToQVariant(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QTextFormat
     ///
@@ -10781,9 +13961,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: QTextTableCellFormat, direction: i32) void {
+    pub fn setLayoutDirection(self: QTextTableCellFormat, direction: i32) void {
         qtc.QTextFormat_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QTextFormat
     ///
@@ -10797,9 +13981,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: QTextTableCellFormat) i32 {
+    pub fn layoutDirection(self: QTextTableCellFormat) i32 {
         return qtc.QTextFormat_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackground` instead
+    ///
+    pub const SetBackground = setBackground;
 
     /// Inherited from QTextFormat
     ///
@@ -10811,10 +13999,14 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` brush: QBrush `
     ///
-    pub fn SetBackground(self: QTextTableCellFormat, brush: anytype) void {
+    pub fn setBackground(self: QTextTableCellFormat, brush: anytype) void {
         comptime _ = @TypeOf(brush)._is_QBrush;
         qtc.QTextFormat_SetBackground(@ptrCast(self.ptr), @ptrCast(brush.ptr));
     }
+
+    /// ### DEPRECATED: Use `background` instead
+    ///
+    pub const Background = background;
 
     /// Inherited from QTextFormat
     ///
@@ -10824,9 +14016,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn Background(self: QTextTableCellFormat) QBrush {
+    pub fn background(self: QTextTableCellFormat) QBrush {
         return .{ .ptr = qtc.QTextFormat_Background(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearBackground` instead
+    ///
+    pub const ClearBackground = clearBackground;
 
     /// Inherited from QTextFormat
     ///
@@ -10836,9 +14032,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn ClearBackground(self: QTextTableCellFormat) void {
+    pub fn clearBackground(self: QTextTableCellFormat) void {
         qtc.QTextFormat_ClearBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForeground` instead
+    ///
+    pub const SetForeground = setForeground;
 
     /// Inherited from QTextFormat
     ///
@@ -10850,10 +14050,14 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` brush: QBrush `
     ///
-    pub fn SetForeground(self: QTextTableCellFormat, brush: anytype) void {
+    pub fn setForeground(self: QTextTableCellFormat, brush: anytype) void {
         comptime _ = @TypeOf(brush)._is_QBrush;
         qtc.QTextFormat_SetForeground(@ptrCast(self.ptr), @ptrCast(brush.ptr));
     }
+
+    /// ### DEPRECATED: Use `foreground` instead
+    ///
+    pub const Foreground = foreground;
 
     /// Inherited from QTextFormat
     ///
@@ -10863,9 +14067,13 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn Foreground(self: QTextTableCellFormat) QBrush {
+    pub fn foreground(self: QTextTableCellFormat) QBrush {
         return .{ .ptr = qtc.QTextFormat_Foreground(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearForeground` instead
+    ///
+    pub const ClearForeground = clearForeground;
 
     /// Inherited from QTextFormat
     ///
@@ -10875,23 +14083,23 @@ pub const QTextTableCellFormat = extern struct {
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn ClearForeground(self: QTextTableCellFormat) void {
+    pub fn clearForeground(self: QTextTableCellFormat) void {
         qtc.QTextFormat_ClearForeground(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#dtor.QTextTableCellFormat)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QTextTableCellFormat `
     ///
-    pub fn Delete(self: QTextTableCellFormat) void {
+    pub fn delete(self: QTextTableCellFormat) void {
         qtc.QTextTableCellFormat_Delete(@ptrCast(self.ptr));
     }
 };

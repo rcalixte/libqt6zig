@@ -12,16 +12,24 @@ pub const QLoggingCategory = extern struct {
 
     pub const _is_QLoggingCategory = {};
 
-    /// New constructs a new QLoggingCategory object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QLoggingCategory object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` category: [:0]const u8 `
     ///
-    pub fn New(category: [:0]const u8) QLoggingCategory {
+    pub fn new(category: [:0]const u8) QLoggingCategory {
         const category_Cstring = category.ptr;
         return .{ .ptr = qtc.QLoggingCategory_new(category_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `isDebugEnabled` instead
+    ///
+    pub const IsDebugEnabled = isDebugEnabled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qloggingcategory.html#isDebugEnabled)
     ///
@@ -29,9 +37,13 @@ pub const QLoggingCategory = extern struct {
     ///
     /// ` self: QLoggingCategory `
     ///
-    pub fn IsDebugEnabled(self: QLoggingCategory) bool {
+    pub fn isDebugEnabled(self: QLoggingCategory) bool {
         return qtc.QLoggingCategory_IsDebugEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isInfoEnabled` instead
+    ///
+    pub const IsInfoEnabled = isInfoEnabled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qloggingcategory.html#isInfoEnabled)
     ///
@@ -39,9 +51,13 @@ pub const QLoggingCategory = extern struct {
     ///
     /// ` self: QLoggingCategory `
     ///
-    pub fn IsInfoEnabled(self: QLoggingCategory) bool {
+    pub fn isInfoEnabled(self: QLoggingCategory) bool {
         return qtc.QLoggingCategory_IsInfoEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWarningEnabled` instead
+    ///
+    pub const IsWarningEnabled = isWarningEnabled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qloggingcategory.html#isWarningEnabled)
     ///
@@ -49,9 +65,13 @@ pub const QLoggingCategory = extern struct {
     ///
     /// ` self: QLoggingCategory `
     ///
-    pub fn IsWarningEnabled(self: QLoggingCategory) bool {
+    pub fn isWarningEnabled(self: QLoggingCategory) bool {
         return qtc.QLoggingCategory_IsWarningEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isCriticalEnabled` instead
+    ///
+    pub const IsCriticalEnabled = isCriticalEnabled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qloggingcategory.html#isCriticalEnabled)
     ///
@@ -59,9 +79,13 @@ pub const QLoggingCategory = extern struct {
     ///
     /// ` self: QLoggingCategory `
     ///
-    pub fn IsCriticalEnabled(self: QLoggingCategory) bool {
+    pub fn isCriticalEnabled(self: QLoggingCategory) bool {
         return qtc.QLoggingCategory_IsCriticalEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `categoryName` instead
+    ///
+    pub const CategoryName = categoryName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qloggingcategory.html#categoryName)
     ///
@@ -69,36 +93,52 @@ pub const QLoggingCategory = extern struct {
     ///
     /// ` self: QLoggingCategory `
     ///
-    pub fn CategoryName(self: QLoggingCategory) [:0]const u8 {
+    pub fn categoryName(self: QLoggingCategory) [:0]const u8 {
         const _ret = qtc.QLoggingCategory_CategoryName(@ptrCast(self.ptr));
         return std.mem.span(_ret);
     }
 
+    /// ### DEPRECATED: Use `operatorCall` instead
+    ///
+    pub const OperatorCall = operatorCall;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qloggingcategory.html#operator-28-29)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QLoggingCategory `
     ///
-    pub fn OperatorCall(self: QLoggingCategory) QLoggingCategory {
+    pub fn operatorCall(self: QLoggingCategory) QLoggingCategory {
         return .{ .ptr = qtc.QLoggingCategory_OperatorCall(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `operatorCall2` instead
+    ///
+    pub const OperatorCall2 = operatorCall2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qloggingcategory.html#operator-28-29)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QLoggingCategory `
     ///
-    pub fn OperatorCall2(self: QLoggingCategory) QLoggingCategory {
+    pub fn operatorCall2(self: QLoggingCategory) QLoggingCategory {
         return .{ .ptr = qtc.QLoggingCategory_OperatorCall2(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `defaultCategory` instead
+    ///
+    pub const DefaultCategory = defaultCategory;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qloggingcategory.html#defaultCategory)
     ///
-    pub fn DefaultCategory() QLoggingCategory {
+    pub fn defaultCategory() QLoggingCategory {
         return .{ .ptr = qtc.QLoggingCategory_DefaultCategory() };
     }
+
+    /// ### DEPRECATED: Use `installFilter` instead
+    ///
+    pub const InstallFilter = installFilter;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qloggingcategory.html#installFilter)
     ///
@@ -110,9 +150,13 @@ pub const QLoggingCategory = extern struct {
     ///
     /// ` ?*const fn (funcparam1: QLoggingCategory) callconv(.c) void `
     ///
-    pub fn InstallFilter(param1: *const fn (QLoggingCategory) callconv(.c) void) ?*const fn (QLoggingCategory) callconv(.c) void {
+    pub fn installFilter(param1: *const fn (QLoggingCategory) callconv(.c) void) ?*const fn (QLoggingCategory) callconv(.c) void {
         return @ptrFromInt(@as(usize, @bitCast(qtc.QLoggingCategory_InstallFilter(@bitCast(@intFromPtr(param1))))));
     }
+
+    /// ### DEPRECATED: Use `setFilterRules` instead
+    ///
+    pub const SetFilterRules = setFilterRules;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qloggingcategory.html#setFilterRules)
     ///
@@ -120,7 +164,7 @@ pub const QLoggingCategory = extern struct {
     ///
     /// ` rules: []const u8 `
     ///
-    pub fn SetFilterRules(rules: []const u8) void {
+    pub fn setFilterRules(rules: []const u8) void {
         const rules_str = qtc.libqt_string{
             .len = rules.len,
             .data = rules.ptr,
@@ -128,19 +172,19 @@ pub const QLoggingCategory = extern struct {
         qtc.QLoggingCategory_SetFilterRules(rules_str);
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qloggingcategory.html#dtor.QLoggingCategory)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QLoggingCategory `
     ///
-    pub fn Delete(self: QLoggingCategory) void {
+    pub fn delete(self: QLoggingCategory) void {
         qtc.QLoggingCategory_Delete(@ptrCast(self.ptr));
     }
 };

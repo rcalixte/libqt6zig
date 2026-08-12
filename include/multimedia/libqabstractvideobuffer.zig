@@ -13,6 +13,10 @@ pub const QAbstractVideoBuffer = extern struct {
 
     pub const _is_QAbstractVideoBuffer = {};
 
+    /// ### DEPRECATED: Use `map` instead
+    ///
+    pub const Map = map;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractvideobuffer.html#map)
     ///
     /// ## Parameter(s):
@@ -21,9 +25,13 @@ pub const QAbstractVideoBuffer = extern struct {
     ///
     /// ` mode: qvideoframe_enums.MapMode `
     ///
-    pub fn Map(self: QAbstractVideoBuffer, mode: i32) QAbstractVideoBuffer__MapData {
+    pub fn map(self: QAbstractVideoBuffer, mode: i32) QAbstractVideoBuffer__MapData {
         return .{ .ptr = qtc.QAbstractVideoBuffer_Map(@ptrCast(self.ptr), @bitCast(mode)) };
     }
+
+    /// ### DEPRECATED: Use `unmap` instead
+    ///
+    pub const Unmap = unmap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractvideobuffer.html#unmap)
     ///
@@ -31,9 +39,13 @@ pub const QAbstractVideoBuffer = extern struct {
     ///
     /// ` self: QAbstractVideoBuffer `
     ///
-    pub fn Unmap(self: QAbstractVideoBuffer) void {
+    pub fn unmap(self: QAbstractVideoBuffer) void {
         qtc.QAbstractVideoBuffer_Unmap(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `format` instead
+    ///
+    pub const Format = format;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractvideobuffer.html#format)
     ///
@@ -41,9 +53,13 @@ pub const QAbstractVideoBuffer = extern struct {
     ///
     /// ` self: QAbstractVideoBuffer `
     ///
-    pub fn Format(self: QAbstractVideoBuffer) QVideoFrameFormat {
+    pub fn format(self: QAbstractVideoBuffer) QVideoFrameFormat {
         return .{ .ptr = qtc.QAbstractVideoBuffer_Format(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractvideobuffer.html#operator-eq)
     ///
@@ -53,24 +69,24 @@ pub const QAbstractVideoBuffer = extern struct {
     ///
     /// ` param1: QAbstractVideoBuffer `
     ///
-    pub fn OperatorAssign(self: QAbstractVideoBuffer, param1: anytype) void {
+    pub fn operatorAssign(self: QAbstractVideoBuffer, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QAbstractVideoBuffer;
         qtc.QAbstractVideoBuffer_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractvideobuffer.html#dtor.QAbstractVideoBuffer)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QAbstractVideoBuffer `
     ///
-    pub fn Delete(self: QAbstractVideoBuffer) void {
+    pub fn delete(self: QAbstractVideoBuffer) void {
         qtc.QAbstractVideoBuffer_Delete(@ptrCast(self.ptr));
     }
 };
@@ -85,35 +101,50 @@ pub const QAbstractVideoBuffer__MapData = extern struct {
 
     pub const _is_QAbstractVideoBuffer__MapData = {};
 
-    /// New constructs a new QAbstractVideoBuffer::MapData object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QAbstractVideoBuffer__MapData {
+    pub const New = new;
+
+    /// Allocate a new QAbstractVideoBuffer::MapData object in C++ memory
+    ///
+    pub fn new() QAbstractVideoBuffer__MapData {
         return .{ .ptr = qtc.QAbstractVideoBuffer__MapData_new() };
     }
 
-    /// New2 constructs a new QAbstractVideoBuffer::MapData object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QAbstractVideoBuffer::MapData object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QAbstractVideoBuffer__MapData `
     ///
-    pub fn New2(other: anytype) QAbstractVideoBuffer__MapData {
+    pub fn new2(other: anytype) QAbstractVideoBuffer__MapData {
         comptime _ = @TypeOf(other)._is_QAbstractVideoBuffer__MapData;
         return .{ .ptr = qtc.QAbstractVideoBuffer__MapData_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QAbstractVideoBuffer::MapData object and invalidates the source QAbstractVideoBuffer::MapData object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QAbstractVideoBuffer::MapData object and invalidate the source QAbstractVideoBuffer::MapData object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QAbstractVideoBuffer__MapData `
     ///
-    pub fn New3(other: anytype) QAbstractVideoBuffer__MapData {
+    pub fn new3(other: anytype) QAbstractVideoBuffer__MapData {
         comptime _ = @TypeOf(other)._is_QAbstractVideoBuffer__MapData;
         return .{ .ptr = qtc.QAbstractVideoBuffer__MapData_new3(@ptrCast(other.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -121,11 +152,14 @@ pub const QAbstractVideoBuffer__MapData = extern struct {
     ///
     /// ` other: QAbstractVideoBuffer__MapData `
     ///
-    pub fn CopyAssign(self: QAbstractVideoBuffer__MapData, other: QAbstractVideoBuffer__MapData) void {
+    pub fn copyAssign(self: QAbstractVideoBuffer__MapData, other: QAbstractVideoBuffer__MapData) void {
         qtc.QAbstractVideoBuffer__MapData_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -133,43 +167,51 @@ pub const QAbstractVideoBuffer__MapData = extern struct {
     ///
     /// ` other: QAbstractVideoBuffer__MapData `
     ///
-    pub fn MoveAssign(self: QAbstractVideoBuffer__MapData, other: QAbstractVideoBuffer__MapData) void {
+    pub fn moveAssign(self: QAbstractVideoBuffer__MapData, other: QAbstractVideoBuffer__MapData) void {
         qtc.QAbstractVideoBuffer__MapData_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
+    /// ### DEPRECATED: Use `planeCount` instead
+    ///
+    pub const PlaneCount = planeCount;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractvideobuffer-mapdata.html#planeCount-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAbstractVideoBuffer__MapData `
     ///
-    pub fn PlaneCount(self: QAbstractVideoBuffer__MapData) i32 {
+    pub fn planeCount(self: QAbstractVideoBuffer__MapData) i32 {
         return qtc.QAbstractVideoBuffer__MapData_PlaneCount(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setPlaneCount` instead
+    ///
+    pub const SetPlaneCount = setPlaneCount;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractvideobuffer-mapdata.html#planeCount-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAbstractVideoBuffer__MapData `
     ///
-    /// ` planeCount: i32 `
+    /// ` _planeCount: i32 `
     ///
-    pub fn SetPlaneCount(self: QAbstractVideoBuffer__MapData, planeCount: i32) void {
-        qtc.QAbstractVideoBuffer__MapData_SetPlaneCount(@ptrCast(self.ptr), @bitCast(planeCount));
+    pub fn setPlaneCount(self: QAbstractVideoBuffer__MapData, _planeCount: i32) void {
+        qtc.QAbstractVideoBuffer__MapData_SetPlaneCount(@ptrCast(self.ptr), @bitCast(_planeCount));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QAbstractVideoBuffer__MapData `
     ///
-    pub fn Delete(self: QAbstractVideoBuffer__MapData) void {
+    pub fn delete(self: QAbstractVideoBuffer__MapData) void {
         qtc.QAbstractVideoBuffer__MapData_Delete(@ptrCast(self.ptr));
     }
 };

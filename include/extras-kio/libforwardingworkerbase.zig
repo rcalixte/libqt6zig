@@ -41,7 +41,11 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     pub const _is_QObject = {};
     pub const _is_KIO__WorkerBase = {};
 
-    /// New constructs a new KIO::ForwardingWorkerBase object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KIO::ForwardingWorkerBase object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -51,7 +55,7 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` appSocket: []u8 `
     ///
-    pub fn New(protocol: []u8, poolSocket: []u8, appSocket: []u8) KIO__ForwardingWorkerBase {
+    pub fn new(protocol: []u8, poolSocket: []u8, appSocket: []u8) KIO__ForwardingWorkerBase {
         const protocol_str = qtc.libqt_string{
             .len = protocol.len,
             .data = protocol.ptr,
@@ -67,15 +71,23 @@ pub const KIO__ForwardingWorkerBase = extern struct {
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_new(protocol_str, poolSocket_str, appSocket_str) };
     }
 
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    pub fn MetaObject(self: KIO__ForwardingWorkerBase) QMetaObject {
+    pub fn metaObject(self: KIO__ForwardingWorkerBase) QMetaObject {
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -87,13 +99,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KIO__ForwardingWorkerBase, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KIO__ForwardingWorkerBase, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KIO__ForwardingWorkerBase_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -103,9 +115,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    pub fn SuperMetaObject(self: KIO__ForwardingWorkerBase) QMetaObject {
+    pub fn superMetaObject(self: KIO__ForwardingWorkerBase) QMetaObject {
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -113,10 +129,14 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KIO__ForwardingWorkerBase, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KIO__ForwardingWorkerBase, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KIO__ForwardingWorkerBase_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -126,13 +146,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` callback: *const fn (self: KIO__ForwardingWorkerBase, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KIO__ForwardingWorkerBase_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -142,10 +162,14 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KIO__ForwardingWorkerBase, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KIO__ForwardingWorkerBase, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KIO__ForwardingWorkerBase_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -157,9 +181,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KIO__ForwardingWorkerBase, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KIO__ForwardingWorkerBase, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KIO__ForwardingWorkerBase_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -169,13 +197,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` callback: *const fn (self: KIO__ForwardingWorkerBase, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KIO__ForwardingWorkerBase_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -189,9 +217,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KIO__ForwardingWorkerBase, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KIO__ForwardingWorkerBase, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KIO__ForwardingWorkerBase_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -201,14 +233,18 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIO__ForwardingWorkerBase.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIO__ForwardingWorkerBase.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `get` instead
+    ///
+    pub const Get = get;
 
     /// ### [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#get)
     ///
@@ -218,10 +254,14 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn Get(self: KIO__ForwardingWorkerBase, url: anytype) KIO__WorkerResult {
+    pub fn get(self: KIO__ForwardingWorkerBase, url: anytype) KIO__WorkerResult {
         comptime _ = @TypeOf(url)._is_QUrl;
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_Get(@ptrCast(self.ptr), @ptrCast(url.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onGet` instead
+    ///
+    pub const OnGet = onGet;
 
     /// ### [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#get)
     ///
@@ -235,13 +275,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnGet(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QUrl) callconv(.c) KIO__WorkerResult) void {
+    pub fn onGet(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QUrl) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnGet(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperGet` instead
+    /// ### DEPRECATED: Use `superGet` instead
     ///
-    pub const QBaseGet = SuperGet;
+    pub const SuperGet = superGet;
 
     /// ### [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#get)
     ///
@@ -253,10 +293,14 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn SuperGet(self: KIO__ForwardingWorkerBase, url: anytype) KIO__WorkerResult {
+    pub fn superGet(self: KIO__ForwardingWorkerBase, url: anytype) KIO__WorkerResult {
         comptime _ = @TypeOf(url)._is_QUrl;
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_SuperGet(@ptrCast(self.ptr), @ptrCast(url.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `put` instead
+    ///
+    pub const Put = put;
 
     /// ### [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#put)
     ///
@@ -270,10 +314,14 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn Put(self: KIO__ForwardingWorkerBase, url: anytype, permissions: i32, flags: i32) KIO__WorkerResult {
+    pub fn put(self: KIO__ForwardingWorkerBase, url: anytype, permissions: i32, flags: i32) KIO__WorkerResult {
         comptime _ = @TypeOf(url)._is_QUrl;
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_Put(@ptrCast(self.ptr), @ptrCast(url.ptr), @bitCast(permissions), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `onPut` instead
+    ///
+    pub const OnPut = onPut;
 
     /// ### [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#put)
     ///
@@ -287,13 +335,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnPut(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QUrl, i32, i32) callconv(.c) KIO__WorkerResult) void {
+    pub fn onPut(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QUrl, i32, i32) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnPut(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperPut` instead
+    /// ### DEPRECATED: Use `superPut` instead
     ///
-    pub const QBasePut = SuperPut;
+    pub const SuperPut = superPut;
 
     /// ### [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#put)
     ///
@@ -309,11 +357,15 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn SuperPut(self: KIO__ForwardingWorkerBase, url: anytype, permissions: i32, flags: i32) KIO__WorkerResult {
+    pub fn superPut(self: KIO__ForwardingWorkerBase, url: anytype, permissions: i32, flags: i32) KIO__WorkerResult {
         comptime _ = @TypeOf(url)._is_QUrl;
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_SuperPut(@ptrCast(self.ptr), @ptrCast(url.ptr), @bitCast(permissions), @bitCast(flags)) };
     }
 
+    /// ### DEPRECATED: Use `stat` instead
+    ///
+    pub const Stat = stat;
+
     /// ### [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#stat)
     ///
     /// ## Parameter(s):
@@ -322,11 +374,15 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn Stat(self: KIO__ForwardingWorkerBase, url: anytype) KIO__WorkerResult {
+    pub fn stat(self: KIO__ForwardingWorkerBase, url: anytype) KIO__WorkerResult {
         comptime _ = @TypeOf(url)._is_QUrl;
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_Stat(@ptrCast(self.ptr), @ptrCast(url.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onStat` instead
+    ///
+    pub const OnStat = onStat;
+
     /// ### [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#stat)
     ///
     /// Allows for overriding the related default method
@@ -339,13 +395,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnStat(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QUrl) callconv(.c) KIO__WorkerResult) void {
+    pub fn onStat(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QUrl) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnStat(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperStat` instead
+    /// ### DEPRECATED: Use `superStat` instead
     ///
-    pub const QBaseStat = SuperStat;
+    pub const SuperStat = superStat;
 
     /// ### [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#stat)
     ///
@@ -357,11 +413,15 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn SuperStat(self: KIO__ForwardingWorkerBase, url: anytype) KIO__WorkerResult {
+    pub fn superStat(self: KIO__ForwardingWorkerBase, url: anytype) KIO__WorkerResult {
         comptime _ = @TypeOf(url)._is_QUrl;
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_SuperStat(@ptrCast(self.ptr), @ptrCast(url.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mimetype` instead
+    ///
+    pub const Mimetype = mimetype;
+
     /// ### [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#mimetype)
     ///
     /// ## Parameter(s):
@@ -370,11 +430,15 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn Mimetype(self: KIO__ForwardingWorkerBase, url: anytype) KIO__WorkerResult {
+    pub fn mimetype(self: KIO__ForwardingWorkerBase, url: anytype) KIO__WorkerResult {
         comptime _ = @TypeOf(url)._is_QUrl;
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_Mimetype(@ptrCast(self.ptr), @ptrCast(url.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onMimetype` instead
+    ///
+    pub const OnMimetype = onMimetype;
+
     /// ### [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#mimetype)
     ///
     /// Allows for overriding the related default method
@@ -387,13 +451,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMimetype(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QUrl) callconv(.c) KIO__WorkerResult) void {
+    pub fn onMimetype(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QUrl) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnMimetype(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMimetype` instead
+    /// ### DEPRECATED: Use `superMimetype` instead
     ///
-    pub const QBaseMimetype = SuperMimetype;
+    pub const SuperMimetype = superMimetype;
 
     /// ### [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#mimetype)
     ///
@@ -405,11 +469,15 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn SuperMimetype(self: KIO__ForwardingWorkerBase, url: anytype) KIO__WorkerResult {
+    pub fn superMimetype(self: KIO__ForwardingWorkerBase, url: anytype) KIO__WorkerResult {
         comptime _ = @TypeOf(url)._is_QUrl;
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_SuperMimetype(@ptrCast(self.ptr), @ptrCast(url.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `listDir` instead
+    ///
+    pub const ListDir = listDir;
+
     /// ### [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#listDir)
     ///
     /// ## Parameter(s):
@@ -418,10 +486,14 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn ListDir(self: KIO__ForwardingWorkerBase, url: anytype) KIO__WorkerResult {
+    pub fn listDir(self: KIO__ForwardingWorkerBase, url: anytype) KIO__WorkerResult {
         comptime _ = @TypeOf(url)._is_QUrl;
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_ListDir(@ptrCast(self.ptr), @ptrCast(url.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onListDir` instead
+    ///
+    pub const OnListDir = onListDir;
 
     /// ### [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#listDir)
     ///
@@ -435,13 +507,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnListDir(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QUrl) callconv(.c) KIO__WorkerResult) void {
+    pub fn onListDir(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QUrl) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnListDir(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperListDir` instead
+    /// ### DEPRECATED: Use `superListDir` instead
     ///
-    pub const QBaseListDir = SuperListDir;
+    pub const SuperListDir = superListDir;
 
     /// ### [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#listDir)
     ///
@@ -453,10 +525,14 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn SuperListDir(self: KIO__ForwardingWorkerBase, url: anytype) KIO__WorkerResult {
+    pub fn superListDir(self: KIO__ForwardingWorkerBase, url: anytype) KIO__WorkerResult {
         comptime _ = @TypeOf(url)._is_QUrl;
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_SuperListDir(@ptrCast(self.ptr), @ptrCast(url.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mkdir` instead
+    ///
+    pub const Mkdir = mkdir;
 
     /// ### [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#mkdir)
     ///
@@ -468,10 +544,14 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` permissions: i32 `
     ///
-    pub fn Mkdir(self: KIO__ForwardingWorkerBase, url: anytype, permissions: i32) KIO__WorkerResult {
+    pub fn mkdir(self: KIO__ForwardingWorkerBase, url: anytype, permissions: i32) KIO__WorkerResult {
         comptime _ = @TypeOf(url)._is_QUrl;
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_Mkdir(@ptrCast(self.ptr), @ptrCast(url.ptr), @bitCast(permissions)) };
     }
+
+    /// ### DEPRECATED: Use `onMkdir` instead
+    ///
+    pub const OnMkdir = onMkdir;
 
     /// ### [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#mkdir)
     ///
@@ -485,13 +565,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMkdir(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QUrl, i32) callconv(.c) KIO__WorkerResult) void {
+    pub fn onMkdir(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QUrl, i32) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnMkdir(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMkdir` instead
+    /// ### DEPRECATED: Use `superMkdir` instead
     ///
-    pub const QBaseMkdir = SuperMkdir;
+    pub const SuperMkdir = superMkdir;
 
     /// ### [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#mkdir)
     ///
@@ -505,10 +585,14 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` permissions: i32 `
     ///
-    pub fn SuperMkdir(self: KIO__ForwardingWorkerBase, url: anytype, permissions: i32) KIO__WorkerResult {
+    pub fn superMkdir(self: KIO__ForwardingWorkerBase, url: anytype, permissions: i32) KIO__WorkerResult {
         comptime _ = @TypeOf(url)._is_QUrl;
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_SuperMkdir(@ptrCast(self.ptr), @ptrCast(url.ptr), @bitCast(permissions)) };
     }
+
+    /// ### DEPRECATED: Use `rename` instead
+    ///
+    pub const Rename = rename;
 
     /// ### [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#rename)
     ///
@@ -522,11 +606,15 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn Rename(self: KIO__ForwardingWorkerBase, src: anytype, dest: anytype, flags: i32) KIO__WorkerResult {
+    pub fn rename(self: KIO__ForwardingWorkerBase, src: anytype, dest: anytype, flags: i32) KIO__WorkerResult {
         comptime _ = @TypeOf(src)._is_QUrl;
         comptime _ = @TypeOf(dest)._is_QUrl;
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_Rename(@ptrCast(self.ptr), @ptrCast(src.ptr), @ptrCast(dest.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `onRename` instead
+    ///
+    pub const OnRename = onRename;
 
     /// ### [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#rename)
     ///
@@ -540,13 +628,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnRename(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QUrl, QUrl, i32) callconv(.c) KIO__WorkerResult) void {
+    pub fn onRename(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QUrl, QUrl, i32) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnRename(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperRename` instead
+    /// ### DEPRECATED: Use `superRename` instead
     ///
-    pub const QBaseRename = SuperRename;
+    pub const SuperRename = superRename;
 
     /// ### [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#rename)
     ///
@@ -562,11 +650,15 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn SuperRename(self: KIO__ForwardingWorkerBase, src: anytype, dest: anytype, flags: i32) KIO__WorkerResult {
+    pub fn superRename(self: KIO__ForwardingWorkerBase, src: anytype, dest: anytype, flags: i32) KIO__WorkerResult {
         comptime _ = @TypeOf(src)._is_QUrl;
         comptime _ = @TypeOf(dest)._is_QUrl;
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_SuperRename(@ptrCast(self.ptr), @ptrCast(src.ptr), @ptrCast(dest.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `symlink` instead
+    ///
+    pub const Symlink = symlink;
 
     /// ### [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#symlink)
     ///
@@ -580,7 +672,7 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn Symlink(self: KIO__ForwardingWorkerBase, target: []const u8, dest: anytype, flags: i32) KIO__WorkerResult {
+    pub fn symlink(self: KIO__ForwardingWorkerBase, target: []const u8, dest: anytype, flags: i32) KIO__WorkerResult {
         const target_str = qtc.libqt_string{
             .len = target.len,
             .data = target.ptr,
@@ -588,6 +680,10 @@ pub const KIO__ForwardingWorkerBase = extern struct {
         comptime _ = @TypeOf(dest)._is_QUrl;
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_Symlink(@ptrCast(self.ptr), target_str, @ptrCast(dest.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `onSymlink` instead
+    ///
+    pub const OnSymlink = onSymlink;
 
     /// ### [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#symlink)
     ///
@@ -601,13 +697,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSymlink(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, [*:0]const u8, QUrl, i32) callconv(.c) KIO__WorkerResult) void {
+    pub fn onSymlink(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, [*:0]const u8, QUrl, i32) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnSymlink(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSymlink` instead
+    /// ### DEPRECATED: Use `superSymlink` instead
     ///
-    pub const QBaseSymlink = SuperSymlink;
+    pub const SuperSymlink = superSymlink;
 
     /// ### [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#symlink)
     ///
@@ -623,7 +719,7 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn SuperSymlink(self: KIO__ForwardingWorkerBase, target: []const u8, dest: anytype, flags: i32) KIO__WorkerResult {
+    pub fn superSymlink(self: KIO__ForwardingWorkerBase, target: []const u8, dest: anytype, flags: i32) KIO__WorkerResult {
         const target_str = qtc.libqt_string{
             .len = target.len,
             .data = target.ptr,
@@ -631,6 +727,10 @@ pub const KIO__ForwardingWorkerBase = extern struct {
         comptime _ = @TypeOf(dest)._is_QUrl;
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_SuperSymlink(@ptrCast(self.ptr), target_str, @ptrCast(dest.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `chmod` instead
+    ///
+    pub const Chmod = chmod;
 
     /// ### [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#chmod)
     ///
@@ -642,10 +742,14 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` permissions: i32 `
     ///
-    pub fn Chmod(self: KIO__ForwardingWorkerBase, url: anytype, permissions: i32) KIO__WorkerResult {
+    pub fn chmod(self: KIO__ForwardingWorkerBase, url: anytype, permissions: i32) KIO__WorkerResult {
         comptime _ = @TypeOf(url)._is_QUrl;
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_Chmod(@ptrCast(self.ptr), @ptrCast(url.ptr), @bitCast(permissions)) };
     }
+
+    /// ### DEPRECATED: Use `onChmod` instead
+    ///
+    pub const OnChmod = onChmod;
 
     /// ### [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#chmod)
     ///
@@ -659,13 +763,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnChmod(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QUrl, i32) callconv(.c) KIO__WorkerResult) void {
+    pub fn onChmod(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QUrl, i32) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnChmod(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperChmod` instead
+    /// ### DEPRECATED: Use `superChmod` instead
     ///
-    pub const QBaseChmod = SuperChmod;
+    pub const SuperChmod = superChmod;
 
     /// ### [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#chmod)
     ///
@@ -679,10 +783,14 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` permissions: i32 `
     ///
-    pub fn SuperChmod(self: KIO__ForwardingWorkerBase, url: anytype, permissions: i32) KIO__WorkerResult {
+    pub fn superChmod(self: KIO__ForwardingWorkerBase, url: anytype, permissions: i32) KIO__WorkerResult {
         comptime _ = @TypeOf(url)._is_QUrl;
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_SuperChmod(@ptrCast(self.ptr), @ptrCast(url.ptr), @bitCast(permissions)) };
     }
+
+    /// ### DEPRECATED: Use `setModificationTime` instead
+    ///
+    pub const SetModificationTime = setModificationTime;
 
     /// ### [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#setModificationTime)
     ///
@@ -694,11 +802,15 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` mtime: QDateTime `
     ///
-    pub fn SetModificationTime(self: KIO__ForwardingWorkerBase, url: anytype, mtime: anytype) KIO__WorkerResult {
+    pub fn setModificationTime(self: KIO__ForwardingWorkerBase, url: anytype, mtime: anytype) KIO__WorkerResult {
         comptime _ = @TypeOf(url)._is_QUrl;
         comptime _ = @TypeOf(mtime)._is_QDateTime;
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_SetModificationTime(@ptrCast(self.ptr), @ptrCast(url.ptr), @ptrCast(mtime.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSetModificationTime` instead
+    ///
+    pub const OnSetModificationTime = onSetModificationTime;
 
     /// ### [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#setModificationTime)
     ///
@@ -712,13 +824,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSetModificationTime(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QUrl, QDateTime) callconv(.c) KIO__WorkerResult) void {
+    pub fn onSetModificationTime(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QUrl, QDateTime) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnSetModificationTime(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetModificationTime` instead
+    /// ### DEPRECATED: Use `superSetModificationTime` instead
     ///
-    pub const QBaseSetModificationTime = SuperSetModificationTime;
+    pub const SuperSetModificationTime = superSetModificationTime;
 
     /// ### [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#setModificationTime)
     ///
@@ -732,11 +844,15 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` mtime: QDateTime `
     ///
-    pub fn SuperSetModificationTime(self: KIO__ForwardingWorkerBase, url: anytype, mtime: anytype) KIO__WorkerResult {
+    pub fn superSetModificationTime(self: KIO__ForwardingWorkerBase, url: anytype, mtime: anytype) KIO__WorkerResult {
         comptime _ = @TypeOf(url)._is_QUrl;
         comptime _ = @TypeOf(mtime)._is_QDateTime;
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_SuperSetModificationTime(@ptrCast(self.ptr), @ptrCast(url.ptr), @ptrCast(mtime.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `copy` instead
+    ///
+    pub const Copy = copy;
 
     /// ### [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#copy)
     ///
@@ -752,11 +868,15 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn Copy(self: KIO__ForwardingWorkerBase, src: anytype, dest: anytype, permissions: i32, flags: i32) KIO__WorkerResult {
+    pub fn copy(self: KIO__ForwardingWorkerBase, src: anytype, dest: anytype, permissions: i32, flags: i32) KIO__WorkerResult {
         comptime _ = @TypeOf(src)._is_QUrl;
         comptime _ = @TypeOf(dest)._is_QUrl;
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_Copy(@ptrCast(self.ptr), @ptrCast(src.ptr), @ptrCast(dest.ptr), @bitCast(permissions), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `onCopy` instead
+    ///
+    pub const OnCopy = onCopy;
 
     /// ### [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#copy)
     ///
@@ -770,13 +890,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnCopy(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QUrl, QUrl, i32, i32) callconv(.c) KIO__WorkerResult) void {
+    pub fn onCopy(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QUrl, QUrl, i32, i32) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnCopy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperCopy` instead
+    /// ### DEPRECATED: Use `superCopy` instead
     ///
-    pub const QBaseCopy = SuperCopy;
+    pub const SuperCopy = superCopy;
 
     /// ### [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#copy)
     ///
@@ -794,11 +914,15 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn SuperCopy(self: KIO__ForwardingWorkerBase, src: anytype, dest: anytype, permissions: i32, flags: i32) KIO__WorkerResult {
+    pub fn superCopy(self: KIO__ForwardingWorkerBase, src: anytype, dest: anytype, permissions: i32, flags: i32) KIO__WorkerResult {
         comptime _ = @TypeOf(src)._is_QUrl;
         comptime _ = @TypeOf(dest)._is_QUrl;
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_SuperCopy(@ptrCast(self.ptr), @ptrCast(src.ptr), @ptrCast(dest.ptr), @bitCast(permissions), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `del` instead
+    ///
+    pub const Del = del;
 
     /// ### [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#del)
     ///
@@ -810,10 +934,14 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` isfile: bool `
     ///
-    pub fn Del(self: KIO__ForwardingWorkerBase, url: anytype, isfile: bool) KIO__WorkerResult {
+    pub fn del(self: KIO__ForwardingWorkerBase, url: anytype, isfile: bool) KIO__WorkerResult {
         comptime _ = @TypeOf(url)._is_QUrl;
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_Del(@ptrCast(self.ptr), @ptrCast(url.ptr), isfile) };
     }
+
+    /// ### DEPRECATED: Use `onDel` instead
+    ///
+    pub const OnDel = onDel;
 
     /// ### [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#del)
     ///
@@ -827,13 +955,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnDel(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QUrl, bool) callconv(.c) KIO__WorkerResult) void {
+    pub fn onDel(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QUrl, bool) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnDel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDel` instead
+    /// ### DEPRECATED: Use `superDel` instead
     ///
-    pub const QBaseDel = SuperDel;
+    pub const SuperDel = superDel;
 
     /// ### [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#del)
     ///
@@ -847,10 +975,14 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` isfile: bool `
     ///
-    pub fn SuperDel(self: KIO__ForwardingWorkerBase, url: anytype, isfile: bool) KIO__WorkerResult {
+    pub fn superDel(self: KIO__ForwardingWorkerBase, url: anytype, isfile: bool) KIO__WorkerResult {
         comptime _ = @TypeOf(url)._is_QUrl;
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_SuperDel(@ptrCast(self.ptr), @ptrCast(url.ptr), isfile) };
     }
+
+    /// ### DEPRECATED: Use `rewriteUrl` instead
+    ///
+    pub const RewriteUrl = rewriteUrl;
 
     /// ### [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#rewriteUrl)
     ///
@@ -862,11 +994,15 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` newURL: QUrl `
     ///
-    pub fn RewriteUrl(self: KIO__ForwardingWorkerBase, url: anytype, newURL: anytype) bool {
+    pub fn rewriteUrl(self: KIO__ForwardingWorkerBase, url: anytype, newURL: anytype) bool {
         comptime _ = @TypeOf(url)._is_QUrl;
         comptime _ = @TypeOf(newURL)._is_QUrl;
         return qtc.KIO__ForwardingWorkerBase_RewriteUrl(@ptrCast(self.ptr), @ptrCast(url.ptr), @ptrCast(newURL.ptr));
     }
+
+    /// ### DEPRECATED: Use `onRewriteUrl` instead
+    ///
+    pub const OnRewriteUrl = onRewriteUrl;
 
     /// ### [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#rewriteUrl)
     ///
@@ -878,13 +1014,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` callback: *const fn (self: KIO__ForwardingWorkerBase, url: QUrl, newURL: QUrl) callconv(.c) bool `
     ///
-    pub fn OnRewriteUrl(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QUrl, QUrl) callconv(.c) bool) void {
+    pub fn onRewriteUrl(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QUrl, QUrl) callconv(.c) bool) void {
         qtc.KIO__ForwardingWorkerBase_OnRewriteUrl(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperRewriteUrl` instead
+    /// ### DEPRECATED: Use `superRewriteUrl` instead
     ///
-    pub const QBaseRewriteUrl = SuperRewriteUrl;
+    pub const SuperRewriteUrl = superRewriteUrl;
 
     /// ### [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#rewriteUrl)
     ///
@@ -898,11 +1034,15 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` newURL: QUrl `
     ///
-    pub fn SuperRewriteUrl(self: KIO__ForwardingWorkerBase, url: anytype, newURL: anytype) bool {
+    pub fn superRewriteUrl(self: KIO__ForwardingWorkerBase, url: anytype, newURL: anytype) bool {
         comptime _ = @TypeOf(url)._is_QUrl;
         comptime _ = @TypeOf(newURL)._is_QUrl;
         return qtc.KIO__ForwardingWorkerBase_SuperRewriteUrl(@ptrCast(self.ptr), @ptrCast(url.ptr), @ptrCast(newURL.ptr));
     }
+
+    /// ### DEPRECATED: Use `adjustUDSEntry` instead
+    ///
+    pub const AdjustUDSEntry = adjustUDSEntry;
 
     /// ### [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#adjustUDSEntry)
     ///
@@ -914,10 +1054,14 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` creationMode: forwardingworkerbase_enums.UDSEntryCreationMode `
     ///
-    pub fn AdjustUDSEntry(self: KIO__ForwardingWorkerBase, entry: anytype, creationMode: i32) void {
+    pub fn adjustUDSEntry(self: KIO__ForwardingWorkerBase, entry: anytype, creationMode: i32) void {
         comptime _ = @TypeOf(entry)._is_KIO__UDSEntry;
         qtc.KIO__ForwardingWorkerBase_AdjustUDSEntry(@ptrCast(self.ptr), @ptrCast(entry.ptr), @bitCast(creationMode));
     }
+
+    /// ### DEPRECATED: Use `onAdjustUDSEntry` instead
+    ///
+    pub const OnAdjustUDSEntry = onAdjustUDSEntry;
 
     /// ### [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#adjustUDSEntry)
     ///
@@ -929,13 +1073,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` callback: *const fn (self: KIO__ForwardingWorkerBase, entry: KIO__UDSEntry, creationMode: forwardingworkerbase_enums.UDSEntryCreationMode) callconv(.c) void `
     ///
-    pub fn OnAdjustUDSEntry(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, KIO__UDSEntry, i32) callconv(.c) void) void {
+    pub fn onAdjustUDSEntry(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, KIO__UDSEntry, i32) callconv(.c) void) void {
         qtc.KIO__ForwardingWorkerBase_OnAdjustUDSEntry(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperAdjustUDSEntry` instead
+    /// ### DEPRECATED: Use `superAdjustUDSEntry` instead
     ///
-    pub const QBaseAdjustUDSEntry = SuperAdjustUDSEntry;
+    pub const SuperAdjustUDSEntry = superAdjustUDSEntry;
 
     /// ### [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#adjustUDSEntry)
     ///
@@ -949,21 +1093,29 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` creationMode: forwardingworkerbase_enums.UDSEntryCreationMode `
     ///
-    pub fn SuperAdjustUDSEntry(self: KIO__ForwardingWorkerBase, entry: anytype, creationMode: i32) void {
+    pub fn superAdjustUDSEntry(self: KIO__ForwardingWorkerBase, entry: anytype, creationMode: i32) void {
         comptime _ = @TypeOf(entry)._is_KIO__UDSEntry;
         qtc.KIO__ForwardingWorkerBase_SuperAdjustUDSEntry(@ptrCast(self.ptr), @ptrCast(entry.ptr), @bitCast(creationMode));
     }
 
+    /// ### DEPRECATED: Use `processedUrl` instead
+    ///
+    pub const ProcessedUrl = processedUrl;
+
     /// ### [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#processedUrl)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    pub fn ProcessedUrl(self: KIO__ForwardingWorkerBase) QUrl {
+    pub fn processedUrl(self: KIO__ForwardingWorkerBase) QUrl {
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_ProcessedUrl(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onProcessedUrl` instead
+    ///
+    pub const OnProcessedUrl = onProcessedUrl;
+
     /// ### [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#processedUrl)
     ///
     /// Allows for overriding the related default method
@@ -976,13 +1128,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnProcessedUrl(self: KIO__ForwardingWorkerBase, callback: *const fn () callconv(.c) QUrl) void {
+    pub fn onProcessedUrl(self: KIO__ForwardingWorkerBase, callback: *const fn () callconv(.c) QUrl) void {
         qtc.KIO__ForwardingWorkerBase_OnProcessedUrl(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperProcessedUrl` instead
+    /// ### DEPRECATED: Use `superProcessedUrl` instead
     ///
-    pub const QBaseProcessedUrl = SuperProcessedUrl;
+    pub const SuperProcessedUrl = superProcessedUrl;
 
     /// ### [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#processedUrl)
     ///
@@ -992,9 +1144,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    pub fn SuperProcessedUrl(self: KIO__ForwardingWorkerBase) QUrl {
+    pub fn superProcessedUrl(self: KIO__ForwardingWorkerBase) QUrl {
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_SuperProcessedUrl(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `requestedUrl` instead
+    ///
+    pub const RequestedUrl = requestedUrl;
 
     /// ### [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#requestedUrl)
     ///
@@ -1002,9 +1158,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    pub fn RequestedUrl(self: KIO__ForwardingWorkerBase) QUrl {
+    pub fn requestedUrl(self: KIO__ForwardingWorkerBase) QUrl {
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_RequestedUrl(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRequestedUrl` instead
+    ///
+    pub const OnRequestedUrl = onRequestedUrl;
 
     /// ### [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#requestedUrl)
     ///
@@ -1018,13 +1178,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnRequestedUrl(self: KIO__ForwardingWorkerBase, callback: *const fn () callconv(.c) QUrl) void {
+    pub fn onRequestedUrl(self: KIO__ForwardingWorkerBase, callback: *const fn () callconv(.c) QUrl) void {
         qtc.KIO__ForwardingWorkerBase_OnRequestedUrl(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperRequestedUrl` instead
+    /// ### DEPRECATED: Use `superRequestedUrl` instead
     ///
-    pub const QBaseRequestedUrl = SuperRequestedUrl;
+    pub const SuperRequestedUrl = superRequestedUrl;
 
     /// ### [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#requestedUrl)
     ///
@@ -1034,9 +1194,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    pub fn SuperRequestedUrl(self: KIO__ForwardingWorkerBase) QUrl {
+    pub fn superRequestedUrl(self: KIO__ForwardingWorkerBase) QUrl {
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_SuperRequestedUrl(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1048,15 +1212,19 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIO__ForwardingWorkerBase.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIO__ForwardingWorkerBase.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1070,15 +1238,19 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIO__ForwardingWorkerBase.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIO__ForwardingWorkerBase.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -1090,13 +1262,17 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KIO__ForwardingWorkerBase, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KIO__ForwardingWorkerBase, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIO__ForwardingWorkerBase.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIO__ForwardingWorkerBase.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -1108,13 +1284,17 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KIO__ForwardingWorkerBase, name: []const u8) void {
+    pub fn setObjectName(self: KIO__ForwardingWorkerBase, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -1124,9 +1304,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    pub fn IsWidgetType(self: KIO__ForwardingWorkerBase) bool {
+    pub fn isWidgetType(self: KIO__ForwardingWorkerBase) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -1136,9 +1320,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    pub fn IsWindowType(self: KIO__ForwardingWorkerBase) bool {
+    pub fn isWindowType(self: KIO__ForwardingWorkerBase) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -1148,9 +1336,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    pub fn IsQuickItemType(self: KIO__ForwardingWorkerBase) bool {
+    pub fn isQuickItemType(self: KIO__ForwardingWorkerBase) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -1160,9 +1352,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    pub fn SignalsBlocked(self: KIO__ForwardingWorkerBase) bool {
+    pub fn signalsBlocked(self: KIO__ForwardingWorkerBase) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -1174,9 +1370,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KIO__ForwardingWorkerBase, b: bool) bool {
+    pub fn blockSignals(self: KIO__ForwardingWorkerBase, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -1186,9 +1386,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    pub fn Thread(self: KIO__ForwardingWorkerBase) QThread {
+    pub fn thread(self: KIO__ForwardingWorkerBase) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -1198,12 +1402,16 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KIO__ForwardingWorkerBase, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KIO__ForwardingWorkerBase, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -1215,9 +1423,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KIO__ForwardingWorkerBase, interval: i32) i32 {
+    pub fn startTimer(self: KIO__ForwardingWorkerBase, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -1229,9 +1441,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KIO__ForwardingWorkerBase, time: i64) i32 {
+    pub fn startTimer2(self: KIO__ForwardingWorkerBase, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -1243,9 +1459,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KIO__ForwardingWorkerBase, id: i32) void {
+    pub fn killTimer(self: KIO__ForwardingWorkerBase, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -1257,9 +1477,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KIO__ForwardingWorkerBase, id: i32) void {
+    pub fn killTimer2(self: KIO__ForwardingWorkerBase, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -1271,15 +1495,19 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KIO__ForwardingWorkerBase, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KIO__ForwardingWorkerBase, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KIO__ForwardingWorkerBase.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KIO__ForwardingWorkerBase.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -1289,12 +1517,16 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: KIO__ForwardingWorkerBase, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: KIO__ForwardingWorkerBase, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1306,10 +1538,14 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KIO__ForwardingWorkerBase, filterObj: anytype) void {
+    pub fn installEventFilter(self: KIO__ForwardingWorkerBase, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1321,10 +1557,14 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KIO__ForwardingWorkerBase, obj: anytype) void {
+    pub fn removeEventFilter(self: KIO__ForwardingWorkerBase, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -1332,7 +1572,7 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1340,13 +1580,17 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -1354,7 +1598,7 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1362,13 +1606,17 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -1378,18 +1626,22 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KIO__ForwardingWorkerBase, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KIO__ForwardingWorkerBase, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -1397,7 +1649,7 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1405,13 +1657,17 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -1419,7 +1675,7 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1427,13 +1683,17 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -1443,9 +1703,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    pub fn Disconnect3(self: KIO__ForwardingWorkerBase) bool {
+    pub fn disconnect3(self: KIO__ForwardingWorkerBase) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1457,10 +1721,14 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KIO__ForwardingWorkerBase, receiver: anytype) bool {
+    pub fn disconnect4(self: KIO__ForwardingWorkerBase, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1470,10 +1738,14 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1483,9 +1755,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    pub fn DumpObjectTree(self: KIO__ForwardingWorkerBase) void {
+    pub fn dumpObjectTree(self: KIO__ForwardingWorkerBase) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1495,9 +1771,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    pub fn DumpObjectInfo(self: KIO__ForwardingWorkerBase) void {
+    pub fn dumpObjectInfo(self: KIO__ForwardingWorkerBase) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1511,11 +1791,15 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KIO__ForwardingWorkerBase, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KIO__ForwardingWorkerBase, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1527,10 +1811,14 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KIO__ForwardingWorkerBase, name: [:0]const u8) QVariant {
+    pub fn property(self: KIO__ForwardingWorkerBase, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1542,7 +1830,7 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KIO__ForwardingWorkerBase, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KIO__ForwardingWorkerBase, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1550,27 +1838,19 @@ pub const KIO__ForwardingWorkerBase = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KIO__ForwardingWorkerBase.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KIO__ForwardingWorkerBase.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KIO__ForwardingWorkerBase.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KIO__ForwardingWorkerBase.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KIO__ForwardingWorkerBase `
-    ///
-    pub fn BindingStorage(self: KIO__ForwardingWorkerBase) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1580,9 +1860,29 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    pub fn BindingStorage2(self: KIO__ForwardingWorkerBase) QBindingStorage {
+    pub fn bindingStorage(self: KIO__ForwardingWorkerBase) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KIO__ForwardingWorkerBase `
+    ///
+    pub fn bindingStorage2(self: KIO__ForwardingWorkerBase) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1592,9 +1892,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    pub fn Destroyed(self: KIO__ForwardingWorkerBase) void {
+    pub fn destroyed(self: KIO__ForwardingWorkerBase) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1606,9 +1910,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` callback: *const fn (self: KIO__ForwardingWorkerBase) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase) callconv(.c) void) void {
+    pub fn onDestroyed(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1618,9 +1926,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    pub fn Parent(self: KIO__ForwardingWorkerBase) QObject {
+    pub fn parent(self: KIO__ForwardingWorkerBase) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1632,10 +1944,14 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KIO__ForwardingWorkerBase, classname: [:0]const u8) bool {
+    pub fn inherits(self: KIO__ForwardingWorkerBase, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1645,9 +1961,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    pub fn DeleteLater(self: KIO__ForwardingWorkerBase) void {
+    pub fn deleteLater(self: KIO__ForwardingWorkerBase) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1661,9 +1981,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KIO__ForwardingWorkerBase, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KIO__ForwardingWorkerBase, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1677,9 +2001,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KIO__ForwardingWorkerBase, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KIO__ForwardingWorkerBase, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1687,7 +2015,7 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1697,13 +2025,17 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1711,7 +2043,7 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1721,13 +2053,17 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1737,7 +2073,7 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1745,12 +2081,16 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KIO__ForwardingWorkerBase, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KIO__ForwardingWorkerBase, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1762,10 +2102,14 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KIO__ForwardingWorkerBase, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KIO__ForwardingWorkerBase, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1779,11 +2123,15 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KIO__ForwardingWorkerBase, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KIO__ForwardingWorkerBase, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1799,13 +2147,17 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KIO__ForwardingWorkerBase, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KIO__ForwardingWorkerBase, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1818,11 +2170,15 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KIO__ForwardingWorkerBase, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KIO__ForwardingWorkerBase, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1834,10 +2190,14 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KIO__ForwardingWorkerBase, param1: anytype) void {
+    pub fn destroyed1(self: KIO__ForwardingWorkerBase, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1849,9 +2209,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` callback: *const fn (self: KIO__ForwardingWorkerBase, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `exit` instead
+    ///
+    pub const Exit = exit;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -1861,9 +2225,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    pub fn Exit(self: KIO__ForwardingWorkerBase) void {
+    pub fn exit(self: KIO__ForwardingWorkerBase) void {
         qtc.KIO__WorkerBase_Exit(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dispatchLoop` instead
+    ///
+    pub const DispatchLoop = dispatchLoop;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -1873,9 +2241,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    pub fn DispatchLoop(self: KIO__ForwardingWorkerBase) void {
+    pub fn dispatchLoop(self: KIO__ForwardingWorkerBase) void {
         qtc.KIO__WorkerBase_DispatchLoop(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `data` instead
+    ///
+    pub const Data = data;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -1885,15 +2257,19 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    /// ` data: []u8 `
+    /// ` _data: []u8 `
     ///
-    pub fn Data(self: KIO__ForwardingWorkerBase, data: []u8) void {
+    pub fn data(self: KIO__ForwardingWorkerBase, _data: []u8) void {
         const data_str = qtc.libqt_string{
-            .len = data.len,
-            .data = data.ptr,
+            .len = _data.len,
+            .data = _data.ptr,
         };
         qtc.KIO__WorkerBase_Data(@ptrCast(self.ptr), data_str);
     }
+
+    /// ### DEPRECATED: Use `dataReq` instead
+    ///
+    pub const DataReq = dataReq;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -1903,9 +2279,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    pub fn DataReq(self: KIO__ForwardingWorkerBase) void {
+    pub fn dataReq(self: KIO__ForwardingWorkerBase) void {
         qtc.KIO__WorkerBase_DataReq(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `workerStatus` instead
+    ///
+    pub const WorkerStatus = workerStatus;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -1919,13 +2299,17 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` connected: bool `
     ///
-    pub fn WorkerStatus(self: KIO__ForwardingWorkerBase, host: []const u8, connected: bool) void {
+    pub fn workerStatus(self: KIO__ForwardingWorkerBase, host: []const u8, connected: bool) void {
         const host_str = qtc.libqt_string{
             .len = host.len,
             .data = host.ptr,
         };
         qtc.KIO__WorkerBase_WorkerStatus(@ptrCast(self.ptr), host_str, connected);
     }
+
+    /// ### DEPRECATED: Use `statEntry` instead
+    ///
+    pub const StatEntry = statEntry;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -1937,10 +2321,14 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` _entry: KIO__UDSEntry `
     ///
-    pub fn StatEntry(self: KIO__ForwardingWorkerBase, _entry: anytype) void {
+    pub fn statEntry(self: KIO__ForwardingWorkerBase, _entry: anytype) void {
         comptime _ = @TypeOf(_entry)._is_KIO__UDSEntry;
         qtc.KIO__WorkerBase_StatEntry(@ptrCast(self.ptr), @ptrCast(_entry.ptr));
     }
+
+    /// ### DEPRECATED: Use `listEntries` instead
+    ///
+    pub const ListEntries = listEntries;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -1952,13 +2340,17 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` _entry: []KIO__UDSEntry `
     ///
-    pub fn ListEntries(self: KIO__ForwardingWorkerBase, _entry: []KIO__UDSEntry) void {
+    pub fn listEntries(self: KIO__ForwardingWorkerBase, _entry: []KIO__UDSEntry) void {
         const _entry_list = qtc.libqt_list{
             .len = _entry.len,
             .data = @ptrCast(_entry.ptr),
         };
         qtc.KIO__WorkerBase_ListEntries(@ptrCast(self.ptr), _entry_list);
     }
+
+    /// ### DEPRECATED: Use `canResume` instead
+    ///
+    pub const CanResume = canResume;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -1970,9 +2362,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` offset: usize `
     ///
-    pub fn CanResume(self: KIO__ForwardingWorkerBase, offset: usize) bool {
+    pub fn canResume(self: KIO__ForwardingWorkerBase, offset: usize) bool {
         return qtc.KIO__WorkerBase_CanResume(@ptrCast(self.ptr), @bitCast(offset));
     }
+
+    /// ### DEPRECATED: Use `canResume2` instead
+    ///
+    pub const CanResume2 = canResume2;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -1982,9 +2378,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    pub fn CanResume2(self: KIO__ForwardingWorkerBase) void {
+    pub fn canResume2(self: KIO__ForwardingWorkerBase) void {
         qtc.KIO__WorkerBase_CanResume2(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `totalSize` instead
+    ///
+    pub const TotalSize = totalSize;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -1996,9 +2396,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` _bytes: usize `
     ///
-    pub fn TotalSize(self: KIO__ForwardingWorkerBase, _bytes: usize) void {
+    pub fn totalSize(self: KIO__ForwardingWorkerBase, _bytes: usize) void {
         qtc.KIO__WorkerBase_TotalSize(@ptrCast(self.ptr), @bitCast(_bytes));
     }
+
+    /// ### DEPRECATED: Use `processedSize` instead
+    ///
+    pub const ProcessedSize = processedSize;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -2010,9 +2414,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` _bytes: usize `
     ///
-    pub fn ProcessedSize(self: KIO__ForwardingWorkerBase, _bytes: usize) void {
+    pub fn processedSize(self: KIO__ForwardingWorkerBase, _bytes: usize) void {
         qtc.KIO__WorkerBase_ProcessedSize(@ptrCast(self.ptr), @bitCast(_bytes));
     }
+
+    /// ### DEPRECATED: Use `position` instead
+    ///
+    pub const Position = position;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -2024,9 +2432,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` _pos: usize `
     ///
-    pub fn Position(self: KIO__ForwardingWorkerBase, _pos: usize) void {
+    pub fn position(self: KIO__ForwardingWorkerBase, _pos: usize) void {
         qtc.KIO__WorkerBase_Position(@ptrCast(self.ptr), @bitCast(_pos));
     }
+
+    /// ### DEPRECATED: Use `written` instead
+    ///
+    pub const Written = written;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -2038,9 +2450,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` _bytes: usize `
     ///
-    pub fn Written(self: KIO__ForwardingWorkerBase, _bytes: usize) void {
+    pub fn written(self: KIO__ForwardingWorkerBase, _bytes: usize) void {
         qtc.KIO__WorkerBase_Written(@ptrCast(self.ptr), @bitCast(_bytes));
     }
+
+    /// ### DEPRECATED: Use `truncated` instead
+    ///
+    pub const Truncated = truncated;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -2052,9 +2468,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` _length: usize `
     ///
-    pub fn Truncated(self: KIO__ForwardingWorkerBase, _length: usize) void {
+    pub fn truncated(self: KIO__ForwardingWorkerBase, _length: usize) void {
         qtc.KIO__WorkerBase_Truncated(@ptrCast(self.ptr), @bitCast(_length));
     }
+
+    /// ### DEPRECATED: Use `speed` instead
+    ///
+    pub const Speed = speed;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -2066,9 +2486,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` _bytes_per_second: usize `
     ///
-    pub fn Speed(self: KIO__ForwardingWorkerBase, _bytes_per_second: usize) void {
+    pub fn speed(self: KIO__ForwardingWorkerBase, _bytes_per_second: usize) void {
         qtc.KIO__WorkerBase_Speed(@ptrCast(self.ptr), @bitCast(_bytes_per_second));
     }
+
+    /// ### DEPRECATED: Use `redirection` instead
+    ///
+    pub const Redirection = redirection;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -2080,10 +2504,14 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` _url: QUrl `
     ///
-    pub fn Redirection(self: KIO__ForwardingWorkerBase, _url: anytype) void {
+    pub fn redirection(self: KIO__ForwardingWorkerBase, _url: anytype) void {
         comptime _ = @TypeOf(_url)._is_QUrl;
         qtc.KIO__WorkerBase_Redirection(@ptrCast(self.ptr), @ptrCast(_url.ptr));
     }
+
+    /// ### DEPRECATED: Use `errorPage` instead
+    ///
+    pub const ErrorPage = errorPage;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -2093,9 +2521,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    pub fn ErrorPage(self: KIO__ForwardingWorkerBase) void {
+    pub fn errorPage(self: KIO__ForwardingWorkerBase) void {
         qtc.KIO__WorkerBase_ErrorPage(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `mimeType` instead
+    ///
+    pub const MimeType = mimeType;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -2107,13 +2539,17 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` _type: []const u8 `
     ///
-    pub fn MimeType(self: KIO__ForwardingWorkerBase, _type: []const u8) void {
+    pub fn mimeType(self: KIO__ForwardingWorkerBase, _type: []const u8) void {
         const _type_str = qtc.libqt_string{
             .len = _type.len,
             .data = _type.ptr,
         };
         qtc.KIO__WorkerBase_MimeType(@ptrCast(self.ptr), _type_str);
     }
+
+    /// ### DEPRECATED: Use `warning` instead
+    ///
+    pub const Warning = warning;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -2125,13 +2561,17 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` msg: []const u8 `
     ///
-    pub fn Warning(self: KIO__ForwardingWorkerBase, msg: []const u8) void {
+    pub fn warning(self: KIO__ForwardingWorkerBase, msg: []const u8) void {
         const msg_str = qtc.libqt_string{
             .len = msg.len,
             .data = msg.ptr,
         };
         qtc.KIO__WorkerBase_Warning(@ptrCast(self.ptr), msg_str);
     }
+
+    /// ### DEPRECATED: Use `infoMessage` instead
+    ///
+    pub const InfoMessage = infoMessage;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -2143,7 +2583,7 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` msg: []const u8 `
     ///
-    pub fn InfoMessage(self: KIO__ForwardingWorkerBase, msg: []const u8) void {
+    pub fn infoMessage(self: KIO__ForwardingWorkerBase, msg: []const u8) void {
         const msg_str = qtc.libqt_string{
             .len = msg.len,
             .data = msg.ptr,
@@ -2151,6 +2591,10 @@ pub const KIO__ForwardingWorkerBase = extern struct {
         qtc.KIO__WorkerBase_InfoMessage(@ptrCast(self.ptr), msg_str);
     }
 
+    /// ### DEPRECATED: Use `messageBox` instead
+    ///
+    pub const MessageBox = messageBox;
+
     /// Inherited from KIO::WorkerBase
     ///
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#messageBox)
@@ -2163,13 +2607,17 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn MessageBox(self: KIO__ForwardingWorkerBase, typeVal: i32, text: []const u8) i32 {
+    pub fn messageBox(self: KIO__ForwardingWorkerBase, typeVal: i32, text: []const u8) i32 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return qtc.KIO__WorkerBase_MessageBox(@ptrCast(self.ptr), @bitCast(typeVal), text_str);
     }
+
+    /// ### DEPRECATED: Use `messageBox2` instead
+    ///
+    pub const MessageBox2 = messageBox2;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -2183,13 +2631,17 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` typeVal: workerbase_enums.MessageBoxType `
     ///
-    pub fn MessageBox2(self: KIO__ForwardingWorkerBase, text: []const u8, typeVal: i32) i32 {
+    pub fn messageBox2(self: KIO__ForwardingWorkerBase, text: []const u8, typeVal: i32) i32 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return qtc.KIO__WorkerBase_MessageBox2(@ptrCast(self.ptr), text_str, @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `sslError` instead
+    ///
+    pub const SslError = sslError;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -2203,11 +2655,11 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` sslData: ArrayMap_constu8_QVariant `
     ///
-    pub fn SslError(self: KIO__ForwardingWorkerBase, allocator: std.mem.Allocator, sslData: ArrayMap_constu8_QVariant) i32 {
+    pub fn sslError(self: KIO__ForwardingWorkerBase, allocator: std.mem.Allocator, sslData: ArrayMap_constu8_QVariant) i32 {
         const sslData_count = sslData.count();
-        const sslData_keys = allocator.alloc(qtc.libqt_string, sslData_count) catch @panic("KIO__ForwardingWorkerBase.SslError: Memory allocation failed");
+        const sslData_keys = allocator.alloc(qtc.libqt_string, sslData_count) catch @panic("KIO__ForwardingWorkerBase.sslError: Memory allocation failed");
         defer allocator.free(sslData_keys);
-        const sslData_values = allocator.alloc(QtC.QVariant, sslData_count) catch @panic("KIO__ForwardingWorkerBase.SslError: Memory allocation failed");
+        const sslData_values = allocator.alloc(QtC.QVariant, sslData_count) catch @panic("KIO__ForwardingWorkerBase.sslError: Memory allocation failed");
         defer allocator.free(sslData_values);
         var i: usize = 0;
         var sslData_it = sslData.iterator();
@@ -2227,6 +2679,10 @@ pub const KIO__ForwardingWorkerBase = extern struct {
         return qtc.KIO__WorkerBase_SslError(@ptrCast(self.ptr), sslData_map);
     }
 
+    /// ### DEPRECATED: Use `setMetaData` instead
+    ///
+    pub const SetMetaData = setMetaData;
+
     /// Inherited from KIO::WorkerBase
     ///
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#setMetaData)
@@ -2239,7 +2695,7 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` value: []const u8 `
     ///
-    pub fn SetMetaData(self: KIO__ForwardingWorkerBase, key: []const u8, value: []const u8) void {
+    pub fn setMetaData(self: KIO__ForwardingWorkerBase, key: []const u8, value: []const u8) void {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -2251,6 +2707,10 @@ pub const KIO__ForwardingWorkerBase = extern struct {
         qtc.KIO__WorkerBase_SetMetaData(@ptrCast(self.ptr), key_str, value_str);
     }
 
+    /// ### DEPRECATED: Use `hasMetaData` instead
+    ///
+    pub const HasMetaData = hasMetaData;
+
     /// Inherited from KIO::WorkerBase
     ///
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#hasMetaData)
@@ -2261,13 +2721,17 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn HasMetaData(self: KIO__ForwardingWorkerBase, key: []const u8) bool {
+    pub fn hasMetaData(self: KIO__ForwardingWorkerBase, key: []const u8) bool {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
         return qtc.KIO__WorkerBase_HasMetaData(@ptrCast(self.ptr), key_str);
     }
+
+    /// ### DEPRECATED: Use `metaData` instead
+    ///
+    pub const MetaData = metaData;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -2281,17 +2745,21 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn MetaData(self: KIO__ForwardingWorkerBase, allocator: std.mem.Allocator, key: []const u8) []const u8 {
+    pub fn metaData(self: KIO__ForwardingWorkerBase, allocator: std.mem.Allocator, key: []const u8) []const u8 {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
         var _str = qtc.KIO__WorkerBase_MetaData(@ptrCast(self.ptr), key_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIO__ForwardingWorkerBase.MetaData: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIO__ForwardingWorkerBase.metaData: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `allMetaData` instead
+    ///
+    pub const AllMetaData = allMetaData;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -2301,9 +2769,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    pub fn AllMetaData(self: KIO__ForwardingWorkerBase) KIO__MetaData {
+    pub fn allMetaData(self: KIO__ForwardingWorkerBase) KIO__MetaData {
         return .{ .ptr = qtc.KIO__WorkerBase_AllMetaData(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapConfig` instead
+    ///
+    pub const MapConfig = mapConfig;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -2315,10 +2787,10 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MapConfig(self: KIO__ForwardingWorkerBase, allocator: std.mem.Allocator) ArrayMap_constu8_QVariant {
+    pub fn mapConfig(self: KIO__ForwardingWorkerBase, allocator: std.mem.Allocator) ArrayMap_constu8_QVariant {
         const _map: qtc.libqt_map = qtc.KIO__WorkerBase_MapConfig(@ptrCast(self.ptr));
         var _ret: ArrayMap_constu8_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KIO__ForwardingWorkerBase.MapConfig: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KIO__ForwardingWorkerBase.mapConfig: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {
@@ -2332,13 +2804,17 @@ pub const KIO__ForwardingWorkerBase = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("KIO__ForwardingWorkerBase.MapConfig: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("KIO__ForwardingWorkerBase.mapConfig: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
             _ret.putAssumeCapacity(_entry_slice, .{ .ptr = @ptrCast(_value) });
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `configValue` instead
+    ///
+    pub const ConfigValue = configValue;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -2352,13 +2828,17 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` defaultValue: bool `
     ///
-    pub fn ConfigValue(self: KIO__ForwardingWorkerBase, key: []const u8, defaultValue: bool) bool {
+    pub fn configValue(self: KIO__ForwardingWorkerBase, key: []const u8, defaultValue: bool) bool {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
         return qtc.KIO__WorkerBase_ConfigValue(@ptrCast(self.ptr), key_str, defaultValue);
     }
+
+    /// ### DEPRECATED: Use `configValue2` instead
+    ///
+    pub const ConfigValue2 = configValue2;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -2372,13 +2852,17 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` defaultValue: i32 `
     ///
-    pub fn ConfigValue2(self: KIO__ForwardingWorkerBase, key: []const u8, defaultValue: i32) i32 {
+    pub fn configValue2(self: KIO__ForwardingWorkerBase, key: []const u8, defaultValue: i32) i32 {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
         return qtc.KIO__WorkerBase_ConfigValue2(@ptrCast(self.ptr), key_str, @bitCast(defaultValue));
     }
+
+    /// ### DEPRECATED: Use `configValue3` instead
+    ///
+    pub const ConfigValue3 = configValue3;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -2392,17 +2876,21 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn ConfigValue3(self: KIO__ForwardingWorkerBase, allocator: std.mem.Allocator, key: []const u8) []const u8 {
+    pub fn configValue3(self: KIO__ForwardingWorkerBase, allocator: std.mem.Allocator, key: []const u8) []const u8 {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
         var _str = qtc.KIO__WorkerBase_ConfigValue3(@ptrCast(self.ptr), key_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIO__ForwardingWorkerBase.ConfigValue3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIO__ForwardingWorkerBase.configValue3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `config` instead
+    ///
+    pub const Config = config;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -2412,9 +2900,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    pub fn Config(self: KIO__ForwardingWorkerBase) KConfigGroup {
+    pub fn config(self: KIO__ForwardingWorkerBase) KConfigGroup {
         return .{ .ptr = qtc.KIO__WorkerBase_Config(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `remoteEncoding` instead
+    ///
+    pub const RemoteEncoding = remoteEncoding;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -2424,9 +2916,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    pub fn RemoteEncoding(self: KIO__ForwardingWorkerBase) KRemoteEncoding {
+    pub fn remoteEncoding(self: KIO__ForwardingWorkerBase) KRemoteEncoding {
         return .{ .ptr = qtc.KIO__WorkerBase_RemoteEncoding(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connectTimeout` instead
+    ///
+    pub const ConnectTimeout = connectTimeout;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -2436,9 +2932,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    pub fn ConnectTimeout(self: KIO__ForwardingWorkerBase) i32 {
+    pub fn connectTimeout(self: KIO__ForwardingWorkerBase) i32 {
         return qtc.KIO__WorkerBase_ConnectTimeout(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `proxyConnectTimeout` instead
+    ///
+    pub const ProxyConnectTimeout = proxyConnectTimeout;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -2448,9 +2948,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    pub fn ProxyConnectTimeout(self: KIO__ForwardingWorkerBase) i32 {
+    pub fn proxyConnectTimeout(self: KIO__ForwardingWorkerBase) i32 {
         return qtc.KIO__WorkerBase_ProxyConnectTimeout(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `responseTimeout` instead
+    ///
+    pub const ResponseTimeout = responseTimeout;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -2460,9 +2964,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    pub fn ResponseTimeout(self: KIO__ForwardingWorkerBase) i32 {
+    pub fn responseTimeout(self: KIO__ForwardingWorkerBase) i32 {
         return qtc.KIO__WorkerBase_ResponseTimeout(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `readTimeout` instead
+    ///
+    pub const ReadTimeout = readTimeout;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -2472,9 +2980,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    pub fn ReadTimeout(self: KIO__ForwardingWorkerBase) i32 {
+    pub fn readTimeout(self: KIO__ForwardingWorkerBase) i32 {
         return qtc.KIO__WorkerBase_ReadTimeout(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTimeoutSpecialCommand` instead
+    ///
+    pub const SetTimeoutSpecialCommand = setTimeoutSpecialCommand;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -2486,9 +2998,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` timeout: i32 `
     ///
-    pub fn SetTimeoutSpecialCommand(self: KIO__ForwardingWorkerBase, timeout: i32) void {
+    pub fn setTimeoutSpecialCommand(self: KIO__ForwardingWorkerBase, timeout: i32) void {
         qtc.KIO__WorkerBase_SetTimeoutSpecialCommand(@ptrCast(self.ptr), @bitCast(timeout));
     }
+
+    /// ### DEPRECATED: Use `readData` instead
+    ///
+    pub const ReadData = readData;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -2500,13 +3016,17 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` buffer: []u8 `
     ///
-    pub fn ReadData(self: KIO__ForwardingWorkerBase, buffer: []u8) i32 {
+    pub fn readData(self: KIO__ForwardingWorkerBase, buffer: []u8) i32 {
         const buffer_str = qtc.libqt_string{
             .len = buffer.len,
             .data = buffer.ptr,
         };
         return qtc.KIO__WorkerBase_ReadData(@ptrCast(self.ptr), buffer_str);
     }
+
+    /// ### DEPRECATED: Use `listEntry` instead
+    ///
+    pub const ListEntry = listEntry;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -2518,10 +3038,14 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` entry: KIO__UDSEntry `
     ///
-    pub fn ListEntry(self: KIO__ForwardingWorkerBase, entry: anytype) void {
+    pub fn listEntry(self: KIO__ForwardingWorkerBase, entry: anytype) void {
         comptime _ = @TypeOf(entry)._is_KIO__UDSEntry;
         qtc.KIO__WorkerBase_ListEntry(@ptrCast(self.ptr), @ptrCast(entry.ptr));
     }
+
+    /// ### DEPRECATED: Use `connectWorker` instead
+    ///
+    pub const ConnectWorker = connectWorker;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -2533,13 +3057,17 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` path: []const u8 `
     ///
-    pub fn ConnectWorker(self: KIO__ForwardingWorkerBase, path: []const u8) void {
+    pub fn connectWorker(self: KIO__ForwardingWorkerBase, path: []const u8) void {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
         qtc.KIO__WorkerBase_ConnectWorker(@ptrCast(self.ptr), path_str);
     }
+
+    /// ### DEPRECATED: Use `disconnectWorker` instead
+    ///
+    pub const DisconnectWorker = disconnectWorker;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -2549,9 +3077,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    pub fn DisconnectWorker(self: KIO__ForwardingWorkerBase) void {
+    pub fn disconnectWorker(self: KIO__ForwardingWorkerBase) void {
         qtc.KIO__WorkerBase_DisconnectWorker(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `openPasswordDialog` instead
+    ///
+    pub const OpenPasswordDialog = openPasswordDialog;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -2563,10 +3095,14 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` info: KIO__AuthInfo `
     ///
-    pub fn OpenPasswordDialog(self: KIO__ForwardingWorkerBase, info: anytype) i32 {
+    pub fn openPasswordDialog(self: KIO__ForwardingWorkerBase, info: anytype) i32 {
         comptime _ = @TypeOf(info)._is_KIO__AuthInfo;
         return qtc.KIO__WorkerBase_OpenPasswordDialog(@ptrCast(self.ptr), @ptrCast(info.ptr));
     }
+
+    /// ### DEPRECATED: Use `checkCachedAuthentication` instead
+    ///
+    pub const CheckCachedAuthentication = checkCachedAuthentication;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -2578,10 +3114,14 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` info: KIO__AuthInfo `
     ///
-    pub fn CheckCachedAuthentication(self: KIO__ForwardingWorkerBase, info: anytype) bool {
+    pub fn checkCachedAuthentication(self: KIO__ForwardingWorkerBase, info: anytype) bool {
         comptime _ = @TypeOf(info)._is_KIO__AuthInfo;
         return qtc.KIO__WorkerBase_CheckCachedAuthentication(@ptrCast(self.ptr), @ptrCast(info.ptr));
     }
+
+    /// ### DEPRECATED: Use `cacheAuthentication` instead
+    ///
+    pub const CacheAuthentication = cacheAuthentication;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -2593,10 +3133,14 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` info: KIO__AuthInfo `
     ///
-    pub fn CacheAuthentication(self: KIO__ForwardingWorkerBase, info: anytype) bool {
+    pub fn cacheAuthentication(self: KIO__ForwardingWorkerBase, info: anytype) bool {
         comptime _ = @TypeOf(info)._is_KIO__AuthInfo;
         return qtc.KIO__WorkerBase_CacheAuthentication(@ptrCast(self.ptr), @ptrCast(info.ptr));
     }
+
+    /// ### DEPRECATED: Use `waitForAnswer` instead
+    ///
+    pub const WaitForAnswer = waitForAnswer;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -2610,15 +3154,19 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` expected2: i32 `
     ///
-    /// ` data: []u8 `
+    /// ` _data: []u8 `
     ///
-    pub fn WaitForAnswer(self: KIO__ForwardingWorkerBase, expected1: i32, expected2: i32, data: []u8) i32 {
+    pub fn waitForAnswer(self: KIO__ForwardingWorkerBase, expected1: i32, expected2: i32, _data: []u8) i32 {
         const data_str = qtc.libqt_string{
-            .len = data.len,
-            .data = data.ptr,
+            .len = _data.len,
+            .data = _data.ptr,
         };
         return qtc.KIO__WorkerBase_WaitForAnswer(@ptrCast(self.ptr), @bitCast(expected1), @bitCast(expected2), data_str);
     }
+
+    /// ### DEPRECATED: Use `sendMetaData` instead
+    ///
+    pub const SendMetaData = sendMetaData;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -2628,9 +3176,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    pub fn SendMetaData(self: KIO__ForwardingWorkerBase) void {
+    pub fn sendMetaData(self: KIO__ForwardingWorkerBase) void {
         qtc.KIO__WorkerBase_SendMetaData(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `sendAndKeepMetaData` instead
+    ///
+    pub const SendAndKeepMetaData = sendAndKeepMetaData;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -2640,9 +3192,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    pub fn SendAndKeepMetaData(self: KIO__ForwardingWorkerBase) void {
+    pub fn sendAndKeepMetaData(self: KIO__ForwardingWorkerBase) void {
         qtc.KIO__WorkerBase_SendAndKeepMetaData(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `wasKilled` instead
+    ///
+    pub const WasKilled = wasKilled;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -2652,9 +3208,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    pub fn WasKilled(self: KIO__ForwardingWorkerBase) bool {
+    pub fn wasKilled(self: KIO__ForwardingWorkerBase) bool {
         return qtc.KIO__WorkerBase_WasKilled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lookupHost` instead
+    ///
+    pub const LookupHost = lookupHost;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -2666,13 +3226,17 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` host: []const u8 `
     ///
-    pub fn LookupHost(self: KIO__ForwardingWorkerBase, host: []const u8) void {
+    pub fn lookupHost(self: KIO__ForwardingWorkerBase, host: []const u8) void {
         const host_str = qtc.libqt_string{
             .len = host.len,
             .data = host.ptr,
         };
         qtc.KIO__WorkerBase_LookupHost(@ptrCast(self.ptr), host_str);
     }
+
+    /// ### DEPRECATED: Use `waitForHostInfo` instead
+    ///
+    pub const WaitForHostInfo = waitForHostInfo;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -2684,10 +3248,14 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` info: QHostInfo `
     ///
-    pub fn WaitForHostInfo(self: KIO__ForwardingWorkerBase, info: anytype) i32 {
+    pub fn waitForHostInfo(self: KIO__ForwardingWorkerBase, info: anytype) i32 {
         comptime _ = @TypeOf(info)._is_QHostInfo;
         return qtc.KIO__WorkerBase_WaitForHostInfo(@ptrCast(self.ptr), @ptrCast(info.ptr));
     }
+
+    /// ### DEPRECATED: Use `requestPrivilegeOperation` instead
+    ///
+    pub const RequestPrivilegeOperation = requestPrivilegeOperation;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -2703,13 +3271,17 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` global_enums.PrivilegeOperationStatus `
     ///
-    pub fn RequestPrivilegeOperation(self: KIO__ForwardingWorkerBase, operationDetails: []const u8) i32 {
+    pub fn requestPrivilegeOperation(self: KIO__ForwardingWorkerBase, operationDetails: []const u8) i32 {
         const operationDetails_str = qtc.libqt_string{
             .len = operationDetails.len,
             .data = operationDetails.ptr,
         };
         return qtc.KIO__WorkerBase_RequestPrivilegeOperation(@ptrCast(self.ptr), operationDetails_str);
     }
+
+    /// ### DEPRECATED: Use `addTemporaryAuthorization` instead
+    ///
+    pub const AddTemporaryAuthorization = addTemporaryAuthorization;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -2721,13 +3293,17 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` action: []const u8 `
     ///
-    pub fn AddTemporaryAuthorization(self: KIO__ForwardingWorkerBase, action: []const u8) void {
+    pub fn addTemporaryAuthorization(self: KIO__ForwardingWorkerBase, action: []const u8) void {
         const action_str = qtc.libqt_string{
             .len = action.len,
             .data = action.ptr,
         };
         qtc.KIO__WorkerBase_AddTemporaryAuthorization(@ptrCast(self.ptr), action_str);
     }
+
+    /// ### DEPRECATED: Use `setIncomingMetaData` instead
+    ///
+    pub const SetIncomingMetaData = setIncomingMetaData;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -2737,12 +3313,16 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    /// ` metaData: KIO__MetaData `
+    /// ` _metaData: KIO__MetaData `
     ///
-    pub fn SetIncomingMetaData(self: KIO__ForwardingWorkerBase, metaData: anytype) void {
-        comptime _ = @TypeOf(metaData)._is_KIO__MetaData;
-        qtc.KIO__WorkerBase_SetIncomingMetaData(@ptrCast(self.ptr), @ptrCast(metaData.ptr));
+    pub fn setIncomingMetaData(self: KIO__ForwardingWorkerBase, _metaData: anytype) void {
+        comptime _ = @TypeOf(_metaData)._is_KIO__MetaData;
+        qtc.KIO__WorkerBase_SetIncomingMetaData(@ptrCast(self.ptr), @ptrCast(_metaData.ptr));
     }
+
+    /// ### DEPRECATED: Use `messageBox3` instead
+    ///
+    pub const MessageBox3 = messageBox3;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -2758,7 +3338,7 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn MessageBox3(self: KIO__ForwardingWorkerBase, typeVal: i32, text: []const u8, title: []const u8) i32 {
+    pub fn messageBox3(self: KIO__ForwardingWorkerBase, typeVal: i32, text: []const u8, title: []const u8) i32 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -2769,6 +3349,10 @@ pub const KIO__ForwardingWorkerBase = extern struct {
         };
         return qtc.KIO__WorkerBase_MessageBox3(@ptrCast(self.ptr), @bitCast(typeVal), text_str, title_str);
     }
+
+    /// ### DEPRECATED: Use `messageBox4` instead
+    ///
+    pub const MessageBox4 = messageBox4;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -2786,7 +3370,7 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` primaryActionText: []const u8 `
     ///
-    pub fn MessageBox4(self: KIO__ForwardingWorkerBase, typeVal: i32, text: []const u8, title: []const u8, primaryActionText: []const u8) i32 {
+    pub fn messageBox4(self: KIO__ForwardingWorkerBase, typeVal: i32, text: []const u8, title: []const u8, primaryActionText: []const u8) i32 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -2801,6 +3385,10 @@ pub const KIO__ForwardingWorkerBase = extern struct {
         };
         return qtc.KIO__WorkerBase_MessageBox4(@ptrCast(self.ptr), @bitCast(typeVal), text_str, title_str, primaryActionText_str);
     }
+
+    /// ### DEPRECATED: Use `messageBox5` instead
+    ///
+    pub const MessageBox5 = messageBox5;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -2820,7 +3408,7 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` secondaryActionText: []const u8 `
     ///
-    pub fn MessageBox5(self: KIO__ForwardingWorkerBase, typeVal: i32, text: []const u8, title: []const u8, primaryActionText: []const u8, secondaryActionText: []const u8) i32 {
+    pub fn messageBox5(self: KIO__ForwardingWorkerBase, typeVal: i32, text: []const u8, title: []const u8, primaryActionText: []const u8, secondaryActionText: []const u8) i32 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -2840,6 +3428,10 @@ pub const KIO__ForwardingWorkerBase = extern struct {
         return qtc.KIO__WorkerBase_MessageBox5(@ptrCast(self.ptr), @bitCast(typeVal), text_str, title_str, primaryActionText_str, secondaryActionText_str);
     }
 
+    /// ### DEPRECATED: Use `messageBox32` instead
+    ///
+    pub const MessageBox32 = messageBox32;
+
     /// Inherited from KIO::WorkerBase
     ///
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#messageBox)
@@ -2854,7 +3446,7 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn MessageBox32(self: KIO__ForwardingWorkerBase, text: []const u8, typeVal: i32, title: []const u8) i32 {
+    pub fn messageBox32(self: KIO__ForwardingWorkerBase, text: []const u8, typeVal: i32, title: []const u8) i32 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -2865,6 +3457,10 @@ pub const KIO__ForwardingWorkerBase = extern struct {
         };
         return qtc.KIO__WorkerBase_MessageBox32(@ptrCast(self.ptr), text_str, @bitCast(typeVal), title_str);
     }
+
+    /// ### DEPRECATED: Use `messageBox42` instead
+    ///
+    pub const MessageBox42 = messageBox42;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -2882,7 +3478,7 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` primaryActionText: []const u8 `
     ///
-    pub fn MessageBox42(self: KIO__ForwardingWorkerBase, text: []const u8, typeVal: i32, title: []const u8, primaryActionText: []const u8) i32 {
+    pub fn messageBox42(self: KIO__ForwardingWorkerBase, text: []const u8, typeVal: i32, title: []const u8, primaryActionText: []const u8) i32 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -2897,6 +3493,10 @@ pub const KIO__ForwardingWorkerBase = extern struct {
         };
         return qtc.KIO__WorkerBase_MessageBox42(@ptrCast(self.ptr), text_str, @bitCast(typeVal), title_str, primaryActionText_str);
     }
+
+    /// ### DEPRECATED: Use `messageBox52` instead
+    ///
+    pub const MessageBox52 = messageBox52;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -2916,7 +3516,7 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` secondaryActionText: []const u8 `
     ///
-    pub fn MessageBox52(self: KIO__ForwardingWorkerBase, text: []const u8, typeVal: i32, title: []const u8, primaryActionText: []const u8, secondaryActionText: []const u8) i32 {
+    pub fn messageBox52(self: KIO__ForwardingWorkerBase, text: []const u8, typeVal: i32, title: []const u8, primaryActionText: []const u8, secondaryActionText: []const u8) i32 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -2935,6 +3535,10 @@ pub const KIO__ForwardingWorkerBase = extern struct {
         };
         return qtc.KIO__WorkerBase_MessageBox52(@ptrCast(self.ptr), text_str, @bitCast(typeVal), title_str, primaryActionText_str, secondaryActionText_str);
     }
+
+    /// ### DEPRECATED: Use `messageBox6` instead
+    ///
+    pub const MessageBox6 = messageBox6;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -2956,7 +3560,7 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` dontAskAgainName: []const u8 `
     ///
-    pub fn MessageBox6(self: KIO__ForwardingWorkerBase, text: []const u8, typeVal: i32, title: []const u8, primaryActionText: []const u8, secondaryActionText: []const u8, dontAskAgainName: []const u8) i32 {
+    pub fn messageBox6(self: KIO__ForwardingWorkerBase, text: []const u8, typeVal: i32, title: []const u8, primaryActionText: []const u8, secondaryActionText: []const u8, dontAskAgainName: []const u8) i32 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -2980,6 +3584,10 @@ pub const KIO__ForwardingWorkerBase = extern struct {
         return qtc.KIO__WorkerBase_MessageBox6(@ptrCast(self.ptr), text_str, @bitCast(typeVal), title_str, primaryActionText_str, secondaryActionText_str, dontAskAgainName_str);
     }
 
+    /// ### DEPRECATED: Use `configValue22` instead
+    ///
+    pub const ConfigValue22 = configValue22;
+
     /// Inherited from KIO::WorkerBase
     ///
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#configValue)
@@ -2994,7 +3602,7 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` defaultValue: []const u8 `
     ///
-    pub fn ConfigValue22(self: KIO__ForwardingWorkerBase, allocator: std.mem.Allocator, key: []const u8, defaultValue: []const u8) []const u8 {
+    pub fn configValue22(self: KIO__ForwardingWorkerBase, allocator: std.mem.Allocator, key: []const u8, defaultValue: []const u8) []const u8 {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -3005,10 +3613,14 @@ pub const KIO__ForwardingWorkerBase = extern struct {
         };
         var _str = qtc.KIO__WorkerBase_ConfigValue22(@ptrCast(self.ptr), key_str, defaultValue_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIO__ForwardingWorkerBase.ConfigValue22: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIO__ForwardingWorkerBase.configValue22: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setTimeoutSpecialCommand2` instead
+    ///
+    pub const SetTimeoutSpecialCommand2 = setTimeoutSpecialCommand2;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -3020,15 +3632,19 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` timeout: i32 `
     ///
-    /// ` data: []u8 `
+    /// ` _data: []u8 `
     ///
-    pub fn SetTimeoutSpecialCommand2(self: KIO__ForwardingWorkerBase, timeout: i32, data: []u8) void {
+    pub fn setTimeoutSpecialCommand2(self: KIO__ForwardingWorkerBase, timeout: i32, _data: []u8) void {
         const data_str = qtc.libqt_string{
-            .len = data.len,
-            .data = data.ptr,
+            .len = _data.len,
+            .data = _data.ptr,
         };
         qtc.KIO__WorkerBase_SetTimeoutSpecialCommand2(@ptrCast(self.ptr), @bitCast(timeout), data_str);
     }
+
+    /// ### DEPRECATED: Use `openPasswordDialog2` instead
+    ///
+    pub const OpenPasswordDialog2 = openPasswordDialog2;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -3042,7 +3658,7 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` errorMsg: []const u8 `
     ///
-    pub fn OpenPasswordDialog2(self: KIO__ForwardingWorkerBase, info: anytype, errorMsg: []const u8) i32 {
+    pub fn openPasswordDialog2(self: KIO__ForwardingWorkerBase, info: anytype, errorMsg: []const u8) i32 {
         comptime _ = @TypeOf(info)._is_KIO__AuthInfo;
         const errorMsg_str = qtc.libqt_string{
             .len = errorMsg.len,
@@ -3050,6 +3666,10 @@ pub const KIO__ForwardingWorkerBase = extern struct {
         };
         return qtc.KIO__WorkerBase_OpenPasswordDialog2(@ptrCast(self.ptr), @ptrCast(info.ptr), errorMsg_str);
     }
+
+    /// ### DEPRECATED: Use `waitForAnswer4` instead
+    ///
+    pub const WaitForAnswer4 = waitForAnswer4;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -3063,17 +3683,21 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` expected2: i32 `
     ///
-    /// ` data: []u8 `
+    /// ` _data: []u8 `
     ///
     /// ` pCmd: *i32 `
     ///
-    pub fn WaitForAnswer4(self: KIO__ForwardingWorkerBase, expected1: i32, expected2: i32, data: []u8, pCmd: *i32) i32 {
+    pub fn waitForAnswer4(self: KIO__ForwardingWorkerBase, expected1: i32, expected2: i32, _data: []u8, pCmd: *i32) i32 {
         const data_str = qtc.libqt_string{
-            .len = data.len,
-            .data = data.ptr,
+            .len = _data.len,
+            .data = _data.ptr,
         };
         return qtc.KIO__WorkerBase_WaitForAnswer4(@ptrCast(self.ptr), @bitCast(expected1), @bitCast(expected2), data_str, @ptrCast(pCmd));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -3085,16 +3709,16 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: KIO__ForwardingWorkerBase, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KIO__ForwardingWorkerBase_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: KIO__ForwardingWorkerBase, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KIO__ForwardingWorkerBase_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -3106,12 +3730,16 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: KIO__ForwardingWorkerBase, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KIO__ForwardingWorkerBase_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: KIO__ForwardingWorkerBase, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KIO__ForwardingWorkerBase_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -3125,9 +3753,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` callback: *const fn (self: KIO__ForwardingWorkerBase, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QEvent) callconv(.c) bool) void {
         qtc.KIO__ForwardingWorkerBase_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -3141,17 +3773,17 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: KIO__ForwardingWorkerBase, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: KIO__ForwardingWorkerBase, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KIO__ForwardingWorkerBase_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KIO__ForwardingWorkerBase_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -3165,13 +3797,17 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: KIO__ForwardingWorkerBase, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: KIO__ForwardingWorkerBase, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KIO__ForwardingWorkerBase_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KIO__ForwardingWorkerBase_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -3185,9 +3821,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` callback: *const fn (self: KIO__ForwardingWorkerBase, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QObject, QEvent) callconv(.c) bool) void {
         qtc.KIO__ForwardingWorkerBase_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -3199,16 +3839,16 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KIO__ForwardingWorkerBase, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KIO__ForwardingWorkerBase_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: KIO__ForwardingWorkerBase, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KIO__ForwardingWorkerBase_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -3220,12 +3860,16 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KIO__ForwardingWorkerBase, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KIO__ForwardingWorkerBase_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: KIO__ForwardingWorkerBase, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KIO__ForwardingWorkerBase_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -3239,9 +3883,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` callback: *const fn (self: KIO__ForwardingWorkerBase, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QTimerEvent) callconv(.c) void) void {
         qtc.KIO__ForwardingWorkerBase_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -3253,16 +3901,16 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KIO__ForwardingWorkerBase, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KIO__ForwardingWorkerBase_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KIO__ForwardingWorkerBase, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KIO__ForwardingWorkerBase_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -3274,12 +3922,16 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KIO__ForwardingWorkerBase, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KIO__ForwardingWorkerBase_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KIO__ForwardingWorkerBase, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KIO__ForwardingWorkerBase_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -3293,9 +3945,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` callback: *const fn (self: KIO__ForwardingWorkerBase, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QChildEvent) callconv(.c) void) void {
         qtc.KIO__ForwardingWorkerBase_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -3307,16 +3963,16 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KIO__ForwardingWorkerBase, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KIO__ForwardingWorkerBase_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KIO__ForwardingWorkerBase, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KIO__ForwardingWorkerBase_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -3328,12 +3984,16 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KIO__ForwardingWorkerBase, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KIO__ForwardingWorkerBase_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KIO__ForwardingWorkerBase, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KIO__ForwardingWorkerBase_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -3347,9 +4007,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` callback: *const fn (self: KIO__ForwardingWorkerBase, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QEvent) callconv(.c) void) void {
         qtc.KIO__ForwardingWorkerBase_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -3363,14 +4027,14 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KIO__ForwardingWorkerBase, signal: anytype) void {
+    pub fn connectNotify(self: KIO__ForwardingWorkerBase, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KIO__ForwardingWorkerBase_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3384,11 +4048,15 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KIO__ForwardingWorkerBase, signal: anytype) void {
+    pub fn superConnectNotify(self: KIO__ForwardingWorkerBase, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KIO__ForwardingWorkerBase_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -3401,9 +4069,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` callback: *const fn (self: KIO__ForwardingWorkerBase, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QMetaMethod) callconv(.c) void) void {
         qtc.KIO__ForwardingWorkerBase_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3417,14 +4089,14 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KIO__ForwardingWorkerBase, signal: anytype) void {
+    pub fn disconnectNotify(self: KIO__ForwardingWorkerBase, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KIO__ForwardingWorkerBase_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3438,10 +4110,14 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KIO__ForwardingWorkerBase, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KIO__ForwardingWorkerBase, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KIO__ForwardingWorkerBase_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3455,9 +4131,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` callback: *const fn (self: KIO__ForwardingWorkerBase, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QMetaMethod) callconv(.c) void) void {
         qtc.KIO__ForwardingWorkerBase_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `appConnectionMade` instead
+    ///
+    pub const AppConnectionMade = appConnectionMade;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -3469,13 +4149,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    pub fn AppConnectionMade(self: KIO__ForwardingWorkerBase) void {
+    pub fn appConnectionMade(self: KIO__ForwardingWorkerBase) void {
         qtc.KIO__ForwardingWorkerBase_AppConnectionMade(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperAppConnectionMade` instead
+    /// ### DEPRECATED: Use `superAppConnectionMade` instead
     ///
-    pub const QBaseAppConnectionMade = SuperAppConnectionMade;
+    pub const SuperAppConnectionMade = superAppConnectionMade;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -3487,9 +4167,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    pub fn SuperAppConnectionMade(self: KIO__ForwardingWorkerBase) void {
+    pub fn superAppConnectionMade(self: KIO__ForwardingWorkerBase) void {
         qtc.KIO__ForwardingWorkerBase_SuperAppConnectionMade(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onAppConnectionMade` instead
+    ///
+    pub const OnAppConnectionMade = onAppConnectionMade;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -3503,9 +4187,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnAppConnectionMade(self: KIO__ForwardingWorkerBase, callback: *const fn () callconv(.c) void) void {
+    pub fn onAppConnectionMade(self: KIO__ForwardingWorkerBase, callback: *const fn () callconv(.c) void) void {
         qtc.KIO__ForwardingWorkerBase_OnAppConnectionMade(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setHost` instead
+    ///
+    pub const SetHost = setHost;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -3525,7 +4213,7 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` pass: []const u8 `
     ///
-    pub fn SetHost(self: KIO__ForwardingWorkerBase, host: []const u8, port: u16, user: []const u8, pass: []const u8) void {
+    pub fn setHost(self: KIO__ForwardingWorkerBase, host: []const u8, port: u16, user: []const u8, pass: []const u8) void {
         const host_str = qtc.libqt_string{
             .len = host.len,
             .data = host.ptr,
@@ -3541,9 +4229,9 @@ pub const KIO__ForwardingWorkerBase = extern struct {
         qtc.KIO__ForwardingWorkerBase_SetHost(@ptrCast(self.ptr), host_str, @bitCast(port), user_str, pass_str);
     }
 
-    /// ### DEPRECATED: Use `SuperSetHost` instead
+    /// ### DEPRECATED: Use `superSetHost` instead
     ///
-    pub const QBaseSetHost = SuperSetHost;
+    pub const SuperSetHost = superSetHost;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -3563,7 +4251,7 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` pass: []const u8 `
     ///
-    pub fn SuperSetHost(self: KIO__ForwardingWorkerBase, host: []const u8, port: u16, user: []const u8, pass: []const u8) void {
+    pub fn superSetHost(self: KIO__ForwardingWorkerBase, host: []const u8, port: u16, user: []const u8, pass: []const u8) void {
         const host_str = qtc.libqt_string{
             .len = host.len,
             .data = host.ptr,
@@ -3579,6 +4267,10 @@ pub const KIO__ForwardingWorkerBase = extern struct {
         qtc.KIO__ForwardingWorkerBase_SuperSetHost(@ptrCast(self.ptr), host_str, @bitCast(port), user_str, pass_str);
     }
 
+    /// ### DEPRECATED: Use `onSetHost` instead
+    ///
+    pub const OnSetHost = onSetHost;
+
     /// Inherited from KIO::WorkerBase
     ///
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#setHost)
@@ -3591,9 +4283,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` callback: *const fn (self: KIO__ForwardingWorkerBase, host: [*:0]const u8, port: u16, user: [*:0]const u8, pass: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetHost(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, [*:0]const u8, u16, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
+    pub fn onSetHost(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, [*:0]const u8, u16, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
         qtc.KIO__ForwardingWorkerBase_OnSetHost(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `openConnection` instead
+    ///
+    pub const OpenConnection = openConnection;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -3605,13 +4301,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    pub fn OpenConnection(self: KIO__ForwardingWorkerBase) KIO__WorkerResult {
+    pub fn openConnection(self: KIO__ForwardingWorkerBase) KIO__WorkerResult {
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_OpenConnection(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperOpenConnection` instead
+    /// ### DEPRECATED: Use `superOpenConnection` instead
     ///
-    pub const QBaseOpenConnection = SuperOpenConnection;
+    pub const SuperOpenConnection = superOpenConnection;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -3623,9 +4319,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    pub fn SuperOpenConnection(self: KIO__ForwardingWorkerBase) KIO__WorkerResult {
+    pub fn superOpenConnection(self: KIO__ForwardingWorkerBase) KIO__WorkerResult {
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_SuperOpenConnection(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onOpenConnection` instead
+    ///
+    pub const OnOpenConnection = onOpenConnection;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -3641,9 +4341,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnOpenConnection(self: KIO__ForwardingWorkerBase, callback: *const fn () callconv(.c) KIO__WorkerResult) void {
+    pub fn onOpenConnection(self: KIO__ForwardingWorkerBase, callback: *const fn () callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnOpenConnection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeConnection` instead
+    ///
+    pub const CloseConnection = closeConnection;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -3655,13 +4359,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    pub fn CloseConnection(self: KIO__ForwardingWorkerBase) void {
+    pub fn closeConnection(self: KIO__ForwardingWorkerBase) void {
         qtc.KIO__ForwardingWorkerBase_CloseConnection(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseConnection` instead
+    /// ### DEPRECATED: Use `superCloseConnection` instead
     ///
-    pub const QBaseCloseConnection = SuperCloseConnection;
+    pub const SuperCloseConnection = superCloseConnection;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -3673,9 +4377,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    pub fn SuperCloseConnection(self: KIO__ForwardingWorkerBase) void {
+    pub fn superCloseConnection(self: KIO__ForwardingWorkerBase) void {
         qtc.KIO__ForwardingWorkerBase_SuperCloseConnection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseConnection` instead
+    ///
+    pub const OnCloseConnection = onCloseConnection;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -3689,9 +4397,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCloseConnection(self: KIO__ForwardingWorkerBase, callback: *const fn () callconv(.c) void) void {
+    pub fn onCloseConnection(self: KIO__ForwardingWorkerBase, callback: *const fn () callconv(.c) void) void {
         qtc.KIO__ForwardingWorkerBase_OnCloseConnection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `open` instead
+    ///
+    pub const Open = open;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -3707,14 +4419,14 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn Open(self: KIO__ForwardingWorkerBase, url: anytype, mode: i32) KIO__WorkerResult {
+    pub fn open(self: KIO__ForwardingWorkerBase, url: anytype, mode: i32) KIO__WorkerResult {
         comptime _ = @TypeOf(url)._is_QUrl;
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_Open(@ptrCast(self.ptr), @ptrCast(url.ptr), @bitCast(mode)) };
     }
 
-    /// ### DEPRECATED: Use `SuperOpen` instead
+    /// ### DEPRECATED: Use `superOpen` instead
     ///
-    pub const QBaseOpen = SuperOpen;
+    pub const SuperOpen = superOpen;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -3730,10 +4442,14 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn SuperOpen(self: KIO__ForwardingWorkerBase, url: anytype, mode: i32) KIO__WorkerResult {
+    pub fn superOpen(self: KIO__ForwardingWorkerBase, url: anytype, mode: i32) KIO__WorkerResult {
         comptime _ = @TypeOf(url)._is_QUrl;
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_SuperOpen(@ptrCast(self.ptr), @ptrCast(url.ptr), @bitCast(mode)) };
     }
+
+    /// ### DEPRECATED: Use `onOpen` instead
+    ///
+    pub const OnOpen = onOpen;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -3749,9 +4465,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnOpen(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QUrl, i32) callconv(.c) KIO__WorkerResult) void {
+    pub fn onOpen(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QUrl, i32) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnOpen(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `read` instead
+    ///
+    pub const Read = read;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -3765,13 +4485,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` size: usize `
     ///
-    pub fn Read(self: KIO__ForwardingWorkerBase, size: usize) KIO__WorkerResult {
+    pub fn read(self: KIO__ForwardingWorkerBase, size: usize) KIO__WorkerResult {
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_Read(@ptrCast(self.ptr), @bitCast(size)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRead` instead
+    /// ### DEPRECATED: Use `superRead` instead
     ///
-    pub const QBaseRead = SuperRead;
+    pub const SuperRead = superRead;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -3785,9 +4505,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` size: usize `
     ///
-    pub fn SuperRead(self: KIO__ForwardingWorkerBase, size: usize) KIO__WorkerResult {
+    pub fn superRead(self: KIO__ForwardingWorkerBase, size: usize) KIO__WorkerResult {
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_SuperRead(@ptrCast(self.ptr), @bitCast(size)) };
     }
+
+    /// ### DEPRECATED: Use `onRead` instead
+    ///
+    pub const OnRead = onRead;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -3803,9 +4527,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnRead(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, usize) callconv(.c) KIO__WorkerResult) void {
+    pub fn onRead(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, usize) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnRead(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `write` instead
+    ///
+    pub const Write = write;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -3817,19 +4545,19 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    /// ` data: []u8 `
+    /// ` _data: []u8 `
     ///
-    pub fn Write(self: KIO__ForwardingWorkerBase, data: []u8) KIO__WorkerResult {
+    pub fn write(self: KIO__ForwardingWorkerBase, _data: []u8) KIO__WorkerResult {
         const data_str = qtc.libqt_string{
-            .len = data.len,
-            .data = data.ptr,
+            .len = _data.len,
+            .data = _data.ptr,
         };
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_Write(@ptrCast(self.ptr), data_str) };
     }
 
-    /// ### DEPRECATED: Use `SuperWrite` instead
+    /// ### DEPRECATED: Use `superWrite` instead
     ///
-    pub const QBaseWrite = SuperWrite;
+    pub const SuperWrite = superWrite;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -3841,15 +4569,19 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    /// ` data: []u8 `
+    /// ` _data: []u8 `
     ///
-    pub fn SuperWrite(self: KIO__ForwardingWorkerBase, data: []u8) KIO__WorkerResult {
+    pub fn superWrite(self: KIO__ForwardingWorkerBase, _data: []u8) KIO__WorkerResult {
         const data_str = qtc.libqt_string{
-            .len = data.len,
-            .data = data.ptr,
+            .len = _data.len,
+            .data = _data.ptr,
         };
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_SuperWrite(@ptrCast(self.ptr), data_str) };
     }
+
+    /// ### DEPRECATED: Use `onWrite` instead
+    ///
+    pub const OnWrite = onWrite;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -3865,9 +4597,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnWrite(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, qtc.libqt_string) callconv(.c) KIO__WorkerResult) void {
+    pub fn onWrite(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, qtc.libqt_string) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnWrite(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `seek` instead
+    ///
+    pub const Seek = seek;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -3881,13 +4617,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` offset: usize `
     ///
-    pub fn Seek(self: KIO__ForwardingWorkerBase, offset: usize) KIO__WorkerResult {
+    pub fn seek(self: KIO__ForwardingWorkerBase, offset: usize) KIO__WorkerResult {
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_Seek(@ptrCast(self.ptr), @bitCast(offset)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSeek` instead
+    /// ### DEPRECATED: Use `superSeek` instead
     ///
-    pub const QBaseSeek = SuperSeek;
+    pub const SuperSeek = superSeek;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -3901,9 +4637,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` offset: usize `
     ///
-    pub fn SuperSeek(self: KIO__ForwardingWorkerBase, offset: usize) KIO__WorkerResult {
+    pub fn superSeek(self: KIO__ForwardingWorkerBase, offset: usize) KIO__WorkerResult {
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_SuperSeek(@ptrCast(self.ptr), @bitCast(offset)) };
     }
+
+    /// ### DEPRECATED: Use `onSeek` instead
+    ///
+    pub const OnSeek = onSeek;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -3919,9 +4659,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSeek(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, usize) callconv(.c) KIO__WorkerResult) void {
+    pub fn onSeek(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, usize) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnSeek(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `truncate` instead
+    ///
+    pub const Truncate = truncate;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -3935,13 +4679,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` size: usize `
     ///
-    pub fn Truncate(self: KIO__ForwardingWorkerBase, size: usize) KIO__WorkerResult {
+    pub fn truncate(self: KIO__ForwardingWorkerBase, size: usize) KIO__WorkerResult {
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_Truncate(@ptrCast(self.ptr), @bitCast(size)) };
     }
 
-    /// ### DEPRECATED: Use `SuperTruncate` instead
+    /// ### DEPRECATED: Use `superTruncate` instead
     ///
-    pub const QBaseTruncate = SuperTruncate;
+    pub const SuperTruncate = superTruncate;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -3955,9 +4699,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` size: usize `
     ///
-    pub fn SuperTruncate(self: KIO__ForwardingWorkerBase, size: usize) KIO__WorkerResult {
+    pub fn superTruncate(self: KIO__ForwardingWorkerBase, size: usize) KIO__WorkerResult {
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_SuperTruncate(@ptrCast(self.ptr), @bitCast(size)) };
     }
+
+    /// ### DEPRECATED: Use `onTruncate` instead
+    ///
+    pub const OnTruncate = onTruncate;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -3973,9 +4721,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnTruncate(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, usize) callconv(.c) KIO__WorkerResult) void {
+    pub fn onTruncate(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, usize) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnTruncate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -3987,13 +4739,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    pub fn Close(self: KIO__ForwardingWorkerBase) KIO__WorkerResult {
+    pub fn close(self: KIO__ForwardingWorkerBase) KIO__WorkerResult {
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_Close(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperClose` instead
+    /// ### DEPRECATED: Use `superClose` instead
     ///
-    pub const QBaseClose = SuperClose;
+    pub const SuperClose = superClose;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -4005,9 +4757,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    pub fn SuperClose(self: KIO__ForwardingWorkerBase) KIO__WorkerResult {
+    pub fn superClose(self: KIO__ForwardingWorkerBase) KIO__WorkerResult {
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_SuperClose(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onClose` instead
+    ///
+    pub const OnClose = onClose;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -4023,9 +4779,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnClose(self: KIO__ForwardingWorkerBase, callback: *const fn () callconv(.c) KIO__WorkerResult) void {
+    pub fn onClose(self: KIO__ForwardingWorkerBase, callback: *const fn () callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnClose(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `chown` instead
+    ///
+    pub const Chown = chown;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -4043,7 +4803,7 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` group: []const u8 `
     ///
-    pub fn Chown(self: KIO__ForwardingWorkerBase, url: anytype, owner: []const u8, group: []const u8) KIO__WorkerResult {
+    pub fn chown(self: KIO__ForwardingWorkerBase, url: anytype, owner: []const u8, group: []const u8) KIO__WorkerResult {
         comptime _ = @TypeOf(url)._is_QUrl;
         const owner_str = qtc.libqt_string{
             .len = owner.len,
@@ -4056,9 +4816,9 @@ pub const KIO__ForwardingWorkerBase = extern struct {
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_Chown(@ptrCast(self.ptr), @ptrCast(url.ptr), owner_str, group_str) };
     }
 
-    /// ### DEPRECATED: Use `SuperChown` instead
+    /// ### DEPRECATED: Use `superChown` instead
     ///
-    pub const QBaseChown = SuperChown;
+    pub const SuperChown = superChown;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -4076,7 +4836,7 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` group: []const u8 `
     ///
-    pub fn SuperChown(self: KIO__ForwardingWorkerBase, url: anytype, owner: []const u8, group: []const u8) KIO__WorkerResult {
+    pub fn superChown(self: KIO__ForwardingWorkerBase, url: anytype, owner: []const u8, group: []const u8) KIO__WorkerResult {
         comptime _ = @TypeOf(url)._is_QUrl;
         const owner_str = qtc.libqt_string{
             .len = owner.len,
@@ -4088,6 +4848,10 @@ pub const KIO__ForwardingWorkerBase = extern struct {
         };
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_SuperChown(@ptrCast(self.ptr), @ptrCast(url.ptr), owner_str, group_str) };
     }
+
+    /// ### DEPRECATED: Use `onChown` instead
+    ///
+    pub const OnChown = onChown;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -4103,9 +4867,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnChown(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QUrl, [*:0]const u8, [*:0]const u8) callconv(.c) KIO__WorkerResult) void {
+    pub fn onChown(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QUrl, [*:0]const u8, [*:0]const u8) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnChown(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `special` instead
+    ///
+    pub const Special = special;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -4117,19 +4885,19 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    /// ` data: []u8 `
+    /// ` _data: []u8 `
     ///
-    pub fn Special(self: KIO__ForwardingWorkerBase, data: []u8) KIO__WorkerResult {
+    pub fn special(self: KIO__ForwardingWorkerBase, _data: []u8) KIO__WorkerResult {
         const data_str = qtc.libqt_string{
-            .len = data.len,
-            .data = data.ptr,
+            .len = _data.len,
+            .data = _data.ptr,
         };
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_Special(@ptrCast(self.ptr), data_str) };
     }
 
-    /// ### DEPRECATED: Use `SuperSpecial` instead
+    /// ### DEPRECATED: Use `superSpecial` instead
     ///
-    pub const QBaseSpecial = SuperSpecial;
+    pub const SuperSpecial = superSpecial;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -4141,15 +4909,19 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    /// ` data: []u8 `
+    /// ` _data: []u8 `
     ///
-    pub fn SuperSpecial(self: KIO__ForwardingWorkerBase, data: []u8) KIO__WorkerResult {
+    pub fn superSpecial(self: KIO__ForwardingWorkerBase, _data: []u8) KIO__WorkerResult {
         const data_str = qtc.libqt_string{
-            .len = data.len,
-            .data = data.ptr,
+            .len = _data.len,
+            .data = _data.ptr,
         };
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_SuperSpecial(@ptrCast(self.ptr), data_str) };
     }
+
+    /// ### DEPRECATED: Use `onSpecial` instead
+    ///
+    pub const OnSpecial = onSpecial;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -4165,9 +4937,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSpecial(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, qtc.libqt_string) callconv(.c) KIO__WorkerResult) void {
+    pub fn onSpecial(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, qtc.libqt_string) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnSpecial(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `fileSystemFreeSpace` instead
+    ///
+    pub const FileSystemFreeSpace = fileSystemFreeSpace;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -4181,14 +4957,14 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn FileSystemFreeSpace(self: KIO__ForwardingWorkerBase, url: anytype) KIO__WorkerResult {
+    pub fn fileSystemFreeSpace(self: KIO__ForwardingWorkerBase, url: anytype) KIO__WorkerResult {
         comptime _ = @TypeOf(url)._is_QUrl;
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_FileSystemFreeSpace(@ptrCast(self.ptr), @ptrCast(url.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperFileSystemFreeSpace` instead
+    /// ### DEPRECATED: Use `superFileSystemFreeSpace` instead
     ///
-    pub const QBaseFileSystemFreeSpace = SuperFileSystemFreeSpace;
+    pub const SuperFileSystemFreeSpace = superFileSystemFreeSpace;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -4202,10 +4978,14 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn SuperFileSystemFreeSpace(self: KIO__ForwardingWorkerBase, url: anytype) KIO__WorkerResult {
+    pub fn superFileSystemFreeSpace(self: KIO__ForwardingWorkerBase, url: anytype) KIO__WorkerResult {
         comptime _ = @TypeOf(url)._is_QUrl;
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_SuperFileSystemFreeSpace(@ptrCast(self.ptr), @ptrCast(url.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onFileSystemFreeSpace` instead
+    ///
+    pub const OnFileSystemFreeSpace = onFileSystemFreeSpace;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -4221,10 +5001,14 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnFileSystemFreeSpace(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QUrl) callconv(.c) KIO__WorkerResult) void {
+    pub fn onFileSystemFreeSpace(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QUrl) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnFileSystemFreeSpace(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `workerStatus2` instead
+    ///
+    pub const WorkerStatus2 = workerStatus2;
+
     /// Inherited from KIO::WorkerBase
     ///
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#worker_status)
@@ -4235,13 +5019,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    pub fn WorkerStatus2(self: KIO__ForwardingWorkerBase) void {
+    pub fn workerStatus2(self: KIO__ForwardingWorkerBase) void {
         qtc.KIO__ForwardingWorkerBase_WorkerStatus2(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWorkerStatus2` instead
+    /// ### DEPRECATED: Use `superWorkerStatus2` instead
     ///
-    pub const QBaseWorkerStatus2 = SuperWorkerStatus2;
+    pub const SuperWorkerStatus2 = superWorkerStatus2;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -4253,10 +5037,14 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    pub fn SuperWorkerStatus2(self: KIO__ForwardingWorkerBase) void {
+    pub fn superWorkerStatus2(self: KIO__ForwardingWorkerBase) void {
         qtc.KIO__ForwardingWorkerBase_SuperWorkerStatus2(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onWorkerStatus2` instead
+    ///
+    pub const OnWorkerStatus2 = onWorkerStatus2;
+
     /// Inherited from KIO::WorkerBase
     ///
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#worker_status)
@@ -4269,9 +5057,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnWorkerStatus2(self: KIO__ForwardingWorkerBase, callback: *const fn () callconv(.c) void) void {
+    pub fn onWorkerStatus2(self: KIO__ForwardingWorkerBase, callback: *const fn () callconv(.c) void) void {
         qtc.KIO__ForwardingWorkerBase_OnWorkerStatus2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `reparseConfiguration` instead
+    ///
+    pub const ReparseConfiguration = reparseConfiguration;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -4283,13 +5075,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    pub fn ReparseConfiguration(self: KIO__ForwardingWorkerBase) void {
+    pub fn reparseConfiguration(self: KIO__ForwardingWorkerBase) void {
         qtc.KIO__ForwardingWorkerBase_ReparseConfiguration(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperReparseConfiguration` instead
+    /// ### DEPRECATED: Use `superReparseConfiguration` instead
     ///
-    pub const QBaseReparseConfiguration = SuperReparseConfiguration;
+    pub const SuperReparseConfiguration = superReparseConfiguration;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -4301,9 +5093,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    pub fn SuperReparseConfiguration(self: KIO__ForwardingWorkerBase) void {
+    pub fn superReparseConfiguration(self: KIO__ForwardingWorkerBase) void {
         qtc.KIO__ForwardingWorkerBase_SuperReparseConfiguration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onReparseConfiguration` instead
+    ///
+    pub const OnReparseConfiguration = onReparseConfiguration;
 
     /// Inherited from KIO::WorkerBase
     ///
@@ -4317,9 +5113,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnReparseConfiguration(self: KIO__ForwardingWorkerBase, callback: *const fn () callconv(.c) void) void {
+    pub fn onReparseConfiguration(self: KIO__ForwardingWorkerBase, callback: *const fn () callconv(.c) void) void {
         qtc.KIO__ForwardingWorkerBase_OnReparseConfiguration(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -4331,13 +5131,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    pub fn Sender(self: KIO__ForwardingWorkerBase) QObject {
+    pub fn sender(self: KIO__ForwardingWorkerBase) QObject {
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -4349,9 +5149,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    pub fn SuperSender(self: KIO__ForwardingWorkerBase) QObject {
+    pub fn superSender(self: KIO__ForwardingWorkerBase) QObject {
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -4365,9 +5169,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KIO__ForwardingWorkerBase, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KIO__ForwardingWorkerBase, callback: *const fn () callconv(.c) QObject) void {
         qtc.KIO__ForwardingWorkerBase_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -4379,13 +5187,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    pub fn SenderSignalIndex(self: KIO__ForwardingWorkerBase) i32 {
+    pub fn senderSignalIndex(self: KIO__ForwardingWorkerBase) i32 {
         return qtc.KIO__ForwardingWorkerBase_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -4397,9 +5205,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    pub fn SuperSenderSignalIndex(self: KIO__ForwardingWorkerBase) i32 {
+    pub fn superSenderSignalIndex(self: KIO__ForwardingWorkerBase) i32 {
         return qtc.KIO__ForwardingWorkerBase_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -4413,9 +5225,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KIO__ForwardingWorkerBase, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KIO__ForwardingWorkerBase, callback: *const fn () callconv(.c) i32) void {
         qtc.KIO__ForwardingWorkerBase_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -4429,14 +5245,14 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KIO__ForwardingWorkerBase, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KIO__ForwardingWorkerBase, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KIO__ForwardingWorkerBase_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -4450,10 +5266,14 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KIO__ForwardingWorkerBase, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KIO__ForwardingWorkerBase, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KIO__ForwardingWorkerBase_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -4467,9 +5287,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` callback: *const fn (self: KIO__ForwardingWorkerBase, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, [*:0]const u8) callconv(.c) i32) void {
         qtc.KIO__ForwardingWorkerBase_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -4483,14 +5307,14 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KIO__ForwardingWorkerBase, signal: anytype) bool {
+    pub fn isSignalConnected(self: KIO__ForwardingWorkerBase, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KIO__ForwardingWorkerBase_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -4504,10 +5328,14 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KIO__ForwardingWorkerBase, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KIO__ForwardingWorkerBase, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KIO__ForwardingWorkerBase_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -4521,9 +5349,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` callback: *const fn (self: KIO__ForwardingWorkerBase, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QMetaMethod) callconv(.c) bool) void {
         qtc.KIO__ForwardingWorkerBase_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -4537,21 +5369,21 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` callback: *const fn (self: KIO__ForwardingWorkerBase, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    pub fn Delete(self: KIO__ForwardingWorkerBase) void {
+    pub fn delete(self: KIO__ForwardingWorkerBase) void {
         qtc.KIO__ForwardingWorkerBase_Delete(@ptrCast(self.ptr));
     }
 };

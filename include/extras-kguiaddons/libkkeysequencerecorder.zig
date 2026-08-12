@@ -28,30 +28,42 @@ pub const KKeySequenceRecorder = extern struct {
     pub const _is_KKeySequenceRecorder = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new KKeySequenceRecorder object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KKeySequenceRecorder object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn New(window: anytype) KKeySequenceRecorder {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.KKeySequenceRecorder_new(@ptrCast(window.ptr)) };
+    pub fn new(_window: anytype) KKeySequenceRecorder {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.KKeySequenceRecorder_new(@ptrCast(_window.ptr)) };
     }
 
-    /// New2 constructs a new KKeySequenceRecorder object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KKeySequenceRecorder object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(window: anytype, parent: anytype) KKeySequenceRecorder {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.KKeySequenceRecorder_new2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
+    pub fn new2(_window: anytype, _parent: anytype) KKeySequenceRecorder {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.KKeySequenceRecorder_new2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -59,9 +71,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` self: KKeySequenceRecorder `
     ///
-    pub fn MetaObject(self: KKeySequenceRecorder) QMetaObject {
+    pub fn metaObject(self: KKeySequenceRecorder) QMetaObject {
         return .{ .ptr = qtc.KKeySequenceRecorder_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -73,13 +89,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KKeySequenceRecorder, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KKeySequenceRecorder, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KKeySequenceRecorder_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -89,9 +105,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` self: KKeySequenceRecorder `
     ///
-    pub fn SuperMetaObject(self: KKeySequenceRecorder) QMetaObject {
+    pub fn superMetaObject(self: KKeySequenceRecorder) QMetaObject {
         return .{ .ptr = qtc.KKeySequenceRecorder_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -99,10 +119,14 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KKeySequenceRecorder, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KKeySequenceRecorder, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KKeySequenceRecorder_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -112,13 +136,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: KKeySequenceRecorder, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KKeySequenceRecorder, callback: *const fn (KKeySequenceRecorder, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KKeySequenceRecorder, callback: *const fn (KKeySequenceRecorder, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KKeySequenceRecorder_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -128,10 +152,14 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KKeySequenceRecorder, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KKeySequenceRecorder, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KKeySequenceRecorder_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -143,9 +171,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KKeySequenceRecorder, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KKeySequenceRecorder, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KKeySequenceRecorder_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -155,13 +187,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: KKeySequenceRecorder, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KKeySequenceRecorder, callback: *const fn (KKeySequenceRecorder, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KKeySequenceRecorder, callback: *const fn (KKeySequenceRecorder, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KKeySequenceRecorder_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -175,9 +207,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KKeySequenceRecorder, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KKeySequenceRecorder, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KKeySequenceRecorder_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -187,14 +223,18 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KKeySequenceRecorder.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KKeySequenceRecorder.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `startRecording` instead
+    ///
+    pub const StartRecording = startRecording;
 
     /// ### [Upstream resources](https://api.kde.org/kkeysequencerecorder.html#startRecording)
     ///
@@ -202,9 +242,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` self: KKeySequenceRecorder `
     ///
-    pub fn StartRecording(self: KKeySequenceRecorder) void {
+    pub fn startRecording(self: KKeySequenceRecorder) void {
         qtc.KKeySequenceRecorder_StartRecording(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRecording` instead
+    ///
+    pub const IsRecording = isRecording;
 
     /// ### [Upstream resources](https://api.kde.org/kkeysequencerecorder.html#isRecording)
     ///
@@ -212,9 +256,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` self: KKeySequenceRecorder `
     ///
-    pub fn IsRecording(self: KKeySequenceRecorder) bool {
+    pub fn isRecording(self: KKeySequenceRecorder) bool {
         return qtc.KKeySequenceRecorder_IsRecording(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `currentKeySequence` instead
+    ///
+    pub const CurrentKeySequence = currentKeySequence;
 
     /// ### [Upstream resources](https://api.kde.org/kkeysequencerecorder.html#currentKeySequence)
     ///
@@ -222,9 +270,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` self: KKeySequenceRecorder `
     ///
-    pub fn CurrentKeySequence(self: KKeySequenceRecorder) QKeySequence {
+    pub fn currentKeySequence(self: KKeySequenceRecorder) QKeySequence {
         return .{ .ptr = qtc.KKeySequenceRecorder_CurrentKeySequence(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCurrentKeySequence` instead
+    ///
+    pub const SetCurrentKeySequence = setCurrentKeySequence;
 
     /// ### [Upstream resources](https://api.kde.org/kkeysequencerecorder.html#setCurrentKeySequence)
     ///
@@ -234,10 +286,14 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` sequence: QKeySequence `
     ///
-    pub fn SetCurrentKeySequence(self: KKeySequenceRecorder, sequence: anytype) void {
+    pub fn setCurrentKeySequence(self: KKeySequenceRecorder, sequence: anytype) void {
         comptime _ = @TypeOf(sequence)._is_QKeySequence;
         qtc.KKeySequenceRecorder_SetCurrentKeySequence(@ptrCast(self.ptr), @ptrCast(sequence.ptr));
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// ### [Upstream resources](https://api.kde.org/kkeysequencerecorder.html#window)
     ///
@@ -245,9 +301,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` self: KKeySequenceRecorder `
     ///
-    pub fn Window(self: KKeySequenceRecorder) QWindow {
+    pub fn window(self: KKeySequenceRecorder) QWindow {
         return .{ .ptr = qtc.KKeySequenceRecorder_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindow` instead
+    ///
+    pub const SetWindow = setWindow;
 
     /// ### [Upstream resources](https://api.kde.org/kkeysequencerecorder.html#setWindow)
     ///
@@ -255,12 +315,16 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` self: KKeySequenceRecorder `
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn SetWindow(self: KKeySequenceRecorder, window: anytype) void {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        qtc.KKeySequenceRecorder_SetWindow(@ptrCast(self.ptr), @ptrCast(window.ptr));
+    pub fn setWindow(self: KKeySequenceRecorder, _window: anytype) void {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        qtc.KKeySequenceRecorder_SetWindow(@ptrCast(self.ptr), @ptrCast(_window.ptr));
     }
+
+    /// ### DEPRECATED: Use `multiKeyShortcutsAllowed` instead
+    ///
+    pub const MultiKeyShortcutsAllowed = multiKeyShortcutsAllowed;
 
     /// ### [Upstream resources](https://api.kde.org/kkeysequencerecorder.html#multiKeyShortcutsAllowed)
     ///
@@ -268,9 +332,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` self: KKeySequenceRecorder `
     ///
-    pub fn MultiKeyShortcutsAllowed(self: KKeySequenceRecorder) bool {
+    pub fn multiKeyShortcutsAllowed(self: KKeySequenceRecorder) bool {
         return qtc.KKeySequenceRecorder_MultiKeyShortcutsAllowed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMultiKeyShortcutsAllowed` instead
+    ///
+    pub const SetMultiKeyShortcutsAllowed = setMultiKeyShortcutsAllowed;
 
     /// ### [Upstream resources](https://api.kde.org/kkeysequencerecorder.html#setMultiKeyShortcutsAllowed)
     ///
@@ -280,9 +348,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` allowed: bool `
     ///
-    pub fn SetMultiKeyShortcutsAllowed(self: KKeySequenceRecorder, allowed: bool) void {
+    pub fn setMultiKeyShortcutsAllowed(self: KKeySequenceRecorder, allowed: bool) void {
         qtc.KKeySequenceRecorder_SetMultiKeyShortcutsAllowed(@ptrCast(self.ptr), allowed);
     }
+
+    /// ### DEPRECATED: Use `setModifierlessAllowed` instead
+    ///
+    pub const SetModifierlessAllowed = setModifierlessAllowed;
 
     /// ### [Upstream resources](https://api.kde.org/kkeysequencerecorder.html#setModifierlessAllowed)
     ///
@@ -292,9 +364,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` allowed: bool `
     ///
-    pub fn SetModifierlessAllowed(self: KKeySequenceRecorder, allowed: bool) void {
+    pub fn setModifierlessAllowed(self: KKeySequenceRecorder, allowed: bool) void {
         qtc.KKeySequenceRecorder_SetModifierlessAllowed(@ptrCast(self.ptr), allowed);
     }
+
+    /// ### DEPRECATED: Use `modifierlessAllowed` instead
+    ///
+    pub const ModifierlessAllowed = modifierlessAllowed;
 
     /// ### [Upstream resources](https://api.kde.org/kkeysequencerecorder.html#modifierlessAllowed)
     ///
@@ -302,9 +378,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` self: KKeySequenceRecorder `
     ///
-    pub fn ModifierlessAllowed(self: KKeySequenceRecorder) bool {
+    pub fn modifierlessAllowed(self: KKeySequenceRecorder) bool {
         return qtc.KKeySequenceRecorder_ModifierlessAllowed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setModifierOnlyAllowed` instead
+    ///
+    pub const SetModifierOnlyAllowed = setModifierOnlyAllowed;
 
     /// ### [Upstream resources](https://api.kde.org/kkeysequencerecorder.html#setModifierOnlyAllowed)
     ///
@@ -314,9 +394,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` allowed: bool `
     ///
-    pub fn SetModifierOnlyAllowed(self: KKeySequenceRecorder, allowed: bool) void {
+    pub fn setModifierOnlyAllowed(self: KKeySequenceRecorder, allowed: bool) void {
         qtc.KKeySequenceRecorder_SetModifierOnlyAllowed(@ptrCast(self.ptr), allowed);
     }
+
+    /// ### DEPRECATED: Use `modifierOnlyAllowed` instead
+    ///
+    pub const ModifierOnlyAllowed = modifierOnlyAllowed;
 
     /// ### [Upstream resources](https://api.kde.org/kkeysequencerecorder.html#modifierOnlyAllowed)
     ///
@@ -324,9 +408,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` self: KKeySequenceRecorder `
     ///
-    pub fn ModifierOnlyAllowed(self: KKeySequenceRecorder) bool {
+    pub fn modifierOnlyAllowed(self: KKeySequenceRecorder) bool {
         return qtc.KKeySequenceRecorder_ModifierOnlyAllowed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPatterns` instead
+    ///
+    pub const SetPatterns = setPatterns;
 
     /// ### [Upstream resources](https://api.kde.org/kkeysequencerecorder.html#setPatterns)
     ///
@@ -334,11 +422,15 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` self: KKeySequenceRecorder `
     ///
-    /// ` patterns: flag of kkeysequencerecorder_enums.Pattern `
+    /// ` _patterns: flag of kkeysequencerecorder_enums.Pattern `
     ///
-    pub fn SetPatterns(self: KKeySequenceRecorder, patterns: i32) void {
-        qtc.KKeySequenceRecorder_SetPatterns(@ptrCast(self.ptr), @bitCast(patterns));
+    pub fn setPatterns(self: KKeySequenceRecorder, _patterns: i32) void {
+        qtc.KKeySequenceRecorder_SetPatterns(@ptrCast(self.ptr), @bitCast(_patterns));
     }
+
+    /// ### DEPRECATED: Use `patterns` instead
+    ///
+    pub const Patterns = patterns;
 
     /// ### [Upstream resources](https://api.kde.org/kkeysequencerecorder.html#patterns)
     ///
@@ -350,9 +442,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` flag of kkeysequencerecorder_enums.Pattern `
     ///
-    pub fn Patterns(self: KKeySequenceRecorder) i32 {
+    pub fn patterns(self: KKeySequenceRecorder) i32 {
         return qtc.KKeySequenceRecorder_Patterns(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `cancelRecording` instead
+    ///
+    pub const CancelRecording = cancelRecording;
 
     /// ### [Upstream resources](https://api.kde.org/kkeysequencerecorder.html#cancelRecording)
     ///
@@ -360,9 +456,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` self: KKeySequenceRecorder `
     ///
-    pub fn CancelRecording(self: KKeySequenceRecorder) void {
+    pub fn cancelRecording(self: KKeySequenceRecorder) void {
         qtc.KKeySequenceRecorder_CancelRecording(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `gotKeySequence` instead
+    ///
+    pub const GotKeySequence = gotKeySequence;
 
     /// ### [Upstream resources](https://api.kde.org/kkeysequencerecorder.html#gotKeySequence)
     ///
@@ -372,10 +472,14 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` keySequence: QKeySequence `
     ///
-    pub fn GotKeySequence(self: KKeySequenceRecorder, keySequence: anytype) void {
+    pub fn gotKeySequence(self: KKeySequenceRecorder, keySequence: anytype) void {
         comptime _ = @TypeOf(keySequence)._is_QKeySequence;
         qtc.KKeySequenceRecorder_GotKeySequence(@ptrCast(self.ptr), @ptrCast(keySequence.ptr));
     }
+
+    /// ### DEPRECATED: Use `onGotKeySequence` instead
+    ///
+    pub const OnGotKeySequence = onGotKeySequence;
 
     /// ### [Upstream resources](https://api.kde.org/kkeysequencerecorder.html#gotKeySequence)
     ///
@@ -385,20 +489,28 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: KKeySequenceRecorder, keySequence: QKeySequence) callconv(.c) void `
     ///
-    pub fn OnGotKeySequence(self: KKeySequenceRecorder, callback: *const fn (KKeySequenceRecorder, QKeySequence) callconv(.c) void) void {
+    pub fn onGotKeySequence(self: KKeySequenceRecorder, callback: *const fn (KKeySequenceRecorder, QKeySequence) callconv(.c) void) void {
         qtc.KKeySequenceRecorder_Connect_GotKeySequence(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `recordingChanged` instead
+    ///
+    pub const RecordingChanged = recordingChanged;
+
     /// ### [Upstream resources](https://api.kde.org/kkeysequencerecorder.html#recordingChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KKeySequenceRecorder `
     ///
-    pub fn RecordingChanged(self: KKeySequenceRecorder) void {
+    pub fn recordingChanged(self: KKeySequenceRecorder) void {
         qtc.KKeySequenceRecorder_RecordingChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onRecordingChanged` instead
+    ///
+    pub const OnRecordingChanged = onRecordingChanged;
+
     /// ### [Upstream resources](https://api.kde.org/kkeysequencerecorder.html#recordingChanged)
     ///
     /// ## Parameters:
@@ -407,20 +519,28 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: KKeySequenceRecorder) callconv(.c) void `
     ///
-    pub fn OnRecordingChanged(self: KKeySequenceRecorder, callback: *const fn (KKeySequenceRecorder) callconv(.c) void) void {
+    pub fn onRecordingChanged(self: KKeySequenceRecorder, callback: *const fn (KKeySequenceRecorder) callconv(.c) void) void {
         qtc.KKeySequenceRecorder_Connect_RecordingChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `windowChanged` instead
+    ///
+    pub const WindowChanged = windowChanged;
+
     /// ### [Upstream resources](https://api.kde.org/kkeysequencerecorder.html#windowChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KKeySequenceRecorder `
     ///
-    pub fn WindowChanged(self: KKeySequenceRecorder) void {
+    pub fn windowChanged(self: KKeySequenceRecorder) void {
         qtc.KKeySequenceRecorder_WindowChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onWindowChanged` instead
+    ///
+    pub const OnWindowChanged = onWindowChanged;
+
     /// ### [Upstream resources](https://api.kde.org/kkeysequencerecorder.html#windowChanged)
     ///
     /// ## Parameters:
@@ -429,20 +549,28 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: KKeySequenceRecorder) callconv(.c) void `
     ///
-    pub fn OnWindowChanged(self: KKeySequenceRecorder, callback: *const fn (KKeySequenceRecorder) callconv(.c) void) void {
+    pub fn onWindowChanged(self: KKeySequenceRecorder, callback: *const fn (KKeySequenceRecorder) callconv(.c) void) void {
         qtc.KKeySequenceRecorder_Connect_WindowChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `currentKeySequenceChanged` instead
+    ///
+    pub const CurrentKeySequenceChanged = currentKeySequenceChanged;
+
     /// ### [Upstream resources](https://api.kde.org/kkeysequencerecorder.html#currentKeySequenceChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KKeySequenceRecorder `
     ///
-    pub fn CurrentKeySequenceChanged(self: KKeySequenceRecorder) void {
+    pub fn currentKeySequenceChanged(self: KKeySequenceRecorder) void {
         qtc.KKeySequenceRecorder_CurrentKeySequenceChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCurrentKeySequenceChanged` instead
+    ///
+    pub const OnCurrentKeySequenceChanged = onCurrentKeySequenceChanged;
+
     /// ### [Upstream resources](https://api.kde.org/kkeysequencerecorder.html#currentKeySequenceChanged)
     ///
     /// ## Parameters:
@@ -451,20 +579,28 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: KKeySequenceRecorder) callconv(.c) void `
     ///
-    pub fn OnCurrentKeySequenceChanged(self: KKeySequenceRecorder, callback: *const fn (KKeySequenceRecorder) callconv(.c) void) void {
+    pub fn onCurrentKeySequenceChanged(self: KKeySequenceRecorder, callback: *const fn (KKeySequenceRecorder) callconv(.c) void) void {
         qtc.KKeySequenceRecorder_Connect_CurrentKeySequenceChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `multiKeyShortcutsAllowedChanged` instead
+    ///
+    pub const MultiKeyShortcutsAllowedChanged = multiKeyShortcutsAllowedChanged;
+
     /// ### [Upstream resources](https://api.kde.org/kkeysequencerecorder.html#multiKeyShortcutsAllowedChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KKeySequenceRecorder `
     ///
-    pub fn MultiKeyShortcutsAllowedChanged(self: KKeySequenceRecorder) void {
+    pub fn multiKeyShortcutsAllowedChanged(self: KKeySequenceRecorder) void {
         qtc.KKeySequenceRecorder_MultiKeyShortcutsAllowedChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onMultiKeyShortcutsAllowedChanged` instead
+    ///
+    pub const OnMultiKeyShortcutsAllowedChanged = onMultiKeyShortcutsAllowedChanged;
+
     /// ### [Upstream resources](https://api.kde.org/kkeysequencerecorder.html#multiKeyShortcutsAllowedChanged)
     ///
     /// ## Parameters:
@@ -473,20 +609,28 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: KKeySequenceRecorder) callconv(.c) void `
     ///
-    pub fn OnMultiKeyShortcutsAllowedChanged(self: KKeySequenceRecorder, callback: *const fn (KKeySequenceRecorder) callconv(.c) void) void {
+    pub fn onMultiKeyShortcutsAllowedChanged(self: KKeySequenceRecorder, callback: *const fn (KKeySequenceRecorder) callconv(.c) void) void {
         qtc.KKeySequenceRecorder_Connect_MultiKeyShortcutsAllowedChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `modifierlessAllowedChanged` instead
+    ///
+    pub const ModifierlessAllowedChanged = modifierlessAllowedChanged;
+
     /// ### [Upstream resources](https://api.kde.org/kkeysequencerecorder.html#modifierlessAllowedChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KKeySequenceRecorder `
     ///
-    pub fn ModifierlessAllowedChanged(self: KKeySequenceRecorder) void {
+    pub fn modifierlessAllowedChanged(self: KKeySequenceRecorder) void {
         qtc.KKeySequenceRecorder_ModifierlessAllowedChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onModifierlessAllowedChanged` instead
+    ///
+    pub const OnModifierlessAllowedChanged = onModifierlessAllowedChanged;
+
     /// ### [Upstream resources](https://api.kde.org/kkeysequencerecorder.html#modifierlessAllowedChanged)
     ///
     /// ## Parameters:
@@ -495,20 +639,28 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: KKeySequenceRecorder) callconv(.c) void `
     ///
-    pub fn OnModifierlessAllowedChanged(self: KKeySequenceRecorder, callback: *const fn (KKeySequenceRecorder) callconv(.c) void) void {
+    pub fn onModifierlessAllowedChanged(self: KKeySequenceRecorder, callback: *const fn (KKeySequenceRecorder) callconv(.c) void) void {
         qtc.KKeySequenceRecorder_Connect_ModifierlessAllowedChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `modifierOnlyAllowedChanged` instead
+    ///
+    pub const ModifierOnlyAllowedChanged = modifierOnlyAllowedChanged;
+
     /// ### [Upstream resources](https://api.kde.org/kkeysequencerecorder.html#modifierOnlyAllowedChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KKeySequenceRecorder `
     ///
-    pub fn ModifierOnlyAllowedChanged(self: KKeySequenceRecorder) void {
+    pub fn modifierOnlyAllowedChanged(self: KKeySequenceRecorder) void {
         qtc.KKeySequenceRecorder_ModifierOnlyAllowedChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onModifierOnlyAllowedChanged` instead
+    ///
+    pub const OnModifierOnlyAllowedChanged = onModifierOnlyAllowedChanged;
+
     /// ### [Upstream resources](https://api.kde.org/kkeysequencerecorder.html#modifierOnlyAllowedChanged)
     ///
     /// ## Parameters:
@@ -517,9 +669,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: KKeySequenceRecorder) callconv(.c) void `
     ///
-    pub fn OnModifierOnlyAllowedChanged(self: KKeySequenceRecorder, callback: *const fn (KKeySequenceRecorder) callconv(.c) void) void {
+    pub fn onModifierOnlyAllowedChanged(self: KKeySequenceRecorder, callback: *const fn (KKeySequenceRecorder) callconv(.c) void) void {
         qtc.KKeySequenceRecorder_Connect_ModifierOnlyAllowedChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `patternsChanged` instead
+    ///
+    pub const PatternsChanged = patternsChanged;
 
     /// ### [Upstream resources](https://api.kde.org/kkeysequencerecorder.html#patternsChanged)
     ///
@@ -527,9 +683,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` self: KKeySequenceRecorder `
     ///
-    pub fn PatternsChanged(self: KKeySequenceRecorder) void {
+    pub fn patternsChanged(self: KKeySequenceRecorder) void {
         qtc.KKeySequenceRecorder_PatternsChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPatternsChanged` instead
+    ///
+    pub const OnPatternsChanged = onPatternsChanged;
 
     /// ### [Upstream resources](https://api.kde.org/kkeysequencerecorder.html#patternsChanged)
     ///
@@ -539,9 +699,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: KKeySequenceRecorder) callconv(.c) void `
     ///
-    pub fn OnPatternsChanged(self: KKeySequenceRecorder, callback: *const fn (KKeySequenceRecorder) callconv(.c) void) void {
+    pub fn onPatternsChanged(self: KKeySequenceRecorder, callback: *const fn (KKeySequenceRecorder) callconv(.c) void) void {
         qtc.KKeySequenceRecorder_Connect_PatternsChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -553,15 +717,19 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KKeySequenceRecorder.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KKeySequenceRecorder.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -575,15 +743,19 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KKeySequenceRecorder.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KKeySequenceRecorder.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -595,13 +767,17 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KKeySequenceRecorder, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KKeySequenceRecorder, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KKeySequenceRecorder.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KKeySequenceRecorder.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -613,13 +789,17 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KKeySequenceRecorder, name: []const u8) void {
+    pub fn setObjectName(self: KKeySequenceRecorder, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -629,9 +809,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` self: KKeySequenceRecorder `
     ///
-    pub fn IsWidgetType(self: KKeySequenceRecorder) bool {
+    pub fn isWidgetType(self: KKeySequenceRecorder) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -641,9 +825,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` self: KKeySequenceRecorder `
     ///
-    pub fn IsWindowType(self: KKeySequenceRecorder) bool {
+    pub fn isWindowType(self: KKeySequenceRecorder) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -653,9 +841,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` self: KKeySequenceRecorder `
     ///
-    pub fn IsQuickItemType(self: KKeySequenceRecorder) bool {
+    pub fn isQuickItemType(self: KKeySequenceRecorder) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -665,9 +857,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` self: KKeySequenceRecorder `
     ///
-    pub fn SignalsBlocked(self: KKeySequenceRecorder) bool {
+    pub fn signalsBlocked(self: KKeySequenceRecorder) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -679,9 +875,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KKeySequenceRecorder, b: bool) bool {
+    pub fn blockSignals(self: KKeySequenceRecorder, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -691,9 +891,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` self: KKeySequenceRecorder `
     ///
-    pub fn Thread(self: KKeySequenceRecorder) QThread {
+    pub fn thread(self: KKeySequenceRecorder) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -703,12 +907,16 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` self: KKeySequenceRecorder `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KKeySequenceRecorder, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KKeySequenceRecorder, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -720,9 +928,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KKeySequenceRecorder, interval: i32) i32 {
+    pub fn startTimer(self: KKeySequenceRecorder, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -734,9 +946,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KKeySequenceRecorder, time: i64) i32 {
+    pub fn startTimer2(self: KKeySequenceRecorder, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -748,9 +964,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KKeySequenceRecorder, id: i32) void {
+    pub fn killTimer(self: KKeySequenceRecorder, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -762,9 +982,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KKeySequenceRecorder, id: i32) void {
+    pub fn killTimer2(self: KKeySequenceRecorder, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -776,15 +1000,19 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KKeySequenceRecorder, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KKeySequenceRecorder, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KKeySequenceRecorder.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KKeySequenceRecorder.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -794,12 +1022,16 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` self: KKeySequenceRecorder `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: KKeySequenceRecorder, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: KKeySequenceRecorder, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -811,10 +1043,14 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KKeySequenceRecorder, filterObj: anytype) void {
+    pub fn installEventFilter(self: KKeySequenceRecorder, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -826,10 +1062,14 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KKeySequenceRecorder, obj: anytype) void {
+    pub fn removeEventFilter(self: KKeySequenceRecorder, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -837,7 +1077,7 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -845,13 +1085,17 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -859,7 +1103,7 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -867,13 +1111,17 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -883,18 +1131,22 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` self: KKeySequenceRecorder `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KKeySequenceRecorder, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KKeySequenceRecorder, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -902,7 +1154,7 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -910,13 +1162,17 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -924,7 +1180,7 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -932,13 +1188,17 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -948,9 +1208,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` self: KKeySequenceRecorder `
     ///
-    pub fn Disconnect3(self: KKeySequenceRecorder) bool {
+    pub fn disconnect3(self: KKeySequenceRecorder) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -962,10 +1226,14 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KKeySequenceRecorder, receiver: anytype) bool {
+    pub fn disconnect4(self: KKeySequenceRecorder, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -975,10 +1243,14 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -988,9 +1260,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` self: KKeySequenceRecorder `
     ///
-    pub fn DumpObjectTree(self: KKeySequenceRecorder) void {
+    pub fn dumpObjectTree(self: KKeySequenceRecorder) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1000,9 +1276,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` self: KKeySequenceRecorder `
     ///
-    pub fn DumpObjectInfo(self: KKeySequenceRecorder) void {
+    pub fn dumpObjectInfo(self: KKeySequenceRecorder) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1016,11 +1296,15 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KKeySequenceRecorder, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KKeySequenceRecorder, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1032,10 +1316,14 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KKeySequenceRecorder, name: [:0]const u8) QVariant {
+    pub fn property(self: KKeySequenceRecorder, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1047,7 +1335,7 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KKeySequenceRecorder, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KKeySequenceRecorder, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1055,27 +1343,19 @@ pub const KKeySequenceRecorder = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KKeySequenceRecorder.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KKeySequenceRecorder.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KKeySequenceRecorder.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KKeySequenceRecorder.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KKeySequenceRecorder `
-    ///
-    pub fn BindingStorage(self: KKeySequenceRecorder) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1085,9 +1365,29 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` self: KKeySequenceRecorder `
     ///
-    pub fn BindingStorage2(self: KKeySequenceRecorder) QBindingStorage {
+    pub fn bindingStorage(self: KKeySequenceRecorder) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KKeySequenceRecorder `
+    ///
+    pub fn bindingStorage2(self: KKeySequenceRecorder) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1097,9 +1397,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` self: KKeySequenceRecorder `
     ///
-    pub fn Destroyed(self: KKeySequenceRecorder) void {
+    pub fn destroyed(self: KKeySequenceRecorder) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1111,9 +1415,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: KKeySequenceRecorder) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KKeySequenceRecorder, callback: *const fn (KKeySequenceRecorder) callconv(.c) void) void {
+    pub fn onDestroyed(self: KKeySequenceRecorder, callback: *const fn (KKeySequenceRecorder) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1123,9 +1431,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` self: KKeySequenceRecorder `
     ///
-    pub fn Parent(self: KKeySequenceRecorder) QObject {
+    pub fn parent(self: KKeySequenceRecorder) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1137,10 +1449,14 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KKeySequenceRecorder, classname: [:0]const u8) bool {
+    pub fn inherits(self: KKeySequenceRecorder, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1150,9 +1466,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` self: KKeySequenceRecorder `
     ///
-    pub fn DeleteLater(self: KKeySequenceRecorder) void {
+    pub fn deleteLater(self: KKeySequenceRecorder) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1166,9 +1486,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KKeySequenceRecorder, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KKeySequenceRecorder, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1182,9 +1506,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KKeySequenceRecorder, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KKeySequenceRecorder, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1192,7 +1520,7 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1202,13 +1530,17 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1216,7 +1548,7 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1226,13 +1558,17 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1242,7 +1578,7 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` self: KKeySequenceRecorder `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1250,12 +1586,16 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KKeySequenceRecorder, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KKeySequenceRecorder, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1267,10 +1607,14 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KKeySequenceRecorder, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KKeySequenceRecorder, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1284,11 +1628,15 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KKeySequenceRecorder, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KKeySequenceRecorder, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1304,13 +1652,17 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KKeySequenceRecorder, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KKeySequenceRecorder, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1323,11 +1675,15 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KKeySequenceRecorder, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KKeySequenceRecorder, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1339,10 +1695,14 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KKeySequenceRecorder, param1: anytype) void {
+    pub fn destroyed1(self: KKeySequenceRecorder, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1354,9 +1714,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: KKeySequenceRecorder, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KKeySequenceRecorder, callback: *const fn (KKeySequenceRecorder, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KKeySequenceRecorder, callback: *const fn (KKeySequenceRecorder, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -1368,16 +1732,16 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` self: KKeySequenceRecorder `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: KKeySequenceRecorder, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KKeySequenceRecorder_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: KKeySequenceRecorder, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KKeySequenceRecorder_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -1389,12 +1753,16 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` self: KKeySequenceRecorder `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: KKeySequenceRecorder, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KKeySequenceRecorder_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: KKeySequenceRecorder, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KKeySequenceRecorder_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -1408,9 +1776,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: KKeySequenceRecorder, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KKeySequenceRecorder, callback: *const fn (KKeySequenceRecorder, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KKeySequenceRecorder, callback: *const fn (KKeySequenceRecorder, QEvent) callconv(.c) bool) void {
         qtc.KKeySequenceRecorder_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1424,17 +1796,17 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: KKeySequenceRecorder, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: KKeySequenceRecorder, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KKeySequenceRecorder_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KKeySequenceRecorder_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1448,13 +1820,17 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: KKeySequenceRecorder, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: KKeySequenceRecorder, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KKeySequenceRecorder_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KKeySequenceRecorder_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1468,9 +1844,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: KKeySequenceRecorder, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KKeySequenceRecorder, callback: *const fn (KKeySequenceRecorder, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KKeySequenceRecorder, callback: *const fn (KKeySequenceRecorder, QObject, QEvent) callconv(.c) bool) void {
         qtc.KKeySequenceRecorder_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -1482,16 +1862,16 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` self: KKeySequenceRecorder `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KKeySequenceRecorder, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KKeySequenceRecorder_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: KKeySequenceRecorder, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KKeySequenceRecorder_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1503,12 +1883,16 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` self: KKeySequenceRecorder `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KKeySequenceRecorder, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KKeySequenceRecorder_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: KKeySequenceRecorder, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KKeySequenceRecorder_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1522,9 +1906,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: KKeySequenceRecorder, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KKeySequenceRecorder, callback: *const fn (KKeySequenceRecorder, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KKeySequenceRecorder, callback: *const fn (KKeySequenceRecorder, QTimerEvent) callconv(.c) void) void {
         qtc.KKeySequenceRecorder_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -1536,16 +1924,16 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` self: KKeySequenceRecorder `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KKeySequenceRecorder, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KKeySequenceRecorder_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KKeySequenceRecorder, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KKeySequenceRecorder_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1557,12 +1945,16 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` self: KKeySequenceRecorder `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KKeySequenceRecorder, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KKeySequenceRecorder_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KKeySequenceRecorder, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KKeySequenceRecorder_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1576,9 +1968,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: KKeySequenceRecorder, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KKeySequenceRecorder, callback: *const fn (KKeySequenceRecorder, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KKeySequenceRecorder, callback: *const fn (KKeySequenceRecorder, QChildEvent) callconv(.c) void) void {
         qtc.KKeySequenceRecorder_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -1590,16 +1986,16 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` self: KKeySequenceRecorder `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KKeySequenceRecorder, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KKeySequenceRecorder_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KKeySequenceRecorder, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KKeySequenceRecorder_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1611,12 +2007,16 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` self: KKeySequenceRecorder `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KKeySequenceRecorder, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KKeySequenceRecorder_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KKeySequenceRecorder, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KKeySequenceRecorder_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1630,9 +2030,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: KKeySequenceRecorder, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KKeySequenceRecorder, callback: *const fn (KKeySequenceRecorder, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KKeySequenceRecorder, callback: *const fn (KKeySequenceRecorder, QEvent) callconv(.c) void) void {
         qtc.KKeySequenceRecorder_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -1646,14 +2050,14 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KKeySequenceRecorder, signal: anytype) void {
+    pub fn connectNotify(self: KKeySequenceRecorder, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KKeySequenceRecorder_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1667,11 +2071,15 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KKeySequenceRecorder, signal: anytype) void {
+    pub fn superConnectNotify(self: KKeySequenceRecorder, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KKeySequenceRecorder_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1684,9 +2092,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: KKeySequenceRecorder, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KKeySequenceRecorder, callback: *const fn (KKeySequenceRecorder, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KKeySequenceRecorder, callback: *const fn (KKeySequenceRecorder, QMetaMethod) callconv(.c) void) void {
         qtc.KKeySequenceRecorder_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1700,14 +2112,14 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KKeySequenceRecorder, signal: anytype) void {
+    pub fn disconnectNotify(self: KKeySequenceRecorder, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KKeySequenceRecorder_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1721,10 +2133,14 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KKeySequenceRecorder, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KKeySequenceRecorder, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KKeySequenceRecorder_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1738,9 +2154,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: KKeySequenceRecorder, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KKeySequenceRecorder, callback: *const fn (KKeySequenceRecorder, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KKeySequenceRecorder, callback: *const fn (KKeySequenceRecorder, QMetaMethod) callconv(.c) void) void {
         qtc.KKeySequenceRecorder_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -1752,13 +2172,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` self: KKeySequenceRecorder `
     ///
-    pub fn Sender(self: KKeySequenceRecorder) QObject {
+    pub fn sender(self: KKeySequenceRecorder) QObject {
         return .{ .ptr = qtc.KKeySequenceRecorder_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -1770,9 +2190,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` self: KKeySequenceRecorder `
     ///
-    pub fn SuperSender(self: KKeySequenceRecorder) QObject {
+    pub fn superSender(self: KKeySequenceRecorder) QObject {
         return .{ .ptr = qtc.KKeySequenceRecorder_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -1786,9 +2210,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KKeySequenceRecorder, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KKeySequenceRecorder, callback: *const fn () callconv(.c) QObject) void {
         qtc.KKeySequenceRecorder_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1800,13 +2228,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` self: KKeySequenceRecorder `
     ///
-    pub fn SenderSignalIndex(self: KKeySequenceRecorder) i32 {
+    pub fn senderSignalIndex(self: KKeySequenceRecorder) i32 {
         return qtc.KKeySequenceRecorder_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1818,9 +2246,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` self: KKeySequenceRecorder `
     ///
-    pub fn SuperSenderSignalIndex(self: KKeySequenceRecorder) i32 {
+    pub fn superSenderSignalIndex(self: KKeySequenceRecorder) i32 {
         return qtc.KKeySequenceRecorder_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1834,9 +2266,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KKeySequenceRecorder, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KKeySequenceRecorder, callback: *const fn () callconv(.c) i32) void {
         qtc.KKeySequenceRecorder_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -1850,14 +2286,14 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KKeySequenceRecorder, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KKeySequenceRecorder, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KKeySequenceRecorder_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -1871,10 +2307,14 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KKeySequenceRecorder, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KKeySequenceRecorder, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KKeySequenceRecorder_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -1888,9 +2328,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: KKeySequenceRecorder, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KKeySequenceRecorder, callback: *const fn (KKeySequenceRecorder, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KKeySequenceRecorder, callback: *const fn (KKeySequenceRecorder, [*:0]const u8) callconv(.c) i32) void {
         qtc.KKeySequenceRecorder_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1904,14 +2348,14 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KKeySequenceRecorder, signal: anytype) bool {
+    pub fn isSignalConnected(self: KKeySequenceRecorder, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KKeySequenceRecorder_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1925,10 +2369,14 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KKeySequenceRecorder, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KKeySequenceRecorder, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KKeySequenceRecorder_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1942,9 +2390,13 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: KKeySequenceRecorder, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KKeySequenceRecorder, callback: *const fn (KKeySequenceRecorder, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KKeySequenceRecorder, callback: *const fn (KKeySequenceRecorder, QMetaMethod) callconv(.c) bool) void {
         qtc.KKeySequenceRecorder_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -1958,23 +2410,23 @@ pub const KKeySequenceRecorder = extern struct {
     ///
     /// ` callback: *const fn (self: KKeySequenceRecorder, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KKeySequenceRecorder, callback: *const fn (KKeySequenceRecorder, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KKeySequenceRecorder, callback: *const fn (KKeySequenceRecorder, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kkeysequencerecorder.html#dtor.KKeySequenceRecorder)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KKeySequenceRecorder `
     ///
-    pub fn Delete(self: KKeySequenceRecorder) void {
+    pub fn delete(self: KKeySequenceRecorder) void {
         qtc.KKeySequenceRecorder_Delete(@ptrCast(self.ptr));
     }
 };

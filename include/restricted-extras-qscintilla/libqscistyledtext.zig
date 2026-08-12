@@ -14,49 +14,65 @@ pub const QsciStyledText = extern struct {
 
     pub const _is_QsciStyledText = {};
 
-    /// New constructs a new QsciStyledText object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QsciStyledText object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    /// ` style: i32 `
+    /// ` _style: i32 `
     ///
-    pub fn New(text: []const u8, style: i32) QsciStyledText {
+    pub fn new(_text: []const u8, _style: i32) QsciStyledText {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
-        return .{ .ptr = qtc.QsciStyledText_new(text_str, @bitCast(style)) };
+        return .{ .ptr = qtc.QsciStyledText_new(text_str, @bitCast(_style)) };
     }
 
-    /// New2 constructs a new QsciStyledText object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QsciStyledText object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    /// ` style: QsciStyle `
+    /// ` _style: QsciStyle `
     ///
-    pub fn New2(text: []const u8, style: anytype) QsciStyledText {
+    pub fn new2(_text: []const u8, _style: anytype) QsciStyledText {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
-        comptime _ = @TypeOf(style)._is_QsciStyle;
-        return .{ .ptr = qtc.QsciStyledText_new2(text_str, @ptrCast(style.ptr)) };
+        comptime _ = @TypeOf(_style)._is_QsciStyle;
+        return .{ .ptr = qtc.QsciStyledText_new2(text_str, @ptrCast(_style.ptr)) };
     }
 
-    /// New3 constructs a new QsciStyledText object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QsciStyledText object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QsciStyledText `
     ///
-    pub fn New3(param1: anytype) QsciStyledText {
+    pub fn new3(param1: anytype) QsciStyledText {
         comptime _ = @TypeOf(param1)._is_QsciStyledText;
         return .{ .ptr = qtc.QsciStyledText_new3(@ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `apply` instead
+    ///
+    pub const Apply = apply;
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyledText.html)
     ///
@@ -66,10 +82,14 @@ pub const QsciStyledText = extern struct {
     ///
     /// ` sci: QsciScintillaBase `
     ///
-    pub fn Apply(self: QsciStyledText, sci: anytype) void {
+    pub fn apply(self: QsciStyledText, sci: anytype) void {
         comptime _ = @TypeOf(sci)._is_QsciScintillaBase;
         qtc.QsciStyledText_Apply(@ptrCast(self.ptr), @ptrCast(sci.ptr));
     }
+
+    /// ### DEPRECATED: Use `text` instead
+    ///
+    pub const Text = text;
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyledText.html)
     ///
@@ -79,13 +99,17 @@ pub const QsciStyledText = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: QsciStyledText, allocator: std.mem.Allocator) []const u8 {
+    pub fn text(self: QsciStyledText, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QsciStyledText_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciStyledText.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciStyledText.text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyledText.html)
     ///
@@ -93,23 +117,23 @@ pub const QsciStyledText = extern struct {
     ///
     /// ` self: QsciStyledText `
     ///
-    pub fn Style(self: QsciStyledText) i32 {
+    pub fn style(self: QsciStyledText) i32 {
         return qtc.QsciStyledText_Style(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyledText.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QsciStyledText `
     ///
-    pub fn Delete(self: QsciStyledText) void {
+    pub fn delete(self: QsciStyledText) void {
         qtc.QsciStyledText_Delete(@ptrCast(self.ptr));
     }
 };
